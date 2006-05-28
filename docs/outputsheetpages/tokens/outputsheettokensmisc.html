@@ -132,6 +132,18 @@
 		<p class="indent2"><code>BONUSLIST.COMBAT.AC</code></p>
 		<p class="indent3">Would list all COMBAT.AC bonuses as a comma-space delimited list.</p>
 
+		<p></p><a name="BR"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> BR</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Adds a carriage return to the output. Normally only used on text output 
+		sheets and inside manualwhitespace sections.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>2|BR|3</code></p>
+		<p class="indent3">Then the output would
+look like:<br/>
+
+<code>2<br/>3</code></p>
+
 		<p></p><a name="COUNT"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> COUNT[x]</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Count Type).</p>
@@ -513,6 +525,31 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>IIF(COMBAT.AC.TOTAL:20)</code></p>
 		<p class="indent3">Would be true if the combat AC total was 20.</p>
+
+		<p></p><a name="MANUALWHITESPACE"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> MANUALWHITESPACE</p>
+		<p class="indent1"><code>MANUALWHITESPACE<br />{Statements}<br />ENDMANUALWHITESPACE<br /></code></p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Marks a section where the author does not 
+		want white space added to the output sheet. If white space is desired the |BR| 
+		tag can be used, or a sheet format specific entry such as &amp;nbsp; can be
+		used in the sheet definition.</p>
+		<p class="indent2">Within a manual whitespace section, all whitespace in the output sheet
+		i.e. all newlines, spaces, tabs, etc. disappears. Whitespace
+		inside the text of returned from a OS token is preserved however. All leading and
+		trailing whitespace is trimmed, as is normally done.</p> 
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>|MANUALWHITESPACE|
+1&amp;nbsp;<br/>
+|PLAYERNAME|<br/>
+2 3&lt;br&gt;<br/>
+4<br/>
+|ENDMANUALWHITESPACE|
+</code></p>
+		<p class="indent3">Where |PLAYERNAME| in this case is "Chuck Pint". Then the output would
+look like:<br/>
+
+<code>1&amp;nbsp;Chuck Pint23&lt;br&gt;4</code></p>
 
 		<p></p><a name="OIF"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> OIF(x,y,z)</p>
