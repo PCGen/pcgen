@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
+|MANUALWHITESPACE|
 	<!--
-	  ====================================
-	  ====================================
-			BIO
+	  =============== =====================
+	  ====================================|BR|
+			BIO|BR|
 	  ====================================
 	  ====================================-->
+|ENDMANUALWHITESPACE|
 	<basics>
 		<bonuses>|BONUSLIST.STAT.STR|</bonuses>
 		<bonuses>|BONUSLIST.STAT.STR.TOTAL|</bonuses>

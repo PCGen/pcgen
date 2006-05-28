@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -1062,6 +1059,7 @@
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
+
 		<racial_innate>
 			<spell>
 					<name>Cause Fear</name>
@@ -1093,12 +1091,17 @@
 				</spell>
 		</racial_innate>
 
- 		<class_innate>		</class_innate>		</spells_innate><!-- ### END Innate spells ### -->
+ 
+		<class_innate>
+		</class_innate>
+		</spells_innate>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 		<class number="1" spelllistclass="Sorcerer" spellcastertype="Arcane">
-			<level number="0" known="6" cast="6">				<spell>
+			<level number="0" known="6" cast="6">
+				<spell>
 						<name>Detect Poison</name>
 						<outputname>Detect Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -1266,7 +1269,9 @@
 						<description>Read scrolls and spellbooks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="1" known="3" cast="8">				<spell>
+			</level>
+			<level number="1" known="3" cast="8">
+				<spell>
 						<name>Endure Elements</name>
 						<outputname>Endure Elements</outputname>
 						<times_memorized>1</times_memorized>
@@ -1350,7 +1355,9 @@
 						<description>Masks magic item&#39;s aura.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="2" known="1" cast="4">				<spell>
+			</level>
+			<level number="2" known="1" cast="4">
+				<spell>
 						<name>Flaming Sphere</name>
 						<outputname>Flaming Sphere</outputname>
 						<times_memorized>1</times_memorized>
@@ -1378,12 +1385,24 @@
 						<description>Rolling ball of fire, 2d6 damage, lasts (CASTERLEVEL) rounds.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="3" known="0" cast="0"/>			<level number="4" known="0" cast="0"/>			<level number="5" known="0" cast="0"/>			<level number="6" known="0" cast="0"/>			<level number="7" known="0" cast="0"/>			<level number="8" known="0" cast="0"/>			<level number="9" known="0" cast="0"/>		</class>
+			</level>
+			<level number="3" known="0" cast="0"/>
+			<level number="4" known="0" cast="0"/>
+			<level number="5" known="0" cast="0"/>
+			<level number="6" known="0" cast="0"/>
+			<level number="7" known="0" cast="0"/>
+			<level number="8" known="0" cast="0"/>
+			<level number="9" known="0" cast="0"/>
+		</class>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>			<!-- ### BEGIN innate memorized spell section -->	 <!-- ### BEGIN innate memorized spells ### -->
+	<memorized_spells>
+			<!-- ### BEGIN innate memorized spell section -->	
+ 
+<!-- ### BEGIN innate memorized spells ### -->
+
 		<racial_innate_memorized>
 			<spell>
 					<name>Cause Fear</name>
@@ -1415,6 +1434,14 @@
 				</spell>
 		</racial_innate_memorized>
 
-<!-- ### END innate memorized spells ### -->			<!-- ### BEGIN class innate memorized spells ### -->			<class_innate_memorized>		</class_innate_memorized>			<!-- ### END class innate memorized spells ### --><!-- ### END innate memorized spell section -->			<!-- ### BEGIN class Spellbook memorized spells ### -->	</memorized_spells><!-- ### END class Spellbook memorized spells ### -->
+<!-- ### END innate memorized spells ### -->
+			<!-- ### BEGIN class innate memorized spells ### -->
+			<class_innate_memorized>
+		</class_innate_memorized>
+			<!-- ### END class innate memorized spells ### -->
+<!-- ### END innate memorized spell section -->
+			<!-- ### BEGIN class Spellbook memorized spells ### -->
+	</memorized_spells>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

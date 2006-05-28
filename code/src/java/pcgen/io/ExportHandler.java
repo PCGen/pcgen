@@ -50,6 +50,7 @@ public final class ExportHandler
 	// Processing state variables
 	private boolean existsOnly = false;
 	private boolean noMoreItems = false;
+	private boolean manualWhitespace = false;
 
 	private File templateFile;
 	private final Map loopVariables = new HashMap();
@@ -773,10 +774,10 @@ public final class ExportHandler
 				replaceLine(lineString, output, aPC);
 
 				// output a newline if output is allowed
-//				if (canWrite)
-//				{
-//					FileAccess.newLine(output);
-//				}
+				if (canWrite && !manualWhitespace)
+				{
+					FileAccess.newLine(output);
+				}
 			}
 		}
 	}
@@ -849,10 +850,8 @@ public final class ExportHandler
 					noMoreItems = false;
 					replaceLine(lineString, output, aPC);
 
-					// Karianna - These three lines were removed because they were creating extra spaces
-					// But have been put back in as the Text Export had no \n characters which
-					// meant that the text export was all on one line - Bug 1370444
-					if (canWrite)
+					// Allow the output sheet author to control new lines.
+					if (canWrite && !manualWhitespace)
 					{
 						FileAccess.newLine(output);
 					}
@@ -1183,6 +1182,10 @@ public final class ExportHandler
 
 		if (aString.length() > 0)
 		{
+			if (manualWhitespace)
+			{
+				aString = aString.replaceAll("[ \\t]", "");
+			}
 			FileAccess.write(output, aString);
 		}
 	}
@@ -2288,7 +2291,11 @@ public final class ExportHandler
 			{
 				len = aString.trim().length();
 
-				if (aString.length() > 0)
+				if (manualWhitespace)
+				{
+					aString = aString.replaceAll("[ \\t]", "");
+				}
+				if (len > 0)
 				{
 					FileAccess.write(output, aString);
 				}
@@ -3059,8 +3066,16 @@ public final class ExportHandler
 			{
 				if (!inPipe && (aLine.lastIndexOf('|') < 0))
 				{
+					if (manualWhitespace)
+					{
+						aLine = aLine.replaceAll("[ \\t]", "");
+					}
 					FileAccess.write(out, aLine);
-					FileAccess.newLine(out);
+					// Allow the output sheet author to control new lines.
+					if (!manualWhitespace)
+					{
+						FileAccess.newLine(out);
+					}
 				}
 				else if ((inPipe && (aLine.lastIndexOf('|') < 0)) || (!inPipe && (aLine.lastIndexOf('|') == 0)))
 				{
@@ -3085,6 +3100,10 @@ public final class ExportHandler
 
 						if (!inPipe)
 						{
+							if (manualWhitespace)
+							{
+								bString = bString.replaceAll("[ \\t]", "");
+							}
 							FileAccess.write(out, bString);
 						}
 						else
@@ -3171,6 +3190,7 @@ public final class ExportHandler
 									{
 										if (x++ == 0)
 										{
+											Logging.errorPrint("Outputing A '" + bString + "'.");
 											FileAccess.write(out, cStartLineString);
 										}
 
@@ -3223,12 +3243,14 @@ public final class ExportHandler
 											}
 											else
 											{
+												Logging.errorPrint("Outputing B '" + eString + "'.");
 												FileAccess.write(out, eString);
 											}
 										}
 
 										if ((x == cStep.intValue()) || (_existsOnly == _noMoreItems))
 										{
+											Logging.errorPrint("Outputing C '" + cEndLineString + "'.");
 											FileAccess.write(out, cEndLineString);
 //											FileAccess.newLine(out);
 											x = 0;
@@ -3358,6 +3380,22 @@ public final class ExportHandler
 	public final void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
+	}
+
+	/**
+	 * @return Returns the manualWhitespace.
+	 */
+	public final boolean isManualWhitespace()
+	{
+		return manualWhitespace;
+	}
+
+	/**
+	 * @param manualWhitespace The manualWhitespace to set.
+	 */
+	public final void setManualWhitespace(boolean manualWhitespace)
+	{
+		this.manualWhitespace = manualWhitespace;
 	}
 
 	/**

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -868,7 +865,71 @@
  
 		
  
-    		<weapon>			<common>				<name>					<short>*Rapier</short>					<long>*Rapier</long>				</name>				<category>Martial-Melee</category>				<critical>					<range>18-20</range>					<multiplier>2</multiplier>				</critical>				<to_hit>					<hit>+3</hit>					<magic_hit>+0</magic_hit>					<total_hit>+3</total_hit>				</to_hit>				<feat></feat>				<hand>Two-Weapons</hand>				<num_attacks>1</num_attacks>				<reach>5</reach>				<size>M</size>				<special_properties></special_properties>				<template></template>				<type>P</type>				<weight>3</weight>				<sequence>0</sequence>			</common>			<melee>				<w1_h1_p>					<!-- One weapon, 1 hand, primary hand -->					<to_hit>+7</to_hit>					<damage>1d6+3</damage>				</w1_h1_p>				<w1_h1_o>					<!-- One weapon, 1 handed, offhand -->					<to_hit>+7</to_hit>					<damage>1d6+1</damage>				</w1_h1_o>				<w1_h2>					<!-- One weapon, 2 handed -->					<to_hit>+7</to_hit>					<damage>1d6+4</damage>				</w1_h2>				<w2_p_oh>					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->					<to_hit>+3</to_hit>					<damage>1d6+3</damage>				</w2_p_oh>				<w2_p_ol>					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->					<to_hit>+5</to_hit>					<damage>1d6+3</damage>				</w2_p_ol>				<w2_o>					<!-- Two weapons, this weapon in off-hand -->					<to_hit>+3</to_hit>					<damage>1d6+1</damage>				</w2_o>			</melee>		</weapon>	</weapons>
+ 
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>*Rapier</short>
+					<long>*Rapier</long>
+				</name>
+				<category>Martial-Melee</category>
+				<critical>
+					<range>18-20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+3</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+3</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Two-Weapons</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>P</type>
+				<weight>3</weight>
+				<sequence>0</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+7</to_hit>
+					<damage>1d6+3</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>+7</to_hit>
+					<damage>1d6+1</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+7</to_hit>
+					<damage>1d6+4</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>+3</to_hit>
+					<damage>1d6+3</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>+5</to_hit>
+					<damage>1d6+3</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>+3</to_hit>
+					<damage>1d6+1</damage>
+				</w2_o>
+			</melee>
+		</weapon>
+	</weapons>
 	<!--
 	  ====================================
 	  ====================================
@@ -1188,13 +1249,15 @@
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/><!-- ### END Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/><!-- ### END class Spellbook memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

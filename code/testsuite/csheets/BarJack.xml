@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -886,8 +883,76 @@
  
 		
  
-   		<weapon>			<common>				<name>					<short>*Dagger</short>					<long>*Dagger</long>				</name>				<category>Simple-Both (Melee)</category>				<critical>					<range>19-20</range>					<multiplier>2</multiplier>				</critical>				<to_hit>					<hit>+3</hit>					<magic_hit>+0</magic_hit>					<total_hit>+3</total_hit>				</to_hit>				<feat></feat>				<hand>Two-Weapons</hand>				<num_attacks>1</num_attacks>				<reach>5</reach>				<size>T</size>				<special_properties></special_properties>				<template></template>				<type>P</type>				<weight>0</weight>				<sequence>0</sequence>			</common>			<melee>				<w1_h1_p>					<!-- One weapon, 1 hand, primary hand -->					<to_hit>+7</to_hit>					<damage>1d4+2</damage>				</w1_h1_p>				<w1_h1_o>					<!-- One weapon, 1 handed, offhand -->					<to_hit>+7</to_hit>					<damage>1d4+1</damage>				</w1_h1_o>				<w1_h2>					<!-- One weapon, 2 handed -->					<to_hit>+7</to_hit>					<damage>1d4+2</damage>				</w1_h2>				<w2_p_oh>					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->					<to_hit>+1</to_hit>					<damage>1d4+2</damage>				</w2_p_oh>				<w2_p_ol>					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->					<to_hit>+3</to_hit>					<damage>1d4+2</damage>				</w2_p_ol>				<w2_o>					<!-- Two weapons, this weapon in off-hand -->					<to_hit>+3</to_hit>					<damage>1d4+1</damage>				</w2_o>			</melee>   
-   			<ranges>				<range>
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>*Dagger</short>
+					<long>*Dagger</long>
+				</name>
+				<category>Simple-Both (Melee)</category>
+				<critical>
+					<range>19-20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+3</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+3</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Two-Weapons</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>T</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>P</type>
+				<weight>0</weight>
+				<sequence>0</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+7</to_hit>
+					<damage>1d4+2</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>+7</to_hit>
+					<damage>1d4+1</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+7</to_hit>
+					<damage>1d4+2</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>+1</to_hit>
+					<damage>1d4+2</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>+3</to_hit>
+					<damage>1d4+2</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>+3</to_hit>
+					<damage>1d4+1</damage>
+				</w2_o>
+			</melee>
+ 
+ 
+ 
+ 
+ 
+ 
+			<ranges>
+				<range>
 					<distance>10 ft.</distance>
 					<to_hit>+8</to_hit>
 					<damage>1d4+2</damage>
@@ -912,7 +977,11 @@
 					<to_hit>+0</to_hit>
 					<damage>1d4+2</damage>
 				</range>
-			</ranges>		</weapon>  	</weapons>
+			</ranges>
+		</weapon>
+ 
+ 
+	</weapons>
 	<!--
 	  ====================================
 	  ====================================
@@ -1294,6 +1363,7 @@
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
+
 		<racial_innate>
 			<spell>
 					<name>Speak with Animals</name>
@@ -1409,14 +1479,22 @@
 				</spell>
 		</racial_innate>
 
- 		<class_innate>		</class_innate>		</spells_innate><!-- ### END Innate spells ### -->
+ 
+		<class_innate>
+		</class_innate>
+		</spells_innate>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>			<!-- ### BEGIN innate memorized spell section -->	 <!-- ### BEGIN innate memorized spells ### -->
+	<memorized_spells>
+			<!-- ### BEGIN innate memorized spell section -->	
+ 
+<!-- ### BEGIN innate memorized spells ### -->
+
 		<racial_innate_memorized>
 			<spell>
 					<name>Speak with Animals</name>
@@ -1532,6 +1610,14 @@
 				</spell>
 		</racial_innate_memorized>
 
-<!-- ### END innate memorized spells ### -->			<!-- ### BEGIN class innate memorized spells ### -->			<class_innate_memorized>		</class_innate_memorized>			<!-- ### END class innate memorized spells ### --><!-- ### END innate memorized spell section -->			<!-- ### BEGIN class Spellbook memorized spells ### -->	</memorized_spells><!-- ### END class Spellbook memorized spells ### -->
+<!-- ### END innate memorized spells ### -->
+			<!-- ### BEGIN class innate memorized spells ### -->
+			<class_innate_memorized>
+		</class_innate_memorized>
+			<!-- ### END class innate memorized spells ### -->
+<!-- ### END innate memorized spell section -->
+			<!-- ### BEGIN class Spellbook memorized spells ### -->
+	</memorized_spells>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

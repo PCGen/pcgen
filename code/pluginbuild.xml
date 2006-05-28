@@ -282,6 +282,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-ENDMANUALWHITESPACE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/EndManualWhitespaceToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-EQCONTAINERS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -454,6 +461,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/exporttokens/LocationToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-MANUALWHITESPACE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ManualWhitespaceToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

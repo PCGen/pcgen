@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -905,8 +902,76 @@
  
 		
  
-   		<weapon>			<common>				<name>					<short>*Club</short>					<long>*Club</long>				</name>				<category>Simple-Both (Melee)</category>				<critical>					<range>20</range>					<multiplier>2</multiplier>				</critical>				<to_hit>					<hit>+1</hit>					<magic_hit>+0</magic_hit>					<total_hit>+1</total_hit>				</to_hit>				<feat></feat>				<hand>Primary</hand>				<num_attacks>1</num_attacks>				<reach>5</reach>				<size>M</size>				<special_properties></special_properties>				<template></template>				<type>B</type>				<weight>0</weight>				<sequence>0</sequence>			</common>			<melee>				<w1_h1_p>					<!-- One weapon, 1 hand, primary hand -->					<to_hit>+1</to_hit>					<damage>1d6</damage>				</w1_h1_p>				<w1_h1_o>					<!-- One weapon, 1 handed, offhand -->					<to_hit>-3</to_hit>					<damage>1d6</damage>				</w1_h1_o>				<w1_h2>					<!-- One weapon, 2 handed -->					<to_hit>+1</to_hit>					<damage>1d6</damage>				</w1_h2>				<w2_p_oh>					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->					<to_hit>-5</to_hit>					<damage>1d6</damage>				</w2_p_oh>				<w2_p_ol>					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->					<to_hit>-3</to_hit>					<damage>1d6</damage>				</w2_p_ol>				<w2_o>					<!-- Two weapons, this weapon in off-hand -->					<to_hit>-9</to_hit>					<damage>1d6</damage>				</w2_o>			</melee>   
-   			<ranges>				<range>
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>*Club</short>
+					<long>*Club</long>
+				</name>
+				<category>Simple-Both (Melee)</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+1</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+1</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Primary</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>B</type>
+				<weight>0</weight>
+				<sequence>0</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+1</to_hit>
+					<damage>1d6</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>-3</to_hit>
+					<damage>1d6</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+1</to_hit>
+					<damage>1d6</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>-5</to_hit>
+					<damage>1d6</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>-3</to_hit>
+					<damage>1d6</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>-9</to_hit>
+					<damage>1d6</damage>
+				</w2_o>
+			</melee>
+ 
+ 
+ 
+ 
+ 
+ 
+			<ranges>
+				<range>
 					<distance>10 ft.</distance>
 					<to_hit>+2</to_hit>
 					<damage>1d6</damage>
@@ -931,8 +996,76 @@
 					<to_hit>-6</to_hit>
 					<damage>1d6</damage>
 				</range>
-			</ranges>		</weapon>   
-    		<weapon>			<common>				<name>					<short>Handaxe</short>					<long>Handaxe</long>				</name>				<category>Martial-Melee</category>				<critical>					<range>20</range>					<multiplier>3</multiplier>				</critical>				<to_hit>					<hit>-3</hit>					<magic_hit>+0</magic_hit>					<total_hit>-3</total_hit>				</to_hit>				<feat></feat>				<hand>Carried</hand>				<num_attacks>1</num_attacks>				<reach>5</reach>				<size>S</size>				<special_properties></special_properties>				<template></template>				<type>S</type>				<weight>5</weight>				<sequence>2</sequence>			</common>			<melee>				<w1_h1_p>					<!-- One weapon, 1 hand, primary hand -->					<to_hit>-3</to_hit>					<damage>1d6</damage>				</w1_h1_p>				<w1_h1_o>					<!-- One weapon, 1 handed, offhand -->					<to_hit>-7</to_hit>					<damage>1d6</damage>				</w1_h1_o>				<w1_h2>					<!-- One weapon, 2 handed -->					<to_hit>-3</to_hit>					<damage>1d6</damage>				</w1_h2>				<w2_p_oh>					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->					<to_hit>-9</to_hit>					<damage>1d6</damage>				</w2_p_oh>				<w2_p_ol>					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->					<to_hit>-7</to_hit>					<damage>1d6</damage>				</w2_p_ol>				<w2_o>					<!-- Two weapons, this weapon in off-hand -->					<to_hit>-11</to_hit>					<damage>1d6</damage>				</w2_o>			</melee>		</weapon>	</weapons>
+			</ranges>
+		</weapon>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>Handaxe</short>
+					<long>Handaxe</long>
+				</name>
+				<category>Martial-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>3</multiplier>
+				</critical>
+				<to_hit>
+					<hit>-3</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>-3</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Carried</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>S</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>S</type>
+				<weight>5</weight>
+				<sequence>2</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>-3</to_hit>
+					<damage>1d6</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>-7</to_hit>
+					<damage>1d6</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>-3</to_hit>
+					<damage>1d6</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>-9</to_hit>
+					<damage>1d6</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>-7</to_hit>
+					<damage>1d6</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>-11</to_hit>
+					<damage>1d6</damage>
+				</w2_o>
+			</melee>
+		</weapon>
+	</weapons>
 	<!--
 	  ====================================
 	  ====================================
@@ -985,7 +1118,15 @@
 	<!-- Character Rage -->
  
  
-	<!-- Turning ability -->	<turning kind="Undead">			<level>2</level>			<turn_check>1d20-1</turn_check>			<damage>2d6 +1</damage>			<uses_per_day>6</uses_per_day>			<notes>You destroy undead if you have twice as many turning levels as they have Hit Dice</notes>		</turning> 
+	<!-- Turning ability -->
+	<turning kind="Undead">
+			<level>2</level>
+			<turn_check>1d20-1</turn_check>
+			<damage>2d6 +1</damage>
+			<uses_per_day>6</uses_per_day>
+			<notes>You destroy undead if you have twice as many turning levels as they have Hit Dice</notes>
+		</turning>
+ 
  
  
 	<!-- 3.0 stunning fist -->
@@ -1393,12 +1534,14 @@
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/><!-- ### END Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 		<class number="0" spelllistclass="Cleric" spellcastertype="Divine">
-			<level number="0" known="0" cast="4">				<spell>
+			<level number="0" known="0" cast="4">
+				<spell>
 						<name>Create Water</name>
 						<outputname>Create Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -1734,7 +1877,9 @@
 						<description>Subject gains 1 temporary hp.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="1" known="0" cast="3+1">				<spell>
+			</level>
+			<level number="1" known="0" cast="3+1">
+				<spell>
 						<name>Bane</name>
 						<outputname>Bane</outputname>
 						<times_memorized>1</times_memorized>
@@ -2602,11 +2747,21 @@
 						<description>Calls outsider to fight for the caster.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="2" known="0" cast="0"/>			<level number="3" known="0" cast="0"/>			<level number="4" known="0" cast="0"/>			<level number="5" known="0" cast="0"/>			<level number="6" known="0" cast="0"/>			<level number="7" known="0" cast="0"/>			<level number="8" known="0" cast="0"/>			<level number="9" known="0" cast="0"/>		</class>
+			</level>
+			<level number="2" known="0" cast="0"/>
+			<level number="3" known="0" cast="0"/>
+			<level number="4" known="0" cast="0"/>
+			<level number="5" known="0" cast="0"/>
+			<level number="6" known="0" cast="0"/>
+			<level number="7" known="0" cast="0"/>
+			<level number="8" known="0" cast="0"/>
+			<level number="9" known="0" cast="0"/>
+		</class>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/><!-- ### END class Spellbook memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

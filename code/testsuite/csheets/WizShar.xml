@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -1098,12 +1095,14 @@
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/><!-- ### END Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 		<class number="0" spelllistclass="Wizard" spellcastertype="Arcane">
-			<level number="0" known="0" cast="3">				<spell>
+			<level number="0" known="0" cast="3">
+				<spell>
 						<name>Arcane Mark</name>
 						<outputname>Arcane Mark</outputname>
 						<times_memorized>1</times_memorized>
@@ -1551,7 +1550,9 @@
 						<description>Subject gains +1 on saving throws.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="1" known="0" cast="2">				<spell>
+			</level>
+			<level number="1" known="0" cast="2">
+				<spell>
 						<name>Change Self</name>
 						<outputname>Change Self</outputname>
 						<times_memorized>1</times_memorized>
@@ -1635,11 +1636,21 @@
 						<description>(CASTERLEVEL) touches deal 1d6 damage and possibly 1 Str damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="2" known="0" cast="0"/>			<level number="3" known="0" cast="0"/>			<level number="4" known="0" cast="0"/>			<level number="5" known="0" cast="0"/>			<level number="6" known="0" cast="0"/>			<level number="7" known="0" cast="0"/>			<level number="8" known="0" cast="0"/>			<level number="9" known="0" cast="0"/>		</class>
+			</level>
+			<level number="2" known="0" cast="0"/>
+			<level number="3" known="0" cast="0"/>
+			<level number="4" known="0" cast="0"/>
+			<level number="5" known="0" cast="0"/>
+			<level number="6" known="0" cast="0"/>
+			<level number="7" known="0" cast="0"/>
+			<level number="8" known="0" cast="0"/>
+			<level number="9" known="0" cast="0"/>
+		</class>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/><!-- ### END class Spellbook memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

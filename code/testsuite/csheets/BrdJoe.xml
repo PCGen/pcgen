@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -1185,12 +1182,14 @@
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/><!-- ### END Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 		<class number="0" spelllistclass="Bard" spellcastertype="Arcane">
-			<level number="0" known="4" cast="2">				<spell>
+			<level number="0" known="4" cast="2">
+				<spell>
 						<name>Flare</name>
 						<outputname>Flare</outputname>
 						<times_memorized>1</times_memorized>
@@ -1302,11 +1301,22 @@
 						<description>5-pound telekinesis.</description>
 						<bonusspell></bonusspell>
 					</spell>
-			</level>			<level number="1" known="0" cast="0"/>			<level number="2" known="0" cast="0"/>			<level number="3" known="0" cast="0"/>			<level number="4" known="0" cast="0"/>			<level number="5" known="0" cast="0"/>			<level number="6" known="0" cast="0"/>			<level number="7" known="0" cast="0"/>			<level number="8" known="0" cast="0"/>			<level number="9" known="0" cast="0"/>		</class>
+			</level>
+			<level number="1" known="0" cast="0"/>
+			<level number="2" known="0" cast="0"/>
+			<level number="3" known="0" cast="0"/>
+			<level number="4" known="0" cast="0"/>
+			<level number="5" known="0" cast="0"/>
+			<level number="6" known="0" cast="0"/>
+			<level number="7" known="0" cast="0"/>
+			<level number="8" known="0" cast="0"/>
+			<level number="9" known="0" cast="0"/>
+		</class>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/><!-- ### END class Spellbook memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

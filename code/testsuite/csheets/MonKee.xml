@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -1237,13 +1234,15 @@
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-	<spells_innate number="none"/><!-- ### END Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells/><!-- ### END class Spellbook memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>

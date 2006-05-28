@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <character>
-	<!--
-	  ====================================
-	  ====================================
-			BIO
-	  ====================================
-	  ====================================-->
+<!--========================================================================
+BIO
+========================================================================-->
 	<basics>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
@@ -942,9 +939,120 @@
  
 		
  
-    		<weapon>			<common>				<name>					<short>*Bite</short>					<long>*Bite (Natural/Primary)</long>				</name>				<category>Natural-Natural,Melee</category>				<critical>					<range>20</range>					<multiplier>2</multiplier>				</critical>				<to_hit>					<hit>+30</hit>					<magic_hit>+0</magic_hit>					<total_hit>+30</total_hit>				</to_hit>				<feat></feat>				<hand>Primary</hand>				<num_attacks>3</num_attacks>				<reach>15</reach>				<size>M</size>				<special_properties></special_properties>				<template></template>				<type>BPS</type>				<weight>0</weight>				<sequence>0</sequence>			</common>			<simple>				<to_hit>+30</to_hit>				<damage>2d6+20</damage>				<range>0 ft.</range>			</simple>		</weapon> 
-    		<weapon>			<common>				<name>					<short>Slam</short>					<long>Slam (Natural/Primary)</long>				</name>				<category>Natural-Natural,Melee</category>				<critical>					<range>20</range>					<multiplier>2</multiplier>				</critical>				<to_hit>					<hit>+30/+30</hit>					<magic_hit>+0</magic_hit>					<total_hit>+30/+30</total_hit>				</to_hit>				<feat></feat>				<hand>Carried</hand>				<num_attacks>4</num_attacks>				<reach>15</reach>				<size>H</size>				<special_properties></special_properties>				<template></template>				<type>B</type>				<weight>0</weight>				<sequence>1</sequence>			</common>			<simple>				<to_hit>+30/+30</to_hit>				<damage>1d6+30</damage>				<range>0 ft.</range>			</simple>		</weapon> 
-    		<weapon>			<common>				<name>					<short>*Claw</short>					<long>*Claw (Natural/Secondary)</long>				</name>				<category>Natural-Natural,Melee</category>				<critical>					<range>20</range>					<multiplier>2</multiplier>				</critical>				<to_hit>					<hit>+25/+25</hit>					<magic_hit>+0</magic_hit>					<total_hit>+25/+25</total_hit>				</to_hit>				<feat></feat>				<hand>Off-hand</hand>				<num_attacks>4</num_attacks>				<reach>15</reach>				<size>M</size>				<special_properties></special_properties>				<template></template>				<type>PS</type>				<weight>0</weight>				<sequence>2</sequence>			</common>			<simple>				<to_hit>+25/+25</to_hit>				<damage>1d8+10</damage>				<range>0 ft.</range>			</simple>		</weapon>	</weapons>
+ 
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>*Bite</short>
+					<long>*Bite (Natural/Primary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+30</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+30</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Primary</hand>
+				<num_attacks>3</num_attacks>
+				<reach>15</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>BPS</type>
+				<weight>0</weight>
+				<sequence>0</sequence>
+			</common>
+			<simple>
+				<to_hit>+30</to_hit>
+				<damage>2d6+20</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+ 
+ 
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>Slam</short>
+					<long>Slam (Natural/Primary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+30/+30</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+30/+30</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Carried</hand>
+				<num_attacks>4</num_attacks>
+				<reach>15</reach>
+				<size>H</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>B</type>
+				<weight>0</weight>
+				<sequence>1</sequence>
+			</common>
+			<simple>
+				<to_hit>+30/+30</to_hit>
+				<damage>1d6+30</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+ 
+ 
+ 
+ 
+ 
+		<weapon>
+			<common>
+				<name>
+					<short>*Claw</short>
+					<long>*Claw (Natural/Secondary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+25/+25</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+25/+25</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Off-hand</hand>
+				<num_attacks>4</num_attacks>
+				<reach>15</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>PS</type>
+				<weight>0</weight>
+				<sequence>2</sequence>
+			</common>
+			<simple>
+				<to_hit>+25/+25</to_hit>
+				<damage>1d8+10</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+	</weapons>
 	<!--
 	  ====================================
 	  ====================================
@@ -1391,6 +1499,7 @@
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
+
 		<racial_innate>
 			<spell>
 					<name>Fog Cloud</name>
@@ -1478,14 +1587,22 @@
 				</spell>
 		</racial_innate>
 
- 		<class_innate>		</class_innate>		</spells_innate><!-- ### END Innate spells ### -->
+ 
+		<class_innate>
+		</class_innate>
+		</spells_innate>
+<!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>			<!-- ### BEGIN innate memorized spell section -->	 <!-- ### BEGIN innate memorized spells ### -->
+	<memorized_spells>
+			<!-- ### BEGIN innate memorized spell section -->	
+ 
+<!-- ### BEGIN innate memorized spells ### -->
+
 		<racial_innate_memorized>
 			<spell>
 					<name>Fog Cloud</name>
@@ -1573,6 +1690,14 @@
 				</spell>
 		</racial_innate_memorized>
 
-<!-- ### END innate memorized spells ### -->			<!-- ### BEGIN class innate memorized spells ### -->			<class_innate_memorized>		</class_innate_memorized>			<!-- ### END class innate memorized spells ### --><!-- ### END innate memorized spell section -->			<!-- ### BEGIN class Spellbook memorized spells ### -->	</memorized_spells><!-- ### END class Spellbook memorized spells ### -->
+<!-- ### END innate memorized spells ### -->
+			<!-- ### BEGIN class innate memorized spells ### -->
+			<class_innate_memorized>
+		</class_innate_memorized>
+			<!-- ### END class innate memorized spells ### -->
+<!-- ### END innate memorized spell section -->
+			<!-- ### BEGIN class Spellbook memorized spells ### -->
+	</memorized_spells>
+<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>
