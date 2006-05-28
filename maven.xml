@@ -29,16 +29,31 @@
     </goal>
     
     <goal name="pcgen:package" prereqs="pcgen:package-clean">
+		<j:new className="java.util.Date" var="timestamp" />
+		<j:new className="java.text.SimpleDateFormat" var="format">
+			<j:arg type="java.lang.String" value="yyyyMMdd.HHmm" />
+		</j:new>
+		<j:invokeStatic className="java.util.TimeZone" method="getTimeZone" var="timezone">
+			<j:arg type="java.lang.String" value="UTC" />
+		</j:invokeStatic>
+		<j:invoke on="${format}" var="formattedDate" method="setTimeZone">
+			<j:arg type="java.util.TimeZone" value="${timezone}" />
+		</j:invoke>
+		<j:invoke on="${format}" var="formattedDate" method="format">
+			<j:arg type="java.util.Date" value="${timestamp}" />
+		</j:invoke>
+
     	<ant:mkdir dir="${basedir}/target/distributions" />
     	
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-all.zip" 
-    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**, data/**, outputsheets/**, docs/**, system/**, lib/**" 
-    		excludes="lib/emma/**, lib/test/**" />
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-code.zip" 
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-all-no-libs-${formattedDate}.zip" 
+    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**, data/**, outputsheets/**, docs/**, system/**"  />
+<!--    		
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-code-${formattedDate}.zip" 
     		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**" />
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-content.zip" 
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-content-${formattedDate}.zip" 
     		includes="data/**, outputsheets/**, docs/**, system/**" />
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries.zip" 
+ -->
+    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries-${formattedDate}.zip" 
     		includes="lib/**" 
     		excludes="lib/emma/**, lib/test/**"/>
     </goal>
