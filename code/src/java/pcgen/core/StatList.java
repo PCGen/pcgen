@@ -30,6 +30,7 @@ import pcgen.core.utils.CoreUtility;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Collections;
 
 /**
  * <code>StatList</code>.
@@ -39,7 +40,7 @@ import java.util.List;
  */
 public final class StatList
 {
-	private List stats = new ArrayList();
+	private List<PCStat> stats = new ArrayList<PCStat>();
 	private PlayerCharacter ownerPC;
 
 	public StatList(final PlayerCharacter pc)
@@ -149,9 +150,38 @@ public final class StatList
 		return ownerPC.getVariableValue(stat.getStatMod(), "STAT:" + stat.getAbb()).intValue();
 	}
 
-	public List getStats()
+	public int size()
 	{
-		return stats;
+		return stats.size();
+	}
+
+	public PCStat getStatAt(final int anIndex)
+	{
+		return (PCStat)stats.get(anIndex);
+	}
+
+	public Iterator<PCStat> iterator()
+	{
+		return stats.iterator();
+	}
+
+	public void clear()
+	{
+		stats.clear();
+	}
+
+	/**
+	 * Add a new stat to the PC's list of stats.
+	 * @param aStat The stat to add
+	 */
+	public void addStat(final PCStat aStat)
+	{
+		stats.add(aStat);
+	}
+
+	public List<PCStat> getStatList()
+	{
+		return (List<PCStat>)Collections.unmodifiableList(stats);
 	}
 
 	/**

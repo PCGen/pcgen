@@ -217,7 +217,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 
 		if ((index > -1))
 		{
-			final PCStat stat = ((PCStat) pc.getStatList().getStats().get(index));
+			final PCStat stat = pc.getStatList().getStatAt(index);
 			stat.setBaseScore(value);
 			stat.setStatMod("floor(SCORE/2)-5");
 			stat.addVariable(-9, "MAXLEVELSTAT="+statName, statName+"SCORE-10");

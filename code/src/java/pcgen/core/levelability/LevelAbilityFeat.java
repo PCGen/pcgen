@@ -647,7 +647,8 @@ class LevelAbilityFeat extends LevelAbility
 		{
 			for (Iterator e = availableList.iterator(); e.hasNext();)
 			{
-				String aString = (String) e.next();
+				// TODO Fix this!
+				String aString = e.next().toString();
 
 				if (!aString.equalsIgnoreCase("NOCHOICE"))
 				{

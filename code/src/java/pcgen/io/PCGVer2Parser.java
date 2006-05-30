@@ -3227,7 +3227,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				try
 				{
-					((PCStat) aPC.getStatList().getStats().get(index)).setBaseScore(Integer.parseInt(element.getText()));
+					aPC.getStatList().getStatAt(index).setBaseScore(Integer.parseInt(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{

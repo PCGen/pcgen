@@ -94,7 +94,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		setPCStat(character, "STR", 15);
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
-		PCStat stat = ((PCStat) character.getStatList().getStats().get(0));
+		PCStat stat = character.getStatList().getStatAt(0);
 		stat.setStatMod("floor(SCORE/2)-5");
 		stat.addBonusList("COMBAT|TOHIT.Melee|STR|TYPE=Ability");
 		stat.addBonusList("DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
@@ -104,7 +104,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		stat.addVariable(0, "OFFHANDLIGHTBONUS", "2");
 
 
-		stat = ((PCStat) character.getStatList().getStats().get(3));
+		stat = character.getStatList().getStatAt(3);
 		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");
 
 

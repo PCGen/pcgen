@@ -76,9 +76,9 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 		final StatList aStatList = aPC.getStatList();
 		boolean foundStat = false;
 		int sVal = aPC.getVariableValue(theStatValue,"").intValue();
-		for (Iterator stat = aStatList.getStats().iterator(); stat.hasNext();)
+		for (Iterator<PCStat> stat = aStatList.iterator(); stat.hasNext();)
 		{
-			final PCStat currentStat = (PCStat) stat.next();
+			final PCStat currentStat = stat.next();
 			if (currentStat.getAbb().equals(getStatName()))
 			{
 				currentStat.setBaseScore(sVal);
@@ -103,9 +103,9 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 	public void apply(PlayerCharacter aPC)
 	{
 		final StatList aStatList = aPC.getStatList();
-		for (Iterator stat = aStatList.getStats().iterator(); stat.hasNext();)
+		for (Iterator<PCStat> stat = aStatList.iterator(); stat.hasNext();)
 		{
-			final PCStat currentStat = (PCStat) stat.next();
+			final PCStat currentStat = stat.next();
 			if (currentStat.getAbb().equals(theStat.getAbb()))
 			{
 				currentStat.setBaseScore(theStat.getBaseScore());

@@ -81,7 +81,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		//Stats
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
-		PCStat stat = ((PCStat) character.getStatList().getStats().get(3));
+		PCStat stat = character.getStatList().getStatAt(3);
 		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");
 
 		// Race

@@ -30,7 +30,7 @@ import java.util.Comparator;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public final class SkillComparator implements Comparator
+public final class SkillComparator implements Comparator<Skill>
 {
 	public static final int RESORT_NAME = 0;
 	public static final int RESORT_TRAINED = 1;
@@ -46,20 +46,20 @@ public final class SkillComparator implements Comparator
 	}
 
 	// Comparator will be specific to Skill objects
-	public int compare(final Object obj1, final Object obj2)
+	public int compare(final Skill obj1, final Skill obj2)
 	{
 		final Skill s1;
 		final Skill s2;
 
 		if ((sortOrder == RESORT_ASCENDING) || (sort == RESORT_TRAINED))
 		{
-			s1 = (Skill) obj1;
-			s2 = (Skill) obj2;
+			s1 = obj1;
+			s2 = obj2;
 		}
 		else
 		{
-			s1 = (Skill) obj2;
-			s2 = (Skill) obj1;
+			s1 = obj2;
+			s2 = obj1;
 		}
 
 		switch (sort)

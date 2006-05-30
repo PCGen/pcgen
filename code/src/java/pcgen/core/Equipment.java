@@ -1597,7 +1597,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 *
 	 * @return     The eqModifierList value
 	 */
-	public List getEqModifierList(final boolean bPrimary)
+	public List<EquipmentModifier> getEqModifierList(final boolean bPrimary)
 	{
 		if (bPrimary)
 		{

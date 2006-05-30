@@ -762,7 +762,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		for (int stat = 0; stat < SettingsHandler.getGame().s_ATTRIBLONG.length; ++stat)
 		{
-			final PCStat aStat = (PCStat) pc.getStatList().getStats().get(stat);
+			final PCStat aStat = (PCStat) pc.getStatList().getStatAt(stat);
 
 			if (!aStat.isRolled())
 			{
@@ -2080,7 +2080,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		int increment = 0;
 		int poolMod = 0;
 
-		final PCStat aStat = (PCStat) pc.getStatList().getStats().get(selectedStat);
+		final PCStat aStat = pc.getStatList().getStatAt(selectedStat);
 
 		final int column = statTable.columnAtPoint(evt.getPoint());
 
@@ -2325,6 +2325,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		}
 		infoSpecialAbilities.refresh();
 
+		final Race race = pc.getRace();
+		if (race != null)
+		{
+			raceComboBox.setSelectedItem(race.getDisplayName());
+		}
 		showPointPool();
 		updateHP();
 
@@ -2503,7 +2508,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 			for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBLONG.length; ++i)
 			{
-				final PCStat aStat = (PCStat) pc.getStatList().getStats().get(i);
+				final PCStat aStat = pc.getStatList().getStatAt(i);
 
 				if (pc.isNonAbility(i) || !aStat.isRolled())
 				{
@@ -2955,7 +2960,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		public void setValueAt(Object obj, int rowIndex, int columnIndex)
 		{
-			if ((rowIndex >= 0) && (rowIndex < pc.getStatList().getStats().size()) && (columnIndex == 1))
+			if ((rowIndex >= 0) && (rowIndex < pc.getStatList().size()) && (columnIndex == 1))
 			{
 				if (obj == null)
 				{
@@ -2973,7 +2978,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				}
 				final int pcPlayerLevels = pc.getTotalPlayerLevels();
 
-				final PCStat aStat = (PCStat) pc.getStatList().getStats().get(rowIndex);
+				final PCStat aStat = pc.getStatList().getStatAt(rowIndex);
 
 				if (pc.isNonAbility(rowIndex))
 				{

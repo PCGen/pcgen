@@ -85,7 +85,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		//Stats
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
-		PCStat stat = ((PCStat) character.getStatList().getStats().get(3));
+		PCStat stat = character.getStatList().getStatAt(3);
 		stat.addBonusList("MODSKILLPOINTS|NUMBER|INT");
 
 		// Race
@@ -138,9 +138,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance
 			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		character.addSkill(balance);
-		
+
 		character.calcActiveBonuses();
-		
+
 		weapon = new Equipment();
 		weapon.setName("TestWpn");
 		weapon.setTypeInfo("weapon");

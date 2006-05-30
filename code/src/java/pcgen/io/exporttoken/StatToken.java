@@ -78,7 +78,7 @@ public class StatToken extends Token
 		aTok.nextToken();
 		int indexOfStat;
 		indexOfStat = Integer.parseInt(aTok.nextToken());
-		if ((indexOfStat < 0) || (indexOfStat >= pc.getStatList().getStats().size()))
+		if ((indexOfStat < 0) || (indexOfStat >= pc.getStatList().size()))
 		{
 			return "";
 		}
@@ -187,7 +187,7 @@ public class StatToken extends Token
 
 	public static String getStatToken(PlayerCharacter pc, int index, boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel, int aLevel, final boolean checkGameMode)
 	{
-		PCStat stat = (PCStat) pc.getStatList().getStats().get(index);
+		PCStat stat = (PCStat) pc.getStatList().getStatAt(index);
 		if (pc.isNonAbility(index))
 		{
 			return "*";
@@ -236,7 +236,7 @@ public class StatToken extends Token
 
 	public static String getBaseToken(PlayerCharacter pc, int index)
 	{
-		PCStat stat = (PCStat) pc.getStatList().getStats().get(index);
+		PCStat stat = (PCStat) pc.getStatList().getStatAt(index);
 		if (pc.isNonAbility(index))
 		{
 			return "*";
@@ -246,7 +246,7 @@ public class StatToken extends Token
 
 	public static String getBaseModToken(PlayerCharacter pc, int index)
 	{
-		pc.getStatList().getStats().get(index);
+		pc.getStatList().getStatAt(index);
 		if (pc.isNonAbility(index))
 		{
 			return "+0";

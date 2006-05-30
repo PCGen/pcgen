@@ -613,11 +613,10 @@ public class PcgCombatant extends Combatant
 			statBuf.append("</font>; ");
 
 			StatList sl = pcOut.getStatList();
-			List statList = sl.getStats();
 
-			for (int i = 0; i < statList.size(); i++)
+			for (int i = 0; i < sl.size(); i++)
 			{
-				PCStat stat = (PCStat) statList.get(i);
+				PCStat stat = sl.getStatAt(i);
 
 				if (pc.isNonAbility(i))
 				{

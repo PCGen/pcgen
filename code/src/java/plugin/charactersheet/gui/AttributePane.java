@@ -128,7 +128,6 @@ public class AttributePane extends JPanel {
 		this.pc = pc;
 		setVisible(true);
 		StatList sl = pc.getStatList();
-		List statList = sl.getStats();
 
 		for(int i = 0; i < attrList.size(); i++) {
 			Attribute attr = (Attribute)attrList.get(i);
@@ -136,7 +135,7 @@ public class AttributePane extends JPanel {
 		}
 		attrList.clear();
 
-		for (int i = 0; i < statList.size(); i++) {
+		for (int i = 0; i < sl.size(); i++) {
 			Attribute attr = new Attribute(i);
 			attrList.add(attr);
 		}
@@ -257,10 +256,6 @@ public class AttributePane extends JPanel {
 		 * Refresh
 		 */
 		public void refresh() {
-			StatList sl = pc.getStatList();
-			List statList = sl.getStats();
-			statList.get(index);
-
 			attrAbbrev.setText(StatToken.getNameToken(pc, index));
 			baseAttr.setText(StatToken.getStatToken(pc, index, false, false, true, false, 0));
 			baseBonus.setText(StatToken.getModToken(pc, index, false, false, true, false, 0));

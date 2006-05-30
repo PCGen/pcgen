@@ -505,9 +505,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			newPC.setName(nName);
 			newPC.setFileName(file.getAbsolutePath());
 
-			for (Iterator i = newPC.getStatList().getStats().iterator(); i.hasNext();)
+			for (Iterator<PCStat> i = newPC.getStatList().iterator(); i.hasNext();)
 			{
-				final PCStat aStat = (PCStat) i.next();
+				final PCStat aStat = i.next();
 				aStat.setBaseScore(10);
 			}
 

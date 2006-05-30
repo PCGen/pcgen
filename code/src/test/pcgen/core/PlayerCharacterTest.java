@@ -249,8 +249,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		final StatList statList = character.getStatList();
-		final List list = statList.getStats();
-		final PCStat stat = (PCStat) list.get(0);
+		final PCStat stat = statList.getStatAt(0);
 		stat.setBaseScore(16);
 		character.incrementClassLevel(2, pcClass);
 
@@ -268,8 +267,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		final StatList statList = character.getStatList();
-		final List list = statList.getStats();
-		final PCStat stat = (PCStat) list.get(0);
+		final PCStat stat = statList.getStatAt(0);
 		stat.setBaseScore(16);
 		character.incrementClassLevel(2, pcClass);
 
@@ -286,8 +284,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		final StatList statList = character.getStatList();
-		final List list = statList.getStats();
-		final PCStat stat = (PCStat) list.get(0);
+		final PCStat stat = statList.getStatAt(0);
 		stat.setBaseScore(16);
 		character.incrementClassLevel(2, pcClass);
 

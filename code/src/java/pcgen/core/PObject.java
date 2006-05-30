@@ -118,7 +118,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	private int encumberedLoadMoveInt = Constants.LIGHT_LOAD;
 
 	private ArrayList drList = new ArrayList();
-	
+
 	private String chooseLanguageAutos = "";
 
 	/* ************
@@ -602,7 +602,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the natural weapons list for this object
 	 * @return the natural weapons list for this object
 	 */
-	public List getNaturalWeapons()
+	public List<Equipment> getNaturalWeapons()
 	{
 		return getSafeListFor(ListKey.NATURAL_WEAPONS);
 	}

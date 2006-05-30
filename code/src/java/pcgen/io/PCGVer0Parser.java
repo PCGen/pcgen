@@ -2048,7 +2048,7 @@ final class PCGVer0Parser implements PCGParser
 		{
 			for (int i = 0; aTok.hasMoreTokens() && (i < SettingsHandler.getGame().s_ATTRIBLONG.length); i++)
 			{
-				((PCStat) aPC.getStatList().getStats().get(i)).setBaseScore(Integer.parseInt(aTok.nextToken()));
+				aPC.getStatList().getStatAt(i).setBaseScore(Integer.parseInt(aTok.nextToken()));
 			}
 
 			if (aTok.hasMoreTokens())

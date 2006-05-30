@@ -398,9 +398,16 @@ public final class Globals
 		return classList;
 	}
 
-	public static List getClassesByType(final String aType)
+	/**
+	 * Finds all PObjects that match the passed in type.  All the types listed
+	 * in aType must match for the object to be returned.
+	 * @param aPObjectList List of PObjects to search
+	 * @param aType A "." separated list of TYPEs to match
+	 * @return List of PObjects matching all TYPEs
+	 */
+	private static List getPObjectsOfType(final List aPObjectList, final String aType)
 	{
-		ArrayList ret = new ArrayList(getClassList().size());
+		final ArrayList ret = new ArrayList(aPObjectList.size());
 
 		List typeList = new ArrayList();
 		StringTokenizer tok = new StringTokenizer(aType, ".");
@@ -409,15 +416,16 @@ public final class Globals
 			typeList.add(tok.nextToken());
 		}
 
-		final Iterator c = getClassList().iterator();
+		final Iterator c = aPObjectList.iterator();
 		while (c.hasNext())
 		{
-			final PCClass aClass = (PCClass)c.next();
+			final PObject anObject = (PObject)c.next();
 			boolean match = false;
 			for (Iterator i = typeList.iterator(); i.hasNext(); )
 			{
 				final String type = (String)i.next();
-				if (aClass.isType(type))
+				final boolean sense = !(type.charAt(0) == '!');
+				if (anObject.isType(type) == sense)
 				{
 					match = true;
 				}
@@ -429,11 +437,21 @@ public final class Globals
 			}
 			if (match)
 			{
-				ret.add(aClass);
+				ret.add(anObject);
 			}
 		}
 		ret.trimToSize();
 		return ret;
+	}
+
+	/**
+	 * Returns a list of classes matching the specified type
+	 * @param aType TYPE string
+	 * @return List of Classes
+	 */
+	public static List getClassesByType(final String aType)
+	{
+		return getPObjectsOfType(getClassList(), aType);
 	}
 
 	/**
@@ -809,19 +827,6 @@ public final class Globals
 	}
 
 	/**
-	 * Remove the Ability object whose Name matches the String passed in.
-	 * @param category
-	 * @param aName The key of the Ability to remove
-	 * @return a boolean representing whether the ability was removed.  If
-	 *         the ability was never there, this will return false (since
-	 *         it was not removed).
-	 */
-//	public static boolean removeAbilityNamed (final String category, String aName)
-//	{
-//		return abilityStore.removeNamed(category, aName);
-//	}
-
-	/**
 	 * Get the Ability whose Key matches the String passed in
 	 * @param category
 	 * @param aKey the KEY of the Ability to return
@@ -831,17 +836,6 @@ public final class Globals
 	{
 		return (Ability) abilityStore.getKeyed(category, aKey);
 	}
-
-	/**
-	 * Get the Ability whose Name matches the String passed in
-	 * @param category
-	 * @param aName the Name of the Ability to return
-	 * @return Ability
-	 */
-//	public static Ability getAbilityNamed (final String category, String aName)
-//	{
-//		return (Ability) abilityStore.getNamed(category, aName);
-//	}
 
 	/**
 	 * Get an iterator for the Abilities in the chosen category.  If
@@ -876,6 +870,17 @@ public final class Globals
 	public static List getUnmodifiableAbilityList(String aCategory)
 	{
 		return abilityStore.getUnmodifiableList(aCategory);
+	}
+
+	/**
+	 * Returns a list of Abilities of a specified category and type
+	 * @param aCategory The Category of Ability e.g. "FEAT"
+	 * @param aType a TYPE String
+	 * @return List of Abilities
+	 */
+	public static List getAbilitiesByType(final String aCategory, final String aType)
+	{
+		return getPObjectsOfType(getUnmodifiableAbilityList(aCategory), aType);
 	}
 
 	/**
@@ -1365,16 +1370,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get's Race from raceMap() based on aName
-	 * @param aName
-	 * @return named race
-	 */
-//	public static Race getRaceNamed(final String aName)
-//	{
-//		return (Race) getRaceMap().get(aName);
-//	}
-
-	/**
 	 * This method gets the available race types as a set.
 	 * @return race types
 	 */
@@ -1529,63 +1524,13 @@ public final class Globals
 	}
 
 	/**
-	 * Get skill by name
-	 * @param name
-	 * @return Skill
+	 * Returns a list of skills matching the specified type
+	 * @param aType A TYPE String
+	 * @return List of Skills
 	 */
-//	public static Skill getSkillNamed(final String name)
-//	{
-//		Skill currSkill;
-//
-//		for (Iterator skillIter = getSkillList().iterator(); skillIter.hasNext();)
-//		{
-//			currSkill = (Skill) skillIter.next();
-//
-//			if (currSkill.getName().equalsIgnoreCase(name))
-//			{
-//				return currSkill;
-//			}
-//		}
-//
-//		return null;
-//	}
-
 	public static List getSkillsByType(final String aType)
 	{
-		ArrayList ret = new ArrayList(getSkillList().size());
-
-		List typeList = new ArrayList();
-		StringTokenizer tok = new StringTokenizer(aType, ".");
-		while (tok.hasMoreTokens())
-		{
-			typeList.add(tok.nextToken());
-		}
-
-		final Iterator s = getSkillList().iterator();
-		while (s.hasNext())
-		{
-			final Skill aSkill = (Skill)s.next();
-			boolean match = false;
-			for (Iterator i = typeList.iterator(); i.hasNext(); )
-			{
-				final String type = (String)i.next();
-				if (aSkill.isType(type))
-				{
-					match = true;
-				}
-				else
-				{
-					match = false;
-					break;
-				}
-			}
-			if (match)
-			{
-				ret.add(aSkill);
-			}
-		}
-		ret.trimToSize();
-		return ret;
+		return getPObjectsOfType(getSkillList(), aType);
 	}
 
 	/**
@@ -1678,16 +1623,6 @@ public final class Globals
 	{
 		return spellMap;
 	}
-
-	/**
-	 * Get spell by name
-	 * @param name
-	 * @return spell
-	 */
-//	public static Spell getSpellNamed(final String name)
-//	{
-//		return getSpellKeyed(name);
-//	}
 
 	/**
 	 * Get spell points
@@ -1904,17 +1839,6 @@ public final class Globals
 	{
 		return weaponProfs.getKeyed(aKey);
 	}
-
-	/**
-	 * Searches for an exact name match.
-	 *
-	 * @param name
-	 * @return an exact match or null
-	 */
-//	public static WeaponProf getWeaponProfNamed(final String name)
-//	{
-//		return weaponProfs.getNamed(name);
-//	}
 
 	/**
 	 * Get weapon prof names
@@ -2963,23 +2887,6 @@ public final class Globals
 		return expandRelativePath(aPath);
 	}
 
-//	static Kit getKitNamed(final String aName)
-//	{
-//		final Iterator e = kitList.iterator();
-//
-//		while (e.hasNext())
-//		{
-//			final Kit aKit = (Kit) e.next();
-//
-//			if (aKit.getName().equals(aName))
-//			{
-//				return aKit;
-//			}
-//		}
-//
-//		return null;
-//	}
-
 	static List getLanguagesFromListOfType(final List langList, final String aType)
 	{
 		final List retSet = new ArrayList();
@@ -3436,56 +3343,8 @@ public final class Globals
 
 	public static List getLanguagesOfType(final String aType)
 	{
-		final List ret = new ArrayList();
-
-		if (aType.length() == 0)
-		{
-			return ret;
-		}
-
-		for (Iterator i = getLanguageList().iterator(); i.hasNext();)
-		{
-			final Language aLang = (Language) i.next();
-
-			if ((aLang != null)
-				&& (((aType.charAt(0) == '!') && !aLang.isType(aType)) || aLang.isType(aType)))
-			{
-				ret.add(aLang);
-			}
-		}
-		return ret;
+		return getPObjectsOfType(getLanguageList(), aType);
 	}
-
-//	private static List getLanguageNamesFromListOfType(final List langList, final String aType)
-//	{
-//		final List retSet = new ArrayList();
-//
-//		for (Iterator i = langList.iterator(); i.hasNext();)
-//		{
-//			final Language aLang = (Language) i.next();
-//
-//			if ((aLang != null)
-//				&& (((aType.length() > 0) && (aType.charAt(0) == '!') && !aLang.isType(aType)) || aLang.isType(aType)))
-//			{
-//				retSet.add(aLang.getName());
-//			}
-//		}
-//
-//		return retSet;
-//	}
-
-//	private static List getLanguageSetNames()
-//	{
-//		final List aList = new ArrayList();
-//
-//		for (Iterator i = getLanguageList().iterator(); i.hasNext();)
-//		{
-//			final Language aLang = (Language) i.next();
-//			aList.add(aLang.getName());
-//		}
-//
-//		return aList;
-//	}
 
 	private static double getLoadMultForSize(final PlayerCharacter aPC)
 	{

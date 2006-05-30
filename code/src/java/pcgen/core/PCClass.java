@@ -400,9 +400,9 @@ public class PCClass extends PObject
 
 		final PCStat aStat;
 
-		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().getStats().size()))
+		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
-			aStat = (PCStat) aPC.getStatList().getStats().get(index);
+			aStat = (PCStat) aPC.getStatList().getStatAt(index);
 			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
 		}
 
@@ -1592,7 +1592,7 @@ public class PCClass extends PObject
 
 		if (index != -2)
 		{
-			final PCStat aStat = (PCStat) aPC.getStatList().getStats().get(index);
+			final PCStat aStat = (PCStat) aPC.getStatList().getStatAt(index);
 			final int maxSpellLevel = aPC.getVariableValue("MAXLEVELSTAT=" + aStat.getAbb(), "").intValue();
 
 			if (spellLevel > maxSpellLevel)
@@ -3551,9 +3551,9 @@ public class PCClass extends PObject
 		final int index = baseSpellIndex();
 		final PCStat aStat;
 
-		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().getStats().size()))
+		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
-			aStat = (PCStat) aPC.getStatList().getStats().get(index);
+			aStat = (PCStat) aPC.getStatList().getStatAt(index);
 			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
 		}
 
@@ -4501,9 +4501,9 @@ public class PCClass extends PObject
 					for (Iterator iter = moddedStats.iterator(); iter.hasNext();)
 					{
 						final PCLevelInfoStat statToRollback = (PCLevelInfoStat) iter.next();
-						for (Iterator i = aPC.getStatList().getStats().iterator(); i.hasNext();)
+						for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 						{
-							final PCStat aStat = (PCStat) i.next();
+							final PCStat aStat = i.next();
 
 							if (aStat.getAbb().equalsIgnoreCase(statToRollback.getStatAbb()))
 							{
@@ -4963,9 +4963,9 @@ public class PCClass extends PObject
 		{
 			final StringBuffer sStats = new StringBuffer();
 
-			for (Iterator i = aPC.getStatList().getStats().iterator(); i.hasNext();)
+			for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 			{
-				final PCStat aStat = (PCStat) i.next();
+				final PCStat aStat = i.next();
 				final int iAdjStat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
 				final int iCurStat = aPC.getStatList().getBaseStatFor(aStat.getAbb());
 				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);
@@ -4986,7 +4986,7 @@ public class PCClass extends PObject
 
 			if (selectedValue != null)
 			{
-				for (Iterator i = aPC.getStatList().getStats().iterator(); i.hasNext();)
+				for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 				{
 					final PCStat aStat = (PCStat) i.next();
 

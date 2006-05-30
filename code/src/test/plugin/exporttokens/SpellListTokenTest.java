@@ -151,7 +151,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		StatList stats = character.getStatList();
 		int i = stats.getIndexOfStatFor("CHA");
-		((PCStat) stats.getStats().get(i)).setBaseScore(12);
+		stats.getStatAt(i).setBaseScore(12);
 		character.calcActiveBonuses();
 		character.incrementClassLevel(1, arcaneClass, true);
 
@@ -231,7 +231,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the SPELLLISTKNOWN sub-tag of the SPELLLIST token.
-	 * 
+	 *
 	 * Currently does nothing
 	 */
 	public void testSpellListKnownToken()

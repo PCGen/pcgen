@@ -621,17 +621,16 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 		}
 
 		// This is now going to be sorted on key
-		SortedSet weaponProfs = pc.getWeaponProfList();
+		SortedSet<WeaponProf> weaponProfs = pc.getWeaponProfList();
 		StringBuffer buf;
 		if (weaponProfs.size() > 0)
 		{
 			buf	= new StringBuffer();
 			boolean first = true;
 
-			for (Iterator i = weaponProfs.iterator(); i.hasNext(); )
+			for (Iterator<WeaponProf> i = weaponProfs.iterator(); i.hasNext(); )
 			{
-				final String key = (String) i.next();
-				WeaponProf wp = Globals.getWeaponProfKeyed(key);
+				final WeaponProf wp = i.next();
 				if (wp == null)
 				{
 					continue;

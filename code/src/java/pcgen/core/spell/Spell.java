@@ -47,7 +47,7 @@ public final class Spell extends PObject
 {
 	private BigDecimal cost = BigDecimalHelper.ZERO;
 	private HashMap levelInfo = null;
-	private List descriptorList = new ArrayList();
+	private List<String> descriptorList = new ArrayList<String>();
 	private List variantList = null; //Lazy initialization, it's rarely, if ever, used.
 	private Map preReqMap = null;
 	private SortedSet castingTime = new TreeSet();
@@ -55,9 +55,9 @@ public final class Spell extends PObject
 	private SortedSet duration = new TreeSet();
 	private SortedSet range = new TreeSet();
 	private SortedSet saveInfo = new TreeSet();
-	private SortedSet school = new TreeSet();
+	private SortedSet<String> school = new TreeSet<String>();
 	private SortedSet spellResistance = new TreeSet();
-	private SortedSet subschool = new TreeSet();
+	private SortedSet<String> subschool = new TreeSet<String>();
 	private String fixedCasterLevel = null;
 	private String fixedDC = null;
 
@@ -386,7 +386,7 @@ public final class Spell extends PObject
 		return dc;
 	}
 
-	public List getDescriptorList()
+	public List<String> getDescriptorList()
 	{
 		return descriptorList;
 	}
@@ -705,7 +705,7 @@ public final class Spell extends PObject
 		return s.substring(1, s.length() - 1);
 	}
 
-	public SortedSet getSchools()
+	public SortedSet<String> getSchools()
 	{
 		return school;
 	}
@@ -771,7 +771,7 @@ public final class Spell extends PObject
 		return s.substring(1, s.length() - 1);
 	}
 
-	public SortedSet getSubschools()
+	public SortedSet<String> getSubschools()
 	{
 		return subschool;
 	}

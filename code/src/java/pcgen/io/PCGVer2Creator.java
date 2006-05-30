@@ -2302,9 +2302,9 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendStatLines(StringBuffer buffer)
 	{
-		for (Iterator i = aPC.getStatList().getStats().iterator(); i.hasNext();)
+		for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 		{
-			final PCStat aStat = (PCStat) i.next();
+			final PCStat aStat = i.next();
 			buffer.append(TAG_STAT).append(':');
 			buffer.append(aStat.getAbb());
 			buffer.append('|');
