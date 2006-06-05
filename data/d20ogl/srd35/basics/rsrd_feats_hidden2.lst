@@ -13,6 +13,10 @@ Opportunist		TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Opportunist (Ex) 1/round
 Slippery Mind	TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Slippery Mind (Ex)											DESC:Class Special Ability												SOURCEPAGE:ClassesII.rtf
 Skill Mastery	TYPE:Special.RogueAbilities	VISIBLE:EXPORT															DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT	SOURCEPAGE:ClassesII.rtf
 
+###Block: Arcane Archer Abilities
+# Feat Name		Type			Visible	Special Ability					Define									Modify VAR								Source Page
+Enhance Arrow	TYPE:Special	VISIBLE:NO	SA:Enhance Arrow (Su) +%|ArrowEnhancement	DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
+
 ###Block:Archmage High Arcana Class Abilities
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
 # Feat Name				Type			Visible	Required Class		Req. Spell Type		Special Ability					Define			Stackable?	Multiple?	Choose		Bonus to spell cast/day				Modify VAR			Source Page
