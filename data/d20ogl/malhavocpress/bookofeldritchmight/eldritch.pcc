@@ -43,5 +43,5 @@ EQUIPMENT:eldritch_equip_scrolls.lst
 EQUIPMENT:eldritch_equip_rodsstaffswands.lst
 
 #Needed stuff from SRD for program not to hang
-CLASS:@/d20ogl/srd/srd_classes_creature_types.lst|(INCLUDE:Construct)
+CLASS:@/d20ogl/srd/basics/srd_classes_creature_types.lst|(INCLUDE:Construct)
 

@@ -20,8 +20,8 @@ LSTEXCLUDE:srdracesphb.lst|srdlanguages.lst|srdequipcoinsgems.lst
 #PCC:@/permissioned/sovereignpress/sovereignstone/sovereign.pcc
 PCC:@/alpha/sovereignpress/sovereignstone/sovereign.pcc
 
-FEAT:@/d20ogl/srd/srd_feats.lst|(EXCLUDE:Brew Potion|Craft Magic Arms and Armor|Craft Rod|Craft Staff|Craft Wand|Craft Wondrous Item|Empower Spell|Enlarge Spell|Extend Spell|Extra Turning|Forge Ring|Heighten Spell|Maximize Spell|Quicken Spell|Scribe Scroll|Silent Spell|Spell Mastery|Still Spell|Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)
-SKILL:@/d20ogl/srd/srd_skills.lst|(EXCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
+FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:Brew Potion|Craft Magic Arms and Armor|Craft Rod|Craft Staff|Craft Wand|Craft Wondrous Item|Empower Spell|Enlarge Spell|Extend Spell|Extra Turning|Forge Ring|Heighten Spell|Maximize Spell|Quicken Spell|Scribe Scroll|Silent Spell|Spell Mastery|Still Spell|Flyby Attack|Hover|Improved Control Shape|Multidexterity|Multiweapon Fighting|Multiattack|Quicken Spell-Like Ability|Snatch|Spell-Like Ability Focus|Unearthly Beauty|Wingover)
+SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
 #CLASS:@/permissioned/sovereignpress/sovereignstone/sovereignphbclasses.lst
 #EQUIPMENT:@/permissioned/sovereignpress/sovereignstone/sovereignphbequip.lst
 CLASS:@/alpha/sovereignpress/sovereignstone/sovereignphbclasses.lst
