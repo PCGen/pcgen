@@ -809,6 +809,10 @@ public class DetailsPane extends javax.swing.JPanel {
 		if (pc.getDeity() != null) {
 			deity.setText(pc.getDeity().getDisplayName() + ' ');
 		}
+		else
+		{
+			deity.setText(" ");
+		}
 		height.setText(HeightToken.getHeightToken(pc) + ' ');
 		eyes.setText(pc.getEyeColor() + ' ');
 		weight.setText(WeightToken.getWeightToken(pc) + ' ');
