@@ -55,6 +55,7 @@ import java.util.TreeSet;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListSelectionModel;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -922,13 +923,21 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 
-	private void currCharClassSkillPntsFocusLost()
+	/**
+	 * Action a user requested change in the number of skill points for 
+	 * the current class level. 
+	 */
+	private void currCharClassSkillPntsChanged()
 	{
 		final PlayerCharacter currentPC = pc;
 		currentPC.setDirty(true);
 
 		PCClass aClass = this.getSelectedPCClass();
 		PCLevelInfo pcl = getSelectedLevelInfo(currentPC);
+		if (pcl == null)
+		{
+			return;
+		}
 		int skillPool = pcl.getSkillPointsRemaining();
 
 		if (currCharClassSkillPnts.getText().length() > 0)
@@ -1406,11 +1415,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else
 		{
-			totalSkillPointsLeft.addFocusListener(new FocusAdapter()
+			totalSkillPointsLeft.setInputVerifier(new InputVerifier()
 				{
-					public void focusLost(FocusEvent evt)
+					public boolean shouldYieldFocus(JComponent input)
 					{
-						totalSkillPointsLeftFocusLost();
+						boolean valueOk = verify(input);
+						totalSkillPointsLeftChanged();
+						return valueOk;
+					}
+					
+					public boolean verify(JComponent input)
+					{
+						return true;
 					}
 				});
 		}
@@ -1422,11 +1438,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (currCharClassSkillPnts != null)
 		{
-			currCharClassSkillPnts.addFocusListener(new FocusAdapter()
+			currCharClassSkillPnts.setInputVerifier(new InputVerifier()
 				{
-					public void focusLost(FocusEvent evt)
+					public boolean shouldYieldFocus(JComponent input)
 					{
-						currCharClassSkillPntsFocusLost();
+						boolean valueOk = verify(input);
+						currCharClassSkillPntsChanged();
+						return valueOk;
+					}
+					
+					public boolean verify(JComponent input)
+					{
+						return true;
 					}
 				});
 
@@ -1809,7 +1832,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 
-	private void totalSkillPointsLeftFocusLost()
+	/**
+	 * Action a user request to change the total number of skill points 
+	 * remaining. 
+	 */
+	private void totalSkillPointsLeftChanged()
 	{
 		final PlayerCharacter currentPC = pc;
 		currentPC.setDirty(true);
@@ -1826,6 +1853,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			currentPC.setSkillPoints(anInt);
 
 			final int x = currentPC.getClassList().size();
+			if (x == 0)
+			{
+				return;
+			}
 			final int y = anInt / x;
 			PCClass aClass;
 

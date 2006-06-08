@@ -198,10 +198,6 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private NoteTreeNode rootTreeNode;
 	private PortraitChooser portrait;
 
-//	private FocusAdapter ageAdapter = null;
-//	private FocusAdapter htAdapter = null;
-//	private FocusAdapter wtAdapter = null;
-//	private FocusAdapter playerNameAdapter = null;
 	private WholeNumberField ageText = new WholeNumberField(0, 0);
 	private boolean textIsDirty = false;
 
@@ -1108,14 +1104,6 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				}
 			});
 
-		txtName.addFocusListener(new FocusAdapter()
-			{
-				public void focusLost(FocusEvent evt)
-				{
-					txtName_Changed();
-				}
-			});
-
 		randName.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
@@ -1133,29 +1121,41 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				}
 			});
 
-		FocusListener fl = new FocusAdapter()
+		InputVerifier inputVerify = new InputVerifier()
+		{
+			public boolean shouldYieldFocus(JComponent input)
 			{
-				public void focusLost(FocusEvent evt)
-				{
-					updateTextFields();
-				}
-			};
-
-		skinText.addFocusListener(fl);
-		hairColorText.addFocusListener(fl);
-		hairStyleText.addFocusListener(fl);
-		eyeColorText.addFocusListener(fl);
-		speechPatternText.addFocusListener(fl);
-		phobiaText.addFocusListener(fl);
-		interestsText.addFocusListener(fl);
-		catchPhraseText.addFocusListener(fl);
-		personality1Text.addFocusListener(fl);
-		personality2Text.addFocusListener(fl);
-		fregionText.addFocusListener(fl);
-		residenceText.addFocusListener(fl);
-		locationText.addFocusListener(fl);
-		birthplaceText.addFocusListener(fl);
-
+				boolean valueOk = verify(input);
+				updateTextFields(input);
+				return valueOk;
+			}
+			
+			public boolean verify(JComponent input)
+			{
+				return true;
+			}
+		};
+		skinText.setInputVerifier(inputVerify);
+		hairColorText.setInputVerifier(inputVerify);
+		hairStyleText.setInputVerifier(inputVerify);
+		eyeColorText.setInputVerifier(inputVerify);
+		speechPatternText.setInputVerifier(inputVerify);
+		phobiaText.setInputVerifier(inputVerify);
+		interestsText.setInputVerifier(inputVerify);
+		catchPhraseText.setInputVerifier(inputVerify);
+		personality1Text.setInputVerifier(inputVerify);
+		personality2Text.setInputVerifier(inputVerify);
+		fregionText.setInputVerifier(inputVerify);
+		residenceText.setInputVerifier(inputVerify);
+		locationText.setInputVerifier(inputVerify);
+		birthplaceText.setInputVerifier(inputVerify);
+		ageText.setInputVerifier(inputVerify);
+		htText.setInputVerifier(inputVerify);
+		wtText.setInputVerifier(inputVerify);
+		playerNameText.setInputVerifier(inputVerify);
+		txtName.setInputVerifier(inputVerify);
+		
+		
 		checkAll.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
@@ -1178,42 +1178,6 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				public void actionPerformed(ActionEvent evt)
 				{
 					uncheckAll_click();
-				}
-			});
-
-		ageText.addFocusListener(new FocusAdapter()
-			{
-				public void focusLost(FocusEvent evt)
-				{
-					pc.setDirty(true);
-					pc.setAge(Delta.parseInt("0" + ageText.getText()));
-					updateDisplayedAge();
-				}
-			});
-
-		htText.addFocusListener(new FocusAdapter()
-			{
-				public void focusLost(FocusEvent evt)
-				{
-					pc.setDirty(true);
-					pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(Delta.parseDouble("0" + htText.getText())));
-				}
-			});
-
-		wtText.addFocusListener(new FocusAdapter()
-			{
-				public void focusLost(FocusEvent evt)
-				{
-					pc.setDirty(true);
-					pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(Delta.parseDouble("0" + wtText.getText())));
-				}
-			});
-
-		playerNameText.addFocusListener(new FocusAdapter()
-			{
-				public void focusLost(FocusEvent evt)
-				{
-					pc.setPlayersName(playerNameText.getText());
 				}
 			});
 
@@ -1947,7 +1911,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			if (x > -1)
 			{
-				((NoteItem) pc.getNotesList().get(x)).setValue(dataText.getText());
+				pc.getNotesList().get(x).setValue(dataText.getText());
 				pc.setDirty(true);
 			}
 			else if (currentItem == bioNote)
@@ -2002,6 +1966,98 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		pc.setAge(Delta.parseInt("0" + ageText.getText()));
 		pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(Delta.parseDouble("0" + htText.getText())));
 		pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(Delta.parseDouble("0" + wtText.getText())));
+	}
+
+	/**
+	 * Update the value of the supplied field. Normally called as part of an 
+	 * InputVerify action  
+	 * @param input The field being modified.
+	 */
+	private void updateTextFields(JComponent input)
+	{
+		if (input == skinText)
+		{
+			pc.setSkinColor(skinText.getText());
+		}
+		else if (input == hairColorText)
+		{
+			pc.setHairColor(hairColorText.getText());
+		}
+		else if (input == hairStyleText)
+		{
+			pc.setHairStyle(hairStyleText.getText());
+		}
+		else if (input == eyeColorText)
+		{
+			pc.setEyeColor(eyeColorText.getText());
+		}
+		else if (input == speechPatternText)
+		{
+			pc.setSpeechTendency(speechPatternText.getText());
+		}
+		else if (input == phobiaText)
+		{
+			pc.setPhobias(phobiaText.getText());
+		}
+		else if (input == interestsText)
+		{
+			pc.setInterests(interestsText.getText());
+		}
+		else if (input == catchPhraseText)
+		{
+			pc.setCatchPhrase(catchPhraseText.getText());
+		}
+		else if (input == personality1Text)
+		{
+			pc.setTrait1(personality1Text.getText());
+		}
+		else if (input == personality2Text)
+		{
+			pc.setTrait2(personality2Text.getText());
+		}
+		else if (input == residenceText)
+		{
+			pc.setResidence(residenceText.getText());
+		}
+		else if (input == locationText)
+		{
+			pc.setLocation(locationText.getText());
+		}
+		else if (input == birthplaceText)
+		{
+			pc.setBirthplace(birthplaceText.getText());
+		}
+		else if (input == birthdayText)
+		{
+			pc.setBirthday(birthdayText.getText());
+		}
+		else if (input == ageText)
+		{
+			pc.setDirty(true);
+			pc.setAge(Delta.parseInt("0" + ageText.getText()));
+			updateDisplayedAge();
+		}
+		else if (input == htText)
+		{
+			pc.setDirty(true);
+			pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(
+				Delta.parseDouble("0" + htText.getText())));
+		}
+		else if (input == wtText)
+		{
+			pc.setDirty(true);
+			pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(
+				Delta.parseDouble("0" + wtText.getText())));
+		}
+		else if (input == playerNameText)
+		{
+			pc.setPlayersName(playerNameText.getText());
+		}
+		else if (input == txtName)
+		{
+			pc.setName(txtName.getText());
+			PCGen_Frame1.forceUpdate_PlayerTabs();
+		}
 	}
 
 	// Notes popup menu listener

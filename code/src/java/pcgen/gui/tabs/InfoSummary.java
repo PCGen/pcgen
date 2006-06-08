@@ -49,6 +49,7 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
@@ -74,8 +75,6 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 import pcgen.core.Constants;
-import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -88,7 +87,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
@@ -339,10 +337,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * The listener for when the PC name has been changed so the
 	 * PC can be updated.
 	 */
-	private FocusAdapter pcNameAdapter = new FocusAdapter()
+	private InputVerifier pcNameInputVerify = new InputVerifier()
 		{
-			public void focusLost(FocusEvent evt)
+			public boolean shouldYieldFocus(JComponent input)
 			{
+				boolean valueOk = verify(input);
 				final String entry = pcNameText.getText();
 
 				if ((entry != null) && (!entry.equals(pc.getName())))
@@ -350,6 +349,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					pc.setName(entry);
 					PCGen_Frame1.forceUpdate_PlayerTabs();
 				}
+				return valueOk;
+			}
+			
+			public boolean verify(JComponent input)
+			{
+				return true;
 			}
 		};
 
@@ -357,16 +362,23 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * The listener for when the player name has been changed so the
 	 * PC can be updated.
 	 */
-	private FocusAdapter playerNameAdapter = new FocusAdapter()
+	private InputVerifier playerNameInputVerify = new InputVerifier()
 		{
-			public void focusLost(FocusEvent evt)
+			public boolean shouldYieldFocus(JComponent input)
 			{
+				boolean valueOk = verify(input);
 				String entry = playerNameText.getText();
 
 				if ((entry != null) && (!entry.equals(pc.getPlayersName())))
 				{
 					pc.setPlayersName(entry);
 				}
+				return valueOk;
+			}
+			
+			public boolean verify(JComponent input)
+			{
+				return true;
 			}
 		};
 
@@ -418,16 +430,23 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * The listener for when the PC tab name has been changed so the
 	 * PC can be updated.
 	 */
-	private FocusAdapter tabNameAdapter = new FocusAdapter()
+	private InputVerifier tabNameInputVerify = new InputVerifier()
 		{
-			public void focusLost(FocusEvent evt)
+			public boolean shouldYieldFocus(JComponent input)
 			{
+				boolean valueOk = verify(input);
 				String entry = tabNameText.getText();
 
 				if ((entry != null) && (!entry.equals(pc.getTabName())))
 				{
 					pc.setTabName(entry);
 				}
+				return valueOk;
+			}
+			
+			public boolean verify(JComponent input)
+			{
+				return true;
 			}
 		};
 
@@ -1517,7 +1536,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		c.anchor = GridBagConstraints.WEST;
 		gridbag.setConstraints(tabNameText, c);
 		northPanel.add(tabNameText);
-		tabNameText.addFocusListener(tabNameAdapter);
+		tabNameText.setInputVerifier(tabNameInputVerify);
 
 		Utility.buildConstraints(c, 0, 3, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
@@ -1532,7 +1551,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		c.anchor = GridBagConstraints.WEST;
 		gridbag.setConstraints(playerNameText, c);
 		northPanel.add(playerNameText);
-		playerNameText.addFocusListener(playerNameAdapter);
+		playerNameText.setInputVerifier(playerNameInputVerify);
 
 		// Layout the second column
 		Utility.buildConstraints(c, 3, 0, 1, 1, 0, 0);
@@ -2040,14 +2059,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 */
 	private void startListeners()
 	{
-		pcNameText.addFocusListener(pcNameAdapter);
+		pcNameText.setInputVerifier(pcNameInputVerify);
 		randName.addActionListener(randNameListener);
 		alignmentComboBox.addActionListener(alignmentListener);
 		raceComboBox.addActionListener(raceListener);
 		raceComboBox.addFocusListener(raceFocusListener);
 		classComboBox.addActionListener(classListener);
-		tabNameText.addFocusListener(tabNameAdapter);
-		playerNameText.addFocusListener(playerNameAdapter);
+		tabNameText.setInputVerifier(tabNameInputVerify);
+		playerNameText.setInputVerifier(playerNameInputVerify);
 		lvlDownButton.addActionListener(levelCmdListener);
 		lvlUpButton.addActionListener(levelCmdListener);
 
@@ -2291,14 +2310,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 */
 	private void stopListeners()
 	{
-		pcNameText.removeFocusListener(pcNameAdapter);
+		pcNameText.setInputVerifier(null);
 		randName.removeActionListener(randNameListener);
 		alignmentComboBox.removeActionListener(alignmentListener);
 		raceComboBox.removeActionListener(raceListener);
 		raceComboBox.removeFocusListener(raceFocusListener);
 		classComboBox.removeActionListener(classListener);
-		tabNameText.removeFocusListener(tabNameAdapter);
-		playerNameText.removeFocusListener(playerNameAdapter);
+		tabNameText.setInputVerifier(null);
+		playerNameText.setInputVerifier(null);
 		lvlDownButton.removeActionListener(levelCmdListener);
 		lvlUpButton.removeActionListener(levelCmdListener);
 

@@ -51,6 +51,7 @@ import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
@@ -900,10 +901,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		}
 		else
 		{
-			numFeatsField.addFocusListener(new FocusAdapter()
+			numFeatsField.setInputVerifier(new InputVerifier()
 				{
-					public void focusLost(FocusEvent evt)
+					public boolean shouldYieldFocus(JComponent input)
 					{
+						boolean valueOk = verify(input);
 						if (numFeatsField.getText().length() > 0)
 						{
 							if (pc != null)
@@ -914,9 +916,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 						}
 						else if (pc != null)
 						{
-//							numFeatsField.setText(String.valueOf(pc.getFeats()));
 							showRemainingFeatPoints();
 						}
+						return valueOk;
+					}
+					
+					public boolean verify(JComponent input)
+					{
+						return true;
 					}
 				});
 		}

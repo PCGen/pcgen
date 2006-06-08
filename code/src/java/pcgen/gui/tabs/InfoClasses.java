@@ -754,7 +754,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		{
 			hpButton.addActionListener(new HpButtonActionListener());
 		}
-		experience.addFocusListener(new ExperienceBoxFocusAdapter());
+		experience.setInputVerifier(new ExperienceBoxInputVerifier());
 		availableTable.getSelectionModel().addListSelectionListener(new AvailableListSelectionListener());
 		selectedTable.getSelectionModel().addListSelectionListener(new SelectedListSelectionListener());
 		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
@@ -2175,21 +2175,18 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 	}
 
-	private class ExperienceBoxFocusAdapter extends FocusAdapter
+	private class ExperienceBoxInputVerifier extends InputVerifier
 	{
-		private boolean isProcessingExperienceFocusLost = false;
-
-		public void focusLost(FocusEvent evt)
+		public boolean shouldYieldFocus(JComponent input)
 		{
-			//
-			// for some reason this gets processed twice, want to ignore the second (and subsequent)
-			//
-			if (!isProcessingExperienceFocusLost)
-			{
-				isProcessingExperienceFocusLost = true;
-				experienceFocusLost();
-				isProcessingExperienceFocusLost = false;
-			}
+			boolean valueOk = verify(input);
+			experienceFocusLost();
+			return valueOk;
+		}
+		
+		public boolean verify(JComponent input)
+		{
+			return true;
 		}
 	}
 
