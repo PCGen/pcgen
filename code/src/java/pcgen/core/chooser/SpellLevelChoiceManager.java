@@ -28,6 +28,8 @@ import pcgen.core.PlayerCharacter;
 
 import java.awt.Choice;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -123,14 +125,16 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 			aBonusList.add(cTok.nextToken());
 		}
 
-		final StringTokenizer choicesTok = new StringTokenizer(choicesSt, "|");
+		//final StringTokenizer choicesTok = new StringTokenizer(choicesSt, "|");
+		String choicesArr[] = choicesSt.split("|");
+		List<String> choicesList = Arrays.asList(choicesArr);
 
 		// get appropriate choices for chooser
 		ChooserUtilities.buildSpellTypeChoices(
 			availableList,
 			uniqueList,
 			aPc,
-			(Enumeration<String>)choicesTok);
+			Collections.enumeration(choicesList));
 
 		pobject.addAssociatedTo(selectedList);
 	}

@@ -67,7 +67,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 // WIP please leave boomer70
-import pcgen.core.npcgen.NPCGenerator;
+//import pcgen.core.npcgen.NPCGenerator;
 
 /**
  * Main screen of the application. Some of the custom JPanels created
@@ -1197,42 +1197,42 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	}
 
 // WIP please leave boomer70
-	void doNewNPC()
-	{
-		NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
-		genDlg.pack();
-		genDlg.setVisible(true);
-
-		getCurrentPC().setDirty(false);
-		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
-		{
-			NPCGenerator npcgen = NPCGenerator.getInst();
-			npcgen.generate(getCurrentPC(), genDlg.getAlignment(),
-								  genDlg.getRace(), genDlg.getGender(),
-								  genDlg.getClassList(), genDlg.getLevels(),
-									  genDlg.getRollMethod());
-
-			getCurrentPC().setDirty(true);
-
-			this.featList_Changed();
-			this.hpTotal_Changed();
-			forceUpdate_PlayerTabs();
-			CharacterInfo pane = getCharacterPane();
-			pane.setPaneForUpdate(pane.infoRace());
-			pane.setPaneForUpdate(pane.infoClasses());
-			pane.setPaneForUpdate(pane.infoSkills());
-			pane.setPaneForUpdate(pane.infoSpells());
-			pane.setPaneForUpdate(pane.infoDomain());
-			pane.setPaneForUpdate(pane.infoInventory());
-			pane.setPaneForUpdate(pane.infoSummary());
-			pane.refresh();
-		}
-	}
+//	void doNewNPC()
+//	{
+//		NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
+//		genDlg.pack();
+//		genDlg.setVisible(true);
+//
+//		getCurrentPC().setDirty(false);
+//		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
+//		{
+//			NPCGenerator npcgen = NPCGenerator.getInst();
+//			npcgen.generate(getCurrentPC(), genDlg.getAlignment(),
+//								  genDlg.getRace(), genDlg.getGender(),
+//								  genDlg.getClassList(), genDlg.getLevels(),
+//									  genDlg.getRollMethod());
+//
+//			getCurrentPC().setDirty(true);
+//
+//			this.featList_Changed();
+//			this.hpTotal_Changed();
+//			forceUpdate_PlayerTabs();
+//			CharacterInfo pane = getCharacterPane();
+//			pane.setPaneForUpdate(pane.infoRace());
+//			pane.setPaneForUpdate(pane.infoClasses());
+//			pane.setPaneForUpdate(pane.infoSkills());
+//			pane.setPaneForUpdate(pane.infoSpells());
+//			pane.setPaneForUpdate(pane.infoDomain());
+//			pane.setPaneForUpdate(pane.infoInventory());
+//			pane.setPaneForUpdate(pane.infoSummary());
+//			pane.refresh();
+//		}
+//	}
 
 	void newNPCItem_actionPerformed()
 	{
 		GMBus.send(new NewMessage(this));
-		doNewNPC();
+//		doNewNPC();
 	}
 
 	void newPopupItem_actionPerformed()
@@ -1244,7 +1244,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	void newNPCPopupItem_actionPerformed()
 	{
 		doNewItem();
-		doNewNPC();
+//		doNewNPC();
 	}
 
 	/**

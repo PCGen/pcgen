@@ -27,7 +27,9 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -1975,10 +1977,12 @@ public class PObjectUtilities
 			aBonusList.add(cTok.nextToken());
 		}
 
-		final StringTokenizer choicesTok = new StringTokenizer(choices, "|");
+		//final StringTokenizer choicesTok = new StringTokenizer(choices, "|");
+		String choicesArr[] = choices.split("|");
+		List<String> choicesList = Arrays.asList(choicesArr);
 
 		// get appropriate choices for chooser
-		ChooserUtilities.buildSpellTypeChoices(availableList, uniqueList, aPC, (Enumeration<String>)choicesTok);
+		ChooserUtilities.buildSpellTypeChoices(availableList, uniqueList, aPC, Collections.enumeration(choicesList));
 		obj.addAssociatedTo(selectedList);
 
 		if (!process)

@@ -116,7 +116,7 @@ public class AllJUnitTests extends TestCase {
 		// core.prereq
 		suite.addTest(new TestSuite(pcgen.core.prereq.AbstractPrerequisiteTestTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreAlignTest.class));
-		suite.addTest(new TestSuite(pcgen.core.prereq.PreArmorProfTest.class));
+		//suite.addTest(new TestSuite(pcgen.core.prereq.PreArmorProfTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreAttTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreBaseSizeTest.class));
 		suite.addTest(new TestSuite(pcgen.core.prereq.PreBirthplaceTest.class));
