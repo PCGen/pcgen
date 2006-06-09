@@ -1685,7 +1685,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// just set the rank to zero and it is not untrained
 			//
 			if (CoreUtility.doublesEqual(bSkill.getRank().doubleValue(), 0.0)
-				&& !(bSkill.getUntrained().charAt(0) == 'Y'))
+				&& !bSkill.isUntrained())
 			{
 				pc.getSkillList().remove(bSkill);
 			}
@@ -2007,9 +2007,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 				currCharacterClass.removeAllItems();
 				currCharacterClass.setAllItems(comboStrings);
-	
+
 				resetSelectedModel = true;
-	
+
 				if (currCharacterClass.getItemCount() > 0)
 				{
 					setCurrentClassCombo();
@@ -2054,7 +2054,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.getUntrained()); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
 			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
 
 			String bString = aSkill.getSource();
@@ -3732,7 +3732,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					// and it is not an untrained skill
 					//
 					if ((CoreUtility.doublesEqual(aSkill.getRank().doubleValue(), 0.0))
-						&& !(aSkill.getUntrained().charAt(0) == 'Y'))
+						&& !aSkill.isUntrained())
 					{
 						pc.getSkillList().remove(aSkill);
 					}

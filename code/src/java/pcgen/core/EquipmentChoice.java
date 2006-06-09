@@ -56,7 +56,7 @@ final class EquipmentChoice
 	private int pool = 0;
 	private String title = null;
 
-	private List availableList = new ArrayList();
+	private List<String> availableList = new ArrayList<String>();
 
 	/**
 	 * Default constructor for the equipment choice class.
@@ -80,23 +80,23 @@ final class EquipmentChoice
 	 *                    added if there are no choices.
 	 * @return An iterator of choices
 	 */
-	Iterator getChoiceIterator(final boolean neverEmpty)
+	EquipChoiceIterator getChoiceIterator(final boolean neverEmpty)
 	{
 		if (neverEmpty && availableList.isEmpty())
 		{
-			final List temp = new ArrayList();
+			final List<String> temp = new ArrayList<String>();
 			temp.add("");
 			return new EquipChoiceIterator(temp);
 		}
-		final List finalList;
+		final List<String> finalList;
 
 		// Account for secondary values (sent as <primary>|<secondary>)
 		if (getMinValue() < getMaxValue())
 		{
-			finalList = new ArrayList();
+			finalList = new ArrayList<String>();
 			for (int i = 0; i < availableList.size(); i++)
 			{
-				final String choice = (String) availableList.get(i);
+				final String choice = availableList.get(i);
 				if (choice.indexOf('|') < 0)
 				{
 					for (int j = getMinValue(); j <= getMaxValue(); j += getIncValue())
@@ -151,14 +151,14 @@ final class EquipmentChoice
 	/**
 	 * @return Returns the availableList.
 	 */
-	final List getAvailableList()
+	final List<String> getAvailableList()
 	{
 		return availableList;
 	}
 	/**
 	 * @param availableList The availableList to set.
 	 */
-	final void setAvailableList(final List availableList)
+	final void setAvailableList(final List<String> availableList)
 	{
 		this.availableList = availableList;
 	}
@@ -265,10 +265,9 @@ final class EquipmentChoice
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
 	public void addSkills() {
-		for (Iterator e = Globals.getSkillList().iterator(); e.hasNext();)
+		for ( Skill skill : Globals.getSkillList() )
 		{
-			final Skill aSkill = (Skill) e.next();
-			this.getAvailableList().add(aSkill.getKeyName());
+			this.getAvailableList().add(skill.getKeyName());
 		}
 	}
 
@@ -357,9 +356,9 @@ final class EquipmentChoice
 		final String          typeString,
 		final String          aCategory)
 	{
-		for (Iterator e = Globals.getAbilityKeyIterator(aCategory); e.hasNext();)
+		for (Iterator<Ability> e = Globals.getAbilityKeyIterator(aCategory); e.hasNext();)
 		{
-			final Ability anAbility = (Ability) e.next();
+			final Ability anAbility = e.next();
 
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||
@@ -385,10 +384,10 @@ final class EquipmentChoice
 	public void addSelectableEquipment(
 		final String          typeString)
 	{
-		for (Iterator i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
+		for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
 		{
-			final Map.Entry entry  = (Map.Entry) i.next();
-			final Equipment aEquip = (Equipment) entry.getValue();
+			final Map.Entry<String, Equipment> entry  = i.next();
+			final Equipment aEquip = entry.getValue();
 
 			if (
 				aEquip.isType(typeString) &&
@@ -407,16 +406,14 @@ final class EquipmentChoice
 	public void addSelectableSkills(
 		final String          typeString)
 	{
-		for (Iterator e = Globals.getSkillList().iterator(); e.hasNext();)
+		for ( Skill skill : Globals.getSkillList() )
 		{
-			final Skill aSkill = (Skill) e.next();
-
 			if (
 				(typeString.equalsIgnoreCase("ALL") ||
-					aSkill.isType(typeString)) &&
-				!this.getAvailableList().contains(aSkill.getKeyName()))
+					skill.isType(typeString)) &&
+				!this.getAvailableList().contains(skill.getKeyName()))
 			{
-				this.getAvailableList().add(aSkill.getKeyName());
+				this.getAvailableList().add(skill.getKeyName());
 			}
 		}
 	}
@@ -429,10 +426,8 @@ final class EquipmentChoice
 		final Equipment       parent,
 		String                choiceType)
 	{
-		for (Iterator e = parent.getEqModifierList(true).iterator(); e.hasNext();)
+		for ( EquipmentModifier sibling : parent.getEqModifierList(true) )
 		{
-			final EquipmentModifier sibling = (EquipmentModifier) e.next();
-
 			if (
 				!(sibling.equals(this)) &&
 				sibling.getChoiceString().startsWith(choiceType))
@@ -658,12 +653,12 @@ final class EquipmentChoice
 		}
 	}
 
-	private class EquipChoiceIterator implements Iterator
+	private class EquipChoiceIterator implements Iterator<String>
 	{
-		List choiceList;
+		List<String> choiceList;
 		int currPos;
 
-		EquipChoiceIterator(final List list)
+		EquipChoiceIterator(final List<String> list)
 		{
 			choiceList = list;
 			currPos=0;
@@ -680,7 +675,7 @@ final class EquipmentChoice
 		/**
 		 * @see java.util.Iterator#next()
 		 */
-		public Object next()
+		public String next()
 		{
 			return choiceList.get(currPos++);
 		}

@@ -123,5 +123,5 @@ public interface ChooserInterface
 	 */
 	void show();
 
-	public void setAvailableColumnNames(List availableColumnNames);
+	public void setAvailableColumnNames(List<String> availableColumnNames);
 }

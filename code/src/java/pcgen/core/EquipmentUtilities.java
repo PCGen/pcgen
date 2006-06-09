@@ -48,14 +48,14 @@ public final class EquipmentUtilities
 	 * @param merge
 	 * @return merged list
 	 */
-	public static List mergeEquipmentList(final List aList, final int merge)
+	public static List<Equipment> mergeEquipmentList(final List<Equipment> aList, final int merge)
 	{
-		Collections.sort(aList, new Comparator()
+		Collections.sort(aList, new Comparator<Equipment>()
 		{
-			public int compare(final Object obj1, final Object obj2)
+			public int compare(final Equipment obj1, final Equipment obj2)
 			{
-				int e1 = ((Equipment) obj1).getOutputIndex();
-				int obj2Index = ((Equipment) obj2).getOutputIndex();
+				int e1 = obj1.getOutputIndex();
+				int obj2Index = obj2.getOutputIndex();
 
 				// Force unset items (index of 0) to appear at the end
 				if (e1 == 0)
@@ -78,8 +78,8 @@ public final class EquipmentUtilities
 				}
 				else
 				{
-					int sub1 = ((Equipment) obj1).getOutputSubindex();
-					int obj2Subindex = ((Equipment) obj2).getOutputSubindex();
+					int sub1 = obj1.getOutputSubindex();
+					int obj2Subindex = obj2.getOutputSubindex();
 
 					if (sub1 > obj2Subindex)
 					{
@@ -91,20 +91,20 @@ public final class EquipmentUtilities
 					}
 					else
 					{
-						if (((Equipment) obj1).getName().compareToIgnoreCase(
-								((Equipment) obj2).getName()) == 0)
+						if (obj1.getName().compareToIgnoreCase(
+								obj2.getName()) == 0)
 						{
-							return ((Equipment) obj1).getParentName()
+							return obj1.getParentName()
 									.compareToIgnoreCase(
-											((Equipment) obj2).getParentName());
+											obj2.getParentName());
 						}
-						return ((Equipment) obj1).getName()
-								.compareToIgnoreCase(((Equipment) obj2).getName());
+						return obj1.getName()
+								.compareToIgnoreCase(obj2.getName());
 					}
 				}
 			}
 
-			public boolean equals(final Object obj)
+			public boolean equals(final Equipment obj)
 			{
 				return false;
 			}
@@ -121,15 +121,14 @@ public final class EquipmentUtilities
 			return aList;
 		}
 
-		final ArrayList eq1List = new ArrayList();
-		final ArrayList eq2List = new ArrayList();
-		final ArrayList mergeList = new ArrayList();
+		final ArrayList<Equipment> eq1List = new ArrayList<Equipment>();
+		final ArrayList<Equipment> eq2List = new ArrayList<Equipment>();
+		final ArrayList<Equipment> mergeList = new ArrayList<Equipment>();
 
 		// create a temporary list to merge with
-		for (Iterator e = aList.iterator(); e.hasNext();)
+		for ( Equipment tempEq : aList )
 		{
-			final Equipment tempEquip = (Equipment) e.next();
-			final Equipment eq = (Equipment) tempEquip.clone();
+			final Equipment eq = (Equipment) tempEq.clone();
 			eq1List.add(eq);
 			eq2List.add(eq);
 		}
@@ -137,15 +136,14 @@ public final class EquipmentUtilities
 		// merge like equipment within same container
 		if (merge == Constants.MERGE_LOCATION)
 		{
-			for (Iterator e = eq1List.iterator(); e.hasNext();)
+			for ( Equipment eq1 : eq1List )
 			{
-				final Equipment eq1 = (Equipment) e.next();
 				double eQty = eq1.qty();
 				boolean found = false;
 
 				for (int i = 0; i < eq2List.size(); i++)
 				{
-					final Equipment eq2 = (Equipment) eq2List.get(i);
+					final Equipment eq2 = eq2List.get(i);
 
 					if (eq1 == eq2)
 					{
@@ -187,15 +185,14 @@ public final class EquipmentUtilities
 		// merge all like equipment together
 		if (merge == Constants.MERGE_ALL)
 		{
-			for (Iterator e1 = eq1List.iterator(); e1.hasNext();)
+			for ( Equipment eq1 : eq1List )
 			{
-				final Equipment eq1 = (Equipment) e1.next();
 				double eQty = 0.0;
 				boolean found = false;
 
 				for (int i = 0; i < eq2List.size(); i++)
 				{
-					final Equipment eq2 = (Equipment) eq2List.get(i);
+					final Equipment eq2 = eq2List.get(i);
 
 					if (eq1.getName().equals(eq2.getName()))
 					{
@@ -307,7 +304,7 @@ public final class EquipmentUtilities
 	{
 		final StringBuffer aBuf = new StringBuffer(aName);
 		final int          iLen = aBuf.length() - 1;
-	
+
 		if (aBuf.charAt(iLen) == ')')
 		{
 			aBuf.setCharAt(iLen, '/');
@@ -316,10 +313,10 @@ public final class EquipmentUtilities
 		{
 			aBuf.append(" (");
 		}
-	
+
 		aBuf.append(aString);
 		aBuf.append(')');
-	
+
 		return aBuf.toString();
 	}
 
@@ -333,7 +330,7 @@ public final class EquipmentUtilities
 	public static String removeChoicesFromName(String aName)
 	{
 		final int anInt = aName.indexOf('(');
-	
+
 		return (anInt >= 0) ? aName.substring(0, anInt).trim() : aName;
 	}
 
@@ -342,10 +339,10 @@ public final class EquipmentUtilities
 	 * Takes a string of the form "foo (bar, baz)", populates the array
 	 * with ["bar", "baz"] and returns foo.  All strings returned by this
 	 * function have had leading.trailing whitespace removed.
-	 * 
+	 *
 	 * @param name
-	 * @param specifics 
-	 * 
+	 * @param specifics
+	 *
 	 * @return the name with sub-choices stripped from it
 	 */
 	public static String getUndecoratedName(final String name, ArrayList specifics) {
@@ -355,16 +352,16 @@ public final class EquipmentUtilities
 		specifics.clear();
 		int start = name.indexOf('(') + 1;
 		int end   = name.lastIndexOf(')');
-		
+
 		if (start >= 0 && end > start) {
 
 			// we want what is inside the outermost parenthesis.
 			String subName = name.substring(start, end);
-			
+
 			specifics.addAll(CoreUtility.split(subName, ','));
-			
+
 		}
-		
+
 		return altName;
 	}
 

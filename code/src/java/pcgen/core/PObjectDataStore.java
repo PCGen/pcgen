@@ -38,12 +38,12 @@ import java.util.*;
  * @version $Revision$
  *
  */
-public class PObjectDataStore
+public class PObjectDataStore<T extends PObject>
 {
-	private Map byKey = new HashMap(100);
-	private Map byType = new HashMap(4);
-	private Set nameSet;
-	private SortedMap byUpperName = new TreeMap();
+	private Map<String, T> byKey = new HashMap<String, T>(100);
+	private Map<String, Map<String, T>> byType = new HashMap<String, Map<String, T>>(4);
+	private Set<String> nameSet;
+	private SortedMap<String, T> byUpperName = new TreeMap<String, T>();
 	private String containedType;
 
 	/** This should perhaps be protected, but I wanted composition to be allowed.
@@ -54,7 +54,7 @@ public class PObjectDataStore
 		containedType = inContainedType;
 	}
 
-	public Collection getAll()
+	public Collection<T> getAll()
 	{
 		return byKey.values();
 	}
@@ -66,16 +66,16 @@ public class PObjectDataStore
 	 * @return Collection of all values from the list that meet the requirements.
 	 * TODO convert to an unmodifiable collection, so that we do not need the extra array copy.
 	 */
-	public Collection getAllOfType(final String type)
+	public Collection<T> getAllOfType(final String type)
 	{
 		final String upperType = type.toUpperCase();
-		List list = null;
+		List<T> list = null;
 
-		final SortedMap typedByName = (TreeMap) byType.get(upperType);
+		final Map<String, T> typedByName = byType.get(upperType);
 
 		if (typedByName != null)
 		{
-			list = new ArrayList(typedByName.values());
+			list = new ArrayList<T>(typedByName.values());
 		}
 
 		return list;
@@ -85,7 +85,7 @@ public class PObjectDataStore
 	 * Retrieve a list of the types in the data store.
 	 * @return Set of type names (as Strings)
 	 */
-	public Set getTypes()
+	public Set<String> getTypes()
 	{
 		return Collections.unmodifiableSet(byType.keySet());
 	}
@@ -95,9 +95,9 @@ public class PObjectDataStore
 	 *
 	 * @return list of PObjects, sorted by name.
 	 */
-	public List getArrayCopy()
+	public List<T> getArrayCopy()
 	{
-		return new ArrayList(byUpperName.values());
+		return new ArrayList<T>(byUpperName.values());
 	}
 
 	/** Retrieve by the key.  This is a caseless compare.
@@ -105,9 +105,9 @@ public class PObjectDataStore
 	 * @param aKey key to seek.  This will be compared in uppercase.
 	 * @return PObject satisfying caseless .equals with the key
 	 */
-	public PObject getKeyed(final String aKey)
+	public T getKeyed(final String aKey)
 	{
-		return (PObject) byKey.get(aKey.toUpperCase());
+		return byKey.get(aKey.toUpperCase());
 	}
 
 	/**
@@ -116,9 +116,9 @@ public class PObjectDataStore
 	 * @param name Name to seek.  Compare is caseless.
 	 * @return PObject meeting this requirement.
 	 */
-	public PObject getNamed(final String name)
+	public T getNamed(final String name)
 	{
-		return (PObject) byUpperName.get(name.toUpperCase());
+		return byUpperName.get(name.toUpperCase());
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class PObjectDataStore
 			ret.append("[");
 		}
 
-		for (Iterator ii = byUpperName.values().iterator(); ii.hasNext();)
+		for (Iterator<T> ii = byUpperName.values().iterator(); ii.hasNext();)
 		{
 			if (first)
 			{
@@ -149,7 +149,7 @@ public class PObjectDataStore
 				ret.append(delim);
 			}
 
-			final PObject object = (PObject) ii.next();
+			final T object = ii.next();
 			ret.append(object.getDisplayName());
 		}
 
@@ -167,7 +167,7 @@ public class PObjectDataStore
 	 * @param obj object to add to the list.
 	 * TODO if the object already exists in the list, it should be removed.
 	 */
-	public void add(final PObject obj)
+	public void add(final T obj)
 	{
 		final String key = obj.getKeyName().toUpperCase();
 		byKey.put(key, obj);
@@ -178,14 +178,14 @@ public class PObjectDataStore
 		// We used to add all types together here.
 		// Modifying to add each one seperately, so we can
 		// treat correctly the Weapon Proficiency Types
-		for (Iterator e = obj.getSafeListFor(ListKey.TYPE).iterator(); e.hasNext();)
+		for (Iterator<String> e = obj.getSafeListFor(ListKey.TYPE).iterator(); e.hasNext();)
 		{
-			final String aString = (String) e.next();
-			SortedMap typedByName = (TreeMap) byType.get(aString);
+			final String aString = e.next();
+			Map<String, T> typedByName = byType.get(aString);
 
 			if (typedByName == null)
 			{
-				typedByName = new TreeMap();
+				typedByName = new TreeMap<String, T>();
 				byType.put(aString, typedByName);
 			}
 
@@ -208,11 +208,11 @@ public class PObjectDataStore
 	 *
 	 * @param dest array to be augmented by the WeaponProfs
 	 */
-	public void addUniqueAsStringTo(final List dest)
+	public void addUniqueAsStringTo(final List<String> dest)
 	{
-		for (Iterator ii = byUpperName.values().iterator(); ii.hasNext();)
+		for (Iterator<T> ii = byUpperName.values().iterator(); ii.hasNext();)
 		{
-			final PObject object = (PObject) ii.next();
+			final T object = ii.next();
 
 			if (!dest.contains(object.toString()))
 			{
@@ -236,14 +236,14 @@ public class PObjectDataStore
 	 * Return true if any PObject in this list whose name is
 	 * in collectionOfNames has a variable with the desired name
 	 *
-	 * @param collectionOfNames collection of names to seek in the list
+	 * @param subList collection of objects to seek in the list
 	 * @param variableName variable to seek in the list
 	 * @return true if any PObject in this list whose name is
 	 *        in collectionOfNames has a variable with the desired name
 	 */
-	public boolean hasVariableNamed(final Collection collectionOfNames, final String variableName)
+	public boolean hasVariableNamed(final Collection<T> subList, final String variableName)
 	{
-		if (collectionOfNames.isEmpty())
+		if (subList.isEmpty())
 		{
 			return false;
 		}
@@ -254,15 +254,14 @@ public class PObjectDataStore
 			return false;
 		}
 
-		for (Iterator e = collectionOfNames.iterator(); e.hasNext();)
+		for (Iterator<T> e = subList.iterator(); e.hasNext();)
 		{
-			final String wpName = (String) e.next();
-			final PObject obj = getNamed(wpName);
+			final T obj = e.next();
 
 			if (obj == null)
 			{
 				// error or debugging? XXX
-				Logging.debugPrint("No PObject for " + containedType + " " + wpName);
+				Logging.debugPrint("No PObject for " + containedType + " " + obj.getDisplayName());
 
 				continue;
 			}
@@ -284,11 +283,11 @@ public class PObjectDataStore
 	 */
 	public void removeNamed(final String name)
 	{
-		final PObject object = getNamed(name);
+		final T object = getNamed(name);
 		byUpperName.remove(object.getDisplayName().toUpperCase());
 		byKey.remove(object.getKeyName().toUpperCase());
 
-		final SortedMap typedByName = (TreeMap) byType.get(object.getType().toUpperCase());
+		final Map<String, T> typedByName = byType.get(object.getType().toUpperCase());
 
 		if (typedByName != null)
 		{
@@ -308,14 +307,27 @@ public class PObjectDataStore
 		return byUpperName.size();
 	}
 
+	public Collection<T> retainAll(final Collection<T> other)
+	{
+		ArrayList<T> ret = new ArrayList<T>(this.size());
+		for ( T entry : byKey.values() )
+		{
+			if ( other.contains(entry) )
+			{
+				ret.add( entry );
+			}
+		}
+		return ret;
+	}
+
 	private final void cacheVariableNames()
 	{
-		nameSet = new HashSet();
+		nameSet = new HashSet<String>();
 
-		for (Iterator i = byUpperName.values().iterator(); i.hasNext();)
+		for (Iterator<T> i = byUpperName.values().iterator(); i.hasNext();)
 		{
-			final PObject object = (PObject) i.next();
-			final Set variableNames = object.getVariableNamesAsUnmodifiableSet();
+			final T object = i.next();
+			final Set<String> variableNames = object.getVariableNamesAsUnmodifiableSet();
 
 			if (variableNames != null)
 			{
@@ -329,7 +341,7 @@ public class PObjectDataStore
 		nameSet = null;
 	}
 
-	private boolean hasVariableNamed(final String variableName)
+	public boolean hasVariableNamed(final String variableName)
 	{
 		final String upperName = variableName.toUpperCase();
 

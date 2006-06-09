@@ -71,16 +71,15 @@ public final class Skill extends PObject
 	public static final int INCLUDE_SKILLS_ALL = 2;
 	public static final int INCLUDE_SKILLS_AS_UI = 3;
 
-	private ArrayList classList = new ArrayList(); // list of classes with class-access to this skill
-	private ArrayList rankList = new ArrayList();
-	private ArrayList synergyList = null;
+	private ArrayList<String> classList = new ArrayList<String>(); // list of classes with class-access to this skill
+	private ArrayList<String> rankList = new ArrayList<String>();
 	private String keyStat = "";
 	private String rootName = "";
-	private String untrained = "Y";
+
 	private int skillVisible = VISIBILITY_DEFAULT;
 	private boolean skillReadOnly = false;
 
-	//private String isExclusive = "N";
+	private boolean canUseUntrained = true;
 	private boolean isExclusive = false;
 	private boolean required = false;
 	private int aCheck = ACHECK_NONE;
@@ -138,7 +137,7 @@ public final class Skill extends PObject
 		return aCheck;
 	}
 
-	public ArrayList getChoiceStringList()
+	public ArrayList<String> getChoiceStringList()
 	{
 		String choiceString = getChoiceString();
 		if (choiceString.length() == 0)
@@ -147,7 +146,7 @@ public final class Skill extends PObject
 		}
 
 		final StringTokenizer aTok = new StringTokenizer(choiceString, "|");
-		final ArrayList aList = new ArrayList();
+		final ArrayList<String> aList = new ArrayList<String>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -157,7 +156,7 @@ public final class Skill extends PObject
 		return aList;
 	}
 
-	public ArrayList getClassList()
+	public ArrayList<String> getClassList()
 	{
 		return classList;
 	}
@@ -392,11 +391,6 @@ public final class Skill extends PObject
 			txt.append("\tUSEUNTRAINED:NO");
 		}
 
-		for (Iterator e = getSynergyList().iterator(); e.hasNext();)
-		{
-			txt.append("\tSYNERGY:").append((String) e.next());
-		}
-
 		final StringBuffer aString = new StringBuffer(100);
 
 		for (Iterator e = getClassList().iterator(); e.hasNext();)
@@ -492,7 +486,7 @@ public final class Skill extends PObject
 		return new Float(rank);
 	}
 
-	public ArrayList getRankList()
+	public ArrayList<String> getRankList()
 	{
 		return rankList;
 	}
@@ -554,16 +548,6 @@ public final class Skill extends PObject
 		return it;
 	}
 
-	public ArrayList getSynergyList()
-	{
-		if (synergyList == null)
-		{
-			synergyList = new ArrayList();
-		}
-
-		return synergyList;
-	}
-
 	/**
 	 * Returns the total ranks of a skill
 	 *  rank + bonus ranks (racial, class, etc bonuses)
@@ -576,24 +560,14 @@ public final class Skill extends PObject
 		return new Float(getRank().doubleValue() + getRankAdj(aPC).doubleValue());
 	}
 
-	public void setUntrained(final String aString)
+	public void setUntrained(final boolean yesNo)
 	{
-		untrained = aString;
-	}
-
-	public String getUntrained()
-	{
-		return untrained;
+		canUseUntrained = yesNo;
 	}
 
 	public boolean isUntrained()
 	{
-		if (untrained.length() != 0)
-		{
-			return untrained.charAt(0) == 'Y';
-		}
-
-		return false;
+		return canUseUntrained;
 	}
 
 	/** Set the ranks for the specified class to zero
@@ -712,10 +686,10 @@ public final class Skill extends PObject
 			}
 
 			final int numLanguages = languageSkill.getTotalRank(aPC).intValue();
-			final List selectedLangNames = new ArrayList();
-			final List selected = new ArrayList();
-			final List available = new ArrayList();
-			final List excludedLangs = new ArrayList();
+			final List<String> selectedLangNames = new ArrayList<String>();
+			final List<Language> selected = new ArrayList<Language>();
+			final List<Language> available = new ArrayList<Language>();
+			final List<Language> excludedLangs = new ArrayList<Language>();
 
 			String reqType = null;
 			if (languageSkill.getChoiceString().toLowerCase().indexOf(
@@ -733,9 +707,8 @@ public final class Skill extends PObject
 
 			languageSkill.addAssociatedTo(selectedLangNames);
 
-			for (Iterator e = selectedLangNames.iterator(); e.hasNext();)
+			for ( String aString : selectedLangNames )
 			{
-				final String aString = (String) e.next();
 				final Language aLang = Globals.getLanguageKeyed(aString);
 
 				if (aLang != null && aLang.isType(reqType))
@@ -744,24 +717,21 @@ public final class Skill extends PObject
 				}
 			}
 
-			for (Iterator e = Globals.getLanguageList().iterator(); e.hasNext();)
+			for ( Language lang : Globals.getLanguageList() )
 			{
-				final Language aLang = (Language) e.next();
-
-				if ((reqType == null || aLang.isType(reqType))
-					&& PrereqHandler.passesAll(aLang.getPreReqList(), aPC,
-						aLang))
+				if ((reqType == null || lang.isType(reqType))
+					&& PrereqHandler.passesAll(lang.getPreReqList(), aPC,
+						lang))
 				{
-					available.add(aLang);
+					available.add(lang);
 				}
 			}
 
 			//
 			// Do not give choice of automatic languages
 			//
-			for (Iterator e = aPC.getAutoLanguages().iterator(); e.hasNext();)
+			for ( Language lang : aPC.getAutoLanguages() )
 			{
-				final Language lang = (Language) e.next();
 				available.remove(lang);
 				excludedLangs.add(lang);
 			}
@@ -769,10 +739,8 @@ public final class Skill extends PObject
 			//
 			// Do not give choice of selected bonus languages
 			//
-			for (Iterator e = aPC.getLanguagesList().iterator(); e.hasNext();)
+			for ( Language lang : aPC.getLanguagesList() )
 			{
-				final Language lang = (Language) e.next();
-
 				if (!selected.contains(lang))
 				{
 					if ((reqType == null || lang.isType(reqType)))
@@ -788,26 +756,13 @@ public final class Skill extends PObject
 			final ChooserInterface lc = ChooserFactory.getChooserInstance();
 			lc.setVisible(false);
 			lc.setAvailableList(available);
-			lc.setSelectedList(selectedLangNames);
+			lc.setSelectedList(selected);
 			lc.setPool(numLanguages - selected.size());
 			lc.setPoolFlag(false);
 			lc.setVisible(true);
 
-			final List selLangs = new ArrayList();
-
-			for (Iterator e = lc.getSelectedList().iterator(); e.hasNext();)
-			{
-				final String aString = (String) e.next();
-				final Language aLang = Globals.getLanguageKeyed(aString);
-
-				if (aLang != null && aLang.isType(reqType))
-				{
-					selLangs.add(aLang);
-				}
-			}
-
 			aPC.getLanguagesList().clear();
-			aPC.getLanguagesList().addAll(selLangs);
+			aPC.getLanguagesList().addAll(selected);
 
 			// Add in all choice-excluded languages
 			aPC.getLanguagesList().addAll(excludedLangs);
@@ -852,17 +807,12 @@ public final class Skill extends PObject
 			newSkill.setRootName(rootName);
 			newSkill.setKeyStat(getKeyStat());
 			newSkill.setIsExclusive(isExclusive());
-			newSkill.rankList = (ArrayList) rankList.clone();
-			newSkill.setUntrained(getUntrained());
-			newSkill.classList = (ArrayList) classList.clone();
+			newSkill.rankList = (ArrayList<String>) rankList.clone();
+			newSkill.setUntrained(isUntrained());
+			newSkill.classList = (ArrayList<String>) classList.clone();
 			newSkill.aCheck = aCheck;
 			newSkill.skillVisible = skillVisible;
 			newSkill.skillReadOnly = skillReadOnly;
-
-			if (synergyList != null)
-			{
-				newSkill.setSynergyList((ArrayList) getSynergyList().clone());
-			}
 
 			newSkill.outputIndex = outputIndex;
 		}
@@ -1180,17 +1130,16 @@ public final class Skill extends PObject
 				minBonus = (aCheck == ACHECK_DOUBLE) ? 2 * penalty : penalty;
 			}
 
-			final List itemList = aPC.getEquipmentOfType("Armor", 1);
-			for (Iterator e = aPC.getEquipmentOfType("Shield", 1).iterator(); e
-				.hasNext();)
+			final List<Equipment> itemList = aPC.getEquipmentOfType("Armor", 1);
+			for ( Equipment eq : aPC.getEquipmentOfType("Shield", 1) )
 			{
-				final Equipment eq = (Equipment) e.next();
 				if (!itemList.contains(eq))
+				{
 					itemList.add(eq);
+				}
 			}
-			for (Iterator e = itemList.iterator(); e.hasNext();)
+			for ( Equipment eq : itemList )
 			{
-				final Equipment eq = (Equipment) e.next();
 				// For when the new BONUS'es are implmented
 				/*
 				 String qsString = "EQ:" + eq.getName();
@@ -1237,11 +1186,11 @@ public final class Skill extends PObject
 		return buffer.toString();
 	}
 
-	boolean isClassSkill(final List aList, final PlayerCharacter aPC)
+	boolean isClassSkill(final List<PCClass> aList, final PlayerCharacter aPC)
 	{
-		for (Iterator e = aList.iterator(); e.hasNext();)
+		for ( PCClass pcClass : aList )
 		{
-			if (isClassSkill((PCClass) e.next(), aPC))
+			if (isClassSkill(pcClass, aPC))
 			{
 				return true;
 			}
@@ -1266,7 +1215,7 @@ public final class Skill extends PObject
 	 * @param aPC TODO
 	 * @return cost for pcc class list
 	 */
-	public int costForPCClassList(final List aPCClassList, final PlayerCharacter aPC)
+	public int costForPCClassList(final List<PCClass> aPCClassList, final PlayerCharacter aPC)
 	{
 		int anInt = Globals.getGameModeSkillCost_Exclusive(); // assume exclusive (can't buy)
 		final int classListSize = aPCClassList.size();
@@ -1276,10 +1225,9 @@ public final class Skill extends PObject
 			return anInt;
 		}
 
-		for (Iterator i = aPCClassList.iterator(); i.hasNext();)
+		for ( PCClass pcClass : aPCClassList )
 		{
-			final PCClass aClass = (PCClass) i.next();
-			final int cInt = costForPCClass(aClass, aPC);
+			final int cInt = costForPCClass(pcClass, aPC);
 
 			if (cInt == Globals.getGameModeSkillCost_Class())
 			{
@@ -1301,7 +1249,7 @@ public final class Skill extends PObject
 
 		for (int i = 0; i < rankList.size(); i++)
 		{
-			final String bSkill = (String) rankList.get(i);
+			final String bSkill = rankList.get(i);
 
 			if (bSkill.startsWith(oldClassString))
 			{
@@ -1327,10 +1275,8 @@ public final class Skill extends PObject
 			return true;
 		}
 
-		for (Iterator e = aPC.getCharacterDomainList().iterator(); e.hasNext();)
+		for ( CharacterDomain aCD : aPC.getCharacterDomainList() )
 		{
-			final CharacterDomain aCD = (CharacterDomain) e.next();
-
 			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCcSkill(keyName))
 			{
 				return true;
@@ -1355,30 +1301,24 @@ public final class Skill extends PObject
 			}
 		}
 
-		for (Iterator i = aPC.aggregateFeatList().iterator(); i.hasNext();)
+		for ( Ability feat : aPC.aggregateFeatList() )
 		{
-			final Ability aFeat = (Ability) i.next();
-
-			if (aFeat.hasCcSkill(keyName))
+			if (feat.hasCcSkill(keyName))
 			{
 				return true;
 			}
 		}
 
-		for (Iterator i = aPC.getSkillList().iterator(); i.hasNext();)
+		for ( Skill skill : aPC.getSkillList() )
 		{
-			final Skill aSkill = (Skill) i.next();
-
-			if (aSkill.hasCcSkill(keyName))
+			if (skill.hasCcSkill(keyName))
 			{
 				return true;
 			}
 		}
 
-		for (Iterator e = aPC.getEquipmentList().iterator(); e.hasNext();)
+		for ( Equipment eq : aPC.getEquipmentList() )
 		{
-			final Equipment eq = (Equipment) e.next();
-
 			if (eq.isEquipped())
 			{
 				if (eq.hasCcSkill(keyName))
@@ -1386,43 +1326,27 @@ public final class Skill extends PObject
 					return true;
 				}
 
-				List aList = eq.getEqModifierList(true);
-
-				if (!aList.isEmpty())
+				for ( EquipmentModifier eqMod : eq.getEqModifierList(true) )
 				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
+					if (eqMod.hasCcSkill(keyName))
 					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-
-						if (eqMod.hasCcSkill(keyName))
-						{
-							return true;
-						}
+						return true;
 					}
 				}
 
-				aList = eq.getEqModifierList(false);
-
-				if (!aList.isEmpty())
+				for ( EquipmentModifier eqMod : eq.getEqModifierList(false) )
 				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
+					if (eqMod.hasCcSkill(keyName))
 					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-
-						if (eqMod.hasCcSkill(keyName))
-						{
-							return true;
-						}
+						return true;
 					}
 				}
 			}
 		}
 
-		for (Iterator i = aPC.getTemplateList().iterator(); i.hasNext();)
+		for ( PCTemplate template : aPC.getTemplateList() )
 		{
-			final PCTemplate aTemplate = (PCTemplate) i.next();
-
-			if (aTemplate.hasCcSkill(keyName));
+			if (template.hasCcSkill(keyName));
 			{
 				return true;
 			}
@@ -1445,11 +1369,6 @@ public final class Skill extends PObject
 		return new Float(getSkillRankBonusTo(currentPC));
 	}
 
-	private void setSynergyList(final ArrayList argSynergyList)
-	{
-		this.synergyList = argSynergyList;
-	}
-
 	private double modRanks2(double g, final int idx, String bSkill, final PlayerCharacter aPC)
 	{
 		final int iOffs = bSkill.indexOf(':');
@@ -1462,7 +1381,7 @@ public final class Skill extends PObject
 			if ((choiceString.length() > 0) && !CoreUtility.doublesEqual(g, 0)
 				&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 			{
-				final List aArrayList = new ArrayList();
+				final List<String> aArrayList = new ArrayList<String>();
 				final double rankAdjustment = 0.0;
 				String title = "";
 				final StringTokenizer aTok = new StringTokenizer(choiceString, "|");
@@ -1496,6 +1415,8 @@ public final class Skill extends PObject
 				}
 				else
 				{
+					// TODO This code doesn't seem to do anything real.
+					// It passes empty lists as both available and selected.
 					final ChooserInterface c = ChooserFactory.getChooserInstance();
 
 					if (title.length() != 0)
@@ -1552,17 +1473,16 @@ public final class Skill extends PObject
 	{
 		double bonusObjTotal = 0.0;
 		final StringBuffer bonusDetails = new StringBuffer();
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-			final double bonusVal = aBonus.getCalculatedValue(aPC);
-			if (aBonus.isApplied() && !CoreUtility.doublesEqual(bonusVal,0.0) && !"VAR".equals(aBonus.getBonusName()))
+			final double bonusVal = bonus.getCalculatedValue(aPC);
+			if (bonus.isApplied() && !CoreUtility.doublesEqual(bonusVal,0.0) && !"VAR".equals(bonus.getBonusName()))
 			{
 				if (bonusDetails.length() > 0)
 				{
 					bonusDetails.append(' ');
 				}
-				bonusDetails.append(aBonus.getDescription(shortForm, aPC));
+				bonusDetails.append(bonus.getDescription(shortForm, aPC));
 				bonusObjTotal += bonusVal;
 			}
 		}
@@ -1701,14 +1621,13 @@ public final class Skill extends PObject
 		//
 		// Check for ADDs
 		//
-		List laList = getLevelAbilityList();
+		List<LevelAbility> laList = getLevelAbilityList();
 		if (laList != null)
 		{
 			int iCount = 0;
-			for (Iterator e = laList.iterator(); e.hasNext();)
+			for ( LevelAbility la : laList )
 			{
-				LevelAbility ability = (LevelAbility) e.next();
-				iCount += ability.getAssociatedCount();
+				iCount += la.getAssociatedCount();
 			}
 
 			if (CoreUtility.doublesEqual(getRank().doubleValue() + bonus, 0.0))
@@ -1743,10 +1662,10 @@ public final class Skill extends PObject
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
 		aPC.setArmorProfListStable(false);
-		List l = getSafeListFor(ListKey.KITS);
+		List<String> l = getSafeListFor(ListKey.KITS);
 		for (int i = 0; i > l.size(); i++)
 		{
-			KitUtilities.makeKitSelections(0, (String) l.get(i), i, aPC);
+			KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
 		}
 		makeRegionSelection(aPC);
 
@@ -1767,10 +1686,10 @@ public final class Skill extends PObject
 		String aKeyStat = getKeyStat();
 		if ((aKeyStat.length() == 0) && Globals.getGameModeHasPointPool())
 		{
-			List statList = getKeyStatList(null);
+			List<PCStat> statList = getKeyStatList(null);
 			for (int i = 0; i < statList.size(); ++i)
 			{
-				PCStat stat = (PCStat) statList.get(i);
+				PCStat stat = statList.get(i);
 				if (aKeyStat.length() != 0)
 				{
 					aKeyStat += '/';
@@ -1795,11 +1714,11 @@ public final class Skill extends PObject
 		int statMod = 0;
 		if (Globals.getGameModeHasPointPool())
 		{
-			ArrayList typeList = new ArrayList();
+			ArrayList<String> typeList = new ArrayList<String>();
 			getKeyStatList(typeList);
 			for (int i = 0; i < typeList.size(); ++i)
 			{
-				statMod += pc.getTotalBonusTo("SKILL", "TYPE." + (String) typeList.get(i));
+				statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
 			}
 		}
 		return statMod;
@@ -1809,9 +1728,9 @@ public final class Skill extends PObject
 	// Get a list of PCStat's that apply a SKILL bonus to this skill.
 	// Generates (optionally, if typeList is non-null) a list of String's types
 	//
-	public List getKeyStatList(List typeList)
+	public List<PCStat> getKeyStatList(List<String> typeList)
 	{
-		List aList = new ArrayList();
+		List<PCStat> aList = new ArrayList<PCStat>();
 		if (Globals.getGameModeHasPointPool())
 		{
 			String aType;
@@ -1819,14 +1738,14 @@ public final class Skill extends PObject
 			{
 				aType = getMyType(i);
 
-				List statList = SettingsHandler.getGame().getUnmodifiableStatList();
+				List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 				for (int idx = statList.size() - 1; idx >= 0; --idx)
 				{
-					final PCStat stat = (PCStat) statList.get(idx);
+					final PCStat stat = statList.get(idx);
 					//
 					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this skill that would come from current stat
 					//
-					List bonusList = getBonusListOfType(stat, Bonus.getBonusTypeFromName("SKILL"), "TYPE." + aType);
+					List<BonusObj> bonusList = getBonusListOfType(stat, Bonus.getBonusTypeFromName("SKILL"), "TYPE." + aType);
 					if (bonusList.size() > 0)
 					{
 						for(int iCount = bonusList.size() - 1; iCount >= 0; --iCount)
@@ -1847,22 +1766,20 @@ public final class Skill extends PObject
 	//
 	// Get a list of all BonusObj's from passed stat that apply a bonus of the passed type and name
 	//
-	private List getBonusListOfType(final PCStat aStat, final int iType, final String aName)
+	private List<BonusObj> getBonusListOfType(final PCStat aStat, final int iType, final String aName)
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Iterator ab = aStat.getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : aStat.getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if (aBonus.getTypeOfBonusAsInt() != iType)
+			if (bonus.getTypeOfBonusAsInt() != iType)
 			{
 				continue;
 			}
 
-			if (aBonus.getBonusInfoList().size() > 1)
+			if (bonus.getBonusInfoList().size() > 1)
 			{
-				final StringTokenizer aTok = new StringTokenizer(aBonus.getBonusInfo(), ",");
+				final StringTokenizer aTok = new StringTokenizer(bonus.getBonusInfo(), ",");
 
 				while (aTok.hasMoreTokens())
 				{
@@ -1870,13 +1787,13 @@ public final class Skill extends PObject
 
 					if (aBI.equalsIgnoreCase(aName))
 					{
-						aList.add(aBonus);
+						aList.add(bonus);
 					}
 				}
 			}
-			else if (aBonus.getBonusInfo().equalsIgnoreCase(aName))
+			else if (bonus.getBonusInfo().equalsIgnoreCase(aName))
 			{
-				aList.add(aBonus);
+				aList.add(bonus);
 			}
 		}
 

@@ -36,7 +36,8 @@ import java.util.List;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
+public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String>
+{
 
 	/**
 	 * Make a new Feat chooser.
@@ -55,7 +56,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "FEATSELECT";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -68,33 +69,27 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		Iterator choiceIt = choices.iterator();
+		Iterator<String> choiceIt = choices.iterator();
 
 		while (choiceIt.hasNext())
 		{
-			String aString = (String) choiceIt.next();
+			String aString = choiceIt.next();
 
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
 				aString = aString.substring(5);
 
-				if (!dupsAllowed && availableList.contains(aString))
-				{
-					continue;
-				}
-
-				for (Iterator it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
-					final Ability ability = (Ability) it.next();
+				for (Iterator<Ability> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
+					final Ability ability = it.next();
 
 					if (ability.isType(aString) &&
-							(dupsAllowed || !availableList.contains(ability.getKeyName()
-							  )))
+							(dupsAllowed || !availableList.contains(ability)))
 
 					{
-						availableList.add(ability);
+						availableList.add(ability.getKeyName());
 					}
 				}
 			}
@@ -148,8 +143,8 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 							}
 						}
 
-						final List xavailableList = new ArrayList(); // available list of choices
-						final List xselectedList = new ArrayList(); // selected list of choices
+						final List<String> xavailableList = new ArrayList<String>(); // available list of choices
+						final List<String> xselectedList = new ArrayList<String>(); // selected list of choices
 						theAbility.modChoices(xavailableList, xselectedList, false, aPc, true);
 
 						//
@@ -159,7 +154,7 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 						{
 							for (int n = xavailableList.size() - 1; n >= 0; --n)
 							{
-								final String xString = (String) xavailableList.get(n);
+								final String xString = xavailableList.get(n);
 
 								if (!xString.startsWith(subName))
 								{
@@ -184,9 +179,9 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 						//
 						if (!theAbility.isStacks())
 						{
-							for (Iterator e = xselectedList.iterator(); e.hasNext();)
+							for (Iterator<String> e = xselectedList.iterator(); e.hasNext();)
 							{
-								final int idx = xavailableList.indexOf(e.next().toString());
+								final int idx = xavailableList.indexOf(e.next());
 
 								if (idx > -1)
 								{
@@ -195,9 +190,9 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager {
 							}
 						}
 
-						for (Iterator e = xavailableList.iterator(); e.hasNext();)
+						for (Iterator<String> e = xavailableList.iterator(); e.hasNext();)
 						{
-							availableList.add(aString + "(" + (String) e.next() + ")");
+							availableList.add(aString + "(" + e.next() + ")");
 						}
 					}
 					else

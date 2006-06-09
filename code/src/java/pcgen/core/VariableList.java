@@ -23,9 +23,9 @@ package pcgen.core;
 import java.util.*;
 
 /**
- * <code>VariableList</code> encapsulates a list of Variable objects 
- * along with various methods to aid in the efficient processing of 
- * the variables. 
+ * <code>VariableList</code> encapsulates a list of Variable objects
+ * along with various methods to aid in the efficient processing of
+ * the variables.
  *
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -36,46 +36,46 @@ import java.util.*;
 public class VariableList implements Cloneable
 {
 	/** The list of variables. */
-	private ArrayList list = new ArrayList();
+	private ArrayList<Variable> list = new ArrayList<Variable>();
 	/** A read-only copy of the variable list for external use. */
-	private List unmodifiableList = Collections.unmodifiableList(list);
+	private List<Variable> unmodifiableList = Collections.unmodifiableList(list);
 	/** The set of the names in the variable list. */
-	private Set nameSet = null;
+	private Set<String> nameSet = null;
 
 	/**
-	 * Retrieve the definition of the variable at the specified 
+	 * Retrieve the definition of the variable at the specified
 	 * location in the list.
-	 * 
+	 *
 	 * @param i The index of the location to be retrieved.
-	 * @return The definition of the variable. 
+	 * @return The definition of the variable.
 	 */
 	public final String getDefinition(final int i)
 	{
-		final Variable v = (Variable) list.get(i);
+		final Variable v = list.get(i);
 
 		return v.getDefinition();
 	}
 
 	/**
 	 * Retrieve the variable at the specified location in the list.
-	 * 
+	 *
 	 * @param i The index of the location to be retrieved.
-	 * @return The variable. 
+	 * @return The variable.
 	 */
 	public final Variable getVariable(final int i)
 	{
-		final Variable v = (Variable) list.get(i);
+		final Variable v = list.get(i);
 
 		return v;
 	}
 
 	/**
-	 * Retrieve a read-only set of the variable names contained in the 
+	 * Retrieve a read-only set of the variable names contained in the
 	 * list.
-	 * 
+	 *
 	 * @return The set of names.
 	 */
-	public final Set getVariableNamesAsUnmodifiableSet()
+	public final Set<String> getVariableNamesAsUnmodifiableSet()
 	{
 		if (nameSet == null)
 		{
@@ -87,7 +87,7 @@ public class VariableList implements Cloneable
 
 	/**
 	 * Add a new Variable to the list.
-	 * 
+	 *
 	 * @param level The level at which the variable should be applied, 0 if always.
 	 * @param variableName The name of the variable.
 	 * @param defaultFormula The formula which should be used to calculate its value.
@@ -114,14 +114,14 @@ public class VariableList implements Cloneable
 	public Object clone() throws CloneNotSupportedException
 	{
 		final VariableList retVal = (VariableList) super.clone();
-		retVal.list = (ArrayList) list.clone();
+		retVal.list = (ArrayList<Variable>) list.clone();
 
 		return retVal;
 	}
 
 	/**
 	 * Check if a named variable is held.
-	 *  
+	 *
 	 * @param variableName The name to be checked for.
 	 * @return True if the variable is present, false otherwise.
 	 */
@@ -139,17 +139,17 @@ public class VariableList implements Cloneable
 
 	/**
 	 * Retrieve an iterator over a read-only copy of the variable list.
-	 * 
+	 *
 	 * @return The iterator.
 	 */
-	public final Iterator iterator()
+	public final Iterator<Variable> iterator()
 	{
 		return unmodifiableList.iterator();
 	}
 
 	/**
 	 * Set a specific index in the list to a new Variable.
-	 * 
+	 *
 	 * @param idx The index to be set.
 	 * @param level The level at which the variable should be applied, 0 if always.
 	 * @param variableName The name of the variable.
@@ -172,7 +172,7 @@ public class VariableList implements Cloneable
 	}
 
 	/**
-	 * Add all entries from another VariableList to this VariableList. Note the 
+	 * Add all entries from another VariableList to this VariableList. Note the
 	 * added entries will be shared with both lists.
 	 * @param vOther The list of Variables to be added.
 	 */
@@ -183,21 +183,20 @@ public class VariableList implements Cloneable
 	}
 
 	/**
-	 * Populate nameSet, the set of the names in the variable list.    
+	 * Populate nameSet, the set of the names in the variable list.
 	 */
 	private final void cacheNames()
 	{
-		nameSet = new HashSet();
+		nameSet = new HashSet<String>();
 
-		for (Iterator i = list.iterator(); i.hasNext();)
+		for ( Variable v : list )
 		{
-			final Variable v = (Variable) i.next();
 			nameSet.add(v.getUpperName());
 		}
 	}
 
 	/**
-	 * Clear nameSet, the set of the names in the variable list.    
+	 * Clear nameSet, the set of the names in the variable list.
 	 */
 	private final void clearNameCache()
 	{

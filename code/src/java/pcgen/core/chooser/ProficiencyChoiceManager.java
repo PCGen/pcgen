@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
  */
-public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
+public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<WeaponProf>
 {
 	final static int SCOPE_PC		= 0;
 	final static int SCOPE_ALL		= 1;
@@ -63,7 +63,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 		chooserHandled = "PROFICIENCY";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 
@@ -73,7 +73,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 		}
 		else
 		{
-			typeOfProf = (String) choices.get(0);
+			typeOfProf = choices.get(0);
 
 			if ("PC".equals(choices.get(1)))
 			{
@@ -109,20 +109,20 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<WeaponProf>            availableList,
+			final List<WeaponProf>            selectedList)
 	{
-		Iterator It = choices.subList(2, choices.size()).iterator();
+		Iterator<String> It = choices.subList(2, choices.size()).iterator();
 		if ("WEAPON".equals(typeOfProf))
 		{
-			Set profs = new TreeSet();
+			Set<WeaponProf> profs = new TreeSet<WeaponProf>();
 			while (It.hasNext())
 			{
-				final String prof = (String) It.next();
+				final String prof = It.next();
 				if (prof.startsWith("TYPE.") || prof.startsWith("TYPE="))
 				{
 					String typeString = prof.substring(5);
-					for (Iterator i = Globals.getWeaponProfs(typeString, aPc).iterator();i.hasNext();)
+					for (Iterator<WeaponProf> i = Globals.getWeaponProfs(typeString, aPc).iterator();i.hasNext();)
 					{
 						profs.add(i.next());
 					}
@@ -144,7 +144,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 			else
 			{
 
-				Set pcProfs = aPc.getWeaponProfList();
+				Set<WeaponProf> pcProfs = aPc.getWeaponProfList();
 
 				if (intScope == SCOPE_PC)
 				{
@@ -156,14 +156,12 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 
 					// Get a new set which is the intersection of all the Weapon profs
 					// specified by the chooser and the Weapon profs that the Pc has
-					Set pcHas = new TreeSet();
+					Set<WeaponProf> pcHas = new TreeSet<WeaponProf>();
 					pcHas.addAll(profs);
 					pcHas.retainAll(pcProfs);
 
-					for (Iterator i = pcHas.iterator(); i.hasNext();)
+					for ( WeaponProf wp : pcHas )
 					{
-						WeaponProf wp       = (WeaponProf)i.next();
-
 						// may have martial and exotic, etc.
 						if (wp.getSafeListFor(ListKey.TYPE).size() != 1)
 						{
@@ -273,6 +271,9 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager
 		{
 			Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown type " + typeOfProf);
 		}
-		pobject.addAssociatedTo(selectedList);
+		for ( WeaponProf wp : selectedList )
+		{
+			pobject.addAssociated( wp.getKeyName() );
+		}
 	}
 }

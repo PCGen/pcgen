@@ -25,17 +25,15 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import pcgen.core.AbilityInfo;
-import pcgen.core.Categorisable;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Logging;
+import pcgen.core.Ability;
 
 /**
  * A choice manager for Abilities from Templates
  */
 public class AbilityFromTemplateChoiceManager extends
-		AbstractCategorisableChoiceManager {
+		AbstractCategorisableChoiceManager<Ability> {
 
 	/**
 	 * @param aPObject
@@ -57,8 +55,8 @@ public class AbilityFromTemplateChoiceManager extends
 	 */
 	public void getChoices(
 			PlayerCharacter aPc,
-			List            availableList,
-			List            selectedList)
+			List<Ability>            availableList,
+			List<Ability>            selectedList)
 	{
 		return;
 	}
@@ -66,41 +64,14 @@ public class AbilityFromTemplateChoiceManager extends
 	/**
 	 * This is not used since the Template arranges to have the choices made
 	 * here applied to itself.
-	 * 
+	 *
 	 * @param aPC
 	 * @param selected
 	 */
 	public void applyChoices(
 			PlayerCharacter aPC,
-			List            selected)
+			List<Ability>            selected)
 	{
-		return;
-	}
-
-
-	/**
-	 * Convert the Categorisable Object to an AbilityInfo object.  If the
-	 * AbilityInfo object refers to a valid Ability, add it to the choice
-	 * maps.
-	 *  
-	 * @param categorisableObj
-	 */
-	@Override
-	protected void addToMaps(Categorisable categorisableObj)
-	{
-		AbilityInfo abInfo = (AbilityInfo) categorisableObj;
-		
-		if (abInfo.getAbility() != null)
-		{
-			AbilityInfo abI = (AbilityInfo) nameMap.put(abInfo.toString(), abInfo);
-			catMap.put(abInfo.getCategory() + " " + abInfo.toString(), abInfo);
-			
-			if (abI != null) { useNameMap = false; }
-		}
-		else
-		{
-			Logging.errorPrint("attempt to add Non-existant Ability: cat = " + abInfo.getCategory() + ", name = "  + abInfo.getKeyName());
-		}
 		return;
 	}
 

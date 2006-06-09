@@ -168,7 +168,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 				{
 					case CHOICETYPE_UNTRAINED:
 
-						if ("Y".equals(aSkill.getUntrained()))
+						if (aSkill.isUntrained())
 						{
 							break;
 						}
@@ -177,7 +177,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_TRAINED:
 
-						if ("N".equals(aSkill.getUntrained()))
+						if (!aSkill.isUntrained())
 						{
 							break;
 						}

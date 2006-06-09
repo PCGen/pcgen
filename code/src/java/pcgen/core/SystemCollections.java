@@ -80,7 +80,7 @@ public class SystemCollections
 	private static final Map phraseMap = new HashMap();
 	private static final Map speechMap = new HashMap();
 	private static final Map traitMap = new HashMap();
-	private static final Map equipSlotMap = new HashMap(); // key is the gamemode, value is the list of equipment slots
+	private static final Map<String, List<EquipSlot>> equipSlotMap = new HashMap<String, List<EquipSlot>>(); // key is the gamemode, value is the list of equipment slots
 	private static final Map loadInfoMap = new HashMap(); // key is the gamemode, value is a LoadInfo object
 	private static final Map unitSetMap = new HashMap(); // key is the gamemode, value is a HashMap with the unit set name as key and the unit set object als value
 
@@ -89,7 +89,7 @@ public class SystemCollections
 	 */
 	private SystemCollections()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 
@@ -155,19 +155,19 @@ public class SystemCollections
 	 * Return an <b>unmodifiable</b> version of the equipment slots list.
 	 * @return an <b>unmodifiable</b> version of the equipment slots list.
 	 */
-	public static List getUnmodifiableEquipSlotList()
+	public static List<EquipSlot> getUnmodifiableEquipSlotList()
 	{
 		// Try getting an equipslotlist for the currently selected gamemode
-		List equipSlotList = (List)equipSlotMap.get(SettingsHandler.getGame().getName());
+		List<EquipSlot> equipSlotList = equipSlotMap.get(SettingsHandler.getGame().getName());
 		if (equipSlotList == null)
 		{
 			// if that list doesn't exist, try the default equipslotmap
-			equipSlotList = (List)equipSlotMap.get("*");
+			equipSlotList = equipSlotMap.get("*");
 		}
 		if (equipSlotList == null)
 		{
 			// if that's also empty, return an empty list
-			equipSlotList = new ArrayList();
+			equipSlotList = new ArrayList<EquipSlot>();
 		}
 		return Collections.unmodifiableList(equipSlotList);
 	}
@@ -404,7 +404,7 @@ public class SystemCollections
 		}
 		return loadInfo;
 	}
-	
+
 	/**
 	 * Get the Load (encumberance) info for the game mode
 	 * @return the Load (encumberance) info for the game mode
@@ -473,11 +473,11 @@ public class SystemCollections
 			defaultUnitSet.setWeightUnit(Constants.s_STANDARD_UNITSET_WEIGHTUNIT);
 			defaultUnitSet.setWeightFactor(Constants.s_STANDARD_UNITSET_WEIGHTFACTOR);
 			defaultUnitSet.setWeightDisplayPattern(Constants.s_STANDARD_UNITSET_WEIGHTDISPLAYPATTERN);
-			
+
 			gameUnitSetList.put(Constants.s_STANDARD_UNITSET_NAME, defaultUnitSet);
 			unitSetMap.put(gameMode, gameUnitSetList);
 		}
-	
+
 		UnitSet unitSet = (UnitSet)gameUnitSetList.get(unitSetName);
 		if (unitSet == null)
 		{
@@ -486,7 +486,7 @@ public class SystemCollections
 		}
 		return unitSet;
 	}
-	
+
 	/**
 	 * Get the Unit set info for the game mode by name
 	 * @param unitSetName
@@ -500,7 +500,7 @@ public class SystemCollections
 		{
 			return null;
 		}
-	
+
 		return (UnitSet)gameUnitSetList.get(unitSetName);
 	}
 		//GAMEMODELIST

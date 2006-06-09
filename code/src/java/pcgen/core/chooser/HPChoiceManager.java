@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing HP.
  */
-public class HPChoiceManager extends AbstractComplexChoiceManager {
+public class HPChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new HP chooser.
@@ -63,8 +63,8 @@ public class HPChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		Iterator choiceIt = choices.iterator();
 

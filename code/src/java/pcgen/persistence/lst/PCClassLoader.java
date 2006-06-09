@@ -315,7 +315,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 
 			if (bClass == null)
 			{
-				Globals.getClassList().add(target);
+				Globals.getClassList().add((PCClass)target);
 			}
 			else
 			{
@@ -326,7 +326,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 						if (target.getSourceDateValue() > bClass.getSourceDateValue())
 						{
 							Globals.getClassList().remove(bClass);
-							Globals.getClassList().add(target);
+							Globals.getClassList().add((PCClass)target);
 						}
 					}
 					else

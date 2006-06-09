@@ -38,7 +38,7 @@ import pcgen.persistence.lst.FeatTest;
  *      development with Ant and JUnit</a>
  */
 public class AllJUnitTests extends TestCase {
-	
+
 	/**
 	 * Constructor
 	 * @param name
@@ -55,12 +55,95 @@ public class AllJUnitTests extends TestCase {
 	public static Test suite()
 	{
 		final TestSuite suite = new TestSuite("PCGEN Core Tests");
-		suite.addTest(new TestSuite(LevelAbilityTest.class));
-		suite.addTest(FeatTest.suite());
-		suite.addTest(new TestSuite(UtilityTest.class));
+		suite.addTest(new TestSuite(AbilityStoreTest.class));
+		suite.addTest(new TestSuite(AbilityTest.class));
+		suite.addTest(new TestSuite(BioSetTest.class));
+		suite.addTest(new TestSuite(ClassTypeTest.class));
+		suite.addTest(new TestSuite(DamageReductionTest.class));
+		suite.addTest(new TestSuite(DomainTest.class));
+		suite.addTest(new TestSuite(EquipmentListTest.class));
+		suite.addTest(new TestSuite(EquipmentModifierTest.class));
+		suite.addTest(new TestSuite(EquipmentTest.class));
+		suite.addTest(new TestSuite(EquipmentUtilitiesTest.class));
 		suite.addTest(new TestSuite(GlobalsTest.class));
 		suite.addTest(new TestSuite(NamesTest.class));
-		suite.addTest(new TestSuite(BioSetTest.class));
+		suite.addTest(new TestSuite(PCClassTest.class));
+		suite.addTest(new TestSuite(PlayerCharacterTest.class));
+		suite.addTest(new TestSuite(PObjectTest.class));
+		suite.addTest(new TestSuite(PObjectUtilitiesTest.class));
+		suite.addTest(new TestSuite(PrereqHandlerTest.class));
+		suite.addTest(new TestSuite(UtilityTest.class));
+
+		// core.bonus
+		suite.addTest(new TestSuite(pcgen.core.bonus.BonusTest.class));
+
+		// core.chooser
+		suite.addTest(new TestSuite(pcgen.core.chooser.AbilityFromTemplateChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.AbstractComplexChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.ArmorProfChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.ArmorTypeChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.ClassSkillsChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.DomainChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.EquipmentTypeChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.FeatAddChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.FeatChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.FeatListChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.FeatSelectChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.HPChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.MiscChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.RaceChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SAListChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SchoolsChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillListChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillListCrossClassChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillListNonClassChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillsChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillsNamedChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillsNamedToCCSkillChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SkillsNamedToCSkillChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SpellClassesChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SpellListChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.SpellsChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.StatChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.WeaponFocusChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.WeaponProfChoiceManagerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.chooser.WeaponProfTypeChoiceManagerTest.class));
+
+		// core.levelability
+		suite.addTest(new TestSuite(pcgen.core.levelability.LevelAbilityClassSkillsTest.class));
+		suite.addTest(new TestSuite(LevelAbilityTest.class));
+
+		// core.prereq
+		suite.addTest(new TestSuite(pcgen.core.prereq.AbstractPrerequisiteTestTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreAlignTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreArmorProfTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreAttTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreBaseSizeTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreBirthplaceTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreCheckBaseTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreCheckTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreCityTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreClassTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreCSkillTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreDefaultMonsterTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreDeityAlignTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreDeityDomainTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreDeityTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreDomainTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreDRTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreEquipTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreFeatTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreMultTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreRaceTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreReqHandlerTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreSizeTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreSkillTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreSubClassTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreTemplateTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreTypeTest.class));
+		suite.addTest(new TestSuite(pcgen.core.prereq.PreVisionTest.class));
+
+		suite.addTest(FeatTest.suite());
 
 		return suite;
 	}

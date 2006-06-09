@@ -41,7 +41,7 @@ import java.util.*;
  */
 public final class Race extends PObject
 {
-	private ArrayList languageBonus = new ArrayList();
+	private ArrayList<Language> languageBonus = new ArrayList<Language>();
 	private ArrayList monCCSkillList = null;
 	private ArrayList monCSkillList = null;
 	private ArrayList weaponProfBonus = new ArrayList();
@@ -82,7 +82,7 @@ public final class Race extends PObject
 	private int monsterClassLevels = 0;
 	private int reach = 5;
 	private String raceType = "None";
-	private ArrayList racialSubTypes = new ArrayList();
+	private ArrayList<String> racialSubTypes = new ArrayList<String>();
 
 	{
 		vision = new HashMap();
@@ -387,7 +387,7 @@ public final class Race extends PObject
 		}
 	}
 
-	public ArrayList getLanguageBonus()
+	public List<Language> getLanguageBonus()
 	{
 		return languageBonus;
 	}
@@ -621,7 +621,7 @@ public final class Race extends PObject
 		return racialSubTypes.remove(aSubType);
 	}
 
-	public List getRacialSubTypes()
+	public List<String> getRacialSubTypes()
 	{
 		return Collections.unmodifiableList(racialSubTypes);
 	}

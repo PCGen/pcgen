@@ -72,14 +72,14 @@ public final class PCTemplate extends PObject implements HasCost
 	public static final int VISIBILITY_DISPLAY_ONLY = 3;
 
 	private AbilityStore abilityCatStore     = null;
-	private ArrayList    featStrings         = null;
+	private ArrayList<String>    featStrings         = null;
 	private ArrayList    hitDiceStrings      = null;
 	private ArrayList    levelStrings        = null;
-	private ArrayList    templates           = new ArrayList();
+	private ArrayList<String>    templates           = new ArrayList<String>();
 
 	private ArrayList    weaponProfBonus     = null;
 	private HashMap      chosenFeatStrings   = null;
-	private List         templatesAdded      = null;
+	private List<String>         templatesAdded      = null;
 	private String       cost                = "1";
 
 	private String favoredClass = "";
@@ -94,7 +94,7 @@ public final class PCTemplate extends PObject implements HasCost
 	private String  subRace               = Constants.s_NONE;
 	private String  subregion             = Constants.s_NONE;
 	private String  templateSize          = "";
-	private TreeSet languageBonus         = new TreeSet();
+	private TreeSet<Language> languageBonus         = new TreeSet<Language>();
 	private boolean removable             = true;
 	private int     ChallengeRating       = 0;
 	private int     bonusInitialFeats     = 0;
@@ -108,13 +108,13 @@ public final class PCTemplate extends PObject implements HasCost
 	private Integer legs;
 	private Integer reach;
 
-	private ArrayList addedSubTypes   = new ArrayList();
+	private ArrayList<String> addedSubTypes   = new ArrayList<String>();
 
 	private Point2D.Double face       = new Point2D.Double(5, 0);
 
-	private ArrayList removedSubTypes = new ArrayList();
+	private ArrayList<String> removedSubTypes = new ArrayList<String>();
 
-	private ArrayList levelMods = new ArrayList();
+	private ArrayList<String> levelMods = new ArrayList<String>();
 
 	/**
 	 * Creates a new PCTemplate object.
@@ -473,7 +473,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  a list of languages (comma delimited)
 	 */
-	public Set getLanguageBonus()
+	public Set<Language> getLanguageBonus()
 	{
 		return languageBonus;
 	}
@@ -665,14 +665,14 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator e = featStrings.iterator(); e.hasNext();)
+			for ( String feat : featStrings )
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append('|');
 				}
 
-				buffer.append((String) e.next());
+				buffer.append(feat);
 			}
 
 			txt.append("\tFEAT:").append(buffer.toString());
@@ -1050,9 +1050,9 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  A list of Special Abilities
 	 */
-	public List getSpecialAbilityList(final int level, final int hitdice)
+	public List<SpecialAbility> getSpecialAbilityList(final int level, final int hitdice)
 	{
-		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		if (specialAbilityList == null)
 		{
@@ -1127,7 +1127,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return the Subtypes added.
 	 */
-	public List getAddedSubTypes()
+	public List<String> getAddedSubTypes()
 	{
 		return Collections.unmodifiableList(addedSubTypes);
 	}
@@ -1138,7 +1138,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return the Subtypes removed.
 	 */
-	public List getRemovedSubTypes()
+	public List<String> getRemovedSubTypes()
 	{
 		return Collections.unmodifiableList(removedSubTypes);
 	}
@@ -1151,7 +1151,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  ArrayList of granted templates
 	 */
-	public List getTemplateList()
+	public List<String> getTemplateList()
 	{
 		return templates;
 	}
@@ -1500,7 +1500,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 					for (int i = 0; i < templates.size(); ++i)
 					{
-						if (templateName.equalsIgnoreCase((String) templates.get(i)))
+						if (templateName.equalsIgnoreCase(templates.get(i)))
 						{
 							templates.remove(i);
 
@@ -1518,7 +1518,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 					for (int i = 0; i < templates.size(); ++i)
 					{
-						String aString = (String) templates.get(i);
+						String aString = templates.get(i);
 
 						if (aString.startsWith("CHOOSE:"))
 						{
@@ -1549,7 +1549,7 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		final PCTemplate aTemp = (PCTemplate) super.clone();
 		aTemp.templateVisible = templateVisible;
-		aTemp.templates       = (ArrayList) templates.clone();
+		aTemp.templates       = (ArrayList<String>) templates.clone();
 		aTemp.languageBonus   = (TreeSet) languageBonus.clone();
 
 		if (getListSize(levelStrings) != 0)
@@ -1574,12 +1574,12 @@ public final class PCTemplate extends PObject implements HasCost
 		if (abilityCatStore != null) {
 			aTemp.abilityCatStore = new AbilityStore();
 			aTemp.abilityCatStore.addAbilityInfo(
-					abilityCatStore.getParsableStringRepresentation(), "", "|", false, false);
+					abilityCatStore.getParsableStringRepresentation(), "", "|", false);
 		}
 
 		if (getListSize(featStrings) != 0)
 		{
-			aTemp.featStrings = (ArrayList) featStrings.clone();
+			aTemp.featStrings = (ArrayList<String>) featStrings.clone();
 		}
 
 		if (chosenFeatStrings != null)
@@ -1693,16 +1693,16 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  a list of templates
 	 */
-	List getTemplates(final boolean isImporting, final PlayerCharacter aPC)
+	List<String> getTemplates(final boolean isImporting, final PlayerCharacter aPC)
 	{
-		final List newTemplates = new ArrayList();
-		templatesAdded = new ArrayList();
+		final List<String> newTemplates = new ArrayList<String>();
+		templatesAdded = new ArrayList<String>();
 
 		if (!isImporting)
 		{
-			for (Iterator e = templates.iterator(); e.hasNext();)
+			for (Iterator<String> e = templates.iterator(); e.hasNext();)
 			{
-				String templateKey = (String) e.next();
+				String templateKey = e.next();
 
 				if (templateKey.startsWith("CHOOSE:"))
 				{
@@ -1730,7 +1730,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  the list passed in with any special abilities this template grants added to it
 	 */
-	List addSpecialAbilitiesToList(final List aList, final int level, final int hitdice)
+	List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final int level, final int hitdice)
 	{
 		/*
 		 * CONSIDER Is this really proper behaviour?!?  If the PObject has anything, then
@@ -1817,7 +1817,7 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		if (templatesAdded == null)
 		{
-			templatesAdded = new ArrayList();
+			templatesAdded = new ArrayList<String>();
 		}
 		templatesAdded.add(templateName);
 	}
@@ -1828,11 +1828,11 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  a list of Templates
 	 */
-	public List templatesAdded()
+	public List<String> templatesAdded()
 	{
 		if (templatesAdded == null)
 		{
-			return new ArrayList();
+			return new ArrayList<String>();
 		}
 
 		return templatesAdded;
@@ -2080,7 +2080,7 @@ public final class PCTemplate extends PObject implements HasCost
 			abilityCatStore = new AbilityStore();
 		}
 
-		abilityCatStore.addAbilityInfo(abilityString, "", "|", false, false);
+		abilityCatStore.addAbilityInfo(abilityString, "", "|", false);
 	}
 
 	/**
@@ -2112,21 +2112,21 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  TODO DOCUMENT ME!
 	 */
-	public List feats(
+	public List<String> feats(
 		final int             level,
 		final int             hitdice,
 		final PlayerCharacter aPC,
 		final boolean         addNew)
 	{
-		final List feats;
+		final List<String> feats;
 
 		if (getListSize(featStrings) != 0)
 		{
-			feats = (ArrayList) featStrings.clone();
+			feats = (ArrayList<String>) featStrings.clone();
 		}
 		else
 		{
-			feats = new ArrayList();
+			feats = new ArrayList<String>();
 		}
 
 		/* This is very, very temporary.
@@ -2135,10 +2135,10 @@ public final class PCTemplate extends PObject implements HasCost
 		 * AbilityInfo objects instead of the names of abilities.
 		 */
 		if (abilityCatStore != null) {
-			Iterator it = abilityCatStore.getKeyIterator("ALL");
+			Iterator<Ability> it = abilityCatStore.getKeyIterator("ALL");
 
 			while (it.hasNext()) {
-				feats.add(((AbilityInfo) it.next()).getKeyName());
+				feats.add(it.next().getKeyName());
 			}
 		}
 
@@ -2285,7 +2285,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * Get level modifiers
 	 * @return level modifiers
 	 */
-	public List getLevelMods()
+	public List<String> getLevelMods()
 	{
 		return Collections.unmodifiableList(levelMods);
 	}

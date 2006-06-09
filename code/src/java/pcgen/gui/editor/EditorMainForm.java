@@ -809,10 +809,6 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_SKILL:
 
-				//
-				// synergyList method has been deprecated. Translate into BONUS instead
-				//
-				((Skill) thisPObject).getSynergyList().clear();
 				sel = pnlSynergy.getSelectedList();
 
 				// BONUS:SKILL|Ride|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
@@ -2115,28 +2111,6 @@ public final class EditorMainForm extends JDialog
 					if (!aSkill.getKeyName().equals(thisPObject.getKeyName()))
 					{
 						availableList.add(aSkill.getKeyName());
-					}
-				}
-
-				if (((Skill) thisPObject).getSynergyList() != null)
-				{
-					for (e = ((Skill) thisPObject).getSynergyList().iterator(); e.hasNext();)
-					{
-						aString = (String) e.next();
-						aTok = new StringTokenizer(aString, "=", false);
-
-						if (aTok.countTokens() != 3)
-						{
-							Logging.errorPrint("Badly formed synergy element: " + aString);
-
-							continue;
-						}
-
-						final String skill = aTok.nextToken();
-						final String ranks = aTok.nextToken();
-						final String bonus = aTok.nextToken();
-						availableList.remove(skill);
-						selectedList.add(encodeSynergyEntry(skill, ranks, bonus));
 					}
 				}
 

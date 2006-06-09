@@ -30,6 +30,9 @@ import pcgen.util.DoubleKeyMap;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import pcgen.core.Domain;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <code>PCSpellTracker</code> has a map that stores each key and it's corresponding
@@ -47,229 +50,227 @@ import java.util.Map;
 
 public class PCSpellTracker {
 
-    protected PlayerCharacter pc;
-    protected DoubleKeyMap spellSerialMap = new DoubleKeyMap();
-    protected DoubleKeyMap spellMap = new DoubleKeyMap();
+	protected PlayerCharacter pc;
+	protected DoubleKeyMap<String, String, Integer> spellSerialMap = new DoubleKeyMap<String, String, Integer>();
+	protected DoubleKeyMap<String, String, Map<String, String>> spellMap = new DoubleKeyMap<String, String, Map<String, String>>();
 
-    protected Map spellLevelMap = new HashMap();
-    protected int spellLevelMapSerial = 0;
+	protected Map<String, String> spellLevelMap = new HashMap<String, String>();
+	protected int spellLevelMapSerial = 0;
 
-    public PCSpellTracker(PlayerCharacter pc) {
-        this.pc = pc;
-    }
+	public PCSpellTracker(PlayerCharacter pc) {
+		this.pc = pc;
+	}
 
-    public Map getSpellInfoMap(final String key1, final String key2) {
-        Object obj = spellSerialMap.get(key1, key2);
-        if (obj != null) {
-            Integer i = (Integer) obj;
-            if (i.intValue() >= pc.getSerial()) {
-                return (Map) spellMap.get(key1, key2);
-            }
-        }
-        Map newMap = buildSpellInfoMap(key1, key2);
-        spellMap.put(key1, key2, newMap);
-        spellSerialMap.put(key1, key2, new Integer(pc.getSerial()));
-        return newMap;
-    }
+	public Map<String, String> getSpellInfoMap(final String key1, final String key2) {
+		Integer i = spellSerialMap.get(key1, key2);
+		if (i != null) {
+			if (i.intValue() >= pc.getSerial()) {
+				return spellMap.get(key1, key2);
+			}
+		}
+		Map<String, String> newMap = buildSpellInfoMap(key1, key2);
+		spellMap.put(key1, key2, newMap);
+		spellSerialMap.put(key1, key2, new Integer(pc.getSerial()));
+		return newMap;
+	}
 
-    public Map buildSpellInfoMap(final String key1, final String key2) {
-        Iterator e;
-        Map spellInfoMap = new HashMap();
+	public Map<String, String> buildSpellInfoMap(final String key1, final String key2) {
+		Iterator<? extends PObject> e;
+		Map<String, String> spellInfoMap = new HashMap<String, String>();
 
-        if (!pc.getClassList().isEmpty()) {
-            e = pc.getClassList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.getClassList().isEmpty()) {
+			e = pc.getClassList().iterator();
+			buildSpellInfoMap(spellInfoMap, key1, key2, e);
+		}
 
-        if (!pc.getCompanionModList().isEmpty()) {
-            e = pc.getCompanionModList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.getCompanionModList().isEmpty()) {
+			e = pc.getCompanionModList().iterator();
+			buildSpellInfoMap(spellInfoMap, key1, key2, e);
+		}
 
-        if (!pc.getEquipmentList().isEmpty()) {
-            e = pc.getEquipmentList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.getEquipmentList().isEmpty()) {
+			e = pc.getEquipmentList().iterator();
+			buildSpellInfoMap(spellInfoMap, key1, key2, e);
+		}
 
-        if (!pc.aggregateFeatList().isEmpty()) {
-            e = pc.aggregateFeatList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.aggregateFeatList().isEmpty()) {
+			e = pc.aggregateFeatList().iterator();
+			buildSpellInfoMap(spellInfoMap, key1, key2, e);
+		}
 
-        if (!pc.getTemplateList().isEmpty()) {
-            e = pc.getTemplateList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.getTemplateList().isEmpty()) {
+			e = pc.getTemplateList().iterator();
+			buildSpellInfoMap(spellInfoMap, key1, key2, e);
+		}
 
-        if (!pc.getCharacterDomainList().isEmpty()) {
-            e = pc.getCharacterDomainList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.getCharacterDomainList().isEmpty()) {
+			List<Domain> domains = new ArrayList<Domain>();
+			for ( CharacterDomain cd : pc.getCharacterDomainList() )
+			{
+				domains.add(cd.getDomain());
+			}
+			buildSpellInfoMap(spellInfoMap, key1, key2, domains.iterator());
+		}
 
-        if (!pc.getSkillList().isEmpty()) {
-            e = pc.getSkillList().iterator();
-            buildSpellInfoMap(spellInfoMap, key1, key2, e);
-        }
+		if (!pc.getSkillList().isEmpty()) {
+			e = pc.getSkillList().iterator();
+			buildSpellInfoMap(spellInfoMap, key1, key2, e);
+		}
 
-        if (pc.getRace() != null) {
-            spellInfoMap.putAll(getSpellInfoMapPassesPrereqs(pc.getRace(), key1, key2));
-        }
+		if (pc.getRace() != null) {
+			spellInfoMap.putAll(getSpellInfoMapPassesPrereqs(pc.getRace(), key1, key2));
+		}
 
-        if (pc.getDeity() != null) {
-            spellInfoMap.putAll(getSpellInfoMapPassesPrereqs(pc.getDeity(), key1, key2));
-        }
-        return spellInfoMap;
-    }
+		if (pc.getDeity() != null) {
+			spellInfoMap.putAll(getSpellInfoMapPassesPrereqs(pc.getDeity(), key1, key2));
+		}
+		return spellInfoMap;
+	}
 
-    private void buildSpellInfoMap(final Map spellInfoMap, final String key1, final String key2, final Iterator e) {
-        while (e.hasNext()) {
-            Object obj = e.next();
+	private void buildSpellInfoMap(final Map<String, String> spellInfoMap, final String key1, final String key2, final Iterator<? extends PObject> e) {
+		while (e.hasNext()) {
+			final PObject pObj = e.next();
 
-            if (obj instanceof CharacterDomain) {
-                obj = ((CharacterDomain) obj).getDomain();
-            }
+			if (pObj == null) {
+				continue;
+			}
 
-            if (!(obj instanceof PObject)) {
-                continue;
-            }
+			spellInfoMap.putAll(getSpellInfoMapPassesPrereqs(pObj, key1, key2));
+		}
+	}
 
-            final PObject pObj = (PObject) obj;
-            spellInfoMap.putAll(getSpellInfoMapPassesPrereqs(pObj, key1, key2));
-        }
-    }
+	public Map<String, String> getSpellInfoMapPassesPrereqs(final PObject obj, final String key1, final String key2) {
+		if (obj.getSpellSupport() == null) {
+			return new HashMap<String, String>();
+		}
+		return obj.getSpellSupport().getSpellInfoMapPassesPrereqs(key1, key2, pc);
+	}
 
-    public Map getSpellInfoMapPassesPrereqs(final PObject obj, final String key1, final String key2) {
-        if (obj.getSpellSupport() == null) {
-            return new HashMap();
-        }
-        return obj.getSpellSupport().getSpellInfoMapPassesPrereqs(key1, key2, pc);
-    }
+	public boolean isSpellLevelforKey(final String key, final int levelMatch) {
+		if (spellLevelMapSerial < pc.getSerial()) {
+			buildSpellLevelMap(levelMatch);
+			spellLevelMapSerial = pc.getSerial();
+		}
 
-    public boolean isSpellLevelforKey(final String key, final int levelMatch) {
-        if (spellLevelMapSerial < pc.getSerial()) {
-            buildSpellLevelMap(levelMatch);
-            spellLevelMapSerial = pc.getSerial();
-        }
+		if (!spellLevelMap.containsKey(key)) {
+			return false;
+		}
 
-        if (!spellLevelMap.containsKey(key)) {
-            return false;
-        }
+		final int levelInt;
 
-        final int levelInt;
+		try {
+			levelInt = Integer.parseInt(spellLevelMap.get(key));
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
 
-        try {
-            levelInt = Integer.parseInt((String) spellLevelMap.get(key));
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
+		if (levelMatch == levelInt) {
+			return true;
+		}
 
-        if (levelMatch == levelInt) {
-            return true;
-        }
+		if (levelMatch==-1 && levelInt>=0) {
+			return true;
+		}
+		return false;
+	}
 
-        if (levelMatch==-1 && levelInt>=0) {
-            return true;
-        }
-        return false;
-    }
+	public int getSpellLevelforKey(final String key, final int levelMatch) {
+		// rebuild the spell level map if the character has changed
+		if (spellLevelMapSerial < pc.getSerial()) {
+			buildSpellLevelMap(levelMatch);
+			spellLevelMapSerial = pc.getSerial();
+		}
 
-    public int getSpellLevelforKey(final String key, final int levelMatch) {
-        // rebuild the spell level map if the character has changed
-        if (spellLevelMapSerial < pc.getSerial()) {
-            buildSpellLevelMap(levelMatch);
-            spellLevelMapSerial = pc.getSerial();
-        }
+		if (!spellLevelMap.containsKey(key)) {
+			// This spell is not on any spell list for this character
+			return -1;
+		}
 
-        if (!spellLevelMap.containsKey(key)) {
-            // This spell is not on any spell list for this character
-            return -1;
-        }
+		try {
+			final int levelInt = Integer.parseInt((String) spellLevelMap.get(key));
+			return levelInt;
+		} catch (NumberFormatException nfe) {
+			return -1;
+		}
+	}
 
-        try {
-            final int levelInt = Integer.parseInt((String) spellLevelMap.get(key));
-            return levelInt;
-        } catch (NumberFormatException nfe) {
-            return -1;
-        }
-    }
+	public void buildSpellLevelMap(final int levelMatch) {
+		Iterator e;
+		spellLevelMap.clear();
 
-    public void buildSpellLevelMap(final int levelMatch) {
-        Iterator e;
-        spellLevelMap.clear();
+		if (!pc.getClassList().isEmpty()) {
+			e = pc.getClassList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.getClassList().isEmpty()) {
-            e = pc.getClassList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (!pc.getCompanionModList().isEmpty()) {
+			e = pc.getCompanionModList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.getCompanionModList().isEmpty()) {
-            e = pc.getCompanionModList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (!pc.getEquipmentList().isEmpty()) {
+			e = pc.getEquipmentList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.getEquipmentList().isEmpty()) {
-            e = pc.getEquipmentList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (!pc.aggregateFeatList().isEmpty()) {
+			e = pc.aggregateFeatList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.aggregateFeatList().isEmpty()) {
-            e = pc.aggregateFeatList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (!pc.getTemplateList().isEmpty()) {
+			e = pc.getTemplateList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.getTemplateList().isEmpty()) {
-            e = pc.getTemplateList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (!pc.getCharacterDomainList().isEmpty()) {
+			e = pc.getCharacterDomainList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.getCharacterDomainList().isEmpty()) {
-            e = pc.getCharacterDomainList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (!pc.getSkillList().isEmpty()) {
+			e = pc.getSkillList().iterator();
+			buildSpellLevelMap(levelMatch, e);
+		}
 
-        if (!pc.getSkillList().isEmpty()) {
-            e = pc.getSkillList().iterator();
-            buildSpellLevelMap(levelMatch, e);
-        }
+		if (pc.getRace() != null) {
+			spellLevelMap.putAll(getSpellMapPassesPrereqs(pc.getRace(), levelMatch));
+		}
 
-        if (pc.getRace() != null) {
-            spellLevelMap.putAll(getSpellMapPassesPrereqs(pc.getRace(), levelMatch));
-        }
+		if (pc.getDeity() != null) {
+			spellLevelMap.putAll(getSpellMapPassesPrereqs(pc.getDeity(), levelMatch));
+		}
+	}
 
-        if (pc.getDeity() != null) {
-            spellLevelMap.putAll(getSpellMapPassesPrereqs(pc.getDeity(), levelMatch));
-        }
-    }
+	private void buildSpellLevelMap(final int levelMatch, final Iterator e) {
+		while (e.hasNext()) {
+			Object obj = e.next();
 
-    private void buildSpellLevelMap(final int levelMatch, final Iterator e) {
-        while (e.hasNext()) {
-            Object obj = e.next();
+			if (obj instanceof CharacterDomain) {
+				obj = ((CharacterDomain) obj).getDomain();
+			}
 
-            if (obj instanceof CharacterDomain) {
-                obj = ((CharacterDomain) obj).getDomain();
-            }
+			if (!(obj instanceof PObject)) {
+				continue;
+			}
 
-            if (!(obj instanceof PObject)) {
-                continue;
-            }
+			final PObject pObj = (PObject) obj;
+			spellLevelMap.putAll(getSpellMapPassesPrereqs(pObj, levelMatch));
+		}
+	}
 
-            final PObject pObj = (PObject) obj;
-            spellLevelMap.putAll(getSpellMapPassesPrereqs(pObj, levelMatch));
-        }
-    }
+	/**
+	 * returns all the spells of levelMatch or lower
+	 * that pass all the PreReqs
+	 * @param obj
+	 * @param levelMatch
+	 * @return Map
+	 */
+	public Map<String, String> getSpellMapPassesPrereqs(final PObject obj, final int levelMatch) {
+		if (obj.getSpellSupport() == null) {
+			return new HashMap<String, String>();
+		}
 
-    /**
-     * returns all the spells of levelMatch or lower
-     * that pass all the PreReqs
-     * @param obj
-     * @param levelMatch
-     * @return Map
-     */
-    public Map getSpellMapPassesPrereqs(final PObject obj, final int levelMatch) {
-        if (obj.getSpellSupport() == null) {
-            return new HashMap();
-        }
-
-        return obj.getSpellSupport().getSpellMapPassesPrereqs(levelMatch, pc);
-    }
+		return obj.getSpellSupport().getSpellMapPassesPrereqs(levelMatch, pc);
+	}
 }

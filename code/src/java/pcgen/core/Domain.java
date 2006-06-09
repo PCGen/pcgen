@@ -60,7 +60,7 @@ public final class Domain extends PObject
 	 */
 	public void addAbility(final String abilities)
 	{
-		abilityStore.addAbilityInfo(abilities, "", "|,", false, false);
+		abilityStore.addAbilityInfo(abilities, "", "|,", false);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public final class Domain extends PObject
 	 */
 	public void addFeat(final String feats)
 	{
-		abilityStore.addAbilityInfo(feats, "FEAT", "|,", true, false);
+		abilityStore.addAbilityInfo(feats, "FEAT", "|,", true);
 	}
 
 	/**
@@ -282,7 +282,7 @@ public final class Domain extends PObject
 	 *
 	 * @return  An Iterator over a group of AbilityInfo objects.
 	 */
-	Iterator getFeatIterator()
+	Iterator<Ability> getFeatIterator()
 	{
 		return abilityStore.getKeyIterator("FEAT");
 	}

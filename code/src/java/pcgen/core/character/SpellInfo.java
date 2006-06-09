@@ -29,6 +29,7 @@ import pcgen.core.Globals;
 
 import java.util.ArrayList;
 import java.util.List;
+import pcgen.core.Ability;
 
 /**
  * <code>SpellInfo</code>
@@ -43,7 +44,7 @@ import java.util.List;
 public final class SpellInfo
 {
 	private CharacterSpell owner;
-	private List featList; // a List of Feat objects
+	private List<Ability> featList; // a List of Feat objects
 	private String book = Globals.getDefaultSpellBook(); // name of book
 	private int actualLevel = -1;
 	private int times; // times the spell is in this list
@@ -94,7 +95,7 @@ public final class SpellInfo
 		return book;
 	}
 
-	public List getFeatList()
+	public List<Ability> getFeatList()
 	{
 		return featList;
 	}
@@ -124,11 +125,11 @@ public final class SpellInfo
 		this.numPages = numPages;
 	}
 
-	public void addFeatsToList(final List aList)
+	public void addFeatsToList(final List<Ability> aList)
 	{
 		if (featList == null)
 		{
-			featList = new ArrayList(aList.size());
+			featList = new ArrayList<Ability>(aList.size());
 		}
 
 		featList.addAll(aList);

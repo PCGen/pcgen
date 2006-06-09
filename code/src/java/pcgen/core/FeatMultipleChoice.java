@@ -35,10 +35,9 @@ import java.util.List;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class FeatMultipleChoice implements Serializable
+public final class FeatMultipleChoice extends AssociatedChoice<String> implements Serializable
 {
 	private static final long serialVersionUID = 1;
-	private List choices = null;
 	private int maxChoices = 0;
 
 	/**
@@ -46,7 +45,7 @@ public final class FeatMultipleChoice implements Serializable
 	 */
 	public FeatMultipleChoice()
 	{
-	    // Empty Constructor
+		super();
 	}
 
 	/**
@@ -64,12 +63,7 @@ public final class FeatMultipleChoice implements Serializable
 	 */
 	public void addChoice(final String aChoice)
 	{
-		if (choices == null)
-		{
-			choices = new ArrayList();
-		}
-
-		choices.add(aChoice);
+		addChoice( String.valueOf( size() ), aChoice );
 	}
 
 	/**
@@ -83,13 +77,13 @@ public final class FeatMultipleChoice implements Serializable
 		final StringBuffer sb = new StringBuffer(50);
 		sb.append(maxChoices).append(':');
 
-		if (choices != null)
+		if (size() > 0)
 		{
-			sb.append(choices.size());
+			sb.append( size() );
 
 			for (int i = 0; i < choices.size(); ++i)
 			{
-				sb.append(':').append(choices.get(i).toString());
+				sb.append(':').append(choices.get(i));
 			}
 		}
 		else
@@ -109,7 +103,7 @@ public final class FeatMultipleChoice implements Serializable
 	{
 		if ((choices != null) && (idx < choices.size()))
 		{
-			return (String) choices.get(idx);
+			return choices.get(idx);
 		}
 
 		return "";
@@ -121,21 +115,16 @@ public final class FeatMultipleChoice implements Serializable
 	 */
 	public int getChoiceCount()
 	{
-		if (choices != null)
-		{
-			return choices.size();
-		}
-
-		return 0;
+		return size();
 	}
 
 	/**
 	 * Get the list of chosen items.
 	 * @return choices
 	 */
-	public List getChoices()
+	public List<String> getChoices()
 	{
-		return choices;
+		return new ArrayList<String>(choices.values());
 	}
 
 	/**

@@ -1739,7 +1739,7 @@ final class UntrainedSkillFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Skill)
 		{
-			return ((Skill) pObject).getUntrained().startsWith("Y");
+			return ((Skill) pObject).isUntrained();
 		}
 
 		return true;

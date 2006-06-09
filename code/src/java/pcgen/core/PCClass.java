@@ -65,7 +65,7 @@ public class PCClass extends PObject
 	protected int numSpellsFromSpecialty = 0;
 	private ArrayList acList = new ArrayList();
 	private ArrayList domainList = new ArrayList();
-	private ArrayList featAutos = new ArrayList();
+	private ArrayList<String> featAutos = new ArrayList<String>();
 	private ArrayList featList = new ArrayList();
 	private ArrayList knownList = new ArrayList();
 	private ArrayList knownSpellsList = new ArrayList();
@@ -74,7 +74,7 @@ public class PCClass extends PObject
 	private final ArrayList templates = new ArrayList();
 	private ArrayList SR = null;
 	private ArrayList addDomains = new ArrayList();
-	private ArrayList naturalWeapons = null;
+	private ArrayList<LevelProperty> naturalWeapons = null;
 	private ArrayList subClassList = null; // list of SubClass objects
 	private ArrayList templatesAdded = null;
 	private ArrayList uattList = new ArrayList();
@@ -83,7 +83,7 @@ public class PCClass extends PObject
 	private final HashMap castForLevelMap = new HashMap();
 	private ArrayList DR = null;
 	private HashMap hitPointMap = new HashMap();
-	private HashMap vFeatMap = new HashMap();
+	private HashMap<String, List<Ability>> vFeatMap = new HashMap<String, List<Ability>>();
 	protected HashMap hitDieLockMap = new HashMap();
 	private int skillPool = 0;
 	private List classSkillList = null;
@@ -117,7 +117,7 @@ public class PCClass extends PObject
 	private String stableSpellKey = null;
 	private String subClassKey = Constants.s_NONE;
 	private String subClassString = Constants.s_NONE;
-	private TreeSet languageBonus = new TreeSet();
+	private TreeSet<Language> languageBonus = new TreeSet<Language>();
 	private boolean hasSubClass = false;
 	private boolean memorizeSpells = true;
 	private boolean modToSkills = true; // stat bonus applied to skills per level
@@ -695,7 +695,7 @@ public class PCClass extends PObject
 		return exClass;
 	}
 
-	public final Collection getFeatAutos()
+	public final Collection<String> getFeatAutos()
 	{
 		return featAutos;
 	}
@@ -1298,8 +1298,8 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Return the level of the highest level spell offered by the class. 
-	 *  
+	 * Return the level of the highest level spell offered by the class.
+	 *
 	 * @return The level of the highest level spell available.
 	 */
 	public int getHighestLevelSpell()
@@ -1344,11 +1344,11 @@ public class PCClass extends PObject
 	}
 
 	/**
-	 * Return the level of the highest level spell the character 
-	 * could possibly cast in this class. This can return a higher 
-	 * level than the class allows if the character has feats 
+	 * Return the level of the highest level spell the character
+	 * could possibly cast in this class. This can return a higher
+	 * level than the class allows if the character has feats
 	 * which give a bonus to casting.
-	 *  
+	 *
 	 * @param pc The character to be checked.
 	 * @return The level of the highest level spell available.
 	 */
@@ -2262,17 +2262,17 @@ public class PCClass extends PObject
 	/* (non-Javadoc)
 	 * @see pcgen.core.PObject#getWeaponProfAutos()
 	 */
-	public List getWeaponProfAutos() {
+	public List<String> getWeaponProfAutos() {
 		// first build up the list of the standard auto weapon profs
-		final List list = super.getWeaponProfAutos();
+		final List<String> list = super.getWeaponProfAutos();
 
 		// then add in the proficiencies for each natural weapon
 		// we have active.
 		if (naturalWeapons != null)
 		{
-			for (Iterator li = naturalWeapons.iterator(); li.hasNext();)
+			for (Iterator<LevelProperty> li = naturalWeapons.iterator(); li.hasNext();)
 			{
-				final LevelProperty lp = (LevelProperty) li.next();
+				final LevelProperty lp = li.next();
 				if (lp.getLevel() <= level)
 				{
 					final Equipment weapon = (Equipment) lp.getObject();
@@ -2714,15 +2714,15 @@ public class PCClass extends PObject
 		return pccTxt.toString();
 	}
 
-	public List getVirtualFeatList(final int aLevel)
+	public List<Ability> getVirtualFeatList(final int aLevel)
 	{
-		final List aList = new ArrayList();
+		final List<Ability> aList = new ArrayList<Ability>();
 
 		for (int i = -9; i <= aLevel; i++)
 		{
 			if (vFeatMap.containsKey(String.valueOf(i)))
 			{
-				aList.addAll((List) vFeatMap.get(String.valueOf(i)));
+				aList.addAll(vFeatMap.get(String.valueOf(i)));
 			}
 		}
 
@@ -2921,18 +2921,18 @@ public class PCClass extends PObject
 	 * @param aLevel level
 	 * @param vList list of feats
 	 **/
-	public void addVirtualFeats(final int aLevel, final List vList)
+	public void addVirtualFeats(final int aLevel, final List<Ability> vList)
 	{
 		final String levelString = String.valueOf(aLevel);
-		List vFeatsAtLevel;
+		List<Ability> vFeatsAtLevel;
 
 		if (vFeatMap.containsKey( levelString ))
 		{
-			vFeatsAtLevel = (List) vFeatMap.get( levelString );
+			vFeatsAtLevel = vFeatMap.get( levelString );
 		}
 		else
 		{
-			vFeatsAtLevel = new ArrayList();
+			vFeatsAtLevel = new ArrayList<Ability>();
 			vFeatMap.put(levelString, vFeatsAtLevel);
 		}
 		vFeatsAtLevel.addAll(vList);
@@ -3090,9 +3090,9 @@ public class PCClass extends PObject
 			aClass.weaponProfBonus = (ArrayList) weaponProfBonus.clone();
 			aClass.featList = (ArrayList) featList.clone();
 //			aClass.vFeatList = (ArrayList) vFeatList.clone();
-			aClass.vFeatMap = new HashMap(vFeatMap);
+			aClass.vFeatMap = new HashMap<String, List<Ability>>(vFeatMap);
 			aClass.hitDieLockMap = new HashMap(hitDieLockMap);
-			aClass.featAutos = (ArrayList) featAutos.clone();
+			aClass.featAutos = (ArrayList<String>) featAutos.clone();
 			aClass.skillList = new ArrayList();
 
 			if (DR != null)
@@ -3439,7 +3439,7 @@ public class PCClass extends PObject
 		return true;
 	}
 
-	protected List addSpecialAbilitiesToList(final List aList, final PlayerCharacter aPC)
+	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
 		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
@@ -3666,7 +3666,7 @@ public class PCClass extends PObject
 		return total;
 	}
 
-	final Set getLanguageBonus()
+	final Set<Language> getLanguageBonus()
 	{
 		return languageBonus;
 	}

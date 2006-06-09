@@ -40,7 +40,7 @@ import java.util.StringTokenizer;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
+public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	Ability  anAbility = null;
 
@@ -74,35 +74,34 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		anAbility = null;
-		Iterator choiceIt  = choices.iterator();
+		Iterator<String> choiceIt  = choices.iterator();
 
 		while (choiceIt.hasNext())
 		{
-			final String aString = (String) choiceIt.next();
+			final String aString = choiceIt.next();
 
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
 				final String featType = aString.substring(5);
 
-				for (Iterator it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); )
+				for (Iterator<Ability> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); )
 				{
-					final Ability ability = (Ability) it.next();
+					final Ability ability = it.next();
 
 					if (
 						ability.isType(featType) &&
 						aPc.canSelectAbility(ability) &&
 						!availableList.contains(ability)
-					   ) {
-
-						availableList.add(ability);
+					   )
+					{
+						availableList.add(ability.toString());
 					}
 				}
 			}
-
 			else
 			{
 				final StringTokenizer bTok = new StringTokenizer(aString, ",");
@@ -161,8 +160,8 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager {
 							}
 						}
 
-						final List aavailableList = new ArrayList(); // available list of choices
-						final List sselectedList = new ArrayList(); // selected list of choices
+						final List<String> aavailableList = new ArrayList<String>(); // available list of choices
+						final List<String> sselectedList = new ArrayList<String>(); // selected list of choices
 						anAbility.modChoices(aavailableList, sselectedList, false, aPc, true);
 
 						//

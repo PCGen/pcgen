@@ -73,35 +73,8 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			System.out.println(e);
 		}
 
-		AbilityInfo abInfo = new AbilityInfo("foo", "KEY_bar");
-
-		choiceManager.addToMaps(abInfo);
-
-		try
-		{
-			Class cMClass = choiceManager.getClass();
-
-			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is still empty");
-
-			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Category map is still empty");
-
-			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
-			is (aField.get(choiceManager), eq(true), "using name map (2)");
-		}
-		catch (IllegalAccessException e) {
-			System.out.println(e);
-		}
-
-		Ability ab = new Ability();
-		ab.setName("bar");
-		ab.setKeyName("KEY_bar");
-		ab.setCategory("foo");
-
-		is (Globals.addAbility(ab), eq(true), "First ability added correctly");
-
-		choiceManager.addToMaps(abInfo);
+		Ability ab = TestHelper.makeAbility("foo", "FEAT", "Test");
+		choiceManager.addToMaps(ab);
 
 		try
 		{
@@ -120,16 +93,8 @@ public class AbilityFromTemplateChoiceManagerTest extends
 			System.out.println(e);
 		}
 
-		abInfo = new AbilityInfo("baz", "KEY_bar");
-
-		ab = new Ability();
-		ab.setName("bar");
-		ab.setKeyName("KEY_bar");
-		ab.setCategory("baz");
-
-		is (Globals.addAbility(ab), eq(true), "Second ability added correctly");
-
-		choiceManager.addToMaps(abInfo);
+		Ability a2 = TestHelper.makeAbility("foo", "OTHER", "Junk");
+		choiceManager.addToMaps(a2);
 
 		try
 		{
@@ -141,7 +106,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 			Object st[]   = sName.toArray();
 
-			is (st[0], strEq("KEY_bar"), "One");
+			is (st[0], strEq("KEY_foo"), "One");
 
 			/* these next two only have one entry because the first entry is discarded
 			 * when the the second is added (which is why we also have cat maps!) */

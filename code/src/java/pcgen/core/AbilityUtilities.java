@@ -871,10 +871,10 @@ public class AbilityUtilities
 	 * @return a List of the Abilities this Character has
 	 */
 
-	static public List rebuildAutoAbilityList(PlayerCharacter aPc)
+	static public List<Ability> rebuildAutoAbilityList(PlayerCharacter aPc)
 	{
-		final List autoFeatList;
-		autoFeatList = new ArrayList();
+		final List<Ability> autoFeatList;
+		autoFeatList = new ArrayList<Ability>();
 
 		//
 		// add racial feats
@@ -890,17 +890,17 @@ public class AbilityUtilities
 			}
 		}
 
-		for (Iterator e = aPc.getClassListIterator(); e.hasNext();)
+		for (Iterator<PCClass> e = aPc.getClassListIterator(); e.hasNext();)
 		{
-			final PCClass aClass = (PCClass) e.next();
+			final PCClass aClass = e.next();
 
-			for (Iterator e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
+			for (Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
 			{
 				//
 				// PCClass object have auto feats stored in format:
 				// lvl|feat_name
 				//
-				final String aString = (String) e1.next();
+				final String aString = e1.next();
 
 				if (aString.indexOf('|') < 1)
 				{
@@ -930,7 +930,7 @@ public class AbilityUtilities
 				if (idx >= 0)
 				{
 					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
-					final List preReqList = new ArrayList();
+					final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
 
 					while (bTok.hasMoreTokens())
 					{
@@ -973,17 +973,17 @@ public class AbilityUtilities
 
 		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !aPc.getTemplateList().isEmpty())
 		{
-			for (Iterator e = aPc.getTemplateListIterator(); e.hasNext();)
+			for (Iterator<PCTemplate> e = aPc.getTemplateListIterator(); e.hasNext();)
 			{
 				aPc.setStableAutomaticFeatList(autoFeatList);
-				final PCTemplate aTemplate = (PCTemplate) e.next();
-				final List templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
+				final PCTemplate aTemplate = e.next();
+				final List<String> templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
 
 				if (!templateFeats.isEmpty())
 				{
-					for (Iterator e2 = templateFeats.iterator(); e2.hasNext();)
+					for (Iterator<String> e2 = templateFeats.iterator(); e2.hasNext();)
 					{
-						final String aString = (String) e2.next();
+						final String aString = e2.next();
 						final StringTokenizer aTok = new StringTokenizer(aString, ",");
 
 						while (aTok.hasMoreTokens())
@@ -998,9 +998,9 @@ public class AbilityUtilities
 
 		if (!aPc.getCharacterDomainList().isEmpty())
 		{
-			for (Iterator e = aPc.getCharacterDomainListIterator(); e.hasNext();)
+			for (Iterator<CharacterDomain> e = aPc.getCharacterDomainListIterator(); e.hasNext();)
 			{
-				final CharacterDomain aCD = (CharacterDomain) e.next();
+				final CharacterDomain aCD = e.next();
 				final Domain aDomain = aCD.getDomain();
 
 				if (aDomain != null)
@@ -1025,11 +1025,11 @@ public class AbilityUtilities
 						}
 					}
 
-					final Iterator anIt = aDomain.getFeatIterator();
+					final Iterator<Ability> anIt = aDomain.getFeatIterator();
 
 					for (; anIt.hasNext();)
 					{
-						final AbilityInfo abI = (AbilityInfo) anIt.next();
+						final Ability abI = anIt.next();
 						Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", abI.getKeyName());
 						added.setFeatType(Ability.ABILITY_AUTOMATIC);
 					}

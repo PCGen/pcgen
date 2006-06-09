@@ -30,7 +30,7 @@ import pcgen.core.PlayerCharacter;
 /**
  * Choice Manager List interface
  */
-public interface ChoiceManagerList {
+public interface ChoiceManagerList<T> {
 
 	/**
 	 * return handled chooser
@@ -46,8 +46,8 @@ public interface ChoiceManagerList {
 	 */
 	public abstract void getChoices(
 			final PlayerCharacter aPc,
-			final List availableList,
-			final List selectedList);
+			final List<T> availableList,
+			final List<T> selectedList);
 
 	/**
 	 * Do chooser
@@ -56,10 +56,10 @@ public interface ChoiceManagerList {
 	 * @param selectedList
 	 * @return the list of selected items
 	 */
-	public abstract List doChooser(
+	public abstract List<T> doChooser(
 			PlayerCharacter aPc,
-			final List availableList,
-			final List selectedList);
+			final List<T> availableList,
+			final List<T> selectedList);
 
 	/**
 	 * Do chooser for removing a choice
@@ -69,18 +69,18 @@ public interface ChoiceManagerList {
 	 */
 	public abstract void doChooserRemove (
 			PlayerCharacter aPc,
-			final List availableList,
-			final List selectedList);
+			final List<T> availableList,
+			final List<T> selectedList);
 
-	
+
 	/**
 	 * Apply the choices to the Pc
-	 * 
+	 *
 	 * @param aPC
 	 * @param selected
 	 */
 	public abstract void applyChoices(
 			final PlayerCharacter aPC,
-			final List selected);
+			final List<T> selected);
 
 }

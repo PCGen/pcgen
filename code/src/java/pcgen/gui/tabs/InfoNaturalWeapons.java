@@ -256,18 +256,6 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 				{
 					public final int compare(final Object o1, final Object o2)
 					{
-						final int mem1 = ((Equipment) o1).getMemberOfKit();
-						final int mem2 = ((Equipment) o2).getMemberOfKit();
-
-						if (mem1 < mem2)
-						{
-							return -1;
-						}
-						else if (mem1 > mem2)
-						{
-							return 1;
-						}
-
 						if (((Equipment) o1).isType("Primary"))
 						{
 							return -1;

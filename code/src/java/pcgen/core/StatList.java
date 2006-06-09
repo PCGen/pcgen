@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Collections;
+import pcgen.core.bonus.BonusObj;
 
 /**
  * <code>StatList</code>.
@@ -76,13 +77,13 @@ public final class StatList
 		return stat.getBaseScore();
 	}
 
-	public List getBonusListOfType(final String aType, final String aName)
+	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Iterator e = stats.iterator(); e.hasNext();)
+		for (Iterator<PCStat> e = stats.iterator(); e.hasNext();)
 		{
-			final PCStat aStat = (PCStat) e.next();
+			final PCStat aStat = e.next();
 			aList.addAll(aStat.getBonusListOfType(aType, aName));
 		}
 

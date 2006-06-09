@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing a domain.
  */
-public class DomainChoiceManager extends AbstractComplexChoiceManager {
+public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 
 	/**
 	 * Make a new Armor Type chooser.
@@ -69,20 +69,18 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<Domain>            availableList,
+			final List<Domain>            selectedList)
 	{
-		Iterator choiceIt = choices.iterator();
+		Iterator<String> choiceIt = choices.iterator();
 		while (choiceIt.hasNext())
 		{
-			String option = (String) choiceIt.next();
+			String option = choiceIt.next();
 			if ("ANY".equals(option))
 			{
 				// returns a list of all loaded Domains.
-				List domains = Globals.getDomainList();
-				for (Iterator i = domains.iterator(); i.hasNext(); )
+				for ( Domain domain : Globals.getDomainList() )
 				{
-					Domain domain = (Domain)i.next();
 					availableList.add(domain);
 				}
 				break;
@@ -91,17 +89,13 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 			{
 				// returns a list of loaded Domains the PC qualifies for
 				// but does not have.
-				List allDomains = Globals.getDomainList();
-				for (Iterator i = allDomains.iterator(); i.hasNext(); )
+				for ( Domain domain : Globals.getDomainList() )
 				{
-					Domain domain = (Domain)i.next();
 					if (domain.qualifiesForDomain(aPc))
 					{
 						boolean found = false;
-						List pcDomainList = aPc.getCharacterDomainList();
-						for (Iterator j = pcDomainList.iterator(); j.hasNext();)
+						for ( CharacterDomain cd : aPc.getCharacterDomainList())
 						{
-							CharacterDomain cd = (CharacterDomain)j.next();
 							if (domain.equals(cd.getDomain()))
 							{
 								found = true;
@@ -119,10 +113,8 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 			else if ("PC".equals(option))
 			{
 				// returns a list of all domains a character actually has.
-				List pcDomainList = aPc.getCharacterDomainList();
-				for (Iterator i = pcDomainList.iterator(); i.hasNext();)
+				for ( CharacterDomain cd : aPc.getCharacterDomainList())
 				{
-					CharacterDomain cd = (CharacterDomain)i.next();
 					availableList.add(cd.getDomain());
 				}
 				break;
@@ -134,10 +126,8 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 				Deity deity = Globals.getDeityKeyed(deityName);
 				if (deity != null)
 				{
-					List domainList = deity.getDomainList();
-					for (Iterator i = domainList.iterator(); i.hasNext();)
+					for ( Domain domain : deity.getDomainList() )
 					{
-						Domain domain = (Domain)i.next();
 						availableList.add(domain);
 					}
 				}
@@ -154,7 +144,10 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager {
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		for ( Domain domain : selectedList )
+		{
+			pobject.addAssociated( domain.getKeyName() );
+		}
 	}
 
 }

@@ -621,7 +621,7 @@ public final class ExportHandler
 			{
 				return false;
 			}
-			else if ((aSkill.getUntrained().length() > 0) && (aSkill.getUntrained().charAt(0) == 'Y'))
+			else if (aSkill.isUntrained())
 			{
 				return true;
 			}

@@ -41,8 +41,8 @@ public class SpellsLst implements GlobalLstToken {
 	 * @param sourceLine
 	 * @return spells list
 	 */
-	private static List createSpellsList(final String sourceLine) {
-		List spellList = new ArrayList();
+	private static List<PCSpell> createSpellsList(final String sourceLine) {
+		List<PCSpell> spellList = new ArrayList<PCSpell>();
 		StringTokenizer tok = new StringTokenizer(sourceLine, "|");
 		if(tok.countTokens() > 1) {
 			String spellBook = tok.nextToken();

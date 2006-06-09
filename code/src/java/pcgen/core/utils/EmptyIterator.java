@@ -29,14 +29,19 @@ import java.util.NoSuchElementException;
  * @author Scott Ellsworth
  * @version $Revision$
  */
-public class EmptyIterator implements Iterator
+public class EmptyIterator<T> implements Iterator<T>
 {
 	/** instance of this class */
 	public static final EmptyIterator EMPTY_ITERATOR = new EmptyIterator();
 
 	private EmptyIterator()
 	{
-	    // Empty Constructor	    
+		// Empty Constructor
+	}
+
+	public static <T> EmptyIterator<T> emptyIterator()
+	{
+		return new EmptyIterator<T>();
 	}
 
 	public boolean hasNext()
@@ -44,7 +49,7 @@ public class EmptyIterator implements Iterator
 		return false;
 	}
 
-	public Object next()
+	public T next()
 	{
 		throw new NoSuchElementException();
 	}

@@ -59,11 +59,11 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 
 			pcClass = new PCClass();
 
-			TestHelper.makeSkill("Bluff",              "Charisma",               "CHA", "YES", "NO");
-			TestHelper.makeSkill("Listen",             "Wisdom",                 "WIS", "YES", "NO");
-			TestHelper.makeSkill("Move Silently",      "Dexterity",              "DEX", "YES", "YES");
-			TestHelper.makeSkill("Knowledge (Arcana)", "Intelligence.Knowledge", "INT", "NO",  "NO");
-			TestHelper.makeSkill("Knowledge (Dungeoneering)", "Intelligence.Knowledge", "INT", "NO", "NO");
+			TestHelper.makeSkill("Bluff",              "Charisma",               "CHA", true, "NO");
+			TestHelper.makeSkill("Listen",             "Wisdom",                 "WIS", true, "NO");
+			TestHelper.makeSkill("Move Silently",      "Dexterity",              "DEX", true, "YES");
+			TestHelper.makeSkill("Knowledge (Arcana)", "Intelligence.Knowledge", "INT", false,  "NO");
+			TestHelper.makeSkill("Knowledge (Dungeoneering)", "Intelligence.Knowledge", "INT", false, "NO");
 		}
 
 		final PlayerCharacter character = getCharacter();

@@ -43,7 +43,7 @@ import java.util.ArrayList;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceManager
+public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoiceManager<T>
 {
 	protected boolean multiples           = false;
 	protected double  cost                = 1.0;
@@ -99,8 +99,8 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 			multiples    = ((Ability) pobject).isMultiples();
 		}
 
-		List mainList = Arrays.asList(choiceString.split("[|]"));
-		List subList  = Arrays.asList(((String) mainList.get(0)).split("="));
+		List<String> mainList = Arrays.asList(choiceString.split("[|]"));
+		List<String> subList  = Arrays.asList(mainList.get(0).split("="));
 
 		int i = -1;
 		while (subList.get(0).equals("COUNT") || subList.get(0).equals("NUMCHOICES"))
@@ -112,16 +112,16 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 				break;
 			}
 			// Yes this is redundant the first time round the loop
-			subList  = Arrays.asList(((String) mainList.get(i)).split("="));
+			subList  = Arrays.asList(mainList.get(i).split("="));
 
 			if (subList.get(0).equals("COUNT"))
 			{
-				final String var = (String) subList.get(1);
+				final String var = subList.get(1);
 				requestedSelections = aPC.getVariableValue(var, "").intValue();
 			}
 			else if (subList.get(0).equals("NUMCHOICES"))
 			{
-				final String var = (String) subList.get(1);
+				final String var = subList.get(1);
 				numberOfChoices  = aPC.getVariableValue(var, "").intValue();
 			}
 			else
@@ -131,7 +131,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 		}
 		if (!valid || i >= mainList.size())
 		{
-			choices = Collections.EMPTY_LIST;
+			choices = Collections.emptyList();
 			return;
 		}
 
@@ -165,12 +165,12 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 */
 	public void doChooserRemove (
 			PlayerCharacter       aPC,
-			final List            availableList,
-			final List            selectedList)
+			final List<T>            availableList,
+			final List<T>            selectedList)
 	{
 		remove = true;
 
-		final List newSelections = doChooser (
+		final List<T> newSelections = doChooser (
 				aPC,
 				availableList,
 				selectedList);
@@ -187,10 +187,10 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 * @param availableList
 	 * @param selectedList
 	 */
-	public List doChooser (
+	public List<T> doChooser (
 			PlayerCharacter       aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<T>            availableList,
+			final List<T>            selectedList)
 	{
 
 		if (requestedSelections < 0)
@@ -229,7 +229,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 			}
 			else
 			{
-				selectedList.add("");
+				selectedList.add(null);
 			}
 			showChooser     = false;
 			numberOfChoices = 0;			// Make sure we are processing only 1 selection
@@ -311,7 +311,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 */
 	public void applyChoices(
 			PlayerCharacter  aPC,
-			List             selected)
+			List<T>             selected)
 	{
 		cleanUpAssociated(aPC, selected.size());
 
@@ -324,16 +324,19 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
 		}
 
-		Iterator it = selected.iterator();
+		Iterator<T> it = selected.iterator();
 		while (it.hasNext())
 		{
 			Object choice = it.next();
-			String strChoice = choice.toString();
-			if (choice instanceof PObject)
+			if ( choice != null )
 			{
-				strChoice = ((PObject)choice).getKeyName();
+				String strChoice = choice.toString();
+				if (choice instanceof PObject)
+				{
+					strChoice = ( (PObject) choice).getKeyName();
+				}
+				associateChoice(aPC, strChoice, objPrefix);
 			}
-			associateChoice(aPC, strChoice, objPrefix);
 		}
 
 		adjustFeats(aPC, selected);
@@ -392,7 +395,7 @@ public abstract class AbstractComplexChoiceManager extends AbstractSimpleChoiceM
 	 */
 	protected void adjustFeats(
 			PlayerCharacter aPC,
-			List            selected)
+			List<T>            selected)
 	{
 		double featCount = aPC.getFeats();
 

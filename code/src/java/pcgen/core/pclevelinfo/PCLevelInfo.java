@@ -49,7 +49,7 @@ public final class PCLevelInfo implements Cloneable
 	private int             skillPointsGained    = 0;
 	private int             skillPointsRemaining = 0;
 	private PlayerCharacter aPC;
-	private List            objects              = new ArrayList(1);
+	private List<PObject>            objects              = new ArrayList<PObject>(1);
 
 	/**
 	 * Creates a new PCLevelInfo object.
@@ -321,7 +321,7 @@ public final class PCLevelInfo implements Cloneable
 	 */
 	public void addObject(final PObject ability)
 	{
-		this.objects.add(ability);
+		objects.add(ability);
 	}
 
 	/**
@@ -329,7 +329,7 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @return  List
 	 */
-	public List getObjects()
+	public List<? extends PObject> getObjects()
 	{
 		return objects;
 	}
@@ -340,7 +340,7 @@ public final class PCLevelInfo implements Cloneable
 		clone.level = level;
 		clone.skillPointsGained = skillPointsGained;
 		clone.skillPointsRemaining = skillPointsRemaining;
-		for (Iterator i = objects.iterator(); i.hasNext(); )
+		for (Iterator<? extends PObject> i = objects.iterator(); i.hasNext(); )
 		{
 			clone.objects.add(i.next());
 		}

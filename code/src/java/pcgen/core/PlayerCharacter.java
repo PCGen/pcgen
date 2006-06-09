@@ -3516,10 +3516,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			if (pobj != null)
 			{
-				final List profKeyList = pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
-				for (Iterator j = profKeyList.iterator(); j.hasNext(); )
+				final List<String> profKeyList = pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
+				for (Iterator<String> j = profKeyList.iterator(); j.hasNext(); )
 				{
-					final String profKey = (String)j.next();
+					final String profKey = j.next();
 					final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);
 					if (prof != null)
 					{
@@ -10596,7 +10596,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		SortedSet<String> results = new TreeSet<String>();
 		final Race aRace = getRace();
 
-		ListKey weaponProfBonusKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
+		ListKey<String> weaponProfBonusKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
 
 		//
 		// Add race-grantedweapon proficiencies
@@ -11057,7 +11057,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( PObject anObj : aList )
 		{
-			final List tempList = anObj.getBonusListOfType(aType, aName);
+			final List<BonusObj> tempList = anObj.getBonusListOfType(aType, aName);
 			iBonus += calcBonusWithCostFromList(tempList, subSearch);
 		}
 
@@ -11518,7 +11518,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setDirty(true);
 	}
 
-	private Map addStringToDRMap(final Map drMap, final String drString)
+	private Map<String, String> addStringToDRMap(final Map<String, String> drMap, final String drString)
 	{
 		if ((drString == null) || (drString.length() == 0))
 		{
@@ -11549,11 +11549,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// We use -1 as a starting value so as to allow DR:0/- to work. It
 				// can then have bonuses added to improve it.
 				int y = -1;
-				final Object obj = drMap.get(key);
+				final String obj = drMap.get(key);
 
 				if (obj != null)
 				{
-					y = Integer.parseInt(obj.toString());
+					y = Integer.parseInt(obj);
 				}
 
 				final int z = getVariableValue(val, "").intValue();
@@ -11752,24 +11752,45 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		final String sizeString = "FDTSMLHGC";
 
+		PreParserFactory factory = null;
+		try
+		{
+			factory = PreParserFactory.getInstance();
+		}
+		catch (PersistenceLayerException e)
+		{
+			// We won't do prereq testing if we can't get the factory
+		}
 		for ( String profKey : aList )
 		{
 			final int idx = profKey.indexOf('[');
 
-			if (idx >= 0)
+			if (idx >= 0 && factory != null)
 			{
 				final StringTokenizer bTok = new StringTokenizer(profKey.substring(idx + 1), "[]");
-				final List<String> preReqList = new ArrayList<String>();
+				final List<String> preReqStrings = new ArrayList<String>();
 
 				while (bTok.hasMoreTokens())
 				{
-					preReqList.add(bTok.nextToken());
+					preReqStrings.add(bTok.nextToken());
 				}
 
 				profKey = profKey.substring(0, idx);
 
-				if (preReqList.size() != 0)
+				if (preReqStrings.size() != 0)
 				{
+					final List<Prerequisite> preReqList = new ArrayList<Prerequisite>(preReqStrings.size());
+					for ( String preStr : preReqStrings )
+					{
+						try
+						{
+							preReqList.add(factory.parse(preStr));
+						}
+						catch (PersistenceLayerException e)
+						{
+							// Just skip this one
+						}
+					}
 					if (!PrereqHandler.passesAll(preReqList, this, null ))
 					{
 						continue;
@@ -13201,9 +13222,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private boolean includeSkill(final Skill skill, final int level)
 	{
 		boolean UntrainedExclusiveClass = false;
-		final String tempSkill = skill.getUntrained();
 
-		if ((tempSkill.length() > 0) && (tempSkill.charAt(0) == 'Y') && skill.isExclusive())
+		if (skill.isUntrained() && skill.isExclusive())
 		{
 			if (skill.isClassSkill(classList, this))
 			{
@@ -13212,7 +13232,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		return (level == 2) || skill.isRequired() || (skill.getTotalRank(this).floatValue() > 0)
-		|| ((level == 1) && (tempSkill.length() > 0) && (tempSkill.charAt(0) == 'Y') && !skill.isExclusive())
+		|| ((level == 1) && skill.isUntrained() && !skill.isExclusive())
 		|| ((level == 1) && UntrainedExclusiveClass);
 	}
 
@@ -13523,7 +13543,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @param li
 	 */
 	private void removeObjectsForLevelInfo(final PCLevelInfo li) {
-		for (Iterator<PObject> iter = li.getObjects().iterator(); iter.hasNext();) {
+		for (Iterator<? extends PObject> iter = li.getObjects().iterator(); iter.hasNext();) {
 			final PObject object = iter.next();
 
 			// remove this object from the feats lists

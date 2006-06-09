@@ -40,7 +40,7 @@ import java.util.Collection;
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
  */
-public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
+public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<WeaponProf> {
 
 	/**
 	 * Make a new Weapon Proficiency chooser.
@@ -73,10 +73,10 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<WeaponProf>            availableList,
+			final List<WeaponProf>            selectedList)
 	{
-		Iterator choicesIt = choices.iterator();
+		Iterator<String> choicesIt = choices.iterator();
 
 		while (choicesIt.hasNext())
 		{
@@ -106,7 +106,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 
 					if ("ALL".equalsIgnoreCase(weaponList) || "ANY".equalsIgnoreCase(weaponList))
 					{
-						Collection wpList = Globals.getAllWeaponProfs();
+						Collection<WeaponProf> wpList = Globals.getAllWeaponProfs();
 						availableList.addAll(wpList);
 					}
 					else
@@ -201,10 +201,10 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 							//
 							// Couldn't find equipment with matching name, look for 1st weapon that uses it
 							//
-							for (Iterator<Map.Entry> eqIter = EquipmentList.getEquipmentListIterator(); eqIter.hasNext(); )
+							for (Iterator<Map.Entry<String, Equipment>> eqIter = EquipmentList.getEquipmentListIterator(); eqIter.hasNext(); )
 							{
-								final Map.Entry entry = eqIter.next();
-								final Equipment tempEq = (Equipment) entry.getValue();
+								final Map.Entry<String, Equipment> entry = eqIter.next();
+								final Equipment tempEq = entry.getValue();
 
 								if (tempEq.isWeapon())
 								{
@@ -368,6 +368,9 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager {
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		for ( WeaponProf wp : selectedList )
+		{
+			pobject.addAssociated( wp. getKeyName() );
+		}
 	}
 }

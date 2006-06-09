@@ -65,9 +65,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 	private static final String s_CHARGES           = "CHARGES";
 	private List                ignores             = new ArrayList();
-	private List                itemType            = new ArrayList();
+	private List<String>                itemType            = new ArrayList<String>();
 	private List                replaces            = new ArrayList();
-	private List                specialPropertyList = new ArrayList();
+	private List<SpecialProperty>                specialPropertyList = new ArrayList<SpecialProperty>();
 	private List                vFeatList           = null; // virtual feat list
 	private List                armorType           = new ArrayList();
 	private String              cost                = "0";
@@ -94,14 +94,12 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 *
 	 * @return  returns all BonusObj's that are "active"
 	 */
-	public List getActiveBonuses(final PObject caller, final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final PObject caller, final PlayerCharacter aPC)
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
 			if (willIgnore(getKeyName()))
 			{
 				continue;
@@ -109,16 +107,16 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 			if (caller instanceof Equipment)
 			{
-				if (PrereqHandler.passesAll(aBonus.getPrereqList(), (Equipment) caller, aPC))
+				if (PrereqHandler.passesAll(bonus.getPrereqList(), (Equipment) caller, aPC))
 				{
-					aBonus.setApplied(true);
-					aList.add(aBonus);
+					bonus.setApplied(true);
+					aList.add(bonus);
 				}
 			}
-			else if (PrereqHandler.passesAll(aBonus.getPrereqList(), aPC, caller))
+			else if (PrereqHandler.passesAll(bonus.getPrereqList(), aPC, caller))
 			{
-				aBonus.setApplied(true);
-				aList.add(aBonus);
+				bonus.setApplied(true);
+				aList.add(bonus);
 			}
 		}
 
@@ -166,13 +164,13 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.
 	 */
-	public List getBonusList()
+	public List<BonusObj> getBonusList()
 	{
-		final List myBonusList = new ArrayList(super.getBonusList());
+		final List<BonusObj> myBonusList = new ArrayList<BonusObj>(super.getBonusList());
 
 		for (int i = myBonusList.size() - 1; i > -1; i--)
 		{
-			final BonusObj aBonus  = (BonusObj) myBonusList.get(i);
+			final BonusObj aBonus  = myBonusList.get(i);
 			final String   aString = aBonus.toString();
 
 			final int idx = aString.indexOf("%CHOICE");
@@ -219,20 +217,18 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 *
 	 * @return  a List of bonuses mathing both name and type
 	 */
-	public List getBonusListOfType(final String aType, final String aName)
+	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
 			if (
-				(aBonus.getTypeOfBonus().indexOf(aType) >= 0) &&
-				(aBonus.getBonusInfo().indexOf(aName) >= 0) &&
+				(bonus.getTypeOfBonus().indexOf(aType) >= 0) &&
+				(bonus.getBonusInfo().indexOf(aName) >= 0) &&
 				(!willIgnore(getKeyName())))
 			{
-				aList.add(aBonus);
+				aList.add(bonus);
 			}
 		}
 
@@ -402,7 +398,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 *
 	 * @return  a list of this object's types
 	 */
-	public List getItemType()
+	public List<String> getItemType()
 	{
 		return itemType;
 	}
@@ -609,14 +605,13 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * @return  a list of strings representing Special properties to be
 	 * applied to the Equipment
 	 */
-	public List getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
+	public List<String> getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
 	{
-		final List retList = new ArrayList();
+		final List<String> retList = new ArrayList<String>();
 
 		for (int i = 0; i < specialPropertyList.size(); i++)
 		{
-			String propName = ((SpecialProperty) specialPropertyList.get(i))
-				.getParsedText(pc, caller);
+			String propName = specialPropertyList.get(i).getParsedText(pc, caller);
 
 			// TODO WTF is this loop doing? how many times does it expect "%CHOICE" to
 			// appear in the special property?

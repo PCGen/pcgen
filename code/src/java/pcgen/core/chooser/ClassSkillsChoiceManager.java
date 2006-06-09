@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing from among a PCs class skills.
  */
-public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager {
+public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill> {
 
 	/**
 	 * Make a new Class Skills chooser.
@@ -67,25 +67,23 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<Skill>            availableList,
+			final List<Skill>            selectedList)
 	{
-		Iterator iter;
-		Skill aSkill;
-
-		for (iter = Globals.getSkillList().iterator(); iter.hasNext();)
+		for ( Skill skill : Globals.getSkillList() )
 		{
-			aSkill = (Skill) iter.next();
-
-			int sCost = aSkill.costForPCClassList(aPc.getClassList(), aPc);
+			int sCost = skill.costForPCClassList(aPc.getClassList(), aPc);
 
 			if (sCost == Globals.getGameModeSkillCost_Class())
 			{
-				availableList.add(aSkill);
+				availableList.add(skill);
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		for ( Skill skill : selectedList )
+		{
+			pobject.addAssociated(skill.getKeyName());
+		}
 	}
 
 }

@@ -47,6 +47,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import java.util.Enumeration;
 
 /**
  * Modify an Ability object for a given PC (or remove an Ability
@@ -1977,7 +1978,7 @@ public class PObjectUtilities
 		final StringTokenizer choicesTok = new StringTokenizer(choices, "|");
 
 		// get appropriate choices for chooser
-		ChooserUtilities.buildSpellTypeChoices(availableList, uniqueList, aPC, choicesTok);
+		ChooserUtilities.buildSpellTypeChoices(availableList, uniqueList, aPC, (Enumeration<String>)choicesTok);
 		obj.addAssociatedTo(selectedList);
 
 		if (!process)

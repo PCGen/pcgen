@@ -72,7 +72,7 @@ public final class Globals
 {
 	/** These are changed during normal operation */
 	private static PlayerCharacter currentPC;
-	private static List            pcList      = new ArrayList();
+	private static List<PlayerCharacter>            pcList      = new ArrayList<PlayerCharacter>();
 	/** Race, a s_EMPTYRACE */
 	public static  Race            s_EMPTYRACE;
 
@@ -102,42 +102,42 @@ public final class Globals
 
 	/** The BioSet used for age calculations */
 	private static BioSet     bioSet          = new BioSet();
-	private static final List custColumnWidth = new ArrayList();
+	private static final List<String> custColumnWidth = new ArrayList<String>();
 	private static int        sourceDisplay   = Constants.SOURCELONG;
 	private static int        selectedPaper   = -1;
 
-	private static CategorisableStore abilityStore = new CategorisableStore();
+	private static CategorisableStore<Ability> abilityStore = new CategorisableStore<Ability>();
 
 	/** we need maps for efficient lookups */
-	private static Map        campaignMap     = new HashMap();
-	private static Map        domainMap       = new TreeMap();
-	private static SortedMap  raceMap         = new TreeMap();
+	private static Map<String, Campaign>        campaignMap     = new HashMap<String, Campaign>();
+	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
+	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
 	private static Map        spellMap        = new TreeMap();
-	private static Map        eqSlotMap       = new HashMap();
-	private static Map        visionMap       = new HashMap();
+	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
+	private static Map<String, String>        visionMap       = new HashMap<String, String>();
 
 	/** We use lists for efficient iteration */
-	private static List armorProfList         = new ArrayList();
-	private static List campaignList          = new ArrayList(85);
-	private static List classList             = new ArrayList(380);
-	private static List companionModList      = new ArrayList();
-	private static List deityList             = new ArrayList(275);
-	private static List domainList            = new ArrayList(100);
-	private static List kitList               = new ArrayList();
-	private static List languageList          = new ArrayList(200);
+	private static List<String> armorProfList         = new ArrayList<String>();
+	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
+	private static List<PCClass> classList             = new ArrayList<PCClass>(380);
+	private static List<CompanionMod> companionModList      = new ArrayList<CompanionMod>();
+	private static List<Deity> deityList             = new ArrayList<Deity>(275);
+	private static List<Domain> domainList            = new ArrayList<Domain>(100);
+	private static List<Kit> kitList               = new ArrayList<Kit>();
+	private static List<Language> languageList          = new ArrayList<Language>(200);
 
 	//any TYPE added to pcClassTypeList is assumed be pre-tokenized
-	private static List             pcClassTypeList = new ArrayList();
-	private static List             skillList       = new ArrayList(400);
-	private static List             templateList    = new ArrayList(350);
+	private static List<String>             pcClassTypeList = new ArrayList<String>();
+	private static List<Skill>             skillList       = new ArrayList<Skill>(400);
+	private static List<PCTemplate>             templateList    = new ArrayList<PCTemplate>(350);
 	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
-	private static SortedSet        saSet           = new TreeSet();
+	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
 
 	private static Map sponsors = new HashMap();
-	private static List sponsorList = new ArrayList();
+	private static List<Map> sponsorList = new ArrayList<Map>();
 
 	/** Weapon proficiency Data storage */
-	private static final WeaponProfDataStore weaponProfs = new WeaponProfDataStore();
+	private static final PObjectDataStore<WeaponProf> weaponProfs = new PObjectDataStore<WeaponProf>("WeaponProf");
 
 	/** this is used by the random selection tools */
 	private static final Random random = new Random(System.currentTimeMillis());
@@ -165,21 +165,21 @@ public final class Globals
 	 * <li>targetSet</li>
 	 * </ul>
 	 */
-	private static SortedSet pantheonsSet     = new TreeSet();
-	private static SortedSet raceTypesSet     = new TreeSet();
-	private static SortedSet subschoolsSet    = new TreeSet();
-	private static SortedSet weaponTypes      = new TreeSet();
+	private static SortedSet<String> pantheonsSet     = new TreeSet<String>();
+	private static SortedSet<String> raceTypesSet     = new TreeSet<String>();
+	private static SortedSet<String> subschoolsSet    = new TreeSet<String>();
+	private static SortedSet<String> weaponTypes      = new TreeSet<String>();
 
-	private static SortedSet castingTimesSet  = new TreeSet();
-	private static SortedSet componentSet     = new TreeSet();
-	private static SortedSet descriptorSet    = new TreeSet();
-	private static SortedSet durationSet      = new TreeSet();
-	private static SortedSet typeForSpellsSet = new TreeSet();
-	private static SortedSet rangesSet        = new TreeSet();
-	private static SortedSet saveInfoSet      = new TreeSet();
-	private static SortedSet srSet            = new TreeSet();
-	private static SortedSet statSet          = new TreeSet();
-	private static SortedSet targetSet        = new TreeSet();
+	private static SortedSet<String> castingTimesSet  = new TreeSet<String>();
+	private static SortedSet<String> componentSet     = new TreeSet<String>();
+	private static SortedSet<String> descriptorSet    = new TreeSet<String>();
+	private static SortedSet<String> durationSet      = new TreeSet<String>();
+	private static SortedSet<String> typeForSpellsSet = new TreeSet<String>();
+	private static SortedSet<String> rangesSet        = new TreeSet<String>();
+	private static SortedSet<String> saveInfoSet      = new TreeSet<String>();
+	private static SortedSet<String> srSet            = new TreeSet<String>();
+	private static SortedSet<String> statSet          = new TreeSet<String>();
+	private static SortedSet<String> targetSet        = new TreeSet<String>();
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -207,6 +207,31 @@ public final class Globals
 			}
 		};
 
+	private static final Comparator pObjectStringComp = new Comparator()
+		{
+			public int compare(final Object o1, final Object o2)
+			{
+				final String key1;
+				final String key2;
+				if ( o1 instanceof PObject )
+				{
+					key1 = ((PObject)o1).getKeyName();
+				}
+				else
+				{
+					key1 = o1.toString();
+				}
+				if ( o2 instanceof PObject )
+				{
+					key2 = ((PObject)o2).getKeyName();
+				}
+				else
+				{
+					key2 = o2.toString();
+				}
+				return key1.compareToIgnoreCase(key2);
+			}
+		};
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
 	/** EMPTY_CLASS_ARRAY*/
@@ -244,7 +269,7 @@ public final class Globals
 	 * @param type
 	 * @return all weapon proficiencies of a type
 	 */
-	public static Collection getAllWeaponProfsOfType(final String type)
+	public static Collection<WeaponProf> getAllWeaponProfsOfType(final String type)
 	{
 		return weaponProfs.getAllOfType(type);
 	}
@@ -253,12 +278,12 @@ public final class Globals
 	 * Retrieve a set of the possible types of weapon proficiencies.
 	 * @return Set of the names of the weapon proficiencey types.
 	 */
-	public static Set getWeaponProfTypes()
+	public static Set<String> getWeaponProfTypes()
 	{
 		return weaponProfs.getTypes();
 	}
 
-	public static Collection getAllWeaponProfs()
+	public static Collection<WeaponProf> getAllWeaponProfs()
 	{
 		return Collections.unmodifiableCollection(weaponProfs.getAll());
 	}
@@ -267,14 +292,14 @@ public final class Globals
 	 * Get a list of the allowed game modes
 	 * @return list of the allowed game modes
 	 */
-	public static List getAllowedGameModes()
+	public static List<String> getAllowedGameModes()
 	{
 		if (SettingsHandler.getGame() != null)
 		{
 			return SettingsHandler.getGame().getAllowedModes();
 		}
 
-		return new ArrayList();
+		return new ArrayList<String>();
 	}
 
 	/**
@@ -340,7 +365,7 @@ public final class Globals
 	 * Get campaign list
 	 * @return campaign list
 	 */
-	public static List getCampaignList()
+	public static List<Campaign> getCampaignList()
 	{
 		return campaignList;
 	}
@@ -352,16 +377,11 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyed(final String aKey)
 	{
-		Campaign currCampaign;
-		final Iterator e = getCampaignList().iterator();
-
-		while (e.hasNext())
+		for ( Campaign campaign : getCampaignList() )
 		{
-			currCampaign = (Campaign) e.next();
-
-			if (currCampaign.getKeyName().equalsIgnoreCase(aKey))
+			if (campaign.getKeyName().equalsIgnoreCase(aKey))
 			{
-				return currCampaign;
+				return campaign;
 			}
 		}
 
@@ -374,7 +394,7 @@ public final class Globals
 	 * Get casting times set
 	 * @return casting times set
 	 */
-	public static SortedSet getCastingTimesSet()
+	public static SortedSet<String> getCastingTimesSet()
 	{
 		return castingTimesSet;
 	}
@@ -386,14 +406,14 @@ public final class Globals
 	 */
 	public static PCClass getClassKeyed(final String aKey)
 	{
-		return (PCClass) searchPObjectList(getClassList(), aKey);
+		return (PCClass)searchPObjectList(getClassList(), aKey);
 	}
 
 	/**
 	 * Get class list
 	 * @return List
 	 */
-	public static List getClassList()
+	public static List<PCClass> getClassList()
 	{
 		return classList;
 	}
@@ -405,25 +425,25 @@ public final class Globals
 	 * @param aType A "." separated list of TYPEs to match
 	 * @return List of PObjects matching all TYPEs
 	 */
-	private static List getPObjectsOfType(final List aPObjectList, final String aType)
+	private static <T extends PObject> List<T> getPObjectsOfType(final List<T> aPObjectList, final String aType)
 	{
-		final ArrayList ret = new ArrayList(aPObjectList.size());
+		final ArrayList<T> ret = new ArrayList<T>(aPObjectList.size());
 
-		List typeList = new ArrayList();
+		List<String> typeList = new ArrayList<String>();
 		StringTokenizer tok = new StringTokenizer(aType, ".");
 		while (tok.hasMoreTokens())
 		{
 			typeList.add(tok.nextToken());
 		}
 
-		final Iterator c = aPObjectList.iterator();
+		final Iterator<T> c = aPObjectList.iterator();
 		while (c.hasNext())
 		{
-			final PObject anObject = (PObject)c.next();
+			final T anObject = c.next();
 			boolean match = false;
-			for (Iterator i = typeList.iterator(); i.hasNext(); )
+			for (Iterator<String> i = typeList.iterator(); i.hasNext(); )
 			{
-				final String type = (String)i.next();
+				final String type = i.next();
 				final boolean sense = !(type.charAt(0) == '!');
 				if (anObject.isType(type) == sense)
 				{
@@ -449,7 +469,7 @@ public final class Globals
 	 * @param aType TYPE string
 	 * @return List of Classes
 	 */
-	public static List getClassesByType(final String aType)
+	public static List<PCClass> getClassesByType(final String aType)
 	{
 		return getPObjectsOfType(getClassList(), aType);
 	}
@@ -469,20 +489,17 @@ public final class Globals
 		StringTokenizer aTok = new StringTokenizer(aString.substring(9), "=", false);
 		final String classes = aTok.nextToken();
 		final int level = Integer.parseInt(aTok.nextToken());
-		final Iterator e = getCompanionModList().iterator();
-
-		while (e.hasNext())
+		for ( CompanionMod cMod : getCompanionModList() )
 		{
-			final CompanionMod aComp = (CompanionMod) e.next();
 			aTok = new StringTokenizer(classes, ",", false);
 
 			while (aTok.hasMoreTokens())
 			{
 				final String cString = aTok.nextToken();
 
-				if (aComp.getLevel(cString) == level)
+				if (cMod.getLevel(cString) == level)
 				{
-					return aComp;
+					return cMod;
 				}
 			}
 		}
@@ -494,7 +511,7 @@ public final class Globals
 	 * Get companion mod list
 	 * @return companion mod list
 	 */
-	public static List getCompanionModList()
+	public static List<CompanionMod> getCompanionModList()
 	{
 		return companionModList;
 	}
@@ -503,7 +520,7 @@ public final class Globals
 	 * Get component set
 	 * @return component set
 	 */
-	public static SortedSet getComponentSet()
+	public static SortedSet<String> getComponentSet()
 	{
 		return componentSet;
 	}
@@ -564,7 +581,7 @@ public final class Globals
 
 		for (int i = 0; i < loopMax; ++i)
 		{
-			final String colWidth = (String)getCustColumnWidth().get(i);
+			final String colWidth = getCustColumnWidth().get(i);
 			if (colWidth == null || colWidth.length() == 0)
 			{
 				continue;
@@ -600,7 +617,7 @@ public final class Globals
 
 		for (int i = 0; i < loopMax; ++i)
 		{
-			final StringTokenizer tTok = new StringTokenizer((String) getCustColumnWidth().get(i), "|", false);
+			final StringTokenizer tTok = new StringTokenizer(getCustColumnWidth().get(i), "|", false);
 			if (tTok.hasMoreTokens())
 			{
 				final String tabName = tTok.nextToken();
@@ -664,7 +681,7 @@ public final class Globals
 	 * Get deity list
 	 * @return deity list
 	 */
-	public static List getDeityList()
+	public static List<Deity> getDeityList()
 	{
 		return deityList;
 	}
@@ -675,18 +692,13 @@ public final class Globals
 	 * @param aList
 	 * @return Deity
 	 */
-	public static Deity getDeityKeyed(final String aKey, final List aList)
+	public static Deity getDeityKeyed(final String aKey, final List<Deity> aList)
 	{
-		Deity currDeity;
-		final Iterator e = aList.iterator();
-
-		while (e.hasNext())
+		for ( Deity deity : aList )
 		{
-			currDeity = (Deity) e.next();
-
-			if (currDeity.getKeyName().equalsIgnoreCase(aKey))
+			if (deity.getKeyName().equalsIgnoreCase(aKey))
 			{
-				return currDeity;
+				return deity;
 			}
 		}
 
@@ -706,7 +718,7 @@ public final class Globals
 	 * Get descriptor set
 	 * @return descriptor set
 	 */
-	public static SortedSet getDescriptorSet()
+	public static SortedSet<String> getDescriptorSet()
 	{
 		return descriptorSet;
 	}
@@ -725,7 +737,7 @@ public final class Globals
 	 * Get domain list
 	 * @return domain list
 	 */
-	public static List getDomainList()
+	public static List<Domain> getDomainList()
 	{
 		return domainList;
 	}
@@ -734,7 +746,7 @@ public final class Globals
 	 * Get domain map
 	 * @return domain map
 	 */
-	public static Map getDomainMap()
+	public static Map<String, Domain> getDomainMap()
 	{
 		return domainMap;
 	}
@@ -743,7 +755,7 @@ public final class Globals
 	 * Get duration set
 	 * @return duration set
 	 */
-	public static SortedSet getDurationSet()
+	public static SortedSet<String> getDurationSet()
 	{
 		return durationSet;
 	}
@@ -755,9 +767,9 @@ public final class Globals
 	 */
 	public static EquipSlot getEquipSlotByName(final String aName)
 	{
-		for (Iterator eI = SystemCollections.getUnmodifiableEquipSlotList().iterator(); eI.hasNext();)
+		for (Iterator<EquipSlot> eI = SystemCollections.getUnmodifiableEquipSlotList().iterator(); eI.hasNext();)
 		{
-			final EquipSlot es = (EquipSlot) eI.next();
+			final EquipSlot es = eI.next();
 
 			if (es.getSlotName().equals(aName))
 			{
@@ -772,7 +784,7 @@ public final class Globals
 	 * Get equipment slot map
 	 * @return equipment slot map
 	 */
-	public static Map getEquipSlotMap()
+	public static Map<String, String> getEquipSlotMap()
 	{
 		return eqSlotMap;
 	}
@@ -796,7 +808,7 @@ public final class Globals
 	 */
 	public static int getEquipSlotTypeCount(final String aType)
 	{
-		final String aNum = (String) getEquipSlotMap().get(aType);
+		final String aNum = getEquipSlotMap().get(aType);
 
 		if (aNum != null)
 		{
@@ -844,7 +856,7 @@ public final class Globals
 	 * @param aCategory the Category of the Abilities to return an iterator for
 	 * @return An Iterator
 	 */
-	public static Iterator getAbilityKeyIterator (String aCategory)
+	public static Iterator<Ability> getAbilityKeyIterator (String aCategory)
 	{
 		return abilityStore.getKeyIterator(aCategory);
 	}
@@ -856,7 +868,7 @@ public final class Globals
 	 * @param aCategory the Category of the Abilities to return an iterator for
 	 * @return An Iterator
 	 */
-	public static Iterator getAbilityNameIterator (String aCategory)
+	public static Iterator<Ability> getAbilityNameIterator (String aCategory)
 	{
 		return abilityStore.getNameIterator(aCategory);
 	}
@@ -867,7 +879,7 @@ public final class Globals
 	 * @param aCategory the category of object to return
 	 * @return an unmodifiable list of the Ability objects currently loaded
 	 */
-	public static List getUnmodifiableAbilityList(String aCategory)
+	public static List<Ability> getUnmodifiableAbilityList(String aCategory)
 	{
 		return abilityStore.getUnmodifiableList(aCategory);
 	}
@@ -878,7 +890,7 @@ public final class Globals
 	 * @param aType a TYPE String
 	 * @return List of Abilities
 	 */
-	public static List getAbilitiesByType(final String aCategory, final String aType)
+	public static List<Ability> getAbilitiesByType(final String aCategory, final String aType)
 	{
 		return getPObjectsOfType(getUnmodifiableAbilityList(aCategory), aType);
 	}
@@ -1134,14 +1146,14 @@ public final class Globals
 	 * Get global deity list
 	 * @return global deity lis
 	 */
-	public static List getGlobalDeityList()
+	public static List<Deity> getGlobalDeityList()
 	{
 		if (SettingsHandler.getGame() != null)
 		{
 			return SettingsHandler.getGame().getDeityList();
 		}
 
-		return new ArrayList();
+		return new ArrayList<Deity>();
 	}
 
 	/**
@@ -1173,7 +1185,7 @@ public final class Globals
 	 * Get kit info
 	 * @return kit info
 	 */
-	public static List getKitInfo()
+	public static List<Kit> getKitInfo()
 	{
 		return kitList;
 	}
@@ -1185,15 +1197,11 @@ public final class Globals
 	 */
 	public static Kit getKitKeyed(final String aKey)
 	{
-		final Iterator e = kitList.iterator();
-
-		while (e.hasNext())
+		for ( Kit kit : kitList )
 		{
-			final Kit aKit = (Kit) e.next();
-
-			if (aKit.getKeyName().equals(aKey))
+			if (kit.getKeyName().equals(aKey))
 			{
-				return aKit;
+				return kit;
 			}
 		}
 
@@ -1222,7 +1230,7 @@ public final class Globals
 	 * Get language list
 	 * @return language list
 	 */
-	public static List getLanguageList()
+	public static List<Language> getLanguageList()
 	{
 		return languageList;
 	}
@@ -1233,9 +1241,9 @@ public final class Globals
 		{
 			return Language.getAllLanguage();
 		}
-		for (Iterator i = getLanguageList().iterator(); i.hasNext();)
+		for (Iterator<Language> i = getLanguageList().iterator(); i.hasNext();)
 		{
-			final Language aLang = (Language) i.next();
+			final Language aLang = i.next();
 
 			if (aLang.getKeyName().equalsIgnoreCase(aKey))
 			{
@@ -1249,7 +1257,7 @@ public final class Globals
 	 * returns a HashMap of LevelInfo objects
 	 * @return Map
 	 */
-	public static Map getLevelInfo()
+	public static Map<String, LevelInfo> getLevelInfo()
 	{
 		return SettingsHandler.getGame().getLevelInfo();
 	}
@@ -1258,14 +1266,14 @@ public final class Globals
 	 * Get load strings
 	 * @return List of Strings
 	 */
-	public static List getLoadStrings()
+	public static List<String> getLoadStrings()
 	{
 		if (SettingsHandler.getGame() != null)
 		{
 			return SettingsHandler.getGame().getLoadStrings();
 		}
 
-		return new ArrayList();
+		return new ArrayList<String>();
 	}
 
 	/**
@@ -1281,7 +1289,7 @@ public final class Globals
 	 * Get PCC class type list
 	 * @return PCC class type list
 	 */
-	public static List getPCClassTypeList()
+	public static List<String> getPCClassTypeList()
 	{
 		return pcClassTypeList;
 	}
@@ -1290,7 +1298,7 @@ public final class Globals
 	 * Set PC List
 	 * @param argPcList
 	 */
-	public static void setPCList(final List argPcList)
+	public static void setPCList(final List<PlayerCharacter> argPcList)
 	{
 		pcList = argPcList;
 	}
@@ -1299,7 +1307,7 @@ public final class Globals
 	 * Get PC List
 	 * @return List of Pcs
 	 */
-	public static List getPCList()
+	public static List<PlayerCharacter> getPCList()
 	{
 		return pcList;
 	}
@@ -1308,7 +1316,7 @@ public final class Globals
 	 * Get pantheons
 	 * @return Sorted set of pantheons
 	 */
-	public static SortedSet getPantheons()
+	public static SortedSet<String> getPantheons()
 	{
 		return getPantheonsSet();
 	}
@@ -1357,14 +1365,14 @@ public final class Globals
 	 */
 	public static Race getRaceKeyed(final String aKey)
 	{
-		return (Race) getRaceMap().get(aKey);
+		return getRaceMap().get(aKey);
 	}
 
 	/**
 	 * This method gets the race map
 	 * @return race map
 	 */
-	public static Map getRaceMap()
+	public static Map<String, Race> getRaceMap()
 	{
 		return raceMap;
 	}
@@ -1373,7 +1381,7 @@ public final class Globals
 	 * This method gets the available race types as a set.
 	 * @return race types
 	 */
-	public static SortedSet getRaceTypes()
+	public static SortedSet<String> getRaceTypes()
 	{
 		return raceTypesSet;
 	}
@@ -1391,7 +1399,7 @@ public final class Globals
 	 * Get ranges set
 	 * @return set of ranges
 	 */
-	public static SortedSet getRangesSet()
+	public static SortedSet<String> getRangesSet()
 	{
 		return rangesSet;
 	}
@@ -1445,7 +1453,7 @@ public final class Globals
 	 *
 	 * @return SortedSet
 	 */
-	public static SortedSet getSASet()
+	public static SortedSet<SpecialAbility> getSASet()
 	{
 		return saSet;
 	}
@@ -1454,7 +1462,7 @@ public final class Globals
 	 * Get the save info set
 	 * @return save info set
 	 */
-	public static SortedSet getSaveInfoSet()
+	public static SortedSet<String> getSaveInfoSet()
 	{
 		return saveInfoSet;
 	}
@@ -1491,7 +1499,7 @@ public final class Globals
 	 * Get list of skills
 	 * @return list of skills
 	 */
-	public static List getSkillList()
+	public static List<Skill> getSkillList()
 	{
 		return skillList;
 	}
@@ -1503,20 +1511,19 @@ public final class Globals
 	 * @param visibility What level of visibility skills are desired.
 	 * @return A list of the skills matching the visibility criteria.
 	 */
-	public static List getPartialSkillList(final int visibility)
+	public static List<Skill> getPartialSkillList(final int visibility)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList aList = new ArrayList();
-		for (Iterator iter = getSkillList().iterator(); iter.hasNext();)
+		ArrayList<Skill> aList = new ArrayList<Skill>();
+		for ( Skill skill : getSkillList() )
 		{
-			final Skill aSkill = (Skill) iter.next();
-			final int skillVis = aSkill.isVisible();
+			final int skillVis = skill.isVisible();
 
 			if (visibility == Skill.VISIBILITY_DEFAULT
 				|| skillVis == Skill.VISIBILITY_DEFAULT
 				|| skillVis == visibility)
 			{
-				aList.add(aSkill);
+				aList.add(skill);
 			}
 
 		}
@@ -1528,7 +1535,7 @@ public final class Globals
 	 * @param aType A TYPE String
 	 * @return List of Skills
 	 */
-	public static List getSkillsByType(final String aType)
+	public static List<Skill> getSkillsByType(final String aType)
 	{
 		return getPObjectsOfType(getSkillList(), aType);
 	}
@@ -1642,9 +1649,9 @@ public final class Globals
 	 *                   at least one of classKey and domainKey must not be ""
 	 * @return a List of Spell
 	 */
-	public static List getSpellsIn(final int level, final String classKey, final String domainKey)
+	public static List<Spell> getSpellsIn(final int level, final String classKey, final String domainKey)
 	{
-		final List aList = new ArrayList();
+		final List<Spell> aList = new ArrayList<Spell>();
 		final StringBuffer aBuf = new StringBuffer();
 		String spellType = "";
 
@@ -1688,9 +1695,9 @@ public final class Globals
 			spellType = "DIVINE";
 		}
 
-		for (Iterator i = spellMap.keySet().iterator(); i.hasNext();)
+		for (Iterator<String> i = spellMap.keySet().iterator(); i.hasNext();)
 		{
-			final String aKey = (String) i.next();
+			final String aKey = i.next();
 			final Object obj = spellMap.get(aKey);
 
 			if (obj instanceof ArrayList)
@@ -1724,7 +1731,7 @@ public final class Globals
 	 * Get Sr Set
 	 * @return Sr Set
 	 */
-	public static SortedSet getSrSet()
+	public static SortedSet<String> getSrSet()
 	{
 		return srSet;
 	}
@@ -1733,7 +1740,7 @@ public final class Globals
 	 * Get stat set
 	 * @return stat set
 	 */
-	public static SortedSet getStatSet()
+	public static SortedSet<String> getStatSet()
 	{
 		return statSet;
 	}
@@ -1742,7 +1749,7 @@ public final class Globals
 	 * Get sub schools
 	 * @return sub schools
 	 */
-	public static SortedSet getSubschools()
+	public static SortedSet<String> getSubschools()
 	{
 		return getSubschoolsSet();
 	}
@@ -1751,7 +1758,7 @@ public final class Globals
 	 * Get Target set
 	 * @return target set
 	 */
-	public static SortedSet getTargetSet()
+	public static SortedSet<String> getTargetSet()
 	{
 		return targetSet;
 	}
@@ -1770,7 +1777,7 @@ public final class Globals
 	 * Get the template list
 	 * @return list of tempaltes
 	 */
-	public static List getTemplateList()
+	public static List<PCTemplate> getTemplateList()
 	{
 		return templateList;
 	}
@@ -1779,7 +1786,7 @@ public final class Globals
 	 * Get type for spells set
 	 * @return type for spells set
 	 */
-	public static SortedSet getTypeForSpells()
+	public static SortedSet<String> getTypeForSpells()
 	{
 		return typeForSpellsSet;
 	}
@@ -1815,7 +1822,7 @@ public final class Globals
 	 * Get map of VISIONs
 	 * @return map of VISIONs
 	 */
-	public static Map getVisionMap()
+	public static Map<String, String> getVisionMap()
 	{
 		return visionMap;
 	}
@@ -1824,7 +1831,7 @@ public final class Globals
 	 * Get copy of weapon prof array
 	 * @return copy of weapon prof array
 	 */
-	public static List getWeaponProfArrayCopy()
+	public static List<WeaponProf> getWeaponProfArrayCopy()
 	{
 		return weaponProfs.getArrayCopy();
 	}
@@ -1865,7 +1872,7 @@ public final class Globals
 	 *
 	 * @return The iterator of weapon types
 	 */
-	public static Iterator getWeaponTypesIterator()
+	public static Iterator<String> getWeaponTypesIterator()
 	{
 		return weaponTypes.iterator();
 	}
@@ -1992,7 +1999,7 @@ public final class Globals
 	 * Add to list of unique weapon profs (Strings)
 	 * @param dest
 	 */
-	public static void addUniqueWeaponProfsAsStringTo(final List dest)
+	public static void addUniqueWeaponProfsAsStringTo(final List<String> dest)
 	{
 		weaponProfs.addUniqueAsStringTo(dest);
 	}
@@ -2208,35 +2215,35 @@ public final class Globals
 		//unitSet.clear();
 		//////////////////////////////////////
 		abilityStore = new CategorisableStore();
-		armorProfList = new ArrayList();
-		classList = new ArrayList();
+		armorProfList = new ArrayList<String>();
+		classList = new ArrayList<PCClass>();
 		companionModList = new ArrayList();
-		deityList = new ArrayList();
-		domainList = new ArrayList();
+		deityList = new ArrayList<Deity>();
+		domainList = new ArrayList<Domain>();
 		EquipmentList.clearEquipmentMap();
 		kitList = new ArrayList();
-		languageList = new ArrayList();
+		languageList = new ArrayList<Language>();
 		EquipmentList.clearModifierList();
 		pcClassTypeList = new ArrayList();
-		skillList = new ArrayList();
-		templateList = new ArrayList();
-		saSet = new TreeSet();
+		skillList = new ArrayList<Skill>();
+		templateList = new ArrayList<PCTemplate>();
+		saSet = new TreeSet<SpecialAbility>();
 
 		clearWeaponProfs();
 
 		// Clear Maps (not strictly necessary, but done for consistency)
 //		bonusSpellMap = new HashMap();
-		domainMap = new HashMap();
-		raceMap = new TreeMap();
+		domainMap = new HashMap<String, Domain>();
+		raceMap = new TreeMap<String, Race>();
 		spellMap = new HashMap();
-		visionMap = new HashMap();
+		visionMap = new HashMap<String, String>();
 
 		// Clear Sets (not strictly necessary, but done for consistency)
 		clearSpellSets();
 		pantheonsSet = new TreeSet();
 		raceTypesSet = new TreeSet();
 		subschoolsSet = new TreeSet();
-		weaponTypes = new TreeSet();
+		weaponTypes = new TreeSet<String>();
 
 		// Perform other special cleanup
 		createEmptyRace();
@@ -2300,13 +2307,13 @@ public final class Globals
 
 	/**
 	 * Return TRUE if the weapon profs have a variable named x
-	 * @param collectionOfNames
+	 * @param collectionOfProfs
 	 * @param variableString
 	 * @return TRUE if the weapon profs have a variable named x
 	 */
-	public static boolean hasWeaponProfVariableNamed(final Collection collectionOfNames, final String variableString)
+	public static boolean hasWeaponProfVariableNamed(final Collection<WeaponProf> collectionOfProfs, final String variableString)
 	{
-		return weaponProfs.hasVariableNamed(collectionOfNames, variableString);
+		return weaponProfs.hasVariableNamed(collectionOfProfs, variableString);
 	}
 
 	/**
@@ -2523,7 +2530,7 @@ public final class Globals
 	 */
 	public static void removeWeaponProfKeyed(final String aKey)
 	{
-		weaponProfs.removeKeyed(aKey);
+		weaponProfs.removeNamed(aKey);
 	}
 
 	/**
@@ -2690,7 +2697,7 @@ public final class Globals
 		// sortPObjectList(getFeatList()); Obsolete data structure
 		sortPObjectList(getDeityList());
 		sortPObjectList(getDomainList());
-		sortPObjectList(getArmorProfList());
+		Collections.sort(getArmorProfList());
 		sortPObjectList(getTemplateList());
 		sortPObjectList(EquipmentList.getModifierList());
 		sortPObjectList(getLanguageList());
@@ -2738,7 +2745,7 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List sortPObjectList(final List aList)
+	public static List sortPObjectList(final List<? extends PObject> aList)
 	{
 		Collections.sort(aList, pObjectComp);
 
@@ -2750,7 +2757,7 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List sortPObjectListByName(final List aList)
+	public static List sortPObjectListByName(final List<? extends PObject> aList)
 	{
 		Collections.sort(aList, pObjectNameComp);
 
@@ -2765,9 +2772,13 @@ public final class Globals
 	 * @param keyName the keyname being sought.
 	 * @return a <code>null</code> value indicates the search failed.
 	 */
-	protected static PObject searchPObjectList(final List aList, final String keyName)
+	protected static <T extends PObject> T searchPObjectList(final List<T> aList, final String keyName)
 	{
 		if ((keyName == null) || (keyName.length() <= 0))
+		{
+			return null;
+		}
+		if ( aList == null || aList.size() == 0 )
 		{
 			return null;
 		}
@@ -2776,19 +2787,13 @@ public final class Globals
 		{
 			return binarySearchPObject(aList, keyName);
 		}
-		final Object[] pobjArray = aList.toArray();
-		final int upper = pobjArray.length;
 
 		// not presently sorted
-		PObject obj;
-
-		for (int i = upper - 1; i >= 0; --i)
+		for ( T pobj : aList )
 		{
-			obj = (PObject) pobjArray[i];
-
-			if (keyName.equalsIgnoreCase(obj.getKeyName()))
+			if ( keyName.equalsIgnoreCase( pobj.getKeyName() ) )
 			{
-				return obj;
+				return pobj;
 			}
 		}
 
@@ -2827,12 +2832,12 @@ public final class Globals
 	 * @param pool
 	 * @return a choice
 	 */
-	public static List getChoiceFromList(final String title, final List choiceList, final List selectedList, final int pool)
+	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool)
 	{
 		return getChoiceFromList(title, choiceList, selectedList, pool, false);
 	}
 
-	static List getChoiceFromList(final String title, final List choiceList, final List selectedList, final int pool, final boolean forceChoice)
+	static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool, final boolean forceChoice)
 	{
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setPool(pool);
@@ -2851,7 +2856,7 @@ public final class Globals
 		return c.getSelectedList();
 	}
 
-	static List getCustColumnWidth()
+	static List<String> getCustColumnWidth()
 	{
 		return custColumnWidth;
 	}
@@ -2887,18 +2892,16 @@ public final class Globals
 		return expandRelativePath(aPath);
 	}
 
-	static List getLanguagesFromListOfType(final List langList, final String aType)
+	static List<Language> getLanguagesFromListOfType(final List<Language> langList, final String aType)
 	{
-		final List retSet = new ArrayList();
+		final List<Language> retSet = new ArrayList<Language>();
 
-		for (Iterator i = langList.iterator(); i.hasNext();)
+		for ( Language lang : langList )
 		{
-			final Language aLang = (Language) i.next();
-
-			if ((aLang != null)
-				&& (aLang.isType(aType) || ((aType.length() > 0) && (aType.charAt(0) == '!') && !aLang.isType(aType))))
+			if ((lang != null)
+				&& (lang.isType(aType) || ((aType.length() > 0) && (aType.charAt(0) == '!') && !lang.isType(aType))))
 			{
-				retSet.add(aLang);
+				retSet.add(lang);
 			}
 		}
 
@@ -2961,17 +2964,15 @@ public final class Globals
 	 * @param aPC
 	 * @return List of Weapon Profs
 	 */
-	public static List getWeaponProfs(final String type, final PlayerCharacter aPC)
+	public static List<WeaponProf> getWeaponProfs(final String type, final PlayerCharacter aPC)
 	{
-		final List aList = new ArrayList();
-		final List bList = new ArrayList();
-		String aString;
+		final List<WeaponProf> aList = new ArrayList<WeaponProf>();
+		final List<WeaponProf> bList = new ArrayList<WeaponProf>();
 		StringTokenizer aTok;
 		WeaponProf tempProf;
 
-		for (Iterator e = aPC.getChangeProfList().iterator(); e.hasNext();)
+		for ( String aString : aPC.getChangeProfList() )
 		{
-			aString = (String) e.next();
 			aTok = new StringTokenizer(aString, "|");
 
 			//
@@ -2998,18 +2999,15 @@ public final class Globals
 			}
 		}
 
-		WeaponProf tempProf2;
-		final Collection weaponProfsOfType = getAllWeaponProfsOfType(type);
+		final Collection<WeaponProf> weaponProfsOfType = getAllWeaponProfsOfType(type);
 
 		if (weaponProfsOfType == null)
 		{
 			return aList;
 		}
 
-		for (Iterator e = weaponProfsOfType.iterator(); e.hasNext();)
+		for ( WeaponProf tempProf2 : weaponProfsOfType )
 		{
-			tempProf2 = (WeaponProf) e.next();
-
 			if (bList.contains(tempProf2))
 			{
 				continue;
@@ -3048,38 +3046,18 @@ public final class Globals
 		return adjustDamage(aDamage, sizeInt(sBaseSize), sizeInt(sNewSize));
 	}
 
-	static PObject binarySearchPObject(final List aList, final String keyName)
+	static <T extends PObject> T binarySearchPObject(final List<T> aList, final String keyName)
 	{
 		if ((keyName == null) || (keyName.length() <= 0))
 		{
 			return null;
 		}
 
-		final Object[] pobjArray = aList.toArray();
-		int lower = 0;
-		int upper = pobjArray.length;
-
-		// always one past last possible match
-		while (lower < upper)
+		int index = Collections.binarySearch(aList, keyName, pObjectStringComp);
+		if ( index >= 0 )
 		{
-			final int mid = (lower + upper) / 2;
-			final PObject obj = (PObject) pobjArray[mid];
-			final int cmp = keyName.compareToIgnoreCase(obj.getKeyName());
-
-			if (cmp == 0)
-			{
-				return obj;
-			}
-			else if (cmp > 0)
-			{
-				lower = mid + 1;
-			}
-			else
-			{
-				upper = mid;
-			}
+			return aList.get(index);
 		}
-
 		return null;
 	}
 
@@ -3205,9 +3183,9 @@ public final class Globals
 	 * @param stringList Pipe separated list of language choices
 	 * @return Sorted list of Language objects
 	 */
-	public static SortedSet getLanguagesFromString(final String stringList)
+	public static SortedSet<Language> getLanguagesFromString(final String stringList)
 	{
-		SortedSet list = new TreeSet();
+		SortedSet<Language> list = new TreeSet<Language>();
 
 		final StringTokenizer tokens = new StringTokenizer(stringList,	"|", false);
 
@@ -3231,7 +3209,7 @@ public final class Globals
 		return list;
 	}
 
-	static void initCustColumnWidth(final List l)
+	static void initCustColumnWidth(final List<String> l)
 	{
 		getCustColumnWidth().clear();
 		getCustColumnWidth().addAll(l);
@@ -3253,7 +3231,7 @@ public final class Globals
 	 *
 	 * @return The list of armor profs
 	 */
-	private static List getArmorProfList()
+	private static List<String> getArmorProfList()
 	{
 		return armorProfList;
 	}
@@ -3341,7 +3319,7 @@ public final class Globals
 		}
 	}
 
-	public static List getLanguagesOfType(final String aType)
+	public static List<Language> getLanguagesOfType(final String aType)
 	{
 		return getPObjectsOfType(getLanguageList(), aType);
 	}
@@ -3369,7 +3347,7 @@ public final class Globals
 		return mult;
 	}
 
-	private static SortedSet getPantheonsSet()
+	private static SortedSet<String> getPantheonsSet()
 	{
 		return pantheonsSet;
 	}
@@ -3484,9 +3462,9 @@ public final class Globals
 	 * Returns a list of default genders used by the system.
 	 * @return List of gender strings
 	 */
-	public static List getAllGenders()
+	public static List<String> getAllGenders()
 	{
-		ArrayList ret = new ArrayList();
+		ArrayList<String> ret = new ArrayList<String>();
 		ret.add(PropertyFactory.getString("in_genderMale"));
 		ret.add(PropertyFactory.getString("in_genderFemale"));
 		ret.add(PropertyFactory.getString("in_genderNeuter"));

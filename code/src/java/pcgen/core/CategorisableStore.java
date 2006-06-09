@@ -31,39 +31,36 @@ import java.util.*;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class CategorisableStore implements Cloneable
+public class CategorisableStore<T extends Categorisable> implements Cloneable
 {
-	private static final Comparator catKeyComp = new Comparator()
+	private static final Comparator<Categorisable> catKeyComp = new Comparator<Categorisable>()
 		{
-			public int compare(final Object o1, final Object o2)
+			public int compare(final Categorisable o1, final Categorisable o2)
 			{
-				return ((Categorisable) o1).getKeyName().compareToIgnoreCase(
-						((Categorisable) o2).getKeyName());
+				return o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 			}
 		};
 
-	private static final Comparator catNameComp = new Comparator()
+	private static final Comparator<Categorisable> catNameComp = new Comparator<Categorisable>()
 		{
-			public int compare(final Object o1, final Object o2)
+			public int compare(final Categorisable o1, final Categorisable o2)
 			{
-				String s1 = ((Categorisable) o1).getDisplayName();
-				String s2 = ((Categorisable) o2).getDisplayName();
+				final String s1 = o1.getDisplayName();
+				final String s2 = o2.getDisplayName();
 				return (s1.compareToIgnoreCase(s2));
 			}
 		};
 
-	private static final Comparator stringComp = new Comparator()
+	private static final Comparator<String> stringComp = new Comparator<String>()
 		{
-			public int compare(final Object o1, final Object o2)
+			public int compare(final String o1, final String o2)
 			{
-				String s1 = (String) o1;
-				String s2 = (String) o2;
-				return (s1.compareToIgnoreCase(s2));
+				return (o1.compareToIgnoreCase(o2));
 			}
 		};
 
 
-		protected Map categoryMap = new HashMap();
+		protected Map<String, Map<String, T>> categoryMap = new HashMap<String, Map<String, T>>();
 
 	/**
 	 * Make a new WareHouse
@@ -81,17 +78,17 @@ public class CategorisableStore implements Cloneable
 	 * @return  true if the object was added correctly
 	 */
 
-	public boolean addCategorisable(final Categorisable aCatObj)
+	public boolean addCategorisable(final T aCatObj)
 	{
-		Map objMap = (HashMap) categoryMap.get(aCatObj.getCategory());
+		Map<String, T> objMap = categoryMap.get(aCatObj.getCategory());
 
 		if (objMap == null)
 		{
-			objMap = new HashMap();
+			objMap = new HashMap<String, T>();
 			categoryMap.put(aCatObj.getCategory(), objMap);
 		}
 
-		String key = aCatObj.getKeyName().toLowerCase();
+		final String key = aCatObj.getKeyName().toLowerCase();
 
 		/* Keys absolutely must be unique */
 		if (objMap.get(key) != null)
@@ -114,7 +111,7 @@ public class CategorisableStore implements Cloneable
 	 */
 	public void clear()
 	{
-		categoryMap = new HashMap();
+		categoryMap = new HashMap<String, Map<String, T>>();
 	}
 
 	/**
@@ -127,11 +124,11 @@ public class CategorisableStore implements Cloneable
 	{
 		CategorisableStore clone = new CategorisableStore();
 
-		Iterator it = this.getKeyIterator(Constants.ALL_CATEGORIES);
+		Iterator<T> it = this.getKeyIterator(Constants.ALL_CATEGORIES);
 
 		while (it.hasNext())
 		{
-			final Categorisable ab = (Categorisable) it.next();
+			final T ab = it.next();
 			clone.addCategorisable(ab);
 		}
 
@@ -148,9 +145,9 @@ public class CategorisableStore implements Cloneable
 	 * @return  the Categorisable Object whose Category and Key match
 	 */
 
-	public Categorisable getKeyed(final String aCategory, final String aKey)
+	public T getKeyed(final String aCategory, final String aKey)
 	{
-		final HashMap objMap = (HashMap) categoryMap.get(aCategory);
+		final Map<String, T> objMap = categoryMap.get(aCategory);
 
 		// nothing in this category?
 		if (objMap == null)
@@ -158,9 +155,7 @@ public class CategorisableStore implements Cloneable
 			return null;
 		}
 
-		String key = aKey.toLowerCase();
-
-		return (Categorisable) objMap.get(key);
+		return objMap.get(aKey.toLowerCase());
 	}
 
 	/**
@@ -172,9 +167,9 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  An Iterator
 	 */
-	public Iterator getKeyIterator(String aCategory)
+	public Iterator<T> getKeyIterator(String aCategory)
 	{
-		TreeSet sortedAggregate = getSortedSet(aCategory, catKeyComp);
+		SortedSet<T> sortedAggregate = getSortedSet(aCategory, catKeyComp);
 
 		if (sortedAggregate == null)
 		{
@@ -194,9 +189,9 @@ public class CategorisableStore implements Cloneable
 	 * @return  the Categorisable Object whose Name matches the String passed in
 	 */
 
-	public Categorisable getNamed(final String aCategory, String aName)
+	public T getNamed(final String aCategory, String aName)
 	{
-		final Iterator it = getNameIterator(aCategory);
+		final Iterator<T> it = getNameIterator(aCategory);
 
 		// nothing in this category?
 		if (it == null)
@@ -208,7 +203,7 @@ public class CategorisableStore implements Cloneable
 
 		while (it.hasNext())
 		{
-			final Categorisable itCatObj = (Categorisable) it.next();
+			final T itCatObj = it.next();
 
 			if (
 				itCatObj.getKeyName().equalsIgnoreCase(aName) ||
@@ -230,9 +225,9 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  An Iterator
 	 */
-	public Iterator getNameIterator(String aCategory)
+	public Iterator<T> getNameIterator(String aCategory)
 	{
-		TreeSet sortedAggregate = getSortedSet(aCategory, catNameComp);
+		TreeSet<T> sortedAggregate = getSortedSet(aCategory, catNameComp);
 
 		if (sortedAggregate == null)
 		{
@@ -248,9 +243,9 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  An Iterator
 	 */
-	public Iterator getCategoryIterator()
+	public Iterator<String> getCategoryIterator()
 	{
-		TreeSet sortedAggregate = getSortedCategorySet(stringComp);
+		TreeSet<String> sortedAggregate = getSortedCategorySet(stringComp);
 
 		if (sortedAggregate == null)
 		{
@@ -271,11 +266,11 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  An Iterator
 	 */
-	private TreeSet getSortedSet(
+	private TreeSet<T> getSortedSet(
 		final String     aCategory,
-		final Comparator aComp)
+		final Comparator<Categorisable> aComp)
 	{
-		final HashSet aggregate;
+		final Set<T> aggregate;
 
 		if (Constants.ALL_CATEGORIES.equals(aCategory))
 		{
@@ -283,17 +278,17 @@ public class CategorisableStore implements Cloneable
 		}
 		else
 		{
-			HashMap aggregateMap = (HashMap) categoryMap.get(aCategory);
+			Map<String, T> aggregateMap = categoryMap.get(aCategory);
 
 			if (aggregateMap == null)
 			{
 				return null;
 			}
 
-			aggregate = new HashSet(aggregateMap.values());
+			aggregate = new HashSet<T>(aggregateMap.values());
 		}
 
-		TreeSet sortedAggregate = new TreeSet(aComp);
+		TreeSet<T> sortedAggregate = new TreeSet<T>(aComp);
 		sortedAggregate.addAll(aggregate);
 
 		return sortedAggregate;
@@ -308,9 +303,9 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  An Iterator
 	 */
-	private TreeSet getSortedCategorySet(final Comparator aComp)
+	private TreeSet<String> getSortedCategorySet(final Comparator<String> aComp)
 	{
-		TreeSet sortedAggregate = new TreeSet(aComp);
+		TreeSet<String> sortedAggregate = new TreeSet<String>(aComp);
 		sortedAggregate.addAll(categoryMap.keySet());
 
 		return sortedAggregate;
@@ -325,16 +320,16 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  an unmodifiable list of the Objects in the given category
 	 */
-	public List getUnmodifiableList(String aCategory)
+	public List<T> getUnmodifiableList(String aCategory)
 	{
-		TreeSet sortedAggregate = getSortedSet(aCategory, catNameComp);
+		TreeSet<T> sortedAggregate = getSortedSet(aCategory, catNameComp);
 
 		if (sortedAggregate == null)
 		{
-			return Collections.EMPTY_LIST;
+			return Collections.emptyList();
 		}
 
-		ArrayList aList = new ArrayList(sortedAggregate.size());
+		ArrayList<T> aList = new ArrayList<T>(sortedAggregate.size());
 		aList.addAll(sortedAggregate);
 
 		return Collections.unmodifiableList(aList);
@@ -345,13 +340,13 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  a HashSet containing all the objects
 	 */
-	private HashSet makeAggregateSet()
+	private Set<T> makeAggregateSet()
 	{
-		final HashSet aggregate = new HashSet();
+		final Set<T> aggregate = new HashSet<T>();
 
-		for (Iterator it = categoryMap.values().iterator(); it.hasNext();)
+		for (Iterator<Map<String, T>> it = categoryMap.values().iterator(); it.hasNext();)
 		{
-			aggregate.addAll(((HashMap) it.next()).values());
+			aggregate.addAll(it.next().values());
 		}
 
 		return aggregate;
@@ -369,7 +364,7 @@ public class CategorisableStore implements Cloneable
 	 */
 	public boolean removeKeyed(final String aCategory, final String aKey)
 	{
-		final HashMap objMap = (HashMap) categoryMap.get(aCategory);
+		final Map<String, T> objMap = categoryMap.get(aCategory);
 
 		// nothing in this category?
 		if (objMap == null)
@@ -379,7 +374,7 @@ public class CategorisableStore implements Cloneable
 
 		String key = aKey.toLowerCase();
 
-		final Categorisable aCatObj = (Categorisable) objMap.remove(key);
+		final Categorisable aCatObj = objMap.remove(key);
 
 		return (aCatObj != null);
 	}
@@ -398,7 +393,7 @@ public class CategorisableStore implements Cloneable
 
 	public boolean removeNamed(final String aCategory, String aName)
 	{
-		final Iterator it = getNameIterator(aCategory);
+		final Iterator<T> it = getNameIterator(aCategory);
 
 		// nothing in this category?
 		if (it == null)
@@ -410,15 +405,15 @@ public class CategorisableStore implements Cloneable
 
 		while (it.hasNext())
 		{
-			final Categorisable itCatObj = (Categorisable) it.next();
+			final Categorisable itCatObj = it.next();
 
 			if (
 				itCatObj.getKeyName().equalsIgnoreCase(aName) ||
 				itCatObj.getKeyName().equalsIgnoreCase(strippedName))
 			{
 				final String        aKey    = itCatObj.getKeyName().toLowerCase();
-				final HashMap       objMap  = (HashMap) categoryMap.get(aCategory);
-				final Categorisable aCatObj = (Categorisable) objMap.remove(aKey);
+				final Map<String, T>       objMap  = categoryMap.get(aCategory);
+				final Categorisable aCatObj = objMap.remove(aKey);
 
 				return (aCatObj != null);
 			}
@@ -433,11 +428,11 @@ public class CategorisableStore implements Cloneable
 	public int size()
 	{
 		int      size = 0;
-		Iterator it   = categoryMap.values().iterator();
+		Iterator<Map<String, T>> it   = categoryMap.values().iterator();
 
 		while (it.hasNext())
 		{
-			size = size + ((HashMap) it.next()).size();
+			size = size + it.next().size();
 		}
 
 		return size;

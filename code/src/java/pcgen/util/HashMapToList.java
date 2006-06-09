@@ -48,13 +48,13 @@ import java.util.*;
  * appropriate for use in Java 1.5 (Typed Collections are probably more
  * appropriate)
  */
-public class HashMapToList
+public class HashMapToList<K, V>
 {
 
 	/**
 	 * The actual map containing the map of objects to Lists
 	 */
-	private final Map mapToList = new HashMap();
+	private final Map<K, List<V>> mapToList = new HashMap<K, List<V>>();
 
 	/**
 	 * Creates a new HashMapToList
@@ -75,7 +75,7 @@ public class HashMapToList
 	 *            The key for which a List should be initialized in this
 	 *            MapToList.
 	 */
-	public void initializeListFor(Object key)
+	public void initializeListFor(K key)
 	{
 		if (key == null)
 		{
@@ -86,7 +86,7 @@ public class HashMapToList
 			throw new IllegalArgumentException("Cannot re-initialize key: "
 					+ key);
 		}
-		mapToList.put(key, new ArrayList());
+		mapToList.put(key, new ArrayList<V>());
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class HashMapToList
 	 * @param value
 	 *            The value to be added to the List for the given key.
 	 */
-	public void addToListFor(Object key, Object value)
+	public void addToListFor(K key, V value)
 	{
 		/*
 		 * Note there is no requirement that a Key is added before this method
@@ -115,7 +115,7 @@ public class HashMapToList
 		{
 			initializeListFor(key);
 		}
-		((List) mapToList.get(key)).add(value);
+		mapToList.get(key).add(value);
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class HashMapToList
 	 *            A List containing the items to be added to the List for the
 	 *            given key.
 	 */
-	public void addAllToListFor(Object key, List list)
+	public void addAllToListFor(K key, List<V> list)
 	{
 		/*
 		 * Note there is no requirement that a Key is added before this method
@@ -144,7 +144,7 @@ public class HashMapToList
 		{
 			initializeListFor(key);
 		}
-		((List) mapToList.get(key)).addAll(list);
+		mapToList.get(key).addAll(list);
 	}
 
 	/**
@@ -159,17 +159,17 @@ public class HashMapToList
 	 * @param mtl
 	 *            The MapToList from which all of the Lists should be imported
 	 */
-	public void addAllLists(HashMapToList mtl)
+	public void addAllLists(HashMapToList<K, V> mtl)
 	{
-		for (Iterator it = mtl.getKeySet().iterator(); it.hasNext();)
+		for (Iterator<K> it = mtl.getKeySet().iterator(); it.hasNext();)
 		{
-			Object key = it.next();
+			K key = it.next();
 			/*
 			 * Note, this reference-semantic grab of the list for the key (from
 			 * the mtl's MapToList) is safe, as addAllToListFor is committed to
 			 * be value-semantic and not keep or modify the received list.
 			 */
-			addAllToListFor(key, (List) mtl.mapToList.get(key));
+			addAllToListFor(key, mtl.mapToList.get(key));
 		}
 	}
 
@@ -185,7 +185,7 @@ public class HashMapToList
 	 * @return true if this MapToList contains a List for the given key; false
 	 *         otherwise.
 	 */
-	public boolean containsListFor(Object key)
+	public boolean containsListFor(K key)
 	{
 		return mapToList.containsKey(key);
 	}
@@ -205,10 +205,9 @@ public class HashMapToList
 	 * @return true if this MapToList contains a List for the given key AND that
 	 *         list contains the given value; false otherwise.
 	 */
-	public boolean containsInList(Object key, Object value)
+	public boolean containsInList(K key, V value)
 	{
-		return containsListFor(key)
-				&& ((List) mapToList.get(key)).contains(value);
+		return containsListFor(key) && mapToList.get(key).contains(value);
 	}
 
 	/**
@@ -223,7 +222,7 @@ public class HashMapToList
 	 *            The key being tested.
 	 * @return the number of objects in the List for the given key
 	 */
-	public int sizeOfListFor(Object key)
+	public int sizeOfListFor(K key)
 	{
 		/*
 		 * FUTURE It is possible for the context of PCGen that this class should
@@ -234,17 +233,17 @@ public class HashMapToList
 		 * around the PCGen universe (this could be considered inconsistent with
 		 * getListFor below, since it doesn't throw a NPE...) - thpr 6/19/05
 		 */
-        /*
-         * On the other hand, PCGen is also built with a lot of uninitialized
-         * items and at risk of NPEs... in order to fix the save problem in CVS
-         * this is currently set to zero if the key doesn't exist - thpr June
-         * 24, 2005
-         */
-	    List list = (List) mapToList.get(key);
-	    if (list == null) {
-	        return 0;
-	    }
-	    return list.size();
+		/*
+		 * On the other hand, PCGen is also built with a lot of uninitialized
+		 * items and at risk of NPEs... in order to fix the save problem in CVS
+		 * this is currently set to zero if the key doesn't exist - thpr June
+		 * 24, 2005
+		 */
+		List<V> list = mapToList.get(key);
+		if (list == null) {
+			return 0;
+		}
+		return list.size();
 	}
 
 	/**
@@ -260,10 +259,10 @@ public class HashMapToList
 	 * @return a copy of the List contained in this MapToList for the given key;
 	 *         null if the given key is not a key in this MapToList.
 	 */
-	public List getListFor(Object key)
+	public List<V> getListFor(K key)
 	{
-		List list = (List) mapToList.get(key);
-		return list == null ? null : new ArrayList(list);
+		List<V> list = mapToList.get(key);
+		return list == null ? null : new ArrayList<V>(list);
 	}
 
 	/**
@@ -280,7 +279,7 @@ public class HashMapToList
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
-	public boolean removeFromListFor(Object key, Object value)
+	public boolean removeFromListFor(K key, V value)
 	{
 		/*
 		 * Note there is no requirement that a Key is added before this method
@@ -290,7 +289,7 @@ public class HashMapToList
 		{
 			return false;
 		}
-		return ((List) mapToList.get(key)).remove(value);
+		return mapToList.get(key).remove(value);
 	}
 
 	/**
@@ -305,9 +304,9 @@ public class HashMapToList
 	 *            removed from
 	 * @return The List which this MapToList previous mapped the given key
 	 */
-	public List removeListFor(Object key)
+	public List<V> removeListFor(K key)
 	{
-		return (List) mapToList.remove(key);
+		return mapToList.remove(key);
 	}
 
 	/**
@@ -356,11 +355,11 @@ public class HashMapToList
 	 *
 	 * @return a Set containing the keys in this MapToList
 	 */
-	public Set getKeySet()
+	public Set<K> getKeySet()
 	{
 		//Need to 'clone' the Set, since Map returns a set that is still
 		// associated with the Map
-		return new HashSet(mapToList.keySet());
+		return new HashSet<K>(mapToList.keySet());
 	}
 
 	/**
@@ -368,8 +367,8 @@ public class HashMapToList
 	 * @param i
 	 * @return Object
 	 */
-	public Object getElementInList(Object key, int i)
+	public V getElementInList(K key, int i)
 	{
-		return ((List) mapToList.get(key)).get(i);
+		return mapToList.get(key).get(i);
 	}
 }

@@ -41,7 +41,7 @@ public final class PointBuyMethod
 {
 	private String methodName = "";
 	private String pointFormula = "0";
-	private ArrayList bonusList = null;
+	private ArrayList<BonusObj> bonusList = null;
 
 	public PointBuyMethod(final String argMethodName, final String argPointFormula)
 	{
@@ -83,17 +83,17 @@ public final class PointBuyMethod
 	{
 		if (bonusList == null)
 		{
-			bonusList = new ArrayList();
+			bonusList = new ArrayList<BonusObj>();
 		}
 		bonusList.add(aBonus);
 	}
 
-	public List getBonusList()
+	public List<BonusObj> getBonusList()
 	{
 		return bonusList;
 	}
 
-	public List getBonusListOfType(final String aType, final String aName)
+	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
 	{
 		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
 	}
@@ -102,16 +102,16 @@ public final class PointBuyMethod
 	 * returns all BonusObj's that are "active"
 	 * @return active bonuses
 	 */
-	public List getActiveBonuses()
+	public List<BonusObj> getActiveBonuses()
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		List aBonusList = getBonusList();
+		List<BonusObj> aBonusList = getBonusList();
 		if (aBonusList != null)
 		{
-			for (Iterator ab = aBonusList.iterator(); ab.hasNext();)
+			for (Iterator<BonusObj> ab = aBonusList.iterator(); ab.hasNext();)
 			{
-				final BonusObj aBonus = (BonusObj) ab.next();
+				final BonusObj aBonus = ab.next();
 
 				if (aBonus.isApplied())
 				{

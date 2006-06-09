@@ -26,6 +26,7 @@ package pcgen.core;
 import pcgen.PCGenTestCase;
 
 import java.util.Iterator;
+import pcgen.util.TestHelper;
 
 /**
  * <code>DomainTest</code> test that the Domain class is functioning correctly.
@@ -65,28 +66,36 @@ public class DomainTest extends PCGenTestCase {
 	public void testAddFeatToList()
 	{
 		final Domain foo = new Domain();
+		TestHelper.makeAbility("Feat1", "FEAT", "General");
+		TestHelper.makeAbility("Feat2", "FEAT", "General");
+		TestHelper.makeAbility("Feat3", "FEAT", "General");
+		TestHelper.makeAbility("Feat4", "FEAT", "General");
+		TestHelper.makeAbility("Feat5", "FEAT", "General");
+		TestHelper.makeAbility("Feat6", "FEAT", "General");
+		TestHelper.makeAbility("Feat7", "FEAT", "General");
+		TestHelper.makeAbility("Feat8", "FEAT", "General");
 
 		assertEquals("Empty feat list initially", 0, foo.getNumberOfFeats());
 
-		foo.addFeat("Feat1");
+		foo.addFeat("KEY_Feat1");
 		assertEquals(1, foo.getNumberOfFeats());
 
-		foo.addFeat("Feat2,Feat3");
+		foo.addFeat("KEY_Feat2,KEY_Feat3");
 		assertEquals(3, foo.getNumberOfFeats());
 
-		foo.addFeat("Feat4|Feat5");
+		foo.addFeat("KEY_Feat4|KEY_Feat5");
 		assertEquals(5, foo.getNumberOfFeats());
 
 		foo.addFeat(".CLEAR");
 		assertEquals(0, foo.getNumberOfFeats());
 
-		foo.addFeat("Feat6|Feat7,Feat8");
+		foo.addFeat("KEY_Feat6|KEY_Feat7,KEY_Feat8");
 		assertEquals(3, foo.getNumberOfFeats());
 
-		Iterator it = foo.getFeatIterator();
-		AbilityInfo anAI = (AbilityInfo) it.next();
-		
-		assertEquals("Feat6", anAI.getKeyName());
+		Iterator<Ability> it = foo.getFeatIterator();
+		Ability anAI = it.next();
+
+		assertEquals("KEY_Feat6", anAI.getKeyName());
 	}
 
 }

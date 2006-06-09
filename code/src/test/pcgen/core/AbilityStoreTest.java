@@ -28,6 +28,7 @@ package pcgen.core;
 import java.util.Iterator;
 
 import pcgen.PCGenTestCase;
+import pcgen.util.TestHelper;
 
 /**
  * Test class for AbilityStore
@@ -52,46 +53,58 @@ public class AbilityStoreTest extends PCGenTestCase {
 	 * Test method for 'pcgen.core.AbilityStore.addAbilityInfo(String, String, String, boolean, boolean)'
 	 */
 	public void testAddAbilityInfo1() {
+		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Plummet", "FEAT", "General.Fighter");
+
 		AbilityStore abSt = new AbilityStore();
-		String       abs  = "CATEGORY=FEAT|Abseil|Parachute|Plummet";
-		
-		abSt.addAbilityInfo(abs, "", "|", false, false);
+		String       abs  = "CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Plummet";
+
+		abSt.addAbilityInfo(abs, "", "|", false);
 		is(abSt.size(), eq(3), "made 3 objects");
 
-		Iterator it = abSt.getKeyIterator("FEAT");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Abseil"),    "First Ability is correct");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Parachute"), "Second Ability is correct");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Plummet"),   "Third Ability is correct");
+		Iterator<Ability> it = abSt.getKeyIterator("FEAT");
+		is(it.next().getKeyName(), strEq("KEY_Abseil"),    "First Ability is correct");
+		is(it.next().getKeyName(), strEq("KEY_Parachute"), "Second Ability is correct");
+		is(it.next().getKeyName(), strEq("KEY_Plummet"),   "Third Ability is correct");
 	}
 
 	/**
 	 * Test method for 'pcgen.core.AbilityStore.addAbilityInfo(String, String, String, boolean, boolean)'
 	 */
 	public void testAddAbilityInfo2() {
+		TestHelper.makeAbility("Glide", "TALENT", "General.Fighter");
+		TestHelper.makeAbility("Gird", "TALENT", "General.Fighter");
+		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Glide", "FEAT", "General.Fighter");
 		AbilityStore abSt = new AbilityStore();
-		String       abs  = "CATEGORY=TALENT|Glide|Gird|CATEGORY=FEAT|Abseil|Parachute|Glide";
-		
-		abSt.addAbilityInfo(abs, "", "|", false, false);
+		String       abs  = "CATEGORY=TALENT|KEY_Glide|KEY_Gird|CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Glide";
+
+		abSt.addAbilityInfo(abs, "", "|", false);
 		is(abSt.size(), eq(5), "made 5 objects");
 
-		Iterator it = abSt.getKeyIterator("FEAT");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Abseil"),    "First Ability is correct");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Glide"),     "Second Ability is correct");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Parachute"), "Third Ability is correct");
+		Iterator<Ability> it = abSt.getKeyIterator("FEAT");
+		is(it.next().getKeyName(), strEq("KEY_Abseil"),    "First Ability is correct");
+		is(it.next().getKeyName(), strEq("KEY_Glide"),     "Second Ability is correct");
+		is(it.next().getKeyName(), strEq("KEY_Parachute"), "Third Ability is correct");
 
 		it = abSt.getKeyIterator("TALENT");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Gird"),      "Fourth Ability is correct");
-		is(((AbilityInfo) it.next()).getKeyName(), strEq("Glide"),     "Fifth  Ability is correct");
+		is(it.next().getKeyName(), strEq("KEY_Gird"),      "Fourth Ability is correct");
+		is(it.next().getKeyName(), strEq("KEY_Glide"),     "Fifth  Ability is correct");
 	}
 
 	/**
 	 * Test method for 'pcgen.core.AbilityStore.getParsableStringRepresentation()'
 	 */
 	public void testGetParsableStringRepresentation1() {
+		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Plummet", "FEAT", "General.Fighter");
 		AbilityStore abSt = new AbilityStore();
-		String       abs  = "CATEGORY=FEAT|Abseil|Parachute|Plummet";
-		
-		abSt.addAbilityInfo(abs, "", "|", false, false);
+		String       abs  = "CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Plummet";
+
+		abSt.addAbilityInfo(abs, "", "|", false);
 		is(abSt.size(), eq(3), "made 3 objects");
 
 		is(abSt.getParsableStringRepresentation(), strEq(abs), "Got expected string generated");
@@ -101,20 +114,25 @@ public class AbilityStoreTest extends PCGenTestCase {
 	 * Test method for 'pcgen.core.AbilityStore.getParsableStringRepresentation()'
 	 */
 	public void testGetParsableStringRepresentation2() {
+		TestHelper.makeAbility("Glide", "TALENT", "General.Fighter");
+		TestHelper.makeAbility("Gird", "TALENT", "General.Fighter");
+		TestHelper.makeAbility("Abseil", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Parachute", "FEAT", "General.Fighter");
+		TestHelper.makeAbility("Glide", "FEAT", "General.Fighter");
 		AbilityStore abSt   = new AbilityStore();
-		String       abs    = "CATEGORY=TALENT|Glide|Gird|CATEGORY=FEAT|Abseil|Parachute|Glide";
-		String       sorted = "CATEGORY=FEAT|Abseil|Glide|Parachute|CATEGORY=TALENT|Gird|Glide";
-		
-		abSt.addAbilityInfo(abs, "", "|", false, false);
-		String roundTrip = abSt.getParsableStringRepresentation(); 
+		String       abs    = "CATEGORY=TALENT|KEY_Glide|KEY_Gird|CATEGORY=FEAT|KEY_Abseil|KEY_Parachute|KEY_Glide";
+		String       sorted = "CATEGORY=FEAT|KEY_Abseil|KEY_Glide|KEY_Parachute|CATEGORY=TALENT|KEY_Gird|KEY_Glide";
+
+		abSt.addAbilityInfo(abs, "", "|", false);
+		String roundTrip = abSt.getParsableStringRepresentation();
 
 		is(abSt.size(), eq(5), "made 5 objects");
 
 		is(roundTrip, strEq(sorted), "Got expected string generated");
 
 		abSt = new AbilityStore();
-		
-		abSt.addAbilityInfo(roundTrip, "", "|", false, false);
+
+		abSt.addAbilityInfo(roundTrip, "", "|", false);
 		is(abSt.size(), eq(5), "made 5 objects");
 
 		is(abSt.getParsableStringRepresentation(), strEq(sorted), "Got expected string generated");

@@ -172,10 +172,12 @@ public class ChooserTableModel extends AbstractTableModel
 
 				for (int c = 0; c < mColumns; c++)
 				{
-					// Assume the row data isn't null
 					try
 					{
-						mColumnClasses[c] = row[c].getClass();
+						if ( row[c] != null )
+						{
+							mColumnClasses[c] = row[c].getClass();
+						}
 					}
 					catch (ArrayIndexOutOfBoundsException aioobe)
 					{

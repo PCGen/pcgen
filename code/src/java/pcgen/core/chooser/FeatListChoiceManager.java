@@ -34,7 +34,8 @@ import java.util.List;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatListChoiceManager extends AbstractComplexChoiceManager {
+public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
+{
 
 	/**
 	 * Make a new Feat chooser.
@@ -65,28 +66,23 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<Ability>            availableList,
+			final List<Ability>            selectedList)
 	{
 		String   aString;
-		Iterator choiceIt = choices.iterator();
+		Iterator<String> choiceIt = choices.iterator();
 
 		while (choiceIt.hasNext()){
 
-			aString = (String) choiceIt.next();
+			aString = choiceIt.next();
 
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 			{
 				aString = aString.substring(5);
 
-				if (!dupsAllowed && availableList.contains(aString))
+				for (Iterator<Ability> e1 = aPc.aggregateFeatList().iterator(); e1.hasNext();)
 				{
-					continue;
-				}
-
-				for (Iterator e1 = aPc.aggregateFeatList().iterator(); e1.hasNext();)
-				{
-					final Ability theFeat = (Ability) e1.next();
+					final Ability theFeat = e1.next();
 
 					if (theFeat.isType(aString)
 						&& (dupsAllowed || (!dupsAllowed && !availableList.contains(theFeat))))
@@ -109,7 +105,10 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager {
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		for ( Ability ability : selectedList )
+		{
+			pobject.addAssociated( ability.getKeyName() );
+		}
 	}
 
 }

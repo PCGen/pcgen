@@ -33,11 +33,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import org.omg.CORBA.portable.Streamable;
+import java.util.Enumeration;
 
 /**
  * This is the chooser that deals with choosing a spell level.
  */
-public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
+public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String>
 {
 	private ArrayList aBonusList = new ArrayList();
 	private String    stChoices  = "";
@@ -51,19 +52,19 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 	 * @param  aPC
 	 */
 	public SpellLevelChoiceManager(
-	    PObject         aPObject,
-	    String          choiceString,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          choiceString,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, choiceString, aPC);
 		title          = "Spell Level choice";
 		chooserHandled = "SPELLLEVEL";
 
-		if (((String) choices.get(0)).equals("SPELLLEVEL") ) 
+		if (((String) choices.get(0)).equals("SPELLLEVEL") )
 		{
 			try
 			{
-				numberOfChoices = new Integer((String) choices.get(1)).intValue();				
+				numberOfChoices = new Integer((String) choices.get(1)).intValue();
 			}
 			catch (NumberFormatException e)
 			{
@@ -74,7 +75,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 		{
 			numberOfChoices = 1;
 		}
-		
+
 		/* reconstruct a suitable choiceString to pass to buildSpellTypeChoices.  This is
 		 * not necessarily the same as the choiceString that was passed in because we may
 		 * have removed some | separated elements from the front of it in the constructor
@@ -103,9 +104,9 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 	 * @param  selectedList
 	 */
 	public void getChoices(
-	    final PlayerCharacter aPc,
-	    final List            availableList,
-	    final List            selectedList)
+		final PlayerCharacter aPc,
+		final List<String>            availableList,
+		final List<String>            selectedList)
 	{
 		/* This will need to be re-worked at some point when I can think of a better way.
 		 * This feat is different from the others in that it requires a bonus to be
@@ -129,7 +130,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 			availableList,
 			uniqueList,
 			aPc,
-			choicesTok);
+			(Enumeration<String>)choicesTok);
 
 		pobject.addAssociatedTo(selectedList);
 	}
@@ -151,7 +152,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 		{
 			final String aString = pobject.getAssociated(e);
 
-			for (Iterator bonusIter = aBonusList.iterator(); bonusIter.hasNext();)	
+			for (Iterator bonusIter = aBonusList.iterator(); bonusIter.hasNext();)
 			{
 				String bonus = (String) bonusIter.next();
 				pobject.removeBonus(bonus, aString, aPc);
@@ -160,14 +161,14 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 		pobject.clearAssociated();
 	}
 
-	
+
 	/**
 	 * Associate a choice with the pobject.  Only here so we can override part
 	 * of the behaviour of applyChoices
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param item the choice to associate
-	 * @param prefix 
+	 * @param prefix
 	 */
 	protected void associateChoice(
 			final PlayerCharacter aPc,
@@ -186,7 +187,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager
 
 	}
 
-	
+
 	/**
 	 * For the times when you want the bonus list instead of the available list.
 	 * In a previous life this code was selected by the boolean flag process, if

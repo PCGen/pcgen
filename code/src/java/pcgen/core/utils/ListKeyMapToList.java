@@ -57,7 +57,7 @@ public class ListKeyMapToList
 	 * @param key
 	 * @param list
 	 */
-	public void addAllToListFor(ListKey key, List list)
+	public <T> void addAllToListFor(ListKey<T> key, List<T> list)
 	{
 		map.addAllToListFor(key, list);
 	}
@@ -67,7 +67,7 @@ public class ListKeyMapToList
 	 * @param key
 	 * @param value
 	 */
-	public void addToListFor(ListKey key, Object value)
+	public <T> void addToListFor(ListKey<T> key, T value)
 	{
 		map.addToListFor(key, value);
 	}
@@ -87,7 +87,7 @@ public class ListKeyMapToList
 	 * @param key
 	 * @return list
 	 */
-	public List getListFor(ListKey key)
+	public <T> List<T> getListFor(ListKey<T> key)
 	{
 		return map.getListFor(key);
 	}
@@ -98,16 +98,16 @@ public class ListKeyMapToList
 	 * @param i
 	 * @return element in list
 	 */
-	public Object getElementInList(ListKey key, int i)
+	public <T> T getElementInList(ListKey<T> key, int i)
 	{
-		return map.getElementInList(key, i);
+		return (T)map.getElementInList(key, i);
 	}
 
 	/**
 	 * Initialise the list for a given key
 	 * @param key
 	 */
-	public void initializeListFor(ListKey key)
+	public <T> void initializeListFor(ListKey<T> key)
 	{
 		map.initializeListFor(key);
 	}
@@ -118,7 +118,7 @@ public class ListKeyMapToList
 	 * @param value
 	 * @return true, removal ok
 	 */
-	public boolean removeFromListFor(ListKey key, Object value)
+	public <T> boolean removeFromListFor(ListKey<T> key, T value)
 	{
 		return map.removeFromListFor(key, value);
 	}
@@ -128,7 +128,7 @@ public class ListKeyMapToList
 	 * @param key
 	 * @return removed list
 	 */
-	public List removeListFor(ListKey key)
+	public <T> List<T> removeListFor(ListKey<T> key)
 	{
 		return map.removeListFor(key);
 	}
@@ -149,7 +149,7 @@ public class ListKeyMapToList
 	 * @param value
 	 * @return True if value is in a list
 	 */
-	public boolean containsInList(ListKey key, String value)
+	public <T> boolean containsInList(ListKey<T> key, T value)
 	{
 		return map.containsInList(key, value);
 	}

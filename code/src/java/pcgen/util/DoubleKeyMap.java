@@ -10,10 +10,10 @@ import java.util.*;
 /**
  * A map representation for a dual key entity
  */
-public class DoubleKeyMap implements Cloneable
+public class DoubleKeyMap<K1, K2, V> implements Cloneable
 {
 
-	private Map map = new HashMap();
+	private Map<K1, Map<K2, V>> map = new HashMap<K1, Map<K2, V>>();
 
 	/**
 	 * Constructor
@@ -30,12 +30,12 @@ public class DoubleKeyMap implements Cloneable
 	 * @param value
 	 * @return Object
 	 */
-	public Object put(Object key1, Object key2, Object value)
+	public V put(K1 key1, K2 key2, V value)
 	{
-		Map localMap = (Map) map.get(key1);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap == null)
 		{
-			localMap = new HashMap();
+			localMap = new HashMap<K2, V>();
 			map.put(key1, localMap);
 		}
 		return localMap.put(key2, value);
@@ -47,9 +47,9 @@ public class DoubleKeyMap implements Cloneable
 	 * @param key2
 	 * @return Object
 	 */
-	public Object get(Object key1, Object key2)
+	public V get(K1 key1, K2 key2)
 	{
-		Map localMap = (Map) map.get(key1);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap == null)
 		{
 			return null;
@@ -63,9 +63,9 @@ public class DoubleKeyMap implements Cloneable
 	 * @param key2
 	 * @return true if an object is in the map given two keys
 	 */
-	public boolean containsKey(Object key1, Object key2)
+	public boolean containsKey(K1 key1, K2 key2)
 	{
-		Map localMap = (Map) map.get(key1);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap == null)
 		{
 			return false;
@@ -79,14 +79,14 @@ public class DoubleKeyMap implements Cloneable
 	 * @param key2
 	 * @return Object
 	 */
-	public Object remove(Object key1, Object key2)
+	public V remove(K1 key1, K2 key2)
 	{
-		Map localMap = (Map) map.get(key1);
+		Map<K2, V> localMap = map.get(key1);
 		if (localMap == null)
 		{
 			return null;
 		}
-		Object o = localMap.remove(key2);
+		V o = localMap.remove(key2);
 		//cleanup!
 		if (localMap.isEmpty())
 		{
@@ -99,9 +99,9 @@ public class DoubleKeyMap implements Cloneable
 	 * Get the Set of keys
 	 * @return set of keys
 	 */
-	public Set getKeySet()
+	public Set<K1> getKeySet()
 	{
-		return new HashSet(map.keySet());
+		return new HashSet<K1>(map.keySet());
 	}
 
 	/**
@@ -123,12 +123,12 @@ public class DoubleKeyMap implements Cloneable
 
 	public Object clone() throws CloneNotSupportedException
 	{
-		DoubleKeyMap dkm = (DoubleKeyMap) super.clone();
-		dkm.map = new HashMap();
-		for (Iterator it = map.keySet().iterator(); it.hasNext();) {
-			Object key = it.next();
-			Map m = (Map) map.get(key);
-			dkm.map.put(key, new HashMap(m));
+		DoubleKeyMap<K1, K2, V> dkm = (DoubleKeyMap<K1, K2, V>) super.clone();
+		dkm.map = new HashMap<K1, Map<K2, V>>();
+		for (Iterator<K1> it = map.keySet().iterator(); it.hasNext();) {
+			K1 key = it.next();
+			Map<K2, V> m = map.get(key);
+			dkm.map.put(key, new HashMap<K2, V>(m));
 		}
 		return dkm;
 	}

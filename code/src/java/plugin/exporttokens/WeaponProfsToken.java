@@ -31,10 +31,12 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 import java.util.SortedSet;
+import pcgen.core.WeaponProf;
+import java.util.TreeSet;
 
 /**
  * <code>WeaponProfsToken</code>.
- * 
+ *
  * @author	binkley
  * @version	$Revision$
  */
@@ -45,7 +47,7 @@ public class WeaponProfsToken extends Token
 
 	/**
 	 * Gets the token name
-	 * 
+	 *
 	 * @return The token name.
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
@@ -70,7 +72,7 @@ public class WeaponProfsToken extends Token
 
 	/**
 	 * Returns the weapons profs for a player character as a comma delimited string, may be empty.
-	 * 
+	 *
 	 * @param pc The character to retrieve the weapons profs for.
 	 * @return The weapon profs string, may be empty.
 	 */
@@ -80,14 +82,17 @@ public class WeaponProfsToken extends Token
 
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
-			SortedSet stringList = pc.getWeaponProfList();
-
-			for (int i = 0; i < stringList.size(); i++)
+			boolean first = true;
+			SortedSet<WeaponProf> sortedProfs = new TreeSet<WeaponProf> ();
+			sortedProfs.addAll(pc.getWeaponProfList());
+			for (WeaponProf wp : sortedProfs)
 			{
-				if(i > 0) {
+				if (first == false)
+				{
 					sb.append(", ");
 				}
-				sb.append((String) stringList.toArray()[i]);
+				sb.append(wp.getDisplayName());
+				first = false;
 			}
 		}
 		return sb.toString();

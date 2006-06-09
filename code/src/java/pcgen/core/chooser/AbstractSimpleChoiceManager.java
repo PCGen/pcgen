@@ -40,17 +40,17 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
+public abstract class AbstractSimpleChoiceManager<T> implements ChoiceManagerList<T>
 {
 	protected final PlayerCharacter pc;
 	protected final PObject         pobject;
-	protected List                  choices;
+	protected List<String>                  choices;
 
 	protected String                chooserHandled   = "";
 	protected int                   numberOfChoices  = 0;
 	protected boolean               dupsAllowed      = false;
 	protected String                title            = "";
-	protected List                  uniqueList       = new ArrayList();
+	protected List<T>                  uniqueList       = new ArrayList<T>();
 
 	/**
 	 * Creates a new ChoiceManager object.  Without any choice initialisation
@@ -59,8 +59,8 @@ public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 	 * @param  aPC
 	 */
 	public AbstractSimpleChoiceManager(
-	    PObject         aPObject,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		PlayerCharacter aPC)
 	{
 		super();
 		pobject   = aPObject;
@@ -75,9 +75,9 @@ public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 	 * @param  aPC
 	 */
 	public AbstractSimpleChoiceManager(
-	    PObject         aPObject,
-	    String          theChoices,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          theChoices,
+		PlayerCharacter aPC)
 	{
 		super();
 		pobject   = aPObject;
@@ -91,49 +91,48 @@ public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 	 * @param aPC
 	 */
 	private void initialise(String theChoices, PlayerCharacter aPC) {
-		final List   split = Arrays.asList(theChoices.split("[|]", 3));
+		final List<String>   split = Arrays.asList(theChoices.split("[|]", 3));
 
 		if (split.size() < 3)
 		{
-			choices = Collections.EMPTY_LIST;
+			choices = Collections.emptyList();
 			return;
 		}
 
-		this.chooserHandled = ((String) split.get(0));
+		this.chooserHandled = split.get(0);
 
-		final String var   = (String) split.get(1);
-		numberOfChoices    = aPC.getVariableValue(var, "").intValue();
+		numberOfChoices    = aPC.getVariableValue(split.get(1), "").intValue();
 
-		choices   = Arrays.asList(((String) split.get(2)).split("[|]"));
+		choices   = Arrays.asList(split.get(2).split("[|]"));
 	}
 
 
-	
-	
+
+
 	/**
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 */
 	public abstract void getChoices(
-		    final PlayerCharacter aPc,
-		    final List            availableList,
-		    final List            selectedList);
+			final PlayerCharacter aPc,
+			final List<T>            availableList,
+			final List<T>            selectedList);
 
 
-	
+
 	/**
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 * @return list
 	 */
-	public List doChooser (
-		    PlayerCharacter       aPc,
-		    final List            availableList,
-		    final List            selectedList)
+	public List<T> doChooser (
+			PlayerCharacter       aPc,
+			final List<T>            availableList,
+			final List<T>            selectedList)
 	{
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setAllowsDups(dupsAllowed);
@@ -175,20 +174,20 @@ public abstract class AbstractSimpleChoiceManager implements ChoiceManagerList
 	 */
 	public void doChooserRemove (
 			PlayerCharacter aPc,
-			List availableList,
-			List selectedList)
+			List<T> availableList,
+			List<T> selectedList)
 	{
 		// Nothing to do here
 	}
 
-	
+
 	/**
-	 * 
+	 *
 	 * @param aPC
 	 * @param selected
 	 * @see pcgen.core.chooser.ChoiceManagerList#applyChoices(pcgen.core.PlayerCharacter, java.util.List)
 	 */
 	public abstract void applyChoices(
 			final PlayerCharacter  aPC,
-			final List             selected);
+			final List<T>             selected);
 }

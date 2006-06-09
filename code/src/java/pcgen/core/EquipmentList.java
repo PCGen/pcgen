@@ -45,9 +45,9 @@ public class EquipmentList {
 
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;
-	private static List modifierList = new ArrayList(MODIFIERLISTSIZE);
-	private static TreeMap equipmentNameMap = new TreeMap();
-	private static TreeMap equipmentKeyMap = new TreeMap();
+	private static List<EquipmentModifier> modifierList = new ArrayList<EquipmentModifier>(MODIFIERLISTSIZE);
+	private static TreeMap<String, Equipment> equipmentNameMap = new TreeMap<String, Equipment>();
+	private static TreeMap<String, Equipment> equipmentKeyMap = new TreeMap<String, Equipment>();
 
 	/**
 	 * Private to ensure utility object can't be instantiated.
@@ -68,7 +68,7 @@ public class EquipmentList {
 	 * Empty the modifier list.
 	 */
 	protected static void clearModifierList() {
-		modifierList = new ArrayList(MODIFIERLISTSIZE);
+		modifierList = new ArrayList<EquipmentModifier>(MODIFIERLISTSIZE);
 	}
 
 	private static boolean isAutoGeneration() {
@@ -82,7 +82,7 @@ public class EquipmentList {
 	 *
 	 * @return the list
 	 */
-	public static List getModifierList() {
+	public static List<EquipmentModifier> getModifierList() {
 		return modifierList;
 	}
 
@@ -100,7 +100,7 @@ public class EquipmentList {
 	 * @param equipmentMap
 	 *          The equipmentMap to set.
 	 */
-	public static void setEquipmentMap(final TreeMap equipmentMap) {
+	public static void setEquipmentMap(final TreeMap<String, Equipment> equipmentMap) {
 		EquipmentList.equipmentNameMap = equipmentMap;
 	}
 
@@ -114,9 +114,9 @@ public class EquipmentList {
 	 * @return the Equipment matching the name
 	 */
 	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacter aPC) {
-		final List modList = new ArrayList();
-		final List namList = new ArrayList();
-		final List sizList = new ArrayList();
+		final List<String> modList = new ArrayList<String>();
+		final List<String> namList = new ArrayList<String>();
+		final List<String> sizList = new ArrayList<String>();
 		Equipment eq;
 		String aName = baseName;
 		int i = aName.indexOf('(');
@@ -159,7 +159,7 @@ public class EquipmentList {
 		//
 		if (i >= 0) {
 			for (i = modList.size() - 1; i >= 0; --i) {
-				final String namePart = (String) modList.get(i);
+				final String namePart = modList.get(i);
 
 				if (getModifierNamed(namePart) == null) {
 					namList.add(0, namePart); // add to the start as otherwise the list
@@ -201,7 +201,7 @@ public class EquipmentList {
 			//
 			if (bonusCount > 0) {
 				for (int idx1 = 0; idx1 < namList.size(); ++idx1) {
-					String aString = (String) namList.get(idx1);
+					String aString = namList.get(idx1);
 
 					if ("Mighty".equalsIgnoreCase(aString)) {
 						aString = Delta.toString(bonuses[bonusCount - 1]) + " " + aString;
@@ -299,8 +299,8 @@ public class EquipmentList {
 			//
 			// Now attempt to add all the modifiers.
 			//
-			for (Iterator e = modList.iterator(); e.hasNext();) {
-				final String namePart = (String) e.next();
+			for (Iterator<String> e = modList.iterator(); e.hasNext();) {
+				final String namePart = e.next();
 				final EquipmentModifier eqMod = getQualifiedModifierNamed(namePart, eq);
 
 				if (eqMod != null) {
@@ -352,7 +352,7 @@ public class EquipmentList {
 	 * @return the Equipment object matching the key
 	 */
 	public static Equipment getEquipmentKeyed(final String aKey) {
-		return (Equipment) equipmentKeyMap.get(aKey);
+		return equipmentKeyMap.get(aKey);
 	}
 
 	/**
@@ -378,7 +378,7 @@ public class EquipmentList {
 	 *
 	 * @return the equipment list
 	 */
-	public static Collection getEquipmentList() {
+	public static Collection<Equipment> getEquipmentList() {
 		return equipmentNameMap.values();
 	}
 
@@ -386,7 +386,7 @@ public class EquipmentList {
 	 * Get Equipment List Iterator
 	 * @return Equipment List Iterator
 	 */
-	public static Iterator getEquipmentListIterator() {
+	public static Iterator<Map.Entry<String, Equipment>> getEquipmentListIterator() {
 		return equipmentKeyMap.entrySet().iterator();
 	}
 
@@ -398,7 +398,7 @@ public class EquipmentList {
 	 * @return the Equipment object matching the name
 	 */
 	public static Equipment getEquipmentNamed(final String name) {
-		return (Equipment) equipmentNameMap.get(name);
+		return equipmentNameMap.get(name);
 	}
 
 	/**
@@ -411,10 +411,9 @@ public class EquipmentList {
 	 *          the list to search in
 	 * @return the Equipment object matching the name
 	 */
-	public static Equipment getEquipmentNamed(final String name, final List aList) {
-		for (Iterator e = aList.iterator(); e.hasNext();) {
-			final Equipment eq = (Equipment) e.next();
-
+	public static Equipment getEquipmentNamed(final String name, final List<Equipment> aList) {
+		for ( Equipment eq : aList )
+		{
 			if (eq.getName().equalsIgnoreCase(name)) { return eq; }
 		}
 
@@ -432,22 +431,25 @@ public class EquipmentList {
 	 *          a '.' separated list of types to NOT match
 	 * @return the matching Equipment
 	 */
-	public static List getEquipmentOfType(final Iterator eqIterator, final String desiredTypes, final String excludedTypes) {
-		final List desiredTypeList = CoreUtility.split(desiredTypes, '.');
-		final List excludedTypeList = CoreUtility.split(excludedTypes, '.');
-		final List typeList = new ArrayList(100);
+	public static List<Equipment> getEquipmentOfType(final Iterator<Map.Entry<String, Equipment>> eqIterator, final String desiredTypes, final String excludedTypes)
+	{
+		final List<String> desiredTypeList = CoreUtility.split(desiredTypes, '.');
+		final List<String> excludedTypeList = CoreUtility.split(excludedTypes, '.');
+		final List<Equipment> typeList = new ArrayList<Equipment>(100);
 
-		if (desiredTypeList.size() != 0) {
-			for ( ; eqIterator.hasNext(); ) {
-				final Entry entry = (Entry) eqIterator.next();
-				final Equipment eq = (Equipment) entry.getValue();
+		if (desiredTypeList.size() != 0)
+		{
+			for ( ; eqIterator.hasNext(); )
+			{
+				final Equipment eq = eqIterator.next().getValue();
 				boolean addIt = true;
 
 				//
 				// Must have all of the types in the desired list
 				//
-				for (Iterator e2 = desiredTypeList.iterator(); e2.hasNext();) {
-					if (!eq.isType((String) e2.next())) {
+				for ( String type : desiredTypeList )
+				{
+					if (!eq.isType(type)) {
 						addIt = false;
 
 						break;
@@ -458,8 +460,9 @@ public class EquipmentList {
 					//
 					// Can't have any of the types on the excluded list
 					//
-					for (Iterator e3 = excludedTypeList.iterator(); e3.hasNext();) {
-						if (eq.isType((String) e3.next())) {
+					for ( String type : excludedTypeList )
+					{
+						if (eq.isType(type)) {
 							addIt = false;
 
 							break;
@@ -483,7 +486,7 @@ public class EquipmentList {
 	 * @param excludedTypes
 	 * @return list of equipment of a particular type
 	 */
-	public static List getEquipmentOfType(final String desiredTypes, final String excludedTypes) {
+	public static List<Equipment> getEquipmentOfType(final String desiredTypes, final String excludedTypes) {
 		return getEquipmentOfType(equipmentNameMap.entrySet().iterator(), desiredTypes, excludedTypes);
 	}
 
@@ -495,7 +498,7 @@ public class EquipmentList {
 	 * @return the Equipment object
 	 */
 	public static EquipmentModifier getModifierKeyed(final String aKey) {
-		return (EquipmentModifier) Globals.searchPObjectList(getModifierList(), aKey);
+		return Globals.searchPObjectList(getModifierList(), aKey);
 	}
 
 	/**
@@ -544,10 +547,10 @@ public class EquipmentList {
 
 	private static void autogenerateExoticMaterialsEquipment() {
 		if (SettingsHandler.isAutogenExoticMaterial()) {
-			final Set baseEquipSet = new HashSet(equipmentNameMap.entrySet());
-			for (Iterator i = baseEquipSet.iterator(); i.hasNext(); ) {
-				final Map.Entry entry = (Map.Entry)i.next();
-				final Equipment eq = (Equipment) entry.getValue();
+			final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
+			for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
+				final Map.Entry<String, Equipment> entry = i.next();
+				final Equipment eq = entry.getValue();
 
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
@@ -573,10 +576,10 @@ public class EquipmentList {
 			for (int iPlus = 1; iPlus <= 5; iPlus++) {
 				final String aBonus = Delta.toString(iPlus);
 
-				final Set baseEquipSet = new HashSet(equipmentNameMap.entrySet());
-				for (Iterator i = baseEquipSet.iterator(); i.hasNext(); ) {
-					final Map.Entry entry = (Map.Entry)i.next();
-					Equipment eq = (Equipment) entry.getValue();
+				final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
+				for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
+					final Map.Entry<String, Equipment> entry = i.next();
+					Equipment eq = entry.getValue();
 
 					// Only apply to non-magical
 					// Armor, Shield and Weapon
@@ -601,9 +604,9 @@ public class EquipmentList {
 					final EquipmentChoice equipChoice = eqMod.buildEquipmentChoice(0, eq, false, false, 0);
 
 					// Iterate over list, creating an item for each choice.
-					final Iterator equipIter = equipChoice.getChoiceIterator(true);
+					final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
 					for (; equipIter.hasNext();) {
-						final String mwChoice = (String) equipIter.next();
+						final String mwChoice = equipIter.next();
 						eq = (Equipment) eq.clone();
 						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
 
@@ -631,10 +634,10 @@ public class EquipmentList {
 
 	private static void autogenerateMasterWorkEquipment() {
 		if (SettingsHandler.isAutogenMasterwork()) {
-			final Set baseEquipSet = new HashSet(equipmentNameMap.entrySet());
-			for (Iterator i = baseEquipSet.iterator(); i.hasNext(); ) {
-				final Map.Entry entry = (Map.Entry)i.next();
-				final Equipment eq = (Equipment) entry.getValue();
+			final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
+			for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
+				final Map.Entry<String, Equipment> entry = i.next();
+				final Equipment eq = entry.getValue();
 
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
@@ -650,9 +653,9 @@ public class EquipmentList {
 				final EquipmentChoice equipChoice = eqMasterwork.buildEquipmentChoice(0, eq, false, false, 0);
 
 				// Iterate over list, creating an item for each choice.
-				final Iterator equipIter = equipChoice.getChoiceIterator(true);
+				final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
 				for (; equipIter.hasNext();) {
-					final String choice = (String) equipIter.next();
+					final String choice = equipIter.next();
 					createItem(eq, eqMasterwork, null, choice, equipChoice);
 				}
 			}
@@ -669,10 +672,10 @@ public class EquipmentList {
 			// was being thrown) - Bug 937586
 			//
 			final int[] gensizes = new int[10];
-			final List races = new ArrayList(Globals.getRaceMap().values());
+			final List<Race> races = new ArrayList<Race>(Globals.getRaceMap().values());
 
-			for (Iterator e = races.iterator(); e.hasNext();) {
-				final Race race = (Race) e.next();
+			for ( Race race : races )
+			{
 				final int iSize = Globals.sizeInt(race.getSize());
 				final int flag = 1;
 
@@ -681,10 +684,10 @@ public class EquipmentList {
 
 			int x = -1;
 
-			final Set baseEquipSet = new HashSet(equipmentNameMap.entrySet());
-			for (Iterator i = baseEquipSet.iterator(); i.hasNext(); ) {
-				final Map.Entry entry = (Map.Entry)i.next();
-				final Equipment eq = (Equipment) entry.getValue();
+			final Set<Map.Entry<String, Equipment>> baseEquipSet = new HashSet<Map.Entry<String, Equipment>>(equipmentNameMap.entrySet());
+			for (Iterator<Map.Entry<String, Equipment>> i = baseEquipSet.iterator(); i.hasNext(); ) {
+				final Map.Entry<String, Equipment> entry = i.next();
+				final Equipment eq = entry.getValue();
 
 				//
 				// Only apply to Armor, Shield and resizable items
@@ -716,15 +719,15 @@ public class EquipmentList {
 		}
 	}
 
-	static EquipmentModifier getQualifiedModifierNamed(final String aName, final List aType) {
-		for (Iterator e = getModifierList().iterator(); e.hasNext();) {
-			final EquipmentModifier aEqMod = (EquipmentModifier) e.next();
+	static EquipmentModifier getQualifiedModifierNamed(final String aName, final List<String> aType) {
+		for (Iterator<EquipmentModifier> e = getModifierList().iterator(); e.hasNext();) {
+			final EquipmentModifier aEqMod = e.next();
 
 			if (aEqMod.getDisplayName().equals(aName)) {
 				if (aEqMod.isType("All")) { return aEqMod; }
 
-				for (Iterator e2 = aType.iterator(); e2.hasNext();) {
-					final String t = (String) e2.next();
+				for (Iterator<String> e2 = aType.iterator(); e2.hasNext();) {
+					final String t = e2.next();
 
 					if (aEqMod.isType(t)) { return aEqMod; }
 				}
@@ -735,26 +738,23 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getModifierNamed(final String aName) {
-		for (Iterator e = getModifierList().iterator(); e.hasNext();) {
-			final EquipmentModifier aEqMod = (EquipmentModifier) e.next();
-
-			if (aEqMod.getDisplayName().equals(aName)) { return aEqMod; }
+		for ( EquipmentModifier eqMod : getModifierList() )
+		{
+			if (eqMod.getDisplayName().equals(aName)) { return eqMod; }
 		}
 
 		return null;
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq) {
-		for (Iterator e = getModifierList().iterator(); e.hasNext();) {
-			final EquipmentModifier aEqMod = (EquipmentModifier) e.next();
-
-			if (aEqMod.getDisplayName().startsWith(aName)) {
-				for (Iterator e2 = eq.typeList().iterator(); e2.hasNext();) {
-					final String t = (String) e2.next();
-
-					if (aEqMod.isType(t)) {
+		for ( EquipmentModifier eqMod : getModifierList() )
+		{
+			if (eqMod.getDisplayName().startsWith(aName)) {
+				for (String t : eq.typeList() )
+				{
+					if (eqMod.isType(t)) {
 						// Type matches, passes prereqs?
-						if (aEqMod.passesPreReqToGain(eq, null)) { return aEqMod; }
+						if (eqMod.passesPreReqToGain(eq, null)) { return eqMod; }
 					}
 				}
 			}
@@ -770,10 +770,9 @@ public class EquipmentList {
 	 * @param omitString
 	 * @param newName
 	 */
-	private static void appendNameParts(final List nameList, final String omitString, final StringBuffer newName) {
-		for (Iterator e = nameList.iterator(); e.hasNext();) {
-			final String namePart = (String) e.next();
-
+	private static void appendNameParts(final List<String> nameList, final String omitString, final StringBuffer newName) {
+		for ( String namePart : nameList )
+		{
 			if ((omitString.length() != 0) && namePart.equals(omitString)) {
 				continue;
 			}
@@ -857,13 +856,13 @@ public class EquipmentList {
 		}
 	}
 
-	private static Equipment findEquipment(final String aName, final List preNameList, final List postNameList,
-			final List sizList, final String omitString) {
+	private static Equipment findEquipment(final String aName, final List<String> preNameList, final List<String> postNameList,
+			final List<String> sizList, final String omitString) {
 		final StringBuffer newName = new StringBuffer(80);
 		newName.append(" (");
 
 		if (preNameList != null) {
-			final List nameList = preNameList;
+			final List<String> nameList = preNameList;
 			appendNameParts(nameList, omitString, newName);
 		}
 
@@ -871,7 +870,7 @@ public class EquipmentList {
 			// Append 1st size if multiple sizes
 			//
 			if (sizList.size() > 1) {
-				newName.append((String) sizList.get(0));
+				newName.append(sizList.get(0));
 			}
 		}
 

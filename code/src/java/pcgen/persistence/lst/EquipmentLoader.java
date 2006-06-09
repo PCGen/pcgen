@@ -45,7 +45,7 @@ public final class EquipmentLoader
 	 */
 	private EquipmentLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -148,44 +148,44 @@ public final class EquipmentLoader
 			else
 			{
 				Logging.errorPrint("Illegal equipment info " + sourceURL.toString() + ":" + Integer.toString(lineNum)
-				    + " \"" + colString + "\"");
+					+ " \"" + colString + "\"");
 			}
 			col++;
 		}
 
-		final String bonusType = equipment.getBonusType();
-
-		if (equipment.isArmor())
-		{
-			if (bonusType == null)
-			{
-				equipment.setBonusType("Armor");
-
-				return;
-			}
-
-			if (bonusType.lastIndexOf("Armor") > -1)
-			{
-				return;
-			}
-
-			equipment.setBonusType(bonusType + "Armor");
-		}
-		else if (equipment.isShield())
-		{
-			if (bonusType == null)
-			{
-				equipment.setBonusType("Shield");
-
-				return;
-			}
-
-			if (bonusType.lastIndexOf("Shield") > -1)
-			{
-				return;
-			}
-
-			equipment.setBonusType(bonusType + "Shield");
-		}
+//		final String bonusType = equipment.getBonusType();
+//
+//		if (equipment.isArmor())
+//		{
+//			if (bonusType == null)
+//			{
+//				equipment.setBonusType("Armor");
+//
+//				return;
+//			}
+//
+//			if (bonusType.lastIndexOf("Armor") > -1)
+//			{
+//				return;
+//			}
+//
+//			equipment.setBonusType(bonusType + "Armor");
+//		}
+//		else if (equipment.isShield())
+//		{
+//			if (bonusType == null)
+//			{
+//				equipment.setBonusType("Shield");
+//
+//				return;
+//			}
+//
+//			if (bonusType.lastIndexOf("Shield") > -1)
+//			{
+//				return;
+//			}
+//
+//			equipment.setBonusType(bonusType + "Shield");
+//		}
 	}
 }

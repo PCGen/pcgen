@@ -93,10 +93,10 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	}
 
 	/** The default available list column array */
-	private static final List AVAILABLE_COLUMN_NAMES = Arrays.asList(new Object[]{ in_available });
+	private static final List<String> AVAILABLE_COLUMN_NAMES = Arrays.asList(new String[]{ in_available });
 
 	/** The default selected list column array */
-	private static final List SELECTED_COLUMN_NAMES = Arrays.asList(new Object[]{ in_selected });
+	private static final List<String> SELECTED_COLUMN_NAMES = Arrays.asList(new String[]{ in_selected });
 
 	/** The model table for the available item table */
 	private ChooserTableModel mAvailableModel = new ChooserTableModel();
@@ -126,13 +126,13 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	private JTableEx mSelectedTable;
 
 	/** The available table column names */
-	private List mAvailableColumnNames;
+	private List<String> mAvailableColumnNames;
 
 	/** The list of available items */
 	private List mAvailableList = new ArrayList();
 
 	/** The selected table column names */
-	private List mSelectedColumnNames;
+	private List<String> mSelectedColumnNames;
 
 	/** The list of selected items */
 	private List mSelectedList = new ArrayList();
@@ -353,7 +353,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param availableColumnNames  The new AvailableColumnNames value
 	 * author                      Matt Woodard
 	 */
-	public void setAvailableColumnNames(List availableColumnNames)
+	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 		mAvailableColumnNames = availableColumnNames;
 
@@ -379,7 +379,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param selectedColumnNames  java.util.List
 	 * author                     Matt Woodard
 	 */
-	public void setSelectedColumnNames(List selectedColumnNames)
+	public void setSelectedColumnNames(List<String> selectedColumnNames)
 	{
 		mSelectedColumnNames = selectedColumnNames;
 

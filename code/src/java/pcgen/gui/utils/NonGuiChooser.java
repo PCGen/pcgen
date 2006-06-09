@@ -192,7 +192,7 @@ public final class NonGuiChooser implements ChooserInterface
 	/**
 	 * @see pcgen.util.chooser.ChooserInterface#setAvailableColumnNames(java.util.List)
 	 */
-	public void setAvailableColumnNames(List availableColumnNames)
+	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 	}
 }

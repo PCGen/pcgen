@@ -46,9 +46,9 @@ import java.util.Map;
  */
 public final class CompanionMod extends PObject
 {
-	private Map classMap = new HashMap();
-	private Map switchRaceMap = new HashMap();
-	private Map varMap = new HashMap();
+	private Map<String, String> classMap = new HashMap<String, String>();
+	private Map<String, String> switchRaceMap = new HashMap<String, String>();
+	private Map<String, String> varMap = new HashMap<String, String>();
 	private boolean useMasterSkill;
 	private String raceType = "";
 
@@ -133,7 +133,7 @@ public final class CompanionMod extends PObject
 	 * Get Class map
 	 * @return classMap
 	 */
-	public Map getClassMap()
+	public Map<String, String> getClassMap()
 	{
 		return classMap;
 	}
@@ -144,7 +144,7 @@ public final class CompanionMod extends PObject
 	 */
 	public String getCopyMasterBAB()
 	{
-		final String characteristic = stringChar.getCharacteristic(StringKey.MASTER_BAB_FORMULA);
+		final String characteristic = stringChar.get(StringKey.MASTER_BAB_FORMULA);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -154,7 +154,7 @@ public final class CompanionMod extends PObject
 	 */
 	public String getCopyMasterCheck()
 	{
-		final String characteristic = stringChar.getCharacteristic(StringKey.MASTER_CHECK_FORMULA);
+		final String characteristic = stringChar.get(StringKey.MASTER_CHECK_FORMULA);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -164,7 +164,7 @@ public final class CompanionMod extends PObject
 	 */
 	public String getCopyMasterHP()
 	{
-		final String characteristic = stringChar.getCharacteristic(StringKey.MASTER_HP_FORMULA);
+		final String characteristic = stringChar.get(StringKey.MASTER_HP_FORMULA);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -174,7 +174,7 @@ public final class CompanionMod extends PObject
 	 */
 	public int getHitDie()
 	{
-		final Integer characteristic = integerChar.getCharacteristic(IntegerKey.HIT_DIE);
+		final Integer characteristic = integerChar.get(IntegerKey.HIT_DIE);
 		return characteristic == null ? 0 : characteristic.intValue();
 	}
 
@@ -189,11 +189,11 @@ public final class CompanionMod extends PObject
 
 		if (classMap.get(className) != null)
 		{
-			result = Integer.parseInt(classMap.get(className).toString());
+			result = Integer.parseInt(classMap.get(className));
 		}
 		else if (varMap.get(className) != null)
 		{
-			result = Integer.parseInt(varMap.get(className).toString());
+			result = Integer.parseInt(varMap.get(className));
 		}
 
 		return result;
@@ -212,7 +212,7 @@ public final class CompanionMod extends PObject
 	 * Get switch race map
 	 * @return switch race map
 	 */
-	public Map getSwitchRaceMap()
+	public Map<String, String> getSwitchRaceMap()
 	{
 		return switchRaceMap;
 	}
@@ -230,7 +230,7 @@ public final class CompanionMod extends PObject
 	 * Get variable map
 	 * @return varMap
 	 */
-	public Map getVarMap()
+	public Map<String, String> getVarMap()
 	{
 		return varMap;
 	}
@@ -250,7 +250,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setCopyMasterBAB(final String masterBABFormula)
 	{
-		stringChar.setCharacteristic(StringKey.MASTER_BAB_FORMULA, masterBABFormula);
+		stringChar.put(StringKey.MASTER_BAB_FORMULA, masterBABFormula);
 	}
 
 	/**
@@ -259,7 +259,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setCopyMasterCheck(final String masterCheckFormula)
 	{
-		stringChar.setCharacteristic(StringKey.MASTER_CHECK_FORMULA, masterCheckFormula);
+		stringChar.put(StringKey.MASTER_CHECK_FORMULA, masterCheckFormula);
 	}
 
 	/**
@@ -268,7 +268,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setCopyMasterHP(final String masterHPFormula)
 	{
-		stringChar.setCharacteristic(StringKey.MASTER_HP_FORMULA, masterHPFormula);
+		stringChar.put(StringKey.MASTER_HP_FORMULA, masterHPFormula);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setHitDie(final int hd)
 	{
-		integerChar.setCharacteristic(IntegerKey.HIT_DIE, hd);
+		integerChar.put(IntegerKey.HIT_DIE, hd);
 	}
 
 	/**
@@ -286,7 +286,7 @@ public final class CompanionMod extends PObject
 	 */
 	public void setLevel(final int level)
 	{
-		integerChar.setCharacteristic(IntegerKey.LEVEL, level);
+		integerChar.put(IntegerKey.LEVEL, level);
 	}
 
 	/**
@@ -309,7 +309,7 @@ public final class CompanionMod extends PObject
 
 	private int getLevel()
 	{
-		final Integer characteristic = integerChar.getCharacteristic(IntegerKey.LEVEL);
+		final Integer characteristic = integerChar.get(IntegerKey.LEVEL);
 		return characteristic == null ? 0 : characteristic.intValue();
 	}
 }

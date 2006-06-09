@@ -157,7 +157,7 @@ final class SkillBasePanel extends BasePanel
 			thisSkill.setTypeInfo(sel[i].toString());
 		}
 
-		thisSkill.setUntrained(getIsUntrained() ? "Y" : "N");
+		thisSkill.setUntrained(getIsUntrained());
 		thisSkill.setIsExclusive(getIsExclusive());
 		thisSkill.setKeyStat(getKeyStat());
 		thisSkill.setACheck(getArmorCheck());

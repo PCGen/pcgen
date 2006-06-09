@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
- * 
+ *
  * An object that implements KeyedListContainer safely encapsulates a ListKeyMap
  */
 public interface KeyedListContainer
@@ -44,7 +44,7 @@ public interface KeyedListContainer
 	 * @param key
 	 * @return list
 	 */
-	public List getListFor(ListKey key);
+	public <T> List<T> getListFor(ListKey<T> key);
 
 	/**
 	 * Get the size of a list based off a key
@@ -59,7 +59,7 @@ public interface KeyedListContainer
 	 * @param value
 	 * @return true if a value is in a list for that key
 	 */
-	public boolean containsInList(ListKey key, String value);
+	public <T> boolean containsInList(ListKey<T> key, T value);
 
 	/**
 	 * Gets an element from the list
@@ -67,15 +67,15 @@ public interface KeyedListContainer
 	 * @param i
 	 * @return An element from the list
 	 */
-	public Object getElementInList(ListKey key, int i);
+	public <T> T getElementInList(ListKey<T> key, int i);
 
 	/**
 	 * Get safe list
 	 * @param key
 	 * @return safe list
 	 */
-	public List getSafeListFor(ListKey key);
-	
+	public <T> List<T> getSafeListFor(ListKey<T> key);
+
 	/**
 	 * Get the size of a safe list
 	 * @param key

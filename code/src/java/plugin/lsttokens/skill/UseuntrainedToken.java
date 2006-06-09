@@ -13,7 +13,7 @@ public class UseuntrainedToken implements SkillLstToken {
 	}
 
 	public boolean parse(Skill skill, String value) {
-		skill.setUntrained(value);
+		skill.setUntrained(value.startsWith("Y"));
 		return true;
 	}
 }

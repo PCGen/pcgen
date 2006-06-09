@@ -36,6 +36,7 @@ import pcgen.core.Categorisable;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.PrereqHandler;
 
 /**
  * <code>KitAbiltiies</code>.
@@ -54,8 +55,8 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List theAbilities = new ArrayList();
-	private transient List abilitiesToAdd = null;
+	private transient List<Ability> theAbilities = new ArrayList<Ability>();
+	private transient List<Ability> abilitiesToAdd = null;
 
 	/**
 	 * Constructor that takes a | separated list of Abilities, with Interspersed
@@ -73,7 +74,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		String       defaultCategory,
 		boolean      lockCategory)
 	{
-		abilityStore.addAbilityInfo(abString, defaultCategory, "|", lockCategory, false);
+		abilityStore.addAbilityInfo(abString, defaultCategory, "|", lockCategory);
 
 		final StringBuffer info = new StringBuffer();
 
@@ -84,7 +85,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 		boolean firstDone = false;
 
-		for (Iterator it = this.getIterator(); it.hasNext();)
+		for (Iterator<Ability> it = this.getIterator(); it.hasNext();)
 		{
 			if (firstDone)
 			{
@@ -95,7 +96,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 				firstDone = true;
 			}
 
-			info.append(((Categorisable) it.next()).getKeyName());
+			info.append(it.next().getKeyName());
 		}
 
 		if (free)
@@ -112,7 +113,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 	 *
 	 * @return  the AbilityInfo Iterator
 	 */
-	public Iterator getIterator()
+	public Iterator<Ability> getIterator()
 	{
 		return abilityStore.getKeyIterator("ALL");
 	}
@@ -141,7 +142,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
 	{
-		theAbilities = new ArrayList();
+		theAbilities = new ArrayList<Ability>();
 		abilitiesToAdd = null;
 
 		if (theAbilities == null)
@@ -149,27 +150,23 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 			return false;
 		}
 
-		final HashMap nameMap    = new HashMap();
-		final HashMap catMap     = new HashMap();
+		final HashMap<String, Ability> nameMap    = new HashMap<String, Ability>();
+		final HashMap<String, Ability> catMap     = new HashMap<String, Ability>();
 		boolean useNameMap = true;
 
-		for (Iterator kAbInnerIt = getIterator(); kAbInnerIt.hasNext();)
+		for (Iterator<Ability> kAbInnerIt = getIterator(); kAbInnerIt.hasNext();)
 		{
-			final AbilityInfo Info = (AbilityInfo) kAbInnerIt.next();
+			final Ability ability = kAbInnerIt.next();
 
-			if (!Info.qualifies(aPC)) { continue;}
-
-			if (Info.getAbility() != null)
+			if (!PrereqHandler.passesAll(ability.getPreReqList(), aPC, ability))
 			{
-				AbilityInfo abI = (AbilityInfo) nameMap.put(Info.toString(), Info);
-				catMap.put(Info.getCategory() + " " + Info.toString(), Info);
+				continue;
+			}
+
+				Ability abI = nameMap.put(ability.toString(), ability);
+				catMap.put(abI.getCategory() + " " + abI.toString(), abI);
 
 				if (abI != null) { useNameMap = false; }
-			}
-			else
-			{
-				warnings.add("ABILITY: Non-existant Ability \"" + Info.getKeyName() + "\"");
-			}
 		}
 
 		int numberOfChoices = getChoiceCount();
@@ -199,8 +196,8 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 			return false;
 		}
 
-		List choices = useNameMap ?	new ArrayList(nameMap.keySet()) : new ArrayList(catMap.keySet());
-		List xs;
+		List<String> choices = useNameMap ?	new ArrayList<String>(nameMap.keySet()) : new ArrayList<String>(catMap.keySet());
+		List<String> xs;
 
 		if (numberOfChoices == nameMap.size())
 		{
@@ -214,7 +211,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 				xs = Globals.getChoiceFromList(
 						"Choose abilities",
 						choices,
-						new ArrayList(),
+						new ArrayList<String>(),
 						numberOfChoices);
 
 				if (xs.size() != 0)
@@ -225,31 +222,28 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		}
 
 		// Add to list of things to add to the character
-		for (Iterator e = xs.iterator(); e.hasNext();)
+		for (Iterator<String> e = xs.iterator(); e.hasNext();)
 		{
 			if (abilitiesToAdd == null)
 			{
 				abilitiesToAdd = new ArrayList();
 			}
-			final String  choice = (String) e.next();
-			AbilityInfo Info = useNameMap ?
-				(AbilityInfo) nameMap.get(choice):
-				(AbilityInfo) catMap.get(choice);
+			final String  choice = e.next();
+			Ability ability = useNameMap ?
+				nameMap.get(choice):
+				catMap.get(choice);
 
-			final Ability anAbility = Info.getAbility();
 
-			if (anAbility != null)
+			if (ability != null)
 			{
-				abilitiesToAdd.add(Info);
+				abilitiesToAdd.add(ability);
 				++abilitiesChosen;
-//				AbilityUtilities.modFeat(aPC, null, anAbility.getKeyName(), true, false);
 				if (free == true)
 				{
 					// Need to pay for it first
 					aPC.adjustFeats(1);
 				}
-				AbilityUtilities.modFeat(aPC, null, Info.toString(), true, false);
-
+				AbilityUtilities.modFeat(aPC, null, ability.toString(), true, false);
 			}
 			else
 			{
@@ -268,9 +262,9 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 
 	public void apply(PlayerCharacter aPC)
 	{
-		for (Iterator i = abilitiesToAdd.iterator(); i.hasNext(); )
+		for (Iterator<Ability> i = abilitiesToAdd.iterator(); i.hasNext(); )
 		{
-			AbilityInfo info = (AbilityInfo)i.next();
+			Ability info = i.next();
 			// Ability ability = info.getAbility();
 			AbilityUtilities.modFeat(aPC, null, info.toString(), true, false);
 

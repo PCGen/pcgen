@@ -44,6 +44,7 @@ import pcgen.util.chooser.ChooserInterface;
 import java.io.Serializable;
 import java.io.StringWriter;
 import java.util.*;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * <code>PObject</code><br>
@@ -62,31 +63,32 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	private static boolean dontRecurse = false;
 
 	/** A map to hold items keyed by Strings for the object */
-	protected StringKeyMap stringChar = new StringKeyMap();
+	protected Map<StringKey, String> stringChar = new HashMap<StringKey, String>();
 	/** A map to hold items keyed by Integers for the object */
-	protected IntegerKeyMap integerChar = new IntegerKeyMap();
+	protected Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
 	/** A map of Lists for the object */
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
 
 	/** List of associated items for the object */
-	protected ArrayList associatedList = null;
+	// TODO Contains strings or FeatMultipleObjects
+	protected ArrayList<AssociatedChoice<String>> associatedList = null;
 
 	/** List of Bonuses for the object */
-	private ArrayList bonusList = new ArrayList();
+	private ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 	/** List of Level Abilities for the object  */
-	private ArrayList levelAbilityList = null;
+	private ArrayList<LevelAbility> levelAbilityList = null;
 
 	/** The source campaign for the object */
 	private Campaign sourceCampaign = null;
-	private HashMap sourceMap = new HashMap();
-	private HashMap modSourceMap = null;
+	private HashMap<String, String> sourceMap = new HashMap<String, String>();
+	private HashMap<String, String> modSourceMap = null;
 
 	/**
 	 * A map of vision types associated with the object,
 	 * Key: vision type, Value: vision range.
 	 */
-	protected Map vision = null;
-	private HashMap pluginDataMap = new HashMap();
+	protected Map<String, String> vision = null;
+	private HashMap<String, String> pluginDataMap = new HashMap<String, String>();
 
 	protected String keyName = "";
 	protected String displayName = "";
@@ -95,10 +97,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	protected boolean visible = true;
 
 	/** List of Pre-Requesites for the object  */
-	private ArrayList preReqList = null;
+	private ArrayList<Prerequisite> preReqList = null;
 	/** Map of the bonuses for the object  */
-	private HashMap bonusMap = null;
-	private HashMap changeProfMap = new HashMap();
+	private HashMap<String, String> bonusMap = null;
+	private HashMap<String, String> changeProfMap = new HashMap<String, String>();
 
 	private Movement movement;
 	private SpellSupport spellSupport = new SpellSupport();
@@ -117,7 +119,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	/** Holds the level of encumberance due to load for the object */
 	private int encumberedLoadMoveInt = Constants.LIGHT_LOAD;
 
-	private ArrayList drList = new ArrayList();
+	private ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
 
 	private String chooseLanguageAutos = "";
 
@@ -132,7 +134,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void setAssociated(final int index, final String aString)
 	{
-		associatedList.set(index, aString);
+		associatedList.set(index, new AssociatedChoice<String>(aString));
 	}
 
 	/**
@@ -157,12 +159,20 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			return "";
 		}
 
-		if (expand && (associatedList.get(0) instanceof FeatMultipleChoice))
+		if (expand)
 		{
-			return dealWithFeatMultipleChoice(idx);
+			int currentCount = 0;
+			for ( AssociatedChoice<String> choice : associatedList )
+			{
+				if ( currentCount + (choice.size() - 1) <= idx )
+				{
+					return choice.getChoice(String.valueOf(currentCount + idx));
+				}
+				currentCount += choice.size();
+			}
 		}
 
-		return associatedList.get(idx).toString();
+		return associatedList.get(idx).getDefaultChoice();
 	}
 
 	/**
@@ -186,9 +196,14 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			return 0;
 		}
 
-		if (expand && (associatedList.get(0) instanceof FeatMultipleChoice))
+		if (expand)
 		{
-			return dealWithFeatMultipleChoiceForCount();
+			int count = 0;
+			for ( AssociatedChoice choice : associatedList )
+			{
+				count += choice.size();
+			}
+			return count;
 		}
 
 		return associatedList.size();
@@ -228,15 +243,14 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				{
 					final String typeString = entry.substring(5);
 
-					for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+					for ( Skill skill1 : Globals.getSkillList() )
 					{
-						skill = (Skill) e1.next();
 						boolean toClear = true;
 						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
 
 						while (cTok.hasMoreTokens() && toClear)
 						{
-							if (!skill.isType(cTok.nextToken()))
+							if (!skill1.isType(cTok.nextToken()))
 							{
 								toClear = false;
 							}
@@ -244,7 +258,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 						if (toClear)
 						{
-							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
+							listChar.removeFromListFor(ListKey.CROSS_CLASS_SKILLS, skill1.getKeyName());
 						}
 					}
 				}
@@ -256,9 +270,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
 		{
-			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
-				skill = (Skill) e1.next();
+				skill = e1.next();
 
 				if (skill.isType(entry.substring(5)))
 				{
@@ -268,9 +282,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 		else if ("ALL".equals(entry))
 		{
-			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
-				skill = (Skill) e1.next();
+				skill = e1.next();
 				listChar.addToListFor(ListKey.CROSS_CLASS_SKILLS, skill.getKeyName());
 			}
 		}
@@ -284,7 +298,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Adds all of the entries to the CSkills list
 	 * @param entries list of entries
 	 */
-	public final void addAllCcSkills(final List entries)
+	public final void addAllCcSkills(final List<String> entries)
 	{
 		listChar.addAllToListFor(ListKey.CROSS_CLASS_SKILLS, entries);
 	}
@@ -301,7 +315,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the list of class skills for this object
 	 * @return the list of class skills for this object
 	 */
-	public final List getCcSkillList()
+	public final List<String> getCcSkillList()
 	{
 		return listChar.getListFor(ListKey.CROSS_CLASS_SKILLS);
 	}
@@ -330,7 +344,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void setDescription(final String a)
 	{
-		stringChar.setCharacteristic(StringKey.DESCRIPTION, a);
+		stringChar.put(StringKey.DESCRIPTION, a);
 	}
 
 	/**
@@ -339,7 +353,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getDescription()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.DESCRIPTION);
+		String characteristic = stringChar.get(StringKey.DESCRIPTION);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -348,7 +362,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * @param key
 	 * @return the plugin data for this object
 	 */
-	public final Object getPluginData(final String key) {
+	public final String getPluginData(final String key) {
 		return pluginDataMap.get(key);
 	}
 
@@ -384,7 +398,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the level ability list for this object
 	 * @return the level ability list for this object
 	 */
-	public final List getLevelAbilityList()
+	public final List<LevelAbility> getLevelAbilityList()
 	{
 		return levelAbilityList;
 	}
@@ -411,7 +425,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the list of bonuses for this object
 	 * @return the list of bonuses for this object
 	 */
-	public List getBonusList()
+	public List<BonusObj> getBonusList()
 	{
 		return bonusList;
 	}
@@ -422,7 +436,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * @param aName
 	 * @return the list of bounuses of a particular type for this object
 	 */
-	public List getBonusListOfType(final String aType, final String aName)
+	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
 	{
 		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
 	}
@@ -431,11 +445,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the map of bonuses for this object
 	 * @return bonusMap
 	 */
-	public HashMap getBonusMap()
+	public HashMap<String, String> getBonusMap()
 	{
 		if (bonusMap == null)
 		{
-			bonusMap = new HashMap();
+			bonusMap = new HashMap<String, String>();
 		}
 
 		return bonusMap;
@@ -465,9 +479,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				{
 					final String typeString = entry.substring(5);
 
-					for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+					for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 					{
-						skill = (Skill) e1.next();
+						skill = e1.next();
 						boolean toClear = true;
 						final StringTokenizer cTok = new StringTokenizer(typeString, ".");
 
@@ -493,9 +507,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 		else if (entry.startsWith("TYPE.") || entry.startsWith("TYPE="))
 		{
-			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
-				skill = (Skill) e1.next();
+				skill = e1.next();
 
 				if (skill.isType(entry.substring(5)))
 				{
@@ -505,9 +519,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 		else if ("ALL".equals(entry))
 		{
-			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
-				skill = (Skill) e1.next();
+				skill = e1.next();
 				listChar.addToListFor(ListKey.CLASS_SKILLS, skill.getKeyName());
 			}
 		}
@@ -521,7 +535,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Adds all of the entries to the CSkills list
 	 * @param entries list of entries
 	 */
-	public final void addAllCSkills(final List entries)
+	public final void addAllCSkills(final List<String> entries)
 	{
 		listChar.addAllToListFor(ListKey.CLASS_SKILLS, entries);
 	}
@@ -538,7 +552,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the list of class skills for this object
 	 * @return the list of class skills for this object
 	 */
-	public final List getCSkillList()
+	public final List<String> getCSkillList()
 	{
 		return listChar.getListFor(ListKey.CLASS_SKILLS);
 	}
@@ -592,7 +606,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Sets the natural weapon equipment items list for this object
 	 * @param aList
 	 */
-	public void setNaturalWeapons(final List aList)
+	public void setNaturalWeapons(final List<Equipment> aList)
 	{
 		listChar.removeListFor(ListKey.NATURAL_WEAPONS);
 		listChar.addAllToListFor(ListKey.NATURAL_WEAPONS, aList);
@@ -608,48 +622,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Set the number of pages for this object
-	 * @param value
-	 */
-	public final void setNumPages(final int value)
-	{
-		integerChar.setCharacteristic(IntegerKey.NUM_PAGES, value);
-	}
-
-	/**
-	 * Get the number of pages of this object
-	 * @return the number of pages of this object
-	 */
-	public final int getNumPages()
-	{
-		Integer characteristic = integerChar.getCharacteristic(IntegerKey.NUM_PAGES);
-		return characteristic == null ? 0 : characteristic.intValue();
-	}
-
-	/**
-	 * Set the page usage formula for this object
-	 * @param aString
-	 */
-	public final void setPageUsage(final String aString)
-	{
-		stringChar.setCharacteristic(StringKey.PAGE_USAGE, aString);
-	}
-
-	/**
-	 * Get the page usage formula of this object
-	 * @return the page usage formula of this object
-	 */
-	public final String getPageUsage()
-	{
-		String characteristic = stringChar.getCharacteristic(StringKey.PAGE_USAGE);
-		return characteristic == null ? "" : characteristic;
-	}
-
-	/**
 	 * Get the list of temporary bonuses for this list
 	 * @return the list of temporary bonuses for this list
 	 */
-	public List getTempBonusList()
+	public List<BonusObj> getTempBonusList()
 	{
 		return getSafeListFor(ListKey.TEMP_BONUS);
 	}
@@ -660,7 +636,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void setTempDescription(final String aString)
 	{
-		stringChar.setCharacteristic(StringKey.TEMP_DESCRIPTION, aString);
+		stringChar.put(StringKey.TEMP_DESCRIPTION, aString);
 	}
 
 	/**
@@ -669,7 +645,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getTempDescription()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.TEMP_DESCRIPTION);
+		String characteristic = stringChar.get(StringKey.TEMP_DESCRIPTION);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -738,7 +714,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get an unmodifiable set of variable names for this object
 	 * @return an unmodifiable set of variable names for this object
 	 */
-	public final Set getVariableNamesAsUnmodifiableSet()
+	public final Set<String> getVariableNamesAsUnmodifiableSet()
 	{
 		if (variableList == null)
 		{
@@ -752,7 +728,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the list of virtual feats for this object
 	 * @return the list of virtual feats for this object
 	 */
-	public List getVirtualFeatList()
+	public List<Ability> getVirtualFeatList()
 	{
 		return getSafeListFor(ListKey.VIRTUAL_FEATS);
 	}
@@ -765,7 +741,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		final StringTokenizer aTok = new StringTokenizer(aString, "|");
 
-		ListKey weaponProfListKey = ListKey.WEAPON_PROF;
+		ListKey<String> weaponProfListKey = ListKey.WEAPON_PROF;
 
 		while (aTok.hasMoreTokens())
 		{
@@ -777,12 +753,12 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 			else if (bString.startsWith("TYPE=") || bString.startsWith("TYPE."))
 			{
-				final Collection weaponProfsOfType = Globals.getAllWeaponProfsOfType(bString.substring(5));
+				final Collection<WeaponProf> weaponProfsOfType = Globals.getAllWeaponProfsOfType(bString.substring(5));
 				if (weaponProfsOfType != null)
 				{
-					for (Iterator e = weaponProfsOfType.iterator(); e.hasNext();)
+					for (Iterator<WeaponProf> e = weaponProfsOfType.iterator(); e.hasNext();)
 					{
-						final String cString = ((WeaponProf) e.next()).getKeyName();
+						final String cString = e.next().getKeyName();
 
 						if (!containsInList(weaponProfListKey, cString))
 						{
@@ -805,7 +781,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the automatic weapon proficiencies for this object
 	 * @return the automatic weapon proficiencies for this object
 	 */
-	public List getWeaponProfAutos()
+	public List<String> getWeaponProfAutos()
 	{
 		return getSafeListFor(ListKey.WEAPON_PROF);
 	}
@@ -814,14 +790,17 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Add the collection passed in to the associated list for this object
 	 * @param collection
 	 */
-	public final void addAllToAssociated(final Collection collection)
+	public final void addAllToAssociated(final Collection<String> collection)
 	{
 		if (associatedList == null)
 		{
-			associatedList = new ArrayList();
+			associatedList = new ArrayList<AssociatedChoice<String>>();
 		}
 
-		associatedList.addAll(collection);
+		for ( String choice : collection )
+		{
+			addAssociated( choice );
+		}
 	}
 
 	/**
@@ -832,35 +811,34 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		if (associatedList == null)
 		{
-			associatedList = new ArrayList();
+			associatedList = new ArrayList<AssociatedChoice<String>>();
 		}
 
-		associatedList.add(aString);
+		associatedList.add(new AssociatedChoice<String>(aString));
 	}
 
 	/**
 	 * Add a feat choice to the associated list for this object
 	 * @param aFeatChoices
 	 */
-	public final void addAssociated(final FeatMultipleChoice aFeatChoices)
+	public final void addAssociated(final AssociatedChoice<String> aFeatChoices)
 	{
 		if (associatedList == null)
 		{
-			associatedList = new ArrayList();
+			associatedList = new ArrayList<AssociatedChoice<String>>();
 		}
 
 		associatedList.add(aFeatChoices);
 	}
 
-	/**
-	 * Add all of the assocaited list to the collection
-	 * @param collection
-	 */
-	public final void addAssociatedTo(final Collection collection)
+	public final void addAssociatedTo( final List<String> choices )
 	{
 		if (associatedList != null)
 		{
-			collection.addAll(associatedList);
+			for ( AssociatedChoice<String> choice : associatedList )
+			{
+				choices.add( choice.getDefaultChoice() );
+			}
 		}
 	}
 
@@ -873,7 +851,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		if (bonusList == null)
 		{
-			bonusList = new ArrayList();
+			bonusList = new ArrayList<BonusObj>();
 		}
 
 		final BonusObj aBonus = Bonus.newBonus(aString);
@@ -892,17 +870,15 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * @param aPC A PlayerCharacter object.
 	 * @return active bonuses
 	 */
-	public List getActiveBonuses(final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if (aBonus.isApplied())
+			if (bonus.isApplied())
 			{
-				aList.add(aBonus);
+				aList.add(bonus);
 			}
 		}
 
@@ -916,11 +892,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public boolean getBonusListString(final String aString)
 	{
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if (aBonus.getBonusInfo().equalsIgnoreCase(aString))
+			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
 			{
 				return true;
 			}
@@ -935,9 +909,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for (Iterator<BonusObj> ab = getBonusList().iterator(); ab.hasNext();)
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
+			final BonusObj aBonus = ab.next();
 			aBonus.setApplied(false);
 
 			if (aBonus.hasPreReqs())
@@ -1004,7 +978,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		{
 			if (preReqList == null)
 			{
-				preReqList = new ArrayList();
+				preReqList = new ArrayList<Prerequisite>();
 			}
 			if (levelQualifier > 0)
 				preReq.setLevelQualifier(levelQualifier);
@@ -1118,7 +1092,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Add a list of virtual feats to the character list
 	 * @param aFeatList
 	 */
-	public final void addVirtualFeats(final List aFeatList)
+	public final void addVirtualFeats(final List<Ability> aFeatList)
 	{
 		listChar.addAllToListFor(ListKey.VIRTUAL_FEATS, aFeatList);
 	}
@@ -1139,25 +1113,25 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * @param character
 	 * @return List
 	 */
-	public List getChangeProfList(final PlayerCharacter character)
+	public List<String> getChangeProfList(final PlayerCharacter character)
 	{
-		final List aList = new ArrayList();
+		final List<String> aList = new ArrayList<String>();
 
-		for (Iterator e = changeProfMap.keySet().iterator(); e.hasNext();)
+		for (Iterator<String> e = changeProfMap.keySet().iterator(); e.hasNext();)
 		{
 			// aKey will either be:
 			//  TYPE.blah
 			// or
 			//  Weapon Name
-			final String aKey = e.next().toString();
+			final String aKey = e.next();
 
 			// New proficiency type, such as Martial or Simple
-			final String newProfType = changeProfMap.get(aKey).toString();
+			final String newProfType = changeProfMap.get(aKey);
 
 			if (aKey.startsWith("TYPE."))
 			{
 				// need to get all items of this TYPE
-				for (Iterator eq = EquipmentList.getEquipmentOfType(aKey.substring(5), "").iterator(); eq.hasNext();)
+				for (Iterator<Equipment> eq = EquipmentList.getEquipmentOfType(aKey.substring(5), "").iterator(); eq.hasNext();)
 				{
 					final String aName = ((Equipment) eq.next()).profKey(character);
 					aList.add(aName + "|" + newProfType);
@@ -1244,7 +1218,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			{
 				if (vision == null)
 				{
-					vision = new HashMap();
+					vision = new HashMap<String, String>();
 				}
 
 				vision.clear();
@@ -1265,7 +1239,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			{
 				if (vision == null)
 				{
-					vision = new HashMap();
+					vision = new HashMap<String, String>();
 				}
 
 				// expecting value in form of: Darkvision (60')
@@ -1311,7 +1285,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Key: vision type, Value: vision range.
 	 * @return Map of the vision types associated with the object.
 	 */
-	public Map getVision()
+	public Map<String, String> getVision()
 	{
 		return vision;
 	}
@@ -1338,36 +1312,17 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			return false;
 		}
 
-		if (associatedList.get(0) instanceof FeatMultipleChoice)
+		for ( AssociatedChoice<String> choice : associatedList )
 		{
-			FeatMultipleChoice fmc;
-
-			for (int i = 0; i < associatedList.size(); ++i)
+			for ( String val : choice.getChoices() )
 			{
-				fmc = (FeatMultipleChoice) associatedList.get(i);
-
-				final String aString = fmc.toString().toUpperCase();
-
-				if (aString.indexOf(associated) >= 0)
+				if ( val.equalsIgnoreCase(associated) )
 				{
 					return true;
 				}
 			}
 		}
-		else
-		{
-			for (int i = 0; i < associatedList.size(); ++i)
-			{
-				final String aString = (String) associatedList.get(i);
-
-				if (aString.equalsIgnoreCase(associated))
-				{
-					return true;
-				}
-			}
-		}
-
-		return associatedList.contains(associated);
+		return false;
 	}
 
 	/**
@@ -1388,10 +1343,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public void deactivateBonuses()
 	{
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-			aBonus.setApplied(false);
+			bonus.setApplied(false);
 		}
 	}
 
@@ -1469,7 +1423,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * @param aPC
 	 * @return the bonus
 	 */
-	public double bonusTo(String aType, String aName, final Object obj, final List aBonusList, final PlayerCharacter aPC)
+	public double bonusTo(String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
 	{
 		if ((aBonusList == null) || (aBonusList.size() == 0))
 		{
@@ -1523,10 +1477,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
-		for (Iterator b = aBonusList.iterator(); b.hasNext();)
+		for ( BonusObj bonus : aBonusList )
 		{
-			final BonusObj aBonus = (BonusObj) b.next();
-			String bString = aBonus.toString().toUpperCase();
+			String bString = bonus.toString().toUpperCase();
 
 			if (getAssociatedCount() != 0)
 			{
@@ -1548,7 +1501,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 					{
 						final String xString = new StringBuffer().append(firstPart).append(getAssociated(i)).append(secondPart)
 							.toString().toUpperCase();
-						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, aBonus, aPC);
+						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 					}
 
 					bString = new StringBuffer().append(firstPart).append(getAssociated(0)).append(secondPart).toString()
@@ -1556,7 +1509,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				}
 			}
 
-			retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, aBonus, aPC);
+			retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
 		}
 
 		return retVal;
@@ -1634,10 +1587,10 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	public Object clone() throws CloneNotSupportedException
 	{
 		final PObject retVal = (PObject) super.clone();
-		retVal.stringChar = new StringKeyMap();
-		retVal.stringChar.addAllCharacteristics(stringChar);
-		retVal.integerChar = new IntegerKeyMap();
-		retVal.integerChar.addAllCharacteristics(integerChar);
+		retVal.stringChar = new HashMap<StringKey, String>();
+		retVal.stringChar.putAll(stringChar);
+		retVal.integerChar = new HashMap<IntegerKey, Integer>();
+		retVal.integerChar.putAll(integerChar);
 		retVal.listChar = new ListKeyMapToList();
 		retVal.listChar.addAllLists(listChar);
 		//SAVE is a special case: starts out empty
@@ -1653,25 +1606,25 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		// need to copy map correctly during a clone
 		if (sourceMap != null)
 		{
-			retVal.sourceMap = new HashMap();
+			retVal.sourceMap = new HashMap<String, String>();
 			retVal.sourceMap.putAll(this.sourceMap);
 		}
 
-		retVal.changeProfMap = new HashMap(changeProfMap);
+		retVal.changeProfMap = new HashMap<String, String>(changeProfMap);
 
 		if (preReqList != null)
 		{
-			retVal.preReqList = (ArrayList) preReqList.clone();
+			retVal.preReqList = (ArrayList<Prerequisite>) preReqList.clone();
 		}
 
 		if (associatedList != null)
 		{
-			retVal.associatedList = (ArrayList) associatedList.clone();
+			retVal.associatedList = (ArrayList<AssociatedChoice<String>>) associatedList.clone();
 		}
 
 		if (bonusList != null)
 		{
-			retVal.bonusList = (ArrayList) bonusList.clone();
+			retVal.bonusList = (ArrayList<BonusObj>) bonusList.clone();
 			retVal.ownBonuses();
 		}
 
@@ -1682,18 +1635,17 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		if (bonusMap != null)
 		{
-			retVal.bonusMap = new HashMap(bonusMap);
+			retVal.bonusMap = new HashMap<String, String>(bonusMap);
 		}
 
 		retVal.vision = vision;
 
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
-			retVal.levelAbilityList = new ArrayList();
+			retVal.levelAbilityList = new ArrayList<LevelAbility>();
 
-			for (Iterator it = levelAbilityList.iterator(); it.hasNext();)
+			for ( LevelAbility ab : levelAbilityList )
 			{
-				LevelAbility ab = (LevelAbility) it.next();
 				ab = (LevelAbility) ab.clone();
 				ab.setOwner(retVal);
 				retVal.levelAbilityList.add(ab);
@@ -1718,10 +1670,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public void ownBonuses()
 	{
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-			aBonus.setCreatorObject(this);
+			bonus.setCreatorObject(this);
 		}
 	}
 
@@ -1802,7 +1753,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public void setChoiceString(final String aString)
 	{
-		stringChar.setCharacteristic(StringKey.CHOICE_STRING, aString);
+		stringChar.put(StringKey.CHOICE_STRING, aString);
 	}
 
 	/**
@@ -1811,7 +1762,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getChoiceString()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.CHOICE_STRING);
+		String characteristic = stringChar.get(StringKey.CHOICE_STRING);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -1845,19 +1796,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		ChooserUtilities.getChoices(this, aChoice, availableList, selectedList, aPC);
 	}
 
-	/**
-	 * Set the DR
-	 * @param drString
-	 */
-//	public void setDR(String drString)
-//	{
-//		if (".CLEAR".equals(drString))
-//		{
-//			drString = null;
-//		 }
-//		stringChar.setCharacteristic(StringKey.DR_FORMULA, drString);
-//	}
-
 	public void addDR(DamageReduction aDR)
 	{
 		drList.add(aDR);
@@ -1868,16 +1806,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		drList.clear();
 	}
 
-	/**
-	 * Get the DR
-	 * @return the DR
-	 */
-//	public String getDR()
-//	{
-//		return stringChar.getCharacteristic(StringKey.DR_FORMULA);
-//	}
-
-	public List getDRList()
+	public List<DamageReduction> getDRList()
 	{
 		return Collections.unmodifiableList(drList);
 	}
@@ -1968,7 +1897,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 			newName = sb.toString();
 		}
-		stringChar.setCharacteristic(StringKey.OUTPUT_NAME, newName);
+		stringChar.put(StringKey.OUTPUT_NAME, newName);
 	}
 
 	/**
@@ -1977,7 +1906,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getOutputName()
 	{
-		String outputName = stringChar.getCharacteristic(StringKey.OUTPUT_NAME);
+		String outputName = stringChar.get(StringKey.OUTPUT_NAME);
 		// if no OutputName has been defined, just return the regular name
 		if (outputName == null || outputName.length() == 0)
 		{
@@ -1994,7 +1923,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final Prerequisite getPreReq(final int i)
 	{
-		return (Prerequisite) preReqList.get(i);
+		return preReqList.get(i);
 	}
 
 	/**
@@ -2015,7 +1944,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the list of pre-requesites
 	 * @return the list of pre-requesites
 	 */
-	public final ArrayList getPreReqList()
+	public final ArrayList<Prerequisite> getPreReqList()
 	{
 		return preReqList;
 	}
@@ -2026,7 +1955,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void setQualifyString(final String aString)
 	{
-		stringChar.setCharacteristic(StringKey.QUALIFY, aString);
+		stringChar.put(StringKey.QUALIFY, aString);
 	}
 
 	/**
@@ -2035,7 +1964,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getQualifyString()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.QUALIFY);
+		String characteristic = stringChar.get(StringKey.QUALIFY);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -2049,7 +1978,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		{
 			newSR = null;
 		 }
-		stringChar.setCharacteristic(StringKey.SR_FORMULA, newSR);
+		stringChar.put(StringKey.SR_FORMULA, newSR);
 	}
 
 	/**
@@ -2058,7 +1987,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public String getSRFormula()
 	{
-		return stringChar.getCharacteristic(StringKey.SR_FORMULA);
+		return stringChar.get(StringKey.SR_FORMULA);
 	}
 
 	/**
@@ -2067,7 +1996,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void setSourceFile(final String sourceFile)
 	{
-		stringChar.setCharacteristic(StringKey.SOURCE_FILE, sourceFile);
+		stringChar.put(StringKey.SOURCE_FILE, sourceFile);
 	}
 
 	/**
@@ -2076,20 +2005,20 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getSourceFile()
 	{
-		return stringChar.getCharacteristic(StringKey.SOURCE_FILE);
+		return stringChar.get(StringKey.SOURCE_FILE);
 	}
 
 	/**
 	 * Set the map of modfied sources
 	 * @param arg
 	 */
-	public final void setModSourceMap(final Map arg)
+	public final void setModSourceMap(final Map<String, String> arg)
 	{
 		if (arg != null)
 		{
 			if (modSourceMap == null)
 			{
-				modSourceMap = new HashMap();
+				modSourceMap = new HashMap<String, String>();
 			}
 
 			modSourceMap.putAll(arg);
@@ -2100,7 +2029,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Set the map of sources
 	 * @param arg
 	 */
-	public final void setSourceMap(final Map arg)
+	public final void setSourceMap(final Map<String, String> arg)
 	{
 		// Don't clear the map, otherwise the SOURCEPAGE:
 		// entries on each line will screw it all up
@@ -2113,9 +2042,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		// after everything else is loaded, the source is
 		// set to whatever source was loaded last, which may
 		// not be the source of the .MOD.
-		for (Iterator i = arg.keySet().iterator(); i.hasNext();)
+		for (Iterator<String> i = arg.keySet().iterator(); i.hasNext();)
 		{
-			final String key = (String) i.next();
+			final String key = i.next();
 			if (sourceMap.get(key) == null)
 			{
 				sourceMap.put(key, arg.get(key));
@@ -2164,7 +2093,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getSourceWithKey(final String key)
 	{
-		return (String) sourceMap.get(key);
+		return sourceMap.get(key);
 	}
 
 	/**
@@ -2214,17 +2143,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final SpecialAbility getSpecialAbilityKeyed(final String aKey)
 	{
-		List l = getListFor(ListKey.SPECIAL_ABILITY);
-		if (l != null)
+		for ( SpecialAbility sa : getListFor(ListKey.SPECIAL_ABILITY) )
 		{
-			for (Iterator i = l.iterator(); i.hasNext();)
+			if (sa.getKeyName().equalsIgnoreCase(aKey))
 			{
-				final SpecialAbility sa = (SpecialAbility) i.next();
-
-				if (sa.getKeyName().equalsIgnoreCase(aKey))
-				{
-					return sa;
-				}
+				return sa;
 			}
 		}
 
@@ -2246,7 +2169,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void addLanguageAuto(final String aLangKey)
 	{
-		ListKey autoLanguageListKey = ListKey.AUTO_LANGUAGES;
+		ListKey<Language> autoLanguageListKey = ListKey.AUTO_LANGUAGES;
 		if (".CLEAR".equals(aLangKey))
 		{
 			listChar.removeListFor(autoLanguageListKey);
@@ -2258,7 +2181,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		else if (aLangKey.startsWith("TYPE=") || aLangKey.startsWith("TYPE."))
 		{
 			final String type = aLangKey.substring(5);
-			List langList = Globals.getLanguageList();
+			List<Language> langList = Globals.getLanguageList();
 			langList = Globals.getLanguagesFromListOfType(langList, type);
 			listChar.addAllToListFor(autoLanguageListKey, langList);
 		}
@@ -2287,7 +2210,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		if (i < getMyTypeCount())
 		{
-			return (String) getElementInList(ListKey.TYPE, i);
+			return getElementInList(ListKey.TYPE, i);
 		}
 
 		return null;
@@ -2306,7 +2229,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * This method gets access to the spell list.
 	 * @return List
 	 */
-	public List getSpellList()
+	public List<PCSpell> getSpellList()
 	{
 		return spellSupport.getSpellList(-1);
 	}
@@ -2466,11 +2389,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * This gets an unmodifiable representation of a variable
 	 * @return Iterator
 	 */
-	public final Iterator getVariableIterator()
+	public final Iterator<Variable> getVariableIterator()
 	{
 		if (variableList == null)
 		{
-			return EmptyIterator.EMPTY_ITERATOR;
+			return EmptyIterator.emptyIterator();
 		}
 
 		return variableList.iterator();
@@ -2495,8 +2418,8 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		final String preVarStr = varTokenizer.nextToken();
 
-		final ArrayList varArray = new ArrayList();
-		final ArrayList tokenList = new ArrayList();
+		final ArrayList<Float> varArray = new ArrayList<Float>();
+		final ArrayList<String> tokenList = new ArrayList<String>();
 
 		while (varTokenizer.hasMoreElements())
 		{
@@ -2549,12 +2472,24 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final boolean removeAssociated(final String associated)
 	{
+		boolean ret = false;
 		if (associatedList == null)
 		{
-			return false;
+			return ret;
 		}
 
-		final boolean ret = associatedList.remove(associated);
+		for ( Iterator<AssociatedChoice<String>> i = associatedList.iterator(); i.hasNext(); )
+		{
+			AssociatedChoice<String> choice = i.next();
+			ret = choice.removeDefaultChoice( associated );
+			if ( ret == true )
+			{
+				if ( choice.size() == 0 )
+				{
+					i.remove();
+				}
+			}
+		}
 
 		if (associatedList.size() == 0)
 		{
@@ -2615,7 +2550,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final void setRegionString(final String arg)
 	{
-		stringChar.setCharacteristic(StringKey.REGION, arg);
+		stringChar.put(StringKey.REGION, arg);
 	}
 
 	/**
@@ -2624,7 +2559,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public final String getRegionString()
 	{
-		return stringChar.getCharacteristic(StringKey.REGION);
+		return stringChar.get(StringKey.REGION);
 	}
 
 	/**
@@ -2652,9 +2587,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		// only feat removal is supported atm
 		if (!containsListFor(ListKey.REMOVE_STRING_LIST))
 			return;
-		for (Iterator ri = getListFor(ListKey.REMOVE_STRING_LIST).iterator(); ri.hasNext();)
+		for (Iterator<String> ri = getListFor(ListKey.REMOVE_STRING_LIST).iterator(); ri.hasNext();)
 		{
-			checkRemoval(aPC, (String)ri.next());
+			checkRemoval(aPC, ri.next());
 		}
 	}
 
@@ -2680,7 +2615,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		final StringTokenizer aTok = new StringTokenizer(remString.substring(i+1,k),"(),", false);
 		if (aTok.countTokens() == 0)
 			return; // nothing to do?
-		List theFeatList = new ArrayList(); // don't remove virtual or mfeats
+		List<Ability> theFeatList = new ArrayList<Ability>(); // don't remove virtual or mfeats
 		while (aTok.hasMoreTokens())
 		{
 			final String arg = aTok.nextToken();
@@ -2688,9 +2623,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			if (arg.startsWith("TYPE."))
 			{
 				final String theType = arg.substring(5);
-				for (Iterator it = aPC.getRealFeatsIterator(); it.hasNext();)
+				for (Iterator<Ability> it = aPC.getRealFeatsIterator(); it.hasNext();)
 				{
-					Ability aFeat = (Ability)it.next();
+					Ability aFeat = it.next();
 					if (aFeat.isType(theType) && !theFeatList.contains(aFeat))
 						theFeatList.add(aFeat);
 				}
@@ -2718,7 +2653,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 			else if (arg.equals("CHOICE"))
 			{
-				Iterator anIt  = aPC.getRealFeatsIterator();
+				Iterator<Ability> anIt  = aPC.getRealFeatsIterator();
 
 				while (anIt.hasNext())
 				{
@@ -2796,7 +2731,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Add auto array
 	 * @param aList
 	 */
-	public final void addAutoArray(final List aList)
+	public final void addAutoArray(final List<String> aList)
 	{
 		listChar.addAllToListFor(ListKey.AUTO_ARRAY, aList);
 	}
@@ -2925,7 +2860,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		if (levelAbilityList == null)
 		{
-			levelAbilityList = new ArrayList();
+			levelAbilityList = new ArrayList<LevelAbility>();
 		}
 
 		if (aString.startsWith(".CLEAR"))
@@ -3169,7 +3104,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			txt.append("\tNAMEISPI:Y");
 		}
 
-		String outputName = stringChar.getCharacteristic(StringKey.OUTPUT_NAME);
+		String outputName = stringChar.get(StringKey.OUTPUT_NAME);
 		if ((outputName != null) && (outputName.length() > 0) && !outputName.equals(getDisplayName()))
 		{
 			txt.append("\tOUTPUTNAME:").append(outputName);
@@ -3312,7 +3247,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
-		String SR = stringChar.getCharacteristic(StringKey.SR_FORMULA);
+		String SR = stringChar.get(StringKey.SR_FORMULA);
 		if (!(this instanceof PCClass) && (SR != null) && (SR.length() != 0))
 		{
 			txt.append("\tSR:").append(SR);
@@ -3357,7 +3292,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			txt.append("\tSOURCEPAGE:").append(aString);
 		}
 
-		String regionString = stringChar.getCharacteristic(StringKey.REGION);
+		String regionString = stringChar.get(StringKey.REGION);
 		if ((regionString != null) && regionString.startsWith("0|"))
 		{
 			txt.append("\tREGION:").append(regionString.substring(2));
@@ -3463,7 +3398,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 	}
 
-	protected List addSpecialAbilitiesToList(final List aList, final PlayerCharacter aPC)
+	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
 		aList.addAll(getSafeListFor(ListKey.SPECIAL_ABILITY));
 		return aList;
@@ -3540,11 +3475,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get the associated list
 	 * @return the associated list
 	 */
-	public final ArrayList getAssociatedList()
+	public final ArrayList<AssociatedChoice<String>> getAssociatedList()
 	{
 		if (associatedList == null)
 		{
-			return new ArrayList();
+			return new ArrayList<AssociatedChoice<String>>();
 		}
 		return associatedList;
 	}
@@ -3679,9 +3614,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 	}
 
-	final void setPreReq(final int index, final Prerequisite aString)
+	final void setPreReq(final int index, final Prerequisite aPreReq)
 	{
-		preReqList.set(index, aString);
+		preReqList.set(index, aPreReq);
 	}
 
 	/**
@@ -3760,9 +3695,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	  */
 	public final void addAutoTagsToList(final String tag, final AbstractCollection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
 	{
-		for (Iterator i = getSafeListFor(ListKey.AUTO_ARRAY).iterator(); i.hasNext();)
+		for (Iterator<String> i = getSafeListFor(ListKey.AUTO_ARRAY).iterator(); i.hasNext();)
 		{
-			String aString = (String) i.next();
+			String aString = i.next();
 
 			if (!aString.startsWith(tag))
 			{
@@ -3770,7 +3705,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 
 			String preReqTag;
-			final List aPreReqList = new ArrayList();
+			final List<Prerequisite> aPreReqList = new ArrayList<Prerequisite>();
 			final int j1 = aString.lastIndexOf('[');
 			int j2 = aString.lastIndexOf(']');
 
@@ -3782,8 +3717,21 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			if (j1 >= 0)
 			{
 				preReqTag = aString.substring(j1 + 1, j2);
-				aPreReqList.add(preReqTag);
+				Prerequisite prereq = null;
+				try
+				{
+					final PreParserFactory factory = PreParserFactory.getInstance();
+					prereq = factory.parse( preReqTag );
+				}
+				catch (PersistenceLayerException ple)
+				{
+					Logging.errorPrint(ple.getMessage(), ple);
+				}
 
+				if ( prereq != null )
+				{
+					aPreReqList.add(prereq);
+				}
 				if (!PrereqHandler.passesAll(aPreReqList, aPC, null))
 				{
 					return;
@@ -3805,7 +3753,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 					&& tag.startsWith("WEAPON") && expandWeaponTypes)
 				{
 					final StringTokenizer bTok = new StringTokenizer(tok.substring(5), ".");
-					List xList = null;
+					List<String> xList = null;
 
 					while (bTok.hasMoreTokens())
 					{
@@ -3819,7 +3767,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 						if (xList == null)
 						{
-							xList = new ArrayList();
+							xList = new ArrayList<String>();
 
 							for (Iterator e = bList.iterator(); e.hasNext();)
 							{
@@ -3847,11 +3795,11 @@ public class PObject implements Cloneable, Serializable, Comparable,
 						}
 						else
 						{
-							final List removeList = new ArrayList();
+							final List<String> removeList = new ArrayList<String>();
 
-							for (Iterator e = xList.iterator(); e.hasNext();)
+							for (Iterator<String> e = xList.iterator(); e.hasNext();)
 							{
-								final String wprof = (String) e.next();
+								final String wprof = e.next();
 								boolean contains = false;
 
 								for (Iterator f = bList.iterator(); f.hasNext();)
@@ -3882,9 +3830,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 								}
 							}
 
-							for (Iterator e = removeList.iterator(); e.hasNext();)
+							for (Iterator<String> e = removeList.iterator(); e.hasNext();)
 							{
-								final String wprof = (String) e.next();
+								final String wprof = e.next();
 								xList.remove(wprof);
 							}
 						}
@@ -3911,10 +3859,9 @@ public class PObject implements Cloneable, Serializable, Comparable,
 				}
 				else if ("%LIST".equals(tok))
 				{
-					for (Iterator e = getAssociatedList().iterator(); e.hasNext();)
+					for (Iterator<AssociatedChoice<String>> e = getAssociatedList().iterator(); e.hasNext();)
 					{
-						final String wString = (String) e.next();
-						aList.add(wString);
+						aList.add(e.next().getDefaultChoice());
 					}
 				}
 				else
@@ -3939,7 +3886,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Add the pre-reqs to this collection
 	 * @param collection
 	 */
-	final void addPreReqTo(final Collection collection)
+	final void addPreReqTo(final Collection<Prerequisite> collection)
 	{
 		if (preReqList != null)
 		{
@@ -4116,7 +4063,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	final void makeRegionSelection(final int arg, final PlayerCharacter aPC)
 	{
-		String regionString = stringChar.getCharacteristic(StringKey.REGION);
+		String regionString = stringChar.get(StringKey.REGION);
 		if (regionString == null)
 		{
 			return;
@@ -4549,7 +4496,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 	private String piDescString(final boolean useHeader)
 	{
-		String aString = stringChar.getCharacteristic(StringKey.DESCRIPTION);
+		String aString = stringChar.get(StringKey.DESCRIPTION);
 
 		if (this instanceof Ability)
 		{
@@ -4704,7 +4651,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Get a list of the added templates
 	 * @return a list of the added templates
 	 */
-	public List templatesAdded()
+	public List<String> templatesAdded()
 	{
 		return getSafeListFor(ListKey.TEMPLATES_ADDED);
 	}
@@ -4752,7 +4699,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public void setStringFor(StringKey key, String s)
 	{
-		stringChar.setCharacteristic(key, s);
+		stringChar.put(key, s);
 	}
 
 	/**
@@ -4762,7 +4709,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 */
 	public String getStringFor(StringKey key)
 	{
-		return stringChar.getCharacteristic(key);
+		return stringChar.get(key);
 	}
 
 	/* *******************************************************************
@@ -4773,14 +4720,14 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		return listChar.containsListFor(key);
 	}
 
-	public List getListFor(ListKey key)
+	public <T> List<T> getListFor(ListKey<T> key)
 	{
 		return listChar.getListFor(key);
 	}
 
-	public final List getSafeListFor(ListKey key)
+	public final <T> List<T> getSafeListFor(ListKey<T> key)
 	{
-		return listChar.containsListFor(key) ? listChar.getListFor(key) : new ArrayList();
+		return listChar.containsListFor(key) ? listChar.getListFor(key) : new ArrayList<T>();
 	}
 
 	public int getSizeOfListFor(ListKey key)
@@ -4793,12 +4740,12 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		return listChar.containsListFor(key) ? listChar.sizeOfListFor(key) : 0;
 	}
 
-	public boolean containsInList(ListKey key, String value)
+	public <T> boolean containsInList(ListKey<T> key, T value)
 	{
 		return listChar.containsInList(key, value);
 	}
 
-	public Object getElementInList(ListKey key, int i)
+	public <T> T getElementInList(ListKey<T> key, int i)
 	{
 		return listChar.getElementInList(key, i);
 	}
@@ -4858,48 +4805,5 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
-
-	 // Helper methods
-	 // TODO  Will be possible to refactor these outside of PObject
-
-	/**
-	 * Deal with the FeatMultipleChoice case for getAssociatedList
-	 * @param idx
-	 * @return the assocaited choice
-	 */
-	private String dealWithFeatMultipleChoice(int idx) {
-		FeatMultipleChoice fmc;
-		int iCount;
-
-		for (int i = 0; i < associatedList.size(); ++i)
-		{
-			fmc = (FeatMultipleChoice) associatedList.get(i);
-			iCount = fmc.getChoiceCount();
-
-			if (idx < iCount)
-			{
-				return fmc.getChoice(idx);
-			}
-
-			idx -= iCount;
-		}
-
-		return "";
-	}
-
-	/**
-	 * Deal with the FeatMultipleChoice case for getAssociatedCount
-	 * @return the associated count
-	 */
-	private int dealWithFeatMultipleChoiceForCount() {
-		int iCount = 0;
-
-		for (int i = 0; i < associatedList.size(); ++i)
-		{
-			iCount += ((FeatMultipleChoice) associatedList.get(i)).getChoiceCount();
-		}
-
-		return iCount;
-	}
 
 }

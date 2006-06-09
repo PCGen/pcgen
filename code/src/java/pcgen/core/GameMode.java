@@ -43,7 +43,7 @@ import java.util.*;
 public final class GameMode implements Comparable
 {
 	private static PObject eqSizePenalty = new PObject();
-	private List allowedModes;
+	private List<String> allowedModes;
 	private List bonusFeatLevels = new ArrayList();
 	private Map bonusSpellMap = new HashMap();		// key is level of bonus spell, value is "basestatscore|statrange"
 	private List bonusStackList = new ArrayList();
@@ -58,8 +58,8 @@ public final class GameMode implements Comparable
 	private List skillMultiplierLevels = new ArrayList();
 	private List wcStepsList = new ArrayList();
 	private List wieldCategoryList = new ArrayList();
-	private Map ACTypeAddMap = new HashMap();
-	private Map ACTypeRemoveMap = new HashMap();
+	private Map<String, List<String>> ACTypeAddMap = new HashMap<String, List<String>>();
+	private Map<String, List<String>> ACTypeRemoveMap = new HashMap<String, List<String>>();
 	private Map damageDownMap = new HashMap();
 	private Map damageUpMap = new HashMap();
 	private Map plusCalcs;
@@ -106,12 +106,12 @@ public final class GameMode implements Comparable
 	private int babMinVal = 1;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
-	private List statList = new ArrayList();
+	private List<PCStat> statList = new ArrayList<PCStat>();
 	/** String array of Attributes in long format */
 	public String[] s_ATTRIBLONG;
 	/** String array of Attributes in short format */
 	public String[] s_ATTRIBSHORT;
-	private final List checkList = new ArrayList();
+	private final List<PObject> checkList = new ArrayList<PObject>();
 	private final List alignmentList = new ArrayList(15);
 	private final List schoolsList = new ArrayList(20);
 
@@ -218,14 +218,14 @@ public final class GameMode implements Comparable
 	 * @param ACType
 	 * @return List of AC Types
 	 */
-	public List getACTypeAddString(final String ACType)
+	public List<String> getACTypeAddString(final String ACType)
 	{
 		if (ACTypeAddMap == null)
 		{
-			return new ArrayList();
+			return new ArrayList<String>();
 		}
 
-		return (ArrayList) ACTypeAddMap.get(ACType);
+		return ACTypeAddMap.get(ACType);
 	}
 
 	/**
@@ -233,14 +233,14 @@ public final class GameMode implements Comparable
 	 * @param ACType
 	 * @return List of AC Types
 	 */
-	public List getACTypeRemoveString(final String ACType)
+	public List<String> getACTypeRemoveString(final String ACType)
 	{
 		if (ACTypeRemoveMap == null)
 		{
-			return new ArrayList();
+			return new ArrayList<String>();
 		}
 
-		return (ArrayList) ACTypeRemoveMap.get(ACType);
+		return ACTypeRemoveMap.get(ACType);
 	}
 
 	/**
@@ -1257,15 +1257,15 @@ public final class GameMode implements Comparable
 
 			if (aString.startsWith("ADD:"))
 			{
-				final List aList;
+				final List<String> aList;
 
 				if (ACTypeAddMap.containsKey(ACType))
 				{
-					aList = (ArrayList) ACTypeAddMap.get(ACType);
+					aList = ACTypeAddMap.get(ACType);
 				}
 				else
 				{
-					aList = new ArrayList();
+					aList = new ArrayList<String>();
 				}
 
 				aList.add(aString.substring(4));
@@ -1273,15 +1273,15 @@ public final class GameMode implements Comparable
 			}
 			else if (aString.startsWith("REMOVE:"))
 			{
-				final List aList;
+				final List<String> aList;
 
 				if (ACTypeRemoveMap.containsKey(ACType))
 				{
-					aList = (ArrayList) ACTypeRemoveMap.get(ACType);
+					aList = ACTypeRemoveMap.get(ACType);
 				}
 				else
 				{
-					aList = new ArrayList();
+					aList = new ArrayList<String>();
 				}
 
 				aList.add(aString.substring(7));
@@ -1508,11 +1508,11 @@ public final class GameMode implements Comparable
 		return alignmentName;
 	}
 
-	List getAllowedModes()
+	List<String> getAllowedModes()
 	{
 		if (allowedModes == null)
 		{
-			final List modes = new ArrayList(1);
+			final List<String> modes = new ArrayList<String>(1);
 			modes.add(name);
 
 			return modes;
@@ -1688,7 +1688,7 @@ public final class GameMode implements Comparable
 	 * Return an <b>unmodifiable</b> version of the stat list.
 	 * @return List
 	 */
-	public List getUnmodifiableStatList()
+	public List<PCStat> getUnmodifiableStatList()
 	{
 		return Collections.unmodifiableList(statList);
 	}
@@ -1841,7 +1841,7 @@ public final class GameMode implements Comparable
 	 * Return an <b>unmodifiable</b> version of the check list.
 	 * @return an <b>unmodifiable</b> version of the check list.
 	 */
-	public List getUnmodifiableCheckList()
+	public List<PObject> getUnmodifiableCheckList()
 	{
 		return Collections.unmodifiableList(checkList);
 	}

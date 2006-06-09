@@ -154,7 +154,7 @@ public final class RaceLoader extends LstObjectFileLoader
 			final Race aRace = Globals.getRaceKeyed(target.getKeyName());
 			if (aRace == null)
 			{
-				Globals.getRaceMap().put(target.getKeyName(), target);
+				Globals.getRaceMap().put(target.getKeyName(), (Race)target);
 			}
 			else if (!target.equals(aRace))
 			{
@@ -163,7 +163,7 @@ public final class RaceLoader extends LstObjectFileLoader
 					if (target.getSourceDateValue() > aRace.getSourceDateValue())
 					{
 						Globals.getRaceMap().remove(aRace.getKeyName());
-						Globals.getRaceMap().put(target.getKeyName(), target);
+						Globals.getRaceMap().put(target.getKeyName(), (Race)target);
 					}
 				}
 			}

@@ -493,20 +493,20 @@ public final class Spell extends PObject
 	 *     may cast the spell
 	 * @param aPC
 	 */
-	public Map getLevelInfo(final PlayerCharacter aPC)
+	public Map<String, String> getLevelInfo(final PlayerCharacter aPC)
 	{
-		Map wLevelInfo = null;
+		Map<String, String> wLevelInfo = null;
 
 		if (levelInfo != null)
 		{
-			wLevelInfo = (HashMap) levelInfo.clone();
+			wLevelInfo = (Map<String, String>) levelInfo.clone();
 		}
 
 		if (aPC != null)
 		{
 			if (wLevelInfo == null)
 			{
-				wLevelInfo = new HashMap();
+				wLevelInfo = new HashMap<String, String>();
 			}
 
 			wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getKeyName()));

@@ -35,7 +35,8 @@ import java.util.List;
  * This is the chooser that deals with choosing an armor type that the PC
  * is already proficient with.
  */
-public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
+public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
+{
 
 	/**
 	 * Make a new Armor Type chooser.
@@ -54,7 +55,7 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "ARMORTYPE";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -67,13 +68,12 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		List armorProfs = aPc.getArmorProfList();
-		for (Iterator i = armorProfs.iterator(); i.hasNext(); )
+		List<String> armorProfs = aPc.getArmorProfList();
+		for ( String profKey : armorProfs )
 		{
-			String profKey = (String)i.next();
 			if (profKey.startsWith("TYPE"))
 			{
 				profKey = profKey.substring(5);

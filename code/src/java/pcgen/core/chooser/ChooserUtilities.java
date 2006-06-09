@@ -49,7 +49,7 @@ import pcgen.util.Logging;
 
 public class ChooserUtilities
 {
-	private static Map     classLookup    = null;
+	private static Map<String, String>     classLookup    = null;
 	private static boolean mapconstructed = false;
 
 	/**
@@ -60,16 +60,16 @@ public class ChooserUtilities
 	 * @param  elements
 	 */
 	static public final void buildSpellTypeChoices(
-		final List            availList,
-		final List            uniqueList,
+		final List<String>            availList,
+		final List<String>            uniqueList,
 		final PlayerCharacter aPC,
-		Enumeration           elements)
+		Enumeration<String>           elements)
 	{
 		elements.nextElement(); // should be SPELLLEVEL
 
 		while (elements.hasMoreElements())
 		{
-			String aString = (String) elements.nextElement();
+			String aString = elements.nextElement();
 
 			while (
 				!aString.startsWith("CLASS=") &&
@@ -78,7 +78,7 @@ public class ChooserUtilities
 				!aString.startsWith("TYPE.") &&
 				elements.hasMoreElements())
 			{
-				aString = (String) elements.nextElement();
+				aString = elements.nextElement();
 			}
 
 			if (!elements.hasMoreElements())
@@ -92,14 +92,14 @@ public class ChooserUtilities
 
 			try
 			{
-				minLevel = Integer.parseInt((String) elements.nextElement());
+				minLevel = Integer.parseInt(elements.nextElement());
 			}
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Badly formed minLevel token: " + aString);
 			}
 
-			String mString = (String) elements.nextElement();
+			String mString = elements.nextElement();
 
 			if (mString.endsWith(".A"))
 			{
@@ -365,7 +365,7 @@ public class ChooserUtilities
 	 */
 	private static void constructMap()
 	{
-		classLookup = new HashMap();
+		classLookup = new HashMap<String, String>();
 		classLookup.put("ARMORTYPE",            ArmorTypeChoiceManager.class.getName());
 		classLookup.put("CSKILLS",              ClassSkillsChoiceManager.class.getName());
 		classLookup.put("DOMAIN",               DomainChoiceManager.class.getName());

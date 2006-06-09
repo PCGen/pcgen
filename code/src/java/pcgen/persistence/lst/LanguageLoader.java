@@ -133,7 +133,7 @@ final class LanguageLoader extends LstObjectFileLoader
 
 			if (lang == null || !lang.getType().equals(target.getType()))
 			{
-				Globals.getLanguageList().add(target);
+				Globals.getLanguageList().add((Language)target);
 			}
 		}
 		else

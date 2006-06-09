@@ -146,7 +146,7 @@ public class DeityLoader extends LstObjectFileLoader
 		{
 			if (Globals.getDeityKeyed(target.getKeyName()) == null)
 			{
-				Globals.getDeityList().add(target);
+				Globals.getDeityList().add((Deity)target);
 			}
 		}
 		else

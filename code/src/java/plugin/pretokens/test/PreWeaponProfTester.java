@@ -70,21 +70,15 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			final String requiredType = aString.substring(5);
-			for (Iterator e = character.getWeaponProfList().iterator(); e.hasNext();)
+			for ( WeaponProf wp : character.getWeaponProfList() )
 			{
-				final String profKey = (String) e.next();
-				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
-				if (wp == null)
-				{
-					continue;
-				}
 				if (wp.isType(requiredType))
 				{
 					runningTotal++;
 				}
 				else
 				{
-					final Equipment eq = EquipmentList.getEquipmentNamed(profKey);
+					final Equipment eq = EquipmentList.getEquipmentNamed(wp.getKeyName());
 					if (eq != null)
 					{
 						if (eq.isType(requiredType))

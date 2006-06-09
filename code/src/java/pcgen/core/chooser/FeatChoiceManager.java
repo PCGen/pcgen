@@ -33,10 +33,11 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
 /**
- * This is one of the choosers that deals with choosing from among a set 
+ * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatChoiceManager extends AbstractComplexChoiceManager {
+public class FeatChoiceManager extends AbstractComplexChoiceManager<Ability>
+{
 
 	/**
 	 * Make a new Feat chooser.
@@ -59,7 +60,7 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager {
 					(CharSequence) choices.get(0));
 
 			if (mat.find()) {
-				ArrayList newChoice = new ArrayList();
+				ArrayList<String> newChoice = new ArrayList<String>();
 				newChoice.add(mat.replaceFirst(""));
 				newChoice.addAll(choices.subList(1,choices.size()));
 				choices = newChoice;
@@ -75,17 +76,23 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<Ability>            availableList,
+			final List<Ability>            selectedList)
 	{
-		final Ability theFeat = aPc.getFeatNamed((String) choices.get(0));
+		final Ability theFeat = aPc.getFeatNamed(choices.get(0));
 
 		if (theFeat != null)
 		{
-			theFeat.addAssociatedTo(availableList);
+			for ( Ability ability : availableList )
+			{
+				theFeat.addAssociated( ability.getKeyName() );
+			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		for ( Ability ability : selectedList )
+		{
+			pobject.addAssociated( ability.getKeyName() );
+		}
 	}
 
 }

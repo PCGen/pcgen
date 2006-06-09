@@ -155,7 +155,7 @@ public final class Deity extends PObject
 	 */
 	public String getAlignment()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.ALIGNMENT);
+		String characteristic = stringChar.get(StringKey.ALIGNMENT);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -164,14 +164,14 @@ public final class Deity extends PObject
 	 */
 	public String getAppearance()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.APPEARANCE);
+		String characteristic = stringChar.get(StringKey.APPEARANCE);
 		return characteristic == null ? "" : characteristic;
 	}
 
 	/**
 	 * @return a List of the domains this deity has
 	 */
-	public List getDomainList()
+	public List<Domain> getDomainList()
 	{
 		return getListFor(ListKey.DOMAIN);
 	}
@@ -181,7 +181,7 @@ public final class Deity extends PObject
 	 */
 	public String getDomainListPIString()
 	{
-		String domainListPIString = stringChar.getCharacteristic(StringKey.DOMAIN_LIST_PI);
+		String domainListPIString = stringChar.get(StringKey.DOMAIN_LIST_PI);
 
 		if (domainListPIString == null)
 		{
@@ -230,7 +230,7 @@ public final class Deity extends PObject
 
 					piString.append("</html>");
 
-					stringChar.setCharacteristic(StringKey.DOMAIN_LIST_PI, piString.toString());
+					stringChar.put(StringKey.DOMAIN_LIST_PI, piString.toString());
 				}
 				// end of double-locking
 			}
@@ -238,7 +238,7 @@ public final class Deity extends PObject
 		}
 		// end of null-check
 
-		return stringChar.getCharacteristic(StringKey.DOMAIN_LIST_PI);
+		return stringChar.get(StringKey.DOMAIN_LIST_PI);
 	}
 
 	/**
@@ -246,7 +246,7 @@ public final class Deity extends PObject
 	 */
 	public String getFavoredWeapon()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.FAVORED_WEAPON);
+		String characteristic = stringChar.get(StringKey.FAVORED_WEAPON);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -255,7 +255,7 @@ public final class Deity extends PObject
 	 */
 	public String getFollowerAlignments()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.FOLLOWER_ALIGNMENTS);
+		String characteristic = stringChar.get(StringKey.FOLLOWER_ALIGNMENTS);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -264,7 +264,7 @@ public final class Deity extends PObject
 	 */
 	public String getHolyItem()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.HOLY_ITEM);
+		String characteristic = stringChar.get(StringKey.HOLY_ITEM);
 		return characteristic == null ? Constants.s_NONE : characteristic;
 	}
 
@@ -353,7 +353,7 @@ public final class Deity extends PObject
 	 */
 	public String getTitle()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.TITLE);
+		String characteristic = stringChar.get(StringKey.TITLE);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -362,7 +362,7 @@ public final class Deity extends PObject
 	 */
 	public final String getWorshippers()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.WORSHIPPERS);
+		String characteristic = stringChar.get(StringKey.WORSHIPPERS);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -448,7 +448,7 @@ public final class Deity extends PObject
 	 */
 	public void setAppearance(final String appearance)
 	{
-		stringChar.setCharacteristic(StringKey.APPEARANCE, appearance);
+		stringChar.put(StringKey.APPEARANCE, appearance);
 	}
 
 	/**
@@ -458,7 +458,7 @@ public final class Deity extends PObject
 	 */
 	public void setAlignment(final String alignment)
 	{
-		stringChar.setCharacteristic(StringKey.ALIGNMENT, alignment);
+		stringChar.put(StringKey.ALIGNMENT, alignment);
 	}
 
 	/**
@@ -470,7 +470,7 @@ public final class Deity extends PObject
 	public void setDomainList(final List domainList)
 	{
 		listChar.addAllToListFor(ListKey.DOMAIN, domainList);
-		stringChar.setCharacteristic(StringKey.DOMAIN_LIST_PI, null);
+		stringChar.put(StringKey.DOMAIN_LIST_PI, null);
 	}
 
 	/**
@@ -481,7 +481,7 @@ public final class Deity extends PObject
 	 */
 	public void setDomainNameList(final List aDomainStringList)
 	{
-		stringChar.setCharacteristic(StringKey.DOMAIN_LIST_PI, null);
+		stringChar.put(StringKey.DOMAIN_LIST_PI, null);
 		d_allDomains = false;
 		buildDomainList(aDomainStringList);
 	}
@@ -492,7 +492,7 @@ public final class Deity extends PObject
 	 */
 	public void setFavoredWeapon(final String favoredWeapon)
 	{
-		stringChar.setCharacteristic(StringKey.FAVORED_WEAPON, favoredWeapon);
+		stringChar.put(StringKey.FAVORED_WEAPON, favoredWeapon);
 	}
 
 	/**
@@ -503,7 +503,7 @@ public final class Deity extends PObject
 	 */
 	public void setFollowerAlignments(final String followerAlignments)
 	{
-		stringChar.setCharacteristic(StringKey.FOLLOWER_ALIGNMENTS, followerAlignments);
+		stringChar.put(StringKey.FOLLOWER_ALIGNMENTS, followerAlignments);
 	}
 
 	/**
@@ -512,7 +512,7 @@ public final class Deity extends PObject
 	 */
 	public void setHolyItem(final String holyItem)
 	{
-		stringChar.setCharacteristic(StringKey.HOLY_ITEM, holyItem);
+		stringChar.put(StringKey.HOLY_ITEM, holyItem);
 	}
 
 	/**
@@ -547,7 +547,7 @@ public final class Deity extends PObject
 	 */
 	public void setTitle(final String title)
 	{
-		stringChar.setCharacteristic(StringKey.TITLE, title);
+		stringChar.put(StringKey.TITLE, title);
 	}
 
 	/**
@@ -556,7 +556,7 @@ public final class Deity extends PObject
 	 */
 	public final void setWorshippers(final String worshippers)
 	{
-		stringChar.setCharacteristic(StringKey.WORSHIPPERS, worshippers);
+		stringChar.put(StringKey.WORSHIPPERS, worshippers);
 	}
 
 	/**
@@ -567,7 +567,7 @@ public final class Deity extends PObject
 	 * @param aPC
 	 * @return List
 	 */
-	protected List addSpecialAbilitiesToList(final List aList, final PlayerCharacter aPC)
+	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
 		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 

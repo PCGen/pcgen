@@ -40,7 +40,7 @@ final class MainPopupMenu extends JPopupMenu
 {
 	JMenuItem newItem;
 // WIP please leave boomer70
-//	JMenuItem newNPCItem;
+	JMenuItem newNPCItem;
 	private JMenuItem pleaseLoadItem;
 
 	/**
@@ -55,8 +55,8 @@ final class MainPopupMenu extends JPopupMenu
 				null, "Create a new character", "New16.gif", true);
 
 // WIP please leave boomer70
-//		newNPCItem = Utility.createMenuItem("New NPC", frameActionListener.newNPCPopupActionListener, "mainPopupMenu.newNPC", (char)0,
-//			null, "Create a new random NPC", "New16.gif", true);
+		newNPCItem = Utility.createMenuItem("New NPC", frameActionListener.newNPCPopupActionListener, "mainPopupMenu.newNPC", (char)0,
+			null, "Create a new random NPC", "New16.gif", true);
 	}
 
 	public void show(Component invoker, int x, int y)

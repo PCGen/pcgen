@@ -123,7 +123,7 @@ public class WeaponToken extends Token
 			token = aTok.nextToken();
 		}
 
-		List weaponList = pc.getExpandedWeapons(merge);
+		List<Equipment> weaponList = pc.getExpandedWeapons(merge);
 
 		if (token.equals("ALL"))
 		{
@@ -132,9 +132,9 @@ public class WeaponToken extends Token
 		else if (token.equals("EQUIPPED"))
 		{
 			// remove all weapons which are not equipped from list
-			for (Iterator it = weaponList.iterator(); it.hasNext();)
+			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
 			{
-				if (!((Equipment) it.next()).isEquipped())
+				if (!it.next().isEquipped())
 				{
 					it.remove();
 				}
@@ -144,9 +144,9 @@ public class WeaponToken extends Token
 		else if (token.equals("NOT_EQUIPPED"))
 		{
 			// remove all weapons which are equipped from list
-			for (Iterator it = weaponList.iterator(); it.hasNext();)
+			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
 			{
-				if (((Equipment) it.next()).isEquipped())
+				if (it.next().isEquipped())
 				{
 					it.remove();
 				}
@@ -156,9 +156,9 @@ public class WeaponToken extends Token
 		else if (token.equals("CARRIED"))
 		{
 			// remove all weapons which are not carried from list
-			for (Iterator it = weaponList.iterator(); it.hasNext();)
+			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
 			{
-				if (((Equipment) it.next()).numberCarried().intValue() == 0)
+				if (it.next().numberCarried().intValue() == 0)
 				{
 					it.remove();
 				}
@@ -168,9 +168,9 @@ public class WeaponToken extends Token
 		else if (token.equals("NOT_CARRIED"))
 		{
 			// remove all weapons which are carried from list
-			for (Iterator it = weaponList.iterator(); it.hasNext();)
+			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
 			{
-				if (((Equipment) it.next()).numberCarried().intValue() > 0)
+				if (it.next().numberCarried().intValue() > 0)
 				{
 					it.remove();
 				}
@@ -182,7 +182,7 @@ public class WeaponToken extends Token
 
 		if (weapon < weaponList.size())
 		{
-			eq = (Equipment) weaponList.get(weapon);
+			eq = weaponList.get(weapon);
 			if (weapon == weaponList.size() - 1 && eh != null && eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
@@ -585,13 +585,11 @@ public class WeaponToken extends Token
 		int ammoCount = 0;
 		String containerCapacity = eq.getContainerCapacityString();
 
-		for (Iterator e = pc.getEquipmentListInOutputOrder().iterator(); e.hasNext();)
+		for ( Equipment equip : pc.getEquipmentListInOutputOrder() )
 		{
-			Equipment anEquip = (Equipment) e.next();
-
-			for (Iterator e2 = anEquip.typeList().iterator(); e2.hasNext();)
+			for ( String type : equip.typeList() )
 			{
-				if (containerCapacity.indexOf(e2.next().toString()) >= 0)
+				if (containerCapacity.indexOf(type) >= 0)
 				{
 					++ammoCount;
 					break;
@@ -729,11 +727,11 @@ public class WeaponToken extends Token
 	 */
 	public static String getRangeListToken(Equipment eq, int range, PlayerCharacter aPC)
 	{
-		List rangeList = eq.getRangeList(true, aPC);
+		List<String> rangeList = eq.getRangeList(true, aPC);
 
 		if (range < rangeList.size())
 		{
-			return Globals.getGameModeUnitSet().displayDistanceInUnitSet(Integer.parseInt(rangeList.get(range).toString())) + Globals.getGameModeUnitSet().getDistanceUnit();
+			return Globals.getGameModeUnitSet().displayDistanceInUnitSet(Integer.parseInt(rangeList.get(range))) + Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return "";
 	}
@@ -993,14 +991,13 @@ public class WeaponToken extends Token
 		Equipment anEquip = null;
 		final String containerCapacity = eq.getContainerCapacityString();
 
-		for (Iterator e = pc.getEquipmentListInOutputOrder().iterator(); e.hasNext() && (ammo >= 0);)
+		for ( Equipment equip : pc.getEquipmentListInOutputOrder() )
 		{
 			sprop = "";
-			anEquip = (Equipment) e.next();
 
-			for (Iterator e2 = anEquip.typeList().iterator(); e2.hasNext();)
+			for ( String type : equip.typeList() )
 			{
-				if (containerCapacity.indexOf(e2.next().toString()) >= 0)
+				if (containerCapacity.indexOf(type) >= 0)
 				{
 					++ammoCount;
 
@@ -1184,8 +1181,6 @@ public class WeaponToken extends Token
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
 		int damageMode = DAMAGEMODE_NORMAL;
 		int hands = 1;
-		// TODO Never used
-		int wpHands = 1;
 
 		if (eq.isNatural() && (eq.getLocation() == Equipment.EQUIPPED_SECONDARY))
 		{
@@ -1205,7 +1200,6 @@ public class WeaponToken extends Token
 		{
 			damageMode = DAMAGEMODE_TWOHANDS;
 			hands = 2;
-			wpHands = 2;
 		}
 		else if (pc.isSecondaryWeapon(eq))
 		{
@@ -1218,7 +1212,6 @@ public class WeaponToken extends Token
 			{
 				damageMode = DAMAGEMODE_TWOHANDS;
 				hands = 2;
-				wpHands = 2;
 			}
 			else
 			{
@@ -1232,7 +1225,6 @@ public class WeaponToken extends Token
 			{
 				damageMode = DAMAGEMODE_TWOHANDS;
 				hands = 2;
-				wpHands = 2;
 			}
 			else
 			{
@@ -1379,7 +1371,7 @@ public class WeaponToken extends Token
 			// eq is Primary
 			if (pc.isPrimaryWeapon(eq))
 			{
-				Equipment sEq = (Equipment) pc.getSecondaryWeapons().get(0);
+				Equipment sEq = pc.getSecondaryWeapons().get(0);
 
 				if (sEq == null)
 				{
@@ -1832,10 +1824,8 @@ public class WeaponToken extends Token
 */
 		// Get BONUS:COMBAT|TOHIT.abc|x
 		// Where abc: Ranged, Melee, Slashing, etc
-		for (Iterator ei = eq.typeList().iterator(); ei.hasNext();)
+		for ( String type : eq.typeList() )
 		{
-			String type = ei.next().toString();
-
 			// Finesseable is a special case that
 			// is Handled elsewhere
 			if (type.equalsIgnoreCase("Finesseable"))
@@ -2310,9 +2300,8 @@ public class WeaponToken extends Token
 	private static int getGeneralBonus(PlayerCharacter pc, Equipment eq, int range, int meleeDamageStatBonus, double meleeDamageMult)
 	{
 		int bonus = 0;
-		for (Iterator ei = eq.typeList().iterator(); ei.hasNext();)
+		for ( String type : eq.typeList() )
 		{
-			String type = (String) ei.next();
 			//Makes sure that thrown weapons only get the right bonus at the right time
 			if((range > -1 && type.equals("MELEE")) || (range == -1 && (type.equals("THROWN") || type.equals("RANGED")))) {
 				continue;
@@ -2345,7 +2334,7 @@ public class WeaponToken extends Token
 			int rangeSize = eq.getRangeList(true, pc).size();
 
 			if ((range < rangeSize)
-					&& (Integer.parseInt(eq.getRangeList(true, pc).get(range).toString()) <= SettingsHandler.getGame().getShortRangeDistance()))
+					&& (Integer.parseInt(eq.getRangeList(true, pc).get(range)) <= SettingsHandler.getGame().getShortRangeDistance()))
 			{
 				bonus += (int) eq.bonusTo(pc, "WEAPON", "DAMAGE-SHORTRANGE", true);
 				bonus += (int) pc.getTotalBonusTo("DAMAGE", "SHORTRANGE");
@@ -2373,7 +2362,7 @@ public class WeaponToken extends Token
 			int rangeSize = eq.getRangeList(true, pc).size();
 
 			if ((range < rangeSize)
-			 && (Integer.parseInt(eq.getRangeList(true, pc).get(range).toString())
+			 && (Integer.parseInt(eq.getRangeList(true, pc).get(range))
 			 <= SettingsHandler.getGame().getShortRangeDistance()))
 			{
 				weaponProfBonus += ((int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGE-SHORTRANGE")
@@ -2507,13 +2496,11 @@ public class WeaponToken extends Token
 		int ammoCount = 0;
 		String containerCapacity = eq.getContainerCapacityString();
 
-		for (Iterator e = pc.getEquipmentListInOutputOrder().iterator(); e.hasNext() && (ammo >= 0);)
+		for ( Equipment equip : pc.getEquipmentListInOutputOrder() )
 		{
-			anEquip = (Equipment) e.next();
-
-			for (Iterator e2 = anEquip.typeList().iterator(); e2.hasNext();)
+			for ( String type : equip.typeList() )
 			{
-				if (containerCapacity.indexOf(e2.next().toString()) >= 0)
+				if (containerCapacity.indexOf(type) >= 0)
 				{
 					++ammoCount;
 
@@ -2522,7 +2509,7 @@ public class WeaponToken extends Token
 			}
 			if (ammoCount == (ammo + 1))
 			{
-				return anEquip;
+				return equip;
 			}
 		}
 		return null;

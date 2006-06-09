@@ -56,7 +56,7 @@ public class PrereqHandler {
 	 * @param caller The object that we are testing qualification for.
 	 * @return True if the character passes all prereqs.
 	 */
-	public static boolean passesAll(final List prereqList, final PlayerCharacter character, final PObject caller)
+	public static boolean passesAll(final List<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
 	{
 		if (prereqList == null)
 		{

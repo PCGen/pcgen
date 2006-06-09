@@ -969,7 +969,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @param lineType   int indicating the type of objects in the list
 	 * @param aArrayList List containing the objects to add to Globals
 	 */
-	private void addToGlobals(final int lineType, final List aArrayList)
+	private void addToGlobals(final int lineType, final List<?> aArrayList)
 	{
 		String aClassName = "";
 
@@ -983,7 +983,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 					if (cMod == null)
 					{
-						Globals.getCompanionModList().add(aArrayList.get(i));
+						Globals.getCompanionModList().add((CompanionMod)aArrayList.get(i));
 					}
 
 					break;
@@ -1044,7 +1044,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 					if (aTemplate == null)
 					{
-						Globals.getTemplateList().add(aArrayList.get(i));
+						Globals.getTemplateList().add((PCTemplate)aArrayList.get(i));
 					}
 
 					break;
@@ -1056,7 +1056,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 					if (aModifier == null)
 					{
-						EquipmentList.getModifierList().add(aArrayList.get(i));
+						EquipmentList.getModifierList().add((EquipmentModifier)aArrayList.get(i));
 					}
 
 					break;
@@ -1113,12 +1113,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	{
 		if (skillReq.length() > 0)
 		{
-			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for (Iterator<Skill> e1 = Globals.getSkillList().iterator(); e1.hasNext();)
 			{
-				final Skill aSkill = (Skill) e1.next();
+				final Skill aSkill = e1.next();
 
-				if (("UNTRAINED".equals(skillReq) && (aSkill.getUntrained().length() > 0)
-					&& (aSkill.getUntrained().charAt(0) == 'Y')) || skillReq.equals("ALL"))
+				if (("UNTRAINED".equals(skillReq) && aSkill.isUntrained())
+					|| skillReq.equals("ALL"))
 				{
 					aSkill.setRequired(true);
 				}
@@ -1355,7 +1355,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 						anObj = new Kit(prevLine);
 						anObj.setSourceCampaign(sourceCampaign);
 						anObj.setSourceMap(sourceMap);
-						Globals.getKitInfo().add(anObj);
+						Globals.getKitInfo().add((Kit)anObj);
 					}
 
 					if (anObj != null)

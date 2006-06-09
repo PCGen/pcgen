@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class AbilityStore extends CategorisableStore
+public class AbilityStore extends CategorisableStore<Ability>
 {
 	/** CLEAR_ TOKEN = ".CLEAR" */
 	public static final String CLEAR_TOKEN = ".CLEAR";
@@ -61,16 +61,12 @@ public class AbilityStore extends CategorisableStore
 	 * @param  delimiter        the delimiter used to split the string
 	 * @param  lockCategory     whether the default category is the only
 	 *                          acceptable one.
-	 * @param  getAbility       If true, retrieve the Ability object from
-	 *                          Globals, otherwise, create an AbilityInfo object
-	 *                          to represent it.
 	 */
 	public void addAbilityInfo(
 		final String abilities,
 		String       defaultCategory,
 		String       delimiter,
-		boolean      lockCategory,
-		boolean      getAbility)
+		boolean      lockCategory)
 	{
 		if (CLEAR_TOKEN.equals(abilities))
 		{
@@ -104,23 +100,23 @@ public class AbilityStore extends CategorisableStore
 				continue;
 			}
 			else if (token.startsWith("TYPE=") || token.startsWith("TYPE."))
-			{				
-				final String aType = token.substring(5);								
-								
-				// We need to get a list of featabilities that match this type.				
-				Iterator i = Globals.getAbilityNameIterator(cat);				
-				while (i.hasNext())				
-				{					
-					Ability ability = (Ability)i.next();
+			{
+				final String aType = token.substring(5);
+
+				// We need to get a list of featabilities that match this type.
+				Iterator<Ability> i = Globals.getAbilityNameIterator(cat);
+				while (i.hasNext())
+				{
+					Ability ability = i.next();
 					if (ability.isType(aType))
 					{
-						addAsPerParsedInfo(getAbility, cat, ability.getKeyName());
+						addAsPerParsedInfo(cat, ability.getKeyName());
 					}
-				}			
-			}			
-			else			
-			{				
-				addAsPerParsedInfo(getAbility, cat, token);
+				}
+			}
+			else
+			{
+				addAsPerParsedInfo(cat, token);
 			}
 		}
 	}
@@ -130,25 +126,21 @@ public class AbilityStore extends CategorisableStore
 	 * @param cat
 	 * @param token
 	 */
-	private void addAsPerParsedInfo(boolean getAbility, String cat, final String token) {
-		Categorisable toAdd = (getAbility)
-			? (Categorisable) AbilityUtilities.retrieveAbilityKeyed(cat, token)
-			: (Categorisable) new AbilityInfo(cat, token);
+	private void addAsPerParsedInfo(String cat, final String token) {
+		final Ability toAdd = AbilityUtilities.retrieveAbilityKeyed(cat, token);
 
 		if (toAdd == null)
 		{
-			if (getAbility)
-			{
-				Logging.errorPrint(
-				    "Couldn't retrieve Ability! Category: " + cat + ", KeyName: " +
-				    token);
-			}
+			Logging.errorPrint(
+				"Couldn't retrieve Ability! Category: " + cat + ", KeyName: " +
+				token);
 		}
 		else
 		{
 			if (!this.addCategorisable(toAdd))
 			{
-				String error = (getAbility) ? "Ability object" : "AbilityInfo object";
+				// I18N
+				String error = "Ability object";
 				Logging.errorPrint("problem adding " + error);
 			}
 		}
@@ -169,9 +161,9 @@ public class AbilityStore extends CategorisableStore
 	 * @return  a category or a blank string
 	 */
 	private String getInitialCategory(
-	    String                defaultCategory,
-	    boolean               lockCategory,
-	    final StringTokenizer aTok)
+		String                defaultCategory,
+		boolean               lockCategory,
+		final StringTokenizer aTok)
 	{
 		if (!"".equalsIgnoreCase(defaultCategory)) {
 			return defaultCategory;
@@ -197,26 +189,26 @@ public class AbilityStore extends CategorisableStore
 	/**
 	 * Get a representation of the objects held in this Store.  The representation
 	 * if to addAbilityInfo will produce a "clone" of this object.
-	 * 
+	 *
 	 * @return a parsable representation of this Store
 	 */
 	public String getParsableStringRepresentation () {
 		String info = "";
-		
-		for(Iterator OuterIt = this.getCategoryIterator(); OuterIt.hasNext();) {
-			String cat = (String) OuterIt.next();
-			
+
+		for(Iterator<String> OuterIt = this.getCategoryIterator(); OuterIt.hasNext();) {
+			String cat = OuterIt.next();
+
 			if (info.length() > 0) {
 				info += "|";
 			}
 
 			info += "CATEGORY=" + cat;
-			for(Iterator innerIt = this.getKeyIterator(cat); innerIt.hasNext();) {
-				AbilityInfo ab = (AbilityInfo) innerIt.next();
+			for(Iterator<Ability> innerIt = this.getKeyIterator(cat); innerIt.hasNext();) {
+				Ability ab = innerIt.next();
 				info += "|" + ab.getKeyName();
 			}
 		}
-		
+
 		return info;
 	}
 }

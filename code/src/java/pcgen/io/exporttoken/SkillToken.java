@@ -329,7 +329,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_UNTRAINED:
-					retValue.append(aSkill.getUntrained());
+					retValue.append(aSkill.isUntrained() ? "YES" : "NO");
 					break;
 
 				case SKILL_EXCLUSIVE:
@@ -346,15 +346,13 @@ public class SkillToken extends Token
 
 				case SKILL_EXCLUSIVE_TOTAL:
 					retValue.append(Integer.toString(((aSkill.getExclusive()
-						.equalsIgnoreCase("Y") || aSkill.getUntrained()
-						.equalsIgnoreCase("NO")) && (aSkill.getTotalRank(pc)
+						.equalsIgnoreCase("Y") || !aSkill.isUntrained()) && (aSkill.getTotalRank(pc)
 						.intValue() == 0)) ? 0 : (aSkill.getTotalRank(pc)
 						.intValue() + aSkill.modifier(pc).intValue())));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
-					retValue.append(Integer.toString((aSkill.getUntrained()
-						.equalsIgnoreCase("NO") && (aSkill.getTotalRank(pc)
+					retValue.append(Integer.toString((!aSkill.isUntrained() && (aSkill.getTotalRank(pc)
 						.intValue() == 0)) ? 0 : (aSkill.getTotalRank(pc)
 						.intValue() + aSkill.modifier(pc).intValue())));
 					break;
@@ -420,7 +418,7 @@ public class SkillToken extends Token
 			trained_tok = "";
 		}
 
-		if (aSkill.getUntrained().equalsIgnoreCase("Y"))
+		if (aSkill.isUntrained())
 		{
 			return untrained_tok;
 		}

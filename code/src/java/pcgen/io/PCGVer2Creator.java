@@ -2036,13 +2036,6 @@ final class PCGVer2Creator implements IOConstants
 			{
 				buffer.append(TAG_SKILL).append(':');
 				buffer.append(EntityEncoder.encode(aSkill.getKeyName()));
-				del = "|" + TAG_SYNERGY + ":";
-
-				for (Iterator it2 = aSkill.getSynergyList().iterator(); it2.hasNext();)
-				{
-					buffer.append(del).append((String) it2.next());
-					del = ",";
-				}
 
 				buffer.append('|');
 				buffer.append(TAG_OUTPUTORDER).append(':');

@@ -81,7 +81,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setAddSpellLevel(final int addSpellLevel)
 	{
-		integerChar.setCharacteristic(IntegerKey.ADD_SPELL_LEVEL, addSpellLevel);
+		integerChar.put(IntegerKey.ADD_SPELL_LEVEL, addSpellLevel);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public int getAddSpellLevel()
 	{
-		Integer characteristic = integerChar.getCharacteristic(IntegerKey.ADD_SPELL_LEVEL);
+		Integer characteristic = integerChar.get(IntegerKey.ADD_SPELL_LEVEL);
 		return characteristic == null ? 0 : characteristic.intValue();
 	}
 
@@ -104,7 +104,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setAddString(final String add)
 	{
-		stringChar.setCharacteristic(StringKey.ADD, add);
+		stringChar.put(StringKey.ADD, add);
 	}
 
 	/**
@@ -116,7 +116,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getAddString()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.ADD);
+		String characteristic = stringChar.get(StringKey.ADD);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -127,7 +127,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setBenefit(final String benefit)
 	{
-		stringChar.setCharacteristic(StringKey.BENEFIT, benefit);
+		stringChar.put(StringKey.BENEFIT, benefit);
 	}
 
 	/**
@@ -137,7 +137,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getBenefit()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.BENEFIT);
+		String characteristic = stringChar.get(StringKey.BENEFIT);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -165,7 +165,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setCategory(final String category)
 	{
-		stringChar.setCharacteristic(StringKey.CATEGORY, category);
+		stringChar.put(StringKey.CATEGORY, category);
 	}
 
 	/**
@@ -175,7 +175,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getCategory()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.CATEGORY);
+		String characteristic = stringChar.get(StringKey.CATEGORY);
 		return characteristic == null ? Constants.FEAT_CATEGORY : characteristic;
 	}
 
@@ -186,7 +186,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setCost(final String cost)
 	{
-		stringChar.setCharacteristic(StringKey.COST, cost);
+		stringChar.put(StringKey.COST, cost);
 	}
 
 	/**
@@ -206,7 +206,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getCostString()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.COST);
+		String characteristic = stringChar.get(StringKey.COST);
 		return characteristic == null ? "1" : characteristic;
 	}
 
@@ -243,7 +243,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 				return;
 		}
 
-		integerChar.setCharacteristic(IntegerKey.ABILITY_TYPE, type);
+		integerChar.put(IntegerKey.ABILITY_TYPE, type);
 	}
 
 	/**
@@ -253,7 +253,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public int getFeatType()
 	{
-		Integer characteristic = integerChar.getCharacteristic(IntegerKey.ABILITY_TYPE);
+		Integer characteristic = integerChar.get(IntegerKey.ABILITY_TYPE);
 		return characteristic == null ? ABILITY_NORMAL : characteristic.intValue();
 	}
 
@@ -344,7 +344,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setVisible(final int visible)
 	{
-		integerChar.setCharacteristic(IntegerKey.VISIBLE, visible);
+		integerChar.put(IntegerKey.VISIBLE, visible);
 	}
 
 	/**
@@ -355,7 +355,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public int getVisible()
 	{
-		Integer characteristic = integerChar.getCharacteristic(IntegerKey.VISIBLE);
+		Integer characteristic = integerChar.get(IntegerKey.VISIBLE);
 		return characteristic == null ? VISIBILITY_DEFAULT : characteristic.intValue();
 	}
 
@@ -523,7 +523,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	@Override
-	protected List addSpecialAbilitiesToList(final List aList, final PlayerCharacter aPC)
+	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
 		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
@@ -885,7 +885,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setChoiceToModify(final String choiceToModify)
 	{
-		stringChar.setCharacteristic(StringKey.CHOICE_TO_MODIFY, choiceToModify);
+		stringChar.put(StringKey.CHOICE_TO_MODIFY, choiceToModify);
 	}
 
 	/**
@@ -896,7 +896,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public String getChoiceToModify()
 	{
-		String characteristic = stringChar.getCharacteristic(StringKey.CHOICE_TO_MODIFY);
+		String characteristic = stringChar.get(StringKey.CHOICE_TO_MODIFY);
 		return characteristic == null ? "" : characteristic;
 	}
 
@@ -1095,4 +1095,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return AbilityUtilities.areSameAbility(this, that);
 	}
 
+	public String getDisplayNameWithChoices()
+	{
+		StringBuffer buf = new StringBuffer();
+
+		return buf.toString();
+	}
 }

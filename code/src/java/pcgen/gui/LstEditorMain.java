@@ -114,13 +114,13 @@ public final class LstEditorMain extends JFrame
 		switch (editType)
 		{
 			case EditorConstants.EDIT_CLASS:
-				Globals.getClassList().add(editObject);
+				Globals.getClassList().add((PCClass)editObject);
 				Globals.sortPObjectList(Globals.getClassList());
 
 				break;
 
 			case EditorConstants.EDIT_DEITY:
-				Globals.getDeityList().add(editObject);
+				Globals.getDeityList().add((Deity)editObject);
 				Globals.sortPObjectList(Globals.getDeityList());
 
 				break;
@@ -137,18 +137,18 @@ public final class LstEditorMain extends JFrame
 				break;
 
 			case EditorConstants.EDIT_LANGUAGE:
-				Globals.getLanguageList().add(editObject);
+				Globals.getLanguageList().add((Language)editObject);
 				Globals.sortPObjectList(Globals.getLanguageList());
 
 				break;
 
 			case EditorConstants.EDIT_RACE:
-				Globals.getRaceMap().put(editObject.getKeyName(), editObject);
+				Globals.getRaceMap().put(editObject.getKeyName(), (Race)editObject);
 
 				break;
 
 			case EditorConstants.EDIT_SKILL:
-				Globals.getSkillList().add(editObject);
+				Globals.getSkillList().add((Skill)editObject);
 				Globals.sortPObjectList(Globals.getSkillList());
 				break;
 
@@ -158,13 +158,13 @@ public final class LstEditorMain extends JFrame
 				break;
 
 			case EditorConstants.EDIT_TEMPLATE:
-				Globals.getTemplateList().add(editObject);
+				Globals.getTemplateList().add((PCTemplate)editObject);
 				Globals.sortPObjectList(Globals.getTemplateList());
 
 				break;
 
 			case EditorConstants.EDIT_CAMPAIGN:
-				Globals.getCampaignList().add(editObject);
+				Globals.getCampaignList().add((Campaign)editObject);
 				Globals.sortPObjectList(Globals.getCampaignList());
 
 				break;

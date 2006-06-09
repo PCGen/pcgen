@@ -167,7 +167,7 @@ public class TestHelper {
 			String name,
 			String type,
 			String stat,
-			String untrained,
+			boolean untrained,
 			String armorCheck)
 	{
 		Skill  aSkill = new Skill();

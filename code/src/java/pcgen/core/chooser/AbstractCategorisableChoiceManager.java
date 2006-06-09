@@ -44,11 +44,11 @@ import pcgen.util.chooser.ChooserInterface;
 /**
  * Abstract Categorisable Choice Manager
  */
-public abstract class AbstractCategorisableChoiceManager extends
-		AbstractComplexChoiceManager implements ChoiceManagerCategorisable {
+public abstract class AbstractCategorisableChoiceManager<T extends Categorisable> extends
+		AbstractComplexChoiceManager<T> implements ChoiceManagerCategorisable<T> {
 
-	HashMap nameMap    = new HashMap();
-	HashMap catMap     = new HashMap();
+	HashMap<String, T> nameMap    = new HashMap<String, T>();
+	HashMap<String, T> catMap     = new HashMap<String, T>();
 	boolean useNameMap = true;
 
 
@@ -88,13 +88,13 @@ public abstract class AbstractCategorisableChoiceManager extends
 	 * @param selectedList
 	 * @return an empty list
 	 */
-	public List doChooser (
+	public List<T> doChooser (
 			PlayerCharacter aPc,
-			final List      availableList,
-			final List      selectedList)
+			final List<T>      availableList,
+			final List<T>      selectedList)
 	{
 		Logging.errorPrint("Wrong doChooser called, there is a bug somewhere" );
-		return Collections.EMPTY_LIST;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -106,9 +106,9 @@ public abstract class AbstractCategorisableChoiceManager extends
 	 * @param previousSelections
 	 * @return a list of the categorisable objects chosen
 	 */
-	public List doChooser (
-			final CategorisableStore 	store,
-			final List					previousSelections)
+	public List<T> doChooser (
+			final CategorisableStore<T> 	store,
+			final List<T>					previousSelections)
 		{
 
 		if (requestedSelections < 0)
@@ -134,25 +134,25 @@ public abstract class AbstractCategorisableChoiceManager extends
 
 		boolean showChooser = true;
 
-		for (Iterator abIt = store.getKeyIterator("ALL"); abIt.hasNext();)
+		for (Iterator<T> abIt = store.getKeyIterator("ALL"); abIt.hasNext();)
 		{
-			addToMaps((Categorisable) abIt.next());
+			addToMaps(abIt.next());
 		}
 
-		List availableList = this.useNameMap ?
-				new ArrayList(this.nameMap.keySet()) :
-					new ArrayList(this.catMap.keySet());
+		List<String> availableList = this.useNameMap ?
+				new ArrayList<String>(this.nameMap.keySet()) :
+					new ArrayList<String>(this.catMap.keySet());
 
-		List selectedList = new ArrayList();
+		List<String> selectedList = new ArrayList<String>();
 
 
 		/* Convert the list of previous choice objects into a list of keys to
 		 * access those in the relevant name or category map.  That is,
 		 * convert them into the format that will be returned by the chooser */
 
-		for (Iterator abIt = previousSelections.iterator(); abIt.hasNext();)
+		for (Iterator<T> abIt = previousSelections.iterator(); abIt.hasNext();)
 		{
-			Categorisable Info = (Categorisable) abIt.next();
+			T Info = abIt.next();
 
 			if (store.getKeyed(Info.getCategory(), Info.getKeyName()) != null) {
 				selectedList.add(
@@ -200,14 +200,14 @@ public abstract class AbstractCategorisableChoiceManager extends
 			break;
 		}
 
-		List chosen = new ArrayList();
+		List<T> chosen = new ArrayList<T>();
 
-		for (Iterator abIt = chooser.getSelectedList().iterator(); abIt.hasNext();)
+		for (Iterator<String> abIt = chooser.getSelectedList().iterator(); abIt.hasNext();)
 		{
-			final String  choice = (String) abIt.next();
-			Categorisable Info = this.useNameMap ?
-				(Categorisable) this.nameMap.get(choice):
-				(Categorisable) this.catMap.get(choice);
+			final String  choice = abIt.next();
+			T Info = this.useNameMap ?
+				this.nameMap.get(choice):
+				this.catMap.get(choice);
 
 			chosen.add(Info);
 		}
@@ -223,9 +223,9 @@ public abstract class AbstractCategorisableChoiceManager extends
 	 * @param categorisableObj
 	 */
 	protected void addToMaps(
-			Categorisable categorisableObj)
+			T categorisableObj)
 	{
-		Categorisable current = (Categorisable) nameMap.put(categorisableObj.getKeyName(), categorisableObj);
+		Categorisable current = nameMap.put(categorisableObj.getKeyName(), categorisableObj);
 		catMap.put(categorisableObj.getCategory() + " " + categorisableObj.getKeyName(), categorisableObj);
 
 		if (current != null) { useNameMap = false; }

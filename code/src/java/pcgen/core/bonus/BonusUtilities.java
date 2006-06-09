@@ -49,16 +49,14 @@ public final class BonusUtilities
 	 * @param aName
 	 * @return List
 	 */
-	public static List getBonusFromList(final List bonusList, final String aType, final String aName)
+	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String aType, final String aName)
 	{
-		final List aList = new ArrayList();
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
 		if (bonusList != null)
 		{
-			for (Iterator ab = bonusList.iterator(); ab.hasNext();)
+			for ( BonusObj aBonus : bonusList )
 			{
-				final BonusObj aBonus = (BonusObj) ab.next();
-
 				if (!aBonus.getTypeOfBonus().startsWith(aType))
 				{
 					continue;

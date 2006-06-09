@@ -47,7 +47,7 @@ import java.util.*;
 public abstract class BonusObj implements Serializable, Cloneable
 {
 	private List    bonusInfo            = new ArrayList();
-	private List    prereqList;
+	private List<Prerequisite>    prereqList;
 	private Map     dependMap            = new HashMap();
 	private Object  bonusValue;
 	private Object  creatorObj;
@@ -59,21 +59,21 @@ public abstract class BonusObj implements Serializable, Cloneable
 	private boolean valueIsStatic        = true;
 	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
-    private String  stringRepresentation;
+	private String  stringRepresentation;
 
 	/**
 	 * Set Applied
 	 * @param aBool
 	 */
-    public void setApplied(final boolean aBool)
+	public void setApplied(final boolean aBool)
 	{
 		isApplied = aBool;
 	}
 
-    /**
-     * isApplied
-     * @return True if applied
-     */
+	/**
+	 * isApplied
+	 * @return True if applied
+	 */
 	public boolean isApplied()
 	{
 		return isApplied;
@@ -211,7 +211,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 	 * Get the pre req list
 	 * @return pre req list
 	 */
-	public List getPrereqList()
+	public List<Prerequisite> getPrereqList()
 	{
 		return prereqList;
 	}
@@ -223,10 +223,10 @@ public abstract class BonusObj implements Serializable, Cloneable
 	 */
 	public List getClonePrereqList() throws CloneNotSupportedException
 	{
-		final List newList = new ArrayList(prereqList.size());
-		for (Iterator iter = prereqList.iterator(); iter.hasNext();) {
-			final Prerequisite element = (Prerequisite) iter.next();
-			newList.add( element.clone());
+		final List<Prerequisite> newList = new ArrayList<Prerequisite>(prereqList.size());
+		for ( Prerequisite element : prereqList )
+		{
+			newList.add( (Prerequisite)element.clone());
 		}
 		return newList;
 	}
@@ -235,7 +235,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 	 * Set the pre req list
 	 * @param prereqList
 	 */
-	public void setPrereqList(final List prereqList)
+	public void setPrereqList(final List<Prerequisite> prereqList)
 	{
 		this.prereqList = prereqList;
 	}
@@ -834,9 +834,9 @@ public abstract class BonusObj implements Serializable, Cloneable
 			// skip flow control tags
 			if ("IF".equals(controlString) || "THEN".equals(controlString) || "ELSE"
 					.equals(controlString)
-			    || "GT".equals(controlString) || "GTEQ".equals(controlString) || "EQ"
+				|| "GT".equals(controlString) || "GTEQ".equals(controlString) || "EQ"
 					.equals(controlString)
-			    || "LTEQ".equals(controlString) || "LT".equals(controlString))
+				|| "LTEQ".equals(controlString) || "LT".equals(controlString))
 			{
 				continue;
 			}
@@ -881,12 +881,12 @@ public abstract class BonusObj implements Serializable, Cloneable
 						// It's a Variable!
 						if (testString.length() > 0)
 						{
-						    if (testString.startsWith("MOVE[")) {
-						        testString = new StringBuffer().append("TYPE.")
+							if (testString.startsWith("MOVE[")) {
+								testString = new StringBuffer().append("TYPE.")
 										.append(testString.substring(5,
 												testString.length() - 1))
 										.toString();
-						    }
+							}
 							dependMap.put(testString, "1");
 						}
 					}
@@ -909,7 +909,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 			for (Iterator iter = prereqList.iterator(); iter.hasNext();)
 			{
 				final Prerequisite element = (Prerequisite) iter.next();
-				bonusObj.prereqList.add( element.clone());
+				bonusObj.prereqList.add( (Prerequisite)element.clone());
 			}
 		}
 		bonusObj.dependMap = new HashMap();

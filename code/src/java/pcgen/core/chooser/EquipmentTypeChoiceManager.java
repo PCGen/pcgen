@@ -29,11 +29,12 @@ import pcgen.core.PlayerCharacter;
 
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.Equipment;
 
 /**
  * This is the chooser that deals with choosing from all equipment of a given type.
  */
-public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
+public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equipment> {
 
 	/**
 	 * Make a new Equipment Type chooser.
@@ -52,7 +53,7 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "EQUIPTYPE";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -65,17 +66,20 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<Equipment>            availableList,
+			final List<Equipment>            selectedList)
 	{
-		Iterator choiceIt = choices.iterator();
+		Iterator<String> choiceIt = choices.iterator();
 
 		String choiceSec = (String) ((choiceIt.hasNext())
 				? choiceIt.next()
 				: pobject.getKeyName());
 
 		availableList.addAll(EquipmentList.getEquipmentOfType(choiceSec, ""));
-		pobject.addAssociatedTo(selectedList);
+		for ( Equipment equip : selectedList )
+		{
+			pobject.addAssociated( equip.getKeyName() );
+		}
 	}
 
 }

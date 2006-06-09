@@ -26,11 +26,12 @@ package pcgen.core.chooser;
 import java.util.List;
 
 import pcgen.core.CategorisableStore;
+import pcgen.core.Categorisable;
 
 /**
  * Choice Manager interface
  */
-public interface ChoiceManagerCategorisable {
+public interface ChoiceManagerCategorisable <T extends Categorisable> {
 
 	/**
 	 * @param inNumberOfChoices
@@ -42,13 +43,13 @@ public interface ChoiceManagerCategorisable {
 
 	/**
 	 * Choose some objects out of a CategorisableStore.  The previousSelections
-	 * List should only contain objects that are in the CategorisableStore   
+	 * List should only contain objects that are in the CategorisableStore
 	 *
 	 * @param store
 	 * @param previousSelections
 	 * @return list
 	 */
-	public abstract List doChooser(final CategorisableStore store,
-			final List previousSelections);
+	public abstract List<T> doChooser(final CategorisableStore<T> store,
+			final List<T> previousSelections);
 
 }
