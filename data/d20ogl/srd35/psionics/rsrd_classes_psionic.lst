@@ -120,9 +120,8 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MindBladeECL|x in the PrC's class level line setup
-1						ADD:FEAT(MindBlade Wielder)
-1	BONUS:VAR|MindBladeECL|CL
-1											VFEAT:MindBlade Standard|PREVARLTEQ:MindBladeECL,3
+
+1	BONUS:VAR|MindBladeECL|CL	ADD:FEAT(MindBlade Wielder)	VFEAT:MindBlade Standard|PREVARLTEQ:MindBladeECL,3
 1											VFEAT:MindBlade Throw|PREMULT:2,[PREVARGTEQ:MindBladeECL,2],[PREVARLT:MindBladeECL,17]
 1											VFEAT:MindBlade Psychic Strike|PREVARGTEQ:MindBladeECL,3
 1											VFEAT:MindBlade Plus|PREVARGTEQ:MindBladeECL,4
@@ -134,9 +133,9 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE.Cra
 1											VFEAT:MindBlade Multiple Throw|PREVARGTEQ:MindBladeECL,17
 
 ###Block: Class Info
-1	FEATAUTO:Weapon Focus (Mind Blade)
+1	FEATAUTO:Weapon Focus(Mind Blade)
 6	FEATAUTO:Speed of Thought
-9	FEATAUTO:Greater Weapon Focus (Mind Blade)
+9	FEATAUTO:Greater Weapon Focus(Mind Blade)
 
 # Class Name	Hit Dice	Type				Source Page				Automatic Languages	Define			Save checks bonus											Combat bonus					Modify VAR
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	SOURCEPAGE:PsionicClasses.rtf	LANGAUTO:Literacy		DEFINE:PCrystalLevel|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
