@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing a stat.
  */
-public class StatChoiceManager extends AbstractComplexChoiceManager {
+public class StatChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new stat chooser.
@@ -51,31 +51,29 @@ public class StatChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Stat choice";
 		chooserHandled = "STAT";
-		
+
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		final List     excludeList = new ArrayList();
-		final Iterator choiceIt    = choices.iterator();
+		final List<String>     excludeList = new ArrayList<String>();
 
-		while (choiceIt.hasNext())
+		for ( String sExclude : choices )
 		{
-			final String sExclude = (String) choiceIt.next();
 			final int iStat = SettingsHandler.getGame().getStatFromAbbrev(sExclude);
 
 			if (iStat >= 0)
@@ -91,7 +89,7 @@ public class StatChoiceManager extends AbstractComplexChoiceManager {
 				availableList.add(SettingsHandler.getGame().s_ATTRIBSHORT[x]);
 			}
 		}
-		
+
 		pobject.addAssociatedTo(selectedList);
 	}
 

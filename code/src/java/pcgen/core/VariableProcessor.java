@@ -635,7 +635,7 @@ public abstract class VariableProcessor
 
 	private int cachePaused;
 	private int serial = 0;
-	private Map variableCache = new HashMap();
+	private Map<String, CachedVariable> variableCache = new HashMap<String, CachedVariable>();
 
 	/**
 	 * Retrieve the current cache serial. This value identifies the currency
@@ -673,7 +673,7 @@ public abstract class VariableProcessor
 		{
 			return null;
 		}
-		final CachedVariable cached = (CachedVariable) variableCache.get(lookup);
+		final CachedVariable cached = variableCache.get(lookup);
 		if (cached != null)
 		{
 			if (cached.getSerial()>=getSerial())

@@ -54,7 +54,7 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 		chooserHandled = "NONCLASSSKILLLIST";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -67,13 +67,11 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		Iterator iter;
-
 		final String choiceVal = choices.get(0) != null
-				? (String) choices.get(0)
+				? choices.get(0)
 				: pobject.getKeyName();
 
 		if ((choiceVal.length() > 0) && !"LIST".equals(choiceVal))
@@ -88,35 +86,32 @@ public class SkillListNonClassChoiceManager extends SkillListChoiceManager {
 
 		else // if it was LIST
 		{
-			Skill aSkill;
-
-			for (iter = Globals.getSkillList().iterator(); iter.hasNext();)
+			for ( Skill skill : Globals.getSkillList() )
 			{
-				aSkill = (Skill) iter.next();
-
-				if ((aSkill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class()) || aSkill.isExclusive())
+				if ((skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class()) || skill.isExclusive())
 				{
 					continue; // builds a list of Cross class skills
 				}
 
-				final int rootNameLength = aSkill.getRootName().length();
+				final String rootName = skill.getRootName();
+				final int rootNameLength = rootName.length();
 
 				 //all skills have ROOTs now, so go ahead and add it if the name and root are identical
-				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getKeyName()))
+				if ((rootNameLength == 0) || rootName.equals(skill.getKeyName()))
 				{
-					availableList.add(aSkill.getKeyName());
+					availableList.add(skill.getKeyName());
 				}
 
-				final boolean rootArrayContainsRootName = rootArrayList.contains(aSkill.getRootName());
+				final boolean rootArrayContainsRootName = rootArrayList.contains(rootName);
 
 				if ((rootNameLength > 0) && !rootArrayContainsRootName)
 				{
-					rootArrayList.add(aSkill.getRootName());
+					rootArrayList.add(rootName);
 				}
 
 				if ((rootNameLength > 0) && rootArrayContainsRootName)
 				{
-					availableList.add(aSkill.getKeyName());
+					availableList.add(skill.getKeyName());
 				}
 			}
 		}

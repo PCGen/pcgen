@@ -52,7 +52,7 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 		chooserHandled = "SKILLSNAMEDTOCSKILL";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -70,9 +70,9 @@ public class SkillsNamedToCSkillChoiceManager extends SkillsNamedChoiceManager {
 		{
 			Ability anAbility = (Ability) pobject;
 
-			for (Iterator cSkillIt = anAbility.getCSkillList().iterator(); cSkillIt.hasNext();)
+			for (Iterator<String> cSkillIt = anAbility.getCSkillList().iterator(); cSkillIt.hasNext();)
 			{
-				final String tempString = (String) cSkillIt.next();
+				final String tempString = cSkillIt.next();
 
 				if (!"LIST".equals(tempString))
 				{

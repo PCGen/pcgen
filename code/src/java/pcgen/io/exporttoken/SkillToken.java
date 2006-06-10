@@ -329,7 +329,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_UNTRAINED:
-					retValue.append(aSkill.isUntrained() ? "YES" : "NO");
+					retValue.append(aSkill.isUntrained() ? "Y" : "NO");
 					break;
 
 				case SKILL_EXCLUSIVE:

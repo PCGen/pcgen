@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing a skill.
  */
-public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
+public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new named skills chooser.
@@ -53,7 +53,7 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "SKILLSNAMED";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -66,100 +66,74 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		Iterator choiceIt = choices.iterator();
-
-		while (choiceIt.hasNext())
+		for ( String token : choices )
 		{
-			String token = (String) choiceIt.next();
 			boolean startsWith = false;
 
 			if (token.startsWith("TYPE.") || token.startsWith("TYPE="))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.isType(token.substring(5)))
+					if (skill.isType(token.substring(5)))
 					{
-						availableList.add(aSkill.getKeyName());
+						availableList.add(skill.getKeyName());
 					}
 				}
 			}
 
 			if ("ALL".equals(token))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-					availableList.add(aSkill.getKeyName());
+					availableList.add(skill.getKeyName());
 				}
 			}
 
 			if ("CLASS".equals(token))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class())
+					if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Class())
 					{
-						availableList.add(aSkill.getKeyName());
+						availableList.add(skill.getKeyName());
 					}
 				}
 			}
 
 			if ("CROSSCLASS".equals(token))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.costForPCClassList(aPc.getClassList(), aPc) > Globals.getGameModeSkillCost_Class())
+					if (skill.costForPCClassList(aPc.getClassList(), aPc) > Globals.getGameModeSkillCost_Class())
 					{
-						availableList.add(aSkill.getKeyName());
+						availableList.add(skill.getKeyName());
 					}
 				}
 			}
 
 			if ("EXCLUSIVE".equals(token))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Exclusive())
+					if (skill.costForPCClassList(aPc.getClassList(), aPc) == Globals.getGameModeSkillCost_Exclusive())
 					{
-						availableList.add(aSkill.getKeyName());
+						availableList.add(skill.getKeyName());
 					}
 				}
 			}
 
 			if ("NORANK".equals(token))
 			{
-				Skill aSkill;
-				Skill pcSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-					pcSkill = aPc.getSkillKeyed(aSkill.getKeyName());
+					final Skill pcSkill = aPc.getSkillKeyed(skill.getKeyName());
 
 					if (pcSkill == null || Double.compare(pcSkill.getRank().doubleValue(), 0.0) == 0)
 					{
-						availableList.add(aSkill.getKeyName());
+						availableList.add(skill.getKeyName());
 					}
 				}
 			}
@@ -170,15 +144,11 @@ public class SkillsNamedChoiceManager extends AbstractComplexChoiceManager {
 				token = token.substring(0, token.length() - 1);
 			}
 
-			Skill aSkill;
-
-			for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+			for ( Skill skill : Globals.getSkillList() )
 			{
-				aSkill = (Skill) e1.next();
-
-				if (aSkill.getKeyName().equals(token) || (startsWith && aSkill.getKeyName().startsWith(token)))
+				if (skill.getKeyName().equals(token) || (startsWith && skill.getKeyName().startsWith(token)))
 				{
-					availableList.add(aSkill.getKeyName());
+					availableList.add(skill.getKeyName());
 				}
 			}
 		}

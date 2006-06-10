@@ -31,6 +31,10 @@ import java.util.Map;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import java.util.List;
+import pcgen.util.Logging;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * @author wardc
@@ -39,7 +43,7 @@ import pcgen.persistence.PersistenceLayerException;
 public class PreParserFactory
 {
 	private static PreParserFactory instance = null;
-	private static Map parserLookup = new HashMap();
+	private static Map<String, PrerequisiteParserInterface> parserLookup = new HashMap<String, PrerequisiteParserInterface>();
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
@@ -62,9 +66,7 @@ public class PreParserFactory
 
 	public PrerequisiteParserInterface getParser(String kind)
 	{
-		PrerequisiteParserInterface test = (PrerequisiteParserInterface) parserLookup.get(kind.toLowerCase());
-
-		return test;
+		return parserLookup.get(kind.toLowerCase());
 	}
 
 	public static void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
@@ -89,6 +91,26 @@ public class PreParserFactory
 
 			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
 		}
+	}
+
+	public List<Prerequisite> parse(final List<String> preStrings )
+	{
+		final List<Prerequisite> ret = new ArrayList<Prerequisite>(preStrings.size());
+		for ( String prestr : preStrings )
+		{
+			try
+			{
+				final PreParserFactory factory = PreParserFactory.getInstance();
+				final Prerequisite prereq = factory.parse(prestr);
+				ret.add(prereq);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
+				//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
+			}
+		}
+		return ret;
 	}
 
 	public Prerequisite parse(String prereqStr) throws PersistenceLayerException

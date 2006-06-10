@@ -38,7 +38,7 @@ import java.util.Map;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
+public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager<String>
 {
 	/**
 	 * Creates a new SimpleShieldProfChoiceManager object.
@@ -63,26 +63,20 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void getChoices(
 		PlayerCharacter aPc,
-		List            availableList,
-		List            selectedList)
+		List<String>            availableList,
+		List<String>            selectedList)
 	{
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_SHIELD_PROFS));
 
-		Iterator it         = choices.iterator();
-		String   tempString;
-
-		while (it.hasNext())
+		for ( String tempString : choices )
 		{
-			tempString = (String) it.next();
-
 			if (tempString.startsWith("TYPE=") || tempString.startsWith("TYPE."))
 			{
 				tempString = tempString.substring(5);
 
-				for (Iterator i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
+				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
 				{
-					final Map.Entry entry = (Map.Entry) i.next();
-					final Equipment eq    = (Equipment) entry.getValue();
+					final Equipment eq    = i.next().getValue();
 
 					if (
 						eq.isShield() &&
@@ -116,7 +110,7 @@ public class SimpleShieldProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void applyChoices(
 		PlayerCharacter  aPC,
-		List selected)
+		List<String> selected)
 	{
 		pobject.addSelectedShieldProfs(selected);
 	}

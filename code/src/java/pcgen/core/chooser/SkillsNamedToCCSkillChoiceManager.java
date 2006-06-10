@@ -53,7 +53,7 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 		chooserHandled = "SKILLSNAMEDTOCCSKILL";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -75,13 +75,11 @@ public class SkillsNamedToCCSkillChoiceManager extends SkillsNamedChoiceManager 
 		if (pobject != null && pobject instanceof Ability)
 		{
 			Ability anAbility = (Ability) pobject;
-			for (Iterator iter = Globals.getSkillList().iterator(); iter.hasNext();)
+			for ( Skill skill : Globals.getSkillList() )
 			{
-				final Skill aSkill = (Skill) iter.next();
-
-				if (aSkill.getRootName().equalsIgnoreCase(item))
+				if (skill.getRootName().equalsIgnoreCase(item))
 				{
-					anAbility.addCcSkill(aSkill.getKeyName());
+					anAbility.addCcSkill(skill.getKeyName());
 				}
 			}
 		}

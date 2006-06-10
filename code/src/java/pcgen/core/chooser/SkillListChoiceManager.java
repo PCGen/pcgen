@@ -23,7 +23,6 @@
  */
 package pcgen.core.chooser;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -36,9 +35,10 @@ import pcgen.core.Skill;
 /**
  * This is one of the choosers that deals with choosing a skill.
  */
-public class SkillListChoiceManager extends AbstractComplexChoiceManager {
+public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
+{
 
-	protected List rootArrayList;
+	protected List<String> rootArrayList;
 
 	/**
 	 * Make a new Skill List chooser.
@@ -57,7 +57,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "SKILLIST";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -70,11 +70,9 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		Iterator iter;
-
 		final String choiceVal = choices.get(0) != null
 				? (String) choices.get(0)
 				: pobject.getKeyName();
@@ -91,30 +89,27 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 
 		else // if it was LIST
 		{
-			Skill aSkill;
-
-			for (iter = Globals.getSkillList().iterator(); iter.hasNext();)
+			for ( Skill skill : Globals.getSkillList() )
 			{
-				aSkill = (Skill) iter.next();
-
-				final int rootNameLength = aSkill.getRootName().length();
+				final String rootName = skill.getRootName();
+				final int rootNameLength = rootName.length();
 
 				 //all skills have ROOTs now, so go ahead and add it if the name and root are identical
-				if ((rootNameLength == 0) || aSkill.getRootName().equals(aSkill.getKeyName()))
+				if ((rootNameLength == 0) || rootName.equals(skill.getKeyName()))
 				{
-					availableList.add(aSkill.getKeyName());
+					availableList.add(skill.getKeyName());
 				}
 
-				final boolean rootArrayContainsRootName = rootArrayList.contains(aSkill.getRootName());
+				final boolean rootArrayContainsRootName = rootArrayList.contains(rootName);
 
 				if ((rootNameLength > 0) && !rootArrayContainsRootName)
 				{
-					rootArrayList.add(aSkill.getRootName());
+					rootArrayList.add(skill.getRootName());
 				}
 
 				if ((rootNameLength > 0) && rootArrayContainsRootName)
 				{
-					availableList.add(aSkill.getKeyName());
+					availableList.add(skill.getKeyName());
 				}
 			}
 		}
@@ -141,21 +136,23 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager {
 			Ability ability = (Ability) pobject;
 			if (rootArrayList.contains(item))
 			{
-				for (Iterator iter = Globals.getSkillList().iterator(); iter.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					final Skill skill = (Skill) iter.next();
-
 					if (skill.getRootName().equalsIgnoreCase(item))
 					{
-						ability.addCSkill(skill.getKeyName());
+						addSkillToAbility( ability, skill.getKeyName() );
 					}
 				}
 			}
 			else
 			{
-				ability.addCSkill(item);
+				addSkillToAbility( ability, item );
 			}
 		}
 	}
 
+	protected void addSkillToAbility( final Ability anAbility, final String aSkillKey )
+	{
+		anAbility.addCSkill( aSkillKey );
+	}
 }

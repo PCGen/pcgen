@@ -30,6 +30,7 @@ import pcgen.core.PlayerCharacter;
 import java.util.Iterator;
 import java.util.List;
 import pcgen.core.Equipment;
+import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing from all equipment of a given type.
@@ -76,9 +77,16 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equ
 				: pobject.getKeyName());
 
 		availableList.addAll(EquipmentList.getEquipmentOfType(choiceSec, ""));
-		for ( Equipment equip : selectedList )
+
+		List<String> equipKeys = new ArrayList<String>();
+		pobject.addAssociatedTo( equipKeys );
+		for ( String key : equipKeys )
 		{
-			pobject.addAssociated( equip.getKeyName() );
+			Equipment equip = EquipmentList.getEquipmentKeyed( key );
+			if ( equip != null )
+			{
+				selectedList.add( equip );
+			}
 		}
 	}
 

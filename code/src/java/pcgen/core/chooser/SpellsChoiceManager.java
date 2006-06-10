@@ -29,11 +29,13 @@ import pcgen.core.PlayerCharacter;
 
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.spell.Spell;
+import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing a spell.
  */
-public class SpellsChoiceManager extends AbstractComplexChoiceManager {
+public class SpellsChoiceManager extends AbstractComplexChoiceManager<Spell> {
 
 	/**
 	 * Make a new spell chooser.
@@ -50,29 +52,27 @@ public class SpellsChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "Spell choice";
 		chooserHandled = "SPELLS";
-		
+
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * 
+	 *
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<Spell>            availableList,
+			final List<Spell>            selectedList)
 	{
-		Iterator choiceIt = choices.iterator();
-		while (choiceIt.hasNext())
+		for ( String token : choices )
 		{
-			final String token = (String) choiceIt.next();
 			String domainName = "";
 			String className = "";
 
@@ -88,12 +88,18 @@ public class SpellsChoiceManager extends AbstractComplexChoiceManager {
 			// 20 level cap XXX
 			for (int lvl = 0; lvl < 20; ++lvl)
 			{
-				final List aList = Globals.getSpellsIn(lvl, className, domainName);
+				final List<Spell> aList = Globals.getSpellsIn(lvl, className, domainName);
 				availableList.addAll(aList);
 			}
 		}
 
-		pobject.addAssociatedTo(selectedList);
+		List<String> associatedChoices = new ArrayList<String>();
+		pobject.addAssociatedTo( associatedChoices );
+		for ( String choice : associatedChoices )
+		{
+			Spell spell = Globals.getSpellKeyed( choice );
+			selectedList.add( spell );
+		}
 	}
 
 }

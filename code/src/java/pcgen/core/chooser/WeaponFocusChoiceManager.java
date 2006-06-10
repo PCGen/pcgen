@@ -33,12 +33,13 @@ import pcgen.core.WeaponProf;
 
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.AssociatedChoice;
 
 /**
  * This is the chooser that deals with choosing a Weapon that currently has
  * Weapon focus applied.
  */
-public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
+public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new Weapon Focus chooser.
@@ -57,7 +58,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "WEAPONFOCUS";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -71,25 +72,25 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		final Ability wfFeat = aPc.getFeatNamed("Weapon Focus");
 
 		if (choices.get(0) != null)
 		{
-			final String aString = (String) choices.get(0);
+			final String aString = choices.get(0);
 
 			if (aString.startsWith("TYPE."))
 			{
-				final List   aList = wfFeat.getAssociatedList();
+				final List<AssociatedChoice<String>>   aList = wfFeat.getAssociatedList();
 				final String aType = aString.substring(5);
 
-				for (Iterator e = aList.iterator(); e.hasNext();)
+				for ( AssociatedChoice<String> choice : aList )
 				{
-					final Object aObj = e.next();
 					final WeaponProf wp;
-					wp = Globals.getWeaponProfKeyed(aObj.toString());
+					final String strChoice = choice.getDefaultChoice();
+					wp = Globals.getWeaponProfKeyed( strChoice );
 
 					if (wp == null)
 					{
@@ -106,7 +107,7 @@ public class WeaponFocusChoiceManager extends AbstractComplexChoiceManager {
 
 					if (eq.isType(aType))
 					{
-						availableList.add(aObj);
+						availableList.add( strChoice );
 					}
 				}
 			}

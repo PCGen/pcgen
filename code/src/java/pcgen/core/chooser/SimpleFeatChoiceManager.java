@@ -27,6 +27,7 @@ import pcgen.core.prereq.PrereqHandler;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Handle the logic necessary to choose a Feat.
@@ -35,7 +36,7 @@ import java.util.List;
  * @version  $Revision$
  */
 
-public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
+public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager<Ability>
 {
 	/**
 	 * Creates a new SimpleFeatChoiceManager object.
@@ -59,19 +60,28 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void getChoices(
 		final PlayerCharacter aPc,
-		final List            availableList,
-		final List            selectedList)
+		final List<Ability>            availableList,
+		final List<Ability>            selectedList)
 	{
 		if (pobject.getAssociatedCount() != 0)
 		{
-			pobject.addAssociatedTo(selectedList);
+			List<String> abilityKeys = new ArrayList<String>();
+			pobject.addAssociatedTo( abilityKeys );
+			for ( String key : abilityKeys )
+			{
+				final Ability ability = Globals.getAbilityKeyed("FEAT", key);
+				if ( ability != null )
+				{
+					selectedList.add( ability );
+				}
+			}
 		}
 
-		Iterator it = choices.iterator();
+		Iterator<String> it = choices.iterator();
 
 		while (it.hasNext())
 		{
-			String featName = (String) it.next();
+			String featName = it.next();
 
 			final Ability anAbility = Globals.getAbilityKeyed("FEAT", featName);
 
@@ -98,12 +108,12 @@ public class SimpleFeatChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void applyChoices(
 			PlayerCharacter  aPC,
-			List             selected)
+			List<Ability>             selected)
 	{
-		Iterator i = selected.iterator();
+		Iterator<Ability> i = selected.iterator();
 		while (i.hasNext())
 		{
-			Ability ability = (Ability)i.next();
+			Ability ability = i.next();
 			final String tempString = ability.getKeyName();
 			AbilityUtilities.modFeat(aPC, null, tempString, true, false);
 			pobject.addAssociated(tempString);

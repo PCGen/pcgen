@@ -51,9 +51,9 @@ final class LevelAbilityEquipment extends LevelAbility
 		super(aowner, aLevel, aString);
 	}
 
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		final List aList = super.getChoicesList(bString.substring(6), aPC);
+		final List<String> aList = super.getChoicesList(bString.substring(6), aPC);
 		Collections.sort(aList);
 
 		return aList;
@@ -80,12 +80,10 @@ final class LevelAbilityEquipment extends LevelAbility
 	 * @param pcLevelInfo
 	 * @param aArrayList
 	 */
-	public boolean processChoice(final List aArrayList, final List selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
+	public boolean processChoice(final List<String> aArrayList, final List<String> selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
 	{
-
-		for (int n = 0; n < selectedList.size(); n++)
+		for ( String equipmentName : selectedList )
 		{
-			final String equipmentName = selectedList.get(n).toString();
 			final Equipment aEquipment = EquipmentList.getEquipmentNamed(equipmentName);
 
 			if (aEquipment == null)
@@ -112,14 +110,18 @@ final class LevelAbilityEquipment extends LevelAbility
 	 **/
 	void processToken(
 			final String          aToken,
-			final List            anArrayList,
+			final List<String>            anArrayList,
 			final PlayerCharacter aPC)
 	{
 
 		if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
 		{
 			final String eqType = aToken.substring(5);
-			anArrayList.addAll(EquipmentList.getEquipmentOfType(eqType, ""));
+			List<Equipment> equip = EquipmentList.getEquipmentOfType( eqType, "" );
+			for ( Equipment eq : equip )
+			{
+				anArrayList.add( eq.getDisplayName() );
+			}
 		}
 		else
 		{

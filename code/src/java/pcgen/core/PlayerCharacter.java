@@ -5834,7 +5834,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return false;
 	}
 
-	public Map<String, String> getSpellInfoMap(final String key1, final String key2)
+	public Map<String, Integer> getSpellInfoMap(final String key1, final String key2)
 	{
 		return spellTracker.getSpellInfoMap(key1, key2);
 	}
@@ -6410,7 +6410,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		final Map<String, String> domainMap = aSpell.getLevelInfo(this);
+		final Map<String, Integer> domainMap = aSpell.getLevelInfo(this);
 		if (domainMap != null)
 		{
 			for ( String mKey : domainMap.keySet() )
@@ -11737,7 +11737,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		if (!weaponProfList.contains(wp))
+		if (wp != null && !weaponProfList.contains(wp))
 		{
 			weaponProfList.add(wp);
 		}

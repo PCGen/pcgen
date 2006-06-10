@@ -59,7 +59,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 		chooserHandled = "WEAPONPROFS";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -80,7 +80,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 
 		while (choicesIt.hasNext())
 		{
-			final String aString = (String) choicesIt.next();
+			final String aString = choicesIt.next();
 			final String ucString = aString.toUpperCase();
 
 			if ("LIST".equals(ucString))

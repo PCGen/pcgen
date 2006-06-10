@@ -44,7 +44,7 @@ final class PCPopupMenu extends JPopupMenu
 	private JMenuItem closeItem;
 	private JMenuItem newItem;
 // WIP please leave boomer70
-	private JMenuItem newNPCItem;
+//	private JMenuItem newNPCItem;
 	private JMenuItem revertToSavedItem;
 	private JMenuItem saveAsItem;
 	private JMenuItem saveItem;
@@ -59,8 +59,8 @@ final class PCPopupMenu extends JPopupMenu
 		add(newItem = Utility.createMenuItem("New", frameActionListener.newPopupActionListener, "pcPopupMenu.new", 'N',
 					null, "Create a new character", "New16.gif", true));
 // WIP please leave boomer70
-		add(newNPCItem = Utility.createMenuItem("New NPC", frameActionListener.newNPCPopupActionListener, "pcPopupMenu.newNPC", (char)0,
-				null, "Create a new random NPC", "New16.gif", true));
+//		add(newNPCItem = Utility.createMenuItem("New NPC", frameActionListener.newNPCPopupActionListener, "pcPopupMenu.newNPC", (char)0,
+//				null, "Create a new random NPC", "New16.gif", true));
 		add(closeItem = Utility.createMenuItem("Close", frameActionListener.closePopupActionListener,
 					"pcPopupMenu.close", 'C', null, "Close the current character", "Close16.gif", true));
 		add(saveItem = Utility.createMenuItem("Save", frameActionListener.savePopupActionListener, "pcPopupMenu.save",
@@ -100,10 +100,10 @@ final class PCPopupMenu extends JPopupMenu
 	}
 
 // WIP please leave boomer70
-	public JMenuItem getNewNPCItem()
-	{
-		return newNPCItem;
-	}
+//	public JMenuItem getNewNPCItem()
+//	{
+//		return newNPCItem;
+//	}
 
 	public JMenuItem getRevertToSavedItem()
 	{

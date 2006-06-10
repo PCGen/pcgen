@@ -52,9 +52,9 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 	 * @param aPC
 	 * @return choices list
 	 */
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		final List aArrayList = new ArrayList();
+		final List<String> aArrayList = new ArrayList<String>();
 		final StringTokenizer bTok = new StringTokenizer(bString.substring(12), "|", false);
 		bonusTag = bTok.nextToken();
 		bonusMod = bTok.nextToken();
@@ -86,12 +86,9 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 				{
 					final StringTokenizer aTok = new StringTokenizer(anAbility.getKeyName(), " ", false);
 					final String aName = aTok.nextToken(); // first word of name should match type of weaponprof
-					final Collection weaponProfsOfType = Globals.getAllWeaponProfsOfType(aName);
 
-					for (Iterator ii = weaponProfsOfType.iterator(); ii.hasNext();)
+					for ( WeaponProf wp : Globals.getAllWeaponProfsOfType(aName) )
 					{
-						final WeaponProf wp = (WeaponProf) ii.next();
-
 						if (!aArrayList.contains(wp.getKeyName()))
 						{
 							aArrayList.add(wp.getKeyName());
@@ -105,13 +102,11 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 			}
 			else if (cString.startsWith("PCPROFLIST"))
 			{
-				for (Iterator ii = aPC.getWeaponProfList().iterator(); ii.hasNext();)
+				for ( WeaponProf wp : aPC.getWeaponProfList() )
 				{
-					final String prof = (String) ii.next();
-
-					if (!aArrayList.contains(prof))
+					if (!aArrayList.contains(wp.getKeyName()))
 					{
-						aArrayList.add(prof);
+						aArrayList.add(wp.getKeyName());
 					}
 				}
 			}
@@ -152,16 +147,14 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 	 * @param pcLevelInfo
 	 * @param aArrayList
 	 */
-	public boolean processChoice(final List aArrayList, final List selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
+	public boolean processChoice(final List<String> aArrayList, final List<String> selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
 	{
 		final String bonusString = '|' + bonusTag + '|' + bonusMod;
 
-		for (int index = 0; index < selectedList.size(); ++index)
+		for ( String cString : selectedList )
 		{
-			final String cString = selectedList.get(index).toString();
 			final String weaponProfString = "WEAPONPROF=" + cString + bonusString;
 
-			// aPC.getSpecialAbilityList().add(weaponProfString.toString());			// The above causes a badd SA error.
 			owner.addBonusList((new StringBuffer("0|").append(weaponProfString)).toString());
 			owner.addSave((new StringBuffer("BONUS|0|").append(weaponProfString)).toString());
 		}

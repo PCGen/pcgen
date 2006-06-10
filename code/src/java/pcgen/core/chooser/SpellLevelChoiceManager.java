@@ -42,7 +42,7 @@ import java.util.Enumeration;
  */
 public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String>
 {
-	private ArrayList aBonusList = new ArrayList();
+	private ArrayList<String> aBonusList = new ArrayList<String>();
 	private String    stChoices  = "";
 
 
@@ -62,11 +62,11 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		title          = "Spell Level choice";
 		chooserHandled = "SPELLLEVEL";
 
-		if (((String) choices.get(0)).equals("SPELLLEVEL") )
+		if ( choices.get(0).equals("SPELLLEVEL") )
 		{
 			try
 			{
-				numberOfChoices = new Integer((String) choices.get(1)).intValue();
+				numberOfChoices = new Integer(choices.get(1)).intValue();
 			}
 			catch (NumberFormatException e)
 			{
@@ -84,15 +84,14 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		 * of the superclass */
 
 		StringBuffer newChoice = new StringBuffer(choiceString.length());
-		Iterator     choiceIt  = choices.iterator();
 
-		while (choiceIt.hasNext())
+		for ( String choice : choices )
 		{
 			if (newChoice.length() != 0)
 			{
 				newChoice.append('|');
 			}
-			newChoice.append(choiceIt.next());
+			newChoice.append(choice);
 		}
 
 		stChoices = newChoice.toString();
@@ -156,9 +155,8 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		{
 			final String aString = pobject.getAssociated(e);
 
-			for (Iterator bonusIter = aBonusList.iterator(); bonusIter.hasNext();)
+			for ( String bonus : aBonusList )
 			{
-				String bonus = (String) bonusIter.next();
 				pobject.removeBonus(bonus, aString, aPc);
 			}
 		}
@@ -181,10 +179,8 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 	{
 		final String name = prefix + item;
 
-		for (Iterator e = aBonusList.iterator(); e.hasNext();)
+		for ( String bString : aBonusList )
 		{
-			final String bString = (String) e.next();
-
 			pobject.addAssociated(name);
 			pobject.applyBonus(bString, name, aPc);
 		}
@@ -200,7 +196,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 	 *
 	 * @return  Returns the aBonusList.
 	 */
-	public final ArrayList getABonusList()
+	public final ArrayList<String> getABonusList()
 	{
 		return aBonusList;
 	}

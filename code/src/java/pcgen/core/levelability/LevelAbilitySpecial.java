@@ -42,7 +42,7 @@ final class LevelAbilitySpecial extends LevelAbility
 		super(aowner, aLevel, aList);
 	}
 
-	List getChoicesList(String choices, final PlayerCharacter aPC)
+	List<String> getChoicesList(String choices, final PlayerCharacter aPC)
 	{
 		choices = choices.substring(choices.lastIndexOf('(') + 1);
 
@@ -51,7 +51,7 @@ final class LevelAbilitySpecial extends LevelAbility
 			choices = choices.substring(0, choices.lastIndexOf(")"));
 		}
 
-		final List aList = super.getChoicesList(choices, aPC);
+		final List<String> aList = super.getChoicesList(choices, aPC);
 		Collections.sort(aList);
 
 		return aList;
@@ -79,20 +79,13 @@ final class LevelAbilitySpecial extends LevelAbility
 	 * @param pcLevelInfo
 	 */
 	public boolean processChoice(
-			final List            aArrayList,
-			final List            selectedList,
+			final List<String>            aArrayList,
+			final List<String>            selectedList,
 			final PlayerCharacter aPC,
 			final PCLevelInfo     pcLevelInfo)
 	{
-		if (selectedList.size() == 0)
+		for ( String selection : selectedList )
 		{
-			return true;
-		}
-
-		for (int i = 0; i < selectedList.size(); ++i)
-		{
-			String selection = selectedList.get(i).toString();
-
 			if ("Free Feat".equals(selection))
 			{
 				aPC.adjustFeats(1);
@@ -127,14 +120,14 @@ final class LevelAbilitySpecial extends LevelAbility
 	 */
 	void processToken(
 			final String          aToken,
-			final List            anArrayList,
+			final List<String>            anArrayList,
 			final PlayerCharacter aPC)
 	{
 
 		if ("FEATLIST".equals(aToken))
 		{
-			for (Iterator it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
-				final Ability anAbility = (Ability) it.next();
+			for (Iterator<Ability> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
+				final Ability anAbility = it.next();
 
 				if (aPC.canSelectAbility(anAbility))
 				{
@@ -163,7 +156,7 @@ final class LevelAbilitySpecial extends LevelAbility
 		}
 		else
 		{
-			final List aList = aPC.getSpecialAbilityListStrings();
+			final List<String> aList = aPC.getSpecialAbilityListStrings();
 
 			if (!aList.contains(aToken))
 			{

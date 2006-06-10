@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency by type.
  */
-public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
+public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	String weaponType = "";
 	/**
@@ -51,12 +51,12 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 	{
 		super(aPObject, choiceString, aPC);
 		if (choices != null && choices.size() > 1 &&
-				((String) choices.get(0)).equalsIgnoreCase("WEAPONPROFTYPE") &&
-				Globals.weaponTypesContains((String) choices.get(1)))
+				choices.get(0).equalsIgnoreCase("WEAPONPROFTYPE") &&
+				Globals.weaponTypesContains(choices.get(1)))
 		{
 			chooserHandled = "WEAPONPROFTYPE";
-			title = (String) choices.get(1) + " Weapon Choice";
-			weaponType = (String) choices.get(1);
+			title = choices.get(1) + " Weapon Choice";
+			weaponType = choices.get(1);
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -70,25 +70,24 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		// TODO Finish this?
 	}
 
 	void setWeaponProfTypeSelections(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		final List       tArrayList = Globals.getWeaponProfs(weaponType, aPc);
+		final List<WeaponProf>       tArrayList = Globals.getWeaponProfs(weaponType, aPc);
 			  Iterator   iter;
 			  WeaponProf tempProf;
 
-		for (iter = tArrayList.iterator(); iter.hasNext();)
+		for ( WeaponProf wp : tArrayList )
 		{
-			tempProf = (WeaponProf) iter.next();
-			availableList.add(tempProf.getKeyName());
+			availableList.add(wp.getKeyName());
 		}
 
 		pobject.addAssociatedTo(selectedList);

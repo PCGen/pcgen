@@ -103,7 +103,7 @@ FEATPOOL:0.0
 WEAPONPROF:[WEAPON:Blowgun|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Halfspear]
 WEAPONPROF:[WEAPON:Javelin|WEAPON:Longbow|WEAPON:Longbow (Composite)|WEAPON:Mace|WEAPON:Mace (Heavy)|WEAPON:Morningstar|WEAPON:Quarterstaff|WEAPON:SIMPLE|WEAPON:Shortbow|WEAPON:Shortbow (Composite)]
 WEAPONPROF:[WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Sword (Long)|WEAPON:Unarmed Strike]
-WEAPONPROF:[WEAPON:Sword (Long)]|SOURCE:[TYPE:RACE|NAME:Elf]
+WEAPONPROF:[WEAPON:Longsword]|SOURCE:[TYPE:RACE|NAME:Elf]
 
 # Character Equipment
 MONEY:100

@@ -53,45 +53,13 @@ public class SkillListCrossClassChoiceManager extends SkillListChoiceManager {
 		chooserHandled = "CCSKILLIST";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
 
-	/**
-	 * Associate a choice with the pobject.
-	 *
-	 * @param aPc
-	 * @param item the choice to associate
-	 * @param prefix
-	 */
-	protected void associateChoice(
-			final PlayerCharacter aPc,
-			final String          item,
-			final String          prefix)
+	protected void addSkillToAbility( final Ability anAbility, final String aSkillKey )
 	{
-		super.associateChoice(aPc, item, prefix);
-
-		if (pobject != null && pobject instanceof Ability)
-		{
-			Ability ability = (Ability) pobject;
-			if (rootArrayList.contains(item))
-			{
-				for (Iterator e2 = Globals.getSkillList().iterator(); e2.hasNext();)
-				{
-					final Skill skill = (Skill) e2.next();
-
-					if (skill.getRootName().equalsIgnoreCase(item))
-					{
-						ability.addCcSkill(skill.getKeyName());
-					}
-				}
-			}
-			else
-			{
-				ability.addCcSkill(item);
-			}
-		}
+		anAbility.addCcSkill( aSkillKey );
 	}
-
 }

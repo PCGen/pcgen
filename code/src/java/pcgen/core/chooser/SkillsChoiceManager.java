@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * This is one of the choosers that deals with choosing a skill.
  */
-public class SkillsChoiceManager extends AbstractComplexChoiceManager {
+public class SkillsChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	protected List rootArrayList;
 
@@ -54,7 +54,7 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "SKILLS";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -67,14 +67,12 @@ public class SkillsChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
-		Iterator iter;
-		for (iter = aPc.getSkillList().iterator(); iter.hasNext();)
+		for ( Skill skill : aPc.getSkillList() )
 		{
-			final Skill aSkill = (Skill) iter.next();
-			availableList.add(aSkill.getKeyName());
+			availableList.add(skill.getKeyName());
 		}
 
 		pobject.addAssociatedTo(selectedList);

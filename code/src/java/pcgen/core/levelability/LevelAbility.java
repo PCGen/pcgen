@@ -33,6 +33,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 
 /**
  * Represents a single ability a character gets when gaining a level (an ADD:
@@ -139,7 +142,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 */
 
 	public void process(
-		final List            availableList,
+		final List<String>            availableList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
@@ -150,7 +153,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		final ChooserInterface c       = ChooserFactory.getChooserInstance();
 		String                 bString = prepareChooser(c, aPC);
 
-		final List choicesList = getChoicesList(bString, aPC);
+		final List<String> choicesList = getChoicesList(bString, aPC);
 
 		if (availableList != null)
 		{
@@ -223,10 +226,11 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 	private void getSpellLevelChoices(final PlayerCharacter aPC, final String typeString)
 	{
-		final List            aBonusList = new ArrayList();
+		final List<String>            aBonusList = new ArrayList<String>();
 		final StringTokenizer aTok       = new StringTokenizer(typeString, "[]", false);
 		final String          choices    = aTok.nextToken();
 
+		// This doesn't do anything aBonusList is never used.
 		while (aTok.hasMoreTokens())
 		{
 			aBonusList.add(aTok.nextToken());
@@ -244,8 +248,8 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 * @param  pcLevelInfo
 	 */
 	public boolean processChoice(
-		final List            anArrayList,
-		final List            selectedList,
+		final List<String>            anArrayList,
+		final List<String>            selectedList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
@@ -543,32 +547,28 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 *
 	 * @return  List of choices
 	 */
-	List getChoicesList(String tokenString, final PlayerCharacter aPC)
+	List<String> getChoicesList(String tokenString, final PlayerCharacter aPC)
 	{
-		final List aArrayList = new ArrayList(); // available
+		final List<String> aArrayList = new ArrayList<String>(); // available
 
 		if (type == TYPE) // Favoured Enemy type listed
 		{
 			final String aString = tokenString.substring(5);
-			final List   races   = new ArrayList(Globals.getRaceMap().values());
+			final List<Race>   races   = new ArrayList<Race>(Globals.getRaceMap().values());
 
-			for (Iterator e = races.iterator(); e.hasNext();)
+			for ( Race race : races )
 			{
-				final Race race = (Race) e.next();
-
 				if (race.getType().equalsIgnoreCase(aString))
 				{
 					aArrayList.add(race.getKeyName());
 				}
 			}
 
-			for (Iterator e = Globals.getClassList().iterator(); e.hasNext();)
+			for ( PCClass pcClass : Globals.getClassList() )
 			{
-				final PCClass aClass = (PCClass) e.next();
-
-				if (aClass.isType(aString) && !aArrayList.contains(aClass.getKeyName()))
+				if (pcClass.isType(aString) && !aArrayList.contains(pcClass.getKeyName()))
 				{
-					aArrayList.add(aClass.getKeyName());
+					aArrayList.add(pcClass.getKeyName());
 				}
 			}
 
@@ -583,7 +583,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		while (aTok.hasMoreTokens() && flag)
 		{
 			String     aString     = aTok.nextToken();
-			final List preReqArray = new ArrayList();
+			final List<String> preReqArray = new ArrayList<String>();
 
 			if (aString.lastIndexOf('<') > -1)
 			{
@@ -622,9 +622,18 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 				}
 			}
 
-			if (PrereqHandler.passesAll(preReqArray, aPC, null))
+			try
 			{
-				processToken(aString, aArrayList, aPC);
+				final PreParserFactory factory = PreParserFactory.getInstance();
+				List<Prerequisite> preReqs = factory.parse( preReqArray );
+				if (PrereqHandler.passesAll(preReqs, aPC, null))
+				{
+					processToken(aString, aArrayList, aPC);
+				}
+			}
+			catch ( PersistenceLayerException ple )
+			{
+				// We won't process this token if we can't parse the prereqs
 			}
 		}
 
@@ -773,7 +782,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 */
 	void processToken(
 		final String          aToken,
-		final List            anArrayList,
+		final List<String>            anArrayList,
 		final PlayerCharacter aPC)
 	{
 

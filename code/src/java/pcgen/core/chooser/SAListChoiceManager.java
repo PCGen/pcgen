@@ -33,11 +33,11 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing from a list of SAs.
  */
-public class SAListChoiceManager extends AbstractComplexChoiceManager {
+public class SAListChoiceManager extends AbstractComplexChoiceManager<String> {
 
-	              List   aBonusList = null;
+	List<String>   aBonusList = null;
 	private final String stChoices;
-	
+
 	/**
 	 * Make a new Armor Type chooser.
 	 *
@@ -58,7 +58,7 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 		 * not necessarily the same as the choiceString that was passing because
 		 * we may have removed some | separated elements from the front of it in
 		 * the constructor of the superclass */
-		
+
 		StringBuffer newChoice = new StringBuffer(choiceString.length());
 		Iterator choiceIt = choices.iterator();
 		while (choiceIt.hasNext()) {
@@ -67,7 +67,7 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 			}
 			newChoice.append(choiceIt.next());
 		}
-		
+
 		stChoices = newChoice.toString();
 	}
 
@@ -79,8 +79,8 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		PCGIOHandler.buildSALIST(stChoices, availableList, aBonusList, aPc);
 		pobject.addAssociatedTo(selectedList);
@@ -100,10 +100,8 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 			final String aString = pobject.getAssociated(e);
 			final String prefix = aString + "|";
 
-			for (int x = 0; x < aBonusList.size(); ++x)
+			for ( String bString : aBonusList )
 			{
-				final String bString = (String) aBonusList.get(x);
-
 				if (bString.startsWith(prefix))
 				{
 					pobject.removeBonus(bString.substring(bString.indexOf('|') + 1), "", aPc);
@@ -116,19 +114,19 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 		super.cleanUpAssociated(aPc, size);
 	}
 
-	
+
 	/**
 	 * Associate a choice with the pobject.
-	 * 
-	 * @param aPc 
+	 *
+	 * @param aPc
 	 * @param name the choice to associate
 	 */
 	protected void associateChoice(
-			final PlayerCharacter aPc, 
+			final PlayerCharacter aPc,
 			final String          name,
 			final String          objPrefix)
 	{
-		
+
 		if (multiples && !dupsAllowed)
 		{
 			if (!pobject.containsAssociated(name))
@@ -140,16 +138,14 @@ public class SAListChoiceManager extends AbstractComplexChoiceManager {
 		{
 			final String prefix = name + "|";
 			pobject.addAssociated(objPrefix + name);
-			
+
 			// SALIST: aBonusList contains all possible selections in form: <displayed info>|<special ability>
-			for (int x = 0; x < aBonusList.size(); ++x)
+			for ( String bString : aBonusList )
 			{
-				final String bString = (String) aBonusList.get(x);
-				
 				if (bString.startsWith(prefix))
 				{
 					pobject.addBonusList(bString.substring(bString.indexOf('|') + 1));
-					
+
 					break;
 				}
 			}

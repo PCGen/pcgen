@@ -35,7 +35,7 @@ import java.util.*;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
+public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager<String>
 {
 	/**
 	 * <code>weaponToProf</code>
@@ -81,7 +81,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 		}
 	}
 
-	final CategorisableStore weaponToProfMap = new CategorisableStore();
+	final CategorisableStore<weaponToProf> weaponToProfMap = new CategorisableStore<weaponToProf>();
 
 	/**
 	 * Creates a new SimpleWeaponProfChoiceManager object.
@@ -106,8 +106,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void getChoices(
 		PlayerCharacter aPc,
-		List            availableList,
-		List            selectedList)
+		List<String>            availableList,
+		List<String>            selectedList)
 	{
 		weaponToProfMap.clear();
 
@@ -116,12 +116,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
 
-		Iterator it = choices.iterator();
-
-		while (it.hasNext())
+		for ( String raw : choices )
 		{
 			boolean      adding   = false;
-			String       raw      = (String) it.next();
 			String       parsed   = raw;
 			final String unparsed = raw;
 
@@ -173,7 +170,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	private void buildWeaponProfDeityChoices(
 		final String          unparsed,
-		final List            availableList,
+		final List<String>            availableList,
 		boolean               adding,
 		final PlayerCharacter aPC)
 	{
@@ -218,13 +215,13 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	private void buildWeaponProfTypeChoices(
 		final String          unparsed,
-		final List            availableList,
+		final List<String>            availableList,
 		String                parsed,
 		final PlayerCharacter aPC)
 	{
 		final String          types    = parsed.substring(5);
 		final StringTokenizer aTok     = new StringTokenizer(types, ".");
-		final List            typeList = new ArrayList();
+		final List<String>            typeList = new ArrayList<String>();
 		int                   iSize    = -1;
 
 		while (aTok.hasMoreTokens())
@@ -241,12 +238,11 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 			}
 		}
 
-		Iterator ei = EquipmentList.getEquipmentListIterator();
+		Iterator<Map.Entry<String, Equipment>> ei = EquipmentList.getEquipmentListIterator();
 
 		while (ei.hasNext())
 		{
-			final Map.Entry entry = (Map.Entry) ei.next();
-			final Equipment aEq   = (Equipment) entry.getValue();
+			final Equipment aEq   = ei.next().getValue();
 
 			if (!aEq.isWeapon())
 			{
@@ -255,9 +251,9 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 
 			boolean bOk = true;
 
-			for (Iterator ti = typeList.iterator(); ti.hasNext();)
+			for ( String ti : typeList )
 			{
-				if (!aEq.isType((String) ti.next()))
+				if (!aEq.isType(ti) )
 				{
 					break;
 				}
@@ -286,33 +282,32 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	private void buildWeaponProfWeildChoices(
 		final String          unparsed,
-		final List            availableList,
+		final List<String>            availableList,
 		String                parsed,
 		final PlayerCharacter aPC)
 	{
 		final StringTokenizer bTok      = new StringTokenizer(parsed.substring(6), ".");
-		final List            wieldList = new ArrayList();
+		final List<String>            wieldList = new ArrayList<String>();
 
 		while (bTok.hasMoreTokens())
 		{
 			wieldList.add(bTok.nextToken());
 		}
 
-		for (Iterator ei = EquipmentList.getEquipmentListIterator(); ei.hasNext();)
+		for (Iterator<Map.Entry<String, Equipment>> ei = EquipmentList.getEquipmentListIterator(); ei.hasNext();)
 		{
-			final Map.Entry entry = (Map.Entry) ei.next();
-			final Equipment aEq   = (Equipment) entry.getValue();
+			final Equipment aEq   = ei.next().getValue();
 
 			if (!aEq.isWeapon())
 			{
 				continue;
 			}
 
-			for (Iterator wi = wieldList.iterator(); wi.hasNext();)
+			for ( String wield : wieldList )
 			{
 				if (
 					!aEq.hasWield() ||
-					!aEq.getWield().equalsIgnoreCase((String) wi.next()))
+					!aEq.getWield().equalsIgnoreCase(wield))
 				{
 					break;
 				}
@@ -334,7 +329,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	private void addtoToAvailableAndMap(
 		final String unparsed,
-		final List   availableList,
+		final List<String>   availableList,
 		String       wpKey)
 	{
 		final WeaponProf wp = Globals.getWeaponProfKeyed(wpKey);
@@ -367,30 +362,29 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	private void removeExcludedWeaponProfTypeChoices(
 		String                parsed,
-		final List            availableList,
+		final List<String>            availableList,
 		final PlayerCharacter aPC)
 	{
 		final StringTokenizer bTok     = new StringTokenizer(parsed.substring(6), ".");
-		final List            typeList = new ArrayList();
+		final List<String>            typeList = new ArrayList<String>();
 
 		while (bTok.hasMoreTokens())
 		{
 			typeList.add(bTok.nextToken());
 		}
 
-		for (Iterator ei = EquipmentList.getEquipmentListIterator(); ei.hasNext();)
+		for (Iterator<Map.Entry<String, Equipment>> ei = EquipmentList.getEquipmentListIterator(); ei.hasNext();)
 		{
-			final Map.Entry entry = (Map.Entry) ei.next();
-			final Equipment aEq   = (Equipment) entry.getValue();
+			final Equipment aEq   = ei.next().getValue();
 
 			if (!aEq.isWeapon())
 			{
 				continue;
 			}
 
-			for (Iterator ti = typeList.iterator(); ti.hasNext();)
+			for ( String ti : typeList )
 			{
-				if (!aEq.isType((String) ti.next()))
+				if (!aEq.isType(ti))
 				{
 					break;
 				}
@@ -414,25 +408,20 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void applyChoices(
 		final PlayerCharacter  aPC,
-		final List             selected)
+		final List<String>             selected)
 	{
 		pobject.clearSelectedWeaponProfBonus();
 		aPC.setAutomaticFeatsStable(false);
 
-		Iterator it = selected.iterator();
+		Iterator<String> it = selected.iterator();
 
 		while (it.hasNext() && !weaponToProfMap.isEmpty())
 		{
-			final String aChoice = (String) it.next();
-			Iterator     innerIt = weaponToProfMap.getKeyIterator(aChoice);
+			final String aChoice = it.next();
+			Iterator<weaponToProf>     innerIt = weaponToProfMap.getKeyIterator(aChoice);
 
 			while (innerIt.hasNext())
 			{
-				//
-				// For deity weapons, innerIt has weaponToProf objects, so casting to String
-				// will throw a ClassCastException
-				// - Byngl Nov 16, 2005
-//				final String featOrProf = (String) innerIt.next();
 				final String featOrProf = innerIt.next().toString();
 
 				if (featOrProf == null)

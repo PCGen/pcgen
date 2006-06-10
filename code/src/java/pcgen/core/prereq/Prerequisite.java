@@ -38,7 +38,7 @@ public class Prerequisite implements Cloneable
 	private String kind;
 	private String key = null;
 	private String subKey = null;
-	private List prerequisites = new ArrayList();
+	private List<Prerequisite> prerequisites = new ArrayList<Prerequisite>();
 	private PrerequisiteOperator operator = PrerequisiteOperator.GTEQ;
 	private String operand = "1"; //$NON-NLS-1$
 	/** Indicates that the total of skill ranks, class levels etc should be
@@ -54,7 +54,7 @@ public class Prerequisite implements Cloneable
 
 	public Prerequisite()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	public Prerequisite(final Prerequisite that)
@@ -177,7 +177,7 @@ public class Prerequisite implements Cloneable
 		return operator;
 	}
 
-	public void setPrerequisites(final List prerequisites)
+	public void setPrerequisites(final List<Prerequisite> prerequisites)
 	{
 		this.prerequisites = prerequisites;
 	}
@@ -315,11 +315,10 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			copy.prerequisites = new ArrayList();
-			for (Iterator iter = prerequisites.iterator(); iter.hasNext();)
+			copy.prerequisites = new ArrayList<Prerequisite>();
+			for ( Prerequisite subreq : prerequisites )
 			{
-				final Prerequisite subreq = (Prerequisite) iter.next();
-				copy.prerequisites.add(subreq.clone());
+				copy.prerequisites.add((Prerequisite)subreq.clone());
 			}
 		}
 

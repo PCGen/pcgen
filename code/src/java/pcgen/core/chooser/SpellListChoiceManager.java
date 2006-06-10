@@ -40,11 +40,12 @@ import pcgen.util.Logging;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.AssociatedChoice;
 
 /**
  * This is the chooser that deals with choosing a spell level.
  */
-public class SpellListChoiceManager extends AbstractComplexChoiceManager
+public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 {
 	int                idxSelected = -1;
 	FeatMultipleChoice fmc         = null;
@@ -67,7 +68,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 		chooserHandled = "SPELLLIST";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -81,8 +82,8 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	 */
 	public void getChoices(
 		final PlayerCharacter aPc,
-		final List            availableList,
-		final List            selectedList)
+		final List<String>            availableList,
+		final List<String>            selectedList)
 	{
 		if (Ability.class.isInstance(pobject) && chooseAbility())
 		{
@@ -163,7 +164,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	 */
 	protected void adjustFeats(
 			PlayerCharacter aPC,
-			List            selected)
+			List<String>            selected)
 	{
 		// Nothing to do here.  The method this class replaces specifically checked
 		// that it wasn't part of a SpellList chooser before it adjusted the Feat
@@ -184,7 +185,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	{
 		Ability    anAbility = (Ability) pobject;
 		int        i;
-		final List aList     = new ArrayList();
+		final List<String> aList     = new ArrayList<String>();
 		aList.add("New");
 
 		final StringBuffer sb = new StringBuffer(100);
@@ -251,15 +252,15 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 	 */
 	private void setSpellListSelections(
 		final PlayerCharacter aPC,
-		final List            availableList,
-		final List            selectedList)
+		final List<String>            availableList,
+		final List<String>            selectedList)
 	{
-		Iterator choicesIt = choices.iterator();
+		Iterator<String> choicesIt = choices.iterator();
 
 		Iterator      iter;
 		final boolean needSpellbook;
 
-		switch (((String) choicesIt.next()).charAt(0))
+		switch (choicesIt.next().charAt(0))
 		{
 			case '1':
 			case 'Y':
@@ -273,7 +274,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 				break;
 		}
 
-		List    classes = null;
+		List<PCClass>    classes = null;
 
 		for (int j = 0;; ++j)
 		{
@@ -290,10 +291,10 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 			{
 				if (classes == null)
 				{
-					classes = new ArrayList();
+					classes = new ArrayList<PCClass>();
 				}
 
-				classes.add(aClass);
+				classes.add((PCClass)aClass);
 			}
 		}
 
@@ -307,16 +308,15 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 
 			for (int j = 0; j < classes.size(); ++j)
 			{
-				final PObject aClass = (PObject) classes.get(j);
+				final PCClass aClass = classes.get(j);
 
-				final List aList = aClass.getSpellSupport().getCharacterSpell(
+				final List<CharacterSpell> aList = aClass.getSpellSupport().getCharacterSpell(
 						null,
 						Globals.getDefaultSpellBook(),
 						-1);
 
-				for (iter = aList.iterator(); iter.hasNext();)
+				for ( CharacterSpell cs : aList )
 				{
-					final CharacterSpell cs     = (CharacterSpell) iter.next();
 					final Spell          aSpell = cs.getSpell();
 
 					if (!pobject.containsAssociated(aSpell.getKeyName()))
@@ -328,7 +328,7 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 					}
 				}
 
-				int statMod = aPC.getStatList().getStatModFor(((PCClass) aClass).getSpellBaseStat());
+				int statMod = aPC.getStatList().getStatModFor(aClass.getSpellBaseStat());
 
 				if (statMod > 0)
 				{
@@ -338,14 +338,14 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager
 
 			// Remove all previously selected items from the available list
 
-			final List assocList = pobject.getAssociatedList();
+			final List<AssociatedChoice<String>> assocList = pobject.getAssociatedList();
 
 			if (assocList != null)
 			{
 				for (int j = 0; j < assocList.size(); ++j)
 				{
 					final FeatMultipleChoice featMultChoice = (FeatMultipleChoice) assocList.get(j);
-					final List               fmcChoices = featMultChoice.getChoices();
+					final List<String>               fmcChoices = featMultChoice.getChoices();
 
 					if (fmcChoices != null)
 					{

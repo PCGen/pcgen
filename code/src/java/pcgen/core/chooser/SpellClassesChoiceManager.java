@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing a spellcasting class.
  */
-public class SpellClassesChoiceManager extends AbstractComplexChoiceManager {
+public class SpellClassesChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new spell casting class chooser.
@@ -53,7 +53,7 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "SPELLCLASSES";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -67,19 +67,17 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List            availableList,
-			final List            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		Iterator iter;
 		PCClass aClass;
 
-		for (iter = aPc.getClassList().iterator(); iter.hasNext();)
+		for ( PCClass pcClass : aPc.getClassList() )
 		{
-			aClass = (PCClass) iter.next();
-
-			if (!aClass.getSpellBaseStat().equals(Constants.s_NONE))
+			if (!pcClass.getSpellBaseStat().equals(Constants.s_NONE))
 			{
-				availableList.add(aClass.getKeyName());
+				availableList.add(pcClass.getKeyName());
 			}
 		}
 

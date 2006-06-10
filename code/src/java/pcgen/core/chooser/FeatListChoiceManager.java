@@ -29,6 +29,8 @@ import pcgen.core.PlayerCharacter;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
+import pcgen.core.Globals;
 
 /**
  * This is one of the choosers that deals with choosing from among a set
@@ -105,10 +107,15 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
 			}
 		}
 
-		for ( Ability ability : selectedList )
+		List<String> abilityKeys = new ArrayList<String>();
+		pobject.addAssociatedTo( abilityKeys );
+		for ( String key : abilityKeys )
 		{
-			pobject.addAssociated( ability.getKeyName() );
+			Ability ability = Globals.getAbilityKeyed( "FEAT", key );
+			if ( ability != null )
+			{
+				selectedList.add( ability );
+			}
 		}
 	}
-
 }

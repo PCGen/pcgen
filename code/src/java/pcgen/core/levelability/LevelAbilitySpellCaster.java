@@ -96,14 +96,14 @@ public class LevelAbilitySpellCaster extends LevelAbility
 	 */
 
 	public boolean processChoice(
-		final List            anArrayList,
-		final List            selectedList,
+		final List<String>            anArrayList,
+		final List<String>            selectedList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
 		if (selectedList.size() > 0)
 		{
-			final String classKey = selectedList.get(0).toString();
+			final String classKey = selectedList.get(0);
 			PCClass      theClass  = aPC.getClassKeyed(classKey);
 
 			if (theClass == null)
@@ -146,7 +146,7 @@ public class LevelAbilitySpellCaster extends LevelAbility
 
 	void processToken(
 		final String          aToken,
-		final List            anArrayList,
+		final List<String>            anArrayList,
 		final PlayerCharacter aPC)
 	{
 		String token = aToken;
@@ -169,9 +169,9 @@ public class LevelAbilitySpellCaster extends LevelAbility
 
 		PCClass aClass;
 
-		for (Iterator e1 = aPC.getClassList().iterator(); e1.hasNext();)
+		for (Iterator<PCClass> e1 = aPC.getClassList().iterator(); e1.hasNext();)
 		{
-			aClass = (PCClass) e1.next();
+			aClass = e1.next();
 
 			if ("Domain".equals(aClass.getKeyName()))
 			{

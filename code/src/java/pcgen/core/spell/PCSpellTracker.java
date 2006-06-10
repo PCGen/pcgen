@@ -52,31 +52,31 @@ public class PCSpellTracker {
 
 	protected PlayerCharacter pc;
 	protected DoubleKeyMap<String, String, Integer> spellSerialMap = new DoubleKeyMap<String, String, Integer>();
-	protected DoubleKeyMap<String, String, Map<String, String>> spellMap = new DoubleKeyMap<String, String, Map<String, String>>();
+	protected DoubleKeyMap<String, String, Map<String, Integer>> spellMap = new DoubleKeyMap<String, String, Map<String, Integer>>();
 
-	protected Map<String, String> spellLevelMap = new HashMap<String, String>();
+	protected Map<String, Integer> spellLevelMap = new HashMap<String, Integer>();
 	protected int spellLevelMapSerial = 0;
 
 	public PCSpellTracker(PlayerCharacter pc) {
 		this.pc = pc;
 	}
 
-	public Map<String, String> getSpellInfoMap(final String key1, final String key2) {
+	public Map<String, Integer> getSpellInfoMap(final String key1, final String key2) {
 		Integer i = spellSerialMap.get(key1, key2);
 		if (i != null) {
 			if (i.intValue() >= pc.getSerial()) {
 				return spellMap.get(key1, key2);
 			}
 		}
-		Map<String, String> newMap = buildSpellInfoMap(key1, key2);
+		Map<String, Integer> newMap = buildSpellInfoMap(key1, key2);
 		spellMap.put(key1, key2, newMap);
 		spellSerialMap.put(key1, key2, new Integer(pc.getSerial()));
 		return newMap;
 	}
 
-	public Map<String, String> buildSpellInfoMap(final String key1, final String key2) {
+	public Map<String, Integer> buildSpellInfoMap(final String key1, final String key2) {
 		Iterator<? extends PObject> e;
-		Map<String, String> spellInfoMap = new HashMap<String, String>();
+		Map<String, Integer> spellInfoMap = new HashMap<String, Integer>();
 
 		if (!pc.getClassList().isEmpty()) {
 			e = pc.getClassList().iterator();
@@ -127,7 +127,7 @@ public class PCSpellTracker {
 		return spellInfoMap;
 	}
 
-	private void buildSpellInfoMap(final Map<String, String> spellInfoMap, final String key1, final String key2, final Iterator<? extends PObject> e) {
+	private void buildSpellInfoMap(final Map<String, Integer> spellInfoMap, final String key1, final String key2, final Iterator<? extends PObject> e) {
 		while (e.hasNext()) {
 			final PObject pObj = e.next();
 
@@ -139,9 +139,9 @@ public class PCSpellTracker {
 		}
 	}
 
-	public Map<String, String> getSpellInfoMapPassesPrereqs(final PObject obj, final String key1, final String key2) {
+	public Map<String, Integer> getSpellInfoMapPassesPrereqs(final PObject obj, final String key1, final String key2) {
 		if (obj.getSpellSupport() == null) {
-			return new HashMap<String, String>();
+			return new HashMap<String, Integer>();
 		}
 		return obj.getSpellSupport().getSpellInfoMapPassesPrereqs(key1, key2, pc);
 	}
@@ -158,11 +158,7 @@ public class PCSpellTracker {
 
 		final int levelInt;
 
-		try {
-			levelInt = Integer.parseInt(spellLevelMap.get(key));
-		} catch (NumberFormatException nfe) {
-			return false;
-		}
+		levelInt = spellLevelMap.get(key);
 
 		if (levelMatch == levelInt) {
 			return true;
@@ -186,16 +182,11 @@ public class PCSpellTracker {
 			return -1;
 		}
 
-		try {
-			final int levelInt = Integer.parseInt((String) spellLevelMap.get(key));
-			return levelInt;
-		} catch (NumberFormatException nfe) {
-			return -1;
-		}
+		return spellLevelMap.get(key);
 	}
 
 	public void buildSpellLevelMap(final int levelMatch) {
-		Iterator e;
+		Iterator<?> e;
 		spellLevelMap.clear();
 
 		if (!pc.getClassList().isEmpty()) {
@@ -242,7 +233,7 @@ public class PCSpellTracker {
 		}
 	}
 
-	private void buildSpellLevelMap(final int levelMatch, final Iterator e) {
+	private void buildSpellLevelMap(final int levelMatch, final Iterator<?> e) {
 		while (e.hasNext()) {
 			Object obj = e.next();
 
@@ -266,9 +257,9 @@ public class PCSpellTracker {
 	 * @param levelMatch
 	 * @return Map
 	 */
-	public Map<String, String> getSpellMapPassesPrereqs(final PObject obj, final int levelMatch) {
+	public Map<String, Integer> getSpellMapPassesPrereqs(final PObject obj, final int levelMatch) {
 		if (obj.getSpellSupport() == null) {
-			return new HashMap<String, String>();
+			return new HashMap<String, Integer>();
 		}
 
 		return obj.getSpellSupport().getSpellMapPassesPrereqs(levelMatch, pc);

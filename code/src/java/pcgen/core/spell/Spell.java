@@ -46,17 +46,17 @@ import java.util.*;
 public final class Spell extends PObject
 {
 	private BigDecimal cost = BigDecimalHelper.ZERO;
-	private HashMap levelInfo = null;
+	private HashMap<String, Integer> levelInfo = null;
 	private List<String> descriptorList = new ArrayList<String>();
-	private List variantList = null; //Lazy initialization, it's rarely, if ever, used.
+	private List<String> variantList = null; //Lazy initialization, it's rarely, if ever, used.
 	private Map preReqMap = null;
-	private SortedSet castingTime = new TreeSet();
-	private SortedSet componentList = new TreeSet();
-	private SortedSet duration = new TreeSet();
-	private SortedSet range = new TreeSet();
-	private SortedSet saveInfo = new TreeSet();
+	private SortedSet<String> castingTime = new TreeSet<String>();
+	private SortedSet<String> componentList = new TreeSet<String>();
+	private SortedSet<String> duration = new TreeSet<String>();
+	private SortedSet<String> range = new TreeSet<String>();
+	private SortedSet<String> saveInfo = new TreeSet<String>();
 	private SortedSet<String> school = new TreeSet<String>();
-	private SortedSet spellResistance = new TreeSet();
+	private SortedSet<String> spellResistance = new TreeSet<String>();
 	private SortedSet<String> subschool = new TreeSet<String>();
 	private String fixedCasterLevel = null;
 	private String fixedDC = null;
@@ -255,11 +255,10 @@ public final class Spell extends PObject
 
 			if (si.getFeatList() != null)
 			{
-				for (Iterator i = si.getFeatList().iterator(); i.hasNext();)
+				for ( Ability metaFeat : si.getFeatList() )
 				{
-					final Ability aFeat = (Ability) i.next();
-					spellLevel -= aFeat.getAddSpellLevel();
-					metaDC += aFeat.bonusTo("DC", "FEATBONUS", aPC, aPC);
+					spellLevel -= metaFeat.getAddSpellLevel();
+					metaDC += metaFeat.bonusTo("DC", "FEATBONUS", aPC, aPC);
 				}
 			}
 		}
@@ -337,13 +336,13 @@ public final class Spell extends PObject
 
 		dc += (int) aPC.getTotalBonusTo("DC", "TYPE." + spellType);
 
-		Iterator i = getSafeListFor(ListKey.TYPE).iterator();
+		Iterator<String> i = getSafeListFor(ListKey.TYPE).iterator();
 
 		if (spellType.equals("ALL"))
 		{
 			while (i.hasNext())
 			{
-				final String aType = (String) i.next();
+				final String aType = i.next();
 				dc += (int) aPC.getTotalBonusTo("DC", "TYPE." + aType);
 			}
 		}
@@ -354,7 +353,7 @@ public final class Spell extends PObject
 		{
 			while (i.hasNext())
 			{
-				final String aType = (String) i.next();
+				final String aType = i.next();
 				dc += (int) aPC.getTotalBonusTo("DC", "SCHOOL." + aType);
 			}
 		}
@@ -365,7 +364,7 @@ public final class Spell extends PObject
 		{
 			while (i.hasNext())
 			{
-				final String aType = (String) i.next();
+				final String aType = i.next();
 				dc += (int) aPC.getTotalBonusTo("DC", "SUBSCHOOL." + aType);
 			}
 		}
@@ -376,7 +375,7 @@ public final class Spell extends PObject
 		{
 			while (i.hasNext())
 			{
-				final String aType = (String) i.next();
+				final String aType = i.next();
 				dc += (int) aPC.getTotalBonusTo("DC", "DESCRIPTOR." + aType);
 			}
 		}
@@ -475,7 +474,7 @@ public final class Spell extends PObject
 			{
 				if (levelInfo == null)
 				{
-					levelInfo = new HashMap();
+					levelInfo = new HashMap<String, Integer>();
 				}
 
 				levelInfo.put(key, new Integer(level));
@@ -493,20 +492,20 @@ public final class Spell extends PObject
 	 *     may cast the spell
 	 * @param aPC
 	 */
-	public Map<String, String> getLevelInfo(final PlayerCharacter aPC)
+	public Map<String, Integer> getLevelInfo(final PlayerCharacter aPC)
 	{
-		Map<String, String> wLevelInfo = null;
+		Map<String, Integer> wLevelInfo = null;
 
 		if (levelInfo != null)
 		{
-			wLevelInfo = (Map<String, String>) levelInfo.clone();
+			wLevelInfo = (Map<String, Integer>) levelInfo.clone();
 		}
 
 		if (aPC != null)
 		{
 			if (wLevelInfo == null)
 			{
-				wLevelInfo = new HashMap<String, String>();
+				wLevelInfo = new HashMap<String, Integer>();
 			}
 
 			wLevelInfo.putAll(aPC.getSpellInfoMap("CLASS", getKeyName()));

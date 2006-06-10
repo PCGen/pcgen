@@ -41,8 +41,8 @@ interface LevelAbilityInterface
 	 * @return true if process is OK
 	 */
 	public boolean processChoice(
-			final List            anArrayList,
-			final List            selectedList,
+			final List<String>            anArrayList,
+			final List<String>            selectedList,
 			final PlayerCharacter aPC,
 			final PCLevelInfo     pcLevelInfo);
 }

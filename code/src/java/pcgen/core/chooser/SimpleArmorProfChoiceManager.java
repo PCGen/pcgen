@@ -39,7 +39,7 @@ import java.util.Map;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
+public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager<String>
 {
 	/**
 	 * Creates a new SimpleArmorProfChoiceManager object.
@@ -68,26 +68,25 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void getChoices(
 		PlayerCharacter aPc,
-		List            availableList,
-		List            selectedList)
+		List<String>            availableList,
+		List<String>            selectedList)
 	{
 		selectedList.addAll(pobject.getSafeListFor(ListKey.SELECTED_ARMOR_PROF));
 
-		Iterator it         = choices.iterator();
+		Iterator<String> it         = choices.iterator();
 		String   tempString;
 
 		while (it.hasNext())
 		{
-			tempString = (String) it.next();
+			tempString = it.next();
 
 			if (tempString.startsWith("TYPE=") || tempString.startsWith("TYPE."))
 			{
 				tempString = tempString.substring(5);
 
-				for (Iterator i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
+				for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext();)
 				{
-					final Map.Entry entry = (Map.Entry) i.next();
-					final Equipment eq    = (Equipment) entry.getValue();
+					final Equipment eq    = i.next().getValue();
 
 					if (
 						eq.isArmor() &&
@@ -121,7 +120,7 @@ public class SimpleArmorProfChoiceManager extends AbstractSimpleChoiceManager
 	 */
 	public void applyChoices(
 		final PlayerCharacter  aPC,
-		final List             selected)
+		final List<String>             selected)
 	{
 		pobject.addSelectedArmorProfs(selected);
 	}

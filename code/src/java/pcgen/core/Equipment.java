@@ -79,11 +79,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	/** The item is held in neither hand */
 	public static final int EQUIPPED_NEITHER = 0;
 	/** The item is held in neither hand - String */
-	public static final String EQUIPPED_NEITHER_STR = PropertyFactory.getString("EquipLocation.Equipped_Neither");
+	public static final String EQUIPPED_NEITHER_STR = PropertyFactory.getString("EquipLocation.Neither");
 	/** The item is held in the primary hand */
 	public static final int EQUIPPED_PRIMARY = 1;
 	/** The item is held in the primary hand - String */
-	public static final String EQUIPPED_PRIMARY_STR = PropertyFactory.getString("EquipLocation.Equipped_Primary");
+	public static final String EQUIPPED_PRIMARY_STR = PropertyFactory.getString("EquipLocation.Primary");
 
 	/** The item is held in the secondary hand */
 	public static final int EQUIPPED_SECONDARY = 2;
@@ -6596,7 +6596,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	{
 		if ( theWeaponStats != null )
 		{
-			theWeaponStats.getRangeList(addShortRange, aPC);
+			return theWeaponStats.getRangeList(addShortRange, aPC);
 		}
 		return new ArrayList<String>();
 	}

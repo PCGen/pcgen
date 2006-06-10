@@ -72,9 +72,9 @@ class LevelAbilitySkill extends LevelAbility
 	 * @param aPC
 	 * @return choices list
 	 */
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		final List aArrayList = new ArrayList();
+		final List<String> aArrayList = new ArrayList<String>();
 
 		final StringTokenizer aTok = new StringTokenizer(rawTagData.substring(rawTagData
 			.lastIndexOf('(') + 1, rawTagData.lastIndexOf(')')), ",", false);
@@ -119,7 +119,7 @@ class LevelAbilitySkill extends LevelAbility
 	 */
 	void processToken(
 		final String          aToken,
-		final List            anArrayList,
+		final List<String>            anArrayList,
 		final PlayerCharacter aPC)
 	{
 		anArrayList.add(aToken);
@@ -132,14 +132,13 @@ class LevelAbilitySkill extends LevelAbility
 	 * @param pcLevelInfo
 	 * @param aArrayList
 	 */
-	public boolean processChoice(final List aArrayList, final List selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
+	public boolean processChoice(final List<String> aArrayList, final List<String> selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
 	{
 		boolean changed = false;
 
-		for (int index = 0; index < selectedList.size(); ++index)
+		for ( String selected : selectedList )
 		{
-			final String sString = selectedList.get(index).toString();
-			Skill skillToAdd = Globals.getSkillKeyed(sString);
+			Skill skillToAdd = Globals.getSkillKeyed(selected);
 			if (skillToAdd != null)
 			{
 				skillToAdd = aPC.addSkill(skillToAdd);

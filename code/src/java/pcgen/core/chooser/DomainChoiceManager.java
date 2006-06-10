@@ -32,6 +32,7 @@ import pcgen.core.PlayerCharacter;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing a domain.
@@ -144,9 +145,15 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 			}
 		}
 
-		for ( Domain domain : selectedList )
+		List<String> domainKeys = new ArrayList<String>();
+		pobject.addAssociatedTo( domainKeys );
+		for ( String key : domainKeys )
 		{
-			pobject.addAssociated( domain.getKeyName() );
+			Domain domain = Globals.getDomainKeyed( key );
+			if ( domain != null )
+			{
+				selectedList.add( domain );
+			}
 		}
 	}
 

@@ -34,6 +34,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
+import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing a Weapon Proficiency
@@ -271,9 +272,15 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 		{
 			Logging.errorPrint("CHOOSE:PROFICIENCY - Unknown type " + typeOfProf);
 		}
-		for ( WeaponProf wp : selectedList )
+		List<String> wpKeys = new ArrayList<String>();
+		pobject.addAssociatedTo( wpKeys );
+		for ( String key : wpKeys )
 		{
-			pobject.addAssociated( wp.getKeyName() );
+			WeaponProf wp = Globals.getWeaponProfKeyed( key );
+			if ( wp != null )
+			{
+				selectedList.add( wp );
+			}
 		}
 	}
 }

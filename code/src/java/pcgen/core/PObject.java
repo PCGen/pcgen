@@ -164,9 +164,18 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			int currentCount = 0;
 			for ( AssociatedChoice<String> choice : associatedList )
 			{
-				if ( currentCount + (choice.size() - 1) <= idx )
+				final int choiceInd = choice.size() - 1;
+				if ( currentCount + choiceInd <= idx )
 				{
-					return choice.getChoice(String.valueOf(currentCount + idx));
+					if ( choiceInd == 0 )
+					{
+						return choice.getDefaultChoice();
+					}
+					else
+					{
+						return choice.getChoice(String.valueOf(currentCount
+							+ idx));
+					}
 				}
 				currentCount += choice.size();
 			}

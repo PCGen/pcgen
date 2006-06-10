@@ -36,8 +36,8 @@ import java.util.*;
  */
 final class LevelAbilityList extends LevelAbility
 {
-	private List aBonusList;
-	private List aChoiceList;
+	private List<String> aBonusList;
+	private List<String> aChoiceList;
 	private int cnt = 0;
 
 	LevelAbilityList(final PObject aowner, final int aLevel, final String aList)
@@ -45,10 +45,10 @@ final class LevelAbilityList extends LevelAbility
 		super(aowner, aLevel, aList);
 	}
 
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		aChoiceList = new ArrayList();
-		aBonusList = new ArrayList();
+		aChoiceList = new ArrayList<String>();
+		aBonusList = new ArrayList<String>();
 
 		return super.getChoicesList(bString.substring(5), aPC);
 	}
@@ -75,34 +75,32 @@ final class LevelAbilityList extends LevelAbility
 	 * @param aArrayList
 	 */
 	public boolean processChoice(
-			final List            aArrayList,
-			final List            selectedList,
+			final List<String>            aArrayList,
+			final List<String>            selectedList,
 			final PlayerCharacter aPC,
 			final PCLevelInfo     pcLevelInfo)
 	{
 		for (int index = 0; index < selectedList.size(); ++index)
 		{
-			cnt = aArrayList.indexOf(selectedList.get(index).toString());
+			cnt = aArrayList.indexOf(selectedList.get(index));
 
 			String theChoice = null;
 			String theBonus;
-			final List selectedBonusList = new ArrayList();
+			final List<String> selectedBonusList = new ArrayList<String>();
 			final String prefix = cnt + "|";
 
-			for (Iterator e = aBonusList.iterator(); e.hasNext();)
+			for ( String bonus : aBonusList )
 			{
-				theBonus = (String) e.next();
-
-				if (theBonus.startsWith(prefix))
+				if (bonus.startsWith(prefix))
 				{
-					theBonus = theBonus.substring((cnt / 10) + 2);
-					selectedBonusList.add(theBonus);
+					bonus = bonus.substring((cnt / 10) + 2);
+					selectedBonusList.add(bonus);
 				}
 			}
 
-			for (Iterator e = aChoiceList.iterator(); e.hasNext();)
+			for (Iterator<String> e = aChoiceList.iterator(); e.hasNext();)
 			{
-				theChoice = (String) e.next();
+				theChoice = e.next();
 
 				if (theChoice.startsWith(prefix))
 				{
@@ -120,9 +118,9 @@ final class LevelAbilityList extends LevelAbility
 			}
 			else if (selectedBonusList.size() > 0)
 			{
-				for (Iterator e1 = selectedBonusList.iterator(); e1.hasNext();)
+				for ( String bonus : selectedBonusList )
 				{
-					owner.applyBonus((String) e1.next(), "", aPC);
+					owner.applyBonus(bonus, "", aPC);
 				}
 			}
 		}
@@ -139,7 +137,7 @@ final class LevelAbilityList extends LevelAbility
 	 */
 	void processToken(
 			final String          aToken,
-			final List            anArrayList,
+			final List<String>            anArrayList,
 			final PlayerCharacter aPC)
 	{
 		final StringTokenizer cTok = new StringTokenizer(aToken, "[]", false);

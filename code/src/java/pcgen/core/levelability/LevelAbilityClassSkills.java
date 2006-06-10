@@ -65,9 +65,9 @@ final class LevelAbilityClassSkills extends LevelAbility
 	 *
 	 * @return  list of choices
 	 */
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		final List aArrayList = new ArrayList();
+		final List<String> aArrayList = new ArrayList<String>();
 
 		final StringTokenizer aTok       = new StringTokenizer(
 				rawTagData.substring(
@@ -152,14 +152,12 @@ final class LevelAbilityClassSkills extends LevelAbility
 				continue;
 			}
 
-			for (int index = 0, x = Globals.getSkillList().size(); index < x; ++index)
+			for ( Skill skill : Globals.getSkillList() )
 			{
-				aSkill = (Skill) Globals.getSkillList().get(index);
-
 				//
 				// Already a class skill--no point in making it one again
 				//
-				if (aSkill.isClassSkill(theClass, aPC))
+				if (skill.isClassSkill(theClass, aPC))
 				{
 					continue;
 				}
@@ -168,7 +166,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 				{
 					case CHOICETYPE_UNTRAINED:
 
-						if (aSkill.isUntrained())
+						if (skill.isUntrained())
 						{
 							break;
 						}
@@ -177,7 +175,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_TRAINED:
 
-						if (!aSkill.isUntrained())
+						if (!skill.isUntrained())
 						{
 							break;
 						}
@@ -186,7 +184,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_EXCLUSIVE:
 
-						if (aSkill.isExclusive())
+						if (skill.isExclusive())
 						{
 							break;
 						}
@@ -195,7 +193,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_NONEXCLUSIVE:
 
-						if (!aSkill.isExclusive())
+						if (!skill.isExclusive())
 						{
 							break;
 						}
@@ -204,7 +202,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_CROSSCLASS:
 
-						if (!aSkill.isExclusive())
+						if (!skill.isExclusive())
 						{
 							break;
 						}
@@ -216,7 +214,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 					case CHOICETYPE_BYTYPE:
 
-						if (aSkill.isType(skillType))
+						if (skill.isType(skillType))
 						{
 							break;
 						}
@@ -232,7 +230,7 @@ final class LevelAbilityClassSkills extends LevelAbility
 						break;
 				}
 
-				aArrayList.add(aSkill.getKeyName());
+				aArrayList.add(skill.getKeyName());
 			}
 		}
 
@@ -287,15 +285,13 @@ final class LevelAbilityClassSkills extends LevelAbility
 	 * @param  aArrayList
 	 */
 	public boolean processChoice(
-		final List            aArrayList,
-		final List            selectedList,
+		final List<String>           aArrayList,
+		final List<String>            selectedList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
-		for (int index = 0; index < selectedList.size(); ++index)
+		for ( String nString : selectedList )
 		{
-			final String nString = selectedList.get(index).toString();
-
 			if ((owner instanceof PCClass) && !((PCClass) owner).hasSkill(nString))
 			{
 				((PCClass) owner).addSkillToList(nString);

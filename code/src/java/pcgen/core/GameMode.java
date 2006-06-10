@@ -113,7 +113,7 @@ public final class GameMode implements Comparable
 	public String[] s_ATTRIBSHORT;
 	private final List<PObject> checkList = new ArrayList<PObject>();
 	private final List alignmentList = new ArrayList(15);
-	private final List schoolsList = new ArrayList(20);
+	private final List<String> schoolsList = new ArrayList<String>(20);
 
 	private int skillCosts_Class     = 1;
 	private int skillCost_CrossClass = 2;
@@ -2911,7 +2911,7 @@ public final class GameMode implements Comparable
 	 * Return an <b>unmodifiable</b> version of the schools list.
 	 * @return an <b>unmodifiable</b> version of the schools list.
 	 */
-	public List getUnmodifiableSchoolsList()
+	public List<String> getUnmodifiableSchoolsList()
 	{
 		return Collections.unmodifiableList(schoolsList);
 	}

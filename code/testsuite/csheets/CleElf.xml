@@ -1427,6 +1427,16 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
+			<name>Martial Weapon Proficiency (Longsword)</name>
+			<description>The character makes attack rolls with the weapon normally.</description>
+			<type>GENERAL</type>
+			<associated>Longsword</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Shield Proficiency</name>
 			<description>The character can use a shield and suffer only the standard penalties.</description>
 			<type>GENERAL</type>
@@ -1503,7 +1513,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Longbow, Longbow (Composite), Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Sword (Long), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Halfspear, Javelin, Longbow, Longbow (Composite), Longsword, Mace, Mace (Heavy), Morningstar, Quarterstaff, Ray, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Elven, Literacy, Orc</languages>
 
  

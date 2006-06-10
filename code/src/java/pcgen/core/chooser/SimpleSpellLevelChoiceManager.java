@@ -35,7 +35,7 @@ import java.util.List;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager
+public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager<String>
 {
 
 	/**
@@ -46,9 +46,9 @@ public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  aPC
 	 */
 	public SimpleSpellLevelChoiceManager(
-	    PObject         aPObject,
-	    String          theChoices,
-	    PlayerCharacter aPC)
+		PObject         aPObject,
+		String          theChoices,
+		PlayerCharacter aPC)
 	{
 		super(aPObject, theChoices, aPC);
 	}
@@ -60,36 +60,31 @@ public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager
 	 * @param  selectedList   DOCUMENT ME!
 	 */
 	public void getChoices(
-	    PlayerCharacter aPc,
-	    List            availableList,
-	    List            selectedList)
+		PlayerCharacter aPc,
+		List<String>            availableList,
+		List<String>            selectedList)
 	{
 		uniqueList.clear();
 		ChooserUtilities.buildSpellTypeChoices(
-		    availableList,
-		    uniqueList,
-		    aPc,
-		    Collections.enumeration(choices));
+			availableList,
+			uniqueList,
+			aPc,
+			Collections.enumeration(choices));
 	}
 
 	public void applyChoices(
 			final PlayerCharacter  aPC,
-			final List             selected)
+			final List<String>             selected)
 	{
-		Iterator it = selected.iterator();
-		while (it.hasNext())
+		for ( String chooseString : selected )
 		{
-			final String chooseString = (String) it.next();
-
 			if (uniqueList.isEmpty())
 			{
 				continue;
 			}
 
-			Iterator e = uniqueList.iterator();
-			while (e.hasNext())
+			for ( String bonusString : uniqueList )
 			{
-				final String bonusString = (String) e.next();
 				pobject.applyBonus(bonusString, chooseString, aPC);
 			}
 		}
@@ -98,7 +93,7 @@ public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager
 
 	/**
 	 * what type of chooser does this handle
-	 * 
+	 *
 	 * @return type of chooser
 	 */
 	public String typeHandled() {

@@ -58,9 +58,9 @@ final class LevelAbilityLanguage extends LevelAbility
 	 * @param aPC
 	 * @return choices list
 	 */
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		final List aList = super.getChoicesList(bString.substring(9), aPC);
+		final List<String> aList = super.getChoicesList(bString.substring(9), aPC);
 		Collections.sort(aList);
 
 		return aList;
@@ -87,12 +87,11 @@ final class LevelAbilityLanguage extends LevelAbility
 	 * @param pcLevelInfo
 	 * @param aArrayList
 	 */
-	public boolean processChoice(final List aArrayList, final List selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
+	public boolean processChoice(final List<String> aArrayList, final List<String> selectedList, final PlayerCharacter aPC, final PCLevelInfo pcLevelInfo)
 	{
-
-		for (int index = 0; index < selectedList.size(); ++index)
+		for ( String selected : selectedList )
 		{
-			aPC.addLanguageKeyed(selectedList.get(index).toString());
+			aPC.addLanguageKeyed(selected);
 		}
 		return true;
 	}
@@ -107,20 +106,18 @@ final class LevelAbilityLanguage extends LevelAbility
 	 */
 	void processToken(
 			String                aToken,
-			final List            anArrayList,
+			final List<String>            anArrayList,
 			final PlayerCharacter aPC)
 	{
 		if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
 		{
 			aToken = aToken.substring(5);
 
-			for (Iterator e = Globals.getLanguageList().iterator(); e.hasNext();)
+			for ( Language lang : Globals.getLanguageList() )
 			{
-				final Language aLang = (Language) e.next();
-
-				if (aLang.isType(aToken))
+				if (lang.isType(aToken))
 				{
-					anArrayList.add(aLang.getKeyName());
+					anArrayList.add(lang.getKeyName());
 				}
 			}
 		}

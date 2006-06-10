@@ -37,7 +37,7 @@ import java.util.StringTokenizer;
 /**
  * This is the chooser that deals with choosing a race.
  */
-public class RaceChoiceManager extends AbstractComplexChoiceManager
+public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 {
 	/**
 	 * Make a new Race chooser.
@@ -71,18 +71,18 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 */
 	public void getChoices(
 		final PlayerCharacter aPc,
-		final List            availableList,
-		final List            selectedList)
+		final List<Race>            availableList,
+		final List<Race>            selectedList)
 	{
 		// CHOOSE:RACE|RACETYPE=x,RACESUBTYPE=y,<racename>,TYPE=z
 		// or CHOOSE:RACE|[RACETYPE=x,RACESUBTYPE=y]
-		Collection races = Globals.getRaceMap().values();
+		Collection<Race> races = Globals.getRaceMap().values();
 
-		Iterator choiceIt = choices.iterator();
+		Iterator<String> choiceIt = choices.iterator();
 
 		while (choiceIt.hasNext())
 		{
-			String choice = (String) choiceIt.next();
+			String choice = choiceIt.next();
 
 			// All top-level comma-separated items are added to the list.
 			if (choice.indexOf("[") != -1)
@@ -93,10 +93,8 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 			if (choice.startsWith("RACETYPE=") || choice.startsWith("RACETYPE."))
 			{
 				// Add all races matching this racetype
-				for (Iterator i = races.iterator(); i.hasNext();)
+				for ( Race race : races )
 				{
-					Race race = (Race) i.next();
-
 					if (race.getRaceType().equals(choice.substring(9)))
 					{
 						availableList.add(race);
@@ -108,10 +106,8 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 				choice.startsWith("RACESUBTYPE."))
 			{
 				// Add all races matching this racetype
-				for (Iterator i = races.iterator(); i.hasNext();)
+				for ( Race race : races )
 				{
-					Race race = (Race) i.next();
-
 					if (race.getRacialSubTypes().contains(choice.substring(9)))
 					{
 						availableList.add(race);
@@ -121,10 +117,8 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 			else if (choice.startsWith("TYPE=") || choice.startsWith("TYPE."))
 			{
 				// Add all races matching this racetype
-				for (Iterator i = races.iterator(); i.hasNext();)
+				for ( Race race : races )
 				{
-					Race race = (Race) i.next();
-
 					if (race.getType().equals(choice.substring(5)))
 					{
 						availableList.add(race);
@@ -154,13 +148,13 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 * @param  choice
 	 */
 	private void processTokenWithBrackets(
-		final List availableList,
-		Collection races,
+		final List<Race> availableList,
+		Collection<Race> races,
 		String     choice)
 	{
-		ArrayList raceTypes    = new ArrayList();
-		ArrayList raceSubTypes = new ArrayList();
-		ArrayList types        = new ArrayList();
+		ArrayList<String> raceTypes    = new ArrayList<String>();
+		ArrayList<String> raceSubTypes = new ArrayList<String>();
+		ArrayList<String> types        = new ArrayList<String>();
 
 		choice = choice.substring(1, choice.length() - 1);
 
@@ -186,10 +180,8 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 			}
 		}
 
-		for (Iterator i = races.iterator(); i.hasNext();)
+		for ( Race race : races )
 		{
-			Race race = (Race) i.next();
-
 			if (checkRace(race, raceTypes, raceSubTypes, types))
 			{
 				availableList.add(race);
@@ -209,34 +201,28 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager
 	 */
 	private static boolean checkRace(
 		Race race,
-		List raceTypes,
-		List raceSubTypes,
-		List types)
+		List<String> raceTypes,
+		List<String> raceSubTypes,
+		List<String> types)
 	{
-		for (Iterator i = raceTypes.iterator(); i.hasNext();)
+		for ( String raceType : raceTypes )
 		{
-			String raceType = (String) i.next();
-
 			if (!race.getRaceType().equals(raceType))
 			{
 				return false;
 			}
 		}
 
-		for (Iterator i = raceSubTypes.iterator(); i.hasNext();)
+		for ( String raceSubType : raceSubTypes )
 		{
-			String raceSubType = (String) i.next();
-
 			if (!race.getRacialSubTypes().contains(raceSubType))
 			{
 				return false;
 			}
 		}
 
-		for (Iterator i = types.iterator(); i.hasNext();)
+		for ( String rType : types )
 		{
-			String rType = (String) i.next();
-
 			if (!race.getType().equals(rType))
 			{
 				return false;

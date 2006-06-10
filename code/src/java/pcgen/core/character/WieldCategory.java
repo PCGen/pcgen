@@ -48,8 +48,8 @@ import pcgen.util.Logging;
  */
 public final class WieldCategory
 {
-	private final Map switchMap = new HashMap();
-	private final Map wcStepMap = new HashMap();
+	private final Map<String, String> switchMap = new HashMap<String, String>();
+	private final Map<String, String> wcStepMap = new HashMap<String, String>();
 
 	/*
 	 * WieldCategory contains the following:
@@ -67,7 +67,7 @@ public final class WieldCategory
 	 * a float value which sets the damage multiplier.  Values in the table
 	 * are wrapped in Integer/Float objects.
 	 */
-	private Map damageMultipliers = new HashMap();
+	private Map<Integer, Float> damageMultipliers = new HashMap<Integer, Float>();
 
 	private static WieldCategory DEFAULT_TOOSMALL = null;
 	private static WieldCategory DEFAULT_LIGHT = null;
@@ -78,7 +78,7 @@ public final class WieldCategory
 
 	/**
 	 * New constructor
-	 * @param aName
+	 * @param aName The name of the category (e.g. Light)
 	 */
 	public WieldCategory(final String aName)
 	{
@@ -87,7 +87,8 @@ public final class WieldCategory
 
 	/**
 	 * Set whether a weapon be used with weapon finesse Feat?
-	 * @param aBool
+	 * @param aBool true means the weapon is available with the weapon finesse
+	 * feat
 	 */
 	public void setFinessable(final boolean aBool)
 	{
@@ -96,7 +97,7 @@ public final class WieldCategory
 
 	/**
 	 * Can the weapon be used with weapon finesse Feat.
-	 * @return boolean
+	 * @return boolean true means the weapon is available with weapon finesse
 	 */
 	public boolean isFinessable()
 	{
@@ -105,7 +106,7 @@ public final class WieldCategory
 
 	/**
 	 * Minumum hands required to wield this category of weapon
-	 * @param x
+	 * @param x The number of hands
 	 */
 	public void setHands(final int x)
 	{
@@ -114,7 +115,7 @@ public final class WieldCategory
 
 	/**
 	 * Get the minumum hands required to wield this category of weapon.
-	 * @return hands
+	 * @return The number of hands
 	 */
 	public int getHands()
 	{
@@ -132,7 +133,7 @@ public final class WieldCategory
 
 	/**
 	 * Get object size, equip size + size diff.
-	 * @param eq
+	 * @param eq The weapon to check
 	 * @return object size
 	 */
 	public int getObjectSizeInt(final Equipment eq)
@@ -144,7 +145,7 @@ public final class WieldCategory
 
 	/**
 	 * Number of size categories object size is different than Equip size
-	 * @param x
+	 * @param x The number of categories
 	 **/
 	public void setSizeDiff(final int x)
 	{
@@ -158,8 +159,7 @@ public final class WieldCategory
 	 **/
 	public void setWCStep(final int aInt, final String aVal)
 	{
-		final String aKey = (new Integer(aInt)).toString();
-		wcStepMap.put(aKey, aVal);
+		wcStepMap.put(String.valueOf(aInt), aVal);
 	}
 
 	/**
@@ -198,9 +198,9 @@ public final class WieldCategory
 			}
 			final PrerequisiteParserInterface parser = PreParserFactory.
 				getInstance().getParser("VAR");
-			for (Iterator pc = switchMap.keySet().iterator(); pc.hasNext(); )
+			for (Iterator<String> pc = switchMap.keySet().iterator(); pc.hasNext(); )
 			{
-				String aKey = (String) pc.next();
+				String aKey = pc.next();
 
 				boolean invertResult = false;
 				if (aKey.startsWith("!"))
@@ -217,7 +217,7 @@ public final class WieldCategory
 						invertResult, false);
 					if (PrereqHandler.passes(prereq, eq, aPC))
 					{
-						final String mappedCat = (String) switchMap.get(aKey);
+						final String mappedCat = switchMap.get(aKey);
 						WieldCategory wCat = SettingsHandler.getGame().
 							getWieldCategory(mappedCat);
 						if (wCat != null)
@@ -252,7 +252,7 @@ public final class WieldCategory
 	public WieldCategory getWieldCategoryStep(int aBump)
 	{
 		final String aKey = Integer.toString(aBump);
-		final String newWC = (String) wcStepMap.get(aKey);
+		final String newWC = wcStepMap.get(aKey);
 
 		if (newWC != null)
 		{
@@ -279,7 +279,7 @@ public final class WieldCategory
 	 */
 	public void addDamageMult(int numHands, float multiplier)
 	{
-		damageMultipliers.put(new Integer(numHands), new Float(multiplier));
+		damageMultipliers.put(numHands, multiplier);
 	}
 
 	/**
@@ -290,7 +290,7 @@ public final class WieldCategory
 	 */
 	public float getDamageMult(int numHands)
 	{
-		Float ret = (Float) damageMultipliers.get(new Integer(numHands));
+		Float ret = damageMultipliers.get(numHands);
 		if (ret == null)
 		{
 			return 0.0f;

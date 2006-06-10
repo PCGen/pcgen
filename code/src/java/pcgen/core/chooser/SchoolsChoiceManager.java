@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * This is the chooser that deals with choosing a school.
  */
-public class SchoolsChoiceManager extends AbstractComplexChoiceManager {
+public class SchoolsChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new Schools chooser.
@@ -49,7 +49,7 @@ public class SchoolsChoiceManager extends AbstractComplexChoiceManager {
 		super(aPObject, choiceString, aPC);
 		title = "School Choice";
 		chooserHandled = "SCHOOLS";
-		
+
 		if (choices != null && choices.size() > 0 &&
 				((String) choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
@@ -64,11 +64,11 @@ public class SchoolsChoiceManager extends AbstractComplexChoiceManager {
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List availableList,
-			final List selectedList)
+			final List<String> availableList,
+			final List<String> selectedList)
 	{
 		availableList.addAll(SettingsHandler.getGame().getUnmodifiableSchoolsList());
 		pobject.addAssociatedTo(selectedList);
 	}
-	
+
 }

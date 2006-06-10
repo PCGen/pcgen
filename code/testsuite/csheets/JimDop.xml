@@ -464,7 +464,7 @@ BIO
 			</misc_mod>
 			<ability>INT</ability>
 			<synergy>Craft (Untrained)</synergy>
-			<untrained>YES</untrained>
+			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>3</trained_total>
 			<exclusive_total>3</exclusive_total>

@@ -50,7 +50,7 @@ class LevelAbilityFeat extends LevelAbility
 	protected int       numFeats        = 1;
 	protected boolean   allowDups       = false;
 	protected int       dupChoices      = 0;
-	protected ArrayList previousChoices = new ArrayList();
+	protected ArrayList<String> previousChoices = new ArrayList<String>();
 	private   boolean	hasPrereqs		= false;
 
 	LevelAbilityFeat(
@@ -120,9 +120,9 @@ class LevelAbilityFeat extends LevelAbility
 	 *
 	 * @return  List of choices
 	 */
-	List getChoicesList(final String bString, final PlayerCharacter aPC)
+	List<String> getChoicesList(final String bString, final PlayerCharacter aPC)
 	{
-		final List aList;
+		final List<String> aList;
 
 		if (isVirtual)
 		{
@@ -173,8 +173,8 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param  aArrayList
 	 */
 	public boolean processChoice(
-		final List            aArrayList,
-		final List            selectedList,
+		final List<String>            aArrayList,
+		final List<String>            selectedList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
@@ -184,7 +184,7 @@ class LevelAbilityFeat extends LevelAbility
 
 			for (int index = 0; index < listSize; ++index)
 			{
-				final String featName = selectedList.get(index).toString();
+				final String featName = selectedList.get(index);
 				previousChoices.add(featName);
 
 				final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT", featName, aPC.getVirtualFeatList(), pcLevelInfo);
@@ -233,7 +233,7 @@ class LevelAbilityFeat extends LevelAbility
 				double minVal = Double.NaN;
 				for (int n = 0; n < aArrayList.size(); ++n)
 				{
-					final String availItem = aArrayList.get(n).toString();
+					final String availItem = aArrayList.get(n);
 					final Ability anAbility = Globals.getAbilityKeyed("ALL", availItem);
 					double c;
 					if (anAbility == null)
@@ -271,11 +271,11 @@ class LevelAbilityFeat extends LevelAbility
 
 			for (int n = 0; n < selectedList.size(); ++n)
 			{
-				String chosenItem = selectedList.get(n).toString();
+				String chosenItem = selectedList.get(n);
 				previousChoices.add(chosenItem);
 
 				final String featKey        = chosenItem;
-				final List   aBonusList        = new ArrayList();
+				final List<String>   aBonusList        = new ArrayList<String>();
 				Ability      anAbility         = Globals.getAbilityKeyed("FEAT", featKey);
 				boolean      spellLevelProcess = false;
 
@@ -324,11 +324,11 @@ class LevelAbilityFeat extends LevelAbility
 						chosenItem = cTok.nextToken();
 					}
 
-					for (Iterator bonii = aBonusList.iterator(); bonii.hasNext();)
+					if ( anAbility != null )
 					{
-						if (anAbility != null)
+						for ( String bonus : aBonusList )
 						{
-							anAbility.applyBonus((String) bonii.next(), chosenItem, aPC);
+							anAbility.applyBonus(bonus, chosenItem, aPC);
 						}
 					}
 				}
@@ -349,7 +349,7 @@ class LevelAbilityFeat extends LevelAbility
 	 */
 	void processToken(
 		final String          aToken,
-		final List            anArrayList,
+		final List<String>            anArrayList,
 		final PlayerCharacter aPC)
 	{
 		if ("STACKS".equals(aToken))
@@ -371,12 +371,12 @@ class LevelAbilityFeat extends LevelAbility
 			return;
 		}
 
-		ArrayList featList = getFeatList(aToken, aPC);
-		Iterator  fi       = featList.iterator();
+		ArrayList<String> featList = getFeatList(aToken, aPC);
+		Iterator<String>  fi       = featList.iterator();
 		hasPrereqs = false;
 		while (fi.hasNext())
 		{
-			String                theChoice = (String) fi.next();
+			String                theChoice = fi.next();
 			final StringTokenizer aTok      = new StringTokenizer(theChoice, ",", false);
 			String                featKey  = aTok.nextToken().trim();
 			String                subKey   = "";
@@ -436,11 +436,11 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param aPC
 	 * @return a list of feat names
 	 */
-	private ArrayList getFeatList(final String aToken, final PlayerCharacter aPC) {
+	private ArrayList<String> getFeatList(final String aToken, final PlayerCharacter aPC) {
 
 		if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
 		{
-			ArrayList featList = new ArrayList();
+			ArrayList<String> featList = new ArrayList<String>();
 			String    featType = aToken.substring(5);
 
 			if ("REGION".equals(featType))
@@ -463,7 +463,7 @@ class LevelAbilityFeat extends LevelAbility
 
 			return featList;
 		}
-		ArrayList featList = new ArrayList();
+		ArrayList<String> featList = new ArrayList<String>();
 
 		featList.add(aToken);
 		return featList;
@@ -474,7 +474,7 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param featList
 	 * @param featType
 	 */
-	private void addFeatsForRegion(final PlayerCharacter aPC, ArrayList featList, String featType) {
+	private void addFeatsForRegion(final PlayerCharacter aPC, ArrayList<String> featList, String featType) {
 		featType = findFeatType(aPC, featType, true);
 		featList.addAll(aPC.getAvailableFeatNames(featType, isVirtual));
 	}
@@ -484,7 +484,7 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param featList
 	 * @param featType
 	 */
-	private void addFeatsForSubRegion(final PlayerCharacter aPC, ArrayList featList, String featType) {
+	private void addFeatsForSubRegion(final PlayerCharacter aPC, ArrayList<String> featList, String featType) {
 		featType = findFeatType(aPC, featType, false);
 		featList.addAll(aPC.getAvailableFeatNames(featType, isVirtual));
 	}
@@ -706,7 +706,7 @@ class LevelAbilityFeat extends LevelAbility
 	 *                        level to add them to.
 	 */
 	public void process(
-		final List            availableList,
+		final List<String>            availableList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
@@ -719,7 +719,7 @@ class LevelAbilityFeat extends LevelAbility
 		{
 			final ChooserInterface ch           = ChooserFactory.getChooserInstance();
 			final String           choiceString = prepareChooser(ch, aPC);
-			final List             choicesList  = getChoicesList(choiceString, aPC);
+			final List<String>             choicesList  = getChoicesList(choiceString, aPC);
 
 			//
 			// If duplicates are allowed, then ask for 1 choice at a time if at least one

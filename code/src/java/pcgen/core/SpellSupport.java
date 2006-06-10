@@ -52,7 +52,7 @@ public class SpellSupport implements Cloneable
 	private static final String CLASSSPELLCASTER = "CLASS|SPELLCASTER";
 	private static final String ALL = "ALL";
 
-	private HashMap<String, String> spellLevelMap = new HashMap<String, String>();
+	private HashMap<String, Integer> spellLevelMap = new HashMap<String, Integer>();
 	private DoubleKeyMap<String, String, Info> spellInfoMap = new DoubleKeyMap<String, String, Info>();
 	private HashMapToList<String, PCSpell> spellMap = new HashMapToList<String, PCSpell>();
 	private HashMap<String, List<Prerequisite>> preReqSpellLevelMap = new HashMap<String, List<Prerequisite>>();
@@ -74,7 +74,15 @@ public class SpellSupport implements Cloneable
 	public void putLevel(String tagType, String className, String spellName,
 			String spellLevel)
 	{
-		spellLevelMap.put(tagType + "|" + className + "|" + spellName, spellLevel);
+		Integer lvl = new Integer(-1);
+		try
+		{
+			lvl = Integer.parseInt(spellLevel);
+			spellLevelMap.put(tagType + "|" + className + "|" + spellName, lvl);
+		}
+		catch ( NumberFormatException nfe )
+		{
+		}
 	}
 
 	public boolean containsLevelFor(String tagType, String className, String spellName)
@@ -181,22 +189,13 @@ public class SpellSupport implements Cloneable
 		putInfo(tagType, spellName, className, spellLevel);
 	}
 
-	public Map<String, String> getSpellMapPassesPrereqs(int levelMatch, PlayerCharacter pc)
+	public Map<String, Integer> getSpellMapPassesPrereqs(int levelMatch, PlayerCharacter pc)
 	{
-		final Map<String, String> tempMap = new HashMap<String, String>();
+		final Map<String, Integer> tempMap = new HashMap<String, Integer>();
 
 		for ( String key : spellLevelMap.keySet() )
 		{
-			int levelInt = -1;
-
-			try
-			{
-				levelInt = Integer.parseInt(spellLevelMap.get(key));
-			}
-			catch (NumberFormatException nfe)
-			{
-				// ignored
-			}
+			final int levelInt = spellLevelMap.get(key);
 
 			// levelMatch == -1 means get all spells
 			if (((levelMatch == -1) && (levelInt >= 0)) || ((levelMatch >= 0) && (levelInt == levelMatch)))
@@ -220,7 +219,7 @@ public class SpellSupport implements Cloneable
 										tempSb.append(pcClass.getSpellKey())
 											.append(PIPE)
 											.append(key.substring(key.lastIndexOf(PIPE) + 1));
-										tempMap.put(tempSb.toString(), Integer.toString(levelInt));
+										tempMap.put(tempSb.toString(), levelInt);
 									}
 								}
 							}
@@ -228,7 +227,7 @@ public class SpellSupport implements Cloneable
 					}
 					else if (PrereqHandler.passesAll(preReqSpellLevelMap.get(key), pc, null))
 					{
-						tempMap.put(key, Integer.toString(levelInt));
+						tempMap.put(key, levelInt);
 					}
 				}
 			}
@@ -236,9 +235,9 @@ public class SpellSupport implements Cloneable
 		return tempMap;
 	}
 
-	public Map<String, String> getSpellInfoMapPassesPrereqs(String key1, String key2, PlayerCharacter pc)
+	public Map<String, Integer> getSpellInfoMapPassesPrereqs(String key1, String key2, PlayerCharacter pc)
 	{
-		final Map<String, String> tempMap = new HashMap<String, String>();
+		final Map<String, Integer> tempMap = new HashMap<String, Integer>();
 
 		if (spellInfoMap.containsKey(key1, key2))
 		{
@@ -260,7 +259,7 @@ public class SpellSupport implements Cloneable
 							{
 								if (pcClass.getSpellType().equals(spellType) || ALL.equals(spellType))
 								{
-									tempMap.put(pcClass.getSpellKey(), new Integer(si.level).toString());
+									tempMap.put(pcClass.getSpellKey(), si.level);
 								}
 							}
 						}
@@ -270,7 +269,7 @@ public class SpellSupport implements Cloneable
 				{
 					StringBuffer tempSb = new StringBuffer();
 					tempSb.append(key1).append(PIPE).append(si.name);
-					tempMap.put(tempSb.toString(), new Integer(si.level).toString());
+					tempMap.put(tempSb.toString(), si.level);
 				}
 			}
 		}
@@ -418,7 +417,7 @@ public class SpellSupport implements Cloneable
 			ss.characterSpellList = new ArrayList<CharacterSpell>(characterSpellList);
 		}
 		ss.preReqSpellLevelMap = new HashMap<String, List<Prerequisite>>(preReqSpellLevelMap);
-		ss.spellLevelMap = new HashMap<String, String>(spellLevelMap);
+		ss.spellLevelMap = new HashMap<String, Integer>(spellLevelMap);
 		return ss;
 	}
 }

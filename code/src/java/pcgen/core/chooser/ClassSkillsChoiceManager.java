@@ -30,6 +30,7 @@ import pcgen.core.Skill;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing from among a PCs class skills.
@@ -80,9 +81,15 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill
 			}
 		}
 
-		for ( Skill skill : selectedList )
+		List<String> associatedKeys = new ArrayList<String>();
+		pobject.addAssociatedTo(associatedKeys);
+		for ( String key : associatedKeys )
 		{
-			pobject.addAssociated(skill.getKeyName());
+			Skill skill = Globals.getSkillKeyed(key);
+			if ( skill != null )
+			{
+				selectedList.add( skill );
+			}
 		}
 	}
 

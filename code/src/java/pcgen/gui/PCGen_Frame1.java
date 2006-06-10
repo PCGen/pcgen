@@ -542,10 +542,10 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		pcPopupMenu.getNewItem().setEnabled(itemState);
 
 // WIP please leave boomer70
-		pcgenMenuBar.newNPCItem.setEnabled(itemState);
-		toolBar.newNPCItem.setEnabled(itemState);
-		mainPopupMenu.newNPCItem.setEnabled(itemState);
-		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
+//		pcgenMenuBar.newNPCItem.setEnabled(itemState);
+//		toolBar.newNPCItem.setEnabled(itemState);
+//		mainPopupMenu.newNPCItem.setEnabled(itemState);
+//		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
 	}
 
 	/**
@@ -1241,11 +1241,11 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	}
 
 // WIP please leave boomer70
-	void newNPCPopupItem_actionPerformed()
-	{
-		doNewItem();
+//	void newNPCPopupItem_actionPerformed()
+//	{
+//		doNewItem();
 //		doNewNPC();
-	}
+//	}
 
 	/**
 	 * Launches GMGen.
@@ -2454,7 +2454,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		JMenuItem listEditor;
 		JMenuItem newItem;
 // WIP please leave boomer70
-		JMenuItem newNPCItem;
+//		JMenuItem newNPCItem;
 		JMenuItem openItem;
 		JMenuItem partyCloseItem;
 		JMenuItem partyOpenItem;
@@ -2488,9 +2488,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			fileMenu.add(newItem);
 
 // WIP please leave boomer70
-			newNPCItem = Utility.createMenuItem("mnuFileNewNPC", frameActionListener.newNPCActionListener, "file.newNPC",
-					null, "New16.gif", false);
-			fileMenu.add(newNPCItem);
+//			newNPCItem = Utility.createMenuItem("mnuFileNewNPC", frameActionListener.newNPCActionListener, "file.newNPC",
+//					null, "New16.gif", false);
+//			fileMenu.add(newNPCItem);
 
 			openItem = Utility.createMenuItem("mnuFileOpen", frameActionListener.openActionListener, "file.open",
 					"shortcut O", "Open16.gif", true);

@@ -65,7 +65,7 @@ public class PToolBar extends JToolBar
 	JButton gmgenItem;
 	JButton newItem;
 // WIP please leave boomer70
-	JButton newNPCItem;
+//	JButton newNPCItem;
 	JButton openItem;
 	JButton printItem;
 	JButton printPreviewItem;
@@ -416,9 +416,9 @@ public class PToolBar extends JToolBar
 		add(newItem);
 
 // WIP please leave boomer70
-		newNPCItem = Utility.createButton(main.frameActionListener.newNPCActionListener, "file.newNPC",
-				PropertyFactory.getString("in_mnuFileNewNPCTip"), "New16.gif", false);
-		add(newNPCItem);
+//		newNPCItem = Utility.createButton(main.frameActionListener.newNPCActionListener, "file.newNPC",
+//				PropertyFactory.getString("in_mnuFileNewNPCTip"), "New16.gif", false);
+//		add(newNPCItem);
 
 		openItem = Utility.createButton(main.frameActionListener.openActionListener, "file.open",
 				PropertyFactory.getString("in_mnuFileOpenTip"), "Open16.gif", true);

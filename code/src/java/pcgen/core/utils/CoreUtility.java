@@ -53,14 +53,14 @@ public final class CoreUtility
 	 * then this method will return an empty list;
 	 * @return The list containing the objects passed in.
 	 */
-	public static List arrayToList(final Object[] array)
+	public static <T> List<T> arrayToList(final T[] array)
 	{
 		if (array==null)
 		{
-			return new ArrayList();
+			return new ArrayList<T>();
 		}
 
-		final List list = new ArrayList(array.length);
+		final List<T> list = new ArrayList<T>(array.length);
 		for (int i = 0; i < array.length; i++)
 		{
 			list.add(array[i]);
@@ -168,7 +168,7 @@ public final class CoreUtility
 	 * @param stringArray
 	 * @return String
 	 */
-	public static String commaDelimit(final Collection stringArray)
+	public static String commaDelimit(final Collection<String> stringArray)
 	{
 		return join(stringArray, ',');
 	}
@@ -192,9 +192,9 @@ public final class CoreUtility
 	 * @param targets The collection to find in the checklist
 	 * @return TRUE if equal, ELSE false
 	 */
-	public static boolean containsAny(final Collection checklist, final Collection targets)
+	public static <T> boolean containsAny(final Collection<T> checklist, final Collection<T> targets)
 	{
-		for (Iterator i = targets.iterator(); i.hasNext();)
+		for (Iterator<T> i = targets.iterator(); i.hasNext();)
 		{
 			if (checklist.contains(i.next()))
 			{
@@ -358,7 +358,7 @@ public final class CoreUtility
 	 * @param  separator  The separating character
 	 * @return            A 'separator' separated String
 	 */
-	public static String join(final Collection strings, final char separator)
+	public static String join(final Collection<?> strings, final char separator)
 	{
 		return join(strings, separator + " ");
 	}
@@ -373,7 +373,7 @@ public final class CoreUtility
 	 * @param  separator  The separating character
 	 * @return            A 'separator' separated String
 	 */
-	public static String join(final Collection strings, final String separator)
+	public static String join(final Collection<?> strings, final String separator)
 	{
 		return joinToStringBuffer(strings, separator).toString();
 	}
@@ -386,15 +386,15 @@ public final class CoreUtility
 	 * @param  separator  The separating character
 	 * @return            A 'separator' separated String
 	 */
-	public static StringBuffer joinToStringBuffer(final Collection strings, final String separator)
+	public static StringBuffer joinToStringBuffer(final Collection<?> strings, final String separator)
 	{
 		final StringBuffer result = new StringBuffer(strings.size() * 10);
-		final Iterator iter = strings.iterator();
+
+		final Iterator<?> iter = strings.iterator();
 
 		while (iter.hasNext())
 		{
-			final String element = (String) iter.next();
-			result.append(element);
+			result.append(iter.next().toString());
 
 			if (iter.hasNext())
 			{
@@ -517,11 +517,11 @@ public final class CoreUtility
 		{
 			return temp;
 		}
-		
-		for (Iterator iter = Arrays.asList(aString.split(sepStr)).iterator(); iter
+
+		for (Iterator<String> iter = Arrays.asList(aString.split(sepStr)).iterator(); iter
 			.hasNext();)
 		{
-			temp.add(((String) iter.next()).trim());
+			temp.add(iter.next().trim());
 		}
 
 		return temp;
@@ -542,10 +542,10 @@ public final class CoreUtility
 	 * @param list
 	 * @return List of Strings
 	 */
-	public static List toStringRepresentation(List list)
+	public static List<String> toStringRepresentation(List<?> list)
 	{
-		final List returnList = new ArrayList(list.size());
-		for (Iterator i = list.iterator(); i.hasNext();)
+		final List<String> returnList = new ArrayList<String>(list.size());
+		for (Iterator<?> i = list.iterator(); i.hasNext();)
 		{
 			returnList.add(i.next().toString());
 		}
