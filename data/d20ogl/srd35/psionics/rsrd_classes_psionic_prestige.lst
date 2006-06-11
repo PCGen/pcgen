@@ -192,7 +192,7 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 4	KNOWN:0,2,1
 5	KNOWN:0,2,1				SA:Sweeping Strike (Ex)
 6	KNOWN:0,2,1,1																		BONUS:DR|-|1
-7	KNOWN:0,2.1.1													BONUS:VAR|SuperiorityChain|2
+7	KNOWN:0,2,1,1													BONUS:VAR|SuperiorityChain|2
 8	KNOWN:0,2,1,1,1													BONUS:VAR|DefensivePosture|2
 9	KNOWN:0,2,1,1,1																		BONUS:DR|-|1
 10	KNOWN:0,2,1,1,1,1			SA:Chain of Overwhelming Force (Su) (1x/day)
