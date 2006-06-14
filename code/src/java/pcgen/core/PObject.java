@@ -44,6 +44,7 @@ import pcgen.util.chooser.ChooserInterface;
 import java.io.Serializable;
 import java.io.StringWriter;
 import java.util.*;
+
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -1633,7 +1634,13 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		if (bonusList != null)
 		{
-			retVal.bonusList = (ArrayList<BonusObj>) bonusList.clone();
+			retVal.bonusList = new ArrayList<BonusObj>();
+			for (Iterator iter = bonusList.iterator(); iter.hasNext();)
+			{
+				BonusObj orig = (BonusObj) iter.next();
+				retVal.bonusList.add((BonusObj)orig.clone());
+				
+			}
 			retVal.ownBonuses();
 		}
 
