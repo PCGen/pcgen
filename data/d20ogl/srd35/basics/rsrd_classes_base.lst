@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Wed Jun 14 13:05:51 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -246,26 +246,26 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 1	BONUS:VAR|MonkACLvl|CL		FEATAUTO:Monk AC
 1	BONUS:VAR|MonkMoveLvl|CL	FEATAUTO:Monk Movement
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2							SA:Flurry of Blows (Ex)															DEFINE:MonkLvl|CL							ADD:VFEAT(Improved Grapple,Stunning Fist)1					AUTO:EQUIP|Flurry of Blows	FEATAUTO:Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																					ADD:VFEAT(Combat Reflexes,Deflect Arrows)1										FEATAUTO:Evasion
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2							SA:Flurry of Blows (Ex)|PREVARLT:MonkLvl,11	SA:Greater Flurry of Blows (Ex)|PREVARGTEQ:MonkLvl,11							DEFINE:MonkLvl|CL							ADD:VFEAT(Improved Grapple,Stunning Fist)1					AUTO:EQUIP|Flurry of Blows	FEATAUTO:Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																																										ADD:VFEAT(Combat Reflexes,Deflect Arrows)1										FEATAUTO:Evasion
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6										SA:Still Mind (Ex)
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										SA:Ki Strike (Magic)	SA:Slow Fall (%)|SlowFall				BONUS:VAR|SlowFall|floor(CL/2)*10	DEFINE:SlowFall|0
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										SA:Ki Strike (Magic)	SA:Slow Fall (%)|SlowFall									BONUS:VAR|SlowFall|floor(CL/2)*10	DEFINE:SlowFall|0
 5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										SA:Purity of Body (Ex)
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																																					ADD:VFEAT(Improved Disarm,Improved Trip)1
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										SA:Wholeness of Body (Su) % hp/day|WholenessBody				BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0
+6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																																										ADD:VFEAT(Improved Disarm,Improved Trip)1
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6										SA:Wholeness of Body (Su) % hp/day|WholenessBody									BONUS:VAR|WholenessBody|CL*2		DEFINE:WholenessBody|0
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																																						FEATAUTO:Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																																																											FEATAUTO:Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8						SA:.CLEAR.Ki Strike	SA:Ki Strike (Magic and Lawful)
 11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8										SA:Diamond Body (Su)
 12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6										SA:Abundant Step (Su)
 13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6				SR:10+CL					SA:Diamond Soul (Ex)
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6										SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC	BONUS:VAR|QuiveringPalmDC|CL/2+WIS	DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6										SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC						BONUS:VAR|QuiveringPalmDC|CL/2+WIS	DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8						SA:.CLEAR.Ki Strike	SA:Ki Strike (Magic and Lawful and Adamantine)
 17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8										SA:Timeless Body (Ex)	SA:Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8										SA:Empty Body (Su) % rounds/day|EmptyBody						BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SA:.CLEAR.Slow Fall	SA:Perfect Self (Su)	SA:Slow Fall (Any Distance)																											TEMPLATE:Monk Outsider
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8										SA:Empty Body (Su) % rounds/day|EmptyBody											BONUS:VAR|EmptyBody|CL			DEFINE:EmptyBody|0
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8					SA:.CLEAR.Slow Fall	SA:Perfect Self (Su)	SA:Slow Fall (Any Distance)																																TEMPLATE:Monk Outsider
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Ex Class			Source Page				Automatic Languages	Save checks bonus											Combat bonus
