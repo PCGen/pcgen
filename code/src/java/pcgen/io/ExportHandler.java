@@ -2281,12 +2281,6 @@ public final class ExportHandler
 				}
 			}
 
-			//TODO:DJ: Create pcgen.io.exportTokens.FollowerToken
-			else if (aString.startsWith("FOLLOWER"))
-			{
-				replaceTokenFollowers(aString, output, aPC);
-			}
-
 			else
 			{
 				len = aString.trim().length();
@@ -2403,6 +2397,19 @@ public final class ExportHandler
 				converted.append(aString.substring(5));
 			}
 		}
+		else if (aString.startsWith("FOLLOWER")
+			&& !aString.startsWith("FOLLOWERLIST")
+			&& !aString.startsWith("FOLLOWEROF")
+			&& !aString.startsWith("FOLLOWERTYPE"))
+		{
+			if ((aString.length() > 8) && (aString.charAt(8) != '.')
+				&& (aString.charAt(8) != '('))
+			{
+				converted.append(aString.substring(0, 8));
+				converted.append('.');
+				converted.append(aString.substring(8));
+			}
+		}
 
 
 		if (converted.length() > 0)
@@ -2412,207 +2419,6 @@ public final class ExportHandler
 			return converted.toString();
 		}
 		return aString;
-	}
-
-	private void replaceTokenFollowers(String aString, BufferedWriter output, PlayerCharacter aPC)
-	{
-		/* syndaryl 24/07/2002 12:51PM: kitbashed an output format for followers, much like the FEATLIST tag */
-		/* Will also need to cover COUNT[FOLLOWERS], not done yet. */
-		final List followers = aPC.getFollowerList();
-
-		if (!followers.isEmpty())
-		{ /* if it's empty, do nothing */
-
-			if ("FOLLOWERLIST".equals(aString))
-			{
-				int i;
-				boolean lastflag = false;
-
-				for (i = 0; i < followers.size(); ++i)
-				{
-					if (followers.get(i) instanceof Follower)
-					{
-						Follower aF = (Follower) followers.get(i);
-
-						for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
-						{
-							PlayerCharacter nPC = (PlayerCharacter) p.next();
-
-							if (aF.getFileName().equals(nPC.getFileName()))
-							{
-								if (lastflag)
-								{
-									FileAccess.write(output, ", ");
-								}
-
-								FileAccess.encodeWrite(output, nPC.getName());
-								lastflag = true;
-							}
-						}
-					}
-				}
-			}
-			else if (aString.startsWith("FOLLOWERTYPE."))
-			{
-				// Handle FOLLOWERTYPE.<type>x.subtag stuff
-				// New token syntax FOLLOWERTYPE.<type>.x instead of FOLLOWERTYPE.<type>x
-				StringTokenizer aTok = new StringTokenizer(aString, ".");
-				aTok.nextToken(); // FOLLOWERTYPE
-
-				String typeString = aTok.nextToken();
-				String restString = "";
-				int followerIndex = -1;
-
-				if (aTok.hasMoreTokens())
-				{
-					restString = aTok.nextToken();
-
-					// When removing old token syntax, remove the catch code
-					try
-					{
-						followerIndex = Integer.parseInt(restString);
-						restString = "";
-					}
-					catch (NumberFormatException exc)
-					{
-						// Error, not debug.  We want users to report
-						// use of the deprecated syntax so we can fix
-						// them as they are found.
-						Logging.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
-
-						int numCharToRemove = 0;
-
-						for (int i = typeString.length() - 1; i > 0; i--)
-						{
-							if ((typeString.charAt(i) >= '0') && (typeString.charAt(i) <= '9'))
-							{
-								followerIndex = Integer.parseInt(typeString.substring(i));
-								numCharToRemove++;
-							}
-							else
-							{
-								i = 0;
-							}
-						}
-
-						if (numCharToRemove > 0)
-						{
-							typeString = typeString.substring(0, typeString.length() - numCharToRemove);
-						}
-					}
-
-					while (aTok.hasMoreTokens())
-					{
-						restString = restString + "." + aTok.nextToken();
-					}
-
-					if (restString.indexOf(".") == 0)
-					{
-						restString = restString.substring(1);
-					}
-				}
-
-				List aList = new ArrayList();
-
-				for (int i = followers.size() - 1; i >= 0; --i)
-				{
-					final Follower fol = (Follower) followers.get(i);
-
-					if (fol.getType().equalsIgnoreCase(typeString))
-					{
-						aList.add(fol);
-					}
-				}
-
-				if (followerIndex < aList.size())
-				{
-					if (aList.get(followerIndex) instanceof Follower)
-					{
-						final Follower aF = (Follower) aList.get(followerIndex);
-						PlayerCharacter newPC;
-
-						for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
-						{
-							PlayerCharacter nPC = (PlayerCharacter) p.next();
-
-							if (aF.getFileName().equals(nPC.getFileName()))
-							{
-								newPC = nPC;
-
-								if (restString.equals(""))
-								{
-									restString = "NAME";
-								}
-
-								nPC = aPC;
-								aPC = newPC;
-								Globals.setCurrentPC(aPC);
-								replaceToken(restString, output, aPC);
-								aPC = nPC;
-								Globals.setCurrentPC(aPC);
-							}
-						}
-					}
-				}
-			}
-			else
-			{
-				/* FOLLOWER%.subtag stuff handled in here*/
-
-				// New token syntax FOLLOWER.x instead of FOLLOWERx
-				StringTokenizer aTok = new StringTokenizer(aString, ".");
-				String fString = aTok.nextToken(); // FOLLOWER
-				final int i;
-
-				if ("FOLLOWER".equals(fString))
-				{
-					i = Integer.parseInt(aTok.nextToken());
-				}
-				else
-				{
-					Logging.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
-
-					i = Integer.parseInt(aString.substring(8, aString.indexOf('.')));
-				}
-
-				if (i < followers.size())
-				{
-					if (followers.get(i) instanceof Follower)
-					{
-						final Follower aF = (Follower) followers.get(i);
-						PlayerCharacter newPC;
-
-						for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
-						{
-							PlayerCharacter nPC = (PlayerCharacter) p.next();
-
-							if (aF.getFileName().equals(nPC.getFileName()))
-							{
-								newPC = nPC;
-
-								String aLabel;
-
-								if (aTok.hasMoreTokens())
-								{
-									aLabel = aTok.nextToken();
-								}
-								else
-								{
-									aLabel = "NAME";
-								}
-
-								nPC = aPC;
-								aPC = newPC;
-								Globals.setCurrentPC(aPC);
-								replaceToken(aLabel, output, aPC);
-								aPC = nPC;
-								Globals.setCurrentPC(aPC);
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 
 	private void replaceTokenForDfor(String aString, BufferedWriter output, PlayerCharacter aPC)

@@ -1,0 +1,107 @@
+/*
+ * FollowerOfToken.java
+ * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on Jun 17, 2006
+ *
+ * $Id: InfoKnownSpells.java 1030 2006-05-26 08:25:10Z jdempsey $
+ *
+ */
+package plugin.exporttokens;
+
+import java.util.Iterator;
+import java.util.List;
+
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.Follower;
+import pcgen.io.ExportHandler;
+import pcgen.io.FileAccess;
+import pcgen.io.exporttoken.Token;
+
+/**
+ * Deal with FOLLOWERLIST Token
+ * 
+ *
+ * Last Editor: $Author: jdempsey $
+ * Last Edited: $Date: 2006-05-26 18:25:10 +1000 (Fri, 26 May 2006) $
+ *
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision: 1030 $
+ */
+public class FollowerListToken extends Token
+{
+	/** Token Name */
+	public static final String TOKENNAME = "FOLLOWERLIST";
+
+	/**
+	 * @see pcgen.io.exporttoken.Token#getTokenName()
+	 */
+	public String getTokenName()
+	{
+		return TOKENNAME;
+	}
+
+	/**
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 */
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	{
+		return getFollowerListToken(pc) + "";
+	}
+
+	/**
+	 * Get FOLLOWERLIST Token
+	 *
+	 * @param pc The character to be queried
+	 * @return The list of followers.
+	 */
+	public static String getFollowerListToken(PlayerCharacter pc)
+	{
+		StringBuffer buf = new StringBuffer();
+
+		int i;
+		boolean lastflag = false;
+
+		final List followers = pc.getFollowerList();
+		for (i = 0; i < followers.size(); ++i)
+		{
+			if (followers.get(i) instanceof Follower)
+			{
+				Follower aF = (Follower) followers.get(i);
+
+				for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+				{
+					PlayerCharacter nPC = (PlayerCharacter) p.next();
+
+					if (aF.getFileName().equals(nPC.getFileName()))
+					{
+						if (lastflag)
+						{
+							buf.append(", ");
+						}
+
+						buf.append(FileAccess.filterString(nPC.getName()));
+						lastflag = true;
+					}
+				}
+			}
+		}
+
+		return buf.toString();
+	}
+}
