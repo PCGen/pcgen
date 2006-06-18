@@ -27,6 +27,39 @@
 		<p>These files specify the bonuses that &quot;enhanced companions&quot;, such as familiars and a 
 		Paladin's special mount, receive from associating with the character.</p>
 
+		<p><a name="COPYMASTERBAB"></a><hr>
+	    <p class="indent0"><strong>Tag Name:</strong> COPYMASTERBAB:x</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (BAB to be granted to the Follower) </p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters BAB value) </p>
+        <p class="indent1"><strong>What it does:</strong> </p>
+        <p class="indent2">Substitutes the Followers normal Base Attack Bonus with the value specified. <br>
+				MASTER is a special variable which when used in the COPYMASTERBAB tag passes the value of the Masters Base Attack Bonus.</p>
+        <p class="indent1"><strong>Example:</strong> </p>
+        <p class="indent2"><code>COPYMASTERBAB:MASTER</code> </p>
+        <p class="indent3">Uses the master's BAB </p>
+	    
+		<p><a name="COPYMASTERCHECK"></a></p><hr>
+	    <p class="indent0"><strong>Tag Name: </strong>COPYMASTERCHECK:x </p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters Checks) </p>
+        <p class="indent1"><strong>What it does: </strong></p>
+	    <p class="indent2">Gives the creature the same checks as the master. </p>
+    	<p class="indent1"><strong>Example</strong></p>
+    	<p class="indent2"><code>COPYMASTERCHECK:MASTER</code> </p>
+    	<p class="indent3">Uses the base master checks </p>
+	    
+		<p><a name="COPYMASTERHP" id="COPYMASTERHP"></a></p><hr>
+	    <p class="indent0"><strong>Tag Name:</strong> COPYMASTERHP </p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (Hit Points to be granted to the Follower) </p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters Hit Points) </p>
+        <p class="indent1"><strong>What it does</strong>: </p>
+	    <p class="indent2">Substitutes the Followers normal Hit Points with the value specified. <br>
+				MASTER is a special variable which when used in the COPYMASTERHP tag passes the value of the Masters Hit Points.</p>
+        <p class="indent1"><strong>Example: </strong></p>
+	    <p class="indent2"><code>COPYMASTERHP:MASTER/2</code> </p>
+	    <p class="indent3">Gives the creature half the master's hit points </p>
+	    <p class="indent2"><code>COPYMASTERHP:max(1,MASTER/2)</code> </p>
+	    <p class="indent3">Gives the creature half the master's hit points or 1, whichever is higher. </p>
+	    
 		<p></p><a name="FOLLOWER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> FOLLOWER:x,x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or variable)</p>
@@ -54,6 +87,19 @@
 		<p class="indent2"><code>HD:2</code></p>
 		<p class="indent3">Defines the creature having two Hit Dice.</p>
 		
+		<p><a name="MASTERBONUSRACE" id="MASTERBONUSRACE"></a></p><hr>
+	    <p class="indent0"><strong>Tag Name: </strong>MASTERBONUSRACE:x </p>
+        <p><span class="indent1"><strong>Variables used:</strong></span> (x) text </p>
+    	<p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">This tag is used if you need to define the advantages that the master 
+	      gains when having particular race(s) as the given type. 
+		  MASTERBONUSRACE is used to start a new line, tags which follow this one on the same line are granted to the master. 
+		  Tags which can be used are BONUS and VFEAT.</p>
+	    <p><span class="indent1"><strong>Example:<br>
+	    </strong></span>
+	    <p class="indent2">MASTERBONUSRACE:Bat </p>
+	    <p class="indent3">Specifies what race the master has chosen (Bat) and the tag(s) following it will give the master the familiar bonuses. </p></p>
+	    
 		<p></p><a name="RACETYPE"></a><hr>
 		<p class="new">*** New 5.9.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> RACETYPE:x</p>
@@ -120,47 +166,8 @@
 		<p class="indent3">Defines the creature as using the skill ranks of its master.</p>
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilescompanionmodifiers.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	    <p><a name="COPYMASTERBAB" id="COPYMASTERBAB"></a></p>
-	    <hr>
-        <p class="indent0"><strong>Tag Name:</strong> COPYMASTERBAB:x </p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text
-        </p>
-        <p class="indent1"><strong>What it does:</strong> </p>
-        <p class="indent2">Takes the master Base Attack Bonus and give it to the familiar (or specified creature) </p>
-        <p class="indent1"><strong>Example:</strong> </p>
-        <p class="indent2">COPYMASTERBAB:MASTER </p>
-        <p class="indent3">Uses the master&rsquo;s BAB </p>
-	    <p><a name="COPYMASTERCHECK" id="COPYMASTERCHECK"></a></p>
-	    <hr>
-        <p class="indent0"><strong>Tag Name: </strong>COPYMASTERCHECK:x </p>
-        <p><span class="indent1"><strong>Variables used:</strong></span> (x) </p>
-	    <p class="indent1"><strong>What it does: </strong></p>
-	    <p class="indent2">Gives the creature the same checks as the master. </p>
-    <p class="indent1"><strong>Example</strong></p>
-    <span class="indent2">COPYMASTERCHECK:MASTER </span>
-    <p class="indent3">Uses the base master checks </p>
-	    <p><a name="COPYMASTERHP" id="COPYMASTERHP"></a></p>
-	    <hr>
-        <p class="indent0"><strong>Tag Name:</strong> COPYMASTERHP </p>
-        <p class="indent1"><strong>Variables used:</strong> (x) formula </p>
-	    <p class="indent1"><strong>What it does</strong>: </p>
-	    <p class="indent2">Gives the creature the master&rsquo;s HP </p>
-	    <p class="indent1"><strong>Example: </strong></p>
-	    <p class="indent2">COPYMASTERHP:MASTER/2 </p>
-	    <p class="indent3">Gives the creature half the master&rsquo;s hit points </p>
-	    <p><a name="MASTERBONUSRACE" id="MASTERBONUSRACE"></a></p>
-	    <hr>
-        <p class="indent0"><strong>Tag Name: </strong>MASTERBONUSRACE:x </p>
-        <p><span class="indent1"><strong>Variables used:</strong></span> (x) text </p>
-    <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">This tag is used if you need to define the advantages that the master <br>
-	      gains when having particular race(s) as the given type.&nbsp; The following <br>
-	      tags are then granted to the master. </p>
-	    <p><span class="indent1"><strong>Example:<br>
-	    </strong></span>
-	      <p class="indent2">MASTERBONUSRACE:Bat </p>
-	      <p class="indent3">            Specifies what race the master has chosen (Bat) and the following tag(s) will give the master the familiar bonuses. </p>
-	    </p>
+	    
+		
     </body>
 
 </html>
