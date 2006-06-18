@@ -534,7 +534,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
-	 * Check for dead combatants 
+	 * Check for dead combatants
 	 */
 	public void checkDeadTabs()
 	{
@@ -1538,7 +1538,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	//** End Initialization Functions **
-	
+
 	/**
 	 * Refresh the tabs
 	 */
@@ -1641,9 +1641,9 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	//** End Functions implementing button calls for top toolbar **
-	
+
 	//** Functions implementing button calls for the bottom toolbar **
-	
+
 	/**
 	 * Save the initiative roll
 	 */
@@ -1945,7 +1945,6 @@ public class Initiative extends javax.swing.JPanel
 				    combatantTable.getColumnModel().getColumnIndex("Name"));
 
 			if ((name != null) && (name.length() > 0)
-			    && (tpaneInfo.getSelectedIndex() != tpaneInfo.indexOfTab("Events"))
 			    && (tpaneInfo.indexOfTab(name) >= 0))
 			{
 				tpaneInfo.setSelectedIndex(tpaneInfo.indexOfTab(name));
@@ -3044,7 +3043,7 @@ public class Initiative extends javax.swing.JPanel
 	 * A cell editor
 	 */
 	public class TypeEditor extends DefaultCellEditor {
-		
+
 		/**
 		 * Constructor
 		 * @param items
@@ -3058,7 +3057,7 @@ public class Initiative extends javax.swing.JPanel
 	 * A table cell renderer
 	 */
 	public class TypeRenderer extends JComboBox implements TableCellRenderer {
-		
+
 		/**
 		 * Constructor
 		 * @param items
