@@ -2310,6 +2310,10 @@ public class WeaponToken extends Token
 			// TODO: remove this old syntax
 			bonus += (int) pc.getTotalBonusTo("DAMAGE", "TYPE." + type);
 		}
+		if (eq.isFinessable(pc) && !eq.isType("Finesseable"))
+		{
+			bonus += (int) pc.getTotalBonusTo("COMBAT", "DAMAGE.Finesseable");
+		}
 
 		if (eq.isMelee() && (meleeDamageStatBonus > 0))
 		{
