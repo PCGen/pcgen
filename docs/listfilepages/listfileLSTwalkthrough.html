@@ -11,7 +11,7 @@
 		
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Sigurdur H. Olafsson - shoATtnDOTis
+		Sigurdur H. Olafsson - shoATitnDOTis
 		
 		Description:
 		Provides information on PCC and LST Files.
@@ -117,16 +117,15 @@
 		which types of games it is compatible with (e.g. Fantasy RPGs, Sci-Fi RPGs, etc), and
 		a list of LSTs to include. Each entry has a separate line in the PCC.</p>
 		
-		<p>PCC files must be kept within the \data directory of your PCGen installation. They
-		can be in subdirectories as PCGen will find all PCCs within \data.
-		PCC files can also be loaded off the internet in the newer betas (version
-		5.1 and greater).</p>
+		<p>Typically PCC files are kept within the \data directory of your PCGen installation. They
+		can be in a subdirectory as PCGen will find all PCCs within \data.</p>
+		<p>Another source for PCC files is the "Vendor Data" directory, specified in the <a href="../menupages/settings/pcgen/pcgenlocation.html">Settings, Preferences, PCGen, Location</a> dialogue.</p>
+		<p>PCC files can also be loaded off the internet by checking the "Allow sources to be loaded from web links" checkbox in the <a href="../menupages/settings/pcgen/pcgensources.html">Settings, Preferences, PCGen, Sources</a> dialogue. Then you can load sources from a Webpage from the <a href="../walkthroughpages/walkthroughloadcampaign.html">"Source Material"</a> Tab</p>
 		
 		<p>See the \data\d20ogl\srd\srd.pcc for an example of the layout of a PCC. Here are the
 		tags in the order they are typically found. The order is not important, but following conventions will help others
 		help you if you make a mistake. For legal reasons, few of the header tags should ever be omitted.
-		The tags are basically explained, but not detailed. See the documentation in the documentation directory for details with
-		specific tags.</p>
+		See the <a href="datafilestagpages/datafilespcc.html">.pcc Files tags</a> documentation for a complete listing on <a href="datafilestagpages/datafilespcc.html#SOURCETAGS">Source and Header Information Tags</a>
 		
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tr>
@@ -194,7 +193,6 @@
 				 <li>WEAPONPROF</li>
 			</ul>  
 			
-			
 		<h2>LST Types</h2>
 		
 		<p>LST files are specialized, containing only a single type of data. PCC
@@ -217,7 +215,10 @@
 				 <li>TEMPLATE</li>
 				 <li>WEAPONPROF</li>
 			</ul>   
+		<p>You can also call other PCC files from within a PCC file, for example:</p>
+		<p><code>PCC:myPCC.pcc</code>.</p>
 		
+		<p>For a complete listing see: <a href="datafilestagpages/datafilespcc.html#MAINBODYTAGS">Main Body Tags</a> which are used to load the specific LST files which make up the dataset.</p>
 		<p>So to call a class LST named &quot;myfirstclass.lst&quot; you would have the
 			following in the PCC:</p>
 		
@@ -248,7 +249,7 @@
 		
 		<p><code>CLASS:myfirstclass.lst|(EXCLUDE:Monk|SorcererFoowarf)|@/d20ogl/srd/srdclassesbase.lst</code></p>
 		<p>Would load all classes in myclass.lst and all the SRD classes, except the Monk and the Sorcerer.</p>
-		See further info in the "List Files" Section.</p>
+		<p>See further information on <a href="datafilestagpages/datafilespcc.html#OTHERPCCTAGS">"Other .pcc file tags"</a> which are used to provide additional functionality.</p>
 
 		
 		<h2>Building your own LST</h2>
