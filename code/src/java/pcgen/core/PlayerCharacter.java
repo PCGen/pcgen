@@ -65,9 +65,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public static final int         MONKBONUS    = 4;
 	private static final BigDecimal BIG_ONE      = new BigDecimal("1.00");
 	private static String           lastVariable = null;
-	//Note: These are never actually set to a non empty/zero value. Code will be removed after 5.9.7
-//	private static String           loopVariable = "";
-//	private static int              loopValue    = 0;
 
 	// List of Armor Proficiencies
 	private final ArrayList<String> armorProfList = new ArrayList<String>();
@@ -7502,6 +7499,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 			first = false;
 		}
+        
+        // karianna bug 1184888
+        adjustMoveRates();        
+        
 		setDirty(true);
 
 		return inTmpl;
@@ -9809,6 +9810,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		setQualifyListStable(false);
 
+        // karianna 1184888
+        adjustMoveRates();
+        
 		// re-evaluate non-spellcaster spell lists
 		getSpellList();
 		calcActiveBonuses();
