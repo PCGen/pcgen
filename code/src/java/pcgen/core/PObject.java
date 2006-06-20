@@ -1644,6 +1644,17 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			retVal.ownBonuses();
 		}
 
+		if (drList != null)
+		{
+			retVal.drList = new ArrayList<DamageReduction>();
+			for (Iterator iter = drList.iterator(); iter.hasNext();)
+			{
+				DamageReduction orig = (DamageReduction) iter.next();
+				retVal.drList.add(orig.clone());
+				
+			}
+		}
+
 		if (variableList != null)
 		{
 			retVal.variableList = (VariableList) variableList.clone();
@@ -3193,11 +3204,17 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
-//		String DR = stringChar.getCharacteristic(StringKey.DR_FORMULA);
-		final String DR = DamageReduction.getDRString(null, drList);
-		if (!(this instanceof PCClass) && (DR != null) && (DR.length() != 0))
+		for (DamageReduction reduction : getDRList())
 		{
-			txt.append("\tDR:").append(DR);
+			boolean levelBased = false;
+			if (this instanceof PCClass)
+			{
+				levelBased = reduction.isForClassLevel(getKeyName());
+			}
+			if (!levelBased)
+			{
+				txt.append("\t").append(reduction.getPCCText(true));
+			}
 		}
 
 		final List langList = CoreUtility.toStringRepresentation(getSafeListFor(ListKey.AUTO_LANGUAGES));

@@ -2884,7 +2884,7 @@ public final class EditorMainForm extends JDialog
 	 */
 	List buildAdvancedSelectedList(int anEditType)
 	{
-		List selectedList = new ArrayList();
+		List<String> selectedList = new ArrayList<String>();
 
 		//
 		// Initialize the list of advanced items in the selected list
@@ -3016,15 +3016,19 @@ public final class EditorMainForm extends JDialog
 		}
 
 
-		String drString = DamageReduction.getDRString(null,thisPObject.getDRList());
-
-		if (drString != null)
+		// Add only those DR entries that are not level based. 
+		List drList = thisPObject.getDRList();
+		for (Iterator i = drList.iterator(); i.hasNext();)
 		{
-			StringTokenizer aTok = new StringTokenizer(drString, "|", false);
-
-			while (aTok.hasMoreTokens())
+			DamageReduction dr = (DamageReduction) i.next();
+			boolean levelBased = false;
+			if (anEditType == EditorConstants.EDIT_CLASS)
 			{
-				selectedList.add("DR:" + aTok.nextToken());
+				levelBased = dr.isForClassLevel(thisPObject.getKeyName());
+			}
+			if (!levelBased)
+			{
+				selectedList.add(dr.getPCCText(true));
 			}
 		}
 

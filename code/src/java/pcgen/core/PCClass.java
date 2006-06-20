@@ -38,6 +38,7 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
@@ -81,7 +82,6 @@ public class PCClass extends PObject
 //	private ArrayList vFeatList = new ArrayList();
 	private ArrayList weaponProfBonus = new ArrayList();
 	private final HashMap castForLevelMap = new HashMap();
-	private ArrayList DR = null;
 	private HashMap hitPointMap = new HashMap();
 	private HashMap<String, List<Ability>> vFeatMap = new HashMap<String, List<Ability>>();
 	protected HashMap hitDieLockMap = new HashMap();
@@ -1915,90 +1915,6 @@ public class PCClass extends PObject
 		return isAutoKnownSpell(spellName, spellLevel, false, aPC);
 	}
 
-	/**
-	 * drString should be "5|4/-" where 5 = level, 4/- is the DR value.
-	 * @param drString
-	 */
-	public void setDR(final String drString)
-	{
-		if (".CLEAR".equals(drString))
-		{
-			DR = null;
-
-			return;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(drString, "|", false);
-		final int lvl = Integer.parseInt(aTok.nextToken());
-		final String tokenDrString = aTok.nextToken();
-
-		if (".CLEAR".equals(tokenDrString))
-		{
-			DR = null;
-		}
-		else
-		{
-			if (DR == null)
-			{
-				DR = new ArrayList();
-			}
-
-			final LevelProperty lp = new LevelProperty(lvl, tokenDrString);
-			DR.add(lp);
-		}
-	}
-
-	/**
-	 * Assumption: DR list is sorted by level.
-	 * @return DR
-	 */
-/*
-	public String getDR()
-	{
-		LevelProperty lp = null;
-
-		if (DR != null)
-		{
-			final int lvl = level;
-
-			for (int i = 0, x = DR.size(); i < x; ++i)
-			{
-				if (((LevelProperty) DR.get(i)).getLevel() > lvl)
-				{
-					break;
-				}
-
-				lp = (LevelProperty) DR.get(i);
-			}
-		}
-
-		if (lp != null)
-		{
-			return lp.getProperty();
-		}
-
-		return null;
-	}
-*/
-	/**
-	 * needed for Class Editor - returns contents of DR(index).
-	 * @param index
-	 * @param delimiter
-	 * @return String
-	 */
-/*
-	public String getDRListString(final int index, final String delimiter)
-	{
-		if ((DR != null) && (DR.size() > index))
-		{
-			final LevelProperty lp = (LevelProperty) DR.get(index);
-
-			return lp.getLevel() + delimiter + lp.getProperty();
-		}
-
-		return null;
-	}
-*/
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
 	{
@@ -2574,16 +2490,15 @@ public class PCClass extends PObject
 			checkAdd(pccTxt, "0", l, c);
 		}
 
-		if (DR != null)
+		// Output the level based DR only
+		for (DamageReduction reduction : getDRList())
 		{
-			for (Iterator li = DR.iterator(); li.hasNext();)
+			for (Prerequisite prereq : reduction.getPreReqList())
 			{
-				final Object obj = li.next();
-
-				if ((obj instanceof LevelProperty))
+				if (DamageReduction.isPrereqForClassLevel(prereq, getKeyName()))
 				{
-					pccTxt.append(lineSep).append(((LevelProperty) obj).getLevel()).append("\tDR:").append(((LevelProperty) obj)
-						.getProperty());
+					pccTxt.append(lineSep).append(prereq.getOperand()).append(
+						"\t").append(reduction.getPCCText(false));
 				}
 			}
 		}
@@ -3094,11 +3009,6 @@ public class PCClass extends PObject
 			aClass.hitDieLockMap = new HashMap(hitDieLockMap);
 			aClass.featAutos = (ArrayList<String>) featAutos.clone();
 			aClass.skillList = new ArrayList();
-
-			if (DR != null)
-			{
-				aClass.DR = (ArrayList) DR.clone();
-			}
 
 			aClass.classSkillString = classSkillString;
 			aClass.classSkillList = null;
@@ -4339,6 +4249,20 @@ public class PCClass extends PObject
 				}
 			}
 		}
+
+		//
+		// Go through the damage reduction list (DR) and adjust the class to the new name
+		//
+		for (DamageReduction reduction : getDRList())
+		{
+			for (Prerequisite prereq : reduction.getPreReqList())
+			{
+				if (DamageReduction.isPrereqForClassLevel(prereq, oldClass))
+				{
+					prereq.setKey(newClass);
+				}
+			}
+		}
 	}
 
 	String makeBonusString(final String bonusString, final String chooseString, final PlayerCharacter aPC)
@@ -5465,9 +5389,20 @@ public class PCClass extends PObject
 		final List specialAbilityList = getSafeListFor(ListKey.SPECIAL_ABILITY);
 		specialAbilityList.addAll(otherClass.getSafeListFor(ListKey.SPECIAL_ABILITY));
 
-		if (otherClass.DR != null)
+		if (!otherClass.getDRList().isEmpty())
 		{
-			DR = (ArrayList) otherClass.DR.clone();
+			for (DamageReduction dr : otherClass.getDRList())
+			{
+				try
+				{
+					addDR(dr.clone());
+				}
+				catch (CloneNotSupportedException e)
+				{
+					Logging.errorPrint("Failed to clone DR for PCClass "
+						+ keyName + ".", e);
+				}
+			}
 		}
 
 		if (otherClass.SR != null)

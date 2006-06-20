@@ -60,7 +60,7 @@ import pcgen.core.prereq.Prerequisite;
 public class ClassLevelPanel extends JPanel implements PObjectUpdater
 {
 	static final long serialVersionUID = 1485178774957708877L;
-	private static List levelTagList = new ArrayList();
+	private static List<LevelTag> levelTagList = new ArrayList<LevelTag>();
 	private JButton addBtn = new JButton();
 	private JButton delBtn = new JButton();
 	private JComboBoxEx tagList = new JComboBoxEx();
@@ -245,45 +245,25 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		}
 
 		List drList = obj.getDRList();
-		for (Iterator i = drList.iterator(); i.hasNext(); )
+		for (Iterator i = drList.iterator(); i.hasNext();)
 		{
-			DamageReduction dr = (DamageReduction)i.next();
+			DamageReduction dr = (DamageReduction) i.next();
 			List preList = dr.getPreReqList();
-			for (Iterator j = preList.iterator(); j.hasNext(); )
+			for (Iterator j = preList.iterator(); j.hasNext();)
 			{
-				Prerequisite prereq = (Prerequisite)j.next();
-				if (prereq.getKind().equals("class"))
+				Prerequisite prereq = (Prerequisite) j.next();
+				if (DamageReduction.isPrereqForClassLevel(prereq, obj
+					.getKeyName()))
 				{
-					if (prereq.getKey().equals(obj.getKeyName()))
-					{
-						String src = dr.getReduction() + "/" + dr.getBypass();
-						LevelTag lt = new LevelTag(src, LevelTag.TAG_DR, prereq.getOperand());
-						levelTagList.add(lt);
-					}
+					String src = dr.getReduction() + "/" + dr.getBypass();
+					LevelTag lt = new LevelTag(prereq.getOperand(),
+						LevelTag.TAG_DR, src);
+					levelTagList.add(lt);
 				}
 			}
 		}
 		boolean flag = true;
 		index = 0;
-//
-//		while (flag)
-//		{
-//			String src = obj.getDRListString(index++, "|");
-//
-//			if (src != null)
-//			{
-//				int y = src.indexOf('|');
-//				String lev = src.substring(y + 1);
-//				src = src.substring(0, y);
-//
-//				LevelTag lt = new LevelTag(src, LevelTag.TAG_DR, lev);
-//				levelTagList.add(lt);
-//			}
-//			else
-//			{
-//				flag = false;
-//			}
-//		}
 
 		aList = obj.getListFor(ListKey.SPECIAL_ABILITY);
 
@@ -604,7 +584,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			x = sortedLevelModel.getRowTranslated(x);
 
-			LevelTag lt = (LevelTag) levelTagList.get(x);
+			LevelTag lt = levelTagList.get(x);
 
 			if (!lt.needsSaving())
 			{ // this is a pre-existing one that needs to be removed
@@ -919,7 +899,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 		{
 			if ((rowIndex >= 0) && (rowIndex < ClassLevelPanel.levelTagList.size()))
 			{
-				LevelTag lt = (LevelTag) ClassLevelPanel.levelTagList.get(rowIndex);
+				LevelTag lt = ClassLevelPanel.levelTagList.get(rowIndex);
 
 				switch (columnIndex)
 				{

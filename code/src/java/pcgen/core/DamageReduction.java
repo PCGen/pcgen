@@ -24,6 +24,7 @@
  */
 package pcgen.core;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,6 +35,9 @@ import java.util.StringTokenizer;
 
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+
 import java.util.Collection;
 
 /**
@@ -46,7 +50,7 @@ import java.util.Collection;
  * @author boomer70
  *
  */
-public class DamageReduction implements Comparable
+public class DamageReduction implements Comparable, Cloneable
 {
 	private String theReduction = "0";
 	private String theBypass = "-";
@@ -638,5 +642,94 @@ public class DamageReduction implements Comparable
 			doneFirst = true;
 		}
 		return buffer.toString();
+	}
+
+	/**
+	 * @see java.lang.Object#clone()
+	 */
+	public DamageReduction clone() throws CloneNotSupportedException
+	{
+		DamageReduction clone = (DamageReduction) super.clone();
+
+		clone.thePreReqs = new ArrayList<Prerequisite>();
+		for (Prerequisite prereq : thePreReqs)
+		{
+			clone.addPreReq((Prerequisite) prereq.clone());
+		}
+		
+		return clone;
+	}
+	
+	/**
+	 * Generate the text to be included in a LST file to represent this DR object.
+	 * 
+	 * @param includeLevel Should level prereqs be included?
+	 * @return The LST code for the DR.
+	 */
+	public String getPCCText(boolean includeLevel)
+	{
+		StringBuffer result = new StringBuffer("DR:");
+		result.append(theReduction);
+		result.append("/");
+		result.append(theBypass);
+		
+		final StringWriter writer = new StringWriter();
+		for (Prerequisite prereq : thePreReqs)
+		{
+			if (!includeLevel && "class".equals(prereq.getKind()))
+			{
+				continue;
+			}
+			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+			try
+			{
+				writer.write("|");
+				prereqWriter.write(writer, prereq);
+			}
+			catch (PersistenceLayerException e1)
+			{
+				e1.printStackTrace();
+			}
+			result.append(writer);
+		}
+		
+		return result.toString();
+	}
+	
+	/**
+	 * Determine if this damage reduction object is associated with a 
+	 * level of a class.
+	 * 
+	 * @param keyName The key nameof the PCClass.
+	 * @return true if it is associated with a level of the class, false otherwise.
+	 */
+	public boolean isForClassLevel(String keyName)
+	{
+		for (Prerequisite prereq : thePreReqs)
+		{
+			if (DamageReduction.isPrereqForClassLevel(prereq, keyName))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Determine if this damage reduction object is associated with a 
+	 * level of a class.
+	 *
+	 * @param prereq The prerequisite to check.
+	 * @param keyName The key nameof the PCClass.
+	 * @return true if it is associated with a level of the class, false otherwise.
+	 */
+	public static boolean isPrereqForClassLevel(Prerequisite prereq,
+		String keyName)
+	{
+		if (prereq.getKind().equals("class") && prereq.getKey().equals(keyName))
+		{
+			return true;
+		}
+		return false;
 	}
 }
