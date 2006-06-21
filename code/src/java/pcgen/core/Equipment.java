@@ -4200,7 +4200,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 				tempStringBuffer.append(", ");
 				tempStringBuffer.append(BigDecimalHelper.trimZeros(anEquip.getQty().toString()));
 				tempStringBuffer.append(" ");
-				tempStringBuffer.append(anEquip);
+                // karianna os bug 1414564 
+                tempStringBuffer.append(anEquip.getOutputName());
 			}
 		}
 
