@@ -382,7 +382,7 @@ public class DamageReduction implements Comparable, Cloneable
 						{
 							buffer.append(" and ");
 						}
-						buffer.append( (String) i.next());
+						buffer.append(i.next());
 						doneFirst = true;
 					}
 					return new DamageReduction(dr1.getReduction(),
@@ -600,6 +600,48 @@ public class DamageReduction implements Comparable, Cloneable
 	}
 
 	/**
+	 * Process a List of DRs and try and recombine multiple values into a single
+	 * value.  For example 10/magic; 10/good = 10/magic and good. Only DR values 
+	 * that the PC qualifies for will be included in the final list.
+	 * @param drList The list of DRs to combine.  The list is modified by the
+	 * method.
+	 * @param pc The character the list is for
+	 */
+	private static void mergeAnds(List<DamageReduction> drList, PlayerCharacter pc)
+	{
+		if (pc == null)
+		{
+			mergeAnds(drList);
+			return;
+		}
+		// Assumes the input list is sorted in DR rating order
+		DamageReduction currentDR = null;
+		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext(); )
+		{
+			DamageReduction dr = i.next();
+			if (!PrereqHandler.passesAll(dr.getPreReqList(), pc, null))
+			{
+				i.remove();
+			}
+			else if (dr.join != OR_JOIN)
+			{
+				if (currentDR != null
+					&& dr.getReductionValue() == currentDR.getReductionValue())
+				{
+					// We can merge these two DRs into one.
+					currentDR.setBypass(currentDR.getBypass() + " and "
+										+ dr.getBypass());
+					i.remove();
+				}
+				else
+				{
+					currentDR = dr;
+				}
+			}
+		}
+	}
+
+	/**
 	 * Returns a list of merged DamageReduction objects "and" values are not
 	 * merged.
 	 * @param aPC The PC the DR rating is being calculated for.
@@ -627,7 +669,7 @@ public class DamageReduction implements Comparable, Cloneable
 	public static String getDRString(final PlayerCharacter aPC, List<DamageReduction> drList)
 	{
 		List<DamageReduction> resultList = new ArrayList<DamageReduction>(getDRList(aPC, drList));
-		mergeAnds(resultList);
+		mergeAnds(resultList, aPC);
 
 		StringBuffer buffer = new StringBuffer();
 		boolean doneFirst = false;
@@ -638,8 +680,12 @@ public class DamageReduction implements Comparable, Cloneable
 				buffer.append("; ");
 			}
 
-			buffer.append(dr.toString());
-			doneFirst = true;
+			String value = dr.toString();
+			if (value != null && value.trim().length() > 0)
+			{
+				buffer.append(dr.toString());
+				doneFirst = true;
+			}
 		}
 		return buffer.toString();
 	}
