@@ -1,7 +1,13 @@
 <project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
     xmlns:ant="jelly:ant" xmlns:u="jelly:util">
 	<goal name="generate-jars">
+		<ant:ant dir="${basedir}" antfile="build.xml" target="scripts">
+			<property name="build.classes.dir" value="${maven.build.dest}"/>
+		</ant:ant>
 		<ant:ant dir="${basedir}" antfile="build.xml" target="build-plugins">
+			<property name="build.classes.dir" value="${maven.build.dest}"/>
+		</ant:ant>
+		<ant:ant dir="${basedir}" antfile="build.xml" target="manifest">
 			<property name="build.classes.dir" value="${maven.build.dest}"/>
 		</ant:ant>
 	</goal>
@@ -45,8 +51,24 @@
 
     	<ant:mkdir dir="${basedir}/target/distributions" />
     	
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-all-no-libs-${formattedDate}.zip" 
-    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**, data/**, outputsheets/**, docs/**, system/**"  />
+    	<ant:zip destfile="target/distributions/pcgen-all-no-libs-${formattedDate}.zip">
+    	  <fileset dir="${basedir}/target">
+		    <include name="pcgen.jar"/>
+		  </fileset>
+    	  <fileset dir="${basedir}/code/bin">
+		    <include name="pcgen.sh"/>
+		    <include name="pcgen.bat"/>
+		    <include name="pcgen_low_mem.bat"/>
+		  </fileset>
+		  <fileset dir="${basedir}" >
+		    <include name="plugins/**"/>
+		    <include name="data/**"/>
+		    <include name="outputsheets/**"/>
+		    <include name="docs/**"/>
+		    <include name="system/**"/>
+		  </fileset>
+    	
+    	</ant:zip> 
 <!--    		
     	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-code-${formattedDate}.zip" 
     		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**" />

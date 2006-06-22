@@ -87,6 +87,35 @@
             <url>http://perrenland.org</url>
             <timezone>+10</timezone>
         </developer>
+        <developer>
+            <name>Aaron Divinsky</name>
+            <id>boomer70</id>
+        </developer>
+        <developer>
+            <name>Frank Kliewe</name>
+            <id>frank_kliewe</id>
+        </developer>
+        <developer>
+            <name>Eddy Anthony</name>
+            <id>eddyanthony</id>
+        </developer>
+        <developer>
+            <name>Paul W. King</name>
+            <id>kingpaul</id>
+        </developer>
+        <developer>
+            <name>Brian</name>
+            <id>telechus</id>
+        </developer>
+        <developer>
+            <name>Andrew Wilson</name>
+            <id>nuance</id>
+        </developer>
+        <developer>
+            <name>Tir Gwaith</name>
+            <id>tir-gwaith</id>
+        </developer>
+        
     </developers>
 
     <dependencies>
@@ -229,6 +258,13 @@
                 <directory>code/src/java</directory>
                 <includes>
                     <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <!-- The resources are in the same place as the sources. -->
+                <directory>code/src/java</directory>
+                <includes>
+                    <include>pcgen/gui/resource/*</include>
                 </includes>
             </resource>
         </resources>
