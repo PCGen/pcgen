@@ -183,7 +183,7 @@ public abstract class LstFileLoader extends Observable
 				    + " in LstSystemLoader.initFile. Continuing anyway");
 			}
 
-			dataBuffer.append(new String(inputLine));
+			dataBuffer.append(new String(inputLine, "UTF-8"));
 		}
 		catch (IOException ioe)
 		{
