@@ -211,6 +211,7 @@ public final class Domain extends PObject
 		try
 		{
 			aObj                = (Domain) super.clone();
+			aObj.abilityStore = new AbilityStore();
 			Iterator it = abilityStore.getKeyIterator("ALL");
 			while (it.hasNext())
 			{
@@ -282,7 +283,7 @@ public final class Domain extends PObject
 	 *
 	 * @return  An Iterator over a group of AbilityInfo objects.
 	 */
-	Iterator<Ability> getFeatIterator()
+	public Iterator<Ability> getFeatIterator()
 	{
 		return abilityStore.getKeyIterator("FEAT");
 	}
@@ -376,6 +377,21 @@ public final class Domain extends PObject
 			}
 		}
 
+		// Granted feats
+		StringBuffer featString = new StringBuffer(); 
+		for (Iterator<Ability> iter = getFeatIterator(); iter.hasNext();)
+		{
+			Ability grantedFeat = iter.next();
+			if (featString.length() > 0)
+			{
+				featString.append("|");
+			}
+			featString.append(grantedFeat.getKeyName());
+		}
+		if (featString.length() > 0)
+		{
+			txt.append('\t').append("FEAT:").append(featString);
+		}
 		return txt.toString();
 	}
 

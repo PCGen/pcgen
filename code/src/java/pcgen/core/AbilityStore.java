@@ -90,12 +90,13 @@ public class AbilityStore extends CategorisableStore<Ability>
 
 			if (token.startsWith(CATEGORY_START_TOKEN))
 			{
-				if (lockCategory)
+				String newCat = token.substring(CATEGORY_START_TOKEN.length());
+				if (lockCategory && !cat.equals(newCat))
 				{
-					Logging.errorPrint("Attempting to change the Category of a Feat");
+					Logging.errorPrint("Attempting to change the Category of a Feat to '" + newCat + "'", new Throwable());
 					return;
 				}
-				cat = token.substring(CATEGORY_START_TOKEN.length());
+				cat = newCat;
 
 				continue;
 			}
@@ -140,8 +141,8 @@ public class AbilityStore extends CategorisableStore<Ability>
 			if (!this.addCategorisable(toAdd))
 			{
 				// I18N
-				String error = "Ability object";
-				Logging.errorPrint("problem adding " + error);
+				String error = "Ability object (" + toAdd.getKeyName() + ").";
+				Logging.errorPrint("problem adding " + error, new Throwable());
 			}
 		}
 	}

@@ -702,6 +702,14 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 
+				//
+				// Save feats
+				//
+				((Domain)thisPObject).addFeat(".CLEAR");
+				sel = pnlFeats.getSelectedList();
+				aString = EditUtil.delimitArray(sel, '|');
+				((Domain)thisPObject).addFeat(aString);
+
 				sel = pnlQSpells.getSelectedList();
 				if (thisPObject.isNewItem())
 					thisPObject.setNewItem(false);
@@ -1239,6 +1247,33 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_DOMAIN:
+
+				//
+				// Populate the feats available list and selected lists
+				//
+				availableList.clear();
+				selectedList.clear();
+
+				for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+				{
+					final Ability anAbility = (Ability) e.next();
+					availableList.add(anAbility.getKeyName());
+				}
+
+				for (Iterator<Ability> iter = ((Domain) thisPObject).getFeatIterator(); iter.hasNext();)
+				{
+					Ability ability = iter.next();
+					aString = ability.getKeyName();
+
+					if (!selectedList.contains(aString))
+					{
+						availableList.remove(aString);
+						selectedList.add(aString);
+					}
+				}
+
+				pnlFeats.setAvailableList(availableList, true);
+				pnlFeats.setSelectedList(selectedList, true);
 
 				availableList.clear();
 				selectedList.clear();
@@ -2379,6 +2414,7 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_DOMAIN:
 				pnlLanguages = new AvailableSelectedPanel();
+				pnlFeats = new AvailableSelectedPanel();
 				pnlSkills = new AvailableSelectedPanel(true);
 				pnlWeapons = new AvailableSelectedPanel();
 				pnlQSpells = new QualifiedAvailableSelectedPanel("in_demLevel", null,
