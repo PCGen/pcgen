@@ -40,7 +40,7 @@ public class ArmorToken extends Token
         if (tokenSource.startsWith("ARMOR") && ((tokenSource.charAt(5) == '.') || Character.isDigit(tokenSource.charAt(5)))) {
             return getArmorToken(tokenSource, pc);
         }
-        return null;
+        return "";
     }
 
     /**
@@ -238,7 +238,7 @@ public class ArmorToken extends Token
             return _writeArmorProperty(eq, property, aPC);
         }
 
-        return null;
+        return "";
     }
 
     /**
@@ -277,7 +277,7 @@ public class ArmorToken extends Token
             return _writeArmorProperty(eq, property, aPC);
         }
 
-        return null;
+        return "";
     }
 
     /**
@@ -300,7 +300,7 @@ public class ArmorToken extends Token
             return _writeArmorProperty(eq, property, aPC);
         }
 
-        return null;
+        return "";
     }
 
     /**
@@ -323,7 +323,7 @@ public class ArmorToken extends Token
             return _writeArmorProperty(eq, property, aPC);
         }
 
-        return null;
+        return "";
     }
 
     /**
@@ -351,7 +351,7 @@ public class ArmorToken extends Token
             return _writeArmorProperty(eq, property, aPC);
         }
 
-        return null;
+        return "";
     }
 
     /**
@@ -392,7 +392,7 @@ public class ArmorToken extends Token
             return _writeArmorProperty(eq, property, aPC);
         }
 
-        return null;
+        return "";
     }
 
     private static String _writeArmorProperty(Equipment eq, String property, PlayerCharacter aPC)
