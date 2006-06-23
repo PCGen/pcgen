@@ -35,7 +35,7 @@ import java.util.List;
 final class Coins
 {
 	private Coin defaultCoin;
-	private List coins;
+	private List<Coin> coins;
 
 	/**
 	 * Constructor creates a new Coins collection, creating new Coin
@@ -48,13 +48,13 @@ final class Coins
 	 */
 	Coins(final Denominations currency)
 	{
-		coins = new ArrayList();
+		coins = new ArrayList<Coin>();
 
-		final Iterator i = currency.iterator();
+		final Iterator<Denomination> i = currency.iterator();
 
 		while (i.hasNext())
 		{
-			final Denomination d = (Denomination) i.next();
+			final Denomination d = i.next();
 			final Coin c = new Coin(d);
 			coins.add(c);
 
@@ -164,13 +164,8 @@ final class Coins
 	 */
 	public Coin getCoin(final String name)
 	{
-		final Iterator i = coins.iterator();
-		Coin c;
-
-		while (i.hasNext())
+		for ( Coin c : coins )
 		{
-			c = (Coin) i.next();
-
 			if (c.denom.getName().equalsIgnoreCase(name) || c.denom.getAbbr().equalsIgnoreCase(name))
 			{
 				return c;
@@ -218,13 +213,9 @@ final class Coins
 	 */
 	public double getWeight()
 	{
-		final Iterator i = coins.iterator();
-		Coin c;
 		double weight = 0F;
-
-		while (i.hasNext())
+		for ( Coin c : coins )
 		{
-			c = (Coin) i.next();
 			weight += c.getWeight();
 		}
 
@@ -235,7 +226,7 @@ final class Coins
 	 * Return the coins ArrayList's iterator to the caller.
 	 * @return Iterator for coins
 	 */
-	public Iterator iterator()
+	public Iterator<Coin> iterator()
 	{
 		return coins.iterator();
 	}
@@ -275,14 +266,14 @@ final class Coins
 
 		long carriedAmount = 0L;
 
-		final Iterator i = coins.iterator();
+		final Iterator<Coin> i = coins.iterator();
 
 		while (i.hasNext())
 		{
 			// I clone the coin here because I may have to change it's value in
 			// order to properly handle the exclusion of coins higher than the
 			// default coin.  bsmeister 03/04/2003
-			final Coin c = cloneCoin((Coin) i.next());
+			final Coin c = cloneCoin(i.next());
 
 			// This section excludes causes coins with a higher value than the
 			// default to be excluded, but their value still be included in

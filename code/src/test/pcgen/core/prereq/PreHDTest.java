@@ -72,7 +72,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race.setName("Human");
 		race.setSize("M");
 		race.setHitDice(3);
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Human", race);
 
 		final PlayerCharacter character = getCharacter();
@@ -127,7 +127,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race1.setSize("L");
 		race1.setMonsterClass("Humanoid");
 		race1.setMonsterClassLevels(3);
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Bugbear", race1);
 
 		SettingsHandler.setMonsterDefault(false);

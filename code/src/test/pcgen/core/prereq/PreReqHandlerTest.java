@@ -76,7 +76,7 @@ public class PreReqHandlerTest extends PCGenTestCase
 	public void testToHtml() throws Exception
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		final List list = new ArrayList();
+		final List<Prerequisite> list = new ArrayList<Prerequisite>();
 		list.add(factory.parse("PRESKILL:1,Spellcraft=15"));
 		list.add(factory.parse("PRESPELLTYPE:Arcane,1,8"));
 		list.add(factory.parse("PREFEAT:2,TYPE=Metamagic"));

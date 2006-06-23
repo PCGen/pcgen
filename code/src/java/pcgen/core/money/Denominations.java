@@ -36,7 +36,7 @@ import java.util.List;
 public final class Denominations implements iDefaultRankConstants
 {
 	private Denomination defaultCoin;
-	private List coinDenominations;
+	private List<Denomination> coinDenominations;
 	private String region;
 	private int defaultRank = DEFAULT_NONE;
 
@@ -45,7 +45,7 @@ public final class Denominations implements iDefaultRankConstants
 	 */
 	public Denominations()
 	{
-		coinDenominations = new ArrayList();
+		coinDenominations = new ArrayList<Denomination>();
 	}
 
 	/**
@@ -101,7 +101,7 @@ public final class Denominations implements iDefaultRankConstants
 	 * iterator
 	 * @return Iterator
 	 */
-	public Iterator iterator()
+	public Iterator<Denomination> iterator()
 	{
 		return coinDenominations.iterator();
 	}
@@ -110,12 +110,8 @@ public final class Denominations implements iDefaultRankConstants
 	{
 		final StringBuffer result = new StringBuffer(50);
 
-		final Iterator i = coinDenominations.iterator();
-		Denomination d;
-
-		while (i.hasNext())
+		for ( Denomination d : coinDenominations )
 		{
-			d = (Denomination) i.next();
 			result.append(d).append(Constants.s_LINE_SEP);
 		}
 
@@ -129,19 +125,15 @@ public final class Denominations implements iDefaultRankConstants
 	 */
 	private void addDenomination(final Denomination coin)
 	{
-		final Iterator i = coinDenominations.iterator();
-		Denomination d;
 		String name;
 		boolean found = false;
 
-		while (i.hasNext())
+		for ( Denomination d : coinDenominations )
 		{
-			d = (Denomination) i.next();
 			name = d.getName();
 
 			if (name.equalsIgnoreCase(coin.getName()))
 			{
-				d = coin; // TODO: unused
 				found = true;
 
 				break;
@@ -160,7 +152,7 @@ public final class Denominations implements iDefaultRankConstants
 				this.defaultRank = DEFAULT_GOLD;
 			}
 			else if ((defaultRank < DEFAULT_INCLUDES_GOLD)
-			    && ((ucName.indexOf(" GOLD ") >= 0) || ucName.startsWith("GOLD ") || ucName.endsWith(" GOLD")))
+				&& ((ucName.indexOf(" GOLD ") >= 0) || ucName.startsWith("GOLD ") || ucName.endsWith(" GOLD")))
 			{
 				this.defaultCoin = coin;
 				this.defaultRank = DEFAULT_INCLUDES_GOLD;
@@ -171,7 +163,7 @@ public final class Denominations implements iDefaultRankConstants
 
 		if ((coinDenominations.size() > 0) && (defaultRank <= DEFAULT_HIGHEST_VALUE))
 		{
-			this.defaultCoin = (Denomination) coinDenominations.get(0);
+			this.defaultCoin = coinDenominations.get(0);
 			this.defaultRank = DEFAULT_HIGHEST_VALUE;
 		}
 	}

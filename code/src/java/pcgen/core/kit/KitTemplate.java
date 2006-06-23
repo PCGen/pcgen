@@ -46,7 +46,7 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List theTemplates = new ArrayList();
+	private transient List<PCTemplate> theTemplates = new ArrayList<PCTemplate>();
 
 	/**
 	 * Constructor
@@ -67,9 +67,8 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
-		for (Iterator i = theTemplates.iterator(); i.hasNext(); )
+		for ( PCTemplate template : theTemplates )
 		{
-			PCTemplate template = (PCTemplate)i.next();
 			aPC.addTemplate(template, template.templatesAdded().size() == 0);
 		}
 
@@ -104,7 +103,6 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 			while (subTok.hasMoreTokens())
 			{
 				String subStr = subTok.nextToken();
-//				final PCTemplate ret = aPC.addTemplateNamed(template);
 				if (subStr.startsWith("TEMPLATE:"))
 				{
 					final String ownedTemplateName = subStr.substring(9);

@@ -108,7 +108,7 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	 */
 	public Iterator<String> getChoicesIterator() {
 		final List<String> ret = (getAbility() != null) ?
-									decorations : Collections.emptyList();
+									decorations : Collections.EMPTY_LIST;
 		return ret.iterator();
 	}
 

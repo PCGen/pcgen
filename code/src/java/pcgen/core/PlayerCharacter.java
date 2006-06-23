@@ -5045,7 +5045,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public List<Kit> getKitInfo()
 	{
-		return kitList != null ? kitList : Collections.emptyList();
+		return kitList != null ? kitList : Collections.EMPTY_LIST;
 	}
 
 	public int getLevelAdjustment(final PlayerCharacter aPC)
@@ -7499,10 +7499,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 			first = false;
 		}
-        
-        // karianna bug 1184888
-        adjustMoveRates();        
-        
+
+		// karianna bug 1184888
+		adjustMoveRates();
+
 		setDirty(true);
 
 		return inTmpl;
@@ -9810,9 +9810,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		setQualifyListStable(false);
 
-        // karianna 1184888
-        adjustMoveRates();
-        
+		// karianna 1184888
+		adjustMoveRates();
+
 		// re-evaluate non-spellcaster spell lists
 		getSpellList();
 		calcActiveBonuses();

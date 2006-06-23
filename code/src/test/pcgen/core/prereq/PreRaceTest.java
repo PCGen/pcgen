@@ -65,7 +65,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Human", race);
 
 		character.setRace(race);
@@ -88,7 +88,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Human", race);
 
 		character.setRace(race);
@@ -111,7 +111,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Human", race);
 
 		character.setRace(race);
@@ -134,7 +134,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Human", race);
 
 		character.setRace(race);

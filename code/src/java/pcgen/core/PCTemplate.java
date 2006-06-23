@@ -1181,7 +1181,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public List<String> getWeaponProfBonus()
 	{
-		return weaponProfBonus != null ? weaponProfBonus : Collections.emptyList();
+		return weaponProfBonus != null ? weaponProfBonus : Collections.EMPTY_LIST;
 	}
 
 
@@ -1287,7 +1287,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public List<String> getHitDiceStrings()
 	{
-		return hitDiceStrings != null ? hitDiceStrings : Collections.emptyList();
+		return hitDiceStrings != null ? hitDiceStrings : Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -1383,7 +1383,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public List<String> getLevelStrings()
 	{
-		return levelStrings != null ? levelStrings : Collections.emptyList();
+		return levelStrings != null ? levelStrings : Collections.EMPTY_LIST;
 	}
 
 	/**
@@ -1753,7 +1753,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public List<String> templatesAdded()
 	{
-		return templatesAdded != null ? templatesAdded : Collections.emptyList();
+		return templatesAdded != null ? templatesAdded : Collections.EMPTY_LIST;
 	}
 
 

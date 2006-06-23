@@ -85,12 +85,22 @@ final class LstConverter extends JFrame
 	{
 		"UNKNOWN", "RACE", "CLASS", "SPELL", "DEITY", "DOMAIN", "SKILL", "FEAT", "TEMPLATE"
 	};
+	private static final int LST_TYPE_UNKNOWN = 0;
+	private static final int LST_TYPE_RACE = 1;
+	private static final int LST_TYPE_CLASS = 2;
+	private static final int LST_TYPE_SPELL = 3;
+	private static final int LST_TYPE_DEITY = 4;
+	private static final int LST_TYPE_DOMAIN = 5;
+	private static final int LST_TYPE_SKILL = 6;
+	private static final int LST_TYPE_FEAT = 7;
+	private static final int LST_TYPE_TEMPLATE = 8;
+
 	private static final String[] okTypes = { "NO", "YES" };
-	private List doneList = new ArrayList(); // list of items already run
-	private List lstNameList = new ArrayList(); // list of file names
-	private List lstPathList = new ArrayList(); // list of paths
-	private List lstTypeList = new ArrayList(); // list of types
-	private List okList = new ArrayList(); // list of items to be run
+	private List<Integer> doneList = new ArrayList<Integer>(); // list of items already run
+	private List<String> lstNameList = new ArrayList<String>(); // list of file names
+	private List<String> lstPathList = new ArrayList<String>(); // list of paths
+	private List<Integer> lstTypeList = new ArrayList<Integer>(); // list of types
+	private List<Integer> okList = new ArrayList<Integer>(); // list of items to be run
 	private String basePath = "";
 	private TableSorter sorter = new TableSorter();
 
@@ -197,26 +207,26 @@ final class LstConverter extends JFrame
 	{
 		for (int i = 0; i < okList.size(); i++)
 		{
-			if ("0".equals(okList.get(i).toString()))
+			if ( okList.get(i) == 0 )
 			{
 				continue;
 			}
 
-			int thisType = Integer.parseInt(lstTypeList.get(i).toString());
+			int thisType = lstTypeList.get(i);
 
-			if (thisType == 0)
+			if (thisType == LST_TYPE_UNKNOWN)
 			{
 				Logging.errorPrint(lstNameList.get(i).toString() + " is UNKNOWN - not converting");
 			}
 
 			File conversionSource = new File(lstPathList.get(i).toString() + File.separatorChar
-				    + lstNameList.get(i).toString());
+					+ lstNameList.get(i).toString());
 
 			try
 			{
 				//BufferedReader conversionReader = new BufferedReader(new FileReader(conversionSource));
 				BufferedReader conversionReader = new BufferedReader(new InputStreamReader(
-					        new FileInputStream(conversionSource), "UTF-8"));
+							new FileInputStream(conversionSource), "UTF-8"));
 				int length = (int) conversionSource.length();
 				char[] sourceInput = new char[length];
 				conversionReader.read(sourceInput, 0, length);
@@ -224,7 +234,7 @@ final class LstConverter extends JFrame
 
 				//BufferedWriter conversionWriter = new BufferedWriter(new FileWriter(conversionSource));
 				BufferedWriter conversionWriter = new BufferedWriter(new OutputStreamWriter(
-					        new FileOutputStream(conversionSource), "UTF-8"));
+							new FileOutputStream(conversionSource), "UTF-8"));
 				String sourceInputString = new String(sourceInput);
 				StringTokenizer sourceTokenizer = new StringTokenizer(sourceInputString, "\r\n", true);
 
@@ -233,7 +243,7 @@ final class LstConverter extends JFrame
 					String line = sourceTokenizer.nextToken();
 
 					if ("\r".equals(line) || "\n".equals(line) || (line.trim().length() == 0)
-					    || ((line.length() > 0) && (line.charAt(0) == '#')))
+						|| ((line.length() > 0) && (line.charAt(0) == '#')))
 					{
 						conversionWriter.write(line);
 
@@ -284,48 +294,48 @@ final class LstConverter extends JFrame
 						if (bString.startsWith("PREFORT:"))
 						{
 							conversionWriter.write("PRECHECK:1,"
-							    + SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase() + "="
-							    + bString.substring(8));
+								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase() + "="
+								+ bString.substring(8));
 
 							continue;
 						}
 						else if (bString.startsWith("PREREFLEX:"))
 						{
 							conversionWriter.write("PRECHECK:1,"
-							    + SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase() + "="
-							    + bString.substring(10));
+								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase() + "="
+								+ bString.substring(10));
 
 							continue;
 						}
 						else if (bString.startsWith("PREWILL:"))
 						{
 							conversionWriter.write("PRECHECK:1,"
-							    + SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase() + "="
-							    + bString.substring(8));
+								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase() + "="
+								+ bString.substring(8));
 
 							continue;
 						}
 						else if (bString.startsWith("PREFORTBASE:"))
 						{
 							conversionWriter.write("PRECHECKBASE:1,"
-							    + SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase() + "="
-							    + bString.substring(12));
+								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase() + "="
+								+ bString.substring(12));
 
 							continue;
 						}
 						else if (bString.startsWith("PREREFLEXBASE:"))
 						{
 							conversionWriter.write("PRECHECKBASE:1,"
-							    + SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase() + "="
-							    + bString.substring(14));
+								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase() + "="
+								+ bString.substring(14));
 
 							continue;
 						}
 						else if (bString.startsWith("PREWILLBASE:"))
 						{
 							conversionWriter.write("PRECHECKBASE:1,"
-							    + SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase() + "="
-							    + bString.substring(12));
+								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase() + "="
+								+ bString.substring(12));
 
 							continue;
 						}
@@ -379,7 +389,7 @@ final class LstConverter extends JFrame
 							catch (Exception exc)
 							{
 								conversionWriter.write("PREWEAPONPROF:" + Integer.toString(p.countTokens() + 1) + ","
-								    + bString.substring(14));
+									+ bString.substring(14));
 
 								continue;
 							}
@@ -482,7 +492,7 @@ final class LstConverter extends JFrame
 //									BAB: was removed in v3.1.0
 								}
 								else if ((field == 9) || (!hasTagless && bString.startsWith("FORTITUDECHECK:"))
-								    || (!hasTagless && bString.startsWith("CHECK1:")))
+									|| (!hasTagless && bString.startsWith("CHECK1:")))
 								{
 //									FORTITUDECHECK has been replaced in v3.1.0
 									if (bString.startsWith("FORT"))
@@ -501,7 +511,7 @@ final class LstConverter extends JFrame
 										+ "|" + bString;
 								}
 								else if ((field == 10) || (!hasTagless && bString.startsWith("REFLEXCHECK:"))
-								    || (!hasTagless && bString.startsWith("CHECK2:")))
+									|| (!hasTagless && bString.startsWith("CHECK2:")))
 								{
 //									REFLEXCHECK has been replaced in v3.1.0
 									if (!hasTagless)
@@ -520,7 +530,7 @@ final class LstConverter extends JFrame
 										+ "|" + bString;
 								}
 								else if ((field == 11) || (!hasTagless && bString.startsWith("WILLPOWERCHECK:"))
-								    || (!hasTagless && bString.startsWith("CHECK3:")))
+									|| (!hasTagless && bString.startsWith("CHECK3:")))
 								{
 									//WILLPOWERCHECK has been replaced in v3.1.0
 									if (!hasTagless)
@@ -680,8 +690,8 @@ final class LstConverter extends JFrame
 					 // end while
 				}
 
-				okList.set(i, "0");
-				doneList.set(i, "1");
+				okList.set(i, 0);
+				doneList.set(i, 1);
 				conversionWriter.close();
 			}
 			catch (Exception e)
@@ -871,55 +881,55 @@ final class LstConverter extends JFrame
 
 							if (fileName.endsWith("race.lst") || fileName.endsWith("races.lst"))
 							{
-								lstTypeList.add("1");
+								lstTypeList.add(LST_TYPE_RACE);
 							}
 							else if (fileName.endsWith("class.lst") || fileName.endsWith("classes.lst"))
 							{
-								lstTypeList.add("2");
+								lstTypeList.add(LST_TYPE_CLASS);
 							}
 							else if ((fileName.endsWith("spell.lst") || fileName.endsWith("spells.lst")
-							    || fileName.endsWith("power.lst") || fileName.endsWith("powers.lst"))
-							    && (fileName.indexOf("classspell") == -1) && (fileName.indexOf("classpowers") == -1))
+								|| fileName.endsWith("power.lst") || fileName.endsWith("powers.lst"))
+								&& (fileName.indexOf("classspell") == -1) && (fileName.indexOf("classpowers") == -1))
 							{
-								lstTypeList.add("3");
+								lstTypeList.add(LST_TYPE_SPELL);
 							}
 							else if (fileName.endsWith("deity.lst") || fileName.endsWith("deities.lst"))
 							{
-								lstTypeList.add("4");
+								lstTypeList.add(LST_TYPE_DEITY);
 							}
 							else if (fileName.endsWith("domain.lst") || fileName.endsWith("domains.lst"))
 							{
-								lstTypeList.add("5");
+								lstTypeList.add(LST_TYPE_DOMAIN);
 							}
 							else if ((fileName.endsWith("skill.lst") || fileName.endsWith("skills.lst"))
-							    && (fileName.indexOf("classskill") == -1))
+								&& (fileName.indexOf("classskill") == -1))
 							{
-								lstTypeList.add("6");
+								lstTypeList.add(LST_TYPE_SKILL);
 							}
 							else if (fileName.endsWith("feat.lst") || fileName.endsWith("feats.lst"))
 							{
-								lstTypeList.add("7");
+								lstTypeList.add(LST_TYPE_FEAT);
 							}
 							else if (fileName.endsWith("template.lst") || fileName.endsWith("templates.lst"))
 							{
-								lstTypeList.add("8");
+								lstTypeList.add(LST_TYPE_TEMPLATE);
 							}
 							else
 							{
 								ok = 0;
-								lstTypeList.add("0"); // unknown
+								lstTypeList.add(0); // unknown
 							}
 
 							if (ok > 0)
 							{
-								okList.add("1"); // default to OK
+								okList.add(1); // default to OK
 							}
 							else
 							{
-								okList.add("0");
+								okList.add(0);
 							}
 
-							doneList.add("0"); // default to not-done
+							doneList.add(0); // default to not-done
 						}
 						else if (parentDir.isDirectory())
 						{
@@ -944,19 +954,19 @@ final class LstConverter extends JFrame
 	{
 		for (int i = 0; i < okList.size(); i++)
 		{
-			int y = Integer.parseInt(lstTypeList.get(i).toString());
+			int y = lstTypeList.get(i);
 
 			if (x == y)
 			{
-				y = Integer.parseInt(okList.get(i).toString());
+				y = okList.get(i);
 
 				if (y == 0)
 				{
-					okList.set(i, "1");
+					okList.set(i, 1);
 				}
 				else
 				{
-					okList.set(i, "0");
+					okList.set(i, 0);
 				}
 			}
 		}
@@ -989,7 +999,7 @@ final class LstConverter extends JFrame
 	{
 		private LstTableModel()
 		{
-		    // Empty Constructor
+			// Empty Constructor
 		}
 
 		public boolean isCellEditable(int row, int column)
@@ -1028,7 +1038,7 @@ final class LstConverter extends JFrame
 
 				default:
 					Logging.errorPrint("In LstConverter.LstTableModel.getColumnName the column " + columnIndex
-					    + " is not handled.");
+						+ " is not handled.");
 
 					break;
 			}
@@ -1067,12 +1077,12 @@ final class LstConverter extends JFrame
 
 					if (i.intValue() == 1)
 					{
-						int j = Integer.parseInt(lstTypeList.get(rowIndex).toString());
+						int j = lstTypeList.get(rowIndex);
 
 						if (j == 0)
 						{
 							ShowMessageDelegate.showMessageDialog("Set type to a known type before marking it to be converted.",
-							    "Oops!", MessageType.ERROR);
+								"Oops!", MessageType.ERROR);
 
 							return;
 						}
@@ -1084,7 +1094,7 @@ final class LstConverter extends JFrame
 
 				default:
 					Logging.errorPrint("In LstConverter.LstTableModel.setValueAt the column " + columnIndex
-					    + " is not handled.");
+						+ " is not handled.");
 
 					break;
 			}
@@ -1107,24 +1117,24 @@ final class LstConverter extends JFrame
 
 				case 2:
 
-					final int x = Integer.parseInt(lstTypeList.get(rowIndex).toString());
+					final int x = lstTypeList.get(rowIndex);
 
 					return new Integer(x);
 
 				case 3:
 
-					int ok = Integer.parseInt(okList.get(rowIndex).toString());
+					int ok = okList.get(rowIndex);
 
 					return new Integer(ok);
 
 				case 4:
-					ok = Integer.parseInt(doneList.get(rowIndex).toString());
+					ok = doneList.get(rowIndex);
 
 					return new Integer(ok);
 
 				default:
 					Logging.errorPrint("In LstConverter.LstTableModel.getValueAt the column " + columnIndex
-					    + " is not handled.");
+						+ " is not handled.");
 
 					break;
 			}
