@@ -104,6 +104,10 @@ public class BioToken extends Token
 		return sb.toString();
 	}
 
+    /**
+     * Returns false
+     * @return false
+     */
 	public boolean isEncoded() {
 		return false;
 	}

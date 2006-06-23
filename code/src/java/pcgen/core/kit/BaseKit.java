@@ -30,7 +30,6 @@ import java.util.Collections;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
-import java.util.Iterator;
 import pcgen.core.prereq.Prerequisite;
 
 /**
@@ -111,7 +110,11 @@ public abstract class BaseKit implements Cloneable
 		return Collections.unmodifiableList(lookups);
 	}
 
-	public Object clone()
+	/**
+     * Clone this Base Kit
+     * @return cloned Base Kit 
+	 */
+    public Object clone()
 	{
 		BaseKit aClone = null;
 		try

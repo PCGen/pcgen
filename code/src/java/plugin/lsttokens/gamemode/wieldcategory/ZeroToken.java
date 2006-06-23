@@ -8,10 +8,20 @@ import pcgen.persistence.lst.WieldCategoryLstToken;
  */
 public class ZeroToken implements WieldCategoryLstToken {
 
-	public String getTokenName() {
+	/**
+     * Get token name
+     * @return Token name
+	 */
+    public String getTokenName() {
 		return "ZERO";
 	}
 
+    /**
+     * Parse ZERO token
+     * @param cat 
+     * @param value 
+     * @return true
+     */
 	public boolean parse(WieldCategory cat, String value) {
 		//The wield category steps
 		cat.setWCStep(0, value);

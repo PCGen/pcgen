@@ -10,14 +10,24 @@ import pcgen.persistence.lst.GlobalLstToken;
 
 /**
  * @author djones4
- *
  */
 public class BonusLst implements GlobalLstToken {
 
+    /**
+     * Returns token name
+     * @return token name
+     */
 	public String getTokenName() {
 		return "BONUS";
 	}
 
+    /**
+     * Parse BONUS token
+     * @param obj 
+     * @param value 
+     * @param anInt 
+     * @return true or false
+     */
 	public boolean parse(PObject obj, String value, int anInt) {
 		boolean result = false;
 		value = CoreUtility.replaceAll(value, "<this>", obj.getKeyName());

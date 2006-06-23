@@ -34,6 +34,15 @@ import javax.swing.JPanel;
  */
 abstract class BasePanel extends JPanel implements PObjectUpdater
 {
-	public abstract void updateData(PObject thisPObject);
-	public abstract void updateView(PObject thisPObject);
+	/**
+     * Update the data in the panel with PObject
+	 * @param thisPObject 
+	 */
+    public abstract void updateData(PObject thisPObject);
+
+    /**
+     * Update the data in the view with PObject
+     * @param thisPObject
+     */
+    public abstract void updateView(PObject thisPObject);
 }

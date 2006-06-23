@@ -18,6 +18,7 @@ public class BaseKitLoader {
 	 * @param obj
 	 * @param tag
 	 * @return true if parse OK
+	 * @throws PersistenceLayerException 
 	 */
 	public static boolean parseCommonTags(BaseKit obj, final String tag)
 		throws PersistenceLayerException
@@ -32,7 +33,7 @@ public class BaseKitLoader {
 			key = tag.substring(0, idxColon);
 		}
 		catch(StringIndexOutOfBoundsException e) {
-			// TODO Handle Exception
+			throw new PersistenceLayerException();
 		}
 		BaseKitLstToken token = (BaseKitLstToken) tokenMap.get(key);
 

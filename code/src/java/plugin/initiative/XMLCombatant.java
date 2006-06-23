@@ -35,7 +35,6 @@ import org.jdom.Element;
 import pcgen.util.Logging;
 
 import java.util.List;
-import java.util.Vector;
 import java.util.ArrayList;
 
 /**
@@ -564,6 +563,10 @@ public class XMLCombatant extends Combatant
 		return "-" + bonus;
 	}
 
+    /**
+     * Return as HTML String
+     * @return PCRenderer as HTML string
+     */
 	public String toHtmlString()
 	{
 		return new PcRenderer().getHtmlText();

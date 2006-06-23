@@ -31,7 +31,6 @@ import pcgen.util.Logging;
 
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.jar.JarFile;
 import java.util.jar.JarEntry;
@@ -413,6 +412,10 @@ public class Bonus
 			return bonusClass;
 		}
 
+        /**
+         * toString function bonusname:bonustype
+         * @return String bonusname:bonustype
+         */
 		public String toString()
 		{
 			return bonusObjectName + ':' + Integer.toString(bonusType);
