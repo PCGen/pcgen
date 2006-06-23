@@ -184,7 +184,7 @@ public class AbilityUtilities
 	 * from the name and added appropriately
 	 *
 	 * @param   category
-	 * @param   featName
+	 * @param   aFeatKey
 	 * @param   abilityList
 	 * @param   levelInfo
 	 *
@@ -300,7 +300,7 @@ public class AbilityUtilities
 	 * in, then return a clone of that Ability.
 	 *
 	 * @param category
-	 * @param abilityName
+	 * @param anAbilityKey
 	 *
 	 * @return a clone of a global ability
 	 */
@@ -617,7 +617,7 @@ public class AbilityUtilities
 	 *
 	 * @param   aPC                       the PC to add or remove the Feat from
 	 * @param   LevelInfo
-	 * @param   featName                  the name of the Feat to add.
+	 * @param   aFeatKey                  the name of the Feat to add.
 	 * @param   addIt false means the character must already have the
 	 *                                    feat (which only makes sense if it
 	 *                                    allows multiples); true means

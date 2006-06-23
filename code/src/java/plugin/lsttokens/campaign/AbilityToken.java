@@ -8,14 +8,26 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import java.net.URL;
 
 /**
- * Class deals with ABILITY Token
+ * Class deals with ABILITY Token for campaign
  */
 public class AbilityToken implements CampaignLstToken {
 
-	public String getTokenName() {
+	/**
+     * Get the token name
+	 * @return token name
+	 */
+    public String getTokenName() {
 		return "ABILITY";
 	}
 
+    /**
+     * Parse the ability token
+     * 
+     * @param campaign 
+     * @param value 
+     * @param sourceUrl 
+     * @return true
+     */
 	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
 		campaign.addLine("ABILITY:" + value);
 		campaign.addAbilityFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));

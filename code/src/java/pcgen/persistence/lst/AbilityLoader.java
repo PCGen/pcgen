@@ -132,7 +132,7 @@ public class AbilityLoader extends LstObjectFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	protected PObject getObjectKeyed(String aKey)
 	{

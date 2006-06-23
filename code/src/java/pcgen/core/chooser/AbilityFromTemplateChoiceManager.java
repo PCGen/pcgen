@@ -27,7 +27,6 @@ import java.util.List;
 
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Ability;
 import pcgen.core.Categorisable;
 
 /**

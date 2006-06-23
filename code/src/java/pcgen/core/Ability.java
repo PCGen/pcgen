@@ -1050,6 +1050,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return true;
 	}
 
+    /**
+     * Compare an ability (category) to another one
+     * Returns the compare value from String.compareToIgnoreCase
+     * 
+     * @param obj 
+     * @return compare value
+     */
 	@Override
 	public int compareTo(final Object obj)
 	{
@@ -1077,7 +1084,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return 1;
 	}
 
-	public boolean equals(Object other)
+	/**
+     * Equals function, uses compareTo to do the work
+     * 
+	 * @param other Ability to compare to
+	 * @return true if they are equal
+	 */
+    public boolean equals(Object other)
 	{
 		return this.compareTo(other) == 0;
 	}
@@ -1093,10 +1106,13 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return AbilityUtilities.areSameAbility(this, that);
 	}
 
-	public String getDisplayNameWithChoices()
+	/**
+     * This method returns an empty String 
+     * @return empty String
+	 */
+    public String getDisplayNameWithChoices()
 	{
 		StringBuffer buf = new StringBuffer();
-
 		return buf.toString();
 	}
 }

@@ -44,7 +44,13 @@ public class AbilityToken implements KitAbilityLstToken
 		return "ABILITY";
 	}
 
-	public boolean parse(KitAbilities kitAbility, String value)
+	/**
+     * Parse Ability token for kit
+	 * @param kitAbility 
+	 * @param value 
+	 * @return false
+	 */
+    public boolean parse(KitAbilities kitAbility, String value)
 	{
 		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value
 				+ "\" in Kit.");

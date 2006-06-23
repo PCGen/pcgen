@@ -145,11 +145,11 @@ public abstract class AbstractCategorisableChoiceManager extends
 
 		List<String> selectedList = new ArrayList<String>();
 
-
-		/* Convert the list of previous choice objects into a list of keys to
+		/* 
+         * Convert the list of previous choice objects into a list of keys to
 		 * access those in the relevant name or category map.  That is,
-		 * convert them into the format that will be returned by the chooser */
-
+		 * convert them into the format that will be returned by the chooser
+         */
 		for (Iterator<Categorisable> abIt = previousSelections.iterator(); abIt.hasNext();)
 		{
 			Categorisable Info = abIt.next();

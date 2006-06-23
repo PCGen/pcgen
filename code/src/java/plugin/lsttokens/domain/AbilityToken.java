@@ -8,10 +8,21 @@ import pcgen.persistence.lst.DomainLstToken;
  */
 public class AbilityToken implements DomainLstToken {
 
-	public String getTokenName() {
+	/**
+     * get token name
+     * @return token name 
+	 */
+    public String getTokenName() {
 		return "ABILITY";
 	}
 
+    /**
+     * Parse ABILITY token for domain
+     * 
+     * @param domain 
+     * @param value 
+     * @return true 
+     */
 	public boolean parse(Domain domain, String value) {
 		domain.addAbility(value);
 		return true;

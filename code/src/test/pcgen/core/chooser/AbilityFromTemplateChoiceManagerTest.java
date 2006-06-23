@@ -30,8 +30,6 @@ import java.util.Set;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
-import pcgen.core.AbilityInfo;
-import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
