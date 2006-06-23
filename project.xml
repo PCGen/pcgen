@@ -88,6 +88,13 @@
             <timezone>+10</timezone>
         </developer>
         <developer>
+            <name>Devon Jones</name>
+            <id>soulcatcher</id>
+            <roles>
+                <role>Code Silverback</role>
+            </roles>
+        </developer>
+        <developer>
             <name>Aaron Divinsky</name>
             <id>boomer70</id>
         </developer>
