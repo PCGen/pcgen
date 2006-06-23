@@ -30,6 +30,11 @@ public class WeaponEquipment implements Cloneable
 		theEquipment = anOwner;
 	}
 
+	public void setOwner( final Equipment anOwner )
+	{
+		theEquipment = anOwner;
+	}
+
 	/**
 	 * Gets the bonusToDamage attribute of the Equipment object
 	 * @param aPC

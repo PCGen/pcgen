@@ -42,8 +42,8 @@ public final class PCLevelInfo implements Cloneable
 	// private int           feats                = 0;
 	// private List          skillsLearned        = null;
 	// private List          featsTaken           = null;
-	private List            statsPostModified    = null;
-	private List            statsPreModified     = null;
+	private List<PCLevelInfoStat>            statsPostModified    = null;
+	private List<PCLevelInfoStat>            statsPreModified     = null;
 	private String          classKeyName         = "";
 	private int             level                = 0;
 	private int             skillPointsGained    = 0;
@@ -108,9 +108,9 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @return  a list of character stats at this level
 	 */
-	public List getModifiedStats(final boolean preMod)
+	public List<PCLevelInfoStat> getModifiedStats(final boolean preMod)
 	{
-		List result = statsPostModified;
+		List<PCLevelInfoStat> result = statsPostModified;
 
 		if (preMod)
 		{
@@ -181,26 +181,22 @@ public final class PCLevelInfo implements Cloneable
 
 		if (statsPreModified != null)
 		{
-			for (int i = 0; i < statsPreModified.size(); ++i)
+			for ( PCLevelInfoStat stat : statsPreModified )
 			{
-				if (
-					((PCLevelInfoStat) statsPreModified.get(i)).getStatAbb().equals(
-						statAbb))
+				if (stat.getStatAbb().equals(statAbb))
 				{
-					mod += ((PCLevelInfoStat) statsPreModified.get(i)).getStatMod();
+					mod += stat.getStatMod();
 				}
 			}
 		}
 
 		if (includePost && (statsPostModified != null))
 		{
-			for (int i = 0; i < statsPostModified.size(); ++i)
+			for ( PCLevelInfoStat stat : statsPostModified )
 			{
-				if (
-					((PCLevelInfoStat) statsPostModified.get(i)).getStatAbb().equals(
-						statAbb))
+				if (stat.getStatAbb().equals(statAbb))
 				{
-					mod += ((PCLevelInfoStat) statsPostModified.get(i)).getStatMod();
+					mod += stat.getStatMod();
 				}
 			}
 		}
@@ -227,13 +223,13 @@ public final class PCLevelInfo implements Cloneable
 		final int     mod,
 		final boolean isPreMod)
 	{
-		final List statList;
+		final List<PCLevelInfoStat> statList;
 
 		if (isPreMod)
 		{
 			if (statsPreModified == null)
 			{
-				statsPreModified = new ArrayList();
+				statsPreModified = new ArrayList<PCLevelInfoStat>();
 			}
 
 			statList = statsPreModified;
@@ -242,7 +238,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			if (statsPostModified == null)
 			{
-				statsPostModified = new ArrayList();
+				statsPostModified = new ArrayList<PCLevelInfoStat>();
 			}
 
 			statList = statsPostModified;
@@ -252,7 +248,7 @@ public final class PCLevelInfo implements Cloneable
 
 		for (int i = 0; i < statList.size(); ++i)
 		{
-			aStat = (PCLevelInfoStat) statList.get(i);
+			aStat = statList.get(i);
 
 			if (statAbb.equals(aStat.getStatAbb()))
 			{
@@ -346,24 +342,24 @@ public final class PCLevelInfo implements Cloneable
 		}
 		if (statsPostModified != null)
 		{
-			for (Iterator i = statsPostModified.iterator(); i.hasNext(); )
+			for ( PCLevelInfoStat stat : statsPostModified )
 			{
 				if (clone.statsPostModified == null)
 				{
-					clone.statsPostModified = new ArrayList();
+					clone.statsPostModified = new ArrayList<PCLevelInfoStat>();
 				}
-				clone.statsPostModified.add(i.next());
+				clone.statsPostModified.add(stat);
 			}
 		}
 		if (statsPreModified != null)
 		{
-			for (Iterator i = statsPreModified.iterator(); i.hasNext(); )
+			for ( PCLevelInfoStat stat : statsPreModified )
 			{
 				if (clone.statsPreModified == null)
 				{
-					clone.statsPreModified = new ArrayList();
+					clone.statsPreModified = new ArrayList<PCLevelInfoStat>();
 				}
-				clone.statsPreModified.add(i.next());
+				clone.statsPreModified.add(stat);
 			}
 		}
 		return clone;

@@ -108,13 +108,12 @@ public class SkillSubsetToken extends SkillToken
 
 		// Build the list of matching skills
 		String skillPrefix = details.getProperties()[0].toUpperCase();
-		List skillSubset = new ArrayList();
-		for (Iterator iter = pc.getSkillListInOutputOrder(
-			pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY)).iterator(); iter
-			.hasNext();)
-		{
-			Skill bSkill = (Skill) iter.next();
+		List<Skill> skillSubset = new ArrayList<Skill>();
+		final List<Skill> skills = pc.getSkillListInOutputOrder(
+			pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
 
+		for ( Skill bSkill : skills )
+		{
 			if (bSkill.getKeyName().toUpperCase().startsWith(skillPrefix))
 			{
 				skillSubset.add(bSkill);
@@ -131,7 +130,7 @@ public class SkillSubsetToken extends SkillToken
 		Skill aSkill = null;
 		if (skillIndex <= (skillSubset.size() - 1))
 		{
-			aSkill = (Skill) skillSubset.get(skillIndex);
+			aSkill = skillSubset.get(skillIndex);
 		}
 		return aSkill;
 	}

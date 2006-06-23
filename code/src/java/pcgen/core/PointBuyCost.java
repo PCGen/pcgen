@@ -25,6 +25,7 @@ package pcgen.core;
 import pcgen.core.prereq.Prerequisite;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -37,7 +38,7 @@ public final class PointBuyCost
 {
 	private int statValue = 0;
 	private int statCost = 0;
-	private ArrayList preReqList = null;
+	private ArrayList<Prerequisite> preReqList = null;
 
 	public PointBuyCost(final int argStatValue)
 	{
@@ -79,7 +80,7 @@ public final class PointBuyCost
 		{
 			if (preReqList == null)
 			{
-				preReqList = new ArrayList();
+				preReqList = new ArrayList<Prerequisite>();
 			}
 			if (anInt > 0)
 			{
@@ -99,7 +100,7 @@ public final class PointBuyCost
 		return preReqList.size();
 	}
 
-	public final ArrayList getPreReqList()
+	public final List<Prerequisite> getPreReqList()
 	{
 		return preReqList;
 	}

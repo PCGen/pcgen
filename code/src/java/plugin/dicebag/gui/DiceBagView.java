@@ -108,7 +108,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	private JTextField m_nameField;
 
 	/** List for holding dice rolling buttons */
-	private List m_diceButtons;
+	private List<JButton> m_diceButtons;
 
 	/**
 	 * <p>Constructs the view; initializes the components.</p>
@@ -261,7 +261,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_editButton = new JButton("Edit");
 		m_editButton.setActionCommand("EDIT");
 		m_editButton.addActionListener(m_bagListener);
-		m_diceButtons = new ArrayList();
+		m_diceButtons = new ArrayList<JButton>();
 		m_exprField = new JTextField();
 		m_exprFieldLabel = new JLabel("Roll Expr: ");
 
@@ -444,7 +444,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 			if (m_diceButtons.size() > i)
 			{
-				button = (JButton) m_diceButtons.get(i);
+				button = m_diceButtons.get(i);
 			}
 			else
 			{

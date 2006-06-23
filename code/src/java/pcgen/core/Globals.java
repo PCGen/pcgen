@@ -106,13 +106,13 @@ public final class Globals
 	private static int        sourceDisplay   = Constants.SOURCELONG;
 	private static int        selectedPaper   = -1;
 
-	private static CategorisableStore<Ability> abilityStore = new CategorisableStore<Ability>();
+	private static CategorisableStore abilityStore = new CategorisableStore();
 
 	/** we need maps for efficient lookups */
 	private static Map<String, Campaign>        campaignMap     = new HashMap<String, Campaign>();
 	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
 	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
-	private static Map        spellMap        = new TreeMap();
+	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
 	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
 	private static Map<String, String>        visionMap       = new HashMap<String, String>();
 
@@ -133,8 +133,8 @@ public final class Globals
 	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
 	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
 
-	private static Map sponsors = new HashMap();
-	private static List<Map> sponsorList = new ArrayList<Map>();
+	private static Map<String, Map<String, String>> sponsors = new HashMap<String, Map<String, String>>();
+	private static List<Map<String, String>> sponsorList = new ArrayList<Map<String, String>>();
 
 	/** Weapon proficiency Data storage */
 	private static final PObjectDataStore<WeaponProf> weaponProfs = new PObjectDataStore<WeaponProf>("WeaponProf");
@@ -191,23 +191,23 @@ public final class Globals
 	private static boolean useGUI = true;
 
 
-	private static final Comparator pObjectComp = new Comparator()
+	private static final Comparator<PObject> pObjectComp = new Comparator<PObject>()
 		{
-			public int compare(final Object o1, final Object o2)
+			public int compare(final PObject o1, final PObject o2)
 			{
-				return ((PObject) o1).getKeyName().compareToIgnoreCase(((PObject) o2).getKeyName());
+				return o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 			}
 		};
 
-	private static final Comparator pObjectNameComp = new Comparator()
+	private static final Comparator<PObject> pObjectNameComp = new Comparator<PObject>()
 		{
-			public int compare(final Object o1, final Object o2)
+			public int compare(final PObject o1, final PObject o2)
 			{
-				return ((PObject) o1).getDisplayName().compareToIgnoreCase(((PObject) o2).getDisplayName());
+				return o1.getDisplayName().compareToIgnoreCase(o2.getDisplayName());
 			}
 		};
 
-	private static final Comparator pObjectStringComp = new Comparator()
+	private static final Comparator pObjectStringComp = new Comparator<Object>()
 		{
 			public int compare(final Object o1, final Object o2)
 			{
@@ -324,7 +324,7 @@ public final class Globals
 	 * Get the bonus spell map
 	 * @return bonus spell map
 	 */
-	public static Map getBonusSpellMap()
+	public static Map<String, String> getBonusSpellMap()
 	{
 		return SettingsHandler.getGame().getBonusSpellMap();
 	}
@@ -856,7 +856,7 @@ public final class Globals
 	 * @param aCategory the Category of the Abilities to return an iterator for
 	 * @return An Iterator
 	 */
-	public static Iterator<Ability> getAbilityKeyIterator (String aCategory)
+	public static Iterator<? extends Categorisable> getAbilityKeyIterator (String aCategory)
 	{
 		return abilityStore.getKeyIterator(aCategory);
 	}
@@ -868,7 +868,7 @@ public final class Globals
 	 * @param aCategory the Category of the Abilities to return an iterator for
 	 * @return An Iterator
 	 */
-	public static Iterator<Ability> getAbilityNameIterator (String aCategory)
+	public static Iterator<? extends Categorisable> getAbilityNameIterator (String aCategory)
 	{
 		return abilityStore.getNameIterator(aCategory);
 	}
@@ -879,7 +879,7 @@ public final class Globals
 	 * @param aCategory the category of object to return
 	 * @return an unmodifiable list of the Ability objects currently loaded
 	 */
-	public static List<Ability> getUnmodifiableAbilityList(String aCategory)
+	public static List<? extends Categorisable> getUnmodifiableAbilityList(String aCategory)
 	{
 		return abilityStore.getUnmodifiableList(aCategory);
 	}
@@ -890,9 +890,21 @@ public final class Globals
 	 * @param aType a TYPE String
 	 * @return List of Abilities
 	 */
-	public static List<Ability> getAbilitiesByType(final String aCategory, final String aType)
+	public static List<? extends PObject> getAbilitiesByType(final String aCategory, final String aType)
 	{
-		return getPObjectsOfType(getUnmodifiableAbilityList(aCategory), aType);
+		List<Ability> abilityList = new ArrayList<Ability>();
+		for ( Categorisable c : getUnmodifiableAbilityList(aCategory) )
+		{
+			if ( c instanceof Ability )
+			{
+				abilityList.add( (Ability)c );
+			}
+			else if ( c instanceof AbilityInfo )
+			{
+				abilityList.add( ((AbilityInfo)c).getAbility() );
+			}
+		}
+		return getPObjectsOfType(abilityList, aType);
 	}
 
 	/**
@@ -1146,14 +1158,14 @@ public final class Globals
 	 * Get global deity list
 	 * @return global deity lis
 	 */
-	public static List<Deity> getGlobalDeityList()
+	public static List<String> getGlobalDeityList()
 	{
 		if (SettingsHandler.getGame() != null)
 		{
 			return SettingsHandler.getGame().getDeityList();
 		}
 
-		return new ArrayList<Deity>();
+		return new ArrayList<String>();
 	}
 
 	/**
@@ -1626,9 +1638,14 @@ public final class Globals
 	 * Get spell map
 	 * @return spell map
 	 */
-	public static Map getSpellMap()
+	public static Map<String, ?> getSpellMap()
 	{
 		return spellMap;
+	}
+
+	public static void addToSpellMap( final String key, final Object anObject )
+	{
+		spellMap.put( key, anObject );
 	}
 
 	/**
@@ -2084,7 +2101,7 @@ public final class Globals
 	 * @param typeList
 	 * @return TRUE or FALSE
 	 */
-	public static boolean canResizeHaveEffect(final PlayerCharacter aPC, final Equipment aEq, List typeList)
+	public static boolean canResizeHaveEffect(final PlayerCharacter aPC, final Equipment aEq, List<String> typeList)
 	{
 		// cycle through typeList and see if it matches one in the BONUS:ITEMCOST|TYPE=etc on sizeadjustment
 		if (typeList == null)
@@ -2217,14 +2234,14 @@ public final class Globals
 		abilityStore = new CategorisableStore();
 		armorProfList = new ArrayList<String>();
 		classList = new ArrayList<PCClass>();
-		companionModList = new ArrayList();
+		companionModList = new ArrayList<CompanionMod>();
 		deityList = new ArrayList<Deity>();
 		domainList = new ArrayList<Domain>();
 		EquipmentList.clearEquipmentMap();
-		kitList = new ArrayList();
+		kitList = new ArrayList<Kit>();
 		languageList = new ArrayList<Language>();
 		EquipmentList.clearModifierList();
-		pcClassTypeList = new ArrayList();
+		pcClassTypeList = new ArrayList<String>();
 		skillList = new ArrayList<Skill>();
 		templateList = new ArrayList<PCTemplate>();
 		saSet = new TreeSet<SpecialAbility>();
@@ -2235,14 +2252,14 @@ public final class Globals
 //		bonusSpellMap = new HashMap();
 		domainMap = new HashMap<String, Domain>();
 		raceMap = new TreeMap<String, Race>();
-		spellMap = new HashMap();
+		spellMap = new HashMap<String, Object>();
 		visionMap = new HashMap<String, String>();
 
 		// Clear Sets (not strictly necessary, but done for consistency)
 		clearSpellSets();
-		pantheonsSet = new TreeSet();
-		raceTypesSet = new TreeSet();
-		subschoolsSet = new TreeSet();
+		pantheonsSet = new TreeSet<String>();
+		raceTypesSet = new TreeSet<String>();
+		subschoolsSet = new TreeSet<String>();
 		weaponTypes = new TreeSet<String>();
 
 		// Perform other special cleanup
@@ -2368,14 +2385,7 @@ public final class Globals
 	 */
 	public static Float maxLoadForLoadScore(final int loadScore, final PlayerCharacter aPC)
 	{
-		Float loadValue = SystemCollections.getLoadInfo().getLoadScoreValue(loadScore);
-		String formula = SystemCollections.getLoadInfo().getLoadModifierFormula();
-		if (formula.length() != 0)
-		{
-			formula = CoreUtility.replaceAll(formula, "$$SCORE$$", new Float(loadValue.doubleValue() * getLoadMultForSize(aPC)).toString());
-			return new Float(aPC.getVariableValue(formula, "").intValue());
-		}
-		return new Float(loadValue.doubleValue() * getLoadMultForSize(aPC));
+		return maxLoadForLoadScore(loadScore, aPC, new Float(1.0));
 	}
 
 	/**
@@ -2406,13 +2416,13 @@ public final class Globals
 	public static int minLevelForSpellLevel(final PCClass castingClass, final int spellLevel, final boolean allowBonus)
 	{
 		int minLevel = Constants.INVALID_LEVEL;
-		final Map castMap = castingClass.getCastMap();
+		final Map<String, String> castMap = castingClass.getCastMap();
 
 		int loopMax = castMap.keySet().size();
 		for (int i = 0; i < loopMax; i++)
 		{
 			final String aLevel = Integer.toString(i);
-			final String castPerDay = (String) castMap.get(aLevel);
+			final String castPerDay = castMap.get(aLevel);
 
 			if ((castPerDay == null) || (castPerDay.length() <= 0))
 			{
@@ -2461,13 +2471,13 @@ public final class Globals
 			return minLevel;
 		}
 
-		final List knownList = castingClass.getKnownList();
+		final List<String> knownList = castingClass.getKnownList();
 
 		loopMax = knownList.size();
 
 		for (int i = 0; i < loopMax; ++i)
 		{
-			final String knownSpells = knownList.get(i).toString();
+			final String knownSpells = knownList.get(i);
 
 			if ("0".equals(knownSpells))
 			{
@@ -2804,7 +2814,7 @@ public final class Globals
 	{
 		int num = 0;
 
-		for (Iterator i = SettingsHandler.getGame().getBonusFeatLevels().iterator(); i.hasNext();)
+		for (Iterator<String> i = SettingsHandler.getGame().getBonusFeatLevels().iterator(); i.hasNext();)
 		{
 			num = bonusParsing(i, level, num);
 		}
@@ -2816,7 +2826,7 @@ public final class Globals
 	{
 		int num = 0;
 
-		for (Iterator i = SettingsHandler.getGame().getBonusStatLevels().iterator(); i.hasNext();)
+		for (Iterator<String> i = SettingsHandler.getGame().getBonusStatLevels().iterator(); i.hasNext();)
 		{
 			num = bonusParsing(i, level, num);
 		}
@@ -2948,14 +2958,14 @@ public final class Globals
 
 	static int getSkillMultiplierForLevel(final int level)
 	{
-		final List sml = SettingsHandler.getGame().getSkillMultiplierLevels();
+		final List<String> sml = SettingsHandler.getGame().getSkillMultiplierLevels();
 
 		if ((level > sml.size()) || (level <= 0))
 		{
 			return 1;
 		}
 
-		return Integer.parseInt(sml.get(level - 1).toString());
+		return Integer.parseInt(sml.get(level - 1));
 	}
 
 	/**
@@ -3250,7 +3260,7 @@ public final class Globals
 	{
 		if (SettingsHandler.getGame().getDamageDownMap().containsKey(aDamage))
 		{
-			return "1|" + (String) SettingsHandler.getGame().getDamageDownMap().get(aDamage);
+			return "1|" + SettingsHandler.getGame().getDamageDownMap().get(aDamage);
 		}
 
 		final RollInfo aRollInfo = new RollInfo(aDamage);
@@ -3259,7 +3269,7 @@ public final class Globals
 		if (SettingsHandler.getGame().getDamageDownMap().containsKey(baseDice))
 		{
 			return Integer.toString(aRollInfo.times) + "|"
-			+ (String) SettingsHandler.getGame().getDamageDownMap().get(baseDice);
+			+ SettingsHandler.getGame().getDamageDownMap().get(baseDice);
 		}
 
 		return null;
@@ -3274,7 +3284,7 @@ public final class Globals
 	{
 		if (SettingsHandler.getGame().getDamageUpMap().containsKey(aDamage))
 		{
-			return "1|" + (String) SettingsHandler.getGame().getDamageUpMap().get(aDamage);
+			return "1|" + SettingsHandler.getGame().getDamageUpMap().get(aDamage);
 		}
 
 		final RollInfo aRollInfo = new RollInfo(aDamage);
@@ -3283,7 +3293,7 @@ public final class Globals
 		if (SettingsHandler.getGame().getDamageUpMap().containsKey(baseDice))
 		{
 			return Integer.toString(aRollInfo.times) + "|"
-			+ (String) SettingsHandler.getGame().getDamageUpMap().get(baseDice);
+			+ SettingsHandler.getGame().getDamageUpMap().get(baseDice);
 		}
 
 		return null;
@@ -3362,7 +3372,7 @@ public final class Globals
 		Globals.selectedPaper = argSelectedPaper;
 	}
 
-	private static SortedSet getSubschoolsSet()
+	private static SortedSet<String> getSubschoolsSet()
 	{
 		return subschoolsSet;
 	}
@@ -3436,7 +3446,7 @@ public final class Globals
 	 * Add a sponsor, e.g. Silven Publishing
 	 * @param sponsor
 	 */
-	public static void addSponsor(Map sponsor) {
+	public static void addSponsor(Map<String, String> sponsor) {
 		sponsors.put(sponsor.get("SPONSOR"), sponsor);
 		sponsorList.add(sponsor);
 	}
@@ -3445,7 +3455,7 @@ public final class Globals
 	 * Get a list of sponsors of PCGen
 	 * @return list of sponsors of PCGen
 	 */
-	public static List getSponsors() {
+	public static List<Map<String, String>> getSponsors() {
 		return sponsorList;
 	}
 
@@ -3454,8 +3464,8 @@ public final class Globals
 	 * @param name
 	 * @return sponsor
 	 */
-	public static Map getSponsor(String name) {
-		return (Map)sponsors.get(name);
+	public static Map<String, String> getSponsor(String name) {
+		return sponsors.get(name);
 	}
 
 	/**

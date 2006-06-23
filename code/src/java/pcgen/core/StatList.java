@@ -81,10 +81,9 @@ public final class StatList
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for (Iterator<PCStat> e = stats.iterator(); e.hasNext();)
+		for ( PCStat stat : stats )
 		{
-			final PCStat aStat = e.next();
-			aList.addAll(aStat.getBonusListOfType(aType, aName));
+			aList.addAll(stat.getBonusListOfType(aType, aName));
 		}
 
 		return aList;
@@ -103,7 +102,7 @@ public final class StatList
 
 	public int getModForNumber(final int aNum, final int statIndex)
 	{
-		final PCStat stat = (PCStat) stats.get(statIndex);
+		final PCStat stat = stats.get(statIndex);
 		String aString = stat.getStatMod();
 
 		/////////////////////////////////////////////////////////////////////////
@@ -132,7 +131,7 @@ public final class StatList
 			return "";
 		}
 
-		final PCStat stat = (PCStat) stats.get(x);
+		final PCStat stat = stats.get(x);
 
 		return stat.getPenaltyVar();
 	}
@@ -146,7 +145,7 @@ public final class StatList
 			return 0;
 		}
 
-		final PCStat stat = (PCStat) stats.get(x);
+		final PCStat stat = stats.get(x);
 
 		return ownerPC.getVariableValue(stat.getStatMod(), "STAT:" + stat.getAbb()).intValue();
 	}
@@ -158,7 +157,7 @@ public final class StatList
 
 	public PCStat getStatAt(final int anIndex)
 	{
-		return (PCStat)stats.get(anIndex);
+		return stats.get(anIndex);
 	}
 
 	public Iterator<PCStat> iterator()
@@ -182,7 +181,7 @@ public final class StatList
 
 	public List<PCStat> getStatList()
 	{
-		return (List<PCStat>)Collections.unmodifiableList(stats);
+		return Collections.unmodifiableList(stats);
 	}
 
 	/**
@@ -202,7 +201,7 @@ public final class StatList
 			return y;
 		}
 
-		final PCStat stat = (PCStat) stats.get(x);
+		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		x = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
 

@@ -37,7 +37,7 @@ import java.util.*;
  */
 public class NetworkModel {
 	private NetworkView view = new NetworkView();
-	static List colorList = new ArrayList();
+	static List<Color> colorList = new ArrayList<Color>();
 	static {
 		colorList.add(Color.BLACK);
 		colorList.add(Color.BLUE);
@@ -55,8 +55,8 @@ public class NetworkModel {
 	private NetworkServer server;
 	private NetworkClient client;
 	private InitHolderList combat;
-	private HashMap sentCombatants = new HashMap();
-	private HashMap recievedCombatants = new HashMap();
+	private HashMap<String, Combatant> sentCombatants = new HashMap<String, Combatant>();
+	private HashMap<String, NetworkCombatant> recievedCombatants = new HashMap<String, NetworkCombatant>();
 
 	public NetworkModel() {
 		applyPrefs();
@@ -85,14 +85,14 @@ public class NetworkModel {
 
 	public void handleServerPcgMessage(String uid, String messagetext, Socket sock) {
 		if(sentCombatants.containsKey(uid)) {
-			Combatant cbt = (Combatant)sentCombatants.get(uid);
+			Combatant cbt = sentCombatants.get(uid);
 			NetworkCombatant.recieveServerMessage(messagetext, cbt);
 		}
 	}
 
 	public void handlePcgMessage(String uid, String messagetext, Socket sock) {
 		if(recievedCombatants.containsKey(uid)) {
-			NetworkCombatant cbt = (NetworkCombatant)recievedCombatants.get(uid);
+			NetworkCombatant cbt = recievedCombatants.get(uid);
 			cbt.recieveNetMessage(messagetext);
 		}
 		else {
@@ -114,7 +114,7 @@ public class NetworkModel {
 	public void combatantUpdated(Combatant cbt) {
 		if(combat != null) {
 			for (int i = 0; i < combat.size(); i++) {
-				InitHolder iH = (InitHolder) combat.get(i);
+				InitHolder iH = combat.get(i);
 				if(iH == cbt) {
 					sendCombatant(cbt);
 				}
@@ -354,8 +354,8 @@ public class NetworkModel {
 	}
 
 	public void refresh() {
-		for (int i = 0; i < combat.size(); i++) {
-			InitHolder iH = (InitHolder) combat.get(i);
+		for ( InitHolder iH : combat )
+		{
 			if(iH instanceof Combatant) {
 				sendCombatant((Combatant)iH);
 			}

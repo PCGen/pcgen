@@ -46,9 +46,8 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
 
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();) {
-			final Prerequisite element = (Prerequisite) iter.next();
-
+		for ( Prerequisite element : prereq.getPrerequisites() )
+		{
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null) {
@@ -79,9 +78,8 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
 
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();) {
-			final Prerequisite element = (Prerequisite) iter.next();
-
+		for ( Prerequisite element : prereq.getPrerequisites() )
+		{
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			runningTotal += test.passes(element, equipment, aPC);
@@ -101,9 +99,8 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 
 		String delimiter = ""; //$NON-NLS-1$
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();) {
-			final Prerequisite element = (Prerequisite) iter.next();
-
+		for ( Prerequisite element : prereq.getPrerequisites() )
+		{
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test==null)
 			{

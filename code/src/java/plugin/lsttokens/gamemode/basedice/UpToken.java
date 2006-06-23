@@ -14,7 +14,7 @@ public class UpToken implements BaseDiceLstToken {
 		return "UP";
 	}
 
-	public boolean parse(Map baseDice, String value) {
+	public boolean parse(Map<String, String> baseDice, String value) {
 		baseDice.put(BaseDiceLoader.UP, value);
 		return true;
 	}

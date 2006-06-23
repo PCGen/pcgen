@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.jar.JarFile;
+import java.util.jar.JarEntry;
 
 /**
  * <code>Bonus</code>
@@ -47,7 +48,7 @@ public class Bonus
 	private static boolean objectListInitialized;
 	private static int bonusTagMapNum = 0;
 
-	private static final HashMap BONUS_TAG_MAP = new HashMap();
+	private static final HashMap<String, bonusMapEntry> BONUS_TAG_MAP = new HashMap<String, bonusMapEntry>();
 
 	private Bonus() {
 		// Constructor
@@ -62,13 +63,13 @@ public class Bonus
 	{
 		makeObjectList();
 
-		bonusMapEntry bEntry = (bonusMapEntry) BONUS_TAG_MAP.get(bonusName);
+		bonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
 		if (bEntry == null)
 		{
 			final int equalOffset = bonusName.indexOf('=');
 			if (equalOffset >= 0)
 			{
-				bEntry = (bonusMapEntry) BONUS_TAG_MAP.get(bonusName.substring(0, equalOffset + 1));
+				bEntry = BONUS_TAG_MAP.get(bonusName.substring(0, equalOffset + 1));
 			}
 			if (bEntry == null)
 			{
@@ -85,14 +86,12 @@ public class Bonus
 	 */
 	public static String getBonusNameFromType(final int bonusType)
 	{
-		for (Iterator e = BONUS_TAG_MAP.keySet().iterator(); e.hasNext();)
+		for ( String key : BONUS_TAG_MAP.keySet() )
 		{
-			final String aKey = e.next().toString();
-
-			final bonusMapEntry bme = (bonusMapEntry) BONUS_TAG_MAP.get(aKey);
+			final bonusMapEntry bme = BONUS_TAG_MAP.get(key);
 			if (bme.getBonusType() == bonusType)
 			{
-				return aKey;
+				return key;
 			}
 		}
 		return "";
@@ -141,13 +140,13 @@ public class Bonus
 
 
 		int equalOffset = -1;
-		bonusMapEntry bEntry = (bonusMapEntry) BONUS_TAG_MAP.get(bonusName);
+		bonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
 		if (bEntry == null)
 		{
 			equalOffset = bonusName.indexOf('=');
 			if (equalOffset >= 0)
 			{
-				bEntry = (bonusMapEntry) BONUS_TAG_MAP.get(bonusName.substring(0, equalOffset + 1));
+				bEntry = BONUS_TAG_MAP.get(bonusName.substring(0, equalOffset + 1));
 			}
 			if (bEntry == null)
 			{
@@ -301,7 +300,7 @@ public class Bonus
 				try
 				{
 					final JarFile jarfile = new JarFile(jarName);
-					for (Enumeration e = jarfile.entries() ; e.hasMoreElements() ;)
+					for (Enumeration<JarEntry> e = jarfile.entries() ; e.hasMoreElements() ;)
 					{
 						String jarEntry = e.nextElement().toString();
 						if (jarEntry.startsWith("pcgen/core/bonus/") && jarEntry.endsWith(".class"))
@@ -341,7 +340,7 @@ public class Bonus
 			}
 		}
 	}
-	
+
 	/**
 	 * Add a CLASS via a BONUS
 	 * @param bonusClass
@@ -404,7 +403,7 @@ public class Bonus
 		{
 			return bonusType;
 		}
-		
+
 		/**
 		 * Return the bonus class
 		 * @return the bonus class

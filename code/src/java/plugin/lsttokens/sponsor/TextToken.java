@@ -13,7 +13,7 @@ public class TextToken implements SponsorLstToken {
 		return "TEXT";
 	}
 
-	public boolean parse(Map sponsor, String value) {
+	public boolean parse(Map<String, String> sponsor, String value) {
 		sponsor.put("TEXT", value);
 		return true;
 	}

@@ -254,9 +254,9 @@ public class PcgCombatant extends Combatant
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
-	public void editRow(List columnOrder, int colNumber, Object data)
+	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
-		String columnName = (String) columnOrder.get(colNumber);
+		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited
@@ -463,11 +463,11 @@ public class PcgCombatant extends Combatant
 
 			statBuf.append("<font class='type'>Weapons:</font>");
 
-			List weaponList = pc.getExpandedWeapons(Constants.MERGE_ALL);
+			List<Equipment> weaponList = pc.getExpandedWeapons(Constants.MERGE_ALL);
 
 			for (int i = 0; i < weaponList.size(); i++)
 			{
-				Equipment eq = (Equipment) weaponList.get(i);
+				Equipment eq = weaponList.get(i);
 				statBuf.append("<a href=" + '"' + "attack:");
 				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append("\\");
@@ -706,11 +706,11 @@ public class PcgCombatant extends Combatant
 				includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
 			}
 
-			ArrayList skillList = pc.getSkillListInOutputOrder(pc
+			ArrayList<Skill> skillList = pc.getSkillListInOutputOrder(pc
 				.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
 			boolean firstLine = true;
 
-			for (int i = 0; i < skillList.size(); i++)
+			for ( Skill skill : skillList )
 			{
 				if (!firstLine)
 				{
@@ -719,7 +719,6 @@ public class PcgCombatant extends Combatant
 
 				firstLine = false;
 
-				Skill skill = (Skill) skillList.get(i);
 				int modSkill;
 
 				if (skill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
@@ -753,7 +752,7 @@ public class PcgCombatant extends Combatant
 		{
 			StringBuffer statBuf = new StringBuffer();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
-			List domainList = pc.getCharacterDomainList();
+			List<CharacterDomain> domainList = pc.getCharacterDomainList();
 
 			if (domainList.size() > 0)
 			{
@@ -768,7 +767,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for (int i = 0; i < domainList.size(); i++)
+				for ( CharacterDomain cd : domainList )
 				{
 					if (!firstLine)
 					{
@@ -777,7 +776,7 @@ public class PcgCombatant extends Combatant
 
 					firstLine = false;
 
-					Domain dom = ((CharacterDomain) domainList.get(i)).getDomain();
+					Domain dom = cd.getDomain();
 					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
 					statBuf.append(pcOut.getDomainPower(dom)); //|DOMAIN.POWER|
@@ -935,30 +934,28 @@ public class PcgCombatant extends Combatant
 				 <!-- ### END MEMORIZED ### -->
 				 <!-- End Prepared Spells -->
 			 */
-			ArrayList classList = (ArrayList)pc.getClassList().clone();
+			ArrayList<PObject> classList = new ArrayList<PObject>(pc.getClassList());
 			classList.add(pc.getRace());
 
-			List bookList = new ArrayList(pc.getSpellBooks());
+			List<String> bookList = new ArrayList<String>(pc.getSpellBooks());
 			bookList.add(Globals.getDefaultSpellBook());
-			for (int bookIndex = 1; bookIndex < bookList.size(); bookIndex++)
+			for ( String book : bookList )
 			{
-				statBlockLineSpellBook(pc, statBuf, classList, (String)bookList.get(bookIndex));
+				statBlockLineSpellBook(pc, statBuf, classList, book);
 			}
 
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuffer statBuf, ArrayList classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuffer statBuf, ArrayList<PObject> classList, String spellBookName)
 		{
 			boolean printedFirst = false;
-			for (int i = 0; i < classList.size(); i++)
+			for ( PObject pObj : classList )
 			{
-				PObject aObject = (PObject)classList.get(i);//pc.getSpellClassAtIndex(i);
-
-				if (aObject != null)
+				if (pObj != null)
 				{
 					int level = 0;
-					List spellList = aObject.getSpellSupport().getCharacterSpell(null, spellBookName, level);
+					List<CharacterSpell> spellList = pObj.getSpellSupport().getCharacterSpell(null, spellBookName, level);
 
 					if (spellList.size() >= 1)
 					{
@@ -966,7 +963,7 @@ public class PcgCombatant extends Combatant
 						{
 							statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
 						}
-						statBuf.append("<font class='type'>" + aObject.getDisplayName() + ":</font><br> ");
+						statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
 						printedFirst = true;
 					}
 
@@ -976,7 +973,7 @@ public class PcgCombatant extends Combatant
 
 						boolean firstLine = true;
 
-						for (int j = 0; j < spellList.size(); j++)
+						for ( CharacterSpell cs : spellList )
 						{
 							if (!firstLine)
 							{
@@ -985,8 +982,7 @@ public class PcgCombatant extends Combatant
 
 							firstLine = false;
 
-							Spell spell = ((CharacterSpell) spellList.get(j)).getSpell();
-							CharacterSpell cs = (CharacterSpell) spellList.get(j);
+							Spell spell = cs.getSpell();
 							statBuf.append("<a href=" + '"' + "spell:");
 							statBuf.append(spell.getDisplayName());
 							statBuf.append("\\");
@@ -1009,7 +1005,7 @@ public class PcgCombatant extends Combatant
 
 						level++;
 						statBuf.append("<br>");
-						spellList = aObject.getSpellSupport().getCharacterSpell(null, spellBookName, level);
+						spellList = pObj.getSpellSupport().getCharacterSpell(null, spellBookName, level);
 					}
 				}
 			}

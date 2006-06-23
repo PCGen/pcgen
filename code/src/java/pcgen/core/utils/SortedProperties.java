@@ -53,9 +53,9 @@ public class SortedProperties extends Properties
 	public void mystore(final FileOutputStream out, final String header)
 	{
 		BufferedWriter bw = null;
-		final SortedMap aMap = new TreeMap(this);
-		final Iterator entries = aMap.entrySet().iterator();
-		Map.Entry entry;
+		final SortedMap<Object, Object> aMap = new TreeMap<Object, Object>(this);
+		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
+		Map.Entry<Object, Object> entry;
 
 		try
 		{
@@ -65,7 +65,7 @@ public class SortedProperties extends Properties
 
 			while (entries.hasNext())
 			{
-				entry = (Map.Entry) entries.next();
+				entry = entries.next();
 
 				// The following characters must be escaped:
 				// #, !, = and :
@@ -111,7 +111,7 @@ public class SortedProperties extends Properties
 		{
 			// #, !, = and :
 			if ((aString.charAt(i) == '#') || (aString.charAt(i) == '\\') || (aString.charAt(i) == '!')
-			    || (aString.charAt(i) == '=') || (aString.charAt(i) == ':'))
+				|| (aString.charAt(i) == '=') || (aString.charAt(i) == ':'))
 			{
 				ab.append("\\").append(aString.charAt(i));
 			}

@@ -111,7 +111,7 @@ public final class Deity extends PObject
 	 * character with the given properties; <code>false</code> means the
 	 * character cannot.
 	 */
-	public boolean canBeSelectedBy(final List classList, final int anAlignment, final PlayerCharacter pc)
+	public boolean canBeSelectedBy(final List<PCClass> classList, final int anAlignment, final PlayerCharacter pc)
 	{
 		boolean result;
 
@@ -205,14 +205,11 @@ public final class Deity extends PObject
 					// Build string of domains separated by commas
 					else
 					{
-						final Iterator iter = getDomainList().iterator();
 						boolean started = false;
 
-						while (iter.hasNext())
+						for ( Domain domain : getDomainList() )
 						{
-							final Domain aDomain = (Domain) iter.next();
-
-							if (aDomain != null)
+							if (domain != null)
 							{
 								if (started)
 								{
@@ -223,7 +220,7 @@ public final class Deity extends PObject
 									started = piString.length() > 0;
 								}
 
-								piString.append(aDomain.piSubString());
+								piString.append(domain.piSubString());
 							}
 						}
 					}
@@ -272,7 +269,7 @@ public final class Deity extends PObject
 	 * This method returns the list of pantheons this deity belongs to
 	 * @return List containing the names of the pantheons this deity belongs to
 	 */
-	public List getPantheonList()
+	public List<String> getPantheonList()
 	{
 		return getListFor(ListKey.PANTHEON);
 	}
@@ -287,14 +284,14 @@ public final class Deity extends PObject
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(getDisplayName());
 
-		List domainList = getListFor(ListKey.DOMAIN);
+		List<Domain> domainList = getListFor(ListKey.DOMAIN);
 		if (domainList != null && domainList.size()!= 0)
 		{
 			txt.append("\tDOMAINS:");
-			final Iterator iter = domainList.iterator();
+			final Iterator<Domain> iter = domainList.iterator();
 			while (iter.hasNext())
 			{
-				final Domain domain = (Domain) iter.next();
+				final Domain domain = iter.next();
 				txt.append(domain.getKeyName());
 				if (iter.hasNext())
 				{
@@ -343,7 +340,7 @@ public final class Deity extends PObject
 	 * to this deity.
 	 * @return List of String names of races
 	 */
-	public List getRacePantheonList()
+	public List<String> getRacePantheonList()
 	{
 		return getListFor(ListKey.RACEPANTHEON);
 	}
@@ -395,9 +392,9 @@ public final class Deity extends PObject
 	 */
 	public String preReqHTMLStrings(final PlayerCharacter aPC, final boolean includeHeader)
 	{
-		final List prereqs = new ArrayList();
+		final List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
 		addPreReqTo(prereqs);
-		final List alignPrereqs = new ArrayList();
+		final List<Prerequisite> alignPrereqs = new ArrayList<Prerequisite>();
 
 		String alignText = "";
 		String followerAlignments = getFollowerAlignments();
@@ -428,17 +425,17 @@ public final class Deity extends PObject
 	/**
 	 * This method adds a single domain to the domains that this deity
 	 * allows.
-	 * @param domainName String name of the domain
+	 * @param domainKey Key of the domain
 	 */
-	public void removeDomain(final String domainName) {
-		final Domain domain = Globals.getDomainKeyed( domainName );
+	public void removeDomain(final String domainKey) {
+		final Domain domain = Globals.getDomainKeyed( domainKey );
 		if (domain != null)
 		{
 			listChar.removeFromListFor(ListKey.DOMAIN, domain);
 		}
 		else
 		{
-			Logging.debugPrint("Can not find domain: '" + domainName + "'.");
+			Logging.debugPrint("Can not find domain: '" + domainKey + "'.");
 		}
 	}
 
@@ -467,7 +464,7 @@ public final class Deity extends PObject
 	 * This method should ONLY be called from I/O!
 	 * @param domainList String list of domains
 	 */
-	public void setDomainList(final List domainList)
+	public void setDomainList(final List<Domain> domainList)
 	{
 		listChar.addAllToListFor(ListKey.DOMAIN, domainList);
 		stringChar.put(StringKey.DOMAIN_LIST_PI, null);
@@ -479,7 +476,7 @@ public final class Deity extends PObject
 	 * This method should ONLY be called from I/O!
 	 * @param aDomainStringList String list of domains
 	 */
-	public void setDomainNameList(final List aDomainStringList)
+	public void setDomainNameList(final List<String> aDomainStringList)
 	{
 		stringChar.put(StringKey.DOMAIN_LIST_PI, null);
 		d_allDomains = false;
@@ -519,11 +516,10 @@ public final class Deity extends PObject
 	 * This method sets the list of pantheons that this deity belongs to.
 	 * @param pantheonList a List of Strings which are the pantheons this Deity belongs to
 	 */
-	public void setPantheonList(final List pantheonList)
+	public void setPantheonList(final List<String> pantheonList)
 	{
-		for (Iterator iter = pantheonList.iterator(); iter.hasNext();)
+		for ( String pantheon : pantheonList )
 		{
-			String pantheon = (String) iter.next();
 			addPantheon(pantheon);
 		}
 	}
@@ -532,11 +528,10 @@ public final class Deity extends PObject
 	 * This method sets the list of races that this deity accepts.
 	 * @param raceList A List of race names that this Deity will accept followers from
 	 */
-	public void setRacePantheonList(final List raceList)
+	public void setRacePantheonList(final List<String> raceList)
 	{
-		for (Iterator iter = raceList.iterator(); iter.hasNext();)
+		for ( String race : raceList )
 		{
-			String race = (String) iter.next();
 			addRacePantheon(race);
 		}
 	}
@@ -561,7 +556,7 @@ public final class Deity extends PObject
 
 	/**
 	 * This method adds a group of abilities to the list of special
-	 * abilities granted by thid deity.
+	 * abilities granted by this deity.
 	 * @param aList List of SpecialAbility objects granted by
 	 * this deity.
 	 * @param aPC
@@ -569,17 +564,15 @@ public final class Deity extends PObject
 	 */
 	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		if ((specialAbilityList == null) || specialAbilityList.isEmpty())
 		{
 			return aList;
 		}
 
-		for (Iterator i = specialAbilityList.iterator(); i.hasNext();)
+		for ( SpecialAbility sa : specialAbilityList )
 		{
-			final SpecialAbility sa = (SpecialAbility) i.next();
-
 			if (sa.pcQualifiesFor(aPC))
 			{
 				aList.add(sa);
@@ -596,18 +589,15 @@ public final class Deity extends PObject
 	 * character has
 	 * @return boolean
 	 */
-	private boolean acceptableClass(final Iterator classList)
+	private boolean acceptableClass(final Iterator<PCClass> classList)
 	{
 		boolean flag = (!classList.hasNext());
 
 		while (classList.hasNext() && !flag)
 		{
-			final PCClass aClass = (PCClass) classList.next();
-			final List deityList = aClass.getDeityList();
-
-			for (Iterator iter = deityList.iterator(); iter.hasNext();)
+			final PCClass aClass = classList.next();
+			for ( String deity : aClass.getDeityList() )
 			{
-				final String deity = (String) iter.next();
 				if ("ANY".equals(deity) || "ALL".equals(deity) || getKeyName().equals(deity))
 				{
 					flag = true;
@@ -689,7 +679,7 @@ public final class Deity extends PObject
 	 * domain list String.
 	 * @param stringList
 	 */
-	private void buildDomainList(final List stringList)
+	private void buildDomainList(final List<String> stringList)
 	{
 		if ((stringList == null) || (stringList.size() == 0))
 		{
@@ -703,30 +693,29 @@ public final class Deity extends PObject
 		}
 		else
 		{
-			for (Iterator iter = stringList.iterator(); iter.hasNext();)
+			for ( String domainKey : stringList )
 			{
-				String domainName = (String) iter.next();
 				boolean add = true;
-				if (domainName.equals(".CLEAR"))
+				if (domainKey.equals(".CLEAR"))
 				{
 					listChar.removeListFor(ListKey.DOMAIN);
 					listChar.initializeListFor(ListKey.DOMAIN);
 					continue;
 				}
-				else if (domainName.startsWith(".CLEAR."))
+				else if (domainKey.startsWith(".CLEAR."))
 				{
 					//TODO: (DJ) this looks like it doesn't clear if it starts with .CLEAR. Is this right?
-					domainName = domainName.substring(7);
+					domainKey = domainKey.substring(7);
 					add = false;
 				}
 
 				if (add)
 				{
-					addDomain(domainName);
+					addDomain(domainKey);
 				}
 				else
 				{
-					removeDomain(domainName);
+					removeDomain(domainKey);
 				}
 			}
 		}

@@ -31,8 +31,6 @@ public class MiscToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
-		
 		int i = -1;
 
 		if (tokenSource.substring(5).startsWith("FUNDS"))
@@ -62,28 +60,29 @@ public class MiscToken extends Token
 			tokenSource = "";
 		}
 
+		StringBuffer buf = new StringBuffer();
 		if (i >= 0)
 		{
-			final List stringList = getLineForMiscList(i, pc);
+			final List<String> stringList = getLineForMiscList(i, pc);
 
-			for (i = 0; i < stringList.size(); ++i)
+			for ( String str : stringList )
 			{
-				retString += (String) stringList.get(i);
-				retString += tokenSource;
+				buf.append( str );
+				buf.append( tokenSource );
 			}
 		}
-		return retString;
+		return buf.toString();
 	}
-	
+
 	/**
 	 * Helper method for getToken of MISC
 	 * @param index
 	 * @param aPC
 	 * @return a Line to process
 	 */
-	private List getLineForMiscList(int index, PlayerCharacter aPC)
+	private List<String> getLineForMiscList(int index, PlayerCharacter aPC)
 	{
-		final List aArrayList = new ArrayList();
+		final List<String> aArrayList = new ArrayList<String>();
 		final StringTokenizer aTok = new StringTokenizer((String) aPC.getMiscList().get(index), "\r\n", false);
 
 		while (aTok.hasMoreTokens())

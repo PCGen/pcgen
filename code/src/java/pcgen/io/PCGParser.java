@@ -38,7 +38,7 @@ interface PCGParser
 	 *
 	 * @return a list of warning messages
 	 */
-	List getWarnings();
+	List<String> getWarnings();
 
 	/**
 	 * parse a String in PCG format

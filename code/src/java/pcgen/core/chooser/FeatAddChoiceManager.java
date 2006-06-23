@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+import pcgen.core.Categorisable;
 
 /**
  * This is one of the choosers that deals with choosing from among a set
@@ -88,9 +89,9 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 			{
 				final String featType = aString.substring(5);
 
-				for (Iterator<Ability> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); )
+				for (Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); )
 				{
-					final Ability ability = it.next();
+					final Ability ability = (Ability)it.next();
 
 					if (
 						ability.isType(featType) &&

@@ -103,9 +103,9 @@ public class DefeatedCombatant extends Combatant
 		return xp;
 	}
 
-	public void editRow(List columnOrder, int colNumber, Object data)
+	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public String toHtmlString()

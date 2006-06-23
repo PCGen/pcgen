@@ -28,7 +28,7 @@ public class DrLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		ArrayList preReqs = new ArrayList();
+		ArrayList<Prerequisite> preReqs = new ArrayList<Prerequisite>();
 		if (anInt > -9) {
 			try {
 				PreParserFactory factory = PreParserFactory.getInstance();
@@ -68,10 +68,9 @@ public class DrLst implements GlobalLstToken {
 				return false;
 			}
 		}
-		if (preReqs.size() > 0) {
-			for (Iterator i = preReqs.iterator(); i.hasNext(); ) {
-				dr.addPreReq((Prerequisite)i.next());
-			}
+		for ( Prerequisite prereq : preReqs )
+		{
+			dr.addPreReq(prereq);
 		}
 
 		obj.addDR(dr);

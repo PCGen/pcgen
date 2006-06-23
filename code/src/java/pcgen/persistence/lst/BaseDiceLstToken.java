@@ -38,5 +38,5 @@ public interface BaseDiceLstToken extends LstToken {
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(Map baseDice, String value);
+	public abstract boolean parse(Map<String, String> baseDice, String value);
 }

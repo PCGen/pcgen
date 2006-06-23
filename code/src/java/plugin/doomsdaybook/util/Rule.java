@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Rule extends ArrayList implements DataElement
 {
-	ArrayList retList = new ArrayList();
+	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 	String id;
 	String title;
 	VariableHashMap allVars;
@@ -48,7 +48,7 @@ public class Rule extends ArrayList implements DataElement
 		this.weight = weight;
 	}
 
-	public ArrayList getData() throws Exception
+	public ArrayList<DataValue> getData() throws Exception
 	{
 		retList.clear();
 
@@ -62,7 +62,7 @@ public class Rule extends ArrayList implements DataElement
 		return retList;
 	}
 
-	public ArrayList getData(int choice) throws Exception
+	public ArrayList<DataValue> getData(int choice) throws Exception
 	{
 		return getData();
 	}
@@ -77,7 +77,7 @@ public class Rule extends ArrayList implements DataElement
 		return id;
 	}
 
-	public ArrayList getLastData() throws Exception
+	public ArrayList<DataValue> getLastData() throws Exception
 	{
 		retList.clear();
 

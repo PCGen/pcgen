@@ -126,8 +126,8 @@ final class LevelAbilitySpecial extends LevelAbility
 
 		if ("FEATLIST".equals(aToken))
 		{
-			for (Iterator<Ability> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
-				final Ability anAbility = it.next();
+			for (Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
+				final Ability anAbility = (Ability)it.next();
 
 				if (aPC.canSelectAbility(anAbility))
 				{

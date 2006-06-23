@@ -3259,6 +3259,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			if ( theWeaponStats != null )
 			{
 				eq.theWeaponStats = (WeaponEquipment) theWeaponStats.clone();
+				eq.theWeaponStats.setOwner(eq);
 			}
 
 			//
@@ -4200,8 +4201,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 				tempStringBuffer.append(", ");
 				tempStringBuffer.append(BigDecimalHelper.trimZeros(anEquip.getQty().toString()));
 				tempStringBuffer.append(" ");
-                // karianna os bug 1414564 
-                tempStringBuffer.append(anEquip.getOutputName());
+				// karianna os bug 1414564
+				tempStringBuffer.append(anEquip.getOutputName());
 			}
 		}
 

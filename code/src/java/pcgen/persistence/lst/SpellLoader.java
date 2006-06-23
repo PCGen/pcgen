@@ -146,7 +146,7 @@ public final class SpellLoader extends LstObjectFileLoader
 			Object obj = Globals.getSpellMap().get(target.getKeyName());
 			if (obj == null)
 			{
-				Globals.getSpellMap().put(target.getKeyName(), target);
+				Globals.addToSpellMap( target.getKeyName(), target );
 			}
 			else
 			{
@@ -175,7 +175,7 @@ public final class SpellLoader extends LstObjectFileLoader
 					if (aSpell == null)
 					{
 						aList.add(target);
-						Globals.getSpellMap().put(target.getKeyName(), aList);
+						Globals.addToSpellMap( target.getKeyName(), aList );
 					}
 					else if (!target.equals(aSpell))
 					{
@@ -184,7 +184,7 @@ public final class SpellLoader extends LstObjectFileLoader
 							if (target.getSourceDateValue() > aSpell.getSourceDateValue())
 							{
 								Globals.getSpellMap().remove(aSpell.getKeyName());
-								Globals.getSpellMap().put(target.getKeyName(), target);
+								Globals.addToSpellMap( target.getKeyName(), target );
 							}
 						}
 					}

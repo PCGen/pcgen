@@ -71,7 +71,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 		return ret.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		final StatList aStatList = aPC.getStatList();
 		boolean foundStat = false;

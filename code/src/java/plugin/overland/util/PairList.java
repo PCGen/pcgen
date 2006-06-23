@@ -13,11 +13,11 @@ import java.util.Vector;
  */
 public abstract class PairList
 {
-	private Vector vPairs;
+	private Vector<Pair> vPairs;
 
 	public PairList()
 	{
-		vPairs = new Vector();
+		vPairs = new Vector<Pair>();
 	}
 
 	public int getCount()
@@ -27,7 +27,7 @@ public abstract class PairList
 
 	protected Pair getElementAtI(int i)
 	{
-		return (Pair) vPairs.get(i);
+		return vPairs.get(i);
 	}
 
 	protected void addPair(Pair p)

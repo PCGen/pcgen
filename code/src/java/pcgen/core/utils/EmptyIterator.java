@@ -41,7 +41,7 @@ public class EmptyIterator<T> implements Iterator<T>
 
 	public static <T> EmptyIterator<T> emptyIterator()
 	{
-		return new EmptyIterator<T>();
+		return (EmptyIterator<T>)EMPTY_ITERATOR;
 	}
 
 	public boolean hasNext()

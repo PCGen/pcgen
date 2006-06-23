@@ -31,7 +31,7 @@ import java.util.List;
  */
 final class NameRule
 {
-	private List rule = new ArrayList();
+	private List<String> rule = new ArrayList<String>();
 	private int chance = 0;
 
 	NameRule(final int argChance)

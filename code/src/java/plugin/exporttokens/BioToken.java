@@ -56,10 +56,10 @@ public class BioToken extends Token
 	}
 
 	/**
-	 * TODO  Could expand Token itself or even create a sub class of Token so that 
-	 * the beforeValue and afterValue can be handled more cleanly.  Also see comment 
+	 * TODO  Could expand Token itself or even create a sub class of Token so that
+	 * the beforeValue and afterValue can be handled more cleanly.  Also see comment
 	 * on Token.replaceWithDelimiter itself
-	 *  
+	 *
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
@@ -90,11 +90,11 @@ public class BioToken extends Token
 		}
 
 		StringBuffer sb = new StringBuffer();
-		List bioList = getBioToken(pc);
+		List<String> bioList = getBioToken(pc);
 		for (int i = 0; i < bioList.size(); ++i)
 		{
 			sb.append(beforeValue);
-			sb.append(FileAccess.filterString((String) bioList.get(i)));
+			sb.append(FileAccess.filterString(bioList.get(i)));
 			if (addAfterOnLast || i+1<bioList.size())
 			{
 				sb.append(afterValue);
@@ -115,9 +115,9 @@ public class BioToken extends Token
 	 * @param pc The character being processed.
 	 * @return A list lines in the character's bio
 	 */
-	private static List getBioToken(PlayerCharacter pc)
+	private static List<String> getBioToken(PlayerCharacter pc)
 	{
-		List bioList = new ArrayList();
+		List<String> bioList = new ArrayList<String>();
 		StringTokenizer tok = new StringTokenizer(pc.getBio(), "\r\n", false);
 
 		while (tok.hasMoreTokens())
@@ -137,9 +137,9 @@ public class BioToken extends Token
 	private static String getAfterValue(ExportHandler eh) {
 		if (eh != null && eh.getTemplateFile().getName().endsWith(Constants.XSL_FO_EXTENSION)) {
 			return "			</fo:block><fo:block font-size=\"9pt\" text-indent=\"5mm\" space-after.optimum=\"2mm\">";
-		} 
+		}
 		return "<br/>";
 	}
-	
+
 }
 

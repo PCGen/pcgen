@@ -44,26 +44,26 @@ public final class GameMode implements Comparable
 {
 	private static PObject eqSizePenalty = new PObject();
 	private List<String> allowedModes;
-	private List bonusFeatLevels = new ArrayList();
-	private Map bonusSpellMap = new HashMap();		// key is level of bonus spell, value is "basestatscore|statrange"
-	private List bonusStackList = new ArrayList();
-	private List bonusStatLevels = new ArrayList();
-	private List classTypeList = new ArrayList();
-	private List defaultDeityList = new ArrayList();
-	private List hiddenEquipmentTypes = null;
-	private List hiddenAbilityTypes = null;
-	private List hiddenSkillTypes = null;
-	private Map levelInfo = new HashMap();
-	private List loadStrings = new ArrayList();
-	private List skillMultiplierLevels = new ArrayList();
-	private List wcStepsList = new ArrayList();
-	private List wieldCategoryList = new ArrayList();
+	private List<String> bonusFeatLevels = new ArrayList<String>();
+	private Map<String, String> bonusSpellMap = new HashMap<String, String>();		// key is level of bonus spell, value is "basestatscore|statrange"
+	private List<String> bonusStackList = new ArrayList<String>();
+	private List<String> bonusStatLevels = new ArrayList<String>();
+	private List<ClassType> classTypeList = new ArrayList<ClassType>();
+	private List<String> defaultDeityList = new ArrayList<String>();
+	private List<String> hiddenEquipmentTypes = null;
+	private List<String> hiddenAbilityTypes = null;
+	private List<String> hiddenSkillTypes = null;
+	private Map<String, LevelInfo> levelInfo = new HashMap<String, LevelInfo>();
+	private List<String> loadStrings = new ArrayList<String>();
+	private List<String> skillMultiplierLevels = new ArrayList<String>();
+	private List<String> wcStepsList = new ArrayList<String>();
+	private List<WieldCategory> wieldCategoryList = new ArrayList<WieldCategory>();
 	private Map<String, List<String>> ACTypeAddMap = new HashMap<String, List<String>>();
 	private Map<String, List<String>> ACTypeRemoveMap = new HashMap<String, List<String>>();
-	private Map damageDownMap = new HashMap();
-	private Map damageUpMap = new HashMap();
-	private Map plusCalcs;
-	private Map spellRangeMap = new HashMap();
+	private Map<String, String> damageDownMap = new HashMap<String, String>();
+	private Map<String, String> damageUpMap = new HashMap<String, String>();
+	private Map<String, String> plusCalcs;
+	private Map<String, String> spellRangeMap = new HashMap<String, String>();
 	private String acAbbrev = "";
 	private String acFlatBonus = "";
 	private String acName = "";
@@ -96,7 +96,7 @@ public final class GameMode implements Comparable
 	private String weaponTypes = "";
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
-	private SortedMap ruleCheckMap = new TreeMap();
+	private SortedMap<String, RuleCheck> ruleCheckMap = new TreeMap<String, RuleCheck>();
 	private TabInfo[] tInfo;
 	private boolean allowAutoResize = false;
 	private boolean showClassDefense;
@@ -112,7 +112,7 @@ public final class GameMode implements Comparable
 	/** String array of Attributes in short format */
 	public String[] s_ATTRIBSHORT;
 	private final List<PObject> checkList = new ArrayList<PObject>();
-	private final List alignmentList = new ArrayList(15);
+	private final List<PCAlignment> alignmentList = new ArrayList<PCAlignment>(15);
 	private final List<String> schoolsList = new ArrayList<String>(20);
 
 	private int skillCosts_Class     = 1;
@@ -131,17 +131,17 @@ public final class GameMode implements Comparable
 	private int rangePenalty;
 
 
-	private List rollingMethods = null;
+	private List<GameModeRollMethod> rollingMethods = null;
 	private int rollingMethodIndex = -1;
 
-	private SortedMap pointBuyStatCosts = null;
+	private SortedMap<Integer, PointBuyCost> pointBuyStatCosts = null;
 	private int[] abilityScoreCost = null;
-	private List pointBuyMethods = null;
+	private List<PointBuyMethod> pointBuyMethods = null;
 	private String purchaseMethodName = ""; //$NON-NLS-1$
 
 	private int rollMethod = Constants.CHARACTERSTATMETHOD_USER;
 
-	private final List sizeAdjustmentList = new ArrayList(9);
+	private final List<SizeAdjustment> sizeAdjustmentList = new ArrayList<SizeAdjustment>(9);
 	private final SizeAdjustment spareSize = new SizeAdjustment();
 
 	private int allStatsValue = 10;
@@ -152,9 +152,9 @@ public final class GameMode implements Comparable
 	private int statMin = 3;
 	private int statMax = 18;
 
-	private TreeMap statDisplayText = null;
+	private TreeMap<Integer, String> statDisplayText = null;
 	private String statDisplayTextAppend = "+";
-	private TreeMap skillRankDisplayText = null;
+	private TreeMap<Integer, String> skillRankDisplayText = null;
 
 	private boolean [] summaryTabStatColumnVisible;
 
@@ -302,7 +302,7 @@ public final class GameMode implements Comparable
 
 			if (allowedModes == null)
 			{
-				allowedModes = new ArrayList();
+				allowedModes = new ArrayList<String>();
 			}
 
 			allowedModes.add(aString);
@@ -415,13 +415,11 @@ public final class GameMode implements Comparable
 	 */
 	public ClassType getClassTypeByName(final String aClassKey)
 	{
-		for (Iterator i = classTypeList.iterator(); i.hasNext();)
+		for ( ClassType classType : classTypeList )
 		{
-			final ClassType aClassType = (ClassType) i.next();
-
-			if (aClassType.getKeyName().equalsIgnoreCase(aClassKey))
+			if (classType.getName().equalsIgnoreCase(aClassKey))
 			{
-				return aClassType;
+				return classType;
 			}
 		}
 
@@ -465,7 +463,7 @@ public final class GameMode implements Comparable
 	 * Get Damage down map
 	 * @return Map of damage downs
 	 */
-	public Map getDamageDownMap()
+	public Map<String, String> getDamageDownMap()
 	{
 		return damageDownMap;
 	}
@@ -483,7 +481,7 @@ public final class GameMode implements Comparable
 	 * Weapon size changes damage
 	 * @return Map
 	 */
-	public Map getDamageUpMap()
+	public Map<String, String> getDamageUpMap()
 	{
 		return damageUpMap;
 	}
@@ -561,7 +559,7 @@ public final class GameMode implements Comparable
 	{
 		if (hiddenEquipmentTypes == null)
 		{
-			hiddenEquipmentTypes = new ArrayList();
+			hiddenEquipmentTypes = new ArrayList<String>();
 		}
 		final StringTokenizer aTok = new StringTokenizer(pipeList, "|");
 		while (aTok.hasMoreTokens())
@@ -578,7 +576,7 @@ public final class GameMode implements Comparable
 	{
 		if (hiddenAbilityTypes == null)
 		{
-			hiddenAbilityTypes = new ArrayList();
+			hiddenAbilityTypes = new ArrayList<String>();
 		}
 		final StringTokenizer aTok = new StringTokenizer(pipeList, "|");
 		while (aTok.hasMoreTokens())
@@ -595,7 +593,7 @@ public final class GameMode implements Comparable
 	{
 		if (hiddenSkillTypes == null)
 		{
-			hiddenSkillTypes = new ArrayList();
+			hiddenSkillTypes = new ArrayList<String>();
 		}
 		final StringTokenizer aTok = new StringTokenizer(pipeList, "|");
 		while (aTok.hasMoreTokens())
@@ -635,7 +633,7 @@ public final class GameMode implements Comparable
 	 * map of LevelInfo objects
 	 * @return level info map
 	 */
-	public Map getLevelInfo()
+	public Map<String, LevelInfo> getLevelInfo()
 	{
 		return levelInfo;
 	}
@@ -733,7 +731,7 @@ public final class GameMode implements Comparable
 
 		if (plusCalcs != null)
 		{
-			aString = (String) plusCalcs.get(type);
+			aString = plusCalcs.get(type);
 		}
 
 		return aString;
@@ -746,7 +744,7 @@ public final class GameMode implements Comparable
 	 */
 	public RuleCheck getRuleByKey(final String aKey)
 	{
-		return (RuleCheck) ruleCheckMap.get(aKey);
+		return ruleCheckMap.get(aKey);
 	}
 
 	/**
@@ -758,7 +756,7 @@ public final class GameMode implements Comparable
 	{
 		if (ruleCheckMap.containsKey(aKey))
 		{
-			final RuleCheck aRule = (RuleCheck) ruleCheckMap.get(aKey);
+			final RuleCheck aRule = ruleCheckMap.get(aKey);
 
 			return aRule.getDefault();
 		}
@@ -772,7 +770,7 @@ public final class GameMode implements Comparable
 	 */
 	public List getRuleCheckList()
 	{
-		return new ArrayList(ruleCheckMap.values());
+		return new ArrayList<RuleCheck>(ruleCheckMap.values());
 	}
 
 	/**
@@ -864,7 +862,7 @@ public final class GameMode implements Comparable
 
 		if (spellRangeMap != null)
 		{
-			aString = (String) spellRangeMap.get(aRange);
+			aString = spellRangeMap.get(aRange);
 		}
 
 		return aString;
@@ -1116,10 +1114,8 @@ public final class GameMode implements Comparable
 	 */
 	public WieldCategory getWieldCategory(final String aName)
 	{
-		for (Iterator wc = wieldCategoryList.iterator(); wc.hasNext();)
+		for ( WieldCategory wCat : wieldCategoryList )
 		{
-			final WieldCategory wCat = (WieldCategory) wc.next();
-
 			if (wCat.getName().equals(aName))
 			{
 				return wCat;
@@ -1127,51 +1123,6 @@ public final class GameMode implements Comparable
 		}
 
 		return null;
-	}
-
-	/**
-	 * Compute what a change to a Wield Category would be
-	 * eg: +1 to 'Light' is 'OneHanded'
-	 * eg: -1 to 'TwoHanded' is 'OneHanded'
-	 * @param startWC
-	 * @param aBump
-	 * @return weild category step
-	 **/
-	public String getWieldCategoryStep(final String startWC, final int aBump)
-	{
-		// First, get the current Wield Category position
-		int newInt = -1;
-
-		for (int i = 0; i < wcStepsList.size(); i++)
-		{
-			final String wcName = (String) wcStepsList.get(i);
-
-			if (wcName.equals(startWC))
-			{
-				newInt = i;
-			}
-		}
-
-		// If the startWC was not found, just return it
-		if (newInt < 0)
-		{
-			return startWC;
-		}
-
-		// apply the change
-		newInt += aBump;
-
-		// Bounds Checking
-		if (newInt > wcStepsList.size())
-		{
-			newInt = wcStepsList.size();
-		}
-		else if (newInt < 0)
-		{
-			newInt = 0;
-		}
-
-		return (String) wcStepsList.get(newInt);
 	}
 
 	/**
@@ -1309,7 +1260,7 @@ public final class GameMode implements Comparable
 
 		if (classTypeList == null)
 		{
-			classTypeList = new ArrayList();
+			classTypeList = new ArrayList<ClassType>();
 		}
 
 		final ClassType aClassType = new ClassType();
@@ -1356,7 +1307,7 @@ public final class GameMode implements Comparable
 
 		if (defaultDeityList == null)
 		{
-			defaultDeityList = new ArrayList();
+			defaultDeityList = new ArrayList<String>();
 		}
 
 		defaultDeityList.add(argDeityLine);
@@ -1383,7 +1334,7 @@ public final class GameMode implements Comparable
 		{
 			if (plusCalcs == null)
 			{
-				plusCalcs = new HashMap();
+				plusCalcs = new HashMap<String, String>();
 			}
 
 			plusCalcs.put(aString.substring(0, idx).toUpperCase(), aString.substring(idx + 1));
@@ -1397,8 +1348,7 @@ public final class GameMode implements Comparable
 	 */
 	public void addRule(final RuleCheck aRule)
 	{
-		final String aKey = aRule.getKey();
-		ruleCheckMap.put(aKey, aRule);
+		ruleCheckMap.put(aRule.getKey(), aRule);
 	}
 
 	/**
@@ -1539,7 +1489,7 @@ public final class GameMode implements Comparable
 	 * Levels at which all characters get bonus feats
 	 * @return List
 	 */
-	List getBonusFeatLevels()
+	List<String> getBonusFeatLevels()
 	{
 		return bonusFeatLevels;
 	}
@@ -1548,7 +1498,7 @@ public final class GameMode implements Comparable
 	 * Levels at which all characters get bonus to stats
 	 * @return List
 	 */
-	List getBonusStatLevels()
+	List<String> getBonusStatLevels()
 	{
 		return bonusStatLevels;
 	}
@@ -1589,7 +1539,7 @@ public final class GameMode implements Comparable
 		return defaultUnitSet;
 	}
 
-	List getDeityList()
+	List<String> getDeityList()
 	{
 		return defaultDeityList;
 	}
@@ -1613,7 +1563,7 @@ public final class GameMode implements Comparable
 		return hpName;
 	}
 
-	List getLoadStrings()
+	List<String> getLoadStrings()
 	{
 		return loadStrings;
 	}
@@ -1637,7 +1587,7 @@ public final class GameMode implements Comparable
 		return showClassDefense;
 	}
 
-	List getSkillMultiplierLevels()
+	List<String> getSkillMultiplierLevels()
 	{
 		return skillMultiplierLevels;
 	}
@@ -1813,7 +1763,7 @@ public final class GameMode implements Comparable
 		}
 		else
 		{
-			check = (PObject) checkList.get(index);
+			check = checkList.get(index);
 		}
 
 		return check;
@@ -1881,7 +1831,7 @@ public final class GameMode implements Comparable
 		}
 		else
 		{
-			align = (PCAlignment) alignmentList.get(index);
+			align = alignmentList.get(index);
 		}
 
 		return align;
@@ -1895,12 +1845,9 @@ public final class GameMode implements Comparable
 	{
 		final String[] al = new String[alignmentList.size()];
 		int x = 0;
-		final Iterator i = alignmentList.iterator();
 
-		while (i.hasNext())
+		for ( PCAlignment alignment : alignmentList )
 		{
-			final PCAlignment alignment = (PCAlignment) i.next();
-
 			if (useLongForm)
 			{
 				al[x++] = alignment.getDisplayName();
@@ -1922,7 +1869,7 @@ public final class GameMode implements Comparable
 	{
 		for (int i = 0; i < alignmentList.size(); ++i)
 		{
-			final PCAlignment alignment = (PCAlignment) alignmentList.get(i);
+			final PCAlignment alignment = alignmentList.get(i);
 
 			// if long name or short name of alignment matches, return index
 			if (alignment.getDisplayName().equalsIgnoreCase(anAlignmentName)
@@ -1978,7 +1925,7 @@ public final class GameMode implements Comparable
 	 * Return an <b>unmodifiable</b> version of the alignmentlist.
 	 * @return an <b>unmodifiable</b> version of the alignmentlist.
 	 */
-	public List getUnmodifiableAlignmentList()
+	public List<PCAlignment> getUnmodifiableAlignmentList()
 	{
 		return Collections.unmodifiableList(alignmentList);
 	}
@@ -2146,7 +2093,7 @@ public final class GameMode implements Comparable
 	 * Get the bonus spell map
 	 * @return the bonus spell map
 	 */
-	public Map getBonusSpellMap()
+	public Map<String, String> getBonusSpellMap()
 	{
 		return bonusSpellMap;
 	}
@@ -2230,7 +2177,7 @@ public final class GameMode implements Comparable
 		if (pointBuyStatCosts == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
-			pointBuyStatCosts = new TreeMap(new ComparableComparator());
+			pointBuyStatCosts = new TreeMap<Integer, PointBuyCost>(new ComparableComparator());
 		}
 		abilityScoreCost = null;
 		pointBuyStatCosts.put(new Integer(pbc.getStatValue()), pbc);
@@ -2256,7 +2203,7 @@ public final class GameMode implements Comparable
 		{
 			if (pointBuyMethods == null)
 			{
-				pointBuyMethods = new ArrayList();
+				pointBuyMethods = new ArrayList<PointBuyMethod>();
 			}
 
 			pointBuyMethods.add(pbm);
@@ -2277,7 +2224,7 @@ public final class GameMode implements Comparable
 	 * Get the point buy by stat mapping
 	 * @return the point buy by stat mapping
 	 */
-	public SortedMap getPointBuyStatCostMap()
+	public SortedMap<Integer, PointBuyCost> getPointBuyStatCostMap()
 	{
 		return pointBuyStatCosts;
 	}
@@ -2299,10 +2246,8 @@ public final class GameMode implements Comparable
 	{
 		if (pointBuyMethods != null)
 		{
-			for (int idx = 0, x = pointBuyMethods.size(); idx < x; ++idx)
+			for ( PointBuyMethod pbm : pointBuyMethods )
 			{
-				final PointBuyMethod pbm = (PointBuyMethod) pointBuyMethods.get(idx);
-
 				if (pbm.getMethodName().equalsIgnoreCase(methodName))
 				{
 					return pbm;
@@ -2415,7 +2360,7 @@ public final class GameMode implements Comparable
 			return -1;
 		}
 
-		return ((Integer) pointBuyStatCosts.lastKey()).intValue();
+		return pointBuyStatCosts.lastKey();
 	}
 
 	/**
@@ -2434,10 +2379,9 @@ public final class GameMode implements Comparable
 		if (pointBuyStatCosts != null)
 		{
 			boolean bPassed = false;
-			for (Iterator e = pointBuyStatCosts.keySet().iterator(); e.hasNext();)
+			for ( Integer statValue : pointBuyStatCosts.keySet() )
 			{
-				final Integer statValue = (Integer) e.next();
-				final PointBuyCost pbc = ((PointBuyCost) pointBuyStatCosts.get(statValue));
+				final PointBuyCost pbc = pointBuyStatCosts.get(statValue);
 				if (!PrereqHandler.passesAll(pbc.getPreReqList(), pc, null))
 				{
 					//
@@ -2468,7 +2412,7 @@ public final class GameMode implements Comparable
 			return -1;
 		}
 
-		return ((Integer) pointBuyStatCosts.firstKey()).intValue();
+		return pointBuyStatCosts.firstKey();
 	}
 
 	/**
@@ -2486,13 +2430,12 @@ public final class GameMode implements Comparable
 		int lastStat = -1;
 		if (pointBuyStatCosts != null)
 		{
-			for (Iterator e = pointBuyStatCosts.keySet().iterator(); e.hasNext();)
+			for ( int statValue : pointBuyStatCosts.keySet() )
 			{
-				final Integer statValue = (Integer) e.next();
-				final PointBuyCost pbc = ((PointBuyCost) pointBuyStatCosts.get(statValue));
+				final PointBuyCost pbc = pointBuyStatCosts.get(statValue);
 				if (PrereqHandler.passesAll(pbc.getPreReqList(), pc, null))
 				{
-					lastStat = statValue.intValue();
+					lastStat = statValue;
 					break;
 				}
 			}
@@ -2528,7 +2471,7 @@ public final class GameMode implements Comparable
 			return null;
 		}
 
-		return (PointBuyMethod) pointBuyMethods.get(idx);
+		return pointBuyMethods.get(idx);
 	}
 
 	/**
@@ -2576,21 +2519,19 @@ public final class GameMode implements Comparable
 		int lastStat = Integer.MIN_VALUE;
 		int lastCost = 0;
 
-		for (Iterator e = pointBuyStatCosts.keySet().iterator(); e.hasNext();)
+		for ( int statValue : pointBuyStatCosts.keySet() )
 		{
-			final Integer statValue = (Integer) e.next();
-
 			// Fill in any holes in the stat list by using the previous stat cost
-			if ((lastStat != Integer.MIN_VALUE) && ((lastStat + 1) != statValue.intValue()))
+			if ((lastStat != Integer.MIN_VALUE) && (lastStat + 1 != statValue))
 			{
-				for (int x = lastStat + 1; x < statValue.intValue(); ++x)
+				for (int x = lastStat + 1; x < statValue; ++x)
 				{
 					abilityScoreCost[i++] = lastCost;
 				}
 			}
 
-			final int statCost = ((PointBuyCost) pointBuyStatCosts.get(statValue)).getStatCost();
-			lastStat = statValue.intValue();
+			final int statCost = pointBuyStatCosts.get(statValue).getStatCost();
+			lastStat = statValue;
 			lastCost = statCost;
 			abilityScoreCost[i++] = lastCost;
 		}
@@ -2703,10 +2644,8 @@ public final class GameMode implements Comparable
 	 */
 	public SizeAdjustment getDefaultSizeAdjustment()
 	{
-		for (Iterator i = sizeAdjustmentList.iterator(); i.hasNext();)
+		for ( SizeAdjustment s : sizeAdjustmentList )
 		{
-			final SizeAdjustment s = (SizeAdjustment) i.next();
-
 			if (s.isDefaultSize())
 			{
 				return s;
@@ -2727,7 +2666,7 @@ public final class GameMode implements Comparable
 
 		if ((index >= 0) && (index < sizeAdjustmentList.size()))
 		{
-			sa = (SizeAdjustment) sizeAdjustmentList.get(index);
+			sa = sizeAdjustmentList.get(index);
 		}
 
 		return sa;
@@ -2754,11 +2693,10 @@ public final class GameMode implements Comparable
 			return spareSize;
 		}
 
-		for (Iterator i = sizeAdjustmentList.iterator(); i.hasNext();)
+		for ( SizeAdjustment s : sizeAdjustmentList )
 		{
-			final SizeAdjustment s = (SizeAdjustment) i.next();
-
-			if (s.getDisplayName().equalsIgnoreCase(aName) || s.getAbbreviation().equalsIgnoreCase(aName))
+			if (s.getDisplayName().equalsIgnoreCase(aName)
+			 || s.getAbbreviation().equalsIgnoreCase(aName))
 			{
 				return s;
 			}
@@ -2807,6 +2745,7 @@ public final class GameMode implements Comparable
 		//
 		else if (methodName.endsWith(".CLEAR"))
 		{
+			/** @todo don't we need to chop off the .CLEAR portion? */
 			final int idx = findRollingMethodByName(methodName);
 			if (idx >= 0)
 			{
@@ -2818,7 +2757,7 @@ public final class GameMode implements Comparable
 		{
 			if (rollingMethods == null)
 			{
-				rollingMethods = new ArrayList();
+				rollingMethods = new ArrayList<GameModeRollMethod>();
 			}
 			final int idx = findRollingMethodByName(methodName);
 			if (idx < 0)
@@ -2856,7 +2795,7 @@ public final class GameMode implements Comparable
 	{
 		if ((rollingMethods != null) && (idx >= 0) && (idx < rollingMethods.size()))
 		{
-			return (GameModeRollMethod)rollingMethods.get(idx);
+			return rollingMethods.get(idx);
 		}
 		return null;
 	}
@@ -2938,9 +2877,9 @@ public final class GameMode implements Comparable
 		if (statDisplayText == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
-			statDisplayText = new TreeMap(new ComparableComparator());
+			statDisplayText = new TreeMap<Integer, String>(new ComparableComparator());
 		}
-		statDisplayText.put(new Integer(statValue), statText);
+		statDisplayText.put(statValue, statText);
 	}
 
 	/**
@@ -2960,17 +2899,17 @@ public final class GameMode implements Comparable
 		}
 		else
 		{
-			statText = ((String) statDisplayText.get(new Integer(statValue)));
+			statText = statDisplayText.get(statValue);
 			if (statText == null)
 			{
-				final int firstKey = ((Integer) statDisplayText.firstKey()).intValue();
+				final int firstKey = statDisplayText.firstKey();
 				if (statValue < firstKey)
 				{
 					statText = "???" + Integer.toString(statValue) + "???";
 				}
 				else
 				{
-					final int lastKey = ((Integer) statDisplayText.lastKey()).intValue();
+					final int lastKey = statDisplayText.lastKey();
 
 					statText = getStatDisplayText(lastKey) + statDisplayTextAppend + getStatDisplayText(statValue - lastKey);
 				}
@@ -3025,9 +2964,9 @@ public final class GameMode implements Comparable
 		if (skillRankDisplayText == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
-			skillRankDisplayText = new TreeMap(new ComparableComparator());
+			skillRankDisplayText = new TreeMap<Integer, String>(new ComparableComparator());
 		}
-		skillRankDisplayText.put(new Integer(rankValue), rankText);
+		skillRankDisplayText.put(rankValue, rankText);
 	}
 
 	/**
@@ -3047,17 +2986,17 @@ public final class GameMode implements Comparable
 		}
 		else
 		{
-			rankText = ((String) skillRankDisplayText.get(new Integer(rankValue)));
+			rankText = skillRankDisplayText.get(rankValue);
 			if (rankText == null)
 			{
-				final int firstKey = ((Integer) skillRankDisplayText.firstKey()).intValue();
+				final int firstKey = skillRankDisplayText.firstKey();
 				if (rankValue < firstKey)
 				{
 					rankText = "???" + Integer.toString(rankValue) + "???";
 				}
 				else
 				{
-					final int lastKey = ((Integer) skillRankDisplayText.lastKey()).intValue();
+					final int lastKey = skillRankDisplayText.lastKey();
 
 					rankText = getSkillRankDisplayText(lastKey) + statDisplayTextAppend + getSkillRankDisplayText(rankValue - lastKey);
 				}
@@ -3093,7 +3032,7 @@ public final class GameMode implements Comparable
 	 * Return an <b>unmodifiable</b> version of the bonus stacking list.
 	 * @return an <b>unmodifiable</b> version of the bonus stacking list.
 	 */
-	public List getUnmodifiableBonusStackList()
+	public List<String> getUnmodifiableBonusStackList()
 	{
 		return Collections.unmodifiableList(bonusStackList);
 	}

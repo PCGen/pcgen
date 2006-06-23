@@ -110,11 +110,11 @@ public class PlayerCharacterUtilities
 	 */
 	static int minXPForLevel(final int level, final PlayerCharacter pc)
 	{
-		LevelInfo lInfo = (LevelInfo) Globals.getLevelInfo().get(String.valueOf(level));
+		LevelInfo lInfo = Globals.getLevelInfo().get(String.valueOf(level));
 
 		if (lInfo == null)
 		{
-			lInfo = (LevelInfo) Globals.getLevelInfo().get("LEVEL");
+			lInfo = Globals.getLevelInfo().get("LEVEL");
 		}
 
 		if ((level > 0) && (lInfo != null))

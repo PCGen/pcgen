@@ -356,9 +356,9 @@ final class EquipmentChoice
 		final String          typeString,
 		final String          aCategory)
 	{
-		for (Iterator<Ability> e = Globals.getAbilityKeyIterator(aCategory); e.hasNext();)
+		for (Iterator<? extends Categorisable> e = Globals.getAbilityKeyIterator(aCategory); e.hasNext();)
 		{
-			final Ability anAbility = e.next();
+			final Ability anAbility = (Ability)e.next();
 
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||

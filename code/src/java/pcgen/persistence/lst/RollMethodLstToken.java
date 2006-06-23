@@ -38,5 +38,5 @@ public interface RollMethodLstToken extends LstToken {
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(Map method, String value);
+	public abstract boolean parse(Map<String, String> method, String value);
 }

@@ -37,10 +37,10 @@ import java.util.Map;
  * @version $Revision$
  */
 public class LoadInfo {
-	private List loadScoreList = new ArrayList();
+	private List<Float> loadScoreList = new ArrayList<Float>();
 	private Float loadScoreMultiplier = new Float(0);
-	private Map sizeAdjustmentMap = new HashMap();
-	private Map loadMultiplierMap = new HashMap();
+	private Map<String, Float> sizeAdjustmentMap = new HashMap<String, Float>();
+	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
 	private int minScore = 0;
 	private int maxScore = 0;
 	private String modifyFormula = "";
@@ -95,7 +95,7 @@ public class LoadInfo {
 		{
 			return getLoadScoreValue(score - 1);
 		}
-		return (Float)loadScoreList.get(score);
+		return loadScoreList.get(score);
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class LoadInfo {
 	{
 		if (sizeAdjustmentMap.containsKey(size))
 		{
-			return (Float)sizeAdjustmentMap.get(size);
+			return sizeAdjustmentMap.get(size);
 		}
 		return null;
 	}
@@ -144,7 +144,7 @@ public class LoadInfo {
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
 		{
-			return ((LoadMapEntry)loadMultiplierMap.get(encumbranceType)).getMuliplier();
+			return loadMultiplierMap.get(encumbranceType).getMuliplier();
 		}
 		return null;
 	}
@@ -158,7 +158,7 @@ public class LoadInfo {
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
 		{
-			return ((LoadMapEntry)loadMultiplierMap.get(encumbranceType)).getFormula();
+			return loadMultiplierMap.get(encumbranceType).getFormula();
 		}
 		return "";
 	}
@@ -172,7 +172,7 @@ public class LoadInfo {
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
 		{
-			return ((LoadMapEntry)loadMultiplierMap.get(encumbranceType)).getCheckPenalty();
+			return loadMultiplierMap.get(encumbranceType).getCheckPenalty();
 		}
 		return 0;
 	}

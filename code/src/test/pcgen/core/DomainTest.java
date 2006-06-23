@@ -92,8 +92,8 @@ public class DomainTest extends PCGenTestCase {
 		foo.addFeat("KEY_Feat6|KEY_Feat7,KEY_Feat8");
 		assertEquals(3, foo.getNumberOfFeats());
 
-		Iterator<Ability> it = foo.getFeatIterator();
-		Ability anAI = it.next();
+		Iterator<Categorisable> it = foo.getFeatIterator();
+		Categorisable anAI = it.next();
 
 		assertEquals("KEY_Feat6", anAI.getKeyName());
 	}

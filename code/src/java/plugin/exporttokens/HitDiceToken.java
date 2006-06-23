@@ -78,44 +78,45 @@ public class HitDiceToken extends Token
 	 */
 	public static String getHitDiceToken(PlayerCharacter pc)
 	{
-		String retString = "";
+		StringBuffer ret = new StringBuffer();
 		String del = "";
 
 		if (pc.getRace().hitDice(pc) > 0)
 		{
-			retString += ("(" + Integer.toString(pc.getRace().hitDice(pc)) + "d"
-			+ Integer.toString(pc.getRace().getHitDiceSize(pc)) + ")");
+			ret.append("(");
+			ret.append(Integer.toString(pc.getRace().hitDice(pc)));
+			ret.append("d");
+			ret.append(Integer.toString(pc.getRace().getHitDiceSize(pc)));
+			ret.append(")");
 			del = "+";
 		}
 
-		PCClass aClass;
-
-		for (Iterator it = pc.getClassList().iterator(); it.hasNext();)
+		for ( PCClass pcClass : pc.getClassList() )
 		{
-			aClass = (PCClass) it.next();
-			HashMap hdMap = new LinkedHashMap();
+			HashMap<Integer, Integer> hdMap = new LinkedHashMap<Integer, Integer>();
 
-			for(int i = 0; i < aClass.getLevel(); i++) {
-				Integer hitDie = new Integer(aClass.getLevelHitDie(pc, i + 1));
-				Integer num = (Integer)hdMap.get(hitDie);
+			for(int i = 0; i < pcClass.getLevel(); i++) {
+				int hitDie = pcClass.getLevelHitDie(pc, i + 1);
+				Integer num = hdMap.get(hitDie);
 				if(num == null) {
-					hdMap.put(hitDie, new Integer(1));
+					hdMap.put(hitDie, 1);
 				}
 				else {
-					hdMap.put(hitDie, new Integer(num.intValue() + 1));
+					hdMap.put(hitDie, num.intValue() + 1);
 				}
 			}
 
-			Set keys = hdMap.keySet();
-			for(Iterator it1 = keys.iterator(); it1.hasNext();) {
-				Integer key = (Integer)it1.next();
-				Integer value = (Integer)hdMap.get(key);
-				retString += (del + "(" + value + "d" + key + ")");
+			Set<Integer> keys = hdMap.keySet();
+			for ( int key : keys )
+			{
+				Integer value = hdMap.get(key);
+				ret.append(del);
+				ret.append("(");
+				ret.append(value).append("d").append(key);
+				ret.append(")");
 				del = "+";
 			}
 		}
-
-
 
 		//
 		// Get CON bonus contribution to hitpoint total
@@ -130,7 +131,6 @@ public class HitDiceToken extends Token
 			b = pc.getTotalLevels();
 		}
 		temp *= (a + b);
-		//temp *= (pc.getTotalLevels() + pc.getRace().hitDice(pc));
 
 		//
 		// Add in feat bonus
@@ -139,10 +139,10 @@ public class HitDiceToken extends Token
 
 		if (temp != 0)
 		{
-			retString += Delta.toString(temp);
+			ret.append(Delta.toString(temp));
 		}
 
-		return retString;
+		return ret.toString();
 	}
 
 	/**
@@ -152,38 +152,32 @@ public class HitDiceToken extends Token
 	 */
 	public static String getShortToken(PlayerCharacter pc)
 	{
-		String retString = "";
 		int dice;
 
 		dice = pc.getRace().hitDice(pc);
 
-		PCClass aClass;
-
-		for (Iterator it = pc.getClassList().iterator(); it.hasNext();)
+		for ( PCClass pcClass : pc.getClassList() )
 		{
-			aClass = (PCClass) it.next();
-			HashMap hdMap = new LinkedHashMap();
+			HashMap<Integer, Integer> hdMap = new LinkedHashMap<Integer, Integer>();
 
-			for(int i = 0; i < aClass.getLevel(); i++) {
-				Integer hitDie = new Integer(aClass.getLevelHitDie(pc, i + 1));
-				Integer num = (Integer)hdMap.get(hitDie);
+			for(int i = 0; i < pcClass.getLevel(); i++) {
+				int hitDie = pcClass.getLevelHitDie(pc, i + 1);
+				Integer num = hdMap.get(hitDie);
 				if(num == null) {
-					hdMap.put(hitDie, new Integer(1));
+					hdMap.put(hitDie, 1);
 				}
 				else {
-					hdMap.put(hitDie, new Integer(num.intValue() + 1));
+					hdMap.put(hitDie, num.intValue() + 1);
 				}
 			}
 
-			Set keys = hdMap.keySet();
-			for(Iterator it1 = keys.iterator(); it1.hasNext();) {
-				Integer key = (Integer)it1.next();
-				Integer value = (Integer)hdMap.get(key);
-				dice += value.intValue();
+			Set<Integer> keys = hdMap.keySet();
+			for ( int hdSize : keys )
+			{
+				dice += hdMap.get(hdSize);
 			}
 		}
 
-		retString = new Integer(dice).toString();
-		return retString;
+		return String.valueOf( dice );
 	}
 }

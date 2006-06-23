@@ -179,7 +179,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		return info.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theSpells = null;
 

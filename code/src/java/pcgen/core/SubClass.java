@@ -39,7 +39,7 @@ import java.util.List;
  */
 public final class SubClass extends PCClass
 {
-	private List levelArray = null;
+	private List<String> levelArray = null;
 	private String choice = null;
 
 	/**
@@ -138,7 +138,7 @@ public final class SubClass extends PCClass
 	{
 		if (levelArray == null)
 		{
-			levelArray = new ArrayList();
+			levelArray = new ArrayList<String>();
 		}
 
 		levelArray.add(arg);
@@ -163,12 +163,10 @@ public final class SubClass extends PCClass
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceFile());
 
-			for (Iterator i = levelArray.iterator(); i.hasNext();)
+			for ( String line : levelArray )
 			{
-				final String aLine = (String) i.next();
-
 				final PCClassLoader classLoader = new PCClassLoader();
-				classLoader.parseLine(aClass, aLine, tempSource);
+				classLoader.parseLine(aClass, line, tempSource);
 			}
 		}
 		catch (PersistenceLayerException exc)

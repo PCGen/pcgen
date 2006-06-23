@@ -35,7 +35,7 @@ import java.util.*;
  * @since March 20, 2003
  * @version $Revision$
  */
-public class InitHolderList extends ArrayList {
+public class InitHolderList extends ArrayList<InitHolder> {
 
 	/**
 	 * Gets the Max Init of the InitHolderList object, minimum 20
@@ -46,7 +46,7 @@ public class InitHolderList extends ArrayList {
 		int maxInit = 20;
 
 		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = (InitHolder) this.get(i);
+			InitHolder c = this.get(i);
 			int cInit = c.getInitiative().getCurrentInitiative();
 
 			if (cInit > maxInit) {
@@ -67,8 +67,8 @@ public class InitHolderList extends ArrayList {
 	 *          table object.
 	 * @return The Vector that contains a table row.
 	 */
-	public Vector getRowVector(int i, List columnOrder) {
-		InitHolder iH = (InitHolder) this.get(i);
+	public Vector<String> getRowVector(int i, List<String> columnOrder) {
+		InitHolder iH = this.get(i);
 
 		return iH.getRowVector(columnOrder);
 	}
@@ -99,7 +99,7 @@ public class InitHolderList extends ArrayList {
 	 */
 	public boolean isUniqueName(String name) {
 		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = (InitHolder) this.get(i);
+			InitHolder c = this.get(i);
 
 			if (c.getName().equals(name)) { return false; }
 		}
@@ -135,7 +135,7 @@ public class InitHolderList extends ArrayList {
 		int j = 1;
 
 		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = (InitHolder) this.get(i);
+			InitHolder c = this.get(i);
 
 			if (c instanceof Combatant) {
 				Combatant cbt = (Combatant) c;
@@ -151,7 +151,7 @@ public class InitHolderList extends ArrayList {
 		boolean pcroll = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true);
 
 		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = (InitHolder) this.get(i);
+			InitHolder c = this.get(i);
 			int roll = d20.roll();
 			boolean doroll = true;
 			if (!pcroll && c instanceof Combatant) {
@@ -183,7 +183,7 @@ public class InitHolderList extends ArrayList {
 	 */
 	public boolean initValid(int init) {
 		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = (InitHolder) this.get(i);
+			InitHolder c = this.get(i);
 
 			if (!c.getStatus().equals("Dead")) {
 				int cInit = c.getInitiative().getCurrentInitiative();

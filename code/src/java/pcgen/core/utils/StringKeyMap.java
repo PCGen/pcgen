@@ -28,14 +28,14 @@ import java.util.Map;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
- * 
+ *
  * This encapsulates a Map in a typesafe way (prior to java 1.5 having the
  * ability to do that with typed collections)
  */
 public class StringKeyMap
 {
 
-	private final Map map = new HashMap();
+	private final Map<StringKey, String> map = new HashMap<StringKey, String>();
 
 	public StringKeyMap()
 	{
@@ -44,7 +44,7 @@ public class StringKeyMap
 
 	public String getCharacteristic(StringKey key)
 	{
-		return (String) map.get(key);
+		return map.get(key);
 	}
 
 	public void setCharacteristic(StringKey key, String value)
@@ -61,9 +61,9 @@ public class StringKeyMap
 	{
 		map.putAll(scs.map);
 	}
-	
-	public String removeCharacteristic(StringKey key) 
+
+	public String removeCharacteristic(StringKey key)
 	{
-		return (String) map.remove(key);
+		return map.remove(key);
 	}
 }

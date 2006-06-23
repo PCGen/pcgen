@@ -52,10 +52,10 @@ public class FeatParser {
 	 * @param aString
 	 * @return List of Feats
 	 */
-	public static List parseVirtualFeatList(String aString)
+	public static List<Ability> parseVirtualFeatList(String aString)
 	{
 		String preString = "";
-		List aList = new ArrayList();
+		List<Ability> aList = new ArrayList<Ability>();
 
 		StringTokenizer aTok = new StringTokenizer(aString, "|");
 
@@ -75,7 +75,7 @@ public class FeatParser {
 			}
 			else
 			{
-				ArrayList choices     = new ArrayList();
+				ArrayList<String> choices     = new ArrayList<String>();
 				String    abilityName = EquipmentUtilities.getUndecoratedName(aPart, choices);
 				Ability   anAbility   = AbilityUtilities.getAbilityFromList(aList, "FEAT", abilityName, -1);
 
@@ -90,10 +90,9 @@ public class FeatParser {
 
 				if (anAbility != null)
 				{
-					Iterator choiceIt = choices.iterator();
-
-					while (choiceIt.hasNext()) {
-						anAbility.addAssociated((String) choiceIt.next());
+					for ( String choice : choices )
+					{
+						anAbility.addAssociated(choice);
 					}
 
 					aList.add(anAbility);
@@ -103,15 +102,13 @@ public class FeatParser {
 
 		if ((preString.length() > 0) && !aList.isEmpty())
 		{
-			for (Iterator abilityIt = aList.iterator(); abilityIt.hasNext();)
+			for ( Ability ability : aList )
 			{
-				Ability anAbility = (Ability) abilityIt.next();
-
 				try
 				{
 					PreParserFactory factory = PreParserFactory.getInstance();
 					Prerequisite prereq = factory.parse(preString);
-					anAbility.addPreReq(prereq);
+					ability.addPreReq(prereq);
 				}
 				catch (PersistenceLayerException ple)
 				{

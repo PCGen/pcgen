@@ -113,7 +113,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		return info.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		thePObject = null;
 		weaponProfs = null;

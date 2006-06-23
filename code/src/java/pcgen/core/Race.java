@@ -42,10 +42,10 @@ import java.util.*;
 public final class Race extends PObject
 {
 	private ArrayList<Language> languageBonus = new ArrayList<Language>();
-	private ArrayList monCCSkillList = null;
-	private ArrayList monCSkillList = null;
-	private ArrayList weaponProfBonus = new ArrayList();
-	private HashMap hitPointMap = new HashMap();
+	private ArrayList<String> monCCSkillList = null;
+	private ArrayList<String> monCSkillList = null;
+	private ArrayList<String> weaponProfBonus = new ArrayList<String>();
+	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private Integer initMod = new Integer(0);
 	private Integer naturalAC = new Integer(0);
 	private Integer startingAC = new Integer(10);
@@ -85,7 +85,7 @@ public final class Race extends PObject
 	private ArrayList<String> racialSubTypes = new ArrayList<String>();
 
 	{
-		vision = new HashMap();
+		vision = new HashMap<String, String>();
 	}
 
 	public void setAdvancementUnlimited(final boolean unlimitedAdvancement)
@@ -167,10 +167,10 @@ public final class Race extends PObject
 
 		final StringBuffer vis = new StringBuffer(25);
 
-		for (Iterator i = vision.keySet().iterator(); i.hasNext();)
+		for (Iterator<String> i = vision.keySet().iterator(); i.hasNext();)
 		{
-			final String aKey = i.next().toString();
-			final String aVal = vision.get(aKey).toString();
+			final String aKey = i.next();
+			final String aVal = vision.get(aKey);
 			final int val = aPC.getVariableValue(aVal, "").intValue();
 
 			if (vis.length() > 0)
@@ -322,7 +322,7 @@ public final class Race extends PObject
 
 	public Integer getHitPoint(final int j)
 	{
-		final Integer aHP = (Integer) hitPointMap.get(Integer.toString(j));
+		final Integer aHP = hitPointMap.get(Integer.toString(j));
 
 		if (aHP == null)
 		{
@@ -332,7 +332,7 @@ public final class Race extends PObject
 		return aHP;
 	}
 
-	public void setHitPointMap(final HashMap newMap)
+	public void setHitPointMap(final HashMap<String, Integer> newMap)
 	{
 		hitPointMap.clear();
 		hitPointMap.putAll(newMap);
@@ -451,7 +451,7 @@ public final class Race extends PObject
 	{
 		if (monCCSkillList == null)
 		{
-			monCCSkillList = new ArrayList();
+			monCCSkillList = new ArrayList<String>();
 		}
 
 		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
@@ -466,15 +466,11 @@ public final class Race extends PObject
 			}
 			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.isType(bString.substring(5)))
+					if (skill.isType(bString.substring(5)))
 					{
-						monCCSkillList.add(aSkill.getKeyName());
+						monCCSkillList.add(skill.getKeyName());
 					}
 				}
 			}
@@ -489,7 +485,7 @@ public final class Race extends PObject
 	{
 		if (monCSkillList == null)
 		{
-			monCSkillList = new ArrayList();
+			monCSkillList = new ArrayList<String>();
 		}
 
 		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
@@ -504,15 +500,11 @@ public final class Race extends PObject
 			}
 			else if (bString.startsWith("TYPE.") || bString.startsWith("TYPE="))
 			{
-				Skill aSkill;
-
-				for (Iterator e1 = Globals.getSkillList().iterator(); e1.hasNext();)
+				for ( Skill skill : Globals.getSkillList() )
 				{
-					aSkill = (Skill) e1.next();
-
-					if (aSkill.isType(bString.substring(5)))
+					if (skill.isType(bString.substring(5)))
 					{
-						monCSkillList.add(aSkill.getKeyName());
+						monCSkillList.add(skill.getKeyName());
 					}
 				}
 			}
@@ -558,14 +550,14 @@ public final class Race extends PObject
 
 	public boolean isNonAbility(final int statIdx)
 	{
-		final List statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
 			return true;
 		}
 
-		final String aStat = "|LOCK." + ((PCStat) statList.get(statIdx)).getAbb() + "|10";
+		final String aStat = "|LOCK." + statList.get(statIdx).getAbb() + "|10";
 
 		for (int i = 0, x = getVariableCount(); i < x; ++i)
 		{
@@ -664,14 +656,14 @@ public final class Race extends PObject
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator e = languageBonus.iterator(); e.hasNext();)
+			for ( Language lang : languageBonus )
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append(',');
 				}
 
-				buffer.append(e.next().toString());
+				buffer.append(lang.toString());
 			}
 
 			txt.append("\tLANGBONUS:").append(buffer.toString());
@@ -681,14 +673,14 @@ public final class Race extends PObject
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator e = weaponProfBonus.iterator(); e.hasNext();)
+			for ( String profKey : weaponProfBonus )
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append('|');
 				}
 
-				buffer.append((String) e.next());
+				buffer.append(profKey);
 			}
 
 			txt.append("\tWEAPONBONUS:").append(buffer.toString());
@@ -713,14 +705,13 @@ public final class Race extends PObject
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator e = getNaturalWeapons().iterator(); e.hasNext();)
+			for ( Equipment natEquip : getNaturalWeapons() )
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append('|');
 				}
 
-				final Equipment natEquip = (Equipment) e.next();
 				String eqName = natEquip.getName();
 				int index = eqName.indexOf(" (Natural/Primary)");
 
@@ -762,12 +753,12 @@ public final class Race extends PObject
 			txt.append(':').append(monsterClassLevels);
 		}
 
-		List templates = getTemplateList();
+		List<String> templates = getTemplateList();
 		if ((templates != null) && (templates.size() > 0))
 		{
-			for (Iterator e = templates.iterator(); e.hasNext();)
+			for ( String template : templates )
 			{
-				txt.append("\tTEMPLATE:").append((String) e.next());
+				txt.append("\tTEMPLATE:").append(template);
 			}
 		}
 
@@ -910,7 +901,7 @@ public final class Race extends PObject
 		startingAC = anInt;
 	}
 
-	public void setVisionTable(final Map visionTable)
+	public void setVisionTable(final Map<String, String> visionTable)
 	{
 		vision = visionTable;
 	}
@@ -925,7 +916,7 @@ public final class Race extends PObject
 		}
 	}
 
-	public ArrayList getWeaponProfBonus()
+	public ArrayList<String> getWeaponProfBonus()
 	{
 		return weaponProfBonus;
 	}
@@ -946,8 +937,8 @@ public final class Race extends PObject
 			aRace.ageString = ageString;
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
-			aRace.languageBonus = (ArrayList) languageBonus.clone();
-			aRace.weaponProfBonus = (ArrayList) weaponProfBonus.clone();
+			aRace.languageBonus = (ArrayList<Language>) languageBonus.clone();
+			aRace.weaponProfBonus = (ArrayList<String>) weaponProfBonus.clone();
 			aRace.featList = featList;
 			aRace.vFeatList = vFeatList;
 			aRace.startingAC = new Integer(startingAC.intValue());
@@ -960,7 +951,7 @@ public final class Race extends PObject
 			aRace.BAB = BAB;
 			aRace.hitDice = hitDice;
 			aRace.hitDiceSize = hitDiceSize;
-			aRace.hitPointMap = new HashMap(hitPointMap);
+			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);
 			aRace.hitDiceAdvancement = hitDiceAdvancement;
 			aRace.hands = hands;
 			aRace.reach = reach;
@@ -1192,17 +1183,13 @@ public final class Race extends PObject
 			return true;
 		}
 
-		String aString;
-
-		for (Iterator e = monCCSkillList.iterator(); e.hasNext();)
+		for ( String mSkill : monCCSkillList )
 		{
-			aString = (String) e.next();
-
-			if (aString.lastIndexOf('%') >= 0)
+			if (mSkill.lastIndexOf('%') >= 0)
 			{
-				aString = aString.substring(0, aString.length() - 1);
+				mSkill = mSkill.substring(0, mSkill.length() - 1);
 
-				if (aName.startsWith(aString))
+				if (aName.startsWith(mSkill))
 				{
 					return true;
 				}
@@ -1226,11 +1213,9 @@ public final class Race extends PObject
 
 		if (monCSkillList.contains("LIST"))
 		{
-			String aString;
-
 			for (int e = 0; e < getAssociatedCount(); ++e)
 			{
-				aString = getAssociated(e);
+				final String aString = getAssociated(e);
 
 				if (aName.startsWith(aString) || aString.startsWith(aName))
 				{
@@ -1239,17 +1224,13 @@ public final class Race extends PObject
 			}
 		}
 
-		String aString;
-
-		for (Iterator e = monCSkillList.iterator(); e.hasNext();)
+		for ( String mSkill : monCSkillList )
 		{
-			aString = (String) e.next();
-
-			if (aString.lastIndexOf('%') >= 0)
+			if (mSkill.lastIndexOf('%') >= 0)
 			{
-				aString = aString.substring(0, aString.length() - 1);
+				mSkill = mSkill.substring(0, mSkill.length() - 1);
 
-				if (aName.startsWith(aString))
+				if (aName.startsWith(mSkill))
 				{
 					return true;
 				}

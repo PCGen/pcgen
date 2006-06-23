@@ -1,12 +1,46 @@
+/*
+ * AssociatedChoice.java
+ * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Current Ver: $Revision$
+ * Last Editor: $Author: $
+ * Last Edited: $Date$
+ */
 package pcgen.core;
 
 import java.util.Collection;
 import java.util.HashMap;
 
+/**
+ * This class represents the result of a single selection from a chooser.  The
+ * class implements a key-based store so that multiple values can be returned
+ * for a single choice.  Functionality is provided to work with the default
+ * choice to maintain backward compatibility.
+ *
+ * @author Aaron Divinsky (boomer70)
+ * @version $Revision$
+ */
 public class AssociatedChoice <T extends Comparable> implements Comparable
 {
+	/** A map of key, value pairs for this choice. */
 	protected HashMap<String, T> choices = new HashMap<String, T>();
 
+	/** The "default" key to allow functionality to pretend it is a single
+	 * string value. */
 	public static final String DEFAULT_KEY = "CHOICE";
 
 	/**
@@ -79,21 +113,39 @@ public class AssociatedChoice <T extends Comparable> implements Comparable
 		return choices.get( aKey );
 	}
 
+	/**
+	 * Returns the choice for the "default" key.
+	 * @return The choice or null if no choice was set.
+	 */
 	public T getDefaultChoice()
 	{
 		return choices.get( DEFAULT_KEY );
 	}
 
+	/**
+	 * Returns all the values for all keys in the choice.
+	 * @return Collection of values.
+	 */
 	public Collection<T> getChoices()
 	{
 		return choices.values();
 	}
 
+	/**
+	 * Clears the choice associated with the specified key.
+	 * @param aKey The key to clear.
+	 * @return True if the choice was cleared.
+	 */
 	public boolean remove( final String aKey )
 	{
 		return choices.remove( aKey ) == null ? false : true;
 	}
 
+	/**
+	 * Clears the default choice if it matches the specified choice.
+	 * @param aChoice A choice to match against.
+	 * @return True if the choice was cleared, false otherwise.
+	 */
 	public boolean removeDefaultChoice( final T aChoice )
 	{
 		T result = choices.get( DEFAULT_KEY );

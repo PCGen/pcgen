@@ -58,7 +58,6 @@ public class ProhibitedListToken extends Token
 
 	public static String getProhibitedListToken(String tokenSource, PlayerCharacter pc)
 	{
-		String retString = "";
 		int i;
 		int k = tokenSource.lastIndexOf(',');
 
@@ -71,12 +70,10 @@ public class ProhibitedListToken extends Token
 			tokenSource = ", ";
 		}
 
-		List stringList = new ArrayList();
+		List<String> stringList = new ArrayList<String>();
 
-		for (Iterator iter = pc.getClassList().iterator(); iter.hasNext();)
+		for ( PCClass pcClass : pc.getClassList() )
 		{
-			PCClass pcClass = (PCClass) iter.next();
-
 			if (pcClass.getLevel() > 0)
 			{
 				if (!pcClass.getProhibitedString().equals(Constants.s_NONE))
@@ -86,16 +83,17 @@ public class ProhibitedListToken extends Token
 			}
 		}
 
+		StringBuffer buf = new StringBuffer();
 		for (i = 0; i < stringList.size(); ++i)
 		{
-			retString += stringList.get(i);
+			buf.append(stringList.get(i));
 
 			if (i < (stringList.size() - 1))
 			{
-				retString += tokenSource;
+				buf.append( tokenSource );
 			}
 		}
 
-		return retString;
+		return buf.toString();
 	}
 }

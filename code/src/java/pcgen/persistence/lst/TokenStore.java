@@ -12,12 +12,12 @@ import pcgen.util.Logging;
  */
 public class TokenStore {
 	private static TokenStore inst;
-	private HashMap tokenTypeMap;
-	private final List tokenTypeList;
+	private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
+	private final List<Class<? extends LstToken>> tokenTypeList;
 
 	private TokenStore() {
-		tokenTypeMap = new HashMap();
-		tokenTypeList = new ArrayList();
+		tokenTypeMap = new HashMap<Class<? extends LstToken>, Map<String, LstToken>>();
+		tokenTypeList = new ArrayList<Class<? extends LstToken>>();
 		populateTokenTypeList();
 	}
 
@@ -92,13 +92,13 @@ public class TokenStore {
 		tokenTypeList.add(PointBuyLstToken.class);
 		tokenTypeList.add(PointBuyMethodLstToken.class);
 		tokenTypeList.add(PointBuyStatLstToken.class);
-		
+
 		//level.lst
 		tokenTypeList.add(LevelLstToken.class);
 
 		//equipmentslots.lst
 		tokenTypeList.add(EquipSlotLstToken.class);
-		
+
 		//load.lst
 		tokenTypeList.add(LoadInfoLstToken.class);
 
@@ -114,14 +114,17 @@ public class TokenStore {
 	 * @param newToken
 	 */
 	public void addToTokenMap(LstToken newToken) {
-		for(int i = 0; i < tokenTypeList.size(); i++) {
-			Class tokInterface = (Class)tokenTypeList.get(i);
-			if(tokInterface.isAssignableFrom(newToken.getClass())) {
-				Map tokenMap = getTokenMap(tokInterface);
-				Object test = tokenMap.put(newToken.getTokenName(), newToken);
+		for ( Class<? extends LstToken> tokClass : tokenTypeList )
+		{
+			if ( tokClass.isAssignableFrom( newToken.getClass() ) )
+			{
+				Map<String, LstToken> tokenMap = getTokenMap(tokClass);
+				LstToken test = tokenMap.put(newToken.getTokenName(), newToken);
 
 				if (test != null) {
-					Logging.errorPrint("More than one " + tokInterface.getName() + " has the same token name: '" + newToken.getTokenName() + "'");
+					Logging.errorPrint("More than one " + tokClass.getName()
+									   + " has the same token name: '"
+									   + newToken.getTokenName() + "'");
 				}
 			}
 		}
@@ -132,10 +135,10 @@ public class TokenStore {
 	 * @param tokInterface
 	 * @return the token map
 	 */
-	public Map getTokenMap(Class tokInterface) {
-		Map tokenMap = (Map)tokenTypeMap.get(tokInterface);
+	public Map<String, LstToken> getTokenMap(Class<? extends LstToken> tokInterface) {
+		Map<String, LstToken> tokenMap = tokenTypeMap.get(tokInterface);
 		if(tokenMap == null) {
-			tokenMap = new HashMap();
+			tokenMap = new HashMap<String, LstToken>();
 			tokenTypeMap.put(tokInterface, tokenMap);
 		}
 		return tokenMap;

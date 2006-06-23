@@ -11,9 +11,9 @@ import pcgen.util.Logging;
  * Loads SOURCE
  */
 public class SourceLoader {
-	
+
 	/**
-	 * @param lstLine 
+	 * @param lstLine
 	 * @param sourceFile
 	 * @return Map
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
@@ -57,7 +57,7 @@ public class SourceLoader {
 
 		return sourceMap;
 	}
-	
+
 	/**
 	 * This method parses a line in an LST file containing the source information
 	 * into the map form used by a PObject.
@@ -65,9 +65,9 @@ public class SourceLoader {
 	 * @param value String LST formatted source information line
 	 * @return Map of source forms
 	 */
-	public static Map parseSource(String value)
+	public static Map<String, String> parseSource(String value)
 	{
-		Map sourceMap = new HashMap();
+		Map<String, String> sourceMap = new HashMap<String, String>();
 		if(value.indexOf("|") != -1) {
 			LstUtils.deprecationWarning("Use of SOURCELONG:<value>|SOURCESHORT:<value>|SOURCEWEB:<value>|SOURCEPAGE:<value> is deprecated.  These need to be split up into separate tokens");
 		}

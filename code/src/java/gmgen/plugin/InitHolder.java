@@ -69,7 +69,7 @@ public interface InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector getRowVector(List columnOrder);
+	public Vector<String> getRowVector(List<String> columnOrder);
 
 	/**
 	 *  Gets an XML version of the class, appropriate for saving out to file,
@@ -100,7 +100,7 @@ public interface InitHolder
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The nex value for the field
 	 */
-	public void editRow(List columnOrder, int colNumber, Object data);
+	public void editRow(List<String> columnOrder, int colNumber, Object data);
 
 	/**
 	 *  Does any end of round effects

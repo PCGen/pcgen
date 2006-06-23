@@ -42,12 +42,12 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 
 	private String theDeityKey = null;
 	private String countFormula = "";
-	private List theDomains = null;
+	private List<String> theDomains = null;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient Deity theDeity = null;
-	private transient List domainsToAdd = null;
+	private transient List<Domain> domainsToAdd = null;
 
 	/**
 	 * Constructor
@@ -75,7 +75,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	{
 		if (theDomains == null)
 		{
-			theDomains = new ArrayList(3);
+			theDomains = new ArrayList<String>(3);
 		}
 		theDomains.add(aDomainName);
 	}
@@ -84,7 +84,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 	 * Get domains
 	 * @return list of domains
 	 */
-	public List getDomains()
+	public List<String> getDomains()
 	{
 		if (theDomains == null)
 		{
@@ -126,9 +126,9 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 				buf.append(countFormula);
 				buf.append(" of ");
 			}
-			for (Iterator i = theDomains.iterator(); i.hasNext(); )
+			for (Iterator<String> i = theDomains.iterator(); i.hasNext(); )
 			{
-				buf.append((String)i.next());
+				buf.append(i.next());
 				if (i.hasNext())
 				{
 					buf.append(", ");
@@ -140,7 +140,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		return buf.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theDeity = null;
 		domainsToAdd = null;
@@ -164,7 +164,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		}
 		aPC.setDeity(theDeity);
 
-		List domains = getDomains();
+		List<String> domains = getDomains();
 		if (domains == null || (domains != null && domains.size() == 0))
 		{
 			// nothing else to do.
@@ -203,7 +203,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 			return true;
 		}
 
-		List xs;
+		List<String> xs;
 		if (numberOfChoices == domains.size())
 		{
 			xs = domains;
@@ -218,7 +218,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 				xs = Globals.getChoiceFromList(
 						"Choose Domains",
 						domains,
-						new ArrayList(),
+						new ArrayList<String>(),
 						numberOfChoices);
 
 				if (xs.size() != 0)
@@ -230,9 +230,9 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		//
 		// Add to list of things to add to the character
 		//
-		for (Iterator e = xs.iterator(); e.hasNext();)
+		for (Iterator<String> e = xs.iterator(); e.hasNext();)
 		{
-			final String domainKey = (String)e.next();
+			final String domainKey = e.next();
 
 			Domain domain = Globals.getDomainKeyed(domainKey);
 			if (domain != null)
@@ -259,7 +259,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 
 				if (domainsToAdd == null)
 				{
-					domainsToAdd = new ArrayList();
+					domainsToAdd = new ArrayList<Domain>();
 				}
 				domainsToAdd.add(domain);
 
@@ -289,9 +289,8 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		{
 			return;
 		}
-		for (Iterator i = domainsToAdd.iterator(); i.hasNext(); )
+		for ( Domain domain : domainsToAdd )
 		{
-			Domain domain = (Domain) i.next();
 			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
 
 			if (aCD == null)
@@ -313,6 +312,9 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoDomain());
 		pane.refresh();
+
+		theDeity = null;
+		domainsToAdd = null;
 	}
 
 	public Object clone()

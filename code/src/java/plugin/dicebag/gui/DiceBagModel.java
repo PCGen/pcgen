@@ -57,7 +57,7 @@ public class DiceBagModel extends Observable
 	private JEP m_jep = new JEP();
 
 	/** List of dice strings. */
-	private List m_dice = new ArrayList();
+	private List<String> m_dice = new ArrayList<String>();
 
 	/** File path of the last file this bag was saved to, or loaded from. */
 	private String m_filePath;
@@ -130,7 +130,7 @@ public class DiceBagModel extends Observable
 	{
 		m_changed = true;
 
-		return (String) m_dice.set(index, element);
+		return m_dice.set(index, element);
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class DiceBagModel extends Observable
 	 */
 	public String getDie(int index)
 	{
-		return (String) m_dice.get(index);
+		return m_dice.get(index);
 	}
 
 	/**
@@ -229,7 +229,7 @@ public class DiceBagModel extends Observable
 	{
 		m_changed = true;
 
-		return (String) m_dice.remove(index);
+		return m_dice.remove(index);
 	}
 
 	/**
@@ -244,7 +244,7 @@ public class DiceBagModel extends Observable
 
 		if (index < m_dice.size())
 		{
-			String expression = (String) m_dice.get(index);
+			String expression = m_dice.get(index);
 			m_jep.parseExpression(expression);
 			returnValue = m_jep.getValue();
 			if (m_jep.hasError())
@@ -386,10 +386,10 @@ public class DiceBagModel extends Observable
 		Element party = new Element("dice-bag");
 		party.setAttribute("name", m_name);
 
-		for (Iterator i = m_dice.iterator(); i.hasNext();)
+		for ( String dieString : m_dice )
 		{
 			Element die = new Element("dice-roll");
-			die.addContent(i.next().toString());
+			die.addContent(dieString);
 			party.addContent(die);
 		}
 

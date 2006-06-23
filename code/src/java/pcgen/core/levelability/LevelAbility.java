@@ -293,7 +293,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 	 * @param  pcLevelInfo
 	 */
 	private void processSA(
-		final List            selectedList,
+		final List<String>            selectedList,
 		final PlayerCharacter aPC,
 		final PCLevelInfo     pcLevelInfo)
 	{
@@ -302,7 +302,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 		for (int index = 0; index < listSize; ++index)
 		{
-			String sString = selectedList.get(index).toString();
+			String sString = selectedList.get(index);
 
 			// must be a Favoured Enemy type
 			if (sString.startsWith("TYPE=") || sString.startsWith("TYPE."))

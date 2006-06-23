@@ -59,17 +59,13 @@ public class AbilityUtilities
 	 */
 	private static void addChoicesToAbility(
 			final Ability ability,
-			final List    choices)
+			final List<String>    choices)
 	{
-		final Iterator choiceIt = choices.iterator();
-
-		while (choiceIt.hasNext())
+		for ( String choice : choices )
 		{
-			final String assoc = (String) choiceIt.next();
-
-			if (ability.canAddAssociation(assoc))
+			if (ability.canAddAssociation(choice))
 			{
-				ability.addAssociated(assoc);
+				ability.addAssociated(choice);
 			}
 		}
 	}
@@ -87,8 +83,8 @@ public class AbilityUtilities
 	 */
 	private static Ability addCloneOfAbilityToListwithChoices(
 		final Ability anAbility,
-		final List    choices,
-		final List    addList)
+		final List<String>    choices,
+		final List<Ability>    addList)
 	{
 		Ability newAbility = null;
 
@@ -120,11 +116,11 @@ public class AbilityUtilities
 	 * @return The Ability processed
 	 */
 	private static Ability addCloneOfGlobalAbilityToListWithChoices(
-			final List   theAbilityList,
+			final List<Ability>   theAbilityList,
 			final String category,
 			final String abilityName)
 	{
-		final ArrayList choices = new ArrayList();
+		final ArrayList<String> choices = new ArrayList<String>();
 		EquipmentUtilities.getUndecoratedName(abilityName, choices);
 
 		Ability anAbility = getAbilityFromList(theAbilityList, "FEAT", abilityName, -1);
@@ -158,8 +154,8 @@ public class AbilityUtilities
 	 */
 	public static Ability addVirtualAbility(
 		final Ability     anAbility,
-		final List        choices,
-		final List        addList,
+		final List<String>        choices,
+		final List<Ability>        addList,
 		final PCLevelInfo levelInfo)
 	{
 		if (anAbility == null)
@@ -197,10 +193,10 @@ public class AbilityUtilities
 	public static Ability addVirtualAbility(
 		final String          category,
 		final String          aFeatKey,
-		final List            abilityList,
+		final List<Ability>            abilityList,
 		final PCLevelInfo     levelInfo)
 	{
-		final ArrayList choices     = new ArrayList();
+		final ArrayList<String> choices     = new ArrayList<String>();
 		final String    abilityKey = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
 		final Ability   anAbility   = Globals.getAbilityKeyed(category, abilityKey);
 
@@ -233,8 +229,8 @@ public class AbilityUtilities
 			 * in brackets) from the name, then check the undecorated names are
 			 * equal.
 			 */
-			final ArrayList decorationsThis = new ArrayList();
-			final ArrayList decorationsThat = new ArrayList();
+			final ArrayList<String> decorationsThis = new ArrayList<String>();
+			final ArrayList<String> decorationsThat = new ArrayList<String>();
 			final String undecoratedThis = EquipmentUtilities.getUndecoratedName(first.getKeyName(), decorationsThis);
 			final String undecoratedThat = EquipmentUtilities.getUndecoratedName(second.getKeyName(), decorationsThat);
 			nameCheck = undecoratedThis.compareToIgnoreCase(undecoratedThat) == 0;
@@ -313,7 +309,7 @@ public class AbilityUtilities
 			final String anAbilityKey)
 	{
 		Ability   anAbility;
-		final ArrayList choices  = new ArrayList();
+		final ArrayList<String> choices  = new ArrayList<String>();
 		final String    baseKey = EquipmentUtilities.getUndecoratedName(anAbilityKey, choices);
 
 		anAbility = Globals.getAbilityKeyed(category, anAbilityKey);
@@ -401,10 +397,10 @@ public class AbilityUtilities
 
 		if (addIt)
 		{
-			final List kitList = ability.getSafeListFor(ListKey.KITS);
+			final List<String> kitList = ability.getSafeListFor(ListKey.KITS);
 			for (int i = 0; i < kitList.size(); i++)
 			{
-				KitUtilities.makeKitSelections(0, (String)kitList.get(i), 1, aPC);
+				KitUtilities.makeKitSelections(0, kitList.get(i), 1, aPC);
 			}
 		}
 
@@ -419,7 +415,7 @@ public class AbilityUtilities
 
 			for (int x = 0; x < ability.templatesAdded().size(); ++x)
 			{
-				aPC.removeTemplate(aPC.getTemplateKeyed((String) ability.templatesAdded().get(x)));
+				aPC.removeTemplate(aPC.getTemplateKeyed(ability.templatesAdded().get(x)));
 			}
 			ability.subAddsForLevel(-9, aPC);
 		}
@@ -438,9 +434,9 @@ public class AbilityUtilities
 			{
 				int listSize = ability.getAssociatedCount();
 
-				for (final Iterator e1 = aPC.getRealFeatsIterator(); e1.hasNext();)
+				for (final Iterator<Ability> e1 = aPC.getRealFeatsIterator(); e1.hasNext();)
 				{
-					final Ability myAbility = (Ability) e1.next();
+					final Ability myAbility = e1.next();
 
 					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 					{
@@ -476,7 +472,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-			final List          anAbilityList,
+			final List<Ability>          anAbilityList,
 			final Categorisable abilityInfo)
 	{
 		return getAbilityFromList(anAbilityList, abilityInfo, -1);
@@ -496,7 +492,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-		final List          anAbilityList,
+		final List<Ability>          anAbilityList,
 		final Categorisable abilityInfo,
 		final int           abilityType)
 	{
@@ -504,14 +500,12 @@ public class AbilityUtilities
 			return null;
 		}
 
-		for (final Iterator abListIt = anAbilityList.iterator(); abListIt.hasNext();)
+		for ( Ability ability : anAbilityList )
 		{
-			final Ability anAbility = (Ability) abListIt.next();
-
-			if (AbilityUtilities.areSameAbility(anAbility, abilityInfo) &&
-					((abilityType == -1) || (anAbility.getFeatType() == abilityType)))
+			if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
+					((abilityType == -1) || (ability.getFeatType() == abilityType)))
 			{
-				return anAbility;
+				return ability;
 			}
 		}
 
@@ -531,7 +525,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-			final List   anAbilityList,
+			final List<Ability>   anAbilityList,
 			final String aCat,
 			final String aName,
 			final int    abilityType)
@@ -599,7 +593,7 @@ public class AbilityUtilities
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
-		final List realAbilities = aPC.getRealFeatsList();
+		final List<Ability> realAbilities = aPC.getRealFeatsList();
 		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
 
 		// (pcAbility == null) means we don't have this feat,
@@ -647,7 +641,7 @@ public class AbilityUtilities
 			aPC.getSpellList();
 		}
 
-		final ArrayList choices        = new ArrayList();
+		final ArrayList<String> choices        = new ArrayList<String>();
 		final int       result         = addIt ? 1 : 0;
 		final String    undoctoredKey = aFeatKey;
 		final String    baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
@@ -1025,11 +1019,11 @@ public class AbilityUtilities
 						}
 					}
 
-					final Iterator<Ability> anIt = aDomain.getFeatIterator();
+					final Iterator<Categorisable> anIt = aDomain.getFeatIterator();
 
 					for (; anIt.hasNext();)
 					{
-						final Ability abI = anIt.next();
+						final Ability abI = (Ability)anIt.next();
 						Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", abI.getKeyName());
 						added.setFeatType(Ability.ABILITY_AUTOMATIC);
 					}

@@ -63,14 +63,10 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		{
 			//Skill name is actually type to compare for
 
-			//get list of skills available
-			List skillList = Globals.getSkillList();
-
 			//loop through skill list checking for type and class skill
-			for (Iterator i = skillList.iterator(); i.hasNext();)
+			for ( Skill skill : Globals.getSkillList() )
 			{
-				Skill aSkill = (Skill) i.next();
-				if ( aSkill.isType(skillKey) && isClassSkill(aSkill,character) )
+				if ( skill.isType(skillKey) && skill.isClassSkill(character) )
 				{
 					runningTotal++;
 				}
@@ -78,8 +74,8 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		}
 		else
 		{
-			Skill aSkill = Globals.getSkillKeyed(skillKey);
-			if ( isClassSkill(aSkill,character) )
+			Skill skill = Globals.getSkillKeyed(skillKey);
+			if ( skill.isClassSkill( character ) )
 			{
 				runningTotal++;
 			}
@@ -115,75 +111,4 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 						skillName } );
 		return foo;
 	}
-
-	private boolean isClassSkill(Skill aSkill, PlayerCharacter aPC)
-	{
-		if (aSkill != null)
-		{
-			//create list of character classes
-//			final List cList = (ArrayList) aPC.getClassList().clone();
-
-//			for (Iterator i = cList.iterator(); i.hasNext();)
-			for (Iterator i = aPC.getClassList().iterator(); i.hasNext();)
-			{
-				final PCClass aClass = (PCClass) i.next();
-				if (aSkill.isClassSkill(aClass,aPC))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	public ArrayList getCompiledCSkillList(PlayerCharacter character)
-	{
-		/*
-		 * not used at moment
-		 */
-
-		//get the class skills from Classes, Templates, Feats, Skills, Domain and Race
-
-		new ArrayList(); //feats
-		new ArrayList(); //skills
-		new ArrayList(); //domains
-		new ArrayList(); //race
-
-		ArrayList oList = new ArrayList(); //Compiled
-
-		/*
-		 * Check templates for CSkills
-		 */
-		final List tempList = character.getTemplateList();
-		if  ( (tempList == null) || tempList.isEmpty() )
-		{
-			// TODO Do Nothing?
-		}
-		else
-		{
-			ArrayList tList = new ArrayList(); //create list for template cskills
-
-			for (Iterator i = tempList.iterator(); i.hasNext();)
-			{
-				final PCTemplate aTemplate = (PCTemplate) i.next();
-				final List tempList2 = aTemplate.getCSkillList();
-
-				if (tempList2 == null)
-				{
-					// do nothing if no CSKILL: found in template
-				}
-				else
-				{
-					tList.addAll(tempList2);
-				}
-			}
-			oList.addAll(tList); //add all the cskills from the templates to compiled
-		}
-
-		/*
-		 * return compiled list
-		 */
-		return oList;
-	}
-
 }

@@ -49,7 +49,7 @@ public final class Spell extends PObject
 	private HashMap<String, Integer> levelInfo = null;
 	private List<String> descriptorList = new ArrayList<String>();
 	private List<String> variantList = null; //Lazy initialization, it's rarely, if ever, used.
-	private Map preReqMap = null;
+	private Map<String, Prerequisite> preReqMap = null;
 	private SortedSet<String> castingTime = new TreeSet<String>();
 	private SortedSet<String> componentList = new TreeSet<String>();
 	private SortedSet<String> duration = new TreeSet<String>();
@@ -536,14 +536,13 @@ public final class Spell extends PObject
 		//DOMAINS:
 		if (getLevelInfo(null) != null)
 		{
-			final List classList = new ArrayList();
-			final List domainList = new ArrayList();
-			final List miscList = new ArrayList();
+			final List<String> classList = new ArrayList<String>();
+			final List<String> domainList = new ArrayList<String>();
+			final List<String> miscList = new ArrayList<String>();
 
-			for (Iterator e = getLevelInfo(null).entrySet().iterator(); e.hasNext();)
+			for ( Map.Entry<String, Integer> entry : getLevelInfo(null).entrySet() )
 			{
-				final Map.Entry entry = (Map.Entry) e.next();
-				aString = entry.getKey().toString();
+				aString = entry.getKey();
 
 				if (aString.startsWith("CLASS|"))
 				{
@@ -794,15 +793,15 @@ public final class Spell extends PObject
 	}
 
 
-	public List getVariants()
+	public List<String> getVariants()
 	{
 		//Initialize lazily
 		if (variantList == null)
 		{
-			variantList = new ArrayList();
+			variantList = new ArrayList<String>();
 		}
 
-		return (ArrayList) variantList;
+		return variantList;
 	}
 
 	public void setXPCost(final String aString)
@@ -850,7 +849,7 @@ public final class Spell extends PObject
 	{
 		if (preReqMap == null)
 		{
-			preReqMap = new HashMap();
+			preReqMap = new HashMap<String, Prerequisite>();
 		}
 
 		preReqMap.put(type, preReq);
@@ -861,7 +860,7 @@ public final class Spell extends PObject
 	{
 		if (variantList == null)
 		{
-			variantList = new ArrayList();
+			variantList = new ArrayList<String>();
 		}
 
 		if (variant.length() != 0)
@@ -912,7 +911,7 @@ public final class Spell extends PObject
 
 			if (levelInfo != null)
 			{
-				aSpell.levelInfo = (HashMap) levelInfo.clone();
+				aSpell.levelInfo = (HashMap<String, Integer>) levelInfo.clone();
 			}
 		}
 		catch (CloneNotSupportedException exc)
@@ -928,7 +927,7 @@ public final class Spell extends PObject
 		return getDescriptor(", ");
 	}
 
-	public boolean descriptorListContains(final List aList)
+	public boolean descriptorListContains(final Collection<String> aList)
 	{
 		return CoreUtility.containsAny(descriptorList, aList);
 	}
@@ -1051,7 +1050,7 @@ public final class Spell extends PObject
 	{
 		if ((preReqMap != null) && preReqMap.containsKey(key))
 		{
-			final List qList = new ArrayList();
+			final List<Prerequisite> qList = new ArrayList<Prerequisite>();
 			qList.add(preReqMap.get(key));
 
 			if (!PrereqHandler.passesAll(qList, aPC, this))
@@ -1079,12 +1078,12 @@ public final class Spell extends PObject
 		return false;
 	}
 
-	public boolean schoolContains(final List aList)
+	public boolean schoolContains(final Collection<String> aList)
 	{
 		return CoreUtility.containsAny(school, aList);
 	}
 
-	public boolean subschoolContains(final List aList)
+	public boolean subschoolContains(final Collection<String> aList)
 	{
 		return CoreUtility.containsAny(subschool, aList);
 	}
@@ -1097,28 +1096,25 @@ public final class Spell extends PObject
 	private String getDescriptor(final String delimiter)
 	{
 		final StringBuffer retVal = new StringBuffer(descriptorList.size() * 5);
-		final Iterator i = descriptorList.iterator();
 
-		while (i.hasNext())
+		for ( String desc : descriptorList )
 		{
-			final String aString = (String) i.next();
-
 			if (retVal.length() > 0)
 			{
 				retVal.append(delimiter);
 			}
 
-			retVal.append(aString);
+			retVal.append(desc);
 		}
 
 		return retVal.toString();
 	}
 
-	private void appendPCCText(final StringBuffer sb, final Set ts, final String tag)
+	private void appendPCCText(final StringBuffer sb, final Set<String> ts, final String tag)
 	{
-		for (Iterator e = ts.iterator(); e.hasNext();)
+		for (Iterator<String> e = ts.iterator(); e.hasNext();)
 		{
-			sb.append('\t').append(tag).append(':').append(e.next().toString());
+			sb.append('\t').append(tag).append(':').append(e.next());
 		}
 	}
 }

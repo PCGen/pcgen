@@ -47,7 +47,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	private String theClassName = "";
 	private int theLevel = -1;
-	private ArrayList theAbilities = new ArrayList();
+	private ArrayList<AbilityChoice> theAbilities = new ArrayList<AbilityChoice>();
 
 	private transient PCClass theClass = null;
 
@@ -77,10 +77,10 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	class AbilityChoice
 	{
-		private ArrayList theChoices = new ArrayList();
+		private ArrayList<String> theChoices = new ArrayList<String>();
 		private String theAbilityName = "";
 
-		AbilityChoice(final String ability, final List choices)
+		AbilityChoice(final String ability, final List<String> choices)
 		{
 			// Chop off the PROMPT:
 			theAbilityName = ability.substring(7);
@@ -100,7 +100,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 		 * Get choices
 		 * @return choices
 		 */
-		public final List getChoices()
+		public final List<String> getChoices()
 		{
 			return theChoices;
 		}
@@ -111,7 +111,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 	 * @param anAbility
 	 * @param choices
 	 */
-	public void addAbility(final String anAbility, final List choices)
+	public void addAbility(final String anAbility, final List<String> choices)
 	{
 		theAbilities.add(new AbilityChoice(anAbility, choices));
 	}
@@ -120,24 +120,22 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 	{
 		StringBuffer buf = new StringBuffer();
 		boolean firstTimeI = true;
-		for (Iterator i = theAbilities.iterator(); i.hasNext(); )
+		for ( AbilityChoice choice : theAbilities )
 		{
 			if (!firstTimeI)
 			{
 				buf.append(", ");
 			}
-			AbilityChoice choice = (AbilityChoice)i.next();
 			buf.append(choice.getAbility());
 			buf.append(": [");
-			List choices = choice.getChoices();
+			List<String> choices = choice.getChoices();
 			boolean firstTime = true;
-			for (Iterator j = choices.iterator(); j.hasNext(); )
+			for ( String choiceStr : choices )
 			{
 				if (!firstTime)
 				{
 					buf.append(", ");
 				}
-				String choiceStr = (String)j.next();
 				buf.append(choiceStr);
 
 				firstTime = false;
@@ -155,21 +153,20 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 		LevelAbility la = theClass.addAddList(theLevel, ac.getAbility());
 		PCLevelInfo pcLevelInfo = aPC.getLevelInfoFor(theClass.getKeyName(), theLevel);
 
-		List choiceList = new ArrayList();
+		List<String> choiceList = new ArrayList<String>();
 
 		la.process(choiceList, aPC, pcLevelInfo);
 		choiceList.clear();
 
-		for (Iterator j = ac.getChoices().iterator(); j.hasNext(); )
+		for ( String choice : ac.getChoices() )
 		{
-			String choice = (String)j.next();
 			// Remove CHOICE:
 			choiceList.add(choice.substring(7));
 		}
 		la.processChoice(null, choiceList, aPC, pcLevelInfo);
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theClass = Globals.getClassKeyed(theClassName);
 		if (theClass == null)
@@ -178,10 +175,8 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 						 + "\"");
 			return false;
 		}
-		for (Iterator i = theAbilities.iterator(); i.hasNext(); )
+		for ( AbilityChoice ac : theAbilities )
 		{
-			AbilityChoice ac = (AbilityChoice)i.next();
-
 			addLevelAbility(aPC, theClass, ac);
 		}
 		return true;
@@ -189,10 +184,8 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	public void apply(PlayerCharacter aPC)
 	{
-		for (Iterator i = theAbilities.iterator(); i.hasNext(); )
+		for ( AbilityChoice ac : theAbilities )
 		{
-			AbilityChoice ac = (AbilityChoice)i.next();
-
 			addLevelAbility(aPC, theClass, ac);
 		}
 	}

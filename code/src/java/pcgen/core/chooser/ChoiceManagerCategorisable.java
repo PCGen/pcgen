@@ -49,7 +49,7 @@ public interface ChoiceManagerCategorisable <T extends Categorisable> {
 	 * @param previousSelections
 	 * @return list
 	 */
-	public abstract List<T> doChooser(final CategorisableStore<T> store,
+	public abstract List<T> doChooser(final CategorisableStore store,
 			final List<T> previousSelections);
 
 }

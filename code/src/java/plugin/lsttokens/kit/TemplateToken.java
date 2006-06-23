@@ -33,6 +33,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
+import pcgen.persistence.lst.BaseKitLoader;
 
 /**
  * This class parses a TEMPLATE line from a Kit file. It handles the TEMPLATE
@@ -52,7 +53,7 @@ public class TemplateToken extends KitLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -63,7 +64,7 @@ public class TemplateToken extends KitLstToken
 	/**
 	 * Parse the TEMPLATE line. Handles the TEMPLATE tag as well as all common
 	 * tags.
-	 * 
+	 *
 	 * @param aKit
 	 *            the Kit object to add this information to
 	 * @param value
@@ -88,7 +89,7 @@ public class TemplateToken extends KitLstToken
 			}
 			else
 			{
-				if (parseCommonTags(kTemplate, colString) == false)
+				if (BaseKitLoader.parseCommonTags(kTemplate, colString) == false)
 				{
 					throw new PersistenceLayerException(
 							"Unknown KitTemplate info " + " \"" + colString

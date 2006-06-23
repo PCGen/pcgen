@@ -14,7 +14,7 @@ public class BasediceToken implements BaseDiceLstToken {
 		return "BASEDICE";
 	}
 
-	public boolean parse(Map baseDice, String value) {
+	public boolean parse(Map<String, String> baseDice, String value) {
 		baseDice.put(BaseDiceLoader.BASEDICE, value);
 		return true;
 	}

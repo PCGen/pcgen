@@ -33,13 +33,13 @@ import pcgen.persistence.lst.KitLevelAbilityLstToken;
 import pcgen.util.Logging;
 
 /**
- * Deals with ABILITY lst token within KitLevelAbility 
+ * Deals with ABILITY lst token within KitLevelAbility
  */
 public class AbilityToken implements KitLevelAbilityLstToken
 {
 	/**
 	 * Gets the name of the tag this class will parse.
-	 * 
+	 *
 	 * @return Name of the tag this class handles
 	 */
 	public String getTokenName()
@@ -49,7 +49,7 @@ public class AbilityToken implements KitLevelAbilityLstToken
 
 	/**
 	 * parse
-	 * 
+	 *
 	 * @param kitLA
 	 *            KitLevelAbility
 	 * @param value
@@ -60,7 +60,7 @@ public class AbilityToken implements KitLevelAbilityLstToken
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, "|");
 		String ability = pipeTok.nextToken();
-		ArrayList choices = new ArrayList();
+		ArrayList<String> choices = new ArrayList<String>();
 		while (pipeTok.hasMoreTokens())
 		{
 			choices.add(pipeTok.nextToken());

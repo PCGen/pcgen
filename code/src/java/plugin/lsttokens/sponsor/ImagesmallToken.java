@@ -13,7 +13,7 @@ public class ImagesmallToken implements SponsorLstToken {
 		return "IMAGESMALL";
 	}
 
-	public boolean parse(Map sponsor, String value) {
+	public boolean parse(Map<String, String> sponsor, String value) {
 		sponsor.put("IMAGESMALL", value);
 		return true;
 	}

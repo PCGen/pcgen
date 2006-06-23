@@ -43,7 +43,7 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient Kit theKit = null;
-	private transient List thingsToAdd = null;
+	private transient List<BaseKit> thingsToAdd = null;
 
 	/**
 	 * Constructor
@@ -71,7 +71,7 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		// Big hack
 		String key = "None|" + kitStr;
@@ -81,7 +81,7 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 			warnings.add("KIT: Kit " + kitStr + " not found.");
 			return false;
 		}
-		thingsToAdd = new ArrayList();
+		thingsToAdd = new ArrayList<BaseKit>();
 		theKit.testApplyKit(aPC, thingsToAdd, warnings);
 		// We actually want this kit to get applied to the temp pc
 		theKit.processKit(aPC, thingsToAdd);

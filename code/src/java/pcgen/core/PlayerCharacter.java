@@ -1531,9 +1531,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return featList.size();
 	}
 
-	public List getRealFeatsList()
+	public List<Ability> getRealFeatsList()
 	{
-		return (List) featList.clone();
+		return (List<Ability>) featList.clone();
 	}
 
 	/**
@@ -5045,7 +5045,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public List<Kit> getKitInfo()
 	{
-		return kitList;
+		return kitList != null ? kitList : Collections.emptyList();
 	}
 
 	public int getLevelAdjustment(final PlayerCharacter aPC)
@@ -10149,11 +10149,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final boolean autoQualify)
 	{
 		final List<Ability> anAbilityList = new ArrayList<Ability>();
-		final Iterator<Ability> it        = Globals.getAbilityKeyIterator(category);
+		final Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator(category);
 
 		while (it.hasNext())
 		{
-			final Ability anAbility = it.next();
+			final Ability anAbility = (Ability)it.next();
 
 			if (
 				anAbility.matchesType(abilityType) &&
@@ -10193,11 +10193,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public List<String> getAvailableFeatNames(final String featType, final boolean autoQualify)
 	{
 		final List<String> anAbilityList = new ArrayList<String>();
-		final Iterator<Ability> it        = Globals.getAbilityKeyIterator("FEAT");
+		final Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator("FEAT");
 
 		for (; it.hasNext(); )
 		{
-			final Ability anAbility = it.next();
+			final Ability anAbility = (Ability)it.next();
 
 			if (
 				anAbility.matchesType(featType) &&

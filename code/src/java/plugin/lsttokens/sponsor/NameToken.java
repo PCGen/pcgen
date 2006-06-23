@@ -13,7 +13,7 @@ public class NameToken implements SponsorLstToken {
 		return "NAME";
 	}
 
-	public boolean parse(Map sponsor, String value) {
+	public boolean parse(Map<String, String> sponsor, String value) {
 		sponsor.put("NAME", value);
 		return true;
 	}

@@ -636,7 +636,8 @@ public final class EditorMainForm extends JDialog
 				else
 				{
 					sel = pnlDomains.getSelectedList();
-					deity.setDomainList( CoreUtility.arrayToList(sel) );
+					Domain[] domains = (Domain[])sel;
+					deity.setDomainList( CoreUtility.arrayToList(domains) );
 				}
 
 				//
@@ -1260,9 +1261,9 @@ public final class EditorMainForm extends JDialog
 					availableList.add(anAbility.getKeyName());
 				}
 
-				for (Iterator<Ability> iter = ((Domain) thisPObject).getFeatIterator(); iter.hasNext();)
+				for (Iterator<Categorisable> iter = ((Domain) thisPObject).getFeatIterator(); iter.hasNext();)
 				{
-					Ability ability = iter.next();
+					Ability ability = (Ability)iter.next();
 					aString = ability.getKeyName();
 
 					if (!selectedList.contains(aString))
@@ -3052,7 +3053,7 @@ public final class EditorMainForm extends JDialog
 		}
 
 
-		// Add only those DR entries that are not level based. 
+		// Add only those DR entries that are not level based.
 		List drList = thisPObject.getDRList();
 		for (Iterator i = drList.iterator(); i.hasNext();)
 		{

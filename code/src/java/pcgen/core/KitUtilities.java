@@ -90,7 +90,7 @@ public final class KitUtilities
 			num = 0;
 		}
 
-		List aList = new ArrayList();
+		List<Kit> aList = new ArrayList<Kit>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -103,7 +103,7 @@ public final class KitUtilities
 			}
 			if (PrereqHandler.passesAll(aKit.getPreReqList(), aPC, aKit))
 			{
-				aList.add(kitKey);
+				aList.add(aKit);
 			}
 		}
 
@@ -120,20 +120,9 @@ public final class KitUtilities
 
 		if (aList.size() > 0)
 		{
-			for (Iterator i = aList.iterator(); i.hasNext();)
+			for ( Kit kit : aList )
 			{
-				final String key = (String) i.next();
-				final Kit theKit = Globals.getKitKeyed(key);
-
-				if ((theKit == null) || ((aPC.getKitInfo() != null) && (aPC.getKitInfo().indexOf(theKit) >= 0)))
-				{
-					continue;
-				}
-
-				final List thingsToAdd = new ArrayList();
-				final List warnings = new ArrayList();
-				theKit.testApplyKit(aPC, thingsToAdd, warnings);
-				theKit.processKit(aPC, thingsToAdd, iKit);
+				Kit.applyKit( kit, aPC );
 			}
 		}
 	}

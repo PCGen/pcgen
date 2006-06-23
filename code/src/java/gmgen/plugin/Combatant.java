@@ -170,16 +170,13 @@ public abstract class Combatant implements InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector getRowVector(List columnOrder)
+	public Vector<String> getRowVector(List<String> columnOrder)
 	{
-		Vector rowVector = new Vector();
-		int columns = columnOrder.size();
+		Vector<String> rowVector = new Vector<String>();
 
 		//Iterate through all the columns, and create the vector in that order
-		for (int j = 0; j < columns; j++)
+		for ( String columnName : columnOrder )
 		{
-			String columnName = (String) columnOrder.get(j);
-
 			if (columnName.equals("Name"))
 			{ // Character's Name
 				rowVector.add(getName());

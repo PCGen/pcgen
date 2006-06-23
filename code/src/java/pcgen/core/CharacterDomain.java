@@ -176,14 +176,14 @@ public final class CharacterDomain
 	 * Gets the variable names as a set that cannot be modified
 	 * @return Set
 	 */
-	public Set getVariableNamesAsUnmodifiableSet()
+	public Set<String> getVariableNamesAsUnmodifiableSet()
 	{
 		if (domain != null)
 		{
 			return domain.getVariableNamesAsUnmodifiableSet();
 		}
 
-		return Collections.EMPTY_SET;
+		return Collections.emptySet();
 	}
 
 	/**

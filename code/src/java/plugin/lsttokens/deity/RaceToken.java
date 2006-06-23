@@ -18,7 +18,7 @@ public class RaceToken implements DeityLstToken{
 	public boolean parse(Deity deity, String value) {
 		if(value.length() > 0) {
 			String[] races = value.split("\\|");
-			List raceList = CoreUtility.arrayToList(races);
+			List<String> raceList = CoreUtility.arrayToList(races);
 			deity.setRacePantheonList(raceList);
 			return true;
 		}

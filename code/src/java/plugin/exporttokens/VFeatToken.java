@@ -4,6 +4,7 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.FeatToken;
+import pcgen.core.Ability;
 
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
@@ -27,7 +28,7 @@ public class VFeatToken extends FeatToken
 	/**
 	 * @see pcgen.io.exporttoken.FeatToken#getFeatList(PlayerCharacter)
 	 */
-	protected List getFeatList(PlayerCharacter pc)
+	protected List<Ability> getFeatList(PlayerCharacter pc)
 	{
 		return pc.getVirtualFeatList();
 	}

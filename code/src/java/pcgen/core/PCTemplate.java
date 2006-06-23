@@ -73,12 +73,12 @@ public final class PCTemplate extends PObject implements HasCost
 
 	private AbilityStore abilityCatStore     = null;
 	private ArrayList<String>    featStrings         = null;
-	private ArrayList    hitDiceStrings      = null;
-	private ArrayList    levelStrings        = null;
+	private ArrayList<String>    hitDiceStrings      = null;
+	private ArrayList<String>    levelStrings        = null;
 	private ArrayList<String>    templates           = new ArrayList<String>();
 
-	private ArrayList    weaponProfBonus     = null;
-	private HashMap      chosenFeatStrings   = null;
+	private ArrayList<String>    weaponProfBonus     = null;
+	private HashMap<String, String>      chosenFeatStrings   = null;
 	private List<String>         templatesAdded      = null;
 	private String       cost                = "1";
 
@@ -202,22 +202,22 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(levelStrings); ++x)
 		{
 			if (
-				contains(levelStrings.get(x).toString(), "CR:") &&
+				contains(levelStrings.get(x), "CR:") &&
 				doesLevelQualify(level, x))
 			{
 				localCR += Integer.parseInt(
-						getStringAfter("CR:", levelStrings.get(x).toString()));
+						getStringAfter("CR:", levelStrings.get(x)));
 			}
 		}
 
 		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
 		{
 			if (
-				contains(hitDiceStrings.get(x).toString(), "CR:") &&
+				contains(hitDiceStrings.get(x), "CR:") &&
 				doesHitDiceQualify(hitdice, x))
 			{
 				localCR += Integer.parseInt(
-						getStringAfter("CR:", hitDiceStrings.get(x).toString()));
+						getStringAfter("CR:", hitDiceStrings.get(x)));
 			}
 		}
 
@@ -232,7 +232,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  a hashmap of Feat names
 	 */
-	public HashMap getChosenFeatStrings()
+	public HashMap<String, String> getChosenFeatStrings()
 	{
 		return chosenFeatStrings;
 	}
@@ -263,64 +263,6 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		return Double.parseDouble(cost);
 	}
-
-
-	/**
-	 * Get the Damage Reduction granted by this template to a character at a
-	 * given level (Class and Hit Dice).  This will include the absolute
-	 * adjustment made with CR:, LEVEL:<num>:CR and HD:<num>:CR tags
-	 *
-	 * @param   level    The level to calculate the DR for
-	 * @param   hitdice  The Hit dice to calculate the DR for
-	 *
-	 * @return  the Damage Reduction granted by this Template at the given level and HD
-	 */
-//	public String getDR(final int level, final int hitdice)
-//	{
-//		final StringBuffer drString = new StringBuffer();
-//		boolean            isEmpty  = true;
-//
-//		if (getDR() != null)
-//		{
-//			drString.append(getDR().trim());
-//			isEmpty = false;
-//		}
-//
-//		int x;
-//
-//		for (x = 0; x < getListSize(levelStrings); ++x)
-//		{
-//			if (
-//			    contains(levelStrings.get(x).toString(), "DR:") &&
-//			    doesLevelQualify(level, x))
-//			{
-//				if (!isEmpty)
-//				{
-//					drString.append('|');
-//				}
-//				drString.append(getStringAfter("DR:", levelStrings.get(x).toString()));
-//				isEmpty = false;
-//			}
-//		}
-//
-//		for (x = 0; x < getListSize(hitDiceStrings); ++x)
-//		{
-//			if (
-//			    contains(hitDiceStrings.get(x).toString(), "DR:") &&
-//			    doesHitDiceQualify(hitdice, x))
-//			{
-//				if (!isEmpty)
-//				{
-//					drString.append('|');
-//				}
-//				drString.append(getStringAfter("DR:", hitDiceStrings.get(x).toString()));
-//				isEmpty = false;
-//			}
-//		}
-//
-//		return drString.toString();
-//	}
-
 
 	/**
 	 * Set the name of a favoured class to add to the Character this Template
@@ -566,14 +508,14 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public boolean isNonAbility(final int statIdx)
 	{
-		final List statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
 			return true;
 		}
 
-		final String aStat = "|LOCK." + ((PCStat) statList.get(statIdx)).getAbb() + "|10";
+		final String aStat = "|LOCK." + statList.get(statIdx).getAbb() + "|10";
 
 		for (int i = 0, x = getVariableCount(); i < x; ++i)
 		{
@@ -705,14 +647,14 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator e = languageBonus.iterator(); e.hasNext();)
+			for ( Language lang : languageBonus )
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append(',');
 				}
 
-				buffer.append((String) e.next());
+				buffer.append(lang);
 			}
 
 			txt.append("\tLANGBONUS:").append(buffer.toString());
@@ -720,9 +662,9 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (getListSize(levelStrings) > 0)
 		{
-			for (Iterator e = levelStrings.iterator(); e.hasNext();)
+			for (Iterator<String> e = levelStrings.iterator(); e.hasNext();)
 			{
-				txt.append("\tLEVEL:").append((String) e.next());
+				txt.append("\tLEVEL:").append(e.next());
 			}
 		}
 
@@ -800,9 +742,9 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (getListSize(templates) > 0)
 		{
-			for (Iterator e = templates.iterator(); e.hasNext();)
+			for (Iterator<String> e = templates.iterator(); e.hasNext();)
 			{
-				txt.append("\tTEMPLATE:").append((String) e.next());
+				txt.append("\tTEMPLATE:").append(e.next());
 			}
 		}
 
@@ -833,14 +775,14 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator e = weaponProfBonus.iterator(); e.hasNext();)
+			for (Iterator<String> e = weaponProfBonus.iterator(); e.hasNext();)
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append('|');
 				}
 
-				buffer.append((String) e.next());
+				buffer.append(e.next());
 			}
 
 			txt.append("\tWEAPONBONUS:").append(buffer.toString());
@@ -1013,12 +955,12 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(levelStrings); ++x)
 		{
 			if (
-				contains(levelStrings.get(x).toString(), "SR:") &&
+				contains(levelStrings.get(x), "SR:") &&
 				doesLevelQualify(level, x))
 			{
 				aSR = Math.max(
 						Integer.parseInt(
-							getStringAfter("SR:", levelStrings.get(x).toString())),
+							getStringAfter("SR:", levelStrings.get(x))),
 						aSR);
 			}
 		}
@@ -1026,12 +968,12 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
 		{
 			if (
-				contains(hitDiceStrings.get(x).toString(), "SR:") &&
+				contains(hitDiceStrings.get(x), "SR:") &&
 				doesHitDiceQualify(hitdice, x))
 			{
 				aSR = Math.max(
 						Integer.parseInt(
-							getStringAfter("SR:", hitDiceStrings.get(x).toString())),
+							getStringAfter("SR:", hitDiceStrings.get(x))),
 						aSR);
 			}
 		}
@@ -1062,12 +1004,12 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(levelStrings); ++x)
 		{
 			if (
-				contains(levelStrings.get(x).toString(), "SA:") &&
+				contains(levelStrings.get(x), "SA:") &&
 				doesLevelQualify(level, x))
 			{
 				final String         saString = getStringAfter(
 						"SA:",
-						levelStrings.get(x).toString());
+						levelStrings.get(x));
 				final SpecialAbility sa       = new SpecialAbility(saString);
 
 				specialAbilityList.add(sa);
@@ -1077,12 +1019,12 @@ public final class PCTemplate extends PObject implements HasCost
 		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
 		{
 			if (
-				contains(hitDiceStrings.get(x).toString(), "SA:") &&
+				contains(hitDiceStrings.get(x), "SA:") &&
 				doesHitDiceQualify(hitdice, x))
 			{
 				final String         saString = getStringAfter(
 						"SA:",
-						hitDiceStrings.get(x).toString());
+						hitDiceStrings.get(x));
 				final SpecialAbility sa       = new SpecialAbility(saString);
 
 				specialAbilityList.add(sa);
@@ -1219,7 +1161,7 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		if (weaponProfBonus == null)
 		{
-			weaponProfBonus = new ArrayList();
+			weaponProfBonus = new ArrayList<String>();
 		}
 
 		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
@@ -1237,14 +1179,9 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  a list of weapon proficiencies
 	 */
-	public ArrayList getWeaponProfBonus()
+	public List<String> getWeaponProfBonus()
 	{
-		if (weaponProfBonus == null)
-		{
-			return new ArrayList();
-		}
-
-		return weaponProfBonus;
+		return weaponProfBonus != null ? weaponProfBonus : Collections.emptyList();
 	}
 
 
@@ -1321,7 +1258,7 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 		if (hitDiceStrings == null)
 		{
-			hitDiceStrings = new ArrayList();
+			hitDiceStrings = new ArrayList<String>();
 		}
 
 		hitDiceStrings.add(hitDiceString);
@@ -1348,17 +1285,10 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return an array of strings in the format specified above
 	 */
-	public ArrayList getHitDiceStrings()
+	public List<String> getHitDiceStrings()
 	{
-		if (hitDiceStrings == null)
-		{
-			hitDiceStrings = new ArrayList();
-		}
-
-		return hitDiceStrings;
+		return hitDiceStrings != null ? hitDiceStrings : Collections.emptyList();
 	}
-
-
 
 	/**
 	 * Grants the character an ability at the level specified (total character level).
@@ -1425,7 +1355,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (levelStrings == null)
 		{
-			levelStrings = new ArrayList();
+			levelStrings = new ArrayList<String>();
 		}
 
 		levelStrings.add(levelString);
@@ -1451,17 +1381,10 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  an array of stings in the format specified
 	 */
-	public ArrayList getLevelStrings()
+	public List<String> getLevelStrings()
 	{
-		if (levelStrings == null)
-		{
-			levelStrings = new ArrayList();
-		}
-
-		return levelStrings;
+		return levelStrings != null ? levelStrings : Collections.emptyList();
 	}
-
-
 
 	/**
 	 * Add a list of subsidiary Templates to this template i.e. Templates (or
@@ -1550,16 +1473,16 @@ public final class PCTemplate extends PObject implements HasCost
 		final PCTemplate aTemp = (PCTemplate) super.clone();
 		aTemp.templateVisible = templateVisible;
 		aTemp.templates       = (ArrayList<String>) templates.clone();
-		aTemp.languageBonus   = (TreeSet) languageBonus.clone();
+		aTemp.languageBonus   = (TreeSet<Language>) languageBonus.clone();
 
 		if (getListSize(levelStrings) != 0)
 		{
-			aTemp.levelStrings = (ArrayList) levelStrings.clone();
+			aTemp.levelStrings = (ArrayList<String>) levelStrings.clone();
 		}
 
 		if (getListSize(hitDiceStrings) != 0)
 		{
-			aTemp.hitDiceStrings = (ArrayList) hitDiceStrings.clone();
+			aTemp.hitDiceStrings = (ArrayList<String>) hitDiceStrings.clone();
 		}
 
 		// if (getArrayListSize(sizeStrings) != 0)
@@ -1568,13 +1491,13 @@ public final class PCTemplate extends PObject implements HasCost
 		// }
 		if (getListSize(weaponProfBonus) != 0)
 		{
-			aTemp.weaponProfBonus = (ArrayList) weaponProfBonus.clone();
+			aTemp.weaponProfBonus = (ArrayList<String>) weaponProfBonus.clone();
 		}
 
 		if (abilityCatStore != null) {
 			aTemp.abilityCatStore = new AbilityStore();
 			aTemp.abilityCatStore.addAbilityInfo(
-					abilityCatStore.getParsableStringRepresentation(), "", "|", false);
+					abilityCatStore.getParsableStringRepresentation(), "", "|", false, false);
 		}
 
 		if (getListSize(featStrings) != 0)
@@ -1584,7 +1507,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (chosenFeatStrings != null)
 		{
-			aTemp.chosenFeatStrings = (HashMap) chosenFeatStrings.clone();
+			aTemp.chosenFeatStrings = (HashMap<String, String>) chosenFeatStrings.clone();
 		}
 
 		return aTemp;
@@ -1776,7 +1699,7 @@ public final class PCTemplate extends PObject implements HasCost
 		final boolean         forceChoice,
 		final PlayerCharacter aPC)
 	{
-		final List availableList = new ArrayList();
+		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
 		final StringTokenizer strTok = new StringTokenizer(templateList.substring(7), "|");
 		while (strTok.hasMoreTokens())
 		{
@@ -1787,7 +1710,7 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 		}
 
-		final List selectedList = new ArrayList(1);
+		final List<PCTemplate> selectedList = new ArrayList<PCTemplate>(1);
 		String title = "Template Choice";
 		if (anOwner != null)
 		{
@@ -1796,12 +1719,12 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (availableList.size() == 1)
 		{
-			return ((PCTemplate) availableList.get(0)).getKeyName();
+			return availableList.get(0).getKeyName();
 		}
 		Globals.getChoiceFromList(title, availableList, selectedList, 1, forceChoice);
 		if (selectedList != null && selectedList.size() == 1)
 		{
-			return ((PCTemplate) selectedList.get(0)).getKeyName();
+			return selectedList.get(0).getKeyName();
 		}
 
 		return "";
@@ -1830,12 +1753,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public List<String> templatesAdded()
 	{
-		if (templatesAdded == null)
-		{
-			return new ArrayList<String>();
-		}
-
-		return templatesAdded;
+		return templatesAdded != null ? templatesAdded : Collections.emptyList();
 	}
 
 
@@ -1846,7 +1764,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  size of the list or zero if list undefined
 	 */
-	private static int getListSize(final List al)
+	private static int getListSize(final List<?> al)
 	{
 		int result = 0;
 
@@ -1919,7 +1837,7 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		StringTokenizer tokens        = new StringTokenizer(
-				(String) hitDiceStrings.get(index),
+				hitDiceStrings.get(index),
 				":");
 		final String    hitDiceString = tokens.nextToken();
 
@@ -1952,7 +1870,7 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		final StringTokenizer stuff = new StringTokenizer(
-				(String) levelStrings.get(index),
+				levelStrings.get(index),
 				":");
 
 		return level >= Integer.parseInt(stuff.nextToken());
@@ -1974,15 +1892,13 @@ public final class PCTemplate extends PObject implements HasCost
 		final String          featKey,
 		final PlayerCharacter aPC)
 	{
-
-
 		if (contains(levelString, "FEAT:"))
 		{
 			String featName = getStringAfter("FEAT:", levelString);
 
 			while (true)
 			{
-				ArrayList          featList = new ArrayList();
+				ArrayList<String> featList = new ArrayList<String>();
 				final LevelAbility la       = LevelAbility.createAbility(
 						this,
 						lvl,
@@ -1993,7 +1909,7 @@ public final class PCTemplate extends PObject implements HasCost
 				switch (featList.size())
 				{
 					case 1:
-						featName = featList.get(0).toString();
+						featName = featList.get(0);
 
 						break;
 
@@ -2012,7 +1928,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 							if ((featList != null) && (featList.size() != 0))
 							{
-								featName = featList.get(0).toString();
+								featName = featList.get(0);
 
 								continue;
 							}
@@ -2047,7 +1963,7 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		if (chosenFeatStrings == null)
 		{
-			chosenFeatStrings = new HashMap();
+			chosenFeatStrings = new HashMap<String, String>();
 		}
 
 		chosenFeatStrings.put(mapKey, mapValue);
@@ -2080,7 +1996,7 @@ public final class PCTemplate extends PObject implements HasCost
 			abilityCatStore = new AbilityStore();
 		}
 
-		abilityCatStore.addAbilityInfo(abilityString, "", "|", false);
+		abilityCatStore.addAbilityInfo(abilityString, "", "|", false, false);
 	}
 
 	/**
@@ -2135,7 +2051,7 @@ public final class PCTemplate extends PObject implements HasCost
 		 * AbilityInfo objects instead of the names of abilities.
 		 */
 		if (abilityCatStore != null) {
-			Iterator<Ability> it = abilityCatStore.getKeyIterator("ALL");
+			Iterator<Categorisable> it = abilityCatStore.getKeyIterator("ALL");
 
 			while (it.hasNext()) {
 				feats.add(it.next().getKeyName());
@@ -2164,14 +2080,14 @@ public final class PCTemplate extends PObject implements HasCost
 
 			if (chosenFeatStrings != null)
 			{
-				featName = (String) chosenFeatStrings.get(featKey);
+				featName = chosenFeatStrings.get(featKey);
 			}
 
 			if ((featName == null) && addNew)
 			{
 				if (doesLevelQualify(level, x))
 				{
-					getLevelFeat(levelStrings.get(x).toString(), level, featKey, aPC);
+					getLevelFeat(levelStrings.get(x), level, featKey, aPC);
 				}
 			}
 		}
@@ -2183,14 +2099,14 @@ public final class PCTemplate extends PObject implements HasCost
 
 			if (chosenFeatStrings != null)
 			{
-				featName = (String) chosenFeatStrings.get(featKey);
+				featName = chosenFeatStrings.get(featKey);
 			}
 
 			if ((featName == null) && addNew)
 			{
 				if (doesHitDiceQualify(hitdice, x))
 				{
-					getLevelFeat(hitDiceStrings.get(x).toString(), -1, featKey, aPC);
+					getLevelFeat(hitDiceStrings.get(x), -1, featKey, aPC);
 				}
 			}
 		}

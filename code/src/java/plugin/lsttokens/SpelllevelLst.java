@@ -13,6 +13,9 @@ import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.util.Logging;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.PersistenceLayerException;
 
 /**
  * @author djones4
@@ -35,11 +38,11 @@ public class SpelllevelLst implements GlobalLstToken {
 			}
 
 			final String tagType = tok.nextToken(); // CLASS or DOMAIN
-			final List preList = new ArrayList();
+			final List<String> preList = new ArrayList<String>();
 
 			// The 2 lists below should always have the same number of items
-			final List wNameList = new ArrayList();
-			final List wSpellList = new ArrayList();
+			final List<String> wNameList = new ArrayList<String>();
+			final List<String> wSpellList = new ArrayList<String>();
 
 			while (tok.hasMoreTokens()) {
 				final String nameList = tok.nextToken();
@@ -76,15 +79,29 @@ public class SpelllevelLst implements GlobalLstToken {
 				}
 			}
 
-			for (Iterator iSpell = wSpellList.iterator(), iName = wNameList.iterator(); iSpell.hasNext() || iName.hasNext();) {
+			//
+			// Parse the prereq list
+			//
+			List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+			try
+			{
+				PreParserFactory factory = PreParserFactory.getInstance();
+				prereqs = factory.parse(preList);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: " + value);
+			}
+
+			for (Iterator<String> iSpell = wSpellList.iterator(), iName = wNameList.iterator(); iSpell.hasNext() || iName.hasNext();) {
 				// Check to see if both exists
 				if (!(iSpell.hasNext() && iName.hasNext())) {
 					Logging.errorPrint("Badly formed SPELLLEVEL tag4: " + value);
 					return false;
 				}
 
-				final StringTokenizer bTok = new StringTokenizer((String) iSpell.next(), ",");
-				final String classList = (String) iName.next();
+				final StringTokenizer bTok = new StringTokenizer(iSpell.next(), ",");
+				final String classList = iName.next();
 
 				while (bTok.hasMoreTokens()) {
 					final String spellLevel = classList.substring(classList.indexOf("=") + 1);
@@ -96,7 +113,7 @@ public class SpelllevelLst implements GlobalLstToken {
 
 						if (className.startsWith("SPELLCASTER.")
 								|| !obj.getSpellSupport().containsLevelFor(tagType, className, spellName)) {
-							obj.getSpellSupport().addSpellLevel(tagType, className, spellName, spellLevel, preList);
+							obj.getSpellSupport().addSpellLevel(tagType, className, spellName, spellLevel, prereqs);
 						}
 					}
 				}

@@ -13,7 +13,7 @@ import pcgen.util.Logging;
  * This class loads in and parses the BASEDICE tag
  */
 public class BaseDiceLoader  {
-	
+
 	/** BASEDICE = "baseDice" */
 	public static final String BASEDICE = "baseDice";
 	/** UP = "up" */
@@ -25,9 +25,9 @@ public class BaseDiceLoader  {
 	public BaseDiceLoader() {
 		// Do Nothing
 	}
-	
+
 	/**
-	 * Parses a line 
+	 * Parses a line
 	 * @param gameMode
 	 * @param lstLine
 	 * @throws PersistenceLayerException
@@ -35,7 +35,7 @@ public class BaseDiceLoader  {
 	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
 		//BASEDICE:1d6	UP:1d8,2d6,3d6,4d6	DOWN:1d4,1d3,1d2,1,0
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		Map bonus = new HashMap();
+		Map<String, String> bonus = new HashMap<String, String>();
 		bonus.put(BASEDICE, "");
 		bonus.put(UP, "");
 		bonus.put(DOWN, "");
@@ -51,7 +51,7 @@ public class BaseDiceLoader  {
 			catch(StringIndexOutOfBoundsException e) {
 				// TODO Deal with this exception
 			}
-			
+
 			BaseDiceLstToken token = (BaseDiceLstToken) tokenMap.get(key);
 
 			if (token != null)

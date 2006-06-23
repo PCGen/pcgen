@@ -28,14 +28,14 @@ import java.util.Map;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
- * 
+ *
  * This encapsulates a Map in a typesafe way (prior to java 1.5 having the
  * ability to do that with typed collections)
  */
 public class IntegerKeyMap
 {
 
-	private final Map map = new HashMap();
+	private final Map<IntegerKey, Integer> map = new HashMap<IntegerKey, Integer>();
 
 	/** Constructor */
 	public IntegerKeyMap()
@@ -50,7 +50,7 @@ public class IntegerKeyMap
 	 */
 	public Integer getCharacteristic(IntegerKey key)
 	{
-		return (Integer) map.get(key);
+		return map.get(key);
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class IntegerKeyMap
 	 */
 	public void setCharacteristic(IntegerKey key, int value)
 	{
-		map.put(key, new Integer(value));
+		map.put(key, value);
 	}
 
 	/**
@@ -91,14 +91,14 @@ public class IntegerKeyMap
 	{
 		map.putAll(scs.map);
 	}
-	
+
 	/**
 	 * Remove a characteristic from the map
 	 * @param key
 	 * @return the previous charactersitc assocaited with that key or NULL
 	 */
-	public Integer removeCharacteristic(IntegerKey key) 
+	public Integer removeCharacteristic(IntegerKey key)
 	{
-		return (Integer) map.remove(key);
+		return map.remove(key);
 	}
 }

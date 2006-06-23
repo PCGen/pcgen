@@ -65,15 +65,12 @@ public class Effect extends Event
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector getRowVector(List columnOrder)
+	public Vector<String> getRowVector(List<String> columnOrder)
 	{
-		Vector rowVector = new Vector();
-		int columns = columnOrder.size();
+		Vector<String> rowVector = new Vector<String>();
 
-		for (int j = 0; j < columns; j++)
+		for ( String columnName : columnOrder )
 		{
-			String columnName = (String) columnOrder.get(j);
-
 			if (columnName.equals("Name"))
 			{ // Event's name
 				rowVector.add("");
@@ -126,9 +123,9 @@ public class Effect extends Event
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
-	public void editRow(List columnOrder, int colNumber, Object data)
+	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
-		String columnName = (String) columnOrder.get(colNumber);
+		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
 		if (columnName.equals("Name"))

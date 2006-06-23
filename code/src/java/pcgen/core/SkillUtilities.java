@@ -54,10 +54,10 @@ public final class SkillUtilities
 	public static BigDecimal maxClassSkillForLevel(final int level,
 			final PlayerCharacter pc)
 	{
-		LevelInfo lInfo = (LevelInfo) Globals.getLevelInfo().get(
+		LevelInfo lInfo = Globals.getLevelInfo().get(
 				String.valueOf(level));
 		if (lInfo == null)
-			lInfo = (LevelInfo) Globals.getLevelInfo().get("LEVEL");
+			lInfo = Globals.getLevelInfo().get("LEVEL");
 		if ((level > 0) && lInfo != null)
 		{
 			return lInfo.getMaxClassSkillRank(level, pc);
@@ -78,10 +78,10 @@ public final class SkillUtilities
 	public static BigDecimal maxCrossClassSkillForLevel(final int level,
 			final PlayerCharacter pc)
 	{
-		LevelInfo lInfo = (LevelInfo) Globals.getLevelInfo().get(
+		LevelInfo lInfo = Globals.getLevelInfo().get(
 				String.valueOf(level));
 		if (lInfo == null)
-			lInfo = (LevelInfo) Globals.getLevelInfo().get("LEVEL");
+			lInfo = Globals.getLevelInfo().get("LEVEL");
 		if ((level > 0) && lInfo != null)
 		{
 			return lInfo.getMaxCrossClassSkillRank(level, pc);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.FeatToken;
+import pcgen.core.Ability;
 
 /**
  * @author karianna
@@ -23,7 +24,7 @@ public class FeatAutoToken extends FeatToken
 	/**
 	 * @see pcgen.io.exporttoken.FeatToken#getFeatList(pcgen.core.PlayerCharacter)
 	 */
-	protected List getFeatList(PlayerCharacter pc)
+	protected List<Ability> getFeatList(PlayerCharacter pc)
 	{
 		return pc.featAutoList();
 	}

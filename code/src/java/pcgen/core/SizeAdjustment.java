@@ -24,6 +24,7 @@ import pcgen.core.utils.CoreUtility;
 
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.bonus.BonusObj;
 
 /**
  * <code>SizeAdjustment</code>.
@@ -59,7 +60,7 @@ public final class SizeAdjustment extends PObject
 	 * @param aPC
 	 * @return active bonuses
 	 **/
-	public List getActiveBonuses(final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
 	{
 		super.activateBonuses(aPC);
 
@@ -80,16 +81,16 @@ public final class SizeAdjustment extends PObject
 		return "pcgen.core.SizeAdjustment{" + "abbreviation='" + abbreviation + "'" + "}";
 	}
 
-	double getBonusTo(final PlayerCharacter aPC, final String bonusType, final List typeList, double defaultValue)
+	double getBonusTo(final PlayerCharacter aPC, final String bonusType, final List<String> typeList, double defaultValue)
 	{
-		for (Iterator i = typeList.iterator(); i.hasNext();)
+		for ( String type : typeList )
 		{
 			/*
 			 * TODO:  The standard for these bonuses should probably be TYPE=, but
 			 * the bonus objects only correctly match TYPE.  The bonus objects
 			 * probably need to be reevaluated to standardize this usage
 			 */
-			final double a = bonusTo(bonusType, "TYPE." + i.next().toString(), aPC, aPC);
+			final double a = bonusTo(bonusType, "TYPE." + type, aPC, aPC);
 
 			if (!CoreUtility.doublesEqual(a, 0.0))
 			{

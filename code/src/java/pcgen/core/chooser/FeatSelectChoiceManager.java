@@ -31,6 +31,7 @@ import pcgen.core.PlayerCharacter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import pcgen.core.Categorisable;
 
 /**
  * This is one of the choosers that deals with choosing from among a set
@@ -82,8 +83,8 @@ public class FeatSelectChoiceManager extends AbstractComplexChoiceManager<String
 			{
 				aString = aString.substring(5);
 
-				for (Iterator<Ability> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
-					final Ability ability = it.next();
+				for (Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); ) {
+					final Ability ability = (Ability)it.next();
 
 					if (ability.isType(aString) &&
 							(dupsAllowed || !availableList.contains(ability)))

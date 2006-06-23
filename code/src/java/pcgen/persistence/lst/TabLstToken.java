@@ -41,5 +41,5 @@ public interface TabLstToken extends LstToken {
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(GameMode gameMode, Map tab, String value);
+	public abstract boolean parse(GameMode gameMode, Map<String, String> tab, String value);
 }

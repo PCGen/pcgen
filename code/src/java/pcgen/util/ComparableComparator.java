@@ -32,19 +32,19 @@ import java.util.Comparator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public final class ComparableComparator implements Comparator
+public final class ComparableComparator implements Comparator<Comparable>
 {
 	/** Constructs a <code>ComparableComparator</code>. */
 	public ComparableComparator()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public int compare(Object o1, Object o2)
+	public int compare(Comparable o1, Comparable o2)
 	{
-		return ((Comparable) o1).compareTo(o2);
+		return  o1.compareTo(o2);
 	}
 }

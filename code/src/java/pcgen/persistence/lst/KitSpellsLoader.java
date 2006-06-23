@@ -80,7 +80,7 @@ public class KitSpellsLoader
 				}
 				final StringTokenizer subTok = new StringTokenizer(field, "[]");
 				final String spell = subTok.nextToken();
-				ArrayList featList = new ArrayList();
+				ArrayList<String> featList = new ArrayList<String>();
 				while (subTok.hasMoreTokens())
 				{
 					featList.add(subTok.nextToken());
@@ -89,7 +89,7 @@ public class KitSpellsLoader
 						countStr);
 			}
 		}
-		Map tokenMap = TokenStore.inst().getTokenMap(KitSpellsLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitSpellsLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

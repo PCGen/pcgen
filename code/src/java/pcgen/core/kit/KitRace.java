@@ -72,7 +72,7 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theRace = null;
 

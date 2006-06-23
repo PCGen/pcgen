@@ -110,7 +110,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		return ret.toString();
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theClass = null;
 		theClass = Globals.getClassKeyed(getClassName());
@@ -148,6 +148,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 	public void apply(PlayerCharacter aPC)
 	{
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
+		theClass = null;
 	}
 
 	public Object clone()

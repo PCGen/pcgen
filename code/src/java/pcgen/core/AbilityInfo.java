@@ -47,8 +47,8 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 	protected String    keyName;
 	protected String    category;
 	private   Ability   realThing;
-	private   List      prereqList;
-	private   ArrayList decorations;
+	private   List<Prerequisite>      prereqList;
+	private   ArrayList<String> decorations;
 	protected char      delim       = '<';
 
 	private static final String split1 = "[<>\\|]";
@@ -90,7 +90,7 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 		if (realThing == null)
 		{
 			realThing   = AbilityUtilities.retrieveAbilityKeyed(this.category, this.keyName);
-			decorations = new ArrayList();
+			decorations = new ArrayList<String>();
 
 			if ((realThing != null) && (!realThing.getKeyName().equals(this.keyName))) {
 				// get the decorations, throw away the name (because we already have it in keyname)
@@ -106,10 +106,10 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 
 	 * @return an iterator
 	 */
-	public Iterator getChoicesIterator() {
-		return (getAbility() != null) ?
-				decorations.iterator() :
-					Collections.EMPTY_LIST.iterator();
+	public Iterator<String> getChoicesIterator() {
+		final List<String> ret = (getAbility() != null) ?
+									decorations : Collections.emptyList();
+		return ret.iterator();
 	}
 
 
@@ -164,14 +164,14 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 		{
 			if (prereqList == null)
 			{
-				prereqList = new ArrayList();
+				prereqList = new ArrayList<Prerequisite>();
 			}
 
-			List     tokens = Arrays.asList(unparsed.split(delim == '<' ? split1 : split2));
-			Iterator tokIt  = tokens.iterator();
+			List<String>     tokens = Arrays.asList(unparsed.split(delim == '<' ? split1 : split2));
+			Iterator<String> tokIt  = tokens.iterator();
 
 			// extract and assign the choice from the unparsed string
-			this.keyName = (String) tokIt.next();
+			this.keyName = tokIt.next();
 
 			try
 			{
@@ -179,7 +179,7 @@ public class AbilityInfo extends Object implements Comparable, Categorisable
 
 				for (; tokIt.hasNext();)
 				{
-					final Prerequisite prereq = factory.parse((String) tokIt.next());
+					final Prerequisite prereq = factory.parse(tokIt.next());
 
 					if (prereq != null)
 					{

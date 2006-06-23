@@ -60,7 +60,7 @@ public final class Domain extends PObject
 	 */
 	public void addAbility(final String abilities)
 	{
-		abilityStore.addAbilityInfo(abilities, "", "|,", false);
+		abilityStore.addAbilityInfo(abilities, "", "|,", false, false);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public final class Domain extends PObject
 	 */
 	public void addFeat(final String feats)
 	{
-		abilityStore.addAbilityInfo(feats, "FEAT", "|,", true);
+		abilityStore.addAbilityInfo(feats, "FEAT", "|,", true, false);
 	}
 
 	/**
@@ -121,12 +121,10 @@ public final class Domain extends PObject
 
 						if ((maxLevel > 1) && (aClass.getNumSpellsFromSpecialty() == 0))
 						{
-							final List aList = Globals.getSpellsIn(-1, "", keyName);
+							final List<Spell> aList = Globals.getSpellsIn(-1, "", keyName);
 
-							for (Iterator i = aList.iterator(); i.hasNext();)
+							for ( Spell gcs : aList )
 							{
-								final Spell gcs = (Spell) i.next();
-
 								if (gcs.levelForKey("DOMAIN", keyName, aPC) < maxLevel)
 								{
 									if (aClass.getNumSpellsFromSpecialty() == 0)
@@ -140,14 +138,12 @@ public final class Domain extends PObject
 				}
 			}
 
-			final List spellList = getSpellList();
+			final List<PCSpell> spellList = getSpellList();
 
 			if ((aClass != null) && (spellList != null) && !spellList.isEmpty())
 			{
-				for (Iterator ri = spellList.iterator(); ri.hasNext();)
+				for ( PCSpell pcSpell : spellList )
 				{
-					final PCSpell pcSpell = (PCSpell) ri.next();
-
 					final Spell aSpell = Globals.getSpellKeyed(pcSpell.getKeyName());
 
 					if (aSpell == null)
@@ -161,7 +157,7 @@ public final class Domain extends PObject
 
 					if (PrereqHandler.passesAll(pcSpell.getPreReqList(), aPC, this))
 					{
-						final List aList = aClass.getSpellSupport()
+						final List<CharacterSpell> aList = aClass.getSpellSupport()
 							.getCharacterSpell(aSpell, book, -1);
 
 						if (aList.isEmpty())
@@ -212,10 +208,10 @@ public final class Domain extends PObject
 		{
 			aObj                = (Domain) super.clone();
 			aObj.abilityStore = new AbilityStore();
-			Iterator it = abilityStore.getKeyIterator("ALL");
+			Iterator<Categorisable> it = abilityStore.getKeyIterator("ALL");
 			while (it.hasNext())
 			{
-				Categorisable catObj = (Categorisable) it.next();
+				Categorisable catObj = it.next();
 				aObj.addFeat("CATEGORY="+catObj.getCategory()+"|"+catObj.getKeyName());
 			}
 			//aObj.abilityStore   = (AbilityStore) abilityStore.clone();
@@ -283,9 +279,9 @@ public final class Domain extends PObject
 	 *
 	 * @return  An Iterator over a group of AbilityInfo objects.
 	 */
-	public Iterator<Ability> getFeatIterator()
+	public Iterator<Categorisable> getFeatIterator()
 	{
-		return abilityStore.getKeyIterator("FEAT");
+		return abilityStore.getNameIterator("FEAT");
 	}
 
 	/**
@@ -309,34 +305,29 @@ public final class Domain extends PObject
 
 		for (int aLevel = minLevel; aLevel <= maxLevel; aLevel++)
 		{
-			final List domainSpells = Globals.getSpellsIn(aLevel, "", keyName);
+			final List<Spell> domainSpells = Globals.getSpellsIn(aLevel, "", keyName);
 
-			if (!domainSpells.isEmpty())
+			for ( Spell spell : domainSpells )
 			{
-				for (Iterator di = domainSpells.iterator(); di.hasNext();)
+				final List<CharacterSpell>  slist  = aClass.getSpellSupport()
+					.getCharacterSpell(spell, Globals.getDefaultSpellBook(), aLevel);
+				boolean     flag   = true;
+
+				for ( CharacterSpell cs1 : slist )
 				{
-					final Spell aSpell = (Spell) di.next();
-					final List  slist  = aClass.getSpellSupport()
-						.getCharacterSpell( aSpell, Globals.getDefaultSpellBook(), aLevel);
-					boolean     flag   = true;
+					flag = !(cs1.getOwner().equals(this));
 
-					for (Iterator si = slist.iterator(); si.hasNext();)
+					if (!flag)
 					{
-						final CharacterSpell cs1 = (CharacterSpell) si.next();
-						flag = !(cs1.getOwner().equals(this));
-
-						if (!flag)
-						{
-							break;
-						}
+						break;
 					}
+				}
 
-					if (flag)
-					{
-						final CharacterSpell cs = new CharacterSpell(this, aSpell);
-						cs.addInfo(aLevel, 1, Globals.getDefaultSpellBook());
-						aClass.getSpellSupport().addCharacterSpell(cs);
-					}
+				if (flag)
+				{
+					final CharacterSpell cs = new CharacterSpell(this, spell);
+					cs.addInfo(aLevel, 1, Globals.getDefaultSpellBook());
+					aClass.getSpellSupport().addCharacterSpell(cs);
 				}
 			}
 		}
@@ -357,7 +348,7 @@ public final class Domain extends PObject
 		//
 		boolean bFirst = true;
 		final SpellSupport ss = getSpellSupport();
-		for (Iterator e = Globals.getSpellMap().values().iterator(); e.hasNext();)
+		for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
 		{
 			final Object obj = e.next();
 
@@ -378,10 +369,10 @@ public final class Domain extends PObject
 		}
 
 		// Granted feats
-		StringBuffer featString = new StringBuffer(); 
-		for (Iterator<Ability> iter = getFeatIterator(); iter.hasNext();)
+		StringBuffer featString = new StringBuffer();
+		for (Iterator<Categorisable> iter = getFeatIterator(); iter.hasNext();)
 		{
-			Ability grantedFeat = iter.next();
+			Ability grantedFeat = (Ability)iter.next();
 			if (featString.length() > 0)
 			{
 				featString.append("|");

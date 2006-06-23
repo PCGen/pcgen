@@ -4,6 +4,9 @@ import java.util.Map;
 
 import pcgen.core.kit.BaseKit;
 import pcgen.util.Logging;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 
 /**
  * Loads the Base Kit
@@ -17,6 +20,7 @@ public class BaseKitLoader {
 	 * @return true if parse OK
 	 */
 	public static boolean parseCommonTags(BaseKit obj, final String tag)
+		throws PersistenceLayerException
 	{
 		Map tokenMap = TokenStore.inst().getTokenMap(BaseKitLstToken.class);
 
@@ -31,7 +35,7 @@ public class BaseKitLoader {
 			// TODO Handle Exception
 		}
 		BaseKitLstToken token = (BaseKitLstToken) tokenMap.get(key);
-		
+
 		if (token != null)
 		{
 			final String value = tag.substring(idxColon + 1);
@@ -43,7 +47,10 @@ public class BaseKitLoader {
 		}
 		else if (key.startsWith("PRE") || key.startsWith("!PRE"))
 		{
-			obj.addPreReq(tag);
+			final PreParserFactory factory = PreParserFactory.getInstance();
+			Prerequisite prereq = factory.parse( tag );
+
+			obj.addPreReq(prereq);
 			return true;
 		}
 

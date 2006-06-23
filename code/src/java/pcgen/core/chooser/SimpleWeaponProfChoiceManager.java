@@ -81,7 +81,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager<S
 		}
 	}
 
-	final CategorisableStore<weaponToProf> weaponToProfMap = new CategorisableStore<weaponToProf>();
+	final CategorisableStore weaponToProfMap = new CategorisableStore();
 
 	/**
 	 * Creates a new SimpleWeaponProfChoiceManager object.
@@ -418,7 +418,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager<S
 		while (it.hasNext() && !weaponToProfMap.isEmpty())
 		{
 			final String aChoice = it.next();
-			Iterator<weaponToProf>     innerIt = weaponToProfMap.getKeyIterator(aChoice);
+			Iterator<Categorisable>     innerIt = weaponToProfMap.getKeyIterator(aChoice);
 
 			while (innerIt.hasNext())
 			{

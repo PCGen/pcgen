@@ -38,5 +38,5 @@ public interface SponsorLstToken extends LstToken {
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(Map sponsor, String value);
+	public abstract boolean parse(Map<String, String> sponsor, String value);
 }

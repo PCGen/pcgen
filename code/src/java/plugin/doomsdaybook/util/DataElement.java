@@ -18,7 +18,7 @@ public interface DataElement
 	 * @return ArrayList
 	 * @throws Exception
 	 */
-	public ArrayList getData() throws Exception;
+	public ArrayList<DataValue> getData() throws Exception;
 
 	/**
 	 * Get data
@@ -26,7 +26,7 @@ public interface DataElement
 	 * @return ArrayList
 	 * @throws Exception
 	 */
-	public ArrayList getData(int choice) throws Exception;
+	public ArrayList<DataValue> getData(int choice) throws Exception;
 
 	/**
 	 * Get id
@@ -39,7 +39,7 @@ public interface DataElement
 	 * @return last data
 	 * @throws Exception
 	 */
-	public ArrayList getLastData() throws Exception;
+	public ArrayList<DataValue> getLastData() throws Exception;
 
 	/**
 	 * Get title

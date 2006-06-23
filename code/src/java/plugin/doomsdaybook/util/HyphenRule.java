@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class HyphenRule implements DataElement
 {
-	ArrayList retList = new ArrayList();
+	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 
 	/** Creates a new instance of SpaceRule */
 	public HyphenRule()
@@ -21,12 +21,12 @@ public class HyphenRule implements DataElement
 		retList.add(new DataValue("-"));
 	}
 
-	public ArrayList getData()
+	public ArrayList<DataValue> getData()
 	{
 		return retList;
 	}
 
-	public ArrayList getData(int choice)
+	public ArrayList<DataValue> getData(int choice)
 	{
 		return retList;
 	}
@@ -36,7 +36,7 @@ public class HyphenRule implements DataElement
 		return "-";
 	}
 
-	public ArrayList getLastData()
+	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
 	}
@@ -53,6 +53,6 @@ public class HyphenRule implements DataElement
 
 	public void trimToSize()
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 }

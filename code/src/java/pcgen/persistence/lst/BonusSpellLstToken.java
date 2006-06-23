@@ -41,5 +41,5 @@ public interface BonusSpellLstToken extends LstToken
 	 * @param value
 	 * @return true if successful
 	 */
-	public abstract boolean parse(Map bonus, String value);
+	public abstract boolean parse(Map<String, String> bonus, String value);
 }

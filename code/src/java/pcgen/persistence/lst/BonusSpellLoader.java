@@ -44,11 +44,11 @@ public final class BonusSpellLoader extends LstLineFileLoader
 	public static final String STAT_RANGE = "statRange";
 	/** Constant representing the level */
 	public static final String LEVEL = "level";
-	
+
 	/** Creates a new instance of PCStatLoader */
 	public BonusSpellLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -57,7 +57,7 @@ public final class BonusSpellLoader extends LstLineFileLoader
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);
-		Map bonus = new HashMap();
+		Map<String, String> bonus = new HashMap<String, String>();
 		bonus.put(BASE_STAT_SCORE, "0");
 		bonus.put(STAT_RANGE, "0");
 		bonus.put(LEVEL, "0");

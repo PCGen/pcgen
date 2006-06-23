@@ -74,7 +74,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 	 * @param aKit Kit
 	 * @param warnings List
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		alignInd = -1;
 		if (alignmentStr == null || Constants.s_NONESELECTED.equals(alignmentStr))
@@ -84,7 +84,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 
 		final String[] alignArray = SettingsHandler.getGame().getAlignmentListStrings(false);
 
-		List alignChoices = new ArrayList();
+		List<Integer> alignChoices = new ArrayList<Integer>();
 		final StringTokenizer aTok = new StringTokenizer(alignmentStr, "|");
 		while (aTok.hasMoreTokens())
 		{
@@ -92,7 +92,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 			try
 			{
 				int alignIndicator = Integer.parseInt(align);
-				alignChoices.add(new Integer(alignIndicator));
+				alignChoices.add(alignIndicator);
 			}
 			catch (NumberFormatException e)
 			{
@@ -100,7 +100,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 				{
 					if (align.equalsIgnoreCase(alignArray[i]))
 					{
-						alignChoices.add(new Integer(i));
+						alignChoices.add( i );
 						break;
 					}
 				}
@@ -117,27 +117,28 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 		}
 		if (alignChoices.size() == 1)
 		{
-			Integer intAlign = (Integer)alignChoices.get(0);
+			Integer intAlign = alignChoices.get(0);
 			alignInd = intAlign.intValue();
 		}
 		else
 		{
 			// Build the string list.
 			final String[] longAlignArray = SettingsHandler.getGame().getAlignmentListStrings(true);
-			List choices = new ArrayList(alignChoices.size());
-			for (Iterator i = alignChoices.iterator(); i.hasNext(); )
+			List<String> choices = new ArrayList<String>(alignChoices.size());
+
+			for ( int choice : alignChoices )
 			{
-				choices.add(longAlignArray[((Integer)i.next()).intValue()]);
+				choices.add( longAlignArray[choice] );
 			}
 
 			String align = null;
 			while (true)
 			{
-				List sel = new ArrayList(1);
+				List<String> sel = new ArrayList<String>(1);
 				Globals.getChoiceFromList("Choose alignment", choices, sel, 1);
 				if (sel.size() == 1)
 				{
-					align = (String)sel.get(0);
+					align = sel.get(0);
 				}
 				else
 				{
@@ -180,15 +181,17 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 		}
 
 		final String[] alignArray = SettingsHandler.getGame().getAlignmentListStrings(false);
-		List alignChoices = new ArrayList();
+		List<Integer> alignChoices = new ArrayList<Integer>();
+
 		final StringTokenizer aTok = new StringTokenizer(alignmentStr, "|");
+
 		while (aTok.hasMoreTokens())
 		{
 			String align = aTok.nextToken();
 			try
 			{
 				int alignIndicator = Integer.parseInt(align);
-				alignChoices.add(new Integer(alignIndicator));
+				alignChoices.add( alignIndicator );
 			}
 			catch (NumberFormatException e)
 			{
@@ -196,7 +199,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 				{
 					if (align.equalsIgnoreCase(alignArray[i]))
 					{
-						alignChoices.add(new Integer(i));
+						alignChoices.add( i );
 						break;
 					}
 				}
@@ -210,21 +213,18 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 		final String[] longAlignArray = SettingsHandler.getGame().getAlignmentListStrings(true);
 		if (alignChoices.size() == 1)
 		{
-			Integer intAlign = (Integer) alignChoices.get(0);
-			int a = intAlign.intValue();
-			return longAlignArray[a];
+			return longAlignArray[ alignChoices.get(0) ];
 		}
 		// Build the string list.
 		StringBuffer buf = new StringBuffer();
 		buf.append("One of (");
-		boolean first = true;
-		for (Iterator i = alignChoices.iterator(); i.hasNext(); )
+		for ( int i : alignChoices )
 		{
-			if (!first)
+			if (i != 0)
 			{
 				buf.append(", ");
 			}
-			buf.append(longAlignArray[((Integer)i.next()).intValue()]);
+			buf.append(longAlignArray[ i ]);
 		}
 		buf.append(")");
 		return buf.toString();

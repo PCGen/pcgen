@@ -45,7 +45,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	// Only change the UID when the serialized form of the class has also changed
 	private static final long serialVersionUID = 1;
 
-	private List eqMods = null;
+	private List<String> eqMods = null;
 	private String name = "";
 	private int maxCost = 0;
 	private String qty = "1";
@@ -73,7 +73,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	 * Get the equipmentt modifiers for this gear
 	 * @return The equipmentt modifiers for this gear
 	 */
-	public List getEqMods()
+	public List<String> getEqMods()
 	{
 		return eqMods;
 	}
@@ -130,7 +130,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	{
 		if (eqMods == null)
 		{
-			eqMods = new ArrayList();
+			eqMods = new ArrayList<String>();
 		}
 
 		eqMods.add(argEqMod);
@@ -201,7 +201,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 					info.append('/');
 				}
 
-				info.append( (String) eqMods.get(i));
+				info.append( eqMods.get(i) );
 			}
 
 			info.append(')');
@@ -212,9 +212,8 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 
 	private void processLookups(Kit aKit, PlayerCharacter aPC)
 	{
-		for (Iterator i = getLookups().iterator(); i.hasNext(); )
+		for ( String lookup : getLookups() )
 		{
-			final String lookup = (String) i.next();
 			final String colString = aKit.lookup(aPC, lookup);
 			processLookup(aKit, aPC, colString);
 		}
@@ -260,7 +259,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		}
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theEquipment = null;
 		theQty = 0;
@@ -276,7 +275,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		String eqName = name;
 		if (name.startsWith("TYPE=") || name.startsWith("TYPE."))
 		{
-			final List eqList = EquipmentList.getEquipmentOfType(
+			final List<Equipment> eqList = EquipmentList.getEquipmentOfType(
 				eqName.substring(5), "");
 			//
 			// Remove any that are too expensive
@@ -288,20 +287,19 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 				final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(
 					maximumCost));
 
-				for (Iterator i = eqList.iterator(); i.hasNext(); )
+				for (Iterator<Equipment> i = eqList.iterator(); i.hasNext(); )
 				{
-					if ( ( (Equipment) i.next()).getCost(aPC).compareTo(
-						bdMaxCost) > 0)
+					if ( i.next().getCost(aPC).compareTo(bdMaxCost) > 0 )
 					{
 						i.remove();
 					}
 				}
 			}
-			List selected = new ArrayList(1);
+			List<Equipment> selected = new ArrayList<Equipment>(1);
 			Globals.getChoiceFromList("Choose equipment", eqList, selected, 1);
 			if (selected.size() == 1)
 			{
-				theEquipment = (Equipment) selected.get(0);
+				theEquipment = selected.get(0);
 			}
 
 			//
@@ -320,7 +318,6 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-//		theEquipment.typeList();
 		theEquipment = (Equipment) theEquipment.clone();
 
 		//
@@ -366,12 +363,12 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		//
 		// Find and add any equipment modifiers
 		//
-		final List equipmentMods = getEqMods();
+		final List<String> equipmentMods = getEqMods();
 		if (equipmentMods != null)
 		{
 			for (int j = 0; j < equipmentMods.size(); ++j)
 			{
-				String eqModName = (String) equipmentMods.get(j);
+				String eqModName = equipmentMods.get(j);
 				eqModName = eval(aPC, eqModName);
 				theEquipment.addEqModifiers(eqModName, true);
 			}

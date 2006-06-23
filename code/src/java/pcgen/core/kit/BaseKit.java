@@ -31,6 +31,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 import java.util.Iterator;
+import pcgen.core.prereq.Prerequisite;
 
 /**
  * Common code for the kits.
@@ -40,9 +41,9 @@ import java.util.Iterator;
 public abstract class BaseKit implements Cloneable
 {
 	protected int choiceCount = 1;
-	private List prereqs = null;
-	private List options = new ArrayList();
-	private ArrayList lookups = new ArrayList();
+	private List<Prerequisite> prereqs = null;
+	private List<Range> options = new ArrayList<Range>();
+	private ArrayList<String> lookups = new ArrayList<String>();
 
 	/**
 	 * Set the number of choices (after converting to an integer.)
@@ -73,7 +74,7 @@ public abstract class BaseKit implements Cloneable
 	 * Get a list of the prereqs for the kit.
 	 * @return the list of prereqs.
 	 */
-	public List getPrereqs()
+	public List<Prerequisite> getPrereqs()
 	{
 		return prereqs;
 	}
@@ -82,11 +83,11 @@ public abstract class BaseKit implements Cloneable
 	 * Add a prereq for the kit.
 	 * @param argPrereq the prereq to add
 	 */
-	public void addPreReq(final String argPrereq)
+	public void addPreReq(final Prerequisite argPrereq)
 	{
 		if (prereqs == null)
 		{
-			prereqs = new ArrayList();
+			prereqs = new ArrayList<Prerequisite>();
 		}
 
 		prereqs.add(argPrereq);
@@ -102,10 +103,10 @@ public abstract class BaseKit implements Cloneable
 	}
 
 	/**
-	 * Get an unmodifiable copy of the lookups list 
+	 * Get an unmodifiable copy of the lookups list
 	 * @return an unmodifiable copy of the lookups list
 	 */
-	public List getLookups()
+	public List<String> getLookups()
 	{
 		return Collections.unmodifiableList(lookups);
 	}
@@ -121,10 +122,19 @@ public abstract class BaseKit implements Cloneable
 		{
 			// This will never happen
 		}
-		aClone.prereqs = prereqs;
+		if ( prereqs != null )
+		{
+			aClone.prereqs = new ArrayList<Prerequisite> (prereqs);
+		}
 		aClone.choiceCount = choiceCount;
-		aClone.options = options;
-
+		if ( options != null )
+		{
+			aClone.options = new ArrayList<Range> (options);
+		}
+		if ( lookups != null )
+		{
+			aClone.lookups = new ArrayList<String> (lookups);
+		}
 		return aClone;
 	}
 
@@ -150,9 +160,8 @@ public abstract class BaseKit implements Cloneable
 		{
 			return true;
 		}
-		for (Iterator i = options.iterator(); i.hasNext(); )
+		for ( Range r : options )
 		{
-			Range r = (Range)i.next();
 			if (r.isIn(pc, val))
 			{
 				return true;
@@ -231,7 +240,7 @@ public abstract class BaseKit implements Cloneable
 	 * @param warnings A list of warnings generated while attempting to apply the kit
 	 * @return true if OK
 	 */
-	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings);
+	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings);
 
 	/**
 	 * Apply Kit

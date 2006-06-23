@@ -98,11 +98,11 @@ public class KitBio extends BaseKit
 	 *   apply the kit
 	 * @return true if OK
 	 */
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		if (theGender != null)
 		{
-			ArrayList genders = new ArrayList();
+			ArrayList<String> genders = new ArrayList<String>();
 
 			StringTokenizer tok = new StringTokenizer(theGender, "|");
 			while (tok.hasMoreTokens())
@@ -112,11 +112,11 @@ public class KitBio extends BaseKit
 			}
 			if (genders.size() > 1)
 			{
-				List selList = new ArrayList(1);
+				List<String> selList = new ArrayList<String>(1);
 				Globals.getChoiceFromList("Choose Gender", genders, selList, 1);
 				if (selList.size() == 1)
 				{
-					theGender = (String)selList.get(0);
+					theGender = selList.get(0);
 				}
 			}
 		}

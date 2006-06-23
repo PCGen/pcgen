@@ -508,7 +508,7 @@ public class DamageReduction implements Comparable, Cloneable
 	 */
 	private static List<DamageReduction> processList(List<DamageReduction> andList, List<DamageReduction> orList)
 	{
-		ArrayList<DamageReduction> ret = new ArrayList<DamageReduction>();
+		List<DamageReduction> ret = new ArrayList<DamageReduction>();
 		HashMap<String, DamageReduction> lookup = new HashMap<String, DamageReduction>();
 		for (Iterator<DamageReduction> i = andList.iterator(); i.hasNext(); )
 		{

@@ -19,12 +19,11 @@
  */
 package pcgen.core.prereq;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.PropertyFactory;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author frugal@purplewombat.co.uk
@@ -68,10 +67,9 @@ public class Prerequisite implements Cloneable
 		this.levelQualifier = that.levelQualifier;
 		if (that.prerequisites != null)
 		{
-			for (Iterator itr = that.prerequisites.iterator(); itr.hasNext();)
+			for ( Prerequisite otherReq : that.prerequisites )
 			{
-				final Prerequisite foo = (Prerequisite) itr.next();
-				this.addPrerequisite(new Prerequisite(foo));
+				this.addPrerequisite(new Prerequisite(otherReq));
 			}
 		}
 	}
@@ -187,7 +185,7 @@ public class Prerequisite implements Cloneable
 		prerequisites.add(prereq);
 	}
 
-	public List getPrerequisites()
+	public List<Prerequisite> getPrerequisites()
 	{
 		return prerequisites;
 	}
@@ -273,10 +271,9 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites.size() > 0)
 		{
-			for (Iterator iter = prerequisites.iterator(); iter.hasNext();)
+			for ( Prerequisite prereq : prerequisites )
 			{
-				final Prerequisite element = (Prerequisite) iter.next();
-				buf.append(element.toString());
+				buf.append(prereq.toString());
 			}
 		}
 
@@ -350,9 +347,8 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			for (Iterator iter = prerequisites.iterator(); iter.hasNext();)
+			for ( Prerequisite subreq : prerequisites )
 			{
-				final Prerequisite subreq = (Prerequisite) iter.next();
 				subreq.expandToken(token, tokenValue);
 			}
 		}
@@ -417,10 +413,9 @@ public class Prerequisite implements Cloneable
 		if (prerequisites.size() > 0 && !shortForm)
 		{
 			buf.append(" ("); //$NON-NLS-1$
-			for (Iterator iter = prerequisites.iterator(); iter.hasNext();)
+			for ( Prerequisite subreq : prerequisites )
 			{
-				final Prerequisite element = (Prerequisite) iter.next();
-				buf.append(element.getDescription(shortForm));
+				buf.append(subreq.getDescription(shortForm));
 			}
 			buf.append(')'); //$NON-NLS-1$
 		}

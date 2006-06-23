@@ -44,11 +44,11 @@ import pcgen.util.chooser.ChooserInterface;
 /**
  * Abstract Categorisable Choice Manager
  */
-public abstract class AbstractCategorisableChoiceManager<T extends Categorisable> extends
-		AbstractComplexChoiceManager<T> implements ChoiceManagerCategorisable<T> {
+public abstract class AbstractCategorisableChoiceManager extends
+		AbstractComplexChoiceManager<Categorisable> implements ChoiceManagerCategorisable {
 
-	HashMap<String, T> nameMap    = new HashMap<String, T>();
-	HashMap<String, T> catMap     = new HashMap<String, T>();
+	HashMap<String, Categorisable> nameMap    = new HashMap<String, Categorisable>();
+	HashMap<String, Categorisable> catMap     = new HashMap<String, Categorisable>();
 	boolean useNameMap = true;
 
 
@@ -88,10 +88,10 @@ public abstract class AbstractCategorisableChoiceManager<T extends Categorisable
 	 * @param selectedList
 	 * @return an empty list
 	 */
-	public List<T> doChooser (
+	public List<Categorisable> doChooser (
 			PlayerCharacter aPc,
-			final List<T>      availableList,
-			final List<T>      selectedList)
+			final List<Categorisable>      availableList,
+			final List<Categorisable>      selectedList)
 	{
 		Logging.errorPrint("Wrong doChooser called, there is a bug somewhere" );
 		return Collections.emptyList();
@@ -106,9 +106,9 @@ public abstract class AbstractCategorisableChoiceManager<T extends Categorisable
 	 * @param previousSelections
 	 * @return a list of the categorisable objects chosen
 	 */
-	public List<T> doChooser (
-			final CategorisableStore<T> 	store,
-			final List<T>					previousSelections)
+	public List doChooser (
+			final CategorisableStore 	store,
+			final List previousSelections)
 		{
 
 		if (requestedSelections < 0)
@@ -134,7 +134,7 @@ public abstract class AbstractCategorisableChoiceManager<T extends Categorisable
 
 		boolean showChooser = true;
 
-		for (Iterator<T> abIt = store.getKeyIterator("ALL"); abIt.hasNext();)
+		for (Iterator<Categorisable> abIt = store.getKeyIterator("ALL"); abIt.hasNext();)
 		{
 			addToMaps(abIt.next());
 		}
@@ -150,9 +150,9 @@ public abstract class AbstractCategorisableChoiceManager<T extends Categorisable
 		 * access those in the relevant name or category map.  That is,
 		 * convert them into the format that will be returned by the chooser */
 
-		for (Iterator<T> abIt = previousSelections.iterator(); abIt.hasNext();)
+		for (Iterator<Categorisable> abIt = previousSelections.iterator(); abIt.hasNext();)
 		{
-			T Info = abIt.next();
+			Categorisable Info = abIt.next();
 
 			if (store.getKeyed(Info.getCategory(), Info.getKeyName()) != null) {
 				selectedList.add(
@@ -200,12 +200,12 @@ public abstract class AbstractCategorisableChoiceManager<T extends Categorisable
 			break;
 		}
 
-		List<T> chosen = new ArrayList<T>();
+		List<Categorisable> chosen = new ArrayList<Categorisable>();
 
 		for (Iterator<String> abIt = chooser.getSelectedList().iterator(); abIt.hasNext();)
 		{
 			final String  choice = abIt.next();
-			T Info = this.useNameMap ?
+			Categorisable Info = this.useNameMap ?
 				this.nameMap.get(choice):
 				this.catMap.get(choice);
 
@@ -223,7 +223,7 @@ public abstract class AbstractCategorisableChoiceManager<T extends Categorisable
 	 * @param categorisableObj
 	 */
 	protected void addToMaps(
-			T categorisableObj)
+			Categorisable categorisableObj)
 	{
 		Categorisable current = nameMap.put(categorisableObj.getKeyName(), categorisableObj);
 		catMap.put(categorisableObj.getCategory() + " " + categorisableObj.getKeyName(), categorisableObj);

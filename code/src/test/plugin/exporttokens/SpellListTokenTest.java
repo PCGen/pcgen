@@ -35,6 +35,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
+import pcgen.core.prereq.Prerequisite;
 
 /**
  * <code>SpellListTokenTest</code> is ...
@@ -100,7 +101,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
 		divineClass.setCastMap(1, "4,2,1");
-		divineClass.getSpellSupport().addSpellLevel("CLASS", "SPELLCASTER.Divine", "Cure Light Wounds", "1", new ArrayList());
+		divineClass.getSpellSupport().addSpellLevel("CLASS", "SPELLCASTER.Divine", "Cure Light Wounds", "1", new ArrayList<Prerequisite>());
 		Globals.getClassList().add(divineClass);
 	}
 

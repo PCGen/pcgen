@@ -42,47 +42,9 @@ public abstract class KitLstToken implements LstToken
 	 * @param aKit the Kit object to add this information to
 	 * @param value the token string
 	 * @return true if parse OK
-	 * @throws PersistenceLayerException 
+	 * @throws PersistenceLayerException
 	 */
 	public abstract boolean parse(Kit aKit, String value)
 		throws PersistenceLayerException;
 
-	protected boolean parseCommonTags(BaseKit obj, final String tag)
-	{
-		if (tag.startsWith("PRE") || tag.startsWith("!PRE"))
-		{
-			obj.addPreReq(tag);
-			return true;
-		}
-		else if (tag.startsWith("OPTION:"))
-		{
-			String optString = tag.substring(7);
-			StringTokenizer tok = new StringTokenizer(optString, "|");
-			while (tok.hasMoreTokens())
-			{
-				String val = tok.nextToken();
-				int ind = -1;
-				String lowVal;
-				String highVal;
-				if ((ind = val.indexOf(",")) != -1)
-				{
-					lowVal = val.substring(0, ind);
-					highVal = val.substring(ind + 1);
-				}
-				else
-				{
-					lowVal = highVal = val;
-				}
-				obj.addOptionRange(lowVal, highVal);
-			}
-			return true;
-		}
-		else if (tag.startsWith("LOOKUP:"))
-		{
-			obj.addLookup(tag.substring(7));
-			return true;
-		}
-
-		return false;
-	}
 }

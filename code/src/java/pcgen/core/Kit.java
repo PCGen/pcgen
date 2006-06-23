@@ -57,13 +57,13 @@ public final class Kit extends PObject implements Comparable
 	public static final int APPLY_INSTANT   = 1;
 
 	private int       kitVisible     = VISIBLE_YES;
-	private final List theObjects = new ArrayList();
+	private final List<BaseKit> theObjects = new ArrayList<BaseKit>();
 
-	private final HashMap lookupTables = new HashMap();
+	private final HashMap<String, LookupTable> lookupTables = new HashMap<String, LookupTable>();
 
-	private List      statList       = new ArrayList();
-	private String    buyRate        = null;
-	private String    region         = Constants.s_NONE;
+	private List<KitStat> statList = new ArrayList<KitStat>();
+	private QualifiedObject<String> buyRate = null;
+	private String region         = Constants.s_NONE;
 	private int applyMode = APPLY_PERMANENT;
 
 	private int selectValue = -1;
@@ -87,10 +87,10 @@ public final class Kit extends PObject implements Comparable
 			if (!region.equalsIgnoreCase(Constants.s_NONE))
 			{
 				// Add a real prereq for the REGION: tag
-				List prereqList = getPreReqList();
+				List<Prerequisite> prereqList = getPreReqList();
 				if (prereqList == null)
 				{
-					prereqList = new ArrayList();
+					prereqList = new ArrayList<Prerequisite>();
 				}
 				Prerequisite r = null;
 				try
@@ -143,7 +143,7 @@ public final class Kit extends PObject implements Comparable
 	 */
 	public void setBuyRate(final String argRate)
 	{
-		buyRate = argRate;
+		buyRate = QualifiedObject.createQualifiedObject( argRate, '[');
 	}
 
 	/**
@@ -152,23 +152,9 @@ public final class Kit extends PObject implements Comparable
 	 * @return List the List of stats to be set by the kit.  The stats are
 	 * wrapped in a KitStat object.
 	 */
-	public List getStats()
+	public List<KitStat> getStats()
 	{
 		return statList;
-	}
-
-	/**
-	 * Sets the name of the kit.
-	 *
-	 * @param  argName  the kit name
-	 */
-	public void setName(final String argName)
-	{
-		if (!argName.endsWith(".MOD"))
-		{
-			displayName = argName;
-			keyName = region + "|" + argName;
-		}
 	}
 
 	/**
@@ -259,7 +245,7 @@ public final class Kit extends PObject implements Comparable
 		{
 			if (statList == null)
 			{
-				statList = new ArrayList();
+				statList = new ArrayList<KitStat>();
 			}
 			statList.add(kitStat);
 		}
@@ -293,7 +279,7 @@ public final class Kit extends PObject implements Comparable
 	 * @param  thingsToAdd  The list of things that will be added by this kit
 	 *                      wrapped in KitWrapper objects
 	 */
-	public void processKit(final PlayerCharacter pc, final List thingsToAdd)
+	public void processKit(final PlayerCharacter pc, final List<BaseKit> thingsToAdd)
 	{
 		processKit(pc, thingsToAdd, -1);
 	}
@@ -311,24 +297,16 @@ public final class Kit extends PObject implements Comparable
 	 */
 	public void processKit(
 		final PlayerCharacter pc,
-		final List            thingsToAdd,
+		final List<BaseKit>            thingsToAdd,
 		final int             kitNo)
 	{
-//		if (characterName != null)
-//		{
-//			pc.setName(characterName);
-//		}
-
-		for (Iterator s = statList.iterator(); s.hasNext(); )
+		for ( KitStat kStat : statList )
 		{
-			KitStat kStat = (KitStat)s.next();
 			kStat.apply(pc);
 		}
 
-		for (Iterator e = thingsToAdd.iterator(); e.hasNext();)
+		for ( BaseKit bk : thingsToAdd )
 		{
-			Object obj = e.next();
-			BaseKit bk = (BaseKit)obj;
 			bk.apply(pc);
 		}
 
@@ -351,114 +329,17 @@ public final class Kit extends PObject implements Comparable
 	public int getBuyRate(PlayerCharacter aPC)
 	{
 		int aBuyRate = SettingsHandler.getGearTab_BuyRate();
-		final String purchaseFormula = buyRate;
+		final QualifiedObject<String> purchaseFormula = buyRate;
 
-		if ((purchaseFormula != null) && (purchaseFormula.length() != 0))
+		if (purchaseFormula != null)
 		{
-			final String costFormula = getCostFromFormula(aPC, purchaseFormula);
-
-			if (costFormula != null)
+			if ( purchaseFormula.qualifies( aPC ) )
 			{
-				aBuyRate = aPC.getVariableValue(costFormula, "").intValue();
+				aBuyRate = aPC.getVariableValue(purchaseFormula.getObject( aPC ), "").intValue();
 			}
 		}
 		return aBuyRate;
 	}
-
-	/**
-	 * Processes a formula string which may have prerequisites to return just
-	 * the formula.  If there are no prerequisites, or the prerequisites that
-	 * are there pass, the Formula will be passed back.  If there is no formula,
-	 * or the prerequisites fail, null will be passed back. Takes a string
-	 * representing a formula to calculate the buyrate of equipment in this kit.
-	 *
-	 * @param   pc       A Player Character object, will be used to test
-	 *                   prerequisites against and look up the value of
-	 *                   variables i.e. the PC we will be applying the kit to.
-	 * @param   formula  A string representing a formula that will be used to
-	 *                   calculate the buy rate of equipment in this kit. The
-	 *                   formula may have prerequisites enclosed in [] attached
-	 *                   to the end.
-	 *
-	 * @return  The cost formula if it passed any prerequisites that were
-	 *          attached to it. null otherwise.
-	 */
-	private String getCostFromFormula(final PlayerCharacter pc, final String formula)
-	{
-		final StringTokenizer aTok        = new StringTokenizer(formula, "[]", true);
-		String                costFormula = null;
-
-		while (aTok.hasMoreTokens())
-		{
-			final String tok = aTok.nextToken();
-
-			if ("]".equals(tok))
-			{
-				costFormula = null;
-			}
-			else
-			{
-				if (costFormula == null)
-				{
-					costFormula = tok;
-				}
-				else
-				{
-					final List al = new ArrayList();
-					al.add(tok);
-
-					if (!PrereqHandler.passesAll(al, pc, this))
-					{
-						costFormula = null;
-
-						continue;
-					}
-
-					break;
-				}
-			}
-		}
-
-		return costFormula;
-	}
-
-	/**
-	 * Most things (Skills, Equipment, Abilities, Spells, Weapon Profs) that can be
-	 * added with Kits take prerequisites.  They will only be added if the pc we
-	 * are adding the kit to meets the prerequisites. This routine performs the
-	 * checks.  It there are no checks associated with this item, or the checks
-	 * pass, the itemname (with prerequisites stripped) is passed back.  If the
-	 * checks fail, the method returns null.
-	 *
-	 * @param   aString  "Item name[PRE1|PRE2|...|PREn]"
-	 * @param   pc       The pc that will be used for the checks (i.e. the pc
-	 *                   the kit will be added to).
-	 *
-	 * @return  "Item name" or null
-	 */
-/*
-	private String itemPassesPrereqs(String aString, final PlayerCharacter pc)
-	{
-		final int idxStart = aString.indexOf('[');
-
-		if ((idxStart < 0) || !aString.endsWith("]"))
-		{
-			return aString;
-		}
-
-		final String itemName = aString.substring(0, idxStart);
-		aString = aString.substring(idxStart + 1, aString.length() - 1);
-
-		final List prereqList = CoreUtility.split(aString, '|');
-
-		if (PrereqHandler.passesAll(prereqList, pc, this))
-		{
-			return itemName;
-		}
-
-		return null;
-	}
-*/
 
 	/**
 	 * Returns true if the kit is visible
@@ -472,7 +353,7 @@ public final class Kit extends PObject implements Comparable
 	{
 		if (kitVisible == VISIBLE_QUALIFIED)
 		{
-			final List prereqList = getPreReqList();
+			final List<Prerequisite> prereqList = getPreReqList();
 
 			if (PrereqHandler.passesAll(prereqList, aPC, this))
 			{
@@ -517,25 +398,24 @@ public final class Kit extends PObject implements Comparable
 	 * @param thingsToAdd List
 	 * @param warnings List
 	 */
-	public void testApplyKit(PlayerCharacter aPC, List thingsToAdd, List warnings)
+	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd, List<String> warnings)
 	{
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
 		PlayerCharacter tempPC = (PlayerCharacter)aPC.clone();
-		for (Iterator s = statList.iterator(); s.hasNext(); )
+		for ( KitStat kStat : statList )
 		{
-			KitStat kStat = (KitStat) s.next();
 			kStat.testApply(this, tempPC, warnings);
 		}
 
-		for (Iterator i = theObjects.iterator(); i.hasNext(); )
+		for ( BaseKit baseKit : theObjects )
 		{
-			BaseKit bk = (BaseKit)((BaseKit)i.next()).clone();
-			if (!PrereqHandler.passesAll(bk.getPrereqs(), tempPC, this))
+			if (!PrereqHandler.passesAll(baseKit.getPrereqs(), tempPC, this))
 			{
 				continue;
 			}
+			BaseKit bk = (BaseKit)baseKit.clone();
 			if (selectValue != -1 && !bk.isOption(tempPC, selectValue))
 			{
 				continue;
@@ -547,20 +427,13 @@ public final class Kit extends PObject implements Comparable
 		}
 	}
 
-	private class ObjectTypeComparator implements Comparator
+	private class ObjectTypeComparator implements Comparator<BaseKit>
 	{
-		public int compare(Object o1, Object o2)
+		public int compare(BaseKit bk1, BaseKit bk2)
 		{
-			BaseKit bk1 = (BaseKit)o1;
-			BaseKit bk2 = (BaseKit)o2;
 			String name1 = bk1.getObjectName();
 			String name2 = bk2.getObjectName();
 			return name1.compareTo(name2);
-		}
-
-		public boolean equals(Object obj)
-		{
-			return compare(this, obj) == 0;
 		}
 	}
 
@@ -582,14 +455,13 @@ public final class Kit extends PObject implements Comparable
 			info.append("  <b>Requirements</b>: ").append(aString);
 		}
 
-		List sortedObjects = new ArrayList();
+		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
 		sortedObjects.addAll(theObjects);
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
 		String lastObjectName = "";
-		for (Iterator i = sortedObjects.iterator(); i.hasNext(); )
+		for ( BaseKit bk : sortedObjects )
 		{
-			BaseKit bk = (BaseKit)i.next();
 			String objName = bk.getObjectName();
 			if (!objName.equals(lastObjectName))
 			{
@@ -634,7 +506,7 @@ public final class Kit extends PObject implements Comparable
 	 */
 	public void addLookupValue(final String tableName, final String lookupValue, final String lowVal, final String highVal)
 	{
-		LookupTable table = (LookupTable)lookupTables.get(tableName);
+		LookupTable table = lookupTables.get(tableName);
 		table.addEntry(lookupValue, lowVal, highVal);
 	}
 
@@ -647,7 +519,7 @@ public final class Kit extends PObject implements Comparable
 	 */
 	public String getTableValue(PlayerCharacter pc, final String tableName, String value)
 	{
-		LookupTable t = (LookupTable)lookupTables.get(tableName);
+		LookupTable t = lookupTables.get(tableName);
 		if (t == null)
 		{
 			return "";
@@ -673,7 +545,7 @@ public final class Kit extends PObject implements Comparable
 
 	class LookupTable
 	{
-		ArrayList values = new ArrayList();
+		ArrayList<TableEntry> values = new ArrayList<TableEntry>();
 
 		/**
 		 * Constructor
@@ -702,12 +574,11 @@ public final class Kit extends PObject implements Comparable
 		 */
 		public String getEntry(PlayerCharacter pc, int value)
 		{
-			for (Iterator i = values.iterator(); i.hasNext(); )
+			for ( TableEntry entry : values )
 			{
-				TableEntry e = (TableEntry)i.next();
-				if (e.isIn(pc, value))
+				if (entry.isIn(pc, value))
 				{
-					return e.getValue();
+					return entry.getValue();
 				}
 			}
 			return "";
@@ -756,5 +627,22 @@ public final class Kit extends PObject implements Comparable
 				return value;
 			}
 		}
+	}
+	public static void applyKit( final Kit aKit, final PlayerCharacter aPC )
+	{
+		if ( aKit == null )
+		{
+			return;
+		}
+		if ( aKit.getApplyMode() == APPLY_PERMANENT
+		  && aPC.getKitInfo().contains(aKit) )
+		{
+			return;
+		}
+
+		final List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
+		final List<String> warnings = new ArrayList<String>();
+		aKit.testApplyKit(aPC, thingsToAdd, warnings);
+		aKit.processKit(aPC, thingsToAdd, 0);
 	}
 }

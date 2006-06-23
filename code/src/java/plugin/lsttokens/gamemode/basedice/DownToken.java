@@ -14,7 +14,7 @@ public class DownToken implements BaseDiceLstToken {
 		return "DOWN";
 	}
 
-	public boolean parse(Map baseDice, String value) {
+	public boolean parse(Map<String, String> baseDice, String value) {
 		baseDice.put(BaseDiceLoader.DOWN, value);
 		return true;
 	}

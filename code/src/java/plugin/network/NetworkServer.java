@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 
 public class NetworkServer extends Thread {
 	private NetworkModel model;
-	private static List clients = new ArrayList();
+	private static List<String> clients = new ArrayList<String>();
 	boolean run = true;
 	protected ServerSocket sock;
 
@@ -131,8 +131,8 @@ public class NetworkServer extends Thread {
 	}
 
 	private String handleUserMessage(String message) throws Exception {
-		for(int i = 0; i < clients.size(); i++) {
-			String test = (String)clients.get(i);
+		for ( String test : clients )
+		{
 			if(test.equals(message)) {
 				throw new Exception("User with the name of " + message + " already connected.  Go to Edit->Preferences in GMGen.  Under the network folder, set the User Name to a different value.");
 			}
@@ -148,7 +148,7 @@ public class NetworkServer extends Thread {
 	private void handleExitMessage(String user) throws Exception {
 		model.log(user, "Network", "Disconnected");
 		for(int i = 0; i < clients.size(); i++) {
-			String test = (String)clients.get(i);
+			String test = clients.get(i);
 			if(test.equals(user)) {
 				clients.remove(test);
 				break;

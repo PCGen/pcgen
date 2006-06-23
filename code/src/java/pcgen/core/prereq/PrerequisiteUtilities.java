@@ -49,7 +49,7 @@ public final class PrerequisiteUtilities
 		// Don't allow instantiation of utility class
 	}
 
-	public static final String preReqHTMLStringsForList(final PlayerCharacter aPC, final PObject aObj, final List aList, final boolean includeHeader)
+	public static final String preReqHTMLStringsForList(final PlayerCharacter aPC, final PObject aObj, final List<Prerequisite> aList, final boolean includeHeader)
 	{
 		if ((aList == null) || aList.isEmpty())
 		{
@@ -58,15 +58,14 @@ public final class PrerequisiteUtilities
 
 		final StringBuffer pString = new StringBuffer(aList.size() * 20);
 
-		final List newList = new ArrayList();
+		final List<Prerequisite> newList = new ArrayList<Prerequisite>();
 		int iter = 0;
 
-		for (Iterator e = aList.iterator(); e.hasNext();)
+		for ( Prerequisite prereq : aList )
 		{
 			newList.clear();
-			final Prerequisite p = (Prerequisite) e.next();
 
-			newList.add(p);
+			newList.add(prereq);
 
 			if (iter++ > 0)
 			{

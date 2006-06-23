@@ -33,7 +33,7 @@ import java.util.Comparator;
  *@since    April 7, 2003
  *@version $Revision$
  */
-public class InitHolderComperator implements Comparator
+public class InitHolderComperator implements Comparator<InitHolder>
 {
 	/**
 	 *  Description of the Method
@@ -42,10 +42,10 @@ public class InitHolderComperator implements Comparator
 	 *@param  o2  Object 2 to compare
 	 *@return     the comparion between the two (in java.util.Comperator format)
 	 */
-	public int compare(Object o1, Object o2)
+	public int compare(InitHolder o1, InitHolder o2)
 	{
-		InitHolder i1 = (InitHolder) o1;
-		InitHolder i2 = (InitHolder) o2;
+		InitHolder i1 = o1;
+		InitHolder i2 = o2;
 		SystemInitiative init1 = i1.getInitiative();
 		SystemInitiative init2 = i2.getInitiative();
 		Integer initval1 = new Integer(init1.getCurrentInitiative());

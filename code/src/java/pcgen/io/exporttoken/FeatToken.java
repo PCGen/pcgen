@@ -104,7 +104,7 @@ public class FeatToken extends Token {
 				{
 					if (typeInd > 0)
 					{
-						types.add(typeStr.substring(typeInd + 5));						
+						types.add(typeStr.substring(typeInd + 5));
 					}
 					else
 					{
@@ -159,7 +159,7 @@ public class FeatToken extends Token {
 			}
 
 			matchTypeDef = matchTypeDef && istype && isnttype;
-			
+
 			if ((aFeat.getVisible() == Ability.VISIBILITY_HIDDEN) || (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY)) {
 				// never display hidden feats unless asked for directly
 				if (visibility == FEAT_HIDDEN) {
@@ -227,10 +227,10 @@ public class FeatToken extends Token {
 	 * @param pc the character who's feats we are retrieving.
 	 * @return List of feats.
 	 */
-	protected List getFeatList(PlayerCharacter pc)
+	protected List<Ability> getFeatList(PlayerCharacter pc)
 	{
-		List featList = new ArrayList();
-		Iterator anIt = pc.getRealFeatsIterator();
+		List<Ability> featList = new ArrayList<Ability>();
+		Iterator<Ability> anIt = pc.getRealFeatsIterator();
 		while (anIt.hasNext()) {
 			featList.add(anIt.next());
 		}

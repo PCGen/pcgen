@@ -27,7 +27,7 @@ public class SourcewebLst implements GlobalLstToken, SourceLstToken {
 		return true;
 	}
 
-	public boolean parse(Map sourceMap, String value) {
+	public boolean parse(Map<String, String> sourceMap, String value) {
 		sourceMap.putAll(SourceLoader.parseSource("SOURCEWEB:" + value));
 		return true;
 	}

@@ -1186,6 +1186,16 @@ public final class Skill extends PObject
 		return buffer.toString();
 	}
 
+	/**
+	 * Is this skill a class skill for any class possessed by this character.
+	 * @param aPC PlayerCharacter
+	 * @return true if this is a class skill
+	 */
+	public boolean isClassSkill( final PlayerCharacter aPC )
+	{
+		return isClassSkill( aPC.getClassList(), aPC );
+	}
+
 	boolean isClassSkill(final List<PCClass> aList, final PlayerCharacter aPC)
 	{
 		for ( PCClass pcClass : aList )
@@ -1428,7 +1438,7 @@ public final class Skill extends PObject
 					c.setPoolFlag(false);
 					c.setAvailableList(aArrayList);
 
-					final List s = new ArrayList();
+					final List<String> s = new ArrayList<String>();
 					addAssociatedTo(s);
 					c.setSelectedList(s);
 					c.setVisible(true);

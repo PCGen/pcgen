@@ -18,7 +18,7 @@ public class PantheonToken implements DeityLstToken{
 	public boolean parse(Deity deity, String value) {
 		if(value.length() > 0) {
 			String[] pantheons = value.split("\\|");
-			List pantheonList = CoreUtility.arrayToList(pantheons);
+			List<String> pantheonList = CoreUtility.arrayToList(pantheons);
 			deity.setPantheonList(pantheonList);
 			return true;
 		}

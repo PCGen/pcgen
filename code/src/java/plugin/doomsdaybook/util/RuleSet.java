@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class RuleSet extends ArrayList implements DataElement
 {
-	ArrayList retList = new ArrayList();
+	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 	Rule retRule;
 	String id;
 	String title;
@@ -59,7 +59,7 @@ public class RuleSet extends ArrayList implements DataElement
 		this.usage = usage;
 	}
 
-	public ArrayList getData() throws Exception
+	public ArrayList<DataValue> getData() throws Exception
 	{
 		retList.clear();
 
@@ -107,7 +107,7 @@ public class RuleSet extends ArrayList implements DataElement
 		return retList;
 	}
 
-	public ArrayList getData(int choice) throws Exception
+	public ArrayList<DataValue> getData(int choice) throws Exception
 	{
 		retList.clear();
 
@@ -147,7 +147,7 @@ public class RuleSet extends ArrayList implements DataElement
 		return id;
 	}
 
-	public ArrayList getLastData()
+	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
 	}

@@ -54,8 +54,8 @@ public class SpellProhibitor {
 	public final static int TYPE_SCHOOL = 2;
 
 	private int type = TYPE_UNDEFINED;
-	private List valueList = null;
-	private List prereqList = null;
+	private List<String> valueList = null;
+	private List<Prerequisite> prereqList = null;
 
 	public SpellProhibitor(String prohibitString)
 	{
@@ -99,7 +99,7 @@ public class SpellProhibitor {
 							{
 								if (valueList == null)
 								{
-									valueList = new ArrayList();
+									valueList = new ArrayList<String>();
 								}
 								valueList.add(aValue);
 							}
@@ -118,7 +118,7 @@ public class SpellProhibitor {
 	{
 		if (prereqList == null)
 		{
-			prereqList = new ArrayList();
+			prereqList = new ArrayList<Prerequisite>();
 		}
 
 		if (!prereqList.contains(prereq))
@@ -127,7 +127,7 @@ public class SpellProhibitor {
 		}
 	}
 
-	public List getPrereqList()
+	public List<Prerequisite> getPrereqList()
 	{
 		return prereqList;
 	}
@@ -137,7 +137,7 @@ public class SpellProhibitor {
 		return type;
 	}
 
-	public List getValueList()
+	public List<String> getValueList()
 	{
 		return valueList;
 	}

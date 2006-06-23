@@ -64,12 +64,12 @@ public final class EquipmentModifier extends PObject implements Comparable
 	private static final int NAMINGOPTION_TEXT    = 5;
 
 	private static final String s_CHARGES           = "CHARGES";
-	private List                ignores             = new ArrayList();
+	private List<String>                ignores             = new ArrayList<String>();
 	private List<String>                itemType            = new ArrayList<String>();
-	private List                replaces            = new ArrayList();
+	private List<String>                replaces            = new ArrayList<String>();
 	private List<SpecialProperty>                specialPropertyList = new ArrayList<SpecialProperty>();
-	private List                vFeatList           = null; // virtual feat list
-	private List                armorType           = new ArrayList();
+	private List<String>                vFeatList           = null; // virtual feat list
+	private List<String>                armorType           = new ArrayList<String>();
 	private String              cost                = "0";
 	private String              preCost             = "0";
 	private String              proficiency         = "";
@@ -245,11 +245,9 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 */
 	public boolean getBonusListString(final String aString)
 	{
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if (aBonus.getBonusInfo().equalsIgnoreCase(aString))
+			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
 			{
 				return true;
 			}
@@ -582,13 +580,12 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 * Get raw special properties
 	 * @return raw special properties
 	 */
-	public List getRawSpecialProperties()
+	public List<String> getRawSpecialProperties()
 	{
-		final List retList = new ArrayList();
+		final List<String> retList = new ArrayList<String>();
 
-		for (int i = 0; i < specialPropertyList.size(); i++)
+		for ( SpecialProperty sprop : specialPropertyList )
 		{
-			final SpecialProperty sprop = (SpecialProperty) specialPropertyList.get(i);
 			retList.add(sprop.getText());
 		}
 
@@ -656,7 +653,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 		final String  spellType,
 		final int     spellLevel,
 		final int     spellCasterLevel,
-		final Object  spellMetamagicFeats[],
+		final Ability  spellMetamagicFeats[],
 		final int     charges)
 	{
 		final StringBuffer spellInfo = new StringBuffer(100);
@@ -686,7 +683,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 			for (int i = 0; i < spellMetamagicFeats.length; i++)
 			{
-				final Ability aFeat = (Ability) spellMetamagicFeats[i];
+				final Ability aFeat = spellMetamagicFeats[i];
 
 				if (i != 0)
 				{
@@ -735,7 +732,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 		{
 			if (vFeatList == null)
 			{
-				vFeatList = new ArrayList();
+				vFeatList = new ArrayList<String>();
 			}
 
 			vFeatList.add(aTok.nextToken());
@@ -766,18 +763,17 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 */
 	public void calcBonuses()
 	{
-		final List addList = new ArrayList();
-		final List delList = new ArrayList();
+		final List<BonusObj> addList = new ArrayList<BonusObj>();
+		final List<BonusObj> delList = new ArrayList<BonusObj>();
 
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus  = (BonusObj) ab.next();
-			final String   aString = aBonus.toString();
+			final String   aString = bonus.toString();
 			final int      idx     = aString.indexOf("%CHOICE");
 
 			if (idx >= 0)
 			{
-				delList.add(aBonus);
+				delList.add(bonus);
 
 				// Add an entry for each of the
 				// associated list entries
@@ -794,14 +790,14 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 		if (delList.size() > 0)
 		{
-			for (Iterator ab = delList.iterator(); ab.hasNext();)
+			for ( BonusObj bonus : delList )
 			{
-				removeBonusList((BonusObj) ab.next());
+				removeBonusList(bonus);
 			}
 
-			for (Iterator ab = addList.iterator(); ab.hasNext();)
+			for ( BonusObj bonus : addList )
 			{
-				addBonusList((BonusObj) ab.next());
+				addBonusList(bonus);
 			}
 		}
 	}
@@ -818,11 +814,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 		try
 		{
 			aObj                     = (EquipmentModifier) super.clone();
-			aObj.itemType            = (List) ((ArrayList) itemType).clone();
-			aObj.specialPropertyList = (List) ((ArrayList) specialPropertyList).clone();
-			aObj.replaces            = (List) ((ArrayList) replaces).clone();
-			aObj.ignores             = (List) ((ArrayList) ignores).clone();
-			aObj.armorType           = (List) ((ArrayList) armorType).clone();
+			aObj.itemType            = (List<String>) ((ArrayList) itemType).clone();
+			aObj.specialPropertyList = (List<SpecialProperty>) ((ArrayList) specialPropertyList).clone();
+			aObj.replaces            = (List<String>) ((ArrayList) replaces).clone();
+			aObj.ignores             = (List<String>) ((ArrayList) ignores).clone();
+			aObj.armorType           = (List<String>) ((ArrayList) armorType).clone();
 			aObj.cost                = cost;
 			aObj.preCost             = preCost;
 			aObj.proficiency         = proficiency;
@@ -887,7 +883,6 @@ public final class EquipmentModifier extends PObject implements Comparable
 			{
 				final String listEntry = getAssociated(0);
 
-				final List metaFeats = getSpellMetafeats(listEntry);
 				String     spellName = getSpellName(listEntry);
 
 				if (SettingsHandler.guiUsesOutputNameSpells())
@@ -909,6 +904,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 					aString.append(" (").append(info).append(')');
 				}
 
+				final List<String> metaFeats = getSpellMetafeats(listEntry);
 				if (!metaFeats.isEmpty())
 				{
 					aString.append('/').append(CoreUtility.join(metaFeats, "/"));
@@ -993,7 +989,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 			return 1;
 		}
 
-		List selectedList = new ArrayList(); // selected list of choices
+		List<String> selectedList = new ArrayList<String>(); // selected list of choices
 
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
 		chooser.setPoolFlag(false);
@@ -1032,18 +1028,18 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 	void setChoice(final String choice, final EquipmentChoice equipChoice)
 	{
-		final List tempList = new ArrayList();
+		final List<String> tempList = new ArrayList<String>();
 		tempList.add(choice);
 		setChoice(tempList, equipChoice);
 	}
 
-	void setChoice(final List selectedList, final EquipmentChoice equipChoice)
+	void setChoice(final List<String> selectedList, final EquipmentChoice equipChoice)
 	{
 		clearAssociated();
 
 		for (int i = 0; i < selectedList.size(); i++)
 		{
-			String aString = (String) selectedList.get(i);
+			String aString = selectedList.get(i);
 
 			if (equipChoice.getMinValue() < equipChoice.getMaxValue())
 			{
@@ -1051,7 +1047,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 				if (idx < 0)
 				{
-					final List secondaryChoice = new ArrayList();
+					final List<String> secondaryChoice = new ArrayList<String>();
 
 					for (
 						int j = equipChoice.getMinValue();
@@ -1431,7 +1427,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	 *
 	 * @return  List of Feat objects
 	 */
-	List getVFeatList()
+	List<String> getVFeatList()
 	{
 		if (vFeatList != null)
 		{
@@ -1439,11 +1435,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 			if (choiceString.startsWith("FEAT") || (choiceString.indexOf("|FEAT") >= 0))
 			{
-				final List vFeats = new ArrayList();
+				final List<String> vFeats = new ArrayList<String>();
 
-				for (Iterator e = vFeatList.iterator(); e.hasNext();)
+				for (Iterator<String> e = vFeatList.iterator(); e.hasNext();)
 				{
-					final String aString = (String) e.next();
+					final String aString = e.next();
 
 					if (aString.equals("%CHOICE"))
 					{
@@ -1470,13 +1466,12 @@ public final class EquipmentModifier extends PObject implements Comparable
 		return equipmentVisible;
 	}
 
-	String replaceArmorType(final List aTypes)
+	String replaceArmorType(final List<String> aTypes)
 	{
 		for (int z = 0; z < armorType.size(); z++)
 		{
 			final StringTokenizer aTok = new StringTokenizer(
-					(String) armorType.get(z),
-					"|");
+					armorType.get(z), "|");
 
 			if (aTok.hasMoreTokens())
 			{
@@ -1567,7 +1562,7 @@ public final class EquipmentModifier extends PObject implements Comparable
 	/* this is only used by toString, there is no point adding Category
 	 * information since it is not needed by the toString function and
 	 * these ability objects do actually represent Feats */
-	private static List getSpellMetafeats(final String listEntry)
+	private static List<String> getSpellMetafeats(final String listEntry)
 	{
 		final String metaFeat = getSpellInfoString(listEntry, "METAFEATS");
 
@@ -1600,17 +1595,16 @@ public final class EquipmentModifier extends PObject implements Comparable
 	{
 		double val = 0;
 
-		Map typesToGetBonusesFor = new HashMap();
+		List<String> typesToGetBonusesFor = new ArrayList<String>();
 
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus   = (BonusObj) ab.next();
 			boolean        meetsAll = true;
 
-			if (aBonus.getBonusName().equals(bonusType))
+			if (bonus.getBonusName().equals(bonusType))
 			{
 				StringTokenizer aTok  = new StringTokenizer(
-						aBonus.toString().substring(bonusType.length()),
+						bonus.toString().substring(bonusType.length()),
 						"|",
 						false);
 				final String    bType = aTok.nextToken();
@@ -1633,14 +1627,13 @@ public final class EquipmentModifier extends PObject implements Comparable
 
 				if (meetsAll)
 				{
-					typesToGetBonusesFor.put(typeString, typeString);
+					typesToGetBonusesFor.add(typeString);
 				}
 			}
 		}
 
-		for (Iterator iter = typesToGetBonusesFor.keySet().iterator(); iter.hasNext();)
+		for ( String typeString : typesToGetBonusesFor )
 		{
-			String typeString = (String) iter.next();
 			val += bonusTo(aPC, bonusType, typeString, parent);
 		}
 

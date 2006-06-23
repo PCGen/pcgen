@@ -28,12 +28,13 @@ import java.util.List;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Ability;
+import pcgen.core.Categorisable;
 
 /**
  * A choice manager for Abilities from Templates
  */
 public class AbilityFromTemplateChoiceManager extends
-		AbstractCategorisableChoiceManager<Ability> {
+		AbstractCategorisableChoiceManager {
 
 	/**
 	 * @param aPObject
@@ -55,8 +56,8 @@ public class AbilityFromTemplateChoiceManager extends
 	 */
 	public void getChoices(
 			PlayerCharacter aPc,
-			List<Ability>            availableList,
-			List<Ability>            selectedList)
+			List<Categorisable>            availableList,
+			List<Categorisable>            selectedList)
 	{
 		return;
 	}
@@ -70,7 +71,7 @@ public class AbilityFromTemplateChoiceManager extends
 	 */
 	public void applyChoices(
 			PlayerCharacter aPC,
-			List<Ability>            selected)
+			List<Categorisable>            selected)
 	{
 		return;
 	}

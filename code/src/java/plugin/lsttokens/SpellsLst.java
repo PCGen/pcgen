@@ -48,8 +48,8 @@ public class SpellsLst implements GlobalLstToken {
 			String spellBook = tok.nextToken();
 			String casterLevel = null;
 			String times = "1";
-			List preParseSpellList = new ArrayList();
-			List preList = new ArrayList();
+			List<String> preParseSpellList = new ArrayList<String>();
+			List<Prerequisite> preList = new ArrayList<Prerequisite>();
 			while(tok.hasMoreTokens()) {
 				String token = tok.nextToken();
 				if(token.startsWith("CASTERLEVEL=")) {
@@ -84,8 +84,9 @@ public class SpellsLst implements GlobalLstToken {
 				spell.setCasterLevelFormula(casterLevel);
 				spell.setTimesPerDay(times);
 				spell.setDcFormula(dcFormula);
-				for(int j = 0; j < preList.size(); j++) {
-					spell.addPreReq((Prerequisite)preList.get(j));
+				for ( Prerequisite prereq : preList )
+				{
+					spell.addPreReq(prereq);
 				}
 				spellList.add(spell);
 			}

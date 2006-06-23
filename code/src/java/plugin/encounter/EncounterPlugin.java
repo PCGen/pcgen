@@ -516,7 +516,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 	 * @throws FileNotFoundException an exception if there is a non-existant
 	 *         file.
 	 */
-	private Vector getMonsterFromTable(String table) throws FileNotFoundException
+	private Vector<?> getMonsterFromTable(String table) throws FileNotFoundException
 	{
 		String tablePath;
 		String tableEntry;
@@ -578,7 +578,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			}
 		}
 
-		Vector toReturn = new Vector();
+		Vector<Object> toReturn = new Vector<Object>();
 		toReturn.addElement(num);
 		toReturn.addElement(Globals.getRaceKeyed(tableEntry));
 
@@ -595,10 +595,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			pid = eSet.getIdPath();
 		}
 
-		for (Iterator e = aPC.getEquipSet().iterator(); e.hasNext();)
+		for ( EquipSet es : aPC.getEquipSet() )
 		{
-			EquipSet es = (EquipSet) e.next();
-
 			if (es.getParentIdPath().equals(pid) && (es.getId() > newID))
 			{
 				newID = es.getId();
@@ -616,9 +614,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 	 * @param multiHand
 	 * @return weapon location choices
 	 **/
-	private static ArrayList getWeaponLocationChoices(int hands, String multiHand)
+	private static List<String> getWeaponLocationChoices(int hands, String multiHand)
 	{
-		ArrayList result = new ArrayList(hands + 2);
+		ArrayList<String> result = new ArrayList<String>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -647,11 +645,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	private void addAllToEquipSet(PlayerCharacter aPC, EquipSet eqSet)
 	{
-		List eqList = aPC.getEquipmentList();
+		List<Equipment> eqList = aPC.getEquipmentList();
 
 		for (int i = 0; i < eqList.size(); i++)
 		{
-			Equipment eq = (Equipment) eqList.get(i);
+			final Equipment eq = eqList.get(i);
 			addEquipToTarget(aPC, eqSet, "", (Equipment) eq.clone(), new Float(1));
 		}
 	}
@@ -683,7 +681,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 	 */
 	private void generateXfromY(String Environment)
 	{
-		Vector critters;
+		Vector<?> critters;
 
 		try
 		{
@@ -714,7 +712,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
-		Vector critters = new Vector();
+		List<Race> critters = new ArrayList<Race>();
 		String cr;
 		String[] crSplit;
 		float crNum;
@@ -762,13 +760,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		}
 
 		// populate critters with a list of matching monsters with the right CR.
-		for (Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext();)
+		for ( Race race : Globals.getRaceMap().values() )
 		{
-			final Race aRace = (Race) it.next();
-
-			if (aRace.getCR() == crNum)
+			if (race.getCR() == crNum)
 			{
-				critters.add(aRace);
+				critters.add(race);
 			}
 		}
 
@@ -776,7 +772,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 		for (int x = 0; x < Integer.valueOf(size).intValue(); x++)
 		{
-			theModel.addElement(critters.elementAt(i).toString());
+			theModel.addElement(critters.get(i).toString());
 		}
 	}
 
@@ -851,7 +847,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		return true;
 	}
 
-	private final ArrayList locationChoices(PlayerCharacter pc, Equipment eqI)
+	private final List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -862,7 +858,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			hands = race.getHands();
 		}
 
-		ArrayList aList = new ArrayList();
+		List<String> aList = new ArrayList<String>();
 
 		if (eqI.isWeapon())
 		{
@@ -959,17 +955,15 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		}
 
 		// Always force weapons to go through the chooser dialog
-		List eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
+		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
 
 		if ((eqSlotList == null) || eqSlotList.isEmpty())
 		{
 			return "";
 		}
 
-		for (Iterator eI = eqSlotList.iterator(); eI.hasNext();)
+		for ( EquipSlot es : eqSlotList )
 		{
-			EquipSlot es = (EquipSlot) eI.next();
-
 			// see if this EquipSlot can contain this item TYPE
 			if (es.canContainType(eqI.getType()))
 			{
@@ -985,7 +979,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		if ("".equals(locName) || (locName.length() == 0))
 		{
 			// get the possible locations for this item
-			ArrayList aList = locationChoices(pc, eqI);
+			List<String> aList = locationChoices(pc, eqI);
 			locName = getSingleLocation(pc, eqI);
 
 			if (!((locName.length() != 0) && canAddEquip(pc, eSet, locName, eqI)))
@@ -1060,23 +1054,21 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		HashMap slotMap = new HashMap();
+		HashMap<String, String> slotMap = new HashMap<String, String>();
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for ( EquipSet eqSet : pc.getEquipSet() )
 		{
-			EquipSet es = (EquipSet) e.next();
-
-			if (!es.getParentIdPath().startsWith(idPath))
+			if (!eqSet.getParentIdPath().startsWith(idPath))
 			{
 				continue;
 			}
 
 			// check to see if we already have
 			// an item in that particular location
-			if (es.getName().equals(locName))
+			if (eqSet.getName().equals(locName))
 			{
-				Equipment eItem = es.getItem();
-				String nString = (String) slotMap.get(locName);
+				Equipment eItem = eqSet.getItem();
+				String nString = slotMap.get(locName);
 				int existNum = 0;
 
 				if (nString != null)
@@ -1093,11 +1085,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			}
 		}
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for ( EquipSet eqSet : pc.getEquipSet() )
 		{
-			EquipSet es = (EquipSet) e.next();
-
-			if (!es.getParentIdPath().startsWith(idPath))
+			if (!eqSet.getParentIdPath().startsWith(idPath))
 			{
 				continue;
 			}
@@ -1107,7 +1097,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			if (eqI.isWeapon())
 			{
 				// weapons can never occupy the same slot
-				if (es.getName().equals(locName))
+				if (eqSet.getName().equals(locName))
 				{
 					return false;
 				}
@@ -1116,17 +1106,17 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 				// other weapon slots can be occupied
 				if ((locName.equals(Constants.S_BOTH) || locName.equals(Constants.S_DOUBLE)
 					|| locName.equals(Constants.S_TWOWEAPONS))
-					&& (es.getName().equals(Constants.S_PRIMARY) || es.getName().equals(Constants.S_SECONDARY)
-					|| es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)
-					|| es.getName().equals(Constants.S_TWOWEAPONS)))
+					&& (eqSet.getName().equals(Constants.S_PRIMARY) || eqSet.getName().equals(Constants.S_SECONDARY)
+					|| eqSet.getName().equals(Constants.S_BOTH) || eqSet.getName().equals(Constants.S_DOUBLE)
+					|| eqSet.getName().equals(Constants.S_TWOWEAPONS)))
 				{
 					return false;
 				}
 
 				// inverse of above case
 				if ((locName.equals(Constants.S_PRIMARY) || locName.equals(Constants.S_SECONDARY))
-					&& (es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)
-					|| es.getName().equals(Constants.S_TWOWEAPONS)))
+					&& (eqSet.getName().equals(Constants.S_BOTH) || eqSet.getName().equals(Constants.S_DOUBLE)
+					|| eqSet.getName().equals(Constants.S_TWOWEAPONS)))
 				{
 					return false;
 				}
@@ -1134,9 +1124,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 			// If we already have an item in that location
 			// check to see how many are allowed in that slot
-			if (es.getName().equals(locName))
+			if (eqSet.getName().equals(locName))
 			{
-				final String nString = (String) slotMap.get(locName);
+				final String nString = slotMap.get(locName);
 				int existNum = 0;
 
 				if (nString != null)
@@ -1201,17 +1191,13 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	private void rollHP(PlayerCharacter aPC)
 	{
-		List classList = aPC.getClassList();
-
-		for (int i = 0; i < classList.size(); i++)
+		for ( PCClass pcClass : aPC.getClassList() )
 		{
-			PCClass pcclass = (PCClass) classList.get(i);
-
-			for (int j = 0; j < pcclass.getLevel(); j++)
+			for (int j = 0; j < pcClass.getLevel(); j++)
 			{
-				int bonus = (int) aPC.getTotalBonusTo("HD", "MIN") + (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + pcclass.getKeyName());
-				int size = pcclass.getLevelHitDie(aPC, j + 1);
-				pcclass.setHitPoint(j, new Integer(new Dice(1, size, bonus).roll()));
+				int bonus = (int) aPC.getTotalBonusTo("HD", "MIN") + (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + pcClass.getKeyName());
+				int size = pcClass.getLevelHitDie(aPC, j + 1);
+				pcClass.setHitPoint(j, new Integer(new Dice(1, size, bonus).roll()));
 			}
 		}
 

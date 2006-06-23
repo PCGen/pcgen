@@ -242,15 +242,12 @@ public final class EquipmentUtilities
 	 * @param type the type to remove
 	 * @return a new list containing objects which aren't the specified type
 	 */
-	public static List removeEqType(final List aList, final String type)
+	public static List<Equipment> removeEqType(final List<Equipment> aList, final String type)
 	{
-		final List aArrayList = new ArrayList();
-		Equipment eq;
+		final List<Equipment> aArrayList = new ArrayList<Equipment>();
 
-		for (Iterator mapIter = aList.iterator(); mapIter.hasNext();)
+		for ( Equipment eq : aList )
 		{
-			eq = (Equipment) mapIter.next();
-
 			if (type.equalsIgnoreCase("CONTAINED")
 					&& (eq.getParent() != null))
 			{
@@ -273,15 +270,12 @@ public final class EquipmentUtilities
 	 * @param aString the type of object to return
 	 * @return a new list of objects which are all of type aString
 	 */
-	public static List removeNotEqType(final List aList, final String aString)
+	public static List<Equipment> removeNotEqType(final List<Equipment> aList, final String aString)
 	{
-		final List aArrayList = new ArrayList();
-		Equipment eq;
+		final List<Equipment> aArrayList = new ArrayList<Equipment>();
 
-		for (Iterator mapIter = aList.iterator(); mapIter.hasNext();)
+		for ( Equipment eq : aList )
 		{
-			eq = (Equipment) mapIter.next();
-
 			if (eq.typeStringContains(aString))
 			{
 				aArrayList.add(eq);
@@ -345,7 +339,7 @@ public final class EquipmentUtilities
 	 *
 	 * @return the name with sub-choices stripped from it
 	 */
-	public static String getUndecoratedName(final String name, ArrayList specifics) {
+	public static String getUndecoratedName(final String name, ArrayList<String> specifics) {
 
 		String altName = removeChoicesFromName(name);
 

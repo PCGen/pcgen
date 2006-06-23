@@ -13,10 +13,10 @@ import pcgen.util.Logging;
  * Loads and parses TAB Lst token
  */
 public class TabLoader  {
-	
+
 	/** TAB = "tab" */
 	public static final String TAB = "tab";
-	
+
 	/**
 	 * Parses TAB LST Token
 	 * @param gameMode
@@ -25,7 +25,7 @@ public class TabLoader  {
 	 */
 	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		Map tab = new HashMap();
+		Map<String, String> tab = new HashMap<String, String>();
 		tab.put(TAB, "");
 
 		Map tokenMap = TokenStore.inst().getTokenMap(TabLstToken.class);
@@ -39,7 +39,7 @@ public class TabLoader  {
 			catch(StringIndexOutOfBoundsException e) {
 				// TODO Deal with Exception
 			}
-			
+
 			TabLstToken token = (TabLstToken) tokenMap.get(key);
 
 			if (token != null)

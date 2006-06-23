@@ -82,7 +82,7 @@ public class Event implements InitHolder
 	 */
 	public Event()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -221,15 +221,13 @@ public class Event implements InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector getRowVector(List columnOrder)
+	public Vector<String> getRowVector(List<String> columnOrder)
 	{
-		Vector rowVector = new Vector();
+		Vector<String> rowVector = new Vector<String>();
 		int columns = columnOrder.size();
 
-		for (int j = 0; j < columns; j++)
+		for ( String columnName : columnOrder )
 		{
-			String columnName = (String) columnOrder.get(j);
-
 			if (columnName.equals("Name"))
 			{ // Event's name
 				rowVector.add(getName());
@@ -332,9 +330,9 @@ public class Event implements InitHolder
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
-	public void editRow(List columnOrder, int colNumber, Object data)
+	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
-		String columnName = (String) columnOrder.get(colNumber);
+		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
 		if (columnName.equals("Name"))
@@ -365,7 +363,7 @@ public class Event implements InitHolder
 
 	public void endRound()
 	{
-	    // TODO This method currently does nothing?
+		// TODO This method currently does nothing?
 	}
 
 	/**
@@ -380,7 +378,7 @@ public class Event implements InitHolder
 	 * @param alert
 	 */
 	protected final void setValues(String name, String player, String status, String effect, int duration, int init,
-	    boolean alert)
+		boolean alert)
 	{
 		this.name = name;
 		this.player = player;

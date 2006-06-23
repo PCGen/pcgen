@@ -34,8 +34,8 @@ public class SpellLst implements GlobalLstToken, Deprecated {
 		return "Use SPELLS: instead.";
 	}
 
-	private static List createSpellList(final String sourceLine) {
-		List spellList = new ArrayList();
+	private static List<PCSpell> createSpellList(final String sourceLine) {
+		List<PCSpell> spellList = new ArrayList<PCSpell>();
 
 		String preTag = "";
 		String spellSrc = "";

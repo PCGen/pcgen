@@ -78,7 +78,7 @@ public final class KitFunds extends BaseKit implements Serializable, Cloneable
 		return qty + ' ' + name;
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theQty = -1;
 		if (qty == null)

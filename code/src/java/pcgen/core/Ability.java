@@ -918,7 +918,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		}
 
 		ArrayList<String> abilityList = new ArrayList<String>();
-		ArrayList selectedList = new ArrayList();
+		ArrayList<String> selectedList = new ArrayList<String>();
 
 		Ability anAbility;
 
@@ -930,13 +930,11 @@ public final class Ability extends PObject implements HasCost, Categorisable
 			// Get a list of all ability possessed by the character that
 			// are the specified type
 			//
-			for (Iterator it = aPC.aggregateFeatList().iterator(); it.hasNext();)
+			for ( Ability ability : aPC.aggregateFeatList() )
 			{
-				anAbility = (Ability) it.next();
-
-				if (anAbility.isType(anAbilityType))
+				if (ability.isType(anAbilityType))
 				{
-					abilityList.add(anAbility.getKeyName());
+					abilityList.add(ability.getKeyName());
 				}
 			}
 

@@ -1,5 +1,5 @@
 /*
- * Campaign.java
+ * ClassType.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -24,8 +24,7 @@
  */
 package pcgen.core;
 
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
+
 
 /**
  * <code>Campaign</code>.
@@ -33,12 +32,22 @@ import pcgen.core.utils.ShowMessageDelegate;
  * @author Felipe Diniz <fdiniz@users.sourceforge.net>
  * @version $Revision$
  */
-public final class ClassType extends PObject
+public final class ClassType implements Cloneable
 {
-//	private boolean isPrestige = false;
+	private String theName = "";
 	private String crFormula = "";
 	private boolean xpPenalty = true;
 	private boolean isMonster = false;
+
+	public String getName()
+	{
+		return theName;
+	}
+
+	public void setName( final String aName )
+	{
+		theName = aName;
+	}
 
 	/**
 	 * Set the CR Formula
@@ -95,22 +104,15 @@ public final class ClassType extends PObject
 	}
 
 	public Object clone()
+		throws CloneNotSupportedException
 	{
-		ClassType newClassType = null;
+		final ClassType newClassType = (ClassType) super.clone();
 
-		try
-		{
-			newClassType = (ClassType) super.clone();
-			newClassType.isMonster = isMonster;
+		newClassType.theName = new String(theName);
+		newClassType.isMonster = isMonster;
 
-//			newClassType.isPrestige = isPrestige;
-			newClassType.crFormula = new String(crFormula);
-			newClassType.xpPenalty = xpPenalty;
-		}
-		catch (CloneNotSupportedException exc)
-		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
-		}
+		newClassType.crFormula = new String(crFormula);
+		newClassType.xpPenalty = xpPenalty;
 
 		return newClassType;
 	}

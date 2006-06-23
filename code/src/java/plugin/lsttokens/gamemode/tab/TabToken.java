@@ -17,7 +17,7 @@ public class TabToken implements TabLstToken {
 		return "TAB";
 	}
 
-	public boolean parse(GameMode gameMode, Map tab, String value) {
+	public boolean parse(GameMode gameMode, Map<String, String> tab, String value) {
 		tab.put(TabLoader.TAB, value);
 		final int tabNum = GameMode.getTabNumber(value);
 

@@ -15,15 +15,15 @@ public class RollMethodLoader  {
 
 	public RollMethodLoader() {
 	}
-	
+
 	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
-		Map method = new HashMap();
+		Map<String, String> method = new HashMap<String, String>();
 		method.put(ROLLMETHOD, "");
 		method.put(METHOD, "");
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(RollMethodLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(RollMethodLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
@@ -33,7 +33,7 @@ public class RollMethodLoader  {
 			}
 			catch(StringIndexOutOfBoundsException e) {
 			}
-			
+
 			RollMethodLstToken token = (RollMethodLstToken) tokenMap.get(key);
 
 			if (token != null) {
@@ -54,6 +54,6 @@ public class RollMethodLoader  {
 			throw new PersistenceLayerException("Missing required information on ROLLMETHOD line");
 		}
 		//Now set the penalty object in this gameMode
-		gameMode.addRollingMethod((String)method.get(ROLLMETHOD), (String)method.get(METHOD));
+		gameMode.addRollingMethod(method.get(ROLLMETHOD), method.get(METHOD));
 	}
 }

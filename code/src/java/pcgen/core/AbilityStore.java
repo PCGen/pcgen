@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
  */
-public class AbilityStore extends CategorisableStore<Ability>
+public class AbilityStore extends CategorisableStore
 {
 	/** CLEAR_ TOKEN = ".CLEAR" */
 	public static final String CLEAR_TOKEN = ".CLEAR";
@@ -61,12 +61,16 @@ public class AbilityStore extends CategorisableStore<Ability>
 	 * @param  delimiter        the delimiter used to split the string
 	 * @param  lockCategory     whether the default category is the only
 	 *                          acceptable one.
+	 * @param  getAbility       If true, retrieve the Ability object from
+	 *                          Globals, otherwise, create an AbilityInfo object
+	 *                          to represent it.
 	 */
 	public void addAbilityInfo(
 		final String abilities,
 		String       defaultCategory,
 		String       delimiter,
-		boolean      lockCategory)
+		boolean      lockCategory,
+		boolean      getAbility)
 	{
 		if (CLEAR_TOKEN.equals(abilities))
 		{
@@ -105,19 +109,19 @@ public class AbilityStore extends CategorisableStore<Ability>
 				final String aType = token.substring(5);
 
 				// We need to get a list of featabilities that match this type.
-				Iterator<Ability> i = Globals.getAbilityNameIterator(cat);
+				Iterator<? extends Categorisable> i = Globals.getAbilityNameIterator(cat);
 				while (i.hasNext())
 				{
-					Ability ability = i.next();
+					Ability ability = (Ability)i.next();
 					if (ability.isType(aType))
 					{
-						addAsPerParsedInfo(cat, ability.getKeyName());
+						addAsPerParsedInfo(getAbility, cat, ability.getKeyName());
 					}
 				}
 			}
 			else
 			{
-				addAsPerParsedInfo(cat, token);
+				addAsPerParsedInfo(getAbility, cat, token);
 			}
 		}
 	}
@@ -127,22 +131,26 @@ public class AbilityStore extends CategorisableStore<Ability>
 	 * @param cat
 	 * @param token
 	 */
-	private void addAsPerParsedInfo(String cat, final String token) {
-		final Ability toAdd = AbilityUtilities.retrieveAbilityKeyed(cat, token);
+	private void addAsPerParsedInfo(boolean getAbility, String cat, final String token) {
+		Categorisable toAdd = (getAbility)
+			? (Categorisable) AbilityUtilities.retrieveAbilityKeyed(cat, token)
+			: (Categorisable) new AbilityInfo(cat, token);
 
 		if (toAdd == null)
 		{
-			Logging.errorPrint(
-				"Couldn't retrieve Ability! Category: " + cat + ", KeyName: " +
-				token);
+			if (getAbility)
+			{
+				Logging.errorPrint(
+					"Couldn't retrieve Ability! Category: " + cat + ", KeyName: " +
+					token);
+			}
 		}
 		else
 		{
 			if (!this.addCategorisable(toAdd))
 			{
-				// I18N
-				String error = "Ability object (" + toAdd.getKeyName() + ").";
-				Logging.errorPrint("problem adding " + error, new Throwable());
+				String error = (getAbility) ? "Ability object" : "AbilityInfo object";
+				Logging.errorPrint("problem adding " + error);
 			}
 		}
 	}
@@ -204,8 +212,8 @@ public class AbilityStore extends CategorisableStore<Ability>
 			}
 
 			info += "CATEGORY=" + cat;
-			for(Iterator<Ability> innerIt = this.getKeyIterator(cat); innerIt.hasNext();) {
-				Ability ab = innerIt.next();
+			for(Iterator<? extends Categorisable> innerIt = this.getKeyIterator(cat); innerIt.hasNext();) {
+				AbilityInfo ab = (AbilityInfo) innerIt.next();
 				info += "|" + ab.getKeyName();
 			}
 		}

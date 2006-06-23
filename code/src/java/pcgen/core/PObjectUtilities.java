@@ -1978,7 +1978,7 @@ public class PObjectUtilities
 		}
 
 		//final StringTokenizer choicesTok = new StringTokenizer(choices, "|");
-		String choicesArr[] = choices.split("|");
+		String choicesArr[] = choices.split("\\|");
 		List<String> choicesList = Arrays.asList(choicesArr);
 
 		// get appropriate choices for chooser

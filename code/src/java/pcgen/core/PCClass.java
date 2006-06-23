@@ -56,7 +56,6 @@ import pcgen.util.chooser.ChooserInterface;
  * <code>PCClass</code>.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
  */
 public class PCClass extends PObject
 {
@@ -64,34 +63,34 @@ public class PCClass extends PObject
 	protected String bonusSpellBaseStat = Constants.s_DEFAULT;
 	protected int level = 0;
 	protected int numSpellsFromSpecialty = 0;
-	private ArrayList acList = new ArrayList();
-	private ArrayList domainList = new ArrayList();
+	private ArrayList<String> acList = new ArrayList<String>();
+	private ArrayList<String> domainList = new ArrayList<String>();
 	private ArrayList<String> featAutos = new ArrayList<String>();
-	private ArrayList featList = new ArrayList();
-	private ArrayList knownList = new ArrayList();
-	private ArrayList knownSpellsList = new ArrayList();
-	private ArrayList specialtyList = new ArrayList();
-	private ArrayList specialtyknownList = new ArrayList();
-	private final ArrayList templates = new ArrayList();
-	private ArrayList SR = null;
-	private ArrayList addDomains = new ArrayList();
+	private ArrayList<String> featList = new ArrayList<String>();
+	private ArrayList<String> knownList = new ArrayList<String>();
+	private ArrayList<String> knownSpellsList = new ArrayList<String>();
+	private ArrayList<String> specialtyList = new ArrayList<String>();
+	private ArrayList<String> specialtyknownList = new ArrayList<String>();
+	private final ArrayList<String> templates = new ArrayList<String>();
+	private ArrayList<LevelProperty> SR = null;
+	private ArrayList<String> addDomains = new ArrayList<String>();
 	private ArrayList<LevelProperty> naturalWeapons = null;
-	private ArrayList subClassList = null; // list of SubClass objects
-	private ArrayList templatesAdded = null;
-	private ArrayList uattList = new ArrayList();
+	private ArrayList<SubClass> subClassList = null; // list of SubClass objects
+	private ArrayList<String> templatesAdded = null;
+	private ArrayList<String> uattList = new ArrayList<String>();
 //	private ArrayList vFeatList = new ArrayList();
-	private ArrayList weaponProfBonus = new ArrayList();
-	private final HashMap castForLevelMap = new HashMap();
-	private HashMap hitPointMap = new HashMap();
+	private ArrayList<String> weaponProfBonus = new ArrayList<String>();
+	private final HashMap<String, String> castForLevelMap = new HashMap<String, String>();
+	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private HashMap<String, List<Ability>> vFeatMap = new HashMap<String, List<Ability>>();
-	protected HashMap hitDieLockMap = new HashMap();
+	protected HashMap<Integer, String> hitDieLockMap = new HashMap<Integer, String>();
 	private int skillPool = 0;
-	private List classSkillList = null;
-	private List classSpellList = null;
-	private List skillList = new ArrayList();
-	private List visionList = null;
-	private Map attackCycleMap = new HashMap();
-	private Map castMap = new HashMap();
+	private List<String> classSkillList = null;
+	private List<String> classSpellList = null;
+	private List<String> skillList = new ArrayList<String>();
+	private List<LevelProperty> visionList = null;
+	private Map<String, String> attackCycleMap = new HashMap<String, String>();
+	private Map<String, String> castMap = new HashMap<String, String>();
 	private String CRFormula = null; // null or formula
 	private String XPPenalty = null; // Valid values are null, "YES", "NO"
 	private String abbrev = "";
@@ -100,7 +99,7 @@ public class PCClass extends PObject
 	private String castAs = "";
 	private String classSkillString = null;
 	private String classSpellString = null;
-	private List deityList = new ArrayList();
+	private List<String> deityList = new ArrayList<String>();
 	private String exClass = "";
 
 	//private int ageSet = 2;
@@ -123,7 +122,7 @@ public class PCClass extends PObject
 	private boolean modToSkills = true; // stat bonus applied to skills per level
 	private boolean multiPreReqs = false;
 	private boolean usesSpellbook = false;
-	private List prohibitSpellDescriptorList = null;
+	private List<SpellProhibitor> prohibitSpellDescriptorList = null;
 	private int hitDie = 0;
 	private int initMod = 0;
 	private int initialFeats = 0;
@@ -132,7 +131,7 @@ public class PCClass extends PObject
 //	private int skillPoints = 0;
 	private int maxCastLevel = -1; // max level CAST: tag is found
 	private int maxKnownLevel = -1; // max level KNOWN: tag is found
-	private HashMap highestSpellLevelMap;
+	private HashMap<Integer, Integer> highestSpellLevelMap;
 	private String skillPointFormula = "0";
 
 	private boolean hasSpellFormulas = false;
@@ -149,7 +148,7 @@ public class PCClass extends PObject
 	}
 
 
-	public final Collection getACList()
+	public final Collection<String> getACList()
 	{
 		return acList;
 	}
@@ -171,7 +170,7 @@ public class PCClass extends PObject
 	}
 
 	/* addDomains is the prestige domains this class has access to */
-	public final ArrayList getAddDomains()
+	public final ArrayList<String> getAddDomains()
 	{
 		return addDomains;
 	}
@@ -269,10 +268,9 @@ public class PCClass extends PObject
 		final String mname = argMname.toUpperCase();
 
 		//final String typePlusMName = new StringBuffer(type).append('.').append(mname).append('.').toString();
-		for (Iterator e = getBonusList().iterator(); e.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) e.next();
-			final StringTokenizer breakOnPipes = new StringTokenizer(aBonus.toString().toUpperCase(), "|", false);
+			final StringTokenizer breakOnPipes = new StringTokenizer(bonus.toString().toUpperCase(), "|", false);
 			final int aLevel = Integer.parseInt(breakOnPipes.nextToken());
 			final String theType = breakOnPipes.nextToken();
 
@@ -291,10 +289,10 @@ public class PCClass extends PObject
 				if ((aLevel <= asLevel) && theName.equals(mname))
 				{
 					final String aString = breakOnPipes.nextToken();
-					final List localPreReqList = new ArrayList();
-					if (aBonus.getPrereqList() != null)
+					final List<Prerequisite> localPreReqList = new ArrayList<Prerequisite>();
+					if (bonus.getPrereqList() != null)
 					{
-						localPreReqList.addAll(aBonus.getPrereqList());
+						localPreReqList.addAll(bonus.getPrereqList());
 					}
 
 					//TODO: This code should be removed after the 5.8 release as the prereqs are processed by the bonus loading code.
@@ -402,7 +400,7 @@ public class PCClass extends PObject
 
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
-			aStat = (PCStat) aPC.getStatList().getStatAt(index);
+			aStat = aPC.getStatList().getStatAt(index);
 			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
 		}
 
@@ -445,28 +443,25 @@ public class PCClass extends PObject
 			// we might wind up using THIS level's slots for them.
 			for (int ix = 0; ix <= spellLevel; ++ix)
 			{
-				final List aList = getSpellSupport().getCharacterSpell(null, "", ix);
-				List bList = new ArrayList();
+				final List<CharacterSpell> aList = getSpellSupport().getCharacterSpell(null, "", ix);
+				List<Spell> bList = new ArrayList<Spell>();
 
 				if (!aList.isEmpty())
 				{
 					if ((ix > 0) && "DIVINE".equalsIgnoreCase(spellType))
 					{
-						for (Iterator i = aPC.getCharacterDomainList().iterator(); i.hasNext();)
+						for ( CharacterDomain cd : aPC.getCharacterDomainList() )
 						{
-							final CharacterDomain aCD = (CharacterDomain) i.next();
-
-							if (aCD.isFromPCClass(getKeyName()) && (aCD.getDomain() != null))
+							if (cd.isFromPCClass(getKeyName()) && (cd.getDomain() != null))
 							{
-								bList = Globals.getSpellsIn(ix, "", aCD.getDomain().getKeyName());
+								bList = Globals.getSpellsIn(ix, "", cd.getDomain().getKeyName());
 							}
 						}
 					}
 
-					for (Iterator e = aList.iterator(); e.hasNext();)
+					for ( CharacterSpell cs : aList )
 					{
 						int x = -1;
-						final CharacterSpell cs = (CharacterSpell) e.next();
 
 						if (!bList.isEmpty())
 						{
@@ -511,11 +506,11 @@ public class PCClass extends PObject
 
 		total += ((t * mult) + adj);
 
-		final Object bonusSpell = Globals.getBonusSpellMap().get(String.valueOf(spellLevel));
+		final String bonusSpell = Globals.getBonusSpellMap().get(String.valueOf(spellLevel));
 
 		if ((bonusSpell != null) && !bonusSpell.equals("0|0"))
 		{
-			final StringTokenizer s = new StringTokenizer(bonusSpell.toString(), "|");
+			final StringTokenizer s = new StringTokenizer(bonusSpell, "|");
 			final int base = Integer.parseInt(s.nextToken());
 			final int range = Integer.parseInt(s.nextToken());
 
@@ -547,11 +542,11 @@ public class PCClass extends PObject
 		return classSkillString;
 	}
 
-	public List getClassSpecialAbilityList(final PlayerCharacter aPC)
+	public List<String> getClassSpecialAbilityList(final PlayerCharacter aPC)
 	{
-		final List aList = new ArrayList();
-		final List formattedList = new ArrayList();
-		final List abilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<String> aList = new ArrayList<String>();
+		final List<String> formattedList = new ArrayList<String>();
+		final List<SpecialAbility> abilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		//
 		// Determine the list of abilities from this class
@@ -564,16 +559,17 @@ public class PCClass extends PObject
 
 		if (!abilityList.isEmpty())
 		{
-			for (Iterator i = abilityList.iterator(); i.hasNext();)
+			for ( SpecialAbility saAbility : abilityList )
 			{
-				final SpecialAbility saAbility = (SpecialAbility) i.next();
 				final String aString = saAbility.toString();
 
 				boolean found = false;
 
-				for (Iterator ii = aList.iterator(); ii.hasNext();)
+				// TODO shouldn't this be
+				// if ( aList.contains( aString ) )
+				for ( String str : aList )
 				{
-					if (aString.equals(ii.next()))
+					if (aString.equals(str))
 					{
 						found = true;
 
@@ -591,9 +587,9 @@ public class PCClass extends PObject
 		//
 		// From the list of allowed SAs, format the output strings
 		// to include all of the variables
-		for (int i = 0, x = aList.size(); i < x; ++i)
+		for ( String str : aList )
 		{
-			StringTokenizer varTok = new StringTokenizer((String) aList.get(i), "|", false);
+			StringTokenizer varTok = new StringTokenizer(str, "|", false);
 			final String aString = varTok.nextToken();
 
 			int[] varValue = null;
@@ -660,27 +656,27 @@ public class PCClass extends PObject
 		return formattedList;
 	}
 
-	public final List getClassSpellList()
+	public final List<String> getClassSpellList()
 	{
 		return classSpellList;
 	}
 
-	public final void setDeityList(final List deityList)
+	public final void setDeityList(final List<String> deityList)
 	{
 		// deityList must be a concrete list so we can clone it,
 		// but we can not guarantee that the list passed in is
 		// a ArrayList, so we have to copy the entries.
 		// This should not be onerous as it is done infrequently
 		// and the lists are short (1-2 entries).
-		this.deityList = new ArrayList(deityList);
+		this.deityList = new ArrayList<String>(deityList);
 	}
 
-	public final List getDeityList()
+	public final List<String> getDeityList()
 	{
 		return deityList;
 	}
 
-	public final ArrayList getDomainList()
+	public final ArrayList<String> getDomainList()
 	{
 		return domainList;
 	}
@@ -700,7 +696,7 @@ public class PCClass extends PObject
 		return featAutos;
 	}
 
-	public final ArrayList getFeatList()
+	public final ArrayList<String> getFeatList()
 	{
 		return featList;
 	}
@@ -717,12 +713,12 @@ public class PCClass extends PObject
 
 	public void putHitDieLock(final String hitDieLock, final int aLevel)
 	{
-		hitDieLockMap.put(new Integer(aLevel), hitDieLock);
+		hitDieLockMap.put(aLevel, hitDieLock);
 	}
 
 	protected String getHitDieLock(final int aLevel)
 	{
-		return (String)hitDieLockMap.get(new Integer(aLevel));
+		return hitDieLockMap.get(aLevel);
 	}
 
 	public final void setInitialFeats(final int feats)
@@ -821,9 +817,8 @@ public class PCClass extends PObject
 //				returnValue += pcl.getSkillPointsRemaining();
 //			}
 //		}
-		for (Iterator iter = aPC.getLevelInfo().iterator(); iter.hasNext();)
+		for ( PCLevelInfo pcl : aPC.getLevelInfo() )
 		{
-			final PCLevelInfo pcl = (PCLevelInfo) iter.next();
 			if (pcl.getClassKeyName().equals(getKeyName()))
 			{
 				returnValue += pcl.getSkillPointsRemaining();
@@ -839,7 +834,7 @@ public class PCClass extends PObject
 		specialsString = aString;
 	}
 
-	public final Collection getSpecialtyList()
+	public final Collection<String> getSpecialtyList()
 	{
 		return specialtyList;
 	}
@@ -915,11 +910,8 @@ public class PCClass extends PObject
 		}
 
 		//Templates
-		final List templateList = aPC.getTemplateList();
-		for (Iterator e = templateList.iterator(); e.hasNext();)
+		for ( PCTemplate template : aPC.getTemplateList() )
 		{
-			final PCTemplate template = (PCTemplate) e.next();
-
 			if (template != null)
 			{
 				dieLock = template.getHitDieLock();
@@ -930,7 +922,7 @@ public class PCClass extends PObject
 		}
 
 		//Levels
-		dieLock = (String)hitDieLockMap.get(new Integer(classLevel));
+		dieLock = hitDieLockMap.get(classLevel);
 		if(dieLock != null && dieLock.length() != 0) {
 			currHitDie = calcHitDieLock(dieLock, currHitDie);
 		}
@@ -1137,34 +1129,26 @@ public class PCClass extends PObject
 	{
 		final StringBuffer retString = new StringBuffer();
 
-		if (!specialtyList.isEmpty())
+		for ( String spec : specialtyList )
 		{
-			for (Iterator i = specialtyList.iterator(); i.hasNext();)
+			if (retString.length() > 0)
+			{
+				retString.append(',');
+			}
+
+			retString.append(spec);
+		}
+
+		for ( CharacterDomain cd : aPC.getCharacterDomainList() )
+		{
+			if (cd.getDomain() != null)
 			{
 				if (retString.length() > 0)
 				{
 					retString.append(',');
 				}
 
-				retString.append((String) i.next());
-			}
-		}
-
-		if (!aPC.getCharacterDomainList().isEmpty())
-		{
-			for (Iterator i = aPC.getCharacterDomainList().iterator(); i.hasNext();)
-			{
-				final CharacterDomain aCD = (CharacterDomain) i.next();
-
-				if (aCD.getDomain() != null)
-				{
-					if (retString.length() > 0)
-					{
-						retString.append(',');
-					}
-
-					retString.append(aCD.getDomain().getKeyName());
-				}
+				retString.append(cd.getDomain().getKeyName());
 			}
 		}
 
@@ -1202,22 +1186,20 @@ public class PCClass extends PObject
 
 		final StringBuffer aBuf = new StringBuffer();
 
-		for (Iterator i = classSpellList.iterator(); i.hasNext();)
+		for ( String keyStr : classSpellList )
 		{
-			final String aString = i.next().toString();
-
 			if (aBuf.length() > 0)
 			{
 				aBuf.append('|');
 			}
 
-			if (aString.endsWith("(Domain)"))
+			if (keyStr.endsWith("(Domain)"))
 			{
-				aBuf.append("DOMAIN|").append(aString.substring(0, aString.length() - 8));
+				aBuf.append("DOMAIN|").append(keyStr.substring(0, keyStr.length() - 8));
 			}
 			else
 			{
-				aBuf.append("CLASS|").append(aString);
+				aBuf.append("CLASS|").append(keyStr);
 			}
 		}
 
@@ -1259,7 +1241,7 @@ public class PCClass extends PObject
 	 * if castAs has been set, return castMap from that class
 	 * @return List of strings
 	 */
-	public Map getCastMap()
+	public Map<String, String> getCastMap()
 	{
 		if ("".equals(castAs) || getKeyName().equals(castAs))
 		{
@@ -1291,7 +1273,7 @@ public class PCClass extends PObject
 
 		if (getCastMap().containsKey(aLevel))
 		{
-			return (String) getCastMap().get(aLevel);
+			return getCastMap().get(aLevel);
 		}
 
 		return "";
@@ -1307,28 +1289,26 @@ public class PCClass extends PObject
 		// check to see if we have a cached value first
 		if (highestSpellLevelMap != null)
 		{
-			Object highest = highestSpellLevelMap.get(new Integer(-1));
+			final Integer highest = highestSpellLevelMap.get(-1);
 			if (highest != null)
 			{
-				return ((Integer)highest).intValue();
+				return highest.intValue();
 			}
 		}
 
 
-		Map aCastMap = getCastMap();
+		Map<String, String> aCastMap = getCastMap();
 		int highestCastable = -1;
-		for (Iterator iter = aCastMap.values().iterator(); iter.hasNext();)
+		for ( String entry : aCastMap.values() )
 		{
-			String entry = (String) iter.next();
 			highestCastable = Math.max(highestCastable, entry.split(",").length - 1);
 		}
 
 		// Highest Known spell for level
-		List known = getKnownList();
+		List<String> known = getKnownList();
 		int highestKnown = -1;
-		for (Iterator iter = known.iterator(); iter.hasNext();)
+		for ( String element : known )
 		{
-			String element = (String) iter.next();
 			highestKnown = Math.max(highestKnown, element.split(",").length - 1);
 		}
 
@@ -1337,8 +1317,8 @@ public class PCClass extends PObject
 		// cache the value
 		if (highestSpellLevelMap == null)
 		{
-			highestSpellLevelMap = new HashMap();
-			highestSpellLevelMap.put(new Integer(-1), new Integer(highest));
+			highestSpellLevelMap = new HashMap<Integer, Integer>();
+			highestSpellLevelMap.put(-1, highest);
 		}
 		return highest;
 	}
@@ -1409,7 +1389,7 @@ public class PCClass extends PObject
 	 * if castAs has been set, return knownList from that class
 	 * @return List
 	 */
-	public List getKnownList()
+	public List<String> getKnownList()
 	{
 		if ("".equals(castAs) || getKeyName().equals(castAs))
 		{
@@ -1433,7 +1413,7 @@ public class PCClass extends PObject
 	 */
 	public String getKnownStringForLevel(int aInt)
 	{
-		List known = getKnownList();
+		List<String> known = getKnownList();
 
 		if (aInt > maxKnownLevel)
 		{
@@ -1441,7 +1421,7 @@ public class PCClass extends PObject
 		}
 		if (aInt >= 0 && aInt < known.size())
 		{
-			return (String) known.get(aInt);
+			return known.get(aInt);
 		}
 
 		return "";
@@ -1450,12 +1430,12 @@ public class PCClass extends PObject
 	/**
 	 * @return The list of automatically known spells.
 	 */
-	public List getKnownSpellsList()
+	public List<String> getKnownSpellsList()
 	{
 		return knownSpellsList;
 	}
 
-	public final Collection getSpecialtyKnownList()
+	public final Collection<String> getSpecialtyKnownList()
 	{
 		return specialtyknownList;
 	}
@@ -1543,11 +1523,9 @@ public class PCClass extends PObject
 			// if the spelllevel is >0 and this class has a characterdomain associated with it, return +1
 			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(spellType))
 			{
-				for (Iterator i = aPC.getCharacterDomainList().iterator(); i.hasNext();)
+				for ( CharacterDomain cd : aPC.getCharacterDomainList() )
 				{
-					final CharacterDomain aCD = (CharacterDomain) i.next();
-
-					if (aCD.isFromPCClass(getKeyName()))
+					if (cd.isFromPCClass(getKeyName()))
 					{
 						return "+1";
 					}
@@ -1592,7 +1570,7 @@ public class PCClass extends PObject
 
 		if (index != -2)
 		{
-			final PCStat aStat = (PCStat) aPC.getStatList().getStatAt(index);
+			final PCStat aStat = aPC.getStatList().getStatAt(index);
 			final int maxSpellLevel = aPC.getVariableValue("MAXLEVELSTAT=" + aStat.getAbb(), "").intValue();
 
 			if (spellLevel > maxSpellLevel)
@@ -1601,42 +1579,36 @@ public class PCClass extends PObject
 			}
 		}
 
-		String aString;
 		StringTokenizer aTok;
 		int x = spellLevel;
 
-		if (!specialtyknownList.isEmpty())
+		for ( String aString : specialtyknownList )
 		{
-			for (Iterator e = specialtyknownList.iterator(); e.hasNext();)
+			if (pcLevel == 1)
 			{
-				aString = (String) e.next();
+				aTok = new StringTokenizer(aString, ",");
 
-				if (pcLevel == 1)
+				while (aTok.hasMoreTokens())
 				{
-					aTok = new StringTokenizer(aString, ",");
+					final String spells = aTok.nextToken();
+					final int t = Integer.parseInt(spells);
 
-					while (aTok.hasMoreTokens())
+					if (x == 0)
 					{
-						final String spells = (String) aTok.nextElement();
-						final int t = Integer.parseInt(spells);
+						total += t;
 
-						if (x == 0)
-						{
-							total += t;
-
-							break;
-						}
-
-						--x;
+						break;
 					}
-				}
 
-				--pcLevel;
-
-				if (pcLevel < 1)
-				{
-					break;
+					--x;
 				}
+			}
+
+			--pcLevel;
+
+			if (pcLevel < 1)
+			{
+				break;
 			}
 		}
 
@@ -1685,13 +1657,11 @@ public class PCClass extends PObject
 			return null;
 		}
 
-		for (Iterator i = subClassList.iterator(); i.hasNext();)
+		for ( SubClass subClass : subClassList )
 		{
-			final SubClass a = (SubClass) i.next();
-
-			if (a.getKeyName().equals(aKey))
+			if (subClass.getKeyName().equals(aKey))
 			{
-				return a;
+				return subClass;
 			}
 		}
 
@@ -1708,12 +1678,12 @@ public class PCClass extends PObject
 		return subClassString;
 	}
 
-	public ArrayList getTemplates()
+	public ArrayList<String> getTemplates()
 	{
 		return templates;
 	}
 
-	public final Collection getUattList()
+	public final Collection<String> getUattList()
 	{
 		return uattList;
 	}
@@ -1727,14 +1697,6 @@ public class PCClass extends PObject
 		this.visible = visible;
 	}
 
-	//public int getAgeSet()
-	//{
-	//return ageSet;
-	//}
-	//public void setAgeSet(int ageSet)
-	//{
-	//this.ageSet = ageSet;
-	//}
 	/**
 	 * Identify if this class should be displayed to the user in the UI.
 	 * @return true if the class should be displayed to the user.
@@ -1784,7 +1746,7 @@ public class PCClass extends PObject
 
 	public Integer getHitPoint(final int j)
 	{
-		final Integer aHP = (Integer) hitPointMap.get(Integer.toString(j));
+		final Integer aHP = hitPointMap.get(Integer.toString(j));
 
 		if (aHP == null)
 		{
@@ -1794,13 +1756,13 @@ public class PCClass extends PObject
 		return aHP;
 	}
 
-	public final void setHitPointMap(final HashMap newMap)
+	public final void setHitPointMap(final HashMap<String, Integer> newMap)
 	{
 		hitPointMap.clear();
 		hitPointMap.putAll(newMap);
 	}
 
-	public final HashMap getHitPointMap()
+	public final HashMap<String, Integer> getHitPointMap()
 	{
 		return hitPointMap;
 	}
@@ -1842,15 +1804,11 @@ public class PCClass extends PObject
 			return aString;
 		}
 
-		String bString;
-
-		for (Iterator e = uattList.iterator(); e.hasNext();)
+		for ( String uatt : uattList )
 		{
-			bString = (String) e.next();
-
 			if (aLevel == 1)
 			{
-				return bString;
+				return uatt;
 			}
 
 			--aLevel;
@@ -1870,7 +1828,7 @@ public class PCClass extends PObject
 
 		if (prohibitSpellDescriptorList == null)
 		{
-			prohibitSpellDescriptorList = new ArrayList();
+			prohibitSpellDescriptorList = new ArrayList<SpellProhibitor>();
 		}
 		prohibitSpellDescriptorList.add(aProhibitor);
 	}
@@ -1898,14 +1856,14 @@ public class PCClass extends PObject
 
 		if (visionList == null)
 		{
-			visionList = new ArrayList();
+			visionList = new ArrayList<LevelProperty>();
 		}
 
 		final LevelProperty lp = new LevelProperty(lvl, newString);
 		visionList.add(lp);
 	}
 
-	public final ArrayList getWeaponProfBonus()
+	public final ArrayList<String> getWeaponProfBonus()
 	{
 		return weaponProfBonus;
 	}
@@ -1914,7 +1872,6 @@ public class PCClass extends PObject
 	{
 		return isAutoKnownSpell(spellName, spellLevel, false, aPC);
 	}
-
 
 	public void setLevel(final int newLevel, final PlayerCharacter aPC)
 	{
@@ -1942,12 +1899,10 @@ public class PCClass extends PObject
 			getSpellKey();
 		}
 
-		for (Iterator iter = aPC.getClassList().iterator(); iter.hasNext();)
+		for ( PCClass pcClass : aPC.getClassList() )
 		{
-			final PCClass element = (PCClass) iter.next();
-			element.calculateKnownSpellsForClassLevel(aPC);
+			pcClass.calculateKnownSpellsForClassLevel(aPC);
 		}
-
 	}
 
 
@@ -1965,9 +1920,9 @@ public class PCClass extends PObject
 			return;
 		}
 
-		for (Iterator iter = getSpellSupport().getCharacterSpellList().iterator(); iter.hasNext();)
+		for (Iterator<CharacterSpell> iter = getSpellSupport().getCharacterSpellList().iterator(); iter.hasNext();)
 		{
-			final CharacterSpell charSpell = (CharacterSpell) iter.next();
+			final CharacterSpell charSpell = iter.next();
 
 			final Spell aSpell = charSpell.getSpell();
 
@@ -2000,7 +1955,7 @@ public class PCClass extends PObject
 		if ((knownSpellsList.size() > 0) && !aPC.isImporting() && aPC.getAutoSpells())
 		{
 			// Get every spell that can be cast by this class.
-			final List cspelllist = Globals.getSpellsIn(-1, getSpellKey(), "");
+			final List<Spell> cspelllist = Globals.getSpellsIn(-1, getSpellKey(), "");
 			if (cspelllist.isEmpty())
 			{
 				return;
@@ -2017,25 +1972,23 @@ public class PCClass extends PObject
 			final String spellKey = getSpellKey();
 
 			// For every spell that this class can ever cast.
-			for (Iterator s = cspelllist.iterator(); s.hasNext();)
+			for ( Spell spell : cspelllist )
 			{
-				final Spell aSpell = (Spell) s.next();
-
 				// For each spell level that this class can cast this spell at
-				final int[] spellLevels = aSpell.levelForKey(spellKey, aPC);
+				final int[] spellLevels = spell.levelForKey(spellKey, aPC);
 				for (int si = 0; si < spellLevels.length; ++si)
 				{
 					final int spellLevel = spellLevels[si];
 
 					if (spellLevel<=_maxLevel) {
 						// If the spell is autoknown at this level
-						if (isAutoKnownSpell(aSpell.getKeyName(), spellLevel, true, aPC))
+						if (isAutoKnownSpell(spell.getKeyName(), spellLevel, true, aPC))
 						{
-							CharacterSpell cs = getSpellSupport().getCharacterSpellForSpell(aSpell, this);
+							CharacterSpell cs = getSpellSupport().getCharacterSpellForSpell(spell, this);
 							if (cs == null)
 							{
 								// Create a new character spell for this level.
-								cs = new CharacterSpell(this, aSpell);
+								cs = new CharacterSpell(this, spell);
 								cs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
 								getSpellSupport().addCharacterSpell(cs);
 							}
@@ -2055,18 +2008,11 @@ public class PCClass extends PObject
 				}
 			}
 
-			if (!aPC.getCharacterDomainList().isEmpty())
+			for ( CharacterDomain cd : aPC.getCharacterDomainList() )
 			{
-				CharacterDomain aCD;
-
-				for (Iterator i = aPC.getCharacterDomainList().iterator(); i.hasNext();)
+				if ((cd.getDomain() != null) && cd.isFromPCClass(getKeyName()))
 				{
-					aCD = (CharacterDomain) i.next();
-
-					if ((aCD.getDomain() != null) && aCD.isFromPCClass(getKeyName()))
-					{
-						aCD.getDomain().addSpellsToClassForLevels(this, 0, _maxLevel);
-					}
+					cd.getDomain().addSpellsToClassForLevels(this, 0, _maxLevel);
 				}
 			}
 		}
@@ -2082,12 +2028,11 @@ public class PCClass extends PObject
 	public int getMaxCastLevel()
 	{
 		int currHighest=-1;
-		for (Iterator iter = castForLevelMap.keySet().iterator(); iter.hasNext();)
+		for ( String key : castForLevelMap.keySet() )
 		{
-			final String key = (String) iter.next();
 			final int keyInt = Integer.parseInt(key);
 
-			final String value = (String) castForLevelMap.get(key);
+			final String value = castForLevelMap.get(key);
 			if (value != null && !value.equals(""))
 			{
 				final int val = Integer.parseInt(value);
@@ -2112,10 +2057,9 @@ public class PCClass extends PObject
 			return false;
 		}
 
-		for (Iterator i = getSafeListFor(ListKey.TYPE).iterator(); i.hasNext();)
+		for ( String type : getSafeListFor( ListKey.TYPE ) )
 		{
-			final String aType = (String) i.next();
-			final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(aType);
+			final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(type);
 
 			if ((aClassType != null) && aClassType.isMonster())
 			{
@@ -2141,7 +2085,7 @@ public class PCClass extends PObject
 
 		if (naturalWeapons == null)
 		{
-			naturalWeapons = new ArrayList();
+			naturalWeapons = new ArrayList<LevelProperty>();
 		}
 
 		naturalWeapons.add(lp);
@@ -2151,19 +2095,17 @@ public class PCClass extends PObject
 	 * get the Natural Attacks for this level
 	 * @return natural weapons list
 	 **/
-	public List getNaturalWeapons()
+	public List<Equipment> getNaturalWeapons()
 	{
-		final List tempArray = new ArrayList();
+		final List<Equipment> tempArray = new ArrayList<Equipment>();
 
 		if ((naturalWeapons == null) || (naturalWeapons.isEmpty()))
 		{
 			return tempArray;
 		}
 
-		for (Iterator li = naturalWeapons.iterator(); li.hasNext();)
+		for ( LevelProperty lp : naturalWeapons )
 		{
-			final LevelProperty lp = (LevelProperty) li.next();
-
 			if (lp.getLevel() <= level)
 			{
 				final Equipment weapon = (Equipment) lp.getObject();
@@ -2247,7 +2189,7 @@ public class PCClass extends PObject
 		{
 			if (SR == null)
 			{
-				SR = new ArrayList();
+				SR = new ArrayList<LevelProperty>();
 			}
 
 			final LevelProperty lp = new LevelProperty(lvl, tokenSrString);
@@ -2269,12 +2211,12 @@ public class PCClass extends PObject
 
 			for (int i = 0, x = SR.size(); i < x; ++i)
 			{
-				if (((LevelProperty) SR.get(i)).getLevel() > lvl)
+				if (SR.get(i).getLevel() > lvl)
 				{
 					break;
 				}
 
-				lp = (LevelProperty) SR.get(i);
+				lp = SR.get(i);
 			}
 		}
 
@@ -2296,7 +2238,7 @@ public class PCClass extends PObject
 	{
 		if ((SR != null) && (SR.size() > index))
 		{
-			final LevelProperty lp = (LevelProperty) SR.get(index);
+			final LevelProperty lp = SR.get(index);
 
 			return lp.getLevel() + delimiter + lp.getProperty();
 		}
@@ -2397,7 +2339,7 @@ public class PCClass extends PObject
 
 			boolean flag = false;
 
-			for (Iterator e = knownSpellsList.iterator(); e.hasNext();)
+			for ( String spell : knownSpellsList )
 			{
 				if (flag)
 				{
@@ -2405,7 +2347,7 @@ public class PCClass extends PObject
 				}
 
 				flag = true;
-				pccTxt.append((String) e.next());
+				pccTxt.append(spell);
 			}
 		}
 
@@ -2453,10 +2395,10 @@ public class PCClass extends PObject
 //			int x = kitString.indexOf('|');
 //			pccTxt.append(lineSep + kitString.substring(0, x)).append("\tKIT:").append(kitString.substring(x + 1));
 //		}
-		List kits = getSafeListFor(ListKey.KITS);
+		List<String> kits = getSafeListFor(ListKey.KITS);
 		for (int iKit = 0; iKit < kits.size(); ++iKit)
 		{
-			final String kitString = (String) kits.get(iKit);
+			final String kitString = kits.get(iKit);
 			final int x = kitString.indexOf('|');
 
 			if (x >= 0)
@@ -2477,7 +2419,7 @@ public class PCClass extends PObject
 		{
 			if (castMap.containsKey(String.valueOf(x)))
 			{
-				final String c = (String) castMap.get(String.valueOf(x));
+				final String c = castMap.get(String.valueOf(x));
 				final String l = lineSep + String.valueOf(x) + "\tCAST:";
 				checkAdd(pccTxt, "0", l, c);
 			}
@@ -2485,7 +2427,7 @@ public class PCClass extends PObject
 
 		for (int x = 0; x < knownList.size(); ++x)
 		{
-			final String c = (String) knownList.get(x);
+			final String c = knownList.get(x);
 			final String l = lineSep + String.valueOf(x + 1) + "\tKNOWN:";
 			checkAdd(pccTxt, "0", l, c);
 		}
@@ -2505,28 +2447,21 @@ public class PCClass extends PObject
 
 		if (SR != null)
 		{
-			for (Iterator li = SR.iterator(); li.hasNext();)
+			for ( LevelProperty lp : SR )
 			{
-				final Object obj = li.next();
-
-				if ((obj instanceof LevelProperty))
-				{
-					pccTxt.append(lineSep).append(((LevelProperty) obj).getLevel()).append("\tSR:").append(((LevelProperty) obj)
-						.getProperty());
-				}
+				pccTxt.append(lineSep).append(lp.getLevel()).append("\tSR:").append(lp.getProperty());
 			}
 		}
 
 		// Output the list of spells associated with the class.
 		for (int i=0;i<=maxLevel;i++)
 		{
-			final List spellList = getSpellSupport().getSpellListForLevel(i);
+			final List<PCSpell> spellList = getSpellSupport().getSpellListForLevel(i);
 
 			if (spellList != null)
 			{
-				for (Iterator li = spellList.iterator(); li.hasNext();)
+				for ( PCSpell spell : spellList )
 				{
-					final PCSpell spell = (PCSpell) li.next();
 					pccTxt.append(lineSep).append(i).append("\tSPELLS:").append(spell.getPCCText());
 				}
 			}
@@ -2535,14 +2470,14 @@ public class PCClass extends PObject
 
 		for (int x = 0; x < templates.size(); ++x)
 		{
-			final String c = (String) templates.get(x);
+			final String c = templates.get(x);
 			final int y = c.indexOf('|');
 			pccTxt.append(lineSep).append(c.substring(0, y)).append("\tTEMPLATE:").append(c.substring(y + 1));
 		}
 
 		for (int x = 0; x < getBonusList().size(); ++x)
 		{
-			final BonusObj aBonus = (BonusObj) getBonusList().get(x);
+			final BonusObj aBonus = getBonusList().get(x);
 			String bonusString = aBonus.toString();
 			final int levelEnd = bonusString.indexOf('|');
 			final String maybeLevel = bonusString.substring(0, levelEnd);
@@ -2569,23 +2504,21 @@ public class PCClass extends PObject
 			pccTxt.append(lineSep).append(c.substring(0, y)).append("\tDEFINE:").append(c.substring(y + 1));
 		}
 
-		List levelAbilityList = getLevelAbilityList();
+		List<LevelAbility> levelAbilityList = getLevelAbilityList();
 		if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 		{
-			for (Iterator e = levelAbilityList.iterator(); e.hasNext();)
+			for ( LevelAbility ability : levelAbilityList )
 			{
-				final LevelAbility ability = (LevelAbility) e.next();
 				pccTxt.append(lineSep).append(String.valueOf(ability.level())).append("\tADD:").append(ability.getTagData());
 			}
 		}
 
-		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		if ((specialAbilityList != null) && (specialAbilityList.size() != 0))
 		{
-			for (Iterator se = specialAbilityList.iterator(); se.hasNext();)
+			for ( SpecialAbility sa : specialAbilityList )
 			{
-				final SpecialAbility sa = (SpecialAbility) se.next();
 				final String src = sa.getSASource();
 				final String lev = src.substring(src.lastIndexOf('|') + 1);
 				pccTxt.append(lineSep).append(lev).append("\tSA:").append(sa.toString());
@@ -2607,11 +2540,11 @@ public class PCClass extends PObject
 		{
 			for (int x = 0; x < uattList.size(); ++x)
 			{
-				pccTxt.append(lineSep).append(String.valueOf(x + 1)).append("\tUATT:").append((String) uattList.get(x));
+				pccTxt.append(lineSep).append(String.valueOf(x + 1)).append("\tUATT:").append(uattList.get(x));
 			}
 		}
 
-		List udamList = getListFor(ListKey.UDAM);
+		List<String> udamList = getListFor(ListKey.UDAM);
 		if ((udamList != null) && (udamList.size() != 0))
 		{
 			for (int x = 0; x < udamList.size(); ++x)
@@ -2620,7 +2553,7 @@ public class PCClass extends PObject
 			}
 		}
 
-		List umultList = getListFor(ListKey.UMULT);
+		List<String> umultList = getListFor(ListKey.UMULT);
 		if ((umultList != null) && (umultList.size() != 0))
 		{
 			buildPccText(pccTxt, umultList.iterator(), "|", "\tUMULT:", lineSep);
@@ -2650,20 +2583,17 @@ public class PCClass extends PObject
 	 * @param aPC
 	 * @return Map
 	 **/
-	public Map getVision(final PlayerCharacter aPC)
+	public Map<String, String> getVision(final PlayerCharacter aPC)
 	{
 		LevelProperty lp;
 
 		if (visionList != null)
 		{
-			for (int i = 0; i < visionList.size(); i++)
+			for ( LevelProperty vision : visionList )
 			{
-				if (((LevelProperty) visionList.get(i)).getLevel() <= level)
+				if ( vision.getLevel() <= level )
 				{
-					lp = (LevelProperty) visionList.get(i);
-
-					final String aString = lp.getProperty();
-					super.setVision(aString, aPC);
+					super.setVision(vision.getProperty(), aPC);
 				}
 			}
 		}
@@ -2692,28 +2622,26 @@ public class PCClass extends PObject
 	 **/
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (Iterator ab = getBonusList().iterator(); ab.hasNext();)
+		for ( BonusObj bonus : getBonusList() )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if ((aBonus.getPCLevel() <= level))
+			if ((bonus.getPCLevel() <= level))
 			{
-				if (aBonus.hasPreReqs())
+				if (bonus.hasPreReqs())
 				{
 					//TODO: This is a hack to avoid VARs etc in class defs being qualified for when Bypass class prereqs is selected.
 					// Should we be passing in the BonusObj here to allow it to be referenced in Qualifies statements?
-					if (PrereqHandler.passesAll(aBonus.getPrereqList(), aPC, null))
+					if (PrereqHandler.passesAll(bonus.getPrereqList(), aPC, null))
 					{
-						aBonus.setApplied(true);
+						bonus.setApplied(true);
 					}
 					else
 					{
-						aBonus.setApplied(false);
+						bonus.setApplied(false);
 					}
 				}
 				else
 				{
-					aBonus.setApplied(true);
+					bonus.setApplied(true);
 				}
 			}
 		}
@@ -2740,10 +2668,10 @@ public class PCClass extends PObject
 	{
 		if (subClassList == null)
 		{
-			subClassList = new ArrayList();
+			subClassList = new ArrayList<SubClass>();
 		}
 
-		sClass.setHitPointMap((HashMap) getHitPointMap().clone());
+		sClass.setHitPointMap((HashMap<String, Integer>) getHitPointMap().clone());
 		sClass.setHitDie(hitDie);
 		subClassList.add(sClass);
 	}
@@ -2881,7 +2809,7 @@ public class PCClass extends PObject
 			aKey = "UAB";
 		}
 
-		final String aString = (String) attackCycleMap.get(aKey);
+		final String aString = attackCycleMap.get(aKey);
 
 		if (aString != null)
 		{
@@ -2944,10 +2872,9 @@ public class PCClass extends PObject
 		}
 		else
 		{
-			for (Iterator i = getSafeListFor(ListKey.TYPE).iterator(); i.hasNext();)
+			for ( String type : getSafeListFor(ListKey.TYPE) )
 			{
-				final String aType = (String) i.next();
-				final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(aType);
+				final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(type);
 
 				if ((aClassType != null) && !"0".equals(aClassType.getCRFormula()))
 				{
@@ -2996,19 +2923,19 @@ public class PCClass extends PObject
 			aClass.setBonusSpellBaseStat(bonusSpellBaseStat);
 			aClass.setSpellType(spellType);
 			aClass.setAttackBonusType(attackBonusType);
-			aClass.specialtyknownList = (ArrayList) specialtyknownList.clone();
-			aClass.knownList = (ArrayList) knownList.clone();
-			aClass.castMap = new HashMap(castMap);
-			aClass.uattList = (ArrayList) uattList.clone();
-			aClass.acList = (ArrayList) acList.clone();
-			aClass.languageBonus = (TreeSet) languageBonus.clone();
-			aClass.weaponProfBonus = (ArrayList) weaponProfBonus.clone();
-			aClass.featList = (ArrayList) featList.clone();
+			aClass.specialtyknownList = (ArrayList<String>) specialtyknownList.clone();
+			aClass.knownList = (ArrayList<String>) knownList.clone();
+			aClass.castMap = new HashMap<String, String>(castMap);
+			aClass.uattList = (ArrayList<String>) uattList.clone();
+			aClass.acList = (ArrayList<String>) acList.clone();
+			aClass.languageBonus = (TreeSet<Language>) languageBonus.clone();
+			aClass.weaponProfBonus = (ArrayList<String>) weaponProfBonus.clone();
+			aClass.featList = (ArrayList<String>) featList.clone();
 //			aClass.vFeatList = (ArrayList) vFeatList.clone();
 			aClass.vFeatMap = new HashMap<String, List<Ability>>(vFeatMap);
-			aClass.hitDieLockMap = new HashMap(hitDieLockMap);
+			aClass.hitDieLockMap = new HashMap<Integer, String>(hitDieLockMap);
 			aClass.featAutos = (ArrayList<String>) featAutos.clone();
-			aClass.skillList = new ArrayList();
+			aClass.skillList = new ArrayList<String>();
 
 			aClass.classSkillString = classSkillString;
 			aClass.classSkillList = null;
@@ -3025,22 +2952,22 @@ public class PCClass extends PObject
 			aClass.abbrev = abbrev;
 			aClass.memorizeSpells = memorizeSpells;
 			aClass.multiPreReqs = multiPreReqs;
-			aClass.deityList = new ArrayList(deityList);
+			aClass.deityList = new ArrayList<String>(deityList);
 			aClass.maxLevel = maxLevel;
-			aClass.knownSpellsList = new ArrayList(knownSpellsList);
+			aClass.knownSpellsList = new ArrayList<String>(knownSpellsList);
 			aClass.attackCycle = attackCycle;
-			aClass.attackCycleMap = new HashMap(attackCycleMap);
+			aClass.attackCycleMap = new HashMap<String, String>(attackCycleMap);
 			aClass.castAs = castAs;
 			aClass.preRaceType = preRaceType;
 			aClass.modToSkills = modToSkills;
 			aClass.levelsPerFeat = levelsPerFeat;
 			aClass.initMod = initMod;
-			aClass.specialtyList = new ArrayList(specialtyList);
+			aClass.specialtyList = new ArrayList<String>(specialtyList);
 
 			//aClass.ageSet = ageSet;
-			aClass.domainList = (ArrayList) domainList.clone();
-			aClass.addDomains = (ArrayList) addDomains.clone();
-			aClass.hitPointMap = new HashMap(hitPointMap);
+			aClass.domainList = (ArrayList<String>) domainList.clone();
+			aClass.addDomains = (ArrayList<String>) addDomains.clone();
+			aClass.hitPointMap = new HashMap<String, Integer>(hitPointMap);
 			aClass.hasSubClass = hasSubClass;
 			aClass.subClassList = subClassList;
 
@@ -3048,7 +2975,7 @@ public class PCClass extends PObject
 
 			if (naturalWeapons != null)
 			{
-				aClass.naturalWeapons = (ArrayList) naturalWeapons.clone();
+				aClass.naturalWeapons = (ArrayList<LevelProperty>) naturalWeapons.clone();
 			}
 		}
 		catch (CloneNotSupportedException exc)
@@ -3101,7 +3028,7 @@ public class PCClass extends PObject
 
 	public boolean isSpecialtySpell(final Spell aSpell)
 	{
-		final List aList = (ArrayList) getSpecialtyList();
+		final Collection<String> aList = getSpecialtyList();
 
 		if ((aList == null) || (aList.size() == 0))
 		{
@@ -3111,7 +3038,7 @@ public class PCClass extends PObject
 		return (aSpell.descriptorListContains(aList) || aSpell.schoolContains(aList) || aSpell.subschoolContains(aList));
 	}
 
-	public ArrayList getSubClassList()
+	public ArrayList<SubClass> getSubClassList()
 	{
 		return subClassList;
 	}
@@ -3200,10 +3127,9 @@ public class PCClass extends PObject
 			return false;
 		}
 
-		for (Iterator i = classSkillList.iterator(); i.hasNext();)
+		for ( String key : classSkillList )
 		{
-			final String classKey = i.next().toString();
-			final PCClass pcClass = Globals.getClassKeyed(classKey);
+			final PCClass pcClass = Globals.getClassKeyed(key);
 
 			if ((pcClass != null) && pcClass.hasCSkill(aString))
 			{
@@ -3229,11 +3155,9 @@ public class PCClass extends PObject
 
 	public boolean hasSkill(final String aString)
 	{
-		for (Iterator p = skillList.iterator(); p.hasNext();)
+		for ( String key : skillList )
 		{
-			final String aSkillName = p.next().toString();
-
-			if (aSkillName.equalsIgnoreCase(aString))
+			if (key.equalsIgnoreCase(aString))
 			{
 				return true;
 			}
@@ -3251,10 +3175,9 @@ public class PCClass extends PObject
 			return "YES".equals(XPPenalty);
 		}
 
-		for (Iterator i = getSafeListFor(ListKey.TYPE).iterator(); i.hasNext();)
+		for ( String type : getSafeListFor(ListKey.TYPE) )
 		{
-			final String aType = (String) i.next();
-			final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(aType);
+			final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(type);
 
 			if ((aClassType != null) && !aClassType.getXPPenalty())
 			{
@@ -3319,10 +3242,9 @@ public class PCClass extends PObject
 
 	public boolean zeroCastSpells()
 	{
-		for (Iterator e = getCastMap().keySet().iterator(); e.hasNext();)
+		for ( String key : getCastMap().keySet() )
 		{
-			final String aKey = (String) e.next();
-			final String aVal = (String) getCastMap().get(aKey);
+			final String aVal = getCastMap().get(key);
 			final StringTokenizer aTok = new StringTokenizer(aVal, ",");
 			int numSpells = 0;
 
@@ -3351,18 +3273,17 @@ public class PCClass extends PObject
 
 	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		if ((specialAbilityList == null) || specialAbilityList.isEmpty())
 		{
 			return aList;
 		}
 
-		final List bList = new ArrayList();
+		final List<SpecialAbility> bList = new ArrayList<SpecialAbility>();
 
-		for (Iterator i = specialAbilityList.iterator(); i.hasNext();)
+		for ( SpecialAbility sa : specialAbilityList )
 		{
-			final SpecialAbility sa = (SpecialAbility) i.next();
 			final String saKey = sa.getKeyName();
 
 			if (sa.pcQualifiesFor(aPC))
@@ -3379,7 +3300,7 @@ public class PCClass extends PObject
 
 						for (int itIdx = bList.size() - 1; itIdx >= 0; --itIdx)
 						{
-							final String subKey = ((SpecialAbility) bList.get(itIdx)).getKeyName();
+							final String subKey = bList.get(itIdx).getKeyName();
 
 							if (subKey.equals(saToRemove))
 							{
@@ -3416,7 +3337,7 @@ public class PCClass extends PObject
 		}
 	}
 
-	final List getClassSkillList()
+	final List<String> getClassSkillList()
 	{
 		return classSkillList;
 	}
@@ -3463,7 +3384,7 @@ public class PCClass extends PObject
 
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size()))
 		{
-			aStat = (PCStat) aPC.getStatList().getStatAt(index);
+			aStat = aPC.getStatList().getStatAt(index);
 			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
 		}
 
@@ -3508,7 +3429,7 @@ public class PCClass extends PObject
 				return 0;
 			}
 
-			final String aString = (String) getKnownList().get(pcLevel - 1);
+			final String aString = getKnownList().get(pcLevel - 1);
 			final StringTokenizer aTok = new StringTokenizer(aString, ",");
 			int iCount = 0;
 
@@ -3540,11 +3461,11 @@ public class PCClass extends PObject
 					total += (t * mult);
 
 					// add Stat based bonus
-					final Object bonusSpell = Globals.getBonusSpellMap().get(String.valueOf(spellLevel));
+					final String bonusSpell = Globals.getBonusSpellMap().get(String.valueOf(spellLevel));
 
 					if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN) && (bonusSpell != null) && !bonusSpell.equals("0|0"))
 					{
-						final StringTokenizer s = new StringTokenizer(bonusSpell.toString(), "|");
+						final StringTokenizer s = new StringTokenizer(bonusSpell, "|");
 						final int base = Integer.parseInt(s.nextToken());
 						final int range = Integer.parseInt(s.nextToken());
 
@@ -3595,20 +3516,22 @@ public class PCClass extends PObject
 			return true;
 		}
 
-		if (prohibitSpellDescriptorList != null)
+		if ( prohibitSpellDescriptorList != null )
 		{
-			for (Iterator prh = prohibitSpellDescriptorList.iterator(); prh.hasNext();)
+			for (SpellProhibitor prohibit : prohibitSpellDescriptorList)
 			{
-				final SpellProhibitor aProhibitor = (SpellProhibitor) prh.next();
-				if (PrereqHandler.passesAll(aProhibitor.getPrereqList(), aPC, null))
+				if (PrereqHandler.passesAll(prohibit.getPrereqList(), aPC, null))
 				{
-					if (aProhibitor.getType() == SpellProhibitor.TYPE_ALIGNMENT && Globals.checkRule(RuleConstants.PROHIBITSPELLS))
+					if (prohibit.getType() == SpellProhibitor.TYPE_ALIGNMENT
+						&& Globals.checkRule(RuleConstants.PROHIBITSPELLS))
 					{
 						int hits = 0;
-						for (Iterator desc = aSpell.getDescriptorList().iterator(); desc.hasNext();)
+						for (Iterator desc = aSpell.getDescriptorList().iterator();
+							 desc.hasNext(); )
 						{
 							String aDescriptor = desc.next().toString().toUpperCase();
-							for (Iterator it = aProhibitor.getValueList().iterator(); it.hasNext();)
+							for (Iterator it = prohibit.getValueList().iterator();
+								 it.hasNext(); )
 							{
 								if (aDescriptor.equals(it.next().toString()))
 								{
@@ -3616,26 +3539,25 @@ public class PCClass extends PObject
 								}
 							}
 						}
-						if (hits == aProhibitor.getValueList().size())
+						if (hits == prohibit.getValueList().size())
 						{
 							return true;
 						}
 					}
-					else if (aProhibitor.getType() == SpellProhibitor.TYPE_DESCRIPTOR)
+					else if (prohibit.getType() == SpellProhibitor.TYPE_DESCRIPTOR)
 					{
 						int hits = 0;
-						for (Iterator desc = aSpell.getDescriptorList().iterator(); desc.hasNext();)
+						for (String desc : aSpell.getDescriptorList())
 						{
-							String aDescriptor = desc.next().toString().toUpperCase();
-							for (Iterator it = aProhibitor.getValueList().iterator(); it.hasNext();)
+							for (String prohib : prohibit.getValueList())
 							{
-								if (aDescriptor.equals(it.next().toString()))
+								if (desc.equals(prohib))
 								{
 									hits++;
 								}
 							}
 						}
-						if (hits == aProhibitor.getValueList().size())
+						if (hits == prohibit.getValueList().size())
 						{
 							return true;
 						}
@@ -3706,13 +3628,13 @@ public class PCClass extends PObject
 		//
 		// Check the UDAM list for monk-like damage
 		//
-		List udamList = Globals.getClassKeyed(keyName).getListFor(ListKey.UDAM);
+		List<String> udamList = Globals.getClassKeyed(keyName).getListFor(ListKey.UDAM);
 
 		if ((udamList != null) && !udamList.isEmpty())
 		{
 			if (udamList.size() == 1)
 			{
-				final String aString = udamList.get(0).toString();
+				final String aString = udamList.get(0);
 
 				if (aString.startsWith("CLASS=") || aString.startsWith("CLASS."))
 				{
@@ -3873,10 +3795,9 @@ public class PCClass extends PObject
 		// the level has now been added to the character,
 		// so now assign the attributes of this class level to the
 		// character...
-		final List templateList = getTemplates(aPC.isImporting(), aPC);
-		for (int x = 0; x < templateList.size(); ++x)
+		for ( String template : getTemplates(aPC.isImporting(), aPC) )
 		{
-			aPC.addTemplateKeyed((String) templateList.get(x));
+			aPC.addTemplateKeyed(template);
 		}
 
 		// Make sure that if this Class adds a new domain that
@@ -3912,7 +3833,7 @@ public class PCClass extends PObject
 		// Add any bonus feats or stats that will be gained from this level
 		// i.e. a bonus feat every 3 levels
 		if (aPC.getTotalLevels() > total)
-			{
+		{
 			boolean processBonusStats = true;
 			boolean processBonusFeats = true;
 			total = aPC.getTotalLevels();
@@ -3989,7 +3910,7 @@ public class PCClass extends PObject
 
 		if (aPC.getLevelInfoSize() > 0)
 		{
-			pcl = (PCLevelInfo) aPC.getLevelInfo().get(aPC.getLevelInfoSize() - 1);
+			pcl = aPC.getLevelInfo().get(aPC.getLevelInfoSize() - 1);
 
 			if (pcl != null)
 			{
@@ -4015,18 +3936,18 @@ public class PCClass extends PObject
 
 			if (newLevel == 1)
 			{
-				List l = getSafeListFor(ListKey.KITS);
+				List<String> l = getSafeListFor(ListKey.KITS);
 				for (int i = 0; i > l.size(); i++)
 				{
-					KitUtilities.makeKitSelections(0, (String) l.get(i), i, aPC);
+					KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
 				}
 				makeRegionSelection(0, aPC);
 			}
 
-			List l = getSafeListFor(ListKey.KITS);
+			List<String> l = getSafeListFor(ListKey.KITS);
 			for (int i = 0; i > l.size(); i++)
 			{
-				KitUtilities.makeKitSelections(newLevel, (String) l.get(i), i, aPC);
+				KitUtilities.makeKitSelections(newLevel, l.get(i), i, aPC);
 			}
 			makeRegionSelection(newLevel, aPC);
 
@@ -4101,7 +4022,7 @@ public class PCClass extends PObject
 							//
 							// Build the choice list
 							//
-							final List choiceNames = new ArrayList();
+							final List<String> choiceNames = new ArrayList<String>();
 
 							for (int i = 0; i <= iMaxDonation; ++i)
 							{
@@ -4118,12 +4039,12 @@ public class PCClass extends PObject
 							c.setAvailableList(choiceNames);
 							c.setVisible(true);
 
-							final List selectedList = c.getSelectedList();
+							final List<String> selectedList = c.getSelectedList();
 							int iLevels = 0;
 
 							if (!selectedList.isEmpty())
 							{
-								iLevels = Integer.parseInt((String) selectedList.get(0));
+								iLevels = Integer.parseInt(selectedList.get(0));
 							}
 
 							if (iLevels > 0)
@@ -4188,13 +4109,13 @@ public class PCClass extends PObject
 		//
 		// Go through the specialty list (SA) and adjust the class to the new name
 		//
-		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		if (specialAbilityList != null)
 		{
 			for (int idx = specialAbilityList.size() - 1; idx >= 0; --idx)
 			{
-				SpecialAbility sa = (SpecialAbility) specialAbilityList.get(idx);
+				SpecialAbility sa = specialAbilityList.get(idx);
 
 				if (sa.getSource().length() != 0)
 				{
@@ -4226,12 +4147,9 @@ public class PCClass extends PObject
 		//
 		if (getBonusList() != null)
 		{
-			final List tempList = getBonusList();
-
-			for (int idx = tempList.size() - 1; idx >= 0; --idx)
+			for ( BonusObj bonusObj : getBonusList() )
 			{
-				final BonusObj aBonus = (BonusObj) tempList.get(idx);
-				final String bonus = aBonus.toString();
+				final String bonus = bonusObj.toString();
 				int offs = -1;
 
 				for (;;)
@@ -4245,7 +4163,7 @@ public class PCClass extends PObject
 
 					addBonusList(bonus.substring(0, offs + 1) + newClass
 						+ bonus.substring(offs + oldClass.length() + 1));
-					removeBonusList(aBonus);
+					removeBonusList(bonusObj);
 				}
 			}
 		}
@@ -4260,7 +4178,7 @@ public class PCClass extends PObject
 				if (DamageReduction.isPrereqForClassLevel(prereq, oldClass))
 				{
 					prereq.setKey(newClass);
-				}
+	}
 			}
 		}
 	}
@@ -4282,17 +4200,15 @@ public class PCClass extends PObject
 	int memorizedSpecialtiesForLevelBook(final int aLevel, final String bookName)
 	{
 		int m = 0;
-		final List aList = getSpellSupport().getCharacterSpell(null, bookName, aLevel);
+		final List<CharacterSpell> aList = getSpellSupport().getCharacterSpell(null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{
 			return m;
 		}
 
-		for (Iterator i = aList.iterator(); i.hasNext();)
+		for ( CharacterSpell cs : aList )
 		{
-			final CharacterSpell cs = (CharacterSpell) i.next();
-
 			if (cs.isSpecialtySpell())
 			{
 				m += cs.getSpellInfoFor(bookName, aLevel, -1).getTimes();
@@ -4305,16 +4221,15 @@ public class PCClass extends PObject
 	int memorizedSpellForLevelBook(final int aLevel, final String bookName)
 	{
 		int m = 0;
-		final List aList = getSpellSupport().getCharacterSpell(null, bookName, aLevel);
+		final List<CharacterSpell> aList = getSpellSupport().getCharacterSpell(null, bookName, aLevel);
 
 		if (aList.isEmpty())
 		{
 			return m;
 		}
 
-		for (Iterator i = aList.iterator(); i.hasNext();)
+		for ( CharacterSpell cs : aList )
 		{
-			final CharacterSpell cs = (CharacterSpell) i.next();
 			m += cs.getSpellInfoFor(bookName, aLevel, -1).getTimes();
 		}
 
@@ -4327,14 +4242,14 @@ public class PCClass extends PObject
 		if (aPC != null)
 		{
 			int total = aPC.getTotalLevels();
-			final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+			final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 			if ((specialAbilityList != null) && !specialAbilityList.isEmpty())
 			{
 				// remove any choice or SPECIALS: related special abilities the PC no longer qualifies for
 				for (int i = specialAbilityList.size() - 1; i >= 0; --i)
 				{
-					final SpecialAbility sa = (SpecialAbility) specialAbilityList.get(i);
+					final SpecialAbility sa = specialAbilityList.get(i);
 
 					if (sa.getSource().startsWith("PCCLASS|") && !sa.pcQualifiesFor(aPC))
 					{
@@ -4358,13 +4273,11 @@ public class PCClass extends PObject
 			// XXX Why is the feat decrementing done twice (here and in
 			// subAddsForLevel())? The code works correctly, but I don't know
 			// why.
-			List levelAbilityList = getLevelAbilityList();
+			List<LevelAbility> levelAbilityList = getLevelAbilityList();
 			if ((levelAbilityList != null) && !levelAbilityList.isEmpty())
 			{
-				for (Iterator e1 = levelAbilityList.iterator(); e1.hasNext();)
+				for ( LevelAbility levAbility : levelAbilityList )
 				{
-					final LevelAbility levAbility = (LevelAbility) e1.next();
-
 					if ((levAbility.level() == level) && levAbility.isFeat())
 					{
 						aPC.adjustFeats( - 1);
@@ -4395,12 +4308,9 @@ public class PCClass extends PObject
 				//
 				// Remove all skills associated with this class
 				//
-				final List aSkills = aPC.getSkillList();
-
-				for (int i = 0; i < aSkills.size(); ++i)
+				for ( Skill skill : aPC.getSkillList() )
 				{
-					final Skill aSkill = (Skill) aSkills.get(i);
-					aSkill.setZeroRanks(this, aPC);
+					skill.setZeroRanks(this, aPC);
 				}
 
 				spMod = skillPool();
@@ -4411,7 +4321,8 @@ public class PCClass extends PObject
 				total = aPC.getTotalLevels();
 
 				// Roll back any stat changes that were made as part of the level
-				final List moddedStats = new ArrayList();
+
+				final List<PCLevelInfoStat> moddedStats = new ArrayList<PCLevelInfoStat>();
 				if (pcl.getModifiedStats(true) != null)
 				{
 					moddedStats.addAll(pcl.getModifiedStats(true));
@@ -4422,9 +4333,8 @@ public class PCClass extends PObject
 				}
 				if (!moddedStats.isEmpty())
 				{
-					for (Iterator iter = moddedStats.iterator(); iter.hasNext();)
+					for ( PCLevelInfoStat statToRollback : moddedStats )
 					{
-						final PCLevelInfoStat statToRollback = (PCLevelInfoStat) iter.next();
 						for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 						{
 							final PCStat aStat = i.next();
@@ -4533,9 +4443,9 @@ public class PCClass extends PObject
 
 		if (useMap)
 		{
-			final Object val = castForLevelMap.get(String.valueOf(spellLevel));
+			final String val = castForLevelMap.get(String.valueOf(spellLevel));
 
-			if ((val == null) || (Integer.parseInt(val.toString()) == 0) || (aSpell == null))
+			if ((val == null) || (Integer.parseInt(val) == 0) || (aSpell == null))
 			{
 				return false;
 			}
@@ -4553,12 +4463,11 @@ public class PCClass extends PObject
 		boolean flag = true;
 
 		// iterate through the KNOWNSPELLS: tag
-		for (Iterator e = knownSpellsList.iterator(); e.hasNext();)
+		for ( String spellStr : knownSpellsList )
 		{
-			final String aString = (String) e.next();
 			flag = true;
 
-			final StringTokenizer spellTok = new StringTokenizer(aString, ",", false);
+			final StringTokenizer spellTok = new StringTokenizer(spellStr, ",", false);
 
 			// must satisfy all elements in a comma delimited list
 			while (spellTok.hasMoreTokens() && flag)
@@ -4742,14 +4651,14 @@ public class PCClass extends PObject
 	 * @param aPC
 	 * @return A list of templates added by this function
 	 */
-	public List getTemplates(final boolean flag, final PlayerCharacter aPC)
+	public List<String> getTemplates(final boolean flag, final PlayerCharacter aPC)
 	{
-		final ArrayList newTemplates = new ArrayList();
-		templatesAdded = new ArrayList();
+		final ArrayList<String> newTemplates = new ArrayList<String>();
+		templatesAdded = new ArrayList<String>();
 
 		for (int x = 0; x < templates.size(); ++x)
 		{
-			final String template = (String) templates.get(x);
+			final String template = templates.get(x);
 			final StringTokenizer aTok = new StringTokenizer(template, "|", false);
 
 			if (level < Integer.parseInt(aTok.nextToken()))
@@ -4805,23 +4714,19 @@ public class PCClass extends PObject
 	{
 		String aString = "0";
 
-		List umultList = getListFor(ListKey.UMULT);
+		List<String> umultList = getListFor(ListKey.UMULT);
 		if ((umultList == null) || umultList.isEmpty())
 		{
 			return aString;
 		}
 
-		String bString;
-
-		for (Iterator e = umultList.iterator(); e.hasNext();)
+		for ( String umult : umultList )
 		{
-			bString = (String) e.next();
+			final int pos = umult.lastIndexOf('|');
 
-			final int pos = bString.lastIndexOf('|');
-
-			if ((pos >= 0) && (aLevel <= Integer.parseInt(bString.substring(0, pos))))
+			if ((pos >= 0) && (aLevel <= Integer.parseInt(umult.substring(0, pos))))
 			{
-				aString = bString.substring(pos + 1);
+				aString = umult.substring(pos + 1);
 			}
 		}
 
@@ -4842,9 +4747,9 @@ public class PCClass extends PObject
 
 		final String prefix = classKey + '|';
 
-		for (Iterator i = getVariableIterator(); i.hasNext();)
+		for (Iterator<Variable> i = getVariableIterator(); i.hasNext();)
 		{
-			final Variable v = (Variable) i.next();
+			final Variable v = i.next();
 
 			if (v.getLevel() == aLevel)
 			{
@@ -4912,7 +4817,7 @@ public class PCClass extends PObject
 			{
 				for (Iterator<PCStat> i = aPC.getStatList().iterator(); i.hasNext();)
 				{
-					final PCStat aStat = (PCStat) i.next();
+					final PCStat aStat = i.next();
 
 					if (aStat.getDisplayName().equalsIgnoreCase(selectedValue.toString()))
 					{
@@ -4930,12 +4835,12 @@ public class PCClass extends PObject
 		return statsToChoose - iCount;
 	}
 
-	private static void buildPccText(final StringBuffer pccTxt, final Iterator listIterator, final String separator, final String label,
+	private static void buildPccText(final StringBuffer pccTxt, final Iterator<String> listIterator, final String separator, final String label,
 		final String lineSep)
 	{
 		while (listIterator.hasNext())
 		{
-			final String listItem = (String) listIterator.next();
+			final String listItem = listIterator.next();
 			final int sepPos = listItem.indexOf(separator);
 			pccTxt.append(lineSep).append(listItem.substring(0, sepPos)).append(label).append(listItem.substring(sepPos
 					+ 1));
@@ -4952,21 +4857,19 @@ public class PCClass extends PObject
 	 *         than the cost of the sub-class.
 	 * @param aPC
 	 */
-	private void buildSubClassChoiceList(final List choiceList, final List removeList, final boolean useProhibitCost, final PlayerCharacter aPC)
+	private void buildSubClassChoiceList(final List<List> choiceList, final List<List> removeList, final boolean useProhibitCost, final PlayerCharacter aPC)
 	{
 		int displayedCost;
 
 		boolean subClassSelected = false;
-		for (Iterator i = subClassList.iterator(); i.hasNext();)
+		for ( SubClass sc : subClassList )
 		{
-			final SubClass sc = (SubClass) i.next();
-
 			if (! PrereqHandler.passesAll(sc.getPreReqList(), aPC, this ) )
 			{
 				continue;
 			}
 
-			final List columnList = new ArrayList(3);
+			final List<Object> columnList = new ArrayList<Object>(3);
 
 			if (useProhibitCost)
 			{
@@ -5020,10 +4923,9 @@ public class PCClass extends PObject
 		if (useProhibitCost == false && subClassSelected == true)
 		{
 			// We want to return just the selected class.
-			String mySubClassStr = null;
-			for (Iterator i = choiceList.iterator(); i.hasNext(); )
+			for (Iterator<List> i = choiceList.iterator(); i.hasNext(); )
 			{
-				List columns = (List)i.next();
+				List columns = i.next();
 				SubClass sc = (SubClass)columns.get(0);
 				if (!sc.getKeyName().equals(this.getSubClassKey()))
 				{
@@ -5104,19 +5006,17 @@ public class PCClass extends PObject
 
 
 		PCLevelInfo pcLevelInfo = null;
-		for (Iterator iter = aPC.getLevelInfo().iterator(); iter.hasNext();) {
-		   final PCLevelInfo element = (PCLevelInfo) iter.next();
-			if (element.getClassKeyName().equalsIgnoreCase(getKeyName()) && element.getLevel()==aLevel)
+		for ( PCLevelInfo pcl : aPC.getLevelInfo() )
+		{
+			if (pcl.getClassKeyName().equalsIgnoreCase(getKeyName()) && pcl.getLevel()==aLevel)
 			{
-				pcLevelInfo = element;
+				pcLevelInfo = pcl;
 				break;
 			}
 		}
 
-		for (Iterator e = featList.iterator(); e.hasNext();)
+		for ( String feats : featList )
 		{
-			final String feats = (String) e.next();
-
 			if (aLevel == Integer.parseInt(getToken(0, feats, ":")))
 			{
 				final double preFeatCount = aPC.getUsedFeatCount();
@@ -5145,13 +5045,13 @@ public class PCClass extends PObject
 			return;
 		}
 
-		List columnNames = new ArrayList(3);
+		List<String> columnNames = new ArrayList<String>(3);
 		columnNames.add("Name");
 		columnNames.add("Cost");
 		columnNames.add("Other");
 
-		List choiceList = new ArrayList();
-		List removeList = new ArrayList();
+		List<List> choiceList = new ArrayList<List>();
+		List<List> removeList = new ArrayList<List>();
 		buildSubClassChoiceList(choiceList, removeList, false, aPC);
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
@@ -5175,22 +5075,22 @@ public class PCClass extends PObject
 			c.setVisible(true);
 		}
 
-		List selectedList = c.getSelectedList();
+		List<List<SubClass>> selectedList = c.getSelectedList();
 
 		if (!selectedList.isEmpty())
 		{
 			setProhibitedString("");
 			specialtyList.clear();
 
-			SubClass sc = (SubClass)((List)selectedList.get(0)).get(0);
-			choiceList = new ArrayList();
-			removeList = new ArrayList();
+			SubClass sc = selectedList.get(0).get(0);
+			choiceList = new ArrayList<List>();
+			removeList = new ArrayList<List>();
 			buildSubClassChoiceList(choiceList, removeList, true, aPC);
 
 			// Remove the specialist school
-			for (Iterator iter = choiceList.iterator(); iter.hasNext();)
+			for (Iterator<List> iter = choiceList.iterator(); iter.hasNext();)
 			{
-				final List columns = (List) iter.next();
+				final List columns = iter.next();
 
 				if (columns.get(0).equals(sc))
 				{
@@ -5223,9 +5123,9 @@ public class PCClass extends PObject
 				c1.setVisible(true);
 				selectedList = c1.getSelectedList();
 
-				for (Iterator i = selectedList.iterator(); i.hasNext();)
+				for (Iterator<List<SubClass>> i = selectedList.iterator(); i.hasNext();)
 				{
-					final List columns = (List)i.next();
+					final List columns = i.next();
 					sc = (SubClass)columns.get(0);
 
 					if (prohibitedString.length() > 0)
@@ -5255,7 +5155,7 @@ public class PCClass extends PObject
 			amt = Integer.parseInt(aTok.nextToken());
 		}
 
-		final List aList = new ArrayList();
+		final List<String> aList = new ArrayList<String>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -5276,13 +5176,12 @@ public class PCClass extends PObject
 		c.setAvailableList(aList);
 		c.setVisible(true);
 
-		final List selectedList = c.getSelectedList();
-		classSkillList = new ArrayList();
+		final List<String> selectedList = c.getSelectedList();
+		classSkillList = new ArrayList<String>();
 
-		for (Iterator i = selectedList.iterator(); i.hasNext();)
+		for ( String sel : selectedList )
 		{
-			final String aString = i.next().toString();
-			classSkillList.add(aString);
+			classSkillList.add(sel);
 		}
 	}
 
@@ -5302,7 +5201,7 @@ public class PCClass extends PObject
 			amt = Integer.parseInt(aTok.nextToken());
 		}
 
-		final List aList = new ArrayList();
+		final List<String> aList = new ArrayList<String>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -5323,14 +5222,10 @@ public class PCClass extends PObject
 		c.setAvailableList(aList);
 		c.setVisible(true);
 
-		final List selectedList = c.getSelectedList();
-		classSpellList = new ArrayList();
+		final List<String> selectedList = c.getSelectedList();
+		classSpellList = new ArrayList<String>();
 
-		for (Iterator i = selectedList.iterator(); i.hasNext();)
-		{
-			final String aString = i.next().toString();
-			classSpellList.add(aString);
-		}
+		classSpellList.addAll( selectedList );
 	}
 
 	private static boolean contains(final String big, final String little)
@@ -5386,7 +5281,7 @@ public class PCClass extends PObject
 			setRegionString(otherClass.getRegionString());
 		}
 
-		final List specialAbilityList = getSafeListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getSafeListFor(ListKey.SPECIAL_ABILITY);
 		specialAbilityList.addAll(otherClass.getSafeListFor(ListKey.SPECIAL_ABILITY));
 
 		if (!otherClass.getDRList().isEmpty())
@@ -5407,7 +5302,7 @@ public class PCClass extends PObject
 
 		if (otherClass.SR != null)
 		{
-			SR = (ArrayList) otherClass.SR.clone();
+			SR = (ArrayList<LevelProperty>) otherClass.SR.clone();
 		}
 
 		if (otherClass.vision != null)
@@ -5422,7 +5317,7 @@ public class PCClass extends PObject
 
 		if (otherClass.naturalWeapons != null)
 		{
-			naturalWeapons = (ArrayList) otherClass.naturalWeapons.clone();
+			naturalWeapons = (ArrayList<LevelProperty>) otherClass.naturalWeapons.clone();
 		}
 	}
 
@@ -5448,9 +5343,8 @@ public class PCClass extends PObject
 			return;
 		}
 
-		for (Iterator i = domainList.iterator(); i.hasNext();)
+		for ( String domainKey : domainList )
 		{
-			final String domainKey = (String) i.next();
 			final StringTokenizer aTok = new StringTokenizer(domainKey, "|");
 			final int bLevel = Integer.parseInt(aTok.nextToken());
 			int d = c;
@@ -5508,7 +5402,6 @@ public class PCClass extends PObject
 					{
 						if (aPC.getCharacterDomainIndex(subKey) == -1)
 						{
-//							Domain aDomain = Globals.getDomainNamed(aName);
 							Domain aDomain = Globals.getDomainKeyed(subKey);
 
 							if (aDomain != null)
@@ -5534,7 +5427,7 @@ public class PCClass extends PObject
 	{
 		if (classSpellList == null)
 		{
-			classSpellList = new ArrayList();
+			classSpellList = new ArrayList<String>();
 		}
 		else
 		{
@@ -5606,10 +5499,9 @@ public class PCClass extends PObject
 		// level can be < 1, better safe than sorry
 		if (!aPC.getTemplateList().isEmpty())
 		{
-			for (Iterator e = aPC.getTemplateList().iterator(); e.hasNext();)
+			for ( PCTemplate template : aPC.getTemplateList() )
 			{
-				final PCTemplate aTemplate = (PCTemplate) e.next();
-				spMod += aTemplate.getBonusSkillsPerLevel();
+				spMod += template.getBonusSkillsPerLevel();
 			}
 		}
 
@@ -5664,7 +5556,7 @@ public class PCClass extends PObject
 	 *
 	 * @see pcgen.core.PObject#getSpellList()
 	 */
-	public List getSpellList()
+	public List<PCSpell> getSpellList()
 	{
 		return getSpellSupport().getSpellList(getLevel());
 	}
@@ -5676,7 +5568,7 @@ public class PCClass extends PObject
 	 *
 	 * @return The full list of spells for the class.
 	 */
-	public List getFullSpellList()
+	public List<PCSpell> getFullSpellList()
 	{
 		return getSpellSupport().getSpellList(-1);
 	}

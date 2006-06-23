@@ -105,12 +105,9 @@ public class SkillTypeToken extends SkillToken
 			return null;
 		}
 
-		final List skillSubset = new ArrayList();
-		for (Iterator iter = pc.getSkillListInOutputOrder().iterator(); iter
-			.hasNext();)
+		final List<Skill> skillSubset = new ArrayList<Skill>();
+		for ( Skill bSkill : pc.getSkillListInOutputOrder() )
 		{
-			final Skill bSkill = (Skill) iter.next();
-
 			if (bSkill.isType(details.getProperties()[0]))
 			{
 				skillSubset.add(bSkill);
@@ -126,7 +123,7 @@ public class SkillTypeToken extends SkillToken
 		Skill aSkill = null;
 		if (skillIndex <= (skillSubset.size() - 1))
 		{
-			aSkill = (Skill) skillSubset.get(skillIndex);
+			aSkill = skillSubset.get(skillIndex);
 		}
 		return aSkill;
 	}

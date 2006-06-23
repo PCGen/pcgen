@@ -469,10 +469,9 @@ public class XMLCombatant extends Combatant
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
-	public void editRow(List columnOrder, int colNumber, Object data)
+	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
-		new Vector();
-		String columnName = (String) columnOrder.get(colNumber);
+		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited
@@ -670,7 +669,7 @@ public class XMLCombatant extends Combatant
 
 			statBuf.append("<br>");
 
-			List statList = new ArrayList();
+			List<SystemAttribute> statList = new ArrayList<SystemAttribute>();
 			statList.add(new SystemAttribute("Str", getAttribute("Strength")));
 			statList.add(new SystemAttribute("Con", getAttribute("Constitution")));
 			statList.add(new SystemAttribute("Dex", getAttribute("Dexterity")));
@@ -678,8 +677,8 @@ public class XMLCombatant extends Combatant
 			statList.add(new SystemAttribute("Wis", getAttribute("Wisdom")));
 			statList.add(new SystemAttribute("Cha", getAttribute("Charisma")));
 
-			for(int i = 0; i < statList.size(); i++) {
-				SystemAttribute stat = (SystemAttribute)statList.get(i);
+			for ( SystemAttribute stat : statList )
+			{
 				statBuf.append("<font class='type'>");
 				statBuf.append(stat.getName());
 				statBuf.append("</font> ");

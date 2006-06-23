@@ -14,7 +14,7 @@ public class MethodToken implements RollMethodLstToken {
 		return "METHOD";
 	}
 
-	public boolean parse(Map method, String value) {
+	public boolean parse(Map<String, String> method, String value) {
 		method.put(RollMethodLoader.METHOD, value);
 		return true;
 	}

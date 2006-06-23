@@ -155,15 +155,14 @@ public class PrereqHandler {
 		return true;
 	}
 
-	public static boolean passesAtLeastOne(final List prereqList, final PlayerCharacter character, final PObject caller)
+	public static boolean passesAtLeastOne(final List<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
 	{
 		if (prereqList == null)
 		{
 			return true;
 		}
-		for (Iterator iter = prereqList.iterator(); iter.hasNext();)
+		for ( Prerequisite element : prereqList )
 		{
-			final Prerequisite element = (Prerequisite) iter.next();
 			if (passes(element, character, caller))
 			{
 				return true;
@@ -172,15 +171,14 @@ public class PrereqHandler {
 		return false;
 	}
 
-	public static boolean passesAtLeastOne(final List prereqList, final Equipment equip, PlayerCharacter currentPC)
+	public static boolean passesAtLeastOne(final List<Prerequisite> prereqList, final Equipment equip, PlayerCharacter currentPC)
 	{
 		if (prereqList == null)
 		{
 			return true;
 		}
-		for (Iterator iter = prereqList.iterator(); iter.hasNext();)
+		for ( Prerequisite element : prereqList )
 		{
-			final Prerequisite element = (Prerequisite) iter.next();
 			if (passes(element, equip, currentPC))
 			{
 				return true;

@@ -2055,7 +2055,7 @@ final class PreferencesDialog extends JDialog
 		langPanel.add(label);
 
 		Utility.buildConstraints(c, 1, line++, 2, 1, 0, 0);
-		HashMap unitSetList = SystemCollections.getUnitSetList();
+		Map<String, UnitSet> unitSetList = SystemCollections.getUnitSetList();
 		unitSetNames = new String[unitSetList.size()];
 		Iterator iter = unitSetList.values().iterator();
 		int i = 0;

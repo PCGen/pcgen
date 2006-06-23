@@ -124,14 +124,12 @@ public class NetworkCombatant extends Combatant {
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector getRowVector(List columnOrder) {
-		Vector rowVector = new Vector();
-		int columns = columnOrder.size();
+	public Vector<String> getRowVector(List<String> columnOrder) {
+		Vector<String> rowVector = new Vector<String>();
 
 		//Iterate through all the columns, and create the vector in that order
-		for (int j = 0; j < columns; j++)	{
-			String columnName = (String) columnOrder.get(j);
-
+		for ( String columnName : columnOrder )
+		{
 			if (columnName.equals("Name")) { // Character's Name
 				rowVector.add(getName());
 			}
@@ -180,9 +178,8 @@ public class NetworkCombatant extends Combatant {
 		return rowVector;
 	}
 
-	public void editRow(List columnOrder, int colNumber, Object data) {
-		new Vector();
-		String columnName = (String) columnOrder.get(colNumber);
+	public void editRow(List<String> columnOrder, int colNumber, Object data) {
+		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited

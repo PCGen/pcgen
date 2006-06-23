@@ -30,7 +30,7 @@ import java.util.NoSuchElementException;
  * @author Scott Ellsworth
  * @version $Revision$
  */
-public class EmptyNoniteratingList extends AbstractList implements Serializable
+public class EmptyNoniteratingList<T> extends AbstractList<T> implements Serializable
 {
 	/** instance of this class */
 	public static final List EMPTY_LIST = new EmptyNoniteratingList();
@@ -38,7 +38,12 @@ public class EmptyNoniteratingList extends AbstractList implements Serializable
 
 	private EmptyNoniteratingList()
 	{
-	    // Empty Constructor
+		// Empty Constructor
+	}
+
+	public List<T> emptyList()
+	{
+		return (List<T>)EMPTY_LIST;
 	}
 
 	public boolean contains(final Object obj)
@@ -46,14 +51,14 @@ public class EmptyNoniteratingList extends AbstractList implements Serializable
 		return false;
 	}
 
-	public Object get(final int index)
+	public T get(final int index)
 	{
 		throw new NoSuchElementException("Index: " + index);
 	}
 
-	public Iterator iterator()
+	public Iterator<T> iterator()
 	{
-		return EmptyIterator.EMPTY_ITERATOR;
+		return EmptyIterator.emptyIterator();
 	}
 
 	public int size()

@@ -3367,11 +3367,8 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			return;
 		}
 
-		LevelAbility levAbility;
-
-		for (Iterator e = levelAbilityList.iterator(); e.hasNext();)
+		for ( LevelAbility levAbility : levelAbilityList )
 		{
-			levAbility = (LevelAbility) e.next();
 			levAbility.setOwner(this);
 
 			if (
@@ -3390,14 +3387,14 @@ public class PObject implements Cloneable, Serializable, Comparable,
 					Logging.errorPrint("PObject addAddsForLevel");
 					canProcess = false;
 
-					final List featList = new ArrayList();
+					final List<String> featList = new ArrayList<String>();
 					levAbility.process(featList, aPC, pcLevelInfo);
 
-					for (Iterator fe = featList.iterator(); fe.hasNext();)
+					for ( String key : featList )
 					{
 						final Ability anAbility = Globals.getAbilityKeyed(
 								"FEAT",
-								(String) fe.next());
+								key);
 
 						if (anAbility != null)
 						{
@@ -4137,7 +4134,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			num = -1;
 		}
 
-		List aList = new ArrayList();
+		List<String> aList = new ArrayList<String>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -4157,16 +4154,14 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		if (aList.size() > 0)
 		{
-			for (Iterator i = aList.iterator(); i.hasNext();)
+			for ( String region : aList )
 			{
-				final String aString = (String) i.next();
-
-				if (aPC.getRegion().equalsIgnoreCase(aString))
+				if (aPC.getRegion().equalsIgnoreCase(region))
 				{
 					continue;
 				}
 
-				aPC.setRegion(aString);
+				aPC.setRegion(region);
 			}
 		}
 	}
@@ -4353,7 +4348,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			}
 		}
 
-		final List bonusPreReqList = aBonusObj.getPrereqList();
+		final List<Prerequisite> bonusPreReqList = aBonusObj.getPrereqList();
 		final String possibleBonusTypeString = aBonusObj.getTypeString();
 
 		// must meet criteria before adding any bonuses
@@ -4606,7 +4601,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 *
 	 * @return ArrayList of granted templates
 	 */
-	public List getTemplateList()
+	public List<String> getTemplateList()
 	{
 		return getSafeListFor(ListKey.TEMPLATES);
 	}
@@ -4651,17 +4646,15 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 	}
 
-	List getTemplates(final boolean isImporting, final PlayerCharacter aPC)
+	List<String> getTemplates(final boolean isImporting, final PlayerCharacter aPC)
 	{
-		final List newTemplates = new ArrayList();
+		final List<String> newTemplates = new ArrayList<String>();
 		listChar.removeListFor(ListKey.TEMPLATES_ADDED);
 
 		if (!isImporting)
 		{
-			for (Iterator e = getTemplateList().iterator(); e.hasNext();)
+			for ( String templateKey : getTemplateList() )
 			{
-				String templateKey = (String) e.next();
-
 				if (templateKey.startsWith("CHOOSE:"))
 				{
 					templateKey = PCTemplate.chooseTemplate(this, templateKey.substring(7), true, aPC);
@@ -4702,7 +4695,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * Set the list of Kits
 	 * @param l
 	 */
-	public void setKitList(List l)
+	public void setKitList(List<String> l)
 	{
 		listChar.removeListFor(ListKey.KITS);
 		listChar.addAllToListFor(ListKey.KITS, l);
@@ -4815,21 +4808,21 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	{
 		if (!flag && !"".equals(chooseLanguageAutos))
 		{
-			final List            selectedList; // selected list of choices
+			final List<Language> selectedList; // selected list of choices
 
 			final ChooserInterface c = ChooserFactory.getChooserInstance();
 			c.setPool(1);
 			c.setPoolFlag(false);
 			c.setTitle("Pick a Language: ");
 
-			Set list = Globals.getLanguagesFromString(chooseLanguageAutos);
-			c.setAvailableList(new ArrayList(list));
+			Set<Language> list = Globals.getLanguagesFromString(chooseLanguageAutos);
+			c.setAvailableList(new ArrayList<Language>(list));
 			c.setVisible(true);
 			selectedList = c.getSelectedList();
 
 			if ((selectedList != null) && (selectedList.size() != 0))
 			{
-				aPC.addFreeLanguage((Language) selectedList.get(0));
+				aPC.addFreeLanguage(selectedList.get(0));
 			}
 		}
 	}

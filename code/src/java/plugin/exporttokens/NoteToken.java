@@ -58,7 +58,7 @@ public class NoteToken extends Token
 		StringBuffer sb = new StringBuffer();
 
 		String name = tok.nextToken();
-		List noteList = getNoteList(pc, name);
+		List<NoteItem> noteList = getNoteList(pc, name);
 
 		String beforeHeader = "<b>";
 		String afterHeader = "</b><br/>";
@@ -117,10 +117,8 @@ public class NoteToken extends Token
 			}
 		}
 
-		for (int i = 0; i < noteList.size(); i++)
+		for ( NoteItem ni : noteList )
 		{
-			NoteItem ni = (NoteItem) noteList.get(i);
-
 			if ("ALL".equals(token))
 			{
 				sb.append(ni.getExportString(beforeHeader, afterHeader, beforeValue, afterValue));
@@ -150,9 +148,9 @@ public class NoteToken extends Token
 	}
 
 
-	public static List getNoteList(PlayerCharacter pc, String name) {
-		ArrayList noteList = new ArrayList();
-		List resultList;
+	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name) {
+		ArrayList<NoteItem> noteList = new ArrayList<NoteItem>();
+		List<NoteItem> resultList;
 
 		buildSubTree(noteList, pc.getNotesList(), -1);
 
@@ -162,7 +160,7 @@ public class NoteToken extends Token
 		}
 		else
 		{
-			resultList = new ArrayList();
+			resultList = new ArrayList<NoteItem>();
 			try
 			{
 				int i = Integer.parseInt(name);
@@ -174,11 +172,11 @@ public class NoteToken extends Token
 			}
 			catch (NumberFormatException e)
 			{
-				resultList = (ArrayList) noteList.clone();
+				resultList = (ArrayList<NoteItem>) noteList.clone();
 
 				for (int i = resultList.size() - 1; i >= 0; --i)
 				{
-					NoteItem ni = (NoteItem) resultList.get(i);
+					final NoteItem ni = resultList.get(i);
 
 					if (!ni.getName().equalsIgnoreCase(name))
 					{
@@ -202,13 +200,12 @@ public class NoteToken extends Token
 	 * @param parentNode The id of the node to be processed.
 	 */
 	private static void buildSubTree(
-		List targetList,
-		ArrayList baseList,
+		List<NoteItem> targetList,
+		List<NoteItem> baseList,
 		int parentNode)
 	{
-		for (Iterator baseIter = baseList.iterator(); baseIter.hasNext();)
+		for ( NoteItem note : baseList )
 		{
-			NoteItem note = (NoteItem) baseIter.next();
 			if (note.getParentId() == parentNode
 				|| (parentNode == -1 && note.getParentId() < 0))
 			{

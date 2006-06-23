@@ -37,7 +37,7 @@ public class NameGenPanel extends JPanel
 {
 	// End of variables declaration//GEN-END:variables
 	public Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);
-	private HashMap categories = new HashMap();
+	private HashMap<String, ArrayList> categories = new HashMap<String, ArrayList>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -94,7 +94,7 @@ public class NameGenPanel extends JPanel
 
 	public void setExitPrefs()
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public Rule generate()
@@ -105,7 +105,7 @@ public class NameGenPanel extends JPanel
 			{
 				RuleSet rs = (RuleSet) cbCatalog.getSelectedItem();
 				Rule rule = rs.getRule();
-				ArrayList aName = rule.getData();
+				ArrayList<DataValue> aName = rule.getData();
 				setNameText(aName);
 				setMeaningText(aName);
 				setPronounciationText(aName);
@@ -113,7 +113,7 @@ public class NameGenPanel extends JPanel
 				return rule;
 			}
 			Rule rule = (Rule) cbStructure.getSelectedItem();
-			ArrayList aName = rule.getData();
+			ArrayList<DataValue> aName = rule.getData();
 			setNameText(aName);
 			setMeaningText(aName);
 			setPronounciationText(aName);
@@ -156,13 +156,12 @@ public class NameGenPanel extends JPanel
 		this.meaning.setText(meaning);
 	}
 
-	private void setMeaningText(ArrayList data)
+	private void setMeaningText(ArrayList<DataValue> data)
 	{
 		StringBuffer meaningBuffer = new StringBuffer();
 
-		for (int i = 0; i < data.size(); i++)
+		for ( DataValue val : data )
 		{
-			DataValue val = (DataValue) data.get(i);
 			String aMeaning = val.getSubValue("meaning");
 
 			if (aMeaning == null)
@@ -182,13 +181,12 @@ public class NameGenPanel extends JPanel
 		LogUtilities.inst().logMessage(RandomNamePlugin.LOG_NAME, name);
 	}
 
-	private void setNameText(ArrayList data)
+	private void setNameText(ArrayList<DataValue> data)
 	{
 		StringBuffer nameBuffer = new StringBuffer();
 
-		for (int i = 0; i < data.size(); i++)
+		for ( DataValue val : data )
 		{
-			DataValue val = (DataValue) data.get(i);
 			nameBuffer.append(val.getValue());
 		}
 
@@ -200,13 +198,12 @@ public class NameGenPanel extends JPanel
 		this.pronounciation.setText(pronounciation);
 	}
 
-	private void setPronounciationText(ArrayList data)
+	private void setPronounciationText(ArrayList<DataValue> data)
 	{
 		StringBuffer proBuffer = new StringBuffer();
 
-		for (int i = 0; i < data.size(); i++)
+		for ( DataValue val : data )
 		{
-			DataValue val = (DataValue) data.get(i);
 			String aPronounciation = val.getSubValue("pronounciation");
 
 			if (aPronounciation == null)
@@ -230,7 +227,7 @@ public class NameGenPanel extends JPanel
 
 			RuleSet rs = (RuleSet) cbCatalog.getSelectedItem();
 			Rule rule = rs.getLastRule();
-			ArrayList aName = rule.getLastData();
+			ArrayList<DataValue> aName = rule.getLastData();
 			setNameText(aName);
 			setMeaningText(aName);
 			setPronounciationText(aName);
@@ -712,7 +709,7 @@ public class NameGenPanel extends JPanel
 	private String loadList(Element list) throws DataConversionException
 	{
 		plugin.doomsdaybook.util.List dataList = new plugin.doomsdaybook.util.List(allVars,
-			    list.getAttributeValue("title"), list.getAttributeValue("id"));
+				list.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List elements = list.getChildren();
 		ListIterator elementsIterator = elements.listIterator();
 
@@ -791,7 +788,7 @@ public class NameGenPanel extends JPanel
 	private RuleSet loadRuleSet(Element ruleSet) throws DataConversionException
 	{
 		RuleSet rs = new RuleSet(allVars, ruleSet.getAttributeValue("title"), ruleSet.getAttributeValue("id"),
-			    ruleSet.getAttributeValue("usage"));
+				ruleSet.getAttributeValue("usage"));
 		java.util.List elements = ruleSet.getChildren();
 		ListIterator elementsIterator = elements.listIterator();
 		int num = 0;

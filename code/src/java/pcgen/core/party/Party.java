@@ -48,11 +48,11 @@ import java.util.*;
 public class Party
 {
 	private File partyFile;
-	private List characterFiles = new ArrayList();
+	private List<File> characterFiles = new ArrayList<File>();
 
 	private Party()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	private Party(final File partyFile)
@@ -106,12 +106,8 @@ public class Party
 	 */
 	public void addAllOpenCharacters()
 	{
-		final Iterator characters = Globals.getPCList().iterator();
-
-		//save PC filenames
-		while (characters.hasNext())
+		for ( PlayerCharacter character : Globals.getPCList() )
 		{
-			final PlayerCharacter character = (PlayerCharacter) characters.next();
 			characterFiles.add(new File(character.getFileName()));
 		}
 	}
@@ -223,9 +219,8 @@ public class Party
 		writer.write(properties.getString("VersionNumber"));
 		writer.newLine();
 
-		for (int i = 0; i < characterFiles.size(); i++)
+		for ( File file : characterFiles )
 		{
-			final File file = (File) characterFiles.get(i);
 			writer.write(FileHelper.findRelativePath(partyFile, file) + ",");
 		}
 
@@ -247,9 +242,8 @@ public class Party
 	{
 		PlayerCharacter pc = null;
 
-		for (int i = 0; i < characterFiles.size(); i++)
+		for ( File file : characterFiles )
 		{
-			final File file = (File) characterFiles.get(i);
 			pc = loadPCFromFile(file);
 		}
 
@@ -269,21 +263,21 @@ public class Party
 
 		if (Globals.getUseGUI())
 		{
-			for (Iterator it = ioHandler.getErrors().iterator(); it.hasNext();)
+			for ( String error : ioHandler.getErrors() )
 			{
-				ShowMessageDelegate.showMessageDialog("Error: " + it.next(), Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Error: " + error, Constants.s_APPNAME, MessageType.ERROR);
 			}
 
-			for (Iterator it = ioHandler.getWarnings().iterator(); it.hasNext();)
+			for ( String warning : ioHandler.getWarnings() )
 			{
-				ShowMessageDelegate.showMessageDialog("Warning: " + it.next(), Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Warning: " + warning, Constants.s_APPNAME, MessageType.ERROR);
 			}
 		}
 		else
 		{
-			for (Iterator it = ioHandler.getMessages().iterator(); it.hasNext();)
+			for ( String msg : ioHandler.getMessages() )
 			{
-				Logging.errorPrint((String) it.next());
+				Logging.errorPrint(msg);
 			}
 		}
 

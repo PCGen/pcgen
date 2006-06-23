@@ -498,9 +498,9 @@ public abstract class VariableProcessor
 				return null;
 			}
 
-			for (Iterator iter = parser.getSymbolTable().keySet().iterator(); iter.hasNext();)
+			for (Iterator<String> iter = parser.getSymbolTable().keySet().iterator(); iter.hasNext();)
 			{
-				final String element = (String) iter.next();
+				final String element = iter.next();
 				if (element.equals("TRUE") || element.equals("FALSE") || element.equals("e") || element.equals("pi"))
 				{
 					continue;
@@ -572,12 +572,12 @@ public abstract class VariableProcessor
 		{
 			return null;
 		}
-		final CachedVariable cached = (CachedVariable) variableCache.get(lookup);
+		final CachedVariable cached = variableCache.get(lookup);
 		if (cached != null)
 		{
 			if (cached.getSerial()>=getSerial())
 			{
-				return (Float) cached.getValue();
+				return (Float)cached.getValue();
 			}
 			variableCache.remove(lookup);
 		}

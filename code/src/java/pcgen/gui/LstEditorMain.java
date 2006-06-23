@@ -153,7 +153,7 @@ public final class LstEditorMain extends JFrame
 				break;
 
 			case EditorConstants.EDIT_SPELL:
-				Globals.getSpellMap().put(editObject.getKeyName(), editObject);
+				Globals.addToSpellMap( editObject.getKeyName(), editObject );
 				//Globals.sortPObjectList(Globals.getSpellMap());
 				break;
 

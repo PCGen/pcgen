@@ -73,7 +73,7 @@ public final class KitSelect extends BaseKit implements Serializable, Cloneable
 		return theFormula;
 	}
 
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		aKit.setSelectValue(aPC.getVariableValue(theFormula, "").intValue());
 		return true;

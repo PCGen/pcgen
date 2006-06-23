@@ -13,7 +13,7 @@ public class ImagebannerToken implements SponsorLstToken {
 		return "IMAGEBANNER";
 	}
 
-	public boolean parse(Map sponsor, String value) {
+	public boolean parse(Map<String, String> sponsor, String value) {
 		sponsor.put("IMAGEBANNER", value);
 		return true;
 	}

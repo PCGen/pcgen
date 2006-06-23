@@ -28,6 +28,9 @@ import pcgen.util.Logging;
 
 import java.io.*;
 import java.util.*;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.PersistenceLayerException;
 
 /**
  * <code>Names</code>.
@@ -41,8 +44,8 @@ public final class Names
 	private static final String TAB_CHARACTER = "\t";
 	//private static final File NAMES_DIRECTORY = new File(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
 	//	+ File.separator + "names" + File.separator);
-	private final List ruleDefinitions = new ArrayList();
-	private final Map allTheSyllablesForEachRule = new HashMap(); // this is a map of syllable name to list of possible syllables.
+	private final List<String> ruleDefinitions = new ArrayList<String>();
+	private final Map<String, List<String>> allTheSyllablesForEachRule = new HashMap<String, List<String>>(); // this is a map of syllable name to list of possible syllables.
 	private File sourceFile;
 
 	private PlayerCharacter pc = null;
@@ -50,7 +53,7 @@ public final class Names
 	//don't ever call this, ya hear?
 	private Names()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -62,16 +65,16 @@ public final class Names
 		return theInstance;
 	}
 
-	public static List findAllNamesFiles()
+	public static List<NameElement> findAllNamesFiles()
 	{
 		return findAllNamesFiles(SettingsHandler.getPcgenSystemDir());
 	}
 
-	public static List findAllNamesFiles(File dir)
+	public static List<NameElement> findAllNamesFiles(File dir)
 	{
 		final File[] fileNames = dir.listFiles(new NamFilter());
 
-		final List result = new ArrayList();
+		final List<NameElement> result = new ArrayList<NameElement>();
 
 		for (int i = 0; i < fileNames.length; ++i)
 		{
@@ -116,26 +119,27 @@ public final class Names
 	//should be private but the NamesTest.java makes a call to this so it is package-private for testing
 	String[] getRuleDefinitions()
 	{
-		return (String[]) ruleDefinitions.toArray(new String[ruleDefinitions.size()]);
+		return ruleDefinitions.toArray(new String[ruleDefinitions.size()]);
 	}
 
 	//should be private but the NamesTest.java makes a call to this so it is package-private for testing
 	String[] getSyllablesByName(final String name)
 	{
-		final List syllables = (List) allTheSyllablesForEachRule.get(name);
+		final List<String> syllables = allTheSyllablesForEachRule.get(name);
 
-		return (String[]) syllables.toArray(new String[syllables.size()]);
+		return syllables.toArray(new String[syllables.size()]);
 	}
 
-	private List buildTheRuleSyllableMapping()
+	private List<NameRule> buildTheRuleSyllableMapping()
 	{
-		final List rules = new ArrayList();
+		final List<NameRule> rules = new ArrayList<NameRule>();
 
-		if (getRuleDefinitions().length > 0)
+		final String[] ruleDefs = getRuleDefinitions();
+		if (ruleDefs.length > 0)
 		{
-			for (int i = 0; i < getRuleDefinitions().length; ++i)
+			for (int i = 0; i < ruleDefs.length; ++i)
 			{
-				final String rule = getRuleDefinitions()[i];
+				final String rule = ruleDefs[i];
 				final StringTokenizer newlineStr = new StringTokenizer(rule, TAB_CHARACTER, false);
 
 				//the first token is the "chance" for this rule...
@@ -155,18 +159,17 @@ public final class Names
 		return rules;
 	}
 
-	private static NameRule chooseARandomRule(final List rules)
+	private static NameRule chooseARandomRule(final List<NameRule> rules)
 	{
 		NameRule ruleToUse = null;
-		final int roll;
-		int y;
-		roll = RollingMethods.roll(1, 100);
 
-		for (y = 0; y < rules.size(); ++y)
+		final int roll = RollingMethods.roll(1, 100);
+
+		for ( NameRule rule : rules )
 		{
-			if (roll <= ((NameRule) rules.get(y)).getChance())
+			if (roll <= rule.getChance())
 			{
-				ruleToUse = (NameRule) rules.get(y);
+				ruleToUse = rule;
 
 				break;
 			}
@@ -177,13 +180,14 @@ public final class Names
 
 	private String getRandomSyllableByName(final String name)
 	{
-		if (getSyllablesByName(name) != null)
+		final String[] syllables = getSyllablesByName(name);
+		if (syllables != null)
 		{
-			if (getSyllablesByName(name).length > 0)
+			if (syllables.length > 0)
 			{
-				final int roll = RollingMethods.roll(1, getSyllablesByName(name).length);
+				final int roll = RollingMethods.roll(1, syllables.length);
 
-				return getSyllablesByName(name)[roll - 1];
+				return syllables[roll - 1];
 			}
 		}
 
@@ -245,7 +249,7 @@ public final class Names
 				++lineNumber;
 
 				if (((currentLine.length() > 0) && (currentLine.charAt(0) == '#')) || currentLine.startsWith("//")
-				    || "".equals(currentLine.trim()))
+					|| "".equals(currentLine.trim()))
 				{
 					continue;
 				}
@@ -258,14 +262,24 @@ public final class Names
 				if (currentLine.startsWith("[PRE") && (currentLine.indexOf(':') >= 0))
 				{
 					final StringTokenizer tabTok = new StringTokenizer(currentLine.substring(1, currentLine.length()
-						        - 1), "\t", false);
-					final List aList = new ArrayList();
+								- 1), "\t", false);
+					final List<String> aList = new ArrayList<String>();
 
 					while (tabTok.hasMoreTokens())
 					{
 						aList.add(tabTok.nextToken());
 					}
-					canWrite = PrereqHandler.passesAll(aList, pc, null);
+					List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+					try
+					{
+						PreParserFactory factory = PreParserFactory.getInstance();
+						prereqs = factory.parse( aList );
+					}
+					catch (PersistenceLayerException ple)
+					{
+						// Do nothing
+					}
+					canWrite = PrereqHandler.passesAll(prereqs, pc, null);
 					continue;
 				}
 
@@ -302,13 +316,13 @@ public final class Names
 				if (((currentLine.length() > 0) && (currentLine.charAt(0) == '[')) && currentLine.endsWith("]"))
 				{
 					currentSyllable = currentLine;
-					allTheSyllablesForEachRule.put(currentLine, new ArrayList());
+					allTheSyllablesForEachRule.put(currentLine, new ArrayList<String>());
 
 					continue;
 				}
 
 				// if we make it here, then we actually have a syllable fragment in hand.
-				((List) allTheSyllablesForEachRule.get(currentSyllable)).add(currentLine);
+				allTheSyllablesForEachRule.get(currentSyllable).add(currentLine);
 			}
 		}
 		catch (FileNotFoundException exception)
@@ -316,7 +330,7 @@ public final class Names
 			if (!"pcgen.ini".equals(aSourceFile.getName()))
 			{
 				Logging.errorPrint("ERROR:" + aSourceFile.getName() + " error " + currentLine + " Exception type:"
-				    + exception.getClass().getName() + " Message:" + exception.getMessage(), exception);
+					+ exception.getClass().getName() + " Message:" + exception.getMessage(), exception);
 			}
 		}
 		catch (IOException exception)
@@ -324,7 +338,7 @@ public final class Names
 			if (!("pcgen.ini".equals(aSourceFile.getName())))
 			{
 				Logging.errorPrint("ERROR:" + aSourceFile.getName() + " error " + currentLine + " Exception type:"
-				    + exception.getClass().getName() + " Message:" + exception.getMessage(), exception);
+					+ exception.getClass().getName() + " Message:" + exception.getMessage(), exception);
 			}
 		}
 		finally

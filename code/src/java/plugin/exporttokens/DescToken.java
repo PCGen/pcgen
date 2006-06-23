@@ -88,9 +88,9 @@ public class DescToken extends Token
 	 * @param pc
 	 * @return Desc token
 	 */
-	public static List getDescToken(PlayerCharacter pc)
+	public static List<String> getDescToken(PlayerCharacter pc)
 	{
-		List descList = new ArrayList();
+		List<String> descList = new ArrayList<String>();
 		StringTokenizer tok = new StringTokenizer(pc.getDescription(), "\r\n", false);
 
 		while (tok.hasMoreTokens())

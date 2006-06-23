@@ -14,7 +14,7 @@ public class BonusspelllevelToken implements BonusSpellLstToken {
 		return "BONUSSPELLLEVEL";
 	}
 
-	public boolean parse(Map bonus, String value) {
+	public boolean parse(Map<String, String> bonus, String value) {
 		bonus.put(BonusSpellLoader.LEVEL, value);
 		return true;
 	}

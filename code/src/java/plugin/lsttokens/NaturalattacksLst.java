@@ -29,10 +29,10 @@ public class NaturalattacksLst implements GlobalLstToken {
 		// NATURALATTACKS:primary weapon name,num attacks,damage|secondary1 weapon
 		// name,num attacks,damage|secondary2.....
 		// damage will be of the form XdY+Z or XdY-Z
-		List naturalWeapons = parseNaturalAttacks(obj, value);
-		for (Iterator iter = naturalWeapons.iterator(); iter.hasNext();) {
-			Equipment element = (Equipment) iter.next();
-			obj.addNaturalWeapon(element, anInt);
+		List<Equipment> naturalWeapons = parseNaturalAttacks(obj, value);
+		for ( Equipment weapon : naturalWeapons )
+		{
+			obj.addNaturalWeapon(weapon, anInt);
 		}
 		return true;
 	}
@@ -49,7 +49,7 @@ public class NaturalattacksLst implements GlobalLstToken {
 	 * @param aString
 	 * @return List
 	 */
-	private static List parseNaturalAttacks(PObject obj, String aString) {
+	private static List<Equipment> parseNaturalAttacks(PObject obj, String aString) {
 		// Currently, this isn't going to work with monk attacks
 		// - their unarmed stuff won't be affected.
 		String aSize = "M";
@@ -76,7 +76,7 @@ public class NaturalattacksLst implements GlobalLstToken {
 
 		// This is wrong as we need to replace old natural weapons
 		// with "better" ones
-		List naturalWeapons = new ArrayList();
+		List<Equipment> naturalWeapons = new ArrayList<Equipment>();
 
 		while (attackTok.hasMoreTokens()) {
 			StringTokenizer aTok = new StringTokenizer(attackTok.nextToken(), ",");

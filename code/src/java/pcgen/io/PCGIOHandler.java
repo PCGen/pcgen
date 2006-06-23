@@ -49,8 +49,8 @@ import java.util.StringTokenizer;
  */
 public final class PCGIOHandler extends IOHandler
 {
-	private final List errors = new ArrayList();
-	private final List warnings = new ArrayList();
+	private final List<String> errors = new ArrayList<String>();
+	private final List<String> warnings = new ArrayList<String>();
 	private PlayerCharacter aPC;
 
 	/**
@@ -60,7 +60,7 @@ public final class PCGIOHandler extends IOHandler
 	 *
 	 * @return a list of error messages
 	 */
-	public List getErrors()
+	public List<String> getErrors()
 	{
 		return errors;
 	}
@@ -72,19 +72,12 @@ public final class PCGIOHandler extends IOHandler
 	 *
 	 * @return a list of messages
 	 */
-	public List getMessages()
+	public List<String> getMessages()
 	{
-		final List messages = new ArrayList();
+		final List<String> messages = new ArrayList<String>();
 
-		for (Iterator it = errors.iterator(); it.hasNext();)
-		{
-			messages.add("Error: " + it.next());
-		}
-
-		for (Iterator it = warnings.iterator(); it.hasNext();)
-		{
-			messages.add("Warning: " + it.next());
-		}
+		messages.addAll( errors );
+		messages.addAll( warnings );
 
 		return messages;
 	}
@@ -96,12 +89,12 @@ public final class PCGIOHandler extends IOHandler
 	 *
 	 * @return a list of warning messages
 	 */
-	public List getWarnings()
+	public List<String> getWarnings()
 	{
 		return warnings;
 	}
 
-	public static void buildSALIST(String aChoice, List aAvailable, List aBonus, final PlayerCharacter currentPC)
+	public static void buildSALIST(String aChoice, List<String> aAvailable, List<String> aBonus, final PlayerCharacter currentPC)
 	{
 		// SALIST:Smite|VAR|%|1
 		// SALIST:Turn ,Rebuke|VAR|%|1
@@ -119,7 +112,7 @@ public final class PCGIOHandler extends IOHandler
 			aPost = aChoice.substring(iOffs + 1);
 		}
 
-		final List saNames = new ArrayList();
+		final List<String> saNames = new ArrayList<String>();
 		final StringTokenizer aTok = new StringTokenizer(aString, ",");
 
 		while (aTok.hasMoreTokens())
@@ -127,41 +120,34 @@ public final class PCGIOHandler extends IOHandler
 			saNames.add(aTok.nextToken());
 		}
 
-		final List aSAList = currentPC.getSpecialAbilityList();
+		final List<SpecialAbility> aSAList = currentPC.getSpecialAbilityList();
 
 		//
 		// Add special abilities due to templates
 		//
-		final List aTemplateList = currentPC.getTemplateList();
-
-		for (Iterator e1 = aTemplateList.iterator(); e1.hasNext();)
+		for ( PCTemplate template : currentPC.getTemplateList() )
 		{
-			final PCTemplate aTempl = (PCTemplate) e1.next();
-			final List SAs = aTempl.getSpecialAbilityList(currentPC.getTotalLevels(), currentPC.totalHitDice());
+			final List<SpecialAbility> SAs = template.getSpecialAbilityList(currentPC.getTotalLevels(), currentPC.totalHitDice());
 
 			if ((SAs == null) || SAs.isEmpty()) // null pointer/empty check
 			{
 				continue;
 			}
 
-			for (Iterator e2 = SAs.iterator(); e2.hasNext();)
+			for ( SpecialAbility sa : SAs )
 			{
-				final String aSA = (String) e2.next();
-
-				if (!aSAList.contains(aSA))
+				if (!aSAList.contains(sa))
 				{
-					aSAList.add(aSA);
+					aSAList.add(sa);
 				}
 			}
 		}
 
-		for (Iterator e2 = saNames.iterator(); e2.hasNext();)
+		for ( String name : saNames )
 		{
-			aString = (String) e2.next();
-
-			for (Iterator e1 = aSAList.iterator(); e1.hasNext();)
+			for ( SpecialAbility sa : aSAList )
 			{
-				String aSA = ((SpecialAbility) (e1.next())).getKeyName();
+				String aSA = sa.getKeyName();
 
 				if (aSA.startsWith(aString))
 				{
@@ -221,7 +207,7 @@ public final class PCGIOHandler extends IOHandler
 
 		warnings.clear();
 
-		final List lines = new ArrayList();
+		final List<String> lines = new ArrayList<String>();
 
 		boolean isPCGVersion2 = false;
 
@@ -268,8 +254,7 @@ public final class PCGIOHandler extends IOHandler
 			SettingsHandler.setLoadCampaignsWithPC(false);
 		}
 
-		final String[] pcgLines
-				= (String[]) lines.toArray(new String[lines.size()]);
+		final String[] pcgLines	= lines.toArray(new String[lines.size()]);
 
 		final PCGParser parser;
 
@@ -417,14 +402,14 @@ public final class PCGIOHandler extends IOHandler
 
 		Ability aFeat;
 
-		for (Iterator it = aPC.getRealFeatsIterator(); it.hasNext();)
+		for (Iterator<Ability> it = aPC.getRealFeatsIterator(); it.hasNext();)
 		{
-			aFeat = (Ability) it.next();
+			aFeat = it.next();
 
 			if (aFeat.getChoiceString().startsWith("SALIST|"))
 			{
-				List aAvailable = new ArrayList();
-				List aBonus = new ArrayList();
+				List<String> aAvailable = new ArrayList<String>();
+				List<String> aBonus = new ArrayList<String>();
 				buildSALIST(aFeat.getChoiceString(), aAvailable, aBonus, currentPC);
 
 				for (int i = 0; i < aFeat.getAssociatedCount(); i++)
@@ -439,7 +424,7 @@ public final class PCGIOHandler extends IOHandler
 
 						for (x = 0; x < aBonus.size(); x++)
 						{
-							final String bString = (String) aBonus.get(x);
+							final String bString = aBonus.get(x);
 
 							if (bString.startsWith(prefix))
 							{
@@ -460,7 +445,7 @@ public final class PCGIOHandler extends IOHandler
 						// Do direct replacement if only 1 choice
 						if (aBonus.size() == 1)
 						{
-							aString = (String) aBonus.get(0);
+							aString = aBonus.get(0);
 							aString = aString.substring(0, aString.indexOf('|'));
 						}
 						else
@@ -531,27 +516,25 @@ public final class PCGIOHandler extends IOHandler
 		//PCTemplate aTemplate = null;
 		if (aPC.getClassList() != null)
 		{
-			for (Iterator it = aPC.getClassList().iterator(); it.hasNext();)
+			for ( PCClass pcClass : aPC.getClassList() )
 			{
-				aClass = (PCClass) it.next();
-
 				// Ignore if no levels
-				if (aClass.getLevel() < 1)
+				if (pcClass.getLevel() < 1)
 				{
 					continue;
 				}
 
 				// Walk through the levels for this class
 
-				for (int i = 0; i <= aClass.getLevel(); i++)
+				for (int i = 0; i <= pcClass.getLevel(); i++)
 				{
-					int baseSides = aClass.getLevelHitDie(currentPC, i + 1);
-					iRoll = aClass.getHitPoint(i).intValue();
-					iSides = baseSides + (int) aClass.getBonusTo("HD", "MAX", i + 1, aPC);
+					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1);
+					iRoll = pcClass.getHitPoint(i).intValue();
+					iSides = baseSides + (int) pcClass.getBonusTo("HD", "MAX", i + 1, aPC);
 
 					if (iRoll > iSides)
 					{
-						aClass.setHitPoint(i, new Integer(iSides));
+						pcClass.setHitPoint(i, new Integer(iSides));
 						bFixMade = true;
 					}
 				}
@@ -573,10 +556,9 @@ public final class PCGIOHandler extends IOHandler
 		// now that the import is completed. The level isn't affected.
 		//  merton_monk@yahoo.com 2/15/2002
 		//
-		for (Iterator it = aPC.getClassList().iterator(); it.hasNext();)
+		for ( PCClass pcClass : aPC.getClassList() )
 		{
-			aClass = (PCClass) it.next();
-			aClass.setLevel(aClass.getLevel(), currentPC);
+			pcClass.setLevel(pcClass.getLevel(), currentPC);
 		}
 
 		//

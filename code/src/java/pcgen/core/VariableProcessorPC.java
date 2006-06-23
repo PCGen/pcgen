@@ -180,21 +180,17 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @param countHidden Count hidden feats
 	 * @return  An int containing the number of matching feats in the list
 	 */
-	private int countVisibleFeatTypes(final List featsList, final List featTypesList, final boolean countVisible, final boolean countHidden) {
+	private int countVisibleFeatTypes(final List<Ability> featsList, final List<String> featTypesList, final boolean countVisible, final boolean countHidden) {
 		int count = 0;
 
-		for (Iterator e1 = featsList.iterator(); e1.hasNext();)
+		for ( Ability feat : featsList )
 		{
-			final Ability aFeat = (Ability) e1.next();
-
 			// for each feat, look to see if it has any of the required types.
-			for (Iterator e2 = featTypesList.iterator(); e2.hasNext();)
+			for ( String featType : featTypesList )
 			{
-				final String featType = (String) e2.next();
-
-				if (aFeat.isType(featType))
+				if (feat.isType(featType))
 				{
-					count += countVisibleFeat(aFeat, countVisible, countHidden, false);
+					count += countVisibleFeat(feat, countVisible, countHidden, false);
 
 					break;
 				}
@@ -217,16 +213,14 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @param countHidden Count hidden feats
 	 * @return  An int containing the number of matching feats in the list
 	 */
-	private int countVisibleFeatsOfKey(final List argFeatList, final String featKey, final boolean countVisible, final boolean countHidden) {
+	private int countVisibleFeatsOfKey(final List<Ability> argFeatList, final String featKey, final boolean countVisible, final boolean countHidden) {
 		int count = 0;
 
-		for (Iterator e1 = argFeatList.iterator(); e1.hasNext();)
+		for ( Ability feat : argFeatList )
 		{
-			final Ability aFeat = (Ability) e1.next();
-
-			if (aFeat.getKeyName().equalsIgnoreCase(featKey))
+			if (feat.getKeyName().equalsIgnoreCase(featKey))
 			{
-				count += countVisibleFeat(aFeat, countVisible, countHidden, false);
+				count += countVisibleFeat(feat, countVisible, countHidden, false);
 
 				break;
 			}
@@ -246,12 +240,12 @@ public class VariableProcessorPC extends VariableProcessor
 	 * @param countHidden Count hidden feats
 	 * @return  An int containing the number of feats in the list
 	 */
-	private int countVisibleFeats(final Iterator itr, final boolean countVisible, final boolean countHidden) {
+	private int countVisibleFeats(final Iterator<Ability> itr, final boolean countVisible, final boolean countHidden) {
 		int count = 0;
 
 		while (itr.hasNext())
 		{
-			final Ability feat = (Ability) itr.next();
+			final Ability feat = itr.next();
 			count += countVisibleFeat(feat, countVisible, countHidden, true);
 		}
 
@@ -390,19 +384,17 @@ public class VariableProcessorPC extends VariableProcessor
 
 			int iLev = 0;
 
-			for (Iterator e = getPc().getClassList().iterator(); e.hasNext();)
+			for ( PCClass pcClass : getPc().getClassList() )
 			{
-				final PCClass aClass = (PCClass) e.next();
-
-				if (aClass.getSpellType() != Constants.s_NONE)
+				if (pcClass.getSpellType() != Constants.s_NONE)
 				{
-					final String classKey = aClass.getKeyName();
+					final String classKey = pcClass.getKeyName();
 					String spellType = Constants.s_NONE;
 					final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", classKey);
 
-					if ((aClass != null) && (aClass.getSpellType() != Constants.s_NONE))
+					if ((pcClass != null) && (pcClass.getSpellType() != Constants.s_NONE))
 					{
-						spellType = aClass.getSpellType();
+						spellType = pcClass.getSpellType();
 					}
 
 					if (CoreUtility.doublesEqual(getPc().getTotalBonusTo("CASTERLEVEL", classKey), 0.0))
@@ -562,15 +554,13 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			int maxCheck = 0;
 
-			for (Iterator e = getPc().getEquipmentOfType("Armor", 1).iterator(); e.hasNext();)
+			for ( Equipment eq : getPc().getEquipmentOfType("Armor", 1) )
 			{
-				final Equipment eq = (Equipment) e.next();
 				maxCheck += eq.acCheck(getPc()).intValue();
 			}
 
-			for (Iterator e = getPc().getEquipmentOfType("Shield", 1).iterator(); e.hasNext();)
+			for ( Equipment eq : getPc().getEquipmentOfType("Shield", 1) )
 			{
-				final Equipment eq = (Equipment) e.next();
 				maxCheck += eq.acCheck(getPc()).intValue();
 			}
 
@@ -580,9 +570,8 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			int maxCheck = 0;
 
-			for (Iterator e = getPc().getEquipmentOfType("Armor", 1).iterator(); e.hasNext();)
+			for ( Equipment eq : getPc().getEquipmentOfType("Armor", 1) )
 			{
-				final Equipment eq = (Equipment) e.next();
 				maxCheck += eq.acCheck(getPc()).intValue();
 			}
 
@@ -592,9 +581,8 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			int maxCheck = 0;
 
-			for (Iterator e = getPc().getEquipmentOfType("Shield", 1).iterator(); e.hasNext();)
+			for ( Equipment eq : getPc().getEquipmentOfType("Shield", 1) )
 			{
-				final Equipment eq = (Equipment) e.next();
 				maxCheck += eq.acCheck(getPc()).intValue();
 			}
 
@@ -654,15 +642,14 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			if (valString.endsWith("]"))
 			{
-				final ArrayList skillList = getPc().getSkillListInOutputOrder((ArrayList) getPc().getAllSkillList(true).clone());
+				final List<Skill> skillList = getPc().getSkillListInOutputOrder((ArrayList<Skill>) getPc().getAllSkillList(true).clone());
 
 				int typeCount = 0;
 				valString = valString.substring(16);
 				valString = valString.substring(0, valString.length() - 1);
-				for (Iterator ee = skillList.iterator(); ee.hasNext();)
+				for ( Skill skill : skillList )
 				{
-					final Skill aSkill = (Skill) ee.next();
-					if (aSkill.isType(valString))
+					if (skill.isType(valString))
 					{
 						++typeCount;
 					}
@@ -721,25 +708,25 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".ALL]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(15, valString.length() - 5), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 5), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, true, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".HIDDEN]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(15, valString.length() - 8), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 8), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, false, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".VISIBLE]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(15, valString.length() - 9), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 9), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, true, false));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith("]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(15, valString.length() - 1), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(15, valString.length() - 1), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().aggregateFeatList(), featTypes, true, false));
 		}
 
@@ -747,25 +734,25 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ((valString.startsWith("COUNT[VFEATTYPE=") || valString.startsWith("COUNT[VFEATTYPE."))
 		&& valString.endsWith(".ALL]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(16, valString.length() - 5), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(16, valString.length() - 5), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().getVirtualFeatList(), featTypes, true, true));
 		}
 		else if ((valString.startsWith("COUNT[VFEATTYPE=") || valString.startsWith("COUNT[VFEATTYPE."))
 		&& valString.endsWith(".HIDDEN]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(16, valString.length() - 8), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(16, valString.length() - 8), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().getVirtualFeatList(), featTypes, false, true));
 		}
 		else if ((valString.startsWith("COUNT[VFEATTYPE=") || valString.startsWith("COUNT[VFEATTYPE."))
 		&& valString.endsWith(".VISIBLE]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(16, valString.length() - 9), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(16, valString.length() - 9), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().getVirtualFeatList(), featTypes, true, false));
 		}
 		else if ((valString.startsWith("COUNT[VFEATTYPE=") || valString.startsWith("COUNT[VFEATTYPE."))
 		&& valString.endsWith("]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(16, valString.length() - 1), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(16, valString.length() - 1), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().getVirtualFeatList(), featTypes, true, false));
 		}
 
@@ -773,25 +760,25 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ((valString.startsWith("COUNT[FEATAUTOTYPE=") || valString.startsWith("COUNT[FEATAUTOTYPE."))
 		&& valString.endsWith(".ALL]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(19, valString.length() - 5), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(19, valString.length() - 5), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().featAutoList(), featTypes, true, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATAUTOTYPE=") || valString.startsWith("COUNT[FEATAUTOTYPE."))
 		&& valString.endsWith(".HIDDEN]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(19, valString.length() - 8), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(19, valString.length() - 8), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().featAutoList(), featTypes, false, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATAUTOTYPE=") || valString.startsWith("COUNT[FEATAUTOTYPE."))
 		&& valString.endsWith(".VISIBLE]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(19, valString.length() - 9), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(19, valString.length() - 9), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().featAutoList(), featTypes, true, false));
 		}
 		else if ((valString.startsWith("COUNT[FEATAUTOTYPE=") || valString.startsWith("COUNT[FEATAUTOTYPE."))
 		&& valString.endsWith("]"))
 		{
-			final List featTypes = CoreUtility.split(valString.substring(19, valString.length() - 1), '.');
+			final List<String> featTypes = CoreUtility.split(valString.substring(19, valString.length() - 1), '.');
 			valString = Integer.toString(countVisibleFeatTypes(getPc().featAutoList(), featTypes, true, false));
 		}
 
@@ -884,11 +871,9 @@ public class VariableProcessorPC extends VariableProcessor
 
 			if (SettingsHandler.hideMonsterClasses())
 			{
-				for (Iterator ee = getPc().getClassList().iterator(); ee.hasNext();)
+				for ( PCClass pcClass : getPc().getClassList() )
 				{
-					final PCClass aClass = (PCClass) ee.next();
-
-					if (aClass.isMonster())
+					if (pcClass.isMonster())
 					{
 						--iCount;
 					}
@@ -915,15 +900,12 @@ public class VariableProcessorPC extends VariableProcessor
 				merge = Constants.MERGE_LOCATION;
 			}
 
-			ArrayList aList = new ArrayList();
+			ArrayList<Equipment> aList = new ArrayList<Equipment>();
+			final List<Equipment> equipList = getPc().getEquipmentListInOutputOrder(merge);
 
-			if (!getPc().getEquipmentListInOutputOrder(merge).isEmpty())
+			for ( Equipment eq : equipList )
 			{
-				for (Iterator e = getPc().getEquipmentListInOutputOrder(merge).iterator(); e.hasNext();)
-				{
-					final Equipment eq = (Equipment) e.next();
-					aList.add(eq);
-				}
+				aList.add(eq);
 			}
 
 			if ("COUNT[EQUIPMENT]".equals(valString))
@@ -940,15 +922,15 @@ public class VariableProcessorPC extends VariableProcessor
 
 					if ("NOT".equalsIgnoreCase(bString))
 					{
-						aList = new ArrayList(EquipmentUtilities.removeEqType(aList, bTok.nextToken()));
+						aList = new ArrayList<Equipment>(EquipmentUtilities.removeEqType(aList, bTok.nextToken()));
 					}
 					else if ("ADD".equalsIgnoreCase(bString))
 					{
-						aList = new ArrayList(getPc().addEqType(aList, bTok.nextToken()));
+						aList = new ArrayList<Equipment>(getPc().addEqType(aList, bTok.nextToken()));
 					}
 					else if ("IS".equalsIgnoreCase(bString))
 					{
-						aList = new ArrayList(EquipmentUtilities.removeNotEqType(aList, bTok.nextToken()));
+						aList = new ArrayList<Equipment>(EquipmentUtilities.removeNotEqType(aList, bTok.nextToken()));
 					}
 				}
 
@@ -960,7 +942,7 @@ public class VariableProcessorPC extends VariableProcessor
 		else if (valString.startsWith("COUNT[EQTYPE.") && valString.endsWith("]"))
 		{
 			int merge = Constants.MERGE_ALL;
-			List aList = new ArrayList();
+			List<Equipment> aList = new ArrayList<Equipment>();
 			final StringTokenizer bTok = new StringTokenizer(valString.substring(13, valString.length() - 1), ".");
 			String aType = bTok.nextToken();
 
@@ -980,16 +962,12 @@ public class VariableProcessorPC extends VariableProcessor
 			{
 				aList.clear();
 
-				if (!getPc().getEquipmentListInOutputOrder(merge).isEmpty())
+				final List<Equipment> equipList = getPc().getEquipmentListInOutputOrder(merge);
+				for ( Equipment eq : equipList )
 				{
-					for (Iterator e = getPc().getEquipmentListInOutputOrder(merge).iterator(); e.hasNext();)
+					if (eq.acceptsChildren())
 					{
-						final Equipment eq = (Equipment) e.next();
-
-						if (eq.acceptsChildren())
-						{
-							aList.add(eq);
-						}
+						aList.add(eq);
 					}
 				}
 			}
@@ -1005,16 +983,12 @@ public class VariableProcessorPC extends VariableProcessor
 					// which is realy anything
 					// with AC in the bonus section,
 					// but is not type SHIELD or ARMOR
-					if (!getPc().getEquipmentListInOutputOrder(merge).isEmpty())
+					final List<Equipment> equipList = getPc().getEquipmentListInOutputOrder(merge);
+					for ( Equipment eq : equipList )
 					{
-						for (Iterator e = getPc().getEquipmentListInOutputOrder(merge).iterator(); e.hasNext();)
+						if (eq.getBonusListString("AC") && !eq.isArmor() && !eq.isShield())
 						{
-							final Equipment eq = (Equipment) e.next();
-
-							if (eq.getBonusListString("AC") && !eq.isArmor() && !eq.isShield())
-							{
-								aList.add(eq);
-							}
+							aList.add(eq);
 						}
 					}
 				}
@@ -1030,15 +1004,15 @@ public class VariableProcessorPC extends VariableProcessor
 
 				if ("NOT".equalsIgnoreCase(bString))
 				{
-					aList = new ArrayList(EquipmentUtilities.removeEqType(aList, bTok.nextToken()));
+					aList = new ArrayList<Equipment>(EquipmentUtilities.removeEqType(aList, bTok.nextToken()));
 				}
 				else if ("ADD".equalsIgnoreCase(bString))
 				{
-					aList = new ArrayList(getPc().addEqType(aList, bTok.nextToken()));
+					aList = new ArrayList<Equipment>(getPc().addEqType(aList, bTok.nextToken()));
 				}
 				else if ("IS".equalsIgnoreCase(bString))
 				{
-					aList = new ArrayList(EquipmentUtilities.removeNotEqType(aList, bTok.nextToken()));
+					aList = new ArrayList<Equipment>(EquipmentUtilities.removeNotEqType(aList, bTok.nextToken()));
 				}
 				else if ("EQUIPPED".equalsIgnoreCase(bString) || "NOTEQUIPPED".equalsIgnoreCase(bString))
 				{
@@ -1046,7 +1020,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 					for (int ix = aList.size() - 1; ix >= 0; --ix)
 					{
-						final Equipment anEquip = (Equipment) aList.get(ix);
+						final Equipment anEquip = aList.get(ix);
 
 						if (anEquip.isEquipped() != eFlag)
 						{
@@ -1063,25 +1037,18 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			final int merge = Constants.MERGE_ALL;
 
-			final ArrayList aList = new ArrayList();
+			final ArrayList<Equipment> aList = new ArrayList<Equipment>();
+			final List<Equipment> equipList = getPc().getEquipmentListInOutputOrder(merge);
 
-			if (!getPc().getEquipmentListInOutputOrder(merge).isEmpty())
+			for ( Equipment eq : equipList )
 			{
-				aList.clear();
-
-				for (Iterator e = getPc().getEquipmentListInOutputOrder(merge).iterator(); e.hasNext();)
+				if (eq.acceptsChildren())
 				{
-					final Equipment eq = (Equipment) e.next();
-
-					if (eq.acceptsChildren())
-					{
-						aList.add(eq);
-					}
+					aList.add(eq);
 				}
 			}
 
 			valString = Integer.toString(aList.size());
-			aList.clear();
 		}
 		else if ("COUNT[SA]".equals(valString))
 		{
@@ -1099,11 +1066,10 @@ public class VariableProcessorPC extends VariableProcessor
 		else if ("COUNT[VISIBLETEMPLATES]".equals(valString))
 		{
 			int count = 0;
-			int visibility;
 
-			for (Iterator it = getPc().getTemplateList().iterator(); it.hasNext();)
+			for ( PCTemplate template : getPc().getTemplateList() )
 			{
-				visibility = ((PCTemplate) it.next()).isVisible();
+				final int visibility = template.isVisible();
 
 				if ((visibility == PCTemplate.VISIBILITY_DEFAULT)
 				|| (visibility == PCTemplate.VISIBILITY_OUTPUT_ONLY))
@@ -1139,11 +1105,9 @@ public class VariableProcessorPC extends VariableProcessor
 				String bString = valString.substring(19);
 				bString = bString.substring(0, bString.length() - 1);
 
-				for (Iterator iter = getPc().getFollowerList().iterator(); iter.hasNext();)
+				for ( Follower follower : getPc().getFollowerList() )
 				{
-					final Follower aFollower = (Follower) iter.next();
-
-					if (aFollower.getType().equalsIgnoreCase(bString))
+					if (follower.getType().equalsIgnoreCase(bString))
 					{
 						++countFollower;
 					}
@@ -1155,7 +1119,7 @@ public class VariableProcessorPC extends VariableProcessor
 			{
 				// This will do COUNT[FOLLOWERTYPE.Animal Companions.0.xxx],
 				// returning the same as COUNT[xxx] if applied to the right follower
-				final List followers = getPc().getFollowerList();
+				final List<Follower> followers = getPc().getFollowerList();
 
 				if (!followers.isEmpty())
 				{
@@ -1173,7 +1137,6 @@ public class VariableProcessorPC extends VariableProcessor
 					{
 						restString = aTok.nextToken();
 
-						// When removing old token syntax, remove the catch code
 						followerIndex = Integer.parseInt(restString);
 						restString = "";
 
@@ -1190,36 +1153,29 @@ public class VariableProcessorPC extends VariableProcessor
 
 					restString = "COUNT[" + restString + "]";
 
-					final ArrayList aList = new ArrayList();
+					final ArrayList<Follower> aList = new ArrayList<Follower>();
 
-					for (int x = followers.size() - 1; x >= 0; --x)
+					for ( Follower follower : followers )
 					{
-						final Follower fol = (Follower) followers.get(x);
-
-						if (fol.getType().equalsIgnoreCase(typeString))
+						if (follower.getType().equalsIgnoreCase(typeString))
 						{
-							aList.add(fol);
+							aList.add(follower);
 						}
 					}
 
 					if (followerIndex < aList.size())
 					{
-						if (aList.get(followerIndex) instanceof Follower)
+						final Follower follower = aList.get(followerIndex);
+						PlayerCharacter currentPC;
+
+						for ( PlayerCharacter pc : Globals.getPCList() )
 						{
-							final Follower aF = (Follower) aList.get(followerIndex);
-							PlayerCharacter currentPC;
-
-							for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+							if (follower.getFileName().equals(pc.getFileName()))
 							{
-								final PlayerCharacter nPC = (PlayerCharacter) p.next();
-
-								if (aF.getFileName().equals(nPC.getFileName()))
-								{
-									currentPC = getPc();
-									Globals.setCurrentPC(nPC);
-									valString = nPC.getVariableValue(restString, "").toString();
-									Globals.setCurrentPC(currentPC);
-								}
+								currentPC = getPc();
+								Globals.setCurrentPC(pc);
+								valString = pc.getVariableValue(restString, "").toString();
+								Globals.setCurrentPC(currentPC);
 							}
 						}
 					}
@@ -1313,14 +1269,12 @@ public class VariableProcessorPC extends VariableProcessor
 				if (eq != null)
 				{
 					modSize = (int) getPc().getTotalBonusTo("WEAPONPROF=" + eq.profKey(getPc()), "PCSIZE");
-					List aList = eq.typeList();
-					Iterator itera = aList.iterator();
+
 					// loops for each equipment type
-					while (itera.hasNext())
+					for ( String eqType : eq.typeList() )
 					{
 						// get the type bonus (ex TYPE.MARTIAL)
-						String type = (String)itera.next();
-						int tempModSize = (int) getPc().getTotalBonusTo("WEAPONPROF=TYPE." + type, "PCSIZE");
+						int tempModSize = (int) getPc().getTotalBonusTo("WEAPONPROF=TYPE." + eqType, "PCSIZE");
 						// get the highest bonus
 						if (modSize < tempModSize) {
 							modSize = tempModSize;

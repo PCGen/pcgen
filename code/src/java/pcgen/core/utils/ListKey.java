@@ -23,15 +23,13 @@
  */
 package pcgen.core.utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import pcgen.core.Ability;
 import pcgen.core.Domain;
-import pcgen.core.Language;
-import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.core.Equipment;
+import pcgen.core.Language;
 import pcgen.core.SpecialAbility;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.Ability;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -87,7 +85,7 @@ public final class ListKey<T> {
 	/** FILE_RACE - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_RACE = new ListKey<CampaignSourceEntry>();
 	/** FILE_REQ_SKILL - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_REQ_SKILL = new ListKey<CampaignSourceEntry>();
+	public static final ListKey<String> FILE_REQ_SKILL = new ListKey<String>();
 	/** FILE_SKILL - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_SKILL = new ListKey<CampaignSourceEntry>();
 	/** FILE_SPELL - a ListKey */

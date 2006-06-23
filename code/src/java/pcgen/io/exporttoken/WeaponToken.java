@@ -2496,8 +2496,12 @@ public class WeaponToken extends Token
 
 	private static Equipment getAmmoUser(PlayerCharacter pc, Equipment eq, int ammo)
 	{
-		Equipment anEquip;
 		int ammoCount = 0;
+
+		if ( ammo < 0 )
+		{
+			return null;
+		}
 		String containerCapacity = eq.getContainerCapacityString();
 
 		for ( Equipment equip : pc.getEquipmentListInOutputOrder() )
