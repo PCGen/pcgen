@@ -32,7 +32,7 @@ Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYP
 
 ###Block: Horizon Walker Terrain Abilities
 # Feat Name			Type			Visible	Special Ability								Add to magical move						Bonus to skill								Source Page
-Aquatic Terrain		TYPE:Terrain	VISIBLE:NO	SA:Aquatic Terrain Mastery																									SOURCEPAGE:prestigeclasses.rtf
+Aquatic Terrain		TYPE:Terrain	VISIBLE:NO	SA:Aquatic Terrain Mastery						BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		SOURCEPAGE:prestigeclasses.rtf
 Desert Terrain		TYPE:Terrain	VISIBLE:NO	SA:Desert Terrain Mastery																									SOURCEPAGE:prestigeclasses.rtf
 Forest Terrain		TYPE:Terrain	VISIBLE:NO	SA:Forest Terrain Mastery															BONUS:SKILL|Hide|4|TYPE=Competence					SOURCEPAGE:prestigeclasses.rtf
 Hills Terrain		TYPE:Terrain	VISIBLE:NO	SA:Hills Terrain Mastery															BONUS:SKILL|Listen|4|TYPE=Competence				SOURCEPAGE:prestigeclasses.rtf
@@ -45,7 +45,7 @@ Weightless Planar		TYPE:Planar		VISIBLE:NO	SA:Weightless Planar Terrain Mastery	
 Cold Planar			TYPE:Planar		VISIBLE:NO	SA:Cold Planar Terrain Mastery	SA:Cold Resistance 20																				SOURCEPAGE:prestigeclasses.rtf
 Shifting Planar		TYPE:Planar		VISIBLE:NO	SA:Shifting Planar Terrain Mastery																								SOURCEPAGE:prestigeclasses.rtf
 Aligned Planar		TYPE:Planar		VISIBLE:NO	SA:Aligned Planar Terrain Mastery																								SOURCEPAGE:prestigeclasses.rtf
-Cavernous Planar		TYPE:Planar		VISIBLE:NO	SA:Cavernous Planar Terrain Mastery	SA:Tremorsense 30 ft																				SOURCEPAGE:prestigeclasses.rtf
+Cavernous Planar		TYPE:Planar		VISIBLE:NO	SA:Cavernous Planar Terrain Mastery	VISION:Tremorsense (30')																				SOURCEPAGE:prestigeclasses.rtf
 Other Planar		TYPE:Planar		VISIBLE:NO	SA:Other Planar Terrain Mastery
 
 ###Block: Dragon Disciple Class Features
