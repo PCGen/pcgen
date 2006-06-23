@@ -708,7 +708,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 					{
 						case GuiConstants.INFOSPELLS_VIEW_CLASS:     	// By Class
 							aClass = (PObject)classList.get(pindex);
-							primaryMatch = (spell.getFirstLevelForKey(aClass.getSpellKey(), pc) >= 0);
+							primaryMatch = spell.levelForKeyContains(aClass.getSpellKey(), iLev, pc);
 							if (cs != null)
 							{
 								if (aClass instanceof Race)
@@ -797,7 +797,9 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 									si = cs.getSpellInfoFor(bookName, iLev, -1);
 								}
 								if (si == null && primaryMatch)
-									spellMatch = spell.isLevel(iLev, pc);
+								{
+									spellMatch = spell.levelForKeyContains(aClass.getSpellKey(), iLev, pc);
+								}
 								if (!knownSpellsOnly && si != null && si.getFeatList()!=null)
 									continue;
 							break;
