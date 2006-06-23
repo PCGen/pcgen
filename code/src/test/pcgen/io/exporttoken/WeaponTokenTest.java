@@ -430,8 +430,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the processing of a bastard sword on a medium creature without the
-	 * exotic weapon proficiency. It should be able to be wielded one handed,
-	 * but with a proficiency penalty.
+	 * exotic weapon proficiency. It should not be able to be wielded one handed.<br/>
+	 * This is based on the text from the DnD FAQ v20060621 on p32 which states 
+	 * "Treat ... these weapons as two-handed weapons when determining who can 
+	 * use them and how." when talking about bastard swords for weilders without 
+	 * the exotic weapon proficiency.
 	 */
 	public void testBastardSword()
 	{
@@ -448,9 +451,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponToken token = new WeaponToken();
 		assertEquals("Name", "Sword, Bastard", token.getToken("WEAPON.3.NAME",
 			character, null));
-//		assertEquals("Name", "+14/+9/+4/-1", token
-//			.getToken("WEAPON.3.BASEHIT", character, null));
-		assertEquals("Name", "+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
+		assertEquals("Not possible to weild the bastard sword one handed.",
+			null, token.getToken("WEAPON.3.BASEHIT", character, null));
+		assertEquals("No penalty to weild the bastard sword two handed.",
+			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
 	}
 
 	/**
@@ -492,7 +496,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		PCTemplate longswordTemplate = new PCTemplate();
 		longswordTemplate.setName("LS Bonus");
-		longswordTemplate.addBonusList("WEAPONPROF=Longsword|PCSIZE|1");
+		longswordTemplate.addBonusList("WEAPONPROF=KEY_LONGSWORD|PCSIZE|1");
 		character.addTemplate(longswordTemplate);
 
 		character.addEquipment(largeSword);
