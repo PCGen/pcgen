@@ -8,10 +8,22 @@ import pcgen.persistence.lst.PCClassLstToken;
  */
 public class XppenaltyToken implements PCClassLstToken {
 
-	public String getTokenName() {
+	/**
+     * Get token name
+     * @return token name
+	 */
+    public String getTokenName() {
 		return "XPPENALTY";
 	}
 
+    /**
+     * Parse XPPENALTY token
+     * 
+     * @param pcclass 
+     * @param value 
+     * @param level 
+     * @return true
+     */
 	public boolean parse(PCClass pcclass, String value, int level) {
 		pcclass.setXPPenalty(value);
 		return true;

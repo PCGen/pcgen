@@ -113,7 +113,11 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+     * Get the weapon prof object with key aKey
+     * 
+	 * @param aKey 
+	 * @return PObject
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	protected PObject getObjectKeyed(String aKey)
 	{

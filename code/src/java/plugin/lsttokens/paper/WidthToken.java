@@ -29,7 +29,6 @@ import pcgen.core.Constants;
 import pcgen.core.PaperInfo;
 import pcgen.persistence.lst.PaperInfoLstToken;
 
-
 /**
  * <code>WidthToken</code>
  *
@@ -37,10 +36,21 @@ import pcgen.persistence.lst.PaperInfoLstToken;
  */
 public class WidthToken implements PaperInfoLstToken {
 
+    /**
+     * Get token name
+     * @return token name
+     */
 	public String getTokenName() {
 		return "WIDTH";
 	}
 
+    /**
+     * Parse WIDTH token
+     * 
+     * @param paperInfo 
+     * @param value 
+     * @return true 
+     */
 	public boolean parse(PaperInfo paperInfo, String value) {
 		paperInfo.setPaperInfo(Constants.PAPERINFO_WIDTH, value);
 		return true;

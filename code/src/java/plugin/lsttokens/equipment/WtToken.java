@@ -8,10 +8,20 @@ import pcgen.persistence.lst.EquipmentLstToken;
  */
 public class WtToken implements EquipmentLstToken {
 
-	public String getTokenName() {
+	/**
+     * Get token name
+     * @return token name
+	 */
+    public String getTokenName() {
 		return "WT";
 	}
 
+    /**
+     * Parse WT token, set the equipment weight
+     * @param eq 
+     * @param value 
+     * @return true
+     */
 	public boolean parse(Equipment eq, String value) {
 		eq.setWeight(value);
 		return true;

@@ -28,7 +28,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,7 +36,8 @@ import java.util.List;
 public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	String weaponType = "";
-	/**
+	
+    /**
 	 * Make a new Weapon Proficiency type chooser.
 	 *
 	 * @param aPObject
@@ -82,8 +82,6 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager<St
 			final List<String>            selectedList)
 	{
 		final List<WeaponProf>       tArrayList = Globals.getWeaponProfs(weaponType, aPc);
-			  Iterator   iter;
-			  WeaponProf tempProf;
 
 		for ( WeaponProf wp : tArrayList )
 		{

@@ -18,7 +18,14 @@ public class XMLFilter implements java.io.FilenameFilter
 	    // Empty Constructor
 	}
 
-	public boolean accept(java.io.File file, String str)
+	/**
+     * Returns true if file matches *.xml
+     * 
+	 * @param file 
+	 * @param str 
+	 * @return true if filter matches *.xml
+	 */
+    public boolean accept(java.io.File file, String str)
 	{
 		return str.matches(".*\\.xml$");
 	}

@@ -8,11 +8,22 @@ import pcgen.persistence.lst.SpellLstToken;
  */
 public class XpcostToken implements SpellLstToken {
 
-	public String getTokenName() {
+	/**
+     * Get the token name
+     * @return token name 
+	 */
+    public String getTokenName() {
 		return "XPCOST";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	/**
+     * Parse XPCOST token
+     * 
+	 * @param spell 
+	 * @param value 
+	 * @return true
+	 */
+    public boolean parse(Spell spell, String value) {
 		spell.setXPCost(value);
 		return true;
 	}

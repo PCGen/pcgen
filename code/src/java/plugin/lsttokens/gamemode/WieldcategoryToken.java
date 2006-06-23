@@ -9,10 +9,20 @@ import pcgen.persistence.lst.WieldCategoryLoader;
  */
 public class WieldcategoryToken implements GameModeLstToken {
 
-	public String getTokenName() {
+	/**
+     * Get token name
+     * @return token name  
+	 */
+    public String getTokenName() {
 		return "WIELDCATEGORY";
 	}
 
+    /**
+     * Parse WIELDCATEGORY token
+     * @param gameMode 
+     * @param value 
+     * @return true if successful
+     */
 	public boolean parse(GameMode gameMode, String value) {
 		try {
 			WieldCategoryLoader catDiceLoader = new WieldCategoryLoader();
