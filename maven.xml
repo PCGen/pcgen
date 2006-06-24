@@ -59,6 +59,7 @@
 		    <include name="pcgen.sh"/>
 		    <include name="pcgen.bat"/>
 		    <include name="pcgen_low_mem.bat"/>
+		    <include name="filepaths.ini"/>
 		  </fileset>
 		  <fileset dir="${basedir}" >
 		    <include name="plugins/**"/>
