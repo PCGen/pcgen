@@ -125,7 +125,7 @@ public final class SettingsHandler
 	private static int windowState = Frame.NORMAL;
 	private static boolean loadCampaignsAtStart = false;
 	private static boolean loadCampaignsWithPC = true;
-	private static int looknFeel = 1; // default to System L&F
+	private static int looknFeel = 1; // default to Java L&F
 	private static boolean aaText = true; // default to anti-aliased text
 	private static boolean expertGUI = false; // default to System L&F
 	private static boolean optionAllowedInSources = true;
@@ -1174,7 +1174,7 @@ public final class SettingsHandler
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		setLoadCampaignsAtStart(getPCGenOption("loadCampaignsAtStart", false)); //$NON-NLS-1$
 		setLoadCampaignsWithPC(getPCGenOption("loadCampaignsWithPC", true)); //$NON-NLS-1$
-		setLookAndFeel(getPCGenOption("looknFeel", 0)); //$NON-NLS-1$
+		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
 		setAaText(getPCGenOption("aaText", false)); //$NON-NLS-1$
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
