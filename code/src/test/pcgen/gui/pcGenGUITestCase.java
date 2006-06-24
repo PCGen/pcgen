@@ -82,9 +82,6 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		catch (IOException e) {
 			// Ignore, see method comment
 		}
-		// make a copy of the config files
-		new File("filepaths.ini").renameTo(new File("filepaths.ini.junit"));
-		new File("options.ini").renameTo(new File("options.ini.junit"));
 
 		// The String holder for the XML of the expected result
 		String expected;
@@ -95,7 +92,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		 * the options.ini file
 		 */
 		try	{
-			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("options.ini"), "UTF-8"));
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("options.ini.junit"), "UTF-8"));
 			bw.write("pcgen.options.game=" + mode + "\r\n");
 			if (pccLoc != null)	{
 				System.out.println("Using PCC Location of '" + pccLoc + "'.");
@@ -107,6 +104,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			System.setProperty("pcgen.templatefile", "code/testsuite/base.xml");
 			System.setProperty("pcgen.inputfile", "code/testsuite/PCGfiles/" + character	+ Constants.s_PCGEN_CHARACTER_EXTENSION);
 			System.setProperty("pcgen.outputfile", "code/testsuite/output/" + character + ".xml");
+			System.setProperty("pcgen.options", "options.ini.junit");
 
 			// Fire off PCGen, which will produce an XML file 
 			pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
@@ -118,9 +116,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		}
 		finally	{
 			// Make sure we don't delete the options.ini no matter what happens!
-			new File("options.ini").delete();
-			new File("options.ini.junit").renameTo(new File("options.ini"));
-			new File("filepaths.ini.junit").renameTo(new File("filepaths.ini"));
+			new File("options.ini.junit").delete();
 		}
 
 		// Do the XML comparison

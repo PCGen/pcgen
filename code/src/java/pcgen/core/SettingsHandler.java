@@ -131,7 +131,7 @@ public final class SettingsHandler
 	private static boolean optionAllowedInSources = true;
 	private static final SortedProperties options = new SortedProperties();
 	private static final Properties filepaths = new Properties();
-	private static final String fileLocation = System.getProperty("user.dir") + File.separator + "filepaths.ini"; //$NON-NLS-1$ //$NON-NLS-2$
+	private static final String fileLocation = Globals.getFilepathsPath();
 	private static File pcgenFilesDir = new File(System.getProperty("user.dir")); //$NON-NLS-1$
 	private static File pccFilesLocation = null;
 	private static File pcgPath = new File(Globals.getDefaultPath());
@@ -574,7 +574,7 @@ public final class SettingsHandler
 
 	public static String getFilePaths()
 	{
-		return getFilepathProp().getProperty("pcgen.filepaths", "pcgen"); //$NON-NLS-1$ //$NON-NLS-2$
+		return getFilepathProp().getProperty("pcgen.filepaths", "user"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	public static Properties getFilepathProp()
@@ -3094,7 +3094,7 @@ public final class SettingsHandler
 			if ((fType == null) || (fType.length() < 1))
 			{
 				// make sure we have a default
-				fType = "pcgen"; //$NON-NLS-1$
+				fType = "user"; //$NON-NLS-1$
 			}
 
 			if (fType.equals("pcgen")) //$NON-NLS-1$

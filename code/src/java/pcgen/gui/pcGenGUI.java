@@ -694,12 +694,20 @@ public class pcGenGUI
 		final JPanel allPanel = new JPanel(new BorderLayout());
 
 		ButtonGroup rGroup = new ButtonGroup();
-		JRadioButton rPButton = new JRadioButton("PCGen Dir", true);
-		JRadioButton rUButton = new JRadioButton("Home Dir");
-		JRadioButton rSButton = new JRadioButton("Select a directory");
+		JRadioButton rPButton = new JRadioButton("PCGen Dir", "pcgen"
+			.equals(SettingsHandler.getFilePaths()));
+		JRadioButton rUButton = new JRadioButton("Home Dir", "user"
+			.equals(SettingsHandler.getFilePaths()));
+		JRadioButton rSButton = new JRadioButton("Select a directory", !"pcgen"
+			.equals(SettingsHandler.getFilePaths())
+			&& !"user".equals(SettingsHandler.getFilePaths()));
 		final JTextField textField = new JTextField(String.valueOf(SettingsHandler.getPcgenFilesDir()));
 		textField.setEditable(false);
 		textField.setMinimumSize(new Dimension(90, 25));
+		if ("user".equals(SettingsHandler.getFilePaths()))
+		{
+			textField.setText(System.getProperty("user.home") + File.separator + ".pcgen");
+		}
 
 		final JButton dirButton = new JButton("...");
 		dirButton.setEnabled(false);

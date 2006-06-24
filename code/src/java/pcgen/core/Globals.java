@@ -2882,6 +2882,44 @@ public final class Globals
 	}
 
 	/**
+	 * returns the location of the "filepaths.ini" file
+	 * which could be one of several locations
+	 * depending on the OS and user preferences
+	 * @return option path
+	 */
+	static String getFilepathsPath()
+	{
+		String aPath;
+
+		// first see if it was specified on the command line
+		aPath = System.getProperty("pcgen.filepaths"); //$NON-NLS-1$
+
+		if (aPath == null)
+		{
+			aPath = System.getProperty("user.dir") + File.separator + "filepaths.ini"; //$NON-NLS-1$ //$NON-NLS-2$;
+		}
+		else
+		{
+			File testPath=new File(expandRelativePath(aPath));
+			if (testPath.exists() && testPath.isDirectory())
+			{
+				aPath = testPath.getAbsolutePath() + File.separator + "filepaths.ini"; //$NON-NLS-1$
+				testPath=new File(aPath);
+			}
+			if (testPath.exists() && !testPath.canWrite())
+			{
+				Logging
+					.errorPrint("WARNING: The filepaths file you specified is not updatable. "
+						+ "Filepath changes will not be saved. File is "
+						+ testPath.getAbsolutePath());
+			}
+		}
+
+		Logging.errorPrint("Got filepaths loc of " + aPath);
+		return expandRelativePath(aPath);
+	}
+
+	/**
 	 * returns the location of the "filter.ini" file
 	 * which could be one of several locations
 	 * depending on the OS and user preferences
@@ -2897,6 +2935,22 @@ public final class Globals
 		if (aPath == null)
 		{
 			aPath = getFilePath("filter.ini");
+		}
+		else
+		{
+			File testPath=new File(expandRelativePath(aPath));
+			if (testPath.exists() && testPath.isDirectory())
+			{
+				aPath = testPath.getAbsolutePath() + File.separator + "filter.ini";
+				testPath=new File(aPath);
+			}
+			if (testPath.exists() && !testPath.canWrite())
+			{
+				Logging
+					.errorPrint("WARNING: The filter file you specified is not updatable. "
+						+ "Filter changes will not be saved. File is "
+						+ testPath.getAbsolutePath());
+			}
 		}
 
 		return expandRelativePath(aPath);
@@ -2934,6 +2988,22 @@ public final class Globals
 		if (aPath == null)
 		{
 			aPath = getFilePath("options.ini");
+		}
+		else
+		{
+			File testPath=new File(expandRelativePath(aPath));
+			if (testPath.exists() && testPath.isDirectory())
+			{
+				aPath = testPath.getAbsolutePath() + File.separator + "options.ini";
+				testPath=new File(aPath);
+			}
+			if (testPath.exists() && !testPath.canWrite())
+			{
+				Logging
+					.errorPrint("WARNING: The options file you specified is not updatable. "
+						+ "Settings changes will not be saved. File is "
+						+ testPath.getAbsolutePath());
+			}
 		}
 
 		return expandRelativePath(aPath);

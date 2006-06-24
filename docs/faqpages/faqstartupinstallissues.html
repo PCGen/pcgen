@@ -222,6 +222,30 @@
 				<p>There are options to load sources on start up or as you open a PC, take 
 					your pick, we don't mind ;-).</p>
 			</li>
+			
+			<li><span class="underline">What values can be passed in on the command line?</span> 
+				<p>When runing pcgen form the command line, the following options are recognised. 
+				Please note that the options are expected to formatted as -Doption=value</p>
+				<UL>
+				  <LI><strong>pcgen.filepaths</strong> - Specify the location of the filepaths file, which lists 
+				  where the other settings files are expected.</li>
+				  <li><strong>pcgen.options</strong> - Specify the location of the options file, which lists 
+				  what options have been selected, mainly in the preferences section.</li>
+				  <li><strong>pcgen.filter</strong> - Specify the location of the filter file, which lists 
+				  what filters were last selected for each tab.</li>
+				  <li><strong>pcgen.templatefile</strong> - Specify the character sheet template file to be 
+				  used for automatically generating a character sheet.</li>
+				  <li><strong>pcgen.inputfile</strong> - Specify the PCG file of the character to be 
+				  used for automatically generating a character sheet.</li>
+				  <li><strong>pcgen.outputfile</strong> - Specify the name of the output file in which the  
+				  automatically generated character sheet will be stored.</li>
+				</UL>
+				<p>When a value is specified for pcgen.inputfile, the program runs in command line 
+				   only mode and does not display the gui, but instead generates a character sheet 
+				   and exits.</p>
+				<p>In addition you can provide any number of character or party files for PCGen to load 
+				on startup by just listing them on the command line.</p>
+			</li>
 		</ol>
 	
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqstartupinstallissues.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
