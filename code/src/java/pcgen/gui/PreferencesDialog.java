@@ -758,7 +758,7 @@ final class PreferencesDialog extends JDialog
 
 		// Level up
 		SettingsHandler.setShowHPDialogAtLevelUp(hpDialogShownAtLevelUp.isSelected());
-		SettingsHandler.setShowFeatDialogAtLevelUp(featDialogShownAtLevelUp.isSelected());
+		//SettingsHandler.setShowFeatDialogAtLevelUp(featDialogShownAtLevelUp.isSelected());
 		SettingsHandler.setShowStatDialogAtLevelUp(statDialogShownAtLevelUp.isSelected());
 		SettingsHandler.setShowWarningAtFirstLevelUp(showWarningAtFirstLevelUp.isSelected());
 		SettingsHandler.setEnforceSpendingBeforeLevelUp(enforceSpendingBeforeLevelUp.isSelected());
@@ -1182,7 +1182,7 @@ final class PreferencesDialog extends JDialog
 
 		// Level up
 		hpDialogShownAtLevelUp.setSelected(SettingsHandler.getShowHPDialogAtLevelUp());
-		featDialogShownAtLevelUp.setSelected(SettingsHandler.getShowFeatDialogAtLevelUp());
+		//featDialogShownAtLevelUp.setSelected(SettingsHandler.getShowFeatDialogAtLevelUp());
 		statDialogShownAtLevelUp.setSelected(SettingsHandler.getShowStatDialogAtLevelUp());
 		showWarningAtFirstLevelUp.setSelected(SettingsHandler.isShowWarningAtFirstLevelUp());
 		enforceSpendingBeforeLevelUp.setSelected(SettingsHandler.getEnforceSpendingBeforeLevelUp());
@@ -2120,13 +2120,13 @@ final class PreferencesDialog extends JDialog
 		gridbag.setConstraints(hpDialogShownAtLevelUp, c);
 		levelUpPanel.add(hpDialogShownAtLevelUp);
 
-		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
-		label = new JLabel(in_featWindow + ": ");
-		gridbag.setConstraints(label, c);
-		levelUpPanel.add(label);
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		gridbag.setConstraints(featDialogShownAtLevelUp, c);
-		levelUpPanel.add(featDialogShownAtLevelUp);
+//		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
+//		label = new JLabel(in_featWindow + ": ");
+//		gridbag.setConstraints(label, c);
+//		levelUpPanel.add(label);
+//		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
+//		gridbag.setConstraints(featDialogShownAtLevelUp, c);
+//		levelUpPanel.add(featDialogShownAtLevelUp);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
 		label = new JLabel(in_statWindow + ": ");

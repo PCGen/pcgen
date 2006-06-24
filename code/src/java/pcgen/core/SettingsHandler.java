@@ -2104,11 +2104,15 @@ public final class SettingsHandler
 
 	/**
 	 * Sets whether the feats dialog should be shown at level up.
+	 * NOTE: This function has been disabled as it interferes with class builds. 
+	 * See bug #1502512 at 
+	 * https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719
+	 *  
 	 * @param argShowFeatDialogAtLevelUp Should the feats dialog be shown at level up?
 	 */
 	public static void setShowFeatDialogAtLevelUp(final boolean argShowFeatDialogAtLevelUp)
 	{
-		showFeatDialogAtLevelUp = argShowFeatDialogAtLevelUp;
+		showFeatDialogAtLevelUp = true; //argShowFeatDialogAtLevelUp;
 	}
 
 	/**
