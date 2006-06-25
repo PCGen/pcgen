@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 19:27:45 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Mace (Heavy) for Rogue weapon proficiency.  I'll clean it all up when I get more time - Tir Gwaith
 
@@ -34,7 +34,7 @@ Hammer (Light)		TYPE:Martial
 Handaxe			TYPE:Martial
 Javelin			TYPE:Simple
 Kama				TYPE:Exotic
-Katana			TYPE:Martial.Exotic	
+Katana			TYPE:Martial.Exotic
 Kukri				TYPE:Exotic
 Kusari-gama			TYPE:Martial
 Lance				TYPE:Martial
