@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons	SOURCESHORT:SGtAmazons	SOURCEWEB:http://mongoosepublishing.com
 
-# Spell Name	Domains granting the spell	School			Type		Components		Casting Time	Range			Target Area					Duration				Save Info			Spell Resistance	Description		Source Page		Item
-Cold of Night	DOMAINS:Moon=8			SCHOOL:Evocation		TYPE:Divine	COMPS:V S DF	CASTTIME:1 round	RANGE:Medium	TARGETAREA:Creatures within area	DURATION:Instantantenous	SAVEINFO:Reflex half	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.26	ITEM:Potion
-Mother's Milk	DOMAINS:Moon=5			SCHOOL:Transmutation	TYPE:Divine	COMPS:V S M DF	CASTTIME:1 round	RANGE:Touch		TARGETAREA:Vessel touched		DURATION:Instantantenous	SAVEINFO:None		SPELLRES:No		DESC:See text	SOURCEPAGE:p.26
+# Spell Name	Domains granting the spell	School			Type		Components		Casting Time	Range			Item		Target Area					Duration				Save Info			Spell Resistance	Description		Source Page
+Cold of Night	DOMAINS:Moon=8			SCHOOL:Evocation		TYPE:Divine	COMPS:V S DF	CASTTIME:1 round	RANGE:Medium	ITEM:Potion	TARGETAREA:Creatures within area	DURATION:Instantantenous	SAVEINFO:Reflex half	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.26
+Mother's Milk	DOMAINS:Moon=5			SCHOOL:Transmutation	TYPE:Divine	COMPS:V S M DF	CASTTIME:1 round	RANGE:Touch				TARGETAREA:Vessel touched		DURATION:Instantantenous	SAVEINFO:None		SPELLRES:No		DESC:See text	SOURCEPAGE:p.26
 
 ###Block: SPELL.MOD generated from the old CLASSSPELL files
 # Spell Name				Domains granting the spell
