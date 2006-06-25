@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 19:54:05 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -31,7 +31,7 @@ Archmage Spell Power		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLT
 Spell-Like Ability		TYPE:HighArcana	VISIBLE:NO	PRECLASS:1,Archmage=1	PRESPELLTYPE:Arcane,1,5	SA:Spell-Like Ability (%)|ArchmageSLA	DEFINE:ArchmageSLA|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=5|-1	BONUS:VAR|ArchmageSLA|1	SOURCEPAGE:prestigeclasses.rtf
 
 ###Block: Horizon Walker Terrain Abilities
-# Feat Name			Type			Visible	Special Ability								Add to magical move						Bonus to skill								Source Page
+# Feat Name			Type			Visible	Special Ability																																	Define							Add to magical move						Bonus to skill								Modify VAR							Vision				Source Page
 Aquatic Terrain		TYPE:Terrain	VISIBLE:NO	SA:Aquatic Terrain Mastery (+% insight bonus on attack and damage rolls against aquatic creatures)|AquaticTerrainMasteryBonus															DEFINE:AquaticTerrainMasteryBonus|0			BONUS:POSTMOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1		BONUS:SKILL|Swim|4|TYPE=Competence|!PREMOVE:1,Swim=1		BONUS:VAR|AquaticTerrainMasteryBonus|1							SOURCEPAGE:prestigeclasses.rtf
 Desert Terrain		TYPE:Terrain	VISIBLE:NO	SA:Desert Terrain Mastery (+% insight bonus on attack and damage rolls against desert creatures)|DesertTerrainMasteryBonus															DEFINE:DesertTerrainMasteryBonus|0																						BONUS:VAR|DesertTerrainMasteryBonus|1							SOURCEPAGE:prestigeclasses.rtf
 Forest Terrain		TYPE:Terrain	VISIBLE:NO	SA:Forest Terrain Mastery (+% insight bonus on attack and damage rolls against forest creatures)|ForrestTerrainMasteryBonus															DEFINE:ForestTerrainMasteryBonus|0												BONUS:SKILL|Hide|4|TYPE=Competence					BONUS:VAR|ForestTerrainMasteryBonus|1							SOURCEPAGE:prestigeclasses.rtf
