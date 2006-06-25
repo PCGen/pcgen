@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com
 # Original Entry by: Mynex, Tir Gwaith, & bD_92
 
-# Weapon Name		Type			Nb Hands
+# Weapon Name		Type				Nb Hands
 Blowgun			TYPE:Exotic
 Bola				TYPE:Exotic
 Boomerang			TYPE:Exotic
 Spiked Chain		TYPE:Exotic
-Crossbow (Hand)		TYPE:Exotic		HANDS:1
-Crossbow (Repeating)	TYPE:Exotic		HANDS:2
+Crossbow (Hand)		TYPE:Exotic			HANDS:1
+Crossbow (Repeating)	TYPE:Exotic			HANDS:2
 Flail (Dire)		TYPE:Exotic
 Kama				TYPE:Exotic
 Katana			TYPE:Exotic
@@ -37,7 +37,7 @@ Hammer (Light)		TYPE:Martial
 Handaxe			TYPE:Martial
 Lance				TYPE:Martial
 Longbow			TYPE:Martial
-Longbow (Composite)	TYPE:Martial	HANDS:2
+Longbow (Composite)	TYPE:Martial		HANDS:2
 Longspear			TYPE:Martial
 Pick				TYPE:Martial
 Ranseur			TYPE:Martial
@@ -45,9 +45,9 @@ Rapier			TYPE:Martial
 Sap				TYPE:Martial
 Scimitar			TYPE:Martial
 Scythe			TYPE:Martial
-Shortbow			TYPE:Martial	HANDS:2
-Shortbow (Composite)	TYPE:Martial	HANDS:2
-Speargun			TYPE:Martial	HANDS:2
+Shortbow			TYPE:Martial		HANDS:2
+Shortbow (Composite)	TYPE:Martial		HANDS:2
+Speargun			TYPE:Martial		HANDS:2
 Greatsword			TYPE:Martial
 Longsword			TYPE:Martial
 Sword (Short)		TYPE:Martial
@@ -56,8 +56,8 @@ Warhammer			TYPE:Martial
 Baseball Bat		TYPE:Simple
 Brass Knuckles		TYPE:Simple
 Club				TYPE:Simple
-Crossbow (Heavy)		TYPE:Simple		HANDS:2
-Crossbow (Light)		TYPE:Simple		HANDS:2
+Crossbow (Heavy)		TYPE:Simple			HANDS:2
+Crossbow (Light)		TYPE:Simple			HANDS:2
 Dagger			TYPE:Simple
 Dart				TYPE:Simple
 Gauntlet			TYPE:Simple
@@ -85,7 +85,7 @@ Thompson .45		TYPE:Personal
 IMI Uzi			TYPE:Personal
 M16				TYPE:Advanced
 AK 47				TYPE:Advanced
-M72A3LAW			TYPE:Heavy		HANDS:2
+M72A3LAW			TYPE:Heavy			HANDS:2
 Antimatter Pistol		TYPE:Futuristic
 Antimatter Rifle		TYPE:Futuristic
 Blaster Pistol		TYPE:Futuristic
