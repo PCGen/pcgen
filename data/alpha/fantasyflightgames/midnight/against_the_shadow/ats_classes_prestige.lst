@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -50,20 +50,20 @@ CLASS:Avenging Knife	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:3,Improved Initiative,In
 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Aradil's Eye	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
-1																			FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1																			FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																			FEATAUTO:The Drop
-2																			FEATAUTO:Security Breach
-3	BONUS:VAR|SneakAttack|CL/3														FEATAUTO:Sneak Attack
+1															FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1															FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1															FEATAUTO:The Drop
+2															FEATAUTO:Security Breach
+3	BONUS:VAR|SneakAttack|CL/3										FEATAUTO:Sneak Attack
 # TODO Improved Feint doesn't exist in 3.0
-#3															VFEAT:Improved Feint	
-4																			FEATAUTO:Target Study
-5																			FEATAUTO:Fast Hands
-6																			FEATAUTO:Cover Story
-7	BONUS:VAR|StunningSneakAttackTimes|3	BONUS:VAR|StunningSneakAttackDC|10+CL+INT					FEATAUTO:Stunning Sneak Attack
-8																			FEATAUTO:Improved Coup de Grace
-9																			FEATAUTO:Still as Stone
-10	BONUS:VAR|DeathAttackDC|10+CL+INT													FEATAUTO:Death Attack
+#3															VFEAT:Improved Feint
+4															FEATAUTO:Target Study
+5															FEATAUTO:Fast Hands
+6															FEATAUTO:Cover Story
+7	BONUS:VAR|StunningSneakAttackTimes|3	BONUS:VAR|StunningSneakAttackDC|10+CL+INT	FEATAUTO:Stunning Sneak Attack
+8															FEATAUTO:Improved Coup de Grace
+9															FEATAUTO:Still as Stone
+10	BONUS:VAR|DeathAttackDC|10+CL+INT									FEATAUTO:Death Attack
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Bane of Legates	HD:6		TYPE:PC.Prestige	ABB:blgt		MAXLEVEL:10	SOURCEPAGE:p. 48	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE

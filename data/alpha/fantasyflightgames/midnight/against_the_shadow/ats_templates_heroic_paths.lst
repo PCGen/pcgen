@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -92,6 +92,7 @@ Heroic Path (Seaborn)	OUTPUTNAME:Seaborn Heroic Path	VISIBLE:YES	SOURCEPAGE:p. 3
 # Template Name		Output Name					Visible	Source Page		Define			Level																												Required var. value	Stat bonus																			Modify VAR																												Spells
 ### TODO: Check greater shout.  I think it is a 3.5 feature.  Where did it come from in 3.0?
 #Heroic Path (Speaker)	OUTPUTNAME:Speaker Heroic Path	VISIBLE:YES	SOURCEPAGE:p. 34	DEFINE:HeroicPath|1	LEVEL:2:FEAT:Persuasive Speaker	LEVEL:3:FEAT:Power Words	LEVEL:11:FEAT:Unstoppable Voice	LEVEL:14:FEAT:Language Savant	LEVEL:17:FEAT:Control Power Word	PREVAREQ:HeroicPath,0	BONUS:STAT|CHA|1|PRELEVEL:5	BONUS:STAT|CHA|1|PRELEVEL:10	BONUS:STAT|CHA|1|PRELEVEL:15	BONUS:STAT|CHA|1|PRELEVEL:20	BONUS:VAR|PersuasiveSpeakerBonus|3|PRELEVEL:2	BONUS:VAR|PowerWordLvl|TL|PRELEVEL:3	BONUS:VAR|PowerWordTimes|3+CHA	BONUS:VAR|PersuasiveSpeakerBonus|3|PRELEVEL:7	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Comprehend Languages|PRELEVEL:0	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Whispering Wind|PRELEVEL:4	SPELLS:Speaker|TIMES=1|CASTERLEVEL=("TL")|Tongues|PRELEVEL:8	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Shout|PRELEVEL:12	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Shout (Greater)|PRELEVEL:18
+# Template Name		Output Name					Visible	Source Page		Define			Level																												Required var. value	Stat bonus																			Modify VAR																												Spells
 Heroic Path (Speaker)	OUTPUTNAME:Speaker Heroic Path	VISIBLE:YES	SOURCEPAGE:p. 34	DEFINE:HeroicPath|1	LEVEL:2:FEAT:Persuasive Speaker	LEVEL:3:FEAT:Power Words	LEVEL:11:FEAT:Unstoppable Voice	LEVEL:14:FEAT:Language Savant	LEVEL:17:FEAT:Control Power Word	PREVAREQ:HeroicPath,0	BONUS:STAT|CHA|1|PRELEVEL:5	BONUS:STAT|CHA|1|PRELEVEL:10	BONUS:STAT|CHA|1|PRELEVEL:15	BONUS:STAT|CHA|1|PRELEVEL:20	BONUS:VAR|PersuasiveSpeakerBonus|3|PRELEVEL:2	BONUS:VAR|PowerWordLvl|TL|PRELEVEL:3	BONUS:VAR|PowerWordTimes|3+CHA	BONUS:VAR|PersuasiveSpeakerBonus|3|PRELEVEL:7	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Comprehend Languages|PRELEVEL:0	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Whispering Wind|PRELEVEL:4	SPELLS:Speaker|TIMES=1|CASTERLEVEL=("TL")|Tongues|PRELEVEL:8	SPELLS:Speaker|TIMES=1|CASTERLEVEL=var("TL")|Shout|PRELEVEL:12
 
 ###########################

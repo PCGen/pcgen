@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
@@ -308,7 +308,7 @@ CLASS:Sailmaster	HD:8		TYPE:PC.Prestige	ABB:Sam		MAXLEVEL:10	SOURCEPAGE:Chap.1, 
 CLASS:Sailmaster	PRESKILL:2,Profession (Sailor),Use Rope=8	PRESKILL:2,Climb,Balance=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sailmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE.Knowledge|Move Silently|Profession (Sailor)|Spot|Swim|Tumble|Use Rope
-# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
 CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Sailmaster=1|Animate Rope,Comprehend Languages,Create Water,Obscuring Mist
@@ -337,7 +337,7 @@ CLASS:Shadow Hunter	HD:6		TYPE:PC.Prestige	ABB:ShH		MAXLEVEL:10	SOURCEPAGE:Chap.
 CLASS:Shadow Hunter	PREALIGN:LG,NG,CG	PREFEAT:2,Alertness,Blind-Fight	PRESKILL:2,Hide,Move Silently=5	PRESKILL:1,Knowledge (Religion),Knowledge (The Planes)=5	PRESKILL:1,Spot=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Open Lock|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope
-# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels
+# Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels			Caster level
 CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Shadow Hunter|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Shadow Hunter=1|Bless Water,Cure Light Wounds,Detect Undead,Disrupt Undead,Halt Undead,Invisibility to Undead,Protection from Evil,Remove Fear
