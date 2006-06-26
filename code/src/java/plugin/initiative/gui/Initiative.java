@@ -1299,6 +1299,7 @@ public class Initiative extends javax.swing.JPanel
 
 			round++;
 			writeToCombatTab("Round " + round);
+			setCurrentInit(maxInit);
 		}
 		else if (!initList.initValid(currentInit))
 		{
@@ -1633,11 +1634,11 @@ public class Initiative extends javax.swing.JPanel
 		initList.check();
 
 		int maxInit = initList.getMaxInit();
-		setCurrentInit(maxInit);
 		writeToCombatTab("Combat Number " + currentCombat + ": ");
 		writeToCombatTab("Round 1");
 		currentCombat++;
 		round = 1;
+		setCurrentInit(maxInit);
 	}
 
 	//** End Functions implementing button calls for top toolbar **
@@ -2310,9 +2311,14 @@ public class Initiative extends javax.swing.JPanel
 	{
 		InitHolder iH = (InitHolder) initList.get(row);
 		Object data = combatantTable.getValueAt(row, column);
+		boolean atTop = (currentInit == initList.getMaxInit());
 		iH.editRow(columnList, column, data);
 		initHolderUpdated(iH);
 		initList.sort();
+		if (atTop)
+		{
+			setCurrentInit(initList.getMaxInit());
+		}
 		refreshTable();
 	}
 
