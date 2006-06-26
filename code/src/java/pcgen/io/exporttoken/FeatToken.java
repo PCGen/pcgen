@@ -32,6 +32,7 @@ public class FeatToken extends Token {
 	private int visibility = FEAT_DEFAULT;
 	private List feat = new ArrayList();
 	private PlayerCharacter cachedPC = null;
+	private int cachedPcSerial = 0;
 	private String lastMode = "";
 
 	/**
@@ -53,16 +54,17 @@ public class FeatToken extends Token {
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String fString = aTok.nextToken();
 
-		if (cachedPC != pc || !fString.equals(lastMode))
+		if (cachedPC != pc || !fString.equals(lastMode) || cachedPcSerial != pc.getSerial())
 		{
 			// Overridden by subclasses to return the right list.
 			feat = getFeatList(pc);
 		}
 		cachedPC = pc;
 		lastMode = fString;
+		cachedPcSerial = pc.getSerial();
 
-		List types  = new ArrayList();
-		List negate = new ArrayList();
+		List<String> types  = new ArrayList<String>();
+		List<String> negate = new ArrayList<String>();
 		String featType = null;
 
 		// i holds the number of the feat we want, is decremented
@@ -104,11 +106,11 @@ public class FeatToken extends Token {
 				{
 					if (typeInd > 0)
 					{
-						types.add(typeStr.substring(typeInd + 5));
+						negate.add(typeStr.substring(typeInd + 5));
 					}
 					else
 					{
-						negate.add(typeStr.substring(typeInd + 5));
+						types.add(typeStr.substring(typeInd + 5));
 					}
 				}
 			}
