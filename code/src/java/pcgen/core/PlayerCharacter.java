@@ -12027,12 +12027,20 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		final ArrayList<PObject> results = new ArrayList<PObject>();
 
 		//  Alignment
-		results.add(SettingsHandler.getGame().getAlignmentAtIndex(getAlignment()));
+		PCAlignment align = SettingsHandler.getGame().getAlignmentAtIndex(getAlignment());
+		if (align != null)
+		{
+			results.add(align);
+		}
 
 		//  armorProfList is still just a list of Strings
 		//results.addAll(getArmorProfList());
 		//  BioSet
-		results.add(Globals.getBioSet());
+		BioSet bio = Globals.getBioSet();
+		if (bio != null)
+		{
+			results.add(bio);
+		}
 
 		//  Checks
 		results.addAll(SettingsHandler.getGame().getUnmodifiableCheckList());
@@ -12098,10 +12106,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		results.addAll(aggregateFeatList());
 
 		//  Race
-		results.add(getRace());
+		if (getRace() != null)
+		{
+			results.add(getRace());
+		}
 
 		//  SizeAdjustment
-		results.add(getSizeAdjustment());
+		if (getSizeAdjustment() != null)
+		{
+			results.add(getSizeAdjustment());
+		}
 
 		//  Skill
 		results.addAll(getSkillList());
