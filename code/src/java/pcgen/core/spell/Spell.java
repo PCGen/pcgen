@@ -253,6 +253,12 @@ public final class Spell extends PObject
 				ow = cs.getOwner();
 			}
 
+			// Check for a non class based fixed DC
+			if (fixedDC != null && ow != null && !(ow instanceof PCClass))
+			{
+				return aPC.getVariableValue(fixedDC, "").intValue();
+			}
+			
 			if (si.getFeatList() != null)
 			{
 				for ( Ability metaFeat : si.getFeatList() )
