@@ -12523,7 +12523,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				continue;
 			}
 
-			processBonus(bonus);
+			processBonus(bonus, new ArrayList<BonusObj>());
 		}
 	}
 
@@ -13443,12 +13443,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * - Finds all active bonuses that add to those dependencies and
 	 * have not been processed and recursively calls itself
 	 * - Once recursed in, it adds the computed bonus to activeBonusMap
-	 * @param aBonus
+	 * @param aBonus The bonus to be processed.
+	 * @param prevProcessed The list of bonuses which have already been processed in this run.
 	 */
-	private void processBonus(final BonusObj aBonus)
+	private void processBonus(final BonusObj aBonus, final ArrayList<BonusObj> prevProcessed)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		// Make sure we don't get into an infinite loop - can occur due to LST coding or best guess dependancy mapping 
+		if (prevProcessed.contains(aBonus))
+		{
+			Logging.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed);
+			return;
+		}
+		prevProcessed.add(aBonus);
 
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		
 		// Go through all bonuses and check to see if they add to
 		// aBonus's dependencies and have not already been processed
 		for ( BonusObj newBonus : getActiveBonusList() )
@@ -13469,7 +13478,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for ( BonusObj newBonus : aList )
 		{
 			// Recursively call itself
-			processBonus(newBonus);
+			processBonus(newBonus, prevProcessed);
 		}
 
 		// Double check that it hasn't been processed yet
@@ -13485,6 +13494,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (anObj == null)
 		{
+			prevProcessed.remove(aBonus);
 			return;
 		}
 
@@ -13495,6 +13505,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			setActiveBonusStack(iBonus, bString, getActiveBonusMap());
 			Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : " + iBonus + " : " + bString);
 		}
+		prevProcessed.remove(aBonus);
 	}
 
 	private boolean qualifiesForFeat(final Ability aFeat)
