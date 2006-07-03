@@ -50,11 +50,11 @@ import java.util.*;
 public abstract class LstObjectFileLoader extends LstFileLoader
 {
 	private CampaignSourceEntry currentSource = null;
-	private List copyLineList = new ArrayList();
-	private List forgetLineList = new ArrayList();
+	private List<String> copyLineList = new ArrayList<String>();
+	private List<String> forgetLineList = new ArrayList<String>();
 	private List modEntryList = new ArrayList();
-	private Map sourceMap = null;
-	protected List excludedObjects = new ArrayList();
+	private Map<String, String> sourceMap = null;
+	protected List<String> excludedObjects = new ArrayList<String>();
 
 	/**
 	 * LstObjectFileLoader constructor.
@@ -74,7 +74,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		sortFilesForOptimalLoad(fileList);
 
 		// Track which sources have been loaded already
-		TreeSet loadedFiles = new TreeSet();
+		TreeSet<String> loadedFiles = new TreeSet<String>();
 
 		// Load the files themselves as thoroughly as possible
 		Iterator fileIter = fileList.iterator();
@@ -256,7 +256,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		final String aString = dataBuffer.toString();
 		final StringTokenizer fileLines = new StringTokenizer(aString, newlinedelim);
 		PObject target = null;
-		ArrayList classModLines = null;
+		ArrayList<ModEntry> classModLines = null;
 
 		int currentLineNumber = 0;
 		while (fileLines.hasMoreTokens())

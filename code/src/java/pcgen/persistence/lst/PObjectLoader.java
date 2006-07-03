@@ -37,6 +37,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.utils.FeatParser;
 import pcgen.persistence.lst.utils.PObjectHelper;
+import pcgen.core.Ability;
 
 /**
  * @author David Rice <david-pcgen@jcuz.com>
@@ -49,7 +50,7 @@ public final class PObjectLoader {
 	 * be created and API methods are public and static
 	 */
 
-	private static List featList = new ArrayList();
+	private static List<PObjectHelper> featList = new ArrayList<PObjectHelper>();
 
 	private PObjectLoader() {
 		// Empty Constructor
@@ -67,7 +68,9 @@ public final class PObjectLoader {
 	 * @return boolean true if the tag is parsed; else false.
 	 * @throws PersistenceLayerException
 	 */
-	public static boolean parseTag(PObject obj, String aTag) throws PersistenceLayerException {
+	public static boolean parseTag(PObject obj, String aTag)
+		throws PersistenceLayerException
+	{
 		return parseTagLevel(obj, aTag, -9);
 	}
 
@@ -87,7 +90,8 @@ public final class PObjectLoader {
 	 * @return boolean true if the tag is parsed; else false.
 	 * @throws PersistenceLayerException
 	 */
-	public static boolean parseTagLevel(PObject obj, String aTag, int anInt) throws PersistenceLayerException
+	public static boolean parseTagLevel(PObject obj, String aTag, int anInt)
+		throws PersistenceLayerException
 	{
 		if ((obj == null) || (aTag.length() < 1))
 		{
@@ -106,8 +110,8 @@ public final class PObjectLoader {
 		}
 		String key = aTag.substring(0, colonIdx);
 		String value = aTag.substring(colonIdx + 1);
-		Map tokenMap = TokenStore.inst().getTokenMap(GlobalLstToken.class);
-		LstToken token = (LstToken) tokenMap.get(key);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(GlobalLstToken.class);
+		LstToken token = tokenMap.get(key);
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, obj, value);
@@ -155,10 +159,9 @@ public final class PObjectLoader {
 
 	public static void finishFeatProcessing()
 	{
-		for (Iterator i = featList.iterator(); i.hasNext();)
+		for ( PObjectHelper p : featList )
 		{
-			PObjectHelper p = (PObjectHelper) i.next();
-			List vFeatList = FeatParser.parseVirtualFeatList(p.getTag());
+			List<Ability> vFeatList = FeatParser.parseVirtualFeatList(p.getTag());
 			p.getObject().addVirtualFeats(vFeatList);
 		}
 	}

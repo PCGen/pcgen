@@ -50,7 +50,7 @@ import java.util.Collection;
  * @author boomer70
  *
  */
-public class DamageReduction implements Comparable, Cloneable
+public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 {
 	private String theReduction = "0";
 	private String theBypass = "-";
@@ -260,14 +260,14 @@ public class DamageReduction implements Comparable, Cloneable
 	/**
 	 * Compares two DR objects and returns an integer based on their relative
 	 * sorting order.  DRs are sorted from highest reduction to lowest.
-	 * @param o The DR to test against
+	 * @param dr The DR to test against
 	 * @return -1 if the passed in object is less that this one, 0 if they are
 	 * equal and 1 if the passed in object is greater.
 	 */
-	public int compareTo(Object o)
+	public int compareTo(DamageReduction dr)
 	{
 		int v1 = getReductionValue();
-		int v2 = ( (DamageReduction) o).getReductionValue();
+		int v2 = dr.getReductionValue();
 		return v1 < v2 ? 1 : v1 > v2 ? -1 : 0;
 	}
 
@@ -601,7 +601,7 @@ public class DamageReduction implements Comparable, Cloneable
 
 	/**
 	 * Process a List of DRs and try and recombine multiple values into a single
-	 * value.  For example 10/magic; 10/good = 10/magic and good. Only DR values 
+	 * value.  For example 10/magic; 10/good = 10/magic and good. Only DR values
 	 * that the PC qualifies for will be included in the final list.
 	 * @param drList The list of DRs to combine.  The list is modified by the
 	 * method.
@@ -702,13 +702,13 @@ public class DamageReduction implements Comparable, Cloneable
 		{
 			clone.addPreReq((Prerequisite) prereq.clone());
 		}
-		
+
 		return clone;
 	}
-	
+
 	/**
 	 * Generate the text to be included in a LST file to represent this DR object.
-	 * 
+	 *
 	 * @param includeLevel Should level prereqs be included?
 	 * @return The LST code for the DR.
 	 */
@@ -718,7 +718,7 @@ public class DamageReduction implements Comparable, Cloneable
 		result.append(theReduction);
 		result.append("/");
 		result.append(theBypass);
-		
+
 		final StringWriter writer = new StringWriter();
 		for (Prerequisite prereq : thePreReqs)
 		{
@@ -738,14 +738,14 @@ public class DamageReduction implements Comparable, Cloneable
 			}
 			result.append(writer);
 		}
-		
+
 		return result.toString();
 	}
-	
+
 	/**
-	 * Determine if this damage reduction object is associated with a 
+	 * Determine if this damage reduction object is associated with a
 	 * level of a class.
-	 * 
+	 *
 	 * @param keyName The key nameof the PCClass.
 	 * @return true if it is associated with a level of the class, false otherwise.
 	 */
@@ -760,9 +760,9 @@ public class DamageReduction implements Comparable, Cloneable
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Determine if this damage reduction object is associated with a 
+	 * Determine if this damage reduction object is associated with a
 	 * level of a class.
 	 *
 	 * @param prereq The prerequisite to check.

@@ -41,7 +41,7 @@ import java.util.Set;
  * @author  soulcatcher
  */
 public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
-	public static HashMap pluginMap = new HashMap();
+	public static HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;
@@ -53,18 +53,16 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	public void applyPreferences() {
-		Set keySet = pluginMap.keySet();
-		for(Iterator i = keySet.iterator(); i.hasNext(); ) {
-			PluginRef pluginRef = (PluginRef)pluginMap.get(i.next());
-			pluginRef.applyPreferences();
+		for ( String key : pluginMap.keySet() )
+		{
+			pluginMap.get(key).applyPreferences();
 		}
 	}
 
 	public void initPreferences() {
-		Set keySet = pluginMap.keySet();
-		for(Iterator i = keySet.iterator(); i.hasNext(); ) {
-			PluginRef pluginRef = (PluginRef)pluginMap.get(i.next());
-			pluginRef.initPreferences();
+		for ( String key : pluginMap.keySet() )
+		{
+			pluginMap.get(key).initPreferences();
 		}
 	}
 
@@ -80,10 +78,9 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		Set keySet = pluginMap.keySet();
-		for(Iterator i = keySet.iterator(); i.hasNext(); ) {
-			PluginRef pluginRef = (PluginRef)pluginMap.get(i.next());
-			mainPanel.add(pluginRef);
+		for ( String key : pluginMap.keySet() )
+		{
+			mainPanel.add( pluginMap.get(key) );
 		}
 
 		jScrollPane1.setViewportView(mainPanel);
@@ -121,8 +118,8 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new TitledBorder(null, pluginTitle,
-			        TitledBorder.DEFAULT_JUSTIFICATION,
-			        TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11)));
+					TitledBorder.DEFAULT_JUSTIFICATION,
+					TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11)));
 
 			checkBox.setText("Run this plugin?");
 			add(checkBox);

@@ -240,7 +240,7 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 	 */
 	public void testGetDRString()
 	{
-		ArrayList drList = new ArrayList();
+		ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
 		String listResult = DamageReduction.getDRString(null, drList);
 		is(listResult, strEq(""));
 
@@ -356,7 +356,7 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		listResult = DamageReduction.getDRString(null, drList);
 		is(listResult, strEq("15/magic and Good; 10/lawful; 5/evil"));
 
-		ArrayList drList1 = new ArrayList();
+		ArrayList<DamageReduction> drList1 = new ArrayList<DamageReduction>();
 		drList1.add(new DamageReduction("10", "epic"));
 		drList1.add(new DamageReduction("10", "lawful or good"));
 		listResult = DamageReduction.getDRString(null, drList1);

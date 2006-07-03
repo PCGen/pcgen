@@ -27,13 +27,15 @@ package pcgen.core.character;
 
 /**
  * @author Valued Customer
+ * @todo This doesn't belong in this package.  It should probably be an inner
+ * class in VariableProcessor.
  *
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public final class CachedVariable {
+public final class CachedVariable<T> {
 	private int serial;
-	private Object value;
+	private T value;
 	/**
 	 * @return Returns the serial.
 	 */
@@ -51,14 +53,14 @@ public final class CachedVariable {
 	/**
 	 * @return Returns the value.
 	 */
-	public final Object getValue() {
+	public final T getValue() {
 		return value;
 	}
 
 	/**
 	 * @param value The value to set.
 	 */
-	public final void setValue(final Object value) {
+	public final void setValue(final T value) {
 		this.value = value;
 	}
 

@@ -4,7 +4,6 @@
  */
 package plugin.lsttokens;
 import pcgen.core.Campaign;
-import pcgen.core.PCSpell;
 import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -14,6 +13,7 @@ import pcgen.util.Logging;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import pcgen.core.PCSpell;
 /**
  * @author djones4
  *
@@ -38,13 +38,14 @@ public class SpellsLst implements GlobalLstToken {
 	 *
 	 * CASTERLEVEL=<formula> Casterlevel of spells
 	 * TIMES=<formula> Cast Times per day, -1=At Will
-	 * @param sourceLine
+	 * @param sourceLine Line from the LST file without the SPELLS:
 	 * @return spells list
 	 */
 	private static List<PCSpell> createSpellsList(final String sourceLine) {
 		List<PCSpell> spellList = new ArrayList<PCSpell>();
 		StringTokenizer tok = new StringTokenizer(sourceLine, "|");
-		if(tok.countTokens() > 1) {
+		if(tok.countTokens() > 1)
+		{
 			String spellBook = tok.nextToken();
 			String casterLevel = null;
 			String times = "1";

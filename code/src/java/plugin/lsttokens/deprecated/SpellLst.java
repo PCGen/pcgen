@@ -3,7 +3,6 @@
  *
  */
 package plugin.lsttokens.deprecated;
-import pcgen.core.PCSpell;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.Deprecated;
@@ -14,6 +13,7 @@ import pcgen.util.Logging;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import pcgen.core.PCSpell;
 
 /**
  * @author djones4
@@ -26,6 +26,7 @@ public class SpellLst implements GlobalLstToken, Deprecated {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
+//		obj.addSpellLikeAbilities( anInt, createSpellList(value) );
 		obj.getSpellSupport().addSpells(anInt, createSpellList(value));
 		return true;
 	}
@@ -34,8 +35,10 @@ public class SpellLst implements GlobalLstToken, Deprecated {
 		return "Use SPELLS: instead.";
 	}
 
+//	private static List<SpellLikeAbility> createSpellList(final String sourceLine) {
 	private static List<PCSpell> createSpellList(final String sourceLine) {
 		List<PCSpell> spellList = new ArrayList<PCSpell>();
+//		List<SpellLikeAbility> spellList = new ArrayList<SpellLikeAbility>();
 
 		String preTag = "";
 		String spellSrc = "";
@@ -102,6 +105,7 @@ public class SpellLst implements GlobalLstToken, Deprecated {
 
 		while (aTok.hasMoreTokens()) {
 			PCSpell spell = new PCSpell();
+//			final SpellLikeAbility spell = new SpellLikeAbility();
 
 			// Get the name/key out of the string
 			spell.setName(aTok.nextToken());

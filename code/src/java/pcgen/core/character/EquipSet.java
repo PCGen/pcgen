@@ -34,6 +34,7 @@ import pcgen.util.Logging;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import pcgen.core.bonus.BonusObj;
 
 /*
  ******    ***   ******    ******   ****   *****
@@ -50,11 +51,11 @@ import java.util.StringTokenizer;
  * @author Jayme Cox <jaymecox@excite.com>
  * @version $Revision$
  */
-public final class EquipSet implements Comparable, Cloneable
+public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
 	private Equipment eq_item;
 	private Float qty = new Float(1);
-	private List tempBonusList = new ArrayList();
+	private List<BonusObj> tempBonusList = new ArrayList<BonusObj>();
 
 	/*
 	 * the Structure of each EQUIPSET is as follows:
@@ -63,7 +64,7 @@ public final class EquipSet implements Comparable, Cloneable
 	 *
 	 * id_path = a . delimited string that denotes parent/child relationship
 	 * name = name of EquipSet or item this represents
-	          (and is used to define uniquiness for compareTo)
+			  (and is used to define uniquiness for compareTo)
 	 * value = Name of the Equipment stored in this item
 	 * item = Equipment item stored (optional)
 	 * qty = number of items this equipset contains (all same item)
@@ -291,7 +292,7 @@ public final class EquipSet implements Comparable, Cloneable
 	 * Set temp bonus list
 	 * @param aList
 	 */
-	public void setTempBonusList(final List aList)
+	public void setTempBonusList(final List<BonusObj> aList)
 	{
 		tempBonusList = aList;
 	}
@@ -300,7 +301,7 @@ public final class EquipSet implements Comparable, Cloneable
 	 * a List of BonusObj's
 	 * @return temp bonus list
 	 **/
-	public List getTempBonusList()
+	public List<BonusObj> getTempBonusList()
 	{
 		return tempBonusList;
 	}
@@ -383,11 +384,9 @@ public final class EquipSet implements Comparable, Cloneable
 		return eqSet;
 	}
 
-	public int compareTo(final Object obj)
+	public int compareTo(final EquipSet obj)
 	{
-		final EquipSet es = (EquipSet) obj;
-
-		return id_path.compareToIgnoreCase(es.id_path);
+		return id_path.compareToIgnoreCase(obj.id_path);
 	}
 
 	public String toString()

@@ -16,7 +16,7 @@ public class SpelllevelToken implements SpellLstToken {
 	}
 
 	public boolean parse(Spell spell, String value) {
-	    //TODO: When will this deprecated tag be removed? Or will it remain indefinitely?
+		//TODO: When will this deprecated tag be removed? Or will it remain indefinitely?
 		Logging.errorPrint("Warning: tag 'SPELLLEVEL' has been deprecated. Use CLASSES or DOMAINS tag instead.");
 
 		final StringTokenizer slTok = new StringTokenizer(value, "|");
@@ -24,6 +24,7 @@ public class SpelllevelToken implements SpellLstToken {
 		while (slTok.countTokens() >= 3) {
 			final String typeString = slTok.nextToken();
 			final String mainString = slTok.nextToken();
+// TODO SPELLLIST need to figure out what this syntax is
 			spell.setLevelInfo(typeString + "|" + mainString, slTok.nextToken());
 		}
 		return true;

@@ -92,20 +92,18 @@ public final class BonusUtilities
 	 * @param iType
 	 * @return List
 	 */
-	public static List getBonusFromList(final List bonusList, final int iType)
+	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final int iType)
 	{
-		final List aList = new ArrayList(bonusList.size());
+		final List<BonusObj> aList = new ArrayList<BonusObj>(bonusList.size());
 
 		// Analysis reveals that bonusList is never null
-		for (Iterator ab = bonusList.iterator(); ab.hasNext();)
+		for ( BonusObj bonus : bonusList )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-
-			if (aBonus.getTypeOfBonusAsInt() != iType)
+			if (bonus.getTypeOfBonusAsInt() != iType)
 			{
 				continue;
 			}
-			aList.add(aBonus);
+			aList.add(bonus);
 		}
 
 		return aList;

@@ -37,27 +37,27 @@ public class KitSpellBookEntry
 	private String className;
 	private String bookName;
 	private String theName = null;
-	private List theModifierList = null;
+	private List<String> theModifierList = null;
 	private int theCount = 1;
 
 	private PCClass theClass = null;
 
 	/**
-	 * 
+	 *
 	 * @param aClassName
 	 * @param aBookName
 	 * @param aName
 	 * @param modifiers
 	 */
 	public KitSpellBookEntry(final String aClassName, final String aBookName,
-							 final String aName, final List modifiers)
+							 final String aName, final List<String> modifiers)
 	{
 		className = aClassName;
 		bookName = aBookName;
 		theName = aName;
 		if (modifiers != null && modifiers.size() > 0)
 		{
-			theModifierList = new ArrayList();
+			theModifierList = new ArrayList<String>();
 			theModifierList.addAll(modifiers);
 		}
 	}
@@ -84,12 +84,12 @@ public class KitSpellBookEntry
 	 * Get the modifiers
 	 * @return the modifiers
 	 */
-	public List getModifiers()
+	public List<String> getModifiers()
 	{
-		List ret = theModifierList;
+		List<String> ret = theModifierList;
 		if (ret == null)
 		{
-			ret = new ArrayList();
+			ret = new ArrayList<String>();
 		}
 		return Collections.unmodifiableList(ret);
 	}

@@ -42,7 +42,7 @@ import java.util.Map;
 public final class FileAccess
 {
 	private static String outputFilterName = "";
-	private static Map outputFilter = null;
+	private static Map<Integer, String> outputFilter = null;
 	private static int maxLength = -1;
 
 	/**
@@ -77,12 +77,12 @@ public final class FileAccess
 			if (filterFile.canRead() && filterFile.isFile())
 			{
 				final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
-					        "UTF-8"));
+							"UTF-8"));
 
 				if (br != null)
 				{
 					outputFilterName = filterName;
-					outputFilter = new HashMap();
+					outputFilter = new HashMap<Integer, String>();
 
 					for (;;)
 					{
@@ -93,14 +93,14 @@ public final class FileAccess
 							break;
 						}
 
-						final List filterEntry = CoreUtility.split(aLine, '\t');
+						final List<String> filterEntry = CoreUtility.split(aLine, '\t');
 
 						if (filterEntry.size() >= 2)
 						{
 							try
 							{
-								final Integer key = Delta.decode((String) filterEntry.get(0));
-								outputFilter.put(key, filterEntry.get(1).toString());
+								final Integer key = Delta.decode(filterEntry.get(0));
+								outputFilter.put(key, filterEntry.get(1));
 							}
 							catch (NullPointerException e)
 							{
@@ -149,7 +149,7 @@ public final class FileAccess
 			for (int i = 0; i < aString.length(); i++)
 			{
 				final char c = aString.charAt(i);
-				final String xlation = (String) outputFilter.get(new Integer(c));
+				final String xlation = outputFilter.get(c);
 
 				if (xlation != null)
 				{

@@ -50,7 +50,7 @@ public final class PersistenceManager
 	 */
 	private PersistenceManager()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -84,7 +84,7 @@ public final class PersistenceManager
 	 * Set the source files for the chosen campaign
 	 * @param l
 	 */
-	public void setChosenCampaignSourcefiles(List l)
+	public void setChosenCampaignSourcefiles(List<String> l)
 	{
 		instance.setChosenCampaignSourcefiles(l);
 	}
@@ -93,7 +93,7 @@ public final class PersistenceManager
 	 * Get the chosen campaign source files
 	 * @return the chosen campaign source files
 	 */
-	public List getChosenCampaignSourcefiles()
+	public List<String> getChosenCampaignSourcefiles()
 	{
 		return instance.getChosenCampaignSourcefiles();
 	}
@@ -112,7 +112,7 @@ public final class PersistenceManager
 	 * Get the sources
 	 * @return the sources
 	 */
-	public Set getSources()
+	public Set<String> getSources()
 	{
 		return instance.getSources();
 	}
@@ -154,11 +154,11 @@ public final class PersistenceManager
 
 	/**
 	 * Load the selected campaigns
-	 * 
+	 *
 	 * @param aSelectedCampaignsList
 	 * @throws PersistenceLayerException
 	 */
-	public void loadCampaigns(List aSelectedCampaignsList)
+	public void loadCampaigns(final List<Campaign> aSelectedCampaignsList)
 		throws PersistenceLayerException
 	{
 		try
@@ -175,11 +175,8 @@ public final class PersistenceManager
 			emptyLists();
 
 			// Mark everything as unloaded
-			Iterator iter = aSelectedCampaignsList.iterator();
-
-			while (iter.hasNext())
+			for ( Campaign campaign : aSelectedCampaignsList )
 			{
-				Campaign campaign = (Campaign) iter.next();
 				campaign.setIsLoaded(false);
 			}
 

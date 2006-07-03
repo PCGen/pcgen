@@ -58,7 +58,6 @@ public class QualifiedObject<T>
 	public QualifiedObject( final T anObj, final List<Prerequisite> aPrereqList )
 	{
 		theObject = anObj;
-		final String aStr = String.valueOf(anObj);
 		thePrereqs = new ArrayList<Prerequisite>( aPrereqList );
 	}
 

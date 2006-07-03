@@ -107,10 +107,12 @@ public final class SettingsHandler
 	private static boolean ignoreMonsterHDCap = false;
 	private static boolean debugFeats = false;
 
-	/**
-	 *  0==None, 1=Untrained, 2=all, 3=Same as Skills Tab
-	 */
-	private static int includeSkills = 3;
+	public static final int INCLUDE_SKILLS_NONE = 0;
+	public static final int INCLUDE_SKILLS_UNTRAINED = 1;
+	public static final int INCLUDE_SKILLS_ALL = 2;
+	public static final int INCLUDE_SKILLS_SKILLS_TAB = 3;
+
+	private static int includeSkills = INCLUDE_SKILLS_SKILLS_TAB;
 	private static int skillsTab_IncludeSkills = 1;
 //	private static int intCrossClassSkillCost = 2;
 	private static String invalidDmgText;

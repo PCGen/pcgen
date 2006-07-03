@@ -85,7 +85,6 @@ final class LevelAbilityList extends LevelAbility
 			cnt = aArrayList.indexOf(selectedList.get(index));
 
 			String theChoice = null;
-			String theBonus;
 			final List<String> selectedBonusList = new ArrayList<String>();
 			final String prefix = cnt + "|";
 

@@ -38,8 +38,8 @@ import pcgen.core.utils.CoreUtility;
 public class CampaignSourceEntry implements Comparable
 {
 	private Campaign campaign = null;
-	private List excludeItems = new ArrayList();
-	private List includeItems = new ArrayList();
+	private List<String> excludeItems = new ArrayList<String>();
+	private List<String> includeItems = new ArrayList<String>();
 	private String file = null;
 	private String stringForm = null;
 
@@ -88,7 +88,7 @@ public class CampaignSourceEntry implements Comparable
 	 * in the file are to be included.
 	 * @return List of String names of objects to exclude
 	 */
-	public List getExcludeItems()
+	public List<String> getExcludeItems()
 	{
 		return excludeItems;
 	}
@@ -108,7 +108,7 @@ public class CampaignSourceEntry implements Comparable
 	 * in the file are to be excluded.
 	 * @return List of String names of objects to include
 	 */
-	public List getIncludeItems()
+	public List<String> getIncludeItems()
 	{
 		return includeItems;
 	}

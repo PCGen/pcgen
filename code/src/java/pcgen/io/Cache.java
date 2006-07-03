@@ -35,24 +35,24 @@ import java.util.Map;
  */
 final class Cache
 {
-	private final Map map;
+	private final Map<String, List<String>> map;
 
 	Cache()
 	{
 		//should define some default or make the default constructor private making users of the cache to define its initial size
-		map = new HashMap();
+		map = new HashMap<String, List<String>>();
 	}
 
 	Cache(int initialCapacity)
 	{
-		map = new HashMap(initialCapacity);
+		map = new HashMap<String, List<String>>(initialCapacity);
 	}
 
 	/**
 	 * @param key
 	 * @return True if the map contains the key
 	 */
-	public boolean containsKey(String key)
+	public boolean containsKey(final String key)
 	{
 		return map.containsKey(key);
 	}
@@ -62,9 +62,9 @@ final class Cache
 	 * @param key
 	 * @return List
 	 */
-	public List get(String key)
+	public List<String> get(String key)
 	{
-		return (List) map.get(key);
+		return map.get(key);
 	}
 
 	/**
@@ -76,11 +76,11 @@ final class Cache
 	{
 		if (map.containsKey(key))
 		{
-			((List) map.get(key)).add(value);
+			map.get(key).add(value);
 		}
 		else
 		{
-			final List values = new ArrayList();
+			final List<String> values = new ArrayList<String>();
 			values.add(value);
 			map.put(key, values);
 		}

@@ -29,6 +29,7 @@ import pcgen.util.chooser.ChooserInterface;
 
 import java.awt.HeadlessException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JUnit 3.6 testcases for <code>pcgen.core.LevelAbility</code>.
@@ -89,7 +90,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 			final String bString = ability.prepareChooser(c, getCharacter());
 			assertTrue(c.getPool() == 1);
 
-			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
+			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
 			assertEquals(choicesList.size(), 2);
 
 			String s = (String) choicesList.get(0);

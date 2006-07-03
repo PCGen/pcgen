@@ -18,13 +18,13 @@ public class SourceLoader {
 	 * @return Map
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public static Map parseLine(String lstLine, String sourceFile)
+	public static Map<String, String> parseLine(String lstLine, String sourceFile)
 	{
-		Map sourceMap = new HashMap();
+		Map<String, String> sourceMap = new HashMap<String, String>();
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(SourceLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SourceLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

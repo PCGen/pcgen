@@ -33,7 +33,6 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.utils.*;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -54,8 +53,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class PObject implements Cloneable, Serializable, Comparable,
-	SourcedObject, KeyedListContainer
+public class PObject extends PrereqObject implements Cloneable, Serializable, Comparable,
+	SourcedObject, KeyedListContainer, KeyedObject
 {
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
@@ -97,8 +96,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	/** Indicates if this object should be displayed to the user in the UI. */
 	protected boolean visible = true;
 
-	/** List of Pre-Requesites for the object  */
-	private ArrayList<Prerequisite> preReqList = null;
 	/** Map of the bonuses for the object  */
 	private HashMap<String, String> bonusMap = null;
 	private HashMap<String, String> changeProfMap = new HashMap<String, String>();
@@ -957,46 +954,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Clear the pre requestite list
-	 */
-	public final void clearPreReq()
-	{
-		preReqList = null;
-	}
-
-	/**
-	 * Add a Pre requesite to the prereq list with no level qualifier
-	 * @param preReq
-	 */
-	public final void addPreReq(final Prerequisite preReq)
-	{
-		addPreReq(preReq, -1);
-	}
-
-	/**
-	 * Add a Pre requesite to the prereq list with a level qualifier
-	 * @param preReq
-	 * @param levelQualifier
-	 */
-	public final void addPreReq(final Prerequisite preReq, final int levelQualifier)
-	{
-		if ("clear".equals(preReq.getKind()))
-		{
-			preReqList = null;
-		}
-		else
-		{
-			if (preReqList == null)
-			{
-				preReqList = new ArrayList<Prerequisite>();
-			}
-			if (levelQualifier > 0)
-				preReq.setLevelQualifier(levelQualifier);
-			preReqList.add(preReq);
-		}
-	}
-
-	/**
 	 * Add to the 'save' for the character list
 	 * @param aString
 	 */
@@ -1360,41 +1317,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Returns true if this object has a pre requestie of the type that
-	 * is passed in.
-	 *
-	 * @param matchType
-	 * @return true if this object has a pre requestie of the type that
-	 * is passed in
-	 */
-	public final boolean hasPreReqTypeOf(final String matchType)
-	{
-		if (getPreReqCount() == 0)
-		{
-			return false;
-		}
-
-		for (int i = 0; i < getPreReqCount(); ++i)
-		{
-			final Prerequisite prereq = getPreReq(i);
-
-			if (prereq != null)
-			{
-				if (matchType == null && prereq.getKind() == null)
-				{
-					return true;
-				}
-				if (matchType.equalsIgnoreCase(prereq.getKind()))
-				{
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Returns true if this object has a variable named variableName
 	 * @param variableName
 	 * @return true if this object has a variable named variableName
@@ -1622,11 +1544,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 
 		retVal.changeProfMap = new HashMap<String, String>(changeProfMap);
 
-		if (preReqList != null)
-		{
-			retVal.preReqList = (ArrayList<Prerequisite>) preReqList.clone();
-		}
-
 		if (associatedList != null)
 		{
 			retVal.associatedList = (ArrayList<AssociatedChoice<String>>) associatedList.clone();
@@ -1639,7 +1556,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			{
 				BonusObj orig = (BonusObj) iter.next();
 				retVal.bonusList.add((BonusObj)orig.clone());
-				
+
 			}
 			retVal.ownBonuses();
 		}
@@ -1651,7 +1568,7 @@ public class PObject implements Cloneable, Serializable, Comparable,
 			{
 				DamageReduction orig = (DamageReduction) iter.next();
 				retVal.drList.add(orig.clone());
-				
+
 			}
 		}
 
@@ -1701,67 +1618,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		{
 			bonus.setCreatorObject(this);
 		}
-	}
-
-	/**
-	 * Returns the pre requesites as an HTML String
-	 * @param aPC
-	 * @return the pre requesites as an HTML String
-	 */
-	public final String preReqHTMLStrings(final PlayerCharacter aPC)
-	{
-		if (getPreReqCount() == 0)
-		{
-			return "";
-		}
-
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, null, preReqList, true);
-	}
-
-	/**
-	 * Returns the pre requesites as an HTML String with a header
-	 * @param aPC
-	 * @param includeHeader
-	 * @return the pre requesites as an HTML String
-	 */
-	public String preReqHTMLStrings(final PlayerCharacter aPC, final boolean includeHeader)
-	{
-		if (getPreReqCount() == 0)
-		{
-			return "";
-		}
-
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, null, preReqList, includeHeader);
-	}
-
-	/**
-	 * Returns the pre requesites as an HTML String given an object
-	 * @param aPC
-	 * @param p
-	 * @return the pre requesites as an HTML String given an object
-	 */
-	public final String preReqHTMLStrings(final PlayerCharacter aPC, final PObject p)
-	{
-		if (getPreReqCount() == 0)
-		{
-			return "";
-		}
-
-		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, p, preReqList, true);
-	}
-
-	/**
-	 * Creates the requirement string for printing.
-	 * @return the requirement string for printing
-	 */
-	public final String preReqStrings()
-	{
-		if (getPreReqCount() == 0)
-		{
-			return "";
-		}
-
-		return PrereqHandler.toHtmlString(preReqList);
 	}
 
 	/**
@@ -1941,39 +1797,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 
 		return outputName;
-	}
-
-	/**
-	 * Get the pre requesite at an index
-	 * @param i
-	 * @return the pre requesite at an index
-	 */
-	public final Prerequisite getPreReq(final int i)
-	{
-		return preReqList.get(i);
-	}
-
-	/**
-	 * Get the number of pre requesites
-	 * @return the number of pre requesites
-	 */
-	public final int getPreReqCount()
-	{
-		if (preReqList == null)
-		{
-			return 0;
-		}
-
-		return preReqList.size();
-	}
-
-	/**
-	 * Get the list of pre-requesites
-	 * @return the list of pre-requesites
-	 */
-	public final ArrayList<Prerequisite> getPreReqList()
-	{
-		return preReqList;
 	}
 
 	/**
@@ -3644,11 +3467,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 		}
 	}
 
-	final void setPreReq(final int index, final Prerequisite aPreReq)
-	{
-		preReqList.set(index, aPreReq);
-	}
-
 	/**
 	 * <p>Retrieves the unarmed damage information for this PObject.  This
 	 * comes from the <code>UDAM</code> tag, and can be a simple die string
@@ -3913,18 +3731,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	}
 
 	/**
-	 * Add the pre-reqs to this collection
-	 * @param collection
-	 */
-	final void addPreReqTo(final Collection<Prerequisite> collection)
-	{
-		if (preReqList != null)
-		{
-			collection.addAll(preReqList);
-		}
-	}
-
-	/**
 	 * Apply the bonus to a character
 	 * @param bonusString
 	 * @param chooseString
@@ -4169,16 +3975,6 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	int numberInList(final String aType)
 	{
 		return 0;
-	}
-
-	final boolean passesPreReqToGain(final PObject p, PlayerCharacter currentPC)
-	{
-		if (getPreReqCount() == 0)
-		{
-			return true;
-		}
-
-		return PrereqHandler.passesAll(preReqList, (Equipment) p, currentPC);
 	}
 
 	public final Object removeAssociated(final int i)
@@ -4832,4 +4628,33 @@ public class PObject implements Cloneable, Serializable, Comparable,
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
 
+//	public void addSpellLikeAbilities( final int aLevel, final List<SpellLikeAbility> aList )
+//	{
+//		Prerequisite minLevel = null;
+//		if (aLevel > -9)
+//		{
+//			try
+//			{
+//				PreParserFactory factory = PreParserFactory.getInstance();
+//				String preLevelString = "PRELEVEL:" + aLevel;
+//				if (this instanceof PCClass)
+//				{
+//					// Classes handle this differently
+//					preLevelString = "PRECLASS:1," + this.getKeyName() + "=" + aLevel;
+//				}
+//				minLevel = factory.parse(preLevelString);
+//			}
+//			catch (PersistenceLayerException notUsed)
+//			{
+//			}
+//		}
+//		for ( SpellLikeAbility sla : aList )
+//		{
+//			if ( minLevel != null )
+//			{
+//				sla.addPreReq( minLevel );
+//			}
+//			theSpellLikeAbilities.add( sla );
+//		}
+//	}
 }

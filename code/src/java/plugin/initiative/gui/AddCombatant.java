@@ -140,10 +140,10 @@ public class AddCombatant extends javax.swing.JDialog
 			for (int i = 1; i <= getIntegerValue(numberField, 1); i++)
 			{
 				XMLCombatant xmlcbt = new XMLCombatant(nameField.getText() + " (" + i + ")", playerField.getText(),
-				        getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10), getIntegerValue(intField, 10),
-				        getIntegerValue(wisField, 10), getIntegerValue(chaField, 10), getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0),
-				        getIntegerValue(willField, 0), getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0),
-				        comString, getIntegerValue(crField, 0), 0);
+						getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10), getIntegerValue(intField, 10),
+						getIntegerValue(wisField, 10), getIntegerValue(chaField, 10), getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0),
+						getIntegerValue(willField, 0), getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0),
+						comString, getIntegerValue(crField, 0), 0);
 				initiative.initList.add(xmlcbt);
 				initiative.addTab(xmlcbt);
 			}
@@ -153,9 +153,9 @@ public class AddCombatant extends javax.swing.JDialog
 		else
 		{
 			XMLCombatant xmlcbt = new XMLCombatant(nameField.getText(), playerField.getText(), getIntegerValue(strField, 10),
-			        getIntegerValue(dexField, 10), getIntegerValue(conField, 10), getIntegerValue(intField, 10), getIntegerValue(wisField, 10),
-			        getIntegerValue(chaField, 10), getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
-			        getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0), comString, getIntegerValue(crField, 0), 0);
+					getIntegerValue(dexField, 10), getIntegerValue(conField, 10), getIntegerValue(intField, 10), getIntegerValue(wisField, 10),
+					getIntegerValue(chaField, 10), getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
+					getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0), comString, getIntegerValue(crField, 0), 0);
 			initiative.initList.add(xmlcbt);
 			initiative.addTab(xmlcbt);
 		}
@@ -637,7 +637,7 @@ public class AddCombatant extends javax.swing.JDialog
 	 */
 	private void initDropDown()
 	{
-		java.util.Vector vType = new java.util.Vector();
+		java.util.Vector<String> vType = new java.util.Vector<String>();
 		vType.add("Enemy");
 		vType.add("Ally");
 		vType.add("PC");

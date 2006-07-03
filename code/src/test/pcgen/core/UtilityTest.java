@@ -35,7 +35,7 @@ import java.util.List;
  * <code>UtilityTest</code>.
  *
  * Tests the CoreUtility class.
- * 
+ *
  * @author Bryan McRoberts <merton_monk@yahoo.com>
  * @version $Revision$
  * @see pcgen.core.utils.CoreUtility
@@ -69,16 +69,16 @@ public class UtilityTest extends PCGenTestCase
 	 */
 	public void testCommaDelimit()
 	{
-		final List list = constructList();
+		final List<String> list = constructList();
 		final String result = CoreUtility.commaDelimit(list);
 		final String trueResult = "one, two, three, four";
 		assertTrue("commaDelimit returned bad String: got '" + result + "' should be '" + trueResult + "'",
-		    trueResult.equals(result));
+			trueResult.equals(result));
 	}
 
 	/**
 	 * Test replaceFirst method.
-	 * 
+	 *
 	 * @throws Exception
 	 */
 	public void testReplaceFirst() throws Exception
@@ -97,7 +97,7 @@ public class UtilityTest extends PCGenTestCase
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one, two, three, four";
 		assertTrue("unSplit returned bad String: got '" + result + "' should be '" + trueResult + "'",
-		    trueResult.equals(result));
+			trueResult.equals(result));
 	}
 
 	/**
@@ -110,12 +110,12 @@ public class UtilityTest extends PCGenTestCase
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one|two|three|four";
 		assertTrue("unSplit returned bad String: got '" + result + "' should be '" + trueResult + "'",
-		    trueResult.equals(result));
+			trueResult.equals(result));
 	}
 
-	private List constructList()
+	private List<String> constructList()
 	{
-		final List list = new ArrayList();
+		final List<String> list = new ArrayList<String>();
 		list.add("one");
 		list.add("two");
 		list.add("three");

@@ -39,7 +39,7 @@ import java.util.Vector;
 public class GMBus
 {
 	// private members
-	private static Vector components = new Vector();
+	private static Vector<GMBComponent> components = new Vector<GMBComponent>();
 	private static GMBComponent[] copyComponents;
 
 	//private static Hashtable listVectors = new Hashtable();
@@ -47,7 +47,7 @@ public class GMBus
 	// can't create new instances
 	private GMBus()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**

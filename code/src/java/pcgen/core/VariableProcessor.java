@@ -596,7 +596,7 @@ public abstract class VariableProcessor
 		{
 			return;
 		}
-		final CachedVariable cached = new CachedVariable();
+		final CachedVariable<Float> cached = new CachedVariable<Float>();
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
 
@@ -698,7 +698,7 @@ public abstract class VariableProcessor
 		{
 			return;
 		}
-		final CachedVariable cached = new CachedVariable();
+		final CachedVariable<String> cached = new CachedVariable<String>();
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
 

@@ -31,7 +31,7 @@ public class KitSpellBook// extends BaseKit
 {
 	private String className;
 	private String theName;
-	private HashMap theSpells = new HashMap();
+	private HashMap<String, List<KitSpellBookEntry>> theSpells = new HashMap<String, List<KitSpellBookEntry>>();
 
 	/**
 	 * Constructor
@@ -57,7 +57,7 @@ public class KitSpellBook// extends BaseKit
 	 * Get the spells in the spell book
 	 * @return the spells in the spell book
 	 */
-	public Collection getSpells()
+	public Collection<List<KitSpellBookEntry>> getSpells()
 	{
 		return theSpells.values();
 	}
@@ -68,7 +68,7 @@ public class KitSpellBook// extends BaseKit
 	 * @param metamagicList
 	 * @param countStr
 	 */
-	public void addSpell(final String aSpell, final List metamagicList,
+	public void addSpell(final String aSpell, final List<String> metamagicList,
 						 final String countStr)
 	{
 		int numCopies = 1;
@@ -80,11 +80,11 @@ public class KitSpellBook// extends BaseKit
 		{
 			// Assume one copy.
 		}
-		List entries = (List)theSpells.get(aSpell);
+		List<KitSpellBookEntry> entries = theSpells.get(aSpell);
 		if (entries == null)
 		{
 			// This spellbook doesn't contain this spell.
-			entries = new ArrayList();
+			entries = new ArrayList<KitSpellBookEntry>();
 			KitSpellBookEntry sbe = new KitSpellBookEntry(className, theName, aSpell, metamagicList);
 			sbe.addCopies(numCopies-1);
 			entries.add(sbe);
@@ -96,10 +96,10 @@ public class KitSpellBook// extends BaseKit
 			// Check to see if the modifiers are the same
 			boolean found = false;
 			KitSpellBookEntry sbe = null;
-			for (Iterator i = entries.iterator(); i.hasNext(); )
+			for (Iterator<KitSpellBookEntry> i = entries.iterator(); i.hasNext(); )
 			{
-				sbe = (KitSpellBookEntry)i.next();
-				List modifiers = sbe.getModifiers();
+				sbe = i.next();
+				List<String> modifiers = sbe.getModifiers();
 				if (modifiers == null)
 				{
 					if (metamagicList != null && metamagicList.size() > 0)
@@ -115,9 +115,9 @@ public class KitSpellBook// extends BaseKit
 					continue;
 				}
 				int count = metamagicList.size() - 1;
-				for (Iterator j = modifiers.iterator(); j.hasNext(); )
+				for ( String mod : modifiers )
 				{
-					if (!metamagicList.contains(j.next()))
+					if (!metamagicList.contains(mod))
 					{
 						continue;
 					}
@@ -144,24 +144,23 @@ public class KitSpellBook// extends BaseKit
 	{
 		StringBuffer buf = new StringBuffer();
 		buf.append(theName + ": ");
+
 		boolean first = true;
-		for (Iterator i = theSpells.values().iterator(); i.hasNext(); )
+		for ( List<KitSpellBookEntry> entries : theSpells.values() )
 		{
 			if (first == false)
 			{
 				buf.append(",");
 			}
 
-			List entries = (List)i.next();
-			for (Iterator j = entries.iterator(); j.hasNext(); )
+			for ( KitSpellBookEntry sbe : entries )
 			{
-				KitSpellBookEntry sbe = (KitSpellBookEntry) j.next();
 				buf.append(sbe.getName());
 				if (sbe.getModifiers() != null)
 				{
-					for (Iterator k = sbe.getModifiers().iterator(); k.hasNext(); )
+					for ( String mod : sbe.getModifiers() )
 					{
-						buf.append(" [").append(k.next()).append("]");
+						buf.append(" [").append(mod).append("]");
 					}
 				}
 				if (sbe.getCopies() > 1)

@@ -31,15 +31,15 @@ import java.util.List;
  */
 class IIFNode
 {
-	private List falseChildren;
-	private List trueChildren;
+	private List<Object> falseChildren;
+	private List<Object> trueChildren;
 	private String expr;
 
 	IIFNode(String _expr)
 	{
 		expr = _expr;
-		trueChildren = new ArrayList();
-		falseChildren = new ArrayList();
+		trueChildren = new ArrayList<Object>();
+		falseChildren = new ArrayList<Object>();
 	}
 
 	/**
@@ -55,7 +55,7 @@ class IIFNode
 	 * List the nodes that are truly children
 	 * @return the nodes that are truly children
 	 */
-	public final List trueChildren()
+	public final List<?> trueChildren()
 	{
 		return trueChildren;
 	}
@@ -82,7 +82,7 @@ class IIFNode
 	 * List the false children
 	 * @return the false children
 	 */
-	public final List falseChildren()
+	public final List<?> falseChildren()
 	{
 		return falseChildren;
 	}

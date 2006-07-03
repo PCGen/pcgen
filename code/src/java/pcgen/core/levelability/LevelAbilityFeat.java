@@ -501,12 +501,9 @@ class LevelAbilityFeat extends LevelAbility
 	 */
 	private static String findFeatType(final PlayerCharacter aPC, String featType, boolean region)
 	{
-		final Iterator iterator = aPC.getTemplateList().iterator();
-
-		for (Iterator e = iterator; e.hasNext();)
+		for ( PCTemplate templ : aPC.getTemplateList() )
 		{
-			final PCTemplate templ      = (PCTemplate) e.next();
-			final String     regionType = (region) ? templ.getRegion() : templ.getSubRegion();
+			final String regionType = (region) ? templ.getRegion() : templ.getSubRegion();
 
 			if (!regionType.equals(Constants.s_NONE))
 			{
@@ -549,7 +546,7 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param anAbility
 	 */
 	private void addMultiplySelectableAbility(
-			final List            anArrayList,
+			final List<String>    anArrayList,
 			final PlayerCharacter aPC,
 			String                featName,
 			String                subName,
@@ -580,8 +577,8 @@ class LevelAbilityFeat extends LevelAbility
 			}
 		}
 
-		final List availableList  = new ArrayList(); // available list of choices
-		final List selectedList   = new ArrayList(); // selected list of choices
+		final List<String> availableList  = new ArrayList<String>(); // available list of choices
+		final List<String> selectedList   = new ArrayList<String>(); // selected list of choices
 
 		final String choiceString = anAbility.getChoiceString();
 
@@ -607,7 +604,7 @@ class LevelAbilityFeat extends LevelAbility
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{
-				final String aString = (String) availableList.get(n);
+				final String aString = availableList.get(n);
 
 				if (!aString.startsWith(subName))
 				{
@@ -632,7 +629,7 @@ class LevelAbilityFeat extends LevelAbility
 
 		if (!anAbility.isStacks())
 		{
-			for (Iterator e = selectedList.iterator(); e.hasNext();)
+			for (Iterator<String> e = selectedList.iterator(); e.hasNext();)
 			{
 				final int idx = availableList.indexOf(e.next());
 
@@ -645,10 +642,10 @@ class LevelAbilityFeat extends LevelAbility
 
 		if (!anAbility.getChoiceString().startsWith("SPELLLIST|"))
 		{
-			for (Iterator e = availableList.iterator(); e.hasNext();)
+			for (Iterator<String> e = availableList.iterator(); e.hasNext();)
 			{
 				// TODO Fix this!
-				String aString = e.next().toString();
+				String aString = e.next();
 
 				if (!aString.equalsIgnoreCase("NOCHOICE"))
 				{
@@ -679,11 +676,9 @@ class LevelAbilityFeat extends LevelAbility
 	{
 		int x = 0;
 
-		for (Iterator i = previousChoices.iterator(); i.hasNext();)
+		for ( String prevChoice : previousChoices )
 		{
-			String aString = (String) i.next();
-
-			if (choice.equalsIgnoreCase(aString))
+			if (choice.equalsIgnoreCase(prevChoice))
 			{
 				x++;
 			}

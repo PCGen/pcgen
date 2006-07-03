@@ -64,9 +64,9 @@ public final class CompanionMod extends PObject
 		try
 		{
 			cmpMod = (CompanionMod) super.clone();
-			cmpMod.classMap = classMap;
-			cmpMod.switchRaceMap = switchRaceMap;
-			cmpMod.varMap = varMap;
+			cmpMod.classMap = (Map<String, String>)((HashMap)classMap).clone();
+			cmpMod.switchRaceMap = (Map<String, String>)((HashMap)switchRaceMap).clone();
+			cmpMod.varMap = (Map<String, String>)((HashMap)varMap).clone();
 			cmpMod.useMasterSkill = useMasterSkill;
 			cmpMod.raceType = raceType;
 		}

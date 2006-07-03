@@ -22,12 +22,16 @@
  */
 package pcgen.core.kit;
 
-import pcgen.core.*;
-import pcgen.core.pclevelinfo.PCLevelInfo;
-
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
+
+import pcgen.core.Kit;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.StatList;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
  * KitStat

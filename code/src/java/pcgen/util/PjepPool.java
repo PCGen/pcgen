@@ -27,60 +27,60 @@ import java.util.Stack;
 
 
 public class PjepPool {
-    private Stack freeStack = new Stack();
-    private List usedList = new ArrayList();
-    private static PjepPool instance = new PjepPool();
-    
-    private PjepPool() {
-		// Do Nothing
-    }
-    
-    public static PjepPool getInstance() {
-        return instance;
-    }
-    
-    public synchronized void initialise() {
-        freeStack.push(new PJEP());
-    }
-    
-    public synchronized PJEP aquire() {
-        return aquire(null, "");
-    }
+	private Stack<PJEP> freeStack = new Stack<PJEP>();
+	private List<PJEP> usedList = new ArrayList<PJEP>();
+	private static PjepPool instance = new PjepPool();
 
-    public synchronized PJEP aquire(final Object parent, String variableSource) {
-        //System.out.println("aquireJep()");
-        PJEP jep;
-        if (freeStack.size()>0) {
-            jep = (PJEP) freeStack.pop();
-        }
-        else {
-            jep = new PJEP();
-            //System.err.println("aquirePJep() - creating new parser");
-        }
-        
-        usedList.add(jep);
-        jep.initSymTab();
-        jep.setVariableSource(variableSource);
-        jep.setParent(parent);
-        return jep;
-    }
-    
-    
-    public synchronized void release(PJEP interp) {
-        //System.out.println("releaseJep( " + interp + " )");
-        if (usedList.contains(interp)) {
-            usedList.remove(interp);
-        }
-        else {
-            System.err.println("Tried to release a PJEP instance that we did not aquire...");
-        }
-        freeStack.push(interp);
-    }
-    
-    
-    public synchronized void dumpStats() {
-        System.out.println("PJEP Pool: ");
-        System.out.println("    Currently Unused: " + freeStack.size());
-        System.out.println("    Currently Used  : " + usedList.size());
-    }
+	private PjepPool() {
+		// Do Nothing
+	}
+
+	public static PjepPool getInstance() {
+		return instance;
+	}
+
+	public synchronized void initialise() {
+		freeStack.push(new PJEP());
+	}
+
+	public synchronized PJEP aquire() {
+		return aquire(null, "");
+	}
+
+	public synchronized PJEP aquire(final Object parent, String variableSource) {
+		//System.out.println("aquireJep()");
+		PJEP jep;
+		if (freeStack.size()>0) {
+			jep = freeStack.pop();
+		}
+		else {
+			jep = new PJEP();
+			//System.err.println("aquirePJep() - creating new parser");
+		}
+
+		usedList.add(jep);
+		jep.initSymTab();
+		jep.setVariableSource(variableSource);
+		jep.setParent(parent);
+		return jep;
+	}
+
+
+	public synchronized void release(PJEP interp) {
+		//System.out.println("releaseJep( " + interp + " )");
+		if (usedList.contains(interp)) {
+			usedList.remove(interp);
+		}
+		else {
+			System.err.println("Tried to release a PJEP instance that we did not aquire...");
+		}
+		freeStack.push(interp);
+	}
+
+
+	public synchronized void dumpStats() {
+		System.out.println("PJEP Pool: ");
+		System.out.println("    Currently Unused: " + freeStack.size());
+		System.out.println("    Currently Used  : " + usedList.size());
+	}
 }

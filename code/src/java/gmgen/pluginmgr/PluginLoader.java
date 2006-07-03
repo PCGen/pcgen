@@ -40,20 +40,11 @@ import java.util.Vector;
  */
 public class PluginLoader
 {
-	//private static JARClassLoader loader;
-	private static Vector jars = new Vector();
-
-	//private static Properties props;
-	private static Vector pluginErrors;
-
-	//private static Object pluginErrorLock = new Object();
-	//private static boolean startupDone;
-	//private static String pluginDirectory;
-	//private static String jarCacheDirectory;
-	//private static String settingsDirectory;
+	private static Vector<Plugin.JAR> jars = new Vector<Plugin.JAR>();
+	private static Vector<ErrorListDialog.ErrorEntry> pluginErrors;
 
 	private static PluginLoader inst;
-	private static Map loadedMap = new HashMap();
+	private static Map<String, String> loadedMap = new HashMap<String, String>();
 
 	/**
 	 *  Constructor for the PluginLoader object
@@ -88,9 +79,9 @@ public class PluginLoader
 	{
 		if(loadedMap.get(system) == null)
 		{
-			for (int i = 0; i < jars.size(); i++)
+			for ( Plugin.JAR jar : jars )
 			{
-				((Plugin.JAR) jars.elementAt(i)).getClassLoader().startAllPlugins(system);
+				jar.getClassLoader().startAllPlugins(system);
 			}
 			loadedMap.put(system, system);
 		}
@@ -124,11 +115,11 @@ public class PluginLoader
 	 */
 	public static Plugin[] getPlugins()
 	{
-		Vector vector = new Vector();
+		Vector<Plugin> vector = new Vector<Plugin>();
 
-		for (int i = 0; i < jars.size(); i++)
+		for ( Plugin.JAR jar : jars )
 		{
-			((Plugin.JAR) jars.elementAt(i)).getPlugins(vector);
+			jar.getPlugins(vector);
 		}
 
 		Plugin[] array = new Plugin[vector.size()];
@@ -151,7 +142,7 @@ public class PluginLoader
 	{
 		if (pluginErrors == null)
 		{
-			pluginErrors = new Vector();
+			pluginErrors = new Vector<ErrorListDialog.ErrorEntry>();
 		}
 
 		pluginErrors.addElement(new ErrorListDialog.ErrorEntry(path, messageProp, args));
@@ -194,7 +185,6 @@ public class PluginLoader
 			{
 				continue;
 			}
-
 
 			try
 			{

@@ -44,7 +44,7 @@ import java.util.*;
  */
 public final class ExportHandler
 {
-	private static HashMap tokenMap = new HashMap();
+	private static HashMap<String, Token> tokenMap = new HashMap<String, Token>();
 	private static boolean tokenMapPopulated = false;
 
 	// Processing state variables
@@ -53,7 +53,10 @@ public final class ExportHandler
 	private boolean manualWhitespace = false;
 
 	private File templateFile;
-	private final Map loopVariables = new HashMap();
+
+	// This is pretty ugly.  No idea what sort of junk could be in here.
+	private final Map<Object, Object> loopVariables = new HashMap<Object, Object>();
+
 	private String csheetTag2 = "\\";
 	private boolean skipMath = false;
 	private boolean canWrite = true;
@@ -112,17 +115,16 @@ public final class ExportHandler
 		int includeSkills = SettingsHandler.getIncludeSkills();
 
 		// TODO Reference a constant
-		if (includeSkills == 3)
+		if (includeSkills == SettingsHandler.INCLUDE_SKILLS_SKILLS_TAB)
 		{
 			includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
 		}
 
 		aPC.populateSkills(includeSkills);
 
-		for (Iterator e = aPC.getClassList().iterator(); e.hasNext();)
+		for ( PCClass pcClass : aPC.getClassList() )
 		{
-			PCClass aClass = (PCClass) e.next();
-			aClass.getSpellSupport().sortCharacterSpellList();
+			pcClass.getSpellSupport().sortCharacterSpellList();
 		}
 
 		aPC.determinePrimaryOffWeapon();
@@ -239,9 +241,9 @@ public final class ExportHandler
 	 * @param PCs the Collection of PlayerCharacter instances which compromises the Party to write
 	 * @param out the Writer to be written to
 	 */
-	public void write(Collection PCs, BufferedWriter out)
+	public void write(Collection<PlayerCharacter> PCs, BufferedWriter out)
 	{
-		write((PlayerCharacter[]) PCs.toArray(new PlayerCharacter[PCs.size()]), out);
+		write(PCs.toArray(new PlayerCharacter[PCs.size()]), out);
 	}
 
 	/**
@@ -425,7 +427,7 @@ public final class ExportHandler
 	 */
 	public static void addToTokenMap(Token newToken)
 	{
-		Object test = tokenMap.put(newToken.getTokenName(), newToken);
+		Token test = tokenMap.put(newToken.getTokenName(), newToken);
 
 		if (test != null)
 		{
@@ -514,14 +516,14 @@ public final class ExportHandler
 				final StringTokenizer aTok = new StringTokenizer(fString, "=", false);
 				final int i = Integer.parseInt(aTok.nextToken());
 				final String cs = aTok.nextToken();
-				final List cList = aPC.getClassList();
+				final List<PCClass> cList = aPC.getClassList();
 
 				if (i >= cList.size())
 				{
 					return false;
 				}
 
-				final PCClass aClass = (PCClass) cList.get(i);
+				final PCClass aClass = cList.get(i);
 
 				if (cs.equalsIgnoreCase(aClass.getSpellType()))
 				{
@@ -550,31 +552,29 @@ public final class ExportHandler
 			}
 			else
 			{
-				for (Iterator e = aPC.getClassList().iterator(); e.hasNext();)
+				for ( PCClass pcClass : aPC.getClassList() )
 				{
-					PCClass aClass = (PCClass) e.next();
-
-					if (fString.equalsIgnoreCase(aClass.getSpellType()))
+					if (fString.equalsIgnoreCase(pcClass.getSpellType()))
 					{
 						return true;
 					}
 
-					if (fString.equalsIgnoreCase(aClass.getKeyName()))
+					if (fString.equalsIgnoreCase(pcClass.getKeyName()))
 					{
 						return true;
 					}
 
-					if (fString.equalsIgnoreCase(aClass.getCastAs()))
+					if (fString.equalsIgnoreCase(pcClass.getCastAs()))
 					{
 						return true;
 					}
 
-					if ("!Prepare".equalsIgnoreCase(fString) && aClass.getMemorizeSpells())
+					if ("!Prepare".equalsIgnoreCase(fString) && pcClass.getMemorizeSpells())
 					{
 						return true;
 					}
 
-					if ("Prepare".equalsIgnoreCase(fString) && (!aClass.getMemorizeSpells()))
+					if ("Prepare".equalsIgnoreCase(fString) && (!pcClass.getMemorizeSpells()))
 					{
 						return true;
 					}
@@ -609,11 +609,11 @@ public final class ExportHandler
 			if (fString.length() > 5)
 			{
 				final int i = Integer.parseInt(fString.substring(5));
-				final List pcSkills = aPC.getSkillListInOutputOrder();
+				final List<Skill> pcSkills = aPC.getSkillListInOutputOrder();
 
 				if (i <= (pcSkills.size() - 1))
 				{
-					aSkill = (Skill) pcSkills.get(i);
+					aSkill = pcSkills.get(i);
 				}
 			}
 
@@ -1562,7 +1562,7 @@ public final class ExportHandler
 				{
 					// New token syntax |%TEMPLATE.x| instead of |%TEMPLATEx|
 					final StringTokenizer aTok = new StringTokenizer(aString.substring(1), ".");
-					final List tList = aPC.getTemplateList();
+					final List<PCTemplate> tList = aPC.getTemplateList();
 					String fString = aTok.nextToken();
 					final int index;
 
@@ -1593,8 +1593,8 @@ public final class ExportHandler
 						return 0;
 					}
 
-					if ((((PCTemplate) tList.get(index)).isVisible() != 1)
-						&& (((PCTemplate) tList.get(index)).isVisible() != 2))
+					final PCTemplate template = tList.get(index);
+					if (template.isVisible() != 1 && template.isVisible() != 2)
 					{
 						canWrite = false;
 					}
@@ -1624,22 +1624,18 @@ public final class ExportHandler
 
 				if (aString.substring(1).startsWith("FOLLOWERTYPE."))
 				{
-					List aList = new ArrayList();
+					List<Follower> aList = new ArrayList<Follower>();
 
-					for (Iterator iter = aPC.getFollowerList().iterator(); iter.hasNext();)
+					for ( Follower follower : aPC.getFollowerList() )
 					{
-						Follower aFollower = (Follower) iter.next();
-
 						// only allow followers that
 						// are currently loaded
 						// Otherwise the stats a zero
-						for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+						for ( PlayerCharacter pc : Globals.getPCList() )
 						{
-							PlayerCharacter lPC = (PlayerCharacter) p.next();
-
-							if (lPC.getFileName().equals(aFollower.getFileName()))
+							if (pc.getFileName().equals(follower.getFileName()))
 							{
-								aList.add(aFollower);
+								aList.add(follower);
 							}
 						}
 					}
@@ -1651,7 +1647,7 @@ public final class ExportHandler
 
 					for (int i = aList.size() - 1; i >= 0; --i)
 					{
-						final Follower fol = (Follower) aList.get(i);
+						final Follower fol = aList.get(i);
 
 						if (!fol.getType().equalsIgnoreCase(typeString))
 						{
@@ -1669,13 +1665,11 @@ public final class ExportHandler
 
 				if ("PROHIBITEDLIST".equals(aString.substring(1)))
 				{
-					for (Iterator iter = aPC.getClassList().iterator(); iter.hasNext();)
+					for ( PCClass pcClass : aPC.getClassList() )
 					{
-						PCClass aClass = (PCClass) iter.next();
-
-						if (aClass.getLevel() > 0)
+						if (pcClass.getLevel() > 0)
 						{
-							if (!aClass.getProhibitedString().equals(Constants.s_NONE))
+							if (!pcClass.getProhibitedString().equals(Constants.s_NONE))
 							{
 								return 0;
 							}
@@ -1819,7 +1813,7 @@ public final class ExportHandler
 					{
 						canWrite = false;
 					}
-					else if (((String) aPC.getMiscList().get(1)).trim().length() == 0)
+					else if (aPC.getMiscList().get(1).trim().length() == 0)
 					{
 						canWrite = false;
 					}
@@ -1833,7 +1827,7 @@ public final class ExportHandler
 					{
 						canWrite = false;
 					}
-					else if (((String) aPC.getMiscList().get(2)).trim().length() == 0)
+					else if (aPC.getMiscList().get(2).trim().length() == 0)
 					{
 						canWrite = false;
 					}
@@ -1913,12 +1907,10 @@ public final class ExportHandler
 
 					String fString = aTok.nextToken();
 					final int count;
-					final List aArrayList = new ArrayList();
+					final List<Equipment> aArrayList = new ArrayList<Equipment>();
 
-					for (Iterator e = aPC.getEquipmentListInOutputOrder().iterator(); e.hasNext();)
+					for ( Equipment eq : aPC.getEquipmentListInOutputOrder() )
 					{
-						Equipment eq = (Equipment) e.next();
-
 						if (eq.getBonusListString("AC") && (!eq.isArmor() && !eq.isShield()))
 						{
 							aArrayList.add(eq);
@@ -1953,7 +1945,7 @@ public final class ExportHandler
 
 					String fString = aTok.nextToken();
 					final int count;
-					final List aArrayList = aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
+					final List<Equipment> aArrayList = aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
 
 					// When removing old syntax, remove the else and leave the if
 					if (aTok.hasMoreTokens())
@@ -1981,11 +1973,11 @@ public final class ExportHandler
 					final StringTokenizer aTok = new StringTokenizer(aString.substring(1), ".");
 					String fString = aTok.nextToken();
 					final int count;
-					List aArrayList = aPC.getEquipmentOfTypeInOutputOrder("ARMOR", 3);
+					List<Equipment> aArrayList = aPC.getEquipmentOfTypeInOutputOrder("ARMOR", 3);
 
 					//Get list of shields.  Remove any from list of armor
 					//Since shields are included in the armor list they will appear twice and they really shouldn't be in the list of armor
-					List shieldList = aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
+					List<Equipment> shieldList = aPC.getEquipmentOfTypeInOutputOrder("SHIELD", 3);
 					for (int z = 0; z < shieldList.size(); z++)
 					{
 						aArrayList.remove(shieldList.get(z));
@@ -2027,7 +2019,7 @@ public final class ExportHandler
 					final StringTokenizer aTok = new StringTokenizer(aString.substring(1), ".");
 					String fString = aTok.nextToken();
 					int count = 0;
-					final List aArrayList = aPC.getExpandedWeapons(merge);
+					final List<Equipment> aArrayList = aPC.getExpandedWeapons(merge);
 
 					// When removing old syntax, remove the else and leave the if
 					if (aTok.hasMoreTokens())

@@ -47,7 +47,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 	private boolean free = false;
 	private double rank = 1.0;
 
-	private transient List skillsToAdd = new ArrayList();
+	private transient List<KitWrapper> skillsToAdd = new ArrayList<KitWrapper>();
 
 	/**
 	 * Constructor.  Takes the name of the skill it will try and add.
@@ -162,7 +162,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		skillsToAdd = new ArrayList();
+		skillsToAdd = new ArrayList<KitWrapper>();
 
 		String skillNameInstance = getSkillName();
 
@@ -171,17 +171,15 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-		List skillChoices = getSkillChoices(skillNameInstance);
+		List<Skill> skillChoices = getSkillChoices(skillNameInstance);
 
 		if (skillChoices == null || skillChoices.size() == 0)
 		{
 			// They didn't make a choice so don't add any ranks.
 			return false;
 		}
-		for (Iterator i = skillChoices.iterator(); i.hasNext(); )
+		for ( Skill skill : skillChoices )
 		{
-			Skill skill = (Skill)i.next();
-
 			if (skill == null)
 			{
 				warnings.add("SKILL: Non-existant skill \"" + skillNameInstance + "\"");
@@ -190,7 +188,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 
 			double ranksLeftToAdd = getRank();
-			Set classList = new HashSet();
+			List<PCClass> classList = new ArrayList<PCClass>();
 			if (getClassName() != null)
 			{
 				// Make sure if they specified a class to add from we try that
@@ -206,12 +204,17 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 								 getClassName() + " to add ranks from.");
 				}
 			}
-			classList.addAll(aPC.getClassList());
+			for ( PCClass pcClass : aPC.getClassList() )
+			{
+				if (!classList.contains( pcClass ) )
+				{
+					classList.add( pcClass );
+				}
+			}
 
 			// Try and find a class we can add them from.
-			for (Iterator j = aPC.getClassList().iterator(); j.hasNext(); )
+			for ( PCClass pcClass : classList )
 			{
-				PCClass pcClass = (PCClass) j.next();
 				final KitSkillAdd sta = addRanks(aPC, pcClass, skill,
 												 ranksLeftToAdd, isFree(),
 												 warnings);
@@ -239,10 +242,9 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 
 	public void apply(PlayerCharacter aPC)
 	{
-		/** TODO Fix this to return what panes need to be refreshed */
-		for (Iterator i = skillsToAdd.iterator(); i.hasNext(); )
+		/** @todo Fix this to return what panes need to be refreshed */
+		for ( KitWrapper wrapper : skillsToAdd )
 		{
-			KitWrapper wrapper = (KitWrapper)i.next();
 			KitSkillAdd ksa = (KitSkillAdd)wrapper.getObject();
 			updatePCSkills(aPC, ksa.getSkill(), (int)ksa.getRanks(), ksa.getCost(), (PCClass)wrapper.getPObject());
 		}
@@ -276,13 +278,12 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		//
 		// Fix up the skill pools to reflect what we just spent.
 		//
-		List pcLvlInfo = pc.getLevelInfo();
+		List<PCLevelInfo> pcLvlInfo = pc.getLevelInfo();
 		double ptsToSpend = aCost;
 		if (ptsToSpend >= 0.0)
 		{
-			for (Iterator i = pcLvlInfo.iterator(); i.hasNext(); )
+			for ( PCLevelInfo info : pcLvlInfo )
 			{
-				PCLevelInfo info = (PCLevelInfo) i.next();
 				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
 					// We are spending this class' points.
@@ -313,9 +314,9 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		return "Skills";
 	}
 
-	private List getSkillChoices(final String aSkillKey)
+	private List<Skill> getSkillChoices(final String aSkillKey)
 	{
-		final List skillsOfType = new ArrayList();
+		final List<Skill> skillsOfType = new ArrayList<Skill>();
 
 		final StringTokenizer aTok = new StringTokenizer(aSkillKey,	"|");
 		while (aTok.hasMoreTokens())
@@ -326,11 +327,8 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			{
 				final String skillType = skillKey.substring(5);
 
-				for (Iterator e = Globals.getSkillList().iterator();
-					 e.hasNext(); )
+				for ( Skill checkSkill : Globals.getSkillList() )
 				{
-					Skill checkSkill = (Skill) e.next();
-
 					if (checkSkill.isType(skillType))
 					{
 						skillsOfType.add(checkSkill);
@@ -353,7 +351,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			return skillsOfType;
 		}
 
-		List skillChoices = new ArrayList();
+		List<Skill> skillChoices = new ArrayList<Skill>();
 		Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
 								  this.getChoiceCount());
 
@@ -362,7 +360,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 
 	private KitSkillAdd addRanks(PlayerCharacter pc, PCClass pcClass,
 								 Skill aSkill, double ranksLeftToAdd,
-								 boolean isFree, List warnings)
+								 boolean isFree, List<String> warnings)
 	{
 		if (isFree == false && pcClass.getSkillPool(pc) == 0)
 		{
@@ -392,7 +390,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			}
 		}
 		int ptsToSpend = 0;
-		List pcLvlInfo = pc.getLevelInfo();
+		List<PCLevelInfo> pcLvlInfo = pc.getLevelInfo();
 		int[] points = new int[pcLvlInfo.size()];
 		if (!isFree)
 		{
@@ -400,7 +398,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 			ptsToSpend = (int)(ranksToAdd * aSkill.costForPCClass(pcClass, pc));
 			for (int i = 0; i < pcLvlInfo.size(); i++ )
 			{
-				PCLevelInfo info = (PCLevelInfo)pcLvlInfo.get(i);
+				PCLevelInfo info = pcLvlInfo.get(i);
 				if (info.getClassKeyName().equals(pcClass.getKeyName()))
 				{
 					// We are spending this class' points.
@@ -451,7 +449,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 		{
 			for (int i = 0; i < pcLvlInfo.size(); i++)
 			{
-				PCLevelInfo info = (PCLevelInfo)pcLvlInfo.get(i);
+				PCLevelInfo info = pcLvlInfo.get(i);
 				if (points[i] >= 0)
 				{
 					info.setSkillPointsRemaining(points[i]);

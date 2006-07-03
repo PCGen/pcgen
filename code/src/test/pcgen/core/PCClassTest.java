@@ -345,7 +345,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		megaCasterClass.addKnown(2, "4,2,2,3,4,5,6,7,8,9,10");
 		megaCasterClass.setCastMap(2, "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getClassList().add(megaCasterClass);
-		
+
 		assertEquals("Highest spell level for class", 10, megaCasterClass.getHighestLevelSpell());
 
 		final PlayerCharacter character = getCharacter();
@@ -363,7 +363,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 			false, character)
 			+ charClass.getBonusCastForLevelString(1, 5, sbook, character);
 		assertEquals("Should be able to cast 5th level spells at 1st level", "5", cast);
-		
+
 		Ability casterFeat = new Ability();
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
@@ -373,7 +373,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
 		casterFeat.setCategory("FEAT");
 		Globals.addAbility(casterFeat);
-		
+
 		AbilityUtilities.modFeat(character, null, "CasterBoost", true, false);
 		cast = charClass.getCastForLevel(1, 11, sbook, true,
 			false, character)
@@ -381,7 +381,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		assertEquals("Should be able to cast 11th level spells with feat", "1", cast);
 		assertEquals("Should be able to cast 11th level spells with feat", 11, charClass.getHighestLevelSpell(character));
 	}
-	
+
 	/**
 	 * Parse a class definition and return the populated PCClass object.
 	 *
@@ -465,7 +465,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		nymphRace.setSize("M");
 		nymphRace.setAdvancementUnlimited(true);
 
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("KEY_Bugbear", bugbearRace);
 		raceMap.put("KEY_BigBugbear", bigBugbearRace);
 		raceMap.put("KEY_Nymph", nymphRace);

@@ -64,10 +64,10 @@ import pcgen.util.PJEP;
 public class JARClassLoader extends ClassLoader
 {
 	// used to mark non-existent classes in class hash
-	private static final Object NO_CLASS = new Object();
-	private static Hashtable classHash = new Hashtable();
+	private static final JARClassLoader NO_CLASS = new JARClassLoader();
+	private static Hashtable<String, JARClassLoader> classHash = new Hashtable<String, JARClassLoader>();
 	private Plugin.JAR jar;
-	private Vector pluginClasses = new Vector();
+	private Vector<String> pluginClasses = new Vector<String>();
 	private ZipFile zipFile;
 
 	/**
@@ -78,7 +78,7 @@ public class JARClassLoader extends ClassLoader
 	 */
 	public JARClassLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -93,11 +93,11 @@ public class JARClassLoader extends ClassLoader
 		zipFile = new ZipFile(path);
 		jar = new Plugin.JAR(path, this);
 
-		Enumeration entries = zipFile.entries();
+		Enumeration<? extends ZipEntry> entries = zipFile.entries();
 
 		while (entries.hasMoreElements())
 		{
-			ZipEntry entry = (ZipEntry) entries.nextElement();
+			ZipEntry entry = entries.nextElement();
 			String name = entry.getName();
 			String lname = name.toLowerCase();
 
@@ -109,10 +109,7 @@ public class JARClassLoader extends ClassLoader
 			{
 				classHash.put(MiscUtilities.fileToClass(name), this);
 
-				//if (name.endsWith("Plugin.class") || name.endsWith("Token.class") || name.endsWith("Lst.class"))
-				//{
 				pluginClasses.addElement(name);
-				//}
 			}
 		}
 
@@ -166,19 +163,17 @@ public class JARClassLoader extends ClassLoader
 		throws ClassNotFoundException
 	{
 		// see what JARClassLoader this class is in
-		Object obj = classHash.get(clazz);
+		JARClassLoader classLoader = classHash.get(clazz);
 
-		if (obj == NO_CLASS)
+		if (classLoader == NO_CLASS)
 		{
 			// we remember which classes we don't exist
 			// because BeanShell tries loading all possible
 			// <imported prefix>.<class name> combinations
 			throw new ClassNotFoundException(clazz);
 		}
-		else if (obj instanceof ClassLoader)
+		else if (classLoader != null)
 		{
-			JARClassLoader classLoader = (JARClassLoader) obj;
-
 			return classLoader._loadClass(clazz, resolveIt);
 		}
 
@@ -222,10 +217,9 @@ public class JARClassLoader extends ClassLoader
 	 */
 	public void startAllPlugins(String system)
 	{
-		Vector plugins = new Vector();
-		for (int i = 0; i < pluginClasses.size(); i++)
+		Vector<Plugin> plugins = new Vector<Plugin>();
+		for ( String name : pluginClasses )
 		{
-			String name = (String) pluginClasses.elementAt(i);
 			name = MiscUtilities.fileToClass(name);
 
 			try
@@ -247,9 +241,8 @@ public class JARClassLoader extends ClassLoader
 			}
 		}
 		Collections.sort(plugins, new Plugin.PluginComperator());
-		for(int i = 0; i < plugins.size(); i++)
+		for ( Plugin pl : plugins )
 		{
-			Plugin pl = (Plugin)plugins.get(i);
 			Logging.debugPrint("Starting " + system + " plugin " + pl.getName() + " (version "
 					+ MiscUtilities.buildToVersion(pl.getVersion()) + ")");
 			jar.addPlugin(pl);
@@ -509,7 +502,7 @@ public class JARClassLoader extends ClassLoader
 			TokenStore.inst().addToTokenMap(pl);
 		}
 	}
-	
+
 	private void loadBonusTokens(Class clazz, String name, int modifiers) throws Exception
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && BonusObj.class.isAssignableFrom(clazz))
@@ -517,7 +510,7 @@ public class JARClassLoader extends ClassLoader
 			Bonus.addBonusClass(clazz, name);
 		}
 	}
-	
+
 	private void loadPreTokens(Class clazz, int modifiers) throws Exception
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers))
@@ -536,14 +529,14 @@ public class JARClassLoader extends ClassLoader
 			}
 		}
 	}
-	
+
 	private void loadJepCommands(Class clazz, int modifiers) throws Exception
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && PCGenCommand.class.isAssignableFrom(clazz))
 		{
 			PJEP.addCommand(clazz);
 		}
-		
+
 	}
 
 	private boolean addPreferencesPanel(Class clazz, Plugin pl) {

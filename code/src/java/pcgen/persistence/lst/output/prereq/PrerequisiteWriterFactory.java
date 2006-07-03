@@ -37,7 +37,7 @@ import pcgen.util.Logging;
 public class PrerequisiteWriterFactory
 {
 	private static PrerequisiteWriterFactory instance = null;
-	private static Map parserLookup = new HashMap();
+	private static Map<String, PrerequisiteWriterInterface> parserLookup = new HashMap<String, PrerequisiteWriterInterface>();
 
 	private PrerequisiteWriterFactory()
 	{
@@ -67,7 +67,7 @@ public class PrerequisiteWriterFactory
 		}
 		else
 		{
-			test = (PrerequisiteWriterInterface) parserLookup.get(kind.toLowerCase());
+			test = parserLookup.get(kind.toLowerCase());
 			if (test == null) {
 				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
 			}
@@ -91,7 +91,4 @@ public class PrerequisiteWriterFactory
 
 		parserLookup.put(kindHandled.toLowerCase(), testClass);
 	}
-
-
-
 }

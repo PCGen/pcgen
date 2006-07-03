@@ -25,8 +25,9 @@ package pcgen.persistence;
 import java.util.List;
 import java.util.Observer;
 import java.util.Set;
+import pcgen.core.Campaign;
 
-/** 
+/**
  * <code>SystemLoader</code> is an abstract factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls abstract methods to
@@ -46,14 +47,14 @@ public interface SystemLoader
 	 * This method sets a List of campaigns  selected by the user.
 	 * @param l List containing the chosen campaign source files
 	 */
-	public void setChosenCampaignSourcefiles(List l);
+	public void setChosenCampaignSourcefiles(List<String> l);
 
 	/**
 	 * This method gets a List of campaigns previously or currently
 	 * selected by the user.
 	 * @return List containing the chosen campaign source files
 	 */
-	public List getChosenCampaignSourcefiles();
+	public List<String> getChosenCampaignSourcefiles();
 
 	/**
 	 * This method indicates whether custom items have been successfully
@@ -66,7 +67,7 @@ public interface SystemLoader
 	 * This method gets the set of sources loaded by the loader.
 	 * @return Set containing the names of the sources loaded.
 	 */
-	public Set getSources();
+	public Set<String> getSources();
 
 	/**
 	 * This method empties whatever lists the implementation has
@@ -87,7 +88,7 @@ public interface SystemLoader
 	 * @throws PersistenceLayerException if an error occurs in the
 	 *         persistence layer
 	 */
-	public void loadCampaigns(List aSelectedCampaignsList)
+	public void loadCampaigns(List<Campaign> aSelectedCampaignsList)
 		throws PersistenceLayerException;
 
 	/**
@@ -129,13 +130,13 @@ public interface SystemLoader
 	 * @param o
 	 */
 	public void addObserver(Observer o);
-	
+
 	/**
 	 * Delete an Observer
 	 * @param o
 	 */
 	public void deleteObserver(Observer o);
-	
+
 	/**
 	 * Notify Observers
 	 */

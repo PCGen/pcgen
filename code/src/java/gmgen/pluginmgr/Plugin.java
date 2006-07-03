@@ -103,7 +103,7 @@ public abstract class Plugin
 	 */
 	public void start()
 	{
-	    // TODO This method currently does nothing?
+		// TODO This method currently does nothing?
 	}
 
 	/**
@@ -113,7 +113,7 @@ public abstract class Plugin
 	 */
 	public void stop()
 	{
-	    // TODO This method currently does nothing?
+		// TODO This method currently does nothing?
 	}
 
 	public abstract String getPluginSystem();
@@ -170,7 +170,7 @@ public abstract class Plugin
 
 		// private members
 		private String path;
-		private Vector plugins;
+		private Vector<Plugin> plugins;
 
 		/**
 		 *  Constructor for the JAR object
@@ -183,7 +183,7 @@ public abstract class Plugin
 		{
 			this.path = path;
 			this.classLoader = classLoader;
-			plugins = new Vector();
+			plugins = new Vector<Plugin>();
 		}
 
 		/**
@@ -228,11 +228,11 @@ public abstract class Plugin
 		 *@param  vector  Vector to add all the plugins to.
 		 *@since        GMGen 3.3
 		 */
-		public void getPlugins(Vector vector)
+		public void getPlugins(Vector<Plugin> vector)
 		{
-			for (int i = 0; i < plugins.size(); i++)
+			for ( Plugin plugin : plugins )
 			{
-				vector.addElement(plugins.elementAt(i));
+				vector.addElement(plugin);
 			}
 		}
 
@@ -260,7 +260,7 @@ public abstract class Plugin
 		}
 	}
 
-	public static class PluginComperator implements Comparator
+	public static class PluginComperator implements Comparator<Plugin>
 	{
 		/**
 		 *  Description of the Method
@@ -269,10 +269,8 @@ public abstract class Plugin
 		 *@param  o2  Object 2 to compare
 		 *@return     the comparion between the two (in java.util.Comperator format)
 		 */
-		public int compare(Object o1, Object o2)
+		public int compare(Plugin p1, Plugin p2)
 		{
-			Plugin p1 = (Plugin) o1;
-			Plugin p2 = (Plugin) o2;
 			Integer load1 = new Integer(p1.getPluginLoadOrder());
 			Integer load2 = new Integer(p2.getPluginLoadOrder());
 			System.out.println(p1.getName() + ": " + p1.getPluginLoadOrder() + " - " + p2.getName() + ": " + p2.getPluginLoadOrder());

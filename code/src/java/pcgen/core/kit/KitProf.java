@@ -49,13 +49,13 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 	// Only change the UID when the serialized form of the class has also changed
 	private static final long serialVersionUID = 1;
 
-	private final List profList = new ArrayList();
+	private final List<String> profList = new ArrayList<String>();
 	private boolean racialProf = false;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient PObject thePObject = null;
-	private transient List weaponProfs = null;
+	private transient List<WeaponProf> weaponProfs = null;
 
 	/**
 	 * Constructor
@@ -75,7 +75,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 	 * Get the proficiency list for this kit
 	 * @return the proficiency list for this kit
 	 */
-	public List getProfList()
+	public List<String> getProfList()
 	{
 		return profList;
 	}
@@ -120,7 +120,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 		ListKey weaponProfKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
 
-		List bonusList = null;
+		List<String> bonusList = null;
 		if (isRacial())
 		{
 			final Race pcRace = aPC.getRace();
@@ -143,7 +143,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		}
 		else
 		{
-			ArrayList pcClasses = aPC.getClassList();
+			List<PCClass> pcClasses = aPC.getClassList();
 			if (pcClasses == null || pcClasses.size() == 0)
 			{
 				warnings.add("PROF: No owning class found.");
@@ -153,9 +153,9 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 			// Search for a class that has bonusWeaponProfs.
 			PCClass pcClass = null;
-			for (Iterator i = pcClasses.iterator(); i.hasNext(); )
+			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext(); )
 			{
-				pcClass = (PCClass)i.next();
+				pcClass = i.next();
 				bonusList = pcClass.getWeaponProfBonus();
 				if (bonusList != null && bonusList.size() > 0)
 				{
@@ -178,29 +178,28 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-		final List aProfList = new ArrayList();
+		final List<String> aProfList = new ArrayList<String>();
 
-		for (Iterator e = getProfList().iterator(); e.hasNext();)
+		for ( String profKey : getProfList() )
 		{
-			String profName = (String)e.next();
-			if (!bonusList.contains(profName))
+			if (!bonusList.contains(profKey))
 			{
 				warnings.add(
-					"PROF: Weapon proficiency \"" + profName +
+					"PROF: Weapon proficiency \"" + profKey +
 					"\" is not in list of choices");
 				continue;
 			}
 
-			final WeaponProf aProf = Globals.getWeaponProfKeyed(profName);
+			final WeaponProf aProf = Globals.getWeaponProfKeyed(profKey);
 
 			if (aProf != null)
 			{
-				aProfList.add(profName);
+				aProfList.add(profKey);
 			}
 			else
 			{
 				warnings.add(
-					"PROF: Non-existant proficiency \"" + profName + "\"");
+					"PROF: Non-existant proficiency \"" + profKey + "\"");
 			}
 		}
 
@@ -219,7 +218,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-		List xs;
+		List<String> xs;
 
 		if (numberOfChoices == aProfList.size())
 		{
@@ -235,7 +234,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 				xs = Globals.getChoiceFromList(
 						"Choose Proficiencies",
 						aProfList,
-						new ArrayList(),
+						new ArrayList<String>(),
 						numberOfChoices);
 
 				if (xs.size() != 0)
@@ -248,16 +247,15 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		//
 		// Add to list of things to add to the character
 		//
-		for (Iterator e = xs.iterator(); e.hasNext();)
+		for ( String profKey : xs )
 		{
-			final String     profName = (String) e.next();
-			final WeaponProf aProf    = Globals.getWeaponProfKeyed(profName);
+			final WeaponProf aProf = Globals.getWeaponProfKeyed(profKey);
 
 			if (aProf != null)
 			{
 				if (weaponProfs == null)
 				{
-					weaponProfs = new ArrayList();
+					weaponProfs = new ArrayList<WeaponProf>();
 				}
 				weaponProfs.add(aProf);
 			}
@@ -267,9 +265,8 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 
 	public void apply(PlayerCharacter aPC)
 	{
-		for (Iterator i = weaponProfs.iterator(); i.hasNext(); )
+		for ( WeaponProf prof : weaponProfs )
 		{
-			WeaponProf prof = (WeaponProf)i.next();
 			thePObject.addSelectedWeaponProfBonus(prof.getKeyName());
 		}
 	}

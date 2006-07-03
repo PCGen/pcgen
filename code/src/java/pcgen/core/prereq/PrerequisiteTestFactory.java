@@ -35,7 +35,7 @@ import pcgen.util.PropertyFactory;
  */
 public class PrerequisiteTestFactory {
 	private static PrerequisiteTestFactory instance = null;
-	private static Map testLookup = new HashMap();
+	private static Map<String, PrerequisiteTest> testLookup = new HashMap<String, PrerequisiteTest>();
 
 	/**
 	 * @return Returns the instance.
@@ -49,9 +49,13 @@ public class PrerequisiteTestFactory {
 	private PrerequisiteTestFactory() {
 	}
 
+	/**
+	 * Registers this PrerequisiteTest as handling a kind of prereq
+	 * @param testClass PrerequisiteTest to register.
+	 */
 	public static void register(final PrerequisiteTest testClass) {
 		final String kindHandled = testClass.kindHandled();
-			final Object test = testLookup.get(kindHandled);
+			final PrerequisiteTest test = testLookup.get(kindHandled);
 			if (test != null) {
 				Logging.errorPrint(
 					PropertyFactory.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
@@ -62,6 +66,12 @@ public class PrerequisiteTestFactory {
 			testLookup.put(kindHandled.toUpperCase(), testClass);
 	}
 
+	/**
+	 * Returns the appropriate PrerequisiteTest class for the kind of prereq
+	 * passed in.
+	 * @param kind The kind of prereq this is (e.g. CLASS)
+	 * @return PrerequisiteTest for this kind
+	 */
 	public PrerequisiteTest getTest(final String kind) {
 		PrerequisiteTest test;
 		if (kind == null)
@@ -70,14 +80,11 @@ public class PrerequisiteTestFactory {
 		}
 		else
 		{
-			test = (PrerequisiteTest) testLookup.get(kind.toUpperCase());
+			test = testLookup.get(kind.toUpperCase());
 			if (test==null) {
 				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
 			}
 		}
 		return test;
 	}
-
-
-
 }

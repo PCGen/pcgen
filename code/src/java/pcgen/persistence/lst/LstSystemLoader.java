@@ -89,7 +89,7 @@ import pcgen.util.Logging;
 public final class LstSystemLoader extends Observable implements SystemLoader, Observer
 {
 	// list of PObjects for character spells with subclasses
-	private static final List pList = new ArrayList();
+	private static final List<PObject> pList = new ArrayList<PObject>();
 
 	/**
 	 * TODO: Convert remaining items to new persistence framework
@@ -188,48 +188,48 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	private LoadInfoLoader loadInfoLoader        = new LoadInfoLoader();
 	private UnitSetLoader unitSetLoader          = new UnitSetLoader();
 	private EquipSlotLoader eqSlotLoader         = new EquipSlotLoader();
-	private final List bioSetFileList            = new ArrayList();
-	private final List chosenCampaignSourcefiles = new ArrayList();
-	private final List classFileList             = new ArrayList();
-	private final List classSkillFileList        = new ArrayList();
-	private final List classSpellFileList        = new ArrayList();
-	private final List coinFileList              = new ArrayList();
-	private final List companionmodFileList      = new ArrayList();
-	private final List deityFileList             = new ArrayList();
-	private final List domainFileList            = new ArrayList();
-	private final List equipmentFileList         = new ArrayList();
-	private final List equipmodFileList          = new ArrayList();
-	private final List abilityFileList           = new ArrayList();
-	private final List featFileList              = new ArrayList();
-	private final List forgetFileType            = new ArrayList();
+	private final List<String> bioSetFileList            = new ArrayList<String>();
+	private final List<String> chosenCampaignSourcefiles = new ArrayList<String>();
+	private final List<CampaignSourceEntry> classFileList             = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> classSkillFileList        = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> classSpellFileList        = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> coinFileList              = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> companionmodFileList      = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> deityFileList             = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> domainFileList            = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> equipmentFileList         = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> equipmodFileList          = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> abilityFileList           = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> featFileList              = new ArrayList<CampaignSourceEntry>();
+	private final List<Integer> forgetFileType            = new ArrayList<Integer>();
 
 	// Used to store FORGETs for later processing; works much like MODs.
 	// Patch [651150] and Feature Request [650672].  sk4p 10 Dec 2002
-	private final List forgetLines               = new ArrayList();
-	private final List kitFileList               = new ArrayList();
-	private final List languageFileList          = new ArrayList();
-	private       List licenseFiles              = new ArrayList();
-	private final List lstExcludeFiles           = new ArrayList();
-	private final List modFileType               = new ArrayList();
+	private final List<String> forgetLines               = new ArrayList<String>();
+	private final List<CampaignSourceEntry> kitFileList               = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> languageFileList          = new ArrayList<CampaignSourceEntry>();
+	private       List<String> licenseFiles              = new ArrayList<String>();
+	private final List<CampaignSourceEntry> lstExcludeFiles           = new ArrayList<CampaignSourceEntry>();
+	private final List<Integer> modFileType               = new ArrayList<Integer>();
 
 	// Used to store MODs to later processing
 	// I had to store both the line and the filetype where this line was in
-	private final List modLines                  = new ArrayList();
-	private final List pccFileList               = new ArrayList();
-	private final List raceFileList              = new ArrayList();
-	private final List reqSkillFileList              = new ArrayList();
-	private final List skillFileList             = new ArrayList();
-	private final List spellFileList             = new ArrayList();
-	private final List templateFileList          = new ArrayList();
-	private final List weaponProfFileList        = new ArrayList();
+	private final List<String> modLines                        = new ArrayList<String>();
+	private final List<String> pccFileList                     = new ArrayList<String>();
+	private final List<CampaignSourceEntry> raceFileList       = new ArrayList<CampaignSourceEntry>();
+	private final List<String> reqSkillFileList                = new ArrayList<String>();
+	private final List<CampaignSourceEntry> skillFileList      = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> spellFileList      = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> templateFileList   = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> weaponProfFileList = new ArrayList<CampaignSourceEntry>();
 	private LocationLoader locationLoader        = new LocationLoader();
-	private final Map loadedFiles                = new HashMap();
+	private final Map<String, String> loadedFiles                = new HashMap<String, String>();
 	private PCClassLoader classLoader            = new PCClassLoader();
 	private PaperInfoLoader paperLoader          = new PaperInfoLoader();
 	private PointBuyLoader pointBuyLoader        = new PointBuyLoader();
 	private SponsorLoader sponsorLoader          = new SponsorLoader();
 	private RaceLoader raceLoader                = new RaceLoader();
-	private final Set sourcesSet                 = new TreeSet();
+	private final Set<String> sourcesSet         = new TreeSet<String>();
 	private BioSet bioSet                        = new BioSet();
 	private BonusStackLoader bonusLoader         = new BonusStackLoader();
 	private SizeAdjustmentLoader sizeLoader      = new SizeAdjustmentLoader();
@@ -282,7 +282,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		wProfLoader.addObserver(this);
 	}
 
-	public void setChosenCampaignSourcefiles(List l)
+	public void setChosenCampaignSourcefiles(List<String> l)
 	{
 		chosenCampaignSourcefiles.clear();
 		chosenCampaignSourcefiles.addAll(l);
@@ -290,7 +290,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			CoreUtility.join(chosenCampaignSourcefiles, ','));
 	}
 
-	public List getChosenCampaignSourcefiles()
+	public List<String> getChosenCampaignSourcefiles()
 	{
 		return chosenCampaignSourcefiles;
 	}
@@ -312,7 +312,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		return customItemsLoaded;
 	}
 
-	public Set getSources()
+	public Set<String> getSources()
 	{
 		return sourcesSet;
 	}
@@ -372,7 +372,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	/**
 	 * @see pcgen.persistence.SystemLoader#loadCampaigns(List)
 	 */
-	public void loadCampaigns(final List aSelectedCampaignsList)
+	public void loadCampaigns(final List<Campaign> aSelectedCampaignsList)
 		throws PersistenceLayerException
 	{
 		Globals.setSorted(false);
@@ -928,9 +928,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		//
 		if (new File(CustomData.customTemplateFilePath(true)).exists())
 		{
-			tempGame = CustomData.customTemplateFilePath(true);
-			templateFileList.remove(tempGame);
-			templateFileList.add(0, tempGame);
+			tempSource = new CampaignSourceEntry(customCampaign, CustomData.customTemplateFilePath(true));
+			templateFileList.remove(tempSource);
+			templateFileList.add(0, tempSource);
 		}
 	}
 
@@ -1004,18 +1004,18 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 					break;
 
 				case LstConstants.CLASSSKILL_TYPE:
-					parseClassSkillFrom((String) aArrayList.get(i));
+					parseClassSkillFrom(aArrayList.get(i).toString());
 
 					break;
 
 				case LstConstants.CLASSSPELL_TYPE:
-					aClassName = parseClassSpellFrom((String) aArrayList.get(i), aClassName);
+					aClassName = parseClassSpellFrom(aArrayList.get(i).toString(), aClassName);
 
 					break;
 
 				case LstConstants.REQSKILL_TYPE:
 
-					final String aString = (String) aArrayList.get(i);
+					final String aString = aArrayList.get(i).toString();
 					if ("ALL".equals(aString) || "UNTRAINED".equals(aString))
 					{
 						skillReq = aString;
@@ -1175,7 +1175,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @param aList          List to load the lines into
 	 * @throws PersistenceLayerException
 	 */
-	private void initFile(String argFileName, int fileType, List aList)
+	private void initFile(String argFileName, int fileType, List<PObject> aList)
 		throws PersistenceLayerException
 	{
 		final StringBuffer dataBuffer = new StringBuffer();
@@ -1198,7 +1198,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		 *
 		 * author: Thomas Behr 2002-11-13
 		 */
-		final Map sourceMap = new HashMap();
+		final Map<String, String> sourceMap = new HashMap<String, String>();
 		final String newlinedelim = "\r\n";
 		final String aString = dataBuffer.toString();
 		final StringTokenizer newlineStr = new StringTokenizer(aString, newlinedelim);
@@ -1239,16 +1239,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			if (aLine.startsWith("SOURCE") && (fileType != LstConstants.CAMPAIGN_TYPE))
 			{
 				sourceMap.putAll(SourceLoader.parseLine(aLine, argFileName));
-//				final StringTokenizer sTok = new StringTokenizer(aLine, "|");
-//
-//				while (sTok.hasMoreTokens())
-//				{
-//					final String arg = sTok.nextToken();
-//					final String key = arg.substring(6, arg.indexOf(":"));
-//					final String val = arg.substring(arg.indexOf(":") + 1);
-//					sourceMap.put(key, val);
-//				}
-//
+
 				continue;
 			}
 
@@ -1320,7 +1311,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 				//Deliberate fall-through
 				case LstConstants.REQSKILL_TYPE:
-					aList.add(aLine);
+					// boomer70 - hack for how
+					PObject pObj = new PObject();
+					pObj.setName(aLine);
+					aList.add(pObj);
 
 					break;
 
@@ -1406,8 +1400,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 	}
 
-	private static PObject initFileTypeEqModifier(Campaign sourceCampaign, Map sourceMap, String aLine, final URL aURL,
-		List aList) throws PersistenceLayerException
+	private static PObject initFileTypeEqModifier(Campaign sourceCampaign, Map<String, String> sourceMap, String aLine, final URL aURL,
+		List<PObject> aList) throws PersistenceLayerException
 	{
 		final PObject anObj;
 		anObj = new EquipmentModifier();
@@ -1420,7 +1414,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	}
 
 	private PObject initFileTypeCompanionMod(boolean forgetItem, String nameString, int fileType, boolean modItem,
-		PObject anObj, Campaign sourceCampaign, Map sourceMap, List aList, String aLine, final URL aURL)
+											 PObject anObj, Campaign sourceCampaign, Map<String, String> sourceMap, List<PObject> aList, String aLine, final URL aURL)
 	{
 		if (forgetItem)
 		{
@@ -1444,7 +1438,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		if (anObj == null)
 		{
 			modLines.add(aLine);
-			modFileType.add(new Integer(fileType));
+			modFileType.add(fileType);
 		}
 
 		if (anObj != null)
@@ -1464,7 +1458,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	}
 
 	private PObject initFileTypeEquipment(boolean forgetItem, String nameString, int fileType, boolean modItem,
-		String copyName, PObject anObj, Campaign sourceCampaign, Map sourceMap, List aList, String aLine, final URL aURL)
+										  String copyName, PObject anObj, Campaign sourceCampaign, Map<String, String> sourceMap, List<PObject> aList, String aLine, final URL aURL)
 		throws PersistenceLayerException
 	{
 		if (forgetItem)
@@ -1507,7 +1501,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			if (anObj != null)
 			{
-				aList.add(anObj);
+				aList.add((Equipment)anObj);
 			}
 		}
 		else
@@ -1516,7 +1510,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			if (anObj == null)
 			{
-				anObj = EquipmentList.getEquipmentNamed(nameString, aList);
+				List<Equipment> eqList = new ArrayList<Equipment>();
+				for ( PObject pObj : aList )
+				{
+					eqList.add( (Equipment)pObj );
+				}
+				anObj = EquipmentList.getEquipmentNamed(nameString, eqList);
 			}
 			if (anObj != null)
 			{
@@ -1527,7 +1526,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		if (modItem && (anObj == null))
 		{
 			modLines.add(aLine);
-			modFileType.add(new Integer(fileType));
+			modFileType.add(fileType);
 		}
 
 		if (anObj != null)
@@ -1539,7 +1538,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	}
 
 	private PObject initFileTypeTemplate(boolean forgetItem, String aKey, int fileType, boolean modItem,
-		PObject anObj, Campaign sourceCampaign, Map sourceMap, List aList, String aLine, final URL aURL)
+										 PObject anObj, Campaign sourceCampaign, Map<String, String> sourceMap, List<PObject> aList, String aLine, final URL aURL)
 		throws PersistenceLayerException
 	{
 		if (forgetItem)
@@ -1564,7 +1563,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		if (anObj == null)
 		{
 			modLines.add(aLine);
-			modFileType.add(new Integer(fileType));
+			modFileType.add(fileType);
 		}
 
 		if (anObj != null)
@@ -1602,7 +1601,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 		if (aCamp.isLicensed())
 		{
-			List licenseList = aCamp.getLicenses();
+			List<String> licenseList = aCamp.getLicenses();
 			if (licenseList != null && licenseList.size() > 0)
 			{
 				licensesToDisplayString.append(aCamp.getLicenses());
@@ -1871,15 +1870,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				}
 				else
 				{
-					Skill bSkill;
-
-					for (Iterator e = Globals.getSkillList().iterator(); e.hasNext();)
+					for ( Skill skill : Globals.getSkillList() )
 					{
-						bSkill = (Skill) e.next();
-
-						if (bSkill.getKeyName().startsWith(aStringParen))
+						if (skill.getKeyName().startsWith(aStringParen))
 						{
-							bSkill.getClassList().add(aName);
+							skill.getClassList().add(aName);
 						}
 					}
 				}
@@ -1979,9 +1974,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			if (owner == null) // then it must be a subclass
 			{
-				for (Iterator i = pList.iterator(); i.hasNext();)
+				for (Iterator<PObject> i = pList.iterator(); i.hasNext();)
 				{
-					owner = (PObject) i.next();
+					owner = i.next();
 
 					if (owner.getKeyName().equals(key))
 					{
@@ -2032,7 +2027,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		}
 
 		forgetLines.add(nameOfItemToForget);
-		forgetFileType.add(new Integer(fileType));
+		forgetFileType.add(fileType);
 	}
 
 	/**
@@ -2150,11 +2145,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @param pObjectList List of PObjects created from the data file
 	 * @param extraInfo   String containing the extra info
 	 */
-	private void processExtraInfo(int lineType, List pObjectList, String extraInfo)
+	private void processExtraInfo(int lineType, List<? extends PObject> pObjectList, String extraInfo)
 	{
 		final StringTokenizer infoTokenizer = new StringTokenizer(extraInfo, "|");
 		int inMode = MODE_DEFAULT;
-		ArrayList includeExcludeNames = new ArrayList();
+		ArrayList<String> includeExcludeNames = new ArrayList<String>();
 
 		while (infoTokenizer.hasMoreTokens())
 		{
@@ -2207,11 +2202,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				if (inMode == MODE_EXCLUDE)
 				{
 					// exclude
-					PObject anObject;
-
 					for (int k = pObjectList.size() - 1; k >= 0; --k)
 					{
-						anObject = (PObject) pObjectList.get(k);
+						PObject anObject = pObjectList.get(k);
 
 						if (includeExcludeNames.contains(anObject.getKeyName()))
 						{
@@ -2222,11 +2215,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				else if (inMode == MODE_INCLUDE)
 				{
 					// include
-					PObject anObject;
-
 					for (int k = pObjectList.size() - 1; k >= 0; --k)
 					{
-						anObject = (PObject) pObjectList.get(k);
+						PObject anObject = pObjectList.get(k);
 
 						if (!includeExcludeNames.contains(anObject.getKeyName()))
 						{
@@ -2252,7 +2243,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				{
 					// It is a REQSKILL or SPECIAL line; add it to the original list of info
 					// This will probably blow something up later via a ClassCastException.
-					pObjectList.add(currentToken);
+					// boomer70 - This will definately blow something up and can't
+					// work.  removing.
+					Logging.errorPrint("Unhandled INCLUDE/EXCLUDE: " + currentToken);
+//					pObjectList.add(currentToken);
 				}
 			}
 		}
@@ -2268,7 +2262,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @param bArrayList List that will contain pcgen.core objects
 	 * @throws PersistenceLayerException if an error is found in the LST source
 	 */
-	private void processFileList(final int lineType, List lineList, List bArrayList)
+	private void processFileList(final int lineType, List<?> lineList, List<? extends PObject> bArrayList)
 		throws PersistenceLayerException
 	{
 		//  Campaigns aren't processed here any more.
@@ -2279,7 +2273,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			return;
 		}
 
-		String fileName;
 
 		for (int j = 0; j < lineList.size(); ++j)
 		{
@@ -2301,6 +2294,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			String extraInfo = null;
 
 			// 1. The first token is the file name to process
+			String fileName;
 			if (lineTokenizer.hasMoreTokens())
 			{
 				fileName = lineTokenizer.nextToken();
@@ -2356,7 +2350,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @param aSelectedCampaignsList List of Campaigns to load
 	 * @param currentPC
 	 */
-	private void readPccFiles(final List aSelectedCampaignsList, final PlayerCharacter currentPC)
+	private void readPccFiles(final List<Campaign> aSelectedCampaignsList,
+							  final PlayerCharacter currentPC)
 	{
 		// Prime options based on currently selected preferences
 		if (SettingsHandler.isOptionAllowedInSources())
@@ -2366,14 +2361,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 		// Create aggregate collections of source files to load
 		// along with any options required by the campaigns...
-		for (int i = 0; i < aSelectedCampaignsList.size(); ++i)
+		for ( Campaign campaign : aSelectedCampaignsList )
 		{
-			Campaign aCamp = (Campaign) aSelectedCampaignsList.get(i);
-			loadCampaignFile(aCamp);
+			loadCampaignFile(campaign);
 
 			if (SettingsHandler.isOptionAllowedInSources())
 			{
-				setCampaignOptions(aCamp);
+				setCampaignOptions(campaign);
 			}
 		}
 
@@ -2511,51 +2505,22 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 *
 	 * @param aSelectedCampaignsList List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List aSelectedCampaignsList)
+	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		// Local temporaries
-		int i;
-		Campaign aCamp;
-
-		Collections.sort(aSelectedCampaignsList, new Comparator()
+		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
 		{
-	  public int compare(Object o1, Object o2)
-	  {
-		  Campaign c1 = (Campaign) o1;
-		  Campaign c2 = (Campaign) o2;
-		  return new Integer(c1.getRank()).compareTo(new Integer(c2.getRank()));
-	  }
-	});
+			public int compare(Campaign c1, Campaign c2)
+			{
+				return new Integer(c1.getRank()).compareTo(new Integer(c2.getRank()));
+			}
+		});
 
 		// Loop through, performing a swap sort
-		for (i = 0; i < aSelectedCampaignsList.size(); ++i)
+		for ( Campaign campaign : aSelectedCampaignsList )
 		{
-			aCamp = (Campaign) aSelectedCampaignsList.get(i);
-			sourcesSet.add(SourceUtilities.returnSourceInForm(aCamp, Constants.SOURCELONG, true));
+			sourcesSet.add(SourceUtilities.returnSourceInForm(campaign, Constants.SOURCELONG, true));
 		}
 
-//			int aCampRank = aCamp.getRank();
-//
-//			for (int j = i + 1; j < aSelectedCampaignsList.size(); ++j)
-//			{
-//				bCamp = (Campaign) aSelectedCampaignsList.get(j);
-//
-//				if (bCamp.getRank() < aCampRank)
-//				{
-//					aSelectedCampaignsList.set(i, bCamp);
-//					aSelectedCampaignsList.set(j, aCamp);
-//					aCamp = bCamp;
-//					aCampRank = aCamp.getRank();
-//				}
-//			}
-//
-//			if (aSelectedCampaignsList.size() > 0)
-//			{
-//				//TODO: This is incorrect as it is done after the sort!
-//				aCamp = (Campaign) aSelectedCampaignsList.get(aSelectedCampaignsList.size() - 1);
-//				sourcesSet.add(SourceUtilities.returnSourceInForm(aCamp, Constants.SOURCELONG, true));
-//			}
-//		}
 		 // end of campaign sort
 	}
 
@@ -2573,9 +2538,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		// Check all the weapons to see if they are either Melee or Ranged, to avoid
 		// problems when we go to export/preview the character
 		//
-		for (Iterator e2 = EquipmentList.getEquipmentListIterator(); e2.hasNext(); ) {
-			Map.Entry entry = (Map.Entry)e2.next();
-			final Equipment aEq = (Equipment) entry.getValue();
+		for (Iterator<Map.Entry<String, Equipment>> e2 = EquipmentList.getEquipmentListIterator(); e2.hasNext(); ) {
+			final Equipment aEq = e2.next().getValue();
 
 			if (aEq.isWeapon() && !aEq.isMelee() && !aEq.isRanged())
 			{

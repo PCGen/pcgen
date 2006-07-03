@@ -55,22 +55,22 @@ public final class PJEP extends JEP
 {
 	private Object parent;
 	private String variableSource;
-	private static List commandList = new ArrayList();
-	private List localCommandList = new ArrayList();
+	private static List<Class<PCGenCommand>> commandList = new ArrayList<Class<PCGenCommand>>();
+	private List<PCGenCommand> localCommandList = new ArrayList<PCGenCommand>();
 
-	public static void addCommand(Class clazz) {
+	public static void addCommand(Class<PCGenCommand> clazz) {
 		commandList.add(clazz);
 	}
-	
+
 	public PJEP()
 	{
 		setAllowUndeclared(true);
 		addStandardFunctions();
-		
+
 		for(int i = 0; i < commandList.size(); i++) {
 			try {
-				Class clazz = (Class)commandList.get(i);
-				PCGenCommand com = (PCGenCommand) clazz.newInstance();
+				Class<PCGenCommand> clazz = commandList.get(i);
+				PCGenCommand com = clazz.newInstance();
 				localCommandList.add(com);
 				addFunction(com.getFunctionName().toLowerCase(), com);
 				addFunction(com.getFunctionName().toUpperCase(), com);
@@ -91,7 +91,7 @@ public final class PJEP extends JEP
 	{
 		if (updateVariables())
 		{
-        	initSymTab();
+			initSymTab();
 		}
 
 		super.parseExpression(expression_in);
@@ -99,19 +99,19 @@ public final class PJEP extends JEP
 
 	/**
 	 * Identify if the results of the calculation will be cachable.
-	 * 
+	 *
 	 * @return True if the result would be cachable, false otherwise.
 	 */
 	public boolean isResultCachable()
 	{
 		boolean result = isResultCachable(getTopNode());
-		
+
 		return result;
 	}
 
 	/**
 	 * Identify if results from this node (and its children) are all cachable.
-	 * 
+	 *
 	 * @param node The node to be checked.
 	 * @return True if the result would be cachable, false otherwise.
 	 */
@@ -141,15 +141,14 @@ public final class PJEP extends JEP
 
 		return true;
 	}
-	
+
 	private boolean updateVariables()
 	{
 		boolean updated = true;
 		if(localCommandList != null)
 		{
-			for(int i = 0; i < localCommandList.size(); i++)
+			for ( PCGenCommand com : localCommandList )
 			{
-				PCGenCommand com = (PCGenCommand)localCommandList.get(i);
 				updated = updated && !com.updateVariables(this);
 			}
 		}
@@ -179,7 +178,7 @@ public final class PJEP extends JEP
 		public void run(Stack inStack) throws ParseException
 		{
 			LstUtils.deprecationWarning("Jep function cl deprecated, use classlvl instead");
-			
+
 			// check the stack
 			checkStack(inStack);
 
@@ -285,9 +284,8 @@ public final class PJEP extends JEP
 	protected void setVariableSource(String variableSource)
 	{
 		this.variableSource = variableSource;
-		for(int i = 0; i < localCommandList.size(); i++)
+		for ( PCGenCommand com : localCommandList )
 		{
-			PCGenCommand com = (PCGenCommand)localCommandList.get(i);
 			com.setVariableSource(variableSource);
 		}
 	}
@@ -298,9 +296,8 @@ public final class PJEP extends JEP
 	public void setParent(Object parent)
 	{
 		this.parent = parent;
-		for(int i = 0; i < localCommandList.size(); i++)
+		for ( PCGenCommand com : localCommandList )
 		{
-			PCGenCommand com = (PCGenCommand)localCommandList.get(i);
 			com.setParent(parent);
 		}
 	}

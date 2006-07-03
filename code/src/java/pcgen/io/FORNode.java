@@ -31,7 +31,7 @@ import java.util.List;
  */
 final class FORNode
 {
-	private List children;
+	private List<Object> children;
 	private String max;
 	private String min;
 	private String step;
@@ -40,7 +40,7 @@ final class FORNode
 
 	FORNode(String _var, String _min, String _max, String _step, boolean _exists)
 	{
-		children = new ArrayList();
+		children = new ArrayList<Object>();
 		var = _var;
 		min = _min;
 		max = _max;
@@ -61,7 +61,7 @@ final class FORNode
 	 * Return the children of this node
 	 * @return the children of this node
 	 */
-	public List children()
+	public List<?> children()
 	{
 		return children;
 	}
