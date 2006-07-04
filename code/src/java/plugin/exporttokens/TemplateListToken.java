@@ -71,7 +71,8 @@ public class TemplateListToken extends Token
 		{
 			PCTemplate template = (PCTemplate) it.next();
 
-			retString.append(del).append(template.toString());
+            // karianna bug 1514970
+            retString.append(del).append(template.getOutputName());
 			del = ", ";
 		}
 
