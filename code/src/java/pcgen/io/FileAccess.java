@@ -149,7 +149,7 @@ public final class FileAccess
 			for (int i = 0; i < aString.length(); i++)
 			{
 				final char c = aString.charAt(i);
-				final String xlation = outputFilter.get(c);
+				final String xlation = outputFilter.get((int)c);
 
 				if (xlation != null)
 				{
