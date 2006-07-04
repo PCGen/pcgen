@@ -128,12 +128,11 @@ public class PrereqObject implements Cloneable
 	 */
 	public List<Prerequisite> getPreReqList()
 	{
-		if ( thePrereqs == null )
+		if ( thePrereqs != null )
 		{
-			return Collections.emptyList();
+			return Collections.unmodifiableList(thePrereqs);
 		}
-
-		return Collections.unmodifiableList(thePrereqs);
+		return null;
 	}
 
 	/**
