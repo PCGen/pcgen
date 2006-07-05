@@ -4982,11 +4982,27 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 
 			final List<BonusObj> baseEqBonusList = baseEq.getBonusList();
+			final List<BonusObj> eqBonusList = getBonusList();
 
 			//
 			// Go through the bonus list looking for COMBAT|AC|x and resize bonus
 			// Assumption: baseEq.bonusList and this.bonusList only differ in COMBAT|AC|x bonuses
 			//
+			for (int i = eqBonusList.size() - 1; i >= 0; --i)
+			{
+				final BonusObj aBonus = eqBonusList.get(i);
+				String aString = aBonus.toString();
+
+				if (aString.startsWith("COMBAT|AC|"))
+				{
+					final int iOffs = aString.indexOf('|', 10);
+
+					if (iOffs > 10)
+					{
+						removeBonusList(aBonus);
+					}
+				}
+			}
 			for (int i = 0; i < baseEqBonusList.size(); ++i)
 			{
 				final BonusObj aBonus = baseEqBonusList.get(i);
@@ -5001,7 +5017,6 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 						Integer acCombatBonus = new Integer(aString.substring(10, iOffs));
 						acCombatBonus = new Integer(new Float(acCombatBonus.doubleValue() * mult).intValue());
 						aString = aString.substring(0, 10) + acCombatBonus.toString() + aString.substring(iOffs);
-						removeBonusList(aBonus);
 						addBonusList(aString);
 					}
 				}
