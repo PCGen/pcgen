@@ -1,5 +1,6 @@
 <project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
     xmlns:ant="jelly:ant" xmlns:u="jelly:util">
+
 	<goal name="generate-jars">
 		<ant:ant dir="${basedir}" antfile="build.xml" target="scripts">
 			<property name="build.classes.dir" value="${maven.build.dest}"/>
@@ -11,30 +12,31 @@
 			<property name="build.classes.dir" value="${maven.build.dest}"/>
 		</ant:ant>
 	</goal>
-    <preGoal name="java:compile">
-        <attainGoal name="javacc:javacc-generate"/>
-        <!-- Kludge around a typo in the JavaCC  -->
-        <ant:path id="maven.javacc.compile.src.set"
-            location="${basedir}/target/generated-src"/>
-        <maven:addPath id="maven.compile.src.set"
-            refid="maven.javacc.compile.src.set"/>
-    </preGoal>
-    <postGoal name="java:compile">
+
+	<preGoal name="java:compile">
+		<attainGoal name="javacc:javacc-generate"/>
+		<!-- Kludge around a typo in the JavaCC  -->
+		<ant:path id="maven.javacc.compile.src.set"
+			location="${basedir}/target/generated-src"/>
+		<maven:addPath id="maven.compile.src.set"
+			refid="maven.javacc.compile.src.set"/>
+	</preGoal>
+	<postGoal name="java:compile">
 		<attainGoal name="generate-jars" />
-    </postGoal>
-    <preGoal name="maven-javadoc-plugin:report">
-    	<attainGoal name="javacc:javacc-generate"/>
-    </preGoal>
-    
-    
-    <goal name="pcgen:package-clean">
-    	<ant:mkdir dir="${basedir}/target/distributions" />
-    	<ant:delete>
-    		<fileset dir="${basedir}/target/distributions" includes="*.zip, *.tgz"/>
-    	</ant:delete>
-    </goal>
-    
-    <goal name="pcgen:package" prereqs="pcgen:package-clean">
+	</postGoal>
+
+	<preGoal name="maven-javadoc-plugin:report">
+		<attainGoal name="javacc:javacc-generate"/>
+	</preGoal>
+
+	<goal name="pcgen:package-clean">
+		<ant:mkdir dir="${basedir}/target/distributions" />
+		<ant:delete>
+			<fileset dir="${basedir}/target/distributions" includes="*.zip, *.tgz"/>
+		</ant:delete>
+	</goal>
+
+	<goal name="pcgen:package" prereqs="pcgen:package-clean">
 		<j:new className="java.util.Date" var="timestamp" />
 		<j:new className="java.text.SimpleDateFormat" var="format">
 			<j:arg type="java.lang.String" value="yyyyMMdd.HHmm" />
@@ -49,36 +51,46 @@
 			<j:arg type="java.util.Date" value="${timestamp}" />
 		</j:invoke>
 
-    	<ant:mkdir dir="${basedir}/target/distributions" />
-    	
-    	<ant:zip destfile="target/distributions/pcgen-all-no-libs-${formattedDate}.zip">
-    	  <fileset dir="${basedir}/target">
-		    <include name="pcgen.jar"/>
-		  </fileset>
-    	  <fileset dir="${basedir}/code/bin">
-		    <include name="pcgen.sh"/>
-		    <include name="pcgen.bat"/>
-		    <include name="pcgen_low_mem.bat"/>
-		    <include name="filepaths.ini"/>
-		  </fileset>
-		  <fileset dir="${basedir}" >
-		    <include name="plugins/**"/>
-		    <include name="data/**"/>
-		    <include name="outputsheets/**"/>
-		    <include name="docs/**"/>
-		    <include name="system/**"/>
-		  </fileset>
-    	
-    	</ant:zip> 
-<!--    		
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-code-${formattedDate}.zip" 
-    		includes="pcgen.jar, pcgen.bat, pcgen.sh, pcgen_low_mem.bat, plugins/**" />
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-content-${formattedDate}.zip" 
-    		includes="data/**, outputsheets/**, docs/**, system/**" />
- -->
-    	<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries-${formattedDate}.zip" 
-    		includes="lib/**" 
-    		excludes="lib/emma/**, lib/test/**"/>
-    </goal>
-    
-</project>    
+		<ant:mkdir dir="${basedir}/target/distributions" />
+
+		<ant:zip destfile="target/distributions/pcgen-all-no-libs-${formattedDate}.zip">
+			<fileset dir="${basedir}/target">
+				<include name="pcgen.jar"/>
+			</fileset>
+			<fileset dir="${basedir}/code/bin">
+				<include name="pcgen.sh"/>
+				<include name="pcgen.bat"/>
+				<include name="pcgen_low_mem.bat"/>
+				<include name="filepaths.ini"/>
+			</fileset>
+			<fileset dir="${basedir}" >
+				<include name="plugins/**"/>
+				<include name="data/**"/>
+				<include name="outputsheets/**"/>
+				<include name="docs/**"/>
+				<include name="system/**"/>
+			</fileset>
+		</ant:zip> 
+
+		<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries-${formattedDate}.zip" 
+			includes="lib/**" 
+			excludes="lib/emma/**, lib/test/**"/>
+	</goal>
+
+	<!-- Simple report to copy the pcgen documentation into the published site -->
+	<goal name="pcgen-docs-plugin:register" />
+	<goal name="pcgen-docs-plugin:report" 
+		description="Add the PCGen documentation as a report to the output.">
+
+		<j:if test="${siteClean}">
+			<echo>Cleaning destination first</echo>
+			<delete dir="target/docs/pcgen-docs" />
+		</j:if>
+
+		<mkdir dir="target/docs/pcgen-docs" />
+		<copy todir="target/docs/pcgen-docs">
+			<fileset dir="docs" />
+		</copy>
+	</goal>
+
+</project>

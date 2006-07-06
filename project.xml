@@ -12,6 +12,7 @@
     <inceptionYear>2003</inceptionYear>
     <package>pcgen</package>
     <logo>http://pcgen.sourceforge.net/banners/PCGen_FullBanner_486x60.png</logo>
+	<issueTrackingUrl>http://pcgen.sourceforge.net/06_trackers.php</issueTrackingUrl>
 
     <description>PCGen RPG character generator.</description>
     <shortDescription>PCGen RPG character generator.</shortDescription>
@@ -121,6 +122,10 @@
         <developer>
             <name>Tir Gwaith</name>
             <id>tir-gwaith</id>
+        </developer>
+        <developer>
+            <name>Jonas Karlsson</name>
+            <id>jujutsunerd</id>
         </developer>
         
     </developers>
@@ -232,7 +237,7 @@
 
     <reports>
         <report>maven-changelog-plugin</report>
-        <!-- <report>maven-changes-plugin</report> -->
+        <report>maven-changes-plugin</report>
         <!-- Runs slower'n molassas -->
         <!-- <report>maven-checkstyle-plugin</report> -->
         <report>maven-developer-activity-plugin</report>
@@ -248,6 +253,7 @@
         <report>maven-pmd-plugin</report>
         <report>maven-simian-plugin</report>
         <report>maven-tasklist-plugin</report>
+        <report>pcgen-docs-plugin</report>
     </reports>
 
     <build>
