@@ -1,5 +1,5 @@
 <project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
-    xmlns:ant="jelly:ant" xmlns:u="jelly:util">
+    xmlns:ant="jelly:ant" xmlns:u="jelly:util" xmlns:doc="doc">
 
 	<goal name="generate-jars">
 		<ant:ant dir="${basedir}" antfile="build.xml" target="scripts">
@@ -78,7 +78,17 @@
 	</goal>
 
 	<!-- Simple report to copy the pcgen documentation into the published site -->
-	<goal name="pcgen-docs-plugin:register" />
+	<goal name="pcgen-docs-plugin:register">
+      <doc:registerReport 
+        name="PCGen Documentation" 
+        pluginName="pcgen-docs-plugin"
+        link="pcgen-docs/index"
+        target="_blank"
+        description="PCGen user documentation."/>
+	</goal>
+	<goal name="pcgen-docs-plugin:deregister">
+		<doc:deregisterReport name="PCGen Documentation"/>
+	</goal>
 	<goal name="pcgen-docs-plugin:report" 
 		description="Add the PCGen documentation as a report to the output.">
 
