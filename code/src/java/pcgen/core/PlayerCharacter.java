@@ -1994,50 +1994,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Clear the companionModList so we can add everything to it
 		companionModList.clear();
 
-		// This will be handled by getRaceType()
-//		String newRaceType = "";
-//		final String oldRaceType = race.getType();
-
 		// New way of doing this. Through VARs on the Master
 		for (Iterator<CompanionMod> cm = Globals.getCompanionModList().iterator(); cm.hasNext();)
 		{
 			final CompanionMod aComp = cm.next();
 			final String aType = aComp.getType().toUpperCase();
 
-			if (!(aType.equalsIgnoreCase(aM.getType())))
-			{
-				continue;
-			}
-
-			for (Iterator<String> iType = aComp.getVarMap().keySet().iterator(); iType.hasNext();)
-			{
-				final String varName = iType.next();
-
-				if (mPC.getVariableValue(varName, "").intValue() >= aComp.getLevel(varName))
-				{
-					if (!companionModList.contains(aComp))
-					{
-						companionModList.add(aComp);
-						addHD += aComp.getHitDie();
-
-						// if necessary, switch
-						// the race type
-//						if (aComp.getCompanionSwitch(oldRaceType) != null)
-//						{
-//							newRaceType = aComp.getCompanionSwitch(oldRaceType);
-//						}
-					}
-				}
-			}
-		}
-
-		// Old way of doing this. Through Class levels
-		for (Iterator<CompanionMod> cm = Globals.getCompanionModList().iterator(); cm.hasNext();)
-		{
-			final CompanionMod aComp = cm.next();
-			final String aType = aComp.getType().toUpperCase();
-
-			// This CompanionMod must be for this type of follower
 			if (!(aType.equalsIgnoreCase(aM.getType())))
 			{
 				continue;
@@ -2059,54 +2021,30 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// and for the correct level or lower
 				if ((compLev <= mLev) || (compLev <= mTotalLevel))
 				{
-					if (!companionModList.contains(aComp))
+					if ( PrereqHandler.passesAll( aComp.getPreReqList(), this, aComp ) )
+//					if (!companionModList.contains(aComp))
 					{
 						companionModList.add(aComp);
 						addHD += aComp.getHitDie();
+					}
+				}
+			}
+			for (Iterator<String> iType = aComp.getVarMap().keySet().iterator(); iType.hasNext();)
+			{
+				final String varName = iType.next();
 
-						// if necessary, switch
-						// the race type
-//						if (aComp.getCompanionSwitch(oldRaceType) != null)
-//						{
-//							newRaceType = aComp.getCompanionSwitch(oldRaceType);
-//						}
+				if (mPC.getVariableValue(varName, "").intValue() >= aComp.getLevel(varName))
+				{
+					if ( PrereqHandler.passesAll( aComp.getPreReqList(), this, aComp ) )
+//					if (!companionModList.contains(aComp))
+					{
+						companionModList.add(aComp);
+						addHD += aComp.getHitDie();
 					}
 				}
 			}
 		}
 
-/*
-		PCClass newClass;
-
-		if ((newRaceType != null) && (newRaceType.length() > 0))
-		{
-			newClass = Globals.getClassNamed(newRaceType);
-			race.setTypeInfo(".CLEAR." + newRaceType);
-			setDirty(true);
-
-			// we now have to swap all the old "Race" levels
-			final PCClass oldClass = getClassNamed(oldRaceType);
-			int oldLevel = 0;
-
-			if (oldClass != null)
-			{
-				oldLevel = oldClass.getLevel();
-			}
-
-			if ((oldLevel > 0) && (newClass != null))
-			{
-				// turn oldLevel negative
-				final int negLevel = oldLevel * -1;
-
-				// yes, it's weird that incrementClassLevel
-				// can be called with a negative value
-				incrementClassLevel(negLevel, oldClass, true);
-
-				// now add levels back in the new class
-				incrementClassLevel(oldLevel, newClass, true);
-			}
-		}
-*/
 		//
 		// Add additional HD if required
 //		newClass = Globals.getClassNamed(race.getType());
@@ -2181,6 +2119,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				newSkill.modRanks(sr, aClass, true, this);
 				getSkillList().add(newSkill);
 			}
+		}
+		for ( CompanionMod cMod : companionModList )
+		{
+			cMod.addAddsForLevel( -9, this, null);
 		}
 		setDirty(true);
 	}
@@ -13448,7 +13390,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private void processBonus(final BonusObj aBonus, final ArrayList<BonusObj> prevProcessed)
 	{
-		// Make sure we don't get into an infinite loop - can occur due to LST coding or best guess dependancy mapping 
+		// Make sure we don't get into an infinite loop - can occur due to LST coding or best guess dependancy mapping
 		if (prevProcessed.contains(aBonus))
 		{
 			Logging.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed);
@@ -13457,7 +13399,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		prevProcessed.add(aBonus);
 
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
-		
+
 		// Go through all bonuses and check to see if they add to
 		// aBonus's dependencies and have not already been processed
 		for ( BonusObj newBonus : getActiveBonusList() )
