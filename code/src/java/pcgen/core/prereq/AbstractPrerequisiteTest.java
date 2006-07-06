@@ -110,7 +110,13 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 		return (runningTotal > 0) ? 1 : 0;
 	}
 
-	public String toHtmlString(final Prerequisite prereq)
+	/**
+     * Convert PreReq to an HTML string
+     * 
+     * @param prereq
+     * @return html String representation of the PreReq 
+	 */
+    public String toHtmlString(final Prerequisite prereq)
 	{
 		return PropertyFactory.getFormattedString(
 			    "AbstractPrerequisiteTest.toHtml",

@@ -39,11 +39,19 @@ public final class ClassType implements Cloneable
 	private boolean xpPenalty = true;
 	private boolean isMonster = false;
 
-	public String getName()
+	/**
+     * Get the name of the class type 
+     * @return name of the class type
+	 */
+    public String getName()
 	{
 		return theName;
 	}
 
+    /**
+     * Set the name of the class type
+     * @param aName
+     */
 	public void setName( final String aName )
 	{
 		theName = aName;

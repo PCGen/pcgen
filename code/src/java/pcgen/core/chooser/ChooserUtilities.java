@@ -463,19 +463,19 @@ public class ChooserUtilities
 			type = "SINGLEFEAT";
 		}
 
-		String className = (String) classLookup.get(type);
+		String className = classLookup.get(type);
 
 		if (className == null)
 		{
 			if (Globals.weaponTypesContains(type))
 			{
 				type      = "WEAPONPROF";
-				className = (String) classLookup.get(type);
+				className = classLookup.get(type);
 			}
 			else
 			{
 				type      = "MISC";
-				className = (String) classLookup.get(type);
+				className = classLookup.get(type);
 			}
 		}
 

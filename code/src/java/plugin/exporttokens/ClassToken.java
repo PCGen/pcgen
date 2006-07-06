@@ -32,7 +32,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 import java.util.StringTokenizer;
-import pcgen.core.Globals;
 
 /**
  * Deal with tokens below
@@ -107,7 +106,7 @@ public class ClassToken extends Token
 
 		if (pc.getClassList().size() > classNumber)
 		{
-			PCClass pcClass = (PCClass) pc.getClassList().get(classNumber);
+			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			if (Constants.s_NONE.equals(pcClass.getSubClassKey()) || "".equals(pcClass.getSubClassKey()))
 			{
@@ -133,7 +132,7 @@ public class ClassToken extends Token
 	{
 		if (pc.getClassList().size() > classNumber)
 		{
-			PCClass pcClass = (PCClass) pc.getClassList().get(classNumber);
+			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			return pcClass.getLevel();
 		}
@@ -154,7 +153,7 @@ public class ClassToken extends Token
 		if (pc.getClassList().size() > classNumber)
 		{
 			boolean firstLine = true;
-			PCClass pcClass = (PCClass) pc.getClassList().get(classNumber);
+			PCClass pcClass = pc.getClassList().get(classNumber);
 
 			for (int i = 0; i < pcClass.getClassSpecialAbilityList(pc).size(); i++)
 			{
@@ -181,7 +180,7 @@ public class ClassToken extends Token
 	{
 		if (pc.getClassList().size() > classNumber)
 		{
-			PCClass pcClass = (PCClass)pc.getClassList().get(classNumber);
+			PCClass pcClass = pc.getClassList().get(classNumber);
 			return pcClass.getType();
 		}
 		return "";

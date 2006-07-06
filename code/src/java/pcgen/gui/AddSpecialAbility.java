@@ -151,7 +151,7 @@ public final class AddSpecialAbility extends JFrame
 
 		if (selectedValue != null)
 		{
-			PCClass aClass = (PCClass) aPC.getClassList().get(0);
+			PCClass aClass = aPC.getClassList().get(0);
 			String aString = (selectedValue).trim();
 			SpecialAbility sa = new SpecialAbility(aString, "PCCLASS|" + aClass.getKeyName() + "|0");
 			aClass.addSpecialAbilityToList(sa);

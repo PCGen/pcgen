@@ -37,6 +37,9 @@ import pcgen.persistence.PersistenceLayerException;
  */
 public abstract class AbstractPrerequisiteIntegerParser extends AbstractPrerequisiteParser
 {
+	/**
+	 * @see pcgen.persistence.lst.prereq.AbstractPrerequisiteParser#parse(java.lang.String, java.lang.String, boolean, boolean)
+	 */
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

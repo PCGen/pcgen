@@ -373,7 +373,7 @@ public final class Deity extends PObject
 	}
 
 	/**
-	 * @param domainName
+	 * @param domainKey
 	 * @return true if the deity has the passed-in domain
 	 */
 	public boolean hasDomainKeyed(final String domainKey)

@@ -144,10 +144,10 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	/**
 	 * return the root node
 	 * @return root
-	 **/
+	 */
 	public Object getRoot()
 	{
-		return (PObjectNode) super.getRoot();
+		return super.getRoot();
 	}
 
 	/**

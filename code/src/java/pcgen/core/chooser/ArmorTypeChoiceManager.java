@@ -23,12 +23,9 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**

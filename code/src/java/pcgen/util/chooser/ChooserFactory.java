@@ -99,10 +99,20 @@ public final class ChooserFactory
 	public static void setRadioInterfaceClassname(String radioInterfaceClassname) {
 		ChooserFactory.radioInterfaceClassname = radioInterfaceClassname;
 	}
-	public static String getInterfaceClassname()
+	
+    /**
+     * Get the class name of the interface
+     * @return the class name of the interface
+     */
+    public static String getInterfaceClassname()
 	{
 		return ChooserFactory.interfaceClassname;
 	}
+    
+    /**
+     * Get the class name of the radio interface
+     * @return the class name of hte radio interface
+     */
 	public static String getRadioInterfaceClassname()
 	{
 		return ChooserFactory.radioInterfaceClassname;

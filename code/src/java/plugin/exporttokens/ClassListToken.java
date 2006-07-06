@@ -68,7 +68,7 @@ public class ClassListToken extends Token
 
 		for (int i = 0; i < pc.getClassList().size(); i++)
 		{
-			PCClass pcClass = (PCClass) pc.getClassList().get(i);
+			PCClass pcClass = pc.getClassList().get(i);
 
 			if (!firstLine)
 			{

@@ -190,8 +190,8 @@ public class CategorisableStore implements Cloneable
 	 * @deprecated Getting objects by name should not be done, use getKeyed
 	 * instead.
 	 */
-
-	public Categorisable getNamed(final String aCategory, String aName)
+	@Deprecated
+    public Categorisable getNamed(final String aCategory, String aName)
 	{
 		final Iterator<Categorisable> it = getNameIterator(aCategory);
 
@@ -394,8 +394,8 @@ public class CategorisableStore implements Cloneable
 	 * @deprecated Getting objects by name should not be done, use getKeyed
 	 * instead.
 	 */
-
-	public boolean removeNamed(final String aCategory, String aName)
+	@Deprecated
+    public boolean removeNamed(final String aCategory, String aName)
 	{
 		final Iterator<Categorisable> it = getNameIterator(aCategory);
 

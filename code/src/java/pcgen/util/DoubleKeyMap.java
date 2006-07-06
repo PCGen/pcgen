@@ -9,6 +9,9 @@ import java.util.*;
 
 /**
  * A map representation for a dual key entity
+ * @param <K1> 
+ * @param <K2> 
+ * @param <V> 
  */
 public class DoubleKeyMap<K1, K2, V> implements Cloneable
 {

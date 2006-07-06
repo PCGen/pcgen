@@ -3,21 +3,34 @@ package pcgen.gui;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-
-
+/**
+ * JUnit test for Wizard Sam
+ */
 public class pcGenGUISWizSamTest extends pcGenGUITestCase {
 
-    // standard JUnit style constructor
+    /** 
+     * Standard JUnit style constructor
+     * 
+     * @param name
+     */
     public pcGenGUISWizSamTest(String name) {
         super(name);
     }
 
+    /**
+     * Return test
+     * @return Test
+     */
 	public static Test suite()
 	{
 		return new TestSuite(pcGenGUISWizSamTest.class);
 	}
 
-   public void testSWizSam() throws Exception {
+    /**
+     * Run test
+     * @throws Exception
+     */
+    public void testSWizSam() throws Exception {
         runTest("SWizSam", "3e");
     }
 

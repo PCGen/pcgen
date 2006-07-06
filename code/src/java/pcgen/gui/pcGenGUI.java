@@ -582,7 +582,7 @@ public class pcGenGUI
 		StringBuffer sb = new StringBuffer();
 		sb.append("<html>");
 		sb.append("<img src='")
-			.append(SponsorLoader.getConvertedSponsorPath((String)Globals.getSponsor("PCGEN").get("IMAGEBANNER")))
+			.append(SponsorLoader.getConvertedSponsorPath(Globals.getSponsor("PCGEN").get("IMAGEBANNER")))
 			.append("'><br>");
 
 		String s = "";

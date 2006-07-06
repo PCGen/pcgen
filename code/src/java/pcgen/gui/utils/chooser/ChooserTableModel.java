@@ -77,6 +77,10 @@ public class ChooserTableModel extends AbstractTableModel
 		return mColumnNames[column];
 	}
 
+    /**
+     * Set the names of the columns
+     * @param names
+     */
 	public void setColumnNames(String[] names)
 	{
 		mColumnNames = names;

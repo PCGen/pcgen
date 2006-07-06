@@ -78,7 +78,7 @@ public class ClassAbbToken extends Token
 
 		if (pc.getClassList().size() > classNumber)
 		{
-			PCClass pcClass = (PCClass) pc.getClassList().get(classNumber);
+			PCClass pcClass = pc.getClassList().get(classNumber);
 			String subClassKey = pcClass.getDisplayClassName();
 
 			if (!pcClass.getKeyName().equals(subClassKey))

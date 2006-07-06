@@ -37,6 +37,10 @@ public class ACCheckToken extends Token
 	/** Name of the Token */
 	public static final String TOKENNAME = "ACCHECK";
 
+    /**
+     * Return the token name
+     * @return token name
+     */
 	public String getTokenName()
 	{
 		return TOKENNAME;

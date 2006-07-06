@@ -27,6 +27,7 @@ package pcgen.core.character;
 
 /**
  * @author Valued Customer
+ * @param <T> 
  * @todo This doesn't belong in this package.  It should probably be an inner
  * class in VariableProcessor.
  *

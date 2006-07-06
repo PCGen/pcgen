@@ -385,7 +385,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		for (int x = 0; x < obj.getTemplates().size(); ++x)
 		{
-			String c = (String) obj.getTemplates().get(x);
+			String c = obj.getTemplates().get(x);
 			int y = c.indexOf('|');
 			LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_TEMPLATE, c.substring(y + 1));
 			levelTagList.add(lt);

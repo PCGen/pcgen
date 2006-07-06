@@ -13,7 +13,6 @@ import pcgen.persistence.PersistenceLayerException;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import java.util.Iterator;
 import pcgen.core.PCClass;
 
 /**

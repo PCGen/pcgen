@@ -29,6 +29,7 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * Choice Manager List interface
+ * @param <T> 
  */
 public interface ChoiceManagerList<T> {
 

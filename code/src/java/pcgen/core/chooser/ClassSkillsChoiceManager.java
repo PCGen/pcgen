@@ -28,7 +28,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -54,7 +53,7 @@ public class ClassSkillsChoiceManager extends AbstractComplexChoiceManager<Skill
 		chooserHandled = "CSKILLS";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				(choices.get(0)).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}

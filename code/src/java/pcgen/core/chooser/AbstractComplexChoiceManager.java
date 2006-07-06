@@ -42,6 +42,7 @@ import java.util.ArrayList;
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
+ * @param <T> 
  */
 public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoiceManager<T>
 {
@@ -186,6 +187,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
+	 * @return List of 
 	 */
 	public List<T> doChooser (
 			PlayerCharacter       aPc,

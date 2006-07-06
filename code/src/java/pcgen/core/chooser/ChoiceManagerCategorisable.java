@@ -30,6 +30,7 @@ import pcgen.core.Categorisable;
 
 /**
  * Choice Manager interface
+ * @param <T> 
  */
 public interface ChoiceManagerCategorisable <T extends Categorisable> {
 

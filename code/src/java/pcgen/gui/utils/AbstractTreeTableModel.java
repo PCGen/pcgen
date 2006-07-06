@@ -40,7 +40,13 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		this.root = root;
 	}
 
-	// This is not called in the JTree's default mode: use a naive implementation.
+	/**
+     * This is not called in the JTree's default mode: use a naive implementation.
+     * 
+	 * @param parent 
+	 * @param child 
+     * @return index of the child or -1 
+	 */
 	public final int getIndexOfChild(Object parent, Object child)
 	{
 		for (int i = 0; i < getChildCount(parent); i++)
@@ -54,6 +60,12 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		return -1;
 	}
 
+    /**
+     * Returns true if its a leaf node
+     * 
+     * @param node 
+     * @return true if its a leaf node
+     */
 	public final boolean isLeaf(Object node)
 	{
 		return getChildCount(node) == 0;
@@ -62,12 +74,22 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	//
 	// Default implmentations for methods in the TreeModel interface.
 	//
+    
+    /**
+     * Get the root node
+     * @return root
+     */
 	public Object getRoot()
 	{
 		return root;
 	}
 
-	public final void addTreeModelListener(TreeModelListener l)
+	/**
+     * Add a listener to the tree model
+     * 
+     * @param l
+	 */
+    public final void addTreeModelListener(TreeModelListener l)
 	{
 		listenerList.add(TreeModelListener.class, l);
 	}
@@ -104,6 +126,11 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		}
 	}
 
+    /**
+     * Remove the listener for this tree model
+     * 
+     * @param l
+     */
 	public final void removeTreeModelListener(TreeModelListener l)
 	{
 		listenerList.remove(TreeModelListener.class, l);
@@ -136,7 +163,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	 * @param parent
 	 * @param index
 	 * @return child
-	 **/
+	 */
 	public final Object getChild(Object parent, int index)
 	{
 		return PObjectNode.getChild(parent, index);
@@ -156,6 +183,13 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	//
 	// Default impelmentations for methods in the TreeTableModel interface.
 	//
+    
+    /**
+     * Get the column class
+     * 
+     * @param column
+     * @return Object.class
+     */
 	public Class getColumnClass(int column)
 	{
 		return Object.class;
@@ -170,26 +204,33 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		this.root = root;
 	}
 
+    /**
+     * Does nothing
+     * 
+     * @param aValue 
+     * @param node 
+     * @param column 
+     */
 	public void setValueAt(Object aValue, Object node, int column)
 	{
-	    // This method currently does nothing
+	    // TODO This method currently does nothing
 	}
 
 	/**
 	 * This should be called instead of updateUI
 	 * updateUI is for changes to the UI (such as metalUF to systemLF)
-	 **/
+	 */
 	public void updateTree()
 	{
-		//fireTreeStructureChanged(root, new TreePath(root));
 		fireTreeNodesChanged(root, new TreePath(root));
 	}
 
-	/*
+	/**
 	 * Notify all listeners that have registered interest for
 	 * notification on this event type.  The event instance
 	 * is lazily created using the parameters passed into
 	 * the fire method.
+     * 
 	 * @see EventListenerList
 	 */
 	protected final void fireTreeStructureChanged(Object source, TreePath path)

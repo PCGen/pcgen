@@ -9,10 +9,21 @@ import pcgen.persistence.lst.PObjectLoader;
  */
 public class AcToken implements EquipmentLstToken {
 
-	public String getTokenName() {
+	/**
+     * Return token name
+     * @return token name 
+	 */
+    public String getTokenName() {
 		return "AC";
 	}
 
+    /**
+     * Parse the AC token for equipment
+     * 
+     * @param eq 
+     * @param value 
+     * @return true if parse OK 
+     */
 	public boolean parse(Equipment eq, String value) {
 		try {
 			final String aBonus = "BONUS:COMBAT|AC|" + value + "|TYPE=Armor.REPLACE";

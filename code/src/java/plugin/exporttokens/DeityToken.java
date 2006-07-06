@@ -26,7 +26,6 @@
 package plugin.exporttokens;
 
 import pcgen.core.Deity;
-import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
@@ -197,7 +196,7 @@ public class DeityToken extends Token
 
 			firstLine = false;
 
-			retString += ((Domain) deity.getDomainList().get(i)).getDisplayName();
+			retString += (deity.getDomainList().get(i)).getDisplayName();
 		}
 
 		return retString;

@@ -58,7 +58,11 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
 		setDescription(argDescription);
 	}
 
-	public String getCategory()
+	/**
+     * Get the category
+     * @return category 
+	 */
+    public String getCategory()
 	{
 		return category;
 	}
@@ -72,27 +76,52 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
 		description = normalize(d);
 	}
 
+    /**
+     * Get the description
+     * @return description
+     */
 	public String getDescription()
 	{
 		return description;
 	}
 
-	public String getDescription(PlayerCharacter aPC)
+	/**
+     * Get description given a PC
+     * 
+     * @param aPC
+     * @return description 
+	 */
+    public String getDescription(PlayerCharacter aPC)
 	{
 		return description;
 	}
 
-
+    /**
+     * Get name
+     * @return name
+     */
 	public String getName()
 	{
 		return name;
 	}
 	
-	public String getName(PlayerCharacter aPC)
+	/**
+     * Get name given a PC
+     * 
+     * @param aPC
+     * @return name 
+	 */
+    public String getName(PlayerCharacter aPC)
 	{
 		return name;
 	}
 
+    /**
+     * equals method, returns true if filter is equal
+     * 
+     * @param object
+     * @return true if equal
+     */
 	public final boolean equals(Object object)
 	{
 		if (object instanceof PObjectFilter)
@@ -103,14 +132,30 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
 		return super.equals(object);
 	}
 
+    /**
+     * Hashcode
+     * 
+     * @return hashcode of this filter
+     */
 	public final int hashCode()
 	{
 		return toString().hashCode();
 	}
 
-	public abstract boolean accept(PlayerCharacter aPC, PObject pObject);
+	/**
+     * Abstract method, returns true if filter accepts the PC and Object
+     * 
+	 * @param aPC 
+	 * @param pObject 
+	 * @return true or false 
+	 */
+    public abstract boolean accept(PlayerCharacter aPC, PObject pObject);
 
-	public String toString()
+	/**
+     * toString - category + name or name
+     * @return category + name or name
+	 */
+    public String toString()
 	{
 		return (category.length() > 0) ? (getCategory() + SEPARATOR + name) : name;
 	}

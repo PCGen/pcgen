@@ -35,7 +35,17 @@ import pcgen.persistence.PersistenceLayerException;
  */
 public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	/**
+     * Parses PreReq
+     * 
+	 * @param kind 
+	 * @param formula 
+	 * @param invertResult 
+	 * @param overrideQualify 
+	 * @return PreReq 
+	 * @throws PersistenceLayerException 
+	 */
+    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 		// Check to make sure that this class can parse this token

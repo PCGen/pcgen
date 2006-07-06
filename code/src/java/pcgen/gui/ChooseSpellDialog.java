@@ -511,7 +511,8 @@ final class ChooseSpellDialog extends JDialog
 		}
 	}
 
-	private boolean canCreateItem(Spell aSpell)
+	@SuppressWarnings("fallthrough")
+    private boolean canCreateItem(Spell aSpell)
 	{
 		boolean canCreate = true;
 		String itemType;

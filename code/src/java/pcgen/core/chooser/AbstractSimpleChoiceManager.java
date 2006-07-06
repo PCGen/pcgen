@@ -39,6 +39,7 @@ import java.util.List;
  *
  * @author   Andrew Wilson <nuance@sourceforge.net>
  * @version  $Revision$
+ * @param <T> 
  */
 public abstract class AbstractSimpleChoiceManager<T> implements ChoiceManagerList<T>
 {

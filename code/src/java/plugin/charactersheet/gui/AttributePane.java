@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004

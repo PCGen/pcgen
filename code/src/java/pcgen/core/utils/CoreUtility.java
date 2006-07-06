@@ -49,6 +49,7 @@ public final class CoreUtility
 
 	/**
 	 * Converts an array of Objects into a List of Objects
+	 * @param <T> 
 	 * @param array the array to be converted. If this array is null
 	 * then this method will return an empty list;
 	 * @return The list containing the objects passed in.
@@ -188,6 +189,7 @@ public final class CoreUtility
 
 	/**
 	 * Returns true if the checklist contains any row from targets.
+	 * @param <T> 
 	 * @param checklist The collection to check
 	 * @param targets The collection to find in the checklist
 	 * @return TRUE if equal, ELSE false

@@ -33,6 +33,7 @@ import java.util.HashMap;
  *
  * @author Aaron Divinsky (boomer70)
  * @version $Revision$
+ * @param <T> 
  */
 public class AssociatedChoice <T extends Comparable> implements Comparable
 {
@@ -48,6 +49,7 @@ public class AssociatedChoice <T extends Comparable> implements Comparable
 	 */
 	public AssociatedChoice()
 	{
+        // Do Nothing
 	}
 
 	/**

@@ -39,6 +39,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * - declare to throw Exception as if this fails then 
 	 * all the tests will fail, and JUnit copes with these 
 	 * Exceptions for us.
+	 * @throws Exception 
 	 */
 	public void setUp() throws Exception {
 		super.setUp();

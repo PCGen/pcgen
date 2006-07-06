@@ -80,6 +80,16 @@ public abstract class AbstractPrerequisiteListParser
 		}
 	}
 
+    /**
+     * Parse the pre req list
+     * 
+     * @param kind 
+     * @param formula 
+     * @param invertResult 
+     * @param overrideQualify 
+     * @return PreReq 
+     * @throws PersistenceLayerException 
+     */
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

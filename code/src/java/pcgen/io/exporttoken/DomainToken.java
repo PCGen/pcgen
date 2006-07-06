@@ -25,7 +25,6 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.CharacterDomain;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -101,7 +100,7 @@ public class DomainToken extends Token
 	{
 		try
 		{
-			Domain domain = ((CharacterDomain) pc.getCharacterDomainList().get(domainIndex)).getDomain();
+			Domain domain = (pc.getCharacterDomainList().get(domainIndex)).getDomain();
 
 			return domain.getOutputName();
 		}
@@ -121,7 +120,7 @@ public class DomainToken extends Token
 	{
 		try
 		{
-			Domain domain = ((CharacterDomain) pc.getCharacterDomainList().get(domainIndex)).getDomain();
+			Domain domain = (pc.getCharacterDomainList().get(domainIndex)).getDomain();
 
 			return domain.piDescString();
 		}
