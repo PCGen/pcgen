@@ -1,0 +1,130 @@
+/* Overall look and feel */
+body
+{
+    background: rgb(250,234,183);
+    color: (0,0,0);
+    font-family: "Trebuchet MS", Trebuchet, "Lucida Sans", Verdana, Arial, Helvetica, Helvet, sans-serif;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+body, td, select, input, li{
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+code{
+  font-size: 13px;
+}
+
+h2 {
+    font-size: 116%;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+h3 {
+    font-size: 104%;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 0px;
+}
+p {
+  line-height: 1.3em;
+  font-size: small;
+}
+
+a, a:visited, a:active, span.current
+{
+    background-color: inherit;
+    color: rgb(102,0,0);
+    text-decoration: none;
+}
+
+a:hover
+{
+    background-color: inherit;
+    color: rgb(120,105,55);
+    border-bottom: 1px solid rgb(120,105,55);
+    text-decoration: none;
+}
+
+
+/* Link icons */
+#legend li.externalLink {
+  background: url(../images/external.png) left top no-repeat;
+  padding-left: 18px;
+}
+a.externalLink, a.externalLink:link, a.externalLink:visited, a.externalLink:active, a.externalLink:hover {
+  background: url(../images/external.png) right center no-repeat;
+  padding-right: 18px;
+}
+#legend li.newWindow {
+  background: url(../images/newwindow.png) left top no-repeat;
+  padding-left: 18px;
+}
+a.newWindow, a.newWindow:link, a.newWindow:visited, a.newWindow:active, a.newWindow:hover {
+  background: url(../images/newwindow.png) right center no-repeat;
+  padding-right: 18px;
+}
+
+/* Special styles to highlight regions */
+#breadcrumbs {
+  border-top: 1px solid rgb(186,170,118);
+  border-bottom: 1px solid rgb(186,170,118);
+  background-color: rgb(218,202,150);
+}
+#leftColumn {
+  margin: 10px 0 0 5px;
+  border: 2px solid rgb(145,129,77);
+  background:  url("../images/vellum.jpg");
+}
+#navcolumn h5 {
+  font-size: smaller;
+  border-bottom: 1px solid rgb(186,170,118);
+  padding-top: 2px;
+}
+
+#footer {
+  margin-top: 4px;
+  border-top: 1px solid rgb(186,170,118);
+}
+
+.source {
+  border: 1px solid rgb(145,129,77);
+}
+
+
+/* Table formats */
+table.bodyTable th {
+  color: white;
+  background-color: rgb(186,170,118);
+  text-align: left;
+  font-weight: bold;
+}
+
+table.bodyTable th, table.bodyTable td {
+  font-size: 1em;
+}
+
+table.bodyTable tr.a {
+  background-color: rgb(218,202,150);
+}
+
+table.bodyTable tr.b {
+  background-color: rgb(234,218,166);
+}
+
+dt.question {
+  color: #900;
+  background-color: #eee;
+}
+
+
+/* Overrides of the maven-base styles */
+#banner
+{
+    border: none;
+}

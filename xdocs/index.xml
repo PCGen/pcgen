@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<document>  
+<properties>
+  <title></title>  
+</properties>  
+<meta name="keyword" content="jakarta, java"/> 
+<body>
+ <section name="PCGen"> 
+ <p> PCGen is a character generator for role-playing games. It is currently aimed at 
+ supporting as many RPGs as is humanly possible. The project's current focus is on 
+ OGL games (OGL is Wizards of the Coast's Open Gaming License). PCGen runs on Windows, 
+ Mac OS X and Unix/Linux using Java 1.5.
+ </p> 
+ <p>PCGen is a Java based open source project. All datafiles are ASCII so they can 
+ be modified by users.</p>
+ <p>
+<ul>
+ <li><a href="http://pcgen.sourceforge.net/">PCGen Home Page</a></li>
+<li><a href="http://www.legolas.org/pcgen/pytw/#Welcome">PCGen Wiki</a></li>
+<li><a href="https://sourceforge.net/projects/pcgen/">SourceForge Project Page</a></li>
+ </ul>
+ </p>
+ </section> </body> </document>
+
+
