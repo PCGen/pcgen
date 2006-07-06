@@ -40,7 +40,7 @@
 			<j:arg type="java.lang.String" value="yyyyMMdd.HHmm" />
 		</j:new>
 		<j:invokeStatic className="java.util.TimeZone" method="getTimeZone" var="timezone">
-			<j:arg type="java.lang.String" value="UTC" />
+			<j:arg type="java.lang.String" value="Australia/Canberra" /> <!-- Should match the locale of the build machine -->
 		</j:invokeStatic>
 		<j:invoke on="${format}" var="formattedDate" method="setTimeZone">
 			<j:arg type="java.util.TimeZone" value="${timezone}" />
