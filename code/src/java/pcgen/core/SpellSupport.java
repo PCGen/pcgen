@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -66,12 +65,23 @@ public class SpellSupport implements Cloneable
 	 */
 	private List<CharacterSpell> characterSpellList = null;
 
-	public void clearSpellLevelMap()
+	/**
+     * Clear the spell level map 
+	 */
+    public void clearSpellLevelMap()
 	{
 		spellLevelMap.clear();
 	}
 
-	public void putLevel(String tagType, String className, String spellName,
+    /**
+     * Put a spell level into the map
+     * 
+     * @param tagType
+     * @param className
+     * @param spellName
+     * @param spellLevel
+     */
+    public void putLevel(String tagType, String className, String spellName,
 			String spellLevel)
 	{
 		Integer lvl = new Integer(-1);
@@ -82,24 +92,50 @@ public class SpellSupport implements Cloneable
 		}
 		catch ( NumberFormatException nfe )
 		{
+            // TODO Handle Exception
 		}
 	}
 
-	public boolean containsLevelFor(String tagType, String className, String spellName)
+	/**
+     * Returns true if the map contains the spell level 
+     * @param tagType
+     * @param className
+     * @param spellName
+     * @return true if the map contains the spell level
+	 */
+    public boolean containsLevelFor(String tagType, String className, String spellName)
 	{
 		return spellLevelMap.containsKey(tagType + "|" + className + "|" + spellName);
 	}
 
-	public void putInfo(String tagType, String spellName, String className, String spellLevel)
+	/**
+     * Put the spell info into the spell info map
+     * 
+     * @param tagType
+     * @param spellName
+     * @param className
+     * @param spellLevel
+	 */
+    public void putInfo(String tagType, String spellName, String className, String spellLevel)
 	{
 		spellInfoMap.put(tagType, spellName, new Info(className, Integer.parseInt(spellLevel)));
 	}
 
-	public class Info
+	/**
+     * Class that holds spell info
+	 */
+    public class Info
 	{
-		public final String name;
-		public final int level;
+		/** name */
+        public final String name;
+		/** spell level */
+        public final int level;
 
+        /**
+         * Constructor
+         * @param n
+         * @param l
+         */
 		public Info(String n, int l)
 		{
 			name = n;
@@ -107,22 +143,42 @@ public class SpellSupport implements Cloneable
 		}
 	}
 
-	public void clearSpellInfoMap()
+	/**
+     * Clear the spell info map 
+	 */
+    public void clearSpellInfoMap()
 	{
 		spellInfoMap.clear();
 	}
 
-	public boolean containsInfoFor(String string, String spellName)
+    /**
+     * Returns true if the spell info map contains the info
+     * @param string
+     * @param spellName
+     * @return true if the spell info map contains the info
+     */
+    public boolean containsInfoFor(String string, String spellName)
 	{
 		return spellInfoMap.containsKey(string, spellName);
 	}
 
-	public Info getInfo(String string, String spellName)
+    /**
+     * Get the info from the spell ifo map
+     * @param string
+     * @param spellName
+     * @return Info
+     */
+    public Info getInfo(String string, String spellName)
 	{
 		return spellInfoMap.get(string, spellName);
 	}
 
-	public void addSpells(final int level, final List<PCSpell> aSpellList)
+	/**
+     * Add a list of spells to the spell map 
+     * @param level
+     * @param aSpellList
+	 */
+    public void addSpells(final int level, final List<PCSpell> aSpellList)
 	{
 		final String aLevel = Integer.toString(level);
 		for (PCSpell spell : aSpellList )
@@ -134,7 +190,12 @@ public class SpellSupport implements Cloneable
 		}
 	}
 
-	public List<PCSpell> getSpellList(int levelLimit)
+	/**
+     * Get a list of spells from the spell map 
+     * @param levelLimit
+     * @return List of PCSpells
+	 */
+    public List<PCSpell> getSpellList(int levelLimit)
 	{
 		boolean allSpells = levelLimit == -1;
 		final ArrayList<PCSpell> aList = new ArrayList<PCSpell>();
@@ -177,11 +238,23 @@ public class SpellSupport implements Cloneable
 		return aList;
 	}
 
-	public final void clearSpellList()
+	/**
+     * Clear the spell list by initialising a new one 
+	 */
+    public final void clearSpellList()
 	{
 		spellMap = new HashMapToList<String, PCSpell>();
 	}
 
+    /**
+     * Add a spell level to the spell map and spell info into the info map
+     * 
+     * @param tagType
+     * @param className
+     * @param spellName
+     * @param spellLevel
+     * @param preList
+     */
 	public void addSpellLevel(String tagType, String className, String spellName, String spellLevel, List<Prerequisite> preList)
 	{
 		preReqSpellLevelMap.put(tagType + "|" + className + "|" + spellName, preList);
@@ -189,7 +262,14 @@ public class SpellSupport implements Cloneable
 		putInfo(tagType, spellName, className, spellLevel);
 	}
 
-	public Map<String, Integer> getSpellMapPassesPrereqs(int levelMatch, PlayerCharacter pc)
+	/**
+     * Get the subset of the spell map that passes the PreReq
+     *  
+     * @param levelMatch
+     * @param pc
+     * @return Map
+	 */
+    public Map<String, Integer> getSpellMapPassesPrereqs(int levelMatch, PlayerCharacter pc)
 	{
 		final Map<String, Integer> tempMap = new HashMap<String, Integer>();
 
@@ -235,7 +315,14 @@ public class SpellSupport implements Cloneable
 		return tempMap;
 	}
 
-	public Map<String, Integer> getSpellInfoMapPassesPrereqs(String key1, String key2, PlayerCharacter pc)
+	/**
+     * Get the subset Map of infos that meet the PreReq  
+     * @param key1
+     * @param key2
+     * @param pc
+     * @return Map
+	 */
+    public Map<String, Integer> getSpellInfoMapPassesPrereqs(String key1, String key2, PlayerCharacter pc)
 	{
 		final Map<String, Integer> tempMap = new HashMap<String, Integer>();
 
@@ -277,7 +364,12 @@ public class SpellSupport implements Cloneable
 		return tempMap;
 	}
 
-	final boolean removeCharacterSpell(final CharacterSpell spell)
+    /**
+     * Remove a spell from the character spell list
+     * @param spell
+     * @return true if removal ok
+     */
+    final boolean removeCharacterSpell(final CharacterSpell spell)
 	{
 		if (characterSpellList == null)
 		{
@@ -287,7 +379,10 @@ public class SpellSupport implements Cloneable
 		return characterSpellList.remove(spell);
 	}
 
-	final void clearCharacterSpells()
+	/**
+     * Clear the character spell list 
+	 */
+    final void clearCharacterSpells()
 	{
 		if ((characterSpellList != null) && !characterSpellList.isEmpty())
 		{
@@ -295,7 +390,10 @@ public class SpellSupport implements Cloneable
 		}
 	}
 
-	public final void sortCharacterSpellList()
+	/**
+     * Sort the character spell list 
+	 */
+    public final void sortCharacterSpellList()
 	{
 		if (characterSpellList != null)
 		{
@@ -303,7 +401,11 @@ public class SpellSupport implements Cloneable
 		}
 	}
 
-	public final void addAllCharacterSpells(final List<CharacterSpell> l)
+    /**
+     * Add a list of spells to the character spell list
+     * @param l
+     */
+    public final void addAllCharacterSpells(final List<CharacterSpell> l)
 	{
 		if (characterSpellList == null)
 		{
@@ -313,7 +415,11 @@ public class SpellSupport implements Cloneable
 		characterSpellList.addAll(l);
 	}
 
-	public final void addCharacterSpell(final CharacterSpell spell)
+	/**
+     * Add a spell to the character spell list 
+     * @param spell
+	 */
+    public final void addCharacterSpell(final CharacterSpell spell)
 	{
 		if (characterSpellList == null)
 		{
@@ -323,12 +429,21 @@ public class SpellSupport implements Cloneable
 		characterSpellList.add(spell);
 	}
 
-	public final boolean containsCharacterSpell(final CharacterSpell spell)
+	/**
+     * Returns true if the spell is in the character spell list 
+     * @param spell
+     * @return true if the spell is in the character spell list
+	 */
+    public final boolean containsCharacterSpell(final CharacterSpell spell)
 	{
 		return characterSpellList != null && characterSpellList.contains(spell);
 	}
 
-	public final int getCharacterSpellCount()
+	/**
+     * Get the number of character spells in the list 
+     * @return number of character spells in the list
+	 */
+    public final int getCharacterSpellCount()
 	{
 		if (characterSpellList == null)
 		{
@@ -338,7 +453,13 @@ public class SpellSupport implements Cloneable
 		return characterSpellList.size();
 	}
 
-	public final CharacterSpell getCharacterSpellForSpell(final Spell aSpell,
+	/**
+     * Get the character spell fromn the character spell list 
+     * @param aSpell
+     * @param anOwner
+     * @return CharacterSpell
+	 */
+    public final CharacterSpell getCharacterSpellForSpell(final Spell aSpell,
 			final PObject anOwner)
 	{
 		if ((aSpell == null) || (characterSpellList == null))
@@ -359,7 +480,16 @@ public class SpellSupport implements Cloneable
 		return null;
 	}
 
-	public final List<CharacterSpell> getCharacterSpell(final Spell aSpell, final String book,
+	/**
+     * Get a list of CharacterSpells from the character spell list
+     *  
+     * @param aSpell
+     * @param book
+     * @param level
+     * @param fList
+     * @return list of CharacterSpells from the character spell list
+	 */
+    public final List<CharacterSpell> getCharacterSpell(final Spell aSpell, final String book,
 			final int level, final ArrayList fList)
 	{
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
@@ -399,7 +529,11 @@ public class SpellSupport implements Cloneable
 		return getCharacterSpell(aSpell, book, level, null);
 	}
 
-	public Collection<CharacterSpell> getCharacterSpellList()
+	/**
+     * Get all of the character spells 
+     * @return all of the character spells
+	 */
+    public Collection<CharacterSpell> getCharacterSpellList()
 	{
 		if (characterSpellList == null)
 		{
