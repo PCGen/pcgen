@@ -34,6 +34,9 @@ import java.util.Map;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
+/**
+ * A Factory for PreReq Writing 
+ */
 public class PrerequisiteWriterFactory
 {
 	private static PrerequisiteWriterFactory instance = null;
@@ -41,6 +44,7 @@ public class PrerequisiteWriterFactory
 
 	private PrerequisiteWriterFactory()
 	{
+        // Do Nothing
 	}
 
 	/**
@@ -75,7 +79,11 @@ public class PrerequisiteWriterFactory
 		return test;
 	}
 
-
+    /**
+     * Register the test class with the factory 
+     * @param testClass
+     * @throws PersistenceLayerException
+     */
 	public static void register(PrerequisiteWriterInterface testClass) throws PersistenceLayerException
 	{
 		String kindHandled = testClass.kindHandled();

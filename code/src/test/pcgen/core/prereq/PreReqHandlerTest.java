@@ -41,11 +41,14 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * @author wardc
- *
  */
 public class PreReqHandlerTest extends PCGenTestCase
 {
 
+    /**
+     * Run the JUnit test
+     * @param args
+     */
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreReqHandlerTest.class);
@@ -68,11 +71,14 @@ public class PreReqHandlerTest extends PCGenTestCase
 		}
 		catch (Exception e)
 		{
-
+		    // TODO Handle exception
 		}
 	}
 
-
+	/**
+     * Print out as HTML
+     * @throws Exception
+	 */
 	public void testToHtml() throws Exception
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();

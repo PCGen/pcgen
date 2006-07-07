@@ -9,13 +9,28 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+/**
+ * Loads the roll methods
+ */
 public class RollMethodLoader  {
-	public static final String ROLLMETHOD = "rollMethod";
-	public static final String METHOD = "method";
 
+    /** rollMethod */
+    public static final String ROLLMETHOD = "rollMethod";
+	/** method */
+    public static final String METHOD = "method";
+
+    /** Constructor */
 	public RollMethodLoader() {
+        // Do Nothing
 	}
 
+    /**
+     * Parse the roll methods for the game mode
+     * 
+     * @param gameMode
+     * @param lstLine
+     * @throws PersistenceLayerException
+     */
 	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
 		Map<String, String> method = new HashMap<String, String>();
 		method.put(ROLLMETHOD, "");
@@ -32,6 +47,7 @@ public class RollMethodLoader  {
 				key = colString.substring(0, idxColon);
 			}
 			catch(StringIndexOutOfBoundsException e) {
+                // TODO Handle Exception
 			}
 
 			RollMethodLstToken token = (RollMethodLstToken) tokenMap.get(key);

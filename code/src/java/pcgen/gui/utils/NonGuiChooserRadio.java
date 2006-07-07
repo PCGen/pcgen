@@ -47,6 +47,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public NonGuiChooserRadio()
 	{
+        // Do Nothing
 	}
 
 	/**
@@ -54,6 +55,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setAvailableList(List availableList)
 	{
+        // Do Nothing
 	}
 
 	/**
@@ -61,6 +63,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setComboData(String cmbLabelText, List cmbData)
 	{
+        // Do Nothing
 	}
 
 	/**
@@ -68,6 +71,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setMessageText(String messageText)
 	{
+        // Do Nothing
 	}
 
 	/**
@@ -83,6 +87,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setTitle(String title)
 	{
+        // Do Nothing
 	}
 
 	/**

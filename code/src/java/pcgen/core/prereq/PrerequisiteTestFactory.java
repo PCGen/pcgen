@@ -46,7 +46,9 @@ public class PrerequisiteTestFactory {
 		return instance;
 	}
 
-	private PrerequisiteTestFactory() {
+	/** Private default constructor */
+    private PrerequisiteTestFactory() {
+        // Do Nothing
 	}
 
 	/**

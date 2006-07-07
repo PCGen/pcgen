@@ -1356,7 +1356,7 @@ public final class Skill extends PObject
 
 		for ( PCTemplate template : aPC.getTemplateList() )
 		{
-			if (template.hasCcSkill(keyName));
+			if (template.hasCcSkill(keyName))
 			{
 				return true;
 			}

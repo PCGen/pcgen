@@ -446,7 +446,7 @@ public class PrerequisiteWriterTest extends TestCase
 			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		}
 		catch(Exception e) {
-			
+			// TODO Handle Exception
 		}
         Globals.setUseGUI(false);
         Globals.emptyLists();
