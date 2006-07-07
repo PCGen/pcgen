@@ -37,6 +37,7 @@ import pcgen.core.prereq.PrereqHandler;
  * Refactored from ChoiceInfo originally written by
  * Andrew Wilson <nuance@sourceforge.net>
  * @author Aaron Divinsky <boomer70@yahoo.com>
+ * @param <T> 
  */
 public class QualifiedObject<T>
 {
@@ -46,22 +47,38 @@ public class QualifiedObject<T>
 	private static final String angleSplit = "[<>\\|]";
 	private static final String squareSplit = "[\\[\\]\\|]";
 
+	/** Default Constructor */
 	public QualifiedObject()
 	{
+	    // Do Nothing
 	}
 
+    /**
+     * Constructor
+     * @param anObj
+     */
 	public QualifiedObject(final T anObj)
 	{
 		theObject = anObj;
 	}
 
-	public QualifiedObject( final T anObj, final List<Prerequisite> aPrereqList )
+	/**
+     * Constructor 
+     * @param anObj
+     * @param aPrereqList
+	 */
+    public QualifiedObject( final T anObj, final List<Prerequisite> aPrereqList )
 	{
 		theObject = anObj;
 		thePrereqs = new ArrayList<Prerequisite>( aPrereqList );
 	}
 
-	public T getObject( final PlayerCharacter aPC )
+	/**
+     * Get the qualifiying object 
+     * @param aPC
+     * @return qualifying object
+	 */
+    public T getObject( final PlayerCharacter aPC )
 	{
 		if ( qualifies( aPC ) )
 		{
@@ -70,12 +87,20 @@ public class QualifiedObject<T>
 		return null;
 	}
 
-	public void setObject( final T anObject )
+	/**
+     * Set qualifying object 
+     * @param anObject
+	 */
+    public void setObject( final T anObject )
 	{
 		theObject = anObject;
 	}
 
-	public void addPrerequisites( final List<Prerequisite> prereqs )
+	/**
+     * Add PreReqs 
+     * @param prereqs
+	 */
+    public void addPrerequisites( final List<Prerequisite> prereqs )
 	{
 		if ( thePrereqs == null )
 		{
@@ -84,7 +109,12 @@ public class QualifiedObject<T>
 		thePrereqs.addAll( prereqs );
 	}
 
-	public boolean qualifies( final PlayerCharacter aPC)
+	/**
+     * Return true if the object qualifies for all of the Pre Reqs 
+     * @param aPC
+     * @return true if the object qualifies for all of the Pre Reqs
+	 */
+    public boolean qualifies( final PlayerCharacter aPC)
 	{
 		if (thePrereqs == null)
 		{
@@ -94,7 +124,13 @@ public class QualifiedObject<T>
 		return PrereqHandler.passesAll(thePrereqs, aPC, null);
 	}
 
-	public static QualifiedObject<String> createQualifiedObject( final String unparsed, final char aDelim )
+	/**
+     * Create the qualified object 
+     * @param unparsed
+     * @param aDelim
+     * @return qualified object
+	 */
+    public static QualifiedObject<String> createQualifiedObject( final String unparsed, final char aDelim )
 	{
 
 		int start = unparsed.indexOf(aDelim);
@@ -104,39 +140,34 @@ public class QualifiedObject<T>
 			// no Prereqs, assign directly to key field
 			return new QualifiedObject<String>(unparsed);
 		}
-		else
+		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		String obj = "";
+
+		List<String> tokens = Arrays.asList(unparsed.split(aDelim == '<'
+															? angleSplit
+															: squareSplit));
+		Iterator<String> tokIt  = tokens.iterator();
+
+		// extract and assign the choice from the unparsed string
+		obj = tokIt.next();
+
+		try
 		{
-			List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
-			String obj = "";
-
-			List<String> tokens = Arrays.asList(unparsed.split(aDelim == '<'
-																? angleSplit
-																: squareSplit));
-			Iterator<String> tokIt  = tokens.iterator();
-
-			// extract and assign the choice from the unparsed string
-			obj = tokIt.next();
-
-			try
+			final PreParserFactory factory = PreParserFactory.getInstance();
+			for (; tokIt.hasNext();)
 			{
-				final PreParserFactory factory = PreParserFactory.getInstance();
+				final Prerequisite prereq = factory.parse(tokIt.next());
 
-				for (; tokIt.hasNext();)
+                if (prereq != null)
 				{
-					final Prerequisite prereq = factory.parse(tokIt.next());
-
-					if (prereq != null)
-					{
-						prereqs.add(prereq);
-					}
+					prereqs.add(prereq);
 				}
 			}
-			catch (PersistenceLayerException e)
-			{
-				e.printStackTrace();
-			}
-			return new QualifiedObject<String>( obj, prereqs );
 		}
+		catch (PersistenceLayerException e)
+		{
+			e.printStackTrace();
+		}
+		return new QualifiedObject<String>( obj, prereqs );
 	}
-
 }
