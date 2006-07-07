@@ -42,7 +42,12 @@ import pcgen.core.prereq.Prerequisite;
  */
 public class PreMultParserTest extends TestCase
 {
-//[PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+    /**
+     * Test
+     * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+     * 
+     * @param args
+     */
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreMultParserTest.class);

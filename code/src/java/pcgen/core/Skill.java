@@ -56,9 +56,12 @@ public final class Skill extends PObject
 	public static final int VISIBILITY_DISPLAY_ONLY = 3;
 
 	//constants for Cost Type String
+    /** Cost is CLASS cost */
 	public static final String COST_CLASS = "CLASS";
-	public static final String COST_XCLASS = "CROSS-CLASS";
-	public static final String COST_EXCL = "EXCLUSIVE";
+    /** Cost is CROSS-CLASS cost */
+    public static final String COST_XCLASS = "CROSS-CLASS";
+    /** Cost is Exclusive cost */
+    public static final String COST_EXCL = "EXCLUSIVE";
 
 	private static final String COST_UNK = "UNKNOWN";
 	private static final int ACHECK_NONE = 0; // No
@@ -66,10 +69,14 @@ public final class Skill extends PObject
 	private static final int ACHECK_NONPROF = 2; // Only if not proficient
 	private static final int ACHECK_WEIGHT = 3; // -1 per 5 lbs carried or equipped
 	private static final int ACHECK_DOUBLE = 4; // Double penalty (e.g. for D&D 3.5 swim skill)
-	public static final int INCLUDE_SKILLS_NONE = 0;
-	public static final int INCLUDE_SKILLS_UNTRAINED = 1;
-	public static final int INCLUDE_SKILLS_ALL = 2;
-	public static final int INCLUDE_SKILLS_AS_UI = 3;
+	/** Include No skills = 0 */
+    public static final int INCLUDE_SKILLS_NONE = 0;
+    /** Include Untrained skills = 1 */
+    public static final int INCLUDE_SKILLS_UNTRAINED = 1;
+    /** Include All skills = 2 */
+    public static final int INCLUDE_SKILLS_ALL = 2;
+    /** Include skills as per UI choice = 3 */
+    public static final int INCLUDE_SKILLS_AS_UI = 3;
 
 	private ArrayList<String> classList = new ArrayList<String>(); // list of classes with class-access to this skill
 	private ArrayList<String> rankList = new ArrayList<String>();
@@ -85,11 +92,16 @@ public final class Skill extends PObject
 	private int aCheck = ACHECK_NONE;
 	private int outputIndex = 0;
 
+    /** Constructor */
 	public Skill()
 	{
 		// Empty Constructor
 	}
 
+    /**
+     * Set what armor/encumerance check is applied
+     * @param aString
+     */
 	public void setACheck(final String aString)
 	{
 		if (aString.length() != 0)
@@ -127,16 +139,28 @@ public final class Skill extends PObject
 		}
 	}
 
+    /**
+     * Set Armor/encumerance check
+     * @param argACheck
+     */
 	public void setACheck(final int argACheck)
 	{
 		aCheck = argACheck;
 	}
 
+    /**
+     * Get armor/encumberance check
+     * @return check
+     */
 	public int getACheck()
 	{
 		return aCheck;
 	}
 
+    /**
+     * Get a list of choices
+     * @return list of choices
+     */
 	public ArrayList<String> getChoiceStringList()
 	{
 		String choiceString = getChoiceString();
@@ -156,12 +180,23 @@ public final class Skill extends PObject
 		return aList;
 	}
 
+    /**
+     * Get a list of classes
+     * @return classList
+     */
 	public ArrayList<String> getClassList()
 	{
 		return classList;
 	}
 
-	public boolean isClassSkill(final PCClass aClass, final PlayerCharacter aPC)
+	/**
+     * Returns true if it is a CLASS skill
+     *  
+     * @param aClass
+     * @param aPC
+     * @return true if it is a CLASS skill
+	 */
+    public boolean isClassSkill(final PCClass aClass, final PlayerCharacter aPC)
 	{
 		if ((aPC == null) || (aClass == null))
 		{
@@ -311,30 +346,47 @@ public final class Skill extends PObject
 		return false;
 	}
 
-	//
-	// Convenience method
-	//
+	// Convenience methods
+    /**
+     * @return "Y" if skill is exclusive 
+     */
 	public String getExclusive()
 	{
 		return isExclusive ? "Y" : "N";
 	}
 
+    /**
+     * Return true if exclusive
+     * @return true if exclusive
+     */
 	public boolean isExclusive()
 	{
 		return isExclusive;
 	}
 
-	public void setIsExclusive(final boolean argExclusive)
+	/**
+     * Set whether skill is exclusive or not 
+     * @param argExclusive
+	 */
+    public void setIsExclusive(final boolean argExclusive)
 	{
 		isExclusive = argExclusive;
 	}
 
-	public void setKeyStat(final String aString)
+	/**
+     * Set key stat for the skill 
+     * @param aString
+	 */
+    public void setKeyStat(final String aString)
 	{
 		keyStat = aString;
 	}
 
-	public String getKeyStat()
+	/**
+     * Get the key stat for a skill 
+     * @return key stat
+	 */
+    public String getKeyStat()
 	{
 		return keyStat;
 	}
@@ -474,7 +526,7 @@ public final class Skill extends PObject
 
 		for (int i = 0; i < rankList.size(); i++)
 		{
-			final String bSkill = (String) rankList.get(i);
+			final String bSkill = rankList.get(i);
 			final int iOffs = bSkill.indexOf(':');
 
 			//
@@ -486,22 +538,40 @@ public final class Skill extends PObject
 		return new Float(rank);
 	}
 
+    /**
+     * Get list of ranks
+     * @return rankList
+     */
 	public ArrayList<String> getRankList()
 	{
 		return rankList;
 	}
 
+    /**
+     * Set required attribute
+     * @param argRequired
+     */
 	public void setRequired(final boolean argRequired)
 	{
 		required = argRequired;
 	}
 
+    /**
+     * Set root name
+     * @param aString
+     */
 	public void setRootName(final String aString)
 	{
 		rootName = aString;
 	}
 
-	public String getSkillCostType(final PCClass aClass, final PlayerCharacter aPC)
+	/**
+     * Get the type of cost for a skill 
+     * @param aClass
+     * @param aPC
+     * @return CLASS, CROSS-CLASS or Exclusive
+	 */
+    public String getSkillCostType(final PCClass aClass, final PlayerCharacter aPC)
 	{
 		// This is dippy!  So if the user sets costs to something non-standard, the matching no longer works.  XXX
 		// isCrossClassSkill() doesn't appear to work, so just go by actual cost values
@@ -521,7 +591,11 @@ public final class Skill extends PObject
 		return COST_UNK;
 	}
 
-	public int getSubtypeCount()
+    /**
+     * Get a count of the sub types
+     * @return count of sub types
+     */
+    public int getSubtypeCount()
 	{
 		final int i = getMyTypeCount();
 
@@ -533,7 +607,11 @@ public final class Skill extends PObject
 		return i - 1; // ignore first entry, the keystat
 	}
 
-	public Iterator getSubtypeIterator()
+	/**
+     * Get an iterator for the sub types 
+     * @return iterator for the sub types
+	 */
+    public Iterator getSubtypeIterator()
 	{
 		final Iterator it = getSafeListFor(ListKey.TYPE).iterator();
 
@@ -560,11 +638,19 @@ public final class Skill extends PObject
 		return new Float(getRank().doubleValue() + getRankAdj(aPC).doubleValue());
 	}
 
+    /**
+     * Set whether skill can be used untrined or not
+     * @param yesNo
+     */
 	public void setUntrained(final boolean yesNo)
 	{
 		canUseUntrained = yesNo;
 	}
 
+    /**
+     * Return true if skill can be used untrained
+     * @return true if skill can be used untrained
+     */
 	public boolean isUntrained()
 	{
 		return canUseUntrained;
@@ -593,7 +679,7 @@ public final class Skill extends PObject
 
 		for (idx = 0; idx < rankList.size(); idx++)
 		{
-			bSkill = (String) rankList.get(idx);
+			bSkill = rankList.get(idx);
 
 			if (bSkill.startsWith(aCNameString))
 			{
@@ -616,6 +702,10 @@ public final class Skill extends PObject
 		}
 	}
 
+    /**
+     * Add to the list of classes
+     * @param aString
+     */
 	public void addClassList(final String aString)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aString, "|");
@@ -776,21 +866,37 @@ public final class Skill extends PObject
 		return false;
 	}
 
+    /**
+     * Set whether the skill is visible or not
+     * @param argVisible
+     */
 	public void setVisible(final int argVisible)
 	{
 		skillVisible = argVisible;
 	}
 
+    /**
+     * Return true if skill is visible
+     * @return true if skill is visible
+     */
 	public int isVisible()
 	{
 		return skillVisible;
 	}
 
+    /**
+     * Set read only attribute for skill
+     * @param argReadOnly
+     */
 	public void setReadOnly(final boolean argReadOnly)
 	{
 		skillReadOnly = argReadOnly;
 	}
-
+	
+    /**
+     * Return true if skill is read only
+     * @return true if skill is read only
+     */
 	public boolean isReadOnly()
 	{
 		return skillReadOnly;
@@ -824,11 +930,17 @@ public final class Skill extends PObject
 		return newSkill;
 	}
 
+    /**
+     * Get the actual cost of a skill point
+     * @param aClass
+     * @param aPC
+     * @return cost of a skill point
+     */
 	public int costForPCClass(final PCClass aClass, final PlayerCharacter aPC)
 	{
 		int anInt;
-
-/*		if (!PrereqHandler.passesAll(getPreReqList(), aPC, this))
+		/*
+		if (!PrereqHandler.passesAll(getPreReqList(), aPC, this))
 		{
 			anInt = Globals.getGameModeSkillCost_Exclusive();	// treat cost of unqualified skills as exclusive
 		}
@@ -848,11 +960,28 @@ public final class Skill extends PObject
 		return anInt;
 	}
 
-	public String modRanks(final double rankMod, final PCClass aClass, final PlayerCharacter aPC)
+	/**
+     * Modify the rank 
+     * 
+     * @param rankMod
+     * @param aClass
+     * @param aPC
+     * @return message
+	 */
+    public String modRanks(final double rankMod, final PCClass aClass, final PlayerCharacter aPC)
 	{
 		return modRanks(rankMod, aClass, false, aPC);
 	}
 
+    /**
+     * Modify the rank 
+     * 
+     * @param rankMod
+     * @param aClass
+     * @param ignorePrereqs
+     * @param aPC
+     * @return message
+     */
 	public String modRanks(double rankMod, final PCClass aClass, final boolean ignorePrereqs, final PlayerCharacter aPC)
 	{
 		int i = 0;
@@ -921,7 +1050,7 @@ public final class Skill extends PObject
 
 		for (idx = 0; idx < rankList.size(); idx++)
 		{
-			bSkill = (String) rankList.get(idx);
+			bSkill = rankList.get(idx);
 
 			if (bSkill.startsWith(classKeyString))
 			{
@@ -940,7 +1069,7 @@ public final class Skill extends PObject
 			{
 				for (idx = 0; idx < rankList.size(); idx++)
 				{
-					bSkill = (String) rankList.get(idx);
+					bSkill = rankList.get(idx);
 
 					if (bSkill.startsWith("None:"))
 					{
@@ -983,7 +1112,12 @@ public final class Skill extends PObject
 		return "";
 	}
 
-	public Integer modifier(final PlayerCharacter aPC)
+	/**
+     * return the modifier on a skill 
+     * @param aPC
+     * @return modifier
+	 */
+    public Integer modifier(final PlayerCharacter aPC)
 	{
 		int bonus = 0;
 		if (aPC == null)
@@ -998,15 +1132,6 @@ public final class Skill extends PObject
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + keyStat);
 		}
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
-
-		/*
-		// This should be handled in the data files
-		if (Globals.checkRule(RuleConstants.SYS_CIP))
-		{
-			int mod = (int) bonusTo("SKILL", "ToolsRequired");
-			bonus += mod;
-		}
-		*/
 
 		// loop through all current skill types checking for boni
 		for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
@@ -1161,6 +1286,10 @@ public final class Skill extends PObject
 		return Math.min(maxBonus, minBonus);
 	}
 
+    /**
+     * Get the qualified name
+     * @return qualified name
+     */
 	public String qualifiedName()
 	{
 		if (getAssociatedCount() == 0)
@@ -1214,6 +1343,10 @@ public final class Skill extends PObject
 		return required;
 	}
 
+    /**
+     * Get the root name
+     * @return root name
+     */
 	public String getRootName()
 	{
 		return rootName;
@@ -1222,7 +1355,7 @@ public final class Skill extends PObject
 	/**
 	 * return of 0 means exclusive, 1=class-skill, 2=cross-class skill
 	 * @param aPCClassList
-	 * @param aPC TODO
+	 * @param aPC
 	 * @return cost for pcc class list
 	 */
 	public int costForPCClassList(final List<PCClass> aPCClassList, final PlayerCharacter aPC)
@@ -1611,6 +1744,11 @@ public final class Skill extends PObject
 		bonusDetails.append('[').append(description).append(']');
 	}
 
+    /**
+     * Get the bonus to a skill rank
+     * @param aPC
+     * @return bonus to skill rank
+     */
 	public double getSkillRankBonusTo(PlayerCharacter aPC)
 	{
 		double bonus = aPC.getTotalBonusTo("SKILLRANK", getKeyName());
@@ -1625,12 +1763,9 @@ public final class Skill extends PObject
 		return bonus;
 	}
 
-
 	private void updateAdds(PlayerCharacter aPC, double bonus)
 	{
-		//
 		// Check for ADDs
-		//
 		List<LevelAbility> laList = getLevelAbilityList();
 		if (laList != null)
 		{
@@ -1688,9 +1823,10 @@ public final class Skill extends PObject
 
 
 
-	//
-	// Get the key attribute's description
-	//
+	/**
+	 * Get the key attribute's description
+     * @return description
+	 */
 	public String getKeyStatFromStats()
 	{
 		String aKeyStat = getKeyStat();
@@ -1710,9 +1846,11 @@ public final class Skill extends PObject
 		return aKeyStat;
 	}
 
-	//
-	// Get the modifier to the skill granted by the key attribute
-	//
+	/**
+	 * Get the modifier to the skill granted by the key attribute
+	 * @param pc 
+	 * @return modifier 
+	 */
 	public int getStatMod(final PlayerCharacter pc)
 	{
 		String myKeyStat = getKeyStat();
@@ -1734,10 +1872,13 @@ public final class Skill extends PObject
 		return statMod;
 	}
 
-	//
-	// Get a list of PCStat's that apply a SKILL bonus to this skill.
-	// Generates (optionally, if typeList is non-null) a list of String's types
-	//
+	/**
+	 * Get a list of PCStat's that apply a SKILL bonus to this skill.
+	 * Generates (optionally, if typeList is non-null) a list of String's types
+     * 
+	 * @param typeList 
+	 * @return List of stats that apply
+	 */
 	public List<PCStat> getKeyStatList(List<String> typeList)
 	{
 		List<PCStat> aList = new ArrayList<PCStat>();
