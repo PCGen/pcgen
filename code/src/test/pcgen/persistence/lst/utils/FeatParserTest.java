@@ -33,6 +33,11 @@ import pcgen.util.TestHelper;
  */
 public class FeatParserTest extends AbstractCharacterTestCase {
 
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(FeatParserTest.class);
+	}
+
 	/**
 	 * testParseVirtualFeatList
 	 */

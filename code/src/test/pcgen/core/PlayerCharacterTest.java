@@ -45,7 +45,6 @@ import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 
 import java.awt.HeadlessException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
@@ -497,7 +496,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
 		spell2.addBonusList("STAT|DEX|-2");
-		BonusObj penalty = (BonusObj) spell2.getBonusList().get(0);
+		BonusObj penalty = spell2.getBonusList().get(0);
 		pc.addTempBonus(penalty);
 		penalty.setTargetObject(pc);
 		pc.calcActiveBonuses();

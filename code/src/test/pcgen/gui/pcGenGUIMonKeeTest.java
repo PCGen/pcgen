@@ -6,6 +6,10 @@ import junit.framework.TestSuite;
 
 
 public class pcGenGUIMonKeeTest extends pcGenGUITestCase {
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(pcGenGUIMonKeeTest.class);
+	}
 
     // standard JUnit style constructor
     public pcGenGUIMonKeeTest(String name) {

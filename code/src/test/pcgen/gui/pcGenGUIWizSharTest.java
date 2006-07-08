@@ -7,6 +7,10 @@ import junit.framework.TestSuite;
  * JUnit test to test the WizardShar  
  */
 public class pcGenGUIWizSharTest extends pcGenGUITestCase {
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(pcGenGUIWizSharTest.class);
+	}
 
     /**
      * standard JUnit style constructor

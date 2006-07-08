@@ -583,7 +583,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
 		spell2.addBonusList("STAT|DEX|-4");
-		BonusObj penalty = (BonusObj) spell2.getBonusList().get(0);
+		BonusObj penalty = spell2.getBonusList().get(0);
 		character.addTempBonus(penalty);
 		penalty.setTargetObject(character);
 		character.calcActiveBonuses();

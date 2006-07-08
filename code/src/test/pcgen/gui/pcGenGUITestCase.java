@@ -14,12 +14,12 @@ import java.io.*;
  * The basic idea is to run a test by getting PCGen to use the 
  * PCG file in testsuite/PCGfiles to generate a XML representation 
  * and compare the expected XML in the testsuite/csheets folder to 
- * the generated XML in the testsuite/output folder  
+ * the generated XML in the testsuite/output folder.
  */
 public abstract class pcGenGUITestCase extends XMLTestCase
 {
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public pcGenGUITestCase()
 	{
@@ -37,7 +37,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	/**
 	 * Set the JAXP factories to use the Xerces parser
 	 * - declare to throw Exception as if this fails then 
-	 * all the tests will fail, and JUnit copes with these 
+	 * all the tests will fail, and JUnit copes with these.
 	 * Exceptions for us.
 	 * @throws Exception 
 	 */
@@ -57,7 +57,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	}
 
 	/**
-	 * Run the test
+	 * Run the test.
 	 * @param character The PC
 	 * @param mode The game mode
 	 * @throws Exception
@@ -125,7 +125,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	}
 
 	/**
-	 * Read the XML file and return it as a String
+	 * Read the XML file and return it as a String.
 	 * @param outputFile
 	 * @return String
 	 * 

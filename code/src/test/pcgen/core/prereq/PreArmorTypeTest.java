@@ -22,7 +22,6 @@ package pcgen.core.prereq;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.core.EquipmentList;
 import pcgen.util.TestHelper;

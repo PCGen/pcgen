@@ -28,7 +28,6 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
 import java.awt.HeadlessException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,9 +92,9 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
 			assertEquals(choicesList.size(), 2);
 
-			String s = (String) choicesList.get(0);
+			String s = choicesList.get(0);
 			is(s, strEq("Dwarvish"));
-			s = (String) choicesList.get(1);
+			s = choicesList.get(1);
 			is(s, strEq("Elven"));
 		}
 		catch(HeadlessException e)

@@ -6,7 +6,12 @@ import junit.framework.TestSuite;
 public class pcGenGUIBarJackTest
 		extends pcGenGUITestCase
 {
-
+	
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(pcGenGUIBarJackTest.class);
+	}
+	
 	public pcGenGUIBarJackTest()
 	{
 		// Empty Constructor

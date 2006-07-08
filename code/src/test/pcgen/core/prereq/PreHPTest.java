@@ -70,7 +70,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 
 		character.incrementClassLevel(1, myClass, true);
-		myClass = ((PCClass)character.getClassList().get(0));
+		myClass = character.getClassList().get(0);
 		myClass.setHitPoint(1, new Integer(4));
 
 		character.calcActiveBonuses();

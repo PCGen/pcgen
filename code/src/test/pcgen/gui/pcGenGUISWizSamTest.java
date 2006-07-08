@@ -7,6 +7,10 @@ import junit.framework.TestSuite;
  * JUnit test for Wizard Sam
  */
 public class pcGenGUISWizSamTest extends pcGenGUITestCase {
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(pcGenGUISWizSamTest.class);
+	}
 
     /** 
      * Standard JUnit style constructor

@@ -25,7 +25,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-
 import pcgen.PCGenTestCase;
 
 /**
@@ -34,6 +33,11 @@ import pcgen.PCGenTestCase;
  */
 public class EquipmentUtilitiesTest extends PCGenTestCase {
 
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(EquipmentUtilitiesTest.class);
+	}
+	
 	/*
 	 * @see PCGenTestCase#setUp()
 	 */

@@ -6,6 +6,10 @@ import junit.framework.TestSuite;
 
 
 public class pcGenGUIDrakelingSorcTest extends pcGenGUITestCase {
+	public static void main(String[] args)
+	{
+		junit.textui.TestRunner.run(pcGenGUIDrakelingSorcTest.class);
+	}
 
     // standard JUnit style constructor
     public pcGenGUIDrakelingSorcTest(String name) {
