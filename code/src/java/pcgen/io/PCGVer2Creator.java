@@ -350,6 +350,13 @@ final class PCGVer2Creator implements IOConstants
 		appendCharacterMagicLine(buffer);
 
 		/*
+		 * #Kits
+		 */
+		appendNewline(buffer);
+		appendComment("Kits", buffer);
+		appendKitLines(buffer);
+
+		/*
 		 * #Character Master/Followers
 		 * MASTER:Mynex|TYPE:Follower|HITDICE:20|FILE:E$\DnD\dnd-chars\ravenlock.pcg
 		 * FOLLOWER:Raven|TYPE:Animal Companion|HITDICE:5|FILE:E$\DnD\dnd-chars\raven.pcg
@@ -364,13 +371,6 @@ final class PCGVer2Creator implements IOConstants
 		appendNewline(buffer);
 		appendComment("Character Notes Tab", buffer);
 		appendNotesLines(buffer);
-
-		/*
-		 * #Kits
-		 */
-		appendNewline(buffer);
-		appendComment("Kits", buffer);
-		appendKitLines(buffer);
 
 		/*
 		 * #ArmorProf lines

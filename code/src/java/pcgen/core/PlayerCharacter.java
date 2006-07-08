@@ -2123,6 +2123,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for ( CompanionMod cMod : companionModList )
 		{
 			cMod.addAddsForLevel( -9, this, null);
+
+			for ( String key : cMod.getTemplateList() )
+			{
+				addTemplateKeyed( key );
+			}
+
+			final List<String> kits = cMod.getSafeListFor(ListKey.KITS);
+			for (int i1 = 0; i1 < kits.size(); i1++)
+			{
+				KitUtilities.makeKitSelections(0, kits.get(i1), i1, this);
+			}
 		}
 		setDirty(true);
 	}

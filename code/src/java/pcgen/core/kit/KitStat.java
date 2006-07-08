@@ -77,13 +77,15 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		final StatList aStatList = aPC.getStatList();
 		boolean foundStat = false;
 		int sVal = aPC.getVariableValue(theStatValue,"").intValue();
-		for (Iterator<PCStat> stat = aStatList.iterator(); stat.hasNext();)
+
+		final StatList statList = aPC.getStatList();
+		for ( int i = 0; i < statList.size(); i++ )
 		{
-			final PCStat currentStat = stat.next();
-			if (currentStat.getAbb().equals(getStatName()))
+			final PCStat currentStat = statList.getStatAt(i);
+			if ( !aPC.isNonAbility(i) &&
+				 currentStat.getAbb().equals(getStatName()) )
 			{
 				currentStat.setBaseScore(sVal);
 				theStat = (PCStat)currentStat.clone();
@@ -95,6 +97,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 				break;
 			}
 		}
+
 		if (foundStat == false && warnings != null)
 		{
 			warnings.add("STAT: Could not find stat \"" + getStatName()
@@ -129,22 +132,23 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 
 	private void recalculateSkillPoints(PlayerCharacter aPC)
 	{
-		List classes = aPC.getClassList();
+		final List<PCClass> classes = aPC.getClassList();
 		aPC.calcActiveBonuses();
 		if (classes != null && classes.size() != 0)
 		{
-			for (Iterator i = classes.iterator(); i.hasNext(); )
+			aPC.setSkillPoints(0);
+			for ( PCClass pcClass : classes )
 			{
-				PCClass aClass = (PCClass)i.next();
-				if (aPC.getLevelInfoSize() > 0 && aClass.getModToSkills())
+				pcClass.setSkillPool(0);
+				if (aPC.getLevelInfoSize() > 0 && pcClass.getModToSkills())
 				{
-					List pclList = aPC.getLevelInfo();
+					final List<PCLevelInfo> pclList = aPC.getLevelInfo();
 					for (int j = 0; j < pclList.size(); j++)
 					{
-						final PCLevelInfo pcl = (PCLevelInfo)pclList.get(j);
-						if (pcl.getClassKeyName().equals(aClass.getKeyName()))
+						final PCLevelInfo pcl = pclList.get(j);
+						if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
 						{
-							final int spMod = aClass.recalcSkillPointMod(aPC,
+							final int spMod = pcClass.recalcSkillPointMod(aPC,
 								j + 1);
 
 							if (pcl != null)
@@ -153,7 +157,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 								pcl.setSkillPointsRemaining(pcl.
 									getSkillPointsGained());
 							}
-							aClass.setSkillPool(aClass.skillPool() + spMod);
+							pcClass.setSkillPool(pcClass.skillPool() + spMod);
 
 							aPC.setSkillPoints(spMod + aPC.getSkillPoints());
 						}

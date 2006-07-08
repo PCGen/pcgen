@@ -549,6 +549,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			parseAlignmentLine(cache.get(TAG_ALIGNMENT).get(0));
 		}
 
+		/*
+		 * # Kits - Just adds a reference to the character that the template
+		 * was picked.
+		 */
+		if (cache.containsKey(TAG_KIT))
+		{
+			for ( String line : cache.get(TAG_KIT) )
+			{
+				parseKitLine(line);
+			}
+		}
+
 		if (cache.containsKey(TAG_RACE))
 		{
 			parseRaceLine(cache.get(TAG_RACE).get(0));
@@ -1108,17 +1120,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 
 			checkWeaponProficiencies();
-		}
-
-		/*
-		 * # Kits
-		 */
-		if (cache.containsKey(TAG_KIT))
-		{
-			for ( String line : cache.get(TAG_KIT) )
-			{
-				parseKitLine(line);
-			}
 		}
 
 		if (cache.containsKey(TAG_ARMORPROF))
