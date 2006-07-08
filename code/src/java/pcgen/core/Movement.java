@@ -180,7 +180,7 @@ public class Movement
 	 */
 	public Double[] getMovementMult()
 	{
-		return (Double[]) movementMult.clone();
+		return movementMult.clone();
 	}
 
 	/**
@@ -189,7 +189,7 @@ public class Movement
 	 */
 	public String[] getMovementMultOp()
 	{
-		return (String[]) movementMultOp.clone();
+		return movementMultOp.clone();
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class Movement
 	 */
 	public String[] getMovementTypes()
 	{
-		return (String[]) movementTypes.clone();
+		return movementTypes.clone();
 	}
 
 	/**
@@ -293,7 +293,7 @@ public class Movement
 	 */
 	public Double[] getMovements()
 	{
-		return (Double[]) movements.clone();
+		return movements.clone();
 	}
 
 	/**

@@ -23,19 +23,13 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-
-import java.awt.Choice;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-
-import org.omg.CORBA.portable.Streamable;
-import java.util.Enumeration;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 
 /**
  * This is the chooser that deals with choosing a spell level.

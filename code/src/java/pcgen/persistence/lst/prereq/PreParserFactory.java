@@ -33,7 +33,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import java.util.List;
 import pcgen.util.Logging;
-import java.util.Iterator;
 import java.util.ArrayList;
 
 /**
@@ -166,7 +165,7 @@ public class PreParserFactory
 				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
 				&& prereq.getOperand().equals("1"))
 			{
-				prereq = (Prerequisite) prereq.getPrerequisites().get(0);
+				prereq = prereq.getPrerequisites().get(0);
 			}
 			return prereq;
 		}

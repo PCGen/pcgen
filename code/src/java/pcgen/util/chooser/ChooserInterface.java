@@ -19,7 +19,6 @@
  */
 package pcgen.util.chooser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -92,7 +91,7 @@ public interface ChooserInterface
 	 * Get selected list
 	 * @return selected list
 	 */
-	ArrayList getSelectedList();
+	List getSelectedList();
 
 	/**
 	 * Set selected list terminator

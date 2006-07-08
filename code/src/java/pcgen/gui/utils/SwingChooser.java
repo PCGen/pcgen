@@ -255,7 +255,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @return   java.util.ArrayList
 	 * author   Matt Woodard
 	 */
-	public ArrayList getSelectedList()
+	public List getSelectedList()
 	{
 		return new ArrayList(mSelectedList);
 	}
@@ -1020,6 +1020,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	{
 //		if (anInputList.size() <= 0)
 //		{
+//			//TODO This happens when removing an exotic wpn prof. Probably a bug that should be fixed in a better way, but this makes it work for now.
 //			return;
 //		}
 

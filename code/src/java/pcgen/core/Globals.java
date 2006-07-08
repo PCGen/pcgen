@@ -351,7 +351,7 @@ public final class Globals
 	 */
 	public static Campaign getCampaignByFilename(final String aName, final boolean complainOnError)
 	{
-		final Campaign campaign = (Campaign) campaignMap.get(aName);
+		final Campaign campaign = campaignMap.get(aName);
 
 		if ((campaign == null) && complainOnError)
 		{
@@ -406,7 +406,7 @@ public final class Globals
 	 */
 	public static PCClass getClassKeyed(final String aKey)
 	{
-		return (PCClass)searchPObjectList(getClassList(), aKey);
+		return searchPObjectList(getClassList(), aKey);
 	}
 
 	/**
@@ -674,7 +674,7 @@ public final class Globals
 	 */
 	public static Deity getDeityKeyed(final String aKey)
 	{
-		return (Deity) searchPObjectList(getDeityList(), aKey);
+		return searchPObjectList(getDeityList(), aKey);
 	}
 
 	/**
@@ -730,7 +730,7 @@ public final class Globals
 	 */
 	public static Domain getDomainKeyed(final String aKey)
 	{
-		return (Domain) domainMap.get(aKey);
+		return domainMap.get(aKey);
 	}
 
 	/**
@@ -1365,7 +1365,7 @@ public final class Globals
 			return null;
 		}
 
-		final PaperInfo pi = (PaperInfo) SystemCollections.getUnmodifiablePaperInfo().get(idx);
+		final PaperInfo pi = SystemCollections.getUnmodifiablePaperInfo().get(idx);
 
 		return pi.getPaperInfo(infoType);
 	}
@@ -1504,7 +1504,7 @@ public final class Globals
 	 */
 	public static Skill getSkillKeyed(final String aKey)
 	{
-		return (Skill) searchPObjectList(getSkillList(), aKey);
+		return searchPObjectList(getSkillList(), aKey);
 	}
 
 	/**
@@ -1787,7 +1787,7 @@ public final class Globals
 	 */
 	public static PCTemplate getTemplateKeyed(final String aKey)
 	{
-		return (PCTemplate) searchPObjectList(getTemplateList(), aKey);
+		return searchPObjectList(getTemplateList(), aKey);
 	}
 
 	/**
@@ -2653,7 +2653,7 @@ public final class Globals
 	{
 		for (int i = 0; i < SystemCollections.getUnmodifiablePaperInfo().size(); ++i)
 		{
-			final PaperInfo pi = (PaperInfo) SystemCollections.getUnmodifiablePaperInfo().get(i);
+			final PaperInfo pi = SystemCollections.getUnmodifiablePaperInfo().get(i);
 
 			if (pi.getName().equals(paperName))
 			{

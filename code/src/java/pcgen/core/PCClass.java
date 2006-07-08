@@ -2585,8 +2585,6 @@ public class PCClass extends PObject
 	 **/
 	public Map<String, String> getVision(final PlayerCharacter aPC)
 	{
-		LevelProperty lp;
-
 		if (visionList != null)
 		{
 			for ( LevelProperty vision : visionList )

@@ -1501,7 +1501,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			if (anObj != null)
 			{
-				aList.add((Equipment)anObj);
+				aList.add(anObj);
 			}
 		}
 		else

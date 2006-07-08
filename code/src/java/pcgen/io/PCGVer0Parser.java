@@ -642,7 +642,7 @@ final class PCGVer0Parser implements PCGParser
 					{
 						final StringTokenizer cdTok = new StringTokenizer(token, "=", false);
 						final String domainName = cdTok.nextToken();
-						CharacterDomain aCD = (CharacterDomain) aPC.getCharacterDomainList().get(j);
+						CharacterDomain aCD = aPC.getCharacterDomainList().get(j);
 						Domain aDomain = Globals.getDomainKeyed(domainName);
 
 						if (aDomain != null)
@@ -1803,7 +1803,7 @@ final class PCGVer0Parser implements PCGParser
 					{
 						if (skillName.equals(Globals.getSkillList().get(i).toString()))
 						{
-							aSkill = (Skill) Globals.getSkillList().get(i);
+							aSkill = Globals.getSkillList().get(i);
 							aSkill = (Skill) aSkill.clone();
 							aPC.getSkillList().add(aSkill);
 

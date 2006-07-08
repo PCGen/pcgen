@@ -2109,7 +2109,7 @@ public class WeaponToken extends Token
 			return 0;
 		}
 
-		bonus = (String) weapon.getBonusMap().get(aKey);
+		bonus = weapon.getBonusMap().get(aKey);
 		if (bonus != null)
 		{
 			maxEnhancement = Float.parseFloat(bonus);
@@ -2118,7 +2118,7 @@ public class WeaponToken extends Token
 
 		if (contents != null)
 		{
-			bonus = (String) contents.getBonusMap().get(aKey);
+			bonus = contents.getBonusMap().get(aKey);
 			if (bonus != null)
 			{
 				bonusVal = Float.parseFloat(bonus);
@@ -2132,7 +2132,7 @@ public class WeaponToken extends Token
 
 		if (ammo != null)
 		{
-			bonus = (String) ammo.getBonusMap().get(aKey);
+			bonus = ammo.getBonusMap().get(aKey);
 			if (bonus != null)
 			{
 				bonusVal = Float.parseFloat(bonus);

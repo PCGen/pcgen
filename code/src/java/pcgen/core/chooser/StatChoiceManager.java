@@ -23,13 +23,11 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.List;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * This is the chooser that deals with choosing a stat.

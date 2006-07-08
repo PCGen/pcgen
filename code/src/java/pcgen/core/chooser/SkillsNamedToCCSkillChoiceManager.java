@@ -29,8 +29,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-import java.util.Iterator;
-
 /**
  * This is the chooser that deals with choosing a skill.
  */

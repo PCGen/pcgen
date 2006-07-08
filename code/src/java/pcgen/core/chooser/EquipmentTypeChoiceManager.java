@@ -72,7 +72,7 @@ public class EquipmentTypeChoiceManager extends AbstractComplexChoiceManager<Equ
 	{
 		Iterator<String> choiceIt = choices.iterator();
 
-		String choiceSec = (String) ((choiceIt.hasNext())
+		String choiceSec = ((choiceIt.hasNext())
 				? choiceIt.next()
 				: pobject.getKeyName());
 

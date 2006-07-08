@@ -254,11 +254,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (int i = 0, x = SettingsHandler.getGame().s_ATTRIBLONG.length; i < x; ++i)
 		{
-			final PCStat stat = (PCStat) SettingsHandler.getGame().getUnmodifiableStatList().get(i);
+			final PCStat stat = SettingsHandler.getGame().getUnmodifiableStatList().get(i);
 			statList.addStat((PCStat)stat.clone());
 		}
 
-		setRace((Race) Globals.getRaceMap().get(Constants.s_NONESELECTED));
+		setRace(Globals.getRaceMap().get(Constants.s_NONESELECTED));
 		setName("");
 		setFeats(0);
 		rollStats(SettingsHandler.getGame().getRollMethod());
@@ -3414,7 +3414,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (int i = 0; i < SettingsHandler.getGame().getUnmodifiableAlignmentList().size(); i++)
 		{
-			final PCAlignment obj = (PCAlignment)SettingsHandler.getGame().getUnmodifiableAlignmentList().get(i);
+			final PCAlignment obj = SettingsHandler.getGame().getUnmodifiableAlignmentList().get(i);
 			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
 
 			if (aString.length() > 0)
@@ -4048,7 +4048,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final int c = pcClass.attackCycle(index);
 
 			// add to all other classes
-			final int d = ((Integer) ab.get(c)).intValue() + b;
+			final int d = ab.get(c).intValue() + b;
 
 			// set new value for iteration
 			ab.set(c, new Integer(d));
@@ -7177,7 +7177,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			// use the passed in spell.
 			if (acsList.size() == 1)
 			{
-				final CharacterSpell tcs = (CharacterSpell)acsList.get(0);
+				final CharacterSpell tcs = acsList.get(0);
 				si = tcs.getSpellInfoFor(bookName, adjSpellLevel, -1, aFeatList);
 			}
 			else
@@ -7369,7 +7369,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			for (int i = 0, x = templateFeats.size(); i < x; ++i)
 			{
-				AbilityUtilities.modFeatsFromList(this, null, (String) templateFeats.get(i), true, false);
+				AbilityUtilities.modFeatsFromList(this, null, templateFeats.get(i), true, false);
 			}
 		}
 		else
@@ -9710,7 +9710,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		PCTemplate t = this.getTemplateKeyed(inTmpl.getKeyName());
 		for (int i = inTmpl.getLevelMods().size() - 1; i >= 0; i-- )
 		{
-			String modString = (String)(inTmpl.getLevelMods().get(i));
+			String modString = (inTmpl.getLevelMods().get(i));
 			StringTokenizer tok = new StringTokenizer(modString, "|");
 			while (tok.hasMoreTokens())
 			{
@@ -9743,7 +9743,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// the call to .size().	 XXX
 		for (int i = 0; i < inTmpl.templatesAdded().size(); ++i)
 		{
-			removeTemplate(getTemplateKeyed((String) inTmpl.templatesAdded().get(i)));
+			removeTemplate(getTemplateKeyed(inTmpl.templatesAdded().get(i)));
 		}
 
 		for ( PCTemplate template : templateList )
@@ -10816,7 +10816,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (aClass.isMonster() || characterLevels<maxCharacterLevel) {
 				// we can use this class level if it is a monster level, or if
 				// we have not yet hit our maximum number of characterLevels
-				String val = (String) lvlMap.get(classKeyName);
+				String val = lvlMap.get(classKeyName);
 				if (val == null)
 				{
 					val = "0";
@@ -12146,7 +12146,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		while (skillIter.hasNext())
 		{
-			aSkill = (Skill) skillIter.next();
+			aSkill = skillIter.next();
 
 			if (includeSkill(aSkill, level)
 				&& (Globals.binarySearchPObject(getSkillList(), aSkill.getKeyName()) == null))
@@ -12832,7 +12832,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (sbookNum > 0)
 		{
-			bookName = (String) getSpellBooks().get(sbookNum);
+			bookName = getSpellBooks().get(sbookNum);
 		}
 
 		final PObject aObject = getSpellClassAtIndex(classNum);
@@ -12912,7 +12912,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (bookNum > 0)
 		{
-			bookName = (String) getSpellBooks().get(bookNum);
+			bookName = getSpellBooks().get(bookNum);
 		}
 
 		if ((aObject != null) || (classNum == -1))
@@ -13005,7 +13005,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (sbookNum > 0)
 		{
-			bookName = (String) getSpellBooks().get(sbookNum);
+			bookName = getSpellBooks().get(sbookNum);
 		}
 
 		final PObject aObject = getSpellClassAtIndex(classNum);

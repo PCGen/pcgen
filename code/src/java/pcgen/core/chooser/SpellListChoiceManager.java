@@ -23,7 +23,11 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import pcgen.core.Ability;
+import pcgen.core.AssociatedChoice;
 import pcgen.core.Constants;
 import pcgen.core.FeatMultipleChoice;
 import pcgen.core.Globals;
@@ -35,12 +39,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
-import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import pcgen.core.AssociatedChoice;
 
 /**
  * This is the chooser that deals with choosing a spell level.
@@ -257,7 +255,6 @@ public class SpellListChoiceManager extends AbstractComplexChoiceManager<String>
 	{
 		Iterator<String> choicesIt = choices.iterator();
 
-		Iterator      iter;
 		final boolean needSpellbook;
 
 		switch (choicesIt.next().charAt(0))

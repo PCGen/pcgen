@@ -24,15 +24,13 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>

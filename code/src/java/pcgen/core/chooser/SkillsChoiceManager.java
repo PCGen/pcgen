@@ -23,12 +23,10 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * This is one of the choosers that deals with choosing a skill.

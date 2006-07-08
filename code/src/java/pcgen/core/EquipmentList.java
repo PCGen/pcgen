@@ -25,12 +25,18 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-
-import java.util.*;
-import java.util.Map.Entry;
 
 /**
  * Equipment-related lists and methods extracted from Globals.java. Will
@@ -324,7 +330,7 @@ public class EquipmentList {
 			if (bError) { return null; }
 
 			if (sizList.size() != 0) {
-				eq.resizeItem(aPC, (String) sizList.get(0));
+				eq.resizeItem(aPC, sizList.get(0));
 				bModified = true;
 
 				if (sizList.size() > 1) {

@@ -1467,7 +1467,7 @@ public final class SettingsHandler
 
 		for (int idx = 0; idx < SystemCollections.getUnmodifiableGameModeList().size(); idx++)
 		{
-			final GameMode gameMode = (GameMode)SystemCollections.getUnmodifiableGameModeList().get(idx);
+			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
 			if (gameMode.getUnitSet() != null && gameMode.getUnitSet().getName() != null)
 			{
 				setPCGenOption("gameMode." + gameMode.getName() + ".unitSetName", gameMode.getUnitSet().getName());
@@ -1890,7 +1890,7 @@ public final class SettingsHandler
 	{
 		if (ruleCheckMap.containsKey(aKey))
 		{
-			final String aVal = (String) ruleCheckMap.get(aKey);
+			final String aVal = ruleCheckMap.get(aKey);
 
 			if (aVal.equals("Y")) //$NON-NLS-1$
 			{
@@ -2804,7 +2804,7 @@ public final class SettingsHandler
 			strings.add(tok.nextToken());
 		}
 
-		return (String[]) strings.toArray(new String[strings.size()]);
+		return strings.toArray(new String[strings.size()]);
 	}
 
 	private static void setOpenRecentPCs(final String[] strings)

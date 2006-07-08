@@ -22,7 +22,6 @@ package pcgen.core;
 
 import pcgen.core.utils.CoreUtility;
 
-import java.util.Iterator;
 import java.util.List;
 import pcgen.core.bonus.BonusObj;
 

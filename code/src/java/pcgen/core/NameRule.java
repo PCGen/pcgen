@@ -46,7 +46,7 @@ final class NameRule
 
 	public String[] getRuleSyllables()
 	{
-		return (String[]) rule.toArray(new String[rule.size()]);
+		return rule.toArray(new String[rule.size()]);
 	}
 
 	public void addSyllable(final String syllable)

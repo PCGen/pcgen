@@ -35,7 +35,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.PrereqHandler;
@@ -49,7 +48,6 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-import java.util.Enumeration;
 
 /**
  * Modify an Ability object for a given PC (or remove an Ability
@@ -125,7 +123,7 @@ public class PObjectUtilities
 	 * @param process
 	 * @param aPC
 	 * @param addIt
-	 * @return
+	 * @return boolean
 	 */
 	public static final boolean modChoices(
 			final PObject         obj,

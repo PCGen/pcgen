@@ -23,17 +23,15 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
 import pcgen.core.Ability;
+import pcgen.core.AssociatedChoice;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-
-import java.util.Iterator;
-import java.util.List;
-import pcgen.core.AssociatedChoice;
 
 /**
  * This is the chooser that deals with choosing a Weapon that currently has

@@ -23,13 +23,11 @@
  */
 package pcgen.core.chooser;
 
+import java.util.List;
 import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * This is the chooser that deals with choosing a spellcasting class.
@@ -70,8 +68,6 @@ public class SpellClassesChoiceManager extends AbstractComplexChoiceManager<Stri
 			final List<String>            availableList,
 			final List<String>            selectedList)
 	{
-		Iterator iter;
-		PCClass aClass;
 
 		for ( PCClass pcClass : aPc.getClassList() )
 		{

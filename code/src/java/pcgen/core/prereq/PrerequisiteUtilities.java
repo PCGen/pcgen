@@ -24,15 +24,13 @@
  */
 package pcgen.core.prereq;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>

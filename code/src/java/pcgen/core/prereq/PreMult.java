@@ -31,8 +31,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
-
 /**
  * @author frugal@purplewombat.co.uk
  *

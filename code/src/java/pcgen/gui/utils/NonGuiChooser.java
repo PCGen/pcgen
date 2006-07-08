@@ -149,7 +149,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @return   java.util.ArrayList
 	 */
-	public ArrayList getSelectedList()
+	public List getSelectedList()
 	{
 		return new ArrayList(mSelectedList);
 	}

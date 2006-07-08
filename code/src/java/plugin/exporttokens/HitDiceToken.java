@@ -32,7 +32,6 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
 

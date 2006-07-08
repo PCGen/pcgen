@@ -316,9 +316,10 @@ public class SkillsPane extends javax.swing.JPanel {
 
 		List skillList = pc.getSkillListInOutputOrder(pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
 
-		for(int i = 0; i < componentList.size(); i++) {
+/*		for(int i = 0; i < componentList.size(); i++) {
 			remove((java.awt.Component)componentList.get(i));
-		}
+		}*/
+		removeAll();
 		componentList.clear();
 
 		boolean lightLine = true;

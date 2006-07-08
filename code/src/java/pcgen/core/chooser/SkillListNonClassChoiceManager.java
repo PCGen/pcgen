@@ -23,10 +23,8 @@
  */
 package pcgen.core.chooser;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;

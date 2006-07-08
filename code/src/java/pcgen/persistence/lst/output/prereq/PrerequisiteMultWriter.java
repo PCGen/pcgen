@@ -75,7 +75,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			//
 			if (prereq.getPrerequisites().size() != 0)
 			{
-				subreq = (Prerequisite) prereq.getPrerequisites().get(0);
+				subreq = prereq.getPrerequisites().get(0);
 				final PrerequisiteWriterInterface test = PrerequisiteWriterFactory.getInstance().getWriter(subreq.getKind());
 				if ((test != null) && (test instanceof AbstractPrerequisiteWriter) && ((AbstractPrerequisiteWriter) test).specialCase(writer, prereq))
 				{

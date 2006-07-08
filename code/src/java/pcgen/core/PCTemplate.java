@@ -1898,7 +1898,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 			while (true)
 			{
-				ArrayList<String> featList = new ArrayList<String>();
+				List<String> featList = new ArrayList<String>();
 				final LevelAbility la       = LevelAbility.createAbility(
 						this,
 						lvl,

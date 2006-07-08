@@ -9,7 +9,6 @@ import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.util.Logging;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 

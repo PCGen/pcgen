@@ -22,14 +22,12 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <code>SubClass</code>.

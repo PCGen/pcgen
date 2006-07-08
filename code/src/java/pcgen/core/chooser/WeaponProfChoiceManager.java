@@ -234,7 +234,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 							//
 							for (Iterator<String> wpi = typeList.iterator(); wpi.hasNext();)
 							{
-								final String wpString = (String) wpi.next();
+								final String wpString = wpi.next();
 
 								if (eq.isType(wpString))
 								{

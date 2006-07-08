@@ -1799,7 +1799,7 @@ public final class ExportHandler
 					{
 						canWrite = false;
 					}
-					else if (((String) aPC.getMiscList().get(0)).trim().length() == 0)
+					else if ((aPC.getMiscList().get(0)).trim().length() == 0)
 					{
 						canWrite = false;
 					}
@@ -2262,7 +2262,7 @@ public final class ExportHandler
 			//Leave
 			else if (tokenMap.get(firstToken) != null)
 			{
-				Token token = (Token) tokenMap.get(firstToken);
+				Token token = tokenMap.get(firstToken);
 				if(token.isEncoded())
 				{
 					FileAccess.encodeWrite(output, token.getToken(aString, aPC, this));
@@ -2771,7 +2771,7 @@ public final class ExportHandler
 
 		if (sbookNum > 0)
 		{
-			bookName = (String) aPC.getSpellBooks().get(sbookNum);
+			bookName = aPC.getSpellBooks().get(sbookNum);
 		}
 
 		canWrite = false;
@@ -3212,7 +3212,7 @@ public final class ExportHandler
 		//
 		populateTokenMap();
 
-		final Token token = (Token) tokenMap.get(firstToken);
+		final Token token = tokenMap.get(firstToken);
 		if (token != null)
 		{
 			return token.getToken(aString, aPC, null);

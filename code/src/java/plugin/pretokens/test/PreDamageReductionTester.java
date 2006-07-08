@@ -31,7 +31,6 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import java.util.StringTokenizer;
 import java.util.List;
 import java.util.Iterator;
 import pcgen.core.DamageReduction;

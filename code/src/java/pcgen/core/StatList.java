@@ -58,7 +58,7 @@ public final class StatList
 			return 0;
 		}
 
-		final PCStat stat = (PCStat) stats.get(x);
+		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		int z = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
 
@@ -253,7 +253,7 @@ public final class StatList
 			return y;
 		}
 
-		final PCStat stat = (PCStat) stats.get(x);
+		final PCStat stat = stats.get(x);
 		final PlayerCharacter aPC = ownerPC;
 		x = aPC.getVariableValue("LOCK." + stat.getAbb(), "").intValue();
 

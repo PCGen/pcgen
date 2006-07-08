@@ -27,16 +27,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
 import pcgen.core.Ability;
+import pcgen.core.AbilityInfo;
 import pcgen.core.AbilityStore;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Categorisable;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.Categorisable;
-import pcgen.core.AbilityInfo;
 
 /**
  * <code>KitAbiltiies</code>.

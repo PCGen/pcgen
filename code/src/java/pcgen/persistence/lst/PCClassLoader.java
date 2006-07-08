@@ -84,7 +84,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 			{
 				if ((pcClass.getSubClassList() != null) && !pcClass.getSubClassList().isEmpty())
 				{
-					subClass = (SubClass) pcClass.getSubClassList().get(pcClass.getSubClassList().size() - 1);
+					subClass = pcClass.getSubClassList().get(pcClass.getSubClassList().size() - 1);
 					subClass.addToLevelArray(lstLine.substring(14));
 
 					return pcClass;

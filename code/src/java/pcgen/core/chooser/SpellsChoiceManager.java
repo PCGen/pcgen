@@ -23,14 +23,12 @@
  */
 package pcgen.core.chooser;
 
+import java.util.ArrayList;
+import java.util.List;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-
-import java.util.Iterator;
-import java.util.List;
 import pcgen.core.spell.Spell;
-import java.util.ArrayList;
 
 /**
  * This is the chooser that deals with choosing a spell.

@@ -1100,7 +1100,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				// need to get all items of this TYPE
 				for (Iterator<Equipment> eq = EquipmentList.getEquipmentOfType(aKey.substring(5), "").iterator(); eq.hasNext();)
 				{
-					final String aName = ((Equipment) eq.next()).profKey(character);
+					final String aName = eq.next().profKey(character);
 					aList.add(aName + "|" + newProfType);
 				}
 			}
@@ -2290,8 +2290,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				result.append(preVarStr.substring(lastIndex, subIndex));
 			}
 
-			final String token = (String) tokenList.get(varCount);
-			final Float val = (Float) varArray.get(varCount);
+			final String token = tokenList.get(varCount);
+			final Float val = varArray.get(varCount);
 
 			if (token.endsWith(".INTVAL"))
 			{
@@ -2569,7 +2569,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			for (int ix = theFeatList.size() - 1; ix >= 0; ix--)
 			{
-				Ability aFeat = (Ability) theFeatList.get(ix);
+				Ability aFeat = theFeatList.get(ix);
 				AbilityUtilities.modFeat(aPC, null, aFeat.getKeyName(), false, false);
 				if (ix > theFeatList.size())
 					ix = theFeatList.size();
@@ -2737,7 +2737,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				{
 					for (int x = levelAbilityList.size() - 1; x >= 0; --x)
 					{
-						final LevelAbility ability = (LevelAbility) levelAbilityList.get(x);
+						final LevelAbility ability = levelAbilityList.get(x);
 
 						if (ability.level() == level)
 						{
@@ -2870,7 +2870,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		for (int x = levelAbilityList.size() - 1; x >= 0; --x)
 		{
-			final LevelAbility ability = (LevelAbility) levelAbilityList.get(x);
+			final LevelAbility ability = levelAbilityList.get(x);
 
 			if ((ability.level() == aLevel) && (ability.getTagData().equals(aString)))
 			{
@@ -3116,7 +3116,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			for (e = vision.keySet().iterator(); e.hasNext();)
 			{
 				final String key = (String) e.next();
-				final String val = (String) vision.get(key);
+				final String val = vision.get(key);
 
 				if ((val.length() > 0) && !"0".equals(val))
 				{
@@ -3429,7 +3429,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		if (index == -1) // a non-stacking bonus
 		{
-			final String aVal = (String) getBonusMap().get(bonusType);
+			final String aVal = getBonusMap().get(bonusType);
 
 			if (aVal == null)
 			{
@@ -3454,7 +3454,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				bonusType = bonusType.substring(0, bonusType.length() - 6);
 			}
 
-			final String aVal = (String) getBonusMap().get(bonusType);
+			final String aVal = getBonusMap().get(bonusType);
 
 			if (aVal == null)
 			{

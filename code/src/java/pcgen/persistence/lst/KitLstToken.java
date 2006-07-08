@@ -27,8 +27,6 @@ package pcgen.persistence.lst;
 
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.core.kit.BaseKit;
-import java.util.StringTokenizer;
 
 /**
  * <code>KitLstToken</code>

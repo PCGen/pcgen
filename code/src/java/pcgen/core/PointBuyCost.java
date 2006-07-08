@@ -107,7 +107,7 @@ public final class PointBuyCost
 
 	public final Prerequisite getPreReq(final int i)
 	{
-		return (Prerequisite) preReqList.get(i);
+		return preReqList.get(i);
 	}
 
 }

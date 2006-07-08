@@ -22,12 +22,10 @@
  */
 package pcgen.core.chooser;
 
+import java.util.Collections;
+import java.util.List;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Deal with choosing a spelllevel

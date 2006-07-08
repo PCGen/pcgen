@@ -50,7 +50,7 @@ public class HPChoiceManager extends AbstractComplexChoiceManager<String> {
 		chooserHandled = "HP";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}

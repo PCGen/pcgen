@@ -2472,10 +2472,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 **/
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
-		createAvailableModel();
-		availableTable.updateUI();
-		availableTable.expandPathList(pathList);
+		try
+		{
+			List pathList = availableTable.getExpandedPaths();
+			createAvailableModel();
+			availableTable.updateUI();
+			availableTable.expandPathList(pathList);
+		}
+		catch (RuntimeException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void updateEqInfo(Equipment selectedEquipment)

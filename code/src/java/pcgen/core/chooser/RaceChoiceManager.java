@@ -56,7 +56,7 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 		chooserHandled = "RACE";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}

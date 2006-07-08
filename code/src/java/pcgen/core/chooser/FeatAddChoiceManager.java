@@ -62,7 +62,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 		chooserHandled = "FEATADD";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -172,7 +172,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 						{
 							for (int n = aavailableList.size() - 1; n >= 0; --n)
 							{
-								final String bString = (String) aavailableList.get(n);
+								final String bString = aavailableList.get(n);
 
 								if (!bString.startsWith(subName))
 								{

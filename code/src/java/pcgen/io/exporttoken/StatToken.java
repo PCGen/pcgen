@@ -187,7 +187,7 @@ public class StatToken extends Token
 
 	public static String getStatToken(PlayerCharacter pc, int index, boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel, int aLevel, final boolean checkGameMode)
 	{
-		PCStat stat = (PCStat) pc.getStatList().getStatAt(index);
+		PCStat stat = pc.getStatList().getStatAt(index);
 		if (pc.isNonAbility(index))
 		{
 			return "*";
@@ -236,7 +236,7 @@ public class StatToken extends Token
 
 	public static String getBaseToken(PlayerCharacter pc, int index)
 	{
-		PCStat stat = (PCStat) pc.getStatList().getStatAt(index);
+		PCStat stat = pc.getStatList().getStatAt(index);
 		if (pc.isNonAbility(index))
 		{
 			return "*";

@@ -23,14 +23,13 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.core.Ability;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
+import pcgen.core.Ability;
 import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 
 /**
  * This is one of the choosers that deals with choosing from among a set
@@ -55,7 +54,7 @@ public class FeatListChoiceManager extends AbstractComplexChoiceManager<Ability>
 		chooserHandled = "FEATLIST";
 
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
