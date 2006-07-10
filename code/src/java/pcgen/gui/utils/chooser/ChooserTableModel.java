@@ -49,7 +49,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return        The ColumnClass value
 	 * author        Matt Woodard
 	 */
-	public Class getColumnClass(int column)
+	public Class<?> getColumnClass(int column)
 	{
 		return mColumnClasses[column];
 	}

@@ -40,7 +40,7 @@ import java.util.*;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class GameMode implements Comparable
+public final class GameMode implements Comparable<Object>
 {
 	private static PObject eqSizePenalty = new PObject();
 	private List<String> allowedModes;
@@ -768,7 +768,7 @@ public final class GameMode implements Comparable
 	 * Get the RuleCheck List
 	 * @return the RuleCheck List
 	 */
-	public List getRuleCheckList()
+	public List<RuleCheck> getRuleCheckList()
 	{
 		return new ArrayList<RuleCheck>(ruleCheckMap.values());
 	}

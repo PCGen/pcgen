@@ -190,7 +190,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
      * @param column
      * @return Object.class
      */
-	public Class getColumnClass(int column)
+	public Class<?> getColumnClass(int column)
 	{
 		return Object.class;
 	}

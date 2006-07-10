@@ -65,7 +65,7 @@ public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 		super.initComponentDefaults(table);
 		loadResourceBundle(table);
 
-		Class wlafClass = WindowsLookAndFeel.class;
+		Class<?> wlafClass = WindowsLookAndFeel.class;
 		Object[] defaults =
 		{
 
@@ -110,7 +110,7 @@ public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 	private void loadResourceBundle(UIDefaults table)
 	{
 		ResourceBundle bundle = ResourceBundle.getBundle("com.sun.java.swing.plaf.windows.resources.windows");
-		Enumeration e = bundle.getKeys();
+		Enumeration<String> e = bundle.getKeys();
 
 		while (e.hasMoreElements())
 		{

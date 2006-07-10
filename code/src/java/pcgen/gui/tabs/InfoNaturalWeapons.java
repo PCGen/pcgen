@@ -28,7 +28,6 @@ import java.awt.event.FocusEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JComponent;
@@ -117,9 +116,9 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -216,13 +215,10 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		//
 		// Get a list of natural weapons only
 		//
-		Equipment eq;
-		List naturalWeapons = new ArrayList();
+		List<Equipment> naturalWeapons = new ArrayList<Equipment>();
 
-		for (Iterator e = pc.getEquipmentMasterList().iterator(); e.hasNext();)
+		for (Equipment eq : pc.getEquipmentMasterList())
 		{
-			eq = (Equipment) e.next();
-
 			if (!eq.isWeapon() || !eq.isType("Natural"))
 			{
 				continue;
@@ -252,7 +248,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		{
 //System.err.println("before: " + naturalWeapons);
 			Collections.sort(naturalWeapons,
-				new Comparator()
+				new Comparator<Object>()
 				{
 					public final int compare(final Object o1, final Object o2)
 					{
@@ -274,6 +270,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		final int BAB = pc.baseAttackBonus();
 		final int sizeAdj = (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
 
+		Equipment eq;
 		for (int i = 0; i < weaponCount; ++i)
 		{
 			eq = (Equipment) naturalWeapons.get(i);
@@ -381,7 +378,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 					};
 				boolean[] canEdit = new boolean[]{ false, false, false, false, true, true, true };
 
-				public Class getColumnClass(int columnIndex)
+				public Class<?> getColumnClass(int columnIndex)
 				{
 					return types[columnIndex];
 				}

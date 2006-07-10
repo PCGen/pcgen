@@ -136,14 +136,14 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * returns a (sorted) List of expanded Tree paths
 	 * @return expanded paths
 	 **/
-	public List getExpandedPaths()
+	public List<String> getExpandedPaths()
 	{
 		if (tree == null)
 		{
 			return null;
 		}
 
-		List ret = new ArrayList(tree.getRowCount());
+		List<String> ret = new ArrayList<String>(tree.getRowCount());
 
 		for (int i = 0; i < tree.getRowCount(); i++)
 		{
@@ -196,17 +196,15 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * Expand a List of paths
 	 * @param aList
 	 **/
-	public void expandPathList(List aList)
+	public void expandPathList(List<String> aList)
 	{
 		if (aList == null)
 		{
 			return;
 		}
 
-		for (Iterator ap = aList.iterator(); ap.hasNext();)
+		for (String path : aList)
 		{
-			String path = (String) ap.next();
-
 			for (int iRow = 0; iRow < getRowCount(); iRow++)
 			{
 				TreePath iPath = tree.getPathForRow(iRow);
@@ -426,7 +424,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 */
 	private void expandByPObjectName(PObjectNode root, String name)
 	{
-		List p1 = root.getChildren();
+		List<PObjectNode> p1 = root.getChildren();
 
 		if (p1 == null)
 		{
@@ -453,7 +451,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 					if (((PObject) theObj).getDisplayName().equals(name))
 					{
 						//expand that node
-						List path = new ArrayList();
+						List<PObjectNode> path = new ArrayList<PObjectNode>();
 						PObjectNode pon = node;
 
 						while (pon.getParent() != null)
@@ -473,7 +471,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 					if (theObj.toString().equals(name))
 					{
 						//expand that node
-						List path = new ArrayList();
+						List<PObjectNode> path = new ArrayList<PObjectNode>();
 						PObjectNode pon = node;
 
 						while (pon.getParent() != null)
@@ -518,7 +516,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 	private TreePath search(PObjectNode root, String name, boolean expand)
 	{
-		List p1 = root.getChildren();
+		List<PObjectNode> p1 = root.getChildren();
 
 		if (p1 != null)
 		{
@@ -553,7 +551,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 					if (aString.toLowerCase().startsWith(name))
 					{
 						//expand that node
-						List path = new ArrayList();
+						List<PObjectNode> path = new ArrayList<PObjectNode>();
 						PObjectNode pon = node;
 
 						while (pon.getParent() != null)
@@ -601,7 +599,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	private TreePath searchSingleLevel(PObjectNode root, String name, boolean select)
 	{
 		String lowerName = name.toLowerCase();
-		List p1 = root.getChildren();
+		List<PObjectNode> p1 = root.getChildren();
 
 		if (p1 != null)
 		{
@@ -616,7 +614,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 				if (aString.toLowerCase().startsWith(lowerName))
 				{
 					//select that node
-					List path = new ArrayList();
+					List<PObjectNode> path = new ArrayList<PObjectNode>();
 					PObjectNode pon = node;
 
 					while (pon.getParent() != null)

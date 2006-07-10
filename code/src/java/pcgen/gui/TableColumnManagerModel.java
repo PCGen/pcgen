@@ -13,7 +13,7 @@ public interface TableColumnManagerModel {
 	 * Get the column list
 	 * @return column list
 	 */
-	public List getMColumnList();
+	public List<String> getMColumnList();
 	
 	/**
 	 * Returns true if a particular model column is displayed

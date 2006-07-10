@@ -40,7 +40,7 @@ public final class LabelTreeCellRenderer extends JLabel implements TreeCellRende
 {
 	/** Color to use for the background when selected. */
 	protected static final Color SelectedBackgroundColor = Color.white;
-	private static Map fontMap = new HashMap();
+	private static Map<String, Font> fontMap = new HashMap<String, Font>();
 	private Color myColor = Color.white;
 
 	/**

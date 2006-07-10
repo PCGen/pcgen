@@ -21,9 +21,7 @@
 package pcgen.gui.tabs.spells;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.table.TableColumn;
@@ -92,7 +90,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	private String[] colNameList = { "" };
 
 	private int[] colTranslateList = { 0 };
-	private List displayList;
+	private List<Boolean> displayList;
 
 	// Types of the columns.
 	private boolean includeRace = false;
@@ -113,7 +111,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param emptyMessage The message to be displayed if the model is empty
 	 */
 	public SpellModel(int primaryMode, int secondaryMode, boolean available,
-		List bookList, String currSpellBook, int spellListType,
+		List<String> bookList, String currSpellBook, int spellListType,
 		PlayerCharacter pc, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
 		super(null);
@@ -222,9 +220,9 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		return aList;
 	}
 
-	private List makeDisplayList(boolean available)
+	private List<Boolean> makeDisplayList(boolean available)
 	{
-		List retList = new ArrayList();
+		List<Boolean> retList = new ArrayList<Boolean>();
 		retList.add(new Boolean(true));
 		if(available)
 		{
@@ -298,7 +296,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param column The index of the column.
 	 * @return Class
 	 **/
-	public Class getColumnClass(int column)
+	public Class<?> getColumnClass(int column)
 	{
 		column = translateColumn(column);
 		return (column == COL_NAME) ? TreeTableModel.class : String.class;
@@ -479,7 +477,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 			// and is a valid domain, add them
 			if ((aDom != null) && aCD.isFromPCClass(aClass.getKeyName()))
 			{
-				List domainSpells = Globals.getSpellsIn(iLev, "", aDom.getKeyName());
+				List<Spell> domainSpells = Globals.getSpellsIn(iLev, "", aDom.getKeyName());
 				p.setParent(theParent);
 
 				if (!dom)
@@ -502,11 +500,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param book
 	 * @param pc
 	 */
-	private void setNodeSpells(List charSpells, PObjectNode tNode, int iLev, PObject obj, String book, PlayerCharacter pc)
+	private void setNodeSpells(List<?> charSpells, PObjectNode tNode, int iLev, PObject obj, String book, PlayerCharacter pc)
 	{
-		for (Iterator fI = charSpells.iterator(); fI.hasNext();)
+		for (Object o : charSpells)
 		{
-			Object o = fI.next();
 			PObjectNode fCN;
 
 			if (o instanceof CharacterSpell)
@@ -557,11 +554,11 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param emptyMessage The message to be displayed if the model is empty
 	 */
 	public void resetModel(int primaryMode, int secondaryMode,
-		boolean available, List bookList, String currSpellBook,
+		boolean available, List<String> bookList, String currSpellBook,
 		int spellListType, InfoSpellsSubTab spellTab, String emptyMessage)
 	{
-		List classList = new ArrayList();
-		List spellList = new ArrayList();
+		List<PObject> classList = new ArrayList<PObject>();
+		List<Object> spellList = new ArrayList<Object>();
 		includeRace = false;
 
 		PObjectNode [] primaryNodes = null;
@@ -582,9 +579,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		{
 			bookNodes = new PObjectNode [bookList.size()];
 			int ix = 0;
-			for (Iterator iBook = bookList.iterator(); iBook.hasNext();)
+			for (String bookName : bookList)
 			{
-				String bookName = (String)iBook.next();
 				bookNodes[ix] = new PObjectNode();
 				if (pc != null)
 				{
@@ -595,10 +591,9 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 					bookNodes[ix].setItem(bookName);
 				}
 				bookNodes[ix].setParent(theRoot);
-				List spells = pc.getRace().getSpellSupport().getCharacterSpell(null, bookName, -1);
-				for (Iterator iter = spells.iterator(); iter.hasNext();)
+				List<CharacterSpell> spells = pc.getRace().getSpellSupport().getCharacterSpell(null, bookName, -1);
+				for (Object obj : spells)
 				{
-					Object obj = iter.next();
 					if (obj instanceof Spell)
 					{
 						Spell spell = (Spell) obj;
@@ -639,12 +634,11 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		//       secondary nodes (the second "sort by" selection)
 		// the first time (e.g. firstPass==true) through the loop, make sure all nodes are created and attached
 		boolean firstPass = true;
-		HashMap usedMap = new HashMap();
+		HashMap<String, List<SpellInfo>> usedMap = new HashMap<String, List<SpellInfo>>();
 		String mapKey;
 
-		for (Iterator ii = spellList.iterator(); ii.hasNext();)
+		for (Object sp : spellList)
 		{
-			Object sp = ii.next();
 			Spell spell = null;
 			CharacterSpell cs = null;
 
@@ -840,7 +834,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 						if (knownSpellsOnly && (si != null))
 						{
-							List aList = (List)usedMap.get(mapKey);
+							List<SpellInfo> aList = usedMap.get(mapKey);
 							if (aList != null && aList.contains(si))
 							{
 								continue;
@@ -880,9 +874,11 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							thisNode = primaryNodes[pindex];
 						spellNode.setParent(thisNode);
 						thisNode.addChild(spellNode);
-						List aList = (List)usedMap.get(mapKey);
-						if (aList == null)
-							aList = new ArrayList();
+						List<SpellInfo> aList = usedMap.get(mapKey);
+						if (aList == null) 
+						{
+							aList = new ArrayList<SpellInfo>();
+						}
 						aList.add(si);
 						usedMap.put(mapKey, aList);
 					}
@@ -934,22 +930,21 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param classList
 	 * @param spellList
 	 */
-	private void getSpellcastingClasses(int spellListType, List classList, List spellList, InfoSpellsSubTab spellTab)
+	private void getSpellcastingClasses(int spellListType, List<PObject> classList, List<Object> spellList, InfoSpellsSubTab spellTab)
 	{
 		// get the list of spell casting Classes
-		Iterator iClass = null;
+		List<PCClass> classes;
 		if (spellListType == GuiConstants.INFOSPELLS_AVAIL_ALL_SPELL_LISTS)
 		{
-			iClass = Globals.getClassList().iterator();
+			classes = Globals.getClassList();
 		}
 		else
 		{
-			iClass = pc.getClassList().iterator();
+			classes = pc.getClassList();
 		}
 
-		for (; iClass.hasNext();)
+		for (PCClass aClass : classes)
 		{
-			PCClass aClass = (PCClass) iClass.next();
 			if (!aClass.getSpellType().equals(Constants.s_NONE))
 			{
 				if (aClass.zeroCastSpells() && aClass.getKnownList().isEmpty())
@@ -962,10 +957,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				//if (fullSpellList && currSpellBook.equals(Globals.getDefaultSpellBook()))
 				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
-					List aList = Globals.getSpellsIn(-1, aClass.getSpellKey(), "");
-					for (Iterator si = aList.iterator(); si.hasNext();)
+					for (Spell s : Globals.getSpellsIn(-1, aClass.getSpellKey(), ""))
 					{
-						Spell s = (Spell) si.next();
 						if (!spellList.contains(s) && spellTab.shouldDisplayThis(s))
 						{
 							spellList.add(s);
@@ -981,10 +974,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				else
 				{
 					spellList.addAll(aClass.getSpellSupport().getCharacterSpellList());
-					Collection spells = aClass.getSpellSupport().getCharacterSpellList();
-					for (Iterator iter = spells.iterator(); iter.hasNext();)
+					for (Object tempSpell : aClass.getSpellSupport().getCharacterSpellList())
 					{
-						Object tempSpell = iter.next();
 						Spell spell;
 						if (tempSpell instanceof CharacterSpell)
 						{
@@ -1011,7 +1002,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 * @param classList
 	 * @return PObjectNode[]
 	 */
-	private PObjectNode[] getNodesByMode(int primaryMode, List classList) {
+	private PObjectNode[] getNodesByMode(int primaryMode, List<PObject> classList) 
+	{
 		PObjectNode[] primaryNodes = null;
 		switch (primaryMode)
 		{
@@ -1040,7 +1032,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		return primaryNodes;
 	}
 
-	private PObjectNode [] getClassNameNodes(List classList)
+	private PObjectNode [] getClassNameNodes(List<PObject> classList)
 	{
 		PObjectNode [] tempNodes = new PObjectNode[classList.size()];
 		for (int ix = 0; ix < classList.size(); ++ix)
@@ -1074,10 +1066,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	{
 		PObjectNode [] tempNodes = new PObjectNode[Globals.getDescriptorSet().size()];
 		int ix = 0;
-		for (Iterator ti = Globals.getDescriptorSet().iterator(); ti.hasNext(); )
+		for (String s : Globals.getDescriptorSet())
 		{
 			tempNodes[ix] = new PObjectNode();
-			tempNodes[ix++].setItem(ti.next());
+			tempNodes[ix++].setItem(s);
 		}
 		return tempNodes;
 	}
@@ -1086,10 +1078,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	{
 		PObjectNode [] tempNodes = new PObjectNode[Globals.getRangesSet().size()];
 		int ix = 0;
-		for (Iterator ti = Globals.getRangesSet().iterator(); ti.hasNext(); )
+		for (String s : Globals.getRangesSet())
 		{
 			tempNodes[ix] = new PObjectNode();
-			tempNodes[ix++].setItem(ti.next());
+			tempNodes[ix++].setItem(s);
 		}
 		return tempNodes;
 	}
@@ -1098,10 +1090,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	{
 		PObjectNode [] tempNodes = new PObjectNode[Globals.getDurationSet().size()];
 		int ix = 0;
-		for (Iterator ti = Globals.getDurationSet().iterator(); ti.hasNext(); )
+		for (String s : Globals.getDurationSet())
 		{
 			tempNodes[ix] = new PObjectNode();
-			tempNodes[ix++].setItem(ti.next());
+			tempNodes[ix++].setItem(s);
 		}
 		return tempNodes;
 	}
@@ -1110,10 +1102,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	{
 		PObjectNode [] tempNodes = new PObjectNode[Globals.getTypeForSpells().size()];
 		int ix = 0;
-		for (Iterator ti = Globals.getTypeForSpells().iterator(); ti.hasNext(); )
+		for (String s : Globals.getTypeForSpells())
 		{
 			tempNodes[ix] = new PObjectNode();
-			tempNodes[ix++].setItem(ti.next());
+			tempNodes[ix++].setItem(s);
 		}
 		return tempNodes;
 	}
@@ -1122,10 +1114,10 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	{
 		PObjectNode [] tempNodes = new PObjectNode[SettingsHandler.getGame().getUnmodifiableSchoolsList().size()];
 		int ix = 0;
-		for (Iterator ti = SettingsHandler.getGame().getUnmodifiableSchoolsList().iterator(); ti.hasNext(); )
+		for (String s : SettingsHandler.getGame().getUnmodifiableSchoolsList())
 		{
 			tempNodes[ix] = new PObjectNode();
-			tempNodes[ix++].setItem(ti.next());
+			tempNodes[ix++].setItem(s);
 		}
 		return tempNodes;
 	}
@@ -1139,10 +1131,11 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	}
 
 
-	public List getMColumnList()
+	public List<String> getMColumnList()
 	{
-		List retList = new ArrayList();
-		for(int i = 1; i < colNameList.length; i++) {
+		List<String> retList = new ArrayList<String>();
+		for(int i = 1; i < colNameList.length; i++) 
+		{
 			retList.add(colNameList[i]);
 		}
 		return retList;
@@ -1160,29 +1153,35 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	}
 
 
-	public void setMColumnDisplayed(int col, boolean disp) {
+	public void setMColumnDisplayed(int col, boolean disp) 
+	{
 		setColumnViewOption(colNameList[col], disp);
 		displayList.set(col, new Boolean(disp));
 	}
 
 
-	public int getMColumnDefaultWidth(int col) {
+	public int getMColumnDefaultWidth(int col) 
+	{
 		return SettingsHandler.getPCGenOption(getOptionName() + "sizecol." + colNameList[col], colDefaultWidth[col]);
 	}
 
-	public void setMColumnDefaultWidth(int col, int width) {
+	public void setMColumnDefaultWidth(int col, int width) 
+	{
 		SettingsHandler.setPCGenOption(getOptionName() + "sizecol." + colNameList[col], width);
 	}
 
-	private boolean getColumnViewOption(String colName, boolean defaultVal) {
+	private boolean getColumnViewOption(String colName, boolean defaultVal) 
+	{
 		return SettingsHandler.getPCGenOption(getOptionName() + "viewcol." + colName, defaultVal);
 	}
 
-	private void setColumnViewOption(String colName, boolean val) {
+	private void setColumnViewOption(String colName, boolean val) 
+	{
 		SettingsHandler.setPCGenOption(getOptionName() + "viewcol." + colName, val);
 	}
 
-	private String getOptionName() {
+	private String getOptionName() 
+	{
 		StringBuffer nameSb = new StringBuffer("InfoSpells.");
 		if(available) {
 			nameSb.append("left.");
@@ -1193,8 +1192,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		return nameSb.toString();
 	}
 
-
-	public void resetMColumn(int col, TableColumn column) {
+	public void resetMColumn(int col, TableColumn column) 
+	{
 		// TODO Auto-generated method stub
 
 	}

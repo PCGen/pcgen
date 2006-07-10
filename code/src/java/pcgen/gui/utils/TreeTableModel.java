@@ -48,7 +48,7 @@ public interface TreeTableModel extends TreeModel
 	 * @param column
 	 * @return Class
 	 */
-	Class getColumnClass(int column);
+	Class<?> getColumnClass(int column);
 
 	/**
 	 * Returns the number ofs availible column.

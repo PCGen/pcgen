@@ -42,7 +42,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -167,7 +166,7 @@ public class MainSource extends FilterAdapterPanel
 	private JPanel jPanel1s = new JPanel();
 	private JTreeTable availableTable; // the available Campaigns
 	private JTreeTable selectedTable; // the selected Campaigns
-	private List selectedCampaigns = new ArrayList();
+	private List<Campaign> selectedCampaigns = new ArrayList<Campaign>();
 	private PObjectNode lastSelection = null; //keep track of which PObjectNode was last selected from either table
 	private TreePath selPath;
 	private boolean hasBeenSized = false;
@@ -333,12 +332,8 @@ public class MainSource extends FilterAdapterPanel
 		// -Lone Jedi (Aug. 14, 2002)
 		selectedCampaigns.clear();
 
-		Iterator campIter = Globals.getCampaignList().iterator();
-
-		while (campIter.hasNext())
+		for (Campaign aCamp : Globals.getCampaignList())
 		{
-			Campaign aCamp = (Campaign) campIter.next();
-
 			if (aCamp.isLoaded())
 			{
 				selectedCampaigns.add(aCamp);
@@ -440,7 +435,7 @@ public class MainSource extends FilterAdapterPanel
 				// enclose the node-path name with the <p> tag so that we can parse for it later
 				sb.append("<html><b>").append(path).append("</b><br>");
 				if(Globals.getSponsor(path) != null) {
-					Map sponsor = Globals.getSponsor(path);
+					Map<String, String> sponsor = Globals.getSponsor(path);
 					sb.append("<img src='")
 						.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGELARGE")))
 						.append("'><br>");
@@ -1120,11 +1115,11 @@ public class MainSource extends FilterAdapterPanel
 
 	private void rememberSourceChanges()
 	{
-		List campaignStrings = new ArrayList(selectedCampaigns.size());
+		List<String> campaignStrings = new ArrayList<String>(selectedCampaigns.size());
 
-		for (Iterator campaigns = selectedCampaigns.iterator(); campaigns.hasNext();)
+		for (Campaign aCamp : selectedCampaigns)
 		{
-			campaignStrings.add(((Campaign) (campaigns.next())).getSourceFile());
+			campaignStrings.add(aCamp.getSourceFile());
 		}
 
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(campaignStrings);
@@ -1139,18 +1134,16 @@ public class MainSource extends FilterAdapterPanel
 
 	private void resetViewNodes()
 	{
-		final List allowedModes = Globals.getAllowedGameModes();
+		final List<String> allowedModes = Globals.getAllowedGameModes();
 
 		typePubRoot = new PObjectNode();
 		typePubSetRoot = new PObjectNode();
 		typePubFmtSetRoot = new PObjectNode();
 
-		List aList = new ArrayList(); //TYPE list
+		List<String> aList = new ArrayList<String>(); //TYPE list
 
-		for (Iterator i = Globals.getCampaignList().iterator(); i.hasNext();)
+		for (Campaign aCamp : Globals.getCampaignList())
 		{
-			final Campaign aCamp = (Campaign) i.next();
-
 			if (aCamp.isGameMode(allowedModes))
 			{
 				if (aCamp.getMyTypeCount() > 0)
@@ -1198,7 +1191,7 @@ public class MainSource extends FilterAdapterPanel
 
 			for (int j = 0; j < Globals.getCampaignList().size(); ++j)
 			{
-				final Campaign bCamp = (Campaign) Globals.getCampaignList().get(j);
+				final Campaign bCamp = Globals.getCampaignList().get(j);
 				final String topType = p2[i].toString();
 
 				if (!bCamp.isType(topType))
@@ -1220,9 +1213,8 @@ public class MainSource extends FilterAdapterPanel
 
 			Collections.sort(aList);
 
-			for (Iterator lI = aList.iterator(); lI.hasNext();)
+			for (String aString : aList)
 			{
-				String aString = (String) lI.next();
 				PObjectNode d = new PObjectNode();
 				d.setParent(p2[i]);
 				p2[i].addChild(d);
@@ -1236,7 +1228,7 @@ public class MainSource extends FilterAdapterPanel
 
 			for (int j = 0; j < Globals.getCampaignList().size(); ++j)
 			{
-				final Campaign bCamp = (Campaign) Globals.getCampaignList().get(j);
+				final Campaign bCamp = Globals.getCampaignList().get(j);
 				final String topType = p3[i].toString();
 
 				if (!bCamp.isType(topType))
@@ -1258,23 +1250,22 @@ public class MainSource extends FilterAdapterPanel
 
 			Collections.sort(aList);
 
-			for (Iterator lI = aList.iterator(); lI.hasNext();)
+			for (String aString : aList)
 			{
-				String aString = (String) lI.next();
 				PObjectNode d = new PObjectNode(aString);
 				p3[i].addChild(d);
 			}
 
-			List p4 = p3[i].getChildren();
+			List<PObjectNode> p4 = p3[i].getChildren();
 
 			for (int k = 0; (p4 != null) && (k < p4.size()); ++k)
 			{
-				final PObjectNode p4node = (PObjectNode) p4.get(k);
+				final PObjectNode p4node = p4.get(k);
 				aList.clear();
 
 				for (int m = 0; m < Globals.getCampaignList().size(); ++m)
 				{
-					final Campaign cCamp = (Campaign) Globals.getCampaignList().get(m);
+					final Campaign cCamp = Globals.getCampaignList().get(m);
 					final String pubType = p4node.getParent().toString();
 					final String formatType = p4node.toString();
 
@@ -1297,9 +1288,8 @@ public class MainSource extends FilterAdapterPanel
 
 				Collections.sort(aList);
 
-				for (Iterator lI = aList.iterator(); lI.hasNext();)
+				for (String aString : aList)
 				{
-					String aString = (String) lI.next();
 					PObjectNode d = new PObjectNode(aString);
 					p4node.addChild(d);
 				}
@@ -1372,11 +1362,10 @@ public class MainSource extends FilterAdapterPanel
 	 * @param  campaigns  A Collection of campaign file names.
 	 * @since
 	 */
-	private void selectCampaignsByFilename(Collection campaigns)
+	private void selectCampaignsByFilename(Collection<String> campaigns)
 	{
-		for (Iterator iter = campaigns.iterator(); iter.hasNext();)
+		for (String element : campaigns)
 		{
-			final String element = (String) iter.next();
 			final Campaign aCampaign = Globals.getCampaignByFilename(element);
 
 			if (aCampaign != null)
@@ -1417,11 +1406,10 @@ public class MainSource extends FilterAdapterPanel
 
 		Globals.emptyLists();
 		PersistenceManager.getInstance().emptyLists();
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList());
+		PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<String>());
 
-		for (Iterator it = Globals.getCampaignList().iterator(); it.hasNext();)
+		for (Campaign aCamp : Globals.getCampaignList())
 		{
-			Campaign aCamp = (Campaign) it.next();
 			aCamp.setIsLoaded(false);
 		}
 
@@ -1441,7 +1429,7 @@ public class MainSource extends FilterAdapterPanel
 	 **/
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -1474,7 +1462,7 @@ public class MainSource extends FilterAdapterPanel
 	 **/
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 		createSelectedModel();
 		selectedTable.updateUI();
 		selectedTable.expandPathList(pathList);
@@ -1551,7 +1539,7 @@ public class MainSource extends FilterAdapterPanel
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			switch (column)
 			{
@@ -1688,7 +1676,7 @@ public class MainSource extends FilterAdapterPanel
 		 */
 		public void resetModel(int mode, boolean available, boolean newCall)
 		{
-			final List allowedModes = Globals.getAllowedGameModes();
+			final List<String> allowedModes = Globals.getAllowedGameModes();
 			PCGen_Frame1 mainFrame = PCGen_Frame1.getInst();
 			PlayerCharacter aPC = null;
 			if (mainFrame != null)
@@ -1696,15 +1684,15 @@ public class MainSource extends FilterAdapterPanel
 				aPC = mainFrame.getCurrentPC();
 			}
 
-			Iterator fI;
+			List<Campaign> campList;
 
 			if (available)
 			{
-				fI = Globals.getCampaignList().iterator();
+				campList = Globals.getCampaignList();
 			}
 			else
 			{
-				fI = selectedCampaigns.iterator();
+				campList = selectedCampaigns;
 			}
 
 			switch (mode)
@@ -1712,10 +1700,9 @@ public class MainSource extends FilterAdapterPanel
 				case VIEW_PUBFMTSET: // by Publisher/Format/Setting/Product Name
 					setRoot((PObjectNode) MainSource.typePubFmtSetRoot.clone());
 
-					while (fI.hasNext())
+					for (Campaign aCamp : campList)
 					{
 						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-						final Campaign aCamp = (Campaign) fI.next();
 
 						// filter out campaigns here
 						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
@@ -1737,11 +1724,11 @@ public class MainSource extends FilterAdapterPanel
 								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 							{
 								// Items with less than 2 types will not show up unless we do this
-								List d;
+								List<PObjectNode> d;
 
 								if (aCamp.getMyTypeCount() < 2)
 								{
-									d = new ArrayList(1);
+									d = new ArrayList<PObjectNode>(1);
 									d.add(rootAsPObjectNode.getChild(i));
 								}
 								else
@@ -1764,16 +1751,16 @@ public class MainSource extends FilterAdapterPanel
 										|| (!added && (j == (d.size() - 1))))
 									{
 										// Items with less than 3 types will not show up unless we do this
-										List e;
+										List<PObjectNode> e;
 
 										if (aCamp.getMyTypeCount() == 2)
 										{
-											e = new ArrayList(1);
+											e = new ArrayList<PObjectNode>(1);
 											e.add(d.get(j));
 										}
 										else if (aCamp.getMyTypeCount() < 2)
 										{
-											e = new ArrayList(1);
+											e = new ArrayList<PObjectNode>(1);
 											e.add(rootAsPObjectNode.getChild(i));
 										}
 										else
@@ -1803,10 +1790,10 @@ public class MainSource extends FilterAdapterPanel
 				case VIEW_PUBSET: // by Publisher/Setting/Product Name
 					setRoot((PObjectNode) MainSource.typePubSetRoot.clone());
 
-					while (fI.hasNext())
+					for (Campaign aCamp : campList)
 					{
 						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-						final Campaign aCamp = (Campaign) fI.next();
+//						final Campaign aCamp = (Campaign) fI.next();
 
 						// filter out campaigns here
 						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
@@ -1828,11 +1815,11 @@ public class MainSource extends FilterAdapterPanel
 								|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 							{
 								// Items with less than 3 types will not show up unless we do this
-								List d;
+								List<PObjectNode> d;
 
 								if (aCamp.getMyTypeCount() < 3)
 								{
-									d = new ArrayList(1);
+									d = new ArrayList<PObjectNode>(1);
 									d.add(rootAsPObjectNode.getChild(i));
 								}
 								else
@@ -1864,10 +1851,10 @@ public class MainSource extends FilterAdapterPanel
 				case VIEW_PUBLISH: // by Publisher/Product Name
 					setRoot((PObjectNode) MainSource.typePubRoot.clone());
 
-					while (fI.hasNext())
+					for (Campaign aCamp : campList)
 					{
 						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-						final Campaign aCamp = (Campaign) fI.next();
+//						final Campaign aCamp = (Campaign) fI.next();
 
 						// filter out campaigns here
 						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))
@@ -1905,10 +1892,10 @@ public class MainSource extends FilterAdapterPanel
 					setRoot(new PObjectNode()); // just need a blank one
 					String qFilter = this.getQFilter();
 
-					while (fI.hasNext())
+					for (Campaign aCamp : campList)
 					{
 						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-						final Campaign aCamp = (Campaign) fI.next();
+//						final Campaign aCamp = (Campaign) fI.next();
 
 						// filter out campaigns here
 						if (!shouldDisplayThis(aCamp, aPC) || !aCamp.isGameMode(allowedModes))

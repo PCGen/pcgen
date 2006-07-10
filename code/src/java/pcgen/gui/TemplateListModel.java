@@ -130,7 +130,7 @@ class TemplateListModel extends AbstractListModel
 		csheetFilter.setDirFilter(fileType);
 		csheetFilter.setIgnoreExtension(".");
 
-		List aList = csheetFilter.getAccepted();
+		List<String> aList = csheetFilter.getAccepted();
 
 		if ((aList.size() == 0) && (attempts == 0))
 		{

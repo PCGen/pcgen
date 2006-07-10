@@ -185,7 +185,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private JTextField speechPatternText = new JTextField();
 	private JTextField txtName = new JTextField();
 	private JTree notesTree;
-	private List nodesToBeAddedList = new ArrayList();
+	private List<NoteItem> nodesToBeAddedList = new ArrayList<NoteItem>();
 	private NameGui nameFrame = null;
 	private NoteItem bioNote = null;
 	private NoteItem companionNote = null;
@@ -279,9 +279,9 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -389,10 +389,10 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		{
 			rootTreeNode = new NoteTreeNode(null);
 			aNode = rootTreeNode;
-			List testList = pc.getNotesList();
-			for(int i = 0; i < testList.size(); i++) {
-				NoteItem testnote = (NoteItem)testList.get(i);
-				if(!testnote.getName().equals("Hidden")) {
+			for (NoteItem testnote : pc.getNotesList()) 
+			{
+				if (!testnote.getName().equals("Hidden")) 
+				{
 					nodesToBeAddedList.add(testnote);
 				}
 			}
@@ -421,7 +421,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			index = note.getId();
 		}
 
-		List aList = new ArrayList();
+		List<NoteItem> aList = new ArrayList<NoteItem>();
 
 		for (int x = 0; x < nodesToBeAddedList.size(); x++)
 		{
@@ -592,11 +592,10 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		gridbag.setConstraints(ageText, c);
 		northPanel.add(ageText);
 
-		List cats = new ArrayList();
+		List<String> cats = new ArrayList<String>();
 
-		for (Iterator e = Globals.getBioSet().getAgeMap().values().iterator(); e.hasNext();)
+		for (String aString : Globals.getBioSet().getAgeMap().values())
 		{
-			String aString = (String) e.next();
 			final int idx = aString.indexOf('\t');
 
 			if (idx >= 0)
@@ -1235,12 +1234,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 						return;
 					}
 
-					Iterator allNotes = pc.getNotesList().iterator();
-
-					while (allNotes.hasNext())
+					for (NoteItem currItem : pc.getNotesList())
 					{
-						final NoteItem currItem = (NoteItem) allNotes.next();
-
 						if (currItem.getId() > newNodeId)
 						{
 							newNodeId = currItem.getId();
@@ -1300,7 +1295,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 						return;
 					}
 
-					Enumeration allChildren = aNode.breadthFirstEnumeration();
+					Enumeration<NoteTreeNode> allChildren = aNode.breadthFirstEnumeration();
 
 					while (allChildren.hasMoreElements())
 					{
@@ -1427,15 +1422,15 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		int roll;
 
 //		final ArrayList globalColorList = Globals.getColorList();
-		final List globalTraitList = SystemCollections.getUnmodifiableTraitList();
-		final List globalPhobiaList = SystemCollections.getUnmodifiablePhobiaList();
-		final List globalLocationList = SystemCollections.getUnmodifiableLocationList();
-		final List globalInterestsList = SystemCollections.getUnmodifiableInterestsList();
-		final List globalPhraseList = SystemCollections.getUnmodifiablePhraseList();
-		final List globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
-		final List globalSpeechList = SystemCollections.getUnmodifiableSpeechList();
-		final List globalCityList = SystemCollections.getUnmodifiableCityList();
-		final List globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
+		final List<String> globalTraitList = SystemCollections.getUnmodifiableTraitList();
+		final List<String> globalPhobiaList = SystemCollections.getUnmodifiablePhobiaList();
+		final List<String> globalLocationList = SystemCollections.getUnmodifiableLocationList();
+		final List<String> globalInterestsList = SystemCollections.getUnmodifiableInterestsList();
+		final List<String> globalPhraseList = SystemCollections.getUnmodifiablePhraseList();
+		final List<String> globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
+		final List<String> globalSpeechList = SystemCollections.getUnmodifiableSpeechList();
+		final List<String> globalCityList = SystemCollections.getUnmodifiableCityList();
+		final List<String> globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
 
 		StringBuffer randomString = new StringBuffer();
 

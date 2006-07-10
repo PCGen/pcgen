@@ -97,7 +97,7 @@ final class TreeTableModelAdapter extends AbstractTableModel
 		return treeTableModel.isCellEditable(nodeForRow(row), column);
 	}
 
-	public Class getColumnClass(int column)
+	public Class<?> getColumnClass(int column)
 	{
 		return treeTableModel.getColumnClass(column);
 	}

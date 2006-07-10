@@ -44,6 +44,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.Filterable;
+import pcgen.gui.filter.PObjectFilter;
 import pcgen.gui.tabs.spells.InfoKnownSpells;
 import pcgen.gui.tabs.spells.InfoPreparedSpells;
 import pcgen.gui.tabs.spells.InfoSpellBooks;
@@ -140,9 +141,9 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		toDoList.addAll(known.getToDos());
 		toDoList.addAll(prepared.getToDos());
 		toDoList.addAll(spellbooks.getToDos());
@@ -303,7 +304,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	 * delegates filter related stuff to gear tab
 	 * @return removed filters
 	 **/
-	public List getRemovedFilters()
+	public List<PObjectFilter> getRemovedFilters()
 	{
 		if (getSelectedIndex() == KNOWN_INDEX)
 		{
@@ -325,7 +326,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	 * delegates filter related stuff to gear tab
 	 * @return selected filters
 	 **/
-	public List getSelectedFilters()
+	public List<PObjectFilter> getSelectedFilters()
 	{
 		if (getSelectedIndex() == KNOWN_INDEX)
 		{
@@ -391,7 +392,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	/**
 	 * @see pcgen.gui.filter.Filterable#getAvailableFilters()
 	 */
-	public List getAvailableFilters()
+	public List<PObjectFilter> getAvailableFilters()
 	{
 		if (getSelectedIndex() == KNOWN_INDEX)
 		{

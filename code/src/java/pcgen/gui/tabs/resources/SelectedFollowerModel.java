@@ -17,7 +17,6 @@ import pcgen.util.Logging;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -40,7 +39,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	private static final int COL_TYPE = 1;
 	private static final int COL_FILE = 2;
 
-	private List displayList = null;
+	private List<Boolean> displayList = null;
 
 	// there are two roots. One for available equipment
 	// and one for selected equipment profiles
@@ -73,7 +72,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		resetModel();
 
 		int i = 1;
-		displayList = new ArrayList();
+		displayList = new ArrayList<Boolean>();
 		displayList.add(new Boolean(true));
 		displayList.add(new Boolean(getColumnViewOption(selNameList[i++], true)));
 		displayList.add(new Boolean(getColumnViewOption(selNameList[i++], true)));
@@ -95,7 +94,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	 * @param column
 	 * @return Class
 	 **/
-	public Class getColumnClass(int column)
+	public Class<?> getColumnClass(int column)
 	{
 		return (column == COL_NAME) ? TreeTableModel.class : String.class;
 	}
@@ -233,7 +232,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	 **/
 	public void resetModel()
 	{
-		List selectedList = buildCurrentCompanionsList();
+		List<String> selectedList = buildCurrentCompanionsList();
 		buildSelectedResources(selectedList);
 
 
@@ -247,7 +246,8 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	/**
 	 * @param selectedList
 	 */
-	private void buildSelectedResources(List selectedList) {
+	private void buildSelectedResources(List<String> selectedList) 
+	{
 		// this is the root node
 		selRoot = new PObjectNode();
 		setRoot(selRoot);
@@ -261,10 +261,8 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 			sl[iSel].setItem(sString);
 			sl[iSel].setParent(selRoot);
 
-			for (Iterator fList = pc.getFollowerList().iterator(); fList.hasNext();)
+			for (Follower aF : pc.getFollowerList())
 			{
-				Follower aF = (Follower) fList.next();
-
 				if (!sString.startsWith(aF.getType()))
 				{
 					continue;
@@ -285,19 +283,17 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	/**
 	 * @return current companions list
 	 */
-	private List buildCurrentCompanionsList() {
-		ArrayList selectedList = new ArrayList();
+	private List<String> buildCurrentCompanionsList() 
+	{
+		ArrayList<String> selectedList = new ArrayList<String>();
 		selectedList.add("Followers");
 
-		for (Iterator iComp = Globals.getCompanionModList().iterator(); iComp.hasNext();)
+		for (CompanionMod aComp : Globals.getCompanionModList())
 		{
-			final CompanionMod aComp = (CompanionMod) iComp.next();
 			final String compType = CoreUtility.capitalizeFirstLetter(aComp.getType());
 
-			for (Iterator iType = aComp.getVarMap().keySet().iterator(); iType.hasNext();)
+			for (String varName : aComp.getVarMap().keySet())
 			{
-				final String varName = (String) iType.next();
-
 				if ((pc.getVariableValue(varName, "").intValue() > 0) && (!selectedList.contains(compType)))
 				{
 					selectedList.add(compType);
@@ -305,18 +301,15 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 			}
 		}
 
-		for (Iterator iClass = pc.getClassList().iterator(); iClass.hasNext();)
+		for (PCClass aClass : pc.getClassList())
 		{
-			final PCClass aClass = (PCClass) iClass.next();
-
 			if (Globals.getCompanionModList().isEmpty())
 			{
 				continue;
 			}
 
-			for (Iterator iComp = Globals.getCompanionModList().iterator(); iComp.hasNext();)
+			for (CompanionMod aComp : Globals.getCompanionModList())
 			{
-				final CompanionMod aComp = (CompanionMod) iComp.next();
 				final String compType = CoreUtility.capitalizeFirstLetter(aComp.getType());
 
 				if ((aComp.getClassMap().containsKey(aClass.getKeyName())) && (!selectedList.contains(compType)))
@@ -329,44 +322,54 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		return selectedList;
 	}
 
-	public List getMColumnList() {
-		List retList = new ArrayList();
-		for(int i = 1; i < selNameList.length; i++) {
+	public List<String> getMColumnList() 
+	{
+		List<String> retList = new ArrayList<String>();
+		for (int i = 1; i < selNameList.length; i++) 
+		{
 			retList.add(selNameList[i]);
 		}
 		return retList;
 	}
 
-	public boolean isMColumnDisplayed(int col) {
+	public boolean isMColumnDisplayed(int col) 
+	{
 		return ((Boolean)displayList.get(col)).booleanValue();
 	}
 
-	public void setMColumnDisplayed(int col, boolean disp) {
+	public void setMColumnDisplayed(int col, boolean disp) 
+	{
 		setColumnViewOption( selNameList[col], disp);
 		displayList.set(col, new Boolean(disp));
 	}
 
-	public int getMColumnOffset() {
+	public int getMColumnOffset() 
+	{
 		return 1;
 	}
 
-	public int getMColumnDefaultWidth(int col) {
+	public int getMColumnDefaultWidth(int col) 
+	{
 		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], selDefaultWidth[col]);
 	}
 
-	public void setMColumnDefaultWidth(int col, int width) {
+	public void setMColumnDefaultWidth(int col, int width) 
+	{
 		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], width);
 	}
 
-	private boolean getColumnViewOption(String colName, boolean defaultVal) {
+	private boolean getColumnViewOption(String colName, boolean defaultVal) 
+	{
 		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.viewcol." + colName, defaultVal);
 	}
 
-	private void setColumnViewOption(String colName, boolean val) {
+	private void setColumnViewOption(String colName, boolean val) 
+	{
 		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.viewcol." + colName, val);
 	}
 
-	public void resetMColumn(int col, TableColumn column) {
+	public void resetMColumn(int col, TableColumn column) 
+	{
 		// TODO Auto-generated method stub
 
 	}

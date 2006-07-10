@@ -41,7 +41,7 @@ public class JComboBoxEx extends JComboBox
 	 * <code>StringIgnoreCaseComparator</code> (since combo boxes
 	 * display string items to the user).
 	 */
-	private Comparator comparator = new StringIgnoreCaseComparator();
+	private Comparator<Object> comparator = new StringIgnoreCaseComparator();
 
 	/**
 	 * Should we sort anytime the items are changed?
@@ -92,7 +92,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param items an array of vectors to insert into the combo
 	 * box
 	 */
-	public JComboBoxEx(Vector items)
+	public JComboBoxEx(Vector<?> items)
 	{
 		super(items);
 	}
@@ -178,7 +178,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param comparator the <code>Comparator</code> used to sort
 	 * items
 	 */
-	public void setComparator(Comparator comparator)
+	public void setComparator(Comparator<Object> comparator)
 	{
 		this.comparator = comparator;
 	}
@@ -190,7 +190,7 @@ public class JComboBoxEx extends JComboBox
 	 *
 	 * @return the <code>Comparator</code> used to sort items
 	 */
-	public Comparator getComparator()
+	public Comparator<Object> getComparator()
 	{
 		return comparator;
 	}
@@ -223,7 +223,7 @@ public class JComboBoxEx extends JComboBox
 	 * @param aComparator the <code>Comparator</code> used to sort
 	 * items
 	 */
-	public void sortItems(Comparator aComparator)
+	public void sortItems(Comparator<Object> aComparator)
 	{
 		// Keep the same item selected after sorting
 		Object selected = getSelectedItem();

@@ -41,7 +41,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -169,15 +168,13 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getToDos()
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 
 		boolean hasFree = false;
-		for (Iterator iter = pc.getClassList().iterator(); iter.hasNext();)
+		for (PCClass aClass : pc.getClassList())
 		{
-			PCClass aClass = (PCClass) iter.next();
-
 			if (((aClass.getKnownList().size() > 0) && aClass.getKnownList()!= null) || aClass.hasKnownSpells(pc) )
 			{
 				int highestSpellLevel = aClass.getHighestLevelSpell(pc);
@@ -909,7 +906,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 			Object endComp = selCPath.getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) endComp;
-			List aList = getInfoFromNode(fNode);
+			List<Object> aList = getInfoFromNode(fNode);
 			CharacterSpell cs = null;
 			String className = null;
 			if (aList != null)

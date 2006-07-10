@@ -135,7 +135,7 @@ final class PreferencesDialog extends JDialog
 	private static String in_expertGUI = PropertyFactory.getString("in_Prefs_expertGUI");
 	private static String in_enforceSpending = PropertyFactory.getString("in_Prefs_enforceSpending");
 	private static String in_equipment = PropertyFactory.getString("in_Prefs_equipment");
-	private static String in_featWindow = PropertyFactory.getString("in_Prefs_featWindow");
+//	private static String in_featWindow = PropertyFactory.getString("in_Prefs_featWindow");
 	private static String in_hp = PropertyFactory.getString("in_Prefs_hp");
 	private static String in_houseRules = PropertyFactory.getString("in_Prefs_houseRules");
 	private static String in_hpWindow = PropertyFactory.getString("in_Prefs_hpWindow");
@@ -251,7 +251,7 @@ final class PreferencesDialog extends JDialog
 	private JCheckBox displayAbilitiesAsTab = new JCheckBox();
 	private JCheckBox expertGUICheckBox = new JCheckBox();
 	private JCheckBox featDescriptionShown = new JCheckBox();
-	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
+//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
 	private JCheckBox hideMonsterClasses = new JCheckBox();
 
 	// Level Up
@@ -356,7 +356,7 @@ final class PreferencesDialog extends JDialog
 	private JTextField postExportCommandPDF;
 	private JTextField themepackLabel;
 	private JTree settingsTree;
-	private List ruleCheckList = new ArrayList();
+	private List<RuleCheck> ruleCheckList = new ArrayList<RuleCheck>();
 	private JTextField invalidToHitText;
 	private JTextField invalidDmgText;
 	private JCheckBox alwaysOverwrite;
@@ -423,9 +423,9 @@ final class PreferencesDialog extends JDialog
 
 	private void addPluginPanes(DefaultMutableTreeNode rootNode, DefaultMutableTreeNode pluginNode)
 	{
-		List nameList = compInst.getNameList();
-		List panelList = compInst.getPanelList();
-		HashMap nodeMap = new HashMap();
+		List<String> nameList = compInst.getNameList();
+		List<PreferencesPanel> panelList = compInst.getPanelList();
+		HashMap<String, JTabbedPane> nodeMap = new HashMap<String, JTabbedPane>();
 
 		for(int i = 0; i < nameList.size(); i++)
 		{
@@ -443,9 +443,9 @@ final class PreferencesDialog extends JDialog
 			nodeMap.put(name, tpane);
 		}
 
-		Set keySet = nodeMap.keySet();
-		for(Iterator it = keySet.iterator(); it.hasNext();) {
-			String name = (String)it.next();
+		Set<String> keySet = nodeMap.keySet();
+		for(String name : keySet) 
+		{
 			JTabbedPane tpane = (JTabbedPane)nodeMap.get(name);
 
 			pluginNode.add(new DefaultMutableTreeNode(name));
@@ -463,7 +463,7 @@ final class PreferencesDialog extends JDialog
 
 	public void applyPluginPreferences()
 	{
-		ArrayList panelList = compInst.getPanelList();
+		ArrayList<PreferencesPanel>  panelList = compInst.getPanelList();
 
 		for (int i = 0; i < panelList.size(); i++)
 		{
@@ -1517,7 +1517,7 @@ final class PreferencesDialog extends JDialog
 		c.insets = new Insets(2, 2, 2, 2);
 
 		// Automatically sort the options alphabetically.
-		final SortedMap options = new TreeMap();
+		final SortedMap<String, JComponent> options = new TreeMap<String, JComponent>();
 
 		options.put(in_showFeatDescription, featDescriptionShown);
 		options.put(in_showMemory, showMemory);
@@ -1530,10 +1530,8 @@ final class PreferencesDialog extends JDialog
 		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
 		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
 
-		for (final Iterator it = options.entrySet().iterator(); it.hasNext(); )
+		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
-			Map.Entry entry = (Map.Entry) it.next();
-
 			line = addDisplayOption(line, c, gridbag, displayOptsPanel,
 					(String) entry.getKey(), (JComponent) entry.getValue());
 		}
@@ -1843,9 +1841,8 @@ final class PreferencesDialog extends JDialog
 		int excludeCount = 0;
 		int boxNum = 0;
 
-		for (Iterator rc = ruleCheckList.iterator(); rc.hasNext();)
+		for (RuleCheck aRule : ruleCheckList)
 		{
-			RuleCheck aRule = (RuleCheck) rc.next();
 			aRule.getName();
 			String aKey = aRule.getKey();
 			String aDesc = aRule.getDesc();
@@ -1880,9 +1877,8 @@ final class PreferencesDialog extends JDialog
 
 		int exNum = 0;
 
-		for (Iterator rc = ruleCheckList.iterator(); rc.hasNext();)
+		for (RuleCheck aRule : ruleCheckList)
 		{
-			RuleCheck aRule = (RuleCheck) rc.next();
 			aRule.getName();
 			String aKey = aRule.getKey();
 			aRule.getDesc();
@@ -1908,7 +1904,7 @@ final class PreferencesDialog extends JDialog
 
 		int groupNum = 0;
 
-		List doneList = new ArrayList();
+		List<String> doneList = new ArrayList<String>();
 
 		for (int i = 0; i < hrRadio.length; i++)
 		{
@@ -2027,12 +2023,11 @@ final class PreferencesDialog extends JDialog
 		line = addLanguageOption(line, c, gridbag, langPanel,
 				langSystem = new JRadioButton(in_langSystem), exclusiveGroup);
 
-		final SortedSet sorted = new TreeSet(new Comparator()
+		final SortedSet<JRadioButton> sorted = new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
 		{
-			public int compare(final Object o1, final Object o2)
+			public int compare(final JRadioButton o1, final JRadioButton o2)
 			{
-				return ((JRadioButton) o1).getText().compareToIgnoreCase(
-						((JRadioButton) o2).getText());
+				return o1.getText().compareToIgnoreCase(o2.getText());
 			}
 		});
 
@@ -2043,10 +2038,9 @@ final class PreferencesDialog extends JDialog
 		sorted.add(langEs = new JRadioButton(in_langSpanish));
 		sorted.add(langPt = new JRadioButton(in_langPortuguese));
 
-		for (Iterator it = sorted.iterator(); it.hasNext();)
+		for (JRadioButton b : sorted)
 		{
-			line = addLanguageOption(line, c, gridbag, langPanel,
-					(JRadioButton) it.next(), exclusiveGroup);
+			line = addLanguageOption(line, c, gridbag, langPanel, b, exclusiveGroup);
 		}
 
 		Utility.buildConstraints(c, 0, line++, 1, 1, 0, 0);
@@ -2057,11 +2051,9 @@ final class PreferencesDialog extends JDialog
 		Utility.buildConstraints(c, 1, line++, 2, 1, 0, 0);
 		Map<String, UnitSet> unitSetList = SystemCollections.getUnitSetList();
 		unitSetNames = new String[unitSetList.size()];
-		Iterator iter = unitSetList.values().iterator();
 		int i = 0;
-		while (iter.hasNext())
+		for (UnitSet unitSet : unitSetList.values())
 		{
-			UnitSet unitSet = (UnitSet)iter.next();
 			if (unitSet != null)
 			{
 				unitSetNames[i++] = unitSet.getName();
@@ -3666,8 +3658,8 @@ final class PreferencesDialog extends JDialog
 	}
 
 	public static class PreferencesComponent implements GMBComponent {
-		private ArrayList panelList = new ArrayList();
-		private ArrayList nameList = new ArrayList();
+		private ArrayList<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+		private ArrayList<String> nameList = new ArrayList<String>();
 
 		public void handleMessage(GMBMessage message) {
 			if(message instanceof PreferencesPanelAddMessage) {
@@ -3677,11 +3669,11 @@ final class PreferencesDialog extends JDialog
 			}
 		}
 
-		public ArrayList getNameList() {
+		public ArrayList<String> getNameList() {
 			return nameList;
 		}
 
-		public ArrayList getPanelList() {
+		public ArrayList<PreferencesPanel> getPanelList() {
 			return panelList;
 		}
 	}

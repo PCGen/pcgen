@@ -39,7 +39,7 @@ import java.util.List;
 public final class CsheetFilter extends FileFilter implements FilenameFilter
 {
 	private static final String chaTemplates = PropertyFactory.getString("in_chaTemplates");
-	private List acceptedList = null;
+	private List<String> acceptedList = null;
 	private String dirFilter = null;
 	private String ignoreExtension = ".fo";
 	private int sheetType = 0; // 0 = character sheet, 1 = party sheet
@@ -65,9 +65,9 @@ public final class CsheetFilter extends FileFilter implements FilenameFilter
 	 * Get Accepted List
 	 * @return accepted List
 	 */
-	public List getAccepted()
+	public List<String> getAccepted()
 	{
-		acceptedList = new ArrayList();
+		acceptedList = new ArrayList<String>();
 		accept(SettingsHandler.getPcgenOutputSheetDir());
 
 		return acceptedList;

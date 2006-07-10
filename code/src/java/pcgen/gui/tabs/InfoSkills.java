@@ -282,9 +282,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		if (pc.getSkillPoints() < 0)
 		{
 			toDoList.add(PropertyFactory.getString("in_iskTodoTooMany")); //$NON-NLS-1$
@@ -298,7 +298,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -409,9 +409,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// Find the first entry with skill points remaining
 			//
 			i = 0;
-			for (Iterator iter = aPC.getLevelInfo().iterator(); iter.hasNext();)
+			for (PCLevelInfo pcl : aPC.getLevelInfo())
 			{
-				final PCLevelInfo pcl = (PCLevelInfo) iter.next();
 				if (pcl.getSkillPointsRemaining() != 0)
 				{
 					break;
@@ -501,10 +500,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		int maxOutputIndex = 0;
 
-		for (Iterator i = pc.getSkillList().iterator(); i.hasNext();)
+		for (Skill bSkill : pc.getSkillList())
 		{
-			final Skill bSkill = (Skill) i.next();
-
 			if (bSkill.getOutputIndex() > maxOutputIndex)
 			{
 				maxOutputIndex = bSkill.getOutputIndex();
@@ -842,7 +839,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		//
 		// Get list of skills with fulfilled prereqs
 		//
-		ArrayList prereqSkills = getSatisfiedPrereqSkills(theSkill);
+		ArrayList<Skill> prereqSkills = getSatisfiedPrereqSkills(theSkill);
 
 		//
 		// If the skill has prerequisites, then make sure we don't invalidate them by adding too many ranks
@@ -1775,13 +1772,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		SkillComparator comparator = new SkillComparator(sort, sortOrder);
 		int nextOutputIndex = 1;
-		List skillList = pc.getSkillList();
+		List<Skill> skillList = pc.getSkillList();
 		Collections.sort(skillList, comparator);
 
-		for (Iterator sI = skillList.iterator(); sI.hasNext();)
+		for (Skill aSkill : skillList)
 		{
-			final Skill aSkill = (Skill) sI.next();
-
 			if (aSkill.getOutputIndex() >= 0)
 			{
 				aSkill.setOutputIndex(nextOutputIndex++);
@@ -1858,17 +1853,15 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				return;
 			}
 			final int y = anInt / x;
-			PCClass aClass;
 
-			for (Iterator i = currentPC.getClassList().iterator(); i.hasNext();)
+			for (PCClass aClass : currentPC.getClassList())
 			{
-				aClass = (PCClass) i.next();
 				aClass.setSkillPool(Math.max(0, y));
 			}
 
 			PCLevelInfo pcl = getSelectedLevelInfo(currentPC);
 			int skillPool = pcl.getSkillPointsRemaining();
-			aClass = getSelectedPCClass();
+			PCClass aClass = getSelectedPCClass();
 
 			if (aClass != null)
 			{
@@ -1983,9 +1976,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			String[] comboStrings = new String[pc.getLevelInfoSize()];
 
 			int i = 0;
-			for (Iterator iter = pc.getLevelInfo().iterator(); iter.hasNext();)
+			for (PCLevelInfo pcl : pc.getLevelInfo())
 			{
-				PCLevelInfo pcl = (PCLevelInfo) iter.next();
 				StringBuffer sb = new StringBuffer();
 				sb.append(pcl.getClassKeyName())
 					.append('/')
@@ -2088,7 +2080,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -2099,7 +2091,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 		createSelectedModel();
 		try
 		{
@@ -2269,7 +2261,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private static final class OutputOrderEditor extends JComboBoxEx implements TableCellEditor
 	{
-		private final transient List d_listeners = new ArrayList();
+		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
 		private transient int d_originalValue;
 
 		private OutputOrderEditor(String[] choices)
@@ -2446,7 +2438,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private String[] names = { "Skill", "Modifier", "Ranks", "Total", "Cost", "Source", "Order" };
 		private int[] widths = { 100, 100, 100, 100, 100, 100, 100 };
 
-		private List displayList;
+		private List<Boolean> displayList;
 
 		// Types of the columns.
 		private int modelType = MODEL_AVAIL;
@@ -2467,7 +2459,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			resetModel(mode, available);
 			int i = 1;
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));	// Skill
 			if (available)
 			{
@@ -2508,7 +2500,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			GameMode gm;
 			switch (column)
@@ -2627,10 +2619,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							needRefresh = true;
 							outputIndex = 2;
 
-							for (Iterator skillListIter = pc.getSkillListInOutputOrder().iterator(); skillListIter.hasNext();)
+							for (Skill bSkill : pc.getSkillListInOutputOrder())
 							{
-								final Skill bSkill = (Skill) skillListIter.next();
-
 								if ((bSkill.getOutputIndex() > -1) && (bSkill != aSkill))
 								{
 									bSkill.setOutputIndex(outputIndex++);
@@ -2646,10 +2636,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							// Reorder everything so that we have a proper sequence - its the only way to be sure
 							needRefresh = true;
 
-							for (Iterator i = pc.getSkillListInOutputOrder().iterator(); i.hasNext();)
+							for (Skill bSkill : pc.getSkillListInOutputOrder())
 							{
-								final Skill bSkill = (Skill) i.next();
-
 								if (workingIndex == outputIndex)
 								{
 									workingIndex++;
@@ -2842,7 +2830,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private void populateNode(PObjectNode node, ResetableListIterator skillsIt, InfoSkillsSorter sorter,
 			boolean available)
 		{
-			final SortedSet set = new TreeSet(new StringIgnoreCaseComparator());
+			final SortedSet<PObjectNode> set = new TreeSet<PObjectNode>(new StringIgnoreCaseComparator());
 
 			String qFilter = this.getQFilter();
 
@@ -2866,7 +2854,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (part instanceof Iterator)
 					{
-						for (Iterator partIt = (Iterator) part; partIt.hasNext();)
+						for (Iterator<?> partIt = (Iterator) part; partIt.hasNext();)
 						{
 							Object anObj = partIt.next();
 							if (anObj instanceof String)
@@ -2894,9 +2882,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			}
 
-			for (Iterator nodeIt = set.iterator(); nodeIt.hasNext();)
+			for (PObjectNode n : set)
 			{
-				node.addChild((PObjectNode) nodeIt.next());
+				node.addChild(n);
 			}
 		}
 
@@ -2983,7 +2971,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			private int index;
 			private int listSize;
 
-			List skillList;
+			List<Skill> skillList;
 
 			/**
 			 * Constructor
@@ -3116,10 +3104,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			SettingsHandler.setPCGenOption("InfoSkills.sizecol." + names[col], width);
 		}
 
-		public List getMColumnList()
+		public List<String> getMColumnList()
 		{
-			List retList = new ArrayList();
-			for(int i = 1; i < names.length; i++) {
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < names.length; i++) 
+			{
 				retList.add(names[i]);
 			}
 			return retList;
@@ -3711,7 +3700,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (aSkill != null)
 				{
 					//remove all ranks from this skill for all PCClasses
-					for (Iterator iter = pc.getClassList().iterator(); iter.hasNext();)
+					for (Iterator<PCClass> iter = pc.getClassList().iterator(); iter.hasNext();)
 					{
 						//TODO: This value is thrown away, should it really be?
 						iter.next();
@@ -3813,13 +3802,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	// Compile a list of all skills the character currently has that have prerequisites that
 	// are currently fulfilled
 	//
-	private ArrayList getSatisfiedPrereqSkills(final Skill theSkill)
+	private ArrayList<Skill> getSatisfiedPrereqSkills(final Skill theSkill)
 	{
-		ArrayList prereqSkills = new ArrayList();
-		final ArrayList pcSkills = pc.getSkillList();
-		for (Iterator iter = pcSkills.iterator(); iter.hasNext(); )
+		ArrayList<Skill> prereqSkills = new ArrayList<Skill>();
+		final ArrayList<Skill> pcSkills = pc.getSkillList();
+		for (Skill aSkill : pcSkills)
 		{
-			final Skill aSkill = (Skill) iter.next();
 			if (theSkill.compareTo(aSkill) != 0)
 			{
 				if ((aSkill.getPreReqCount() != 0) && PrereqHandler.passesAll(aSkill.getPreReqList(), pc, aSkill))
@@ -3837,9 +3825,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 * @return true if at least 1 one skill fails its prerequisites
 	 * @return false if all pass prerequisites
 	 */
-	private boolean prereqSkillsInvalid(ArrayList prereqSkills)
+	private boolean prereqSkillsInvalid(ArrayList<Skill> prereqSkills)
 	{
-		for (Iterator iter = prereqSkills.iterator(); iter.hasNext(); )
+		for (Iterator<Skill> iter = prereqSkills.iterator(); iter.hasNext(); )
 		{
 			final Skill aSkill = (Skill) iter.next();
 

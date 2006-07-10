@@ -249,7 +249,7 @@ public final class AddSpecialAbility extends JFrame
 			return false;
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}

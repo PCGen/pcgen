@@ -78,7 +78,7 @@ public class TabbedPane extends JTabbedPane
 		PropertyFactory.getString("in_tabTips11"), PropertyFactory.getString("in_tabTips12")
 	};
 	private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
-	private Set locked = new HashSet();
+	private Set<Component> locked = new HashSet<Component>();
 
 	/**
 	 * Constructor

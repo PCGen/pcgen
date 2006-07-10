@@ -108,7 +108,7 @@ public class SpinningTabbedPane extends JTabbedPane
 		PropertyFactory.getString("in_spinTips31"), PropertyFactory.getString("in_spinTips32")
 	};
 	private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
-	private Set locked = new HashSet();
+	private Set<Component> locked = new HashSet<Component>();
 	private SpinningTabbedPane parent = null;
 
 	public SpinningTabbedPane()

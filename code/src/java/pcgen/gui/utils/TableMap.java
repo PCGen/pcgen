@@ -46,7 +46,7 @@ class TableMap extends AbstractTableModel implements TableModelListener
 		return model.isCellEditable(row, column);
 	}
 
-	public Class getColumnClass(int aColumn)
+	public Class<?> getColumnClass(int aColumn)
 	{
 		return model.getColumnClass(aColumn);
 	}

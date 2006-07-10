@@ -71,6 +71,7 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.kit.BaseKit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
@@ -156,8 +157,8 @@ final class KitSelector extends JFrame
 			return;
 		}
 
-		List thingsToAdd = new ArrayList();
-		List warnings    = new ArrayList();
+		List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
+		List<String> warnings     = new ArrayList<String>();
 		theKit.testApplyKit(aPC, thingsToAdd, warnings);
 
 		//
@@ -186,17 +187,15 @@ final class KitSelector extends JFrame
 		}
 	}
 
-	private void addSelections(JList lst, List kits, List excluded, PlayerCharacter aPlayerCharacter)
+	private void addSelections(JList lst, List<Kit> kits, List<Kit> excluded, PlayerCharacter aPlayerCharacter)
 	{
 		if ((kits == null) || (kits.size() == 0))
 		{
 			return;
 		}
 
-		for (Iterator e = kits.iterator(); e.hasNext();)
+		for (Kit aKit : kits)
 		{
-			final Kit aKit = (Kit) e.next();
-
 			if (!aKit.isVisible(aPlayerCharacter))
 			{
 				continue;
@@ -244,17 +243,17 @@ final class KitSelector extends JFrame
 	{
 		IconUtilitities.maybeSetIcon(this, "PcgenIcon.gif");
 
-		lstAvailable = new JList(new KitListModel(new ArrayList()));
+		lstAvailable = new JList(new KitListModel(new ArrayList<Kit>()));
 		lstAvailable.setCellRenderer(new MyCellRenderer());
 		lstAvailable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scpAvailable.setViewportView(lstAvailable);
 
-		lstSelected = new JList(new KitListModel(new ArrayList()));
+		lstSelected = new JList(new KitListModel(new ArrayList<Kit>()));
 		lstSelected.setCellRenderer(new MyCellRenderer());
 		lstSelected.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scpSelected.setViewportView(lstSelected);
 
-		final List pcKitInfo = aPC.getKitInfo();
+		final List<Kit> pcKitInfo = aPC.getKitInfo();
 		addSelections(lstAvailable, Globals.getKitInfo(), pcKitInfo, aPC);
 		addSelections(lstSelected, pcKitInfo, null, aPC);
 
@@ -505,7 +504,7 @@ final class KitSelector extends JFrame
 		txtInfo.setText(theKit.getInfo(aPC));
 	}
 
-	private int showWarnings(List warnings)
+	private int showWarnings(List<String> warnings)
 	{
 		userResponse = USER_NO;
 
@@ -531,9 +530,9 @@ final class KitSelector extends JFrame
 			StringBuffer warningInfo = new StringBuffer(100);
 			warningInfo.append("<html>");
 
-			for (Iterator e = warnings.iterator(); e.hasNext();)
+			for (String s : warnings)
 			{
-				warningInfo.append((String) e.next()).append("<br>");
+				warningInfo.append(s).append("<br>");
 			}
 
 			warningInfo.append("</html>");
@@ -580,13 +579,15 @@ final class KitSelector extends JFrame
 
 	private class KitListModel extends AbstractListModel
 	{
+		private ArrayList<Kit> theList = null;
+
 		/**
 		 * Constructor
 		 * @param aList
 		 */
-		public KitListModel(final List aList)
+		public KitListModel(final List<Kit> aList)
 		{
-			theList = new ArrayList(aList);
+			theList = new ArrayList<Kit>(aList);
 		}
 
 		public Object getElementAt(int index)
@@ -603,9 +604,9 @@ final class KitSelector extends JFrame
 		 * Add an item to the list model
 		 * @param anObj
 		 */
-		public void addItem(Object anObj)
+		public void addItem(Kit aKit)
 		{
-			theList.add(anObj);
+			theList.add(aKit);
 			Collections.sort(theList);
 		}
 
@@ -617,8 +618,6 @@ final class KitSelector extends JFrame
 		{
 			theList.remove(item);
 		}
-
-		private ArrayList theList = null;
 	}
 
 	private class MyCellRenderer extends DefaultListCellRenderer

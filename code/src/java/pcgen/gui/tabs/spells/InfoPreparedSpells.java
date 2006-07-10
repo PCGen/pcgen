@@ -35,7 +35,6 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -62,6 +61,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
@@ -123,7 +123,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	private JCheckBox canUseHigherSlots = new JCheckBox(PropertyFactory
 		.getString("InfoPreparedSpells.canUseHigherSlots")); //$NON-NLS-1$
 
-	private List characterMetaMagicFeats = new ArrayList();
+	private List<String> characterMetaMagicFeats = new ArrayList<String>();
 
 	private JPanel botPane = new JPanel();
 	private JPanel topPane = new JPanel();
@@ -176,9 +176,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getToDos()
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -225,13 +225,11 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		// get the list of metamagic feats for the PC
 		characterMetaMagicFeats.clear();
-		List feats = pc.aggregateFeatList();
+		List<Ability> feats = pc.aggregateFeatList();
 		Globals.sortPObjectList(feats);
 
-		for (Iterator i = feats.iterator(); i.hasNext();)
+		for (Ability aFeat : feats)
 		{
-			Ability aFeat = (Ability) i.next();
-
 			if (aFeat.isType("Metamagic")) //$NON-NLS-1$
 			{
 				characterMetaMagicFeats.add(aFeat.getKeyName());
@@ -744,10 +742,9 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		availableBookList.add(Globals.getDefaultSpellBook());
 
 		selectedBookList.clear();
-		for (Iterator iBook = pc.getSpellBooks().iterator(); iBook.hasNext();)
+		for (String bookName : pc.getSpellBooks())
 		{
 			// build spell book list
-			String bookName = (String) iBook.next();
 			SpellBook book = pc.getSpellBookByName(bookName);
 			if (book.getType() == SpellBook.TYPE_PREPARED_LIST
 				&& !selectedBookList.contains(bookName))
@@ -1050,26 +1047,25 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			//
 
 			final String aKey = spellA.getSpell().getKeyName();
-			List metamagicFeats = new ArrayList();
-			for(Iterator cmeta = characterMetaMagicFeats.iterator(); cmeta.hasNext(); )
+			List<Ability> metamagicFeats = new ArrayList<Ability>();
+			for(String s : characterMetaMagicFeats)
 			{
-				final Ability anAbility = Globals.getAbilityKeyed("FEAT", (String) cmeta.next());
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", s);
 				if (anAbility == null)
 				{
 					continue;
 				}
 
 				boolean canAdd = false;
-				List bonusList = BonusUtilities.getBonusFromList(anAbility.getBonusList(), Bonus.getBonusTypeFromName("PPCOST"));
+				List<BonusObj> bonusList = BonusUtilities.getBonusFromList(anAbility.getBonusList(), Bonus.getBonusTypeFromName("PPCOST"));
 				if (bonusList.size() == 0)
 				{
 					canAdd = true;		// if doesn't modify PP COST, then allow it
 				}
 				else
 				{
-					for(Iterator ab = bonusList.iterator(); ab.hasNext(); )
+					for(BonusObj aBonus : bonusList)
 					{
-						final pcgen.core.bonus.BonusObj aBonus = (pcgen.core.bonus.BonusObj) ab.next();
 						final java.util.StringTokenizer aTok = new java.util.StringTokenizer(aBonus.getBonusInfo(), ",");
 						while (aTok.hasMoreTokens())
 						{
@@ -1111,8 +1107,8 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		c.setPool(99);
 		c.setVisible(true);
 
-		final List fList = c.getSelectedList();
-		List selFeatList = new ArrayList();
+		final List<Ability> fList = (List<Ability>) c.getSelectedList();
+		List<Ability> selFeatList = new ArrayList<Ability>();
 		int spLevel = si.getActualLevel();
 		int realLevel = spLevel;
 
@@ -1155,7 +1151,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 			Object endComp = selCPath.getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) endComp;
-			List aList = getInfoFromNode(fNode);
+			List<Object> aList = getInfoFromNode(fNode);
 			CharacterSpell cs = null;
 			String className = null;
 			if (aList != null)
@@ -1212,10 +1208,8 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 
 		// added to prevent spellbooks being given the same name as a class
-		for (Iterator i = Globals.getClassList().iterator(); i.hasNext();)
+		for (PCClass current : Globals.getClassList())
 		{
-			PCClass current = (PCClass) i.next();
-
 			if ((aString.equals(current.getKeyName())))
 			{
 				JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_spellbook_name_error"), //$NON-NLS-1$

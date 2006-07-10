@@ -35,7 +35,6 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -154,9 +153,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getToDos()
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -410,11 +409,11 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		// create tables associated with the above trees
 		createTreeTables();
 
-		List colNameList = new ArrayList();
+		List<String> colNameList = new ArrayList<String>();
 		colNameList.add("School");
 		colNameList.add("Descriptor");
 		colNameList.add("Source File");
-		List colActiveList = new ArrayList();
+		List<Boolean> colActiveList = new ArrayList<Boolean>();
 		colActiveList.add(new Boolean(true));
 		colActiveList.add(new Boolean(true));
 		colActiveList.add(new Boolean(true));
@@ -611,10 +610,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		availableBookList.add(Globals.getDefaultSpellBook());
 
 		selectedBookList.clear();
-		for (Iterator iBook = pc.getSpellBooks().iterator(); iBook.hasNext();)
+		for (String bookName : pc.getSpellBooks())
 		{
 			// build spell book list
-			String bookName = (String) iBook.next();
 			SpellBook book = pc.getSpellBookByName(bookName);
 			if (book.getType() == SpellBook.TYPE_SPELL_BOOK
 				&& !selectedBookList.contains(bookName))
@@ -873,7 +871,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 			Object endComp = selCPath.getLastPathComponent();
 			PObjectNode fNode = (PObjectNode) endComp;
-			List aList = getInfoFromNode(fNode);
+			List<Object> aList = getInfoFromNode(fNode);
 			CharacterSpell cs = null;
 			String className = null;
 			if (aList != null)

@@ -79,11 +79,11 @@ final class ChooseSpellDialog extends JDialog
 	private JLabel lblSpellVariant;
 	private JList lstMetamagicFeats;
 	private JScrollPane jScrollPane1;
-	private List classList = null;
-	private List classSpells = null;
-	private List levelList = null;
-	private List subTypeList = new ArrayList();
-	private Map specialists = null;
+	private List<String> classList = null;
+	private List<Spell> classSpells = null;
+	private List<String> levelList = null;
+	private List<String> subTypeList = new ArrayList<String>();
+	private Map<String, List<String>> specialists = null;
 	private PObject castingClass = null;
 	private Spell theSpell = null;
 	private String choiceString = "";
@@ -96,7 +96,7 @@ final class ChooseSpellDialog extends JDialog
 	private int spellBooks = 0;
 	private PlayerCharacter pc;
 
-	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List classList, final List levelList, final int spellBooks, final String choiceString)
+	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks, final String choiceString)
 	{
 		super(parent);
 		IconUtilitities.maybeSetIcon(parent, "PcgenIcon.gif");
@@ -112,7 +112,7 @@ final class ChooseSpellDialog extends JDialog
 		setLocationRelativeTo(parent); // centre on parent (Canadian spelling eh?)
 	}
 
-	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List classList, final List levelList, final int spellBooks)
+	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks)
 	{
 		super(parent);
 		IconUtilitities.maybeSetIcon(parent, "PcgenIcon.gif");
@@ -242,12 +242,11 @@ final class ChooseSpellDialog extends JDialog
 
 	private void getSpecialists()
 	{
-		specialists = new HashMap();
+		specialists = new HashMap<String, List<String>>();
 
-		for (Iterator e = Globals.getClassList().iterator(); e.hasNext();)
+		for (PCClass aClass : Globals.getClassList())
 		{
-			final PCClass aClass = (PCClass) e.next();
-			final List subClasses = CoreUtility.split(aClass.getSubClassString(), '|');
+			final List<String> subClasses = CoreUtility.split(aClass.getSubClassString(), '|');
 
 			if (subClasses.size() > 1)
 			{
@@ -297,7 +296,7 @@ final class ChooseSpellDialog extends JDialog
 									final String specialty = aTok.nextToken();
 									final String cost = aTok.nextToken();
 									final String className = aTok.nextToken();
-									List aList = new ArrayList(5);
+									List<String> aList = new ArrayList<String>(5);
 									aList.add(aClass.getKeyName());
 									aList.add(specialty);
 									aList.add(cost);
@@ -338,10 +337,10 @@ final class ChooseSpellDialog extends JDialog
 
 		boolean finalIsOfType = false;
 
-		for (Iterator e = subTypeList.iterator(); e.hasNext();)
+		for (String s : subTypeList)
 		{
 			boolean isOfType = true;
-			StringTokenizer aTok = new StringTokenizer((String) e.next(), ";,");
+			StringTokenizer aTok = new StringTokenizer(s, ";,");
 
 			while (aTok.hasMoreTokens())
 			{
@@ -349,7 +348,7 @@ final class ChooseSpellDialog extends JDialog
 
 				if (subType.startsWith("SCHOOL."))
 				{
-					List school = new ArrayList();
+					List<String> school = new ArrayList<String>();
 					school.add(subType.substring(7));
 
 					if (!aSpell.schoolContains(school))
@@ -362,7 +361,7 @@ final class ChooseSpellDialog extends JDialog
 
 				if (subType.startsWith("SUBSCHOOL."))
 				{
-					List subSchool = new ArrayList();
+					List<String> subSchool = new ArrayList<String>();
 					subSchool.add(subType.substring(10));
 
 					if (!aSpell.subschoolContains(subSchool))
@@ -397,9 +396,9 @@ final class ChooseSpellDialog extends JDialog
 		return finalIsOfType;
 	}
 
-	private List getSpellTypes()
+	private List<String> getSpellTypes()
 	{
-		List spellTypes = new ArrayList();
+		List<String> spellTypes = new ArrayList<String>();
 
 		if (castingClass instanceof PCClass)
 		{
@@ -422,9 +421,9 @@ final class ChooseSpellDialog extends JDialog
 		return spellTypes;
 	}
 
-	private void addSpellInfoToList(final Spell aSpell, List unfoundItems, List classWithSpell, String spellType)
+	private void addSpellInfoToList(final Spell aSpell, List<String> unfoundItems, List<PObject> classWithSpell, String spellType)
 	{
-		final Map levelInfo = aSpell.getLevelInfo(pc);
+		final Map<String, Integer> levelInfo = aSpell.getLevelInfo(pc);
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{
@@ -433,9 +432,8 @@ final class ChooseSpellDialog extends JDialog
 			return;
 		}
 
-		for (Iterator it = levelInfo.keySet().iterator(); it.hasNext();)
+		for (String key : levelInfo.keySet())
 		{
-			final String key = (String) it.next();
 			String sub;
 
 			if (key.startsWith("CLASS|"))
@@ -606,19 +604,17 @@ final class ChooseSpellDialog extends JDialog
 				cName = castingClass.getKeyName();
 			}
 
-			classSpells = new ArrayList();
+			classSpells = new ArrayList<Spell>();
 
-			for (Iterator e = Globals.getSpellsIn(-1, cName, dName).iterator(); e.hasNext();)
+			for (Spell s : Globals.getSpellsIn(-1, cName, dName))
 			{
-				final Spell s = (Spell) e.next();
-
 				if (canCreateItem(s))
 				{
 					classSpells.add(s);
 				}
 			}
 
-			List spellTypes = getSpellTypes();
+			List<String> spellTypes = getSpellTypes();
 			cmbSpellType.setModel(new DefaultComboBoxModel(spellTypes.toArray()));
 			cmbBaseSpellLevel.setSelectedIndex(0); // set the spell level to 0, which will set the caster level to 1
 		}
@@ -663,7 +659,7 @@ final class ChooseSpellDialog extends JDialog
 			{
 				lblSpellVariant.setEnabled(false);
 				cmbSpellVariant.setEnabled(false);
-				cmbSpellVariant.setModel(new DefaultComboBoxModel(new ArrayList().toArray()));
+				cmbSpellVariant.setModel(new DefaultComboBoxModel(new ArrayList<String>().toArray()));
 			}
 
 			int maxClassLevel = 20; //TODO: This shouldn't be hardcoded, should it?
@@ -721,7 +717,7 @@ final class ChooseSpellDialog extends JDialog
 		{
 			theSpell = null;
 
-			List spellsOfLevel = new ArrayList();
+			List<SpellShell> spellsOfLevel = new ArrayList<SpellShell>();
 
 			if (classSpells != null)
 			{
@@ -750,10 +746,8 @@ final class ChooseSpellDialog extends JDialog
 					caster = "CLASS";
 				}
 
-				for (Iterator e = classSpells.iterator(); e.hasNext();)
+				for (Spell s : classSpells)
 				{
-					final Spell s = (Spell) e.next();
-
 					if (!isSpellOfSubType(s))
 					{
 						continue;
@@ -763,11 +757,11 @@ final class ChooseSpellDialog extends JDialog
 					{
 						if (SettingsHandler.guiUsesOutputNameSpells())
 						{
-							spellsOfLevel.add(new SpellShell(s));
+							spellsOfLevel.add(new SpellShell(s, true));
 						}
 						else
 						{
-							spellsOfLevel.add(s);
+							spellsOfLevel.add(new SpellShell(s, false));
 						}
 					}
 				}
@@ -803,7 +797,7 @@ final class ChooseSpellDialog extends JDialog
 				theSpell = null;
 			}
 
-			List variants;
+			List<String> variants;
 
 			if (theSpell != null)
 			{
@@ -811,7 +805,7 @@ final class ChooseSpellDialog extends JDialog
 			}
 			else
 			{
-				variants = new ArrayList();
+				variants = new ArrayList<String>();
 			}
 
 			isEnabled = (variants.size() != 0);
@@ -1101,8 +1095,8 @@ final class ChooseSpellDialog extends JDialog
 
 		// Generate a list of classes and domains
 		// that have at least 1 spell
-		List unfoundItems = new ArrayList();
-		List classWithSpell = new ArrayList();
+		List<String> unfoundItems = new ArrayList<String>();
+		List<PObject> classWithSpell = new ArrayList<PObject>();
 		String spellType = "";
 		int minimumLevel = 0;
 		int maxLevel = 9;
@@ -1146,9 +1140,8 @@ final class ChooseSpellDialog extends JDialog
 
 		if (classList != null)
 		{
-			for (Iterator i = classList.iterator(); i.hasNext();)
+			for (String classKey : classList)
 			{
-				final String classKey = (String) i.next();
 				PObject obj = Globals.getClassKeyed(classKey);
 
 				if (obj == null)
@@ -1173,18 +1166,17 @@ final class ChooseSpellDialog extends JDialog
 		}
 		else
 		{
-			final Map spellMap = Globals.getSpellMap();
+			final Map<String, ?> spellMap = Globals.getSpellMap();
 
-			for (Iterator i = spellMap.keySet().iterator(); i.hasNext();)
+			for (String aKey : spellMap.keySet())
 			{
-				final String aKey = (String) i.next();
 				final Object obj = spellMap.get(aKey);
 
 				if (obj instanceof ArrayList)
 				{
-					for (Iterator it2 = ((ArrayList) obj).iterator(); it2.hasNext();)
+					for (Object o : (ArrayList) obj)
 					{
-						Spell bSpell = (Spell) it2.next();
+						Spell bSpell = (Spell) o;
 
 						if (isSpellOfSubType(bSpell))
 						{
@@ -1205,9 +1197,8 @@ final class ChooseSpellDialog extends JDialog
 			{
 				specialists = null;
 
-				for (Iterator e = unfoundItems.iterator(); e.hasNext();)
+				for (String eMsg : unfoundItems)
 				{
-					final String eMsg = (String) e.next();
 					String bMsg = null;
 
 					if (eMsg.length() <= 0)
@@ -1228,7 +1219,7 @@ final class ChooseSpellDialog extends JDialog
 							}
 
 							final String sub = eMsg.substring(1);
-							final List specInfo = (ArrayList) specialists.get(sub);
+							final List<String> specInfo = (ArrayList<String>) specialists.get(sub);
 
 							if (specInfo == null)
 							{
@@ -1267,10 +1258,8 @@ final class ChooseSpellDialog extends JDialog
 				}
 			}
 
-			for (Iterator iClass = Globals.getClassList().iterator(); iClass.hasNext();)
+			for (PCClass aClass : Globals.getClassList())
 			{
-				final PCClass aClass = (PCClass) iClass.next();
-
 				if (!aClass.getSpellType().equals(Constants.s_NONE))
 				{
 					// Only adds if the class can cast
@@ -1384,9 +1373,9 @@ final class ChooseSpellDialog extends JDialog
 			//
 			// Make a sorted list of all available metamagic feats
 			//
-			List metamagicFeats = new ArrayList();
+			List<Ability> metamagicFeats = new ArrayList<Ability>();
 
-			for (Iterator e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
+			for (Iterator<? extends Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 			{
 				final Ability anAbility = (Ability) e.next();
 
@@ -1405,13 +1394,15 @@ final class ChooseSpellDialog extends JDialog
 		pack();
 	}
 
-	private static final class SpellShell implements Serializable, Comparable
+	private static final class SpellShell implements Serializable, Comparable<Object>
 	{
 		private Spell aSpell = null;
+		private boolean useOutputName = false;
 
-		SpellShell(final Spell argSpell)
+		SpellShell(final Spell argSpell, final boolean argUseOutputName)
 		{
 			aSpell = argSpell;
+			useOutputName = argUseOutputName;
 		}
 
 		public int compareTo(Object obj)
@@ -1428,7 +1419,14 @@ final class ChooseSpellDialog extends JDialog
 		{
 			if (aSpell != null)
 			{
-				return aSpell.getOutputName();
+				if (useOutputName)
+				{
+					return aSpell.getOutputName();
+				}
+				else
+				{
+					return aSpell.toString();
+				}
 			}
 
 			return "";

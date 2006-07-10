@@ -127,17 +127,17 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 
 
 		if (pc.getTotalLevels() <= 1 || Globals.checkRule(RuleConstants.INTBONUSLANG))
 		{
 			int numLanguages = pc.languageNum(false);
-			List availableLangs = new ArrayList();
-			List selectedLangNames = new ArrayList();
-			List excludedLangs = new ArrayList();
+			List<Language> availableLangs = new ArrayList<Language>();
+			List<String> selectedLangNames = new ArrayList<String>();
+			List<Language> excludedLangs = new ArrayList<Language>();
 			buildLangLists(availableLangs, selectedLangNames, excludedLangs);
 
 			if (selectedLangNames.size() < (numLanguages))
@@ -196,7 +196,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			return;
 		}
 
-		List specialAbilities = pc.getSpecialAbilityTimesList();
+		List<String> specialAbilities = pc.getSpecialAbilityTimesList();
 		pc.getAutoLanguages();
 
 		String languages = pc.getLanguagesListNames();
@@ -222,11 +222,11 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 		showWeaponProfList();
 	}
 
-	private List getOptionalWeaponProficiencies()
+	private List<Object> getOptionalWeaponProficiencies()
 	{
 		if (pc != null)
 		{
-			List bonusCategory = new ArrayList();
+			List<Object> bonusCategory = new ArrayList<Object>();
 			final Race pcRace = pc.getRace();
 
 			if (pcRace != null)
@@ -237,32 +237,24 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				}
 			}
 
-			for (Iterator e = pc.getClassList().iterator(); e.hasNext();)
+			for (PCClass aClass : pc.getClassList())
 			{
-				final PCClass aClass = (PCClass) e.next();
-
 				if (aClass.getWeaponProfBonus().size() != 0)
 				{
 					bonusCategory.add(aClass);
 				}
 			}
 
-			for (Iterator e = pc.getTemplateList().iterator(); e.hasNext();)
+			for (PCTemplate aTemplate : pc.getTemplateList())
 			{
-				final PCTemplate aTemplate = (PCTemplate) e.next();
-
 				if (aTemplate.getWeaponProfBonusSize() != 0)
 				{
 					bonusCategory.add(aTemplate);
 				}
 			}
 
-			final List pcDomains = pc.getCharacterDomainList();
-
-			for (Iterator e = pcDomains.iterator(); e.hasNext();)
+			for (CharacterDomain aCD : pc.getCharacterDomainList())
 			{
-				final CharacterDomain aCD = (CharacterDomain) e.next();
-
 				if ((aCD.isFromPCClass() || aCD.isFromFeat()) && (aCD.toString().length() != 0)
 					&& aCD.getDomain().getChoiceString().startsWith("WEAPONPROF|"))
 				{
@@ -421,10 +413,10 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			pc.setDirty(true);
 
 
-			List availableLangs = new ArrayList();
-			List selectedLangNames = new ArrayList();
-			List excludedLangs = new ArrayList();
-			List selLangs = new ArrayList();
+			List<Language> availableLangs = new ArrayList<Language>();
+			List<String> selectedLangNames = new ArrayList<String>();
+			List<Language> excludedLangs = new ArrayList<Language>();
+			List<Language> selLangs = new ArrayList<Language>();
 
 			int numLanguages = pc.languageNum(false);
 
@@ -464,10 +456,9 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			{
 				return;
 			}
-
-			for (Iterator e = lc.getSelectedList().iterator(); e.hasNext();)
+			
+			for (String aString : (List<String>) lc.getSelectedList())
 			{
-				String aString = (String) e.next();
 				Language aLang = Globals.getLanguageKeyed(aString);
 
 				if (aLang != null)
@@ -490,26 +481,21 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	 * @param selectedLangNames
 	 * @param excludedLangs
 	 */
-	private void buildLangLists(List availableLangs, List selectedLangNames, List excludedLangs)
+	private void buildLangLists(List<Language> availableLangs, List<String> selectedLangNames, List<Language> excludedLangs)
 	{
-		SortedSet autoLangs = pc.getAutoLanguages();
+		SortedSet<Language> autoLangs = pc.getAutoLanguages();
 		Skill speakLanguage = null;
 
-		for (Iterator a = pc.getSkillList().iterator(); a.hasNext();)
+		for (Skill aSkill : pc.getSkillList())
 		{
-			Skill aSkill = (Skill) a.next();
-
 			if (aSkill.getChoiceString().indexOf(PropertyFactory.getString("in_language")) >= 0)
 			{
 				speakLanguage = aSkill;
 			}
 		}
 
-
-		for (Iterator langIter = pc.getLanguageBonusSelectionList().iterator(); langIter.hasNext();)
+		for (Language aLang : pc.getLanguageBonusSelectionList())
 		{
-			final Language aLang = (Language) langIter.next();
-
 			if (aLang != null)
 			{
 				if (PrereqHandler.passesAll(aLang.getPreReqList(), pc, aLang ))
@@ -524,9 +510,8 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 		// Remove any language selected via "Speak Language"
 		// from the list of available selections
 		//
-		for (Iterator langIter = pc.getLanguagesList().iterator(); langIter.hasNext();)
+		for ( Language aLang : pc.getLanguagesList())
 		{
-			final Language aLang = (Language) langIter.next();
 			boolean addLang = false;
 
 			if ((speakLanguage != null) && speakLanguage.containsAssociated(aLang.getKeyName()))
@@ -552,18 +537,15 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 	private void removeSpecialAbility()
 	{
-		List aList = new ArrayList();
-		List bList = new ArrayList();
-		List cList = new ArrayList();
+		List<String> aList = new ArrayList<String>();
+		List<String> bList = new ArrayList<String>();
+		List<SpecialAbility> cList = new ArrayList<SpecialAbility>();
 
-		for (Iterator pcClassIter = pc.getClassList().iterator(); pcClassIter.hasNext();)
+		for (PCClass aClass : pc.getClassList())
 		{
-			PCClass aClass = (PCClass) pcClassIter.next();
 
-			for (Iterator ii = aClass.getSafeListFor(ListKey.SPECIAL_ABILITY).iterator(); ii.hasNext();)
+			for (SpecialAbility sa : aClass.getSafeListFor(ListKey.SPECIAL_ABILITY))
 			{
-				SpecialAbility sa = (SpecialAbility) ii.next();
-
 				if (sa.getSASource().endsWith("|0"))
 				{
 					aList.add(sa.getKeyName());
@@ -582,9 +564,8 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 
-		for (Iterator selListIter = lc.getSelectedList().iterator(); selListIter.hasNext();)
+		for (String aString : (List<String>) lc.getSelectedList())
 		{
-			final String aString = (String) selListIter.next();
 			final int ix = aList.indexOf(aString);
 
 			if ((ix < 0) || (ix >= cList.size()))
@@ -615,7 +596,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	{
 		if (weaponButton != null)
 		{
-			List bonusCategory = getOptionalWeaponProficiencies();
+			List<Object> bonusCategory = getOptionalWeaponProficiencies();
 
 			weaponButton.setEnabled((bonusCategory != null) && (bonusCategory.size() > 0));
 		}
@@ -669,7 +650,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	{
 		if (pc != null)
 		{
-			List bonusCategory = getOptionalWeaponProficiencies();
+			List<Object> bonusCategory = getOptionalWeaponProficiencies();
 
 			if (bonusCategory.size() == 0)
 			{
@@ -723,7 +704,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				}
 				else
 				{
-					List profWeapons;
+					List<String> profWeapons;
 
 					if (profBonusObject instanceof PCClass)
 					{

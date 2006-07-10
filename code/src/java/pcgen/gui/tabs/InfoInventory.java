@@ -33,6 +33,7 @@ import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.PToolBar;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.Filterable;
+import pcgen.gui.filter.PObjectFilter;
 import pcgen.util.PropertyFactory;
 
 import javax.swing.JComponent;
@@ -131,9 +132,9 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		toDoList.addAll(gear.getToDos());
 		toDoList.addAll(equipment.getToDos());
 		toDoList.addAll(resources.getToDos());
@@ -194,7 +195,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 * delegates filter related stuff to gear tab
 	 * @return available filters
 	 **/
-	public List getAvailableFilters()
+	public List<PObjectFilter> getAvailableFilters()
 	{
 		return gear.getAvailableFilters();
 	}
@@ -284,7 +285,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 * delegates filter related stuff to gear tab
 	 * @return removed filters
 	 **/
-	public List getRemovedFilters()
+	public List<PObjectFilter> getRemovedFilters()
 	{
 		return gear.getRemovedFilters();
 	}
@@ -293,7 +294,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 * delegates filter related stuff to gear tab
 	 * @return selected filters
 	 **/
-	public List getSelectedFilters()
+	public List<PObjectFilter> getSelectedFilters()
 	{
 		return gear.getSelectedFilters();
 	}

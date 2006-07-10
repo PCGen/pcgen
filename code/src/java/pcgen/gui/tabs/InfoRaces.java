@@ -43,7 +43,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -227,9 +226,9 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		if (pc.getRace() == null
 			|| Constants.s_NONESELECTED.equals(pc.getRace().getKeyName()))
 		{
@@ -415,18 +414,18 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			b.append("<b>").append(aRace.piSubString()).append("</b>");
 			b.append("<br><b>RACE TYPE</b>: ").append(aRace.getRaceType());
-			List subTypes = aRace.getRacialSubTypes();
+			List<String> subTypes = aRace.getRacialSubTypes();
 			if (subTypes.size() > 0)
 			{
 				b.append(" &nbsp;<b>SUBTYPES</b>: ");
 				boolean first = true;
-				for (Iterator i = subTypes.iterator(); i.hasNext(); )
+				for (String s : subTypes)
 				{
 					if (!first)
 					{
 						b.append(", ");
 					}
-					b.append((String)i.next());
+					b.append(s);
 					first = false;
 				}
 			}
@@ -939,7 +938,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	private final class RaceModel extends AbstractTreeTableModel implements TableColumnManagerModel {
 		// this is the root node
 		private PObjectNode raceRoot;
-		private List displayList = null;
+		private List<Boolean> displayList = null;
 
 		// list of column names
 		private final String[] raceNameList = {
@@ -960,7 +959,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		private RaceModel(int mode) {
 			super(null);
 			resetModel(mode);
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(raceNameList[1], true)));
 			displayList.add(new Boolean(getColumnViewOption(raceNameList[2], true)));
@@ -976,7 +975,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param column
 		 * @return Class
 		 **/
-		public Class getColumnClass(int column) {
+		public Class<?> getColumnClass(int column) {
 			if (column == COL_NAME) {
 				return TreeTableModel.class;
 			}
@@ -1188,15 +1187,15 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			}
 		}
 
-		private void buildNameView() {
-			List raceList = new ArrayList();
+		private void buildNameView() 
+		{
+			List<Race> raceList = new ArrayList<Race>();
 			String qFilter = this.getQFilter();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext(); ) {
-				final Race aRace = (Race) it.next();
-
+			for(Race aRace : Globals.getRaceMap().values()) 
+			{
 				if(accept(pc, aRace)) {
 					if (qFilter == null ||
 							( aRace.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
@@ -1223,14 +1222,14 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			raceRoot.setChildren(rn);
 		}
 
-		private void buildTypeView() {
-			List typeList = new ArrayList();
+		private void buildTypeView() 
+		{
+			List<String> typeList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext(); ) {
-				final Race aRace = (Race) it.next();
-
+			for (Race aRace :  Globals.getRaceMap().values()) 
+			{
 				if(accept(pc, aRace)) {
 					if(!typeList.contains(aRace.getType())) {
 						typeList.add(aRace.getType());
@@ -1243,14 +1242,14 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 
 			// iterate through the race types
 			// and fill out the tree
-			for (int iType = 0; iType < typeList.size(); iType++) {
+			for (int iType = 0; iType < typeList.size(); iType++) 
+			{
 				final String aType = (String) typeList.get(iType);
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext(); ) {
-					final Race aRace = (Race) fI.next();
-
+				for (Race aRace : Globals.getRaceMap().values()) 
+				{
 					if (aRace == null) {
 						continue;
 					}
@@ -1276,13 +1275,12 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		private void buildSourceView() {
-			List sourceList = new ArrayList();
+			List<String> sourceList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext(); ) {
-				final Race aRace = (Race) it.next();
-
+			for(Race aRace : Globals.getRaceMap().values()) 
+			{
 				if(accept(pc, aRace)) {
 					String aString = aRace.getSourceWithKey("LONG");
 					if(aString != null && !sourceList.contains(aString) && aString.length() > 0)
@@ -1302,9 +1300,8 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 				rs[iSource] = new PObjectNode();
 				rs[iSource].setItem(aSource);
 
-				for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext(); ) {
-					final Race aRace = (Race) fI.next();
-
+				for (Race aRace : Globals.getRaceMap().values()) 
+				{
 					if (aRace == null) {
 						continue;
 					}
@@ -1332,14 +1329,12 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 
 		private void buildRaceTypeView()
 		{
-			List typeList = new ArrayList();
+			List<String> typeList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext(); )
+			for (Race aRace : Globals.getRaceMap().values())
 			{
-				final Race aRace = (Race) it.next();
-
 				if (accept(pc, aRace))
 				{
 					final String raceType = aRace.getRaceType();
@@ -1361,10 +1356,8 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext(); )
+				for (Race aRace : Globals.getRaceMap().values() )
 				{
-					final Race aRace = (Race) fI.next();
-
 					if (aRace == null)
 					{
 						continue;
@@ -1394,14 +1387,12 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 
 		private void buildRaceTypeSubTypeView()
 		{
-			List typeList = new ArrayList();
+			List<String> typeList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext(); )
+			for (Race aRace : Globals.getRaceMap().values())
 			{
-				final Race aRace = (Race) it.next();
-
 				if (accept(pc, aRace))
 				{
 					final String raceType = aRace.getRaceType();
@@ -1423,11 +1414,9 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				HashMap subTypes = new HashMap();
-				for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext(); )
+				HashMap<String, PObjectNode> subTypes = new HashMap<String, PObjectNode>();
+				for (Race aRace : Globals.getRaceMap().values())
 				{
-					final Race aRace = (Race) fI.next();
-
 					if (aRace == null)
 					{
 						continue;
@@ -1438,12 +1427,11 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 						continue;
 					}
 
-					List raceSubTypes = aRace.getRacialSubTypes();
+					List<String> raceSubTypes = aRace.getRacialSubTypes();
 					if (raceSubTypes.size() > 0)
 					{
-						for (Iterator i = raceSubTypes.iterator(); i.hasNext();)
+						for (String subTypeName : raceSubTypes)
 						{
-							String subTypeName = (String)i.next();
 							PObjectNode subTypeNode = (PObjectNode)subTypes.get(subTypeName);
 							if (subTypeNode == null)
 							{
@@ -1486,14 +1474,12 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 
 		private void buildAllTypesView()
 		{
-			List typeList = new ArrayList();
+			List<String> typeList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext(); )
+			for (Race aRace : Globals.getRaceMap().values())
 			{
-				final Race aRace = (Race) it.next();
-
 				if (accept(pc, aRace))
 				{
 					final String raceType = aRace.getRaceType();
@@ -1528,10 +1514,8 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext(); )
+				for (Race aRace : Globals.getRaceMap().values())
 				{
-					final Race aRace = (Race) fI.next();
-
 					if (aRace == null)
 					{
 						continue;
@@ -1577,9 +1561,11 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			raceRoot.setChildren(rt);
 		}
 
-		public List getMColumnList() {
-			List retList = new ArrayList();
-			for(int i = 1; i < raceNameList.length; i++) {
+		public List<String> getMColumnList() 
+		{
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < raceNameList.length; i++) 
+			{
 				retList.add(raceNameList[i]);
 			}
 			return retList;

@@ -27,7 +27,6 @@ package pcgen.gui.tabs;
 
 import pcgen.core.*;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.*;
@@ -52,7 +51,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -206,9 +204,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		if (pc.getXP() >= pc.minXPForNextECL())
 		{
 			toDoList.add(SettingsHandler.getGame().getLevelUpMessage());
@@ -510,7 +508,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		pnlEast.setLayout(new GridBagLayout());
 
-		final List checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 		final int countChecks = checkList.size();
 
 		if (countChecks != 0)
@@ -795,13 +793,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		typeRoot = new PObjectNode();
 		sourceRoot = new PObjectNode();
 
-		List typeList = new ArrayList();
-		List sourceList = new ArrayList();
+		List<String> typeList = new ArrayList<String>();
+		List<String> sourceList = new ArrayList<String>();
 
-		for (Iterator i = Globals.getClassList().iterator(); i.hasNext();)
+		for (PCClass aClass : Globals.getClassList())
 		{
-			final PCClass aClass = (PCClass) i.next();
-
 			for (int ii = 0; ii < aClass.getMyTypeCount(); ++ii)
 			{
 				final String aString = aClass.getMyType(ii);
@@ -922,7 +918,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
 	}
 
-	private void buildTop() {
+	private void buildTop() 
+	{
 		//GridBagLayout gridbag = new GridBagLayout();
 		//GridBagConstraints c = new GridBagConstraints();
 		JPanel leftPane = new JPanel(new BorderLayout());
@@ -1222,7 +1219,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	 **/
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -1340,7 +1337,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private void updateChecks()
 	{
-		final List checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 		final int countChecks = checkList.size();
 
 		if ((lCheck == null) || (countChecks != lCheck.length))
@@ -1364,7 +1361,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	 **/
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 		createSelectedModel();
 		selectedTable.updateUI();
 		selectedTable.expandPathList(pathList);
@@ -1443,7 +1440,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		forceRefresh();
 	}
 
-	private static String getBabTitle() {
+	private static String getBabTitle() 
+	{
 		String bab = SettingsHandler.getGame().getBabAbbrev();
 		if (bab == null)
 		{
@@ -1467,7 +1465,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	{
 		// Types of the columns.
 		private int modelType = 0; // availableModel=0,selectedModel=1
-		private List displayList = null;
+		private List<Boolean> displayList = null;
 		private static final int COL_NAME = 0;
 		private static final int COL_REQ = 1;
 		private static final int COL_LEVEL = 2;
@@ -1509,7 +1507,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			}
 
 			resetModel(mode, available);
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			if(modelType == 0) {
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], true)));
@@ -1537,7 +1535,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			switch (column)
 			{
@@ -1716,9 +1714,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		{
 			if ((aClass.getSubClassList() != null) && !aClass.getSubClassList().isEmpty())
 			{
-				for (Iterator sI = aClass.getSubClassList().iterator(); sI.hasNext();)
+				for (SubClass sClass : aClass.getSubClassList())
 				{
-					SubClass sClass = (SubClass) sI.next();
 					PObjectNode aSN = new PObjectNode();
 					aSN.setParent(aFN);
 					aSN.setItem(sClass);
@@ -1736,15 +1733,15 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		 **/
 		private void resetModel(int mode, boolean available)
 		{
-			Iterator fI;
+			List<PCClass> classList;
 
 			if (available)
 			{
-				fI = Globals.getClassList().iterator();
+				classList = Globals.getClassList();
 			}
 			else
 			{
-				fI = pc.getClassList().iterator();
+				classList = pc.getClassList();
 			}
 
 			switch (mode)
@@ -1753,10 +1750,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					setRoot(new PObjectNode()); // just need a blank one
 					String qFilter = this.getQFilter();
 
-					while (fI.hasNext())
+					for (PCClass aClass : classList)
 					{
-						final PCClass aClass = (PCClass) fI.next();
-
 						// in the availableTable, if filtering out unqualified items
 						// ignore any class the PC doesn't qualify for
 						if (!shouldDisplayThis(aClass))
@@ -1786,10 +1781,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case GuiConstants.INFOCLASS_VIEW_TYPE_NAME: // type/name
 					setRoot((PObjectNode) typeRoot.clone());
 
-					while (fI.hasNext())
+					for (PCClass aClass : classList)
 					{
-						final PCClass aClass = (PCClass) fI.next();
-
 						// in the availableTable, if filtering out unqualified items
 						// ignore any class the PC doesn't qualify for
 						if (!shouldDisplayThis(aClass))
@@ -1826,10 +1819,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case GuiConstants.INFOCLASS_VIEW_SOURCE_NAME: // source/name
 					setRoot((PObjectNode) sourceRoot.clone());
 
-					while (fI.hasNext())
+					for (PCClass aClass : classList)
 					{
-						final PCClass aClass = (PCClass) fI.next();
-
 						// in the availableTable, if filtering out unqualified items
 						// ignore any class the PC doesn't qualify for
 						if (!shouldDisplayThis(aClass))
@@ -1900,44 +1891,53 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			return ((modelType == 1) || (aClass.isVisible() && accept(pc, aClass)));
 		}
 
-		public List getMColumnList() {
-			List retList = new ArrayList();
+		public List<String> getMColumnList() 
+		{
+			List<String> retList = new ArrayList<String>();
 			for(int i = 1; i < colNameList.length; i++) {
 				retList.add(colNameList[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) {
+		public boolean isMColumnDisplayed(int col) 
+		{
 			return ((Boolean)displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) {
+		public void setMColumnDisplayed(int col, boolean disp) 
+		{
 			setColumnViewOption(modelType + "." + colNameList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
-		public int getMColumnOffset() {
+		public int getMColumnOffset() 
+		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
+		public int getMColumnDefaultWidth(int col) 
+		{
 			return SettingsHandler.getPCGenOption("InfoClasses.sizecol." + colNameList[col], colDefaultWidth[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
+		public void setMColumnDefaultWidth(int col, int width) 
+		{
 			SettingsHandler.setPCGenOption("InfoClasses.sizecol." + colNameList[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		{
 			return SettingsHandler.getPCGenOption("InfoClasses.viewcol." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val) 
+		{
 			SettingsHandler.setPCGenOption("InfoClasses.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column) 
+		{
 			// TODO Auto-generated method stub
 
 		}
@@ -2347,7 +2347,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent() 
+		{
 			// Do Nothing
 		}
 
@@ -2371,7 +2372,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent() 
+		{
 			// Do nothing
 		}
 

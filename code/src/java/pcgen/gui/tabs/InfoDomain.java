@@ -126,7 +126,7 @@ import pcgen.util.PropertyFactory;
 public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -4223585346813683966L;
-	private static List selectedDomainList = new ArrayList();
+	private static List<Domain> selectedDomainList = new ArrayList<Domain>();
 	private static boolean needsUpdate = true;
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 
@@ -241,9 +241,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 
 		if (pc.getCharacterDomainUsed() < pc.getMaxCharacterDomains())
 		{
@@ -436,18 +436,14 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 *
 	 * @param pcDeity Deity selected for the current character
 	 */
-	private final void addUnfilteredDomains(final List availDomainList, final Deity pcDeity)
+	private final void addUnfilteredDomains(final List<Domain> availDomainList, final Deity pcDeity)
 	{
 		availDomainList.clear();
 
 		if (pcDeity != null)
 		{
-			Iterator iter = pcDeity.getDomainList().iterator();
-			Domain aDomain;
-
-			while (iter.hasNext())
+			for (Domain aDomain : pcDeity.getDomainList())
 			{
-				aDomain = (Domain) iter.next();
 				aDomain = (Domain) aDomain.clone();
 
 				if (!availDomainList.contains(aDomain))
@@ -458,13 +454,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Loop through the available prestige domains
-		for (Iterator i = pc.getClassList().iterator(); i.hasNext();)
+		for (PCClass aClass : pc.getClassList())
 		{
-			final PCClass aClass = (PCClass) i.next();
-
-			for (Iterator d = aClass.getAddDomains().iterator(); d.hasNext();)
+			for (String prestigeString : aClass.getAddDomains())
 			{
-				final String prestigeString = d.next().toString();
 				final StringTokenizer domainTok = new StringTokenizer(prestigeString, "|", false);
 
 				final int level = Integer.parseInt(domainTok.nextToken());
@@ -489,9 +482,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			}
 
-			for (Iterator d = aClass.getDomainList().iterator(); d.hasNext();)
+			for (String prestigeString : aClass.getDomainList())
 			{
-				final String prestigeString = d.next().toString();
 				final StringTokenizer domainTok = new StringTokenizer(prestigeString, "|", false);
 
 				final int level = Integer.parseInt(domainTok.nextToken());
@@ -1010,17 +1002,14 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		List potentialDomains = new ArrayList();
+		List<Domain> potentialDomains = new ArrayList<Domain>();
 		addUnfilteredDomains(potentialDomains, aDeity);
 
 		// Validate that no domains will be lost when changing deities
-		Iterator selectedIter = selectedDomainList.iterator();
 		boolean allDomainsAvailable = true;
 
-		while (selectedIter.hasNext())
+		for (Object domain : selectedDomainList)
 		{
-			Object domain = selectedIter.next();
-
 			if (!potentialDomains.contains(domain))
 			{
 				allDomainsAvailable = false;
@@ -1100,7 +1089,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	private void buildDomainLists()
 	{
 		// Init the lists
-		List availDomainList = domainModel.getAvailDomainList();
+		List<Domain> availDomainList = domainModel.getAvailDomainList();
 		selectedDomainList.clear();
 		availDomainList.clear();
 
@@ -1130,9 +1119,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		// Filter the available domains
-		Iterator domainIter = availDomainList.iterator();
+		
 
-		while (domainIter.hasNext())
+		for (Iterator<Domain> domainIter = availDomainList.iterator(); domainIter.hasNext();)
 		{
 			Domain domain = (Domain) domainIter.next();
 
@@ -1706,12 +1695,12 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				200, 100, 100, 100
 		};
 
-		private List displayList = null;
+		private List<Boolean> displayList = null;
 
 		private DeityModel(int mode) {
 			super(null);
 			resetModel(mode);
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			int i = 1;
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
@@ -1724,7 +1713,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param column
 		 * @return Class
 		 **/
-		public Class getColumnClass(int column) {
+		public Class<?> getColumnClass(int column) {
 			if (column == COL_NAME) {
 				return TreeTableModel.class;
 			}
@@ -1866,14 +1855,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		private void buildNameView() {
-			List deityList = new ArrayList();
+			List<Deity> deityList = new ArrayList<Deity>();
 
 			String qFilter = getQFilter();
 			// now loop through all the deities and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
-				final Deity aDeity = (Deity) it.next();
-
+			for(Deity aDeity : Globals.getDeityList()) 
+			{
 				if(accept(pc, aDeity)) {
 					if (qFilter == null || aDeity.getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
 					{
@@ -1901,13 +1889,12 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		private void buildAlignmentView() {
-			List alignmentList = new ArrayList();
+			List<String> alignmentList = new ArrayList<String>();
 
 			// now loop through all the deities and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
-				final Deity aDeity = (Deity) it.next();
-
+			for(Deity aDeity : Globals.getDeityList()) 
+			{
 				if(accept(pc, aDeity)) {
 					String aString = aDeity.getAlignment();
 					if(aString != null && !alignmentList.contains(aString) && aString.length() > 0)
@@ -1927,9 +1914,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				rs[iAlignment] = new PObjectNode();
 				rs[iAlignment].setItem(anAlignment);
 
-				for (Iterator fI = Globals.getDeityList().iterator(); fI.hasNext(); ) {
-					final Deity aDeity = (Deity) fI.next();
-
+				for (Deity aDeity : Globals.getDeityList()) 
+				{
 					if (aDeity == null) {
 						continue;
 					}
@@ -1956,17 +1942,16 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		private void buildDomainView() {
-			List domainList = new ArrayList();
+			List<String> domainList = new ArrayList<String>();
 
 			// now loop through all the deities and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
-				final Deity aDeity = (Deity) it.next();
-
+			for(Deity aDeity : Globals.getDeityList()) 
+			{
 				if(accept(pc, aDeity) && !aDeity.getKeyName().equalsIgnoreCase("NONE")) {
-					List deityDomains = aDeity.getDomainList();
-					for (Iterator fD = deityDomains.iterator(); fD.hasNext(); ) {
-						Domain aDomain = (Domain) fD.next();
+					List<Domain> deityDomains = aDeity.getDomainList();
+					for (Domain aDomain : deityDomains) 
+					{
 						String aString = aDomain.getKeyName();
 						if(aString != null && !domainList.contains(aString) && aString.length() > 0)
 						{
@@ -1986,16 +1971,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				rs[iDomain] = new PObjectNode();
 				rs[iDomain].setItem(sDomain);
 
-				for (Iterator fI = Globals.getDeityList().iterator(); fI.hasNext(); ) {
-					final Deity aDeity = (Deity) fI.next();
-
+				for (Deity aDeity : Globals.getDeityList()) 
+				{
 					if (aDeity == null || aDeity.getKeyName().equalsIgnoreCase("NONE")) {
 						continue;
 					}
 
-					List deityDomains = aDeity.getDomainList();
-					for (Iterator fD = deityDomains.iterator(); fD.hasNext(); ) {
-						Domain aDomain = (Domain) fD.next();
+					List<Domain> deityDomains = aDeity.getDomainList();
+					for (Domain aDomain : deityDomains) 
+					{
 						String aString = aDomain.getKeyName();
 						if (aString != null && !aString.equals(sDomain)) {
 							continue;
@@ -2019,17 +2003,16 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		private void buildPantheonView() {
-			List pantheonList = new ArrayList();
+			List<String> pantheonList = new ArrayList<String>();
 
 			// now loop through all the deities and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
-				final Deity aDeity = (Deity) it.next();
-
+			for(Deity aDeity : Globals.getDeityList()) 
+			{
 				if(accept(pc, aDeity)) {
-					List deityPantheons = aDeity.getPantheonList();
-					for (Iterator fD = deityPantheons.iterator(); fD.hasNext(); ) {
-						String aString = (String) fD.next();
+					List<String> deityPantheons = aDeity.getPantheonList();
+					for (String aString : deityPantheons) 
+					{
 						if(aString != null && !pantheonList.contains(aString) && aString.length() > 0)
 						{
 							pantheonList.add(aString);
@@ -2048,16 +2031,15 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				rs[iPantheon] = new PObjectNode();
 				rs[iPantheon].setItem(sPantheon);
 
-				for (Iterator fI = Globals.getDeityList().iterator(); fI.hasNext(); ) {
-					final Deity aDeity = (Deity) fI.next();
-
+				for (Deity aDeity : Globals.getDeityList()) 
+				{
 					if (aDeity == null) {
 						continue;
 					}
 
-					List deityPantheons = aDeity.getPantheonList();
-					for (Iterator fD = deityPantheons.iterator(); fD.hasNext(); ) {
-						String aString = (String) fD.next();
+					List<String> deityPantheons = aDeity.getPantheonList();
+					for (String aString : deityPantheons) 
+					{
 						if (aString != null && !aString.equals(sPantheon)) {
 							continue;
 						}
@@ -2080,13 +2062,12 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		private void buildSourceView() {
-			List sourceList = new ArrayList();
+			List<String> sourceList = new ArrayList<String>();
 
 			// now loop through all the deities and
 			// see which ones are not filtered out
-			for(Iterator it = Globals.getDeityList().iterator(); it.hasNext(); ) {
-				final Deity aDeity = (Deity) it.next();
-
+			for(Deity aDeity : Globals.getDeityList()) 
+			{
 				if(accept(pc, aDeity)) {
 					String aString = aDeity.getSourceWithKey("LONG");
 					if(aString != null && !sourceList.contains(aString) && aString.length() > 0)
@@ -2106,9 +2087,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				rs[iSource] = new PObjectNode();
 				rs[iSource].setItem(aSource);
 
-				for (Iterator fI = Globals.getDeityList().iterator(); fI.hasNext(); ) {
-					final Deity aDeity = (Deity) fI.next();
-
+				for (Deity aDeity : Globals.getDeityList()) 
+				{
 					if (aDeity == null) {
 						continue;
 					}
@@ -2134,44 +2114,54 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			deityRoot.setChildren(rs);
 		}
 
-		public List getMColumnList() {
-			List retList = new ArrayList();
-			for(int i = 1; i <deityNameList.length; i++) {
+		public List<String> getMColumnList() 
+		{
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < deityNameList.length; i++) 
+			{
 				retList.add(deityNameList[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) {
+		public boolean isMColumnDisplayed(int col) 
+		{
 			return ((Boolean)displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) {
+		public void setMColumnDisplayed(int col, boolean disp) 
+		{
 			setColumnViewOption(deityNameList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
-		public int getMColumnOffset() {
+		public int getMColumnOffset() 
+		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
+		public int getMColumnDefaultWidth(int col) 
+		{
 			return SettingsHandler.getPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col], deityColList[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
+		public void setMColumnDefaultWidth(int col, int width) 
+		{
 			SettingsHandler.setPCGenOption("InfoDomain.deity.sizecol." + deityNameList[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		{
 			return SettingsHandler.getPCGenOption("InfoDomain.deity.viewcol." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val) 
+		{
 			SettingsHandler.setPCGenOption("InfoDomain.deity.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column) 
+		{
 			// TODO Auto-generated method stub
 
 		}
@@ -2182,10 +2172,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private final class DomainModel extends AbstractTableModel implements TableColumnManagerModel
 	{
-		private List availDomainList = new ArrayList();
-		private List displayDomainList = new ArrayList();
+		private List<Domain> availDomainList = new ArrayList<Domain>();
+		private List<Domain> displayDomainList = new ArrayList<Domain>();
 		private String qFilter = null;
-		private List displayList = null;
+		private List<Boolean> displayList = null;
 
 		private final String[] domainColList = new String[] {
 			PropertyFactory.getString("in_domains"),
@@ -2198,7 +2188,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		private DomainModel()
 		{
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(domainColList[1], true)));
 		}
@@ -2208,12 +2198,12 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		 * sets the list of appropriate choices
 		 * @return the list of selections in order of selection
 		 */
-		public List getAvailDomainList()
+		public List<Domain> getAvailDomainList()
 		{
 			return availDomainList;
 		}
 
-		public Class getColumnClass(int col)
+		public Class<?> getColumnClass(int col)
 		{
 			return getValueAt(0, col).getClass();
 		}
@@ -2351,42 +2341,51 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			this.qFilter = null;
 		}
 
-		public List getMColumnList() {
-			List retList = new ArrayList();
+		public List<String> getMColumnList() 
+		{
+			List<String> retList = new ArrayList<String>();
 			retList.add(domainColList[1]);
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) {
+		public boolean isMColumnDisplayed(int col) 
+		{
 			return ((Boolean)displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) {
+		public void setMColumnDisplayed(int col, boolean disp) 
+		{
 			setColumnViewOption(domainColList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
-		public int getMColumnOffset() {
+		public int getMColumnOffset() 
+		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
+		public int getMColumnDefaultWidth(int col) 
+		{
 			return SettingsHandler.getPCGenOption("InfoDomain.domain.sizecol." + domainColList[col], domainWidthList[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
+		public void setMColumnDefaultWidth(int col, int width) 
+		{
 			SettingsHandler.setPCGenOption("InfoDomain.domain.sizecol." + domainColList[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		{
 			return SettingsHandler.getPCGenOption("InfoDomain.domain.viewcol." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val) 
+		{
 			SettingsHandler.setPCGenOption("InfoDomain.domain.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column) 
+		{
 			// TODO Auto-generated method stub
 
 		}

@@ -29,7 +29,6 @@ import pcgen.util.ResetableListIterator;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.ListIterator;
 
 /**
@@ -66,7 +65,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	public static final int        NOT_A_FEAT     = 0;
 	public static final int        CAN_GAIN_FEAT  = 1;
 	public static final int        CAN_USE_FEAT   = 2;
-	private ArrayList              children       = null;
+	private ArrayList<PObjectNode> children       = null;
 	private Object                 item           = null; // could be a String, could be a Feat (or anything subclassed from PObject)
 	private PObjectNode            parent         = null;
 	private int                    checkFeatState = NOT_A_FEAT; // feat tab
@@ -154,7 +153,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	 * is created.
 	 * @param newChildren
 	 */
-	public void setChildren(ArrayList newChildren)
+	public void setChildren(ArrayList<PObjectNode> newChildren)
 	{
 		if (newChildren == null)
 		{
@@ -166,9 +165,9 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 		children = newChildren;
 
-		for (Iterator it = children.iterator(); it.hasNext();)
+		for (PObjectNode n : children)
 		{
-			((PObjectNode) it.next()).setParent(this);
+			n.setParent(this);
 		}
 
 		reset();
@@ -192,7 +191,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 		if (children == null)
 		{
-			children = new ArrayList(newChildren.length);
+			children = new ArrayList<PObjectNode>(newChildren.length);
 		}
 		else
 		{
@@ -214,7 +213,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	 * instance variable.
 	 * @return children
 	 */
-	public ArrayList getChildren()
+	public ArrayList<PObjectNode> getChildren()
 	{
 		return children;
 	}
@@ -229,7 +228,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			return;
 		}
 
-		for (ListIterator it = children.listIterator(); it.hasNext();)
+		for (ListIterator<PObjectNode> it = children.listIterator(); it.hasNext();)
 		{
 			PObjectNode node = (PObjectNode) it.next();
 			if (node.isLeaf())
@@ -400,7 +399,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 		if (children == null)
 		{
-			children = new ArrayList();
+			children = new ArrayList<PObjectNode>();
 		}
 
 		children.add(aChild);
@@ -525,15 +524,15 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		{
 			retVal = (PObjectNode) super.clone();
 
-			ArrayList d = null;
+			ArrayList<PObjectNode> d = null;
 
 			if (children != null)
 			{
-				d = new ArrayList(children.size());
+				d = new ArrayList<PObjectNode>(children.size());
 
-				for (Iterator it = children.iterator(); it.hasNext();)
+				for (PObjectNode n : children)
 				{
-					PObjectNode node = (PObjectNode) ((PObjectNode) it.next()).clone();
+					PObjectNode node = (PObjectNode) (n.clone());
 					d.add(node);
 				}
 			}
@@ -753,7 +752,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 		if (children == null)
 		{
-			children = new ArrayList();
+			children = new ArrayList<PObjectNode>();
 			children.add(aChild);
 		}
 		else
@@ -801,14 +800,13 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			return false;
 		}
 
-		for (ListIterator it = children.listIterator(); it.hasNext();)
+		for (ListIterator<PObjectNode> it = children.listIterator(); it.hasNext();)
 		{
 			if (it.next() == aChild)
 			{
 				it.remove();
 			}
 		}
-
 		return true;
 	}
 

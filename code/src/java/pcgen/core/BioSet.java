@@ -39,19 +39,19 @@ import java.util.*;
 public final class BioSet extends PObject
 {
 	/** key = region.age, value = bonus adjustments. */
-	private Map ageMap = new HashMap();
+	private Map<String, String> ageMap = new HashMap<String, String>();
 
 	/** key = Dwarf.BASEAGE or Dwarf%.BASEAGE, value = tagged value. */
-	private Map raceMap = new HashMap();
+	private Map<String, List<String>> raceMap = new HashMap<String, List<String>>();
 
 	/** for user overrides/additions, check this before raceMap. */
-	private Map userMap = new HashMap();
+	private Map<String, List<String>> userMap = new HashMap<String, List<String>>();
 
 	/**
 	 * Get the age Map
 	 * @return ageMap
 	 */
-	public Map getAgeMap()
+	public Map<String, String> getAgeMap()
 	{
 		return ageMap;
 	}
@@ -93,9 +93,8 @@ public final class BioSet extends PObject
 	{
 		String aString;
 
-		for (Iterator e = ageMap.entrySet().iterator(); e.hasNext();)
+		for (Map.Entry<String, String> entry : ageMap.entrySet())
 		{
-			final Map.Entry entry = (Map.Entry) e.next();
 			aString = entry.getValue().toString();
 
 			if (aString.equals(ageCategory) || aString.startsWith(ageCategory + "\t"))
@@ -121,8 +120,7 @@ public final class BioSet extends PObject
 	 */
 	public int getPCAgeSet(final PlayerCharacter pc)
 	{
-		final List values = getValueInMaps(pc.getRegion()+ ".", pc.getRace()
-			.getKeyName().trim(), ".BASEAGE");
+		final List<String> values = getValueInMaps(pc.getRegion() + ".", pc.getRace().getKeyName().trim(), ".BASEAGE");
 
 		if (values == null)
 		{
@@ -132,9 +130,9 @@ public final class BioSet extends PObject
 		final int pcAge = pc.getAge();
 		int ageSet = -1;
 
-		for (Iterator i = values.iterator(); i.hasNext();)
+		for (String s : values)
 		{
-			final int setBaseAge = Integer.parseInt((String) i.next());
+			final int setBaseAge = Integer.parseInt(s);
 
 			if (pcAge < setBaseAge)
 			{
@@ -169,7 +167,7 @@ public final class BioSet extends PObject
 		final StringBuffer sb = new StringBuffer(1000);
 		sb.append("REGION:").append(region).append("\n\n");
 
-		final SortedMap ageSets = getRaceTagsByAge(region, race, false);
+		final SortedMap<Integer, SortedMap<String, String>> ageSets = getRaceTagsByAge(region, race, false);
 
 		return appendAgesetInfo(ageSets, sb);
 	}
@@ -181,7 +179,7 @@ public final class BioSet extends PObject
 	 * @param tag
 	 * @return List
 	 */
-	public List getTagForRace(final String region, final String race, final String tag)
+	public List<String> getTagForRace(final String region, final String race, final String tag)
 	{
 		return getValueInMaps(region, race, "." + tag);
 	}
@@ -244,7 +242,7 @@ public final class BioSet extends PObject
 		addToMap(userMap, region, race, tag, ageSetIndex);
 	}
 
-	private static void addToMap(final Map map, final String region, final String race, final String tag, final int ageSetIndex)
+	private static void addToMap(final Map<String, List<String>> map, final String region, final String race, final String tag, final int ageSetIndex)
 	{
 		final int x = tag.indexOf(':');
 
@@ -257,11 +255,11 @@ public final class BioSet extends PObject
 
 		final String key = region + "." + race + "." + tag.substring(0, x);
 		final String value = tag.substring(x + 1);
-		List r = (List) map.get(key);
+		List<String> r = map.get(key);
 
 		if (r == null)
 		{
-			r = new ArrayList();
+			r = new ArrayList<String>();
 		}
 
 		while (r.size() < (ageSetIndex + 1))
@@ -356,7 +354,7 @@ public final class BioSet extends PObject
 		}
 
 		pc.setArmorProfListStable(false);
-		List l = temporaryPObject.getSafeListFor(ListKey.KITS);
+		List<String> l = temporaryPObject.getSafeListFor(ListKey.KITS);
 		for (int i = 0; i > l.size(); i++)
 		{
 			KitUtilities.makeKitSelections(0, (String) l.get(i), i, pc);
@@ -377,7 +375,7 @@ public final class BioSet extends PObject
 			return;
 		}
 
-		final List ranList = new ArrayList();
+		final List<String> ranList = new ArrayList<String>();
 		final StringTokenizer lineTok = new StringTokenizer(randomizeStr, ".", false);
 
 		while (lineTok.hasMoreTokens())
@@ -479,7 +477,7 @@ public final class BioSet extends PObject
 	 * sorted map of the races (one only) and wihtin this is the tags for that
 	 * race and age.
 	 */
-	private SortedMap getRaceTagsByAge(final String region, final String race, final boolean includeGenericMatches)
+	private SortedMap<Integer, SortedMap<String, String>> getRaceTagsByAge(final String region, final String race, final boolean includeGenericMatches)
 	{
 		String otherRace = "";
 
@@ -498,13 +496,11 @@ public final class BioSet extends PObject
 		}
 
 		// Read in ages, setup a mapped structure for them
-		final SortedMap ageSets = setupAgeSet(region);
+		final SortedMap<Integer, SortedMap<String, String>> ageSets = setupAgeSet(region);
 
 		// Read in the base race settings, split where necessary and add to the appropriate age bracket
-		for (Iterator it = raceMap.keySet().iterator(); it.hasNext();)
+		for (String key : raceMap.keySet())
 		{
-			final String key = (String) it.next();
-
 			if (key.startsWith(region + "." + race + ".") || key.startsWith(region + "." + otherRace + "."))
 			{
 				final Object value = raceMap.get(key);
@@ -513,10 +509,8 @@ public final class BioSet extends PObject
 		}
 
 		// Read in the user settings, split where necessary and add to the appropriate age bracket
-		for (Iterator it = userMap.keySet().iterator(); it.hasNext();)
+		for (String key : userMap.keySet())
 		{
-			final String key = (String) it.next();
-
 			if (key.startsWith(region + "." + race + ".") || key.startsWith(region + "." + otherRace + "."))
 			{
 				final Object value = userMap.get(key);
@@ -529,7 +523,7 @@ public final class BioSet extends PObject
 
 	private String getTokenNumberInMaps(final String addKey, final int tokenNum, String regionName, String raceName)
 	{
-		final List r = getValueInMaps(regionName, raceName, addKey);
+		final List<String> r = getValueInMaps(regionName, raceName, addKey);
 
 		if (r == null)
 		{
@@ -544,7 +538,7 @@ public final class BioSet extends PObject
 		return (String) r.get(tokenNum);
 	}
 
-	private List getValueInMaps(final String argRegionName, final String argRaceName, final String addKey)
+	private List<String> getValueInMaps(final String argRegionName, final String argRaceName, final String addKey)
 	{
 		final String anotherRaceName;
 
@@ -557,7 +551,7 @@ public final class BioSet extends PObject
 			anotherRaceName = argRaceName + '%';
 		}
 
-		final List r = mapFind(userMap, argRegionName, argRaceName, addKey, anotherRaceName);
+		final List<String> r = mapFind(userMap, argRegionName, argRaceName, addKey, anotherRaceName);
 
 		if (r != null)
 		{
@@ -767,7 +761,7 @@ public final class BioSet extends PObject
 		if (line != null)
 		{
 			final StringTokenizer aTok = new StringTokenizer(line, "|");
-			final List aList = new ArrayList();
+			final List<String> aList = new ArrayList<String>();
 
 			while (aTok.hasMoreTokens())
 			{
@@ -854,7 +848,7 @@ public final class BioSet extends PObject
 		}
 	}
 
-	private List mapFind(final Map argMap, final String argRegionName, final String argRaceName, final String addKey,
+	private List<String> mapFind(final Map<String, List<String>> argMap, final String argRegionName, final String argRaceName, final String addKey,
 		final String altRaceName)
 	{
 		// First check for region.racename.key
@@ -864,7 +858,7 @@ public final class BioSet extends PObject
 			regionName += ".";
 		}
 
-		List r = (List) argMap.get(regionName + argRaceName + addKey);
+		List<String> r = argMap.get(regionName + argRaceName + addKey);
 
 		if (r != null)
 		{
@@ -878,7 +872,7 @@ public final class BioSet extends PObject
 
 		if (altRaceLength != 0)
 		{
-			r = (List) argMap.get(regionName + altRaceName + addKey);
+			r = argMap.get(regionName + altRaceName + addKey);
 
 			if (r != null)
 			{
@@ -891,7 +885,7 @@ public final class BioSet extends PObject
 		//
 		if (!argRegionName.equals(Constants.s_NONE))
 		{
-			r = (List) argMap.get(Constants.s_NONE + "." + argRaceName + addKey);
+			r = argMap.get(Constants.s_NONE + "." + argRaceName + addKey);
 
 			if (r != null)
 			{
@@ -900,7 +894,7 @@ public final class BioSet extends PObject
 
 			if (altRaceLength != 0)
 			{
-				r = (List) argMap.get(Constants.s_NONE + "." + altRaceName + addKey);
+				r = argMap.get(Constants.s_NONE + "." + altRaceName + addKey);
 			}
 		}
 
@@ -912,19 +906,17 @@ public final class BioSet extends PObject
 	 * @param region
 	 * @return SortedMap
 	 */
-	private SortedMap setupAgeSet(final String region)
+	private SortedMap<Integer, SortedMap<String, String>> setupAgeSet(final String region)
 	{
-		final SortedMap ageSets = new TreeMap();
+		final SortedMap<Integer, SortedMap<String, String>> ageSets = new TreeMap<Integer, SortedMap<String, String>>();
 
-		for (Iterator it = ageMap.keySet().iterator(); it.hasNext();)
+		for (String key : ageMap.keySet())
 		{
-			final String key = (String) it.next();
-
 			if (key.startsWith(region + "."))
 			{
 				final Integer setNum = new Integer(key.substring(region.length() + 1));
 				final String value = (String) ageMap.get(key);
-				final SortedMap races = new TreeMap();
+				final SortedMap<String, String> races = new TreeMap<String, String>();
 				races.put("AGESET", value);
 				ageSets.put(setNum, races);
 			}

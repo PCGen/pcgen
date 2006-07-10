@@ -207,7 +207,7 @@ public final class Globals
 			}
 		};
 
-	private static final Comparator pObjectStringComp = new Comparator<Object>()
+	private static final Comparator<Object> pObjectStringComp = new Comparator<Object>()
 		{
 			public int compare(final Object o1, final Object o2)
 			{

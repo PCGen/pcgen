@@ -27,7 +27,7 @@ public class StatusBar
 
 	private final JLabel messageArea = new StatusBarArea(SwingConstants.LEFT, 8,
 		true);
-	private final Stack oldMessages = new Stack();
+	private final Stack<String> oldMessages = new Stack<String>();
 	private final JLabel memoryArea = new MemoryArea();
 	private final JLabel statusArea = new StatusBarArea(SwingConstants.CENTER, 3,
 			false);

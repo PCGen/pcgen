@@ -32,7 +32,7 @@ import java.util.Comparator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public final class StringIgnoreCaseComparator implements Comparator
+public final class StringIgnoreCaseComparator implements Comparator<Object>
 {
 	/** Constructs a <code>StringIgnoreCaseComparator</code>. */
 	public StringIgnoreCaseComparator()

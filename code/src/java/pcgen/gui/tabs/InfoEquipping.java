@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EventObject;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -158,8 +157,8 @@ import pcgen.util.chooser.ChooserRadio;
 public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = 6988134124127535195L;
-	private static List equipSetList = new ArrayList();
-	private static List tempSetList = new ArrayList();
+	private static List<EquipSet> equipSetList = new ArrayList<EquipSet>();
+	private static List<EquipSet> tempSetList = new ArrayList<EquipSet>();
 //	private static final String[] loadTypes = { "LIGHT", "MEDIUM", "HEAVY", "OVERLOADED" };
 	private static final String defaultEquipSet = PropertyFactory.getString("in_ieDefault");
 	private static final String nameAdded = PropertyFactory.getString("in_ieAddEqSet");
@@ -230,8 +229,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	private boolean hasBeenSized = false;
 	private int viewMode = 0;
 	private int viewSelectMode = 0;
-	private Map equipAddMap = new HashMap();
-	private Map equipNotMap = new HashMap();
+	private Map<String, Float> equipAddMap = new HashMap<String, Float>();
+	private Map<String, Float> equipNotMap = new HashMap<String, Float>();
 
 	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JTextField textQFilter = new JTextField();
@@ -302,12 +301,12 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 
 		boolean hasEquip = false;
-		List equipmentSetList = pc.getEquipSet();
+		List<EquipSet> equipmentSetList = pc.getEquipSet();
 		for (int iSet = 0; iSet < equipmentSetList.size(); ++iSet)
 		{
 			EquipSet es = (EquipSet) equipmentSetList.get(iSet);
@@ -828,10 +827,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			return;
 		}
 
-		List containers = new ArrayList();
+		List<EqSetWrapper> containers = new ArrayList<EqSetWrapper>();
 
 		// get the possible locations for this item
-		List aList = locationChoices(eqI, containers);
+		List<String> aList = locationChoices(eqI, containers);
 
 		// let them choose where to put the item
 		ChooserRadio c = ChooserFactory.getRadioInstance();
@@ -918,9 +917,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// need to also move all the items it may contain
 			if (eqI.isContainer())
 			{
-				for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+				for (EquipSet es : pc.getEquipSet())
 				{
-					EquipSet es = (EquipSet) e.next();
 					String pIdPath = es.getParentIdPath() + ".";
 					String oldIdPath = oldPath + ".";
 
@@ -960,10 +958,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			pid = eSet.getIdPath();
 		}
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = (EquipSet) e.next();
-
 			if (es.getParentIdPath().equals(pid) && (es.getId() > newID))
 			{
 				newID = es.getId();
@@ -1216,17 +1212,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			return "";
 		}
 
-		List eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
+		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
 
 		if ((eqSlotList == null) || eqSlotList.isEmpty())
 		{
 			return "";
 		}
 
-		for (Iterator eI = eqSlotList.iterator(); eI.hasNext();)
+		for (EquipSlot es : eqSlotList)
 		{
-			EquipSlot es = (EquipSlot) eI.next();
-
 			// see if this EquipSlot can contain this item TYPE
 			if (es.canContainType(eqI.getType()))
 			{
@@ -1478,9 +1472,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @param multiHand
 	 * @return weapon location choices
 	 **/
-	private static List getWeaponLocationChoices(final int hands, final String multiHand)
+	private static List<String> getWeaponLocationChoices(final int hands, final String multiHand)
 	{
-		final List result = new ArrayList(hands + 2);
+		final List<String> result = new ArrayList<String>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -1722,10 +1716,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if ("".equals(locName) || (locName.length() == 0))
 		{
-			List containers = new ArrayList();
+			List<EqSetWrapper> containers = new ArrayList<EqSetWrapper>();
 
 			// get the possible locations for this item
-			List aList = locationChoices(eqI, containers);
+			List<String> aList = locationChoices(eqI, containers);
 			locName = getSingleLocation(eqI);
 
 			if ((locName.length() != 0) && canAddEquip(eSet, locName, eqI, eqTarget))
@@ -1963,16 +1957,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			calcComboBox.removeActionListener(calcComboBoxListener);
 		}
-		List calcList = new ArrayList(1);
+		List<String> calcList = new ArrayList<String> (1);
 		calcComboBox.removeAllItems();
 		equipSetList = pc.getEquipSet();
 
 		// loop through all root EquipSet's and add
 		// to calcComboBox list
-		for (Iterator e = equipSetList.iterator(); e.hasNext();)
+		for (EquipSet es : equipSetList)
 		{
-			EquipSet es = (EquipSet) e.next();
-
 			if (es.getParentIdPath().equals("0") && !calcList.contains(es.getIdPath()))
 			{
 				calcList.add(es.getIdPath());
@@ -2052,11 +2044,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		Map slotMap = new HashMap();
+		Map<String, String> slotMap = new HashMap<String, String>();
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = (EquipSet) e.next();
 			String esID = es.getParentIdPath() + ".";
 			String abID = idPath + ".";
 
@@ -2087,9 +2078,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = (EquipSet) e.next();
 			String esID = es.getParentIdPath() + ".";
 			String abID = idPath + ".";
 
@@ -2169,7 +2159,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		// create a temporary list of EquipSets to pass to this
 		// function when we recursivly call it for child nodes
-		List aList = new ArrayList();
+		List<EquipSet> aList = new ArrayList<EquipSet>();
 
 		String idPath = "0";
 
@@ -2214,16 +2204,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void chooseTempBonuses(EquipSet eSet)
 	{
-		List aList = new ArrayList();
-		List checkList = new ArrayList();
-		List tbList = new ArrayList();
-		List sList = new ArrayList();
+		List<BonusObj> aList = new ArrayList<BonusObj>();
+		List<String> checkList = new ArrayList<String>();
+		List<TempWrap> tbList = new ArrayList<TempWrap>();
+		List<String> sList = new ArrayList<String>();
 
 		// iterate thru all PC's bonuses
 		// and build an Array of TempWrap'ers
-		for (Iterator fI = pc.getTempBonusList().iterator(); fI.hasNext();)
+		for (BonusObj aBonus : pc.getTempBonusList())
 		{
-			BonusObj aBonus = (BonusObj) fI.next();
 			Object aC = aBonus.getCreatorObject();
 			Object aT = aBonus.getTargetObject();
 			TempWrap tw = new TempWrap(aC, aT, aBonus);
@@ -2248,10 +2237,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 
-		for (Iterator as = lc.getSelectedList().iterator(); as.hasNext();)
+		for (String aString : (List<String>)lc.getSelectedList())
 		{
-			String aString = (String) as.next();
-
 			for (int j = 0; j < tbList.size(); j++)
 			{
 				TempWrap tw = (TempWrap) tbList.get(j);
@@ -2280,7 +2267,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		EquipSet equipItem;
 		String newName;
 		String pid;
-		List newEquipSet = new ArrayList();
+		List<EquipSet> newEquipSet = new ArrayList<EquipSet>();
 
 		eSet = getCurrentEquipSet();
 
@@ -2325,9 +2312,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		selectedEquipSet = newName;
 		pc.addEquipSet(eSet);
 
-		for (Iterator e = equipSetList.iterator(); e.hasNext();)
+		for (EquipSet es : equipSetList)
 		{
-			EquipSet es = (EquipSet) e.next();
 			String esIdPath = es.getParentIdPath() + ".";
 			String pIdPath = pid + ".";
 
@@ -2342,9 +2328,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			newEquipSet.add(equipItem);
 		}
 
-		for (Iterator e = newEquipSet.iterator(); e.hasNext();)
+		for (EquipSet es : newEquipSet)
 		{
-			pc.addEquipSet((EquipSet) e.next());
+			pc.addEquipSet(es);
 		}
 
 		pc.setDirty(true);
@@ -2529,9 +2515,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			return aVal;
 		}
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = (EquipSet) e.next();
 			String esIdPath = es.getIdPath() + ".";
 			String rIdPath = rPath + ".";
 
@@ -2680,7 +2665,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// read in the eqsheet template file
 			//BufferedReader br = new BufferedReader(new FileReader(template));
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(template), "UTF-8"));
-			List lines = new ArrayList();
+			List<String> lines = new ArrayList<String>();
 
 			while ((aLine = br.readLine()) != null)
 			{
@@ -2775,13 +2760,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	private void equipItch(File template, BufferedWriter out)
 	{
 		// Array containing the id's of root EquipSet's
-		List eqRootList = new ArrayList();
+		List<EquipSet> eqRootList = new ArrayList<EquipSet>();
 
 		// we count all EquipSet with parent of 0
-		for (Iterator e = equipSetList.iterator(); e.hasNext();)
+		for (EquipSet es : equipSetList)
 		{
-			EquipSet es = (EquipSet) e.next();
-
 			if (es.getParentIdPath().equals("0"))
 			{
 				eqRootList.add(es);
@@ -2796,16 +2779,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		Collections.sort(equipSetList);
 
 		// save off the old TempBonusList
-		List aList = pc.getTempBonusList();
+		List<BonusObj> aList = pc.getTempBonusList();
 
 		// Current EquipSet count
 		int eqCount = 0;
 
 		// Next we loop through all the root EquipSet's, populate
 		// the new eqList and print out an iteration of the eqsheet
-		for (Iterator i = eqRootList.iterator(); i.hasNext();)
+		for (EquipSet esRL:  eqRootList)
 		{
-			EquipSet esRL = (EquipSet) i.next();
 			String pid = esRL.getIdPath();
 
 			// be sure to set the currently exporting EquipSet
@@ -2866,9 +2848,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		final String rPath = eSet.getIdPath();
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = (EquipSet) e.next();
 			String esIdPath = es.getIdPath() + ".";
 			String rIdPath = rPath + ".";
 
@@ -2896,9 +2877,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		final String rPath = eSet.getIdPath();
 
-		for (Iterator e = pc.getEquipSet().iterator(); e.hasNext();)
+		for (EquipSet es : pc.getEquipSet())
 		{
-			EquipSet es = (EquipSet) e.next();
 			String esIdPath = es.getIdPath() + ".";
 			String rIdPath = rPath + ".";
 
@@ -3405,7 +3385,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @param containers List
 	 * @return List
 	 */
-	private final List locationChoices(Equipment eqI, List containers)
+	private final List<String> locationChoices(Equipment eqI, List<EqSetWrapper> containers)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -3420,7 +3400,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		List aList = new ArrayList();
+		List<String> aList = new ArrayList<String>();
 
 		if (eqI.isWeapon())
 		{
@@ -3751,7 +3731,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -3763,7 +3743,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	private void updateSelectedModel()
 	{
 		TreePath modelSelPath;
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 
 		modelSelPath = selectedTable.getTree().getSelectionPath();
 
@@ -4015,7 +3995,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 */
 	private static final class BonusEditor extends JComboBoxEx implements TableCellEditor
 	{
-		private final transient List d_listeners = new ArrayList();
+		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
 		private transient int d_originalValue = 0;
 
 		private BonusEditor()
@@ -4198,7 +4178,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		private final int[] avaDefaultWidth = { 200, 100, 100, 100, 100, 100 };
 		private final int[] selDefaultWidth = { 200, 100, 100, 100, 100, 100 };
 
-		private List displayList = null;
+		private List<Boolean> displayList = null;
 
 		// Types of the columns.
 		private int modelType = MODEL_AVAIL;
@@ -4220,7 +4200,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			modelType = model;
 			resetModel(mode, model);
 			String[] colNameList = getNameList();
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], true)));
 			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], true)));
@@ -4289,7 +4269,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		 * @param column
 		 * @return Class
 		 **/
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			switch (column)
 			{
@@ -4612,15 +4592,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		private void resetModel(int mode, int model)
 		{
 			// This is the array of all equipment types
-			List typeList = new ArrayList();
-			List locList = new ArrayList();
+			List<String> typeList = new ArrayList<String>();
+			List<String> locList = new ArrayList<String>();
 
 			// build the list of all equipment types
 			typeList.add(Constants.s_CUSTOM);
 
-			for (Iterator iSet = pc.getEquipmentMasterList().iterator(); iSet.hasNext();)
+			for (Equipment bEq : pc.getEquipmentMasterList())
 			{
-				final Equipment bEq = (Equipment) iSet.next();
 				final StringTokenizer aTok = new StringTokenizer(bEq.getType(), ".", false);
 				String aString;
 
@@ -4635,9 +4614,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			}
 
-			for (Iterator eI = SystemCollections.getUnmodifiableEquipSlotList().iterator(); eI.hasNext();)
+			for (EquipSlot eSlot : SystemCollections.getUnmodifiableEquipSlotList())
 			{
-				EquipSlot eSlot = (EquipSlot) eI.next();
 				final String aString = eSlot.getSlotName();
 
 				if (!locList.contains(aString) && (aString.length() > 0))
@@ -4695,10 +4673,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 							String aType = (String) typeList.get(iType);
 							eq[iType] = new MyPONode(aType);
 
-							for (Iterator fI = pc.getEquipmentMasterList().iterator(); fI.hasNext();)
+							for (Equipment aEq : pc.getEquipmentMasterList())
 							{
-								final Equipment aEq = (Equipment) fI.next();
-
 								if (!aEq.isType(aType))
 								{
 									continue;
@@ -4735,9 +4711,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 							String aLoc = (String) locList.get(iLoc);
 							loc[iLoc] = new MyPONode(aLoc);
 
-							for (Iterator fI = pc.getEquipmentMasterList().iterator(); fI.hasNext();)
+							for (Equipment aEq : pc.getEquipmentMasterList())
 							{
-								final Equipment aEq = (Equipment) fI.next();
 								String aString = getSingleLocation(aEq);
 
 								if (aEq.isShield())
@@ -4787,9 +4762,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 						// iterate thru all PC's equip
 						// and fill out the tree
-						for (Iterator fI = pc.getEquipmentMasterList().iterator(); fI.hasNext();)
+						for (Equipment aEq : pc.getEquipmentMasterList())
 						{
-							final Equipment aEq = (Equipment) fI.next();
 							if (qFilter == null ||
 									( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 ||
 									aEq.getType().toLowerCase().indexOf(qFilter) >= 0 ))
@@ -4828,9 +4802,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						// iterate thru all PC's equip
 						// and build the AddMap and
 						// NotMap for current EquipSet
-						for (Iterator fI = pc.getEquipmentMasterList().iterator(); fI.hasNext();)
+						for (Equipment aEq : pc.getEquipmentMasterList())
 						{
-							final Equipment aEq = (Equipment) fI.next();
 							String eqName = aEq.getName();
 							Float countAdd = pc.getEquipSetCount(pId, eqName);
 							Float countNot = new Float(aEq.getQty().floatValue() - countAdd.floatValue());
@@ -4880,7 +4853,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				Collections.sort(equipSetList);
 
 				// create a clone to manipulate
-				tempSetList = (ArrayList) ((ArrayList) equipSetList).clone();
+				tempSetList = new ArrayList<EquipSet>(equipSetList);
 
 				// EquipSet tree
 				addEquipTreeNodes(selRoot, null);
@@ -4918,45 +4891,55 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			return colWidthList;
 		}
 
-		public List getMColumnList() {
+		public List<String> getMColumnList() 
+		{
 			String[] colNameList = getNameList();
-			List retList = new ArrayList();
-			for(int i = 1; i < colNameList.length; i++) {
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < colNameList.length; i++) 
+			{
 				retList.add(colNameList[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) {
+		public boolean isMColumnDisplayed(int col) 
+		{
 			return ((Boolean)displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) {
+		public void setMColumnDisplayed(int col, boolean disp) 
+		{
 			String[] colNameList = getNameList();
 			setColumnViewOption(modelType + "." + colNameList[col], disp);
 			displayList.set(col, new Boolean(disp));
 		}
 
-		public int getMColumnOffset() {
+		public int getMColumnOffset() 
+		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
+		public int getMColumnDefaultWidth(int col) 
+		{
 			String[] colNameList = getNameList();
 			int[] colDefaultWidth = getWidthList();
 			return SettingsHandler.getPCGenOption("InfoEquipping.sizecol." + modelType + "." + colNameList[col], colDefaultWidth[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
+		public void setMColumnDefaultWidth(int col, int width) 
+		{
 			String[] colNameList = getNameList();
 			SettingsHandler.setPCGenOption("InfoEquipping.sizecol." + modelType + "." +  colNameList[col], width);
 		}
 
-		public void resetMColumn(int num, TableColumn column) {
-			if(modelType == MODEL_AVAIL) {
+		public void resetMColumn(int num, TableColumn column) 
+		{
+			if(modelType == MODEL_AVAIL) 
+			{
 				// TODO Do Nothing?
 			}
-			else {
+			else 
+			{
 				switch (num)
 				{
 					case COL_TYPE:
@@ -4975,11 +4958,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		{
 			return SettingsHandler.getPCGenOption("InfoEquipping.viewcol." + modelType + "." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val) 
+		{
 			SettingsHandler.setPCGenOption("InfoEquipping.viewcol." + modelType + "." + colName, val);
 		}
 	}
@@ -5388,7 +5373,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private final class QuantityEditor extends JTextField implements TableCellEditor
 	{
-		private final transient List d_listeners = new ArrayList();
+		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
 		private transient String d_originalValue = "";
 
 		private QuantityEditor()

@@ -82,7 +82,7 @@ public class MacGUI extends ApplicationAdapter
 // see http://www-128.ibm.com/developerworks/forums/dw_thread.jsp?message=13780590&cat=10&thread=103422&treeDisplayType=threadmodel&forum=171#13780590 for info on dynamically adding to classpath
 			Class[] parameters = new Class[]{java.net.URL.class};
 			java.net.URLClassLoader sysloader = (java.net.URLClassLoader)ClassLoader.getSystemClassLoader();
-			Class sysclass = java.net.URLClassLoader.class;
+			Class<?> sysclass = java.net.URLClassLoader.class;
 			try {
 				java.lang.reflect.Method method = sysclass.getDeclaredMethod("addURL",parameters);
 				method.setAccessible(true);

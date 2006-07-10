@@ -42,7 +42,7 @@ import java.util.List;
 public class JOpenRecentMenu extends JMenu
 {
 	static final long serialVersionUID = -1385714650728604115L;
-	private FixedArrayList entries = null;
+	private FixedArrayList<OpenRecentEntry> entries = null;
 	private OpenRecentCallback cb = null;
 
 	/**
@@ -54,7 +54,7 @@ public class JOpenRecentMenu extends JMenu
 		standardMenuFeatures();
 		setEnabled(false);
 		cb = aCb;
-		entries = new FixedArrayList();
+		entries = new FixedArrayList<OpenRecentEntry>();
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class JOpenRecentMenu extends JMenu
 	 */
 	public final String[] getEntriesAsStrings()
 	{
-		List strings = new ArrayList();
+		List<String> strings = new ArrayList<String>();
 
 		if (entries != null)
 		{
@@ -190,7 +190,7 @@ public class JOpenRecentMenu extends JMenu
 		void openRecentPerformed(ActionEvent e, File file);
 	}
 
-	private static final class FixedArrayList extends ArrayList
+	private static final class FixedArrayList<T> extends ArrayList<T>
 	{
 		// A rather incomplement implementation, I admit.  XXX --bko
 		private int max = 0;
@@ -206,7 +206,7 @@ public class JOpenRecentMenu extends JMenu
 			this.max = max;
 		}
 
-		public boolean add(Object element)
+		public boolean add(T element)
 		{
 			//
 			// Insert to the top and remove excess from the bottom

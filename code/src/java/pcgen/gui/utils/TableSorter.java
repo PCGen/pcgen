@@ -206,7 +206,7 @@ public final class TableSorter extends TableMap
 
 	private int compare(int row1, int row2)
 	{
-		final Class type = model.getColumnClass(sortingColumn);
+		final Class<?> type = model.getColumnClass(sortingColumn);
 		final int lessThan = (ascending ? (-1) : 1);
 		final int greaterThan = (ascending ? 1 : (-1));
 

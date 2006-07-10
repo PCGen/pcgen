@@ -41,7 +41,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -283,13 +282,11 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		typeRoot = new PObjectNode();
 		sourceRoot = new PObjectNode();
 
-		List typeList = new ArrayList();
-		List sourceList = new ArrayList();
+		List<String> typeList = new ArrayList<String>();
+		List<String> sourceList = new ArrayList<String>();
 
-		for (Iterator i = Globals.getTemplateList().iterator(); i.hasNext();)
+		for (PCTemplate template : Globals.getTemplateList())
 		{
-			final PCTemplate template = (PCTemplate) i.next();
-
 			for (int ii = 0; ii < template.getMyTypeCount(); ++ii)
 			{
 				final String aString = template.getMyType(ii);
@@ -547,9 +544,9 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -933,7 +930,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -944,7 +941,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 		createSelectedModel();
 		selectedTable.updateUI();
 		selectedTable.expandPathList(pathList);
@@ -994,7 +991,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				200, 35, 35, 100, 100
 		};
 		private int modelType = 0; // availableModel=0,selectedModel=1
-		private List displayList = null;
+		private List<Boolean> displayList = null;
 
 		private TemplatesTableModel(int mode, boolean available)
 		{
@@ -1004,7 +1001,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				modelType = 1;
 			}
 			resetModel(viewMode, available);
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			if(available) {
 				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
@@ -1029,7 +1026,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			switch (column)
 			{
@@ -1151,29 +1148,29 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 **/
 		private void resetModel(int mode, boolean available)
 		{
-			Iterator templItr;
+			List<PCTemplate> templList;
 
 			if (available)
 			{
-				templItr = Globals.getTemplateList().iterator();
+				templList = Globals.getTemplateList();
 			}
 			else
 			{
-				templItr = pc.getTemplateList().iterator();
+				templList = pc.getTemplateList();
 			}
 
 			switch (mode)
 			{
 				case GuiConstants.INFOTEMPLATE_VIEW_NAME: // Name
-					createNameViewModel(templItr);
+					createNameViewModel(templList);
 					break;
 
 				case GuiConstants.INFOTEMPLATE_VIEW_TYPE_NAME: // type/name
-					createTypeViewModel(templItr);
+					createTypeViewModel(templList);
 					break;
 
 				case GuiConstants.INFOTEMPLATE_VIEW_SOURCE_NAME: // source/name
-					createSourceViewModel(templItr);
+					createSourceViewModel(templList);
 					break;
 
 				default:
@@ -1191,14 +1188,12 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		private void createNameViewModel(Iterator templItr) {
+		private void createNameViewModel(List<PCTemplate> templList) {
 			setRoot(new PObjectNode()); // just need a blank one
 			String qFilter = this.getQFilter();
 
-			while (templItr.hasNext())
+			for (PCTemplate template : templList)
 			{
-				final PCTemplate template = (PCTemplate) templItr.next();
-
 				// in the availableTable, if filtering out unqualified items
 				// ignore any class the PC doesn't qualify for
 				if (!shouldDisplayThis(template))
@@ -1220,13 +1215,11 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 		}
 
-		private void createTypeViewModel(Iterator templItr) {
+		private void createTypeViewModel(List<PCTemplate> templList) {
 			setRoot((PObjectNode) typeRoot.clone());
 
-			while (templItr.hasNext())
+			for (PCTemplate template : templList)
 			{
-				final PCTemplate template = (PCTemplate) templItr.next();
-
 				// in the availableTable, if filtering out unqualified items
 				// ignore any class the PC doesn't qualify for
 				if (!shouldDisplayThis(template))
@@ -1254,13 +1247,11 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		private void createSourceViewModel(Iterator templItr) {
+		private void createSourceViewModel(List<PCTemplate> templList) {
 			setRoot((PObjectNode) sourceRoot.clone());
 
-			while (templItr.hasNext())
+			for (PCTemplate template : templList)
 			{
-				final PCTemplate template = (PCTemplate) templItr.next();
-
 				// in the availableTable, if filtering out unqualified items
 				// ignore any class the PC doesn't qualify for
 				if (!shouldDisplayThis(template))
@@ -1307,9 +1298,11 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					&& accept(pc, template));
 		}
 
-		public List getMColumnList() {
-			List retList = new ArrayList();
-			for(int i = 1; i < COL_NAMES.length; i++) {
+		public List<String> getMColumnList() 
+		{
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < COL_NAMES.length; i++) 
+			{
 				retList.add(COL_NAMES[i]);
 			}
 			return retList;

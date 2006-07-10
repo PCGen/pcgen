@@ -739,7 +739,7 @@ final class PurchaseModeFrame extends JDialog
 			return canEdit[columnIndex];
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			return types[columnIndex];
 		}

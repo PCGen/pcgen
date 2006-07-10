@@ -22,7 +22,7 @@ import javax.swing.table.TableColumnModel;
 public class TableColumnManager implements MouseListener {
 
 	private JPopupMenu tablePopup;
-	private List checkBoxList;
+	private List<JCheckBoxMenuItem> checkBoxList;
 	private JTable table;
 	private JComponent tableButton;
 	private TableColumnManagerModel model;
@@ -42,7 +42,7 @@ public class TableColumnManager implements MouseListener {
 	
 	private void initContents() {
 		tablePopup = new JPopupMenu();
-		checkBoxList = new ArrayList();
+		checkBoxList = new ArrayList<JCheckBoxMenuItem>();
 		
 		tablePopup = new javax.swing.JPopupMenu();
 		for(int i = 0; i < model.getMColumnList().size(); i++) {

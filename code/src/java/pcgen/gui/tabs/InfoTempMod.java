@@ -67,6 +67,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Ability;
+import pcgen.core.Categorisable;
 import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -157,7 +158,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	private JTreeTable targetTable; // targets for bonus
 	private JTreeTableSorter bonusSort = null;
 	private JTreeTableSorter targetSort = null;
-	private List tbwList;
+	private List<TempWrap> tbwList;
 	private PObject lastAvaObject = null;
 	private boolean hasBeenSized = false;
 
@@ -228,9 +229,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		return new ArrayList();
+		return new ArrayList<String>();
 	}
 
 	public void refresh()
@@ -428,7 +429,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if ((max > 0) || (min <= max))
 			{
-				List numberList = new ArrayList();
+				List<String> numberList = new ArrayList<String>();
 
 				for (int i = min; i <= max; i++)
 				{
@@ -982,9 +983,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			String currAppName = aEq.getAppliedName();
 			if (currAppName != null && currAppName.length() > 2)
 			{
-				for (Iterator iter = aEq.getTempBonusList().iterator(); iter.hasNext();)
+				for (BonusObj eqBonus : aEq.getTempBonusList())
 				{
-					BonusObj eqBonus = (BonusObj) iter.next();
 					PObject creatorObj = (PObject) eqBonus.getCreatorObject();
 					if (creatorObj != null
 						&& (aMod.equals(creatorObj) || (aMod.getClass() == creatorObj
@@ -1008,9 +1008,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		String repeatValue = "";
 
 		// get the bonus string
-		for (Iterator e = aMod.getBonusList().iterator(); e.hasNext();)
+		for (BonusObj aBonus : aMod.getBonusList())
 		{
-			BonusObj aBonus = (BonusObj) e.next();
 			String aString = aBonus.toString();
 
 			//if (aString.indexOf("PREAPPLY:") >= 0)
@@ -1034,10 +1033,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				if (newB != null)
 				{
 					// We clear the prereqs and add the non-PREAPPLY prereqs from the old bonus
-					newB.setPrereqList(new ArrayList());
-					for (Iterator iter = aBonus.getPrereqList().iterator(); iter.hasNext();)
+					newB.setPrereqList(new ArrayList<Prerequisite>());
+					for (Prerequisite prereq : aBonus.getPrereqList())
 					{
-						Prerequisite prereq = (Prerequisite) iter.next();
 						if (prereq.getKind() == null || !prereq.getKind().equalsIgnoreCase("apply"))
 						{
 							newB.addPreReq(new Prerequisite(prereq));
@@ -1531,10 +1529,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else if (fNode.getItem() instanceof String)
 		{
-			for (Iterator tb = tbwList.iterator(); tb.hasNext();)
+			for (TempWrap tw : tbwList)
 			{
-				TempWrap tw = (TempWrap) tb.next();
-
 				if (tw.getName().equals(fNode.getItem()))
 				{
 					tbWrap = tw;
@@ -1573,11 +1569,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			bPC = (PlayerCharacter) aTarget;
 		}
 
-		List tbList = new ArrayList(pc.getTempBonusList());
+		List<BonusObj> tbList = new ArrayList<BonusObj>(pc.getTempBonusList());
 
-		for (Iterator e = tbList.iterator(); e.hasNext();)
+		for (BonusObj aBonus : tbList)
 		{
-			BonusObj aBonus = (BonusObj) e.next();
 			Object aC = aBonus.getCreatorObject();
 			Object aT = aBonus.getTargetObject();
 
@@ -1623,7 +1618,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 **/
 	private void updateAppliedModel()
 	{
-		List pathList = appliedTable.getExpandedPaths();
+		List<String> pathList = appliedTable.getExpandedPaths();
 		createAppliedModel();
 		appliedTable.updateUI();
 		appliedTable.expandPathList(pathList);
@@ -1634,7 +1629,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 **/
 	private void updateBonusModel()
 	{
-		List pathList = bonusTable.getExpandedPaths();
+		List<String> pathList = bonusTable.getExpandedPaths();
 		createBonusModel();
 		bonusTable.updateUI();
 		bonusTable.expandPathList(pathList);
@@ -1645,7 +1640,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 **/
 	private void updateTargetModel()
 	{
-		List pathList = targetTable.getExpandedPaths();
+		List<String> pathList = targetTable.getExpandedPaths();
 		createTargetModel();
 		targetTable.updateUI();
 		targetTable.expandPathList(pathList);
@@ -1814,7 +1809,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param column
 		 * @return Class
 		 **/
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			if (column == BONUS_COL_NAME)
 			{
@@ -1939,14 +1934,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			bonusRoot = new MyPONode();
 
 			// an array of TempWrap'ers
-			List sList = new ArrayList();
-			tbwList = new ArrayList();
+			List<String> sList = new ArrayList<String>();
+			tbwList = new ArrayList<TempWrap>();
 
 			// iterate thru all PC's bonuses
 			// and build an Array of TempWrap'ers
-			for (Iterator fI = pc.getTempBonusList().iterator(); fI.hasNext();)
+			for (BonusObj aBonus : pc.getTempBonusList())
 			{
-				BonusObj aBonus = (BonusObj) fI.next();
 				Object aC = aBonus.getCreatorObject();
 				Object aT = aBonus.getTargetObject();
 				TempWrap tw = new TempWrap(aC, aT, aBonus);
@@ -2063,7 +2057,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param column
 		 * @return Class
 		 **/
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			switch (column)
 			{
@@ -2276,15 +2270,14 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		private void resetModel(int argModelType)
 		{
 			// This is the array of all equipment types
-			List eqTypeList = new ArrayList();
-			List typeList = new ArrayList();
+			List<String> eqTypeList = new ArrayList<String>();
+			List<String> typeList = new ArrayList<String>();
 
 			// build the list of all equipment types
 			eqTypeList.add(Constants.s_CUSTOM);
 
-			for (Iterator iSet = pc.getEquipmentList().iterator(); iSet.hasNext();)
+			for (Equipment bEq : pc.getEquipmentList())
 			{
-				final Equipment bEq = (Equipment) iSet.next();
 				final StringTokenizer aTok = new StringTokenizer(bEq.getType(), ".", false);
 				String aString;
 
@@ -2329,14 +2322,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// first do PC's feats
-				for (Iterator fI = pc.aggregateFeatList().iterator(); fI.hasNext();)
+				for (Ability aFeat : pc.aggregateFeatList())
 				{
-					Ability aFeat = (Ability) fI.next();
-
-					for (Iterator e = aFeat.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aFeat.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
-
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
 						{
 							PObjectNode aFN = new PObjectNode(aFeat);
@@ -2349,14 +2338,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// next do all Feats to get PREAPPLY:ANYPC
-				for (Iterator fI = Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();)
+				for (Iterator<? extends Categorisable> fI = Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();)
 				{
 					Ability aFeat = (Ability) fI.next();
 
-					for (Iterator e = aFeat.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aFeat.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
-
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && aBonus.isPreReqTarget("ANYPC"))
 						{
 							PObjectNode aFN = new PObjectNode(aFeat);
@@ -2369,19 +2356,15 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Do all the PC's spells
-				for (Iterator fI = pc.aggregateSpellList("Any", "", "", "", 0, 9).iterator(); fI.hasNext();)
+				for (Spell aSpell : pc.aggregateSpellList("Any", "", "", "", 0, 9))
 				{
-					final Spell aSpell = (Spell) fI.next();
-
 					if (aSpell == null)
 					{
 						continue;
 					}
 
-					for (Iterator e = aSpell.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aSpell.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
-
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
 						{
 							PObjectNode aFN = new PObjectNode(aSpell);
@@ -2394,7 +2377,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Next do all spells to get PREAPPLY:ANYPC
-				for (Iterator fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
+				for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
 				{
 					final Object obj = fI.next();
 					Spell aSpell = null;
@@ -2413,9 +2396,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						continue;
 					}
 
-					for (Iterator e = aSpell.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aSpell.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
 						//aBonus.getPrereqString();
 
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && !aBonus.isPreReqTarget("PC"))
@@ -2435,14 +2417,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// iterate thru all PC's equipment objects
-				for (Iterator fI = pc.getEquipmentList().iterator(); fI.hasNext();)
+				for (Equipment aEq : pc.getEquipmentList())
 				{
-					final Equipment aEq = (Equipment) fI.next();
-
-					for (Iterator e = aEq.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aEq.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
-
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
 						{
 							PObjectNode aFN = new PObjectNode(aEq);
@@ -2460,13 +2438,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// iterate thru all PC's Classes
-				for (Iterator fI = pc.getClassList().iterator(); fI.hasNext();)
+				for (PCClass aClass : pc.getClassList())
 				{
-					final PCClass aClass = (PCClass) fI.next();
-
-					for (Iterator e = aClass.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aClass.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
 						final int myLevel = aClass.getLevel();
 						final int level = aBonus.getPCLevel();
 
@@ -2487,13 +2462,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Iterate through all the PC's Templates
-				for (Iterator fI = pc.getTemplateList().iterator(); fI.hasNext();)
+				for (PCTemplate aTemp : pc.getTemplateList())
 				{
-					final PCTemplate aTemp = (PCTemplate) fI.next();
-
-					for (Iterator e = aTemp.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aTemp.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
 						{
 							PObjectNode aFN = new PObjectNode(aTemp);
@@ -2505,13 +2477,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				// do all Templates to get PREAPPLY:ANYPC
-				for (Iterator fI = Globals.getTemplateList().iterator(); fI.hasNext();)
+				for (PCTemplate aTemp : Globals.getTemplateList())
 				{
-					final PCTemplate aTemp = (PCTemplate) fI.next();
-
-					for (Iterator e = aTemp.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aTemp.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && aBonus.isPreReqTarget("ANYPC"))
 						{
 							PObjectNode aFN = new PObjectNode(aTemp);
@@ -2529,13 +2498,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Iterate through all the PC's Skills
-				for (Iterator fI = pc.getSkillList().iterator(); fI.hasNext();)
+				for (Skill aSkill : pc.getSkillList())
 				{
-					final Skill aSkill = (Skill) fI.next();
-
-					for (Iterator e = aSkill.getBonusList().iterator(); e.hasNext();)
+					for (BonusObj aBonus : aSkill.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
 						{
 							PObjectNode aFN = new PObjectNode(aSkill);
@@ -2570,10 +2536,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				boolean found = false;
 
-				for (Iterator e = lastAvaObject.getBonusList().iterator(); e.hasNext();)
+				for (BonusObj aBonus : lastAvaObject.getBonusList())
 				{
-					BonusObj aBonus = (BonusObj) e.next();
-
 					if (aBonus == null)
 					{
 						continue;
@@ -2592,15 +2556,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				pc.setCalcEquipmentList(pc.getUseTempMods());
-				for (Iterator fI = pc.getEquipmentList().iterator(); fI.hasNext();)
+				for (Equipment aEq : pc.getEquipmentList())
 				{
-					final Equipment aEq = (Equipment) fI.next();
 					found = false;
 
-					for (Iterator e = lastAvaObject.getBonusList().iterator(); e.hasNext() && !found;)
+					for (BonusObj aBonus : lastAvaObject.getBonusList())
 					{
-						BonusObj aBonus = (BonusObj) e.next();
-
 						if (aBonus == null)
 						{
 							continue;
@@ -2608,7 +2569,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
 						{
 							boolean passesApply = true;
-							for (Iterator iter = aBonus.getPrereqList().iterator(); iter.hasNext() && passesApply;)
+							for (Iterator<Prerequisite> iter = aBonus.getPrereqList().iterator(); iter.hasNext() && passesApply;)
 							{
 								Prerequisite element = (Prerequisite) iter.next();
 								if (element.getKind() != null && element.getKind().equalsIgnoreCase("APPLY"))

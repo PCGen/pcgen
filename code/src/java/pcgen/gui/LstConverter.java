@@ -1007,7 +1007,7 @@ final class LstConverter extends JFrame
 			return ((column == 2) || (column == 3));
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			return getValueAt(0, columnIndex).getClass();
 		}

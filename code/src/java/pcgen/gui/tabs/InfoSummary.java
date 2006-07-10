@@ -530,9 +530,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		if (isNewCharName(pc.getName()))
 		{
 			toDoList.add(PropertyFactory.getString("in_sumTodoName")); //$NON-NLS-1$
@@ -1224,12 +1224,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		// Get a list of classes that will become unqualified (and have an ex-class)
 		//
 		StringBuffer unqualified = new StringBuffer();
-		List classList = pc.getClassList();
-		List exclassList = new ArrayList();
+		List<PCClass> classList = pc.getClassList();
+		List<PCClass> exclassList = new ArrayList<PCClass>();
 
-		for (Iterator e = classList.iterator(); e.hasNext();)
+		for (PCClass aClass : classList)
 		{
-			final PCClass aClass = (PCClass) e.next();
 
 			pc.setAlignment(oldAlignment, false, true);
 
@@ -1269,9 +1268,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		//
 		// Convert the class(es)
 		//
-		for (Iterator e = exclassList.iterator(); e.hasNext();)
+		for (PCClass aClass : exclassList)
 		{
-			final PCClass aClass = (PCClass) e.next();
 			pc.makeIntoExClass(aClass);
 		}
 
@@ -2616,7 +2614,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	private final class ClassModel extends AbstractTableModel
 	{
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			return String.class;
 		}
@@ -2800,10 +2798,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			final Object pcClass = getSelectedItem();
 			removeAllElements();
 
-			for (Iterator it = Globals.getClassList().iterator(); it.hasNext();)
+			for (PCClass aClass : Globals.getClassList())
 			{
-				final PCClass aClass = (PCClass) it.next();
-
 				if (SettingsHandler.hideMonsterClasses() && aClass.isMonster())
 				{
 					continue;
@@ -2845,7 +2841,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			final Object pcRace = getSelectedItem();
 			removeAllElements();
 
-			for (Iterator it = Globals.getRaceMap().values().iterator(); it.hasNext();)
+			for (Iterator<Race> it = Globals.getRaceMap().values().iterator(); it.hasNext();)
 			{
 				final Race aRace = (Race) it.next();
 
@@ -2919,7 +2915,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			return (col == 1);
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			return getValueAt(0, columnIndex).getClass();
 		}
@@ -3178,9 +3174,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		int poolPointsTotal = 0;
 
-		for (Iterator iter = pc.getLevelInfo().iterator(); iter.hasNext();)
+		for (PCLevelInfo pcl : pc.getLevelInfo())
 		{
-			final PCLevelInfo pcl = (PCLevelInfo) iter.next();
 			poolPointsTotal += pcl.getSkillPointsGained();
 		}
 
@@ -3255,16 +3250,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * current character.
 	 * @param todoList The list of TODOs we are adding to
 	 */
-	public void setToDoList(List todoList)
+	public void setToDoList(List<String> todoList)
 	{
 		StringBuffer todoText = new StringBuffer("<html><body>"); //$NON-NLS-1$
 
 		int i=1;
-		for (Iterator iter = todoList.iterator(); iter.hasNext();)
+		for (String task : todoList)
 		{
-			String task = (String) iter.next();
 			todoText.append(i++).append(". ").append(task).append("<br>"); //$NON-NLS-1$
-
 		}
 
 		todoText.append("</body></html>"); //$NON-NLS-1$

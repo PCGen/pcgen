@@ -385,11 +385,11 @@ final class MainAbout extends JPanel
 		sponsorLabel.setBackground(panel.getBackground());
 		panel.add(sp, BorderLayout.CENTER);
 		
-		List sponsors = Globals.getSponsors();
+		List<Map<String, String>> sponsors = Globals.getSponsors();
 		StringBuffer sb = new StringBuffer();
 		sb.append("<html><b>Our Sponsors</b><br>");
 		for(int i = 0; i < sponsors.size(); i++) {
-			Map sponsor = (Map)sponsors.get(i);
+			Map<String, String> sponsor = sponsors.get(i);
 			if(sponsor.get("SPONSOR").equals("PCGEN")) {
 				continue;
 			}

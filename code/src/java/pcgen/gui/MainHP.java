@@ -46,7 +46,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Iterator;
 import pcgen.core.Globals;
 
 /**
@@ -338,7 +337,7 @@ final class MainHP extends JPanel
 			return (colIndex == 2);
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			switch (columnIndex)
 			{
@@ -413,11 +412,8 @@ final class MainHP extends JPanel
 
 				if (aPC.getClassList() != null)
 				{
-					PCClass aClass;
-
-					for (Iterator e = aPC.getClassList().iterator(); e.hasNext();)
+					for (PCClass aClass : aPC.getClassList())
 					{
-						aClass = (PCClass) e.next();
 						iRows += aClass.getLevel();
 					}
 				}

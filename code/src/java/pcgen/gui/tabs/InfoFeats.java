@@ -79,6 +79,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Categorisable;
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -260,9 +261,9 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		if (pc != null && pc.getFeats() > 0.0d)
 		{
 			toDoList.add(PropertyFactory.getFormattedString("in_featTodoRemain", getSingularTabName())); //$NON-NLS-1$
@@ -1061,10 +1062,10 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			"You can change how the " + getSingularTabName() + "s in the Selected Tables are listed - either by name or in a directory-like structure.");
 		viewSelectComboBox.setSelectedIndex(viewSelectMode);
 
-		List typeList = new ArrayList();
-		List sourceList = new ArrayList();
+		List<String> typeList = new ArrayList<String>();
+		List<String> sourceList = new ArrayList<String>();
 
-		for (Iterator it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); )
+		for (Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator("FEAT"); it.hasNext(); )
 		{
 			final Ability anAbility = (Ability) it.next();
 
@@ -1368,7 +1369,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private void updateAvailableModel()
 	{
 		if(availableTable != null) {
-			List pathList = availableTable.getExpandedPaths();
+			List<String> pathList = availableTable.getExpandedPaths();
 			createModelAvailable();
 
 			if (availableSort != null)
@@ -1422,7 +1423,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private void updateSelectedModel()
 	{
 		if(selectedTable != null) {
-			List pathList = selectedTable.getExpandedPaths();
+			List<String> pathList = selectedTable.getExpandedPaths();
 			createModelSelected();
 
 			if (selectedSort != null)
@@ -1509,7 +1510,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		// Types of the columns.
 		private int modelType = MODEL_TYPE_AVAIL; // availableModel
-		private List displayList;
+		private List<Boolean> displayList;
 
 		/**
 		 * Creates a FeatModel
@@ -1521,7 +1522,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			super(null);
 			resetModel(mode, available, false);
 			int i = 1;
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
 			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
@@ -1548,7 +1549,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			if(column == COL_NAME)
 			{
@@ -1711,14 +1712,12 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 *
 		 * @return A list of the current PCs feats.
 		 */
-		private List buildPCFeatList()
+		private List<Ability> buildPCFeatList()
 		{
-			ArrayList returnValue = new ArrayList(pc.aggregateFeatList().size());
+			ArrayList<Ability> returnValue = new ArrayList<Ability>(pc.aggregateFeatList().size());
 
-			for (Iterator pcFeats = pc.aggregateFeatList().iterator(); pcFeats.hasNext();)
+			for (Ability aFeat : pc.aggregateFeatList())
 			{
-				final Ability aFeat = (Ability) pcFeats.next();
-
 				if (aFeat.isMultiples())
 				{
 					final String featKey = aFeat.getKeyName();
@@ -1761,7 +1760,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			super.setRoot(new PObjectNode());
 			String qFilter = this.getQFilter();
 
-			Iterator fI;
+			Iterator<? extends Categorisable> fI;
 
 			if (available)
 			{
@@ -1869,14 +1868,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				setRoot(new PObjectNode());
 			}
 
-			List aList = new ArrayList();
-			List fList = new ArrayList();
+			List<Ability> aList = new ArrayList<Ability>();
+			List<Ability> fList = new ArrayList<Ability>();
 
 			if (available)
 			{
 				Ability anAbility;
 
-				for (Iterator it = Globals.getAbilityKeyIterator(
+				for (Iterator<? extends Categorisable> it = Globals.getAbilityKeyIterator(
 						Constants.FEAT_CATEGORY); it.hasNext();)
 				{
 					anAbility = (Ability) it.next();
@@ -1896,17 +1895,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			{
 				// fList = (ArrayList)pc.aggregateFeatList().clone();
 				// make filters work ;-)
-				Ability aFeat;
 
 				//My concern here in using buildPCFeatList() instead
 				//of pc.aggregateFeatList() is what duplicates would doo
 				//to the tree.  I THINK that the code will find
 				//the first prerequisite feat and add the feats to that
 				//This may not be perfect, but I don't think it will blow up.
-				for (Iterator it = buildPCFeatList().iterator(); it.hasNext();)
+				for (Ability aFeat : buildPCFeatList())
 				{
-					aFeat = (Ability) it.next();
-
 					if (accept(pc, aFeat))
 					{
 						if ((aFeat.getVisible() == Ability.VISIBILITY_DEFAULT)
@@ -1964,7 +1960,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 						// Make a copy of the prereq
 						// list so we don't destroy
 						// the other prereqs
-						List preReqList = new ArrayList();
+						List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
 
 						for (int pi = aFeat.getPreReqCount() - 1; pi >= 0; --pi)
 						{
@@ -2039,7 +2035,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			setRoot(typeRoot);
 
-			Iterator fI;
+			Iterator<? extends Categorisable> fI;
 
 			if (available)
 			{
@@ -2143,7 +2139,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			setRoot(sourceRoot);
 
-			Iterator fI;
+			Iterator<? extends Categorisable> fI;
 
 			if (available)
 			{
@@ -2237,15 +2233,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			}
 		}
 
-		private int placedThisFeatInThisTree(final Ability aFeat, PObjectNode po, List aList, int level, boolean available)
+		private int placedThisFeatInThisTree(final Ability aFeat, PObjectNode po, List<Prerequisite> aList, int level, boolean available)
 		{
 			final Ability bFeat = (Ability) po.getItem(); // must be a Feat
 			boolean trychildren = false;
 			boolean thisisit = false;
 
-			for (Iterator it = aList.iterator(); it.hasNext();)
+			for (Prerequisite prereq : aList)
 			{
-				Prerequisite prereq = (Prerequisite) it.next();
 				String pString = prereq.getKey();
 
 				if (pString.equalsIgnoreCase(bFeat.getKeyName()))
@@ -2353,10 +2348,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			}
 		}
 
-		public List getMColumnList()
+		public List<String> getMColumnList()
 		{
-			List retList = new ArrayList();
-			for(int i = 1; i < names.length; i++) {
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < names.length; i++) 
+			{
 				retList.add(names[i]);
 			}
 			return retList;
@@ -2378,23 +2374,28 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
+		public int getMColumnDefaultWidth(int col) 
+		{
 			return SettingsHandler.getPCGenOption("InfoFeats.sizecol." + names[col], widths[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
+		public void setMColumnDefaultWidth(int col, int width) 
+		{
 			SettingsHandler.setPCGenOption("InfoFeats.sizecol." + names[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		{
 			return SettingsHandler.getPCGenOption("InfoFeats.viewcol." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val) 
+		{
 			SettingsHandler.setPCGenOption("InfoFeats.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column) 
+		{
 			// TODO Auto-generated method stub
 
 		}

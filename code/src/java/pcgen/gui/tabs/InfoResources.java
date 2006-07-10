@@ -226,9 +226,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -370,10 +370,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			Follower aF = pc.getMaster();
 			PlayerCharacter mPC = null;
 
-			for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+			for (PlayerCharacter nPC : Globals.getPCList())
 			{
-				PlayerCharacter nPC = (PlayerCharacter) p.next();
-
 				if (aF.getFileName().equals(nPC.getFileName()))
 				{
 					mPC = nPC;
@@ -614,10 +612,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		int oldIndex = PCGen_Frame1.getBaseTabbedPane().getSelectedIndex();
 		int newIndex = PCGen_Frame1.FIRST_CHAR_TAB;
 
-		for (Iterator i = Globals.getPCList().iterator(); i.hasNext();)
+		for (PlayerCharacter iPC : Globals.getPCList())
 		{
-			PlayerCharacter iPC = (PlayerCharacter) i.next();
-
 			if (iPC.getFileName().equals(file.toString()))
 			{
 				Logging.errorPrint("already open");
@@ -929,9 +925,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		b.append("<b>Special Abilities:</b>");
 		b.append("<ul>");
 
-		for (Iterator ii = newPC.getSpecialAbilityListStrings().iterator(); ii.hasNext();)
+		for (String sa : newPC.getSpecialAbilityListStrings())
 		{
-			String sa = (String) ii.next();
 			b.append("<li>").append(sa).append("</li>");
 		}
 
@@ -997,10 +992,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			Follower aF = (Follower) obj;
 			PlayerCharacter newPC = null;
 
-			for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+			for (PlayerCharacter nPC : Globals.getPCList())
 			{
-				PlayerCharacter nPC = (PlayerCharacter) p.next();
-
 				if (aF.getFileName().equals(nPC.getFileName()))
 				{
 					newPC = nPC;
@@ -1567,10 +1560,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 			// now search the list of PC's to make sure we are
 			// not already loaded
-			for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+			for (PlayerCharacter nPC : Globals.getPCList())
 			{
-				PlayerCharacter nPC = (PlayerCharacter) p.next();
-
 				if (aF.getFileName().equals(nPC.getFileName()))
 				{
 					ShowMessageDelegate.showMessageDialog(aF.getName() + " is already loaded", Constants.s_APPNAME, MessageType.INFORMATION);
@@ -1642,7 +1633,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -1676,7 +1667,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 		createSelectedModel();
 		selectedTable.updateUI();
 		selectedTable.expandPathList(pathList);

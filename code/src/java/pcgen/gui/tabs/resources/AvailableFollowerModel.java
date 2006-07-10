@@ -3,7 +3,6 @@ package pcgen.gui.tabs.resources;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.table.TableColumn;
@@ -49,7 +48,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	private static final int VIEW_NAME = 1;
 	private static final int VIEW_RACETYPE = 2;
 
-	private List displayList = null;
+	private List<Boolean> displayList = null;
 
 	// there are two roots. One for available equipment
 	// and one for selected equipment profiles
@@ -89,7 +88,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 		resetModel(viewMode);
 
 		int i = 1;
-		displayList = new ArrayList();
+		displayList = new ArrayList<Boolean>();
 		displayList.add(new Boolean(true));
 		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
 		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
@@ -115,7 +114,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @param column
 	 * @return Class
 	 **/
-	public Class getColumnClass(int column)
+	public Class<?> getColumnClass(int column)
 	{
 		return (column == COL_NAME) ? TreeTableModel.class : String.class;
 	}
@@ -315,14 +314,12 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 			{
 				// iterate through the names
 				// and fill out the tree
-				Collection raceList = Globals.getRaceMap().values();
-				ArrayList rn = new ArrayList(raceList.size());
+				Collection<Race> raceList = Globals.getRaceMap().values();
+				ArrayList<PObjectNode> rn = new ArrayList<PObjectNode>(raceList.size());
 				String qFilter = this.getQFilter();
 
-				for (Iterator iRace = raceList.iterator(); iRace.hasNext(); )
+				for (Race aRace : raceList)
 				{
-					final Race aRace = (Race) iRace.next();
-
 					if (qFilter == null ||
 							( aRace.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 							  aRace.getType().toLowerCase().indexOf(qFilter) >= 0 ))
@@ -346,14 +343,11 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 			case VIEW_TYPE:
 			{
 				// build the list of races and types
-				ArrayList raceList = new ArrayList();
-				ArrayList typeList = new ArrayList();
+				ArrayList<Race> raceList = new ArrayList<Race>();
+				ArrayList<String> typeList = new ArrayList<String>();
 
-				for (Iterator iRace = Globals.getRaceMap().values().iterator();
-					 iRace.hasNext(); )
+				for (Race aRace : Globals.getRaceMap().values())
 				{
-					final Race aRace = (Race) iRace.next();
-
 					if (!raceList.contains(aRace))
 					{
 						raceList.add(aRace);
@@ -378,10 +372,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 					rt[iType] = new PObjectNode();
 					rt[iType].setItem(aType);
 
-					for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext();)
+					for (Race aRace : Globals.getRaceMap().values())
 					{
-						final Race aRace = (Race) fI.next();
-
 						if (aRace == null)
 						{
 							continue;
@@ -411,14 +403,11 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 			case VIEW_RACETYPE:
 			{
 				// build the list of races and types
-				ArrayList raceList = new ArrayList();
-				ArrayList typeList = new ArrayList();
+				ArrayList<Race> raceList = new ArrayList<Race>();
+				ArrayList<String> typeList = new ArrayList<String>();
 
-				for (Iterator iRace = Globals.getRaceMap().values().iterator();
-					 iRace.hasNext(); )
+				for (Race aRace : Globals.getRaceMap().values())
 				{
-					final Race aRace = (Race) iRace.next();
-
 					if (!raceList.contains(aRace))
 					{
 						raceList.add(aRace);
@@ -443,10 +432,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 					rt[iType] = new PObjectNode();
 					rt[iType].setItem(aType);
 
-					for (Iterator fI = Globals.getRaceMap().values().iterator(); fI.hasNext();)
+					for (Race aRace : Globals.getRaceMap().values())
 					{
-						final Race aRace = (Race) fI.next();
-
 						if (aRace == null)
 						{
 							continue;
@@ -481,44 +468,54 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 		}
 	}
 
-	public List getMColumnList() {
-		List retList = new ArrayList();
-		for(int i = 1; i < avaNameList.length; i++) {
+	public List<String> getMColumnList() 
+	{
+		List<String> retList = new ArrayList<String>();
+		for(int i = 1; i < avaNameList.length; i++) 
+		{
 			retList.add(avaNameList[i]);
 		}
 		return retList;
 	}
 
-	public boolean isMColumnDisplayed(int col) {
+	public boolean isMColumnDisplayed(int col) 
+	{
 		return ((Boolean)displayList.get(col)).booleanValue();
 	}
 
-	public void setMColumnDisplayed(int col, boolean disp) {
+	public void setMColumnDisplayed(int col, boolean disp) 
+	{
 		setColumnViewOption( avaNameList[col], disp);
 		displayList.set(col, new Boolean(disp));
 	}
 
-	public int getMColumnOffset() {
+	public int getMColumnOffset() 
+	{
 		return 1;
 	}
 
-	public int getMColumnDefaultWidth(int col) {
+	public int getMColumnDefaultWidth(int col) 
+	{
 		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], avaDefaultWidth[col]);
 	}
 
-	public void setMColumnDefaultWidth(int col, int width) {
+	public void setMColumnDefaultWidth(int col, int width) 
+	{
 		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], width);
 	}
 
-	private boolean getColumnViewOption(String colName, boolean defaultVal) {
+	private boolean getColumnViewOption(String colName, boolean defaultVal) 
+	{
 		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, defaultVal);
 	}
 
-	private void setColumnViewOption(String colName, boolean val) {
+	private void setColumnViewOption(String colName, boolean val) 
+	{
 		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, val);
 	}
 
-	public void resetMColumn(int col, TableColumn column) {
+	public void resetMColumn(int col, TableColumn column) 
+	{
 		// TODO Auto-generated method stub
 
 	}

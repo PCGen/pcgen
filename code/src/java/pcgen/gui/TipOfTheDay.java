@@ -54,7 +54,7 @@ final class TipOfTheDay extends JFrame implements ActionListener
 
 	// the pane to display the text
 	private JLabelPane tipText;
-	private List tipList = null;
+	private List<String> tipList = null;
 	private int lastNumber = -1;
 
 	/** Creates new TipOfTheDay */
@@ -205,7 +205,7 @@ final class TipOfTheDay extends JFrame implements ActionListener
 
 	private void loadTips()
 	{
-		tipList = new ArrayList(20);
+		tipList = new ArrayList<String>(20);
 
 		final String tipsFilePath = SettingsHandler.getPcgenSystemDir() + File.separator + "gameModes" +
 			File.separator + SettingsHandler.getGame().getName() + File.separator + "tips.lst";

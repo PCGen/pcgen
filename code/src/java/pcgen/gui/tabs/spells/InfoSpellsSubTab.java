@@ -47,6 +47,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.TreePath;
 
+import pcgen.core.Ability;
 import pcgen.core.CharacterDomain;
 import pcgen.core.Constants;
 import pcgen.core.Domain;
@@ -108,8 +109,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	protected boolean needsUpdate = true;
 	protected String addSpellWithMetaMagicTitle = null;
 
-	protected List availableBookList = new ArrayList();
-	protected List selectedBookList = new ArrayList();
+	protected List<String> availableBookList = new ArrayList<String>();
+	protected List<String> selectedBookList = new ArrayList<String>();
 
 	protected JMenuItem addMenu;
 	protected JMenuItem addMetaMagicMenu;
@@ -353,7 +354,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	 **/
 	protected final void updateAvailableModel()
 	{
-		List pathList = availableTable.getExpandedPaths();
+		List<String> pathList = availableTable.getExpandedPaths();
 		createAvailableModel();
 		availableTable.updateUI();
 		availableTable.expandPathList(pathList);
@@ -364,7 +365,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	 **/
 	protected final void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 
 		TreePath modelSelPath = selectedTable.getTree().getSelectionPath();
 		int idx = selectedTable.getTree().getRowForPath(modelSelPath);
@@ -512,7 +513,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	 */
 	protected final void addSpellToTarget(PObjectNode fNode, String bookName)
 	{
-		List aList = getInfoFromNode(fNode);
+		List<Object> aList = getInfoFromNode(fNode);
 		if (aList == null)
 		{
 			return;
@@ -526,7 +527,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			return;
 		}
 
-		List featList = new ArrayList();
+		List<Ability> featList = new ArrayList<Ability>();
 		final String aString = pc.addSpell(cs, featList, className, bookName,
 			spLevel, spLevel);
 
@@ -538,12 +539,12 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		}
 	}
 
-	protected final List getInfoFromNode(PObjectNode fNode)
+	protected final List<Object> getInfoFromNode(PObjectNode fNode)
 	{
 		Spell aSpell;
 		String classKey = ""; //$NON-NLS-1$
 		int spLevel = -1;
-		ArrayList returnList = new ArrayList(); // 0 = CharacterSpell; 1 = className; 2 = spellLevel
+		ArrayList<Object> returnList = new ArrayList<Object>(); // 0 = CharacterSpell; 1 = className; 2 = spellLevel
 
 		if (!(fNode.getItem() instanceof SpellInfo))
 		{
@@ -588,12 +589,12 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			aClass = (PCClass) theOwner;
 			classKey = aClass.getCastAs();
 		}
-		List aList = aClass.getSpellSupport().getCharacterSpell(aSpell,
+		List<CharacterSpell> aList = aClass.getSpellSupport().getCharacterSpell(aSpell,
 			"", spLevel); //$NON-NLS-1$
 		returnList.add(spellA);
 		returnList.add(classKey);
 		returnList.add(String.valueOf(spLevel));
-		for (Iterator ai = aList.iterator(); ai.hasNext();)
+		for (Iterator<CharacterSpell> ai = aList.iterator(); ai.hasNext();)
 		{
 			cs = (CharacterSpell) ai.next();
 			if (cs.equals(spellA))

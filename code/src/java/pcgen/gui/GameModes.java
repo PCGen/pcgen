@@ -51,8 +51,8 @@ final class GameModes extends JMenu
 {
 	static final long serialVersionUID = -6751569845505079621L;
 	private static String in_stdrdCampaign = PropertyFactory.getString("in_stdrdCampaign"); // Title for the standard campaign menu item
-	private AbstractList campaignMenuItems = new ArrayList();
-	private AbstractList campaigns = new ArrayList();
+	private AbstractList<JRadioButtonMenuItem> campaignMenuItems = new ArrayList<JRadioButtonMenuItem>();
+	private AbstractList<Campaign> campaigns = new ArrayList<Campaign>();
 	private ButtonGroup gameModeGroup = null;
 	private CheckBoxListener checkBoxHandler = new CheckBoxListener();
 	private JRadioButtonMenuItem[] gameModeNames = null;
@@ -195,13 +195,9 @@ final class GameModes extends JMenu
 			}
 
 			// Add any menu items from campaigns which match this game mode
-			Iterator campaignIterator = Globals.getCampaignList().iterator();
 			boolean firstCampaignEntry = true;
-
-			while (campaignIterator.hasNext())
+			for (Campaign aCamp : Globals.getCampaignList())
 			{
-				final Campaign aCamp = (Campaign) campaignIterator.next();
-
 				if (aCamp.canShowInMenu()
 					&& aCamp.isGameMode(((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
 				{
@@ -317,8 +313,8 @@ final class GameModes extends JMenu
 			{
 				// We can now specify multiple game modes in a PCC file.
 				// We assume here that the 1st one is the primary one.
-				List gameModeList = ((Campaign) campaigns.get(campaignNum)).getGameModes();
-				tempGameMode = (String) gameModeList.get(0);
+				List<String> gameModeList = ((Campaign) campaigns.get(campaignNum)).getGameModes();
+				tempGameMode = gameModeList.get(0);
 			}
 
 			if (!Globals.isInGameMode(tempGameMode))
@@ -332,7 +328,7 @@ final class GameModes extends JMenu
 			// Now we deal with a campaign selection
 			if (campaignNum >= 0)
 			{
-				List selectedCampaigns = new ArrayList();
+				List<Campaign> selectedCampaigns = new ArrayList<Campaign>();
 				selectedCampaigns.add(campaigns.get(campaignNum));
 
 				try
@@ -351,11 +347,10 @@ final class GameModes extends JMenu
 					Globals.emptyLists();
 					PersistenceManager pManager = PersistenceManager.getInstance();
 					pManager.emptyLists();
-					pManager.setChosenCampaignSourcefiles(new ArrayList());
+					pManager.setChosenCampaignSourcefiles(new ArrayList<String>());
 
-					for (Iterator it = Globals.getCampaignList().iterator(); it.hasNext();)
+					for (Campaign aCamp : Globals.getCampaignList())
 					{
-						Campaign aCamp = (Campaign) it.next();
 						aCamp.setIsLoaded(false);
 					}
 

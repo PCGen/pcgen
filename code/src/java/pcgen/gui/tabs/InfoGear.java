@@ -46,6 +46,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EventObject;
@@ -295,9 +296,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		List toDoList = new ArrayList();
+		List<String> toDoList = new ArrayList<String>();
 		return toDoList;
 	}
 
@@ -447,10 +448,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		pcMoveMenu.removeAll();
 		pcCopyMenu.removeAll();
 
-		for (Iterator i = Globals.getPCList().iterator(); i.hasNext();)
+		for (PlayerCharacter testPc : Globals.getPCList())
 		{
-			PlayerCharacter testPc = (PlayerCharacter) i.next();
-
 			if (testPc != pc)
 			{
 				pcMoveMenu.add(Utility.createMenuItem(testPc.getName(), new MoveItemListener(ix, 0), "MoveItemTo",
@@ -548,10 +547,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			return 0;
 		}
 
-		for (Iterator i = pc.getEquipmentMasterList().iterator(); i.hasNext();)
+		for (Equipment item : pc.getEquipmentMasterList())
 		{
-			final Equipment item = (Equipment) i.next();
-
 			if (item.getOutputIndex() > maxOutputIndex)
 			{
 				maxOutputIndex = item.getOutputIndex();
@@ -902,11 +899,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @return The number of times this piece of equipment has been allocated in
 	 *         a single EqSet
 	 */
-	private double getNumberOfItemInUse(PlayerCharacter pc2, Equipment equipment) {
-		Map foundCounts = new HashMap();
-		for (Iterator iter = pc2.getEquipSet().iterator(); iter.hasNext();) {
-			EquipSet element = (EquipSet) iter.next();
-
+	private double getNumberOfItemInUse(PlayerCharacter pc2, Equipment equipment) 
+	{
+		Map<String, Float> foundCounts = new HashMap<String, Float>();
+		for (EquipSet element : pc2.getEquipSet()) 
+		{
 			if (element.getValue().equalsIgnoreCase(equipment.getName())) {
 				String path = element.getRootIdPath();
 				if (!foundCounts.containsKey(path)) {
@@ -1457,12 +1454,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				return;
 			}
 
-			List whoHasIt = new ArrayList();
+			List<String> whoHasIt = new ArrayList<String>();
 
-			for (Iterator pcIterator = Globals.getPCList().iterator(); pcIterator.hasNext();)
+			for (PlayerCharacter playerCharacter : Globals.getPCList())
 			{
-				final PlayerCharacter playerCharacter = (PlayerCharacter) pcIterator.next();
-
 				if (playerCharacter.getEquipmentNamed(aEq.getName()) != null)
 				{
 					whoHasIt.add(playerCharacter.getName());
@@ -1851,9 +1846,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		allTypeRoot = new PObjectNode();
 		sourceRoot = new PObjectNode();
 
-		List aList = new ArrayList();
-		List bList = new ArrayList();
-		List sourceList = new ArrayList();
+		List<String> aList = new ArrayList<String>();
+		List<String> bList = new ArrayList<String>();
+		List<String> sourceList = new ArrayList<String>();
 
 		if (customExists)
 		{
@@ -1862,9 +1857,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			sourceList.add(Constants.s_CUSTOMSOURCE);
 		}
 
-		for (Iterator i = EquipmentList.getEquipmentListIterator(); i.hasNext(); )
+		for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext(); )
 		{
-			Map.Entry entry = (Map.Entry)i.next();
+			Map.Entry<String, Equipment> entry = i.next();
 			final Equipment bEq = (Equipment) entry.getValue();
 			final StringTokenizer aTok = new StringTokenizer(bEq.getTypeUsingFlag(true), ".", false);
 
@@ -1936,8 +1931,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			aList.clear();
 
-			for (Iterator e = EquipmentList.getEquipmentListIterator(); e.hasNext(); ) {
-				Map.Entry entry = (Map.Entry)e.next();
+			for (Iterator<Map.Entry<String, Equipment>> e = EquipmentList.getEquipmentListIterator(); e.hasNext(); ) 
+			{
+				Map.Entry<String, Equipment> entry = e.next();
 				final Equipment bEq = (Equipment) entry.getValue();
 				final String topType = cc[i].toString();
 
@@ -1962,9 +1958,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			Collections.sort(aList);
 
-			for (Iterator lI = aList.iterator(); lI.hasNext();)
+			for (String aString : aList)
 			{
-				String aString = (String) lI.next();
 				PObjectNode d = new PObjectNode();
 				d.setParent(cc[i]);
 				cc[i].addChild(d);
@@ -2320,13 +2315,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	{
 		ResortComparator comparator = new ResortComparator(sort, sortOrder, pc);
 		int nextOutputIndex = 1;
-		List eqList = pc.getEquipmentMasterList();
+		List<Equipment> eqList = pc.getEquipmentMasterList();
 		Collections.sort(eqList, comparator);
 
-		for (Iterator eI = eqList.iterator(); eI.hasNext();)
+		for (Equipment item : eqList)
 		{
-			final Equipment item = (Equipment) eI.next();
-
 			if (item.getOutputIndex() >= 0)
 			{
 				item.setOutputIndex(nextOutputIndex++);
@@ -2474,7 +2467,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	{
 		try
 		{
-			List pathList = availableTable.getExpandedPaths();
+			List<String> pathList = availableTable.getExpandedPaths();
 			createAvailableModel();
 			availableTable.updateUI();
 			availableTable.expandPathList(pathList);
@@ -2503,7 +2496,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 **/
 	private void updateSelectedModel()
 	{
-		List pathList = selectedTable.getExpandedPaths();
+		List<String> pathList = selectedTable.getExpandedPaths();
 		createSelectedModel();
 		selectedTable.updateUI();
 		selectedTable.expandPathList(pathList);
@@ -2914,7 +2907,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		}
 	}
 
-	private static class ResortComparator implements Comparator
+	private static class ResortComparator implements Comparator<Object>
 	{
 		/** The name of the re-sort */
 		public static final int RESORT_NAME = 0;
@@ -3082,7 +3075,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 **/
 	private static final class OutputOrderEditor extends JComboBoxEx implements TableCellEditor
 	{
-		private final transient List d_listeners = new ArrayList();
+		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
 		private transient int d_originalValue = 0;
 
 		private OutputOrderEditor(String[] choices)
@@ -3233,7 +3226,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		// Types of the columns.
 		private int modelType = MODEL_TYPE_AVAIL; // availableModel
-		private List displayList;
+		private List<Boolean> displayList;
 
 		/**
 		 * Creates a EquipmentModel
@@ -3249,7 +3242,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			resetModel(mode, available);
 			int i = 1;
-			displayList = new ArrayList();
+			displayList = new ArrayList<Boolean>();
 			displayList.add(new Boolean(true));
 			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
 			if(available)
@@ -3279,7 +3272,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param column
 		 * @return Class
 		 */
-		public Class getColumnClass(int column) {
+		public Class<?> getColumnClass(int column) {
 			switch (column) {
 				case COL_NAME:
 					return TreeTableModel.class;
@@ -3475,9 +3468,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			eq.setOutputIndex(outputIndex);
 
-			for (Iterator i = pc.getEquipmentMasterListInOutputOrder().iterator(); i.hasNext();) {
-				final Equipment item = (Equipment) i.next();
-
+			for (Equipment item : pc.getEquipmentMasterListInOutputOrder()) 
+			{
 				if (workingIndex == outputIndex) {
 					workingIndex++;
 				}
@@ -3585,17 +3577,16 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 				// Now add any missing subtypes to type/subtype/name tree
 				PObjectNode typeSubtypeRootAsPObjectNode = (PObjectNode) typeSubtypeRoot;
-				for (Iterator e = eq.typeList().iterator(); e.hasNext(); ) {
-					type = (String) e.next();
-
+				for (String s : eq.typeList()) 
+				{
 					for (int i = 0; i < typeSubtypeRootAsPObjectNode.getChildCount(); i++) {
 						final String treeType = typeSubtypeRootAsPObjectNode.getChild(i).toString();
 						if ((typeSubtypeRootAsPObjectNode.getChild(i).getItem() instanceof PObject)
 								|| !eq.isType(treeType)
-								|| type.equals(treeType)) {
+								|| s.equals(treeType)) {
 							continue;
 						}
-						addChild(type, typeSubtypeRootAsPObjectNode.getChild(i), true);
+						addChild(s, typeSubtypeRootAsPObjectNode.getChild(i), true);
 					}
 				}
 			}
@@ -3604,10 +3595,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++) {
 				if (eq.isType(rootAsPObjectNode.getChild(i).toString())) {
 					// Items with only 1 type will not show up unless we do this
-					List d;
+					List<PObjectNode> d;
 
 					if (eq.typeList().size() == 1) {
-						d = new ArrayList(1);
+						d = new ArrayList<PObjectNode>(1);
 						d.add(rootAsPObjectNode.getChild(i));
 					}
 					else {
@@ -3652,11 +3643,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			addChild(eq, rootAsPObjectNode, fireEvent);
 		}
 
-		private void addChildAllTypes(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
-			if(fireEvent) {
+		private void addChildAllTypes(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) 
+		{
+			if (fireEvent) {
 				// Add Types
-				for (Iterator e = eq.typeList().iterator(); e.hasNext(); ) {
-					String type = (String) e.next();
+				for (String type : eq.typeList()) 
+				{
 					addChild(type, allTypeRoot, true);
 				}
 			}
@@ -3720,15 +3712,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param mode
 		 * @param available
 		 */
-		private void resetModel(int mode, boolean available) {
-			Iterator fI;
+		private void resetModel(int mode, boolean available) 
+		{
+			Collection<Equipment> eqList;
 
 			//TODO (DJ) Equipment fix, make this more efficient
-			if (available) {
-				fI = EquipmentList.getEquipmentList().iterator();
+			if (available) 
+			{
+				eqList = EquipmentList.getEquipmentList();
 			}
-			else {
-				fI = pc.getEquipmentMasterList().iterator();
+			else 
+			{
+				eqList = pc.getEquipmentMasterList();
 			}
 
 			currentMode = mode;
@@ -3760,8 +3755,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					break;
 			}
 
-			while (fI.hasNext()) {
-				final Equipment aEq = (Equipment) fI.next();
+			for (Equipment aEq : eqList) 
+			{
 				if (qFilter == null ||
 						( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 ||
 						  aEq.getType().toLowerCase().indexOf(qFilter) >= 0 ))
@@ -3792,10 +3787,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 			return true;
 		}
-		public List getMColumnList()
+		public List<String> getMColumnList()
 		{
-			List retList = new ArrayList();
-			for(int i = 1; i < names.length; i++) {
+			List<String> retList = new ArrayList<String>();
+			for(int i = 1; i < names.length; i++) 
+			{
 				retList.add(names[i]);
 			}
 			return retList;
@@ -3805,10 +3801,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * Get the column align list
 		 * @return the column align list
 		 */
-		public List getMColumnAlignList()
+		public List<String> getMColumnAlignList()
 		{
-			List retAlignList = new ArrayList();
-			for(int i = 1; i < names.length; i++) {
+			List<String> retAlignList = new ArrayList<String>();
+			for(int i = 1; i < names.length; i++) 
+			{
 				retAlignList.add(names[i]);
 			}
 			return retAlignList;
@@ -3830,32 +3827,35 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
+		public int getMColumnDefaultWidth(int col) 
+		{
 			return SettingsHandler.getPCGenOption("InfoGear.sizecol." + names[col], widths[col]);
 		}
 
-
-		public void setMColumnDefaultWidth(int col, int width) {
+		public void setMColumnDefaultWidth(int col, int width) 
+		{
 			SettingsHandler.setPCGenOption("InfoGear.sizecol." + names[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
+		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		{
 			return SettingsHandler.getPCGenOption("InfoGear.viewcol." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val) 
+		{
 			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column) 
+		{
 			// TODO Auto-generated method stub
-
 		}
 }
 
 	private static final class QuantityEditor extends JTextField implements TableCellEditor
 	{
-		private final transient List d_listeners = new ArrayList();
+		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
 		private transient String d_originalValue = "";
 
 		private QuantityEditor()

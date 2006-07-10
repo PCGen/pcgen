@@ -26,7 +26,7 @@ import java.io.File;
 /**
  * @author soulcatcher
  */
-public class NameElement implements Comparable {
+public class NameElement implements Comparable<Object> {
 	private File source;
 	private String name;
 	

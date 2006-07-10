@@ -68,7 +68,7 @@ public final class NameGui extends JFrame
 		 * Set up the list of Name files
 		 */
 		DefaultListModel listModel = new DefaultListModel();
-		List allNamesFiles = Names.findAllNamesFiles();
+		List<NameElement> allNamesFiles = Names.findAllNamesFiles();
 		Collections.sort(allNamesFiles);
 
 		for (int i = 0; i < allNamesFiles.size(); i++)

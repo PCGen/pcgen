@@ -36,7 +36,7 @@ import java.util.List;
  */
 public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 {
-	private final transient List d_listeners = new ArrayList();
+	private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
 	private transient int d_originalValue = 0;
 
 	/**

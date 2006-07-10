@@ -8,7 +8,6 @@ import pcgen.util.PropertyFactory;
 import java.util.ArrayList;
 import java.util.List;
 import pcgen.core.RuleConstants;
-import java.util.Iterator;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Globals;
 
@@ -21,7 +20,7 @@ public class TabUtils
 			//
 			// See what the PC is already carrying
 			//
-			List clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic"); //$NON-NLS-1$ //$NON-NLS-2$
+			List<Equipment> clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic"); //$NON-NLS-1$ //$NON-NLS-2$
 
 			//
 			// Check to see if any of the clothing the PC
@@ -33,10 +32,8 @@ public class TabUtils
 
 			if (clothes.size() != 0)
 			{
-				for (Iterator e = clothes.iterator(); e.hasNext();)
+				for (Equipment eq : clothes)
 				{
-					final Equipment eq = (Equipment) e.next();
-
 					if ((CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0)) && pcSize.equals(eq.getSize()))
 					{
 						hasClothes = true;
@@ -59,12 +56,12 @@ public class TabUtils
 					clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
 				}
 
-				List selectedClothes = new ArrayList();
+				List<Equipment> selectedClothes = new ArrayList<Equipment>();
 				Globals.getChoiceFromList(PropertyFactory.getString("in_sumSelectAFreeSetOfClothing"), clothes, selectedClothes, 1); //$NON-NLS-1$
 
 				if (selectedClothes.size() != 0)
 				{
-					Equipment eq = (Equipment)selectedClothes.get(0);
+					Equipment eq = selectedClothes.get(0);
 
 					if (eq != null)
 					{

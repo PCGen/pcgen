@@ -116,7 +116,7 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 	 *
 	 * @param cls
 	 */
-	public FormattedCellEditor(Class cls)
+	public FormattedCellEditor(Class<?> cls)
 	{
 		setup(cls);
 	}
@@ -140,7 +140,7 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 	 *            A Class value to be used as a base for determining the
 	 *            JFormattedTextField to use.
 	 */
-	private void setup(Class cls)
+	private void setup(Class<?> cls)
 	{
 		DefaultFormatter formatter = null;
 		if (cls == Float.class)

@@ -63,7 +63,7 @@ final class PCCCreator extends JFrame
 	private MainSource mSrc;
 
 	/** A mapping of lst files to their types, obtained by scanning pcc files */
-	private Map lstTypes = new HashMap();
+	private Map<String, String> lstTypes = new HashMap<String, String>();
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Fields //////////////////////////////////////////////////////////////////////
@@ -288,7 +288,7 @@ final class PCCCreator extends JFrame
 			return;
 		}
 
-		for (Enumeration e = n.children(); e.hasMoreElements();)
+		for (Enumeration<SourceNode> e = n.children(); e.hasMoreElements();)
 		{
 			SourceNode sNode = (SourceNode) e.nextElement();
 

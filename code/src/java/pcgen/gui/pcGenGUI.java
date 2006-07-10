@@ -169,7 +169,7 @@ public class pcGenGUI
 		if (System.getProperty("os.name").equals("Mac OS X"))
 		{
 			try {
-				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", null).invoke(null, null);
+				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[]) null, (Object[])null);
 			} catch (ClassNotFoundException e) {
 				// don't do anything, just default to standard Java style
 				System.out.println("This build of PCGen doesn't include Mac-enhanced features.  Try the Mac build for a more Mac-like interface.");
@@ -378,7 +378,7 @@ public class pcGenGUI
 			if (System.getProperty("os.name").equals("Mac OS X"))
 			{
 				try {
-					Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", null).invoke(null, null);
+					Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[])null, (Object[])null);
 				} catch (ClassNotFoundException e) {
 					// don't do anything, just default to standard Java style
 				} catch (NoSuchMethodException e) {
@@ -483,9 +483,9 @@ public class pcGenGUI
 		showLicense("OGL License 1.0a", aString);
 	}
 
-	public static void showLicense(String title, List fileList)
+	public static void showLicense(String title, List<String> fileList)
 	{
-		for (Iterator i = fileList.iterator(); i.hasNext();)
+		for (Iterator<String> i = fileList.iterator(); i.hasNext();)
 		{
 			String fileName = (String)i.next();
 			String fileText = null;
@@ -592,10 +592,10 @@ public class pcGenGUI
 		sb.append("<H2><CENTER>Would like to thank our official sponsor")
 			.append(s)
 			.append(":</CENTER></h2>");
-		List sponsors = Globals.getSponsors();
+		List<Map<String, String>> sponsors = Globals.getSponsors();
 		int size = 172;
 		for(int i = 0; i < sponsors.size(); i++) {
-			Map sponsor = (Map)sponsors.get(i);
+			Map<String, String> sponsor = sponsors.get(i);
 			if(sponsor.get("SPONSOR").equals("PCGEN")) {
 				continue;
 			}

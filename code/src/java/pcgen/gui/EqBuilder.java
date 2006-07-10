@@ -47,7 +47,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -121,7 +120,7 @@ final class EqBuilder extends JPanel
 	private JTableEx jListAvailable;
 	private JTextPane jItemDesc;
 	private String customName = "";
-	private ArrayList[] newTypeList = { null, null };
+	private ArrayList<String>[] newTypeList;
 	private int eqType = EQTYPE_NONE;
 	private int iListCount = 0;
 	private PlayerCharacter aPC;
@@ -133,6 +132,8 @@ final class EqBuilder extends JPanel
 	EqBuilder(PlayerCharacter apc)
 	{
 		this.aPC = apc;
+		newTypeList[0] = null;
+		newTypeList[1] = null;
 		initComponents();
 	}
 
@@ -245,21 +246,17 @@ final class EqBuilder extends JPanel
 		//
 		if ((aEq.getEqModifierList(true).size() == 0) && (aEq.getEqModifierList(false).size() == 0))
 		{
-			for (Iterator e = EquipmentList.getModifierList().iterator(); e.hasNext();)
+			for (EquipmentModifier eqMod : EquipmentList.getModifierList())
 			{
-				final EquipmentModifier eqMod = (EquipmentModifier) e.next();
-
 				if (!eqMod.getDisplayName().startsWith("EXCLUDEEQ"))
 				{
 					continue;
 				}
 
-				final List typeList = eqMod.getItemType();
+				final List<String> typeList = eqMod.getItemType();
 
-				for (Iterator e2 = typeList.iterator(); e2.hasNext();)
+				for (String type : typeList)
 				{
-					final String type = (String) e2.next();
-
 					if (aEq.isEitherType(type.toUpperCase()))
 					{
 						errorDialog("This item already has type: " +
@@ -1223,8 +1220,8 @@ final class EqBuilder extends JPanel
 
 	private void jButtonSpellActionPerformed(EquipmentModifier eqMod, String extraInfo)
 	{
-		List classList = null;
-		List levelList = null;
+		List<String> classList = null;
+		List<String> levelList = null;
 		boolean metaAllowed = true;
 		int spellBooks = 0;
 
@@ -1242,7 +1239,7 @@ final class EqBuilder extends JPanel
 				{
 					if (classList == null)
 					{
-						classList = new ArrayList();
+						classList = new ArrayList<String>();
 					}
 
 					classList.add(aString.substring(6));
@@ -1251,7 +1248,7 @@ final class EqBuilder extends JPanel
 				{
 					if (levelList == null)
 					{
-						levelList = new ArrayList();
+						levelList = new ArrayList<String>();
 					}
 
 					levelList.add(aString.substring(6));
@@ -1558,14 +1555,14 @@ final class EqBuilder extends JPanel
 	{
 		boolean bRebuild = false;
 		final int idx = bPrimary ? 0 : 1;
-		ArrayList newTypes = null;
-		List oldTypes = newTypeList[idx];
+		ArrayList<String> newTypes = null;
+		List<String> oldTypes = newTypeList[idx];
 
 		final EquipmentModifier aEqMod = aNewEq.getEqModifierKeyed("ADDTYPE", bPrimary);
 
 		if (aEqMod != null)
 		{
-			newTypes = new ArrayList();
+			newTypes = new ArrayList<String>();
 			aEqMod.addAssociatedTo(newTypes);
 		}
 
@@ -1595,7 +1592,7 @@ final class EqBuilder extends JPanel
 
 		if (newTypes != null)
 		{
-			newTypeList[idx] = (ArrayList) newTypes.clone();
+			newTypeList[idx] = new ArrayList<String>(newTypes);
 		}
 		else
 		{
@@ -1935,7 +1932,7 @@ final class EqBuilder extends JPanel
 		//
 		// Get list of modifiers and update the listbox
 		//
-		List eqModList = aNewEq.getEqModifierList(bPrimary);
+		List<EquipmentModifier> eqModList = aNewEq.getEqModifierList(bPrimary);
 		DefaultListModel lm;
 
 		if (bPrimary)
@@ -1949,9 +1946,8 @@ final class EqBuilder extends JPanel
 
 		lm.clear();
 
-		for (Iterator e = eqModList.iterator(); e.hasNext();)
+		for (EquipmentModifier eqMod : eqModList)
 		{
-			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 			lm.addElement(eqMod);
 		}
 
@@ -2003,7 +1999,7 @@ final class EqBuilder extends JPanel
 		static final long serialVersionUID = -369105812700996734L;
 		private Object[] lastColValue = new Object[6];
 		private int lastRow = -1;
-		private List displayModifiers = new ArrayList();
+		private List<EquipmentModifier> displayModifiers = new ArrayList<EquipmentModifier>();
 
 
 		/**
@@ -2084,17 +2080,17 @@ final class EqBuilder extends JPanel
 		 */
 		protected Object getSaValue(EquipmentModifier e) {
 			Object sRet;
-			final List aSA = e.getRawSpecialProperties();
+			final List<String> aSA = e.getRawSpecialProperties();
 			StringBuffer aBuf = new StringBuffer(aSA.size() * 50);
 
-			for (Iterator e2 = aSA.iterator(); e2.hasNext();)
+			for (String s : aSA)
 			{
 				if (aBuf.length() > 0)
 				{
 					aBuf.append(", ");
 				}
 
-				aBuf.append((String) e2.next());
+				aBuf.append(s);
 			}
 
 			sRet = aBuf.toString();
@@ -2205,7 +2201,7 @@ final class EqBuilder extends JPanel
 
 		private void setFilter(Equipment anEq, int listCount)
 		{
-			List aFilter = anEq.typeList();
+			List<String> aFilter = anEq.typeList();
 			int currentRowCount = getRowCount();
 			displayModifiers.clear();
 
@@ -2214,9 +2210,8 @@ final class EqBuilder extends JPanel
 				fireTableRowsDeleted(0, currentRowCount - 1);
 			}
 
-			for (Iterator it = EquipmentList.getModifierList().iterator(); it.hasNext();)
+			for (EquipmentModifier aEqMod : EquipmentList.getModifierList())
 			{
-				final EquipmentModifier aEqMod = (EquipmentModifier) it.next();
 				if (anEq.isVisible(aEqMod))
 				{
 					if (aEqMod.isType("ALL"))
@@ -2225,10 +2220,8 @@ final class EqBuilder extends JPanel
 					}
 					else
 					{
-						for (Iterator e = aFilter.iterator(); e.hasNext();)
+						for (String aType : aFilter)
 						{
-							final String aType = (String) e.next();
-
 							if (aEqMod.isType(aType))
 							{
 								displayModifiers.add(aEqMod);
@@ -2250,7 +2243,7 @@ final class EqBuilder extends JPanel
 		 * Get the display modfiers
 		 * @return display modfiers
 		 */
-		public List getDisplayModifiers() {
+		public List<EquipmentModifier> getDisplayModifiers() {
 			return displayModifiers;
 		}
 	}
@@ -2295,7 +2288,7 @@ final class EqBuilder extends JPanel
 					return "";
 			}
 		}
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			return String.class;
 		}
@@ -2376,7 +2369,7 @@ final class EqBuilder extends JPanel
 		 * @return Class
 		 *
 		 */
-		public Class getColumnClass(int column)
+		public Class<?> getColumnClass(int column)
 		{
 			return String.class;
 		}

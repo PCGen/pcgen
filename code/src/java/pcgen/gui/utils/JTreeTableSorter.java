@@ -116,7 +116,7 @@ public final class JTreeTableSorter
 
 	private PObjectNode sortNodeOnColumn(PObjectNode node, int col, int ascending)
 	{
-		List master = node.getChildren();
+		List<PObjectNode> master = node.getChildren();
 
 		if (master == null)
 		{
@@ -124,12 +124,12 @@ public final class JTreeTableSorter
 		}
 
 		// Inefficient!  XXX
-		List itemsToSort = new ArrayList(master.size());
+		List<List<Object>> itemsToSort = new ArrayList<List<Object>>(master.size());
 
 		for (int i = 0; i < master.size(); i++)
 		{
 			PObjectNode pi = (PObjectNode) master.get(i);
-			List sortItem = new ArrayList(2);
+			List<Object> sortItem = new ArrayList<Object>(2);
 
 			sortItem.add(pi);
 
@@ -161,7 +161,7 @@ public final class JTreeTableSorter
 
 		isAscending = ascending == 0;
 		Collections.sort(itemsToSort,
-			new Comparator()
+			new Comparator<Object>()
 			{
 				public int compare(Object obj1, Object obj2)
 				{
@@ -220,7 +220,7 @@ public final class JTreeTableSorter
 
 		for (int i = 0; i < itemsToSort.size(); i++)
 		{
-			final List sortItem = (ArrayList) itemsToSort.get(i);
+			final List<PObjectNode> sortItem = (ArrayList) itemsToSort.get(i);
 			master.set(i, sortItem.get(0));
 		}
 
@@ -243,7 +243,7 @@ public final class JTreeTableSorter
 
 	private void updateSortModel()
 	{
-		List pathList = tableView.getExpandedPaths();
+		List<String> pathList = tableView.getExpandedPaths();
 		tableModel.updateTree();
 		tableView.updateUI();
 		tableView.expandPathList(pathList);

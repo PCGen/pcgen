@@ -13910,7 +13910,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	   *
 	   * @return List of bonus languages for the character.
 	   */
-	  public Set getLanguageBonusSelectionList()
+	  public Set<Language> getLanguageBonusSelectionList()
 	{
 		Set<Language> languageList = new HashSet<Language>();
 

@@ -122,7 +122,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	private JPanel panelSouthEast = new JPanel();
 	private KitSelector kitSelector = null;
 	private MainPopupMenu mainPopupMenu;
-	private List tempTabList = new ArrayList(12);
+	private List<Component> tempTabList = new ArrayList<Component>(12);
 
 	/**
 	 * Contains the source screen.
@@ -418,7 +418,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		frame.enableExport(true);
 		frame.enableKit(true);
 
-		List allPCs = Globals.getPCList();
+		List<PlayerCharacter> allPCs = Globals.getPCList();
 		int pcCount = allPCs.size();
 
 		if (pcCount > 1)
@@ -618,10 +618,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		PlayerCharacter aPC;
 
 		// Fix for bug 1082786 - loading duplicate pcg files
-		List playerCharacters = Globals.getPCList();
-		PlayerCharacter possibleDuplicate;
-		for (int i = 0; i < playerCharacters.size(); i++) {
-			possibleDuplicate = (PlayerCharacter)playerCharacters.get(i);
+		for (PlayerCharacter possibleDuplicate : Globals.getPCList()) 
+		{
 			if (file.getAbsolutePath().equals(possibleDuplicate.getFileName())) {
 				// TODO Internationalise
 				ShowMessageDelegate.showMessageDialog("This character has already been loaded from: " + file.getAbsolutePath(), "Error", MessageType.ERROR);
@@ -657,16 +655,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			// Check to see if we should auto load companions
 			if (aPC.getLoadCompanion() && !aPC.getFollowerList().isEmpty())
 			{
-				for (Iterator aF = aPC.getFollowerList().iterator(); aF.hasNext();)
+				for (Follower nPC : aPC.getFollowerList())
 				{
-					Follower nPC = (Follower) aF.next();
 					boolean aLoaded = false;
 
 					// is this companion already loaded?
-					for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+					for (PlayerCharacter testPC : Globals.getPCList())
 					{
-						PlayerCharacter testPC = (PlayerCharacter) p.next();
-
 						if (nPC.getFileName().equals(testPC.getFileName()))
 						{
 							aLoaded = true;
@@ -2182,8 +2177,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		// Because the tabs are "fake", we need to reorder the
 		// PCList in Globals, then simply refresh.
-		List pcList = Globals.getPCList();
-		PlayerCharacter aPC = (PlayerCharacter) pcList.get(oldIndex - FIRST_CHAR_TAB);
+		List<PlayerCharacter> pcList = Globals.getPCList();
+		PlayerCharacter aPC = pcList.get(oldIndex - FIRST_CHAR_TAB);
 		pcList.remove(oldIndex - FIRST_CHAR_TAB);
 		pcList.add(newIndex - FIRST_CHAR_TAB, aPC);
 		Globals.setPCList(pcList);

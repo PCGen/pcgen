@@ -53,10 +53,10 @@ import java.util.*;
  * @version $Revision$
  */
 public final class CharacterInfo extends JPanel {
-	private List tempTabList;
+	private List<Component> tempTabList;
 	// Normal display has 10 items; if Abilities tab is added 11.  12 seems like
 	// a safe number to avoid reallocation.
-	private List tabList = new ArrayList(12);
+	private List<CharacterInfoTab> tabList = new ArrayList<CharacterInfoTab>(12);
 	private BorderLayout borderLayout1 = new BorderLayout();
 	private InfoDescription infoDesc;
 	private InfoInventory infoInventory;
@@ -70,7 +70,7 @@ public final class CharacterInfo extends JPanel {
 	private InfoSpells infoSpells;
 	private JTabbedPane characterInfoTabbedPane = new JTabbedPane();
 	private PlayerCharacter pc;
-	private static Set updateSet = new HashSet();
+	private static Set<CharacterInfoTab> updateSet = new HashSet<CharacterInfoTab>();
 	private boolean refresh = false;
 
 	/**
@@ -78,7 +78,7 @@ public final class CharacterInfo extends JPanel {
 	 * @param pc
 	 * @param tempTabList
 	 */
-	public CharacterInfo(PlayerCharacter pc, List tempTabList) {
+	public CharacterInfo(PlayerCharacter pc, List<Component> tempTabList) {
 		this.pc = pc;
 		this.tempTabList = tempTabList;
 		infoDesc = new InfoDescription(pc);
@@ -431,13 +431,13 @@ public final class CharacterInfo extends JPanel {
 
 	private void flagToDos()
 	{
-		List allToDos = new ArrayList();
+		List<String> allToDos = new ArrayList<String>();
 		for (int i = 0; i < tabList.size(); i++)
 		{
 			CharacterInfoTab tab = (CharacterInfoTab) tabList.get(i);
 			if (tab.isShown())
 			{
-				List tabToDos = tab.getToDos();
+				List<String> tabToDos = tab.getToDos();
 				allToDos.addAll(tabToDos);
 				if (tabToDos.isEmpty())
 				{
@@ -497,7 +497,7 @@ public final class CharacterInfo extends JPanel {
 						tab.refresh();
 						updateSet.remove(tab);
 					}
-					for (Iterator i = updateSet.iterator(); i.hasNext();) {
+					for (Iterator<CharacterInfoTab> i = updateSet.iterator(); i.hasNext();) {
 						tab = (CharacterInfoTab) i.next();
 						if (tab.isShown()) {
 							try {

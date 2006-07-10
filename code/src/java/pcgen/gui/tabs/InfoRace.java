@@ -42,6 +42,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.Filterable;
+import pcgen.gui.filter.PObjectFilter; 
 import pcgen.util.PropertyFactory;
 
 /**
@@ -79,11 +80,13 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 		initActionListeners();
 	}
 
-	private void initActionListeners() {
+	private void initActionListeners() 
+	{
 		// TODO Do Nothing
 	}
 
-	private void initComponents() {
+	private void initComponents() 
+	{
 		readyForRefresh = true;
 		add(races, RACES_INDEX);
 		setTitleAt(RACES_INDEX, PropertyFactory.getString("in_Info" + races.getName()));
@@ -97,7 +100,8 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 			});
 	}
 
-	public List getAvailableFilters() {
+	public List<PObjectFilter> getAvailableFilters() 
+	{
 		if (getSelectedIndex() == RACES_INDEX) {
 			return races.getAvailableFilters();
 		}
@@ -150,22 +154,28 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 		return true;
 	}
 
-	public List getRemovedFilters() {
-		if (getSelectedIndex() == RACES_INDEX) {
+	public List<PObjectFilter> getRemovedFilters() 
+	{
+		if (getSelectedIndex() == RACES_INDEX) 
+		{
 			return races.getRemovedFilters();
 		}
-		else if (getSelectedIndex() == TEMPLATES_INDEX) {
+		else if (getSelectedIndex() == TEMPLATES_INDEX) 
+		{
 			return templates.getRemovedFilters();
 		}
 
 		return null;
 	}
 
-	public List getSelectedFilters() {
-		if (getSelectedIndex() == RACES_INDEX) {
+	public List<PObjectFilter> getSelectedFilters() 
+	{
+		if (getSelectedIndex() == RACES_INDEX) 
+		{
 			return races.getSelectedFilters();
 		}
-		else if (getSelectedIndex() == RACES_INDEX) {
+		else if (getSelectedIndex() == RACES_INDEX) 
+		{
 			return templates.getSelectedFilters();
 		}
 
@@ -263,8 +273,9 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 		return this;
 	}
 
-	public List getToDos() {
-		List toDoList = new ArrayList();
+	public List<String> getToDos() 
+	{
+		List<String> toDoList = new ArrayList<String>();
 		toDoList.addAll(races.getToDos());
 		toDoList.addAll(templates.getToDos());
 		return toDoList;
