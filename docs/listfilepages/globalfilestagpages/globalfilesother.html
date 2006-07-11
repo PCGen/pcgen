@@ -663,8 +663,9 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This defines what object is going to be modified.</li>
-			<li>Please note that the name must match EXACTLY (case 
-					sensitive, and the classes need the beginning CLASS: tag).</li>
+			<li>Please note that the name must match EXACTLY (case
+					sensitive, and the classes need the beginning CLASS: tag, see examples).</li>
+			<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
 			<li>Any tags that are listed are added to the list of tags already in the object.</li>
 			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag 
 					will replace the tag in the original entry. If more than one tag is 
@@ -674,10 +675,14 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.MOD</code></p>
 		<p class="indent3">Modifies the Human race (in a race.lst file)</p>
-		<p class="indent2"><code>Dagger.MOD</code></p>
-		<p class="indent3">Modifies the Dagger weapon (in equipment.lst file)</p>
+		<p class="indent2"><code>Dagger.MOD		DESC:Short and pointy</code></p>
+		<p class="indent3">Replaces the description of the Dagger weapon (in equipment.lst file)</p>
 		<p class="indent2"><code>CLASS:Ranger.MOD</code></p>
 		<p class="indent3">Modifies the Ranger class (in class.lst)</p>
+		<p class="indent2"><code>Acid Arrow.MOD		NAME:My Acid Arrow</code></p>
+		<p class="indent3">Renames the Acid Arrow spell to My Acid Arrow(in a spells.lst file)</p>
+		<p class="indent2"><code>Resistance.MOD		BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC</code></p>
+		<p class="indent3">Adds a Saving Throw Temporary bonus function to the Resistance spell</p>
 		<p class="indent2"><code>Skill Focus.MOD</code></p> 
 		<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
 		
