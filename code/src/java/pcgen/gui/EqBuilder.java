@@ -120,7 +120,7 @@ final class EqBuilder extends JPanel
 	private JTableEx jListAvailable;
 	private JTextPane jItemDesc;
 	private String customName = "";
-	private ArrayList<String>[] newTypeList;
+	private ArrayList[] newTypeList = { null, null };
 	private int eqType = EQTYPE_NONE;
 	private int iListCount = 0;
 	private PlayerCharacter aPC;
@@ -132,8 +132,6 @@ final class EqBuilder extends JPanel
 	EqBuilder(PlayerCharacter apc)
 	{
 		this.aPC = apc;
-		newTypeList[0] = null;
-		newTypeList[1] = null;
 		initComponents();
 	}
 
@@ -253,9 +251,7 @@ final class EqBuilder extends JPanel
 					continue;
 				}
 
-				final List<String> typeList = eqMod.getItemType();
-
-				for (String type : typeList)
+				for (String type : eqMod.getItemType())
 				{
 					if (aEq.isEitherType(type.toUpperCase()))
 					{
@@ -1555,14 +1551,14 @@ final class EqBuilder extends JPanel
 	{
 		boolean bRebuild = false;
 		final int idx = bPrimary ? 0 : 1;
-		ArrayList<String> newTypes = null;
-		List<String> oldTypes = newTypeList[idx];
+		ArrayList newTypes = null;
+		List oldTypes = newTypeList[idx];
 
 		final EquipmentModifier aEqMod = aNewEq.getEqModifierKeyed("ADDTYPE", bPrimary);
 
 		if (aEqMod != null)
 		{
-			newTypes = new ArrayList<String>();
+			newTypes = new ArrayList();
 			aEqMod.addAssociatedTo(newTypes);
 		}
 
@@ -1592,7 +1588,7 @@ final class EqBuilder extends JPanel
 
 		if (newTypes != null)
 		{
-			newTypeList[idx] = new ArrayList<String>(newTypes);
+			newTypeList[idx] = (ArrayList) newTypes.clone();
 		}
 		else
 		{
@@ -1999,7 +1995,7 @@ final class EqBuilder extends JPanel
 		static final long serialVersionUID = -369105812700996734L;
 		private Object[] lastColValue = new Object[6];
 		private int lastRow = -1;
-		private List<EquipmentModifier> displayModifiers = new ArrayList<EquipmentModifier>();
+		private List<EquipmentModifier > displayModifiers = new ArrayList<EquipmentModifier >();
 
 
 		/**
@@ -2083,14 +2079,14 @@ final class EqBuilder extends JPanel
 			final List<String> aSA = e.getRawSpecialProperties();
 			StringBuffer aBuf = new StringBuffer(aSA.size() * 50);
 
-			for (String s : aSA)
+			for (String sa : aSA)
 			{
 				if (aBuf.length() > 0)
 				{
 					aBuf.append(", ");
 				}
 
-				aBuf.append(s);
+				aBuf.append(sa);
 			}
 
 			sRet = aBuf.toString();
@@ -2243,7 +2239,8 @@ final class EqBuilder extends JPanel
 		 * Get the display modfiers
 		 * @return display modfiers
 		 */
-		public List<EquipmentModifier> getDisplayModifiers() {
+		public List<EquipmentModifier> getDisplayModifiers() 
+		{
 			return displayModifiers;
 		}
 	}
