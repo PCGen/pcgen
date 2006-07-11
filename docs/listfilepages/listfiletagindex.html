@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfiletagindex.html
+		$Author: nuance $
+		$Date: 2006-03-14 22:02:06 -0500 (Tue, 14 Mar 2006) $
+		$Revision: 241 $
+
+		Contributors:
+		Sigurdur H. Olafsson - shoATitnDOTis
+
+		Description:
+		Provides information on the List File Tag Index.
+	-->
+	<head>
+		<title>List File Tag Index</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+
+	<body>
+		<h1>List File Tag Index</h1>
+
+		<p>We have several resources to help those wishing to learn the arcane craft of
+		  dataset creation. A good place to start is the <a href="lstfileclass/lstfileclass_heading.html">LST
+		  File Classes</a>, they give a good overview of the basics of the dataset structure
+		  as well as detailed instructions on coding races. Another good resource is the
+		  my_dataset directory in the data folder. This is a framework for a PCGen dataset.
+		  It is meant for beginners who want to take their first steps in entering their
+		  own custom data into PCGen and have found that the built-in List Editors are
+		  too limiting for what they intend to do. It contains some commented out examples
+		  and a lot of advice and tips for putting your own sets together. You can get
+		  up and running fast by renaming the elements in this set to your suit your needs.
+		  Once you start delving deep into LST code you're going to want to keep the
+		  <a href="../navlistindex.html" target="navigation">LST
+		  index handy</a>, most LST tags have been documented with details on their use.</p>
+
+
+		<h2>Tag state</h2>
+
+		<p>Some tags are labeled New or Updated as well as Deprecate, Obsolete and Removed. </p>
+
+		<p class="indent1"><font color=#FF0000><strong>New: </strong></font>New tags usually indicate the version in which they were added to the program.</p>
+
+		<p class="indent1"><font color=#FF0000><strong>Updated: </strong></font>Updated tags also indicate the version in which they were updated.</p>
+
+		<p class="indent1"><font color=#FF0000><strong>Deprecated: </strong></font>Deprecated tags are scheduled to be removed from the program. Deprecated tags should still
+		parse and work as they did before but will not in future versions. Deprecated tag entries should indicate the tag that replaces it.</p>
+
+		<p class="indent1"><font color=#FF0000><strong>Obsolete: </strong></font>The tag should still parse but should no longer work.
+		Any attempt to load it will display an error message indicating that the tag is no longer supported.</p>
+
+		<p class="indent1"><font color=#FF0000><strong>Removed: </strong></font>The tag should no longer even parse.
+		Any attempt to load the tag should generate an unrecognized tag error the same as any other bad tag name.</p>
+
+		<a name="TYPE"></a>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfiletagindex.html,v $ ($Revision: 241 $) last updated $Date: 2006-03-14 22:02:06 -0500 (Tue, 14 Mar 2006) $ by $Author: nuance $</p> -->
+	</body>
+
+</html>
