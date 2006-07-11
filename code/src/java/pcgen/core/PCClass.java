@@ -2669,7 +2669,7 @@ public class PCClass extends PObject
 			subClassList = new ArrayList<SubClass>();
 		}
 
-		sClass.setHitPointMap((HashMap<String, Integer>) getHitPointMap().clone());
+		sClass.setHitPointMap(new HashMap<String, Integer>(getHitPointMap()));
 		sClass.setHitDie(hitDie);
 		subClassList.add(sClass);
 	}
@@ -2921,18 +2921,18 @@ public class PCClass extends PObject
 			aClass.setBonusSpellBaseStat(bonusSpellBaseStat);
 			aClass.setSpellType(spellType);
 			aClass.setAttackBonusType(attackBonusType);
-			aClass.specialtyknownList = (ArrayList<String>) specialtyknownList.clone();
-			aClass.knownList = (ArrayList<String>) knownList.clone();
+			aClass.specialtyknownList = new ArrayList<String>(specialtyknownList);
+			aClass.knownList = new ArrayList<String>(knownList);
 			aClass.castMap = new HashMap<String, String>(castMap);
-			aClass.uattList = (ArrayList<String>) uattList.clone();
-			aClass.acList = (ArrayList<String>) acList.clone();
-			aClass.languageBonus = (TreeSet<Language>) languageBonus.clone();
-			aClass.weaponProfBonus = (ArrayList<String>) weaponProfBonus.clone();
-			aClass.featList = (ArrayList<String>) featList.clone();
+			aClass.uattList = new ArrayList<String>(uattList);
+			aClass.acList = new ArrayList<String>(acList);
+			aClass.languageBonus = new TreeSet<Language>(languageBonus);
+			aClass.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
+			aClass.featList = new ArrayList<String>(featList);
 //			aClass.vFeatList = (ArrayList) vFeatList.clone();
 			aClass.vFeatMap = new HashMap<String, List<Ability>>(vFeatMap);
 			aClass.hitDieLockMap = new HashMap<Integer, String>(hitDieLockMap);
-			aClass.featAutos = (ArrayList<String>) featAutos.clone();
+			aClass.featAutos = new ArrayList<String>(featAutos);
 			aClass.skillList = new ArrayList<String>();
 
 			aClass.classSkillString = classSkillString;
@@ -2963,8 +2963,8 @@ public class PCClass extends PObject
 			aClass.specialtyList = new ArrayList<String>(specialtyList);
 
 			//aClass.ageSet = ageSet;
-			aClass.domainList = (ArrayList<String>) domainList.clone();
-			aClass.addDomains = (ArrayList<String>) addDomains.clone();
+			aClass.domainList = new ArrayList<String>(domainList);
+			aClass.addDomains = new ArrayList<String>(addDomains);
 			aClass.hitPointMap = new HashMap<String, Integer>(hitPointMap);
 			aClass.hasSubClass = hasSubClass;
 			aClass.subClassList = subClassList;
@@ -2973,7 +2973,7 @@ public class PCClass extends PObject
 
 			if (naturalWeapons != null)
 			{
-				aClass.naturalWeapons = (ArrayList<LevelProperty>) naturalWeapons.clone();
+				aClass.naturalWeapons = new ArrayList<LevelProperty>(naturalWeapons);
 			}
 		}
 		catch (CloneNotSupportedException exc)
@@ -3524,14 +3524,11 @@ public class PCClass extends PObject
 						&& Globals.checkRule(RuleConstants.PROHIBITSPELLS))
 					{
 						int hits = 0;
-						for (Iterator desc = aSpell.getDescriptorList().iterator();
-							 desc.hasNext(); )
+						for (String desc : aSpell.getDescriptorList())
 						{
-							String aDescriptor = desc.next().toString().toUpperCase();
-							for (Iterator it = prohibit.getValueList().iterator();
-								 it.hasNext(); )
+							for (String prohib : prohibit.getValueList())
 							{
-								if (aDescriptor.equals(it.next().toString()))
+								if (prohib.equals(desc.toUpperCase()))
 								{
 									hits++;
 								}
@@ -3549,7 +3546,25 @@ public class PCClass extends PObject
 						{
 							for (String prohib : prohibit.getValueList())
 							{
-								if (desc.equals(prohib))
+								if (prohib.equals(desc.toUpperCase()))
+								{
+									hits++;
+								}
+							}
+						}
+						if (hits == prohibit.getValueList().size())
+						{
+							return true;
+						}
+					}
+					else if (prohibit.getType() == SpellProhibitor.TYPE_SCHOOL)
+					{
+						int hits = 0;
+						for (String desc : aSpell.getSchools())
+						{
+							for (String prohib : prohibit.getValueList())
+							{
+								if (prohib.equals(desc.toUpperCase()))
 								{
 									hits++;
 								}
