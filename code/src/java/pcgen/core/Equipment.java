@@ -3816,8 +3816,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 		catch (RuntimeException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint("Problem with: " + this.getDisplayName(), e);
 		}
 		return profName;
 	}
