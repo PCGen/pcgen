@@ -7317,32 +7317,37 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return null;
 		}
 
-		for (Iterator<String> i = inTemplate.getLevelMods().iterator(); i.hasNext(); )
+		// If we are importing these levels will have been saved with the
+		// character so don't apply them again.
+		if ( ! isImporting() )
 		{
-			String modString = i.next();
-			StringTokenizer tok = new StringTokenizer(modString, "|");
-			while (tok.hasMoreTokens())
+			for (Iterator<String> i = inTemplate.getLevelMods().iterator(); i.hasNext(); )
 			{
-				final String colString = tok.nextToken();
-				if (colString.startsWith("ADD"))
+				String modString = i.next();
+				StringTokenizer tok = new StringTokenizer(modString, "|");
+				while (tok.hasMoreTokens())
 				{
-					final String classKey = tok.nextToken();
-					final int level = getVariableValue(tok.nextToken(), "").intValue();
-
-					PCClass aClass = Globals.getClassKeyed(classKey);
-
-					boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
-					SettingsHandler.setShowHPDialogAtLevelUp(false);
-					boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-					SettingsHandler.setShowFeatDialogAtLevelUp(false);
-					int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-					SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-
-					incrementClassLevel(level, aClass, true, true);
-
-					SettingsHandler.setSingleChoicePreference(tempChoicePref);
-					SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
-					SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+					final String colString = tok.nextToken();
+					if (colString.startsWith("ADD"))
+					{
+						final String classKey = tok.nextToken();
+						final int level = getVariableValue(tok.nextToken(), "").intValue();
+	
+						PCClass aClass = Globals.getClassKeyed(classKey);
+	
+						boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
+						SettingsHandler.setShowHPDialogAtLevelUp(false);
+						boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
+						SettingsHandler.setShowFeatDialogAtLevelUp(false);
+						int tempChoicePref = SettingsHandler.getSingleChoicePreference();
+						SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+	
+						incrementClassLevel(level, aClass, true, true);
+	
+						SettingsHandler.setSingleChoicePreference(tempChoicePref);
+						SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
+						SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+					}
 				}
 			}
 		}
