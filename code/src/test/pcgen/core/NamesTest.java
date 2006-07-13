@@ -48,7 +48,7 @@ public class NamesTest extends AbstractCharacterTestCase
 	public void testGettingNameFiles() throws Exception
 	{
 		assertTrue("got null back!", Names.findAllNamesFiles() != null);
-		List nameList = Names.findAllNamesFiles();
+		List<NameElement> nameList = Names.findAllNamesFiles();
 		assertTrue("got empty array back!", nameList.size() > 0);
 
 		for (int i = 0; i < nameList.size(); i++)

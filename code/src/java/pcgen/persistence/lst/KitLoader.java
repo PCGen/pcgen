@@ -55,7 +55,7 @@ final class KitLoader
 	public static void parseLine(Kit obj, String inputLine, URL sourceURL, int lineNum)
 		throws PersistenceLayerException
 	{
-		Map tokenMap = TokenStore.inst().getTokenMap(KitLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitLstToken.class);
 
 		// We will find the first ":" for the "controlling" line token
 		final int idxColon = inputLine.indexOf(':');

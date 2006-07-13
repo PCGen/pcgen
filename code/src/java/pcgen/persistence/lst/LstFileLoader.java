@@ -64,11 +64,11 @@ public abstract class LstFileLoader extends Observable
 	 * @throws PersistenceLayerException if there is a problem with the
 	 *                                   LST syntax
 	 */
-	public abstract void loadLstFiles(List fileList) throws PersistenceLayerException;
+	public abstract void loadLstFiles(List<?> fileList) throws PersistenceLayerException;
 
 
 	/**
-	 * Logs an error taht has occured during data loading.
+	 * Logs an error that has occured during data loading.
 	 * This will not only log the message to the system error log,
 	 * but it will also notify all observers of the error.
 	 * @param message the error to notify listeners about

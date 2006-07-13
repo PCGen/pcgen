@@ -69,7 +69,7 @@ public final class SpellLoader extends LstObjectFileLoader
 		int i = 0;
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(SpellLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SpellLstToken.class);
 
 		while (colToken.hasMoreElements())
 		{

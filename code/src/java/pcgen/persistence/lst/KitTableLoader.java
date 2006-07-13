@@ -53,7 +53,7 @@ public class KitTableLoader
 		String tableName = colToken.nextToken();
 		kit.addLookupTable(tableName);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitTableLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitTableLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

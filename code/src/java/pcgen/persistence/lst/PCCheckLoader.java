@@ -53,7 +53,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 		PObject obj = new PObject();
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PCCheckLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCCheckLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

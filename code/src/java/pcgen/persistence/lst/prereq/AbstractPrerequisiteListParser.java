@@ -73,9 +73,8 @@ public abstract class AbstractPrerequisiteListParser
 			}
 		}
 
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			Prerequisite element = (Prerequisite) iter.next();
 			convertKeysToSubKeys(element, kind);
 		}
 	}
@@ -248,9 +247,8 @@ public abstract class AbstractPrerequisiteListParser
 						prereq.addPrerequisite(subreq);
 					}
 				}
-				for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+				for (Prerequisite element : prereq.getPrerequisites())
 				{
-					Prerequisite element = (Prerequisite) iter.next();
 					if (element.getOperand().equals("-99"))
 					{
 						element.setOperand("1");
@@ -402,7 +400,7 @@ public abstract class AbstractPrerequisiteListParser
 
 			int lastEqIdx = -1;
 
-			ArrayList prereqs = new ArrayList(templatesLength);
+			ArrayList<Prerequisite> prereqs = new ArrayList<Prerequisite>(templatesLength);
 			for (int i = 0; i < templates.length; ++i)
 			{
 				if ("CHECKMULT".equalsIgnoreCase(templates[i]))
@@ -423,7 +421,7 @@ public abstract class AbstractPrerequisiteListParser
 					//
 					for(int updateIdx = lastEqIdx + 1; updateIdx < i; ++updateIdx)
 					{
-						((Prerequisite) prereqs.get(updateIdx)).setOperand(oper);
+						prereqs.get(updateIdx).setOperand(oper);
 					}
 					lastEqIdx = i;
 				}

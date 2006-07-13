@@ -318,8 +318,8 @@ public class PCClassTest extends AbstractCharacterTestCase {
 			classPCCText, reconstClass.getPCCText());
 		assertEquals("Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
-		final List startSpells = humanoidClass.getSpellSupport().getSpellList(-1);
-		final List reconstSpells = reconstClass.getSpellSupport().getSpellList(-1);
+		final List<PCSpell> startSpells = humanoidClass.getSpellSupport().getSpellList(-1);
+		final List<PCSpell> reconstSpells = reconstClass.getSpellSupport().getSpellList(-1);
 		assertEquals("All spell should have been reconstituted.",
 			startSpells.size(), reconstSpells.size());
 		assertEquals("Spell names should been preserved.",

@@ -31,7 +31,7 @@ public class WieldCategoryLoader  {
 		String preKey = null;
 		String preVal = null;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(WieldCategoryLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(WieldCategoryLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');

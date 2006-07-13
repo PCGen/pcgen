@@ -63,7 +63,7 @@ public final class CampaignOutput
 			FileAccess.newLine(out);
 			FileAccess.write(out, "GAMEMODE:");
 
-			for (Iterator gm = campaign.getGameModes().iterator(); gm.hasNext();)
+			for (Iterator<String> gm = campaign.getGameModes().iterator(); gm.hasNext();)
 			{
 				String gmName = (String) gm.next();
 				FileAccess.write(out, gmName);

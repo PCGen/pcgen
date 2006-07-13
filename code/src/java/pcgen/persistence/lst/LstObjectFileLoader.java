@@ -52,7 +52,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	private CampaignSourceEntry currentSource = null;
 	private List<String> copyLineList = new ArrayList<String>();
 	private List<String> forgetLineList = new ArrayList<String>();
-	private List modEntryList = new ArrayList();
+	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
 	private Map<String, String> sourceMap = null;
 	protected List<String> excludedObjects = new ArrayList<String>();
 
@@ -68,7 +68,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * This method loads the given list of LST files.
 	 * @param fileList containing the list of files to read
 	 */
-	public void loadLstFiles(List fileList)
+	public void loadLstFiles(List<?> fileList)
 	{
 		// First sort the file list to optimize loads.
 		sortFilesForOptimalLoad(fileList);
@@ -77,12 +77,8 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		TreeSet<String> loadedFiles = new TreeSet<String>();
 
 		// Load the files themselves as thoroughly as possible
-		Iterator fileIter = fileList.iterator();
-
-		while (fileIter.hasNext())
+		for (Object testObj : fileList)
 		{
-			Object testObj = fileIter.next();
-
 			if (testObj == null)
 			{
 				continue;
@@ -182,14 +178,14 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		}
 
 		// If includes were present, check includes for given object
-		List includeItems = currentSource.getIncludeItems();
+		List<String> includeItems = currentSource.getIncludeItems();
 
 		if (!includeItems.isEmpty())
 		{
 			return includeItems.contains(parsedObject.getKeyName());
 		}
 		// If excludes were present, check excludes for given object
-		List excludeItems = currentSource.getExcludeItems();
+		List<String> excludeItems = currentSource.getExcludeItems();
 
 		if (!excludeItems.isEmpty())
 		{
@@ -304,12 +300,14 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 				{
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
-					classModLines = new ArrayList();
+					classModLines = new ArrayList<ModEntry>();
 					classModLines.add(new ModEntry(sourceEntry, line, currentLineNumber, sourceMap));
 				}
 				else
 				{
-					modEntryList.add(new ModEntry(sourceEntry, line, currentLineNumber, sourceMap));
+					List<ModEntry> modLines = new ArrayList<ModEntry>();
+					modLines.add(new ModEntry(sourceEntry, line, currentLineNumber, sourceMap));
+					modEntryList.add(modLines);
 				}
 			}
 			else if (tokens[0].indexOf(".FORGET") > 0)
@@ -360,7 +358,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 *
 	 * @param fileList list of String file names to optimize
 	 */
-	protected void sortFilesForOptimalLoad(List fileList)
+	protected void sortFilesForOptimalLoad(List<?> fileList)
 	{
 		if ((fileList.isEmpty()) || (fileList.get(0) instanceof String))
 		{
@@ -368,16 +366,15 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			// list of files
 			return;
 		}
+		
+		ArrayList<CampaignSourceEntry> fList = (ArrayList<CampaignSourceEntry>)fileList;
 
-		ArrayList normalFiles = new ArrayList();
-		ArrayList includeFiles = new ArrayList();
-		ArrayList excludeFiles = new ArrayList();
+		ArrayList<CampaignSourceEntry> normalFiles = new ArrayList<CampaignSourceEntry>();
+		ArrayList<CampaignSourceEntry> includeFiles = new ArrayList<CampaignSourceEntry>();
+		ArrayList<CampaignSourceEntry> excludeFiles = new ArrayList<CampaignSourceEntry>();
 
-		Iterator iter = fileList.iterator();
-
-		while (iter.hasNext())
+		for (CampaignSourceEntry sourceEntry :fList)
 		{
-			CampaignSourceEntry sourceEntry = (CampaignSourceEntry) iter.next();
 			String fileInfo = sourceEntry.getFile();
 
 			if (fileInfo.indexOf("INCLUDE") > 0)
@@ -403,13 +400,13 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			}
 		}
 
-		fileList.clear();
+		fList.clear();
 
 		// Optimal load:  Entire files, exclude files, include files
 		// TODO: compare include/exclude file lists?
-		fileList.addAll(normalFiles);
-		fileList.addAll(excludeFiles);
-		fileList.addAll(includeFiles);
+		fList.addAll(normalFiles);
+		fList.addAll(excludeFiles);
+		fList.addAll(includeFiles);
 	}
 
 	/**
@@ -467,41 +464,41 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * @param entry ModEntry containing the LST source and source
 	 * campaign information for the requested .MOD operation
 	 */
-	private void performMod(ModEntry entry)
-	{
-		// get the name of the object to modify, trimming off the .MOD
-		int nameEnd = entry.getLstLine().indexOf(".MOD");
-		String key = entry.getLstLine().substring(0, nameEnd);
-
-		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
-		int nameStart = key.indexOf(':');
-
-		if (nameStart > 0)
-		{
-			key = key.substring(nameStart + 1);
-		}
-
-		// get the actual object to modify
-		PObject object = getObjectKeyed(key);
-
-		if (object == null)
-		{
-			logError("Cannot apply .MOD; PObject '" + key + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
-			return;
-		}
-
-		// modify the object
-		try
-		{
-			object.setModSourceMap(entry.getSourceMap());
-			parseLine(object, entry.getLstLine(), entry.getSource());
-			finishObject(object);
-		}
-		catch (PersistenceLayerException ple)
-		{
-			logError("Unable to MOD the object '" + key + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
-		}
-	}
+//	private void performMod(ModEntry entry)
+//	{
+//		// get the name of the object to modify, trimming off the .MOD
+//		int nameEnd = entry.getLstLine().indexOf(".MOD");
+//		String key = entry.getLstLine().substring(0, nameEnd);
+//
+//		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
+//		int nameStart = key.indexOf(':');
+//
+//		if (nameStart > 0)
+//		{
+//			key = key.substring(nameStart + 1);
+//		}
+//
+//		// get the actual object to modify
+//		PObject object = getObjectKeyed(key);
+//
+//		if (object == null)
+//		{
+//			logError("Cannot apply .MOD; PObject '" + key + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
+//			return;
+//		}
+//
+//		// modify the object
+//		try
+//		{
+//			object.setModSourceMap(entry.getSourceMap());
+//			parseLine(object, entry.getLstLine(), entry.getSource());
+//			finishObject(object);
+//		}
+//		catch (PersistenceLayerException ple)
+//		{
+//			logError("Unable to MOD the object '" + key + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
+//		}
+//	}
 
 	/**
 	 * This method will perform a multi-line .MOD operation. This is used
@@ -511,9 +508,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * PObject.setName()
 	 * @param entryList
 	 */
-	private void performMod(List entryList)
+	private void performMod(List<ModEntry> entryList)
 	{
-		ModEntry entry = (ModEntry) entryList.get(0);
+		ModEntry entry = entryList.get(0);
 		// get the name of the object to modify, trimming off the .MOD
 		int nameEnd = entry.getLstLine().indexOf(".MOD");
 		String key = entry.getLstLine().substring(0, nameEnd);
@@ -542,9 +539,8 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		// modify the object
 		try
 		{
-			for (Iterator entryIter = entryList.iterator(); entryIter.hasNext();)
+			for (ModEntry element : entryList)
 			{
-				ModEntry element = (ModEntry) entryIter.next();
 				object.setModSourceMap(element.getSourceMap());
 				parseLine(object, element.getLstLine(), element.getSource());
 			}
@@ -561,11 +557,8 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 */
 	private void processCopies()
 	{
-		Iterator copyIter = copyLineList.iterator();
-
-		while (copyIter.hasNext())
+		for (String objKey : copyLineList)
 		{
-			final String objKey = (String)copyIter.next();
 			if (!excludedObjects.contains(objKey))
 			{
 				performCopy( objKey);
@@ -579,11 +572,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 */
 	private void processForgets()
 	{
-		Iterator forgetIter = forgetLineList.iterator();
 
-		while (forgetIter.hasNext())
+		for (String forgetKey : forgetLineList)
 		{
-			String forgetKey = (String) forgetIter.next();
 			forgetKey = forgetKey.substring(0, forgetKey.indexOf(".FORGET"));
 
 			if (excludedObjects.contains(forgetKey))
@@ -607,29 +598,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 */
 	private void processMods()
 	{
-		Iterator modIter = modEntryList.iterator();
-
-		while (modIter.hasNext())
+		for (List<ModEntry> modEntry : modEntryList)
 		{
-			Object modEntry = modIter.next();
-			if (modEntry instanceof ModEntry)
-			{
-				final ModEntry me = (ModEntry)modEntry;
-				final String objKey = me.getLstLine().substring(0, me.getLstLine().indexOf(".MOD"));
-				if (!excludedObjects.contains(objKey))
-				{
-					performMod(me);
-				}
-			}
-			else if (modEntry instanceof List)
-			{
-				performMod((List) modEntry);
-			}
-			else
-			{
-				Logging.errorPrint("Unexpected mod entry of type "
-					+ modEntry.getClass().getName() + " ignored.");
-			}
+			performMod(modEntry);
 		}
 		modEntryList.clear();
 	}
@@ -643,7 +614,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		private CampaignSourceEntry source = null;
 		private String lstLine = null;
 		private int lineNumber = 0;
-		private Map sourceMap = null;
+		private Map<String, String> sourceMap = null;
 
 		/**
 		 * ModEntry constructor.
@@ -654,7 +625,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		 * @param lineNumber
 		 * @param sourceMap
 		 */
-		public ModEntry(CampaignSourceEntry source, String lstLine, int lineNumber, Map sourceMap)
+		public ModEntry(CampaignSourceEntry source, String lstLine, int lineNumber, Map<String, String> sourceMap)
 		{
 			super();
 
@@ -696,7 +667,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		 *
 		 * @return The source map for this MOD entry
 		 */
-		public Map getSourceMap()
+		public Map<String, String> getSourceMap()
 		{
 			return sourceMap;
 		}

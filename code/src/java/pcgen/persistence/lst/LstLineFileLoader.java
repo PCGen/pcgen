@@ -27,7 +27,6 @@ package pcgen.persistence.lst;
 import pcgen.persistence.PersistenceLayerException;
 
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -109,14 +108,12 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	 * @throws PersistenceLayerException if there is a problem with the
 	 *         LST syntax
 	 */
-	public void loadLstFiles(List fileList) throws PersistenceLayerException
+	public void loadLstFiles(List<?> fileList) throws PersistenceLayerException
 	{
 		// Load the files themselves as thoroughly as possible
-		Iterator fileIter = fileList.iterator();
-
-		while (fileIter.hasNext())
+		for (Object cse : fileList)
 		{
-			loadLstFile((String) fileIter.next());
+			loadLstFile(cse.toString());
 		}
 	}
 

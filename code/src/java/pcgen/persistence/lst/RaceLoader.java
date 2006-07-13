@@ -65,7 +65,7 @@ public final class RaceLoader extends LstObjectFileLoader
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = -1;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(RaceLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(RaceLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			++col;

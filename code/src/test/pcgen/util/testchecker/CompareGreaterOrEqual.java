@@ -30,13 +30,13 @@ import pcgen.util.TestChecker;
  */
 public class CompareGreaterOrEqual extends TestChecker
 {
-	private Comparable comp;
+	private Comparable<Object> comp;
 
 	/**
 	 * Constructor
 	 * @param comp
 	 */
-	public CompareGreaterOrEqual( Comparable comp ) {
+	public CompareGreaterOrEqual( Comparable<Object> comp ) {
 		this.comp = comp;
 	}
 

@@ -28,7 +28,7 @@ public class TabLoader  {
 		Map<String, String> tab = new HashMap<String, String>();
 		tab.put(TAB, "");
 
-		Map tokenMap = TokenStore.inst().getTokenMap(TabLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(TabLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');

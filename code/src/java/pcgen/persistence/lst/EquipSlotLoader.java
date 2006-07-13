@@ -55,7 +55,7 @@ final class EquipSlotLoader extends LstLineFileLoader
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

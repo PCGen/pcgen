@@ -73,7 +73,7 @@ public final class EquipmentLoader
 			colToken.nextToken(); // skip name
 		}
 
-		Map tokenMap = TokenStore.inst().getTokenMap(EquipmentLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

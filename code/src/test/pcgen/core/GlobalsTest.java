@@ -125,7 +125,7 @@ public class GlobalsTest extends PCGenTestCase
 		Ability resAb = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, "First Ability");
 		is(resAb, eqnull(), "Search for unadded Ability returns null");
 
-		Iterator i = Globals.getAbilityKeyIterator (Constants.FEAT_CATEGORY);
+		Iterator<? extends Categorisable> i = Globals.getAbilityKeyIterator (Constants.FEAT_CATEGORY);
 		is(i.hasNext(), eq(false), "Feat list is empty");
 
 		boolean added = Globals.addAbility(ab);
@@ -205,7 +205,7 @@ public class GlobalsTest extends PCGenTestCase
 				Constants.FEAT_CATEGORY, "Ability with choices");
 		is(removed, eq(true), "Remove of Ability with choices worked");
 
-		Iterator it = Globals.getAbilityNameIterator(
+		Iterator<? extends Categorisable> it = Globals.getAbilityNameIterator(
 				Constants.FEAT_CATEGORY);
 		is(it, not(eqnull()), "Iterator over empty list isn't null");
 
@@ -275,8 +275,7 @@ public class GlobalsTest extends PCGenTestCase
 		ab = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, "Ability003");
 		is(ab, eq(null), "third Ability is not is the feat category");
 
-		Iterator it = Globals.getAbilityNameIterator(Constants.FEAT_CATEGORY);
-
+		Iterator<? extends Categorisable> it = Globals.getAbilityNameIterator(Constants.FEAT_CATEGORY);
 		is(it.hasNext(), eq(true), "Iterator has abilities 01");
 
 		ab = (Ability) it.next();
@@ -340,8 +339,7 @@ public class GlobalsTest extends PCGenTestCase
 
 		is(it.hasNext(), eq(false), "Iterator has abilities 05");
 
-		List li = Globals.getUnmodifiableAbilityList("FOO");
-
+		List<? extends Categorisable> li = Globals.getUnmodifiableAbilityList("FOO");
 		is(li, eq(Collections.EMPTY_LIST), "list of FOO is Empty");
 
 		li = Globals.getUnmodifiableAbilityList(Constants.FEAT_CATEGORY);

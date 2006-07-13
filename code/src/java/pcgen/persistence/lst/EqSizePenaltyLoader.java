@@ -29,7 +29,7 @@ public class EqSizePenaltyLoader  {
 		PObject eqSizePenaltyObj = new PObject();
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(EqSizePenaltyLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EqSizePenaltyLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');

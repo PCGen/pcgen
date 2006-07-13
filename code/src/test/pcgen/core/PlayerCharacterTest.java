@@ -544,7 +544,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		pc.addSkill(defaultSkill);
 
 		// Test retreived list
-		List skillList = pc.getSkillList();
+		List <Skill>skillList = pc.getSkillList();
 		assertEquals("Full skill list should have all 3 skills", 3, skillList
 			.size());
 
@@ -632,7 +632,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 			response);
 
 		PCClass c = character.getClassKeyed(pcClass.getKeyName());
-		List aList = c.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
+		List<CharacterSpell> aList = c.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
 		CharacterSpell addedSpell = (CharacterSpell) (aList.get(0));
 		response = character.delSpell(addedSpell.getSpellInfoFor(spellBookName,
 			1, -1, none), pcClass, spellBookName);

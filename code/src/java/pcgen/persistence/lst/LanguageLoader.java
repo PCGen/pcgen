@@ -62,7 +62,7 @@ final class LanguageLoader extends LstObjectFileLoader
 
 		int col = 0;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(LanguageLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LanguageLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

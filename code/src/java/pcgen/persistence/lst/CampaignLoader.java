@@ -29,7 +29,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -71,13 +70,11 @@ public class CampaignLoader extends LstLineFileLoader
 	{
 		// This may modify the globals list; need a local copy so
 		// the iteration doesn't fail.
-		List initialCampaigns = new ArrayList(Globals.getCampaignList());
+		List<Campaign> initialCampaigns = new ArrayList<Campaign>(Globals.getCampaignList());
 
-		Iterator iter = initialCampaigns.iterator();
-
-		while (iter.hasNext())
+		for (Campaign c : initialCampaigns)
 		{
-			initRecursivePccFiles((Campaign) iter.next());
+			initRecursivePccFiles(c);
 		}
 	}
 
@@ -103,7 +100,7 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 		final String key = inputLine.substring(0, idxColon);
 		final String value = inputLine.substring(idxColon + 1);
-		Map tokenMap = TokenStore.inst().getTokenMap(CampaignLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(CampaignLstToken.class);
 		CampaignLstToken token = (CampaignLstToken) tokenMap.get(key);
 
 		if (token != null)
@@ -316,12 +313,8 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 
 		// Add all sub-files to the main campaign, regardless of exclusions
-		Iterator subIter = baseCampaign.getPccFiles().iterator();
-
-		while (subIter.hasNext())
+		for (String fName : baseCampaign.getPccFiles())
 		{
-			final String fName = (String) subIter.next();
-
 			if (PCGFile.isPCGenCampaignFile(new File(fName)))
 			{
 				Campaign globalSubCampaign = Globals.getCampaignByFilename(fName, false);

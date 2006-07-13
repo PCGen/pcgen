@@ -75,7 +75,7 @@ public class CompanionModLoader
 			colToken.nextToken();
 		}
 
-		Map tokenMap = TokenStore.inst().getTokenMap(CompanionModLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(CompanionModLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken().trim();

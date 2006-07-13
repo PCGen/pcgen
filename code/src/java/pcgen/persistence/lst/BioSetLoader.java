@@ -90,7 +90,7 @@ final class BioSetLoader extends LstLineFileLoader
 			final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 			String colString;
 			String raceName = "";
-			List preReqList = null;
+			List<String> preReqList = null;
 
 			while (colToken.hasMoreTokens())
 			{
@@ -108,7 +108,7 @@ final class BioSetLoader extends LstLineFileLoader
 				{
 					if (preReqList == null)
 					{
-						preReqList = new ArrayList();
+						preReqList = new ArrayList<String>();
 					}
 
 					preReqList.add(colString);

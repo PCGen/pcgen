@@ -64,7 +64,7 @@ final class PCTemplateLoader
 			colToken.nextToken();
 		}
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PCTemplateLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCTemplateLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

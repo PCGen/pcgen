@@ -221,7 +221,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 
 		race.setName("Human");
 		race.setSize("M");
-		final Map raceMap = Globals.getRaceMap();
+		final Map<String, Race> raceMap = Globals.getRaceMap();
 		raceMap.put("Human", race);
 
 		template.setTemplateSize("L");

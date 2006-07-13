@@ -23,7 +23,7 @@ public class BaseKitLoader {
 	public static boolean parseCommonTags(BaseKit obj, final String tag)
 		throws PersistenceLayerException
 	{
-		Map tokenMap = TokenStore.inst().getTokenMap(BaseKitLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(BaseKitLstToken.class);
 
 		// We will find the first ":" for the "controlling" line token
 		final int idxColon = tag.indexOf(':');

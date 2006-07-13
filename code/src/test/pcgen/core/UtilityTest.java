@@ -93,7 +93,7 @@ public class UtilityTest extends PCGenTestCase
 	public void testUnSplitChar()
 	{
 		final char sep = ',';
-		final List list = constructList();
+		final List<String> list = constructList();
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one, two, three, four";
 		assertTrue("unSplit returned bad String: got '" + result + "' should be '" + trueResult + "'",
@@ -106,7 +106,7 @@ public class UtilityTest extends PCGenTestCase
 	public void testUnSplitString()
 	{
 		final String sep = "|";
-		final List list = constructList();
+		final List<String> list = constructList();
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one|two|three|four";
 		assertTrue("unSplit returned bad String: got '" + result + "' should be '" + trueResult + "'",

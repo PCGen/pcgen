@@ -56,7 +56,7 @@ public class KitFundsLoader
 
 		KitFunds kitFunds = new KitFunds(colToken.nextToken());
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitFundsLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitFundsLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

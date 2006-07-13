@@ -55,7 +55,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PCAlignmentLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCAlignmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

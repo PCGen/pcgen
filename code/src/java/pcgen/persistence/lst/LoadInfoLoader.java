@@ -73,7 +73,7 @@ public class LoadInfoLoader extends LstLineFileLoader
 	{
 
 		LoadInfo loadInfo = SystemCollections.getLoadInfo(getGameMode());
-		Map tokenMap = TokenStore.inst().getTokenMap(LoadInfoLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LoadInfoLstToken.class);
 
 		final int idxColon = lstLine.indexOf(':');
 		String key = "";

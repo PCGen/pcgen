@@ -201,7 +201,7 @@ public final class BioSetLoaderTest extends PCGenTestCase {
 
 		// Check the data loaded in setup to ensure that it has been loaded correctly.
 		final BioSet currBioSet = Globals.getBioSet();
-		List baseRaceTag;
+		List<String> baseRaceTag;
 		for (int i = 0; i < BASE_RACE_NAME.length; i++)
 		{
 			final String raceName = BASE_RACE_NAME[i];

@@ -37,7 +37,6 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -105,10 +104,8 @@ public class EquipmentModifierTest extends PCGenTestCase {
 		eqMod.addBonusList(aBonus);
 		eqMod.addAssociated("+13");
 
-		final List list = eqMod.getBonusList();
-		for (Iterator iter = list.iterator(); iter.hasNext();)
+		for (BonusObj bonusObj : eqMod.getBonusList())
 		{
-			final BonusObj bonusObj = (BonusObj) iter.next();
 			assertEquals("((+13)MIN(STR))", bonusObj.getValue());
 		}
 		assertEquals("((%CHOICE)MIN(STR))", aBonus.getValue());
@@ -125,10 +122,8 @@ public class EquipmentModifierTest extends PCGenTestCase {
 		eqMod.addAssociated("+13");
 		eqMod.addBonusList(aBonus);
 
-		final List list = eqMod.getBonusList();
-		for (Iterator iter = list.iterator(); iter.hasNext();)
+		for (BonusObj bonusObj : eqMod.getBonusList())
 		{
-			final BonusObj bonusObj = (BonusObj) iter.next();
 			assertEquals("-2", bonusObj.getValue());
 
 			final Prerequisite prereq = bonusObj.getPrereqList().get(0);
@@ -154,7 +149,7 @@ public class EquipmentModifierTest extends PCGenTestCase {
 		eqMod.addAssociated("+2");
 		eqMod.addBonusList(aBonus);
 
-		final List list = eqMod.getBonusList();
+		final List<BonusObj> list = eqMod.getBonusList();
 		int i = 1;
 		for (int j = list.size() - 1; j > 0; j--)
 		{

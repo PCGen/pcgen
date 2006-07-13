@@ -30,13 +30,13 @@ import pcgen.util.TestChecker;
  */
 public class CompareLessThan extends TestChecker
 {
-	private Comparable comp;
+	private Comparable<Object> comp;
 
 	/**
 	 * Constructor
 	 * @param comp
 	 */
-	public CompareLessThan( Comparable comp ) {
+	public CompareLessThan( Comparable<Object> comp ) {
 		this.comp = comp;
 	}
 

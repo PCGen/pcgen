@@ -54,7 +54,7 @@ public class KitClassLoader
 		String className = colToken.nextToken();
 		kitClass = new KitClass(className);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitClassLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitClassLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

@@ -32,9 +32,9 @@ public class SponsorLoader extends LstLineFileLoader {
 	 */
 	public void parseLine(String lstLine, URL sourceURL) throws PersistenceLayerException {
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		Map sponsor = new HashMap();
+		Map<String, String> sponsor = new HashMap<String, String>();
 
-		Map tokenMap = TokenStore.inst().getTokenMap(SponsorLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SponsorLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');

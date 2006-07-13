@@ -34,7 +34,6 @@ import pcgen.persistence.PersistenceLayerException;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Iterator;
 
 public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
@@ -101,9 +100,8 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			int i = 0;
-			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); i++)
+			for (Prerequisite pre :  prereq.getPrerequisites())
 			{
-				subreq = (Prerequisite) iter.next();
 				if (i > 0)
 				{
 					writer.write(',');
@@ -111,16 +109,17 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 				writer.write('[');
 
 				PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
-				PrerequisiteWriterInterface w = factory.getWriter(subreq.getKind());
+				PrerequisiteWriterInterface w = factory.getWriter(pre.getKind());
 				if (w != null)
 				{
-					w.write(writer, subreq);
+					w.write(writer, pre);
 				}
 				else
 				{
-					writer.write("unrecognized kind:" + subreq.getKind());
+					writer.write("unrecognized kind:" + pre.getKind());
 				}
 				writer.write(']');
+				i++;
 			}
 		}
 		catch (IOException e)
@@ -145,14 +144,14 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			writer.write("PRESKILLTOT:");
 
 			int i = 0;
-			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); i++)
+			for (Prerequisite subreq : prereq.getPrerequisites())
 			{
-				Prerequisite subreq = (Prerequisite) iter.next();
 				if (i > 0)
 				{
 					writer.write(',');
 				}
 				writer.write(subreq.getKey());
+				i++;
 			}
 			writer.write('=');
 			writer.write(prereq.getOperand());
@@ -167,9 +166,12 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 	{
 		// Special case of all subreqs being SKILL with total-values=true
 		allSkillTot = true;
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext() && allSkillTot; )
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			Prerequisite element = (Prerequisite) iter.next();
+			if (!allSkillTot)
+			{
+				break;
+			}
 			if (!"skill".equalsIgnoreCase(element.getKind()) || !element.isTotalValues())
 			{
 				allSkillTot = false;
@@ -179,7 +181,6 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 		{
 			return allSkillTot;
 		}
-
 
 		return false;
 	}

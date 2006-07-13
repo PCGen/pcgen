@@ -53,7 +53,7 @@ public class KitGearLoader
 
 		KitGear kitGear = new KitGear(colToken.nextToken());
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitGearLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitGearLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

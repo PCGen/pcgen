@@ -53,7 +53,7 @@ public class KitSkillLoader
 
 		KitSkill kitSkill = new KitSkill(colToken.nextToken());
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitSkillLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitSkillLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

@@ -25,7 +25,9 @@ package pcgen.persistence;
 import java.util.List;
 import java.util.Observer;
 import java.util.Set;
+
 import pcgen.core.Campaign;
+import pcgen.core.PObject;
 
 /**
  * <code>SystemLoader</code> is an abstract factory class that hides
@@ -109,7 +111,7 @@ public interface SystemLoader
 	 *                    The new data is appended to this.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadFileIntoList(String fileName, int fileType, List aList)
+	public void loadFileIntoList(String fileName, int fileType, List<PObject> aList)
 		throws PersistenceLayerException;
 
 	/**

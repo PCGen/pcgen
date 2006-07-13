@@ -40,7 +40,7 @@ public class BaseDiceLoader  {
 		bonus.put(UP, "");
 		bonus.put(DOWN, "");
 
-		Map tokenMap = TokenStore.inst().getTokenMap(BaseDiceLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(BaseDiceLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');

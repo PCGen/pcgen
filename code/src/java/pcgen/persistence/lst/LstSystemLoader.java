@@ -450,11 +450,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			for (int loadIdx = 0; loadIdx < loadOrder.length; loadIdx++)
 			{
 				final int lineType = loadOrder[loadIdx];
-				List fileList = getFilesForType(lineType);
+				List<CampaignSourceEntry> fileList = getFilesForType(lineType);
 
 				if ((fileList != null) && (!fileList.isEmpty()))
 				{
-					List bArrayList = new ArrayList();
+					List<PObject> bArrayList = new ArrayList<PObject>();
 
 					// This relies on new items being added to the *end* of an ArrayList.
 					processFileList(lineType, fileList, bArrayList);
@@ -539,7 +539,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	/**
 	 * @see pcgen.persistence.SystemLoader#loadFileIntoList(String, int, List)
 	 */
-	public void loadFileIntoList(String fileName, int fileType, List aList)
+	public void loadFileIntoList(String fileName, int fileType, List<PObject> aList)
 		throws PersistenceLayerException
 	{
 		URL url = null;
@@ -728,7 +728,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 		if (options != null)
 		{
-			for (Enumeration e = options.propertyNames(); e.hasMoreElements();)
+			for (Enumeration<?> e = options.propertyNames(); e.hasMoreElements();)
 			{
 				final String key = (String) e.nextElement();
 				final String value = options.getProperty(key);
@@ -745,9 +745,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @return List containing the LST source lines for the requested
 	 *         object type
 	 */
-	private List getFilesForType(final int lineType)
+	private List<CampaignSourceEntry> getFilesForType(final int lineType)
 	{
-		List lineList = null;
+		List<CampaignSourceEntry> lineList = null;
 
 		switch (lineType)
 		{
@@ -775,7 +775,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				break;
 
 			case LstConstants.REQSKILL_TYPE:
-				lineList = new ArrayList();
+				lineList = new ArrayList<CampaignSourceEntry>();
 				break;
 
 			case LstConstants.TEMPLATE_TYPE:
@@ -1091,15 +1091,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		//
 		// Add in the default deities (unless they're already there)
 		//
-		final List gDeities = Globals.getGlobalDeityList();
+		final List<String> gDeities = Globals.getGlobalDeityList();
 
 		if ((gDeities != null) && (gDeities.size() != 0))
 		{
 			deityLoader.loadLstFile(globalCampaign);
 
-			for (Iterator e = gDeities.iterator(); e.hasNext();)
+			for (String aLine : gDeities)
 			{
-				final String aLine = (String) e.next();
 				final Deity aDeity = (Deity) deityLoader.parseLine(null, aLine, globalCampaign);
 				deityLoader.finishObject(aDeity);
 			}
@@ -2262,7 +2261,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	 * @param bArrayList List that will contain pcgen.core objects
 	 * @throws PersistenceLayerException if an error is found in the LST source
 	 */
-	private void processFileList(final int lineType, List<?> lineList, List<? extends PObject> bArrayList)
+	private void processFileList(final int lineType, List<?> lineList, List<PObject> bArrayList)
 		throws PersistenceLayerException
 	{
 		//  Campaigns aren't processed here any more.
@@ -2273,10 +2272,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			return;
 		}
 
-
-		for (int j = 0; j < lineList.size(); ++j)
+		for (Object o : lineList)
 		{
-			final Object o = lineList.get(j);
 			CampaignSourceEntry campaign = null;
 			final String aLine;
 

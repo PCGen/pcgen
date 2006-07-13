@@ -73,7 +73,7 @@ public class KitLevelAbilityLoader
 					"Invalid level in KitLevelAbility info \"" + colString
 							+ "\"");
 		}
-		Map tokenMap = TokenStore.inst().getTokenMap(
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				KitLevelAbilityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{

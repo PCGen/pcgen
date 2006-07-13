@@ -53,7 +53,7 @@ public class KitProfLoader
 
 		KitProf kitProf = new KitProf(colToken.nextToken());
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitProfLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitProfLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

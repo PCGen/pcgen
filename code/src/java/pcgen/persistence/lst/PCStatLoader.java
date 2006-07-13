@@ -55,7 +55,7 @@ public final class PCStatLoader extends LstLineFileLoader
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PCStatLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCStatLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

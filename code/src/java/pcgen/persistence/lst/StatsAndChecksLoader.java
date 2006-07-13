@@ -68,7 +68,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		super.loadLstFile(fileName);
 
 		// Reinit relevant globals from SystemCollections
-		List statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 		int statCount = statList.size();
 		SettingsHandler.getGame().setAttribLong(new String[statCount]);
 		SettingsHandler.getGame().setAttribShort(new String[statCount]);
@@ -93,7 +93,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		}
 
 		final String key = lstLine.substring(0, idxColon);
-		Map tokenMap = TokenStore.inst().getTokenMap(StatsAndChecksLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(StatsAndChecksLstToken.class);
 		StatsAndChecksLstToken token = (StatsAndChecksLstToken) tokenMap.get(key);
 		if (token != null)
 		{

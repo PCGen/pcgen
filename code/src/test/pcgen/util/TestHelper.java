@@ -30,8 +30,6 @@ import java.util.StringTokenizer;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 import gmgen.pluginmgr.PluginLoader;
 
@@ -123,16 +121,13 @@ public class TestHelper {
 	 * @param fieldName
 	 * @return the field related to a name in the class
 	 */
-	static public Object findField (Class aClass, String fieldName)
+	static public Object findField (Class<?> aClass, String fieldName)
 	{
 		try {
 			while (true)
 			{
-				final List theFields = Arrays.asList(aClass.getDeclaredFields());
-				Iterator it = theFields.iterator();
-				while (it.hasNext())
+				for (Field f : Arrays.asList(aClass.getDeclaredFields()))
 				{
-					final Field f = (Field) it.next();
 					if (f.getName().equals(fieldName))
 					{
 						f.setAccessible(true);

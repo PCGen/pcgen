@@ -47,13 +47,13 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 		twf.setCategory("FEAT");
 		Globals.addAbility(twf);
 
-		List feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
+		List<Ability> feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
 		is(feats.size(), eq(1), "size of list");
 		Ability feat = (Ability)feats.get(0);
 
 		is(feat.getKeyName(), strEq("Two Weapon Fighting"));
 
-		List prereqs = feat.getPreReqList();
+		List<Prerequisite> prereqs = feat.getPreReqList();
 		is(prereqs.size(), eq(1), "there is only one Prerequisite.");
 		Prerequisite prereq = (Prerequisite) prereqs.get(0);
 		assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n" +
@@ -85,13 +85,13 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 		twf.addPreReq(prereq);
 		Globals.addAbility(twf);
 
-		List feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
+		List<Ability> feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
 		is(feats.size(), eq(1), "parsed one feat");
 		Ability feat = (Ability)feats.get(0);
 
 		is(feat.getKeyName(), strEq("Two Weapon Fighting"));
 
-		List prereqs = feat.getPreReqList();
+		List<Prerequisite> prereqs = feat.getPreReqList();
 		is(prereqs.size(), eq(1), "there is only one Prerequisite.");
 		prereq = (Prerequisite) prereqs.get(0);
 		assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n" +
@@ -116,7 +116,7 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 		TestHelper.makeAbility("Random Ability 1", "FEAT", "Fighter");
 		TestHelper.makeAbility("Random Ability 1", "FEAT", "Fighter");
 
-		List feats = FeatParser.parseVirtualFeatList("KEY_Two Weapon Fighting|KEY_Weapon Finesse (Bite, Claws)");
+		List<Ability> feats = FeatParser.parseVirtualFeatList("KEY_Two Weapon Fighting|KEY_Weapon Finesse (Bite, Claws)");
 		is(feats.size(), eq(2), "size of list");
 
 		is(((Ability)feats.get(0)).getDisplayName(), strEq("Two Weapon Fighting"), "First feat is correct");

@@ -33,7 +33,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -64,13 +63,10 @@ public class PreMultParser extends AbstractPrerequisiteParser implements Prerequ
 		}
 
 		// [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
-		List subList = splitOnTopLevelToken(formula, '[', ']');
-		Iterator itr = subList.iterator();
-
-		while (itr.hasNext())
+		for (String s : splitOnTopLevelToken(formula, '[', ']'))
 		{
 			PreParser parser = new PreParser();
-			prereq.addPrerequisite(parser.parse((String) itr.next()));
+			prereq.addPrerequisite(parser.parse(s));
 		}
 
 		if (invertResult) {
@@ -79,12 +75,12 @@ public class PreMultParser extends AbstractPrerequisiteParser implements Prerequ
 		return prereq;
 	}
 
-	protected List splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
+	protected List<String> splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
 	{
 		int nesting = 0;
 		int startIndex = 0;
 		int currIndex = 0;
-		List subList = new ArrayList();
+		List<String> subList = new ArrayList<String>();
 
 		for (currIndex = 0; currIndex < input.length(); currIndex++)
 		{

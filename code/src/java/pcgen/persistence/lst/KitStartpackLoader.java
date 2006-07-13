@@ -51,7 +51,7 @@ public class KitStartpackLoader
 				SystemLoader.TAB_DELIM);
 
 		kit.setName(colToken.nextToken());
-		Map tokenMap = TokenStore.inst()
+		Map<String, LstToken> tokenMap = TokenStore.inst()
 				.getTokenMap(KitStartpackLstToken.class);
 		while (colToken.hasMoreTokens())
 		{

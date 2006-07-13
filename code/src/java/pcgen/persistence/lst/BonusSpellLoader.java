@@ -62,7 +62,7 @@ public final class BonusSpellLoader extends LstLineFileLoader
 		bonus.put(STAT_RANGE, "0");
 		bonus.put(LEVEL, "0");
 
-		Map tokenMap = TokenStore.inst().getTokenMap(BonusSpellLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(BonusSpellLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

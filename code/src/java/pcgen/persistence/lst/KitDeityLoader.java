@@ -54,7 +54,7 @@ public class KitDeityLoader
 		String deityName = colToken.nextToken();
 		kitDeity = new KitDeity(deityName);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitDeityLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitDeityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();

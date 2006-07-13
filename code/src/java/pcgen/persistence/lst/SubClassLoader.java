@@ -72,7 +72,7 @@ public final class SubClassLoader
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(SubClassLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SubClassLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

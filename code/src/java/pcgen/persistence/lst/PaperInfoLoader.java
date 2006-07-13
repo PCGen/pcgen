@@ -65,7 +65,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 		final StringTokenizer colToken = new StringTokenizer(lstLine, "\t");
 		int iCount = 0;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PaperInfoLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PaperInfoLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

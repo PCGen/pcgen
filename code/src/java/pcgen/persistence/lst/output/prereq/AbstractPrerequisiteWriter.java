@@ -35,7 +35,6 @@ import pcgen.persistence.PersistenceLayerException;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Iterator;
 
 /**
  * This class handles writing pre reqs for LST Tokens
@@ -79,9 +78,8 @@ public class AbstractPrerequisiteWriter
 			//
 			// Are all the sub-prereqs the desired kind?
 			//
-			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
+			for (Prerequisite element : prereq.getPrerequisites())
 			{
-				final Prerequisite element = (Prerequisite) iter.next();
 				if (!kind.equalsIgnoreCase(element.getKind()))
 				{
 					return false;

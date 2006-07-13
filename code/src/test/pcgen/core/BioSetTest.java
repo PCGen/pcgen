@@ -130,8 +130,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 			Constants.s_NONE,
 			NEW_RACE_NAME);
 
-		List baseRaceTag;
-		List newRaceTag;
+		List<String> baseRaceTag;
+		List<String> newRaceTag;
 		for (int i = 0; i < TEST_TAGS.length; i++)
 		{
 			final String testArg = TEST_TAGS[i];
@@ -147,10 +147,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 //					+ " and new of "
 //					+ newRaceTag
 //					+ ".");
-			for (Iterator newIter = newRaceTag.iterator(),
-				baseIter = baseRaceTag.iterator();
-				newIter.hasNext() && baseIter.hasNext();
-				)
+			for (Iterator<String> newIter = newRaceTag.iterator(), baseIter = baseRaceTag.iterator();
+				newIter.hasNext() && baseIter.hasNext();)
 			{
 				final Object baseElem = baseIter.next();
 				final Object newElem = newIter.next();

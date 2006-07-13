@@ -64,7 +64,7 @@ public class DeityLoader extends LstObjectFileLoader
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(DeityLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(DeityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

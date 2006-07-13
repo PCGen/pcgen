@@ -64,7 +64,7 @@ public final class SkillLoader extends LstObjectFileLoader
 		// first column is the name; after that are LST tags
 		skill.setName(colToken.nextToken());
 
-		Map tokenMap = TokenStore.inst().getTokenMap(SkillLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SkillLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

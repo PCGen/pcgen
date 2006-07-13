@@ -64,7 +64,7 @@ final class LevelLoader
 
 		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(LevelLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LevelLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

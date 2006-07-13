@@ -72,7 +72,7 @@ public class PointBuyLoader extends LstLineFileLoader
 
 		final String key = lstLine.substring(0, idxColon);
 		final String value = lstLine.substring(idxColon + 1);
-		Map tokenMap = TokenStore.inst().getTokenMap(PointBuyLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PointBuyLstToken.class);
 		PointBuyLstToken token = (PointBuyLstToken) tokenMap.get(key);
 		if (token != null)
 		{
@@ -105,7 +105,7 @@ public class PointBuyLoader extends LstLineFileLoader
 
 		PointBuyCost pbc = new PointBuyCost(statValue);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PointBuyStatLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PointBuyStatLstToken.class);
 		while(colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -166,7 +166,7 @@ public class PointBuyLoader extends LstLineFileLoader
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		PointBuyMethod pbm = new PointBuyMethod(colToken.nextToken(), "0");
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PointBuyMethodLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PointBuyMethodLstToken.class);
 		while(colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

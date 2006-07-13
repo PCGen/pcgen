@@ -60,7 +60,7 @@ final class RuleCheckLoader
 		String inputLine = aLine.trim();
 		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 
-		Map tokenMap = TokenStore.inst().getTokenMap(RuleCheckLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(RuleCheckLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

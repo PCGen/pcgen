@@ -70,7 +70,7 @@ public class AbilityLoader extends LstObjectFileLoader
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(AbilityLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(AbilityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();

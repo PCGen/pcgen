@@ -38,8 +38,10 @@ import pcgen.PCGenTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
+import pcgen.core.SpecialAbility;
 import pcgen.core.Variable;
 import pcgen.core.utils.ListKey;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
 public class PObjectLoaderTest extends PCGenTestCase {
@@ -100,7 +102,7 @@ public class PObjectLoaderTest extends PCGenTestCase {
 		PObject object = new PObject();
   
 		PObjectLoader.parseTagLevel(object, "SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1", 1);
-    List list = object.getSafeListFor(ListKey.SPECIAL_ABILITY);
+    List<SpecialAbility> list = object.getSafeListFor(ListKey.SPECIAL_ABILITY);
     assertEquals(1, list.size());
     list.get(0);
 	}
@@ -113,7 +115,7 @@ public class PObjectLoaderTest extends PCGenTestCase {
 	    
     PObjectLoader.parseTag(object, "PREVARLT:GreaterRage,1");
     PObjectLoader.parseTag(object, "PREFEAT:1,Dodge");
-    List list = object.getPreReqList();
+    List<Prerequisite> list = object.getPreReqList();
     assertEquals(2, list.size());
     
     PObjectLoader.parseTag(object, "PRE:.CLEAR");

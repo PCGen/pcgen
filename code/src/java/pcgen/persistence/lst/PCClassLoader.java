@@ -22,7 +22,6 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -111,7 +110,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 
 		String repeatTag = null;
 
-		Map tokenMap = TokenStore.inst().getTokenMap(PCClassLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCClassLstToken.class);
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
 		{
@@ -340,12 +339,11 @@ public final class PCClassLoader extends LstObjectFileLoader
 				}
 			}
 
-			List preReqList = target.getPreReqList();
+			List<Prerequisite> preReqList = target.getPreReqList();
 			if (preReqList != null)
 			{
-				for (Iterator iter = preReqList.iterator(); iter.hasNext();)
+				for (Prerequisite preReq : preReqList)
 				{
-					Prerequisite preReq = (Prerequisite) iter.next();
 					if ("VAR".equalsIgnoreCase(preReq.getKind()))
 					{
 						preReq.setSubKey("CLASS:" + target.getKeyName());

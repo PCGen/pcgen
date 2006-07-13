@@ -146,7 +146,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
 		character.addSpellBook(spellBook);
-		List spellList = arcaneClass.getSpellSupport().getCharacterSpell(
+		List<CharacterSpell> spellList = arcaneClass.getSpellSupport().getCharacterSpell(
 			testSpell, "", 1);
 		CharacterSpell charSpell = (CharacterSpell) spellList.get(0);
 
@@ -175,7 +175,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		character.incrementClassLevel(1, divineClass, true);
 		character.addSpellBook(spellBook);
-		List spellList = divineClass.getSpellSupport().getCharacterSpell(
+		List<CharacterSpell> spellList = divineClass.getSpellSupport().getCharacterSpell(
 			testSpell, "", 1);
 		CharacterSpell charSpell = (CharacterSpell) spellList.get(0);
 

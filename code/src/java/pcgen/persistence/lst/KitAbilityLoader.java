@@ -39,7 +39,7 @@ public class KitAbilityLoader
 			kitAbility = new KitAbilities(ability, "", false);
 		}
 
-		Map tokenMap = TokenStore.inst().getTokenMap(KitAbilityLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitAbilityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
