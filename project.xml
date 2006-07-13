@@ -6,8 +6,9 @@
     <name>PCGen</name>
     <currentVersion>5.11.0</currentVersion>
     <organization>
-        <name>PCGen</name>
-        <url>http://pcgen.sourceforge.net/</url>
+        <name>SourceForge</name>
+        <url>http://sourceforge.net/</url>
+        <logo>http://sflogo.sourceforge.net/sflogo.php?group_id=25576&amp;type=3</logo>
     </organization>
     <inceptionYear>2003</inceptionYear>
     <package>pcgen</package>
