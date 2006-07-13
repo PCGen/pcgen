@@ -1714,7 +1714,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 */
 		private List<Ability> buildPCFeatList()
 		{
-			ArrayList<Ability> returnValue = new ArrayList<Ability>(pc.aggregateFeatList().size());
+			List<Ability> returnValue = new ArrayList<Ability>(pc.aggregateFeatList().size());
 
 			for (Ability aFeat : pc.aggregateFeatList())
 			{
@@ -1744,7 +1744,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			}
 
 			//Need to sort the list.
-			return Globals.sortPObjectList(returnValue);
+			return (List<Ability>)Globals.sortPObjectList(returnValue);
 		}
 
 		/**

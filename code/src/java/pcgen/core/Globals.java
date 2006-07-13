@@ -109,29 +109,29 @@ public final class Globals
 	private static CategorisableStore abilityStore = new CategorisableStore();
 
 	/** we need maps for efficient lookups */
-	private static Map<String, Campaign>        campaignMap     = new HashMap<String, Campaign>();
-	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
-	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
-	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
-	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
-	private static Map<String, String>        visionMap       = new HashMap<String, String>();
+	private static Map<String, Campaign> campaignMap = new HashMap<String, Campaign>();
+	private static Map<String, Domain> domainMap = new TreeMap<String, Domain>();
+	private static SortedMap<String, Race> raceMap = new TreeMap<String, Race>();
+	private static Map<String, Object> spellMap = new TreeMap<String, Object>();
+	private static Map<String, String> eqSlotMap = new HashMap<String, String>();
+	private static Map<String, String> visionMap = new HashMap<String, String>();
 
 	/** We use lists for efficient iteration */
-	private static List<String> armorProfList         = new ArrayList<String>();
-	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
-	private static List<PCClass> classList             = new ArrayList<PCClass>(380);
-	private static List<CompanionMod> companionModList      = new ArrayList<CompanionMod>();
-	private static List<Deity> deityList             = new ArrayList<Deity>(275);
-	private static List<Domain> domainList            = new ArrayList<Domain>(100);
-	private static List<Kit> kitList               = new ArrayList<Kit>();
-	private static List<Language> languageList          = new ArrayList<Language>(200);
+	private static List<String> armorProfList = new ArrayList<String>();
+	private static List<Campaign> campaignList = new ArrayList<Campaign>(85);
+	private static List<PCClass> classList = new ArrayList<PCClass>(380);
+	private static List<CompanionMod> companionModList = new ArrayList<CompanionMod>();
+	private static List<Deity> deityList = new ArrayList<Deity>(275);
+	private static List<Domain> domainList = new ArrayList<Domain>(100);
+	private static List<Kit> kitList = new ArrayList<Kit>();
+	private static List<Language> languageList = new ArrayList<Language>(200);
 
 	//any TYPE added to pcClassTypeList is assumed be pre-tokenized
-	private static List<String>             pcClassTypeList = new ArrayList<String>();
-	private static List<Skill>             skillList       = new ArrayList<Skill>(400);
-	private static List<PCTemplate>             templateList    = new ArrayList<PCTemplate>(350);
-	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
-	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
+	private static List<String> pcClassTypeList = new ArrayList<String>();
+	private static List<Skill> skillList = new ArrayList<Skill>(400);
+	private static List<PCTemplate> templateList = new ArrayList<PCTemplate>(350);
+	private static DenominationList denomList = DenominationList.getInstance(); // derived from ArrayList
+	private static SortedSet<SpecialAbility> saSet = new TreeSet<SpecialAbility>();
 
 	private static Map<String, Map<String, String>> sponsors = new HashMap<String, Map<String, String>>();
 	private static List<Map<String, String>> sponsorList = new ArrayList<Map<String, String>>();
@@ -436,14 +436,11 @@ public final class Globals
 			typeList.add(tok.nextToken());
 		}
 
-		final Iterator<T> c = aPObjectList.iterator();
-		while (c.hasNext())
+		for (T anObject : aPObjectList)
 		{
-			final T anObject = c.next();
 			boolean match = false;
-			for (Iterator<String> i = typeList.iterator(); i.hasNext(); )
+			for (String type : typeList)
 			{
-				final String type = i.next();
 				final boolean sense = !(type.charAt(0) == '!');
 				if (anObject.isType(type) == sense)
 				{
@@ -767,10 +764,8 @@ public final class Globals
 	 */
 	public static EquipSlot getEquipSlotByName(final String aName)
 	{
-		for (Iterator<EquipSlot> eI = SystemCollections.getUnmodifiableEquipSlotList().iterator(); eI.hasNext();)
+		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
 		{
-			final EquipSlot es = eI.next();
-
 			if (es.getSlotName().equals(aName))
 			{
 				return es;
@@ -1253,10 +1248,8 @@ public final class Globals
 		{
 			return Language.getAllLanguage();
 		}
-		for (Iterator<Language> i = getLanguageList().iterator(); i.hasNext();)
+		for (Language aLang : getLanguageList())
 		{
-			final Language aLang = i.next();
-
 			if (aLang.getKeyName().equalsIgnoreCase(aKey))
 			{
 				return aLang;
@@ -1712,17 +1705,14 @@ public final class Globals
 			spellType = "DIVINE";
 		}
 
-		for (Iterator<String> i = spellMap.keySet().iterator(); i.hasNext();)
+		for (String aKey : spellMap.keySet())
 		{
-			final String aKey = i.next();
 			final Object obj = spellMap.get(aKey);
 
 			if (obj instanceof ArrayList)
 			{
-				for (Iterator j = ((ArrayList) obj).iterator(); j.hasNext();)
+				for (Spell aSpell : (ArrayList<Spell>)obj)
 				{
-					final Spell aSpell = (Spell) j.next();
-
 					if (aSpell.levelForKeyContains(aBuf.toString(), level, currentPC)
 						&& (aSpell.getType().indexOf(spellType.toUpperCase()) >= 0))
 					{
@@ -1885,13 +1875,13 @@ public final class Globals
 	}
 
 	/**
-	 * Returns an Iterator over the weapontypes
+	 * Returns a List of weapontypes
 	 *
-	 * @return The iterator of weapon types
+	 * @return The list of weapon types
 	 */
-	public static Iterator<String> getWeaponTypesIterator()
+	public static SortedSet<String> getWeaponTypeList()
 	{
-		return weaponTypes.iterator();
+		return weaponTypes;
 	}
 
 	/**
@@ -2755,7 +2745,7 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List sortPObjectList(final List<? extends PObject> aList)
+	public static List<? extends PObject> sortPObjectList(final List<? extends PObject> aList)
 	{
 		Collections.sort(aList, pObjectComp);
 
@@ -2767,7 +2757,7 @@ public final class Globals
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List sortPObjectListByName(final List<? extends PObject> aList)
+	public static List<? extends PObject> sortPObjectListByName(final List<? extends PObject> aList)
 	{
 		Collections.sort(aList, pObjectNameComp);
 
@@ -2814,9 +2804,9 @@ public final class Globals
 	{
 		int num = 0;
 
-		for (Iterator<String> i = SettingsHandler.getGame().getBonusFeatLevels().iterator(); i.hasNext();)
+		for (String s : SettingsHandler.getGame().getBonusFeatLevels())
 		{
-			num = bonusParsing(i, level, num);
+			num = bonusParsing(s, level, num);
 		}
 
 		return num;
@@ -2826,9 +2816,9 @@ public final class Globals
 	{
 		int num = 0;
 
-		for (Iterator<String> i = SettingsHandler.getGame().getBonusStatLevels().iterator(); i.hasNext();)
+		for (String s : SettingsHandler.getGame().getBonusStatLevels())
 		{
-			num = bonusParsing(i, level, num);
+			num = bonusParsing(s, level, num);
 		}
 
 		return num;
@@ -3452,10 +3442,9 @@ public final class Globals
 		return useGUI;
 	}
 
-	private static int bonusParsing(final Iterator i, final int level, int num)
+	private static int bonusParsing(final String l, final int level, int num)
 	{
 		// should be in format levelnum,rangenum
-		final String l = i.next().toString();
 		final StringTokenizer aTok = new StringTokenizer(l, "|", false);
 		final int startLevel = Integer.parseInt(aTok.nextToken());
 		final int rangeLevel = Integer.parseInt(aTok.nextToken());

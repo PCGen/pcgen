@@ -42,7 +42,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  *
  * @author  Andrew Wilson <nuance@sourceforge.net>
  */
-public class AbilityInfo extends Object implements Comparable, Categorisable
+public class AbilityInfo implements Comparable<Object>, Categorisable
 {
 	protected String    keyName;
 	protected String    category;

@@ -1551,14 +1551,14 @@ final class EqBuilder extends JPanel
 	{
 		boolean bRebuild = false;
 		final int idx = bPrimary ? 0 : 1;
-		ArrayList newTypes = null;
-		List oldTypes = newTypeList[idx];
+		ArrayList<String> newTypes = null;
+		List<String> oldTypes = newTypeList[idx];
 
 		final EquipmentModifier aEqMod = aNewEq.getEqModifierKeyed("ADDTYPE", bPrimary);
 
 		if (aEqMod != null)
 		{
-			newTypes = new ArrayList();
+			newTypes = new ArrayList<String>();
 			aEqMod.addAssociatedTo(newTypes);
 		}
 

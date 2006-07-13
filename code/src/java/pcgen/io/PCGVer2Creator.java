@@ -2054,9 +2054,8 @@ final class PCGVer2Creator implements IOConstants
 		{
 			for ( CharacterSpell cSpell : pcClass.getSpellSupport().getCharacterSpell(null, "", -1) )
 			{
-				for (Iterator<SpellInfo> it3 = cSpell.getInfoListIterator(); it3.hasNext();)
+				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
-					final SpellInfo spellInfo = it3.next();
 					final String spellKey = cSpell.getOwner().getSpellKey();
 
 					if (spellInfo.getBook().equals(Globals.getDefaultSpellBook())

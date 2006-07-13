@@ -53,7 +53,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class PObject extends PrereqObject implements Cloneable, Serializable, Comparable,
+public class PObject extends PrereqObject implements Cloneable, Serializable, Comparable<Object>,
 	SourcedObject, KeyedListContainer, KeyedObject
 {
 	/** Standard serialVersionUID for Serializable objects */
@@ -206,7 +206,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		if (expand)
 		{
 			int count = 0;
-			for ( AssociatedChoice choice : associatedList )
+			for ( AssociatedChoice<String> choice : associatedList )
 			{
 				count += choice.size();
 			}
@@ -1546,15 +1546,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		if (associatedList != null)
 		{
-			retVal.associatedList = (ArrayList<AssociatedChoice<String>>) associatedList.clone();
+			retVal.associatedList = new ArrayList<AssociatedChoice<String>>(associatedList);
 		}
 
 		if (bonusList != null)
 		{
 			retVal.bonusList = new ArrayList<BonusObj>();
-			for (Iterator iter = bonusList.iterator(); iter.hasNext();)
+			for (BonusObj orig : bonusList)
 			{
-				BonusObj orig = (BonusObj) iter.next();
 				retVal.bonusList.add((BonusObj)orig.clone());
 
 			}
@@ -1564,9 +1563,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		if (drList != null)
 		{
 			retVal.drList = new ArrayList<DamageReduction>();
-			for (Iterator iter = drList.iterator(); iter.hasNext();)
+			for (DamageReduction orig : drList)
 			{
-				DamageReduction orig = (DamageReduction) iter.next();
 				retVal.drList.add(orig.clone());
 
 			}
@@ -1914,7 +1912,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Get the map of sources
 	 * @return the map of sources
 	 */
-	public final Map getSourceMap()
+	public final Map<String, String> getSourceMap()
 	{
 		return sourceMap;
 	}
@@ -2485,14 +2483,12 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				PCClass aClass = aPC.getClassKeyed(arg.substring(6));
 				if (aClass != null)
 				{
-					for (Iterator iter = aPC.getLevelInfo().iterator(); iter.hasNext();)
+					for (PCLevelInfo element : aPC.getLevelInfo())
 					{
-						final PCLevelInfo element = (PCLevelInfo) iter.next();
 						if (element.getClassKeyName().equalsIgnoreCase(aClass.getKeyName()))
 						{
-							for (Iterator fi = element.getObjects().iterator(); fi.hasNext();)
+							for (Ability aFeat : (List<Ability>)element.getObjects())
 							{
-								Ability aFeat = (Ability)fi.next();
 								if (!theFeatList.contains(aFeat))
 									theFeatList.add(aFeat);
 							}
@@ -2599,13 +2595,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Add the select armor proficiencies to the list
 	 * @param aList
 	 */
-	public final void addSelectedArmorProfs(final List aList)
+	public final void addSelectedArmorProfs(final List<String> aList)
 	{
 		//This can't do a direct addAll on listChar because this does duplication removal
-		for (Iterator i = aList.iterator(); i.hasNext();)
+		for (String aString : aList)
 		{
-			final String aString = (String) i.next();
-
 			if (!containsInList(ListKey.SELECTED_ARMOR_PROF, aString))
 			{
 				listChar.addToListFor(ListKey.SELECTED_ARMOR_PROF, aString);
@@ -2617,11 +2611,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Add the selected shield proficiencies to the list
 	 * @param aList
 	 */
-	public final void addSelectedShieldProfs(final List aList)
+	public final void addSelectedShieldProfs(final List<String> aList)
 	{
-		for (Iterator i = aList.iterator(); i.hasNext();)
+		for (String aString : aList)
 		{
-			final String aString = (String) i.next();
 			if (!containsInList(ListKey.SELECTED_SHIELD_PROFS, aString))
 			{
 				listChar.addToListFor(ListKey.SELECTED_SHIELD_PROFS, aString);
@@ -2644,17 +2637,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final void clearAutoListForTag(String tag)
 	{
-		List autoList = getListFor(ListKey.AUTO_ARRAY);
+		List<String> autoList = getListFor(ListKey.AUTO_ARRAY);
 		if (autoList == null)
 		{
 			return;
 		}
-		for (Iterator iter = autoList.iterator(); iter.hasNext();)
+		for (String element : autoList)
 		{
-			String element = (String) iter.next();
 			if (element.startsWith(tag))
 			{
-				iter.remove();
+				autoList.remove(element);
 			}
 		}
 	}
@@ -2688,14 +2680,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public int getStatMod(final int statIdx, final PlayerCharacter aPC)
 	{
-		final List statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 
 		if ((statIdx < 0) || (statIdx >= statList.size()))
 		{
 			return 0;
 		}
 
-		final String aStat = ((PCStat) statList.get(statIdx)).getAbb();
+		final String aStat = statList.get(statIdx).getAbb();
 
 		return (int) bonusTo("STAT", aStat, aPC, aPC);
 	}
@@ -2783,9 +2775,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		// If anObj is null, use this objects tempBonusList
 		if (anObj == null)
 		{
-			for (Iterator aB = getTempBonusList().iterator(); aB.hasNext();)
+			for (BonusObj aBonus : getTempBonusList())
 			{
-				final BonusObj aBonus = (BonusObj) aB.next();
 				final Object abT = aBonus.getTargetObject();
 
 				if (abT instanceof PlayerCharacter)
@@ -2803,9 +2794,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 
 		// else use the anObj's tempBonusList
-		for (Iterator aB = anObj.getTempBonusList().iterator(); aB.hasNext();)
+		for (BonusObj aBonus : anObj.getTempBonusList())
 		{
-			final BonusObj aBonus = (BonusObj) aB.next();
 			final Object abT = aBonus.getTargetObject();
 
 			if (abT instanceof Equipment)
@@ -2940,7 +2930,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	protected String getPCCText(final boolean saveName)
 	{
-		Iterator e;
+//		Iterator e;
 		String aString;
 		final StringBuffer txt = new StringBuffer(200);
 
@@ -2977,27 +2967,26 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append("\tKEY:").append(getKeyName());
 //		}
 
-		for (e = getSafeListFor(ListKey.AUTO_ARRAY).iterator(); e.hasNext();)
+		for (String s : getSafeListFor(ListKey.AUTO_ARRAY))
 		{
-			txt.append("\tAUTO:").append(e.next().toString());
+			txt.append("\tAUTO:").append(s);
 		}
 
 		if (!(this instanceof PCClass) && (getBonusList().size() != 0))
 		{
-			for (e = getBonusList().iterator(); e.hasNext();)
+			for (BonusObj bonusobj : getBonusList())
 			{
-				BonusObj bonusobj = (BonusObj) e.next();
 				txt.append("\tBONUS:").append(bonusobj.getPCCText()); //This formats the bonus items in the proper .lst manner
 			}
 		}
 
-		List ccSkillList = getCcSkillList();
+		List<String> ccSkillList = getCcSkillList();
 		if ((ccSkillList != null) && (ccSkillList.size() != 0))
 		{
 			txt.append("\tCCSKILL:").append(CoreUtility.join(ccSkillList, "|"));
 		}
 
-		List cSkillList = getCSkillList();
+		List<String> cSkillList = getCSkillList();
 		if ((cSkillList != null) && (cSkillList.size() != 0))
 		{
 			txt.append("\tCSKILL:").append(CoreUtility.join(cSkillList, "|"));
@@ -3040,7 +3029,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 		}
 
-		final List langList = CoreUtility.toStringRepresentation(getSafeListFor(ListKey.AUTO_LANGUAGES));
+		final List<String> langList = CoreUtility.toStringRepresentation(getSafeListFor(ListKey.AUTO_LANGUAGES));
 
 		if (langList.size() != 0)
 		{
@@ -3074,12 +3063,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append(writer);
 		}
 
-		List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 		if (!(this instanceof PCClass) && (specialAbilityList != null) && (specialAbilityList.size() != 0))
 		{
-			for (e = specialAbilityList.iterator(); e.hasNext();)
+			for (SpecialAbility sa : specialAbilityList)
 			{
-				final SpecialAbility sa = (SpecialAbility) e.next();
 				txt.append("\tSA:").append(sa.toString());
 			}
 		}
@@ -3093,13 +3081,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		if (!(this instanceof PCClass))
 		{
-			List spellList = getSpellList();
-			if (spellList != null)
+			for (PCSpell s : getSpellList())
 			{
-				for (Iterator it = spellList.iterator(); it.hasNext();)
-				{
-					txt.append("\tSPELLS:").append(((PCSpell) it.next()).getPCCText());
-				}
+				txt.append("\tSPELLS:").append(s.getPCCText());
 			}
 		}
 
@@ -3113,9 +3097,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			final StringBuffer sb = new StringBuffer();
 
-			for (e = vision.keySet().iterator(); e.hasNext();)
+			for (String key : vision.keySet())
 			{
-				final String key = (String) e.next();
 				final String val = vision.get(key);
 
 				if ((val.length() > 0) && !"0".equals(val))
@@ -3154,13 +3137,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append("\tREGION:").append(regionString.substring(2));
 		}
 
-		for (Iterator it = getSafeListFor(ListKey.KITS).iterator(); it.hasNext();)
+		for (String s : getSafeListFor(ListKey.KITS))
 		{
-			aString = (String) it.next();
-
-			if (aString.startsWith("0|"))
+			if (s.startsWith("0|"))
 			{
-				txt.append("\tKIT:").append(aString.substring(2));
+				txt.append("\tKIT:").append(s.substring(2));
 			}
 		}
 
@@ -3278,7 +3259,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	protected void globalChecks(final boolean flag, final PlayerCharacter aPC)
 	{
 		aPC.setArmorProfListStable(false);
-		List l = getSafeListFor(ListKey.KITS);
+		List<String> l = getSafeListFor(ListKey.KITS);
 		for (int i = 0; i > l.size(); i++)
 		{
 			KitUtilities.makeKitSelections(0, (String) l.get(i), i, aPC);
@@ -3311,12 +3292,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return;
 		}
 
-		LevelAbility ability;
-
-		for (Iterator e = levelAbilityList.iterator(); e.hasNext();)
+		for (LevelAbility ability : levelAbilityList)
 		{
-			ability = (LevelAbility) e.next();
-
 			if (ability.level() == aLevel)
 			{
 				ability.subForLevel(aPC);
@@ -3519,7 +3496,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			aString.append(String.valueOf(b));
 		}
 
-		List umultList = getListFor(ListKey.UMULT);
+		List<String> umultList = getListFor(ListKey.UMULT);
 		if (includeCrit && (umultList != null) && !umultList.isEmpty())
 		{
 			final String dString = umultList.get(0).toString();
@@ -3617,9 +3594,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 						{
 							xList = new ArrayList<String>();
 
-							for (Iterator e = bList.iterator(); e.hasNext();)
+							for (Object obj : bList)
 							{
-								final Object obj = e.next();
 								final String wprof;
 
 								if (obj instanceof Equipment)
@@ -3650,9 +3626,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 								final String wprof = e.next();
 								boolean contains = false;
 
-								for (Iterator f = bList.iterator(); f.hasNext();)
+								for (Object obj : bList)
 								{
-									final Object obj = f.next();
 									final String wprof2;
 
 									if (obj instanceof Equipment)
@@ -3750,7 +3725,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	final boolean hasCcSkill(final String aName)
 	{
-		List ccSkillList = getCcSkillList();
+		List<String> ccSkillList = getCcSkillList();
 		if ((ccSkillList == null) || ccSkillList.isEmpty())
 		{
 			return false;
@@ -3761,12 +3736,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return true;
 		}
 
-		String aString;
-
-		for (Iterator e = getCcSkillList().iterator(); e.hasNext();)
+		for (String aString : getCcSkillList())
 		{
-			aString = (String) e.next();
-
 			if (aString.lastIndexOf('%') >= 0)
 			{
 				aString = aString.substring(0, aString.length() - 1);
@@ -3783,7 +3754,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	final boolean hasCSkill(final String aName)
 	{
-		List cSkillList = getCSkillList();
+		List<String> cSkillList = getCSkillList();
 		if ((cSkillList == null) || cSkillList.isEmpty())
 		{
 			return false;
@@ -3809,12 +3780,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 		}
 
-		String aString;
-
-		for (Iterator e = cSkillList.iterator(); e.hasNext();)
+		for (String aString : cSkillList)
 		{
-			aString = (String) e.next();
-
 			if (aString.lastIndexOf('%') >= 0)
 			{
 				aString = aString.substring(0, aString.length() - 1);
@@ -4006,9 +3973,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		if (getBonusList() != null)
 		{
 			int count = 0;
-			for (Iterator iter = getBonusList().iterator(); iter.hasNext();)
+			for (BonusObj listBonus : getBonusList())
 			{
-				BonusObj listBonus = (BonusObj) iter.next();
 				if (listBonus.getCreatorObject().equals(this)
 					&& listBonus.toString().equals(bonusStrRep))
 				{

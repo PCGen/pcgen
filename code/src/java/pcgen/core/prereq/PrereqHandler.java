@@ -34,7 +34,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -81,9 +80,8 @@ public class PrereqHandler {
 			}
 		}
 
-		for (Iterator iter = prereqList.iterator(); iter.hasNext();)
+		for (Object object : prereqList)
 		{
-			final Object object = iter.next();
 			Prerequisite prereq;
 
 			if (object instanceof String)
@@ -116,15 +114,14 @@ public class PrereqHandler {
 		return true;
 	}
 
-	public static boolean passesAll(final List prereqList, final Equipment equip, PlayerCharacter currentPC)
+	public static boolean passesAll(final List<?> prereqList, final Equipment equip, PlayerCharacter currentPC)
 	{
 		if (prereqList == null)
 		{
 			return true;
 		}
-		for (Iterator iter = prereqList.iterator(); iter.hasNext();)
+		for (Object object : prereqList)
 		{
-			final Object object = iter.next();
 			Prerequisite prereq;
 
 			if (object instanceof String)
@@ -262,7 +259,7 @@ public class PrereqHandler {
 		return total>0;
 	}
 
-	public static final String toHtmlString(final List anArrayList)
+	public static final String toHtmlString(final List<Prerequisite> anArrayList)
 	{
 		if (anArrayList==null || anArrayList.isEmpty())
 		{
@@ -278,9 +275,8 @@ public class PrereqHandler {
 
 			String delimiter = ""; //$NON-NLS-1$
 
-			for (Iterator e = anArrayList.iterator(); e.hasNext();)
+			for (Object obj : anArrayList)
 			{
-				final Object obj = e.next();
 				final Prerequisite prereq;
 				if (obj instanceof String)
 					prereq = pfactory.parse( (String) obj );

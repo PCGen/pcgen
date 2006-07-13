@@ -43,7 +43,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * @author   Greg Bingleman <byngl@hotmail.com>
  * @version  $Revision$
  */
-public final class Kit extends PObject implements Comparable
+public final class Kit extends PObject implements Comparable<Object>
 {
 	private static final int VISIBLE_NO        = 0;
 	private static final int VISIBLE_YES       = 1;

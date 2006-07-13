@@ -31,7 +31,7 @@ import java.util.StringTokenizer;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public abstract class TextProperty extends PObject implements Serializable, Comparable
+public abstract class TextProperty extends PObject implements Serializable, Comparable<Object>
 {
 	protected String propDesc = "";
 

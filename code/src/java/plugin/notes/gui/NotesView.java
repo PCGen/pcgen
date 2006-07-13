@@ -162,7 +162,7 @@ public class NotesView extends JPanel
 		initEditingComponents();
 		initDnDComponents();
 		initTree();
-		initFileBar(new ArrayList());
+		initFileBar(new ArrayList<File>());
 		initLogging();
 	}
 
@@ -1452,7 +1452,7 @@ public class NotesView extends JPanel
 		enumButton.setText("");
 		bulletButton.setText("");
 
-		Vector fontVector = new Vector();
+		Vector<String> fontVector = new Vector<String>();
 		fontVector.add("8");
 		fontVector.add("10");
 		fontVector.add("12");
@@ -1485,7 +1485,7 @@ public class NotesView extends JPanel
 		stdButton(pasteButton);
 	}
 
-	private void initFileBar(List files)
+	private void initFileBar(List<File> files)
 	{
 		filePane.removeAll();
 		filesBar.removeAll();
@@ -1496,9 +1496,9 @@ public class NotesView extends JPanel
 			filePane.add(fileRight);
 			filePane.add(filesBar);
 
-			for (int i = 0; i < files.size(); i++)
+			for (File f : files)
 			{
-				filesBar.add(new JIcon((File) files.get(i), plugin));
+				filesBar.add(new JIcon(f, plugin));
 			}
 		}
 

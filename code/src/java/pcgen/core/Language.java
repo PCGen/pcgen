@@ -32,7 +32,7 @@ package pcgen.core;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Language extends PObject implements Comparable
+public final class Language extends PObject implements Comparable<Object>
 {
 	/** Does this language indicate access to all languages. */
 	private boolean isAllLang = false;

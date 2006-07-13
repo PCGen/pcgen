@@ -27,7 +27,7 @@ package pcgen.core;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class WeaponProf extends PObject implements Comparable
+public final class WeaponProf extends PObject implements Comparable<Object>
 {
 	static final int HANDS_SIZEDEPENDENT = -1;
 	private int hands = 1;

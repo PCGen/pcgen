@@ -118,7 +118,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		thePObject = null;
 		weaponProfs = null;
 
-		ListKey weaponProfKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
+		ListKey<String> weaponProfKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
 
 		List<String> bonusList = null;
 		if (isRacial())

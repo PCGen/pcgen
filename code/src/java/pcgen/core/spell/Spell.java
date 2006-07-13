@@ -22,7 +22,25 @@
  */
 package pcgen.core.spell;
 
-import pcgen.core.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.core.Ability;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.PObject;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -33,9 +51,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
-
-import java.math.BigDecimal;
-import java.util.*;
 
 /**
  * <code>Spell</code> creates a new tabbed panel.
@@ -342,48 +357,27 @@ public final class Spell extends PObject
 
 		dc += (int) aPC.getTotalBonusTo("DC", "TYPE." + spellType);
 
-		Iterator<String> i = getSafeListFor(ListKey.TYPE).iterator();
-
 		if (spellType.equals("ALL"))
 		{
-			while (i.hasNext())
+			for (String aType : getSafeListFor(ListKey.TYPE))
 			{
-				final String aType = i.next();
 				dc += (int) aPC.getTotalBonusTo("DC", "TYPE." + aType);
 			}
 		}
 
-		i = school.iterator();
-
-		if (i != null)
+		for (String aType : school)
 		{
-			while (i.hasNext())
-			{
-				final String aType = i.next();
-				dc += (int) aPC.getTotalBonusTo("DC", "SCHOOL." + aType);
-			}
+			dc += (int) aPC.getTotalBonusTo("DC", "SCHOOL." + aType);
 		}
 
-		i = subschool.iterator();
-
-		if (i != null)
+		for (String aType : subschool)
 		{
-			while (i.hasNext())
-			{
-				final String aType = i.next();
-				dc += (int) aPC.getTotalBonusTo("DC", "SUBSCHOOL." + aType);
-			}
+			dc += (int) aPC.getTotalBonusTo("DC", "SUBSCHOOL." + aType);
 		}
 
-		i = descriptorList.iterator();
-
-		if (i != null)
+		for (String aType : descriptorList)
 		{
-			while (i.hasNext())
-			{
-				final String aType = i.next();
-				dc += (int) aPC.getTotalBonusTo("DC", "DESCRIPTOR." + aType);
-			}
+			dc += (int) aPC.getTotalBonusTo("DC", "DESCRIPTOR." + aType);
 		}
 
 		aPC.setSpellLevelTemp(0); // reset
@@ -504,7 +498,7 @@ public final class Spell extends PObject
 
 		if (levelInfo != null)
 		{
-			wLevelInfo = (Map<String, Integer>) levelInfo.clone();
+			wLevelInfo = new HashMap<String, Integer>(levelInfo);
 		}
 
 		if (aPC != null)
@@ -917,7 +911,7 @@ public final class Spell extends PObject
 
 			if (levelInfo != null)
 			{
-				aSpell.levelInfo = (HashMap<String, Integer>) levelInfo.clone();
+				aSpell.levelInfo = new HashMap<String, Integer>(levelInfo);
 			}
 		}
 		catch (CloneNotSupportedException exc)
@@ -943,9 +937,8 @@ public final class Spell extends PObject
 		if (levelInfo == null)
 			return "";
 		StringBuffer s = new StringBuffer();
-		for (Iterator i = levelInfo.keySet().iterator(); i.hasNext();)
+		for (String key : levelInfo.keySet())
 		{
-			String key = (String) i.next();
 			String val = levelInfo.get(key).toString();
 			StringTokenizer aTok = new StringTokenizer(key, "|", false);
 			aTok.nextToken();
@@ -966,11 +959,10 @@ public final class Spell extends PObject
 	 */
 	public boolean isLevel(final int aLevel, final PlayerCharacter aPC)
 	{
-		final Map wLevelInfo = getLevelInfo(aPC);
+		final Map<String, Integer> wLevelInfo = getLevelInfo(aPC);
 		final Integer levelKey = new Integer(aLevel);
-		for (Iterator i = wLevelInfo.keySet().iterator(); i.hasNext();)
+		for (String key : wLevelInfo.keySet())
 		{
-			final String key = (String)i.next();
 			if (wLevelInfo.get(key).equals(levelKey))
 				return true;
 		}
@@ -980,7 +972,7 @@ public final class Spell extends PObject
 	public int levelForKey(final String mType, final String sType, final PlayerCharacter aPC)
 	{
 		int result = -1;
-		final Map wLevelInfo = getLevelInfo(aPC);
+		final Map<String, Integer> wLevelInfo = getLevelInfo(aPC);
 
 		if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
 		{
@@ -1118,9 +1110,9 @@ public final class Spell extends PObject
 
 	private void appendPCCText(final StringBuffer sb, final Set<String> ts, final String tag)
 	{
-		for (Iterator<String> e = ts.iterator(); e.hasNext();)
+		for (String s : ts)
 		{
-			sb.append('\t').append(tag).append(':').append(e.next());
+			sb.append('\t').append(tag).append(':').append(s);
 		}
 	}
 }

@@ -142,8 +142,8 @@ public class FollowerTypeToken extends Token
 	 */
 	private List getFollowersOfType(PlayerCharacter pc, String typeString)
 	{
-		List aList = new ArrayList();
-		final List followers = pc.getFollowerList();
+		List<Follower> aList = new ArrayList<Follower>();
+		final List<Follower> followers = pc.getFollowerList();
 		for (int i = followers.size() - 1; i >= 0; --i)
 		{
 			final Follower fol = (Follower) followers.get(i);

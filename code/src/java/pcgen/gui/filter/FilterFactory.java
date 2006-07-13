@@ -206,12 +206,12 @@ public final class FilterFactory implements FilterConstants
 				equipmentFilters.add(FilterFactory.createTypeFilter((String) it.next()));
 			}
 
-			for (Iterator it = Globals.getWeaponTypesIterator(); it.hasNext();)
+			for (String s : Globals.getWeaponTypeList())
 			{
 				// weapon types come in pairs:
 				// first UPPERCASE only, than Capitalized
 				// so only register the Capitalized one
-				equipmentFilters.add(FilterFactory.createWeaponFilter((String) it.next()));
+				equipmentFilters.add(FilterFactory.createWeaponFilter(s));
 			}
 
 			equipmentFilters.add(FilterFactory.createPCSizeFilter());

@@ -24,13 +24,13 @@
  */
 package pcgen.core.character;
 
+import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.spell.Spell;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,9 +39,9 @@ import java.util.List;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class CharacterSpell implements Comparable
+public final class CharacterSpell implements Comparable<Object>
 {
-	private final List infoList = new ArrayList();
+	private final List<SpellInfo> infoList = new ArrayList<SpellInfo>();
 	private final PObject owner; // PCClass/Race/etc. in whose list this object resides
 	private final Spell spell;
 
@@ -83,12 +83,9 @@ public final class CharacterSpell implements Comparable
 		}
 
 		int i = 0;
-		final Iterator x = infoList.iterator();
 
-		while (x.hasNext())
+		for  (SpellInfo s : infoList)
 		{
-			final SpellInfo s = (SpellInfo) x.next();
-
 			if (("".equals(bookName) || bookName.equals(s.getBook()))
 				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp))
 			{
@@ -102,13 +99,14 @@ public final class CharacterSpell implements Comparable
 	}
 
 	/**
-	 * Get info list iterator
-	 * @return info list iterator
+	 * Get info list
+	 * @return info list
 	 */
-	public Iterator getInfoListIterator()
+	public List<SpellInfo> getInfoList()
 	{
-		return infoList.iterator();
+		return infoList;
 	}
+
 
 	/**
 	 * Get Owner
@@ -177,7 +175,7 @@ public final class CharacterSpell implements Comparable
 	 * @param featList
 	 * @return Spell Info
 	 */
-	public SpellInfo getSpellInfoFor(final String bookName, final int level, final int specialty, final List featList)
+	public SpellInfo getSpellInfoFor(final String bookName, final int level, final int specialty, final List<Ability> featList)
 	{
 		if (infoList.isEmpty())
 		{
@@ -191,12 +189,8 @@ public final class CharacterSpell implements Comparable
 			sp = isSpecialtySpell();
 		}
 
-		final Iterator x = infoList.iterator();
-
-		while (x.hasNext())
+		for (SpellInfo s : infoList)
 		{
-			final SpellInfo s = (SpellInfo) x.next();
-
 			if (("".equals(bookName) || bookName.equals(s.getBook()))
 				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp)
 				&& (featList == null
@@ -233,7 +227,7 @@ public final class CharacterSpell implements Comparable
 	 * @return SpellInfo
 	 */
 	public SpellInfo addInfo(final int level, final int times,
-			final String book, final List featList)
+			final String book, final List<Ability> featList)
 	{
 		final SpellInfo si = new SpellInfo(this, level, times, book);
 

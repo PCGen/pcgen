@@ -171,7 +171,7 @@ public class NoteToken extends Token
 			}
 			catch (NumberFormatException e)
 			{
-				resultList = (ArrayList<NoteItem>) noteList.clone();
+				resultList = new ArrayList<NoteItem>(noteList);
 
 				for (int i = resultList.size() - 1; i >= 0; --i)
 				{

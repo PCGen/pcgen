@@ -27,7 +27,7 @@ package pcgen.core.money;
  * @author  Brad Stiles (brasstilde@yahoo.com)
  * @version    $Revision$
  */
-public final class Denomination implements Comparable
+public final class Denomination implements Comparable<Object>
 {
 	protected String abbr;
 	protected String name;

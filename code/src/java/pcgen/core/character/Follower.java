@@ -36,7 +36,7 @@ import pcgen.core.utils.ShowMessageDelegate;
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  **/
-public final class Follower implements Comparable, Cloneable
+public final class Follower implements Comparable<Object>, Cloneable
 {
 	/*
 	 *

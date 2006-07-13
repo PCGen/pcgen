@@ -88,7 +88,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	protected transient Object userObject;
 
 	/** array of children, may be null if this node has no children. */
-	protected Vector children;
+	protected Vector<MutableTreeNode> children;
 
 	/** true if the node is able to have children. */
 	protected boolean allowsChildren = true;
@@ -213,8 +213,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return A List of File objects
 	 */
-	public List getFiles() {
-		ArrayList list = new ArrayList();
+	public List<File> getFiles() {
+		ArrayList<File> list = new ArrayList<File>();
 		File[] aChildren = dir.listFiles();
 
 		for (int i = 0; i < aChildren.length; i++) {
@@ -766,7 +766,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 		child.setParent(this);
 
 		if (children == null) {
-			children = new Vector();
+			children = new Vector<MutableTreeNode>();
 		}
 
 		children.insertElementAt(child, index);
@@ -790,8 +790,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 		// Sometimes duplicating nodes.
 		if (hasBeenPopulated) {
 			Enumeration childNodes = children();
-			List childDirs = Arrays.asList(dir.listFiles());
-			List removeDirs = new ArrayList();
+			List<File> childDirs = Arrays.asList(dir.listFiles());
+			List<File> removeDirs = new ArrayList<File>();
 
 			for (; childNodes.hasMoreElements();) {
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();

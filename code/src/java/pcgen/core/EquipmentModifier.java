@@ -47,7 +47,7 @@ import java.util.*;
  * @author   Greg Bingleman <byngl@hotmail.com>
  * @version  $Revision$
  */
-public final class EquipmentModifier extends PObject implements Comparable
+public final class EquipmentModifier extends PObject implements Comparable<Object>
 {
 	/** Value to indicate the modifier should not be visible. */
 	protected static final int VISIBLE_NO        = 0;
@@ -814,11 +814,11 @@ public final class EquipmentModifier extends PObject implements Comparable
 		try
 		{
 			aObj                     = (EquipmentModifier) super.clone();
-			aObj.itemType            = (List<String>) ((ArrayList) itemType).clone();
-			aObj.specialPropertyList = (List<SpecialProperty>) ((ArrayList) specialPropertyList).clone();
-			aObj.replaces            = (List<String>) ((ArrayList) replaces).clone();
-			aObj.ignores             = (List<String>) ((ArrayList) ignores).clone();
-			aObj.armorType           = (List<String>) ((ArrayList) armorType).clone();
+			aObj.itemType            = new ArrayList<String>(itemType);
+			aObj.specialPropertyList = new ArrayList<SpecialProperty>(specialPropertyList);
+			aObj.replaces            = new ArrayList<String>(replaces);
+			aObj.ignores             = new ArrayList<String>(ignores);
+			aObj.armorType           = new ArrayList<String>(armorType);
 			aObj.cost                = cost;
 			aObj.preCost             = preCost;
 			aObj.proficiency         = proficiency;

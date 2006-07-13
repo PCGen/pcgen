@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
@@ -46,7 +45,6 @@ import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.EmptyIterator;
 import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
@@ -69,7 +67,7 @@ import pcgen.util.PropertyFactory;
  * @author 2001
  * @version $Revision$
  */
-public final class Equipment extends PObject implements Serializable, EquipmentCollection, Comparable, VariableContainer
+public final class Equipment extends PObject implements Serializable, EquipmentCollection, Comparable<Object>, VariableContainer
 {
 	private static final long serialVersionUID = 1;
 
@@ -996,32 +994,6 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	// ---------------------------
 
 	/**
-	 * Return an iterator through the eqModifierList attribute of the Equipment object
-	 *
-	 * @param bPrimary Description of the Parameter
-	 * @return     An iterator through EquipmentMod objects
-	 */
-	public Iterator<EquipmentModifier> getEqModifierIterator(final boolean bPrimary)
-	{
-		if (bPrimary)
-		{
-			if (eqModifierList == null)
-			{
-				return EmptyIterator.emptyIterator();
-			}
-
-			return eqModifierList.iterator();
-		}
-
-		if (altEqModifierList == null)
-		{
-			return EmptyIterator.emptyIterator();
-		}
-
-		return altEqModifierList.iterator();
-	}
-
-	/**
 	 * Gets the eqModifierKeyed attribute of the Equipment object
 	 *
 	 * @param eqModKey Description of the Parameter
@@ -1164,9 +1136,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			t = "";
 		}
 
-		for (Iterator mI = getActiveBonuses(aPC).iterator(); mI.hasNext();)
+		for (BonusObj aBonus : getActiveBonuses(aPC))
 		{
-			final BonusObj aBonus = (BonusObj) mI.next();
 			final String eqBonus = aBonus.toString();
 
 			if ((eqBonus.length() > 0) && !eqBonus.startsWith("EQM"))
@@ -1253,9 +1224,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		if (baseEquipment != null)
 		{
-			for (Iterator<EquipmentModifier> e = baseEquipment.getEqModifierList(true).iterator(); e.hasNext();)
+			for (EquipmentModifier eqMod : baseEquipment.getEqModifierList(true))
 			{
-				final int idx = modList.indexOf(e.next());
+				final int idx = modList.indexOf(eqMod);
 
 				if (idx >= 0)
 				{
@@ -1263,9 +1234,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 				}
 			}
 
-			for (Iterator<EquipmentModifier> e = baseEquipment.getEqModifierList(false).iterator(); e.hasNext();)
+			for (EquipmentModifier eqMod : baseEquipment.getEqModifierList(false))
 			{
-				final int idx = altModList.indexOf(e.next());
+				final int idx = altModList.indexOf(eqMod);
 
 				if (idx >= 0)
 				{
@@ -1539,9 +1510,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public int getMaxCharges()
 	{
-		for (Iterator e = getEqModifierIterator(true); e.hasNext();)
+		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
-			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 			final int maxCharges = eqMod.getMaxCharges();
 
 			if (maxCharges > 0)
@@ -1599,9 +1569,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public int getMinCharges()
 	{
-		for (Iterator e = getEqModifierIterator(true); e.hasNext();)
+		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
-			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
 			final int minCharges = eqMod.getMinCharges();
 
 			if (minCharges > 0)
@@ -2146,10 +2115,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public void setRemainingCharges(final int remainingCharges)
 	{
-		for (Iterator e = getEqModifierIterator(true); e.hasNext();)
+		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
-			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
-
 			if (eqMod.getMinCharges() > 0)
 			{
 				eqMod.setRemainingCharges(remainingCharges);
@@ -2163,10 +2130,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public int getRemainingCharges()
 	{
-		for (Iterator e = getEqModifierIterator(true); e.hasNext();)
+		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
-			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
-
 			if (eqMod.getMinCharges() > 0)
 			{
 				return eqMod.getRemainingCharges();
@@ -2403,10 +2368,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public int getUsedCharges()
 	{
-		for (Iterator e = getEqModifierIterator(true); e.hasNext();)
+		for (EquipmentModifier eqMod : getEqModifierList(true))
 		{
-			final EquipmentModifier eqMod = (EquipmentModifier) e.next();
-
 			if (eqMod.getMinCharges() > 0)
 			{
 				return eqMod.getUsedCharges();
@@ -3051,10 +3014,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		// go through bonus hashmap and zero out all
 		// entries that deal with this bonus request
-		for (Iterator<String> e = getBonusMap().keySet().iterator(); e.hasNext();)
+		for (String aKey : getBonusMap().keySet())
 		{
-			final String aKey = e.next();
-
 			if (aKey.startsWith(aBonusKey))
 			{
 				putBonusMap(aKey, "0");
@@ -3071,10 +3032,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			// now do temp bonuses
 			final List<BonusObj> tbList = new ArrayList<BonusObj>();
 
-			for (Iterator<BonusObj> b = getTempBonusList().iterator(); b.hasNext();)
+			for (BonusObj aBonus : getTempBonusList())
 			{
-				final BonusObj aBonus = b.next();
-
 				if (!tbList.contains(aBonus))
 				{
 					tbList.add(aBonus);
@@ -3977,9 +3936,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 					if (getAcceptsTypeCount() > 0)
 					{
-						for (Iterator e = eq.d_acceptsTypes.keySet().iterator(); e.hasNext();)
+						for (String aString : eq.d_acceptsTypes.keySet())
 						{
-							final String aString = (String) e.next();
 							Float aWeight = eq.getAcceptsType(aString);
 
 							if (aWeight.intValue() != -1)
@@ -4278,14 +4236,14 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		final int typeSize = typeList.size();
 		final StringBuffer aType = new StringBuffer(typeSize * 5); //Just a guess.
 
-		for (Iterator e = typeList.iterator(); e.hasNext();)
+		for (String s : typeList)
 		{
 			if (aType.length() != 0)
 			{
 				aType.append('.');
 			}
 
-			aType.append(e.next());
+			aType.append(s);
 		}
 
 		return aType.toString();
@@ -4957,9 +4915,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		if (eqModList.size() != 0)
 		{
-			for (Iterator<EquipmentModifier> e = eqModList.iterator(); e.hasNext();)
+			for (EquipmentModifier aEqMod : eqModList)
 			{
-				final EquipmentModifier aEqMod = e.next();
 				vFeats.addAll(aEqMod.getVirtualFeatList());
 			}
 		}
@@ -5270,13 +5227,12 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		if ((getChildType("Total").floatValue() + aQuant.floatValue()) <= acceptsType.floatValue())
 		{
-			final Iterator<String> e = aTypeList.iterator();
-			String aString;
-
-			while (e.hasNext() && "".equals(canContain))
+			for (String aString : aTypeList)
 			{
-				aString = e.next();
-
+				if (!"".equals(canContain))
+				{
+					break;
+				}
 				if (acceptsType(aString))
 				{
 					if (containsChildType(aString)
@@ -5513,17 +5469,15 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		//
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
-		for (Iterator<EquipmentModifier> e = eqModList.iterator(); e.hasNext();)
+		for (EquipmentModifier eqMod : eqModList)
 		{
-			aEqMod = e.next();
-
-			if (!willIgnore(aEqMod.getKeyName(), bPrimary))
+			if (!willIgnore(eqMod.getKeyName(), bPrimary))
 			{
 				//
 				// If we've just replaced the armor type, then make sure it is
 				// not in the equipment modifier list
 				//
-				final String armorType = aEqMod.replaceArmorType(calculatedTypeList);
+				final String armorType = eqMod.replaceArmorType(calculatedTypeList);
 
 				if (armorType != null)
 				{
@@ -5535,11 +5489,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 					}
 				}
 
-				final List<String> eqModTypeList = aEqMod.getItemType();
+				final List<String> eqModTypeList = eqMod.getItemType();
 
-				for (Iterator<String> e2 = eqModTypeList.iterator(); e2.hasNext();)
+				for (String aType : eqModTypeList)
 				{
-					String aType = e2.next();
 					aType = aType.toUpperCase();
 
 					// If it's BOTH & MELEE, we cannot add RANGED or THROWN to it
@@ -5598,15 +5551,13 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		if (getAcceptsTypeCount() > 0)
 		{
-			for (Iterator e = d_acceptsTypes.keySet().iterator(); e.hasNext();)
+			for (String aString : d_acceptsTypes.keySet())
 			{
 				if (comma)
 				{
 					tempStringBuffer.append(", ");
 					comma = false;
 				}
-
-				final String aString = (String) e.next();
 
 				if (getAcceptsType(aString).intValue() != -1)
 				{
@@ -5908,8 +5859,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * @return quality
 	 */
 	public String getQuality(int num) {
-		for(Iterator i = qualityMap.keySet().iterator(); i.hasNext(); ) {
-			String key = i.next().toString();
+		for (String key :qualityMap.keySet()) {
 			num --;
 			if(num == 0) {
 				return key + ": " + qualityMap.get(key);
@@ -5922,7 +5872,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * Get quality map
 	 * @return quality map
 	 */
-	public Map getQualityMap() {
+	public Map<String, String> getQualityMap() {
 		return qualityMap;
 	}
 
@@ -5933,11 +5883,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	public String getQualityString() {
 		StringBuffer sb = new StringBuffer();
 		boolean firstTime = true;
-		for(Iterator i = qualityMap.keySet().iterator(); i.hasNext(); ) {
+		for(String key : qualityMap.keySet()) {
 			if(!firstTime) {
 				sb.append(", ");
 			}
-			String key = i.next().toString();
 			sb.append(key)
 				.append(": ")
 				.append(qualityMap.get(key));
@@ -6913,11 +6862,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			aType = aType.substring(0, aType.length() - numCharToRemove);
 		}
 
-		for (Iterator<Equipment> it = contents.iterator(); it.hasNext();)
+		for (Equipment eq : contents)
 		{
-			if (!it.next().isType(aType))
+			if (!eq.isType(aType))
 			{
-				it.remove();
+				contents.remove(eq);
 			}
 		}
 

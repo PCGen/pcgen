@@ -318,13 +318,13 @@ public final class Deity extends PObject
 
 		txt.append("\tALIGN:").append(getAlignment());
 
-		List pantheonList = getPantheonList();
+		List<String> pantheonList = getPantheonList();
 		if (pantheonList.size() != 0)
 		{
 			txt.append("\tPANTHEON:").append(CoreUtility.join(pantheonList, "|"));
 		}
 
-		List raceList = getRacePantheonList();
+		List<String> raceList = getRacePantheonList();
 		if (raceList.size() != 0)
 		{
 			txt.append("\tRACE:").append(CoreUtility.join(raceList, "|"));

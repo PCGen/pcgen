@@ -63,6 +63,15 @@ public class KitSpellBookEntry
 	}
 
 	/**
+	 * Get the class name
+	 * @return the spell book name
+	 */
+	public String getClassName()
+	{
+		return className;
+	}
+
+	/**
 	 * Get the spell book name
 	 * @return the spell book name
 	 */

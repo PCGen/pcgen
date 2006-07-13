@@ -20,7 +20,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.core.chooser.ChooserUtilities;
@@ -525,15 +524,14 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	@Override
 	protected List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC)
 	{
-		final List specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> specialAbilityList = getListFor(ListKey.SPECIAL_ABILITY);
 
 		if (specialAbilityList != null)
 		{
 			final StringBuffer sb = new StringBuffer();
 
-			for (Iterator it = specialAbilityList.iterator(); it.hasNext();)
+			for (SpecialAbility sa : specialAbilityList)
 			{
-				SpecialAbility sa = (SpecialAbility) it.next();
 				final String key = sa.getKeyName();
 				final int idx = key.indexOf("%CHOICE");
 

@@ -25,7 +25,6 @@ package pcgen.core.kit;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -54,10 +53,10 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	// Only change the UID when the serialized form of the class has also changed
 	private static final long serialVersionUID = 1;
 
-	private HashMap spellMap = new HashMap();
+	private HashMap<String, List<KitSpellBook>> spellMap = new HashMap<String, List<KitSpellBook>>();
 	private String countFormula = "";
 
-	private transient List theSpells = null;
+	private transient List<KitSpellBookEntry> theSpells = null;
 
 	/** Constructor */
 	public KitSpells()
@@ -87,10 +86,10 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	 * Get classes
 	 * @return a list of the classes
 	 */
-	public List getClasses()
+	public List<String> getClasses()
 	{
-		Set keySet = spellMap.keySet();
-		ArrayList ret = new ArrayList(keySet.size());
+		Set<String> keySet = spellMap.keySet();
+		ArrayList<String> ret = new ArrayList<String>(keySet.size());
 		ret.addAll(keySet);
 		return ret;
 	}
@@ -100,9 +99,9 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	 * @param className
 	 * @return the spell books
 	 */
-	public List getSpellBooks(final String className)
+	public List<KitSpellBook> getSpellBooks(final String className)
 	{
-		return (List)spellMap.get(className);
+		return spellMap.get(className);
 	}
 
 	/**
@@ -114,7 +113,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	 * @param countStr
 	 */
 	public void addSpell(final String aClass, final String aSpellBook,
-						 final String argSpell, final List metamagicFeats,
+						 final String argSpell, final List<String> metamagicFeats,
 						 final String countStr)
 	{
 		// Check to see if we have any spellbooks for this class.
@@ -123,14 +122,14 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		{
 			classKey = "Default";
 		}
-		List spellBooks = (List)spellMap.get(classKey);
+		List<KitSpellBook> spellBooks = spellMap.get(classKey);
 		KitSpellBook spellBook = null;
 		if (spellBooks == null)
 		{
 			// We don't have a spell book list for this class
 			// create an empty book and add it to the list
 			spellBook = new KitSpellBook(classKey, aSpellBook);
-			spellBooks = new ArrayList();
+			spellBooks = new ArrayList<KitSpellBook>();
 			spellBooks.add(spellBook);
 			// Associate the list with this class.
 			spellMap.put(classKey, spellBooks);
@@ -139,9 +138,8 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		{
 			// We already have some spell books for this class.
 			// Check to see if we have this one.
-			for (Iterator i = spellBooks.iterator(); i.hasNext(); )
+			for (KitSpellBook ksb : spellBooks)
 			{
-				KitSpellBook ksb = (KitSpellBook)i.next();
 				if (ksb.getName().equals(aSpellBook))
 				{
 					spellBook = ksb;
@@ -160,18 +158,16 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	public String toString()
 	{
 		final StringBuffer info = new StringBuffer();
-		final java.util.Set classes = spellMap.keySet();
-		for (Iterator i = classes.iterator(); i.hasNext(); )
+		final Set<String> classes = spellMap.keySet();
+		for (String className : classes)
 		{
-			final String className = (String)i.next();
 			if (!"Default".equals(className))
 			{
 				info.append(className);
 			}
-			List spellBooks = (List)spellMap.get(className);
-			for (Iterator j = spellBooks.iterator(); j.hasNext(); )
+			List<KitSpellBook> spellBooks = spellMap.get(className);
+			for (KitSpellBook ksb : spellBooks)
 			{
-				KitSpellBook ksb = (KitSpellBook)j.next();
 				info.append(" " + ksb);
 			}
 		}
@@ -183,9 +179,8 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	{
 		theSpells = null;
 
-		for (Iterator j = getClasses().iterator(); j.hasNext(); )
+		for (String className : getClasses())
 		{
-			String className = (String)j.next();
 			PCClass aClass = findDefaultSpellClass(className, aPC);
 			if (aClass == null)
 			{
@@ -193,11 +188,10 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 							+ " spellcasting class.");
 			   return false;
 			}
-			List spellBooks = getSpellBooks(className);
-			for (Iterator k = spellBooks.iterator(); k.hasNext(); )
+			List<KitSpellBook> spellBooks = getSpellBooks(className);
+			for (KitSpellBook sb : spellBooks)
 			{
-				KitSpellBook sb = (KitSpellBook)k.next();
-				List aSpellList = new ArrayList();
+				List<KitSpellBookEntry> aSpellList = new ArrayList<KitSpellBookEntry>();
 				final String bookName = sb.getName();
 				if (!aClass.getMemorizeSpells() &&
 					!bookName.equals(Globals.getDefaultSpellBook()))
@@ -207,26 +201,23 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 								 Globals.getDefaultSpellBook());
 					return false;
 				}
-				for (Iterator w = sb.getSpells().iterator(); w.hasNext(); )
+				for (List<KitSpellBookEntry> spells : sb.getSpells())
 				{
-					List spells = (List)w.next();
-					for (Iterator q = spells.iterator(); q.hasNext(); )
+					for (KitSpellBookEntry sbe : spells)
 					{
-						KitSpellBookEntry sbe = (KitSpellBookEntry) (q.next());
 						final String spellName = sbe.getName();
 
 						if (spellName.startsWith("LEVEL="))
 						{
-							List allSpells = Globals.getSpellsIn(
+							List<Spell> allSpells = Globals.getSpellsIn(
 								Integer.parseInt(spellName.substring(6)),
 								aClass.getKeyName(),
 								"");
-							for (Iterator s = allSpells.iterator();
-								 s.hasNext(); )
+							for (Spell s : allSpells)
 							{
 								aSpellList.add(new KitSpellBookEntry(aClass.
 									getKeyName(), sbe.getBookName(),
-									(String) s.next(), null));
+									s.toString(), null));
 							}
 						}
 						else
@@ -273,7 +264,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 					continue;
 				}
 
-				List xs;
+				List<KitSpellBookEntry> xs;
 
 				if (numberOfChoices == aSpellList.size())
 				{
@@ -289,7 +280,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 						xs = Globals.getChoiceFromList(
 								"Choose " + className + " spell(s) for " + bookName,
 								aSpellList,
-								new ArrayList(),
+								new ArrayList<KitSpellBookEntry>(),
 								numberOfChoices);
 
 						if (xs.size() != 0)
@@ -302,16 +293,14 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 				//
 				// Add to list of things to add to the character
 				//
-				for (Iterator e = xs.iterator(); e.hasNext();)
+				for (KitSpellBookEntry obj : xs)
 				{
-					final KitSpellBookEntry obj = (KitSpellBookEntry)e.next();
-
 					if (obj != null)
 					{
 						obj.setPCClass(aClass);
 						if (theSpells == null)
 						{
-							theSpells = new ArrayList();
+							theSpells = new ArrayList<KitSpellBookEntry>();
 						}
 						theSpells.add(obj);
 					}
@@ -334,9 +323,8 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 	public void apply(PlayerCharacter aPC)
 	{
-		for (Iterator i = theSpells.iterator(); i.hasNext(); )
+		for (KitSpellBookEntry sbe : theSpells)
 		{
-			KitSpellBookEntry sbe = (KitSpellBookEntry)i.next();
 			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass().getKeyName()));
 		}
 	}
@@ -353,10 +341,9 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 	{
 		if ("Default".equals(aClassName))
 		{
-			List spellcastingClasses = aPC.getSpellClassList();
-			for (Iterator i = spellcastingClasses.iterator(); i.hasNext(); )
+			List<? extends PObject> spellcastingClasses = aPC.getSpellClassList();
+			for (PObject obj : spellcastingClasses)
 			{
-				Object obj = i.next();
 				if (obj instanceof PCClass)
 				{
 					return (PCClass) obj;
@@ -385,12 +372,12 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		// Check to see if we have any domains that have this spell.
 
 		PObject owner = null;
-		List cdl = pc.getCharacterDomainList();
+		List<CharacterDomain> cdl = pc.getCharacterDomainList();
 		if (cdl != null)
 		{
-			for (Iterator i = cdl.iterator(); i.hasNext(); )
+			for (CharacterDomain cd : cdl)
 			{
-				Domain domain = ((CharacterDomain)i.next()).getDomain();
+				Domain domain = cd.getDomain();
 				final String key = domain.getSpellKey();
 				int newLevel = spell.getFirstLevelForKey(key, pc);
 				if (newLevel > 0 && newLevel < spLevel)
@@ -418,12 +405,11 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 
 
 		final CharacterSpell cs = new CharacterSpell(owner, spell);
-		final List modifierList = aSpell.getModifiers();
+		final List<String> modifierList = aSpell.getModifiers();
 		int adjustedLevel = spLevel;
-		List metamagicFeatList = new ArrayList();
-		for (Iterator i = modifierList.iterator(); i.hasNext(); )
+		List<Ability> metamagicFeatList = new ArrayList<Ability>();
+		for (String featName : modifierList)
 		{
-			final String featName = (String)i.next();
 			Ability anAbility = pc.getFeatNamed(featName);
 			if (anAbility != null)
 			{
