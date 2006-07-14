@@ -73,8 +73,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	// TODO Contains strings or FeatMultipleObjects
 	protected ArrayList<AssociatedChoice<String>> associatedList = null;
 
-	/** List of Bonuses for the object */
-	private ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 	/** List of Level Abilities for the object  */
 	private ArrayList<LevelAbility> levelAbilityList = null;
 
@@ -98,6 +96,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/** Map of the bonuses for the object  */
 	private HashMap<String, String> bonusMap = null;
+	/** List of Bonuses for the object */
+	private ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+
 	private HashMap<String, String> changeProfMap = new HashMap<String, String>();
 
 	private Movement movement;
@@ -120,6 +121,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
 
 	private String chooseLanguageAutos = "";
+
+	/** Number of followers of each type allowed */
+	private Map<String, List<String>> followerNumbers = new HashMap<String, List<String>>();
 
 	/* ************
 	 * Methods
@@ -1593,6 +1597,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				retVal.levelAbilityList.add(ab);
 			}
 		}
+		retVal.followerNumbers = new HashMap<String,List<String>>(followerNumbers);
 
 		return retVal;
 	}
@@ -1605,6 +1610,27 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return this.getKeyName().compareToIgnoreCase(((PObject) obj).getKeyName());
 		}
 		return 1;
+	}
+
+	public boolean equals( final Object obj )
+	{
+		if ( obj == null )
+		{
+			return false;
+		}
+		final String thisKey;
+		final String otherKey;
+		if ( obj instanceof PObject )
+		{
+			thisKey = getKeyName();
+			otherKey = ((PObject)obj).getKeyName();
+		}
+		else
+		{
+			thisKey = toString();
+			otherKey = obj.toString();
+		}
+		return thisKey.equalsIgnoreCase( otherKey );
 	}
 
 	/**
@@ -4593,6 +4619,34 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
+
+	/**
+	 * Adds a formula to use to calculate the maximum number of followers of a
+	 * given type for the character.
+	 * @param aType Name of the follower type e.g. Familiar
+	 * @param aFormula Formula, variable or number represent the max number
+	 */
+	public void setNumFollowers( final String aType, final String aFormula)
+	{
+		List<String> numFollowers = followerNumbers.get( aType );
+		if ( numFollowers == null )
+		{
+			numFollowers = new ArrayList<String>();
+			followerNumbers.put( aType.toUpperCase(), numFollowers );
+		}
+
+		numFollowers.add( aFormula );
+	}
+
+	public List<String> getNumFollowers( final String aType )
+	{
+		final List<String> formulas = followerNumbers.get( aType.toUpperCase() );
+		if ( formulas == null )
+		{
+			return null;
+		}
+		return Collections.unmodifiableList( formulas );
+	}
 
 //	public void addSpellLikeAbilities( final int aLevel, final List<SpellLikeAbility> aList )
 //	{

@@ -109,29 +109,30 @@ public final class Globals
 	private static CategorisableStore abilityStore = new CategorisableStore();
 
 	/** we need maps for efficient lookups */
-	private static Map<String, Campaign> campaignMap = new HashMap<String, Campaign>();
-	private static Map<String, Domain> domainMap = new TreeMap<String, Domain>();
-	private static SortedMap<String, Race> raceMap = new TreeMap<String, Race>();
-	private static Map<String, Object> spellMap = new TreeMap<String, Object>();
-	private static Map<String, String> eqSlotMap = new HashMap<String, String>();
-	private static Map<String, String> visionMap = new HashMap<String, String>();
+	private static Map<String, Campaign>        campaignMap     = new HashMap<String, Campaign>();
+	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
+	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
+	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
+	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
+	private static Map<String, String>        visionMap       = new HashMap<String, String>();
+	private static Map<String, List<CompanionMod>>  companionModMap = new TreeMap<String, List<CompanionMod>>();
 
 	/** We use lists for efficient iteration */
-	private static List<String> armorProfList = new ArrayList<String>();
-	private static List<Campaign> campaignList = new ArrayList<Campaign>(85);
-	private static List<PCClass> classList = new ArrayList<PCClass>(380);
-	private static List<CompanionMod> companionModList = new ArrayList<CompanionMod>();
-	private static List<Deity> deityList = new ArrayList<Deity>(275);
-	private static List<Domain> domainList = new ArrayList<Domain>(100);
-	private static List<Kit> kitList = new ArrayList<Kit>();
-	private static List<Language> languageList = new ArrayList<Language>(200);
+	private static List<String> armorProfList         = new ArrayList<String>();
+	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
+	private static List<PCClass> classList             = new ArrayList<PCClass>(380);
+//	private static List<CompanionMod> companionModList      = new ArrayList<CompanionMod>();
+	private static List<Deity> deityList             = new ArrayList<Deity>(275);
+	private static List<Domain> domainList            = new ArrayList<Domain>(100);
+	private static List<Kit> kitList               = new ArrayList<Kit>();
+	private static List<Language> languageList          = new ArrayList<Language>(200);
 
 	//any TYPE added to pcClassTypeList is assumed be pre-tokenized
-	private static List<String> pcClassTypeList = new ArrayList<String>();
-	private static List<Skill> skillList = new ArrayList<Skill>(400);
-	private static List<PCTemplate> templateList = new ArrayList<PCTemplate>(350);
-	private static DenominationList denomList = DenominationList.getInstance(); // derived from ArrayList
-	private static SortedSet<SpecialAbility> saSet = new TreeSet<SpecialAbility>();
+	private static List<String>             pcClassTypeList = new ArrayList<String>();
+	private static List<Skill>             skillList       = new ArrayList<Skill>(400);
+	private static List<PCTemplate>             templateList    = new ArrayList<PCTemplate>(350);
+	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
+	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
 
 	private static Map<String, Map<String, String>> sponsors = new HashMap<String, Map<String, String>>();
 	private static List<Map<String, String>> sponsorList = new ArrayList<Map<String, String>>();
@@ -471,6 +472,49 @@ public final class Globals
 		return getPObjectsOfType(getClassList(), aType);
 	}
 
+	public static void addCompanionMod( final CompanionMod aMod )
+	{
+		List<CompanionMod> mods = companionModMap.get( aMod.getType() );
+		if ( mods == null )
+		{
+			mods = new ArrayList<CompanionMod>();
+			companionModMap.put( aMod.getType(), mods );
+		}
+		mods.add( aMod );
+	}
+
+	public static void removeCompanionMod( final CompanionMod aMod )
+	{
+		final Collection<List<CompanionMod>> allMods = companionModMap.values();
+		for ( Iterator<List<CompanionMod>> i = allMods.iterator(); i.hasNext(); )
+		{
+			final List<CompanionMod> mods = i.next();
+			final boolean removed = mods.remove( aMod );
+			if ( removed )
+			{
+				if ( mods.size() == 0 )
+				{
+					i.remove();
+					return;
+				}
+			}
+		}
+	}
+
+	public static Collection<String> getFollowerTypes()
+	{
+		return Collections.unmodifiableSet( companionModMap.keySet() );
+	}
+
+	public static Collection<CompanionMod> getCompanionMods( final String aType )
+	{
+		final List<CompanionMod> cMods = companionModMap.get( aType );
+		if ( cMods == null )
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableList( companionModMap.get( aType ) );
+	}
 	/**
 	 * Get companion modifier
 	 * @param aString
@@ -486,7 +530,7 @@ public final class Globals
 		StringTokenizer aTok = new StringTokenizer(aString.substring(9), "=", false);
 		final String classes = aTok.nextToken();
 		final int level = Integer.parseInt(aTok.nextToken());
-		for ( CompanionMod cMod : getCompanionModList() )
+		for ( CompanionMod cMod : getAllCompanionMods() )
 		{
 			aTok = new StringTokenizer(classes, ",", false);
 
@@ -508,9 +552,15 @@ public final class Globals
 	 * Get companion mod list
 	 * @return companion mod list
 	 */
-	public static List<CompanionMod> getCompanionModList()
+	public static Collection<CompanionMod> getAllCompanionMods()
 	{
-		return companionModList;
+		final List<CompanionMod> ret = new ArrayList<CompanionMod>();
+		final Collection<List<CompanionMod>> values = companionModMap.values();
+		for ( List<CompanionMod> cMods : values )
+		{
+			ret.addAll( cMods );
+		}
+		return Collections.unmodifiableCollection( ret );
 	}
 
 	/**
@@ -2224,7 +2274,7 @@ public final class Globals
 		abilityStore = new CategorisableStore();
 		armorProfList = new ArrayList<String>();
 		classList = new ArrayList<PCClass>();
-		companionModList = new ArrayList<CompanionMod>();
+		companionModMap = new TreeMap<String, List<CompanionMod>>();
 		deityList = new ArrayList<Deity>();
 		domainList = new ArrayList<Domain>();
 		EquipmentList.clearEquipmentMap();

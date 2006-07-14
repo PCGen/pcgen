@@ -846,18 +846,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final String rType = aF.getType().toUpperCase();
 			final String rName = aF.getRace().toUpperCase();
 
-			for (Iterator<CompanionMod> cm = Globals.getCompanionModList().iterator(); cm.hasNext();)
+			for ( CompanionMod cm : Globals.getCompanionMods( rType ) )
 			{
-				final CompanionMod aComp = cm.next();
-				final String aType = aComp.getType().toUpperCase();
-				final int iRace = aComp.getLevel(rName);
+				final String aType = cm.getType().toUpperCase();
+				final int iRace = cm.getLevel(rName);
 
 				if (aType.equals(rType) && (iRace == 1))
 				{
 					// Found race and type of follower
 					// so add bonus to the master
-					companionModList.add(aComp);
-					aComp.activateBonuses(aPC);
+					companionModList.add(cm);
+					cm.activateBonuses(aPC);
 				}
 			}
 		}
@@ -1973,17 +1972,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final PCClass mClass = c.next();
 			boolean found = false;
 
-			for (Iterator<CompanionMod> cm = Globals.getCompanionModList().iterator(); cm.hasNext();)
+			for ( CompanionMod cMod : Globals.getCompanionMods( aM.getType() ) )
 			{
-				final CompanionMod aComp = cm.next();
-				final String aType = aComp.getType().toUpperCase();
-
-				if (!(aType.equalsIgnoreCase(aM.getType())))
-				{
-					continue;
-				}
-
-				if ((aComp.getLevel(mClass.getKeyName()) > 0) && !found)
+				if ((cMod.getLevel(mClass.getKeyName()) > 0) && !found)
 				{
 					mTotalLevel += mClass.getLevel();
 					found = true;
@@ -1994,23 +1985,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Clear the companionModList so we can add everything to it
 		companionModList.clear();
 
-		// New way of doing this. Through VARs on the Master
-		for (Iterator<CompanionMod> cm = Globals.getCompanionModList().iterator(); cm.hasNext();)
+		for ( CompanionMod cMod : Globals.getCompanionMods( aM.getType() ) )
 		{
-			final CompanionMod aComp = cm.next();
-			final String aType = aComp.getType().toUpperCase();
-
-			if (!(aType.equalsIgnoreCase(aM.getType())))
-			{
-				continue;
-			}
-
 			// Check all the masters classes
 			for (Iterator<PCClass> c = mPC.getClassList().iterator(); c.hasNext();)
 			{
 				final PCClass mClass = c.next();
 				final int mLev = mClass.getLevel();
-				final int compLev = aComp.getLevel(mClass.getKeyName());
+				final int compLev = cMod.getLevel(mClass.getKeyName());
 
 				if (compLev < 0)
 				{
@@ -2021,25 +2003,25 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// and for the correct level or lower
 				if ((compLev <= mLev) || (compLev <= mTotalLevel))
 				{
-					if ( PrereqHandler.passesAll( aComp.getPreReqList(), this, aComp ) )
+					if ( PrereqHandler.passesAll( cMod.getPreReqList(), this, cMod ) )
 //					if (!companionModList.contains(aComp))
 					{
-						companionModList.add(aComp);
-						addHD += aComp.getHitDie();
+						companionModList.add(cMod);
+						addHD += cMod.getHitDie();
 					}
 				}
 			}
-			for (Iterator<String> iType = aComp.getVarMap().keySet().iterator(); iType.hasNext();)
+			for (Iterator<String> iType = cMod.getVarMap().keySet().iterator(); iType.hasNext();)
 			{
 				final String varName = iType.next();
 
-				if (mPC.getVariableValue(varName, "").intValue() >= aComp.getLevel(varName))
+				if (mPC.getVariableValue(varName, "").intValue() >= cMod.getLevel(varName))
 				{
-					if ( PrereqHandler.passesAll( aComp.getPreReqList(), this, aComp ) )
+					if ( PrereqHandler.passesAll( cMod.getPreReqList(), this, cMod ) )
 //					if (!companionModList.contains(aComp))
 					{
-						companionModList.add(aComp);
-						addHD += aComp.getHitDie();
+						companionModList.add(cMod);
+						addHD += cMod.getHitDie();
 					}
 				}
 			}
@@ -2136,6 +2118,65 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 		setDirty(true);
+	}
+
+	public int getMaxFollowers( final String aType )
+	{
+		int ret = -1;
+
+		List<? extends PObject> pobjList = getPObjectList();
+		for ( PObject pobj : pobjList )
+		{
+			if ( pobj == null )
+			{
+				continue;
+			}
+
+			final List<String> formulas = pobj.getNumFollowers( aType );
+			if ( formulas == null )
+			{
+				continue;
+			}
+			for ( String formula : formulas )
+			{
+				final int val = this.getVariableValue( formula, "", this ).intValue();
+				ret = Math.max( ret, val );
+			}
+		}
+
+		if ( ret != -1 )
+		{
+			ret += this.getTotalBonusTo("FOLLOWERS", aType.toUpperCase());
+		}
+		else
+		{
+			// Old way of handling this
+			// If the character qualifies for any companion mod of this type
+			// they can take unlimited number of them.
+			for ( CompanionMod cMod : Globals.getCompanionMods( aType ) )
+			{
+				for ( String varName : cMod.getVarMap().keySet() )
+				{
+					if ( this.getVariableValue(varName, "").intValue() > 0 )
+					{
+						return -1;
+					}
+				}
+				for ( String key : cMod.getClassMap().keySet() )
+				{
+					for ( PCClass pcClass : getClassList() )
+					{
+						if ( pcClass.getKeyName().equals( key ) )
+						{
+							return -1;
+						}
+					}
+				}
+			}
+
+			return 0;
+		}
+		return ret;
 	}
 
 	/**

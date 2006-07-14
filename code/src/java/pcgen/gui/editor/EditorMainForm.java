@@ -2104,7 +2104,7 @@ public final class EditorMainForm extends JDialog
 				addVariables(availableList, Globals.getSkillList());
 				addVariables(availableList, EquipmentList.getModifierList());
 				addVariables(availableList, Globals.getTemplateList());
-				addVariables(availableList, Globals.getCompanionModList());
+				addVariables(availableList, Globals.getAllCompanionMods());
 				Collections.sort(availableList);
 				pnlFollowers.setVariableModel(new DefaultComboBoxModel(availableList.toArray()));
 

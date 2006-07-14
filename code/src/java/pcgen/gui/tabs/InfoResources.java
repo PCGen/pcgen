@@ -135,10 +135,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private JButton delModButton = new JButton();
 	private JButton loadButton = new JButton();
 	private JButton updateButton = new JButton();
-	private JCheckBox shouldLoadCompanion = new JCheckBox("Auto load companions");
-	private final JLabel modeLabel = new JLabel("Select Type of Resource:");
+	private JCheckBox shouldLoadCompanion = new JCheckBox(PropertyFactory.getString("InfoResources.AutoLoadCompanions")); //$NON-NLS-1$
+	private final JLabel modeLabel = new JLabel(PropertyFactory.getString("InfoResources.ModeLabel")); //$NON-NLS-1$
 	private JComboBoxEx viewModeBox = new JComboBoxEx();
-	private final JLabel sortLabel = new JLabel("Sort");
+	private final JLabel sortLabel = new JLabel(PropertyFactory.getString("InfoResources.SortLabel")); //$NON-NLS-1$
 	private JComboBoxEx viewSortBox = new JComboBoxEx();
 	private JLabelPane followerInfo = new JLabelPane();
 	private JLabelPane infoLabel = new JLabelPane();
@@ -156,22 +156,42 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private int viewMode = 0;
 	private int viewSortMode = 0;
 
-	private final JLabel lblQFilter = new JLabel("Filter:");
+	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("InfoResources.FilterLabel")); //$NON-NLS-1$
 	private JTextField textQFilter = new JTextField();
-	private JButton clearQFilterButton = new JButton("Clear");
+	private JButton clearQFilterButton = new JButton(PropertyFactory.getString("in_mnuToolsFiltersClear")); //$NON-NLS-1$
 	private static Integer saveViewMode = null;
 
 	PlayerCharacter pc;
 	private int serial = 0;
 	private boolean readyForRefresh = false;
 
+	private static final String TAB_ORDER_KEY = ".Panel.Resources.Order"; //$NON-NLS-1$
+
+
+	private static final String HTML = "<html>"; //$NON-NLS-1$
+	private static final String END_HTML = "</html>"; //$NON-NLS-1$
+	private static final String FONT_PLUS_1 = "<font size=+1>"; //$NON-NLS-1$
+	private static final String END_FONT = "</font>"; //$NON-NLS-1$
+	private static final String PARA = "<p>"; //$NON-NLS-1$
+	private static final String BOLD = "<b>"; //$NON-NLS-1$
+	private static final String END_BOLD = "</b>"; //$NON-NLS-1$
+	private static final String BR = "<br>"; //$NON-NLS-1$
+	private static final String ITALIC = "<i>"; //$NON-NLS-1$
+	private static final String END_ITALIC = "</i>"; //$NON-NLS-1$
+	private static final String UL = "<ul>"; //$NON-NLS-1$
+	private static final String END_UL = "</ul>"; //$NON-NLS-1$
+	private static final String LI = "<li>"; //$NON-NLS-1$
+	private static final String END_LI = "</li>"; //$NON-NLS-1$
+	
+
+	
 	/**
-	 *  Constructor for the InfoEquips object
-	 * @param pc
+	 *  Constructor for the InfoResources object
+	 * @param aPC
 	 **/
-	public InfoResources(PlayerCharacter pc)
+	public InfoResources(PlayerCharacter aPC)
 	{
-		this.pc = pc;
+		this.pc = aPC;
 		// do not remove this as we will use the component's name
 		// to save component specific settings
 		setName(Constants.tabNames[Constants.TAB_RESOURCES]);
@@ -183,42 +203,68 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		//FilterFactory.restoreFilterSettings(this);
 	}
 
-	public void setPc(PlayerCharacter pc)
+	/**
+	 * Sets the PlayerCharacter to display info for
+	 * @param aPC The PlayerCharacter to display
+	 * @see pcgen.gui.CharacterInfoTab#setPc(pcgen.core.PlayerCharacter)
+	 */
+	public void setPc(PlayerCharacter aPC)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if(this.pc != aPC || aPC.getSerial() > serial)
 		{
-			this.pc = pc;
-			serial = pc.getSerial();
-			availableModel.setCharacter(pc);
-			selectedModel.setCharacter(pc);
+			this.pc = aPC;
+			serial = aPC.getSerial();
+			availableModel.setCharacter(aPC);
+			selectedModel.setCharacter(aPC);
 			forceRefresh();
 		}
 	}
 
+	/**
+	 * Gets the currently displayed PlayerCharacter
+	 * @return The PlayerCharacter being displayed
+	 */
 	public PlayerCharacter getPc()
 	{
 		return pc;
 	}
 
+	/**
+	 * Gets an integer placement within the list of tabs to
+	 * display this tab in.
+	 * @return The order to display this tab in
+	 */
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Resources.Order", Constants.TAB_RESOURCES);
+		return SettingsHandler.getPCGenOption(TAB_ORDER_KEY, Constants.TAB_RESOURCES);
 	}
 
+	/**
+	 * @param order The order to put this tab in in the list
+	 * of tabs to display
+	 */
 	public void setTabOrder(int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.Resources.Order", order);
+		SettingsHandler.setPCGenOption(TAB_ORDER_KEY, order);
 	}
 
+	/**
+	 * Returns the name of this tab
+	 * @return The tab name
+	 */
 	public String getTabName()
 	{
-		GameMode game = SettingsHandler.getGame();
+		final GameMode game = SettingsHandler.getGame();
 		return game.getTabName(Constants.TAB_RESOURCES);
 	}
 
+	/**
+	 * This this tab visible within the GUI
+	 * @return true if the tab will be shown
+	 */
 	public boolean isShown()
 	{
-		GameMode game = SettingsHandler.getGame();
+		final GameMode game = SettingsHandler.getGame();
 		return game.getTabShown(Constants.TAB_RESOURCES);
 	}
 
@@ -232,6 +278,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		return toDoList;
 	}
 
+	/**
+	 * Refresh this tab if a change to the displayed 
+	 * PlayerCharacter is detected.
+	 */
 	public void refresh()
 	{
 		if(pc.getSerial() > serial)
@@ -241,6 +291,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		}
 	}
 
+	/**
+	 * Force this tabs data to be considered invalid.
+	 */
 	public void forceRefresh()
 	{
 		if(readyForRefresh)
@@ -254,6 +307,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		}
 	}
 
+	/**
+	 * Returns the Component used to view this tab.
+	 * @return The component that draws the view for this tab
+	 */
 	public JComponent getView()
 	{
 		return this;
@@ -263,6 +320,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 * specifies whether the "match any" option should be available
 	 * @return true
 	 **/
+	@Override
 	public final boolean isMatchAnyEnabled()
 	{
 		return true;
@@ -272,7 +330,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 * Sets the update flag for this tab
 	 * It's a lazy update and will only occur
 	 * on other status change
-	 * @param flag
+	 * @param flag true to flag the tab as needing a refresh
 	 **/
 	public static void setNeedsUpdate(boolean flag)
 	{
@@ -283,31 +341,38 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 * specifies whether the "negate/reverse" option should be available
 	 * @return true
 	 **/
+	@Override
 	public final boolean isNegateEnabled()
 	{
 		return true;
 	}
 
 	/**
-	 * specifies the filter selection mode
+	 * Specifies the filter selection mode
 	 * @return FilterConstants.DISABLED_MODE = -2
 	 **/
+	@Override
 	public final int getSelectionMode()
 	{
 		return FilterConstants.DISABLED_MODE;
 	}
 
 	/**
-	 * implementation of Filterable interface
-	 **/
+	 * Initializes the Filters used by this tab.
+	 * @see pcgen.gui.filter.FilterAdapterPanel#initializeFilters()
+	 */
+	@Override
 	public final void initializeFilters()
 	{
 		FilterFactory.registerAllSourceFilters(this);
 	}
 
 	/**
-	 * implementation of Filterable interface
-	 **/
+	 * Called when the filtering has changed.  Components should
+	 * redraw themselves using the new filter parameters.
+	 * @see pcgen.gui.filter.FilterAdapterPanel#refreshFiltering()
+	 */
+	@Override
 	public final void refreshFiltering()
 	{
 		updateAvailableModel();
@@ -380,13 +445,13 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (mPC == null)
 			{
-				followerInfo.setText("NOTICE: Load Master from File to display info");
+				followerInfo.setText(PropertyFactory.getString("InfoResources.LoadMasterNotice")); //$NON-NLS-1$
 
 				return;
 			}
 
 			StringBuffer b = new StringBuffer();
-			b.append("<html>");
+			b.append(HTML);
 			b.append(followerStatBlock(aF, pc));
 
 			//
@@ -394,22 +459,41 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			// but first switch the "current PC" to master
 			// so stats show up correctly
 			//
-			b.append("<p>");
-			b.append("<font size=+1><b>Master Information</b></font><br>");
-			b.append("<b>PC Name:</b> ").append(mPC.getName());
-			b.append("<br>");
-			b.append("<b>File:</b> ").append(mPC.getFileName());
-			b.append("<br>");
-			b.append("<b>Race:</b> ").append(mPC.getRace());
-			b.append("<br>");
-			b.append("<b>").append(Globals.getGameModeHPAbbrev()).append("</b>: ").append(mPC.hitPoints());
-			b.append("<br>");
+			b.append(PARA);
+			b.append(FONT_PLUS_1);
+			b.append(BOLD);
+			b.append(PropertyFactory.getString("InfoResources.MasterInformation")); //$NON-NLS-1$
+			b.append(END_BOLD).append(END_FONT).append(BR);
+			b.append(BOLD);
+			b.append(PropertyFactory.getString("InfoResources.PCNameLabel")); //$NON-NLS-1$
+			b.append(END_BOLD).append(" "); //$NON-NLS-1$
+			b.append(mPC.getName());
+			b.append(BR).append(BOLD);
+			b.append(PropertyFactory.getString("InfoResources.FileLabel")); //$NON-NLS-1$
+			b.append(END_BOLD).append(" "); //$NON-NLS-1$
+			b.append(mPC.getFileName());
+			b.append(BR).append(BOLD);
+			b.append(PropertyFactory.getString("in_sumRace")); //$NON-NLS-1$
+			b.append(END_BOLD).append(" "); //$NON-NLS-1$
+			b.append(mPC.getRace());
+			b.append(BR).append(BOLD);
+			b.append(Globals.getGameModeHPAbbrev());
+			b.append(END_BOLD).append(": ").append(mPC.hitPoints());  //$NON-NLS-1$
+			b.append(BR);
 
 			int bonus = mPC.baseAttackBonus();
-			b.append("<b>BAB</b>: ").append((bonus >= 0) ? "+" : "").append(bonus);
-			b.append("<br>");
+			b.append(BOLD);
+			String babAbbrev = SettingsHandler.getGame().getBabAbbrev();
+			if ( babAbbrev == null )
+			{
+				babAbbrev = "BAB"; //$NON-NLS-1$
+			}
+			b.append(babAbbrev);
+			b.append(END_BOLD).append(": "); //$NON-NLS-1$
+			b.append((bonus >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
+			b.append(BR);
 
-			b.append("</html>");
+			b.append(END_HTML);
 
 			followerInfo.setText(b.toString());
 			followerInfo.setVisible(true);
@@ -419,24 +503,29 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 	private void addButton()
 	{
-		if ("".equals(pc.getFileName()))
+		if ("".equals(pc.getFileName())) //$NON-NLS-1$
 		{
-			ShowMessageDelegate.showMessageDialog("You must save the current character first", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.SaveFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
 
 		TreePath avaCPath = availableTable.getTree().getSelectionPath();
 		TreePath selCPath = selectedTable.getTree().getSelectionPath();
-		String target;
+//		String target;
 
 		if (selCPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("First select destination", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
-		target = selCPath.getPathComponent(1).toString();
+		SelectedFollowerModel.FollowerType target = (SelectedFollowerModel.FollowerType)((PObjectNode)selCPath.getPathComponent(1)).getItem();
+		if ( target.getNumRemaining() < 1 )
+		{
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+			return;
+		}
 
 		Object endComp = avaCPath.getLastPathComponent();
 		PObjectNode fNode = (PObjectNode) endComp;
@@ -455,10 +544,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			String nName;
 			String aType;
 
-			Logging.debugPrint("addButton:race: " + aRace.getDisplayName() + " -> " + target);
+			Logging.debugPrint("addButton:race: " + aRace.getDisplayName() + " -> " + target); //$NON-NLS-1$ //$NON-NLS-2$
 
 			// first ask for the name of the new object
-			Object nValue = JOptionPane.showInputDialog(null, "Please enter a name for new " + target + ":",
+			Object nValue = JOptionPane.showInputDialog(null, PropertyFactory.getFormattedString("InfoResources.EnterName", target), //$NON-NLS-1$
 					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (nValue != null)
@@ -471,7 +560,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			}
 
 			JFileChooser fc = new JFileChooser();
-			fc.setDialogTitle("Save new " + target + " named: " + nName);
+			fc.setDialogTitle(PropertyFactory.getFormattedString("InfoResources.SaveCaption", target, nName)); //$NON-NLS-1$
 			fc.setSelectedFile(new File(SettingsHandler.getPcgPath(), nName + Constants.s_PCGEN_CHARACTER_EXTENSION));
 			fc.setCurrentDirectory(SettingsHandler.getPcgPath());
 
@@ -489,9 +578,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (file.exists())
 			{
-				int iConfirm = JOptionPane.showConfirmDialog(null,
-						"The file " + file.getName() + " already exists. Are you sure you want to overwrite it?",
-						"Confirm OverWrite", JOptionPane.YES_NO_OPTION);
+				int iConfirm = JOptionPane.showConfirmDialog(null, 
+						PropertyFactory.getFormattedString("InfoSpells.confirm.overwrite", file.getName()), //$NON-NLS-1$
+						PropertyFactory.getString("in_confirmOverwriteCaption"), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
 
 				if (iConfirm != JOptionPane.YES_OPTION)
 				{
@@ -519,7 +608,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 			newPC.setDirty(true);
 
-			aType = target;
+			aType = target.getType();
 
 			Follower newMaster = new Follower(pc.getFileName(), pc.getName(), aType);
 			newPC.setMaster(newMaster);
@@ -532,7 +621,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			pc.setAggregateFeatsStable(false);
 			pc.setVirtualFeatsStable(false);
 
-			ShowMessageDelegate.showMessageDialog("Saving " + nName + " and switching tabs", Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.SaveAndSwitch", nName),  //$NON-NLS-1$
+					Constants.s_APPNAME, MessageType.INFORMATION);
 
 			// save the new Follower to a file
 
@@ -542,8 +632,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			catch (Exception ex)
 			{
-				ShowMessageDelegate.showMessageDialog("Could not save " + newPC.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
-				Logging.errorPrint("Could not save " + newPC.getDisplayName(), ex);
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("Errors.Save", newPC.getDisplayName()),  //$NON-NLS-1$
+						Constants.s_APPNAME, MessageType.ERROR);
+				Logging.errorPrint(PropertyFactory.getFormattedString("Errors.Save", newPC.getDisplayName()), ex); //$NON-NLS-1$
 				return;
 			}
 
@@ -568,7 +659,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 				return;
 			}
 
-			Logging.errorPrint("addButton:item: " + eqI.getName() + " -> " + target);
+			Logging.errorPrint("addButton:item: " + eqI.getName() + " -> " + target);  //$NON-NLS-1$//$NON-NLS-2$
 
 			// reset EquipSet model to get the new equipment
 			// added into the selectedTable tree
@@ -579,9 +670,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 	private void addFileButton()
 	{
-		if ("".equals(pc.getFileName()))
+		if ("".equals(pc.getFileName())) //$NON-NLS-1$
 		{
-			ShowMessageDelegate.showMessageDialog("You must save the current character first", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.SaveFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -591,7 +682,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (selCPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("First select destination", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -616,7 +707,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			if (iPC.getFileName().equals(file.toString()))
 			{
-				Logging.errorPrint("already open");
+				Logging.errorPrint("already open"); //$NON-NLS-1$
 				PCGen_Frame1.getBaseTabbedPane().setSelectedIndex(newIndex);
 				newPC = iPC;
 
@@ -631,7 +722,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			newPC = PCGen_Frame1.getInst().loadPCFromFile(file);
 			if (newPC == null)
 			{
-				Logging.errorPrint("Unable to load " + file.toString());
+				Logging.errorPrint(PropertyFactory.getFormattedString("Errors.Load", file.toString())); //$NON-NLS-1$
 				Globals.setCurrentPC(oldPC);
 
 				return;
@@ -695,13 +786,13 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-		updateButton.setText("Update from Master");
+		updateButton.setText(PropertyFactory.getString("InfoResources.UpdateFromMaster")); //$NON-NLS-1$
 		updateButton.setEnabled(true);
 		aPanel.add(updateButton);
 		followerPane.add(aPanel, BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(followerInfo);
-		TitledBorder sTitle = BorderFactory.createTitledBorder("Follower Information");
+		TitledBorder sTitle = BorderFactory.createTitledBorder(PropertyFactory.getString("InfoResources.FollowerInformation")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		scrollPane.setBorder(sTitle);
 		followerInfo.setBackground(topPane.getBackground());
@@ -744,10 +835,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		// the available table panel
 		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		Utility.setDescription(scrollPane, "Right click to add");
+		Utility.setDescription(scrollPane, PropertyFactory.getString("InfoResources.RightClickToAdd")); //$NON-NLS-1$
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
-		columnButton.setText("^");
+		columnButton.setText(PropertyFactory.getString("in_caretSymbol")); //$NON-NLS-1$
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
@@ -759,8 +850,8 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		JPanel bottomLeftPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		shouldLoadCompanion.setSelected(pc.getLoadCompanion());
 		bottomLeftPane.add(shouldLoadCompanion, BorderLayout.WEST);
-		addButton.setIcon(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(addButton, "Click to add");
+		addButton.setIcon(IconUtilitities.getImageIcon("Forward16.gif")); //$NON-NLS-1$
+		Utility.setDescription(addButton, PropertyFactory.getString("InfoResources.ClickToAdd")); //$NON-NLS-1$
 		addButton.setEnabled(false);
 		bottomLeftPane.add(addButton);
 		leftPane.add(bottomLeftPane, BorderLayout.SOUTH);
@@ -768,20 +859,20 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		// now build the right pane
 		// for the selected table
 		JScrollPane scrollPane2 = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		Utility.setDescription(scrollPane2, "Right click to remove");
+		Utility.setDescription(scrollPane2, PropertyFactory.getString("InfoResources.RightClickToRemove")); //$NON-NLS-1$
 		JButton columnButton2 = new JButton();
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
-		columnButton2.setText("^");
+		columnButton2.setText(PropertyFactory.getString("in_caretSymbol")); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
 		JPanel bottomRightPane = new JPanel();
 		bottomRightPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		delButton.setIcon(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(delButton, "Click to remove from List");
+		delButton.setIcon(IconUtilitities.getImageIcon("Back16.gif")); //$NON-NLS-1$
+		Utility.setDescription(delButton, PropertyFactory.getString("ClickToRemove")); //$NON-NLS-1$
 		delButton.setEnabled(false);
 		bottomRightPane.add(delButton);
-		loadButton.setText("Load...");
+		loadButton.setText(PropertyFactory.getString("InfoResources.LoadDlgPrompt")); //$NON-NLS-1$
 		loadButton.setEnabled(false);
 		bottomRightPane.add(loadButton);
 		rightPane.add(bottomRightPane, BorderLayout.SOUTH);
@@ -807,7 +898,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		botPane.add(botSplit, BorderLayout.CENTER);
 
 		// Bottom left panel
-		TitledBorder sTitle = BorderFactory.createTitledBorder("Information");
+		TitledBorder sTitle = BorderFactory.createTitledBorder(PropertyFactory.getString("InfoResources.Information")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		bLeftPane.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -818,10 +909,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		JPanel iPanel = new JPanel();
 		iPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
-		addModButton.setText("Add Modifier");
+		addModButton.setText(PropertyFactory.getString("InfoResources.AddModifier")); //$NON-NLS-1$
 		addModButton.setEnabled(false);
 		iPanel.add(addModButton);
-		delModButton.setText("Delete Modifier");
+		delModButton.setText(PropertyFactory.getString("InfoResources.DelModifier")); //$NON-NLS-1$
 		delModButton.setEnabled(false);
 		iPanel.add(delModButton);
 		bRightPane.add(iPanel);
@@ -857,81 +948,99 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private static String followerStatBlock(Follower aF, PlayerCharacter newPC)
 	{
 		StringBuffer b = new StringBuffer();
-		b.append("<font size=+1><b>Name:</b> ");
-		b.append(newPC.getName()).append("</font>");
-		b.append("<br>");
-		b.append("<b>Type:</b> ").append(aF.getType());
-		b.append("<br>");
-		b.append("<b>Race:</b> ").append(newPC.getRace());
-		b.append("<br>");
+		b.append(FONT_PLUS_1).append(BOLD);
+		b.append(PropertyFactory.getString("InfoResources.NameLabel")); //$NON-NLS-1$
+		b.append(END_BOLD).append(" "); //$NON-NLS-1$
+		b.append(newPC.getName()).append(END_FONT);
+		b.append(BR).append(BOLD);
+		b.append(PropertyFactory.getString("InfoResources.TypeLabel")); //$NON-NLS-1$
+		b.append(END_BOLD).append(" ").append(aF.getType()); //$NON-NLS-1$
+		b.append(BR).append(BOLD);
+		b.append(PropertyFactory.getString("in_sumRace")); //$NON-NLS-1$
+		b.append(END_BOLD).append(" ").append(newPC.getRace()); //$NON-NLS-1$
+		b.append(BR);
 
 		for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++)
 		{
-			b.append("<b>").append(SettingsHandler.getGame().s_ATTRIBSHORT[i]).append("</b>: ")
-			.append(newPC.getStatList().getTotalStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[i])).append(" ");
+			b.append(BOLD).append(SettingsHandler.getGame().s_ATTRIBSHORT[i]).append(END_BOLD).append(": ") //$NON-NLS-1$
+			.append(newPC.getStatList().getTotalStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[i])).append(" "); //$NON-NLS-1$
 		}
 
-		b.append("<br>");
+		b.append(BR);
 
 		if (Globals.getGameModeACText().length() != 0)
 		{
-			b.append("<b>").append(Globals.getGameModeACText()).append("</b> ");
-			b.append("<i>Total</i>: ").append(newPC.getACTotal());
-			b.append(" <i>Flatfooted</i>: ").append(newPC.flatfootedAC());
-			b.append(" <i>Touch</i>: ").append(newPC.touchAC());
-			b.append("<br>");
+			b.append(BOLD).append(Globals.getGameModeACText()).append(END_BOLD).append(" "); //$NON-NLS-1$
+			b.append(ITALIC).append(PropertyFactory.getString("in_sumTotal")); //$NON-NLS-1$
+			b.append(END_ITALIC).append(": ").append(newPC.getACTotal()); //$NON-NLS-1$
+			b.append(" ").append(ITALIC); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_sumFlatfooted")); //$NON-NLS-1$
+			b.append(END_ITALIC).append(": ").append(newPC.flatfootedAC()); //$NON-NLS-1$
+			b.append(" ").append(ITALIC); //$NON-NLS-1$
+			b.append(PropertyFactory.getString("in_sumTouch")); //$NON-NLS-1$
+			b.append(END_ITALIC).append(": ").append(newPC.touchAC()); //$NON-NLS-1$
+			b.append(BR);
 		}
 		else
 		{
-			b.append("<b>AC</b> ");
-			b.append("<i>Total</i>: ").append((int) newPC.getTotalBonusTo("COMBAT", "AC"));
-			b.append("<br>");
+			b.append(BOLD).append(PropertyFactory.getString("in_sumAC")).append(END_BOLD).append(" ");  //$NON-NLS-1$//$NON-NLS-2$
+			b.append(ITALIC).append(PropertyFactory.getString("in_sumTotal")).append(END_ITALIC).append(": ");  //$NON-NLS-1$//$NON-NLS-2$
+			b.append((int) newPC.getTotalBonusTo("COMBAT", "AC")); //$NON-NLS-1$ //$NON-NLS-2$
+			b.append(BR);
 		}
 
 		final int initMod = newPC.initiativeMod();
-		b.append("<b>Init</b>: ").append((initMod >= 0) ? "+" : "").append(initMod);
-		b.append("<br>");
+		b.append(BOLD).append(PropertyFactory.getString("in_sumInit")).append(END_BOLD).append(": ");  //$NON-NLS-1$//$NON-NLS-2$
+		b.append((initMod >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(initMod); //$NON-NLS-1$ //$NON-NLS-2$
+		b.append(BR);
 
 		int bonus = newPC.baseAttackBonus();
-		b.append(" <b>BAB</b>: ").append((bonus >= 0) ? "+" : "").append(bonus);
-		b.append("<br>");
-		b.append(" <b>").append(Globals.getGameModeHPAbbrev()).append("</b>: ").append(newPC.hitPoints());
+		String babAbbrev = SettingsHandler.getGame().getBabAbbrev();
+		if ( babAbbrev == null )
+		{
+			babAbbrev = "BAB"; //$NON-NLS-1$
+		}
+		b.append(BOLD).append(babAbbrev).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
+		b.append((bonus >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
+		b.append(BR);
+		b.append(" ").append(BOLD).append(Globals.getGameModeHPAbbrev()).append(END_BOLD).append(": ").append(newPC.hitPoints());  //$NON-NLS-1$//$NON-NLS-2$
 
 		if (Globals.getGameModeAltHPText().length() != 0)
 		{
-			b.append(" <b>").append(Globals.getGameModeAltHPAbbrev()).append("</b>: ").append(newPC.altHP());
+			b.append(" ").append(BOLD).append(Globals.getGameModeAltHPAbbrev()).append(END_BOLD).append(": ").append(newPC.altHP());  //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-		b.append("<br>");
+		b.append(BR);
 
-		b.append("<b>Saves</b>: ");
+		b.append(BOLD).append(PropertyFactory.getString("in_sumSaves")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
 
 		for (int z = 0; z < SettingsHandler.getGame().getUnmodifiableCheckList().size(); z++)
 		{
 			bonus = (int) newPC.getBonus(z + 1, true);
-			b.append(" <i>").append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()).append("</i>: ")
-			.append((bonus >= 0) ? "+" : "").append(bonus);
+			b.append(" ").append(ITALIC).append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()).append(END_ITALIC).append(": ") //$NON-NLS-1$ //$NON-NLS-2$
+			.append((bonus >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(bonus);  //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-		b.append("<br>");
+		b.append(BR);
 		bonus = newPC.getSR();
 
 		if (bonus > 0)
 		{
-			b.append("<b>Spell Resistance</b>: ").append(newPC.getSR());
+			b.append(BOLD).append(PropertyFactory.getString("in_demSpellResistance")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
+			b.append(newPC.getSR());
 		}
 
-		b.append("<br>");
-		b.append("<b>Special Abilities:</b>");
-		b.append("<ul>");
+		b.append(BR);
+		b.append(BOLD).append(PropertyFactory.getString("in_specialAb")).append(":").append(END_BOLD);  //$NON-NLS-1$//$NON-NLS-2$
+		b.append(UL);
 
 		for (String sa : newPC.getSpecialAbilityListStrings())
 		{
-			b.append("<li>").append(sa).append("</li>");
+			b.append(LI).append(sa).append(END_LI);
 		}
 
-		b.append("</ul>");
-		b.append("<br>");
+		b.append(END_UL);
+		b.append(BR);
 
 		return b.toString();
 	}
@@ -951,15 +1060,18 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			Race aRace = (Race) obj;
 
-			if (aRace.getKeyName().startsWith("<none"))
+			if (aRace.getKeyName().startsWith(Constants.s_NONESELECTED))
 			{
 				return;
 			}
 
-			StringBuffer b = new StringBuffer();
-			String bString = "";
-			b.append("<html><font size=+1><b>").append(aRace.getDisplayName()).append("</b></font>");
-			b.append("  <b>Type:</b>").append(aRace.getType());
+			final StringBuffer b = new StringBuffer();
+			String bString = ""; //$NON-NLS-1$
+			b.append(HTML).append(FONT_PLUS_1).append(BOLD);
+			b.append(aRace.getDisplayName());
+			b.append(END_BOLD).append(END_FONT);
+			b.append("  ").append(BOLD).append(PropertyFactory.getString("InfoResources.TypeLabel")).append(END_BOLD); //$NON-NLS-1$ //$NON-NLS-2$
+			b.append(aRace.getType());
 
 			if (aRace.getMovement() != null) {
 				bString = aRace.getMovement().toString();
@@ -967,24 +1079,27 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Move</b>:").append(bString);
+				b.append(" ").append(BOLD).append(PropertyFactory.getString("in_move")).append(END_BOLD).append(":"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.append(bString);
 			}
 
 			bString = aRace.getSize();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Size</b>:").append(bString);
+				b.append(" ").append(BOLD).append(PropertyFactory.getString("in_sumSize")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.append(bString);
 			}
 
 			bString = aRace.getSource();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b> ").append(bString);
+				b.append(" ").append(BOLD).append(PropertyFactory.getString("in_sumSource1")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b.append(bString);
 			}
 
-			b.append("</html>");
+			b.append(END_HTML);
 			infoLabel.setText(b.toString());
 		}
 		else if (obj instanceof Follower)
@@ -1002,15 +1117,16 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (newPC == null)
 			{
-				infoLabel.setText("NOTICE: Load from File to display info");
+				
+				infoLabel.setText(PropertyFactory.getString("InfoResources.LoadFromFile")); //$NON-NLS-1$
 
 				return;
 			}
 
 			StringBuffer b = new StringBuffer();
-			b.append("<html>");
+			b.append(HTML);
 			b.append(followerStatBlock(aF, newPC));
-			b.append("</html>");
+			b.append(END_HTML);
 			infoLabel.setText(b.toString());
 		}
 	}
@@ -1055,14 +1171,30 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 	private class AvailableClickHandler implements ClickHandler
 	{
+		/**
+		 * Handles a single click event for the available panel.  Does nothing.
+		 * @see pcgen.gui.utils.ClickHandler#singleClickEvent()
+		 */
 		public void singleClickEvent() {
 			// Do Nothing
 		}
 
+		/**
+		 * Handles double click event for the available panel.  Adds the clicked
+		 * resource to the selected type.
+		 * @see pcgen.gui.utils.ClickHandler#doubleClickEvent()
+		 */
+		@SuppressWarnings("synthetic-access")
 		public void doubleClickEvent()
 		{
 			addButton();
 		}
+
+		/**
+		 * Check if this Object is allowed to be selected.
+		 * @return true if the clicked object can be selected.
+		 * @see pcgen.gui.utils.ClickHandler#isSelectable(java.lang.Object)
+		 */
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -1071,14 +1203,30 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 	private class SelectedClickHandler implements ClickHandler
 	{
+		/**
+		 * Handles a single click event for the selected panel.  Does nothing.
+		 * @see pcgen.gui.utils.ClickHandler#singleClickEvent()
+		 */
 		public void singleClickEvent() {
 			// Do Nothing
 		}
 
+		/**
+		 * Handles double click event for the selected panel.  Adds the clicked
+		 * resource to the selected type.
+		 * @see pcgen.gui.utils.ClickHandler#doubleClickEvent()
+		 */
+		@SuppressWarnings("synthetic-access")
 		public void doubleClickEvent()
 		{
 			addFileButton();
 		}
+
+		/**
+		 * Check if this Object is allowed to be selected.
+		 * @return true if the clicked object can be selected.
+		 * @see pcgen.gui.utils.ClickHandler#isSelectable(java.lang.Object)
+		 */
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -1167,7 +1315,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 							return;
 						}
-						infoLabel.setText("None");
+						infoLabel.setText(PropertyFactory.getString("in_none")); //$NON-NLS-1$
 						loadButton.setEnabled(false);
 						return;
 					}
@@ -1191,7 +1339,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (selCPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the object to remove", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.SelectToRemove"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1199,7 +1347,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		Object endComp = selCPath.getLastPathComponent();
 		PObjectNode fNode = (PObjectNode) endComp;
 
-		int iConfirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete?", "Confirm Remove",
+		int iConfirm = JOptionPane.showConfirmDialog(null, PropertyFactory.getString("InfoResources.ConfirmDelete"), PropertyFactory.getString("InfoResources.ConfirmRemove"), //$NON-NLS-1$ //$NON-NLS-2$
 				JOptionPane.YES_NO_OPTION);
 
 		if (iConfirm != JOptionPane.YES_OPTION)
@@ -1232,7 +1380,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private File findPCGFile(File file)
 	{
 		JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle("Find file");
+		fc.setDialogTitle(PropertyFactory.getString("InfoResources.FindFile")); //$NON-NLS-1$
 		fc.setCurrentDirectory(SettingsHandler.getPcgPath());
 
 		if (fc.showOpenDialog(InfoResources.this) != JFileChooser.APPROVE_OPTION)
@@ -1256,8 +1404,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		refresh();
 
 		requestFocus();
-		// TODO: I18N
-		PCGen_Frame1.setMessageAreaTextWithoutSaving("Add followers/cohorts, animal companions, special mounts or familiars");
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString("InfoResources.AddFollowersEtc")); //$NON-NLS-1$
 
 		int top = topSplit.getDividerLocation();
 		int bot = botSplit.getDividerLocation();
@@ -1269,55 +1416,55 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			hasBeenSized = true;
 
 			Component c = getParent();
-			top = SettingsHandler.getPCGenOption("InfoResources.topSplit", ((c.getWidth() * 7) / 10));
-			bot = SettingsHandler.getPCGenOption("InfoResources.botSplit", (c.getWidth() - 300));
-			cent = SettingsHandler.getPCGenOption("InfoResources.centerSplit", (c.getHeight() - 100));
+			top = SettingsHandler.getPCGenOption("InfoResources.topSplit", ((c.getWidth() * 7) / 10)); //$NON-NLS-1$
+			bot = SettingsHandler.getPCGenOption("InfoResources.botSplit", (c.getWidth() - 300)); //$NON-NLS-1$
+			cent = SettingsHandler.getPCGenOption("InfoResources.centerSplit", (c.getHeight() - 100)); //$NON-NLS-1$
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); i++)
 			{
 				TableColumn sCol = selectedTable.getColumnModel().getColumn(i);
-				width = Globals.getCustColumnWidth("ResSel", i);
+				width = Globals.getCustColumnWidth("ResSel", i); //$NON-NLS-1$
 
 				if (width != 0)
 				{
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(selectedTable, "ResSel", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(selectedTable, "ResSel", i)); //$NON-NLS-1$
 			}
 
 			// set the prefered width on availableTable
 			for (int i = 0; i < availableTable.getColumnCount(); i++)
 			{
 				TableColumn sCol = availableTable.getColumnModel().getColumn(i);
-				width = Globals.getCustColumnWidth("ResAva", i);
+				width = Globals.getCustColumnWidth("ResAva", i); //$NON-NLS-1$
 
 				if (width != 0)
 				{
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "ResAva", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "ResAva", i)); //$NON-NLS-1$
 			}
 		}
 
 		if (top > 0)
 		{
 			topSplit.setDividerLocation(top);
-			SettingsHandler.setPCGenOption("InfoResources.topSplit", top);
+			SettingsHandler.setPCGenOption("InfoResources.topSplit", top); //$NON-NLS-1$
 		}
 
 		if (bot > 0)
 		{
 			botSplit.setDividerLocation(bot);
-			SettingsHandler.setPCGenOption("InfoResources.botSplit", bot);
+			SettingsHandler.setPCGenOption("InfoResources.botSplit", bot); //$NON-NLS-1$
 		}
 
 		if (cent > 0)
 		{
 			centerSplit.setDividerLocation(cent);
-			SettingsHandler.setPCGenOption("InfoResources.centerSplit", cent);
+			SettingsHandler.setPCGenOption("InfoResources.centerSplit", cent); //$NON-NLS-1$
 		}
 	}
 
@@ -1330,61 +1477,69 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		addComponentListener(new ComponentAdapter()
 			{
-				public void componentShown(ComponentEvent evt)
+				@Override
+				public void componentShown(@SuppressWarnings("unused")
+				ComponentEvent evt)
 				{
 					formComponentShown();
 				}
 			});
 		addComponentListener(new ComponentAdapter()
 			{
-				public void componentResized(ComponentEvent e)
+				@Override
+				public void componentResized(@SuppressWarnings("unused")
+				ComponentEvent e)
 				{
 					int i = topSplit.getDividerLocation();
 
 					if (i > 0)
 					{
-						SettingsHandler.setPCGenOption("InfoResources.topSplit", i);
+						SettingsHandler.setPCGenOption("InfoResources.topSplit", i); //$NON-NLS-1$
 					}
 
 					i = botSplit.getDividerLocation();
 
 					if (i > 0)
 					{
-						SettingsHandler.setPCGenOption("InfoResources.botSplit", i);
+						SettingsHandler.setPCGenOption("InfoResources.botSplit", i); //$NON-NLS-1$
 					}
 
 					i = centerSplit.getDividerLocation();
 
 					if (i > 0)
 					{
-						SettingsHandler.setPCGenOption("InfoResources.centerSplit", i);
+						SettingsHandler.setPCGenOption("InfoResources.centerSplit", i); //$NON-NLS-1$
 					}
 				}
 			});
 		addButton.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					addButton();
 				}
 			});
 		delButton.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					delButton();
 				}
 			});
 		loadButton.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					loadButton();
 				}
 			});
 		updateButton.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					updateButton();
 				}
@@ -1408,43 +1563,50 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		 */
 		viewModeBox.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					viewModeBoxActionPerformed();
 				}
 			});
 		viewSortBox.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					viewSortBoxActionPerformed();
 				}
 			});
 		shouldLoadCompanion.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					pc.setLoadCompanion(shouldLoadCompanion.isSelected());
 				}
 			});
 		textQFilter.getDocument().addDocumentListener(new DocumentListener()
 			{
-				public void changedUpdate(DocumentEvent evt)
+				public void changedUpdate(@SuppressWarnings("unused")
+				DocumentEvent evt)
 				{
 					setQFilter();
 				}
-				public void insertUpdate(DocumentEvent evt)
+				public void insertUpdate(@SuppressWarnings("unused")
+				DocumentEvent evt)
 				{
 					setQFilter();
 				}
-				public void removeUpdate(DocumentEvent evt)
+				public void removeUpdate(@SuppressWarnings("unused")
+				DocumentEvent evt)
 				{
 					setQFilter();
 				}
 			});
 		clearQFilterButton.addActionListener(new ActionListener()
 			{
-				public void actionPerformed(ActionEvent evt)
+				public void actionPerformed(@SuppressWarnings("unused")
+				ActionEvent evt)
 				{
 					clearQFilter();
 				}
@@ -1455,6 +1617,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 * This method is called from within the constructor to
 	 * initialize the form.
 	 **/
+	@SuppressWarnings("nls")
 	private void initComponents()
 	{
 		readyForRefresh = true;
@@ -1465,14 +1628,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		// create tables associated with the above trees
 		createTreeTables();
 
-		viewModeBox.addItem("Followers   ");
+		Utility.setDescription(viewModeBox, PropertyFactory.getString("InfoResources.ChooseViewMode"));
 
-		//viewModeBox.addItem("Artifacts    ");
-		//viewModeBox.addItem("Construction ");
-		Utility.setDescription(viewModeBox, "Choose View Mode");
-
-		viewSortBox.addItem(PropertyFactory.getString("in_typeName") + "   ");
-		viewSortBox.addItem(PropertyFactory.getString("in_nameLabel") + "   ");
+		viewSortBox.addItem(PropertyFactory.getString("in_typeName") + "   ");  //$NON-NLS-1$//$NON-NLS-2$
+		viewSortBox.addItem(PropertyFactory.getString("in_nameLabel") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
 		viewSortBox.addItem(PropertyFactory.getString("in_racetypeName") + "   ");
 		Utility.setDescription(viewSortBox, "Sort Sort");
 
@@ -1488,7 +1647,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		selectedSort = new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel.getRoot(), selectedModel);
 		addFocusListener(new FocusAdapter()
 			{
-				public void focusGained(FocusEvent evt)
+				@Override
+				public void focusGained(@SuppressWarnings("unused")
+				FocusEvent evt)
 				{
 					refresh();
 				}
@@ -1503,7 +1664,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			viewSortMode = saveViewMode.intValue();
 			saveViewMode = null;
 		}
-		textQFilter.setText("");
+		textQFilter.setText(""); //$NON-NLS-1$
 		availableModel.resetModel(viewSortMode);
 		clearQFilterButton.setEnabled(false);
 		viewSortBox.setEnabled(true);
@@ -1541,7 +1702,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (selCPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the object to load", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.SelectObjectLoad"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1564,7 +1725,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				if (aF.getFileName().equals(nPC.getFileName()))
 				{
-					ShowMessageDelegate.showMessageDialog(aF.getName() + " is already loaded", Constants.s_APPNAME, MessageType.INFORMATION);
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.AlreadyLoaded", aF.getName()), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 
 					return;
 				}
@@ -1576,11 +1737,11 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			// Make sure file exists
 			if (!file.exists())
 			{
-				ShowMessageDelegate.showMessageDialog(aF.getFileName() + " has moved/changed. Please select the new .pcg filename ",
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.MovedChanged", aF.getFileName()), //$NON-NLS-1$
 					Constants.s_APPNAME, MessageType.INFORMATION);
 
 				// not there, so see if the user can find it
-				Logging.errorPrint("b File: " + file.getAbsolutePath());
+				Logging.errorPrint("b File: " + file.getAbsolutePath()); //$NON-NLS-1$
 				file = findPCGFile(file);
 
 				// still not found, just bail
@@ -1589,13 +1750,13 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 					return;
 				}
 
-				Logging.errorPrint("a File: " + file.getAbsolutePath());
+				Logging.errorPrint("a File: " + file.getAbsolutePath()); //$NON-NLS-1$
 			}
 
 			// Followers .pcg filename/location may
 			// have changed so make sure to update
 			aF.setFileName(file.getAbsolutePath());
-			ShowMessageDelegate.showMessageDialog("Loading " + aF.getName() + " from " + aF.getFileName() + " and switching tabs",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.LoadAndSwitch", aF.getName(), aF.getFileName()), //$NON-NLS-1$
 				Constants.s_APPNAME, MessageType.INFORMATION);
 
 			// now load the Follower from
@@ -1655,7 +1816,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			pane.setPaneForUpdate(pane.infoInventory());
 			pane.refresh();
 
-			ShowMessageDelegate.showMessageDialog("Done updating " + pc.getName(), Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.DoneUpdating", pc.getName()), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 		}
 
 		pc.setDirty(true);
@@ -1706,86 +1867,99 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private class ResourcesPopupMenu extends JPopupMenu
 	{
 		static final long serialVersionUID = 7236403406005940947L;
-		private String lastSearch = "";
+		private String lastSearch = ""; //$NON-NLS-1$
 
+		// TODO Change the shortcut handling to not pass strings.
 		ResourcesPopupMenu(JTreeTable treeTable)
 		{
 			if (treeTable == availableTable)
 			{
-				ResourcesPopupMenu.this.add(createAddMenuItem("Add New to List", "shortcut EQUALS"));
+				ResourcesPopupMenu.this.add(createAddMenuItem("InfoResources.AddNewToList", "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
-				ResourcesPopupMenu.this.add(Utility.createMenuItem("Find item",
+				ResourcesPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("InfoResources.FindItem"), //$NON-NLS-1$
 						new ActionListener()
 					{
-						public void actionPerformed(ActionEvent e)
+						public void actionPerformed(@SuppressWarnings("unused")
+						ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", PropertyFactory.getString("InfoResources.FindItem"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 			else // selectedTable
 			{
-				ResourcesPopupMenu.this.add(createDelMenuItem("Remove from List", "shortcut MINUS"));
-				ResourcesPopupMenu.this.add(createAddFileMenuItem("Add from existing File", "shortcut PLUS"));
+				ResourcesPopupMenu.this.add(createDelMenuItem("InfoResources.RemoveFromList", "shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
+				ResourcesPopupMenu.this.add(createAddFileMenuItem("InfoResources.AddFromFile", "shortcut PLUS"));  //$NON-NLS-1$//$NON-NLS-2$
 				this.addSeparator();
-				ResourcesPopupMenu.this.add(Utility.createMenuItem("Find item",
+				ResourcesPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("InfoResources.FindItem"), //$NON-NLS-1$
 						new ActionListener()
 					{
-						public void actionPerformed(ActionEvent e)
+						public void actionPerformed(@SuppressWarnings("unused")
+						ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", PropertyFactory.getString("InfoResources.FindItem"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 		}
 
 		private JMenuItem createAddFileMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddFileActionListener(), "add 1", (char) 0, accelerator,
-				"Add Existing File", "Add16.gif", true);
+			return Utility.createMenuItem(PropertyFactory.getString(label), new AddFileActionListener(), "add 1", (char) 0, accelerator, //$NON-NLS-1$
+				PropertyFactory.getString("InfoResources.AddExistingFile"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddActionListener(), "add 1", (char) 0, accelerator,
-				"Add to List", "Add16.gif", true);
+			return Utility.createMenuItem(PropertyFactory.getString(label), new AddActionListener(), "add 1", (char) 0, accelerator, //$NON-NLS-1$
+				PropertyFactory.getString("InfoResources.AddToList"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createDelMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new DelActionListener(), "remove 1", (char) 0, accelerator,
-				"Remove from List", "Remove16.gif", true);
+			return Utility.createMenuItem(PropertyFactory.getString(label), new DelActionListener(), "remove 1", (char) 0, accelerator, //$NON-NLS-1$
+				PropertyFactory.getString("InfoResources.RemoveFromList"), "Remove16.gif", true);  //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-		private class AddActionListener extends resActionListener
+		private class AddActionListener implements ActionListener
 		{
-			public void actionPerformed(ActionEvent evt)
+			/**
+			 * Called when Add Menu Item is selected
+			 * @param evt Not Used
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
+			public void actionPerformed(@SuppressWarnings("unused")
+			ActionEvent evt)
 			{
 				addButton();
 			}
 		}
 
-		private class AddFileActionListener extends resActionListener
+		private class AddFileActionListener implements ActionListener
 		{
-			public void actionPerformed(ActionEvent evt)
+			/**
+			 * Called when Add Existing Item menu is selected
+			 * @param evt Not Used
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
+			public void actionPerformed(@SuppressWarnings("unused")
+			ActionEvent evt)
 			{
 				addFileButton();
 			}
 		}
 
-		private class DelActionListener extends resActionListener
+		private class DelActionListener implements ActionListener
 		{
-			public void actionPerformed(ActionEvent evt)
+			/**
+			 * Called when Remove Item menu is selected.
+			 * @param evt Not Used
+			 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+			 */
+			public void actionPerformed(@SuppressWarnings("unused")
+			ActionEvent evt)
 			{
 				delButton();
-			}
-		}
-
-		private class resActionListener implements ActionListener
-		{
-			public void actionPerformed(ActionEvent evt)
-			{
-				// TODO This method currently does nothing?
 			}
 		}
 	}
@@ -1852,11 +2026,23 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			treeTable.addKeyListener(myKeyListener);
 		}
 
+		/**
+		 * Called when the mouse button is pressed.  We might show the popup.
+		 * @param evt Info about button press
+		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+		 */
+		@Override
 		public void mousePressed(MouseEvent evt)
 		{
 			maybeShowPopup(evt);
 		}
 
+		/**
+		 * Called when the mouse button is released.  We might show the popup.
+		 * @param evt Info about the button press
+		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+		 */
+		@Override
 		public void mouseReleased(MouseEvent evt)
 		{
 			maybeShowPopup(evt);

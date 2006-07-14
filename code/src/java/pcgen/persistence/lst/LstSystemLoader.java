@@ -669,7 +669,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 					{
 						case LstConstants.COMPANIONMOD_TYPE:
 							anObj = Globals.getCompanionMod(aString);
-							Globals.getCompanionModList().remove(anObj);
+							Globals.removeCompanionMod((CompanionMod)anObj);
 
 							break;
 
@@ -983,7 +983,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 					if (cMod == null)
 					{
-						Globals.getCompanionModList().add((CompanionMod)aArrayList.get(i));
+						Globals.addCompanionMod((CompanionMod)aArrayList.get(i));
 					}
 
 					break;
