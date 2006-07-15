@@ -146,7 +146,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	private BioSetLoader bioLoader             = new BioSetLoader();
 	private CampaignLoader campaignLoader      = new CampaignLoader();
 	private CampaignSourceEntry globalCampaign = new CampaignSourceEntry(new Campaign(), "System Configuration Document");
-	private CurrencyLoader currencyParser      = new CurrencyLoader();
 	private DeityLoader deityLoader            = new DeityLoader();
 	private DomainLoader domainLoader          = new DomainLoader();
 	private AbilityLoader abilityLoader        = new AbilityLoader();
@@ -193,7 +192,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	private final List<CampaignSourceEntry> classFileList             = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> classSkillFileList        = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> classSpellFileList        = new ArrayList<CampaignSourceEntry>();
-	private final List<CampaignSourceEntry> coinFileList              = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> companionmodFileList      = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> deityFileList             = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> domainFileList            = new ArrayList<CampaignSourceEntry>();
@@ -231,7 +229,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	private RaceLoader raceLoader                = new RaceLoader();
 	private final Set<String> sourcesSet         = new TreeSet<String>();
 	private BioSet bioSet                        = new BioSet();
-	private BonusStackLoader bonusLoader         = new BonusStackLoader();
 	private SizeAdjustmentLoader sizeLoader      = new SizeAdjustmentLoader();
 	private SkillLoader skillLoader              = new SkillLoader();
 	private SpellLoader spellLoader              = new SpellLoader();
@@ -260,7 +257,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	{
 		//featLoader.addObserver(this);
 		bioLoader.addObserver(this);
-		bonusLoader.addObserver(this);
 		campaignLoader.addObserver(this);
 		deityLoader.addObserver(this);
 		domainLoader.addObserver(this);
@@ -443,7 +439,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			spellLoader.loadLstFiles(spellFileList);
 
 			// loaded before equipment to cover costs
-			currencyParser.loadLstFiles(coinFileList);
 
 			// TODO: Convert remaining items to new persistence framework!
 			// Process file content by load order [file type]
@@ -516,7 +511,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		count += classFileList.size();
 		count += classSkillFileList.size();
 		count += classSpellFileList.size();
-		count += coinFileList.size();
 		count += companionmodFileList.size();
 		count += deityFileList.size();
 		count += domainFileList.size();
@@ -1632,7 +1626,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		reqSkillFileList.addAll(aCamp.getReqSkillFiles());
 		templateFileList.addAll(aCamp.getTemplateFiles());
 		equipmodFileList.addAll(aCamp.getEquipModFiles());
-		coinFileList.addAll(aCamp.getCoinFiles());
 		kitFileList.addAll(aCamp.getKitFiles());
 		bioSetFileList.addAll(aCamp.getBioSetFiles());
 	}
@@ -2124,10 +2117,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				// Load sizeAdjustment.lst
 				loadGameModeLstFile(sizeLoader, gameFiles[i], "sizeAdjustment.lst");
 
-				// Load bonusstacks.lst
-				//TODO: Remove after 5.10
-				loadGameModeLstFile(bonusLoader, gameFiles[i], "bonusstacks.lst", false);
-
 				// Load statsandchecks.lst
 				loadGameModeLstFile(statCheckLoader, gameFiles[i], "statsandchecks.lst");
 			}
@@ -2411,7 +2400,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		reqSkillFileList.removeAll(lstExcludeFiles);
 		templateFileList.removeAll(lstExcludeFiles);
 		equipmodFileList.removeAll(lstExcludeFiles);
-		coinFileList.removeAll(lstExcludeFiles);
 		kitFileList.removeAll(lstExcludeFiles);
 		bioSetFileList.removeAll(lstExcludeFiles);
 	}
@@ -2441,7 +2429,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		reqSkillFileList.clear();
 		languageFileList.clear();
 		equipmodFileList.clear();
-		coinFileList.clear();
 		kitFileList.clear();
 		bioSetFileList.clear();
 	}

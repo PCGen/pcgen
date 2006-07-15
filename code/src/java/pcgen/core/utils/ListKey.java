@@ -56,8 +56,6 @@ public final class ListKey<T> {
 	public static final ListKey<CampaignSourceEntry> FILE_CLASS_SKILL = new ListKey<CampaignSourceEntry>();
 	/** FILE_CLASS_SPELL - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_CLASS_SPELL = new ListKey<CampaignSourceEntry>();
-	/** FILE_COIN - a ListKey */
-	public static final ListKey<CampaignSourceEntry> FILE_COIN = new ListKey<CampaignSourceEntry>();
 	/** FILE_COMPANION_MOD - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_COMPANION_MOD = new ListKey<CampaignSourceEntry>();
 	/** FILE_COVER - a ListKey */

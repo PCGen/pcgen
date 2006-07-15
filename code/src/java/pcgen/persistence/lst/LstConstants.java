@@ -46,8 +46,6 @@ public interface LstConstants
 	int CLASSSPELL_TYPE = 15;
 	/** CLASS_TYPE = 1 */
 	int CLASS_TYPE = 1;
-	/** COINS_TYPE = 23 */
-	int COINS_TYPE = 23;
 	/** COMPANIONMOD_TYPE = 25 */
 	int COMPANIONMOD_TYPE = 25;
 	/** DEITY_TYPE = 5 */

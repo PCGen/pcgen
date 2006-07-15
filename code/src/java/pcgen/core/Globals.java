@@ -49,7 +49,6 @@ import javax.swing.JFrame;
 
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
-import pcgen.core.money.DenominationList;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -131,7 +130,6 @@ public final class Globals
 	private static List<String>             pcClassTypeList = new ArrayList<String>();
 	private static List<Skill>             skillList       = new ArrayList<Skill>(400);
 	private static List<PCTemplate>             templateList    = new ArrayList<PCTemplate>(350);
-	private static DenominationList denomList       = DenominationList.getInstance(); // derived from ArrayList
 	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
 
 	private static Map<String, Map<String, String>> sponsors = new HashMap<String, Map<String, String>>();
@@ -750,15 +748,6 @@ public final class Globals
 		}
 
 		return null;
-	}
-
-	/**
-	 * Get denomination list
-	 * @return denomination list
-	 */
-	public static DenominationList getDenominationList()
-	{
-		return denomList;
 	}
 
 	/**
@@ -2255,7 +2244,6 @@ public final class Globals
 		// They only get loaded once.
 		//
 		//birthplaceList.clear();
-		//bonusStackList.clear();
 		//cityList.clear();
 		//hairStyleList.clear();
 		//helpContextFileList.clear();

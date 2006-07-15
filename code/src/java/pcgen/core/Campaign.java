@@ -58,7 +58,6 @@ public final class Campaign extends PObject
 		listChar.initializeListFor(ListKey.FILE_CLASS);
 		listChar.initializeListFor(ListKey.FILE_CLASS_SKILL);
 		listChar.initializeListFor(ListKey.FILE_CLASS_SPELL);
-		listChar.initializeListFor(ListKey.FILE_COIN);
 		listChar.initializeListFor(ListKey.FILE_COMPANION_MOD);
 		listChar.initializeListFor(ListKey.FILE_COVER);
 		listChar.initializeListFor(ListKey.FILE_DEITY);
@@ -122,15 +121,6 @@ public final class Campaign extends PObject
 	public void addAllClassSpellFiles(final List<CampaignSourceEntry> files)
 	{
 		listChar.addAllToListFor(ListKey.FILE_CLASS_SPELL, files);
-	}
-
-	/**
-	 *
-	 * @param files
-	 */
-	public void addAllCoinFiles(final List<CampaignSourceEntry> files)
-	{
-		listChar.addAllToListFor(ListKey.FILE_COIN, files);
 	}
 
 	/**
@@ -329,15 +319,6 @@ public final class Campaign extends PObject
 	public void addClassSpellFile(final CampaignSourceEntry file)
 	{
 		listChar.addToListFor(ListKey.FILE_CLASS_SPELL, file);
-	}
-
-	/**
-	 *
-	 * @param file
-	 */
-	public void addCoinFile(final CampaignSourceEntry file)
-	{
-		listChar.addToListFor(ListKey.FILE_COIN, file);
 	}
 
 	/**
@@ -613,17 +594,6 @@ public final class Campaign extends PObject
 	{
 		return getListFor(ListKey.FILE_CLASS_SPELL);
 	}
-
-	/**
-	 * Returns the coverFileList.
-	 * @return List
-	 */
-	public List<CampaignSourceEntry> getCoinFiles()
-	{
-		return getListFor(ListKey.FILE_COIN);
-	}
-
-
 	/**
 	 * Returns the companionmodFileList.
 	 * @return List
