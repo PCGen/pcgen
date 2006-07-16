@@ -1737,6 +1737,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
+	 * Return the qualified key, ususally used as the source in a 
+	 * getVariableValue call. Always returns an empty string, but 
+	 * may be overridden by subclasses to return a required value.
+	 * 
+	 * @return The qualified name of the object
+	 */
+	public String getQualifiedKey()
+	{
+		return "";
+	}
+	
+	/**
 	 * Set the name (sets keyname also)
 	 * @param aString
 	 */
@@ -2911,7 +2923,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		//if there's a current PC, go ahead and evaluate the formula
 		if ((srFormula != null) && (aPC != null))
 		{
-			return aPC.getVariableValue(srFormula, "").intValue();
+			return aPC.getVariableValue(srFormula, getQualifiedKey()).intValue();
 		}
 
 		return 0;

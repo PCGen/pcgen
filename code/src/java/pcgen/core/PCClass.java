@@ -169,6 +169,17 @@ public class PCClass extends PObject
 		classKey = "CLASS:" + keyName;
 	}
 
+	/**
+	 * Return the qualified key, usually used as the source in a 
+	 * getVariableValue call. Overriden here to return CLASS:keyname 
+	 * 
+	 * @return The qualified name of the object
+	 */
+	public String getQualifiedKey()
+	{
+		return classKey;
+	}
+
 	/* addDomains is the prestige domains this class has access to */
 	public final ArrayList<String> getAddDomains()
 	{
