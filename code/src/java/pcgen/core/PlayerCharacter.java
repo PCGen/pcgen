@@ -4865,7 +4865,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					final Equipment teq = getPrimaryWeapons().get(iPrimary);
 
-					if (teq.equalTo(equip))
+					if (teq == equip )
 					{
 						break;
 					}
@@ -4884,7 +4884,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					final Equipment teq = getSecondaryWeapons().get(iSecondary);
 
-					if (teq.equalTo(equip))
+					if (teq == equip)
 					{
 						break;
 					}
