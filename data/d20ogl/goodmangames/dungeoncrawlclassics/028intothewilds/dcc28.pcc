@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Wed Jul 19 05:06:39 2006 -- reformated by prettylst.pl v1.35 (build 565)
+CAMPAIGN:Goodman Games - DCC 28 - Into the Wilds
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Generic
+TYPE:Goodman Games.Dungeon Crawl Classics
+PUBNAMELONG:Goodman Games
+PUBNAMESHORT:Goodman
+PUBNAMEWEB:http://www.goodman-games.com/
+SOURCELONG:DCC 28 - Into the Wilds
+SOURCESHORT:DCC28
+SOURCEWEB:http://www.goodman-games.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Dungeon Crawl Classics 28: Into the Wilds by Harley Stroh, Copyright 2006 Goodman Games.
+COPYRIGHT:PCGen dataset conversion for Dungeon Crawl Classics 28: Into the Wilds Copyright 2006, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, Darkon Turas, Frank Kliewe)
+
+#EXTRAFILE:OGL.txt
+
+DEITY:dcc28_deity.lst
+EQUIPMENT:dcc28_equip.lst
