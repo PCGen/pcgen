@@ -83,8 +83,7 @@
 				<p class="indent3">Asks if Class Level or Total Level is greater than 5 then
 			returns 2 or else returns -4.</p>
 		<p class="indent2"><code>STATMOD:if(STR>DEX,STR,DEX)</code></p>
-						<p class="indent3">Asks if STR is greater than DEX then returns STR or else
-			returns DEX</p>
+				<p class="indent3">Asks if STR is greater than DEX then returns STR or else returns DEX</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">STATNAME Line.</p>
 
@@ -133,7 +132,7 @@
 
 		<p></p>
 		<p class="indent1"><strong>Complete Line Example:</strong></p>
-		<p class="indent2"><code>STATNAME:Charisma ABB:CHA STATRANGE:-100|100 STATMOD:(SCORE/2).TRUNC-5
+		<p class="indent2"><code>STATNAME:Charisma ABB:CHA STATRANGE:-100|100 STATMOD:floor(SCORE/2)-5
 			DEFINE:MAXLEVELSTAT=CHA|CHASCORE-10</code></p>
 
 
