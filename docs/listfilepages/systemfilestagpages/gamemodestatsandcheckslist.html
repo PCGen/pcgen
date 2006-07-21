@@ -3,15 +3,15 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodestatsandcheckslist.html,v 1.3 2005/10/28 11:06:14 karianna Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		
+
 		Description:
 		Provides information on the use of PCGen Game Mode: Stats &amp; Checks List File.
 	-->
@@ -20,10 +20,10 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Game Mode: statsandchecks.lst</h1>
-		
+
 		<h2>Defining Statistics</h2>
 
 		<p></p><a name="STATNAME"></a><hr>
@@ -39,13 +39,13 @@
 
 		<p></p><a name="ABB"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ABB:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The abbreviation for the stat 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The abbreviation for the stat
 			- usually three letters, capitalized).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Defines the three letter Abbreviation for a statistic.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ABB:AWR</code></p>
-		<p class="indent3">Example abbreviation of above example of 
+		<p class="indent3">Example abbreviation of above example of
 			&quot;Awareness&quot; stat.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">STATNAME Line.</p>
@@ -69,9 +69,9 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Defines the formula used to determine a stats modifiers.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>STATMOD:(SCORE/2).TRUNC-5</code></p>
-		<p class="indent3">Would calculate a stat modification as STAT 
-			divided by 2, round down, minus 5 (SCORE is the variable name for the stat value).  
+		<p class="indent2"><code>STATMOD:floor(SCORE/2)-5</code></p>
+		<p class="indent3">Would calculate a stat modification as STAT
+			divided by 2, round down, minus 5 (SCORE is the variable name for the stat value).
 			Note:  the formula can only contain 1 SCORE variable.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">STATNAME Line.</p>
@@ -81,7 +81,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (stat abbreviation).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> formula (formula that gives the desired maximum).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Determines the maximum level of spell/ability you can use based on 
+		<p class="indent2">Determines the maximum level of spell/ability you can use based on
 			the referenced stat.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFINE:MAXLEVELSTAT:WIS|WISSCORE-10</code></p>
@@ -91,7 +91,7 @@
 
 		<p></p><a name="BONUS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (as per 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (as per
 			<a href="../globalfilestagpages/globalfilesbonus.html">global bonus tags</a>).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Bonuses may be applied to stats as would be appropriate.</p>
@@ -140,12 +140,12 @@
 
 		<p></p><a name="BONUSCHECKS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:CHECKS|x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name to be used for display 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name to be used for display
 			on the character sheet - should be all caps).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (The three letter abbreviation of 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The three letter abbreviation of
 			the stat that this save is based on - should be all caps).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines what stat gives a bonus to what check (BONUS:CHECKS is the ONLY 
+		<p class="indent2">Defines what stat gives a bonus to what check (BONUS:CHECKS is the ONLY
 			statement that will work on CHECKNAME lines, besides the CHECKNAME tag itself).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:CHECKS|FORTITUDE|CON</code></p>
@@ -159,15 +159,15 @@
 
 
 		<hr><h2>DEFINING BONUS SPELLS</h2>
-		
+
 		<p>This section is used to implement Bonus Spells by level.</p>
 
 		<p></p><a name="BASESTATSCORE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BASESTATSCORE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The necessary minimum 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The necessary minimum
 			spellcasting ability score to receive the bonus).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Set's the minimum spellcasting ability score necessary to receive 
+		<p class="indent2">Set's the minimum spellcasting ability score necessary to receive
 			this bonus spell slot. (Spellcasting ability score is WIS for Sorcerers, INT for Wizards, etc.).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BASESTATSCORE:12</code></p>
@@ -190,10 +190,10 @@
 <a name="STATRANGE2" id="STATRANGE2"></a>
 <hr>
 		<p class="indent0"><strong>Tag Name:</strong> STATRANGE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The increment in the score 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The increment in the score
 			necessary to get another bonus spell slot of the indicated level).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Indicates the increment in the spellcasting ability score necessary 
+		<p class="indent2">Indicates the increment in the spellcasting ability score necessary
 			for the bonus spell granted on this line to be given again.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>STATRANGE:8</code></p>
@@ -212,7 +212,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> ALIGNMENTNAME:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of the alignment).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to define the various alignments the program understands. New 
+		<p class="indent2">Used to define the various alignments the program understands. New
 			custom alignments, or changes to existing alignments are all possible.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ALIGNMENTNAME: Lawful Good</code></p>
@@ -222,11 +222,11 @@
 
 		<p></p><a name="ABB2"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ABB:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The abbreviation for the alignment 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The abbreviation for the alignment
 			- usually 2 letters, capitalized).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to define the abbreviation displayed for each of the various 
-			defined alignments. The abbreviation does not necessarily have to be 2 letters, 
+		<p class="indent2">Used to define the abbreviation displayed for each of the various
+			defined alignments. The abbreviation does not necessarily have to be 2 letters,
 			it can be longer.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ABB:LG</code></p>
