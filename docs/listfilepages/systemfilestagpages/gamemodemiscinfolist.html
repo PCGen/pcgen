@@ -3,16 +3,16 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v 1.16 2006/02/21 06:32:10 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+
 		Description:
 		Provides information on the use of PCGen Game Mode: Misc Info List File.
 	-->
@@ -31,20 +31,20 @@
 -->
             </style>
 	</head>
-	
+
 	<body>
 		<h1>Game Mode: miscinfo.lst</h1>
 
 		<p></p><a name="ACNAME"></a><hr>
 		<p class="new">*** New - Was DEFENSENAME.</p>
 		<p class="indent0"><strong>Tag Name:</strong> ACNAME:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like to call 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like to call
 			your game's Armor Class equivalent).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Determines name of displayed defensive value.</li>
-			<li>If this tag isn't commented out in the miscinfo.lst, then on the 
-				Summary Tab the Total, Flatfooted, and Touch values will be displayed using the 
+			<li>If this tag isn't commented out in the miscinfo.lst, then on the
+				Summary Tab the Total, Flatfooted, and Touch values will be displayed using the
 				ACABBREV tag to save space.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -56,7 +56,7 @@
 		<p></p><a name="ACABBREV"></a><hr>
 		<p class="new">*** New - Was DEFENSEABBREV.</p>
 		<p class="indent0"><strong>Tag Name:</strong> ACABBREV:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (How you would like your 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (How you would like your
 			game's AC equivalent abbreviated).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Determines name for abbreviation of displayed defensive value.</p>
@@ -65,7 +65,7 @@
 		<p class="indent3">The Armor Rating abbreviation is defined as &quot;AC&quot;.</p>
 		<p class="indent2"><code>ACABBREV:Def</code></p>
 		<p class="indent3">The Armor Rating abbreviation is defined as &quot;Def&quot;.</p>
-		
+
 		<p></p><a name="ACTYPE"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> ACTYPE:x</p>
@@ -80,7 +80,7 @@
 		<p class="indent3">Defines the ACTYPE Total as the Total AC bonuses</p>
 		<p class="indent2"><code>ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield</code></p>
 		<p class="indent3">Defines the ACTYPE Touch as the Total AC minus Armor, NaturalArmor and Shield bonuses</p>
-		
+
 		<p></p><a name="ADD"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:x</p>
@@ -97,8 +97,8 @@
 			<li>Total</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The ADD tag is used in lines beginning with ACTYPE. 
-			The ADD tag adds the defined ACTYPE specified to the ACTYPE being defined by the ACTYPE line. 
+		<p class="indent2">The ADD tag is used in lines beginning with ACTYPE.
+			The ADD tag adds the defined ACTYPE specified to the ACTYPE being defined by the ACTYPE line.
 			The ADD tag can be qualified with PRExxx tags.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ADD:TOTAL</code></p>
@@ -117,10 +117,10 @@
 
 		<p></p><a name="ALTHPABBREV"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ALTHPABBREV:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games secondary HP 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games secondary HP
 			equivalent to be abbreviated to).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the HP abbreviation for the secondary HP holder (Will be used in OS 
+		<p class="indent2">Sets the HP abbreviation for the secondary HP holder (Will be used in OS
 			tokens eventually - Currently used by the Summary tab).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ALTHPABBREV:LP</code></p>
@@ -130,17 +130,17 @@
 
 		<p></p><a name="ALTHPNAME"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ALTHPNAME:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games secondary 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games secondary
 			HP equivalent to be called).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the HP name for the secondary HP holder (Will be used in OS tokens 
+		<p class="indent2">Sets the HP name for the secondary HP holder (Will be used in OS tokens
 			eventually - Currently used by the Summary tab).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ALTHPNAME:Life Points</code></p>
 		<p class="indent3">The secondary HP holder is defined as &quot;Life Points&quot;.</p>
 		<p class="indent2"><code>ALTHPNAME:Wounds</code></p>
 		<p class="indent3">The secondary HP holder is defined as &quot;Wounds&quot;.</p>
-		
+
 		<p></p><a name="BABABBREV"></a><hr>
 		<p class="new">*** New 5.8.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> BABABBREV:x</p>
@@ -150,30 +150,30 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BABABBREV:OB</code></p>
 		<p class="indent3">Displays OB: instead of BAB:.</p>
-		
+
 		<p></p><a name="BABATTCYC"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BABATTCYC:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (difference between a primary attack and the subsequent attack).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Specifies the difference between a primary attack and the subsequent attack. e.g. for each attack 
+		<p class="indent2">Specifies the difference between a primary attack and the subsequent attack. e.g. for each attack
 			after the first, subtract x  to determine its bonus to hit.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BABATTCYC:5</code></p>
 		<p class="indent3">Sets 5 as the difference between each attack in a cycle.</p>
-		
+
 		<p></p><a name="BABMAXATT"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BABMAXATT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (maximum number of attacks as the BAB progresses).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Specifies the maximum number of attacks as the BAB progresses.</p>
-		<p class="indent2">Primary usage - to limit the number of displayed attacks on the OS's (modified by the 2 listed bonus 
+		<p class="indent2">Primary usage - to limit the number of displayed attacks on the OS's (modified by the 2 listed bonus
 			tags - There is already support for additional attacks via the BONUS:COMBAT:ATTACKS and SECONDARYATTACKS tags.).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BABMAXATT:4</code></p>
 		<p class="indent3">Sets 4 as the maximum number of attacks as the BAB progresses.</p>
-		
+
 		<p></p><a name="BABMAXLVL"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BABMAXLVL:x</p>
@@ -183,19 +183,19 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BABMAXLVL:20</code></p>
 		<p class="indent3">Limits a characters BAB progression to a maximum of 20.</p>
-		
+
 		<p></p><a name="BABMINVAL"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BABMINVAL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (minimum starting value for the BAB progressions).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Specifies the starting minimum value for the BAB progressions to start from. 
+		<p class="indent2">Specifies the starting minimum value for the BAB progressions to start from.
 			(i.e. each subsequent attack must be at least +x before being reported)</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BABMINVAL:1</code></p>
 		<p class="indent3">Sets the starting minimum value for the BAB progressions to 1.</p>
 		<p class="indent3">&nbsp;</p>
-		
+
 		<p></p><a name="BASEDICE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BASEDICE:x </p>
 		<p class="indent1"><strong>Variables Used:</strong> (x) die format </p>
@@ -204,9 +204,9 @@
 	    <p class="indent2">Determines the next higher or lower value die in a progression set <br>
 			<strong>NOTE:</strong> This uses the UP and DOWN tags with comma (,) separators and tabs to separate the tags themselves.</p>
 		<p class="indent1"><strong>Example: </strong></p>
-        <p class="indent2"><code>BASEDICE:1d6 UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6 DOWN:1d4,1d3,1d2,1</code></p>    
+        <p class="indent2"><code>BASEDICE:1d6 UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6 DOWN:1d4,1d3,1d2,1</code></p>
         <p class="indent3">This states the base die is a d6 and determines that the next lowest die would be a d4, then a d3 and the next highest would be a d8, then 2d. </p>
-        
+
 		<p></p><a name="BONUS_ACFLAT"></a><hr>
         <p class="indent0"><strong>Tag Name:</strong> BONUS_ACFLAT</p>
         <p class="indent1"><strong>Variables used (x):</strong> formula</p>
@@ -215,7 +215,7 @@
         <p class="indent1"><strong>Example: </strong> </p>
         <p class="indent2"><code>BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0</code></p>
         <p class="indent3">The codes takes the entire AC value and removes the Dex (ability) to result in the Flat Footed AC but does not remove the Dex bonus if the class has the uncanny dodge special ability. </p>
-        
+
         <p></p><a name="BONUS_ACTOUCH"></a><hr>
         <p class="indent0"><strong>Tag Name:</strong> BONUS_ACTOUCH:x</p>
         <p class="indent1"><strong>Variables used (x):</strong> formula<strong></strong></p>
@@ -224,22 +224,22 @@
         <p class="indent1"><strong>Example: </strong></p>
         <p class="indent2"><code>BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor</code></p>
         <p class="indent3">The codes takes the entire AC value and removes the Armor and Natural armor to result in the Touch AC</p>
-        
+
 		<p></p><a name="BONUSFEATLEVELSTARTINTERVAL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUSFEATLEVELSTARTINTERVAL:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where bonus feats would begin 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where bonus feats would begin
 			(first bonus feat awarded at this level).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Level increment to get more feats - 
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Level increment to get more feats -
 			e.g. 3 for every third level).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This tag, basically, sets the feat progression rules.</li>
-			<li>Where level = first level where you gain an additional feat (use more than one of 
+			<li>Where level = first level where you gain an additional feat (use more than one of
 				these tags for additional feat progressions).</li>
-			<li>Where interval = multiples of levels after the start level that you gain an additional feat (0 = 
+			<li>Where interval = multiples of levels after the start level that you gain an additional feat (0 =
 				only at start).</li>
-			<li>The standard setting would give characters get a bonus feat every three levels starting at level 
-				three, so the tag info would be 3|3 (1st three indicates that the first bonus feat is given at level 3, 
+			<li>The standard setting would give characters get a bonus feat every three levels starting at level
+				three, so the tag info would be 3|3 (1st three indicates that the first bonus feat is given at level 3,
 				and the 2nd three indicates that additional bonus feats are given every three levels after that).</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -255,11 +255,11 @@
 		<p class="indent0"><strong>Tag Name:</strong> BONUSSTACKS:x.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Bonus Type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> This is a list of all bonuses which stack. Tags which do not 
-		  have a TYPE=label parameter are assumed to stack, tags which do have a TYPE=label 
-		  parameter do not normally stack. Some games have exceptions to this rule and 
-		  list specific types which always do stack. In the fantasy gameModes Dodge and 
-		  Circumstance always stack. This tag lists those exceptions. The Types can be 
+		<p class="indent2"> This is a list of all bonuses which stack. Tags which do not
+		  have a TYPE=label parameter are assumed to stack, tags which do have a TYPE=label
+		  parameter do not normally stack. Some games have exceptions to this rule and
+		  list specific types which always do stack. In the fantasy gameModes Dodge and
+		  Circumstance always stack. This tag lists those exceptions. The Types can be
 		  listed all in one tag or multiple tags can be used.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted</code></p>
@@ -270,23 +270,23 @@
 		<p class="indent2"><code>BONUSSTACKS:NotRanged</code></p>
 		<p class="indent2"><code>BONUSSTACKS:NotFlatFooted</code></p>
 		<p class="indent3">The listed Types will stack.</p>
-		
+
 		<p></p><a name="BONUSSTATLEVELSTARTINTERVAL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUSSTATLEVELSTARTINTERVAL:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where stat bonuses would 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where stat bonuses would
 			begin - first stat bonus awarded at this level)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Level increment to get more 
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Level increment to get more
 			feats - e.g. 3 for every third level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This tag, basically, sets the stat progression rules.</li>
-			<li>Where level = first level where you gain an additional stat (use 
+			<li>Where level = first level where you gain an additional stat (use
 				more than one of these tags for additional stat progressions).</li>
-			<li>Where interval = multiples of levels after the start level that you 
+			<li>Where interval = multiples of levels after the start level that you
 				gain an additional stat (0 = only at start).</li>
-			<li>The standard setting would give characters a bonus stat point every four levels 
-				starting at level four, so the tag info would be 4|4 (1st four indicates that 
-				the first bonus stat point is given at level 4, and the 2nd four indicates that 
+			<li>The standard setting would give characters a bonus stat point every four levels
+				starting at level four, so the tag info would be 4|4 (1st four indicates that
+				the first bonus stat point is given at level 4, and the 2nd four indicates that
 				additional bonus stat points are given every four levels after that).</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -296,7 +296,7 @@
 		<p class="indent3">Character would get a bonus stat point every four levels, starting at level 4.</p>
 		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:2|3</code></p>
 		<p class="indent3">Character would get a bonus stat point every three levels, starting at level 2.</p>
-		
+
 		<p></p><a name="CHECKSMAXLEVEL"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> CHECKSMAXLEVEL:x</p>
@@ -318,7 +318,7 @@
 			<li>Monster</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Indicates which type of Class will have some default rules changed around the areas of 
+		<p class="indent2">Indicates which type of Class will have some default rules changed around the areas of
 		CR Formula, Monster Classification and XP Penalties.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CLASSTYPE:PC</code></p>
@@ -326,7 +326,7 @@
 
 		<p></p><a name="CONTEXT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> CONTEXT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Contains the file path and filename 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Contains the file path and filename
 			of the context help file for the TAB at the beginning of the line).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Indicates which help file will be displayed for context help for the associated TAB.</p>
@@ -359,14 +359,14 @@
 
 		<p></p><a name="CURRENCYUNITABBREV"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> CURRENCYUNITABBREV:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The abbreviation for the name of 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The abbreviation for the name of
 			the standard unit of currency for this game mode).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets the abbreviation for the name of the standard currency.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CURRENTCYUNITABBREV:Cr</code></p>
 		<p class="indent3">Sets the abbreviated currency unit to &quot;Cr&quot;.</p>
-		
+
 		<p></p><a name="DAMAGEMULT"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> DAMAGEMULT:x=y,x=y</p>
@@ -379,19 +379,19 @@
 		<p class="indent3">The damage multiplier becomes 1.5 if wielded two handed.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">After a WIELDCATEGORY tag.</p>
-				
+
 		<p></p><a name="DEFAULTUNITSET"></a><hr>
 		<p class="new">*** New 5.9.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> DEFAULTUNITSET:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Default unit Set)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the Default Unit Set used by the game mode. 
+		<p class="indent2">Sets the Default Unit Set used by the game mode.
 		<br>Unit sets can be changed on the language tab of the preferences dialog.
 		<br>If this tag is not present the game mode will default to Imperial.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFAULTUNITSET:Imperial</code></p>
 		<p class="indent3">Set Imperial as the Unit Set used by the game mode.</p>
-		
+
 		<p><a name="DISPLAYORDER"></a></p><hr>
 		<p class="indent0"><strong>Tag Name:</strong>DISPLAYORDER:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
@@ -400,64 +400,53 @@
         <p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>DISPLAYORDER:1</code></p>
         <p class="indent3">The Game Mode/Campaign menu will show this as the first Game Mode.</p>
-        
+
 		<p></p><a name="DISTANCEFACTOR"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEFACTOR:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance factor).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in UNITSET lines to define the distance factor of the unit set. 
-		Distance is multiplied by the unit sets DISTANCEFACTOR and the resulting conversion is displayed in the GUI. 
+		<p class="indent2">Used in UNITSET lines to define the distance factor of the unit set.
+		Distance is multiplied by the unit sets DISTANCEFACTOR and the resulting conversion is displayed in the GUI.
 		A Unit set which is native to the data will always have a factor of 1.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEFACTOR:0.3</code></p>
 		<p class="indent3">Defines the distance factor as &quot;0.3&quot;.</p>
-		
-		<a name="DISTANCEPATTERN"></a>
-        <p class="new">*** New 5.9.5</p>
-        <p class="indent0"><strong>Tag Name:</strong> DISTANCEPATTERN:x</p>
-        <p class="indent1"><strong>Variables Used (x):</strong> Text (Distance unit pattern).</p>
-        <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in UNITSET lines to define the distance unit pattern of the unit set. The 'pattern' string is a pattern for formatting the output of the value, so you can specify e.g. how many decimal digits are printed. The pattern follows the definition of the Java class DecimaFormat and can be found <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html" target="_blank">here</a>.</p>
-        <p class="indent1"><strong>Where it is used:</strong></p>
-        <p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
-        <p class="indent1"><strong>Example:</strong></p>
-        <p class="indent2"><code>DISTANCEPATTERN:#</code></p>
-        <p class="indent3">Defines the distance unit abbreviation as &quot;#&quot;.</p>
+
         <p class="indent3">&nbsp;</p>
-		
+
 		<p></p><a name="DISTANCEPATTERN"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEPATTERN:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance unit pattern).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Used in UNITSET lines to define the distance unit pattern of the unit set.
-		  The 'pattern' string is a pattern for formatting the output of the value, so 
-		  you can specify e.g. how many decimal digits are printed. The pattern follows 
-		  the definition of the Java class DecimaFormat and can be found 
+		  The 'pattern' string is a pattern for formatting the output of the value, so
+		  you can specify e.g. how many decimal digits are printed. The pattern follows
+		  the definition of the Java class DecimaFormat and can be found
 		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html" target="_blank">here</a>.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEPATTERN:#</code></p>
 		<p class="indent3">Defines the distance unit abbreviation as &quot;#&quot;.</p>
-		
+
 		<p></p><a name="DISTANCEUNIT"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEUNIT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance unit abbreviation).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in UNITSET lines to define the distance unit abbreviation of the unit set. 
-		The string 'unit' is appended to the value and set off from the value by a 
+		<p class="indent2">Used in UNITSET lines to define the distance unit abbreviation of the unit set.
+		The string 'unit' is appended to the value and set off from the value by a
 		space. If you want the unit to follow directly after the value, prefix the string with '~'.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DISTANCEUNIT:ft.</code></p>
 		<p class="indent3">Defines the distance unit abbreviation as &quot;ft.&quot;.</p>
-		
+
 		<p></p><a name="DOWN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DOWN:x,x</p>
 		<p class="indent1"><strong>Varibles used:</strong> (x) alpha numerical</p>
@@ -468,7 +457,7 @@
 		<p class="indent1"><strong>Example: </strong> </p>
 		<p class="indent2"><code>DOWN:1d4,1d3,1d2,1</code></p>
 		<p class="indent3">The next die in the progression will be 1d4, then 1d3 if chosen again, etc.</p>
-		
+
 		<p></p><a name="FINESSEABLE"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> FINESSEABLE:x</p>
@@ -481,7 +470,7 @@
 		<p class="indent3">Allows weapon finesse to be used with this wield category.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">After a WIELDCATEGORY tag.</p>
-		
+
 		<p></p><a name="HANDS"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
@@ -499,48 +488,48 @@
 		<p class="indent0"><strong>Tag Name:</strong> HEIGHTFACTOR:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Height Factor).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in UNITSET lines to define the height factor of the unit set. 
-		Height is multiplied by the unit sets HEIGHTFACTOR and the resulting conversion is displayed in the GUI. 
+		<p class="indent2">Used in UNITSET lines to define the height factor of the unit set.
+		Height is multiplied by the unit sets HEIGHTFACTOR and the resulting conversion is displayed in the GUI.
 		A Unit set which is native to the data will always have a factor of 1.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HEIGHTUNIT:2.54</code></p>
 		<p class="indent3">Defines the height factored as &quot;2.54&quot;.</p>
-		
+
 		<p></p><a name="HEIGHTPATTERN"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> HEIGHTPATTERN:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance unit pattern).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Used in UNITSET lines to define the distance unit pattern of the unit set.
-		  The 'pattern' string is a pattern for formatting the output of the value, so 
-		  you can specify e.g. how many decimal digits are printed. The pattern follows 
-		  the definition of the Java class DecimaFormat and can be found 
+		  The 'pattern' string is a pattern for formatting the output of the value, so
+		  you can specify e.g. how many decimal digits are printed. The pattern follows
+		  the definition of the Java class DecimaFormat and can be found
 		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html" target="_blank">here</a>.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HEIGHTPATTERN:#</code></p>
 		<p class="indent3">Defines the distance unit pattern as &quot;#&quot;.</p>
-		
+
 		<p></p><a name="HEIGHTUNIT"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> HEIGHTUNIT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Height abbreviation).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in UNITSET lines to define the height unit abbreviation of the unit set. 
-		The string 'unit' is appended to the value and set off from the value by a 
-		space. If you want the unit to follow directly after the value, prefix the string 
+		<p class="indent2">Used in UNITSET lines to define the height unit abbreviation of the unit set.
+		The string 'unit' is appended to the value and set off from the value by a
+		space. If you want the unit to follow directly after the value, prefix the string
 		with '~'. The string 'ftin' is hard-coded to give results of the format x'y&quot;.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HEIGHTUNIT:cm</code></p>
 		<p class="indent3">Defines the height unit abbreviation as &quot;cm&quot;.</p>
-		
+
 		<p></p><a name="HEIGHTUNITABBREV"></a><hr>
-		<p class="new">*** Removed. This is now defined by the 
+		<p class="new">*** Removed. This is now defined by the
 		<a href="#HEIGHTUNIT">HEIGHTUNIT</a> tag.</p>
 		<p class="indent0"><strong>Tag Name:</strong> HEIGHTUNITABBREV:x</p>
 
@@ -554,7 +543,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HIDDENEQUIPTYPES:Standard|Resizable|Specific|Magic|Thief|Scribe|Wizard|Tools</code></p>
 		<p class="indent3">Hides the listed equipment Types within the GUI.</p>
-		
+
 		<p></p><a name="HIDDENFEATTYPES"></a><hr>
 		<p class="new">*** New 5.8.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> HIDDENFEATTYPES:x|x</p>
@@ -565,25 +554,25 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HIDDENEQUIPTYPES:Standard|Resizable|Specific|Magic|Thief|Scribe|Wizard|Tools</code></p>
 		<p class="indent3">Hides the listed equipment Types within the GUI.</p>
-		
+
 		<p></p><a name="HIDDENSKILLTYPES"></a><hr>
 		<p class="new">*** New 5.8.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> HIDDENSKILLTYPES:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Type to hide in the GUI).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Any skill type specified will not be displayed as a Type in the GUI.  The skill 
+		<p class="indent2">Any skill type specified will not be displayed as a Type in the GUI.  The skill
 		itself will still be visible.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HIDDENSKILLTYPES:St|Co|Ag|Qu|Pr|SD|In|Re</code></p>
 		<p class="indent3">Hides the listed skill Types within the GUI.</p>
-		
+
 		<p></p><a name="HPABBREV"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> HPABBREV:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like your games 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like your games
 			primary HP equivalent to be abbreviated to).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the HP abbreviation for the primary HP holder - Will be used in OS 
-			tokens eventually (Currently used by the Summary tab and HP button on the 
+		<p class="indent2">Sets the HP abbreviation for the primary HP holder - Will be used in OS
+			tokens eventually (Currently used by the Summary tab and HP button on the
 			class tab).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HPABBREV:HP</code></p>
@@ -607,10 +596,10 @@
 
 		<p></p><a name="HPNAME"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> HPNAME:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games primary 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games primary
 			HP equivalent to be called).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the HP name for the primary HP holder - Will be used in OS tokens 
+		<p class="indent2">Sets the HP name for the primary HP holder - Will be used in OS tokens
 			eventually (Currently used by the Summary tab and HP pop-up from classes).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>HPNAME:Hit Points</code></p>
@@ -633,7 +622,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> LEVELMSG:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Message you would like displayed for level-up).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is the message displayed when experience manually added to 
+		<p class="indent2">This is the message displayed when experience manually added to
 			character will allow character to advance a level.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>LEVELMSG:You may qualify for a new level</code></p>
@@ -641,10 +630,10 @@
 
 		<p></p><a name="MENUENTRY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MENUENTRY:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Text you want displayed as a menu 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Text you want displayed as a menu
 			item under the settings/campaign menu).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines menu entries under Settings-&gt;Campaign (Use &amp; for mnemonic, &amp;&amp; 
+		<p class="indent2">Defines menu entries under Settings-&gt;Campaign (Use &amp; for mnemonic, &amp;&amp;
 			for &amp;).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>&amp;S&amp;&amp;M</code></p>
@@ -657,7 +646,7 @@
 		<p class="indent2">Defines the tooltip displayed for the previously defined menuentry.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>MENUTOOLTIP:</code></p>
-		<p class="indent3">Defines a menu entry tooltip that will display as &quot;Use 3e 
+		<p class="indent3">Defines a menu entry tooltip that will display as &quot;Use 3e
 			character creation settings&quot;.</p>
 
 		<p></p><a name="METHOD"></a><hr>
@@ -675,23 +664,23 @@
 		<p class="indent3">Simulates rolling 4 six sided dice and dropping the lowest.</p>
 		<p class="indent2"><code>ROLLMETHOD:5d6 drop 2 lowest &lt;tab&gt; METHOD:roll(5,6,[3,4,5])</code></p>
 		<p class="indent3">Simulates rolling 5 six sided dice and dropping the 2 lowest.</p>
-		
+
 		<p></p><a name="MOVEUNIT"></a><hr>
-		<p class="new">*** Removed. This is now defined in the 
+		<p class="new">*** Removed. This is now defined in the
 		<a href="listfilepages/systemfilestagpages/gamemodeunitset.html">unitSet.lst</a> file.</p>
 		<p class="indent0"><strong>Tag Name:</strong> MOVEUNIT:x</p>
-		
+
 		<p></p><a name="MOVEUNITABBREV"></a><hr>
-		<p class="new">*** Removed. This is now defined in the 
+		<p class="new">*** Removed. This is now defined in the
 		<a href="listfilepages/systemfilestagpages/gamemodeunitset.html">unitSet.lst</a> file.</p>
 		<p class="indent0"><strong>Tag Name:</strong> MOVEUNITABBREV:x</p>
-		
+
 		<p></p><a name="NAME"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> NAME:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like displayed as 
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like displayed as
 			the name of the tab).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">If this tag is set to in_tabname (ie: in_abilities) it will pull 
+		<p class="indent2">If this tag is set to in_tabname (ie: in_abilities) it will pull
 			the tab name from the language files (for internationalization).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>NAME:Domains</code></p>
@@ -700,7 +689,7 @@
 		<p class="indent3">Defines tab name as &quot;Overview&quot;.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
-		
+
 		<p></p><a name="PLUSCOST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PLUSCOST:x</p>
 		<p class="indent1"><strong>Variables used (x):</strong> formula</p>
@@ -715,16 +704,16 @@
 		<p class="indent3">Takes the shield cost and then takes 1000 times the plus value and then times the plus value to come up with the resulting cost. </p>
 		<p class="indent2"><code>PLUSCOST:WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)</code> </p>
 		<p class="indent3">Takes the weapon cost and then takes 2000 times the plus value and then times the plus value to come up with the resulting cost, if the weapon has an alternate head (double weapon) it also calculates the cost using the same formula. </p>
-	    
+
 		<p></p><a name="POINTPOOLNAME"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> POINTPOOLNAME:x</p>
 		<p class="indent1">
-			<strong>Variables Used (x):</strong> Text (Name of the point buy 
+			<strong>Variables Used (x):</strong> Text (Name of the point buy
 			method - MUST have a matching entry in pointbuymethod.lst file).
 		</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The POINTPOOLNAME tag is used to make a default choice 
-		for a GameMode's preferred method of PointPooling for Stat creation, and makes 
+		<p class="indent2">The POINTPOOLNAME tag is used to make a default choice
+		for a GameMode's preferred method of PointPooling for Stat creation, and makes
 		reference to a tag in the pointbuymethods.lst.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>POINTPOOLNAME:Harp</code></p>
@@ -743,7 +732,7 @@
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RANKMODFORMULA:IF($$RANK$$>20,50+$$RANK$$,IF($$RANK$$>10,50+($$RANK$$-10)*2,IF($$RANK$$>0,$$RANK$$*5,-25)))-$$RANK$$</code></p>
-		<p class="indent3">The first 10 ranks of a skill will each give +5 bonus to the skill total. The next 10 give a +2 bonus and any additional 
+		<p class="indent3">The first 10 ranks of a skill will each give +5 bonus to the skill total. The next 10 give a +2 bonus and any additional
 		ranks give a +1 bonus to skill total. A skill without ranks has a bonus of -25. (This is HARP's skill point system.)</p>
 
 		<p></p><a name="REMOVE"></a><hr>
@@ -762,8 +751,8 @@
 			<li>Total</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The REMOVE tag is used in lines beginning with ACTYPE. 
-			The REMOVE tag subtracts the defined ACTYPE specified to the ACTYPE being defined by the ACTYPE line. 
+		<p class="indent2">The REMOVE tag is used in lines beginning with ACTYPE.
+			The REMOVE tag subtracts the defined ACTYPE specified to the ACTYPE being defined by the ACTYPE line.
 			The REMOVE tag can be qualified with PRExxx tags.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>REMOVE:Base</code></p>
@@ -776,13 +765,13 @@
 		<p class="indent0"><strong>Tag Name:</strong> ROLLMETHOD:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Description of random Stat rolling method).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Begins a line which adds a random dice rolling method to generate 
- 		stats. This tag is followed by the <a href="#METHOD">METHOD</a> tag which defines 
-  		the actual dice formula. See the entry for <a href="#METHOD">METHOD</a> for 
-  		syntax usage. When a ROLLMETHOD has been added to a miscinfo.lst file it will 
-  		appear in it's own menu under the <a href="../../menupages/settings/character/characterabilityscoreoption.html">abilities 
-  		preference pane</a> as an option to generate ability stats. If selected this 
-  		will cause a button labeled Roll to appear in the Summary window allowing the 
+		<p class="indent2">Begins a line which adds a random dice rolling method to generate
+ 		stats. This tag is followed by the <a href="#METHOD">METHOD</a> tag which defines
+  		the actual dice formula. See the entry for <a href="#METHOD">METHOD</a> for
+  		syntax usage. When a ROLLMETHOD has been added to a miscinfo.lst file it will
+  		appear in it's own menu under the <a href="../../menupages/settings/character/characterabilityscoreoption.html">abilities
+  		preference pane</a> as an option to generate ability stats. If selected this
+  		will cause a button labeled Roll to appear in the Summary window allowing the
   		user to regenerate ability scores using the method selected.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ROLLMETHOD:3d6 &lt;tab&gt; METHOD:3d6</code></p>
@@ -791,7 +780,7 @@
 		<p class="indent3">Menu displays &quot;4d6 drop lowest&quot; as the label for this method.</p>
 		<p class="indent2"><code>ROLLMETHOD:5d6 drop 2 lowest &lt;tab&gt; METHOD:roll(5,6,[3,4,5])</code></p>
 		<p class="indent3">Menu displays &quot;5d6 drop 2 lowest&quot; as the label for this method.</p>
-		
+
 		<p></p><a name="SHOWCLASSDEFENSE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SHOWCLASSDEFENSE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES or NO).</p>
@@ -800,17 +789,17 @@
 			<li>Determines whether Defensive bonus from classes is displayed on the Class Tab.</li>
 			<li>YES - Allow bonuses of the BONUS:COMBAT|AC|x|TYPE=ClassDefense type to be displayed.</li>
 			<li>NO - Do not allow bonuses of the BONUS:COMBAT|AC|x|TYPE=ClassDefense type to be displayed (Default).</li>
-			<li>If this tag is YES, then the Class tab will reflect any AC bonuses 
+			<li>If this tag is YES, then the Class tab will reflect any AC bonuses
 				given with a BONUS:COMBAT|AC|x|TYPE=ClassDefense tag.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SHOWCLASSDEFENSE:YES</code></p>
 		<p class="indent3">Allow bonuses of the BONUS:COMBAT|AC|x|TYPE=ClassDefense type to be displayed.</p>
-		
+
 		<p></p><a name="SHOWTAB"></a><hr>
 		<p class="new">*** Deprecated - Use <a href="#TAB">TAB</a> instead.</p>
 		<p class="indent0"><strong>Tag Name:</strong> SHOWTAB:x|y</p>
-		
+
 		<p></p><a name="SIZEDIFF"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZEDIFF:x</p>
@@ -856,13 +845,13 @@
 
 		<p></p><a name="SKILLMULTIPLIER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SKILLMULTIPLIER:x|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The skill multiplier for the level 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The skill multiplier for the level
 			- level is based on position).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Alters the number of skill points awarded at various levels of 
+			<li>Alters the number of skill points awarded at various levels of
 				advancement.</li>
-			<li>Currently implemented to support the standard rule that characters get 
+			<li>Currently implemented to support the standard rule that characters get
 				4x the normal amount of skills at first level.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -871,10 +860,10 @@
 		<p class="indent2"><code>SKILLMULTIPLIER:2|2|2</code></p>
 		<p class="indent3">Character gets 2x the normal amount of skills, at 1st, 2nd, and 3rd level.</p>
 		<p class="indent2"><code>SKILLMULTIPLIER:10|4</code></p>
-		<p class="indent3">Character get 10x the normal amount of skills at 1st level and 4x the normal 
+		<p class="indent3">Character get 10x the normal amount of skills at 1st level and 4x the normal
 			amount of skills at 2nd level.</p>
-		
-        <p></p><a name="SPELLBASEDC"></a><hr>	
+
+        <p></p><a name="SPELLBASEDC"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLBASEDC:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Formula (used to determine a spells base DC)</p>
     	<p class="indent1"><strong>What it does:</strong></p>
@@ -882,7 +871,7 @@
     	<p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT</code></p>
         <p class="indent3">Takes the number 10 as the starting point, then it adds the spells level and finally the primary stat bonus of the caster to come to the total.</p>
-        
+
 		<p></p><a name="SPELLRANGE"></a><hr>
         <p class="indent0"><strong>Tag Name:</strong> SPELLRANGE:x</p>
         <p class="indent1"><strong>Variables Used (x)|(y):</strong> Text Name|Formula</p>
@@ -897,7 +886,7 @@
         <p class="indent3">Formula would determine medium to be the caster's level times 10 + 100 </p>
         <p class="indent2"><code>SPELLRANGE:LONG|(CASTERLEVEL*40)+400</code></p>
         <p class="indent3">Formula returns a long value based upon the caster level times 40 plus 400 <br></p>
-        
+
 		<p></p><a name="SQUARESIZE"></a><hr>
         <p class="new">*** New 5.9</p>
 		<p class="indent0"><strong>Tag Name:</strong> SQUARESIZE:x</p>
@@ -914,38 +903,38 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (new name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">The new name is one of the defined WIELDCATEGORY names.</p>
-		<p class="indent2">This is coupled with a PREVARxx:formula to figure the effective wield category 
-			of a weapon based on PC size. Standard PRExxx formulas used to compute size difference between 
-			weapon and PC. If the PREVARxxx formula is true, then the SWITCH type is applied. 
+		<p class="indent2">This is coupled with a PREVARxx:formula to figure the effective wield category
+			of a weapon based on PC size. Standard PRExxx formulas used to compute size difference between
+			weapon and PC. If the PREVARxxx formula is true, then the SWITCH type is applied.
 			This allows changes in effective wield category based on weapon and PC size.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SWITCH:Light</code></p>
 		<p class="indent3">Wield category is switched to 'Light'.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">After a WIELDCATEGORY tag with a PREVARxx statement in it.</p>
-		
+
 		<p></p><a name="TAB"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> TAB:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Tab Name).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 		  <li>This indicates what &quot;TABS&quot; will be displayed in the graphic user interface of the PCGen program.</li>
-          <li>Indicates which tab the options following it will affect. Must be first on 
+          <li>Indicates which tab the options following it will affect. Must be first on
 				  the line, to be followed by NAME and CONTEXT (and optionally VISIBLE).</li>
           <li>Tab Name may be one of:
 		  <ul>
-			  <li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>					
-			  <li>CAMPAIGNS - The tab where source materials are displayed.</li>					
-			  <li>CLASS - The tab where classes are displayed.</li>					
-			  <li>DESCRIPTION - The tab where character descriptive information is displayed.</li>					
-			  <li>DOMAINS - The tab where deity/domain information is displayed.</li>					
-			  <li>FEATS - The tab where feat information is displayed.</li>					
-			  <li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>					
-			  <li>RACE - The tab where races are displayed.</li>					
-			  <li>SKILLS - The tab where skills are displayed.</li>					
-			  <li>SPELLS - The tab where spells are displayed.</li>					
-			  <li>SUMMARY - The tab with summary information.</li>					
-	        </ul> 
+			  <li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>
+			  <li>CAMPAIGNS - The tab where source materials are displayed.</li>
+			  <li>CLASS - The tab where classes are displayed.</li>
+			  <li>DESCRIPTION - The tab where character descriptive information is displayed.</li>
+			  <li>DOMAINS - The tab where deity/domain information is displayed.</li>
+			  <li>FEATS - The tab where feat information is displayed.</li>
+			  <li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>
+			  <li>RACE - The tab where races are displayed.</li>
+			  <li>SKILLS - The tab where skills are displayed.</li>
+			  <li>SPELLS - The tab where spells are displayed.</li>
+			  <li>SUMMARY - The tab with summary information.</li>
+	        </ul>
 	      </li>
         </ul>
         <p class="indent1"><strong>Example:</strong></p>
@@ -961,11 +950,11 @@
 		<p class="indent0"><strong>Tag Name:</strong> UNITSET:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Unit Set).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">UNITSET begins a line which defines a system of measurements such as Imperial or Metric. 
-		Unit sets can be selected on the language tab of the preferences dialog, by name. 
-		The Unit set in which the data is native should always have a factor of 1. 
-		The Default Unit Set is set in the miscinfo.lst file with the 
-		<a href="gamemodemiscinfolist.html#DEFAULTUNITSET">DEFAULTUNITSET</a> 
+		<p class="indent2">UNITSET begins a line which defines a system of measurements such as Imperial or Metric.
+		Unit sets can be selected on the language tab of the preferences dialog, by name.
+		The Unit set in which the data is native should always have a factor of 1.
+		The Default Unit Set is set in the miscinfo.lst file with the
+		<a href="gamemodemiscinfolist.html#DEFAULTUNITSET">DEFAULTUNITSET</a>
 		tag and will default to Imperial if not present.</p>
 		<p class="indent1"><strong>Tags used in UNITSET lines:</strong></p>
 		<p class="indent2"><a href="#DISTANCEUNIT">DISTANCEUNIT</a></p>
@@ -980,7 +969,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>UNITSET:Imperial</code></p>
 		<p class="indent3">Defines a Unit Set named Imperial.</p>
-		
+
 		<p></p><a name="UP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> UP:x,x </p>
 		<p class="indent1"><strong>Varibles used:</strong> (x) alpha numerical </p>
@@ -991,14 +980,14 @@
 		<p class="indent1"><strong>Example: </strong> </p>
 		<p class="indent2"><code>UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6</code> </p>
 		<p class="indent3">Determines the next die in the progression will be 1d8, then 2d6 if chosen again, etc. </p>
-		
+
 		<p></p><a name="VISIBLE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like displayed as the name of the tab).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Turns the associated tab on or off in the GUI.</li>
-			<li>YES - Used to make the tab display in the GUI (this is the default if a VISIBLE 
+			<li>YES - Used to make the tab display in the GUI (this is the default if a VISIBLE
 				tag is not present).</li>
 			<li>NO - Used to keep the tab from displaying in the GUI.</li>
 		</ul>
@@ -1007,7 +996,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISIBLE:NO</code></p>
 		<p class="indent3">Used to keep the tab from displaying in the GUI.</p>
-		
+
 		<p></p><a name="WEAPONCATEGORY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> WEAPONCATEGORY:x </p>
         <p class="indent1"><strong>Variables used (x):</strong> Text </p>
@@ -1022,7 +1011,7 @@
         <p class="indent3">Defines Exotic weapons</p>
         <p class="indent2"><code>WEAPONCATEGORY:Natural</code></p>
         <p class="indent3">Defines Natural weapons</p>
-		
+
         <p></p><a name="WEAPONNONPROFPENALTY"></a><hr>
 		<p class="new">*** New 5.8.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEAPONNONPROFPENALTY:x</p>
@@ -1032,7 +1021,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEAPONNONPROFPENALTY:-4</code></p>
 		<p class="indent3">Defines a -4 penalty to attack for not being proficient in a weapon.</p>
-		
+
         <p></p><a name="WEAPONTYPE"></a><hr>
 		<p class="indent0"><strong> Tag Name:</strong> WEAPONTYPE:x|y</p>
 		<p class="indent1"><strong>Variables used (x):</strong> text | (y) letter to define type</p>
@@ -1047,56 +1036,56 @@
 		<p class="indent3">Electricity weapons/attacks will be represented by a letter &ldquo;E&rdquo; on the preview and output sheets. </p>
 		<p class="indent2"><code>WEAPONTYPE:Sonic|So </code></p>
 		<p class="indent3">Sonic weapons/attacks will be represented by a letter &ldquo;So&rdquo; on the preview and output sheets. </p>
-		
+
 		<p></p><a name="WEIGHTFACTOR"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEIGHTFACTOR:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weight factor).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in UNITSET lines to define the weight factor of the unit set. 
-		Weight is multiplied by the unit sets WEIGHTFACTOR and the resulting conversion is displayed in the GUI. 
+		<p class="indent2">Used in UNITSET lines to define the weight factor of the unit set.
+		Weight is multiplied by the unit sets WEIGHTFACTOR and the resulting conversion is displayed in the GUI.
 		A Unit set which is native to the data will always have a factor of 1.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTFACTOR:0.5</code></p>
 		<p class="indent3">Defines the weight factor as &quot;0.5&quot;.</p>
-		
+
 		<p></p><a name="WEIGHTPATTERN"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEIGHTPATTERN:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weight unit pattern).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Used in UNITSET lines to define the weight unit pattern.
-		  The 'pattern' string is a pattern for formatting the output of the value, so 
-		  you can specify e.g. how many decimal digits are printed. The pattern follows 
-		  the definition of the Java class DecimaFormat and can be found 
+		  The 'pattern' string is a pattern for formatting the output of the value, so
+		  you can specify e.g. how many decimal digits are printed. The pattern follows
+		  the definition of the Java class DecimaFormat and can be found
 		  <a href="http://java.sun.com/j2se/1.3/docs/api/java/text/DecimalFormat.html" target="_blank">here</a>.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTPATTERN:#.##</code></p>
 		<p class="indent3">Defines the weight unit pattern as &quot;ft.&quot;.</p>
-		
+
 		<p></p><a name="WEIGHTUNIT"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEIGHTUNIT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weight unit abbreviation).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in UNITSET lines to define the weight unit abbreviation of the unit set. 
-		The string 'unit' is appended to the value and set off from the value by a 
+		<p class="indent2">Used in UNITSET lines to define the weight unit abbreviation of the unit set.
+		The string 'unit' is appended to the value and set off from the value by a
 		space. If you want the unit to follow directly after the value, prefix the string with '~'.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEIGHTUNIT:lbs.</code></p>
 		<p class="indent3">Defines the weight unit abbreviation as &quot;lbs.&quot;.</p>
-		
+
 		<p></p><a name="WEIGHTUNITABBREV"></a><hr>
-		<p class="new">*** Removed. This is now defined by the 
+		<p class="new">*** Removed. This is now defined by the
 		<a href="#WEIGHTUNIT">WEIGHTUNIT</a> tag.</p>
 		<p class="indent0"><strong>Tag Name:</strong> WEIGHTUNITABBREV:x</p>
-		
+
 		<p></p><a name="WIELDCATEGORY"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> WIELDCATEGORY:x</p>
@@ -1104,15 +1093,15 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Defines how PCGen handles differences between PC size and Weapon size based on the weapons WIELD tag.</p>
 		<p class="indent2">Name is the target of the weapons WIELD tag such as 'Light', 'OneHanded' or 'TwoHanded'.</p>
-		<p class="indent2">There are three computation categories defined, 'Unusable', 'TooLarge' and 'TooSmall' 
+		<p class="indent2">There are three computation categories defined, 'Unusable', 'TooLarge' and 'TooSmall'
 			which are used for oversized or undersized weapons.</p>
-		<p class="indent2">WIELDCATEGORY defines the name of the weapon category and is the first tag in the line, 
-			the following tags can be used after WIELDCATEGORY to define other attributes of the weapon category: 
+		<p class="indent2">WIELDCATEGORY defines the name of the weapon category and is the first tag in the line,
+			the following tags can be used after WIELDCATEGORY to define other attributes of the weapon category:
 			HANDS, FINESSEABLE, SIZEDIFF, DAMAGEMULT, PREVARxxx and SWITCH.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WIELDCATEGORY:Light</code></p>
 		<p class="indent3">Defines 'Light' weapon category.</p>
-		
+
 		<p></p><a name="XPPENALTY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> XPPENALTY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (YES or NO).</p>
@@ -1123,7 +1112,7 @@
 		<p class="indent3">A Penalty to XP will be applied.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">CLASSTYPE Line.</p>
-		
+
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodemiscinfolist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
 
