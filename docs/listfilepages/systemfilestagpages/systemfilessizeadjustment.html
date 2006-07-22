@@ -3,16 +3,17 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/systemfilessizeadjustment.html,v 1.2 2005/10/14 17:37:07 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
+
 		Description:
 		Provides information on the use of PCGen System File: Size Adjustment.
 	-->
@@ -21,43 +22,107 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Game Mode: sizeAdjustment.lst</h1>
-		
-		
+
+
 		<p>This file sets the various bonuses and penalties of the character size categories used in the gameMode.</p>
-		
-		<p>In the fantasy gameModes the nine categories are: (from smallest to largest) 
+
+		<p>In the fantasy gameModes the nine categories are: (from smallest to largest)
 			Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan and Colossal.</p>
-		
+
 		<p>Note: The following BONUS tags only function in this file.</p>
-		
+
 		<p></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ACVALUE</p>
+		<p></p><a name="BONUSACVALUE"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:ACVALUE|TYPE.x,TYPE.x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Undocumented.</p>
-		
+		<p class="indent2">Changes the AC of TYPE= based on the size of the character</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5</code></p>
+		<p class="indent3">Reduces the AC by half for Armor and Shields</p>
+		<p class="indent2"><code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2</code></p>
+		<p class="indent3">Increases the AC by double for Armor and Shields</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">SizeAdjustment.lst</p>
+
 		<p></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCAPACITY</p>
+		<p></p><a name="BONUSITEMCAPACITY"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCAPACITY|TYPE=x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Undocumented.</p>
-		
+		<p class="indent2">Changes the item carrying capacity based on the size of the character</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:ITEMCAPACITY|TYPE=Goods|0.25</code></p>
+		<p class="indent3">Reduces the carrying capacity of TYPE=Goods to .25</p>
+		<p class="indent2"><code>BONUS:ITEMCAPACITY|TYPE=Goods|2</code></p>
+		<p class="indent3">Increases the carrying capacity of TYPE=Goods to double</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">SizeAdjustment.lst</p>
+
 		<p></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCOST</p>
+		<p></p><a name="BONUSITEMCOST"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCOST|TYPE=x,TYPE=x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Undocumented.</p>
-		
+		<p class="indent2">Changes the cost of items assigned to TYPE= by amount listed in x based on the
+		size of the character.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5</code></p>
+		<p class="indent3">Reduces cost of all Ammunition, Armor, Shield, Weapon by 0.5.</p>
+		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Scrolls,TYPE=Potents|1</code></p>
+		<p class="indent3">Costs of all Scrolls, Potents are unchanged.</p>
+		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Alchemical,TYPE=Liquid,TYPE=Clothing,TYPE=Food|2</code></p>
+		<p class="indent3">Increases all costs of all Alchemical, Liquid, Clothing, Food by 2</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">SizeAdjustment.lst</p>
+
 		<p></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMWEIGHT</p>
+		<p></p><a name="BONUSITEMWEIGHT"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMWEIGHT|TYPE=x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Undocumented.</p>
-		
+		<p class="indent2">Changes the weight of an item by the amount of y based on the size of the character</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ITEMWEIGHT|TYPE=Goods|0.25</code></p>
+		<p class="indent3">Reduces the weight to .25</p>
+		<p class="indent2"><code>BONUS:ITEMWEIGHT|TYPE=Goods|1</code></p>
+		<p class="indent3">Changes the weight by nothing</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">SizeAdjustment.lst</p>
+
 		<p></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:LOADMULT</p>
+		<p></p><a name="BONUSLOADMULT"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:LOADMULT|TYPE=SIZE|x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Formulas</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Undocumented.</p>
- 
+		<p class="indent2">Changes the standard amount carried based on the size of the character</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.125|PRELEGSGTEQ:4</code></p>
+		<p class="indent3">Reduces the amount carried by .125 if the character had 4 or more legs</p>
+		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.25|PRELEGSGTEQ:4</code></p>
+		<p class="indent3">Reduces the amount carried by .25 if the character had 4 or more legs</p>
+		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.5|PRELEGSGTEQ:2</code></p>
+		<p class="indent3">Reduces the amount carried by .5 if the character had 2 or more legs</p>
+		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|3|PREHANDSGTEQ:4</code></p>
+		<p class="indent3">Increases the amount carried by 3 if the character had 4 or more hands</p>
+		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|2</code></p>
+		<p class="indent3">Increases the amount carried by 2</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">SizeAdjustment.lst</p>
+
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/systemfilessizeadjustment.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
 
