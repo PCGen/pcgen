@@ -1,37 +1,25 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-
-
 <html>
 
 	<!--
 
 		PCGen Documentation Project
 
-		
-
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfileschoose.html,v 1.13 2006/02/24 02:03:25 eddyanthony Exp $
-
 		$Author$
-
 		$Date$
-
 		$Revision$
 
-		
+
 
 		Contributors:
-
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-
 		Eddy Anthony - eddybaATmindspringDOTcom
-
 		Aaron Divinsky - boomer70ATyahooDOTcom
-
-		
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
 
 		Description:
-
 		Provides information on the use of PCGen global CHOOSE Tag.
 
 	-->
@@ -39,446 +27,247 @@
 	<head>
 
 			<title>The CHOOSE Tag</title>
-
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 
 	</head>
-
-	
 
 	<body>
 
 		<h1>The CHOOSE Tag</h1>
 
-		
-
 		<p>This file will attempt to show the countless different examples of this extremely versatile tag.</p>
 
-		
-
-		<p>While the CHOOSE tag is extremely flexible, it should be noted that support for CHOOSE in class files is 
-
-			still in the works and will cause problems. This is a known issue, and all I can say is that, 
-
+		<p>While the CHOOSE tag is extremely flexible, it should be noted that support for CHOOSE in class files is
+			still in the works and will cause problems. This is a known issue, and all I can say is that,
 			&quot;We are working on it.&quot;</p>
-
-			
 
 		<p>Notes on using CHOOSE within feats:</p>
 
-		
-
-		<p>If a feat contains a CHOOSE tag you must use <a href="globalfilesadd.html#FEAT">ADD:FEAT</a> 
-
+		<p>If a feat contains a CHOOSE tag you must use <a href="globalfilesadd.html#FEAT">ADD:FEAT</a>
   		to activate the selection window. Using VFEAT, MFEAT or FEATAUTO will bypass the CHOOSE tag.</p>
 
-		
-
-		<p>CHOOSE must be paired with a <a href="../datafilestagpages/datafilesfeats.html#MULT">MULT:YES</a> 
-
+		<p>CHOOSE must be paired with a <a href="../datafilestagpages/datafilesfeats.html#MULT">MULT:YES</a>
   		tag in feats for it to work properly.</p>
 
 
-
 		<p></p><a name="EMPTYCHOOSE1"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (SIMPLE, MARTIAL, EXOTIC etc.)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all weaponprofs of the given type.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:EXOTIC</code></p>
-
 		<p class="indent3">Will produce a list of all Exotic weapon proficiencies.</p>
 
 
-
 		<p></p><a name="EMPTYCHOOSE2"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Any text)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of the provided strings.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:Choice1|Choice2|Choice3</code></p>
-
 		<p class="indent3">Will produce a list containing Choice1, Choice2, and Choice3.</p>
 
 
-
 		<p></p><a name="ARMORPROF"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ARMORPROF|x|y|y</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Armor name)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (TYPE=&lt;Armor type&gt;)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all armors matching the criteria.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:ARMORPROF|2|TYPE=Heavy</code></p>
-
 		<p class="indent3">Allow the choice of up to two heavy armors.</p>
-
 		<p class="indent2"><code>CHOOSE:ARMORPROF|1|Scale Mail|Chainmail</code></p>
-
 		<p class="indent3">Allow the choice of one of Scale Mail or Chainmail.</p>
 
-		
 
 		<p></p><a name="ARMORTYPE"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ARMORTYPE</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all armor types that the character is proficient with.  This list is built from the choices for the Armor Proficiency feat.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:ARMORTYPE</code></p>
-
 		<p class="indent3">This will produce a list of all the armor types with which the character is proficient.  If the character in question was a Fighter the list produced would be Light, Medium, and Heavy.</p>
 
-		
 
 		<p></p><a name="CCSKILLLIST"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:CCSKILLLIST|x,x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or LIST) </p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This will produce a list of all skills in the appropriate category for 
-
+		<p class="indent2">This will produce a list of all skills in the appropriate category for
 			that character (root skills are added only once).</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:CCSKILLLIST|LIST</code></p>
-
-		<p class="indent3">This will produce a list of all skills in the appropriate category for 
-
+		<p class="indent3">This will produce a list of all skills in the appropriate category for
 			that character.</p>
 
-		
 
 		<p></p><a name="CSKILLS"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:CSKILLS</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all class skills for the	character, regardless of rank.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:CSKILLS</code></p>
-
 		<p class="indent3">This will produce a list of all class skills for the character.</p>
 
 
-
 		<p></p><a name="COUNT"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:COUNT=x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">COUNT is not a choose, but a pre-fix for any Choose. 
-
+		<p class="indent2">COUNT is not a choose, but a pre-fix for any Choose.
 		It sets the number of choices that can be selected at most.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>MULT:YES</code></p>
-
 		<p class="indent2"><code>STACK:YES</code></p>
-
 		<p class="indent2"><code>CHOOSE:COUNT=3|STAT|Con</code></p>
-
 		<p class="indent3">The user can select up to three stats (but not Con).</p>
 
-		
 
 		<p></p><a name="DOMAIN"></a><hr>
-
 		<p class="new">*** New 5.9.4</p>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:DOMAIN|x,x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> DIETY=&lt;name&gt;</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> PC</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of Domains.</p>
-
 		<ul class="indent2">
-
 			<li>ANY returns a list of all loaded Domains.</li>
-
 			<li>DIETY=&lt;name&gt; returns a list of Domains granted by specified Deity.</li>
-
 			<li>QUALIFY returns a list of loaded Domains the PC qualifies for but does not have.</li>
-
 			<li>PC returns a list of all domains a character actually has.</li>
-
 		</ul>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:DOMAIN|Air,Fire,Sun</code></p>
-
 		<p class="indent3">Will allow selection Air, Fire or Sun Domains.</p>
-
 		<p class="indent2"><code>CHOOSE:DOMAIN|DIETY=Kong</code></p>
-
 		<p class="indent3">Will allow selection any Domain granted by the deity &quot;Kong&quot;.</p>
 
 
-
 		<p></p><a name="EQUIPTYPE"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPTYPE|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (list of dot separated equipment types)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all known equipment that are of all of the named types.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:EQUIPTYPE|Melee.Simple</code></p>
-
 		<p class="indent3">Will allow selection from all simple melee weapons.</p>
 
 
-
 		<p></p><a name="FEAT"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEAT=x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This will produce a list from the list choices associated with the named feat 
-
+		<p class="indent2">This will produce a list from the list choices associated with the named feat
 			(Should replace WEAPONFOCUS).</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus</code></p>
-
 		<p class="indent3">Will display a list of all the character's choices for the Weapon Focus feat.</p>
 
 
-
 		<p></p><a name="FEATADD"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATADD|x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Feat Type&gt;)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of feats that match the type or name specified. The selected feat will be added to the characters feats.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:FEATADD|TYPE=Fighter</code></p>
-
 		<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
 
 
-
 		<p></p><a name="FEATLIST"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATLIST|x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Feat Type&gt;)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of feats possessed by the character that match the type or name specified.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code></p>
-
 		<p class="indent3">This will produce a list of all the character's fighter feats.</p>
 
 
-
 		<p></p><a name="FEATSELECT"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATSELECT|x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Feat Type&gt;)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of feats that match the type or name specified.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:FEATSELECT|TYPE=Fighter</code></p>
-
 		<p class="indent3">This will produce a list of all fighter feats.</p>
 
 
-
 		<p></p><a name="HP"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:HP|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Display name)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">Displays a list with the display name </p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:HP|+3 hp </code></p>
-
 		<p class="indent3">Will display a list with &quot;+3 hp&quot; .</p>
 
 
-
 		<p></p><a name="NOCHOICE"></a><hr>
-
 		<p class="new">*** New 5.9.4</p>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NOCHOICE</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This CHOOSE tag will NOT produce a pop up window. 
-
-			This is useful in feats which use MULT:YES to allow them to be selected multiple times. 
-
-			A feat with this tag will simply be added to the character without a chooser window, 
-
+		<p class="indent2">This CHOOSE tag will NOT produce a pop up window.
+			This is useful in feats which use MULT:YES to allow them to be selected multiple times.
+			A feat with this tag will simply be added to the character without a chooser window,
 			after the first time it is added a (x2), (x3) etc. will be displayed indicating how many times the feat was chosen.</p>
-
-		<p class="indent2">When used for a "nested" choice the choice also doesn't show 
-
-		  up. For example a if you have a feat Feat X that has an ADD:FEAT(Feat Y) and 
-
-		  Feat X has a CHOOSE normally it will appear as Feat X(Feat Y) in the chooser. 
-
+		<p class="indent2">When used for a "nested" choice the choice also doesn't show
+		  up. For example a if you have a feat Feat X that has an ADD:FEAT(Feat Y) and
+		  Feat X has a CHOOSE normally it will appear as Feat X(Feat Y) in the chooser.
 		  With this option it will show up as Feat Y. </p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:NOCHOICE</code></p>
-
 		<p class="indent3">The feat is added without a chooser window.</p>
 
 
-
 		<p></p><a name="NONCLASSSKILLLIST"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NONCLASSSKILLLIST|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or LIST</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of skills specified or all cross class skills for the character.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST</code></p>
-
 		<p class="indent3">This will produce a list of cross class skills for the character.</p>
 
 
-
 		<p></p><a name="NUMBER"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NUMBER|MIN=x|MAX=y|TITLE=z</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Lowest value to choose from)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Highest value to choose from)</p>
-
 		<p class="indent1"><strong>Variables Used (z):</strong> Text (Description to output to the chooser)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">You get a pop-up dialogue that allows you to select a number between (and including) he high and low values</p>
-
 		<p class="indent1"><strong>Note:</strong> This will only bring up the chooser if invoked from the Temporary Bonus tab.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
-
 		<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
 
-		
 
 		<p></p><a name="NUMCHOICES"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NUMCHOICES=x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of times the CHOOSE can be selected)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">NUMCHOICES is not a choose, but a pre-fix for any Choose. 
-
+		<p class="indent2">NUMCHOICES is not a choose, but a pre-fix for any Choose.
 		It sets the number of choices that a feat can be selected at most.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>MULT:YES</code></p>
-
 		<p class="indent2"><code>STACK:YES</code></p>
-
 		<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
-
-		<p class="indent3">The user can select the same choice more than once, 
-
+		<p class="indent3">The user can select the same choice more than once,
 		but the user will never be allowed to select the feat more than 3 times.</p>
+
 
 		<p></p><a name="PROFICIENCY"></a><hr/>
 		<p class="new">*** New 5.10</p>
@@ -497,566 +286,304 @@
 		<p class="indent2"><code>CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Exotic</code></p>
 		<p class="indent3">This will produce a list of all exotic weapon proficiencies the PC does not have.</p>
 
-		<p></p><a name="RACE"></a><hr>
 
+		<p></p><a name="RACE"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:RACE|x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> RACETYPE=x (Race type)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> RACESUBTYPE=x (Race subtype)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=x (Race's type tag)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all races  that match the criteria specified.&nbsp; A
 		race that matches any of the criteria specified will be added to the list.&nbsp; To group items
 		together so that all the items in the group must be true use &quot;[]&quot; to surround
 		the choices.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Dragon</code></p>
-
 		<p class="indent3">This will produce a list of all races that have the Dragon racial type.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:RACE|[RACETYPE=Humanoid,RACESUBTYPE=Aquatic]</code></p>
-
 		<p class="indent3">This will produce a list of all Humanoid races that have the Aquatic subtype.</p>
 
 
 		<p></p><a name="SALIST"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SALIST|x,x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Start of SA name)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This will produce a list of all special abilities for 
-
+		<p class="indent2">This will produce a list of all special abilities for
 			the character that match the start strings specified.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SALIST|Turn,Rebuke</code></p>
-
 		<p class="indent3">This will produce a list of all Special Abilities that start with Turn or Rebuke possessed by the character.</p>
 
 
-
 		<p></p><a name="SCHOOLS"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SCHOOLS</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all schools of magic from System\schools.lst.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SCHOOLS</code></p>
-
 		<p class="indent3">This will produce a list of all schools of magic (abjuration, evocation, etc.).</p>
 
 
-
 		<p></p><a name="SHIELDPROF"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SHIELDPROF|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (TYPE=Equipment type)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all shields of the specified type or name.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SHIELDPROF|TYPE=Wood</code></p>
-
 		<p class="indent3">This will produce a list of all wooden shields.</p>
 
 
-
 		<p></p><a name="SKILLLIST"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLLIST|x,x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or LIST)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of skills specified or all skills.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SKILLLIST|LIST</code></p>
-
 		<p class="indent3">Will display a list of all skills in the system.</p>
 
 
-
 		<p></p><a name="SKILLS"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLS</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This will produce a list of all skills currently attached to the 
-
+		<p class="indent2">This will produce a list of all skills currently attached to the
 			character, regardless of rank.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SKILLS</code></p>
-
-		<p class="indent3">This will produce a list of all skills usable Untrained and any skills that 
-
+		<p class="indent3">This will produce a list of all skills usable Untrained and any skills that
 		have ranks for the character.</p>
 
 
-
 		<p></p><a name="SKILLSNAMED"></a><hr>
-
 		<p class="new">*** Updated 5.9.5</p>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLSNAMED|x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Start of Skill Name%)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> ALL (Displays all Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> CLASS (Displays all Class Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all Cross Class Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all Exclusive Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> NORANK (Displays all Skills the PC has no ranks in)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of named skills.  More than one can be used and if so the qualifying skills are combined.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|CLASS</code></p>
-
 		<p class="indent3">This will produce a list of class skills from which the character can pick.</p>
-
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|Knowledge%</code></p>
-
 		<p class="indent3">This will produce a list of skills starting with Knowledge from which the character can pick.</p>
-
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|CROSSCLASS|Craft%</code></p>
-
 		<p class="indent3">This will produce a list of all cross class skills as well as all Craft skills even if they are not cross class.</p>
-
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|NORANK</code></p>
-
 		<p class="indent3">This will produce a list of all skills the character has 0 ranks in.</p>
 
 
-
 		<p></p><a name="SKILLSNAMEDTOCCSKILL"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLSNAMEDTOCCSKILL|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Start of Skill Name%)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> ALL (Displays all Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> CLASS (Displays all Class Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all Cross Class Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all Exclusive Skills)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of named skills.  The selected skill will be made a cross class skill for the character.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCCSKILL|CLASS</code></p>
-
 		<p class="indent3">This will display a list of all the characters class skills and allow them to select a skill to be made a cross class skill.</p>
 
 
-
 		<p></p><a name="SKILLSNAMEDTOCSKILL"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLSNAMEDTOCSKILL|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill Name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Start of Skill Name%)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type=&lt;Skill Type&gt;)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> ALL (Displays all Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> CLASS (Displays all Class Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all Cross Class Skills)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all Exclusive Skills)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of named skills.  The selected skill will be made a class skill for the character.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCSKILL|CROSSCLASS</code></p>
-
 		<p class="indent3">This will display a list of all the characters cross class skills and allow them to select a skill to be made a class skill.</p>
 
 
-
 		<p></p><a name="SPELLCLASSES"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLCLASSES</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This will produce a list of all the character's classes which don't have a base spell 
-
+		<p class="indent2">This will produce a list of all the character's classes which don't have a base spell
 			stat of &quot;None&quot;.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SPELLCLASSES</code></p>
-
 		<p class="indent3">Will produce a list of the character's classes that can cast spells.</p>
 
 
-
 		<p></p><a name="SPELLLEVEL"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|x|y|z|x|y|z</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (CLASS=&lt;Spellcaster
-
 		  class&gt; or TYPE=&lt;Spell type&gt;)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Minimum Level)</p>
-
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum Level or MAXLEVEL)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<ul class="indent2">
-
 			<li>Display a list of spells for the specified class or type.</li>
-
 			<li>Spells will only be included if they fall between the range of Minimum Level and Maximum Level.</li>
-
 			<li>MAXLEVEL will include spells up to the highest level the character can cast.</li>
-
 			<li>A bonus can be associated with the choice by appending it in []</li>
-
 		</ul>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SPELLLEVEL|2|CLASS=Wizard|0|MAXLEVEL|TYPE=Divine|1|3</code></p>
-
 		<p class="indent3">would present a list of the character's castable Wizard levels of spells (e.g.
-
 			Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric
-
 			3 if the character had Cleric as a class.</p>
 
 
-
 		<p></p><a name="SPELLLIST"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLIST|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spellbook required Y or N)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of known spells for each class that matches the spellbook requirement. Allows selection of the maximum stat modifier spells for each qualifying class.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SPELLLIST|Y</code></p>
-
 		<p class="indent3">Would produce a list of all known spells for each class that uses a spellbook for the character. If the character is a Wizard, for example, it would allow INT mod selections from the list.</p>
 
 
-
 		<p></p><a name="SPELLS"></a><hr>
-
 		<p class="new">*** New</p>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLS|x|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (CLASS=&lt;Spellcaster
-
 		  class&gt; or DOMAIN=&lt;Domain name&gt;)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all spells of the specified type.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:SPELLS|CLASS=Wizard</code></p>
-
 		<p class="indent3">Would produce a list of all Wizard spells.</p>
 
 
-
 		<p></p><a name="STAT"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:STAT|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name to exclude, Optional)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">This will produce a list of all stats excepted the ones listed.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:STAT|CON</code></p>
-
 		<p class="indent3">This will produce a list off all stats except CON.</p>
 
 
-
 		<p></p><a name="TEMPLATE"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:TEMPLATE</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<p class="indent2">See <a href="../datafilestagpages/datafilestemplates.html#TEMPLATECHOOSE">TEMPLATE:CHOOSE</a> instead.</p>
 
 
-
 		<p></p><a name="WEAPONFOCUS"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:WEAPONFOCUS|x</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (TYPE.&lt;Equipment Type&gt;) </p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
-		<p class="indent2">This will produce a list of weaponprofs associated with the Weapon 
-
+		<p class="indent2">This will produce a list of weaponprofs associated with the Weapon
 			Focus Feat.</p>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONFOCUS|TYPE.Sword</code></p>
-
 		<p class="indent3">Present a list of weaponprofs associated with a characters Weapon Focus feats that match a given equipment type.</p>
 
 
-
 		<p></p><a name="WEAPONPROF"></a><hr>
-
 		<p class="new">*** Updated 5.7.1</p>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:WEAPONPROF|x|y|y</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Total Selections allowed)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon name)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (DEITYWEAPON)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat=&lt;feat name&gt;)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (WIELD.WieldCategory)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<ul class="indent2">
-
 			<li>WEAPONPROF is the only viable choice at this time in the domains list file with the CHOOSE tag.</li>
-
 			<li>The actual listing of the types of weapon proficiencies the character may have is made up of:
-
 				<ul>
-
 					<li>a | (pipe) delimited list of weapon proficiencies as they appear in the weapon proficiencies list file.</li>
-
 					<li>DEITYWEAPON (gets the weapon listed in the deities list file)</li>
-
 					<li>FEAT= which must be any feat that requires a weapon proficiency (such as Simple, Martial, Exotic, Weapon Focus, etc)</li>
-
-					<li>WIELD.WieldCategory (Wield category, can be Light, OneHanded or TwoHanded. 
-
-        				NOT can be specified with the TYPE tag by using a &quot;!&quot; before the TYPE. 
-
+					<li>WIELD.WieldCategory (Wield category, can be Light, OneHanded or TwoHanded.
+        				NOT can be specified with the TYPE tag by using a &quot;!&quot; before the TYPE.
 						You can have any as many !TYPE tags as you like, but they all MUST be at the end.</li>
-
 				</ul>
-
 			</li>
-
 		</ul>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROF|1|Dagger|Club</code></p>
-
 		<p class="indent3">Choice of either a Dagger or Club proficiency.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROF|3|DEITYWEAPON</code></p>
-
 		<p class="indent3">Choice of three of those allowed by the Deity.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROF|2|Dagger|Sword (Long)|Spear|Halberd</code></p>
-
 		<p class="indent3">Choice of two of the Dagger, Long Sword, Spear and Halbard.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROF|10|FEAT=Martial Weapon Proficiency</code></p>
-
 		<p class="indent3">Choice of ten Martial Weapons.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|WIELD.Light</code></p>
-
 		<p class="indent3">Choice of all weapons which have a WIELD tag of either OneHanded or Light.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|!TYPE.Exotic</code></p>
-
 		<p class="indent3">Choice of all weapons which have a WIELD tag of OneHanded which are not Exotic.</p>
 
 
-
 		<p></p><a name="WEAPONPROFS"></a><hr>
-
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:WEAPONPROFS|x|x.y</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (LIST)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (DEITYWEAPON)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Size.)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (WSize.)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Light, 1 handed, or 2 handed. Can have optional equipment types as well)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spellcaster.)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon prof name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (ADD.)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon prof name)</p>
-
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (TYPE. or TYPE=)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment type or Light, 1 handed, or 2 handed)</p>
-
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Not. will remove a previously added proficiency)</p>
-
 		<p class="indent1"><strong>What it does:</strong></p>
-
 		<ul class="indent2">
-
 			<li>The actual listing of the types of weapon proficiencies the list may have is made up of:
-
 				<ul>
-
 					<li>LIST - All character's weapon profs are added to list</li>
-
 					<li>DEITYWEAPON - All the character's Deity's favorite weapons are added to the list</li>
-
 					<li>Size.y&lt;Weapon prof name&gt; - Weapon prof is added to list if character is at least size specified and the character has the proficiency specified. Other options
-
 						are F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).</li>
-
 					<li>WSize.string - The character's weapon prof is added to the list if the wield category matches the specified type.</li>
-
 					<li>Spellcaster.string - The specified weapon proficiency will be added to the list if the character is a spellcaster.</li>
-
 					<li>ADD.string - The specified weapon proficiency is added to the list unconditionally.</li>
-
 					<li>TYPE.string - All proficiencies that has equipment that matches the specified type or wield category will be added to the list.</li>
-
 					<li>TYPE.Not.string - Remove a previously added proficiency that has equipment that matches the specified type or wield category will be added to the list.</li>
-
 					<li>weaponprof - The specified proficiency will be added to the list if the character has it.</li>
-
 				</ul>
-
 			</li>
-
 		</ul>
-
 		<p class="indent1"><strong>Example:</strong></p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST</code></p>
-
 		<p class="indent3">Displays a list of all the character's weapon proficiencies.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|DEITYWEAPON</code></p>
-
 		<p class="indent3">Displays a list of all the character's deity's favorite weapon proficiencies.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|Size.LGreatsword|Size.LClub|Size.SSling|Size.SDagger</code></p>
-
 		<p class="indent3">Displays a list of Greatsword, Club, Sling, and Dagger if the character is at least Large size of Sling and Dagger if the character is at least Small size.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|WSize.Light.Wood</code></p>
-
 		<p class="indent3">Displays a list of all the character's weapon profs for light weapons if there is a wood weapon of that type.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|Spellcaster.Longsword|Spellcaster.Longbow</code></p>
-
 		<p class="indent3">Displays a list of Longsword and Longbow if the character is a spellcaster.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|ADD.Longsword|ADD.Longbow</code></p>
-
 		<p class="indent3">Displays a list of Longsword and Longbow.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|TYPE.Melee</code></p>
-
 		<p class="indent3">Displays a list of weapon proficiencies for melee weapons.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST|TYPE.Not.2 handed</code></p>
-
 		<p class="indent3">Displays a list of weapon proficiencies for all weapons that are not 2 handed.</p>
-
 		<p class="indent2"><code>CHOOSE:WEAPONPROFS|Longsword|Longbow</code></p>
-
 		<p class="indent3">Displays a list of Longsword and Longbow.</p>
-
-
-
-		
-
-
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfileschoose.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-
 	</body>
-
-
-
 </html>
