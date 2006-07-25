@@ -3,16 +3,16 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesprexxx.html,v 1.22 2006/01/19 02:11:36 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+
 		Description:
 		Provides information on the use of PCGen global PRE Tags.
 	-->
@@ -21,49 +21,49 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>PRExxx Tags</h1>
-		
+
 		<p>This is the generic way to talk about the pre-requisite tags - the way you
 		can restrict access to a class, feat, deity, domain or anything else in a lst
 		file.</p>
-		
+
 		<p>The same PRExxx tags are used in every lst file to make crafting
 		restrictions as easy as possible.</p>
-		
-		<p>These pre-requisite tags are often referred to as PRExxx tags because 
+
+		<p>These pre-requisite tags are often referred to as PRExxx tags because
 		they all begin with the prefix &quot;PRE&quot; to make finding them easy.</p>
-		
+
 		<p><strong>NOTE:</strong>
 		Any PRExxx tag may be prefixed with a &quot;!&quot; character (i.e., !PRExxx) in order to
 		invert the requirement logic. The PRExxx tag will be evaluated like normal, then
 		the result inverted (meaning you CAN NOT have the things listed
 		in this tag) when determining whether the prerequisite is passed or not.</p>
-		
-		<p><strong>USAGE:</strong> PRExxx tags are used in two different manners. A PRExxx 
-  		tag can be used is as a standalone tag to qualify an entire line. Thus if a 
-		character does not meet the prerequisites of a standalone PRExxx tag he will 
-		not gain the benefits or be able to select the entire line the statement is in. 
-		BONUS tags and certain other tags can be qualified by appending a PRExxx tag 
-		to the end of it. If the character does not meet the prerequisites he will not 
-		gain the BONUS but is not restricted from any other benefits he may receive from 
-		the line. PRExxx tags are usually added to BONUS tags with an additional pipe (|) 
-  		followed by the PRExxx statement but there are some tags that use a different 
-  		syntax, like enclosing the PRExxx statement in brackets [ ], see the individual 
+
+		<p><strong>USAGE:</strong> PRExxx tags are used in two different manners. A PRExxx
+  		tag can be used is as a standalone tag to qualify an entire line. Thus if a
+		character does not meet the prerequisites of a standalone PRExxx tag he will
+		not gain the benefits or be able to select the entire line the statement is in.
+		BONUS tags and certain other tags can be qualified by appending a PRExxx tag
+		to the end of it. If the character does not meet the prerequisites he will not
+		gain the BONUS but is not restricted from any other benefits he may receive from
+		the line. PRExxx tags are usually added to BONUS tags with an additional pipe (|)
+  		followed by the PRExxx statement but there are some tags that use a different
+  		syntax, like enclosing the PRExxx statement in brackets [ ], see the individual
   		entries for examples.</p>
-		
+
 		<p></p><a name="PREALIGN"></a><hr>
 		<p class="new">*** Updated 5.7.6</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREALIGN:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>LG,LN,LE,NG,TN,NE,CG,CN,CE,Deity (Alignment abbreviation).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>0,1,2,3,4,5,6,7,8,10 (Alignment array number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Alignment names and abbreviations (ABB) are defined in the statsandchecks.lst gameMode file. 
-			The array number is based on the order the Alignments are presented in the statsandchecks.lst file the first one being 0. 
-			You can now use the Alignment abbreviation directly in addition to using the Alignment array number. 
+		<p class="indent2">Alignment names and abbreviations (ABB) are defined in the statsandchecks.lst gameMode file.
+			The array number is based on the order the Alignments are presented in the statsandchecks.lst file the first one being 0.
+			You can now use the Alignment abbreviation directly in addition to using the Alignment array number.
 			If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.
-			In the 3e and 35e gameModes these are the listed Alignments: 
+			In the 3e and 35e gameModes these are the listed Alignments:
 			(0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE,  6=CG, 7=CN, 8=CE, 9=None, 10 Deity's Alignment).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREALIGN:LG,NG,CG</code></p>
@@ -72,7 +72,7 @@
 		<p class="indent3">Requires any evil alignment.</p>
 		<p class="indent2"><code>PREALIGN:LG,Deity</code></p>
 		<p class="indent3">Requires Lawful Good or the characters chosen Deities alignment.</p>
-		
+
 		<p></p><a name="PREAPPLY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREAPPLY:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> ANYPC (Apply to any character).</p>
@@ -83,14 +83,14 @@
 		<p class="indent3">1. It is used by the Temporary Bonus tab as a flag to see which objects should be listed on that tab.</p>
 		<p class="indent3">2. It is a PRExxx tag whose qualifications must be met before that BONUS will be applied to the target of the bonus.</p>
 		<p class="indent2">Bonuses with PREAPPLY tags will only appear in the Temporary Bonuses Tab.</p>
-		<p class="indent2">All feats, spells or templates with ANYPC as the target of 
-		  the PREAPPLY: tag will always show up on the Temp Bonuses tab. This allows for 
-		  Spells that can be cast on any character and Feats and Templates which act as 
-		  holders for conditional bonuses any character can get (given the right circumstances 
+		<p class="indent2">All feats, spells or templates with ANYPC as the target of
+		  the PREAPPLY: tag will always show up on the Temp Bonuses tab. This allows for
+		  Spells that can be cast on any character and Feats and Templates which act as
+		  holders for conditional bonuses any character can get (given the right circumstances
 		  of course) without the character needing to have added those objects to his character.</p>
-		<p class="indent2">Spells with weapon type PREAPPLY tags will also show in the tab. 
+		<p class="indent2">Spells with weapon type PREAPPLY tags will also show in the tab.
 			The PREAPPLY:ANYPC is assumed in this case but the bonus can only be applied to a weapon.</p>
-		<p class="indent2">See the documentation for the 
+		<p class="indent2">See the documentation for the
 		<a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary Bonus Tab</a> for more information on using this tag.</p>
 		<p class="indent2"><strong>NOTE: </strong>PREAPPLY works ONLY at the end of a BONUS tag.</p>
 		<p class="indent2"><strong>Note(s):</strong> use a comma (,) delimiter to indicate AND (both  conditions must be met).</p>
@@ -104,7 +104,7 @@
 		<p class="indent3">This would apply the bonus to Ranged OR Melee weapons.</p>
 		<p class="indent2"><code>PREAPPLY:Weapon,Blunt</code></p>
 		<p class="indent3">This would apply the bonus to Wooden Blunt weapons.</p>
-		
+
 		<p></p><a name="PREARMORPROF"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREARMORPROF:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of armor proficiencies needed).</p>
@@ -123,7 +123,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> PREARMORTYPE:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of equipped armors needed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of an Armor).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
 			(The name of a piece of Armor - &quot;%&quot; may be used as a wild-card).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (The type of Armor).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> LIST (Checks that the equipped Armor is one the character is proficient with).</p>
@@ -147,7 +147,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREATT:6</code></p>
 		<p class="indent3">This would apply only if the PC had minimum base attack bonus of 6.</p>
-		
+
 		<p></p><a name="PREBASESIZE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREBASESIZEx:y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>EQ (Equals).</p>
@@ -166,13 +166,13 @@
 		<p class="indent1"><strong>Variables Used (y):</strong>Gargantuan (Gargantuan size).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong>Colossal (Colossal size).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Allows characters to be limited or allowed access to certain things 
+		<p class="indent2">Allows characters to be limited or allowed access to certain things
 			only if their physical stature meets selected criteria.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|AC|2|PREBASESIZELTEQ:Medium|TYPE=NaturalArmor.STACK</code></p>
-		<p class="indent3">This would apply the combat AC bonus of 2 that stacks with Natural Armor 
+		<p class="indent3">This would apply the combat AC bonus of 2 that stacks with Natural Armor
 			if the  PC's size is less than or equal to &quot;medium&quot;.</p>
-		
+
 		<p></p><a name="PREBIRTHPLACE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREBIRTHPLACE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (A birthplace name).</p>
@@ -181,10 +181,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREBIRTHPLACE:Klamath</code></p>
 		<p class="indent3">Character must have been born in &quot;Klamath&quot;.</p>
-		
+
 		<p></p><a name="PRECHECK"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRECHECK:x,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of checks  that must be equal to or greater than the numbers specified for the check to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined check from  statsandchecks.lst - e.g. Fortitude or Willpower).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (The number the associated  check must be greater than or equal to).</p>
@@ -195,39 +195,39 @@
 		<p class="indent3">Would succeed if Fortitude meets or exceeds 5 or Reflex meets or exceeds 3.</p>
 		<p class="indent2"><code>PRECHECK:2,Fortitude=5,Reflex=3,Willpower=4</code></p>
 		<p class="indent3">Would succeed if any 2 of the 3 three listed conditions were met.</p>
-		
+
 		<p></p><a name="PRECHECKBASE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRECHECKBASE:x,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of base checks that must be equal to or greater than the numbers specified for the check to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined check from  statsandchecks.lst - e.g. Fortitude or Willpower).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (The number the associated  base check must be greater than or equal to).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the minimum Base Check requirements. Base Checks are usually only those  from class advancement 
+		<p class="indent2">Sets the minimum Base Check requirements. Base Checks are usually only those  from class advancement
 			(no stat modifiers, magic, etc.), but follow anything defined with &quot;<code>BONUS:CHECKS|BASE.Name|</code>&quot;.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRECHECKBASE:2,Fortitude=3,Reflex=3</code></p>
 		<p class="indent3">Would succeed if both Fortitude meets or exceeds 3 and Reflex meets or exceeds 3.</p>
 		<p class="indent2"><code>PRECHECKBASE:1,Fortitude=5,Reflex=3</code></p>
 		<p class="indent3">Would succeed if Fortitude meets or exceeds 5 or Reflex meets or exceeds 3.</p>
-		
+
 		<p></p><a name="PRECITY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRECITY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a city that you  must live in).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the required city. A characters city is set in the 
+		<p class="indent2">Sets the required city. A characters city is set in the
 			<a href="../../tabpages/players/tabdescription.html">Description Tab</a></p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRECITY:Klamath</code></p>
 		<p class="indent3">Character must currently reside in &quot;Klamath&quot;.</p>
-		
+
 		<p></p><a name="PRECLASSOLD"></a><hr>
 		<p class="new">*** Deprecated - use <a href="#PRECLASS2">PRECLASS:x,y=z,y=z</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> PRECLASS:&lt;ClassName&gt;=&lt;Level&gt;</p>
-		
+
 		<p></p><a name="PRECLASS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRECLASS:x,y=z,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of classes that must be equal to or greater than the numbers specified for the check to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined class name).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.ClassType (A Class type such as Base or Prestige).</p>
@@ -247,59 +247,59 @@
 		<p class="indent3">Character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class.</p>
 		<p class="indent2"><code>PRECLASS:2,TYPE.Base=5,TYPE.Prestige=1</code></p>
 		<p class="indent3">Character must have 5 levels in any Base class and 1 level in any Prestige class.</p>
-		
+
 		<p></p><a name="PRECLASSLEVELMAX"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PRECLASSLEVELMAX:x,x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or names).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.ClassType (A Class type such as Base or Prestige).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> SPELLCASTER (Any spellcaster).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> SPELLCASTER.Type (A spellcaster type such as Arcane or Divine).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number 
+		<p class="indent1"><strong>Variables Used (y):</strong> Number
 			(The maximum number of levels in the specified classes allowed. If there is more than one class listed, it is treated as an AND statement).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets maximum class level limits.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRECLASSLEVELMAX:Fighter,SPELLCASTER=2</code></p>
 		<p class="indent3">Character cannot have more than 2 levels of fighter and cannot have more than 2 levels in any spellcasting class.</p>
-		
+
 		<p></p><a name="PRECSKILL"></a><hr>
 		<p class="new">*** New 5.9.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRECSKILL:x,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of skills that must be considered Class Skills for the check to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (A defined skill type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets skill requirements.</p>
-		<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery) or Knowledge (Local) there must 
+		<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery) or Knowledge (Local) there must
 			be a space between the name and the parentheses because the text must match the entry exactly.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRECSKILL:1,Spot,Listen</code></p>
 		<p class="indent3">Character must have either &quot;Spot&quot; or &quot;Listen&quot; as a Class Skill.</p>
 		<p class="indent2"><code>PRECSKILL:2,TYPE.Spy</code></p>
 		<p class="indent3">Character must have two &quot;Spy&quot; skills as Class Skills.</p>
-		
+
 		<p></p><a name="PREDEFAULTMONSTER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEFAULTMONSTER:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Y (Applies to default monster).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> N (Does not apply to default monster).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to qualify bonuses which apply only to default monsters. 
-  			In order to qualify the <a href="../../menupages/settings/character/charactermonstersoption.html"> 
-  			<strong>Use Default Monsters</strong></a> checkbox in the Character/Monsters preference window must be checked. 
-			The bonuses are used most often in a race line and are applied at the time the monster is first created. 
-			If you create a monster and then check the <strong>Use Default Monsters</strong> checkbox the bonuses are not applied retroactively. 
-			The purpose of this feature is to allow users to create monsters with stats identical to those in the source's. 
-			Often a sources monster stats will be a typical example with feats, skills, weapons, etc already selected. 
-			The data files can be coded with these stats so that when the <strong>Use Default Monsters</strong> checkbox 
-			is checked those stats will match the entry. When the <strong>Use Default Monsters</strong> checkbox is not checked 
+		<p class="indent2">Used to qualify bonuses which apply only to default monsters.
+  			In order to qualify the <a href="../../menupages/settings/character/charactermonstersoption.html">
+  			<strong>Use Default Monsters</strong></a> checkbox in the Character/Monsters preference window must be checked.
+			The bonuses are used most often in a race line and are applied at the time the monster is first created.
+			If you create a monster and then check the <strong>Use Default Monsters</strong> checkbox the bonuses are not applied retroactively.
+			The purpose of this feature is to allow users to create monsters with stats identical to those in the source's.
+			Often a sources monster stats will be a typical example with feats, skills, weapons, etc already selected.
+			The data files can be coded with these stats so that when the <strong>Use Default Monsters</strong> checkbox
+			is checked those stats will match the entry. When the <strong>Use Default Monsters</strong> checkbox is not checked
 			the process of creating the monster will be the same as that of creating any other character.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>BONUS:SKILLRANK|Listen,Spot|4|PREDEFAULTMONSTER:Y</code></p>
 		<p class="indent3">This bonus is applied when the <strong>Use Default Monsters</strong> checkbox is checked.</p>
 		<p class="indent2"><code>BONUS:COMBAT|BAB|6|PREDEFAULTMONSTER:Y</code></p>
 		<p class="indent3">This bonus is applied when the <strong>Use Default Monsters</strong> checkbox is checked.</p>
-		
+xx
 		<p></p><a name="PREDEITY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Y (The character must have chosen a deity).</p>
@@ -314,39 +314,39 @@
 		<p class="indent3">Character must NOT have a deity chosen.</p>
 		<p class="indent2"><code>PREDEITY:Zeus,Odin</code></p>
 		<p class="indent3">Character must have chosen either &quot;Zeus&quot; or &quot;Odin&quot;.</p>
-		
+
 		<p></p><a name="PREDEITYALIGN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITYALIGN:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the required alignment).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Having a deity with a particular alignment is a prerequisite. 
+		<p class="indent2">Having a deity with a particular alignment is a prerequisite.
 			(0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE, 6=CG, 7=CN, 8=CE).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREDEITYALIGN:0</code></p>
 		<p class="indent3">Character must have chosen a Lawful Good deity.</p>
-		
+
 		<p></p><a name="PREDEITYDOMAIN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITYDOMAIN:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's domains that must match).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets requirements for the character's deity's domains. 
+		<p class="indent2">Sets requirements for the character's deity's domains.
 			This tag applies to the domains of the PC's deity, and not the domains that the PC has selected for itself.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREDEITYDOMAIN:1,Good,Law </code></p>
 		<p class="indent3">Character must have chosen of deity with either the &quot;good&quot; domain or the &quot;law&quot; domain.</p>
-		
+
 		<p></p><a name="PREDOMAIN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDOMAIN:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's domains that must match).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Set's requirements for a character's domains. 
+		<p class="indent2">Set's requirements for a character's domains.
 			This tag applies to the domains that the PC has selected for itself. </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREDOMAIN:1,Good,Law</code></p>
 		<p class="indent3">Character must have 1 of the two listed domains.</p>
-		
+
 		<p></p><a name="PREDR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PREDR:x,y=z,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the DR conditions that must be met).</p>
@@ -359,11 +359,11 @@
 		<p class="indent3">Must have DR of 10/+1 or greater (but DR Type must be +1).</p>
 		<p class="indent2"><code>PREDR:1,-=10,+1=10,+2=10,+3=10,+4=10,+5=10,Silver=10</code></p>
 		<p class="indent3">Must have DR of 10 or greater of any type listed.</p>
-		
+
 		<p></p><a name="PREEQUIP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREEQUIP:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items from the list that must be equipped).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
 			(The name of a piece of equipment - &quot;%&quot; may be used as a wild-card).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (The type of a piece of equipment).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
@@ -382,18 +382,18 @@
 		<p class="indent3">Must be equipped with any Armor and any Shield.</p>
 		<p class="indent2"><code>PREEQUIP:1,WIELDCATEGORY=TwoHanded</code></p>
 		<p class="indent3">Must be equipped with a two handed weapon.</p>
-		
+
 		<p></p><a name="PREEQUIPPRIMARY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREEQUIPPRIMARY:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of items from the list that must be equipped in a primary hand).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
 			(The name of a piece of equipment - &quot;%&quot; may be used as a wild-card).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The type of a piece of equipment).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is used to determine if a character has a particular item (usually a weapon)
-			 equipped in a Primary hand for the character. Typically has a value of 1 for the Number, 
+			 equipped in a Primary hand for the character. Typically has a value of 1 for the Number,
 			 however can be more than one if can have more than one Primary hand.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREEQUIPPRIMARY:1,Dagger</code></p>
@@ -404,10 +404,10 @@
 		<p class="indent3">Must have some type of slashing weapon equipped in the primary hand.</p>
 		<p class="indent2"><code>PREEQUIPPRIMARY:1,WIELDCATEGORY=OneHanded</code></p>
 		<p class="indent3">Must have a one handed weapon equipped in the primary hand.</p>
-		
+
 		<p></p><a name="PREEQUIPSECONDARY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREEQUIPSECONDARY:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items from the 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items from the
 			list that must be equipped in a secondary hand).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of
 			a piece of equipment  - &quot;%&quot; may be used as a wildcard).</p>
@@ -415,7 +415,7 @@
 		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is used to determine if a character has a particular item (usually a weapon)
-			equipped in a Secondary hand for the character. Typically has a value of 1 for the Number, 
+			equipped in a Secondary hand for the character. Typically has a value of 1 for the Number,
 			however can be more than one if can have more than one Secondary hand.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREEQUIPSECONDARY:1,Dagger</code></p>
@@ -426,19 +426,19 @@
 		<p class="indent3">Must have some type of slashing weapon equipped in the secondary hand.</p>
 		<p class="indent2"><code>PREEQUIPSECONDARY:1,WIELDCATEGORY=Light</code></p>
 		<p class="indent3">Must have a light weapon equipped in the secondary hand.</p>
-		
+
 		<p></p><a name="PREEQUIPBOTH"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREEQUIPBOTHx,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of items from the list that must be equipped in a two handed manner - usually 1).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
-			(The name of a piece of equipment that must be equipped in a two handed manner 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
+			(The name of a piece of equipment that must be equipped in a two handed manner
 			- &quot;%&quot; may be used as a wildcard).</p>
-		<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text 
+		<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text
 			(The type of a piece of equipment that must be equipped in a two handed manner).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to determine if a character has a particular item 
+		<p class="indent2">This is used to determine if a character has a particular item
 			(usually a weapon) equipped and used two-handed style.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREEQUIPBOTH:1,Quarterstaff</code></p>
@@ -447,18 +447,18 @@
 		<p class="indent3">The &quot;%&quot; allows for items named Sword (Great/Masterwork) etc.</p>
 		<p class="indent2"><code>PREEQUIPBOTH:1,TYPE=Slashing</code></p>
 		<p class="indent3">Must have a slashing type weapon equipped in both hands.</p>
-		
+
 		<p></p><a name="PREEQUIPTWOWEAPON"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREEQUIPTWOWEAPONx,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of items from the list that must be equipped in a two weapon fighting manner - 1 or 2).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
 			(The name of a weapon - &quot;%&quot; may be used as a wildcard)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text
 			(The type of a weapon that must be equipped in a two weapon fighting manner).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to determine if a character has a particular item 
+		<p class="indent2">This is used to determine if a character has a particular item
 			(usually a weapon) equipped and used two weapon style.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREEQUIPTWOWEAPON:1,Sword (Short)</code></p>
@@ -469,25 +469,24 @@
 		<p class="indent3">Must have a Sword (Short) equipped as one of two weapons for two weapon fighting.</p>
 		<p class="indent2"><code>PREEQUIPTWOWEAPON:1,WIELDCATEGORY=Light</code></p>
 		<p class="indent3">Must have a light weapon equipped for two weapon fighting.</p>
-		
+
 		<p></p><a name="PREFEAT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREFEAT:x,y,z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of feats from the list that the character must have).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> CHECKMULT 
+		<p class="indent1"><strong>Variables Used (y):</strong> CHECKMULT
 			(Used to make the program count each instance of a feat separately - optional).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Text (The name of a feat a character must have).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> [Text] (The name of a feat a character must NOT have).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (The type of a feat the character must have).</p>
 		<p class="indent1"><strong>Variables Used (z): </strong>[TYPE=Text] (The type of a feat the character must NOT have).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets character feat requirements. For feats which can be taken 
- 	 	multiple times you can specify the exact choices within that feat by using parentheses. 
-  		The Fighter, Loremaster, Arcane Archer and Archmage are good examples of Prestige 
+		<p class="indent2">Sets character feat requirements. For feats which can be taken
+ 	 	multiple times you can specify the exact choices within that feat by using parentheses.
+  		The Fighter, Loremaster, Arcane Archer and Archmage are good examples of Prestige
   		classes to see how to setup this pre-requisite. </p>
-		<p class="indent2"><strong>NOTE: </strong>In feats with multiple instances like Skill Focus or Spell Focus where the instance is 
+		<p class="indent2"><strong>NOTE: </strong>In feats with multiple instances like Skill Focus or Spell Focus where the instance is
 			expressed within parentheses there is no space between the name of the feat and the parentheses.</p>
-		
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREFEAT:1,Dodge,Combat Reflexes</code></p>
 		<p class="indent3">Character must have either &quot;Dodge&quot; or &quot;Combat Reflexes&quot;.</p>
@@ -503,17 +502,17 @@
 		<p class="indent3">Character must have any two of &quot;Skill Focus(Spot)&quot;, &quot;Skill Focus(Listen)&quot;, or &quot;Skill Focus(Search)&quot;.</p>
 		<p class="indent2"><code>PREFEAT:2,TYPE=ItemCreation</code></p>
 		<p class="indent3">Character must have any two ItemCreation type feats.</p>
-		
+
 		<p></p><a name="PREGENDER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREGENDER:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Gender to require).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets gender requirement. &nbsp;The character's gender must start with the text specified.  The test is case sensitive so &quot;male&quot; is 
+		<p class="indent2">Sets gender requirement. &nbsp;The character's gender must start with the text specified.  The test is case sensitive so &quot;male&quot; is
 		not the same as &quot;Male&quot;. &nbsp;The PCGen GUI allows the following genders by default: Male, Female, Neuter, None, and Other.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREGENDER:M</code></p>
 		<p class="indent3">Character's gender must start with &quot;M&quot;.</p>
-		
+
 		<p></p><a name="PREHANDS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREHANDSx:y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
@@ -528,7 +527,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREHANDSGT:2</code></p>
 		<p class="indent3">Character must have a number of hands greater than 2.</p>
-		
+
 		<p></p><a name="PREHASDEITY"></a><hr>
 		<p class="new">*** New 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITY:x</p>
@@ -539,7 +538,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREDEITY:Y</code></p>
 		<p class="indent3">Character must have selected a deity.</p>
-		
+
 		<p></p><a name="PREHD"></a><hr>
 		<p class="new">*** New 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREHD:x</p>
@@ -565,7 +564,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREHP:50</code></p>
 		<p class="indent3">The character must have at least 50 hp.</p>
-		
+
 		<p></p><a name="PREITEM"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREITEM:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items a character must possess).</p>
@@ -578,12 +577,12 @@
 		<p class="indent3">Character must possess either a &quot;long sword&quot; or a &quot;short sword&quot;.</p>
 		<p class="indent2"><code>PREITEM:2,TYPE=Armor,TYPE=Armor</code></p>
 		<p class="indent3">Character must possess two sets of armor.</p>
-		
+
 		<p></p><a name="PRELANG"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRELANG:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of languages a character must know).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a language the character must know).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> ANY 
+		<p class="indent1"><strong>Variables Used (y):</strong> ANY
 			(Indicator the any language will be allowed to help meet the required number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Makes speaking certain languages a prerequisite.</p>
@@ -596,7 +595,7 @@
 		<p class="indent3">Character must be able to speak any two of &quot;Dwarven&quot;, &quot;Elven&quot; or &quot;Halfling&quot;.</p>
 		<p class="indent2"><code>PRELANG:3,ANY</code></p>
 		<p class="indent3">Character must be able to speak any three languages.</p>
-		
+
 		<p></p><a name="PRELEGS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRELEGSx:y </p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
@@ -611,7 +610,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRELEGSGTEQ:4</code></p>
 		<p class="indent3">Character must have at least 4 legs.</p>
-		
+
 		<p></p><a name="PRELEVEL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRELEVEL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The minimum level).</p>
@@ -621,7 +620,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRELEVEL:5</code></p>
 		<p class="indent3">Character must be 5th level.</p>
-		
+
 		<p></p><a name="PRELEVELMAX"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRELEVELMAX:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum level).</p>
@@ -630,13 +629,13 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRELEVELMAX:10</code></p>
 		<p class="indent3">Character cannot be over level 10.</p>
-		
+
 		<p></p><a name="PREMOVE"></a><hr>
 		<p class="new">*** Updated 5.9.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREMOVE:x,y=z,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The minimum number movement types which must pass).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a type of movement).</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number 
+		<p class="indent1"><strong>Variables Used (z):</strong> Number
 			(The minimum movement rate for the associated movement type).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Makes movement rate a prerequisite.</p>
@@ -647,20 +646,20 @@
 		<p class="indent3">Character must be able to swim at speed 10</p>
 		<p class="indent2"><code>PREMOVE:2,Walk=30,Climb=15</code></p>
 		<p class="indent3">Character must be able to walk at speed 30 AND climb at speed 15</p>
-		
+
 		<p></p><a name="PREMULT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREMULT:x,[PRExxx 1],[PRExxx 2]</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of listed PRExxx tags that must be met).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text - [ ] (imbedded PRExxx tags that must be met).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">PREMULT is a special PRExxx tag in that one imbeds other PRExxx tags in it. 
+		<p class="indent2">PREMULT is a special PRExxx tag in that one imbeds other PRExxx tags in it.
 			This allows for a lot of OR functionality across PRExxx tags. You can imbed PREMULT into itself.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREMULT:1,[PRERACE:Gnome],[PRECLASS:1,Cleric=1]</code></p>
 		<p class="indent3">Character must be either a &quot;Gnome&quot; or a &quot;Cleric&quot;.</p>
 		<p class="indent2"><code>PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]</code></p>
 		<p class="indent3">Character must be &quot;Gnome&quot; OR a medium sized or larger creature with the &quot;Alertness&quot; feat.</p>
-		
+
 		<p></p><a name="PRERACE"></a><hr>
 		<p class="new">*** Updated 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRERACE:x,y,y</p>
@@ -674,7 +673,7 @@
 		<p class="indent2">TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</p>
 		<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</p>
 		<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</p>
-		<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf. 
+		<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
 		Without the wildcard character the race name must match exactly.</p>
 		<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -696,21 +695,21 @@
 		<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
 		<p class="indent2"><code>!PRERACE:1,%</code></p>
 		<p class="indent3">This will pass if no race has been selected.</p>
-		
+
 		<p></p><a name="PREREGION"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREREGION:x (y)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The region name).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The subregion name - optional).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Character's home region must match the listed text. 
-			When only the region is specified, any character from that region, 
+		<p class="indent2">Character's home region must match the listed text.
+			When only the region is specified, any character from that region,
 			but with a specified subregion, will still be considered qualified.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREREGION:Slithe</code></p>
 		<p class="indent3">Character must hail from the &quot;Slithe&quot; region.</p>
 		<p class="indent2"><code>PREREGION:Slithe (Barrows)</code></p>
 		<p class="indent3">Character must hail from the &quot;Slithe&quot; region and &quot;Barrows&quot; subregion.</p>
-		
+
 		<p></p><a name="PRERULE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRERULE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Rule name)</p>
@@ -722,7 +721,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRERULE:SYS_WTPSK</code></p>
 		<p class="indent3">The rule WeightPenaltyToSkill must be checked for this to apply.</p>
-											 
+
 		<p></p><a name="PRESA"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESA:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of Special Abilities a character must have).</p>
@@ -731,9 +730,9 @@
 		<p class="indent2">Makes having certain special abilities a prerequisite.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESA:1,Turn undead,Rebuke undead,Smite Evil</code></p>
-		<p class="indent3">Character must have any one of &quot;Turn Undead&quot;, 
+		<p class="indent3">Character must have any one of &quot;Turn Undead&quot;,
 			&quot;Rebuke Undead&quot; or &quot;Smite Evil&quot;.</p>
-		
+
 		<p></p><a name="PRESHIELDPROF"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESHIELDPROF:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of shield proficiencies needed).</p>
@@ -769,20 +768,20 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESIZEEQ:H</code></p>
 		<p class="indent3">Character must be &quot;Huge&quot; in size.</p>
-		
+
 		<p></p><a name="PRESKILL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESKILL:x,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of skills that must be equal to or greater than the numbers specified for the check to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (A defined skill type).</p>
-		<p class="indent2"><strong>Note:</strong> If you require multiples of that type, 
+		<p class="indent2"><strong>Note:</strong> If you require multiples of that type,
 			you need to add TYPE.x for each instance in the comma delimited list.</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number 
+		<p class="indent1"><strong>Variables Used (z):</strong> Number
 			(The number of ranks the associated skill must meet or exceed).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets skill requirements.</p>
-		<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery) or Knowledge (Local) there must 
+		<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery) or Knowledge (Local) there must
 			be a space between the name and the parentheses because the text must match the entry exactly.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRESKILL:1,Spot,Listen=10</code></p>
@@ -791,42 +790,42 @@
 		<p class="indent2"><code>PRESKILL:2,TYPE.Spy,TYPE.Spy=2</code></p>
 		<p class="indent3">Character must have two &quot;Spy&quot; skills with at least two ranks
 			in each of them.</p>
-		
+
 		<p></p><a name="PRESKILLMULT"></a><hr>
 		<p class="new">** NOTE: The following tag has some problems. It will work in some files but not all. **</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESKILLMULT:x,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of skills that must be equal to or greater than the numbers specified for the check to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (A defined skill type).</p>
-		<p class="indent2"><strong>Note(s):</strong> If you require multiples of that type, 
+		<p class="indent2"><strong>Note(s):</strong> If you require multiples of that type,
 			you need to add TYPE.x for each instance in the comma delimited list.</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number 
+		<p class="indent1"><strong>Variables Used (z):</strong> Number
 			(The number of ranks the associated skill must meet or exceed).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Similar to PRESKILL. This tag will set a flag on the character. 
-  			It only works as a prereq if the rank in the skill divided by the rank needed 
-  			is equal to the flag. The flag starts at 1, but goes up by one every-time the 
-  			prereq is met. So the first feat would require 'rank' in the skill, the second 
+		<p class="indent2">Similar to PRESKILL. This tag will set a flag on the character.
+  			It only works as a prereq if the rank in the skill divided by the rank needed
+  			is equal to the flag. The flag starts at 1, but goes up by one every-time the
+  			prereq is met. So the first feat would require 'rank' in the skill, the second
   			feat 'rank*2', and so on... That would support the way regional feats are described in FR.</p>
-		<p class="indent2"><strong>NOTE: </strong>However for now this is merely a dummy tag that works like PRESKILL 
+		<p class="indent2"><strong>NOTE: </strong>However for now this is merely a dummy tag that works like PRESKILL
 			so we don't have to redesign the lst files when this tag gets working. </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESKILLMULT:1,Spot,Listen=10</code></p>
 		<p class="indent3">Character must have a Spot or Listen at 10 or above.</p>
-		
+
 		<p></p><a name="PRESKILLTOT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESKILLTOT:x,x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (A skill name).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (A skill type).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (The total levels necessary between the listed skills).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">A comma-delimited list of skill names and # is the total number of ranks among those skills. 
+		<p class="indent2">A comma-delimited list of skill names and # is the total number of ranks among those skills.
 			Can also include TYPE.X as part of the skill list as well. </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESKILLTOT:Spot,Listen,Search=30</code></p>
 		<p class="indent3">Character must have a total of 30 ranks between Spot, Search, and Listen skills.</p>
-		
+
 		<p></p><a name="PRESPELL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELL:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of spells required).</p>
@@ -836,7 +835,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESPELL:1,Magic Missile,Lightning Bolt</code></p>
 		<p class="indent3">Character must have either Magic Missile OR Lightning Bolt in their spell list.</p>
-		
+
 		<p></p><a name="PRESPELLBOOK"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLBOOK:x</p>
 		<p class="indent1"><strong>Variables Used (x)</strong>: YES</p>
@@ -848,7 +847,7 @@
 		<p class="indent3">At least one of the character's classes must use spell books.</p>
 		<p class="indent2"><code>PRESPELLBOOK:NO</code></p>
 		<p class="indent3">None of the character's classes can use spell books.</p>
-		
+
 		<p></p><a name="PRESPELLCAST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLCAST:x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> MEMORIZE (Set requirements based on memorization).</p>
@@ -857,9 +856,9 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> N (No - used with MEMORIZE).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A spelltype - used with TYPE).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Basically each label=value pair is processed, and as the character's 
-  			classes fail to meet that pair, the class is removed from the list. After all 
-  			the label=value pairs have been processed, if the character has any classes 
+		<p class="indent2">Basically each label=value pair is processed, and as the character's
+  			classes fail to meet that pair, the class is removed from the list. After all
+  			the label=value pairs have been processed, if the character has any classes
   			remaining (meaning they meet all the requirements), then this prerequisite is met. </p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRESPELLCAST:MEMORIZE=Y</code></p>
@@ -870,7 +869,7 @@
 		<p class="indent3">Character must be able to cast arcane spells.</p>
 		<p class="indent2"><code>PRESPELLCAST:TYPE=Divine</code></p>
 		<p class="indent3">Character must be able to cast divine spells.</p>
-		
+
 		<p></p><a name="PRESPELLDESCRIPTOR"></a><hr>
 		<p class="new">*** New 5.7.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLDESCRIPTOR:x,y,z</p>
@@ -882,7 +881,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESPELLDESCRIPTOR:Mind-Affecting,4,3</code></p>
 		<p class="indent3">Character must have at least four 3rd level or higher Mind-Affecting spells to meet the requirement.</p>
-		
+
 		<p></p><a name="PRESPELLSCHOOL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOL:x,y,z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a school of magic).</p>
@@ -893,13 +892,13 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESPELLSCHOOL:Necromancy,3,2</code></p>
 		<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet the requirement.</p>
-		
+
 		<p></p><a name="PRESPELLSCHOOLSUB"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOLSUB:x,y,z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a sub-school of magic).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number 
+		<p class="indent1"><strong>Variables Used (y):</strong> Number
 			(The quantity of spells of the proper sub-school and level the character must know).</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number 
+		<p class="indent1"><strong>Variables Used (z):</strong> Number
 			(The spell level of the sub-school of spells a character must know).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets spell sub-school requirements.</p>
@@ -907,7 +906,7 @@
 		<p class="indent2"><code>PRESPELLSCHOOLSUB:Creation,3,2</code></p>
 		<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells
 			to meet the requirement.</p>
-		
+
 		<p></p><a name="PRESPELLTYPE"></a><hr>
 		<p class="new">*** Updated 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLTYPE:x,y,z</p>
@@ -915,12 +914,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Divine (Divine type spells).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Psionic (Psionic type spells).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Any (Any type of spell).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number 
+		<p class="indent1"><strong>Variables Used (y):</strong> Number
 			(The quantity of spells of the proper type and level the character must know).</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number 
+		<p class="indent1"><strong>Variables Used (z):</strong> Number
 			(The spell level of the type of spells a character must know).</p>
 		<p class="indent2"><strong>Note:</strong> Use two PRESPELLTYPE tags if more than one spell type is required</p>
-		<p class="indent2"><strong>Note:</strong> The syntax for this tag a recently changed to match the standard for 
+		<p class="indent2"><strong>Note:</strong> The syntax for this tag a recently changed to match the standard for
 			PRExxx tags.  The new syntax is: <br/><code>PRESPELLTYPE:</code>&lt;number of matches&gt;,&lt;spell type&gt;=&lt;spell level&gt;
 			,&lt;spell type&gt;=&lt;spell level&gt;...</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -929,9 +928,9 @@
 		<p class="indent2"><code>PRESPELLTYPE:Arcane,4,5</code></p>
 		<p class="indent3">Character must have at least four 5th level arcane spells to meet the requirement.</p>
 		<p class="indent2"><code>PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3</code></p>
-		<p class="indent3">Character must have at least one 3rd level spell from any of the Arcane, Divine, or 
+		<p class="indent3">Character must have at least one 3rd level spell from any of the Arcane, Divine, or
 			Psionic types.</p>
-		
+
 		<p></p><a name="PRESR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESRx:y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
@@ -946,11 +945,11 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESRGTEQ:10</code></p>
 		<p class="indent3">Character must have spell resistance of at least 10.</p>
-		
+
 		<p></p><a name="PRESTAT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESTAT:x,y=z,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of stats that must match).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
 			(The stats abbreviation - as defined in statsandchecks.lst).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum value of the stat).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -966,7 +965,7 @@
 		<p class="indent3">Either STR at 15 or WIS at 13 - one of the two listed must meet the requirements.</p>
 		<p class="indent2"><code>PRESTAT:2,STR=13,INT=10,CHA=13</code></p>
 		<p class="indent3">Either STR at 13, INT at 10 or CHA at 13 - two of the three listed must meet the requirements.</p>
-		
+
 		<p></p><a name="PRESUBCLASS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESUBCLASS:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x): </strong>Number (number of needed occurrences).</p>
@@ -976,18 +975,18 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRESUBCLASS:1,Evoker,Abjurer,Enchanter,Illusionist</code></p>
 		<p class="indent3">Character must be one of the listed subclasses.</p>
-		
+
 		<p></p><a name="PRETEMPLATE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRETEMPLATE:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a template).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets template requirements. Where template is a ',' delimited 
-  			list of template names. If one of the template names in the list matches, then 
+		<p class="indent2">Sets template requirements. Where template is a ',' delimited
+  			list of template names. If one of the template names in the list matches, then
 			the prerequisite is met. </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRETEMPLATE:Celestial,Fiendish</code></p>
 		<p class="indent3">Character must be either &quot;Celestial&quot; or &quot;Fiendish&quot;.</p>
-		
+
 		<p></p><a name="PRETEXT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRETEXT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Explanation of requirement)</p>
@@ -998,7 +997,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRETEXT:Character must make a sacrifice of bananas to the Monkey God.</code></p>
 		<p class="indent3">Explains what additional requirements are needed for the character to qualify.</p>
-		
+
 		<p></p><a name="PRETYPE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRETYPE:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of types that must match the specified requirements).</p>
@@ -1006,11 +1005,11 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Make specific racial type a prerequisite.</p>
 		<ul class="indent2">
-		<li><font color="FF0000">Note</font>: PRETYPE has a different use in Equipment 
+		<li><font color="FF0000">Note</font>: PRETYPE has a different use in Equipment
     	and Equipment Modifier files, it checks for equipment and EQMOD types.</li>
-		<li>See the PRETYPE entry in <a href="../datafilestagpages/datafilesequipment.html#PRETYPE">Equipment</a> or 
+		<li>See the PRETYPE entry in <a href="../datafilestagpages/datafilesequipment.html#PRETYPE">Equipment</a> or
 		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#PRETYPE">Equipment Modifier</a> files for usage.</li>
-		<li>If you need to prerequisite race type from equipment you can use 
+		<li>If you need to prerequisite race type from equipment you can use
 		<a href="#PRETEMPLATE">PRETEMPLATE</a> to check for the racial type template.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -1018,7 +1017,7 @@
 		<p class="indent3">Type must either Elemental,Fey or Outsider</p>
 		<p class="indent2"><code>PREMULT:2,Humanoid,Undead</code></p>
 		<p class="indent3">Character must be an Undead Humanoid.</p>
-		
+
 		<p></p><a name="PREUATT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREUATT:x</p>
 		<p class="indent1"><strong>Variables Used:</strong>Number (Unarmed Attack Bonus number).</p>
@@ -1027,7 +1026,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREUATT:4</code></p>
 		<p class="indent3">This would apply only if the PC had minimum unarmed attack bonus of 4.</p>
-		
+
 		<p></p><a name="PREVAR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREVARx:y,z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
@@ -1036,7 +1035,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> LT (Less Than).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> LTEQ (Less Than or Equal to).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> NEQ (Not Equal to).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text 
+		<p class="indent1"><strong>Variables Used (y):</strong> Text
 			(The name of a variable - as used in a DEFINE: or BONUS:VAR statement).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (The value the variable is to be compared to).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -1047,24 +1046,24 @@
 		<p class="indent2"><code>PREVARGT:SneakAttack,5</code></p>
 		<p class="indent3">Character must do Sneak Attack damage greater than 5d6.</p>
 		<p class="indent2"><code>PREVARGT:SneakAttack,5,Rage,4</code></p>
-		<p class="indent3">Character must do Sneak Attack damage greater than 5d6 
+		<p class="indent3">Character must do Sneak Attack damage greater than 5d6
 			AND be able to rage more than four time per day.</p>
-		
+
 		<p></p><a name="PREVISION"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREVISION:x,y,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number 
+		<p class="indent1"><strong>Variables Used (x):</strong> Number
 			(The number of vision types that must match the specified requirements).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The vision types required).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (The distance of the vision types - optional).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This sets the vision ability requirements. 
+		<p class="indent2">This sets the vision ability requirements.
 			If there is an value at the end, all Visions in the list must be that value or higher to be considered valid.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREVISION:2,Normal,Darkvision</code></p>
 		<p class="indent3">Character must have both Normal and Darkvision.</p>
 		<p class="indent2"><code>PREVISION:1,Blindsight,Darkvision=30</code></p>
 		<p class="indent3">Character must have either Blindsight or Darkvision at at least 30.</p>
-		
+
 		<p></p><a name="PREWEAPONPROF"></a><hr>
 		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREWEAPONPROF:x,y,y</p>
@@ -1083,14 +1082,14 @@
 		<p class="indent3">Character must have proficiency with either the Chain (Spiked) or any martial weapon.</p>
 		<p class="indent2"><code>PREWEAPONPROF:1,DEITYWEAPON</code></p>
 		<p class="indent3">Weapon Prof in question must be one of the chosen deity's favored weapons.</p>
-		
+
 		<p></p><a name="PREWIELD"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREWIELD:x,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the wield categories that must match)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Light,OneHanded or TwoHanded)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Checks for wield category requirements (See <a href="../datafilestagpages/datafilesequipment.html#WIELD">WIELD</a>).</p>
-		<p class="indent2">Wield categories are defined in the <a href="../systemfilestagpages/gamemodemiscinfolist.html">miscinfo.lst</a> 
+		<p class="indent2">Wield categories are defined in the <a href="../systemfilestagpages/gamemodemiscinfolist.html">miscinfo.lst</a>
   			gamemode file by the <a href="../systemfilestagpages/gamemodemiscinfolist.html#WIELDCATEGORY">WIELDCATEGORY</a> tag.</p>
 		<p class="indent2">Because PREWIELD is checking for wield category requirements in equipment it is valid only in Equipment Modifiers.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -1098,22 +1097,22 @@
 		<p class="indent3">Must be either Light or OneHanded.</p>
 		<p class="indent2"><code>PREWIELD:1,TwoHanded</code></p>
 		<p class="indent3">Must be TwoHanded.</p>
-		
+
 		<p></p><a name="QUALIFY"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> QUALIFY</p>
 		<p class="indent1"><strong>Variables Used:</strong> String|String|etc.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">The opposite of PRExxx tags. A &quot;|&quot; delimitated string.
-			Anything listed here will ignore all PRE tags and be a valid selection for the character. 
+			Anything listed here will ignore all PRE tags and be a valid selection for the character.
 			Currently only functional in template.lst </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>QUALIFY:Mounted Combat|Ride-By Attack</code></p>
-		<p class="indent3">The character with the template this is a part of 
+		<p class="indent3">The character with the template this is a part of
 			would be able to take the above feats whether they meet the prereqs or not.</p>
-		
-		
+
+
 		<hr><h2>Misc PRExxx Stuff</h2>
-		
+
 		<p></p><a name="PRECLEAR"></a>
 		<p class="indent0"><strong>Tag Name:</strong> PRE:.CLEAR</p>
 		<p class="indent1"><strong>Variables Used:</strong> .CLEAR</p>
@@ -1122,21 +1121,21 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRE:.CLEAR</code></p>
 		<p class="indent3">Clears all prerequisites.</p>
-		
+
 		<p></p><a name="PRExxxQdata"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRExxx:Q:data</p>
 		<p class="indent1"><strong>Variables Used:</strong> Q</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a variation on any PRE tag listed above. Adding a Q: 
-  			between the tag and it's data will cause it to take precedence over the QUALIFY 
+		<p class="indent2">This is a variation on any PRE tag listed above. Adding a Q:
+  			between the tag and it's data will cause it to take precedence over the QUALIFY
   			tag. Thus allowing QUALIFY to null out some but not all prereqs. </p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>QUALIFY:Whirlwind Attack</code> (In Template)</p>
 		<p class="indent2"><code>PRESTAT:Q:1,DEX=13</code> (In Whirlwind Attack Feat)</p>
-		<p class="indent3">If you have QUALIFY:Whirlwind Attack in a template (which means 
-  			the character ignores all the prereqs), but you still want the DEX prereq to 
+		<p class="indent3">If you have QUALIFY:Whirlwind Attack in a template (which means
+  			the character ignores all the prereqs), but you still want the DEX prereq to
   			be enforced, you would edit the PRE in the Whirlwind Attack feat to read as above. </p>
-		
+
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesprexxx.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
 
