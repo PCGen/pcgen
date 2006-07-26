@@ -3,16 +3,16 @@
 <html>
 	<!--
 		PCGen Documentation Project
-			
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesequipmentmodifiers.html,v 1.12 2005/09/07 00:52:48 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+
 		Description:
 		Provides information on the content of PCGen Equipment Modification Files.
 	-->
@@ -20,11 +20,11 @@
 		<title>Equipment Modification Files</title>
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Equipment Modification Files</h1>
-		
-		<p>The first field in the equipmods.lst files must be the name of the modifier, 
+
+		<p>The first field in the equipmods.lst files must be the name of the modifier,
 			after that, the tags do not need to be in any special order.</p>
 
 		<p></p><a name="ADDPROF"></a><hr>
@@ -50,7 +50,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> ASSIGNTOALL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (YES)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is for double weapons only. If this tag is present then the 
+		<p class="indent2">This is for double weapons only. If this tag is present then the
 			modifiers will be applied to both heads.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ASSIGNTOALL:YES</code></p>
@@ -65,7 +65,21 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHARGES:1|50</code></p>
 		<p class="indent3">Sets the charges for a magic item at a minimum of 1 and maximum of 50.</p>
-		
+
+		<p></p><a name="CHOOSEEQUIPMENT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPMENT|TYPE=x|TYPE=y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Name</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Name</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Give you a list of all equipement of types x and y.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Martial|TYPE=Finesseable</code></p>
+		<p class="indent3">A list of all equipement of types Martial and Finesseable.</p>
+		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Natural|TYPE=Bludgeoning</code></p>
+		<p class="indent3">A list of all equipement of types Natural and Bludgeoning.</p>
+		<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Alchemical|TYPE=Consumable</code></p>
+		<p class="indent3">A list of all equipement of types Alchemical and Consumable.</p>
+
 		<p></p><a name="COST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Cost or Formula)</p>
@@ -97,11 +111,11 @@
 		<p class="indent2"><code>COST:500*WT</code></p>
 		<p class="indent3">Adds 500 gold per lb. to the equipments cost.</p>
 		<p class="indent2"><code>COST:((BASECOST/50)*%CHARGES)-BASECOST</code></p>
-		<p class="indent3">Assuming this modifier adds 50 charges to the item, this formula makes the value of a charge 
+		<p class="indent3">Assuming this modifier adds 50 charges to the item, this formula makes the value of a charge
 		one fiftieth of the basecost making the cost of the equipment proportional to the number of charges left in it.</p>
 		<p class="indent2"><code>COST:(25*((%SPELLLEVEL)MAX(1/2))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)</code></p>
 		<p class="indent3">This is the cost formula from a scroll EQMOD.</p>
-		
+
 
 		<p></p><a name="COSTPRE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> COSTPRE:x</p>
@@ -111,7 +125,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>COSTPRE:100</code></p>
 		<p class="indent3">Item cost is 100 gold before resizing.</p>
-		
+
 		<p></p><a name="EQBUILDER"></a><hr>
 		<p class="new">*** New</p>
 		<p class="indent0"><strong>Tag Name:</strong> EQBUILDER.SPELL|u|v|w|x|y|z</p>
@@ -122,9 +136,9 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> :Number (Minimum Level)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> :Number (Maximum Level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in conjunction with CHOOSE: it allows magic/psionic items with a specific 
-				TYPE/SCHOOL/SUBSCHOOL/DESCRIPTOR filtering. Minimum and maximum level of spell may be 
-				set by using the y|z options, but are optional. If there is no numbers then y = 0 and z = MAX_LEVEL. 
+		<p class="indent2">Used in conjunction with CHOOSE: it allows magic/psionic items with a specific
+				TYPE/SCHOOL/SUBSCHOOL/DESCRIPTOR filtering. Minimum and maximum level of spell may be
+				set by using the y|z options, but are optional. If there is no numbers then y = 0 and z = MAX_LEVEL.
 				If there is one number present, y = number and z = MAX_LEVEL. if there are two numbers, y = number1 and z = number2.</p>
   		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHOOSE:EQBUILDER.SPELL|SCHOOL.Enchantment;SUBSCHOOL.Compulsion</code></p>
@@ -145,19 +159,19 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is text which indicates the equipments fumble or error range.
 			This tag may also be used in Equipment lines. If an equipment item has EQMODs, the
- 			FUMBLERANGE text from the EQMOD supersedes the text from the item itself 
+ 			FUMBLERANGE text from the EQMOD supersedes the text from the item itself
 			(EQMODs applied to the primary weapon head trumps text in EQMODs applied to the secondary weapon head).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>FUMBLERANGE:1-3</code></p>
 		<p class="indent3">Indicates and error range of 1-3.</p>
 		<p class="indent2"><code>FUMBLERANGE:Natural 1</code></p>
 		<p class="indent3">Indicates and error range of a natural 1.</p>
-		
+
 		<p></p><a name="IGNORES"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> IGNORES:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (List of Keys)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a , (comma) delimited list of Keys that the modifier will 
+		<p class="indent2">This is a , (comma) delimited list of Keys that the modifier will
 			ignore when making custom items.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>IGNORES:ARMRMW,WEAPWM</code></p>
@@ -167,7 +181,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> ITYPE:x.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a . (period) delimited list of types that will be granted, 
+		<p class="indent2">This is a . (period) delimited list of types that will be granted,
 			in addition to any existing types, to the item being created.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ITYPE:Magic.Ranged.Thrown</code></p>
@@ -177,232 +191,232 @@
 		<p class="indent0"><strong>Tag Name:</strong> KEY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Key Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a unique descriptor for the modifier. It allows several modifiers to have the same name, 
-		which is useful if several are needed for different equipment types.  KEY's must be universally unique. 
-		Make sure you don't use anything that's is used in any other source you load. And don't just take out the KEY 
+		<p class="indent2">This is a unique descriptor for the modifier. It allows several modifiers to have the same name,
+		which is useful if several are needed for different equipment types.  KEY's must be universally unique.
+		Make sure you don't use anything that's is used in any other source you load. And don't just take out the KEY
 		and use the name. Equipment modifier's will work without a KEY but work much better using the KEY than the name.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent1">The following list of keys covers all those used in the SRD(including psionics)/RSRD/MSRD files.</p>
 		<ul class="indent2">
 			<li><code>KEY:ADAM</code> - Adamantine</li>
 			<li><code>KEY:ADDTYPE</code> - Add Type</li>
-			<li><code>KEY:ALCHM</code> - Alchemical Silver</li>					
-			<li><code>KEY:ALCHM/2</code> - 1/2 Alchemical Silver</li>				
+			<li><code>KEY:ALCHM</code> - Alchemical Silver</li>
+			<li><code>KEY:ALCHM/2</code> - 1/2 Alchemical Silver</li>
 			<li><code>KEY:ANMATD</code> - Animated</li>
 			<li><code>KEY:APRTR</code> - Aporter</li>
-			<li><code>KEY:ARW_CAT</code> - Arrow Catching</li>					
-			<li><code>KEY:ARW_DEF</code> - Arrow Deflection</li>					
-			<li><code>KEY:ARW_DEF</code> - Arrow Deflection</li>					
-			<li><code>KEY:AUTOFIRE</code> - Autofire</li>						
-			<li><code>KEY:AVRTR</code> - Averter</li>				
-			<li><code>KEY:A_1USEMA</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEME</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:BANE_A</code> - Bane</li>							
-			<li><code>KEY:BANE_M</code> - Bane</li>							
-			<li><code>KEY:BANE_R</code> - Bane</li>							
-			<li><code>KEY:BASH_H</code> - Bashing</li>						
-			<li><code>KEY:BASH_L</code> - Bashing</li>						
-			<li><code>KEY:BDY_FDR</code> - Body Feeder</li>				
-			<li><code>KEY:BIND</code> - Blinding</li>						
-			<li><code>KEY:BNS_AC_DEFL</code> - AC Bonus (Deflection)</li>				
-			<li><code>KEY:BNS_AC_INSI</code> - AC Bonus (Insight)</li>				
-			<li><code>KEY:BNS_AC_LUCK</code> - AC Bonus (Luck)</li>					
-			<li><code>KEY:BNS_AC_OTHE</code> - AC Bonus (Other)</li>					
-			<li><code>KEY:BNS_AC_PROF</code> - AC Bonus (Profane)</li>				
-			<li><code>KEY:BNS_AC_SCRD</code> - AC Bonus (Sacred)</li>				
-			<li><code>KEY:BNS_ENHC_AB</code> - Ability Bonus (Enhancement)</li>			
-			<li><code>KEY:BNS_ENHC_AC</code> - Armor Bonus (Enhancement)</li>			
-			<li><code>KEY:BNS_ENHC_NAT</code> - Natural Armor Bonus (Enhancement)</li>		
-			<li><code>KEY:BNS_SAV_INS</code> - Save Bonus (Insight)</li>				
-			<li><code>KEY:BNS_SAV_LUC</code> - Save Bonus (Luck)</li>				
-			<li><code>KEY:BNS_SAV_OTH</code> - Save Bonus (Other)</li>				
-			<li><code>KEY:BNS_SAV_PRO</code> - Save Bonus (Profane)</li>				
-			<li><code>KEY:BNS_SAV_RES</code> - Save Bonus (Resistance)</li>			
-			<li><code>KEY:BNS_SAV_SAC</code> - Save Bonus (Sacred)</li>				
-			<li><code>KEY:BNS_SKL_CIR</code> - Skill Bonus (Circumstance)</li>			
-			<li><code>KEY:BNS_SKL_CMP</code> - Skill Bonus (Competence)</li>			
-			<li><code>KEY:BNS_SKL_LCK</code> - Skill Luck Bonus</li>					
-			<li><code>KEY:BNS_SPELL</code> - Bonus Spell</li>					
-			<li><code>KEY:BNS_SPL_RST</code> - Spell Resistance</li>					
-			<li><code>KEY:BRI_EN_A</code> - Brilliant Energy</li>					
-			<li><code>KEY:BRI_EN_M</code> - Brilliant Energy</li>					
-			<li><code>KEY:BRI_EN_T</code> - Brilliant Energy</li>					
-			<li><code>KEY:BURSTFIRE</code> - Burst fire</li>						
+			<li><code>KEY:ARW_CAT</code> - Arrow Catching</li>
+			<li><code>KEY:ARW_DEF</code> - Arrow Deflection</li>
+			<li><code>KEY:ARW_DEF</code> - Arrow Deflection</li>
+			<li><code>KEY:AUTOFIRE</code> - Autofire</li>
+			<li><code>KEY:AVRTR</code> - Averter</li>
+			<li><code>KEY:A_1USEMA</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEME</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:A_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:BANE_A</code> - Bane</li>
+			<li><code>KEY:BANE_M</code> - Bane</li>
+			<li><code>KEY:BANE_R</code> - Bane</li>
+			<li><code>KEY:BASH_H</code> - Bashing</li>
+			<li><code>KEY:BASH_L</code> - Bashing</li>
+			<li><code>KEY:BDY_FDR</code> - Body Feeder</li>
+			<li><code>KEY:BIND</code> - Blinding</li>
+			<li><code>KEY:BNS_AC_DEFL</code> - AC Bonus (Deflection)</li>
+			<li><code>KEY:BNS_AC_INSI</code> - AC Bonus (Insight)</li>
+			<li><code>KEY:BNS_AC_LUCK</code> - AC Bonus (Luck)</li>
+			<li><code>KEY:BNS_AC_OTHE</code> - AC Bonus (Other)</li>
+			<li><code>KEY:BNS_AC_PROF</code> - AC Bonus (Profane)</li>
+			<li><code>KEY:BNS_AC_SCRD</code> - AC Bonus (Sacred)</li>
+			<li><code>KEY:BNS_ENHC_AB</code> - Ability Bonus (Enhancement)</li>
+			<li><code>KEY:BNS_ENHC_AC</code> - Armor Bonus (Enhancement)</li>
+			<li><code>KEY:BNS_ENHC_NAT</code> - Natural Armor Bonus (Enhancement)</li>
+			<li><code>KEY:BNS_SAV_INS</code> - Save Bonus (Insight)</li>
+			<li><code>KEY:BNS_SAV_LUC</code> - Save Bonus (Luck)</li>
+			<li><code>KEY:BNS_SAV_OTH</code> - Save Bonus (Other)</li>
+			<li><code>KEY:BNS_SAV_PRO</code> - Save Bonus (Profane)</li>
+			<li><code>KEY:BNS_SAV_RES</code> - Save Bonus (Resistance)</li>
+			<li><code>KEY:BNS_SAV_SAC</code> - Save Bonus (Sacred)</li>
+			<li><code>KEY:BNS_SKL_CIR</code> - Skill Bonus (Circumstance)</li>
+			<li><code>KEY:BNS_SKL_CMP</code> - Skill Bonus (Competence)</li>
+			<li><code>KEY:BNS_SKL_LCK</code> - Skill Luck Bonus</li>
+			<li><code>KEY:BNS_SPELL</code> - Bonus Spell</li>
+			<li><code>KEY:BNS_SPL_RST</code> - Spell Resistance</li>
+			<li><code>KEY:BRI_EN_A</code> - Brilliant Energy</li>
+			<li><code>KEY:BRI_EN_M</code> - Brilliant Energy</li>
+			<li><code>KEY:BRI_EN_T</code> - Brilliant Energy</li>
+			<li><code>KEY:BURSTFIRE</code> - Burst fire</li>
 			<li><code>KEY:CHAOS_A</code> - Anarchic, Chaotic</li>
 			<li><code>KEY:CHAOS_M</code> - Anarchic, Chaotic</li>
 			<li><code>KEY:CHAOS_R</code> - Anarchic, Chaotic</li>
-			<li><code>KEY:CHRGD</code> - Charged</li>				
-			<li><code>KEY:CRYSTAL</code> - Crystalline</li>				
-			<li><code>KEY:C_IRON</code> - Cold Iron</li>					
-			<li><code>KEY:C_IRON/2</code> - 1/2 Cold Iron</li>					
-			<li><code>KEY:DANCE</code> - Dancing</li>						
-			<li><code>KEY:DARK</code> - Darkwood</li>						
-			<li><code>KEY:DBLTAP</code> - Double Tap fire</li>				
-			<li><code>KEY:DEFEND</code> - Defending</li>						
-			<li><code>KEY:DISRPT</code> - Disruption</li>					
-			<li><code>KEY:DISSIP</code> - Dissipater</li>				
-			<li><code>KEY:DISTNC</code> - Distance</li>						
-			<li><code>KEY:DRACO</code> - Dragonhide</li>						
-			<li><code>KEY:D_1USEMA</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:D_1USEME</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:D_1USEMI</code> - Spell Effect (Single Use/Completion)</li>	
-			<li><code>KEY:ECTO</code> - Ectoplasmic</li>				
-			<li><code>KEY:ETHERE</code> - Etherealness</li>					
-			<li><code>KEY:ETHERE</code> - Etherealness</li>					
-			<li><code>KEY:FLM_A</code> - Flaming</li>						
-			<li><code>KEY:FLM_BR_A</code> - Flaming Burst</li>					
-			<li><code>KEY:FLM_BR_M</code> - Flaming Burst</li>					
-			<li><code>KEY:FLM_BR_R</code> - Flaming Burst</li>					
-			<li><code>KEY:FLM_M</code> - Flaming</li>						
-			<li><code>KEY:FLM_R</code> - Flaming</li>						
-			<li><code>KEY:FLOAT</code> - Floating</li>				
-			<li><code>KEY:FROST_A</code> - Frost</li>							
-			<li><code>KEY:FROST_M</code> - Frost</li>							
-			<li><code>KEY:FROST_R</code> - Frost</li>							
-			<li><code>KEY:FRT_HVY</code> - Fortification (Heavy)</li>				
-			<li><code>KEY:FRT_LGHT</code> - Fortification (Light)</li>				
-			<li><code>KEY:FRT_MOD</code> - Fortification (Moderate)</li>			
-			<li><code>KEY:GHOST_A</code> - Ghost touch</li>						
-			<li><code>KEY:GHOST_AM</code> - Ghost touch</li>						
-			<li><code>KEY:GHOST_M</code> - Ghost touch</li>						
-			<li><code>KEY:GHOST_R</code> - Ghost touch</li>						
-			<li><code>KEY:GLAM</code> - Glamered</li>						
-			<li><code>KEY:HEART</code> - Hearten</li>				
-			<li><code>KEY:HOLY_A</code> - Holy</li>							
-			<li><code>KEY:HOLY_M</code> - Holy</li>							
-			<li><code>KEY:HOLY_R</code> - Holy</li>						
-			<li><code>KEY:ICE_BR_A</code> - Icy Burst</li>						
-			<li><code>KEY:ICE_BR_M</code> - Icy Burst</li>						
-			<li><code>KEY:ICE_BR_R</code> - Icy Burst</li>						
-			<li><code>KEY:ILLUMINATOR</code> - Illuminator</li>						
-			<li><code>KEY:IMPCT</code> - Impact</li>				
-			<li><code>KEY:INVULN</code> - Invulnerability	</li>				
-			<li><code>KEY:KEEN</code> - Keen</li>							
-			<li><code>KEY:KIFOC</code> - Ki Focus</li>						
-			<li><code>KEY:LANDING</code> - Landing</li>				
+			<li><code>KEY:CHRGD</code> - Charged</li>
+			<li><code>KEY:CRYSTAL</code> - Crystalline</li>
+			<li><code>KEY:C_IRON</code> - Cold Iron</li>
+			<li><code>KEY:C_IRON/2</code> - 1/2 Cold Iron</li>
+			<li><code>KEY:DANCE</code> - Dancing</li>
+			<li><code>KEY:DARK</code> - Darkwood</li>
+			<li><code>KEY:DBLTAP</code> - Double Tap fire</li>
+			<li><code>KEY:DEFEND</code> - Defending</li>
+			<li><code>KEY:DISRPT</code> - Disruption</li>
+			<li><code>KEY:DISSIP</code> - Dissipater</li>
+			<li><code>KEY:DISTNC</code> - Distance</li>
+			<li><code>KEY:DRACO</code> - Dragonhide</li>
+			<li><code>KEY:D_1USEMA</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:D_1USEME</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:D_1USEMI</code> - Spell Effect (Single Use/Completion)</li>
+			<li><code>KEY:ECTO</code> - Ectoplasmic</li>
+			<li><code>KEY:ETHERE</code> - Etherealness</li>
+			<li><code>KEY:ETHERE</code> - Etherealness</li>
+			<li><code>KEY:FLM_A</code> - Flaming</li>
+			<li><code>KEY:FLM_BR_A</code> - Flaming Burst</li>
+			<li><code>KEY:FLM_BR_M</code> - Flaming Burst</li>
+			<li><code>KEY:FLM_BR_R</code> - Flaming Burst</li>
+			<li><code>KEY:FLM_M</code> - Flaming</li>
+			<li><code>KEY:FLM_R</code> - Flaming</li>
+			<li><code>KEY:FLOAT</code> - Floating</li>
+			<li><code>KEY:FROST_A</code> - Frost</li>
+			<li><code>KEY:FROST_M</code> - Frost</li>
+			<li><code>KEY:FROST_R</code> - Frost</li>
+			<li><code>KEY:FRT_HVY</code> - Fortification (Heavy)</li>
+			<li><code>KEY:FRT_LGHT</code> - Fortification (Light)</li>
+			<li><code>KEY:FRT_MOD</code> - Fortification (Moderate)</li>
+			<li><code>KEY:GHOST_A</code> - Ghost touch</li>
+			<li><code>KEY:GHOST_AM</code> - Ghost touch</li>
+			<li><code>KEY:GHOST_M</code> - Ghost touch</li>
+			<li><code>KEY:GHOST_R</code> - Ghost touch</li>
+			<li><code>KEY:GLAM</code> - Glamered</li>
+			<li><code>KEY:HEART</code> - Hearten</li>
+			<li><code>KEY:HOLY_A</code> - Holy</li>
+			<li><code>KEY:HOLY_M</code> - Holy</li>
+			<li><code>KEY:HOLY_R</code> - Holy</li>
+			<li><code>KEY:ICE_BR_A</code> - Icy Burst</li>
+			<li><code>KEY:ICE_BR_M</code> - Icy Burst</li>
+			<li><code>KEY:ICE_BR_R</code> - Icy Burst</li>
+			<li><code>KEY:ILLUMINATOR</code> - Illuminator</li>
+			<li><code>KEY:IMPCT</code> - Impact</li>
+			<li><code>KEY:INVULN</code> - Invulnerability	</li>
+			<li><code>KEY:KEEN</code> - Keen</li>
+			<li><code>KEY:KIFOC</code> - Ki Focus</li>
+			<li><code>KEY:LANDING</code> - Landing</li>
 			<li><code>KEY:LAW_A</code> - Axiomatic, Lawful</li>
 			<li><code>KEY:LAW_M</code> - Axiomatic, Lawful</li>
 			<li><code>KEY:LAW_R</code> - Axiomatic, Lawful</li>
-			<li><code>KEY:LINKED</code> - Linked</li>				
-			<li><code>KEY:LSR_SIGHT</code> - Laser Sight</li>						
-			<li><code>KEY:LUCKY</code> - Lucky</li>					
-			<li><code>KEY:MERC_A</code> - Merciful</li>						
-			<li><code>KEY:MERC_M</code> - Merciful</li>						
-			<li><code>KEY:MERC_R</code> - Merciful</li>						
-			<li><code>KEY:MI_CLE</code> - Mighty Cleaving</li>					
-			<li><code>KEY:MND_ARMR</code> - Mindarmor</li>				
-			<li><code>KEY:MND_CRSHR</code> - Mindcrusher</li>				
-			<li><code>KEY:MND_FDR</code> - Mind Feeder</li>				
-			<li><code>KEY:MNFSTR_S</code> - Manifester</li>				
-			<li><code>KEY:MNFSTR_W</code> - Manifester</li>				
-			<li><code>KEY:MNTL_ADBL</code> - Mentally Audible</li>			
-			<li><code>KEY:MTHRL</code> - Mithral</li>						
-			<li><code>KEY:MWORKA</code> - Masterwork	(Armor)</li>				
-			<li><code>KEY:MWORKI</code> - Masterwork	(Instrument)</li>			
-			<li><code>KEY:MWORKT</code> - Masterwork	(Tool)</li>				
-			<li><code>KEY:MWORKW</code> - Masterwork	(Weapon/Ammo)</li>			
-			<li><code>KEY:PARRYING</code> - Parrying</li>				
-			<li><code>KEY:PHASING</code> - Phasing</li>				
-			<li><code>KEY:PLUS1A</code> - +1 (Enhancement to Armor)</li>			
-			<li><code>KEY:PLUS1S</code> - +1 (Enhancement to Shield)</li>			
-			<li><code>KEY:PLUS1W</code> - +1 (Enhancement to Weapon or Ammunition)</li>	
-			<li><code>KEY:PLUS2A</code> - +2 (Enhancement to Armor)</li>			
-			<li><code>KEY:PLUS2S</code> - +2 (Enhancement to Shield)</li>			
-			<li><code>KEY:PLUS2W</code> - +2 (Enhancement to Weapon or Ammunition)</li>	
-			<li><code>KEY:PLUS3A</code> - +3 (Enhancement to Armor)</li>			
-			<li><code>KEY:PLUS3S</code> - +3 (Enhancement to Shield)</li>			
-			<li><code>KEY:PLUS3W</code> - +3 (Enhancement to Weapon or Ammunition)</li>	
-			<li><code>KEY:PLUS4A</code> - +4 (Enhancement to Armor)</li>			
-			<li><code>KEY:PLUS4S</code> - +4 (Enhancement to Shield)</li>			
-			<li><code>KEY:PLUS4W</code> - +4 (Enhancement to Weapon or Ammunition)</li>	
-			<li><code>KEY:PLUS5A</code> - +5 (Enhancement to Armor)</li>			
-			<li><code>KEY:PLUS5S</code> - +5 (Enhancement to Shield)</li>			
-			<li><code>KEY:PLUS5W</code> - +5 (Enhancement to Weapon or Ammunition)</li>	
-			<li><code>KEY:POWER STORING</code> - Power Storing</li>		
-			<li><code>KEY:PSIBANE</code> - Psibane</li>				
-			<li><code>KEY:PSYCHIC</code> - Psychic</li>				
-			<li><code>KEY:PWR_RST</code> - Power Resistance</li>			
-			<li><code>KEY:QUICKNESS</code> - Quickness</li>				
-			<li><code>KEY:RADIANT</code> - Radiant</li>				
-			<li><code>KEY:REFLC</code> - Reflecting</li>						
-			<li><code>KEY:RES_ACD_GRT</code> - Acid Resistance (Greater)</li>			
-			<li><code>KEY:RES_CLD_GRT</code> - Cold Resistance (Greater)</li>			
-			<li><code>KEY:RES_ELE_GRT</code> - Electricity Resistance (Greater)</li>		
-			<li><code>KEY:RES_FR_GRT</code> - Fire Resistance (Greater)</li>			
-			<li><code>KEY:RES_SNC_GRT</code> - Sonic Resistance (Greater)</li>			
-			<li><code>KEY:RETRN</code> - Returning</li>						
-			<li><code>KEY:RNFRC_HVY</code> - Reinforcement (Heavy)</li>		
-			<li><code>KEY:RNFRC_LGHT</code> - Reinforcement (Light)</li>		
-			<li><code>KEY:RNFRC_MOD</code> - Reinforcement (Moderate)</li>	
-			<li><code>KEY:RNGED</code> - Ranged</li>				
-			<li><code>KEY:RST_ACD</code> - Acid Resistance</li>				
-			<li><code>KEY:RST_ACD_IMP</code> - Acid Resistance (Improved)</li>			
-			<li><code>KEY:RST_CLD</code> - Cold Resistance</li>					
-			<li><code>KEY:RST_CLD_IMP</code> - Cold Resistance (Improved)</li>			
+			<li><code>KEY:LINKED</code> - Linked</li>
+			<li><code>KEY:LSR_SIGHT</code> - Laser Sight</li>
+			<li><code>KEY:LUCKY</code> - Lucky</li>
+			<li><code>KEY:MERC_A</code> - Merciful</li>
+			<li><code>KEY:MERC_M</code> - Merciful</li>
+			<li><code>KEY:MERC_R</code> - Merciful</li>
+			<li><code>KEY:MI_CLE</code> - Mighty Cleaving</li>
+			<li><code>KEY:MND_ARMR</code> - Mindarmor</li>
+			<li><code>KEY:MND_CRSHR</code> - Mindcrusher</li>
+			<li><code>KEY:MND_FDR</code> - Mind Feeder</li>
+			<li><code>KEY:MNFSTR_S</code> - Manifester</li>
+			<li><code>KEY:MNFSTR_W</code> - Manifester</li>
+			<li><code>KEY:MNTL_ADBL</code> - Mentally Audible</li>
+			<li><code>KEY:MTHRL</code> - Mithral</li>
+			<li><code>KEY:MWORKA</code> - Masterwork	(Armor)</li>
+			<li><code>KEY:MWORKI</code> - Masterwork	(Instrument)</li>
+			<li><code>KEY:MWORKT</code> - Masterwork	(Tool)</li>
+			<li><code>KEY:MWORKW</code> - Masterwork	(Weapon/Ammo)</li>
+			<li><code>KEY:PARRYING</code> - Parrying</li>
+			<li><code>KEY:PHASING</code> - Phasing</li>
+			<li><code>KEY:PLUS1A</code> - +1 (Enhancement to Armor)</li>
+			<li><code>KEY:PLUS1S</code> - +1 (Enhancement to Shield)</li>
+			<li><code>KEY:PLUS1W</code> - +1 (Enhancement to Weapon or Ammunition)</li>
+			<li><code>KEY:PLUS2A</code> - +2 (Enhancement to Armor)</li>
+			<li><code>KEY:PLUS2S</code> - +2 (Enhancement to Shield)</li>
+			<li><code>KEY:PLUS2W</code> - +2 (Enhancement to Weapon or Ammunition)</li>
+			<li><code>KEY:PLUS3A</code> - +3 (Enhancement to Armor)</li>
+			<li><code>KEY:PLUS3S</code> - +3 (Enhancement to Shield)</li>
+			<li><code>KEY:PLUS3W</code> - +3 (Enhancement to Weapon or Ammunition)</li>
+			<li><code>KEY:PLUS4A</code> - +4 (Enhancement to Armor)</li>
+			<li><code>KEY:PLUS4S</code> - +4 (Enhancement to Shield)</li>
+			<li><code>KEY:PLUS4W</code> - +4 (Enhancement to Weapon or Ammunition)</li>
+			<li><code>KEY:PLUS5A</code> - +5 (Enhancement to Armor)</li>
+			<li><code>KEY:PLUS5S</code> - +5 (Enhancement to Shield)</li>
+			<li><code>KEY:PLUS5W</code> - +5 (Enhancement to Weapon or Ammunition)</li>
+			<li><code>KEY:POWER STORING</code> - Power Storing</li>
+			<li><code>KEY:PSIBANE</code> - Psibane</li>
+			<li><code>KEY:PSYCHIC</code> - Psychic</li>
+			<li><code>KEY:PWR_RST</code> - Power Resistance</li>
+			<li><code>KEY:QUICKNESS</code> - Quickness</li>
+			<li><code>KEY:RADIANT</code> - Radiant</li>
+			<li><code>KEY:REFLC</code> - Reflecting</li>
+			<li><code>KEY:RES_ACD_GRT</code> - Acid Resistance (Greater)</li>
+			<li><code>KEY:RES_CLD_GRT</code> - Cold Resistance (Greater)</li>
+			<li><code>KEY:RES_ELE_GRT</code> - Electricity Resistance (Greater)</li>
+			<li><code>KEY:RES_FR_GRT</code> - Fire Resistance (Greater)</li>
+			<li><code>KEY:RES_SNC_GRT</code> - Sonic Resistance (Greater)</li>
+			<li><code>KEY:RETRN</code> - Returning</li>
+			<li><code>KEY:RNFRC_HVY</code> - Reinforcement (Heavy)</li>
+			<li><code>KEY:RNFRC_LGHT</code> - Reinforcement (Light)</li>
+			<li><code>KEY:RNFRC_MOD</code> - Reinforcement (Moderate)</li>
+			<li><code>KEY:RNGED</code> - Ranged</li>
+			<li><code>KEY:RST_ACD</code> - Acid Resistance</li>
+			<li><code>KEY:RST_ACD_IMP</code> - Acid Resistance (Improved)</li>
+			<li><code>KEY:RST_CLD</code> - Cold Resistance</li>
+			<li><code>KEY:RST_CLD_IMP</code> - Cold Resistance (Improved)</li>
 			<li><code>KEY:RST_ELE</code> - Electricity Resistance				Lightning Resistance</li>
-			<li><code>KEY:RST_ELE_IMP</code> - Electricity Resistance (Improved)</li>		
-			<li><code>KEY:RST_FR</code> - Fire Resistance</li>				
-			<li><code>KEY:RST_FR_IMP</code> - Fire Resistance (Improved)</li>			
-			<li><code>KEY:RST_SNC</code> - Sonic Resistance</li>					
-			<li><code>KEY:RST_SNC_IMP</code> - Sonic Resistance (Improved)</li>			
-			<li><code>KEY:SCP_ELE_OP</code> - Scope (Electro-optical)</li>				
-			<li><code>KEY:SCP_STD</code> - Scope (Standard)</li>					
-			<li><code>KEY:SEEK</code> - Seeking</li>						
-			<li><code>KEY:SHDW</code> - Shadow</li>						
-			<li><code>KEY:SHDW_GRT</code> - Shadow (Greater)</li>					
-			<li><code>KEY:SHDW_IMP</code> - Shadow (Improved)</li>					
-			<li><code>KEY:SHK_BR_A</code> - Shocking Burst</li>					
-			<li><code>KEY:SHK_BR_M</code> - Shocking Burst</li>					
-			<li><code>KEY:SHK_BR_R</code> - Shocking Burst</li>					
-			<li><code>KEY:SHOCK_A</code> - Shock</li>							
-			<li><code>KEY:SHOCK_M</code> - Shock</li>							
-			<li><code>KEY:SHOCK_R</code> - Shock</li>							
-			<li><code>KEY:SIGHT</code> - Sight</li>					
-			<li><code>KEY:SLK</code> - Slick</li>							
-			<li><code>KEY:SLK_GRT</code> - Slick (Greater)</li>					
-			<li><code>KEY:SLK_IMP</code> - Slick (Improved)</li>				
-			<li><code>KEY:SLNT_MV</code> - Silent moves</li>					
-			<li><code>KEY:SLNT_MV_GRT</code> - Silent moves (Greater)</li>				
-			<li><code>KEY:SLNT_MV_IM</code> - Silent moves (Improved)</li>				
-			<li><code>KEY:SL_FDR</code> - Soul Feeder</li>				
-			<li><code>KEY:SPEED</code> - Speed</li>							
-			<li><code>KEY:SPEED_LD</code> - Speed Loader</li>					
-			<li><code>KEY:SPIKE_A</code> - Armor Spikes</li>					
-			<li><code>KEY:SPIKE_S</code> - Shield Spikes</li>					
-			<li><code>KEY:SPL_1USE</code> - Spell Effect (Single Use/Use Activated)</li>	
-			<li><code>KEY:SPL_ACT</code> - Spell Effect (Use Activated)</li>			
-			<li><code>KEY:SPL_CHRG</code> - Spell Effect (50 Charges/Spell Trigger)</li>	
-			<li><code>KEY:SPL_CMD</code> - Spell Effect (Command Word)</li>			
-			<li><code>KEY:SPL_RST</code> - Spell Resistance</li>					
-			<li><code>KEY:SPL_STR</code> - Spell Storing</li>					
-			<li><code>KEY:SPPRSSN</code> - Suppression</li>				
-			<li><code>KEY:SPPRSS_PIS</code> - Suppressor (Pistol)</li>				
-			<li><code>KEY:SPPRSS_RFL</code> - Suppressor (Rifle)</li>				
-			<li><code>KEY:SUNDERER</code> - Sunderer</li>				
-			<li><code>KEY:THGHT_BSTN</code> - Thought Bastion</li>		
-			<li><code>KEY:THNDR_A</code> - Thundering</li>						
-			<li><code>KEY:THNDR_M</code> - Thundering</li>						
-			<li><code>KEY:THNDR_R</code> - Thundering</li>						
-			<li><code>KEY:THROW</code> - Throwing</li>						
-			<li><code>KEY:TIME_BTTRS</code> - Time Buttress</li>			
-			<li><code>KEY:UNDEAD</code> - Undead controlling</li>				
-			<li><code>KEY:UNHLY_A</code> - Unholy</li>						
-			<li><code>KEY:UNHLY_M</code> - Unholy</li>						
-			<li><code>KEY:UNHLY_R</code> - Unholy</li>						
-			<li><code>KEY:UPGRADE</code> - Upgrade</li>						
-			<li><code>KEY:VANISHING</code> - Vanishing</li>				
-			<li><code>KEY:VICIOU</code> - Vicious</li>						
-			<li><code>KEY:VORPAL</code> - Vorpal</li>						
-			<li><code>KEY:WALL</code> - Wall</li>					
-			<li><code>KEY:WILD_A</code> - Wild</li>							
-			<li><code>KEY:WILD_S</code> - Wild</li>							
+			<li><code>KEY:RST_ELE_IMP</code> - Electricity Resistance (Improved)</li>
+			<li><code>KEY:RST_FR</code> - Fire Resistance</li>
+			<li><code>KEY:RST_FR_IMP</code> - Fire Resistance (Improved)</li>
+			<li><code>KEY:RST_SNC</code> - Sonic Resistance</li>
+			<li><code>KEY:RST_SNC_IMP</code> - Sonic Resistance (Improved)</li>
+			<li><code>KEY:SCP_ELE_OP</code> - Scope (Electro-optical)</li>
+			<li><code>KEY:SCP_STD</code> - Scope (Standard)</li>
+			<li><code>KEY:SEEK</code> - Seeking</li>
+			<li><code>KEY:SHDW</code> - Shadow</li>
+			<li><code>KEY:SHDW_GRT</code> - Shadow (Greater)</li>
+			<li><code>KEY:SHDW_IMP</code> - Shadow (Improved)</li>
+			<li><code>KEY:SHK_BR_A</code> - Shocking Burst</li>
+			<li><code>KEY:SHK_BR_M</code> - Shocking Burst</li>
+			<li><code>KEY:SHK_BR_R</code> - Shocking Burst</li>
+			<li><code>KEY:SHOCK_A</code> - Shock</li>
+			<li><code>KEY:SHOCK_M</code> - Shock</li>
+			<li><code>KEY:SHOCK_R</code> - Shock</li>
+			<li><code>KEY:SIGHT</code> - Sight</li>
+			<li><code>KEY:SLK</code> - Slick</li>
+			<li><code>KEY:SLK_GRT</code> - Slick (Greater)</li>
+			<li><code>KEY:SLK_IMP</code> - Slick (Improved)</li>
+			<li><code>KEY:SLNT_MV</code> - Silent moves</li>
+			<li><code>KEY:SLNT_MV_GRT</code> - Silent moves (Greater)</li>
+			<li><code>KEY:SLNT_MV_IM</code> - Silent moves (Improved)</li>
+			<li><code>KEY:SL_FDR</code> - Soul Feeder</li>
+			<li><code>KEY:SPEED</code> - Speed</li>
+			<li><code>KEY:SPEED_LD</code> - Speed Loader</li>
+			<li><code>KEY:SPIKE_A</code> - Armor Spikes</li>
+			<li><code>KEY:SPIKE_S</code> - Shield Spikes</li>
+			<li><code>KEY:SPL_1USE</code> - Spell Effect (Single Use/Use Activated)</li>
+			<li><code>KEY:SPL_ACT</code> - Spell Effect (Use Activated)</li>
+			<li><code>KEY:SPL_CHRG</code> - Spell Effect (50 Charges/Spell Trigger)</li>
+			<li><code>KEY:SPL_CMD</code> - Spell Effect (Command Word)</li>
+			<li><code>KEY:SPL_RST</code> - Spell Resistance</li>
+			<li><code>KEY:SPL_STR</code> - Spell Storing</li>
+			<li><code>KEY:SPPRSSN</code> - Suppression</li>
+			<li><code>KEY:SPPRSS_PIS</code> - Suppressor (Pistol)</li>
+			<li><code>KEY:SPPRSS_RFL</code> - Suppressor (Rifle)</li>
+			<li><code>KEY:SUNDERER</code> - Sunderer</li>
+			<li><code>KEY:THGHT_BSTN</code> - Thought Bastion</li>
+			<li><code>KEY:THNDR_A</code> - Thundering</li>
+			<li><code>KEY:THNDR_M</code> - Thundering</li>
+			<li><code>KEY:THNDR_R</code> - Thundering</li>
+			<li><code>KEY:THROW</code> - Throwing</li>
+			<li><code>KEY:TIME_BTTRS</code> - Time Buttress</li>
+			<li><code>KEY:UNDEAD</code> - Undead controlling</li>
+			<li><code>KEY:UNHLY_A</code> - Unholy</li>
+			<li><code>KEY:UNHLY_M</code> - Unholy</li>
+			<li><code>KEY:UNHLY_R</code> - Unholy</li>
+			<li><code>KEY:UPGRADE</code> - Upgrade</li>
+			<li><code>KEY:VANISHING</code> - Vanishing</li>
+			<li><code>KEY:VICIOU</code> - Vicious</li>
+			<li><code>KEY:VORPAL</code> - Vorpal</li>
+			<li><code>KEY:WALL</code> - Wall</li>
+			<li><code>KEY:WILD_A</code> - Wild</li>
+			<li><code>KEY:WILD_S</code> - Wild</li>
 			<li><code>KEY:WOUND</code> - Wounding</li>
 		</ul>
 		<p class="indent3">Creates the key.</p>
@@ -417,17 +431,17 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TEXT=&lt;text&gt;</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is used to set the naming convention used when an EQMOD is added to an equipment item. 
-		Without this tag the EQMOD name is added as is to the equipment name in parentheses after the original equipment name 
-		and separated from other EQMOD names by slashes. 
-		If an EQMOD has a CHOOSE in it normally the choice made will follow the name of the EQMOD in parentheses. 
+		<p class="indent2">This is used to set the naming convention used when an EQMOD is added to an equipment item.
+		Without this tag the EQMOD name is added as is to the equipment name in parentheses after the original equipment name
+		and separated from other EQMOD names by slashes.
+		If an EQMOD has a CHOOSE in it normally the choice made will follow the name of the EQMOD in parentheses.
 		Available options work as follows:</p><br>
 		<ul class="indent3">
 		  	<li>NAMEOPT:NORMAL - Passes the name and choice to the equipment, same effect if the NAMEOPT tag is not present.</li>
 			<li>NAMEOPT:NOLIST - Passes the name of the EQMOD but not the choice (if any) to the equipment.</li>
 			<li>NAMEOPT:NONAME - Passes the choice made to the equipment but not the name of the EQMOD.</li>
 			<li>NAMEOPT:NOTHING - No text is added to the equipment name.</li>
-			<li>NAMEOPT:SPELL - If the EQMOD has a spell chooser this option passes the spell details to the equipment. 
+			<li>NAMEOPT:SPELL - If the EQMOD has a spell chooser this option passes the spell details to the equipment.
 			The details displayed are: SpellName/Metamagic feat applied/Class/Level.</li>
 			<li>NAMEOPT:TEXT=&lt;Text&gt; - Specified text is passed to the equipment.</li>
 		</ul>
@@ -451,7 +465,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PLUS:1</code></p>
 		<p class="indent3">Item is treated as +1.</p>
-		
+
 		<p></p><a name="PRETYPE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRETYPE:x,y,y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of types that must match the specified requirements).</p>
@@ -461,9 +475,9 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Make specific TYPES or Equipment Modifier a prerequisite.</p>
 		<ul class="indent2">
-		<li><font color="FF0000">Note</font>: PRETYPE has a different use outside of Equipment 
+		<li><font color="FF0000">Note</font>: PRETYPE has a different use outside of Equipment
     	and Equipment Modifier files, it checks for race types.</li>
-		<li>See the <a href="../globalfilestagpages/globalfilesprexxx.html#PRETYPE">Global PRETYPE</a> 
+		<li>See the <a href="../globalfilestagpages/globalfilesprexxx.html#PRETYPE">Global PRETYPE</a>
 		entry for usage outside of Equipment and Equipment Modifier files.</li>
 		<li>EQMODTYPE=&quot;type&quot; checks for TYPE in applied Equipment Modifiers not Equipment type.</li>
 		</ul>
@@ -473,14 +487,14 @@
 		<li><strong>PRETYPE:y,y|y</strong></li>
 		<li>When comma (,) delineated PRETYPE requires all the types listed to pass.</li>
 		<li>When pipe (|) delineated PRETYPE requires only one of the types listed to pass.</li>
-		<li>Pipes and commas can be combined, for example <code>PRETYPE:Heavy,Armor|Shield</code> 
+		<li>Pipes and commas can be combined, for example <code>PRETYPE:Heavy,Armor|Shield</code>
     	translates to: Must have &quot;Heavy&quot; AND &quot;Armor&quot; OR &quot;Shield&quot; types.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRETYPE:1,Magic &lt;tab&gt; PRETYPE:1,Piercing,Slashing</code></p>
 		<p class="indent3">Type must be magic and piercing or slashing</p>
 		<p class="indent2"><code>PREMULT:2,[PRETYPE:1,Magic],[PRETYPE:1,Piercing,Slashing]</code></p>
-		<p class="indent3">This example, utilizing the PREMULT tag, accomplishes the same thing 
+		<p class="indent3">This example, utilizing the PREMULT tag, accomplishes the same thing
 			as the example above it but as it is one statement it can be attached to a BONUS statement.</p>
 		<p class="indent2"><code>!PRETYPE:1,Heavy</code></p>
 		<p class="indent3">Type must NOT be Heavy</p>
@@ -493,19 +507,19 @@
 		<p class="indent3">Type must be Magic, Piercing and Slashing.</p>
 		<p class="indent2"><code>PRETYPE:Magic,Armor|Shield,Piercing,Slashing</code></p>
 		<p class="indent3">Type must be Magic, Piercing, Slashing and (Armor OR Shield).</p>
-		
+
 		<p></p><a name="REPLACES"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> REPLACES:x,x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Key Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is the list of keys that are replaced in the existing item by 
+		<p class="indent2">This is the list of keys that are replaced in the existing item by
 			the specified keys in this tag.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>REPLACES:WEAP+1,WEAP+2,WEAP+3,WEAP+4,WEAP+5</code></p>
-		<p class="indent3">Replaces keys &quot;WEAP+1&quot;, &quot;WEAP+2&quot;, 
-			&quot;WEAP+3&quot;, &quot;WEAP+4&quot; or &quot;WEAP+5&quot; with the keys 
+		<p class="indent3">Replaces keys &quot;WEAP+1&quot;, &quot;WEAP+2&quot;,
+			&quot;WEAP+3&quot;, &quot;WEAP+4&quot; or &quot;WEAP+5&quot; with the keys
 			specified in this tag.</p>
-		
+
 		<p></p><a name="SPROP"></a><hr>
 		<p class="new">*** Updated 5.7.7</p>
 		<p class="indent0"><strong>Tag Name:</strong> SPROP:x</p>
@@ -513,14 +527,14 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>The special property is text that will appear on output sheets under the equipment it is assigned to.</li>
-			<li>Variable substitution can be used in the same manor as the 
+			<li>Variable substitution can be used in the same manor as the
 			<a href="../globalfilestagpages/globalfilesother.html#SA">SA</a> tag</li>
 			<li>The &quot;%&quot; symbol will fill in a number from a variable listed after a &quot;|&quot; (pipe).</li>
 			<li>This can be done numerous times, with each successive &quot;%&quot; relating to the
 				next variable listed after  another &quot;|&quot; (pipe).</li>
-			<li>Each variable needs to be defined (via the global 
+			<li>Each variable needs to be defined (via the global
 			<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a> tag.)</li>
-			<li>SPROP tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags. 
+			<li>SPROP tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 				SPROP tags qualified with PRExxx tags will not display unless the character meets the prerequisites.</li>
 			<li>Variable substitution and PRExxx qualifying can be combined in one SPROP tag.</li>
 			<li>Support has been added for %CHOICE substitution so that the SPROP will pick up and display the selection from the CHOOSE.</li>
@@ -533,12 +547,12 @@
 		<p class="indent2"><code>SPROP:+2 against undead|PRECLASS:Paladin=1</code></p>
 		<p class="indent3">Outputs the text if the character has at least 1 level of Paladin.</p>
 		<p class="indent2"><code>SPROP:+% vs. code bugs|ColaIntake|PRESKILL:1,Programming=10</code></p>
-		<p class="indent3">If the character has the Programming skill of at least 10 
-			and the variable &quot;ColaIntake&quot; is defined as equal to 4 then 
+		<p class="indent3">If the character has the Programming skill of at least 10
+			and the variable &quot;ColaIntake&quot; is defined as equal to 4 then
 			the output sheet reads &quot;+4 vs. code bugs&quot;.</p>
 		<p class="indent2"><code>SPROP:+2 against %CHOICE</code></p>
 		<p class="indent3">If one of the choices offered by the EQMOD were &quot;Dragons&quot; the SPROP might read &quot;+2 against Dragons&quot;.</p>
-		
+
 		<p></p><a name="TYPE"></a><hr>
 		<p class="new">*** Updated 4.3.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
@@ -546,8 +560,8 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 		  <li>This is a list of the TYPE's of items that the modifiers can be applied to.</li>
-			<li>The Special TYPE BaseMaterial is used by PCGen to denote what material the item is composed of. 
-				Any equipment modifier with TYPE:BaseMaterial will replace any other equipment modifier 
+			<li>The Special TYPE BaseMaterial is used by PCGen to denote what material the item is composed of.
+				Any equipment modifier with TYPE:BaseMaterial will replace any other equipment modifier
 				which also has TYPE:BaseMaterial, no REPLACES tag is needed.</li>
 			<li>Used in conjunction with PRETYPE and ITYPE.</li>
 		</ul>
@@ -562,7 +576,7 @@
 		<ul class="indent2">
 		  <li>YES - This will always show the modifier in the customizer window.</li>
 			<li>No - This will never show the modifier in the customizer window.</li>
-			<li>Qualify - This will always show the modifier in the customizer window 
+			<li>Qualify - This will always show the modifier in the customizer window
 			if the item meets the requirements to obtain this modifier.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
