@@ -14,12 +14,12 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1					BONUS:VAR|ArrowEnhancementLVL|CL	FEATAUTO:Enhance Arrow
-2	SA:Imbue Arrow (Sp)
-4	SA:Seeker Arrow (Sp)
-6	SA:Phase Arrow (Sp)
-8	SA:Hail of Arrows (Sp)
-10	SA:Arrow of Death (Sp)
+1	BONUS:VAR|ArrowEnhancementLVL|CL	FEATAUTO:Enhance Arrow
+2							FEATAUTO:Imbue Arrow
+4							FEATAUTO:Seeker Arrow
+6							FEATAUTO:Phase Arrow
+8							FEATAUTO:Hail of Arrows
+10							FEATAUTO:Arrow of Death
 
 # Modified 8-30-2003 by GldDragon35
 

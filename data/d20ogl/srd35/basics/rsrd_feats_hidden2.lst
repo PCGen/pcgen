@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Wed Jul 26 19:49:55 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -14,8 +14,13 @@ Slippery Mind	TYPE:Special.RogueAbilities	VISIBLE:NO		SA:Slippery Mind (Ex)					
 Skill Mastery	TYPE:Special.RogueAbilities	VISIBLE:EXPORT															DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3+INT|SKILLS|LIST|3+INT	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Arcane Archer Abilities
-# Feat Name		Type			Visible	Special Ability					Define									Modify VAR								Source Page
-Enhance Arrow	TYPE:Special	VISIBLE:NO	SA:Enhance Arrow (Su) +%|ArrowEnhancement	DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2	SOURCEPAGE:PrestigeClasses.rtf
+# Feat Name		Type			Visible	Special Ability												Define									Modify VAR										Source Page
+Enhance Arrow	TYPE:Special	VISIBLE:NO	SA:Enhance Arrow (Su) +%|ArrowEnhancement								DEFINE:ArrowEnhancement|0	DEFINE:ArrowEnhancementLVL|0	BONUS:VAR|ArrowEnhancement|(ArrowEnhancementLVL+1)/2			SOURCEPAGE:PrestigeClasses.rtf
+Imbue Arrow		TYPE:Special	VISIBLE:NO	SA:Imbue Arrow (Sp)																																SOURCEPAGE:PrestigeClasses.rtf
+Seeker Arrow	TYPE:Special	VISIBLE:NO	SA:Seeker Arrow (Sp) %/day|SeekerArrowTimes							DEFINE:SeekerArrowTimes|0						BONUS:VAR|SeekerArrowTimes|1							SOURCEPAGE:PrestigeClasses.rtf
+Phase Arrow		TYPE:Special	VISIBLE:NO	SA:Phase Arrow (Sp) %/day|PhaseArrowTimes								DEFINE:PhaseArrowTimes|0						BONUS:VAR|PhaseArrowTimes|1							SOURCEPAGE:PrestigeClasses.rtf
+Hail of Arrows	TYPE:Special	VISIBLE:NO	SA:Hail of Arrows (Sp) % maxium targets %/day|HailArrowsTargets|HailArrowsTimes	DEFINE:HailArrowsTargets|0	DEFINE:HailArrowsTimes|0	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	SOURCEPAGE:PrestigeClasses.rtf
+Arrow of Death	TYPE:Special	VISIBLE:NO	SA:Arrow of Death (Sp)																																SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block:Archmage High Arcana Class Abilities
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
