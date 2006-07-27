@@ -39,7 +39,7 @@ import pcgen.core.bonus.BonusObj;
  * @author Bryan McRoberts <merton_monk@yahoo.com>
  * @version $Revision$
  */
-public final class StatList
+public final class StatList implements Iterable<PCStat>
 {
 	private List<PCStat> stats = new ArrayList<PCStat>();
 	private PlayerCharacter ownerPC;

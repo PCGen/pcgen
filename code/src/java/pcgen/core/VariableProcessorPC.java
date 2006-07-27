@@ -25,9 +25,9 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -136,7 +136,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 		if (countVisible)
 		{
-			if ((feat.getVisible() != Ability.VISIBILITY_DISPLAY_ONLY) && (feat.getVisible() != Ability.VISIBILITY_HIDDEN))
+			if ((feat.getVisibility() != Visibility.DISPLAY_ONLY) && (feat.getVisibility() != Visibility.HIDDEN))
 			{
 				if (onceOnly)
 				{
@@ -151,7 +151,7 @@ public class VariableProcessorPC extends VariableProcessor
 
 		if (countHidden)
 		{
-			if ((feat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY) || (feat.getVisible() == Ability.VISIBILITY_HIDDEN))
+			if ((feat.getVisibility() == Visibility.DISPLAY_ONLY) || (feat.getVisibility() == Visibility.HIDDEN))
 			{
 				if (onceOnly)
 				{
@@ -235,17 +235,16 @@ public class VariableProcessorPC extends VariableProcessor
 	 * the result should be the number of hidden feats, or the number of
 	 * visible feats
 	 *
-	 * @param itr an itertor over the feats to look through.
+	 * @param aList a list of the feats to look through.
 	 * @param countVisible  Count visible feats
 	 * @param countHidden Count hidden feats
 	 * @return  An int containing the number of feats in the list
 	 */
-	private int countVisibleFeats(final Iterator<Ability> itr, final boolean countVisible, final boolean countHidden) {
+	private int countVisibleFeats(final List<Ability> aList, final boolean countVisible, final boolean countHidden) {
 		int count = 0;
 
-		while (itr.hasNext())
+		for (Ability feat : aList)
 		{
-			final Ability feat = itr.next();
 			count += countVisibleFeat(feat, countVisible, countHidden, true);
 		}
 
@@ -634,7 +633,7 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			// We use the list in output order to ensure the size
 			// does not include hidden skills
-			final ArrayList skillList = getPc().getSkillListInOutputOrder();
+			final ArrayList<Skill> skillList = getPc().getSkillListInOutputOrder();
 			skillList.trimToSize();
 			valString = Integer.toString(skillList.size());
 		}
@@ -642,7 +641,7 @@ public class VariableProcessorPC extends VariableProcessor
 		{
 			if (valString.endsWith("]"))
 			{
-				final List<Skill> skillList = getPc().getSkillListInOutputOrder((ArrayList<Skill>) getPc().getAllSkillList(true).clone());
+				final List<Skill> skillList = getPc().getSkillListInOutputOrder( new ArrayList<Skill>(getPc().getAllSkillList(true)));
 
 				int typeCount = 0;
 				valString = valString.substring(16);
@@ -663,11 +662,11 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[FEATS.HIDDEN]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().getRealFeatsIterator(), false, true));
+			valString = Integer.toString(countVisibleFeats(getPc().getRealFeatList(), false, true));
 		}
 		else if ("COUNT[FEATS]".equals(valString) || "COUNT[FEATS.VISIBLE]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().getRealFeatsIterator(), true, false));
+			valString = Integer.toString(countVisibleFeats(getPc().getRealFeatList(), true, false));
 		}
 		else if ("COUNT[VFEATS.ALL]".equals(valString))
 		{
@@ -675,11 +674,11 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[VFEATS.HIDDEN]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().getVirtualFeatListIterator(), false, true));
+			valString = Integer.toString(countVisibleFeats(getPc().getVirtualFeatList(), false, true));
 		}
 		else if ("COUNT[VFEATS]".equals(valString) || "COUNT[VFEATS.VISIBLE]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().getVirtualFeatListIterator(), true, false));
+			valString = Integer.toString(countVisibleFeats(getPc().getVirtualFeatList(), true, false));
 		}
 		else if ("COUNT[FEATSAUTO.ALL]".equals(valString))
 		{
@@ -687,11 +686,11 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[FEATSAUTO]".equals(valString) || "COUNT[FEATSAUTO.VISIBLE]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().featAutoListIterator(), true, false));
+			valString = Integer.toString(countVisibleFeats(getPc().featAutoList(), true, false));
 		}
 		else if ("COUNT[FEATSAUTO.HIDDEN]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().featAutoListIterator(), false, true));
+			valString = Integer.toString(countVisibleFeats(getPc().featAutoList(), false, true));
 		}
 		else if ("COUNT[FEATSALL]".equals(valString) || "COUNT[FEATSALL.VISIBLE]".equals(valString))
 		{
@@ -703,7 +702,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[FEATSALL.HIDDEN]".equals(valString))
 		{
-			valString = Integer.toString(countVisibleFeats(getPc().aggregateFeatListIterator(), false, true));
+			valString = Integer.toString(countVisibleFeats(getPc().aggregateFeatList(), false, true));
 		}
 		else if ((valString.startsWith("COUNT[FEATTYPE=") || valString.startsWith("COUNT[FEATTYPE."))
 		&& valString.endsWith(".ALL]"))
@@ -1069,10 +1068,10 @@ public class VariableProcessorPC extends VariableProcessor
 
 			for ( PCTemplate template : getPc().getTemplateList() )
 			{
-				final int visibility = template.isVisible();
+				final Visibility vis = template.getVisibility();
 
-				if ((visibility == PCTemplate.VISIBILITY_DEFAULT)
-				|| (visibility == PCTemplate.VISIBILITY_OUTPUT_ONLY))
+				if ((vis == Visibility.DEFAULT)
+				|| (vis == Visibility.OUTPUT_ONLY))
 				{
 					++count;
 				}

@@ -22,13 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.Constants;
-import pcgen.core.Globals;
-import pcgen.core.PCTemplate;
-import pcgen.core.PObject;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
-
 import javax.swing.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -36,6 +29,14 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import pcgen.core.Constants;
+import pcgen.core.Globals;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>TemplateBasePanel</code>
@@ -368,21 +369,18 @@ public class TemplateBasePanel extends BasePanel
 	 * Set whether the tempalte should be visible or not
 	 * @param aNumber
 	 */
-	public void setVisible(final int aNumber)
+	public void setVisible(final Visibility vis)
 	{
-		if ((aNumber >= PCTemplate.VISIBILITY_HIDDEN) && (aNumber <= PCTemplate.VISIBILITY_DISPLAY_ONLY))
-		{
-			cmbVisible.setSelectedIndex(aNumber);
-		}
+		cmbVisible.setSelectedIndex(vis.ordinal());
 	}
 
 	/**
 	 * Get the visibility of the template
 	 * @return the visibility of the template
 	 */
-	public int getVisible()
+	public Visibility getVisible()
 	{
-		return cmbVisible.getSelectedIndex();
+		return Visibility.values()[cmbVisible.getSelectedIndex()];
 	}
 
 	public void updateData(PObject thisPObject)
@@ -390,7 +388,7 @@ public class TemplateBasePanel extends BasePanel
 		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
 		thisPCTemplate.setRemovable(getIsRemovable());
 		thisPCTemplate.setGenderLock(getGenderLock());
-		thisPCTemplate.setVisible(getVisible());
+		thisPCTemplate.setVisibility(getVisible());
 		thisPCTemplate.setSubRegion(getSubRegion());
 		thisPCTemplate.setSubRace(getSubRace());
 		thisPCTemplate.setBonusSkillsPerLevel(getBonusSkillPoints());
@@ -414,20 +412,17 @@ public class TemplateBasePanel extends BasePanel
 
 	public void updateView(PObject thisPObject)
 	{
-		Iterator e;
 		String aString;
 		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
 
 		//
 		// Populate the types
 		//
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
-		for (e = Globals.getTemplateList().iterator(); e.hasNext();)
+		for (PCTemplate aTemplate :Globals.getTemplateList())
 		{
-			final PCTemplate aTemplate = (PCTemplate) e.next();
-
 			for (int i = aTemplate.getMyTypeCount(); i > 0;)
 			{
 				aString = aTemplate.getMyType(--i);
@@ -461,7 +456,7 @@ public class TemplateBasePanel extends BasePanel
 
 		setIsRemovable(thisPCTemplate.isRemovable());
 		setGenderLock(thisPCTemplate.getGenderLock());
-		setVisible(thisPCTemplate.isVisible());
+		setVisible(thisPCTemplate.getVisibility());
 		setSubRegion(thisPCTemplate.getSubRegion());
 		setSubRace(thisPCTemplate.getSubRace());
 		setBonusSkillPoints(thisPCTemplate.getBonusSkillsPerLevel());

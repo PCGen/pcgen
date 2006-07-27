@@ -116,6 +116,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>InfoFeats</code>.
@@ -1069,8 +1070,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		{
 			final Ability anAbility = (Ability) it.next();
 
-			if ((anAbility.getVisible() != Ability.VISIBILITY_DEFAULT) &&
-				(anAbility.getVisible() != Ability.VISIBILITY_DISPLAY_ONLY))
+			if ((anAbility.getVisibility() != Visibility.DEFAULT) &&
+				(anAbility.getVisibility() != Visibility.DISPLAY_ONLY))
 			{
 				continue;
 			}
@@ -1786,8 +1787,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (!showAll)
 				{
-					if (!((aFeat.getVisible() == Ability.VISIBILITY_DEFAULT)
-						|| (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY)))
+					if (!((aFeat.getVisibility() == Visibility.DEFAULT)
+						|| (aFeat.getVisibility() == Visibility.DISPLAY_ONLY)))
 					{
 						continue;
 					}
@@ -1883,8 +1884,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					if (accept(pc, anAbility))
 					{
 						if (
-							(anAbility.getVisible() == Ability.VISIBILITY_DEFAULT) ||
-							(anAbility.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY))
+							(anAbility.getVisibility() == Visibility.DEFAULT) ||
+							(anAbility.getVisibility() == Visibility.DISPLAY_ONLY))
 						{
 							fList.add(anAbility);
 						}
@@ -1905,8 +1906,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				{
 					if (accept(pc, aFeat))
 					{
-						if ((aFeat.getVisible() == Ability.VISIBILITY_DEFAULT)
-							|| (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY))
+						if ((aFeat.getVisibility() == Visibility.DEFAULT)
+							|| (aFeat.getVisibility() == Visibility.DISPLAY_ONLY))
 						{
 							fList.add(aFeat);
 						}
@@ -2064,8 +2065,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (!showAll)
 				{
-					if ((aFeat.getVisible() != Ability.VISIBILITY_DEFAULT)
-							&& (aFeat.getVisible() != Ability.VISIBILITY_DISPLAY_ONLY))
+					if ((aFeat.getVisibility() != Visibility.DEFAULT)
+							&& (aFeat.getVisibility() != Visibility.DISPLAY_ONLY))
 					{
 						continue;
 					}
@@ -2168,8 +2169,8 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (!showAll)
 				{
-					if (!((aFeat.getVisible() == Ability.VISIBILITY_DEFAULT)
-							|| (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY)))
+					if (!((aFeat.getVisibility() == Visibility.DEFAULT)
+							|| (aFeat.getVisibility() == Visibility.DISPLAY_ONLY)))
 					{
 						continue;
 					}

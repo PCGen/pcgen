@@ -28,9 +28,14 @@
  */
 package pcgen.core;
 
+import java.awt.HeadlessException;
+import java.util.List;
+import java.util.Collections;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.core.bonus.Bonus;
@@ -43,10 +48,7 @@ import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
-
-import java.awt.HeadlessException;
-import java.util.List;
-import java.util.Collections;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * @author wardc
@@ -525,21 +527,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		guiSkill.addClassList("MyClass");
 		guiSkill.setName("GUI");
 		guiSkill.setTypeInfo("INT");
-		guiSkill.setVisible(Skill.VISIBILITY_DISPLAY_ONLY);
+		guiSkill.setVisibility(Visibility.DISPLAY_ONLY);
 		guiSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(guiSkill);
 
 		outputSkill.addClassList("MyClass");
 		outputSkill.setName("Output");
 		outputSkill.setTypeInfo("INT");
-		outputSkill.setVisible(Skill.VISIBILITY_OUTPUT_ONLY);
+		outputSkill.setVisibility(Visibility.OUTPUT_ONLY);
 		outputSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(outputSkill);
 
 		defaultSkill.addClassList("MyClass");
 		defaultSkill.setName("Default");
 		defaultSkill.setTypeInfo("INT");
-		defaultSkill.setVisible(Skill.VISIBILITY_DEFAULT);
+		defaultSkill.setVisibility(Visibility.DEFAULT);
 		defaultSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(defaultSkill);
 
@@ -548,15 +550,15 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals("Full skill list should have all 3 skills", 3, skillList
 			.size());
 
-		skillList = pc.getPartialSkillList(Skill.VISIBILITY_DISPLAY_ONLY);
+		skillList = pc.getPartialSkillList(Visibility.DISPLAY_ONLY);
 		assertEquals("GUI skill list should have 2 skills", 2, skillList
 			.size());
 
-		skillList = pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY);
+		skillList = pc.getPartialSkillList(Visibility.OUTPUT_ONLY);
 		assertEquals("Output skill list should have 2 skills", 2, skillList
 			.size());
 
-		skillList = pc.getPartialSkillList(Skill.VISIBILITY_DEFAULT);
+		skillList = pc.getPartialSkillList(Visibility.DEFAULT);
 		assertEquals("Full skill list should have 3 skills", 3, skillList
 			.size());
 

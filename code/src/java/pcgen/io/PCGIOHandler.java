@@ -36,7 +36,6 @@ import pcgen.util.Logging;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -400,12 +399,10 @@ public final class PCGIOHandler extends IOHandler
 			}
 		}
 
-		Ability aFeat;
+		;
 
-		for (Iterator<Ability> it = aPC.getRealFeatsIterator(); it.hasNext();)
+		for (Ability aFeat : aPC.getRealFeatList())
 		{
-			aFeat = it.next();
-
 			if (aFeat.getChoiceString().startsWith("SALIST|"))
 			{
 				List<String> aAvailable = new ArrayList<String>();
@@ -507,8 +504,6 @@ public final class PCGIOHandler extends IOHandler
 					+ "). Correct on Feat tab.");
 			}
 		}
-
-		PCClass aClass;
 
 		// Get templates - give it the biggest HD
 		// sk4p 11 Dec 2002

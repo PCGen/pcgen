@@ -434,10 +434,8 @@ public class AbilityUtilities
 			{
 				int listSize = ability.getAssociatedCount();
 
-				for (final Iterator<Ability> e1 = aPC.getRealFeatsIterator(); e1.hasNext();)
+				for (Ability myAbility : aPC.getRealFeatList())
 				{
-					final Ability myAbility = e1.next();
-
 					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 					{
 						listSize = myAbility.getAssociatedCount();
@@ -884,10 +882,8 @@ public class AbilityUtilities
 			}
 		}
 
-		for (Iterator<PCClass> e = aPc.getClassListIterator(); e.hasNext();)
+		for (PCClass aClass : aPc.getClassList())
 		{
-			final PCClass aClass = e.next();
-
 			for (Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
 			{
 				//
@@ -967,10 +963,9 @@ public class AbilityUtilities
 
 		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !aPc.getTemplateList().isEmpty())
 		{
-			for (Iterator<PCTemplate> e = aPc.getTemplateListIterator(); e.hasNext();)
+			for (PCTemplate aTemplate : aPc.getTemplateList())
 			{
 				aPc.setStableAutomaticFeatList(autoFeatList);
-				final PCTemplate aTemplate = e.next();
 				final List<String> templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
 
 				if (!templateFeats.isEmpty())
@@ -992,9 +987,8 @@ public class AbilityUtilities
 
 		if (!aPc.getCharacterDomainList().isEmpty())
 		{
-			for (Iterator<CharacterDomain> e = aPc.getCharacterDomainListIterator(); e.hasNext();)
+			for (CharacterDomain aCD : aPc.getCharacterDomainList())
 			{
-				final CharacterDomain aCD = e.next();
 				final Domain aDomain = aCD.getDomain();
 
 				if (aDomain != null)

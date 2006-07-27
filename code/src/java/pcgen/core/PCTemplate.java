@@ -32,20 +32,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.core.prereq.Prerequisite;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>PCTemplate</code>.
@@ -58,18 +58,6 @@ public final class PCTemplate extends PObject implements HasCost
 	///////////////////////////////////////////////////////////////////////
 	// Static properties
 	///////////////////////////////////////////////////////////////////////
-
-	/** Visibility is Hidden */
-	public static final int VISIBILITY_HIDDEN = 0;
-
-	/** Visibility is Default */
-	public static final int VISIBILITY_DEFAULT = 1;
-
-	/** Visibility is Output Sheets Only */
-	public static final int VISIBILITY_OUTPUT_ONLY = 2;
-
-	/** Visibility is GUI Only */
-	public static final int VISIBILITY_DISPLAY_ONLY = 3;
 
 	private AbilityStore abilityCatStore     = null;
 	private ArrayList<String>    featStrings         = null;
@@ -102,7 +90,6 @@ public final class PCTemplate extends PObject implements HasCost
 	private String  hitDieLock            = "";
 	private int     levelsPerFeat         = 3;
 	private int     nonProficiencyPenalty = 1;
-	private int     templateVisible       = VISIBILITY_DEFAULT;
 	private String  raceType              = "";
 	private Integer hands;
 	private Integer legs;
@@ -632,9 +619,9 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (getListSize(hitDiceStrings) > 0)
 		{
-			for (Iterator e = hitDiceStrings.iterator(); e.hasNext();)
+			for (String s : hitDiceStrings)
 			{
-				txt.append("\tHD:").append((String) e.next());
+				txt.append("\tHD:").append(s);
 			}
 		}
 
@@ -748,19 +735,19 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 		}
 
-		switch (templateVisible)
+		switch (getVisibility())
 		{
-			case PCTemplate.VISIBILITY_DISPLAY_ONLY:
+			case DISPLAY_ONLY:
 				txt.append("\tVISIBLE:DISPLAY");
 
 				break;
 
-			case PCTemplate.VISIBILITY_OUTPUT_ONLY:
+			case OUTPUT_ONLY:
 				txt.append("\tVISIBLE:EXPORT");
 
 				break;
 
-			case PCTemplate.VISIBILITY_HIDDEN:
+			case HIDDEN:
 				txt.append("\tVISIBLE:NO");
 
 				break;
@@ -924,8 +911,8 @@ public final class PCTemplate extends PObject implements HasCost
 		boolean result = false;
 
 		if (
-			(templateVisible == VISIBILITY_DEFAULT) ||
-			(templateVisible == VISIBILITY_DISPLAY_ONLY))
+			(getVisibility() == Visibility.DEFAULT) ||
+			(getVisibility() == Visibility.DISPLAY_ONLY))
 		{
 			result = removable;
 		}
@@ -1119,37 +1106,6 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		return templateSize;
 	}
-
-
-	/**
-	 * Set the visibility of this Template, where:
-	 *
-	 * 0 = VISIBILITY_HIDDEN
-	 *
-	 * 1 = VISIBILITY_DEFAULT
-	 *
-	 * 2 = VISIBILITY_OUTPUT_ONLY
-	 *
-	 * 3 = VISIBILITY_DISPLAY_ONLY
-	 *
-	 * @param  argTemplateVisible the visibility
-	 */
-	public void setVisible(final int argTemplateVisible)
-	{
-		templateVisible = argTemplateVisible;
-	}
-
-
-	/**
-	 * An integer that represents the visibility of this Template
-	 *
-	 * @return the visibility
-	 */
-	public int isVisible()
-	{
-		return templateVisible;
-	}
-
 
 	/**
 	 * Add to a list of Weapon Proficiencies that this template will grant to
@@ -1471,18 +1427,17 @@ public final class PCTemplate extends PObject implements HasCost
 	public Object clone() throws CloneNotSupportedException
 	{
 		final PCTemplate aTemp = (PCTemplate) super.clone();
-		aTemp.templateVisible = templateVisible;
-		aTemp.templates       = (ArrayList<String>) templates.clone();
-		aTemp.languageBonus   = (TreeSet<Language>) languageBonus.clone();
+		aTemp.templates       = new ArrayList<String>(templates);
+		aTemp.languageBonus   = new TreeSet<Language>(languageBonus);
 
 		if (getListSize(levelStrings) != 0)
 		{
-			aTemp.levelStrings = (ArrayList<String>) levelStrings.clone();
+			aTemp.levelStrings = new ArrayList<String>(levelStrings);
 		}
 
 		if (getListSize(hitDiceStrings) != 0)
 		{
-			aTemp.hitDiceStrings = (ArrayList<String>) hitDiceStrings.clone();
+			aTemp.hitDiceStrings = new ArrayList<String>(hitDiceStrings);
 		}
 
 		// if (getArrayListSize(sizeStrings) != 0)
@@ -1491,7 +1446,7 @@ public final class PCTemplate extends PObject implements HasCost
 		// }
 		if (getListSize(weaponProfBonus) != 0)
 		{
-			aTemp.weaponProfBonus = (ArrayList<String>) weaponProfBonus.clone();
+			aTemp.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
 		}
 
 		if (abilityCatStore != null) {
@@ -1502,12 +1457,12 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (getListSize(featStrings) != 0)
 		{
-			aTemp.featStrings = (ArrayList<String>) featStrings.clone();
+			aTemp.featStrings = new ArrayList<String>(featStrings);
 		}
 
 		if (chosenFeatStrings != null)
 		{
-			aTemp.chosenFeatStrings = (HashMap<String, String>) chosenFeatStrings.clone();
+			aTemp.chosenFeatStrings = new HashMap<String, String>(chosenFeatStrings);
 		}
 
 		return aTemp;
@@ -2038,7 +1993,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 		if (getListSize(featStrings) != 0)
 		{
-			feats = (ArrayList<String>) featStrings.clone();
+			feats = new ArrayList<String>(featStrings);
 		}
 		else
 		{

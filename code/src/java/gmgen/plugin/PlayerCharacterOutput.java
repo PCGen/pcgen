@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -61,7 +60,7 @@ public class PlayerCharacterOutput
 	public String getClasses()
 	{
 		StringBuffer sb = new StringBuffer();
-		ArrayList classList = pc.getClassList();
+		ArrayList<PCClass> classList = pc.getClassList();
 
 		for (int i = 0; i < classList.size(); i++)
 		{
@@ -102,7 +101,7 @@ public class PlayerCharacterOutput
 	public String getEquipmentList()
 	{
 		StringBuffer sb = new StringBuffer();
-		List eqList = pc.getEquipmentListInOutputOrder();
+		List<Equipment> eqList = pc.getEquipmentListInOutputOrder();
 		boolean firstLine = true;
 
 		for (int i = 0; i < eqList.size(); i++)
@@ -157,10 +156,8 @@ public class PlayerCharacterOutput
 
 		boolean firstLine = true;
 
-		for (Iterator it = pc.getRealFeatsIterator(); it.hasNext(); )
+		for (Ability feat : pc.getRealFeatList())
 		{
-			Ability feat = (Ability) it.next();
-
 			if (!firstLine)
 			{
 				sb.append(", ");
@@ -264,7 +261,7 @@ public class PlayerCharacterOutput
 	public String getSkillList()
 	{
 		StringBuffer sb = new StringBuffer();
-		ArrayList skillList = pc.getSkillListInOutputOrder();
+		ArrayList<Skill> skillList = pc.getSkillListInOutputOrder();
 		boolean firstLine = true;
 
 		for (int i = 0; i < skillList.size(); i++)
@@ -298,7 +295,7 @@ public class PlayerCharacterOutput
 	{
 		StringBuffer sb = new StringBuffer();
 		boolean firstLine = true;
-		ArrayList saList = pc.getSpecialAbilityTimesList();
+		ArrayList<String> saList = pc.getSpecialAbilityTimesList();
 
 		for (int i = 0; i < saList.size(); i++)
 		{

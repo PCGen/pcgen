@@ -39,6 +39,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>Skill</code>.
@@ -48,13 +49,6 @@ import pcgen.util.chooser.ChooserInterface;
  */
 public final class Skill extends PObject
 {
-	/** Visibility is Default */
-	public static final int VISIBILITY_DEFAULT = 1;
-	/** Visibility is Output Sheets Only */
-	public static final int VISIBILITY_OUTPUT_ONLY = 2;
-	/** Visibility is GUI Only */
-	public static final int VISIBILITY_DISPLAY_ONLY = 3;
-
 	//constants for Cost Type String
     /** Cost is CLASS cost */
 	public static final String COST_CLASS = "CLASS";
@@ -83,7 +77,6 @@ public final class Skill extends PObject
 	private String keyStat = "";
 	private String rootName = "";
 
-	private int skillVisible = VISIBILITY_DEFAULT;
 	private boolean skillReadOnly = false;
 
 	private boolean canUseUntrained = true;
@@ -234,10 +227,8 @@ public final class Skill extends PObject
 			}
 		}
 
-		for (Iterator i = classList.iterator(); i.hasNext();)
+		for (String aString : classList)
 		{
-			final String aString = i.next().toString();
-
 			if ((aString.length() > 0) && (aString.charAt(0) == '!')
 				&& (aString.substring(1).equalsIgnoreCase(aClass.getKeyName())
 				|| aString.substring(1).equalsIgnoreCase(aClass.getSubClassKey())))
@@ -253,12 +244,8 @@ public final class Skill extends PObject
 			}
 		}
 
-		CharacterDomain aCD;
-
-		for (Iterator e = aPC.getCharacterDomainList().iterator(); e.hasNext();)
+		for (CharacterDomain aCD : aPC.getCharacterDomainList())
 		{
-			aCD = (CharacterDomain) e.next();
-
 			if ((aCD.getDomain() != null) && aCD.isFromPCClass(aClass.getKeyName()) && aCD.getDomain().hasCSkill(keyName))
 			{
 				return true;
@@ -270,30 +257,24 @@ public final class Skill extends PObject
 			return true;
 		}
 
-		for (Iterator i = aPC.aggregateFeatList().iterator(); i.hasNext();)
+		for (Ability aFeat : aPC.aggregateFeatList())
 		{
-			final Ability aFeat = (Ability) i.next();
-
 			if (aFeat.hasCSkill(keyName))
 			{
 				return true;
 			}
 		}
 
-		for (Iterator i = aPC.getSkillList().iterator(); i.hasNext();)
+		for (Skill aSkill : aPC.getSkillList())
 		{
-			final Skill aSkill = (Skill) i.next();
-
 			if (aSkill.hasCSkill(keyName))
 			{
 				return true;
 			}
 		}
 
-		for (Iterator e = aPC.getEquipmentList().iterator(); e.hasNext();)
+		for (Equipment eq : aPC.getEquipmentList())
 		{
-			final Equipment eq = (Equipment) e.next();
-
 			if (eq.isEquipped())
 			{
 				if (eq.hasCSkill(keyName))
@@ -301,42 +282,26 @@ public final class Skill extends PObject
 					return true;
 				}
 
-				List aList = eq.getEqModifierList(true);
-
-				if (!aList.isEmpty())
+				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
+					if (eqMod.hasCSkill(keyName))
 					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-
-						if (eqMod.hasCSkill(keyName))
-						{
-							return true;
-						}
+						return true;
 					}
 				}
 
-				aList = eq.getEqModifierList(false);
-
-				if (!aList.isEmpty())
+				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
+					if (eqMod.hasCSkill(keyName))
 					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-
-						if (eqMod.hasCSkill(keyName))
-						{
-							return true;
-						}
+						return true;
 					}
 				}
 			}
 		}
 
-		for (Iterator i = aPC.getTemplateList().iterator(); i.hasNext();)
+		for (PCTemplate aTemplate : aPC.getTemplateList())
 		{
-			final PCTemplate aTemplate = (PCTemplate) i.next();
-
 			if (aTemplate.hasCSkill(keyName))
 			{
 				return true;
@@ -445,14 +410,14 @@ public final class Skill extends PObject
 
 		final StringBuffer aString = new StringBuffer(100);
 
-		for (Iterator e = getClassList().iterator(); e.hasNext();)
+		for (String s : getClassList())
 		{
 			if (aString.length() != 0)
 			{
 				aString.append('|');
 			}
 
-			aString.append((String) e.next());
+			aString.append(s);
 		}
 
 		if (aString.length() != 0)
@@ -493,16 +458,16 @@ public final class Skill extends PObject
 			}
 		}
 
-		if (isVisible() != VISIBILITY_DEFAULT)
+		if (getVisibility() != Visibility.DEFAULT)
 		{
 			txt.append("\tVISIBLE:");
-			switch (isVisible())
+			switch (getVisibility())
 			{
-				case VISIBILITY_OUTPUT_ONLY:
+				case OUTPUT_ONLY:
 					txt.append("EXPORT");
 					break;
 
-				case VISIBILITY_DISPLAY_ONLY:
+				case DISPLAY_ONLY:
 					txt.append("GUI");
 					break;
 
@@ -611,9 +576,9 @@ public final class Skill extends PObject
      * Get an iterator for the sub types 
      * @return iterator for the sub types
 	 */
-    public Iterator getSubtypeIterator()
+    public Iterator<String> getSubtypeIterator()
 	{
-		final Iterator it = getSafeListFor(ListKey.TYPE).iterator();
+		final Iterator<String> it = getSafeListFor(ListKey.TYPE).iterator();
 
 		if (it.hasNext())
 		{
@@ -740,10 +705,8 @@ public final class Skill extends PObject
 	{
 		Skill languageSkill = null;
 
-		for (Iterator a = aPC.getSkillList().iterator(); a.hasNext();)
+		for (Skill aSkill : aPC.getSkillList())
 		{
-			final Skill aSkill = (Skill) a.next();
-
 			if (aSkill.getChoiceString().toLowerCase().indexOf("language") >= 0)
 			{
 				languageSkill = aSkill;
@@ -867,24 +830,6 @@ public final class Skill extends PObject
 	}
 
     /**
-     * Set whether the skill is visible or not
-     * @param argVisible
-     */
-	public void setVisible(final int argVisible)
-	{
-		skillVisible = argVisible;
-	}
-
-    /**
-     * Return true if skill is visible
-     * @return true if skill is visible
-     */
-	public int isVisible()
-	{
-		return skillVisible;
-	}
-
-    /**
      * Set read only attribute for skill
      * @param argReadOnly
      */
@@ -913,11 +858,10 @@ public final class Skill extends PObject
 			newSkill.setRootName(rootName);
 			newSkill.setKeyStat(getKeyStat());
 			newSkill.setIsExclusive(isExclusive());
-			newSkill.rankList = (ArrayList<String>) rankList.clone();
+			newSkill.rankList = new ArrayList<String>(rankList);
 			newSkill.setUntrained(isUntrained());
-			newSkill.classList = (ArrayList<String>) classList.clone();
+			newSkill.classList = new ArrayList<String>(classList);
 			newSkill.aCheck = aCheck;
-			newSkill.skillVisible = skillVisible;
 			newSkill.skillReadOnly = skillReadOnly;
 
 			newSkill.outputIndex = outputIndex;

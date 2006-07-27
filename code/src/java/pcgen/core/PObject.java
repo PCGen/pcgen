@@ -39,6 +39,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Visibility;
 
 import java.io.Serializable;
 import java.io.StringWriter;
@@ -93,6 +94,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/** Indicates if this object should be displayed to the user in the UI. */
 	protected boolean visible = true;
+	protected Visibility visibility = Visibility.DEFAULT;
 
 	/** Map of the bonuses for the object  */
 	private HashMap<String, String> bonusMap = null;
@@ -1260,7 +1262,25 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		return vision;
 	}
+	
+	/**
+	 * Retrieve this object's visibility in the GUI and on the output sheet
+	 * @return Visibility in the GUI and on the output sheet 
+	 */
+	public Visibility getVisibility()
+	{
+		return visibility;
+	}
 
+	/**
+	 * Set the object's visibility in the GUI and on the output sheet
+	 * @param Visibility in the GUI and on the output sheet 
+	 */
+	public void setVisibility(Visibility argVisibility)
+	{
+		visibility = argVisibility;
+	}
+	
 	/**
 	 * Adds Weapons/Armor/Shield names/types to new Proficiency mapping
 	 *
@@ -1535,6 +1555,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		retVal.setName(displayName);
 		retVal.visible = visible;
+		retVal.visibility = visibility;
 		retVal.setKeyName(keyName);
 		retVal.spellSupport = (SpellSupport) spellSupport.clone();
 
@@ -2509,9 +2530,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			if (arg.startsWith("TYPE."))
 			{
 				final String theType = arg.substring(5);
-				for (Iterator<Ability> it = aPC.getRealFeatsIterator(); it.hasNext();)
+				for (Ability aFeat : aPC.getRealFeatList())
 				{
-					Ability aFeat = it.next();
 					if (aFeat.isType(theType) && !theFeatList.contains(aFeat))
 						theFeatList.add(aFeat);
 				}
@@ -2537,11 +2557,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 			else if (arg.equals("CHOICE"))
 			{
-				Iterator<Ability> anIt  = aPC.getRealFeatsIterator();
-
-				while (anIt.hasNext())
+				for (Ability aFeat : aPC.getRealFeatList())
 				{
-					theFeatList.add(anIt.next());
+					theFeatList.add(aFeat);
 				}
 			}
 			// or it's a specifically named feat
@@ -3240,16 +3258,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 						if (anAbility != null)
 						{
-							switch (anAbility.getVisible())
+							switch (anAbility.getVisibility())
 							{
-								case Ability.VISIBILITY_HIDDEN:
-								case Ability.VISIBILITY_OUTPUT_ONLY:
+								case HIDDEN:
+								case OUTPUT_ONLY:
 									canProcess = true;
-
 									break;
 
 								default:
-
 									continue;
 							}
 

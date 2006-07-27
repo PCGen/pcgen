@@ -43,8 +43,6 @@ public final class IntegerKey
 	public static final IntegerKey NUM_PAGES = new IntegerKey();
 	/** Key to a characteristic defining the loading rank of the object. */
 	public static final IntegerKey RANK = new IntegerKey();
-	/** Key to a characteristic defining how visible the object is. */
-	public static final IntegerKey VISIBLE = new IntegerKey();
 
     /**
      * Private constructor to stop instantiation of this class. 

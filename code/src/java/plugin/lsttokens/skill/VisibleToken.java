@@ -2,6 +2,7 @@ package plugin.lsttokens.skill;
 
 import pcgen.core.Skill;
 import pcgen.persistence.lst.SkillLstToken;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * Class deals with VISIBLE Token
@@ -16,16 +17,16 @@ public class VisibleToken implements SkillLstToken {
 		final String visType = value.toUpperCase();
 
 		if (visType.startsWith("YES") || visType.startsWith("ALWAYS")) {
-			skill.setVisible(Skill.VISIBILITY_DEFAULT);
+			skill.setVisibility(Visibility.DEFAULT);
 		}
 		else if (visType.startsWith("GUI")) {
-			skill.setVisible(Skill.VISIBILITY_DISPLAY_ONLY);
+			skill.setVisibility(Visibility.DISPLAY_ONLY);
 		}
 		else if (visType.startsWith("EXPORT") || visType.startsWith("CSHEET")) {
-			skill.setVisible(Skill.VISIBILITY_OUTPUT_ONLY);
+			skill.setVisibility(Visibility.OUTPUT_ONLY);
 		}
 		else {
-			skill.setVisible(Skill.VISIBILITY_DEFAULT);
+			skill.setVisibility(Visibility.DEFAULT);
 			return false;
 		}
 

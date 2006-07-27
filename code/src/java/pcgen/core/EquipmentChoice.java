@@ -25,6 +25,7 @@ package pcgen.core;
 
 import pcgen.util.Delta;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 import java.util.*;
 
@@ -365,7 +366,7 @@ final class EquipmentChoice
 					anAbility.isType(typeString)
 								  );
 
-			if ((anAbility.getVisible() == Ability.VISIBILITY_DEFAULT)
+			if ((anAbility.getVisibility() == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
 			{
 				if (matchesType && (anAbility.getChoiceString().length() == 0))

@@ -2,6 +2,7 @@ package plugin.lsttokens.ability;
 
 import pcgen.core.Ability;
 import pcgen.persistence.lst.AbilityLstToken;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>VisibleToken</code> handles the processing of the VISIBLE tag
@@ -32,19 +33,19 @@ public class VisibleToken implements AbilityLstToken
 		final String visType = value.toUpperCase();
 		if (visType.startsWith("EXPORT"))
 		{
-			ability.setVisible(Ability.VISIBILITY_OUTPUT_ONLY);
+			ability.setVisibility(Visibility.OUTPUT_ONLY);
 		}
 		else if (visType.startsWith("NO"))
 		{
-			ability.setVisible(Ability.VISIBILITY_HIDDEN);
+			ability.setVisibility(Visibility.HIDDEN);
 		}
 		else if (visType.startsWith("DISPLAY"))
 		{
-			ability.setVisible(Ability.VISIBILITY_DISPLAY_ONLY);
+			ability.setVisibility(Visibility.DISPLAY_ONLY);
 		}
 		else
 		{
-			ability.setVisible(Ability.VISIBILITY_DEFAULT);
+			ability.setVisibility(Visibility.DEFAULT);
 		}
 		return true;
 	}

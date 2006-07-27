@@ -58,6 +58,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Visibility;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -1555,17 +1556,17 @@ public final class Globals
 	 * @param visibility What level of visibility skills are desired.
 	 * @return A list of the skills matching the visibility criteria.
 	 */
-	public static List<Skill> getPartialSkillList(final int visibility)
+	public static List<Skill> getPartialSkillList(final Visibility vis)
 	{
 		// Now select the required set of skills, based on their visibility.
 		ArrayList<Skill> aList = new ArrayList<Skill>();
 		for ( Skill skill : getSkillList() )
 		{
-			final int skillVis = skill.isVisible();
+			final Visibility skillVis = skill.getVisibility();
 
-			if (visibility == Skill.VISIBILITY_DEFAULT
-				|| skillVis == Skill.VISIBILITY_DEFAULT
-				|| skillVis == visibility)
+			if (vis == Visibility.DEFAULT
+				|| skillVis == Visibility.DEFAULT
+				|| skillVis == vis)
 			{
 				aList.add(skill);
 			}

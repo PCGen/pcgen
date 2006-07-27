@@ -102,6 +102,7 @@ import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 /**
  *  <code>InfoRace</code> creates a new tabbed panel
@@ -1293,8 +1294,8 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 */
 		private boolean shouldDisplayThis(final PCTemplate template)
 		{
-			return ((template.isVisible() == PCTemplate.VISIBILITY_DEFAULT
-					|| template.isVisible() == PCTemplate.VISIBILITY_DISPLAY_ONLY)
+			return ((template.getVisibility() == Visibility.DEFAULT
+					|| template.getVisibility() == Visibility.DISPLAY_ONLY)
 					&& accept(pc, template));
 		}
 

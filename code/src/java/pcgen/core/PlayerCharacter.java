@@ -25,6 +25,30 @@
  */
 package pcgen.core;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FilenameFilter;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.*;
@@ -35,6 +59,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.spell.PCSpellTracker;
 import pcgen.core.spell.Spell;
+import pcgen.core.system.GameModeRollMethod;
 import pcgen.core.utils.*;
 import pcgen.gui.GuiConstants;
 import pcgen.io.exporttoken.BonusToken;
@@ -44,11 +69,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-
-import java.io.*;
-import java.math.BigDecimal;
-import java.util.*;
-import pcgen.core.system.GameModeRollMethod;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -352,10 +373,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return skillList;
 		}
 
-		for (Iterator i = Globals.getSkillList().iterator(); i.hasNext();)
+		for (Skill aSkill : Globals.getSkillList())
 		{
-			final Skill aSkill = (Skill) i.next();
-
 			if (!hasSkill(aSkill.getKeyName()))
 			{
 //				if (!CoreUtility.doublesEqual(getTotalBonusTo("SKILLRANK", aSkill.getName()), 0.0))
@@ -378,20 +397,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @return  A list of the character's skills matching the visibility
 	 *          criteria.
 	 */
-	public ArrayList<Skill> getPartialSkillList(final int visibility)
+	public ArrayList<Skill> getPartialSkillList(Visibility vis)
 	{
 		// Now select the required set of skills, based on their visibility.
 		ArrayList<Skill> aList = new ArrayList<Skill>();
 
-		for (Iterator<Skill> iter = skillList.iterator(); iter.hasNext();)
+		for (Skill aSkill : skillList)
 		{
-			final Skill aSkill   = iter.next();
-			final int   skillVis = aSkill.isVisible();
+			final Visibility skillVis = aSkill.getVisibility();
 
-			if (
-				(visibility == Skill.VISIBILITY_DEFAULT) ||
-				(skillVis == Skill.VISIBILITY_DEFAULT) ||
-				(skillVis == visibility))
+			if ((vis == Visibility.DEFAULT) ||
+				(skillVis == Visibility.DEFAULT) ||
+				(skillVis == vis))
 			{
 				aList.add(aSkill);
 			}
@@ -552,10 +569,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			// PC does not have that equipset ID
 			// so we need to find one they do have
-			for (Iterator<EquipSet> e = equipSetList.iterator(); e.hasNext();)
+			for (EquipSet eSet : equipSetList)
 			{
-				final EquipSet eSet = e.next();
-
 				if (eSet.getParentIdPath().equals("0"))
 				{
 					calcEquipSetId = eSet.getIdPath();
@@ -617,10 +632,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		// loop through all the EquipSet's and create equipment
 		// then set status to equipped and add to PC's equipment list
-		for (Iterator<EquipSet> e = pcEquipSetList.iterator(); e.hasNext();)
+		for (EquipSet es : pcEquipSetList)
 		{
-			final EquipSet es = e.next();
-
 			final String abCalcId = calcId + ".";
 			final String abParentId = es.getParentIdPath() + ".";
 
@@ -747,10 +760,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		// loop through all equipment and make sure that
 		// containers contents are updated
-		for (Iterator<Equipment> e = getEquipmentList().iterator(); e.hasNext();)
+		for (Equipment eq : getEquipmentList())
 		{
-			final Equipment eq = e.next();
-
 			if (eq.isContainer())
 			{
 				eq.updateContainerContentsString(this);
@@ -770,10 +781,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// if temporary bonuses, read the bonus equipList
 		if (useTempBonuses)
 		{
-			for (Iterator<Equipment> e = getTempBonusItemList().iterator(); e.hasNext();)
+			for (Equipment eq : getTempBonusItemList())
 			{
-				final Equipment eq = e.next();
-
 				// make sure that this EquipSet is the one
 				// this temporary bonus item comes from
 				// to make sure we keep them together
@@ -832,17 +841,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public void setCalcFollowerBonus(final PlayerCharacter aPC)
 	{
-		final List<Follower> aList = getFollowerList();
 		setDirty(true);
 
-		if (aList.isEmpty())
+		for (Follower aF : getFollowerList())
 		{
-			return;
-		}
-
-		for (Iterator<Follower> fm = aList.iterator(); fm.hasNext();)
-		{
-			final Follower aF = fm.next();
 			final String rType = aF.getType().toUpperCase();
 			final String rName = aF.getRace().toUpperCase();
 
@@ -887,10 +889,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public PCClass getClassKeyed(final String aString)
 	{
-		for (Iterator<PCClass> classIter = classList.iterator(); classIter.hasNext();)
+		for (PCClass aClass : classList)
 		{
-			final PCClass aClass = classIter.next();
-
 			if (aClass.getKeyName().equalsIgnoreCase(aString))
 			{
 				return aClass;
@@ -907,15 +907,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public ArrayList<PCClass> getClassList()
 	{
 		return classList;
-	}
-
-	/**
-	 * Get an iterator over the the class list
-	 * @return classList Iterator
-	 */
-	public Iterator<PCClass> getClassListIterator()
-	{
-		return classList.iterator();
 	}
 
 	/**
@@ -964,9 +955,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			list.add("Humanoid");
 		}
 
-		for (Iterator<PCTemplate> e = templateList.iterator(); e.hasNext();)
+		for (PCTemplate t : templateList)
 		{
-			list.add(e.next().getType());
+			list.add(t.getType());
 		}
 
 		return list;
@@ -989,9 +980,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (!templateList.isEmpty())
 		{
-			for (Iterator<PCTemplate> e = templateList.iterator(); e.hasNext();)
+			for (PCTemplate t : templateList)
 			{
-				final String aType = e.next().getType();
+				final String aType = t.getType();
 
 				if (!"".equals(aType))
 				{
@@ -1012,9 +1003,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		if (!companionModList.isEmpty())
 		{
-			for (Iterator<CompanionMod> i = companionModList.iterator(); i.hasNext(); )
+			for (CompanionMod cm : companionModList)
 			{
-				final String aType = i.next().getRaceType();
+				final String aType = cm.getRaceType();
 				if (!"".equals(aType))
 				{
 					raceType = aType;
@@ -1023,9 +1014,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		if (!templateList.isEmpty())
 		{
-			for (Iterator<PCTemplate> e = templateList.iterator(); e.hasNext();)
+			for (PCTemplate t : templateList)
 			{
-				final String aType = e.next().getRaceType();
+				final String aType = t.getRaceType();
 
 				if (!"".equals(aType))
 				{
@@ -1043,23 +1034,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			Set<String> added = new TreeSet<String>();
 			Set<String> removed = new TreeSet<String>();
-			for (Iterator<PCTemplate> e = templateList.iterator(); e.hasNext();)
+			for (PCTemplate aTemplate : templateList)
 			{
-				final PCTemplate aTemplate = e.next();
 				added.addAll(aTemplate.getAddedSubTypes());
 				removed.addAll(aTemplate.getRemovedSubTypes());
 			}
-			for (Iterator<String> i = added.iterator(); i.hasNext(); )
+			for (String subType : added)
 			{
-				final String subType = i.next();
 				if (!racialSubTypes.contains(subType))
 				{
 					racialSubTypes.add(subType);
 				}
 			}
-			for (Iterator<String> i = removed.iterator(); i.hasNext(); )
+			for (String s : removed)
 			{
-				racialSubTypes.remove(i.next());
+				racialSubTypes.remove(s);
 			}
 		}
 
@@ -1244,10 +1233,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return null;
 		}
 
-		for (Iterator<EquipSet> e = equipSetList.iterator(); e.hasNext();)
+		for (EquipSet eSet : equipSetList)
 		{
-			final EquipSet eSet = e.next();
-
 			if (eSet.getIdPath().equals(id))
 			{
 				return eSet;
@@ -1269,10 +1256,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return null;
 		}
 
-		for (Iterator<EquipSet> e = equipSetList.iterator(); e.hasNext();)
+		for (EquipSet eSet : equipSetList)
 		{
-			final EquipSet eSet = e.next();
-
 			if (eSet.getName().equals(aName))
 			{
 				return eSet;
@@ -1315,9 +1300,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		double totalWeight = 0.0;
 
-		for (Iterator<EquipSet> eSet = equipSetList.iterator(); eSet.hasNext();)
+		for (EquipSet es : equipSetList)
 		{
-			final EquipSet es = eSet.next();
 			final String abIdPath = idPath + ".";
 			final String esIdPath = es.getIdPath() + ".";
 
@@ -1356,9 +1340,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public Float getEquipSetCount(final String idPath, final String aName)
 	{
 		float count = 0;
-		for (Iterator<EquipSet> es = getEquipSet().iterator(); es.hasNext();)
+		for (EquipSet eSet : getEquipSet())
 		{
-			final EquipSet eSet = es.next();
 			final String esID = eSet.getIdPath() + ".";
 			final String abID = idPath + ".";
 			if (esID.startsWith(abID))
@@ -1430,10 +1413,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		final ArrayList<Equipment> aList = new ArrayList<Equipment>(equipmentMasterList);
 
 		// Try all possible POBjects
-		for (Iterator<? extends PObject> i = getPObjectList().iterator(); i.hasNext();)
+		for (PObject aPObj : getPObjectList())
 		{
-			final PObject aPObj = i.next();
-
 			if (aPObj != null)
 			{
 				aPObj.addAutoTagsToList("EQUIP", aList, this, true);
@@ -1454,29 +1435,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public Equipment getEquipmentNamed(final String aString, final List<Equipment> aList)
 	{
-		if (aList.isEmpty())
-		{
-			return null;
-		}
-
 		Equipment match = null;
 
-		for (Iterator<Equipment> e = aList.iterator(); e.hasNext();)
+		for (Equipment eq : aList)
 		{
-			final Equipment eq = e.next();
-
 			if (aString.equalsIgnoreCase(eq.getName()))
 			{
 				match = eq;
 			}
 		}
 
-		if (match != null)
-		{
-			return match;
-		}
-
-		return null;
+		return match;
 	}
 
 	/**
@@ -1532,7 +1501,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public List<Ability> getRealFeatsList()
 	{
-		return (List<Ability>) featList.clone();
+		return new ArrayList<Ability>(featList);
 	}
 
 	/**
@@ -1540,9 +1509,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 *
 	 * @return  an iterator
 	 */
-	public Iterator<Ability> getRealFeatsIterator()
+	public List<Ability> getRealFeatList()
 	{
-		return featList.iterator();
+		return featList;
 	}
 
 
@@ -1871,14 +1840,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			initFeats =  getRace().getBonusInitialFeats();
 		}
 
-		final List<PCTemplate> aList = getTemplateList();
-
-		if (!aList.isEmpty() && PlayerCharacterUtilities.canReassignTemplateFeats())
+		if (PlayerCharacterUtilities.canReassignTemplateFeats())
 		{
-			for (Iterator<PCTemplate> e = aList.iterator(); e.hasNext();)
+			for (PCTemplate template : getTemplateList())
 			{
-				final PCTemplate template = e.next();
-
 				if (template != null)
 				{
 					initFeats += template.getBonusInitialFeats();
@@ -1906,17 +1871,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public String getLanguagesListNames()
 	{
-		final TreeSet<Language> aSet = getLanguagesList();
 		final StringBuffer b = new StringBuffer();
 
-		for (Iterator<Language> i = aSet.iterator(); i.hasNext();)
+		for (Language l : getLanguagesList())
 		{
 			if (b.length() > 0)
 			{
 				b.append(", ");
 			}
 
-			b.append(i.next().toString());
+			b.append(l.toString());
 		}
 
 		return b.toString();
@@ -1967,9 +1931,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		int mTotalLevel = 0;
 		int addHD = 0;
 
-		for (Iterator<PCClass> c = mPC.getClassList().iterator(); c.hasNext();)
+		for (PCClass mClass : mPC.getClassList())
 		{
-			final PCClass mClass = c.next();
 			boolean found = false;
 
 			for ( CompanionMod cMod : Globals.getCompanionMods( aM.getType() ) )
@@ -1988,9 +1951,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for ( CompanionMod cMod : Globals.getCompanionMods( aM.getType() ) )
 		{
 			// Check all the masters classes
-			for (Iterator<PCClass> c = mPC.getClassList().iterator(); c.hasNext();)
+			for (PCClass mClass : mPC.getClassList())
 			{
-				final PCClass mClass = c.next();
 				final int mLev = mClass.getLevel();
 				final int compLev = cMod.getLevel(mClass.getKeyName());
 
@@ -2011,10 +1973,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					}
 				}
 			}
-			for (Iterator<String> iType = cMod.getVarMap().keySet().iterator(); iType.hasNext();)
+			for (String varName : cMod.getVarMap().keySet())
 			{
-				final String varName = iType.next();
-
 				if (mPC.getVariableValue(varName, "").intValue() >= cMod.getLevel(varName))
 				{
 					if ( PrereqHandler.passesAll( cMod.getPreReqList(), this, cMod ) )
@@ -2053,14 +2013,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			// now we have to merge the two lists together and
 			// take the higher rank of each skill for the Familiar
-			for (Iterator<Skill> a = getAllSkillList(true).iterator(); a.hasNext();)
+			for (Skill fSkill : getAllSkillList(true))
 			{
-				final Skill fSkill = a.next();
-
-				for (Iterator<Skill> b = mList.iterator(); b.hasNext();)
+				for (Skill mSkill : mList)
 				{
-					final Skill mSkill = b.next();
-
 					// first check to see if familiar
 					// already has ranks in the skill
 					if (mSkill.getKeyName().equals(fSkill.getKeyName()))
@@ -2084,10 +2040,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 
 			// now add all the skills only the master has
-			for (Iterator<String> sn = sKeyList.iterator(); sn.hasNext();)
+			for (String skillKey : sKeyList)
 			{
-				final String skillKey = sn.next();
-
 				// familiar doesn't have skill,
 				// but master does, so add it
 				final Skill newSkill = (Skill) Globals.getSkillKeyed(skillKey).clone();
@@ -2199,10 +2153,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return null;
 		}
 
-		for (Iterator<PlayerCharacter> p = Globals.getPCList().iterator(); p.hasNext();)
+		for (PlayerCharacter nPC : Globals.getPCList())
 		{
-			final PlayerCharacter nPC = p.next();
-
 			if (followerMaster.getFileName().equals(nPC.getFileName()))
 			{
 				return nPC;
@@ -2210,10 +2162,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		// could not find a filename match, let's try the Name
-		for (Iterator<PlayerCharacter> p = Globals.getPCList().iterator(); p.hasNext();)
+		for (PlayerCharacter nPC : Globals.getPCList())
 		{
-			final PlayerCharacter nPC = p.next();
-
 			if (followerMaster.getName().equals(nPC.getName()))
 			{
 				return nPC;
@@ -2249,10 +2199,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final List<String> aList = new ArrayList<String>();
 
-		for (Iterator<BonusObj> ab = getTempBonusList().iterator(); ab.hasNext();)
+		for (BonusObj aBonus : getTempBonusList())
 		{
-			final BonusObj aBonus = ab.next();
-
 			if (aBonus == null)
 			{
 				continue;
@@ -2288,9 +2236,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		int npp = Globals.getGameModeNonProfPenalty();
 
-		for (Iterator<PCTemplate> e = templateList.iterator(); e.hasNext();)
+		for (PCTemplate t : templateList)
 		{
-			final int temp = e.next().getNonProficiencyPenalty();
+			final int temp = t.getNonProficiencyPenalty();
 			if (temp <= 0)
 			{
 				npp = temp;
@@ -2551,7 +2499,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public ArrayList<Skill> getSkillListInOutputOrder()
 	{
-		return getSkillListInOutputOrder((ArrayList<Skill>) (getSkillList().clone()));
+		return getSkillListInOutputOrder(new ArrayList<Skill>(getSkillList()));
 	}
 
 	/**
@@ -2638,18 +2586,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// First compute gained points, and then remove the already spent ones.
 		// We can't use Remaining points because the level may be removed, and then we have
 		// to display this as -x on the "Total Skill Points" field
-		for (Iterator<PCLevelInfo> e = getLevelInfo().iterator(); e.hasNext();)
+		for (PCLevelInfo li : getLevelInfo())
 		{
-			returnValue += e.next().getSkillPointsGained();
+			returnValue += li.getSkillPointsGained();
 		}
 
-		for (Iterator<Skill> e = getSkillList().iterator(); e.hasNext();)
+		for (Skill aSkill : getSkillList())
 		{
-			final Skill aSkill = e.next();
-
-			for (Iterator<String> r = aSkill.getRankList().iterator(); r.hasNext(); )
+			for (String bSkill : aSkill.getRankList())
 			{
-				final String bSkill = r.next();
 				final int iOffs = bSkill.indexOf(':');
 				final double curRank = Double.parseDouble(bSkill.substring(iOffs + 1));
 				final PCClass pcClass = getClassKeyed(bSkill.substring(0, iOffs));
@@ -2694,16 +2639,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public List<SpecialAbility> getSpecialAbilityList()
 	{
 		// aList will contain a list of SpecialAbility objects
-		List<SpecialAbility> aList = (ArrayList<SpecialAbility>)(specialAbilityList.clone());
+		List<SpecialAbility> aList = new ArrayList<SpecialAbility>(specialAbilityList);
 
 		final int atl = getTotalLevels();
 		final int thd = totalHitDice();
 
 		// Try all possible POBjects
-		for (Iterator<? extends PObject> i = getPObjectList().iterator(); i.hasNext();)
+		for (PObject aPObj  : getPObjectList())
 		{
-			final PObject aPObj = i.next();
-
 			if (aPObj == null)
 			{
 				continue;
@@ -2737,24 +2680,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public ArrayList<String> getSpecialAbilityListStrings()
 	{
-		final List<SpecialAbility> aList = getSpecialAbilityList();
 		final ArrayList<String> bList = new ArrayList<String>();
 
-		if (!aList.isEmpty())
+		for (SpecialAbility sa : getSpecialAbilityList())
 		{
-			for (Iterator<SpecialAbility> i = aList.iterator(); i.hasNext();)
+			if (!PrereqHandler.passesAll( sa.getPreReqList(), this, sa ))
 			{
-				final SpecialAbility sa = i.next();
-
-				if (!PrereqHandler.passesAll( sa.getPreReqList(), this, sa ))
-				{
-					continue;
-				}
-				final String saText = sa.getParsedText(this, this);
-				if (saText!=null && !saText.equals(""))
-				{
-					bList.add(saText);
-				}
+				continue;
+			}
+			final String saText = sa.getParsedText(this, this);
+			if (saText!=null && !saText.equals(""))
+			{
+				bList.add(saText);
 			}
 		}
 
@@ -3105,30 +3042,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return templateList;
 	}
 
-
-	/**
-	 * Get an Iterator over the list of Templates applied to this PC
-	 *
-	 * @return    List of templates
-	 **/
-	public Iterator<PCTemplate> getTemplateListIterator()
-	{
-		return templateList.iterator();
-	}
-
 	/**
 	 * Retrieve a list of the templates applied to this PC that should be
 	 * visible on output.
 	 * @return The list of templates visible on output sheets.
 	 */
-	public List getOutputVisibleTemplateList()
+	public List<PCTemplate> getOutputVisibleTemplateList()
 	{
 		List<PCTemplate> tl = new ArrayList<PCTemplate>();
 
 		for ( PCTemplate template : getTemplateList() )
 		{
-			if ((template.isVisible() == PCTemplate.VISIBILITY_DEFAULT)
-				|| (template.isVisible() == PCTemplate.VISIBILITY_OUTPUT_ONLY))
+			if ((template.getVisibility() == Visibility.DEFAULT)
+				|| (template.getVisibility() == Visibility.OUTPUT_ONLY))
 			{
 				tl.add(template);
 			}
@@ -3199,17 +3125,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		double iCount = 0;
 
-		Iterator<Ability> it = getRealFeatsIterator();
-		while (it.hasNext())
+		for (Ability aFeat : getRealFeatList())
 		{
-			final Ability aFeat = it.next();
-
 			//
 			// Don't increment the count for
 			// hidden feats so the number
 			// displayed matches this number
 			//
-			//if (aFeat.isVisible() == Feat.VISIBILITY_HIDDEN)
+			//if (aFeat.getVisibility() == Visibility.HIDDEN)
 			//{
 			//	continue;
 			//}
@@ -3441,9 +3364,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		for (Iterator<PCStat> i = statList.iterator(); i.hasNext(); )
+		for (PCStat obj : statList)
 		{
-			final PCStat obj = i.next();
 			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
 
 			if (aString.length() > 0)
@@ -3453,9 +3375,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		for (int i = 0; i < SettingsHandler.getGame().getUnmodifiableAlignmentList().size(); i++)
+		for (PCAlignment obj : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 		{
-			final PCAlignment obj = SettingsHandler.getGame().getUnmodifiableAlignmentList().get(i);
 			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
 
 			if (aString.length() > 0)
@@ -3501,16 +3422,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		final TreeSet<WeaponProf> wp = new TreeSet<WeaponProf>(weaponProfList);
 
 		// Try all possible PObjects
-		for (Iterator i = getPObjectList().iterator(); i.hasNext();)
+		for (PObject pobj : getPObjectList())
 		{
-			final PObject pobj = (PObject) i.next();
-
 			if (pobj != null)
 			{
 				final List<String> profKeyList = pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
-				for (Iterator<String> j = profKeyList.iterator(); j.hasNext(); )
+				for (String profKey : profKeyList)
 				{
-					final String profKey = j.next();
 					final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);
 					if (prof != null)
 					{
@@ -3703,7 +3621,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public void calcStatBonuses()
 	{
-		activateAndAddBonusesFromPObjects(statList.iterator());
+		for (PCStat stat : statList)
+		{
+			activateAndAddBonusesFromPObject(stat);
+		}
 	}
 
 	public boolean checkQualifyList(final String qualifierItem)
@@ -3750,10 +3671,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Go through all objects that could add a VAR
 		// and build the HashSet
 		// Try all possible POBjects
-		for (Iterator<? extends PObject> i = pObjList.iterator(); i.hasNext();)
+		for (PObject aPObj : pObjList)
 		{
-			final PObject aPObj = i.next();
-
 			if (aPObj != null)
 			{
 				variableSet.addAll(aPObj.getVariableNamesAsUnmodifiableSet());
@@ -3807,9 +3726,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		final List<EquipSet> tmpList = new ArrayList<EquipSet>();
 
 		// now find and remove equipment from all EquipSet's
-		for (Iterator<EquipSet> eSet = equipSetList.iterator(); eSet.hasNext();)
+		for (EquipSet es  : equipSetList)
 		{
-			final EquipSet es = eSet.next();
 			final Equipment eqI = es.getItem();
 
 			if ((eqI != null) && eq.equals(eqI))
@@ -3818,9 +3736,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		for (Iterator<EquipSet> eSet = tmpList.iterator(); eSet.hasNext();)
+		for (EquipSet es : tmpList)
 		{
-			delEquipSet(eSet.next());
+			delEquipSet(es);
 		}
 		setDirty(true);
 	}
@@ -4525,16 +4443,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return characterDomainList;
 	}
 
-	/**
-	 * Get an Iterator over the domains this character has
-	 *
-	 * @return the Iterator
-	 */
-	public Iterator<CharacterDomain> getCharacterDomainListIterator()
-	{
-		return characterDomainList.iterator();
-	}
-
 	public Domain getCharacterDomainKeyed(final String domainKey)
 	{
 		for ( CharacterDomain cd : characterDomainList )
@@ -5039,7 +4947,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public List<Kit> getKitInfo()
 	{
-		return kitList != null ? kitList : Collections.EMPTY_LIST;
+		return kitList != null ? kitList : (ArrayList<Kit>)Collections.EMPTY_LIST;
 	}
 
 	public int getLevelAdjustment(final PlayerCharacter aPC)
@@ -5433,9 +5341,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (oldRace.getWeaponProfAutos() != null)
 			{
 				final List<String> profKeys = oldRace.getWeaponProfAutos();
-				for (Iterator<String> i = profKeys.iterator(); i.hasNext(); )
+				for (String s : profKeys)
 				{
-					weaponProfList.remove(Globals.getWeaponProfKeyed(i.next()));
+					weaponProfList.remove(Globals.getWeaponProfKeyed(s));
 				}
 			}
 
@@ -5446,9 +5354,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			removeNaturalWeapons(race);
 
-			for (Iterator<String> i = race.templatesAdded().iterator(); i.hasNext(); )
+			for (String s : race.templatesAdded())
 			{
-				removeTemplate(getTemplateKeyed(i.next()));
+				removeTemplate(getTemplateKeyed(s));
 			}
 
 			if ((race.getMonsterClass(this) != null) && (race.getMonsterClassLevels(this) != 0))
@@ -6581,11 +6489,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	}
 
-	public Iterator<Ability> getVirtualFeatListIterator()
-	{
-		return this.getVirtualFeatList().iterator();
-	}
-
 	public List<Ability> getVirtualFeatList()
 	{
 		List<Ability> vFeatList = getStableVirtualFeatList();
@@ -6622,9 +6525,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		for (Iterator<Ability> it = getRealFeatsIterator(); it.hasNext();)
+		for (Ability aFeat : getRealFeatList())
 		{
-			final Ability aFeat = it.next();
 			final List<Ability> aList = aFeat.getVirtualFeatList();
 
 			for ( Ability feat : aList )
@@ -6744,9 +6646,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// parse through the global list of vision tags and see
 		// if this PC has any BONUS:VISION tags which will create
 		// a new visionMap entry
-		for (Iterator<String> i = Globals.getVisionMap().keySet().iterator(); i.hasNext();)
+		for (String aKey : Globals.getVisionMap().keySet())
 		{
-			final String aKey = i.next();
 			final int aVal = (int) getTotalBonusTo("VISION", aKey);
 
 			if (aVal > 0)
@@ -7362,9 +7263,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// character so don't apply them again.
 		if ( ! isImporting() )
 		{
-			for (Iterator<String> i = inTemplate.getLevelMods().iterator(); i.hasNext(); )
+			for (String modString : inTemplate.getLevelMods())
 			{
-				String modString = i.next();
 				StringTokenizer tok = new StringTokenizer(modString, "|");
 				while (tok.hasMoreTokens())
 				{
@@ -8058,9 +7958,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			SR = Math.max(SR, pcClass.getSR(this));
 		}
 
-		for (Iterator<Ability> i = aggregateFeatList().iterator(); i.hasNext();)
+		for (Ability aFeat : aggregateFeatList())
 		{
-			final Ability aFeat = i.next();
 			SR = Math.max(SR, aFeat.getSR(this));
 		}
 
@@ -8133,12 +8032,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean canCastSpellTypeLevel(final String spellType, final int spellLevel, final int minNumSpells)
 	{
-		final Iterator<PCClass> iter = classList.iterator();
-
-		while (iter.hasNext())
+		for  (PCClass aClass : classList)
 		{
-			final PCClass aClass = iter.next();
-
 			// Check for Constants.s_NONE just in case
 			// a programmer sends in a "" string
 			if (aClass.getSpellType().equalsIgnoreCase(spellType)
@@ -8248,11 +8143,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return "";
 	}
 
-	public Iterator<Ability> aggregateFeatListIterator()
-	{
-		return aggregateFeatList().iterator();
-	}
-
 	public List<Ability> aggregateFeatList()
 	{
 		final List<Ability> aggregate = getStableAggregateFeatList();
@@ -8271,10 +8161,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		List<Ability> aggregate = new ArrayList<Ability>();
 		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
 
-		for (Iterator<Ability> e = getRealFeatsIterator(); e.hasNext();)
+		for (Ability aFeat : getRealFeatList())
 		{
-			final Ability aFeat = e.next();
-
 			if (aFeat != null)
 			{
 				aHashMap.put(aFeat.getKeyName(), aFeat);
@@ -8346,8 +8234,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( Ability feat : aggregateFeatList() )
 		{
-			if ((feat.getVisible() == Ability.VISIBILITY_DEFAULT)
-				|| (feat.getVisible() == Ability.VISIBILITY_OUTPUT_ONLY))
+			if ((feat.getVisibility() == Visibility.DEFAULT)
+				|| (feat.getVisibility() == Visibility.OUTPUT_ONLY))
 			{
 				tempFeatList.add(feat);
 			}
@@ -8624,11 +8512,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public int equipmentAC()
 	{
 		return calcACOfType("Equipment") + calcACOfType("Armor");
-	}
-
-	public Iterator<Ability> featAutoListIterator()
-	{
-		return featAutoList().iterator();
 	}
 
 	public List<Ability> featAutoList()
@@ -8939,10 +8822,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		final StringBuffer buf = new StringBuffer();
 		final List<String> aList = new ArrayList<String>();
 
-		for (Iterator<String> i = getActiveBonusMap().keySet().iterator(); i.hasNext();)
+		for (String aKey : getActiveBonusMap().keySet())
 		{
-			final String aKey = i.next();
-
 			if (aKey.startsWith(prefix))
 			{
 				// make a list of keys that end with .REPLACE
@@ -10608,9 +10489,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			results = addWeaponProfsLists(aRace.getWeaponProfAutos(), results, aFeatList, true);
 
-			for (Iterator<String> it = aRace.getSafeListFor(weaponProfBonusKey).iterator(); it.hasNext();)
+			for (String aString : aRace.getSafeListFor(weaponProfBonusKey))
 			{
-				final String aString = it.next();
 				results.add(aString);
 				addWeaponProfToList(aFeatList, aString, true);
 			}
@@ -10625,9 +10505,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			results = addWeaponProfsLists(template.getWeaponProfAutos(), results, aFeatList, true);
 
-			for (Iterator<String> it = template.getSafeListFor(weaponProfBonusKey).iterator(); it.hasNext();)
+			for (String aString : template.getSafeListFor(weaponProfBonusKey))
 			{
-				final String aString = it.next();
 				results.add(aString);
 				addWeaponProfToList(aFeatList, aString, true);
 			}
@@ -10642,9 +10521,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			results = addWeaponProfsLists(pcClass.getWeaponProfAutos(), results, aFeatList, true);
 
-			for (Iterator<String> it = pcClass.getSafeListFor(weaponProfBonusKey).iterator(); it.hasNext();)
+			for (String aString : pcClass.getSafeListFor(weaponProfBonusKey))
 			{
-				final String aString = it.next();
 				results.add(aString);
 				addWeaponProfToList(aFeatList, aString, true);
 			}
@@ -10663,9 +10541,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			List<String> staticProfList = new ArrayList<String>();
 			staticProfList.addAll(feat.getSafeListFor(weaponProfBonusKey));
-			for (Iterator<String> wpnProfIter = staticProfList.iterator(); wpnProfIter.hasNext();)
+			for (String aString : staticProfList)
 			{
-				final String aString = wpnProfIter.next();
 				results.add(aString);
 				addWeaponProfToList(aFeatList, aString, true);
 			}
@@ -10727,9 +10604,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			{
 				results = addWeaponProfsLists(aDomain.getWeaponProfAutos(), results, aFeatList, true);
 
-				for (Iterator<String> it = aDomain.getSafeListFor(weaponProfBonusKey).iterator(); it.hasNext();)
+				for (String aString : aDomain.getSafeListFor(weaponProfBonusKey))
 				{
-					final String aString = it.next();
 					results.add(aString);
 					addWeaponProfToList(aFeatList, aString, true);
 				}
@@ -10829,13 +10705,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		final StringBuffer buf = new StringBuffer();
-		final Iterator<PCClass> it = classList.iterator();
 
-		buf.append(it.next().getFullDisplayClassName());
-
-		while (it.hasNext())
+		boolean first = true;
+		for (PCClass c : classList)
 		{
-			buf.append("/").append(it.next().getFullDisplayClassName());
+			if (!first)
+			{
+				buf.append("/");
+				first = false;
+			}
+			buf.append(c.getFullDisplayClassName());
 		}
 
 		return buf.toString();
@@ -11420,9 +11299,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final HashMap<String, String> lvlMap = new HashMap<String, String>();
 
-		for (Iterator i = classList.iterator(); i.hasNext();)
+		for (PCClass aClass : classList)
 		{
-			final PCClass aClass = (PCClass) i.next();
 			lvlMap.put(aClass.getKeyName(), String.valueOf(aClass.getLevel()));
 		}
 
@@ -11585,9 +11463,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return visMap;
 		}
 
-		for (Iterator<String> i = aMap.keySet().iterator(); i.hasNext();)
+		for (String aKey : aMap.keySet())
 		{
-			final String aKey = i.next();
 			final String aVal = aMap.get(aKey);
 			final String bObj = visMap.get(aKey);
 			int b = 0;
@@ -11622,19 +11499,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		if (aString.startsWith("WEAPONTYPE=") || aString.startsWith("WEAPONTYPE."))
 		{
-			final List<Equipment> weapList = EquipmentList.getEquipmentOfType("WEAPON." + aString.substring(11), "");
-
-			if (weapList.size() != 0)
+			for (Equipment weap : EquipmentList.getEquipmentOfType("WEAPON." + aString.substring(11), ""))
 			{
-				for (Iterator<Equipment> e = weapList.iterator(); e.hasNext();)
-				{
-					final Equipment weap = e.next();
-					final WeaponProf aProf = Globals.getWeaponProfKeyed(weap.profKey(this));
+				final WeaponProf aProf = Globals.getWeaponProfKeyed(weap.profKey(this));
 
-					if (aProf != null)
-					{
-						addWeaponProfToList(aFeatList, aProf.getKeyName(), isAuto);
-					}
+				if (aProf != null)
+				{
+					addWeaponProfToList(aFeatList, aProf.getKeyName(), isAuto);
 				}
 			}
 
@@ -11645,11 +11516,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// (e.g.: Simple, Martial, Exotic, Ranged, etc.)
 		else if (Globals.weaponTypesContains(aString))
 		{
-			final Collection<WeaponProf> weaponProfs = Globals.getAllWeaponProfsOfType(aString);
-
-			for (Iterator<WeaponProf> e = weaponProfs.iterator(); e.hasNext();)
+			for (WeaponProf weaponProf : Globals.getAllWeaponProfsOfType(aString))
 			{
-				final WeaponProf weaponProf = e.next();
 				addWeaponProfToList(aFeatList, weaponProf.getKeyName(), isAuto);
 			}
 
@@ -11866,9 +11734,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 							if ((listFromWPType != null) && (!listFromWPType.isEmpty()))
 							{
-								for (Iterator<WeaponProf> i = listFromWPType.iterator(); i.hasNext();)
+								for (WeaponProf wp : listFromWPType)
 								{
-									addWPs.add(i.next());
+									addWPs.add(wp);
 								}
 
 								loadedByProfs = true;
@@ -11884,20 +11752,20 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 						if ((listFromEquipmentType != null) && (!listFromEquipmentType.isEmpty()))
 						{
-							for (Iterator<Equipment> i = listFromEquipmentType.iterator(); i.hasNext();)
+							for (Equipment e : listFromEquipmentType)
 							{
-								final WeaponProf prof = i.next().getExpandedWeaponProf(this);
+								final WeaponProf prof = e.getExpandedWeaponProf(this);
 								addWPs.add(prof);
 							}
 						}
 					}
 
 					// Add the located weapon profs to the prof list
-					for (Iterator<WeaponProf> i = addWPs.iterator(); i.hasNext();)
+					for (WeaponProf wp : addWPs)
 					{
 						if (addIt)
 						{
-							final String subProfKey = i.next().getKeyName();
+							final String subProfKey = wp.getKeyName();
 //							aSet.add(profKey);
 							aSet.add(subProfKey);
 							addWeaponProfToList(aFeatList, subProfKey, true);
@@ -11922,10 +11790,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final ArrayList<String> aList = new ArrayList<String>();
 
-		for (Iterator<? extends PObject> e = getPObjectList().iterator(); e.hasNext();)
+		for (PObject aPObj : getPObjectList())
 		{
-			final PObject aPObj = e.next();
-
 			if (aPObj != null)
 			{
 				// TODO this is going to just add an empty list
@@ -12057,9 +11923,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		//  Domain (CharacterDomain)
-		for (Iterator e = characterDomainList.iterator(); e.hasNext();)
+		for (CharacterDomain aCD : characterDomainList)
 		{
-			final CharacterDomain aCD = (CharacterDomain) e.next();
 			final Domain aDomain = aCD.getDomain();
 
 			if (aDomain != null)
@@ -12069,34 +11934,20 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		//  Equipment
-		for (Iterator e = getEquipmentList().iterator(); e.hasNext();)
+		for (Equipment eq : getEquipmentList())
 		{
-			final Equipment eq = (Equipment) e.next();
-
 			if (eq.isEquipped())
 			{
 				results.add(eq);
 
-				List aList = eq.getEqModifierList(true);
-
-				if (!aList.isEmpty())
+				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
-					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-						results.add(eqMod);
-					}
+					results.add(eqMod);
 				}
 
-				aList = eq.getEqModifierList(false);
-
-				if (!aList.isEmpty())
+				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					for (Iterator e2 = aList.iterator(); e2.hasNext();)
-					{
-						final EquipmentModifier eqMod = (EquipmentModifier) e2.next();
-						results.add(eqMod);
-					}
+					results.add(eqMod);
 				}
 			}
 		}
@@ -12166,10 +12017,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final ArrayList<String> aList = new ArrayList<String>();
 
-		for (Iterator<? extends PObject> i = getPObjectList().iterator(); i.hasNext();)
+		for (PObject aPObj : getPObjectList())
 		{
-			final PObject aPObj = i.next();
-
 			if (aPObj == null)
 			{
 				continue;
@@ -12187,13 +12036,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private void addNewSkills(final int level)
 	{
 		final List<Skill> addItems = new ArrayList<Skill>();
-		final Iterator<Skill> skillIter = Globals.getSkillList().iterator();
-		Skill aSkill;
 
-		while (skillIter.hasNext())
+		for (Skill aSkill : Globals.getSkillList())
 		{
-			aSkill = skillIter.next();
-
 			if (includeSkill(aSkill, level)
 				&& (Globals.binarySearchPObject(getSkillList(), aSkill.getKeyName()) == null))
 			{
@@ -12495,9 +12340,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			// Keep track of which bonuses have been calculated
 			processedBonusList.add(bonus);
 
-			for (Iterator<String> as = getStringListFromBonus(bonus, anObj).iterator(); as.hasNext();)
+			for (String bString : getStringListFromBonus(bonus, anObj))
 			{
-				final String bString = as.next();
 				final double iBonus = bonus.getValueAsdouble();
 				setActiveBonusStack(iBonus, bString, getActiveBonusMap());
 				Logging.debugPrint("BONUS: " + anObj.getDisplayName() + " : " + iBonus + " : " + bString);
@@ -12665,10 +12509,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return;
 		}
 
-		for (Iterator<PObject> e = SettingsHandler.getGame().getUnmodifiableCheckList().iterator(); e.hasNext();)
+		for (PObject anObj : SettingsHandler.getGame().getUnmodifiableCheckList())
 		{
-			final PObject anObj = e.next();
-
 			activateAndAddBonusesFromPObject(anObj);
 		}
 	}
@@ -12691,7 +12533,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private void calcCompanionModBonuses()
 	{
-		activateAndAddBonusesFromPObjects(companionModList.iterator());
+		activateAndAddBonusesFromPObjects(companionModList);
 	}
 
 	private void calcDeityBonuses()
@@ -12732,7 +12574,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private void calcFeatBonuses()
 	{
-		activateAndAddBonusesFromPObjects(aggregateFeatList().iterator());
+		activateAndAddBonusesFromPObjects(aggregateFeatList());
 	}
 
 	private void calcRaceBonuses()
@@ -12742,7 +12584,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private void calcSkillBonuses()
 	{
-		activateAndAddBonusesFromPObjects(getSkillList().iterator());
+		activateAndAddBonusesFromPObjects(getSkillList());
 	}
 
 	private void calcPurchaseModeBonuses()
@@ -12796,14 +12638,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private void calcTemplateBonuses()
 	{
-		activateAndAddBonusesFromPObjects(getTemplateList().iterator());
+		activateAndAddBonusesFromPObjects(getTemplateList());
 	}
 
-	private void activateAndAddBonusesFromPObjects(final Iterator<? extends PObject> objects)
+	private void activateAndAddBonusesFromPObjects(final List<? extends PObject> objects)
 	{
-		while (objects.hasNext())
+		for (PObject obj : objects)
 		{
-			activateAndAddBonusesFromPObject(objects.next());
+			activateAndAddBonusesFromPObject(obj);
 		}
 	}
 
@@ -13571,11 +13413,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @param li
 	 */
 	private void removeObjectsForLevelInfo(final PCLevelInfo li) {
-		for (Iterator<? extends PObject> iter = li.getObjects().iterator(); iter.hasNext();) {
-			final PObject object = iter.next();
+		for (PObject object : li.getObjects()) {
 
 			// remove this object from the feats lists
-			for (Iterator<Ability> iterator = getRealFeatsIterator(); iterator.hasNext();) {
+			for (Iterator<Ability> iterator = getRealFeatList().iterator(); iterator.hasNext();) {
 				final Ability feat = iterator.next();
 				if (object==feat)
 				{
@@ -13934,11 +13775,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public int getCharacterLevel(final PCLevelInfo info) {
 		int i=1;
-		for (Iterator<PCLevelInfo> iter = pcLevelInfo.iterator(); iter.hasNext(); i++) {
-			final PCLevelInfo element = iter.next();
+		for (PCLevelInfo element : pcLevelInfo) {
 			if (info == element) {
 			   return i;
 			}
+			i++;
 		}
 		return -1;
 	}
@@ -14016,9 +13857,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (bonus.isApplied() && bonus.getBonusName().equals("STAT"))
 			{
 				boolean found = false;
-				for (Iterator<?> iterator = bonus.getBonusInfoList().iterator(); iterator.hasNext();)
+				for (Object element : bonus.getBonusInfoList())
 				{
-					Object element = iterator.next();
 					if (element instanceof PCStat && ((PCStat) element).getAbb().equals(statAbbr))
 					{
 						found = true;
@@ -14117,13 +13957,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		aClone.addArmorProfs(getArmorProfList());
 
-		Iterator<Ability> it = this.getRealFeatsIterator();
-		while (it.hasNext()) {aClone.addRealFeat((Ability)(it.next().clone())); }
+		for (Ability a : this.getRealFeatList()) {aClone.addRealFeat((Ability)(a.clone())); }
 
 		aClone.miscList.addAll(getMiscList());
-		for (Iterator<NoteItem> i = getNotesList().iterator(); i.hasNext(); )
+		for (NoteItem n : getNotesList())
 		{
-			aClone.addNotesItem(i.next());
+			aClone.addNotesItem(n);
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
@@ -14134,14 +13973,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		aClone.templateList.addAll(getTemplateList());
-		for (Iterator<String> i = this.variableList.iterator(); i.hasNext(); )
+		for (String s : this.variableList)
 		{
-			aClone.variableList.add(new String(i.next()));
+			aClone.variableList.add(new String(s));
 		}
 		aClone.gold = new BigDecimal(gold.toString());
 		// Points to a global deity object so it doesn't need to be cloned.
 		aClone.deity = deity;
-		aClone.domainSourceMap = (HashMap<String, String>)(domainSourceMap.clone());
+		aClone.domainSourceMap = new HashMap<String, String>(domainSourceMap);
 		aClone.characterDomainList.addAll(characterDomainList);
 		for ( PCClass pcClass : classList )
 		{
@@ -14178,9 +14017,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		aClone.favoredClasses.addAll(favoredClasses);
 
 		aClone.statList.clear();
-		for (Iterator<PCStat> i = statList.iterator(); i.hasNext(); )
+		for (PCStat stat : statList)
 		{
-			final PCStat stat = i.next();
 			aClone.statList.addStat((PCStat)stat.clone());
 		}
 		if (kitList != null)

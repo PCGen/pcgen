@@ -134,6 +134,7 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.ResetableListIterator;
 import pcgen.util.StringIgnoreCaseComparator;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * @author Bryan McRoberts (merton_monk@yahoo.com)
@@ -2870,7 +2871,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					else
 					{
-						if (available && (skill.isVisible() == Skill.VISIBILITY_OUTPUT_ONLY))
+						if (available && (skill.getVisibility() == Visibility.OUTPUT_ONLY))
 						{
 							continue;
 						}
@@ -3061,9 +3062,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public void reset()
 			{
-				skillList = available ? Globals
-					.getPartialSkillList(Skill.VISIBILITY_DISPLAY_ONLY) : pc
-					.getPartialSkillList(Skill.VISIBILITY_DISPLAY_ONLY);
+				skillList = available ? 
+						Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) : 
+						pc.getPartialSkillList(Visibility.DISPLAY_ONLY);
 				listSize = skillList.size();
 
 				index = 0;

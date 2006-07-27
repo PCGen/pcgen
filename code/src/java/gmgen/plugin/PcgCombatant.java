@@ -33,6 +33,7 @@ import pcgen.core.*;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -707,7 +708,7 @@ public class PcgCombatant extends Combatant
 			}
 
 			ArrayList<Skill> skillList = pc.getSkillListInOutputOrder(pc
-				.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
+				.getPartialSkillList(Visibility.OUTPUT_ONLY));
 			boolean firstLine = true;
 
 			for ( Skill skill : skillList )

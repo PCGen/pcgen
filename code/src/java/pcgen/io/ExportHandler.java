@@ -25,16 +25,18 @@
  */
 package pcgen.io;
 
+import java.io.*;
+import java.util.*;
+
 import pcgen.core.*;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.exporttoken.*;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Visibility;
 import pcgen.io.exporttoken.SkillToken;
-
-import java.io.*;
-import java.util.*;
 
 /**
  * <code>ExportHandler</code>.
@@ -453,10 +455,8 @@ public final class ExportHandler
 			return (evaluateExpression(part1, aPC) || evaluateExpression(part2, aPC));
 		}
 
-		for (Iterator ivar = loopVariables.keySet().iterator(); ivar.hasNext();)
+		for (Object anObject : loopVariables.keySet())
 		{
-			Object anObject = ivar.next();
-
 			if (anObject == null)
 			{
 				continue;
@@ -713,7 +713,7 @@ public final class ExportHandler
 		}
 	}
 
-	private void evaluateIIFChildren(final List children, BufferedWriter output, FileAccess fa, PlayerCharacter aPC)
+	private void evaluateIIFChildren(final List<?> children, BufferedWriter output, FileAccess fa, PlayerCharacter aPC)
 	{
 		for (int y = 0; y < children.size(); ++y)
 		{
@@ -729,10 +729,8 @@ public final class ExportHandler
 				String fString;
 				String rString;
 
-				for (Iterator ivar = loopVariables.keySet().iterator(); ivar.hasNext();)
+				for (Object anObject : loopVariables.keySet())
 				{
-					Object anObject = ivar.next();
-
 					if (anObject == null)
 					{
 						continue;
@@ -757,10 +755,8 @@ public final class ExportHandler
 			{
 				String lineString = (String) children.get(y);
 
-				for (Iterator ivar = loopVariables.keySet().iterator(); ivar.hasNext();)
+				for (Object anObject : loopVariables.keySet())
 				{
-					Object anObject = ivar.next();
-
 					if (anObject == null)
 					{
 						continue;
@@ -802,10 +798,8 @@ public final class ExportHandler
 					String fString;
 					String rString;
 
-					for (Iterator ivar = loopVariables.keySet().iterator(); ivar.hasNext();)
+					for (Object anObject : loopVariables.keySet())
 					{
-						Object anObject = ivar.next();
-
 						if (anObject == null)
 						{
 							continue;
@@ -833,10 +827,8 @@ public final class ExportHandler
 				{
 					String lineString = (String) node.children().get(y);
 
-					for (Iterator ivar = loopVariables.keySet().iterator(); ivar.hasNext();)
+					for (Object anObject : loopVariables.keySet())
 					{
-						Object anObject = ivar.next();
-
 						if (anObject == null)
 						{
 							continue;
@@ -1594,7 +1586,8 @@ public final class ExportHandler
 					}
 
 					final PCTemplate template = tList.get(index);
-					if (template.isVisible() != 1 && template.isVisible() != 2)
+					if (template.getVisibility() != Visibility.DEFAULT && 
+							template.getVisibility() != Visibility.OUTPUT_ONLY)
 					{
 						canWrite = false;
 					}
@@ -2780,7 +2773,7 @@ public final class ExportHandler
 
 		if (aObject != null)
 		{
-			final List aList = aObject.getSpellSupport().getCharacterSpell(null, bookName, levelNum);
+			final List<CharacterSpell> aList = aObject.getSpellSupport().getCharacterSpell(null, bookName, levelNum);
 			canWrite = !aList.isEmpty();
 		}
 

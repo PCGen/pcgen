@@ -42,15 +42,6 @@ import pcgen.util.chooser.ChooserInterface;
  */
 public final class Ability extends PObject implements HasCost, Categorisable
 {
-	/** Visibility is Hidden */
-	public static final int VISIBILITY_HIDDEN = 0;
-	/** Visibility is Default */
-	public static final int VISIBILITY_DEFAULT = 1;
-	/** Visibility is Output Sheets Only */
-	public static final int VISIBILITY_OUTPUT_ONLY = 2;
-	/** Visibility is GUI Only */
-	public static final int VISIBILITY_DISPLAY_ONLY = 3;
-
 	/** Ability is Normal */
 	public static final int ABILITY_NORMAL = 0;
 	/** Ability is Automatic */
@@ -333,32 +324,6 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
-	 * Set whether or not this Ability will be visible on character sheets and
-	 * in the GUI
-	 *
-	 * @param  visible  the desired visibility, possible values are
-	 *                  Ability.VISIBILITY_HIDDEN, Ability.VISIBILITY_DEFAULT,
-	 *                  Ability.VISIBILITY_OUTPUT_ONLY,
-	 *                  Ability.VISIBILITY_DISPLAY_ONLY
-	 */
-	public void setVisible(final int visible)
-	{
-		integerChar.put(IntegerKey.VISIBLE, visible);
-	}
-
-	/**
-	 * How visible is this Ability in the GUI, output, etc
-	 *
-	 * @return  the visible property of this Ability
-	 * @see     Ability#setVisible
-	 */
-	public int getVisible()
-	{
-		Integer characteristic = integerChar.get(IntegerKey.VISIBLE);
-		return characteristic == null ? VISIBILITY_DEFAULT : characteristic.intValue();
-	}
-
-	/**
 	 * Whether we can add newAssociation to the associated list of this
 	 * Ability
 	 *
@@ -433,21 +398,21 @@ public final class Ability extends PObject implements HasCost, Categorisable
 
 		txt.append("\tVISIBLE:");
 
-		switch (getVisible())
+		switch (getVisibility())
 		{
-			case VISIBILITY_HIDDEN:
+			case HIDDEN:
 				txt.append("EXPORT");
 				break;
 
-			case VISIBILITY_OUTPUT_ONLY:
+			case OUTPUT_ONLY:
 				txt.append("EXPORT");
 				break;
 
-			case VISIBILITY_DISPLAY_ONLY:
+			case DISPLAY_ONLY:
 				txt.append("DISPLAY");
 				break;
 
-			case VISIBILITY_DEFAULT:
+			case DEFAULT:
 			default:
 				txt.append("YES");
 				break;

@@ -23,15 +23,16 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
-
-import java.util.List;
-import java.util.StringTokenizer;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>SkillToken</code> is the base class for the SKILL
@@ -105,8 +106,8 @@ public class SkillToken extends Token
 		try
 		{
 			final int i = Integer.parseInt(details.skillId);
-			final List pcSkills = pc.getSkillListInOutputOrder(pc
-				.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
+			final List<Skill> pcSkills = pc.getSkillListInOutputOrder(
+					pc.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 			if ((i >= (pcSkills.size() - 1)) && eh != null && eh.getExistsOnly())
 			{

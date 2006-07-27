@@ -23,14 +23,15 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
-
-import java.util.ArrayList;
-import java.util.List;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>SkillSubsetToken</code> outputs the value of the Skill at
@@ -109,7 +110,7 @@ public class SkillSubsetToken extends SkillToken
 		String skillPrefix = details.getProperties()[0].toUpperCase();
 		List<Skill> skillSubset = new ArrayList<Skill>();
 		final List<Skill> skills = pc.getSkillListInOutputOrder(
-			pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
+			pc.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 		for ( Skill bSkill : skills )
 		{

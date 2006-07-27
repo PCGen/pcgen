@@ -6,18 +6,20 @@
 
 package plugin.charactersheet.gui;
 
-import gmgen.plugin.PlayerCharacterOutput;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
-import pcgen.core.SkillUtilities;
-import plugin.charactersheet.CharacterSheetUtils;
-
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
 import java.util.List;
+
+import gmgen.plugin.PlayerCharacterOutput;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SkillUtilities;
+import pcgen.util.enumeration.Visibility;
+import plugin.charactersheet.CharacterSheetUtils;
+
 /**
  * Confirmed no memory Leaks Dec 10, 2004
  * @author  ddjone3
@@ -314,7 +316,7 @@ public class SkillsPane extends javax.swing.JPanel {
 		}
 		pc.populateSkills(includeSkills);
 
-		List skillList = pc.getSkillListInOutputOrder(pc.getPartialSkillList(Skill.VISIBILITY_OUTPUT_ONLY));
+		List<Skill> skillList = pc.getSkillListInOutputOrder(pc.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 /*		for(int i = 0; i < componentList.size(); i++) {
 			remove((java.awt.Component)componentList.get(i));

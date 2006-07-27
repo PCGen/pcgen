@@ -1,7 +1,6 @@
 package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -9,6 +8,7 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * @author karianna
@@ -30,7 +30,7 @@ public class FeatToken extends Token {
 	public final int FEAT_ALL = 3;
 
 	private int visibility = FEAT_DEFAULT;
-	private List feat = new ArrayList();
+	private List<Ability> feat = new ArrayList<Ability>();
 	private PlayerCharacter cachedPC = null;
 	private int cachedPcSerial = 0;
 	private String lastMode = "";
@@ -116,14 +116,11 @@ public class FeatToken extends Token {
 			}
 		}
 
-		List aList = new ArrayList();
+		List<Ability> aList = new ArrayList<Ability>();
 
 		Globals.sortPObjectList(feat);
 
-		Ability aFeat;
-
-		for (Iterator e = feat.iterator(); e.hasNext();) {
-			aFeat = (Ability) e.next();
+		for (Ability aFeat : feat) {
 
 			boolean matchTypeDef       = false;
 			boolean matchVisibilityDef = false;
@@ -142,9 +139,8 @@ public class FeatToken extends Token {
 			// is at leas one of the types we've asked for
 			if (types.size() > 0)
 			{
-				for (Iterator j = types.iterator(); j.hasNext();)
+				for (String typeStr : types)
 				{
-					final String typeStr = (String) j.next();
 					istype |= aFeat.isType(typeStr);
 				}
 			}
@@ -154,15 +150,14 @@ public class FeatToken extends Token {
 			}
 
 			// isn't all the types we've said it's not
-			for (Iterator j = negate.iterator(); j.hasNext(); )
+			for (String typeStr : negate)
 			{
-				final String typeStr = (String)j.next();
 				isnttype &= !aFeat.isType(typeStr);
 			}
 
 			matchTypeDef = matchTypeDef && istype && isnttype;
 
-			if ((aFeat.getVisible() == Ability.VISIBILITY_HIDDEN) || (aFeat.getVisible() == Ability.VISIBILITY_DISPLAY_ONLY)) {
+			if ((aFeat.getVisibility() == Visibility.HIDDEN) || (aFeat.getVisibility() == Visibility.DISPLAY_ONLY)) {
 				// never display hidden feats unless asked for directly
 				if (visibility == FEAT_HIDDEN) {
 					matchVisibilityDef = true;
@@ -170,7 +165,7 @@ public class FeatToken extends Token {
 			} else if (visibility == FEAT_ALL) {
 				// We want all visible feats
 				matchVisibilityDef = true;
-			} else if ((aFeat.getVisible() == Ability.VISIBILITY_DEFAULT) || (aFeat.getVisible() == Ability.VISIBILITY_OUTPUT_ONLY)) {
+			} else if ((aFeat.getVisibility() == Visibility.DEFAULT) || (aFeat.getVisibility() == Visibility.OUTPUT_ONLY)) {
 				// default or output
 				if (((visibility == FEAT_DEFAULT) || (visibility == FEAT_VISIBLE))) {
 					matchVisibilityDef = true;
@@ -182,6 +177,7 @@ public class FeatToken extends Token {
 			}
 		}
 
+		Ability aFeat;
 		if (i < aList.size()) {
 			aFeat = (Ability) aList.get(i);
 
@@ -232,9 +228,8 @@ public class FeatToken extends Token {
 	protected List<Ability> getFeatList(PlayerCharacter pc)
 	{
 		List<Ability> featList = new ArrayList<Ability>();
-		Iterator<Ability> anIt = pc.getRealFeatsIterator();
-		while (anIt.hasNext()) {
-			featList.add(anIt.next());
+		for (Ability aFeat : pc.getRealFeatList()) {
+			featList.add(aFeat);
 		}
 		return featList;
 	}

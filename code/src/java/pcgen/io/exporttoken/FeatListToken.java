@@ -4,6 +4,7 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.util.enumeration.Visibility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +18,7 @@ import java.util.StringTokenizer;
 public class FeatListToken extends Token
 {
 	String delim = "";
-	List featList = null;
+	List<Ability> featList = null;
 	PlayerCharacter lastPC = null;
 	String lastType = "";
 
@@ -79,12 +80,8 @@ public class FeatListToken extends Token
 
 		Globals.sortPObjectList(featList);
 
-		Ability aFeat;
-
-		for (Iterator e = featList.iterator(); e.hasNext();)
+		for (Ability aFeat : featList)
 		{
-			aFeat = (Ability) e.next();
-
 			String test; //will hold token we are testing against
 			StringTokenizer st = null;
 			int clusive = 0; //clusive 0 = no type, 1 = inclusive(.TYPE), 2 = exclusive(.!TYPE=)
@@ -124,8 +121,8 @@ public class FeatListToken extends Token
 
 			if (doIprint == 1)
 			{
-				if ((aFeat.getVisible() == Ability.VISIBILITY_DEFAULT)
-					|| (aFeat.getVisible() == Ability.VISIBILITY_OUTPUT_ONLY))
+				if ((aFeat.getVisibility() == Visibility.DEFAULT)
+					|| (aFeat.getVisibility() == Visibility.OUTPUT_ONLY))
 				{
 					if (i > 0)
 					{
@@ -154,12 +151,11 @@ public class FeatListToken extends Token
 	 * @param pc the character who's feats we are retrieving.
 	 * @return List of feats.
 	 */
-	protected List getFeatList(PlayerCharacter pc)
+	protected List<Ability> getFeatList(PlayerCharacter pc)
 	{
-		List listOfFeats = new ArrayList();
-		Iterator anIt = pc.getRealFeatsIterator();
-		while (anIt.hasNext()) {
-			listOfFeats.add(anIt.next());
+		List<Ability> listOfFeats = new ArrayList<Ability>();
+		for (Ability aFeat : pc.getRealFeatList()) {
+			listOfFeats.add(aFeat);
 		}
 		return listOfFeats;
 	}

@@ -22,15 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.Ability;
-import pcgen.core.Constants;
-import pcgen.core.Globals;
-import pcgen.core.PObject;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.gui.utils.WholeNumberField;
-import pcgen.util.DecimalNumberField;
-import pcgen.util.PropertyFactory;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -41,6 +32,17 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
+
+import pcgen.core.Ability;
+import pcgen.core.Constants;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.WholeNumberField;
+import pcgen.util.DecimalNumberField;
+import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>FeatBasePanel</code>
@@ -50,7 +52,7 @@ import java.util.List;
  */
 public class FeatBasePanel extends BasePanel
 {
-	private static final String[] visibleValues = new String[]{ "No", "Yes", "Export", "Display" };
+//	private static final String[] visibleValues = new String[]{ "No", "Yes", "Export", "Display" };
 	private DecimalNumberField txtCost;
 	private DescriptionPanel pnlDescription;
 	private JCheckBox chkMultiple;
@@ -213,21 +215,18 @@ public class FeatBasePanel extends BasePanel
 	 * Set visible
 	 * @param aNumber
 	 */
-	public void setVisible(final int aNumber)
+	public void setVisible(final Visibility vis)
 	{
-		if ((aNumber >= Ability.VISIBILITY_HIDDEN) && (aNumber <= Ability.VISIBILITY_DISPLAY_ONLY))
-		{
-			cmbVisible.setSelectedIndex(aNumber);
-		}
+		cmbVisible.setSelectedIndex(vis.ordinal());
 	}
 
 	/**
 	 * Get visible
 	 * @return visible
 	 */
-	public int getVisible()
+	public Visibility getVisible()
 	{
-		return cmbVisible.getSelectedIndex();
+		return Visibility.values()[cmbVisible.getSelectedIndex()];
 	}
 
 	public void updateData(PObject thisPObject)
@@ -237,7 +236,7 @@ public class FeatBasePanel extends BasePanel
 		thisFeat.setDescIsPI(getDescIsPI());
 		thisFeat.setMultiples(getMultiples() ? "Y" : "N");
 		thisFeat.setStacks(getStacks() ? "Y" : "N");
-		thisFeat.setVisible(getVisible());
+		thisFeat.setVisibility(getVisible());
 		thisFeat.setCost(Double.toString(getCost()));
 		thisFeat.setAddSpellLevel(getSpellLevels());
 
@@ -298,7 +297,7 @@ public class FeatBasePanel extends BasePanel
 		setTypesAvailableList(availableList, true);
 		setTypesSelectedList(selectedList, true);
 
-		setVisible(thisFeat.getVisible());
+		setVisible(thisFeat.getVisibility());
 		setMultiples(thisFeat.isMultiples());
 		setStacks(thisFeat.isStacks());
 		setCost(thisFeat.getCost());
@@ -307,6 +306,12 @@ public class FeatBasePanel extends BasePanel
 
 	private void initComponentContents()
 	{
+		Vector<String> visibleValues = new Vector<String>();
+		for (Visibility vis : Visibility.values())
+		{
+			visibleValues.add(vis.toString());
+		}
+			
 		cmbVisible.setModel(new DefaultComboBoxModel(visibleValues));
 	}
 
