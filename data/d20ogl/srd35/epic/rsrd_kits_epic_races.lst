@@ -134,7 +134,7 @@ SKILL:Search			RANK:55
 SKILL:Spot				RANK:55
 SKILL:Survival			RANK:55
 SKILL:Knowledge (History)	RANK:27
-SKILL:Knowledge (History)	RANK:6	EE:YES
+SKILL:Knowledge (History)	RANK:6	FREE:YES
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Epic Toughness
