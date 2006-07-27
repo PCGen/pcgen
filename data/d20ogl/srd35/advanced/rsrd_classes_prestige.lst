@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 22 05:47:56 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Wed Jul 26 20:19:12 2006 -- reformated by prettylst.pl v1.35 (build 565)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -14,12 +14,12 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|ArrowEnhancementLVL|CL	FEATAUTO:Enhance Arrow
-2							FEATAUTO:Imbue Arrow
-4							FEATAUTO:Seeker Arrow
-6							FEATAUTO:Phase Arrow
-8							FEATAUTO:Hail of Arrows
-10							FEATAUTO:Arrow of Death
+1	BONUS:VAR|ArrowEnhancementLVL|CL						FEATAUTO:Enhance Arrow
+2												FEATAUTO:Imbue Arrow
+4	BONUS:VAR|SeekerArrowTimes|1							FEATAUTO:Seeker Arrow
+6	BONUS:VAR|PhaseArrowTimes|1							FEATAUTO:Phase Arrow
+8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	FEATAUTO:Hail of Arrows
+10												FEATAUTO:Arrow of Death
 
 # Modified 8-30-2003 by GldDragon35
 
