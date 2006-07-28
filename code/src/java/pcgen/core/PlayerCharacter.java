@@ -69,6 +69,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -84,7 +85,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public static final int         ATTACKBONUS  = 0;
 	/** MONKBONUS = 4 */
 	public static final int         MONKBONUS    = 4;
-	private static final BigDecimal BIG_ONE      = new BigDecimal("1.00");
+	private static final BigDecimal BIG_ONE      = new BigDecimal(1);
 	private static String           lastVariable = null;
 
 	// List of Armor Proficiencies
@@ -115,7 +116,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	// List of VARs
 	private final ArrayList<String> variableList = new ArrayList<String>();
-	private BigDecimal      gold         = new BigDecimal("0.00");
+	private BigDecimal      gold         = new BigDecimal(0);
 	private Deity           deity        = null;
 
 	// source of granted domains
@@ -172,10 +173,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private final SortedSet<Language> templateLanguages = new TreeSet<Language>();
 	private final TreeSet<Language> languages = new TreeSet<Language>();
 	private StringKeyMap    stringChar            = new StringKeyMap();
-	private String          calcEquipSetId        = "0.1";
-	private String          descriptionLst        = "EMPTY";
-	private String          tabName               = "";
-	private String          gender                = "Male";
+	private String          calcEquipSetId        = "0.1"; //$NON-NLS-1$
+	private String          descriptionLst        = "EMPTY"; //$NON-NLS-1$
+	private String          tabName               = Constants.EMPTY_STRING;
+	private String          gender                = Globals.getAllGenders().get(0);
 	private HashSet<String> variableSet           = new HashSet<String>();
 
 	// Weapon, Armor and Shield proficiencies
@@ -210,8 +211,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private final boolean useMonsterDefault    = SettingsHandler.isMonsterDefault();
 
 	// output sheet locations
-	private String    outputSheetHTML     = "";
-	private String    outputSheetPDF      = "";
+	private String    outputSheetHTML     = Constants.EMPTY_STRING;
+	private String    outputSheetPDF      = Constants.EMPTY_STRING;
 	private boolean[] ageSetKitSelections = new boolean[10];
 	private boolean   dirtyFlag           = false;
 	private int       serial              = 0;
@@ -280,19 +281,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		setRace(Globals.getRaceMap().get(Constants.s_NONESELECTED));
-		setName("");
+		setName(Constants.EMPTY_STRING);
 		setFeats(0);
 		rollStats(SettingsHandler.getGame().getRollMethod());
-		miscList.add("");
-		miscList.add("");
-		miscList.add("");
+		miscList.add(Constants.EMPTY_STRING);
+		miscList.add(Constants.EMPTY_STRING);
+		miscList.add(Constants.EMPTY_STRING);
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(),
 			SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME,
 			SpellBook.TYPE_KNOWN_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		spellTracker = new PCSpellTracker(this);
-		setStringFor(StringKey.HANDED, "Right");
+		setStringFor(StringKey.HANDED, PropertyFactory.getString("in_right")); //$NON-NLS-1$
 	}
 
 	/**
@@ -373,14 +374,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return skillList;
 		}
 
-		for (Skill aSkill : Globals.getSkillList())
+		for ( final Skill skill : Globals.getSkillList() )
 		{
-			if (!hasSkill(aSkill.getKeyName()))
+			if (!hasSkill(skill.getKeyName()))
 			{
-//				if (!CoreUtility.doublesEqual(getTotalBonusTo("SKILLRANK", aSkill.getName()), 0.0))
-				if (!CoreUtility.doublesEqual(aSkill.getSkillRankBonusTo(this), 0.0))
+				if (!CoreUtility.doublesEqual(skill.getSkillRankBonusTo(this), 0.0))
 				{
-					addSkill(aSkill);
+					addSkill(skill);
 				}
 			}
 		}
@@ -1445,8 +1445,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		return match;
-	}
+			return match;
+		}
 
 	/**
 	 * Set the characters eye colour
@@ -1897,13 +1897,50 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	/**
+	 * This method returns the effective level of this character for purposes
+	 * of applying companion mods to a companion of the specified type.
+	 * <p>
+	 * <b>Note</b>: This whole structure is kind of messed up since nothing
+	 * enforces that a companion mod of a given type always looks at the same
+	 * variable (either Class or Variable).
+	 * 
+	 * @param compType A type of companion to get level for
+	 * @return The effective level for this companion type
+	 */
+	public int getEffectiveCompanionLevel( final String compType )
+	{
+		final Collection<CompanionMod> mods = Globals.getCompanionMods( compType );
+		for ( CompanionMod cMod : mods )
+		{
+			for (Iterator<String> iType = cMod.getVarMap().keySet().iterator(); iType.hasNext();)
+			{
+				final String varName = iType.next();
+				final int lvl = this.getVariableValue( varName, Constants.EMPTY_STRING ).intValue();
+				if ( lvl > 0 )
+				{
+					return lvl;
+				}
+			}
+			for ( final String classKey : cMod.getClassMap().keySet() )
+			{
+				final int lvl = this.getClassKeyed( classKey ).getLevel();
+				if ( lvl > 0 )
+				{
+					return lvl;
+				}
+			}
+		}
+		return 0;
+	}
+	
+	/**
 	 * Set the master for this object
 	 * also set the level dependent stats based on the masters level
 	 * and info contained in the companionModList Array
 	 * such as HitDie, SR, BONUS, SA, etc
 	 * @param aM The master to be set.
 	 */
-	public void setMaster(final Follower aM)
+	public void setMaster( final Follower aM )
 	{
 		followerMaster = aM;
 
@@ -1953,7 +1990,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			// Check all the masters classes
 			for (PCClass mClass : mPC.getClassList())
 			{
-				final int mLev = mClass.getLevel();
+				final int mLev = mClass.getLevel() + aM.getAdjustment();
 				final int compLev = cMod.getLevel(mClass.getKeyName());
 
 				if (compLev < 0)
@@ -1975,7 +2012,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 			for (String varName : cMod.getVarMap().keySet())
 			{
-				if (mPC.getVariableValue(varName, "").intValue() >= cMod.getLevel(varName))
+				final int mLev = mPC.getVariableValue( varName, Constants.EMPTY_STRING ).intValue() + aM.getAdjustment();
+
+				if ( mLev >= cMod.getLevel(varName) )
 				{
 					if ( PrereqHandler.passesAll( cMod.getPreReqList(), this, cMod ) )
 //					if (!companionModList.contains(aComp))
@@ -2074,6 +2113,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setDirty(true);
 	}
 
+	/**
+	 * Returns the maximum number of followers of the specified type this 
+	 * character can have.  This method does not adjust for any followers 
+	 * already selected by the character.
+	 * 
+	 * @param aType The follower type to check e.g. Familiar
+	 * @return The max number of followers -1 for any number
+	 */
 	public int getMaxFollowers( final String aType )
 	{
 		int ret = -1;
@@ -2133,6 +2180,33 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return ret;
 	}
 
+	/**
+	 * Gets the list of potential followers of a given type.
+	 * @param aType Type of follower to retrieve list for e.g. Familiar
+	 * @return A List of FollowerOption objects representing the possible list
+	 * of follower choices.
+	 */
+	public List<FollowerOption> getAvailableFollowers( final String aType )
+	{
+		final List<FollowerOption> ret = new ArrayList<FollowerOption>();
+		
+		final List<? extends PObject> pobjList = getPObjectList();
+		for ( PObject pobj : pobjList )
+		{
+			if ( pobj == null )
+			{
+				continue;
+			}
+
+			final List<FollowerOption> followers = pobj.getPotentialFollowers(aType);
+			if ( followers != null )
+			{
+				ret.addAll( followers );
+			}
+		}
+		return ret;
+	}
+	
 	/**
 	 * Get the Follower object that is the "master" for this object
 	 * @return follower master
@@ -2684,16 +2758,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (SpecialAbility sa : getSpecialAbilityList())
 		{
-			if (!PrereqHandler.passesAll( sa.getPreReqList(), this, sa ))
-			{
-				continue;
+				if (!PrereqHandler.passesAll( sa.getPreReqList(), this, sa ))
+				{
+					continue;
+				}
+				final String saText = sa.getParsedText(this, this);
+				if (saText!=null && !saText.equals(""))
+				{
+					bList.add(saText);
+				}
 			}
-			final String saText = sa.getParsedText(this, this);
-			if (saText!=null && !saText.equals(""))
-			{
-				bList.add(saText);
-			}
-		}
 
 		return bList;
 	}
@@ -3624,7 +3698,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for (PCStat stat : statList)
 		{
 			activateAndAddBonusesFromPObject(stat);
-		}
+	}
 	}
 
 	public boolean checkQualifyList(final String qualifierItem)
@@ -10713,7 +10787,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			{
 				buf.append("/");
 				first = false;
-			}
+		}
 			buf.append(c.getFullDisplayClassName());
 		}
 
@@ -11501,13 +11575,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			for (Equipment weap : EquipmentList.getEquipmentOfType("WEAPON." + aString.substring(11), ""))
 			{
-				final WeaponProf aProf = Globals.getWeaponProfKeyed(weap.profKey(this));
+					final WeaponProf aProf = Globals.getWeaponProfKeyed(weap.profKey(this));
 
-				if (aProf != null)
-				{
-					addWeaponProfToList(aFeatList, aProf.getKeyName(), isAuto);
+					if (aProf != null)
+					{
+						addWeaponProfToList(aFeatList, aProf.getKeyName(), isAuto);
+					}
 				}
-			}
 
 			return;
 		}
@@ -11942,15 +12016,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-					results.add(eqMod);
-				}
+						results.add(eqMod);
+					}
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-					results.add(eqMod);
+						results.add(eqMod);
+					}
 				}
 			}
-		}
 
 		//  Feat (virtual feats, auto feats)
 		results.addAll(aggregateFeatList());

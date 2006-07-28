@@ -38,6 +38,7 @@ import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 import java.util.*;
 
@@ -512,9 +513,10 @@ final class PCGVer0Parser implements PCGParser
 			}
 			else if (aClass == null)
 			{
-				final String message = "Class not found: " + aName + "." + Constants.s_LINE_SEP
-					+ PCGParser.s_CHECKLOADEDCAMPAIGNS;
-				throw new PCGParseException("parseClassesLine", line, message);
+				final String msg = PropertyFactory.getFormattedString(
+						"Exceptions.PCGenParser.ClassNotFound", //$NON-NLS-1$
+						aName );
+				throw new PCGParseException("parseClassesLine", line, msg); //$NON-NLS-1$
 			}
 
 			// ClassName:SubClassName:ProhibitedString:Level:[hp1:[hp2:...[hpn:]]]skillPool:SpellBaseStat:
@@ -620,9 +622,10 @@ final class PCGVer0Parser implements PCGParser
 
 					if (!deityFound && !token.equals(Constants.s_NONE))
 					{
-						final String message = "Deity not found: " + token + "." + Constants.s_LINE_SEP
-							+ PCGParser.s_CHECKLOADEDCAMPAIGNS;
-						warnings.add(message);
+						final String msg = PropertyFactory.getFormattedString(
+								"Warnings.PCGenParser.DeityNotFound", //$NON-NLS-1$
+								token );
+						warnings.add(msg);
 					}
 
 					break;
@@ -671,9 +674,10 @@ final class PCGVer0Parser implements PCGParser
 						{
 							if (!domainName.equals(Constants.s_NONE))
 							{
-								final String message = "Domain not found: " + token + "." + Constants.s_LINE_SEP
-									+ PCGParser.s_CHECKLOADEDCAMPAIGNS;
-								warnings.add(message);
+								final String msg = PropertyFactory.getFormattedString(
+										"Warnings.PCGenParser.DomainNotFound", //$NON-NLS-1$
+										token );
+								warnings.add(msg);
 							}
 						}
 					}
@@ -949,9 +953,10 @@ final class PCGVer0Parser implements PCGParser
 				//
 				if (aName.indexOf("Natural/") < 0)
 				{
-					final String message = "Equipment not found: " + aName + " (" + eq.qty() + ")."
-						+ Constants.s_LINE_SEP + PCGParser.s_CHECKLOADEDCAMPAIGNS;
-					warnings.add(message);
+					final String msg = PropertyFactory.getFormattedString(
+							"Warnings.PCGenParser.EquipmentNotFound", //$NON-NLS-1$
+							aName );
+					warnings.add(msg);
 				}
 			}
 		}
@@ -1655,9 +1660,10 @@ final class PCGVer0Parser implements PCGParser
 					}
 					else
 					{
-						final String message = "Race not found: " + token + "." + Constants.s_LINE_SEP
-							+ PCGParser.s_CHECKLOADEDCAMPAIGNS;
-						throw new PCGParseException("parseRaceLine", line, message);
+						final String msg = PropertyFactory.getFormattedString(
+								"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
+								token );
+						throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
 					}
 
 					break;
@@ -1670,7 +1676,7 @@ final class PCGVer0Parser implements PCGParser
 					}
 					catch (NumberFormatException ex)
 					{
-						throw new PCGParseException("parseRaceLine", line, ex.getMessage());
+						throw new PCGParseException("parseRaceLine", line, ex.getMessage()); //$NON-NLS-1$
 					}
 
 					break;
@@ -1854,9 +1860,10 @@ final class PCGVer0Parser implements PCGParser
 
 					if (!CoreUtility.doublesEqual(aFloat.doubleValue(), 0.0))
 					{
-						final String message = "Ranked skill not found: " + skillName + "(" + aFloat + ")."
-							+ Constants.s_LINE_SEP + PCGParser.s_CHECKLOADEDCAMPAIGNS;
-						warnings.add(message);
+						final String msg = PropertyFactory.getFormattedString(
+								"Warnings.PCGenParser.SkillNotFound", //$NON-NLS-1$
+								skillName, aFloat );
+						warnings.add(msg);
 					}
 				}
 			}

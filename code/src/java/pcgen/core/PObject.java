@@ -89,8 +89,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	protected Map<String, String> vision = null;
 	private HashMap<String, String> pluginDataMap = new HashMap<String, String>();
 
-	protected String keyName = "";
-	protected String displayName = "";
+	/** The Non-internationalized name to use to refer to this object. */
+	protected String keyName = Constants.EMPTY_STRING;
+	/** The name to display to the user.  This should be internationalized. */
+	protected String displayName = Constants.EMPTY_STRING;
 
 	/** Indicates if this object should be displayed to the user in the UI. */
 	protected boolean visible = true;
@@ -122,10 +124,12 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	private ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
 
-	private String chooseLanguageAutos = "";
+	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 
 	/** Number of followers of each type allowed */
-	private Map<String, List<String>> followerNumbers = new HashMap<String, List<String>>();
+	private Map<String, List<String>> followerNumbers = null;
+	/** List of followers of a type allowed to be selected. */
+	private Map<String, List<FollowerOption>> theAvailableFollowers = null;
 
 	/* ************
 	 * Methods
@@ -160,7 +164,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public final String getAssociated(int idx, final boolean expand)
 	{
 		if (associatedList == null) {
-			return "";
+			return Constants.EMPTY_STRING;
 		}
 
 		if (expand)
@@ -175,11 +179,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 					{
 						return choice.getDefaultChoice();
 					}
-					else
-					{
-						return choice.getChoice(String.valueOf(currentCount
-							+ idx));
-					}
+					return choice.getChoice(String.valueOf(currentCount
+						+ idx));
 				}
 				currentCount += choice.size();
 			}
@@ -1618,7 +1619,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				retVal.levelAbilityList.add(ab);
 			}
 		}
-		retVal.followerNumbers = new HashMap<String,List<String>>(followerNumbers);
+		if ( followerNumbers != null )
+		{
+			retVal.followerNumbers = new HashMap<String,List<String>>(followerNumbers);
+		}
+		if ( theAvailableFollowers != null )
+		{
+			retVal.theAvailableFollowers = new HashMap<String, List<FollowerOption>>( theAvailableFollowers );
+		}
 
 		return retVal;
 	}
@@ -1633,6 +1641,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return 1;
 	}
 
+	@Override
 	public boolean equals( final Object obj )
 	{
 		if ( obj == null )
@@ -1783,6 +1792,15 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 	}
 
+	/**
+	 * This method sets only the name not the key.
+	 * @param aName Name to use for display
+	 */
+	public void setDisplayName( final String aName )
+	{
+		displayName = aName;
+	}
+	
 	/**
 	 * Get name
 	 * @return name
@@ -4656,6 +4674,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public void setNumFollowers( final String aType, final String aFormula)
 	{
+		if ( followerNumbers == null )
+		{
+			followerNumbers = new HashMap<String, List<String>>();
+		}
 		List<String> numFollowers = followerNumbers.get( aType );
 		if ( numFollowers == null )
 		{
@@ -4668,6 +4690,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	public List<String> getNumFollowers( final String aType )
 	{
+		if ( followerNumbers == null )
+		{
+			return null;
+		}
 		final List<String> formulas = followerNumbers.get( aType.toUpperCase() );
 		if ( formulas == null )
 		{
@@ -4676,6 +4702,58 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return Collections.unmodifiableList( formulas );
 	}
 
+	public void addToFollowerList( final String aType, final FollowerOption anOption )
+	{
+		final String ucType = aType.toUpperCase();
+		if ( theAvailableFollowers == null )
+		{
+			theAvailableFollowers = new HashMap<String, List<FollowerOption>>();
+		}
+		List<FollowerOption> followers = theAvailableFollowers.get( ucType );
+		if ( followers == null )
+		{
+			followers = new ArrayList<FollowerOption>();
+			theAvailableFollowers.put( ucType, followers );
+		}
+		followers.add( anOption );
+	}
+	
+	/**
+	 * Gets the list of potential followers of a given type.
+	 * @param aType Type of follower to retrieve list for e.g. Familiar
+	 * @return A List of FollowerOption objects representing the possible list
+	 * of follower choices.
+	 */
+	public List<FollowerOption> getPotentialFollowers( final String aType )
+	{
+		if ( theAvailableFollowers == null )
+		{
+			return null;
+		}
+		final String ucType = aType.toUpperCase();
+		List<FollowerOption> options = theAvailableFollowers.get( ucType );
+		if ( options != null )
+		{
+			for ( int i = options.size() - 1; i >= 0; i-- )
+			{
+				FollowerOption opt = options.get(i);
+				if ( opt.getRace() == null )
+				{
+					// This FollowerOption references more than one race.
+					// We need to get the expanded versions and throw this one 
+					// away
+					final Collection<FollowerOption> newOpts = opt.getExpandedOptions();
+					if ( newOpts != null )
+					{
+						options.addAll( newOpts );
+					}
+					options.remove(i);
+				}
+			}
+		}
+		return options;
+	}
+	
 //	public void addSpellLikeAbilities( final int aLevel, final List<SpellLikeAbility> aList )
 //	{
 //		Prerequisite minLevel = null;

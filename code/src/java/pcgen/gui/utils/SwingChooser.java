@@ -770,11 +770,11 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 		final int selectedColumns = selectedModel.getColumnCount();
 
-		if (selectedColumns > 1)
+		if (selectedColumns > 1 && selectedRow >= 0)
 		{
 			// Find the available row this corrisponds to
 			// We will be optimistic and try the selected row first
-			List columns = (List)mAvailableList.get(selectedRow-1);
+			List columns = (List)mAvailableList.get(selectedRow);
 			Object selCol1 = availableModel.getValueAt(selectedRow, 0);
 			if (columns.get(0).equals(selCol1))
 			{

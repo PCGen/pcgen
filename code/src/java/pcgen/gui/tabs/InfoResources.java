@@ -70,16 +70,19 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
+import javax.swing.text.Position.Bias;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Constants;
 import pcgen.core.Equipment;
+import pcgen.core.FollowerOption;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.character.Follower;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -109,6 +112,8 @@ import pcgen.io.PCGIOHandler;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
+import static pcgen.gui.HTMLUtils.*;
+
 /**
  *  <code>InfoResources</code> creates a new tabbed panel that is used to
  *  allow creating/adding familiars, cohorts, companions, intelligent items
@@ -136,8 +141,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private JButton loadButton = new JButton();
 	private JButton updateButton = new JButton();
 	private JCheckBox shouldLoadCompanion = new JCheckBox(PropertyFactory.getString("InfoResources.AutoLoadCompanions")); //$NON-NLS-1$
-	private final JLabel modeLabel = new JLabel(PropertyFactory.getString("InfoResources.ModeLabel")); //$NON-NLS-1$
-	private JComboBoxEx viewModeBox = new JComboBoxEx();
 	private final JLabel sortLabel = new JLabel(PropertyFactory.getString("InfoResources.SortLabel")); //$NON-NLS-1$
 	private JComboBoxEx viewSortBox = new JComboBoxEx();
 	private JLabelPane followerInfo = new JLabelPane();
@@ -145,7 +148,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private JPanel botPane = new JPanel();
 	private JPanel followerPane = new JPanel();
 	private JPanel masterPane = new JPanel();
-	private JPanel modePane = new JPanel();
 	private JPanel topPane = new JPanel();
 	private JTreeTable availableTable; // available table
 	private JTreeTable selectedTable; // selected table
@@ -153,7 +155,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private JTreeTableSorter selectedSort = null;
 	private TreePath selPath;
 	private boolean hasBeenSized = false;
-	private int viewMode = 0;
 	private int viewSortMode = 0;
 
 	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("InfoResources.FilterLabel")); //$NON-NLS-1$
@@ -166,24 +167,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private boolean readyForRefresh = false;
 
 	private static final String TAB_ORDER_KEY = ".Panel.Resources.Order"; //$NON-NLS-1$
-
-
-	private static final String HTML = "<html>"; //$NON-NLS-1$
-	private static final String END_HTML = "</html>"; //$NON-NLS-1$
-	private static final String FONT_PLUS_1 = "<font size=+1>"; //$NON-NLS-1$
-	private static final String END_FONT = "</font>"; //$NON-NLS-1$
-	private static final String PARA = "<p>"; //$NON-NLS-1$
-	private static final String BOLD = "<b>"; //$NON-NLS-1$
-	private static final String END_BOLD = "</b>"; //$NON-NLS-1$
-	private static final String BR = "<br>"; //$NON-NLS-1$
-	private static final String ITALIC = "<i>"; //$NON-NLS-1$
-	private static final String END_ITALIC = "</i>"; //$NON-NLS-1$
-	private static final String UL = "<ul>"; //$NON-NLS-1$
-	private static final String END_UL = "</ul>"; //$NON-NLS-1$
-	private static final String LI = "<li>"; //$NON-NLS-1$
-	private static final String END_LI = "</li>"; //$NON-NLS-1$
-	
-
 	
 	/**
 	 *  Constructor for the InfoResources object
@@ -275,6 +258,27 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	public List<String> getToDos()
 	{
 		List<String> toDoList = new ArrayList<String>();
+		for ( String compType : Globals.getFollowerTypes() )
+		{
+			// Check if we have a number set for this type
+			int maxVal = pc.getMaxFollowers( compType );
+			if ( maxVal > 0 )
+			{
+				for (Follower aF : pc.getFollowerList())
+				{
+					if ( compType.equalsIgnoreCase(aF.getType()) )
+					{
+						maxVal--;
+					}
+				}
+
+				if ( maxVal > 0 )
+				{
+					toDoList.add( PropertyFactory.getFormattedString(
+							"ToDo.InfoResources.AddFollower", compType, maxVal) ); //$NON-NLS-1$
+				}
+			}
+		}
 		return toDoList;
 	}
 
@@ -511,15 +515,16 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		TreePath avaCPath = availableTable.getTree().getSelectionPath();
-		TreePath selCPath = selectedTable.getTree().getSelectionPath();
-//		String target;
 
+		PObjectNode node = (PObjectNode)avaCPath.getParentPath().getLastPathComponent();
+		TreePath selCPath = selectedTable.getTree().getNextMatch( node.getDisplayName(), 0, Bias.Forward );
 		if (selCPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
+		selectedTable.getTree().setSelectionPath( selCPath );
 		SelectedFollowerModel.FollowerType target = (SelectedFollowerModel.FollowerType)((PObjectNode)selCPath.getPathComponent(1)).getItem();
 		if ( target.getNumRemaining() < 1 )
 		{
@@ -530,142 +535,127 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		Object endComp = avaCPath.getLastPathComponent();
 		PObjectNode fNode = (PObjectNode) endComp;
 
-		// Different operations depending on the type of the object
-		if ((fNode.getItem() instanceof Race))
+		final FollowerOption opt = (FollowerOption)fNode.getItem();
+		if ( !opt.qualifies( pc ) )
 		{
-			// we are adding a familiar, animal companion, etc
-			Race aRace = (Race) fNode.getItem();
-
-			if (aRace == null)
-			{
-				return;
-			}
-
-			String nName;
-			String aType;
-
-			Logging.debugPrint("addButton:race: " + aRace.getDisplayName() + " -> " + target); //$NON-NLS-1$ //$NON-NLS-2$
-
-			// first ask for the name of the new object
-			Object nValue = JOptionPane.showInputDialog(null, PropertyFactory.getFormattedString("InfoResources.EnterName", target), //$NON-NLS-1$
-					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
-
-			if (nValue != null)
-			{
-				nName = ((String) nValue).trim();
-			}
-			else
-			{
-				return;
-			}
-
-			JFileChooser fc = new JFileChooser();
-			fc.setDialogTitle(PropertyFactory.getFormattedString("InfoResources.SaveCaption", target, nName)); //$NON-NLS-1$
-			fc.setSelectedFile(new File(SettingsHandler.getPcgPath(), nName + Constants.s_PCGEN_CHARACTER_EXTENSION));
-			fc.setCurrentDirectory(SettingsHandler.getPcgPath());
-
-			if (fc.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
-			{
-				return;
-			}
-
-			File file = fc.getSelectedFile();
-
-			if (!PCGFile.isPCGenCharacterFile(file))
-			{
-				file = new File(file.getParent(), file.getName() + Constants.s_PCGEN_CHARACTER_EXTENSION);
-			}
-
-			if (file.exists())
-			{
-				int iConfirm = JOptionPane.showConfirmDialog(null, 
-						PropertyFactory.getFormattedString("InfoSpells.confirm.overwrite", file.getName()), //$NON-NLS-1$
-						PropertyFactory.getString("in_confirmOverwriteCaption"), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
-
-				if (iConfirm != JOptionPane.YES_OPTION)
-				{
-					return;
-				}
-			}
-
-			PlayerCharacter newPC = new PlayerCharacter();
-			newPC.setName(nName);
-			newPC.setFileName(file.getAbsolutePath());
-
-			for (Iterator<PCStat> i = newPC.getStatList().iterator(); i.hasNext();)
-			{
-				final PCStat aStat = i.next();
-				aStat.setBaseScore(10);
-			}
-
-			newPC.setAlignment(pc.getAlignment(), true, true);
-			newPC.setRace(aRace);
-
-			if (newPC.getRace().hitDice(pc) != 0)
-			{
-				newPC.getRace().rollHP(pc);
-			}
-
-			newPC.setDirty(true);
-
-			aType = target.getType();
-
-			Follower newMaster = new Follower(pc.getFileName(), pc.getName(), aType);
-			newPC.setMaster(newMaster);
-
-			Follower newFollower = new Follower(file.getAbsolutePath(), nName, aType);
-			newFollower.setRace(newPC.getRace().getKeyName());
-			pc.addFollower(newFollower);
-			pc.setDirty(true);
-			pc.setCalcFollowerBonus(pc);
-			pc.setAggregateFeatsStable(false);
-			pc.setVirtualFeatsStable(false);
-
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.SaveAndSwitch", nName),  //$NON-NLS-1$
-					Constants.s_APPNAME, MessageType.INFORMATION);
-
-			// save the new Follower to a file
-
-			try
-			{
-				(new PCGIOHandler()).write(newPC, file.getAbsolutePath());
-			}
-			catch (Exception ex)
-			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("Errors.Save", newPC.getDisplayName()),  //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.ERROR);
-				Logging.errorPrint(PropertyFactory.getFormattedString("Errors.Save", newPC.getDisplayName()), ex); //$NON-NLS-1$
-				return;
-			}
-
-			// must force an Update before switching tabs
-			setNeedsUpdate(true);
-			pc.calcActiveBonuses();
-
-			// now load the new Follower from the file
-			// and switch tabs
-			PlayerCharacter loadedChar = PCGen_Frame1.getInst().loadPCFromFile(file);
-			loadedChar.calcActiveBonuses();
-			CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-			pane.setPaneForUpdate(pane.infoSummary());
-			pane.refresh();
+			return;
 		}
-		else if ((fNode.getItem() instanceof Equipment))
+		final Race race = opt.getRace();
+
+		if (race == null)
 		{
-			Equipment eqI = (Equipment) fNode.getItem();
+			return;
+		}
 
-			if (eqI == null)
+		String nName;
+		String aType;
+
+		Logging.debugPrint("addButton:race: " + race.getDisplayName() + " -> " + target); //$NON-NLS-1$ //$NON-NLS-2$
+
+		// first ask for the name of the new object
+		Object nValue = JOptionPane.showInputDialog(null, PropertyFactory.getFormattedString("InfoResources.EnterName", target), //$NON-NLS-1$
+				Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+
+		if (nValue != null)
+		{
+			nName = ((String) nValue).trim();
+		}
+		else
+		{
+			return;
+		}
+
+		JFileChooser fc = new JFileChooser();
+		fc.setDialogTitle(PropertyFactory.getFormattedString("InfoResources.SaveCaption", target, nName)); //$NON-NLS-1$
+		fc.setSelectedFile(new File(SettingsHandler.getPcgPath(), nName + Constants.s_PCGEN_CHARACTER_EXTENSION));
+		fc.setCurrentDirectory(SettingsHandler.getPcgPath());
+
+		if (fc.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
+		{
+			return;
+		}
+
+		File file = fc.getSelectedFile();
+
+		if (!PCGFile.isPCGenCharacterFile(file))
+		{
+			file = new File(file.getParent(), file.getName() + Constants.s_PCGEN_CHARACTER_EXTENSION);
+		}
+
+		if (file.exists())
+		{
+			int iConfirm = JOptionPane.showConfirmDialog(null, 
+					PropertyFactory.getFormattedString("InfoSpells.confirm.overwrite", file.getName()), //$NON-NLS-1$
+					PropertyFactory.getString("in_confirmOverwriteCaption"), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
+
+			if (iConfirm != JOptionPane.YES_OPTION)
 			{
 				return;
 			}
-
-			Logging.errorPrint("addButton:item: " + eqI.getName() + " -> " + target);  //$NON-NLS-1$//$NON-NLS-2$
-
-			// reset EquipSet model to get the new equipment
-			// added into the selectedTable tree
-			pc.setDirty(true);
-			updateSelectedModel();
 		}
+
+		PlayerCharacter newPC = new PlayerCharacter();
+		newPC.setName(nName);
+		newPC.setFileName(file.getAbsolutePath());
+
+		for (Iterator<PCStat> i = newPC.getStatList().iterator(); i.hasNext();)
+		{
+			final PCStat aStat = i.next();
+			aStat.setBaseScore(10);
+		}
+
+		newPC.setAlignment(pc.getAlignment(), true, true);
+		newPC.setRace(race);
+
+		if (newPC.getRace().hitDice(pc) != 0)
+		{
+			newPC.getRace().rollHP(pc);
+		}
+
+		newPC.setDirty(true);
+
+		aType = target.getType();
+
+		final Follower newMaster = new Follower(pc.getFileName(), pc.getName(), aType);
+		newMaster.setAdjustment( opt.getAdjustment() );
+		newPC.setMaster( newMaster );
+
+		final Follower newFollower = new Follower(file.getAbsolutePath(), nName, aType);
+		newFollower.setRace(newPC.getRace().getKeyName());
+		pc.addFollower(newFollower);
+		pc.setDirty(true);
+		pc.setCalcFollowerBonus(pc);
+		pc.setAggregateFeatsStable(false);
+		pc.setVirtualFeatsStable(false);
+
+		ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.SaveAndSwitch", nName),  //$NON-NLS-1$
+				Constants.s_APPNAME, MessageType.INFORMATION);
+
+		// save the new Follower to a file
+
+		try
+		{
+			(new PCGIOHandler()).write(newPC, file.getAbsolutePath());
+		}
+		catch (Exception ex)
+		{
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("Errors.Save", newPC.getDisplayName()),  //$NON-NLS-1$
+					Constants.s_APPNAME, MessageType.ERROR);
+			Logging.errorPrint(PropertyFactory.getFormattedString("Errors.Save", newPC.getDisplayName()), ex); //$NON-NLS-1$
+			return;
+		}
+
+		// must force an Update before switching tabs
+		setNeedsUpdate(true);
+		pc.calcActiveBonuses();
+
+		// now load the new Follower from the file
+		// and switch tabs
+		PlayerCharacter loadedChar = PCGen_Frame1.getInst().loadPCFromFile(file);
+		loadedChar.calcActiveBonuses();
+		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+		pane.setPaneForUpdate(pane.infoSummary());
+		pane.refresh();
 	}
 
 	private void addFileButton()
@@ -691,7 +681,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		String aType;
 
 		File file = null;
-		file = findPCGFile(file);
+		file = findPCGFile();
 
 		if ((file == null) || !file.exists())
 		{
@@ -924,13 +914,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		centerSplit.setOneTouchExpandable(true);
 		centerSplit.setDividerSize(10);
 
-		// first add a combobox to select mode to view
-		modePane.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
-		modePane.add(modeLabel, null);
-		modePane.add(viewModeBox, null);
-
-		masterPane.add(modePane, BorderLayout.NORTH);
-
 		// Now add centerSplit (which has top and bottom splits)
 		masterPane.add(centerSplit, BorderLayout.CENTER);
 
@@ -1000,7 +983,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			babAbbrev = "BAB"; //$NON-NLS-1$
 		}
-		b.append(BOLD).append(babAbbrev).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
+		b.append(BOLD).append(babAbbrev).append(END_BOLD).append(": "); //$NON-NLS-1$
 		b.append((bonus >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
 		b.append(BR);
 		b.append(" ").append(BOLD).append(Globals.getGameModeHPAbbrev()).append(END_BOLD).append(": ").append(newPC.hitPoints());  //$NON-NLS-1$//$NON-NLS-2$
@@ -1056,10 +1039,19 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			return;
 		}
 
+		Race aRace = null;
+		FollowerOption option = null;
 		if (obj instanceof Race)
 		{
-			Race aRace = (Race) obj;
-
+			aRace = (Race) obj;
+		}
+		else if ( obj instanceof FollowerOption )
+		{
+			option = (FollowerOption)obj;
+			aRace = option.getRace();
+		}
+		if ( aRace != null )
+		{
 			if (aRace.getKeyName().startsWith(Constants.s_NONESELECTED))
 			{
 				return;
@@ -1070,8 +1062,31 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			b.append(HTML).append(FONT_PLUS_1).append(BOLD);
 			b.append(aRace.getDisplayName());
 			b.append(END_BOLD).append(END_FONT);
-			b.append("  ").append(BOLD).append(PropertyFactory.getString("InfoResources.TypeLabel")).append(END_BOLD); //$NON-NLS-1$ //$NON-NLS-2$
-			b.append(aRace.getType());
+			b.append(": "); //$NON-NLS-1$
+			final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentNamed(aRace.getSize());
+			if ( sadj != null )
+			{
+				b.append( sadj.getDisplayName() );
+			}
+			b.append( " " ).append( aRace.getRaceType() ); //$NON-NLS-1$
+			b.append( "; " ); //$NON-NLS-1$
+
+			b.append( BOLD );
+			b.append( PropertyFactory.getString( "in_hdLabel" ) ); //$NON-NLS-1$
+			b.append( END_BOLD );
+			b.append( ": " ); //$NON-NLS-1$
+			b.append( aRace.hitDice(null, false) );
+			b.append( "d" ); //$NON-NLS-1$
+			b.append( aRace.getHitDiceSize( null, false ) );
+
+			if ( option != null )
+			{
+				if ( option.preReqHTMLStrings(pc).length() > 0 )
+				{
+					b.append( " " ).append(BOLD).append(PropertyFactory.getString("in_requirements")).append(END_BOLD).append(":");  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+					b.append( " " + option.preReqHTMLStrings(pc) ); //$NON-NLS-1$
+				}
+			}
 
 			if (aRace.getMovement() != null) {
 				bString = aRace.getMovement().toString();
@@ -1080,14 +1095,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			if (bString.length() > 0)
 			{
 				b.append(" ").append(BOLD).append(PropertyFactory.getString("in_move")).append(END_BOLD).append(":"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				b.append(bString);
-			}
-
-			bString = aRace.getSize();
-
-			if (bString.length() > 0)
-			{
-				b.append(" ").append(BOLD).append(PropertyFactory.getString("in_sumSize")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				b.append(bString);
 			}
 
@@ -1374,10 +1381,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 	/**
 	 * Prompt the user to find the Followers .pcg file
-	 * @param file
 	 * @return PCG File
 	 **/
-	private File findPCGFile(File file)
+	private File findPCGFile()
 	{
 		JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle(PropertyFactory.getString("InfoResources.FindFile")); //$NON-NLS-1$
@@ -1388,7 +1394,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			return null;
 		}
 
-		file = fc.getSelectedFile();
+		final File file = fc.getSelectedFile();
 
 		if (file.exists() && file.canWrite())
 		{
@@ -1561,14 +1567,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			   }
 		   });
 		 */
-		viewModeBox.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(@SuppressWarnings("unused")
-				ActionEvent evt)
-				{
-					viewModeBoxActionPerformed();
-				}
-			});
 		viewSortBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(@SuppressWarnings("unused")
@@ -1617,7 +1615,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 * This method is called from within the constructor to
 	 * initialize the form.
 	 **/
-	@SuppressWarnings("nls")
 	private void initComponents()
 	{
 		readyForRefresh = true;
@@ -1628,12 +1625,9 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		// create tables associated with the above trees
 		createTreeTables();
 
-		Utility.setDescription(viewModeBox, PropertyFactory.getString("InfoResources.ChooseViewMode"));
-
-		viewSortBox.addItem(PropertyFactory.getString("in_typeName") + "   ");  //$NON-NLS-1$//$NON-NLS-2$
 		viewSortBox.addItem(PropertyFactory.getString("in_nameLabel") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
-		viewSortBox.addItem(PropertyFactory.getString("in_racetypeName") + "   ");
-		Utility.setDescription(viewSortBox, "Sort Sort");
+		viewSortBox.addItem(PropertyFactory.getString("in_adjustment") + "   ");  //$NON-NLS-1$//$NON-NLS-2$
+		viewSortBox.addItem(PropertyFactory.getString("in_racetypeName") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
 
 		//viewSelectComboBox.setSelectedIndex(viewSelectMode);
 		// create both versions of the GUI
@@ -1654,6 +1648,18 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 					refresh();
 				}
 			});
+
+		for (int iRow = 0; iRow < availableTable.getRowCount(); iRow++)
+		{
+			final JTree tree = availableTable.getTree();
+			TreePath iPath = tree.getPathForRow(iRow);
+
+			if ( iPath != null )
+			{
+				tree.makeVisible(iPath);
+				tree.expandPath(iPath);
+			}
+		}
 	}
 
 	private void clearQFilter()
@@ -1742,7 +1748,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 				// not there, so see if the user can find it
 				Logging.errorPrint("b File: " + file.getAbsolutePath()); //$NON-NLS-1$
-				file = findPCGFile(file);
+				file = findPCGFile();
 
 				// still not found, just bail
 				if (file == null)
@@ -1832,20 +1838,6 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		createSelectedModel();
 		selectedTable.updateUI();
 		selectedTable.expandPathList(pathList);
-	}
-
-	private void viewModeBoxActionPerformed()
-	{
-		final int index = viewModeBox.getSelectedIndex();
-
-		if (index != viewMode)
-		{
-			viewMode = index;
-
-			//SettingsHandler.setResourceTab_Mode(viewMode);
-			updateAvailableModel();
-			updateSelectedModel();
-		}
 	}
 
 	private void viewSortBoxActionPerformed()
@@ -2064,4 +2056,5 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 	}
+	
 }

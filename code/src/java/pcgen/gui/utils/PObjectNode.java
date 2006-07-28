@@ -557,6 +557,10 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	{
 		if (item == null)
 		{
+			if ( displayName != null )
+			{
+				return displayName;
+			}
 			return "";
 		}
 
@@ -677,8 +681,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			return itemName;
 		}
-
-		if (item instanceof SpellInfo)
+		else if (item instanceof SpellInfo)
 		{
 			final CharacterSpell spellA = ((SpellInfo) item).getOwner();
 			final boolean isSpecial = spellA.isSpecialtySpell();
@@ -726,12 +729,17 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			}
 			return val.toString();
 		}
-
-		if (item instanceof PlayerCharacter)
+		else if (item instanceof PlayerCharacter)
 		{
 			final PlayerCharacter bPC = (PlayerCharacter) item;
 
 			return bPC.getName();
+		}
+
+	
+		if ( displayName != null )
+		{
+			return displayName;
 		}
 
 		return item.toString();

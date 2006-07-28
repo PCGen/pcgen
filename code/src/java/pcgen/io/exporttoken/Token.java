@@ -35,6 +35,8 @@ import java.util.StringTokenizer;
  */
 public abstract class Token
 {
+	/** Constant for subtoken separator */
+	public static final String SUBTOKENSEP = "."; //$NON-NLS-1$
 
 	/**
 	 * True if the token is UTF-8 encoded
@@ -62,6 +64,15 @@ public abstract class Token
 	 */
 	public abstract String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh);
 
+	/**
+	 * This method takes a tokenizer and tries to return an integer value for
+	 * the next available token.  If the next value doesn't exist or is not
+	 * an integer the default value is returned.
+	 * @param tok The StringTokenizer to pull the token from
+	 * @param defaultVal The value to return if we can't get an integer
+	 * @return the integer value of the next token or the defaultVal if we can't
+	 * make an integer from the next token.
+	 */
 	protected static int getIntToken(StringTokenizer tok, int defaultVal)
 	{
 		int retInt = defaultVal;
@@ -72,6 +83,14 @@ public abstract class Token
 		return retInt;
 	}
 
+	/**
+	 * This is a utility method to safely get an int value from a token.  If the
+	 * token does not represent an integer the default value will be returned
+	 * instead.
+	 * @param token Integer token
+	 * @param defaultVal Value to return if this is not an integer
+	 * @return int value or default value if not an int
+	 */
 	protected static int getIntToken(String token, int defaultVal)
 	{
 		int retInt = defaultVal;
@@ -81,7 +100,7 @@ public abstract class Token
 		}
 		catch (NumberFormatException e)
 		{
-		    // TODO - This exception needs to be handled
+		    // Handled.  We return the default value in this case.
 		}
 		return retInt;
 	}
@@ -99,7 +118,7 @@ public abstract class Token
 	 */
 	public static String replaceWithDelimiter(String sString, String sDelim)
 	{
-		final StringTokenizer bTok = new StringTokenizer(sString, "\r\n", false);
+		final StringTokenizer bTok = new StringTokenizer(sString, "\r\n", false); //$NON-NLS-1$
 		StringBuffer retValue = new StringBuffer();
 
 		while (bTok.hasMoreTokens())

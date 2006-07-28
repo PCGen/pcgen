@@ -376,4 +376,7 @@ public interface Constants
 	
 	/** For Tokens that need to know they're dealing with a .fo file */
 	String XSL_FO_EXTENSION = "fo";
+
+	/** An empty string. */
+	String EMPTY_STRING = ""; //$NON-NLS-1$
 }

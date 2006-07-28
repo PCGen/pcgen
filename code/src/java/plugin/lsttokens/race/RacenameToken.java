@@ -13,7 +13,7 @@ public class RacenameToken implements RaceLstToken {
 	}
 
 	public boolean parse(Race race, String value) {
-		race.setDisplayName(value);
+		race.setName(value);
 		return true;
 	}
 }

@@ -3,6 +3,8 @@ package pcgen.gui.utils.chooser;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.event.TableModelEvent;
 
+import pcgen.core.Constants;
+
 /**
  * This table model implements those methods required to support
  * the simple needs of the available and selected tables.
@@ -12,7 +14,7 @@ import javax.swing.event.TableModelEvent;
 public class ChooserTableModel extends AbstractTableModel
 {
 	static final long serialVersionUID = -2148735105737308335L;
-	String lineTerminator = "";
+	String lineTerminator = Constants.EMPTY_STRING;
 
 	/** The column classes */
 	Class[] mColumnClasses;
@@ -37,7 +39,9 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return     The CellEditable value
 	 * author     Matt Woodard
 	 */
-	public boolean isCellEditable(int row, int col)
+	@Override
+	public boolean isCellEditable( @SuppressWarnings("unused")int row, 
+								   @SuppressWarnings("unused")int col)
 	{
 		return false;
 	}
@@ -49,6 +53,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return        The ColumnClass value
 	 * author        Matt Woodard
 	 */
+	@Override
 	public Class<?> getColumnClass(int column)
 	{
 		return mColumnClasses[column];
@@ -72,6 +77,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return        The ColumnName value
 	 * author        Matt Woodard
 	 */
+	@Override
 	public String getColumnName(int column)
 	{
 		return mColumnNames[column];
@@ -105,6 +111,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @param column  The new ValueAt value
 	 * author        Matt Woodard
 	 */
+	@Override
 	public void setValueAt(Object value, int row, int column)
 	{
 		mData[row][column] = value;
@@ -120,6 +127,10 @@ public class ChooserTableModel extends AbstractTableModel
 	 */
 	public Object getValueAt(int row, int col)
 	{
+		if ( row > mData.length || col > mData[row].length)
+		{
+			return null;
+		}
 		Object obj = mData[row][col];
 
 		if ((obj instanceof String) && (lineTerminator.length() != 0))
@@ -156,7 +167,8 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @param data  The new Data value
 	 * @param lineTerminator
 	 */
-	public void setData(Object[][] data, String lineTerminator)
+	public void setData(Object[][] data, 
+			@SuppressWarnings("hiding")String lineTerminator)
 	{
 		mData = data;
 

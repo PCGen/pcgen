@@ -51,11 +51,12 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * String fileName = path and file name
 	 *
 	 */
-	private String fileName = "";
-	private String name = "";
-	private String race = "";
-	private String type = "";
+	private String fileName = Constants.EMPTY_STRING;
+	private String name = Constants.EMPTY_STRING;
+	private String race = Constants.EMPTY_STRING;
+	private String type = Constants.EMPTY_STRING;
 	private int usedHD;
+	private int theAdjustment = 0;
 
 	/**
 	 * Constructor
@@ -191,6 +192,16 @@ public final class Follower implements Comparable<Object>, Cloneable
 		return usedHD;
 	}
 
+	public void setAdjustment( final int anAdjustment )
+	{
+		theAdjustment = anAdjustment;
+	}
+	
+	public int getAdjustment()
+	{
+		return theAdjustment;
+	}
+	
 	public int compareTo(final Object obj)
 	{
 		final Follower aF = (Follower) obj;
@@ -216,5 +227,5 @@ public final class Follower implements Comparable<Object>, Cloneable
 			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
 		}
 		return aClone;
-}
+	}
 }

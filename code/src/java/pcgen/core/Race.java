@@ -55,7 +55,6 @@ public final class Race extends PObject
 	private String hitDieLock = "";
 	private String ageString = "";
 	private String bonusSkillList = "";
-	private String displayName = "None";
 
 	//private String face = "5 ft. by 5 ft.";
 	private Point2D.Double face = new Point2D.Double(5, 0);
@@ -144,16 +143,6 @@ public final class Race extends PObject
 	public int getCR()
 	{
 		return CR;
-	}
-
-	public void setDisplayName(final String displayName)
-	{
-		this.displayName = displayName;
-	}
-
-	public String getDisplayName()
-	{
-		return displayName;
 	}
 
 	public String getDisplayVision(final PlayerCharacter aPC)

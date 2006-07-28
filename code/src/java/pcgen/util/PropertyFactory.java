@@ -74,65 +74,17 @@ public final class PropertyFactory
 	}
 
 	/**
-	 * convenience method
-	 * author: Frugal 2004/01/13
-	 * @param key
-	 * @param arg0
-	 * @return formatted String
+	 * Returns a localized string from the language bundle for the key passed.
+	 * This method accepts a variable number of parameters and will replace
+	 * {argno} in the string with each passed paracter in turn.
+	 * @param aKey The key of the string to retrieve
+	 * @param varargs A variable number of parameters to substitute into the
+	 * returned string.
+	 * @return A formatted localized string
 	 */
-	public static String getFormattedString(String key, Object arg0)
+	public static String getFormattedString( String aKey, Object... varargs )
 	{
-		String prop = getString(key);
-		Object[] args = new Object[] { arg0 };
-
-		return MessageFormat.format(prop, args);
-	}
-
-	/**
-	 * convenience method
-	 * author: Frugal 2004/01/13
-	 * @param key
-	 * @param arg0
-	 * @param arg1
-	 * @return formatted String
-	 */
-	public static String getFormattedString(String key, Object arg0, Object arg1)
-	{
-		String prop = getString(key);
-		Object[] args = new Object[] { arg0, arg1 };
-
-		return MessageFormat.format(prop, args);
-	}
-
-	/**
-	 * convenience method
-	 * author: Frugal 2004/01/13
-	 * @param key
-	 * @param arg0
-	 * @param arg1
-	 * @param arg2
-	 * @return formatted String
-	 */
-	public static String getFormattedString(String key, Object arg0, Object arg1, Object arg2)
-	{
-		String prop = getString(key);
-		Object[] args = new Object[] { arg0, arg1, arg2 };
-
-		return MessageFormat.format(prop, args);
-	}
-
-	/**
-	 * convenience method
-	 * author: Frugal 2004/01/13
-	 * @param key
-	 * @param args
-	 * @return formatted String
-	 */
-	public static String getFormattedString(String key, Object[] args)
-	{
-		String prop = getString(key);
-
-		return MessageFormat.format(prop, args);
+		return MessageFormat.format( getString(aKey), varargs );
 	}
 
 	private static char getMnemonic(String property, char def)

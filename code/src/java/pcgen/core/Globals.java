@@ -473,11 +473,12 @@ public final class Globals
 
 	public static void addCompanionMod( final CompanionMod aMod )
 	{
-		List<CompanionMod> mods = companionModMap.get( aMod.getType() );
+		final String type = aMod.getType().toUpperCase();
+		List<CompanionMod> mods = companionModMap.get( type );
 		if ( mods == null )
 		{
 			mods = new ArrayList<CompanionMod>();
-			companionModMap.put( aMod.getType(), mods );
+			companionModMap.put( type, mods );
 		}
 		mods.add( aMod );
 	}
@@ -500,20 +501,35 @@ public final class Globals
 		}
 	}
 
+	/**
+	 * Returns all types of followers for which a <code>CompanionMod</code>
+	 * has been defined.
+	 * 
+	 * @return Collection of Follower types.
+	 */
 	public static Collection<String> getFollowerTypes()
 	{
 		return Collections.unmodifiableSet( companionModMap.keySet() );
 	}
 
+	/**
+	 * Gets all the <code>CompanionMod</code>s for the specified type of 
+	 * follower.
+	 * 
+	 * @param aType The type of Follower to get mods for.
+	 * @return Collection of COMPANIONMODs or an EMPTY_LIST
+	 */
 	public static Collection<CompanionMod> getCompanionMods( final String aType )
 	{
-		final List<CompanionMod> cMods = companionModMap.get( aType );
+		final String type = aType.toUpperCase();
+		final List<CompanionMod> cMods = companionModMap.get( type );
 		if ( cMods == null )
 		{
 			return Collections.emptyList();
 		}
-		return Collections.unmodifiableList( companionModMap.get( aType ) );
+		return Collections.unmodifiableList( companionModMap.get( type ) );
 	}
+	
 	/**
 	 * Get companion modifier
 	 * @param aString

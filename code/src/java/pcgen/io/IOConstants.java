@@ -26,8 +26,31 @@ package pcgen.io;
  * @author   Thomas Behr
  * @version  $Revision$
  */
+@SuppressWarnings("nls")
 interface IOConstants
 {
+	/** Unix-style line separator.  Used for cross platform compatability */ 
+	String LINE_SEP = "\n";
+	
+	// General tag constants
+	/** Y used for yes/no options */
+	String VALUE_Y = "Y";
+	
+	/** The end of tag marker */
+	String TAG_END = ":";
+	
+	/** The tag separator */
+	String TAG_SEPARATOR = "|";
+	
+	/** Start of comment line */
+	String TAG_COMMENT = "#";
+	
+	/**  ABILITY */
+	String TAG_ABILITY = "ABILITY";
+	
+	/** Tag for Follower ADJUSTMENT */
+	String TAG_ADJUSTMENT = "ADJUSTMENT";
+	
 	/** AGE tag - Used by PCGVer2Creator and Parser */
 	String TAG_AGE = "AGE";
 
@@ -69,6 +92,9 @@ interface IOConstants
 
 	/** BIRTHPLACE */
 	String TAG_BIRTHPLACE = "BIRTHPLACE";
+	
+	/** BONUS */
+	String TAG_BONUS = "BONUS";
 
 	/** CALCEQUIPSET */
 	String TAG_CALCEQUIPSET = "CALCEQUIPSET";
@@ -168,6 +194,9 @@ interface IOConstants
 	/** EQUIPSET */
 	String TAG_EQUIPSET = "EQUIPSET";
 
+	/** ERROR */
+	String TAG_ERROR = "ERROR";
+	
 	/** Character experience */
 	String TAG_EXPERIENCE = "EXPERIENCE";
 	/** EXPRESSION */
@@ -245,6 +274,10 @@ interface IOConstants
 	String TAG_OUTPUTORDER       = "OUTPUTORDER";
 	/** PARENTID */
 	String TAG_PARENTID          = "PARENTID";
+	/** PC */
+	String TAG_PC				= "PC";
+	/** PCCLASS */
+	String TAG_PCCLASS			= "PCCLASS";
 	/** PCGVERSION */
 	String TAG_PCGVERSION        = "PCGVERSION";
 	/** OUTPUTSHEETPDF */
@@ -323,6 +356,8 @@ interface IOConstants
 	String TAG_SPELLBASE     = "SPELLBASE";
 	/** BOOK */
 	String TAG_SPELL_BOOK    = "BOOK";
+	/** SPELL */
+	String TAG_SPELL		= "SPELL";
 	/** SPELLBOOK */
 	String TAG_SPELLBOOK     = "SPELLBOOK";
 	/** SPELLLEVEL */

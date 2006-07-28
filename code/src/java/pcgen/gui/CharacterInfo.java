@@ -75,12 +75,12 @@ public final class CharacterInfo extends JPanel {
 
 	/**
 	 * Constructor
-	 * @param pc
-	 * @param tempTabList
+	 * @param aPC
+	 * @param aTempTabList
 	 */
-	public CharacterInfo(PlayerCharacter pc, List<Component> tempTabList) {
-		this.pc = pc;
-		this.tempTabList = tempTabList;
+	public CharacterInfo(PlayerCharacter aPC, List<Component> aTempTabList) {
+		this.pc = aPC;
+		this.tempTabList = aTempTabList;
 		infoDesc = new InfoDescription(pc);
 		infoInventory = new InfoInventory(pc);
 		infoSummary = new InfoSummary(pc);
@@ -91,7 +91,7 @@ public final class CharacterInfo extends JPanel {
 		infoFeats = new InfoFeats(pc);
 		infoDomain = new InfoDomain(pc);
 		infoSpells = new InfoSpells(pc);
-		setName("");
+		setName(""); //$NON-NLS-1$
 
 		try {
 			jbInit();

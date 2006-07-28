@@ -26,14 +26,13 @@ package pcgen.core.chooser;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * This is the chooser that deals with choosing from among a set 
  * of supplied strings.
  */
-public class MiscChoiceManager extends AbstractComplexChoiceManager {
+public class MiscChoiceManager extends AbstractComplexChoiceManager<String> {
 
 	/**
 	 * Make a new Miscellaneous chooser.  This is the chooser that deals
@@ -52,7 +51,7 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 		chooserHandled = "MISC";
 		
 		if (choices != null && choices.size() > 0 &&
-				((String) choices.get(0)).equals(chooserHandled)) {
+				choices.get(0).equals(chooserHandled)) {
 			choices = choices.subList(1, choices.size());
 		}
 	}
@@ -63,16 +62,14 @@ public class MiscChoiceManager extends AbstractComplexChoiceManager {
 	 * @param availableList
 	 * @param selectedList
 	 */
+	@Override
 	public void getChoices(
 			PlayerCharacter aPc,
-			List            availableList,
-			List            selectedList)
+			List<String>            availableList,
+			List<String>            selectedList)
 	{
-		Iterator it = choices.iterator();
-		while (it.hasNext())
+		for ( String aString : choices )
 		{
-			final String aString = (String) it.next();
-
 			if (dupsAllowed || !availableList.contains(aString))
 			{
 				availableList.add(aString);

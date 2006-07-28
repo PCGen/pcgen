@@ -3340,7 +3340,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 * @param endPart
 	 * @return String
 	 **/
-	public String formatSaveLine(final String sep, final String endPart)
+	public String formatSaveLine(final char sep, final char endPart)
 	{
 		final StringBuffer sbuf = new StringBuffer(100);
 
@@ -4266,7 +4266,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 	boolean save(final BufferedWriter output)
 	{
-		FileAccess.write(output, "BASEITEM:" + formatSaveLine("\t", ":"));
+		FileAccess.write(output, "BASEITEM:" + formatSaveLine('\t', ':'));
 		FileAccess.newLine(output);
 
 		return true;

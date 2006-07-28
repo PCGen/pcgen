@@ -125,53 +125,39 @@ public class Logging
 	}
 
 	/**
-	 * Beep and print error message if PCGen is debugging.
+	 * Print a localized error message from the passed in key.  If the
+	 * application is in Debug mode will also issue a beep.
 	 *
-	 * @param s String error message
+	 * @param aKey A key for the localized string in the language bundle
 	 */
-	public static void errorPrintLocalised(final String s)
+	public static void errorPrintLocalised(final String aKey)
 	{
 		if (isDebugMode())
 		{
 			s_TOOLKIT.beep();
 		}
 
-		String msg = PropertyFactory.getString(s);
+		final String msg = PropertyFactory.getString(aKey);
 		System.err.println(msg);
 	}
 
 	/**
-	 * Beep and print error message if PCGen is debugging.
-	 *
-	 * @param s String error message
-	 * @param param1
+	 * Print a localized error message including parameter substitution.  The
+	 * method will issue a beep if the application is running in Debug mode.
+	 * <p>This method accepts a variable number of parameters and will replace
+	 * <code>{argno}</code> in the string with each passed paracter in turn.
+	 * @param aKey A key for the localized string in the language bundle
+	 * @param varargs Variable number of parameters to substitute into the 
+	 * string
 	 */
-	public static void errorPrintLocalised(final String s, Object param1)
+	public static void errorPrintLocalised(final String aKey, Object... varargs)
 	{
 		if (isDebugMode())
 		{
 			s_TOOLKIT.beep();
 		}
 
-		String msg = PropertyFactory.getFormattedString(s, param1);
-		System.err.println(msg);
-	}
-
-	/**
-	 * Beep and print error message if PCGen is debugging.
-	 *
-	 * @param s String error message
-	 * @param param1
-	 * @param param2
-	 */
-	public static void errorPrintLocalised(final String s, Object param1, Object param2)
-	{
-		if (isDebugMode())
-		{
-			s_TOOLKIT.beep();
-		}
-
-		String msg = PropertyFactory.getFormattedString(s, param1, param2);
+		final String msg = PropertyFactory.getFormattedString( aKey, varargs );
 		System.err.println(msg);
 	}
 
