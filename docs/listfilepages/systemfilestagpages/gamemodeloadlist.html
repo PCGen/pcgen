@@ -3,15 +3,15 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodeloadlist.html,v 1.4 2005/10/14 17:37:07 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		
+
 		Description:
 		Provides information on the use of PCGen Game Mode:Load List.
 	-->
@@ -20,43 +20,87 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Game Mode: load.lst</h1>
-		
-		<p>The first line is a list of Size letters with a | (pipe) delimiter separating it 
+
+		<p>The first line is a list of Size letters with a | (pipe) delimiter separating it
 			from its load limit multiplier.</p>
-		
-		<p>The second through next-to-last line contain a strength value (must be incremental 
-			starting at 1) and the last line indicates the multiplier and power escalation for 
+
+		<p>The second through next-to-last line contain a strength value (must be incremental
+			starting at 1) and the last line indicates the multiplier and power escalation for
 			every 10 strength points beyond the end of the list.</p>
-			
-		<p>This is to represent the multiplier of 4 for the first 10 beyond the end of the 
-			strength list, 16 for the next 10 (4 to the power of 2), 64 for the next 10 (4 to 
+
+		<p>This is to represent the multiplier of 4 for the first 10 beyond the end of the
+			strength list, 16 for the next 10 (4 to the power of 2), 64 for the next 10 (4 to
 			the power of 3) and so on.</p>
-			
-		<p>You can change the multiplier (4) if you wish or add to the list of strength/capacity 
+
+		<p>You can change the multiplier (4) if you wish or add to the list of strength/capacity
 			lines, but they must be incremental (no skipping strength scores).</p>
-			
+
+		<p></p><a name="SIZEMULT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> SIZEMULT:x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of size category)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Decimal Fractions)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines the Load Categories for the Size of the Creature.
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>	SIZEMULT:FINE|0.125<br>
+									SIZEMULT:Dimunitive|0.25<br>
+									SIZEMULT:Tiny|0.5<br>
+									SIZEMULT:Small|0.75<br>
+									SIZEMULT:Large|2<br>
+									SIZEMULT:Huge|4<br>
+									SIZEMULT:Gargantuan|8<br>
+									SIZEMULT:Colossal|16<br>
+		<p class="indent3">These six categories must be included in all gameModes.</p>
+
+
+		<p></p><a name="LOAD"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LOAD:x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Strength)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number ((Heavy) Weight Carried)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines the Weight Categories for the Strength of the Creature.
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code> LOAD:0|0<br>
+		<p class="indent3">This give a strength of 0 a heavy load of 0.</p>
+		<p class="indent2"><code> LOAD:10|100<br>
+		<p class="indent3">This give a strength of 10 a heavy load of 100.</p>
+		<p class="indent2"><code> LOAD:27|1040<br>
+		<p class="indent3">This give a strength of 27 a heavy load of 1040.</p>
+
+
+		<p></p><a name="LOADMULT"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> LOADMULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Set the original value that is changed in the SizeAdjustment.lst file
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code> LOADMULT:4<br>
+		<p class="indent3">Sets the original value to 1.</p>
+
+
 		<p></p><a name="ENCUMBRANCE"></a><hr>
 		<p class="indent0"><span class="new">*** New 5.7.12</span><br />
-		<p class="indent0"><strong>Tag Name:</strong> ENCUMBRANCE:x|y</p>
+		<p class="indent0"><strong>Tag Name:</strong> ENCUMBRANCE:x|y||z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of load category)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Multiplier)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (Check Penalty)
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines the Load Categories for the gameMode. This was previously 
-  		hardcoded but is now set in the Load.lst file. All gameModes must include the 
-  		six categories listed below. Additional categories may be defined as needed 
-  		and the ENCUMBRANCE tag also defines the output token used. For example if you 
-  		set <code>ENCUMBRANCE:FooBar|8</code> the output token would be <code>WEIGHT.FOOBAR</code>. 
+		<p class="indent2">Defines the Load Categories for the gameMode. This was previously
+  		hardcoded but is now set in the Load.lst file. All gameModes must include the
+  		six categories listed below. Additional categories may be defined as needed
+  		and the ENCUMBRANCE tag also defines the output token used. For example if you
+  		set <code>ENCUMBRANCE:FooBar|8</code> the output token would be <code>WEIGHT.FOOBAR</code>.
   		See the entry for the output token <a href="../../outputsheetpages/tokens/outputsheettokensgeneral.html#WEIGHT">WEIGHT</a></p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>	ENCUMBRANCE:Light|1/3<br>
-									ENCUMBRANCE:Medium|2/3<br>
-									ENCUMBRANCE:Heavy|1<br>
-									ENCUMBRANCE:OverHead|1<br>
-									ENCUMBRANCE:OffGround|2<br>
-									ENCUMBRANCE:PushDrag|5</code></p>
+		<p class="indent2"><code>	ENCUMBRANCE:Light|1/3||0<br>
+									ENCUMBRANCE:Medium|2/3||-3<br>
+									ENCUMBRANCE:Heavy|1||-6<br>
+									ENCUMBRANCE:OverHead|1||-6<br>
+									ENCUMBRANCE:OffGround|2||-6<br>
+									ENCUMBRANCE:PushDrag|5||-6/code></p>
 		<p class="indent3">These six categories must be included in all gameModes.</p>
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/systemfilestagpages/gamemodeloadlist.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->

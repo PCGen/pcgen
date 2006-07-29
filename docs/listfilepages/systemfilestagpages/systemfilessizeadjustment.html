@@ -32,6 +32,28 @@
 		<p>In the fantasy gameModes the nine categories are: (from smallest to largest)
 			Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan and Colossal.</p>
 
+
+		<p></p>
+		<p></p><a name="SIZENAME"></a><hr>
+		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
+		<p class="indent0"><strong>Tag Name:</strong> SIZENAME|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Name of size</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Identifies the Size Class</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>	SIZENAME:Fine<br>
+									SIZENAME:Diminutive<br>
+									SIZENAME:Tiny<br>
+									SIZENAME:Small<br>
+									SIZENAME:Medium<br>
+									SIZENAME:Large<br>
+									SIZENAME:Huge<br>
+									SIZENAME:Gargantuan<br>
+									SIZENAME:Colossal<br>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">SizeAdjustment.lst</p>
+		<p class="indent3">These six categories must be included in all Game Mode: sizeAdjustment.lst.</p>
+
 		<p>Note: The following BONUS tags only function in this file.</p>
 
 		<p></p>
@@ -88,7 +110,7 @@
 		<p></p>
 		<p></p><a name="BONUSITEMWEIGHT"></a><hr>
 		<p class="indent0"><span class="new">*** New 5.10.1 RC1</span><br />
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMWEIGHT|TYPE=x|y</p>
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMWEIGHT|TYPE=x,TYPE=x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -96,7 +118,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ITEMWEIGHT|TYPE=Goods|0.25</code></p>
 		<p class="indent3">Reduces the weight to .25</p>
-		<p class="indent2"><code>BONUS:ITEMWEIGHT|TYPE=Goods|1</code></p>
+		<p class="indent2"><code>BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1</code></p>
 		<p class="indent3">Changes the weight by nothing</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">SizeAdjustment.lst</p>
