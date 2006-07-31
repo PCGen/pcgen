@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Sun Jul 30 05:38:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
+CAMPAIGN:Gunpowder Plots
+GAMEMODE:35e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Accessory
+SETTING:Modern Medieval
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Sword's Edge Publishing.Gunpowder Plots
+PUBNAMELONG:Swords Edge Publishing
+PUBNAMESHORT:SEP
+PUBNAMEWEB:http://www.swordsedgepublishing.ca
+SOURCELONG:Gunpowder Plots
+SOURCESHORT:GunPlots
+SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Modern Principles Copyright 2006 Sword's Edge Publishing; Author Fraser Ronald
+COPYRIGHT:Gunpowder Plots Copyright 2006 Sword's Edge Publishing; Author Fraser Ronald
+COPYRIGHT:PCGen dataset conversion for Gunpowder Plots Copyright 2006, PCGen Data team (Including, but not limited to Paul W. King, Frank Kliewe)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:gunpowderplots_equip.lst
+EQUIPMENT:gunpowderplots_equip_weap_ranged.lst
+FEAT:gunpowderplots_feat.lst
+WEAPONPROF:gunpowderplots_weaponprof.lst

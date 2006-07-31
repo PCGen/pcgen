@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Sun Jul 30 05:38:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:Gunpowder Plots	SOURCESHORT:GunPlots	SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196
+
+###Block: Matchlock
+# Weapon Name		Type		Nb Hands
+Arquebus			TYPE:Simple	HANDS:2
+Blunderbus - Matchlock	TYPE:Simple	HANDS:2
+Caliver			TYPE:Simple	HANDS:2
+Musket - Matchlock	TYPE:Simple	HANDS:2
+
+###Block: Wheellock
+# Weapon Name			Type		Nb Hands
+Belt Pistol - Wheellock		TYPE:Simple
+Horse Pistol - Wheellock	TYPE:Simple
+Fowling Piece			TYPE:Simple	HANDS:2
+
+###Block: Snaphaunce/Flintlock
+# Weapon Name			Type		Nb Hands
+Belt Pistol - Flintlock		TYPE:Simple
+Horse Pistol - Flintlock	TYPE:Simple
+Blunderbus - Flintlock		TYPE:Simple	HANDS:2
+Musket - Flintlock		TYPE:Simple	HANDS:2

@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Sun Jul 30 05:38:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:Gunpowder Plots	SOURCESHORT:GunPlots	SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196
+
+###Block: Matchlock
+# Equipment Name		Required Proficiency			Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Source Page		Special Property
+Arquebus			PROFICIENCY:Arquebus			TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Piercing	COST:45	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	WIELD:TwoHanded	RANGE:30	SIZE:L	SOURCEPAGE:p.2	SPROP:2 charges
+Blunderbus - Matchlock	PROFICIENCY:Blunderbus - Matchlock	TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Piercing	COST:30	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	WIELD:TwoHanded	RANGE:5	SIZE:L	SOURCEPAGE:p.3	SPROP:3 charges
+Caliver			PROFICIENCY:Caliver			TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Piercing	COST:55	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	WIELD:TwoHanded	RANGE:25	SIZE:L	SOURCEPAGE:p.3	SPROP:2 charges
+Musket - Matchlock	PROFICIENCY:Musket - Matchlock	TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Piercing	COST:50	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	WIELD:TwoHanded	RANGE:40	SIZE:L	SOURCEPAGE:p.3	SPROP:3 charges
+
+###Block: Wheellock
+# Equipment Name			Required Proficiency				Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Source Page		Special Property
+Belt Pistol - Wheellock		PROFICIENCY:Belt Pistol - Wheellock		TYPE:Weapon.Ranged.Simple.Gunpowder.Wheellock.Piercing	COST:175	WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4	WIELD:Light		RANGE:20	SIZE:S	SOURCEPAGE:p.3	SPROP: 1 charge
+Horse Pistol - Wheellock	PROFICIENCY:Horse Pistol - Wheellock	TYPE:Weapon.Ranged.Simple.Gunpowder.Wheellock.Piercing	COST:215	WT:7		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	WIELD:OneHanded	RANGE:30	SIZE:M	SOURCEPAGE:p.3	SPROP: 1 charge
+Fowling Piece			PROFICIENCY:Fowling Piece			TYPE:Weapon.Ranged.Simple.Gunpowder.Wheellock.Piercing	COST:280	WT:9		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	WIELD:TwoHanded	RANGE:40	SIZE:L	SOURCEPAGE:p.3	SPROP: 2 charges
+
+###Block: Snaphaunce/Flintlock
+# Equipment Name			Required Proficiency				Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Source Page		Special Property
+Belt Pistol - Flintlock		PROFICIENCY:Belt Pistol - Flintlock		TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Piercing	COST:225	WT:4		CRITMULT:x3			CRITRANGE:2			DAMAGE:2d4	WIELD:Light		RANGE:20	SIZE:S	SOURCEPAGE:p.3	SPROP: 1 charge
+Horse Pistol - Flintlock	PROFICIENCY:Horse Pistol - Flintlock	TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Piercing	COST:275	WT:6		CRITMULT:x3			CRITRANGE:2			DAMAGE:2d6	WIELD:OneHanded	RANGE:30	SIZE:M	SOURCEPAGE:p.3	SPROP: 1 charge
+Blunderbus - Flintlock		PROFICIENCY:Blunderbus - Flintlock		TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Piercing	COST:300	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	WIELD:TwoHanded	RANGE:5	SIZE:L	SOURCEPAGE:p.3	SPROP: 2 charges
+Musket - Flintlock		PROFICIENCY:Musket - Flintlock		TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Piercing	COST:380	WT:14		CRITMULT:x3			CRITRANGE:2			DAMAGE:2d8	WIELD:TwoHanded	RANGE:55	SIZE:L	SOURCEPAGE:p.3	SPROP: 2 charges
