@@ -39,6 +39,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -1171,23 +1172,23 @@ public final class Skill extends PObject
 		{
 			if ((aCheck != ACHECK_NONPROF) && Globals.checkRule(RuleConstants.SYS_LDPACSK))
 			{
-				final int load = Globals.loadTypeForLoadScore(aPC
+				final Load load = Globals.loadTypeForLoadScore(aPC
 					.getVariableValue("LOADSCORE", "").intValue(), aPC
 					.totalWeight(), aPC);
 
 				int penalty = 0;
 				switch (load)
 				{
-					case Constants.LIGHT_LOAD:
+					case LIGHT:
 						penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty("LIGHT");
 						break;
 
-					case Constants.MEDIUM_LOAD:
+					case MEDIUM:
 						penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty("MEDIUM");
 						break;
 
-					case Constants.HEAVY_LOAD:
-					case Constants.OVER_LOAD:
+					case HEAVY:
+					case OVERLOAD:
 						penalty = SystemCollections.getLoadInfo().getLoadCheckPenalty("HEAVY");
 						break;
 

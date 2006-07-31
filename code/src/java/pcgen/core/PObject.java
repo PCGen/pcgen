@@ -25,6 +25,20 @@
  */
 package pcgen.core;
 
+import java.io.Serializable;
+import java.io.StringWriter;
+import java.util.AbstractCollection;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.StringTokenizer;
+
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -36,16 +50,12 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.*;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
-
-import java.io.Serializable;
-import java.io.StringWriter;
-import java.util.*;
-
-import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * <code>PObject</code><br>
@@ -118,9 +128,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private boolean isNewItem = true;
 
 	/** Holds the level of encumberance due to armor for the object */
-	private int encumberedArmorMoveInt = Constants.LIGHT_LOAD;
+	private Load encumberedArmorMove = Load.LIGHT;
 	/** Holds the level of encumberance due to load for the object */
-	private int encumberedLoadMoveInt = Constants.LIGHT_LOAD;
+	private Load encumberedLoadMove = Load.LIGHT;
 
 	private ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
 
@@ -584,36 +594,36 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Get the encumberance due to armor
 	 * @return the encumberance due to armor
 	 */
-	public int getEncumberedArmorMove()
+	public Load getEncumberedArmorMove()
 	{
-		return encumberedArmorMoveInt;
+		return encumberedArmorMove;
 	}
 
 	/**
 	 * Get the encumberance due to load
 	 * @return the encumberance due to load
 	 */
-	public int getEncumberedLoadMove()
+	public Load getEncumberedLoadMove()
 	{
-		return encumberedLoadMoveInt;
+		return encumberedLoadMove;
 	}
 
 	/**
 	 * Set the encumberance due to armor
-	 * @param encumberedArmorMoveInt
+	 * @param encumberedArmorMove
 	 */
-	public void setEncumberedArmorMove(int encumberedArmorMoveInt)
+	public void setEncumberedArmorMove(Load encumberedArmorMove)
 	{
-		this.encumberedArmorMoveInt = encumberedArmorMoveInt;
+		this.encumberedArmorMove = encumberedArmorMove;
 	}
 
 	/**
 	 * Set the encumberance due to load
-	 * @param encumberedLoadMoveInt
+	 * @param encumberedLoadMove
 	 */
-	public void setEncumberedLoadMove(int encumberedLoadMoveInt)
+	public void setEncumberedLoadMove(Load encumberedLoadMove)
 	{
-		this.encumberedLoadMoveInt = encumberedLoadMoveInt;
+		this.encumberedLoadMove = encumberedLoadMove;
 	}
 
 	/**
@@ -669,8 +679,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public void setUnencumberedMove(final String aString)
 	{
-		this.setEncumberedLoadMove(Constants.LIGHT_LOAD);
-		this.setEncumberedArmorMove(Constants.LIGHT_LOAD);
+		this.setEncumberedLoadMove(Load.LIGHT);
+		this.setEncumberedArmorMove(Load.LIGHT);
 
 		final StringTokenizer st = new StringTokenizer(aString, "|");
 
@@ -680,23 +690,23 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 			if (loadString.equalsIgnoreCase("MediumLoad"))
 			{
-				this.setEncumberedLoadMove(Constants.MEDIUM_LOAD);
+				this.setEncumberedLoadMove(Load.MEDIUM);
 			}
 			else if (loadString.equalsIgnoreCase("HeavyLoad"))
 			{
-				this.setEncumberedLoadMove(Constants.HEAVY_LOAD);
+				this.setEncumberedLoadMove(Load.HEAVY);
 			}
 			else if (loadString.equalsIgnoreCase("Overload"))
 			{
-				this.setEncumberedLoadMove(Constants.OVER_LOAD);
+				this.setEncumberedLoadMove(Load.OVERLOAD);
 			}
 			else if (loadString.equalsIgnoreCase("MediumArmor"))
 			{
-				this.setEncumberedArmorMove(Constants.MEDIUM_LOAD);
+				this.setEncumberedArmorMove(Load.MEDIUM);
 			}
 			else if (loadString.equalsIgnoreCase("HeavyArmor"))
 			{
-				this.setEncumberedArmorMove(Constants.OVER_LOAD);
+				this.setEncumberedArmorMove(Load.OVERLOAD);
 			}
 			else if (loadString.equalsIgnoreCase("LightLoad") || loadString.equalsIgnoreCase("LightArmor"))
 			{

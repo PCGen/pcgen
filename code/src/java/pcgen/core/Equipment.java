@@ -58,6 +58,7 @@ import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Load;
 
 /**
  * <code>Equipment</code>.
@@ -3643,23 +3644,23 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	{
 		if (moveString.length() > 0)
 		{
-			final int eqLoad;
+			final Load eqLoad;
 
 			if (isHeavy())
 			{
-				eqLoad = Constants.HEAVY_LOAD;
+				eqLoad = Load.HEAVY;
 			}
 			else if (isMedium())
 			{
-				eqLoad = Constants.MEDIUM_LOAD;
+				eqLoad = Load.MEDIUM;
 			}
 			else if (isLight())
 			{
-				eqLoad = Constants.LIGHT_LOAD;
+				eqLoad = Load.LIGHT;
 			}
 			else
 			{
-				eqLoad = Constants.OVER_LOAD;
+				eqLoad = Load.OVERLOAD;
 			}
 
 			//

@@ -25,13 +25,13 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Load;
 
 /**
  * Deal with returning TOTAL Tokens
@@ -98,21 +98,21 @@ public class TotalToken extends Token
 	 */
 	public static String getLoadToken(PlayerCharacter pc)
 	{
-		int load = Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), pc.totalWeight(), pc);
+		Load load = Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), pc.totalWeight(), pc);
 
 		switch (load)
 		{
-			case Constants.LIGHT_LOAD:
-				return CoreUtility.capitalizeFirstLetter(Constants.s_LOAD_LIGHT);
+			case LIGHT:
+				return CoreUtility.capitalizeFirstLetter(Load.LIGHT.toString());
 
-			case Constants.MEDIUM_LOAD:
-				return CoreUtility.capitalizeFirstLetter(Constants.s_LOAD_MEDIUM);
+			case MEDIUM:
+				return CoreUtility.capitalizeFirstLetter(Load.MEDIUM.toString());
 
-			case Constants.HEAVY_LOAD:
-				return CoreUtility.capitalizeFirstLetter(Constants.s_LOAD_HEAVY);
+			case HEAVY:
+				return CoreUtility.capitalizeFirstLetter(Load.HEAVY.toString());
 
-			case Constants.OVER_LOAD:
-				return CoreUtility.capitalizeFirstLetter(Constants.s_LOAD_OVERLOAD);
+			case OVERLOAD:
+				return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD.toString());
 
 			default:
 				Logging.errorPrint("Unknown load constant detected in TokenTotal.getLoadToken, the constant was "

@@ -25,8 +25,8 @@
  */
 package plugin.bonustokens;
 
-import pcgen.core.Constants;
 import pcgen.core.bonus.BonusObj;
+import pcgen.util.enumeration.Load;
 
 /**
  * <code>Move</code>
@@ -43,7 +43,7 @@ public final class Move extends BonusObj
 			"POSTMOVEADD"
 		};
 
-	private static final String[] bonusTags = { Constants.s_LOAD_LIGHT, Constants.s_LOAD_MEDIUM, Constants.s_LOAD_HEAVY, Constants.s_LOAD_OVERLOAD };
+	private static final String[] bonusTags = { Load.LIGHT.toString(), Load.MEDIUM.toString(), Load.HEAVY.toString(), Load.OVERLOAD.toString() };
 
 	protected boolean parseToken(final String token)
 	{

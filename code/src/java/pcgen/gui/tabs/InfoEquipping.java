@@ -3784,8 +3784,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		final Float weight = pc.totalWeight();
 		final Float roundedValue = new Float((new Float(Math.round(weight.doubleValue() * 10000))).floatValue() / 10000);
 		totalWeight.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(roundedValue.doubleValue()) + Globals.getGameModeUnitSet().getWeightUnit());
-//		loadWeight.setText(loadTypes[Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc)]);
-		loadWeight.setText(Globals.getLoadString(Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc)));
+		loadWeight.setText(Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc).toString());
 	}
 
 	/**

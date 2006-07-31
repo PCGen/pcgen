@@ -70,6 +70,7 @@ import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -7705,10 +7706,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * does not take into account Armor penalties to movement
 	 * does not take into account penalties due to load carried
 	 * @param moveIdx
-	 * @param iLoad
+	 * @param load
 	 * @return base movement
 	 */
-	public int basemovement(final int moveIdx, final int iLoad)
+	public int basemovement(final int moveIdx, final Load load)
 	{
 		// get base movement
 		final int move = getMovement(moveIdx).intValue();
@@ -8738,19 +8739,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Check to see if this PC should ignore Encumbrance
 	 * for a specified armor (Constants.HEAVY_LOAD, etc)
 	 * If the check is more than the testing type, return true
-	 * @param armorInt
+	 * @param armor
 	 * @return true or false
 	 */
-	public boolean ignoreEncumberedArmorMove(final int armorInt)
+	public boolean ignoreEncumberedArmorMove(final Load armor)
 	{
 		// Try all possible POBjects
 		for ( PObject pObj : getPObjectList() )
 		{
 			if (pObj != null)
 			{
-				final int encMove = pObj.getEncumberedArmorMove();
-
-				if (armorInt <= encMove)
+				if (armor.checkLtEq(pObj.getEncumberedArmorMove()))
 				{
 					return true;
 				}
@@ -8767,16 +8766,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @param loadInt
 	 * @return true or false
 	 */
-	public boolean ignoreEncumberedLoadMove(final int loadInt)
+	public boolean ignoreEncumberedLoadMove(final Load load)
 	{
 		// Try all possible POBjects
 		for ( PObject pObj : getPObjectList() )
 		{
 			if (pObj != null)
 			{
-				final int encMove = pObj.getEncumberedLoadMove();
-
-				if (loadInt <= encMove)
+				if (load.checkLtEq(pObj.getEncumberedLoadMove()))
 				{
 					return true;
 				}
@@ -9164,14 +9161,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * heavier loads
 	 * @return a loadType appropriate for this Pc
 	 */
-	private int getLoadType()
+	private Load getLoadType()
 	{
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
 			final int loadScore = getVariableValue("LOADSCORE", "").intValue();
 			return Globals.loadTypeForLoadScore(loadScore, totalWeight(), this);
 		}
-		return Constants.LIGHT_LOAD;
+		return Load.LIGHT;
 	}
 
 	/**
@@ -9199,11 +9196,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private int modToACCHECKFromEquipment ()
 	{
-		int load  = getLoadType();
+		Load load = getLoadType();
 		int bonus = 0;
 
-		int penaltyForLoad = 	(Constants.MEDIUM_LOAD == load) ? -3 :
-					(Constants.HEAVY_LOAD  == load) ? -6 : 0;
+		int penaltyForLoad = (Load.MEDIUM == load) ? -3 : (Load.HEAVY  == load) ? -6 : 0;
 
 		for ( Equipment eq : equipmentList )
 		{
@@ -9244,15 +9240,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private int modToMaxDexFromEquipment ()
 	{
-		final int statBonus = 	(int) getStatBonusTo("MISC", "MAXDEX");
-		final int load      = 	getLoadType();
-		int bonus           = 	(load == Constants.MEDIUM_LOAD) ? 3 :
-					 (load == Constants.HEAVY_LOAD)  ? 1 :
-					 (load == Constants.OVER_LOAD)   ? 0 : statBonus;
+		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
+		final Load load = getLoadType();
+		int bonus = (load == Load.MEDIUM) ? 3 :
+					(load == Load.HEAVY) ? 1 :
+					(load == Load.OVERLOAD) ? 0 : statBonus;
 
 		// If this is still true after all the equipment has been
 		// examined, then we should use the Maximum - Maximum Dex modifier.
-		boolean useMax = (load == Constants.LIGHT_LOAD);
+		boolean useMax = (load == Load.LIGHT);
 
 		for ( Equipment eq : equipmentList )
 		{
@@ -9367,7 +9363,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		moveInFeet = Math.max(calcMove, postMove);
 
 		// get a list of all equipped Armor
-		int armorLoad = Constants.LIGHT_LOAD;
+		Load armorLoad = Load.LIGHT;
 
 		for ( Equipment armor : getEquipmentOfType("Armor", 1) )
 		{
@@ -9375,19 +9371,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			{
 				continue;
 			}
-			if (armor.isHeavy() && !ignoreEncumberedArmorMove(Constants.HEAVY_LOAD))
+			if (armor.isHeavy() && !ignoreEncumberedArmorMove(Load.HEAVY))
 			{
-				armorLoad = Math.max(armorLoad, Constants.HEAVY_LOAD);
+				armorLoad = armorLoad.max(Load.HEAVY);
 			}
-			else if (armor.isMedium() && !ignoreEncumberedArmorMove(Constants.MEDIUM_LOAD))
+			else if (armor.isMedium() && !ignoreEncumberedArmorMove(Load.MEDIUM))
 			{
-				armorLoad = Math.max(armorLoad, Constants.MEDIUM_LOAD);
+				armorLoad = armorLoad.max(Load.MEDIUM);
 			}
 		}
 
 		final double armorMove = Globals.calcEncumberedMove(armorLoad, moveInFeet, true, null);
 
-		final int pcLoad = Globals.loadTypeForLoadScore(getVariableValue("LOADSCORE", "").intValue(), totalWeight(), this);
+		final Load pcLoad = Globals.loadTypeForLoadScore(getVariableValue("LOADSCORE", "").intValue(), totalWeight(), this);
 		final double loadMove = Globals.calcEncumberedMove(pcLoad, moveInFeet, true, this);
 
 		// It is possible to have a PC that is not encumbered by Armor

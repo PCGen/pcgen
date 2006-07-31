@@ -58,6 +58,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.PropertyFactory;
@@ -2391,13 +2392,12 @@ public final class Globals
 	 * @param loadScoreValue
 	 * @param weight
 	 * @param aPC
-	 * @return 0 = light, 1 = medium, 2 = heavy, 3 = overload
 	 */
-	public static int loadTypeForLoadScore(int loadScoreValue, final Float weight, final PlayerCharacter aPC)
+	public static Load loadTypeForLoadScore(int loadScoreValue, final Float weight, final PlayerCharacter aPC)
 	{
 		if (loadScoreValue < 0)
 		{
-			loadScoreValue = Constants.LIGHT_LOAD;
+			loadScoreValue = 0;
 		}
 
 		final double dbl = weight.doubleValue() / maxLoadForLoadScore(loadScoreValue, aPC).doubleValue();
@@ -2405,22 +2405,22 @@ public final class Globals
 		if (SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT") != null &&
 				dbl <= SystemCollections.getLoadInfo().getLoadMultiplier("LIGHT").doubleValue() )
 		{
-			return Constants.LIGHT_LOAD;
+			return Load.LIGHT;
 		}
 
 		if (SystemCollections.getLoadInfo().getLoadMultiplier("MEDIUM") != null &&
 				dbl <= SystemCollections.getLoadInfo().getLoadMultiplier("MEDIUM").doubleValue() )
 		{
-			return Constants.MEDIUM_LOAD;
+			return Load.MEDIUM;
 		}
 
 		if (SystemCollections.getLoadInfo().getLoadMultiplier("HEAVY") != null &&
 				dbl <= SystemCollections.getLoadInfo().getLoadMultiplier("HEAVY").doubleValue() )
 		{
-			return Constants.HEAVY_LOAD;
+			return Load.HEAVY;
 		}
 
-		return Constants.OVER_LOAD;
+		return Load.OVERLOAD;
 	}
 
 	/**
@@ -3187,34 +3187,9 @@ public final class Globals
 		return null;
 	}
 
-	static double calcEncumberedMove(final int load, final double moveInt, final boolean checkLoad)
+	static double calcEncumberedMove(final Load load, final double moveInt, final boolean checkLoad)
 	{
 		return calcEncumberedMove(load, moveInt, checkLoad, null);
-	}
-
-	/**
-	 * Get the load String (how loaded a characere)
-	 * @param load
-	 * @return load string
-	 */
-	public static String getLoadString(final int load)
-	{
-		switch (load)
-		{
-			case Constants.LIGHT_LOAD:
-				return Constants.s_LOAD_LIGHT;
-
-			case Constants.MEDIUM_LOAD:
-				return Constants.s_LOAD_MEDIUM;
-
-			case Constants.HEAVY_LOAD:
-				return Constants.s_LOAD_HEAVY;
-
-			// case Constants.OVER_LOAD:
-			default:
-				return Constants.s_LOAD_OVERLOAD;
-
-		}
 	}
 
 	/**
@@ -3222,13 +3197,13 @@ public final class Globals
 	 * (NOTE: The table in the dnd faq is wrong for speeds 80 and 90)
 	 * Not as sure it works for all other d20 games.
 	 *
-	 * @param load  (0 = light, 1 = medium, 2 = heavy, 3 = overload)
+	 * @param load
 	 * @param unencumberedMove the unencumbered move value
 	 * @param checkLoad
 	 * @param aPC
 	 * @return encumbered move as an integer
 	 */
-	static double calcEncumberedMove(final int load, final double unencumberedMove, final boolean checkLoad, final PlayerCharacter aPC)
+	static double calcEncumberedMove(final Load load, final double unencumberedMove, final boolean checkLoad, final PlayerCharacter aPC)
 	{
 		double encumberedMove;
 
@@ -3246,7 +3221,7 @@ public final class Globals
 			{
 				if (aPC != null)
 				{
-					String formula = SystemCollections.getLoadInfo().getLoadMoveFormula(getLoadString(load));
+					String formula = SystemCollections.getLoadInfo().getLoadMoveFormula(load.toString());
 					if (formula.length() != 0)
 					{
 						formula = CoreUtility.replaceAll(formula, "$$MOVE$$", new Float(Math.floor(unencumberedMove)).toString());
@@ -3256,13 +3231,13 @@ public final class Globals
 
 				switch (load)
 				{
-					case Constants.LIGHT_LOAD:
+					case LIGHT:
 						encumberedMove = unencumberedMove;
 
 						break;
 
-					case Constants.MEDIUM_LOAD:
-					case Constants.HEAVY_LOAD:
+					case MEDIUM:
+					case HEAVY:
 
 						if (CoreUtility.doublesEqual(unencumberedMove,5))
 						{
@@ -3279,7 +3254,7 @@ public final class Globals
 
 						break;
 
-					case Constants.OVER_LOAD:
+					case OVERLOAD:
 						encumberedMove = 0;
 
 						break;

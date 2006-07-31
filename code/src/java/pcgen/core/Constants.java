@@ -126,16 +126,6 @@ public interface Constants
 	/** Type: SPELLBOOK */
 	String s_TYPE_SPELLBOOK= "SPELLBOOK";
 	
-	// Encumberence Constants (String)
-	/** LIGHT */
-	String s_LOAD_LIGHT    = "LIGHT";
-	/** MEDIUM */
-	String s_LOAD_MEDIUM   = "MEDIUM";
-	/** HEAVY */
-	String s_LOAD_HEAVY    = "HEAVY";
-	/** OVERLOAD */
-	String s_LOAD_OVERLOAD = "OVERLOAD";
-
 	// Units of measurement
 	/** Imperial */
 	String s_STANDARD_UNITSET_NAME                   = "Imperial";
@@ -240,16 +230,6 @@ public interface Constants
 	int HP_USERROLLED = 4;
 	/** 9999 */
 	int INVALID_LEVEL = 9999;
-
-	// Encumbrance Constants
-	/** 0 */
-	int LIGHT_LOAD  = 0;
-	/** 1 */
-	int MEDIUM_LOAD = 1;
-	/** 2 */
-	int HEAVY_LOAD  = 2;
-	/** 3 */
-	int OVER_LOAD   = 3;
 
 	/** The highest possible maxDex value. */
 	int MAX_MAXDEX              = 100;

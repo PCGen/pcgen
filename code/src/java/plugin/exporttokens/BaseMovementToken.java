@@ -30,6 +30,8 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.core.bonus.BonusObj;
+import pcgen.util.enumeration.Load;
 
 import java.util.StringTokenizer;
 
@@ -76,7 +78,7 @@ public class BaseMovementToken extends Token
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 			aTok.nextToken(); //clear BASEMOVEMENT Token
 			String moveType = "WALK";
-			int load = Constants.LIGHT_LOAD;
+			Load load = Load.LIGHT;
 			boolean flag = true;
 
 			//Move Type
@@ -99,17 +101,12 @@ public class BaseMovementToken extends Token
 			//Encumberance Level
 			if(aTok.hasMoreElements()) {
 				String loadName = aTok.nextToken();
-				if (Constants.s_LOAD_MEDIUM.equals(loadName))
+				for (Load aLoad : Load.values())
 				{
-					load = Constants.MEDIUM_LOAD;
-				}
-				else if (Constants.s_LOAD_HEAVY.equals(loadName))
-				{
-					load = Constants.HEAVY_LOAD;
-				}
-				else if (Constants.s_LOAD_OVERLOAD.equals(loadName))
-				{
-					load = Constants.OVER_LOAD;
+					if (loadName.equals(aLoad.toString()))
+					{
+						load = aLoad;
+					}
 				}
 			}
 
@@ -126,11 +123,11 @@ public class BaseMovementToken extends Token
 	 * Get the base movement token
 	 * @param pc
 	 * @param moveType
-	 * @param loadType
+	 * @param load
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(PlayerCharacter pc, String moveType, int loadType, boolean displayFlag)
+	public static String getBaseMovementToken(PlayerCharacter pc, String moveType, Load load, boolean displayFlag)
 	{
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
@@ -140,9 +137,9 @@ public class BaseMovementToken extends Token
 				{
 					return moveType +
 					 " " +
-					 Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.basemovement(i, loadType)) + Globals.getGameModeUnitSet().getDistanceUnit();
+					 Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.basemovement(i, load)) + Globals.getGameModeUnitSet().getDistanceUnit();
 				}
-				return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.basemovement(i, loadType));
+				return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.basemovement(i, load));
 			}
 		}
 		return "";
