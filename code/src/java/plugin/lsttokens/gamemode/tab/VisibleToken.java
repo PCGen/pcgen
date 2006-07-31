@@ -5,6 +5,7 @@ import java.util.Map;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.TabLoader;
 import pcgen.persistence.lst.TabLstToken;
+import pcgen.util.enumeration.Tab;
 
 /**
  * Class deals with VISIBLE Token
@@ -16,8 +17,8 @@ public class VisibleToken implements TabLstToken {
 	}
 
 	public boolean parse(GameMode gameMode, Map<String, String> tab, String value) {
-		final int tabNum = GameMode.getTabNumber(tab.get(TabLoader.TAB));
-		gameMode.setTabVisible(tabNum, value.toUpperCase().startsWith("Y"));
+		final Tab aTab = GameMode.getTab(tab.get(TabLoader.TAB));
+		gameMode.setTabVisible(aTab, value.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }

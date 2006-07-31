@@ -132,6 +132,7 @@ import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
@@ -145,6 +146,9 @@ import pcgen.util.PropertyFactory;
 public final class InfoGear extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -2320970658737297916L;
+
+	private static final Tab tab = Tab.GEAR;
+	
 	private static boolean needsUpdate = true;
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 	private static int viewMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME; // keep track of what view mode we're in for Available
@@ -243,7 +247,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		this.pc = pc;
 		// we use the component's name to save
 		// component specific settings
-		setName(Constants.tabNames[Constants.TAB_GEAR]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -272,7 +276,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Gear.Order", Constants.TAB_GEAR);
+		return SettingsHandler.getPCGenOption(".Panel.Gear.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -283,13 +287,13 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_GEAR);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_GEAR);
+		return game.getTabShown(tab);
 	}
 
 	/**

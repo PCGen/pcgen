@@ -108,6 +108,7 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoTempMod</code> creates a new tabbed panel that is used to
@@ -118,6 +119,8 @@ import pcgen.util.chooser.ChooserRadio;
  **/
 public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 {
+	private static final Tab tab = Tab.TEMPBONUS;
+	
 	private static boolean needsUpdate = true;
 
 	// table model modes
@@ -175,7 +178,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		this.pc = pc;
 		// do not remove this as we will use it
 		// to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_TEMPBONUS]);
+		setName(tab.label());
 
 		initComponents();
 
@@ -205,7 +208,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.TempMod.Order", Constants.TAB_TEMPBONUS);
+		return SettingsHandler.getPCGenOption(".Panel.TempMod.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -216,13 +219,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_TEMPBONUS);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_TEMPBONUS);
+		return game.getTabShown(tab);
 	}
 
 	/**

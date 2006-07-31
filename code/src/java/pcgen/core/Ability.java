@@ -31,6 +31,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -924,7 +925,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 					chooser.setPool(1);
 
 					chooser.setTitle("Select a "
-							+ SettingsHandler.getGame().getSingularTabName(Constants.TAB_ABILITIES)
+							+ SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES)
 							+ " to modify");
 
 					Globals.sortChooserLists(abilityList, selectedList);

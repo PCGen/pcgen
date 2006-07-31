@@ -100,6 +100,7 @@ import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.SwingWorker;
+import pcgen.util.enumeration.Tab;
 
 /**
  *  <code>MainSource</code> .
@@ -187,7 +188,7 @@ public class MainSource extends FilterAdapterPanel
 	{
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_SOURCES]);
+		setName(Tab.SOURCES.toString());
 
 		try
 		{

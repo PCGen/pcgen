@@ -34,7 +34,6 @@ import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
@@ -45,6 +44,7 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.utils.JTableEx;
 import pcgen.util.Delta;
+import pcgen.util.enumeration.Tab;
 
 /**
  * ???
@@ -54,6 +54,8 @@ import pcgen.util.Delta;
 public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = 7796493138427983908L;
+	
+	private static final Tab tab = Tab.NATWEAPONS;
 	private static boolean needsUpdate = true;
 	private JScrollPane scpNaturalAttacks;
 	private JTableEx tblNaturalAttacks;
@@ -70,7 +72,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		this.pc = pc;
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_NATWEAPONS]);
+		setName(tab.toString());
 
 		initComponents();
 	}
@@ -92,7 +94,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.NaturalWeapons.Order", Constants.TAB_NATWEAPONS);
+		return SettingsHandler.getPCGenOption(".Panel.NaturalWeapons.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -103,13 +105,13 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_NATWEAPONS);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_NATWEAPONS);
+		return game.getTabShown(tab);
 	}
 
 	/**

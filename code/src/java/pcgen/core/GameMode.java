@@ -31,8 +31,17 @@ import pcgen.core.system.GameModeRollMethod;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+
 
 /**
  * Handles game modes.
@@ -97,7 +106,7 @@ public final class GameMode implements Comparable<Object>
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
 	private SortedMap<String, RuleCheck> ruleCheckMap = new TreeMap<String, RuleCheck>();
-	private TabInfo[] tInfo;
+	private Map<Tab,TabInfo> tInfo = new HashMap<Tab,TabInfo>(); 
 	private boolean allowAutoResize = false;
 	private boolean showClassDefense;
 	private int babAttCyc = 5; //6
@@ -156,7 +165,7 @@ public final class GameMode implements Comparable<Object>
 	private String statDisplayTextAppend = "+";
 	private TreeMap<Integer, String> skillRankDisplayText = null;
 
-	private boolean [] summaryTabStatColumnVisible;
+	private boolean [] summaryTabStatColumnVisible = { true, true, true, true, true, true, true };
 
 
 	/**
@@ -168,31 +177,12 @@ public final class GameMode implements Comparable<Object>
 	{
 		name = modeName;
 
-		tInfo = new TabInfo[Constants.tabNames.length];
-		summaryTabStatColumnVisible = new boolean[Constants.tabNames.length];
-
-		for (int i = 0; i < tInfo.length; ++i)
+		for (Tab aTab : Tab.values())
 		{
-			tInfo[i] = new TabInfo();
-			summaryTabStatColumnVisible[i] = true;
+			TabInfo ti = new TabInfo();
+			ti.tabName = aTab.label();
+			tInfo.put(aTab, ti);
 		}
-
-		tInfo[Constants.TAB_SABILITIES].tabName  = "in_specialabilities";
-		tInfo[Constants.TAB_CLASSES].tabName     = "in_class";
-		tInfo[Constants.TAB_DESCRIPTION].tabName = "in_descrip";
-		tInfo[Constants.TAB_DOMAINS].tabName     = "in_domains";
-		tInfo[Constants.TAB_ABILITIES].tabName   = "in_feats";
-		tInfo[Constants.TAB_INVENTORY].tabName   = "in_inventory";
-		tInfo[Constants.TAB_RACE_MASTER].tabName = "in_race";
-		tInfo[Constants.TAB_SKILLS].tabName      = "in_skills";
-		tInfo[Constants.TAB_SPELLS].tabName      = "in_spells";
-		tInfo[Constants.TAB_SUMMARY].tabName     = "in_summary";
-		tInfo[Constants.TAB_SOURCES].tabName     = "Source Materials";
-		tInfo[Constants.TAB_KNOWN_SPELLS].tabName    = "in_known_spells";
-		tInfo[Constants.TAB_PREPARED_SPELLS].tabName = "in_prepared_spells";
-		tInfo[Constants.TAB_SPELLBOOKS].tabName  = "in_spellbooks";
-		tInfo[Constants.TAB_RACES].tabName       = "in_races";
-		tInfo[Constants.TAB_TEMPLATES].tabName   = "in_templates";
 	}
 
 	/**
@@ -428,17 +418,12 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Get the Context Path
-	 * @param iTab
+	 * @param aTab
 	 * @return Context Path
 	 */
-	public String getContextPath(final int iTab)
+	public String getContextPath(final Tab aTab)
 	{
-		if ((iTab >= 0) && (iTab < tInfo.length))
-		{
-			return tInfo[iTab].contextPath;
-		}
-
-		return "";
+		return tInfo.get(aTab).contextPath;
 	}
 
 	/**
@@ -870,32 +855,32 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Set the context for a tab
-	 * @param iTab
+	 * @param aTab
 	 * @param argTabContext
 	 */
-	public void setTabContext(final int iTab, final String argTabContext)
+	public void setTabContext(final Tab aTab, final String argTabContext)
 	{
-		tInfo[iTab].contextPath = argTabContext;
+		tInfo.get(aTab).contextPath = argTabContext;
 	}
 
 	/**
 	 * Set the name of the tab
-	 * @param iTab
+	 * @param aTab
 	 * @param argTabName
 	 */
-	public void setTabName(final int iTab, final String argTabName)
+	public void setTabName(final Tab aTab, final String argTabName)
 	{
-		tInfo[iTab].tabName = argTabName;
+		tInfo.get(aTab).tabName = argTabName;
 	}
 
 	/**
 	 * Get the name of the tab
-	 * @param iTab
+	 * @param aTab
 	 * @return tab name
 	 */
-	public String getTabName(final int iTab)
+	public String getTabName(final Tab aTab)
 	{
-		String temp = tInfo[iTab].tabName;
+		String temp = tInfo.get(aTab).tabName;
 
 		if (temp.startsWith("in_"))
 		{
@@ -907,12 +892,12 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Get the singular (e.g. No 's') verson of the tab name
-	 * @param iTab
+	 * @param aTab
 	 * @return the singular (e.g. No 's') verson of the tab name
 	 */
-	public String getSingularTabName(final int iTab)
+	public String getSingularTabName(final Tab aTab)
 	{
-		String singularName = getTabName(iTab);
+		String singularName = getTabName(aTab);
 		if (singularName.endsWith("s"))
 		{
 			singularName = singularName.substring(0, singularName.length() - 1);
@@ -925,17 +910,17 @@ public final class GameMode implements Comparable<Object>
 	 * @param tabName
 	 * @return tab number
 	 */
-	public static int getTabNumber(final String tabName)
+	public static Tab getTab(final String tabName)
 	{
-		for (int i = 0; i < Constants.tabNames.length; ++i)
+		for (Tab aTab : Tab.values())
 		{
-			if (tabName.equalsIgnoreCase(Constants.tabNames[i]))
+			if (tabName.equalsIgnoreCase(aTab.toString()))
 			{
-				return i;
+				return aTab;
 			}
 		}
 
-		return Constants.TAB_INVALID;
+		return Tab.INVALID;
 	}
 
 	/**
@@ -994,27 +979,22 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * True if the tab is visible
-	 * @param iTab
+	 * @param aTab
 	 * @return True if the tab is visible
 	 */
-	public boolean getTabShown(final int iTab)
+	public boolean getTabShown(final Tab aTab)
 	{
-		if ((iTab >= 0) && (iTab < tInfo.length))
-		{
-			return tInfo[iTab].visible;
-		}
-
-		return false;
+		return tInfo.get(aTab).visible;
 	}
 
 	/**
 	 * Set the visibility of a tab
-	 * @param iTab
+	 * @param aTab
 	 * @param visible
 	 */
-	public void setTabVisible(final int iTab, final boolean visible)
+	public void setTabVisible(final Tab aTab, final boolean visible)
 	{
-		tInfo[iTab].visible = visible;
+		tInfo.get(aTab).visible = visible;
 	}
 
 	/**
@@ -1628,8 +1608,8 @@ public final class GameMode implements Comparable<Object>
 
 	private static class TabInfo
 	{
-		String contextPath = "";
 		String tabName = "";
+		String contextPath = "";
 		boolean visible = true;
 	}
 

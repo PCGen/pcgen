@@ -1,10 +1,11 @@
 package pcgen;
 
 import junit.framework.TestCase;
-import pcgen.core.Constants;
+
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.TestChecker;
 import pcgen.util.testchecker.*;
 
@@ -28,7 +29,7 @@ public abstract class PCGenTestCase extends TestCase
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		gamemode.setAlignmentText("Alignment");
-		gamemode.setTabName(Constants.TAB_ABILITIES, "Feats");
+		gamemode.setTabName(Tab.ABILITIES, "Feats");
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
 	}

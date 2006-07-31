@@ -84,6 +84,7 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoPreparedSpells</code> is responsible for the display of the
@@ -136,7 +137,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	 */
 	public InfoPreparedSpells(PlayerCharacter pc)
 	{
-		super(pc, Constants.TAB_PREPARED_SPELLS);
+		super(pc, Tab.PREPARED_SPELLS);
 
 		addSpellWithMetaMagicTitle = SettingsHandler.getGame()
 			.getAddWithMetamagicMessage();
@@ -162,7 +163,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	public int getTabOrder()
 	{
 		return SettingsHandler.getPCGenOption(".Panel.Spells.Prepared.Order", //$NON-NLS-1$
-			Constants.TAB_KNOWN_SPELLS);
+			Tab.KNOWN_SPELLS.ordinal());
 	}
 
 	/**

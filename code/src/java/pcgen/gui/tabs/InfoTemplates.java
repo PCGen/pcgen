@@ -102,6 +102,7 @@ import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -114,6 +115,9 @@ import pcgen.util.enumeration.Visibility;
 public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = 2565545289875422981L;
+	
+	private static final Tab tab = Tab.TEMPLATES;
+	
 	private static boolean needsUpdate = true;
 
 	//Available Table
@@ -172,7 +176,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		this.pc = pc;
 		// do not change/remove this as we use the component's name
 		// to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_TEMPLATES]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -521,7 +525,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", Constants.TAB_TEMPLATES);
+		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -532,13 +536,13 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_TEMPLATES);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_TEMPLATES);
+		return game.getTabShown(tab);
 	}
 
 	/**

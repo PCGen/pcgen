@@ -6,17 +6,26 @@
  */
 package plugin.pretokens.test;
 
-import pcgen.core.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.core.Ability;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.WeaponProf;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.util.PropertyFactory;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import pcgen.util.enumeration.Tab;
 
 /**
  * @author wardc
@@ -72,12 +81,11 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 		}
 
 		int runningTotal = 0;
-		final List aFeatList = character != null ? character.aggregateFeatList() : null;
+		final List<Ability> aFeatList = character != null ? character.aggregateFeatList() : null;
 		if ((aFeatList != null) && !aFeatList.isEmpty())
 		{
-			for (Iterator e1 = aFeatList.iterator(); e1.hasNext();)
+			for (Ability aFeat : aFeatList)
 			{
-				final Ability aFeat = (Ability) e1.next();
 				final String featKey = aFeat.getKeyName();
 				if ((!keyIsType && featKey.equalsIgnoreCase(key)) || (keyIsType && aFeat.isType(key)))
 				{
@@ -187,8 +195,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeySpell(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
-		for (Iterator e = selectedList.iterator(); e.hasNext();) {
-			final Object aObj = e.next();
+		for (Object aObj : selectedList) {
 			final Spell sp;
 			String spellKey = null;
 			if (aObj instanceof PObject)
@@ -221,8 +228,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeyDomain(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
-		for (Iterator e = selectedList.iterator(); e.hasNext();) {
-			final Object aObj = e.next();
+		for (Object aObj : selectedList) {
 			final Domain dom;
 			dom = Globals.getDomainKeyed(aObj.toString());
 			if (dom == null) {
@@ -246,8 +252,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeyWeaponProf(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
-		for (Iterator e = selectedList.iterator(); e.hasNext();) {
-			final Object aObj = e.next();
+		for (Object aObj : selectedList) {
 			final WeaponProf wp;
 			wp = Globals.getWeaponProfKeyed(aObj.toString());
 			if (wp == null) {
@@ -276,8 +281,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeySkill(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
-		for (Iterator e = selectedList.iterator(); e.hasNext();) {
-			final Object aObj = e.next();
+		for (Object aObj : selectedList) {
 			final Skill sk;
 			sk = Globals.getSkillKeyed(aObj.toString());
 			if (sk == null) {
@@ -308,14 +312,14 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 						"PreFeat.type.toHtml", new Object[] {
 								prereq.getOperator().toDisplayString(),
 								prereq.getOperand(),
-								SettingsHandler.getGame().getSingularTabName(Constants.TAB_ABILITIES).toLowerCase(),
+								SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES).toLowerCase(),
 								aString.substring(5)
 							});
 		}
 		// {2} {3} {1} {0}
 		return PropertyFactory.getFormattedString(
 						"PreFeat.toHtml", new Object[] {
-								SettingsHandler.getGame().getSingularTabName(Constants.TAB_ABILITIES).toLowerCase(),
+								SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES).toLowerCase(),
 								aString,
 								prereq.getOperator().toDisplayString(),
 								prereq.getOperand() }); //$NON-NLS-1$

@@ -103,6 +103,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  *  <code>InfoRace</code> creates a new tabbed panel
@@ -114,6 +115,9 @@ import pcgen.util.PropertyFactory;
 public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = 2565545289875422981L;
+	
+	private static final Tab tab = Tab.RACES;
+	
 	private static boolean needsUpdate = true;
 
 	// if you change these, you also have to change
@@ -173,7 +177,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		this.pc = pc;
 		// do not change/remove this as we use the component's name
 		// to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_RACES]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -202,7 +206,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", Constants.TAB_RACES);
+		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -213,13 +217,13 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_RACES);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_RACES);
+		return game.getTabShown(tab);
 	}
 
 	/**

@@ -26,7 +26,43 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.SortedSet;
+
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Domain;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
+import pcgen.core.WeaponProf;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
@@ -41,17 +77,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.SortedSet;
+import pcgen.util.enumeration.Tab;
 
 /**
  * This class is responsible for drawing Special Ability, Language and Weapon Prefociency sections.
@@ -62,6 +88,9 @@ import java.util.SortedSet;
 public final class InfoSpecialAbilities extends JPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -7316622743996841985L;
+	
+	private static final Tab tab = Tab.SABILITIES;
+	
 	private JButton weaponButton = null;
 	private JButton langButton = null;
 	private JButton langButton2 = null;
@@ -82,7 +111,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	public InfoSpecialAbilities(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		setName(Constants.tabNames[Constants.TAB_SABILITIES]);
+		setName(tab.toString());
 		initComponents();
 		initActionListeners();
 	}
@@ -104,7 +133,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Abilities.Order", Constants.TAB_SABILITIES);
+		return SettingsHandler.getPCGenOption(".Panel.Abilities.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -115,7 +144,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_SABILITIES);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()

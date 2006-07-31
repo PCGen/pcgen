@@ -134,6 +134,7 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.ResetableListIterator;
 import pcgen.util.StringIgnoreCaseComparator;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -145,6 +146,9 @@ import pcgen.util.enumeration.Visibility;
 public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -5369872214039221832L;
+	
+	private static final Tab tab = Tab.SKILLS;
+	
 	private static boolean resetSelectedModel = true;
 	private static PCClass previouslySelectedClass = null;
 	private static boolean needsUpdate = true;
@@ -230,7 +234,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		this.pc = pc;
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_SKILLS]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -259,7 +263,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Skills.Order", Constants.TAB_SKILLS);
+		return SettingsHandler.getPCGenOption(".Panel.Skills.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -270,13 +274,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_SKILLS);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_SKILLS);
+		return game.getTabShown(tab);
 	}
 
 	/**

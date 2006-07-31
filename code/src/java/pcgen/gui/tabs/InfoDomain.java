@@ -110,6 +110,7 @@ import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * This class is responsible for drawing the domain related window - including
@@ -126,6 +127,9 @@ import pcgen.util.PropertyFactory;
 public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -4223585346813683966L;
+	
+	private static final Tab tab = Tab.DOMAINS;
+	
 	private static List<Domain> selectedDomainList = new ArrayList<Domain>();
 	private static boolean needsUpdate = true;
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
@@ -186,7 +190,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		this.pc = pc;
 		// we will use the component's name to save
 		// component specific settings
-		setName(Constants.tabNames[Constants.TAB_DOMAINS]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 				{
@@ -217,7 +221,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Domain.Order", Constants.TAB_DOMAINS);
+		return SettingsHandler.getPCGenOption(".Panel.Domain.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -228,13 +232,13 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_DOMAINS);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_DOMAINS);
+		return game.getTabShown(tab);
 	}
 
 	/**

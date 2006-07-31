@@ -2,9 +2,9 @@ package plugin.lsttokens.gamemode;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.util.enumeration.Tab;
 
 /**
  * Class deals with SHOWTAB Token
@@ -19,13 +19,13 @@ public class ShowtabToken implements GameModeLstToken {
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		final String tabName = tok.nextToken();
 		final String visibility = tok.nextToken();
-		final int tab = GameMode.getTabNumber(tabName);
+		final Tab aTab = GameMode.getTab(tabName);
 
-		if (tab == Constants.TAB_INVALID) {
+		if (aTab == Tab.INVALID) {
 			return false;
 		}
 
-		gameMode.setTabVisible(tab, visibility.toUpperCase().startsWith("Y"));
+		gameMode.setTabVisible(aTab, visibility.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }

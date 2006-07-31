@@ -25,7 +25,18 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.Constants;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JComponent;
+import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -35,17 +46,7 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.Filterable;
 import pcgen.gui.filter.PObjectFilter;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.JComponent;
-import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.util.ArrayList;
-import java.util.List;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoInventory</code><br>
@@ -55,11 +56,9 @@ import java.util.List;
 public final class InfoInventory extends JTabbedPane implements Filterable, CharacterInfoTab
 {
 	static final long serialVersionUID = -4186874622211290063L;
-	private static final int GEAR_INDEX = 0;
-	private static final int EQUIPPING_INDEX = 1;
-	private static final int RESOURCES_INDEX = 2;
-	private static final int TEMPMOD_INDEX = 3;
-	private static final int NATURAL_INDEX = 4;
+	
+	private static final Tab tab = Tab.INVENTORY;
+	
 	private InfoEquipping equipment;
 	private InfoGear gear;
 	private InfoNaturalWeapons naturalWeapons;
@@ -83,7 +82,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 		tempmod = new InfoTempMod(pc);
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_INVENTORY]);
+		setName(tab.toString());
 
 		initComponents();
 		initActionListeners();
@@ -108,7 +107,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Inventory.Order", Constants.TAB_INVENTORY);
+		return SettingsHandler.getPCGenOption(".Panel.Inventory.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -119,13 +118,13 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_INVENTORY);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_INVENTORY);
+		return game.getTabShown(tab);
 	}
 
 	/**
@@ -206,7 +205,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 **/
 	public void setFilterMode(int mode)
 	{
-		if (getSelectedIndex() == GEAR_INDEX)
+		if (getSelectedIndex() == Tab.GEAR.index())
 		{
 			gear.setFilterMode(mode);
 		}
@@ -218,7 +217,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 **/
 	public int getFilterMode()
 	{
-		if (getSelectedIndex() == GEAR_INDEX)
+		if (getSelectedIndex() == Tab.GEAR.index())
 		{
 			return gear.getFilterMode();
 		}
@@ -241,7 +240,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 **/
 	public boolean isMatchAnyEnabled()
 	{
-		if (getSelectedIndex() == GEAR_INDEX)
+		if (getSelectedIndex() == Tab.GEAR.index())
 		{
 			return gear.isMatchAnyEnabled();
 		}
@@ -273,7 +272,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 **/
 	public boolean isNegateEnabled()
 	{
-		if (getSelectedIndex() == GEAR_INDEX)
+		if (getSelectedIndex() == Tab.GEAR.index())
 		{
 			return gear.isNegateEnabled();
 		}
@@ -305,7 +304,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	 **/
 	public int getSelectionMode()
 	{
-		if (getSelectedIndex() == GEAR_INDEX)
+		if (getSelectedIndex() == Tab.GEAR.index())
 		{
 			return gear.getSelectionMode();
 		}
@@ -355,19 +354,19 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 			{
 				public void stateChanged(ChangeEvent e)
 				{
-					if (getSelectedIndex() == GEAR_INDEX)
+					if (getSelectedIndex() == Tab.GEAR.index())
 					{
 						InfoGear.setNeedsUpdate(true);
 					}
-					else if (getSelectedIndex() == EQUIPPING_INDEX)
+					else if (getSelectedIndex() == Tab.EQUIPPING.index())
 					{
 					    InfoEquipping.setNeedsUpdate(true);
 					}
-					else if (getSelectedIndex() == RESOURCES_INDEX)
+					else if (getSelectedIndex() == Tab.RESOURCES.index())
 					{
 					    InfoResources.setNeedsUpdate(true);
 					}
-					else if (getSelectedIndex() == TEMPMOD_INDEX)
+					else if (getSelectedIndex() == Tab.TEMPBONUS.index())
 					{
 					    InfoTempMod.setNeedsUpdate(true);
 					}
@@ -378,20 +377,20 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	private void initComponents()
 	{
 		readyForRefresh = true;
-		add(gear, GEAR_INDEX);
-		setTitleAt(GEAR_INDEX, PropertyFactory.getString("in_Info" + gear.getName()));
-		add(equipment, EQUIPPING_INDEX);
-		setTitleAt(EQUIPPING_INDEX, PropertyFactory.getString("in_Info" + equipment.getName()));
-		add(resources, RESOURCES_INDEX);
-		setTitleAt(RESOURCES_INDEX, PropertyFactory.getString("in_Info" + resources.getName()));
-		add(tempmod, TEMPMOD_INDEX);
-		setTitleAt(TEMPMOD_INDEX, PropertyFactory.getString("in_Info" + tempmod.getName()));
+		add(gear, Tab.GEAR.index());
+		setTitleAt(Tab.GEAR.index(), PropertyFactory.getString("in_Info" + gear.getName()));
+		add(equipment, Tab.EQUIPPING.index());
+		setTitleAt(Tab.EQUIPPING.index(), PropertyFactory.getString("in_Info" + equipment.getName()));
+		add(resources, Tab.RESOURCES.index());
+		setTitleAt(Tab.RESOURCES.index(), PropertyFactory.getString("in_Info" + resources.getName()));
+		add(tempmod, Tab.TEMPBONUS.index());
+		setTitleAt(Tab.TEMPBONUS.index(), PropertyFactory.getString("in_Info" + tempmod.getName()));
 
 		if (SettingsHandler.showNaturalWeaponTab())
 		{
 			naturalWeapons = new InfoNaturalWeapons(pc);
-			add(naturalWeapons, NATURAL_INDEX);
-			setTitleAt(NATURAL_INDEX, PropertyFactory.getString("in_Info" + naturalWeapons.getName()));
+			add(naturalWeapons, Tab.NATWEAPONS.index());
+			setTitleAt(Tab.NATWEAPONS.index(), PropertyFactory.getString("in_Info" + naturalWeapons.getName()));
 		}
 
 		addFocusListener(new FocusAdapter()

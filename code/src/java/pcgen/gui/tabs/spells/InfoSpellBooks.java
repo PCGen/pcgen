@@ -74,6 +74,7 @@ import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoSpellBooks</code> is responsible for the display of the list of
@@ -121,7 +122,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	 */
 	public InfoSpellBooks(PlayerCharacter pc)
 	{
-		super(pc, Constants.TAB_SPELLBOOKS);
+		super(pc, Tab.SPELLBOOKS);
 
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -139,7 +140,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	public int getTabOrder()
 	{
 		return SettingsHandler.getPCGenOption(".Panel.Spells.Books.Order", //$NON-NLS-1$
-			Constants.TAB_KNOWN_SPELLS);
+			Tab.KNOWN_SPELLS.ordinal());
 	}
 
 	/**

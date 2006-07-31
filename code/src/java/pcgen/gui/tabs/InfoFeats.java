@@ -116,6 +116,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -130,6 +131,8 @@ import pcgen.util.enumeration.Visibility;
  */
 public final class InfoFeats extends FilterAdapterPanel implements CharacterInfoTab
 {
+	private static final Tab tab = Tab.ABILITIES;
+	
 	private static final String NO_QUALIFY_MESSAGE = "You do not meet the prerequisites required to take this " + getSingularTabName() + ".";
 	private static final String DUPLICATE_MESSAGE  = "You already have that " + getSingularTabName() + ".";
 	private static String FEAT_FULL_MESSAGE  = "You cannot select any more " + getSingularTabName() + "s.";
@@ -200,7 +203,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		this.pc = pc;
 		// we will use the name to save component
 		// specific settings in the options.ini file
-		setName(Constants.tabNames[Constants.TAB_ABILITIES]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -229,7 +232,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Feats.Order", Constants.TAB_ABILITIES);
+		return SettingsHandler.getPCGenOption(".Panel.Feats.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -240,14 +243,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_ABILITIES);
+		return game.getTabName(tab);
 	}
 
 	private static String getSingularTabName()
 	{
 		if (singularName == null)
 		{
-			singularName = SettingsHandler.getGame().getSingularTabName(Constants.TAB_ABILITIES);
+			singularName = SettingsHandler.getGame().getSingularTabName(tab);
 		}
 		return singularName;
 	}
@@ -255,7 +258,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_ABILITIES);
+		return game.getTabShown(tab);
 	}
 
 	/**

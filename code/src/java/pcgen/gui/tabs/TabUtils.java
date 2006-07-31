@@ -1,15 +1,16 @@
 package pcgen.gui.tabs;
 
-import pcgen.core.EquipmentList;
-import pcgen.util.Logging;
-import pcgen.core.Equipment;
-import pcgen.core.utils.CoreUtility;
-import pcgen.util.PropertyFactory;
 import java.util.ArrayList;
 import java.util.List;
-import pcgen.core.RuleConstants;
-import pcgen.core.PlayerCharacter;
+
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
+import pcgen.core.utils.CoreUtility;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 public class TabUtils
 {

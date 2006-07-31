@@ -35,7 +35,6 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JTabbedPane;
 
-import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -44,6 +43,7 @@ import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.Filterable;
 import pcgen.gui.filter.PObjectFilter; 
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  *  <code>InfoRace</code> creates a new tabbed panel
@@ -52,7 +52,10 @@ import pcgen.util.PropertyFactory;
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
  * @version $Revision$
  **/
-public final class InfoRace extends JTabbedPane implements Filterable, CharacterInfoTab {
+public final class InfoRace extends JTabbedPane implements Filterable, CharacterInfoTab 
+{
+	private static final Tab tab = Tab.RACE_MASTER;
+	
 	private static final int RACES_INDEX = 0;
 	private static final int TEMPLATES_INDEX = 1;
 
@@ -74,7 +77,7 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 		templates = new InfoTemplates(pc);
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_RACE_MASTER]);
+		setName(tab.toString());
 
 		initComponents();
 		initActionListeners();
@@ -224,7 +227,7 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 	}
 
 	public int getTabOrder() {
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", Constants.TAB_RACE_MASTER);
+		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order) {
@@ -233,12 +236,12 @@ public final class InfoRace extends JTabbedPane implements Filterable, Character
 
 	public String getTabName() {
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_RACE_MASTER);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown() {
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_RACE_MASTER);
+		return game.getTabShown(tab);
 	}
 
 	public void refresh() {

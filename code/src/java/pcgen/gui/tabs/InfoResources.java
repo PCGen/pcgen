@@ -111,6 +111,7 @@ import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 import static pcgen.gui.HTMLUtils.*;
 
@@ -126,6 +127,9 @@ import static pcgen.gui.HTMLUtils.*;
 public class InfoResources extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = 7236403406005940947L;
+	
+	private static final Tab tab = Tab.RESOURCES;
+	
 	private static boolean needsUpdate = true;
 
 	// table model modes
@@ -177,7 +181,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		this.pc = aPC;
 		// do not remove this as we will use the component's name
 		// to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_RESOURCES]);
+		setName(tab.toString());
 
 		initComponents();
 
@@ -219,7 +223,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	 */
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(TAB_ORDER_KEY, Constants.TAB_RESOURCES);
+		return SettingsHandler.getPCGenOption(TAB_ORDER_KEY, tab.ordinal());
 	}
 
 	/**
@@ -238,7 +242,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	public String getTabName()
 	{
 		final GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_RESOURCES);
+		return game.getTabName(tab);
 	}
 
 	/**
@@ -248,7 +252,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	public boolean isShown()
 	{
 		final GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_RESOURCES);
+		return game.getTabShown(tab);
 	}
 
 	/**

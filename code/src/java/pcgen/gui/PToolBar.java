@@ -26,7 +26,29 @@
  */
 package pcgen.gui;
 
-import pcgen.core.Constants;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.filter.FilterConstants;
@@ -36,17 +58,7 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
+import pcgen.util.enumeration.Tab;
 
 /**
  * @author  Mario Bonassin
@@ -111,12 +123,12 @@ public class PToolBar extends JToolBar
 			panelName = curPanel.getName();
 		}
 
-		int index = -1;
-
+		Tab aTab = Tab.INVALID;
+		
 		if ((panelName != null) && (panelName.length() > 0))
 		{
 			// Inventory tab has three subpanels
-			if (panelName.equals(Constants.tabNames[Constants.TAB_INVENTORY]))
+			if (panelName.equals(Tab.INVENTORY.toString()))
 			{
 				Component subPanel = ((JTabbedPane) curPanel).getSelectedComponent();
 
@@ -126,13 +138,13 @@ public class PToolBar extends JToolBar
 				}
 			}
 
-			index = pcgen.core.GameMode.getTabNumber(panelName);
+			aTab = pcgen.core.GameMode.getTab(panelName);
 		}
 
 		try
 		{
 			File helpFile;
-			String helpPath = SettingsHandler.getGame().getContextPath(index);
+			String helpPath = SettingsHandler.getGame().getContextPath(aTab);
 
 			if (helpPath.equals(""))
 			{

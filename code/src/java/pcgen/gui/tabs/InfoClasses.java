@@ -25,21 +25,45 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.*;
-import pcgen.gui.filter.FilterAdapterPanel;
-import pcgen.gui.filter.FilterConstants;
-import pcgen.gui.filter.FilterFactory;
-import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.utils.*;
-import pcgen.util.Delta;
-import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.InputVerifier;
+import javax.swing.ListSelectionModel;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -47,11 +71,48 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
+import pcgen.core.Constants;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.PObject;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SubClass;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.CharacterInfo;
+import pcgen.gui.CharacterInfoTab;
+import pcgen.gui.GuiConstants;
+import pcgen.gui.PCGen_Frame1;
+import pcgen.gui.pcGenGUI;
+import pcgen.gui.TableColumnManager;
+import pcgen.gui.TableColumnManagerModel;
+import pcgen.gui.filter.FilterAdapterPanel;
+import pcgen.gui.filter.FilterConstants;
+import pcgen.gui.filter.FilterFactory;
+import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.utils.AbstractTreeTableModel;
+import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.gui.utils.JLabelPane;
+import pcgen.gui.utils.JTreeTable;
+import pcgen.gui.utils.JTreeTableMouseAdapter;
+import pcgen.gui.utils.JTreeTableSorter;
+import pcgen.gui.utils.LabelTreeCellRenderer;
+import pcgen.gui.utils.PObjectNode;
+import pcgen.gui.utils.ResizeColumnListener;
+import pcgen.gui.utils.Utility;
+import pcgen.gui.utils.TreeTableModel;
+import pcgen.gui.utils.WholeNumberField;
+import pcgen.util.Delta;
+import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * ???
@@ -151,7 +212,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_CLASSES]);
+		setName(Tab.CLASSES.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -180,7 +241,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Classes.Order", Constants.TAB_CLASSES);
+		return SettingsHandler.getPCGenOption(".Panel.Classes.Order", Tab.CLASSES.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -191,13 +252,13 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_CLASSES);
+		return game.getTabName(Tab.CLASSES);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_CLASSES);
+		return game.getTabShown(Tab.CLASSES);
 	}
 
 	/**

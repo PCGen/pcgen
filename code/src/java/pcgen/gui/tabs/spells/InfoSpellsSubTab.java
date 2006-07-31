@@ -79,6 +79,7 @@ import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoSpellsSubTab</code> is the common base for the spell sub tabs.
@@ -96,9 +97,10 @@ import pcgen.util.PropertyFactory;
  * @version $Revision$
  */
 
-public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
-		CharacterInfoTab
+public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements CharacterInfoTab
 {
+	private static Tab tab;
+	
 	protected String currSpellBook = Globals.getDefaultSpellBook();
 
 	protected int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
@@ -133,21 +135,19 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	protected int serial = 0;
 	protected boolean readyForRefresh = false;
 
-	protected int tabID = 0;
-
 	/**
 	 *  Constructor for the InfoSpells object
 	 * @param pc
 	 * @param tabID
 	 *
 	 */
-	public InfoSpellsSubTab(PlayerCharacter pc, int tabID)
+	public InfoSpellsSubTab(PlayerCharacter pc, Tab aTab)
 	{
 		this.pc = pc;
-		this.tabID = tabID;
+		tab = aTab;
 		// do not remove this as we will use the component's name
 		// to save component specific settings
-		setName(Constants.tabNames[tabID]);
+		setName(tab.toString());
 	}
 
 	/**
@@ -281,7 +281,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	public final String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(tabID);
+		return game.getTabName(tab);
 	}
 
 	/**
@@ -290,7 +290,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	public final boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(tabID);
+		return game.getTabShown(tab);
 	}
 
 	// -- Abstract methods that the subtabs must implement --

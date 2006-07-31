@@ -126,32 +126,6 @@ public interface Constants
 	/** Type: SPELLBOOK */
 	String s_TYPE_SPELLBOOK= "SPELLBOOK";
 	
-	/** Tab names */
-	String[] tabNames =
-	{
-		"Abilities",
-		"Campaigns",
-		"Class",
-		"Description",
-		"Domains",
-		"Feats",
-		"Inventory",
-		"Race",
-		"Skills",
-		"Spells",
-		"Summary",
-		"Gear",
-		"Equipping",
-		"Resources",
-		"TempMod",
-		"NaturalWeapons",
-		"Known",
-		"Prepared",
-		"Spellbooks",
-		"Races",
-		"Templates"
-	};
-
 	// Encumberence Constants (String)
 	/** LIGHT */
 	String s_LOAD_LIGHT    = "LIGHT";
@@ -319,53 +293,6 @@ public interface Constants
 	int SOURCEMEDIUM    = 4;
 	/** 4 */
 	int SOURCEDATE      = 5;
-
-	// Tabs
-	/** -1 */
-	int TAB_INVALID     = -1;
-	/** 0 */
-	int TAB_SABILITIES  = 0;
-	/** 1 */
-	int TAB_SOURCES     = 1;
-	/** 2 */
-	int TAB_CLASSES     = 2;
-	/** 3 */
-	int TAB_DESCRIPTION = 3;
-	/** 4 */
-	int TAB_DOMAINS     = 4;
-	/** 5 */
-	int TAB_ABILITIES   = 5;
-	/** 6 */
-	int TAB_INVENTORY   = 6;
-	/** 7 */
-	int TAB_RACE_MASTER = 7;
-	/** 8 */
-	int TAB_SKILLS      = 8;
-	/** 9 */
-	int TAB_SPELLS      = 9;
-	/** 10 */
-	int TAB_SUMMARY     = 10;
-	/** 11 */
-	int TAB_GEAR        = 11;
-	/** 12 */
-	int TAB_EQUIPPING   = 12;
-	/** 13 */
-	int TAB_RESOURCES   = 13;
-	/** 14 */
-	int TAB_TEMPBONUS   = 14;
-	/** 15 */
-	int TAB_NATWEAPONS  = 15;
-	/** 16 */
-	int TAB_KNOWN_SPELLS  = 16;
-	/** 17 */
-	int TAB_PREPARED_SPELLS  = 17;
-	/** 18 */
-	int TAB_SPELLBOOKS  = 18;
-	/** 19 */
-	int TAB_RACES       = 19;
-	/** 20 */
-	int TAB_TEMPLATES   = 20;
-
 
 	/** For accessing <code>CategorisableStore</code>. */
 	String ALL_CATEGORIES = "ALL";

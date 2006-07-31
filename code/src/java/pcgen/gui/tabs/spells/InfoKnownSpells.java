@@ -84,6 +84,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.util.FOPHandler;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoKnownSpells</code> is responsible for the display of the list of
@@ -136,7 +137,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	 */
 	public InfoKnownSpells(PlayerCharacter pc)
 	{
-		super(pc, Constants.TAB_KNOWN_SPELLS);
+		super(pc, Tab.KNOWN_SPELLS);
 
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -154,7 +155,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	public int getTabOrder()
 	{
 		return SettingsHandler.getPCGenOption(".Panel.Spells.Known.Order",
-			Constants.TAB_KNOWN_SPELLS);
+			Tab.KNOWN_SPELLS.ordinal());
 	}
 
 	/**

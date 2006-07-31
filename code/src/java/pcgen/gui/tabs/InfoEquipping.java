@@ -25,6 +25,24 @@
  */
 package pcgen.gui.tabs;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -44,24 +62,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.ImageIcon;
@@ -146,6 +146,7 @@ import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.chooser.ChooserRadio;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoEquipping</code> creates a new tabbed panel that is used to
@@ -157,6 +158,9 @@ import pcgen.util.chooser.ChooserRadio;
 public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = 6988134124127535195L;
+
+	private static final Tab tab = Tab.EQUIPPING;
+	
 	private static List<EquipSet> equipSetList = new ArrayList<EquipSet>();
 	private static List<EquipSet> tempSetList = new ArrayList<EquipSet>();
 //	private static final String[] loadTypes = { "LIGHT", "MEDIUM", "HEAVY", "OVERLOADED" };
@@ -251,7 +255,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		this.pc = pc;
 		// do not remove this as we will use the component's name
 		// to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_EQUIPPING]);
+		setName(tab.toString());
 
 		initComponents();
 
@@ -277,7 +281,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Equipping.Order", Constants.TAB_EQUIPPING);
+		return SettingsHandler.getPCGenOption(".Panel.Equipping.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -288,13 +292,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_EQUIPPING);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_EQUIPPING);
+		return game.getTabShown(tab);
 	}
 
 	/**

@@ -58,6 +58,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.PropertyFactory;
 
@@ -1101,7 +1102,7 @@ public final class Globals
 	 */
 	public static boolean getGameModeShowSpellTab()
 	{
-		return SettingsHandler.getGame().getTabShown(Constants.TAB_SPELLS);
+		return SettingsHandler.getGame().getTabShown(Tab.SPELLS);
 	}
 
 	/**

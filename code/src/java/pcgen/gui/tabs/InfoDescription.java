@@ -20,7 +20,64 @@
  */
 package pcgen.gui.tabs;
 
-import pcgen.core.*;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.InputVerifier;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JEditorPane;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
+
+import pcgen.core.Constants;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.NoteItem;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.NameGui;
 import pcgen.gui.PCGen_Frame1;
@@ -32,18 +89,7 @@ import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.Delta;
 import pcgen.util.PropertyFactory;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import java.util.List;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoDescription</code> creates a new tabbed panel.
@@ -54,6 +100,9 @@ import java.util.List;
 public final class InfoDescription extends JPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -8015559748421397718L;
+	
+	private static final Tab tab = Tab.DESCRIPTION;
+	
 	private static boolean bEditingAge = false;
 	private static final int BIO_NOTEID = -2;
 	private static final int DESCRIPTION_NOTEID = -3;
@@ -212,7 +261,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	public InfoDescription(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		setName(Constants.tabNames[Constants.TAB_DESCRIPTION]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -255,7 +304,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Description.Order", Constants.TAB_DESCRIPTION);
+		return SettingsHandler.getPCGenOption(".Panel.Description.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -266,13 +315,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_DESCRIPTION);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_DESCRIPTION);
+		return game.getTabShown(tab);
 	}
 
 	/**

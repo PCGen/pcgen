@@ -109,6 +109,7 @@ import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  * <code>InfoSummary</code> is a panel which allows the user to enter
@@ -119,6 +120,8 @@ import pcgen.util.PropertyFactory;
  */
 public final class InfoSummary extends FilterAdapterPanel implements CharacterInfoTab
 {
+	private static final Tab tab = Tab.SUMMARY;
+	
 	private static final String NONABILITY = PropertyFactory.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
 	private static final String STAT_UPPER_LIMIT = PropertyFactory.getString("in_sumCannotRaiseStatAbove"); // intentionally a fragment //$NON-NLS-1$
 	private static final String IN_PURCHASE_MODE = PropertyFactory.getString("in_sumInPurchaseMode"); // intentionally a fragment //$NON-NLS-1$
@@ -480,7 +483,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		infoSpecialAbilities = new InfoSpecialAbilities(pc);
 		// do not remove this
 		// we will use the component's name to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_SUMMARY]);
+		setName(tab.toString());
 
 		// Build the GUI components
 		initComponents();
@@ -506,7 +509,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Summary.Order", Constants.TAB_SUMMARY);
+		return SettingsHandler.getPCGenOption(".Panel.Summary.Order", tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -517,13 +520,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_SUMMARY);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_SUMMARY);
+		return game.getTabShown(tab);
 	}
 
 	/**

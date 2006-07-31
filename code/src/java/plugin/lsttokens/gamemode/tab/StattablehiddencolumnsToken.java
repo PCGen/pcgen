@@ -3,10 +3,10 @@ package plugin.lsttokens.gamemode.tab;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.TabLoader;
 import pcgen.persistence.lst.TabLstToken;
+import pcgen.util.enumeration.Tab;
 
 /**
  * Class deals with STATTABLEHIDDENCOLUMNS Token
@@ -18,8 +18,8 @@ public class StattablehiddencolumnsToken implements TabLstToken {
 	}
 
 	public boolean parse(GameMode gameMode, Map<String, String> tab, String value) {
-		final int tabNum = GameMode.getTabNumber(tab.get(TabLoader.TAB));
-		if (tabNum != Constants.TAB_SUMMARY) {
+		final Tab aTab = GameMode.getTab(tab.get(TabLoader.TAB));
+		if (aTab != Tab.SUMMARY) {
 			return false;
 		}
 

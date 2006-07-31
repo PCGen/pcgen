@@ -37,7 +37,6 @@ import javax.swing.JComponent;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
-import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -49,6 +48,7 @@ import pcgen.gui.tabs.spells.InfoKnownSpells;
 import pcgen.gui.tabs.spells.InfoPreparedSpells;
 import pcgen.gui.tabs.spells.InfoSpellBooks;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
 /**
  *  <code>InfoSpells</code> creates a new tabbed panel.
@@ -60,6 +60,8 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		Filterable
 {
 	static final long serialVersionUID = 755097384157285101L;
+	
+	private static final Tab tab = Tab.SPELLS;
 
 	private static final int KNOWN_INDEX = 0;
 	private static final int PREPARED_INDEX = 1;
@@ -88,7 +90,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 
 		// do not remove this as we will use the component's name
 		// to save component specific settings
-		setName(Constants.tabNames[Constants.TAB_SPELLS]);
+		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -117,7 +119,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Spells.Order", Constants.TAB_SPELLS); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(".Panel.Spells.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	public void setTabOrder(int order)
@@ -128,13 +130,13 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	public String getTabName()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(Constants.TAB_SPELLS);
+		return game.getTabName(tab);
 	}
 
 	public boolean isShown()
 	{
 		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(Constants.TAB_SPELLS);
+		return game.getTabShown(tab);
 	}
 
 	/**

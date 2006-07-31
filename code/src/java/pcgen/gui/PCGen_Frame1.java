@@ -26,6 +26,57 @@
  */
 package pcgen.gui;
 
+import java.awt.AWTEvent;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.MenuComponent;
+import java.awt.MenuContainer;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+import java.util.EventObject;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.plaf.TabbedPaneUI;
+
 import gmgen.GMGenSystem;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
@@ -34,8 +85,30 @@ import gmgen.pluginmgr.GMBComponent;
 import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.PluginLoader;
-import gmgen.pluginmgr.messages.*;
-import pcgen.core.*;
+import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
+import gmgen.pluginmgr.messages.FileTypeMessage;
+import gmgen.pluginmgr.messages.InitHolderListSendMessage;
+import gmgen.pluginmgr.messages.NewMessage;
+import gmgen.pluginmgr.messages.OpenMessage;
+import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
+import gmgen.pluginmgr.messages.PauseRefreshMessage;
+import gmgen.pluginmgr.messages.PCClosedMessage;
+import gmgen.pluginmgr.messages.PCLoadedMessage;
+import gmgen.pluginmgr.messages.ResumeRefreshMessage;
+import gmgen.pluginmgr.messages.SaveMessage;
+import gmgen.pluginmgr.messages.SavePCGNotificationMessage;
+import gmgen.pluginmgr.messages.SavePCGRequestMessage;
+import gmgen.pluginmgr.messages.StateChangedMessage;
+import gmgen.pluginmgr.messages.TabAddMessage;
+import gmgen.pluginmgr.messages.WindowClosedMessage;
+
+import pcgen.core.Constants;
+import pcgen.core.CustomData;
+import pcgen.core.Equipment;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
 import pcgen.core.party.PCLoader;
 import pcgen.core.party.Party;
@@ -44,28 +117,19 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.filter.FilterDialogFactory;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.filter.Filterable;
-import pcgen.gui.utils.*;
+import pcgen.gui.utils.BrowserLauncher;
+import pcgen.gui.utils.IconUtilitities;
+import pcgen.gui.utils.JOpenRecentMenu;
+import pcgen.gui.utils.LinkableHtmlMessage;
+import pcgen.gui.utils.Utility;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGFile;
 import pcgen.util.FOPResourceChecker;
 import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Tab;
 
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.plaf.TabbedPaneUI;
-import java.awt.*;
-import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.util.*;
-import java.util.List;
 // WIP please leave boomer70
 //import pcgen.core.npcgen.NPCGenerator;
 
@@ -2119,9 +2183,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		GameMode game = SettingsHandler.getGame();
 
 		mainSource = new MainSource();
-		if ((game != null) && (game.getTabShown(Constants.TAB_SOURCES)))
+		if ((game != null) && (game.getTabShown(Tab.SOURCES)))
 		{
-			baseTabbedPane.addTab(game.getTabName(Constants.TAB_SOURCES), mainSource);
+			baseTabbedPane.addTab(game.getTabName(Tab.SOURCES), mainSource);
 			baseTabbedPane.setToolTipTextAt(0,
 				SettingsHandler.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
 		}
