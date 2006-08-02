@@ -68,6 +68,43 @@
 
 		<p class="indent2">Class Line.</p>
 
+
+		<p></p><a name="CLASSSKILLS"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> ADD:CLASSSKILLS(y,y)z</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> CLASSSKILLS</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Skill names)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.SkillType (Skill type)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> CROSSCLASSSKILLS</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> EXCLUSIVE</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> NONEXCLUSIVE</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> TRAINED</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> UNTRAINED</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> AUTORANK=&lt;Free Ranks&gt;</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number, Variable or Formula (Number of choices granted)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+							 <li>This will add a number of selections of skills of the chosen type.</li>
+							 <li>The number following denotes how many choices are granted.</li>
+							 <li>Use AUTORANK to assign free ranks to any skills chosen.</li>
+							 <li>Valid TYPE's are: ANY, UNTRAINED, TRAINED, EXCLUSIVE, NONEXCLUSIVE, CROSSCLASSSKILLS,
+									 and &lt;skilltype&gt; (i.e. the type of skill not the word &quot;skilltype&quot;.)</li>
+							 <li>AUTORANK=&lt;x&gt; is a special thing for ADD:CLASSSKILLS(). It puts &lt;x&gt;
+								 number of free ranks into that skill. (as if there was
+								 a BONUS:SKILLRANK|&lt;SkillName&gt;|&lt;x&gt; tag for that skill).</li>
+		</ul>
+		<p class="indent1"><strong>Where it can be used:</strong></p>
+		<p class="indent2"><strong>ADD:CLASSSKILLS is only valid in class lines.</strong></p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ADD:CLASSSKILLS(Bluff,Listen,Move Silently)2</code></p>
+		<p class="indent3">Add any two of &quot;Bluff&quot;, &quot;Listen&quot; or &quot;Move Silently&quot;.</p>
+		<p class="indent2"><code>ADD:CLASSSKILLS(Wilderness Lore,TYPE=Knowledge,AUTORANK=1,Bluff,Move Silently,Listen)2</code></p>
+		<p class="indent3">Add any two of &quot;Wilderness Lore&quot;, &quot;Knowledge&quot; type skills, &quot;Bluff&quot;,
+											 &quot;Move Silently&quot; or &quot;Listen&quot;.</p>
+		<p class="indent2"><code>ADD:CLASSSKILLS(NONEXCLUSIVE,AUTORANK=2)1</code></p>
+		<p class="indent3">This would give the char two bonus ranks to the  &quot;nonexclusive&quot;
+			type skill selected.</p>
+
 		<p></p><a name="ATTACKCYCLE"></a><hr>
 		<p class="indent0"><span class="new">*** New 4.3.8</span><br />
 		<strong>Tag Name:</strong> ATTACKCYCLE:x</p>
@@ -230,7 +267,7 @@
 		<p class="indent0"><span class="new">*** New 4.3.1</span><br />
 		<strong>Tag Name:</strong> BONUSSPELLSTAT:x</p>
 
-		<p class="indent1"><strong>Variables Used:</strong> abbreviated name of stat (from 
+		<p class="indent1"><strong>Variables Used:</strong> abbreviated name of stat (from
   		statsandchecks.lst) or &quot;None&quot;</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -256,7 +293,7 @@
 			<li>Tells PCGen how many spell per day the caster has (displayed on the Spells Tab).</li>
 			<li>If no Value is assigned at a given level, the tag defaults to 0.</li>
 			<li>A formula can only be used if the HASSPELLFORMULA:Y tag is also set for the class.</li>
-			<li><strong>Note:</strong> The formula used cannot have commas (,) embedded in it. If a 
+			<li><strong>Note:</strong> The formula used cannot have commas (,) embedded in it. If a
 			    formula requires a comma use a DEFINE to set a variable and use the variable in the
 			    CAST progression.</li>
 		</ul>
@@ -275,10 +312,10 @@
 		<p class="new">*** Deprecated</p>
 		<p class="indent0"><strong>Tag Name:</strong> CASTAS:x</p>
 
-		<p class="indent1">This tag was used to tell PCGen to use the referenced class's 
-  		CAST: and KNOWN: tag progressions but has not worked for some time. The capability 
-  		is not needed as this can be done with other tags. The way to replicate another 
-  		classes spellcasting capabilities is to copy that classes CAST, KNOWN and other 
+		<p class="indent1">This tag was used to tell PCGen to use the referenced class's
+  		CAST: and KNOWN: tag progressions but has not worked for some time. The capability
+  		is not needed as this can be done with other tags. The way to replicate another
+  		classes spellcasting capabilities is to copy that classes CAST, KNOWN and other
  		spell related tags into the new class and then use the <a href="#SPELLLIST">SPELLLIST</a>   		tag to assign it the spell list from the class being replicated.</p>
 
 		<p></p><a name="DEITY"></a><hr>
@@ -366,7 +403,7 @@
 			<li>Tells PCGen how many spell known the caster has (displayed on the Spells Tab).</li>
 			<li>If no Value is assigned at a given level, the tag defaults to 0.</li>
 			<li>A formula can only be used if the HASSPELLFORMULA:Y tag is also set for the class.</li>
-			<li><strong>Note:</strong> The formula used cannot have commas (,) embedded in it. If a 
+			<li><strong>Note:</strong> The formula used cannot have commas (,) embedded in it. If a
 			    formula requires a comma use a DEFINE to set a variable and use the variable in the
 			    KNOWN progression.</li>
 		</ul>
@@ -454,14 +491,14 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Text</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 
-		<p class="indent2">Prohibits characters from using certain spells. This tag can be 
+		<p class="indent2">Prohibits characters from using certain spells. This tag can be
 			qualified with PRExxx statements. Alignment restrictions imposed by this tag
 			can be turned off by the PROHIBITSPELLS house rule preference.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PROHIBITSPELL:ALIGNMENT.Evil</code></p>
 		<p class="indent3">Prohibits the character from taking spells with the 'Evil' descriptor.</p>
 		<p class="indent2"><code>PROHIBITSPELL:ALIGNMENT.Chaotic.Evil</code></p>
-		<p class="indent3">Prohibits the character from taking spells that have both the 
+		<p class="indent3">Prohibits the character from taking spells that have both the
 			'Chaotic' and the 'Evil' descriptors.</p>
 
 		<p class="indent2"><code>PROHIBITSPELL:DESCRIPTOR.Fear</code></p>
@@ -762,8 +799,8 @@
 
 		<p class="indent1"><strong>Variables Used (x):</strong> %downNumber (Amount Hit Dice size is stepped down by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied only that level. 
-			When using the step up function the steps are d4,d6,d8,d10 and stops at d12. 
+		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied only that level.
+			When using the step up function the steps are d4,d6,d8,d10 and stops at d12.
 			When using the step down function the steps are d12,d10,d8,d6 and stops at d4.
 			 Regardless of the number it will never allow a hit die below 1.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -833,8 +870,8 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> ALL (Removes all indicated feats without prompting)</p>
 
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Provides options for removing feats, this works with hidden feats as well as standard feats 
-			but not on those applied with the VFEAT or MFEAT tags. The (y) variable is optional, 
+		<p class="indent2">Provides options for removing feats, this works with hidden feats as well as standard feats
+			but not on those applied with the VFEAT or MFEAT tags. The (y) variable is optional,
 			if not present the tag simply removes whatever feats are specified in variable (x).</p>
 		<p class="indent1"><strong>Where it can be used:</strong></p>
 		<p class="indent2">Works in class and template files.</p>
@@ -845,7 +882,7 @@
 		<p class="indent2"><code>REMOVE:FEAT(TYPE.Fighter)3</code></p>
 		<p class="indent3">Presents a list of Fighter type feats and allows the removal of up to 3.</p>
 		<p class="indent2"><code>REMOVE:FEAT(CHOICE)2</code></p>
-		<p class="indent3">Presents a list of all feats the character has and allow removal of 2 of them. 
+		<p class="indent3">Presents a list of all feats the character has and allow removal of 2 of them.
 			If a feat has a COST:# associated with it, it returns that # back to the feat pool.</p>
 		<p class="indent2"><code>REMOVE:FEAT(CLASS.Paladin)ALL</code></p>
 
@@ -855,18 +892,18 @@
 		<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:x|y|z:<level>:<level assigned item></p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (level interval)</p>
 
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one interval, 
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one interval,
 			use 0 for no skip, Optional)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum level, Optional)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>When encountered on a class level line all the tags included in the line 
+			<li>When encountered on a class level line all the tags included in the line
 			will be applied again at later levels at intervals specified by the tag.</li> 			<li>The progression begins at the level the REPEATLEVEL tag is encountered in.</li>
 
-			<li>Variable x specifies the interval that the line will be repeated, 
+			<li>Variable x specifies the interval that the line will be repeated,
 				so if you specified 3 at level one the line would repeat again at level 4, 7, 10, etc...</li>
-			<li>Variable y specifies the interval with the first interval where it will skip one interval, 
-				to continue the above example if you specified 3 (variable x) at level one and 2 for variable y 
+			<li>Variable y specifies the interval with the first interval where it will skip one interval,
+				to continue the above example if you specified 3 (variable x) at level one and 2 for variable y
 				the line would repeat again at level 4, 10, 13, 19, 22, 28, etc...</li>
 			<li>Variable z specifies the level at which the progression ends.</li>
 			<li>Variables y and z are optional but if you use z you must also use y which can be set to 0 if it is not otherwise used.</li>
@@ -999,7 +1036,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>
 
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the class as 
+		<p class="indent2">This is a | (pipe) delimited list of weapons or weapon types that are granted to the class as
 			a choice of ONE of the listed weapons.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEAPONBONUS:Dagger|Staff|Club|Mace|Sword (Short)|Shortbow (Composite)</code></p>
@@ -1046,9 +1083,9 @@
 		<p class="indent0"><strong>Tag Name:</strong> MONNONSKILLHD:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of hit dice)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines the number of hit dice the monster does not get skill points 
-			for. This is normally defined by size, so the tag is normally seen with 
-			a PRESIZE requirement. It is only used with default monster mode off and 
+		<p class="indent2">Defines the number of hit dice the monster does not get skill points
+			for. This is normally defined by size, so the tag is normally seen with
+			a PRESIZE requirement. It is only used with default monster mode off and
 			will override other skill settings.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 
@@ -1063,9 +1100,9 @@
 		<p class="indent0"><strong>Tag Name:</strong> MONSKILL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Skill points per level/hit die)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines the number of skill points a monster gets per level/hit die of 
-			this class. It can be either a formula or a number. If it is a formula, 
-			stat abbreviations will be translated to the bonus for that stat. Note 
+		<p class="indent2">Defines the number of skill points a monster gets per level/hit die of
+			this class. It can be either a formula or a number. If it is a formula,
+			stat abbreviations will be translated to the bonus for that stat. Note
 			this is only used with default monster mode off.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 
@@ -1081,11 +1118,11 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>As of version 5.9.4 the function of setting Creature Type for a race is 
+			<li>As of version 5.9.4 the function of setting Creature Type for a race is
     		being moved from the Race tag <a href="datafilesraces.html#TYPE">TYPE</a>     		to the new race tag <a href="datafilesraces.html#RACETYPE">RACETYPE</a>.</li>
 
 			<li>The PRERACETYPE tag checks both the TYPE and RACETYPE race entries (if they exist) to preserve backwards compatibility.</li>
-			<li>The PRERACETYPE tag checks the RACETYPE entry <em>in the race line only</em> and not the currently active RACETYPE, 
+			<li>The PRERACETYPE tag checks the RACETYPE entry <em>in the race line only</em> and not the currently active RACETYPE,
 			this is because a race should always qualify for it's base type monster class regardless of any acquired Types.</li>
 			<li>For monster classes the race must be of this type or they can not take the class.</li>
 			<li>This is a separate PRExxx tag from other PRExxx tag because it does not count towards being a prestige class.</li>
