@@ -125,12 +125,6 @@ Will
 |CHECK.%checks.TOTAL|; 
 |ENDFOR|
 |FOR,%stat,0,COUNT[STATS]-2,1,1|
-|STAT.%stat.NAME|&nbsp;|STAT.%stat|, 
-|ENDFOR|
-|FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
-|STAT.%stat.NAME|&nbsp;|STAT.%stat| 
-|ENDFOR|
-|FOR,%stat,0,COUNT[STATS]-2,1,1|
 |STAT.%stat.NAME| |STAT.%stat|,
 |ENDFOR|
 |FOR,%stat,COUNT[STATS]-1,COUNT[STATS]-1,1,1|
@@ -204,7 +198,12 @@ At Will:
 |FOR,%class,0,0,1,1|
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
-<p/><i>|SPELLBOOKNAME.%spellbook| Spells:</i>
+<p/><i>|SPELLBOOK.%spellbook.NAME| Spells:</i> [|SPELLBOOK.%spellbook.TYPE|, |SPELLBOOK.%spellbook.NUMSPELLS| spells 
+|IIF(SPELLBOOK.%spellbook.NUMPAGES:0)|
+|ELSE|
+, Used |SPELLBOOK.%spellbook.NUMPAGESUSED| of |SPELLBOOK.%spellbook.NUMPAGES| (|SPELLBOOK.%spellbook.PAGEFORMULA|) pages
+|ENDIF|
+]
 
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
 |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
