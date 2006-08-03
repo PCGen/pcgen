@@ -86,7 +86,7 @@ public class TemplateToken extends Token
 
 			if ("NAME".equals(aLabel))
 			{
-				retString = getNameToken(template);
+				retString = getOutputNameToken(template);
 			}
 			else if ("OUTPUTNAME".equals(aLabel))
 			{
