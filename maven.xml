@@ -30,16 +30,16 @@
 	</preGoal>
 
 	<goal name="pcgen:package-clean">
-		<ant:mkdir dir="${basedir}/target/distributions" />
+		<ant:mkdir dir="${basedir}/target/docs/download" />
 		<ant:delete>
-			<fileset dir="${basedir}/target/distributions" includes="*.zip, *.tgz"/>
+			<fileset dir="${basedir}/target/docs/download" includes="*.zip, *.tgz"/>
 		</ant:delete>
 	</goal>
 
 	<goal name="pcgen:package" prereqs="pcgen:package-clean">
 		<j:new className="java.util.Date" var="timestamp" />
 		<j:new className="java.text.SimpleDateFormat" var="format">
-			<j:arg type="java.lang.String" value="yyyyMMdd.HHmm" />
+			<j:arg type="java.lang.String" value="yyyy-MM-dd HH:mm Z" />
 		</j:new>
 		<j:invokeStatic className="java.util.TimeZone" method="getTimeZone" var="timezone">
 			<j:arg type="java.lang.String" value="Australia/Canberra" /> <!-- Should match the locale of the build machine -->
@@ -51,9 +51,13 @@
 			<j:arg type="java.util.Date" value="${timestamp}" />
 		</j:invoke>
 
-		<ant:mkdir dir="${basedir}/target/distributions" />
+		<j:file append="false" name="${basedir}/code/bin/autobuild.timestamp"><built-at>${formattedDate}</built-at></j:file>
+		<j:file append="false" escapeText="false"  name="${basedir}/target/entities.ent"><![CDATA[<!ENTITY version '${pom.currentVersion}'>]]></j:file>
 
-		<ant:zip destfile="target/distributions/pcgen-all-no-libs-${formattedDate}.zip">
+	
+		<ant:mkdir dir="${basedir}/target/docs/download" />
+
+		<ant:zip destfile="target/docs/download/pcgen-all-no-libs-${pom.currentVersion}-SNAPSHOT.zip">
 			<fileset dir="${basedir}/target">
 				<include name="pcgen.jar"/>
 			</fileset>
@@ -62,6 +66,7 @@
 				<include name="pcgen.bat"/>
 				<include name="pcgen_low_mem.bat"/>
 				<include name="filepaths.ini"/>
+				<include name="autobuild.timestamp"/>
 			</fileset>
 			<fileset dir="${basedir}" >
 				<include name="plugins/**"/>
@@ -72,7 +77,7 @@
 			</fileset>
 		</ant:zip> 
 
-		<ant:zip basedir="${basedir}" destfile="target/distributions/pcgen-libraries-${formattedDate}.zip" 
+		<ant:zip basedir="${basedir}" destfile="target/docs/download/pcgen-libraries-${pom.currentVersion}-SNAPSHOT.zip" 
 			includes="lib/**" 
 			excludes="lib/emma/**, lib/test/**"/>
 	</goal>
