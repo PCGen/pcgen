@@ -135,7 +135,8 @@
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Martial.Slashing.Melee</code></p>
 		<p class="indent3">All &quot;Melee&quot; type &quot;Martial&quot; weapons that
 											 are &quot;Slashing&quot; type are given as free weapon proficiencies.</p>
-
+		<p class="indent2"><code>AUTO:WEAPONPROF|%LIST</code></p>
+		<p class="indent3">Not documented.</p>
 
 		<p></p><a name="CSKILL"></a><hr>
 		<p class="new">*** Updated 5.9.5</p>
@@ -362,6 +363,7 @@
 				(class, template, etc.). It will not clear them across objects.</li>
 			<li>SA tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
 				SA tags qualified with PRExxx tags will not display unless the character meets the prerequisites.</li>
+			<li>SA tags can be used with %CHOICE tags to display the result of a CHOOSE tag result.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SA:Fire in the Hole</code></p>
@@ -823,6 +825,16 @@
 		removes a class from a listing. Since this is done last, you can not
 		.FORGET the Ranger class, then load up your own modified Ranger class.</p>
 
+		<p></p><a name="WILDCARD"></a><hr>
+		<p class="indent0"><strong>Tag Name:</strong> TAGNAME:% "Wildcard"</p>
+		<p class="indent1"><strong>Variables Used:</strong> Tagname</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>PRERACE:%</code></p>
+		<p class="indent3">Match any race in a race.lst file</p>
+		<p class="indent2"><code>Level %</code></p>
+		<p class="indent3">Any Level</p>
+		<p class="indent2"><code>Knowledge%</code></p>
+		<p class="indent3">Any Knowledge skills</p>
 
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesother.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
