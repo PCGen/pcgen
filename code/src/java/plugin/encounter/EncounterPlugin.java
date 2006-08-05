@@ -668,7 +668,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		}
 		else
 		{
-			eSet = (EquipSet) aPC.getEquipSet().get(0);
+			eSet = aPC.getEquipSet().get(0);
 		}
 
 		return eSet;

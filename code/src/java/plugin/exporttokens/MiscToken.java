@@ -83,7 +83,7 @@ public class MiscToken extends Token
 	private List<String> getLineForMiscList(int index, PlayerCharacter aPC)
 	{
 		final List<String> aArrayList = new ArrayList<String>();
-		final StringTokenizer aTok = new StringTokenizer((String) aPC.getMiscList().get(index), "\r\n", false);
+		final StringTokenizer aTok = new StringTokenizer(aPC.getMiscList().get(index), "\r\n", false);
 
 		while (aTok.hasMoreTokens())
 		{

@@ -120,7 +120,7 @@ public class PreStatParser extends AbstractPrerequisiteParser implements Prerequ
 				prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &&
 				prereq.getOperand().equals("1"))
 			{
-				prereq = (Prerequisite) prereq.getPrerequisites().get(0);
+				prereq = prereq.getPrerequisites().get(0);
 			}
 
 			if (invertResult)

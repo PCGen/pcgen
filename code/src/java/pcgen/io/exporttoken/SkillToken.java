@@ -116,7 +116,7 @@ public class SkillToken extends Token
 
 			if (i < pcSkills.size())
 			{
-				skill = (Skill) pcSkills.get(i);
+				skill = pcSkills.get(i);
 			}
 		}
 		catch (NumberFormatException exc)

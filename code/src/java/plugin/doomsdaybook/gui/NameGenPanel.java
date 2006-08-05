@@ -556,8 +556,8 @@ public class NameGenPanel extends JPanel
 				catalogKey = oldRS.getTitle();
 			}
 
-			ArrayList cats = (ArrayList) categories.get(catKey);
-			ArrayList sexes = (ArrayList) categories.get("Sex: " + sexKey);
+			ArrayList cats = categories.get(catKey);
+			ArrayList sexes = categories.get("Sex: " + sexKey);
 			ArrayList join = new ArrayList();
 			join.addAll(cats);
 			join.retainAll(sexes);

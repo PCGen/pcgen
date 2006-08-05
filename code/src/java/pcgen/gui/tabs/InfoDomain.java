@@ -1103,7 +1103,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Loop through the character's selected domains
 		for (int i = 0; i < pc.getCharacterDomainList().size(); i++)
 		{
-			final CharacterDomain aCD = (CharacterDomain) pc.getCharacterDomainList().get(i);
+			final CharacterDomain aCD = pc.getCharacterDomainList().get(i);
 
 			if ((aCD != null) && (aCD.getDomain() != null))
 			{
@@ -1127,7 +1127,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		for (Iterator<Domain> domainIter = availDomainList.iterator(); domainIter.hasNext();)
 		{
-			Domain domain = (Domain) domainIter.next();
+			Domain domain = domainIter.next();
 
 			if (!accept(pc, domain) && !selectedDomainList.contains(domain))
 			{
@@ -1746,7 +1746,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		 * @return root
 		 **/
 		public Object getRoot() {
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1879,7 +1879,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the deity names
 			// and fill out the tree
 			for (int iName = 0; iName < deityList.size(); iName++) {
-				final Deity aDeity = (Deity) deityList.get(iName);
+				final Deity aDeity = deityList.get(iName);
 
 				if (aDeity != null) {
 					rn[iName] = new PObjectNode();
@@ -1914,7 +1914,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the deity alignments
 			// and fill out the tree
 			for (int iAlignment = 0; iAlignment < alignmentList.size(); iAlignment++) {
-				final String anAlignment = (String) alignmentList.get(iAlignment);
+				final String anAlignment = alignmentList.get(iAlignment);
 				rs[iAlignment] = new PObjectNode();
 				rs[iAlignment].setItem(anAlignment);
 
@@ -1971,7 +1971,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the deity domains
 			// and fill out the tree
 			for (int iDomain = 0; iDomain < domainList.size(); iDomain++) {
-				final String sDomain = (String) domainList.get(iDomain);
+				final String sDomain = domainList.get(iDomain);
 				rs[iDomain] = new PObjectNode();
 				rs[iDomain].setItem(sDomain);
 
@@ -2031,7 +2031,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the deity pantheons
 			// and fill out the tree
 			for (int iPantheon = 0; iPantheon < pantheonList.size(); iPantheon++) {
-				final String sPantheon = (String) pantheonList.get(iPantheon);
+				final String sPantheon = pantheonList.get(iPantheon);
 				rs[iPantheon] = new PObjectNode();
 				rs[iPantheon].setItem(sPantheon);
 
@@ -2087,7 +2087,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the deity sources
 			// and fill out the tree
 			for (int iSource = 0; iSource < sourceList.size(); iSource++) {
-				final String aSource = (String) sourceList.get(iSource);
+				final String aSource = sourceList.get(iSource);
 				rs[iSource] = new PObjectNode();
 				rs[iSource].setItem(aSource);
 
@@ -2130,7 +2130,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		public boolean isMColumnDisplayed(int col) 
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) 
@@ -2224,7 +2224,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			displayDomainList.clear();
 			for(int i = 0; i < availDomainList.size(); i++)
 			{
-				Domain dom = (Domain) availDomainList.get(i);
+				Domain dom = availDomainList.get(i);
 				//TODO Does anyone know why we don't call
 				//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
 				if (qFilter == null || dom.getDisplayName().toLowerCase().indexOf(qFilter) >= 0)
@@ -2253,7 +2253,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				return "";
 			}
 
-			final Domain aDomain = (Domain) displayDomainList.get(row);
+			final Domain aDomain = displayDomainList.get(row);
 
 			if (aDomain == null)
 			{
@@ -2354,7 +2354,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		public boolean isMColumnDisplayed(int col) 
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) 

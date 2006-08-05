@@ -213,7 +213,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			j++;
 
-			InitHolder iH = (InitHolder) initList.get(j);
+			InitHolder iH = initList.get(j);
 
 			if (iH.getStatus().equals("Dead") && !showDead.isSelected())
 			{
@@ -253,7 +253,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			j++;
 
-			InitHolder iH = (InitHolder) initList.get(j);
+			InitHolder iH = initList.get(j);
 
 			if (iH.getStatus().equals("Dead") && !showDead.isSelected())
 			{
@@ -540,7 +540,7 @@ public class Initiative extends javax.swing.JPanel
 	{
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 
 			if (iH.getStatus().equals("Dead"))
 			{
@@ -567,7 +567,7 @@ public class Initiative extends javax.swing.JPanel
 
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 			String cbtType = "";
 
 			if (iH instanceof Combatant)
@@ -1236,7 +1236,7 @@ public class Initiative extends javax.swing.JPanel
 
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 
 			if (iH instanceof Event)
 			{
@@ -1284,7 +1284,7 @@ public class Initiative extends javax.swing.JPanel
 
 			for (int i = 0; i < initList.size(); i++)
 			{
-				InitHolder iH = (InitHolder) initList.get(i);
+				InitHolder iH = initList.get(i);
 
 				if (bleedingTime == PreferencesDamagePanel.DAMAGE_DYING_END)
 				{
@@ -1398,7 +1398,7 @@ public class Initiative extends javax.swing.JPanel
 		for (int i = 0; i < initList.size(); i++)
 		{
 			if (initList.get(i) instanceof PcgCombatant && (initList.get(i) != combatant)
-			    && (!((InitHolder) initList.get(i)).getStatus().equals("Dead") || showDead.isSelected()))
+			    && (!(initList.get(i)).getStatus().equals("Dead") || showDead.isSelected()))
 			{
 				combatants.add(initList.get(i));
 			}
@@ -1511,7 +1511,7 @@ public class Initiative extends javax.swing.JPanel
 
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder c = (InitHolder) initList.get(i);
+			InitHolder c = initList.get(i);
 
 			if ((!c.getStatus().equals("Dead") || showDead.isSelected())
 			    && (!(c instanceof Event) || showEvents.isSelected()))
@@ -1547,7 +1547,7 @@ public class Initiative extends javax.swing.JPanel
 	{
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 
 			if ((!iH.getStatus().equals("Dead") || showDead.isSelected()) && iH instanceof Combatant)
 			{
@@ -1571,7 +1571,7 @@ public class Initiative extends javax.swing.JPanel
 	{
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 
 			if (iH instanceof PcgCombatant)
 			{
@@ -1719,7 +1719,7 @@ public class Initiative extends javax.swing.JPanel
 		   }*/
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 			party.addContent(iH.getSaveElement());
 		}
 
@@ -2309,7 +2309,7 @@ public class Initiative extends javax.swing.JPanel
 
 	private void editTable(int row, int column)
 	{
-		InitHolder iH = (InitHolder) initList.get(row);
+		InitHolder iH = initList.get(row);
 		Object data = combatantTable.getValueAt(row, column);
 		boolean atTop = (currentInit == initList.getMaxInit());
 		iH.editRow(columnList, column, data);
@@ -2952,7 +2952,7 @@ public class Initiative extends javax.swing.JPanel
 
 		for (int i = 0; i < initList.size(); i++)
 		{
-			InitHolder iH = (InitHolder) initList.get(i);
+			InitHolder iH = initList.get(i);
 			StringBuffer sb = new StringBuffer();
 
 			if (iH instanceof Event)

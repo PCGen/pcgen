@@ -265,7 +265,7 @@ final class TipOfTheDay extends JFrame implements ActionListener
 				lastNumber = 0;
 			}
 
-			final String tip = (String) tipList.get(lastNumber);
+			final String tip = tipList.get(lastNumber);
 
 			try
 			{

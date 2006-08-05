@@ -432,7 +432,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			return null;
 		}
-		return (PCLevelInfo) aPC.getLevelInfo().get(i);
+		return aPC.getLevelInfo().get(i);
 	}
 
 	/**
@@ -477,7 +477,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		for (; idx < (pc.getLevelInfoSize() - 1); ++idx)
 		{
-			PCLevelInfo pcl = (PCLevelInfo) pc.getLevelInfo().get(idx);
+			PCLevelInfo pcl = pc.getLevelInfo().get(idx);
 
 			if (pcl.getSkillPointsRemaining() > 0)
 			{
@@ -2377,7 +2377,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingCanceled(ce);
+				(d_listeners.get(i)).editingCanceled(ce);
 			}
 		}
 
@@ -2387,7 +2387,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingStopped(ce);
+				(d_listeners.get(i)).editingStopped(ce);
 			}
 		}
 	}
@@ -2573,7 +2573,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		public Object getRoot()
 		{
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -3007,7 +3007,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				for(;;)
 				{
-					final Skill peek = (Skill) skillList.get(index++);
+					final Skill peek = skillList.get(index++);
 					if (shouldDisplayThis(peek))
 					{
 						return peek;
@@ -3020,7 +3020,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				int idx = index;
 				while (idx < listSize)
 				{
-					final Skill peek = (Skill) skillList.get(idx);
+					final Skill peek = skillList.get(idx);
 
 					if (shouldDisplayThis(peek))
 					{
@@ -3035,7 +3035,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				for(;;)
 				{
-					final Skill peek = (Skill) skillList.get(--index);
+					final Skill peek = skillList.get(--index);
 					if (shouldDisplayThis(peek))
 					{
 						return peek;
@@ -3048,7 +3048,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				int idx = index - 1;
 				while (idx >= 0)
 				{
-					final Skill peek = (Skill) skillList.get(idx);
+					final Skill peek = skillList.get(idx);
 
 					if (shouldDisplayThis(peek))
 					{
@@ -3102,7 +3102,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		public boolean isMColumnDisplayed(int col)
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {
@@ -3788,7 +3788,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			points = -points;
 			for(int i = pc.getLevelInfo().size() - 1; i >= 0; --i)
 			{
-				pcl = (PCLevelInfo) pc.getLevelInfo().get(i);
+				pcl = pc.getLevelInfo().get(i);
 				final int ptsGained = pcl.getSkillPointsGained();
 				int ptsUsed = ptsGained - pcl.getSkillPointsRemaining();
 				if (ptsUsed >= points)
@@ -3834,7 +3834,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		for (Iterator<Skill> iter = prereqSkills.iterator(); iter.hasNext(); )
 		{
-			final Skill aSkill = (Skill) iter.next();
+			final Skill aSkill = iter.next();
 
 			if (PrereqHandler.passesAll(aSkill.getPreReqList(), pc, aSkill))
 			{

@@ -596,7 +596,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		returnList.add(String.valueOf(spLevel));
 		for (Iterator<CharacterSpell> ai = aList.iterator(); ai.hasNext();)
 		{
-			cs = (CharacterSpell) ai.next();
+			cs = ai.next();
 			if (cs.equals(spellA))
 			{
 				returnList.set(0, cs);

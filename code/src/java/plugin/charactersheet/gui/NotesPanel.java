@@ -376,13 +376,13 @@ public class NotesPanel extends FlippingSplitPane {
 		 pc.getDescription());
 		nodesToBeAddedList.add(order++, descriptionNote);
 		companionNote = new NoteItem(COMPANION_NOTEID, -1, PropertyFactory.getString("in_companions"),
-		 (String)pc.getMiscList().get(1));
+		 pc.getMiscList().get(1));
 		nodesToBeAddedList.add(order++, companionNote);
 		otherAssetsNote = new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory.getString("in_otherAssets"),
-		 (String) pc.getMiscList().get(0));
+		 pc.getMiscList().get(0));
 		nodesToBeAddedList.add(order++, otherAssetsNote);
 		magicItemsNote = new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory.getString("in_magicItems"),
-		 (String) pc.getMiscList().get(2));
+		 pc.getMiscList().get(2));
 		nodesToBeAddedList.add(order++, magicItemsNote);
 
 		addNodes(rootTreeNode, nodesToBeAddedList);
@@ -461,7 +461,7 @@ public class NotesPanel extends FlippingSplitPane {
 			currentItem.setValue(notesArea.getText());
 
 			if (x > -1) {
-				((NoteItem) pc.getNotesList().get(x)).setValue(notesArea.getText());
+				(pc.getNotesList().get(x)).setValue(notesArea.getText());
 				pc.setDirty(true);
 			}
 			else if (currentItem == bioNote) {

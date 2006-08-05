@@ -64,7 +64,7 @@ public class PlayerCharacterOutput
 
 		for (int i = 0; i < classList.size(); i++)
 		{
-			PCClass mClass = (PCClass) classList.get(i);
+			PCClass mClass = classList.get(i);
 			sb.append(mClass.getDisplayName() + mClass.getLevel() + " ");
 		}
 
@@ -106,7 +106,7 @@ public class PlayerCharacterOutput
 
 		for (int i = 0; i < eqList.size(); i++)
 		{
-			Equipment eq = (Equipment) eqList.get(i);
+			Equipment eq = eqList.get(i);
 
 			if (!firstLine)
 			{
@@ -266,7 +266,7 @@ public class PlayerCharacterOutput
 
 		for (int i = 0; i < skillList.size(); i++)
 		{
-			Skill skill = (Skill) skillList.get(i);
+			Skill skill = skillList.get(i);
 			int modSkill = -1;
 
 			if (skill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
@@ -305,7 +305,7 @@ public class PlayerCharacterOutput
 			}
 
 			firstLine = false;
-			sb.append((String) saList.get(i));
+			sb.append(saList.get(i));
 		}
 
 		return sb.toString();

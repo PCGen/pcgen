@@ -46,7 +46,7 @@ public class TableColumnManager implements MouseListener {
 		
 		tablePopup = new javax.swing.JPopupMenu();
 		for(int i = 0; i < model.getMColumnList().size(); i++) {
-			String name = (String)model.getMColumnList().get(i);
+			String name = model.getMColumnList().get(i);
 			boolean selected = model.isMColumnDisplayed(i + model.getMColumnOffset());
 			JCheckBoxMenuItem popupCb = new JCheckBoxMenuItem();
 			tablePopup.add(popupCb);
@@ -74,7 +74,7 @@ public class TableColumnManager implements MouseListener {
 			colModel.removeColumn(col);
 		}
 		for(int i = 0; i < checkBoxList.size(); i++) {
-			JCheckBoxMenuItem cb = (JCheckBoxMenuItem)checkBoxList.get(i);
+			JCheckBoxMenuItem cb = checkBoxList.get(i);
 			model.setMColumnDisplayed(i + model.getMColumnOffset(), cb.isSelected());
 			if(cb.isSelected()) {
 				TableColumn col = new TableColumn(i + model.getMColumnOffset());

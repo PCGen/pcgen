@@ -216,7 +216,7 @@ public class InitiativePlugin extends GMBPlugin {
 			InitHolderList cl = message.getInitHolderList();
 
 			for (int i = 0; i < cl.size(); i++) {
-				InitHolder iH = (InitHolder) cl.get(i);
+				InitHolder iH = cl.get(i);
 				theView.addInitHolder(iH);
 			}
 
@@ -323,7 +323,7 @@ public class InitiativePlugin extends GMBPlugin {
 	 */
 	public void fileSave() {
 		for (int i = 0; i < theView.initList.size(); i++) {
-			InitHolder iH = (InitHolder) theView.initList.get(i);
+			InitHolder iH = theView.initList.get(i);
 
 			if (iH instanceof PcgCombatant) {
 				PcgCombatant pcgcbt = (PcgCombatant) iH;

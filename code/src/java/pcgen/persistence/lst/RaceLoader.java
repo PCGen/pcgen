@@ -32,7 +32,6 @@ import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;

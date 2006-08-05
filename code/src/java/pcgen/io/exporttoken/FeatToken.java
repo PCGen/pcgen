@@ -179,7 +179,7 @@ public class FeatToken extends Token {
 
 		Ability aFeat;
 		if (i < aList.size()) {
-			aFeat = (Ability) aList.get(i);
+			aFeat = aList.get(i);
 
 			if (i == aList.size() - 1 && eh != null && eh.getExistsOnly())
 			{

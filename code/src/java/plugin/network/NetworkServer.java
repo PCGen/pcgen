@@ -315,7 +315,7 @@ public class NetworkServer extends Thread {
 			}
 			catch (Exception e) {
 				for(int i = 0; i < clients.size(); i++) {
-					String test = (String)clients.get(i);
+					String test = clients.get(i);
 					if(test.equals(user)) {
 						clients.remove(test);
 						break;

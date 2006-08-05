@@ -784,7 +784,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		for (int stat = 0; stat < SettingsHandler.getGame().s_ATTRIBLONG.length; ++stat)
 		{
-			final PCStat aStat = (PCStat) pc.getStatList().getStatAt(stat);
+			final PCStat aStat = pc.getStatList().getStatAt(stat);
 
 			if (!aStat.isRolled())
 			{
@@ -2846,7 +2846,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 			for (Iterator<Race> it = Globals.getRaceMap().values().iterator(); it.hasNext();)
 			{
-				final Race aRace = (Race) it.next();
+				final Race aRace = it.next();
 
 				if (accept(pc, aRace))
 				{

@@ -433,7 +433,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 		for (int counter = 0; counter < p1.size(); counter++)
 		{
-			PObjectNode node = (PObjectNode) p1.get(counter);
+			PObjectNode node = p1.get(counter);
 
 			//recurse for all this node's subnodes...
 			if (!node.isLeaf())
@@ -522,7 +522,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		{
 			for (int counter = 0; counter < p1.size(); counter++)
 			{
-				PObjectNode node = (PObjectNode) p1.get(counter);
+				PObjectNode node = p1.get(counter);
 
 				//recurse for all this node's subnodes...
 				if (!node.isLeaf())
@@ -605,7 +605,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		{
 			for (int counter = 0; counter < p1.size(); counter++)
 			{
-				PObjectNode node = (PObjectNode) p1.get(counter);
+				PObjectNode node = p1.get(counter);
 
 				// Fetch the name of the node so that we can do a comparison
 				String aString = node.getNodeName();

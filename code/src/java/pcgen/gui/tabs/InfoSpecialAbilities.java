@@ -602,7 +602,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				continue;
 			}
 
-			SpecialAbility sa = (SpecialAbility) cList.get(ix);
+			SpecialAbility sa = cList.get(ix);
 			final String bString = sa.getSASource();
 			PCClass aClass = pc.getClassKeyed(bString.substring(bString.indexOf("|") + 1, bString.lastIndexOf("|")));
 

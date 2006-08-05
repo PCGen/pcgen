@@ -48,9 +48,11 @@ public final class UnitSetLoader extends LstLineFileLoader
 	}
 
 	/**
+	 * @param lstLine 
+	 * @param sourceURL 
 	 * @deprecated This is the old style, to be removed in 5.11.1  
 	 */
-	public void parseLine(String lstLine, URL sourceURL)
+    public void parseLine(String lstLine, URL sourceURL)
 	{
 		Logging.errorPrint("Warning: unitset.lst deprecated. use UNITSET in miscinfo.lst instead (GameMode: " + getGameMode() + ")");
 		UnitSet unitSet = null;

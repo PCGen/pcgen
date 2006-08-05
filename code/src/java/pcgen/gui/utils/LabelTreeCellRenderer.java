@@ -138,7 +138,7 @@ public final class LabelTreeCellRenderer extends JLabel implements TreeCellRende
 	private static Font getFontFromMap(String name, int type, int size)
 	{
 		String key = getFontKey(name, type, size);
-		Font theFont = (Font) fontMap.get(key);
+		Font theFont = fontMap.get(key);
 
 		if (theFont == null)
 		{

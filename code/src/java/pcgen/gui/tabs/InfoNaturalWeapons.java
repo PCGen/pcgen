@@ -275,7 +275,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		Equipment eq;
 		for (int i = 0; i < weaponCount; ++i)
 		{
-			eq = (Equipment) naturalWeapons.get(i);
+			eq = naturalWeapons.get(i);
 
 			final int wpBonus = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc), "TOHIT");
 

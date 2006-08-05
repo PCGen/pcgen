@@ -395,7 +395,7 @@ final class MainAbout extends JPanel
 			}
 			
 			sb.append("<img src='")
-				.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGEBANNER")))
+				.append(SponsorLoader.getConvertedSponsorPath(sponsor.get("IMAGEBANNER")))
 				.append("'><br>");
 		}
 		sb.append("</html>");

@@ -29,7 +29,6 @@ import java.util.StringTokenizer;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;

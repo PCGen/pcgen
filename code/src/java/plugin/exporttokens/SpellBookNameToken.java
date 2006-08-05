@@ -46,7 +46,7 @@ public class SpellBookNameToken extends Token
 			bookNum = Integer.parseInt(tokenSource.substring(13));
 		}
 
-		retString = (String) pc.getSpellBooks().get(bookNum);
+		retString = pc.getSpellBooks().get(bookNum);
 
 		return retString;
 	}

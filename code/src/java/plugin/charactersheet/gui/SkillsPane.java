@@ -327,7 +327,7 @@ public class SkillsPane extends javax.swing.JPanel {
 		boolean lightLine = true;
 		int gridY = 3;
 		for(int i = 0; i < skillList.size(); i++) {
-			Skill skill = (Skill) skillList.get(i);
+			Skill skill = skillList.get(i);
 
 			String check = BLANK;
 			if(skill.isUntrained()) {

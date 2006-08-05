@@ -96,7 +96,7 @@ public class WeaponoToken extends WeaponToken
 	public static Equipment getWeaponEquipment(PlayerCharacter pc) {
 		if (!pc.getSecondaryWeapons().isEmpty())
 		{
-			return (Equipment) pc.getSecondaryWeapons().get(0);
+			return pc.getSecondaryWeapons().get(0);
 		}
 		return null;
 	}

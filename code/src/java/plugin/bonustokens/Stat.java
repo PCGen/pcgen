@@ -65,7 +65,7 @@ public final class Stat extends BonusObj
 
 			if (iStat >= 0)
 			{
-				addBonusInfo(new CastStat((PCStat) SettingsHandler.getGame().getUnmodifiableStatList().get(iStat)));
+				addBonusInfo(new CastStat(SettingsHandler.getGame().getUnmodifiableStatList().get(iStat)));
 
 				return true;
 			}

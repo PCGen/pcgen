@@ -173,7 +173,7 @@ public class ExperienceAdjusterModel extends Observable
 
 			for (int i = 0; i < combat.size(); i++)
 			{
-				InitHolder iH = (InitHolder) combat.get(i);
+				InitHolder iH = combat.get(i);
 
 				if (iH instanceof Combatant)
 				{

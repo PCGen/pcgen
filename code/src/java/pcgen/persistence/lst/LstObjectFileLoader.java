@@ -24,8 +24,6 @@
  */
 package pcgen.persistence.lst;
 
-import pcgen.core.Globals;
-import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Source;

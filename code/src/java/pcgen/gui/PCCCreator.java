@@ -290,11 +290,11 @@ final class PCCCreator extends JFrame
 
 		for (Enumeration<SourceNode> e = n.children(); e.hasMoreElements();)
 		{
-			SourceNode sNode = (SourceNode) e.nextElement();
+			SourceNode sNode = e.nextElement();
 
 			if (sNode.isLeaf())
 			{
-				String type = (String) lstTypes.get(sNode.nodeName);
+				String type = lstTypes.get(sNode.nodeName);
 				String absPath = sNode.nodeFile.getPath();
 				String relPath = absPath.substring(absPath.indexOf(File.separator + "data" + File.separator) + 6);
 

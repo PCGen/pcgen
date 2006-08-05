@@ -25,12 +25,10 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.core.bonus.BonusObj;
 import pcgen.util.enumeration.Load;
 
 import java.util.StringTokenizer;

@@ -285,7 +285,7 @@ public class NetworkModel {
 		if(num >= colorList.size()) {
 			num = num % colorList.size();
 		}
-		return (Color)colorList.get(num);
+		return colorList.get(num);
 	}
 
 	private JTextPane getLogPane(String title) {

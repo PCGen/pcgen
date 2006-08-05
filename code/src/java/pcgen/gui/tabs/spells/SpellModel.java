@@ -329,7 +329,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 */
 	public Object getRoot()
 	{
-		return (PObjectNode) super.getRoot();
+		return super.getRoot();
 	}
 
 	/**
@@ -470,7 +470,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 		for (int iDom = 0; iDom < pc.getCharacterDomainList().size(); ++iDom)
 		{
-			CharacterDomain aCD = (CharacterDomain) pc.getCharacterDomainList().get(iDom);
+			CharacterDomain aCD = pc.getCharacterDomainList().get(iDom);
 			Domain aDom = aCD.getDomain();
 
 			// if any domains have this class as a source
@@ -701,7 +701,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 					switch (primaryMode)
 					{
 						case GuiConstants.INFOSPELLS_VIEW_CLASS:     	// By Class
-							aClass = (PObject)classList.get(pindex);
+							aClass = classList.get(pindex);
 							primaryMatch = spell.levelForKeyContains(aClass.getSpellKey(), iLev, pc);
 							if (cs != null)
 							{
@@ -779,7 +779,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 						switch (secondaryMode)
 						{
 							case GuiConstants.INFOSPELLS_VIEW_CLASS:     	// By Class
-								aClass = (PObject)classList.get(sindex);
+								aClass = classList.get(sindex);
 								spellMatch = primaryMatch && (spell.getFirstLevelForKey(aClass.getSpellKey(), pc) >= 0);
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_LEVEL:     	// By Level
@@ -855,7 +855,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							PObject bClass =aClass;
 							// if there's only 1 class, then use that to determine which spells are qualified
 							if (aClass == null && classList.size()==1)
-								bClass = (PObject)classList.get(0);
+								bClass = classList.get(0);
 							cs = new CharacterSpell(bClass, spell);
 							si = cs.addInfo(iLev, 1, bookName);
 						}
@@ -1037,7 +1037,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		PObjectNode [] tempNodes = new PObjectNode[classList.size()];
 		for (int ix = 0; ix < classList.size(); ++ix)
 		{
-			PObject obj = (PObject) classList.get(ix);
+			PObject obj = classList.get(ix);
 			String objName = obj.piString();
 			tempNodes[ix] = new PObjectNode();
 			tempNodes[ix].setItem(objName);
@@ -1144,7 +1144,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 	public boolean isMColumnDisplayed(int col)
 	{
-		return ((Boolean)displayList.get(col)).booleanValue();
+		return (displayList.get(col)).booleanValue();
 	}
 
 	public int getMColumnOffset()

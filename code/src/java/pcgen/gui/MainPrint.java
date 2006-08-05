@@ -333,7 +333,7 @@ final class MainPrint extends JPanel
 							+ (String) templateList.getSelectedValue());
 					fh.setInputFile(tmpFile, template);
 					SettingsHandler.setSelectedCharacterPDFOutputSheet(template
-						.getAbsolutePath(), (PlayerCharacter) Globals
+						.getAbsolutePath(), Globals
 						.getPCList().get(pcExports[loop]));
 				}
 				else
@@ -705,7 +705,7 @@ final class MainPrint extends JPanel
 		}
 		else
 		{
-			final PlayerCharacter aPC = (PlayerCharacter) Globals.getPCList().get(pcIndex);
+			final PlayerCharacter aPC = Globals.getPCList().get(pcIndex);
 			SettingsHandler.setSelectedCharacterPDFOutputSheet(template.getAbsolutePath(), aPC);
 
 			(new ExportHandler(template)).write(aPC, bw);
@@ -743,13 +743,13 @@ final class MainPrint extends JPanel
 		{
 			for (int i = 0; i < Globals.getPCList().size(); i++)
 			{
-				aPC = (PlayerCharacter) Globals.getPCList().get(i);
+				aPC = Globals.getPCList().get(i);
 				(new ExportHandler(template)).write(aPC, bw);
 			}
 		}
 		else
 		{
-			aPC = (PlayerCharacter) Globals.getPCList().get(pcIndex);
+			aPC = Globals.getPCList().get(pcIndex);
 			(new ExportHandler(template)).write(aPC, bw);
 		}
 
@@ -844,7 +844,7 @@ final class MainPrint extends JPanel
 		{
 			if (index < Globals.getPCList().size())
 			{
-				final PlayerCharacter aPC = (PlayerCharacter) Globals.getPCList().get(index);
+				final PlayerCharacter aPC = Globals.getPCList().get(index);
 
 				return aPC.getDisplayName();
 			}

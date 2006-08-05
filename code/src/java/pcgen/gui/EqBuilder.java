@@ -176,7 +176,7 @@ final class EqBuilder extends JPanel
 
 				for (int idx = 0; idx < dataModel.getDisplayModifiers().size(); idx++)
 				{
-					final EquipmentModifier eqMod = (EquipmentModifier) dataModel.getDisplayModifiers().get(idx);
+					final EquipmentModifier eqMod = dataModel.getDisplayModifiers().get(idx);
 
 					if (eqMod.getKeyName().startsWith("SE_") && (eqMod.getMyTypeCount() == 1))
 					{
@@ -409,7 +409,7 @@ final class EqBuilder extends JPanel
 				//
 				// Add to equipment object
 				//
-				final EquipmentModifier eqMod = (EquipmentModifier) dataModel.getDisplayModifiers().get(iSelected);
+				final EquipmentModifier eqMod = dataModel.getDisplayModifiers().get(iSelected);
 
 				if (eqMod.getChoiceString().startsWith("EQBUILDER.SPELL"))
 				{
@@ -2260,7 +2260,7 @@ final class EqBuilder extends JPanel
 			EquipmentModifier e;
 
 			try	{
-				e = (EquipmentModifier) getDisplayModifiers().get(row);
+				e = getDisplayModifiers().get(row);
 			}
 			catch (Exception exc) {
 				return null;
@@ -2334,7 +2334,7 @@ final class EqBuilder extends JPanel
 			EquipmentModifier e;
 
 			try	{
-				e = (EquipmentModifier) getDisplayModifiers().get(row);
+				e = getDisplayModifiers().get(row);
 			}
 			catch (Exception exc) {
 				return null;

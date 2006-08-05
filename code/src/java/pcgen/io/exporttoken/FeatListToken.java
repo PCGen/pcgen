@@ -7,7 +7,6 @@ import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.Visibility;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 

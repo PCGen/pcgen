@@ -26,14 +26,12 @@
 package pcgen.persistence.lst;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;

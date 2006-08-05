@@ -412,7 +412,7 @@ final class LstConverter extends JFrame
 									if (!"0".equals(bString))
 									{
 										bString = "BONUS:STAT|"
-											+ ((PCStat) SettingsHandler.getGame().getUnmodifiableStatList().get(statNum))
+											+ (SettingsHandler.getGame().getUnmodifiableStatList().get(statNum))
 											.getAbb() + "|" + bString;
 										conversionWriter.write(bString);
 									}

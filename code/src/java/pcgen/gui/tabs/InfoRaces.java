@@ -1008,7 +1008,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		 * @return root
 		 **/
 		public Object getRoot() {
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1213,7 +1213,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the race names
 			// and fill out the tree
 			for (int iName = 0; iName < raceList.size(); iName++) {
-				final Race aRace = (Race) raceList.get(iName);
+				final Race aRace = raceList.get(iName);
 
 				if (aRace != null) {
 					rn[iName] = new PObjectNode();
@@ -1248,7 +1248,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// and fill out the tree
 			for (int iType = 0; iType < typeList.size(); iType++) 
 			{
-				final String aType = (String) typeList.get(iType);
+				final String aType = typeList.get(iType);
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
@@ -1300,7 +1300,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// iterate through the race sources
 			// and fill out the tree
 			for (int iSource = 0; iSource < sourceList.size(); iSource++) {
-				final String aSource = (String) sourceList.get(iSource);
+				final String aSource = sourceList.get(iSource);
 				rs[iSource] = new PObjectNode();
 				rs[iSource].setItem(aSource);
 
@@ -1356,7 +1356,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// and fill out the tree
 			for (int iType = 0; iType < typeList.size(); iType++)
 			{
-				final String aType = (String) typeList.get(iType);
+				final String aType = typeList.get(iType);
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
@@ -1414,7 +1414,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// and fill out the tree
 			for (int iType = 0; iType < typeList.size(); iType++)
 			{
-				final String aType = (String) typeList.get(iType);
+				final String aType = typeList.get(iType);
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
@@ -1436,7 +1436,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						for (String subTypeName : raceSubTypes)
 						{
-							PObjectNode subTypeNode = (PObjectNode)subTypes.get(subTypeName);
+							PObjectNode subTypeNode = subTypes.get(subTypeName);
 							if (subTypeNode == null)
 							{
 								// We don't have this subtype at this level yet
@@ -1514,7 +1514,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// and fill out the tree
 			for (int iType = 0; iType < typeList.size(); iType++)
 			{
-				final String aType = (String) typeList.get(iType);
+				final String aType = typeList.get(iType);
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
@@ -1576,7 +1576,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		public boolean isMColumnDisplayed(int col) {
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {

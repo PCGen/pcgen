@@ -487,7 +487,7 @@ public class pcGenGUI
 	{
 		for (Iterator<String> i = fileList.iterator(); i.hasNext();)
 		{
-			String fileName = (String)i.next();
+			String fileName = i.next();
 			String fileText = null;
 
 			// TODO: This could be from a net URL as a RFE...
@@ -497,7 +497,7 @@ public class pcGenGUI
 			}
 			else
 			{
-				fileText = readTextFromFile(Globals.getDefaultPath() + File.separator + (String) i.next());
+				fileText = readTextFromFile(Globals.getDefaultPath() + File.separator + i.next());
 			}
 
 			showLicense(title, fileText);
@@ -602,7 +602,7 @@ public class pcGenGUI
 			
 			size += 70;
 			sb.append("<img src='")
-				.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGEBANNER")))
+				.append(SponsorLoader.getConvertedSponsorPath(sponsor.get("IMAGEBANNER")))
 				.append("'><br>");
 		}
 		sb.append("</html>");

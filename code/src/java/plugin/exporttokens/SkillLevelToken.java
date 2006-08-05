@@ -77,7 +77,7 @@ public class SkillLevelToken extends SkillToken
 					return "0";
 				}
 
-				final PCLevelInfo wLevelInfo = (PCLevelInfo) pc.getLevelInfo()
+				final PCLevelInfo wLevelInfo = pc.getLevelInfo()
 					.get(aLevelOffset);
 				final int wOutput = wLevelInfo.getSkillPointsGained();
 				return Integer.toString(wOutput);

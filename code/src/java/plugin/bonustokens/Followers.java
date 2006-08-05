@@ -1,8 +1,6 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
-import java.util.Collection;
-import pcgen.core.Globals;
 
 public class Followers extends BonusObj
 {

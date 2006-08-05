@@ -313,7 +313,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		List<EquipSet> equipmentSetList = pc.getEquipSet();
 		for (int iSet = 0; iSet < equipmentSetList.size(); ++iSet)
 		{
-			EquipSet es = (EquipSet) equipmentSetList.get(iSet);
+			EquipSet es = equipmentSetList.get(iSet);
 			if (es.getItem() != null)
 			{
 				hasEquip = true;
@@ -2065,7 +2065,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			if (es.getName().equals(locName))
 			{
 				final Equipment eItem = es.getItem();
-				final String nString = (String) slotMap.get(locName);
+				final String nString = slotMap.get(locName);
 				int existNum = 0;
 
 				if (nString != null)
@@ -2123,7 +2123,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// check to see how many are allowed in that slot
 			if (es.getName().equals(locName))
 			{
-				final String nString = (String) slotMap.get(locName);
+				final String nString = slotMap.get(locName);
 				int existNum = 0;
 
 				if (nString != null)
@@ -2175,7 +2175,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// process all EquipSet Items
 		for (int iSet = 0; iSet < tempSetList.size(); ++iSet)
 		{
-			EquipSet es = (EquipSet) tempSetList.get(iSet);
+			EquipSet es = tempSetList.get(iSet);
 
 			if (es.getParentIdPath().equals(idPath))
 			{
@@ -2198,7 +2198,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// the child EquipSet items added to each root node
 		for (int i = 0; i < aList.size(); ++i)
 		{
-			addEquipTreeNodes((MyPONode) aNode.getChild(i), (EquipSet) aList.get(i));
+			addEquipTreeNodes((MyPONode) aNode.getChild(i), aList.get(i));
 		}
 	}
 
@@ -2245,7 +2245,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			for (int j = 0; j < tbList.size(); j++)
 			{
-				TempWrap tw = (TempWrap) tbList.get(j);
+				TempWrap tw = tbList.get(j);
 				String tbString = tw.getName();
 
 				if ((aString.equals(tbString)) && !checkList.contains(tbString))
@@ -2683,7 +2683,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// parse each line and look for EQSET delimiter
 			while (!done && (lineNum < lines.size()))
 			{
-				line = (String) lines.get(lineNum);
+				line = lines.get(lineNum);
 
 				if (line.indexOf("|EQSET.START|") > -1)
 				{
@@ -3389,7 +3389,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @param containers List
 	 * @return List
 	 */
-	private final List<String> locationChoices(Equipment eqI, List<EqSetWrapper> containers)
+	@Deprecated
+    private final List<String> locationChoices(Equipment eqI, List<EqSetWrapper> containers)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -3483,7 +3484,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				// process all EquipSet Items
 				for (int iSet = 0; iSet < pc.getEquipSet().size(); ++iSet)
 				{
-					EquipSet es = (EquipSet) pc.getEquipSet().get(iSet);
+					EquipSet es = pc.getEquipSet().get(iSet);
 					String esID = es.getParentIdPath() + ".";
 					String abID = idPath + ".";
 
@@ -4109,7 +4110,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingCanceled(ce);
+				(d_listeners.get(i)).editingCanceled(ce);
 			}
 		}
 
@@ -4119,7 +4120,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingStopped(ce);
+				(d_listeners.get(i)).editingStopped(ce);
 			}
 		}
 	}
@@ -4320,7 +4321,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// return the root node
 		public Object getRoot()
 		{
-			return (MyPONode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -4673,7 +4674,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						// type and fill out the tree
 						for (int iType = 0; iType < typeList.size(); ++iType)
 						{
-							String aType = (String) typeList.get(iType);
+							String aType = typeList.get(iType);
 							eq[iType] = new MyPONode(aType);
 
 							for (Equipment aEq : pc.getEquipmentMasterList())
@@ -4711,7 +4712,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						// type and fill out the tree
 						for (int iLoc = 0; iLoc < locList.size(); ++iLoc)
 						{
-							String aLoc = (String) locList.get(iLoc);
+							String aLoc = locList.get(iLoc);
 							loc[iLoc] = new MyPONode(aLoc);
 
 							for (Equipment aEq : pc.getEquipmentMasterList())
@@ -4907,7 +4908,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		public boolean isMColumnDisplayed(int col) 
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) 
@@ -5473,7 +5474,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingCanceled(ce);
+				(d_listeners.get(i)).editingCanceled(ce);
 			}
 		}
 
@@ -5483,7 +5484,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingStopped(ce);
+				(d_listeners.get(i)).editingStopped(ce);
 			}
 		}
 	}

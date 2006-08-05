@@ -128,7 +128,7 @@ public final class JTreeTableSorter
 
 		for (int i = 0; i < master.size(); i++)
 		{
-			PObjectNode pi = (PObjectNode) master.get(i);
+			PObjectNode pi = master.get(i);
 			List<Object> sortItem = new ArrayList<Object>(2);
 
 			sortItem.add(pi);
@@ -226,7 +226,7 @@ public final class JTreeTableSorter
 
 		for (int i = 0; i < master.size(); i++)
 		{
-			PObjectNode nodule = (PObjectNode) master.get(i);
+			PObjectNode nodule = master.get(i);
 
 			// if it doesn't have any children, continue
 			if (nodule.isLeaf())

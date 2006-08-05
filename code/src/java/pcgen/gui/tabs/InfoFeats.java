@@ -1598,7 +1598,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		public Object getRoot()
 		{
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1920,7 +1920,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 			for (int i = 0; i < fList.size(); ++i)
 			{
-				final Ability aFeat = (Ability) fList.get(i);
+				final Ability aFeat = fList.get(i);
 
 				if (!aFeat.hasPreReqTypeOf("FEAT"))
 				{
@@ -1954,7 +1954,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			{
 				for (int i = 0; i < fList.size(); ++i)
 				{
-					final Ability aFeat = (Ability) fList.get(i);
+					final Ability aFeat = fList.get(i);
 					int placed = 0;
 
 					for (int j = 0; j < rootAsPObjectNode.getChildCount(); ++j)
@@ -2364,7 +2364,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		public boolean isMColumnDisplayed(int col)
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp)

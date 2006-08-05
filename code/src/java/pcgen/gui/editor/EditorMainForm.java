@@ -1550,7 +1550,7 @@ public final class EditorMainForm extends JDialog
 				for (e = Globals.getRaceMap().keySet().iterator(); e.hasNext();)
 				{
 					final String raceName = (String) e.next();
-					final Race aRace = (Race) Globals.getRaceMap().get(raceName);
+					final Race aRace = Globals.getRaceMap().get(raceName);
 					aString = aRace.getRegionString();
 
 					if (aString == null)

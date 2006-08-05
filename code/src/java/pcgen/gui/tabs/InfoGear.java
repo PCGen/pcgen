@@ -913,7 +913,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				if (!foundCounts.containsKey(path)) {
 					foundCounts.put(path, new Float(0.0));
 				}
-				Float count = (Float)foundCounts.get(path);
+				Float count = foundCounts.get(path);
 				count = new Float(count.floatValue()+element.getQty().floatValue());
 				foundCounts.put(path, count);
 			}
@@ -921,7 +921,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		if (foundCounts.size()==0) {
 			return 0.0;
 		}
-		Float max = (Float) Collections.max(foundCounts.values());
+		Float max = Collections.max(foundCounts.values());
 		return max.doubleValue();
 	}
 
@@ -1864,7 +1864,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext(); )
 		{
 			Map.Entry<String, Equipment> entry = i.next();
-			final Equipment bEq = (Equipment) entry.getValue();
+			final Equipment bEq = entry.getValue();
 			final StringTokenizer aTok = new StringTokenizer(bEq.getTypeUsingFlag(true), ".", false);
 
 			// we only want the first TYPE to be in the top-level
@@ -1938,7 +1938,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			for (Iterator<Map.Entry<String, Equipment>> e = EquipmentList.getEquipmentListIterator(); e.hasNext(); ) 
 			{
 				Map.Entry<String, Equipment> entry = e.next();
-				final Equipment bEq = (Equipment) entry.getValue();
+				final Equipment bEq = entry.getValue();
 				final String topType = cc[i].toString();
 
 				if (!bEq.isType(topType))
@@ -2836,7 +2836,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		public void actionPerformed(ActionEvent e)
 		{
-			PlayerCharacter playerCharacter = (PlayerCharacter) Globals.getPCList().get(pcIndex);
+			PlayerCharacter playerCharacter = Globals.getPCList().get(pcIndex);
 			Equipment eq = (Equipment) getCurrentSelectedTableItem();
 
 			if (eq == null)
@@ -3190,7 +3190,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingCanceled(ce);
+				(d_listeners.get(i)).editingCanceled(ce);
 			}
 		}
 
@@ -3200,7 +3200,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingStopped(ce);
+				(d_listeners.get(i)).editingStopped(ce);
 			}
 		}
 	}
@@ -3329,7 +3329,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		}
 
 		public Object getRoot() {
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -3611,8 +3611,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 					for (int k = 0; (d != null) && (k < d.size()); k++) {
 						// Don't add children to items (those with only 1 type)
-						if (!(((PObjectNode) d.get(k)).getItem() instanceof PObject)) {
-							if (eq.isType(((PObjectNode) d.get(k)).toString())) {
+						if (!((d.get(k)).getItem() instanceof PObject)) {
+							if (eq.isType((d.get(k)).toString())) {
 								addChild(eq, d.get(k), fireEvent);
 							}
 						}
@@ -3817,7 +3817,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		public boolean isMColumnDisplayed(int col)
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp)
@@ -3947,7 +3947,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingCanceled(ce);
+				(d_listeners.get(i)).editingCanceled(ce);
 			}
 		}
 
@@ -3957,7 +3957,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			for (int i = d_listeners.size() - 1; i >= 0; --i)
 			{
-				((CellEditorListener) d_listeners.get(i)).editingStopped(ce);
+				(d_listeners.get(i)).editingStopped(ce);
 			}
 		}
 	}

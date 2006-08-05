@@ -114,7 +114,7 @@ public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 
 		while (e.hasMoreElements())
 		{
-			String key = (String) e.nextElement();
+			String key = e.nextElement();
 			table.put(key, bundle.getObject(key));
 		}
 	}

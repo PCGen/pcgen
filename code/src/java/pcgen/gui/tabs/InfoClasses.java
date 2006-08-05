@@ -1410,7 +1410,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		{
 			for (int i = 0; i < countChecks; ++i)
 			{
-				final PObject obj = (PObject) checkList.get(i);
+				final PObject obj = checkList.get(i);
 				lblCheck[i].setText(obj.getDisplayName());
 				lCheck[i].setText(Delta.toString((int) pc.getBonus(i + 1, true)));
 			}
@@ -1651,7 +1651,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		// return the root node
 		public Object getRoot()
 		{
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1857,7 +1857,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
 							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| aClass.isType(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+								|| aClass.isType((rootAsPObjectNode.getChildren().get(i)).getItem()
 									.toString()))
 							{
 								PObjectNode aFN = new PObjectNode();
@@ -1901,7 +1901,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 									+ " has no source long entry.");
 							}
 							else if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| sourceString.equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+								|| sourceString.equals((rootAsPObjectNode.getChildren().get(i)).getItem()
 									.toString()))
 							{
 								PObjectNode aFN = new PObjectNode();
@@ -1963,7 +1963,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		public boolean isMColumnDisplayed(int col) 
 		{
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) 

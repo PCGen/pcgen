@@ -83,7 +83,7 @@ final class GameModes extends JMenu
 
 		for (int i = 0; i < gameModeCount; ++i)
 		{
-			final GameMode gameMode = (GameMode) SystemCollections.getUnmodifiableGameModeList().get(i);
+			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(i);
 			in_modeName[i] = gameMode.getMenuEntry();
 			in_useMode[i] = gameMode.getMenuToolTip();
 		}
@@ -199,7 +199,7 @@ final class GameModes extends JMenu
 			for (Campaign aCamp : Globals.getCampaignList())
 			{
 				if (aCamp.canShowInMenu()
-					&& aCamp.isGameMode(((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
+					&& aCamp.isGameMode((SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
 				{
 					if (firstSubMenu == null)
 					{
@@ -250,7 +250,7 @@ final class GameModes extends JMenu
 				for (int i = 0; i < in_modeName.length; ++i)
 				{
 					if (Globals.isInGameMode(
-							((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
+							(SystemCollections.getUnmodifiableGameModeList().get(i)).getName()))
 					{
 						gameModeNames[i].setSelected(true);
 						bFound = true;
@@ -304,7 +304,7 @@ final class GameModes extends JMenu
 			{
 				if (source == gameModeNames[i])
 				{
-					tempGameMode = ((GameMode) SystemCollections.getUnmodifiableGameModeList().get(i)).getName();
+					tempGameMode = (SystemCollections.getUnmodifiableGameModeList().get(i)).getName();
 				}
 			}
 
@@ -313,7 +313,7 @@ final class GameModes extends JMenu
 			{
 				// We can now specify multiple game modes in a PCC file.
 				// We assume here that the 1st one is the primary one.
-				List<String> gameModeList = ((Campaign) campaigns.get(campaignNum)).getGameModes();
+				List<String> gameModeList = (campaigns.get(campaignNum)).getGameModes();
 				tempGameMode = gameModeList.get(0);
 			}
 

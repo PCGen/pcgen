@@ -369,7 +369,7 @@ public class MainSource extends FilterAdapterPanel
 					.append("</b><br>");
 				sb.append("<html>");
 				if(aCamp.getCoverFiles().size() > 0) {
-					CampaignSourceEntry image = (CampaignSourceEntry)aCamp.getCoverFiles().get(0);
+					CampaignSourceEntry image = aCamp.getCoverFiles().get(0);
 					sb.append("<img src='")
 						.append(image.getFile())
 						.append("'><br>");
@@ -438,7 +438,7 @@ public class MainSource extends FilterAdapterPanel
 				if(Globals.getSponsor(path) != null) {
 					Map<String, String> sponsor = Globals.getSponsor(path);
 					sb.append("<img src='")
-						.append(SponsorLoader.getConvertedSponsorPath((String)sponsor.get("IMAGELARGE")))
+						.append(SponsorLoader.getConvertedSponsorPath(sponsor.get("IMAGELARGE")))
 						.append("'><br>");
 				}
 				sb.append("</html>");
@@ -1601,7 +1601,7 @@ public class MainSource extends FilterAdapterPanel
 		// return the root node
 		public final Object getRoot()
 		{
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1748,7 +1748,7 @@ public class MainSource extends FilterAdapterPanel
 
 								for (int j = 0; (d != null) && (j < d.size()); ++j)
 								{
-									if (aCamp.isType(((PObjectNode) d.get(j)).getItem().toString())
+									if (aCamp.isType((d.get(j)).getItem().toString())
 										|| (!added && (j == (d.size() - 1))))
 									{
 										// Items with less than 3 types will not show up unless we do this
@@ -1766,17 +1766,17 @@ public class MainSource extends FilterAdapterPanel
 										}
 										else
 										{
-											e = ((PObjectNode) d.get(j)).getChildren();
+											e = (d.get(j)).getChildren();
 										}
 
 										for (int k = 0; (e != null) && (k < e.size()); ++k)
 										{
-											if (aCamp.isType(((PObjectNode) e.get(k)).getItem().toString())
+											if (aCamp.isType((e.get(k)).getItem().toString())
 												|| (!added && (k == (e.size() - 1))))
 											{
 												PObjectNode aFN = new PObjectNode(aCamp);
 												PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-												((PObjectNode) e.get(k)).addChild(aFN);
+												(e.get(k)).addChild(aFN);
 												added = true;
 											}
 										}
@@ -1831,14 +1831,14 @@ public class MainSource extends FilterAdapterPanel
 								for (int k = 0; (d != null) && (k < d.size()); ++k)
 								{
 									// Don't add children to items (those with only 1 type)
-									if (!(((PObjectNode) d.get(k)).getItem() instanceof PObject))
+									if (!((d.get(k)).getItem() instanceof PObject))
 									{
-										if (aCamp.isType(((PObjectNode) d.get(k)).getItem().toString())
+										if (aCamp.isType((d.get(k)).getItem().toString())
 											|| (!added && (i == (rootAsPObjectNode.getChildCount() - 1))))
 										{
 											PObjectNode aFN = new PObjectNode(aCamp);
 											PrereqHandler.passesAll(aCamp.getPreReqList(), aPC, aCamp );
-											((PObjectNode) d.get(k)).addChild(aFN);
+											(d.get(k)).addChild(aFN);
 											added = true;
 										}
 									}

@@ -146,7 +146,7 @@ public class FollowerTypeToken extends Token
 		final List<Follower> followers = pc.getFollowerList();
 		for (int i = followers.size() - 1; i >= 0; --i)
 		{
-			final Follower fol = (Follower) followers.get(i);
+			final Follower fol = followers.get(i);
 
 			if (fol.getType().equalsIgnoreCase(typeString))
 			{

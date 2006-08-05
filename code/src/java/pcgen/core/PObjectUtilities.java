@@ -55,6 +55,7 @@ import pcgen.util.chooser.ChooserInterface;
  * @deprecated delete this early in the 5.12 cycle.  This is all handled by
  * ChooserUtilities.modChoices
  */
+@Deprecated
 public class PObjectUtilities
 {
 

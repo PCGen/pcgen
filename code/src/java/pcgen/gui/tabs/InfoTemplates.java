@@ -1082,7 +1082,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		 */
 		public Object getRoot()
 		{
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1238,7 +1238,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 				{
 					if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-						|| template.isType(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+						|| template.isType((rootAsPObjectNode.getChildren().get(i)).getItem()
 							.toString()))
 					{
 						PObjectNode aFN = new PObjectNode();
@@ -1272,7 +1272,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					final String sourceString = template.getSourceEntry().getSourceBook().getLongName();
 					if(sourceString != null) {
 						if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-							|| sourceString.equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()
+							|| sourceString.equals((rootAsPObjectNode.getChildren().get(i)).getItem()
 								.toString()))
 						{
 							PObjectNode aFN = new PObjectNode();
@@ -1314,7 +1314,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		}
 
 		public boolean isMColumnDisplayed(int col) {
-			return ((Boolean)displayList.get(col)).booleanValue();
+			return (displayList.get(col)).booleanValue();
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp) {

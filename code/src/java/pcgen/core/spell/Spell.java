@@ -976,11 +976,11 @@ public final class Spell extends PObject
 
 		if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
 		{
-			Integer lvl = (Integer) wLevelInfo.get(mType + "|" + sType);
+			Integer lvl = wLevelInfo.get(mType + "|" + sType);
 
 			if (lvl == null)
 			{
-				lvl = (Integer) wLevelInfo.get(mType + "|ALL");
+				lvl = wLevelInfo.get(mType + "|ALL");
 			}
 
 			if ((lvl == null) && mType.equals("CLASS"))
@@ -993,7 +993,7 @@ public final class Spell extends PObject
 
 					while (aTok.hasMoreTokens() && (lvl == null))
 					{
-						lvl = (Integer) wLevelInfo.get(mType + "|TYPE." + aTok.nextToken());
+						lvl = wLevelInfo.get(mType + "|TYPE." + aTok.nextToken());
 					}
 				}
 			}

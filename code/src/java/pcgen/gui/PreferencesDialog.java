@@ -429,14 +429,14 @@ final class PreferencesDialog extends JDialog
 
 		for(int i = 0; i < nameList.size(); i++)
 		{
-			String name = (String)nameList.get(i);
-			PreferencesPanel panel = (PreferencesPanel)panelList.get(i);
+			String name = nameList.get(i);
+			PreferencesPanel panel = panelList.get(i);
 			JTabbedPane tpane;
 			if(nodeMap.get(name) == null) {
 				tpane = new JTabbedPane();
 			}
 			else {
-				tpane = (JTabbedPane)nodeMap.get(name);
+				tpane = nodeMap.get(name);
 			}
 
 			tpane.add(panel.toString(), panel);
@@ -446,7 +446,7 @@ final class PreferencesDialog extends JDialog
 		Set<String> keySet = nodeMap.keySet();
 		for(String name : keySet) 
 		{
-			JTabbedPane tpane = (JTabbedPane)nodeMap.get(name);
+			JTabbedPane tpane = nodeMap.get(name);
 
 			pluginNode.add(new DefaultMutableTreeNode(name));
 			settingsPanel.add(tpane, name);
@@ -467,7 +467,7 @@ final class PreferencesDialog extends JDialog
 
 		for (int i = 0; i < panelList.size(); i++)
 		{
-			PreferencesPanel panel = (PreferencesPanel) panelList.get(i);
+			PreferencesPanel panel = panelList.get(i);
 			panel.applyPreferences();
 		}
 		pluginsPanel.applyPreferences();
@@ -1534,7 +1534,7 @@ final class PreferencesDialog extends JDialog
 		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
 			line = addDisplayOption(line, c, gridbag, displayOptsPanel,
-					(String) entry.getKey(), (JComponent) entry.getValue());
+					entry.getKey(), entry.getValue());
 		}
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);

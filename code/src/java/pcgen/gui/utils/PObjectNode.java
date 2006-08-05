@@ -123,7 +123,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	 */
 	public PObjectNode getChild(int i)
 	{
-		return (PObjectNode) children.get(i);
+		return children.get(i);
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 		for (ListIterator<PObjectNode> it = children.listIterator(); it.hasNext();)
 		{
-			PObjectNode node = (PObjectNode) it.next();
+			PObjectNode node = it.next();
 			if (node.isLeaf())
 			{
 //				if (!node.getItem().toString().equals(""))
@@ -421,7 +421,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			for (; x < children.size(); ++x)
 			{
-				final Object childItem = ((PObjectNode) children.get(x)).getItem();
+				final Object childItem = (children.get(x)).getItem();
 				int comp = 1;
 
 				if (childItem != null)

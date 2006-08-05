@@ -161,7 +161,8 @@ public final class PJEP extends JEP
 	 * eg. cl("Fighter", 21)
 	 * eg. cl()
 	 */
-	private final class ClassLevel extends PostfixMathCommand
+	@Deprecated
+    private final class ClassLevel extends PostfixMathCommand
 	{
 		private ClassLevel()
 		{
@@ -273,7 +274,8 @@ public final class PJEP extends JEP
 	 * @deprecated
 	 * @return Returns the variableSource.
 	 */
-	protected String getVariableSource()
+	@Deprecated
+    protected String getVariableSource()
 	{
 		return variableSource;
 	}

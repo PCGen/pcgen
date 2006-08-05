@@ -107,7 +107,7 @@ final class SkillBasePanel extends BasePanel
 		{
 			for (int i = SettingsHandler.getGame().getUnmodifiableStatList().size() - 1; i >= 0; --i)
 			{
-				PCStat aStat = (PCStat) SettingsHandler.getGame().getUnmodifiableStatList().get(i);
+				PCStat aStat = SettingsHandler.getGame().getUnmodifiableStatList().get(i);
 
 				if (aStat.getAbb().equals(aString))
 				{
@@ -128,7 +128,7 @@ final class SkillBasePanel extends BasePanel
 			return "";
 		}
 
-		return ((PCStat) SettingsHandler.getGame().getUnmodifiableStatList().get(idx)).getAbb();
+		return (SettingsHandler.getGame().getUnmodifiableStatList().get(idx)).getAbb();
 	}
 
 	public void setTypesAvailableList(final List aList, final boolean sort)

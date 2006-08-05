@@ -1846,7 +1846,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		// return the root node
 		public Object getRoot()
 		{
-			return (MyPONode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -1963,13 +1963,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			for (int i = 0; i < sList.size(); i++)
 			{
-				String hString = (String) sList.get(i);
+				String hString = sList.get(i);
 				cc[i] = new MyPONode();
 				cc[i].setItem(hString);
 
 				for (int j = 0; j < tbwList.size(); j++)
 				{
-					TempWrap tw = (TempWrap) tbwList.get(j);
+					TempWrap tw = tbwList.get(j);
 					String aString = tw.getName();
 
 					if (hString.equals(aString))
@@ -2104,7 +2104,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		// return the root node
 		public Object getRoot()
 		{
-			return (PObjectNode) super.getRoot();
+			return super.getRoot();
 		}
 
 		/**
@@ -2574,7 +2574,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 							boolean passesApply = true;
 							for (Iterator<Prerequisite> iter = aBonus.getPrereqList().iterator(); iter.hasNext() && passesApply;)
 							{
-								Prerequisite element = (Prerequisite) iter.next();
+								Prerequisite element = iter.next();
 								if (element.getKind() != null && element.getKind().equalsIgnoreCase("APPLY"))
 								{
 									if (!PrereqHandler.passes(element, aEq, pc))

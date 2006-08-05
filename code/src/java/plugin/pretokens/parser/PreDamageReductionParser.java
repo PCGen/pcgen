@@ -101,7 +101,7 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 			prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &&
 			prereq.getOperand().equals("1"))
 		{
-			prereq = (Prerequisite) prereq.getPrerequisites().get(0);
+			prereq = prereq.getPrerequisites().get(0);
 		}
 
 		if (invertResult)

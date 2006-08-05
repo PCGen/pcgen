@@ -57,7 +57,7 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager<Ability>
 
 		if (choices != null && choices.size() > 0) {
 			Matcher mat = Pattern.compile("^FEAT[=.]").matcher(
-					(CharSequence) choices.get(0));
+					choices.get(0));
 
 			if (mat.find()) {
 				ArrayList<String> newChoice = new ArrayList<String>();

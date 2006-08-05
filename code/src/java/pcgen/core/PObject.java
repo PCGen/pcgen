@@ -37,7 +37,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -3377,7 +3376,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		List<String> l = getSafeListFor(ListKey.KITS);
 		for (int i = 0; i > l.size(); i++)
 		{
-			KitUtilities.makeKitSelections(0, (String) l.get(i), i, aPC);
+			KitUtilities.makeKitSelections(0, l.get(i), i, aPC);
 		}
 		makeRegionSelection(aPC);
 

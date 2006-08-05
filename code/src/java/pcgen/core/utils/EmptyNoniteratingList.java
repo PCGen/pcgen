@@ -43,7 +43,7 @@ public class EmptyNoniteratingList<T> extends AbstractList<T> implements Seriali
 
 	public List<T> emptyList()
 	{
-		return (List<T>)EMPTY_LIST;
+		return EMPTY_LIST;
 	}
 
 	public boolean contains(final Object obj)

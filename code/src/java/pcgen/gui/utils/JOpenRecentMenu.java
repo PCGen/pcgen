@@ -88,13 +88,13 @@ public class JOpenRecentMenu extends JMenu
 		{
 			for (int i = entries.size() - 1; i >= 0; --i)
 			{
-				final OpenRecentEntry entry = (OpenRecentEntry) entries.get(i);
+				final OpenRecentEntry entry = entries.get(i);
 				strings.add(entry.displayAs);
 				strings.add(entry.file.getAbsolutePath());
 			}
 		}
 
-		return (String[]) strings.toArray(new String[0]);
+		return strings.toArray(new String[0]);
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class JOpenRecentMenu extends JMenu
 		// Load in reverse order so most recent is at the top
 		for (int i = 0; i < x; ++i)
 		{
-			add(createMenuItem((OpenRecentEntry) entries.get(i)));
+			add(createMenuItem(entries.get(i)));
 		}
 
 		if (x != 0)

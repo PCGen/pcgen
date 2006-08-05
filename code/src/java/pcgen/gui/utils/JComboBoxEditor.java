@@ -125,7 +125,7 @@ public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 
 		for (int i = d_listeners.size() - 1; i >= 0; --i)
 		{
-			((CellEditorListener) d_listeners.get(i)).editingCanceled(ce);
+			(d_listeners.get(i)).editingCanceled(ce);
 		}
 	}
 
@@ -135,7 +135,7 @@ public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 
 		for (int i = d_listeners.size() - 1; i >= 0; --i)
 		{
-			((CellEditorListener) d_listeners.get(i)).editingStopped(ce);
+			(d_listeners.get(i)).editingStopped(ce);
 		}
 	}
 }

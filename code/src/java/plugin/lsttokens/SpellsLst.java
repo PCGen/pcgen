@@ -72,7 +72,7 @@ public class SpellsLst implements GlobalLstToken {
 				}
 			}
 			for(int i = 0; i < preParseSpellList.size(); i++) {
-				StringTokenizer spellTok = new StringTokenizer((String)preParseSpellList.get(i), ",");
+				StringTokenizer spellTok = new StringTokenizer(preParseSpellList.get(i), ",");
 				String name = spellTok.nextToken();
 				String dcFormula = null;
 				if(spellTok.hasMoreTokens()) {

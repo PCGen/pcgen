@@ -410,7 +410,7 @@ final class MainExport extends JPanel
 		else
 		{
 
-			final PlayerCharacter aPC = (PlayerCharacter) Globals.getPCList()
+			final PlayerCharacter aPC = Globals.getPCList()
 				.get(pcIndex);
 			SettingsHandler.setSelectedCharacterHTMLOutputSheet(template
 				.getAbsolutePath(), aPC);
@@ -426,7 +426,7 @@ final class MainExport extends JPanel
 		{
 			if (index < Globals.getPCList().size())
 			{
-				final PlayerCharacter aPC = (PlayerCharacter) Globals.getPCList().get(index);
+				final PlayerCharacter aPC = Globals.getPCList().get(index);
 
 				return aPC.getDisplayName();
 			}

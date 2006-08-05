@@ -148,7 +148,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 
 		if (children == null) { throw new ArrayIndexOutOfBoundsException("node has no children"); }
 
-		return (TreeNode) children.elementAt(index);
+		return children.elementAt(index);
 	}
 
 	//MutableTreeNode Methods
@@ -799,7 +799,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 
 				if (nodeDir.exists()) {
 					for (int i = 0; i < childDirs.size(); i++) {
-						File childDir = (File) childDirs.get(i);
+						File childDir = childDirs.get(i);
 
 						if (nodeDir.getName().equals(childDir.getName())) {
 							removeDirs.add(childDir);
@@ -813,7 +813,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 			}
 
 			for (int i = 0; i < childDirs.size(); i++) {
-				File childDir = (File) childDirs.get(i);
+				File childDir = childDirs.get(i);
 
 				if (!removeDirs.contains(childDir)) {
 					if (childDir.isDirectory() && !childDir.getName().equals("CVS")) {

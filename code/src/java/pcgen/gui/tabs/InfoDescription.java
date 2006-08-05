@@ -456,13 +456,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 					pc.getDescription());
 			nodesToBeAddedList.add(order++, descriptionNote);
 			companionNote = new NoteItem(COMPANION_NOTEID, -1, PropertyFactory.getString("in_companions"),
-					(String) pc.getMiscList().get(1));
+					pc.getMiscList().get(1));
 			nodesToBeAddedList.add(order++, companionNote);
 			otherAssetsNote = new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory.getString("in_otherAssets"),
-					(String) pc.getMiscList().get(0));
+					pc.getMiscList().get(0));
 			nodesToBeAddedList.add(order++, otherAssetsNote);
 			magicItemsNote = new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory.getString("in_magicItems"),
-					(String) pc.getMiscList().get(2));
+					pc.getMiscList().get(2));
 			nodesToBeAddedList.add(order++, magicItemsNote);
 		}
 		else
@@ -474,7 +474,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		for (int x = 0; x < nodesToBeAddedList.size(); x++)
 		{
-			NoteItem ni = (NoteItem) nodesToBeAddedList.get(x);
+			NoteItem ni = nodesToBeAddedList.get(x);
 
 			if (ni.getParentId() == index)
 			{
@@ -488,7 +488,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		for (int i = 0; i < aNode.getChildCount(); i++)
 		{
-			establishTreeNodes((NoteTreeNode) aNode.getChildAt(i), (NoteItem) aList.get(i));
+			establishTreeNodes((NoteTreeNode) aNode.getChildAt(i), aList.get(i));
 		}
 	}
 
@@ -1348,7 +1348,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 					while (allChildren.hasMoreElements())
 					{
-						NoteTreeNode ancestorNode = (NoteTreeNode) allChildren.nextElement();
+						NoteTreeNode ancestorNode = allChildren.nextElement();
 
 						if (ancestorNode != aNode)
 						{
@@ -1374,7 +1374,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 							while (allChildren.hasMoreElements())
 							{
-								NoteTreeNode ancestorNode = (NoteTreeNode) allChildren.nextElement();
+								NoteTreeNode ancestorNode = allChildren.nextElement();
 								pc.getNotesList().remove(ancestorNode.getItem());
 							}
 
@@ -1510,7 +1510,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			personality1Text.setText((String) globalTraitList.get(roll));
+			personality1Text.setText(globalTraitList.get(roll));
 		}
 
 		if ((iSize != 0) && personality2Box.isSelected())
@@ -1523,7 +1523,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			personality2Text.setText((String) globalTraitList.get(roll));
+			personality2Text.setText(globalTraitList.get(roll));
 		}
 
 		iSize = globalPhobiaList.size();
@@ -1538,7 +1538,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			phobiaText.setText((String) globalPhobiaList.get(roll));
+			phobiaText.setText(globalPhobiaList.get(roll));
 		}
 
 		iSize = globalLocationList.size();
@@ -1553,7 +1553,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			locationText.setText((String) globalLocationList.get(roll));
+			locationText.setText(globalLocationList.get(roll));
 		}
 
 		iSize = globalInterestsList.size();
@@ -1568,7 +1568,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			interestsText.setText((String) globalInterestsList.get(roll));
+			interestsText.setText(globalInterestsList.get(roll));
 		}
 
 		iSize = globalPhraseList.size();
@@ -1583,7 +1583,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			catchPhraseText.setText((String) globalPhraseList.get(roll));
+			catchPhraseText.setText(globalPhraseList.get(roll));
 		}
 
 		iSize = globalHairStyleList.size();
@@ -1598,7 +1598,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			hairStyleText.setText((String) globalHairStyleList.get(roll));
+			hairStyleText.setText(globalHairStyleList.get(roll));
 		}
 
 		iSize = globalSpeechList.size();
@@ -1613,7 +1613,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			speechPatternText.setText((String) globalSpeechList.get(roll));
+			speechPatternText.setText(globalSpeechList.get(roll));
 		}
 
 		if (htwtBox.isSelected())
@@ -1652,7 +1652,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			residenceText.setText((String) globalCityList.get(roll));
+			residenceText.setText(globalCityList.get(roll));
 		}
 
 		iSize = globalBirthplaceList.size();
@@ -1667,7 +1667,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 
 			roll %= iSize;
-			birthplaceText.setText((String) globalBirthplaceList.get(roll));
+			birthplaceText.setText(globalBirthplaceList.get(roll));
 		}
 
 		updateTextFields();

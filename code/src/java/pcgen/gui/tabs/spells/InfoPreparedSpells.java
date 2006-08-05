@@ -1108,7 +1108,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		c.setPool(99);
 		c.setVisible(true);
 
-		final List<Ability> fList = (List<Ability>) c.getSelectedList();
+		final List<Ability> fList = c.getSelectedList();
 		List<Ability> selFeatList = new ArrayList<Ability>();
 		int spLevel = si.getActualLevel();
 		int realLevel = spLevel;
@@ -1259,7 +1259,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			pc.setDirty(true);
 			updateBookList();
-			currSpellBook = (String) (selectedBookList.size() > 0 ? selectedBookList
+			currSpellBook = (selectedBookList.size() > 0 ? selectedBookList
 				.get(0)
 				: Globals.getDefaultSpellBook());
 

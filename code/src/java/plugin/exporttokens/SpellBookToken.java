@@ -76,7 +76,7 @@ public class SpellBookToken extends Token
 		SpellBook book = null;
 		if (bookNum >= 0 && bookNum < pc.getSpellBooks().size())
 		{
-			String bookName = (String) pc.getSpellBooks().get(bookNum);
+			String bookName = pc.getSpellBooks().get(bookNum);
 			book = pc.getSpellBookByName(bookName);
 		}
 		if (book != null)

@@ -493,7 +493,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		/* Changes to any PC? */
 		for (int i = 0; i < pcCount; ++i)
 		{
-			if (((PlayerCharacter) allPCs.get(i)).isDirty())
+			if ((allPCs.get(i)).isDirty())
 			{
 				frame.enableSaveAll(true);
 
@@ -1569,7 +1569,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		if ((idx >= 0) && (idx < Globals.getPCList().size()))
 		{
-			return (PlayerCharacter) Globals.getPCList().get(idx);
+			return Globals.getPCList().get(idx);
 		}
 		return null;
 	}
@@ -1966,7 +1966,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 		for (int i = 0; i < list.size(); i++)
 		{
-			InitHolder iH = (InitHolder) list.get(i);
+			InitHolder iH = list.get(i);
 
 			if (iH instanceof PcgCombatant)
 			{
@@ -1997,7 +1997,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		for (int i = 0; i < Globals.getPCList().size(); i++)
 		{
-			GMBus.send(new PCLoadedMessage(this, (PlayerCharacter) Globals.getPCList().get(i)));
+			GMBus.send(new PCLoadedMessage(this, Globals.getPCList().get(i)));
 		}
 	}
 
@@ -2399,7 +2399,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		for (int i = 0, x = Globals.getPCList().size(); i < x; ++i)
 		{
-			PlayerCharacter aPC = (PlayerCharacter) Globals.getPCList().get(i);
+			PlayerCharacter aPC = Globals.getPCList().get(i);
 
 			if (aPC.isDirty())
 			{

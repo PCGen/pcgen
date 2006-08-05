@@ -282,7 +282,7 @@ public class Page2Panel extends javax.swing.JPanel {
 	//TODO: [DJ] remove when I add MiscToken
 	private List getMagicList(PlayerCharacter aPC) {
 		List returnList = new ArrayList();
-		StringTokenizer aTok = new StringTokenizer((String) aPC.getMiscList().get(2), "\r\n", false);
+		StringTokenizer aTok = new StringTokenizer(aPC.getMiscList().get(2), "\r\n", false);
 
 		while (aTok.hasMoreTokens()) {
 			returnList.add(aTok.nextToken());

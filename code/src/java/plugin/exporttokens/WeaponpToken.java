@@ -96,7 +96,7 @@ public class WeaponpToken extends WeaponToken
 	{
 		if (!pc.getPrimaryWeapons().isEmpty())
 		{
-			return (Equipment) pc.getPrimaryWeapons().get(0);
+			return pc.getPrimaryWeapons().get(0);
 		}
 		return null;
 	}

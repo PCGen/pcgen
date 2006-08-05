@@ -107,7 +107,7 @@ public class StatusBar
 	 */
 	public void restoreMessageAreaText()
 	{
-		setMessageAreaTextWithoutSaving((String) oldMessages.pop());
+		setMessageAreaTextWithoutSaving(oldMessages.pop());
 	}
 
 	/**
