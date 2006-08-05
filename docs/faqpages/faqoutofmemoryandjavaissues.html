@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+
+		$Header: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqoutofmemoryandjavaissues.html,v 1.2 2007-08-05 03:54:46 (Sat, 5 Aug 2007 fitzs $
+		$Author: fitzs $
+		$Date: 2007-08-05 03:54:46 -0500 (Sat, 5 Aug 2007) $
+		$Revision: 1123 $
+
+		Contributors:
+		ravagonATbredbandDOTnet
+		Michael <java_kensaiATsbcglobalDOTnet>
+		Paul W. King <paulkingDOTrhochiATverizonDOTnet>
+		Terry FitzSimons <fitzsimonsATmintelDOTnet>
+
+		Description:
+		PCGen FAQ Out of Memory and Java Issues.
+	-->
+	<head>
+		<title>Out of Memory and Java Issues</title>
+		<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+	</head>
+
+	<body>
+		<h1>Out of Memory Issues</h1>
+
+		<ol>
+			<li>
+				<p><span class="underline">How do I increase my memory?</span></p>
+
+				<p>For Windows Users:<br /></p>
+
+				<ul>
+					<li>Try edit the pcgen.bat file and assign more memory to pcgen. Just delete all sentences except this one:</li>
+					<p></p>
+					<li>java -jar pcgen.jar  -Xmx256</li>
+					<p></p>
+					<li>This assign 256Mb ram and should be enough memory for pcgen to run.</li>
+				</ul>
+
+				<p>For Mac Users:<br /></p>
+
+				<ul>
+					<li>First, launch a Terminal window. That gives you a command line. Yeah, I know... a Unix
+						command line on a Mac... it creeped me out the first time. ;-)</li>
+					<p></p>
+					<li>From the command line, cd to the directory where your PCGen install lives.
+						Then launch java to run PCGen with the memory-adding parameters. It's the
+						same syntax as running it on a PC from the command line. Something like:</li>
+					<p></p>
+					<li># java -Xms 256M -Xmx 256M -jar pcgen.jar</li>
+					<p></p>
+					<li>(That may not be quite right, but something like that. You might have a
+						machine handy where you can verify the syntax.)</li>
+					<p></p>
+					<li>It has the added benefit that you get to see any error messages which are
+						directed to the console (stdout or stderr), which can be a big help in
+						debugging LST files.</li></li>
+				</ul>
+
+				<p>For Unix Users:<br /></p>
+
+				<ul>
+					<li>My notes say to refer to Mac instructuions - Fitz</li>
+
+				</ul>
+			<p></p>
+				<p>For All Users:<br /></p>
+
+				<ul>
+					<li>Don't load sources that you don't need.</li>
+					<li>In Preferences - Don't auto create equipment, use the provided equipment and custom
+					create equipment as needed. To custom create, right click on the basic equipement and add to it.</li>
+				</ul>
+			<p></p>
+		</cl>
+	</body>
+<h1>Java Issues</h1>
+
+		<ol>
+			<p></p>
+				<p><span class="underline">How do I find my Java?</span></p>
+
+				<p>"Not good.  Im getting "Bad command or file name"<br /></p>
+					<p></p>
+				<ul>
+					<li>Sounds like you don't have java installed then. Go to <a href="http://java.sun.com/">http://java.sun.com/</a>
+						and download and install the latest java 1.5.x JRE. You'll then be able to run PCGen.</li>
+				</ul>
+
+				<p>For Windows Users:<br /></p>
+
+				<ul>
+					<li>First question is, do you have java installed on your machine. If you don't know, go the command prompt and type:</li>
+					<p></p>
+					<li>java -version</li>
+					<p></p>
+					<li>You should get some kind of a responce like:</li>
+					<p></p>
+					<li>java version "1.5.0_06"</li>
+					<li>Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_06-b05)</li>
+                    <li>Java HotSpot(TM) Client VM (build 1.5.0_06-b05, mixed mode, sharing)</li>
+				</ul>
+
+				<p>For Mac Users:<br /></p>
+
+				<ul>
+					<li>What Java run-time environment (JRE) are you running? (I think I already know the
+					answer, but asking anyway.) From a command line (open a Terminal window), enter:
+					# java -version</li>
+					<p></p>
+					<li>You should get some kind of a responce like:</li>
+					<p></p>
+					<li>java version "1.5.0_06"</li>
+					<li>Java(TM) 2 Runtime Environment, Standard Edition (build 1.5.0_06-b05)</li>
+                    <li>Java HotSpot(TM) Client VM (build 1.5.0_06-b05, mixed mode, sharing)</li>
+				</ul>
+		</ol>
+				<p>For Unix Users:<br /></p>
+
+				<ul>
+					<li>My notes say to refer to Mac instructuions - Fitz</li>
+
+				</ul>
+			<p></p>
+
+		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/faqpages/faqoutofmemoryandjavaissues.html,v $ ($Revision: 1123 $) last updated $Date: 2006-06-24 01:56:46 -0500 (Sat, 24 Jun 2006) $ by $Author: jdempsey $</p> -->
+	</body>
+
+</html>
