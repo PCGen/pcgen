@@ -898,7 +898,8 @@ public final class Spell extends PObject
 			aSpell.duration = duration;
 			aSpell.saveInfo = saveInfo;
 			aSpell.spellResistance = spellResistance;
-			aSpell.descriptorList = descriptorList;
+			aSpell.descriptorList = new ArrayList<String>();
+			aSpell.descriptorList.addAll(descriptorList);
 			aSpell.setCastingThreshold(castingThreshold);
 
 			//aSpell.setMinLVL(minLVL);
@@ -906,7 +907,15 @@ public final class Spell extends PObject
 			aSpell.creatableItem = creatableItem;
 			aSpell.cost = cost;
 			aSpell.xpCost = xpCost;
-			aSpell.variantList = variantList;
+			if (variantList == null)
+			{
+				aSpell.variantList = null;
+			}
+			else
+			{
+				aSpell.variantList = new ArrayList<String>();
+				aSpell.variantList.addAll(variantList);
+			}
 			aSpell.ppCost = ppCost;
 
 			if (levelInfo != null)

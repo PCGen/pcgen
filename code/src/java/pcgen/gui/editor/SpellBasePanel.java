@@ -229,16 +229,16 @@ public class SpellBasePanel extends BasePanel
 
 		//Populate the Descriptor field with comma-delimited list
 		List descriptorList = thisSpell.getDescriptorList();
+		StringBuffer descriptor = new StringBuffer();
 		if(descriptorList.size() > 0)
 		{
-			StringBuffer descriptor = new StringBuffer();
 			for( Iterator it = descriptorList.iterator(); it.hasNext();)
 			{
 				descriptor.append(it.next()).append(",");
 			}
 			descriptor = descriptor.deleteCharAt(descriptor.length() - 1);
-			txtDescriptor.setText(descriptor.toString());
 		}
+		txtDescriptor.setText(descriptor.toString());
 
 		if (cmbSubschool.getSelectedIndex() < 0)
 		{
@@ -252,25 +252,10 @@ public class SpellBasePanel extends BasePanel
 
 		final String items = thisSpell.getCreatableItem().toLowerCase();
 
-		if (canCreateItem("potion", items))
-		{
-			chkPotionAllowed.setSelected(true);
-		}
-
-		if (canCreateItem("ring", items))
-		{
-			chkRingAllowed.setSelected(true);
-		}
-
-		if (canCreateItem("scroll", items))
-		{
-			chkScrollAllowed.setSelected(true);
-		}
-
-		if (canCreateItem("wand", items))
-		{
-			chkWandAllowed.setSelected(true);
-		}
+		chkPotionAllowed.setSelected(canCreateItem("potion", items));
+		chkRingAllowed.setSelected(canCreateItem("ring", items));
+		chkScrollAllowed.setSelected(canCreateItem("scroll", items));
+		chkWandAllowed.setSelected(canCreateItem("wand", items));
 	}
 
 	private static boolean canCreateItem(final String itemType, final String items)
