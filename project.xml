@@ -8,11 +8,12 @@
     <organization>
         <name>SourceForge</name>
         <url>http://sourceforge.net/</url>
-        <logo>http://sflogo.sourceforge.net/sflogo.php?group_id=25576&amp;type=3</logo>
+        <logo>http://sflogo.sourceforge.net/sflogo.php?group_id=25576&amp;type=2</logo>
     </organization>
     <inceptionYear>2003</inceptionYear>
     <package>pcgen</package>
     <logo>http://pcgen.sourceforge.net/banners/PCGen_FullBanner_486x60.png</logo>
+    <url>http://pcgen.sourceforge.net/</url>
 	<issueTrackingUrl>http://pcgen.sourceforge.net/06_trackers.php</issueTrackingUrl>
 
     <description>PCGen RPG character generator.</description>
