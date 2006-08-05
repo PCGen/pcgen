@@ -524,7 +524,7 @@ public final class PCGIOHandler extends IOHandler
 				for (int i = 0; i <= pcClass.getLevel(); i++)
 				{
 					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1);
-					iRoll = pcClass.getHitPoint(i).intValue();
+					iRoll = pcClass.getHitPoint(i);
 					iSides = baseSides + (int) pcClass.getBonusTo("HD", "MAX", i + 1, aPC);
 
 					if (iRoll > iSides)

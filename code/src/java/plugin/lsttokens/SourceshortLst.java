@@ -22,7 +22,7 @@ public class SourceshortLst implements GlobalLstToken, SourceLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setSourceMap(SourceLoader.parseSource("SOURCESHORT:" + value));
+		obj.getSourceEntry().getSourceBook().setShortName(value);
 		return true;
 	}
 

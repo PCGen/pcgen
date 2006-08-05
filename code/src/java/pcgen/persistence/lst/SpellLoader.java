@@ -27,6 +27,7 @@ package pcgen.persistence.lst;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -90,7 +91,7 @@ public final class SpellLoader extends LstObjectFileLoader
 			{
 				if ((!colString.equals(spell.getKeyName())) && (colString.indexOf(".MOD") < 0))
 				{
-					finishObject(spell);
+					completeObject(spell);
 					spell = new Spell();
 					spell.setName(colString);
 					spell.setSourceCampaign(source.getCampaign());
@@ -121,13 +122,15 @@ public final class SpellLoader extends LstObjectFileLoader
 			}
 		}
 
-		return spell;
+		completeObject( spell );
+		return null;
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
-	protected PObject getObjectKeyed(String aKey)
+	@Override
+	protected PObject getObjectKeyed( final String aKey )
 	{
 		return Globals.getSpellKeyed(aKey);
 	}
@@ -137,70 +140,61 @@ public final class SpellLoader extends LstObjectFileLoader
 	 */
 	protected void finishObject(PObject target)
 	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			Object obj = Globals.getSpellMap().get(target.getKeyName());
-			if (obj == null)
-			{
-				Globals.addToSpellMap( target.getKeyName(), target );
-			}
-			else
-			{
-				ArrayList aList;
-				if (obj instanceof ArrayList)
-					aList = (ArrayList)obj;
-				else
-				{
-					aList = new ArrayList();
-					aList.add(obj);
-				}
-				boolean match = false;
-				for (Iterator i = aList.iterator(); i.hasNext();)
-				{
-					Spell aSpell = (Spell)i.next();
-					Object a = aSpell.getLevelInfo(null);
-					Object b = ((Spell)target).getLevelInfo(null);
-					if ((a==null && b==null) || (a!=null && a.equals(b)))
-					{
-						match = true;
-					}
-				}
-				if (!match)
-				{
-					final Spell aSpell = Globals.getSpellKeyed(target.getKeyName());
-					if (aSpell == null)
-					{
-						aList.add(target);
-						Globals.addToSpellMap( target.getKeyName(), aList );
-					}
-					else if (!target.equals(aSpell))
-					{
-						if (SettingsHandler.isAllowOverride())
-						{
-							if (target.getSourceDateValue() > aSpell.getSourceDateValue())
-							{
-								Globals.getSpellMap().remove(aSpell.getKeyName());
-								Globals.addToSpellMap( target.getKeyName(), target );
-							}
-						}
-					}
-				}
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
+		// TODO - This code is broken now.  I think it always was though.
+//		Object obj = Globals.getSpellMap().get(target.getKeyName());
+//		if (obj == null)
+//		{
+//			Globals.addToSpellMap( target.getKeyName(), target );
+//		}
+//		else
+//		{
+//			ArrayList aList;
+//			if (obj instanceof ArrayList)
+//				aList = (ArrayList)obj;
+//			else
+//			{
+//				aList = new ArrayList();
+//				aList.add(obj);
+//			}
+//			boolean match = false;
+//			for (Iterator i = aList.iterator(); i.hasNext();)
+//			{
+//				Spell aSpell = (Spell)i.next();
+//				Object a = aSpell.getLevelInfo(null);
+//				Object b = ((Spell)target).getLevelInfo(null);
+//				if ((a==null && b==null) || (a!=null && a.equals(b)))
+//				{
+//					match = true;
+//				}
+//			}
+//			if (!match)
+//			{
+//				final Spell aSpell = Globals.getSpellKeyed(target.getKeyName());
+//				if (aSpell == null)
+//				{
+//					aList.add(target);
+//					Globals.addToSpellMap( target.getKeyName(), aList );
+//				}
+//				else if (!target.equals(aSpell))
+//				{
+//					if (SettingsHandler.isAllowOverride())
+//					{
+//						if (target.getSourceDateValue() > aSpell.getSourceDateValue())
+//						{
+//							Globals.getSpellMap().remove(aSpell.getKeyName());
+//							Globals.addToSpellMap( target.getKeyName(), target );
+//						}
+//					}
+//				}
+//			}
+//		}
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
-	protected void performForget(PObject objToForget)
+	@Override
+	protected void performForget(final PObject objToForget)
 	{
 		Globals.getSpellMap().remove(objToForget.getKeyName());
 	}
@@ -271,6 +265,34 @@ public final class SpellLoader extends LstObjectFileLoader
 					spell.setLevelInfo(typeString + "|" + aClass, aLevel);
 				}
 			}
+		}
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 */
+	@Override
+	protected void addGlobalObject( final PObject pObj )
+	{
+		final Object obj = Globals.getSpellMap().get( pObj.getKeyName() );
+		if ( obj == null )
+		{
+			Globals.addToSpellMap( pObj.getKeyName(), pObj );
+		}
+		else
+		{
+			final List<Spell> spellList;
+			if ( obj instanceof Spell )
+			{
+				spellList = new ArrayList<Spell>();
+				Globals.getSpellMap().remove( obj );
+				Globals.addToSpellMap( pObj.getKeyName(), spellList );
+			}
+			else
+			{
+				spellList = (List<Spell>)obj;
+			}
+			spellList.add( (Spell)pObj );
 		}
 	}
 }

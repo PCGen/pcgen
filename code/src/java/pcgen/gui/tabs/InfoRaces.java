@@ -437,7 +437,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				b.append(" &nbsp;<b>TYPE</b>:").append(aRace.getType());
 			}
-			String bString = aRace.getSource();
+			String bString = aRace.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -1286,7 +1286,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			for(Race aRace : Globals.getRaceMap().values()) 
 			{
 				if(accept(pc, aRace)) {
-					String aString = aRace.getSourceWithKey("LONG");
+					final String aString = aRace.getSourceEntry().getSourceBook().getLongName();
 					if(aString != null && !sourceList.contains(aString) && aString.length() > 0)
 					{
 						sourceList.add(aString);
@@ -1310,7 +1310,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 						continue;
 					}
 
-					String aString = aRace.getSourceWithKey("LONG");
+					final String aString = aRace.getSourceEntry().getSourceBook().getLongName();
 					if (aString != null && !aString.equals(aSource)) {
 						continue;
 					}

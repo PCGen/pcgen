@@ -1432,7 +1432,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				for ( final PCGElement child : element.getChildren() )
 				{
-					aPCClass.getSpecialtyList().add(EntityEncoder.decode(child.getText()));
+					aPCClass.addSpecialty(EntityEncoder.decode(child.getText()));
 				}
 			}
 			else if (TAG_SPECIALABILITIES.equals(tag))

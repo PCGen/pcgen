@@ -880,30 +880,31 @@ final class PreferencesDialog extends JDialog
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
 
+		// TODO - Fix this. We should not do this with a switch.
 		switch (sourceOptions.getSelectedIndex())
 		{
 			case 0:
-				Globals.setSourceDisplay(Constants.SOURCELONG);
+				Globals.setSourceDisplay(SourceEntry.SourceFormat.LONG);
 
 				break;
 
 			case 1:
-				Globals.setSourceDisplay(Constants.SOURCEMEDIUM);
+				Globals.setSourceDisplay(SourceEntry.SourceFormat.MEDIUM);
 
 				break;
 
 			case 2:
-				Globals.setSourceDisplay(Constants.SOURCESHORT);
+				Globals.setSourceDisplay(SourceEntry.SourceFormat.SHORT);
 
 				break;
 
 			case 3:
-				Globals.setSourceDisplay(Constants.SOURCEPAGE);
+				Globals.setSourceDisplay(SourceEntry.SourceFormat.PAGE);
 
 				break;
 
 			case 4:
-				Globals.setSourceDisplay(Constants.SOURCEWEB);
+				Globals.setSourceDisplay(SourceEntry.SourceFormat.WEB);
 
 				break;
 
@@ -1282,27 +1283,27 @@ final class PreferencesDialog extends JDialog
 
 		switch (Globals.getSourceDisplay())
 		{
-			case Constants.SOURCELONG:
+			case LONG:
 				sourceOptions.setSelectedIndex(0);
 
 				break;
 
-			case Constants.SOURCEMEDIUM:
+			case MEDIUM:
 				sourceOptions.setSelectedIndex(1);
 
 				break;
 
-			case Constants.SOURCESHORT:
+			case SHORT:
 				sourceOptions.setSelectedIndex(2);
 
 				break;
 
-			case Constants.SOURCEPAGE:
+			case PAGE:
 				sourceOptions.setSelectedIndex(3);
 
 				break;
 
-			case Constants.SOURCEWEB:
+			case WEB:
 				sourceOptions.setSelectedIndex(4);
 
 				break;

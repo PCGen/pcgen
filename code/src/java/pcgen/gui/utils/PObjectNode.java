@@ -376,7 +376,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	{
 		if (item instanceof PObject)
 		{
-			return ((PObject) item).getSource();
+			return ((PObject) item).getSourceEntry().toString();
 		}
 
 		return "";

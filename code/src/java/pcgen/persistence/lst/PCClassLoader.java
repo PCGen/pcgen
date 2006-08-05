@@ -52,6 +52,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -134,7 +135,8 @@ public final class PCClassLoader extends LstObjectFileLoader
 
 				if ((!name.equals(pcClass.getKeyName())) && (name.indexOf(".MOD") < 0))
 				{
-					finishObject(pcClass);
+					// TODO - This should never happen
+					completeObject(pcClass);
 					pcClass = new PCClass();
 					pcClass.setName(name);
 					pcClass.setSourceFile(source.getFile());
@@ -299,69 +301,28 @@ public final class PCClassLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
 	 */
-	protected void finishObject(PObject target)
+	@Override
+	protected void finishObject(final PObject target)
 	{
-		if (target == null)
+		final List<Prerequisite> preReqList = target.getPreReqList();
+		if (preReqList != null)
 		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			// This class already exists, so lets
-			// compare source files to see if its
-			// a duplicate named entry
-			final PCClass bClass = Globals.getClassKeyed(target.getKeyName());
-
-			if (bClass == null)
+			for (Prerequisite preReq : preReqList)
 			{
-				Globals.getClassList().add((PCClass)target);
-			}
-			else
-			{
-				if (!bClass.getSourceFile().equals(target.getSourceFile()))
+				if ("VAR".equalsIgnoreCase(preReq.getKind()))
 				{
-					if (SettingsHandler.isAllowOverride())
-					{
-						if (target.getSourceDateValue() > bClass.getSourceDateValue())
-						{
-							Globals.getClassList().remove(bClass);
-							Globals.getClassList().add((PCClass)target);
-						}
-					}
-					else
-					{
-						// Duplicate loading error
-						Logging.errorPrint("WARNING: Duplicate class name: " + target.getKeyName());
-						Logging.errorPrint("Original : " + bClass.getSourceFile());
-						Logging.errorPrint("Duplicate: " + target.getSourceFile());
-						Logging.errorPrint("WARNING: Not loading duplicate");
-					}
+					preReq.setSubKey("CLASS:" + target.getKeyName());
 				}
-			}
 
-			List<Prerequisite> preReqList = target.getPreReqList();
-			if (preReqList != null)
-			{
-				for (Prerequisite preReq : preReqList)
-				{
-					if ("VAR".equalsIgnoreCase(preReq.getKind()))
-					{
-						preReq.setSubKey("CLASS:" + target.getKeyName());
-					}
-
-				}
 			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
 		}
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
-	protected void performForget(PObject objToForget)
+	@Override
+	protected void performForget(final PObject objToForget)
 	{
 		Globals.getClassList().remove(objToForget);
 	}
@@ -369,5 +330,15 @@ public final class PCClassLoader extends LstObjectFileLoader
 	public static String fixParameter(int aInt, final String colString)
 	{
 		return new StringBuffer().append(aInt).append("|").append(colString).toString();
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 */
+	@Override
+	protected void addGlobalObject(final PObject pObj)
+	{
+		// TODO - Create Globals.addClass( final PCClass aClass )
+		Globals.getClassList().add((PCClass)pObj);
 	}
 }

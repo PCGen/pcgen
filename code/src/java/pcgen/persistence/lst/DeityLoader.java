@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -51,6 +52,7 @@ public class DeityLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -69,7 +71,7 @@ public class DeityLoader extends LstObjectFileLoader
 		{
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
-			String key = "";
+			String key = Constants.EMPTY_STRING;
 			try
 			{
 				key = colString.substring(0, idxColon);
@@ -99,7 +101,7 @@ public class DeityLoader extends LstObjectFileLoader
 
 						if ((!colString.equals(deity.getKeyName())) && (colString.indexOf(".MOD") < 0))
 						{
-							finishObject(deity);
+							completeObject(deity);
 							deity = new Deity();
 							deity.setName(colString);
 							deity.setSourceCampaign(source.getCampaign());
@@ -122,44 +124,35 @@ public class DeityLoader extends LstObjectFileLoader
 			}
 		}
 
-		return deity;
+		completeObject( deity );
+		return null;
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
-	protected PObject getObjectKeyed(String aKey)
+	@Override
+	protected PObject getObjectKeyed( final String aKey )
 	{
 		return Globals.getDeityKeyed(aKey);
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
-	 */
-	protected void finishObject(PObject target)
-	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			if (Globals.getDeityKeyed(target.getKeyName()) == null)
-			{
-				Globals.getDeityList().add((Deity)target);
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
-	}
-
-	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
+	@Override
 	protected void performForget(PObject objToForget)
 	{
 		Globals.getDeityList().remove(objToForget);
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 */
+	@Override
+	protected void addGlobalObject( final PObject pObj )
+	{
+		// TODO - Create Globals.addDeity( final Deity aDeity );
+		Globals.getDeityList().add( (Deity)pObj );
 	}
 }

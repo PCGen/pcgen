@@ -122,7 +122,7 @@ public class HPRollToken extends Token
 
 		if (pcClass != null)
 		{
-			hpRoll = pcClass.getHitPoint(classLevel).intValue();
+			hpRoll = pcClass.getHitPoint(classLevel);
 		}
 
 		return hpRoll;

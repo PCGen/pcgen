@@ -13,7 +13,7 @@ public class SpecialtyknownToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.getSpecialtyKnownList().add(value);
+		pcclass.addSpecialtyKnown(value);
 		return true;
 	}
 }

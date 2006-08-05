@@ -143,7 +143,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.getSpecialtyKnownList().add(a);
+			obj.addSpecialtyKnown(a);
 		}
 
 		obj.setSpellBookUsed(spellBook.getSelectedObjects() != null);

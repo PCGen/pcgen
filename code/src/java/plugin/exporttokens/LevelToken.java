@@ -158,7 +158,7 @@ public class LevelToken extends Token
 		}
 		if (aClass != null)
 		{
-			return aClass.getHitPoint(pcl.getLevel()-1).toString();
+			return String.valueOf(aClass.getHitPoint(pcl.getLevel()-1));
 		}
 		return "";
 	}

@@ -23,7 +23,7 @@ public class SourcewebLst implements GlobalLstToken, SourceLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setSourceMap(SourceLoader.parseSource("SOURCEWEB:" + value));
+		obj.getSourceEntry().getSourceBook().setWebsite(value);
 		return true;
 	}
 

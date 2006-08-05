@@ -514,7 +514,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			StringBuffer b = new StringBuffer(300);
 			b.append("<html><font size=+1><b>").append(aClass.getDisplayName()).append("</b></font>");
 
-			String bString = aClass.getSource();
+			String bString = aClass.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -537,7 +537,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			b.append("<html><font size=+1><b>").append(aFeat.piSubString()).append("</b></font>");
 			b.append(" <b>Type:</b> ").append(aFeat.getType());
 
-			String bString = aFeat.getSource();
+			String bString = aFeat.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -640,7 +640,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			}
 
 			b.append(" <b>Cost</b>:").append(eqI.getCost(pc));
-			b.append(" <b>SOURCE:</b> ").append(eqI.getSource());
+			b.append(" <b>SOURCE:</b> ").append(eqI.getSourceEntry().toString());
 
 			bString = eqI.getTempDescription();
 
@@ -657,7 +657,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			StringBuffer b = new StringBuffer(300);
 			b.append("<html><font size=+1><b>").append(aSkill.getDisplayName()).append("</b></font>");
 
-			String bString = aSkill.getSource();
+			String bString = aSkill.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -683,7 +683,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			b.append(" <b>Target:</b> ").append(aSpell.getTarget());
 			b.append(" <b>Description:</b> ").append(aSpell.piDescSubString());
 
-			String spellSource = aSpell.getSource();
+			String spellSource = aSpell.getSourceEntry().toString();
 
 			if (spellSource.length() > 0)
 			{
@@ -705,7 +705,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			StringBuffer b = new StringBuffer(300);
 			b.append("<html><font size=+1><b>").append(aTemp.getDisplayName()).append("</b></font>");
 
-			String bString = aTemp.getSource();
+			String bString = aTemp.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -2221,27 +2221,27 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (eqI != null)
 					{
-						return eqI.getSource();
+						return eqI.getSourceStr();
 					}
 					else if (aSpell != null)
 					{
-						return aSpell.getSource();
+						return aSpell.getSourceEntry().toString();
 					}
 					else if (aFeat != null)
 					{
-						return aFeat.getSource();
+						return aFeat.getSourceEntry().toString();
 					}
 					else if (aClass != null)
 					{
-						return aClass.getSource();
+						return aClass.getSourceEntry().toString();
 					}
 					else if (aTemp != null)
 					{
-						return aTemp.getSource();
+						return aTemp.getSourceEntry().toString();
 					}
 					else if (aSkill != null)
 					{
-						return aSkill.getSource();
+						return aSkill.getSourceEntry().toString();
 					}
 					else
 					{

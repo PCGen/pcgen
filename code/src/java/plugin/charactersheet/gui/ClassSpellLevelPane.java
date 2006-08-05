@@ -583,10 +583,12 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 		sourcePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 1, 0));
 		sourcePanel.setBackground(color);
 		source.setFont(new java.awt.Font(DIALOG, 1, 10));
-		source.setText(
-			new StringBuffer(spell.getSourceShort(8))
-				.append(':').append(' ').append(SourceUtilities.returnSourceInForm(spell, Constants.SOURCEPAGE, false)).toString()
-		);
+		final Source sourceObj = spell.getSourceEntry().getSourceBook();
+		final StringBuffer buf = new StringBuffer();
+		buf.append( sourceObj.getShortName( 8 ) );
+		buf.append( ':' ).append( ' ' );
+		buf.append( spell.getSourceEntry().getPageNumber() );
+		source.setText( buf.toString() );
 		sourcePanel.add(source);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 10;

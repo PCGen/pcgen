@@ -51,6 +51,7 @@ public final class FeatLoader extends AbilityLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -61,11 +62,9 @@ public final class FeatLoader extends AbilityLoader
 			feat = new Ability();
 		}
 
-		feat.setCategory("FEAT");
+		feat.setCategory(Constants.FEAT_CATEGORY);
 
-		super.parseLine(feat, lstLine, source);
-
-		return null;
+		return super.parseLine(feat, lstLine, source);
 	}
 
 	/**
@@ -115,44 +114,11 @@ public final class FeatLoader extends AbilityLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
-	protected PObject getObjectKeyed(String aKey)
+	@Override
+	protected PObject getObjectKeyed(final String aKey)
 	{
-		return Globals.getAbilityKeyed("FEAT", aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
-	 */
-	protected void finishObject(PObject target)
-	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			final Ability anAbility = Globals.getAbilityKeyed("FEAT", target.getKeyName());
-			if (anAbility == null)
-			{
-				Globals.addAbility((Ability) target);
-			}
-			else if (!target.equals(anAbility))
-			{
-				if (SettingsHandler.isAllowOverride())
-				{
-					if (target.getSourceDateValue() > anAbility.getSourceDateValue())
-					{
-						Globals.removeAbilityKeyed("FEAT", anAbility.getKeyName());
-						Globals.addAbility((Ability) target);
-					}
-				}
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
+		return Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aKey);
 	}
 }

@@ -753,7 +753,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				b.append(" <b>QUALITIES</b>:").append(bString);
 			}
 
-			bString = aEq.getSource();
+			bString = aEq.getSourceEntry().toString();
 			if (bString.length() > 0)
 			{
 				b.append(" <b>SOURCE</b>:").append(bString);
@@ -1895,7 +1895,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 			}
 
-			String sourceString = bEq.getSourceWithKey("LONG");
+			final String sourceString = bEq.getSourceEntry().getSourceBook().getLongName();
 			if ((sourceString != null) && (!sourceList.contains(sourceString)))
 			{
 				sourceList.add(sourceString);
@@ -3666,7 +3666,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		}
 
 		private void addChildSourceName(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
-			String sourceString = eq.getSourceWithKey("LONG");
+			final String sourceString = eq.getSourceEntry().getSourceBook().getLongName();
 			if(fireEvent) {
 				//Add custom node if it does not exist
 				if (eq.isType(Constants.s_CUSTOM)) {

@@ -301,7 +301,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 				}
 
 			}
-			final String sourceString = template.getSourceWithKey("LONG");
+			final String sourceString = template.getSourceEntry().getSourceBook().getLongName();
 			if (sourceString == null)
 			{
 				Logging.errorPrint("PC template " + template.getDisplayName()
@@ -671,7 +671,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				b.append(" &nbsp;<b>TYPE</b>:").append(temp.getType());
 			}
-			String bString = temp.getSource();
+			String bString = temp.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -1133,7 +1133,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 						return template.preReqStrings();
 
 					case COL_SRC:
-						return template.getSource();
+						return template.getSourceEntry().toString();
 
 					default:
 						Logging.errorPrint("In InfoTemplates.AllTemplatesTableModel.getValueAt the column " + columnIndex
@@ -1269,7 +1269,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 				{
-					String sourceString = template.getSourceWithKey("LONG");
+					final String sourceString = template.getSourceEntry().getSourceBook().getLongName();
 					if(sourceString != null) {
 						if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
 							|| sourceString.equals(((PObjectNode) rootAsPObjectNode.getChildren().get(i)).getItem()

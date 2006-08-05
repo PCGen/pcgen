@@ -590,17 +590,13 @@ public final class EditorMainForm extends JDialog
 		// Save source info
 		//
 		thisPObject.setModSourceMap(new HashMap());
-		Map sourceMap = new HashMap();
-		// Clear isn't required in 5.8, but this will be used
-		// when the sources are changed back to a list.
-		sourceMap.put("PAGE", ".CLEAR");
-		thisPObject.setSourceMap(sourceMap);
+
 		aString = pnlMainTab.getSourceText();
 
 		if (aString.length() != 0)
 		{
-			sourceMap.put("PAGE", aString);
-			thisPObject.setSourceMap(sourceMap);
+			final SourceEntry source = thisPObject.getSourceEntry();
+			source.setPageNumber(aString);
 		}
 
 		//
@@ -986,7 +982,7 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_CLASS:
 				PCClass thisPCClass = (PCClass) thisPObject;
-				thisPCClass.getTemplates().clear();
+				thisPCClass.clearTemplates();
 				thisPCClass.addUmult(".CLEAR");
 				thisPCClass.setFeatAutos(-1, ".CLEAR");
 				thisPCClass.addUdamList(".CLEAR");
@@ -1025,15 +1021,13 @@ public final class EditorMainForm extends JDialog
 
 			if (sel != null)
 			{
-				aString = EditUtil.delimitArray(sel, '|');
-
-				if (editType == EditorConstants.EDIT_CLASS)
+				if (editType == EditorConstants.EDIT_CLASS
+				  || editType == EditorConstants.EDIT_RACE)
 				{
-					((PCClass) thisPObject).setWeaponProfBonus(aString);
-				}
-				else if (editType == EditorConstants.EDIT_RACE)
-				{
-					((Race) thisPObject).setWeaponProfBonus(aString);
+					for ( int i = 0; i < sel.length; i++ )
+					{
+						thisPObject.addWeaponProfBonus( (String)sel[i] );
+					}
 				}
 			}
 		}
@@ -1157,7 +1151,7 @@ public final class EditorMainForm extends JDialog
 
 		pnlMainTab.setNameText(thisPObject.getKeyName());
 		pnlMainTab.setProductIdentity(thisPObject.getNameIsPI());
-		pnlMainTab.setSourceText(SourceUtilities.returnSourceInForm(thisPObject, Constants.SOURCEPAGE, false));
+		pnlMainTab.setSourceText(thisPObject.getSourceEntry().getPageNumber());
 
 		pnlMainTab.updateView(thisPObject);
 
@@ -1478,13 +1472,13 @@ public final class EditorMainForm extends JDialog
 				//
 				selectedList.clear();
 				availableList.clear();
-				aList = ((Race) thisPObject).getLanguageBonus();
+				final Set<Language> langs = thisPObject.getLanguageBonus();
 
 				for (e = Globals.getLanguageList().iterator(); e.hasNext();)
 				{
 					final Language aLang = (Language) e.next();
 
-					if (aList.contains(aLang))
+					if (langs.contains(aLang))
 					{
 						selectedList.add(aLang);
 					}
@@ -3037,7 +3031,8 @@ public final class EditorMainForm extends JDialog
 			for (Iterator e = saList.iterator(); e.hasNext();)
 			{
 				Object specialAbility = e.next();
-				String saSource = ((SpecialAbility) specialAbility).getSource();
+//				String saSource = ((SpecialAbility) specialAbility).getSource();
+				String saSource = ((SpecialAbility) specialAbility).getSASource();
 				String saLevel = saSource.substring(saSource.indexOf("|") + 1);
 				String saTxt = specialAbility.toString();
 

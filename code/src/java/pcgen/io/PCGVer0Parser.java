@@ -394,7 +394,7 @@ final class PCGVer0Parser implements PCGParser
 
 					if (token.startsWith("SPECIAL"))
 					{
-						aClass.getSpecialtyList().add(token.substring(7));
+						aClass.addSpecialty(token.substring(7));
 					}
 					else
 					{

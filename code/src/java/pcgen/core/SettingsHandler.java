@@ -1121,9 +1121,9 @@ public final class SettingsHandler
 		showOGLOnLoad = getPCGenOption("showOGLOnLoad", true); //$NON-NLS-1$
 		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
-		Globals.setSourceDisplay(getPCGenOption("sourceDisplay", Constants.SOURCELONG)); //$NON-NLS-1$
-		Globals.setLanguage(getPCGenOption("language", null)); //$NON-NLS-1$ //$NON-NLS-2$
-		Globals.setCountry(getPCGenOption("country", null)); //$NON-NLS-1$ //$NON-NLS-2$
+		Globals.setSourceDisplay(SourceEntry.SourceFormat.valueOf(getPCGenOption("sourceDisplay", SourceEntry.SourceFormat.LONG.ordinal()))); //$NON-NLS-1$
+		Globals.setLanguage(getPCGenOption("language", null)); //$NON-NLS-1$
+		Globals.setCountry(getPCGenOption("country", null)); //$NON-NLS-1$
 
 		setAbilitiesShownAsATab(getPCGenOption("abilitiesShownAsTab", false)); //$NON-NLS-1$
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
@@ -1568,7 +1568,7 @@ public final class SettingsHandler
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("SkillsTab.availableListMode", getSkillsTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("SkillsTab.selectedListMode", getSkillsTab_SelectedListMode()); //$NON-NLS-1$
-		setPCGenOption("sourceDisplay", Globals.getSourceDisplay()); //$NON-NLS-1$
+		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("SpellsTab.availableListMode", getSpellsTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("SpellsTab.selectedListMode", getSpellsTab_SelectedListMode()); //$NON-NLS-1$

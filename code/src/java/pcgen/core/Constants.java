@@ -286,4 +286,12 @@ public interface Constants
 
 	/** An empty string. */
 	String EMPTY_STRING = ""; //$NON-NLS-1$
+	
+	// Various parsing tokens
+
+	/** Pipe '|' character as a string */
+	String PIPE = "|"; //$NON-NLS-1$
+	
+	/** Comma ',' character as a string */
+	String COMMA = ","; //$NON-NLS-1$
 }

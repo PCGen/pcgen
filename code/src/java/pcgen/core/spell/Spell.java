@@ -1115,4 +1115,33 @@ public final class Spell extends PObject
 			sb.append('\t').append(tag).append(':').append(s);
 		}
 	}
+	
+	/**
+	 * Tests to see if two Spell objects are equal.
+	 * 
+	 * @param other Spell to compare to.
+	 * 
+	 * @return <tt>true</tt> if the Spells are the same.
+	 */
+	@Override
+	public boolean equals( final Object other )
+	{
+		if ( other == null )
+		{
+			return false;
+		}
+		if ( ! (other instanceof Spell) )
+		{
+			return false;
+		}
+		final Spell otherSpell = (Spell)other;
+		if ( getKeyName().equals( otherSpell.getKeyName() ) )
+		{
+			if ( levelInfo != null && otherSpell.levelInfo != null )
+			{
+				return levelInfo.equals( otherSpell.levelInfo );
+			}
+		}
+		return false;
+	}
 }

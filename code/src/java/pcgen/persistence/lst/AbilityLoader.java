@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
+import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
@@ -52,10 +53,10 @@ public class AbilityLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-
 		Ability anAbility = (Ability) target;
 
 		if (anAbility == null)
@@ -64,6 +65,7 @@ public class AbilityLoader extends LstObjectFileLoader
 		}
 		else if (anAbility.getCategory() == null || anAbility.getCategory().length() == 0)
 		{
+			// TODO - Make this into an Enum Categorisable.Category.NONE
 			anAbility.setCategory("BROKENABILTYNOCATEGORYSET");
 		}
 
@@ -76,7 +78,7 @@ public class AbilityLoader extends LstObjectFileLoader
 			final String colString = colToken.nextToken().trim();
 
 			final int idxColon = colString.indexOf(':');
-			String key = "";
+			String key = Constants.EMPTY_STRING;
 			try
 			{
 				key = colString.substring(0, idxColon);
@@ -97,7 +99,9 @@ public class AbilityLoader extends LstObjectFileLoader
 				LstUtils.deprecationCheck(token, anAbility, value);
 				if (!token.parse(anAbility, value))
 				{
-					Logging.errorPrint("Error parsing ability " + anAbility.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrintLocalised("Errors.AbilityLoader.ParsingError",  //$NON-NLS-1$
+							anAbility.getDisplayName(), source.getFile(), 
+							colString);
 				}
 			}
 			//
@@ -118,59 +122,50 @@ public class AbilityLoader extends LstObjectFileLoader
 			}
 			else
 			{
-				Logging.errorPrint("Unknown tag '" + colString + "' in " + source.getFile());
+				Logging.errorPrintLocalised("Errors.AbilityLoader.UnknownTag",  //$NON-NLS-1$
+						colString, source.getFile());
 			}
 
 			++col;
 		}
 
-		finishObject(anAbility);
-
 		//setChanged();
 		//notifyObservers(anAbility);
+
+		completeObject( anAbility );
 		return null;
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
+	@Override
 	protected PObject getObjectKeyed(String aKey)
 	{
-		return Globals.getAbilityKeyed("ALL", aKey);
-	}
-
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
-	 */
-	protected void finishObject(PObject target)
-	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			Ability searchFor = (Ability) target;
-			final Ability anAbility = Globals.getAbilityKeyed(searchFor.getCategory(), searchFor.getKeyName());
-
-			if (anAbility == null)
-			{
-				Globals.addAbility(searchFor);
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
+		return Globals.getAbilityKeyed(Constants.ALL_CATEGORIES, aKey);
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
+	@Override
 	protected void performForget(PObject objToForget)
 	{
 		String aCat = ((Ability) objToForget).getCategory();
 		String aKey = ((Ability) objToForget).getKeyName();
 		Globals.removeAbilityKeyed(aCat, aKey);
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
+	 */
+	@Override
+	protected void addGlobalObject( final PObject pObj )
+	{
+		Globals.addAbility( (Ability)pObj );
 	}
 }

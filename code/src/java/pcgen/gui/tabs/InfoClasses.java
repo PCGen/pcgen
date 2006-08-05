@@ -407,11 +407,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			//
 			// Source
 			//
-			aString = aClass.getSource();
+			aString = aClass.getSourceEntry().toString();
 
 			if (isSubClass && (aString.length() == 0))
 			{
-				aString = lastClass.getSource();
+				aString = lastClass.getSourceEntry().toString();
 			}
 
 			if (aString.length() > 0)
@@ -419,8 +419,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				b.append(" <b>").append(PropertyFactory.getString("in_sourceLabel")).append("</b>:").append(aString);
 			}
 
-			aString = getBabTitle();
-			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
+//			aString = getBabTitle();
+//			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
 
 			//
 			// Hit Die
@@ -868,7 +868,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				}
 
 			}
-			final String aString = aClass.getSourceWithKey("LONG");
+			final String aString = aClass.getSourceEntry().getSourceBook().getLongName();
 			if (aString == null)
 			{
 				Logging.errorPrint("PC class " + aClass.getDisplayName()
@@ -1712,7 +1712,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case COL_BAB:
 					if (pcclass != null)
 					{
-						retString = pcclass.getAttackBonusType();
+//						retString = pcclass.getAttackBonusType();
 					}
 					return retString;
 
@@ -1894,7 +1894,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
-							String sourceString = aClass.getSourceWithKey("LONG");
+							final String sourceString = aClass.getSourceEntry().getSourceBook().getLongName();
 							if (sourceString == null)
 							{
 								Logging.errorPrint("PC class " + aClass.getDisplayName()

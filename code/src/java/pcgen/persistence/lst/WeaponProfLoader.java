@@ -48,6 +48,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -107,8 +108,8 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 
 		// WeaponProfs are one line each;
 		// finish the object and return null
-		finishObject(prof);
-
+		completeObject(prof);
+		
 		return null;
 	}
 
@@ -124,34 +125,24 @@ public final class WeaponProfLoader extends LstObjectFileLoader
 		return Globals.getWeaponProfKeyed(aKey);
 	}
 
-	protected void finishObject(PObject target)
-	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			final WeaponProf wpFromFile = (WeaponProf) target;
-			final WeaponProf wp = Globals.getWeaponProfKeyed(wpFromFile.getKeyName());
-
-			if (wp == null)
-			{
-				Globals.addWeaponProf(wpFromFile);
-				target.setNewItem(false);
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
-	}
-
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
-	protected void performForget(PObject objToForget)
+	@Override
+	protected void performForget(final PObject objToForget)
 	{
 		Globals.removeWeaponProfKeyed(objToForget.getKeyName());
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 */
+	@Override
+	protected void addGlobalObject( final PObject pObj )
+	{
+		Globals.addWeaponProf( (WeaponProf)pObj );
+		// TODO - What exactly is this doing?  Why would we set that it is not
+		// a new item when we just added it?
+		pObj.setNewItem(false);
 	}
 }

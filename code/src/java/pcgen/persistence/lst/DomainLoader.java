@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -49,6 +50,7 @@ public class DomainLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -68,7 +70,7 @@ public class DomainLoader extends LstObjectFileLoader
 			final String colString = colToken.nextToken().trim();
 
 			final int idxColon = colString.indexOf(':');
-			String key = "";
+			String key = Constants.EMPTY_STRING;
 			try
 			{
 				key = colString.substring(0, idxColon);
@@ -94,7 +96,7 @@ public class DomainLoader extends LstObjectFileLoader
 			{
 				if ((!colString.equals(domain.getKeyName())) && (colString.indexOf(".MOD") < 0))
 				{
-					finishObject(domain);
+					completeObject(domain);
 					domain = new Domain();
 					domain.setName(colString);
 					domain.setSourceCampaign(source.getCampaign());
@@ -113,7 +115,8 @@ public class DomainLoader extends LstObjectFileLoader
 			++col;
 		}
 
-		return domain;
+		completeObject( domain );
+		return null;
 	}
 
 	/**
@@ -125,32 +128,20 @@ public class DomainLoader extends LstObjectFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
-	 */
-	protected void finishObject(PObject target)
-	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			if (Globals.getDomainKeyed(target.getKeyName()) == null)
-			{
-				Globals.addDomain((Domain) target);
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
-	}
-
-	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
+	@Override
 	protected void performForget(PObject objToForget)
 	{
 		Globals.getDomainList().remove(objToForget);
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
+	 */
+	@Override
+	protected void addGlobalObject( final PObject pObj )
+	{
+		Globals.addDomain( (Domain)pObj );
 	}
 }

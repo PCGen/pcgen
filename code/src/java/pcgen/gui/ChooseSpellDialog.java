@@ -427,7 +427,7 @@ final class ChooseSpellDialog extends JDialog
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{
-			Logging.errorPrint("Spell: " + aSpell.getKeyName() + "(" + aSpell.getSource() + ") has no home");
+			Logging.errorPrint("Spell: " + aSpell.getKeyName() + "(" + aSpell.getSourceEntry().toString() + ") has no home");
 
 			return;
 		}

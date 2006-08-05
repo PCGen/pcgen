@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -67,6 +68,7 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.SourceEntry;
 import pcgen.core.SourceUtilities;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.CompanionMod;
@@ -493,6 +495,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			//  Show the licenses
 			showLicensesIfNeeded();
 			showSponsorsIfNeeded();
+		}
+		catch ( Throwable thr )
+		{
+			Logging.errorPrint("Exception loading files.", thr);
 		}
 		finally
 		{
@@ -1093,8 +1099,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 			for (String aLine : gDeities)
 			{
-				final Deity aDeity = (Deity) deityLoader.parseLine(null, aLine, globalCampaign);
-				deityLoader.finishObject(aDeity);
+				deityLoader.parseLine(null, aLine, globalCampaign);
 			}
 		}
 	}
@@ -1341,7 +1346,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 					{
 						anObj = new Kit(prevLine);
 						anObj.setSourceCampaign(sourceCampaign);
-						anObj.setSourceMap(sourceMap);
+						try
+						{
+							anObj.setSourceMap(sourceMap);
+						}
+						catch (ParseException e)
+						{
+							throw new PersistenceLayerException(e.toString());
+						}
 						Globals.getKitInfo().add((Kit)anObj);
 					}
 
@@ -1399,7 +1411,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		final PObject anObj;
 		anObj = new EquipmentModifier();
 		anObj.setSourceCampaign(sourceCampaign);
-		anObj.setSourceMap(sourceMap);
+		try
+		{
+			anObj.setSourceMap(sourceMap);
+		}
+		catch (ParseException e)
+		{
+			throw new PersistenceLayerException( e.toString() );
+		}
 		EquipmentModifierLoader.parseLine((EquipmentModifier) anObj, aLine, aURL, lineNum);
 		aList.add(anObj);
 
@@ -1407,7 +1426,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	}
 
 	private PObject initFileTypeCompanionMod(boolean forgetItem, String nameString, int fileType, boolean modItem,
-											 PObject anObj, Campaign sourceCampaign, Map<String, String> sourceMap, List<PObject> aList, String aLine, final URL aURL)
+											 PObject anObj, Campaign sourceCampaign, Map<String, String> sourceMap, List<PObject> aList, String aLine, final URL aURL) 
+		throws PersistenceLayerException
 	{
 		if (forgetItem)
 		{
@@ -1420,7 +1440,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		{
 			anObj = new CompanionMod();
 			anObj.setSourceCampaign(sourceCampaign);
-			anObj.setSourceMap(sourceMap);
+			try
+			{
+				anObj.setSourceMap(sourceMap);
+			}
+			catch (ParseException e)
+			{
+				throw new PersistenceLayerException( e.toString() );
+			}
 			aList.add(anObj);
 		}
 		else
@@ -1467,7 +1494,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			{
 				anObj = new Equipment();
 				anObj.setSourceCampaign(sourceCampaign);
-				anObj.setSourceMap(sourceMap);
+				try
+				{
+					anObj.setSourceMap(sourceMap);
+				}
+				catch (ParseException e)
+				{
+					throw new PersistenceLayerException( e.toString() );
+				}
 			}
 			else
 			{
@@ -1545,7 +1579,14 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		{
 			anObj = new PCTemplate();
 			anObj.setSourceCampaign(sourceCampaign);
-			anObj.setSourceMap(sourceMap);
+			try
+			{
+				anObj.setSourceMap(sourceMap);
+			}
+			catch (ParseException e)
+			{
+				throw new PersistenceLayerException( e.toString() );
+			}
 			aList.add(anObj);
 		}
 		else
@@ -2502,7 +2543,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		// Loop through, performing a swap sort
 		for ( Campaign campaign : aSelectedCampaignsList )
 		{
-			sourcesSet.add(SourceUtilities.returnSourceInForm(campaign, Constants.SOURCELONG, true));
+			sourcesSet.add(campaign.getSourceEntry().getFormattedString(SourceEntry.SourceFormat.LONG,	true));
 		}
 
 		 // end of campaign sort

@@ -1,5 +1,7 @@
 package plugin.lsttokens.pcclass;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 
@@ -12,8 +14,15 @@ public class WeaponbonusToken implements PCClassLstToken {
 		return "WEAPONBONUS";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.setWeaponProfBonus(value);
+	public boolean parse(PCClass pcclass, String value, int level) 
+	{
+		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+
+		while (aTok.hasMoreTokens())
+		{
+			pcclass.addWeaponProfBonus(aTok.nextToken());
+		}
+
 		return true;
 	}
 }

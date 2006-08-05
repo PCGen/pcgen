@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
@@ -48,6 +49,7 @@ final class LanguageLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -67,7 +69,7 @@ final class LanguageLoader extends LstObjectFileLoader
 		{
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
-			String key = "";
+			String key = Constants.EMPTY_STRING;
 			try
 			{
 				key = colString.substring(0, idxColon);
@@ -105,13 +107,12 @@ final class LanguageLoader extends LstObjectFileLoader
 			++col;
 		}
 
-		finishObject(lang);
-
+		completeObject( lang );
 		return null;
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	protected PObject getObjectKeyed(String aKey)
 	{
@@ -119,34 +120,21 @@ final class LanguageLoader extends LstObjectFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
-	protected void finishObject(PObject target)
+	@Override
+	protected void performForget( final PObject objToForget )
 	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			final Language lang = Globals.getLanguageKeyed(target.getKeyName());
-
-			if (lang == null || !lang.getType().equals(target.getType()))
-			{
-				Globals.getLanguageList().add((Language)target);
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
+		Globals.getLanguageList().remove(objToForget);
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
-	protected void performForget(PObject objToForget)
+	@Override
+	protected void addGlobalObject( final PObject pObj )
 	{
-		Globals.getLanguageList().remove(objToForget);
+		// TODO - Create Globals.addLanguage( final Language aLang )
+		Globals.getLanguageList().add( (Language)pObj );
 	}
 }

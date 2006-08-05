@@ -22,7 +22,7 @@ public class SourcepageLst implements GlobalLstToken, SourceLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setSourceMap(SourceLoader.parseSource("SOURCEPAGE:" + value));
+		obj.getSourceEntry().setPageNumber(value);
 		return true;
 	}
 

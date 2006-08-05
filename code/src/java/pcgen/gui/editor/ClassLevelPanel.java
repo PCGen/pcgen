@@ -383,9 +383,8 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		for (int x = 0; x < obj.getTemplates().size(); ++x)
+		for ( final String c : obj.getTemplates() )
 		{
-			String c = obj.getTemplates().get(x);
 			int y = c.indexOf('|');
 			LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_TEMPLATE, c.substring(y + 1));
 			levelTagList.add(lt);
@@ -613,7 +612,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 						break;
 
 					case LevelTag.TAG_FEATAUTO:
-						obj.getFeatAutos().remove(Integer.toString(lt.getLevel()) + "|" + lt.getValue());
+						obj.removeFeatAuto(lt.getLevel(), lt.getValue());
 						bRemoved = true;
 
 						break;

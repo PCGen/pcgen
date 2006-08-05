@@ -14,6 +14,8 @@ import pcgen.persistence.lst.SourceLstToken;
 
 /**
  * @author djones4
+ * 
+ * TODO This tag doesn't appear to do anything.
  *
  */
 public class SourceLst implements GlobalLstToken, SourceLstToken  {
@@ -23,7 +25,7 @@ public class SourceLst implements GlobalLstToken, SourceLstToken  {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setSourceMap(SourceLoader.parseSource("SOURCE:" + value));
+		obj.getSourceEntry().getSourceBook().setLongName( value );
 		return true;
 	}
 

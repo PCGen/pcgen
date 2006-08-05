@@ -361,7 +361,8 @@ public class MainSource extends FilterAdapterPanel
 				final Campaign aCamp = (Campaign) aNode.getItem();
 
 				// We can turn on the website button, since now there is a source, if there is a URL for the campaign
-				websiteButton.setEnabled(!SourceUtilities.returnSourceInForm(aCamp, Constants.SOURCEWEB, false).equals(""));
+				final String web = aCamp.getSourceEntry().getSourceBook().getWebsite();
+				websiteButton.setEnabled(web != null);
 
 				StringBuffer sb = new StringBuffer();
 				sb.append("<b>")
@@ -381,7 +382,7 @@ public class MainSource extends FilterAdapterPanel
 				sb.append("&nbsp; <b>GAME MODE</b>: ")
 					.append(aCamp.getGameModeString());
 
-				String bString = aCamp.getSource();
+				String bString = aCamp.getSourceEntry().toString();
 
 				if (bString.length() > 0)
 				{
@@ -1001,7 +1002,7 @@ public class MainSource extends FilterAdapterPanel
 			if (pon.getItem() instanceof Campaign)
 			{
 				final Campaign theCamp = (Campaign) pon.getItem();
-				final String theURL = isProductNotHelp ? SourceUtilities.returnSourceInForm(theCamp, Constants.SOURCEWEB, false) : theCamp.getHelp();
+				final String theURL = isProductNotHelp ? theCamp.getSourceEntry().getSourceBook().getWebsite() : theCamp.getHelp();
 
 				if (theURL!=null && !theURL.equals(""))
 				{

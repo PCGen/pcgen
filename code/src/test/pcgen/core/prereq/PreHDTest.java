@@ -120,7 +120,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		throws Exception
 	{
 		monClass.setName("Humanoid");
-		monClass.setMonsterFlag("YES");
+		monClass.setMonsterFlag(true);
 		Globals.getClassList().add(monClass);
 
 		race1.setName("Bugbear");

@@ -36,6 +36,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SourceEntry;
 import pcgen.core.SourceUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.PCGFile;
@@ -135,7 +136,7 @@ public class CampaignLoader extends LstLineFileLoader
 			if ((sect15 != null) && (sect15.trim().length() > 0))
 			{
 				Globals.getSection15().append("<br><b>Source Material:</b>");
-				Globals.getSection15().append(SourceUtilities.returnSourceInForm(campaign, Constants.SOURCELONG, true));
+				Globals.getSection15().append(campaign.getSourceEntry().getFormattedString(SourceEntry.SourceFormat.LONG, true));
 				Globals.getSection15().append("<br>");
 				Globals.getSection15().append("<b>Section 15 Entry in Source Material:</b><br>");
 				Globals.getSection15().append(sect15);

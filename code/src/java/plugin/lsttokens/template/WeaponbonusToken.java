@@ -1,5 +1,7 @@
 package plugin.lsttokens.template;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCTemplate;
 import pcgen.persistence.lst.PCTemplateLstToken;
 
@@ -14,7 +16,13 @@ public class WeaponbonusToken implements PCTemplateLstToken {
 	}
 
 	public boolean parse(PCTemplate template, String value) {
-		template.setWeaponProfBonus(value);
+		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+
+		while (aTok.hasMoreTokens())
+		{
+			template.addWeaponProfBonus(aTok.nextToken());
+		}
+
 		return true;
 	}
 }

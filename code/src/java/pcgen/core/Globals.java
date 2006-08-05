@@ -82,7 +82,7 @@ public final class Globals
 	private static boolean d_sorted;
 
 	/** These are system constants */
-	public static final String javaVersion      = System.getProperty("java.version");
+	public static final String javaVersion      = System.getProperty("java.version"); //$NON-NLS-1$
 	/** Java Version Major */
 	public static final int    javaVersionMajor =
 		Integer.valueOf(javaVersion.substring(0,
@@ -93,19 +93,19 @@ public final class Globals
 				javaVersion.lastIndexOf('.'))).intValue();
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
-	private static final String defaultPath    = System.getProperty("user.dir");
-	private static final String defaultPcgPath = getDefaultPath() + File.separator + "characters";
-	private static final String backupPcgPath = "";
+	private static final String defaultPath    = System.getProperty("user.dir"); //$NON-NLS-1$
+	private static final String defaultPcgPath = getDefaultPath() + File.separator + "characters"; //$NON-NLS-1$
+	private static final String backupPcgPath = Constants.EMPTY_STRING;
 	private static final int[]  dieSizes       = new int[]{ 1, 2, 3, 4, 6, 8, 10, 12, 20, 100, 1000 };
 
 	/** These are for the Internationalization project. */
-	private static String     language        = "en";
-	private static String     country         = "US";
+	private static String     language        = "en"; //$NON-NLS-1$
+	private static String     country         = "US"; //$NON-NLS-1$
 
 	/** The BioSet used for age calculations */
 	private static BioSet     bioSet          = new BioSet();
 	private static final List<String> custColumnWidth = new ArrayList<String>();
-	private static int        sourceDisplay   = Constants.SOURCELONG;
+	private static SourceEntry.SourceFormat sourceDisplay = SourceEntry.SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
 
 	private static CategorisableStore abilityStore = new CategorisableStore();
@@ -192,7 +192,6 @@ public final class Globals
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
 
-
 	private static final Comparator<PObject> pObjectComp = new Comparator<PObject>()
 		{
 			public int compare(final PObject o1, final PObject o2)
@@ -253,8 +252,8 @@ public final class Globals
 
 		try
 		{
-			globalProperties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
-			globalProperties.getString("VersionNumber");
+			globalProperties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp"); //$NON-NLS-1$
+			globalProperties.getString("VersionNumber"); //$NON-NLS-1$
 		}
 		catch (MissingResourceException mrex)
 		{
@@ -285,6 +284,11 @@ public final class Globals
 		return weaponProfs.getTypes();
 	}
 
+	/**
+	 * Returns all weapon proficiencies registered in the system.
+	 * 
+	 * @return Collection of <tt>WeaponProf</tt>
+	 */
 	public static Collection<WeaponProf> getAllWeaponProfs()
 	{
 		return Collections.unmodifiableCollection(weaponProfs.getAll());
@@ -473,6 +477,16 @@ public final class Globals
 		return getPObjectsOfType(getClassList(), aType);
 	}
 
+	/**
+	 * Adds a <tt>CompanionMod</tt> to the global list of companion mods
+	 * registered in the system.
+	 * 
+	 * @param aMod A <tt>CompanionMod</tt> to add.
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
+	 */
 	public static void addCompanionMod( final CompanionMod aMod )
 	{
 		final String type = aMod.getType().toUpperCase();
@@ -485,6 +499,18 @@ public final class Globals
 		mods.add( aMod );
 	}
 
+	/**
+	 * Removes a <tt>CompanionMod</tt> from the system registry.
+	 * 
+	 * <p>This method is used by the .FORGET logic to remove a CompanionMod
+	 * previously loaded by another set.
+	 * 
+	 * @param aMod A <tt>CompanionMod</tt> to remove
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
+	 */
 	public static void removeCompanionMod( final CompanionMod aMod )
 	{
 		final Collection<List<CompanionMod>> allMods = companionModMap.values();
@@ -508,6 +534,10 @@ public final class Globals
 	 * has been defined.
 	 * 
 	 * @return Collection of Follower types.
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
 	 */
 	public static Collection<String> getFollowerTypes()
 	{
@@ -520,6 +550,10 @@ public final class Globals
 	 * 
 	 * @param aType The type of Follower to get mods for.
 	 * @return Collection of COMPANIONMODs or an EMPTY_LIST
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
 	 */
 	public static Collection<CompanionMod> getCompanionMods( final String aType )
 	{
@@ -533,9 +567,9 @@ public final class Globals
 	}
 	
 	/**
-	 * Get companion modifier
+	 * Get companion modifier.
 	 * @param aString
-	 * @return companion modifie
+	 * @return companion mod
 	 */
 	public static CompanionMod getCompanionMod(final String aString)
 	{
@@ -566,14 +600,16 @@ public final class Globals
 	}
 
 	/**
-	 * Get companion mod list
-	 * @return companion mod list
+	 * Gets a <tt>Collection</tt> of all <tt>CompanionMod</tt>s registered in
+	 * the system.
+	 * 
+	 * @return An unmodifiable collection of <tt>CompanionMod</tt>s
 	 */
 	public static Collection<CompanionMod> getAllCompanionMods()
 	{
 		final List<CompanionMod> ret = new ArrayList<CompanionMod>();
 		final Collection<List<CompanionMod>> values = companionModMap.values();
-		for ( List<CompanionMod> cMods : values )
+		for ( final List<CompanionMod> cMods : values )
 		{
 			ret.addAll( cMods );
 		}
@@ -634,7 +670,7 @@ public final class Globals
 	{
 		boolean found = false;
 		final String cName = fromTab.concat(Integer.toString(col));
-		final String addMe = cName.concat("|").concat(Integer.toString(value));
+		final String addMe = cName.concat(Constants.PIPE).concat(Integer.toString(value));
 
 		if (getCustColumnWidth().isEmpty())
 		{
@@ -650,7 +686,7 @@ public final class Globals
 			{
 				continue;
 			}
-			final StringTokenizer tTok = new StringTokenizer(colWidth, "|", false);
+			final StringTokenizer tTok = new StringTokenizer(colWidth, Constants.PIPE, false);
 			final String tabName = tTok.nextToken();
 
 			if (cName.equals(tabName))
@@ -681,7 +717,7 @@ public final class Globals
 
 		for (int i = 0; i < loopMax; ++i)
 		{
-			final StringTokenizer tTok = new StringTokenizer(getCustColumnWidth().get(i), "|", false);
+			final StringTokenizer tTok = new StringTokenizer(getCustColumnWidth().get(i), Constants.PIPE, false);
 			if (tTok.hasMoreTokens())
 			{
 				final String tabName = tTok.nextToken();
@@ -1300,8 +1336,18 @@ public final class Globals
 		return languageList;
 	}
 
+	/**
+	 * Returns the <tt>Language</tt> for the specified key.
+	 * 
+	 * <p>If the key is either &quot;ALL&quot; or &quot;ANY&quot; the special
+	 * Language object representing all languages is returned.
+	 * 
+	 * @param aKey A key to retrieve a Language for
+	 * @return The Language matching the key or null if not found.
+	 */
 	public static Language getLanguageKeyed(final String aKey)
 	{
+		// TODO - Fix this.
 		if (aKey.equalsIgnoreCase("ALL") || aKey.equalsIgnoreCase("ANY"))
 		{
 			return Language.getAllLanguage();
@@ -1571,7 +1617,7 @@ public final class Globals
 	 * Retrieve those skills in the global skill list that match the
 	 * supplied visibility level.
 	 *
-	 * @param visibility What level of visibility skills are desired.
+	 * @param vis What level of visibility skills are desired.
 	 * @return A list of the skills matching the visibility criteria.
 	 */
 	public static List<Skill> getPartialSkillList(final Visibility vis)
@@ -1646,7 +1692,7 @@ public final class Globals
 	 * Set source display
 	 * @param sourceType
 	 */
-	public static void setSourceDisplay(final int sourceType)
+	public static void setSourceDisplay(final SourceEntry.SourceFormat sourceType)
 	{
 		sourceDisplay = sourceType;
 	}
@@ -1655,7 +1701,7 @@ public final class Globals
 	 * Get source display
 	 * @return source display
 	 */
-	public static int getSourceDisplay()
+	public static SourceEntry.SourceFormat getSourceDisplay()
 	{
 		return sourceDisplay;
 	}
@@ -1721,7 +1767,7 @@ public final class Globals
 	{
 		final List<Spell> aList = new ArrayList<Spell>();
 		final StringBuffer aBuf = new StringBuffer();
-		String spellType = "";
+		String spellType = Constants.EMPTY_STRING;
 
 		if (classKey.length() > 0)
 		{
@@ -1734,7 +1780,7 @@ public final class Globals
 			}
 			else
 			{
-				aClass = getClassKeyed(classKey.substring(classKey.indexOf("|") + 1));
+				aClass = getClassKeyed(classKey.substring(classKey.indexOf(Constants.PIPE) + 1));
 				aBuf.append(classKey);
 			}
 
@@ -2090,44 +2136,32 @@ public final class Globals
 		String result = aDamage;
 		int multiplier = 1;
 
+		int direction = 0;
+		String parseString = Constants.EMPTY_STRING;
 		if (baseSize < finalSize)
 		{
-			String upString = getDamageUpKey(aDamage);
-
-			if (upString != null)
-			{
-				StringTokenizer aTok = new StringTokenizer(upString, "|");
-				multiplier = Integer.parseInt(aTok.nextToken());
-				upString = aTok.nextToken();
-				aTok = new StringTokenizer(upString, ",");
-
-				while ((baseSize < finalSize) && aTok.hasMoreTokens())
-				{
-					result = aTok.nextToken();
-					baseSize++;
-				}
-			}
+			parseString = getDamageUpKey(aDamage);
+			direction = 1;
 		}
-		else
+		else if ( baseSize > finalSize )
 		{
-			if (baseSize > finalSize)
+			parseString = getDamageDownKey(aDamage);
+			direction = -1;
+		}
+		
+		if ( direction != 0 && parseString != null )
+		{
+			StringTokenizer aTok = new StringTokenizer(parseString, Constants.PIPE);
+			multiplier = Integer.parseInt(aTok.nextToken());
+			parseString = aTok.nextToken();
+			aTok = new StringTokenizer(parseString, ",");
+
+			while ((baseSize != finalSize) && aTok.hasMoreTokens())
 			{
-				String downString = getDamageDownKey(aDamage);
-
-				if (downString != null)
-				{
-					StringTokenizer aTok = new StringTokenizer(downString, "|");
-					multiplier = Integer.parseInt(aTok.nextToken());
-					downString = aTok.nextToken();
-					aTok = new StringTokenizer(downString, ",");
-
-					while ((baseSize > finalSize) && aTok.hasMoreTokens())
-					{
-						result = aTok.nextToken();
-						baseSize--;
-					}
-				}
+				result = aTok.nextToken();
+				baseSize += direction;
 			}
+			
 		}
 
 		if (multiplier > 1)
@@ -2461,114 +2495,7 @@ public final class Globals
 	 */
 	public static int minLevelForSpellLevel(final PCClass castingClass, final int spellLevel, final boolean allowBonus)
 	{
-		int minLevel = Constants.INVALID_LEVEL;
-		final Map<String, String> castMap = castingClass.getCastMap();
-
-		int loopMax = castMap.keySet().size();
-		for (int i = 0; i < loopMax; i++)
-		{
-			final String aLevel = Integer.toString(i);
-			final String castPerDay = castMap.get(aLevel);
-
-			if ((castPerDay == null) || (castPerDay.length() <= 0))
-			{
-				continue;
-			}
-
-			final StringTokenizer bTok = new StringTokenizer(castPerDay, ",");
-			int maxCastable = -1;
-
-			if (allowBonus)
-			{
-				maxCastable = bTok.countTokens() - 1;
-			}
-			else
-			{
-				int j = 0;
-
-				while (bTok.hasMoreTokens())
-				{
-					try
-					{
-						if (Integer.parseInt(bTok.nextToken()) != 0)
-						{
-							maxCastable = j;
-						}
-					}
-					catch (NumberFormatException ignore)
-					{
-						// ignore
-					}
-
-					j++;
-				}
-			}
-
-			if (maxCastable >= spellLevel)
-			{
-				minLevel = i;
-
-				break;
-			}
-		}
-
-		if (minLevel < Constants.INVALID_LEVEL)
-		{
-			return minLevel;
-		}
-
-		final List<String> knownList = castingClass.getKnownList();
-
-		loopMax = knownList.size();
-
-		for (int i = 0; i < loopMax; ++i)
-		{
-			final String knownSpells = knownList.get(i);
-
-			if ("0".equals(knownSpells))
-			{
-				continue;
-			}
-
-			final StringTokenizer bTok = new StringTokenizer(knownSpells, ",");
-			int maxCastable = -1;
-
-			if (allowBonus)
-			{
-				maxCastable = bTok.countTokens() - 1;
-			}
-			else
-			{
-				int j = 0;
-
-				while (bTok.hasMoreTokens())
-				{
-					try
-					{
-						if (Integer.parseInt(bTok.nextToken()) != 0)
-						{
-							maxCastable = j;
-						}
-					}
-					catch (NumberFormatException e)
-					{
-						//TODO: Should this really be ignored?
-						Logging.errorPrint("", e);
-					}
-
-					j += 1;
-				}
-			}
-
-			if (maxCastable >= spellLevel)
-			{
-				minLevel = i + 1;
-
-				break;
-			}
-		}
-
-		return minLevel;
+		return castingClass.minLevelForSpellLevel(spellLevel, allowBonus);
 	}
 
 	/**
@@ -3069,7 +2996,9 @@ public final class Globals
 		{
 			return 0;
 		}
-		return getRandom().nextInt(high);
+		final int rand = getRandom().nextInt(high);
+		Logging.debugPrint("Generated random number between 0 and " + high + ": " + rand);  //$NON-NLS-1$//$NON-NLS-2$
+		return rand;
 	}
 
 	static int getSkillMultiplierForLevel(final int level)
@@ -3573,4 +3502,5 @@ public final class Globals
 
 		return ret;
 	}
+	
 }

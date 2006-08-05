@@ -27,6 +27,7 @@ package pcgen.core;
 
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.text.ParseException;
 import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,6 +39,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -87,9 +89,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** List of Level Abilities for the object  */
 	private ArrayList<LevelAbility> levelAbilityList = null;
 
-	/** The source campaign for the object */
-	private Campaign sourceCampaign = null;
-	private HashMap<String, String> sourceMap = new HashMap<String, String>();
+//	private HashMap<String, String> sourceMap = new HashMap<String, String>();
+	private SourceEntry theSource = new SourceEntry();
 	private HashMap<String, String> modSourceMap = null;
 
 	/**
@@ -135,11 +136,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
 
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
+	private TreeSet<Language> theBonusLangs = null;
 
 	/** Number of followers of each type allowed */
 	private Map<String, List<String>> followerNumbers = null;
 	/** List of followers of a type allowed to be selected. */
 	private Map<String, List<FollowerOption>> theAvailableFollowers = null;
+
+	private ArrayList<String> weaponProfBonus = null;
 
 	/* ************
 	 * Methods
@@ -1572,11 +1576,12 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		// added 04 Aug 2003 by sage_sam -- bug#765749
 		// need to copy map correctly during a clone
-		if (sourceMap != null)
-		{
-			retVal.sourceMap = new HashMap<String, String>();
-			retVal.sourceMap.putAll(this.sourceMap);
-		}
+//		if (sourceMap != null)
+//		{
+//			retVal.sourceMap = new HashMap<String, String>();
+//			retVal.sourceMap.putAll(this.sourceMap);
+//		}
+		retVal.theSource = theSource;
 
 		retVal.changeProfMap = new HashMap<String, String>(changeProfMap);
 
@@ -1638,6 +1643,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			retVal.theAvailableFollowers = new HashMap<String, List<FollowerOption>>( theAvailableFollowers );
 		}
 
+		if ( theBonusLangs != null )
+		{
+			retVal.theBonusLangs = new TreeSet<Language>( theBonusLangs );
+		}
+		
+		if ( weaponProfBonus != null )
+		{
+			retVal.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
+		}
+		
 		return retVal;
 	}
 
@@ -1963,9 +1978,13 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/**
 	 * Set the map of sources
 	 * @param arg
+	 * @throws ParseException 
 	 */
-	public final void setSourceMap(final Map<String, String> arg)
+	public final void setSourceMap(final Map<String, String> arg) 
+		throws ParseException
 	{
+		theSource.setFromMap( arg );
+
 		// Don't clear the map, otherwise the SOURCEPAGE:
 		// entries on each line will screw it all up
 
@@ -1977,100 +1996,114 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		// after everything else is loaded, the source is
 		// set to whatever source was loaded last, which may
 		// not be the source of the .MOD.
-		for (Iterator<String> i = arg.keySet().iterator(); i.hasNext();)
+//		for (Iterator<String> i = arg.keySet().iterator(); i.hasNext();)
+//		{
+//			final String key = i.next();
+//			if (sourceMap.get(key) == null)
+//			{
+//				sourceMap.put(key, arg.get(key));
+//			}
+//		}
+//
+//		// If this comes from a .MOD line and SOURCEPAGE is set,
+//		// copy the MOD's sourcemap and then set the PAGE too.
+//		if (modSourceMap != null) // && arg.get("PAGE") != null)
+//		{
+//			sourceMap.putAll(modSourceMap);
+//			sourceMap.putAll(arg);
+//		}
+	}
+
+	public SourceEntry getSourceEntry()
+	{
+		if ( theSource == null )
 		{
-			final String key = i.next();
-			if (sourceMap.get(key) == null)
-			{
-				sourceMap.put(key, arg.get(key));
-			}
+			return new SourceEntry();
 		}
-
-		// If this comes from a .MOD line and SOURCEPAGE is set,
-		// copy the MOD's sourcemap and then set the PAGE too.
-		if (modSourceMap != null) // && arg.get("PAGE") != null)
-		{
-			sourceMap.putAll(modSourceMap);
-			sourceMap.putAll(arg);
-		}
+		return theSource;
 	}
-
-	/**
-	 * Get the map of sources
-	 * @return the map of sources
-	 */
-	public final Map<String, String> getSourceMap()
+	
+	public void setSource( final SourceEntry aSource )
 	{
-		return sourceMap;
+		theSource = aSource;
 	}
-
-	/**
-	 * Get the source as a String in short form for display
-	 * @param maxNumberofChars
-	 * @return the source as a String in short form for display
-	 */
-	public final String getSourceShort(final int maxNumberofChars)
-	{
-		String shortString = SourceUtilities.returnSourceInForm(this, Constants.SOURCESHORT, false);
-
-		// When I say short, I mean short!
-		if (shortString.length() > maxNumberofChars)
-		{
-			shortString = shortString.substring(0, maxNumberofChars);
-		}
-
-		return shortString;
-	}
-
-	/**
-	 * Get the source given a key
-	 * @return source as a String
-	 */
-	public final String getSourceWithKey(final String key)
-	{
-		return sourceMap.get(key);
-	}
-
-	/**
-	 * Get the source
-	 * @return the source
-	 */
-	public String getSource()
-	{
-		return SourceUtilities.returnSourceInForm(this, Globals.getSourceDisplay(), true);
-	}
-
-	/**
-	 * Get the source date
-	 * @return the source date
-	 */
-	public String getSourceDate()
-	{
-		return SourceUtilities.returnSourceInForm(this, Constants.SOURCEDATE, false);
-	}
-
-	/**
-	 * Get the source date as an int
-	 * @return the source date as an int
-	 */
-	public int getSourceDateValue()
-	{
-		String date = getSourceDate();
-		if ("".equals(date))
-		{
-			return 0;
-		}
-		String[] dates = date.split("-");
-		if (dates.length != 2)
-		{
-			return 0;
-		}
-		int year = (new Integer(dates[0])).intValue() - 2000;
-		int month = (new Integer(dates[1])).intValue();
-
-		return year*12 + month;
-	}
-
+	
+//	/**
+//	 * Get the map of sources
+//	 * @return the map of sources
+//	 */
+//	public final Map<String, String> getSourceMap()
+//	{
+//		return sourceMap;
+//	}
+//
+//	/**
+//	 * Get the source as a String in short form for display
+//	 * @param maxNumberofChars
+//	 * @return the source as a String in short form for display
+//	 */
+//	public final String getSourceShort(final int maxNumberofChars)
+//	{
+//		String shortString = SourceUtilities.returnSourceInForm(this, Constants.SOURCESHORT, false);
+//
+//		// When I say short, I mean short!
+//		if (shortString.length() > maxNumberofChars)
+//		{
+//			shortString = shortString.substring(0, maxNumberofChars);
+//		}
+//
+//		return shortString;
+//	}
+//
+//	/**
+//	 * Get the source given a key
+//	 * @return source as a String
+//	 */
+//	public final String getSourceWithKey(final String key)
+//	{
+//		return sourceMap.get(key);
+//	}
+//
+//	/**
+//	 * Get the source
+//	 * @return the source
+//	 */
+//	public String getSource()
+//	{
+//		return SourceUtilities.returnSourceInForm(this, Globals.getSourceDisplay(), true);
+//	}
+//
+//	/**
+//	 * Get the source date
+//	 * @return the source date
+//	 */
+//	public String getSourceDate()
+//	{
+//		return SourceUtilities.returnSourceInForm(this, Constants.SOURCEDATE, false);
+//	}
+//
+//	/**
+//	 * Get the source date as an int
+//	 * @return the source date as an int
+//	 */
+//	public int getSourceDateValue()
+//	{
+//		String date = getSourceDate();
+//		if ("".equals(date))
+//		{
+//			return 0;
+//		}
+//		String[] dates = date.split("-");
+//		if (dates.length != 2)
+//		{
+//			return 0;
+//		}
+//		int year = (new Integer(dates[0])).intValue() - 2000;
+//		int month = (new Integer(dates[1])).intValue();
+//
+//		return year*12 + month;
+//	}
+//
 	/**
 	 * Get the SA by key
 	 * @param aKey
@@ -2741,7 +2774,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public void setSourceCampaign(final Campaign arg)
 	{
-		sourceCampaign = arg;
+		theSource.getSourceBook().setCampaign( arg );
 	}
 
 	/**
@@ -2753,7 +2786,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public Campaign getSourceCampaign()
 	{
-		return sourceCampaign;
+		return theSource.getSourceBook().getCampaign();
 	}
 
 	/**
@@ -3208,9 +3241,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append('\t').append(Constants.s_TAG_TYPE).append(getType());
 		}
 
-		aString = SourceUtilities.returnSourceInForm(this, Constants.SOURCEPAGE, false);
+		aString = theSource.getPageNumber();
 
-		if (aString.length() != 0)
+		if (aString != null && aString.length() != 0)
 		{
 			txt.append("\tSOURCEPAGE:").append(aString);
 		}
@@ -4675,6 +4708,82 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
+
+	/**
+	 * Get a comma delimited list of the languages a character can choose from
+	 * based upon their Intelligence stat
+	 *
+	 * @return A collection of languages
+	 */
+	public Set<Language> getLanguageBonus()
+	{
+		if ( theBonusLangs == null )
+		{
+			final Set<Language> ret = Collections.emptySet();
+			return Collections.unmodifiableSet( ret );
+		}
+		return Collections.unmodifiableSortedSet(theBonusLangs);
+	}
+
+	/**
+	 * Set a comma delimited list of the languages a character can choose from
+	 * based upon their Intelligence stat
+	 *
+	 * @param  aString A string of langages
+	 */
+	public void setLanguageBonus( final String aString )
+	{
+		final StringTokenizer aTok = new StringTokenizer(aString, ",", false);
+
+		while (aTok.hasMoreTokens())
+		{
+			final String token = aTok.nextToken();
+
+			if (".CLEAR".equals(token))
+			{
+				theBonusLangs = null;
+			}
+			else
+			{
+				if ( theBonusLangs == null )
+				{
+					theBonusLangs = new TreeSet<Language>();
+				}
+			
+				final Language aLang = Globals.getLanguageKeyed(token);
+
+				if (aLang != null)
+				{
+					theBonusLangs.add(aLang);
+				}
+			}
+		}
+	}
+
+	public void addWeaponProfBonus(final String aString)
+	{
+		if ( weaponProfBonus == null )
+		{
+			weaponProfBonus = new ArrayList<String>();
+		}
+		weaponProfBonus.add( aString );
+	}
+
+	/**
+	 * Get a list of Weapon Proficiency keys that this object will grant to
+	 * characters.
+	 *
+	 * @return a list of weapon proficiency keys
+	 */
+	public List<String> getWeaponProfBonus()
+	{
+		if ( weaponProfBonus == null )
+		{
+			final List<String> ret = Collections.emptyList();
+			return Collections.unmodifiableList(ret);
+		}
+		return Collections.unmodifiableList(weaponProfBonus);
+	}
 
 	/**
 	 * Adds a formula to use to calculate the maximum number of followers of a

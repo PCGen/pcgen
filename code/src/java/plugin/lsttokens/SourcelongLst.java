@@ -23,7 +23,7 @@ public class SourcelongLst implements GlobalLstToken, SourceLstToken  {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		obj.setSourceMap(SourceLoader.parseSource("SOURCELONG:" + value));
+		obj.getSourceEntry().getSourceBook().setLongName(value);
 		return true;
 	}
 

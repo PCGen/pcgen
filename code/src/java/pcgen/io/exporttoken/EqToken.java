@@ -833,7 +833,7 @@ public class EqToken extends Token
 	 */
 	public static String getSourceToken(Equipment eq)
 	{
-		return eq.getSource();
+		return eq.getSourceEntry().toString();
 	}
 
 	/**

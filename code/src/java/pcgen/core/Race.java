@@ -44,10 +44,8 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Race extends PObject
 {
-	private ArrayList<Language> languageBonus = new ArrayList<Language>();
 	private ArrayList<String> monCCSkillList = null;
 	private ArrayList<String> monCSkillList = null;
-	private ArrayList<String> weaponProfBonus = new ArrayList<String>();
 	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private Integer initMod = new Integer(0);
 	private Integer naturalAC = new Integer(0);
@@ -355,35 +353,6 @@ public final class Race extends PObject
 		this.langNum = langNum;
 	}
 
-	public void setLanguageBonus(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, ",", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String token = aTok.nextToken();
-
-			if (".CLEAR".equals(token))
-			{
-				getLanguageBonus().clear();
-			}
-			else
-			{
-				final Language aLang = Globals.getLanguageKeyed(token);
-
-				if (aLang != null)
-				{
-					getLanguageBonus().add(aLang);
-				}
-			}
-		}
-	}
-
-	public List<Language> getLanguageBonus()
-	{
-		return languageBonus;
-	}
-
 	public void setLegs(final int argLegs)
 	{
 		legs = argLegs;
@@ -644,11 +613,11 @@ public final class Race extends PObject
 			txt.append("\tCHOOSE:LANGAUTO:").append(getChooseLanguageAutos());
 		}
 
-		if ((languageBonus != null) && !languageBonus.isEmpty())
+		if ((getLanguageBonus() != null) && !getLanguageBonus().isEmpty())
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for ( Language lang : languageBonus )
+			for ( Language lang : getLanguageBonus() )
 			{
 				if (buffer.length() != 0)
 				{
@@ -661,11 +630,11 @@ public final class Race extends PObject
 			txt.append("\tLANGBONUS:").append(buffer.toString());
 		}
 
-		if ((weaponProfBonus != null) && (weaponProfBonus.size() > 0))
+		if ((getWeaponProfBonus().size() > 0))
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for ( String profKey : weaponProfBonus )
+			for ( final String profKey : getWeaponProfBonus() )
 			{
 				if (buffer.length() != 0)
 				{
@@ -898,21 +867,6 @@ public final class Race extends PObject
 		vision = visionTable;
 	}
 
-	public void setWeaponProfBonus(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-
-		while (aTok.hasMoreTokens())
-		{
-			getWeaponProfBonus().add(aTok.nextToken());
-		}
-	}
-
-	public ArrayList<String> getWeaponProfBonus()
-	{
-		return weaponProfBonus;
-	}
-
 	public Object clone()
 	{
 		Race aRace = null;
@@ -929,8 +883,6 @@ public final class Race extends PObject
 			aRace.ageString = ageString;
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
-			aRace.languageBonus = (ArrayList<Language>) languageBonus.clone();
-			aRace.weaponProfBonus = (ArrayList<String>) weaponProfBonus.clone();
 			aRace.featList = featList;
 			aRace.vFeatList = vFeatList;
 			aRace.startingAC = new Integer(startingAC.intValue());

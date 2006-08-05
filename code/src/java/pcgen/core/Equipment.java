@@ -141,7 +141,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private BigDecimal costMod = BigDecimalHelper.ZERO;
 	private BigDecimal weightMod = BigDecimalHelper.ZERO;
 
-	private String baseItem = "";
+	private String baseItem = Constants.EMPTY_STRING;
 
 	private List<EquipmentModifier> eqModifierList = new ArrayList<EquipmentModifier>();
 	private List<SpecialProperty> specialPropertyList = new ArrayList<SpecialProperty>();
@@ -2216,16 +2216,16 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		return iSlots;
 	}
 
-	public String getSource()
+	public String getSourceStr()
 	{
-		String aString = super.getSource();
+		final SourceEntry source = super.getSourceEntry();
 
 		if (isType(Constants.s_CUSTOM))
 		{
-			aString = "Custom - " + aString;
+			return "Custom - " + source;
 		}
 
-		return aString;
+		return source.toString();
 	}
 
 	/**

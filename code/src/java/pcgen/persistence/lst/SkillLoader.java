@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
@@ -47,6 +48,7 @@ public final class SkillLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -69,7 +71,7 @@ public final class SkillLoader extends LstObjectFileLoader
 		{
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
-			String key = "";
+			String key = Constants.EMPTY_STRING;
 			try
 			{
 				key = colString.substring(0, idxColon);
@@ -102,49 +104,35 @@ public final class SkillLoader extends LstObjectFileLoader
 			}
 		}
 
-		finishObject(skill);
-
+		completeObject( skill );
 		return null;
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
+	@Override
 	protected PObject getObjectKeyed(String aKey)
 	{
 		return Globals.getSkillKeyed(aKey);
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
-	protected void finishObject(PObject target)
+	@Override
+	protected void performForget(final PObject objToForget)
 	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			Skill skill = (Skill) target;
-			final Skill aSkill = Globals.getSkillKeyed(skill.getKeyName());
-
-			if (aSkill == null)
-			{
-				Globals.getSkillList().add(skill);
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
+		Globals.getSkillList().remove(objToForget);
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
-	protected void performForget(PObject objToForget)
+	@Override
+	protected void addGlobalObject( final PObject pObj )
 	{
-		Globals.getSkillList().remove(objToForget);
+		// TODO - Create Globals.addSkill(pObj);
+		Globals.getSkillList().add( (Skill)pObj );
 	}
 }

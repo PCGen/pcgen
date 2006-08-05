@@ -2066,7 +2066,7 @@ final class EqBuilder extends JPanel
 		 */
 		protected Object getSourceValue(EquipmentModifier e) {
 			Object sRet;
-			sRet = e.getSource();
+			sRet = e.getSourceEntry().toString();
 			return sRet;
 		}
 

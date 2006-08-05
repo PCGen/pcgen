@@ -13,7 +13,7 @@ public class BabToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.setAttackBonusType(value);
-		return true;
+//		pcclass.setAttackBonusType(value);
+		return false;
 	}
 }

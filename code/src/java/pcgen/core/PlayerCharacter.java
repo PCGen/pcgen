@@ -9060,7 +9060,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				rebuildLists(bClass, aClass, aClass.getLevel(), this);
 
 				bClass.setLevel(aClass.getLevel(), this);
-				bClass.setHitPointMap(aClass.getHitPointMap());
+				bClass.setHitPointMap(aClass);
 
 				final int idx = classList.indexOf(aClass);
 				classList.set(idx, bClass);

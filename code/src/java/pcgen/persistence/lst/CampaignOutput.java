@@ -22,6 +22,7 @@ package pcgen.persistence.lst;
 
 import pcgen.core.Campaign;
 import pcgen.core.SettingsHandler;
+import pcgen.core.Source;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
@@ -77,11 +78,12 @@ public final class CampaignOutput
 			FileAccess.newLine(out);
 			FileAccess.write(out, "INFOTEXT:" + campaign.getInfoText());
 			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCELONG:" + campaign.getSourceMap().get("LONG"));
+			final Source source = campaign.getSourceEntry().getSourceBook();
+			FileAccess.write(out, "SOURCELONG:" + source.getLongName() );
 			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCESHORT:" + campaign.getSourceMap().get("SHORT"));
+			FileAccess.write(out, "SOURCESHORT:" + source.getShortName() );
 			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCEWEB:" + campaign.getSourceMap().get("WEB"));
+			FileAccess.write(out, "SOURCEWEB:" + source.getWebsite() );
 			FileAccess.newLine(out);
 			FileAccess.write(out, "ISD20:" + (campaign.isD20() ? "YES" : "NO"));
 			FileAccess.newLine(out);

@@ -276,7 +276,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 			for (PCTemplate aTemplate : pc.getTemplateList())
 			{
-				if (aTemplate.getWeaponProfBonusSize() != 0)
+				if (aTemplate.getWeaponProfBonus().size() != 0)
 				{
 					bonusCategory.add(aTemplate);
 				}

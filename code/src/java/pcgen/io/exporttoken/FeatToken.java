@@ -208,7 +208,7 @@ public class FeatToken extends Token {
 			} else if (tokenSource.endsWith(".ASSOCIATEDCOUNT")) {
 				retString += Integer.toString(aFeat.getAssociatedCount());
 			} else if (tokenSource.endsWith(".SOURCE")) {
-				retString += aFeat.getSource();
+				retString += aFeat.getSourceEntry().toString();
 			} else {
 				retString += aFeat.qualifiedName();
 			}

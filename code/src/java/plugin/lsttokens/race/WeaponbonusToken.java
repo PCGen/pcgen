@@ -1,5 +1,8 @@
 package plugin.lsttokens.race;
 
+import java.util.StringTokenizer;
+
+import pcgen.core.Constants;
 import pcgen.core.Race;
 import pcgen.persistence.lst.RaceLstToken;
 
@@ -9,11 +12,17 @@ import pcgen.persistence.lst.RaceLstToken;
 public class WeaponbonusToken implements RaceLstToken {
 
 	public String getTokenName() {
-		return "WEAPONBONUS";
+		return "WEAPONBONUS"; //$NON-NLS-1$
 	}
 
 	public boolean parse(Race race, String value) {
-		race.setWeaponProfBonus(value);
+		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
+
+		while (aTok.hasMoreTokens())
+		{
+			race.addWeaponProfBonus(aTok.nextToken());
+		}
+
 		return true;
 	}
 }

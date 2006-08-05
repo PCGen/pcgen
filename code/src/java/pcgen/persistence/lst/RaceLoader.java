@@ -28,6 +28,7 @@ package pcgen.persistence.lst;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Race;
@@ -52,6 +53,7 @@ public final class RaceLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
@@ -122,63 +124,41 @@ public final class RaceLoader extends LstObjectFileLoader
 			race.setCR(race.getLevelAdjustment(null));
 		}
 
-		if (race.getRaceType().equals("None"))
+		if (race.getRaceType().equals(Constants.s_NONE))
 		{
 			/** TODO Uncomment this once the data is updated. */
 //			logError("Race " + race.getName() + " has no race type.");
 		}
-		finishObject(race);
 
+		completeObject( race );
 		return null;
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
+	@Override
 	protected PObject getObjectKeyed(String aKey)
 	{
 		return Globals.getRaceKeyed(aKey);
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
-	protected void finishObject(PObject target)
+	@Override
+	protected void performForget( final PObject objToForget )
 	{
-		if (target == null)
-		{
-			return;
-		}
-		if (includeObject(target))
-		{
-			final Race aRace = Globals.getRaceKeyed(target.getKeyName());
-			if (aRace == null)
-			{
-				Globals.getRaceMap().put(target.getKeyName(), (Race)target);
-			}
-			else if (!target.equals(aRace))
-			{
-				if (SettingsHandler.isAllowOverride())
-				{
-					if (target.getSourceDateValue() > aRace.getSourceDateValue())
-					{
-						Globals.getRaceMap().remove(aRace.getKeyName());
-						Globals.getRaceMap().put(target.getKeyName(), (Race)target);
-					}
-				}
-			}
-		}
-		else
-		{
-			excludedObjects.add(target.getKeyName());
-		}
+		Globals.getRaceMap().remove(objToForget.getKeyName());
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
-	protected void performForget(PObject objToForget)
+	@Override
+	protected void addGlobalObject( final PObject pObj )
 	{
-		Globals.getRaceMap().remove(objToForget.getKeyName());
+		// TODO - Create Globals.addRace( final Race aRace );
+		Globals.getRaceMap().put( pObj.getKeyName(), (Race)pObj );
 	}
 }

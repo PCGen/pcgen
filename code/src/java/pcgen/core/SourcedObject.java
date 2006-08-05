@@ -29,18 +29,19 @@ package pcgen.core;
  */
 public interface SourcedObject
 {
-
-	/**
-	 * Get source via a key
-	 * @param key
-	 * @return source
-	 */
-	String getSourceWithKey(String key);
-
-	/**
-	 * Get the source campaign
-	 * @return campaign
-	 */
-	Campaign getSourceCampaign();
-
+	SourceEntry getSourceEntry();
+	
+//	/**
+//	 * Get source via a key
+//	 * @param key
+//	 * @return source
+//	 */
+//	String getSourceWithKey(String key);
+//
+//	/**
+//	 * Get the source campaign
+//	 * @return campaign
+//	 */
+//	Campaign getSourceCampaign();
+//
 }

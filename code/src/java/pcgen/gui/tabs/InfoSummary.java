@@ -821,7 +821,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				b.append("</b>:").append(cString); //$NON-NLS-1$
 			}
 
-			String bString = aRace.getSource();
+			String bString = aRace.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
@@ -917,14 +917,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")).append("</b>:").append(cString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
-			String bString = aClass.getSource();
+			String bString = aClass.getSourceEntry().toString();
 
 			if (bString.length() > 0)
 			{
 				b.append(" <b>").append(PropertyFactory.getString("in_sumSource")).append("</b>:").append(bString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
-			b.append(" <b>").append(PropertyFactory.getString("in_sumBAB1")).append("</b>").append(aClass.getAttackBonusType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+//			b.append(" <b>").append(PropertyFactory.getString("in_sumBAB1")).append("</b>").append(aClass.getAttackBonusType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			b.append(" <b>").append(PropertyFactory.getString("in_sumHD")).append("</b>1D").append(aClass.getBaseHitDie() + ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			if (Globals.getGameModeShowSpellTab())
@@ -2750,7 +2750,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 						if (aClass != null)
 						{
-							retStr = aClass.getSource();
+							retStr = aClass.getSourceEntry().toString();
 						}
 					}
 

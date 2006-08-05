@@ -697,7 +697,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							sb.append(" &nbsp;<b>Description</b>:")
 								.append(aFeat.piDescSubString())
 								.append(" &nbsp;<b>Source</b>:")
-								.append(aFeat.getSource())
+								.append(aFeat.getSourceEntry().toString())
 								.append("</html>");
 							infoLabel.setText(sb.toString());
 						}
@@ -800,7 +800,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							sb.append(" &nbsp;<b>Description</b>:")
 								.append(aFeat.piDescSubString())
 								.append(" &nbsp;<b>Source</b>:")
-								.append(aFeat.getSource())
+								.append(aFeat.getSourceEntry().toString())
 								.append("</html>");
 							infoLabel.setText(sb.toString());
 						}
@@ -1092,7 +1092,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 						typeList.add(aString);
 					}
 
-					String sourceString = anAbility.getSourceWithKey("LONG");
+					final String sourceString = anAbility.getSourceEntry().getSourceBook().getLongName();
 					if ((sourceString != null) && (!sourceList.contains(sourceString)))
 					{
 						sourceList.add(sourceString);
@@ -2208,7 +2208,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 					{
 
-						String sourceString = aFeat.getSourceWithKey("LONG");
+						final String sourceString = aFeat.getSourceEntry().getSourceBook().getLongName();
 						if (sourceString != null && sourceString.equals(rootAsPObjectNode.getChild(i).toString()))
 						{
 							PObjectNode aFN = new PObjectNode();

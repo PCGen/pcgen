@@ -805,7 +805,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		else
 		{
 			//SettingsHandler.setMonsterDefault(false);
-			monsterClass.setMonsterFlag("YES");
+			monsterClass.setMonsterFlag(true);
 
 			int levels = race.getMonsterClassLevels(aPC, false);
 			Logging.debugPrint("Monster Class: " + monsterClass.getDisplayName() + " Level: " + levels);

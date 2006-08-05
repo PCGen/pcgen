@@ -821,7 +821,11 @@ public final class Skill extends PObject
 			// Add in all choice-excluded languages
 			aPC.getLanguagesList().addAll(excludedLangs);
 			languageSkill.clearAssociated();
-			languageSkill.addAllToAssociated(lc.getSelectedList());
+			// TODO Fix this to allow Language objects.
+			for ( Iterator<?> i = lc.getSelectedList().iterator(); i.hasNext(); )
+			{
+				languageSkill.addAssociated( ((Language)i.next()).getKeyName() );
+			}
 			aPC.setDirty(true);
 
 			return true;

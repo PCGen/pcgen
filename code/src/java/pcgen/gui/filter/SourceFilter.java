@@ -23,6 +23,7 @@ package pcgen.gui.filter;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SourceEntry;
 import pcgen.core.SourceUtilities;
 import pcgen.util.PropertyFactory;
 
@@ -69,12 +70,13 @@ final class SourceFilter extends AbstractPObjectFilter
 			return false;
 		}
 
+		final String sourceStr = pObject.getSourceEntry().getFormattedString( SourceEntry.SourceFormat.LONG, true );
 		if (detailLevel == LOW)
 		{
-			return normalizeSource(SourceUtilities.returnSourceInForm(pObject, Constants.SOURCELONG, true)).equals(source);
+			return normalizeSource(sourceStr).equals(source);
 		}
 
-		return SourceUtilities.returnSourceInForm(pObject, Constants.SOURCELONG, true).equals(source);
+		return sourceStr.equals(source);
 	}
 
 	private static String normalizeSource(String s)

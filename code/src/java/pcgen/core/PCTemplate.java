@@ -65,7 +65,6 @@ public final class PCTemplate extends PObject implements HasCost
 	private ArrayList<String>    levelStrings        = null;
 	private ArrayList<String>    templates           = new ArrayList<String>();
 
-	private ArrayList<String>    weaponProfBonus     = null;
 	private HashMap<String, String>      chosenFeatStrings   = null;
 	private List<String>         templatesAdded      = null;
 	private String       cost                = "1";
@@ -82,7 +81,6 @@ public final class PCTemplate extends PObject implements HasCost
 	private String  subRace               = Constants.s_NONE;
 	private String  subregion             = Constants.s_NONE;
 	private String  templateSize          = "";
-	private TreeSet<Language> languageBonus         = new TreeSet<Language>();
 	private boolean removable             = true;
 	private int     ChallengeRating       = 0;
 	private int     bonusInitialFeats     = 0;
@@ -362,52 +360,6 @@ public final class PCTemplate extends PObject implements HasCost
 		return hitDieLock;
 	}
 
-
-	/**
-	 * Set a comma delimited list of the languages a character can choose from
-	 * based upon their Intelligence stat
-	 *
-	 * Identical function exists in PCClass.java. Refactor. XXX
-	 *
-	 * @param  aString
-	 */
-	public void setLanguageBonus(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, ",", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String token = aTok.nextToken();
-
-			if (".CLEAR".equals(token))
-			{
-				getLanguageBonus().clear();
-			}
-			else
-			{
-				final Language aLang = Globals.getLanguageKeyed(token);
-
-				if (aLang != null)
-				{
-					getLanguageBonus().add(aLang);
-				}
-			}
-		}
-	}
-
-
-	/**
-	 * Get a comma delimited list of the languages a character can choose from
-	 * based upon their Intelligence stat
-	 *
-	 * @return  a list of languages (comma delimited)
-	 */
-	public Set<Language> getLanguageBonus()
-	{
-		return languageBonus;
-	}
-
-
 	/**
 	 * Set a formula for level adjustment (jep) to be applied to any creature
 	 * this template is applied to.
@@ -630,11 +582,11 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tHITDIE:").append(hitDieLock);
 		}
 
-		if ((languageBonus != null) && !languageBonus.isEmpty())
+		if ((getLanguageBonus() != null) && !getLanguageBonus().isEmpty())
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for ( Language lang : languageBonus )
+			for ( Language lang : getLanguageBonus() )
 			{
 				if (buffer.length() != 0)
 				{
@@ -758,18 +710,18 @@ public final class PCTemplate extends PObject implements HasCost
 				break;
 		}
 
-		if (getListSize(weaponProfBonus) > 0)
+		if (getWeaponProfBonus().size() > 0)
 		{
 			final StringBuffer buffer = new StringBuffer();
 
-			for (Iterator<String> e = weaponProfBonus.iterator(); e.hasNext();)
+			for ( final String profKey : getWeaponProfBonus() )
 			{
 				if (buffer.length() != 0)
 				{
 					buffer.append('|');
 				}
 
-				buffer.append(e.next());
+				buffer.append(profKey);
 			}
 
 			txt.append("\tWEAPONBONUS:").append(buffer.toString());
@@ -1108,50 +1060,6 @@ public final class PCTemplate extends PObject implements HasCost
 	}
 
 	/**
-	 * Add to a list of Weapon Proficiencies that this template will grant to
-	 * creatures it is applied to.  Data is a | separated list of profs
-	 *
-	 * @param  aString  the list of profs to add
-	 */
-	public void setWeaponProfBonus(final String aString)
-	{
-		if (weaponProfBonus == null)
-		{
-			weaponProfBonus = new ArrayList<String>();
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			weaponProfBonus.add(aTok.nextToken());
-		}
-	}
-
-
-	/**
-	 * Get a list of Weapon Proficiencies that this template will grant to
-	 * creatures it is applied to.
-	 *
-	 * @return  a list of weapon proficiencies
-	 */
-	public List<String> getWeaponProfBonus()
-	{
-		return weaponProfBonus != null ? weaponProfBonus : Collections.EMPTY_LIST;
-	}
-
-
-	/**
-	 * Get the number of weapon proficiencies that will be added by this template
-	 *
-	 * @return  the number of proficiencies
-	 */
-	public int getWeaponProfBonusSize()
-	{
-		return getListSize(weaponProfBonus);
-	}
-
-	/**
 	 * Grants the character an ability at the Hit die or hit die range specified.
 	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
 	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
@@ -1428,7 +1336,6 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		final PCTemplate aTemp = (PCTemplate) super.clone();
 		aTemp.templates       = new ArrayList<String>(templates);
-		aTemp.languageBonus   = new TreeSet<Language>(languageBonus);
 
 		if (getListSize(levelStrings) != 0)
 		{
@@ -1444,10 +1351,6 @@ public final class PCTemplate extends PObject implements HasCost
 		// {
 		// aTemp.sizeStrings = (ArrayList) sizeStrings.clone();
 		// }
-		if (getListSize(weaponProfBonus) != 0)
-		{
-			aTemp.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
-		}
 
 		if (abilityCatStore != null) {
 			aTemp.abilityCatStore = new AbilityStore();

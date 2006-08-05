@@ -273,7 +273,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 
 				if (race != null)
 				{
-					sRet = race.getSource();
+					sRet = race.getSourceEntry().toString();
 				}
 
 				break;

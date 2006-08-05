@@ -24,13 +24,18 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Source;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.*;
 
 /**
@@ -67,8 +72,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	/**
 	 * This method loads the given list of LST files.
 	 * @param fileList containing the list of files to read
+	 * @throws PersistenceLayerException 
 	 */
-	public void loadLstFiles(List<?> fileList)
+	public void loadLstFiles(List<?> fileList) throws PersistenceLayerException
 	{
 		// First sort the file list to optimize loads.
 		sortFilesForOptimalLoad(fileList);
@@ -125,8 +131,8 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * PObject of the appropriate type will be created prior to applying the
 	 * line contents.  Because of this behavior, it is necessary for this
 	 * method to return the new object.  Implementations of this method also
-	 * MUST call finishObject with the original target prior to returning the
-	 * new value.
+	 * MUST call <code>completeObject</code> with the original target prior to 
+	 * returning the new value.
 	 *
 	 * @param lstLine String LST formatted line read from the source URL
 	 * @param target PObject to apply the line to, barring the start of a
@@ -140,17 +146,122 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	public abstract PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException;
 
+	/**
+	 * This method is called by the loading framework to signify that the
+	 * loading of this object is complete and the object should be added to the
+	 * system.
+	 * 
+	 * <p>This method will check that the loaded object should be included via
+	 * a call to <code>includeObject</code> and if not add it to the list of
+	 * excluded objects.
+	 * 
+	 * <p>Once the object has been verified the method will call
+	 * <code>finishObject</code> to give each object a chance to complete 
+	 * processing.
+	 * 
+	 * <p>The object is then added to the system if it doesn't already exist.
+	 * If the object exists, the object sources are compared by date and if the
+	 * System setting allowing over-rides is set it will use the object from the
+	 * newer source.
+	 * 
+	 * @param pObj The object that has just completed loading.
+	 * 
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(PObject)
+	 * @see pcgen.core.SettingsHandler#isAllowOverride()
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * @throws PersistenceLayerException 
+	 * 
+	 * @since 5.11
+	 */
+	public void completeObject( final PObject pObj ) 
+		throws PersistenceLayerException
+	{
+		if ( pObj == null )
+		{
+			return;
+		}
 
+		// Make sure the source info was set
+		if (sourceMap != null)
+		{
+			try
+			{
+				pObj.setSourceMap(sourceMap);
+			}
+			catch (ParseException e)
+			{
+				throw new PersistenceLayerException(e.toString());
+			}
+		}
 
+		if ( includeObject(pObj) )
+		{
+			finishObject( pObj );
+			final PObject currentObj = getObjectKeyed( pObj.getKeyName() );
+
+			if (currentObj == null || !pObj.equals(currentObj) )
+			{
+				addGlobalObject( pObj );
+			}
+			else
+			{
+				if (!currentObj.getSourceFile().equals(pObj.getSourceFile()))
+				{
+					if (SettingsHandler.isAllowOverride())
+					{
+						// If the new object is more recent than the current
+						// one, use the new object
+						final Source s1 = pObj.getSourceEntry().getSourceBook();
+						final Source s2 = currentObj.getSourceEntry().getSourceBook();
+						if ( s1.getDate().compareTo(s2.getDate()) > 0 )
+//						if (pObj.getSourceDateValue() > currentObj.getSourceDateValue())
+						{
+							performForget( currentObj );
+							addGlobalObject( pObj );
+						}
+					}
+					else
+					{
+						// Duplicate loading error
+						Logging.errorPrint("WARNING: Duplicate object name: " + pObj.getKeyName());
+						Logging.errorPrint("Original : " + currentObj.getSourceFile());
+						Logging.errorPrint("Duplicate: " + pObj.getSourceFile());
+						Logging.errorPrint("WARNING: Not loading duplicate");
+					}
+				}
+			}
+		}
+		else
+		{
+			excludedObjects.add( pObj.getKeyName() );
+		}
+	}
 
 	/**
+	 * Adds an object to the global repository.
+	 * 
+	 * @param pObj The object to add.
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
+	 */
+	protected abstract void addGlobalObject( final PObject pObj );
+	
+	/**
 	 * This method is called when the end of data for a specific PObject
-	 * is found, typically in order to add it to Globals.  This method MUST
-	 * invoke includeObject in order to properly handle includes and excludes!
+	 * is found.
+	 * 
+	 * <p>This method will only be called for objects that are to be included.
 	 *
 	 * @param target PObject to perform final operations on
 	 */
-	protected abstract void finishObject(PObject target);
+	protected void finishObject(@SuppressWarnings("unused")PObject target)
+	{
+		// Placeholder implementation
+	}
 
 	/**
 	 * This method should be called by finishObject implementations in
@@ -169,12 +280,6 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			|| (parsedObject.getKeyName() == null) || (parsedObject.getKeyName().trim().length() == 0))
 		{
 			return false;
-		}
-
-		// Make sure the source info was set
-		if (sourceMap != null)
-		{
-			parsedObject.setSourceMap(sourceMap);
 		}
 
 		// If includes were present, check includes for given object
@@ -319,7 +424,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 				try
 				{
 					target = parseLine(target, line, sourceEntry);
-					finishObject(target);
+					// TODO - This is kind of a hack but we need to make sure
+					// that classes get added.
+					completeObject( target );
 				}
 				catch (PersistenceLayerException ple)
 				{
@@ -414,8 +521,10 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 *
 	 * @param baseName String name of the object to copy
 	 * @param copyName String name of the target object
+	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(String baseKey, String copyName)
+	private void performCopy(String baseKey, String copyName) 
+		throws PersistenceLayerException
 	{
 		PObject object = getObjectKeyed(baseKey);
 
@@ -431,7 +540,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			PObject clone = (PObject) object.clone();
 			clone.setName(copyName);
 			clone.setKeyName(copyName);
-			finishObject(clone);
+			completeObject(clone);
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -445,8 +554,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * file content.
 	 * @param lstLine String containing the LST source for the
 	 * .COPY operation
+	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(String lstLine)
+	private void performCopy(String lstLine) throws PersistenceLayerException
 	{
 		final int nameEnd = lstLine.indexOf(".COPY");
 		final String baseName = lstLine.substring(0, nameEnd);
@@ -454,51 +564,6 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		performCopy(baseName, copyName);
 	}
-
-	/**
-	 * This method will perform a single .MOD
-	 * operation.  Loaders can [typically] use the name without checking
-	 * for (or stripping off) .MOD due to the implementation of
-	 * PObject.setName()
-	 *
-	 * @param entry ModEntry containing the LST source and source
-	 * campaign information for the requested .MOD operation
-	 */
-//	private void performMod(ModEntry entry)
-//	{
-//		// get the name of the object to modify, trimming off the .MOD
-//		int nameEnd = entry.getLstLine().indexOf(".MOD");
-//		String key = entry.getLstLine().substring(0, nameEnd);
-//
-//		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
-//		int nameStart = key.indexOf(':');
-//
-//		if (nameStart > 0)
-//		{
-//			key = key.substring(nameStart + 1);
-//		}
-//
-//		// get the actual object to modify
-//		PObject object = getObjectKeyed(key);
-//
-//		if (object == null)
-//		{
-//			logError("Cannot apply .MOD; PObject '" + key + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
-//			return;
-//		}
-//
-//		// modify the object
-//		try
-//		{
-//			object.setModSourceMap(entry.getSourceMap());
-//			parseLine(object, entry.getLstLine(), entry.getSource());
-//			finishObject(object);
-//		}
-//		catch (PersistenceLayerException ple)
-//		{
-//			logError("Unable to MOD the object '" + key + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
-//		}
-//	}
 
 	/**
 	 * This method will perform a multi-line .MOD operation. This is used
@@ -544,7 +609,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 				object.setModSourceMap(element.getSourceMap());
 				parseLine(object, element.getLstLine(), element.getSource());
 			}
-			finishObject(object);
+			completeObject(object);
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -554,8 +619,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 	/**
 	 * This method will process the lines containing a .COPY directive
+	 * @throws PersistenceLayerException 
 	 */
-	private void processCopies()
+	private void processCopies() throws PersistenceLayerException
 	{
 		for (String objKey : copyLineList)
 		{
