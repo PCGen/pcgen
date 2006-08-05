@@ -20,11 +20,9 @@
  */
 package pcgen.gui.filter;
 
-import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SourceEntry;
-import pcgen.core.SourceUtilities;
 import pcgen.util.PropertyFactory;
 
 import java.util.StringTokenizer;

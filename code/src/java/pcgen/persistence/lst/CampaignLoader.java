@@ -33,11 +33,9 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.core.Campaign;
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
-import pcgen.core.SourceUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
