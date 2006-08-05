@@ -65,7 +65,7 @@ public final class CampaignOutput
 
 			for (Iterator<String> gm = campaign.getGameModes().iterator(); gm.hasNext();)
 			{
-				String gmName = (String) gm.next();
+				String gmName = gm.next();
 				FileAccess.write(out, gmName);
 
 				if (gm.hasNext())

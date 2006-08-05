@@ -255,7 +255,7 @@ final class ChooseSpellDialog extends JDialog
 
 			for (int idx = 0; idx < subClasses.size(); idx++)
 			{
-				String fileName = (String) subClasses.get(idx);
+				String fileName = subClasses.get(idx);
 				int i = fileName.indexOf('(');
 
 				if (i >= 0)
@@ -1219,7 +1219,7 @@ final class ChooseSpellDialog extends JDialog
 							}
 
 							final String sub = eMsg.substring(1);
-							final List<String> specInfo = (ArrayList<String>) specialists.get(sub);
+							final List<String> specInfo = specialists.get(sub);
 
 							if (specInfo == null)
 							{
@@ -1341,7 +1341,7 @@ final class ChooseSpellDialog extends JDialog
 
 			for (int i = minimumLevel; i < levelList.size(); ++i)
 			{
-				levelsForCasting[i] = new Integer((String) levelList.get(i));
+				levelsForCasting[i] = new Integer(levelList.get(i));
 			}
 		}
 		else
@@ -1423,10 +1423,7 @@ final class ChooseSpellDialog extends JDialog
 				{
 					return aSpell.getOutputName();
 				}
-				else
-				{
-					return aSpell.toString();
-				}
+				return aSpell.toString();
 			}
 
 			return "";

@@ -108,7 +108,7 @@ public final class CharacterInfo extends JPanel {
 		ComponentListener componentListener = PToolBar.getCurrentInstance().getComponentListener();
 		addComponentListener(componentListener);
 		for (int i = 0; i < tabList.size(); i++) {
-			CharacterInfoTab tab = (CharacterInfoTab) tabList.get(i);
+			CharacterInfoTab tab = tabList.get(i);
 			if (tab.isShown() && tab instanceof FilterAdapterPanel) {
 				FilterAdapterPanel fpanel = (FilterAdapterPanel) tab;
 				fpanel.addComponentListener(componentListener);
@@ -329,7 +329,7 @@ public final class CharacterInfo extends JPanel {
 	 */
 	public void storeFilterSettings() {
 		for (int i = 0; i < tabList.size(); i++) {
-			CharacterInfoTab tab = (CharacterInfoTab) tabList.get(i);
+			CharacterInfoTab tab = tabList.get(i);
 			if (tab.isShown() && tab instanceof FilterAdapterPanel) {
 				FilterAdapterPanel fpanel = (FilterAdapterPanel) tab;
 				SettingsHandler.storeFilterSettings(fpanel);
@@ -385,7 +385,7 @@ public final class CharacterInfo extends JPanel {
 	private void restoreAllFilterSettings() {
 		FilterFactory.clearFilterCache();
 		for (int i = 0; i < tabList.size(); i++) {
-			CharacterInfoTab tab = (CharacterInfoTab) tabList.get(i);
+			CharacterInfoTab tab = tabList.get(i);
 			if (tab.isShown() && tab instanceof FilterAdapterPanel) {
 				FilterAdapterPanel fpanel = (FilterAdapterPanel) tab;
 				FilterFactory.restoreFilterSettings(fpanel);
@@ -434,7 +434,7 @@ public final class CharacterInfo extends JPanel {
 		List<String> allToDos = new ArrayList<String>();
 		for (int i = 0; i < tabList.size(); i++)
 		{
-			CharacterInfoTab tab = (CharacterInfoTab) tabList.get(i);
+			CharacterInfoTab tab = tabList.get(i);
 			if (tab.isShown())
 			{
 				List<String> tabToDos = tab.getToDos();
@@ -473,7 +473,7 @@ public final class CharacterInfo extends JPanel {
 
 		public void finished() {
 			for (int i = 0; i < tabList.size(); i++) {
-				CharacterInfoTab tab = (CharacterInfoTab) tabList.get(i);
+				CharacterInfoTab tab = tabList.get(i);
 				if (tab.isShown()) {
 					tab.setPc(pc);
 				}
@@ -498,7 +498,7 @@ public final class CharacterInfo extends JPanel {
 						updateSet.remove(tab);
 					}
 					for (Iterator<CharacterInfoTab> i = updateSet.iterator(); i.hasNext();) {
-						tab = (CharacterInfoTab) i.next();
+						tab = i.next();
 						if (tab.isShown()) {
 							try {
 								tab.refresh();

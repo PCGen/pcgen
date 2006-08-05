@@ -63,11 +63,11 @@ public final class BioSet extends PObject
 	 */
 	public String getAgeMapIndex(final String region, final int index)
 	{
-		String retVal = (String) ageMap.get(region + "." + String.valueOf(index));
+		String retVal = ageMap.get(region + "." + String.valueOf(index));
 
 		if ((retVal == null) || (retVal.indexOf("BONUS:") < 0))
 		{
-			retVal = (String) ageMap.get("None." + String.valueOf(index));
+			retVal = ageMap.get("None." + String.valueOf(index));
 		}
 
 		return retVal;
@@ -357,7 +357,7 @@ public final class BioSet extends PObject
 		List<String> l = temporaryPObject.getSafeListFor(ListKey.KITS);
 		for (int i = 0; i > l.size(); i++)
 		{
-			KitUtilities.makeKitSelections(0, (String) l.get(i), i, pc);
+			KitUtilities.makeKitSelections(0, l.get(i), i, pc);
 		}
 		pc.setHasMadeKitSelectionForAgeSet(ageSet, true);
 	}
@@ -535,7 +535,7 @@ public final class BioSet extends PObject
 			return "0";
 		}
 
-		return (String) r.get(tokenNum);
+		return r.get(tokenNum);
 	}
 
 	private List<String> getValueInMaps(final String argRegionName, final String argRaceName, final String addKey)
@@ -769,7 +769,7 @@ public final class BioSet extends PObject
 			}
 
 			final int roll = RollingMethods.roll(1, aList.size()) - 1; // needs to be 0-offset
-			rv = (String) aList.get(roll);
+			rv = aList.get(roll);
 		}
 		else
 		{
@@ -915,7 +915,7 @@ public final class BioSet extends PObject
 			if (key.startsWith(region + "."))
 			{
 				final Integer setNum = new Integer(key.substring(region.length() + 1));
-				final String value = (String) ageMap.get(key);
+				final String value = ageMap.get(key);
 				final SortedMap<String, String> races = new TreeMap<String, String>();
 				races.put("AGESET", value);
 				ageSets.put(setNum, races);

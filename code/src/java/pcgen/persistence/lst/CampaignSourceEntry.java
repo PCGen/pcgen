@@ -114,6 +114,8 @@ public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
 	}
 
 	/**
+	 * @param arg0
+	 * @return -1 if file does not compare
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	public int compareTo(CampaignSourceEntry arg0)
@@ -127,6 +129,8 @@ public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
 	}
 
 	/**
+	 * @param arg0 
+	 * @return true if equals
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	public boolean equals(CampaignSourceEntry arg0)
