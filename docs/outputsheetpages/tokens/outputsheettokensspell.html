@@ -3,16 +3,16 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensspell.html,v 1.8 2004/12/21 05:02:29 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Sigurdur H. Olafsson - shoATtnDOTis
-		
+
 		Description:
 		Provides information on the use of Output Sheet Tokens: Spell Related.
 	-->
@@ -20,18 +20,18 @@
 			<title>Spell Related Output Sheet Tokens</title>
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Spell Related Output Sheet Tokens</h1>
-		
+
 		<p></p><a name="MAXSPELLLEVEL"></a><hr>
 		<p class="new">*** new 5.7.12</p>
 		<p class="indent0"><strong>Token Name:</strong> MAXSPELLLEVEL.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The class number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The value returned is an integer containing the highest spell level that the class can cast 
+		<p class="indent2">The value returned is an integer containing the highest spell level that the class can cast
 		(for most RSRD classes this will either be 9 (for Wizards) or 4 (for Rangers etc)).</p>
-		
+
 		<p></p><a name="SPELLBOOKNAME"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> SPELLBOOKNAME.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The book number of the spellbook title you wish to display).</p>
@@ -135,6 +135,15 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLPOINTS</code></p>
 		<p class="indent3">Gives the number of Spellpoints the character has.</p>
+
+		<p></p><a name="BASEPPCOST"></a><hr>
+		<p class="new">*** NEW 5.10.1</p>
+		<p class="indent0"><strong>Token Name:</strong> BASEPPCOST</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Reports the PPCOST from a spell .</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BASEPPCOST</code></p>
+		<p class="indent3">Undocumentated.</p>
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensspell.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
