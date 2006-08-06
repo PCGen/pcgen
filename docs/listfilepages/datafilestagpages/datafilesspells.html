@@ -3,16 +3,16 @@
 <html>
 	<!--
 		PCGen Documentation Project
-			
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesspells.html,v 1.9 2005/03/30 14:30:25 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+
 		Description:
 		Provides information on the content of PCGen Spell Files.
 	-->
@@ -20,25 +20,48 @@
 		<title>Spell Files</title>
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Spell Files</h1>
-		
+
 		<p>The first field is the name of the spell.</p>
-		
+
+
+		<p></p><a name="BONUSPPCOST"></a><hr>
+		<p class="new">*** NEW 5.10.1</p>
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:PPCOST|x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Power Points)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">It is possible to scale some spells to increase range, duration, damage, etc.
+							Scaling uses more PPs. For every one point in extra power applied to the
+							spell the spells Effective Caster Level for damage purpose is raised 1
+							level. Maximum level applied is equal to the Caster current level.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:PPCOST|Blade Barrier|3</code></p>
+		<p class="indent3">A Clr9/Good9/War9 costs 11 PP to launch a Blade Barrier for 6d6 damage. By
+							putting 3 more point the Effective Caster Level to 9d6 for a total of
+							14 PP. The maximum extra PP is 3 for this example. Damage can not be raised
+							over the Casters actual level.</p>
+		<p class="indent2"><code>BONUS:PPCOST|Lightning Bolt|2</code></p>
+		<p class="indent3">A Sor/Wiz 9 costs 5 PP to launch a Lightning Bolt for 3d6 damage. By
+							putting 2 more point the Effective Caster Level is 5d6 damage
+							for a total of 7 PP. The maximum extra PP is 7 for this example getting
+							the maximum of 10d6 damage.</p>
+
 		<p></p><a name="CASTERLEVEL"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> (CASTERLEVEL)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">CASTERLEVEL is a special variable for use within <a href="#DESC">DESC</a>, 
-  			<a href="#DURATION">DURATION</a> and <a href="#TARGETAREA">TARGETAREA</a> tags 
-  			which treat anything found in parentheses as a formula to be parsed into a number. 
-  			CASTERLEVEL returns the caster level of the class which grants the spell. The 
-  			value of CASTERLEVEL is usually dependent on Class but can be effected by Race 
-  			or the School, Descriptor or other attribute of the Spell. CASTERLEVEL can be 
-  			adjusted using the <a href="../globalfilestagpages/globalfilesbonus.html#CASTERLEVEL">BONUS:CASTERLEVEL</a> 
-  			tag. In some cases where division and multiplication are used it is recommended 
-  			that the <a href="../globalfilestagpages/globalfilesformulas.html#Truncation">floor()</a> 
+		<p class="indent2">CASTERLEVEL is a special variable for use within <a href="#DESC">DESC</a>,
+  			<a href="#DURATION">DURATION</a> and <a href="#TARGETAREA">TARGETAREA</a> tags
+  			which treat anything found in parentheses as a formula to be parsed into a number.
+  			CASTERLEVEL returns the caster level of the class which grants the spell. The
+  			value of CASTERLEVEL is usually dependent on Class but can be effected by Race
+  			or the School, Descriptor or other attribute of the Spell. CASTERLEVEL can be
+  			adjusted using the <a href="../globalfilestagpages/globalfilesbonus.html#CASTERLEVEL">BONUS:CASTERLEVEL</a>
+  			tag. In some cases where division and multiplication are used it is recommended
+  			that the <a href="../globalfilestagpages/globalfilesformulas.html#Truncation">floor()</a>
   			function be applied.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DESC:Electricity deals (CASTERLEVEL)d6 damage</code></p>
@@ -66,8 +89,8 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This indicates that this spell is the indicated level for the named class.</p>
-		<p class="indent2">This tag can now be qualified with PRExxx statements. 
-			Please note that you must enclose the PRExxx statement with [ ] 
+		<p class="indent2">This tag can now be qualified with PRExxx statements.
+			Please note that you must enclose the PRExxx statement with [ ]
 			instead of the usual Pipe delineation.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>CLASSES:Wizard=5|Enchanter=3|Druid=6</code></p>
@@ -81,10 +104,10 @@
 		<p class="indent2"><code>CLASSES:ALL=4[PREDEITY:Java]</code></p>
 		<p class="indent3">Indicates this spell is 4th Lvl for all classes, but is only available for followers of Java.</p>
 		<p class="indent2"><code>CLASSES:Wizard,Sorcerer=5|Cleric=4[PRECLASS:Magician=1]</code></p>
-		<p class="indent3">Indicates this spell is 5th Lvl Wizard, 5th Lvl Sorcerer, but 
-  			will only be added to the spell list of a character with one level of the Magician prestige 
-  			class. This is especially useful if you need to create a spell lists for prestige 
-  			classes that add castor levels to existing levels but does not otherwise have 
+		<p class="indent3">Indicates this spell is 5th Lvl Wizard, 5th Lvl Sorcerer, but
+  			will only be added to the spell list of a character with one level of the Magician prestige
+  			class. This is especially useful if you need to create a spell lists for prestige
+  			classes that add castor levels to existing levels but does not otherwise have
   			a spell progression.</p>
 
 		<p></p><a name="COMPS"></a><hr>
@@ -120,9 +143,9 @@
 			<li>If closed, and permission is granted, the DESCISPI tag is used to show that.</li>
 			<li>This replaces the Deprecated EFFECTS tag.</li>
 			<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and formulas within parentheses.</li>
-			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose, 
+			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose,
 				is commonly used though other variables can be used as well.</li>
-			<li>Because anything within parentheses is assumed to be a formula to be parsed, 
+			<li>Because anything within parentheses is assumed to be a formula to be parsed,
 				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -144,12 +167,12 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DESCISPI:YES</code></p>
 		<p class="indent3">Description is closed content.</p>
-		
+
 		<p></p><a name="DESCRIPTOR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DESCRIPTOR:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Reports what types the spell is and is used for specialist wizards 
+		<p class="indent2">Reports what types the spell is and is used for specialist wizards
 			to determine their favored schools bonus spells.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DESCRIPTOR:Sonic|Acid|Evil</code></p>
@@ -163,19 +186,19 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This indicates that this spell is the indicated level for the named domain.</p>
-		<p class="indent2">This tag can now be qualified with PRExxx statements. 
-			Please note that you must enclose the PRExxx statement with [ ] 
+		<p class="indent2">This tag can now be qualified with PRExxx statements.
+			Please note that you must enclose the PRExxx statement with [ ]
 			instead of the usual Pipe delineation.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3</code></p>
-		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, 
+		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain,
 			and 3rd level for the Beauty domain.</p>
 			<p class="indent2"><code>DOMAINS:Fire=3|Magic=4[PREALIGN:2,5,8]</code></p>
-		<p class="indent3">Indicates that this is a 3rd level spell for the Fire domain, 
+		<p class="indent3">Indicates that this is a 3rd level spell for the Fire domain,
 			and 4th level for the Magic domain, but is only available to evil characters.</p>
 		<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3[PRECLASS:Supermodel=1]</code></p>
-		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, 
-			and 3rd level for the Beauty domain, but will only be added to the spell list 
+		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain,
+			and 3rd level for the Beauty domain, but will only be added to the spell list
 			of a character with a level of the Supermodel prestige class.</p>
 
 		<p></p><a name="DURATION"></a><hr>
@@ -184,9 +207,9 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Reports the duration of the spell.</p>
 		<p class="indent2">Formulas can be parsed and the results replaced in the output by enclosing the variables and formulas within parentheses.</p>
-		<p class="indent2"><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose, 
+		<p class="indent2"><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose,
 				is commonly used though other variables can be used as well.</p>
-		<p class="indent2">Because anything within parentheses is assumed to be a formula to be parsed, 
+		<p class="indent2">Because anything within parentheses is assumed to be a formula to be parsed,
 				text containing parentheses must substitute brackets [ ] in place of parentheses.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DURATION:1 Round/Level</code></p>
@@ -208,7 +231,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> ITEM:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Item type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Tells PCGen what types of items this spell can be used to make 
+		<p class="indent2">Tells PCGen what types of items this spell can be used to make
 			(Potions, wands, wondrous items, etc).</p>
 		<p class="indent2">Most often this is used to indicate the spell can be made into a potion.</p>
 		<p class="indent2">Brackets can be used to prevent the spell from being used in the specified item.</p>
@@ -217,6 +240,19 @@
 		<p class="indent3">This spell can be used in a potion.</p>
 		<p class="indent2"><code>ITEM:[Scroll]</code></p>
 		<p class="indent3">This spell can NOT be used in a scroll.</p>
+
+
+		<p></p><a name="PPCOST"></a><hr>
+		<p class="new">*** NEW 5.10.1</p>
+		<p class="indent0"><strong>Tag Name:</strong> PPCOST:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This is a point pool cost to purchase/cast the spell
+							(works with SKILLTOTAL=>skill name<)</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PPCOST:9</code></p>
+		<p class="indent3">This spell costs 9 points to use.</p>
+
 
 		<p></p><a name="RANGE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> RANGE:x</p>
@@ -241,7 +277,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> SCHOOL:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a | (pipe) delimited list of Schools the spell belongs to and is used for specialist 
+		<p class="indent2">This is a | (pipe) delimited list of Schools the spell belongs to and is used for specialist
 			wizards to determine their favored schools bonus spells.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SCHOOL:Divination</code></p>
@@ -254,7 +290,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> SUBSCHOOL:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Sub-School Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a | (pipe) delimited list of Sub-Schools the spell belongs to and is used for specialist 
+		<p class="indent2">This is a | (pipe) delimited list of Sub-Schools the spell belongs to and is used for specialist
 			wizards to determine their favored schools bonus spells.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SUBSCHOOL:Charm</code></p>
@@ -270,7 +306,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> SPELLRES:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes or No)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Indicates whether the character can try to resist the spell based on 
+		<p class="indent2">Indicates whether the character can try to resist the spell based on
 			their Spell Resistance number.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLRES:Yes</code></p>
@@ -285,9 +321,9 @@
 			<li>Reports the Target, Area, or Effects that the spell has.</li>
 			<li>This replaces the deprecated EFFECTTYPE tag.</li>
 			<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and formulas within parentheses.</li>
-			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose, 
+			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for this purpose,
 				is commonly used though other variables can be used as well.</li>
-			<li>Because anything within parentheses is assumed to be a formula to be parsed, 
+			<li>Because anything within parentheses is assumed to be a formula to be parsed,
 				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -324,7 +360,7 @@
 		<p class="indent3">Names the two variations of the spell.</p>
 		<p class="indent2"><code>VARIANTS:Acorn Grenades|Holly Berry Bombs</code></p>
 		<p class="indent3">Names the two variants of the spell Fire seeds.</p>
-		
+
 		<p></p><a name="XPCOST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> XPCOST:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Spell XP Cost)</p>
