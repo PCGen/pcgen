@@ -3,16 +3,17 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/outputsheetpages/tokens/outputsheettokensfeat-skill.html,v 1.7 2005/11/30 13:32:54 karianna Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Sigurdur H. Olafsson - shoATtnDOTis
-		
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
+
 		Description:
 		Provides information on the use of Output Sheet Tokens: Feats &amp; Skills Related.
 	-->
@@ -21,9 +22,10 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 			<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Feats &amp; Skills Related Output Sheet Tokens</h1>
+
 
 		<p></p><a name="FEAT"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEAT.x.y.z</p>
@@ -55,6 +57,7 @@
 		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>
 		<p class="indent2"><code>FEAT.3.TYPE=General.TYPE</code></p>
 		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen feat if it is a general type feat.</p>
+
 
 		<p></p><a name="FEATALL"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEATALL.w.x.y.z</p>
@@ -95,6 +98,7 @@
 		<p class="indent2"><code>FEATALL.3.TYPE=Occupation.TYPE</code></p>
 		<p class="indent3">Displays the type of the 4<sup>th</sup> feat if it is an Occupation feat.</p>
 
+
 		<p></p><a name="FEATALLLIST"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEATALLLIST.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
@@ -117,6 +121,7 @@
 		<p class="indent3">Displays all of the character's fighter feats (comma delimited).</p>
 		<p class="indent2"><code>FEATALLLIST.!TYPE=Metamagic.!TYPE=ItemCreation</code></p>
 		<p class="indent3">Displays all of the character's feats except metamagic and item creation type feats (comma delimited).</p>
+
 
 		<p></p><a name="FEATAUTO"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEATAUTO.x.y.z</p>
@@ -149,6 +154,7 @@
 		<p class="indent2"><code>FEATAUTO.1.TYPE=General.TYPE</code></p>
 		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic feat if it is a general type feat.</p>
 
+
 		<p></p><a name="FEATAUTOLIST"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEATAUTOLIST.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Feat Type - default is ALL).</p>
@@ -169,6 +175,7 @@
 		<p class="indent3">Displays all of the character's automatic feats (comma delimited).</p>
 		<p class="indent2"><code>FEATAUTOLIST.!TYPE=General</code></p>
 		<p class="indent3">Displays all of the character's automatic feats except general type feats (comma delimited).</p>
+
 
 		<p></p><a name="FEATLIST"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEATLIST.x</p>
@@ -191,6 +198,7 @@
 		<p class="indent2"><code>FEATLIST.TYPE=ItemCreation</code></p>
 		<p class="indent3">Displays all of the character's chosen item creation type feats (comma delimited).</p>
 
+
 		<p></p><a name="FEATPOINTS"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEATPOINTS</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -198,6 +206,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FEATPOINTS</code></p>
 		<p class="indent3">Displays all the character's remaining un-spent feat points.</p>
+
 
 		<p></p><a name="MAXCCSKILLLEVEL"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> MAXCCSKILLLEVEL</p>
@@ -207,6 +216,7 @@
 		<p class="indent2"><code>MAXCCSKILLLEVEL</code></p>
 		<p class="indent3">Displays the maximum Cross Class Skill level.</p>
 
+
 		<p></p><a name="MAXSKILLLEVEL"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> MAXSKILLLEVEL</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -214,6 +224,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>MAXSKILLLEVEL</code></p>
 		<p class="indent3">Displays the maximum Class Skill Level.</p>
+
 
 		<p></p><a name="SKILL"></a><hr>
 		<p class="new">*** Updated 5.7.3</p>
@@ -230,7 +241,7 @@
 			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
 			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
 			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 				skill list.</li>
 			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
 			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
@@ -244,12 +255,12 @@
 		<p class="indent2"><code>SKILL.2.RANK</code></p>
 		<p class="indent3">Displays the number of ranks in the 3<sup>rd</sup> skill.</p>
 		<p class="indent2"><code>SKILL.1.MISC</code></p>
-		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks 
+		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks
 			(e.g. A synergy bonus).</p>
 		<p class="indent2"><code>SKILL.0.ABILITY</code></p>
 		<p class="indent3">Displays the key ability name for the 1<sup>st</sup> skill.</p>
 		<p class="indent2"><code>SKILL.2.EXPLAIN</code></p>
-		<p class="indent3">Displays the  make-up of the misc modifier in the 3<sup>rd</sup> skill. 
+		<p class="indent3">Displays the  make-up of the misc modifier in the 3<sup>rd</sup> skill.
 			<br>Example: +2[TUMBLE] -6.0[SPEED.STACK] +4.0[OTHER]</p>
 
 		<p></p>
@@ -266,7 +277,7 @@
 			<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
 			<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
 			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 			skill list.</li>
 			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
 			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
@@ -279,8 +290,9 @@
 		<p class="indent2"><code>SKILL.Alchemy.TOTAL</code></p>
 		<p class="indent3">Would display the total bonus on your Alchemy skill check.</p>
 		<p class="indent2"><code>SKILL.Jump.EXPLAIN_LONG</code></p>
-		<p class="indent3">Displays the  make-up of the misc modifier in the Jump skill. 
+		<p class="indent3">Displays the  make-up of the misc modifier in the Jump skill.
 			<br>Example: +2[skill TUMBLE gteq 5|TYPE=SYNERGY.STACK] -6.0[|TYPE=SPEED.STACK] +4.0[OTHER]</p>
+
 
 		<p></p><a name="SKILLLEVEL"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> SKILLLEVEL.x.TOTAL</p>
@@ -289,7 +301,8 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SKILLLEVEL.1.TOTAL </code></p>
 		<p class="indent3">Displays skill points gained at level 1.</p>
-		
+
+
 		<p></p><a name="SKILLLISTMODS"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> SKILLLISTMODS</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -297,6 +310,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SKILLLISTMODS</code></p>
 		<p class="indent3">Displays a list of all skills with a non-zero adjustment.</p>
+
 
 		<p></p><a name="SKILLPOINTS"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> SKILLPOINTS.x</p>
@@ -312,6 +326,7 @@
 		<p class="indent2"><code>SKILLPOINTS.TOTAL</code></p>
 		<p class="indent3">Displays the total skill points the character has.</p>
 
+
 		<p></p><a name="SKILLSUBSET"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> SKILLSUBSET.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list
@@ -325,7 +340,7 @@
 			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
 			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
 			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 				skill list.</li>
 			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
 			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
@@ -341,8 +356,9 @@
 		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> knowledge skill in the
 			character's skill list.</p>
 		<p class="indent2"><code>SKILLSUBSET2.KNOWLEDGE.MISC</code></p>
-		<p class="indent3">Displays the bonus for the 3<sup>rd</sup> skill not from the key ability score or ranks 
+		<p class="indent3">Displays the bonus for the 3<sup>rd</sup> skill not from the key ability score or ranks
 			(e.g.? A synergy bonus).</p>
+
 
 		<p></p><a name="SKILLTYPE"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> SKILLTYPE.x.y.z</p>
@@ -356,9 +372,9 @@
 			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
 			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
 			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's 
+			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 			skill list.</li>
-			<li>NAME - Displays the name of the skill in position x in the character's skill list.</li>			
+			<li>NAME - Displays the name of the skill in position x in the character's skill list.</li>
 			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
 			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
 			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
@@ -373,10 +389,11 @@
 		<p class="indent2"><code>SKILL2.RANK</code></p>
 		<p class="indent3">Displays the number of skill ranks of the 3<sup>rd</sup> skill in the character's skill list.</p>
 		<p class="indent2"><code>SKILL1.MISC</code></p>
-		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks 
+		<p class="indent3">Displays the bonus for the 2<sup>nd</sup> skill not from the key ability score or ranks
 			(e.g.?A synergy bonus).</p>
 		<p class="indent2"><code>SKILL0.ABILITY</code></p>
 		<p class="indent3">Displays the key ability for the 1<sup>st</sup> skill in the character's skill list.</p>
+
 
 		<p></p><a name="TEMPLATE"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> TEMPLATE.x.y</p>
@@ -405,6 +422,7 @@
 		<p class="indent2"><code>TEMPLATE0.STRMOD</code></p>
 		<p class="indent3">Displays the Strength Modifiaction granted by the 1<sup>st</sup> template in the characters list of templates.</p>
 
+
 		<p></p><a name="TEMPLATELIST"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> TEMPLATELIST</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -412,6 +430,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>TEMPLATELIST</code></p>
 		<p class="indent3">Displays your templates in a comma delimited list.</p>
+
 
 		<p></p><a name="VFEAT"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> VFEAT.x.y.z</p>
@@ -443,6 +462,7 @@
 		<p class="indent3">Displays the name of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>
 		<p class="indent2"><code>VFEAT.2.TYPE=Fighter.TYPE</code></p>
 		<p class="indent3">Displays the type of the 3<sup>rd</sup> feat in the character's virtual feat list if it is a fighter type feat.</p>
+
 
 		<p></p><a name="VFEATLIST"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> VFEATLIST.x</p>
