@@ -1519,14 +1519,16 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void addEquipButton(Float newQty)
 	{
-		if (selectedTable.getTree().isSelectionEmpty())
+		TreePath aeSelPath = selectedTable.getTree().getSelectionPath();
+
+		if (selectedTable.getTree().isSelectionEmpty()
+			|| !pathExists(selectedTable.getTree(), aeSelPath))
 		{
-			ShowMessageDelegate.showMessageDialog("First select an Equip Set to add the item to", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieSelectSet"), Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
 
-		TreePath aeSelPath = selectedTable.getTree().getSelectionPath();
 		String equipSetName = equipSetTextField.getText();
 		String locName = "";
 		MyPONode parentNode;
@@ -1620,6 +1622,53 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		pc.calcActiveBonuses();
 	}
 
+	/**
+	 * Verify that the path exists in the tree.
+	 * 
+	 * @param tree The tree to be scanned.
+	 * @param path The path to be verified.
+	 * @return true if the path exists in the tree.
+	 */
+	private boolean pathExists(JTree tree, TreePath path)
+	{
+		PObjectNode root = (PObjectNode) tree.getModel().getRoot();
+		PObjectNode currTreeNode = null;
+		for (int i=0;i<path.getPathCount();i++)
+		{
+			PObjectNode pathNode = (PObjectNode) path.getPathComponent(i);
+			if (currTreeNode == null)
+			{
+				if (root != pathNode)
+				{
+					return false;
+				}
+				currTreeNode = root;
+			}
+			else
+			{
+				List<PObjectNode> children = currTreeNode.getChildren();
+				boolean found = false;
+				for (PObjectNode node : children)
+				{
+					if (node == pathNode)
+					{
+						found = true;
+						currTreeNode = node;
+						break;
+					}
+				}
+				if (!found)
+				{
+					return false;
+				}
+			}
+			
+		}
+		
+		return true;
+	}
+	
+	
 	/*
 	 *****  **  **  **   **  **  ** **    **
 	 **     **  **  ***  **  ** **   **  **
