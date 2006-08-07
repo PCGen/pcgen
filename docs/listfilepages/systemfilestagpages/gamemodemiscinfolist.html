@@ -12,6 +12,7 @@
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
 
 		Description:
 		Provides information on the use of PCGen Game Mode: Misc Info List File.
@@ -718,6 +719,16 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>POINTPOOLNAME:Harp</code></p>
 		<p class="indent3">Means that PCGEN will use the Harp Point Pool default for stat creation.</p>
+		<p></p>
+		<p class="indent1">When POINTPOOLNAME trigger tag is present in miscinfo file Summary Tab
+							Will display total points/points remaining (i.e. Development Points 160/135)
+							on the same line as the stat total and stat mod total</p>
+		<p></p>
+		<p class="indent1">Skills Tab - Instead of skill points by class/level requirement to spend
+							skill points, it's just a pool this is also populated by the classes
+							STARTSKILLPTS and miscinfo SKILLMULTIPLIER</p>
+		<p></p>
+		<p class="indent1">Feats Tab - Will show total point pool as reported on the skills tab</p>
 
 		<p></p><a name="RANKMODFORMULA"></a><hr>
 		<p class="new">*** New 5.8.0</p>
