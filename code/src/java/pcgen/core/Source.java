@@ -51,7 +51,7 @@ public class Source
 	private String theLongName = null;
 	private String theShortName = null;
 	private String theWebsite = null;
-	private Date theDate = null;
+	private String theDate = null;
 
 	private static List<Source> theSources = null;
 	
@@ -189,9 +189,30 @@ public class Source
 	/**
 	 * @return the date
 	 */
-	public Date getDate()
+	public String getDate()
 	{
 		return theDate;
+	}
+	
+	/**
+	 * @return the date as numeric value
+	 */
+	public int getDateValue()
+	{
+		int result = 0;
+
+		if (theDate != null)
+		{
+			String[] dates = theDate.split("-");
+			if (dates.length == 2)
+			{
+				int year = (new Integer(dates[0])).intValue() - 2000;
+				int month = (new Integer(dates[1])).intValue();
+				result = year*12 + month;
+			}
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -210,13 +231,7 @@ public class Source
 	 */
 	public void setDate(final String aDateStr) throws ParseException
 	{
-		if ( aDateStr == null )
-		{
-			return;
-		}
-		
-		final DateFormat df = DateFormat.getDateInstance();
-		theDate = df.parse(aDateStr);
+		theDate = aDateStr;
 	}
 	
 	/**

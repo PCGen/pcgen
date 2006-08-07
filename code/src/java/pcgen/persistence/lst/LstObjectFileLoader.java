@@ -213,7 +213,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 						// one, use the new object
 						final Source s1 = pObj.getSourceEntry().getSourceBook();
 						final Source s2 = currentObj.getSourceEntry().getSourceBook();
-						if ( s1.getDate().compareTo(s2.getDate()) > 0 )
+						if ( s1.getDateValue() >  s2.getDateValue())
 //						if (pObj.getSourceDateValue() > currentObj.getSourceDateValue())
 						{
 							performForget( currentObj );
