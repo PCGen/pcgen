@@ -25,29 +25,51 @@
 	<body>
 		<h1>Spell Related Output Sheet Tokens</h1>
 
+		<p></p><a name="BASEPPCOST"></a><hr>
+		<p class="new">*** NEW 5.10.1</p>
+		<p class="indent0"><strong>Token Name:</strong> BASEPPCOST</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Reports the PPCOST from a spell .</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BASEPPCOST</code></p>
+		<p class="indent3">Undocumentated.</p>
+
 		<p></p><a name="MAXSPELLLEVEL"></a><hr>
 		<p class="new">*** new 5.7.12</p>
 		<p class="indent0"><strong>Token Name:</strong> MAXSPELLLEVEL.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The class number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The value returned is an integer containing the highest spell level that the class can cast
-		(for most RSRD classes this will either be 9 (for Wizards) or 4 (for Rangers etc)).</p>
+		<p class="indent2">The value returned is an integer containing the highest spell level that the class
+							can cast (for most RSRD classes this will either be 9 (for Wizards) or 4 (for
+							Rangers etc)).</p>
 
-		<p></p><a name="SPELLBOOKNAME"></a><hr>
-		<p class="indent0"><strong>Token Name:</strong> SPELLBOOKNAME.x</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The book number of the spellbook title you wish to display).</p>
+
+		<p></p><a name="SPELLBOOK"></a><hr>
+		<p class="new">*** new 5.10.1</p>
+		<p class="indent0"><strong>Token Name:</strong> SPELLBOOK.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The Spell book Number of the spell book
+									you wish to display).</p>
+		<p class="indent2">* The known spell book is spell book number 0.</p>
+		<p class="indent2">* The racial innate spell book is spell book number 1.</p>
+		<p class="indent2">* Other innate spell books are spell book number 2 or up.</p>
+		<p class="indent2">* The innate spell books will not exist if the character does not have innate spells.</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (The property of the spell book you wish to
+									display).</p>
+		<p class="indent2">* NAME - Display the name of the indicated spell book or list.</p>
+		<p class="indent2">* NUMPAGES - Display the total number of pages in the spell book (or 0 if there are no
+									pages, such as in a prepared spell list).</p>
+		<p class="indent2">* NUMPAGESUSED - Display the number of pages currently in use for the spell book (or 0
+									if there are no pages, such as in a prepared spell list).</p>
+		<p class="indent2">* NUMSPELLS - Display the number of spells in the spell book or list.</p>
+		<p class="indent2">* PAGEFORMULA - Display the page formula for the spell book (or an empty string if
+									there are no pages, such as in a prepared spell list).</p>
+		<p class="indent2">* TYPE - Display the type (e.g. Known Spells, Prepared List) of the spell book or
+									list.</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Displays the title of spellbook x in the character spellbook list.</li>
-			<li>The Known Spellbook is any class but 0, spellbook number 0.</li>
-			<li>The Racial Innate Spellbook is class 0, spellbook number 1.</li>
-			<li>Other Innate Spellbooks are class 0, spellbook number 2 or up.</li>
-			<li>The Innate spellbooks will not exist if the character does not have innate spells.</li>
-			<li>The -1 Spellbook should not be used any more.</li>
-		</ul>
+		<p class="indent2">Displays information about the character's spell book or spell list.</li>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPELLBOOKNAME.0</code></p>
-		<p class="indent3">Display Spell Book 0 (the default spellbook).</p>
+		<p class="indent2"><code>SPELLBOOK.0.NAME</code></p>
+		<p class="indent3">Displays the name of the 1st spell book for the character.</p>
 
 		<p></p><a name="SPELLLIST"></a><hr>
 		<p class="new">*** updated 5.7.9</p>
