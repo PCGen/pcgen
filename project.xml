@@ -71,7 +71,7 @@
         </developer>
         <developer>
             <name>Stefan Radermacher</name>
-            <id>Zaister</id>
+            <id>zaister</id>
             <email>radermacher@netcologne.de</email>
             <organization>PCGen</organization>
             <roles>
@@ -85,16 +85,17 @@
             <email>jdempsey@users.sourceforge.net</email>
             <organization>PCGen</organization>
             <roles>
-                <role>Code Gibbon</role>
+                <role>Code Silverback</role>
             </roles>
-            <url>http://perrenland.org</url>
+            <url>http://ratik.rpga-apac.com</url>
             <timezone>+10</timezone>
         </developer>
         <developer>
             <name>Devon Jones</name>
             <id>soulcatcher</id>
             <roles>
-                <role>Code Silverback</role>
+                <role>Architecture Silverback</role>
+                <role>Code 2nd</role>
             </roles>
         </developer>
         <developer>
@@ -128,6 +129,10 @@
         <developer>
             <name>Jonas Karlsson</name>
             <id>jujutsunerd</id>
+        </developer>
+        <developer>
+            <name>Terry FitzSimons</name>
+            <id>fitzs</id>
         </developer>
         
     </developers>
@@ -259,7 +264,7 @@
     </reports>
 
     <build>
-        <nagEmailAddress>pcgen-devel@lists.sourceforge.net</nagEmailAddress>
+        <nagEmailAddress>jdempsey@users.sourceforge.net</nagEmailAddress>
         <sourceDirectory>code/src/java</sourceDirectory>
         <unitTestSourceDirectory>code/src/test</unitTestSourceDirectory>
         <unitTest>
