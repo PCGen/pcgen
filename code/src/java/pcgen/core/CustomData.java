@@ -544,13 +544,8 @@ public final class CustomData
 		bw.newLine();
 		bw.write("#");
 		bw.newLine();
-		/* Trying to correct bug 1454563. When writing custom files, it should tabs/newlines to
-		 * to separate the tokens
-		  bw.write("SOURCELONG:Custom|SOURCESHORT:Custom");
-		bw.newLine();
-		 */
 		bw.write("SOURCELONG:Custom\tSOURCESHORT:Custom");
-		bw.newLine();
+		bw.newLine();	
 	}
 
 	private static void writeCustomLanguages()

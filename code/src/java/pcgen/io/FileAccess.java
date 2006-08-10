@@ -142,7 +142,7 @@ public final class FileAccess
 	 */
 	public static String filterString(String aString)
 	{
-		if ((outputFilter != null) && (outputFilter.size() != 0))
+		if ((outputFilter != null) && (outputFilter.size() != 0) && aString != null)
 		{
 			final StringBuffer xlatedString = new StringBuffer(aString.length());
 
@@ -198,6 +198,11 @@ public final class FileAccess
 	 */
 	public static void write(Writer output, String aString)
 	{
+		if (aString == null)
+		{
+			return;
+		}
+		
 		if ((maxLength > 0) && (aString.length() > maxLength))
 		{
 			aString = aString.substring(0, maxLength);

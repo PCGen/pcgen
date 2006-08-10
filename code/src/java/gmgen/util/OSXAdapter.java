@@ -34,6 +34,23 @@ public class OSXAdapter extends ApplicationAdapter
 		mainApp = inApp;
 	}
 
+	/** 
+	 * Another static entry point for EAWT functionality.  Enables the
+	 * "Preferences..." menu item in the application menu.
+	 * NOTE: called from GMGenSystem.java using reflection.
+	 * 
+	 * @param enabled
+	 */
+	public static void enablePrefs(boolean enabled)
+	{
+		if (theApplication == null)
+		{
+			theApplication = new com.apple.eawt.Application();
+		}
+
+		theApplication.setEnabledPreferencesMenu(enabled);
+	}
+
 	public void handlePreferences(ApplicationEvent ae)
 	{
 		if (mainApp != null)
@@ -65,6 +82,28 @@ public class OSXAdapter extends ApplicationAdapter
 		{
 			throw new IllegalStateException("handleQuit: GMGenSystem instance detached from listener");
 		}
+	}
+	/**
+	 * The main entry-point for this functionality.  This is the only method
+	 * that needs to be called at runtime, and it can easily be done using
+	 * reflection (see MyApp.java)
+	 * NOTE: called from GMGenSystem.java using reflection.
+	 * 
+	 * @param inApp
+	 */
+	public static void registerMacOSXApplication(gmgen.GMGenSystem inApp)
+	{
+		if (theApplication == null)
+		{
+			theApplication = new com.apple.eawt.Application();
+		}
+
+		if (theAdapter == null)
+		{
+			theAdapter = new OSXAdapter(inApp);
+		}
+
+		theApplication.addApplicationListener(theAdapter);
 	}
 
 }

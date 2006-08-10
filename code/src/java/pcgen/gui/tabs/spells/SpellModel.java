@@ -731,7 +731,9 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 								si = cs.getSpellInfoFor(bookName, iLev, -1);
 							}
 							if (si == null)
+							{
 								primaryMatch = spell.isLevel(iLev, pc);
+							}
 							else if (!knownSpellsOnly && si != null && si.getFeatList()!=null)
 								continue;
 						break;

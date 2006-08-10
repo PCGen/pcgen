@@ -9,7 +9,7 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
@@ -3245,7 +3245,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * test against.  I don't want to change the behaviour for now however.
 	 * @param variableString
 	 * @param isMax
-	 * @param includeBonus
+	 * @param includeBonus Should bonus tokens be added to this variables value
 	 * @param matchSrc
 	 * @param matchSubSrc
 	 * @param recurse
@@ -7367,7 +7367,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				}
 			}
 		}
-
 		this.setArmorProfListStable(false);
 		List<String> l = inTmpl.getSafeListFor(ListKey.KITS);
 		for (int i1 = 0; i1 < l.size(); i1++)

@@ -1676,6 +1676,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						pc.setDirty(true);
 						pc.setGold(gold.getText());
 					}
+					return valueOk;
 				}
 				else if (pc != null)
 				{

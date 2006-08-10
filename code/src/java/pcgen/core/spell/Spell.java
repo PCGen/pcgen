@@ -273,7 +273,7 @@ public final class Spell extends PObject
 			{
 				return aPC.getVariableValue(fixedDC, "").intValue();
 			}
-			
+
 			if (si.getFeatList() != null)
 			{
 				for ( Ability metaFeat : si.getFeatList() )

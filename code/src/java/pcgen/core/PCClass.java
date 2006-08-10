@@ -1550,6 +1550,7 @@ public class PCClass extends PObject
 	}
 
 
+
 	/**
 	 * Return number of spells known for a level.
 	 * @param pcLevel

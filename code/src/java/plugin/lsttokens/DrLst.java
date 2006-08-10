@@ -4,6 +4,7 @@
  */
 package plugin.lsttokens;
 
+import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.core.prereq.Prerequisite;

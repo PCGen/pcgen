@@ -56,6 +56,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
 	private Equipment weapon = null;
+	private Equipment gem = null;
 
 	/**
 	 * Quick test suite creation - adds all methods beginning with "test"
@@ -144,6 +145,11 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		weapon = new Equipment();
 		weapon.setName("TestWpn");
 		weapon.setTypeInfo("weapon");
+		
+		gem = new Equipment();
+		gem.setName("TestGem");
+		gem.setTypeInfo("gem");
+		gem.setQty(1);
 	}
 
 	/*
@@ -208,6 +214,27 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		character.addEquipSet(es);
 		assertEquals("New format SKILL Token", "**TestWpn**",
 			evaluateToken("FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
+	}
+
+	/**
+	 * Test the export of equipment using the eqtype token in a loop.
+	 * 
+	 * @throws Exception
+	 */
+	public void testEqtypeLoop() throws Exception
+	{
+		PlayerCharacter character = getCharacter();
+		final String gemLoop = "FOR.0,COUNT[EQTYPE.Gem],1,\\EQTYPE.Gem.%.NAME\\: \\EQTYPE.Gem.%.QTY\\, ,<br/>,1";
+
+		assertEquals("Gem Loop - no gems", "",
+			evaluateToken(gemLoop, character));
+
+		// Now assign a gem
+		character.addEquipment(gem);
+		EquipSet es = new EquipSet("1", "Default", "", gem);
+		character.addEquipSet(es);
+		assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>",
+			evaluateToken(gemLoop, character));
 	}
 
 	private String evaluateToken(String token, PlayerCharacter pc)
