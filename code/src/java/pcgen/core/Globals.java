@@ -2888,7 +2888,6 @@ public final class Globals
 			}
 		}
 
-		Logging.errorPrint("Got filepaths loc of " + aPath);
 		return expandRelativePath(aPath);
 	}
 
