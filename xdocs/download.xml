@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<!DOCTYPE document [
+  <!ENTITY % my-entities SYSTEM "target/entities.ent">
+  %my-entities;
+]>
+<document>
+<properties>
+  <title></title>  
+</properties>  
+<meta name="keyword" content="pcgen, autobuild, snapshot, download"/> 
+<body>
+ <section name="Download Autobuild">
+ <p>
+ The download is split into two parts, the libraries required by PCGen, which do not 
+ change frequently, and everything else, which will change with each autobuild. Generally you 
+ can use your previous copy of the libraries for each autobuild and only update if a 
+ missing library is reported.
+ <ul>
+   <li><a href="download/pcgen-all-no-libs-&version;-SNAPSHOT.zip">PCGen Autobuild</a></li>
+   <li><a href="download/pcgen-libraries-&version;-SNAPSHOT.zip">PCGen Libraries</a></li>
+ </ul>
+ </p>
+ </section> </body> </document>
+
+
