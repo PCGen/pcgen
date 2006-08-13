@@ -248,17 +248,17 @@
         <!-- Runs slower'n molassas -->
         <!-- <report>maven-checkstyle-plugin</report> -->
         <report>maven-developer-activity-plugin</report>
-        <!-- <report>maven-emma-plugin</report> -->
+        <report>maven-emma-plugin</report>
         <report>maven-file-activity-plugin</report>
-        <!-- <report>maven-javadoc-plugin</report> -->
-        <!-- <report>maven-jdepend-plugin</report> -->
+        <report>maven-javadoc-plugin</report>
+        <report>maven-jdepend-plugin</report>
         <report>maven-junit-report-plugin</report>
-        <!-- <report>maven-jxr-plugin</report> -->
+        <report>maven-jxr-plugin</report>
         <report>maven-license-plugin</report>
         <!-- Another slow'un -->
         <!-- <report>maven-linkcheck-plugin</report> -->
-        <!-- <report>maven-pmd-plugin</report> -->
-        <!-- <report>maven-simian-plugin</report> -->
+        <report>maven-pmd-plugin</report>
+        <report>maven-simian-plugin</report>
         <report>maven-tasklist-plugin</report>
         <report>pcgen-docs-plugin</report>
     </reports>
