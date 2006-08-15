@@ -5,9 +5,7 @@ GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Magazine
 SETTING:Modern
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-TYPE:Alpha Datasets
-#TYPE:RPGObjects.Modern Dispatch
+TYPE:RPGObjects.Modern Dispatch
 PUBNAMELONG:RPG Objects
 PUBNAMESHORT:RPGO
 PUBNAMEWEB:http://www.rpgobjects.com/
