@@ -1607,6 +1607,11 @@ public final class SettingsHandler
 	{
 		return getOptions().getProperty("pcgen.options." + optionName, defaultValue); //$NON-NLS-1$
 	}
+	
+	public static boolean hasPCGenOption(final String optionName)
+	{
+		return getOptions().containsKey("pcgen.options." + optionName);
+	}
 
 	public static String getPDFOutputSheetPath()
 	{
