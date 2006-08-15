@@ -1518,33 +1518,33 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		/**
 		 * Creates a FeatModel
-		 * @param mode
+		 * @param viewMode
 		 * @param available
 		 */
-		private FeatModel(int mode, boolean available)
+		private FeatModel(int viewMode, boolean available)
 		{
 			super(null);
-			resetModel(mode, available, false);
+			resetModel(viewMode, available, false);
 			int i = 1;
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-			if(available)
+			displayList.add(new Boolean(true));											// Feat
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));		// Type
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));		// Cost
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));		// Mult
+			displayList.add(new Boolean(getColumnViewOption(names[i++], false)));		// Stack
+			if (available)
 			{
-				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Requirements
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Description
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Choices
+				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));	// Source
 			}
 			else
 			{
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));
-				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Requirements
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Description
+				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));	// Choices
+				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Source
 			}
 		}
 
@@ -2388,14 +2388,41 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			SettingsHandler.setPCGenOption("InfoFeats.sizecol." + names[col], width);
 		}
 
+		private String getViewcolOptionName(String colName)
+		{
+			String strModel;
+			if (modelType == MODEL_TYPE_AVAIL)
+			{
+				strModel = "available";
+			}
+			else		// MODEL_TYPE_SELECTED
+			{
+				strModel = "selected";
+			}
+			return "InfoFeats." + strModel + ".viewcol." + colName;
+		}
+		
 		private boolean getColumnViewOption(String colName, boolean defaultVal) 
 		{
-			return SettingsHandler.getPCGenOption("InfoFeats.viewcol." + colName, defaultVal);
+			String strViewCol = getViewcolOptionName(colName);
+
+			// If newer separated type exists, then use it, otherwise get value from older style
+			if (SettingsHandler.hasPCGenOption(strViewCol))
+			{
+				return SettingsHandler.getPCGenOption(strViewCol, defaultVal);
+			}
+
+			// Fall back to old option name, but replace save as new style. Don't
+			// delete it as there are two different tables using these options
+			boolean retVal = SettingsHandler.getPCGenOption("InfoFeats.viewcol." + colName, defaultVal);
+			setColumnViewOption(colName, retVal);
+			return retVal;
 		}
 
 		private void setColumnViewOption(String colName, boolean val) 
 		{
-			SettingsHandler.setPCGenOption("InfoFeats.viewcol." + colName, val);
+			String strViewCol = getViewcolOptionName(colName);
+			SettingsHandler.setPCGenOption(strViewCol, val);
 		}
 
 		public void resetMColumn(int col, TableColumn column) 
