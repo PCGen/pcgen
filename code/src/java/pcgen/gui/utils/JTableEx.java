@@ -362,7 +362,7 @@ public class JTableEx extends JTable
 	/**
 	 * Align the cell text in a column
 	 **/
-	public final class AlignCellRenderer extends DefaultTableCellRenderer
+	public static final class AlignCellRenderer extends DefaultTableCellRenderer
 	{
 		/**
 		 * align is one of:

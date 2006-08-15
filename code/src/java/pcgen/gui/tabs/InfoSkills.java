@@ -3125,7 +3125,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		public void resetMColumn(int col, TableColumn column) {
 			// TODO Auto-generated method stub
-
+			switch(col)
+			{
+				case COL_MOD:
+				case COL_RANK:
+				case COL_TOTAL:
+				case COL_COST:
+//				case COL_INDEX:
+					column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+					break;
+					
+				default:
+					break;
+			}
 		}
 
 	}

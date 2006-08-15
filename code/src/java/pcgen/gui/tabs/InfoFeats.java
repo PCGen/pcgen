@@ -1546,6 +1546,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				displayList.add(new Boolean(getColumnViewOption(names[i++], true)));	// Choices
 				displayList.add(new Boolean(getColumnViewOption(names[i++], false)));	// Source
 			}
+			
 		}
 
 		/**
@@ -2428,7 +2429,17 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		public void resetMColumn(int col, TableColumn column) 
 		{
 			// TODO Auto-generated method stub
-
+			switch(col)
+			{
+				case COL_COST:
+				case COL_MULTIPLES:
+				case COL_STACKS:
+					column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+					break;
+					
+				default:
+					break;
+			}
 		}
 	}
 
