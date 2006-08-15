@@ -942,7 +942,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 	{
 		String aLine;
 		EquipmentModifier anObj = new EquipmentModifier();
-		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCE:PCGen Internal\tCHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES";
+		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES";
 		EquipmentModifierLoader.parseLine(anObj, aLine, null, -1);
 		EquipmentList.getModifierList().add(anObj);
 

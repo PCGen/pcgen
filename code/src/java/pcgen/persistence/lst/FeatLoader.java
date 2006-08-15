@@ -97,7 +97,7 @@ public final class FeatLoader extends AbilityLoader
 				"\tOUTPUTNAME:Weapon Proficiency\tTYPE:General\tCATEGORY:FEAT" +
 				"\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tDESC:You attack with this" +
 				" specific weapon normally, non-proficiency incurs a -4 to"    +
-					" hit penalty.\tSOURCE:PCGen Internal";
+					" hit penalty.\tSOURCELONG:PCGen Internal";
 			try
 			{
 				parseLine(null, aLine, firstSource);
