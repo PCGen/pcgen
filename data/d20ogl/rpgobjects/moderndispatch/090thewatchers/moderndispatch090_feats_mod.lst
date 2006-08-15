@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Jun  2 13:37:10 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
+
+#Original entry by Paul W. King
+
+# Feat Name		Type
+Alertness.MOD	TYPE:Watcher
+Confident.MOD	TYPE:Watcher
+Focused.MOD		TYPE:Watcher
+Trustworthy.MOD	TYPE:Watcher

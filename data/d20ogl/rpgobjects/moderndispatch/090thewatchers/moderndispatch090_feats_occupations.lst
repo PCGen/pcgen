@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Wed May 31 22:39:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
+
+#Original entry by Paul W. King
+
+# Feat Name			Output Name		Type			Visible	Choose a Feat				Modify VAR			Source Page
+Occupation (Celestial)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	ADD:FEAT(TYPE=Celestial_Skills)3	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.1
+
+###Block: The Skill choices
+# Feat Name								Type
+Bluff(class skill).MOD						TYPE:Celestial_Skills
+Bluff(+1 to skill).MOD						TYPE:Celestial_Skills
+
+Decipher Script(class skill).MOD				TYPE:Celestial_Skills
+Decipher Script(+1 to skill).MOD				TYPE:Celestial_Skills
+
+Intimidate(class skill).MOD					TYPE:Celestial_Skills
+Intimidate(+1 to skill).MOD					TYPE:Celestial_Skills
+
+Knowledge (Arcane Lore - class skill).MOD			TYPE:Celestial_Skills
+Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Celestial_Skills
+
+Knowledge (Art - class skill).MOD				TYPE:Celestial_Skills
+Knowledge (Art - +1 to skill).MOD				TYPE:Celestial_Skills
+
+Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Celestial_Skills
+Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Celestial_Skills
+
+Knowledge (History - class skill).MOD			TYPE:Celestial_Skills
+Knowledge (History - +1 to skill).MOD			TYPE:Celestial_Skills
+
+Knowledge (Streetwise - class skill).MOD			TYPE:Celestial_Skills
+Knowledge (Streetwise - +1 to skill).MOD			TYPE:Celestial_Skills
+
+Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Celestial_Skills
+Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Celestial_Skills
+
+Listen(class skill).MOD						TYPE:Celestial_Skills
+Listen(+1 to skill).MOD						TYPE:Celestial_Skills
+
+Sense Motive(class skill).MOD					TYPE:Celestial_Skills
+Sense Motive(+1 to skill).MOD					TYPE:Celestial_Skills
+
+Spot(class skill).MOD						TYPE:Celestial_Skills
+Spot(+1 to skill).MOD						TYPE:Celestial_Skills
