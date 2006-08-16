@@ -852,7 +852,7 @@ public final class LstEditorMain extends JFrame
 					}
 					else
 					{
-						removed = Globals.getSpellMap().remove(editObject.getKeyName()) != null;
+						removed = Globals.removeFromSpellMap(editObject.getKeyName()) != null;
 					}
 
 					break;

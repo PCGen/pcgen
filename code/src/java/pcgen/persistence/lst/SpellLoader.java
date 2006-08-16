@@ -194,7 +194,7 @@ public final class SpellLoader extends LstObjectFileLoader
 	@Override
 	protected void performForget(final PObject objToForget)
 	{
-		Globals.getSpellMap().remove(objToForget.getKeyName());
+		Globals.removeFromSpellMap(objToForget.getKeyName());
 	}
 
 	/**
@@ -272,7 +272,7 @@ public final class SpellLoader extends LstObjectFileLoader
 	@Override
 	protected void addGlobalObject( final PObject pObj )
 	{
-		final Object obj = Globals.getSpellMap().get( pObj.getKeyName() );
+		final Object obj = Globals.getSpellMap().get(pObj.getKeyName());
 		if ( obj == null )
 		{
 			Globals.addToSpellMap( pObj.getKeyName(), pObj );
@@ -283,7 +283,7 @@ public final class SpellLoader extends LstObjectFileLoader
 			if ( obj instanceof Spell )
 			{
 				spellList = new ArrayList<Spell>();
-				Globals.getSpellMap().remove( obj );
+				Globals.removeFromSpellMap(((Spell) obj).getKeyName());
 				Globals.addToSpellMap( pObj.getKeyName(), spellList );
 			}
 			else

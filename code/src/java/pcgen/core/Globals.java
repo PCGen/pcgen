@@ -1737,12 +1737,31 @@ public final class Globals
 	 */
 	public static Map<String, ?> getSpellMap()
 	{
-		return spellMap;
+		return Collections.unmodifiableMap(spellMap);
 	}
 
-	public static void addToSpellMap( final String key, final Object anObject )
+	/**
+	 * Add an item to the spell map. generally this will either 
+	 * be a Spell object or a list of Spells
+	 * 
+	 * @param key The key the object is associated with.
+	 * @param anObject The object to be added to the map.
+	 */
+	public static void addToSpellMap(final String key, final Object anObject)
 	{
-		spellMap.put( key, anObject );
+		spellMap.put(key, anObject);
+	}
+
+	/**
+	 * Remove the item with the listed key from the global spell map.
+	 * 
+	 * @param key The key of the item to be removed.
+	 * @return Previous value associated with specified key, or null 
+	 * if there was no mapping for key.
+	 */
+	public static Object removeFromSpellMap(final String key)
+	{
+		return spellMap.remove(key);
 	}
 
 	/**
