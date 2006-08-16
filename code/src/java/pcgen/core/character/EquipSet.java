@@ -53,6 +53,12 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
+	/** The ID component for the Root equip set */
+	public static final String ROOT_ID = "0"; //$NON-NLS-1$
+	
+	/** The character to use to separate path components */
+	public static final String PATH_SEPARATOR = "."; //$NON-NLS-1$
+	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
 	private List<BonusObj> tempBonusList = new ArrayList<BonusObj>();
@@ -83,10 +89,10 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	// 1 == my parent
 	// 3 == my Id
 	//
-	private String id_path = "";
-	private String name = "";
-	private String note = "";
-	private String value = "";
+	private String id_path = Constants.EMPTY_STRING;
+	private String name = Constants.EMPTY_STRING;
+	private String note = Constants.EMPTY_STRING;
+	private String value = Constants.EMPTY_STRING;
 	private boolean useTempBonuses = true;
 
 	/**
@@ -126,7 +132,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		try
 		{
-			final StringTokenizer aTok = new StringTokenizer(id_path, ".", false);
+			final StringTokenizer aTok = new StringTokenizer(id_path, PATH_SEPARATOR, false);
 
 			while (aTok.hasMoreTokens())
 			{
@@ -226,7 +232,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		// get all tokens and include the delimiter
 		try
 		{
-			final StringTokenizer aTok = new StringTokenizer(id_path, ".", true);
+			final StringTokenizer aTok = new StringTokenizer(id_path, PATH_SEPARATOR, true);
 
 			// get all tokens (and delimiters) except last two
 			for (int i = aTok.countTokens() - 2; i > 0; i--)
@@ -268,12 +274,12 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	public String getRootIdPath()
 	{
 		final StringBuffer buf = new StringBuffer(50);
-		final StringTokenizer aTok = new StringTokenizer(id_path, ".", false);
+		final StringTokenizer aTok = new StringTokenizer(id_path, PATH_SEPARATOR, false);
 		final String result;
 
 		if (aTok.countTokens() < 2)
 		{
-			result = "";
+			result = Constants.EMPTY_STRING;
 		}
 		else
 		{
@@ -358,6 +364,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 *
 	 * @return A new equip set, identical to this one.
 	 */
+	@Override
 	public Object clone()
 	{
 		EquipSet eqSet = null;
@@ -384,11 +391,27 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		return eqSet;
 	}
 
+	/**
+	 * Compares the path ids of each object to determine relative order.
+	 * 
+	 * @param obj The EquipSet to compare with.
+	 *  
+	 * @return a negative integer, zero, or a positive integer as this EquipSet 
+	 * is less than, equal to, or greater than the specified EquipSet.
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	public int compareTo(final EquipSet obj)
 	{
 		return id_path.compareToIgnoreCase(obj.id_path);
 	}
 
+	/**
+	 * Returns the EquipSet name.
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
 	public String toString()
 	{
 		return name;
