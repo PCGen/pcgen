@@ -3016,5 +3016,10 @@ public final class GameMode implements Comparable<Object>
 	{
 		return Collections.unmodifiableList(bonusStackList);
 	}
+
+	public boolean bonusStacks( final String aBonusType )
+	{
+		return bonusStackList.indexOf(aBonusType) != -1; // e.g. Dodge
+	}
 }
 
