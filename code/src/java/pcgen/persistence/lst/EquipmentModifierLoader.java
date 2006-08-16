@@ -110,7 +110,7 @@ public final class EquipmentModifierLoader
 			//}
 			else
 			{
-				Logging.errorPrint("Illegal equipment modifier info " + sourceURL.toString() + ":"
+				Logging.errorPrint("Illegal equipment modifier info " + String.valueOf(sourceURL) + ":"
 					+ Integer.toString(lineNum) + " \"" + colString + "\"");
 			}
 		}
