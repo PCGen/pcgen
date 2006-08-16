@@ -3765,7 +3765,14 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		{
 			if (isWeapon())
 			{
-				return getExpandedWeaponProf(aPC).getKeyName();
+				WeaponProf wp = getExpandedWeaponProf(aPC);
+				if (wp != null)
+				{
+					return wp.getKeyName();
+				}
+				Logging
+					.debugPrint("Could not find weapon proficiency with key '"
+						+ profName + "'.");
 			}
 			if (profName == null || profName.length() == 0)
 			{
