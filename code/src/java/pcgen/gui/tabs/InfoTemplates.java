@@ -671,7 +671,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				b.append(" &nbsp;<b>TYPE</b>:").append(temp.getType());
 			}
-			String bString = temp.getSourceEntry().toString();
+			String bString = temp.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
@@ -1133,7 +1133,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 						return template.preReqStrings();
 
 					case COL_SRC:
-						return template.getSourceEntry().toString();
+						return template.getDefaultSourceString();
 
 					default:
 						Logging.errorPrint("In InfoTemplates.AllTemplatesTableModel.getValueAt the column " + columnIndex

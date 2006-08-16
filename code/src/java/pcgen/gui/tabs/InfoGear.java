@@ -753,7 +753,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				b.append(" <b>QUALITIES</b>:").append(bString);
 			}
 
-			bString = aEq.getSourceEntry().toString();
+			bString = aEq.getDefaultSourceString();
 			if (bString.length() > 0)
 			{
 				b.append(" <b>SOURCE</b>:").append(bString);

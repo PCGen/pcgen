@@ -39,24 +39,25 @@ import java.util.Observable;
 
 /**
  * This class is a base class for LST file loaders.
+ * 
  * <p/>
  * This class lays out a skeleton for LST file loading, setting
- * up shared features and functions for loading and parsing of files
- * such as identification of COPY, MOD, and FORGET operations as
- * well as skipping of comment and blank lines.  Each implementation
- * must either implement performCopy, peformMod, performForget,
- * and or such operations are not supprted.  Instances must also either
- * implement addToGlobals or handle additions themselves (such as for
- * system files, etc).
+ * up shared features and functions for loading and parsing of files.
+ * 
  * <p/>
+ * This class extends the <tt>Observable</tt> class so interested observers 
+ * will be notified of the progress of loading files.
+ * 
+ * <p />
  * Instances of LstFileLoader or its subclasses are not thread-safe,
  * so any thread should only acccess a single loader (or group of loaders)
  * at a time.
  */
 public abstract class LstFileLoader extends Observable
 {
-	protected String gameMode = "*";
-
+	/** The String that represents the start of a line comment. */
+	public static final String LINE_COMMENT_STR = "#"; //$NON-NLS-1$
+	
 	/**
 	 * This method loads the given list of LST files.
 	 *
@@ -137,7 +138,7 @@ public abstract class LstFileLoader extends Observable
 	 */
 	protected final boolean isComment(String line)
 	{
-		return (line.length() == 0) || (line.startsWith("#"));
+		return (line.length() == 0) || (line.startsWith(LINE_COMMENT_STR));
 	}
 
 	/**
@@ -239,7 +240,7 @@ public abstract class LstFileLoader extends Observable
 				inputStream = aURL.openStream();
 
 				// Read from the stream
-				final InputStreamReader ir = new InputStreamReader(inputStream, "UTF-8");
+				final InputStreamReader ir = new InputStreamReader(inputStream, "UTF-8"); //$NON-NLS-1$
 
 				// Buffer the stream content
 				final char[] b = new char[512];

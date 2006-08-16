@@ -437,7 +437,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				b.append(" &nbsp;<b>TYPE</b>:").append(aRace.getType());
 			}
-			String bString = aRace.getSourceEntry().toString();
+			String bString = aRace.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{

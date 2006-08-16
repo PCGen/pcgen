@@ -24,17 +24,23 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Source;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.ParseException;
-import java.util.*;
+import pcgen.util.PropertyFactory;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
@@ -52,11 +58,30 @@ import java.util.*;
  */
 public abstract class LstObjectFileLoader extends LstFileLoader
 {
+	/** The String that separates fields in the file. */
+	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
+	/** The String that separates individual objects */
+	public static final String LINE_SEPARATOR = "\r\n"; //$NON-NLS-1$
+	
+	/** Tag used to include an object */
+	public static final String INCLUDE_TAG = "INCLUDE"; //$NON-NLS-1$
+	
+	/** Tag used to exclude an object */
+	public static final String EXCLUDE_TAG = "EXCLUDE"; //$NON-NLS-1$
+	
+	/** The suffix used to indicate this is a copy operation */
+	public static final String COPY_SUFFIX = ".COPY"; //$NON-NLS-1$
+	/** The suffix used to indicate this is a mod operation */
+	public static final String MOD_SUFFIX = ".MOD"; //$NON-NLS-1$
+	/** The suffix used to indicate this is a forget operation */
+	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
+	
 	private CampaignSourceEntry currentSource = null;
 	private List<String> copyLineList = new ArrayList<String>();
 	private List<String> forgetLineList = new ArrayList<String>();
 	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
 	private Map<String, String> sourceMap = null;
+	/** A list of objects that will not be included. */
 	protected List<String> excludedObjects = new ArrayList<String>();
 
 	/**
@@ -72,6 +97,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * @param fileList containing the list of files to read
 	 * @throws PersistenceLayerException 
 	 */
+	@Override
 	public void loadLstFiles(List<?> fileList) throws PersistenceLayerException
 	{
 		// First sort the file list to optimize loads.
@@ -90,12 +116,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 			if (!(testObj instanceof CampaignSourceEntry))
 			{
-				logError(
-					"Found "
-						+ testObj.getClass().getName()
-						+ " - "
-						+ testObj.toString()
-						+ " when expecting a CampaignSourceEntry.");
+				logError(PropertyFactory.getFormattedString(
+						"Errors.LstFileLoader.NotCampaignSource", //$NON-NLS-1$
+						 testObj.getClass().getName(), testObj.toString()));
 				continue;
 			}
 
@@ -213,8 +236,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 						// one, use the new object
 						final Source s1 = pObj.getSourceEntry().getSourceBook();
 						final Source s2 = currentObj.getSourceEntry().getSourceBook();
-						if ( s1.getDateValue() >  s2.getDateValue())
-//						if (pObj.getSourceDateValue() > currentObj.getSourceDateValue())
+						if ( s1.getDate().compareTo(s2.getDate()) >  0)
 						{
 							performForget( currentObj );
 							addGlobalObject( pObj );
@@ -223,10 +245,11 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 					else
 					{
 						// Duplicate loading error
-						Logging.errorPrint("WARNING: Duplicate object name: " + pObj.getKeyName());
-						Logging.errorPrint("Original : " + currentObj.getSourceFile());
-						Logging.errorPrint("Duplicate: " + pObj.getSourceFile());
-						Logging.errorPrint("WARNING: Not loading duplicate");
+						Logging.errorPrintLocalised(
+									"Warnings.LstFileLoader.DuplicateObject",  //$NON-NLS-1$
+									pObj.getKeyName(), 
+									currentObj.getSourceFile(), 
+									pObj.getSourceFile());
 					}
 				}
 			}
@@ -315,7 +338,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	protected void loadLstFile(CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
-		String urlString="";
+		String urlString = Constants.EMPTY_STRING;
 		try {
 			urlString = CoreUtility.fileToURL(sourceEntry.getFile());
 			notifyObservers(new URL(urlString));
@@ -324,18 +347,19 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			try {
 				// Notify of the failed file
 				setChanged();
-				notifyObservers(new Exception("Can not create URL for: "+urlString));
+				notifyObservers(new Exception(
+								PropertyFactory.getFormattedString(
+										"Exceptions.LstFileLoader.InvalidURL",  //$NON-NLS-1$
+										urlString)));
 				// Notify of a dummy file, so that anyone counting files processed
 				// for a progress dialog or something will get a consistent count
 				setChanged();
-				notifyObservers(new URL("http://f"));
+				notifyObservers(new URL("http://f")); //$NON-NLS-1$
 			}
 			catch (MalformedURLException e1) {
 				e1.printStackTrace();
 			}
 		}
-
-
 
 		sourceMap = null;
 		currentSource = sourceEntry;
@@ -348,12 +372,14 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError("Unable to load the file: '" + sourceEntry.getFile()+ "': " + ple.getMessage());
+			logError(PropertyFactory.getFormattedString(
+										"Errors.LstFileLoader.LoadError",  //$NON-NLS-1$
+										sourceEntry.getFile(), 
+										ple.getMessage()));
 		}
 
-		final String newlinedelim = "\r\n";
 		final String aString = dataBuffer.toString();
-		final StringTokenizer fileLines = new StringTokenizer(aString, newlinedelim);
+		final StringTokenizer fileLines = new StringTokenizer(aString, LINE_SEPARATOR);
 		PObject target = null;
 		ArrayList<ModEntry> classModLines = null;
 
@@ -362,16 +388,17 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		{
 			++currentLineNumber;
 			final String line = fileLines.nextToken().trim();
-			if ((line.length() == 0) || (line.charAt(0) == '#'))
+			if ( isComment( line ) )
 			{
 				continue;
 			}
-			String[] tokens = line.split("\t");
+			String[] tokens = line.split(FIELD_SEPARATOR);
 
 			// Check for continuation of class mods
 			if (classModLines != null)
 			{
-				if (tokens[0].startsWith("CLASS:"))
+				// TODO - Figure out why we need to check CLASS: in this file.
+				if (tokens[0].startsWith("CLASS:")) //$NON-NLS-1$
 				{
 					modEntryList.add(classModLines);
 					classModLines = null;
@@ -385,21 +412,23 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			}
 
 			// check for comments, copies, mods, and forgets
-			if ((line.length() == 0) || (line.startsWith("#")))
+			if ( isComment( line ) )
 			{
 				continue;
 			}
-			else if (line.startsWith("SOURCE"))
+			// TODO - Figure out why we need to check SOURCE in this file
+			else if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
 				sourceMap = SourceLoader.parseLine(line, sourceEntry.getFile());
 			}
-			else if (tokens[0].indexOf(".COPY") > 0)
+			else if (tokens[0].indexOf(COPY_SUFFIX) > 0)
 			{
 				copyLineList.add(line);
 			}
-			else if (tokens[0].indexOf(".MOD") > 0)
+			else if (tokens[0].indexOf(MOD_SUFFIX) > 0)
 			{
-				if (tokens[0].startsWith("CLASS:"))
+				// TODO - Figure out why we need to check CLASS: in this file.
+				if (tokens[0].startsWith("CLASS:")) //$NON-NLS-1$
 				{
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
@@ -413,7 +442,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 					modEntryList.add(modLines);
 				}
 			}
-			else if (tokens[0].indexOf(".FORGET") > 0)
+			else if (tokens[0].indexOf(FORGET_SUFFIX) > 0)
 			{
 				forgetLineList.add(line);
 			}
@@ -428,12 +457,23 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 				}
 				catch (PersistenceLayerException ple)
 				{
-					logError("Error parsing file '" + sourceEntry.getFile() + "' line '"+ currentLineNumber + "': " + ple.getMessage());
-					Logging.debugPrint("Parse error:", ple);
+					logError( PropertyFactory.getFormattedString(
+								"Errors.LstFileLoader.ParseError",  //$NON-NLS-1$
+								sourceEntry.getFile(), 
+								currentLineNumber, 
+								ple.getMessage()));
+					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
 				}
-				catch (Throwable t) {
-					logError("Error parsing file '" + sourceEntry.getFile() + "' line '"+ currentLineNumber + "': " + t.getMessage());
-					Logging.errorPrint("Ignoring error ", t);
+				catch (Throwable t) 
+				{
+					logError( PropertyFactory.getFormattedString(
+							"Errors.LstFileLoader.ParseError",  //$NON-NLS-1$
+							sourceEntry.getFile(), 
+							currentLineNumber, 
+							t.getMessage()));
+					Logging.errorPrint(PropertyFactory.getString(
+										"Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
+										t);
 				}
 			}
 		}
@@ -482,14 +522,14 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		{
 			String fileInfo = sourceEntry.getFile();
 
-			if (fileInfo.indexOf("INCLUDE") > 0)
+			if (fileInfo.indexOf(INCLUDE_TAG) > 0)
 			{
 				if (!includeFiles.contains(sourceEntry))
 				{
 					includeFiles.add(sourceEntry);
 				}
 			}
-			else if (fileInfo.indexOf("EXCLUDE") > 0)
+			else if (fileInfo.indexOf(EXCLUDE_TAG) > 0)
 			{
 				if (!excludeFiles.contains(sourceEntry))
 				{
@@ -530,7 +570,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		{
 			if (object == null)
 			{
-				logError("PObject '" + baseKey + "' not found; .COPY skipped.");
+				logError(PropertyFactory.getFormattedString(
+								"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
+								baseKey));
 
 				return;
 			}
@@ -542,8 +584,11 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		}
 		catch (CloneNotSupportedException e)
 		{
-			logError(object.getClass().getName() + " clone error; .COPY of " + baseKey + " to " + copyName
-				+ " skipped.");
+			logError(PropertyFactory.getFormattedString(
+							"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
+							object.getClass().getName(),
+							baseKey,
+							copyName));
 		}
 	}
 
@@ -556,7 +601,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 */
 	private void performCopy(String lstLine) throws PersistenceLayerException
 	{
-		final int nameEnd = lstLine.indexOf(".COPY");
+		final int nameEnd = lstLine.indexOf(COPY_SUFFIX);
 		final String baseName = lstLine.substring(0, nameEnd);
 		final String copyName = lstLine.substring(nameEnd + 6);
 
@@ -575,7 +620,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	{
 		ModEntry entry = entryList.get(0);
 		// get the name of the object to modify, trimming off the .MOD
-		int nameEnd = entry.getLstLine().indexOf(".MOD");
+		int nameEnd = entry.getLstLine().indexOf(MOD_SUFFIX);
 		String key = entry.getLstLine().substring(0, nameEnd);
 
 		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
@@ -595,7 +640,11 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		if (object == null)
 		{
-			logError("Cannot apply .MOD; PObject '" + key + "' not found. '" + entry.getSource().getFile() + ":"+ entry.getLineNumber()+"'");
+			logError(PropertyFactory.getFormattedString(
+							"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
+							entry.getSource().getFile(),
+							entry.getLineNumber(),
+							key));
 			return;
 		}
 
@@ -604,14 +653,51 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		{
 			for (ModEntry element : entryList)
 			{
-				object.setModSourceMap(element.getSourceMap());
-				parseLine(object, element.getLstLine(), element.getSource());
+				try
+				{
+					boolean noSource = object.getSourceEntry() == null;
+					int hashCode = 0;
+					if ( !noSource )
+					{
+						hashCode = object.getSourceEntry().hashCode();
+					}
+
+					parseLine(object, element.getLstLine(), element.getSource());
+
+					if ( (noSource && object.getSourceEntry() != null) 
+					  || (!noSource && hashCode != object.getSourceEntry().hashCode()) )
+					{
+						// We never had a source and now we do so set the source
+						// map or we did have a source and now the hashCode is
+						// different so the MOD line must have updated it.
+						try
+						{
+							object.setSourceMap(element.getSourceMap());
+						}
+						catch (ParseException notUsed)
+						{
+							Logging.errorPrintLocalised("Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
+						}
+					}
+				}
+				catch (PersistenceLayerException ple)
+				{
+					logError( PropertyFactory.getFormattedString(
+										"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+										element.getSource().getFile(),
+										element.getLineNumber(),
+										ple.getMessage()));
+				}
 			}
 			completeObject(object);
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError("Unable to MOD the object '" + key + "' as it is not possible to parse '" + entry.getSource().getFile() + ":" + entry.getLineNumber()+"': " + ple.getMessage());
+			logError( PropertyFactory.getFormattedString(
+							"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+							entry.getSource().getFile(),
+							entry.getLineNumber(),
+							ple.getMessage()));
 		}
 	}
 
@@ -639,7 +725,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		for (String forgetKey : forgetLineList)
 		{
-			forgetKey = forgetKey.substring(0, forgetKey.indexOf(".FORGET"));
+			forgetKey = forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX));
 
 			if (excludedObjects.contains(forgetKey))
 			{
@@ -682,31 +768,35 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		/**
 		 * ModEntry constructor.
-		 * @param source CampaignSourceEntry containing the MOD line
+		 * @param aSource CampaignSourceEntry containing the MOD line
 		 *         [must not be null]
-		 * @param lstLine LST syntax modification
+		 * @param aLstLine LST syntax modification
 		 *         [must not be null]
-		 * @param lineNumber
-		 * @param sourceMap
+		 * @param aLineNumber
+		 * @param aSourceMap
+		 * 
+		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */
-		public ModEntry(CampaignSourceEntry source, String lstLine, int lineNumber, Map<String, String> sourceMap)
+		public ModEntry(final CampaignSourceEntry aSource, final String aLstLine, final int aLineNumber, final Map<String, String> aSourceMap)
 		{
 			super();
 
-			if (source == null)
+			// These are programming errors so the msgs don't need to be 
+			// internationalized.
+			if (aSource == null)
 			{
-				throw new IllegalArgumentException("source must not be null");
+				throw new IllegalArgumentException("source must not be null"); //$NON-NLS-1$
 			}
 
-			if (lstLine == null)
+			if (aLstLine == null)
 			{
-				throw new IllegalArgumentException("lstLine must not be null");
+				throw new IllegalArgumentException("lstLine must not be null"); //$NON-NLS-1$
 			}
 
-			this.source = source;
-			this.lstLine = lstLine;
-			this.lineNumber = lineNumber;
-			this.sourceMap = sourceMap;
+			this.source = aSource;
+			this.lstLine = aLstLine;
+			this.lineNumber = aLineNumber;
+			this.sourceMap = aSourceMap;
 		}
 
 		/**
@@ -753,9 +843,9 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	}
 
 	/**
-	 * @param currentSource The currentSource to set.
+	 * @param aCurrentSource The currentSource to set.
 	 */
-	public void setCurrentSource(CampaignSourceEntry currentSource) {
-		this.currentSource = currentSource;
+	public void setCurrentSource(CampaignSourceEntry aCurrentSource) {
+		this.currentSource = aCurrentSource;
 	}
 }

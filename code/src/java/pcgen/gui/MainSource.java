@@ -381,7 +381,7 @@ public class MainSource extends FilterAdapterPanel
 				sb.append("&nbsp; <b>GAME MODE</b>: ")
 					.append(aCamp.getGameModeString());
 
-				String bString = aCamp.getSourceEntry().toString();
+				String bString = aCamp.getDefaultSourceString();
 
 				if (bString.length() > 0)
 				{

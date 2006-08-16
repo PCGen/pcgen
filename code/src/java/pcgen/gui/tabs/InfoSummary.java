@@ -821,7 +821,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				b.append("</b>:").append(cString); //$NON-NLS-1$
 			}
 
-			String bString = aRace.getSourceEntry().toString();
+			String bString = aRace.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
@@ -917,7 +917,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")).append("</b>:").append(cString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
-			String bString = aClass.getSourceEntry().toString();
+			String bString = aClass.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
@@ -2750,7 +2750,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 						if (aClass != null)
 						{
-							retStr = aClass.getSourceEntry().toString();
+							retStr = aClass.getDefaultSourceString();
 						}
 					}
 

@@ -32,6 +32,7 @@ import java.io.FilenameFilter;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -9973,7 +9974,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean wasEverSaved()
 	{
-		return !"".equals(getFileName());
+		return !Constants.EMPTY_STRING.equals(getFileName());
 	}
 
 	/**
@@ -10065,7 +10066,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			if (bonusType == null) // TODO: condition always true
 			{
-				bonusType = "";
+				bonusType = Constants.EMPTY_STRING;
 			}
 
 			final String aVal = bonusMap.get(bonusType);
@@ -12958,6 +12959,36 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			levelNum = -1;
 		}
 
+/*
+		// Class 0 is special Abilities.  Obvious isn't it.
+		if ( classNum == 0 )
+		{
+			int count = 0;
+			final Collection<SpellLikeAbility> slas = this.getSpellLikeAbilities();
+			
+			int categoryCount = -1;
+			String currentCategory = Constants.EMPTY_STRING;
+			for ( final SpellLikeAbility sla : slas )
+			{
+				if ( !currentCategory.equals(sla.getCategory()) )
+				{
+					categoryCount++;
+					currentCategory = sla.getCategory();
+				}
+				if ( categoryCount > sbookNum )
+				{
+					break;
+				}
+				if ( categoryCount == sbookNum )
+				{
+					// This is the "spellbook" we are looking for
+					count++;
+				}
+			}
+			return count;
+		}
+*/
+		
 		String bookName = Globals.getDefaultSpellBook();
 
 		if (sbookNum > 0)
@@ -13046,14 +13077,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final ArrayList<PObject> aList = new ArrayList<PObject>();
 
-		if (!race.getSpellSupport().getCharacterSpell(null, "", -1).isEmpty())
+		if (!race.getSpellSupport().getCharacterSpell(null, Constants.EMPTY_STRING, -1).isEmpty())
 		{
 			aList.add(race);
 		}
 
 		for ( PCClass pcClass : classList )
 		{
-			if (!pcClass.getSpellType().equalsIgnoreCase("None"))
+			if (!pcClass.getSpellType().equalsIgnoreCase(Constants.s_NONE))
 			{
 				aList.add(pcClass);
 			}
@@ -13125,9 +13156,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (flag)
 		{
-			return value + "";
+			return value + Constants.EMPTY_STRING;
 		}
-		return ""; // signifies that the variable was found in this list
+		return Constants.EMPTY_STRING; // signifies that the variable was found in this list
 	}
 
 	/**
@@ -13361,7 +13392,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Make sure we don't get into an infinite loop - can occur due to LST coding or best guess dependancy mapping
 		if (prevProcessed.contains(aBonus))
 		{
-			Logging.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed);
+			Logging.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed);  //$NON-NLS-1$//$NON-NLS-2$
 			return;
 		}
 		prevProcessed.add(aBonus);
@@ -14014,6 +14045,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 *
 	 * @return a new deep copy of the <code>PlayerCharacter</code>
 	 */
+	@Override
 	public Object clone()
 	{
 		PlayerCharacter aClone = null;
@@ -14205,8 +14237,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( EquipSet es : getEquipSet() )
 		{
-			String esIdPath = es.getIdPath() + ".";
-			String rIdPath = rPath + ".";
+			String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
+			String rIdPath = rPath + EquipSet.PATH_SEPARATOR;
 
 			if (!esIdPath.startsWith(rIdPath))
 			{
@@ -14221,6 +14253,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		return new Float(0);
 	}
+	
 	/**
 	 * This method gets a list of locations for a weapon
 	 * @param hands
@@ -14239,7 +14272,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			{
 				if (i > 1)
 				{
-					result.add(Constants.S_SECONDARY + " " + i);
+					result.add(Constants.S_SECONDARY + ' ' + i);
 				}
 				else
 				{
@@ -14269,6 +14302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			if (eqI.getSlots(this) == 0)
 			{
+				// TODO - Yuck.  This should not look at the name!!
 				if (eqI.modifiedName().endsWith("Primary"))
 				{
 					return Constants.S_NATURAL_PRIMARY;
@@ -14281,14 +14315,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// unless they are also armor (ie: with Armor Spikes)
 		if ((eqI.isWeapon()) && !(eqI.isArmor()))
 		{
-			return "";
+			return Constants.EMPTY_STRING;
 		}
 
 		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
 
 		if ((eqSlotList == null) || eqSlotList.isEmpty())
 		{
-			return "";
+			return Constants.EMPTY_STRING;
 		}
 
 		for ( EquipSlot es : eqSlotList )
@@ -14300,9 +14334,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
+	/**
+	 * Returns a list of String locations the sepcified Equipment can be
+	 * equipped to.
+	 * 
+	 * @param eqSet
+	 * @param eqI
+	 * @param containers
+	 * @return
+	 */
 	public List<String> getEquippableLocations(EquipSet eqSet, Equipment eqI, List<String> containers)
 	{
 		// Some Equipment locations are based on the number of hands
@@ -14380,8 +14423,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// process all EquipSet Items
 				for ( EquipSet es : getEquipSet() )
 				{
-					String esID = es.getParentIdPath() + ".";
-					String abID = idPath + ".";
+					String esID = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
+					String abID = idPath + EquipSet.PATH_SEPARATOR;
 
 					if (esID.startsWith(abID))
 					{
@@ -14419,8 +14462,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		// If Carried/Equipped/Not Carried slot
 		// allow as many as they would like
-		if (locName.startsWith(Constants.S_CARRIED) || locName.startsWith(Constants.S_EQUIPPED)
-			|| locName.startsWith(Constants.S_NOTCARRIED))
+		if (locName.startsWith(Constants.S_CARRIED) 
+		 || locName.startsWith(Constants.S_EQUIPPED)
+		 || locName.startsWith(Constants.S_NOTCARRIED))
 		{
 			return true;
 		}
@@ -14449,8 +14493,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( EquipSet es : getEquipSet() )
 		{
-			String esID = es.getParentIdPath() + ".";
-			String abID = idPath + ".";
+			String esID = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
+			String abID = idPath + EquipSet.PATH_SEPARATOR;
 
 			if (!esID.startsWith(abID))
 			{
@@ -14481,8 +14525,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( EquipSet es : getEquipSet() )
 		{
-			String esID = es.getParentIdPath() + ".";
-			String abID = idPath + ".";
+			String esID = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
+			String abID = idPath + EquipSet.PATH_SEPARATOR;
 
 			if (!esID.startsWith(abID))
 			{
@@ -14563,8 +14607,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( EquipSet es : getEquipSet() )
 		{
-			String esIdPath = es.getIdPath() + ".";
-			String rIdPath = rPath + ".";
+			String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
+			String rIdPath = rPath + EquipSet.PATH_SEPARATOR;
 
 			if (!esIdPath.startsWith(rIdPath))
 			{
@@ -14588,7 +14632,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 **/
 	private String getNewIdPath(EquipSet eSet)
 	{
-		String pid = "0";
+		String pid = EquipSet.ROOT_ID;
 		int newID = 0;
 
 		if (eSet != null)
@@ -14606,7 +14650,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		++newID;
 
-		return pid + '.' + newID;
+		return pid + EquipSet.PATH_SEPARATOR + newID;
 	}
 
 	public EquipSet addEquipToTarget(final EquipSet eSet, final Equipment eqTarget, String locName, final Equipment eqI, Float newQty)
@@ -14754,16 +14798,30 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		String s = stringChar.getCharacteristic(key);
 		if (s == null) {
-			s = "";
+			s = Constants.EMPTY_STRING;
 		}
 		return s;
 	}
 
+	/**
+	 * Sets if ADD: level abilities should be processed when incrementing a
+	 * level.
+	 * 
+	 * <p><b>Note</b>: This is kind of a hack used by the Kit code to allow a
+	 * kit to specify what the level abilities are.
+	 * 
+	 * @param yesNo Yes if level increases should process ADD: level abilities.
+	 */
 	public void setDoLevelAbilities(boolean yesNo)
 	{
 		processLevelAbilities = yesNo;
 	}
 
+	/**
+	 * Returns if level increases will process ADD: level abilities.
+	 * 
+	 * @return <tt>true</tt> if ADD: level abilites will be processed.
+	 */
 	public boolean doLevelAbilities()
 	{
 		return processLevelAbilities;
@@ -14778,8 +14836,115 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		this.allowFeatPoolAdjustment = allow;
 	}
 
-
-/*
+//	/**
+//	 * Returns a list of Spell-Like Abilities for the character.
+//	 * 
+//	 * <p>The list is sorted by Category, Frequency (most to least), and
+//	 * Spell name.
+//	 * 
+//	 * @return A Sorted Set of Spell-Like Abilities.
+//	 */
+//	public Collection<SpellLikeAbility> getSpellLikeAbilities()
+//	{
+//		final SortedSet<SpellLikeAbility> ret = new TreeSet<SpellLikeAbility>(new Comparator<SpellLikeAbility>() {
+//
+//			public int compare(final SpellLikeAbility anO1, final SpellLikeAbility anO2)
+//			{
+//				final Collator collator = Collator.getInstance();
+//				// Sort order is Category, Frequency (most -> least), Spell Name
+//				int iRet = collator.compare( anO1.getCategory(), anO2.getCategory() );
+//				if ( iRet == 0 )
+//				{
+//					final int freq1 = getVariableValue(anO1.getNumUses(), this.getClass().getName()).intValue();
+//					final int freq2 = getVariableValue(anO2.getNumUses(), this.getClass().getName()).intValue();
+//					// TODO - Handle Units
+//					if ( freq1 == freq2 )
+//					{
+//						final Spell spell1 = Globals.getSpellKeyed(anO1.getSpellKey());
+//						final Spell spell2 = Globals.getSpellKeyed(anO2.getSpellKey());
+//						if ( spell1 != null )
+//						{
+//							if ( spell2 != null )
+//							{
+//								return collator.compare( spell1.getDisplayName(), spell2.getDisplayName() );
+//							}
+//							else
+//							{
+//								return 1;
+//							}
+//						}
+//						else if ( spell2 != null )
+//						{
+//							return -1;
+//						}
+//						else
+//						{
+//							return 0;
+//						}
+//					}
+//					return freq1 > freq2 ? 1 : -1;
+//				}
+//				
+//				return iRet;
+//			}
+//			
+//		});
+//		for ( final PObject pobj : getPObjectList() )
+//		{
+//			ret.addAll( pobj.getSpellLikeAbilities() );
+//		}
+//		
+//		return ret;
+//	}
+//
+//	/**
+//	 * Gets a <tt>Collection</tt> of category names for the Spell-Like Abilities
+//	 * for the character.
+//	 * 
+//	 * @return List of category names.
+//	 */
+//	public List<String> getSpellLikeAbilityCategories()
+//	{
+//		final Collection<SpellLikeAbility> slas = this.getSpellLikeAbilities();
+//		final List<String> ret = new ArrayList<String>();
+//		
+//		String currentCategory = Constants.EMPTY_STRING;
+//		for ( final SpellLikeAbility sla : slas )
+//		{
+//			if ( !currentCategory.equals(sla.getCategory()) )
+//			{
+//				currentCategory = sla.getCategory();
+//				ret.add(currentCategory);
+//			}
+//		}
+//		
+//		return ret;
+//	}
+//	
+//	/**
+//	 * Returns a <tt>List</tt> of Spell-Like Abilities for the specified
+//	 * category (spellbook).
+//	 * 
+//	 * @param aCategory A category (spellbook) to return SLAs for.
+//	 * 
+//	 * @return An unmodifialbe <tt>List</tt> of <tt>SpellLikeAbility</tt>
+//	 * objects.
+//	 */
+//	public List<SpellLikeAbility> getSpellLikeAbilities( final String aCategory )
+//	{
+//		final List<SpellLikeAbility> slas = new ArrayList<SpellLikeAbility>();
+//		
+//		for ( final SpellLikeAbility sla : slas )
+//		{
+//			if ( sla.getCategory().equals( aCategory ) )
+//			{
+//				slas.add( sla );
+//			}
+//		}
+//		return Collections.unmodifiableList( slas );
+//	}
+	
+	/*
  * For debugging purposes
  * Dumps contents of spell books to System.err
  *

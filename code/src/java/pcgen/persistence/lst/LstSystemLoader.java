@@ -1461,10 +1461,29 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 		if (anObj != null)
 		{
-			anObj.setModSourceMap(sourceMap);
 			try
 			{
+				boolean noSource = anObj.getSourceEntry() == null;
+				int hashCode = 0;
+				if ( !noSource )
+				{
+					hashCode = anObj.getSourceEntry().hashCode();
+				}
 				CompanionModLoader.parseLine((CompanionMod) anObj, aLine, aURL, lineNum);
+				if ( (noSource && anObj.getSourceEntry() != null) 
+				  || (!noSource && hashCode != anObj.getSourceEntry().hashCode()) )
+				{
+					// We never had a source and now we do so set the source
+					// map
+					try
+					{
+						anObj.setSourceMap(sourceMap);
+					}
+					catch (ParseException notUsed)
+					{
+						Logging.errorPrintLocalised("Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
+					}
+				}
 			}
 			catch (PersistenceLayerException ple)
 			{
@@ -1542,10 +1561,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 				}
 				anObj = EquipmentList.getEquipmentNamed(nameString, eqList);
 			}
-			if (anObj != null)
-			{
-				anObj.setModSourceMap(sourceMap);
-			}
 		}
 
 		if (modItem && (anObj == null))
@@ -1556,7 +1571,36 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 		if (anObj != null)
 		{
-			EquipmentLoader.parseLine((Equipment) anObj, aLine, aURL, lineNum);
+			try
+			{
+				boolean noSource = anObj.getSourceEntry() == null;
+				int hashCode = 0;
+				if ( !noSource )
+				{
+					hashCode = anObj.getSourceEntry().hashCode();
+				}
+
+				EquipmentLoader.parseLine((Equipment) anObj, aLine, aURL, lineNum);
+				
+				if ( (noSource && anObj.getSourceEntry() != null) 
+				  || (!noSource && hashCode != anObj.getSourceEntry().hashCode()) )
+				{
+					// We never had a source and now we do so set the source
+					// map
+					try
+					{
+						anObj.setSourceMap(sourceMap);
+					}
+					catch (ParseException notUsed)
+					{
+						Logging.errorPrintLocalised("Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
+					}
+				}
+			}
+			catch (PersistenceLayerException ple)
+			{
+				logError("Unable to parse the companion modifiers file: '" + aURL + "':'"+aLine+"' " + ple.getMessage());
+			}
 		}
 
 		return anObj;
@@ -1600,8 +1644,36 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 
 		if (anObj != null)
 		{
-			anObj.setModSourceMap(sourceMap);
-			PCTemplateLoader.parseLine((PCTemplate) anObj, aLine, aURL, lineNum);
+			try
+			{
+				boolean noSource = anObj.getSourceEntry() == null;
+				int hashCode = 0;
+				if ( !noSource )
+				{
+					hashCode = anObj.getSourceEntry().hashCode();
+				}
+
+				PCTemplateLoader.parseLine((PCTemplate) anObj, aLine, aURL, lineNum);
+				
+				if ( (noSource && anObj.getSourceEntry() != null) 
+				  || (!noSource && hashCode != anObj.getSourceEntry().hashCode()) )
+				{
+					// We never had a source and now we do so set the source
+					// map
+					try
+					{
+						anObj.setSourceMap(sourceMap);
+					}
+					catch (ParseException notUsed)
+					{
+						Logging.errorPrintLocalised("Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
+					}
+				}
+			}
+			catch (PersistenceLayerException ple)
+			{
+				logError("Unable to parse the companion modifiers file: '" + aURL + "':'"+aLine+"' " + ple.getMessage());
+			}
 		}
 
 		return anObj;

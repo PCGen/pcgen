@@ -20,6 +20,7 @@
  */
 package pcgen.gui.filter;
 
+import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SourceEntry;
@@ -49,16 +50,16 @@ final class SourceFilter extends AbstractPObjectFilter
 		this.source = (this.detailLevel == LOW) ? normalizeSource(src) : src;
 
 		int cInt = source.indexOf(":");
-		int pInt = source.indexOf("|");
+		int pInt = source.indexOf(Constants.PIPE);
 
-		if (source.startsWith("SOURCE") && (cInt > -1) && (pInt > cInt))
+		if (source.startsWith("SOURCE") && (cInt > -1) && (pInt > cInt)) //$NON-NLS-1$
 		{
 			source = source.substring(cInt + 1, pInt);
 		}
 
-		setCategory(PropertyFactory.getString("in_sourceLabel"));
+		setCategory(PropertyFactory.getString("in_sourceLabel")); //$NON-NLS-1$
 		setName(source);
-		setDescription(PropertyFactory.getString("in_filterAccObj") + " " + getName() + ".");
+		setDescription(PropertyFactory.getString("in_filterAccObj") + " " + getName() + ".");  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
@@ -81,9 +82,9 @@ final class SourceFilter extends AbstractPObjectFilter
 	{
 		String work = s;
 
-		if (work.indexOf(",") > -1)
+		if (work.indexOf(Constants.COMMA) > -1)
 		{
-			work = new StringTokenizer(s, ",").nextToken();
+			work = new StringTokenizer(s, Constants.COMMA).nextToken();
 		}
 
 		return work.trim();

@@ -47,6 +47,13 @@ import java.util.StringTokenizer;
  */
 public abstract class LstLineFileLoader extends LstFileLoader
 {
+	/** 
+	 * Stores what game mode the objects loaded by this loader should be 
+	 * associated with.
+	 */
+	// TODO - Should be a constant.
+	protected String gameMode = "*"; //$NON-NLS-1$
+
 	/**
 	 * Constructor
 	 */

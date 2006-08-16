@@ -1806,7 +1806,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private Object getColumnSource(PObjectNode fn) {
 			if (fn.getItem() instanceof Deity) {
 				Deity aDeity = (Deity) fn.getItem();
-				return aDeity.getSourceEntry().toString();
+				return aDeity.getDefaultSourceString();
 			}
 			return null;
 		}
@@ -2295,7 +2295,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				case 1:
 					try
 					{
-						retVal.append(aDomain.getSourceEntry().toString());
+						retVal.append(aDomain.getDefaultSourceString());
 					}
 					catch (Exception exc)
 					{

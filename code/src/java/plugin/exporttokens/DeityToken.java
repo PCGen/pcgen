@@ -300,7 +300,7 @@ public class DeityToken extends Token
 	 */
 	public static String getSourceToken(Deity deity)
 	{
-		return deity.getSourceEntry().toString();
+		return deity.getDefaultSourceString();
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /*
- * Source.java
+ * SourceEntry.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -38,7 +38,9 @@ import java.util.Map;
  */
 public class SourceEntry
 {
+	/** The source book this source represents */
 	private Source theSourceBook = new Source();
+	/** The source &quot;page&quot; this source refers to. */
 	private String thePageNumber = null;
 	
 	/**
@@ -50,6 +52,13 @@ public class SourceEntry
 		// Nothing to do.
 	}
 	
+	/**
+	 * Creates a SourceEntry from the specified <tt>Source</tt>.
+	 * 
+	 * @param aSource A Source to set.
+	 * 
+	 * @see pcgen.core.Source
+	 */
 	public SourceEntry( final Source aSource )
 	{
 		theSourceBook = aSource;
@@ -72,9 +81,23 @@ public class SourceEntry
 		thePageNumber = aSourceMap.get( SourceFormat.PAGE );
 	}
 	
+	/**
+	 * Takes a <tt>Map</tt> of source type tags and values and sets the values
+	 * of the <tt>SourceEntry</tt> from it.
+	 * 
+	 * <p>The map should have the form LONG=source long value etc.
+	 * 
+	 * @param aSourceMap A <tt>Map</tt> of source values.
+	 * 
+	 * @throws ParseException If the SOURCEDATE could not be parsed.
+	 */
 	public void setFromMap( final Map<String, String> aSourceMap )
 		throws ParseException
 	{
+		if ( aSourceMap == null )
+		{
+			return;
+		}
 		theSourceBook = Source.getSource( aSourceMap );
 		if ( thePageNumber == null )
 		{
@@ -114,20 +137,28 @@ public class SourceEntry
 		theSourceBook = aSourceBook;
 	}
 
+	/**
+	 * An Enumeration of possible source format values.
+	 * 
+	 * @author boomer70 <boomer70@yahoo.com>
+	 * 
+	 * @since 5.11
+	 *
+	 */
 	public enum SourceFormat 
 	{ 
 		/** Long format = Publisher - Source Long */
-		LONG("LONG"),
+		LONG("LONG"), //$NON-NLS-1$
 		/** Medium format = Source Long */
-		MEDIUM("LONG"),
+		MEDIUM("LONG"), //$NON-NLS-1$
 		/** Short format = Source Short */
-		SHORT("SHORT"),
+		SHORT("SHORT"), //$NON-NLS-1$
 		/** Website format = Publisher - Source Web */
-		WEB("WEB"),
+		WEB("WEB"), //$NON-NLS-1$
 		/** Date format = Publisher - Source date */
-		DATE("DATE"),
+		DATE("DATE"), //$NON-NLS-1$
 		/** Page number format - Publisher - Source page */
-		PAGE("PAGE");
+		PAGE("PAGE"); //$NON-NLS-1$
 		
 		private final String theKey;
 		
@@ -188,6 +219,7 @@ public class SourceEntry
 	 * <tt>SourceFormat</tt> passed in.
 	 * 
 	 * @param aFormat The format to display the source in
+	 * @param includePage Should the page number be included in the output
 	 * 
 	 * @return A formatted string.
 	 * 
@@ -229,7 +261,7 @@ public class SourceEntry
 			{
 				if ( ret.length() != 0 )
 				{
-					ret.append(", ");
+					ret.append(", "); //$NON-NLS-1$
 				}
 				ret.append(thePageNumber);
 			}
@@ -238,6 +270,14 @@ public class SourceEntry
 		return ret.toString();
 	}
 
+	/**
+	 * Given a <tt>SourceFormat</tt> return the corrisponding value for the 
+	 * source.
+	 * 
+	 * @param aFormat The source value to return.
+	 * 
+	 * @return A <tt>String</tt> representing the source value specified.
+	 */
 	public String getFieldByType( final SourceFormat aFormat )
 	{
 		switch ( aFormat )
@@ -273,5 +313,52 @@ public class SourceEntry
 	public String toString()
 	{
 		return getFormattedString( Globals.getSourceDisplay(), true );
+	}
+
+	/**
+	 * Returns a hashCode for this object.
+	 * 
+	 * <p>The hashCode is generated from the SOURCEPAGE and Source objects.
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		final int PRIME = 31;
+		int result = 1;
+		result = PRIME * result + ((thePageNumber == null) ? 0 : thePageNumber.hashCode());
+		result = PRIME * result + ((theSourceBook == null) ? 0 : theSourceBook.hashCode());
+		return result;
+	}
+
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final SourceEntry other = (SourceEntry) obj;
+		if (thePageNumber != null && other.thePageNumber != null)
+		{
+			if (!thePageNumber.equals(other.thePageNumber))
+			{
+				return false;
+			}
+		}
+		if (theSourceBook == null)
+		{
+			if (other.theSourceBook != null)
+				return false;
+		}
+		else if (!theSourceBook.equals(other.theSourceBook))
+			return false;
+		return true;
 	}
 }

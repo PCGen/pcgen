@@ -476,7 +476,7 @@ public final class Kit extends PObject implements Comparable<Object>
 			}
 			info.append(bk.toString());
 		}
-		info.append("  <b>Source</b>: ").append(getSourceEntry().toString());
+		info.append("  <b>Source</b>: ").append(getDefaultSourceString());
 		info.append("</html>");
 		return info.toString();
 	}

@@ -80,6 +80,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.PObject;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SourceEntry;
 import pcgen.core.SubClass;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.MessageType;
@@ -407,11 +408,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			//
 			// Source
 			//
-			aString = aClass.getSourceEntry().toString();
+			aString = aClass.getDefaultSourceString();
 
 			if (isSubClass && (aString.length() == 0))
 			{
-				aString = lastClass.getSourceEntry().toString();
+				aString = lastClass.getDefaultSourceString();
 			}
 
 			if (aString.length() > 0)
@@ -868,7 +869,12 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				}
 
 			}
-			final String aString = aClass.getSourceEntry().getSourceBook().getLongName();
+			String aString = null;
+			final SourceEntry se = aClass.getSourceEntry();
+			if ( se != null && se.getSourceBook() != null )
+			{
+				aString = se.getSourceBook().getLongName();
+			}
 			if (aString == null)
 			{
 				Logging.errorPrint("PC class " + aClass.getDisplayName()

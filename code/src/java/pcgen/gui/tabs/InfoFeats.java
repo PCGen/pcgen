@@ -697,7 +697,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							sb.append(" &nbsp;<b>Description</b>:")
 								.append(aFeat.piDescSubString())
 								.append(" &nbsp;<b>Source</b>:")
-								.append(aFeat.getSourceEntry().toString())
+								.append(aFeat.getDefaultSourceString())
 								.append("</html>");
 							infoLabel.setText(sb.toString());
 						}
@@ -800,7 +800,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							sb.append(" &nbsp;<b>Description</b>:")
 								.append(aFeat.piDescSubString())
 								.append(" &nbsp;<b>Source</b>:")
-								.append(aFeat.getSourceEntry().toString())
+								.append(aFeat.getDefaultSourceString())
 								.append("</html>");
 							infoLabel.setText(sb.toString());
 						}

@@ -1102,7 +1102,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 				b.append(bString);
 			}
 
-			bString = aRace.getSourceEntry().toString();
+			bString = aRace.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{

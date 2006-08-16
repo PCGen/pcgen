@@ -270,15 +270,17 @@ public class SpellMemToken extends Token
 						}
 						else if ("SOURCE".equals(aLabel))
 						{
-							retValue.append(aSpell.getSourceEntry().toString());
+							retValue.append(aSpell.getDefaultSourceString());
 						}
 						else if ("SOURCESHORT".equals(aLabel))
 						{
-							retValue.append(aSpell.getSourceEntry().getSourceBook().getShortName(8));
+							final SourceEntry se = aSpell.getSourceEntry();
+							retValue.append(se.getSourceBook().getShortName(8));
 						}
 						else if ("SOURCEPAGE".equals(aLabel))
 						{
-							retValue.append(aSpell.getSourceEntry().getPageNumber());
+							final SourceEntry se = aSpell.getSourceEntry();
+							retValue.append(se.getPageNumber());
 						}
 						else if ("SUBSCHOOL".equals(aLabel))
 						{

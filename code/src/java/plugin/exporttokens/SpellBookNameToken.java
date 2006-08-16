@@ -1,7 +1,11 @@
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -20,6 +24,7 @@ public class SpellBookNameToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -28,9 +33,10 @@ public class SpellBookNameToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
+		String retString = Constants.EMPTY_STRING;
 
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString = aTok.nextToken();
@@ -46,8 +52,15 @@ public class SpellBookNameToken extends Token
 			bookNum = Integer.parseInt(tokenSource.substring(13));
 		}
 
+//		final List<String> spellBooks = pc.getSpellBooks();
+//		// TODO - Remove SLAs from Spellbook "logic"
+//		spellBooks.addAll(1, pc.getSpellLikeAbilityCategories());
+//		if ( bookNum < spellBooks.size() )
+//		{
+//			return spellBooks.get(bookNum);
+//		}
+		
 		retString = pc.getSpellBooks().get(bookNum);
-
 		return retString;
 	}
 	

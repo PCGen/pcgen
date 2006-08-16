@@ -24,6 +24,7 @@ package pcgen.core;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,7 +52,7 @@ public class Source
 	private String theLongName = null;
 	private String theShortName = null;
 	private String theWebsite = null;
-	private String theDate = null;
+	private Date theDate = null;
 
 	private static List<Source> theSources = null;
 	
@@ -100,6 +101,10 @@ public class Source
 	public static Source getSource( final Map<String, String> aSourceMap ) 
 		throws ParseException
 	{
+		if ( aSourceMap == null )
+		{
+			return null;
+		}
 		final Source testSource = new Source();
 		
 		testSource.theLongName = aSourceMap.get(SourceEntry.SourceFormat.LONG.toString());
@@ -189,30 +194,9 @@ public class Source
 	/**
 	 * @return the date
 	 */
-	public String getDate()
+	public Date getDate()
 	{
 		return theDate;
-	}
-	
-	/**
-	 * @return the date as numeric value
-	 */
-	public int getDateValue()
-	{
-		int result = 0;
-
-		if (theDate != null)
-		{
-			String[] dates = theDate.split("-");
-			if (dates.length == 2)
-			{
-				int year = (new Integer(dates[0])).intValue() - 2000;
-				int month = (new Integer(dates[1])).intValue();
-				result = year*12 + month;
-			}
-		}
-		
-		return result;
 	}
 	
 	/**
@@ -231,7 +215,20 @@ public class Source
 	 */
 	public void setDate(final String aDateStr) throws ParseException
 	{
-		theDate = aDateStr;
+		if ( aDateStr == null )
+		{
+			return;
+		}
+		DateFormat df = new SimpleDateFormat("yyyy-MM"); //$NON-NLS-1$
+		try
+		{
+			theDate = df.parse(aDateStr);
+		}
+		catch (ParseException pe)
+		{
+			df = DateFormat.getDateInstance();
+			theDate = df.parse(aDateStr);
+		}
 	}
 	
 	/**

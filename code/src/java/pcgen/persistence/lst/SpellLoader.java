@@ -272,7 +272,7 @@ public final class SpellLoader extends LstObjectFileLoader
 	@Override
 	protected void addGlobalObject( final PObject pObj )
 	{
-		final Object obj = Globals.getSpellMap().get(pObj.getKeyName());
+		final Object obj = Globals.getSpellMap().get( pObj.getKeyName() );
 		if ( obj == null )
 		{
 			Globals.addToSpellMap( pObj.getKeyName(), pObj );
@@ -285,6 +285,7 @@ public final class SpellLoader extends LstObjectFileLoader
 				spellList = new ArrayList<Spell>();
 				Globals.removeFromSpellMap(((Spell) obj).getKeyName());
 				Globals.addToSpellMap( pObj.getKeyName(), spellList );
+				spellList.add((Spell)obj);
 			}
 			else
 			{

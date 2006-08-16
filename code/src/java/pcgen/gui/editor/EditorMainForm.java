@@ -589,7 +589,11 @@ public final class EditorMainForm extends JDialog
 		//
 		// Save source info
 		//
-		thisPObject.setModSourceMap(new HashMap());
+		
+		// TODO - Not sure what the desired behaviour is here.
+		// I am going to assume that this shouldn't touch the mod entry but I 
+		// am not sure that is correct.
+//		thisPObject.setModSourceMap(new HashMap());
 
 		aString = pnlMainTab.getSourceText();
 

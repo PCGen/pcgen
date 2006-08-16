@@ -58,7 +58,9 @@ public class CompanionModLoader
 	 * @param lineNum
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(CompanionMod cmpMod, String inputLine, URL sourceURL, int lineNum) throws PersistenceLayerException
+	public static void parseLine(CompanionMod cmpMod, String inputLine, 
+									URL sourceURL, int lineNum) 
+		throws PersistenceLayerException
 	{
 		if (cmpMod == null)
 		{

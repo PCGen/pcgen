@@ -3100,7 +3100,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			source = aPCClass;
 		}
 
-		if (obj instanceof ArrayList)
+		if (obj instanceof List)
 		{
 			// find the instance of Spell in this class
 			// best suited to this spell
@@ -3109,8 +3109,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// valid spell has a non-negative spell level
 				if ((spell != null) && (spell.levelForKey(source.getSpellKey(), thePC)[0] >= 0))
 				{
+					aSpell = spell;
 					break;
 				}
+			}
+			if ( aSpell == null )
+			{
+				Logging.errorPrint("Could not resolve spell " + obj.toString() );
 			}
 		}
 

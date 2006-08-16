@@ -51,7 +51,7 @@ public class LstUtils
 					token.getTokenName(),
 					value,
 					obj.getDisplayName(),
-					obj.getSourceEntry().toString(),
+					obj.getDefaultSourceString(),
 					((Deprecated)token).getMessage(obj, value)
 					);
 			deprecationWarning(msg);

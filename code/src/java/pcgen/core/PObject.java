@@ -53,6 +53,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
@@ -88,9 +89,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** List of Level Abilities for the object  */
 	private ArrayList<LevelAbility> levelAbilityList = null;
 
-//	private HashMap<String, String> sourceMap = new HashMap<String, String>();
 	private SourceEntry theSource = new SourceEntry();
-	private HashMap<String, String> modSourceMap = null;
 
 	/**
 	 * A map of vision types associated with the object,
@@ -117,7 +116,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	private Movement movement;
 	private SpellSupport spellSupport = new SpellSupport();
-
+//	private List<SpellLikeAbility> spellLikeAbilities = null;
+	
 	private VariableList variableList = null;
 
 	/** description is Product Identity */
@@ -1958,23 +1958,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Set the map of modfied sources
-	 * @param arg
-	 */
-	public final void setModSourceMap(final Map<String, String> arg)
-	{
-		if (arg != null)
-		{
-			if (modSourceMap == null)
-			{
-				modSourceMap = new HashMap<String, String>();
-			}
-
-			modSourceMap.putAll(arg);
-		}
-	}
-
-	/**
 	 * Set the map of sources
 	 * @param arg
 	 * @throws ParseException 
@@ -1983,34 +1966,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		throws ParseException
 	{
 		theSource.setFromMap( arg );
-
-		// Don't clear the map, otherwise the SOURCEPAGE:
-		// entries on each line will screw it all up
-
-		// It may seem strange to cycle through the map and
-		// not let the passed in source override the setting
-		// of the already existing source. The only way this
-		// happens is if a .MOD is used, but the way the
-		// source loading happens, when a .MOD is loaded
-		// after everything else is loaded, the source is
-		// set to whatever source was loaded last, which may
-		// not be the source of the .MOD.
-//		for (Iterator<String> i = arg.keySet().iterator(); i.hasNext();)
-//		{
-//			final String key = i.next();
-//			if (sourceMap.get(key) == null)
-//			{
-//				sourceMap.put(key, arg.get(key));
-//			}
-//		}
-//
-//		// If this comes from a .MOD line and SOURCEPAGE is set,
-//		// copy the MOD's sourcemap and then set the PAGE too.
-//		if (modSourceMap != null) // && arg.get("PAGE") != null)
-//		{
-//			sourceMap.putAll(modSourceMap);
-//			sourceMap.putAll(arg);
-//		}
 	}
 
 	public SourceEntry getSourceEntry()
@@ -2027,82 +1982,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		theSource = aSource;
 	}
 	
-//	/**
-//	 * Get the map of sources
-//	 * @return the map of sources
-//	 */
-//	public final Map<String, String> getSourceMap()
-//	{
-//		return sourceMap;
-//	}
-//
-//	/**
-//	 * Get the source as a String in short form for display
-//	 * @param maxNumberofChars
-//	 * @return the source as a String in short form for display
-//	 */
-//	public final String getSourceShort(final int maxNumberofChars)
-//	{
-//		String shortString = SourceUtilities.returnSourceInForm(this, Constants.SOURCESHORT, false);
-//
-//		// When I say short, I mean short!
-//		if (shortString.length() > maxNumberofChars)
-//		{
-//			shortString = shortString.substring(0, maxNumberofChars);
-//		}
-//
-//		return shortString;
-//	}
-//
-//	/**
-//	 * Get the source given a key
-//	 * @return source as a String
-//	 */
-//	public final String getSourceWithKey(final String key)
-//	{
-//		return sourceMap.get(key);
-//	}
-//
-//	/**
-//	 * Get the source
-//	 * @return the source
-//	 */
-//	public String getSource()
-//	{
-//		return SourceUtilities.returnSourceInForm(this, Globals.getSourceDisplay(), true);
-//	}
-//
-//	/**
-//	 * Get the source date
-//	 * @return the source date
-//	 */
-//	public String getSourceDate()
-//	{
-//		return SourceUtilities.returnSourceInForm(this, Constants.SOURCEDATE, false);
-//	}
-//
-//	/**
-//	 * Get the source date as an int
-//	 * @return the source date as an int
-//	 */
-//	public int getSourceDateValue()
-//	{
-//		String date = getSourceDate();
-//		if ("".equals(date))
-//		{
-//			return 0;
-//		}
-//		String[] dates = date.split("-");
-//		if (dates.length != 2)
-//		{
-//			return 0;
-//		}
-//		int year = (new Integer(dates[0])).intValue() - 2000;
-//		int month = (new Integer(dates[1])).intValue();
-//
-//		return year*12 + month;
-//	}
-//
+	/**
+	 * Gets the Source string for this object using the default source display
+	 * mode.
+	 * 
+	 * @return The Source string.
+	 */
+	public String getDefaultSourceString()
+	{
+		return theSource.toString();
+
+	}
+	
 	/**
 	 * Get the SA by key
 	 * @param aKey
@@ -4872,6 +4763,29 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return options;
 	}
 	
+//	/**
+//	 * Add a Spell-Like Ability granted by this object.
+//	 * 
+//	 * @param anAbility The SLA to grant.
+//	 */
+//	public void addSpellLikeAbility( final SpellLikeAbility anAbility )
+//	{
+//		if ( spellLikeAbilities == null )
+//		{
+//			spellLikeAbilities = new ArrayList<SpellLikeAbility>();
+//		}
+//		spellLikeAbilities.add( anAbility );
+//	}
+//	
+//	/**
+//	 * Adds a list of Spell-Like Abilities to this object granted at a specific
+//	 * level.
+//	 * 
+//	 * @param aLevel The level at which the SLAs will be granted.  For PCClass
+//	 * this will be the level in the specified class for all other objects it
+//	 * is total character level.
+//	 * @param aList List of Spell-Like Abilities to add.
+//	 */
 //	public void addSpellLikeAbilities( final int aLevel, final List<SpellLikeAbility> aList )
 //	{
 //		Prerequisite minLevel = null;
@@ -4881,6 +4795,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 //			{
 //				PreParserFactory factory = PreParserFactory.getInstance();
 //				String preLevelString = "PRELEVEL:" + aLevel;
+//				// TODO - Refactor this into an overridable method
+//				// getLevelPrereq()
+//				// TODO - Change this to not use the parser to build it.
 //				if (this instanceof PCClass)
 //				{
 //					// Classes handle this differently
@@ -4890,6 +4807,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 //			}
 //			catch (PersistenceLayerException notUsed)
 //			{
+//				// This should never happen
+//				assert false;
 //			}
 //		}
 //		for ( SpellLikeAbility sla : aList )
@@ -4898,7 +4817,26 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 //			{
 //				sla.addPreReq( minLevel );
 //			}
-//			theSpellLikeAbilities.add( sla );
+//			if ( spellLikeAbilities == null )
+//			{
+//				spellLikeAbilities = new ArrayList<SpellLikeAbility>();
+//			}
+//			spellLikeAbilities.add( sla );
 //		}
+//	}
+//	
+//	/**
+//	 * Gets an unmodifiable list of Spell-Like Abilities provided by this
+//	 * object.
+//	 * 
+//	 * @return An unmodifiable Collection of SLAs.
+//	 */
+//	public Collection<SpellLikeAbility> getSpellLikeAbilities()
+//	{
+//		if ( spellLikeAbilities == null )
+//		{
+//			return Collections.emptyList();
+//		}
+//		return Collections.unmodifiableList(spellLikeAbilities);
 //	}
 }

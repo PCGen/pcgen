@@ -774,7 +774,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			b.append(" <b>Cost</b>:").append(eqI.getCost(pc));
 
-			bString = eqI.getSourceEntry().toString();
+			bString = eqI.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{

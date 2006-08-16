@@ -755,7 +755,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				b.append(aClass.getProhibitedString()).append("</b><br>"); //$NON-NLS-1$
 			}
 
-			String bString = aClass.getSourceEntry().toString();
+			String bString = aClass.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
@@ -851,7 +851,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				b.append(" &nbsp;<b>Requirements</b>:&nbsp;").append(cString);
 			}
 
-			String spellSource = aSpell.getSourceEntry().toString();
+			String spellSource = aSpell.getDefaultSourceString();
 
 			if (spellSource.length() > 0)
 			{

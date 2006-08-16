@@ -2054,7 +2054,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
 			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
 
-			String bString = aSkill.getSourceEntry().toString();
+			String bString = aSkill.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
@@ -2751,7 +2751,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						return aSkill.getSourceEntry().toString();
+						return aSkill.getDefaultSourceString();
 					}
 					return fn.getSource();
 

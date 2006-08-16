@@ -2216,16 +2216,22 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		return iSlots;
 	}
 
-	public String getSourceStr()
+	/**
+	 * This method overrides the PObject method to add "Custom" to the front of
+	 * the source string if the equipment was customized.
+	 * 
+	 * @see pcgen.core.PObject#getDefaultSourceString()
+	 */
+	@Override
+	public String getDefaultSourceString()
 	{
-		final SourceEntry source = super.getSourceEntry();
-
 		if (isType(Constants.s_CUSTOM))
 		{
-			return "Custom - " + source;
+			return PropertyFactory.getString("in_custom") + " - "  //$NON-NLS-1$ //$NON-NLS-2$
+					+ super.getDefaultSourceString();
 		}
 
-		return source.toString();
+		return super.getDefaultSourceString();
 	}
 
 	/**
