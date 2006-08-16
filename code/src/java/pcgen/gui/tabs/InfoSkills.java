@@ -3102,7 +3102,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		public boolean isMColumnDisplayed(int col)
 		{
-			return (displayList.get(col)).booleanValue();
+			if (SettingsHandler.getGame().getSkillTabColumnVisible(col))
+			{
+				return (displayList.get(col)).booleanValue();
+			}
+			return false;
 		}
 
 		public void setMColumnDefaultWidth(int col, int width) {

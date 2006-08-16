@@ -76,7 +76,9 @@ public class TableColumnManager implements MouseListener {
 		for(int i = 0; i < checkBoxList.size(); i++) {
 			JCheckBoxMenuItem cb = checkBoxList.get(i);
 			model.setMColumnDisplayed(i + model.getMColumnOffset(), cb.isSelected());
-			if(cb.isSelected()) {
+			//if(cb.isSelected()) {
+			if (model.isMColumnDisplayed(i + model.getMColumnOffset()))
+			{
 				TableColumn col = new TableColumn(i + model.getMColumnOffset());
 				col.setHeaderValue(cb.getText());
 				col.setWidth(model.getMColumnDefaultWidth(i + model.getMColumnOffset()));

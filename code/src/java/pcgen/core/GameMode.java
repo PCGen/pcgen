@@ -166,6 +166,7 @@ public final class GameMode implements Comparable<Object>
 	private TreeMap<Integer, String> skillRankDisplayText = null;
 
 	private boolean [] summaryTabStatColumnVisible = { true, true, true, true, true, true, true };
+	private boolean [] skillTabColumnVisible = { true, true, true, true, true, true, true };				// Skill, Modifier, Ranks, Total, Cost, Source, Order
 
 
 	/**
@@ -2921,6 +2922,27 @@ public final class GameMode implements Comparable<Object>
 		if ((columnIndex >= 0) && (columnIndex <= 7))
 		{
 			return summaryTabStatColumnVisible[columnIndex];
+		}
+		return true;
+	}
+	
+	/**
+	 */
+	public void setSkillTabColumnVisible(final int columnIndex, final boolean bVisible)
+	{
+		if ((columnIndex >= 0) && (columnIndex < skillTabColumnVisible.length))
+		{
+			skillTabColumnVisible[columnIndex] = bVisible;
+		}
+	}
+
+	/**
+	 */
+	public boolean getSkillTabColumnVisible(final int columnIndex)
+	{
+		if ((columnIndex >= 0) && (columnIndex < skillTabColumnVisible.length))
+		{
+			return skillTabColumnVisible[columnIndex];
 		}
 		return true;
 	}

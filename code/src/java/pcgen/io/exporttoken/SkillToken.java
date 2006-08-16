@@ -29,6 +29,7 @@ import java.util.StringTokenizer;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
@@ -301,13 +302,27 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_TOTAL:
-					retValue.append(Integer.toString(aSkill.getTotalRank(pc)
-						.intValue()
-						+ aSkill.modifier(pc).intValue()));
+					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					{
+						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(aSkill.getTotalRank(pc).intValue() + aSkill.modifier(pc).intValue()));
+					}
+					else
+					{
+						retValue.append(Integer.toString(aSkill.getTotalRank(pc)
+							.intValue()
+							+ aSkill.modifier(pc).intValue()));
+					}
 					break;
 
 				case SKILL_RANK:
-					retValue.append(aSkill.getTotalRank(pc).toString());
+					if (SettingsHandler.getGame().hasSkillRankDisplayText())
+					{
+						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(aSkill.getTotalRank(pc).intValue()));
+					}
+					else
+					{
+						retValue.append(aSkill.getTotalRank(pc).toString());
+					}
 					break;
 
 				case SKILL_MOD:
