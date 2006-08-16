@@ -1018,11 +1018,10 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	private static void updateTable(final JTableEx aTable, final ChooserTableModel aTableModel,
 									final List anInputList, final String aLineTerminator)
 	{
-//		if (anInputList.size() <= 0)
-//		{
-//			//TODO This happens when removing an exotic wpn prof. Probably a bug that should be fixed in a better way, but this makes it work for now.
-//			return;
-//		}
+		if (anInputList.size() <= 0)
+		{
+			return;
+		}
 
 		Object selectedValue = null;
 
