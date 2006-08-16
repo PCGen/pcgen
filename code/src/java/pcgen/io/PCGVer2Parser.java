@@ -3119,6 +3119,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+
+		if (aSpell == null)
+		{
+			final String message = "Could not find spell named: " + String.valueOf(obj);
+			warnings.add(message);
+
+			return;
+		}
+		
+
 		// just to make sure the spellbook is present
 		thePC.addSpellBook(spellBook);
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
