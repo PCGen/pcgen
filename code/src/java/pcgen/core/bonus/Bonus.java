@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 import java.util.jar.JarFile;
 import java.util.jar.JarEntry;
+import java.util.zip.ZipException;
 
 /**
  * <code>Bonus</code>
@@ -323,9 +324,15 @@ public class Bonus
 						}
 					}
 				}
+				catch (ZipException ze)
+				{
+					Logging.errorPrint("Jar file '" + jarName
+						+ "' could not be loaded because: " + ze.getMessage());
+				}
 				catch (Exception exc)
 				{
-					exc.printStackTrace();
+					Logging.errorPrint("Failed to load jar file '" + jarName
+						+ "' due to:", exc);
 				}
 
 				//
