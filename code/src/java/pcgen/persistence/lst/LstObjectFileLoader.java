@@ -28,6 +28,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -234,9 +235,10 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 					{
 						// If the new object is more recent than the current
 						// one, use the new object
-						final Source s1 = pObj.getSourceEntry().getSourceBook();
-						final Source s2 = currentObj.getSourceEntry().getSourceBook();
-						if ( s1.getDate().compareTo(s2.getDate()) >  0)
+						final Date pObjDate = pObj.getSourceEntry().getSourceBook().getDate();
+						final Date currentObjDate = currentObj.getSourceEntry().getSourceBook().getDate();
+						if ( (pObjDate != null) && 
+						      ((currentObjDate == null) || ((pObjDate.compareTo(currentObjDate) >  0))))
 						{
 							performForget( currentObj );
 							addGlobalObject( pObj );
