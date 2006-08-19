@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author: $ -- Wed Jul 19 18:30:31 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Wed Jul 19 18:30:31 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:DCC 28 - Into the Wilds	SOURCESHORT:DCC28	SOURCEWEB:http://www.goodman-games.com/
 # Deity Name	Domains				Clergy AL		Desciption of Deity/Title												Holy Item					Deity Weapon	ALIGN		PANTHEON			Source Page		Automaticaly Gained Weapon Prof.
 Sodoutym		DOMAINS:Evil,Law,Trickery	FOLLOWERALIGN:215	DESC:The Dark Foe, Blackhammer, Hellbeard. He is the lawful evil god of averice and tyranny.	SYMBOL:Swarm of attacking bats	DEITYWEAP:Scourge	ALIGN:LE	PANTHEON:DCC|Dwarven	SOURCEPAGE:p.25	AUTO:WEAPONPROF|Scourge
