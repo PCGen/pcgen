@@ -105,7 +105,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the Lanaguage Level Ability
+	 * Test the selection of weapon profs via a level ability.
 	 */
 	public void testWeaponProfFeat()
 	{
