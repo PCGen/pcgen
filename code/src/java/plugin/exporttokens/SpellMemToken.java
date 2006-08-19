@@ -214,7 +214,7 @@ public class SpellMemToken extends Token
 					{
 						if ("RANGE".equals(aLabel))
 						{
-							retValue.append(aPC.getSpellRange(aSpell, selectedCSpell.getOwner().getKeyName(), si));
+							retValue.append(aPC.getSpellRange(aSpell, selectedCSpell.getOwner(), si));
 						}
 						else if ("BASEPPCOST".equals(aLabel))
 						{

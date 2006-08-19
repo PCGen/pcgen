@@ -5889,15 +5889,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	/**
 	 * Parses a spells range (short, medium or long) into an Integer
 	 * based on the spell and spell casters level
-	 * @param aSpell
-	 * @param aName
-	 * @param si
+	 *
+	 * @param aSpell The spell being output.
+	 * @param owner The class providing the spell.
+	 * @param si The info about conditions applied to the spell
 	 * @return spell range
 	 */
-	public String getSpellRange(final Spell aSpell, final String aName, final SpellInfo si)
+	public String getSpellRange(final Spell aSpell, final PObject owner, final SpellInfo si)
 	{
 		String aRange = aSpell.getRange();
-		final String aSpellClass = "CLASS:" + aName;
+		final String aSpellClass = "CLASS:" + owner.getKeyName();
 		int rangeInFeet = 0;
 		String aString = Globals.getGameModeSpellRangeFormula(aRange.toUpperCase());
 
@@ -5938,6 +5939,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			aRange += (" (" + Globals.getGameModeUnitSet().displayDistanceInUnitSet(rangeInFeet) +
 					Globals.getGameModeUnitSet().getDistanceUnit() + ")");
+		}
+		else
+		{
+			aRange = parseSpellString(aSpell, aRange, owner);
 		}
 
 		return aRange;

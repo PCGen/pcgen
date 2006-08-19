@@ -831,7 +831,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 					aSpell.getCastingTime(),
 					pc.parseSpellString(aSpell, aSpell.getDuration(), cs
 						.getOwner()),
-					aSpell.getRange(),
+					pc.getSpellRange(aSpell, cs.getOwner(), si),
 					pc.parseSpellString(aSpell, aSpell.getTarget(), cs
 						.getOwner()),
 					aSpell.getSaveInfo(),

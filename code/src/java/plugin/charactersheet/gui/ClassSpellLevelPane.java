@@ -518,7 +518,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 		rangePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 1, 0));
 		rangePanel.setBackground(color);
 		range.setFont(new java.awt.Font(DIALOG, 1, 10));
-		range.setText(pc.getSpellRange(spell, cs.getOwner().getKeyName(), si));
+		range.setText(pc.getSpellRange(spell, cs.getOwner(), si));
 		rangePanel.add(range);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;
