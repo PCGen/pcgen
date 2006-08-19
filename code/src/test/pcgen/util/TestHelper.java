@@ -43,6 +43,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.SettingsHandler;
+import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.EquipmentLoader;
 
 /**
@@ -196,4 +197,21 @@ public class TestHelper {
 		return anAbility;
 	}
 
+	/**
+	 * Set the important info about a WeaponProf
+	 * @param name The weaponprof name
+	 * @param type The type info ("." separated)
+	 * @return The weapon prof (which has also been added to global storage
+	 */
+	public static WeaponProf makeWeaponProf(String name, String type)
+	{
+		WeaponProf aWpnProf = new WeaponProf();
+		aWpnProf.setName(name);
+		aWpnProf.setKeyName("KEY_" + name);
+		aWpnProf.setTypeInfo(type);
+		Globals.addWeaponProf(aWpnProf);
+		return aWpnProf;
+	}
+	
+	
 }

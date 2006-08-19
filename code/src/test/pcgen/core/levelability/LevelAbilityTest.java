@@ -24,6 +24,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.*;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.util.Logging;
+import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -96,6 +97,45 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 			is(s, strEq("Dwarvish"));
 			s = choicesList.get(1);
 			is(s, strEq("Elven"));
+		}
+		catch(HeadlessException e)
+		{
+			Logging.debugPrint("Ignoring Headless excpetion.");
+		}
+	}
+
+	/**
+	 * Test the Lanaguage Level Ability
+	 */
+	public void testWeaponProfFeat()
+	{
+		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+
+		WeaponProf wp = TestHelper.makeWeaponProf("Glaive", "Martial");
+		final Ability weaponFocus = TestHelper.makeAbility("Weapon Focus",
+			"FEAT", "General.Fighter");
+		weaponFocus.setChoiceString("WEAPONPROFS|Spellcaster.Ray|ADD.Grapple|LIST");
+		weaponFocus.setMultiples("Y");
+
+		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "FEAT(TYPE=Fighter)");
+		assertTrue(ability.level() == 1);
+		assertTrue(ability.canProcess());
+		
+		PlayerCharacter pc = getCharacter();
+		pc.addWeaponProf(wp.getKeyName());
+
+		try
+		{
+			final ChooserInterface c = ChooserFactory.getChooserInstance();
+			ability.setType(getCharacter());
+			final String bString = ability.prepareChooser(c, getCharacter());
+			assertTrue(c.getPool() == 1);
+
+			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
+			assertEquals(1, choicesList.size());
+
+			String s = choicesList.get(0);
+			is(s, strEq("KEY_Weapon Focus(Glaive)"));
 		}
 		catch(HeadlessException e)
 		{
