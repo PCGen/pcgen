@@ -3854,7 +3854,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		public void resetMColumn(int col, TableColumn column) 
 		{
-			// TODO Auto-generated method stub
+			switch(col)
+			{
+				case COL_COST:
+				case COL_WEIGHT:
+				case COL_QTY:
+					column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+					break;
+
+				default:
+					break;
+			}
 		}
 }
 

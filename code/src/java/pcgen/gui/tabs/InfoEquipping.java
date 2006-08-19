@@ -4989,7 +4989,17 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			if(modelType == MODEL_AVAIL) 
 			{
-				// TODO Do Nothing?
+				switch(adjustAvailColumnConst(num))
+				{
+					case COL_QTY:
+					case COL_COST:
+					case COL_WEIGHT:
+						column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+						break;
+
+					default:
+						break;
+				}
 			}
 			else 
 			{
