@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
@@ -1212,6 +1213,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		final List<EquipmentModifier> modList = new ArrayList<EquipmentModifier>(eqModifierList);
 		final List<EquipmentModifier> altModList = new ArrayList<EquipmentModifier>(altEqModifierList);
 		final List<EquipmentModifier> commonList = new ArrayList<EquipmentModifier>();
+		final List<EquipmentModifier> modListByFC[] = initSplitModList();
+		final List<EquipmentModifier> altModListByFC[] = initSplitModList();
+		final List<EquipmentModifier> commonListByFC[] = initSplitModList();
 
 		//
 		// Remove any modifiers on the base item so they don't confuse the naming
@@ -1261,85 +1265,51 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		extractListFromCommon(commonList, modList);
 
 		removeCommonFromList(altModList, commonList, "eqMod expected but not found: ");
+		
+		// Remove masterwork from the list if magic is present
+		suppressMasterwork(commonList, modList, altModList);
 
-		//
-		// Look for a modifier named "masterwork" (assumption: this is marked as "assigntoall")
-		//
-		String eqMaster = "";
+		//Split the eqmod lists by format category
+		splitModListByFormatCat(commonList, commonListByFC);
+		splitModListByFormatCat(modList, modListByFC);
+		splitModListByFormatCat(altModList, altModListByFC);
 
-		for ( EquipmentModifier eqMod : commonList )
+		
+		final StringBuffer itemName = new StringBuffer();
+		
+		// Add in front eq mods
+		String eqmodDesc = buildEqModDesc(
+			commonListByFC[EquipmentModifier.FORMATCAT_FRONT],
+			modListByFC[EquipmentModifier.FORMATCAT_FRONT],
+			altModListByFC[EquipmentModifier.FORMATCAT_FRONT]); 
+		itemName.append(eqmodDesc);
+		if (itemName.length() > 0)
 		{
-			if ("MASTERWORK".equalsIgnoreCase(eqMod.getDisplayName())
-				|| eqMod.isIType("Masterwork"))
-			{
-				eqMaster = eqMod.getDisplayName();
-
-				break;
-			}
+			itemName.append(' ');
 		}
-
-		final EquipmentModifier magicMod1 = getMagicBonus(eqModifierList);
-		final String magic1 = (magicMod1 == null ? "" : magicMod1.getDisplayName());
-		final String desc1 = getNameFromModifiers(modList, magic1, "");
-		EquipmentModifier magicMod2 = null;
-		String magic2 = "";
-		String desc2 = "";
-
-		if (isDouble())
-		{
-			magicMod2 = getMagicBonus(altEqModifierList);
-			magic2 = (magicMod2 == null ? "" : magicMod2.getDisplayName());
-			desc2 = getNameFromModifiers(altModList, magic2, "");
-		}
-
-		final StringBuffer common = new StringBuffer(getNameFromModifiers(commonList, magic1 + magic2, eqMaster));
-
-		final StringBuffer itemName;
+		
+		//
+		// Add in the base name, less any modifiers
+		//
 		final String baseName = getBaseItemName().trim();
-
-		//
-		// Start with the base name, less any modifiers
-		//
 		int idx = baseName.indexOf('(');
-
 		if (idx >= 0)
 		{
-			itemName = new StringBuffer(baseName.substring(0, idx - 1).trim());
+			itemName.append(baseName.substring(0, idx - 1).trim());
 		}
 		else
 		{
-			itemName = new StringBuffer(baseName);
+			itemName.append(baseName);
 		}
 
-		//
-		// Add magic bonus(es) to description
-		//
-		if ((magic1.length() != 0) || (magic2.length() != 0))
+		// Add in middle mods
+		eqmodDesc = buildEqModDesc(
+			commonListByFC[EquipmentModifier.FORMATCAT_MIDDLE],
+			modListByFC[EquipmentModifier.FORMATCAT_MIDDLE],
+			altModListByFC[EquipmentModifier.FORMATCAT_MIDDLE]); 
+		if (eqmodDesc.length() > 0)
 		{
-			itemName.append(' ');
-
-			if (magic1.length() != 0)
-			{
-				itemName.append(magicMod1.getEquipNamePortion());
-			}
-			else
-			{
-				itemName.append('-');
-			}
-
-			if (isDouble())
-			{
-				itemName.append('/');
-
-				if (magic2.length() != 0)
-				{
-					itemName.append(magicMod2.getEquipNamePortion());
-				}
-				else
-				{
-					itemName.append('-');
-				}
-			}
+			itemName.append(' ').append(eqmodDesc);
 		}
 
 		//
@@ -1370,55 +1340,18 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		// Put size in name if not the same as the base item
 		//
 		final int iSize = Globals.sizeInt(getSize(), 4);
-
 		if (Globals.sizeInt(getBaseSize(), 4) != iSize)
 		{
-			if (common.length() != 0)
-			{
-				common.append('/');
-			}
-
-			common.append((SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize)).getDisplayName());
+			itemName.append((SettingsHandler.getGame().getSizeAdjustmentAtIndex(iSize)).getDisplayName());
+			itemName.append('/');
 		}
 
-		//
-		// add the modifier description(s)
-		//
-		if ((desc1.length() == 0) && (desc2.length() == 0))
-		{
-			itemName.append(String.valueOf(common));
-		}
-		else if (!isDouble())
-		{
-			itemName.append(desc1).append('/').append(String.valueOf(common));
-		}
-		else
-		{
-			if (common.length() != 0)
-			{
-				itemName.append(String.valueOf(common)).append(';');
-			}
-
-			if (desc1.length() != 0)
-			{
-				itemName.append(desc1);
-			}
-			else
-			{
-				itemName.append('-');
-			}
-
-			itemName.append(';');
-
-			if (desc2.length() != 0)
-			{
-				itemName.append(desc2);
-			}
-			else
-			{
-				itemName.append('-');
-			}
-		}
+		// Put in parens mods  
+		eqmodDesc = buildEqModDesc(
+			commonListByFC[EquipmentModifier.FORMATCAT_PARENS],
+			modListByFC[EquipmentModifier.FORMATCAT_PARENS],
+			altModListByFC[EquipmentModifier.FORMATCAT_PARENS]); 
+		itemName.append(eqmodDesc);
 
 		//
 		// If there were no modifiers, then drop the trailing '/'
@@ -1442,6 +1375,108 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		return itemName.toString();
 	}
+
+	/**
+	 * Where a magic eqmod is present, remove the masterwork eqmod from 
+	 * the list.
+	 *  
+	 * @param commonList The list of eqmods on both heads (or only head)
+	 * @param modList The list of eqmods on the primary head
+	 * @param altModList The list of eqmods on the secondary head
+	 */
+	private void suppressMasterwork(List<EquipmentModifier> commonList,
+		List<EquipmentModifier> modList, List<EquipmentModifier> altModList)
+
+	{
+		//
+		// Look for a modifier named "masterwork" (assumption: this is marked as "assigntoall")
+		//
+		EquipmentModifier eqMaster = null;
+		for ( EquipmentModifier eqMod : commonList )
+		{
+			if ("MASTERWORK".equalsIgnoreCase(eqMod.getDisplayName())
+				|| eqMod.isIType("Masterwork"))
+			{
+				eqMaster = eqMod;
+
+				break;
+			}
+		}
+		
+		if (eqMaster == null)
+		{
+			return;
+		}
+
+		final EquipmentModifier magicMod1 = getMagicBonus(eqModifierList);
+		EquipmentModifier magicMod2 = null;
+		if (isDouble())
+		{
+			magicMod2 = getMagicBonus(altEqModifierList);
+		}
+
+		if (magicMod1 != null || magicMod2 != null)
+		{
+			commonList.remove(eqMaster);
+		}
+	}
+
+	
+	/**
+	 * Build up the description of the listed equipmods for this equipment item. 
+	 * Takes into account if the item is a double weapon or not.
+	 *  
+	 * @param commonList The list of common equipment modifiers.
+	 * @param modList The list of eqmods on the primary head.
+	 * @param altModList The list of eqmods on the secondary head.
+	 * @return The description of these equipment modifiers.
+	 */
+	private String buildEqModDesc(List<EquipmentModifier> commonList, List<EquipmentModifier> modList, List<EquipmentModifier> altModList)
+	{
+		StringBuffer desc = new StringBuffer();
+		
+		String commonDesc = getNameFromModifiers(commonList);
+		String modDesc = getNameFromModifiers(modList);
+		String altModDesc = getNameFromModifiers(altModList);
+
+		if ((modList.isEmpty()) && (altModList.isEmpty()))
+		{
+			desc.append(commonDesc);
+		}
+		else if (!isDouble())
+		{
+			desc.append(modDesc).append('/').append(commonDesc);
+		}
+		else
+		{
+			if (commonDesc.length() != 0)
+			{
+				desc.append(commonDesc).append(';');
+			}
+
+			if (modDesc.length() != 0)
+			{
+				desc.append(modDesc);
+			}
+			else
+			{
+				desc.append('-');
+			}
+
+			desc.append(';');
+
+			if (altModDesc.length() != 0)
+			{
+				desc.append(altModDesc);
+			}
+			else
+			{
+				desc.append('-');
+			}
+		}
+		return desc.toString();
+	}
+	
 
 	/**
 	 * OwnedItem
@@ -4641,15 +4676,14 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		return null;
 	}
 
+	
 	/**
 	 * Gets the nameFromModifiers attribute of the Equipment object
 	 *
 	 * @param eqModList The list of modifiers
-	 * @param eqMagic   ???
-	 * @param eqMaster  ???
 	 * @return     The nameFromModifiers value
 	 */
-	private static String getNameFromModifiers(final List<EquipmentModifier> eqModList, final String eqMagic, final String eqMaster)
+	private static String getNameFromModifiers(final List<EquipmentModifier> eqModList)
 	{
 		//
 		// Get a sorted list so that the description will always come
@@ -4660,23 +4694,14 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		final StringBuffer sMod = new StringBuffer(70);
 
-		if ((eqMagic.length() == 0) && (eqMaster.length() != 0))
-		{
-			sMod.append(eqMaster);
-		}
-
 		for ( EquipmentModifier eqMod : eqList )
 		{
-			if (!eqMod.getDisplayName().equals(eqMagic)
-				&& !eqMod.getDisplayName().equals(eqMaster))
+			if (sMod.length() != 0)
 			{
-				if (sMod.length() != 0)
-				{
-					sMod.append('/');
-				}
-
-				sMod.append(eqMod.getEquipNamePortion());
+				sMod.append('/');
 			}
+
+			sMod.append(eqMod.getEquipNamePortion());
 		}
 
 		return sMod.toString();
@@ -5310,6 +5335,37 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 	}
 
+	/**
+	 * Initialise an array of equipment modifier lists with an entry for 
+	 * each format category.
+	 * 
+	 * @return An array of equipmod lists. 
+	 */
+	private List<EquipmentModifier>[] initSplitModList()
+	{
+		List<EquipmentModifier>[] modListArray = new List[EquipmentModifier.FORMATCAT_PARENS+1];
+		for (int i = 0; i < modListArray.length; i++)
+		{
+			modListArray[i] = new ArrayList<EquipmentModifier>();
+		}
+		return modListArray;
+	}
+
+	/**
+	 * Split the equipmod list into seperate lists by format category.
+	 * @param modList The list to be split.
+	 * @param splitModList The array of receiving lists, one for each format cat.
+	 */
+	private void splitModListByFormatCat(final List<EquipmentModifier> modList, final List<EquipmentModifier>[] splitModList)
+	{
+		for (Iterator iter = modList.iterator(); iter.hasNext();)
+		{
+			EquipmentModifier eqMod = (EquipmentModifier) iter.next();
+			splitModList[eqMod.getFormatCat()].add(eqMod);
+			
+		}
+	}
+	
 	/**
 	 * remover
 	 * @param i

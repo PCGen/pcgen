@@ -31,6 +31,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
@@ -62,6 +63,10 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	private static final int NAMINGOPTION_NOTHING = 3;
 	private static final int NAMINGOPTION_SPELL   = 4;
 	private static final int NAMINGOPTION_TEXT    = 5;
+
+	public static final int FORMATCAT_FRONT  = 0;
+	public static final int FORMATCAT_MIDDLE  = 1;
+	public static final int FORMATCAT_PARENS  = 2;
 
 	private static final String s_CHARGES           = "CHARGES";
 	private List<String>                ignores             = new ArrayList<String>();
@@ -1640,6 +1645,25 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return new BigDecimal(val * qty);
 	}
 
+	/**
+	 * Set the eqmod's format category.
+	 * @param cat
+	 */
+	public void setFormatCat(int cat)
+	{
+		integerChar.put(IntegerKey.FORMAT_CAT, cat);
+	}
+	
+	/**
+	 * Retrieve the eqmod's format category. Defaults to parens.
+	 * @return The format category for this eqmod.
+	 */
+	public int getFormatCat()
+	{
+		final Integer characteristic = integerChar.get(IntegerKey.FORMAT_CAT);
+		return characteristic == null ? FORMATCAT_PARENS : characteristic.intValue();
+	}
+	
 	/**
 	 * lets this object compare to others.
 	 *
