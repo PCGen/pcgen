@@ -2858,6 +2858,27 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
+	 * Remove all abilities gained via a level
+	 * @param aLevel
+	 */
+	public void removeAllLevelAbilities(final int aLevel)
+	{
+		if (levelAbilityList != null)
+		{
+			for (int x = levelAbilityList.size() - 1; x >= 0; --x)
+			{
+				final LevelAbility ability = (LevelAbility) levelAbilityList.get(x);
+
+				if (ability.level() == aLevel)
+				{
+					levelAbilityList.remove(x);
+				}
+			}
+		}
+		return;
+	}
+
+	/**
 	 * Remove an ability gained via a level
 	 * @param aLevel
 	 * @param aString

@@ -375,6 +375,8 @@ interface IOConstants
 	String TAG_STAT     = "STAT";
 	/** SUBCLASS */
 	String TAG_SUBCLASS = "SUBCLASS";
+	/** SUBSTITUTIONLEVEL */
+	String TAG_SUBSTITUTIONLEVEL = "SUBSTITUTIONLEVEL";
 
 	/** SYNERGY */
 	String TAG_SYNERGY  = "SYNERGY";

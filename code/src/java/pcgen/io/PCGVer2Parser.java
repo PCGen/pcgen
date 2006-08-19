@@ -1399,7 +1399,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			element = it.next();
 			tag = element.getName();
 
-			if (TAG_HITPOINTS.equals(tag))
+			if (TAG_SUBSTITUTIONLEVEL.equals(tag))
+			{
+				final String substitutionClassKeyName = EntityEncoder.decode(element.getText());
+				SubstitutionClass aSubstitutionClass = aPCClass.getSubstitutionClassKeyed(substitutionClassKeyName);
+
+				if (aSubstitutionClass == null)
+				{
+					final String message = PropertyFactory.getFormattedString(
+							"Warnings.PCGenParser.ClassNotFound", //$NON-NLS-1$
+							substitutionClassKeyName );
+					warnings.add(message);
+
+					return;
+				}
+				aPCClass.setSubstitutionClassKey(substitutionClassKeyName, level);
+				aSubstitutionClass.applyLevelArrayModsToLevel(aPCClass, level);
+			}
+			else if (TAG_HITPOINTS.equals(tag))
 			{
 				try
 				{

@@ -869,6 +869,13 @@ final class PCGVer2Creator implements IOConstants
 
 			if (pcClass != null)
 			{
+				String aKey = pcClass.getSubstitutionClassKey(lvl + 1);
+				if (aKey != null) {
+					buffer.append('|');
+					buffer.append(TAG_SUBSTITUTIONLEVEL).append(':');
+					buffer.append(aKey);
+				}
+
 				buffer.append('|');
 				buffer.append(TAG_HITPOINTS).append(':');
 				buffer.append(String.valueOf(pcClass.getHitPoint(lvl)));

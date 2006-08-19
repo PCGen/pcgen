@@ -2705,14 +2705,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 							{
 								retStr = aClass.getDisplayName();
 
-								final String subClass = aClass.getDisplayClassName();
+								lvl = pc.getLevelInfoClassLevel(idx);
+								final String subClass = aClass.getDisplayClassName(lvl);
 
 								if (!retStr.equals(subClass))
 								{
 									retStr = retStr + "/" + subClass; //$NON-NLS-1$
 								}
 
-								lvl = pc.getLevelInfoClassLevel(idx);
 
 								break;
 							}

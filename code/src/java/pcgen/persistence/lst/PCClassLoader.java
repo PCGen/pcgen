@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.SubClass;
+import pcgen.core.SubstitutionClass;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -97,6 +98,49 @@ public final class PCClassLoader extends LstObjectFileLoader
 
 			return pcClass;
 		}
+
+		if (lstLine.startsWith("SUBSTITUTIONCLASS:") || lstLine.startsWith("SUBSTITUTIONLEVEL:"))
+		{
+			SubstitutionClass substitutionClass = null;
+
+			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
+			{
+				if (lstLine.indexOf("\t") > 0)
+				{
+					substitutionClass = pcClass.getSubstitutionClassKeyed(lstLine.substring(18, lstLine.indexOf("\t")));
+				}
+				else
+				{
+					substitutionClass = pcClass.getSubstitutionClassKeyed(lstLine.substring(18));
+				}
+
+				if (substitutionClass == null)
+				{
+					substitutionClass = new SubstitutionClass();
+					substitutionClass.setSourceCampaign(source.getCampaign());
+					substitutionClass.setSourceFile(source.getFile());
+					pcClass.addSubstitutionClass(substitutionClass);
+				}
+			}
+			else
+			{
+				if ((pcClass.getSubstitutionClassList() != null) && !pcClass.getSubstitutionClassList().isEmpty())
+				{
+					substitutionClass = (SubstitutionClass) pcClass.getSubstitutionClassList().get(pcClass.getSubstitutionClassList().size() - 1);
+					substitutionClass.addToLevelArray(lstLine.substring(18));
+
+					return pcClass;
+				}
+			}
+
+			if (substitutionClass != null)
+			{
+				SubstitutionClassLoader.parseLine(substitutionClass, lstLine, source);
+			}
+
+			return pcClass;
+		}
+
 		return parseClassLine(target, lstLine, source, pcClass, false);
 	}
 
@@ -147,7 +191,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 					pcClass = Globals.getClassKeyed(name.substring(0, name.length()-4));
 				}
 			}
-			else if (!(pcClass instanceof SubClass) && (isNumber))
+			else if (!(pcClass instanceof SubClass) && !(pcClass instanceof SubstitutionClass) && (isNumber))
 			{
 				try
 				{
@@ -173,6 +217,10 @@ public final class PCClassLoader extends LstObjectFileLoader
 			else if (colString.equals("HASSUBCLASS"))
 			{
 				pcClass.setHasSubClass(true);
+			}
+			else if (colString.equals("HASSUBSTITUTIONLEVEL"))
+			{
+				pcClass.setHasSubstitutionClass(true);
 			}
 			else if (colString.startsWith("MULTIPREREQS"))
 			{
@@ -200,7 +248,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 			}
 			else
 			{
-				if (!(pcClass instanceof SubClass))
+				if (!(pcClass instanceof SubClass) && !(pcClass instanceof SubstitutionClass))
 				{
 					Logging.errorPrint("Illegal class info tag '" + colString + "' in " + source.getFile());
 				}
