@@ -193,12 +193,12 @@ public class AbilityUtilities
 	public static Ability addVirtualAbility(
 		final String          category,
 		final String          aFeatKey,
-		final List<Ability>            abilityList,
+		final List<Ability>   abilityList,
 		final PCLevelInfo     levelInfo)
 	{
-		final ArrayList<String> choices     = new ArrayList<String>();
-		final String    abilityKey = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
-		final Ability   anAbility   = Globals.getAbilityKeyed(category, abilityKey);
+		final ArrayList<String> choices = new ArrayList<String>();
+		final String    abilityKey      = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
+		final Ability   anAbility       = Globals.getAbilityKeyed(category, abilityKey);
 
 		return addVirtualAbility(anAbility, choices, abilityList, levelInfo);
 	}
@@ -352,7 +352,6 @@ public class AbilityUtilities
 	 * @param   aPC
 	 * @param   addIt
 	 * @param   singleChoice
-	 * @param   retVal
 	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
 	private static int finaliseAbility(
@@ -360,20 +359,20 @@ public class AbilityUtilities
 			final String          choice,
 			final PlayerCharacter aPC,
 			final boolean         addIt,
-			final boolean         singleChoice,
-			int                   retVal)
+			final boolean         singleChoice)
 	{
 		// how many sub-choices to make
 		double featCount = (ability.getAssociatedCount() * ability.getCost(aPC));
 
-		boolean didntModifyAbility = true;
+		boolean adjustedFeatPool = false;
 
+		// adjust the associated List
 		if (singleChoice && (addIt || ability.isMultiples()))
 		{
 			if ("".equals(choice))
 			{
-				// Allow sub-choices
-				didntModifyAbility = !ability.modChoices(aPC, addIt);
+				// Get modChoices to adjust the associated list and Feat Pool
+				adjustedFeatPool = ability.modChoices(aPC, addIt);
 			}
 			else if (addIt)
 			{
@@ -388,12 +387,13 @@ public class AbilityUtilities
 			}
 		}
 
+		/* 
+		 * This modifyChoice method is a bit like mod choices, but it uses a
+		 * different tag to set the chooser string.  The Tag MODIFYABILITYCHOICE
+		 * which doesn't appear to be used anywhere, so this code is totally
+		 * redundant.
+		 */
 		ability.modifyChoice(aPC);
-
-		if (ability.isMultiples() && singleChoice)
-		{
-			retVal = (ability.getAssociatedCount() > 0) ? 1 : 0;
-		}
 
 		if (addIt)
 		{
@@ -407,8 +407,9 @@ public class AbilityUtilities
 		// if no sub choices made (i.e. all of them removed in Chooser box),
 		// then remove the Feat
 		boolean removed = false;
+		boolean result  = (ability.isMultiples() && singleChoice) ? (ability.getAssociatedCount() > 0) : addIt ; 
 
-		if (retVal == 0)
+		if (! result)
 		{
 			removed = aPC.removeRealFeat(ability);
 			aPC.removeNaturalWeapons(ability);
@@ -420,7 +421,7 @@ public class AbilityUtilities
 			ability.subAddsForLevel(-9, aPC);
 		}
 
-		if (singleChoice && didntModifyAbility)
+		if (singleChoice && !adjustedFeatPool)
 		{
 			if (!addIt && !ability.isMultiples() && removed)
 			{
@@ -456,7 +457,7 @@ public class AbilityUtilities
 			ability.checkRemovals(aPC);
 		}
 
-		return retVal;
+		return result ? 1 : 0;
 	}
 
 
@@ -490,7 +491,7 @@ public class AbilityUtilities
 	 * @return the Ability if found, otherwise null
 	 */
 	public static Ability getAbilityFromList(
-		final List<Ability>          anAbilityList,
+		final List<Ability> anAbilityList,
 		final Categorisable abilityInfo,
 		final int           abilityType)
 	{
@@ -570,7 +571,7 @@ public class AbilityUtilities
 	 *                 only makes sense if it allows multiples); true means a new
 	 *                 instance of the global Ability will be cloned and added to the
 	 *                 character as a real Ability (this is the only way to add real
-	 *                 nonvirtual Ability objects).
+	 *                 non-virtual Ability objects).
 	 * @return  1 if adding the Ability or 0 if removing it.
 	 */
 
@@ -581,12 +582,10 @@ public class AbilityUtilities
 		final String          choice,
 		final boolean         create)
 	{
-		final int     result = create ? 1 : 0;
-
 		if (argAbility == null)
 		{
 			Logging.errorPrint("Can't process null Ability");
-			return result;
+			return create ? 1 : 0;
 		}
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
@@ -605,7 +604,7 @@ public class AbilityUtilities
 			pcAbility.getTemplates(aPC.isImporting(), aPC);
 		}
 
-		return finaliseAbility(pcAbility, choice, aPC, create, true, result);
+		return finaliseAbility(pcAbility, choice, aPC, create, true);
 	}
 
 	/**
@@ -613,14 +612,14 @@ public class AbilityUtilities
 	 * weapon proficiencies, either a single choice if addAll is false, or all
 	 * possible choices if addAll is true.
 	 *
-	 * @param   aPC                       the PC to add or remove the Feat from
+	 * @param   aPC          the PC to add or remove the Feat from
 	 * @param   LevelInfo
-	 * @param   aFeatKey                  the name of the Feat to add.
-	 * @param   addIt false means the character must already have the
-	 *                                    feat (which only makes sense if it
-	 *                                    allows multiples); true means
-	 *                                    to add the feat (the only way to add
-	 *                                    new feats).
+	 * @param   aFeatKey     the name of the Feat to add.
+	 * @param   addIt        false means the character must already have the
+	 *                       feat (which only makes sense if it
+	 *                       allows multiples); true means
+	 *                       to add the feat (the only way to add
+	 *                       new feats).
 	 * @param   singleChoice false means allow sub-choices; true means no sub-choices.
 	 *
 	 * @return  1 if adding the Ability but it wasn't there or 0 if the PC does
@@ -640,7 +639,6 @@ public class AbilityUtilities
 		}
 
 		final ArrayList<String> choices        = new ArrayList<String>();
-		final int       result         = addIt ? 1 : 0;
 		final String    undoctoredKey = aFeatKey;
 		final String    baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
 			  String    subKey        = choices.size() > 0 ? (String) choices.get(0) : "";
@@ -680,7 +678,7 @@ public class AbilityUtilities
 			{
 				Logging.errorPrint("Feat not found: " + undoctoredKey);
 
-				return result;
+				return addIt ? 1 : 0;
 			}
 
 			anAbility = (Ability) anAbility.clone();
@@ -695,10 +693,10 @@ public class AbilityUtilities
 		 */
 		if (anAbility == null)
 		{
-			return result;
+			return addIt ? 1 : 0;
 		}
 
-		return finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1, result);
+		return finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1);
 	}
 
 	/**
