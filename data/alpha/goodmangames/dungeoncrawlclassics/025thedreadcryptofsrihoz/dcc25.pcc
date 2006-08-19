@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Fri Aug 18 05:28:17 2006 -- reformated by prettylst.pl v1.35 (build 565)
+CAMPAIGN:Goodman Games - DCC 25 - The Dread Crypt of Srihoz
+RANK:3
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Generic
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Goodman Games.Dungeon Crawl Classics
+PUBNAMELONG:Goodman Games
+PUBNAMESHORT:Goodman
+PUBNAMEWEB:http://www.goodman-games.com/
+SOURCELONG:DCC 25 - The Dread Crypt of Srihoz
+SOURCESHORT:DCC25
+SOURCEWEB:http://www.goodman-games.com/
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Dungeon Crawl Classics 25: The dread Crypt of Srihoz by Jeremy Simmons, Copyright 2006 Goodman Games.
+COPYRIGHT:PCGen dataset conversion for Dungeon Crawl Classics 25: The dread Crypt of Srihoz Copyright 2006, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, Darkon Turas, Frank Kliewe)
+
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:dcc25_equip.lst
+RACE:dcc25_races.lst
+SPELL:dcc25_spells.lst
