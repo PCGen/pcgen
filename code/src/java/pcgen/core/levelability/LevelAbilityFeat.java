@@ -586,12 +586,24 @@ class LevelAbilityFeat extends LevelAbility
 			(choiceString.indexOf("NUMCHOICES=") < 0) &&
 			(choiceString.indexOf("COUNT=") < 0))
 		{
+			final List tempAvailList = new ArrayList();
+			final List tempSelList = new ArrayList();
 			anAbility.modChoices(
-				availableList,
-				selectedList,
+				tempAvailList,
+				tempSelList,
 				false,
 				aPC,
 				true);
+			// Mod choices may have sent us back weaponprofs, abilities or strings, 
+			// so we have to do a conversion here
+			for (Iterator iter = tempAvailList.iterator(); iter.hasNext();)
+			{
+				availableList.add(String.valueOf(iter.next()));
+			}
+			for (Iterator iter = tempSelList.iterator(); iter.hasNext();)
+			{
+				selectedList.add(String.valueOf(iter.next()));
+			}
 		}
 		else
 		{
