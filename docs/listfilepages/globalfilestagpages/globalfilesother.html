@@ -13,6 +13,7 @@
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Andrew McDougall - thoronDASHtirDASHgwaithATlycosDOTcom
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
 
 		Description:
 		Provides information on the use of PCGen Other Global Tags.
@@ -231,6 +232,26 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DR:10/+1</code></p>
 		<p class="indent3">Grants DR of 10/+1 on output.</p>
+
+
+		<p></p><a name="FOLLOWERS"></a><hr>
+		<p class="new">*** New 5.10.1+</p>
+		<p class="indent0"><strong>Tag Name:</strong> FOLLOWERS:x|y</p>
+		<p class="indent1"><strong>Variables Used (x): </strong>Text (The type of companion the limit will apply to).</p>
+		<p class="indent1"><strong>Variables Used (x): </strong>Number, variable or formula (Number of this type
+																			of companion the master can have)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">• Limits the number of the specified type of companion the master can have.</p>
+		<p class="indent2">• Optional, if this tag is not present no limits are placed on the number of companions
+								the character can have. </p>
+		<p class="indent2">• If more than one tag is encountered the highest value is used. </p>
+		<p class="indent2">• The value can be adjusted with the BONUS:FOLLOWERS tag.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Global tag, would most often be used in class and feat (ability) files, should also be
+							enabled for templates and Domains.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>FOLLOWERS:Familiar|1</code></p>
+		<p class="indent3">A character is allowed only 1 companion of type Familiar.</p>
 
 
 		<p></p><a name="KIT"></a><hr>

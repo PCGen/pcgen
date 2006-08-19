@@ -3,16 +3,17 @@
 <html>
 	<!--
 		PCGen Documentation Project
-			
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilescompanionmodifiers.html,v 1.5 2005/11/03 22:28:57 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+		Terry FitzSimons - fitzsimonsATmintelDOTnet
+
 		Description:
 		Provides information on the content of PCGen Companion Modifications File.
 	-->
@@ -20,12 +21,49 @@
 		<title>Companion Modifications File</title>
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
     </head>
-	
+
 	<body>
 		<h1>Companion Modifications File</h1>
 
-		<p>These files specify the bonuses that &quot;enhanced companions&quot;, such as familiars and a 
+		<p>These files specify the bonuses that &quot;enhanced companions&quot;, such as familiars and a
 		Paladin's special mount, receive from associating with the character.</p>
+
+		<p><a name="COMPANIONLIST"></a><hr>
+		<p class="new">*** New 5.10.1+</p>
+	    <p class="indent0"><strong>Tag Name:</strong> COMPANIONLIST:x|y,y</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text (The type of companion list to
+																						add to).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>Text (A race of companion to allow
+																						to the character).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACETYPE=Text (all races with the
+													specified RACETYPE are available as this type of companion).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>ANY (Any race can be a companion of
+																						this type).</p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+        <p class="indent2">• Adds a specific race or races to the list of available companions for the specified
+        						companion type.</p>
+        <p class="indent2">• PRExxx tags can be added to COMPANIONLIST lines, PRExxx tags are checked against the
+								master.</p>
+        <p class="indent2">• If the master does not meet the prereqs the companion will be displayed in the list
+        						but will be listed in red and cannot be added as a companion.</p>
+        <p class="indent2">• FOLLOWERADJUSTMENT tags can be added to COMPANIONLIST lines to adjust the relative
+        						power level of the companion.</p>
+        <p class="indent2">• COMPANIONLIST can be used multiple times for the same companion type and are additive.
+        						For example you can have one line which has a COMPANIONLIST:Pet|RACETYPE=Animal
+        						tag on it and a separate line with COMPANIONLIST:Pet|Hog which also has some
+        						additional PRExxx tags, all Animals will appear in the Pet list along with Hog but
+        						Hog will have specific prerequisites the master must pas to add it.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">New line in companion modifier files.</p>
+        <p class="indent1"><strong>Example:</strong> </p>
+        <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,
+        							Weasel</code> </p>
+        <p class="indent3">Would build the list of standard familiars available to a Sorcerer or Wizard.</p>
+        <p class="indent2"><code>COMPANIONLIST:Pet|RACETYPE=Animal</code> </p>
+        <p class="indent3">Would build a list of all animals to available as a Pet.</p>
+        <p class="indent2"><code>COMPANIONLIST:Familiar|Quasit <tab> PREFEAT:1,Special Familiar <tab> PREALIGN:CE</code> </p>
+        <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the Special
+        					Familiar feat.</p>
 
 		<p><a name="COPYMASTERBAB"></a><hr>
 	    <p class="indent0"><strong>Tag Name:</strong> COPYMASTERBAB:x</p>
@@ -37,7 +75,7 @@
         <p class="indent1"><strong>Example:</strong> </p>
         <p class="indent2"><code>COPYMASTERBAB:MASTER</code> </p>
         <p class="indent3">Uses the master's BAB </p>
-	    
+
 		<p><a name="COPYMASTERCHECK"></a></p><hr>
 	    <p class="indent0"><strong>Tag Name: </strong>COPYMASTERCHECK:x </p>
         <p class="indent1"><strong class="indent0">Variables used (x): </strong>MASTER (The Masters Checks) </p>
@@ -46,7 +84,7 @@
     	<p class="indent1"><strong>Example</strong></p>
     	<p class="indent2"><code>COPYMASTERCHECK:MASTER</code> </p>
     	<p class="indent3">Uses the base master checks </p>
-	    
+
 		<p><a name="COPYMASTERHP" id="COPYMASTERHP"></a></p><hr>
 	    <p class="indent0"><strong>Tag Name:</strong> COPYMASTERHP </p>
         <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (Hit Points to be granted to the Follower) </p>
@@ -59,7 +97,7 @@
 	    <p class="indent3">Gives the creature half the master's hit points </p>
 	    <p class="indent2"><code>COPYMASTERHP:max(1,MASTER/2)</code> </p>
 	    <p class="indent3">Gives the creature half the master's hit points or 1, whichever is higher. </p>
-	    
+
 		<p></p><a name="FOLLOWER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> FOLLOWER:x,x=y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or variable)</p>
@@ -67,7 +105,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a comma delimited list of classes or variables.</li>
-			<li>If the &quot;master&quot; meets the required level or value in the tag, then the 
+			<li>If the &quot;master&quot; meets the required level or value in the tag, then the
 				companion gains all the benefits as described by the other tags in the line.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -77,7 +115,22 @@
 		<p class="indent3">True if PC is a Level 1 or greater &quot;Sorcerer&quot; or &quot;Wizard&quot;.</p>
 		<p class="indent2"><code>FOLLOWER:CompanionLevel=5</code></p>
 		<p class="indent3">True if the CompanionLevel variable is 5 or greater.</p>
-		
+
+		<p></p><a name="FOLLOWERADJUSTMENT"></a><hr>
+		<p class="new">*** New 5.10.1+</p>
+		<p class="indent0"><strong>Tag Name:</strong> FOLLOWERADJUSTMENT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number the effective master level is
+																		adjusted for this (or these) creatures)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Adjusts the FOLLOWER variable which changes the effective level of the master for the
+							specific creature.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">In COMPANIONLIST line.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape <tab> FOLLOWERADJUSTMENT:-3</code></p>
+		<p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a
+							companion of a 1st level Druid.</p>
+
 		<p></p><a name="HD"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> HD:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice)</p>
@@ -86,33 +139,49 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HD:2</code></p>
 		<p class="indent3">Defines the creature having two Hit Dice.</p>
-		
+
+		<p></p><a name="HITDICEADVANCES"></a><hr>
+		<p class="new">*** New 5.10.1+</p>
+		<p class="indent0"><strong>Tag Name:</strong>HITDICEADVANCES:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Determines if the hit dice granted by the companion modifier counts towards it
+		advancement as specified by its races HITDICEADVANCEMENT tag. Adding hit dice to some animals will cause
+		them to increase in size a certain levels, HITDICEADVANCES:NO will prevent the hit dice gained as a
+		companion from triggering this. The default is YES, if the tag is not present on a FOLLOWER line with an
+		HD tag the hit dice gained will count towards advancing the creature.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Follows lines with an HD tag.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>HD:2 <tab> HITDICEADVANCES:NO</code></p>
+		<p class="indent3">Defines the creature having two Hit Dice, not counted towards the creature’s advancement.</p>
+
 		<p><a name="MASTERBONUSRACE" id="MASTERBONUSRACE"></a></p><hr>
 	    <p class="indent0"><strong>Tag Name: </strong>MASTERBONUSRACE:x </p>
         <p><span class="indent1"><strong>Variables used:</strong></span> (x) text </p>
     	<p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">This tag is used if you need to define the advantages that the master 
-	      gains when having particular race(s) as the given type. 
-		  MASTERBONUSRACE is used to start a new line, tags which follow this one on the same line are granted to the master. 
+        <p class="indent2">This tag is used if you need to define the advantages that the master
+	      gains when having particular race(s) as the given type.
+		  MASTERBONUSRACE is used to start a new line, tags which follow this one on the same line are granted to the master.
 		  Tags which can be used are BONUS and VFEAT.</p>
 	    <p><span class="indent1"><strong>Example:<br>
 	    </strong></span>
 	    <p class="indent2">MASTERBONUSRACE:Bat </p>
 	    <p class="indent3">Specifies what race the master has chosen (Bat) and the tag(s) following it will give the master the familiar bonuses. </p></p>
-	    
+
 		<p></p><a name="RACETYPE"></a><hr>
 		<p class="new">*** New 5.9.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> RACETYPE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Creature Type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Changes the Type of creature the race is from the initial Type defined by 
+			<li>Changes the Type of creature the race is from the initial Type defined by
     		<a href="datafilesraces.html#RACETYPE">RACETYPE</a> in the race line.</li>
 			<li>A Creature may only have one RACETYPE at any given time.</li>
 			<li>Currently existing selections from the Monster List include:<br />
-				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid, 
-				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and 
-				Vermin</li> 
+				Aberration, Animal, Beast, Construct, Dragon, Elemental, Fey, Giant, Humanoid,
+				Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant, Shapechanger, Undead, and
+				Vermin</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RACETYPE:Undead</code></p>
@@ -126,17 +195,17 @@
 		<p class="indent1"><strong>Important:</strong></p>
 		<ul class="indent2">
 			<li>The function of SWITCHRACE is being moved to the <a href="#RACETYPE">RACETYPE</a> tag.</li>
-			<li>This is because the function of setting creature type is being moved from 
-    		the race tag <a href="datafilesraces.html#TYPE">TYPE</a> to the new race tag 
+			<li>This is because the function of setting creature type is being moved from
+    		the race tag <a href="datafilesraces.html#TYPE">TYPE</a> to the new race tag
     		<a href="datafilesraces.html#RACETYPE">RACETYPE</a>.</li>
-			<li>SWITCHRACE not only changes the Type but additionally swaps out monster class levels for the new types monster class. 
+			<li>SWITCHRACE not only changes the Type but additionally swaps out monster class levels for the new types monster class.
 				This violates the rule. For example a Paladins Mount is a magical beast but gains hit dice as an animal.</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>The SWITCHRACE changes a regular animal to an &quot;enhanced companion&quot;
 				type.</li>
-			<li>Normal companions, who do not gain special abilities from the PC, will not 
+			<li>Normal companions, who do not gain special abilities from the PC, will not
 				be affected.</li>
 			<li>SWITCHRACE tags should be grouped at the beginning of the file.</li>
 			<li>Each SWITCHRACE tag is kept on a line of its own.</li>
@@ -149,11 +218,11 @@
 		<p class="indent0"><strong>Tag Name:</strong> TYPE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Class)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used to define what the creature is for purposes of display on the 
+		<p class="indent2">Used to define what the creature is for purposes of display on the
 			resources tab.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TYPE:Familiar</code></p>
-		<p class="indent3">Defines the creature as a &quot;Familiar&quot; for resources 
+		<p class="indent3">Defines the creature as a &quot;Familiar&quot; for resources
 			tab display purposes.</p>
 
 		<p></p><a name="USEMASTERSKILL"></a><hr>
@@ -166,8 +235,8 @@
 		<p class="indent3">Defines the creature as using the skill ranks of its master.</p>
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilescompanionmodifiers.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
-	    
-		
+
+
     </body>
 
 </html>

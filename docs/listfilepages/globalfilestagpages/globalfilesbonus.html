@@ -56,6 +56,7 @@
     	the top of the BONUS page as well. An explanation as to why this is would be good as well but I don't
     	know what this might be.</p>
 
+
 		<p></p><a name="CASTERLEVEL"></a><hr>
 		<p class="new">*** New 5.4, Updated 5.7.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:CASTERLEVEL|x|y</p>
@@ -115,10 +116,10 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Any check defined in the GameMode - e.g. Fortitude,Reflex,Willpower)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Save Bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-			<p class="indent2">Adds to indicated saving throw.</p>
+		<p class="indent2">Adds to indicated saving throw.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-			<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
-				<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
+		<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
+		<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
 
 
 		<p></p><a name="CHECKSBASE"></a><hr>
@@ -651,6 +652,23 @@
 		<p class="indent3">Increases the feat pool by one and will not stack with other BONUS:FEAT|POOL tags with TYPE=Enhancement.</p>
 		<p class="indent2"><code>BONUS:FEAT|POOL|-1|PREFEAT:1,Alertness</code></p>
 		<p class="indent3">Decreases the feat pool by one if the character has the feat Alertness.</p>
+
+
+		<p></p><a name="FOLLOWERS"></a><hr>
+		<p class="new">*** New 5.10.1+</p>
+		<p class="indent0"><strong>Tag Name:</strong>BONUS:FOLLOWERS|x|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The type of companion list to add to).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number of additional
+																	followers of this type of companion the master
+																	can have)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">• Adjusts the number of this type of companion the master can have.</p>
+		<p class="indent2">• If the character has no FOLLOWERS tag of the same type this tag has no effect.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Global BONUS</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:FOLLOWERS|Familiar|1</code></p>
+		<p class="indent3">A character is allowed 1 additional Familiar.</p>
 
 
 		<p></p><a name="HD"></a><hr>
