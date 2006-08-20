@@ -189,6 +189,41 @@
 		<p class="indent3">Changes all weapons of TYPE Hammer to be Simple weapons for proficiency purposes.</p>
 
 
+		<p><a name="COMPANIONLIST"></a><hr>
+		<p class="new">*** New 5.10.1+</p>
+	    <p class="indent0"><strong>Tag Name:</strong> COMPANIONLIST:x|y,y|z</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text (The type of companion list to
+																						add to).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>Text (A race of companion to allow
+																						to the character).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACETYPE=Text (all races with the
+													specified RACETYPE are available as this type of companion).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>ANY (Any race can be a companion of
+																						this type).</p>
+        <p class="indent1"><strong class="indent0">Variables used (z): </strong> FOLLOWERADJUSTMENT=<number>
+																	(Adjustment to the follower level variable).</p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+        <p class="indent2">• Adds a specific race or races to the list of available companions for the specified
+        						companion type.</p>
+        <p class="indent2">• PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked
+        						against the master.</p>
+        <p class="indent2">• If the master does not meet the prereqs the companion will be displayed in the list
+        						but will be listed in red and cannot be added as a companion.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Global.</p>
+        <p class="indent1"><strong>Example:</strong> </p>
+        <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,
+        							Weasel</code> </p>
+        <p class="indent3">Would build the list of standard familiars available to a Sorcerer or Wizard.</p>
+        <p class="indent2"><code>COMPANIONLIST:Pet|RACETYPE=Animal</code> </p>
+        <p class="indent3">Would build a list of all animals to available as a Pet.</p>
+        <p class="indent2"><code>COMPANIONLIST:Familiar|Quasit <tab> PREFEAT:1,Special Familiar|PREALIGN:CE</code> </p>
+        <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the Special
+        					Familiar feat.</p>
+        <p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code> </p>
+        <p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a companion
+        					of a 1st level Druid..</p>
+
 		<p></p><a name="DEFINELOCK"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DEFINE:LOCK.x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Ability Score (STR, DEX, CON, INT, CHA, WIS or other stat defined in the gameMode)</p>
