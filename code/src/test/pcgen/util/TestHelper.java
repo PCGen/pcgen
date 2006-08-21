@@ -39,11 +39,14 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.EquipmentLoader;
 
 /**
@@ -213,5 +216,23 @@ public class TestHelper {
 		return aWpnProf;
 	}
 	
+
+	/**
+	 * Set the important info about a Race
+	 * @param name The race name
+	 * @param type The type info ("." separated)
+	 * @return The race (which has also been added to global storage)
+	 */
+	public static Race makeRace(
+			String name,
+			String type)
+	{
+		Race aRace = new Race();
+		aRace.setName(name);
+		aRace.setKeyName("KEY_" + name);
+		aRace.setBonusInitialFeats(1);
+		Globals.getRaceMap().put(name, aRace);
+		return aRace;
+	}
 	
 }
