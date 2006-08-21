@@ -36,3 +36,6 @@ Scroll		TYPE:Scroll.Consumable	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:srdmagici
 Wand			TYPE:Wand			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:srdmagicitems.rtf
 Rod			TYPE:Rod			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:srdmagicitems.rtf
 Staff			TYPE:Staff			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:srdmagicitems.rtf
+# from srdmagicoverview "COMPONENTS"
+Spell Component	TYPE:MaterialComponent.Consumable	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:srdmagicoverview.rtf
+Spell Focus		TYPE:SpellFocus		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:srdmagicoverview.rtf

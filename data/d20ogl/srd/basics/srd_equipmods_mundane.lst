@@ -23,6 +23,10 @@ Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITY
 Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5						SPROP:Locked
 Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
 
+###Block Spell Component stuff
+Spell Material Component Value		KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	NAMEOPT:NOTHING		PRETYPE:MaterialComponent		BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000	SOURCEPAGE:srdmagicoverview.rtf
+Spell Focus Value					KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	NAMEOPT:NOTHING		PRETYPE:SpellFocus			BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000		SOURCEPAGE:srdmagicoverview.rtf
+
 # Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0												NAMEOPT:NONAME		SOURCEPAGE:p.																																																																		CHOOSE:Select desired TYPE(s)|TYPE=ALL
 
 ###Block:EXCLUDEEQ: Any item with the properties listed will not be allowed to be edited
