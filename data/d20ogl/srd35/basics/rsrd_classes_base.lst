@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 14 13:05:51 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Mon Aug 21 04:28:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -170,7 +170,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
 ###Block: Normal Progression
-1	CAST:3,1				SA:Nature Sense (Ex)	FEATAUTO:Animal Companion	BONUS:VAR|WildEmpathy|CL	BONUS:SKILL|Knowledge (Nature),Survival|2	FEATAUTO:Wild Empathy
+1	CAST:3,1				SA:Nature Sense (Ex)		BONUS:VAR|WildEmpathy|CL	BONUS:SKILL|Knowledge (Nature),Survival|2	FEATAUTO:Animal Companion	FEATAUTO:Wild Empathy
 2	CAST:4,2				SA:Woodland Stride (Ex)
 3	CAST:4,2,1				SA:Trackless Step (Ex)
 4	CAST:5,3,2				SA:Resist Nature's Lure (Ex)
@@ -339,7 +339,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1									BONUS:VAR|WildEmpathy|CL	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)	FEATAUTO:Wild Empathy|Track
 2														ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatStyle)
 3														ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Endurance
-4	CAST:0,0		FEATAUTO:Animal Companion	BONUS:VAR|CompLevel|CL/2	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+4	CAST:0,0							BONUS:VAR|CompLevel|CL/2	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)							FEATAUTO:Animal Companion
 5	CAST:0,0												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
 6	CAST:0,1												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
 7	CAST:0,1		SA:Woodland Stride (Ex)							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
@@ -434,23 +434,23 @@ SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Transmutation
 ###Block:Proficiencies
 1	FEATAUTO:Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:3,1				FEATAUTO:Summon Familiar	FOLLOWERS:Familiar|1											FEATAUTO:Scribe Scroll
+1	CAST:3,1														FEATAUTO:Summon Familiar	FEATAUTO:Scribe Scroll	FOLLOWERS:Familiar|1
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+5	CAST:4,3,2,1			ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+10	CAST:4,4,4,3,3,2			ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1						ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+15	CAST:4,4,4,4,4,4,3,2,1		ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+20	CAST:4,4,4,4,4,4,4,4,4,4	ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)

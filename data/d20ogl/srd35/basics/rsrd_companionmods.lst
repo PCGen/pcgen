@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue May  2 08:55:58 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Aug 21 04:28:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # RSRD Entry by: jaymecox
 
@@ -34,33 +34,33 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 #
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP			USEMASTERSKILL		Special Ability									Define						Combat bonus						SWITCHRACE
-FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SA:Empathic Link	
-FOLLOWER:FMLevel=1	TYPE:Familiar			SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast
-FOLLOWER:FMLevel=1	TYPE:Familiar	ADD:Language(TYPE=Spoken)1	SA:Speak one language	PRERACE:1,Raven
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Bat			PRERACE:1,Bat
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Cat			PRERACE:1,Cat
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Hawk			PRERACE:1,Hawk
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Lizard			PRERACE:1,Lizard
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Owl			PRERACE:1,Owl
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Rat			PRERACE:1,Rat
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Raven			PRERACE:1,Raven
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Snake (Viper/Tiny)	PRERACE:1,Snake (Viper/Tiny)
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Toad			PRERACE:1,Toad
-FOLLOWER:FMLevel=1	TYPE:Familiar	KIT:1|Default Weasel			PRERACE:1,Weasel
-FOLLOWER:FMLevel=3	TYPE:Familiar																				SA:Deliver touch spells								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=5	TYPE:Familiar																				SA:Speak with master								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=7	TYPE:Familiar																				SA:Speak with animals of its kind						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=9	TYPE:Familiar																															DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																														DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+# Class of the Master	Type			Spell Res.	COPYMASTERBAB		COPYMASTERCHECK		COPYMASTERHP			USEMASTERSKILL		Special Ability						Define						Combat bonus						SWITCHRACE					ADD:Language			KIT						Required Race
+FOLLOWER:FMLevel=1	TYPE:Familiar			COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SA:Empathic Link
+FOLLOWER:FMLevel=1	TYPE:Familiar																				SA:Share Spells	SA:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	SWITCHRACE:Animal|Magical Beast
+FOLLOWER:FMLevel=1	TYPE:Familiar																				SA:Speak one language																										ADD:Language(TYPE=Spoken)1							PRERACE:1,Raven
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Bat				PRERACE:1,Bat
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Cat				PRERACE:1,Cat
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Hawk			PRERACE:1,Hawk
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Lizard			PRERACE:1,Lizard
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Owl				PRERACE:1,Owl
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Rat				PRERACE:1,Rat
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Raven			PRERACE:1,Raven
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Snake (Viper/Tiny)	PRERACE:1,Snake (Viper/Tiny)
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Toad			PRERACE:1,Toad
+FOLLOWER:FMLevel=1	TYPE:Familiar																																																						KIT:1|Default Weasel			PRERACE:1,Weasel
+FOLLOWER:FMLevel=3	TYPE:Familiar																				SA:Deliver touch spells					DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=5	TYPE:Familiar																				SA:Speak with master					DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=7	TYPE:Familiar																				SA:Speak with animals of its kind			DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=9	TYPE:Familiar																												DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																											DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																			SA:Scry on familiar								DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18																			SA:Scry on familiar					DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																														DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																											DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																														DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																											DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																											DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 #
 
