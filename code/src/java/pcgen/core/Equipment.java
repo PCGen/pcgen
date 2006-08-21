@@ -1445,7 +1445,12 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 		else if (!isDouble())
 		{
-			desc.append(modDesc).append('/').append(commonDesc);
+			desc.append(modDesc);
+			if (!modList.isEmpty() && !commonList.isEmpty())
+			{
+				desc.append('/');
+			}
+			desc.append(commonDesc);
 		}
 		else
 		{
