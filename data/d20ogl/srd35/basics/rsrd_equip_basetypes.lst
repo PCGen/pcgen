@@ -39,3 +39,6 @@ Rod			TYPE:Rod			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
 Scroll		TYPE:Scroll.Consumable	COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
 Staff			TYPE:Staff			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
 Wand			TYPE:Wand			COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicItemsI.rtf
+# From Magic Overview "Components"
+Spell Component	TYPE:MaterialComponent.Consumable	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:MagicOverview.rtf
+Spell Focus		TYPE:SpellFocus		COST:0	WT:0				MODS:REQUIRED	SOURCEPAGE:MagicOverview.rtf
