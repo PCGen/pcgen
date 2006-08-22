@@ -60,7 +60,7 @@ public class GetVarCommand extends PCGenCommand {
 			throw new ParseException("Invalid parameter count");
 		}
 
-		Object result = null;
+		Float result = null;
 
 		if (param1 instanceof String) {
 			if (parent instanceof PlayerCharacter) {
@@ -96,15 +96,15 @@ public class GetVarCommand extends PCGenCommand {
 				throw new ParseException("Error retreiving variable:" + param1);
 			}
 
-			inStack.push(result);
+			inStack.push(new Double(result.doubleValue()));
 		}
 		else {
 			throw new ParseException("Invalid parameter type");
 		}
 	}
 
-	protected Object getVariableForCharacter(PlayerCharacter character, Object param1) {
-		Object result = character.getVariableValue((String) param1, variableSource);
+	protected Float getVariableForCharacter(PlayerCharacter character, Object param1) {
+		Float result = character.getVariableValue((String) param1, variableSource);
 		return result;
 	}
 }
