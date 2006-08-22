@@ -85,6 +85,11 @@ public final class SubstitutionClass extends PCClass
 
 			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceFile());
 
+			// remove all stuff from the original level
+			aClass.removeAllBonuses(aLevel);
+			aClass.removeAllAutoFeats(aLevel);
+			aClass.removeAllLevelAbilities(aLevel);
+
 			for (String aLine : levelArray)
 			{
 				final Integer modLevel = new Integer(aLine.substring(0, aLine.indexOf("\t")));
@@ -92,7 +97,6 @@ public final class SubstitutionClass extends PCClass
 				if (aLevel == modLevel.intValue())
 				{
 					final PCClassLoader classLoader = new PCClassLoader();
-					aClass.removeAllLevelAbilities(aLevel);
 					classLoader.parseLine(aClass, aLine, tempSource);
 				}
 			}

@@ -2858,6 +2858,25 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
+	 * Remove all bonuses gained via a level
+	 * @param aLevel
+	 */
+	public void removeAllBonuses(final int aLevel)
+	{
+		if (bonusList != null)
+		{
+			for (int x = bonusList.size() - 1; x >= 0; --x)
+			{
+				if (bonusList.get(x).getPCLevel() == aLevel)
+				{
+					bonusList.remove(x);
+				}
+			}
+		}
+		return;
+	}
+
+	/**
 	 * Remove all abilities gained via a level
 	 * @param aLevel
 	 */
@@ -2867,9 +2886,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			for (int x = levelAbilityList.size() - 1; x >= 0; --x)
 			{
-				final LevelAbility ability = (LevelAbility) levelAbilityList.get(x);
-
-				if (ability.level() == aLevel)
+				if (levelAbilityList.get(x).level() == aLevel)
 				{
 					levelAbilityList.remove(x);
 				}

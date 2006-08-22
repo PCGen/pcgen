@@ -5214,16 +5214,15 @@ public class PCClass extends PObject {
 		columnNames.add("Name");
 
 		List<PCClass> choiceList = new ArrayList<PCClass>();
-		choiceList.add(this);
-
 		buildSubstitutionClassChoiceList(choiceList, level, aPC);
-		if (choiceList.size() < 2) {
+		if (choiceList.size() == 0) {
 			return;
 		}
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Substitution Levels");
-		c.setMessageText("Make a selection.");
+		c.setMessageText("Choose one of the listed substitution levels " +
+                         "or press Close to take the standard class level.");
 		c.setPool(1);
 		c.setPoolFlag(false);
 
@@ -5236,12 +5235,9 @@ public class PCClass extends PObject {
 
 		if (!selectedList.isEmpty()) {
 			SubstitutionClass sc = selectedList.get(0);
-			// if (! ("".equals(scName) || displayName.equals(scName)))
-			// {
 			setSubstitutionClassKey(sc.getKeyName(), aLevel);
 			sc.applyLevelArrayModsToLevel(this, aLevel);
 			return;
-			// }
 		}
 		setSubstitutionClassKey(null, aLevel);
 	}
@@ -5666,5 +5662,27 @@ public class PCClass extends PObject {
 	 */
 	public final String getAttackCycle() {
 		return attackCycle;
+	}
+
+	/**
+	 * Remove all auto feats gained via a level
+	 * @param aLevel
+	 */
+	public void removeAllAutoFeats(final int aLevel)
+	{
+		if (featAutos != null)
+		{
+			for (int x = featAutos.size() - 1; x >= 0; --x)
+			{
+				StringTokenizer aTok = new StringTokenizer(featAutos.get(x), "|", false);
+				final int level = new Integer(aTok.nextToken()).intValue();
+
+				if (level == aLevel)
+				{
+					featAutos.remove(x);
+				}
+			}
+		}
+		return;
 	}
 }
