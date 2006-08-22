@@ -52,7 +52,7 @@ public class FollowerOption extends PrereqObject implements Comparable<FollowerO
 	 */
 	public FollowerOption( final String aRace )
 	{
-		theRaceKey = aRace;
+		theRaceKey = aRace.toUpperCase();
 		theRace = Globals.getRaceKeyed( theRaceKey );
 	}
 	
@@ -77,7 +77,7 @@ public class FollowerOption extends PrereqObject implements Comparable<FollowerO
 		if ( theRace == null )
 		{
 			if ( theRaceKey.startsWith( RACETYPE ) 
-			  || theRaceKey.equalsIgnoreCase(ANY_RACE) )
+			  || theRaceKey.equals(ANY_RACE) )
 			{
 				return null;
 			}

@@ -66,6 +66,7 @@ import pcgen.gui.GuiConstants;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
@@ -2206,6 +2207,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				ret.addAll( followers );
 			}
 		}
+		
 		return ret;
 	}
 	
@@ -11966,6 +11968,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		//
 		final ArrayList<PObject> results = new ArrayList<PObject>();
 
+		// Loaded campaigns
+		final List<Campaign> campaigns = Globals.getCampaignList();
+		for ( final Campaign campaign : campaigns )
+		{
+			if ( campaign != null && campaign.isLoaded() )
+			{
+				results.add( campaign );
+			}
+		}
+		
 		//  Alignment
 		PCAlignment align = SettingsHandler.getGame().getAlignmentAtIndex(getAlignment());
 		if (align != null)

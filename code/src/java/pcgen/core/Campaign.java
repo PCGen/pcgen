@@ -1108,6 +1108,13 @@ public final class Campaign extends PObject
 	 */
 	public void setIsLoaded(final boolean isLoaded)
 	{
+		// Make sure that any included campaigns are marked as loaded as well
+		final List<String> pccFiles = getPccFiles();
+		for ( final String fileName : pccFiles )
+		{
+			final Campaign campaign = Globals.getCampaignByFilename(fileName, true);
+			campaign.setIsLoaded(isLoaded);
+		}
 		this.isLoaded = isLoaded;
 	}
 

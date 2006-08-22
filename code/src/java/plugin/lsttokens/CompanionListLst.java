@@ -114,6 +114,7 @@ public class CompanionListLst implements GlobalLstToken
 				{
 					// We can't expand races here since this is a global tag 
 					// and races may not have been processed yet.
+					// For the same reason ANY will be passed on.
 					// TODO Need to figure out how to deal with this issue.
 					races.add( subTok.nextToken() );
 				}

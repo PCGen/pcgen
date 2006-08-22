@@ -44,6 +44,10 @@ public class PrereqObject implements Cloneable
 
 	public void addPrerequisites( final List<Prerequisite> prereqs )
 	{
+		if ( prereqs == null )
+		{
+			return;
+		}
 		if ( thePrereqs == null )
 		{
 			thePrereqs = new ArrayList<Prerequisite>(prereqs.size());
