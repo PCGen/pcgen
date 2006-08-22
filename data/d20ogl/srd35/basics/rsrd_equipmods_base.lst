@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Mon Aug 21 04:28:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Tue Aug 22 00:55:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
 
-# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Choose Naming Option	Source Page				Required Type			Prohibited Type						BONUS:EQMARMOR					Modify the item cost									Weapon prop. bonus				Apply to both heads
-Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
-Masterwork		KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																				ASSIGNTOALL:YES
-Masterwork		KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																											ASSIGNTOALL:YES
-Masterwork		KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Thief|20															ASSIGNTOALL:YES
+# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Choose Naming Option	Source Page				Required Type			Prohibited Type						BONUS:EQMARMOR					Modify the item cost									Weapon prop. bonus				Apply to both heads	FORMATCAT
+Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES		FORMATCAT:FRONT
+Masterwork		KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																				ASSIGNTOALL:YES		FORMATCAT:FRONT
+Masterwork		KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																											ASSIGNTOALL:YES		FORMATCAT:FRONT
+Masterwork		KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Thief|20															ASSIGNTOALL:YES		FORMATCAT:FRONT
 
 ###Block: Base Materials
 
