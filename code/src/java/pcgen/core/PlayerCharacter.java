@@ -11947,6 +11947,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private ArrayList<? extends PObject> getPObjectList()
 	{
 		// Possible object types include:
+		//  Campaigns
 		//  Alignment (PCAlignment)
 		//  ArmorProf
 		//  BioSet (ageSet)
@@ -11975,6 +11976,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if ( campaign != null && campaign.isLoaded() )
 			{
 				results.add( campaign );
+				results.addAll( campaign.getSubCampaigns() );
 			}
 		}
 		

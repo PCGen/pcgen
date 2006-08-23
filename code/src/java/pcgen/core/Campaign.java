@@ -1108,13 +1108,6 @@ public final class Campaign extends PObject
 	 */
 	public void setIsLoaded(final boolean isLoaded)
 	{
-		// Make sure that any included campaigns are marked as loaded as well
-		final List<String> pccFiles = getPccFiles();
-		for ( final String fileName : pccFiles )
-		{
-			final Campaign campaign = Globals.getCampaignByFilename(fileName, true);
-			campaign.setIsLoaded(isLoaded);
-		}
 		this.isLoaded = isLoaded;
 	}
 
@@ -1257,6 +1250,25 @@ public final class Campaign extends PObject
 	public boolean canShowInMenu()
 	{
 		return showInMenu;
+	}
+
+	/**
+	 * Returns a list of the Campaign objects that were loaded by this Campaign.
+	 * 
+	 * @return A list of <tt>Campaign</tt>s loaded by this Campaign.
+	 */
+	public List<Campaign> getSubCampaigns()
+	{
+		final List<String> pccFiles = getPccFiles();
+
+		final List<Campaign> ret = new ArrayList<Campaign>(pccFiles.size());
+		
+		for ( final String fileName : pccFiles )
+		{
+			final Campaign campaign = Globals.getCampaignByFilename(fileName, true);
+			ret.add(campaign);
+		}
+		return ret;
 	}
 
 	public Object clone()
