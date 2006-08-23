@@ -25,16 +25,17 @@
 	<body>
 		<h1>Math Operators and Formulas</h1>
 
-		<p><strong>Important:</strong> Starting with version 5.7.1 PCGen has incorporated
-  		the <a href="http://www.singularsys.com/jep/" target="_blank">JEP (Java Mathematical Expression
-  		Parser) library</a>. This was done because the original code which has evolved
-  		over time is problematic due to its complexity and lack of documentation. The
-  		JEP library has a clearly defined grammar which is available on the web site.
-  		JEP supports user defined variables, constants, and functions. A number of common
-  		mathematical functions and constants are included. As a fall back, if the JEP
-  		parser fails to parse the function then the old code is called. At some point
-  		in the future the old code support will be dropped and all formulas must be
-  		in JEP syntax. </p>
+		<p><strong>Important:</strong> Starting with version 5.7.1 PCGen has incorporated the
+		<a href="http://www.singularsys.com/jep/" target="_blank">JEP (Java Mathematical Expression Parser)
+		library</a>. This was done because the original code which has evolved over time is problematic due
+		to its complexity and lack of documentation. The JEP library has a clearly defined grammar which is
+		available on the web site. JEP supports user defined variables, constants, and functions. A number
+		of common mathematical functions and constants are included. As a fall back, if the JEP parser fails
+		to parse the function then the old code is called. At some point in the future the old code support
+		will be dropped and all formulas must be in JEP syntax. </p>
+
+		<p>The library we are using to parse math expressions defines the syntax they want to test for string
+		equality.  If you are curious you can check out the JEP library at http://www.singularsys.com/jep/</p>
 
 		<p class="indent1"><strong>Using variables within JEP expressions</strong></p><br />
 
