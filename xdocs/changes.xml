@@ -5,6 +5,12 @@
   <body>
 
     <release version="5.11.1" date="in CVS">
+    </release>
+    
+    <release version="5.11.0" date="2006-08-24">
+      <action dev="zaister" type="add" issue="1436352">
+        Implement Substitution Levels.
+      </action>              
       <action dev="jdempsey" type="add" issue="1231443">
         Added MANUALWHITESPACE output tag.
       </action>              
