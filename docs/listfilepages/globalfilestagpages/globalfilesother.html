@@ -435,18 +435,21 @@
 
 
 		<p></p><a name="SOURCELONG"></a><hr>
-		<p class="new">*** Updated 4.3.10</p>
+		<p class="new">*** Updated 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong>SOURCELONG:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Long Source Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> The full product/book name.</p>
+		<p class="indent2">Specifies the full product/book name. 
+			SOURCELONG tags can be used on individual object lines or it can be used by itself on it's own line. 
+			When used by itself the SOURCELONG tag will be used by all objects which follow it. 
+			When used on an object line it is used only by the object it is in and overrides any stand alone SOURCELONG on lines which preceeded it. 
+			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should be separated by tabs.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCELONG:Core Rulebook I (Foo Handbook)</code></p>
 		<p class="indent3">The long source name for this file is &quot;Core Rulebook I (Foo Handbook)&quot;.</p>
 
 
 		<p></p><a name="SOURCEPAGE"></a><hr>
-		<p class="new">*** Updated</p>
 		<p class="indent0"><strong>Tag Name:</strong> SOURCEPAGE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Source Page Number)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -459,22 +462,30 @@
 
 
 		<p></p><a name="SOURCESHORT"></a><hr>
-		<p class="new">*** Updated 4.3.10</p>
+		<p class="new">*** Updated 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong>SOURCESHORT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Short Source Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The short product/book name.</p>
+		<p class="indent2">Specifies the short product/book name. 
+			SOURCESHORT tags can be used on individual object lines or it can be used by itself on it's own line. 
+			When used by itself the SOURCESHORT tag will be used by all objects which follow it. 
+			When used on an object line it is used only by the object it is in and overrides any stand alone SOURCESHORT on lines which preceeded it. 
+			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should be separated by tabs.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCESHORT:FHB</code></p>
 		<p class="indent3">The short source name for this file is &quot;FHB&quot;.</p>
 
 
 		<p></p><a name="SOURCEWEB"></a><hr>
-		<p class="new">*** Updated 4.3.10</p>
+		<p class="new">*** Updated 5.10</p>
 		<p class="indent0"><strong>Tag Name:</strong>SOURCEWEB:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Source Web Site)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> The URL that points directly to this product/book.</p>
+		<p class="indent2">Specifies the URL that points directly to this product/book. 
+			SOURCEWEB tags can be used on individual object lines or it can be used by itself on it's own line. 
+			When used by itself the SOURCEWEB tag will be used by all objects which follow it. 
+			When used on an object line it is used only by the object it is in and overrides any stand alone SOURCEWEB on lines which preceeded it. 
+			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should be separated by tabs.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code></p>
 		<p class="indent3">The web site for this source is &quot;SOURCEWEB:http://www.foogames.com/product.php?products=654321&quot;.</p>

@@ -136,7 +136,7 @@
 			</tr>
 			<tr>
 				<td width="50%" valign="top"><code>RANK: 1</code></td>
-				<td width="50%">Rank indicates priority in sorts.</td>
+				<td width="50%">Rank indicates priority in sorting.</td>
 			</tr>
 			<tr>
 				<td width="50%" valign="top"><code>GAMEMODE:3e</code></td>
@@ -150,7 +150,7 @@
 			</tr>
 			<tr>
 				<td width="50%" valign="top"><code>TYPE:Dominant Game Publisher.SRD</code></td>
-				<td width="50%">Type will be used for sorts.</td>
+				<td width="50%">Type will be used for sorting.</td>
 			</tr>
 			<tr>
 				<td width="50%" valign="top"><code>SOURCELONG:The Full Name of the Source</code></td>
@@ -167,10 +167,6 @@
 			<tr>
 				<td width="50%" valign="top"><code>ISOGL:YES</code></td>
 				<td width="50%">If the source uses the open gaming license (OGL) See OGL FAQ.</td>
-			</tr>
-			<tr>
-				<td width="50%" valign="top"><code>OGL version</code></td>
-				<td width="50%">Version of OGL, if applicable.</td>
 			</tr>
 			<tr>
 				<td width="50%" valign="top"><code>COPYRIGHT:Open Game License v 1.0a  Copyright 2000, Your Name</code></td>
@@ -204,10 +200,11 @@
 		<p>Types of LST:</p>
 			<ul>
 				 <li>CLASS</li>
+				 <li>COMPANION MODIFIER</li>
 				 <li>DEITY</li>
 				 <li>DOMAIN</li>
 				 <li>EQUIPMENT</li>
-				 <li>EQUIPMOD</li>
+				 <li>EQUIPMENT MODIFIER</li>
 				 <li>FEAT</li>
 				 <li>KIT</li>
 				 <li>LANGUAGE</li>
@@ -268,6 +265,7 @@
 			<li>language</li>
 			<li>proficiency</li>
 			<li>skill</li>
+			<li>companion modifier</li>
 			<li>deity</li>
 			<li>domain</li>
 			<li>equipmod</li>
@@ -301,7 +299,7 @@
 		
 		<p>Here is the header block:</p>
 		
-		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</code></p>
+		<p><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
 		
 		<p>Here the header tells us in detail where the information came from, a short name for use in cramped locations, and the
 		website of the source.</p>
@@ -346,7 +344,7 @@
 		
 		<p>First, the header block:</p>
 		
-		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</code></p>
+		<p><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
 		
 		<p>Then comes the actual code. In order we list the item's name, type, cost, weight, sourcepage,
 		proficiency used, crit multiplier, critical range (i.e. 1 for a 20, 2 for 19-20,
@@ -596,7 +594,7 @@
 		
 		<p>Cannibalizing the srdweaponprof.lst file we get:</p>
 		
-		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</code></p>
+		<p><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</code></p>
 		
 		<table border="0" cellpadding="0" cellspacing="0" width="64%">
 			<tr>
@@ -865,7 +863,9 @@
 		
 		<p>Building our race.lst file from scratch we put our standard header.</p>
 		
-		<p><code>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org/</code></p>
+		
+<p><code>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; 
+  SOURCEWEB:http://www.pcgen.org/</code></p>
 		
 		<table border="0" cellpadding="0" cellspacing="0" width="64%">
 			<tr>
@@ -1722,7 +1722,8 @@
 			</tr>
 		</table>
 		
-		<p>SOURCELONG:PCGen Documentation |SOURCESHORT:P-Doc|SOURCEWEB:http://www.pcgen.org</p>
+		
+<p>SOURCELONG:PCGen Documentation &lt;tab&gt; SOURCESHORT:P-Doc &lt;tab&gt; SOURCEWEB:http://www.pcgen.org</p>
 		</code>
 		
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/listfileLSTwalkthrough.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
