@@ -203,20 +203,19 @@ final class MainExport extends JPanel
 
 		String desc;
 
-		if ("htm".equalsIgnoreCase(extension))
+		if ("htm".equalsIgnoreCase(extension) || "html".equalsIgnoreCase(extension))
 		{
-			desc = "HTML Documents";
+            fcExport.addChoosableFileFilter(null, "HTML Documents (*.htm, *.html)");
 		}
 		else if ("xml".equalsIgnoreCase(extension))
 		{
-			desc = "XML Documents";
+            fcExport.addChoosableFileFilter(null, "XML Documents (*.xml)");
 		}
 		else
 		{
-			desc = extension + " Files";
+            desc = extension + " Files";
+            fcExport.addChoosableFileFilter(extension, desc + " (*." + extension + ")");
 		}
-
-		fcExport.addChoosableFileFilter(extension, desc + " (*." + extension + ")");
 
 		if (!partyMode)
 		{
@@ -244,7 +243,6 @@ final class MainExport extends JPanel
 			if (aFileName.length() < 1)
 			{
 				ShowMessageDelegate.showMessageDialog("You must set a filename.", "PCGen", MessageType.ERROR);
-
 				continue;
 			}
 
