@@ -81,6 +81,10 @@ EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_melee_specific.lst
 EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_weap_ranged_specific.lst
 EQUIPMENT:@/d20ogl/srd/advanced/srd_equip_wondrousitems.lst
 
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
 #
 # End
 #

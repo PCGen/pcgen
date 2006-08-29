@@ -70,6 +70,7 @@ FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		SA:Communiate with Master
 FOLLOWER:ShadowCompanion=6	TYPE:Shadow Companion	HD:2
 FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
 
-###Block:Normal Mount
-# Class of the Master	Type		Automaticaly Gained Armor Prof.
-FOLLOWER:NORMALMOUNT=1	TYPE:Mount	AUTO:ARMORPROF|TYPE.Barding
+###Block: Standard Companions
+# Class of the Master		Type			Automaticaly Gained Armor Prof.
+FOLLOWER:NormalMount=1		TYPE:Mount		AUTO:ARMORPROF|TYPE.Barding
+FOLLOWER:NormalFollower=1	TYPE:Follower

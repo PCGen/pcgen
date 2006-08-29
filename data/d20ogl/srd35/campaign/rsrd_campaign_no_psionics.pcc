@@ -180,6 +180,9 @@ SPELL:@/d20ogl/srd35/epic/rsrd_spells_epic.lst
 FEAT:@/d20ogl/srd35/divine/rsrd_divine_feats_sda.lst
 TEMPLATE:@/d20ogl/srd35/divine/rsrd_divine_templates.lst
 
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
 
 #
 # End

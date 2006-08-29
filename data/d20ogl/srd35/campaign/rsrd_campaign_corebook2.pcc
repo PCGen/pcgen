@@ -98,6 +98,10 @@ KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_wands.lst
 KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_weapons.lst
 KIT:@/d20ogl/srd35/advanced/rsrd_kits_treasure_wondrous_items.lst
 
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
 #
 # End
 #

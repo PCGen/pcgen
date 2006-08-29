@@ -115,6 +115,10 @@ RACE:@/d20ogl/srd/monsters/srd_races_xyz.lst
 TEMPLATE:@/d20ogl/srd/monsters/srd_templates_creatures.lst
 TEMPLATE:@/d20ogl/srd/monsters/srd_templates.lst
 
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
 #
 # End
 #
