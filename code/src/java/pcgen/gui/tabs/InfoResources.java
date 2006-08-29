@@ -161,7 +161,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 	private boolean hasBeenSized = false;
 	private int viewSortMode = 0;
 
-	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("InfoResources.FilterLabel")); //$NON-NLS-1$
+	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
 	private JTextField textQFilter = new JTextField();
 	private JButton clearQFilterButton = new JButton(PropertyFactory.getString("in_mnuToolsFiltersClear")); //$NON-NLS-1$
 	private static Integer saveViewMode = null;
@@ -530,7 +530,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		}
 		selectedTable.getTree().setSelectionPath( selCPath );
 		SelectedFollowerModel.FollowerType target = (SelectedFollowerModel.FollowerType)((PObjectNode)selCPath.getPathComponent(1)).getItem();
-		if ( target.getNumRemaining() < 1 )
+		if ( target.getNumRemaining() == 0 )
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
