@@ -538,7 +538,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoAbilities());
 		pane.setPaneForUpdate(pane.infoDomain());
 		pane.setPaneForUpdate(pane.infoSkills());
 		pane.setPaneForUpdate(pane.infoSpells());

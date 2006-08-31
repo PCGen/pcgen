@@ -49,7 +49,6 @@ import java.util.StringTokenizer;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
@@ -72,19 +71,16 @@ import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Constants;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfo;
-import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.TableColumnManagerModel;
-import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
@@ -112,14 +108,12 @@ import pcgen.util.enumeration.Tab;
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
  * @version $Revision: 198 $
  **/
-public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
+public class InfoRaces extends BaseCharacterInfoTab
 {
-	static final long serialVersionUID = 2565545289875422981L;
-	
+//	static final long serialVersionUID = 2565545289875422981L;
+//	
 	private static final Tab tab = Tab.RACES;
 	
-	private static boolean needsUpdate = true;
-
 	// if you change these, you also have to change
 	// the case statement in the RaceModel declaration
 	private static final int COL_NAME = 0;
@@ -131,24 +125,24 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	private static final int COL_CLASS = 6;
 	private static final int COL_LEVEL = 7;
 	private FlippingSplitPane bsplit;
-	private JButton selButton = new JButton(PropertyFactory.getString("in_select"));
+	private JButton selButton = new JButton(PropertyFactory.getString("in_select")); //$NON-NLS-1$
 	private JButton clearQFilterButton = new JButton("Clear");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JLabel raceText = new JLabel();
-	private JLabel raceTextLabel = new JLabel(PropertyFactory.getString("in_irSelectedRace"));
-	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortRaces"));
+	private JLabel raceTextLabel = new JLabel(PropertyFactory.getString("in_irSelectedRace")); //$NON-NLS-1$
+	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortRaces")); //$NON-NLS-1$
 	private JLabelPane infoLabel = new JLabelPane();
 	private JPanel botPane = new JPanel();
 
 	//Monster Hit Die Panel
 	private JPanel monHdPanel = new JPanel();
-	private JLabel lblHDModify = new JLabel(PropertyFactory.getString("in_sumHDToAddRem"));
+	private JLabel lblHDModify = new JLabel(PropertyFactory.getString("in_sumHDToAddRem")); //$NON-NLS-1$
 	private WholeNumberField txtHD = new WholeNumberField(1, 3);
 	private JButton btnAddHD = new JButton("+");
 	private JButton btnRemoveHD = new JButton("-");
 	private JLabel txtMonsterHD = new JLabel("1");
-	private JLabel lblMonsterHD = new JLabel(PropertyFactory.getString("in_sumMonsterHitDice"));
+	private JLabel lblMonsterHD = new JLabel(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
 
 	private JPanel topPane = new JPanel();
 	private JTextField textQFilter = new JTextField();
@@ -164,20 +158,13 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	private int viewMode = 0;
 	private static Integer saveViewMode = null;
 
-	private PlayerCharacter pc;
-	private int serial = 0;
-	private boolean readyForRefresh = false;
-
 	/**
 	 * Constructor
 	 * @param pc
 	 */
-	public InfoRaces(PlayerCharacter pc)
+	public InfoRaces(final PlayerCharacter pc)
 	{
-		this.pc = pc;
-		// do not change/remove this as we use the component's name
-		// to save component specific settings
-		setName(tab.toString());
+		super(pc);
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -189,142 +176,126 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			});
 	}
 
-	public void setPc(PlayerCharacter pc)
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTab()
+	 */
+	@Override
+	public Tab getTab()
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
-		{
-			this.pc = pc;
-			serial = pc.getSerial();
-			forceRefresh();
-		}
+		return tab;
 	}
-
-	public PlayerCharacter getPc()
-	{
-		return pc;
-	}
-
+	
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTabOrder()
+	 */
+	@Override
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
-	public void setTabOrder(int order)
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#setTabOrder(int)
+	 */
+	@Override
+	public void setTabOrder(final int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.Race.Order", order);
-	}
-
-	public String getTabName()
-	{
-		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(tab);
-	}
-
-	public boolean isShown()
-	{
-		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(tab);
+		SettingsHandler.setPCGenOption(".Panel.Race.Order", order); //$NON-NLS-1$
 	}
 
 	/**
 	 * Retrieve the list of tasks to be done on the tab.
+	 * 
 	 * @return List of task descriptions as Strings.
+	 * 
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getToDos()
 	 */
+	@Override
 	public List<String> getToDos()
 	{
 		List<String> toDoList = new ArrayList<String>();
-		if (pc.getRace() == null
-			|| Constants.s_NONESELECTED.equals(pc.getRace().getKeyName()))
+		if (getPc().getRace() == null
+			|| Constants.s_NONESELECTED.equals(getPc().getRace().getKeyName()))
 		{
 			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
 
-	public void refresh()
-	{
-		if(pc.getSerial() > serial)
-		{
-			serial = pc.getSerial();
-			forceRefresh();
-		}
-	}
-
-	public void forceRefresh()
-	{
-		if(readyForRefresh)
-		{
-			needsUpdate = true;
-			updateCharacterInfo();
-		}
-		else
-		{
-			serial = 0;
-		}
-	}
-
-	public JComponent getView()
-	{
-		return this;
-	}
+//	/**
+//	 * Sets the nedsUpdate flag for Races tab
+//	 * @param b
+//	 */
+//	public static void setNeedsUpdate(boolean b)
+//	{
+//		needsUpdate = b;
+//	}
 
 	/**
-	 * Sets the nedsUpdate flag for Races tab
-	 * @param b
-	 */
-	public static void setNeedsUpdate(boolean b)
-	{
-		needsUpdate = b;
-	}
-
-	/**
-	 * specifies whether the "match any" option should be available
+	 * Specifies whether the "match any" option should be available.
+	 * 
 	 * @return true
-	 **/
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#isMatchAnyEnabled()
+	 */
+	@Override
 	public final boolean isMatchAnyEnabled()
 	{
 		return true;
 	}
 
-	/**
-	 * Push an update of the tabs in the GUI
-	 */
-	public void pushUpdate()
-	{
-		final PCGen_Frame1 rootFrame = PCGen_Frame1.getInst();
-		rootFrame.featList_Changed();
-		rootFrame.hpTotal_Changed();
-		PCGen_Frame1.forceUpdate_PlayerTabs();
-		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoSkills());
-		pane.setPaneForUpdate(pane.infoSpells());
-		pane.setPaneForUpdate(pane.infoDomain());
-		pane.setPaneForUpdate(pane.infoInventory());
-		pane.setPaneForUpdate(pane.infoSummary());
-		pane.refresh();
-	}
+//	/**
+//	 * Push an update of the tabs in the GUI
+//	 */
+//	public void pushUpdate()
+//	{
+//		final PCGen_Frame1 rootFrame = PCGen_Frame1.getInst();
+//		rootFrame.featList_Changed();
+//		rootFrame.hpTotal_Changed();
+//		PCGen_Frame1.forceUpdate_PlayerTabs();
+//		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+//		pane.setPaneForUpdate(pane.infoSkills());
+//		pane.setPaneForUpdate(pane.infoSpells());
+//		pane.setPaneForUpdate(pane.infoDomain());
+//		pane.setPaneForUpdate(pane.infoInventory());
+//		pane.setPaneForUpdate(pane.infoSummary());
+//		pane.refresh();
+//	}
 
 	/**
-	 * specifies whether the "negate/reverse" option should be available
+	 * Specifies whether the "negate/reverse" option should be available.
+	 * 
 	 * @return true
-	 **/
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#isNegateEnabled()
+	 */
+	@Override
 	public final boolean isNegateEnabled()
 	{
 		return true;
 	}
 
 	/**
-	 * specifies the filter selection mode
+	 * Specifies the filter selection mode.
+	 * 
 	 * @return FilterConstants.MULTI_MULTI_MODE = 2
-	 **/
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#getSelectionMode()
+	 */
+	@Override
 	public final int getSelectionMode()
 	{
 		return FilterConstants.MULTI_MULTI_MODE;
 	}
 
 	/**
-	 * implementation of Filterable interface
-	 **/
+	 * Registers the appropriate filters for use with this tab.
+	 * 
+	 * <p>Registers Source, Size, Race, and Alignment Prereq filters.
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#initializeFilters()
+	 */
+	@Override
 	public final void initializeFilters()
 	{
 		FilterFactory.registerAllSourceFilters(this);
@@ -624,7 +595,6 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	 **/
 	private void initComponents()
 	{
-		readyForRefresh = true;
 		//
 		// View List Sanity check
 		//
@@ -776,15 +746,15 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			return;
 		}
 
-		Race oldRace = pc.getRace();
+		Race oldRace = getPc().getRace();
 
 		if (!aRace.equals(oldRace))
 		{
-			pc.setRace(aRace);
+			getPc().setRace(aRace);
 			PCGen_Frame1.forceUpdate_PlayerTabs();
 			CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 			pane.setPaneForUpdate(pane.infoClasses());
-			pane.setPaneForUpdate(pane.infoFeats());
+			pane.setPaneForUpdate(pane.infoAbilities());
 			pane.setPaneForUpdate(pane.infoSkills());
 			pane.setPaneForUpdate(pane.infoSpells());
 			pane.setPaneForUpdate(pane.infoSummary());
@@ -792,14 +762,14 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 
 			// If the either race was monstrous, natural weapons in the gear need
 			// updated.  sage_sam 20 March 2003
-			if (pc.getRace().hitDice(pc) != 0)
+			if (getPc().getRace().hitDice(getPc()) != 0)
 			{
-				pc.getRace().rollHP(pc);
+				getPc().getRace().rollHP(getPc());
 			}
 
-			raceText.setText(pc.getRace().piString());
+			raceText.setText(getPc().getRace().piString());
 			raceText.setMinimumSize(new Dimension(120, 25));
-			setInfoLabelText(pc.getRace());
+			setInfoLabelText(getPc().getRace());
 
 			if (monHdPanel.isVisible())
 			{
@@ -812,20 +782,21 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 	 * This recalculates the states of everything based
 	 * upon the currently selected character
 	 **/
-	private final void updateCharacterInfo()
+	@Override
+	protected final void updateCharacterInfo()
 	{
 		monHdPanel.setVisible(SettingsHandler.hideMonsterClasses());
 
-		if (!needsUpdate)
+		if (!needsUpdate())
 		{
 			return;
 		}
 
 		try
 		{
-			raceText.setText(pc.getRace().piString());
+			raceText.setText(getPc().getRace().piString());
 			raceText.setMinimumSize(new Dimension(120, 25));
-			setInfoLabelText(pc.getRace());
+			setInfoLabelText(getPc().getRace());
 		}
 		catch (Exception exc)
 		{
@@ -842,7 +813,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			txtHD.setValue(1);
 		}
 
-		needsUpdate = false;
+		setNeedsUpdate(false);
 	}
 
 	private void updateHD()
@@ -850,25 +821,28 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		int monsterHD = -1;
 		int minLevel = 0;
 
-		if (pc != null)
+		btnAddHD.setEnabled(false);
+		
+		if (getPc() != null)
 		{
-			final String monsterClass = pc.getRace().getMonsterClass(pc, false);
+			final Race race = getPc().getRace();
+			final String monsterClass = race.getMonsterClass(getPc(), false);
 
 			if (monsterClass != null)
 			{
-				monsterHD = pc.getRace().hitDice(pc);
-				minLevel = pc.getRace().hitDice(pc) + pc.getRace().getMonsterClassLevels(pc);
+				monsterHD = race.hitDice(getPc());
+				minLevel = race.hitDice(getPc()) + race.getMonsterClassLevels(getPc());
 
-				final PCClass aClass = pc.getClassKeyed(monsterClass);
+				final PCClass aClass = getPc().getClassKeyed(monsterClass);
 
 				if (aClass != null)
 				{
 					monsterHD += aClass.getLevel();
 				}
 			}
+			btnAddHD.setEnabled(race.hasAdvancement() && (monsterHD >= 0));
 		}
 
-		btnAddHD.setEnabled(pc.getRace().hasAdvancement() && (monsterHD >= 0));
 		btnRemoveHD.setEnabled(monsterHD > minLevel);
 
 		if (monsterHD < 0)
@@ -1075,12 +1049,12 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 						retString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i] + ":Nonability");
 					}
 					else {
-						if (race.getStatMod(i, pc) != 0) {
+						if (race.getStatMod(i, getPc()) != 0) {
 							if (retString.length() > 0) {
 								retString.append(' ');
 							}
 
-							retString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i] + ":" + race.getStatMod(i, pc));
+							retString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i] + ":" + race.getStatMod(i, getPc()));
 						}
 					}
 				}
@@ -1093,7 +1067,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		private Object getColumnPre(PObjectNode fn) {
 			if (fn.getItem() instanceof Race) {
 				Race race = (Race) fn.getItem();
-				return race.preReqHTMLStrings(pc);
+				return race.preReqHTMLStrings(getPc());
 			}
 			return null;
 		}
@@ -1119,7 +1093,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		private Object getColumnVision(PObjectNode fn) {
 			if (fn.getItem() instanceof Race) {
 				Race race = (Race) fn.getItem();
-				return race.getDisplayVision(pc);
+				return race.getDisplayVision(getPc());
 			}
 			return null;
 		}
@@ -1135,7 +1109,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		private Object getColumnLevel(PObjectNode fn) {
 			if (fn.getItem() instanceof Race) {
 				Race race = (Race) fn.getItem();
-				return new Integer(race.getLevelAdjustment(pc));
+				return new Integer(race.getLevelAdjustment(getPc()));
 			}
 			return null;
 		}
@@ -1200,7 +1174,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// see which ones are not filtered out
 			for(Race aRace : Globals.getRaceMap().values()) 
 			{
-				if(accept(pc, aRace)) {
+				if(accept(getPc(), aRace)) {
 					if (qFilter == null ||
 							( aRace.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
 							  aRace.getType().toLowerCase().indexOf(qFilter) >= 0 ))
@@ -1234,7 +1208,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// see which ones are not filtered out
 			for (Race aRace :  Globals.getRaceMap().values()) 
 			{
-				if(accept(pc, aRace)) {
+				if(accept(getPc(), aRace)) {
 					if(!typeList.contains(aRace.getType())) {
 						typeList.add(aRace.getType());
 					}
@@ -1285,7 +1259,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// see which ones are not filtered out
 			for(Race aRace : Globals.getRaceMap().values()) 
 			{
-				if(accept(pc, aRace)) {
+				if(accept(getPc(), aRace)) {
 					final String aString = aRace.getSourceEntry().getSourceBook().getLongName();
 					if(aString != null && !sourceList.contains(aString) && aString.length() > 0)
 					{
@@ -1339,7 +1313,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// see which ones are not filtered out
 			for (Race aRace : Globals.getRaceMap().values())
 			{
-				if (accept(pc, aRace))
+				if (accept(getPc(), aRace))
 				{
 					final String raceType = aRace.getRaceType();
 					if (!typeList.contains(raceType))
@@ -1397,7 +1371,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// see which ones are not filtered out
 			for (Race aRace : Globals.getRaceMap().values())
 			{
-				if (accept(pc, aRace))
+				if (accept(getPc(), aRace))
 				{
 					final String raceType = aRace.getRaceType();
 					if (!typeList.contains(raceType))
@@ -1484,7 +1458,7 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 			// see which ones are not filtered out
 			for (Race aRace : Globals.getRaceMap().values())
 			{
-				if (accept(pc, aRace))
+				if (accept(getPc(), aRace))
 				{
 					final String raceType = aRace.getRaceType();
 					if (!typeList.contains(raceType))
@@ -1735,3 +1709,4 @@ public class InfoRaces extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 }
+

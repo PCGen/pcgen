@@ -787,7 +787,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		if (characterPane != null)
 		{
-			characterPane.setPaneForUpdate(characterPane.infoFeats());
+//			characterPane.setPaneForUpdate(characterPane.infoFeats());
+			characterPane.setPaneForUpdate(characterPane.infoAbilities());
 			characterPane.refresh();
 		}
 	}
@@ -2095,7 +2096,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			characterPane.setPaneForUpdate(characterPane.infoRace());
 			characterPane.setPaneForUpdate(characterPane.infoClasses());
 			characterPane.setPaneForUpdate(characterPane.infoDomain());
-			characterPane.setPaneForUpdate(characterPane.infoFeats());
+//			characterPane.setPaneForUpdate(characterPane.infoFeats());
+			characterPane.setPaneForUpdate(characterPane.infoAbilities());
 			characterPane.setPaneForUpdate(characterPane.infoSkills());
 			characterPane.setPaneForUpdate(characterPane.infoSpells());
 			characterPane.setPaneForUpdate(characterPane.infoInventory());

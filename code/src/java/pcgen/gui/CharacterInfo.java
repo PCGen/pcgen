@@ -65,7 +65,8 @@ public final class CharacterInfo extends JPanel {
 	private InfoSpecialAbilities infoSpecialAbilities;
 	private InfoClasses infoClasses;
 	private InfoSkills infoSkills;
-	private InfoFeats infoFeats;
+	private InfoAbilities infoAbilities;
+//	private InfoFeats infoFeats;
 	private InfoDomain infoDomain;
 	private InfoSpells infoSpells;
 	private JTabbedPane characterInfoTabbedPane = new JTabbedPane();
@@ -88,7 +89,8 @@ public final class CharacterInfo extends JPanel {
 		infoSpecialAbilities = new InfoSpecialAbilities(pc);
 		infoClasses = new InfoClasses(pc);
 		infoSkills = new InfoSkills(pc);
-		infoFeats = new InfoFeats(pc);
+		infoAbilities = new InfoAbilities(pc);
+//		infoFeats = new InfoFeats(pc);
 		infoDomain = new InfoDomain(pc);
 		infoSpells = new InfoSpells(pc);
 		setName(""); //$NON-NLS-1$
@@ -132,22 +134,6 @@ public final class CharacterInfo extends JPanel {
 	 */
 	public final Component getActivePane() {
 		return characterInfoTabbedPane.getSelectedComponent();
-	}
-
-	/**
-	 * Get the kit filter
-	 * @return filter
-	 */
-	public String getKitFilter() {
-		Component c = characterInfoTabbedPane.getSelectedComponent();
-
-		if (c instanceof FilterAdapterPanel) {
-			return ((FilterAdapterPanel) c).getKitFilter();
-		} else if (c instanceof InfoInventory) {
-			return ((InfoInventory) c).getInfoGear().getKitFilter();
-		}
-
-		return "";
 	}
 
 	/**
@@ -255,10 +241,14 @@ public final class CharacterInfo extends JPanel {
 	 * Get the info feats
 	 * @return info feats
 	 */
-	public InfoFeats infoFeats() {
-		return infoFeats;
-	}
+//	public InfoFeats infoFeats() {
+//		return infoFeats;
+//	}
 
+	public InfoAbilities infoAbilities()
+	{
+		return infoAbilities;
+	}
 	/**
 	 * Get the info domain
 	 * @return info domain
@@ -363,7 +353,8 @@ public final class CharacterInfo extends JPanel {
 		addTab(infoSpecialAbilities());
 		addTab(infoClasses());
 		addTab(infoSkills());
-		addTab(infoFeats());
+//		addTab(infoFeats());
+		addTab(infoAbilities());
 		addTab(infoDomain());
 		addTab(infoSpells());
 		addTab(infoInventory());

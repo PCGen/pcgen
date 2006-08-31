@@ -58,4 +58,6 @@ public final class HTMLUtils
 	/** Constant for HTML list item end tag */
 	public static final String END_LI = "</li>"; //$NON-NLS-1$
 
+	/** Constant for 2 spaces in HTML */
+	public static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
 }

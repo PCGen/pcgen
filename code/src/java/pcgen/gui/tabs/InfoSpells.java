@@ -38,6 +38,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
 import pcgen.core.GameMode;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
@@ -429,5 +430,25 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		{
 			spellbooks.setFilterMode(mode);
 		}
+	}
+
+	/**
+	 * @see pcgen.gui.filter.Filterable#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	{
+		if (getSelectedIndex() == KNOWN_INDEX)
+		{
+			return known.accept(aPC, pObject);
+		}
+		else if (getSelectedIndex() == PREPARED_INDEX)
+		{
+			return prepared.accept(aPC, pObject);
+		}
+		else if (getSelectedIndex() == SPELLBOOKS_INDEX)
+		{
+			return spellbooks.accept(aPC, pObject);
+		}
+		return false;
 	}
 }

@@ -38,7 +38,7 @@ import java.awt.event.MouseEvent;
  * <code>JSplitPane</code> featuring a popup menu accesses by right-clicking on
  * the divider.
  * 
- * (<code>JSplitPane</code> is used to divide two (and only two)
+ * <p>(<code>JSplitPane</code> is used to divide two (and only two)
  * <code>Component</code>s.  The two <code>Component</code>s are graphically
  * divided based on the look and feel implementation, and the two
  * <code>Component</code>s can then be interactively resized by the user.
@@ -46,21 +46,21 @@ import java.awt.event.MouseEvent;
  * href="http://java.sun.com/docs/books/tutorial/uiswing/components/splitpane.html">How
  * to Use Split Panes</a> in <em>The Java Tutorial</em>.)
  * 
- * In addition to the standard keyboard keys used by <code>JSplitPane</code>,
+ * <p>In addition to the standard keyboard keys used by <code>JSplitPane</code>,
  * <code>FlippingSplitPane</code> will flip the panes orientation on
  * <code>SHIFT-BUTTON1</code>.
  * 
- * (For the keyboard keys used by <code>JSplitPane</code> in the standard Look
+ * <p>(For the keyboard keys used by <code>JSplitPane</code> in the standard Look
  * and Feel (L&F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane"><code>JSplitPane</code>
  * key assignments</a>.)
  * 
- * <code>FlippingSplitPane</code> treats many of the methods of
+ * <p><code>FlippingSplitPane</code> treats many of the methods of
  * <code>JSplitPane</code> recursively, calling the same method on the left and
  * right components (or top and bottom for <code>VERTICAL_ORIENTATION</code>) if
  * they are also <code>FlippingSplitPane<code>s.  You can defeat this behavior
  * by using <code>JSplitPane</code> components instead.
  * 
- * <code>FlippingSplitPane</code> also supports "locking": a locked pane renders
+ * <p><code>FlippingSplitPane</code> also supports "locking": a locked pane renders
  * the divider unmovable, and the popup menu only has an "Unlocked" item.
  * Locking is also recursive for <code>FlippingSplitPane</code> components.
  *

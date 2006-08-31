@@ -167,8 +167,6 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 	{
 		FilterFactory.registerAllSourceFilters(this);
 		FilterFactory.registerAllSpellFilters(this);
-
-		setKitFilter("SPELL"); //$NON-NLS-1$
 	}
 
 	/**

@@ -112,13 +112,13 @@ import pcgen.util.enumeration.Visibility;
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
  * @version $Revision: 198 $
  **/
-public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTab
+public class InfoTemplates extends BaseCharacterInfoTab
 {
-	static final long serialVersionUID = 2565545289875422981L;
+//	static final long serialVersionUID = 2565545289875422981L;
 	
 	private static final Tab tab = Tab.TEMPLATES;
 	
-	private static boolean needsUpdate = true;
+//	private static boolean needsUpdate = true;
 
 	//Available Table
 	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortTempl"));
@@ -163,20 +163,17 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	private PCTemplate lastTemplate = null; //keep track of which PCTemplate was last selected from either table
 
 	//Character pane elements
-	private PlayerCharacter pc;
-	private int serial = 0;
-	private boolean readyForRefresh = false;
+//	private PlayerCharacter pc;
+//	private int serial = 0;
+//	private boolean readyForRefresh = false;
 
 	/**
 	 * Constructor
 	 * @param pc
 	 */
-	public InfoTemplates(PlayerCharacter pc)
+	public InfoTemplates(final PlayerCharacter pc)
 	{
-		this.pc = pc;
-		// do not change/remove this as we use the component's name
-		// to save component specific settings
-		setName(tab.toString());
+		super(pc);
 
 		SwingUtilities.invokeLater(new Runnable()
 			{
@@ -283,7 +280,6 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	 **/
 	private void initComponents()
 	{
-		readyForRefresh = true;
 		typeRoot = new PObjectNode();
 		sourceRoot = new PObjectNode();
 
@@ -508,93 +504,64 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		mainPane.add(scroll);
 	}
 
-	public void setPc(PlayerCharacter pc)
+	/**
+	 * Returns the <tt>Tab</tt> enum associated with this Tab.
+	 * 
+	 * @return Tab
+	 * 
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTab()
+	 */
+	@Override
+	public Tab getTab()
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
-		{
-			this.pc = pc;
-			serial = pc.getSerial();
-			forceRefresh();
-		}
+		return tab;
 	}
-
-	public PlayerCharacter getPc()
-	{
-		return pc;
-	}
-
+	
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTabOrder()
+	 */
+	@Override
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#setTabOrder(int)
+	 */
+	@Override
 	public void setTabOrder(int order)
 	{
 		SettingsHandler.setPCGenOption(".Panel.Race.Order", order);
-	}
-
-	public String getTabName()
-	{
-		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(tab);
-	}
-
-	public boolean isShown()
-	{
-		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(tab);
 	}
 
 	/**
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
+	@Override
 	public List<String> getToDos()
 	{
-		List<String> toDoList = new ArrayList<String>();
-		return toDoList;
+		return Collections.emptyList();
 	}
 
-	public void refresh()
-	{
-		if(pc.getSerial() > serial)
-		{
-			serial = pc.getSerial();
-			forceRefresh();
-		}
-	}
-
-	public void forceRefresh()
-	{
-		if(readyForRefresh)
-		{
-			needsUpdate = true;
-			updateCharacterInfo();
-		}
-		else
-		{
-			serial = 0;
-		}
-	}
-
-	public JComponent getView()
-	{
-		return this;
-	}
+//	/**
+//	 * Set needs update flag for templates tab
+//	 * @param b
+//	 */
+//	public static void setNeedsUpdate(boolean b)
+//	{
+//		needsUpdate = b;
+//	}
 
 	/**
-	 * Set needs update flag for templates tab
-	 * @param b
-	 */
-	public static void setNeedsUpdate(boolean b)
-	{
-		needsUpdate = b;
-	}
-
-	/**
-	 * specifies whether the "match any" option should be available
+	 * Specifies whether the "match any" option should be available.
+	 * 
 	 * @return true
-	 **/
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#isMatchAnyEnabled()
+	 */
+	@Override
 	public final boolean isMatchAnyEnabled()
 	{
 		return true;
@@ -619,26 +586,39 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	}
 
 	/**
-	 * specifies whether the "negate/reverse" option should be available
+	 * Specifies whether the "negate/reverse" option should be available.
+	 * 
 	 * @return true
-	 **/
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#isNegateEnabled()
+	 */
+	@Override
 	public final boolean isNegateEnabled()
 	{
 		return true;
 	}
 
 	/**
-	 * specifies the filter selection mode
+	 * Specifies the filter selection mode.
+	 * 
 	 * @return FilterConstants.MULTI_MULTI_MODE = 2
-	 **/
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#getSelectionMode()
+	 */
+	@Override
 	public final int getSelectionMode()
 	{
 		return FilterConstants.MULTI_MULTI_MODE;
 	}
 
 	/**
-	 * implementation of Filterable interface
-	 **/
+	 * Registers the appropriate filters for use with this tab.
+	 * 
+	 * <p>Registers Source, Size, Race, and Alignment Prereq filters.
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#initializeFilters()
+	 */
+	@Override
 	public final void initializeFilters()
 	{
 		FilterFactory.registerAllSourceFilters(this);
@@ -650,6 +630,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	/**
 	 * implementation of Filterable interface
 	 **/
+	@Override
 	public final void refreshFiltering()
 	{
 		availableModel.resetModel(viewMode, true);
@@ -806,18 +787,18 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		PCTemplate template = getSelectedTemplate();
 
-		if ((template == null) || !template.isQualified(pc))
+		if ((template == null) || !template.isQualified(getPc()))
 		{
 			return;
 		}
 
-		pc.setDirty(true);
+		getPc().setDirty(true);
 
-		PCTemplate pcTemplate = pc.getTemplateKeyed(template.getKeyName());
+		PCTemplate pcTemplate = getPc().getTemplateKeyed(template.getKeyName());
 
 		if (pcTemplate == null)
 		{
-			pc.addTemplate(template);
+			getPc().addTemplate(template);
 			pushUpdate();
 			availableModel.resetModel(viewMode, true);
 		}
@@ -839,18 +820,18 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		PCTemplate template = getSelectedTemplate();
 
-		if ((template == null) || !template.isQualified(pc))
+		if ((template == null) || !template.isQualified(getPc()))
 		{
 			return;
 		}
 
-		pc.setDirty(true);
+		getPc().setDirty(true);
 
-		PCTemplate pcTemplate = pc.getTemplateKeyed(template.getKeyName());
+		PCTemplate pcTemplate = getPc().getTemplateKeyed(template.getKeyName());
 
 		if (pcTemplate != null)
 		{
-			pc.removeTemplate(template);
+			getPc().removeTemplate(template);
 			pushUpdate();
 			availableModel.resetModel(viewMode, true);
 			selectedModel.resetModel(viewSelMode, false);
@@ -955,17 +936,19 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 	/**
 	 * This recalculates the states of everything based
 	 * upon the currently selected character
-	 **/
-	private final void updateCharacterInfo()
+	 */
+	@Override
+	public final void updateCharacterInfo()
 	{
-		if (!needsUpdate)
+		if (!needsUpdate())
 		{
 			return;
 		}
 
 		updateAvailableModel();
 		updateSelectedModel();
-		needsUpdate = false;
+		
+		setNeedsUpdate(false);
 	}
 
 	/**
@@ -1108,7 +1091,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			if ((fn != null) && (fn.getItem() instanceof PCTemplate))
 			{
 				template = (PCTemplate) fn.getItem();
-				pcTemplate = pc.getTemplateKeyed(template.getKeyName());
+				pcTemplate = getPc().getTemplateKeyed(template.getKeyName());
 			}
 
 			if (pcTemplate != null)
@@ -1124,10 +1107,10 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 						return template.toString();
 
 					case COL_LEVEL:
-						return new Integer(template.getLevelAdjustment(pc));
+						return new Integer(template.getLevelAdjustment(getPc()));
 
 					case COL_MODIFIER:
-						return template.modifierString(pc);
+						return template.modifierString(getPc());
 
 					case COL_REQS:
 						return template.preReqStrings();
@@ -1161,7 +1144,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			else
 			{
-				templList = pc.getTemplateList();
+				templList = getPc().getTemplateList();
 			}
 
 			switch (mode)
@@ -1213,7 +1196,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 					PObjectNode aFN = new PObjectNode();
 					aFN.setParent((PObjectNode) super.getRoot());
 					aFN.setItem(template);
-					PrereqHandler.passesAll( template.getPreReqList(), pc, template );
+					PrereqHandler.passesAll( template.getPreReqList(), getPc(), template );
 					((PObjectNode) super.getRoot()).addChild(aFN);
 				}
 			}
@@ -1244,7 +1227,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 						PObjectNode aFN = new PObjectNode();
 						aFN.setParent(rootAsPObjectNode.getChild(i));
 						aFN.setItem(template);
-						PrereqHandler.passesAll(template.getPreReqList(), pc, template ) ;
+						PrereqHandler.passesAll(template.getPreReqList(), getPc(), template ) ;
 						rootAsPObjectNode.getChild(i).addChild(aFN);
 						added = true;
 					}
@@ -1278,7 +1261,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 							PObjectNode aFN = new PObjectNode();
 							aFN.setParent(rootAsPObjectNode.getChild(i));
 							aFN.setItem(template);
-							PrereqHandler.passesAll(template.getPreReqList(), pc, template );
+							PrereqHandler.passesAll(template.getPreReqList(), getPc(), template );
 							rootAsPObjectNode.getChild(i).addChild(aFN);
 							added = true;
 						}
@@ -1300,7 +1283,7 @@ public class InfoTemplates extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			return ((template.getVisibility() == Visibility.DEFAULT
 					|| template.getVisibility() == Visibility.DISPLAY_ONLY)
-					&& accept(pc, template));
+					&& accept(getPc(), template));
 		}
 
 		public List<String> getMColumnList() 

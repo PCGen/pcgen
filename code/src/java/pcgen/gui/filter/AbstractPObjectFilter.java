@@ -20,6 +20,7 @@
  */
 package pcgen.gui.filter;
 
+import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -36,19 +37,35 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
 	private String description;
 	private String name;
 
+	/**
+	 * Default Constructor.
+	 * 
+	 * <p>Creates an empty Filter that is not usable.
+	 */
 	protected AbstractPObjectFilter()
 	{
-		this("", "", "");
+		this(Constants.EMPTY_STRING, Constants.EMPTY_STRING, Constants.EMPTY_STRING);
 	}
 
+	/**
+	 * Create a filter with just a name.
+	 * 
+	 * @param argName The name for the filter.
+	 */
 	protected AbstractPObjectFilter(String argName)
 	{
-		this("", argName, "");
+		this(Constants.EMPTY_STRING, argName, Constants.EMPTY_STRING);
 	}
 
+	/**
+	 * Create a filter with a name and category.
+	 * 
+	 * @param argCategory The category for the filter.
+	 * @param argName The name of the filter.
+	 */
 	protected AbstractPObjectFilter(String argCategory, String argName)
 	{
-		this(argCategory, argName, "");
+		this(argCategory, argName, Constants.EMPTY_STRING);
 	}
 
 	private AbstractPObjectFilter(String argCategory, String argName, String argDescription)
@@ -91,7 +108,7 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
      * @param aPC
      * @return description 
 	 */
-    public String getDescription(PlayerCharacter aPC)
+    public String getDescription(@SuppressWarnings("unused")PlayerCharacter aPC)
 	{
 		return description;
 	}
@@ -111,7 +128,7 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
      * @param aPC
      * @return name 
 	 */
-    public String getName(PlayerCharacter aPC)
+    public String getName(@SuppressWarnings("unused")PlayerCharacter aPC)
 	{
 		return name;
 	}
@@ -122,6 +139,7 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
      * @param object
      * @return true if equal
      */
+	@Override
 	public final boolean equals(Object object)
 	{
 		if (object instanceof PObjectFilter)
@@ -137,6 +155,7 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
      * 
      * @return hashcode of this filter
      */
+	@Override
 	public final int hashCode()
 	{
 		return toString().hashCode();
@@ -155,7 +174,8 @@ public abstract class AbstractPObjectFilter implements PObjectFilter
      * toString - category + name or name
      * @return category + name or name
 	 */
-    public String toString()
+    @Override
+	public String toString()
 	{
 		return (category.length() > 0) ? (getCategory() + SEPARATOR + name) : name;
 	}

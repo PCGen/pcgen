@@ -1106,7 +1106,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoSpecialAbilities());
 		pane.setPaneForUpdate(pane.infoClasses());
-		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoAbilities());
 		pane.setPaneForUpdate(pane.infoSkills());
 		pane.setPaneForUpdate(pane.infoSpells());
 		pane.setPaneForUpdate(pane.infoSummary());
@@ -1609,7 +1609,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoSpecialAbilities());
 		pane.setPaneForUpdate(pane.infoClasses());
-		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoAbilities());
 		pane.setPaneForUpdate(pane.infoSkills());
 		pane.setPaneForUpdate(pane.infoSpells());
 		pane.setPaneForUpdate(pane.infoSummary());

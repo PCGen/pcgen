@@ -4,18 +4,42 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
 
 import pcgen.gui.utils.Utility;
 
 /**
  * Tab utilities
  */
-public class InfoTabUtils {
+public class InfoTabUtils 
+{
+	/**
+	 * Gets the index of the selected row for this ListSelectionEvent.
+	 * 
+	 * <p>This method returns the minimum selection index and so may not work 
+	 * with multiselect lists.
+	 *   
+	 * @param evt The ListSelectionEvent
+	 * 
+	 * @return The row index or -1 if the index could not be found.
+	 */
+	public static int getSelectedIndex(final ListSelectionEvent evt)
+	{
+		final DefaultListSelectionModel model = (DefaultListSelectionModel) evt.getSource();
+
+		if (model == null)
+		{
+			return -1;
+		}
+
+		return model.getMinSelectionIndex();
+	}
 	
 	/**
 	 * Create a filter pane for a tab

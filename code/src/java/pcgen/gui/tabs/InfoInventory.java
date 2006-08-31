@@ -38,6 +38,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.core.GameMode;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
@@ -318,8 +319,6 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	public void initializeFilters()
 	{
 		gear.initializeFilters();
-
-		gear.setKitFilter("GEAR");
 	}
 
 	/**
@@ -400,6 +399,32 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 					refresh();
 				}
 			});
+	}
+
+	/**
+	 * @see pcgen.gui.filter.Filterable#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	{
+		final int ind = getSelectedIndex();
+		if ( ind == Tab.GEAR.index())
+		{
+			return gear.accept(aPC, pObject);
+		}
+		else if ( ind == Tab.EQUIPPING.index() )
+		{
+			return equipment.accept(aPC, pObject);
+		}
+		else if ( ind == Tab.RESOURCES.index() )
+		{
+			return resources.accept(aPC, pObject);
+		}
+		else if ( ind == Tab.TEMPBONUS.index() )
+		{
+			return tempmod.accept(aPC, pObject);
+		}
+
+		return false;
 	}
 
 }

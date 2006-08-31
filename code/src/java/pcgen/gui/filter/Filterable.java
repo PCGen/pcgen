@@ -22,6 +22,9 @@ package pcgen.gui.filter;
 
 import java.util.List;
 
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+
 /**
  * <code>Filterable</code>
  *
@@ -34,7 +37,7 @@ public interface Filterable
 	 * Selector
 	 * @return List
 	 */
-	List getAvailableFilters();
+	List<PObjectFilter> getAvailableFilters();
 
 	/**
 	 * sets the filter mode<br>
@@ -94,13 +97,13 @@ public interface Filterable
 	 * Selector
 	 * @return List of removed filters
 	 */
-	List getRemovedFilters();
+	List<PObjectFilter> getRemovedFilters();
 
 	/**
 	 * Selector
 	 * @return Listof selected filters
 	 */
-	List getSelectedFilters();
+	List<PObjectFilter> getSelectedFilters();
 
 	/**
 	 * returns the filter seletion mode<br>
@@ -134,4 +137,13 @@ public interface Filterable
 	 * <br>author: Thomas Behr
 	 */
 	void refreshFiltering();
+
+	/**
+	 * Apply all selected filters in the chosen mode for a specific PObject
+	 *
+	 * @param aPC The character the filtering is to be applied to.
+	 * @param pObject - the PObject to test for filter acceptance
+	 * @return TRUE or FALSE
+	 */
+	boolean accept(final PlayerCharacter aPC, final PObject pObject);
 }

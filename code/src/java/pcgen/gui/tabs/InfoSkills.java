@@ -381,8 +381,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		FilterFactory.registerAllSourceFilters(this);
 		FilterFactory.registerAllSkillFilters(this);
-
-		setKitFilter("SKILL"); //$NON-NLS-1$
 	}
 
 	/**

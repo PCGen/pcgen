@@ -23,6 +23,7 @@ package pcgen.gui.filter;
 import pcgen.core.*;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -42,19 +43,24 @@ import java.util.*;
  */
 public final class FilterFactory implements FilterConstants
 {
-	private static List campaignFilters = new ArrayList();
-	private static List classFilters = new ArrayList();
-	private static List deityFilters = new ArrayList();
-	private static List equipmentFilters = new ArrayList();
-	private static List featFilters = new ArrayList();
-	private static List prereqAlignmentFilters = new ArrayList();
-	private static List raceFilters = new ArrayList();
-	private static List sizeFilters = new ArrayList();
-	private static List skillFilters = new ArrayList();
-	private static List sourceFilters = new ArrayList();
-	private static List spellFilters = new ArrayList();
-	private static Map filterSettings = new HashMap();
+	private static List<PObjectFilter> campaignFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> classFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> deityFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> equipmentFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> featFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> prereqAlignmentFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> raceFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> sizeFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> skillFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> sourceFilters = new ArrayList<PObjectFilter>();
+	private static List<PObjectFilter> spellFilters = new ArrayList<PObjectFilter>();
+	private static Map<String, String> filterSettings = new HashMap<String, String>();
 
+	private static final String MODE_SETTING = "mode"; //$NON-NLS-1$
+	private static final String AVAILABLE_SETTING = "available"; //$NON-NLS-1$
+	private static final String SELECTED_SETTING = "selected"; //$NON-NLS-1$
+	private static final String REMOVED_SETTING = "removed"; //$NON-NLS-1$
+	
 	/**
 	 * clears the filter cache for updates/re-initialization
 	 * of filter settings
@@ -91,16 +97,14 @@ public final class FilterFactory implements FilterConstants
 	 * @param filterList
 	 * @return String
 	 */
-	public static String filterListToString(List filterList)
+	public static String filterListToString(final List<?> filterList)
 	{
-		Object filter;
 		StringBuffer buffer = new StringBuffer();
 
-		for (Iterator it = filterList.iterator(); it.hasNext();)
+		for ( final Object filter : filterList )
 		{
-			filter = it.next();
-			buffer.append("[").append(filter.getClass().getName());
-			buffer.append("|").append(filter.toString()).append("]");
+			buffer.append('[').append(filter.getClass().getName());
+			buffer.append(Constants.PIPE).append(filter.toString()).append(']');
 		}
 
 		return buffer.toString();
@@ -117,12 +121,9 @@ public final class FilterFactory implements FilterConstants
 			classFilters.add(FilterFactory.createQualifyFilter());
 
 			// e.g. "Base", "Monster", "NPC", "PC", "Prestige" + more
-			Iterator iter = Globals.getPCClassTypeList().iterator();
-
-			while (iter.hasNext())
+			for ( final String subType : Globals.getPCClassTypeList() )
 			{
 				//All TYPEs should already be tokenized into subtypes by the "."
-				String subType = (String) iter.next();
 				classFilters.add(FilterFactory.createTypeFilter(subType, subType.length() > 3));
 
 				//If 2nd param of createTypeFilter is "false" then the filter created
@@ -130,14 +131,15 @@ public final class FilterFactory implements FilterConstants
 				//In this case, types of 3-letters or less will be preserved (typically, "PC" and "NPC")
 			}
 
-			classFilters.add(FilterFactory.createSpellTypeFilter("Arcane"));
-			classFilters.add(FilterFactory.createSpellTypeFilter("Divine"));
-			classFilters.add(FilterFactory.createSpellTypeFilter("Psionic"));
+			// TODO - Create Globals.getAllSpellTypes()
+			classFilters.add(FilterFactory.createSpellTypeFilter("Arcane")); //$NON-NLS-1$
+			classFilters.add(FilterFactory.createSpellTypeFilter("Divine")); //$NON-NLS-1$
+			classFilters.add(FilterFactory.createSpellTypeFilter("Psionic")); //$NON-NLS-1$
 		}
 
-		for (Iterator it = classFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : classFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -152,39 +154,33 @@ public final class FilterFactory implements FilterConstants
 			deityFilters.add(FilterFactory.createQualifyFilter());
 			deityFilters.add(FilterFactory.createPCAlignmentFilter());
 
-			for (int i = 0; i < 9; i++)
+			// TODO - Check if Alignments should be used.
+			final int numAlign = SettingsHandler.getGame().getUnmodifiableAlignmentList().size();
+			for (int i = 0; i < numAlign; i++)
 			{
 				deityFilters.add(FilterFactory.createAlignmentFilter(i));
 			}
 
-			for (Iterator it = Globals.getDomainList().iterator(); it.hasNext();)
+			for ( final Domain domain : Globals.getDomainList() )
 			{
-				deityFilters.add(FilterFactory.createDomainFilter((Domain) it.next()));
+				deityFilters.add(FilterFactory.createDomainFilter(domain));
 			}
 
-			deityFilters.add(FilterFactory.createPantheonFilter(PantheonFilter.ALL, PantheonFilter.HIGH));
+			deityFilters.add(FilterFactory.createPantheonFilter(PantheonFilter.ALL, PantheonFilter.Detail.HIGH));
 
-			String tmp;
-
-			for (Iterator it = Globals.getPantheons().iterator(); it.hasNext();)
+			for ( final String pantheon : Globals.getPantheons() )
 			{
-				tmp = (String) it.next();
-
-				if (!"DROW".equals(tmp.toUpperCase()))
-				{
-					deityFilters.add(FilterFactory.createPantheonFilter(tmp,
-							(tmp.indexOf(" (") > -1) ? PantheonFilter.HIGH : PantheonFilter.LOW));
-				}
-				else
-				{
-					deityFilters.add(FilterFactory.createPantheonFilter("Drow", PantheonFilter.HIGH));
-				}
+				// TODO - What are we doing with the indexOf " ("??
+				deityFilters.add(FilterFactory.createPantheonFilter(pantheon,
+							(pantheon.indexOf(" (") > -1)  //$NON-NLS-1$
+							? PantheonFilter.Detail.HIGH 
+							: PantheonFilter.Detail.LOW));
 			}
 		}
 
-		for (Iterator it = deityFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : deityFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -201,12 +197,12 @@ public final class FilterFactory implements FilterConstants
 			equipmentFilters.add(FilterFactory.createNonMagicFilter());
 			equipmentFilters.add(FilterFactory.createAffordableFilter());
 
-			for (Iterator it = Equipment.getEquipmentTypes().iterator(); it.hasNext();)
+			for ( final String type : Equipment.getEquipmentTypes() )
 			{
-				equipmentFilters.add(FilterFactory.createTypeFilter((String) it.next()));
+				equipmentFilters.add(FilterFactory.createTypeFilter(type));
 			}
 
-			for (String s : Globals.getWeaponTypeList())
+			for (final String s : Globals.getWeaponTypeList())
 			{
 				// weapon types come in pairs:
 				// first UPPERCASE only, than Capitalized
@@ -217,9 +213,9 @@ public final class FilterFactory implements FilterConstants
 			equipmentFilters.add(FilterFactory.createPCSizeFilter());
 		}
 
-		for (Iterator it = equipmentFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : equipmentFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -237,9 +233,9 @@ public final class FilterFactory implements FilterConstants
 			featFilters.add(FilterFactory.createVirtualFeatFilter());
 		}
 
-		for (Iterator it = featFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : featFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -251,19 +247,21 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (prereqAlignmentFilters.size() == 0)
 		{
-			for (int i = 0; i < 9; i++)
+			// TODO - Check if Alignments should be used.
+			final int numAlign = SettingsHandler.getGame().getUnmodifiableAlignmentList().size();
+			for (int i = 0; i < numAlign; i++)
 			{
-				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(i, ALLOWED));
-				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(i, REQUIRED));
+				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(i, AlignmentFilter.Mode.ALLOWED));
+				prereqAlignmentFilters.add(FilterFactory.createAlignmentFilter(i, AlignmentFilter.Mode.REQUIRED));
 			}
 
-			prereqAlignmentFilters.add(FilterFactory.createPCAlignmentFilter(ALLOWED));
-			prereqAlignmentFilters.add(FilterFactory.createPCAlignmentFilter(REQUIRED));
+			prereqAlignmentFilters.add(FilterFactory.createPCAlignmentFilter(AlignmentFilter.Mode.ALLOWED));
+			prereqAlignmentFilters.add(FilterFactory.createPCAlignmentFilter(AlignmentFilter.Mode.REQUIRED));
 		}
 
-		for (Iterator it = prereqAlignmentFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : prereqAlignmentFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -283,26 +281,23 @@ public final class FilterFactory implements FilterConstants
 			 * author: Thomas Behr 04-03-02
 			 */
 
-			// ensure that the default race type filter is created!!
-			Globals.getRaceTypes().add("Humanoid");
-
-			for (Iterator it = Globals.getRaceTypes().iterator(); it.hasNext();)
+			// TODO - Change to RACETYPE/RACESUBTYPE?
+			for ( final String raceType : Globals.getRaceTypes() )
 			{
-				raceFilters.add(FilterFactory.createTypeFilter((String) it.next()));
+				raceFilters.add(FilterFactory.createTypeFilter(raceType));
 			}
 
 			raceFilters.add(FilterFactory.createQualifyFilter());
 
-			PObjectFilter filter = FilterFactory.createCompoundFilter(new TypeFilter("Base"), new TypeFilter("PC"), AND);
-			PCClass aPCClass;
+			// Create a favored class filter for each visible Base.PC class.
+			// TODO - Fix this hardcoding
+			PObjectFilter filter = FilterFactory.createCompoundFilter(new TypeFilter("Base"), new TypeFilter("PC"), AND); //$NON-NLS-1$ //$NON-NLS-2$
 
-			for (Iterator it = Globals.getClassList().iterator(); it.hasNext();)
+			for ( final PCClass pcClass : Globals.getClassList() )
 			{
-				aPCClass = (PCClass) it.next();
-
-				if (aPCClass.isVisible() && filter.accept(null, aPCClass))
+				if (pcClass.isVisible() && filter.accept(null, pcClass))
 				{
-					raceFilters.add(FilterFactory.createFavoredClassFilter(aPCClass.getKeyName()));
+					raceFilters.add(FilterFactory.createFavoredClassFilter(pcClass.getKeyName()));
 				}
 			}
 
@@ -310,9 +305,9 @@ public final class FilterFactory implements FilterConstants
 			raceFilters.add(FilterFactory.createRaceFilter());
 		}
 
-		for (Iterator it = raceFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : raceFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -330,9 +325,9 @@ public final class FilterFactory implements FilterConstants
 			}
 		}
 
-		for (Iterator it = sizeFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : sizeFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -354,9 +349,9 @@ public final class FilterFactory implements FilterConstants
 			}
 		}
 
-		for (Iterator it = skillFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : skillFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -368,37 +363,34 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (sourceFilters.size() == 0)
 		{
-			for (Iterator it = PersistenceManager.getInstance().getSources().iterator(); it.hasNext();)
+			for ( final String source : PersistenceManager.getInstance().getSources() )
 			{
-				String source = (String) it.next();
 				sourceFilters.add(FilterFactory.createSourceFilter(source));
 			}
 		}
 
-		List aList = new ArrayList();
-		List bList = new ArrayList();
+		List<PObjectFilter> settingList = new ArrayList<PObjectFilter>();
+		List<PObjectFilter> genreList = new ArrayList<PObjectFilter>();
 
-		for (Iterator it = Globals.getCampaignList().iterator(); it.hasNext();)
+		for ( final Campaign campaign : Globals.getCampaignList() )
 		{
-			Campaign c = (Campaign) it.next();
-
-			if (!c.getSetting().equals(""))
+			if (!campaign.getSetting().equals(Constants.EMPTY_STRING))
 			{
-				aList.add(FilterFactory.createSettingFilter(c.getSetting()));
+				settingList.add(FilterFactory.createSettingFilter(campaign.getSetting()));
 			}
 
-			if (!c.getGenre().equals(""))
+			if (!campaign.getGenre().equals(Constants.EMPTY_STRING))
 			{
-				bList.add(FilterFactory.createGenreFilter(c.getGenre()));
+				genreList.add(FilterFactory.createGenreFilter(campaign.getGenre()));
 			}
 		}
 
-		sourceFilters.addAll(aList);
-		sourceFilters.addAll(bList);
+		sourceFilters.addAll(settingList);
+		sourceFilters.addAll(genreList);
 
-		for (Iterator it = sourceFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : sourceFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -410,52 +402,52 @@ public final class FilterFactory implements FilterConstants
 	{
 		if (spellFilters.size() == 0)
 		{
-			spellFilters.add(FilterFactory.createComponentFilter("V"));
-			spellFilters.add(FilterFactory.createComponentFilter("S"));
-			spellFilters.add(FilterFactory.createComponentFilter("M"));
-			spellFilters.add(FilterFactory.createComponentFilter("DF"));
-			spellFilters.add(FilterFactory.createComponentFilter("F"));
-			spellFilters.add(FilterFactory.createComponentFilter("XP"));
+			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.VERBAL.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.SOMATIC.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.MATERIAL.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.DIVINEFOCUS.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.FOCUS.toString()));
+			spellFilters.add(FilterFactory.createComponentFilter(Spell.Component.EXPERIENCE.toString()));
 
-			for (Iterator it = Globals.getCastingTimesSet().iterator(); it.hasNext();)
+			for ( final String castTime : Globals.getCastingTimesSet() )
 			{
-				spellFilters.add(FilterFactory.createCastingTimeFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createCastingTimeFilter(castTime));
 			}
 
-			for (Iterator it = Globals.getDescriptorSet().iterator(); it.hasNext();)
+			for ( final String descriptor : Globals.getDescriptorSet() )
 			{
-				spellFilters.add(FilterFactory.createDescriptorFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createDescriptorFilter(descriptor));
 			}
 
-			for (Iterator it = Globals.getTargetSet().iterator(); it.hasNext();)
+			for ( final String target : Globals.getTargetSet() )
 			{
-				spellFilters.add(FilterFactory.createEffectTypeFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createEffectTypeFilter(target));
 			}
 
-			for (Iterator it = Globals.getRangesSet().iterator(); it.hasNext();)
+			for ( final String range : Globals.getRangesSet() )
 			{
-				spellFilters.add(FilterFactory.createRangeFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createRangeFilter(range));
 			}
 
-			for (Iterator it = SettingsHandler.getGame().getUnmodifiableSchoolsList().iterator(); it.hasNext();)
+			for ( final String school : SettingsHandler.getGame().getUnmodifiableSchoolsList() )
 			{
-				spellFilters.add(FilterFactory.createSchoolFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createSchoolFilter(school));
 			}
 
-			for (Iterator it = Globals.getSrSet().iterator(); it.hasNext();)
+			for ( final String sr : Globals.getSrSet() )
 			{
-				spellFilters.add(FilterFactory.createSpellResistanceFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createSpellResistanceFilter(sr));
 			}
 
-			for (Iterator it = Globals.getSubschools().iterator(); it.hasNext();)
+			for ( final String subschool : Globals.getSubschools() )
 			{
-				spellFilters.add(FilterFactory.createSubschoolFilter((String) it.next()));
+				spellFilters.add(FilterFactory.createSubschoolFilter(subschool));
 			}
 		}
 
-		for (Iterator it = spellFilters.iterator(); it.hasNext();)
+		for ( final PObjectFilter filter : spellFilters )
 		{
-			fap.registerFilter((PObjectFilter) it.next());
+			fap.registerFilter(filter);
 		}
 	}
 
@@ -490,7 +482,7 @@ public final class FilterFactory implements FilterConstants
 
 		try
 		{
-			filterable.setFilterMode(Integer.parseInt(SettingsHandler.retrieveFilterSettings(name + ".mode")));
+			filterable.setFilterMode(Integer.parseInt(SettingsHandler.retrieveFilterSettings(name + '.' + MODE_SETTING)));
 		}
 		catch (NumberFormatException ex)
 		{
@@ -499,34 +491,33 @@ public final class FilterFactory implements FilterConstants
 
 		filterSettings.clear();
 
-		List customAvailable = preprocessFilterList("available",
-				SettingsHandler.retrieveFilterSettings(name + ".available"));
-		List customSelected = preprocessFilterList("selected",
-				SettingsHandler.retrieveFilterSettings(name + ".selected"));
-		List customRemoved = preprocessFilterList("removed", SettingsHandler.retrieveFilterSettings(name + ".removed"));
+		final List<String[]> customAvailable = preprocessFilterList(AVAILABLE_SETTING,
+				SettingsHandler.retrieveFilterSettings(name + '.' + AVAILABLE_SETTING));
+		final List<String[]> customSelected = preprocessFilterList(SELECTED_SETTING,
+				SettingsHandler.retrieveFilterSettings(name + '.' + SELECTED_SETTING));
+		final List<String[]> customRemoved = preprocessFilterList(REMOVED_SETTING, 
+				SettingsHandler.retrieveFilterSettings(name + '.' + REMOVED_SETTING));
 
 		/*
 		 * move the filters to the appropriate list
 		 */
-		Object filter;
-		String listType;
-
-		for (Iterator it = filterable.getAvailableFilters().iterator(); it.hasNext();)
+		for (final Iterator<PObjectFilter> it = filterable.getAvailableFilters().iterator(); it.hasNext();)
 		{
-			filter = it.next();
-			listType = (String) filterSettings.get(filter.toString());
+			final PObjectFilter filter = it.next();
+			final String listType = filterSettings.get(filter.toString());
 
-			if ((listType == null) || ("available".equals(listType)))
+			// TODO - Change filterable to not give out references to the lists
+			if ((listType == null) || (AVAILABLE_SETTING.equals(listType)))
 			{
 				// this is our default case
 				// do nothing - leave the filter in the available list
 			}
-			else if ("selected".equals(listType))
+			else if (SELECTED_SETTING.equals(listType))
 			{
 				it.remove();
 				filterable.getSelectedFilters().add(filter);
 			}
-			else if ("removed".equals(listType))
+			else if (REMOVED_SETTING.equals(listType))
 			{
 				it.remove();
 				filterable.getRemovedFilters().add(filter);
@@ -614,7 +605,7 @@ public final class FilterFactory implements FilterConstants
 	 * stats tab factory methods
 	 * #################################################################
 	 */
-	private static PObjectFilter createAlignmentFilter(int alignment, String mode)
+	private static PObjectFilter createAlignmentFilter(int alignment, AlignmentFilter.Mode mode)
 	{
 		return new DeityAlignmentFilter(alignment, mode);
 	}
@@ -684,7 +675,7 @@ public final class FilterFactory implements FilterConstants
 		return new PCAlignmentFilter();
 	}
 
-	private static PObjectFilter createPCAlignmentFilter(String mode)
+	private static PObjectFilter createPCAlignmentFilter(final AlignmentFilter.Mode mode)
 	{
 		return new PCAlignmentFilter(mode);
 	}
@@ -699,7 +690,7 @@ public final class FilterFactory implements FilterConstants
 		return new PCTemplateFilter();
 	}
 
-	private static PObjectFilter createPantheonFilter(String race, int detailLevel)
+	private static PObjectFilter createPantheonFilter(String race, PantheonFilter.Detail detailLevel)
 	{
 		return new PantheonFilter(race, detailLevel);
 	}
@@ -813,24 +804,17 @@ public final class FilterFactory implements FilterConstants
 	 * @param filterList          the list in which to store the filter
 	 * @param filterDefinitions   a list with all the difining strings of the filters to recreate
 	 */
-	private static void parseCustomFilterList(FilterParser parser, List filterList, List filterDefinitions)
+	private static void parseCustomFilterList(FilterParser parser, List<PObjectFilter> filterList, List<String[]> filterDefinitions)
 	{
-		PObjectFilter filter;
-
-		String token;
-		String[] filterData;
-		StringTokenizer tokens;
-		StringBuffer filterDefinition;
-
-		for (Iterator it = filterDefinitions.iterator(); it.hasNext();)
+		for ( final String[] filterData : filterDefinitions )
 		{
-			filterData = (String[]) it.next();
-			filterDefinition = new StringBuffer();
-			tokens = new StringTokenizer(filterData[0], "()", true);
+			final StringBuffer filterDefinition = new StringBuffer();
+			// TODO - Create constant for this.
+			final StringTokenizer tokens = new StringTokenizer(filterData[0], "()", true); //$NON-NLS-1$
 
 			while (tokens.hasMoreTokens())
 			{
-				token = tokens.nextToken();
+				final String token = tokens.nextToken();
 
 				if (FilterParser.isLegalToken(token.trim()))
 				{
@@ -838,15 +822,15 @@ public final class FilterFactory implements FilterConstants
 				}
 				else
 				{
-					filterDefinition.append("[");
+					filterDefinition.append('[');
 					filterDefinition.append(token);
-					filterDefinition.append("]");
+					filterDefinition.append(']');
 				}
 			}
 
 			try
 			{
-				filter = parser.parse(filterDefinition.toString());
+				PObjectFilter filter = parser.parse(filterDefinition.toString());
 
 				if ((filterData[1] + filterData[2]).length() > 0)
 				{
@@ -858,7 +842,7 @@ public final class FilterFactory implements FilterConstants
 			catch (FilterParseException ex)
 			{
 				//Shouldn't something more be done here?
-				Logging.errorPrint("Error in FilterFactory::parseCustomFilterList", ex);
+				Logging.errorPrintLocalised("Errors.FilterFactory.ParseError", ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -874,31 +858,25 @@ public final class FilterFactory implements FilterConstants
 	 *
 	 * @return a list containing the definitions of yet to be restored custom filters
 	 */
-	private static List preprocessFilterList(String list, String filterString)
+	private static List<String[]> preprocessFilterList(String list, String filterString)
 	{
-		List customFilters = new ArrayList();
+		List<String[]> customFilters = new ArrayList<String[]>();
 
 		if (filterString.length() == 0)
 		{
 			return customFilters;
 		}
 
-		String classDef;
-		String className;
-		String filterName;
-		String filterDesc;
-
-		StringTokenizer tokens;
-
-		StringTokenizer filterTokens = new StringTokenizer(filterString, "[]");
+		// TODO - Make constants for this.
+		final StringTokenizer filterTokens = new StringTokenizer(filterString, "[]"); //$NON-NLS-1$
 
 		while (filterTokens.hasMoreTokens())
 		{
-			tokens = new StringTokenizer(filterTokens.nextToken(), "|");
-			className = tokens.nextToken();
-			classDef = tokens.nextToken();
-			filterName = (tokens.hasMoreTokens()) ? tokens.nextToken() : "";
-			filterDesc = (tokens.hasMoreTokens()) ? tokens.nextToken() : "";
+			final StringTokenizer tokens = new StringTokenizer(filterTokens.nextToken(), Constants.PIPE);
+			final String className = tokens.nextToken();
+			final String classDef = tokens.nextToken();
+			final String filterName = (tokens.hasMoreTokens()) ? tokens.nextToken() : Constants.EMPTY_STRING;
+			final String filterDesc = (tokens.hasMoreTokens()) ? tokens.nextToken() : Constants.EMPTY_STRING;
 
 			/*
 			 * case:
@@ -910,8 +888,10 @@ public final class FilterFactory implements FilterConstants
 			 * we need to have all standard filters restored before
 			 * we restore the custom filters
 			 */
-			if (className.endsWith("CompoundFilter") || className.endsWith("InverseFilter")
-				|| className.endsWith("NamedFilter"))
+			// TODO - This should be handled better.
+			if (className.endsWith("CompoundFilter")  //$NON-NLS-1$
+			  || className.endsWith("InverseFilter") //$NON-NLS-1$
+			  || className.endsWith("NamedFilter")) //$NON-NLS-1$
 			{
 				customFilters.add(new String[]{ classDef, filterName, filterDesc });
 			}
@@ -935,10 +915,16 @@ final class PCClassFilter extends AbstractPObjectFilter
 {
 	PCClassFilter()
 	{
-		super("Object", PropertyFactory.getString("in_class"));
+		super(PropertyFactory.getString("Filters.Category.Object"), PropertyFactory.getString("in_class")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 * @see pcgen.gui.filter.PObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -959,10 +945,16 @@ final class PCTemplateFilter extends AbstractPObjectFilter
 {
 	PCTemplateFilter()
 	{
-		super("Object", PropertyFactory.getString("in_template"));
+		super(PropertyFactory.getString("Filters.Category.Object"),  //$NON-NLS-1$
+			  PropertyFactory.getString("in_template")); //$NON-NLS-1$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -983,10 +975,16 @@ final class RaceFilter extends AbstractPObjectFilter
 {
 	RaceFilter()
 	{
-		super("Object", PropertyFactory.getString("in_race"));
+		super(PropertyFactory.getString("Filters.Category.Object"),  //$NON-NLS-1$
+			  PropertyFactory.getString("in_race")); //$NON-NLS-1$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1012,13 +1010,18 @@ final class SpellTypeFilter extends AbstractPObjectFilter
 {
 	private String type;
 
-	SpellTypeFilter(String type)
+	SpellTypeFilter(final String aType)
 	{
-		super(PropertyFactory.getString("in_spellType"), type);
-		this.type = type.toUpperCase();
+		super(PropertyFactory.getString("in_spellType"), aType); //$NON-NLS-1$
+		this.type = aType.toUpperCase();
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1042,40 +1045,82 @@ final class SpellTypeFilter extends AbstractPObjectFilter
  */
 abstract class AlignmentFilter extends AbstractPObjectFilter
 {
-	protected String mode;
+	enum Mode {
+		/** Objects with this alignment are allowed */
+		ALLOWED("Filters.Mode.Allowed"), //$NON-NLS-1$
+		/** Objects with this alignment are required */
+		REQUIRED("Filters.Mode.Required"), //$NON-NLS-1$
+		/** Not sure */
+		DEFAULT("Filters.Mode.Default"); //$NON-NLS-1$
+		
+		private String theName;
+		
+		Mode(final String aResourceId)
+		{
+			theName = PropertyFactory.getString(aResourceId);
+		}
+		
+		/**
+		 * Returns the display name for this mode.
+		 * 
+		 * @return A string to display for this mode.
+		 */
+		@Override
+		public String toString()
+		{
+			return theName;
+		}
+	}
+	
+	/** The <tt>Mode</tt> for this filter */
+	protected Mode theMode;
 
-	protected AlignmentFilter(String argCategory, String argName)
+	/**
+	 * Construct an AlignmentFilter with the specified category and name.
+	 * 
+	 * @param argCategory The category.
+	 * @param argName The name.
+	 */
+	protected AlignmentFilter(final String argCategory, final String argName)
 	{
 		super(argCategory, argName);
 	}
 
+	/**
+	 * Tests to see if this Filter applies to this PObject.
+	 * 
+	 * @param pObject The Object to test
+	 * @param alignment The alignment index to test for
+	 * @return <tt>true</tt> if the object passes.
+	 */
 	protected boolean passesAlignmentPrereqs(PObject pObject, int alignment)
 	{
 		StringBuffer prealign;
 
-		if ("allowed".equals(mode))
+		switch ( theMode )
 		{
-			prealign = new StringBuffer("0");
+		case ALLOWED:
+			prealign = new StringBuffer("0"); //$NON-NLS-1$
 
 			for (int i = 1; i < SettingsHandler.getGame().getUnmodifiableAlignmentList().size(); i++)
 			{
-				prealign.append(",").append(i);
+				prealign.append(Constants.COMMA).append(i);
 			}
-		}
-		else if ("required".equals(mode))
-		{
-			prealign = new StringBuffer("");
-		}
-		else
-		{
+			break;
+
+		case REQUIRED:
+			prealign = new StringBuffer(Constants.EMPTY_STRING);
+			break;
+
+		default:
 			return false;
 		}
-
 
 		for (int it = 0; it < pObject.getPreReqCount(); it++)
 		{
 			Prerequisite tmp = pObject.getPreReq(it);
-			if ("ALIGN".equalsIgnoreCase( tmp.getKind() ))
+			// TODO - Fix prereqs to not use/give out strings.
+			if ("ALIGN".equalsIgnoreCase( tmp.getKind() )) //$NON-NLS-1$
 			{
 				prealign = new StringBuffer(tmp.getKey() );
 
@@ -1097,28 +1142,38 @@ final class DeityAlignmentFilter extends AlignmentFilter
 {
 	private int alignment;
 
-	DeityAlignmentFilter(int alignment)
+	DeityAlignmentFilter(int anAlignment)
 	{
-		this(alignment, "default");
+		this(anAlignment, Mode.DEFAULT);
 	}
 
-	DeityAlignmentFilter(int alignment, String mode)
+	DeityAlignmentFilter(int anAlignment, Mode mode)
 	{
-		super(PropertyFactory.getString("in_alignLabel"), SettingsHandler.getGame().getLongAlignmentAtIndex(alignment));
-		this.alignment = alignment;
-		this.mode = mode;
+		super(PropertyFactory.getString("in_alignLabel"),  //$NON-NLS-1$
+				SettingsHandler.getGame().getLongAlignmentAtIndex(anAlignment));
+		this.alignment = anAlignment;
+		theMode = mode;
 	}
 
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#getCategory()
+	 */
+	@Override
 	public String getCategory()
 	{
-		if ("default".equals(mode))
+		if ( theMode.equals(Mode.DEFAULT) )
 		{
 			return super.getCategory();
 		}
-		return super.getCategory() + " (" + mode + ')';
+		return super.getCategory() + " (" + theMode.toString() + ')'; //$NON-NLS-1$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1127,7 +1182,7 @@ final class DeityAlignmentFilter extends AlignmentFilter
 
 		if (pObject instanceof Deity)
 		{
-			String deityAlign = ((Deity) pObject).getAlignment();
+			final String deityAlign = ((Deity) pObject).getAlignment();
 
 			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
 				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
@@ -1164,13 +1219,18 @@ final class DomainFilter extends AbstractPObjectFilter
 {
 	private Domain domain;
 
-	DomainFilter(Domain domain)
+	DomainFilter(final Domain aDomain)
 	{
-		super(PropertyFactory.getString("in_domains"), domain.getKeyName());
-		this.domain = domain;
+		super(PropertyFactory.getString("in_domains"), aDomain.getDisplayName()); //$NON-NLS-1$
+		this.domain = aDomain;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if ((pObject == null) || (domain == null))
 		{
@@ -1193,31 +1253,43 @@ final class DomainFilter extends AbstractPObjectFilter
 
 final class PantheonFilter extends AbstractPObjectFilter
 {
+	// TODO - This is really bogus
 	/** ALL = PropertyFactory.getString("in_allPanth") */
-	public static final String ALL = PropertyFactory.getString("in_allPanth");
-	/** HIGH = 0 */
-	public static final int HIGH = 0;
-	/** LOW = 1 */
-	public static final int LOW = 1;
-	private String pantheon;
-	private int detailLevel;
+	public static final String ALL = PropertyFactory.getString("in_allPanth"); //$NON-NLS-1$
+	
+	enum Detail {
+		/** Provide a high level of detail */
+		HIGH, 
+		/** Provide a lower level of detail */
+		LOW;
+	}
 
-	PantheonFilter(String pantheon, int argDetailLevel)
+	private String pantheon;
+	private Detail detailLevel;
+
+	PantheonFilter(final String aPantheon, Detail argDetailLevel)
 	{
 		super();
 		this.detailLevel = argDetailLevel;
-		this.pantheon = ((this.detailLevel == LOW) ? normalizePantheon(pantheon) : pantheon);
-		this.pantheon = ((this.pantheon.equalsIgnoreCase(ALL)) ? ALL : pantheon);
-		setCategory(PropertyFactory.getString("in_pantheon")
-			+ ((detailLevel == LOW) ? (" (" + PropertyFactory.getString("in_general") + ")")
-									: (" (" + PropertyFactory.getString("in_specific") + ")")));
+		this.pantheon = ((this.detailLevel == Detail.LOW) ? normalizePantheon(aPantheon) : aPantheon);
+		this.pantheon = ((this.pantheon.equalsIgnoreCase(ALL)) ? ALL : aPantheon);
+		setCategory(PropertyFactory.getString("in_pantheon") //$NON-NLS-1$
+			+ ((detailLevel == Detail.LOW) 
+				? String.format("(%1$s)", PropertyFactory.getString("in_general")) //$NON-NLS-1$ //$NON-NLS-2$
+				: String.format("(%1$s)", PropertyFactory.getString("in_specific"))));  //$NON-NLS-1$//$NON-NLS-2$
 		setName(this.pantheon);
-		setDescription((this.pantheon.equalsIgnoreCase(ALL)) ? PropertyFactory.getString("in_acceptPantAll")
-															 : (PropertyFactory.getString("in_acceptPantOne")
-			+ pantheon + " " + PropertyFactory.getString("in_acceptPantTwo")));
+
+		setDescription((this.pantheon.equalsIgnoreCase(ALL)) 
+				? PropertyFactory.getString("in_acceptPantAll") //$NON-NLS-1$
+				: PropertyFactory.getFormattedString("Filters.Pantheon.Description", pantheon)); //$NON-NLS-1$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1233,15 +1305,13 @@ final class PantheonFilter extends AbstractPObjectFilter
 				return true;
 			}
 
-			String tmp;
-
-			for (Iterator it = aDeity.getPantheonList().iterator(); it.hasNext();)
+			for ( final String panthName : aDeity.getPantheonList() )
 			{
-				tmp = (String) it.next();
+				String tmp = panthName;
 
-				if (detailLevel == LOW)
+				if (detailLevel == Detail.LOW)
 				{
-					tmp = normalizePantheon(tmp);
+					tmp = normalizePantheon(panthName);
 				}
 
 				if (pantheon.startsWith(tmp))
@@ -1251,8 +1321,6 @@ final class PantheonFilter extends AbstractPObjectFilter
 			}
 
 			return false;
-
-//  			return (aDeity.getPantheonList().size() == 0) || aDeity.getPantheonList().contains(pantheon);
 		}
 
 		return true;
@@ -1267,9 +1335,9 @@ final class PantheonFilter extends AbstractPObjectFilter
 	{
 		String work = s;
 
-		if (work.indexOf("(") > 0)
+		if (work.indexOf("(") > 0) //$NON-NLS-1$
 		{
-			work = (new StringTokenizer(work, "()")).nextToken().trim();
+			work = (new StringTokenizer(work, "()")).nextToken().trim(); //$NON-NLS-1$
 		}
 
 		return work;
@@ -1281,34 +1349,48 @@ final class PCAlignmentFilter extends AlignmentFilter
 {
 	PCAlignmentFilter()
 	{
-		this("default");
+		this(Mode.DEFAULT);
 	}
 
-	PCAlignmentFilter(String mode)
+	PCAlignmentFilter(final Mode aMode)
 	{
-		super(PropertyFactory.getString("in_alignLabel"), PropertyFactory.getString("in_pc"));
-		this.mode = mode;
+		super(PropertyFactory.getString("in_alignLabel"), PropertyFactory.getString("in_pc"));  //$NON-NLS-1$//$NON-NLS-2$
+		theMode = aMode;
 	}
 
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#getCategory()
+	 */
+	@Override
 	public String getCategory()
 	{
-		if ("default".equals(mode))
+		if (theMode.equals(Mode.DEFAULT))
 		{
 			return super.getCategory();
 		}
-		return super.getCategory() + " (" + mode + ")";
+		return super.getCategory() + " (" + theMode.toString() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
+	/**
+	 * Returns the name of this filter.
+	 * 
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#getName(pcgen.core.PlayerCharacter)
+	 */
+	@Override
 	public String getName(PlayerCharacter aPC)
 	{
 		if (aPC != null)
 		{
-			return super.getName(aPC) + " ("
-			+ SettingsHandler.getGame().getLongAlignmentAtIndex(aPC.getAlignment()) + ")";
+			return super.getName(aPC) + " (" //$NON-NLS-1$
+			+ SettingsHandler.getGame().getLongAlignmentAtIndex(aPC.getAlignment()) + ")"; //$NON-NLS-1$
 		}
 		return super.getName(aPC);
 	}
 
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
 	{
 		if (pObject == null)
@@ -1320,7 +1402,7 @@ final class PCAlignmentFilter extends AlignmentFilter
 
 		if (pObject instanceof Deity)
 		{
-			String deityAlign = ((Deity) pObject).getAlignment();
+			final String deityAlign = ((Deity) pObject).getAlignment();
 
 			if (deityAlign.equals(SettingsHandler.getGame().getShortAlignmentAtIndex(alignment))
 				|| deityAlign.equals(SettingsHandler.getGame().getLongAlignmentAtIndex(alignment)))
@@ -1357,9 +1439,13 @@ final class AutomaticFeatFilter extends AbstractPObjectFilter
 {
 	AutomaticFeatFilter()
 	{
-		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Automatic"));
+		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Automatic")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
 	{
 		if (pObject == null)
@@ -1381,10 +1467,14 @@ final class NormalFeatFilter extends AbstractPObjectFilter
 {
 	NormalFeatFilter()
 	{
-		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Normal"));
+		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Normal"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1412,12 +1502,13 @@ final class VirtualFeatFilter extends AbstractPObjectFilter
 	 */
 	VirtualFeatFilter()
 	{
-		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Virtual"));
+		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Virtual")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
 	 * @see pcgen.gui.filter.PObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
 	 */
+	@Override
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
 	{
 		if (pObject == null)
@@ -1444,10 +1535,14 @@ final class AffordableFilter extends AbstractPObjectFilter
 {
 	AffordableFilter()
 	{
-		super(PropertyFactory.getString("in_miscel"), PropertyFactory.getString("in_Affordable"));
+		super(PropertyFactory.getString("in_miscel"), PropertyFactory.getString("in_Affordable"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1456,6 +1551,7 @@ final class AffordableFilter extends AbstractPObjectFilter
 
 		if (pObject instanceof Equipment)
 		{
+			// TODO - Should this check to see if ignore cost is on?
 			return ((Equipment) pObject).getCost(aPC).compareTo(aPC.getGold()) < 1;
 		}
 
@@ -1468,10 +1564,15 @@ final class NonMagicFilter extends AbstractPObjectFilter
 {
 	NonMagicFilter()
 	{
-		super(PropertyFactory.getString("in_miscel"), PropertyFactory.getString("in_Non-Magic"));
+		super(PropertyFactory.getString("in_miscel"), PropertyFactory.getString("in_Non-Magic"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1492,15 +1593,19 @@ final class PCSizeFilter extends AbstractPObjectFilter
 {
 	PCSizeFilter()
 	{
-		super(PropertyFactory.getString("in_size"), PropertyFactory.getString("PC"));
+		super(PropertyFactory.getString("in_size"), PropertyFactory.getString("PC"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
-	public String getName(PlayerCharacter aPC)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#getName(pcgen.core.PlayerCharacter)
+	 */
+	@Override
+	public String getName(final PlayerCharacter aPC)
 	{
 		String pcName = super.getName(aPC);
 		if (aPC != null)
 		{
-			pcName += " (";
+			pcName += " ("; //$NON-NLS-1$
 			final SizeAdjustment sizeAdj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(aPC.sizeInt());
 			if (sizeAdj != null)
 			{
@@ -1511,7 +1616,11 @@ final class PCSizeFilter extends AbstractPObjectFilter
 		return pcName;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1533,49 +1642,36 @@ final class TypeFilter extends AbstractPObjectFilter
 {
 	private String type;
 
-	TypeFilter(String argType)
+	TypeFilter(final String argType)
 	{
 		this(argType, true);
 	}
 
-	TypeFilter(String argType, boolean capitalize)
+	TypeFilter(final String argType, final boolean capitalize)
 	{
-		super(PropertyFactory.getString("in_type"),
-			(capitalize) ? (argType.substring(0, 1).toUpperCase() + argType.substring(1).toLowerCase()) : argType);
+		super(PropertyFactory.getString("in_type"), //$NON-NLS-1$
+			(capitalize) ? CoreUtility.capitalizeFirstLetter(argType) : argType);
 		this.type = argType.toUpperCase();
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
 			return false;
 		}
 
-		if (pObject instanceof Equipment)
+		// TODO - Should this just return isType() for any PObject?
+		if (pObject instanceof Equipment
+		||  pObject instanceof PCClass
+		||  pObject instanceof Race)
 		{
 			return pObject.isType(type);
-		}
-		else if (pObject instanceof PCClass)
-		{
-			/*
-			 * removed old code due to the fact, that all PCClasses now
-			 * need a type string for the new class tab to work properly
-			 *
-			 * author: Thomas Behr 21-02-02
-			 */
-
-//                          if (type.equals("BASE")) {
-//                                  PCClass aPCClass = (PCClass)pObject;
-//                                  return !aPCClass.isPrestige() && !aPCClass.isMonster();
-//                          } else if (type.equals("PC")) {
-//                                  return ((PCClass)pObject).isPC();
-//                          }
-			return pObject.isType(type);
-		}
-		else if (pObject instanceof Race)
-		{
-			return pObject.getType().toUpperCase().equals(type);
 		}
 
 		return true;
@@ -1587,14 +1683,19 @@ final class WeaponFilter extends AbstractPObjectFilter
 {
 	private String type;
 
-	WeaponFilter(String argType)
+	WeaponFilter(final String argType)
 	{
-		super(PropertyFactory.getString("in_weapon"),
-			argType.substring(0, 1).toUpperCase() + argType.substring(1).toLowerCase());
+		super(PropertyFactory.getString("in_weapon"), //$NON-NLS-1$
+			CoreUtility.capitalizeFirstLetter(argType));
 		this.type = argType.toUpperCase();
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1620,13 +1721,18 @@ final class RankFilter extends AbstractPObjectFilter
 {
 	private double min;
 
-	RankFilter(double min)
+	RankFilter(final double aMin)
 	{
-		super(PropertyFactory.getString("in_skills"), PropertyFactory.getString("in_rank") + " > " + min);
-		this.min = min;
+		super(PropertyFactory.getString("in_skills"),  //$NON-NLS-1$
+			  PropertyFactory.getFormattedString("Filters.Rank.Name", aMin)); //$NON-NLS-1$
+		this.min = aMin;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1661,14 +1767,18 @@ final class RankModifierFilter extends AbstractPObjectFilter
 {
 	private double min;
 
-	RankModifierFilter(double min)
+	RankModifierFilter(final double aMin)
 	{
-		super(PropertyFactory.getString("in_skills"),
-			PropertyFactory.getString("in_rank") + " + " + PropertyFactory.getString("in_modifier") + " > " + min);
-		this.min = min;
+		super(PropertyFactory.getString("in_skills"), //$NON-NLS-1$
+			PropertyFactory.getFormattedString("Filters.RankMod.Name", aMin)); //$NON-NLS-1$
+		this.min = aMin;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1701,12 +1811,16 @@ final class RankModifierFilter extends AbstractPObjectFilter
 
 final class StatFilter extends AbstractPObjectFilter
 {
-	StatFilter(String stat)
+	StatFilter(final String stat)
 	{
-		super(PropertyFactory.getString("in_keyAbility"), stat.toUpperCase());
+		super(PropertyFactory.getString("in_keyAbility"), stat.toUpperCase()); //$NON-NLS-1$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1727,10 +1841,15 @@ final class UntrainedSkillFilter extends AbstractPObjectFilter
 {
 	UntrainedSkillFilter()
 	{
-		super(PropertyFactory.getString("in_skills"), PropertyFactory.getString("in_untrained"));
+		super(PropertyFactory.getString("in_skills"), PropertyFactory.getString("in_untrained")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1756,13 +1875,18 @@ final class CastingTimeFilter extends AbstractPObjectFilter
 {
 	private String castingTime;
 
-	CastingTimeFilter(String argCastingTime)
+	CastingTimeFilter(final String argCastingTime)
 	{
-		super(PropertyFactory.getString("in_castingTime"), argCastingTime);
+		super(PropertyFactory.getString("in_castingTime"), argCastingTime); //$NON-NLS-1$
 		castingTime = argCastingTime;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1785,11 +1909,16 @@ final class ComponentFilter extends AbstractPObjectFilter
 
 	ComponentFilter(String argComponent)
 	{
-		super(PropertyFactory.getString("in_component"), argComponent);
+		super(PropertyFactory.getString("in_component"), argComponent); //$NON-NLS-1$
 		this.component = argComponent;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1820,13 +1949,18 @@ final class DescriptorFilter extends AbstractPObjectFilter
 {
 	private String descriptor;
 
-	DescriptorFilter(String descriptor)
+	DescriptorFilter(final String aDescriptor)
 	{
-		super(PropertyFactory.getString("in_descriptor"), descriptor);
-		this.descriptor = descriptor;
+		super(PropertyFactory.getString("in_descriptor"), aDescriptor); //$NON-NLS-1$
+		this.descriptor = aDescriptor;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1847,13 +1981,18 @@ final class EffectTypeFilter extends AbstractPObjectFilter
 {
 	private String effectType;
 
-	EffectTypeFilter(String effectType)
+	EffectTypeFilter(final String anEffectType)
 	{
-		super(PropertyFactory.getString("in_effectType"), effectType);
-		this.effectType = effectType;
+		super(PropertyFactory.getString("in_effectType"), anEffectType); //$NON-NLS-1$
+		this.effectType = anEffectType;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1874,18 +2013,23 @@ final class RangeFilter extends AbstractPObjectFilter
 {
 	private String range;
 
-	RangeFilter(String range)
+	RangeFilter(final String aRange)
 	{
 		super();
-		this.range = range;
+		this.range = aRange;
 		this.range = normalizeCategory(this.range);
 		this.range = normalizeRange(this.range);
 
-		setCategory(PropertyFactory.getString("in_range"));
+		setCategory(PropertyFactory.getString("in_range")); //$NON-NLS-1$
 		setName(this.range);
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -1909,27 +2053,27 @@ final class RangeFilter extends AbstractPObjectFilter
 	{
 		String work = s.trim().toUpperCase();
 
-		if (work.startsWith("CLOSE"))
+		if (work.startsWith("CLOSE")) //$NON-NLS-1$
 		{
 			return "Close";
 		}
 
-		if (work.startsWith("MEDIUM"))
+		if (work.startsWith("MEDIUM")) //$NON-NLS-1$
 		{
 			return "Medium";
 		}
 
-		if (work.startsWith("LONG"))
+		if (work.startsWith("LONG")) //$NON-NLS-1$
 		{
 			return "Long";
 		}
 
-		if (work.startsWith("PERSONAL"))
+		if (work.startsWith("PERSONAL")) //$NON-NLS-1$
 		{
 			return "Personal";
 		}
 
-		if (work.startsWith("TOUCH"))
+		if (work.startsWith("TOUCH")) //$NON-NLS-1$
 		{
 			return "Touch";
 		}
@@ -1943,6 +2087,7 @@ final class RangeFilter extends AbstractPObjectFilter
 	 *
 	 * author: Thomas Behr 02-09-20
 	 */
+	// TODO - This doesn't belong here.  Move to spell code.
 	private static String normalizeRange(String s)
 	{
 		String work = s.trim();
@@ -1983,7 +2128,7 @@ final class RangeFilter extends AbstractPObjectFilter
 
 		int plusIndex = work.indexOf("+");
 
-		del = "";
+		del = Constants.EMPTY_STRING;
 
 		if (plusIndex > -1)
 		{
@@ -2072,13 +2217,18 @@ final class SchoolFilter extends AbstractPObjectFilter
 {
 	private String school;
 
-	SchoolFilter(String school)
+	SchoolFilter(final String aSchool)
 	{
-		super(PropertyFactory.getString("in_school"), school);
-		this.school = school;
+		super(PropertyFactory.getString("in_school"), aSchool); //$NON-NLS-1$
+		this.school = aSchool;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -2099,15 +2249,20 @@ final class SpellResistanceFilter extends AbstractPObjectFilter
 {
 	private String sr;
 
-	SpellResistanceFilter(String sr)
+	SpellResistanceFilter(final String anSR)
 	{
 		super();
-		this.sr = normalizeSpellResistance(sr);
-		setCategory(PropertyFactory.getString("in_spellRes"));
+		this.sr = normalizeSpellResistance(anSR);
+		setCategory(PropertyFactory.getString("in_spellRes")); //$NON-NLS-1$
 		setName(this.sr);
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -2127,7 +2282,7 @@ final class SpellResistanceFilter extends AbstractPObjectFilter
 	 *
 	 * author: Thomas Behr 02-09-20
 	 */
-	private static String normalizeSpellResistance(String s)
+	private static String normalizeSpellResistance(final String s)
 	{
 		String work = s.trim().toUpperCase();
 
@@ -2150,15 +2305,20 @@ final class SubschoolFilter extends AbstractPObjectFilter
 {
 	private String school;
 
-	SubschoolFilter(String school)
+	SubschoolFilter(final String aSchool)
 	{
 		super();
-		this.school = normalizeSubschool(school);
-		setCategory(PropertyFactory.getString("in_subschool"));
+		this.school = normalizeSubschool(aSchool);
+		setCategory(PropertyFactory.getString("in_subschool")); //$NON-NLS-1$
 		setName(this.school);
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -2201,13 +2361,18 @@ final class FavoredClassFilter extends AbstractPObjectFilter
 {
 	private String className;
 
-	FavoredClassFilter(String className)
+	FavoredClassFilter(final String aClassName)
 	{
-		super(PropertyFactory.getString("in_favoredClass"), className);
-		this.className = className.toUpperCase();
+		super(PropertyFactory.getString("in_favoredClass"), aClassName); //$NON-NLS-1$
+		this.className = aClassName.toUpperCase();
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -2228,13 +2393,18 @@ final class SizeFilter extends AbstractPObjectFilter
 {
 	private int size;
 
-	SizeFilter(int size)
+	SizeFilter(final int aSize)
 	{
-		super(PropertyFactory.getString("in_size"), SettingsHandler.getGame().getSizeAdjustmentAtIndex(size).getDisplayName());
-		this.size = size;
+		super(PropertyFactory.getString("in_size"), SettingsHandler.getGame().getSizeAdjustmentAtIndex(aSize).getDisplayName()); //$NON-NLS-1$
+		this.size = aSize;
 	}
 
-	public boolean accept(PlayerCharacter aPC, PObject pObject)
+	/**
+	 * @see pcgen.gui.filter.AbstractPObjectFilter#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
+	 */
+	@Override
+	public boolean accept(@SuppressWarnings("unused")final PlayerCharacter aPC, 
+							final PObject pObject)
 	{
 		if (pObject == null)
 		{

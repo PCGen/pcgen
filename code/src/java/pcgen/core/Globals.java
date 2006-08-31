@@ -918,24 +918,38 @@ public final class Globals
 
 	/**
 	 * Remove the Ability object whose Key matches the String passed in.
-	 * @param category
+	 * 
+	 * @param aCategory
 	 * @param aKey The key of the Ability to remove
 	 * @return true or false
 	 */
-	public static boolean removeAbilityKeyed (final String category, final String aKey)
+	public static boolean removeAbilityKeyed( final AbilityCategory aCategory, final String aKey )
 	{
-		return abilityStore.removeKeyed(category, aKey);
+		return abilityStore.removeKeyed(aCategory.getKeyName(), aKey);
 	}
 
+	// TODO - Remove this version
+	public static boolean removeAbilityKeyed( final String aCategory, final String aKey )
+	{
+		return abilityStore.removeKeyed(aCategory, aKey);
+	}
+	
 	/**
-	 * Get the Ability whose Key matches the String passed in
-	 * @param category
-	 * @param aKey the KEY of the Ability to return
+	 * Get the Ability whose Key matches the String passed in.
+	 * 
+	 * @param aCategory The category of the Ability to return.
+	 * @param aKey The KEY of the Ability to return
 	 * @return Ability
 	 */
-	public static Ability getAbilityKeyed (final String category, final String aKey)
+	public static Ability getAbilityKeyed( final AbilityCategory aCategory, final String aKey )
 	{
-		return (Ability) abilityStore.getKeyed(category, aKey);
+		return (Ability)abilityStore.getKeyed(aCategory.getKeyName(), aKey);
+	}
+
+	// TODO - Remove this version
+	public static Ability getAbilityKeyed( final String aCategory, final String aKey )
+	{
+		return (Ability)abilityStore.getKeyed(aCategory, aKey);
 	}
 
 	/**
@@ -962,6 +976,28 @@ public final class Globals
 		return abilityStore.getNameIterator(aCategory);
 	}
 
+	/**
+	 * Returns a list of abilities of the specified category.
+	 * 
+	 * @param aCategory The category of Ability to return
+	 * 
+	 * @return An <b>unmodifiable</b> list of the Ability objects currently 
+	 * loaded
+	 */
+	public static List<Ability> getAbilityList( final AbilityCategory aCategory )
+	{
+		final List<? extends Categorisable> abilities = abilityStore.getUnmodifiableList( aCategory.getKeyName() );
+		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
+		for ( final Categorisable ab : abilities )
+		{
+			if ( ab instanceof Ability )
+			{
+				ret.add( (Ability)ab );
+			}
+		}
+		return Collections.unmodifiableList(ret);
+	}
+	
 	/**
 	 * For the rare method that does actually need a list of Ability
 	 * objects rather than an iterator.

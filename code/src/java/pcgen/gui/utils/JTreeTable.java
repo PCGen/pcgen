@@ -18,26 +18,48 @@
  **/
 package pcgen.gui.utils;
 
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.EventObject;
+import java.util.List;
+
+import javax.swing.CellRendererPane;
+import javax.swing.JComponent;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JTable;
+import javax.swing.JTree;
+import javax.swing.KeyStroke;
+import javax.swing.ListSelectionModel;
+import javax.swing.LookAndFeel;
+import javax.swing.UIManager;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeSelectionModel;
+import javax.swing.tree.TreeCellRenderer;
+import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
+
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.utils.MessageType;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.tree.*;
-import java.awt.*;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.util.*;
-import java.util.List;
+import pcgen.util.PropertyFactory;
 
 /**
  * This example shows how to create a simple JTreeTable component,
@@ -79,9 +101,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		   Fix done by LeeAnn Rucker, formerly at Apple for Javasoft.
 		   Added to pcgen by Scott Ellsworth
 		 */
-		UIManager.put("TreeTableUI", "javax.swing.plaf.metal.MetalTreeUI");
-		UIManager.put("Tree.leftChildIndent", new Integer(3));
-		UIManager.put("Tree.rightChildIndent", new Integer(8));
+		UIManager.put("TreeTableUI", "javax.swing.plaf.metal.MetalTreeUI"); //$NON-NLS-1$ //$NON-NLS-2$
+		UIManager.put("Tree.leftChildIndent", new Integer(3)); //$NON-NLS-1$
+		UIManager.put("Tree.rightChildIndent", new Integer(8)); //$NON-NLS-1$
 
 		// Create the tree. It will be used as a renderer and editor.
 		tree = new TreeTableCellRenderer(treeTableModel);
@@ -127,6 +149,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * editing row in this case, ensures the editor is never painted.
 	 * @return editing row
 	 **/
+	@Override
 	public int getEditingRow()
 	{
 		return (getColumnClass(editingColumn) == TreeTableModel.class) ? (-1) : editingRow;
@@ -160,13 +183,14 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 	/**
 	 * Overridden to pass the new rowHeight to the tree.
-	 * @param rowHeight
+	 * @param aRowHeight
 	 **/
-	public void setRowHeight(int rowHeight)
+	@Override
+	public void setRowHeight(int aRowHeight)
 	{
-		super.setRowHeight(rowHeight);
+		super.setRowHeight(aRowHeight);
 
-		if ((tree != null) && (tree.getRowHeight() != rowHeight))
+		if ((tree != null) && (tree.getRowHeight() != aRowHeight))
 		{
 			tree.setRowHeight(getRowHeight());
 		}
@@ -239,7 +263,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	/**
 	 * @see java.awt.event.KeyListener#keyReleased(KeyEvent)
 	 **/
-	public void keyReleased(KeyEvent ke)
+	public void keyReleased(@SuppressWarnings("unused")KeyEvent ke)
 	{
 		// TODO This method currently does nothing?
 	}
@@ -355,6 +379,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * @param aRect the visible <code>Rectangle</code>
 	 * @see javax.swing.JViewport
 	 */
+	@Override
 	public void scrollRectToVisible(Rectangle aRect)
 	{
 		Container parent;
@@ -400,6 +425,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * Since the tree is not actually in the component hieachy it will
 	 * never receive this unless we forward it in this manner.
 	 **/
+	@Override
 	public void updateUI()
 	{
 		super.updateUI();
@@ -411,7 +437,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 		// Use the tree's default foreground and background
 		// colors in the table
-		LookAndFeel.installColorsAndFont(this, "Tree.background", "Tree.foreground", "Tree.font");
+		LookAndFeel.installColorsAndFont(this, "Tree.background", "Tree.foreground", "Tree.font");  //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
 	}
 
 	/**
@@ -539,12 +565,12 @@ public final class JTreeTable extends JTableEx implements KeyListener
 				else
 				{
 					String aString = node.getNodeName();
-					if ("".equals(aString))
+					if (Constants.EMPTY_STRING.equals(aString))
 					{
 						aString = node.toString();
-						if (aString.indexOf("|") != -1)
+						if (aString.indexOf(Constants.PIPE) != -1)
 						{
-							aString = aString.substring(aString.lastIndexOf("|")+1);
+							aString = aString.substring(aString.lastIndexOf(Constants.PIPE)+1);
 						}
 					}
 
@@ -662,7 +688,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * @param w
 		 * @param h
 		 **/
-		public void setBounds(int x, int y, int w, int h)
+		@Override
+		public void setBounds(int x, @SuppressWarnings("unused")int y, 
+							  int w, @SuppressWarnings("unused")int h)
 		{
 			super.setBounds(x, 0, w, JTreeTable.this.getHeight());
 		}
@@ -670,15 +698,16 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		/**
 		 * Sets the row height of the tree and forwards
 		 * the row height to the table.
-		 * @param rowHeight
+		 * @param aRowHeight
 		 **/
-		public void setRowHeight(int rowHeight)
+		@Override
+		public void setRowHeight(int aRowHeight)
 		{
-			if (rowHeight > 0)
+			if (aRowHeight > 0)
 			{
-				super.setRowHeight(rowHeight);
+				super.setRowHeight(aRowHeight);
 
-				if ((JTreeTable.this != null) && (JTreeTable.this.getRowHeight() != rowHeight))
+				if ((JTreeTable.this != null) && (JTreeTable.this.getRowHeight() != aRowHeight))
 				{
 					JTreeTable.this.setRowHeight(JTreeTable.this.getRowHeight());
 				}
@@ -696,8 +725,10 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * @param column
 		 * @return Component
 		 **/
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-			boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, 
+				@SuppressWarnings("unused")Object value, boolean isSelected,
+				@SuppressWarnings("unused")boolean hasFocus, int row, 
+				@SuppressWarnings("unused")int column)
 		{
 			if (isSelected)
 			{
@@ -717,9 +748,10 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * Fix to bad event handling on MacOS X
 		 * @return UI Class ID
 		 **/
+		@Override
 		public String getUIClassID()
 		{
-			return "TreeTableUI";
+			return "TreeTableUI"; //$NON-NLS-1$
 		}
 
 		/**
@@ -727,7 +759,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * that the last visible row will be drawn at 0,0.
 		 * @param g
 		 **/
-		public void paint(Graphics g)
+		@Override
+		public void paint(final Graphics g)
 		{
 			g.translate(0, -visibleRow * JTreeTable.this.getRowHeight());
 			try {
@@ -742,6 +775,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * updateUI is overridden to set the colors
 		 * of the Trees renderer to match that of the table.
 		 **/
+		@Override
 		public void updateUI()
 		{
 			super.updateUI();
@@ -753,8 +787,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			if (tcr instanceof DefaultTreeCellRenderer)
 			{
 				DefaultTreeCellRenderer dtcr = ((DefaultTreeCellRenderer) tcr);
-				dtcr.setTextSelectionColor(UIManager.getColor("Table.selectionForeground"));
-				dtcr.setBackgroundSelectionColor(UIManager.getColor("Table.selectionBackground"));
+				dtcr.setTextSelectionColor(UIManager.getColor("Table.selectionForeground")); //$NON-NLS-1$
+				dtcr.setBackgroundSelectionColor(UIManager.getColor("Table.selectionBackground")); //$NON-NLS-1$
 			}
 		}
 	}
@@ -783,6 +817,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * and message super. This is the only place
 		 * DefaultTreeSelectionModel alters the ListSelectionModel.
 		 **/
+		@Override
 		public void resetRowSelection()
 		{
 			if (!updatingListSelectionModel)
@@ -893,7 +928,11 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 **/
 		final class ListSelectionHandler implements ListSelectionListener
 		{
-			public void valueChanged(ListSelectionEvent e)
+			/**
+			 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
+			 */
+			public void valueChanged(
+					@SuppressWarnings("unused")ListSelectionEvent e)
 			{
 				updateSelectedPathsFromSelectedRows();
 			}
@@ -925,7 +964,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		{
 			if (System.currentTimeMillis() > (lastMSecs + timeToWait))
 			{
-				return "";
+				return Constants.EMPTY_STRING;
 			}
 			return keyBuffer;
 		}
@@ -938,7 +977,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		{
 			if (System.currentTimeMillis() > (lastMSecs + timeToWait))
 			{
-				keyBuffer = "";
+				keyBuffer = Constants.EMPTY_STRING;
 			}
 
 			keyBuffer += String.valueOf(Character.toLowerCase(character));
@@ -950,7 +989,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 */
 		public void clearBuffer()
 		{
-			keyBuffer = "";
+			keyBuffer = Constants.EMPTY_STRING;
 		}
 	}
 
@@ -980,6 +1019,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * @param e
 		 * @return true if cell editable
 		 */
+		@Override
 		public boolean isCellEditable(EventObject e)
 		{
 			if (e instanceof MouseEvent)
@@ -1001,7 +1041,15 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			return false;
 		}
 
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int r, int c)
+		/**
+		 * @see javax.swing.table.TableCellEditor#getTableCellEditorComponent(javax.swing.JTable, java.lang.Object, boolean, int, int)
+		 */
+		public Component getTableCellEditorComponent(
+				@SuppressWarnings("unused")JTable table, 
+				@SuppressWarnings("unused")Object value, 
+				@SuppressWarnings("unused")boolean isSelected, 
+				@SuppressWarnings("unused")int r, 
+				@SuppressWarnings("unused")int c)
 		{
 			return tree;
 		}
@@ -1015,7 +1063,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	public String searchTree(final String lastSearch)
 	{
 		InputInterface ii = InputFactory.getInputInstance();
-		Object selectedValue = ii.showInputDialog(null, "Enter the name of the item to find",
+		Object selectedValue = ii.showInputDialog(null, 
+				PropertyFactory.getString("TreeTable.Prompt.Search"), //$NON-NLS-1$
 				Constants.s_APPNAME, MessageType.INFORMATION, null, lastSearch);
 
 		String aString = ((String) selectedValue);
@@ -1031,8 +1080,133 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		}
 		else
 		{
-			aString = "";
+			aString = Constants.EMPTY_STRING;
 		}
 		return aString;
+	}
+	
+	/**
+	 * Associates a popup menu with the tree table.
+	 * 
+	 * <p>This handles showing the popup based on a right click and also handles
+	 * any menu accelerators.
+	 * 
+	 * @param aPopupMenu Menu to associate.
+	 */
+	public void addPopupMenu(final JPopupMenu aPopupMenu)
+	{
+		addMouseListener(new PopupListener(this, aPopupMenu));
+	}
+
+	private class PopupListener extends MouseAdapter
+	{
+		private JPopupMenu theMenu;
+		private JTree theTree;
+
+		private PopupListener(final JTreeTable treeTable, final JPopupMenu aMenu)
+		{
+			theTree = treeTable.getTree();
+			theMenu = aMenu;
+
+			KeyListener myKeyListener = new KeyListener()
+				{
+					public void keyTyped(KeyEvent e)
+					{
+						dispatchEvent(e);
+					}
+
+					// Walk through the list of accelerators
+					// to see if the user has pressed a sequence
+					// used by the popup. This would not
+					// happen unless the popup was showing
+					//
+					public void keyPressed(KeyEvent e)
+					{
+						final int keyCode = e.getKeyCode();
+
+						if (keyCode != KeyEvent.VK_UNDEFINED)
+						{
+							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+
+							for (int i = 0; i < theMenu.getComponentCount(); ++i)
+							{
+								final Component menuComponent = theMenu.getComponent(i);
+
+								if (menuComponent instanceof JMenuItem)
+								{
+									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+
+									if ((ks != null) && keyStroke.equals(ks))
+									{
+										((JMenuItem) menuComponent).doClick(2);
+
+										return;
+									}
+								}
+							}
+						}
+
+						dispatchEvent(e);
+					}
+
+					public void keyReleased(KeyEvent e)
+					{
+						dispatchEvent(e);
+					}
+				};
+
+			treeTable.addKeyListener(myKeyListener);
+		}
+
+		/**
+		 * Overridden to potential show the popup menu.
+		 * 
+		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+		 */
+		@Override
+		public void mousePressed(MouseEvent evt)
+		{
+			maybeShowPopup(evt);
+		}
+
+		/**
+		 * Overridden to potentially show the popup menu.
+		 * 
+		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+		 */
+		@Override
+		public void mouseReleased(MouseEvent evt)
+		{
+			maybeShowPopup(evt);
+		}
+
+		private void maybeShowPopup(MouseEvent evt)
+		{
+			if (evt.isPopupTrigger())
+			{
+				final TreePath selPath = theTree.getClosestPathForLocation(evt.getX(), evt.getY());
+
+				if (selPath == null)
+				{
+					return;
+				}
+
+				if (theTree.isSelectionEmpty())
+				{
+					theTree.setSelectionPath(selPath);
+					theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+				}
+				else if (!theTree.isPathSelected(selPath))
+				{
+					theTree.setSelectionPath(selPath);
+					theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+				}
+				else
+				{
+					theTree.addSelectionPath(selPath);
+					theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+				}
+			}
+		}
 	}
 }

@@ -1,6 +1,6 @@
 /*
- * InfoRace.java
- * Copyright 2002 (C) Bryan McRoberts
+ * InfoAbilities.java
+ * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,66 +16,67 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @author  Bryan McRoberts (merton_monk@yahoo.com)
- * Created on May 1, 2001, 5:57 PM
- * ReCreated on Feb 22, 2002 7:45 AM
- *
  * Current Ver: $Revision$
- * Last Editor: $Author$
+ * Last Editor: $Author: zaister $
  * Last Edited: $Date$
  *
  */
 package pcgen.gui.tabs;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.util.enumeration.Tab;
 
 /**
- *  <code>InfoRace</code> creates a new tabbed panel
- *  with all the race and template information on it
+ * This is a container tab that contains all the sub tabs for ability 
+ * categories.
  *
- * @author  Bryan McRoberts (merton_monk@yahoo.com)
- * @version $Revision$
- **/
-public final class InfoRace extends TabContainer
+ * @author boomer70 <boomer70@yahoo.com>
+ * 
+ * @since 5.11.1
+ */
+public class InfoAbilities extends TabContainer
 {
-	private static final Tab tab = Tab.RACE_MASTER;
+	private static final Tab tab = Tab.ABILITIES;
 
 	/**
 	 * Constructor
+	 * 
 	 * @param aPC The PC to display information for.
 	 */
-	public InfoRace(final PlayerCharacter aPC)
+	public InfoAbilities(final PlayerCharacter aPC)
 	{
 		super(aPC);
-		
-		addSubTab( new InfoRaces(aPC) );
-		addSubTab( new InfoTemplates(aPC) );
-	}
 
-	/**
-	 * @see pcgen.gui.CharacterInfoTab#getTabOrder()
-	 */
-	public int getTabOrder() 
-	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
-	}
-
-	/**
-	 * @see pcgen.gui.CharacterInfoTab#setTabOrder(int)
-	 */
-	public void setTabOrder(final int order) 
-	{
-		SettingsHandler.setPCGenOption(".Panel.Race.Order", order); //$NON-NLS-1$
+		// TODO - Find all the tabs we need to create
+		addSubTab( new InfoFeats(aPC) );
+//		addSubTab( new InfoAbility(aPC, AbilityCategory.FEAT) );
 	}
 
 	/**
 	 * @see pcgen.gui.tabs.TabContainer#getTab()
 	 */
 	@Override
-	public Tab getTab()
+	protected Tab getTab()
 	{
 		return tab;
 	}
+
+	/**
+	 * @see pcgen.gui.CharacterInfoTab#getTabOrder()
+	 */
+	public int getTabOrder()
+	{
+		return SettingsHandler.getPCGenOption(".Panel.Abilities.Order", tab.ordinal()); //$NON-NLS-1$
+	}
+
+	/**
+	 * @see pcgen.gui.CharacterInfoTab#setTabOrder(int)
+	 */
+	public void setTabOrder(final int anOrder)
+	{
+		SettingsHandler.setPCGenOption(".Panel.Abilities.Order", anOrder); //$NON-NLS-1$
+	}
+
 }

@@ -389,8 +389,6 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		FilterFactory.registerAllSourceFilters(this);
 		FilterFactory.registerAllSizeFilters(this);
 		FilterFactory.registerAllEquipmentFilters(this);
-
-		setKitFilter("GEAR");
 	}
 
 	/**

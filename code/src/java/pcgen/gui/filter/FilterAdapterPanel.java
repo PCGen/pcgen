@@ -20,13 +20,13 @@
  */
 package pcgen.gui.filter;
 
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 
 /**
  * <code>FilterAdapterPanel</code>
@@ -36,10 +36,9 @@ import java.util.List;
  */
 public abstract class FilterAdapterPanel extends JPanel implements Filterable
 {
-	private List availableFilters = new ArrayList(0);
-	private List removedFilters = new ArrayList(0);
-	private List selectedFilters = new ArrayList(0);
-	private String kitFilter = "";
+	private List<PObjectFilter> availableFilters = new ArrayList<PObjectFilter>(0);
+	private List<PObjectFilter> removedFilters = new ArrayList<PObjectFilter>(0);
+	private List<PObjectFilter> selectedFilters = new ArrayList<PObjectFilter>(0);
 	private int filterMode = FilterConstants.MATCH_ALL;
 
 	/**
@@ -50,7 +49,7 @@ public abstract class FilterAdapterPanel extends JPanel implements Filterable
 	 *
 	 * @return a list with the available filters for this Filterable
 	 */
-	public final List getAvailableFilters()
+	public final List<PObjectFilter> getAvailableFilters()
 	{
 		return availableFilters;
 	}
@@ -89,7 +88,7 @@ public abstract class FilterAdapterPanel extends JPanel implements Filterable
 	 *
 	 * @return a list with the removed filters for this Filterable
 	 */
-	public final List getRemovedFilters()
+	public final List<PObjectFilter> getRemovedFilters()
 	{
 		return removedFilters;
 	}
@@ -102,7 +101,7 @@ public abstract class FilterAdapterPanel extends JPanel implements Filterable
 	 *
 	 * @return a list with the selected filters for this Filterable
 	 */
-	public final List getSelectedFilters()
+	public final List<PObjectFilter> getSelectedFilters()
 	{
 		return selectedFilters;
 	}
@@ -182,24 +181,6 @@ public abstract class FilterAdapterPanel extends JPanel implements Filterable
 	public abstract void refreshFiltering();
 
 	/**
-	 * Set kit filter
-	 * @param argKitFilter
-	 */
-	public final void setKitFilter(String argKitFilter)
-	{
-		kitFilter = argKitFilter;
-	}
-
-	/**
-	 * Get Kit Filter
-	 * @return kit filter
-	 */
-	public final String getKitFilter()
-	{
-		return kitFilter;
-	}
-
-	/**
 	 * apply all selected filters in the chosen mode for a specific PObject
 	 *
 	 * <br>author: Thomas Behr 10-02-02
@@ -207,7 +188,7 @@ public abstract class FilterAdapterPanel extends JPanel implements Filterable
 	 * @param pObject - the PObject to test for filter acceptance
 	 * @return TRUE or FALSE
 	 */
-	protected final boolean accept(PlayerCharacter aPC, PObject pObject)
+	public final boolean accept(PlayerCharacter aPC, PObject pObject)
 	{
 		if (pObject == null)
 		{
@@ -215,12 +196,8 @@ public abstract class FilterAdapterPanel extends JPanel implements Filterable
 		}
 
 		final int mode = getFilterMode();
-		PObjectFilter filter;
-
-		for (Iterator it = getSelectedFilters().iterator(); it.hasNext();)
+		for ( PObjectFilter filter : getSelectedFilters() )
 		{
-			filter = (PObjectFilter) it.next();
-
 			if ((mode == FilterConstants.MATCH_ALL) && !filter.accept(aPC, pObject))
 			{
 				return false;

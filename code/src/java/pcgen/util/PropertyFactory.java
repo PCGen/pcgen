@@ -20,6 +20,7 @@
  */
 package pcgen.util;
 
+import pcgen.core.Constants;
 import pcgen.core.Globals;
 
 import java.text.MessageFormat;
@@ -40,7 +41,7 @@ import java.util.ResourceBundle;
 public final class PropertyFactory
 {
 	/** Undefined Property */
-	public static final String UNDEFINED = " not defined.";
+	public static final String UNDEFINED = " not defined."; //$NON-NLS-1$
     
     private static ResourceBundle bundle;
 
@@ -125,7 +126,7 @@ public final class PropertyFactory
 	{
 		Locale locale = null;
 		String language = Globals.getLanguage();
-		if (language == null || language.equals(""))
+		if (language == null || language.equals(Constants.EMPTY_STRING))
 		{
 			locale = Locale.getDefault();
 		}
@@ -140,12 +141,12 @@ public final class PropertyFactory
 
 		try
 		{
-			bundle = ResourceBundle.getBundle("pcgen/gui/prop/LanguageBundle", locale);
+			bundle = ResourceBundle.getBundle("pcgen/gui/prop/LanguageBundle", locale); //$NON-NLS-1$
 		}
 		catch (MissingResourceException mrex)
 		{
 			bundle = null;
-			Logging.errorPrint("Can't find language bundle", mrex);
+			Logging.errorPrint("Can't find language bundle", mrex); //$NON-NLS-1$
 		}
 	}
 }

@@ -1120,7 +1120,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoClasses());
 		pane.setPaneForUpdate(pane.infoSkills());
-		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoAbilities());
 		pane.setPaneForUpdate(pane.infoDomain());
 		pane.setPaneForUpdate(pane.infoSpells());
 		pane.setPaneForUpdate(pane.infoInventory());
@@ -2597,7 +2597,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				PCGen_Frame1.forceUpdate_PlayerTabs();
 				CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 				pane.setPaneForUpdate(pane.infoRace());
-				pane.setPaneForUpdate(pane.infoFeats());
+				pane.setPaneForUpdate(pane.infoAbilities());
 				pane.setPaneForUpdate(pane.infoSkills());
 				pane.setPaneForUpdate(pane.infoSpells());
 				infoSpecialAbilities.refresh();

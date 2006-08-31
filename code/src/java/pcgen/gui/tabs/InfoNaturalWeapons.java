@@ -195,8 +195,6 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		FilterFactory.registerAllSourceFilters(this);
 		FilterFactory.registerAllSizeFilters(this);
 		FilterFactory.registerAllEquipmentFilters(this);
-
-		setKitFilter("NATURALWEAPON");
 	}
 
 	/**

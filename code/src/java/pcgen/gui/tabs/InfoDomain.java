@@ -1253,7 +1253,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
 		pane.setPaneForUpdate(pane.infoSpells());
-		pane.setPaneForUpdate(pane.infoFeats());
+		pane.setPaneForUpdate(pane.infoAbilities());
 		pane.refresh();
 	}
 

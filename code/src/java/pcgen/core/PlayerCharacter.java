@@ -1607,6 +1607,52 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setDirty(true);
 	}
 
+	public BigDecimal getTotalAbilityPool( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return BigDecimal.valueOf(getFeats());
+		}
+		Float basePool = this.getVariableValue(aCategory.getPoolFormula(), getClass().toString());
+		double bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
+		return BigDecimal.valueOf(basePool + bonus);
+	}
+
+	public BigDecimal getAbilityPoolSpent( final AbilityCategory aCategory )
+	{
+		double spent = 0.0d;
+		
+		final List<Ability> abilities = getSelectedAbilities( aCategory );
+		for ( final Ability ability : abilities )
+		{
+			final int subfeatCount = ability.getAssociatedCount();
+
+			if (subfeatCount > 1)
+			{
+				spent += subfeatCount;
+			}
+			else
+			{
+				spent += ability.getCost(this);
+			}
+		}
+		return BigDecimal.valueOf(spent);
+	}
+	
+	public BigDecimal getAvailableAbilityPool( final AbilityCategory aCategory )
+	{
+		return getTotalAbilityPool(aCategory).subtract(getAbilityPoolSpent(aCategory));
+	}
+	
+	public List<Ability> getSelectedAbilities( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getRealFeatList();
+		}
+		return Collections.emptyList();
+	}
+	
 	public double getFeats()
 	{
 		if (Globals.getGameModeHasPointPool())
@@ -1678,7 +1724,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final boolean qualify     = this.qualifiesForFeat(anAbility);
 		final boolean canTakeMult = anAbility.isMultiples();
-//		final boolean hasOrdinary = this.hasRealFeatNamed(anAbility.getName());
 		final boolean hasOrdinary = this.hasRealFeat(anAbility);
 		final boolean hasAuto     = this.hasFeatAutomatic(anAbility.getKeyName());
 
@@ -4938,6 +4983,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return favored;
 	}
 
+	public Ability getAbilityAutomaticKeyed(final AbilityCategory aCategory, final String anAbilityKey)
+	{
+		return AbilityUtilities.getAbilityFromList(abilityAutoList(aCategory), aCategory.getKeyName(), anAbilityKey, -1);
+	}
+	
 	public Ability getFeatAutomaticKeyed(final String aFeatKey)
 	{
 		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", aFeatKey, -1);
@@ -8596,6 +8646,20 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return calcACOfType("Equipment") + calcACOfType("Armor");
 	}
 
+	public List<Ability> abilityAutoList(final AbilityCategory aCategory)
+	{
+		if ( aCategory.equals(AbilityCategory.FEAT) )
+		{
+			return featAutoList();
+		}
+		return Collections.emptyList();
+//		final List<Ability> autoAbilityList = getStableAutomaticAbilityList(aCategory);
+//		
+//		if ( autoAbilityList != null )
+//		{
+//			return autoAbilityList;
+//		}
+	}
 	public List<Ability> featAutoList()
 	{
 		final List<Ability> autoFeatList = getStableAutomaticFeatList();

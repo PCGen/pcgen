@@ -29,8 +29,6 @@ package pcgen.gui.tabs;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,12 +47,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
-import javax.swing.InputVerifier;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
@@ -63,12 +58,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JTree;
-import javax.swing.JViewport;
 import javax.swing.KeyStroke;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
@@ -78,10 +71,10 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.tree.TreePath;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Categorisable;
 import pcgen.core.Constants;
-import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
@@ -91,20 +84,19 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfo;
-import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.GuiConstants;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.TableColumnManager;
 import pcgen.gui.TableColumnManagerModel;
-import pcgen.gui.filter.FilterAdapterPanel;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui.tabs.ability.AbilityInfoPanel;
+import pcgen.gui.tabs.ability.AbilityPoolPanel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
 import pcgen.gui.utils.JTreeTableMouseAdapter;
 import pcgen.gui.utils.JTreeTableSorter;
@@ -129,14 +121,13 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  * TODO I18N
  */
-public final class InfoFeats extends FilterAdapterPanel implements CharacterInfoTab
+public final class InfoFeats extends BaseCharacterInfoTab
 {
 	private static final Tab tab = Tab.ABILITIES;
 	
 	private static final String NO_QUALIFY_MESSAGE = "You do not meet the prerequisites required to take this " + getSingularTabName() + ".";
 	private static final String DUPLICATE_MESSAGE  = "You already have that " + getSingularTabName() + ".";
 	private static String FEAT_FULL_MESSAGE  = "You cannot select any more " + getSingularTabName() + "s.";
-	private static boolean needsUpdate = true;
 	private static PObjectNode typeRoot = new PObjectNode();
 	private static PObjectNode preReqTreeRoot = null;
 	private static PObjectNode sourceRoot = new PObjectNode();
@@ -172,15 +163,11 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private JComboBoxEx viewAvailComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JCheckBox chkViewAll = new JCheckBox();
-	private JLabelPane infoLabel = new JLabelPane();
 	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
 	private final JLabel lblSelectedQFilter  = new JLabel("Filter:");
-	private JLabel featsRemainingLabel = new JLabel();
 	private JMenuItem addMenu;
 	private JMenuItem removeMenu;
 	private JPanel topPane = new JPanel();
-	private JScrollPane infoScroll = new JScrollPane();
-	private JTextField numFeatsField = new JTextField();
 	private JTextField textAvailableQFilter = new JTextField();
 	private JTextField textSelectedQFilter = new JTextField();
 	private JTreeTable availableTable; // the available Feats
@@ -190,17 +177,18 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	private TreePath selPath;
 	private boolean hasBeenSized = false;
 
-	private PlayerCharacter pc;
-	private int serial = 0;
 	private boolean readyForRefresh = false;
 
+	private AbilityInfoPanel theInfoPanel = null;
+	private AbilityPoolPanel thePoolPanel = null;
+	
 	/**
 	 * Constructor
 	 * @param pc
 	 */
 	public InfoFeats(PlayerCharacter pc)
 	{
-		this.pc = pc;
+		super(pc);
 		// we will use the name to save component
 		// specific settings in the options.ini file
 		setName(tab.toString());
@@ -215,35 +203,24 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			});
 	}
 
-	public void setPc(PlayerCharacter pc)
-	{
-		if(this.pc != pc || pc.getSerial() > serial)
-		{
-			this.pc = pc;
-			serial = pc.getSerial();
-			forceRefresh();
-		}
-	}
-
-	public PlayerCharacter getPc()
-	{
-		return pc;
-	}
-
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTabOrder()
+	 */
+	@Override
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Feats.Order", tab.ordinal());
+		// TODO - This doesn't seem to be used.
+		return SettingsHandler.getPCGenOption(".Panel.Feats.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#setTabOrder(int)
+	 */
+	@Override
 	public void setTabOrder(int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.Feats.Order", order);
-	}
-
-	public String getTabName()
-	{
-		GameMode game = SettingsHandler.getGame();
-		return game.getTabName(tab);
+		// TODO - This doesn't seem to be used.
+		SettingsHandler.setPCGenOption(".Panel.Feats.Order", order); //$NON-NLS-1$
 	}
 
 	private static String getSingularTabName()
@@ -255,99 +232,92 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		return singularName;
 	}
 
-	public boolean isShown()
-	{
-		GameMode game = SettingsHandler.getGame();
-		return game.getTabShown(tab);
-	}
-
 	/**
 	 * Retrieve the list of tasks to be done on the tab.
+	 * 
+	 * <p>Checks to see if any abilities of this type have to be added or 
+	 * removed.
+	 * 
 	 * @return List of task descriptions as Strings.
+	 * 
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getToDos()
 	 */
+	@Override
 	public List<String> getToDos()
 	{
 		List<String> toDoList = new ArrayList<String>();
-		if (pc != null && pc.getFeats() > 0.0d)
+		if (getPc() != null && getPc().getFeats() > 0.0d)
 		{
 			toDoList.add(PropertyFactory.getFormattedString("in_featTodoRemain", getSingularTabName())); //$NON-NLS-1$
 		}
-		else if (pc != null && pc.getFeats() < 0.0d)
+		else if (getPc() != null && getPc().getFeats() < 0.0d)
 		{
 			toDoList.add(PropertyFactory.getFormattedString("in_featTodoTooMany", getSingularTabName())); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
 
-	public void refresh()
-	{
-		if(pc.getSerial() > serial)
-		{
-			serial = pc.getSerial();
-			forceRefresh();
-		}
-	}
-
-	public void forceRefresh()
-	{
-		if(readyForRefresh)
-		{
-			needsUpdate = true;
-			PObjectNode.resetPC(getPc());
-			updateCharacterInfo();
-		}
-		else
-		{
-			serial = 0;
-		}
-	}
-
-	public JComponent getView()
-	{
-		return this;
-	}
-
 	/**
-	 * specifies whether the "match any" option should be available
-	 * @return true
+	 * Specifies whether the "match any" option should be available.
+	 *   
+	 * @return Always returns <tt>true</tt>.
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#isMatchAnyEnabled()
 	 */
+	@Override
 	public boolean isMatchAnyEnabled()
 	{
 		return true;
 	}
 
 	/**
-	 * specifies whether the "negate/reverse" option should be available
-	 * @return true
+	 * Specifies whether the "negate/reverse" option should be available.
+	 * 
+	 * @return Always returns <tt>true</tt>.
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#isNegateEnabled()
 	 */
+	@Override
 	public boolean isNegateEnabled()
 	{
 		return true;
 	}
 
 	/**
-	 * specifies the filter selection mode
-	 * @return FilterConstants.MULTI_MULTI_MODE = 2
+	 * Specifies the filter selection mode.
+	 * 
+	 * @return Always returns <tt>FilterConstants.MULTI_MULTI_MODE = 2</tt>
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#getSelectionMode()
 	 */
+	@Override
 	public int getSelectionMode()
 	{
 		return FilterConstants.MULTI_MULTI_MODE;
 	}
 
 	/**
-	 * implementation of Filterable interface
+	 * Implementation of Filterable interface.
+	 * 
+	 * <p>Returns filters for Source and Feat.
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#initializeFilters()
 	 */
+	@Override
 	public void initializeFilters()
 	{
 		FilterFactory.registerAllSourceFilters(this);
 		FilterFactory.registerAllFeatFilters(this);
-
-		setKitFilter("FEAT");
 	}
 
 	/**
-	 * implementation of Filterable interface
+	 * Implementation of Filterable interface.
+	 * 
+	 * <p>Forces an update of the whole tab.
+	 * 
+	 * @see pcgen.gui.filter.FilterAdapterPanel#refreshFiltering()
 	 */
+	@Override
 	public void refreshFiltering()
 	{
 		forceRefresh();
@@ -379,8 +349,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	private void addFeat()
 	{
-		//final String aString =
-		// availableTable.getTree().getLastSelectedPathComponent().toString();
 		String aKey = null;
 		Object temp = availableTable.getTree().getLastSelectedPathComponent();
 
@@ -444,10 +412,10 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		// we can only be here if the PC can add the feat
 		try
 		{
-			pc.setDirty(true);
+			getPc().setDirty(true);
 
 			// modFeat(featName, adding_feat, adding_all_selections)
-			AbilityUtilities.modFeat(pc, null, aKey, true, false);
+			AbilityUtilities.modFeat(getPc(), null, aKey, true, false);
 		}
 		catch (Exception exc)
 		{
@@ -462,23 +430,22 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		pane.setPaneForUpdate(pane.infoSummary());
 		pane.refresh();
 
-		pc.aggregateFeatList();
+		getPc().aggregateFeatList();
 		updateAvailableModel();
 		updateSelectedModel();
 
-//		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + " (" + pc.getUsedFeatCount() + ")");
-		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(pc.getUsedFeatCount())).toString() + ")");
+		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(getPc().getUsedFeatCount())).toString() + ")");
 
 		setAddEnabled(false);
-		pc.calcActiveBonuses();
+		getPc().calcActiveBonuses();
 
-		showRemainingFeatPoints();
+		thePoolPanel.showRemainingAbilityPoints();
 	}
 
 	private int checkFeatQualify(Ability anAbility)
 	{
 		String aKey = anAbility.getKeyName();
-		anAbility = pc.getRealFeatKeyed(aKey);
+		anAbility = getPc().getRealFeatKeyed(aKey);
 
 		final boolean pcHasIt = (anAbility != null);
 
@@ -492,7 +459,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 			anAbility = Globals.getAbilityKeyed("FEAT", aKey);
 			if (
 				anAbility != null &&
-				!PrereqHandler.passesAll( anAbility.getPreReqList(), pc, anAbility ) &&
+				!PrereqHandler.passesAll( anAbility.getPreReqList(), getPc(), anAbility ) &&
 				!Globals.checkRule(RuleConstants.FEATPRE))
 			{
 				return FEAT_NOT_QUALIFIED;
@@ -501,7 +468,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		if ((anAbility != null))
 		{
-			if (anAbility.getCost(pc) > pc.getFeats())
+			if (anAbility.getCost(getPc()) > getPc().getFeats())
 			{
 				return FEAT_FULL_FEAT;
 			}
@@ -662,45 +629,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							setAddEnabled(aFeat != null);
 						}
 
-						if (aFeat != null)
-						{
-							StringBuffer sb = new StringBuffer();
-							sb.append("<html><b>")
-								.append(aFeat.piSubString())
-								.append("</b> &nbsp;TYPE:")
-								.append(aFeat.getTypeUsingFlag(true));
-
-							if (!aFeat.getCostString().equals("1"))
-							{
-								sb.append(" <b>Cost:</b>")
-									.append(aFeat.getCostString());
-							}
-
-							if (aFeat.isMultiples())
-							{
-								sb.append(" &nbsp;Can be taken more than once");
-							}
-
-							if (aFeat.isStacks())
-							{
-								sb.append(" &nbsp;Stacks");
-							}
-
-							final String cString = aFeat.preReqHTMLStrings(pc, false);
-
-							if (cString.length() > 0)
-							{
-								sb.append(" &nbsp;<b>Requirements</b>:")
-									.append(cString);
-							}
-
-							sb.append(" &nbsp;<b>Description</b>:")
-								.append(aFeat.piDescSubString())
-								.append(" &nbsp;<b>Source</b>:")
-								.append(aFeat.getDefaultSourceString())
-								.append("</html>");
-							infoLabel.setText(sb.toString());
-						}
+						theInfoPanel.setAbility(aFeat);
 					}
 				}
 			});
@@ -765,45 +694,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 						setRemoveEnabled(removeAllowed);
 
-						if (aFeat != null)
-						{
-							StringBuffer sb = new StringBuffer();
-							sb.append("<html><b>")
-								.append(aFeat.piSubString())
-								.append("</b> &nbsp;TYPE:")
-								.append(aFeat.getType());
-
-							if (!aFeat.getCostString().equals("1"))
-							{
-								sb.append(" <b>Cost:</b>")
-									.append(aFeat.getCostString());
-							}
-
-							if (aFeat.isMultiples())
-							{
-								sb.append(" &nbsp;Can be taken more than once");
-							}
-
-							if (aFeat.isStacks())
-							{
-								sb.append(" &nbsp;Stacks");
-							}
-
-							final String cString = aFeat.preReqHTMLStrings(pc, false);
-
-							if (cString.length() > 0)
-							{
-								sb.append(" &nbsp;<b>Requirements</b>:")
-									.append(cString);
-							}
-
-							sb.append(" &nbsp;<b>Description</b>:")
-								.append(aFeat.piDescSubString())
-								.append(" &nbsp;<b>Source</b>:")
-								.append(aFeat.getDefaultSourceString())
-								.append("</html>");
-							infoLabel.setText(sb.toString());
-						}
+						theInfoPanel.setAbility(aFeat);
 					}
 				}
 			});
@@ -897,41 +788,6 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 	private void initActionListeners()
 	{
-		if (Globals.getGameModeHasPointPool())
-		{
-			numFeatsField.setEditable(false);
-			// SwingConstants.RIGHT is equivalent to JTextField.RIGHT but more
-			// 'correct' in a Java coding context (it is a static reference)
-			numFeatsField.setHorizontalAlignment(SwingConstants.RIGHT);
-		}
-		else
-		{
-			numFeatsField.setInputVerifier(new InputVerifier()
-				{
-					public boolean shouldYieldFocus(JComponent input)
-					{
-						boolean valueOk = verify(input);
-						if (numFeatsField.getText().length() > 0)
-						{
-							if (pc != null)
-							{
-								pc.setDirty(true);
-								pc.setFeats(Double.parseDouble(numFeatsField.getText()));
-							}
-						}
-						else if (pc != null)
-						{
-							showRemainingFeatPoints();
-						}
-						return valueOk;
-					}
-					
-					public boolean verify(JComponent input)
-					{
-						return true;
-					}
-				});
-		}
 		viewAvailComboBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
@@ -1137,68 +993,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		JPanel botPane = new JPanel();
 		botPane.setLayout(new BorderLayout());
 
-		JPanel bLeftPane = new JPanel();
-		JPanel bRightPane = new JPanel();
+		theInfoPanel = new AbilityInfoPanel(getPc(), getSingularTabName() + " Info");
+		thePoolPanel = new AbilityPoolPanel(getPc(), AbilityCategory.FEAT);
 
-		splitBotLeftRight = new FlippingSplitPane(splitOrientation, bLeftPane, bRightPane);
+		splitBotLeftRight = new FlippingSplitPane(splitOrientation, theInfoPanel, thePoolPanel);
 		splitBotLeftRight.setOneTouchExpandable(true);
 		splitBotLeftRight.setDividerSize(10);
 
-		//splitBotLeftRight.setDividerLocation(450);
 		botPane.add(splitBotLeftRight, BorderLayout.CENTER);
-
-		// Left - Feat Info
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		c = new GridBagConstraints();
-		bLeftPane.setLayout(gridbag);
-
-		Utility.buildConstraints(c, 0, 0, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		c.anchor = GridBagConstraints.CENTER;
-		gridbag.setConstraints(infoScroll, c);
-
-		TitledBorder title1 = BorderFactory.createTitledBorder(getSingularTabName() + " Info");
-		title1.setTitleJustification(TitledBorder.CENTER);
-		infoScroll.setBorder(title1);
-		infoLabel.setBackground(bLeftPane.getBackground());
-		infoScroll.setViewportView(infoLabel);
-		Utility.setDescription(infoScroll, "Any requirements you don't meet are in italics.");
-		bLeftPane.add(infoScroll);
-
-		// Right - Feat Options / Data
-		// - feats remaining...
-		if (Globals.getGameModeHasPointPool())
-		{
-			featsRemainingLabel.setText(Globals.getGameModePointPoolName() + ':');
-		}
-		else
-		{
-			featsRemainingLabel.setText(getSingularTabName() + "s remaining: ");
-		}
-
-		JPanel cPanel = new JPanel();
-		cPanel.setLayout(new FlowLayout());
-		cPanel.add(featsRemainingLabel);
-
-
-		if (pc != null)
-		{
-//			numFeatsField.setText(String.valueOf(pc.getFeats()));
-			showRemainingFeatPoints();
-			numFeatsField.setColumns(3);
-		}
-
-		cPanel.add(numFeatsField);
-		if (Globals.getGameModeHasPointPool())
-		{
-			Utility.setDescription(numFeatsField, "How many " + Globals.getGameModePointPoolName() + " you have left to choose.");
-		}
-		else
-		{
-			Utility.setDescription(numFeatsField, "How many " + getSingularTabName() + "s you have left to choose (editable).");
-		}
-		bRightPane.add(cPanel);
 
 		//----------------------------------------------------------------------
 		// Split Top and Bottom
@@ -1339,10 +1141,10 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 		try
 		{
-			pc.setDirty(true);
+			getPc().setDirty(true);
 
 			// modFeat(featName, adding_feat, adding_all_selections)
-			AbilityUtilities.modFeat(pc, null, aKey, false, false);
+			AbilityUtilities.modFeat(getPc(), null, aKey, false, false);
 		}
 		catch (Exception exc)
 		{
@@ -1357,16 +1159,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		pane.setPaneForUpdate(pane.infoSummary());
 		pane.refresh();
 
-		pc.aggregateFeatList();
+		getPc().aggregateFeatList();
 		updateAvailableModel();
 		updateSelectedModel();
 
-//		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + pc.getUsedFeatCount() + ")");
-		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(pc.getUsedFeatCount())).toString() + ")");
+		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(getPc().getUsedFeatCount())).toString() + ")");
 
-		pc.calcActiveBonuses();
-//		numFeatsField.setText(String.valueOf(pc.getFeats()));
-		showRemainingFeatPoints();
+		getPc().calcActiveBonuses();
+		thePoolPanel.showRemainingAbilityPoints();
 		setRemoveEnabled(false);
 	}
 
@@ -1388,40 +1188,40 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 	/**
 	 * This recalculates the states of everything based
 	 * upon the currently selected character.
+	 * 
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#updateCharacterInfo()
 	 */
-	private void updateCharacterInfo()
+	@Override
+	protected void updateCharacterInfo()
 	{
 		PObjectNode.resetPC(getPc());
 
-		if ((pc == null) || (pc.isAggregateFeatsStable() && !needsUpdate))
+		if ((getPc() == null) || (getPc().isAggregateFeatsStable() && !needsUpdate()))
 		{
 			return;
 		}
 
-		pc.setAggregateFeatsStable(false);
-		pc.setAutomaticFeatsStable(false);
-		pc.setVirtualFeatsStable(false);
-		pc.aggregateFeatList();
+		getPc().setAggregateFeatsStable(false);
+		getPc().setAutomaticFeatsStable(false);
+		getPc().setVirtualFeatsStable(false);
+		getPc().aggregateFeatList();
 
-		JViewport aPort = infoScroll.getColumnHeader();
-
-		if (aPort != null)
+		if ( theInfoPanel != null )
 		{
-			aPort.setVisible(false);
+			theInfoPanel.setAbility(null);
 		}
-
-		//showWeaponProfList();
+		
 		updateAvailableModel();
 		updateSelectedModel();
 
-//		selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + pc.getUsedFeatCount() + ")");
 		if(selectedTable != null) {
-			selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(pc.getUsedFeatCount())).toString() + ")");
+			selectedTable.getColumnModel().getColumn(0).setHeaderValue(getSingularTabName() + "s (" + BigDecimalHelper.trimBigDecimal(new BigDecimal(getPc().getUsedFeatCount())).toString() + ")");
 		}
-		//selectedTable.getTableHeader().resizeAndRepaint();
-//		numFeatsField.setText(String.valueOf(pc.getFeats()));
-		showRemainingFeatPoints();
-		needsUpdate = false;
+		if ( thePoolPanel != null )
+		{
+			thePoolPanel.showRemainingAbilityPoints();
+		}
+		setNeedsUpdate(false);
 	}
 
 	private void updateSelectedModel()
@@ -1587,7 +1387,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				colName = getSingularTabName();
 				if (modelType != MODEL_TYPE_AVAIL)
 				{
-					colName += " (" + pc.getUsedFeatCount() + ")";
+					colName += " (" + getPc().getUsedFeatCount() + ")";
 				}
 			}
 			else
@@ -1719,27 +1519,27 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		 */
 		private List<Ability> buildPCFeatList()
 		{
-			List<Ability> returnValue = new ArrayList<Ability>(pc.aggregateFeatList().size());
+			List<Ability> returnValue = new ArrayList<Ability>(getPc().aggregateFeatList().size());
 
-			for (Ability aFeat : pc.aggregateFeatList())
+			for (Ability aFeat : getPc().aggregateFeatList())
 			{
 				if (aFeat.isMultiples())
 				{
 					final String featKey = aFeat.getKeyName();
 
-					if (pc.hasRealFeat(aFeat))
+					if (getPc().hasRealFeat(aFeat))
 					{
-						returnValue.add(pc.getRealFeatKeyed(featKey));
+						returnValue.add(getPc().getRealFeatKeyed(featKey));
 					}
 
-					/*else*/ if (pc.hasFeatAutomatic(featKey))
+					/*else*/ if (getPc().hasFeatAutomatic(featKey))
 					{
-						returnValue.add(pc.getFeatAutomaticKeyed(featKey));
+						returnValue.add(getPc().getFeatAutomaticKeyed(featKey));
 					}
 
-					/*else*/ if (pc.hasFeatVirtual(featKey))
+					/*else*/ if (getPc().hasFeatVirtual(featKey))
 					{
-						returnValue.add(AbilityUtilities.getAbilityFromList(pc.getVirtualFeatList(), "FEAT", featKey, -1));
+						returnValue.add(AbilityUtilities.getAbilityFromList(getPc().getVirtualFeatList(), "FEAT", featKey, -1));
 					}
 				}
 				else
@@ -1784,7 +1584,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				 * update for new filtering
 				 * author: Thomas Behr 09-02-02
 				 */
-				if (!accept(pc, aFeat))
+				if (!accept(getPc(), aFeat))
 				{
 					continue;
 				}
@@ -1803,15 +1603,15 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (available)
 				{
-					if (pc.hasRealFeat(aFeat))
+					if (getPc().hasRealFeat(aFeat))
 					{
 						hasIt = HASABILITY_CHOSEN;
 					}
-					else if (pc.hasFeatAutomatic(featKey))
+					else if (getPc().hasFeatAutomatic(featKey))
 					{
 						hasIt = HASABILITY_AUTOMATIC;
 					}
-					else if (pc.hasFeatVirtual(featKey))
+					else if (getPc().hasFeatVirtual(featKey))
 					{
 						hasIt = HASABILITY_VIRTUAL;
 					}
@@ -1829,7 +1629,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 					if (!available)
 					{
-						aFN.setCheckFeatState(PObjectNode.CAN_USE_FEAT, pc);
+						aFN.setCheckFeatState(PObjectNode.CAN_USE_FEAT, getPc());
 					}
 
 					aFN.setItem(aFeat);
@@ -1885,7 +1685,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				{
 					anAbility = (Ability) it.next();
 
-					if (accept(pc, anAbility))
+					if (accept(getPc(), anAbility))
 					{
 						if (
 							(anAbility.getVisibility() == Visibility.DEFAULT) ||
@@ -1908,7 +1708,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				//This may not be perfect, but I don't think it will blow up.
 				for (Ability aFeat : buildPCFeatList())
 				{
-					if (accept(pc, aFeat))
+					if (accept(getPc(), aFeat))
 					{
 						if ((aFeat.getVisibility() == Visibility.DEFAULT)
 							|| (aFeat.getVisibility() == Visibility.DISPLAY_ONLY))
@@ -1943,7 +1743,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (!available)
 				{
-					cc[i].setCheckFeatState(PObjectNode.CAN_USE_FEAT, pc);
+					cc[i].setCheckFeatState(PObjectNode.CAN_USE_FEAT, getPc());
 				}
 			}
 
@@ -2018,7 +1818,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					{
 						state = PObjectNode.NOT_A_FEAT;
 					}
-					cc[i].setCheckFeatState(state, pc);
+					cc[i].setCheckFeatState(state, getPc());
 				}
 
 				po.setChildren(cc);
@@ -2062,7 +1862,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				 * update for new filtering
 				 * author: Thomas Behr 09-02-02
 				 */
-				if (!accept(pc, aFeat))
+				if (!accept(getPc(), aFeat))
 				{
 					continue;
 				}
@@ -2081,15 +1881,15 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (available)
 				{
-					if (pc.hasRealFeat(aFeat))
+					if (getPc().hasRealFeat(aFeat))
 					{
 						hasIt = HASABILITY_CHOSEN;
 					}
-					else if (pc.hasFeatAutomatic(featKey))
+					else if (getPc().hasFeatAutomatic(featKey))
 					{
 						hasIt = HASABILITY_AUTOMATIC;
 					}
-					else if (pc.hasFeatVirtual(featKey))
+					else if (getPc().hasFeatVirtual(featKey))
 					{
 						hasIt = HASABILITY_VIRTUAL;
 					}
@@ -2110,7 +1910,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 							if (!available)
 							{
-								aFN.setCheckFeatState(PObjectNode.CAN_USE_FEAT, pc);
+								aFN.setCheckFeatState(PObjectNode.CAN_USE_FEAT, getPc());
 							}
 
 							aFN.setParent(rootAsPObjectNode.getChild(i));
@@ -2121,7 +1921,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							}
 							else
 							{
-								PrereqHandler.passesAll( aFeat.getPreReqList(), pc, aFeat );
+								PrereqHandler.passesAll( aFeat.getPreReqList(), getPc(), aFeat );
 							}
 							rootAsPObjectNode.getChild(i).addChild(aFN);
 						}
@@ -2166,7 +1966,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 				 * update for new filtering
 				 * author: Thomas Behr 09-02-02
 				 */
-				if (!accept(pc, aFeat))
+				if (!accept(getPc(), aFeat))
 				{
 					continue;
 				}
@@ -2185,15 +1985,15 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 				if (available)
 				{
-					if (pc.hasRealFeat(aFeat))
+					if (getPc().hasRealFeat(aFeat))
 					{
 						hasIt = HASABILITY_CHOSEN;
 					}
-					else if (pc.hasFeatAutomatic(featKey))
+					else if (getPc().hasFeatAutomatic(featKey))
 					{
 						hasIt = HASABILITY_AUTOMATIC;
 					}
-					else if (pc.hasFeatVirtual(featKey))
+					else if (getPc().hasFeatVirtual(featKey))
 					{
 						hasIt = HASABILITY_VIRTUAL;
 					}
@@ -2216,7 +2016,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 
 							if (!available)
 							{
-								aFN.setCheckFeatState(PObjectNode.CAN_USE_FEAT, pc);
+								aFN.setCheckFeatState(PObjectNode.CAN_USE_FEAT, getPc());
 							}
 
 							aFN.setParent(rootAsPObjectNode.getChild(i));
@@ -2227,7 +2027,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 							}
 							else
 							{
-								PrereqHandler.passesAll( aFeat.getPreReqList(), pc, aFeat );
+								PrereqHandler.passesAll( aFeat.getPreReqList(), getPc(), aFeat );
 							}
 							rootAsPObjectNode.getChild(i).addChild(aFN);
 						} else {
@@ -2277,7 +2077,7 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 					{
 						state = PObjectNode.NOT_A_FEAT;
 					}
-					p.setCheckFeatState(state, pc);
+					p.setCheckFeatState(state, getPc());
 
 					return 2; // successfully added
 				}
@@ -2649,14 +2449,13 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		}
 	}
 
-	private void showRemainingFeatPoints()
-	{
-		if (pc != null)
-		{
-//			numFeatsField.setText(String.valueOf(pc.getFeats()));
-			numFeatsField.setText(BigDecimalHelper.trimBigDecimal(new BigDecimal(pc.getFeats())).toString());
-		}
-	}
+//	private void showRemainingFeatPoints()
+//	{
+//		if (getPc() != null)
+//		{
+//			numFeatsField.setText(BigDecimalHelper.trimBigDecimal(new BigDecimal(getPc().getFeats())).toString());
+//		}
+//	}
 	private void clearAvailableQFilter()
 	{
 		availableModel.clearQFilter();
@@ -2731,5 +2530,14 @@ public final class InfoFeats extends FilterAdapterPanel implements CharacterInfo
 		clearSelectedQFilterButton.setEnabled(true);
 		viewSelectComboBox.setEnabled(false);
 		forceRefresh();
+	}
+
+	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTab()
+	 */
+	@Override
+	protected Tab getTab()
+	{
+		return tab;
 	}
 }
