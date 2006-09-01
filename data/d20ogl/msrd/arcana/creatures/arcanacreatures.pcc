@@ -26,6 +26,7 @@ FEAT:@/d20ogl/msrd/arcana/basics/arcanabasics_feats.lst
 FEAT:@/d20ogl/msrd/arcana/basics/arcanabasics_feats_hidden.lst
 LANGUAGE:@/d20ogl/msrd/arcana/basics/arcanabasics_languages.lst
 RACE:arcanacreatures_races.lst
+RACE:arcanacreatures_races_mods.lst
 RACE:arcanacreatures_races_dragons.lst
 KIT:arcanacreatures_kits_defaultmonsters.lst
 KIT:arcanacreatures_kits_defaultmonsters_dragons.lst

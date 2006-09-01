@@ -110,15 +110,6 @@ Half Dragon {Red}		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-
 Half Dragon {Silver}	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-light|Darkvision (60')	LANGAUTO:Draconic		LANGBONUS:ALL	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CON,INT,CHA|2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,1d3|Claw,Weapon.Natural.Melee.Slashing,*1,1d3	SA:Immune to sleep and paralysis	SA:Breath Weapon (Su) ~ 30 ft cone of paralyzing gas, paralyzed for 1d6 rounds, Fort save (DC %) negates|10+(TL+CON)/2	SA:Cold Immunity	SA:50 pct more damage from fire attacks	RACETYPE:Humanoid	RACESUBTYPE:Shadowkind	TYPE:Dragon	TEMPLATE:Shadowkind	TEMPLATE:CHOOSE:Wings|No Wings	LEVELADJUSTMENT:3	SOURCEPAGE:ArcanaShadowkind.rtf
 Half Dragon {White}	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-light|Darkvision (60')	LANGAUTO:Draconic		LANGBONUS:ALL	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|4	BONUS:STAT|CON,INT,CHA|2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,1d3|Claw,Weapon.Natural.Melee.Slashing,*1,1d3	SA:Immune to sleep and paralysis	SA:Breath Weapon (Su) ~ 30 ft cone of cold, 6d6 points of cold damage, Ref save (DC %) for half|10+(TL+CON)/2	SA:Cold Immunity	SA:50 pct more damage from fire attacks		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind	TYPE:Dragon	TEMPLATE:Shadowkind	TEMPLATE:CHOOSE:Wings|No Wings	LEVELADJUSTMENT:3	SOURCEPAGE:ArcanaShadowkind.rtf
 
-###Block: Shadowkind alternates
-# Race Name					Output Name			Main Race Type	Race Subtype		Type			Template						Level Adjustment	Source Page
-Bugbear.COPY=Bugbear (Shadowkind)
-Bugbear (Shadowkind).MOD		OUTPUTNAME:Bugbear	RACETYPE:Humanoid	RACESUBTYPE:Shadowkind				TEMPLATE:Shadowkind				LEVELADJUSTMENT:2	SOURCEPAGE:ArcanaCreatures.rtf,ArcanaShadowkind.rtf
-Gnoll.COPY=Gnoll (Shadowkind)
-Gnoll (Shadowkind).MOD			OUTPUTNAME:Gnoll		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind				TEMPLATE:Shadowkind				LEVELADJUSTMENT:1	SOURCEPAGE:ArcanaCreatures.rtf,ArcanaShadowkind.rtf
-Ogre.COPY=Ogre (Shadowkind)
-Ogre (Shadowkind).MOD			OUTPUTNAME:Ogre		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind	TYPE:Humanoid	TEMPLATE:Humanoid	TEMPLATE:Shadowkind	LEVELADJUSTMENT:3	SOURCEPAGE:ArcanaCreatures.rtf,ArcanaShadowkind.rtf
-
 ###Block: Items
 # Race Name	Size		Move				Face/Space	Reach		Vision			Stat bonus																			Automaticaly Gained Weapon Prof.	Natural Attacks										Define			HITDICE		MONSTERCLASS			Main Race Type		Type			Template			CR		Source Page
 Arcanobot	SIZE:D	MOVE:Walk,10,Fly,30	FACE:1,1	REACH:0	VISION:Darkvision (60')	BONUS:STAT|STR|-8	BONUS:STAT|DEX|6	BONUS:STAT|WIS|-9	BONUS:STAT|CHA|-9	BONUS:STAT|STR,WIS,CHA|1|PREDEFAULTMONSTER:Y	AUTO:WEAPONPROF|Unarmed Strike	NATURALATTACKS:Death Ray,Weapon.Ranged.Natural.Sonic.Concussion,*1,1d3	DEFINE:LOCK.INT|10	HITDICE:1,10	MONSTERCLASS:Construct:1	RACETYPE:Construct	TYPE:Construct	TEMPLATE:Construct	CR:1/4	SOURCEPAGE:ArcanaFXItems.rtf
