@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Aug 21 04:28:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sat Sep  2 20:12:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -13,20 +13,20 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Combined Uncanny Dodge stuff.  Nice improvements, Doug. - Tir Gwaith
 
 # BASICS
-# Feat Name			Type					Visible	Required Feat		Special Ability																							Define							Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																									Source Page
-Evasion			TYPE:Special			VISIBLE:NO					SA:Evasion (Ex)|EvasionUsable																					DEFINE:EvasionUsable|0																																													BONUS:VAR|EvasionUsable|1|PREVAREQ:COUNT[FEATNAME=Improved Evasion.ALL],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],0
-Improved Evasion		TYPE:Special.RogueAbilities	VISIBLE:NO	PREFEAT:1,Evasion		SA:Improved Evasion (Ex)|ImprovedEvasionUsable																		DEFINE:ImprovedEvasionUsable|0			DESC:Class Special Ability																																				BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],0						SOURCEPAGE:ClassesII.rtf
+# Feat Name			Type							Visible	Required Feat		Special Ability																							Define							Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																									Source Page
+Evasion			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Evasion (Ex)|EvasionUsable																					DEFINE:EvasionUsable|0																																													BONUS:VAR|EvasionUsable|1|PREVAREQ:COUNT[FEATNAME=Improved Evasion.ALL],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],0
+Improved Evasion		TYPE:Special.Extraordinary.RogueAbilities	VISIBLE:NO	PREFEAT:1,Evasion		SA:Improved Evasion (Ex)|ImprovedEvasionUsable																		DEFINE:ImprovedEvasionUsable|0			DESC:Class Special Ability																																				BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],0						SOURCEPAGE:ClassesII.rtf
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
-Uncanny Dodge		TYPE:Special.UncannyDodge	VISIBLE:NO					SA:Uncanny Dodge (Dex bonus to AC)|COUNT[FEATNAME=Improved Uncanny Dodge.ALL]-1																																																																																						SOURCEPAGE:ClassesII.rtf
-Improved Uncanny Dodge	TYPE:Special.UncannyDodge	VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SA:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																											BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																		SOURCEPAGE:ClassesII.rtf
-Trap Sense Ability	TYPE:Special			VISIBLE:NO					SA:Trap Sense (Ex) +%|TrapSense																				DEFINE:TrapSense|0
-Sneak Attack		TYPE:Special			VISIBLE:NO					SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie																		DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability																																																														SOURCEPAGE:ClassesII.rtf
-Negative Levels		TYPE:Special			VISIBLE:NO					SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0										BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
-Smite Evil			TYPE:Special.Smite		VISIBLE:NO					SA:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																							SOURCEPAGE:ClassesII.rtf
-Smite Good			TYPE:Special.Smite		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																							SOURCEPAGE:PrestigeClasses.rtf
-Wild Empathy		TYPE:Special			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK										SOURCEPAGE:ClassesI.rtf
-Death Attack		TYPE:Special			VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																													BONUS:VAR|DeathAttack|10+INT																						SOURCEPAGE:PrestigeClasses.rtf
+Uncanny Dodge		TYPE:Special.UncannyDodge			VISIBLE:NO					SA:Uncanny Dodge (Dex bonus to AC)|COUNT[FEATNAME=Improved Uncanny Dodge.ALL]-1																																																																																						SOURCEPAGE:ClassesII.rtf
+Improved Uncanny Dodge	TYPE:Special.UncannyDodge			VISIBLE:NO	PREFEAT:1,Uncanny Dodge	SA:Improved Uncanny Dodge (can't be flanked except by a rogue of % level)|UncannyDodgeFlankingLevel									DEFINE:UncannyDodgeFlankingLevel|0																																											BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly																		SOURCEPAGE:ClassesII.rtf
+Trap Sense Ability	TYPE:Special.Extraordinary			VISIBLE:NO					SA:Trap Sense (Ex) +%|TrapSense																				DEFINE:TrapSense|0
+Sneak Attack		TYPE:Special					VISIBLE:NO					SA:Sneak Attack +%d%|SneakAttack|SneakAttackDie																		DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability																																																														SOURCEPAGE:ClassesII.rtf
+Negative Levels		TYPE:Special					VISIBLE:NO					SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0										BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
+Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																							SOURCEPAGE:ClassesII.rtf
+Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																							SOURCEPAGE:PrestigeClasses.rtf
+Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK										SOURCEPAGE:ClassesI.rtf
+Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																													BONUS:VAR|DeathAttack|10+INT																						SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Druid Wild Shape ability
 # Feat Name	Type						Visible	Special Ability																																																																																																																																																																						Define
@@ -51,8 +51,8 @@ Turn Scalykind	TYPE:Special.Turning.TurnScalykind	VISIBLE:NO												SA:Turn 
 Rebuke Scalykind	TYPE:Special.Turning.TurnScalykind	VISIBLE:NO												SA:Rebuke reptiles and snakes (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesScalykind|TurnLevelScalykind|TurnDiceScalykind|TurnDieSizeScalykind|TurnDamagePlusScalykind	DEFINE:TurnTimesScalykind|TurnTimesBase	DEFINE:TurnLevelScalykind|TurnLevelBase	DEFINE:TurnDiceScalykind|TurnDiceBase	DEFINE:TurnDieSizeScalykind|TurnDieSizeBase	DEFINE:TurnDamagePlusScalykind|TurnDamagePlusBase	DEFINE:TurnCheckScalykind|TurnCheckBase	SOURCEPAGE:DivineDomainsandSpells.lst
 
 ###Block: Barbarian Rage
-# Feat Name	Type			Visible	Special Ability																																																																																																							Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR
-Rage		TYPE:Special	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Greater Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Tireless Rage (Ex) % times/day without fatigue (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:TirelessRage,1],[PREVARLT:MightyRage,1]	SA:Mighty Rage (Ex) % times/day without fatigue (% rounds)|RageTimes|RageDuration|PREVARGTEQ:MightyRage,1	SA:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|PREAPPLY:PC	BONUS:COMBAT|AC|-1*(RageACPenalty)|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1	BONUS:VAR|RageBonus|2|PREVARGTEQ:MightyRage,1
+# Feat Name	Type					Visible	Special Ability																																																																																																							Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR
+Rage		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Greater Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Tireless Rage (Ex) % times/day without fatigue (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:TirelessRage,1],[PREVARLT:MightyRage,1]	SA:Mighty Rage (Ex) % times/day without fatigue (% rounds)|RageTimes|RageDuration|PREVARGTEQ:MightyRage,1	SA:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|PREAPPLY:PC	BONUS:COMBAT|AC|-1*(RageACPenalty)|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1	BONUS:VAR|RageBonus|2|PREVARGTEQ:MightyRage,1
 
 ###Block: Bard abilities
 # Feat Name				Type			Visible	Special Ability																																																				Define																						Modify VAR
@@ -73,6 +73,44 @@ Bardic Mass Suggestion		TYPE:Special	VISIBLE:NO	SA:Mass Suggestion (Sp) Will DC 
 # Feat Name		Type			Visible	Define							Combat bonus													Add to base move														Modify VAR
 Monk AC		TYPE:Special	VISIBLE:NO	DEFINE:MonkAC|0	DEFINE:MonkACLvl|0		BONUS:COMBAT|AC|max(WIS,0)+MonkAC|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0																	BONUS:VAR|MonkAC|(MonkACLvl)/5
 Monk Movement	TYPE:Special	VISIBLE:NO	DEFINE:MonkMoveBonus|0	DEFINE:MonkMoveLvl|0																BONUS:MOVEADD|TYPE=Walk|MonkMoveBonus|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:VAR|MonkMoveBonus|floor(var("MonkMoveLvl")/3)*10
+
+###Block: Paladin Abilities
+# Feat Name		Type				Visible	Special Ability						Define			Save checks bonus						Source Page
+Aura of Good	TYPE:Extraordinary	VISIBLE:NO	SA:Aura of Good (Ex)																	SOURCEPAGE:ClassesII.rtf
+Aura of Courage	TYPE:Extraordinary	VISIBLE:NO	SA:Divine Health (Ex)																	SOURCEPAGE:ClassesII.rtf
+Divine Health	TYPE:Supernatural		VISIBLE:NO	SA:Aura of Courage (Su)																	SOURCEPAGE:ClassesII.rtf
+Special Mount	TYPE:SpellLike		VISIBLE:NO	SA:Special Mount (Sp)					DEFINE:SMLevel|0										SOURCEPAGE:ClassesII.rtf
+Remove Disease	TYPE:SpellLike		VISIBLE:NO	SA:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0									SOURCEPAGE:ClassesII.rtf
+Lay on Hands	TYPE:Supernatural		VISIBLE:NO	SA:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0									SOURCEPAGE:ClassesII.rft
+Divine Grace	TYPE:Supernatural		VISIBLE:NO	SA:Divine Grace (Su)									BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	SOURCEPAGE:ClassesII.rft
+
+###Block: Ranger Abilities
+# Feat Name			Type				Visible	Special Ability			Source Page
+Woodland Stride		TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)		SOURCEPAGE:ClassesII.rtf
+Swift Tracker		TYPE:Extraordinary	VISIBLE:NO	SA:Swift Tracker (Ex)		SOURCEPAGE:ClassesII.rtf
+Camouflage			TYPE:Extraordinary	VISIBLE:NO	SA:Camouflage (Ex)		SOURCEPAGE:ClassesII.rtf
+Hide in Plain Sight	TYPE:Extraordinary	VISIBLE:NO	SA:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
+
+###Block: Rogue Abilities
+# Feat Name	Type			Visible	Special Ability	Source Page
+Trapfinding	TYPE:Special	VISIBLE:NO	SA:Trapfinding	SOURCEPAGE:p.ClassesII.rtf
+
+###Block: Base Class Level tracked ability objects
+# Feat Name					Visible	Define									Spells												Modify VAR																					Source Page
+Druid Tracker - Wild Empathy		VISIBLE:NO																								BONUS:VAR|WildEmpathy|var("CL=Druid")																SOURCEPAGE:ClassesI.rtf
+Druid Tracker - Animal Companion	VISIBLE:NO																								BONUS:VAR|CompLevel|var("CL=Druid")																	SOURCEPAGE:ClassesI.rtf
+Ranger Tracker - Wild Empathy		VISIBLE:NO																								BONUS:VAR|WildEmpathy|var("CL=Ranger")																SOURCEPAGE:ClassesII.rtf
+Ranger Tracker - Animal Companion	VISIBLE:NO																								BONUS:VAR|CompLevel|var("CL=Ranger")/2																SOURCEPAGE:ClassesII.rtf
+Rogue Tracker - Sneak Attack		VISIBLE:NO																								BONUS:VAR|SneakAttack|(var("CL=Rogue")+1)/2															SOURCEPAGE:ClassesII.rtf
+Rogue Tracker - Trap Sense		VISIBLE:NO																								BONUS:VAR|TrapSense|var("CL=Rogue")/3																SOURCEPAGE:ClassesII.rtf
+Paladin Tracker - Smite Evil		VISIBLE:NO																								BONUS:VAR|SmiteEvil|(var("CL=Paladin")/5)+1															SOURCEPAGE:ClassesII.rtf
+Paladin Tracker - Detect Evil		VISIBLE:NO											SPELLS:Paladin|TIMES=-1|CASTERLEVEL=var("CL=Paladin")|Detect Evil,11+WIS																							SOURCEPAGE:ClassesII.rtf
+Paladin Tracker - Special Mount	VISIBLE:NO																								BONUS:VAR|SMLevel|var("CL=Paladin")																	SOURCEPAGE:ClassesII.rtf
+Paladin Tracker - Remove Disease	VISIBLE:NO																								BONUS:VAR|RemoveDisease|var("CL=Paladin")/3-1															SOURCEPAGE:ClassesII.rtf
+Paladin Tracker - Turn Undead		VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1														BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnLevelBase|var("CL=Paladin")-3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	SOURCEPAGE:ClassesII.rtf
+Paladin Tracker - Lay on Hands	VISIBLE:NO																								BONUS:VAR|LayOnHands|var("CL=Paladin")*max(CHA,0)														SOURCEPAGE:ClassesII.rtf
+Sorcerer Tracker - Summon Familiar	VISIBLE:NO																								BONUS:VAR|FMLevel|var("CL=Sorcerer")																SOURCEPAGE:CLASSESII.rtf
+Wizard Tracker - Summon Familiar	VISIBLE:NO																								BONUS:VAR|FMLevel|var("CL=Wizard")																	SOURCEPAGE:CLASSESII.rtf
 
 ###Block: Ranger Combat Styles
 # Feat Name					Type				Visible	Prohibited Feat				Var. Min. Value			Special Ability				Virtual Feat
@@ -150,6 +188,18 @@ Favored Bonus__Plant			TYPE:FavoredEnemyBonus	VISIBLE:NO	PREFEAT:1,Favored Enemy
 Favored Bonus__Undead			TYPE:FavoredEnemyBonus	VISIBLE:NO	PREFEAT:1,Favored Enemy (Undead)			PREVARGTEQ:FavoredEBonusChoices,1	STACK:YES	MULT:YES	CHOOSE:FavoredUndead			BONUS:VAR|LIST|2	SOURCEPAGE:ClassesII.rtf
 Favored Bonus__Vermin			TYPE:FavoredEnemyBonus	VISIBLE:NO	PREFEAT:1,Favored Enemy (Vermin)			PREVARGTEQ:FavoredEBonusChoices,1	STACK:YES	MULT:YES	CHOOSE:FavoredVermin			BONUS:VAR|LIST|2	SOURCEPAGE:ClassesII.rtf
 
+###Block: Wizard Specialist Abilities
+# Feat Name				Type				Visible	Special Ability							Source Page
+Abjurer Learning Bonus		TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Abjuration	SOURCEPAGE:ClassesII.rtf
+Conjurer Learning Bonus		TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Conjuration	SOURCEPAGE:ClassesII.rtf
+Diviner Learning Bonus		TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Divination	SOURCEPAGE:ClassesII.rtf
+Enchanter Learning Bonus	TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Enchantment	SOURCEPAGE:ClassesII.rtf
+Evoker Learning Bonus		TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Evocation	SOURCEPAGE:ClassesII.rtf
+Illusionist Learning Bonus	TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Illusion	SOURCEPAGE:ClassesII.rtf
+Necromancer Learning Bonus	TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Necromancy	SOURCEPAGE:ClassesII.rtf
+Transmuter Learning Bonus	TYPE:Extraordinary	VISIBLE:NO	SA:+2 bonus to Spellcraft when learning Transmutation	SOURCEPAGE:ClassesII.rtf
+
+
 #Weapon Proficiencies for .MOD capabilities in classes.
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
@@ -191,21 +241,23 @@ Undead Traits			TYPE:Special	VISIBLE:NO	SA:Undead Traits	SA:Immune to poison/ sl
 Vermin Traits			TYPE:Special	VISIBLE:NO	SA:Vermin Traits	SA:Vermin eat/sleep/breathe|PRERULE:DISPLAYTYPETRAITS	SA:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:Mindless|PRERULE:DISPLAYTYPETRAITS																																																																																																																																																																				VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 ###Block: Special Abilities
-# Feat Name				Output Name							Type			Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus
-Oversized Weapon			OUTPUTNAME:Oversized Weapon (Ex)			TYPE:Special	VISIBLE:NO	SA:Oversized Weapon (Ex)			MULT:YES	CHOOSE:WEAPONPROFS|LIST												BONUS:WEAPONPROF=%LIST|PCSIZE|1
-Powerful Build											TYPE:Special	VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1
-Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	TYPE:Special	VISIBLE:NO	SA:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
+# Feat Name				Output Name							Type					Visible	Special Ability					Multiple?	Choose			Combat bonus									Weapon prof. bonus
+Oversized Weapon			OUTPUTNAME:Oversized Weapon (Ex)			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Oversized Weapon (Ex)			MULT:YES	CHOOSE:WEAPONPROFS|LIST												BONUS:WEAPONPROF=%LIST|PCSIZE|1
+Powerful Build											TYPE:Special			VISIBLE:NO																									BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1
+Superior Two-Weapon Fighting	OUTPUTNAME:Superior Two-Weapon Fighting (Ex)	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Superior Two-Weapon Fighting (Ex)							BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
 
 ###Block: Leadership feat support
 # Feat Name		Type			Visible	Choose										Modify VAR							Temporary effect description
 Leadership Score	TYPE:Special	VISIBLE:NO	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 
 ###Block:Nightshade support
-# Feat Name		Output Name					Type				Visible	Special Ability			Save checks bonus										Combat bonus														Bonus to HP											Source Page				Temporary effect description																										COMPANIONLIST																																																																																																																																																																										FOLLOWERS
-Desecrating Aura	OUTPUTNAME:Desecrating Aura (Su)	TYPE:Special		VISIBLE:NO	SA:Desecrating Aura (Su)	BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC	SOURCEPAGE:MonstersM-N.rtf	TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
+# Feat Name		Output Name					Type					Visible	Special Ability			Save checks bonus										Combat bonus														Bonus to HP											Source Page				Temporary effect description
+Desecrating Aura	OUTPUTNAME:Desecrating Aura (Su)	TYPE:Special.Supernatural	VISIBLE:NO	SA:Desecrating Aura (Su)	BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC	SOURCEPAGE:MonstersM-N.rtf	TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
 
-Summon Familiar							TYPE:Familiar		VISIBLE:NO	SA:Summon Familiar																																																																													COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
-Animal Companion							TYPE:AnimalCompanion			SA:Animal Companion (Ex)																																																																												COMPANIONLIST:Animal Companion|Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Snake (Viper/Small),Snake (Viper/Medium),Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Dire Animal (Dire Badger),Dire Animal (Dire Bat),Dire Animal (Dire Weasel),Leopard,Lizard (Monitor),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Dire Animal (Dire Wolverine),Crocodile (Giant),Dinosaur (Deinonychus),Dire Animal (Dire Ape),Dire Animal (Dire Boar),Dire Animal (Dire Wolf),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Dire Animal (Dire Lion),Dinosaur (Megaraptor),Snake (Constrictor/Giant)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Animal (Dire Bear),Elephant|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Animal (Dire Tiger),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15	FOLLOWERS:Animal Companion|1
+###Block: Companion stuff
+# Feat Name		Type				Visible	Special Ability			Define			COMPANIONLIST																																																																																																																																																																										FOLLOWERS
+Summon Familiar	TYPE:Familiar		VISIBLE:NO	SA:Summon Familiar		DEFINE:FMLevel|0		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel																																																																																																																																																														FOLLOWERS:Familiar|1
+Animal Companion	TYPE:AnimalCompanion	VISIBLE:NO	SA:Animal Companion (Ex)	DEFINE:CompLevel|0	COMPANIONLIST:Animal Companion|Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Snake (Viper/Small),Snake (Viper/Medium),Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Dire Animal (Dire Badger),Dire Animal (Dire Bat),Dire Animal (Dire Weasel),Leopard,Lizard (Monitor),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Dire Animal (Dire Wolverine),Crocodile (Giant),Dinosaur (Deinonychus),Dire Animal (Dire Ape),Dire Animal (Dire Boar),Dire Animal (Dire Wolf),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Dire Animal (Dire Lion),Dinosaur (Megaraptor),Snake (Constrictor/Giant)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Animal (Dire Bear),Elephant|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Animal (Dire Tiger),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15	FOLLOWERS:Animal Companion|1
 
 #
 #EOF
