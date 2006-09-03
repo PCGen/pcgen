@@ -377,7 +377,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:5,3				KNOWN:4,2				FEATAUTO:Summon Familiar|Sorceer Tracker - Familiar
+1	CAST:5,3				KNOWN:4,2				FEATAUTO:Summon Familiar|Sorcerer Tracker - Familiar
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
