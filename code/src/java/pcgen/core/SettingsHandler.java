@@ -1232,7 +1232,7 @@ public final class SettingsHandler
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
 		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
-		setShowSkillModifier(getPCGenOption("showSkillModifier", false)); //$NON-NLS-1$
+		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setSingleChoicePreference(getPCGenOption("ChooserSingleChoiceMethod", Constants.CHOOSER_SINGLECHOICEMETHOD_NONE)); //$NON-NLS-1$
 		setSkillsTab_AvailableListMode(getPCGenOption("SkillsTab.availableListMode", //$NON-NLS-1$
