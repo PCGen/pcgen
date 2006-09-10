@@ -2,7 +2,7 @@
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
-#added at request: 4 fire-linked Rail Cannons, 3 fire-linked Heavy Plasma Cannons
+#added at request: 4 fire-linked Rail Cannons, 3 fire-linked Heavy Plasma Cannons,2 fire-linked Heavy Plasma Cannons
 
 ###BLOCK:PL6 Starship Weapons
 # Equipment Name		Required Proficiency			Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page					Special Property	Rate of Fire
@@ -63,6 +63,7 @@ Mine (Null)		OUTPUTNAME:Mine, Null		TYPE:Explosive.Spacemine.Energy.PL9	COST:53	
 2 fire-linked Fusion Beams			PROFICIENCY:Fusion Beam			TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:34	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8		RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 2 fire-linked Heavy Laser			PROFICIENCY:Heavy Laser			TYPE:Weapon.Ranged.Starship.Fire.PL6		COST:32	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d8		RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 2 fire-linked Heavy Neutron Guns		PROFICIENCY:Heavy Neutron Gun		TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:36	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
+2 fire-linked Heavy Plasma Cannons		PROFICIENCY:Plasma Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:42	CRITMULT:x2			CRITRANGE:1			DAMAGE:27d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
 2 fire-linked Maser Cannons			PROFICIENCY:Maser Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL8		COST:41	CRITMULT:x2			CRITRANGE:1			DAMAGE:18d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
 2 fire-linked Mass Reaction Missiles	PROFICIENCY:Mass Reaction Missile	TYPE:Weapon.Ranged.Starship.Missile.Energy.PL7	COST:49	CRITMULT:x2			CRITRANGE:2			DAMAGE:30d8				SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
 2 fire-linked Nuclear Missiles		PROFICIENCY:Nuclear Missile		TYPE:Weapon.Ranged.Starship.Missile.Energy.PL6	COST:44	CRITMULT:x2			CRITRANGE:2			DAMAGE:24d8				SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
