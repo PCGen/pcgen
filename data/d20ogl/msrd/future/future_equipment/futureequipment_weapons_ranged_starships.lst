@@ -1,6 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Sep  9 03:01:31 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
+
+#added at request: 4 fire-linked Rail Cannons
 
 ###BLOCK:PL6 Starship Weapons
 # Equipment Name		Required Proficiency			Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page					Special Property	Rate of Fire
@@ -57,20 +59,21 @@ Mine (Zero point)	OUTPUTNAME:Mine, Zero point	TYPE:Explosive.Spacemine.Energy.PL
 Mine (Null)		OUTPUTNAME:Mine, Null		TYPE:Explosive.Spacemine.Energy.PL9	COST:53	SPROP:10d100 Energy damage, ignores a ship's hardness, Mil(+3)
 
 ###BLOCK:fire-linked Weapons used in default ships
-# Equipment Name					Required Proficiency			Type								Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page					Special Property	Rate of Fire
-2 fire-linked Fusion Beams			PROFICIENCY:Fusion Beam			TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:34	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8	RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
-2 fire-linked Heavy Laser			PROFICIENCY:Heavy Laser			TYPE:Weapon.Ranged.Starship.Fire.PL6		COST:32	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d8	RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
-2 fire-linked Heavy Neutron Guns		PROFICIENCY:Heavy Neutron Gun		TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:36	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
-2 fire-linked Maser Cannons			PROFICIENCY:Maser Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL8		COST:41	CRITMULT:x2			CRITRANGE:1			DAMAGE:18d8	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
-2 fire-linked Mass Reaction Missiles	PROFICIENCY:Mass Reaction Missile	TYPE:Weapon.Ranged.Starship.Missile.Energy.PL7	COST:49	CRITMULT:x2			CRITRANGE:2			DAMAGE:30d8			SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
-2 fire-linked Nuclear Missiles		PROFICIENCY:Nuclear Missile		TYPE:Weapon.Ranged.Starship.Missile.Energy.PL6	COST:44	CRITMULT:x2			CRITRANGE:2			DAMAGE:24d8			SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
-2 fire-linked Particle Beams			PROFICIENCY:Particle Beam		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:37	CRITMULT:x2			CRITRANGE:1			DAMAGE:18d8	RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
-2 fire-linked Quantum Cannons			PROFICIENCY:Quantum Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:42	CRITMULT:x2			CRITRANGE:1			DAMAGE:24d8	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
-2 fire-linked Rail Cannons			PROFICIENCY:Rail Cannon			TYPE:Weapon.Ranged.Starship.Ballistic.PL6		COST:31	CRITMULT:x2			CRITRANGE:1			DAMAGE:9d12	RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
-4 fire-linked Heavy Laser			PROFICIENCY:Heavy Laser			TYPE:Weapon.Ranged.Starship.Fire.PL6		COST:32	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8	RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
-4 fire-linked Heavy Neutron Guns		PROFICIENCY:Heavy Neutron Gun		TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:36	CRITMULT:x2			CRITRANGE:1			DAMAGE:20d8	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
-4 fire-linked Heavy Particle Beams		PROFICIENCY:Heavy Particle Beam	TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:40	CRITMULT:x2			CRITRANGE:1			DAMAGE:32d8	RANGE:5000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
-4 fire-linked Quantum Cannons			PROFICIENCY:Quantum Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:42	CRITMULT:x2			CRITRANGE:1			DAMAGE:32d8	RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+# Equipment Name					Required Proficiency			Type								Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Range		Source Page					Special Property	Rate of Fire
+2 fire-linked Fusion Beams			PROFICIENCY:Fusion Beam			TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:34	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8		RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+2 fire-linked Heavy Laser			PROFICIENCY:Heavy Laser			TYPE:Weapon.Ranged.Starship.Fire.PL6		COST:32	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d8		RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+2 fire-linked Heavy Neutron Guns		PROFICIENCY:Heavy Neutron Gun		TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:36	CRITMULT:x2			CRITRANGE:1			DAMAGE:15d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
+2 fire-linked Maser Cannons			PROFICIENCY:Maser Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL8		COST:41	CRITMULT:x2			CRITRANGE:1			DAMAGE:18d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
+2 fire-linked Mass Reaction Missiles	PROFICIENCY:Mass Reaction Missile	TYPE:Weapon.Ranged.Starship.Missile.Energy.PL7	COST:49	CRITMULT:x2			CRITRANGE:2			DAMAGE:30d8				SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
+2 fire-linked Nuclear Missiles		PROFICIENCY:Nuclear Missile		TYPE:Weapon.Ranged.Starship.Missile.Energy.PL6	COST:44	CRITMULT:x2			CRITRANGE:2			DAMAGE:24d8				SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
+2 fire-linked Particle Beams			PROFICIENCY:Particle Beam		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:37	CRITMULT:x2			CRITRANGE:1			DAMAGE:18d8		RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+2 fire-linked Quantum Cannons			PROFICIENCY:Quantum Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:42	CRITMULT:x2			CRITRANGE:1			DAMAGE:24d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+2 fire-linked Rail Cannons			PROFICIENCY:Rail Cannon			TYPE:Weapon.Ranged.Starship.Ballistic.PL6		COST:31	CRITMULT:x2			CRITRANGE:1			DAMAGE:9d12		RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
+4 fire-linked Heavy Laser			PROFICIENCY:Heavy Laser			TYPE:Weapon.Ranged.Starship.Fire.PL6		COST:32	CRITMULT:x2			CRITRANGE:1			DAMAGE:16d8		RANGE:4000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+4 fire-linked Heavy Neutron Guns		PROFICIENCY:Heavy Neutron Gun		TYPE:Weapon.Ranged.Starship.Energy.PL6		COST:36	CRITMULT:x2			CRITRANGE:1			DAMAGE:20d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Mil(+3)	RATEOFFIRE:Single
+4 fire-linked Heavy Particle Beams		PROFICIENCY:Heavy Particle Beam	TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:40	CRITMULT:x2			CRITRANGE:1			DAMAGE:32d8		RANGE:5000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+4 fire-linked Quantum Cannons			PROFICIENCY:Quantum Cannon		TYPE:Weapon.Ranged.Starship.Energy.PL7		COST:42	CRITMULT:x2			CRITRANGE:1			DAMAGE:32d8		RANGE:6000	SOURCEPAGE:FutureStarships.rtf	SPROP:Res(+2)	RATEOFFIRE:Single
+4 fire-linked Rail Cannons			PROFICIENCY:Rail Cannon			TYPE:Weapon.Ranged.Starship.Ballistic.PL6		COST:31	CRITMULT:x2			CRITRANGE:1			DAMAGE:12d12	RANGE:3000	SOURCEPAGE:FutureStarships.rtf	SPROP:Lic(+1)	RATEOFFIRE:Single
 
 ###BLOCK:Weapon Batteries used in default ships
 # Equipment Name				Required Proficiency			Type									Cost		Critical Hit Multiplier	Critical Hit Range	Damage		Modifier			Range		Source Page					Special Property	Rate of Fire
