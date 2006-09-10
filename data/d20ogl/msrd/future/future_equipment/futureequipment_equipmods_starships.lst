@@ -11,7 +11,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #and just buy them, so they will appear on the sheet, it will just be missing in the starship text. Linked-fire is another issue, as
 #described above.
 
-#added at request: 4 fire-linked Rail Cannons
+#added at request: 4 fire-linked Rail Cannons, 3 fire-linked Heavy Plasma Cannons
 
 # Modifier Name	Unique Key			Special Property
 Starship		KEY:AASTARSHIP_LB		SPROP:Defense: %|sDefense	SPROP:Flat-footed Defense: %|sDefenseFlat	SPROP:Autopilot Defense: %|sDefenseAuto	SPROP:Hardness: %|sHard	SPROP:Hit Dice: %d% (% hp)|sHDpre|sHDpost|sHDpre*sHDpost	SPROP:Initiative Modifier: +%|sInit	SPROP:Pilot's Class Bonus:+%|sPilotCB	SPROP:Pilot's Dex Modifier: +%|sPilotDEX	SPROP:Gunner's Attack Bonus: +%|sGunnerAB|PREMULT:2,[PREVARGTEQ:sGunnerAB,1],[PREVARLTEQ:sGunnerAB,5]	SPROP:Gunner's Attack Bonus: -|sGunnerAB|PREVAREQ:sGunnerAB,0	SPROP:Gunner's Attack Bonus: +%/+%|sGunnerAB|sGunnerAB-5|PREVARGTEQ:sGunnerAB,6	SPROP:Size: Huge (-2 size)|PREVAREQ:sSize,6	SPROP:Size: Gargantuan (-4 size)|PREVAREQ:sSize,7	SPROP:Size: Colossal (-8 size)|PREVAREQ:sSize,8	SPROP:Tactical Speed: % ft. (%sq)|sTacSpeed*500|sTacSpeed	SPROP:Length: % feet|sLength	SPROP:Weight: %,000 lb.|sWeight	SPROP:Targeting System Bonus: -|PREVAREQ:sTargetingSB,0	SPROP:Targeting System Bonus: +%|sTargetingSB|PREVARGTEQ:sTargetingSB,1	SPROP:Crew:% (trained +4)|sCrewNUM|PREVAREQ:sCrewTrain,4	SPROP:Crew:% (Ace +12)|sCrewNUM|PREVAREQ:sCrewTrain,12	SPROP:Passenger Capacity: %|sPass	SPROP:Cargo Capacity: %,000 lb.|sCargo	SPROP:Grapple Modifier: +%|sGrapple
@@ -50,6 +50,7 @@ Heavy Particle Beam					KEY:ATTK_HPRTCL_BEAM		TYPE:Transportation.Starship	VISIB
 4 fire-linked Heavy Particle Beams			KEY:ATTK_HPTCL_BEAM_4L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (4 fire-linked Heavy Particle Beams)					AUTO:EQUIP|4 fire-linked Heavy Particle Beams
 2 Batteries of 3 Heavy Particle Beams		KEY:ATTK_HPTCL_BEAM_3B_2	TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (2 Batteries of 3 Heavy Particle Beams)					AUTO:EQUIP|Battery of 3 Heavy Particle Beams
 Heavy Plasma Cannon					KEY:ATTK_HPLASM_CANN		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (Heavy Plasma Cannon)								AUTO:EQUIP|Heavy Plasma Cannon
+3 fire-linked Heavy Plasma Cannons			KEY:ATTK_HPLASM_CANN_3L		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9		SPROP:Attack (3 fire-linked Heavy Plasma Cannons)					AUTO:EQUIP|3 fire-linked Heavy Plasma Cannons
 KE Submunition Missile Launcher			KEY:ATTK_KES_MISSL		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9	SPROP:Attack (KE Submunition Missile Launcher, 8 missiles)				AUTO:EQUIP|KE Submunition Missile
 #COST:25
 Kinetic Lance						KEY:ATTK_KNTC_LANCE		TYPE:Transportation.Starship	VISIBLE:QUALIFY	SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL8,PL9			SPROP:Attack (Kinetic Lance)									AUTO:EQUIP|Kinetic Lance
