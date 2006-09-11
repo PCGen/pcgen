@@ -5,57 +5,57 @@
 
 SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.spycraftrpg.com/
 
-# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Type			Bonus to skill																					Source Page		Choose
-Appraise			KEYSTAT:INT								TYPE:Intelligence																								SOURCEPAGE:p.40
-Balance			KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity	BONUS:SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK													SOURCEPAGE:p.41
-Bluff				KEYSTAT:CHA								TYPE:Charisma																								SOURCEPAGE:p.41
-Boating			KEYSTAT:DEX								TYPE:Dexterity																								SOURCEPAGE:p.42
-Bureaucracy			KEYSTAT:CHA								TYPE:Charisma																								SOURCEPAGE:p.42
-Climb				KEYSTAT:STR				ACHECK:YES			TYPE:Strength																								SOURCEPAGE:p.43
-Computers			KEYSTAT:INT								TYPE:Intelligence																								SOURCEPAGE:p.44
-Concentration		KEYSTAT:WIS								TYPE:Constitution																								SOURCEPAGE:p.46
-Cryptography		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																								SOURCEPAGE:p.47
-Cultures			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																									SOURCEPAGE:p.48
-Demolitions			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																								SOURCEPAGE:p.48
-Diplomacy			KEYSTAT:CHA								TYPE:Charisma	BONUS:SKILL|Diplomacy|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|2|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK	SOURCEPAGE:p.49
-Disguise			KEYSTAT:CHA								TYPE:Charisma																								SOURCEPAGE:p.50
-Driver			KEYSTAT:DEX								TYPE:Dexterity																								SOURCEPAGE:p.50
-Electronics			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																								SOURCEPAGE:p.51
-Escape Artist		KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																								SOURCEPAGE:p.52
-First Aid			KEYSTAT:WIS								TYPE:Wisdom		BONUS:SKILL|First Aid|2|PRESKILL:1,Profession (Doctor)=5|TYPE=Synergy.STACK											SOURCEPAGE:p.52
-Forgery			KEYSTAT:INT								TYPE:Intelligence																								SOURCEPAGE:p.53
-Gather Information	KEYSTAT:CHA								TYPE:Charisma																								SOURCEPAGE:p.53
-Handle Animal		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma																								SOURCEPAGE:p.54
-Hide				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																								SOURCEPAGE:p.55
-Innuendo			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																									SOURCEPAGE:p.56
-Jump				KEYSTAT:STR				ACHECK:YES			TYPE:Strength	BONUS:SKILL|Jump|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK														SOURCEPAGE:p.57
-Languages			KEYSTAT:WIS								TYPE:Wisdom																									SOURCEPAGE:p.58	CHOOSE:Language(Spoken)
-#Languages (Native)	KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																									SOURCEPAGE:p.58
-Listen			KEYSTAT:WIS								TYPE:Wisdom																									SOURCEPAGE:p.58
-Mechanics			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																								SOURCEPAGE:p.59
-Move Silently		KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																								SOURCEPAGE:p.60
-Open Lock			KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity																								SOURCEPAGE:p.60
-Perform			KEYSTAT:CHA								TYPE:Charisma																								SOURCEPAGE:p.61
-Pilot				KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity																								SOURCEPAGE:p.61
-Read Lips			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																								SOURCEPAGE:p.62
-Search			KEYSTAT:INT								TYPE:Intelligence																								SOURCEPAGE:p.62
-Sense Motive		KEYSTAT:WIS								TYPE:Wisdom		BONUS:SKILL|Sense Motive|2|PRESKILL:1,Cultures=5|TYPE=Synergy.STACK												SOURCEPAGE:p.63
-Sleight of Hand		KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity	BONUS:SKILL|Sleight of Hand|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK												SOURCEPAGE:p.63
-Spot				KEYSTAT:WIS								TYPE:Wisdom																									SOURCEPAGE:p.64
-Surveillance		KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																									SOURCEPAGE:p.64
-Survival			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																									SOURCEPAGE:p.65
-Swim				KEYSTAT:STR				ACHECK:WEIGHT		TYPE:Strength																								SOURCEPAGE:p.66
-Tumble			KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity	BONUS:SKILL|Tumble|2|PRESKILL:1,Jump=5|TYPE=Synergy.STACK														SOURCEPAGE:p.66
-Use Rope			KEYSTAT:DEX								TYPE:Dexterity																								SOURCEPAGE:p.66
+# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Type			Bonus to skill																									Source Page		Choose
+Appraise			KEYSTAT:INT								TYPE:Intelligence																												SOURCEPAGE:p.40
+Balance			KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity	BONUS:SKILL|Balance|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK																SOURCEPAGE:p.41
+Bluff				KEYSTAT:CHA								TYPE:Charisma																												SOURCEPAGE:p.41
+Boating			KEYSTAT:DEX								TYPE:Dexterity																												SOURCEPAGE:p.42
+Bureaucracy			KEYSTAT:CHA								TYPE:Charisma																												SOURCEPAGE:p.42
+Climb				KEYSTAT:STR				ACHECK:YES			TYPE:Strength																												SOURCEPAGE:p.43
+Computers			KEYSTAT:INT								TYPE:Intelligence																												SOURCEPAGE:p.44
+Concentration		KEYSTAT:WIS								TYPE:Constitution																												SOURCEPAGE:p.46
+Cryptography		KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																												SOURCEPAGE:p.47
+Cultures			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																													SOURCEPAGE:p.48
+Demolitions			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																												SOURCEPAGE:p.48
+Diplomacy			KEYSTAT:CHA								TYPE:Charisma	BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK	SOURCEPAGE:p.49
+Disguise			KEYSTAT:CHA								TYPE:Charisma																												SOURCEPAGE:p.50
+Driver			KEYSTAT:DEX								TYPE:Dexterity																												SOURCEPAGE:p.50
+Electronics			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																												SOURCEPAGE:p.51
+Escape Artist		KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																												SOURCEPAGE:p.52
+First Aid			KEYSTAT:WIS								TYPE:Wisdom		BONUS:SKILL|First Aid|SynergyBonus|PRESKILL:1,Profession (Doctor)=5|TYPE=Synergy.STACK													SOURCEPAGE:p.52
+Forgery			KEYSTAT:INT								TYPE:Intelligence																												SOURCEPAGE:p.53
+Gather Information	KEYSTAT:CHA								TYPE:Charisma																												SOURCEPAGE:p.53
+Handle Animal		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma																												SOURCEPAGE:p.54
+Hide				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																												SOURCEPAGE:p.55
+Innuendo			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																													SOURCEPAGE:p.56
+Jump				KEYSTAT:STR				ACHECK:YES			TYPE:Strength	BONUS:SKILL|Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK																SOURCEPAGE:p.57
+Languages			KEYSTAT:WIS								TYPE:Wisdom																													SOURCEPAGE:p.58	CHOOSE:Language(Spoken)
+#Languages (Native)	KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																													SOURCEPAGE:p.58
+Listen			KEYSTAT:WIS								TYPE:Wisdom																													SOURCEPAGE:p.58
+Mechanics			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																												SOURCEPAGE:p.59
+Move Silently		KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																												SOURCEPAGE:p.60
+Open Lock			KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity																												SOURCEPAGE:p.60
+Perform			KEYSTAT:CHA								TYPE:Charisma																												SOURCEPAGE:p.61
+Pilot				KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity																												SOURCEPAGE:p.61
+Read Lips			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																												SOURCEPAGE:p.62
+Search			KEYSTAT:INT								TYPE:Intelligence																												SOURCEPAGE:p.62
+Sense Motive		KEYSTAT:WIS								TYPE:Wisdom		BONUS:SKILL|Sense Motive|SynergyBonus|PRESKILL:1,Cultures=5|TYPE=Synergy.STACK														SOURCEPAGE:p.63
+Sleight of Hand		KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity	BONUS:SKILL|Sleight of Hand|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK														SOURCEPAGE:p.63
+Spot				KEYSTAT:WIS								TYPE:Wisdom																													SOURCEPAGE:p.64
+Surveillance		KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																													SOURCEPAGE:p.64
+Survival			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																													SOURCEPAGE:p.65
+Swim				KEYSTAT:STR				ACHECK:WEIGHT		TYPE:Strength																												SOURCEPAGE:p.66
+Tumble			KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity	BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK																SOURCEPAGE:p.66
+Use Rope			KEYSTAT:DEX								TYPE:Dexterity																												SOURCEPAGE:p.66
 
 ###Block: Intimidate with 2 KEYSTATs
 # Original
 # Skill Name	Key Stat	Type			Bonus to skill									Source Page
-#Intimidate		KEYSTAT:CHA	TYPE:Charisma	BONUS:SKILL|Intimidate|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	SOURCEPAGE:p.56
+#Intimidate		KEYSTAT:CHA	TYPE:Charisma	BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	SOURCEPAGE:p.56
 
 # Intimidate for STR and CHA
 # Skill Name		Key Stat	Type			Visible		Bonus to skill																						Source Page		Bonus to skill rank
-Intimidate					TYPE:None		VISIBLE:GUI		BONUS:SKILL|Intimidate|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Intimidate (Charisma),Intimidate (Strength)|SKILL.Intimidate.MISC	SOURCEPAGE:p.56	BONUS:SKILLRANK|Intimidate (Charisma),Intimidate (Strength)|SKILLRANK=Intimidate
+Intimidate					TYPE:None		VISIBLE:GUI		BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Intimidate (Charisma),Intimidate (Strength)|SKILL.Intimidate.MISC	SOURCEPAGE:p.56	BONUS:SKILLRANK|Intimidate (Charisma),Intimidate (Strength)|SKILLRANK=Intimidate
 
 Intimidate (Charisma)	KEYSTAT:CHA	TYPE:Charisma	VISIBLE:CSHEET																									SOURCEPAGE:p.56
 Intimidate (Strength)	KEYSTAT:STR	TYPE:Strength	VISIBLE:CSHEET																									SOURCEPAGE:p.56
