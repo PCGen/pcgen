@@ -7,19 +7,19 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 
 
 
-# Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Classes																			Type			Required Feat				Bonus to skill																									Source Page
-Alchemy		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence							BONUS:SKILL|Alchemy|2|PRESKILL:1,Knowledge (Chemistry)=5|TYPE=Synergy.STACK															SOURCEPAGE:p.70
-Heal			KEYSTAT:WIS																												TYPE:Wisdom								BONUS:SKILL|Heal|2|PRESKILL:1,Profession (Herbalist)=5|TYPE=Synergy.STACK	BONUS:SKILL|Heal|4|PRESKILL:1,Profession (Pharmacist)=5|TYPE=Synergy.STACK		SOURCEPAGE:p.74
+# Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Classes																			Type			Required Feat				Bonus to skill																												Source Page
+Alchemy		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence							BONUS:SKILL|Alchemy|SynergyBonus|PRESKILL:1,Knowledge (Chemistry)=5|TYPE=Synergy.STACK																SOURCEPAGE:p.70
+Heal			KEYSTAT:WIS																												TYPE:Wisdom								BONUS:SKILL|Heal|SynergyBonus|PRESKILL:1,Profession (Herbalist)=5|TYPE=Synergy.STACK	BONUS:SKILL|Heal|SynergyBonus*2|PRESKILL:1,Profession (Pharmacist)=5|TYPE=Synergy.STACK	SOURCEPAGE:p.74
 
-Cryptography	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Rogue|Loremaster																TYPE:Intelligence																																		SOURCEPAGE:p.78
-Demolitions		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Fighter|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior							TYPE:Intelligence	PREFEAT:1,Technical Proficiency	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)	SOURCEPAGE:p.79
-Freefall		KEYSTAT:DEX				ACHECK:YES			CLASSES:Barbarian|Druid|Fighter|Monk|Paladin|Ranger|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior	TYPE:Dexterity																																		SOURCEPAGE:p.79
-Pilot			KEYSTAT:DEX				ACHECK:YES			CLASSES:Fighter|Paladin|Ranger|Rogue|Blackguard|Aristocrat|Warrior									TYPE:Dexterity	PREFEAT:1,Technical Proficiency																												SOURCEPAGE:p.80
-Navigate		KEYSTAT:INT								CLASSES:Bard|Druid|Ranger|Rogue|Wizard														TYPE:Intelligence																																		SOURCEPAGE:p.81
-Repair		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence	PREFEAT:1,Technical Proficiency																												SOURCEPAGE:p.82
-Research		KEYSTAT:WIS								CLASSES:Bard|Cleric|Wizard|Loremaster														TYPE:Wisdom																																			SOURCEPAGE:p.82
-Urban Lore		KEYSTAT:WIS								CLASSES:Bard|Rogue|Aristocrat																TYPE:Wisdom																																			SOURCEPAGE:p.83
-Use Device		KEYSTAT:INT								CLASSES:Bard|Rogue|Loremaster																TYPE:Intelligence	PREFEAT:1,Technical Proficiency																												SOURCEPAGE:p.84
+Cryptography	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Rogue|Loremaster																TYPE:Intelligence																																					SOURCEPAGE:p.78
+Demolitions		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Fighter|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior							TYPE:Intelligence	PREFEAT:1,Technical Proficiency	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)				SOURCEPAGE:p.79
+Freefall		KEYSTAT:DEX				ACHECK:YES			CLASSES:Barbarian|Druid|Fighter|Monk|Paladin|Ranger|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior	TYPE:Dexterity																																					SOURCEPAGE:p.79
+Pilot			KEYSTAT:DEX				ACHECK:YES			CLASSES:Fighter|Paladin|Ranger|Rogue|Blackguard|Aristocrat|Warrior									TYPE:Dexterity	PREFEAT:1,Technical Proficiency																															SOURCEPAGE:p.80
+Navigate		KEYSTAT:INT								CLASSES:Bard|Druid|Ranger|Rogue|Wizard														TYPE:Intelligence																																					SOURCEPAGE:p.81
+Repair		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence	PREFEAT:1,Technical Proficiency																															SOURCEPAGE:p.82
+Research		KEYSTAT:WIS								CLASSES:Bard|Cleric|Wizard|Loremaster														TYPE:Wisdom																																						SOURCEPAGE:p.82
+Urban Lore		KEYSTAT:WIS								CLASSES:Bard|Rogue|Aristocrat																TYPE:Wisdom																																						SOURCEPAGE:p.83
+Use Device		KEYSTAT:INT								CLASSES:Bard|Rogue|Loremaster																TYPE:Intelligence	PREFEAT:1,Technical Proficiency																															SOURCEPAGE:p.84
 
 ###Block: New Crafts, Knowledge, and Professions
 # Skill Name																					Key Stat	Untrained?		Type						Required Feat				Source Page

@@ -1,14 +1,14 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
 
-# Skill Name			Key Stat	Untrained?		Exclusive?		Classes					Type					Bonus to skill																									Source Page
-Knowledge (Seamanship)		KEYSTAT:INT							CLASSES:Freeport Pirate|Mariner	TYPE:Intelligence.Knowledge																												SOURCEPAGE:p.7
-Profession (Merchant)		KEYSTAT:WIS	USEUNTRAINED:NO										TYPE:Wisdom.Profession																													SOURCEPAGE:p.89
-Profession (Navigator)		KEYSTAT:WIS	USEUNTRAINED:NO				CLASSES:Freeport Pirate|Mariner	TYPE:Wisdom.Profession																													SOURCEPAGE:p.8
+# Skill Name			Key Stat	Untrained?		Exclusive?		Classes					Type					Bonus to skill																													Source Page
+Knowledge (Seamanship)		KEYSTAT:INT							CLASSES:Freeport Pirate|Mariner	TYPE:Intelligence.Knowledge																																SOURCEPAGE:p.7
+Profession (Merchant)		KEYSTAT:WIS	USEUNTRAINED:NO										TYPE:Wisdom.Profession																																	SOURCEPAGE:p.89
+Profession (Navigator)		KEYSTAT:WIS	USEUNTRAINED:NO				CLASSES:Freeport Pirate|Mariner	TYPE:Wisdom.Profession																																	SOURCEPAGE:p.8
 
 #The CLASSES tag on Knowledge (Seamanship) and Profession (Navigator) are not in the book, but
 #if a DM uses this version of Sailing, it would be very awkward if these classes suddenly
 #lost their ability at sea.
 
 #The Synergy bonus will come into play if you use this version of Profession (Merchant). Otherwise all existing versions are identical.
-Profession (Merchant).MOD			USEUNTRAINED:NO	EXCLUSIVE:YES												BONUS:SKILL|Profession (Merchant)|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Profession (Merchant)|2|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
+Profession (Merchant).MOD			USEUNTRAINED:NO	EXCLUSIVE:YES												BONUS:SKILL|Profession (Merchant)|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Profession (Merchant)|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
