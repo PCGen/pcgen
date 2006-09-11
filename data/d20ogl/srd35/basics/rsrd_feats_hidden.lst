@@ -12,6 +12,8 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Combined Uncanny Dodge stuff.  Nice improvements, Doug. - Tir Gwaith
 
+# VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus - Frank
+
 # BASICS
 # Feat Name			Type							Visible	Required Feat		Special Ability																							Define							Description				Save checks bonus							Combat bonus				Bonus to skill																		Modify VAR																									Source Page
 Evasion			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Evasion (Ex)|EvasionUsable																					DEFINE:EvasionUsable|0																																													BONUS:VAR|EvasionUsable|1|PREVAREQ:COUNT[FEATNAME=Improved Evasion.ALL],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM],0,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],0
@@ -25,7 +27,7 @@ Sneak Attack		TYPE:Special					VISIBLE:NO					SA:Sneak Attack +%d%|SneakAttack|S
 Negative Levels		TYPE:Special					VISIBLE:NO					SA:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0										BONUS:CHECKS|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)
 Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) %/day|SmiteEvil																				DEFINE:SmiteEvil|0																																																																							SOURCEPAGE:ClassesII.rtf
 Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																							SOURCEPAGE:PrestigeClasses.rtf
-Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK										SOURCEPAGE:ClassesI.rtf
+Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK								SOURCEPAGE:ClassesI.rtf
 Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																													BONUS:VAR|DeathAttack|10+INT																						SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Druid Wild Shape ability

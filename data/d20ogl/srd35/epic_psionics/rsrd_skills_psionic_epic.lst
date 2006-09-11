@@ -1,13 +1,15 @@
 # CVS $Revision$ $Author$ -- Fri Nov 11 17:13:28 2005 -- reformated by prettylst.pl v1.35 (build 506)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
+# VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus -- Frank
+
 ###Block: Epic Synergy Bonuses, see EpicSkills.rtf
 
 # Psionic Skills			Bonus to skill
 # Skill Name			Bonus to skill
-Autohypnosis.MOD			BONUS:SKILL|Autohypnosis|max(0,floor((var("SKILLRANK=Concentration")-5)/20))*2|TYPE=Synergy.STACK
-Knowledge (Psionics).MOD	BONUS:SKILL|Knowledge (Psionics)|max(0,floor((var("SKILLRANK=Autohypnosis")-5)/20))*2|TYPE=Synergy.STACK
-Psicraft.MOD			BONUS:SKILL|Psicraft|max(0,floor((var("SKILLRANK=Knowledge (Psionics)")-5)/20))*2|TYPE=Synergy.STACK
+Autohypnosis.MOD			BONUS:SKILL|Autohypnosis|max(0,floor((var("SKILLRANK=Concentration")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Knowledge (Psionics).MOD	BONUS:SKILL|Knowledge (Psionics)|max(0,floor((var("SKILLRANK=Autohypnosis")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Psicraft.MOD			BONUS:SKILL|Psicraft|max(0,floor((var("SKILLRANK=Knowledge (Psionics)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
 
 #
 # End
