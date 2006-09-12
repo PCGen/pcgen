@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jul 26 20:19:12 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Tue Sep 12 03:24:31 2006 -- reformated by prettylst.pl v1.35 (build 565)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -171,11 +171,11 @@ CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:1,TYPE.P
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Canny Defense (Ex)
-2	SA:Improved Reaction +% (Ex)|ImprovedReaction		BONUS:VAR|ImprovedReaction|2									BONUS:COMBAT|INITIATIVE|ImprovedReaction	DEFINE:ImprovedReaction|0
+1	SA:Canny Defense (Ex)																			BONUS:COMBAT|AC|max(0,min(INT,CL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]
+2	SA:Improved Reaction +% (Ex)|ImprovedReaction		BONUS:VAR|ImprovedReaction|2									BONUS:COMBAT|INITIATIVE|ImprovedReaction															DEFINE:ImprovedReaction|0
 3	SA:Enhanced Mobility (Ex)
 4	SA:Grace (Ex)
-5	SA:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	BONUS:VAR|PreciseStrike|CL/5																DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6
+5	SA:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	BONUS:VAR|PreciseStrike|CL/5																														DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6
 6	SA:Acrobatic Charge (Ex)
 7	SA:Elaborate Parry (Ex)						BONUS:VAR|FightingDefensivelyACBonus|CL	BONUS:VAR|TotalDefenseACBonus|CL
 8										BONUS:VAR|ImprovedReaction|2
