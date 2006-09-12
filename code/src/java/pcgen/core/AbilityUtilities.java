@@ -609,8 +609,8 @@ public class AbilityUtilities
 
 	/**
 	 * Add a Feat to a character, allowing sub-choices if necessary. Always adds
-	 * weapon proficiencies, either a single choice if addAll is false, or all
-	 * possible choices if addAll is true.
+	 * weapon proficiencies, either a single choice if singleChoice is true, or all
+	 * possible choices if singleChoice is false.
 	 *
 	 * @param   aPC          the PC to add or remove the Feat from
 	 * @param   LevelInfo
@@ -638,10 +638,10 @@ public class AbilityUtilities
 			aPC.getSpellList();
 		}
 
-		final ArrayList<String> choices        = new ArrayList<String>();
-		final String    undoctoredKey = aFeatKey;
-		final String    baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
-			  String    subKey        = choices.size() > 0 ? (String) choices.get(0) : "";
+		final ArrayList<String> choices       = new ArrayList<String>();
+		final String            undoctoredKey = aFeatKey;
+		final String            baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
+			  String            subKey        = choices.size() > 0 ? (String) choices.get(0) : "";
 
 		// See if our choice is not auto or virtual
 		Ability anAbility = aPC.getRealFeatKeyed(undoctoredKey);
