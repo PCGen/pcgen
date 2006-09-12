@@ -27,6 +27,7 @@ package pcgen.core;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -189,6 +190,7 @@ public final class Globals
 	private static final StringBuffer section15 = new StringBuffer(30000);
 	private static final String spellPoints = "0";
 
+	
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
 
@@ -204,7 +206,8 @@ public final class Globals
 		{
 			public int compare(final PObject o1, final PObject o2)
 			{
-				return o1.getDisplayName().compareToIgnoreCase(o2.getDisplayName());
+				final Collator collator = Collator.getInstance();
+				return collator.compare(o1.getDisplayName(), o2.getDisplayName());
 			}
 		};
 
@@ -549,7 +552,7 @@ public final class Globals
 	 * follower.
 	 * 
 	 * @param aType The type of Follower to get mods for.
-	 * @return Collection of COMPANIONMODs or an EMPTY_LIST
+	 * @return An unmodifiable Collection of COMPANIONMODs or an EMPTY_LIST
 	 * 
 	 * @author boomer70 <boomer70@yahoo.com>
 	 * 
@@ -943,7 +946,7 @@ public final class Globals
 	 */
 	public static Ability getAbilityKeyed( final AbilityCategory aCategory, final String aKey )
 	{
-		return (Ability)abilityStore.getKeyed(aCategory.getKeyName(), aKey);
+		return (Ability)abilityStore.getKeyed(aCategory.getAbilityCategory(), aKey);
 	}
 
 	// TODO - Remove this version
@@ -986,13 +989,28 @@ public final class Globals
 	 */
 	public static List<Ability> getAbilityList( final AbilityCategory aCategory )
 	{
-		final List<? extends Categorisable> abilities = abilityStore.getUnmodifiableList( aCategory.getKeyName() );
+		final List<? extends Categorisable> abilities = abilityStore.getUnmodifiableList( aCategory.getAbilityCategory() );
 		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
 		for ( final Categorisable ab : abilities )
 		{
 			if ( ab instanceof Ability )
 			{
-				ret.add( (Ability)ab );
+				final Ability ability = (Ability)ab;
+				if ( aCategory.getAbilityTypes().size() > 0 )
+				{
+					for ( final String type : aCategory.getAbilityTypes() )
+					{
+						if ( ability.isType(type) )
+						{
+							ret.add( ability );
+							break;
+						}
+					}
+				}
+				else
+				{
+					ret.add( ability );
+				}
 			}
 		}
 		return Collections.unmodifiableList(ret);
@@ -1032,6 +1050,25 @@ public final class Globals
 		return getPObjectsOfType(abilityList, aType);
 	}
 
+	public static Collection<String> getAbilityTypes(final AbilityCategory aCategory, final boolean visibleOnly)
+	{
+		final Set<String> typeList = new TreeSet<String>();
+		for ( final Categorisable c : getUnmodifiableAbilityList(aCategory.getKeyName()) )
+		{
+			Ability ability = null;
+			if ( c instanceof Ability )
+			{
+				ability = (Ability)c;
+			}
+			else if ( c instanceof AbilityInfo )
+			{
+				ability = ((AbilityInfo)c).getAbility();
+			}
+			typeList.addAll( ability.getTypeList(visibleOnly) );
+		}
+		return Collections.unmodifiableSet(typeList);
+	}
+	
 	/**
 	 * Get game mode AC abbreviation
 	 * @return game mode AC abbreviation
@@ -1501,25 +1538,6 @@ public final class Globals
 		final PaperInfo pi = SystemCollections.getUnmodifiablePaperInfo().get(idx);
 
 		return pi.getPaperInfo(infoType);
-	}
-
-	/**
-	 * Get's Race from raceMap() based on aKey
-	 * @param aKey
-	 * @return keyed Race
-	 */
-	public static Race getRaceKeyed(final String aKey)
-	{
-		return getRaceMap().get(aKey);
-	}
-
-	/**
-	 * This method gets the race map
-	 * @return race map
-	 */
-	public static Map<String, Race> getRaceMap()
-	{
-		return raceMap;
 	}
 
 	/**
@@ -2313,7 +2331,7 @@ public final class Globals
 	public static boolean displayListsHappy()
 	{
 		Logging.debugPrint("Number of objects loaded. The following should all be greater than 0:");
-		Logging.debugPrint("Races=" + getRaceMap().size());
+		Logging.debugPrint("Races=" + raceMap.size());
 		Logging.debugPrint("Classes=" + getClassList().size());
 		Logging.debugPrint("Skills=" + getSkillList().size());
 		Logging.debugPrint("Feats=" + getUnmodifiableAbilityList("FEAT").size());
@@ -2325,7 +2343,7 @@ public final class Globals
 		//
 		// NOTE: If you add something here be sure to update the debug output in pcgen.gui.MainSource in loadCampaigns_actionPerformed
 		//
-		if ((getRaceMap().size() == 0) || (getClassList().size() == 0) || (getSkillList().size() == 0)
+		if ((raceMap.size() == 0) || (getClassList().size() == 0) || (getSkillList().size() == 0)
 			|| (getUnmodifiableAbilityList("FEAT").size() == 0) || (EquipmentList.size() == 0)
 			|| (getWeaponProfSize() == 0))
 		{
@@ -2730,15 +2748,15 @@ public final class Globals
 	 */
 	public static void sortCampaigns()
 	{
-		sortPObjectList(getClassList());
-		sortPObjectList(getSkillList());
+		sortPObjectListByName(getClassList());
+		sortPObjectListByName(getSkillList());
 		// sortPObjectList(getFeatList()); Obsolete data structure
-		sortPObjectList(getDeityList());
-		sortPObjectList(getDomainList());
+		sortPObjectListByName(getDeityList());
+		sortPObjectListByName(getDomainList());
 		Collections.sort(getArmorProfList());
-		sortPObjectList(getTemplateList());
-		sortPObjectList(EquipmentList.getModifierList());
-		sortPObjectList(getLanguageList());
+		sortPObjectListByName(getTemplateList());
+		sortPObjectListByName(EquipmentList.getModifierList());
+		sortPObjectListByName(getLanguageList());
 		setD_sorted(true);
 	}
 
@@ -2773,8 +2791,8 @@ public final class Globals
 		}
 		else
 		{
-			Globals.sortPObjectList(availableList);
-			Globals.sortPObjectList(selectedList);
+			Globals.sortPObjectListByName(availableList);
+			Globals.sortPObjectListByName(selectedList);
 		}
 	}
 
@@ -2789,13 +2807,15 @@ public final class Globals
 
 		return aList;
 	}
-
+	
 	/**
 	 * Sort Pcgen Object list by name
+	 * @param <T> 
+	 * 
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
-	public static List<? extends PObject> sortPObjectListByName(final List<? extends PObject> aList)
+	public static <T extends PObject> List<T> sortPObjectListByName(final List<T> aList)
 	{
 		Collections.sort(aList, pObjectNameComp);
 
@@ -3506,7 +3526,8 @@ public final class Globals
 			s_EMPTYRACE.setTypeInfo("HUMANOID");
 		}
 
-		getRaceMap().put(Constants.s_NONESELECTED, s_EMPTYRACE);
+		addRace(s_EMPTYRACE);
+//		getRaceMap().put(Constants.s_NONESELECTED, s_EMPTYRACE);
 	}
 
 	private static String expandRelativePath(String path)
@@ -3548,17 +3569,43 @@ public final class Globals
 	/**
 	 * Returns a list of default genders used by the system.
 	 * @return List of gender strings
+	 * TODO - Genders need to become objects.
 	 */
 	public static List<String> getAllGenders()
 	{
 		ArrayList<String> ret = new ArrayList<String>();
-		ret.add(PropertyFactory.getString("in_genderMale"));
-		ret.add(PropertyFactory.getString("in_genderFemale"));
-		ret.add(PropertyFactory.getString("in_genderNeuter"));
-		ret.add(PropertyFactory.getString("in_comboNone"));
-		ret.add(PropertyFactory.getString("in_comboOther"));
+		ret.add(PropertyFactory.getString("in_genderMale")); //$NON-NLS-1$
+		ret.add(PropertyFactory.getString("in_genderFemale")); //$NON-NLS-1$
+		ret.add(PropertyFactory.getString("in_genderNeuter")); //$NON-NLS-1$
+		ret.add(PropertyFactory.getString("in_comboNone")); //$NON-NLS-1$
+		ret.add(PropertyFactory.getString("in_comboOther")); //$NON-NLS-1$
 
 		return ret;
+	}
+	
+	/**
+	 * Get's Race from raceMap() based on aKey
+	 * @param aKey
+	 * @return keyed Race
+	 */
+	public static Race getRaceKeyed(final String aKey)
+	{
+		return raceMap.get(aKey.toLowerCase());
+	}
+
+	public static void addRace(final Race aRace)
+	{
+		raceMap.put(aRace.getKeyName().toLowerCase(), aRace);
+	}
+	
+	public static Collection<Race> getAllRaces()
+	{
+		return Collections.unmodifiableCollection(raceMap.values());
+	}
+	
+	public static boolean removeRaceKeyed(final String aKey)
+	{
+		return raceMap.remove(aKey) != null;
 	}
 	
 }

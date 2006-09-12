@@ -148,7 +148,7 @@ public final class RaceLoader extends LstObjectFileLoader
 	@Override
 	protected void performForget( final PObject objToForget )
 	{
-		Globals.getRaceMap().remove(objToForget.getKeyName());
+		Globals.removeRaceKeyed(objToForget.getKeyName());
 	}
 
 	/**
@@ -157,7 +157,6 @@ public final class RaceLoader extends LstObjectFileLoader
 	@Override
 	protected void addGlobalObject( final PObject pObj )
 	{
-		// TODO - Create Globals.addRace( final Race aRace );
-		Globals.getRaceMap().put( pObj.getKeyName(), (Race)pObj );
+		Globals.addRace( (Race)pObj );
 	}
 }

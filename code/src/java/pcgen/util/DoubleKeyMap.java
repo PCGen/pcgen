@@ -26,6 +26,11 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		super();
 	}
 
+	public DoubleKeyMap( final DoubleKeyMap<K1, K2, V> otherMap )
+	{
+		map.putAll(otherMap.map);
+	}
+	
 	/**
 	 * Put an object in a map
 	 * @param key1
@@ -107,6 +112,23 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		return new HashSet<K1>(map.keySet());
 	}
 
+	/**
+	 * Gets a <tt>Set</tt> of the secondary keys for the given primary key.
+	 * 
+	 * @param aPrimaryKey The primary key to retrieve keys for.
+	 * 
+	 * @return A <tt>Set</tt> of secondary key objects.
+	 */
+	public Set<K2> getSecondaryKeySet(final K1 aPrimaryKey)
+	{
+		final Map<K2, V> localMap = map.get(aPrimaryKey);
+		if ( localMap == null )
+		{
+			return Collections.emptySet();
+		}
+		return localMap.keySet();
+	}
+	
 	/**
 	 * Clear
 	 */

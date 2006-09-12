@@ -960,7 +960,7 @@ public final class EditorMainForm extends JDialog
 				// Save level and hit dice abilities
 				//
 				thisPCTemplate.addHitDiceString(".CLEAR");
-				thisPCTemplate.addLevelString(".CLEAR");
+				thisPCTemplate.clearLevelAbilities();
 				sel = pnlLevelAbilities.getSelectedList();
 
 				for (int index = 0; index < sel.length; index++)
@@ -973,7 +973,22 @@ public final class EditorMainForm extends JDialog
 					}
 					else if (aString.startsWith("LEVEL:"))
 					{
-						thisPCTemplate.addLevelString(aString.substring(6));
+						final StringTokenizer tok = new StringTokenizer(aString, ":");
+						tok.nextToken(); // Lose the LEVEL:
+						final String levelStr = tok.nextToken();
+						final int level;
+						try
+						{
+							level = Integer.parseInt(levelStr);
+						}
+						catch (NumberFormatException ex)
+						{
+							// TODO - Add error message.
+							continue;
+						}
+						final String typeStr = tok.nextToken();
+
+						thisPCTemplate.addLevelAbility(level, typeStr, tok.nextToken());
 					}
 				}
 
@@ -1222,20 +1237,19 @@ public final class EditorMainForm extends JDialog
 
 				final List raceList = ((Deity) thisPObject).getRacePantheonList();
 
-				for (e = Globals.getRaceMap().values().iterator(); e.hasNext();)
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					final Race aRace = (Race) e.next();
-					final String raceName = aRace.getKeyName();
+					final String raceName = race.getKeyName();
 
 					if (!raceName.equals(Constants.s_NONESELECTED))
 					{
 						if (raceList.contains(raceName))
 						{
-							selectedList.add(aRace);
+							selectedList.add(race);
 						}
 						else
 						{
-							availableList.add(aRace);
+							availableList.add(race);
 						}
 					}
 				}
@@ -1551,18 +1565,17 @@ public final class EditorMainForm extends JDialog
 				List hairColorList = new ArrayList();
 				List skinToneList = new ArrayList();
 
-				for (e = Globals.getRaceMap().keySet().iterator(); e.hasNext();)
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					final String raceName = (String) e.next();
-					final Race aRace = Globals.getRaceMap().get(raceName);
-					aString = aRace.getRegionString();
+//					final String raceName = (String) e.next();
+					aString = race.getRegionString();
 
 					if (aString == null)
 					{
 						aString = Constants.s_NONE;
 					}
 
-					aList = Globals.getBioSet().getTagForRace(aString, raceName, "HAIR");
+					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "HAIR");
 
 					if (aList != null)
 					{
@@ -1583,7 +1596,7 @@ public final class EditorMainForm extends JDialog
 						}
 					}
 
-					aList = Globals.getBioSet().getTagForRace(aString, raceName, "EYES");
+					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "EYES");
 
 					if (aList != null)
 					{
@@ -1604,7 +1617,7 @@ public final class EditorMainForm extends JDialog
 						}
 					}
 
-					aList = Globals.getBioSet().getTagForRace(aString, raceName, "SKINTONE");
+					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "SKINTONE");
 
 					if (aList != null)
 					{
@@ -1902,18 +1915,9 @@ public final class EditorMainForm extends JDialog
 				//
 				selectedList.clear();
 
-				List specialabilitiesList = ((PCTemplate) thisPObject).getLevelStrings();
+				selectedList.addAll(((PCTemplate)thisPObject).getLevelAbilities());
 
-				if (specialabilitiesList != null)
-				{
-					for (e = specialabilitiesList.iterator(); e.hasNext();)
-					{
-						aString = (String) e.next();
-						selectedList.add("LEVEL:" + aString);
-					}
-				}
-
-				specialabilitiesList = ((PCTemplate) thisPObject).getHitDiceStrings();
+				final List<String >specialabilitiesList = ((PCTemplate) thisPObject).getHitDiceStrings();
 
 				if (specialabilitiesList != null)
 				{
@@ -2098,7 +2102,7 @@ public final class EditorMainForm extends JDialog
 				availableList.clear();
 				addVariables(availableList, Globals.getClassList());
 				addVariables(availableList, Globals.getUnmodifiableAbilityList("FEAT"));
-				addVariables(availableList, Globals.getRaceMap().values());
+				addVariables(availableList, Globals.getAllRaces());
 				addVariables(availableList, Globals.getSkillList());
 				addVariables(availableList, EquipmentList.getModifierList());
 				addVariables(availableList, Globals.getTemplateList());

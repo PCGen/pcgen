@@ -227,7 +227,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		// get the list of metamagic feats for the PC
 		characterMetaMagicFeats.clear();
 		List<Ability> feats = pc.aggregateFeatList();
-		Globals.sortPObjectList(feats);
+		Globals.sortPObjectListByName(feats);
 
 		for (Ability aFeat : feats)
 		{

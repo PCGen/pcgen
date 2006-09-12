@@ -34,6 +34,7 @@ import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -168,6 +169,7 @@ public final class GameMode implements Comparable<Object>
 	private boolean [] summaryTabStatColumnVisible = { true, true, true, true, true, true, true };
 	private boolean [] skillTabColumnVisible = { true, true, true, true, true, true, true };				// Skill, Modifier, Ranks, Total, Cost, Source, Order
 
+	private static List<AbilityCategory> theAbilityCategories = new ArrayList<AbilityCategory>(5);
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -3039,9 +3041,61 @@ public final class GameMode implements Comparable<Object>
 		return Collections.unmodifiableList(bonusStackList);
 	}
 
+	/**
+	 * Checks if a bonus type should stack for this game mode.
+	 * 
+	 * @param aBonusType The bonus type
+	 * 
+	 * @return <tt>true</tt> if bonuses of this type stack.
+	 */
 	public boolean bonusStacks( final String aBonusType )
 	{
 		return bonusStackList.indexOf(aBonusType) != -1; // e.g. Dodge
+	}
+
+	/**
+	 * Adds an <tt>AbilityCategory</tt> definition to the game mode.
+	 * 
+	 * @param aCategory The <tt>AbilityCategory</tt> to add.
+	 */
+	public void addAbilityCategory(final AbilityCategory aCategory)
+	{
+		theAbilityCategories.add(aCategory);
+	}
+	
+	/**
+	 * Gets the <tt>AbilityCategory</tt> for the given key.
+	 * 
+	 * @param aKey The key of the <tt>AbilityCategory</tt> to retreive.
+	 * 
+	 * @return The requested <tt>AbilityCategory</tt> or <tt>null</tt> if the
+	 * category is not found in this game mode.
+	 */
+	public AbilityCategory getAbilityCategory(final String aKey)
+	{
+		for ( final AbilityCategory cat : theAbilityCategories )
+		{
+			if ( cat.getKeyName().equalsIgnoreCase(aKey) )
+			{
+				return cat;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects defined
+	 * by this game mode.
+	 * 
+	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
+	 */
+	public Collection<AbilityCategory> getAllAbilityCategories()
+	{
+		if ( !theAbilityCategories.contains(AbilityCategory.FEAT) )
+		{
+			theAbilityCategories.add(0, AbilityCategory.FEAT);
+		}
+		return Collections.unmodifiableCollection(theAbilityCategories);
 	}
 }
 

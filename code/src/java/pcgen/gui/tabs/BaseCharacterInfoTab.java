@@ -76,7 +76,6 @@ public abstract class BaseCharacterInfoTab extends FilterAdapterPanel implements
 	 * 
 	 * @param flag <tt>true</tt> to mark the tab as needing an update.
 	 */
-	// TODO - This actually doesn't seem to be used.
 	public final void setNeedsUpdate(final boolean flag)
 	{
 		needsUpdate = flag;

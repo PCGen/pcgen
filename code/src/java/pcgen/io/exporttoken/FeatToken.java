@@ -118,7 +118,7 @@ public class FeatToken extends Token {
 
 		List<Ability> aList = new ArrayList<Ability>();
 
-		Globals.sortPObjectList(feat);
+		Globals.sortPObjectListByName(feat);
 
 		for (Ability aFeat : feat) {
 

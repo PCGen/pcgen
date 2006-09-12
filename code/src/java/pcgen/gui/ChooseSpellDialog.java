@@ -1304,7 +1304,7 @@ final class ChooseSpellDialog extends JDialog
 			}
 		}
 
-		Globals.sortPObjectList(classWithSpell);
+		Globals.sortPObjectListByName(classWithSpell);
 
 		//
 		// classWithSpell can contain the following objects:

@@ -46,6 +46,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.DoubleKeyMap;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -108,6 +109,7 @@ public class PCClass extends PObject {
 															// PCLevelInfo
 
 	private HashMap<Integer, List<Ability>> vFeatMap = null;
+	private DoubleKeyMap<AbilityCategory, Integer, List<Ability>> vAbilityMap = null;
 
 	private HashMap<Integer, String> hitDieLockMap = null;
 
@@ -213,6 +215,9 @@ public class PCClass extends PObject {
 
 	private HashMap<String, String> attackCycleMap = null;
 
+	
+	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
+	
 	/**
 	 * Default Constructor. Constructs an empty PCClass.
 	 */
@@ -832,6 +837,26 @@ public class PCClass extends PObject {
 		return Collections.unmodifiableList(featAutos);
 	}
 
+	public Collection<String> getAutoAbilityList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getFeatAutos();
+		}
+		if ( theAutoAbilities == null )
+		{
+			return Collections.emptyList();
+		}
+		final List<String> ret = new ArrayList<String>();
+		for ( final int lvl : theAutoAbilities.getSecondaryKeySet(aCategory) )
+		{
+			if ( lvl <= level )
+			{
+				ret.addAll(theAutoAbilities.get(aCategory, lvl));
+			}
+		}
+		return Collections.unmodifiableList(ret);
+	}
 	/**
 	 * Removes an AUTO feat from the list of feats this class grants.
 	 * 
@@ -847,6 +872,24 @@ public class PCClass extends PObject {
 		featAutos.remove(Integer.toString(aLevel) + Constants.PIPE + aFeat);
 	}
 
+	public void removeAutoAbility(final AbilityCategory aCategory, final int aLevel, final String aKey)	
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			removeFeatAuto(aLevel, aKey);
+			return;
+		}
+		if ( theAutoAbilities == null )
+		{
+			return;
+		}
+		final List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
+		if ( abilities != null )
+		{
+			abilities.remove(aKey);
+		}
+	}
+	
 	public final List<String> getFeatList() {
 		if (featList == null) {
 			final List<String> ret = Collections.emptyList();
@@ -1966,6 +2009,25 @@ public class PCClass extends PObject {
 		}
 	}
 
+	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			setFeatAutos(aLevel, CoreUtility.join(aList, Constants.PIPE));
+			return;
+		}
+		if ( theAutoAbilities == null )
+		{
+			theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>();
+		}
+		List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<String>();
+		}
+		abilities.addAll(aList);
+	}
+	
 	public void setHitPoint(final int aLevel, final Integer iRoll) {
 		if (hitPointMap == null) {
 			hitPointMap = new HashMap<Integer, Integer>();
@@ -2743,6 +2805,7 @@ public class PCClass extends PObject {
 
 		buildPccText(pccTxt, getFeatList().iterator(), ":", "\tFEAT:", lineSep);
 
+		// TODO - Add ABILITY tokens.
 		buildPccText(pccTxt, getFeatAutos().iterator(), Constants.PIPE,
 				"\tFEATAUTO:", lineSep);
 
@@ -2782,6 +2845,28 @@ public class PCClass extends PObject {
 		}
 
 		return aList;
+	}
+
+	@Override
+	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getVirtualFeatList();
+		}
+		final List<Ability> ret = new ArrayList<Ability>();
+		
+		if ( vAbilityMap != null )
+		{
+			for ( final int lvl : vAbilityMap.getSecondaryKeySet(aCategory) )
+			{
+				if ( lvl <= level )
+				{
+					ret.addAll(vAbilityMap.get(aCategory, lvl));
+				}
+			}
+		}
+		return ret;
 	}
 
 	/**
@@ -2961,6 +3046,38 @@ public class PCClass extends PObject {
 		templates.add(template);
 	}
 
+	@Override
+	public void addVirtualAbility(final AbilityCategory aCategory, final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addVirtualFeat(anAbility);
+		}
+		addVirtualAbility(aCategory, -9, anAbility);
+	}
+
+	public void addVirtualAbility(final AbilityCategory aCategory, 
+								  final int aLevel, 
+								  final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addVirtualFeat(anAbility);
+			return;
+		}
+		if ( vAbilityMap == null )
+		{
+			vAbilityMap = new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>();
+		}
+		List<Ability> abilities = vAbilityMap.get(aCategory, aLevel);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<Ability>();
+		}
+		abilities.add(anAbility);
+	}
+
+
 	/**
 	 * Adds virtual feats to the vFeatMao
 	 * 
@@ -2986,6 +3103,33 @@ public class PCClass extends PObject {
 		super.addVirtualFeats(vList);
 	}
 
+	@Override
+	public void addVirtualAbilities(final AbilityCategory aCategory, final List<Ability> aList)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addVirtualFeats(aList);
+			return;
+		}
+		addVirtualAbilities(aCategory, -9, aList);
+	}
+	
+	public void addVirtualAbilities(final AbilityCategory aCategory, 
+									final int aLevel, 
+									final List<Ability> aList)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addVirtualFeats(aLevel, aList);
+			return;
+		}
+		if ( vAbilityMap == null )
+		{
+			vAbilityMap = new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>();
+		}
+		vAbilityMap.put(aCategory, aLevel, aList);
+	}
+	
 	/**
 	 * returns the value at which another attack is gained attackCycle of 4
 	 * means a second attack is gained at a BAB of +5/+1
@@ -3145,12 +3289,20 @@ public class PCClass extends PObject {
 			if (vFeatMap != null) {
 				aClass.vFeatMap = new HashMap<Integer, List<Ability>>(vFeatMap);
 			}
+			if ( vAbilityMap != null )
+			{
+				aClass.vAbilityMap = new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>(vAbilityMap);
+			}
 			if (hitDieLockMap != null) {
 				aClass.hitDieLockMap = new HashMap<Integer, String>(
 						hitDieLockMap);
 			}
 			if (featAutos != null) {
 				aClass.featAutos = new ArrayList<String>(featAutos);
+			}
+			if ( theAutoAbilities != null )
+			{
+				aClass.theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>(theAutoAbilities);
 			}
 			// TODO - Why is this not copying the skillList from the master?
 			aClass.skillList = null;
@@ -5754,5 +5906,20 @@ public class PCClass extends PObject {
 			}
 		}
 		return;
+	}
+	
+	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			removeAllAutoFeats(aLevel);
+			return;
+		}
+		
+		if ( theAutoAbilities == null )
+		{
+			return;
+		}
+		theAutoAbilities.put(aCategory, aLevel, null);
 	}
 }

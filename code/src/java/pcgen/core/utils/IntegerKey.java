@@ -34,7 +34,7 @@ public final class IntegerKey
 	/** Key to a characteristic defining the number of levels to be added to a spell. */
 	public static final IntegerKey ADD_SPELL_LEVEL = new IntegerKey();
 	/** Key to a characteristic defining the type of ability. */
-	public static final IntegerKey ABILITY_TYPE = new IntegerKey();
+//	public static final IntegerKey ABILITY_TYPE = new IntegerKey();
 	/** Key to a characteristic defining the format category of the object. */
 	public static final IntegerKey FORMAT_CAT = new IntegerKey();
 	/** Key to a characteristic defining the number of hit dice the object has. */

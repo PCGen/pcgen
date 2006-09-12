@@ -554,9 +554,8 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		if (type == TYPE) // Favoured Enemy type listed
 		{
 			final String aString = tokenString.substring(5);
-			final List<Race>   races   = new ArrayList<Race>(Globals.getRaceMap().values());
 
-			for ( Race race : races )
+			for ( final Race race : Globals.getAllRaces() )
 			{
 				if (race.getType().equalsIgnoreCase(aString))
 				{

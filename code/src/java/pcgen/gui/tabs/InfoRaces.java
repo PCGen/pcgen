@@ -1172,13 +1172,13 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for(Race aRace : Globals.getRaceMap().values()) 
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				if(accept(getPc(), aRace)) {
+				if(accept(getPc(), race)) {
 					if (qFilter == null ||
-							( aRace.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
-							  aRace.getType().toLowerCase().indexOf(qFilter) >= 0 ))
-					raceList.add(aRace);
+							( race.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
+							  race.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+					raceList.add(race);
 				}
 			}
 
@@ -1206,11 +1206,11 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Race aRace :  Globals.getRaceMap().values()) 
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				if(accept(getPc(), aRace)) {
-					if(!typeList.contains(aRace.getType())) {
-						typeList.add(aRace.getType());
+				if(accept(getPc(), race)) {
+					if(!typeList.contains(race.getType())) {
+						typeList.add(race.getType());
 					}
 				}
 			}
@@ -1226,18 +1226,18 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for (Race aRace : Globals.getRaceMap().values()) 
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					if (aRace == null) {
+					if (race == null) {
 						continue;
 					}
 
-					if (!aRace.getType().equals(aType)) {
+					if (!race.getType().equals(aType)) {
 						continue;
 					}
 
 					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(aRace);
+					aFN.setItem(race);
 					aFN.setParent(rt[iType]);
 					rt[iType].addChild(aFN);
 				}
@@ -1257,10 +1257,10 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for(Race aRace : Globals.getRaceMap().values()) 
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				if(accept(getPc(), aRace)) {
-					final String aString = aRace.getSourceEntry().getSourceBook().getLongName();
+				if(accept(getPc(), race)) {
+					final String aString = race.getSourceEntry().getSourceBook().getLongName();
 					if(aString != null && !sourceList.contains(aString) && aString.length() > 0)
 					{
 						sourceList.add(aString);
@@ -1278,19 +1278,19 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rs[iSource] = new PObjectNode();
 				rs[iSource].setItem(aSource);
 
-				for (Race aRace : Globals.getRaceMap().values()) 
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					if (aRace == null) {
+					if (race == null) {
 						continue;
 					}
 
-					final String aString = aRace.getSourceEntry().getSourceBook().getLongName();
+					final String aString = race.getSourceEntry().getSourceBook().getLongName();
 					if (aString != null && !aString.equals(aSource)) {
 						continue;
 					}
 
 					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(aRace);
+					aFN.setItem(race);
 					aFN.setParent(rs[iSource]);
 					rs[iSource].addChild(aFN);
 				}
@@ -1311,11 +1311,11 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Race aRace : Globals.getRaceMap().values())
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				if (accept(getPc(), aRace))
+				if (accept(getPc(), race))
 				{
-					final String raceType = aRace.getRaceType();
+					final String raceType = race.getRaceType();
 					if (!typeList.contains(raceType))
 					{
 						typeList.add(raceType);
@@ -1334,20 +1334,20 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for (Race aRace : Globals.getRaceMap().values() )
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					if (aRace == null)
+					if (race == null)
 					{
 						continue;
 					}
 
-					if (!aRace.getRaceType().equals(aType))
+					if (!race.getRaceType().equals(aType))
 					{
 						continue;
 					}
 
 					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(aRace);
+					aFN.setItem(race);
 					aFN.setParent(rt[iType]);
 					rt[iType].addChild(aFN);
 				}
@@ -1369,11 +1369,11 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Race aRace : Globals.getRaceMap().values())
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				if (accept(getPc(), aRace))
+				if (accept(getPc(), race))
 				{
-					final String raceType = aRace.getRaceType();
+					final String raceType = race.getRaceType();
 					if (!typeList.contains(raceType))
 					{
 						typeList.add(raceType);
@@ -1393,22 +1393,22 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType].setItem(aType);
 
 				HashMap<String, PObjectNode> subTypes = new HashMap<String, PObjectNode>();
-				for (Race aRace : Globals.getRaceMap().values())
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					if (aRace == null)
+					if (race == null)
 					{
 						continue;
 					}
 
-					if (!aRace.getRaceType().equals(aType))
+					if (!race.getRaceType().equals(aType))
 					{
 						continue;
 					}
 
-					List<String> raceSubTypes = aRace.getRacialSubTypes();
+					List<String> raceSubTypes = race.getRacialSubTypes();
 					if (raceSubTypes.size() > 0)
 					{
-						for (String subTypeName : raceSubTypes)
+						for (final String subTypeName : raceSubTypes)
 						{
 							PObjectNode subTypeNode = subTypes.get(subTypeName);
 							if (subTypeNode == null)
@@ -1425,7 +1425,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 								subTypes.put(subTypeName, subTypeNode);
 							}
 							PObjectNode raceNode = new PObjectNode();
-							raceNode.setItem(aRace);
+							raceNode.setItem(race);
 							raceNode.setParent(subTypeNode);
 							subTypeNode.addChild(raceNode);
 						}
@@ -1433,7 +1433,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 					else
 					{
 						PObjectNode aFN = new PObjectNode();
-						aFN.setItem(aRace);
+						aFN.setItem(race);
 						aFN.setParent(rt[iType]);
 						rt[iType].addChild(aFN);
 					}
@@ -1456,16 +1456,16 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for (Race aRace : Globals.getRaceMap().values())
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				if (accept(getPc(), aRace))
+				if (accept(getPc(), race))
 				{
-					final String raceType = aRace.getRaceType();
+					final String raceType = race.getRaceType();
 					if (!typeList.contains(raceType))
 					{
 						typeList.add(raceType);
 					}
-					final String type = aRace.getTypeUsingFlag(true);
+					final String type = race.getTypeUsingFlag(true);
 					if (type.length() > 0)
 					{
 						StringTokenizer tok = new StringTokenizer(type, ".");
@@ -1492,21 +1492,21 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for (Race aRace : Globals.getRaceMap().values())
+				for ( final Race race : Globals.getAllRaces() )
 				{
-					if (aRace == null)
+					if (race == null)
 					{
 						continue;
 					}
 
 					boolean typeMatch = false;
-					if (aRace.getRaceType().equals(aType))
+					if (race.getRaceType().equals(aType))
 					{
 						typeMatch = true;
 					}
-					if (aRace.getTypeUsingFlag(true).indexOf(aType) != -1)
+					if (race.getTypeUsingFlag(true).indexOf(aType) != -1)
 					{
-						StringTokenizer tok = new StringTokenizer(aRace.getTypeUsingFlag(true), ".");
+						StringTokenizer tok = new StringTokenizer(race.getTypeUsingFlag(true), ".");
 						while (tok.hasMoreTokens())
 						{
 							final String type = tok.nextToken();
@@ -1523,7 +1523,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 					}
 
 					PObjectNode aFN = new PObjectNode();
-					aFN.setItem(aRace);
+					aFN.setItem(race);
 					aFN.setParent(rt[iType]);
 					rt[iType].addChild(aFN);
 				}

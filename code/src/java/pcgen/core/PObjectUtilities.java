@@ -798,7 +798,7 @@ public class PObjectUtilities
 	{
 		// CHOOSE:RACE|RACETYPE=x,RACESUBTYPE=y,<racename>,TYPE=z
 		// or CHOOSE:RACE|[RACETYPE=x,RACESUBTYPE=y]
-		Collection races = Globals.getRaceMap().values();
+		Collection races = Globals.getAllRaces();
 
 		while (aTok.hasMoreTokens())
 		{

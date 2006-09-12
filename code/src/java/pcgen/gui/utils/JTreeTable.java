@@ -1108,54 +1108,54 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			theTree = treeTable.getTree();
 			theMenu = aMenu;
 
-			KeyListener myKeyListener = new KeyListener()
-				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-
-					// Walk through the list of accelerators
-					// to see if the user has pressed a sequence
-					// used by the popup. This would not
-					// happen unless the popup was showing
-					//
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
-
-						if (keyCode != KeyEvent.VK_UNDEFINED)
-						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
-
-							for (int i = 0; i < theMenu.getComponentCount(); ++i)
-							{
-								final Component menuComponent = theMenu.getComponent(i);
-
-								if (menuComponent instanceof JMenuItem)
-								{
-									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
-
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										((JMenuItem) menuComponent).doClick(2);
-
-										return;
-									}
-								}
-							}
-						}
-
-						dispatchEvent(e);
-					}
-
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
-
-			treeTable.addKeyListener(myKeyListener);
+//			KeyListener myKeyListener = new KeyListener()
+//				{
+//					public void keyTyped(KeyEvent e)
+//					{
+//						dispatchEvent(e);
+//					}
+//
+//					// Walk through the list of accelerators
+//					// to see if the user has pressed a sequence
+//					// used by the popup. This would not
+//					// happen unless the popup was showing
+//					//
+//					public void keyPressed(KeyEvent e)
+//					{
+//						final int keyCode = e.getKeyCode();
+//
+//						if (keyCode != KeyEvent.VK_UNDEFINED)
+//						{
+//							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+//
+//							for (int i = 0; i < theMenu.getComponentCount(); ++i)
+//							{
+//								final Component menuComponent = theMenu.getComponent(i);
+//
+//								if (menuComponent instanceof JMenuItem)
+//								{
+//									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+//
+//									if ((ks != null) && keyStroke.equals(ks))
+//									{
+//										((JMenuItem) menuComponent).doClick(2);
+//
+//										return;
+//									}
+//								}
+//							}
+//						}
+//
+//						dispatchEvent(e);
+//					}
+//
+//					public void keyReleased(KeyEvent e)
+//					{
+//						dispatchEvent(e);
+//					}
+//				};
+//
+//			treeTable.addKeyListener(myKeyListener);
 		}
 
 		/**

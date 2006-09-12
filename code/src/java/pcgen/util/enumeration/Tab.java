@@ -8,7 +8,7 @@ public enum Tab {
 	CLASSES("Class", "in_class" ),
 	DESCRIPTION("Description", "in_descrip"),
 	DOMAINS("Domains", "in_domains"),
-	ABILITIES("Feats", "InfoAbilities.Tab.Name"),
+	ABILITIES("Feats", "in_abilities"),
 	INVENTORY("Inventory", "in_inventory"),
 	RACE_MASTER("Race", "in_race"),
 	SKILLS("Skills", "in_skills"),

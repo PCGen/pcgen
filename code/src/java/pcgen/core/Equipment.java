@@ -2474,15 +2474,15 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 *
 	 * @return a list of virtual feats granted by this item.
 	 */
-	public List<Ability> getVirtualFeatList()
-	{
-		List<Ability> vFeats = new ArrayList<Ability>(super.getVirtualFeatList());
-
-		vFeats = addEqModList(true,  vFeats);
-		vFeats = addEqModList(false, vFeats);
-
-		return vFeats;
-	}
+//	public List<Ability> getVirtualFeatList()
+//	{
+//		List<Ability> vFeats = new ArrayList<Ability>(super.getVirtualFeatList());
+//
+//		vFeats = addEqModList(true,  vFeats);
+//		vFeats = addEqModList(false, vFeats);
+//
+//		return vFeats;
+//	}
 
 	/**
 	 * Returns true if the equipment modifier is visible
@@ -2828,7 +2828,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		//
 		// Remove any modifiers that this one will replace
 		//
-		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
+		List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
 		for (int i = eqModList.size() - 1; i >= 0; --i)
 		{
@@ -2961,7 +2961,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-		Globals.sortPObjectList(eqModList);
+		eqModList = Globals.sortPObjectListByName(eqModList);
 
 		setBase(aPC);
 	}
@@ -2989,8 +2989,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
-		Globals.sortPObjectList(eqModList);
+		List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
+		eqModList = Globals.sortPObjectListByName(eqModList);
 	}
 
 	/**

@@ -48,6 +48,12 @@ public class AbilityPoolPanel extends JPanel
 	private AbilityCategory theCategory;
 	private JTextField theNumAbilitiesField = new JTextField();
 
+	/**
+	 * Construct the panel and add all the components.
+	 * 
+	 * @param aPC The PC
+	 * @param aCategory The <tt>AbilityCategory</tt> this panel represents.
+	 */
 	public AbilityPoolPanel(final PlayerCharacter aPC, final AbilityCategory aCategory)
 	{
 		super();
@@ -62,26 +68,52 @@ public class AbilityPoolPanel extends JPanel
 
 		theNumAbilitiesField.setInputVerifier(new InputVerifier()
 		{
+			@Override
+			public boolean verify(final JComponent input)
+			{
+				final String text = ((JTextField)input).getText();
+				if ( text.length() > 0 )
+				{
+					try
+					{
+						if ( theCategory.allowFractionalPool() == false )
+						{
+							Integer.parseInt(text);
+							return true;
+						}
+						Double.parseDouble(text);
+						return true;
+					}
+					catch (Exception e)
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			@Override
 			public boolean shouldYieldFocus(final JComponent input)
 			{
-				final boolean valueOk = verify(input);
-				if (theNumAbilitiesField.getText().length() > 0)
+				final boolean valueOk = super.shouldYieldFocus(input);
+				if (!valueOk )
 				{
-					// TODO - Remove setDirty()
-					thePC.setDirty(true);
-					// TODO - Change to thePC.setAbilityPool()
-					thePC.setFeats(Double.parseDouble(theNumAbilitiesField.getText()));
+					getToolkit().beep();
 				}
 				else
 				{
-					showRemainingAbilityPoints();
+					if (theNumAbilitiesField.getText().length() > 0)
+					{
+						final BigDecimal expectedValue = thePC.getAvailableAbilityPool(theCategory);
+						final BigDecimal newValue = new BigDecimal(theNumAbilitiesField.getText());
+						thePC.adjustAbilities(theCategory, newValue.subtract(expectedValue));
+					}
+					else
+					{
+						showRemainingAbilityPoints();
+					}
 				}
 				return valueOk;
-			}
-			
-			public boolean verify(JComponent input)
-			{
-				return true;
 			}
 		});
 
@@ -99,7 +131,7 @@ public class AbilityPoolPanel extends JPanel
 	 */
 	public void showRemainingAbilityPoints()
 	{
-		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(new BigDecimal(thePC.getFeats())).toString());
-//		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(thePC.getAvailableAbilityPool(theCategory)).toString());
+//		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(new BigDecimal(thePC.getFeats())).toString());
+		theNumAbilitiesField.setText(BigDecimalHelper.trimBigDecimal(thePC.getAvailableAbilityPool(theCategory)).toString());
 	}
 }

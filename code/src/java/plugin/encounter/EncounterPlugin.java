@@ -760,7 +760,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		}
 
 		// populate critters with a list of matching monsters with the right CR.
-		for ( Race race : Globals.getRaceMap().values() )
+		for ( final Race race : Globals.getAllRaces() )
 		{
 			if (race.getCR() == crNum)
 			{

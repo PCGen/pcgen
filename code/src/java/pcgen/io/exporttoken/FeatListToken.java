@@ -77,7 +77,7 @@ public class FeatListToken extends Token
 			typeStr = aString.substring(dotpos);
 		}
 
-		Globals.sortPObjectList(featList);
+		Globals.sortPObjectListByName(featList);
 
 		for (Ability aFeat : featList)
 		{

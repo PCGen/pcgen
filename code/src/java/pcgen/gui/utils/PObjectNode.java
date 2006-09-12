@@ -71,6 +71,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	private int                    checkFeatState = NOT_A_FEAT; // feat tab
 	private String                 displayName    = null;
 
+	private int theColor = -1;
+	
 	// All this is for free when we get rid of PObjectNode[] for a
 	// Collection.  XXX
 	private int mark = 0;
@@ -553,6 +555,11 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		throw new UnsupportedOperationException();
 	}
 
+	public void setColor(final int aColor)
+	{
+		theColor = aColor;
+	}
+	
 	public String toString()
 	{
 		if (item == null)
@@ -572,19 +579,24 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				itemName = displayName;
 			}
 
+			if ( theColor != -1 )
+			{
+				return Constants.PIPE + theColor + Constants.PIPE + itemName;
+				
+			}
 			if (checkFeatState != NOT_A_FEAT)
 			{
 				final Ability aFeat = (Ability) item;
 
 				switch (aFeat.getFeatType())
 				{
-					case Ability.ABILITY_NORMAL:
+					case NORMAL:
 						return handleCheckFeatState(aFeat, itemName);
 
-					case Ability.ABILITY_AUTOMATIC:
+					case AUTOMATIC:
 						return "|" + SettingsHandler.getFeatAutoColor() + "|" + itemName;
 
-					case Ability.ABILITY_VIRTUAL:
+					case VIRTUAL:
 						return "|" + SettingsHandler.getFeatVirtualColor() + "|" + itemName;
 
 					default:

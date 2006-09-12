@@ -21,18 +21,16 @@
  */
 package pcgen.core.prereq;
 
-import java.util.Map;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.core.PCTemplate;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * <code>PreBaseSizeTest</code> tests that the PREBASESIZE tag is
@@ -44,6 +42,7 @@ import pcgen.core.bonus.BonusObj;
  * @author Aaron Divinsky <boomer70@yahoo.com>
  * @version $Revision$
  */
+@SuppressWarnings("nls")
 public class PreBaseSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
@@ -221,8 +220,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 
 		race.setName("Human");
 		race.setSize("M");
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Human", race);
+		Globals.addRace(race);
 
 		template.setTemplateSize("L");
 	}

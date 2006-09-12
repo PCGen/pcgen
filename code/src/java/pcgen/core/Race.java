@@ -68,7 +68,6 @@ public final class Race extends PObject
 	private String mFeatList = "";
 	private String monsterClass = null;
 	private String size = "";
-	private String vFeatList = "";
 	private String weightString = "";
 
 	//private String type = "Humanoid";
@@ -88,7 +87,8 @@ public final class Race extends PObject
 	private int reach = 5;
 	private String raceType = "None";
 	private ArrayList<String> racialSubTypes = new ArrayList<String>();
-	
+	private Map<AbilityCategory, List<String>> theAutoAbilities;
+
 	{
 		vision = new HashMap<String, String>();
 	}
@@ -199,17 +199,40 @@ public final class Race extends PObject
 		favoredClass = newClass;
 	}
 
-	/*
-	   public void setVFeatList(String vFeatList)
-	   {
-		   this.vFeatList = vFeatList;
-	   }
-	 */
 	public String getFavoredClass()
 	{
 		return favoredClass;
 	}
 
+	public void setAutoAbilityList(final AbilityCategory aCategory, final List<String> anAbilityList)
+	{
+		if ( aCategory.equals(AbilityCategory.FEAT.getAbilityCategory()) )
+		{
+			final StringBuffer buf = new StringBuffer();
+			for (final String ability : anAbilityList)
+			{
+				if (buf.length() != 0)
+				{
+					buf.append(Constants.PIPE);
+				}
+				buf.append(ability);
+			}
+			setFeatList(buf.toString());
+			return;
+		}
+		if ( theAutoAbilities == null )
+		{
+			theAutoAbilities = new HashMap<AbilityCategory, List<String>>();
+		}
+		List<String> abilities = theAutoAbilities.get(aCategory);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<String>();
+			theAutoAbilities.put(aCategory, abilities);
+		}
+		abilities.addAll(anAbilityList);
+	}
+	
 	public void setFeatList(final String featList)
 	{
 		this.featList = featList;
@@ -240,6 +263,20 @@ public final class Race extends PObject
 		}
 	}
 
+	public List<String> getAutoAbilityList(final AbilityCategory aCategory)
+	{
+		if ( theAutoAbilities == null )
+		{
+			return Collections.emptyList();
+		}
+		final List<String> ret = theAutoAbilities.get(aCategory);
+		if ( ret == null )
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableList(ret);
+	}
+	
 	public void setHands(final int newHands)
 	{
 		hands = newHands;
@@ -828,11 +865,6 @@ public final class Race extends PObject
 			txt.append("\tSKILL:").append(bonusSkillList);
 		}
 
-		if ((vFeatList != null) && (vFeatList.length() > 0))
-		{
-			txt.append("\tVFEAT:").append(vFeatList);
-		}
-
 		if (bonusSkillsPerLevel != 0)
 		{
 			txt.append("\tXTRASKILLPTSPERLVL:").append(bonusSkillsPerLevel);
@@ -889,7 +921,6 @@ public final class Race extends PObject
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
 			aRace.featList = featList;
-			aRace.vFeatList = vFeatList;
 			aRace.startingAC = new Integer(startingAC.intValue());
 			aRace.naturalAC = new Integer(naturalAC.intValue());
 			aRace.initMod = new Integer(initMod.intValue());

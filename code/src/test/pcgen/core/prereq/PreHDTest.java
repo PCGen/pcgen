@@ -21,8 +21,6 @@
  */
 package pcgen.core.prereq;
 
-import java.util.Map;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -43,12 +41,17 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * @author Aaron Divinsky <boomer70@yahoo.com>
  * @version $Revision$
  */
+@SuppressWarnings("nls")
 public class PreHDTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
 	Race race1 = new Race();
 	PCClass monClass = new PCClass();
 
+	/**
+	 * Main method.  Runs the test.
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreHDTest.class);
@@ -72,8 +75,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race.setName("Human");
 		race.setSize("M");
 		race.setHitDice(3);
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Human", race);
+		Globals.addRace(race);
 
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -127,8 +129,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race1.setSize("L");
 		race1.setMonsterClass("Humanoid");
 		race1.setMonsterClassLevels(3);
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Bugbear", race1);
+		Globals.addRace(race1);
 
 		SettingsHandler.setMonsterDefault(false);
 		final PlayerCharacter character = new PlayerCharacter();
@@ -166,12 +167,5 @@ public class PreHDTest extends AbstractCharacterTestCase
 
 		assertFalse("Character doesn't have 2 or less HD",
 					PrereqHandler.passes(prereq, character, null));
-	}
-
-	protected void setUp()
-		throws Exception
-	{
-		super.setUp();
-
 	}
 }

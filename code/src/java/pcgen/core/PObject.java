@@ -143,6 +143,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private Map<String, List<FollowerOption>> theAvailableFollowers = null;
 
 	private ArrayList<String> weaponProfBonus = null;
+	
+	private Map<AbilityCategory, List<Ability>> theVirtualAbilities = null;
 
 	/* ************
 	 * Methods
@@ -760,6 +762,19 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return getSafeListFor(ListKey.VIRTUAL_FEATS);
 	}
 
+	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getVirtualFeatList();
+		}
+		if ( theVirtualAbilities != null )
+		{
+			return theVirtualAbilities.get(aCategory);
+		}
+		return Collections.emptyList();
+	}
+	
 	/**
 	 * Add automatic weapon proficienies for this object
 	 * @param aString
@@ -1075,6 +1090,26 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		listChar.addToListFor(ListKey.VIRTUAL_FEATS, aFeat);
 	}
 
+	public void addVirtualAbility(final AbilityCategory aCategory, final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addVirtualFeat(anAbility);
+			return;
+		}
+		if ( theVirtualAbilities == null )
+		{
+			theVirtualAbilities = new HashMap<AbilityCategory, List<Ability>>();
+		}
+		List<Ability> abilities = theVirtualAbilities.get(aCategory);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<Ability>();
+			theVirtualAbilities.put(aCategory, abilities);
+		}
+		abilities.add(anAbility);
+	}
+	
 	/**
 	 * Add a list of virtual feats to the character list
 	 * @param aFeatList
@@ -1084,6 +1119,26 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		listChar.addAllToListFor(ListKey.VIRTUAL_FEATS, aFeatList);
 	}
 
+	public void addVirtualAbilities(final AbilityCategory aCategory, final List<Ability> aList)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addVirtualFeats(aList);
+			return;
+		}
+		if ( theVirtualAbilities == null )
+		{
+			theVirtualAbilities = new HashMap<AbilityCategory, List<Ability>>();
+		}
+		List<Ability> abilities = theVirtualAbilities.get(aCategory);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<Ability>();
+			theVirtualAbilities.put(aCategory, abilities);
+		}
+		abilities.addAll(aList);
+	}
+	
 	/**
 	 * Clear the variable list
 	 */
@@ -2152,6 +2207,22 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return aType.toString();
 	}
 
+	public List<String> getTypeList(final boolean visibleOnly)
+	{
+		final List<String> ret = getSafeListFor(ListKey.TYPE);
+		if ( visibleOnly == true )
+		{
+			for ( int i = getMyTypeCount(); i >= 0; --i )
+			{
+				if ( isTypeHidden(i) )
+				{
+					ret.remove(i);
+				}
+			}
+		}
+		return Collections.unmodifiableList(ret);
+	}
+	
 	/**
 	 * If aType begins with an &#34; (Exclamation Mark) the &#34; will be
 	 * removed before checking the type.

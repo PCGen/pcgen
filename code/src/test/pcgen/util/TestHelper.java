@@ -24,14 +24,12 @@
 
 package pcgen.util;
 
-import java.lang.String;
-import java.net.URL;
-import java.util.StringTokenizer;
+import gmgen.pluginmgr.PluginLoader;
 
 import java.lang.reflect.Field;
+import java.net.URL;
 import java.util.Arrays;
-
-import gmgen.pluginmgr.PluginLoader;
+import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
 import pcgen.core.Constants;
@@ -40,10 +38,10 @@ import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
-import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -55,6 +53,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 /**
  * Helps Junit tests
  */
+@SuppressWarnings("nls")
 public class TestHelper {
 
 	private static boolean loaded = false;
@@ -131,9 +130,10 @@ public class TestHelper {
 	static public Object findField (Class<?> aClass, String fieldName)
 	{
 		try {
+			Class<?> clazz = aClass;
 			while (true)
 			{
-				for (Field f : Arrays.asList(aClass.getDeclaredFields()))
+				for (Field f : Arrays.asList(clazz.getDeclaredFields()))
 				{
 					if (f.getName().equals(fieldName))
 					{
@@ -141,9 +141,9 @@ public class TestHelper {
 						return f;
 					}
 				}
-				if (!aClass.getName().equals("Object"))
+				if (!clazz.getName().equals("Object"))
 				{
-					aClass = aClass.getSuperclass();
+					clazz = clazz.getSuperclass();
 				}
 				else
 				{
@@ -249,7 +249,7 @@ public class TestHelper {
 			Logging.errorPrint("Caught " + e);
 		}
 		
-		Globals.getRaceMap().put(name, aRace);
+		Globals.addRace(aRace);
 		return aRace;
 	}
 	

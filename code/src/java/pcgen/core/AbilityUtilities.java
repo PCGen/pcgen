@@ -123,7 +123,7 @@ public class AbilityUtilities
 		final ArrayList<String> choices = new ArrayList<String>();
 		EquipmentUtilities.getUndecoratedName(abilityName, choices);
 
-		Ability anAbility = getAbilityFromList(theAbilityList, "FEAT", abilityName, -1);
+		Ability anAbility = getAbilityFromList(theAbilityList, "FEAT", abilityName, Ability.Nature.ANY);
 
 		if (anAbility == null)
 		{
@@ -132,6 +132,34 @@ public class AbilityUtilities
 			if (anAbility != null)
 			{
 				theAbilityList.add(anAbility);
+			}
+		}
+
+		if (anAbility != null)
+		{
+			addChoicesToAbility(anAbility, choices);
+		}
+
+		return anAbility;
+	}
+
+	public static Ability addCloneOfGlobalAbilityToListWithChoices(
+			final List<Ability>   anAbilityList,
+			final AbilityCategory aCategory,
+			final String aKey)
+	{
+		final ArrayList<String> choices = new ArrayList<String>();
+		EquipmentUtilities.getUndecoratedName(aKey, choices);
+
+		Ability anAbility = getAbilityFromList(anAbilityList, aCategory.getAbilityCategory(), aKey, Ability.Nature.ANY);
+
+		if (anAbility == null)
+		{
+			anAbility = cloneGlobalAbility(aCategory.getAbilityCategory(), aKey);
+
+			if (anAbility != null)
+			{
+				anAbilityList.add(anAbility);
 			}
 		}
 
@@ -167,7 +195,7 @@ public class AbilityUtilities
 
 		if (newAbility != null)
 		{
-			newAbility.setFeatType(Ability.ABILITY_VIRTUAL);
+			newAbility.setFeatType(Ability.Nature.VIRTUAL);
 			newAbility.clearPreReq();
 			if (levelInfo != null)
 			{
@@ -474,7 +502,7 @@ public class AbilityUtilities
 			final List<Ability>          anAbilityList,
 			final Categorisable abilityInfo)
 	{
-		return getAbilityFromList(anAbilityList, abilityInfo, -1);
+		return getAbilityFromList(anAbilityList, abilityInfo, Ability.Nature.ANY);
 	}
 
 
@@ -493,7 +521,7 @@ public class AbilityUtilities
 	public static Ability getAbilityFromList(
 		final List<Ability> anAbilityList,
 		final Categorisable abilityInfo,
-		final int           abilityType)
+		final Ability.Nature           abilityType)
 	{
 		if (anAbilityList.isEmpty()) {
 			return null;
@@ -502,7 +530,7 @@ public class AbilityUtilities
 		for ( Ability ability : anAbilityList )
 		{
 			if (AbilityUtilities.areSameAbility(ability, abilityInfo) &&
-					((abilityType == -1) || (ability.getFeatType() == abilityType)))
+					((abilityType == Ability.Nature.ANY) || (ability.getFeatType() == abilityType)))
 			{
 				return ability;
 			}
@@ -527,7 +555,7 @@ public class AbilityUtilities
 			final List<Ability>   anAbilityList,
 			final String aCat,
 			final String aName,
-			final int    abilityType)
+			final Ability.Nature    abilityType)
 	{
 		final AbilityInfo abInfo = new AbilityInfo(aCat, aName);
 		return getAbilityFromList(anAbilityList, abInfo, abilityType);
@@ -876,7 +904,7 @@ public class AbilityUtilities
 			while (aTok.hasMoreTokens())
 			{
 				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aTok.nextToken());
-				added.setFeatType(Ability.ABILITY_AUTOMATIC);
+				added.setFeatType(Ability.Nature.AUTOMATIC);
 			}
 		}
 
@@ -955,7 +983,7 @@ public class AbilityUtilities
 				}
 
 				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", autoFeat);
-				added.setFeatType(Ability.ABILITY_AUTOMATIC);
+				added.setFeatType(Ability.Nature.AUTOMATIC);
 			}
 		}
 
@@ -976,7 +1004,7 @@ public class AbilityUtilities
 						while (aTok.hasMoreTokens())
 						{
 							Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aTok.nextToken());
-							added.setFeatType(Ability.ABILITY_AUTOMATIC);
+							added.setFeatType(Ability.Nature.AUTOMATIC);
 						}
 					}
 				}
@@ -1002,7 +1030,7 @@ public class AbilityUtilities
 							if (idx > -1)
 							{
 								Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aString.substring(idx + 1));
-								added.setFeatType(Ability.ABILITY_AUTOMATIC);
+								added.setFeatType(Ability.Nature.AUTOMATIC);
 							}
 							else
 							{
@@ -1017,7 +1045,7 @@ public class AbilityUtilities
 					{
 						final Ability abI = (Ability)anIt.next();
 						Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", abI.getKeyName());
-						added.setFeatType(Ability.ABILITY_AUTOMATIC);
+						added.setFeatType(Ability.Nature.AUTOMATIC);
 					}
 				}
 			}

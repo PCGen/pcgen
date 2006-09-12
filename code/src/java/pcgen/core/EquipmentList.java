@@ -677,10 +677,10 @@ public class EquipmentList {
 			// creatures weren't being catered for (and therefore an OutOfBounds exception
 			// was being thrown) - Bug 937586
 			//
+			// TODO - This should not be hardcoded to 10
 			final int[] gensizes = new int[10];
-			final List<Race> races = new ArrayList<Race>(Globals.getRaceMap().values());
 
-			for ( Race race : races )
+			for ( final Race race : Globals.getAllRaces() )
 			{
 				final int iSize = Globals.sizeInt(race.getSize());
 				final int flag = 1;

@@ -106,7 +106,7 @@ public class FollowerOption extends PrereqObject implements Comparable<FollowerO
 		{
 			raceSet = new HashSet<Race>();
 			final String raceType = theRaceKey.substring(10);
-			final Collection<Race> allRaces = Globals.getRaceMap().values();
+			final Collection<Race> allRaces = Globals.getAllRaces();
 			for ( final Race r : allRaces )
 			{
 				if ( raceType.equalsIgnoreCase(r.getRaceType()) )
@@ -118,7 +118,7 @@ public class FollowerOption extends PrereqObject implements Comparable<FollowerO
 		else if ( theRaceKey.equals( ANY_RACE ) )
 		{
 			raceSet = new HashSet<Race>();
-			raceSet.addAll( Globals.getRaceMap().values() );
+			raceSet.addAll( Globals.getAllRaces() );
 		}
 		if ( raceSet != null )
 		{

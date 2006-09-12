@@ -29,7 +29,6 @@
 package pcgen.core;
 
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import junit.framework.Test;
@@ -47,6 +46,7 @@ import plugin.pretokens.parser.PreVariableParser;
 /**
  * @author wardc
  */
+@SuppressWarnings("nls")
 public class PCClassTest extends AbstractCharacterTestCase {
 
 	PCClass humanoidClass;
@@ -323,7 +323,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		assertEquals("All spell should have been reconstituted.",
 			startSpells.size(), reconstSpells.size());
 		assertEquals("Spell names should been preserved.",
-			((PCSpell)startSpells.get(0)).getKeyName(), ((PCSpell)reconstSpells.get(0)).getKeyName());
+			startSpells.get(0).getKeyName(), reconstSpells.get(0).getKeyName());
 
 	}
 
@@ -451,12 +451,15 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		bugbearRace.setSize("M");
 		bugbearRace.setAdvancementUnlimited(true);
 		bugbearRace.setInitialSkillMultiplier(1);
+		Globals.addRace(bugbearRace);
+		
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
 		bigBugbearRace.setKeyName("KEY_BigBugbear");
 		bigBugbearRace.setSize("L");
 		bigBugbearRace.setAdvancementUnlimited(true);
 		bigBugbearRace.setInitialSkillMultiplier(1);
+		Globals.addRace(bigBugbearRace);
 
 		// Create the Nymph race
 		nymphRace = new Race();
@@ -464,11 +467,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		nymphRace.setKeyName("KEY_Nymph");
 		nymphRace.setSize("M");
 		nymphRace.setAdvancementUnlimited(true);
-
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("KEY_Bugbear", bugbearRace);
-		raceMap.put("KEY_BigBugbear", bigBugbearRace);
-		raceMap.put("KEY_Nymph", nymphRace);
+		Globals.addRace(nymphRace);
 
 		// Setup class with prereqs and var based abilities with prereqs.
 		PreVariableParser parser = new PreVariableParser();

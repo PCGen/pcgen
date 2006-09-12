@@ -66,7 +66,7 @@ public final class CharacterInfo extends JPanel {
 	private InfoClasses infoClasses;
 	private InfoSkills infoSkills;
 	private InfoAbilities infoAbilities;
-//	private InfoFeats infoFeats;
+//	private InfoAbility infoFeats;
 	private InfoDomain infoDomain;
 	private InfoSpells infoSpells;
 	private JTabbedPane characterInfoTabbedPane = new JTabbedPane();
@@ -90,7 +90,7 @@ public final class CharacterInfo extends JPanel {
 		infoClasses = new InfoClasses(pc);
 		infoSkills = new InfoSkills(pc);
 		infoAbilities = new InfoAbilities(pc);
-//		infoFeats = new InfoFeats(pc);
+//		infoFeats = new InfoAbility(pc);
 		infoDomain = new InfoDomain(pc);
 		infoSpells = new InfoSpells(pc);
 		setName(""); //$NON-NLS-1$
@@ -241,7 +241,7 @@ public final class CharacterInfo extends JPanel {
 	 * Get the info feats
 	 * @return info feats
 	 */
-//	public InfoFeats infoFeats() {
+//	public InfoAbility infoFeats() {
 //		return infoFeats;
 //	}
 

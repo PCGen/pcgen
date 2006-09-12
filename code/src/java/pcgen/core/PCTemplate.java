@@ -31,6 +31,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
@@ -39,6 +41,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.DoubleKeyMap;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
@@ -58,11 +61,20 @@ public final class PCTemplate extends PObject implements HasCost
 
 	private AbilityStore abilityCatStore     = null;
 	private ArrayList<String>    featStrings         = null;
+	/** A Map storing a List of Ability keys Keyed on AbilityCategory */ 
+	private Map<AbilityCategory, List<String>> theAutoAbilityKeys  = null;
 	private ArrayList<String>    hitDiceStrings      = null;
-	private ArrayList<String>    levelStrings        = null;
 	private ArrayList<String>    templates           = new ArrayList<String>();
 
 	private HashMap<String, String>      chosenFeatStrings   = null;
+	
+	/** 
+	 * A Map storing a Map of chosen Ability keys keyed on the level it is
+	 * granted at with a prefix of L (level-based) or H (hitdice-based) keyed on
+	 * AbilityCategory.
+	 */
+	private Map<AbilityCategory, Map<String, String>> theChosenAbilityKeys = null;
+	
 	private List<String>         templatesAdded      = null;
 	private String       cost                = "1";
 
@@ -97,6 +109,13 @@ public final class PCTemplate extends PObject implements HasCost
 	private ArrayList<String> removedSubTypes = new ArrayList<String>();
 
 	private ArrayList<String> levelMods = new ArrayList<String>();
+	
+	/** 
+	 * A DoubleKeyMap storing abilities to be granted at a certain level.
+	 * The Map uses level as a primary key and the ability type as the secondary
+	 * key. 
+	 */
+	private DoubleKeyMap<Integer, String, String> theLevelAbilities = null;
 
 	/**
 	 * Creates a new PCTemplate object.
@@ -181,14 +200,15 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		int localCR = ChallengeRating;
 
-		for (int x = 0; x < getListSize(levelStrings); ++x)
+		if ( theLevelAbilities != null )
 		{
-			if (
-				contains(levelStrings.get(x), "CR:") &&
-				doesLevelQualify(level, x))
+			for ( int lvl = 0; lvl < level; lvl++ )
 			{
-				localCR += Integer.parseInt(
-						getStringAfter("CR:", levelStrings.get(x)));
+				final String crValue = theLevelAbilities.get(lvl, "CR");
+				if ( crValue != null )
+				{
+					localCR += Integer.parseInt(crValue);
+				}
 			}
 		}
 
@@ -206,8 +226,6 @@ public final class PCTemplate extends PObject implements HasCost
 		return localCR;
 	}
 
-
-
 	/**
 	 * Get a list of Feats chosen (from those potentially granted by this
 	 * Template) by the Character it was applied to.
@@ -219,7 +237,16 @@ public final class PCTemplate extends PObject implements HasCost
 		return chosenFeatStrings;
 	}
 
-
+	// TODO - This is rather gross. The class should not give out this sort of
+	// internal information.
+	public Map<String, String> getChosenAbilityKeys(final AbilityCategory aCategory)
+	{
+		if (theChosenAbilityKeys != null )
+		{
+			return theChosenAbilityKeys.get(aCategory);
+		}
+		return null;
+	}
 	/**
 	 * Set the COST of things granted by this Template.
 	 *
@@ -555,6 +582,29 @@ public final class PCTemplate extends PObject implements HasCost
 
 			txt.append("\tFEAT:").append(buffer.toString());
 		}
+		// TODO - Need a tag for this
+		if (theAutoAbilityKeys != null)
+		{
+			final Set<AbilityCategory> categories = theAutoAbilityKeys.keySet();
+			for ( final AbilityCategory category : categories )
+			{
+				if ( category == AbilityCategory.FEAT )
+				{
+					continue;
+				}
+				
+				final StringBuffer buffer = new StringBuffer();
+				for ( final String key : theAutoAbilityKeys.get(category) )
+				{
+					if ( buffer.length() != 0 )
+					{
+						buffer.append(Constants.PIPE);
+					}
+					buffer.append(key);
+				}
+				txt.append("\tABILITY:AUTO|CATEGORY=").append(category.getKeyName()).append("|").append(buffer.toString());
+			}
+		}
 
 		if (!Constants.s_NONE.equals(gender))
 		{
@@ -596,12 +646,10 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tLANGBONUS:").append(buffer.toString());
 		}
 
-		if (getListSize(levelStrings) > 0)
+		final List<String> las = getLevelAbilities();
+		for ( final String la : las )
 		{
-			for (Iterator<String> e = levelStrings.iterator(); e.hasNext();)
-			{
-				txt.append("\tLEVEL:").append(e.next());
-			}
+			txt.append("\t").append(la);
 		}
 
 		if (!"0".equals(levelAdjustment))
@@ -888,16 +936,16 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		int aSR = getSR(aPC);
 
-		for (int x = 0; x < getListSize(levelStrings); ++x)
+		if ( theLevelAbilities != null )
 		{
-			if (
-				contains(levelStrings.get(x), "SR:") &&
-				doesLevelQualify(level, x))
+			for ( int lvl = 0; lvl < level; lvl++ )
 			{
-				aSR = Math.max(
-						Integer.parseInt(
-							getStringAfter("SR:", levelStrings.get(x))),
-						aSR);
+				final String srValue = theLevelAbilities.get(lvl, "SR");
+				if ( srValue != null )
+				{
+					final int sr = Integer.parseInt(srValue);
+					aSR = Math.max(aSR, sr);
+				}
 			}
 		}
 
@@ -937,18 +985,15 @@ public final class PCTemplate extends PObject implements HasCost
 			return specialAbilityList;
 		}
 
-		for (int x = 0; x < getListSize(levelStrings); ++x)
+		if ( theLevelAbilities != null )
 		{
-			if (
-				contains(levelStrings.get(x), "SA:") &&
-				doesLevelQualify(level, x))
+			for ( int lvl = 0; lvl < level; lvl++ )
 			{
-				final String         saString = getStringAfter(
-						"SA:",
-						levelStrings.get(x));
-				final SpecialAbility sa       = new SpecialAbility(saString);
-
-				specialAbilityList.add(sa);
+				final String saString = theLevelAbilities.get(lvl, "SA");
+				if ( saString != null )
+				{
+					specialAbilityList.add(new SpecialAbility(saString));
+				}
 			}
 		}
 
@@ -1153,44 +1198,40 @@ public final class PCTemplate extends PObject implements HasCost
 
 	/**
 	 * Grants the character an ability at the level specified (total character level).
-	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
-	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
+	 * 
+	 * <p>The type parameter may contain the following tags: 
+	 * <ul>
+	 * <li>CR - Challenge Rating</li> 
+	 * <li>DR - Damage Reduction</li> 
+	 * <li>FEAT - Feat</li> 
+	 * <li>SA - Special Ability</li> 
+	 * <li>SR - Spell Resistance</li>
+	 * </ul>
 	 *
-	 * Feats added by this tag are considered automatic feats and do not count against
+	 * <p>Feats added by this tag are considered automatic feats and do not count against
 	 * a PC's feat pool.
 	 *
-	 * 1:DR:5/+1	Grants Damage Reduction of 5/+1 at Level 1.
+	 * <p>Example:<br />
+	 * <code>addLevelAbility(1,&quot;DR&quot;, &quot;5/+1&quot;);<br/>	
+	 * Grants Damage Reduction of 5/+1 at Level 1.
+	 * <p>
+	 * <code>addLevelAbility(6, &quot;FEAT&quot;, &quot;TYPE.Fighter&quot;);<br />
+	 * Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
 	 *
-	 * 2:SR:15	Grants Spell Resistance of 15 at Level 2.
-	 *
-	 * 3:CR:2	Grants an increase in Challenge Rating of two at Level 3.
-	 *
-	 * 4:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability at Level 4.
-	 *
-	 * 5:FEAT:Alertness	Grants the "Alertness" feat at Level 5.
-	 *
-	 * 6:FEAT:TYPE.Fighter	Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
-	 *
-	 * @param levelString a sting in the formate specified above
+	 * @param aLevel The level at which this ability will be granted
+	 * @param aType One of the types listed above
+	 * @param aValue A String to use as the value for that type
+	 * 
 	 */
-	public void addLevelString(final String levelString)
+	public void addLevelAbility(final int aLevel, final String aType, final String aValue)
 	{
-		if (".CLEAR".equals(levelString))
+		if ( theLevelAbilities == null )
 		{
-			if (levelStrings != null)
-			{
-				levelStrings.clear();
-			}
-
-			return;
+			theLevelAbilities = new DoubleKeyMap<Integer, String, String>();
 		}
-		StringTokenizer tok = new StringTokenizer(levelString, ":");
-		String levelStr = tok.nextToken();
-		String typeStr = tok.nextToken();
-		if ("DR".equals(typeStr))
+		if ("DR".equals(aType))
 		{
-			String drVal = tok.nextToken();
-			String[] values = drVal.split("/");
+			String[] values = aValue.split("/");
 			if (values.length == 2)
 			{
 				DamageReduction dr = new DamageReduction(values[0], values[1]);
@@ -1199,7 +1240,7 @@ public final class PCTemplate extends PObject implements HasCost
 				try
 				{
 					PreParserFactory factory = PreParserFactory.getInstance();
-					r = factory.parse("PRELEVEL:" + levelStr);
+					r = factory.parse("PRELEVEL:" + aLevel);
 				}
 				catch (PersistenceLayerException notUsed)
 				{
@@ -1213,40 +1254,34 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 			return;
 		}
-
-		if (levelStrings == null)
-		{
-			levelStrings = new ArrayList<String>();
-		}
-
-		levelStrings.add(levelString);
+		theLevelAbilities.put(aLevel, aType, aValue);
 	}
 
-
-	/**
-	 * Grants the character an ability at the level specified (total character level).
-	 * The text may contain the following tags: CR - Challenge Rating, DR - Damage
-	 * Reduction, FEAT - Feat, SA - Special Ability, SR - Spell Resistance
-	 *
-	 * 1:DR:5/+1	Grants Damage Reduction of 5/+1 at Level 1.
-	 *
-	 * 2:SR:15	Grants Spell Resistance of 15 at Level 2.
-	 *
-	 * 3:CR:2	Grants an increase in Challenge Rating of two at Level 3.
-	 *
-	 * 4:SA:Uncanny Dodge	Grants the "Uncanny Dodge" special ability at Level 4.
-	 *
-	 * 5:FEAT:Alertness	Grants the "Alertness" feat at Level 5.
-	 *
-	 * 6:FEAT:TYPE.Fighter	Produces a popup menu at Level 6 from which a PC can choose a fighter feat.
-	 *
-	 * @return  an array of stings in the format specified
-	 */
-	public List<String> getLevelStrings()
+	public void clearLevelAbilities()
 	{
-		return levelStrings != null ? levelStrings : Collections.EMPTY_LIST;
+		theLevelAbilities = null;
 	}
-
+	
+	public List<String> getLevelAbilities()
+	{
+		final List<String> ret = new ArrayList<String>();
+		
+		if ( theLevelAbilities != null )
+		{
+			for ( final int lvl : theLevelAbilities.getKeySet() )
+			{
+				for ( final String type : theLevelAbilities.getSecondaryKeySet(lvl) )
+				{
+					final String value = theLevelAbilities.get(lvl, type);
+					final StringBuffer txt = new StringBuffer(200);
+					txt.append("LEVEL:").append(lvl).append(":").append(type).append(":").append(value);
+					ret.add(txt.toString());
+				}
+			}
+		}
+		return ret;
+	}
+	
 	/**
 	 * Add a list of subsidiary Templates to this template i.e. Templates (or
 	 * choices of templates) that this Template will grant.
@@ -1334,20 +1369,15 @@ public final class PCTemplate extends PObject implements HasCost
 		final PCTemplate aTemp = (PCTemplate) super.clone();
 		aTemp.templates       = new ArrayList<String>(templates);
 
-		if (getListSize(levelStrings) != 0)
+		if ( theLevelAbilities != null )
 		{
-			aTemp.levelStrings = new ArrayList<String>(levelStrings);
+			aTemp.theLevelAbilities = new DoubleKeyMap<Integer, String, String>(theLevelAbilities);
 		}
 
 		if (getListSize(hitDiceStrings) != 0)
 		{
 			aTemp.hitDiceStrings = new ArrayList<String>(hitDiceStrings);
 		}
-
-		// if (getArrayListSize(sizeStrings) != 0)
-		// {
-		// aTemp.sizeStrings = (ArrayList) sizeStrings.clone();
-		// }
 
 		if (abilityCatStore != null) {
 			aTemp.abilityCatStore = new AbilityStore();
@@ -1360,11 +1390,20 @@ public final class PCTemplate extends PObject implements HasCost
 			aTemp.featStrings = new ArrayList<String>(featStrings);
 		}
 
+		if ( theAutoAbilityKeys != null )
+		{
+			aTemp.theAutoAbilityKeys = new HashMap<AbilityCategory, List<String>>(theAutoAbilityKeys);
+		}
+		
 		if (chosenFeatStrings != null)
 		{
 			aTemp.chosenFeatStrings = new HashMap<String, String>(chosenFeatStrings);
 		}
 
+		if ( theChosenAbilityKeys != null )
+		{
+			aTemp.theChosenAbilityKeys = new HashMap<AbilityCategory, Map<String, String>>(theChosenAbilityKeys);
+		}
 		return aTemp;
 	}
 
@@ -1707,31 +1746,6 @@ public final class PCTemplate extends PObject implements HasCost
 			(hitdice <= Integer.parseInt(tokens.nextToken()));
 	}
 
-
-	/**
-	 * Is the level greater or equal to the level in the levelString
-	 * indexed by index
-	 *
-	 * @param   level  The level to test
-	 * @param   index  index of the level String to test
-	 *
-	 * @return  true if level is >= the level referenced by index
-	 */
-	private boolean doesLevelQualify(final int level, final int index)
-	{
-		if (index >= getListSize(levelStrings))
-		{
-			return false;
-		}
-
-		final StringTokenizer stuff = new StringTokenizer(
-				levelStrings.get(index),
-				":");
-
-		return level >= Integer.parseInt(stuff.nextToken());
-	}
-
-
 	/**
 	 * This is the function that implements a chooser for Feats granted by level
 	 * and/or HD by Templates.
@@ -1741,70 +1755,125 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param  featKey      either L<lvl> or H<lvl>
 	 * @param  aPC          The PC that this Template is appled to
 	 */
+	// TODO - This should be refactored to use the LevelAbility code.
 	private void getLevelFeat(
-		final String          levelString,
+		final String          featString,
 		final int             lvl,
-		final String          featKey,
+		final String          aKey,
 		final PlayerCharacter aPC)
 	{
-		if (contains(levelString, "FEAT:"))
+		String featKe = null;
+		while (true)
 		{
-			String featName = getStringAfter("FEAT:", levelString);
+			List<String> featList = new ArrayList<String>();
+			final LevelAbility la       = LevelAbility.createAbility(
+					this,
+					lvl,
+					"FEAT(" + featString + ")");
 
-			while (true)
+			la.process(featList, aPC, null);
+
+			switch (featList.size())
 			{
-				List<String> featList = new ArrayList<String>();
-				final LevelAbility la       = LevelAbility.createAbility(
-						this,
-						lvl,
-						"FEAT(" + featName + ")");
+				case 1:
+					featKe = featList.get(0);
 
-				la.process(featList, aPC, null);
+					break;
 
-				switch (featList.size())
-				{
-					case 1:
-						featName = featList.get(0);
+				default:
 
-						break;
+					if ((aPC != null) && !aPC.isImporting())
+					{
+						Collections.sort(featList);
 
-					default:
+						final ChooserInterface c = ChooserFactory.getChooserInstance();
+						c.setPool(1);
+						c.setTitle("Feat Choice");
+						c.setAvailableList(featList);
+						c.setVisible(true);
+						featList = c.getSelectedList();
 
-						if ((aPC != null) && !aPC.isImporting())
+						if ((featList != null) && (featList.size() != 0))
 						{
-							Collections.sort(featList);
+							featKe = featList.get(0);
 
-							final ChooserInterface c = ChooserFactory.getChooserInstance();
-							c.setPool(1);
-							c.setTitle("Feat Choice");
-							c.setAvailableList(featList);
-							c.setVisible(true);
-							featList = c.getSelectedList();
-
-							if ((featList != null) && (featList.size() != 0))
-							{
-								featName = featList.get(0);
-
-								continue;
-							}
+							continue;
 						}
+					}
 
-					// fall-through intentional
-					case 0:
-						return;
-				}
-
-				break;
+				// fall-through intentional
+				case 0:
+					return;
 			}
 
-			final LevelAbility la = LevelAbility.createAbility(this, lvl, "FEAT(" + featName + ")");
-
-			aPC.setAllowFeatPoolAdjustment(false);
-			la.process(null, aPC, null);
-			aPC.setAllowFeatPoolAdjustment(true);
-
-			addChosenFeat(featKey, featName);
+			break;
 		}
+
+		final LevelAbility la = LevelAbility.createAbility(this, lvl, "FEAT(" + featString + ")");
+
+		aPC.setAllowFeatPoolAdjustment(false);
+		la.process(null, aPC, null);
+		aPC.setAllowFeatPoolAdjustment(true);
+
+		addChosenFeat(aKey, featKe);
+	}
+
+	private void getLevelAbility(
+			final String anAbilityString,
+			final int aLevel,
+			final PlayerCharacter aPC)
+	{
+		String abilityKey = null;
+		while (true)
+		{
+			List<String> abilityList = new ArrayList<String>();
+			final LevelAbility la = LevelAbility.createAbility(this, aLevel, 
+											"FEAT(" + anAbilityString + ")");
+			
+			la.process(abilityList, aPC, null);
+			
+			switch (abilityList.size())
+			{
+				case 1:
+					abilityKey = abilityList.get(0);
+
+					break;
+
+				default:
+
+					if ((aPC != null) && !aPC.isImporting())
+					{
+						Collections.sort(abilityList);
+
+						final ChooserInterface c = ChooserFactory.getChooserInstance();
+						c.setPool(1);
+						c.setTitle("Ability Choice");
+						c.setAvailableList(abilityList);
+						c.setVisible(true);
+						abilityList = c.getSelectedList();
+
+						if ((abilityList != null) && (abilityList.size() != 0))
+						{
+							abilityKey = abilityList.get(0);
+
+							continue;
+						}
+					}
+
+				// fall-through intentional
+				case 0:
+					return;
+			}
+
+			break;
+		}
+		final LevelAbility la = LevelAbility.createAbility(this, aLevel, "FEAT(" + abilityKey + ")");
+
+		aPC.setAllowFeatPoolAdjustment(false);
+		la.process(null, aPC, null);
+		aPC.setAllowFeatPoolAdjustment(true);
+
+		addChosenFeat("L"+aLevel, abilityKey);
 	}
 
 
@@ -1824,7 +1893,26 @@ public final class PCTemplate extends PObject implements HasCost
 		chosenFeatStrings.put(mapKey, mapValue);
 	}
 
-
+	public void addChosenAbility(final AbilityCategory aCategory, final String aKey, final String aChoice)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addChosenFeat(aKey, aChoice);
+			return;
+		}
+		if ( theChosenAbilityKeys == null )
+		{
+			theChosenAbilityKeys = new HashMap<AbilityCategory, Map<String, String>>();
+		}
+		Map<String, String> choices = theChosenAbilityKeys.get(aCategory);
+		if ( choices == null )
+		{
+			choices = new HashMap<String, String>();
+			theChosenAbilityKeys.put(aCategory, choices);
+		}
+		choices.put(aKey, aChoice);
+	}
+	
 	/**
 	 * Add a | separated list of available abilities that this Template may
 	 * grant.  This is the function called by the Lst parser to make the
@@ -1872,6 +1960,26 @@ public final class PCTemplate extends PObject implements HasCost
 		addAbilityString("CATEGORY=FEAT|" + abilityString);
 	}
 
+	public void addAbilityString( final AbilityCategory aCategory, final String anAbilityKey )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			addFeatString(anAbilityKey);
+			return;
+		}
+		
+		if ( theAutoAbilityKeys == null )
+		{
+			theAutoAbilityKeys = new HashMap<AbilityCategory, List<String>>();
+		}
+		// TODO - Move this to token processing.
+		if ( ".CLEAR".equals(anAbilityKey) )
+		{
+			theAutoAbilityKeys.put(aCategory, null);
+			return;
+		}
+		
+	}
 
 	/**
 	 * TODO DOCUMENT ME!
@@ -1928,21 +2036,26 @@ public final class PCTemplate extends PObject implements HasCost
 			feats.addAll(chosenFeatStrings.values());
 		}
 
-		for (int x = 0; x < getListSize(levelStrings); ++x)
+		if ( theLevelAbilities != null )
 		{
-			final String featKey  = "L" + Integer.toString(x);
-			String       featName = null;
-
-			if (chosenFeatStrings != null)
+			for ( int lvl = 0; lvl < level; lvl++ )
 			{
-				featName = chosenFeatStrings.get(featKey);
-			}
-
-			if ((featName == null) && addNew)
-			{
-				if (doesLevelQualify(level, x))
+				// Check for an already selected value
+				final String lvlKey = "L" + String.valueOf(lvl);
+				String featKey = null;
+				if ( chosenFeatStrings != null )
 				{
-					getLevelFeat(levelStrings.get(x), level, featKey, aPC);
+					featKey = chosenFeatStrings.get(lvlKey);
+				}
+				
+				// We haven't selected one yet.  Ask for one if we are allowed.
+				if ( featKey == null && addNew == true )
+				{
+					final String featString = theLevelAbilities.get(lvl, "FEAT");
+					if ( featString != null )
+					{
+						getLevelFeat(featString, lvl, lvlKey, aPC);
+					}
 				}
 			}
 		}
@@ -1969,6 +2082,68 @@ public final class PCTemplate extends PObject implements HasCost
 		return feats;
 	}
 
+	public List<String> getAutoAbilityKeys(
+			final AbilityCategory aCategory,
+			final PlayerCharacter aPC,
+			final boolean         addNew)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return this.feats(aPC.getTotalLevels(), aPC.totalHitDice(), aPC, addNew);
+		}
+		
+		List<String> ret = null;
+
+		if ( theAutoAbilityKeys != null )
+		{
+			ret = theAutoAbilityKeys.get(aCategory);
+		}
+		if ( ret == null )
+		{
+			ret = new ArrayList<String>();
+		}
+
+		// Add all the abilities we have already chosen
+		if ( theChosenAbilityKeys != null )
+		{
+			final Map<String, String> choices = theChosenAbilityKeys.get(aCategory);
+			ret.addAll(choices.values());
+		}
+		
+		if ( theLevelAbilities != null )
+		{
+			for ( int lvl = 0; lvl < aPC.getTotalLevels(); lvl ++ )
+			{
+				// TODO - Need to deal with this 
+				final String abilityString = theLevelAbilities.get(lvl, "ABILITY");
+				if ( abilityString != null )
+				{
+					this.getLevelAbility(abilityString, lvl, aPC);
+				}
+			}
+		}
+
+		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
+		{
+			final String featKey  = "H" + Integer.toString(x);
+			String       featName = null;
+
+			if (chosenFeatStrings != null)
+			{
+				featName = chosenFeatStrings.get(featKey);
+			}
+
+			if ((featName == null) && addNew)
+			{
+				if (doesHitDiceQualify(aPC.totalHitDice(), x))
+				{
+					getLevelFeat(hitDiceStrings.get(x), -1, featKey, aPC);
+				}
+			}
+		}
+
+		return ret;
+	}
 	/**
 	 * Set face
 	 * @param width

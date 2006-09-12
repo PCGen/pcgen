@@ -76,7 +76,7 @@ public class RaceChoiceManager extends AbstractComplexChoiceManager<Race>
 	{
 		// CHOOSE:RACE|RACETYPE=x,RACESUBTYPE=y,<racename>,TYPE=z
 		// or CHOOSE:RACE|[RACETYPE=x,RACESUBTYPE=y]
-		Collection<Race> races = Globals.getRaceMap().values();
+		Collection<Race> races = Globals.getAllRaces();
 
 		Iterator<String> choiceIt = choices.iterator();
 

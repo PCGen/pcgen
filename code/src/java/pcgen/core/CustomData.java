@@ -459,7 +459,7 @@ public final class CustomData
 			bw.write("#");
 			bw.newLine();
 
-			for ( Race race : Globals.getRaceMap().values() )
+			for ( final Race race : Globals.getAllRaces() )
 			{
 				if (race.isType(Constants.s_CUSTOM))
 				{
@@ -598,8 +598,7 @@ public final class CustomData
 
 	private static void writeCustomRaces()
 	{
-		writeCustomPObjects(customRaceFilePath(true), Globals.getRaceMap()
-			.values().iterator());
+		writeCustomPObjects(customRaceFilePath(true), Globals.getAllRaces().iterator());
 	}
 
 	private static void writeCustomSkills()

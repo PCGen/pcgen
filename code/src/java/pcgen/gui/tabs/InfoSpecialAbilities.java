@@ -451,7 +451,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 			buildLangLists(availableLangs, selectedLangNames, excludedLangs);
 
-			Globals.sortPObjectList(availableLangs);
+			Globals.sortPObjectListByName(availableLangs);
 
 			ChooserInterface lc = ChooserFactory.getChooserInstance();
 			lc.setVisible(false);

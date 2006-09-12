@@ -293,6 +293,11 @@ public final class Domain extends PObject
 		return abilityStore.getUnmodifiableList("FEAT").size();
 	}
 
+	public Iterator<Categorisable> getAbilityIterator(final String aCategory)
+	{
+		return abilityStore.getNameIterator(aCategory);
+	}
+	
 	void addSpellsToClassForLevels(
 		final PCClass aClass,
 		final int     minLevel,

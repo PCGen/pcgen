@@ -28,8 +28,6 @@
  */
 package pcgen.core.prereq;
 
-import java.util.Map;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -41,14 +39,21 @@ import pcgen.core.Race;
  * @author wardc
  *
  */
+@SuppressWarnings("nls")
 public class PreRaceTest extends AbstractCharacterTestCase
 {
+	/**
+	 * Runs the test.
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreRaceTest.class);
 	}
 
 	/**
+	 * Returns a TestSuite consisting of all the tests in this class.
+	 * 
 	 * @return Test
 	 */
 	public static Test suite()
@@ -57,6 +62,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * Test to ensure that we return false when races don't match.
+	 * 
 	 * @throws Exception
 	 */
 	public void testFail() throws Exception
@@ -65,8 +72,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Human", race);
+		Globals.addRace(race);
 
 		character.setRace(race);
 
@@ -80,6 +86,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * Test to make sure we return false when race is equal but NOT is specificed.
+	 * 
 	 * @throws Exception
 	 */
 	public void testNeqFails() throws Exception
@@ -88,8 +96,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Human", race);
+		Globals.addRace(race);
 
 		character.setRace(race);
 
@@ -103,6 +110,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * Test to make sure that NOT returns true if races don't match.
+	 * 
 	 * @throws Exception
 	 */
 	public void testNeqPasses() throws Exception
@@ -111,8 +120,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Human", race);
+		Globals.addRace(race);
 
 		character.setRace(race);
 
@@ -126,6 +134,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * Test to make sure that we return true when races are equal.
+	 * 
 	 * @throws Exception
 	 */
 	public void testPass() throws Exception
@@ -134,8 +144,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		final Map<String, Race> raceMap = Globals.getRaceMap();
-		raceMap.put("Human", race);
+		Globals.addRace(race);
 
 		character.setRace(race);
 

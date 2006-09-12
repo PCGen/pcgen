@@ -29,8 +29,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +51,13 @@ import java.util.TreeSet;
 
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.character.*;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.CompanionMod;
+import pcgen.core.character.EquipSet;
+import pcgen.core.character.EquipSlot;
+import pcgen.core.character.Follower;
+import pcgen.core.character.SpellBook;
+import pcgen.core.character.SpellInfo;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
@@ -60,15 +66,20 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.spell.PCSpellTracker;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
-import pcgen.core.utils.*;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.ListKey;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.core.utils.StringKey;
+import pcgen.core.utils.StringKeyMap;
 import pcgen.gui.GuiConstants;
-import pcgen.io.exporttoken.BonusToken;
 import pcgen.io.PCGFile;
+import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
+import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Load;
@@ -93,8 +104,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	// List of Armor Proficiencies
 	private final ArrayList<String> armorProfList = new ArrayList<String>();
 
-	// List of Feats
-	private final ArrayList<Ability> featList = new ArrayList<Ability>();
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(3);
@@ -160,9 +169,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	// List of Kit objects
 	private List<Kit> kitList = null;
-	private List<Ability> stableAggregateFeatList = null;
-	private List<Ability> stableAutomaticFeatList = null;
-	private List<Ability> stableVirtualFeatList   = null;
 
 	// Spells
 	private PCSpellTracker spellTracker = null;
@@ -190,8 +196,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	// Movement lists
 	private Double[] movements = Globals.EMPTY_DOUBLE_ARRAY;
 
-	// Whether one can trust the most recently calculated aggregateFeatList
-	private boolean aggregateFeatsStable = false;
 	private boolean armorProfListStable  = false;
 
 	// whether to add auto known spells each level
@@ -207,8 +211,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	// Should we sort the gear automatically?
 	private boolean autoSortGear = true;
 
-	// Whether one can trust the most recently calculated automaticFeatList
-	private boolean       automaticFeatsStable = false;
 	private boolean       qualifyListStable    = false;
 	private final boolean useMonsterDefault    = SettingsHandler.isMonsterDefault();
 
@@ -224,14 +226,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	// Should temp mods/bonuses be used/saved?
 	private boolean useTempMods = true;
 
-	// Whether one can trust the most recently calculated virtualFeatList
-	private boolean virtualFeatsStable = false;
 
-	// whether to adjust the feat pool when requested
-	private boolean allowFeatPoolAdjustment = true;
-
-	// pool of feats remaining to distribute
-	private double feats = 0;
 	private int    age   = 0;
 
 	// 0 = LG to 8 = CE and 9 is <none selected>
@@ -259,6 +254,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private boolean processLevelAbilities = true;
 
+	/**
+	 * Abilities stored as a double key map.  The keys are the Category and 
+	 * type (Normal, Virtual, or Automatic).  The value is a list of abilities
+	 * that match the keys.
+	 */ 
+	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<Ability>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<Ability>>();
+	
+	/**
+	 * This map stores any user bonuses (entered through the GUI) to the 
+	 * corrisponding ability pool.
+	 */
+	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
+	
 	///////////////////////////////////////
 	//operations
 	/**
@@ -282,7 +290,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			statList.addStat((PCStat)stat.clone());
 		}
 
-		setRace(Globals.getRaceMap().get(Constants.s_NONESELECTED));
+		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
 		setFeats(0);
 		rollStats(SettingsHandler.getGame().getRollMethod());
@@ -330,26 +338,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public int getAge()
 	{
 		return age;
-	}
-
-	/**
-	 * Set aggregate Feats stable
-	 * @param stable
-	 */
-	public void setAggregateFeatsStable(final boolean stable)
-	{
-		aggregateFeatsStable = stable;
-		//setDirty(true);
-	}
-
-	/**
-	 * Returns TRUE if all types (automatic, virtual and aggregate)
-	 * of feats are stable
-	 * @return TRUE or FALSE
-	 */
-	public boolean isAggregateFeatsStable()
-	{
-		return automaticFeatsStable && virtualFeatsStable && aggregateFeatsStable;
 	}
 
 	/**
@@ -448,16 +436,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		armorProfListStable = arg;
 		setDirty(true);
-	}
-
-	/**
-	 * Sets a 'stable' list of automatic feats
-	 * @param stable
-	 */
-	public void setAutomaticFeatsStable(final boolean stable)
-	{
-		automaticFeatsStable = stable;
-		//setDirty(true);
 	}
 
 	/**
@@ -1124,6 +1102,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			getVariableProcessor().setSerial(serial);
 		}
 
+		// TODO - This is kind of strange.  We probably either only want to 
+		// notify our observers if we have gone from not dirty to dirty and not
+		// the reverse case.  At a minimum we should probably tell them the 
+		// state anyway.
 		if (dirtyFlag != dirtyState)
 		{
 			dirtyFlag = dirtyState;
@@ -1471,207 +1453,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	/**
-	 * Add a "real" (not virtual or auto) feat to the character
-	 *
-	 * @param   aFeat  the Ability (of category FEAT) to add
-	 *
-	 * @return  true if added successfully
-	 */
-	public boolean addRealFeat(final Ability aFeat)
-	{
-		//return abilityStore.addCategorisable(aFeat)
-		return featList.add(aFeat);
-	}
-
-	/**
-	 * Remove all "real" (not auto or auto) feats from the character
-	 */
-	public void clearRealFeats()
-	{
-		featList.clear();
-	}
-
-	/**
-	 * Get number of "real" (not virtual or auto) feats the character has
-	 *
-	 * @return  DOCUMENT ME!
-	 */
-	public int getNumberOfRealFeats()
-	{
-		return featList.size();
-	}
-
-	public List<Ability> getRealFeatsList()
-	{
-		return new ArrayList<Ability>(featList);
-	}
-
-	/**
-	 * Get an iterator over all the feats "Real" feats For Example, not virtual or auto
-	 *
-	 * @return  an iterator
-	 */
-	public List<Ability> getRealFeatList()
-	{
-		return featList;
-	}
-
-
-	/**
-	 * Returns the Feat definition searching by key (not name), as contained in
-	 * the <b>chosen</b> feat list.
-	 *
-	 * @param   featName  String key of the feat to check for.
-	 *
-	 * @return  the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *          if not found.
-	 */
-	public Ability getRealFeatKeyed(final String featName)
-	{
-		return getFeatKeyed(featName, featList);
-	}
-
-
-	/**
-	 * Returns the Feat definition searching by name, as contained in the <b>
-	 * chosen</b> feat list.
-	 *
-	 * @param   featName  String key of the feat to check for.
-	 *
-	 * @return  the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *          if not found.
-	 */
-
-	public Ability getRealFeatNamed(final String featName)
-	{
-		return AbilityUtilities.getAbilityFromList(featList, "FEAT", featName, -1);
-	}
-
-
-	/**
-	 * Does the character have this feat (not virtual or auto).
-	 *
-	 * @param   aFeat  The Ability object (of category FEAT) to check
-	 *
-	 * @return  True if the character has the feat
-	 */
-	public boolean hasRealFeat(final Ability aFeat)
-	{
-		//return (abilityStore.getCategorisableNamed(aCategory, aFeat) != null);
-		return featList.contains(aFeat);
-	}
-
-
-	/**
-	 * Check if the characterFeat ArrayList contains the named Feat.
-	 *
-	 * @param featName String name of the feat to check for.
-	 * @return <code>true</code> if the character has the feat,
-	 *         <code>false</code> otherwise.
-	 */
-
-	public boolean hasRealFeatNamed(final String featName)
-	{
-		return AbilityUtilities.getAbilityFromList(featList, "FEAT", featName, -1) != null;
-	}
-
-
-	/**
-	 * Remove a "real" (for example, not virtual or auto) feat from the character.
-	 *
-	 * @param   aFeat  the Ability (of category FEAT) to remove
-	 * @return  True if successfully removed
-	 */
-	public boolean removeRealFeat(final Ability aFeat)
-	{
-		return featList.remove(aFeat);
-	}
-
-
-	public void adjustFeats(final double arg)
-	{
-		if (allowFeatPoolAdjustment)
-		{
-			feats += arg;
-		}
-		setDirty(true);
-	}
-
-	public void setFeats(final double arg)
-	{
-		if (allowFeatPoolAdjustment)
-		{
-			feats = arg;
-		}
-		setDirty(true);
-	}
-
-	public BigDecimal getTotalAbilityPool( final AbilityCategory aCategory )
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			return BigDecimal.valueOf(getFeats());
-		}
-		Float basePool = this.getVariableValue(aCategory.getPoolFormula(), getClass().toString());
-		double bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
-		return BigDecimal.valueOf(basePool + bonus);
-	}
-
-	public BigDecimal getAbilityPoolSpent( final AbilityCategory aCategory )
-	{
-		double spent = 0.0d;
-		
-		final List<Ability> abilities = getSelectedAbilities( aCategory );
-		for ( final Ability ability : abilities )
-		{
-			final int subfeatCount = ability.getAssociatedCount();
-
-			if (subfeatCount > 1)
-			{
-				spent += subfeatCount;
-			}
-			else
-			{
-				spent += ability.getCost(this);
-			}
-		}
-		return BigDecimal.valueOf(spent);
-	}
-	
-	public BigDecimal getAvailableAbilityPool( final AbilityCategory aCategory )
-	{
-		return getTotalAbilityPool(aCategory).subtract(getAbilityPoolSpent(aCategory));
-	}
-	
-	public List<Ability> getSelectedAbilities( final AbilityCategory aCategory )
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			return getRealFeatList();
-		}
-		return Collections.emptyList();
-	}
-	
-	public double getFeats()
-	{
-		if (Globals.getGameModeHasPointPool())
-		{
-			return getSkillPoints();
-		}
-		return getRawFeats(true);
-	}
-
-	public double getRawFeats(final boolean bIncludeBonus)
-	{
-		double retVal = feats;
-		if (bIncludeBonus)
-		{
-			retVal += getBonusFeatPool();
-		}
-		return retVal;
-	}
-
-	/**
 	 * Get a number that represents the number of feats added to this character
 	 * by BONUS statements.
 	 *
@@ -1712,6 +1493,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	/**
+>>>>>>> .r1382
 	 * Checks whether a PC is allowed to level up. A PC is not allowed to
 	 * level up if the "Enforce Spending" option is set and he still has
 	 * unallocated skill points and/or feat slots remaining.
@@ -1726,44 +1508,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * Query whether this PC should be able to select the ability passed
-	 * in.  That is, does the PC meet the prerequisites and is the feat not
-	 * one the PC already has, or if the PC has the feat already, is it one that
-	 * can be taken multiple times.
-	 * @param anAbility the ability to test
-	 * @return true if the PC can take, false otherwise
-	 */
-	public boolean canSelectAbility (final Ability anAbility)
-	{
-		return this.canSelectAbility(anAbility, false);
-	}
-
-	/**
-	 * Query whether this PC should be able to select the ability passed
-	 * in.  That is, does the PC meet the prerequisites and is the feat not
-	 * one the PC already has, or if the PC has the feat already, is it one that
-	 * can be taken multiple times.
-	 * TODO: When the PlayerCharacter Object can have abilities of category
-	 * other than "FEAT" it will likely have methods to test "hasRealAbility" and
-	 * "hasVirtualAbilty", change this (or add another) to deal with them
-	 *
-	 * @param anAbility the ability to test
-	 * @param autoQualify if true, the PC automatically meets the prerequisites
-	 * @return true if the PC can take, false otherwise
-	 */
-	public boolean canSelectAbility (final Ability anAbility, final boolean autoQualify)
-	{
-		final boolean qualify     = this.qualifiesForFeat(anAbility);
-		final boolean canTakeMult = anAbility.isMultiples();
-		final boolean hasOrdinary = this.hasRealFeat(anAbility);
-		final boolean hasAuto     = this.hasFeatAutomatic(anAbility.getKeyName());
-
-		final boolean notAlreadyHas  = !(hasOrdinary || hasAuto);
-
-		return (autoQualify || qualify) && (canTakeMult || notAlreadyHas);
 	}
 
 	/**
@@ -3279,40 +3023,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return getSafeStringFor(StringKey.TRAIT2);
 	}
 
-	/**
-	 * get unused feat count
-	 * @return unused feat count
-	 */
-	public double getUsedFeatCount()
-	{
-		double iCount = 0;
-
-		for (Ability aFeat : getRealFeatList())
-		{
-			//
-			// Don't increment the count for
-			// hidden feats so the number
-			// displayed matches this number
-			//
-			//if (aFeat.getVisibility() == Visibility.HIDDEN)
-			//{
-			//	continue;
-			//}
-			final int subfeatCount = aFeat.getAssociatedCount();
-
-			if (subfeatCount > 1)
-			{
-				iCount += subfeatCount;
-			}
-			else
-			{
-				iCount += aFeat.getCost(this);
-			}
-		}
-
-		return iCount;
-	}
-
 	public Float getVariable(final String variableString, final boolean isMax, final boolean includeBonus, final String matchSrc, final String matchSubSrc, int decrement)
 	{
 		return getVariable(variableString, isMax, includeBonus, matchSrc, matchSubSrc, true, decrement);
@@ -3573,12 +3283,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return new Float(value);
 	}
 
-	public void setVirtualFeatsStable(final boolean stable)
-	{
-		virtualFeatsStable = stable;
-		//setDirty(true);
-	}
-
 	public TreeSet<WeaponProf> getWeaponProfList()
 	{
 		final TreeSet<WeaponProf> wp = new TreeSet<WeaponProf>(weaponProfList);
@@ -3695,28 +3399,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			addSpellBook(book);
 		}
 		setDirty(true);
-	}
-
-	public void addFeat(final Ability aFeat, final PCLevelInfo playerCharacterLevelInfo)
-	{
-		if (hasRealFeat(aFeat))
-		{
-			Logging.errorPrint("Adding duplicate feat: " + aFeat.getDisplayName());
-		}
-
-		if (!addRealFeat(aFeat))
-		{
-			Logging.errorPrint("Problem adding feat: " + aFeat.getDisplayName());
-		}
-
-		if (playerCharacterLevelInfo != null)
-		{
-			// Add this feat to the level Info
-			playerCharacterLevelInfo.addObject(aFeat);
-		}
-		addNaturalWeapons(aFeat.getNaturalWeapons());
-		setAggregateFeatsStable(false);
-		calcActiveBonuses();
 	}
 
 	public void addFollower(final Follower aFollower)
@@ -5023,16 +4705,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return favored;
 	}
 
-	public Ability getAbilityAutomaticKeyed(final AbilityCategory aCategory, final String anAbilityKey)
-	{
-		return AbilityUtilities.getAbilityFromList(abilityAutoList(aCategory), aCategory.getKeyName(), anAbilityKey, -1);
-	}
-	
-	public Ability getFeatAutomaticKeyed(final String aFeatKey)
-	{
-		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", aFeatKey, -1);
-	}
-
 	/**
 	 * Calculates total bonus from Feats
 	 * @param aType
@@ -5057,10 +4729,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, -1);
+		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, Ability.Nature.ANY);
 	}
 
-	public Ability getFeatNamed(final String featName, final int featType)
+	public Ability getFeatNamed(final String featName, final Ability.Nature featType)
 	{
 		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, featType);
 	}
@@ -5075,19 +4747,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public Ability getAbilityMatching(final Ability anAbility)
 	{
 		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), anAbility);
-	}
-
-	/**
-	 * Returns the Feat definition searching by key (not name), as
-	 * found in the <b>aggregate</b> feat list.
-	 *
-	 * @param featName String key of the feat to check for.
-	 * @return the Feat (not the CharacterFeat) searched for,
-	 *         <code>null</code> if not found.
-	 */
-	public Ability getFeatKeyed(final String featName)
-	{
-		return getFeatKeyed(featName, aggregateFeatList());
 	}
 
 	public int getFirstSpellLevel(final Spell aSpell)
@@ -6662,148 +6321,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	}
 
-	public List<Ability> getVirtualFeatList()
-	{
-		List<Ability> vFeatList = getStableVirtualFeatList();
-
-		//Did we get a valid list? If so, return it.
-		if (vFeatList != null)
-		{
-			return vFeatList;
-		}
-		setVirtualFeatsStable(true);
-		vFeatList = new ArrayList<Ability>();
-		if (stableVirtualFeatList != null)
-		{
-			for ( Ability feat : stableVirtualFeatList )
-			{
-				if (feat.needsSaving())
-				{
-					if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-						vFeatList.add(feat);
-					}
-				}
-			}
-		}
-
-		for ( PCClass pcClass : classList )
-		{
-			final List<Ability> aList = pcClass.getVirtualFeatList(pcClass.getLevel());
-
-			for ( Ability feat : aList )
-			{
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-
-		for (Ability aFeat : getRealFeatList())
-		{
-			final List<Ability> aList = aFeat.getVirtualFeatList();
-
-			for ( Ability feat : aList )
-			{
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-
-		for ( PCTemplate template : templateList )
-		{
-			final List<Ability> aList = template.getVirtualFeatList();
-
-			for ( Ability feat : aList )
-			{
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-
-		for ( Equipment eq : equipmentList )
-		{
-			if (eq.isEquipped())
-			{
-				// This already includes the EqMods
-				final List<Ability> aList = eq.getVirtualFeatList();
-				for ( Ability feat : aList )
-				{
-					// TODO Check for duplicates?
-					if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-						vFeatList.add(feat);
-					}
-				}
-			}
-		}
-
-		if (getRace() != null)
-		{
-			final List<Ability> aList = getRace().getVirtualFeatList();
-			for ( Ability feat : aList )
-			{
-				// TODO Check for duplicates?
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-
-		for ( Skill skill : getSkillList() )
-		{
-			final List<Ability> aList = skill.getVirtualFeatList();
-
-			for ( Ability feat : aList )
-			{
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-
-		for ( CharacterDomain cd : characterDomainList )
-		{
-			if (cd.getDomain() != null)
-			{
-				final List<Ability> aList = cd.getDomain().getVirtualFeatList();
-
-				for ( Ability feat : aList )
-				{
-					if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-						vFeatList.add(feat);
-					}
-				}
-			}
-		}
-		if (deity != null)
-		{
-			final List<Ability> aList = deity.getVirtualFeatList();
-
-			for ( Ability feat : aList )
-			{
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-		for ( CompanionMod cMod : companionModList )
-		{
-			final List<Ability> aList = cMod.getVirtualFeatList();
-
-			for ( Ability feat : aList )
-			{
-				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
-					vFeatList.add(feat);
-				}
-			}
-		}
-
-		setStableVirtualFeatList(vFeatList);
-
-		return vFeatList;
-	}
-
 	private Map<String, String> getVisionMap()
 	{
 		Map<String, String> visMap = new HashMap<String, String>();
@@ -8315,107 +7832,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return "";
 	}
 
-	public List<Ability> aggregateFeatList()
-	{
-		final List<Ability> aggregate = getStableAggregateFeatList();
-
-		//Did we get a valid list? If so, return it.
-		if (aggregate != null)
-		{
-			return aggregate;
-		}
-
-		return rebuildFeatAggreagateList();
-	}
-
-	private List<Ability> rebuildFeatAggreagateList()
-	{
-		List<Ability> aggregate = new ArrayList<Ability>();
-		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
-
-		for (Ability aFeat : getRealFeatList())
-		{
-			if (aFeat != null)
-			{
-				aHashMap.put(aFeat.getKeyName(), aFeat);
-			}
-		}
-
-		for ( Ability vFeat : getVirtualFeatList() )
-		{
-			if (!aHashMap.containsKey(vFeat.getKeyName()))
-			{
-				aHashMap.put(vFeat.getKeyName(), vFeat);
-			}
-			else if (vFeat.isMultiples())
-			{
-				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
-				aggregateFeat = (Ability) aggregateFeat.clone();
-
-				for (int e1 = 0; e1 < vFeat.getAssociatedCount(); ++e1)
-				{
-					final String aString = vFeat.getAssociated(e1);
-
-					if (aggregateFeat.isStacks() || !aggregateFeat.containsAssociated(aString))
-					{
-						aggregateFeat.addAssociated(aString);
-					}
-				}
-
-				aHashMap.put(vFeat.getKeyName(), aggregateFeat);
-			}
-		}
-
-		aggregate.addAll(aHashMap.values());
-		setStableAggregateFeatList(aggregate);
-
-		for ( Ability autoFeat : featAutoList() )
-		{
-			if (!aHashMap.containsKey(autoFeat.getKeyName()))
-			{
-				aHashMap.put(autoFeat.getKeyName(), autoFeat);
-			}
-
-			else if (autoFeat.isMultiples())
-			{
-				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
-				aggregateFeat = (Ability) aggregateFeat.clone();
-
-				for (int e1 = 0; e1 < autoFeat.getAssociatedCount(); ++e1)
-				{
-					final String aString = autoFeat.getAssociated(e1);
-					if (aggregateFeat.isStacks() || !aggregateFeat.containsAssociated(aString))
-					{
-						aggregateFeat.addAssociated(aString);
-					}
-				}
-
-				aHashMap.put(autoFeat.getKeyName(), aggregateFeat);
-			}
-		}
-
-		aggregate = new ArrayList<Ability>();
-		aggregate.addAll(aHashMap.values());
-		setStableAggregateFeatList(aggregate);
-		return aggregate;
-	}
-
-	public List<Ability> aggregateVisibleFeatList()
-	{
-		final List<Ability> tempFeatList = new ArrayList<Ability>();
-
-		for ( Ability feat : aggregateFeatList() )
-		{
-			if ((feat.getVisibility() == Visibility.DEFAULT)
-				|| (feat.getVisibility() == Visibility.OUTPUT_ONLY))
-			{
-				tempFeatList.add(feat);
-			}
-		}
-
-		return tempFeatList;
-	}
-
 	/**
 	 * Calculate different kinds of bonuses to saves.
 	 * possible tokens are
@@ -8686,33 +8102,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return calcACOfType("Equipment") + calcACOfType("Armor");
 	}
 
-	public List<Ability> abilityAutoList(final AbilityCategory aCategory)
-	{
-		if ( aCategory.equals(AbilityCategory.FEAT) )
-		{
-			return featAutoList();
-		}
-		return Collections.emptyList();
-//		final List<Ability> autoAbilityList = getStableAutomaticAbilityList(aCategory);
-//		
-//		if ( autoAbilityList != null )
-//		{
-//			return autoAbilityList;
-//		}
-	}
-	public List<Ability> featAutoList()
-	{
-		final List<Ability> autoFeatList = getStableAutomaticFeatList();
-
-		//Did we get a valid list? If so, return it.
-		if (autoFeatList != null)
-		{
-			return autoFeatList;
-		}
-
-		return AbilityUtilities.rebuildAutoAbilityList(this);
-	}
-
 	public int flatfootedAC()
 	{
 		return calcACOfType("Flatfooted");
@@ -8741,7 +8130,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean hasFeatAutomatic(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", featName, -1) != null;
+		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", featName, Ability.Nature.ANY) != null;
 	}
 
 	/**
@@ -8753,7 +8142,51 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean hasFeatVirtual(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(), "FEAT", featName, -1) != null;
+		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(), "FEAT", featName, Ability.Nature.ANY) != null;
+	}
+
+	/**
+	 * Does the character have this ability as an auto ability.
+	 *
+	 * @param   aCategory  The ability category to check.
+	 * @param   anAbility  The Ability object to check
+	 *
+	 * @return  <tt>true</tt> if the character has the ability
+	 */
+	public boolean hasAutomaticAbility(final AbilityCategory aCategory, final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return hasFeatAutomatic(anAbility.getKeyName());
+		}
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.AUTOMATIC);
+		if ( abilities == null )
+		{
+			return false;
+		}
+		return abilities.contains(anAbility);
+	}
+
+	/**
+	 * Does the character have this ability as a virtual ability.
+	 *
+	 * @param   aCategory  The ability category to check.
+	 * @param   anAbility  The Ability object to check
+	 *
+	 * @return  <tt>true</tt> if the character has the ability
+	 */
+	public boolean hasVirtualAbility(final AbilityCategory aCategory, final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return hasFeatVirtual(anAbility.getKeyName());
+		}
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
+		if ( abilities == null )
+		{
+			return false;
+		}
+		return abilities.contains(anAbility);
 	}
 
 	public boolean hasMadeKitSelectionForAgeSet(final int index)
@@ -9697,7 +9130,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public void populateSkills(final int level)
 	{
-		Globals.sortPObjectList(getSkillList());
+		Globals.sortPObjectListByName(getSkillList());
 		removeExcessSkills(level);
 		addNewSkills(level);
 
@@ -10591,11 +10024,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return aList;
 	}
 
-	boolean isAutomaticFeatsStable()
-	{
-		return automaticFeatsStable;
-	}
-
 	/**
 	 * Calculates total bonus from Checks
 	 * @param aType
@@ -11243,45 +10671,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return aList;
 	}
 
-	private List<Ability> getStableAggregateFeatList()
-	{
-		if (isAggregateFeatsStable())
-		{
-			return stableAggregateFeatList;
-		}
-		return null;
-	}
-
-	void setStableAutomaticFeatList(final List<Ability> aFeatList)
-	{
-		stableAutomaticFeatList = aFeatList;
-		setAutomaticFeatsStable(aFeatList != null);
-	}
-
-	private List<Ability> getStableAutomaticFeatList()
-	{
-		if (isAutomaticFeatsStable())
-		{
-			return stableAutomaticFeatList;
-		}
-		return null;
-	}
-
-	private void setStableVirtualFeatList(final List<Ability> aFeatList)
-	{
-		stableVirtualFeatList = aFeatList;
-		setVirtualFeatsStable(aFeatList != null);
-	}
-
-	private List<Ability> getStableVirtualFeatList()
-	{
-		if (isVirtualFeatsStable())
-		{
-			return stableVirtualFeatList;
-		}
-		return null;
-	}
-
 	/**
 	 * Used to create the Bonus HashMap from all active bonuses
 	 * @param aBonus
@@ -11731,7 +11120,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				}
 
 					  ;
-				Ability anAbility = AbilityUtilities.getAbilityFromList(aFeatList, "FEAT", featKey, -1);
+				Ability anAbility = AbilityUtilities.getAbilityFromList(aFeatList, "FEAT", featKey, Ability.Nature.ANY);
 
 				if (anAbility != null)
 				{
@@ -11769,7 +11158,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 						if (isAuto)
 						{
-							anAbility.setFeatType(Ability.ABILITY_AUTOMATIC);
+							anAbility.setFeatType(Ability.Nature.AUTOMATIC);
 						}
 
 						aFeatList.add(anAbility);
@@ -15112,4 +14501,1511 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 	}
 */
+
+	// --------------------------------------------------
+	// Feat/Ability stuff
+	// --------------------------------------------------
+	
+	// List of Feats
+	private final ArrayList<Ability> featList = new ArrayList<Ability>();
+	private List<Ability> stableAggregateFeatList = null;
+	private List<Ability> stableAutomaticFeatList = null;
+	private List<Ability> stableVirtualFeatList   = null;
+
+	// Whether one can trust the most recently calculated aggregateFeatList
+	private boolean aggregateFeatsStable = false;
+	// Whether one can trust the most recently calculated automaticFeatList
+	private boolean       automaticFeatsStable = false;
+	// Whether one can trust the most recently calculated virtualFeatList
+	private boolean virtualFeatsStable = false;
+
+	// whether to adjust the feat pool when requested
+	private boolean allowFeatPoolAdjustment = true;
+
+	// pool of feats remaining to distribute
+	private double feats = 0;
+
+	/**
+	 * Set aggregate Feats stable
+	 * @param stable
+	 */
+	public void setAggregateFeatsStable(final boolean stable)
+	{
+		aggregateFeatsStable = stable;
+		//setDirty(true);
+	}
+
+	public void setAggregateAbilitiesStable(final AbilityCategory aCategory,
+											final boolean stable)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			setAggregateFeatsStable(stable);
+		}
+	}
+	
+	/**
+	 * Returns TRUE if all types (automatic, virtual and aggregate)
+	 * of feats are stable
+	 * @return TRUE or FALSE
+	 */
+	public boolean isAggregateFeatsStable()
+	{
+		return automaticFeatsStable && virtualFeatsStable && aggregateFeatsStable;
+	}
+
+	public boolean isAggregateAbilitiesStable(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return isAggregateFeatsStable();
+		}
+		return false;
+	}
+	
+	/**
+	 * Sets a 'stable' list of automatic feats
+	 * @param stable
+	 */
+	public void setAutomaticFeatsStable(final boolean stable)
+	{
+		automaticFeatsStable = stable;
+		//setDirty(true);
+	}
+
+	public void setAutomaticAbilitiesStable(final AbilityCategory aCategory,
+											final boolean stable)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			setAutomaticFeatsStable(stable);
+		}
+		if ( stable == false )
+		{
+			theAbilities.put(aCategory, Ability.Nature.AUTOMATIC, null);
+		}
+	}
+	
+	/**
+	 * Add a "real" (not virtual or auto) feat to the character
+	 *
+	 * @param   aFeat  the Ability (of category FEAT) to add
+	 *
+	 * @return  true if added successfully
+	 */
+	public boolean addRealFeat(final Ability aFeat)
+	{
+		//return abilityStore.addCategorisable(aFeat)
+		return featList.add(aFeat);
+	}
+
+	public boolean addRealAbility(final AbilityCategory aCategory,
+									final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return addRealFeat( anAbility );
+		}
+		
+		if ( anAbility == null )
+		{
+			return false;
+		}
+		anAbility.setFeatType(Ability.Nature.NORMAL);
+		List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<Ability>();
+			theAbilities.put(aCategory, Ability.Nature.NORMAL, abilities);
+		}
+		abilities.add(anAbility);
+		return true;
+	}
+	
+	/**
+	 * Remove all "real" (not auto or auto) feats from the character
+	 */
+	public void clearRealFeats()
+	{
+		featList.clear();
+	}
+
+	public void clearRealAbilities(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			clearRealFeats();
+			return;
+		}
+		
+		theAbilities.put(aCategory, Ability.Nature.NORMAL, null);
+	}
+	
+	/**
+	 * Get number of "real" (not virtual or auto) feats the character has
+	 *
+	 * @return  DOCUMENT ME!
+	 */
+	public int getNumberOfRealFeats()
+	{
+		return featList.size();
+	}
+
+	public int getNumberOfRealAbilities(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getNumberOfRealFeats();
+		}
+
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		if ( abilities == null )
+		{
+			return 0;
+		}
+		return abilities.size();
+	}
+	
+	public List<Ability> getRealFeatsList()
+	{
+		return new ArrayList<Ability>(featList);
+	}
+
+	public List<Ability> getRealAbilitiesList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getRealFeatsList();
+		}
+
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		if ( abilities == null )
+		{
+			return Collections.emptyList();
+		}
+		return new ArrayList<Ability>(abilities);
+	}
+	
+	/**
+	 * Get an iterator over all the feats "Real" feats For Example, not virtual or auto
+	 *
+	 * @return  an iterator
+	 */
+	public List<Ability> getRealFeatList()
+	{
+		return featList;
+	}
+
+	public List<Ability> getRealAbilityList( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getRealFeatList();
+		}
+		final List<Ability> ret = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		if ( ret == null )
+		{
+			return Collections.emptyList();
+		}
+		return ret;
+	}
+
+	/**
+	 * Returns the Feat definition searching by key (not name), as contained in
+	 * the <b>chosen</b> feat list.
+	 *
+	 * @param   featName  String key of the feat to check for.
+	 *
+	 * @return  the Feat (not the CharacterFeat) searched for, <code>null</code>
+	 *          if not found.
+	 */
+	public Ability getRealFeatKeyed(final String featName)
+	{
+		return getFeatKeyed(featName, featList);
+	}
+
+	public Ability getRealAbilityKeyed(final AbilityCategory aCategory, final String aKey)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getRealFeatKeyed(aKey);
+		}
+
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		
+		if ( abilities != null )
+		{
+			for ( final Ability ability : abilities )
+			{
+				if ( ability.getKeyName().equals(aKey) )
+				{
+					return ability;
+				}
+			}
+		}
+		
+		return null;
+	}
+
+	/**
+	 * Returns the Feat definition searching by name, as contained in the <b>
+	 * chosen</b> feat list.
+	 *
+	 * @param   featName  String key of the feat to check for.
+	 *
+	 * @return  the Feat (not the CharacterFeat) searched for, <code>null</code>
+	 *          if not found.
+	 */
+
+	public Ability getRealFeatNamed(final String featName)
+	{
+		return AbilityUtilities.getAbilityFromList(featList, "FEAT", featName, Ability.Nature.ANY);
+	}
+
+
+	/**
+	 * Does the character have this feat (not virtual or auto).
+	 *
+	 * @param   aFeat  The Ability object (of category FEAT) to check
+	 *
+	 * @return  True if the character has the feat
+	 */
+	public boolean hasRealFeat(final Ability aFeat)
+	{
+		//return (abilityStore.getCategorisableNamed(aCategory, aFeat) != null);
+		return featList.contains(aFeat);
+	}
+
+	/**
+	 * Does the character have this ability (not virtual or auto).
+	 *
+	 * @param   aCategory  The ability category to check.
+	 * @param   anAbility  The Ability object (of category FEAT) to check
+	 *
+	 * @return  True if the character has the feat
+	 */
+	public boolean hasRealAbility(final AbilityCategory aCategory, final Ability anAbility)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return hasRealFeat(anAbility);
+		}
+		
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		if ( abilities == null )
+		{
+			return false;
+		}
+		return abilities.contains(anAbility);
+	}
+
+	/**
+	 * Checks if the character has the specified ability.
+	 * 
+	 * <p>If <tt>aCategory</tt> is <tt>null</tt> then all categories that have
+	 * the same innate ability category will be checked.
+	 * <p>If <tt>anAbilityType</tt> is <tt>ANY</tt> then all Natures will be 
+	 * checked for the ability.
+	 * 
+	 * @param aCategory An <tt>AbilityCategory</tt> or <tt>null</tt>
+	 * @param anAbilityType A <tt>Nature</tt>.
+	 * @param anAbility The <tt>Ability</tt> to check for.
+	 * 
+	 * @return <tt>true</tt> if the character has the ability with the criteria
+	 * specified.
+	 */
+	public boolean hasAbility(final AbilityCategory aCategory, 
+							  final Ability.Nature anAbilityType, 
+							  final Ability anAbility)
+	{
+		final List<AbilityCategory> categories;
+		if ( aCategory == null )
+		{
+			// A null category means we have to check all categories for
+			// abilities of the same innate category as the passed in one.
+			categories = new ArrayList<AbilityCategory>();
+			final Collection<AbilityCategory> allCategories = SettingsHandler.getGame().getAllAbilityCategories();
+			for ( final AbilityCategory cat : allCategories )
+			{
+				if ( cat.getAbilityCategory().equals(anAbility.getCategory()) )
+				{
+					categories.add(cat);
+				}
+			}
+		}
+		else
+		{
+			categories = new ArrayList<AbilityCategory>();
+			categories.add(aCategory);
+		}
+
+		final int start, end;
+		if ( anAbilityType == Ability.Nature.ANY )
+		{
+			start = 0;
+			end = Ability.Nature.values().length - 2;
+		}
+		else
+		{
+			start = end = anAbilityType.ordinal();
+		}
+		for (int i = start; i < end; i++ )
+		{
+			final Ability.Nature nature = Ability.Nature.values()[i];
+			boolean hasIt = false;
+			for ( final AbilityCategory cat : categories )
+			{
+				if ( cat == AbilityCategory.FEAT )
+				{
+					switch ( nature )
+					{
+					case NORMAL:
+						hasIt = hasRealAbility(cat, anAbility);
+						break;
+					case AUTOMATIC:
+						hasIt = hasAutomaticAbility(cat, anAbility);
+						break;
+					case VIRTUAL:
+						hasIt = hasVirtualAbility(cat, anAbility);
+						break;
+					}
+				}
+				else
+				{
+					final List<Ability> abilities = theAbilities.get(cat, nature);
+					if ( abilities == null )
+					{
+						continue;
+					}
+					if ( abilities.contains(anAbility) )
+					{
+						hasIt = true;
+					}
+				}
+				if ( hasIt == true )
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if the characterFeat ArrayList contains the named Feat.
+	 *
+	 * @param featName String name of the feat to check for.
+	 * @return <code>true</code> if the character has the feat,
+	 *         <code>false</code> otherwise.
+	 */
+
+	public boolean hasRealFeatNamed(final String featName)
+	{
+		return AbilityUtilities.getAbilityFromList(featList, "FEAT", featName, Ability.Nature.ANY) != null;
+	}
+
+
+	/**
+	 * Remove a "real" (for example, not virtual or auto) feat from the character.
+	 *
+	 * @param   aFeat  the Ability (of category FEAT) to remove
+	 * @return  True if successfully removed
+	 */
+	public boolean removeRealFeat(final Ability aFeat)
+	{
+		return featList.remove(aFeat);
+	}
+
+	public boolean removeRealAbility( final AbilityCategory aCategory, final Ability anAbility )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return removeRealFeat(anAbility);
+		}
+		
+		final List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.NORMAL);
+		if ( abilities == null )
+		{
+			return false;
+		}
+		return abilities.remove(anAbility);
+	}
+
+	public void adjustFeats(final double arg)
+	{
+		if (allowFeatPoolAdjustment)
+		{
+			feats += arg;
+		}
+		setDirty(true);
+	}
+
+	public void adjustAbilities(final AbilityCategory aCategory, final BigDecimal arg)
+	{
+		if ( arg.equals(BigDecimal.ZERO) )
+		{
+			return;
+		}
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			adjustFeats(arg.doubleValue());
+			return;
+		}
+		if ( theUserPoolBonuses == null )
+		{
+			theUserPoolBonuses = new HashMap<AbilityCategory, BigDecimal>();
+		}
+		BigDecimal userMods = theUserPoolBonuses.get( aCategory );
+		if ( userMods != null )
+		{
+			userMods = userMods.add(arg);
+		}
+		else
+		{
+			userMods = arg;
+		}
+		theUserPoolBonuses.put(aCategory, userMods);
+		setDirty(true);
+	}
+	
+	// TODO - This method is ridiculously dangerous.
+	public void setFeats(final double arg)
+	{
+		if (allowFeatPoolAdjustment)
+		{
+			feats = arg;
+		}
+		setDirty(true);
+	}
+
+	public void setAbilities(final AbilityCategory aCategory, final double arg)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			setFeats(arg);
+			return;
+		}
+	}
+	
+	public double getUserPoolBonus( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			throw new IllegalArgumentException("This method is not valid for feats."); //$NON-NLS-1$
+		}
+		BigDecimal userBonus = null;
+		if ( theUserPoolBonuses != null )
+		{
+			userBonus = theUserPoolBonuses.get(aCategory);
+		}
+		if ( userBonus == null )
+		{
+			return 0.0d;
+		}
+		return userBonus.doubleValue();
+	}
+	
+	public BigDecimal getTotalAbilityPool( final AbilityCategory aCategory )
+	{
+		Float basePool = this.getVariableValue(aCategory.getPoolFormula(), getClass().toString());
+		if ( aCategory.allowFractionalPool() == false )
+		{
+			basePool = new Float(basePool.intValue());
+		}
+		double bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
+		if ( aCategory.allowFractionalPool() == false )
+		{
+			bonus = Math.floor(bonus);
+		}
+		// User bonuses already handle the fractional pool flag.
+		final double userBonus = getUserPoolBonus(aCategory);
+		return BigDecimal.valueOf(basePool + bonus + userBonus);
+	}
+
+	public List<Ability> getSelectedAbilities( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getRealFeatList();
+		}
+		return getRealAbilityList(aCategory);
+	}
+	
+	public double getFeats()
+	{
+		if (Globals.getGameModeHasPointPool())
+		{
+			return getSkillPoints();
+		}
+		return getRawFeats(true);
+	}
+
+	public BigDecimal getAvailableAbilityPool( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return BigDecimal.valueOf(getFeats());
+		}
+		return getTotalAbilityPool(aCategory).subtract(getAbilityPoolSpent(aCategory));
+	}
+
+	public double getRawFeats(final boolean bIncludeBonus)
+	{
+		double retVal = feats;
+		if (bIncludeBonus)
+		{
+			retVal += getBonusFeatPool();
+		}
+		return retVal;
+	}
+
+	/**
+	 * Query whether this PC should be able to select the ability passed
+	 * in.  That is, does the PC meet the prerequisites and is the feat not
+	 * one the PC already has, or if the PC has the feat already, is it one that
+	 * can be taken multiple times.
+	 * @param anAbility the ability to test
+	 * @return true if the PC can take, false otherwise
+	 */
+	public boolean canSelectAbility (final Ability anAbility)
+	{
+		return this.canSelectAbility(anAbility, false);
+	}
+
+	/**
+	 * Query whether this PC should be able to select the ability passed
+	 * in.  That is, does the PC meet the prerequisites and is the feat not
+	 * one the PC already has, or if the PC has the feat already, is it one that
+	 * can be taken multiple times.
+	 * TODO: When the PlayerCharacter Object can have abilities of category
+	 * other than "FEAT" it will likely have methods to test "hasRealAbility" and
+	 * "hasVirtualAbilty", change this (or add another) to deal with them
+	 *
+	 * @param anAbility the ability to test
+	 * @param autoQualify if true, the PC automatically meets the prerequisites
+	 * @return true if the PC can take, false otherwise
+	 */
+	public boolean canSelectAbility (final Ability anAbility, final boolean autoQualify)
+	{
+		final boolean qualify     = this.qualifiesForFeat(anAbility);
+		final boolean canTakeMult = anAbility.isMultiples();
+		final boolean hasOrdinary = this.hasRealFeat(anAbility);
+		final boolean hasAuto     = this.hasFeatAutomatic(anAbility.getKeyName());
+
+		final boolean notAlreadyHas  = !(hasOrdinary || hasAuto);
+
+		return (autoQualify || qualify) && (canTakeMult || notAlreadyHas);
+	}
+
+	/**
+	 * get unused feat count
+	 * @return unused feat count
+	 */
+	public double getUsedFeatCount()
+	{
+		double iCount = 0;
+
+		for (Ability aFeat : getRealFeatList())
+		{
+			//
+			// Don't increment the count for
+			// hidden feats so the number
+			// displayed matches this number
+			//
+			//if (aFeat.getVisibility() == Visibility.HIDDEN)
+			//{
+			//	continue;
+			//}
+			final int subfeatCount = aFeat.getAssociatedCount();
+
+			if (subfeatCount > 1)
+			{
+				iCount += subfeatCount;
+			}
+			else
+			{
+				iCount += aFeat.getCost(this);
+			}
+		}
+
+		return iCount;
+	}
+
+	public BigDecimal getAbilityPoolSpent( final AbilityCategory aCategory )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return BigDecimal.valueOf(getUsedFeatCount());
+		}
+		
+		double spent = 0.0d;
+		
+		final List<Ability> abilities = getSelectedAbilities( aCategory );
+		if ( abilities != null )
+		{
+			for ( final Ability ability : abilities )
+			{
+				final int subfeatCount = ability.getAssociatedCount();
+	
+				if (subfeatCount > 1)
+				{
+					spent += subfeatCount;
+				}
+				else
+				{
+					if ( aCategory.allowFractionalPool() == false )
+					{
+						spent += (int)Math.ceil(ability.getCost(this));
+					}
+					else
+					{
+						spent += ability.getCost(this);
+					}
+				}
+			}
+		}
+		if ( aCategory.allowFractionalPool() == false )
+		{
+			return BigDecimal.valueOf((int)Math.ceil(spent));
+		}
+		return BigDecimal.valueOf(spent);
+	}
+	
+	public double getUsedAbilityCount(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getUsedFeatCount();
+		}
+		
+		return getAbilityPoolSpent(aCategory).doubleValue();
+	}
+	
+	public void setVirtualFeatsStable(final boolean stable)
+	{
+		virtualFeatsStable = stable;
+		//setDirty(true);
+	}
+
+	public void setVirtualAbilitiesStable(final AbilityCategory aCategory, final boolean stable)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			setVirtualFeatsStable(stable);
+			return;
+		}
+		if ( stable == false )
+		{
+			theAbilities.put(aCategory, Ability.Nature.VIRTUAL, null);
+		}
+	}
+
+	public void addFeat(final Ability aFeat, final PCLevelInfo playerCharacterLevelInfo)
+	{
+		if (hasRealFeat(aFeat))
+		{
+			Logging.errorPrint("Adding duplicate feat: " + aFeat.getDisplayName());
+		}
+
+		if (!addRealFeat(aFeat))
+		{
+			Logging.errorPrint("Problem adding feat: " + aFeat.getDisplayName());
+		}
+
+		if (playerCharacterLevelInfo != null)
+		{
+			// Add this feat to the level Info
+			playerCharacterLevelInfo.addObject(aFeat);
+		}
+		addNaturalWeapons(aFeat.getNaturalWeapons());
+		setAggregateFeatsStable(false);
+		calcActiveBonuses();
+	}
+
+	public void addAbility(final AbilityCategory aCategory, final Ability anAbility, final PCLevelInfo aLevelInfo)
+	{
+		if ( hasRealAbility(aCategory, anAbility) )
+		{
+			Logging.errorPrint("Adding duplicate ability: " + anAbility.getDisplayName());
+		}
+
+		if (!addRealAbility(aCategory, anAbility))
+		{
+			Logging.errorPrint("Problem adding ability: " + anAbility.getDisplayName());
+		}
+		if (aLevelInfo != null)
+		{
+			// Add this feat to the level Info
+			aLevelInfo.addObject(anAbility);
+		}
+		addNaturalWeapons(anAbility.getNaturalWeapons());
+		setAggregateAbilitiesStable(aCategory, false);
+		calcActiveBonuses();
+	}
+	
+	public Ability getFeatAutomaticKeyed(final String aFeatKey)
+	{
+		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", aFeatKey, Ability.Nature.ANY);
+	}
+
+	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory, final String anAbilityKey)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getFeatAutomaticKeyed(anAbilityKey);
+		}
+		final List<Ability> abilities = getAutomaticAbilityList(aCategory);
+		for ( final Ability ability : abilities )
+		{
+			if ( ability.getKeyName().equals(anAbilityKey) )
+			{
+				return ability;
+			}
+		}
+		return null;
+	}
+
+	public Ability getVirtualFeatKeyed(final String aKey)
+	{
+		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(), "FEAT", aKey, Ability.Nature.ANY);
+
+	}
+	
+	// TODO - Consolidate the various getXXXAbility functions to take a ability
+	// type parameter.
+	public Ability getVirtualAbilityKeyed(final AbilityCategory aCategory, final String aKey)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getVirtualFeatKeyed(aKey);
+		}
+		
+		final List<Ability> abilities = getVirtualAbilityList(aCategory);
+		for ( final Ability ability : abilities )
+		{
+			if ( ability.getKeyName().equals(aKey) )
+			{
+				return ability;
+			}
+		}
+		return null;
+	}
+	
+	public int addAbility(
+			final PCLevelInfo     LevelInfo,
+			final AbilityCategory aCategory,
+			final String          aKey,
+			final boolean         addIt,
+			final boolean         singleChoice)
+	{
+		boolean singleChoice1 = !singleChoice;
+		if (!isImporting())
+		{
+			getSpellList();
+		}
+
+		final ArrayList<String> choices        = new ArrayList<String>();
+		final String    undoctoredKey = aKey;
+		final String    baseKey       = EquipmentUtilities.getUndecoratedName(aKey, choices);
+			  String    subKey        = choices.size() > 0 ? (String) choices.get(0) : Constants.EMPTY_STRING;
+
+		// See if our choice is not auto or virtual
+		Ability anAbility = getRealAbilityKeyed(aCategory, undoctoredKey);
+
+		// if a feat keyed aFeatKey doesn't exist, and aFeatKey
+		// contains a (blah) descriptor, try removing it.
+		if (anAbility == null)
+		{
+			anAbility = getRealAbilityKeyed(aCategory, baseKey);
+
+			if (!singleChoice1 && (anAbility != null) && (subKey.length() != 0))
+			{
+				singleChoice1 = true;
+			}
+		}
+
+		// (anAbility == null) means we don't have this feat, so we need to add it
+		if ((anAbility == null) && addIt)
+		{
+			// Adding feat for first time
+			anAbility = Globals.getAbilityKeyed(aCategory, baseKey);
+
+			if (anAbility == null)
+			{
+				anAbility = Globals.getAbilityKeyed(aCategory, undoctoredKey);
+
+				if (anAbility != null)
+				{
+					subKey  = Constants.EMPTY_STRING;
+				}
+			}
+
+			if (anAbility == null)
+			{
+				Logging.errorPrint("Ability not found: " + undoctoredKey);
+
+				return addIt ? 1 : 0;
+			}
+
+			anAbility = (Ability) anAbility.clone();
+
+//				addFeat(anAbility, LevelInfo);
+			addAbility(aCategory, anAbility, LevelInfo);
+			anAbility.getTemplates(isImporting(), this);
+		}
+
+		/*
+		 * Could not find the Ability: addIt true means that no global Ability called
+		 * featName exists, addIt false means that the PC does not have this ability
+		 */
+		if (anAbility == null)
+		{
+			return addIt ? 1 : 0;
+		}
+
+		return finaliseAbility(aCategory, anAbility, subKey, addIt, singleChoice1);
+	}
+
+	private int finaliseAbility(
+			final AbilityCategory aCategory,
+			final Ability         ability,
+			final String          choice,
+			final boolean         addIt,
+			final boolean         singleChoice)
+	{
+		// how many sub-choices to make
+		double abilityCount = (ability.getAssociatedCount() * ability.getCost(this));
+
+		boolean adjustedAbilityPool = false;
+
+		// adjust the associated List
+		if (singleChoice && (addIt || ability.isMultiples()))
+		{
+			if ("".equals(choice))
+			{
+				// Get modChoices to adjust the associated list and Feat Pool
+				adjustedAbilityPool = ability.modChoices(this, addIt);
+			}
+			else if (addIt)
+			{
+				if (ability.canAddAssociation(choice))
+				{
+					ability.addAssociated(choice);
+				}
+			}
+			else
+			{
+				ability.removeAssociated(choice);
+			}
+		}
+
+		/* 
+		 * This modifyChoice method is a bit like mod choices, but it uses a
+		 * different tag to set the chooser string.  The Tag MODIFYABILITYCHOICE
+		 * which doesn't appear to be used anywhere, so this code is totally
+		 * redundant.
+		 */
+		ability.modifyChoice(this);
+
+		if (addIt)
+		{
+			final List<String> kitList = ability.getSafeListFor(ListKey.KITS);
+			for (int i = 0; i < kitList.size(); i++)
+			{
+				KitUtilities.makeKitSelections(0, kitList.get(i), 1, this);
+			}
+		}
+
+		// if no sub choices made (i.e. all of them removed in Chooser box),
+		// then remove the Feat
+		boolean removed = false;
+		boolean result  = (ability.isMultiples() && singleChoice) ? (ability.getAssociatedCount() > 0) : addIt ; 
+
+		if (! result)
+		{
+			removed = removeRealAbility(aCategory, ability);
+			removeNaturalWeapons(ability);
+
+			for (int x = 0; x < ability.templatesAdded().size(); ++x)
+			{
+				removeTemplate(getTemplateKeyed(ability.templatesAdded().get(x)));
+			}
+			ability.subAddsForLevel(-9, this);
+		}
+
+		if (singleChoice && !adjustedAbilityPool)
+		{
+			if (!addIt && !ability.isMultiples() && removed)
+			{
+				abilityCount += ability.getCost(this);
+			}
+			else if (addIt && !ability.isMultiples())
+			{
+				abilityCount -= ability.getCost(this);
+			}
+			else
+			{
+				int listSize = ability.getAssociatedCount();
+
+				for (final Ability myAbility : getRealAbilityList(aCategory))
+				{
+					if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
+					{
+						listSize = myAbility.getAssociatedCount();
+					}
+				}
+
+				abilityCount -= (listSize * ability.getCost(this));
+			}
+
+			if ( aCategory == AbilityCategory.FEAT )
+			{
+				adjustAbilities(aCategory, new BigDecimal(abilityCount));
+			}
+		}
+
+		setAutomaticAbilitiesStable(aCategory, false);
+
+		if (addIt && !isImporting())
+		{
+			ability.globalChecks(false, this);
+			ability.checkRemovals(this);
+		}
+
+		return result ? 1 : 0;
+	}
+	
+	/**
+	 * Returns the Feat definition searching by key (not name), as
+	 * found in the <b>aggregate</b> feat list.
+	 *
+	 * @param featName String key of the feat to check for.
+	 * @return the Feat (not the CharacterFeat) searched for,
+	 *         <code>null</code> if not found.
+	 */
+	public Ability getFeatKeyed(final String featName)
+	{
+		return getFeatKeyed(featName, aggregateFeatList());
+	}
+
+	public Ability getAbilityKeyed(final AbilityCategory aCategory, final String aKey)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getFeatKeyed(aKey);
+		}
+	
+		final List<Ability> abilities = getAggregateAbilityList(aCategory);
+		for ( final Ability ability : abilities )
+		{
+			if ( ability.getKeyName().equals(aKey) )
+			{
+				return ability;
+			}
+		}
+		
+		return null;
+	}
+	
+	public List<Ability> aggregateFeatList()
+	{
+		final List<Ability> aggregate = getStableAggregateFeatList();
+
+		//Did we get a valid list? If so, return it.
+		if (aggregate != null)
+		{
+			return aggregate;
+		}
+
+		return rebuildFeatAggreagateList();
+	}
+
+	public List<Ability> getAggregateAbilityList(final AbilityCategory aCategory)
+	{
+		if (aCategory == AbilityCategory.FEAT)
+		{
+			return aggregateFeatList();
+		}
+		
+		final List<Ability> abilities = new ArrayList<Ability>(getRealAbilityList(aCategory));
+		abilities.addAll(getVirtualAbilityList(aCategory));
+		abilities.addAll(getAutomaticAbilityList(aCategory));
+		
+		return abilities;
+	}
+	
+	private List<Ability> rebuildFeatAggreagateList()
+	{
+		List<Ability> aggregate = new ArrayList<Ability>();
+		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
+
+		for (Ability aFeat : getRealFeatList())
+		{
+			if (aFeat != null)
+			{
+				aHashMap.put(aFeat.getKeyName(), aFeat);
+			}
+		}
+
+		for ( Ability vFeat : getVirtualFeatList() )
+		{
+			if (!aHashMap.containsKey(vFeat.getKeyName()))
+			{
+				aHashMap.put(vFeat.getKeyName(), vFeat);
+			}
+			else if (vFeat.isMultiples())
+			{
+				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
+				aggregateFeat = (Ability) aggregateFeat.clone();
+
+				for (int e1 = 0; e1 < vFeat.getAssociatedCount(); ++e1)
+				{
+					final String aString = vFeat.getAssociated(e1);
+
+					if (aggregateFeat.isStacks() || !aggregateFeat.containsAssociated(aString))
+					{
+						aggregateFeat.addAssociated(aString);
+					}
+				}
+
+				aHashMap.put(vFeat.getKeyName(), aggregateFeat);
+			}
+		}
+
+		aggregate.addAll(aHashMap.values());
+		setStableAggregateFeatList(aggregate);
+
+		for ( Ability autoFeat : featAutoList() )
+		{
+			if (!aHashMap.containsKey(autoFeat.getKeyName()))
+			{
+				aHashMap.put(autoFeat.getKeyName(), autoFeat);
+			}
+
+			else if (autoFeat.isMultiples())
+			{
+				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
+				aggregateFeat = (Ability) aggregateFeat.clone();
+
+				for (int e1 = 0; e1 < autoFeat.getAssociatedCount(); ++e1)
+				{
+					final String aString = autoFeat.getAssociated(e1);
+					if (aggregateFeat.isStacks() || !aggregateFeat.containsAssociated(aString))
+					{
+						aggregateFeat.addAssociated(aString);
+					}
+				}
+
+				aHashMap.put(autoFeat.getKeyName(), aggregateFeat);
+			}
+		}
+
+		aggregate = new ArrayList<Ability>();
+		aggregate.addAll(aHashMap.values());
+		setStableAggregateFeatList(aggregate);
+		return aggregate;
+	}
+
+	public List<Ability> aggregateVisibleFeatList()
+	{
+		final List<Ability> tempFeatList = new ArrayList<Ability>();
+
+		for ( Ability feat : aggregateFeatList() )
+		{
+			if ((feat.getVisibility() == Visibility.DEFAULT)
+				|| (feat.getVisibility() == Visibility.OUTPUT_ONLY))
+			{
+				tempFeatList.add(feat);
+			}
+		}
+
+		return tempFeatList;
+	}
+
+	public List<Ability> getAggregateVisibleAbilityList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return aggregateVisibleFeatList();
+		}
+		final List<Ability> abilities = getAggregateAbilityList(aCategory);
+		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
+		for ( final Ability ability : abilities )
+		{
+			if ( ability.getVisibility() == Visibility.DEFAULT 
+			  || ability.getVisibility() == Visibility.OUTPUT_ONLY )
+			{
+				ret.add(ability);
+			}
+		}
+		return Collections.unmodifiableList(ret);
+	}
+
+	boolean isAutomaticFeatsStable()
+	{
+		return automaticFeatsStable;
+	}
+
+	boolean isAutomaticAbilitiesStable(final AbilityCategory aCategory)
+	{
+		if (aCategory == AbilityCategory.FEAT )
+		{
+			return isAutomaticFeatsStable();
+		}
+		return theAbilities.get(aCategory, Ability.Nature.AUTOMATIC) != null;
+	}
+
+	public List<Ability> getVirtualFeatList()
+	{
+		List<Ability> vFeatList = getStableVirtualFeatList();
+
+		//Did we get a valid list? If so, return it.
+		if (vFeatList != null)
+		{
+			return vFeatList;
+		}
+		setVirtualFeatsStable(true);
+		vFeatList = new ArrayList<Ability>();
+		if (stableVirtualFeatList != null)
+		{
+			for ( Ability feat : stableVirtualFeatList )
+			{
+				if (feat.needsSaving())
+				{
+					if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+						vFeatList.add(feat);
+					}
+				}
+			}
+		}
+
+		for ( PCClass pcClass : classList )
+		{
+			final List<Ability> aList = pcClass.getVirtualFeatList(pcClass.getLevel());
+
+			for ( Ability feat : aList )
+			{
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+
+		for (Ability aFeat : getRealFeatList())
+		{
+			final List<Ability> aList = aFeat.getVirtualFeatList();
+
+			for ( Ability feat : aList )
+			{
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+
+		for ( PCTemplate template : templateList )
+		{
+			final List<Ability> aList = template.getVirtualFeatList();
+
+			for ( Ability feat : aList )
+			{
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+
+		for ( Equipment eq : equipmentList )
+		{
+			if (eq.isEquipped())
+			{
+				// This already includes the EqMods
+				final List<Ability> aList = eq.getVirtualFeatList();
+				for ( Ability feat : aList )
+				{
+					// TODO Check for duplicates?
+					if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+						vFeatList.add(feat);
+					}
+				}
+			}
+		}
+
+		if (getRace() != null)
+		{
+			final List<Ability> aList = getRace().getVirtualFeatList();
+			for ( Ability feat : aList )
+			{
+				// TODO Check for duplicates?
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+
+		for ( Skill skill : getSkillList() )
+		{
+			final List<Ability> aList = skill.getVirtualFeatList();
+
+			for ( Ability feat : aList )
+			{
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+
+		for ( CharacterDomain cd : characterDomainList )
+		{
+			if (cd.getDomain() != null)
+			{
+				final List<Ability> aList = cd.getDomain().getVirtualFeatList();
+
+				for ( Ability feat : aList )
+				{
+					if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+						vFeatList.add(feat);
+					}
+				}
+			}
+		}
+		if (deity != null)
+		{
+			final List<Ability> aList = deity.getVirtualFeatList();
+
+			for ( Ability feat : aList )
+			{
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+		for ( CompanionMod cMod : companionModList )
+		{
+			final List<Ability> aList = cMod.getVirtualFeatList();
+
+			for ( Ability feat : aList )
+			{
+				if(PrereqHandler.passesAll(feat.getPreReqList(), this, feat)) {
+					vFeatList.add(feat);
+				}
+			}
+		}
+
+		setStableVirtualFeatList(vFeatList);
+
+		return vFeatList;
+	}
+
+	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return getVirtualFeatList();
+		}
+		List<Ability> ret = theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
+		if ( ret == null )
+		{
+			ret = new ArrayList<Ability>();
+			for ( final PObject pobj : getPObjectList() )
+			{
+				final List<Ability> abilities = pobj.getVirtualAbilityList(aCategory);
+				for ( final Ability ability : abilities )
+				{
+					if (PrereqHandler.passesAll(ability.getPreReqList(), this, ability)) 
+					{
+						ret.add(ability);
+					}
+				}
+			}
+		}
+		
+		theAbilities.put(aCategory, Ability.Nature.VIRTUAL, ret);
+		
+		return Collections.unmodifiableList(ret);
+	}
+
+	public List<Ability> featAutoList()
+	{
+		final List<Ability> autoFeatList = getStableAutomaticFeatList();
+
+		//Did we get a valid list? If so, return it.
+		if (autoFeatList != null)
+		{
+			return autoFeatList;
+		}
+
+		return AbilityUtilities.rebuildAutoAbilityList(this);
+	}
+
+	public List<Ability> getAutomaticAbilityList(final AbilityCategory aCategory)
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			return featAutoList();
+		}
+		
+		List<Ability> abilities = theAbilities.get(aCategory, Ability.Nature.AUTOMATIC);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<Ability>();
+			theAbilities.put(aCategory, Ability.Nature.AUTOMATIC, abilities);
+			
+			//
+			// add racial feats
+			//
+			if ((getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
+			{
+				// TODO - Remove the pc parameter from getFeatList()
+				final List<String> abilityKeys = getRace().getAutoAbilityList(aCategory);
+				for ( final String key : abilityKeys )
+				{
+					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
+					added.setFeatType(Ability.Nature.AUTOMATIC);
+				}
+			}
+
+			for (final PCClass aClass : getClassList())
+			{
+				final Collection<String> abilityKeys = aClass.getAutoAbilityList(aCategory);
+				for ( String key : abilityKeys )
+				{
+					final int idx = key.indexOf('[');
+
+					if (idx >= 0)
+					{
+						final StringTokenizer bTok = new StringTokenizer(key.substring(idx + 1), "[]");
+						final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
+
+						while (bTok.hasMoreTokens())
+						{
+							final String prereqString = bTok.nextToken();
+							Logging.debugPrint("Why is the prerequisite '"+prereqString+
+									"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
+							try {
+								final PreParserFactory factory = PreParserFactory.getInstance();
+								final Prerequisite prereq = factory.parse(prereqString);
+								preReqList.add(prereq);
+							}
+							catch (PersistenceLayerException ple){
+								Logging.errorPrint(ple.getMessage(), ple);
+							}
+						}
+
+						key = key.substring(0, idx);
+
+						if (preReqList.size() != 0)
+						{
+							if (! PrereqHandler.passesAll(preReqList, this, null ))
+							{
+								continue;
+							}
+						}
+					}
+
+					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
+					added.setFeatType(Ability.Nature.AUTOMATIC);
+				}
+			}
+
+			if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !getTemplateList().isEmpty())
+			{
+				for (final PCTemplate template : getTemplateList())
+				{
+					final List<String> abilityKeys = template.getAutoAbilityKeys(aCategory, this, false);
+
+					for ( final String key : abilityKeys )
+					{
+						// TODO - Not sure if we need to tokenize on comma
+						final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
+						added.setFeatType(Ability.Nature.AUTOMATIC);
+					}
+				}
+			}
+
+			for (final CharacterDomain aCD : getCharacterDomainList())
+			{
+				final Domain domain = aCD.getDomain();
+
+				if (domain != null)
+				{
+					for (int e2 = 0; e2 < domain.getAssociatedCount(); ++e2)
+					{
+						final String aString = domain.getAssociated(e2);
+
+						// TODO - This is not working
+						if (aString.startsWith("ABILITY"))
+						{
+							final int idx = aString.indexOf('?');
+
+							if (idx > -1)
+							{
+								final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, aString.substring(idx + 1));
+								added.setFeatType(Ability.Nature.AUTOMATIC);
+							}
+							else
+							{
+								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
+							}
+						}
+					}
+
+					// TODO - Need to change Domain to take AbilityCategories
+					final Iterator<Categorisable> anIt = domain.getAbilityIterator(aCategory.getAbilityCategory());
+
+					for (; anIt.hasNext();)
+					{
+						final Categorisable c = anIt.next();
+						final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, c.getKeyName());
+						added.setFeatType(Ability.Nature.AUTOMATIC);
+					}
+				}
+			}
+
+			getAutoWeaponProfs(abilities);
+		}
+		return abilities;
+	}
+
+	private List<Ability> getStableAggregateFeatList()
+	{
+		if (isAggregateFeatsStable())
+		{
+			return stableAggregateFeatList;
+		}
+		return null;
+	}
+
+	void setStableAutomaticFeatList(final List<Ability> aFeatList)
+	{
+		stableAutomaticFeatList = aFeatList;
+		setAutomaticFeatsStable(aFeatList != null);
+	}
+
+	private List<Ability> getStableAutomaticFeatList()
+	{
+		if (isAutomaticFeatsStable())
+		{
+			return stableAutomaticFeatList;
+		}
+		return null;
+	}
+
+	private void setStableVirtualFeatList(final List<Ability> aFeatList)
+	{
+		stableVirtualFeatList = aFeatList;
+		setVirtualFeatsStable(aFeatList != null);
+	}
+
+	private List<Ability> getStableVirtualFeatList()
+	{
+		if (isVirtualFeatsStable())
+		{
+			return stableVirtualFeatList;
+		}
+		return null;
+	}
+
+
+
 }

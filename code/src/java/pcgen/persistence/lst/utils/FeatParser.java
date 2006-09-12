@@ -77,13 +77,13 @@ public class FeatParser {
 			{
 				ArrayList<String> choices     = new ArrayList<String>();
 				String    abilityName = EquipmentUtilities.getUndecoratedName(aPart, choices);
-				Ability   anAbility   = AbilityUtilities.getAbilityFromList(aList, "FEAT", abilityName, -1);
+				Ability   anAbility   = AbilityUtilities.getAbilityFromList(aList, "FEAT", abilityName, Ability.Nature.ANY);
 
 				if (anAbility == null) {
 					anAbility = Globals.getAbilityKeyed("FEAT", abilityName);
 					if (anAbility != null) {
 						anAbility = (Ability) anAbility.clone();
-						anAbility.setFeatType(Ability.ABILITY_VIRTUAL);
+						anAbility.setFeatType(Ability.Nature.VIRTUAL);
 						anAbility.clearPreReq();
 					}
 				}

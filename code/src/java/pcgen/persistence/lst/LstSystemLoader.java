@@ -342,7 +342,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		// Now that those are loaded, make sure to initialize the recursive campaigns
 		campaignLoader.initRecursivePccFiles();
 
-		Globals.sortPObjectList(Globals.getCampaignList());
+		Globals.sortPObjectListByName(Globals.getCampaignList());
 	}
 
 	/**

@@ -43,17 +43,24 @@ import pcgen.util.chooser.ChooserInterface;
  */
 public final class Ability extends PObject implements HasCost, Categorisable
 {
-	/** Ability is Normal */
-	public static final int ABILITY_NORMAL = 0;
-	/** Ability is Automatic */
-	public static final int ABILITY_AUTOMATIC = 1;
-	/** Ability is Virtual */
-	public static final int ABILITY_VIRTUAL = 2;
+	/** An enum for the various types of ability options. */
+	public enum Nature {
+		/** Ability is Normal */
+		NORMAL,
+		/** Ability is Automatic */
+		AUTOMATIC,
+		/** Ability is Virtual */
+		VIRTUAL,
+		/** Ability of any type */
+		ANY
+	}
 
 	private boolean multiples = false;
 	private boolean needsSaving = false;
 	private boolean stacks = false;
 
+	private Nature theNature = Nature.NORMAL;
+	
 	// /////////////////////////////////////
 	// Fields - Associations
 
@@ -220,21 +227,14 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @param  type  The type of this ability (normal, automatic, virtual (see
 	 *               named constants))
 	 */
-	public void setFeatType(final int type)
+	public void setFeatType(final Nature type)
 	{
-		// Sanity check
-		switch (type)
+		if ( type == Nature.ANY )
 		{
-			case ABILITY_NORMAL:
-			case ABILITY_AUTOMATIC:
-			case ABILITY_VIRTUAL:
-				break;
-
-			default:
-				return;
+			return;
 		}
 
-		integerChar.put(IntegerKey.ABILITY_TYPE, type);
+		theNature = type;
 	}
 
 	/**
@@ -242,10 +242,9 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 *
 	 * @return  an integer representing the abilityType
 	 */
-	public int getFeatType()
+	public Nature getFeatType()
 	{
-		Integer characteristic = integerChar.get(IntegerKey.ABILITY_TYPE);
-		return characteristic == null ? ABILITY_NORMAL : characteristic.intValue();
+		return theNature;
 	}
 
 	/**

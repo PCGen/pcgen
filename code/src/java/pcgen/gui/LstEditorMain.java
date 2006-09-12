@@ -39,6 +39,7 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -143,7 +144,7 @@ public final class LstEditorMain extends JFrame
 				break;
 
 			case EditorConstants.EDIT_RACE:
-				Globals.getRaceMap().put(editObject.getKeyName(), (Race)editObject);
+				Globals.addRace((Race)editObject);
 
 				break;
 
@@ -670,7 +671,7 @@ public final class LstEditorMain extends JFrame
 	private void lstLstFileTypesValueChanged()
 	{
 		final String lstType = (String) lstLstFileTypes.getSelectedValue();
-		List possibleSelections = null;
+		Collection<?> possibleSelections = null;
 
 		if (lstType != null)
 		{
@@ -701,7 +702,7 @@ public final class LstEditorMain extends JFrame
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_RACE))
 			{
-				possibleSelections = new ArrayList(Globals.getRaceMap().values());
+				possibleSelections = Globals.getAllRaces();
 				editType = EditorConstants.EDIT_RACE;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_SKILL))
@@ -711,22 +712,21 @@ public final class LstEditorMain extends JFrame
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_SPELL))
 			{
-				possibleSelections = new ArrayList(Globals.getSpellMap().values().size());
+				final List<Spell> spells = new ArrayList<Spell>(Globals.getSpellMap().values().size());
 
-				for (Iterator e = Globals.getSpellMap().values().iterator(); e.hasNext();)
+				for ( final Object obj : Globals.getSpellMap().values() )
 				{
-					final Object obj = e.next();
-
 					if (obj instanceof Spell)
 					{
-						possibleSelections.add(obj);
+						spells.add((Spell)obj);
 					}
 					else
 					{
-						possibleSelections.addAll((ArrayList) obj);
+						spells.addAll((List<Spell>) obj);
 					}
 				}
-				Globals.sortPObjectList(possibleSelections);
+				Globals.sortPObjectList(spells);
+				possibleSelections = spells;
 				editType = EditorConstants.EDIT_SPELL;
 			}
 			else if (lstType.equalsIgnoreCase(s_EDITTYPE_TEMPLATE))
@@ -833,7 +833,7 @@ public final class LstEditorMain extends JFrame
 					break;
 
 				case EditorConstants.EDIT_RACE:
-					removed = Globals.getRaceMap().remove(editObject.getKeyName()) != null;
+					removed = Globals.removeRaceKeyed(editObject.getKeyName());
 
 					break;
 

@@ -56,6 +56,7 @@ import pcgen.util.enumeration.Visibility;
  * @author wardc
  *
  */
+@SuppressWarnings("nls")
 public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	Race giantRace = null;
 	PCClass giantClass = null;
@@ -76,106 +77,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		return new TestSuite(PlayerCharacterTest.class);
 	}
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		final PreParserFactory factory = PreParserFactory.getInstance();
-
-		// Human
-		human = new Race();
-		final BonusObj     humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
-		final StringBuffer buf                = new StringBuffer();
-
-		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1]");
-
-		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
-
-		humanRaceFeatBonus.addPreReq(humanFeatPrereq);
-		human.setBonusInitialFeats(humanRaceFeatBonus);
-
-
-		// Giant Race
-		giantRace = new Race();
-		giantRace.setName("Ogre");
-		giantRace.setMonsterClass("Giant");
-		giantRace.setMonsterClassLevels(4);
-		giantRace.setHitDiceAdvancement(new int[] {100});
-		final BonusObj babBonus = Bonus.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
-		giantRace.addBonusList(babBonus);
-
-		final BonusObj     giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
-		final Prerequisite giantFeatPrereq    = factory.parse(buf.toString());
-		giantRaceFeatBonus.addPreReq(giantFeatPrereq);
-	
-		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
-
-		Globals.getRaceMap().put("Ogre", giantRace);
-
-		// Giant Class
-		giantClass = new PCClass();
-		giantClass.setName("Giant");
-		giantClass.setAbbrev("Gnt");
-		giantClass.addMyType("MONSTER");
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
-		giantClass.addBonusList(babClassBonus);
-		giantClass.setLevelsPerFeat(new Integer(4));
-		Globals.getClassList().add(giantClass);
-
-
-		pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		pcClass.setAbbrev("My");
-		pcClass.setSpellType("ARCANE");
-		Globals.getClassList().add(pcClass);
-
-		classWarmind = new PCClass();
-		classWarmind.setName("Warmind");
-		classWarmind.setAbbrev("WM");
-		Globals.getClassList().add(classWarmind);
-
-		Ability toughness = new Ability();
-		toughness.setName("Toughness");
-		toughness.setMultiples("Y");
-		toughness.setStacks("Y");
-		toughness.setChoiceString("NOCHOICE");
-		toughness.setCategory("FEAT");
-		Globals.addAbility(toughness);
-
-		Ability exoticWpnProf = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
-		exoticWpnProf.setMultiples("YES");
-		exoticWpnProf.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
-		exoticWpnProf.addAutoArray("WEAPONPROF|%LIST");
-
-		WeaponProf wpnProfTestA = new WeaponProf();
-		wpnProfTestA.setName("Weapon A");
-		wpnProfTestA.setKeyName("Weapon A");
-		wpnProfTestA.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestA);
-
-		WeaponProf wpnProfTestB = new WeaponProf();
-		wpnProfTestB.setName("Weapon B");
-		wpnProfTestB.setKeyName("Weapon B");
-		wpnProfTestB.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestB);
-
-		WeaponProf wpnProfTestC = new WeaponProf();
-		wpnProfTestC.setName("Weapon C");
-		wpnProfTestC.setKeyName("Weapon C");
-		wpnProfTestC.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestC);
-
-
-		SettingsHandler	.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
-		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
-		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
-		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
-	}
-	
 	/**
 	 * @throws Exception
 	 */
@@ -471,6 +372,107 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertTrue("Proficient in Weapon B",       character.hasWeaponProfKeyed("Weapon B"));
 		assertTrue("Proficient in Weapon C",       character.hasWeaponProfKeyed("Weapon C"));
 	}
+
+	/**
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+
+		// Human
+		human = new Race();
+		final BonusObj     humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
+		final StringBuffer buf                = new StringBuffer();
+
+		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1]");
+
+		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
+
+		humanRaceFeatBonus.addPreReq(humanFeatPrereq);
+		human.setBonusInitialFeats(humanRaceFeatBonus);
+
+		// Giant Race
+		giantRace = new Race();
+		giantRace.setName("Ogre");
+		giantRace.setMonsterClass("Giant");
+		giantRace.setMonsterClassLevels(4);
+		giantRace.setHitDiceAdvancement(new int[] {100});
+		final BonusObj babBonus = Bonus.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
+		giantRace.addBonusList(babBonus);
+
+		final BonusObj     giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
+		final Prerequisite giantFeatPrereq    = factory.parse(buf.toString());
+		giantRaceFeatBonus.addPreReq(giantFeatPrereq);
+	
+		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
+
+		Globals.addRace(giantRace);
+
+		// Giant Class
+		giantClass = new PCClass();
+		giantClass.setName("Giant");
+		giantClass.setAbbrev("Gnt");
+		giantClass.addMyType("MONSTER");
+		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
+		giantClass.addBonusList(babClassBonus);
+		Globals.getClassList().add(giantClass);
+
+
+		pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+		Globals.getClassList().add(pcClass);
+
+		classWarmind = new PCClass();
+		classWarmind.setName("Warmind");
+		classWarmind.setAbbrev("WM");
+		Globals.getClassList().add(classWarmind);
+
+		Ability toughness = new Ability();
+		toughness.setName("Toughness");
+		toughness.setMultiples("Y");
+		toughness.setStacks("Y");
+		toughness.setChoiceString("NOCHOICE");
+		toughness.setCategory("FEAT");
+		Globals.addAbility(toughness);
+
+		Ability exoticWpnProf = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
+		exoticWpnProf.setMultiples("YES");
+		exoticWpnProf.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		exoticWpnProf.addAutoArray("WEAPONPROF|%LIST");
+
+		WeaponProf wpnProfTestA = new WeaponProf();
+		wpnProfTestA.setName("Weapon A");
+		wpnProfTestA.setKeyName("Weapon A");
+		wpnProfTestA.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestA);
+
+		WeaponProf wpnProfTestB = new WeaponProf();
+		wpnProfTestB.setName("Weapon B");
+		wpnProfTestB.setKeyName("Weapon B");
+		wpnProfTestB.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestB);
+
+		WeaponProf wpnProfTestC = new WeaponProf();
+		wpnProfTestC.setName("Weapon C");
+		wpnProfTestC.setKeyName("Weapon C");
+		wpnProfTestC.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestC);
+
+
+		SettingsHandler	.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+
+		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
+		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
+		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
+	}
+
 	public void testGetClassVar() throws Exception
 	{
 		Logging.setDebugMode(true);

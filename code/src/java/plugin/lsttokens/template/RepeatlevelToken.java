@@ -36,8 +36,10 @@ public class RepeatlevelToken implements PCTemplateLstToken {
 							int count = consecutive;
 							for(; iLevel <= maxLevel; iLevel += lvlIncrement) {
 								if ((consecutive == 0) || (count != 0)) {
-									template.addLevelString(Integer.toString(iLevel) + ":" +
-											value.substring(endLevel + 1));
+									final StringTokenizer tok = new StringTokenizer(value.substring(endLevel + 1));
+									final String type = tok.nextToken();
+									
+									template.addLevelAbility(iLevel, type, tok.nextToken());
 								}
 								if (consecutive != 0) {
 									if (count == 0) {

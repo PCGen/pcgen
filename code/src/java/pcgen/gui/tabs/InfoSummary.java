@@ -2844,13 +2844,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			final Object pcRace = getSelectedItem();
 			removeAllElements();
 
-			for (Iterator<Race> it = Globals.getRaceMap().values().iterator(); it.hasNext();)
+			for ( final Race race : Globals.getAllRaces() )
 			{
-				final Race aRace = it.next();
-
-				if (accept(pc, aRace))
+				if (accept(pc, race))
 				{
-					addElement(aRace);
+					addElement(race);
 				}
 			}
 

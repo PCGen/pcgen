@@ -23,6 +23,8 @@
  */
 package pcgen.gui.tabs;
 
+import java.util.Collection;
+
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -49,9 +51,14 @@ public class InfoAbilities extends TabContainer
 	{
 		super(aPC);
 
-		// TODO - Find all the tabs we need to create
-		addSubTab( new InfoFeats(aPC) );
-//		addSubTab( new InfoAbility(aPC, AbilityCategory.FEAT) );
+		final Collection<AbilityCategory> cats = SettingsHandler.getGame().getAllAbilityCategories();
+		for ( AbilityCategory cat : cats )
+		{
+			if ( cat.isVisible() )
+			{
+				addSubTab( new InfoAbility(aPC, cat) );
+			}
+		}
 	}
 
 	/**

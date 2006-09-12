@@ -461,13 +461,11 @@ public class RaceBasePanel extends BasePanel
 		List availableList = new ArrayList();
 		List selectedList = new ArrayList();
 
-		for (e = Globals.getRaceMap().values().iterator(); e.hasNext();)
+		for ( final Race race : Globals.getAllRaces() )
 		{
-			final Race aRace = (Race) e.next();
-
-			for (int i = aRace.getMyTypeCount(); i > 0;)
+			for (int i = race.getMyTypeCount(); i > 0;)
 			{
-				aString = aRace.getMyType(--i);
+				aString = race.getMyType(--i);
 
 				if (!aString.equals(Constants.s_CUSTOM))
 				{

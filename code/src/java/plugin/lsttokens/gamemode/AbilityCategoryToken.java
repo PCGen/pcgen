@@ -1,0 +1,73 @@
+/*
+ * AbilityCategoryToken.java
+ * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Current Ver: $Revision$
+ * Last Editor: $Author: $
+ * Last Edited: $Date$
+ */
+package plugin.lsttokens.gamemode;
+
+import pcgen.core.GameMode;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.AbilityCategoryLoader;
+import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.util.Logging;
+
+/**
+ * This class handles the ABILITYCATEGORY game mode token.
+ * 
+ * <p>The class deligates the loading of the various subtokens to a separate
+ * loader.
+ * 
+ * @author boomer70 <boomer70@yahoo.com>
+ * 
+ * @since 5.11.1
+ */
+public class AbilityCategoryToken implements GameModeLstToken
+{
+
+	/**
+	 * 
+	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String)
+	 */
+	public boolean parse(final GameMode aGameMode, final String aValue)
+	{
+		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
+		try
+		{
+			loader.parseLine(aGameMode, getTokenName() + ':' + aValue);
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Returns the name of the token this class handles.
+	 * 
+	 * @see pcgen.persistence.lst.LstToken#getTokenName()
+	 */
+	public String getTokenName()
+	{
+		return "ABILITYCATEGORY"; //$NON-NLS-1$
+	}
+
+}
