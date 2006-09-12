@@ -140,6 +140,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 		gamemode.addToAlignmentList(createAlignment("None", "NONE"));
 		gamemode.addToAlignmentList(createAlignment("Deity's", "Deity"));
 
+		gamemode.setBonusFeatLevels("3|3");
+
 		SettingsHandler.setGame("3.5");
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);

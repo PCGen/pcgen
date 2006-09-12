@@ -34,6 +34,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.StatList;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 
 /**
@@ -79,7 +81,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		// Human
 		human = new Race();
-		human.setBonusInitialFeats(2);
+
+		final BonusObj bon = Bonus.newBonus("FEAT|POOL|2");
+		human.setBonusInitialFeats(bon);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");

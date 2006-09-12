@@ -30,10 +30,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
 
 /**
  * <code>Race</code>.
@@ -83,7 +88,7 @@ public final class Race extends PObject
 	private int reach = 5;
 	private String raceType = "None";
 	private ArrayList<String> racialSubTypes = new ArrayList<String>();
-
+	
 	{
 		vision = new HashMap<String, String>();
 	}
@@ -108,9 +113,9 @@ public final class Race extends PObject
 		BAB = newBAB;
 	}
 
-	public void setBonusInitialFeats(final int i)
+	public void setBonusInitialFeats(final BonusObj bon)
 	{
-		bonusInitialFeats = i;
+		addBonusList(bon);
 	}
 
 	public int getBonusInitialFeats()

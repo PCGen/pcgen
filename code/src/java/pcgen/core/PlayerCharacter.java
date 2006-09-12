@@ -32,7 +32,6 @@ import java.io.FilenameFilter;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -1672,9 +1671,44 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return retVal;
 	}
 
+	/**
+	 * Get a number that represents the number of feats added to this character
+	 * by BONUS statements.
+	 *
+	 * @return the number of feats added by bonus statements 
+	 */
 	private double getBonusFeatPool()
 	{
-		return getTotalBonusTo("FEAT", "POOL");
+		String aString = Globals.getBonusFeatString();
+
+		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
+		final int startLevel = Integer.parseInt(aTok.nextToken());
+		final int rangeLevel = Integer.parseInt(aTok.nextToken());
+
+		double pool   = getTotalBonusTo("FEAT", "POOL");
+		double pcpool = getTotalBonusTo("FEAT", "PCPOOL");
+		double mpool  = getTotalBonusTo("FEAT", "MONSTERPOOL");
+
+		Logging.debugPrint("");
+		Logging.debugPrint("==============");
+		Logging.debugPrint("level " + this.getTotalPlayerLevels());
+
+		Logging.debugPrint("POOL:   " + pool);
+		Logging.debugPrint("PCPOOL: " + pcpool);
+		Logging.debugPrint("MPOOL:  " + mpool);
+		
+		double startAdjust = startLevel/rangeLevel;
+		
+		pool += Math.floor((this.getTotalCharacterLevel() >= startLevel) ?
+								1.0d + pcpool - startAdjust + 0.0001 : 0);
+		pool += Math.floor(mpool + 0.0001);
+
+		Logging.debugPrint("");
+		Logging.debugPrint("Total Bonus: " + pool);
+		Logging.debugPrint("==============");
+		Logging.debugPrint("");
+
+		return pool;
 	}
 
 	/**
@@ -1877,27 +1911,32 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * feats from levelling.
 	 *
 	 * @return count of initial, non-leveling feats
+	 * @deprecated
 	 */
 	public double getInitialFeats()
 	{
 		double initFeats = 0.0;
 
-		final String monsterRace = getRace().getMonsterClass(this, false);
-		if (monsterRace==null || !isMonsterDefault())
-		{
-			initFeats =  getRace().getBonusInitialFeats();
-		}
-
-		if (PlayerCharacterUtilities.canReassignTemplateFeats())
-		{
-			for (PCTemplate template : getTemplateList())
-			{
-				if (template != null)
-				{
-					initFeats += template.getBonusInitialFeats();
-				}
-			}
-		}
+		// This is used by the PCClass to add any initial feats from a
+		// Creature's race.  The bonus is now doing that itself, so no
+		// need to duplicate it in this figure. 
+//		final String monsterRace = getRace().getMonsterClass(this, false);
+//		if (monsterRace==null || !isMonsterDefault())
+//		{
+//			Race r = getRace();
+//			initFeats =  r.bonusTo("FEAT", "POOL", r, this);
+//		}
+//
+//		if (PlayerCharacterUtilities.canReassignTemplateFeats())
+//		{
+//			for (PCTemplate template : getTemplateList())
+//			{
+//				if (template != null)
+//				{
+//					initFeats += template.getBonusInitialFeats();
+//				}
+//			}
+//		}
 
 		return initFeats;
 	}
@@ -4476,6 +4515,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * If the class passed in has the Levels
 	 * @param newLevelClass The class the new level has been taken in.
 	 * @return bonus feats for new level
+	 * @deprecated
 	 */
 	public double getBonusFeatsForNewLevel(final PCClass newLevelClass)
 	{
@@ -10064,9 +10104,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			// only specific bonuses can actually be fractional
 			// -> TODO should define this in external file
-			if (!bonusType.startsWith("ITEMWEIGHT") && !bonusType.startsWith("ITEMCOST")
-				&& !bonusType.startsWith("ACVALUE") && !bonusType.startsWith("ITEMCAPACITY")
-				&& !bonusType.startsWith("LOADMULT") && (bonusType.indexOf("DAMAGEMULT") < 0))
+			if (!bonusType.startsWith("ITEMWEIGHT") && 
+				!bonusType.startsWith("ITEMCOST") &&
+				!bonusType.startsWith("ACVALUE") &&
+				!bonusType.startsWith("ITEMCAPACITY") &&
+				!bonusType.startsWith("LOADMULT") &&
+				!bonusType.startsWith("FEAT") &&
+				(bonusType.indexOf("DAMAGEMULT") < 0))
 			{
 				bonus = ((int) bonus); // TODO: never used
 			}
@@ -10516,7 +10560,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (regVal != null)
 		{
-			return Float.parseFloat(regVal);
+			return Double.parseDouble(regVal);
 		}
 
 		return defaultValue;

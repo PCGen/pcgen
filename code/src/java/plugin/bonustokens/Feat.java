@@ -43,7 +43,7 @@ public final class Feat extends BonusObj
 
 	protected boolean parseToken(final String token)
 	{
-		if ("POOL".equals(token))
+		if ("POOL".equals(token) || "MONSTERPOOL".equals(token) || "PCPOOL".equals(token))
 		{
 			addBonusInfo(token);
 			return true;

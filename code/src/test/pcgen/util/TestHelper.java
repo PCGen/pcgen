@@ -47,7 +47,10 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.EquipmentLoader;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * Helps Junit tests
@@ -230,7 +233,22 @@ public class TestHelper {
 		Race aRace = new Race();
 		aRace.setName(name);
 		aRace.setKeyName("KEY_" + name);
-		aRace.setBonusInitialFeats(1);
+		
+		try
+		{
+			final BonusObj         bon     = Bonus.newBonus("FEAT|POOL|1");
+			final PreParserFactory factory = PreParserFactory.getInstance();
+			final Prerequisite     prereq  = factory.parse("PREDEFAULTMONSTER:N");
+			bon.addPreReq(prereq);
+			bon.setCreatorObject(aRace);
+
+			aRace.setBonusInitialFeats(bon);
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint("Caught " + e);
+		}
+		
 		Globals.getRaceMap().put(name, aRace);
 		return aRace;
 	}

@@ -33,6 +33,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import plugin.exporttokens.SpellMemToken;
@@ -81,7 +83,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 
 		// Human
 		human = new Race();
-		human.setBonusInitialFeats(2);
+		final BonusObj bon = Bonus.newBonus("FEAT|POOL|2");
+		human.setBonusInitialFeats(bon);
 
 		testSpell = new Spell();
 		testSpell.setName("Test Spell");

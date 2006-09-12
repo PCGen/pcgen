@@ -2837,6 +2837,10 @@ public final class Globals
 
 		return null;
 	}
+	
+	static String getBonusFeatString() {
+		return SettingsHandler.getGame().getBonusFeatLevels().get(0);
+	}
 
 	static int getBonusFeatsForLevel(final int level)
 	{

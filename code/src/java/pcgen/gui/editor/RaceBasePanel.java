@@ -23,6 +23,8 @@
 package pcgen.gui.editor;
 
 import pcgen.core.*;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -413,7 +415,12 @@ public class RaceBasePanel extends BasePanel
 	public void updateData(PObject thisPObject)
 	{
 		Race thisRace = (Race) thisPObject;
-		thisRace.setBonusInitialFeats(getBonusFeats());
+
+		StringBuffer sb = new StringBuffer();
+        	sb.append("FEAT|POOL|").append(getBonusFeats());
+        	final BonusObj bon = Bonus.newBonus(sb.toString());
+        	thisRace.setBonusInitialFeats(bon);
+        
 		thisRace.setBonusSkillsPerLevel(getBonusSkillPoints());
 		thisRace.setCR(getCR());
 		thisRace.setDisplayName(getDisplayName());

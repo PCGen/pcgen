@@ -30,6 +30,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+
+import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.levelability.LevelAbility;
@@ -2072,6 +2074,71 @@ public class PCClass extends PObject {
 		}
 
 		if (level == 1) {
+			if (level > curLevel) {
+				try
+				{
+					PreParserFactory factory = PreParserFactory.getInstance();
+
+					      StringBuffer    formula;
+					final String          aString = Globals.getBonusFeatString();
+					final StringTokenizer aTok    = new StringTokenizer(aString, "|", false);
+					final int startLevel = Integer.parseInt(aTok.nextToken());
+					final int rangeLevel = Integer.parseInt(aTok.nextToken());
+					      int divisor    = 1;
+					      
+					
+					if (aPC.getRace().getMonsterClass(aPC,false) != null &&
+							aPC.getRace().getMonsterClass(aPC,false).equalsIgnoreCase(this.getKeyName()))
+					{
+						int monLev = aPC.getRace().getMonsterClassLevels(aPC, false);
+
+						int MLevPerFeat = this.getLevelsPerFeat().intValue();
+						divisor = (MLevPerFeat >= 1) ? MLevPerFeat : rangeLevel;
+						formula = new StringBuffer("max(0,floor((CL-");
+						formula.append(monLev);
+						formula.append(")/");
+						formula.append(divisor);
+						formula.append("))");
+
+						StringBuffer aBuf = new StringBuffer("0|FEAT|MONSTERPOOL|");
+						aBuf.append(formula);
+						BonusObj bon = Bonus.newBonus(aBuf.toString());
+						bon.setCreatorObject(this);
+						Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
+						bon.addPreReq(prereq);
+						addBonusList(bon);
+
+					}
+					else
+					{
+						divisor = rangeLevel;
+						formula = new StringBuffer("CL/");
+						formula.append(divisor);
+
+						StringBuffer aBuf = new StringBuffer("0|FEAT|MONSTERPOOL|");
+						aBuf.append(formula);
+						BonusObj bon = Bonus.newBonus(aBuf.toString());
+						bon.setCreatorObject(this);
+						Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
+						bon.addPreReq(prereq);
+						addBonusList(bon);
+					}
+
+					StringBuffer aBuf = new StringBuffer("0|FEAT|PCPOOL|CL/");
+					aBuf.append(rangeLevel);
+					BonusObj bon = Bonus.newBonus(aBuf.toString());
+					bon.setCreatorObject(this);
+					Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
+					bon.addPreReq(prereq);
+					addBonusList(bon);
+				}
+
+				catch (PersistenceLayerException e)
+				{
+					Logging.errorPrint("Caught " + e);
+				}
+			}
+			
 			chooseClassSkillList();
 		}
 
@@ -2097,8 +2164,9 @@ public class PCClass extends PObject {
 	protected void removeKnownSpellsForClassLevel(final PlayerCharacter aPC) {
 		final String spellKey = getSpellKey();
 
-		if ((knownSpellsList.size() == 0) || aPC.isImporting()
-				|| !aPC.getAutoSpells()) {
+		if (((knownSpellsList != null) && (knownSpellsList.size() == 0)) || 
+				aPC.isImporting() || !aPC.getAutoSpells())
+		{
 			return;
 		}
 
@@ -3886,9 +3954,12 @@ public class PCClass extends PObject {
 		// Add the level to the current character
 		int total = aPC.getTotalLevels();
 
-		if (total == 0) {
-			aPC.setFeats(aPC.getInitialFeats());
-		}
+		// No longer need this since the race now sets a bonus itself and Templates
+		// are not able to reassign their feats.  There was nothing else returned in
+		// this number
+		//		if (total == 0) {
+		//			aPC.setFeats(aPC.getInitialFeats());
+		//		}
 		setLevel(newLevel, aPC);
 
 		// the level has now been added to the character,
@@ -3943,7 +4014,7 @@ public class PCClass extends PObject {
 				}
 
 				/*
-				 * If we are usign default monsters and we have not yet added
+				 * If we are using default monsters and we have not yet added
 				 * all of the racial monster levels then we can not add any
 				 * feats. i.e. a default monster Ogre will not get a feat at 1st
 				 * or 3rd level because they have already been allocated in the
@@ -3965,14 +4036,13 @@ public class PCClass extends PObject {
 				// number and the stat point pool are
 				// already saved in the import file.
 
-				if (processBonusFeats) {
-					final double bonusFeats = aPC
-							.getBonusFeatsForNewLevel(this);
-					if (bonusFeats > 0) {
-						// aPC.setFeats(aPC.getFeats() + bonusFeats);
-						aPC.adjustFeats(bonusFeats);
-					}
-				}
+//				if (processBonusFeats) {
+//					final double bonusFeats = aPC.getBonusFeatsForNewLevel(this);
+//					if (bonusFeats > 0) {
+//						// aPC.setFeats(aPC.getFeats() + bonusFeats);
+//						aPC.adjustFeats(bonusFeats);
+//					}
+//				}
 
 				if (processBonusStats) {
 					final int bonusStats = Globals.getBonusStatsForLevel(total);
@@ -4373,7 +4443,7 @@ public class PCClass extends PObject {
 				setHitPoint(level - 1, zeroInt);
 			}
 
-			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));
+//			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));
 			setLevel(newLevel, aPC);
 			removeKnownSpellsForClassLevel(aPC);
 
@@ -4426,7 +4496,7 @@ public class PCClass extends PObject {
 
 			if (!isMonster() && (total == 0)) {
 				aPC.setSkillPoints(0);
-				aPC.setFeats(0);
+				// aPC.setFeats(0);
 				aPC.getSkillList().clear();
 				aPC.clearRealFeats();
 				aPC.getWeaponProfList().clear();

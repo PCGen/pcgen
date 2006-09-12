@@ -42,9 +42,11 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.StatToken;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
@@ -74,6 +76,106 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		return new TestSuite(PlayerCharacterTest.class);
 	}
 
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		final PreParserFactory factory = PreParserFactory.getInstance();
+
+		// Human
+		human = new Race();
+		final BonusObj     humanRaceFeatBonus = Bonus.newBonus("FEAT|POOL|2");
+		final StringBuffer buf                = new StringBuffer();
+
+		buf.append("PREMULT:1,[PREDEFAULTMONSTER:N],[!PREHD:1]");
+
+		final Prerequisite humanFeatPrereq = factory.parse(buf.toString());
+
+		humanRaceFeatBonus.addPreReq(humanFeatPrereq);
+		human.setBonusInitialFeats(humanRaceFeatBonus);
+
+
+		// Giant Race
+		giantRace = new Race();
+		giantRace.setName("Ogre");
+		giantRace.setMonsterClass("Giant");
+		giantRace.setMonsterClassLevels(4);
+		giantRace.setHitDiceAdvancement(new int[] {100});
+		final BonusObj babBonus = Bonus.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
+		giantRace.addBonusList(babBonus);
+
+		final BonusObj     giantRaceFeatBonus = Bonus.newBonus("FEAT|POOL|1");
+		final Prerequisite giantFeatPrereq    = factory.parse(buf.toString());
+		giantRaceFeatBonus.addPreReq(giantFeatPrereq);
+	
+		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
+
+		Globals.getRaceMap().put("Ogre", giantRace);
+
+		// Giant Class
+		giantClass = new PCClass();
+		giantClass.setName("Giant");
+		giantClass.setAbbrev("Gnt");
+		giantClass.addMyType("MONSTER");
+		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
+		giantClass.addBonusList(babClassBonus);
+		giantClass.setLevelsPerFeat(new Integer(4));
+		Globals.getClassList().add(giantClass);
+
+
+		pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+		Globals.getClassList().add(pcClass);
+
+		classWarmind = new PCClass();
+		classWarmind.setName("Warmind");
+		classWarmind.setAbbrev("WM");
+		Globals.getClassList().add(classWarmind);
+
+		Ability toughness = new Ability();
+		toughness.setName("Toughness");
+		toughness.setMultiples("Y");
+		toughness.setStacks("Y");
+		toughness.setChoiceString("NOCHOICE");
+		toughness.setCategory("FEAT");
+		Globals.addAbility(toughness);
+
+		Ability exoticWpnProf = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
+		exoticWpnProf.setMultiples("YES");
+		exoticWpnProf.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		exoticWpnProf.addAutoArray("WEAPONPROF|%LIST");
+
+		WeaponProf wpnProfTestA = new WeaponProf();
+		wpnProfTestA.setName("Weapon A");
+		wpnProfTestA.setKeyName("Weapon A");
+		wpnProfTestA.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestA);
+
+		WeaponProf wpnProfTestB = new WeaponProf();
+		wpnProfTestB.setName("Weapon B");
+		wpnProfTestB.setKeyName("Weapon B");
+		wpnProfTestB.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestB);
+
+		WeaponProf wpnProfTestC = new WeaponProf();
+		wpnProfTestC.setName("Weapon C");
+		wpnProfTestC.setKeyName("Weapon C");
+		wpnProfTestC.setTypeInfo("Exotic");
+		Globals.addWeaponProf(wpnProfTestC);
+
+
+		SettingsHandler	.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
+		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+
+		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
+		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
+		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
+	}
+	
 	/**
 	 * @throws Exception
 	 */
@@ -84,7 +186,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(2, (int) character.getFeats());
+		assertEquals(2, (int) character.getRawFeats(true));
 	}
 
 	/**
@@ -97,7 +199,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(2, (int) character.getFeats());
+		assertEquals(2, (int) character.getRawFeats(true));
 	}
 
 	/**
@@ -110,7 +212,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		character.setRace(human);
 		character.incrementClassLevel(3, pcClass);
-		assertEquals(3, (int) character.getFeats());
+		assertEquals(3, (int) character.getRawFeats(true));
 	}
 
 
@@ -124,7 +226,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		character.setRace(human);
 		character.incrementClassLevel(3, pcClass);
-		assertEquals(3, (int) character.getFeats());
+		assertEquals(3, (int) character.getRawFeats(true));
 	}
 
 
@@ -137,15 +239,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
-		assertEquals(2, (int) character.getFeats());
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(2, (int) character.getFeats());
+		is((int) character.getRawFeats(true), eq(2), "One level of PCClass, PC has two feats");
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(3, (int) character.getFeats());
+		is((int) character.getRawFeats(true), eq(3), "Two levels of PCClass, feats increment");
 	}
 
 	/**
 	 * @throws Exception
+	 *
+	 * This test is currently broken because with default Monster mode on, although the program
+	 * gives the Ogre 4 racial HD, HD returns 0 instead of 4, so the !PREHD to turn off the
+	 * racial feat doesn;t work.  I consider this a bug, but Default Monster mode is going away
+	 * and I've wasted more time than I cared to on this already.  ARW 2006-11-09
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel1Default() throws Exception
 	{
@@ -153,8 +259,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		final PlayerCharacter character = new PlayerCharacter();
 
 		character.setRace(giantRace);
-		character.incrementClassLevel(1, pcClass);
-		assertEquals(0, (int) character.getFeats());
+		character.incrementClassLevel(4, giantClass);
+		
+		is((int) character.getRawFeats(true), eq(0), "2 Default monster doesn't get feats from initial levels");
+		character.incrementClassLevel(3, giantClass);
+		is((int) character.getRawFeats(true), eq(0), "Default monster doesn't get feats up to level 7 (4 monster + 3 extra)");
+		character.incrementClassLevel(1, giantClass);
+		is((int) character.getRawFeats(true), eq(1), "Default monster gets first feat at level 8 (4 monster + 4 extra)");
 	}
 
 	public void testBabDefaultOgre() throws Exception
@@ -318,11 +429,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 			.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		is((int) character.getFeats(), eq(2), "Start with 2 feats");
+		is((int) character.getRawFeats(true), eq(2), "Start with 2 feats");
 		try
 		{
-			AbilityUtilities.modFeat(character, null, "Toughness", true, false);
-			is((int) character.getFeats(), eq(1), "Only 1 feat used");
+			AbilityUtilities.modFeat(character, null, "Toughness", true, true);
+			is((int) character.getRawFeats(true), eq(1), "Only 1 feat used");
 		}
 		catch(HeadlessException e)
 		{
@@ -360,91 +471,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertTrue("Proficient in Weapon B",       character.hasWeaponProfKeyed("Weapon B"));
 		assertTrue("Proficient in Weapon C",       character.hasWeaponProfKeyed("Weapon C"));
 	}
-
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-
-		// Human
-		human = new Race();
-		human.setBonusInitialFeats(2);
-
-
-		// Giant Race
-		giantRace = new Race();
-		giantRace.setName("Ogre");
-		giantRace.setBonusInitialFeats(1);
-		giantRace.setMonsterClass("Giant");
-		giantRace.setMonsterClassLevels(4);
-		giantRace.setHitDiceAdvancement(new int[] {100});
-		final BonusObj babBonus = Bonus.newBonus("COMBAT|BAB|3|PREDEFAULTMONSTER:Y|TYPE=Base.REPLACE");
-		giantRace.addBonusList(babBonus);
-		Globals.getRaceMap().put("Ogre", giantRace);
-
-		// Giant Class
-		giantClass = new PCClass();
-		giantClass.setName("Giant");
-		giantClass.setAbbrev("Gnt");
-		giantClass.addMyType("MONSTER");
-		final BonusObj babClassBonus = Bonus.newBonus("1|COMBAT|BAB|CL*3/4");
-		giantClass.addBonusList(babClassBonus);
-		Globals.getClassList().add(giantClass);
-
-
-		pcClass = new PCClass();
-		pcClass.setName("MyClass");
-		pcClass.setAbbrev("My");
-		pcClass.setSpellType("ARCANE");
-		Globals.getClassList().add(pcClass);
-
-		classWarmind = new PCClass();
-		classWarmind.setName("Warmind");
-		classWarmind.setAbbrev("WM");
-		Globals.getClassList().add(classWarmind);
-
-		Ability toughness = new Ability();
-		toughness.setName("Toughness");
-		toughness.setMultiples("Y");
-		toughness.setStacks("Y");
-		toughness.setChoiceString("NOCHOICE");
-		toughness.setCategory("FEAT");
-		Globals.addAbility(toughness);
-
-		Ability exoticWpnProf = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
-		exoticWpnProf.setMultiples("YES");
-		exoticWpnProf.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
-		exoticWpnProf.addAutoArray("WEAPONPROF|%LIST");
-
-		WeaponProf wpnProfTestA = new WeaponProf();
-		wpnProfTestA.setName("Weapon A");
-		wpnProfTestA.setKeyName("Weapon A");
-		wpnProfTestA.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestA);
-
-		WeaponProf wpnProfTestB = new WeaponProf();
-		wpnProfTestB.setName("Weapon B");
-		wpnProfTestB.setKeyName("Weapon B");
-		wpnProfTestB.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestB);
-
-		WeaponProf wpnProfTestC = new WeaponProf();
-		wpnProfTestC.setName("Weapon C");
-		wpnProfTestC.setKeyName("Weapon C");
-		wpnProfTestC.setTypeInfo("Exotic");
-		Globals.addWeaponProf(wpnProfTestC);
-
-
-		SettingsHandler	.setSingleChoicePreference(Constants.CHOOSER_SINGLECHOICEMETHOD_SELECTEXIT);
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
-		pcClass.addAddList(1, "FEAT(KEY_Exotic Weapon Proficiency (Weapon A))");
-		pcClass.addAddList(2, "FEAT(KEY_Exotic Weapon Proficiency (Weapon B))");
-		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
-	}
-
 	public void testGetClassVar() throws Exception
 	{
 		Logging.setDebugMode(true);
@@ -513,8 +539,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	}
 
 	/**
-	 * Test the skills visibility fucntionality. We want to ensure that
-	 * each call retreives the right set of skills.
+	 * Test the skills visibility functionality. We want to ensure that
+	 * each call retrieves the right set of skills.
 	 */
 	public void testSkillsVisibility()
 	{
@@ -545,7 +571,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		defaultSkill.modRanks(1.0, pcClass, true, pc);
 		pc.addSkill(defaultSkill);
 
-		// Test retreived list
+		// Test retrieved list
 		List <Skill>skillList = pc.getSkillList();
 		assertEquals("Full skill list should have all 3 skills", 3, skillList
 			.size());
@@ -585,7 +611,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals("Add spell should be rejected due to no book",
 			"Invalid spell list/book name.", response);
 
-		// Add a non existant spell to a non existant spellbook
+		// Add a non existant spell to a non existent spellbook
 		String spellBookName = "Test book";
 		response = character.addSpell(charSpell, none, pcClass.getKeyName(), spellBookName, 1, 1);
 		assertEquals("Add spell should be rejected due to book not existing",
@@ -635,7 +661,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		PCClass c = character.getClassKeyed(pcClass.getKeyName());
 		List<CharacterSpell> aList = c.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
-		CharacterSpell addedSpell = (CharacterSpell) (aList.get(0));
+		CharacterSpell addedSpell = aList.get(0);
 		response = character.delSpell(addedSpell.getSpellInfoFor(spellBookName,
 			1, -1, none), pcClass, spellBookName);
 		assertEquals(
@@ -644,7 +670,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 			response);
 
 		aList = giantClass.getSpellSupport().getCharacterSpell(null, spellBookName, 1);
-		addedSpell = (CharacterSpell) (aList.get(0));
+		addedSpell = aList.get(0);
 		response = character.delSpell(addedSpell.getSpellInfoFor(spellBookName,
 			1, -1), giantClass, spellBookName);
 		assertEquals(
