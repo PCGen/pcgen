@@ -1020,6 +1020,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	{
 		if (anInputList.size() <= 0)
 		{
+			aTableModel.setData(null, aLineTerminator);
 			return;
 		}
 
