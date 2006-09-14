@@ -978,10 +978,10 @@ public class WeaponToken extends Token
 		//Ammunition & Contents Modifier
 		if (content > -1)
 		{
-			sprop = "";
+			sprop = Constants.EMPTY_STRING;
 
 			if ((content < eq.getContainedEquipmentCount())
-			 && !"".equals(eq.getContainedEquipment(content).getSpecialProperties(pc)))
+			 && !Constants.EMPTY_STRING.equals(eq.getContainedEquipment(content).getSpecialProperties(pc)))
 			{
 				sprop = eq.getContainedEquipment(content).getSpecialProperties(pc);
 			}
@@ -989,29 +989,33 @@ public class WeaponToken extends Token
 
 		int ammoCount = 0;
 		Equipment anEquip = null;
-		final String containerCapacity = eq.getContainerCapacityString();
-
-		for ( Equipment equip : pc.getEquipmentListInOutputOrder() )
+		if ( ammo > -1 )
 		{
-			sprop = "";
-
-			for ( String type : equip.typeList() )
+			final String containerCapacity = eq.getContainerCapacityString();
+	
+			for ( Equipment equip : pc.getEquipmentListInOutputOrder() )
 			{
-				if (containerCapacity.indexOf(type) >= 0)
+				sprop = Constants.EMPTY_STRING;
+	
+				for ( String type : equip.typeList() )
 				{
-					++ammoCount;
-
+					if (containerCapacity.indexOf(type) >= 0)
+					{
+						++ammoCount;
+						anEquip = equip;
+	
+						break;
+					}
+				}
+	
+				if (ammoCount == (ammo + 1))
+				{
 					break;
 				}
 			}
-
-			if (ammoCount == (ammo + 1))
-			{
-				break;
-			}
 		}
 
-		if ((anEquip != null) && (ammoCount > 0) && !"".equals(anEquip.getSpecialProperties(pc)))
+		if ((anEquip != null) && (ammoCount > 0) && !Constants.EMPTY_STRING.equals(anEquip.getSpecialProperties(pc)))
 		{
 			sprop = anEquip.getSpecialProperties(pc);
 		}
