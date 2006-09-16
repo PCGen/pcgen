@@ -154,7 +154,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	 */
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Spells.Known.Order",
+		return SettingsHandler.getPCGenOption(".Panel.Spells.Known.Order", //$NON-NLS-1$
 			Tab.KNOWN_SPELLS.ordinal());
 	}
 
@@ -163,7 +163,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	 */
 	public void setTabOrder(int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.Spells.Known.Order", order);
+		SettingsHandler.setPCGenOption(".Panel.Spells.Known.Order", order); //$NON-NLS-1$
 	}
 
 	/**
@@ -546,7 +546,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
-		columnButton.setText("^");
+		columnButton.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		// Auto add known option
@@ -572,7 +572,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		JButton columnButton2 = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
-		columnButton2.setText("^");
+		columnButton2.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
 		rightPane.add(buildOutputSpellsPanel(), BorderLayout.SOUTH);
@@ -878,7 +878,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			PObjectNode fNode = (PObjectNode) aComp;
 
 			addSpellToTarget(fNode, bookName);
-			if (!"".equals(pc.getSpellBookNameToAutoAddKnown()))
+			if (!"".equals(pc.getSpellBookNameToAutoAddKnown())) //$NON-NLS-1$
 			{
 				addSpellToTarget(fNode, pc.getSpellBookNameToAutoAddKnown());
 			}

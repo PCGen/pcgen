@@ -839,14 +839,14 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 
 			if (Spell.hasPPCost())
 			{
-				b.append(" &nbsp;<b>PP&nbsp;Cost</b>:&nbsp;").append(
+				b.append(PropertyFactory.getString("InfoSpellsSubTab.PPCost")).append( //$NON-NLS-1$
 					aSpell.getPPCost());
 			}
 
 			final String cString = aSpell.preReqHTMLStrings(pc, false);
 			if (cString.length() > 0)
 			{
-				b.append(" &nbsp;<b>Requirements</b>:&nbsp;").append(cString);
+				b.append(PropertyFactory.getString("InfoSpellsSubTab.Requirements")).append(cString); //$NON-NLS-1$
 			}
 
 			String spellSource = aSpell.getDefaultSourceString();
@@ -885,23 +885,23 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		if (book.getName().equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append("Default Book for New Known Spells").append("</b> "); //$NON-NLS-2$
+			b.append(PropertyFactory.getString("InfoSpellsSubTab.DefaultKnownBook")).append("</b> ");  //$NON-NLS-1$//$NON-NLS-2$
 		}
 		b.append(")<br>"); //$NON-NLS-1$
 
 		if (book.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
 			b.append("<b>"); //$NON-NLS-1$
-			b.append("Num Pages").append("</b>: "); //$NON-NLS-2$
+			b.append(PropertyFactory.getString("InfoSpellsSubTab.NumPages")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getNumPages());
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append("Used Pages").append("</b>: "); //$NON-NLS-2$
+			b.append(PropertyFactory.getString("InfoSpellsSubTab.UsedPages")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getNumPagesUsed());
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append("Page Use").append("</b>: "); //$NON-NLS-2$
+			b.append(PropertyFactory.getString("InfoSpellsSubTab.PageUse")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getPageFormula());
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append("Num Spells").append("</b>: "); //$NON-NLS-2$
+			b.append(PropertyFactory.getString("InfoSpellsSubTab.NumSpells")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getNumSpells());
 			b.append("<br>"); //$NON-NLS-1$
 		}
@@ -1197,7 +1197,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 	protected class SpellPopupMenu extends JPopupMenu
 	{
 		static final long serialVersionUID = 755097384157285101L;
-		private String lastSearch = "";
+		private String lastSearch = ""; //$NON-NLS-1$
 
 		protected SpellPopupMenu(JTreeTable treeTable, InfoSpellsSubTab subTab)
 		{
@@ -1214,14 +1214,14 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 
 				}
 				this.addSeparator();
-				SpellPopupMenu.this.add(Utility.createMenuItem("Find item",
+				SpellPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					}, PropertyFactory.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					true));
 			}
 			else
@@ -1236,14 +1236,14 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				SpellPopupMenu.this.add(createDelMenuItem(PropertyFactory
 					.getString("InfoSpells.remove.spell"), "shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
-				SpellPopupMenu.this.add(Utility.createMenuItem("Find item",
+				SpellPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					}, PropertyFactory.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 					true));
 			}
 		}

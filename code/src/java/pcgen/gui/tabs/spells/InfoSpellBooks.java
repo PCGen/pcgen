@@ -411,9 +411,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		createTreeTables();
 
 		List<String> colNameList = new ArrayList<String>();
-		colNameList.add("School");
-		colNameList.add("Descriptor");
-		colNameList.add("Source File");
+		colNameList.add(PropertyFactory.getString("InfoSpellBooks.School")); //$NON-NLS-1$
+		colNameList.add(PropertyFactory.getString("InfoSpellBooks.Descriptor")); //$NON-NLS-1$
+		colNameList.add(PropertyFactory.getString("InfoSpellBooks.SourceFile")); //$NON-NLS-1$
 		List<Boolean> colActiveList = new ArrayList<Boolean>();
 		colActiveList.add(new Boolean(true));
 		colActiveList.add(new Boolean(true));
@@ -495,10 +495,10 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
-		columnButton.setText("^");
+		columnButton.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
-		leftPane.add(buildModSpellPanel(addSpellButton, "InfoSpells.add.selected"), BorderLayout.SOUTH);
+		leftPane.add(buildModSpellPanel(addSpellButton, "InfoSpells.add.selected"), BorderLayout.SOUTH); //$NON-NLS-1$
 
 		JPanel sPanel = new JPanel();
 		sPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
@@ -515,10 +515,10 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		JButton columnButton2 = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
-		columnButton2.setText("^");
+		columnButton2.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
-		rightPane.add(buildModSpellPanel(delSpellButton, "InfoSpells.remove.selected"), BorderLayout.SOUTH);
+		rightPane.add(buildModSpellPanel(delSpellButton, "InfoSpells.remove.selected"), BorderLayout.SOUTH); //$NON-NLS-1$
 	}
 
 	/**
@@ -662,14 +662,14 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			selectedModel = new SpellModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
 				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc, this,
-				PropertyFactory.getString("InfoSpellBooks.no.selected.help"));
+				PropertyFactory.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
 		}
 		else
 		{
 			selectedModel.resetModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
 				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, this,
-				PropertyFactory.getString("InfoSpellBooks.no.selected.help"));
+				PropertyFactory.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();
@@ -750,7 +750,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		if (selCPath == null)
 		{
-			bookName = "";
+			bookName = ""; //$NON-NLS-1$
 		}
 		else
 		{
@@ -808,7 +808,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		if (selCPath == null)
 		{
-			bookName = "";
+			bookName = ""; //$NON-NLS-1$
 		}
 		else
 		{
@@ -827,7 +827,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		if (bookName.equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
-			pc.setSpellBookNameToAutoAddKnown("");
+			pc.setSpellBookNameToAutoAddKnown(""); //$NON-NLS-1$
 		}
 		else
 		{

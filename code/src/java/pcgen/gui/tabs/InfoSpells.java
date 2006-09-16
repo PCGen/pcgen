@@ -377,11 +377,11 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	{
 		readyForRefresh = true;
 		add(known, KNOWN_INDEX);
-		setTitleAt(KNOWN_INDEX, PropertyFactory.getString("in_Info" + known.getName()));
+		setTitleAt(KNOWN_INDEX, PropertyFactory.getString("in_Info" + known.getName())); //$NON-NLS-1$
 		add(prepared, PREPARED_INDEX);
-		setTitleAt(PREPARED_INDEX, PropertyFactory.getString("in_Info" + prepared.getName()));
+		setTitleAt(PREPARED_INDEX, PropertyFactory.getString("in_Info" + prepared.getName())); //$NON-NLS-1$
 		add(spellbooks, SPELLBOOKS_INDEX);
-		setTitleAt(SPELLBOOKS_INDEX, PropertyFactory.getString("in_Info" + spellbooks.getName()));
+		setTitleAt(SPELLBOOKS_INDEX, PropertyFactory.getString("in_Info" + spellbooks.getName())); //$NON-NLS-1$
 
 		addFocusListener(new FocusAdapter()
 			{

@@ -45,6 +45,7 @@ import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
 
 
 /**
@@ -87,7 +88,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	private PObjectNode theRoot;
 
 	// list of columns names
-	private String[] colNameList = { "" };
+	private String[] colNameList = { "" }; //$NON-NLS-1$
 
 	private int[] colTranslateList = { 0 };
 	private List<Boolean> displayList;
@@ -156,59 +157,59 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 			switch(transList[i])
 			{
 				case COL_NAME:
-					aString = "Name";
+					aString = PropertyFactory.getString("SpellModel.Name"); //$NON-NLS-1$
 					break;
 
 				case COL_SCHOOL:
-					aString = "School";
+					aString = PropertyFactory.getString("SpellModel.Scool"); //$NON-NLS-1$
 					break;
 
 				case COL_SUBSCHOOL:
-					aString = "SubSchool";
+					aString = PropertyFactory.getString("SpellModel.SubSchool"); //$NON-NLS-1$
 					break;
 
 				case COL_DESCRIPTOR:
-					aString = "Descriptor";
+					aString = PropertyFactory.getString("SpellModel.Descriptor"); //$NON-NLS-1$
 					break;
 
 				case COL_COMPONENT:
-					aString = "Components";
+					aString = PropertyFactory.getString("SpellModel.Components"); //$NON-NLS-1$
 					break;
 
 				case COL_CASTTIME:
-					aString = "Casting Time";
+					aString = PropertyFactory.getString("SpellModel.CastingTime"); //$NON-NLS-1$
 					break;
 
 				case COL_RANGE:
-					aString = "Range";
+					aString = PropertyFactory.getString("SpellModel.Range"); //$NON-NLS-1$
 					break;
 
 				case COL_DESCRIPTION:
-					aString = "Description";
+					aString = PropertyFactory.getString("SpellModel.Description"); //$NON-NLS-1$
 					break;
 
 				case COL_TARGET:
-					aString = "Target Area";
+					aString = PropertyFactory.getString("SpellModel.TargetArea"); //$NON-NLS-1$
 					break;
 
 				case COL_DURATION:
-					aString = "Duration";
+					aString = PropertyFactory.getString("SpellModel.Duration"); //$NON-NLS-1$
 					break;
 
 				case COL_SAVE:
-					aString = "Save Info";
+					aString = PropertyFactory.getString("SpellModel.SaveInfo"); //$NON-NLS-1$
 					break;
 
 				case COL_SR:
-					aString = "SR";
+					aString = PropertyFactory.getString("SpellModel.SR"); //$NON-NLS-1$
 					break;
 
 				case COL_SRC:
-					aString = "Source File";
+					aString = PropertyFactory.getString("SpellModel.SourceFile"); //$NON-NLS-1$
 					break;
 
 				case COL_PPCOST:
-					aString = "PP Cost";
+					aString = PropertyFactory.getString("SpellModel.PPCost"); //$NON-NLS-1$
 					break;
 
 				default:
@@ -346,7 +347,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 		if (fn == null)
 		{
-			Logging.errorPrint("Somehow we have no active node when doing getValueAt in ");
+			Logging.errorPrint(PropertyFactory.getString("SpellModel.NoActiveNode")); //$NON-NLS-1$
 
 			return null;
 		}
@@ -464,7 +465,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		}
 
 		PObjectNode p = new PObjectNode();
-		p.setItem("Domains");
+		p.setItem("Domains"); //$NON-NLS-1$
 
 		boolean dom = false;
 
@@ -477,7 +478,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 			// and is a valid domain, add them
 			if ((aDom != null) && aCD.isFromPCClass(aClass.getKeyName()))
 			{
-				List<Spell> domainSpells = Globals.getSpellsIn(iLev, "", aDom.getKeyName());
+				List<Spell> domainSpells = Globals.getSpellsIn(iLev, "", aDom.getKeyName()); //$NON-NLS-1$
 				p.setParent(theParent);
 
 				if (!dom)
@@ -760,7 +761,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							continue;
 						secondaryNodes = new PObjectNode[1];
 						secondaryNodes[0] = new PObjectNode();
-						secondaryNodes[0].setItem("");
+						secondaryNodes[0].setItem(""); //$NON-NLS-1$
 					}
 					else if (firstPass)
 					{
@@ -777,7 +778,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 					for (int sindex = 0 ; sindex < secondaryNodes.length; sindex++)
 					{
-						mapKey = bookName+"."+primaryNodes[pindex].toString()+"."+secondaryNodes[sindex].toString();
+						mapKey = bookName+"."+primaryNodes[pindex].toString()+"."+secondaryNodes[sindex].toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						switch (secondaryMode)
 						{
 							case GuiConstants.INFOSPELLS_VIEW_CLASS:     	// By Class
@@ -959,7 +960,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				//if (fullSpellList && currSpellBook.equals(Globals.getDefaultSpellBook()))
 				if (spellListType != GuiConstants.INFOSPELLS_AVAIL_KNOWN)
 				{
-					for (Spell s : Globals.getSpellsIn(-1, aClass.getSpellKey(), ""))
+					for (Spell s : Globals.getSpellsIn(-1, aClass.getSpellKey(), "")) //$NON-NLS-1$
 					{
 						if (!spellList.contains(s) && spellTab.shouldDisplayThis(s))
 						{
@@ -1053,12 +1054,12 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		for (int ix = 0; ix < 20; ++ix)
 		{
 			tempNodes[ix] = new PObjectNode();
-			String ix2 = ""+ix;
+			String ix2 = ""+ix; //$NON-NLS-1$
 			if (ix < 10)
 			{
-				ix2 = " " + ix2;
+				ix2 = " " + ix2; //$NON-NLS-1$
 			}
-			tempNodes[ix].setItem("level " + ix2);
+			tempNodes[ix].setItem(PropertyFactory.getString("SpellModel.24") + ix2); //$NON-NLS-1$
 		}
 		return tempNodes;
 	}
@@ -1164,32 +1165,32 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 	public int getMColumnDefaultWidth(int col) 
 	{
-		return SettingsHandler.getPCGenOption(getOptionName() + "sizecol." + colNameList[col], colDefaultWidth[col]);
+		return SettingsHandler.getPCGenOption(getOptionName() + "sizecol." + colNameList[col], colDefaultWidth[col]); //$NON-NLS-1$
 	}
 
 	public void setMColumnDefaultWidth(int col, int width) 
 	{
-		SettingsHandler.setPCGenOption(getOptionName() + "sizecol." + colNameList[col], width);
+		SettingsHandler.setPCGenOption(getOptionName() + "sizecol." + colNameList[col], width); //$NON-NLS-1$
 	}
 
 	private boolean getColumnViewOption(String colName, boolean defaultVal) 
 	{
-		return SettingsHandler.getPCGenOption(getOptionName() + "viewcol." + colName, defaultVal);
+		return SettingsHandler.getPCGenOption(getOptionName() + "viewcol." + colName, defaultVal); //$NON-NLS-1$
 	}
 
 	private void setColumnViewOption(String colName, boolean val) 
 	{
-		SettingsHandler.setPCGenOption(getOptionName() + "viewcol." + colName, val);
+		SettingsHandler.setPCGenOption(getOptionName() + "viewcol." + colName, val); //$NON-NLS-1$
 	}
 
 	private String getOptionName() 
 	{
-		StringBuffer nameSb = new StringBuffer("InfoSpells.");
+		StringBuffer nameSb = new StringBuffer("InfoSpells."); //$NON-NLS-1$
 		if(available) {
-			nameSb.append("left.");
+			nameSb.append("left."); //$NON-NLS-1$
 		}
 		else {
-			nameSb.append("right.");
+			nameSb.append("right."); //$NON-NLS-1$
 		}
 		return nameSb.toString();
 	}

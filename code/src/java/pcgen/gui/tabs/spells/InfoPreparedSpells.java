@@ -558,7 +558,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
-		columnButton.setText("^");
+		columnButton.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		leftPane.add(buildAddSpellPanel(), BorderLayout.SOUTH);
@@ -588,7 +588,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		JButton columnButton2 = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
-		columnButton2.setText("^");
+		columnButton2.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
 		// Buttons above spellbooks and known spells
@@ -887,7 +887,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		if (selCPath == null)
 		{
-			bookName = "";
+			bookName = ""; //$NON-NLS-1$
 		}
 		else
 		{
@@ -1051,14 +1051,14 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 			List<Ability> metamagicFeats = new ArrayList<Ability>();
 			for(String s : characterMetaMagicFeats)
 			{
-				final Ability anAbility = Globals.getAbilityKeyed("FEAT", s);
+				final Ability anAbility = Globals.getAbilityKeyed("FEAT", s); //$NON-NLS-1$
 				if (anAbility == null)
 				{
 					continue;
 				}
 
 				boolean canAdd = false;
-				List<BonusObj> bonusList = BonusUtilities.getBonusFromList(anAbility.getBonusList(), Bonus.getBonusTypeFromName("PPCOST"));
+				List<BonusObj> bonusList = BonusUtilities.getBonusFromList(anAbility.getBonusList(), Bonus.getBonusTypeFromName("PPCOST")); //$NON-NLS-1$
 				if (bonusList.size() == 0)
 				{
 					canAdd = true;		// if doesn't modify PP COST, then allow it
@@ -1067,17 +1067,17 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				{
 					for(BonusObj aBonus : bonusList)
 					{
-						final java.util.StringTokenizer aTok = new java.util.StringTokenizer(aBonus.getBonusInfo(), ",");
+						final java.util.StringTokenizer aTok = new java.util.StringTokenizer(aBonus.getBonusInfo(), ","); //$NON-NLS-1$
 						while (aTok.hasMoreTokens())
 						{
 							final String aBI = aTok.nextToken();
 
-							if (aBI.equalsIgnoreCase(aKey) || aBI.equalsIgnoreCase("ALL"))
+							if (aBI.equalsIgnoreCase(aKey) || aBI.equalsIgnoreCase("ALL")) //$NON-NLS-1$
 							{
 								canAdd = true;
 								break;
 							}
-							else if (aBI.startsWith("TYPE=") || aBI.startsWith("TYPE."))
+							else if (aBI.startsWith("TYPE=") || aBI.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 							{
 								if (spellA.getSpell().isType(aBI.substring(5)))
 								{
