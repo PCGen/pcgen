@@ -1030,13 +1030,15 @@ public class WeaponToken extends Token
 
 	/**
 	 * Get reach token
-	 * @param pc
-	 * @param eq
+	 * Formula is as follows:
+	 * 		REACH:(RACEREACH+(max(0,EQUIPREACH-5)))*EQUIPREACHMULT
+	 * @param pc	the player
+	 * @param eq	the equipment
 	 * @return reach token
 	 */
 	public static int getReachToken(PlayerCharacter pc, Equipment eq)
 	{
-		return ReachToken.getReachToken(pc) + eq.getReach();
+		return (ReachToken.getReachToken(pc) + Math.max(eq.getReach()-5,0)) * eq.getReachMult();
 	}
 
 	/**

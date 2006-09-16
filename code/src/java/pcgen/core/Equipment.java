@@ -2151,6 +2151,34 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	}
 
 	/**
+	 * Sets the reach multiplier attribute of the Equipment object
+	 * @param i		the new reach multiplier
+	 */
+	public void setReachMult(int i)
+	{
+		if ( theWeaponStats == null )
+		{
+			theWeaponStats = new WeaponEquipment(this);
+		}
+		theWeaponStats.setReachMult(i);
+	}
+	
+	/**
+	 * Gets the reach multiplier attribute of the Equipment Object
+	 * 
+	 * @return	the reach multiplier value
+	 */
+	public int getReachMult()
+	{
+		if ( theWeaponStats != null )
+		{
+			return theWeaponStats.getReachMult();
+		}
+		return 0;
+	}
+
+
+	/**
 	 * Set the remaining charges
 	 * @param remainingCharges
 	 */

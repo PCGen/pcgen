@@ -1,11 +1,16 @@
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Delta;
-import java.util.List;
-import java.util.ArrayList;
 
+/**
+ * WeaponEquipment class handles all weapon related equipment details
+ *
+ */
 public class WeaponEquipment implements Cloneable
 {
 	private Equipment theEquipment;
@@ -18,6 +23,8 @@ public class WeaponEquipment implements Cloneable
 	private String theWieldString = "";
 	private boolean hasWield = false;
 	private int theReach = 0;
+	private int theReachMult = 1;
+
 	/** if is true a BAB of 13 yields 13/8/3, if false, merely 13. */
 	private boolean doAttacksProgress = true;
 
@@ -25,11 +32,20 @@ public class WeaponEquipment implements Cloneable
 	private String theAltCritRange = "";
 	private int theAltCritMult = 0;
 
+	/**
+	 * Create a new WeaponEqupiment instance owned by a given Equipment object
+	 * @param anOwner	the new Equipment owner
+	 */
 	public WeaponEquipment(final Equipment anOwner)
 	{
-		theEquipment = anOwner;
+		super();
+		setOwner(anOwner);
 	}
-
+	
+	/**
+	 * Set a new Equipment as owner of this WeaponEquipment object
+	 * @param anOwner	the current
+	 */
 	public void setOwner( final Equipment anOwner )
 	{
 		theEquipment = anOwner;
@@ -126,11 +142,23 @@ public class WeaponEquipment implements Cloneable
 		return getDamage(aPC, true);
 	}
 
+	/**
+	 * Returns the damage attribute of the equipment when wielded in 
+	 * an alternate hand
+	 * 
+	 * @param aPC
+	 * @return	the damage value
+	 */
 	public String getAltDamage(final PlayerCharacter aPC)
 	{
 		return getDamage(aPC, false);
 	}
 
+	/**
+	 * Set the alternate damage for a weapon
+	 * 
+	 * @param anAltDamage	the new altDamage value
+	 */
 	public void setAltDamage(final String anAltDamage)
 	{
 		theAltDamage = anAltDamage;
@@ -261,13 +289,17 @@ public class WeaponEquipment implements Cloneable
 	/**
 	 * Sets the critRange attribute of the Equipment object
 	 *
-	 * @param aString The new critRange value
+	 * @param aCritRange The new critRange value
 	 */
 	public void setCritRange(final String aCritRange)
 	{
 		theCritRange = aCritRange;
 	}
 
+	/**
+	 * Set the altCritRange of the Equipment object
+	 * @param aCritRange	the new altCritRange value
+	 */
 	public void setAltCritRange(final String aCritRange)
 	{
 		theAltCritRange = aCritRange;
@@ -325,13 +357,18 @@ public class WeaponEquipment implements Cloneable
 	/**
 	 * Set damage (this is used to overide default equipment)
 	 *
-	 * @param aString The new damage value
+	 * @param aDamageMod The new damage value
 	 **/
 	public void setDamageMod(final String aDamageMod)
 	{
 		theDamageMod = aDamageMod;
 	}
 
+	/**
+	 * Returns the range of the weapon
+	 * 
+	 * @return	the weapon range
+	 */
 	public Integer getRange()
 	{
 		return theRange;
@@ -744,6 +781,25 @@ public class WeaponEquipment implements Cloneable
 	public boolean isAttacksProgress()
 	{
 		return doAttacksProgress;
+	}
+
+	/**
+	 * Sets the reach multiplier for the equipment
+	 * 
+	 * @param i	the new reach multiplier value
+	 */
+	public void setReachMult(int i)
+	{
+		theReachMult = i;
+	}
+
+	/**
+	 * Returns the reach multiplier for the equipment
+	 * @return	the reach multiplier value
+	 */
+	public int getReachMult()
+	{
+		return theReachMult;
 	}
 
 
