@@ -248,7 +248,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 				if (numLevels <= 0)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNumberOfLevelsMustBePositive"), Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNumberOfLevelsMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 					return;
 				}
@@ -257,20 +257,20 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 				if (pcClass.getDisplayName().equals(Constants.s_NONESELECTED))
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 					return;
 				}
 				if (pcClass == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 					return;
 				}
 
 				if (!pcClass.isQualified(pc))
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getDisplayName() + ".",
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getDisplayName() + ".", //$NON-NLS-1$ //$NON-NLS-2$
 						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
@@ -509,12 +509,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Summary.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Summary.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	public void setTabOrder(int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.Summary.Order", order);
+		SettingsHandler.setPCGenOption(".Panel.Summary.Order", order); //$NON-NLS-1$
 	}
 
 	public String getTabName()
@@ -568,7 +568,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			return true;
 		}
 
-		if (!name.startsWith("New") || name.length() < 4)
+		if (!name.startsWith("New") || name.length() < 4) //$NON-NLS-1$
 		{
 			return false;
 		}
@@ -673,7 +673,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if (numHD <= 0)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -721,7 +721,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 					if ((pcClass == null) || (numHD == 0) || ((currentHD + numHD) < minHD))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 						return;
 					}
@@ -794,7 +794,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			final int statValue = pc.getStatList().getBaseStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[stat]);
 			i += getPurchaseCostForStat(pc, statValue);
 		}
-		i += (int) pc.getTotalBonusTo("POINTBUY", "SPENT");
+		i += (int) pc.getTotalBonusTo("POINTBUY", "SPENT"); //$NON-NLS-1$ //$NON-NLS-2$
 		return i;
 	}
 
@@ -878,13 +878,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			if (aRace.getFavoredClass().length() != 0)
 			{
 				final String favClassKey = aRace.getFavoredClass();
-				String favClassName = PropertyFactory.getString("in_sumVarious");
+				String favClassName = PropertyFactory.getString("in_sumVarious"); //$NON-NLS-1$
 				PCClass favClass = Globals.getClassKeyed(favClassKey);
 				if (favClass != null)
 				{
 					favClassName = favClass.getDisplayName();
 				}
-				b.append(" &nbsp;<b>").append("FAVORED CLASS:").append("</b>").append(favClassName); //$NON-NLS-1$
+				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>").append(favClassName); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
 			if (aRace.getLevelAdjustment(pc) > 0)
@@ -908,7 +908,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			StringBuffer b = new StringBuffer();
 			b.append("<html><b>").append(PropertyFactory.getString("in_sumClass")).append(aClass.getDisplayName()).append("</b>"); //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-2$
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aClass.getType());
+			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aClass.getType());  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
 
 			final String cString = aClass.preReqHTMLStrings(pc, false);
 
@@ -925,7 +925,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			}
 
 //			b.append(" <b>").append(PropertyFactory.getString("in_sumBAB1")).append("</b>").append(aClass.getAttackBonusType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			b.append(" <b>").append(PropertyFactory.getString("in_sumHD")).append("</b>1D").append(aClass.getBaseHitDie() + ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b.append(" <b>").append(PropertyFactory.getString("in_sumHD")).append("</b>1D").append(aClass.getBaseHitDie() + ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 			if (Globals.getGameModeShowSpellTab())
 			{
@@ -955,11 +955,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			{
 				statBuf.append("<b>").append(Globals.getGameModeACAbbrev()).append("</b> "); //$NON-NLS-1$ //$NON-NLS-2$
 				statBuf.append("<i>").append(PropertyFactory.getString("in_sumTotal")).append("</i>: ").append(pc.getACTotal()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				if (SettingsHandler.getGame().isValidACType("Flatfooted"))
+				if (SettingsHandler.getGame().isValidACType("Flatfooted")) //$NON-NLS-1$
 				{
 					statBuf.append(" <i>").append(PropertyFactory.getString("in_sumFlatfooted")).append("</i>: ").append(pc.flatfootedAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
-				if (SettingsHandler.getGame().isValidACType("Touch"))
+				if (SettingsHandler.getGame().isValidACType("Touch")) //$NON-NLS-1$
 				{
 					statBuf.append(" <i>").append(PropertyFactory.getString("in_sumTouch")).append("</i>: ").append(pc.touchAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
@@ -967,7 +967,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			}
 			else
 			{
-				statBuf.append("<b>").append("Total AC:").append("</b> ").append((int) pc.getTotalBonusTo(PropertyFactory.getString("in_sumCombat"), PropertyFactory.getString("in_sumAC"))); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-4$ //$NON-NLS-5$
+				statBuf.append("<b>").append(PropertyFactory.getString("in_sumTotalAC")).append("</b> ").append((int) pc.getTotalBonusTo(PropertyFactory.getString("in_sumCombat"), PropertyFactory.getString("in_sumAC"))); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-4$ //$NON-NLS-5$
 				statBuf.append("<br>"); //$NON-NLS-1$
 			}
 
@@ -978,7 +978,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			String aString = SettingsHandler.getGame().getBabAbbrev();
 			if (aString == null)
 			{
-				aString = PropertyFactory.getString("in_sumBAB");
+				aString = PropertyFactory.getString("in_sumBAB"); //$NON-NLS-1$
 			}
 			if ((aString != null) && (aString.length() != 0))
 			{
@@ -1052,13 +1052,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if ((levels > 0) && !pc.canLevelUp())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
 		if ((levels > 1) && SettingsHandler.getEnforceSpendingBeforeLevelUp())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 			levels = 1;
 		}
 
@@ -1068,7 +1068,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			&& ((levels > theClass.getMaxLevel())
 			|| ((aClass != null) && ((aClass.getLevel() + levels) > aClass.getMaxLevel()))))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumMaximumLevelIs") + theClass.getMaxLevel(), Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumMaximumLevelIs") + theClass.getMaxLevel(), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 
 			return;
 		}
@@ -1178,7 +1178,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		do
 		{
-			sepPos = message.indexOf("\n", start);
+			sepPos = message.indexOf("\n", start); //$NON-NLS-1$
 
 			if (sepPos >= 0)
 			{
@@ -1200,7 +1200,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if (checkbox != null)
 		{
-			label = new JLabel("", SwingConstants.LEADING);
+			label = new JLabel("", SwingConstants.LEADING); //$NON-NLS-1$
 			panel.add(label, cons);
 			cons.gridy++;
 			panel.add(checkbox, cons);
@@ -1445,7 +1445,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		// Layout the stats table
 		JScrollPane statScrollPane = new JScrollPane();
 		statTable = new JTableEx();
-		statTable.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
+		statTable.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE); //$NON-NLS-1$
 
 		statTable.setModel(statTableModel);
 		statTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -1522,7 +1522,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		randName = new JButton(PropertyFactory.getString("in_sumRandomNameString")); //$NON-NLS-1$
 		gridbag.setConstraints(randName, c);
 		northPanel.add(randName);
-		Utility.setDescription(randName, PropertyFactory.getString("in_randNameTipString")); //$NON-NLS-1$
+		Utility.setDescription(randName, PropertyFactory.getString("in_randNameTip")); //$NON-NLS-1$
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
@@ -1701,7 +1701,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			if (poolPointLabel == null)
 			{
-				poolPointLabel = new JLabel(Globals.getGameModePointPoolName() + ": ");
+				poolPointLabel = new JLabel(Globals.getGameModePointPoolName() + ": "); //$NON-NLS-1$
 				poolPanel.add(poolPointLabel);
 
 				poolPointText = new JLabel();
@@ -2249,7 +2249,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			{
 				if (poolMod > pc.getSkillPoints())
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 				}
 				else
 				{
@@ -2470,7 +2470,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				if ((pcPlayerLevels <= maxDiddleLevel) && (availablePool > 0) && (usedStatPool > availablePool))
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouHaveExcededTheMaximumPointsOf") + availablePool + PropertyFactory.getString("in_sumAsSpecifiedByTheMethod") //$NON-NLS-1$ //$NON-NLS-2$
-					+ SettingsHandler.getGame().getPurchaseModeMethodName() + "\"",
+					+ SettingsHandler.getGame().getPurchaseModeMethodName() + "\"", //$NON-NLS-1$
 						Constants.s_APPNAME, MessageType.INFORMATION);
 				}
 			}
@@ -2494,7 +2494,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		}
 		else if (SettingsHandler.getGame().getRollingMethod(0) != null)
 		{
-			rollStatsButton = new JButton(PropertyFactory.getString("in_demAgeRoll"));
+			rollStatsButton = new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$
 			rollStatsButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
@@ -3052,7 +3052,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						{
 							if (poolMod > pc.getSkillPoints())
 							{
-								ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+								ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 								return;
 							}
 						}
@@ -3182,7 +3182,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		int poolPointsUsed = poolPointsTotal - pc.getSkillPoints();
 
-		poolPointText.setText(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal));
+		poolPointText.setText(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
 	}
 
 	private static int getPurchaseCostForStat(final PlayerCharacter aPC, int statValue)
@@ -3258,7 +3258,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		int i=1;
 		for (String task : todoList)
 		{
-			todoText.append(i++).append(". ").append(task).append("<br>"); //$NON-NLS-1$
+			todoText.append(i++).append(". ").append(task).append("<br>"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		todoText.append("</body></html>"); //$NON-NLS-1$
