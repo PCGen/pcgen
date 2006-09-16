@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Feb 28 19:45:33 2006 -- reformated by prettylst.pl v1.35 (build 556)
+# CVS $Revision$ $Author$ -- Sat Sep 16 16:53:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Save checks bonus											Combat bonus
@@ -15,7 +15,7 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	SPELLLEVEL:CLASS|Adept=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
 ###Block Normal Level progression
 1	CAST:3,1						FEATAUTO:Simple Weapon Proficiency
-2	CAST:3,1		SA:Summon Familiar
+2	CAST:3,1		BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
 3	CAST:3,2
 4	CAST:3,2,0
 5	CAST:3,2,1

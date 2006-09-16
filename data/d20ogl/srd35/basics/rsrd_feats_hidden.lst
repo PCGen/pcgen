@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep  2 20:12:45 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sat Sep 16 16:53:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -81,7 +81,6 @@ Monk Movement	TYPE:Special	VISIBLE:NO	DEFINE:MonkMoveBonus|0	DEFINE:MonkMoveLvl|
 Aura of Good	TYPE:Extraordinary	VISIBLE:NO	SA:Aura of Good (Ex)																	SOURCEPAGE:ClassesII.rtf
 Aura of Courage	TYPE:Extraordinary	VISIBLE:NO	SA:Divine Health (Ex)																	SOURCEPAGE:ClassesII.rtf
 Divine Health	TYPE:Supernatural		VISIBLE:NO	SA:Aura of Courage (Su)																	SOURCEPAGE:ClassesII.rtf
-Special Mount	TYPE:SpellLike		VISIBLE:NO	SA:Special Mount (Sp)					DEFINE:SMLevel|0										SOURCEPAGE:ClassesII.rtf
 Remove Disease	TYPE:SpellLike		VISIBLE:NO	SA:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0									SOURCEPAGE:ClassesII.rtf
 Lay on Hands	TYPE:Supernatural		VISIBLE:NO	SA:Lay on Hands (Su) % hp/day|LayOnHands		DEFINE:LayOnHands|0									SOURCEPAGE:ClassesII.rft
 Divine Grace	TYPE:Supernatural		VISIBLE:NO	SA:Divine Grace (Su)									BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	SOURCEPAGE:ClassesII.rft
@@ -113,6 +112,12 @@ Paladin Tracker - Turn Undead		VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:A
 Paladin Tracker - Lay on Hands	VISIBLE:NO																								BONUS:VAR|LayOnHands|var("CL=Paladin")*max(CHA,0)														SOURCEPAGE:ClassesII.rtf
 Sorcerer Tracker - Summon Familiar	VISIBLE:NO																								BONUS:VAR|FMLevel|var("CL=Sorcerer")																SOURCEPAGE:CLASSESII.rtf
 Wizard Tracker - Summon Familiar	VISIBLE:NO																								BONUS:VAR|FMLevel|var("CL=Wizard")																	SOURCEPAGE:CLASSESII.rtf
+
+###Block: Non-Base Class Level tracked ability objects
+# Feat Name						Visible	Modify VAR
+Blackguard Tracker - Fiendish Servant	VISIBLE:NO	BONUS:VAR|FSLevel|var("CL=Blackguard")
+Blackguard Tracker - Undead Companion	VISIBLE:NO	BONUS:VAR|UndeadCompanionLVL|var("CL=Blackguard")|PRECLASS:1,Ex Paladin=9
+Shadowdancer Tracker - Summon Shadow	VISIBLE:NO	BONUS:VAR|ShadowCompanion|var("CL=Shadowdancer")
 
 ###Block: Ranger Combat Styles
 # Feat Name					Type				Visible	Prohibited Feat				Var. Min. Value			Special Ability				Virtual Feat
@@ -256,10 +261,14 @@ Leadership Score	TYPE:Special	VISIBLE:NO	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Lead
 # Feat Name		Output Name					Type					Visible	Special Ability			Save checks bonus										Combat bonus														Bonus to HP											Source Page				Temporary effect description
 Desecrating Aura	OUTPUTNAME:Desecrating Aura (Su)	TYPE:Special.Supernatural	VISIBLE:NO	SA:Desecrating Aura (Su)	BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC	SOURCEPAGE:MonstersM-N.rtf	TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
 
-###Block: Companion stuff
-# Feat Name		Type				Visible	Special Ability			Define			COMPANIONLIST																																																																																																																																																																										FOLLOWERS
-Summon Familiar	TYPE:Familiar		VISIBLE:NO	SA:Summon Familiar		DEFINE:FMLevel|0		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel																																																																																																																																																														FOLLOWERS:Familiar|1
-Animal Companion	TYPE:AnimalCompanion	VISIBLE:NO	SA:Animal Companion (Ex)	DEFINE:CompLevel|0	COMPANIONLIST:Animal Companion|Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Snake (Viper/Small),Snake (Viper/Medium),Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Dire Animal (Dire Badger),Dire Animal (Dire Bat),Dire Animal (Dire Weasel),Leopard,Lizard (Monitor),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Dire Animal (Dire Wolverine),Crocodile (Giant),Dinosaur (Deinonychus),Dire Animal (Dire Ape),Dire Animal (Dire Boar),Dire Animal (Dire Wolf),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Dire Animal (Dire Lion),Dinosaur (Megaraptor),Snake (Constrictor/Giant)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Animal (Dire Bear),Elephant|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Animal (Dire Tiger),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15	FOLLOWERS:Animal Companion|1
+###Block: Companion support
+# Feat Name		Type				Visible	Special Ability			Define				Source Page				COMPANIONLIST																																																																																																																																																																										FOLLOWERS
+Animal Companion	TYPE:Extraordinary	VISIBLE:NO	SA:Animal Companion (Ex)	DEFINE:CompLevel|0							COMPANIONLIST:Animal Companion|Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Light),Horse (Heavy),Owl,Pony,Snake (Viper/Small),Snake (Viper/Medium),Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Dire Animal (Dire Badger),Dire Animal (Dire Bat),Dire Animal (Dire Weasel),Leopard,Lizard (Monitor),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Dire Animal (Dire Wolverine),Crocodile (Giant),Dinosaur (Deinonychus),Dire Animal (Dire Ape),Dire Animal (Dire Boar),Dire Animal (Dire Wolf),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Dire Animal (Dire Lion),Dinosaur (Megaraptor),Snake (Constrictor/Giant)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Animal (Dire Bear),Elephant|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dire Animal (Dire Tiger),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus)|FOLLOWERADJUSTMENT:-15	FOLLOWERS:Animal Companion|1
+Special Mount	TYPE:SpellLike		VISIBLE:NO	SA:Special Mount (Sp)		DEFINE:SMLevel|0			SOURCEPAGE:ClassesII.rtf	COMPANIONLIST:Special Mount|ANY																																																																																																																																																																							FOLLOWERS:Special Mount|1
+Summon Familiar	TYPE:Special		VISIBLE:NO	SA:Summon Familiar		DEFINE:FMLevel|0								COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel																																																																																																																																																														FOLLOWERS:Familiar|1
+Fiendish Servant	TYPE:Special		VISIBLE:NO	SA:Fiendish Servant		DEFINE:FSLevel|0								COMPANIONLIST:Fiendish Servant|Bat,Cat,DireRat,Horse,Pony,Raven,Toad																																																																																																																																																																	FOLLOWERS:Fiendish Servant|1
+Undead Companion	TYPE:Special		VISIBLE:NO	SA:Undead Companion		DEFINE:UndeadCompanionLVL|0						COMPANIONLIST:Undead Companion|Skeleton (Human Warrior),Zombie (Human Commoner)																																																																																																																																																															FOLLOWERS:Undead Companion|1
+Summon Shadow	TYPE:Supernatural		VISIBLE:NO	SA:Summon Shadow (Su)		DEFINE:ShadowCompanion|0						COMPANIONLIST:Shadow Companion|Shadow																																																																																																																																																																						FOLLOWERS:Shadow Companion|1
 
 #
 #EOF

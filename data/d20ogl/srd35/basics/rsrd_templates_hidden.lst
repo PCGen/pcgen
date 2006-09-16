@@ -11,7 +11,7 @@ Dragon Disciple Attacks Large		VISIBLE:NO																			PRESIZEEQ:L		NATURAL
 
 ###Block: Temporary Bonus Templates
 # Template Name				Visible	Source Page						Save checks bonus									Combat bonus															Bonus to skill																				Stat bonus							Choose								Temporary effect description
-Familiar within arms reach		VISIBLE:NO	SOURCEPAGE:ClassesII.rtf																															BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PRESA:1,Summon Familiar|PREAPPLY:ANYPC																							TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
+Familiar within arms reach		VISIBLE:NO	SOURCEPAGE:ClassesII.rtf																															BONUS:SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREFEAT:1,Summon Familiar|PREAPPLY:ANYPC																							TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
 
 # Conditional Templates
 Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																			BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
