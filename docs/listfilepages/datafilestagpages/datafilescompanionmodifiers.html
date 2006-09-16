@@ -28,43 +28,6 @@
 		<p>These files specify the bonuses that &quot;enhanced companions&quot;, such as familiars and a
 		Paladin's special mount, receive from associating with the character.</p>
 
-		<p><a name="COMPANIONLIST"></a><hr>
-		<p class="new">*** New 5.10.1+</p>
-	    <p class="indent0"><strong>Tag Name:</strong> COMPANIONLIST:x|y,y</p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text (The type of companion list to
-																						add to).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>Text (A race of companion to allow
-																						to the character).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACETYPE=Text (all races with the
-													specified RACETYPE are available as this type of companion).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>ANY (Any race can be a companion of
-																						this type).</p>
-		<p class="indent1"><strong>What it does:</strong> </p>
-        <p class="indent2">• Adds a specific race or races to the list of available companions for the specified
-        						companion type.</p>
-        <p class="indent2">• PRExxx tags can be added to COMPANIONLIST lines, PRExxx tags are checked against the
-								master.</p>
-        <p class="indent2">• If the master does not meet the prereqs the companion will be displayed in the list
-        						but will be listed in red and cannot be added as a companion.</p>
-        <p class="indent2">• FOLLOWERADJUSTMENT tags can be added to COMPANIONLIST lines to adjust the relative
-        						power level of the companion.</p>
-        <p class="indent2">• COMPANIONLIST can be used multiple times for the same companion type and are additive.
-        						For example you can have one line which has a COMPANIONLIST:Pet|RACETYPE=Animal
-        						tag on it and a separate line with COMPANIONLIST:Pet|Hog which also has some
-        						additional PRExxx tags, all Animals will appear in the Pet list along with Hog but
-        						Hog will have specific prerequisites the master must pas to add it.</p>
-		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">New line in companion modifier files.</p>
-        <p class="indent1"><strong>Example:</strong> </p>
-        <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,
-        							Weasel</code> </p>
-        <p class="indent3">Would build the list of standard familiars available to a Sorcerer or Wizard.</p>
-        <p class="indent2"><code>COMPANIONLIST:Pet|RACETYPE=Animal</code> </p>
-        <p class="indent3">Would build a list of all animals to available as a Pet.</p>
-        <p class="indent2"><code>COMPANIONLIST:Familiar|Quasit <tab> PREFEAT:1,Special Familiar <tab> PREALIGN:CE</code> </p>
-        <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the Special
-        					Familiar feat.</p>
-
 		<p><a name="COPYMASTERBAB"></a><hr>
 	    <p class="indent0"><strong>Tag Name:</strong> COPYMASTERBAB:x</p>
         <p class="indent1"><strong class="indent0">Variables used (x): </strong>Number, Variable or Formula (BAB to be granted to the Follower) </p>
@@ -117,7 +80,7 @@
 		<p class="indent3">True if the CompanionLevel variable is 5 or greater.</p>
 
 		<p></p><a name="FOLLOWERADJUSTMENT"></a><hr>
-		<p class="new">*** New 5.10.1+</p>
+		<p class="new">*** New 5.11.0</p>
 		<p class="indent0"><strong>Tag Name:</strong> FOLLOWERADJUSTMENT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Number the effective master level is
 																		adjusted for this (or these) creatures)</p>
@@ -141,7 +104,7 @@
 		<p class="indent3">Defines the creature having two Hit Dice.</p>
 
 		<p></p><a name="HITDICEADVANCES"></a><hr>
-		<p class="new">*** New 5.10.1+</p>
+		<p class="new">*** New 5.11.0</p>
 		<p class="indent0"><strong>Tag Name:</strong>HITDICEADVANCES:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Boolean (YES or NO)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
