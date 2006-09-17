@@ -352,13 +352,13 @@ CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 1	CAST:0,0		SA:Stalwart Defense (Ex)											BONUS:CHECKS|Fortitude,Reflex,Will|CHAMAX0
 2	CAST:0,1											BONUS:VAR|SneakAttack|(CL+1)/3													FEATAUTO:Sneak Attack
 3	CAST:0,1,0		SA:Deft Defense (Ex)
-4	CAST:0,1,1		SA:Smite %/day (Su)|Smite					BONUS:VAR|Smite|1												DEFINE:Smite|0
+4	CAST:0,1,1											BONUS:VAR|SmiteAnyTimes|1														FEATAUTO:Smite
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1	SA:Hunter's Wrath % rounds/day (Su)|HuntersWrath	BONUS:VAR|HuntersWrath|CL										DEFINE:HuntersWrath|0
-7	CAST:0,2,1,1,0										BONUS:VAR|Smite|1
+7	CAST:0,2,1,1,0										BONUS:VAR|SmiteAnyTimes|1
 8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1	SA:Hunter's Fury 1/day
-10	CAST:0,2,2,2,1										BONUS:VAR|Smite|1
+10	CAST:0,2,2,2,1										BONUS:VAR|SmiteAnyTimes|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Save checks bonus											Combat bonus
