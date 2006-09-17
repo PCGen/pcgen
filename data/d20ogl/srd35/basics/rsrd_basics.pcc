@@ -72,7 +72,7 @@ WEAPONPROF:rsrd_weaponprofs_natural.lst
 HIDETYPE:EQUIP|Starting
 #Hiding specific tool types that are used in BONUSes
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
-HIDETYPE:FEAT|Supernatural|Extraordinary
+HIDETYPE:FEAT|Supernatural|Extraordinary|SpellLike
 
 # Universal tags
 COMPANIONLIST:Mount|ANY
