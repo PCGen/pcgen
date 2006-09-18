@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep 17 07:41:46 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sun Sep 17 22:57:05 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -30,6 +30,14 @@ Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) 
 Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																							SOURCEPAGE:PrestigeClasses.rtf
 Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK								SOURCEPAGE:ClassesI.rtf
 Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																													BONUS:VAR|DeathAttack|10+INT																						SOURCEPAGE:PrestigeClasses.rtf
+
+###Block: Aura for Clerics, other Class level tracked auras.
+#	Applying this to more than just Cleric will require more work or more hidden feats.
+# Feat Name		Type					Visible	Special Ability																																											Define			Modify VAR									Source Page
+Aura of Chaos	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Aura of Chaos (Ex) Faint|PREVAREQ:AuraChaos,1	SA:Aura of Chaos (Ex) Moderate|PREVARGTEQ:AuraChaos,2|PREVARLTEQ:AuraChaos,4	SA:Aura of Chaos (Ex) Strong|PREVARGTEQ:AuraChaos,5|PREVARLTEQ:AuraChaos,10	SA:Aura of Chaos (Ex) Overwhelming|PREVARGTEQ:AuraChaos,11	DEFINE:AuraChaos|0	BONUS:VAR|AuraChaos|AlignmentAuraBase|!PREDOMAIN:1,Chaos	SOURCEPAGE:SpellsD-E.rtf
+Aura of Evil	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Aura of Evil (Ex) Faint|PREVAREQ:AuraEvil,1	SA:Aura of Evil (Ex) Moderate|PREVARGTEQ:AuraEvil,2|PREVARLTEQ:AuraEvil,4	SA:Aura of Evil (Ex) Strong|PREVARGTEQ:AuraEvil,5|PREVARLTEQ:AuraEvil,10	SA:Aura of Evil (Ex) Overwhelming|PREVARGTEQ:AuraEvil,11		DEFINE:AuraEvil|0		BONUS:VAR|AuraEvil|AlignmentAuraBase|!PREDOMAIN:1,Evil	SOURCEPAGE:SpellsD-E.rtf
+Aura of Good	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Aura of Good (Ex) Faint|PREVAREQ:AuraGood,1	SA:Aura of Good (Ex) Moderate|PREVARGTEQ:AuraGood,2|PREVARLTEQ:AuraGood,4	SA:Aura of Good (Ex) Strong|PREVARGTEQ:AuraGood,5|PREVARLTEQ:AuraGood,10	SA:Aura of Good (Ex) Overwhelming|PREVARGTEQ:AuraGood,11		DEFINE:AuraGood|0		BONUS:VAR|AuraGood|AlignmentAuraBase|!PREDOMAIN:1,Good	SOURCEPAGE:SpellsD-E.rtf
+Aura of Law		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Aura of Law (Ex) Faint|PREVAREQ:AuraLaw,1	SA:Aura of Law (Ex) Moderate|PREVARGTEQ:AuraLaw,2|PREVARLTEQ:AuraLaw,4	SA:Aura of Law (Ex) Strong|PREVARGTEQ:AuraLaw,5|PREVARLTEQ:AuraLaw,10	SA:Aura of Law (Ex) Overwhelming|PREVARGTEQ:AuraLaw,11				DEFINE:AuraLaw|0		BONUS:VAR|AuraLaw|AlignmentAuraBase|!PREDOMAIN:1,Law		SOURCEPAGE:SpellsD-E.rtf
 
 ###Block: Druid Wild Shape ability
 # Feat Name	Type						Visible	Special Ability																																																																																																																																																																						Define
@@ -125,7 +133,6 @@ Monk Tracker - Empty Body		VISIBLE:NO					BONUS:VAR|EmptyBodyLVL|var("CL=Monk")	
 
 ###Block: Paladin Abilities
 # Feat Name		Type				Visible	Special Ability						Define			Save checks bonus						Source Page
-Aura of Good	TYPE:Extraordinary	VISIBLE:NO	SA:Aura of Good (Ex)																	SOURCEPAGE:ClassesII.rtf
 Aura of Courage	TYPE:Extraordinary	VISIBLE:NO	SA:Divine Health (Ex)																	SOURCEPAGE:ClassesII.rtf
 Divine Health	TYPE:Supernatural		VISIBLE:NO	SA:Aura of Courage (Su)																	SOURCEPAGE:ClassesII.rtf
 Remove Disease	TYPE:SpellLike		VISIBLE:NO	SA:Remove Disease (Sp) %/week|RemoveDisease	DEFINE:RemoveDisease|0									SOURCEPAGE:ClassesII.rtf
@@ -134,6 +141,7 @@ Divine Grace	TYPE:Supernatural		VISIBLE:NO	SA:Divine Grace (Su)									BONUS:CH
 
 ###Block: Paladin Trackers
 # Feat Name					Visible	Define									Spells												Virtual Feat		Modify VAR																					Source Page
+Paladin Tracker - Aura of Good	VISIBLE:NO																								VFEAT:Aura of Good	BONUS:VAR|AuraGood|var("CL=Paladin")																SOURCEPAGE:ClassesII.rtf
 Paladin Tracker - Smite Evil		VISIBLE:NO																								VFEAT:Smite Evil		BONUS:VAR|SmiteEvil|(var("CL=Paladin")/5)+1															SOURCEPAGE:ClassesII.rtf
 Paladin Tracker - Detect Evil		VISIBLE:NO											SPELLS:Paladin|TIMES=-1|CASTERLEVEL=var("CL=Paladin")|Detect Evil,11+WIS	VFEAT:Detect Evil																								SOURCEPAGE:ClassesII.rtf
 Paladin Tracker - Special Mount	VISIBLE:NO																								VFEAT:Special Mount	BONUS:VAR|SMLevel|var("CL=Paladin")																	SOURCEPAGE:ClassesII.rtf

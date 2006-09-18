@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep 17 06:32:35 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sun Sep 17 22:15:23 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -121,6 +121,11 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
+###Block: Aura strength
+1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0	VFEAT:Aura of Chaos|PREDEITYALIGN:6,7,8
+1												VFEAT:Aura of Evil|PREDEITYALIGN:2,5,8
+1												VFEAT:Aura of Good|PREDEITYALIGN:0,3,6
+1												VFEAT:Aura of Law|PREDEITYALIGN:0,1,2
 ###Block: Level progression
 1	CAST:3,1				SA:Spontaneous casting
 2	CAST:4,2
@@ -286,7 +291,7 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Level progression
-1				DEFINE:AllowHolyAvenger|1	FEATAUTO:Aura of Good|Smite Evil|Paladin Tracker - Smite Evil|Paladin Tracker - Detect Evil
+1				DEFINE:AllowHolyAvenger|1	FEATAUTO:Aura of Good|Smite Evil|Paladin Tracker - Aura of Good|Paladin Tracker - Smite Evil|Paladin Tracker - Detect Evil
 2									FEATAUTO:Divine Grace|Lay on Hands|Paladin Tracker - Lay on Hands
 3									FEATAUTO:Aura of Courage|Divine Health
 4	CAST:0,0							FEATAUTO:Basic Turning|Turn Undead|Paladin Tracker - Turn Undead

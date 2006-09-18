@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 16 15:06:40 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sun Sep 17 23:02:55 2006 -- reformated by prettylst.pl v1.35 (build 565)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -103,7 +103,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		SA:Aura of Evil (Ex)	SA:Poison Use	SA:Detect Good (Sp)									EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Blackguard|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS
+1	CAST:0,0		SA:Poison Use	SA:Detect Good (Sp)	BONUS:VAR|AuraEvil|CL									EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Blackguard|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS	FEATAUTO:Aura of Evil
 2	CAST:0,1		SA:Dark Blessing (Su)								BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)
 3	CAST:0,1,0		SA:Aura of Despair (Su)
 4	CAST:0,1,1
