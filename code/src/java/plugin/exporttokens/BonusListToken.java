@@ -26,7 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.bonus.TypedBonus;
+//import pcgen.core.bonus.TypedBonus;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
