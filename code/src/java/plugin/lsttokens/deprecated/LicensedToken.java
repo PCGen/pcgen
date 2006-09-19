@@ -3,14 +3,14 @@ package plugin.lsttokens.deprecated;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.CampaignLstToken;
-import pcgen.persistence.lst.Deprecated;
+import pcgen.persistence.lst.DeprecatedToken;
 
 import java.net.URL;
 
 /**
  * Class deals with LICENSED Token
  */
-public class LicensedToken implements CampaignLstToken, Deprecated {
+public class LicensedToken implements CampaignLstToken, DeprecatedToken {
 
 	public String getTokenName() {
 		return "LICENSED";

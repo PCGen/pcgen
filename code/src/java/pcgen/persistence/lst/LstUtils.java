@@ -44,7 +44,7 @@ public class LstUtils
 	 * @param value
 	 */
 	public static void deprecationCheck(LstToken token, PObject obj, String value) {
-		if(token instanceof Deprecated) 
+		if(token instanceof DeprecatedToken) 
 		{
 			final String msg = PropertyFactory.getFormattedString(
 					"Warnings.LstTokens.Deprecated",  //$NON-NLS-1$
@@ -52,7 +52,7 @@ public class LstUtils
 					value,
 					obj.getDisplayName(),
 					obj.getDefaultSourceString(),
-					((Deprecated)token).getMessage(obj, value)
+					((DeprecatedToken)token).getMessage(obj, value)
 					);
 			deprecationWarning(msg);
 		}
@@ -66,7 +66,7 @@ public class LstUtils
 	 * @param value
 	 */
 	public static void deprecationCheck(LstToken token, String name, String source, String value) {
-		if(token instanceof Deprecated) 
+		if(token instanceof DeprecatedToken) 
 		{
 			final String msg = PropertyFactory.getFormattedString(
 					"Warnings.LstTokens.Deprecated",  //$NON-NLS-1$
@@ -74,7 +74,7 @@ public class LstUtils
 					value,
 					name,
 					source,
-					((Deprecated)token).getMessage(null, value)
+					((DeprecatedToken)token).getMessage(null, value)
 					);
 			deprecationWarning( msg );
 		}

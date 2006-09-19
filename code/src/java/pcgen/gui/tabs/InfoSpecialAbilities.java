@@ -496,9 +496,9 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				}
 			}
 
-			pc.getLanguagesList().clear();
-			pc.getLanguagesList().addAll(selLangs);
-			pc.getLanguagesList().addAll(excludedLangs);
+			pc.clearLanguages();
+			pc.addLanguages(selLangs);
+			pc.addLanguages(excludedLangs);
 			refresh();
 			ensureFocus();
 		}

@@ -51,6 +51,7 @@ import java.util.TreeSet;
 
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+//import pcgen.core.bonus.TypedBonus;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSet;
@@ -267,6 +268,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
 	
+//	private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String, List<TypedBonus>>();
+	
 	///////////////////////////////////////
 	//operations
 	/**
@@ -382,7 +385,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Retrieve those skills in the character's skill list that match the
 	 * supplied visibility level.
 	 *
-	 * @param   visibility  What level of visibility skills are desired.
+	 * @param   vis		  What level of visibility skills are desired.
 	 *
 	 * @return  A list of the character's skills matching the visibility
 	 *          criteria.
@@ -459,6 +462,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (statIndex>=0)
 			{
 				baseSpellStat = getStatList().getTotalStatFor(statString);
+//				final List<TypedBonus> bonuses = getBonusesTo("STAT", "BASESPELLSTAT");
+//				bonuses.addAll( getBonusesTo("STAT", "BASESPELLSTAT;CLASS."+aClass.getKeyName()) );
+//				bonuses.addAll( getBonusesTo("STAT", "CAST." + statString) );
+//				baseSpellStat += TypedBonus.totalBonuses(bonuses);
 				baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT");
 				baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS." + aClass.getKeyName());
 				baseSpellStat += (int) getTotalBonusTo("STAT", "CAST." + statString);
@@ -551,7 +558,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			// so we need to find one they do have
 			for (EquipSet eSet : equipSetList)
 			{
-				if (eSet.getParentIdPath().equals("0"))
+				if (eSet.getParentIdPath().equals(EquipSet.ROOT_ID))
 				{
 					calcEquipSetId = eSet.getIdPath();
 
@@ -588,7 +595,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (eSet == null)
 		{
-			Logging.debugPrint("No EquipSet has been selected for calculations yet.");
+			Logging.debugPrint("No EquipSet has been selected for calculations yet."); //$NON-NLS-1$
 			return;
 		}
 
@@ -614,8 +621,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// then set status to equipped and add to PC's equipment list
 		for (EquipSet es : pcEquipSetList)
 		{
-			final String abCalcId = calcId + ".";
-			final String abParentId = es.getParentIdPath() + ".";
+			final String abCalcId = calcId + EquipSet.PATH_SEPARATOR;
+			final String abParentId = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
 
 			// calcId = 0.1.
 			// parentIdPath = 0.10.
@@ -638,7 +645,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final String aLoc = es.getName();
 			final String aNote = es.getNote();
 			Float num = es.getQty();
-			final StringTokenizer aTok = new StringTokenizer(es.getIdPath(), ".");
+			final StringTokenizer aTok = new StringTokenizer(es.getIdPath(), EquipSet.PATH_SEPARATOR);
 
 			// if the eSet.getIdPath() is longer than 3
 			// it's inside a container, don't try to equip
@@ -921,7 +928,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 *
 	 * @return  a List of Strings where each String is a type that the
 	 *          character has. The list returned will never be null
+	 * 
+	 * @deprecated Use getRaceType() and getRaceSubTypes() instead
 	 */
+	@Deprecated
 	public List<String> getTypes()
 	{
 		final List<String> list = new ArrayList<String>();
@@ -944,6 +954,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 
+	@Deprecated
 	public String getCritterType()
 	{
 		final StringBuffer critterType = new StringBuffer();
@@ -974,9 +985,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return critterType.toString();
 	}
 
+	/**
+	 * Returns a String with the characters Race Type (e.g. Humanoid).
+	 * 
+	 * @return The character's race type or &quot;None&quot;
+	 */
 	public String getRaceType()
 	{
-		String raceType = "None";
+		String raceType = Constants.s_NONE;
 		if (race != null)
 		{
 			raceType = race.getRaceType();
@@ -986,7 +1002,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			for (CompanionMod cm : companionModList)
 			{
 				final String aType = cm.getRaceType();
-				if (!"".equals(aType))
+				if (!Constants.EMPTY_STRING.equals(aType))
 				{
 					raceType = aType;
 				}
@@ -998,7 +1014,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			{
 				final String aType = t.getRaceType();
 
-				if (!"".equals(aType))
+				if (!Constants.EMPTY_STRING.equals(aType))
 				{
 					raceType = aType;
 				}
@@ -1007,19 +1023,24 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return raceType;
 	}
 
+	/**
+	 * Gets a <tt>List</tt> of racial subtypes for the character (e.g. Good).
+	 * 
+	 * @return A unmodifiable <tt>List</tt> of subtypes.
+	 */
 	public List<String> getRacialSubTypes()
 	{
-		ArrayList<String> racialSubTypes = new ArrayList<String>(race.getRacialSubTypes());
+		final ArrayList<String> racialSubTypes = new ArrayList<String>(race.getRacialSubTypes());
 		if (!templateList.isEmpty())
 		{
-			Set<String> added = new TreeSet<String>();
-			Set<String> removed = new TreeSet<String>();
+			final Set<String> added = new TreeSet<String>();
+			final Set<String> removed = new TreeSet<String>();
 			for (PCTemplate aTemplate : templateList)
 			{
 				added.addAll(aTemplate.getAddedSubTypes());
 				removed.addAll(aTemplate.getRemovedSubTypes());
 			}
-			for (String subType : added)
+			for (final String subType : added)
 			{
 				if (!racialSubTypes.contains(subType))
 				{
@@ -1141,13 +1162,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final String custom = getTabName();
 
-		if (!"".equals(custom))
+		if (!Constants.EMPTY_STRING.equals(custom))
 		{
 			return custom;
 		}
 
 		final StringBuffer displayName = new StringBuffer().append(getName());
 
+		// TODO - i18n
 		switch (SettingsHandler.getNameDisplayStyle())
 		{
 			case Constants.DISPLAY_STYLE_NAME:
@@ -1180,11 +1202,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	/**
 	 * set display update
-	 * @param displayUpdate
+	 * TODO - This probably doesn't belong here.  It seems to only be used
+	 * by InfoSkills.
+	 * @param aDisplayUpdate
 	 */
-	public void setDisplayUpdate(final boolean displayUpdate)
+	public void setDisplayUpdate(final boolean aDisplayUpdate)
 	{
-		this.displayUpdate = displayUpdate;
+		this.displayUpdate = aDisplayUpdate;
 	}
 
 	/**
@@ -1286,8 +1310,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (EquipSet es : equipSetList)
 		{
-			final String abIdPath = idPath + ".";
-			final String esIdPath = es.getIdPath() + ".";
+			final String abIdPath = idPath + EquipSet.PATH_SEPARATOR;
+			final String esIdPath = es.getIdPath() + EquipSet.PATH_SEPARATOR;
 
 			if (!esIdPath.startsWith(abIdPath))
 			{
@@ -1326,8 +1350,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		float count = 0;
 		for (EquipSet eSet : getEquipSet())
 		{
-			final String esID = eSet.getIdPath() + ".";
-			final String abID = idPath + ".";
+			final String esID = eSet.getIdPath() + EquipSet.PATH_SEPARATOR;
+			final String abID = idPath + EquipSet.PATH_SEPARATOR;
 			if (esID.startsWith(abID))
 			{
 				if (eSet.getValue().equals(aName))
@@ -1417,6 +1441,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return EquipmentUtilities.mergeEquipmentList(getEquipmentMasterList(), Constants.MERGE_NONE);
 	}
 
+	/**
+	 * Search for a piece of equipment in the specified list by name.
+	 * 
+	 * TODO - This does not belong in PlayerCharacter.  Move to Equipment if
+	 * needed.
+	 * 
+	 * TODO - This probably won't work with i18n.  Should always search by key.
+	 * 
+	 * @param aString The name of the equipment.
+	 * @param aList The list of equipment to search in.
+	 * 
+	 * @return The <tt>Equipment</tt> object or <tt>null</tt>
+	 */
 	public Equipment getEquipmentNamed(final String aString, final List<Equipment> aList)
 	{
 		Equipment match = null;
@@ -1430,7 +1467,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 			return match;
-		}
+	}
 
 	/**
 	 * Set the characters eye colour
@@ -1462,21 +1499,26 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		String aString = Globals.getBonusFeatString();
 
-		final StringTokenizer aTok = new StringTokenizer(aString, "|", false);
+		final StringTokenizer aTok = new StringTokenizer(aString, Constants.PIPE, false);
 		final int startLevel = Integer.parseInt(aTok.nextToken());
 		final int rangeLevel = Integer.parseInt(aTok.nextToken());
 
+		// TODO - Should this stuff follow stacking rules?
+		// TODO - Does it even matter anymore.
+//		double pool   = getBonusValue("FEAT", "POOL");
+//		double pcpool = getBonusValue("FEAT", "PCPOOL");
+//		double mpool  = getBonusValue("FEAT", "MONSTERPOOL");
 		double pool   = getTotalBonusTo("FEAT", "POOL");
 		double pcpool = getTotalBonusTo("FEAT", "PCPOOL");
 		double mpool  = getTotalBonusTo("FEAT", "MONSTERPOOL");
 
-		Logging.debugPrint("");
-		Logging.debugPrint("==============");
-		Logging.debugPrint("level " + this.getTotalPlayerLevels());
+		Logging.debugPrint(""); //$NON-NLS-1$
+		Logging.debugPrint("=============="); //$NON-NLS-1$
+		Logging.debugPrint("level " + this.getTotalPlayerLevels()); //$NON-NLS-1$
 
-		Logging.debugPrint("POOL:   " + pool);
-		Logging.debugPrint("PCPOOL: " + pcpool);
-		Logging.debugPrint("MPOOL:  " + mpool);
+		Logging.debugPrint("POOL:   " + pool); //$NON-NLS-1$
+		Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
+		Logging.debugPrint("MPOOL:  " + mpool); //$NON-NLS-1$
 		
 		double startAdjust = startLevel/rangeLevel;
 		
@@ -1484,16 +1526,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 								1.0d + pcpool - startAdjust + 0.0001 : 0);
 		pool += Math.floor(mpool + 0.0001);
 
-		Logging.debugPrint("");
-		Logging.debugPrint("Total Bonus: " + pool);
-		Logging.debugPrint("==============");
-		Logging.debugPrint("");
+		Logging.debugPrint(""); //$NON-NLS-1$
+		Logging.debugPrint("Total Bonus: " + pool); //$NON-NLS-1$
+		Logging.debugPrint("=============="); //$NON-NLS-1$
+		Logging.debugPrint(""); //$NON-NLS-1$
 
 		return pool;
 	}
 
 	/**
->>>>>>> .r1382
 	 * Checks whether a PC is allowed to level up. A PC is not allowed to
 	 * level up if the "Enforce Spending" option is set and he still has
 	 * unallocated skill points and/or feat slots remaining.
@@ -1528,11 +1569,23 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return getSafeStringFor(StringKey.FILE_NAME);
 	}
 
+	/**
+	 * Returns the followers associated with this character.
+	 * 
+	 * @return A <tt>List</tt> of <tt>Follower</tt> objects.
+	 */
 	public List<Follower> getFollowerList()
 	{
 		return followerList;
 	}
 
+	/**
+	 * Returns a very descriptive name for the character.
+	 * 
+	 * <p>The format is [name] the [level]th level [race name] [classes]
+	 * 
+	 * @return A descriptive string name for the character.
+	 */
 	public String getFullDisplayName()
 	{
 		final int levels = getTotalLevels();
@@ -1544,7 +1597,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	/**
-	 * Selector
+	 * Returns a region (including subregion) string for the character.
+	 * 
 	 * <p/>
 	 * Build on-the-fly so removing templates won't mess up region
 	 *
@@ -1563,6 +1617,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return tempRegName.toString();
 	}
 
+	/**
+	 * Sets the character's gender.
+	 * 
+	 * <p>The gender will only be set if the character does not have a template
+	 * that locks the character's gender.
+	 * 
+	 * <p><b>WARNING:</b> This method has a side effect that it will actually 
+	 * set the gender to the locked template gender.
+	 * 
+	 * @param argGender A gender to try and set.
+	 */
 	public void setGender(final String argGender)
 	{
 		final String templateGender = findTemplateGender();
@@ -1579,6 +1644,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setDirty(true);
 	}
 
+	/**
+	 * Returns a string for the character's gender.
+	 * 
+	 * <p>This method will return the stored gender or the template locked 
+	 * gender if there is one.  This means the <tt>setGender()</tt> side effect
+	 * is not really required.
+	 * 
+	 * @return A <tt>String</tt> version of the character's gender.
+	 * TODO - Gender should be an object so it can be i18n.
+	 */
 	public String getGender()
 	{
 		final String tGender = findTemplateGender();
@@ -1586,6 +1661,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return tGender.equals(Constants.s_NONE) ? gender : tGender;
 	}
 
+	/**
+	 * Checks if the user is allowed to change the character's gender.
+	 * 
+	 * <p>That is, if no template with a gender lock has been specified.
+	 * 
+	 * @return <tt>true</tt> if the user can freely set the character's gender.
+	 */
 	public boolean canSetGender()
 	{
 		final String tGender = findTemplateGender();
@@ -1593,58 +1675,131 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return tGender.equals(Constants.s_NONE);
 	}
 
+	/**
+	 * Sets the character's wealth.
+	 * 
+	 * <p>Gold here is used as a character's total purchase power not 
+	 * actual gold pieces.
+	 * 
+	 * @param aString A String gold amount.
+	 * TODO - Do this parsing elsewhere.
+	 */
 	public void setGold(final String aString)
 	{
 		gold = new BigDecimal(aString);
 		setDirty(true);
 	}
 
+	/**
+	 * Returns the character's total wealth.
+	 * 
+	 * @see pcgen.core.PlayerCharacter#setGold(String)
+	 * 
+	 * @return A <tt>BigDecimal</tt> value for the character's wealth.
+	 */
 	public BigDecimal getGold()
 	{
 		return gold;
 	}
 
+	/**
+	 * Sets the character's hair color as a string.
+	 * 
+	 * @param aString The hair color to set.
+	 */
 	public void setHairColor(final String aString)
 	{
 		setStringFor(StringKey.HAIR_COLOR, aString);
 	}
 
+	/**
+	 * Gets the character's hair color.
+	 * 
+	 * @return A hair color string.
+	 */
 	public String getHairColor()
 	{
 		return getSafeStringFor(StringKey.HAIR_COLOR);
 	}
 
+	/**
+	 * Sets the character's hair style.
+	 * 
+	 * @param aString A hair style.
+	 */
 	public void setHairStyle(final String aString)
 	{
 		setStringFor(StringKey.HAIR_STYLE, aString);
 	}
 
+	/**
+	 * Gets the character's hair style.
+	 * 
+	 * @return The character's hair style.
+	 */
 	public String getHairStyle()
 	{
 		return getSafeStringFor(StringKey.HAIR_STYLE);
 	}
 
+	/**
+	 * Sets the character's handedness.
+	 * 
+	 * @param aString A String to use as a handedness.
+	 * 
+	 * TODO - This should probably be an object as some systems may use the
+	 * information.
+	 */
 	public void setHanded(final String aString)
 	{
 		setStringFor(StringKey.HANDED, aString);
 	}
 
+	/**
+	 * Returns the character's handedness string.
+	 * 
+	 * @return A String for handedness.
+	 */
 	public String getHanded()
 	{
 		return getSafeStringFor(StringKey.HANDED);
 	}
 
+	/**
+	 * Sets the character's height in inches.
+	 * 
+	 * @param i A height in inches.
+	 * 
+	 * TODO - This should be a double value stored in CM
+	 */
 	public void setHeight(final int i)
 	{
 		heightInInches = i;
 		setDirty(true);
 	}
 
+	/**
+	 * Gets the character's height in inches.
+	 * 
+	 * @return The character's height in inches.
+	 */
 	public int getHeight()
 	{
 		return heightInInches;
 	}
 
+	/**
+	 * Marks the character as being in the process of being loaded.
+	 * 
+	 * <p>This information is used to prevent the system from trying to
+	 * calculate values on partial information or values that should be set
+	 * from the saved character.
+	 * 
+	 * <p>TODO - This is pretty dangerous.
+	 * 
+	 * @param newIsImporting <tt>true</tt> to mark the character as being
+	 * imported.
+	 */
 	public void setImporting(final boolean newIsImporting)
 	{
 		this.importing = newIsImporting;
@@ -1655,8 +1810,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * feats from levelling.
 	 *
 	 * @return count of initial, non-leveling feats
-	 * @deprecated
+	 * @deprecated Now handled by a BONUS object.
 	 */
+	@Deprecated
 	public double getInitialFeats()
 	{
 		double initFeats = 0.0;
@@ -1685,26 +1841,64 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return initFeats;
 	}
 
+	/**
+	 * Sets the character's interests.
+	 * 
+	 * @param aString A string of interests for the character.
+	 */
 	public void setInterests(final String aString)
 	{
 		setStringFor(StringKey.INTERESTS, aString);
 	}
 
+	/**
+	 * Gets a string of interests for the character.
+	 * 
+	 * @return A String of interests or an empty string.
+	 */
 	public String getInterests()
 	{
 		return getSafeStringFor(StringKey.INTERESTS);
 	}
 
-	public TreeSet<Language> getLanguagesList()
+	/**
+	 * Gets the character's list of languages.
+	 * 
+	 * @return An unmodifiable langauge set.
+	 */
+	public SortedSet<Language> getLanguagesList()
 	{
-		return languages;
+		return Collections.unmodifiableSortedSet(languages);
 	}
 
+	/**
+	 * Removes all the character's languages.
+	 */
+	public void clearLanguages()
+	{
+		languages.clear();
+	}
+	
+	/**
+	 * Adds a <tt>Collection</tt> of languages to the character.
+	 * 
+	 * @param aList A <tt>Collection</tt> of <tt>Language</tt> objects.
+	 */
+	public void addLanguages( final Collection<Language> aList )
+	{
+		languages.addAll(aList);
+	}
+
+	/**
+	 * TODO - This doesn't need to be a PlayerCharacter method.
+	 * 
+	 * @return
+	 */
 	public String getLanguagesListNames()
 	{
 		final StringBuffer b = new StringBuffer();
 
-		for (Language l : getLanguagesList())
+		for ( final Language l : languages )
 		{
 			if (b.length() > 0)
 			{
@@ -1717,11 +1911,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return b.toString();
 	}
 
+	/**
+	 * Sets the character's location.
+	 * 
+	 * @param aString A location.
+	 */
 	public void setLocation(final String aString)
 	{
 		setStringFor(StringKey.LOCATION, aString);
 	}
 
+	/**
+	 * Gets the character's location.
+	 * 
+	 * @return The character's location.
+	 */
 	public String getLocation()
 	{
 		return getSafeStringFor(StringKey.LOCATION);
@@ -1971,13 +2175,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 			for ( String formula : formulas )
 			{
-				final int val = this.getVariableValue( formula, "", this ).intValue();
+				final int val = this.getVariableValue( formula, Constants.EMPTY_STRING, this ).intValue();
 				ret = Math.max( ret, val );
 			}
 		}
 
 		if ( ret != -1 )
 		{
+//			ret += (int)getBonusValue("FOLLOWERS", aType.toUpperCase());
 			ret += this.getTotalBonusTo("FOLLOWERS", aType.toUpperCase());
 		}
 		else
@@ -1989,7 +2194,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			{
 				for ( String varName : cMod.getVarMap().keySet() )
 				{
-					if ( this.getVariableValue(varName, "").intValue() > 0 )
+					if ( this.getVariableValue(varName, Constants.EMPTY_STRING).intValue() > 0 )
 					{
 						return -1;
 					}
@@ -2080,16 +2285,32 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return null;
 	}
 
+	/**
+	 * Returns the state of the default monster flag when the character was 
+	 * created.
+	 * 
+	 * @return <tt>true</tt> if the character used the default monster flag.
+	 */
 	public boolean isMonsterDefault()
 	{
 		return useMonsterDefault;
 	}
 
+	/**
+	 * Sets the character's name.
+	 * 
+	 * @param aString A name to set.
+	 */
 	public void setName(final String aString)
 	{
 		setStringFor(StringKey.NAME, aString);
 	}
 
+	/**
+	 * Gets the character's name.
+	 * 
+	 * @return The name
+	 */
 	public String getName()
 	{
 		return getSafeStringFor(StringKey.NAME);
@@ -2154,16 +2375,31 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return npp;
 	}
 
+	/**
+	 * Gets a list of notes associated with the character.
+	 * 
+	 * @return A list of <tt>NoteItem</tt> objects.
+	 */
 	public ArrayList<NoteItem> getNotesList()
 	{
 		return notesList;
 	}
 
+	/**
+	 * Sets a string of phobias for the character.
+	 * 
+	 * @param aString A string to set.
+	 */
 	public void setPhobias(final String aString)
 	{
 		setStringFor(StringKey.PHOBIAS, aString);
 	}
 
+	/**
+	 * Gets the phobia string for the character.
+	 * 
+	 * @return A phobia string.
+	 */
 	public String getPhobias()
 	{
 		return getSafeStringFor(StringKey.PHOBIAS);
@@ -3546,8 +3782,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for (Iterator<EquipSet> e = equipSetList.iterator(); e.hasNext();)
 		{
 			final EquipSet es = e.next();
-			final String abParentId = es.getParentIdPath() + ".";
-			final String abPid = pid + ".";
+			final String abParentId = es.getParentIdPath() + EquipSet.PATH_SEPARATOR;
+			final String abPid = pid + EquipSet.PATH_SEPARATOR;
 
 			if (abParentId.startsWith(abPid))
 			{
@@ -3819,7 +4055,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			masterBAB = nPC.baseAttackBonus();
 
 			final String copyMasterBAB = replaceMasterString(getCopyMasterBAB(), masterBAB);
-			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
+			masterBAB = getVariableValue(copyMasterBAB, Constants.EMPTY_STRING).intValue();
 			masterTotal = masterBAB + TOHITBonus;
 		}
 
@@ -3958,19 +4194,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (".CLEARRACIAL".equals(aString))
 			{
 				clearRacials = true;
-				getLanguagesList().removeAll(getRace().getSafeListFor(ListKey.
+				languages.removeAll(getRace().getSafeListFor(ListKey.
 					AUTO_LANGUAGES));
 			}
 			else if (".CLEARALL".equals(aString) || ".CLEAR".equals(aString))
 			{
 				clearRacials = true;
 				autoLangs.clear();
-				getLanguagesList().clear();
+				languages.clear();
 			}
 			else if (".CLEARTEMPLATES".equals(aString))
 			{
 				autoLangs.clear();
-				getLanguagesList().removeAll(templateAutoLanguages);
+				languages.removeAll(templateAutoLanguages);
 			}
 			else
 			{
@@ -3988,7 +4224,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			autoLangs.addAll(pObj.getSafeListFor(ListKey.AUTO_LANGUAGES));
 		}
 
-		getLanguagesList().addAll(autoLangs);
+		languages.addAll(autoLangs);
 
 		return autoLangs;
 	}
@@ -4077,32 +4313,22 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		this.useHigherPreppedSlots = useHigher;
 	}
 
-	/**
-	 * type 0 = attack bonus; 1 = check1; 2 = check2; 3 = check3; etc, last one is = Unarmed
-	 * @param type
-	 * @param addBonuses
-	 * @return bonus
-	 */
-	public double getBonus(final int type, final boolean addBonuses)
+	public int getBaseCheck( final int checkInd )
 	{
-		final String cacheLookup = "getBonus:" + type + "," + addBonuses;
+		final String cacheLookup = "getBaseCheck:" + checkInd;
 		final Float total = getVariableProcessor().getCachedVariable(cacheLookup);
 
 		if (total != null)
 		{
-			return total.doubleValue();
+			return total.intValue();
 		}
-
+		
 		double bonus = 0;
 		final int totalClassLevels;
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
-
-		if (type == 0)
-		{
-			bonus = race.getBAB(this);
-		}
-		else if (type <= SettingsHandler.getGame().getUnmodifiableCheckList().size())
+		
+		if (checkInd < SettingsHandler.getGame().getUnmodifiableCheckList().size())
 		{
 			totalClassLevels = getTotalCharacterLevel();
 			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
@@ -4113,8 +4339,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels total is below some value (e.g. 20)
 			}
 
-			bonus = getTotalBonusTo("CHECKS",
-					"BASE." + SettingsHandler.getGame().getUnmodifiableCheckList().get(type - 1).toString());
+			final String checkName = SettingsHandler.getGame().getUnmodifiableCheckList().get(checkInd).toString();
+			bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
 
 			//
 			// now we see if this PC is a Familiar/Mount
@@ -4122,14 +4348,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			if ((nPC != null) && (getCopyMasterCheck().length() > 0))
 			{
-				int masterBonus;
-				final PlayerCharacter curPC = this;
-				Globals.setCurrentPC(nPC);
-
-				// calculate the Masters Save Bonus
-				masterBonus = nPC.calculateSaveBonus(type,
-						SettingsHandler.getGame().getUnmodifiableCheckList().get(type - 1).toString(), "BASE");
-				Globals.setCurrentPC(curPC);
+				int masterBonus = nPC.getBaseCheck(checkInd);
 
 				final String copyMasterCheck = replaceMasterString(getCopyMasterCheck(), masterBonus);
 				masterBonus = getVariableValue(copyMasterCheck, "").intValue();
@@ -4144,39 +4363,115 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				getVariableProcessor().restartCache();
 			}
 		}
-
-		if (addBonuses)
-		{
-			if (type == 0)
-			{
-				bonus += getTotalBonusTo("TOHIT", "TOHIT");
-				bonus += getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
-			}
-			else if (type <= SettingsHandler.getGame().getUnmodifiableCheckList().size())
-			{
-				bonus += getTotalBonusTo("CHECKS", SettingsHandler.getGame().getUnmodifiableCheckList().get(type - 1).toString());
-			}
-			else
-			{
-				bonus += getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
-			}
-		}
-
-		int cBonus = 0;
-
-		for ( PCClass pcClass : classList )
-		{
-			if ((type == 0) || (type > SettingsHandler.getGame().getUnmodifiableCheckList().size()))
-			{
-				cBonus += pcClass.baseAttackBonus(this);
-			}
-		}
-
-		bonus += cBonus;
-
-		getVariableProcessor().addCachedVariable(cacheLookup, new Float(bonus));
-		return bonus;
+		return (int)bonus;
 	}
+
+	public int getTotalCheck( final int aCheck )
+	{
+		int bonus = getBaseCheck(aCheck);
+		return bonus + (int)getTotalBonusTo("CHECKS", SettingsHandler.getGame().getCheckKey(aCheck));
+	}
+	
+//	/**
+//	 * type 0 = attack bonus; 1 = check1; 2 = check2; 3 = check3; etc, last one is = Unarmed
+//	 * @param type
+//	 * @param addBonuses
+//	 * @return bonus
+//	 */
+//	public double getBonus(final int type, final boolean addBonuses)
+//	{
+//		final String cacheLookup = "getBonus:" + type + "," + addBonuses;
+//		final Float total = getVariableProcessor().getCachedVariable(cacheLookup);
+//
+//		if (total != null)
+//		{
+//			return total.doubleValue();
+//		}
+//
+//		double bonus = 0;
+//		final int totalClassLevels;
+//		Map<String, String> totalLvlMap = null;
+//		final Map<String, String> classLvlMap;
+//
+//		if (type == 0)
+//		{
+////			bonus = race.getBAB(this);
+//		}
+//		else if (type <= SettingsHandler.getGame().getUnmodifiableCheckList().size())
+//		{
+//			totalClassLevels = getTotalCharacterLevel();
+//			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())
+//			{
+//				totalLvlMap = getTotalLevelHashMap();
+//				classLvlMap = getCharacterLevelHashMap(SettingsHandler.getGame().getChecksMaxLvl());
+//				getVariableProcessor().pauseCache();
+//				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels total is below some value (e.g. 20)
+//			}
+//
+//			bonus = getTotalBonusTo("CHECKS",
+//					"BASE." + SettingsHandler.getGame().getUnmodifiableCheckList().get(type - 1).toString());
+//
+//			//
+//			// now we see if this PC is a Familiar/Mount
+//			final PlayerCharacter nPC = getMasterPC();
+//
+//			if ((nPC != null) && (getCopyMasterCheck().length() > 0))
+//			{
+//				int masterBonus;
+//				final PlayerCharacter curPC = this;
+//				Globals.setCurrentPC(nPC);
+//
+//				// calculate the Masters Save Bonus
+//				masterBonus = nPC.calculateSaveBonus(type,
+//						SettingsHandler.getGame().getUnmodifiableCheckList().get(type - 1).toString(), "BASE");
+//				Globals.setCurrentPC(curPC);
+//
+//				final String copyMasterCheck = replaceMasterString(getCopyMasterCheck(), masterBonus);
+//				masterBonus = getVariableValue(copyMasterCheck, "").intValue();
+//
+//				// use masters save if better
+//				bonus = Math.max(bonus, masterBonus);
+//			}
+//
+//			if (totalLvlMap != null)
+//			{
+//				setClassLevelsBrazenlyTo(totalLvlMap);
+//				getVariableProcessor().restartCache();
+//			}
+//		}
+//
+//		if (addBonuses)
+//		{
+//			if (type == 0)
+//			{
+//				bonus += getTotalBonusTo("TOHIT", "TOHIT");
+//				bonus += getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
+//			}
+//			else if (type <= SettingsHandler.getGame().getUnmodifiableCheckList().size())
+//			{
+//				bonus += getTotalBonusTo("CHECKS", SettingsHandler.getGame().getUnmodifiableCheckList().get(type - 1).toString());
+//			}
+//			else
+//			{
+//				bonus += getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
+//			}
+//		}
+//
+//		int cBonus = 0;
+//
+//		for ( PCClass pcClass : classList )
+//		{
+//			if ((type == 0) || (type > SettingsHandler.getGame().getUnmodifiableCheckList().size()))
+//			{
+//				cBonus += pcClass.baseAttackBonus(this);
+//			}
+//		}
+//
+//		bonus += cBonus;
+//
+//		getVariableProcessor().addCachedVariable(cacheLookup, new Float(bonus));
+//		return bonus;
+//	}
 
 	/**
 	 * return bonus total for a specific bonusType
@@ -4193,6 +4488,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return sumActiveBonusMap(typeString);
 	}
 
+//	public List<TypedBonus> getBonusesOfType(final String aBonusName, final String aBonusType, final String aType )
+//	{
+//		final List<TypedBonus> bonuses = this.getBonusesTo(aBonusName, aBonusType);
+//		final List<TypedBonus> ret = new ArrayList<TypedBonus>(bonuses.size());
+//		for ( final TypedBonus bonus : bonuses )
+//		{
+//			if ( bonus.getType().equals(aType) )
+//			{
+//				ret.add( bonus );
+//			}
+//		}
+//		return ret;
+//	}
 	/**
 	 * If the class passed in has the Levels
 	 * @param newLevelClass The class the new level has been taken in.
@@ -5163,7 +5471,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				}
 			}
 
-			getLanguagesList().removeAll(oldRace.getSafeListFor(ListKey.AUTO_LANGUAGES));
+			languages.removeAll(oldRace.getSafeListFor(ListKey.AUTO_LANGUAGES));
 
 			if (oldRace.getWeaponProfAutos() != null)
 			{
@@ -5836,6 +6144,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return sumActiveBonusMap(prefix);
 	}
 
+//	public List<TypedBonus> getBonusesTo(final String bonusType, final String bonusName)
+//	{
+//		final String prefix = new StringBuffer(bonusType).append('.').append(bonusName).toString();
+//
+//		final List<TypedBonus> ret = theBonusMap.get(prefix);
+//		if ( ret == null )
+//		{
+//			return Collections.emptyList();
+//		}
+//		
+//		return ret;
+//	}
+	
 	public int getTotalLevels()
 	{
 		int totalLevels = 0;
@@ -6011,8 +6332,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	int getTotalCasterLevelWithSpellBonus(final Spell aSpell, final String spellType, final String classOrRace, final int casterLev)
 	{
-		if(aSpell != null && aSpell.getFixedCasterLevel() != null) {
-			return getVariableValue(aSpell.getFixedCasterLevel(), "").intValue();
+		if(aSpell != null && aSpell.getFixedCasterLevel() != null) 
+		{
+			return getVariableValue(aSpell.getFixedCasterLevel(), Constants.EMPTY_STRING).intValue();
 		}
 
 		int tBonus = casterLev;
@@ -6020,10 +6342,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		String tType;
 		String tStr;
-		final ArrayList<CasterLevelSpellBonus> bonuses = new ArrayList<CasterLevelSpellBonus>();
+//		final List<TypedBonus> bonuses = new ArrayList<TypedBonus>();
+		final List<CasterLevelSpellBonus> bonuses = new ArrayList<CasterLevelSpellBonus>();
 
 		if (classOrRace != null)
 		{
+//			bonuses.addAll(getBonusesTo("CASTERLEVEL", classOrRace));
 			tBonus = (int)getTotalBonusTo("CASTERLEVEL", classOrRace);
 			if (tBonus > 0)
 			{
@@ -6033,8 +6357,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			//Support both types of syntax for CLASS:
 			//BONUS:CASTERLEVEL|Sorcerer|1 and BONUS:CASTERLEVEL|CLASS.Sorcerer|1
-			if (!classOrRace.startsWith("RACE.")) {
+			if (!classOrRace.startsWith("RACE.")) 
+			{
 				tStr = "CLASS." + classOrRace;
+//				bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 				tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 				if (tBonus > 0)
 				{
@@ -6052,6 +6378,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		if (!spellType.equals(Constants.s_NONE))
 		{
 			tStr = "TYPE." + spellType;
+//			bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6059,6 +6386,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 			tStr += ".RESET";
+//			final List<TypedBonus> reset = getBonusesTo("CASTERLEVEL", tStr);
+//			if ( reset.size() > 0 )
+//			{
+//				bonuses.addAll(reset);
+//				replaceCasterLevel = true;
+//			}
 			tBonus =  (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6069,6 +6402,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		tStr = "SPELL." + aSpell.getKeyName();
+//		bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 		tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 		if (tBonus > 0)
 		{
@@ -6076,6 +6410,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 		}
 		tStr += ".RESET";
+//		final List<TypedBonus> reset = getBonusesTo("CASTERLEVEL", tStr);
+//		if ( reset.size() > 0 )
+//		{
+//			bonuses.addAll(reset);
+//			replaceCasterLevel = true;
+//		}
 		tBonus =  (int)getTotalBonusTo("CASTERLEVEL", tStr);
 		if (tBonus > 0)
 		{
@@ -6087,6 +6427,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for ( String school : aSpell.getSchools() )
 		{
 			tStr = "SCHOOL." + school;
+//			bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6094,6 +6435,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 			tStr += ".RESET";
+//			final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL", tStr);
+//			if ( reset.size() > 0 )
+//			{
+//				bonuses.addAll(reset1);
+//				replaceCasterLevel = true;
+//			}
 			tBonus =  (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6106,6 +6453,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for ( String subschool : aSpell.getSubschools() )
 		{
 			tStr = "SUBSCHOOL." + subschool;
+//			bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6113,6 +6461,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 			tStr += ".RESET";
+//			final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL", tStr);
+//			if ( reset.size() > 0 )
+//			{
+//				bonuses.addAll(reset1);
+//				replaceCasterLevel = true;
+//			}
 			tBonus =  (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6125,6 +6479,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for ( String desc : aSpell.getDescriptorList() )
 		{
 			tStr = "DESCRIPTOR." + desc;
+//			bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 			tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6132,6 +6487,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 			tStr += ".RESET";
+//			final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL", tStr);
+//			if ( reset.size() > 0 )
+//			{
+//				bonuses.addAll(reset1);
+//				replaceCasterLevel = true;
+//			}
 			tBonus =  (int)getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
@@ -6149,6 +6510,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				if (mKey.startsWith("DOMAIN|"))
 				{
 					tStr = "DOMAIN." + mKey.substring(7);
+//					bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
 					tBonus = (int)getTotalBonusTo("CASTERLEVEL", tStr);
 					if (tBonus > 0)
 					{
@@ -6156,6 +6518,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 						bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 					}
 					tStr += ".RESET";
+//					final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL", tStr);
+//					if ( reset.size() > 0 )
+//					{
+//						bonuses.addAll(reset1);
+//						replaceCasterLevel = true;
+//					}
 					tBonus =  (int)getTotalBonusTo("CASTERLEVEL", tStr);
 					if (tBonus > 0)
 					{
@@ -6257,6 +6625,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			result += casterLev;
 		}
 
+//		result += TypedBonus.totalBonuses(bonuses);
 		//Now go through bonuses and add it up
 		for ( CasterLevelSpellBonus resultBonus : bonuses )
 		{
@@ -6490,11 +6859,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public void addLanguage(final Language aLang)
 	{
-		if (!getLanguagesList().contains(aLang))
-		{
-			getLanguagesList().add(aLang);
-			setDirty(true);
-		}
+		languages.add(aLang);
+		setDirty(true);
 	}
 
 	public void addLanguageKeyed(final String aKey)
@@ -7183,7 +7549,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		// Need to create movement entries if there is a BONUS:MOVEADD
 		// associated with that type of movement
-		for ( BonusObj bonus : getActiveBonusList() )
+		for ( final BonusObj bonus : getActiveBonusList() )
+//		for ( final BonusObj bonus : getAllActiveBonuses() )
 		{
 			if (bonus.getTypeOfBonus().equals("MOVEADD"))
 			{
@@ -7332,6 +7699,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 
+	// TODO - Fix this to do 90% of the parsing work up front.
 	public int calcACOfType(final String ACType)
 	{
 		final List<String> addList = SettingsHandler.getGame().getACTypeAddString(ACType);
@@ -7348,6 +7716,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (addList != null)
 		{
+//			final List<TypedBonus> bonuses = new ArrayList<TypedBonus>();
 			for ( String aString : addList )
 			{
 				final PObject aPObj = new PObject();
@@ -7357,12 +7726,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					final StringTokenizer aTok = new StringTokenizer(aString, "|");
 					AC += subCalcACOfType(aTok);
+//					while ( aTok.hasMoreTokens() )
+//					{
+//						bonuses.addAll( TypedBonus.getBonusesOfType(getBonusesTo("COMBAT", "AC"), aTok.nextToken()) );
+//						
+//					}
+//					AC += TypedBonus.totalBonuses(bonuses);
 				}
 			}
 		}
 
 		if (removeList != null)
 		{
+//			final List<TypedBonus> bonuses = new ArrayList<TypedBonus>();
 			for ( String rString : removeList )
 			{
 				final PObject aPObj = new PObject();
@@ -7372,6 +7748,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					final StringTokenizer aTok = new StringTokenizer(rString, "|");
 					AC -= subCalcACOfType(aTok);
+//					while ( aTok.hasMoreTokens() )
+//					{
+//						bonuses.addAll( TypedBonus.getBonusesOfType(getBonusesTo("COMBAT", "AC"), aTok.nextToken()) );
+//						
+//					}
+//					AC -= TypedBonus.totalBonuses(bonuses);
 				}
 			}
 		}
@@ -7401,6 +7783,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// value until after the map has been completely created.
 
 		// Get the original value of the map.
+//		String origMapVal = theBonusMap.toString();
 		String origMapVal = activeBonusMap.toString();
 
 		// ensure that the values for the looked up variables are the most up to date
@@ -7408,21 +7791,51 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		calcActiveBonusLoop();
 
 		// Get the new contents of the map
+//		String mapVal = theBonusMap.toString();
 		String mapVal = activeBonusMap.toString();
 
 		// As the map is a TreeMap we know that the contents will be in
 		// alphabetical order, so doing a straight string compare is
 		// the easiest way to compare the whole tree.
-		while (!mapVal.equals(origMapVal)) {
+		while (!mapVal.equals(origMapVal)) 
+		{
 			// If the newly calculated bonus map is different to the old one
 			// loop again until they are the same.
 			setDirty(true);
 			calcActiveBonusLoop();
 			origMapVal = mapVal;
+//			mapVal = theBonusMap.toString();
 			mapVal = activeBonusMap.toString();
 		}
 	}
 
+//	private List<BonusObj> getAllActiveBonuses()
+//	{
+//		List<BonusObj> ret = new ArrayList<BonusObj>();
+//		
+//		for ( final PObject pobj : getPObjectList() )
+//		{
+//			if ( pobj != null )
+//			{
+//				pobj.activateBonuses(this);
+//
+//				// TODO - Class bonuses only get added if level is greater than
+//				// zero.  Is this check required? Should it be part of 
+//				// getPObjectList()?
+//				ret.addAll( pobj.getActiveBonuses(this) );
+//			}
+//		}
+//		
+//		ret.addAll( getPurchaseModeBonuses() );
+//
+//		if (getUseTempMods())
+//		{
+//			ret.addAll( getTempBonuses() );
+//		}
+//		ret = Bonus.sortBonusList(ret);
+//		return ret;
+//	}
+	
 	private void calcActiveBonusLoop()
 	{
 		// First we clear the current list
@@ -7431,25 +7844,40 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// walk through all the possible bonus granters
 		// to build up the active list of bonuses
 		//
+		//  Campaigns
+		//  ArmorProf
+
+		//  Stat (PCStat)
 		calcStatBonuses();
+		//  SizeAdjustment
 		calcSizeAdjustmentBonuses();
+		//  BioSet (ageSet)
 		calcAgeBonuses();
+		//  Check (PObject)
 		calcCheckBonuses();
+		//  Alignment (PCAlignment)
 		calcAlignmentBonuses();
+		//  Feat (virtual feats, auto feats)
 		calcFeatBonuses();
+		//  Class (PCClass)
 		calcClassBonuses();
+		//  CompanionMod
 		calcCompanionModBonuses();
+		//  Equipment (includes EqMods)
 		calcEquipmentBonuses();
+		//  Template (PCTemplate)
 		calcTemplateBonuses();
+		//  Domain (CharacterDomain)
 		calcDomainBonuses();
+		//  Race
 		calcRaceBonuses();
+		//  Deity
 		calcDeityBonuses();
+		//  Skill
 		calcSkillBonuses();
 
 		calcPurchaseModeBonuses();
 
-		//calcWeaponProfBonuses();
-		//calcArmorProfBonuses();
 		if (getUseTempMods())
 		{
 			calcTempBonuses();
@@ -7460,6 +7888,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		//
 		// Now build the activeBonusMap from all the bonuses
 		//
+		
+//		final List<BonusObj> bonuses = getAllActiveBonuses();
+//		buildBonusMap(bonuses);
 		buildActiveBonusMap();
 	}
 
@@ -7695,6 +8126,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		SR += (int) getTotalBonusTo("MISC", "SR");
+//		SR += (int) getBonusValue("MISC", "SR");
 
 		//
 		// This would make more sense to just not add in the first place...
@@ -7873,7 +8305,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenString, ".");
 		final String[] tokens = new String[aTok.countTokens()];
-		final int checkIndex = SettingsHandler.getGame().getIndexOfCheck(saveType) + 1;
+		final int checkIndex = SettingsHandler.getGame().getIndexOfCheck(saveType);
 		int save = 0;
 
 		for (int i = 0; aTok.hasMoreTokens(); ++i)
@@ -7882,11 +8314,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			if ("TOTAL".equals(tokens[i]))
 			{
-				save += (int) getBonus(checkIndex, true);
+				save += getTotalCheck(checkIndex);
 			}
 			else if ("BASE".equals(tokens[i]))
 			{
-				save += (int) getBonus(checkIndex, false);
+				save += getBaseCheck(checkIndex);
 			}
 			else if ("MISC".equals(tokens[i]))
 			{
@@ -8431,12 +8863,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Lists all the tokens that match prefix with associated values
 	 * @param prefix
 	 * @return String
+	 * TODO - Not sure what this is trying to do.
 	 */
 	public String listBonusesFor(final String prefix)
 	{
 		final StringBuffer buf = new StringBuffer();
 		final List<String> aList = new ArrayList<String>();
 
+//		final List<TypedBonus> bonuses = theBonusMap.get(prefix);
+//		if ( bonuses == null )
+//		{
+//			return Constants.EMPTY_STRING;
+//		}
+//		final List<String> bonusStrings = TypedBonus.totalBonusesByType(bonuses);
+//		return CoreUtility.commaDelimit(bonusStrings);
+			
 		for (String aKey : getActiveBonusMap().keySet())
 		{
 			if (aKey.startsWith(prefix))
@@ -9242,7 +9683,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		getLanguagesList().removeAll(inTmpl.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove template languages.
+		languages.removeAll(inTmpl.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove template languages.
 		templateAutoLanguages.removeAll(inTmpl.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove them from the local listing. Don't clear though in case of multiple templates.
 
 		templateLanguages.removeAll(inTmpl.getLanguageBonus());
@@ -9895,12 +10336,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	void addFreeLanguage(final Language aLang)
 	{
-		if (!getLanguagesList().contains(aLang))
-		{
-			getLanguagesList().add(aLang);
-			++freeLangs;
-			setDirty(true);
-		}
+		this.languages.add(aLang);
+		++freeLangs;
+		setDirty(true);
 	}
 
 	void addFreeLanguageKeyed(final String aKey)
@@ -10671,149 +11109,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return aList;
 	}
 
-	/**
-	 * Used to create the Bonus HashMap from all active bonuses
-	 * @param aBonus
-	 * @param anObj
-	 *
-	 * @return     a List of BONUS strings
-	 */
-	private List<String> getStringListFromBonus(final BonusObj aBonus, final PObject anObj)
-	{
-		final List<String> aList = new ArrayList<String>();
-
-		final String bInfoString = aBonus.getBonusInfo();
-		final StringTokenizer aTok = new StringTokenizer(bInfoString, ",");
-		int listindex = 0;
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bonusInfo = aTok.nextToken();
-
-			// Some BONUS statements use %LIST to represent
-			// a possible list or selection made
-			// Need to deconstruct for proper bonus stacking
-			if (anObj.getAssociatedCount() > 0)
-			{
-				// There are three forms:
-				// 1) has %LIST in the bonusName
-				// 2) has %LIST in the bonusInfo
-				// 3) has no %LIST at all
-				if (aBonus.getBonusName().indexOf("%LIST") >= 0)
-				{
-					// Must use getBonusName because it
-					// contains the unaltered bonusType
-					final String bonusName = aBonus.getBonusName();
-
-					for (int i = 0; i < anObj.getAssociatedCount(); ++i)
-					{
-						final StringBuffer ab = new StringBuffer();
-						final String tName = CoreUtility.replaceFirst(bonusName, "%LIST", anObj.getAssociated(i));
-						ab.append(tName).append('.');
-						ab.append(bonusInfo);
-
-						if (aBonus.hasTypeString())
-						{
-							ab.append(':').append(aBonus.getTypeString());
-						}
-
-						aList.add(ab.toString().toUpperCase());
-					}
-				}
-				else if (bonusInfo.indexOf("%LIST") >= 0)
-				{
-					for (int i = 0; i < anObj.getAssociatedCount(true); ++i)
-					{
-						final StringBuffer ab = new StringBuffer();
-						final String tName = CoreUtility.replaceFirst(bonusInfo, "%LIST", anObj.getAssociated(i, true));
-						ab.append(aBonus.getTypeOfBonus()).append('.');
-						ab.append(tName);
-
-						if (aBonus.hasTypeString())
-						{
-							ab.append(':').append(aBonus.getTypeString());
-						}
-						aList.add(ab.toString().toUpperCase());
-					}
-				}
-				else
-				{
-					final int cnt = anObj.getAssociatedCount();
-
-					if (cnt <= listindex && bonusInfo.equals("LIST"))
-					{
-						continue;
-					}
-
-					while (true)
-					{
-						final StringBuffer ab = new StringBuffer();
-						ab.append(aBonus.getTypeOfBonus()).append('.');
-						if (bonusInfo.equals("LIST"))
-						{
-							ab.append(anObj.getAssociated(listindex));
-						}
-						else
-						{
-							ab.append(bonusInfo);
-						}
-
-						if (aBonus.hasTypeString())
-						{
-							ab.append(':').append(aBonus.getTypeString());
-						}
-
-						listindex++;
-
-						aList.add(ab.toString().toUpperCase());
-
-						// If we have processed all of the entries, or if this object
-						// has multiple bonuses, don't add any more copies.
-						if (aTok.countTokens() > 0
-							|| listindex >= cnt
-							|| anObj.getBonusList().size() > 1)
-						{
-							break;
-						}
-					}
-				}
-			}
-			else if (aBonus.hasVariable())
-			{
-				// Some bonuses have a variable as part
-				// of their name, such as
-				//  BONUS:WEAPONPROF=AbcXyz|TOHIT|3
-				// so parse out the correct value
-				final StringBuffer ab = new StringBuffer();
-				ab.append(aBonus.getTypeOfBonus());
-				ab.append(aBonus.getVariable()).append('.');
-				ab.append(bonusInfo);
-
-				if (aBonus.hasTypeString())
-				{
-					ab.append(':').append(aBonus.getTypeString());
-				}
-
-				aList.add(ab.toString().toUpperCase());
-			}
-			else
-			{
-				final StringBuffer ab = new StringBuffer();
-				ab.append(aBonus.getTypeOfBonus()).append('.');
-				ab.append(bonusInfo);
-
-				if (aBonus.hasTypeString())
-				{
-					ab.append(':').append(aBonus.getTypeString());
-				}
-
-				aList.add(ab.toString().toUpperCase());
-			}
-		}
-
-		return aList;
-	}
-
 	private String getSubRegion(final boolean useTemplates)
 	{
 		String pcSubRegion = getStringFor(StringKey.SUB_REGION);
@@ -11446,23 +11741,19 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Possible object types include:
 		//  Campaigns
 		//  Alignment (PCAlignment)
-		//  ArmorProf
 		//  BioSet (ageSet)
 		//  Check (PObject)
 		//  Class (PCClass)
 		//  CompanionMod
 		//  Deity
 		//  Domain (CharacterDomain)
-		//  Equipment
+		//  Equipment (includes EqMods)
 		//  Feat (virtual feats, auto feats)
 		//  Race
-		//  ShieldProf
 		//  SizeAdjustment
 		//  Skill
 		//  Stat (PCStat)
-		//  TempBonus
 		//  Template (PCTemplate)
-		//  WeaponProf
 		//
 		final ArrayList<PObject> results = new ArrayList<PObject>();
 
@@ -11895,6 +12186,53 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return available;
 	}
 
+//	private Map<String, List<TypedBonus>> buildBonusMap( final List<BonusObj> aBonusList )
+//	{
+//		final Map<String, List<TypedBonus>> ret = new HashMap<String, List<TypedBonus>>();
+//		
+//		final List<BonusObj> processedList = new ArrayList<BonusObj>();
+//		
+//		for ( final BonusObj bonus : aBonusList )
+//		{
+//			// TODO - The list should be sorted so that static bonuses come first
+//			// we could break out of the loop at this point.
+//			if (!bonus.isValueStatic())
+//			{
+//				continue;
+//			}
+//			
+//			final PObject anObj = (PObject) bonus.getCreatorObject();
+//
+//			if (anObj == null)
+//			{
+//				continue;
+//			}
+//
+//			// Keep track of which bonuses have been calculated
+//			processedList.add(bonus);
+//			
+//			ret.putAll(bonus.getTypedBonuses(this));
+//		}
+//		
+//		// TODO - I don't understand this.  The list is sorted with static 
+//		// bonuses coming first, why not just process the list once?
+//		for ( final BonusObj bonus : aBonusList )
+//		{
+//			if ( processedList.contains(bonus) )
+//			{
+//				continue;
+//			}
+//
+//			final PObject anObj = (PObject) bonus.getCreatorObject();
+//
+//			if (anObj == null)
+//			{
+//				continue;
+//			}
+//			processBonus(bonus, ret, aBonusList, new ArrayList<BonusObj>(), processedList);
+//		}
+//		return ret;
+//	}
 	/**
 	 * Build the bonus HashMap from all active BonusObj's
 	 */
@@ -11926,7 +12264,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			// Keep track of which bonuses have been calculated
 			processedBonusList.add(bonus);
 
-			for (String bString : getStringListFromBonus(bonus, anObj))
+			for (String bString : bonus.getStringListFromBonus(anObj))
 			{
 				final double iBonus = bonus.getValueAsdouble();
 				setActiveBonusStack(iBonus, bString, getActiveBonusMap());
@@ -12174,8 +12512,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	private void calcPurchaseModeBonuses()
+//	private List<BonusObj> getPurchaseModeBonuses()
 	{
-		GameMode gm = SettingsHandler.getGame();
+		final GameMode gm = SettingsHandler.getGame();
 		final String purchaseMethodName = gm.getPurchaseModeMethodName();
 		if (gm.isPurchaseStatMode())
 		{
@@ -12184,14 +12523,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			final List<BonusObj> tempList = pbm.getActiveBonuses();
 			addListToActiveBonuses(tempList);
+//			return pbm.getActiveBonuses();
 		}
+//		return Collections.emptyList();
 	}
 
 	private void calcTempBonuses()
+//	private List<BonusObj> getTempBonuses()
 	{
 		final List<BonusObj> tempList = getFilteredTempBonusList();
 		if(tempList.isEmpty())
 		{
+//			return Collections.emptyList();
 			return;
 		}
 		for (Iterator<BonusObj> tempIter = tempList.iterator(); tempIter.hasNext();)
@@ -12220,6 +12563,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 		addListToActiveBonuses(tempList);
+//		return tempList;
 	}
 
 	private void calcTemplateBonuses()
@@ -12841,7 +13185,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// do the following only if adding a level of a class for the first time
 				if (numberOfLevels > 0)
 				{
-					getLanguagesList().addAll(pcClassClone.getSafeListFor(ListKey.AUTO_LANGUAGES));
+					languages.addAll(pcClassClone.getSafeListFor(ListKey.AUTO_LANGUAGES));
 				}
 			}
 			else
@@ -12895,6 +13239,67 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		//setDirty(true);
 	}
 
+//	private void processBonus(	final BonusObj aBonus, 
+//								Map<String, List<TypedBonus>> aBonusMap,
+//								final List<BonusObj> aBonusList, 
+//								final List<BonusObj> prevProcessed,
+//								final List<BonusObj> processed )
+//	{
+//		// Make sure we don't get into an infinite loop - can occur due to LST coding or best guess dependancy mapping
+//		if (prevProcessed.contains(aBonus))
+//		{
+//			Logging.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed);  //$NON-NLS-1$//$NON-NLS-2$
+//			return;
+//		}
+//		prevProcessed.add(aBonus);
+//	
+//		final List<BonusObj> dependantBonuses = new ArrayList<BonusObj>();
+//
+//		// Go through all bonuses and check to see if they add to
+//		// aBonus's dependencies and have not already been processed
+//		for ( final BonusObj newBonus : aBonusList )
+//		{
+//			if (processed.contains(newBonus))
+//			{
+//				continue;
+//			}
+//
+//			if (aBonus.getDependsOn(newBonus.getBonusInfo()))
+//			{
+//				dependantBonuses.add(newBonus);
+//			}
+//		}
+//
+//		// go through all the BonusObj's that aBonus depends on
+//		// and process them first
+//		for ( final BonusObj newBonus : dependantBonuses )
+//		{
+//			// Recursively call itself
+//			processBonus(newBonus, aBonusMap, aBonusList, prevProcessed, processed);
+//		}
+//
+//		// Double check that it hasn't been processed yet
+//		if (processed.contains(aBonus))
+//		{
+//			return;
+//		}
+//
+//		// Add to processed list
+//		processed.add(aBonus);
+//
+//		final PObject anObj = (PObject) aBonus.getCreatorObject();
+//
+//		if (anObj == null)
+//		{
+//			prevProcessed.remove(aBonus);
+//			return;
+//		}
+//		
+//		aBonusMap.putAll(aBonus.getTypedBonuses(this));
+//
+//		prevProcessed.remove(aBonus);
+//	}
+	
 	/**
 	 * - Get's a list of dependencies from aBonus
 	 * - Finds all active bonuses that add to those dependencies and
@@ -12956,7 +13361,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		// calculate bonus and add to activeBonusMap
-		for ( String bString : getStringListFromBonus(aBonus, anObj) )
+		for ( String bString : aBonus.getStringListFromBonus(anObj) )
 		{
 			final double iBonus = anObj.calcBonusFrom(aBonus, this, bString, this);
 			setActiveBonusStack(iBonus, bString, getActiveBonusMap());
@@ -13138,7 +13543,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		this.setPoolAmount(0);
 		this.costPool = 0;
-		getLanguagesList().clear();
+		languages.clear();
 		getAutoLanguages();
 		setPoolAmount(0);
 	}
@@ -13462,8 +13867,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @param useEquip Should equipment bonuses be included?
 	 * @return The bonus to the stat.
 	 */
+	@Deprecated
 	public int getPartialStatBonusFor(String statAbbr, boolean useTemp, boolean useEquip)
 	{
+//		List<BonusObj> abl = getAllActiveBonuses();
 		List<BonusObj> abl = getActiveBonusList();
 		final String prefix = "STAT." + statAbbr;
 		Map<String, String> bonusMap = new HashMap<String, String>();
@@ -13505,7 +13912,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					// Grab the list of relevant types so that we can build up the
 					// bonuses with the stacking rules applied.
-					List<String> typeList = getStringListFromBonus(bonus, (PObject) bonus.getCreatorObject());
+					List<String> typeList = bonus.getStringListFromBonus((PObject) bonus.getCreatorObject());
 					for ( String element : typeList )
 					{
 						if (element.startsWith(prefix))
@@ -14098,7 +14505,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				}
 
 				// if the item takes more slots, return false
-				if (existNum > (eSlot.getSlotCount() + (int) this.getTotalBonusTo("SLOTS", eSlot.getContainType())))
+				if (existNum > (eSlot.getSlotCount() + (int) getTotalBonusTo("SLOTS", eSlot.getContainType())))
+//				if (existNum > (eSlot.getSlotCount() + (int) getBonusValue("SLOTS", eSlot.getContainType())))
 				{
 					return false;
 				}
@@ -15013,6 +15421,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			basePool = new Float(basePool.intValue());
 		}
 		double bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
+//		double bonus = getBonusValue("ABILITYPOOL", aCategory.getKeyName());
 		if ( aCategory.allowFractionalPool() == false )
 		{
 			bonus = Math.floor(bonus);
@@ -15838,6 +16247,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return AbilityUtilities.rebuildAutoAbilityList(this);
 	}
 
+	/**
+	 * Returns the list of automatic abilities of the specified category the 
+	 * character possesses.
+	 * 
+	 * @param aCategory The <tt>AbilityCategory</tt> to check.
+	 * 
+	 * @return A <tt>List</tt> of <tt>Abiltity</tt> objects.
+	 * 
+	 * @author boomer70
+	 * @since 5.11.1
+	 */
 	public List<Ability> getAutomaticAbilityList(final AbilityCategory aCategory)
 	{
 		if ( aCategory == AbilityCategory.FEAT )
@@ -15856,7 +16276,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			//
 			if ((getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
 			{
-				// TODO - Remove the pc parameter from getFeatList()
 				final List<String> abilityKeys = getRace().getAutoAbilityList(aCategory);
 				for ( final String key : abilityKeys )
 				{
@@ -16006,6 +16425,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return null;
 	}
 
-
-
+//	public double getBonusValue(final String aBonusType, final String aBonusName )
+//	{
+//		return TypedBonus.totalBonuses(getBonusesTo(aBonusType, aBonusName));
+//	}
 }

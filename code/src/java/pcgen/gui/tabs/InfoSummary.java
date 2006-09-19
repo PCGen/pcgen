@@ -1012,7 +1012,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					statBuf.append("<br>"); //$NON-NLS-1$
 					statBuf.append("<b>").append(PropertyFactory.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
-				bonus = (int) pc.getBonus(z + 1, true);
+				bonus = pc.getTotalCheck(z);
 				statBuf.append(" <i>").append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()) //$NON-NLS-1$
 				.append("</i>: ").append(Delta.toString(bonus)); //$NON-NLS-1$
 			}

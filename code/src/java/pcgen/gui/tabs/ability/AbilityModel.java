@@ -42,6 +42,7 @@ import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * Extends AbstractTreeTableModel to build an available or
@@ -116,7 +117,8 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		// We will use the global lists for this
 		for ( final Ability ability : Globals.getAbilityList(theCategory) )
 		{
-			if ( theFilter != null && theFilter.accept(theViewMode, ability) == false )
+			if (!((ability.getVisibility() == Visibility.DEFAULT)
+			  || (ability.getVisibility() == Visibility.DISPLAY_ONLY)))
 			{
 				continue;
 			}
@@ -146,6 +148,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 			ccSources[i] = new PObjectNode();
 			ccSources[i].setItem(source);
 			ccSources[i].setParent(sourceRoot);
+			i++;
 		}
 		sourceRoot.setChildren(ccSources);
 		
@@ -515,6 +518,10 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 */
 	private void buildTreeTypeName(final boolean showAll)
 	{
+		if ( typeRoot == null )
+		{
+			return;
+		}
 		setRoot(typeRoot);
 
 		final PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
@@ -567,6 +574,10 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 */
 	private void buildTreeSourceName(final boolean showAll)
 	{
+		if ( sourceRoot == null )
+		{
+			return;
+		}
 		setRoot(sourceRoot);
 
 		final PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
@@ -726,7 +737,10 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 				break;
 		}
 
-		fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+		if (super.getRoot() != null )
+		{
+			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+		}
 	}
 
 	/**

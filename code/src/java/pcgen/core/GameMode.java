@@ -1779,6 +1779,18 @@ public final class GameMode implements Comparable<Object>
 		return Collections.unmodifiableList(checkList);
 	}
 
+	/**
+	 * Returns the check key of the check at the index specified.
+	 * 
+	 * @param anIndex Index of the check in the game mode check list.
+	 * 
+	 * @return A key for the check.
+	 */
+	public String getCheckKey( final int anIndex )
+	{
+		return checkList.get(anIndex).getKeyName();
+	}
+	
 	//ALIGNMENTLIST
 
 	/**

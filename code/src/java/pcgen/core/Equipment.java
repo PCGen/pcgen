@@ -1153,25 +1153,23 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-/*
-   for (Iterator e = eqModifierList.iterator(); e.hasNext();)
-   {
-	   EquipmentModifier eqMod = (EquipmentModifier) e.next();
-	   for (Iterator mI = eqMod.getBonusList().iterator(); mI.hasNext();)
-	   {
-		   BonusObj aBonus = (BonusObj) mI.next();
-		   String eqModBonus = aBonus.toString();
-		   if ((eqModBonus.length() != 0) && !eqModBonus.startsWith("EQM"))
-		   {
-			   if (s.length() != 0)
-			   {
-				   s.append(", ");
-			   }
-			   s.append(eqModBonus);
-		   }
-	   }
-   }
- */
+//		for (final Iterator<EquipmentModifier> e = eqModifierList.iterator(); e.hasNext();)
+//		{
+//			final EquipmentModifier eqMod = e.next();
+//			for (final Iterator<BonusObj> mI = eqMod.getBonusList().iterator(); mI.hasNext();)
+//			{
+//				final BonusObj aBonus = mI.next();
+//				final String eqModBonus = aBonus.toString();
+//				if ((eqModBonus.length() != 0) && !eqModBonus.startsWith("EQM"))
+//				{
+//					if (s.length() != 0)
+//					{
+//						s.append(", ");
+//					}
+//					s.append(eqModBonus);
+//				}
+//			}
+//		}
 		if (t.length() != 0)
 		{
 			if (s.length() != 0)

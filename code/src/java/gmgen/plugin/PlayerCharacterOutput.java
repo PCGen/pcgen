@@ -240,17 +240,17 @@ public class PlayerCharacterOutput
 
 	public String getSaveFort()
 	{
-		return "+" + new Double(pc.getBonus(1, true)).intValue();
+		return "+" + pc.getTotalCheck(0);
 	}
 
 	public String getSaveRef()
 	{
-		return "+" + new Double(pc.getBonus(2, true)).intValue();
+		return "+" + pc.getTotalCheck(1);
 	}
 
 	public String getSaveWill()
 	{
-		return "+" + new Double(pc.getBonus(3, true)).intValue();
+		return "+" + pc.getTotalCheck(2);
 	}
 
 	public String getSize()

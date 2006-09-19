@@ -26,10 +26,12 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.bonus.TypedBonus;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -99,6 +101,7 @@ public class BonusListToken extends Token
 
 			if ("TOTAL".equals(typeSeparator))
 			{
+				// TODO - Shouldn't this return retString?
 				retString += total;
 
 				return "";
@@ -106,6 +109,18 @@ public class BonusListToken extends Token
 
 			boolean needDelim = false;
 			String prefix = bonusString + "." + substring + ".";
+			
+//			final List<String> bonuses = TypedBonus.totalBonusesByType( pc.getBonusesTo(bonusString, substring));
+//			for ( final String str : bonuses )
+//			{
+//				if ( needDelim )
+//				{
+//					retString += delim;
+//				}
+//				
+//				retString += str;
+//				needDelim = true;
+//			}
 
 			for (Iterator bi = pc.getActiveBonusMap().keySet().iterator(); bi.hasNext();)
 			{

@@ -25,6 +25,15 @@
  */
 package pcgen.core.bonus;
 
+import java.io.Serializable;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
@@ -34,10 +43,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-
-import java.io.Serializable;
-import java.io.StringWriter;
-import java.util.*;
 
 /**
  * <code>BonusObj</code>
@@ -52,18 +57,43 @@ public abstract class BonusObj implements Serializable, Cloneable
 	private Object  bonusValue;
 	private Object  creatorObj;
 	private Object  targetObj;
-	private String  bonusName            = "";
-	private String  bonusType            = "";
-	private String  varPart              = "";
+	/** The name of the bonus e.g. STAT or COMBAT */
+	private String  bonusName            = Constants.EMPTY_STRING;
+	/** The type of the bonus e.g. Enhancement or Dodge */
+	private String  bonusType            = Constants.EMPTY_STRING;
+	private String  varPart              = Constants.EMPTY_STRING;
 	private boolean isApplied;
 	private boolean valueIsStatic        = true;
 	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation;
 
+	/** An enum for the possible stacking modifiers a bonus can have */
+	public enum StackType {
+		/** This bonus will follow the normal stacking rules. */
+		NORMAL, 
+		/** This bonus will always stack regardless of its type. */
+		STACK, 
+		/** 
+		 * This bonus will stack with other bonuses of its own type but not
+		 * with bonuses of other types.
+		 */
+		REPLACE 
+	};
+	private StackType theStackingFlag = StackType.NORMAL;
+
+	private static final String LIST_TOKEN_REPLACEMENT = "%LIST"; //$NON-NLS-1$
+	private static final String VALUE_TOKEN_REPLACEMENT = "LIST"; //$NON-NLS-1$
+	
 	/**
-	 * Set Applied
-	 * @param aBool
+	 * Sets the Applied flag on the bonus.
+	 * 
+	 * <p><b>Note</b>: This flag is not used in the bonus object.  Therefore,
+	 * what being applied means is up to the setter and getter of the flag.
+	 * 
+	 * <p>TODO - This method does not belong here.
+	 * 
+	 * @param aBool <tt>true</tt> to mark this bonus as &quot;applied&quot;
 	 */
 	public void setApplied(final boolean aBool)
 	{
@@ -71,8 +101,11 @@ public abstract class BonusObj implements Serializable, Cloneable
 	}
 
 	/**
-	 * isApplied
-	 * @return True if applied
+	 * Returns the state of the Applied flag.
+	 * 
+	 * @return <tt>true</tt> if the applied flag is set.
+	 * 
+	 * @see #setApplied(boolean)
 	 */
 	public boolean isApplied()
 	{
@@ -773,6 +806,26 @@ public abstract class BonusObj implements Serializable, Cloneable
 		return false;
 	}
 
+	/**
+	 * Sets the stacking flag for this bonus.
+	 * 
+	 * @param aFlag A <tt>StackType</tt> to set.
+	 */
+	public void setStackingFlag( final StackType aFlag )
+	{
+		theStackingFlag = aFlag;
+	}
+	
+	/**
+	 * Gets the stacking flag for this bonus.
+	 * 
+	 * @return A <tt>StackType</tt>.
+	 */
+	public StackType getStackingFlag()
+	{
+		return theStackingFlag;
+	}
+	
 	protected boolean parseToken(final String token)
 	{
 		System.err.println("Need to override parseToken in " + getClass().getName());
@@ -951,6 +1004,328 @@ public abstract class BonusObj implements Serializable, Cloneable
 				prereq.expandToken(token, tokenValue);
 			}
 		}
+	}
+
+//	// TODO - Why do we need to do this processing all the time.
+//	// It should be possible to parse almost all this stuff out once.
+//	public Map<String, List<TypedBonus>> getTypedBonuses(final PlayerCharacter aPC)
+//	{
+//		final Map<String, List<TypedBonus>> ret = new HashMap<String, List<TypedBonus>>();
+//		
+//		// TODO - Can any other object type be a creator?  The code elsewhere
+//		// seems to assume not, but then why isn't creator object a PObject?
+//		if ( getCreatorObject() == null || ! (getCreatorObject() instanceof PObject) )
+//		{
+//			return Collections.emptyMap();
+//		}
+//		final PObject pObj = (PObject)getCreatorObject(); 
+//
+//		int listindex = 0; // Counter for number of replacements we have done
+//
+//		// We may have a bonus something like
+//		// BONUS:SKILL|Hide,Move Silently|2
+//		// This needs to become two independant bonuses for processing purposes.
+//		final String bInfoString = getBonusInfo();
+//		final StringTokenizer aTok = new StringTokenizer(bInfoString, ",");
+//
+//		while (aTok.hasMoreTokens())
+//		{
+//			String info = aTok.nextToken();
+//
+//			final TypedBonus.StackType stackType; 
+//			if ( info.endsWith(".STACK") || info.endsWith(".REPLACE") )
+//			{
+//				info = info.substring( 0, info.lastIndexOf('.') );
+//				if ( info.endsWith(".STACK") )
+//				{
+//					stackType = TypedBonus.StackType.STACK;
+//				}
+//				else
+//				{
+//					stackType = TypedBonus.StackType.REPLACE;
+//				}
+//			}
+//			else
+//			{
+//				stackType = TypedBonus.StackType.NORMAL;
+//			}
+//
+//			if (pObj.getAssociatedCount() > 0)
+//			{
+//				final String name = getBonusName();
+//				if (name.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+//				{
+//					// BONUS:%LIST|Foo|1
+//					for (int i = 0; i < pObj.getAssociatedCount(); ++i)
+//					{
+//						final StringBuffer ab = new StringBuffer();
+//						final String tName = CoreUtility.replaceFirst(name, LIST_TOKEN_REPLACEMENT, pObj.getAssociated(i));
+//						ab.append(tName).append('.');
+//						ab.append(info);
+//
+//						final String key = ab.toString().toUpperCase();
+//						final TypedBonus typedBonus = new TypedBonus(getCalculatedValue(aPC), key, stackType);
+//						List<TypedBonus> bonusList = ret.get(key);
+//						if ( bonusList == null )
+//						{
+//							bonusList = new ArrayList<TypedBonus>();
+//							ret.put(key, bonusList);
+//						}
+//						bonusList.add(typedBonus);
+//					}
+//				}
+//				else if (info.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+//				{
+//					// BONUS:FOO|%LIST|1
+//					for (int i = 0; i < pObj.getAssociatedCount(true); ++i)
+//					{
+//						final StringBuffer ab = new StringBuffer();
+//						final String tName = CoreUtility.replaceFirst(info, LIST_TOKEN_REPLACEMENT, pObj.getAssociated(i, true));
+//						ab.append(getTypeOfBonus()).append('.');
+//						ab.append(tName);
+//
+//						final String key = ab.toString().toUpperCase();
+//						final TypedBonus typedBonus = new TypedBonus(getCalculatedValue(aPC), key, stackType);
+//						List<TypedBonus> bonusList = ret.get(key);
+//						if ( bonusList == null )
+//						{
+//							bonusList = new ArrayList<TypedBonus>();
+//							ret.put(key, bonusList);
+//						}
+//						bonusList.add(typedBonus);
+//					}
+//				}
+//				else
+//				{
+//					final int cnt = pObj.getAssociatedCount();
+//
+//					if (cnt <= listindex && info.equals(VALUE_TOKEN_REPLACEMENT))
+//					{
+//						continue;
+//					}
+//
+//					while (true)
+//					{
+//						final StringBuffer ab = new StringBuffer();
+//						ab.append(getTypeOfBonus()).append('.');
+//						if (info.equals(VALUE_TOKEN_REPLACEMENT))
+//						{
+//							ab.append(pObj.getAssociated(listindex));
+//						}
+//						else
+//						{
+//							ab.append(info);
+//						}
+//
+//						listindex++;
+//
+//						final String key = ab.toString().toUpperCase();
+//						final TypedBonus typedBonus = new TypedBonus(getCalculatedValue(aPC), key, stackType);
+//						List<TypedBonus> bonusList = ret.get(key);
+//						if ( bonusList == null )
+//						{
+//							bonusList = new ArrayList<TypedBonus>();
+//							ret.put(key, bonusList);
+//						}
+//						bonusList.add(typedBonus);
+//						
+//						// If we have processed all of the entries, or if this object
+//						// has multiple bonuses, don't add any more copies.
+//						if (aTok.countTokens() > 0
+//							|| listindex >= cnt
+//							|| pObj.getBonusList().size() > 1)
+//						{
+//							break;
+//						}
+//					}
+//				}
+//			}
+//			else if (hasVariable())
+//			{
+//				// Some bonuses have a variable as part
+//				// of their name, such as
+//				//  BONUS:WEAPONPROF=AbcXyz|TOHIT|3
+//				// so parse out the correct value
+//				final StringBuffer ab = new StringBuffer();
+//				ab.append(getTypeOfBonus());
+//				ab.append(getVariable()).append('.');
+//				ab.append(info);
+//
+//				final String key = ab.toString().toUpperCase();
+//				final TypedBonus typedBonus = new TypedBonus(getCalculatedValue(aPC), key, stackType);
+//				List<TypedBonus> bonusList = ret.get(key);
+//				if ( bonusList == null )
+//				{
+//					bonusList = new ArrayList<TypedBonus>();
+//					ret.put(key, bonusList);
+//				}
+//				bonusList.add(typedBonus);
+//			}
+//			else
+//			{
+//				final StringBuffer ab = new StringBuffer();
+//				ab.append(getTypeOfBonus()).append('.');
+//				ab.append(info);
+//
+//				final String key = ab.toString().toUpperCase();
+//				final TypedBonus typedBonus = new TypedBonus(getCalculatedValue(aPC), key, stackType);
+//				List<TypedBonus> bonusList = ret.get(key);
+//				if ( bonusList == null )
+//				{
+//					bonusList = new ArrayList<TypedBonus>();
+//					ret.put(key, bonusList);
+//				}
+//				bonusList.add(typedBonus);
+//			}
+//		}
+//		return ret;
+//	}
+
+	/**
+	 * TODO - This method should be changed to not return a string.
+	 * <p>
+	 * This method builds a string of the form:
+	 * <code>BONUSNAME.BONUSTYPE:TYPEOFBONUS </code>
+	 * 
+	 * @param anObj The bonus owner.
+	 * 
+	 * @return List of bonus strings
+	 */
+	public List<String> getStringListFromBonus(final PObject anObj)
+	{
+		final List<String> aList = new ArrayList<String>();
+
+		final String bInfoString = getBonusInfo();
+		final StringTokenizer aTok = new StringTokenizer(bInfoString, ",");
+		int listindex = 0;
+
+		while (aTok.hasMoreTokens())
+		{
+			final String info = aTok.nextToken();
+
+			// Some BONUS statements use %LIST to represent
+			// a possible list or selection made
+			// Need to deconstruct for proper bonus stacking
+			if (anObj.getAssociatedCount() > 0)
+			{
+				// There are three forms:
+				// 1) has %LIST in the bonusName
+				// 2) has %LIST in the bonusInfo
+				// 3) has no %LIST at all
+
+
+				// Must use getBonusName because it
+				// contains the unaltered bonusType
+				final String name = getBonusName();
+				if (name.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+				{
+					for (int i = 0; i < anObj.getAssociatedCount(); ++i)
+					{
+						final StringBuffer ab = new StringBuffer();
+						final String tName = CoreUtility.replaceFirst(name, LIST_TOKEN_REPLACEMENT, anObj.getAssociated(i));
+						ab.append(tName).append('.');
+						ab.append(info);
+
+						if (hasTypeString())
+						{
+							ab.append(':').append(getTypeString());
+						}
+
+						aList.add(ab.toString().toUpperCase());
+					}
+				}
+				else if (info.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+				{
+					for (int i = 0; i < anObj.getAssociatedCount(true); ++i)
+					{
+						final StringBuffer ab = new StringBuffer();
+						final String tName = CoreUtility.replaceFirst(info, LIST_TOKEN_REPLACEMENT, anObj.getAssociated(i, true));
+						ab.append(getTypeOfBonus()).append('.');
+						ab.append(tName);
+
+						if (hasTypeString())
+						{
+							ab.append(':').append(getTypeString());
+						}
+						aList.add(ab.toString().toUpperCase());
+					}
+				}
+				else
+				{
+					final int cnt = anObj.getAssociatedCount();
+
+					if (cnt <= listindex && info.equals(VALUE_TOKEN_REPLACEMENT))
+					{
+						continue;
+					}
+
+					while (true)
+					{
+						final StringBuffer ab = new StringBuffer();
+						ab.append(getTypeOfBonus()).append('.');
+						if (info.equals(VALUE_TOKEN_REPLACEMENT))
+						{
+							ab.append(anObj.getAssociated(listindex));
+						}
+						else
+						{
+							ab.append(info);
+						}
+
+						if (hasTypeString())
+						{
+							ab.append(':').append(getTypeString());
+						}
+
+						listindex++;
+
+						aList.add(ab.toString().toUpperCase());
+
+						// If we have processed all of the entries, or if this object
+						// has multiple bonuses, don't add any more copies.
+						if (aTok.countTokens() > 0
+							|| listindex >= cnt
+							|| anObj.getBonusList().size() > 1)
+						{
+							break;
+						}
+					}
+				}
+			}
+			else if (hasVariable())
+			{
+				// Some bonuses have a variable as part
+				// of their name, such as
+				//  BONUS:WEAPONPROF=AbcXyz|TOHIT|3
+				// so parse out the correct value
+				final StringBuffer ab = new StringBuffer();
+				ab.append(getTypeOfBonus());
+				ab.append(getVariable()).append('.');
+				ab.append(info);
+
+				if (hasTypeString())
+				{
+					ab.append(':').append(getTypeString());
+				}
+
+				aList.add(ab.toString().toUpperCase());
+			}
+			else
+			{
+				final StringBuffer ab = new StringBuffer();
+				ab.append(getTypeOfBonus()).append('.');
+				ab.append(info);
+
+				if (hasTypeString())
+				{
+					ab.append(':').append(getTypeString());
+				}
+
+				aList.add(ab.toString().toUpperCase());
+			}
+		}
+
+		return aList;
 	}
 
 }

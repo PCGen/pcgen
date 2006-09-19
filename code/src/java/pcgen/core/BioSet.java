@@ -25,6 +25,8 @@
  */
 package pcgen.core;
 
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
@@ -923,5 +925,48 @@ public final class BioSet extends PObject
 		}
 
 		return ageSets;
+	}
+	
+	/**
+	 * This overrides the PObject method since the bonuses are not stored in
+	 * the normal fashion.
+	 * 
+	 * @see pcgen.core.PObject#getActiveBonuses(pcgen.core.PlayerCharacter)
+	 */
+	@Override
+	public List<BonusObj> getActiveBonuses( final PlayerCharacter aPC )
+	{
+		final List<BonusObj> ret = new ArrayList<BonusObj>();
+		
+		ret.addAll(super.getActiveBonuses(aPC));
+		
+		final String ageSetLine = Globals.getBioSet().getAgeSetLine(aPC);
+		if (ageSetLine == null)
+		{
+			return ret;
+		}
+
+		final StringTokenizer aTok = new StringTokenizer(ageSetLine, "\t");
+		aTok.nextToken(); // name of ageSet, e.g.: Middle Aged
+
+		while (aTok.hasMoreTokens())
+		{
+			final String b = aTok.nextToken();
+
+			// TODO - Could these bonuses have a PRE?
+			if (b.startsWith("BONUS:")) //$NON-NLS-1$
+			{
+				final BonusObj aBonus = Bonus.newBonus(b.substring(6));
+
+				if (aBonus != null)
+				{
+					aBonus.setCreatorObject(Globals.getBioSet());
+					aBonus.setApplied(true);
+					ret.add(aBonus);
+				}
+			}
+		}
+
+		return ret;
 	}
 }

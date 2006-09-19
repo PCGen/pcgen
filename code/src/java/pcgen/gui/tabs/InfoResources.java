@@ -1003,7 +1003,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		for (int z = 0; z < SettingsHandler.getGame().getUnmodifiableCheckList().size(); z++)
 		{
-			bonus = (int) newPC.getBonus(z + 1, true);
+			bonus = newPC.getTotalCheck(z);
 			b.append(" ").append(ITALIC).append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()).append(END_ITALIC).append(": ") //$NON-NLS-1$ //$NON-NLS-2$
 			.append((bonus >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(bonus);  //$NON-NLS-1$//$NON-NLS-2$
 		}

@@ -1418,7 +1418,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			{
 				final PObject obj = checkList.get(i);
 				lblCheck[i].setText(obj.getDisplayName());
-				lCheck[i].setText(Delta.toString((int) pc.getBonus(i + 1, true)));
+				lCheck[i].setText(Delta.toString(pc.getTotalCheck(i)));
 			}
 		}
 	}

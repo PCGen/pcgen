@@ -98,18 +98,21 @@ public final class Delta
 	}
 
 	/**
-	 * toString
-	 * @param v
-	 * @return String
+	 * Returns a String representation of an integer value.  If the value is
+	 * positive a plus sign (+) will be prepended.
+	 * 
+	 * @param v An integer to convert.
+	 * 
+	 * @return String value of integer.
 	 */
-	public static String toString(int v)
+	public static String toString(final int v)
 	{
 		if (v >= 0)
 		{
 			return "+" + v;
 		}
 
-		return v + "";
+		return String.valueOf(v);
 	}
 
 	/**

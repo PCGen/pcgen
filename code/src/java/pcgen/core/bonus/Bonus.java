@@ -25,12 +25,15 @@
  */
 package pcgen.core.bonus;
 
+import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.jar.JarFile;
 import java.util.jar.JarEntry;
@@ -95,6 +98,80 @@ public class Bonus
 			}
 		}
 		return "";
+	}
+
+	/**
+	 * Sorts a list of <tt>BonusObj</tt> objects so that dependant bonuses come
+	 * after the bonuses they depend on.
+	 * 
+	 * @param listToSort The <tt>List</tt> of bonuses to sort.
+	 */
+	public static List<BonusObj> sortBonusList(List<BonusObj> listToSort)
+	{
+		final List<BonusObj> tempList = new ArrayList<BonusObj>();
+
+		// 'BONUS:blah|blah|Foo' depends on
+		// 'BONUS:VAR|Foo|MyGoo' which depends on
+		// 'BONUS:VAR|MyGoo|2'
+
+		// BONUS: type      | info           | value
+
+		// BONUS:COMBAT     |TOHIT           |STR
+		// BONUS:STAT       |STR             |rage
+		// BONUS:VAR        |rage            |2
+
+		for ( final BonusObj bonus : listToSort )
+		{
+			int iFound = 0;
+			for (int ii = 0; ii < tempList.size(); ii++)
+			{
+				final BonusObj tempBonus = tempList.get(ii);
+				if (tempBonus.getDependsOn(bonus.getBonusInfo()))
+				{
+					iFound = ii;
+				}
+			}
+			tempList.add(iFound, bonus);
+		}
+		
+		int iCount = tempList.size();
+		for (int i = 0; i < iCount; )
+		{
+			final BonusObj bonus = tempList.get(i);
+			//
+			// Move to end of list
+			//
+			if (bonus.getDependsOn("JEPFORMULA")) //$NON-NLS-1$
+			{
+				tempList.remove(i);
+				tempList.add(bonus);
+				--iCount;
+			}
+			else
+			{
+				++i;
+			}
+		}
+
+		listToSort = tempList;
+
+		tempList.clear();
+
+		// go through and move all the static bonuses to the front
+		final int aSize = listToSort.size();
+		for (int i = 0; i < aSize; i++)
+		{
+			final BonusObj bonus = listToSort.get(i);
+			if (bonus.isValueStatic())
+			{
+				tempList.add(0, bonus);
+			}
+			else
+			{
+				tempList.add(bonus);
+			}
+		}
+		return tempList;
 	}
 
 	/**
@@ -202,7 +279,26 @@ public class Bonus
 				}
 				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 				{
-					final boolean result = aBonus.addType(aString.substring(5));
+					String bonusType = aString.substring(5).toUpperCase();
+					if ( bonusType.indexOf('.') != -1 )
+					{
+						final String[] splits = bonusType.split("\\.");
+						final String stackingFlag = splits[1];
+						// TODO - Need to reset bonusType to exclude this but
+						// there is too much dependancy on it being there
+						// built into the code.
+						if ( stackingFlag.equals("REPLACE") ) //$NON-NLS-1$
+						{
+							aBonus.setStackingFlag( StackType.REPLACE );
+//							bonusType = splits[0];
+						}
+						else if ( stackingFlag.equals("STACK") ) //$NON-NLS-1$
+						{
+							aBonus.setStackingFlag( StackType.STACK );
+//							bonusType = splits[0];
+						}
+					}
+					final boolean result = aBonus.addType(bonusType);
 
 					if (!result)
 					{

@@ -36,9 +36,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Logging;
 
 /**
  * <code>Race</code>.
@@ -51,29 +48,31 @@ public final class Race extends PObject
 {
 	private ArrayList<String> monCCSkillList = null;
 	private ArrayList<String> monCSkillList = null;
+	// TODO - Why do we need a hit point map in the race?
 	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private Integer initMod = new Integer(0);
 	private Integer naturalAC = new Integer(0);
 	private Integer startingAC = new Integer(10);
-	private String hitDieLock = "";
-	private String ageString = "";
-	private String bonusSkillList = "";
+	private String hitDieLock = Constants.EMPTY_STRING;
+	private String ageString = Constants.EMPTY_STRING;
+	private String bonusSkillList = Constants.EMPTY_STRING;
 
 	//private String face = "5 ft. by 5 ft.";
 	private Point2D.Double face = new Point2D.Double(5, 0);
-	private String favoredClass = "";
-	private String featList = "";
-	private String heightString = "";
+	private String favoredClass = Constants.EMPTY_STRING;
+	// TODO - ABILITYOBJECT - Remove this.
+	private String featList = Constants.EMPTY_STRING;
+	private String heightString = Constants.EMPTY_STRING;
 	private String levelAdjustment = "0"; //now a string so that we can handle formulae
-	private String mFeatList = "";
+	private String mFeatList = Constants.EMPTY_STRING;
 	private String monsterClass = null;
-	private String size = "";
-	private String weightString = "";
+	private String size = Constants.EMPTY_STRING;
+	private String weightString = Constants.EMPTY_STRING;
 
 	//private String type = "Humanoid";
 	private int[] hitDiceAdvancement;
 	private boolean unlimitedAdvancement = false;
-	private int BAB = 0;
+//	private int BAB = 0;
 	private int CR = 0;
 	private int bonusInitialFeats = 0;
 	private int bonusSkillsPerLevel = 0;
@@ -85,7 +84,7 @@ public final class Race extends PObject
 	private int legs = 2;
 	private int monsterClassLevels = 0;
 	private int reach = 5;
-	private String raceType = "None";
+	private String raceType = Constants.s_NONE;
 	private ArrayList<String> racialSubTypes = new ArrayList<String>();
 	private Map<AbilityCategory, List<String>> theAutoAbilities;
 
@@ -93,25 +92,38 @@ public final class Race extends PObject
 		vision = new HashMap<String, String>();
 	}
 
-	public void setAdvancementUnlimited(final boolean unlimitedAdvancement)
+	/**
+	 * Sets this races advancement to not be limited.
+	 * 
+	 * @param yesNo <tt>true</tt> if this race allows unlimited
+	 * advancement.
+	 * 
+	 * TODO - Why do we need a special flag for this?
+	 */
+	public void setAdvancementUnlimited(final boolean yesNo)
 	{
-		this.unlimitedAdvancement = unlimitedAdvancement;
+		this.unlimitedAdvancement = yesNo;
 	}
 
+	/**
+	 * Checks if this race's advancement is limited.
+	 * 
+	 * @return <tt>true</tt> if this race advances unlimitedly.
+	 */
 	public boolean isAdvancementUnlimited()
 	{
 		return unlimitedAdvancement;
 	}
 
-	public void setAgeString(final String aString)
-	{
-		ageString = aString;
-	}
+//	public void setAgeString(final String aString)
+//	{
+//		ageString = aString;
+//	}
 
-	public void setBAB(final int newBAB)
-	{
-		BAB = newBAB;
-	}
+//	public void setBAB(final int newBAB)
+//	{
+//		BAB = newBAB;
+//	}
 
 	public void setBonusInitialFeats(final BonusObj bon)
 	{
@@ -928,7 +940,7 @@ public final class Race extends PObject
 			aRace.initialSkillMultiplier = initialSkillMultiplier;
 			aRace.levelAdjustment = levelAdjustment;
 			aRace.CR = CR;
-			aRace.BAB = BAB;
+//			aRace.BAB = BAB;
 			aRace.hitDice = hitDice;
 			aRace.hitDiceSize = hitDiceSize;
 			aRace.hitPointMap = new HashMap<String, Integer>(hitPointMap);
@@ -1030,18 +1042,18 @@ public final class Race extends PObject
 
 	int getBAB(final PlayerCharacter aPC)
 	{
-		if ((aPC != null) && aPC.isMonsterDefault())
-		{
-			// "BAB" not being used on races any more; instead using a BONUS tag.
-			// This will fix a bug this causes for default monsters.  Bug #647163
-			// sage_sam 03 Dec 2002
-			if (BAB == 0)
-			{
-				BAB = (int) bonusTo("COMBAT", "BAB", aPC, aPC);
-			}
-
-			return BAB;
-		}
+//		if ((aPC != null) && aPC.isMonsterDefault())
+//		{
+//			// "BAB" not being used on races any more; instead using a BONUS tag.
+//			// This will fix a bug this causes for default monsters.  Bug #647163
+//			// sage_sam 03 Dec 2002
+//			if (BAB == 0)
+//			{
+//				BAB = (int) bonusTo("COMBAT", "BAB", aPC, aPC);
+//			}
+//
+//			return BAB;
+//		}
 		return 0;
 	}
 

@@ -5,7 +5,7 @@
 package plugin.lsttokens.deprecated;
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.Deprecated;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
@@ -19,7 +19,7 @@ import pcgen.core.PCSpell;
  * @author djones4
  *
  */
-public class SpellLst implements GlobalLstToken, Deprecated {
+public class SpellLst implements GlobalLstToken, DeprecatedToken {
 
 	public String getTokenName() {
 		return "SPELL";

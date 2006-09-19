@@ -52,7 +52,26 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		/** Ability is Virtual */
 		VIRTUAL,
 		/** Ability of any type */
-		ANY
+		ANY;
+		
+		/**
+		 * Find a nature by a string key.
+		 * 
+		 * @param aKey The key to find.
+		 * 
+		 * @return A <tt>Nature</tt> or <tt>null</tt> if not found.
+		 */
+		public static Nature get(final String aKey)
+		{
+			for ( final Nature nature : Nature.values() )
+			{
+				if ( nature.toString().equalsIgnoreCase(aKey) )
+				{
+					return nature;
+				}
+			}
+			return null;
+		}
 	}
 
 	private boolean multiples = false;

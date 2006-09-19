@@ -43,6 +43,7 @@ import java.util.TreeSet;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
+import pcgen.core.bonus.TypedBonus;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -52,6 +53,7 @@ import pcgen.core.utils.*;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
@@ -4703,6 +4705,21 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 	}
 
+//	public List<TypedBonus> getBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
+//	{
+//		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
+//		{
+//			return Collections.emptyList();
+//		}
+//
+//		for ( final BonusObj bonus : getBonusList() )
+//		{
+//			if ( bonus.getTypeOfBonus().equalsIgnoreCase(aBonusType) && bonus.getBonusName().equalsIgnoreCase(aBonusName) )
+//			{
+//				
+//			}
+//		}
+//	}
 
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
@@ -4871,7 +4888,37 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 		return options;
 	}
+
+	private DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>> theAbilities = new DoubleKeyMap<AbilityCategory, Ability.Nature, List<QualifiedObject<String>>>();
+	public void addAbility(final AbilityCategory aCategory, final Ability.Nature aNature, final QualifiedObject<String> anAbility)
+	{
+		List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
+		if ( abilities == null )
+		{
+			abilities = new ArrayList<QualifiedObject<String>>();
+			theAbilities.put(aCategory, aNature, abilities);
+		}
+		abilities.add(anAbility);
+	}
 	
+	public List<String> getAbilityKeys(final PlayerCharacter aPC, final AbilityCategory aCategory, final Ability.Nature aNature)
+	{
+		final List<QualifiedObject<String>> abilities = theAbilities.get(aCategory, aNature);
+		if ( abilities == null )
+		{
+			return Collections.emptyList();
+		}
+		final List<String> ret = new ArrayList<String>(abilities.size());
+		for ( final QualifiedObject<String> str : abilities )
+		{
+			if ( str.qualifies(aPC) )
+			{
+				ret.add(str.getObject(aPC));
+			}
+		}
+		return ret;
+	}
+
 //	/**
 //	 * Add a Spell-Like Ability granted by this object.
 //	 * 

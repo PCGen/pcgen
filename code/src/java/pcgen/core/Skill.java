@@ -793,7 +793,7 @@ public final class Skill extends PObject
 			//
 			// Do not give choice of selected bonus languages
 			//
-			for ( Language lang : aPC.getLanguagesList() )
+			for ( final Language lang : aPC.getLanguagesList() )
 			{
 				if (!selected.contains(lang))
 				{
@@ -815,11 +815,11 @@ public final class Skill extends PObject
 			lc.setPoolFlag(false);
 			lc.setVisible(true);
 
-			aPC.getLanguagesList().clear();
-			aPC.getLanguagesList().addAll(selected);
+			aPC.clearLanguages();
+			aPC.addLanguages(selected);
 
 			// Add in all choice-excluded languages
-			aPC.getLanguagesList().addAll(excludedLangs);
+			aPC.addLanguages(excludedLangs);
 			languageSkill.clearAssociated();
 			// TODO Fix this to allow Language objects.
 			for ( Iterator<?> i = lc.getSelectedList().iterator(); i.hasNext(); )

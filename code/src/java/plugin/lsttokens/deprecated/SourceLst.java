@@ -10,17 +10,17 @@ import pcgen.core.PObject;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.SourceLoader;
 import pcgen.persistence.lst.SourceLstToken;
-import pcgen.persistence.lst.Deprecated;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.util.PropertyFactory;
 
 
 /**
  * @author djones4
  * 
- * Deprecated.  Seems to be used as a SOURCEPAGE tag.
+ * DeprecatedToken.  Seems to be used as a SOURCEPAGE tag.
  *
  */
-public class SourceLst implements GlobalLstToken, SourceLstToken, Deprecated  {
+public class SourceLst implements GlobalLstToken, SourceLstToken, DeprecatedToken  {
 
 	public String getTokenName() {
 		return "SOURCE";
@@ -37,11 +37,11 @@ public class SourceLst implements GlobalLstToken, SourceLstToken, Deprecated  {
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.Deprecated#getMessage(pcgen.core.PObject, java.lang.String)
+	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
 	 */
 	public String getMessage(PObject anObj, String anValue)
 	{
-		return PropertyFactory.getString( "Deprecated.SourceLst.Message" ); //$NON-NLS-1$
+		return PropertyFactory.getString( "DeprecatedToken.SourceLst.Message" ); //$NON-NLS-1$
 	}
 }
 
