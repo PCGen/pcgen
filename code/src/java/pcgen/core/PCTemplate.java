@@ -1594,7 +1594,7 @@ public final class PCTemplate extends PObject implements HasCost
 		final PlayerCharacter aPC)
 	{
 		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
-		final StringTokenizer strTok = new StringTokenizer(templateList.substring(7), "|");
+		final StringTokenizer strTok = new StringTokenizer(templateList, "|");
 		while (strTok.hasMoreTokens())
 		{
 			PCTemplate template = Globals.getTemplateKeyed(strTok.nextToken());
