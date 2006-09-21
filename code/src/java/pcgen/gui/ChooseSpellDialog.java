@@ -165,7 +165,7 @@ final class ChooseSpellDialog extends JDialog
 	 */
 	public Object[] getMetamagicFeats()
 	{
-		if (lstMetamagicFeats != null)
+		if (lstMetamagicFeats != null && lstMetamagicFeats.getSelectedIndex() > -1)
 		{
 			return lstMetamagicFeats.getSelectedValues();
 		}
