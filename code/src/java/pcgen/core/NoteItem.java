@@ -22,6 +22,8 @@
  */
 package pcgen.core;
 
+import pcgen.io.FileAccess;
+
 
 /**
  * <code>NoteItem</code>.
@@ -59,7 +61,7 @@ public final class NoteItem
 	 */
 	public String getExportString(final String beforeName, final String afterName, final String beforeValue, final String afterValue)
 	{
-		return beforeName + name + afterName + beforeValue + value + afterValue;
+		return beforeName + FileAccess.filterString(name) + afterName + beforeValue + FileAccess.filterString(value) + afterValue;
 	}
 
 	public int getId()

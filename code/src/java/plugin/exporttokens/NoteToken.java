@@ -28,6 +28,7 @@ package plugin.exporttokens;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.FileAccess;
 import pcgen.io.exporttoken.Token;
 
 import java.util.ArrayList;
@@ -120,11 +121,12 @@ public class NoteToken extends Token
 		{
 			if ("ALL".equals(token))
 			{
+				// TODO - Why doesn't this handle value the same as the VALUE token
 				sb.append(ni.getExportString(beforeHeader, afterHeader, beforeValue, afterValue));
 			}
 			else if ("NAME".equals(token))
 			{
-				sb.append(ni.getName());
+				sb.append(FileAccess.filterString(ni.getName()));
 			}
 			else if ("VALUE".equals(token))
 			{
@@ -133,7 +135,7 @@ public class NoteToken extends Token
 				while (cTok.hasMoreTokens())
 				{
 					sb.append(beforeValue);
-					sb.append(cTok.nextToken());
+					sb.append(FileAccess.filterString(cTok.nextToken()));
 					sb.append(afterValue);
 				}
 			}
