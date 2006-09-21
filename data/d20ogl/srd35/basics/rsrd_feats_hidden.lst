@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep 17 22:57:05 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Tue Sep 19 17:37:51 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -98,38 +98,53 @@ Druid Tracker - Wild Empathy	VISIBLE:NO	VFEAT:Wild Empathy	BONUS:VAR|WildEmpathy
 #FlurryAttacks: # of extra attacks when using Flurry of Blows
 #WholenessBodyLVL: Level tracker for Monk's Wholeness of Body
 #SlowFallLVL: Level tracker for Monk's Slow Fall ability.  Yes, that is 3 L's in a row.
+#DiamondSoul: Diamond Soul SR value
+#DiamondSoulLVL: Level tracker for Diamond Soul
+#QiveringPalm: # times per week for Quivering Palm
+#QiveringPalmDC: DC value for Quivering Palm
 #QuiveringPalmLVL: Level tracker for Monk's Quivering Palm
+#EmptyBody: # rounds for Empty Body Etherealness
 #EmptyBodyLVL: Level Tracker for Monk's Empty Body Ability
+#KiStrikeMagic: value of 1 or more means character has Ki Strike (Magic)
+#KiStrikeLawful: value of 1 or more means character has Ki Strike (Lawful)
+#KiStrikeAdaman: value of 1 or more means character has Ki Strike (Adamantine)
+#KiStrikeLVL: level tracker for Monk normal Ki strike ability progression
+#	Note that this progression is in the Monk Tracker, not the Ki Strike feat for greater flexibility.
 
 ###Block: Monk abilities
-# Feat Name				Type					Visible	Special Ability																Define																									Template			Automaticaly Added to Inventory	Combat bonus													Add to base move														Modify VAR																																															Source Page
-Monk AC				TYPE:Special.Extraordinary	VISIBLE:NO	SA:AC Bonus (Ex)																DEFINE:MonkAC|0	DEFINE:MonkACLVL|0																														BONUS:COMBAT|AC|max(WIS,0)+MonkAC|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0																	BONUS:VAR|MonkAC|(MonkACLVL)/5																																											SOURCEPAGE:ClassesI.rtf
-Monk Movement			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Fast Movement (Ex)															DEFINE:MonkMoveBonus|0	DEFINE:MonkMoveLVL|0																																												BONUS:MOVEADD|TYPE=Walk|MonkMoveBonus|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:VAR|MonkMoveBonus|floor(var("MonkMoveLVL")/3)*10																																							SOURCEPAGE:ClassesI.rtf
-Flurry of Blows			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Flurry of Blows (Ex)|PREVARLT:GreaterFlurry,1										DEFINE:FlurryLVL|0	DEFINE:GreaterFlurry|0	DEFINE:GreaterFlurryLVL|0	DEFINE:FlurryAttacks|1	DEFINE:FlurryPenalty|0	DEFINE:FlurryPenaltyLVL|0					AUTO:EQUIP|Flurry of Blows																																	BONUS:VAR|GreaterFlurry|1|PREVARGTEQ:GreaterFlurryLVL,11	BONUS:VAR|GreaterFlurryLVL|FlurryLVL	BONUS:VAR|FlurryPenaltyLVL|FlurryLVL	BONUS:VAR|FlurryPenalty|2|TYPE=NoStack|PREVARLTEQ:FlurryPenaltyLVL,4	BONUS:VAR|FlurryPenalty|1|TYPE=NoStack|PREVARLTEQ:FlurryPenaltyLVL,8	SOURCEPAGE:ClassesI.rtf
-Greater Flurry of Blows		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Greater Flurry of Blows (Ex)																																																																																BONUS:VAR|FlurryAttacks|1																																												SOURCEPAGE:ClassesI.rtf
-Still Mind				TYPE:Special.Extraordinary	VISIBLE:NO	SA:Still Mind (Ex)																																																																																																																																		SOURCEPAGE:ClassesI.rtf
-Slow Fall				TYPE:Special.Extraordinary	VISIBLE:NO	SA:Slow Fall (%)|SlowFall|PREVARLT:SlowFallLVL,20	SA:Slow Fall (Any Distance)|PREVARGTEQ:SlowFallLVL,20	DEFINE:SlowFall|0	DEFINE:SlowFallLVL|0																																																													BONUS:VAR|SlowFall|floor(SlowFallLVL/2)*10																																									SOURCEPAGE:ClassesI.rtf
-Purity of Body			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Purity of Body (Ex)																																																																																																																																		SOURCEPAGE:ClassesI.rtf
-Wholeness of Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Wholeness of Body (Su) % hp/day|WholenessBody										DEFINE:WholenessBody|0	DEFINE:WholenessBodyLVL|0																																																											BONUS:VAR|WholenessBody|WholenessBodyLVL*2																																									SOURCEPAGE:ClassesI.rtf
-Diamond Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Diamond Body (Su)																																																																																																																																		SOURCEPAGE:ClassesI.rtf
-Abundant Step			TYPE:Special.Supernatural	VISIBLE:NO	SA:Abundant Step (Su)																																																																																																																																		SOURCEPAGE:ClassesI.rtf
-Diamond Soul			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Diamond Soul (Ex)																																																																																																																																		SOURCEPAGE:ClassesI.rtf
-Quivering Palm			TYPE:Special.Supernatural	VISIBLE:NO	SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC							DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10	DEFINE:QuiveringPalmLVL|0																																																						BONUS:VAR|QuiveringPalm|QuiveringPalmLVL/2+WIS																																									SOURCEPAGE:ClassesI.rtf
-Timeless Body			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Timeless Body (Ex)																																																																																																																																		SOURCEPAGE:ClassesI.rtf
-Tongue of the Sun and Moon	TYPE:Special			VISIBLE:NO	SA:Tongue of the Sun and Moon																																																																																																																																	SOURCEPAGE:ClassesI.rtf
+# Feat Name				Type					Visible	Special Ability																Define																									Template			Automaticaly Added to Inventory	Combat bonus													Add to base move														Modify VAR																																															Spell Res.		Source Page
+Monk AC				TYPE:Special.Extraordinary	VISIBLE:NO	SA:AC Bonus (Ex)																DEFINE:MonkAC|0	DEFINE:MonkACLVL|0																														BONUS:COMBAT|AC|max(WIS,0)+MonkAC|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0																	BONUS:VAR|MonkAC|(MonkACLVL)/5																																														SOURCEPAGE:ClassesI.rtf
+Monk Movement			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Fast Movement (Ex)															DEFINE:MonkMoveBonus|0	DEFINE:MonkMoveLVL|0																																												BONUS:MOVEADD|TYPE=Walk|MonkMoveBonus|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:VAR|MonkMoveBonus|floor(var("MonkMoveLVL")/3)*10																																										SOURCEPAGE:ClassesI.rtf
+Flurry of Blows			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Flurry of Blows (Ex)|PREVARLT:GreaterFlurry,1										DEFINE:FlurryLVL|0	DEFINE:GreaterFlurry|0	DEFINE:GreaterFlurryLVL|0	DEFINE:FlurryAttacks|1	DEFINE:FlurryPenalty|0	DEFINE:FlurryPenaltyLVL|0					AUTO:EQUIP|Flurry of Blows																																	BONUS:VAR|GreaterFlurry|1|PREVARGTEQ:GreaterFlurryLVL,11	BONUS:VAR|GreaterFlurryLVL|FlurryLVL	BONUS:VAR|FlurryPenaltyLVL|FlurryLVL	BONUS:VAR|FlurryPenalty|2|TYPE=NoStack|PREVARLTEQ:FlurryPenaltyLVL,4	BONUS:VAR|FlurryPenalty|1|TYPE=NoStack|PREVARLTEQ:FlurryPenaltyLVL,8				SOURCEPAGE:ClassesI.rtf
+Greater Flurry of Blows		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Greater Flurry of Blows (Ex)																																																																																BONUS:VAR|FlurryAttacks|1																																															SOURCEPAGE:ClassesI.rtf
+Still Mind				TYPE:Special.Extraordinary	VISIBLE:NO	SA:Still Mind (Ex)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
+Slow Fall				TYPE:Special.Extraordinary	VISIBLE:NO	SA:Slow Fall (%)|SlowFall|PREVARLT:SlowFallLVL,20	SA:Slow Fall (Any Distance)|PREVARGTEQ:SlowFallLVL,20	DEFINE:SlowFall|0	DEFINE:SlowFallLVL|0																																																													BONUS:VAR|SlowFall|floor(SlowFallLVL/2)*10																																												SOURCEPAGE:ClassesI.rtf
+Purity of Body			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Purity of Body (Ex)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
+Wholeness of Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Wholeness of Body (Su) % hp/day|WholenessBody										DEFINE:WholenessBody|0	DEFINE:WholenessBodyLVL|0																																																											BONUS:VAR|WholenessBody|WholenessBodyLVL*2																																												SOURCEPAGE:ClassesI.rtf
+Diamond Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Diamond Body (Su)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
+Abundant Step			TYPE:Special.Supernatural	VISIBLE:NO	SA:Abundant Step (Su)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
+Diamond Soul			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Diamond Soul (Ex)															DEFINE:DiamondSoul|10	DEFINE:DiamondSoulLVL|0																																																												BONUS:VAR|DiamondSoul|DiamondSoulLVL																																										SR:DiamondSoul	SOURCEPAGE:ClassesI.rtf
+Quivering Palm			TYPE:Special.Supernatural	VISIBLE:NO	SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC							DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10	DEFINE:QuiveringPalmLVL|0																																																						BONUS:VAR|QuiveringPalm|QuiveringPalmLVL/2+WIS																																												SOURCEPAGE:ClassesI.rtf
+Timeless Body			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Timeless Body (Ex)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
+Tongue of the Sun and Moon	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Tongue of the Sun and Moon (Ex)																																																																																																																																			SOURCEPAGE:ClassesI.rtf
 Empty Body				TYPE:Special.Supernatural	VISIBLE:NO	SA:Empty Body (Su) % rounds/day|EmptyBody												DEFINE:EmptyBody|0	DEFINE:EmptyBodyLVL|0																																																												BONUS:VAR|EmptyBody|EmptyBodyLVL
-Perfect Self			TYPE:Special.Supernatural	VISIBLE:NO	SA:Perfect Self (Su)																																									TEMPLATE:Monk Outsider																																																																																						SOURCEPAGE:ClassesI.rtf
+Perfect Self			TYPE:Special.Supernatural	VISIBLE:NO	SA:Perfect Self (Su)																																									TEMPLATE:Monk Outsider																																																																																									SOURCEPAGE:ClassesI.rtf
+###Block: Ki Strike (really long with lots of SAs)
+# Feat Name	Type					Visible	Special Ability																																																																																																																														Define															Source Page
+Ki Strike	TYPE:Special.Supernatural	VISIBLE:NO	SA:Ki Strike (Su) (Magic)|PREVARGTEQ:KiStrikeMagic,1|PREVARLTEQ:KiStrikeLawful,0,KiStrikeAdaman,0	SA:Ki Strike (Su) (Lawful)|PREVARGTEQ:KiStrikeLawful,1|PREVARLTEQ:KiStrikeMagic,0,KiStrikeAdaman,0	SA:Ki Strike (Su) (Adamantine)|PREVARGTEQ:KiStrikeAdaman,1|PREVARLTEQ:KiStrikeMagic,0,KiStrikeLawful,0	SA:Ki Strike (Su) (Magic and Lawful)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeLawful,1|PREVARLTEQ:KiStrikeAdaman,0	SA:Ki Strike (Su) (Magic and Adamantine)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeAdaman,1|PREVARLTEQ:KiStrikeLawful,0	SA:Ki Strike (Su) (Lawful and Adamantine)|PREVARGTEQ:KiStrikeAdaman,1,KiStrikeLawful,1|PREVARLTEQ:KiStrikeMagic,0	SA:Ki Strike (Su) (Magic and Lawful and Adamantine)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeLawful,1,KiStrikeAdaman,1	DEFINE:KiStrikeLVL|0	DEFINE:KiStrikeMagic|0	DEFINE:KiStrikeLawful|0	DEFINE:KiStrikeAdaman|0	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Monk Trackers
-# Feat Name					Visible	Virtual Feat		Modify VAR						Source Page
-Monk Tracker - Monk AC			VISIBLE:NO	VFEAT:Monk AC		BONUS:VAR|MonkACLVL|var("CL=Monk")		SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Monk Movement		VISIBLE:NO	VFEAT:Monk Movement	BONUS:VAR|MonkMoveLVL|var("CL=Monk")	SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Flurry of Blows	VISIBLE:NO	VFEAT:Flurry of Blows	BONUS:VAR|FlurryLVL|MonkLVL			SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Stunning Fist		VISIBLE:NO					BONUS:VAR|StunningFistMonkLVL|MonkLVL	SOURCEPAGE:Feats.rtf
-Monk Tracker - Slow Fall		VISIBLE:NO					BONUS:VAR|SlowFallLVL|var("CL=Monk")	SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Wholness of Body	VISIBLE:NO					BONUS:VAR|WholnessBodyLVL|var("CL=Monk")	SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Quivering Palm		VISIBLE:NO					BONUS:VAR|QuiveringPalmLVL|var("CL=Monk")	SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Empty Body		VISIBLE:NO					BONUS:VAR|EmptyBodyLVL|var("CL=Monk")	SOURCEPAGE:ClassesI.rtf
+# Feat Name					Visible	Virtual Feat		Modify VAR																																	Source Page
+Monk Tracker - Monk AC			VISIBLE:NO	VFEAT:Monk AC		BONUS:VAR|MonkACLVL|var("CL=Monk")																													SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Monk Movement		VISIBLE:NO	VFEAT:Monk Movement	BONUS:VAR|MonkMoveLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Flurry of Blows	VISIBLE:NO	VFEAT:Flurry of Blows	BONUS:VAR|FlurryLVL|MonkLVL																														SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Stunning Fist		VISIBLE:NO					BONUS:VAR|StunningFistMonkLVL|MonkLVL																												SOURCEPAGE:Feats.rtf
+Monk Tracker - Ki Strike		VISIBLE:NO					BONUS:VAR|KiStrikeLVL|var("CL=Monk")	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Slow Fall		VISIBLE:NO					BONUS:VAR|SlowFallLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Wholeness of Body	VISIBLE:NO					BONUS:VAR|WholnessBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Diamond Soul		VISIBLE:NO					BONUS:VAR|DiamondSoulLVL|var("CL=Monk")
+Monk Tracker - Quivering Palm		VISIBLE:NO					BONUS:VAR|QuiveringPalmLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Empty Body		VISIBLE:NO					BONUS:VAR|EmptyBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
 
 ###Block: Paladin Abilities
 # Feat Name		Type				Visible	Special Ability						Define			Save checks bonus						Source Page
