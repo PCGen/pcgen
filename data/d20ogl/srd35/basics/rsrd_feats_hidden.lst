@@ -124,7 +124,7 @@ Wholeness of Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Wholeness of Body (S
 Diamond Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Diamond Body (Su)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
 Abundant Step			TYPE:Special.Supernatural	VISIBLE:NO	SA:Abundant Step (Su)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
 Diamond Soul			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Diamond Soul (Ex)															DEFINE:DiamondSoul|10	DEFINE:DiamondSoulLVL|0																																																												BONUS:VAR|DiamondSoul|DiamondSoulLVL																																										SR:DiamondSoul	SOURCEPAGE:ClassesI.rtf
-Quivering Palm			TYPE:Special.Supernatural	VISIBLE:NO	SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC							DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10	DEFINE:QuiveringPalmLVL|0																																																						BONUS:VAR|QuiveringPalm|QuiveringPalmLVL/2+WIS																																												SOURCEPAGE:ClassesI.rtf
+Quivering Palm			TYPE:Special.Supernatural	VISIBLE:NO	SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC							DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10	DEFINE:QuiveringPalmLVL|0																																																						BONUS:VAR|QuiveringPalmDC|QuiveringPalmLVL/2+WIS																																												SOURCEPAGE:ClassesI.rtf
 Timeless Body			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Timeless Body (Ex)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
 Tongue of the Sun and Moon	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Tongue of the Sun and Moon (Ex)																																																																																																																																			SOURCEPAGE:ClassesI.rtf
 Empty Body				TYPE:Special.Supernatural	VISIBLE:NO	SA:Empty Body (Su) % rounds/day|EmptyBody												DEFINE:EmptyBody|0	DEFINE:EmptyBodyLVL|0																																																												BONUS:VAR|EmptyBody|EmptyBodyLVL
@@ -141,8 +141,8 @@ Monk Tracker - Flurry of Blows	VISIBLE:NO	VFEAT:Flurry of Blows	BONUS:VAR|Flurry
 Monk Tracker - Stunning Fist		VISIBLE:NO					BONUS:VAR|StunningFistMonkLVL|MonkLVL																												SOURCEPAGE:Feats.rtf
 Monk Tracker - Ki Strike		VISIBLE:NO					BONUS:VAR|KiStrikeLVL|var("CL=Monk")	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 Monk Tracker - Slow Fall		VISIBLE:NO					BONUS:VAR|SlowFallLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Wholeness of Body	VISIBLE:NO					BONUS:VAR|WholnessBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Diamond Soul		VISIBLE:NO					BONUS:VAR|DiamondSoulLVL|var("CL=Monk")
+Monk Tracker - Wholeness of Body	VISIBLE:NO					BONUS:VAR|WholenessBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
+Monk Tracker - Diamond Soul		VISIBLE:NO					BONUS:VAR|DiamondSoulLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
 Monk Tracker - Quivering Palm		VISIBLE:NO					BONUS:VAR|QuiveringPalmLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
 Monk Tracker - Empty Body		VISIBLE:NO					BONUS:VAR|EmptyBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
 
