@@ -57,6 +57,7 @@ SKILL:srd_skills.lst
 SPELL:srd_spells.lst
 
 TEMPLATE:srd_templates_types.lst
+TEMPLATE:srd_templates_tempmods.lst
 
 WEAPONPROF:srd_weapprofs_natural.lst
 WEAPONPROF:srd_weapprofs.lst
