@@ -601,10 +601,16 @@ public final class Skill extends PObject
 	 */
 	public Float getTotalRank(final PlayerCharacter aPC)
 	{
-		return new Float(getRank().doubleValue() + getRankAdj(aPC).doubleValue());
+		double ranks = getRank().doubleValue() + getRankAdj(aPC).doubleValue();
+		if (!Globals.checkRule(RuleConstants.SKILLMAX) && aPC.getClassList().size() > 0)
+		{
+			ranks = Math.min(aPC.getMaxRank(getKeyName(), aPC.getClassList().get(0)).doubleValue(), 
+							 ranks);
+		}
+		return new Float(ranks);
 	}
 
-    /**
+    /*
      * Set whether skill can be used untrined or not
      * @param yesNo
      */
