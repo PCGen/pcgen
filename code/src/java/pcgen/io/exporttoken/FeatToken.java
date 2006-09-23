@@ -157,19 +157,26 @@ public class FeatToken extends Token {
 
 			matchTypeDef = matchTypeDef && istype && isnttype;
 
-			if ((aFeat.getVisibility() == Visibility.HIDDEN) || (aFeat.getVisibility() == Visibility.DISPLAY_ONLY)) {
-				// never display hidden feats unless asked for directly
-				if (visibility == FEAT_HIDDEN) {
-					matchVisibilityDef = true;
-				}
-			} else if (visibility == FEAT_ALL) {
-				// We want all visible feats
+			switch ( visibility )
+			{
+			case FEAT_ALL:
 				matchVisibilityDef = true;
-			} else if ((aFeat.getVisibility() == Visibility.DEFAULT) || (aFeat.getVisibility() == Visibility.OUTPUT_ONLY)) {
-				// default or output
-				if (((visibility == FEAT_DEFAULT) || (visibility == FEAT_VISIBLE))) {
+				break;
+			case FEAT_HIDDEN:
+				if ( aFeat.getVisibility() == Visibility.HIDDEN 
+				  || aFeat.getVisibility() == Visibility.DISPLAY_ONLY ) 
+				{
 					matchVisibilityDef = true;
 				}
+				break;
+			case FEAT_VISIBLE: // Fall thru intentional
+			default:
+				if ( aFeat.getVisibility() == Visibility.DEFAULT 
+				  || aFeat.getVisibility() == Visibility.OUTPUT_ONLY ) 
+				{
+					matchVisibilityDef = true;
+				}
+				break;	
 			}
 
 			if (matchTypeDef && matchVisibilityDef) {
