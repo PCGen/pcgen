@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Sep 25 00:11:32 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Equipment Name				Product Identity?	Output Name				Required Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Save checks bonus		Combat bonus						Bonus to skill											Stat bonus
@@ -55,33 +55,33 @@ Kelder Feedbag				NAMEISPI:YES										TYPE:Magic.Wondrous							COST:6000	WT:1
 Luthia's Tools of Precision		NAMEISPI:YES										TYPE:Magic.Wondrous							COST:2160	WT:2															SOURCEPAGE:p.189														BONUS:SKILL|Disable Device,Open Lock|6
 
 ###Block
-# Equipment Name				Product Identity?	Output Name								Type					Cost		Weight	Source Page			Virtual Feat	Spells																Combat bonus				Bonus to skill							Weapon prof. bonus
+# Equipment Name				Product Identity?	Output Name								Type					Cost		Weight	Source Page			Virtual Feat	Spells																						Combat bonus				Bonus to skill							Weapon prof. bonus
 Mask (Desire)				NAMEISPI:YES	OUTPUTNAME:Mask of [NAME]					TYPE:Magic.Wondrous		COST:93000	WT:1		SOURCEPAGE:p.189-190
-Medallion (Acorn)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:21600	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=3|Tongues
+Medallion (Acorn)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:21600	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=3|CASTERLEVEL=10|Tongues,14
 Medallion (Adamantite)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:78100	WT:0		SOURCEPAGE:p.190-191
-Medallion (Caterpillar)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:12300	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=2|Water Walk																	BONUS:SKILL|Hide|10
+Medallion (Caterpillar)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:12300	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=2|CASTERLEVEL=10|Water Walk,14																				BONUS:SKILL|Hide|10
 Medallion (Conifer)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:97300	WT:0		SOURCEPAGE:p.190-191
-Medallion (Flower)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:40000	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wonderous Item|TIMES=1|Wall of Thorns	SPELLS:Wondrous Item|TIMES=3|Speak with Plants																	BONUS:WEAPONPROF=Longbow|TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|1|TYPE=Competence
+Medallion (Flower)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:40000	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wonderous Item|TIMES=1|CASTERLEVEL=10|Wall of Thorns,17	SPELLS:Wondrous Item|TIMES=3|CASTERLEVEL=10|Speak with Plants,14																	BONUS:WEAPONPROF=Longbow|TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|1|TYPE=Competence
 Medallion (Fly)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:7400	WT:0		SOURCEPAGE:p.190-191
-Medallion (Grass)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:55100	WT:0		SOURCEPAGE:p.190-191																					BONUS:COMBAT|AC|1|TYPE=Dodge
-Medallion (Mosquito)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:22100	WT:0		SOURCEPAGE:p.190-191																					BONUS:COMBAT|AC|1|TYPE=Natural
-Medallion (Moth)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:13100	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=1|Dispel Magic|PRECLASS:1,Ranger=1
-Medallion (Scorpion)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:62100	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=2|Shadow Form of Lyrand	SPELLS:Wondrous Item|TIMES=3|Neutralize Poison
+Medallion (Grass)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:55100	WT:0		SOURCEPAGE:p.190-191																											BONUS:COMBAT|AC|1|TYPE=Dodge
+Medallion (Mosquito)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:22100	WT:0		SOURCEPAGE:p.190-191																											BONUS:COMBAT|AC|1|TYPE=Natural
+Medallion (Moth)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:13100	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=1|CASTERLEVEL=10|Dispel Magic,14|PRECLASS:1,Ranger=1
+Medallion (Scorpion)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:62100	WT:0		SOURCEPAGE:p.190-191				SPELLS:Wondrous Item|TIMES=2|CASTERLEVEL=10|Shadow Form of Lyrand,16	SPELLS:Wondrous Item|TIMES=3|CASTERLEVEL=10|Neutralize Poison,16
 Medallion (Seashell)			NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:21900	WT:0		SOURCEPAGE:p.190-191
-Medallion (Wheat)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:28200	WT:0		SOURCEPAGE:p.190-191																					BONUS:COMBAT|AC|1|TYPE=Dodge		BONUS:SKILL|Ride|10
+Medallion (Wheat)				NAMEISPI:YES	OUTPUTNAME:Medallion of Semanye's Vigil ([NAME])	TYPE:Magic.Wondrous		COST:28200	WT:0		SOURCEPAGE:p.190-191																											BONUS:COMBAT|AC|1|TYPE=Dodge		BONUS:SKILL|Ride|10
 Necklace (Immunity)			NAMEISPI:YES	OUTPUTNAME:Necklace of [NAME]					TYPE:Magic.Wondrous		COST:6000	WT:0		SOURCEPAGE:p.191
 Nomari Candle (Death)			NAMEISPI:YES	OUTPUTNAME:Nomari Cand of [NAME]				TYPE:Magic.Wondrous		COST:9000	WT:0		SOURCEPAGE:p.191-192
 Nomari Candle (Exhaustion)		NAMEISPI:YES	OUTPUTNAME:Nomari Cand of [NAME]				TYPE:Magic.Wondrous		COST:5600	WT:0		SOURCEPAGE:p.191-192
 Nomari Candle (Paralysis)		NAMEISPI:YES	OUTPUTNAME:Nomari Cand of [NAME]				TYPE:Magic.Wondrous		COST:6400	WT:0		SOURCEPAGE:p.191-192
 Nomari Candle (Sleep)			NAMEISPI:YES	OUTPUTNAME:Nomari Cand of [NAME]				TYPE:Magic.Wondrous		COST:6400	WT:0		SOURCEPAGE:p.191-192
 Nomari Candle (Smoke)			NAMEISPI:YES	OUTPUTNAME:Nomari Cand of [NAME]				TYPE:Magic.Wondrous		COST:1200	WT:0		SOURCEPAGE:p.191-192
-Bracelet (Oathbreaker's)		NAMEISPI:YES	OUTPUTNAME:[NAME] Bracelet					TYPE:Magic.Wondrous		COST:19000	WT:0		SOURCEPAGE:p.192																												BONUS:SKILL|Bluff|7
+Bracelet (Oathbreaker's)		NAMEISPI:YES	OUTPUTNAME:[NAME] Bracelet					TYPE:Magic.Wondrous		COST:19000	WT:0		SOURCEPAGE:p.192																																		BONUS:SKILL|Bluff|7
 Pack of Safekeeping			NAMEISPI:YES										TYPE:Magic.Wondrous		COST:9800	WT:2		SOURCEPAGE:p.193
 Pipe of Visions				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:21600	WT:1		SOURCEPAGE:p.193
 Prophetic Tablet				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:450	WT:2		SOURCEPAGE:p.193
 Revenge Doll				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:59500	WT:1		SOURCEPAGE:p.193-194
-Robe of the Netherworld			NAMEISPI:YES										TYPE:Magic.Wondrous.Robe	COST:148100	WT:1		SOURCEPAGE:p.194																						BONUS:COMBAT|AC|5|TYPE=Deflection
-Saddle of the Master Riders		NAMEISPI:YES										TYPE:Magic.Wondrous		COST:5800	WT:15		SOURCEPAGE:p.194-195																											BONUS:SKILL|Ride|5	BONUS:SKILL|Handle Animal|3	BONUS:WEAPONPROF=Lance|TOHIT|3|TYPE=Circumstance
+Robe of the Netherworld			NAMEISPI:YES										TYPE:Magic.Wondrous.Robe	COST:148100	WT:1		SOURCEPAGE:p.194																												BONUS:COMBAT|AC|5|TYPE=Deflection
+Saddle of the Master Riders		NAMEISPI:YES										TYPE:Magic.Wondrous		COST:5800	WT:15		SOURCEPAGE:p.194-195																																	BONUS:SKILL|Ride|5	BONUS:SKILL|Handle Animal|3	BONUS:WEAPONPROF=Lance|TOHIT|3|TYPE=Circumstance
 Scabbard of Hiding (Dagger)		NAMEISPI:YES										TYPE:Magic.Wondrous		COST:18500	WT:0		SOURCEPAGE:p.195
 Scabbard of Hiding (Sword (Great))	NAMEISPI:YES										TYPE:Magic.Wondrous		COST:18500	WT:0		SOURCEPAGE:p.195
 Scabbard of Hiding (Sword (Long))	NAMEISPI:YES										TYPE:Magic.Wondrous		COST:18500	WT:0		SOURCEPAGE:p.195
@@ -93,6 +93,6 @@ Solar Brooch (Fire Resistant)		NAMEISPI:YES										TYPE:Magic.Wondrous		COST:5
 Soul Brazier				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:19200	WT:15		SOURCEPAGE:p.196
 Spectral Yoke				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:66000	WT:30		SOURCEPAGE:p.196
 Spider Webs					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:500	WT:0		SOURCEPAGE:p.196-197
-Star Gazer					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:50500	WT:1		SOURCEPAGE:p.197																												BONUS:SKILL|Knowledge (Astrology)|10
-Mask (Vengaurak)				NAMEISPI:YES	OUTPUTNAME:[NAME] Mask						TYPE:Magic.Wondrous		COST:87000	WT:10		SOURCEPAGE:p.197		VFEAT:Blind-Fight																		BONUS:COMBAT|AC|4|TYPE=Deflection
+Star Gazer					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:50500	WT:1		SOURCEPAGE:p.197																																		BONUS:SKILL|Knowledge (Astrology)|10
+Mask (Vengaurak)				NAMEISPI:YES	OUTPUTNAME:[NAME] Mask						TYPE:Magic.Wondrous		COST:87000	WT:10		SOURCEPAGE:p.197		VFEAT:Blind-Fight																								BONUS:COMBAT|AC|4|TYPE=Deflection
 

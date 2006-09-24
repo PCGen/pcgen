@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Sep 25 00:11:32 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
-# Domain Name	Spells							Source Page		Description
-Missionary		SPELLS:Innate|TIMES=1|Comprehend Languages	SOURCEPAGE:p.34	DESC:Comprehend Languages 1/day
+# Domain Name	Spells										Source Page		Description
+Missionary		SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Comprehend Languages,11+WIS	SOURCEPAGE:p.34	DESC:Comprehend Languages 1/day

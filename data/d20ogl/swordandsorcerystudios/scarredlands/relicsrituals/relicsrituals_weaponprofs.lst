@@ -1,11 +1,12 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
+#Removed Mace (Heavy) since it is already in the SRD Basics data set - Frank
+
 # Weapon Name		Type			Nb Hands
 Broadsword			TYPE:Martial
 War Cleaver			TYPE:Martial
 Greathammer (Dwarven)	TYPE:Exotic		HANDS:2
 Warhammer (Two-Headed)	TYPE:Exotic		HANDS:2
 Cat's Claws			TYPE:Exotic
-Mace (Heavy)		TYPE:Simple
 Kin-Skull			TYPE:Simple

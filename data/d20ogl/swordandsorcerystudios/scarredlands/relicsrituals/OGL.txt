@@ -35,4 +35,4 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Reference Document (draft version) Copyright 1999,2000 Wizards of the Coast, Inc.
 Creature Collection Copyright 2000, Clark Peterson
 Relics & Rituals Copyright 2001, Clark Peterson
-PCGen dataset conversion for Relics & Rituals Copyright 2001-2005, PCgen Data team (including, but not limited to, Rob Reed (Mynex), Patryk Adamski (Ruemere), Hugo Perez (Emperorfranz), Andrew McDougall (Tir Gwaith), Paul W. King, Paul Grosse)
+PCGen dataset conversion for Relics & Rituals Copyright 2001-2006, PCgen Data team (including, but not limited to, Rob Reed (Mynex), Patryk Adamski (Ruemere), Hugo Perez (Emperorfranz), Andrew McDougall (Tir Gwaith), Paul W. King, Paul Grosse, Frank Kliewe)

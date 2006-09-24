@@ -71,7 +71,7 @@ Tuft of Rodent Fur						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable
 Tuft of Animal Fur						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Gauze/Piece								OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Glands/Viper/Poison						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
-Raw Gemstones (1,000gp Value)					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:1000	WT:0		SOURCEPAGE:Per Spell Desc
+Raw Gemstones (1000gp Value)					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:1000	WT:0		SOURCEPAGE:Per Spell Desc
 Glass/Smoked/Piece						OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Gorget/Cloth							OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
 Hair/Elderly Person/Lock					OUTPUTNAME:Spell Component([NAME])	TYPE:Goods.Consumable.Spell Component	COST:0	WT:0		SOURCEPAGE:Per Spell Desc
