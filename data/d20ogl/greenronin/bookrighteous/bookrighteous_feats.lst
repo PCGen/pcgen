@@ -14,7 +14,7 @@ Martial Instructor	NAMEISPI:NO		TYPE:General			PREATT:5											DESC:You are s
 Profound Faith		NAMEISPI:NO		TYPE:Special					PRECLASS:1,Cleric=1				PRESTAT:1,CHA=13	DESC:You use your faith more than your wisdom to call for aid from your god.																				SOURCEPAGE:p.256
 Religeous Scholar		NAMEISPI:NO		TYPE:General															DESC:You are a leading expert in the study of one of the gods in the pantheon.																			SOURCEPAGE:p.256
 #CHOOSE:COUNT=2|Weapon Penalty Reduction|Reduce	BONUS:whatever|EndsUpBeingProgramed|VAR	DEFINE:WMast|2  BONUS:VAR|WMast|COUNT[FEAT=Weapon Master]-1 -Something like this for WeapMstr
-Weapons Master		NAMEISPI:NO		TYPE:General			PREATT:4											DESC:You are suffer only a -2 penalty on non-profiencient weapons.							STACK:YES	MULT:YES											SOURCEPAGE:p.256
+Weapons Master		NAMEISPI:NO		TYPE:General			PREATT:4											DESC:You are suffer only a -2 penalty on non-profiencient weapons.							STACK:YES	MULT:YES	CHOOSE:NOCHOICE								SOURCEPAGE:p.256
 Cut Arrows			NAMEISPI:NO		TYPE:General												PRESTAT:1,DEX=13	DESC:See Deflect Arrows Feat																												SOURCEPAGE:p.93
 Talesman Ability Bonus	NAMEISPI:NO		TYPE:Talesman	VISIBLE:NO																															STACK:YES	MULT:YES	CHOOSE:COUNT=1|STAT	BONUS:STAT|LIST|1
 
