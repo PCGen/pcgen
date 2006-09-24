@@ -1,10 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Mar 23 12:42:24 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Sep 24 04:34:51 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 #Divine Blessing can't enforce the prerequisite
 #Extra Energy can't enforce the prerequisite
 
-# Feat Name				Type					Visible	Required AL		Req. Att.	Required Class							PREDOMAIN			Required Feat																		Multiple Requirements																	Required Skill						Required Stat		Var. Min. Value							Stackable?	Multiple?	Choose																		BONUS:DC								Add domain number		Bonus to skill				Weapon prof. bonus				Source Page
+#Gave Power of Nature and Undead Mastery a KEY, because there already are feats of that name - Frank
+
+# Feat Name				Type					Visible	Required AL		Req. Att.	Required Class							PREDOMAIN			Required Feat																		Multiple Requirements																	Required Skill						Required Stat		Var. Min. Value							Stackable?	Multiple?	Choose																		BONUS:DC								Add domain number		Bonus to skill				Weapon prof. bonus				Source Page						KEY
 Alter Form				TYPE:SalientDivineAbility	VISIBLE:YES																			PREFEAT:1,Alter Size																																																	PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Alter Reality			TYPE:SalientDivineAbility	VISIBLE:YES																																																																			PRESTAT:1,CHA=29		PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Alter Size				TYPE:SalientDivineAbility	VISIBLE:YES																																																																							PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
@@ -87,7 +89,7 @@ Master Crafter			TYPE:SalientDivineAbility	VISIBLE:YES																										
 Mind of the Beast			TYPE:SalientDivineAbility	VISIBLE:YES																																																																							PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Possess Mortal			TYPE:SalientDivineAbility	VISIBLE:YES																																																																			PRESTAT:1,CHA=29		PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Power of Luck			TYPE:SalientDivineAbility	VISIBLE:YES															PREDOMAIN:1,Luck																																																						PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Power of Nature			TYPE:SalientDivineAbility	VISIBLE:YES																																																																							PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Power of Nature			TYPE:SalientDivineAbility	VISIBLE:YES																																																																							PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf	KEY:SDA_POWER_OF_NATURE
 Power of Truth			TYPE:SalientDivineAbility	VISIBLE:YES																																																																							PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Rejuvenation			TYPE:SalientDivineAbility	VISIBLE:YES																			PREFEAT:1,Divine Fast Healing																																																PREVARGTEQ:DivineRank,1	PREVARGTEQ:DivineRank,11																																																		SOURCEPAGE:DivineAbilitiesandFeats.rtf
 See Magic				TYPE:SalientDivineAbility	VISIBLE:YES															PREDOMAIN:1,Magic																																																						PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
@@ -100,7 +102,7 @@ Sunder and Disjoin		TYPE:SalientDivineAbility	VISIBLE:YES																							
 Supreme Initiative		TYPE:SalientDivineAbility	VISIBLE:YES																			PREFEAT:1,Improved Initiative																																												PRESTAT:1,DEX=29		PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 True Knowledge			TYPE:SalientDivineAbility	VISIBLE:YES						PRECLASS:1,Bard,Loremaster=10					PREDOMAIN:1,Knowledge																																																	PRESTAT:1,INT=40		PREVARGTEQ:DivineRank,1	PREVARGTEQ:DivineRank,11																																																		SOURCEPAGE:DivineAbilitiesandFeats.rtf
 True Shapechange			TYPE:SalientDivineAbility	VISIBLE:YES																			PREFEAT:3,Alter Size,Alter Form,Shapechange																																													PREVARGTEQ:DivineRank,1	PREVARGTEQ:DivineRank,16																																																		SOURCEPAGE:DivineAbilitiesandFeats.rtf
-Undead Mastery			TYPE:SalientDivineAbility	VISIBLE:YES						PRECLASS:1,Cleric=17																																																														PREVARGTEQ:DivineRank,1	PREVARGTEQ:DivineRank,14																																																		SOURCEPAGE:DivineAbilitiesandFeats.rtf
+Undead Mastery			TYPE:SalientDivineAbility	VISIBLE:YES						PRECLASS:1,Cleric=17																																																														PREVARGTEQ:DivineRank,1	PREVARGTEQ:DivineRank,14																																																		SOURCEPAGE:DivineAbilitiesandFeats.rtf	KEY:SDA_UNDEAD_MASTERY
 Undead Qualities			TYPE:SalientDivineAbility	VISIBLE:YES																																																																							PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Wave of Chaos			TYPE:SalientDivineAbility	VISIBLE:YES	PREALIGN:CG,CN,CE																																																																				PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
 Wound Enemy				TYPE:SalientDivineAbility	VISIBLE:YES				PREATT:20																																																																		PREVARGTEQ:DivineRank,1																																																							SOURCEPAGE:DivineAbilitiesandFeats.rtf
