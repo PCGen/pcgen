@@ -121,8 +121,6 @@ BONUSFEATLEVELSTARTINTERVAL:3|3
 #interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
 BONUSSTATLEVELSTARTINTERVAL:4|4
 
-DEITY:None		DOMAINS:ALL		FOLLOWERALIGN:012345678		DESC:None	SYMBOL:None		SOURCEPAGE:None
-
 # Calculations for AC. Same as those used on the
 # output sheets with the 'BONUS.' stripped off
 BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
