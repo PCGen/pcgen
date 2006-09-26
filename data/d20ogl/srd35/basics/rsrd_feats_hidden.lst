@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep 19 17:37:51 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Tue Sep 26 16:34:47 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -124,7 +124,7 @@ Wholeness of Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Wholeness of Body (S
 Diamond Body			TYPE:Special.Supernatural	VISIBLE:NO	SA:Diamond Body (Su)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
 Abundant Step			TYPE:Special.Supernatural	VISIBLE:NO	SA:Abundant Step (Su)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
 Diamond Soul			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Diamond Soul (Ex)															DEFINE:DiamondSoul|10	DEFINE:DiamondSoulLVL|0																																																												BONUS:VAR|DiamondSoul|DiamondSoulLVL																																										SR:DiamondSoul	SOURCEPAGE:ClassesI.rtf
-Quivering Palm			TYPE:Special.Supernatural	VISIBLE:NO	SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC							DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10	DEFINE:QuiveringPalmLVL|0																																																						BONUS:VAR|QuiveringPalmDC|QuiveringPalmLVL/2+WIS																																												SOURCEPAGE:ClassesI.rtf
+Quivering Palm			TYPE:Special.Supernatural	VISIBLE:NO	SA:Quivering Palm (Su) %/week (DC %)|QuiveringPalm|QuiveringPalmDC							DEFINE:QuiveringPalm|1	DEFINE:QuiveringPalmDC|10	DEFINE:QuiveringPalmLVL|0																																																						BONUS:VAR|QuiveringPalmDC|QuiveringPalmLVL/2+WIS																																											SOURCEPAGE:ClassesI.rtf
 Timeless Body			TYPE:Special.Extraordinary	VISIBLE:NO	SA:Timeless Body (Ex)																																																																																																																																					SOURCEPAGE:ClassesI.rtf
 Tongue of the Sun and Moon	TYPE:Special.Extraordinary	VISIBLE:NO	SA:Tongue of the Sun and Moon (Ex)																																																																																																																																			SOURCEPAGE:ClassesI.rtf
 Empty Body				TYPE:Special.Supernatural	VISIBLE:NO	SA:Empty Body (Su) % rounds/day|EmptyBody												DEFINE:EmptyBody|0	DEFINE:EmptyBodyLVL|0																																																												BONUS:VAR|EmptyBody|EmptyBodyLVL
