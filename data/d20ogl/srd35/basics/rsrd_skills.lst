@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 11 02:10:49 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Tue Sep 26 16:51:57 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 
@@ -16,9 +16,9 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Type					Visible		Bonus to skill																																										Source Page						Choose			Bonus to skill rank																																																																Modify VAR										Temporary effect description
 Appraise						KEYSTAT:INT								TYPE:Intelligence																																																		SOURCEPAGE:SkillsI.rtf
 Balance						KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						BONUS:SKILL|Balance|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK																																	SOURCEPAGE:SkillsI.rtf
-Bluff							KEYSTAT:CHA								TYPE:Charisma						BONUS:SKILL|Disguise|SynergyBonus|PRESKILL:1,Bluff=5|PREAPPLY:PC|TYPE=TempSynergy																															SOURCEPAGE:SkillsI.rtf																																																																																						TEMPDESC:If you have 5 or more ranks in Bluff, you get a +2 bonus on Disguise checks when you know that you're being observed and you try to act in character
-Climb							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial																																				SOURCEPAGE:SkillsI.rtf
-Concentration					KEYSTAT:CON								TYPE:Constitution																																																		SOURCEPAGE:SkillsI.rtf
+Bluff							KEYSTAT:CHA								TYPE:Charisma																																																		SOURCEPAGE:SkillsI.rtf
+Climb							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial	BONUS:SKILL|Climb (Using a rope)|SKILL.Climb.MISC																											SOURCEPAGE:SkillsI.rtf								BONUS:SKILLRANK|Climb (Using a rope)|SKILLRANK=Climb|PRESKILL:1,Use Rope=5
+Concentration					KEYSTAT:CON								TYPE:Constitution						BONUS:SKILL|Concentration (Cast defensively)|SKILL.Concentration.MISC																																	SOURCEPAGE:SkillsI.rtf								BONUS:SKILLRANK|Concentration (Cast Defensively)|SKILLRANK=Concentration|PREVARGT:var("SKILL.Concentration (Cast defensively).MISC"),var("SKILL.Concentration.MISC")
 Control Shape					KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																																																			SOURCEPAGE:MonstersK-L.rtf
 Craft (Alchemy)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft																																																	SOURCEPAGE:SkillsI.rtf
 Craft (Armorsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					BONUS:SKILL|Craft (Armorsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ArmorsmithingTools|PREAPPLY:PC																												SOURCEPAGE:SkillsI.rtf																																																																																						TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
@@ -38,8 +38,8 @@ Craft (Untrained)					KEYSTAT:INT	USEUNTRAINED:YES					TYPE:Intelligence.Craft		
 Decipher Script					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence																																																		SOURCEPAGE:SkillsI.rtf
 Diplomacy						KEYSTAT:CHA								TYPE:Charisma						BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Knowledge (Nobility and Royalty)=5|TYPE=Synergy.STACK	SOURCEPAGE:SkillsI.rtf
 Disable Device					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						BONUS:SKILL|Disable Device|-2|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC																																	SOURCEPAGE:SkillsI.rtf																																																																																						TEMPDESC:Without tools, you must improvise, and you take a -2 circumstance penalty
-Disguise						KEYSTAT:CHA								TYPE:Charisma																																																		SOURCEPAGE:SkillsI.rtf
-Escape Artist					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																																																		SOURCEPAGE:SkillsI.rtf
+Disguise						KEYSTAT:CHA								TYPE:Charisma						BONUS:SKILL|Disguise (Act in character)|SKILL.Disguise.MISC																																			SOURCEPAGE:SkillsI.rtf								BONUS:SKILLRANK|Disguise (Act in character)|SKILLRANK=Disguise|PRESKILL:1,Bluff=5
+Escape Artist					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						BONUS:SKILL|Escape Artist (Escape from rope bonds)|SKILL.Escape Artist.MISC																																SOURCEPAGE:SkillsI.rtf								BONUS:SKILLRANK|Escape Artist (Escape from rope bonds)|SKILLRANK=Escape Artist|PRESKILL:1,Use Rope=5
 Forgery						KEYSTAT:INT								TYPE:Intelligence																																																		SOURCEPAGE:SkillsI.rtf
 Gather Information				KEYSTAT:CHA								TYPE:Charisma						BONUS:SKILL|Gather Information|SynergyBonus|PRESKILL:1,Knowledge (Local)=5|TYPE=Synergy.STACK																													SOURCEPAGE:SkillsI.rtf
 Handle Animal					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma																																																		SOURCEPAGE:SkillsI.rtf
@@ -79,20 +79,30 @@ Search						KEYSTAT:INT								TYPE:Intelligence						BONUS:SKILL|Search|Synergy
 Sense Motive					KEYSTAT:WIS								TYPE:Wisdom																																																			SOURCEPAGE:SkillsII.rtf
 Sleight of Hand					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						BONUS:SKILL|Sleight of Hand|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK																															SOURCEPAGE:SkillsII.rtf
 Speak Language							USEUNTRAINED:NO					TYPE:None.Language																																																	SOURCEPAGE:SkillsII.rtf				CHOOSE:Language(Spoken)
-Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK																														SOURCEPAGE:SkillsII.rtf
+Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SKILL.Spellcraft.MISC																		SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Spellcraft (Decipher spell on scroll)|SKILLRANK=Spellcraft|PRESKILL:1,Use Magic Device=5
 Spot							KEYSTAT:WIS								TYPE:Wisdom																																																			SOURCEPAGE:SkillsII.rtf
 Survival						KEYSTAT:WIS								TYPE:Wisdom							BONUS:SKILL|Survival (Underground),Survival (The Planes),Survival (Natural environments),Survival (Lost/Natural hazards)|SKILL.Survival.MISC																					SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Survival (Underground)|SKILLRANK=Survival|PRESKILL:1,Knowledge (Dungeoneering)=5	BONUS:SKILLRANK|Survival (The Planes)|SKILLRANK=Survival|PRESKILL:1,Knowledge (The Planes)=5	BONUS:SKILLRANK|Survival (Natural environments)|SKILLRANK=Survival|PRESKILL:1,Knowledge (Nature)=5	BONUS:SKILLRANK|Survival (Lost/Natural hazards)|SKILLRANK=Survival|PRESKILL:1,Knowledge (Geography)=5
 Swim							KEYSTAT:STR				ACHECK:DOUBLE		TYPE:Strength						BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial																																					SOURCEPAGE:SkillsII.rtf
 Tumble						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK																																	SOURCEPAGE:SkillsII.rtf
-Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma																																																		SOURCEPAGE:SkillsII.rtf
-Use Rope						KEYSTAT:DEX								TYPE:Dexterity						BONUS:SKILL|Escape Artist,Climb|SynergyBonus|PRESKILL:1,Use Rope=5|PREAPPLY:PC|TYPE=TempSynergy																													SOURCEPAGE:SkillsII.rtf																																																																																						TEMPDESC:If you have 5 or more ranks in Use Rope, you get a +2 bonus on Climb checks made to climb a rope, a knotted rope, or a rope-and-wall combination. If you have 5 or more ranks in Use Rope, you get a +2 bonus on Escape Artist checks when escaping from rope bonds.
+Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma						BONUS:SKILL|Use Magic Device (Scroll)|SKILL.Use Magic Device.MISC																																		SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Use Magic Device (Scroll)|SKILLRANK=Use Magic Device|PRESKILL:1,Decipher Script=5	BONUS:SKILLRANK|Use Magic Device (Scroll)|SKILLRANK=Use Magic Device|PRESKILL:1,Spellcraft=5
+Use Rope						KEYSTAT:DEX								TYPE:Dexterity						BONUS:SKILL|Use Rope (Bind someone)|SKILL.Use Rope.MISC																																			SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Use Rope (Bind someone)|SKILLRANK=Use Rope|PRESKILL:1,Escape Artist=5
 
-###Block: Survival variants, these are not true skills but circumstantial variants of Survival
-# Skill Name				Key Stat	Untrained?		Type		Visible		Bonus to skill																	Source Page
-Survival (Underground)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom	VISIBLE:EXPORT	BONUS:SKILL|Survival (Underground)|SynergyBonus|PRESKILL:1,Knowledge (Dungeoneering)=5|TYPE=Synergy.STACK		SOURCEPAGE:SkillsII.rtf
-Survival (The Planes)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom	VISIBLE:EXPORT	BONUS:SKILL|Survival (The Planes)|SynergyBonus|PRESKILL:1,Knowledge (The Planes)=5|TYPE=Synergy.STACK			SOURCEPAGE:SkillsII.rtf
-Survival (Natural environments)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom	VISIBLE:EXPORT	BONUS:SKILL|Survival (Natural environments)|SynergyBonus|PRESKILL:1,Knowledge (Nature)=5|TYPE=Synergy.STACK		SOURCEPAGE:SkillsII.rtf
-Survival (Lost/Natural hazards)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom	VISIBLE:EXPORT	BONUS:SKILL|Survival (Lost/Natural hazards)|SynergyBonus|PRESKILL:1,Knowledge (Geography)=5|TYPE=Synergy.STACK	SOURCEPAGE:SkillsII.rtf
+###Block: Expanding Survival variants to all skills for contigent Synergies. - Tir Gwaith
+# Skill Name					Key Stat	Untrained?		Type					Visible		Bonus to skill																															Source Page
+Climb (Using a rope)				KEYSTAT:STR	USEUNTRAINED:NO	TYPE:Subskill.Strength		VISIBLE:EXPORT	BONUS:SKILL|Climb (Using a rope)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																			SOURCEPAGE:SkillsI.rtf
+Concentration (Cast defensively)		KEYSTAT:CON	USEUNTRAINED:NO	TYPE:Subskill.Constitution	VISIBLE:EXPORT																																		SOURCEPAGE:SkillsI.rtf
+Disguise (Act in character)			KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Subskill.Charisma		VISIBLE:EXPORT	BONUS:SKILL|Disguise (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5																		SOURCEPAGE:SkillsI.rtf
+Escape Artist (Escape from rope bonds)	KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																SOURCEPAGE:SkillsI.rtf
+Spellcraft (Decipher spell on scroll)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Subskill.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5															SOURCEPAGE:SkillsII.rtf
+Survival (Underground)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Underground)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5																SOURCEPAGE:SkillsII.rtf
+Survival (The Planes)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (The Planes)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5																	SOURCEPAGE:SkillsII.rtf
+Survival (Natural environments)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Natural environments)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5																SOURCEPAGE:SkillsII.rtf
+Survival (Lost/Natural hazards)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Lost/Natural hazards)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5															SOURCEPAGE:SkillsII.rtf
+Survival (Find or follow tracks)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Find or follow tracks)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5																	SOURCEPAGE:SkillsII.rtf
+Use Magic Device (Scroll)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Subskill.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5	SOURCEPAGE:SkillsII.rtf
+Use Rope (Bind someone)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Use Rope (Bind someone)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Escape Artist=5																		SOURCEPAGE:SkillsII.rtf
+
+#Swim (Avoid taking nonlethal fatigue damage)	+4 from Endurance....
 
 #
 # End
