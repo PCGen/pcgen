@@ -1318,7 +1318,7 @@ BIO
 		<feat>
 			<name>Cleave</name>
 			<description>If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1328,7 +1328,7 @@ BIO
 		<feat>
 			<name>Improved Bull Rush</name>
 			<description>When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1338,7 +1338,7 @@ BIO
 		<feat>
 			<name>Improved Overrun</name>
 			<description>When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1358,7 +1358,7 @@ BIO
 		<feat>
 			<name>Power Attack</name>
 			<description>On your action, before making attack rolls for a round, you may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed your base attack bonus.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1416,7 +1416,7 @@ BIO
 		<feat>
 			<name>Oversized Weapon (Ex) (Morningstar)</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIAL.EXTRAORDINARY</type>
 			<associated>Morningstar</associated>
 			<count>1</count>
 			<auto>T</auto>

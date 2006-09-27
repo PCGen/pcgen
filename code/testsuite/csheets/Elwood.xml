@@ -1214,7 +1214,7 @@ BIO
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties></special_properties>
+				<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
 				<template></template>
 				<type>Ba</type>
 				<weight>3</weight>

@@ -1294,7 +1294,7 @@ BIO
 		<feat>
 			<name>Combat Reflexes</name>
 			<description>You may make a number of additional attacks of opportunity equal to your Dexterity bonus.</description>
-			<type>GENERAL.FIGHTER</type>
+			<type>GENERAL.FIGHTER.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
