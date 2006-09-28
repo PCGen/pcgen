@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Sep 28 04:07:44 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus
@@ -48,7 +48,7 @@ CLASS:Brute		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Jump|Ride|Swim
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Elf Treerunner	HD:10		TYPE:PC.Prestige	ABB:ETr		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat				Required Race		Required Skill
-CLASS:Elf Treerunner	PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Wilderness Lore=4	PRESKILL:2,Jump,Balance=6
+CLASS:Elf Treerunner	PREATT:5	PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:1,Climb=8	PRESKILL:1,Wilderness Lore=4	PRESKILL:2,Jump,Balance=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Swim|Wilderness Lore
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
@@ -213,16 +213,16 @@ CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	B
 CLASS:Sharpshooter	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Weapon Focus (Shortbow%),Weapon Focus (Longbow%),Weapon Focus (Crossbow%)	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sharpshooter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Ride|Swim
-1	SA:Eagle Eye Shot % x DEX|Eagle				DEFINE:Eagle|2
-2	SA:Low-light Vision
-3	SA:Disarming Shot
-4													ADD:FEAT(Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Mounted Archery,Quick Draw,Rapid Shot,Shot on the Run,Weapon Focus)
-5	SA:Stumbling Shot
-6	SA:Intimidating Shot			BONUS:VAR|Eagle|1
-7	SA:Covering Fire
-8													ADD:FEAT(Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Mounted Archery,Quick Draw,Rapid Shot,Shot on the Run,Weapon Focus)
-9	SA:Immobilizing Shot
-10	SA:Killing Shot
+1				SA:Eagle Eye Shot % x DEX|Eagle				DEFINE:Eagle|2
+2	VISION:Low-light	SA:Low-light Vision
+3				SA:Disarming Shot
+4																ADD:FEAT(Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Mounted Archery,Quick Draw,Rapid Shot,Shot on the Run,Weapon Focus)
+5				SA:Stumbling Shot
+6				SA:Intimidating Shot			BONUS:VAR|Eagle|1
+7				SA:Covering Fire
+8																ADD:FEAT(Exotic Weapon Proficiency,Improved Critical,Improved Initiative,Mounted Archery,Quick Draw,Rapid Shot,Shot on the Run,Weapon Focus)
+9				SA:Immobilizing Shot
+10				SA:Killing Shot
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -248,7 +248,7 @@ CLASS:Shieldbearer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE.Craft|Escape Artist
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Spellbreaker	HD:8		TYPE:PC.Prestige	ABB:SpB		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Race	Required Skill
-CLASS:Spellbreaker	PREATT:5	PRERACE:Dwarf%	PRESKILL:2,Knowledge (Arcana),Spellcraft=5
+CLASS:Spellbreaker	PREATT:5	PRERACE:1,Dwarf%	PRESKILL:2,Knowledge (Arcana),Spellcraft=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spellbreaker	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Jump|Knowledge (Arcana)|Ride|Spellcraft|Swim
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
