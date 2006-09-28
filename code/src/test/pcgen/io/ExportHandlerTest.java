@@ -31,10 +31,13 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.character.EquipSet;
 import pcgen.io.ExportHandler;
@@ -50,6 +53,7 @@ import pcgen.io.ExportHandler;
  * @version $Revision$
  */
 
+@SuppressWarnings("nls")
 public class ExportHandlerTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
@@ -75,14 +79,21 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/*
-	 * @see TestCase#setUp()
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
+		final LevelInfo levelInfo = new LevelInfo();
+		levelInfo.setLevelString("LEVEL");
+		levelInfo.setMaxClassSkillString("LEVEL+3");
+		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
+		SettingsHandler.getGame().addLevelInfo(levelInfo);
+		
 		//Stats
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
@@ -98,7 +109,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		PCClass myClass = new PCClass();
 		myClass.setName("My Class");
 		myClass.setSkillPointFormula("3");
-		character.incrementClassLevel(1, myClass, true);
+		character.incrementClassLevel(5, myClass, true);
 
 		//Skills
 		knowledge = new Skill[2];
@@ -109,6 +120,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[0].setKeyStat("INT");
 		knowledge[0].modRanks(8.0, myClass, true, character);
 		knowledge[0].setOutputIndex(2);
+		Globals.getSkillList().add(knowledge[0]);
 		character.addSkill(knowledge[0]);
 
 		knowledge[1] = new Skill();
@@ -118,6 +130,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[1].setKeyStat("INT");
 		knowledge[1].modRanks(5.0, myClass, true, character);
 		knowledge[1].setOutputIndex(3);
+		Globals.getSkillList().add(knowledge[1]);
 		character.addSkill(knowledge[1]);
 
 		tumble = new Skill();
@@ -127,6 +140,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.setKeyStat("DEX");
 		tumble.modRanks(7.0, myClass, true, character);
 		tumble.setOutputIndex(4);
+		Globals.getSkillList().add(tumble);
 		character.addSkill(tumble);
 
 		balance = new Skill();
@@ -138,6 +152,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.setOutputIndex(1);
 		balance
 			.addBonusList("SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
+		Globals.getSkillList().add(balance);
 		character.addSkill(balance);
 
 		character.calcActiveBonuses();
@@ -152,9 +167,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		gem.setQty(1);
 	}
 
-	/*
-	 * @see TestCase#tearDown()
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		knowledge = null;

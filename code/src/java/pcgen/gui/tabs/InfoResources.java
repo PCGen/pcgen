@@ -629,8 +629,10 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 		pc.addFollower(newFollower);
 		pc.setDirty(true);
 		pc.setCalcFollowerBonus(pc);
-		pc.setAggregateFeatsStable(false);
-		pc.setVirtualFeatsStable(false);
+		pc.setAggregateAbilitiesStable(null, false);
+		// TODO - Why doesn't this set auto abilities unstable?
+//		pc.setAggregateFeatsStable(false);
+//		pc.setVirtualFeatsStable(false);
 
 		ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("InfoResources.SaveAndSwitch", nName),  //$NON-NLS-1$
 				Constants.s_APPNAME, MessageType.INFORMATION);

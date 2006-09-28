@@ -216,7 +216,7 @@ public class PCClass extends PObject {
 	private HashMap<String, String> attackCycleMap = null;
 
 	
-	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
+//	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
 	
 	/**
 	 * Default Constructor. Constructs an empty PCClass.
@@ -410,8 +410,8 @@ public class PCClass extends PObject {
 				if ((aLevel <= asLevel) && theName.equals(mname)) {
 					final String aString = breakOnPipes.nextToken();
 					final List<Prerequisite> localPreReqList = new ArrayList<Prerequisite>();
-					if (bonus.getPrereqList() != null) {
-						localPreReqList.addAll(bonus.getPrereqList());
+					if (bonus.hasPreReqs()) {
+						localPreReqList.addAll(bonus.getPreReqList());
 					}
 
 					// TODO: This code should be removed after the 5.8 release
@@ -837,26 +837,26 @@ public class PCClass extends PObject {
 		return Collections.unmodifiableList(featAutos);
 	}
 
-	public Collection<String> getAutoAbilityList(final AbilityCategory aCategory)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			return getFeatAutos();
-		}
-		if ( theAutoAbilities == null )
-		{
-			return Collections.emptyList();
-		}
-		final List<String> ret = new ArrayList<String>();
-		for ( final int lvl : theAutoAbilities.getSecondaryKeySet(aCategory) )
-		{
-			if ( lvl <= level )
-			{
-				ret.addAll(theAutoAbilities.get(aCategory, lvl));
-			}
-		}
-		return Collections.unmodifiableList(ret);
-	}
+//	public Collection<String> getAutoAbilityList(final AbilityCategory aCategory)
+//	{
+//		if ( aCategory == AbilityCategory.FEAT )
+//		{
+//			return getFeatAutos();
+//		}
+//		if ( theAutoAbilities == null )
+//		{
+//			return Collections.emptyList();
+//		}
+//		final List<String> ret = new ArrayList<String>();
+//		for ( final int lvl : theAutoAbilities.getSecondaryKeySet(aCategory) )
+//		{
+//			if ( lvl <= level )
+//			{
+//				ret.addAll(theAutoAbilities.get(aCategory, lvl));
+//			}
+//		}
+//		return Collections.unmodifiableList(ret);
+//	}
 	/**
 	 * Removes an AUTO feat from the list of feats this class grants.
 	 * 
@@ -872,23 +872,23 @@ public class PCClass extends PObject {
 		featAutos.remove(Integer.toString(aLevel) + Constants.PIPE + aFeat);
 	}
 
-	public void removeAutoAbility(final AbilityCategory aCategory, final int aLevel, final String aKey)	
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			removeFeatAuto(aLevel, aKey);
-			return;
-		}
-		if ( theAutoAbilities == null )
-		{
-			return;
-		}
-		final List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
-		if ( abilities != null )
-		{
-			abilities.remove(aKey);
-		}
-	}
+//	public void removeAutoAbility(final AbilityCategory aCategory, final int aLevel, final String aKey)	
+//	{
+//		if ( aCategory == AbilityCategory.FEAT )
+//		{
+//			removeFeatAuto(aLevel, aKey);
+//			return;
+//		}
+//		if ( theAutoAbilities == null )
+//		{
+//			return;
+//		}
+//		final List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
+//		if ( abilities != null )
+//		{
+//			abilities.remove(aKey);
+//		}
+//	}
 	
 	public final List<String> getFeatList() {
 		if (featList == null) {
@@ -2009,24 +2009,24 @@ public class PCClass extends PObject {
 		}
 	}
 
-	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			setFeatAutos(aLevel, CoreUtility.join(aList, Constants.PIPE));
-			return;
-		}
-		if ( theAutoAbilities == null )
-		{
-			theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>();
-		}
-		List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
-		if ( abilities == null )
-		{
-			abilities = new ArrayList<String>();
-		}
-		abilities.addAll(aList);
-	}
+//	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
+//	{
+//		if ( aCategory == AbilityCategory.FEAT )
+//		{
+//			setFeatAutos(aLevel, CoreUtility.join(aList, Constants.PIPE));
+//			return;
+//		}
+//		if ( theAutoAbilities == null )
+//		{
+//			theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>();
+//		}
+//		List<String> abilities = theAutoAbilities.get(aCategory, aLevel);
+//		if ( abilities == null )
+//		{
+//			abilities = new ArrayList<String>();
+//		}
+//		abilities.addAll(aList);
+//	}
 	
 	public void setHitPoint(final int aLevel, final Integer iRoll) {
 		if (hitPointMap == null) {
@@ -2906,13 +2906,17 @@ public class PCClass extends PObject {
 					// selected.
 					// Should we be passing in the BonusObj here to allow it to
 					// be referenced in Qualifies statements?
-					if (PrereqHandler.passesAll(bonus.getPrereqList(), aPC,
-							null)) {
+					if ( bonus.qualifies(aPC) )
+					{
 						bonus.setApplied(true);
-					} else {
+					} 
+					else 
+					{
 						bonus.setApplied(false);
 					}
-				} else {
+				} 
+				else 
+				{
 					bonus.setApplied(true);
 				}
 			}
@@ -3300,10 +3304,10 @@ public class PCClass extends PObject {
 			if (featAutos != null) {
 				aClass.featAutos = new ArrayList<String>(featAutos);
 			}
-			if ( theAutoAbilities != null )
-			{
-				aClass.theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>(theAutoAbilities);
-			}
+//			if ( theAutoAbilities != null )
+//			{
+//				aClass.theAutoAbilities = new DoubleKeyMap<AbilityCategory, Integer, List<String>>(theAutoAbilities);
+//			}
 			// TODO - Why is this not copying the skillList from the master?
 			aClass.skillList = null;
 
@@ -4132,7 +4136,8 @@ public class PCClass extends PObject {
 			}
 		}
 
-		aPC.setAutomaticFeatsStable(false);
+		aPC.setAutomaticAbilitiesStable(null, false);
+//		aPC.setAutomaticFeatsStable(false);
 		doPlusLevelMods(newLevel, aPC, pcLevelInfo);
 
 		// Don't roll the hit points if the gui is not being used.
@@ -4650,7 +4655,8 @@ public class PCClass extends PObject {
 				aPC.setSkillPoints(0);
 				// aPC.setFeats(0);
 				aPC.getSkillList().clear();
-				aPC.clearRealFeats();
+				aPC.clearRealAbilities(null);
+//				aPC.clearRealFeats();
 				aPC.getWeaponProfList().clear();
 			} else {
 				aPC.setSkillPoints(aPC.getSkillPoints() - spMod);
@@ -5908,18 +5914,18 @@ public class PCClass extends PObject {
 		return;
 	}
 	
-	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			removeAllAutoFeats(aLevel);
-			return;
-		}
-		
-		if ( theAutoAbilities == null )
-		{
-			return;
-		}
-		theAutoAbilities.put(aCategory, aLevel, null);
-	}
+//	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
+//	{
+//		if ( aCategory == AbilityCategory.FEAT )
+//		{
+//			removeAllAutoFeats(aLevel);
+//			return;
+//		}
+//		
+//		if ( theAutoAbilities == null )
+//		{
+//			return;
+//		}
+//		theAutoAbilities.put(aCategory, aLevel, null);
+//	}
 }

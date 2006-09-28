@@ -22,6 +22,7 @@ import pcgen.core.SizeAdjustment;
  *
  * @author frugal@purplewombat.co.uk
  */
+@SuppressWarnings("nls")
 abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 	private PlayerCharacter character = null;
 
@@ -30,6 +31,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 	 * Object.
 	 * @throws Exception
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -180,9 +182,11 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 		align.setKeyName(shortName);
 		return align;
 	}
-	/* (non-Javadoc)
+
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		character = null;
@@ -198,11 +202,11 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 	}
 
 	/**
-	 * @param character The character to set.
+	 * @param aCharacter The character to set.
 	 */
-	public void setCharacter(final PlayerCharacter character)
+	public void setCharacter(final PlayerCharacter aCharacter)
 	{
-		this.character = character;
+		this.character = aCharacter;
 	}
 
 	/**

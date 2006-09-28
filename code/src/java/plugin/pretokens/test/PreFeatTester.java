@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -312,14 +313,14 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 						"PreFeat.type.toHtml", new Object[] {
 								prereq.getOperator().toDisplayString(),
 								prereq.getOperand(),
-								SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES).toLowerCase(),
+								AbilityCategory.FEAT.getDisplayName().toLowerCase(),
 								aString.substring(5)
 							});
 		}
 		// {2} {3} {1} {0}
 		return PropertyFactory.getFormattedString(
 						"PreFeat.toHtml", new Object[] {
-								SettingsHandler.getGame().getSingularTabName(Tab.ABILITIES).toLowerCase(),
+								AbilityCategory.FEAT.getDisplayName().toLowerCase(),
 								aString,
 								prereq.getOperator().toDisplayString(),
 								prereq.getOperand() }); //$NON-NLS-1$

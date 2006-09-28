@@ -61,12 +61,16 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		 * 
 		 * @return A <tt>Nature</tt> or <tt>null</tt> if not found.
 		 */
-		public static Nature get(final String aKey)
+		public static Nature get(final String aKey, final boolean exact)
 		{
 			for ( final Nature nature : Nature.values() )
 			{
-				if ( nature.toString().equalsIgnoreCase(aKey) )
+				if ( nature.toString().startsWith(aKey) )
 				{
+					if ( exact && !nature.toString().equalsIgnoreCase(aKey) )
+					{
+						return null;
+					}
 					return nature;
 				}
 			}
@@ -259,7 +263,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	/**
 	 * Really badly named method.
 	 *
-	 * @return  an integer representing the abilityType
+	 * @return  The nature of this feat.
 	 */
 	public Nature getFeatType()
 	{

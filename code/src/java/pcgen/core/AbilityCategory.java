@@ -59,8 +59,12 @@ public class AbilityCategory implements KeyedObject
 	private boolean theAllowFractionalPoolFlag = false;
 
 	/** A constant used to refer to the &quot;Feat&quot; category. */
-	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feats"); //$NON-NLS-1$ //$NON-NLS-2$
+	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feat"); //$NON-NLS-1$ //$NON-NLS-2$
 	
+	static
+	{
+		FEAT.thePluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
+	}
 	/**
 	 * Constructs a new <tt>AbilityCategory</tt> with the specified key.
 	 * 

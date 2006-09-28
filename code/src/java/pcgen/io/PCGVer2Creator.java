@@ -268,6 +268,10 @@ final class PCGVer2Creator implements IOConstants
 		appendNewline(buffer);
 		appendComment("Character Feats", buffer); //$NON-NLS-1$
 		appendFeatLines(buffer);
+		
+		appendNewline(buffer);
+		appendComment("Character Abilities", buffer); //$NON-NLS-1$
+		appendAbilityLines(buffer);
 
 		/*
 		 * #Character Weapon proficiencies
@@ -1259,7 +1263,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendFeatLines(StringBuffer buffer)
 	{
-		final List<Ability> allFeats = thePC.getRealFeatsList();
+		final List<Ability> allFeats = new ArrayList<Ability>(thePC.getRealAbilityList(AbilityCategory.FEAT));
 
 		// Remember if this was a virtual feat or not
 		final List<Ability> vFeats = new ArrayList<Ability>();
@@ -1401,6 +1405,84 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(thePC.getRawFeats(false));
 		buffer.append(LINE_SEP);
 		allFeats.removeAll(vFeats);
+	}
+
+	/*
+	 * ###############################################################
+	 * Character Ability methods
+	 * ###############################################################
+	 */
+	private void appendAbilityLines(StringBuffer buffer)
+	{
+		for ( final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories() )
+		{
+			if ( cat.isEditable() == true )
+			{
+				final List<Ability> abilitiesToSave = thePC.getRealAbilitiesList(cat);
+				for ( final Ability vability : thePC.getVirtualAbilityList(cat) )
+				{
+					if ( vability.needsSaving() )
+					{
+						abilitiesToSave.add( vability );
+					}
+				}
+				// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
+				for ( final Ability ability : abilitiesToSave )
+				{
+					buffer.append(TAG_ABILITY).append(TAG_END);
+					buffer.append(EntityEncoder.encode(cat.getKeyName())).append(TAG_SEPARATOR);
+					buffer.append(EntityEncoder.encode(ability.getFeatType().toString())).append(TAG_SEPARATOR);
+					buffer.append(EntityEncoder.encode(ability.getCategory())).append(TAG_SEPARATOR);
+					buffer.append(EntityEncoder.encode(ability.getKeyName())).append(TAG_SEPARATOR);
+					int it2 = 0;
+					if ( ability.isMultiples() )
+					{
+						// TODO - 
+						buffer.append(TAG_APPLIEDTO).append(TAG_END);
+						if (ability.getAssociatedObject(0) instanceof FeatMultipleChoice)
+						{
+							buffer.append(TAG_MULTISELECT).append(':');
+						}
+						for (; it2 < ability.getAssociatedCount(); ++it2)
+						{
+							if ( it2 > 0 && it2 < ability.getAssociatedCount() - 1)
+							{
+								buffer.append(Constants.COMMA);
+							}
+							buffer.append(EntityEncoder.encode(ability.getAssociated(it2)));
+						}
+						buffer.append(TAG_SEPARATOR);
+					}
+					buffer.append(TAG_TYPE).append(TAG_END);
+					buffer.append(EntityEncoder.encode(ability.getType()));
+
+					// TODO - No idea what the heck this is for
+					int it3 = 0;
+					int maxit3 = ability.getSizeOfListFor(ListKey.SAVE);
+					if (ability.getAssociatedCount() == maxit3)
+					{
+						it3 = it2;
+						maxit3 = it3 + 1;
+					}
+
+					for (; it3 < maxit3; ++it3)
+					{
+						buffer.append(TAG_SAVE).append(':');
+						buffer.append(EntityEncoder.encode(ability.getElementInList(ListKey.SAVE, it3)));
+						buffer.append(TAG_SEPARATOR);
+					}
+
+					buffer.append(TAG_DESC).append(':');
+					buffer.append(EntityEncoder.encode(ability.getDescription()));
+
+					buffer.append(LINE_SEP);
+				}
+				buffer.append(TAG_USERPOOL).append(TAG_END);
+				buffer.append(EntityEncoder.encode(cat.toString())).append(TAG_SEPARATOR);
+				buffer.append(thePC.getUserPoolBonus(cat));
+				buffer.append(LINE_SEP);
+			}
+		}
 	}
 
 	/**
@@ -2339,7 +2421,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected feat bonus weapons
 		//
-		for ( final Ability feat : thePC.getRealFeatsList() )
+		for ( final Ability feat : thePC.getRealAbilityList(AbilityCategory.FEAT) )
 		{
 			appendWeaponProficiencyLines(buffer, feat);
 		}

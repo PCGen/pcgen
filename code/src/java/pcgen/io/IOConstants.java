@@ -424,4 +424,7 @@ interface IOConstants
 	String TAG_WEIGHT     = "WEIGHT";
 	/** WT */
 	String TAG_WT         = "WT";
+	
+	/** USERPOOL - The amount the user has modified the pool by. */
+	String TAG_USERPOOL = "USERPOOL";
 }

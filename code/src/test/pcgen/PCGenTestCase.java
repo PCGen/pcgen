@@ -21,8 +21,14 @@ import pcgen.util.testchecker.*;
  * @author <a href="binkley@alumni.rice.edu">B. K Oxley (binkley)</a>
  * @version $Id$
  */
+@SuppressWarnings("nls")
 public abstract class PCGenTestCase extends TestCase
 {
+	/**
+	 * Sets up some basic stuff that must be present for tests to work.
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -60,6 +66,7 @@ public abstract class PCGenTestCase extends TestCase
 	 *
 	 * @throws Throwable
 	 */
+	@Override
 	public void runBare() throws Throwable
 	{
 		setUp();

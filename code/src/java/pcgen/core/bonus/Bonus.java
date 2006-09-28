@@ -25,6 +25,7 @@
  */
 package pcgen.core.bonus;
 
+import pcgen.core.Constants;
 import pcgen.core.bonus.BonusObj.StackType;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -97,7 +98,7 @@ public class Bonus
 				return key;
 			}
 		}
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
 	/**
@@ -105,6 +106,7 @@ public class Bonus
 	 * after the bonuses they depend on.
 	 * 
 	 * @param listToSort The <tt>List</tt> of bonuses to sort.
+	 * @return The sorted list.
 	 */
 	public static List<BonusObj> sortBonusList(List<BonusObj> listToSort)
 	{
@@ -155,7 +157,7 @@ public class Bonus
 
 		listToSort = tempList;
 
-		tempList.clear();
+		final ArrayList<BonusObj> tempList2 = new ArrayList<BonusObj>();
 
 		// go through and move all the static bonuses to the front
 		final int aSize = listToSort.size();
@@ -164,20 +166,24 @@ public class Bonus
 			final BonusObj bonus = listToSort.get(i);
 			if (bonus.isValueStatic())
 			{
-				tempList.add(0, bonus);
+				tempList2.add(0, bonus);
 			}
 			else
 			{
-				tempList.add(bonus);
+				tempList2.add(bonus);
 			}
 		}
-		return tempList;
+		listToSort = tempList2;
+		return tempList2;
 	}
 
 	/**
 	 * Create a new Bonus
 	 * @param bonusString
 	 * @return BonusObj
+	 * 
+	 * TODO - This is doing all manner of string parsing.  It really belongs in
+	 * the persistence layer.
 	 */
 	public static BonusObj newBonus(final String bonusString)
 	{
@@ -186,9 +192,9 @@ public class Bonus
 		final int typeOfBonus;
 		int aLevel = -1;
 
-		StringTokenizer aTok = new StringTokenizer(bonusString, "|");
+		StringTokenizer aTok = new StringTokenizer(bonusString, Constants.PIPE);
 
-		if (aTok.countTokens() < 3 && bonusString.indexOf("%") < 0)
+		if (aTok.countTokens() < 3 && bonusString.indexOf('%') < 0)
 		{
 			Logging.errorPrint("Illegal bonus format: " + bonusString);
 

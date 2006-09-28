@@ -932,6 +932,7 @@ public final class BioSet extends PObject
 	 * the normal fashion.
 	 * 
 	 * @see pcgen.core.PObject#getActiveBonuses(pcgen.core.PlayerCharacter)
+	 * <p><b>TODO</b> - Change this to store the bonuses like normal PObjects 
 	 */
 	@Override
 	public List<BonusObj> getActiveBonuses( final PlayerCharacter aPC )

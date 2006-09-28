@@ -411,7 +411,8 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager<S
 		final List<String>             selected)
 	{
 		pobject.clearSelectedWeaponProfBonus();
-		aPC.setAutomaticFeatsStable(false);
+		aPC.setAutomaticAbilitiesStable(null, false);
+//		aPC.setAutomaticFeatsStable(false);
 
 		Iterator<String> it = selected.iterator();
 

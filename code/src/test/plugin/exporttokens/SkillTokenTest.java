@@ -32,7 +32,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.exporttoken.SkillToken;
@@ -76,8 +75,9 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * @see TestCase#setUp()
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -149,9 +149,10 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 	}
 
-	/*
-	 * @see TestCase#tearDown()
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		knowledge = null;

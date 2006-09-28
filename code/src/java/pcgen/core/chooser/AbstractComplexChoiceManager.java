@@ -141,12 +141,12 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 		choices        = mainList.subList(i, mainList.size());
 
 		maxSelections  = (cost <= 0)
-				? (int)  (aPC.getRawFeats(false) + pobject.getAssociatedCount())
-				: (int) ((aPC.getRawFeats(false) + pobject.getAssociatedCount()) / cost);
+				? (int)  (aPC.getRawFeats(true) + pobject.getAssociatedCount())
+				: (int) ((aPC.getRawFeats(true) + pobject.getAssociatedCount()) / cost);
 
 		maxNewSelections = (cost <= 0)
-				? (int) (aPC.getRawFeats(false))
-				: (int) (aPC.getRawFeats(false) / cost);
+				? (int) (aPC.getRawFeats(true))
+				: (int) (aPC.getRawFeats(true) / cost);
 	}
 
 	/**
@@ -345,7 +345,8 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 		if (objPrefix.length() != 0)
 		{
-			aPC.setAutomaticFeatsStable(false);
+			aPC.setAutomaticAbilitiesStable(null, false);
+//			aPC.setAutomaticFeatsStable(false);
 		}
 	}
 

@@ -482,11 +482,9 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 			return;
 		}
 
+		getPc().setAggregateAbilitiesStable(theCategory, false);
 		if ( theCategory == AbilityCategory.FEAT )
 		{
-			getPc().setAggregateFeatsStable(false);
-			getPc().setAutomaticFeatsStable(false);
-			getPc().setVirtualFeatsStable(false);
 			// Called for side effects
 			getPc().aggregateFeatList();
 		}

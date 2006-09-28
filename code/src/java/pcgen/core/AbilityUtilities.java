@@ -477,7 +477,8 @@ public class AbilityUtilities
 			aPC.adjustFeats(featCount);
 		}
 
-		aPC.setAutomaticFeatsStable(false);
+		aPC.setAutomaticAbilitiesStable(null, false);
+//		aPC.setAutomaticFeatsStable(false);
 
 		if (addIt && !aPC.isImporting())
 		{
@@ -618,7 +619,7 @@ public class AbilityUtilities
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
-		final List<Ability> realAbilities = aPC.getRealFeatsList();
+		final List<Ability> realAbilities = aPC.getRealAbilityList(AbilityCategory.FEAT);
 		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
 
 		// (pcAbility == null) means we don't have this feat,
@@ -878,7 +879,8 @@ public class AbilityUtilities
 			}
 		}
 
-		aPC.setAutomaticFeatsStable(false);
+		aPC.setAutomaticAbilitiesStable(null, false);
+//		aPC.setAutomaticFeatsStable(false);
 	}
 
 	/**
@@ -899,12 +901,15 @@ public class AbilityUtilities
 		//
 		if ((aPc.getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
 		{
-			final StringTokenizer aTok = new StringTokenizer(aPc.getRace().getFeatList(aPc), "|");
+			final StringTokenizer aTok = new StringTokenizer(aPc.getRace().getFeatList(aPc), Constants.PIPE);
 
 			while (aTok.hasMoreTokens())
 			{
-				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aTok.nextToken());
-				added.setFeatType(Ability.Nature.AUTOMATIC);
+				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, Constants.FEAT_CATEGORY, aTok.nextToken());
+				if ( added != null )
+				{
+					added.setFeatType(Ability.Nature.AUTOMATIC);
+				}
 			}
 		}
 

@@ -48,13 +48,20 @@ import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.utils.*;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.EmptyIterator;
+import pcgen.core.utils.IntegerKey;
+import pcgen.core.utils.KeyedListContainer;
+import pcgen.core.utils.ListKey;
+import pcgen.core.utils.ListKeyMapToList;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.core.utils.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
@@ -449,40 +456,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public final boolean getNameIsPI()
 	{
 		return nameIsPI;
-	}
-
-	/**
-	 * Get the list of bonuses for this object
-	 * @return the list of bonuses for this object
-	 */
-	public List<BonusObj> getBonusList()
-	{
-		return bonusList;
-	}
-
-	/**
-	 * Get the list of bounuses of a particular type for this object
-	 * @param aType
-	 * @param aName
-	 * @return the list of bounuses of a particular type for this object
-	 */
-	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
-	{
-		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
-	}
-
-	/**
-	 * Get the map of bonuses for this object
-	 * @return bonusMap
-	 */
-	public HashMap<String, String> getBonusMap()
-	{
-		if (bonusMap == null)
-		{
-			bonusMap = new HashMap<String, String>();
-		}
-
-		return bonusMap;
 	}
 
 	/**
@@ -883,110 +856,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				choices.add( choice.getDefaultChoice() );
 			}
 		}
-	}
-
-	/**
-	 * Add a new bonus to the list of bonuses
-	 * @param aString
-	 * @return true if new bonus is not null
-	 */
-	public final boolean addBonusList(final String aString)
-	{
-		if (bonusList == null)
-		{
-			bonusList = new ArrayList<BonusObj>();
-		}
-
-		final BonusObj aBonus = Bonus.newBonus(aString);
-
-		if (aBonus != null)
-		{
-			aBonus.setCreatorObject(this);
-			addBonusList(aBonus);
-		}
-
-		return (aBonus != null);
-	}
-
-	/**
-	 * returns all BonusObj's that are "active"
-	 * @param aPC A PlayerCharacter object.
-	 * @return active bonuses
-	 */
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
-	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		for ( BonusObj bonus : getBonusList() )
-		{
-			if (bonus.isApplied())
-			{
-				aList.add(bonus);
-			}
-		}
-
-		return aList;
-	}
-
-	/**
-	 * Get the list of bonuses as a String
-	 * @param aString
-	 * @return the list of bonuses as a String
-	 */
-	public boolean getBonusListString(final String aString)
-	{
-		for ( BonusObj bonus : getBonusList() )
-		{
-			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Sets all the BonusObj's to "active"
-	 * @param aPC
-	 */
-	public void activateBonuses(final PlayerCharacter aPC)
-	{
-		for (Iterator<BonusObj> ab = getBonusList().iterator(); ab.hasNext();)
-		{
-			final BonusObj aBonus = ab.next();
-			aBonus.setApplied(false);
-
-			if (aBonus.hasPreReqs())
-			{
-				//TODO: This is a hack to avoid VARs etc in feat defs being qualified
-				// for when Bypass feat prereqs is selected. Should we be passing in
-				// the BonusObj here to allow it to be referenced in Qualifies statements?
-				if (PrereqHandler.passesAll(aBonus.getPrereqList(), aPC, null))
-				{
-					aBonus.setApplied(true);
-				}
-				else
-				{
-					aBonus.setApplied(false);
-				}
-			}
-			else
-			{
-				aBonus.setApplied(true);
-			}
-		}
-	}
-
-	/**
-	 * This function will be required during the continued re-write
-	 * of the BonusObj code -- JSC 8/18/03
-	 *
-	 * @param aBonus
-	 */
-	public final void addBonusList(final BonusObj aBonus)
-	{
-		bonusList.add(aBonus);
 	}
 
 	/**
@@ -1400,17 +1269,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Deactivate all of the bonuses
-	 */
-	public void deactivateBonuses()
-	{
-		for ( BonusObj bonus : getBonusList() )
-		{
-			bonus.setApplied(false);
-		}
-	}
-
-	/**
 	 * Returns true if this object has a variable named variableName
 	 * @param variableName
 	 * @return true if this object has a variable named variableName
@@ -1423,166 +1281,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 
 		return variableList.hasVariableNamed(variableName);
-	}
-
-	/**
-	 * Apply the bonus to a PC, pass through object's default bonuslist
-	 *
-	 * @param aType
-	 * @param aName
-	 * @param obj
-	 * @param aPC
-	 * @return the bonus
-	 */
-	public double bonusTo(final String aType, final String aName, final Object obj, final PlayerCharacter aPC)
-	{
-		return bonusTo(aType, aName, obj, getBonusList(), aPC);
-	}
-
-	/**
-	 * Apply the bonus to a PC
-	 *
-	 * @param aType
-	 * @param aName
-	 * @param obj
-	 * @param aBonusList
-	 * @param aPC
-	 * @return the bonus
-	 */
-	public double bonusTo(String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
-	{
-		if ((aBonusList == null) || (aBonusList.size() == 0))
-		{
-			return 0;
-		}
-
-		double retVal = 0;
-
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		final String aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
-
-		if (!dontRecurse && (this instanceof Ability) && !Globals.checkRule(RuleConstants.FEATPRE))
-		{
-			// SUCK!  This is horrid, but bonusTo is actually recursive with respect to
-			// passesPreReqToGain and there is no other way to do this without decomposing the
-			// dependencies.  I am loathe to break working code.
-			// This addresses bug #709677 -- Feats give bonuses even if you no longer qualify
-			dontRecurse = true;
-
-			boolean returnZero = false;
-
-			if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
-			{
-				returnZero = true;
-			}
-
-			dontRecurse = false;
-
-			if (returnZero)
-			{
-				return 0;
-			}
-		}
-
-		int iTimes = 1;
-
-		if ("VAR".equals(aType))
-		{
-			iTimes = Math.max(1, getAssociatedCount());
-
-			//
-			// SALIST will stick BONUS:VAR|...
-			// into bonus list so don't multiply
-			//
-			String choiceString = getChoiceString();
-			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
-			{
-				iTimes = 1;
-			}
-		}
-
-		for ( BonusObj bonus : aBonusList )
-		{
-			String bString = bonus.toString().toUpperCase();
-
-			if (getAssociatedCount() != 0)
-			{
-				int span = 4;
-				int idx = bString.indexOf("%VAR");
-
-				if (idx == -1)
-				{
-					idx = bString.indexOf("%LIST|");
-					span = 5;
-				}
-
-				if (idx >= 0)
-				{
-					final String firstPart = bString.substring(0, idx);
-					final String secondPart = bString.substring(idx + span);
-
-					for (int i = 1; i < getAssociatedCount(); ++i)
-					{
-						final String xString = new StringBuffer().append(firstPart).append(getAssociated(i)).append(secondPart)
-							.toString().toUpperCase();
-						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
-					}
-
-					bString = new StringBuffer().append(firstPart).append(getAssociated(0)).append(secondPart).toString()
-						.toUpperCase();
-				}
-			}
-
-			retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
-		}
-
-		return retVal;
-	}
-
-	/**
-	 * Calculate a Bonus given a BonusObj
-	 * @param aBonus
-	 * @param anObj
-	 * @param aPC
-	 * @return bonus
-	 */
-	public double calcBonusFrom(final BonusObj aBonus, final Object anObj, PlayerCharacter aPC)
-	{
-		return calcBonusFrom(aBonus, anObj, null, aPC);
-	}
-
-	/**
-	 * Calculate a Bonus given a BonusObj
-	 * @param aBonus
-	 * @param anObj
-	 * @param listString
-	 * @param aPC
-	 * @return bonus
-	 */
-	public double calcBonusFrom(
-			final BonusObj  aBonus,
-			final Object    anObj,
-			final String    listString,
-			PlayerCharacter aPC)
-	{
-		int iTimes = 1;
-
-		final String aType = aBonus.getTypeOfBonus();
-
-		if ("VAR".equals(aType))
-		{
-			iTimes = Math.max(1, getAssociatedCount());
-
-			String choiceString = getChoiceString();
-			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
-			{
-				iTimes = 1;
-			}
-		}
-
-		return calcPartialBonus(iTimes, aBonus, anObj, listString, aPC);
 	}
 
 	/**
@@ -1741,27 +1439,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			otherKey = obj.toString();
 		}
 		return thisKey.equalsIgnoreCase( otherKey );
-	}
-
-	/**
-	 * Set's all the BonusObj's to this creator
-	 */
-	public void ownBonuses()
-	{
-		for ( BonusObj bonus : getBonusList() )
-		{
-			bonus.setCreatorObject(this);
-		}
-	}
-
-	/**
-	 * Put the key/value pair into the bonus map
-	 * @param aKey
-	 * @param aVal
-	 */
-	public void putBonusMap(final String aKey, final String aVal)
-	{
-		getBonusMap().put(aKey, aVal);
 	}
 
 	/**
@@ -2014,9 +1691,15 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Set the map of sources
-	 * @param arg
-	 * @throws ParseException 
+	 * Set the source from a map of source values.
+	 * 
+	 * <p>The map has the form "source type" ==> "source value".  For example,
+	 * <code>"SHORT" ==> "RSRD"</code>.
+	 * 
+	 * @param arg A <tt>Map</tt> containing source values. 
+	 * @throws ParseException If the source date cannot be parsed.
+	 * 
+	 * @see pcgen.core.SourceEntry#setFromMap(Map)
 	 */
 	public final void setSourceMap(final Map<String, String> arg) 
 		throws ParseException
@@ -2024,6 +1707,13 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		theSource.setFromMap( arg );
 	}
 
+	/**
+	 * Returns the source entry for this object.
+	 * 
+	 * @return a <tt>SourceEntry</tt>
+	 * 
+	 * @see pcgen.core.SourceEntry
+	 */
 	public SourceEntry getSourceEntry()
 	{
 		if ( theSource == null )
@@ -2033,6 +1723,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return theSource;
 	}
 	
+	/**
+	 * Sets the source entry for this object.
+	 * 
+	 * @param aSource A <tt>SourceEntry</tt> to set.
+	 */
 	public void setSource( final SourceEntry aSource )
 	{
 		theSource = aSource;
@@ -2074,17 +1769,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public String getSpellKey()
 	{
-		return "POBJECT|" + getKeyName();
+		return "POBJECT|" + getKeyName(); //$NON-NLS-1$
 	}
 
 	/**
 	 * Add automatic languages
-	 * @param aString
+	 * 
+	 * @param aLangKey A language key.
 	 */
 	public final void addLanguageAuto(final String aLangKey)
 	{
 		ListKey<Language> autoLanguageListKey = ListKey.AUTO_LANGUAGES;
-		if (".CLEAR".equals(aLangKey))
+		if (".CLEAR".equals(aLangKey)) //$NON-NLS-1$
 		{
 			listChar.removeListFor(autoLanguageListKey);
 		}
@@ -2427,15 +2123,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 
 		return ret;
-	}
-
-	/**
-	 * Remove the bonus object from the bonus list
-	 * @param aBonus
-	 */
-	public void removeBonusList(final BonusObj aBonus)
-	{
-		getBonusList().remove(aBonus);
 	}
 
 	/**
@@ -2930,25 +2617,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Remove all bonuses gained via a level
-	 * @param aLevel
-	 */
-	public void removeAllBonuses(final int aLevel)
-	{
-		if (bonusList != null)
-		{
-			for (int x = bonusList.size() - 1; x >= 0; --x)
-			{
-				if (bonusList.get(x).getPCLevel() == aLevel)
-				{
-					bonusList.remove(x);
-				}
-			}
-		}
-		return;
-	}
-
-	/**
 	 * Remove all abilities gained via a level
 	 * @param aLevel
 	 */
@@ -3430,136 +3098,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * @param bonus     a Number (such as 2)
-	 * @param bonusType "COMBAT.AC.Dodge" or "COMBAT.AC.Dodge.STACK"
-	 */
-	final void setBonusStackFor(final double bonus, String bonusType)
-	{
-		if (bonusType != null)
-		{
-			bonusType = bonusType.toUpperCase();
-		}
-
-		// Default to non-stacking bonuses
-		int index = -1;
-
-		final StringTokenizer aTok = new StringTokenizer(bonusType, ".");
-
-		// e.g. "COMBAT.AC.DODGE"
-		if ((bonusType != null) && (aTok.countTokens() >= 2))
-		{
-			String aString;
-
-			// we need to get the 3rd token to see
-			// if it should .STACK or .REPLACE
-			aTok.nextToken(); //Discard token
-			aString = aTok.nextToken();
-
-			// if the 3rd token is "BASE" we have something like
-			// CHECKS.BASE.Fortitude
-			if (aString.equals("BASE"))
-			{
-				if (aTok.hasMoreTokens())
-				{
-					// discard next token (Fortitude)
-					aTok.nextToken();
-				}
-
-				if (aTok.hasMoreTokens())
-				{
-					// check for a TYPE
-					aString = aTok.nextToken();
-				}
-				else
-				{
-					// all BASE type bonuses should stack
-					aString = null;
-				}
-			}
-			else
-			{
-				if (aTok.hasMoreTokens())
-				{
-					// Type: .DODGE
-					aString = aTok.nextToken();
-				}
-				else
-				{
-					aString = null;
-				}
-			}
-
-			if (aString != null)
-			{
-				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(aString); // e.g. Dodge
-			}
-
-			//
-			// un-named (or un-TYPE'd) bonus should stack
-			if (aString == null)
-			{
-				index = 1;
-			}
-			else if (aString.equals("NULL"))
-			{
-				index = 1;
-			}
-		}
-
-		// .STACK means stack
-		// .REPLACE stacks with other .REPLACE bonuses
-		if ((bonusType != null) && (bonusType.endsWith(".STACK") || bonusType.endsWith(".REPLACE")))
-		{
-			index = 1;
-		}
-
-		// If it's a negative bonus, it always needs to be added
-		if (bonus < 0)
-		{
-			index = 1;
-		}
-
-		if (index == -1) // a non-stacking bonus
-		{
-			final String aVal = getBonusMap().get(bonusType);
-
-			if (aVal == null)
-			{
-				putBonusMap(bonusType, String.valueOf(bonus));
-			}
-			else
-			{
-				putBonusMap(bonusType, String.valueOf(Math.max(bonus, Float.parseFloat(aVal))));
-			}
-		}
-		else // a stacking bonus
-		{
-			if (bonusType == null)
-			{
-				bonusType = "";
-			}
-			else if (bonusType.endsWith(".REPLACE.STACK"))
-			{
-				// Check for the special case of:
-				// COMBAT.AC.Armor.REPLACE.STACK
-				// and remove the .STACK
-				bonusType = bonusType.substring(0, bonusType.length() - 6);
-			}
-
-			final String aVal = getBonusMap().get(bonusType);
-
-			if (aVal == null)
-			{
-				putBonusMap(bonusType, String.valueOf(bonus));
-			}
-			else
-			{
-				putBonusMap(bonusType, String.valueOf(bonus + Float.parseFloat(aVal)));
-			}
-		}
-	}
-
-	/**
 	 * <p>Retrieves the unarmed damage information for this PObject.  This
 	 * comes from the <code>UDAM</code> tag, and can be a simple die string
 	 * as in <code>1d20</code>, or a list of size-modified data like is
@@ -3820,19 +3358,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		listChar.addToListFor(ListKey.TYPE, myType);
 	}
 
-	/**
-	 * Apply the bonus to a character
-	 * @param bonusString
-	 * @param chooseString
-	 * @param aPC
-	 */
-	public final void applyBonus(String bonusString, final String chooseString, final PlayerCharacter aPC)
-	{
-		bonusString = makeBonusString(bonusString, chooseString, aPC);
-		addBonusList(bonusString);
-		addSave("BONUS|" + bonusString);
-	}
-
 	void fireNameChanged(final String oldName, final String newName)
 	{
 		// This method currently does nothing so it may be overriden in PCClass.
@@ -3914,64 +3439,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 
 		return false;
-	}
-
-	String makeBonusString(String bonusString, final String chooseString, final PlayerCharacter aPC)
-	{
-		// assumption is that the chooseString is in the form class/type[space]level
-		int i = chooseString.lastIndexOf(' ');
-		String classString = "";
-		String levelString = "";
-
-		if (bonusString.startsWith("BONUS:"))
-		{
-			bonusString = bonusString.substring(6);
-		}
-
-		final boolean lockIt = bonusString.endsWith(".LOCK");
-
-		if (lockIt)
-		{
-			bonusString = bonusString.substring(0, bonusString.lastIndexOf(".LOCK"));
-		}
-
-		if (i >= 0)
-		{
-			classString = chooseString.substring(0, i);
-
-			if (i < chooseString.length())
-			{
-				levelString = chooseString.substring(i + 1);
-			}
-		}
-
-		while (bonusString.lastIndexOf("TYPE=%") >= 0)
-		{
-			i = bonusString.lastIndexOf("TYPE=%");
-			bonusString = bonusString.substring(0, i + 5) + classString + bonusString.substring(i + 6);
-		}
-
-		while (bonusString.lastIndexOf("CLASS=%") >= 0)
-		{
-			i = bonusString.lastIndexOf("CLASS=%");
-			bonusString = bonusString.substring(0, i + 6) + classString + bonusString.substring(i + 7);
-		}
-
-		while (bonusString.lastIndexOf("LEVEL=%") >= 0)
-		{
-			i = bonusString.lastIndexOf("LEVEL=%");
-			bonusString = bonusString.substring(0, i + 6) + levelString + bonusString.substring(i + 7);
-		}
-
-		if (lockIt)
-		{
-			i = bonusString.lastIndexOf('|');
-
-			final Float val = aPC.getVariableValue(bonusString.substring(i + 1), "");
-			bonusString = bonusString.substring(0, i) + "|" + val;
-		}
-
-		return bonusString;
 	}
 
 	final void makeRegionSelection(final PlayerCharacter aPC)
@@ -4069,48 +3536,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return associatedList.remove(i);
 	}
 
-	/**
-	 * Remove the bonus from this objects list of bonuses.
-	 *
-	 * @param bonusString The string representing the bonus
-	 * @param chooseString The choice that was made.
-	 * @param aPC The player character to remove th bonus from.
-	 */
-	public final void removeBonus(final String bonusString, final String chooseString, final PlayerCharacter aPC)
-	{
-		String bonus = makeBonusString(bonusString, chooseString, aPC);
-
-		int index = -1;
-
-		final BonusObj aBonus = Bonus.newBonus(bonus);
-		String bonusStrRep = String.valueOf(aBonus);
-
-		if (getBonusList() != null)
-		{
-			int count = 0;
-			for (BonusObj listBonus : getBonusList())
-			{
-				if (listBonus.getCreatorObject().equals(this)
-					&& listBonus.toString().equals(bonusStrRep))
-				{
-					index = count;
-				}
-				count++;
-			}
-		}
-
-		if (index >= 0)
-		{
-			getBonusList().remove(index);
-		}
-		else
-		{
-			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus + " in bonusList " + getBonusList());
-		}
-
-		removeSave("BONUS|" + bonus);
-	}
-
 	final void sortAssociated()
 	{
 		if (associatedList != null)
@@ -4148,241 +3573,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 
 		return newNameBuff.toString();
-	}
-
-	/**
-	 * calcBonus adds together all the bonuses for aType of aName
-	 *
-	 * @param bString       Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST or %VAR bonus section
-	 * @param aType         Such as "COMBAT"
-	 * @param aName         Such as "AC"
-	 * @param aTypePlusName "COMBAT.AC."
-	 * @param obj           The object to get the bonus from
-	 * @param iTimes        multiply bonus * iTimes
-	 * @param aBonusObj
-	 * @param aPC
-	 * @return bonus
-	 */
-	private double calcBonus(final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
-							 final BonusObj aBonusObj, final PlayerCharacter aPC)
-	{
-		final StringTokenizer aTok = new StringTokenizer(bString, "|");
-
-		if (aTok.countTokens() < 3)
-		{
-			Logging.errorPrint("Badly formed BONUS:" + bString);
-
-			return 0;
-		}
-
-		String aString = aTok.nextToken();
-
-		if ((!aString.equalsIgnoreCase(aType) && !aString.endsWith("%LIST"))
-			|| (aString.endsWith("%LIST") && (numberInList(aType) == 0)) || (aName.equals("ALL")))
-		{
-			return 0;
-		}
-
-		final String aList = aTok.nextToken();
-
-		if (!aList.equals("LIST") && !aList.equals("ALL") && (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
-		{
-			return 0;
-		}
-
-		if (aList.equals("ALL")
-			&& ((aName.indexOf("STAT=") >= 0) || (aName.indexOf("TYPE=") >= 0) || (aName.indexOf("LIST") >= 0)
-			|| (aName.indexOf("VAR") >= 0)))
-		{
-			return 0;
-		}
-
-		if (aTok.hasMoreTokens())
-		{
-			aString = aTok.nextToken();
-		}
-
-		double iBonus = 0;
-
-		if (obj instanceof PlayerCharacter)
-		{
-			iBonus = ((PlayerCharacter) obj).getVariableValue(aString, "").doubleValue();
-		}
-		else if (obj instanceof Equipment)
-		{
-			iBonus = ((Equipment) obj).getVariableValue(aString, "", aPC).doubleValue();
-		}
-		else
-		{
-			try
-			{
-				iBonus = Float.parseFloat(aString);
-			}
-			catch (NumberFormatException e)
-			{
-				//Should this be ignored?
-				Logging.errorPrint("calcBonus NumberFormatException in BONUS: " + aString, e);
-			}
-		}
-
-		final List<Prerequisite> bonusPreReqList = aBonusObj.getPrereqList();
-		final String possibleBonusTypeString = aBonusObj.getTypeString();
-
-		// must meet criteria before adding any bonuses
-		if (obj instanceof PlayerCharacter)
-		{
-			if (!PrereqHandler.passesAll(bonusPreReqList, (PlayerCharacter) obj, null))
-			{
-				return 0;
-			}
-		}
-		else
-		{
-			if (!PrereqHandler.passesAll(bonusPreReqList, (Equipment) obj, aPC))
-			{
-				return 0;
-			}
-		}
-
-		double bonus = 0;
-
-		if ("LIST".equalsIgnoreCase(aList))
-		{
-			final int iCount = numberInList(aName);
-
-			if (iCount != 0)
-			{
-				bonus += (iBonus * iCount);
-			}
-		}
-
-		String bonusTypeString = null;
-
-		final StringTokenizer bTok = new StringTokenizer(aList, ",");
-
-		if (aList.equalsIgnoreCase("LIST"))
-		{
-			bTok.nextToken();
-		}
-		else if (aList.equalsIgnoreCase("ALL"))
-		{
-			// aTypePlusName looks like: "SKILL.ALL."
-			// so we need to reset it to "SKILL.Hide."
-			aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
-			bonus = iBonus;
-			bonusTypeString = possibleBonusTypeString;
-		}
-
-		while (bTok.hasMoreTokens())
-		{
-			if (bTok.nextToken().equalsIgnoreCase(aName))
-			{
-				bonus += iBonus;
-				bonusTypeString = possibleBonusTypeString;
-			}
-		}
-
-		if (obj instanceof Equipment)
-		{
-			((Equipment) obj).setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
-		}
-		else
-		{
-			setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
-		}
-
-		// The "ALL" subtag is used to build the stacking bonusMap
-		// not to get a bonus value, so just return
-		if (aList.equals("ALL"))
-		{
-			return 0;
-		}
-
-		return bonus * iTimes;
-	}
-
-	/**
-	 * calcPartialBonus calls appropriate getVariableValue() for a Bonus
-	 *
-	 * @param iTimes  		multiply bonus * iTimes
-	 * @param aBonus  		The bonus Object used for calcs
-	 * @param anObj
-	 * @param listString 	String returned after %LIST substitution, if applicable
-	 * @param aPC
-	 * @return partial bonus
-	 */
-	private double calcPartialBonus(final int iTimes, final BonusObj aBonus, final Object anObj, final String listString, final PlayerCharacter aPC)
-	{
-		final String aList = aBonus.getBonusInfo();
-		String aVal = aBonus.getValue();
-
-		double iBonus = 0;
-
-		if (aList.equals("ALL"))
-		{
-			return 0;
-		}
-
-		if (listString != null)
-		{
-			int listIndex = aVal.indexOf("%LIST");
-			while (listIndex >= 0)
-			{
-				//A %LIST substitution also needs to be done in the val section
-				//first, find out which one
-				//this is a bit of a hack but it was the best I could figure out so far
-				boolean found = false;
-				for (int i = 0; i < getAssociatedCount(); ++i)
-				{
-					final String associatedStr = getAssociated(i).toUpperCase();
-					if (listString.indexOf(associatedStr) >= 0)
-					{
-						final StringBuffer sb = new StringBuffer();
-						if (listIndex > 0)
-						{
-							sb.append(aVal.substring(0, listIndex));
-						}
-						sb.append(associatedStr);
-						if (aVal.length() > (listIndex + 5))
-						{
-							sb.append(aVal.substring(listIndex + 5));
-						}
-						aVal = sb.toString();
-						found = true;
-						break;
-					}
-				}
-
-				listIndex = (found) ? aVal.indexOf("%LIST") : -1;
-			}
-		}
-
-		if (aBonus.isValueStatic())
-		{
-			iBonus = aBonus.getValueAsdouble();
-		}
-		else if (anObj instanceof PlayerCharacter)
-		{
-			iBonus = ((PlayerCharacter) anObj).getVariableValue(aVal, "").doubleValue();
-		}
-		else if (anObj instanceof Equipment)
-		{
-			iBonus = ((Equipment) anObj).getVariableValue(aVal, "", aPC).doubleValue();
-		}
-		else
-		{
-			try
-			{
-				iBonus = Float.parseFloat(aVal);
-			}
-			catch (NumberFormatException e)
-			{
-				//Should this be ignored?
-				Logging.errorPrint("calcPartialBonus NumberFormatException in BONUS: " + aVal);
-			}
-		}
-
-		return iBonus * iTimes;
 	}
 
 	protected void clearMyType()
@@ -4704,22 +3894,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 	}
 
-//	public List<TypedBonus> getBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
-//	{
-//		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
-//		{
-//			return Collections.emptyList();
-//		}
-//
-//		for ( final BonusObj bonus : getBonusList() )
-//		{
-//			if ( bonus.getTypeOfBonus().equalsIgnoreCase(aBonusType) && bonus.getBonusName().equalsIgnoreCase(aBonusName) )
-//			{
-//				
-//			}
-//		}
-//	}
-
 	/* ************************************************
 	 * End methods for the KeyedListContainer Interface
 	 * ************************************************/
@@ -4917,6 +4091,843 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		}
 		return ret;
 	}
+
+	/**
+	 * Get the list of bonuses for this object
+	 * @return the list of bonuses for this object
+	 */
+	public List<BonusObj> getBonusList()
+	{
+		return bonusList;
+	}
+
+	/**
+	 * Get the list of bounuses of a particular type for this object
+	 * @param aType
+	 * @param aName
+	 * @return the list of bounuses of a particular type for this object
+	 */
+	public List<BonusObj> getBonusListOfType(final String aType, final String aName)
+	{
+		return BonusUtilities.getBonusFromList(getBonusList(), aType, aName);
+	}
+
+	/**
+	 * Get the map of bonuses for this object
+	 * @return bonusMap
+	 */
+	public HashMap<String, String> getBonusMap()
+	{
+		if (bonusMap == null)
+		{
+			bonusMap = new HashMap<String, String>();
+		}
+
+		return bonusMap;
+	}
+
+	/**
+	 * Apply the bonus to a PC, pass through object's default bonuslist
+	 *
+	 * @param aType
+	 * @param aName
+	 * @param obj
+	 * @param aPC
+	 * @return the bonus
+	 */
+	public double bonusTo(final String aType, final String aName, final Object obj, final PlayerCharacter aPC)
+	{
+		return bonusTo(aType, aName, obj, getBonusList(), aPC);
+	}
+
+	/**
+	 * Apply the bonus to a PC
+	 *
+	 * @param aType
+	 * @param aName
+	 * @param obj
+	 * @param aBonusList
+	 * @param aPC
+	 * @return the bonus
+	 */
+	public double bonusTo(String aType, String aName, final Object obj, final List<BonusObj> aBonusList, final PlayerCharacter aPC)
+	{
+		if ((aBonusList == null) || (aBonusList.size() == 0))
+		{
+			return 0;
+		}
+
+		double retVal = 0;
+
+		aType = aType.toUpperCase();
+		aName = aName.toUpperCase();
+
+		final String aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
+
+		if (!dontRecurse && (this instanceof Ability) && !Globals.checkRule(RuleConstants.FEATPRE))
+		{
+			// SUCK!  This is horrid, but bonusTo is actually recursive with respect to
+			// passesPreReqToGain and there is no other way to do this without decomposing the
+			// dependencies.  I am loathe to break working code.
+			// This addresses bug #709677 -- Feats give bonuses even if you no longer qualify
+			dontRecurse = true;
+
+			boolean returnZero = false;
+
+			if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
+			{
+				returnZero = true;
+			}
+
+			dontRecurse = false;
+
+			if (returnZero)
+			{
+				return 0;
+			}
+		}
+
+		int iTimes = 1;
+
+		if ("VAR".equals(aType))
+		{
+			iTimes = Math.max(1, getAssociatedCount());
+
+			//
+			// SALIST will stick BONUS:VAR|...
+			// into bonus list so don't multiply
+			//
+			String choiceString = getChoiceString();
+			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
+			{
+				iTimes = 1;
+			}
+		}
+
+		for ( BonusObj bonus : aBonusList )
+		{
+			String bString = bonus.toString().toUpperCase();
+
+			if (getAssociatedCount() != 0)
+			{
+				int span = 4;
+				int idx = bString.indexOf("%VAR");
+
+				if (idx == -1)
+				{
+					idx = bString.indexOf("%LIST|");
+					span = 5;
+				}
+
+				if (idx >= 0)
+				{
+					final String firstPart = bString.substring(0, idx);
+					final String secondPart = bString.substring(idx + span);
+
+					for (int i = 1; i < getAssociatedCount(); ++i)
+					{
+						final String xString = new StringBuffer().append(firstPart).append(getAssociated(i)).append(secondPart)
+							.toString().toUpperCase();
+						retVal += calcBonus(xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+					}
+
+					bString = new StringBuffer().append(firstPart).append(getAssociated(0)).append(secondPart).toString()
+						.toUpperCase();
+				}
+			}
+
+			retVal += calcBonus(bString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
+		}
+
+		return retVal;
+	}
+
+	/**
+	 * Calculate a Bonus given a BonusObj
+	 * @param aBonus
+	 * @param anObj
+	 * @param aPC
+	 * @return bonus
+	 */
+	public double calcBonusFrom(final BonusObj aBonus, final Object anObj, PlayerCharacter aPC)
+	{
+		return calcBonusFrom(aBonus, anObj, null, aPC);
+	}
+
+	/**
+	 * Calculate a Bonus given a BonusObj
+	 * @param aBonus
+	 * @param anObj
+	 * @param listString
+	 * @param aPC
+	 * @return bonus
+	 */
+	public double calcBonusFrom(
+			final BonusObj  aBonus,
+			final Object    anObj,
+			final String    listString,
+			PlayerCharacter aPC)
+	{
+		int iTimes = 1;
+
+		final String aType = aBonus.getTypeOfBonus();
+
+		if ("VAR".equals(aType))
+		{
+			iTimes = Math.max(1, getAssociatedCount());
+
+			String choiceString = getChoiceString();
+			if (choiceString.startsWith("SALIST|") && (choiceString.indexOf("|VAR|") >= 0))
+			{
+				iTimes = 1;
+			}
+		}
+
+		return calcPartialBonus(iTimes, aBonus, anObj, listString, aPC);
+	}
+
+	/**
+	 * Add a new bonus to the list of bonuses
+	 * @param aString
+	 * @return true if new bonus is not null
+	 */
+	public final boolean addBonusList(final String aString)
+	{
+		if (bonusList == null)
+		{
+			bonusList = new ArrayList<BonusObj>();
+		}
+
+		final BonusObj aBonus = Bonus.newBonus(aString);
+
+		if (aBonus != null)
+		{
+			aBonus.setCreatorObject(this);
+			addBonusList(aBonus);
+		}
+
+		return (aBonus != null);
+	}
+
+	/**
+	 * returns all BonusObj's that are "active"
+	 * @param aPC A PlayerCharacter object.
+	 * @return active bonuses
+	 */
+	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
+	{
+		final List<BonusObj> aList = new ArrayList<BonusObj>();
+
+		for ( BonusObj bonus : getBonusList() )
+		{
+			if (bonus.isApplied())
+			{
+				aList.add(bonus);
+			}
+		}
+
+		return aList;
+	}
+
+	/**
+	 * Get the list of bonuses as a String
+	 * @param aString
+	 * @return the list of bonuses as a String
+	 */
+	public boolean getBonusListString(final String aString)
+	{
+		for ( BonusObj bonus : getBonusList() )
+		{
+			if (bonus.getBonusInfo().equalsIgnoreCase(aString))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Sets all the BonusObj's to "active"
+	 * @param aPC
+	 */
+	public void activateBonuses(final PlayerCharacter aPC)
+	{
+		for (Iterator<BonusObj> ab = getBonusList().iterator(); ab.hasNext();)
+		{
+			final BonusObj aBonus = ab.next();
+			aBonus.setApplied(false);
+
+			if ( aBonus.qualifies(aPC) )
+			{
+				aBonus.setApplied(true);
+			}
+		}
+	}
+
+	/**
+	 * This function will be required during the continued re-write
+	 * of the BonusObj code -- JSC 8/18/03
+	 *
+	 * @param aBonus
+	 */
+	public final void addBonusList(final BonusObj aBonus)
+	{
+		bonusList.add(aBonus);
+	}
+
+	/**
+	 * Deactivate all of the bonuses
+	 */
+	public void deactivateBonuses()
+	{
+		for ( BonusObj bonus : getBonusList() )
+		{
+			bonus.setApplied(false);
+		}
+	}
+
+	/**
+	 * Set's all the BonusObj's to this creator
+	 */
+	public void ownBonuses()
+	{
+		for ( BonusObj bonus : getBonusList() )
+		{
+			bonus.setCreatorObject(this);
+		}
+	}
+
+	/**
+	 * Put the key/value pair into the bonus map
+	 * @param aKey
+	 * @param aVal
+	 */
+	public void putBonusMap(final String aKey, final String aVal)
+	{
+		getBonusMap().put(aKey, aVal);
+	}
+
+	/**
+	 * Remove the bonus object from the bonus list
+	 * @param aBonus
+	 */
+	public void removeBonusList(final BonusObj aBonus)
+	{
+		getBonusList().remove(aBonus);
+	}
+
+	/**
+	 * Remove all bonuses gained via a level
+	 * @param aLevel
+	 */
+	public void removeAllBonuses(final int aLevel)
+	{
+		if (bonusList != null)
+		{
+			for (int x = bonusList.size() - 1; x >= 0; --x)
+			{
+				if (bonusList.get(x).getPCLevel() == aLevel)
+				{
+					bonusList.remove(x);
+				}
+			}
+		}
+		return;
+	}
+
+	/**
+	 * @param bonus     a Number (such as 2)
+	 * @param bonusType "COMBAT.AC.Dodge" or "COMBAT.AC.Dodge.STACK"
+	 */
+	final void setBonusStackFor(final double bonus, String bonusType)
+	{
+		if (bonusType != null)
+		{
+			bonusType = bonusType.toUpperCase();
+		}
+
+		// Default to non-stacking bonuses
+		int index = -1;
+
+		final StringTokenizer aTok = new StringTokenizer(bonusType, ".");
+
+		// e.g. "COMBAT.AC.DODGE"
+		if ((bonusType != null) && (aTok.countTokens() >= 2))
+		{
+			String aString;
+
+			// we need to get the 3rd token to see
+			// if it should .STACK or .REPLACE
+			aTok.nextToken(); //Discard token
+			aString = aTok.nextToken();
+
+			// if the 3rd token is "BASE" we have something like
+			// CHECKS.BASE.Fortitude
+			if (aString.equals("BASE"))
+			{
+				if (aTok.hasMoreTokens())
+				{
+					// discard next token (Fortitude)
+					aTok.nextToken();
+				}
+
+				if (aTok.hasMoreTokens())
+				{
+					// check for a TYPE
+					aString = aTok.nextToken();
+				}
+				else
+				{
+					// all BASE type bonuses should stack
+					aString = null;
+				}
+			}
+			else
+			{
+				if (aTok.hasMoreTokens())
+				{
+					// Type: .DODGE
+					aString = aTok.nextToken();
+				}
+				else
+				{
+					aString = null;
+				}
+			}
+
+			if (aString != null)
+			{
+				index = SettingsHandler.getGame().getUnmodifiableBonusStackList().indexOf(aString); // e.g. Dodge
+			}
+
+			//
+			// un-named (or un-TYPE'd) bonus should stack
+			if (aString == null)
+			{
+				index = 1;
+			}
+			else if (aString.equals("NULL"))
+			{
+				index = 1;
+			}
+		}
+
+		// .STACK means stack
+		// .REPLACE stacks with other .REPLACE bonuses
+		if ((bonusType != null) && (bonusType.endsWith(".STACK") || bonusType.endsWith(".REPLACE")))
+		{
+			index = 1;
+		}
+
+		// If it's a negative bonus, it always needs to be added
+		if (bonus < 0)
+		{
+			index = 1;
+		}
+
+		if (index == -1) // a non-stacking bonus
+		{
+			final String aVal = getBonusMap().get(bonusType);
+
+			if (aVal == null)
+			{
+				putBonusMap(bonusType, String.valueOf(bonus));
+			}
+			else
+			{
+				putBonusMap(bonusType, String.valueOf(Math.max(bonus, Float.parseFloat(aVal))));
+			}
+		}
+		else // a stacking bonus
+		{
+			if (bonusType == null)
+			{
+				bonusType = "";
+			}
+			else if (bonusType.endsWith(".REPLACE.STACK"))
+			{
+				// Check for the special case of:
+				// COMBAT.AC.Armor.REPLACE.STACK
+				// and remove the .STACK
+				bonusType = bonusType.substring(0, bonusType.length() - 6);
+			}
+
+			final String aVal = getBonusMap().get(bonusType);
+
+			if (aVal == null)
+			{
+				putBonusMap(bonusType, String.valueOf(bonus));
+			}
+			else
+			{
+				putBonusMap(bonusType, String.valueOf(bonus + Float.parseFloat(aVal)));
+			}
+		}
+	}
+
+	/**
+	 * Apply the bonus to a character
+	 * @param bonusString
+	 * @param chooseString
+	 * @param aPC
+	 */
+	public final void applyBonus(String bonusString, final String chooseString, final PlayerCharacter aPC)
+	{
+		bonusString = makeBonusString(bonusString, chooseString, aPC);
+		addBonusList(bonusString);
+		addSave("BONUS|" + bonusString);
+	}
+
+	String makeBonusString(String bonusString, final String chooseString, final PlayerCharacter aPC)
+	{
+		// assumption is that the chooseString is in the form class/type[space]level
+		int i = chooseString.lastIndexOf(' ');
+		String classString = "";
+		String levelString = "";
+
+		if (bonusString.startsWith("BONUS:"))
+		{
+			bonusString = bonusString.substring(6);
+		}
+
+		final boolean lockIt = bonusString.endsWith(".LOCK");
+
+		if (lockIt)
+		{
+			bonusString = bonusString.substring(0, bonusString.lastIndexOf(".LOCK"));
+		}
+
+		if (i >= 0)
+		{
+			classString = chooseString.substring(0, i);
+
+			if (i < chooseString.length())
+			{
+				levelString = chooseString.substring(i + 1);
+			}
+		}
+
+		while (bonusString.lastIndexOf("TYPE=%") >= 0)
+		{
+			i = bonusString.lastIndexOf("TYPE=%");
+			bonusString = bonusString.substring(0, i + 5) + classString + bonusString.substring(i + 6);
+		}
+
+		while (bonusString.lastIndexOf("CLASS=%") >= 0)
+		{
+			i = bonusString.lastIndexOf("CLASS=%");
+			bonusString = bonusString.substring(0, i + 6) + classString + bonusString.substring(i + 7);
+		}
+
+		while (bonusString.lastIndexOf("LEVEL=%") >= 0)
+		{
+			i = bonusString.lastIndexOf("LEVEL=%");
+			bonusString = bonusString.substring(0, i + 6) + levelString + bonusString.substring(i + 7);
+		}
+
+		if (lockIt)
+		{
+			i = bonusString.lastIndexOf('|');
+
+			final Float val = aPC.getVariableValue(bonusString.substring(i + 1), "");
+			bonusString = bonusString.substring(0, i) + "|" + val;
+		}
+
+		return bonusString;
+	}
+
+	/**
+	 * Remove the bonus from this objects list of bonuses.
+	 *
+	 * @param bonusString The string representing the bonus
+	 * @param chooseString The choice that was made.
+	 * @param aPC The player character to remove th bonus from.
+	 */
+	public final void removeBonus(final String bonusString, final String chooseString, final PlayerCharacter aPC)
+	{
+		String bonus = makeBonusString(bonusString, chooseString, aPC);
+
+		int index = -1;
+
+		final BonusObj aBonus = Bonus.newBonus(bonus);
+		String bonusStrRep = String.valueOf(aBonus);
+
+		if (getBonusList() != null)
+		{
+			int count = 0;
+			for (BonusObj listBonus : getBonusList())
+			{
+				if (listBonus.getCreatorObject().equals(this)
+					&& listBonus.toString().equals(bonusStrRep))
+				{
+					index = count;
+				}
+				count++;
+			}
+		}
+
+		if (index >= 0)
+		{
+			getBonusList().remove(index);
+		}
+		else
+		{
+			Logging.errorPrint("removeBonus: Could not find bonus: " + bonus + " in bonusList " + getBonusList());
+		}
+
+		removeSave("BONUS|" + bonus);
+	}
+
+	/**
+	 * calcBonus adds together all the bonuses for aType of aName
+	 *
+	 * @param bString       Either the entire BONUS:COMBAT|AC|2 string or part of a %LIST or %VAR bonus section
+	 * @param aType         Such as "COMBAT"
+	 * @param aName         Such as "AC"
+	 * @param aTypePlusName "COMBAT.AC."
+	 * @param obj           The object to get the bonus from
+	 * @param iTimes        multiply bonus * iTimes
+	 * @param aBonusObj
+	 * @param aPC
+	 * @return bonus
+	 */
+	private double calcBonus(final String bString, final String aType, final String aName, String aTypePlusName, final Object obj, final int iTimes,
+							 final BonusObj aBonusObj, final PlayerCharacter aPC)
+	{
+		final StringTokenizer aTok = new StringTokenizer(bString, "|");
+
+		if (aTok.countTokens() < 3)
+		{
+			Logging.errorPrint("Badly formed BONUS:" + bString);
+
+			return 0;
+		}
+
+		String aString = aTok.nextToken();
+
+		if ((!aString.equalsIgnoreCase(aType) && !aString.endsWith("%LIST"))
+			|| (aString.endsWith("%LIST") && (numberInList(aType) == 0)) || (aName.equals("ALL")))
+		{
+			return 0;
+		}
+
+		final String aList = aTok.nextToken();
+
+		if (!aList.equals("LIST") && !aList.equals("ALL") && (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
+		{
+			return 0;
+		}
+
+		if (aList.equals("ALL")
+			&& ((aName.indexOf("STAT=") >= 0) || (aName.indexOf("TYPE=") >= 0) || (aName.indexOf("LIST") >= 0)
+			|| (aName.indexOf("VAR") >= 0)))
+		{
+			return 0;
+		}
+
+		if (aTok.hasMoreTokens())
+		{
+			aString = aTok.nextToken();
+		}
+
+		double iBonus = 0;
+
+		if (obj instanceof PlayerCharacter)
+		{
+			iBonus = ((PlayerCharacter) obj).getVariableValue(aString, "").doubleValue();
+		}
+		else if (obj instanceof Equipment)
+		{
+			iBonus = ((Equipment) obj).getVariableValue(aString, "", aPC).doubleValue();
+		}
+		else
+		{
+			try
+			{
+				iBonus = Float.parseFloat(aString);
+			}
+			catch (NumberFormatException e)
+			{
+				//Should this be ignored?
+				Logging.errorPrint("calcBonus NumberFormatException in BONUS: " + aString, e);
+			}
+		}
+
+		final String possibleBonusTypeString = aBonusObj.getTypeString();
+
+		// must meet criteria before adding any bonuses
+		if (obj instanceof PlayerCharacter)
+		{
+			if ( !aBonusObj.qualifies((PlayerCharacter)obj) )
+			{
+				return 0;
+			}
+		}
+		else
+		{
+			if ( !aBonusObj.passesPreReqToGain((Equipment)obj, aPC) )
+			{
+				return 0;
+			}
+		}
+
+		double bonus = 0;
+
+		if ("LIST".equalsIgnoreCase(aList))
+		{
+			final int iCount = numberInList(aName);
+
+			if (iCount != 0)
+			{
+				bonus += (iBonus * iCount);
+			}
+		}
+
+		String bonusTypeString = null;
+
+		final StringTokenizer bTok = new StringTokenizer(aList, ",");
+
+		if (aList.equalsIgnoreCase("LIST"))
+		{
+			bTok.nextToken();
+		}
+		else if (aList.equalsIgnoreCase("ALL"))
+		{
+			// aTypePlusName looks like: "SKILL.ALL."
+			// so we need to reset it to "SKILL.Hide."
+			aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
+			bonus = iBonus;
+			bonusTypeString = possibleBonusTypeString;
+		}
+
+		while (bTok.hasMoreTokens())
+		{
+			if (bTok.nextToken().equalsIgnoreCase(aName))
+			{
+				bonus += iBonus;
+				bonusTypeString = possibleBonusTypeString;
+			}
+		}
+
+		if (obj instanceof Equipment)
+		{
+			((Equipment) obj).setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
+		}
+		else
+		{
+			setBonusStackFor(bonus * iTimes, aTypePlusName + bonusTypeString);
+		}
+
+		// The "ALL" subtag is used to build the stacking bonusMap
+		// not to get a bonus value, so just return
+		if (aList.equals("ALL"))
+		{
+			return 0;
+		}
+
+		return bonus * iTimes;
+	}
+
+	/**
+	 * calcPartialBonus calls appropriate getVariableValue() for a Bonus
+	 *
+	 * @param iTimes  		multiply bonus * iTimes
+	 * @param aBonus  		The bonus Object used for calcs
+	 * @param anObj
+	 * @param listString 	String returned after %LIST substitution, if applicable
+	 * @param aPC
+	 * @return partial bonus
+	 */
+	private double calcPartialBonus(final int iTimes, final BonusObj aBonus, final Object anObj, final String listString, final PlayerCharacter aPC)
+	{
+		final String aList = aBonus.getBonusInfo();
+		String aVal = aBonus.getValue();
+
+		double iBonus = 0;
+
+		if (aList.equals("ALL"))
+		{
+			return 0;
+		}
+
+		if (listString != null)
+		{
+			int listIndex = aVal.indexOf("%LIST");
+			while (listIndex >= 0)
+			{
+				//A %LIST substitution also needs to be done in the val section
+				//first, find out which one
+				//this is a bit of a hack but it was the best I could figure out so far
+				boolean found = false;
+				for (int i = 0; i < getAssociatedCount(); ++i)
+				{
+					final String associatedStr = getAssociated(i).toUpperCase();
+					if (listString.indexOf(associatedStr) >= 0)
+					{
+						final StringBuffer sb = new StringBuffer();
+						if (listIndex > 0)
+						{
+							sb.append(aVal.substring(0, listIndex));
+						}
+						sb.append(associatedStr);
+						if (aVal.length() > (listIndex + 5))
+						{
+							sb.append(aVal.substring(listIndex + 5));
+						}
+						aVal = sb.toString();
+						found = true;
+						break;
+					}
+				}
+
+				listIndex = (found) ? aVal.indexOf("%LIST") : -1;
+			}
+		}
+
+		if (aBonus.isValueStatic())
+		{
+			iBonus = aBonus.getValueAsdouble();
+		}
+		else if (anObj instanceof PlayerCharacter)
+		{
+			iBonus = ((PlayerCharacter) anObj).getVariableValue(aVal, "").doubleValue();
+		}
+		else if (anObj instanceof Equipment)
+		{
+			iBonus = ((Equipment) anObj).getVariableValue(aVal, "", aPC).doubleValue();
+		}
+		else
+		{
+			try
+			{
+				iBonus = Float.parseFloat(aVal);
+			}
+			catch (NumberFormatException e)
+			{
+				//Should this be ignored?
+				Logging.errorPrint("calcPartialBonus NumberFormatException in BONUS: " + aVal);
+			}
+		}
+
+		return iBonus * iTimes;
+	}
+
+//	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
+//	{
+//		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))
+//		{
+//			return Collections.emptyList();
+//		}
+//
+//		for ( final BonusObj bonus : getBonusList() )
+//		{
+//			if ( bonus.getTypeOfBonus().equalsIgnoreCase(aBonusType) && bonus.getBonusName().equalsIgnoreCase(aBonusName) )
+//			{
+//				
+//			}
+//		}
+//	}
 
 //	/**
 //	 * Add a Spell-Like Ability granted by this object.

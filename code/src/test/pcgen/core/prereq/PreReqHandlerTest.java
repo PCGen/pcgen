@@ -42,6 +42,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 /**
  * @author wardc
  */
+@SuppressWarnings("nls")
 public class PreReqHandlerTest extends PCGenTestCase
 {
 
@@ -62,6 +63,12 @@ public class PreReqHandlerTest extends PCGenTestCase
 		return new TestSuite(PreReqHandlerTest.class);
 	}
 
+	/**
+	 * Sets up the test case by loading the system plugins.
+	 * 
+	 * @see pcgen.PCGenTestCase#setUp()
+	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		try

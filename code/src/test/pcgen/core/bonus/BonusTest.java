@@ -43,6 +43,7 @@ import plugin.bonustokens.Var;
  * @version $Revision$
  */
 
+@SuppressWarnings("nls")
 public class BonusTest extends AbstractCharacterTestCase
 {
 

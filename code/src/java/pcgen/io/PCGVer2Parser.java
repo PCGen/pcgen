@@ -44,6 +44,7 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -780,6 +781,22 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+		if ( cache.containsKey(TAG_ABILITY) )
+		{
+			for ( final String line : cache.get(TAG_ABILITY) )
+			{
+				parseAbilityLine(line);
+			}
+		}
+		
+		if ( cache.containsKey(TAG_USERPOOL) )
+		{
+			for ( final String line : cache.get(TAG_USERPOOL) )
+			{
+				parseUserPoolLine(line);
+			}
+		}
+		
 		/*
 		 * Contains information about PC's equipment
 		 * Money goes here as well
@@ -1958,6 +1975,163 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	/*
 	 * ###############################################################
+	 * Character Ability methods
+	 * ###############################################################
+	 */
+
+	private void parseAbilityLine( final String line )
+	{
+		final PCGTokenizer tokens;
+		
+		try
+		{
+			tokens = new PCGTokenizer(line); 
+		}
+		catch (PCGParseException pcgpex)
+		{
+			final String msg = PropertyFactory.getFormattedString(
+					"Warnings.PCGenParser.IllegalAbility", //$NON-NLS-1$
+					line, pcgpex.getMessage() );
+			warnings.add(msg);
+
+			return;
+		}
+
+		AbilityCategory category = null;
+		Ability.Nature nature = Ability.Nature.NORMAL;
+		String abilityCat = null;
+		Ability ability = null;
+		
+		final Iterator<PCGElement> it = tokens.getElements().iterator();
+
+		// the first element defines the AbilityCategory key name
+		if (it.hasNext())
+		{
+			final PCGElement element = it.next();
+
+			final String categoryKey = EntityEncoder.decode(element.getText());
+			category = SettingsHandler.getGame().getAbilityCategory(categoryKey);
+			if ( category == null )
+			{
+				// emit a warning that the category doesn't exists.
+				final String msg = PropertyFactory.getFormattedString(
+						"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
+						categoryKey );
+				warnings.add(msg);
+				
+				// Create one.
+				category = new AbilityCategory(categoryKey);
+				SettingsHandler.getGame().addAbilityCategory(category);
+			}
+		}
+		
+		// The next element will be the nature
+		if (it.hasNext())
+		{
+			final PCGElement element = it.next();
+
+			final String natureKey = EntityEncoder.decode(element.getText());
+			nature = Ability.Nature.get(natureKey, true);
+		}
+
+		// The next element will be the ability's innate category
+		if (it.hasNext())
+		{
+			final PCGElement element = it.next();
+
+			abilityCat = EntityEncoder.decode(element.getText());
+		}
+		
+		// The next element will be the ability key
+		if (it.hasNext())
+		{
+			final PCGElement element = it.next();
+
+			final String abilityKey = EntityEncoder.decode(element.getText());
+			ability = Globals.getAbilityKeyed(abilityCat, abilityKey);
+			if ( ability != null )
+			{
+				ability = (Ability)ability.clone();
+			}
+		}
+		
+		while ( it.hasNext() )
+		{
+			final PCGElement element = it.next();
+			final String tag = element.getName();
+
+			if ( tag.equals(TAG_APPLIEDTO) )
+			{
+				final String appliedToKey = EntityEncoder.decode(element.getText());
+				
+				if (appliedToKey.startsWith(TAG_MULTISELECT))
+				{
+					//
+					// Should be in the form:
+					// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
+					//
+					final StringTokenizer sTok = new StringTokenizer(appliedToKey, TAG_END, false);
+
+					if (sTok.countTokens() > 2)
+					{
+						sTok.nextToken(); // should be TAG_MULTISELECT
+
+						final int maxChoices = Integer.parseInt(sTok.nextToken());
+						sTok.nextToken(); // toss this--number of choices made
+
+						final FeatMultipleChoice fmc = new FeatMultipleChoice();
+						fmc.setMaxChoices(maxChoices);
+
+						while (sTok.hasMoreTokens())
+						{
+							fmc.addChoice(sTok.nextToken());
+						}
+
+						ability.addAssociated(fmc);
+					}
+					else
+					{
+						final String msg = PropertyFactory.getFormattedString(
+								"Warnings.PCGenParser.IllegalAbilityIgnored", //$NON-NLS-1$
+								line );
+						warnings.add(msg);
+					}
+				}
+				else if ((ability.isMultiples() && ability.isStacks()) || !ability.containsAssociated(appliedToKey))
+				{
+					ability.addAssociated(appliedToKey);
+				}
+			}
+			else if (TAG_SAVE.equals(tag))
+			{
+				final String saveKey = EntityEncoder.decode(element.getText());
+
+				// TODO - This never gets written to the file
+				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
+				{
+					ability.addBonusList(saveKey.substring(6));
+				}
+
+				ability.addSave(saveKey);
+			}
+		}
+		if ( ability != null && category != null && nature != null )
+		{
+			if ( nature == Ability.Nature.NORMAL )
+			{
+				thePC.addAbility(category, ability, null);
+			}
+			else if ( nature == Ability.Nature.VIRTUAL )
+			{
+				ability.setNeedsSaving(true);
+				// TODO - Need to consider how to handle this.
+//				thePC.addVirtualAbility(category, ability);
+			}
+		}
+	}
+	
+	/*
+	 * ###############################################################
 	 * Character Feats methods
 	 * ###############################################################
 	 */
@@ -2048,6 +2222,40 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
+	private void parseUserPoolLine( final String line )
+	{
+		final PCGTokenizer tokens;
+
+		try
+		{
+			tokens = new PCGTokenizer(line);
+		}
+		catch (PCGParseException pcgpex)
+		{
+			final String msg = PropertyFactory.getFormattedString(
+					"Warnings.PCGenParser.IllegalAbilityPool", //$NON-NLS-1$
+					line, pcgpex.getMessage() );
+			warnings.add(msg);
+
+			return;
+		}
+
+		final Iterator<PCGElement> it = tokens.getElements().iterator();
+		final String cat = EntityEncoder.decode(it.next().getText());
+		final AbilityCategory category = SettingsHandler.getGame().getAbilityCategory(cat);
+		try
+		{
+			thePC.setUserPoolBonus(category, new BigDecimal(it.next().getText()));
+		}
+		catch (NumberFormatException nfe)
+		{
+			final String msg = PropertyFactory.getFormattedString(
+					"Warnings.PCGenParser.IllegalAbilityPool", //$NON-NLS-1$
+					line );
+			warnings.add(msg);
+		}
+	}
+	
 	private boolean parseFeatsHandleAppliedToAndSaveTags(final Iterator<PCGElement> it, final Ability aFeat, final String line)
 	{
 		boolean added = false;
@@ -3693,7 +3901,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void checkWeaponProficiencies()
 	{
-		thePC.setAutomaticFeatsStable(false);
+//		thePC.setAutomaticFeatsStable(false);
+		thePC.setAutomaticAbilitiesStable(null, false);
 		thePC.featAutoList(); // populate profs array with automatic profs
 
 		for (final Iterator<String> it = weaponprofs.iterator(); it.hasNext();)

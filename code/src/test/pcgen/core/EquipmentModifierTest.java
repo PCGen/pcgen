@@ -42,6 +42,7 @@ import java.util.List;
 /**
  * Equipment Modifer Test 
  */
+@SuppressWarnings("nls")
 public class EquipmentModifierTest extends PCGenTestCase {
 	
 	/**
@@ -71,6 +72,12 @@ public class EquipmentModifierTest extends PCGenTestCase {
 		// Do Nothing
 	}
 
+	/**
+	 * Starts the system plugins.
+	 * 
+	 * @see pcgen.PCGenTestCase#setUp()
+	 */
+	@Override
 	public void setUp() throws Exception {
 		try {
 			PluginLoader ploader = PluginLoader.inst();
@@ -126,12 +133,12 @@ public class EquipmentModifierTest extends PCGenTestCase {
 		{
 			assertEquals("-2", bonusObj.getValue());
 
-			final Prerequisite prereq = bonusObj.getPrereqList().get(0);
+			final Prerequisite prereq = bonusObj.getPreReq(0);
 			assertEquals("+13", prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
 		}
 		assertEquals("-2", aBonus.getValue());
-		final Prerequisite prereq = aBonus.getPrereqList().get(0);
+		final Prerequisite prereq = aBonus.getPreReq(0);
 		assertEquals("%CHOICE", prereq.getKey());
 	}
 
@@ -153,16 +160,16 @@ public class EquipmentModifierTest extends PCGenTestCase {
 		int i = 1;
 		for (int j = list.size() - 1; j > 0; j--)
 		{
-			final BonusObj bonusObj = (BonusObj) list.get(j);
+			final BonusObj bonusObj = list.get(j);
 			assertEquals("-2", bonusObj.getValue());
 
-			final Prerequisite prereq = bonusObj.getPrereqList().get(0);
+			final Prerequisite prereq = bonusObj.getPreReq(0);
 			assertEquals("+" + i, prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
 			i++;
 		}
 		assertEquals("-2", aBonus.getValue());
-		final Prerequisite prereq = aBonus.getPrereqList().get(0);
+		final Prerequisite prereq = aBonus.getPreReq(0);
 		assertEquals("%CHOICE", prereq.getKey());
 	}
 }

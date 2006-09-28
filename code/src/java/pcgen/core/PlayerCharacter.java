@@ -2405,11 +2405,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return getSafeStringFor(StringKey.PHOBIAS);
 	}
 
+	/**
+	 * Sets the name of the player for this character.
+	 * 
+	 * @param aString A name to set.
+	 */
 	public void setPlayersName(final String aString)
 	{
 		setStringFor(StringKey.PLAYERS_NAME, aString);
 	}
 
+	/**
+	 * Gets the name of the player for this character.
+	 * 
+	 * @return The player's name.
+	 */
 	public String getPlayersName()
 	{
 		return getSafeStringFor(StringKey.PLAYERS_NAME);
@@ -3147,8 +3157,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final Object aTO = bonus.getTargetObject();
 			final Object aCO = bonus.getCreatorObject();
 
-			String targetName = "";
-			String creatorName = "";
+			String targetName = Constants.EMPTY_STRING;
+			String creatorName = Constants.EMPTY_STRING;
 
 			if (aCO instanceof PObject)
 			{
@@ -3313,7 +3323,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( String vString : variableList )
 		{
-			final StringTokenizer aTok = new StringTokenizer(vString, "|");
+			final StringTokenizer aTok = new StringTokenizer(vString, Constants.PIPE);
 			final String src = aTok.nextToken();
 
 			if ((matchSrc.length() > 0) && !src.equals(matchSrc))
@@ -3343,7 +3353,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Now check the feats to see if they modify the variable
 		for ( Ability obj : aggregateFeatList() )
 		{
-			final String varInList = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
+			final String varInList = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (varInList.length() > 0)
 			{
@@ -3354,7 +3367,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( Skill obj : getSkillList() )
 		{
-			final String varInList = checkForVariableInList(obj, variableString, isMax, "", "", found, value, 0);
+			final String varInList = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, 0);
 
 			if (varInList.length() > 0)
 			{
@@ -3365,7 +3381,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( Equipment obj : equipmentList )
 		{
-			final String eS = checkForVariableInList(obj, variableString, isMax, "", "", found, value, 0);
+			final String eS = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, 0);
 
 			if (eS.length() > 0)
 			{
@@ -3375,7 +3394,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			for ( EquipmentModifier em : (obj.getEqModifierList(true)) )
 			{
-				final String varInList = checkForVariableInList(em, variableString, isMax, "", "", found, value, decrement);
+				final String varInList = checkForVariableInList(em, 
+													variableString, isMax, 
+													Constants.EMPTY_STRING, 
+													Constants.EMPTY_STRING, 
+													found, value, decrement);
 
 				if (varInList.length() > 0)
 				{
@@ -3386,7 +3409,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			for ( EquipmentModifier em : (obj.getEqModifierList(false)) )
 			{
-				final String varInList = checkForVariableInList(em, variableString, isMax, "", "", found, value, decrement);
+				final String varInList = checkForVariableInList(em, 
+													variableString, isMax, 
+													Constants.EMPTY_STRING, 
+													Constants.EMPTY_STRING, 
+													found, value, decrement);
 
 				if (varInList.length() > 0)
 				{
@@ -3398,7 +3425,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( PCTemplate obj : templateList )
 		{
-			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, 
+												found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3409,7 +3439,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( CompanionMod obj : companionModList )
 		{
-			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3420,7 +3453,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (race != null)
 		{
-			final String aString = checkForVariableInList(race, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(race, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3431,7 +3467,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (deity != null)
 		{
-			final String aString = checkForVariableInList(deity, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(deity, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3447,7 +3486,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				continue;
 			}
 
-			final String aString = checkForVariableInList(obj.getDomain(), variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(obj.getDomain(), 
+													variableString, isMax, 
+													Constants.EMPTY_STRING, 
+													Constants.EMPTY_STRING, 
+													found, value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3463,7 +3506,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				continue;
 			}
 
-			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3474,7 +3520,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (PCStat obj : statList)
 		{
-			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3485,7 +3534,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (PCAlignment obj : SettingsHandler.getGame().getUnmodifiableAlignmentList())
 		{
-			final String aString = checkForVariableInList(obj, variableString, isMax, "", "", found, value, decrement);
+			final String aString = checkForVariableInList(obj, variableString, 
+												isMax, Constants.EMPTY_STRING, 
+												Constants.EMPTY_STRING, found, 
+												value, decrement);
 
 			if (aString.length() > 0)
 			{
@@ -3500,7 +3552,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (recurse)
 			{
 				lastVariable = variableString;
-				value = getVariableValue(variableString, "").floatValue();
+				value = getVariableValue(variableString, Constants.EMPTY_STRING).floatValue();
 				includeBonus = false;
 				found = true;
 				lastVariable = null;
@@ -3519,6 +3571,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return new Float(value);
 	}
 
+	/**
+	 * Returns the <tt>Set</tt> of <tt>WeaponProf</tt> objects for the character.
+	 * 
+	 * @return A sorted <tt>Set</tt> of weapon proficiencies.
+	 */
 	public TreeSet<WeaponProf> getWeaponProfList()
 	{
 		final TreeSet<WeaponProf> wp = new TreeSet<WeaponProf>(weaponProfList);
@@ -3543,12 +3600,22 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return wp;
 	}
 
+	/**
+	 * Sets the character's weight in pounds.
+	 * 
+	 * @param i A weight to set.
+	 */
 	public void setWeight(final int i)
 	{
 		weightInPounds = i ;
 		setDirty(true);
 	}
 
+	/**
+	 * Gets the character's weight in pounds.
+	 * 
+	 * @return The character's weight.
+	 */
 	public int getWeight()
 	{
 		return weightInPounds;
@@ -3692,19 +3759,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		return iBonus;
-	}
-
-	public void calcSizeAdjustmentBonuses()
-	{
-		activateAndAddBonusesFromPObject(getSizeAdjustment());
-	}
-
-	public void calcStatBonuses()
-	{
-		for (PCStat stat : statList)
-		{
-			activateAndAddBonusesFromPObject(stat);
-	}
 	}
 
 	public boolean checkQualifyList(final String qualifierItem)
@@ -4313,9 +4367,20 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		this.useHigherPreppedSlots = useHigher;
 	}
 
+	/**
+	 * Returns the &quot;Base&quot; check value for the check at the index
+	 * specified.
+	 * 
+	 * <p>This method caps the base check based on the game mode setting for
+	 * {@link pcgen.core.GameMode#getChecksMaxLvl() checks max level}.
+	 * 
+	 * @param checkInd The index of the check to get
+	 * 
+	 * @return The base check value.
+	 */
 	public int getBaseCheck( final int checkInd )
 	{
-		final String cacheLookup = "getBaseCheck:" + checkInd;
+		final String cacheLookup = "getBaseCheck:" + checkInd; //$NON-NLS-1$
 		final Float total = getVariableProcessor().getCachedVariable(cacheLookup);
 
 		if (total != null)
@@ -4351,7 +4416,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				int masterBonus = nPC.getBaseCheck(checkInd);
 
 				final String copyMasterCheck = replaceMasterString(getCopyMasterCheck(), masterBonus);
-				masterBonus = getVariableValue(copyMasterCheck, "").intValue();
+				masterBonus = getVariableValue(copyMasterCheck, Constants.EMPTY_STRING).intValue();
 
 				// use masters save if better
 				bonus = Math.max(bonus, masterBonus);
@@ -4366,6 +4431,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return (int)bonus;
 	}
 
+	/**
+	 * Returns the total check value for the check index specified for the
+	 * character.
+	 * 
+	 * <p>This total includes all check bonuses the character has.
+	 * 
+	 * @param aCheck The index of the check to get.
+	 * 
+	 * @return A check value.
+	 */
 	public int getTotalCheck( final int aCheck )
 	{
 		int bonus = getBaseCheck(aCheck);
@@ -4637,7 +4712,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
 	public String getCopyMasterCheck()
@@ -4653,7 +4728,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
 	public String getCopyMasterHP()
@@ -4669,7 +4744,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
 	public void setCurrentHP(final int currentHP)
@@ -4720,9 +4795,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
+	/**
+	 * Returns the character's Effective Character Level.
+	 * 
+	 * <p>The level is calculated by adding total non-monster levels, total
+	 * hitdice, and level adjustment.
+	 * 
+	 * @return The ECL of the character.
+	 */
 	public int getECL()
 	{
 		int totalLevels = 0;
@@ -4761,7 +4844,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public List<Equipment> getEquipmentOfType(final String typeName, final int status)
 	{
-		return getEquipmentOfType(typeName, "", status);
+		return getEquipmentOfType(typeName, Constants.EMPTY_STRING, status);
 	}
 
 	/**
@@ -4779,7 +4862,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for ( Equipment eq : equipmentList )
 		{
-			if (eq.typeStringContains(typeName) && ("".equals(subtypeName) || eq.typeStringContains(subtypeName))
+			if (eq.typeStringContains(typeName) && (Constants.EMPTY_STRING.equals(subtypeName) || eq.typeStringContains(subtypeName))
 				&& ((status == 3) || ((status == 2) && !eq.isEquipped()) || ((status == 1) && eq.isEquipped())))
 			{
 				aArrayList.add(eq);
@@ -4988,13 +5071,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return weapList;
 	}
 
-	/*
+	/**
 	 * renaming to standard convention
 	 * due to refactoring of export
 	 *
 	 * Build on-the-fly so removing templates doesn't mess up favoured list
 	 *
-	 * author: Thomas Behr 08-03-02
+	 * @author Thomas Behr 08-03-02
 	 */
 	public SortedSet<String> getFavoredClasses()
 	{
@@ -5022,10 +5105,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public double getFeatBonusTo(String aType, String aName, final boolean subSearch)
 	{
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		return getPObjectWithCostBonusTo(aggregateFeatList(), aType, aName, subSearch);
+		return getPObjectWithCostBonusTo(aggregateFeatList(), 
+										 aType.toUpperCase(), 
+										 aName.toUpperCase(), 
+										 subSearch);
 	}
 
 	/**
@@ -5037,12 +5120,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public Ability getFeatNamed(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, Ability.Nature.ANY);
+		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), Constants.FEAT_CATEGORY, featName, Ability.Nature.ANY);
 	}
 
 	public Ability getFeatNamed(final String featName, final Ability.Nature featType)
 	{
-		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), "FEAT", featName, featType);
+		return AbilityUtilities.getAbilityFromList(aggregateFeatList(), Constants.FEAT_CATEGORY, featName, featType);
 	}
 
 	/**
@@ -5109,7 +5192,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return pcLevelInfo.get(idx).getClassKeyName();
 		}
 
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
 	public int getLevelInfoClassLevel(final int idx)
@@ -5186,7 +5269,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Calculate the maximum number of ranks the character is allowed to have
 	 * in the specified skill.
 	 *
-	 * @param skillName The name of the skill being checked.
+	 * @param skillKey  The key of the skill being checked.
 	 * @param aClass    The name of the current class in which points are being spent
 	 *                  - only used to check cross-class skill cost.
 	 * @return max rank
@@ -5203,6 +5286,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		final Skill aSkill = Globals.getSkillKeyed(skillKey);
 
+		if ( aSkill == null )
+		{
+			return 0.0f;
+		}
+		
 		if (aSkill.isExclusive())
 		{
 			// Exclusive skills only count levels in classes which give access to the skill
@@ -5279,7 +5367,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			return movementTypes[moveIdx];
 		}
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 
 	public double movementOfType(final String moveType)
@@ -5310,7 +5398,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (sDom.length() > 0)
 		{
-			final StringTokenizer aTok = new StringTokenizer(sDom, "|");
+			final StringTokenizer aTok = new StringTokenizer(sDom, Constants.PIPE);
 			final String aType = aTok.nextToken();
 			final String aName = aTok.nextToken();
 			final int aLevel = Integer.parseInt(aTok.nextToken());
@@ -5359,7 +5447,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public int getOffHandLightBonus()
 	{
-		final int div = getVariableValue("OFFHANDLIGHTBONUS", "").intValue();
+		final int div = getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
 
 		return div;
 	}
@@ -5429,17 +5517,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			if (PlayerCharacterUtilities.canReassignRacialFeats())
 			{
-				final StringTokenizer aTok = new StringTokenizer(oldRace.getFeatList(this), "|");
+				final StringTokenizer aTok = new StringTokenizer(oldRace.getFeatList(this), Constants.PIPE);
 
 				while (aTok.hasMoreTokens())
 				{
 					final String aString = aTok.nextToken();
 
-					if (aString.endsWith(")") && (Globals.getAbilityKeyed("FEAT", aString) == null))
+					if (aString.endsWith(")") && (Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aString) == null))
 					{
 						final String featKey = aString.substring(0, aString.indexOf('(') - 1);
 
-						final Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);
+						final Ability anAbility = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, featKey);
 
 						if (anAbility != null)
 						{
@@ -5450,7 +5538,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					}
 					else
 					{
-						final Ability anAbility = Globals.getAbilityKeyed("FEAT", aString);
+						final Ability anAbility = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aString);
 
 						if (anAbility != null)
 						{
@@ -5604,18 +5692,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			if (PlayerCharacterUtilities.canReassignRacialFeats())
 			{
-				final StringTokenizer aTok = new StringTokenizer(getRace().getFeatList(this), "|");
+				final StringTokenizer aTok = new StringTokenizer(getRace().getFeatList(this), Constants.PIPE);
 
 				while (aTok.hasMoreTokens())
 				{
 					final String aString = aTok.nextToken();
 
-					if (aString.endsWith(")") && (Globals.getAbilityKeyed("FEAT", aString) == null))
+					if (aString.endsWith(")") && (Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aString) == null))
 					{
 						// we want the first instance of it, in case of Weapon Focus(Longbow (Composite))
 						final String featKey = aString.substring(0, aString.indexOf('(') - 1);
 
-						final Ability anAbility = Globals.getAbilityKeyed("FEAT", featKey);
+						final Ability anAbility = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, featKey);
 
 						if (anAbility != null)
 						{
@@ -5626,7 +5714,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					}
 					else
 					{
-						final Ability anAbility = Globals.getAbilityKeyed("FEAT", aString);
+						final Ability anAbility = Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aString);
 
 						if (anAbility != null)
 						{
@@ -5657,6 +5745,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			race.chooseLanguageAutos(isImporting(), this);
 		}
 
+// TODO - Change this back
+//		setAggregateAbilitiesStable(null, false);
 		setAggregateFeatsStable(false);
 		setAutomaticFeatsStable(false);
 		setVirtualFeatsStable(false);
@@ -5685,10 +5775,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return 0;
 		}
 
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		final List<BonusObj> tempList = getRace().getBonusListOfType(aType, aName);
+		final List<BonusObj> tempList = getRace().getBonusListOfType(aType.toUpperCase(), 
+																	 aName.toUpperCase());
 
 		return calcBonusFromList(tempList);
 	}
@@ -5727,10 +5815,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public double getSizeAdjustmentBonusTo(String aType, String aName)
 	{
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		return getBonusDueToType(aType, aName, "SIZE");
+		return getBonusDueToType(aType.toUpperCase(), aName.toUpperCase(), "SIZE");
 	}
 
 	public Skill getSkillKeyed(final String skillKey)
@@ -5963,15 +6048,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
 		{
-			aString = "((CASTERLEVEL/2).TRUNC*5)+25";
+			aString = "((CASTERLEVEL/2).TRUNC*5)+25"; //$NON-NLS-1$
 		}
 		else if (aRange.equalsIgnoreCase("MEDIUM") && (aString == null))
 		{
-			aString = "(CASTERLEVEL*10)+100";
+			aString = "(CASTERLEVEL*10)+100"; //$NON-NLS-1$
 		}
 		else if (aRange.equalsIgnoreCase("LONG") && (aString == null))
 		{
-			aString = "(CASTERLEVEL*40)+400";
+			aString = "(CASTERLEVEL*40)+400"; //$NON-NLS-1$
 		}
 
 		if (aString != null)
@@ -6051,10 +6136,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public double getStatBonusTo(String aType, String aName)
 	{
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		final List<BonusObj> aList = statList.getBonusListOfType(aType, aName);
+		final List<BonusObj> aList = statList.getBonusListOfType(aType.toUpperCase(), aName.toUpperCase());
 
 		return calcBonusFromList(aList);
 	}
@@ -6122,10 +6204,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public double getTemplateBonusTo(String aType, String aName, final boolean subSearch)
 	{
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
-
-		return getPObjectWithCostBonusTo(templateList, aType, aName, subSearch);
+		return getPObjectWithCostBonusTo(templateList, aType.toUpperCase(), 
+										 aName.toUpperCase(), subSearch);
 	}
 
 	/**
@@ -6210,7 +6290,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public int getTwoHandDamageDivisor()
 	{
-		int div = getVariableValue("TWOHANDDAMAGEDIVISOR", "").intValue();
+		int div = getVariableValue("TWOHANDDAMAGEDIVISOR", Constants.EMPTY_STRING).intValue();
 
 		if (div == 0)
 		{
@@ -6681,12 +6761,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					return(aKey.substring(typeIndex+1)); //use aKey to get .REPLACE or .STACK
 				}
-				return(""); //no type;
+				return Constants.EMPTY_STRING; //no type;
 			}
 
 		}
 
-		return(""); //just return no type
+		return Constants.EMPTY_STRING; //just return no type
 
 	}
 
@@ -6815,7 +6895,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public void addDomainSource(final String aType, final String aName, final int aLevel, final int dNum)
 	{
-		final String aString = aType + "|" + aName + "|" + aLevel;
+		final String aString = aType + Constants.PIPE + aName + Constants.PIPE + aLevel;
 		final String sNum = Integer.toString(dNum);
 		domainSourceMap.put(aString, sNum);
 		setDirty(true);
@@ -6846,6 +6926,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return aList;
 	}
 
+	/**
+	 * Adds a <tt>Kit</tt> to the applied list of kits for the character.
+	 * 
+	 * @param aKit The <tt>Kit</tt> to add.
+	 */
 	public void addKit(final Kit aKit)
 	{
 		if (kitList == null)
@@ -7375,7 +7460,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		else
 		{
-			setAutomaticFeatsStable(false);
+			setAutomaticAbilitiesStable(null, false);
+//			setAutomaticFeatsStable(false);
 		}
 
 		List<String> templates;
@@ -7402,8 +7488,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			inTmpl.checkRemovals(this);
 		}
 
-		setAutomaticFeatsStable(false);
-		setAggregateFeatsStable(false);
+		setAggregateAbilitiesStable(null, false);
+//		setAutomaticFeatsStable(false);
+//		setAggregateFeatsStable(false);
 		AbilityUtilities.rebuildAutoAbilityList(this);
 		rebuildFeatAggreagateList();
 
@@ -7809,162 +7896,39 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 	}
 
-//	private List<BonusObj> getAllActiveBonuses()
-//	{
-//		List<BonusObj> ret = new ArrayList<BonusObj>();
-//		
-//		for ( final PObject pobj : getPObjectList() )
-//		{
-//			if ( pobj != null )
-//			{
-//				pobj.activateBonuses(this);
-//
-//				// TODO - Class bonuses only get added if level is greater than
-//				// zero.  Is this check required? Should it be part of 
-//				// getPObjectList()?
-//				ret.addAll( pobj.getActiveBonuses(this) );
-//			}
-//		}
-//		
-//		ret.addAll( getPurchaseModeBonuses() );
-//
-//		if (getUseTempMods())
-//		{
-//			ret.addAll( getTempBonuses() );
-//		}
-//		ret = Bonus.sortBonusList(ret);
-//		return ret;
-//	}
-	
-	private void calcActiveBonusLoop()
+	private List<BonusObj> getAllActiveBonuses()
 	{
-		// First we clear the current list
-		clearActiveBonuses();
+		List<BonusObj> ret = new ArrayList<BonusObj>();
+		
+		for ( final PObject pobj : getPObjectList() )
+		{
+			if ( pobj != null )
+			{
+				pobj.activateBonuses(this);
 
-		// walk through all the possible bonus granters
-		// to build up the active list of bonuses
-		//
-		//  Campaigns
-		//  ArmorProf
-
-		//  Stat (PCStat)
-		calcStatBonuses();
-		//  SizeAdjustment
-		calcSizeAdjustmentBonuses();
-		//  BioSet (ageSet)
-		calcAgeBonuses();
-		//  Check (PObject)
-		calcCheckBonuses();
-		//  Alignment (PCAlignment)
-		calcAlignmentBonuses();
-		//  Feat (virtual feats, auto feats)
-		calcFeatBonuses();
-		//  Class (PCClass)
-		calcClassBonuses();
-		//  CompanionMod
-		calcCompanionModBonuses();
-		//  Equipment (includes EqMods)
-		calcEquipmentBonuses();
-		//  Template (PCTemplate)
-		calcTemplateBonuses();
-		//  Domain (CharacterDomain)
-		calcDomainBonuses();
-		//  Race
-		calcRaceBonuses();
-		//  Deity
-		calcDeityBonuses();
-		//  Skill
-		calcSkillBonuses();
-
-		calcPurchaseModeBonuses();
+				// TODO - Class bonuses only get added if level is greater than
+				// zero.  Is this check required? Should it be part of 
+				// getPObjectList()?
+				ret.addAll( pobj.getActiveBonuses(this) );
+			}
+		}
+		
+		ret.addAll( getPurchaseModeBonuses() );
 
 		if (getUseTempMods())
 		{
-			calcTempBonuses();
+			ret.addAll( getTempBonuses() );
 		}
-
-		// First order the bonusList for dependencies
-		sortActiveBonusList();
-		//
-		// Now build the activeBonusMap from all the bonuses
-		//
-		
-//		final List<BonusObj> bonuses = getAllActiveBonuses();
+		ret = Bonus.sortBonusList(ret);
+		return ret;
+	}
+	
+	private void calcActiveBonusLoop()
+	{
+		final List<BonusObj> bonuses = getAllActiveBonuses();
+		activeBonusList = bonuses;
 //		buildBonusMap(bonuses);
 		buildActiveBonusMap();
-	}
-
-	/**
-	 * Sorts the activeBonusList according to dependencies
-	 **/
-	private void sortActiveBonusList()
-	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
-
-		// 'BONUS:blah|blah|Foo' depends on
-		// 'BONUS:VAR|Foo|MyGoo' which depends on
-		// 'BONUS:VAR|MyGoo|2'
-
-		// BONUS: type      | info           | value
-
-		// BONUS:COMBAT     |TOHIT           |STR
-		// BONUS:STAT       |STR             |rage
-		// BONUS:VAR        |rage            |2
-
-		int aSize = getActiveBonusList().size();
-		int i;
-		for (i = 0; i < aSize; i++)
-		{
-			final BonusObj aBonus = getActiveBonusList().get(i);
-			int iFound = 0;
-			for (int ii = 0; ii < aList.size(); ii++)
-			{
-				final BonusObj tempBonus = aList.get(ii);
-				if (tempBonus.getDependsOn(aBonus.getBonusInfo()))
-				{
-					iFound = ii;
-				}
-			}
-			aList.add(iFound, aBonus);
-		}
-		int iCount = aSize;
-		for (i = 0; i < iCount; )
-		{
-			final BonusObj aBonus = aList.get(i);
-			//
-			// Move to end of list
-			//
-			if (aBonus.getDependsOn("JEPFORMULA"))
-			{
-				aList.remove(i);
-				aList.add(aBonus);
-				--iCount;
-			}
-			else
-			{
-				++i;
-			}
-		}
-
-		setActiveBonusList(aList);
-
-		aList.clear();
-
-		// go through and move all the static bonuses to the front
-		aSize = getActiveBonusList().size();
-		for (i = 0; i < aSize; i++)
-		{
-			final BonusObj aBonus = getActiveBonusList().get(i);
-			if (aBonus.isValueStatic())
-			{
-				aList.add(0, aBonus);
-			}
-			else
-			{
-				aList.add(aBonus);
-			}
-		}
-		setActiveBonusList(aList);
 	}
 
 	/**
@@ -8267,31 +8231,33 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	/**
 	 * Calculate different kinds of bonuses to saves.
 	 * possible tokens are
-	 * save
-	 * save.TOTAL
-	 * save.BASE
-	 * save.MISC
-	 * save.list
-	 * save.TOTAL.list
-	 * save.BASE.list
-	 * save.MISC.list
-	 * where
-	 * save    := "CHECK1"|"CHECK2"|"CHECK3"
-	 * list    := ((include|exclude)del)*(include|exclude)
-	 * include := "FEATS"|"MAGIC"|"RACE"
-	 * exclude := "NOFEATS"|"NOMAGIC"|"NORACE"|"NOSTAT"
-	 * del     := "."
-	 * given as regular expression
+	 * <ul>
+	 * <li>save</li>
+	 * <li>save.TOTAL</li>
+	 * <li>save.BASE</li>
+	 * <li>save.MISC</li>
+	 * <li>save.list</li>
+	 * <li>save.TOTAL.list</li>
+	 * <li>save.BASE.list</li>
+	 * <li>save.MISC.list</li>
+	 * </ul>
+	 * where<br />
+	 * save    := "CHECK1"|"CHECK2"|"CHECK3"<br />
+	 * list    := ((include|exclude)del)*(include|exclude)<br />
+	 * include := "FEATS"|"MAGIC"|"RACE"<br />
+	 * exclude := "NOFEATS"|"NOMAGIC"|"NORACE"|"NOSTAT" <br />
+	 * del     := "." <br />
+	 * given as regular expression.
 	 * <p/>
 	 * "include"-s will add the appropriate modifier
 	 * "exclude"-s will subtract the appropriate modifier
 	 * <p/>
-	 * (This means save.MAGIC.NOMAGIC equals 0
-	 * whereas save.RACE.RACE equals 2 times the racial bonus)
+	 * (This means <tt>save.MAGIC.NOMAGIC</tt> equals 0, 
+	 * whereas <tt>save.RACE.RACE</tt> equals 2 times the racial bonus)
 	 * <p/>
 	 * If you use unrecognised terminals, their value will amount to 0
-	 * This means save.BLABLA equals 0
-	 * whereas save.MAGIC.BLABLA equals save.MAGIC
+	 * This means <tt>save.BLABLA</tt> equals 0
+	 * whereas <tt>save.MAGIC.BLABLA</tt> equals <tt>save.MAGIC</tt>
 	 * <p/>
 	 * <br>author: Thomas Behr 09-03-02
 	 *
@@ -8562,7 +8528,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean hasFeatAutomatic(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(featAutoList(), "FEAT", featName, Ability.Nature.ANY) != null;
+		return AbilityUtilities.getAbilityFromList(featAutoList(), Constants.FEAT_CATEGORY, featName, Ability.Nature.ANY) != null;
 	}
 
 	/**
@@ -8574,7 +8540,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean hasFeatVirtual(final String featName)
 	{
-		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(), "FEAT", featName, Ability.Nature.ANY) != null;
+		return AbilityUtilities.getAbilityFromList(getVirtualFeatList(), Constants.FEAT_CATEGORY, featName, Ability.Nature.ANY) != null;
 	}
 
 	/**
@@ -9740,6 +9706,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (!PlayerCharacterUtilities.canReassignTemplateFeats())
 		{
+// TODO - ABILITYOBJECT
+//			setAutomaticAbilitiesStable( null, false );
 			setAutomaticFeatsStable(false);
 		}
 
@@ -10441,7 +10409,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Active BonusObj's
 	 * @return List
 	 */
-	private List<BonusObj> getActiveBonusList()
+	public List<BonusObj> getActiveBonusList()
 	{
 		return activeBonusList;
 	}
@@ -10585,6 +10553,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Add feat-granted weapon proficiencies
 		//
 		setAggregateFeatsStable(false);
+// TODO - ABILITYOBJECT
+//		setAggregateAbilitiesStable(null, false);
 
 		for ( Ability feat : aggregateFeatList() )
 		{
@@ -11860,8 +11830,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private void getPreReqFromACType(String aString, final PObject aPObj)
 	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-		String outputString = "|";
+		final StringTokenizer aTok = new StringTokenizer(aString, Constants.PIPE);
+		String outputString = Constants.PIPE;
 
 		while (aTok.hasMoreTokens())
 		{
@@ -11883,7 +11853,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 			else
 			{
-				outputString += (bString + "|");
+				outputString += (bString + Constants.PIPE);
 			}
 		}
 
@@ -12294,58 +12264,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 	}
 
-	private void calcAgeBonuses()
-	{
-		final String ageSetLine = Globals.getBioSet().getAgeSetLine(this);
-
-		if (ageSetLine == null)
-		{
-			return;
-		}
-
-		final List<BonusObj> tempList = new ArrayList<BonusObj>();
-		final StringTokenizer aTok = new StringTokenizer(ageSetLine, "\t");
-		aTok.nextToken(); // name of ageSet, e.g.: Middle Aged
-
-		while (aTok.hasMoreTokens())
-		{
-			final String b = aTok.nextToken();
-
-			if (b.startsWith("BONUS:"))
-			{
-				final BonusObj aBonus = Bonus.newBonus(b.substring(6));
-
-				if (aBonus != null)
-				{
-					aBonus.setCreatorObject(Globals.getBioSet());
-					aBonus.setApplied(true);
-					tempList.add(aBonus);
-				}
-			}
-		}
-
-		if (!tempList.isEmpty())
-		{
-			addListToActiveBonuses(tempList);
-		}
-	}
-
-	/**
-	 * ###################################################
-	 * Functions that get all the "active" bonuses and
-	 * add them to the activeBonusList
-	 * ###################################################
-	 */
-	private void calcAlignmentBonuses()
-	{
-		final PCAlignment aLine = SettingsHandler.getGame().getAlignmentAtIndex(getAlignment());
-
-		if (aLine != null)
-		{
-			activateAndAddBonusesFromPObject(aLine);
-		}
-	}
-
 	/**
 	 * Compute total bonus from a List of BonusObj's Use cost of bonus to adjust
 	 * total bonus up or down This method takes a list of bonus objects.
@@ -12384,14 +12302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			double iBonus = 0;
 
-			if (aBonus.hasPreReqs())
-			{
-				if (PrereqHandler.passesAll(aBonus.getPrereqList(), this, null))
-				{
-					iBonus = anObj.calcBonusFrom(aBonus, this, this);
-				}
-			}
-			else
+			if ( aBonus.qualifies(this) )
 			{
 				iBonus = anObj.calcBonusFrom(aBonus, this, this);
 			}
@@ -12426,93 +12337,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return totalBonus;
 	}
 
-	private void calcCheckBonuses()
-	{
-		if (SettingsHandler.getGame().getUnmodifiableCheckList().isEmpty())
-		{
-			return;
-		}
-
-		for (PObject anObj : SettingsHandler.getGame().getUnmodifiableCheckList())
-		{
-			activateAndAddBonusesFromPObject(anObj);
-		}
-	}
-
-	private void calcClassBonuses()
-	{
-		if (classList.isEmpty())
-		{
-			return;
-		}
-
-		for ( PCClass pcClass : classList )
-		{
-			if (pcClass.getLevel() > 0)
-			{
-				activateAndAddBonusesFromPObject(pcClass);
-			}
-		}
-	}
-
-	private void calcCompanionModBonuses()
-	{
-		activateAndAddBonusesFromPObjects(companionModList);
-	}
-
-	private void calcDeityBonuses()
-	{
-		activateAndAddBonusesFromPObject(getDeity());
-	}
-
-	private void calcDomainBonuses()
-	{
-		if (characterDomainList.isEmpty())
-		{
-			return;
-		}
-
-		for ( CharacterDomain cd : characterDomainList )
-		{
-			final Domain aDomain = cd.getDomain();
-
-			activateAndAddBonusesFromPObject(aDomain);
-		}
-	}
-
-	private void calcEquipmentBonuses()
-	{
-		if (getEquipmentList().isEmpty())
-		{
-			return;
-		}
-
-		for ( Equipment eq : getEquipmentList() )
-		{
-			if (eq.isEquipped())
-			{
-				activateAndAddBonusesFromPObject(eq);
-			}
-		}
-	}
-
-	private void calcFeatBonuses()
-	{
-		activateAndAddBonusesFromPObjects(aggregateFeatList());
-	}
-
-	private void calcRaceBonuses()
-	{
-		activateAndAddBonusesFromPObject(getRace());
-	}
-
-	private void calcSkillBonuses()
-	{
-		activateAndAddBonusesFromPObjects(getSkillList());
-	}
-
-	private void calcPurchaseModeBonuses()
-//	private List<BonusObj> getPurchaseModeBonuses()
+//	private void calcPurchaseModeBonuses()
+	private List<BonusObj> getPurchaseModeBonuses()
 	{
 		final GameMode gm = SettingsHandler.getGame();
 		final String purchaseMethodName = gm.getPurchaseModeMethodName();
@@ -12521,75 +12347,39 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final PointBuyMethod pbm = gm.getPurchaseMethodByName(purchaseMethodName);
 			pbm.activateBonuses(this);
 
-			final List<BonusObj> tempList = pbm.getActiveBonuses();
-			addListToActiveBonuses(tempList);
-//			return pbm.getActiveBonuses();
+//			final List<BonusObj> tempList = pbm.getActiveBonuses();
+//			addListToActiveBonuses(tempList);
+			return pbm.getActiveBonuses();
 		}
-//		return Collections.emptyList();
+		return Collections.emptyList();
 	}
 
-	private void calcTempBonuses()
-//	private List<BonusObj> getTempBonuses()
+//	private void calcTempBonuses()
+	private List<BonusObj> getTempBonuses()
 	{
 		final List<BonusObj> tempList = getFilteredTempBonusList();
 		if(tempList.isEmpty())
 		{
-//			return Collections.emptyList();
-			return;
+			return Collections.emptyList();
+//			return;
 		}
-		for (Iterator<BonusObj> tempIter = tempList.iterator(); tempIter.hasNext();)
+		for (final Iterator<BonusObj> tempIter = tempList.iterator(); tempIter.hasNext();)
 		{
 			final BonusObj bonus = tempIter.next();
 			bonus.setApplied(false);
 
-			if (bonus.hasPreReqs())
-			{
-				if (PrereqHandler.passesAll(bonus.getPrereqList(), this, null))
-				{
-					bonus.setApplied(true);
-				}
-				else
-				{
-					bonus.setApplied(false);
-				}
-			}
-			else
+			if ( bonus.qualifies(this) )
 			{
 				bonus.setApplied(true);
 			}
+			
 			if (!bonus.isApplied())
 			{
 				tempIter.remove();
 			}
 		}
-		addListToActiveBonuses(tempList);
-//		return tempList;
-	}
-
-	private void calcTemplateBonuses()
-	{
-		activateAndAddBonusesFromPObjects(getTemplateList());
-	}
-
-	private void activateAndAddBonusesFromPObjects(final List<? extends PObject> objects)
-	{
-		for (PObject obj : objects)
-		{
-			activateAndAddBonusesFromPObject(obj);
-		}
-	}
-
-	private void activateAndAddBonusesFromPObject(final PObject object)
-	{
-		if (object==null)
-		{
-			return;
-		}
-
-		object.activateBonuses(this);
-
-		final List<BonusObj> tempList = object.getActiveBonuses(this);
-		addListToActiveBonuses(tempList);
+//		addListToActiveBonuses(tempList);
+		return tempList;
 	}
 
 	/**
@@ -12619,17 +12409,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private void clearActiveBonusMap()
 	{
 		activeBonusMap.clear();
-	}
-
-	private void clearActiveBonuses()
-	{
-		activeBonusList.clear();
-	}
-
-	private void setActiveBonusList(final List<BonusObj> aList)
-	{
-		activeBonusList.clear();
-		activeBonusList.addAll(aList);
 	}
 
 	/**
@@ -13232,10 +13011,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
+// TODO - ABILITYOBJECT
+//		setAggregateAbilitiesStable(null, false);
 		setAggregateFeatsStable(false);
 		setAutomaticFeatsStable(false);
 		setVirtualFeatsStable(false);
 		calcActiveBonuses();
+		getAutoWeaponProfs(featAutoList());
 		//setDirty(true);
 	}
 
@@ -13981,7 +13763,17 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		aClone.addArmorProfs(getArmorProfList());
 
-		for (Ability a : this.getRealFeatList()) {aClone.addRealFeat((Ability)(a.clone())); }
+		for (final Ability a : this.getRealFeatList()) 
+		{
+			aClone.addRealAbility(AbilityCategory.FEAT, (Ability)(a.clone())); 
+		}
+		for ( final AbilityCategory cat : theAbilities.getKeySet() )
+		{
+			for ( final Ability a : getRealAbilityList(cat) )
+			{
+				aClone.addRealAbility(cat, (Ability)a.clone());
+			}
+		}
 
 		aClone.miscList.addAll(getMiscList());
 		for (NoteItem n : getNotesList())
@@ -14125,6 +13917,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		aClone.pointBuyPoints = pointBuyPoints;
 
 		aClone.setDirty(true);
+// TODO - ABILITYOBJECT
+//		aClone.setAggregateAbilitiesStable(null, false);
 		aClone.setAutomaticFeatsStable(false);
 		aClone.setVirtualFeatsStable(false);
 		aClone.setQualifyListStable(false);
@@ -14937,9 +14731,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Set aggregate Feats stable
 	 * @param stable
 	 */
-	public void setAggregateFeatsStable(final boolean stable)
+	private void setAggregateFeatsStable(final boolean stable)
 	{
 		aggregateFeatsStable = stable;
+		setVirtualFeatsStable(stable);
+		setAutomaticAbilitiesStable(AbilityCategory.FEAT, stable);
 		//setDirty(true);
 	}
 
@@ -14949,6 +14745,26 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		if ( aCategory == AbilityCategory.FEAT )
 		{
 			setAggregateFeatsStable(stable);
+			return;
+		}
+		if ( aCategory == null )
+		{
+			if ( stable == false )
+			{
+				// Clear all the categories
+				for ( final AbilityCategory cat : theAbilities.getKeySet() )
+				{
+					setAggregateAbilitiesStable( cat, stable );
+				}
+			}
+			setAggregateFeatsStable(stable);
+			return;
+		}
+		if ( stable == false )
+		{
+			theAbilities.put(aCategory, Ability.Nature.AUTOMATIC, null);
+			// TODO - Deal with non-aggregate virtual abilities (i.e. from ADD:)
+			theAbilities.put(aCategory, Ability.Nature.VIRTUAL, null);
 		}
 	}
 	
@@ -14957,7 +14773,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * of feats are stable
 	 * @return TRUE or FALSE
 	 */
-	public boolean isAggregateFeatsStable()
+	private boolean isAggregateFeatsStable()
 	{
 		return automaticFeatsStable && virtualFeatsStable && aggregateFeatsStable;
 	}
@@ -14968,14 +14784,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			return isAggregateFeatsStable();
 		}
-		return false;
+		return theAbilities.get(aCategory, Ability.Nature.NORMAL) != null
+			&& theAbilities.get(aCategory, Ability.Nature.AUTOMATIC) != null
+			&& theAbilities.get(aCategory, Ability.Nature.VIRTUAL) != null;
 	}
 	
 	/**
 	 * Sets a 'stable' list of automatic feats
 	 * @param stable
 	 */
-	public void setAutomaticFeatsStable(final boolean stable)
+	private void setAutomaticFeatsStable(final boolean stable)
 	{
 		automaticFeatsStable = stable;
 		//setDirty(true);
@@ -14984,6 +14802,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public void setAutomaticAbilitiesStable(final AbilityCategory aCategory,
 											final boolean stable)
 	{
+		if ( aCategory == null )
+		{
+			if ( stable == false )
+			{
+				for ( final AbilityCategory cat : theAbilities.getKeySet() )
+				{
+					theAbilities.put(cat, Ability.Nature.AUTOMATIC, null);
+				}
+			}
+			setAutomaticFeatsStable(stable);
+			return;
+		}
 		if ( aCategory == AbilityCategory.FEAT )
 		{
 			setAutomaticFeatsStable(stable);
@@ -15001,7 +14831,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 *
 	 * @return  true if added successfully
 	 */
-	public boolean addRealFeat(final Ability aFeat)
+	private boolean addRealFeat(final Ability aFeat)
 	{
 		//return abilityStore.addCategorisable(aFeat)
 		return featList.add(aFeat);
@@ -15033,13 +14863,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	/**
 	 * Remove all "real" (not auto or auto) feats from the character
 	 */
-	public void clearRealFeats()
+	private void clearRealFeats()
 	{
 		featList.clear();
 	}
 
 	public void clearRealAbilities(final AbilityCategory aCategory)
 	{
+		if ( aCategory == null )
+		{
+			for ( final AbilityCategory cat : theAbilities.getKeySet() )
+			{
+				theAbilities.put(cat, Ability.Nature.NORMAL, null);
+			}
+			return;
+		}
 		if ( aCategory == AbilityCategory.FEAT )
 		{
 			clearRealFeats();
@@ -15054,7 +14892,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 *
 	 * @return  DOCUMENT ME!
 	 */
-	public int getNumberOfRealFeats()
+	private int getNumberOfRealFeats()
 	{
 		return featList.size();
 	}
@@ -15074,7 +14912,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return abilities.size();
 	}
 	
-	public List<Ability> getRealFeatsList()
+	private List<Ability> getRealFeatsList()
 	{
 		return new ArrayList<Ability>(featList);
 	}
@@ -15395,6 +15233,20 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 	}
 	
+	public void setUserPoolBonus( final AbilityCategory aCategory, final BigDecimal anAmount )
+	{
+		if ( aCategory == AbilityCategory.FEAT )
+		{
+			throw new IllegalArgumentException("This method is not valid for feats."); //$NON-NLS-1$
+		}
+		
+		if ( theUserPoolBonuses == null )
+		{
+			theUserPoolBonuses = new HashMap<AbilityCategory, BigDecimal>();
+		}
+		theUserPoolBonuses.put(aCategory, anAmount);
+	}
+	
 	public double getUserPoolBonus( final AbilityCategory aCategory )
 	{
 		if ( aCategory == AbilityCategory.FEAT )
@@ -15616,7 +15468,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			Logging.errorPrint("Adding duplicate feat: " + aFeat.getDisplayName());
 		}
 
-		if (!addRealFeat(aFeat))
+		if (!addRealAbility(AbilityCategory.FEAT, aFeat))
 		{
 			Logging.errorPrint("Problem adding feat: " + aFeat.getDisplayName());
 		}
@@ -16270,117 +16122,127 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			abilities = new ArrayList<Ability>();
 			theAbilities.put(aCategory, Ability.Nature.AUTOMATIC, abilities);
-			
-			//
-			// add racial feats
-			//
-			if ((getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
+	
+			for ( final PObject pobj : getPObjectList() )
 			{
-				final List<String> abilityKeys = getRace().getAutoAbilityList(aCategory);
+				final List<String> abilityKeys = pobj.getAbilityKeys(this, aCategory, Ability.Nature.AUTOMATIC);
 				for ( final String key : abilityKeys )
 				{
 					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
 					added.setFeatType(Ability.Nature.AUTOMATIC);
 				}
 			}
+			//
+			// add racial feats
+			//
+//			if ((getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
+//			{
+//				final List<String> abilityKeys = getRace().getAutoAbilityList(aCategory);
+//				for ( final String key : abilityKeys )
+//				{
+//					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
+//					added.setFeatType(Ability.Nature.AUTOMATIC);
+//				}
+//			}
+//
+//			for (final PCClass aClass : getClassList())
+//			{
+//				final Collection<String> abilityKeys = aClass.getAutoAbilityList(aCategory);
+//				for ( String key : abilityKeys )
+//				{
+//					final int idx = key.indexOf('[');
+//
+//					if (idx >= 0)
+//					{
+//						final StringTokenizer bTok = new StringTokenizer(key.substring(idx + 1), "[]");
+//						final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
+//
+//						while (bTok.hasMoreTokens())
+//						{
+//							final String prereqString = bTok.nextToken();
+//							Logging.debugPrint("Why is the prerequisite '"+prereqString+
+//									"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
+//							try {
+//								final PreParserFactory factory = PreParserFactory.getInstance();
+//								final Prerequisite prereq = factory.parse(prereqString);
+//								preReqList.add(prereq);
+//							}
+//							catch (PersistenceLayerException ple){
+//								Logging.errorPrint(ple.getMessage(), ple);
+//							}
+//						}
+//
+//						key = key.substring(0, idx);
+//
+//						if (preReqList.size() != 0)
+//						{
+//							if (! PrereqHandler.passesAll(preReqList, this, null ))
+//							{
+//								continue;
+//							}
+//						}
+//					}
+//
+//					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
+//					added.setFeatType(Ability.Nature.AUTOMATIC);
+//				}
+//			}
+//
+//			if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !getTemplateList().isEmpty())
+//			{
+//				for (final PCTemplate template : getTemplateList())
+//				{
+//					final List<String> abilityKeys = template.getAutoAbilityKeys(aCategory, this, false);
+//
+//					for ( final String key : abilityKeys )
+//					{
+//						// TODO - Not sure if we need to tokenize on comma
+//						final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
+//						added.setFeatType(Ability.Nature.AUTOMATIC);
+//					}
+//				}
+//			}
+//
+//			for (final CharacterDomain aCD : getCharacterDomainList())
+//			{
+//				final Domain domain = aCD.getDomain();
+//
+//				if (domain != null)
+//				{
+//					for (int e2 = 0; e2 < domain.getAssociatedCount(); ++e2)
+//					{
+//						final String aString = domain.getAssociated(e2);
+//
+//						// TODO - This is not working
+//						if (aString.startsWith("ABILITY"))
+//						{
+//							final int idx = aString.indexOf('?');
+//
+//							if (idx > -1)
+//							{
+//								final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, aString.substring(idx + 1));
+//								added.setFeatType(Ability.Nature.AUTOMATIC);
+//							}
+//							else
+//							{
+//								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
+//							}
+//						}
+//					}
+//
+//					// TODO - Need to change Domain to take AbilityCategories
+//					final Iterator<Categorisable> anIt = domain.getAbilityIterator(aCategory.getAbilityCategory());
+//
+//					for (; anIt.hasNext();)
+//					{
+//						final Categorisable c = anIt.next();
+//						final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, c.getKeyName());
+//						added.setFeatType(Ability.Nature.AUTOMATIC);
+//					}
+//				}
+//			}
 
-			for (final PCClass aClass : getClassList())
-			{
-				final Collection<String> abilityKeys = aClass.getAutoAbilityList(aCategory);
-				for ( String key : abilityKeys )
-				{
-					final int idx = key.indexOf('[');
-
-					if (idx >= 0)
-					{
-						final StringTokenizer bTok = new StringTokenizer(key.substring(idx + 1), "[]");
-						final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
-
-						while (bTok.hasMoreTokens())
-						{
-							final String prereqString = bTok.nextToken();
-							Logging.debugPrint("Why is the prerequisite '"+prereqString+
-									"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
-							try {
-								final PreParserFactory factory = PreParserFactory.getInstance();
-								final Prerequisite prereq = factory.parse(prereqString);
-								preReqList.add(prereq);
-							}
-							catch (PersistenceLayerException ple){
-								Logging.errorPrint(ple.getMessage(), ple);
-							}
-						}
-
-						key = key.substring(0, idx);
-
-						if (preReqList.size() != 0)
-						{
-							if (! PrereqHandler.passesAll(preReqList, this, null ))
-							{
-								continue;
-							}
-						}
-					}
-
-					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
-					added.setFeatType(Ability.Nature.AUTOMATIC);
-				}
-			}
-
-			if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !getTemplateList().isEmpty())
-			{
-				for (final PCTemplate template : getTemplateList())
-				{
-					final List<String> abilityKeys = template.getAutoAbilityKeys(aCategory, this, false);
-
-					for ( final String key : abilityKeys )
-					{
-						// TODO - Not sure if we need to tokenize on comma
-						final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
-						added.setFeatType(Ability.Nature.AUTOMATIC);
-					}
-				}
-			}
-
-			for (final CharacterDomain aCD : getCharacterDomainList())
-			{
-				final Domain domain = aCD.getDomain();
-
-				if (domain != null)
-				{
-					for (int e2 = 0; e2 < domain.getAssociatedCount(); ++e2)
-					{
-						final String aString = domain.getAssociated(e2);
-
-						// TODO - This is not working
-						if (aString.startsWith("ABILITY"))
-						{
-							final int idx = aString.indexOf('?');
-
-							if (idx > -1)
-							{
-								final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, aString.substring(idx + 1));
-								added.setFeatType(Ability.Nature.AUTOMATIC);
-							}
-							else
-							{
-								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
-							}
-						}
-					}
-
-					// TODO - Need to change Domain to take AbilityCategories
-					final Iterator<Categorisable> anIt = domain.getAbilityIterator(aCategory.getAbilityCategory());
-
-					for (; anIt.hasNext();)
-					{
-						final Categorisable c = anIt.next();
-						final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, c.getKeyName());
-						added.setFeatType(Ability.Nature.AUTOMATIC);
-					}
-				}
-			}
-
+			// TODO - Do we need to do this?
 			getAutoWeaponProfs(abilities);
 		}
 		return abilities;
@@ -16398,7 +16260,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	void setStableAutomaticFeatList(final List<Ability> aFeatList)
 	{
 		stableAutomaticFeatList = aFeatList;
-		setAutomaticFeatsStable(aFeatList != null);
+		setAutomaticAbilitiesStable(AbilityCategory.FEAT, aFeatList != null);
 	}
 
 	private List<Ability> getStableAutomaticFeatList()

@@ -333,7 +333,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		is((int) character.getRawFeats(true), eq(2), "Start with 2 feats");
 		try
 		{
-			AbilityUtilities.modFeat(character, null, "Toughness", true, true);
+			AbilityUtilities.modFeat(character, null, "Toughness", true, false);
 			is((int) character.getRawFeats(true), eq(1), "Only 1 feat used");
 		}
 		catch(HeadlessException e)
@@ -443,7 +443,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 		Ability exoticWpnProf = TestHelper.makeAbility("Exotic Weapon Proficiency", "FEAT", "General.Fighter");
 		exoticWpnProf.setMultiples("YES");
-		exoticWpnProf.setChoiceString("CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
+		exoticWpnProf.setChoiceString("PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic");
 		exoticWpnProf.addAutoArray("WEAPONPROF|%LIST");
 
 		WeaponProf wpnProfTestA = new WeaponProf();

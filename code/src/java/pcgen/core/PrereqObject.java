@@ -1,5 +1,6 @@
 /*
  * PrereqObject.java
+ * Copyright 2006 Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,30 +20,45 @@
  * Last Editor: $Author: $
  * Last Edited: $Date$
  *
- * Copyright 2006 Aaron Divinsky <boomer70@yahoo.com>
  */
 package pcgen.core;
 
-import pcgen.core.prereq.Prerequisite;
-import java.util.List;
+import java.io.StringWriter;
 import java.util.ArrayList;
-import pcgen.core.prereq.PrereqHandler;
-import java.util.Arrays;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import java.util.Iterator;
-import pcgen.persistence.PersistenceLayerException;
-import java.util.Collections;
-import pcgen.core.prereq.PrerequisiteUtilities;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+
+/**
+ * This class implements support for prerequisites for an object.
+ * 
+ * @author boomer70 <boomer70@yahoo.com>
+ * 
+ * @since 5.11.1
+ */
 public class PrereqObject implements Cloneable
 {
+	/** The list of prerequisites */
 	private List<Prerequisite> thePrereqs = null;
 
-	private static final String angleSplit = "[<>\\|]";
-	private static final String squareSplit = "[\\[\\]\\|]";
+	/** Used to split an unparsed prereq string that uses angle brackets. */
+	private static final String angleSplit = "[<>\\|]"; //$NON-NLS-1$
+	/** Used to split an uparsed prereq string that uses square brackets. */
+	private static final String squareSplit = "[\\[\\]\\|]"; //$NON-NLS-1$
 
-	public void addPrerequisites( final List<Prerequisite> prereqs )
+	/**
+	 * Adds a <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 * 
+	 * @param prereqs A <tt>Collection</tt> of <tt>Prerequisite</tt> objects.
+	 */
+	public void addPrerequisites( final Collection<Prerequisite> prereqs )
 	{
 		if ( prereqs == null )
 		{
@@ -52,34 +68,39 @@ public class PrereqObject implements Cloneable
 		{
 			thePrereqs = new ArrayList<Prerequisite>(prereqs.size());
 		}
-		thePrereqs.addAll( prereqs );
+		for ( final Prerequisite pre : prereqs )
+		{
+			addPreReq( pre );
+		}
 	}
 
+	/**
+	 * Takes a string containing valid PRExxx tags separated by a delimiter
+	 * and parses and adds them to the prerequisite list.
+	 * 
+	 * <p>For example, the string <br />
+	 * <code>[PREVARGTEQ:Foo,2][PRECLASS:1,Fighter=1]</code><br />
+	 * would be parsed and and added with the call <br />
+	 * <code>addPrereqisite(string, '[');
+	 * 
+	 * @param unparsed The unparsed prerequisite string.
+	 * @param aDelim The delimiter that separates multiple prerequisites.
+	 */
 	public void addPrerequisites( final String unparsed, final char aDelim )
 	{
-		int start = unparsed.indexOf(aDelim);
-
-		String obj = "";
-
-		final List<String> tokens = Arrays.asList(unparsed.split(aDelim == '<'
-															? angleSplit
-															: squareSplit));
-		final Iterator<String> tokIt  = tokens.iterator();
-
-		// extract and assign the choice from the unparsed string
-		obj = tokIt.next();
-
+		final String[] tokens = unparsed.split(aDelim == '<' ? angleSplit 
+															 : squareSplit);
 		try
 		{
 			final PreParserFactory factory = PreParserFactory.getInstance();
 
-			for (; tokIt.hasNext();)
+			for ( final String pre : tokens )
 			{
-				final Prerequisite prereq = factory.parse(tokIt.next());
+				final Prerequisite prereq = factory.parse(pre);
 
 				if (prereq != null)
 				{
-					thePrereqs.add(prereq);
+					addPreReq(prereq);
 				}
 			}
 		}
@@ -89,12 +110,44 @@ public class PrereqObject implements Cloneable
 		}
 	}
 
+	/**
+	 * Replaces the prerequisite at the index specified.
+	 * 
+	 * <p><b>Warning:</b> This method is dangerous and should not be used unless
+	 * you know what you are doing.
+	 * 
+	 * @param index The index into the list of prerequisites to replace.
+	 * @param aPreReq The new prerequisite object.
+	 * 
+	 * @throws    IndexOutOfBoundsException if the index is out of range
+     *		      (index &lt; 0 || index &gt;= size()).
+	 */
 	final void setPreReq(final int index, final Prerequisite aPreReq)
 	{
 		thePrereqs.set(index, aPreReq);
 	}
 
-	public boolean qualifies( final PlayerCharacter aPC)
+	/**
+	 * Set the prerequisite list to the list specified.
+	 * 
+	 * <p><b>Warning:</b> This method is dangerous and should not be used unless
+	 * you know what you are doing.
+	 * 
+	 * @param aPrereqList The list of prerequisites to set.
+	 */
+	public void setPrereqList(final List<Prerequisite> aPrereqList)
+	{
+		thePrereqs = aPrereqList;
+	}
+
+	/**
+	 * Tests if the specified PlayerCharacter passes all the prerequisites.
+	 * 
+	 * @param aPC The <tt>PlayerCharacter</tt> to test.
+	 * 
+	 * @return <tt>true</tt> if the PC passes all the prerequisites.
+	 */
+	public boolean qualifies( final PlayerCharacter aPC )
 	{
 		if (thePrereqs == null)
 		{
@@ -105,21 +158,23 @@ public class PrereqObject implements Cloneable
 	}
 
 	/** TODO This is rather foobar'd */
-	final boolean passesPreReqToGain(final PObject p, PlayerCharacter currentPC)
+	final public boolean passesPreReqToGain(final Equipment p, final PlayerCharacter aPC)
 	{
 		if (getPreReqCount() == 0)
 		{
 			return true;
 		}
 
-		return PrereqHandler.passesAll(thePrereqs, (Equipment) p, currentPC);
+		return PrereqHandler.passesAll(thePrereqs, p, aPC);
 	}
 
 
 	/**
 	 * Get the pre requesite at an index
-	 * @param i
-	 * @return the pre requesite at an index
+	 * 
+	 * @param i The index to retrieve.
+	 * 
+	 * @return the <tt>Prerequesite</tt> at the index
 	 */
 	public final Prerequisite getPreReq(final int i)
 	{
@@ -127,8 +182,10 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Get the list of pre-requesites
-	 * @return the list of pre-requesites
+	 * Get the list of <tt>Prerequesite</tt>s.
+	 * 
+	 * @return An unmodifiable <tt>List</tt> of <tt>Prerequesite</tt>s or <tt>
+	 * null</tt> if no prerequisites have been set.
 	 */
 	public List<Prerequisite> getPreReqList()
 	{
@@ -140,7 +197,27 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Clear the pre requestite list
+	 * Get a clone of the prerequisite list.
+	 * 
+	 * <p>This is a deep copy of the prerequisite list, meaning that not only 
+	 * is the list itself cloned but all the prerequisites are cloned as well.
+	 * 
+	 * @return A clone of the prerequisite list
+	 * @throws CloneNotSupportedException if the prerequisite objects can't be
+	 * cloned.
+	 */
+	public List<Prerequisite> getClonePreReqList() throws CloneNotSupportedException
+	{
+		final List<Prerequisite> newList = new ArrayList<Prerequisite>(thePrereqs.size());
+		for ( Prerequisite element : thePrereqs )
+		{
+			newList.add( (Prerequisite)element.clone());
+		}
+		return newList;
+	}
+
+	/**
+	 * Clear the prerequisite list.
 	 */
 	public final void clearPreReq()
 	{
@@ -148,8 +225,9 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Add a Pre requesite to the prereq list with no level qualifier
-	 * @param preReq
+	 * Add a <tt>Prerequesite</tt> to the prerequisite list.
+	 * 
+	 * @param preReq The prerequisite to add.
 	 */
 	public final void addPreReq(final Prerequisite preReq)
 	{
@@ -157,13 +235,33 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Add a Pre requesite to the prereq list with a level qualifier
-	 * @param preReq
-	 * @param levelQualifier
+	 * Tests to see if this object has any prerequisites associated with it.
+	 * 
+	 * @return <tt>true</tt> if it has prereqs
+	 */
+	public boolean hasPreReqs()
+	{
+		return thePrereqs != null;
+	}
+
+	/**
+	 * Add a <tt>Prerequesite</tt> to the prereq list with a level qualifier.
+	 * 
+	 * <p>If the Prerequisite kind is &quot;clear&quot; all the prerequisites
+	 * will be cleared from the list.
+	 * 
+	 * @param preReq The <tt>Prerequisite</tt> to add.
+	 * @param levelQualifier A level qualifier.
+	 * 
+	 * @see pcgen.core.prereq.Prerequisite#setLevelQualifier(int)
 	 */
 	public final void addPreReq(final Prerequisite preReq, final int levelQualifier)
 	{
-		if ("clear".equals(preReq.getKind()))
+		if ( preReq == null )
+		{
+			return;
+		}
+		if (Prerequisite.CLEAR_KIND.equals(preReq.getKind())) //$NON-NLS-1$
 		{
 			thePrereqs = null;
 		}
@@ -182,12 +280,15 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Returns true if this object has a pre requestie of the type that
+	 * Returns true if this object has any prerequisites of the kind that
 	 * is passed in.
 	 *
-	 * @param matchType
-	 * @return true if this object has a pre requestie of the type that
+	 * @param matchType The kind of Prerequisite to test for.
+	 * 
+	 * @return <tt>true</tt> if this object has a prerequisite of the kind that
 	 * is passed in
+	 * 
+	 * @see pcgen.core.prereq.Prerequisite#getKind()
 	 */
 	public final boolean hasPreReqTypeOf(final String matchType)
 	{
@@ -217,8 +318,9 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Get the number of pre requesites
-	 * @return the number of pre requesites
+	 * Gets the number of prerequisites currently associated.
+	 * 
+	 * @return the number of prerequesites
 	 */
 	public final int getPreReqCount()
 	{
@@ -272,8 +374,9 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Add the pre-reqs to this collection
-	 * @param collection
+	 * Adds the prerequisites to the <tt>Collection</tt> passed in.
+	 * 
+	 * @param A <tt>Collection</tt> to add to.
 	 */
 	final void addPreReqTo(final Collection<Prerequisite> collection)
 	{
@@ -283,6 +386,39 @@ public class PrereqObject implements Cloneable
 		}
 	}
 
+	/**
+	 * Returns the prerequisites in &quot;PCC&quot; format.
+	 * 
+	 * @return A string in &quot;PCC&quot; format or an empty string.
+	 */
+	public String getPCCText()
+	{
+		if ( thePrereqs == null )
+		{
+			return Constants.EMPTY_STRING;
+		}
+		
+		final StringWriter writer = new StringWriter();
+		for ( final Prerequisite prereq : thePrereqs )
+		{
+			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+			writer.write(Constants.PIPE);
+			try
+			{
+				prereqWriter.write(writer, prereq);
+			}
+			catch (PersistenceLayerException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		return writer.toString();
+	}
+	
+	/**
+	 * @see java.lang.Object#clone()
+	 */
+	@Override
 	public Object clone()
 		throws CloneNotSupportedException
 	{

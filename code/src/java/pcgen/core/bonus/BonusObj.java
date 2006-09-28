@@ -26,7 +26,6 @@
 package pcgen.core.bonus;
 
 import java.io.Serializable;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,22 +36,19 @@ import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PrereqObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Delta;
-import pcgen.util.Logging;
 
 /**
  * <code>BonusObj</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  **/
-public abstract class BonusObj implements Serializable, Cloneable
+public abstract class BonusObj extends PrereqObject implements Serializable, Cloneable
 {
 	private List<Object>    bonusInfo       = new ArrayList<Object>();
-	private List<Prerequisite>    prereqList;
 	private Map<String, String>     dependMap  = new HashMap<String, String>();
 	private Object  bonusValue;
 	private Object  creatorObj;
@@ -66,7 +62,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 	private boolean valueIsStatic        = true;
 	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
-	private String  stringRepresentation;
+	private String  stringRepresentation = null;
 
 	/** An enum for the possible stacking modifiers a bonus can have */
 	public enum StackType {
@@ -82,8 +78,10 @@ public abstract class BonusObj implements Serializable, Cloneable
 	};
 	private StackType theStackingFlag = StackType.NORMAL;
 
-	private static final String LIST_TOKEN_REPLACEMENT = "%LIST"; //$NON-NLS-1$
-	private static final String VALUE_TOKEN_REPLACEMENT = "LIST"; //$NON-NLS-1$
+	/** %LIST - Replace one value selected into this spot */
+	private static final String VALUE_TOKEN_REPLACEMENT = "%LIST"; //$NON-NLS-1$
+	/** LIST - Replace all the values selected into this spot */
+	private static final String LIST_TOKEN_REPLACEMENT = "LIST"; //$NON-NLS-1$
 	
 	/**
 	 * Sets the Applied flag on the bonus.
@@ -124,12 +122,13 @@ public abstract class BonusObj implements Serializable, Cloneable
 		{
 			for (int i = 0; i < bonusInfo.size(); ++i)
 			{
-				sb.append(i == 0 ? "" : ",").append(unparseToken(bonusInfo.get(i)));
+				sb.append(i == 0 ? Constants.EMPTY_STRING : Constants.COMMA);
+				sb.append(unparseToken(bonusInfo.get(i)));
 			}
 		}
 		else
 		{
-			sb.append("|ERROR");
+			sb.append("|ERROR"); //$NON-NLS-1$
 		}
 
 		return sb.toString().toUpperCase();
@@ -139,7 +138,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 	 * get Bonus Info List
 	 * @return Bonus Info List
 	 */
-	public List getBonusInfoList()
+	public List<?> getBonusInfoList()
 	{
 		return bonusInfo;
 	}
@@ -241,92 +240,70 @@ public abstract class BonusObj implements Serializable, Cloneable
 	}
 
 	/**
-	 * Get the pre req list
-	 * @return pre req list
+	 * Checks if this bonus is a &quot;Temporary&quot; bonus.
+	 * 
+	 * <p>Temporary bonuses are applied and removed from the TempBonuses tab
+	 * in the application.
+	 * 
+	 * TODO - This should be set as a flag on the bonus.
+	 * 
+	 * @return <tt>true</tt> if this is a temporary bonus.
 	 */
-	public List<Prerequisite> getPrereqList()
+	public boolean isTempBonus()
 	{
-		return prereqList;
-	}
-
-	/**
-	 * Get a clone of the pre req list
-	 * @return a clone of the pre req list
-	 * @throws CloneNotSupportedException
-	 */
-	public List<Prerequisite> getClonePrereqList() throws CloneNotSupportedException
-	{
-		final List<Prerequisite> newList = new ArrayList<Prerequisite>(prereqList.size());
-		for ( Prerequisite element : prereqList )
+		if ( !hasPreReqs() )
 		{
-			newList.add( (Prerequisite)element.clone());
+			return false;
 		}
-		return newList;
-	}
-
-	/**
-	 * Set the pre req list
-	 * @param prereqList
-	 */
-	public void setPrereqList(final List<Prerequisite> prereqList)
-	{
-		this.prereqList = prereqList;
-	}
-
-	/**
-	 * Get the pre req String
-	 * @return pre req String
-	 */
-	private String getPrereqString()
-	{
-		final StringWriter writer = new StringWriter();
-
-		if (prereqList != null)
+		
+		// TODO - This should be handled better
+		for ( final Prerequisite prereq : getPreReqList() )
 		{
-			final PrerequisiteWriter preReqWriter = new PrerequisiteWriter();
-
-			for (int i = 0; i < prereqList.size(); i++)
+			if ( prereq.getKind() == null )
 			{
-				final Prerequisite preReq = prereqList.get(i);
-
-				try
-				{
-					if (i != 0)
-					{
-						writer.write('|');
-					}
-					preReqWriter.write(writer, preReq);
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint("Caught PersistenceLayerException in BonusObj.", ple);
-				}
+				continue;
+			}
+			if ( prereq.getKind().equals(Prerequisite.APPLY_KIND) )
+			{
+				return true;
 			}
 		}
-
-		return writer.toString().toUpperCase();
+		return false;
 	}
-
+	
+	/** An enum for the target of a temp bonus */
+	public enum TempBonusTarget {
+		/** This bonus applies only to if the PC has the owner of this bonus */
+		PC,
+		/** Any PC can apply this bonus */
+		ANYPC
+	}
+	
 	/**
-	 * is a pre req given a kind
-	 * @param aKind
-	 * @return true if a pre req
+	 * Tests if this bonus' target is the same as the passed in one.
+	 * 
+	 * @param aTarget A TempBonusTarget to test for.
+	 * 
+	 * @return <tt>true</tt> if this bonus has that target.
+	 * 
+	 * <p><b>TODO</b> - This should be set as a flag on bonus creation.
 	 */
-	public boolean isPreReqKind(final String aKind)
+	public boolean isTempBonusTarget( final TempBonusTarget aTarget )
 	{
-		if (prereqList != null)
+		if ( !isTempBonus() || !hasPreReqs() )
 		{
-			for ( Prerequisite prereq : prereqList )
+			return false;
+		}
+		
+		for ( final Prerequisite prereq : getPreReqList() )
+		{
+			if ( prereq.getOperand().equalsIgnoreCase(aTarget.toString()) )
 			{
-				if (prereq == null)
-				{
-					continue;
-				}
-				if (prereq.getKind() == null)
-				{
-					continue;
-				}
-				if (prereq.getKind().equalsIgnoreCase(aKind))
+				return true;
+			}
+			for ( final Prerequisite premult : prereq.getPrerequisites() )
+			{
+				if ( premult.getOperand().equalsIgnoreCase(aTarget.toString()) )
 				{
 					return true;
 				}
@@ -334,38 +311,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 		}
 		return false;
 	}
-
-	/**
-	 * is pre req given a key
-	 * @param aKey
-	 * @return true if a pre req
-	 */
-	public boolean isPreReqTarget(final String aKey)
-	{
-		if (prereqList != null)
-		{
-			for ( Prerequisite prereq : prereqList )
-			{
-				if (prereq.getOperand().equalsIgnoreCase(aKey))
-				{
-					return true;
-				}
-				if (prereq.getPrerequisites().size() > 0)
-				{
-					final List<Prerequisite> aList = prereq.getPrerequisites();
-					for ( Prerequisite element : aList )
-					{
-						if (element.getOperand().equalsIgnoreCase(aKey))
-						{
-							return true;
-						}
-					}
-				}
-			}
-		}
-		return false;
-	}
-
+	
 	/**
 	 * Set Target Object
 	 * @param anObj
@@ -521,15 +467,6 @@ public abstract class BonusObj implements Serializable, Cloneable
 	}
 
 	/**
-	 * has pre reqs
-	 * @return true if it has pre reqs
-	 */
-	public boolean hasPreReqs()
-	{
-		return prereqList != null;
-	}
-
-	/**
 	 * Has bonus type string
 	 * @return true if bonus type string exists
 	 */
@@ -554,113 +491,57 @@ public abstract class BonusObj implements Serializable, Cloneable
 	 * LST editors.
 	 * @return The text to be saved for example in a character.
 	 */
+	@Override
 	public String getPCCText()
-	{
-		final StringBuffer sb = new StringBuffer(50);
-
-		if (pcLevel >= 0)
-		{
-			sb.append(pcLevel).append('|');
-		}
-
-		sb.append(getTypeOfBonus());
-
-		if (bonusInfo.size() > 0)
-		{
-			for (int i = 0; i < bonusInfo.size(); ++i)
-			{
-				sb.append(i == 0 ? '|' : ',').append(
-					unparseToken(bonusInfo.get(i)));
-			}
-		}
-		else
-		{
-			sb.append("|ERROR");
-		}
-
-		if (bonusValue != null)
-		{
-			sb.append('|').append(bonusValue.toString());
-		}
-
-		if (prereqList != null)
-		{
-			final StringWriter writer = new StringWriter();
-			for ( Prerequisite prereq : prereqList )
-			{
-				final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-				writer.write("|");
-				try
-				{
-					prereqWriter.write(writer, prereq);
-				}
-				catch (PersistenceLayerException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			sb.append(writer);
-		}
-
-		if (bonusType.length() != 0)
-		{
-			sb.append("|TYPE=").append(bonusType);
-		}
-
-		return sb.toString();
-	}
-
-	/**
-	 * @see Object#toString()
-	 */
-	public String toString()
 	{
 		if (stringRepresentation == null)
 		{
 			final StringBuffer sb = new StringBuffer(50);
-
+	
 			if (pcLevel >= 0)
 			{
 				sb.append(pcLevel).append('|');
 			}
-
+	
 			sb.append(getTypeOfBonus());
-
+	
 			if (bonusInfo.size() > 0)
 			{
 				for (int i = 0; i < bonusInfo.size(); ++i)
 				{
-					sb.append(i == 0 ? '|' : ',').append(unparseToken(bonusInfo.get(i)));
+					sb.append(i == 0 ? '|' : ',').append(
+						unparseToken(bonusInfo.get(i)));
 				}
 			}
 			else
 			{
 				sb.append("|ERROR");
 			}
-
+	
 			if (bonusValue != null)
 			{
 				sb.append('|').append(bonusValue.toString());
 			}
-
-			if (prereqList != null)
-			{
-				sb.append('|');
-				sb.append(getPrereqString());
-				/*for (int i = 0; i < prereqList.size(); ++i)
-				{
-					sb.append('|').append(prereqList.get(i));
-				}*/
-			}
-
+	
+			sb.append(super.getPCCText());
+	
 			if (bonusType.length() != 0)
 			{
 				sb.append("|TYPE=").append(bonusType);
 			}
-
+	
 			stringRepresentation = sb.toString();
 		}
 		return stringRepresentation;
+	}
+
+	/**
+	 * @see Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return getPCCText();
 	}
 
 
@@ -706,15 +587,15 @@ public abstract class BonusObj implements Serializable, Cloneable
 
 		boolean bEmpty = true;
 		sb.append('[');
-		if (prereqList != null)
+		if (getPreReqList() != null)
 		{
-			for (int i = 0; i < prereqList.size(); ++i)
+			for (int i = 0; i < getPreReqList().size(); ++i)
 			{
 				if (i > 0)
 				{
 					sb.append('|');
 				}
-				sb.append(prereqList.get(i).getDescription(shortForm));
+				sb.append(this.getPreReq(i).getDescription(shortForm));
 				bEmpty = false;
 			}
 		}
@@ -774,23 +655,6 @@ public abstract class BonusObj implements Serializable, Cloneable
 				bonusInfo.set(i, newObj);
 				break;
 			}
-		}
-	}
-
-	/**
-	 * Add the pre req
-	 * @param prereq
-	 */
-	public void addPreReq(final Prerequisite prereq)
-	{
-		if (prereqList == null)
-		{
-			prereqList = new ArrayList<Prerequisite>();
-		}
-
-		if (!prereqList.contains(prereq))
-		{
-			prereqList.add(prereq);
 		}
 	}
 
@@ -954,14 +818,6 @@ public abstract class BonusObj implements Serializable, Cloneable
 
 		bonusObj.bonusInfo = new ArrayList<Object>(bonusInfo);
 
-		if (prereqList != null)
-		{
-			bonusObj.prereqList = new ArrayList<Prerequisite>();
-			for ( Prerequisite element : prereqList )
-			{
-				bonusObj.prereqList.add( (Prerequisite)element.clone());
-			}
-		}
 		bonusObj.dependMap = new HashMap<String, String>();
 		if (bonusValue != null)
 		{
@@ -997,9 +853,9 @@ public abstract class BonusObj implements Serializable, Cloneable
 		final String value = getValue();
 		setValue( CoreUtility.replaceAll(value, token, tokenValue));
 
-		if (prereqList !=null)
+		if ( hasPreReqs() )
 		{
-			for ( Prerequisite prereq : prereqList )
+			for ( final Prerequisite prereq : getPreReqList() )
 			{
 				prereq.expandToken(token, tokenValue);
 			}
@@ -1053,13 +909,13 @@ public abstract class BonusObj implements Serializable, Cloneable
 //			if (pObj.getAssociatedCount() > 0)
 //			{
 //				final String name = getBonusName();
-//				if (name.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+//				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 //				{
 //					// BONUS:%LIST|Foo|1
 //					for (int i = 0; i < pObj.getAssociatedCount(); ++i)
 //					{
 //						final StringBuffer ab = new StringBuffer();
-//						final String tName = CoreUtility.replaceFirst(name, LIST_TOKEN_REPLACEMENT, pObj.getAssociated(i));
+//						final String tName = CoreUtility.replaceFirst(name, VALUE_TOKEN_REPLACEMENT, pObj.getAssociated(i));
 //						ab.append(tName).append('.');
 //						ab.append(info);
 //
@@ -1074,13 +930,13 @@ public abstract class BonusObj implements Serializable, Cloneable
 //						bonusList.add(typedBonus);
 //					}
 //				}
-//				else if (info.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+//				else if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 //				{
 //					// BONUS:FOO|%LIST|1
 //					for (int i = 0; i < pObj.getAssociatedCount(true); ++i)
 //					{
 //						final StringBuffer ab = new StringBuffer();
-//						final String tName = CoreUtility.replaceFirst(info, LIST_TOKEN_REPLACEMENT, pObj.getAssociated(i, true));
+//						final String tName = CoreUtility.replaceFirst(info, VALUE_TOKEN_REPLACEMENT, pObj.getAssociated(i, true));
 //						ab.append(getTypeOfBonus()).append('.');
 //						ab.append(tName);
 //
@@ -1099,7 +955,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 //				{
 //					final int cnt = pObj.getAssociatedCount();
 //
-//					if (cnt <= listindex && info.equals(VALUE_TOKEN_REPLACEMENT))
+//					if (cnt <= listindex && info.equals(LIST_TOKEN_REPLACEMENT))
 //					{
 //						continue;
 //					}
@@ -1108,7 +964,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 //					{
 //						final StringBuffer ab = new StringBuffer();
 //						ab.append(getTypeOfBonus()).append('.');
-//						if (info.equals(VALUE_TOKEN_REPLACEMENT))
+//						if (info.equals(LIST_TOKEN_REPLACEMENT))
 //						{
 //							ab.append(pObj.getAssociated(listindex));
 //						}
@@ -1181,6 +1037,85 @@ public abstract class BonusObj implements Serializable, Cloneable
 //		return ret;
 //	}
 
+//	public List<BonusObj> getExpandedBonuses()
+//	{
+//		final List<BonusObj> ret = new ArrayList<BonusObj>();
+//		
+//		String bInfoString = getBonusInfo();
+//		BonusObj workingCopy = null;
+//		if ( this.creatorObj != null )
+//		{
+//			final PObject pobj = (PObject)creatorObj;
+//			if ( pobj.getAssociatedCount() > 0 )
+//			{
+//				// 1) has %LIST in the bonusName
+//				if (bonusName.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+//				{
+//					try
+//					{
+//						workingCopy = (BonusObj)clone();
+//					}
+//					catch (CloneNotSupportedException e)
+//					{
+//						// This should never happen.
+//					}
+//					// Not sure how many choices could be valid here but...
+//					for (int i = 0; i < pobj.getAssociatedCount(); ++i)
+//					{
+//						workingCopy.bonusName = workingCopy.getBonusName().replaceFirst(VALUE_TOKEN_REPLACEMENT, pobj.getAssociated(i));
+//					}
+//				}
+//				// 2) has %LIST in the bonusInfo
+//				else if (bInfoString.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+//				{
+//					try
+//					{
+//						workingCopy = (BonusObj)clone();
+//					}
+//					catch (CloneNotSupportedException e)
+//					{
+//						// This should never happen.
+//					}
+//					final int numReplacements = pobj.getAssociatedCount(true);
+//					int replaced = 0;
+//					for ( Object info : bonusInfo )
+//					{
+//						// TODO - This is horrid
+//						if ( info instanceof String )
+//						{
+//							while ( replaced < numReplacements )
+//							{
+//								info = ((String)info).replaceFirst(VALUE_TOKEN_REPLACEMENT, pobj.getAssociated(replaced++, true));
+//							}
+//						}
+//					}
+//					bInfoString = workingCopy.getBonusInfo();
+//				}
+//				// 3) has no %LIST at all
+//				else
+//				{
+//					workingCopy = this;
+//				}
+//				if ( bInfoString.indexOf(LIST_TOKEN_REPLACEMENT) >= 0 )
+//				{
+//					final List<String> strList = new ArrayList<String>(pobj.getAssociatedCount());
+//					for ( int i = 0; i < pobj.getAssociatedCount(); i++ )
+//					{
+//						strList.add(pobj.getAssociated(i));
+//					}
+//					bInfoString = bInfoString.replaceFirst(LIST_TOKEN_REPLACEMENT, CoreUtility.commaDelimit(strList));
+//				}
+//			}
+//		}
+//		// TODO - 
+//		final StringTokenizer aTok = new StringTokenizer(bInfoString, Constants.COMMA);
+//
+//		while (aTok.hasMoreTokens())
+//		{
+//			final String info = aTok.nextToken();
+//			
+//		}
+//	}
 	/**
 	 * TODO - This method should be changed to not return a string.
 	 * <p>
@@ -1217,12 +1152,12 @@ public abstract class BonusObj implements Serializable, Cloneable
 				// Must use getBonusName because it
 				// contains the unaltered bonusType
 				final String name = getBonusName();
-				if (name.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+				if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 				{
 					for (int i = 0; i < anObj.getAssociatedCount(); ++i)
 					{
 						final StringBuffer ab = new StringBuffer();
-						final String tName = CoreUtility.replaceFirst(name, LIST_TOKEN_REPLACEMENT, anObj.getAssociated(i));
+						final String tName = CoreUtility.replaceFirst(name, VALUE_TOKEN_REPLACEMENT, anObj.getAssociated(i));
 						ab.append(tName).append('.');
 						ab.append(info);
 
@@ -1234,12 +1169,12 @@ public abstract class BonusObj implements Serializable, Cloneable
 						aList.add(ab.toString().toUpperCase());
 					}
 				}
-				else if (info.indexOf(LIST_TOKEN_REPLACEMENT) >= 0)
+				else if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 				{
 					for (int i = 0; i < anObj.getAssociatedCount(true); ++i)
 					{
 						final StringBuffer ab = new StringBuffer();
-						final String tName = CoreUtility.replaceFirst(info, LIST_TOKEN_REPLACEMENT, anObj.getAssociated(i, true));
+						final String tName = CoreUtility.replaceFirst(info, VALUE_TOKEN_REPLACEMENT, anObj.getAssociated(i, true));
 						ab.append(getTypeOfBonus()).append('.');
 						ab.append(tName);
 
@@ -1254,7 +1189,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 				{
 					final int cnt = anObj.getAssociatedCount();
 
-					if (cnt <= listindex && info.equals(VALUE_TOKEN_REPLACEMENT))
+					if (cnt <= listindex && info.equals(LIST_TOKEN_REPLACEMENT))
 					{
 						continue;
 					}
@@ -1263,7 +1198,7 @@ public abstract class BonusObj implements Serializable, Cloneable
 					{
 						final StringBuffer ab = new StringBuffer();
 						ab.append(getTypeOfBonus()).append('.');
-						if (info.equals(VALUE_TOKEN_REPLACEMENT))
+						if (info.equals(LIST_TOKEN_REPLACEMENT))
 						{
 							ab.append(anObj.getAssociated(listindex));
 						}

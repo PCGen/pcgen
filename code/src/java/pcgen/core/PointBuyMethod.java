@@ -129,33 +129,18 @@ public final class PointBuyMethod
 	 */
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		List aBonusList = getBonusList();
+		final List<BonusObj> aBonusList = getBonusList();
 		if (aBonusList == null)
 		{
 			return;
 		}
-		for (Iterator ab = aBonusList.iterator(); ab.hasNext();)
+		for ( final BonusObj bonus : aBonusList )
 		{
-			final BonusObj aBonus = (BonusObj) ab.next();
-			aBonus.setApplied(false);
+			bonus.setApplied(false);
 
-			if (aBonus.hasPreReqs())
+			if ( bonus.qualifies(aPC) )
 			{
-				//TODO: This is a hack to avoid VARs etc in feat defs being qualified
-				// for when Bypass feat prereqs is selected. Should we be passing in
-				// the BonusObj here to allow it to be referenced in Qualifies statements?
-				if (PrereqHandler.passesAll(aBonus.getPrereqList(), aPC, null))
-				{
-					aBonus.setApplied(true);
-				}
-				else
-				{
-					aBonus.setApplied(false);
-				}
-			}
-			else
-			{
-				aBonus.setApplied(true);
+				bonus.setApplied(true);
 			}
 		}
 	}

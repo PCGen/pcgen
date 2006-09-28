@@ -1016,7 +1016,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			String aString = aBonus.toString();
 
 			//if (aString.indexOf("PREAPPLY:") >= 0)
-			if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+			if (aBonus.isTempBonus())
 			{
 				BonusObj newB = null;
 
@@ -1036,26 +1036,24 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				if (newB != null)
 				{
 					// We clear the prereqs and add the non-PREAPPLY prereqs from the old bonus
+					// TODO - Why are we doing this?
 					newB.setPrereqList(new ArrayList<Prerequisite>());
-					for (Prerequisite prereq : aBonus.getPrereqList())
+					for (Prerequisite prereq : aBonus.getPreReqList())
 					{
-						if (prereq.getKind() == null || !prereq.getKind().equalsIgnoreCase("apply"))
+						if (prereq.getKind() == null || !prereq.getKind().equalsIgnoreCase(Prerequisite.APPLY_KIND))
 						{
 							newB.addPreReq(new Prerequisite(prereq));
 						}
 					}
 
+					newB.setApplied(false);
 					// if Target was this PC, then add
 					// bonus to TempBonusMap
 					if (aTarget instanceof PlayerCharacter)
 					{
-						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
+						if ( newB.qualifies(pc) )
 						{
 							newB.setApplied(true);
-						}
-						else
-						{
-							newB.setApplied(false);
 						}
 						newB.setCreatorObject(aMod);
 						newB.setTargetObject(aTarget);
@@ -1063,18 +1061,19 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					else if (aEq != null)
 					{
-						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
+						// TODO - This looks like a bug.  It should be testing
+						// for aEq in the passesAll() check.
+//						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
+						if ( newB.passesPreReqToGain(aEq, pc) )
 						{
 							newB.setApplied(true);
-						}
-						else
-						{
-							newB.setApplied(false);
 						}
 						newB.setCreatorObject(aMod);
 						newB.setTargetObject(aEq);
 						aEq.addTempBonus(newB);
 						pc.addTempBonus(newB);
+						// TODO - Why does this case make us mark the PC as 
+						// dirty when the other case doesn't?
 						pc.setDirty(true);
 					}
 
@@ -2329,7 +2328,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aFeat.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+						if (aBonus.isTempBonus())
 						{
 							PObjectNode aFN = new PObjectNode(aFeat);
 							aFN.setParent(pNode[0]);
@@ -2347,7 +2346,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					for (BonusObj aBonus : aFeat.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && aBonus.isPreReqTarget("ANYPC"))
+						if (aBonus.isTempBonus() 
+						 && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
 						{
 							PObjectNode aFN = new PObjectNode(aFeat);
 							aFN.setParent(pNode[0]);
@@ -2368,7 +2368,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					for (BonusObj aBonus : aSpell.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+						if (aBonus.isTempBonus())
 						{
 							PObjectNode aFN = new PObjectNode(aSpell);
 							aFN.setParent(pNode[1]);
@@ -2403,7 +2403,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						//aBonus.getPrereqString();
 
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && !aBonus.isPreReqTarget("PC"))
+						if (aBonus.isTempBonus() && !aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
 						{
 							PObjectNode aFN = new PObjectNode(aSpell);
 							aFN.setParent(pNode[1]);
@@ -2424,7 +2424,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aEq.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+						if (aBonus.isTempBonus())
 						{
 							PObjectNode aFN = new PObjectNode(aEq);
 							aFN.setParent(pNode[2]);
@@ -2448,7 +2448,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						final int myLevel = aClass.getLevel();
 						final int level = aBonus.getPCLevel();
 
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && (myLevel >= level))
+						if (aBonus.isTempBonus() && (myLevel >= level))
 						{
 							PObjectNode aFN = new PObjectNode(new ClassWrap(aClass, level));
 							aFN.setParent(pNode[3]);
@@ -2469,7 +2469,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aTemp.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+						if (aBonus.isTempBonus())
 						{
 							PObjectNode aFN = new PObjectNode(aTemp);
 							aFN.setParent(pNode[4]);
@@ -2484,7 +2484,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aTemp.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY") && aBonus.isPreReqTarget("ANYPC"))
+						if (aBonus.isTempBonus() 
+						 && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
 						{
 							PObjectNode aFN = new PObjectNode(aTemp);
 							aFN.setParent(pNode[4]);
@@ -2505,7 +2506,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aSkill.getBonusList())
 					{
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+						if (aBonus.isTempBonus())
 						{
 							PObjectNode aFN = new PObjectNode(aSkill);
 							aFN.setParent(pNode[5]);
@@ -2546,9 +2547,11 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						continue;
 					}
 
-					if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+					if (aBonus.isTempBonus())
 					{
-						if ((aBonus.isPreReqTarget("ANYPC") || aBonus.isPreReqTarget("PC")) && !found)
+						if ( (aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC) 
+						   || aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.PC)) 
+						 && !found)
 						{
 							PObjectNode aFN = new PObjectNode(pc);
 							aFN.setParent(selRoot);
@@ -2569,13 +2572,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							continue;
 						}
-						if (aBonus.hasPreReqs() && aBonus.isPreReqKind("APPLY"))
+						if (aBonus.isTempBonus())
 						{
 							boolean passesApply = true;
-							for (Iterator<Prerequisite> iter = aBonus.getPrereqList().iterator(); iter.hasNext() && passesApply;)
+							for (Iterator<Prerequisite> iter = aBonus.getPreReqList().iterator(); iter.hasNext() && passesApply;)
 							{
 								Prerequisite element = iter.next();
-								if (element.getKind() != null && element.getKind().equalsIgnoreCase("APPLY"))
+								if (element.getKind() != null && element.getKind().equalsIgnoreCase(Prerequisite.APPLY_KIND))
 								{
 									if (!PrereqHandler.passes(element, aEq, pc))
 										passesApply = false;

@@ -26,10 +26,13 @@
 package pcgen.io.exporttoken;
 
 import pcgen.core.*;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.BonusUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -1124,6 +1127,8 @@ public class WeaponToken extends Token
 			return "none";
 		}
 
+		final List<BonusObj> bonuses = new ArrayList<BonusObj>();
+		bonuses.addAll( BonusUtilities.getBonusFromList(pc.getActiveBonusList(), "WEAPONPROF="+eq.profKey(pc), "CRITRANGEDOUBLE") );
 		int dbl = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc), "CRITRANGEDOUBLE")
 			+ getWeaponProfTypeBonuses(pc, eq, "CRITRANGEDOUBLE", WPTYPEBONUS_PC);
 		int iAdd = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc), "CRITRANGEADD")

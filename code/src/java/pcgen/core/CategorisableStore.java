@@ -58,6 +58,7 @@ public class CategorisableStore implements Cloneable
 		};
 
 
+	/** A <tt>Map</tt> to map a string category to a <tt>Map</tt> of categorisables */ 
 	protected Map<String, Map<String, Categorisable>> categoryMap = new HashMap<String, Map<String, Categorisable>>();
 
 	/**
@@ -118,6 +119,7 @@ public class CategorisableStore implements Cloneable
 	 *
 	 * @return  the new store
 	 */
+	@Override
 	public Object clone()
 	{
 		CategorisableStore clone = new CategorisableStore();

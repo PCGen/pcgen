@@ -723,7 +723,8 @@ public class PObjectUtilities
 
 		if (objPrefix.length() != 0)
 		{
-			aPC.setAutomaticFeatsStable(false);
+			aPC.setAutomaticAbilitiesStable(null, false);
+//			aPC.setAutomaticFeatsStable(false);
 		}
 
 		return true;

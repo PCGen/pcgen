@@ -1370,9 +1370,10 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			pnlVariableDisplay3.setVisible(false);
 		}
 
-		pc.setAggregateFeatsStable(false);
-		pc.setAutomaticFeatsStable(false);
-		pc.setVirtualFeatsStable(false);
+		pc.setAggregateAbilitiesStable(null, false);
+//		pc.setAggregateFeatsStable(false);
+//		pc.setAutomaticFeatsStable(false);
+//		pc.setVirtualFeatsStable(false);
 
 		updateAvailableModel();
 		updateSelectedModel();

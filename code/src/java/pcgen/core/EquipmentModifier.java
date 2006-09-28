@@ -105,6 +105,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		for ( BonusObj bonus : getBonusList() )
 		{
+			// TODO - This is either wrong or doesn't need to be in the loop.
 			if (willIgnore(getKeyName()))
 			{
 				continue;
@@ -112,13 +113,13 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 			if (caller instanceof Equipment)
 			{
-				if (PrereqHandler.passesAll(bonus.getPrereqList(), (Equipment) caller, aPC))
+				if ( bonus.passesPreReqToGain((Equipment)caller, aPC) )
 				{
 					bonus.setApplied(true);
 					aList.add(bonus);
 				}
 			}
-			else if (PrereqHandler.passesAll(bonus.getPrereqList(), aPC, caller))
+			else if ( bonus.qualifies(aPC) )
 			{
 				bonus.setApplied(true);
 				aList.add(bonus);
@@ -194,7 +195,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					{
 						try
 						{
-							newBonus.setPrereqList(aBonus.getClonePrereqList());
+							newBonus.setPrereqList(aBonus.getClonePreReqList());
 						}
 						catch (CloneNotSupportedException e)
 						{

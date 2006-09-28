@@ -219,10 +219,11 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	private void createFeatList()
 	{
 		//Calculate the aggregate feat list
-		pc.aggregateFeatList();
-		pc.setAggregateFeatsStable(true);
-		pc.setAutomaticFeatsStable(true);
-		pc.setVirtualFeatsStable(true);
+		pc.setAggregateAbilitiesStable(null, false);
+//		pc.aggregateFeatList();
+//		pc.setAggregateFeatsStable(true);
+//		pc.setAutomaticFeatsStable(true);
+//		pc.setVirtualFeatsStable(true);
 
 		// get the list of metamagic feats for the PC
 		characterMetaMagicFeats.clear();
