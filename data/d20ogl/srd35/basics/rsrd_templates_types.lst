@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Feb  3 01:42:49 2006 -- reformated by prettylst.pl v1.35 (build 555)
+# CVS $Revision$ $Author$ -- Fri Sep 29 05:08:33 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Merton Monk and Glddragon35
 
 #NOTE: These will be converted to Ability Objects, for now I'm setting them to VISIBLE:NO and set some VARs
 
-# Template Name		Visible	Source Page						Special Ability																	Define			Modify VAR				Removable?
+# Template Name		Visible	Source Page						Special Ability																	Define			Modify VAR				Removable?		Vision
 Vulnerability (Fire)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Suffers +50% damage from Cold-based effect regardless of saving throw																REMOVABLE:YES
 Vulnerability (Cold)	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Suffers +50% damage from Fire-based effect regardless of saving throw																REMOVABLE:YES
-Tremorsense			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything in contact with ground (%')|TremorRange				DEFINE:TremorRange|0						REMOVABLE:YES
-Aquatic Tremorsense	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything moving in water (%')|TremorRange					DEFINE:TremorRange|0	BONUS:VAR|TremorRange|60	REMOVABLE:YES
+Tremorsense			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything in contact with ground (%')|TremorRange				DEFINE:TremorRange|0						REMOVABLE:YES	VISION:Tremorsense (TremorRange')
+Aquatic Tremorsense	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Tremorsense (Ex) - can pinpoint location of anything moving in water (%')|TremorRange					DEFINE:TremorRange|0	BONUS:VAR|TremorRange|60	REMOVABLE:YES	VISION:Aquatic Tremorsense (TremorRange')
 Turn Resistance		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Turn resistance is increased by HD total																					REMOVABLE:YES
 Trample			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:As a full round action can move twice its speed and run over opponents at least one size category smaller										REMOVABLE:YES
 Telepathy			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	SA:Telepathy (Su) - can communicate telepathically with creature within (%')|TelepathRange				DEFINE:TelepathRange|0	BONUS:VAR|TelepathRange|100	REMOVABLE:YES
