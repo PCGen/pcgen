@@ -104,6 +104,7 @@ public final class GameMode implements Comparable<Object>
 	private String wcStepsFormula = "";
 	private String weaponCategories = "";
 	private String weaponTypes = "";
+	private String weaponReachFormula = "";
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
 	private SortedMap<String, RuleCheck> ruleCheckMap = new TreeMap<String, RuleCheck>();
@@ -1109,6 +1110,15 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
+	 * Get the weapon reach formula
+	 * @return String the weaopn reach formula
+	 */
+	public String getWeaponReachFormula ()
+	{
+		return this.weaponReachFormula;
+	}
+	
+	/**
 	 * Return true if an equipment type is hidden
 	 * @param aType
 	 * @return true if an equipment type is hidden
@@ -1403,6 +1413,15 @@ public final class GameMode implements Comparable<Object>
 		return 1;
 	}
 
+	/**
+	 * Set the weapobn reach forumla
+	 * @param aString	the new weapon reach formula
+	 */
+	public void setWeaponReachFormula (String aString)
+	{
+		this.weaponReachFormula = aString;
+	}
+	
 	/**
 	 * Return true if RuleCheck exists given a key
 	 * @param aKey

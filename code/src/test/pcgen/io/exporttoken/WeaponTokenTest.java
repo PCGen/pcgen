@@ -63,6 +63,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Equipment bastardSword = null;
 	private Equipment largeSword = null;
 	private Equipment fineSword = null;
+	private Equipment longSpear = null;
 	private Equipment bite = null;
 
 	/**
@@ -209,6 +210,19 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.setCritRange("2");
 		fineSword.setWield("OneHanded");
 		fineSword.setSize("M", true);
+		
+		longSpear = new Equipment();
+		longSpear.setName("Longspear");
+		longSpear.setKeyName("KEY_LONGSPEAR");
+		longSpear.setOutputName("Longspear");
+		longSpear.setProfName("MARTIAL");
+		longSpear.setTypeInfo("Weapon.Melee.Martial.Standard.Piercing.Spear");
+		longSpear.setDamage("1d6");
+		longSpear.setCritMult(2);
+		longSpear.setCritRange("1");
+		longSpear.setWield("TwoHanded");
+		longSpear.setSize("M",true);
+		longSpear.setReach(10);
 
 		GameMode gm = SettingsHandler.getGame();
 		RuleCheck rc = new RuleCheck();
@@ -216,6 +230,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		gm.addRule(rc);
 		SettingsHandler.setRuleCheck("SIZECAT", true);
 		gm.setWCStepsFormula("EQUIP.SIZE.INT-PC.SIZE.INT");
+		gm.setWeaponReachFormula("(RACEREACH+(max(0,REACH-5)))*REACHMULT");
 
 		bite = new Equipment();
 		bite.setName("Silly Bite");
@@ -591,4 +606,30 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			.getToken("WEAPON.3.BASEHIT", character, null));
 	}
 
+	public void testWpnReach()
+	{
+        PlayerCharacter character = getCharacter();
+        character.addEquipment(largeSword);
+        EquipSet es = new EquipSet("0.1.3", "Large Sword", largeSword.getName(), largeSword);
+        character.addEquipSet(es);
+        character.setCalcEquipmentList();
+
+        WeaponToken token = new WeaponToken();
+        assertEquals("Reach for a non-reach weapon on a character with normal reach",
+                "5", token.getToken("WEAPON.3.REACH", character, null));
+
+        character.addEquipment(longSpear);
+        es = new EquipSet("0.1.4", "Longspear", longSpear.getName(), longSpear);
+        character.addEquipSet(es);
+        character.setCalcEquipmentList();
+
+        // note: longspear ends up inserted before the large sword above, hence we use weapon.3
+        assertEquals("Reach for a reach weapon (10') on a character with normal reach",
+                "10", token.getToken("WEAPON.3.REACH", character, null));
+        
+        // set reach multiplier on the large sword to 2 and retest
+        largeSword.setReachMult(2);
+        assertEquals("Reach for a reach multiple weapon on a character with normal reach",
+            "10", token.getToken("WEAPON.4.REACH", character, null));
+	}
 }

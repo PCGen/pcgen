@@ -55,6 +55,10 @@ public class ReachToken extends Token
 		{
 			retString = getToken(pc);
 		}
+		else if ("REACH.VAL".equals(tokenSource))
+		{
+			return Integer.toString(getReachToken(pc));
+		}	
 		else if ("REACH.SQUARES".equals(tokenSource))
 		{
 			retString = getSquaresToken(pc);

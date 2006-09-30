@@ -1041,7 +1041,7 @@ public class WeaponToken extends Token
 	 */
 	public static int getReachToken(PlayerCharacter pc, Equipment eq)
 	{
-		return (ReachToken.getReachToken(pc) + Math.max(eq.getReach()-5,0)) * eq.getReachMult();
+		return eq.getVariableValue(SettingsHandler.getGame().getWeaponReachFormula(), "",pc).intValue();
 	}
 
 	/**

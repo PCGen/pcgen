@@ -2060,6 +2060,11 @@ public final class Globals
 	{
 		return weaponTypes;
 	}
+	
+	public static String getWeaponReachForumla ()
+	{
+		return SettingsHandler.getGame().getWeaponReachFormula();
+	}
 
 	/**
 	 * This method is called by the persistence layer to

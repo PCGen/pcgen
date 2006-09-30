@@ -236,6 +236,18 @@ public class VariableProcessorEq extends VariableProcessor
 				retVal = eq.getAltCritMult();
 			}
 		}
+		else if ("RACEREACH".equals(valString))
+		{
+			retVal = getPc().getVariableValue("REACH.VAL", src).toString();
+		}
+		else if ("REACH".equals(valString))
+		{
+			retVal = Integer.toString(eq.getReach());
+		}
+		else if ("REACHMULT".equals(valString))
+		{
+			retVal = Integer.toString(eq.getReachMult());
+		}
 		else
 		{
 			for (int j = 0; j < SettingsHandler.getGame().s_ATTRIBSHORT.length;
