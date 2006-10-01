@@ -195,5 +195,14 @@ UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:f
 UNITSET:Metric		HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#		DISTANCEUNIT:m		DISTANCEFACTOR:0.3	DISTANCEPATTERN:#.##	WEIGHTUNIT:kg	WEIGHTFACTOR:0.5	WEIGHTPATTERN:#.###
 
 #
+# Reach mode formula to calculate weapon reach for a player
+#
+# RACEREACH = player's natural reach
+# REACH = equipment's reach
+# REACHMULT = equipment's reach multiple
+#
+WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
+
+#
 # End
 #
