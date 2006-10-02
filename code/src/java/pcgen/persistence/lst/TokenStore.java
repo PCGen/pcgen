@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.util.Logging;
-import plugin.lsttokens.gamemode.WeaponreachformulaToken;
 
 /**
  * A Store of LST tokens, has a map and list representation
@@ -77,7 +76,6 @@ public class TokenStore {
 		tokenTypeList.add(TabLstToken.class);
 		tokenTypeList.add(UnitSetLstToken.class);
 		tokenTypeList.add(WieldCategoryLstToken.class);
-		tokenTypeList.add(WeaponreachformulaToken.class);
 
 		//statsandchecks.lst
 		tokenTypeList.add(StatsAndChecksLstToken.class);
