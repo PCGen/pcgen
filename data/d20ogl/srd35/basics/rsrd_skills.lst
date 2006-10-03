@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep 26 16:51:57 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Sep 29 22:54:23 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 
@@ -92,7 +92,7 @@ Use Rope						KEYSTAT:DEX								TYPE:Dexterity						BONUS:SKILL|Use Rope (Bind 
 Climb (Using a rope)				KEYSTAT:STR	USEUNTRAINED:NO	TYPE:Subskill.Strength		VISIBLE:EXPORT	BONUS:SKILL|Climb (Using a rope)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																			SOURCEPAGE:SkillsI.rtf
 Concentration (Cast defensively)		KEYSTAT:CON	USEUNTRAINED:NO	TYPE:Subskill.Constitution	VISIBLE:EXPORT																																		SOURCEPAGE:SkillsI.rtf
 Disguise (Act in character)			KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Subskill.Charisma		VISIBLE:EXPORT	BONUS:SKILL|Disguise (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5																		SOURCEPAGE:SkillsI.rtf
-Escape Artist (Escape from rope bonds)	KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																SOURCEPAGE:SkillsI.rtf
+Escape Artist (Escape from rope bonds)	KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																SOURCEPAGE:SkillsI.rtf
 Spellcraft (Decipher spell on scroll)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Subskill.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5															SOURCEPAGE:SkillsII.rtf
 Survival (Underground)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Underground)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5																SOURCEPAGE:SkillsII.rtf
 Survival (The Planes)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (The Planes)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5																	SOURCEPAGE:SkillsII.rtf
@@ -100,7 +100,8 @@ Survival (Natural environments)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdo
 Survival (Lost/Natural hazards)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Lost/Natural hazards)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5															SOURCEPAGE:SkillsII.rtf
 Survival (Find or follow tracks)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Find or follow tracks)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5																	SOURCEPAGE:SkillsII.rtf
 Use Magic Device (Scroll)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Subskill.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5	SOURCEPAGE:SkillsII.rtf
-Use Rope (Bind someone)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Use Rope (Bind someone)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Escape Artist=5																		SOURCEPAGE:SkillsII.rtf
+Use Rope (Bind someone)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Use Rope (Bind someone)|SynergyBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK
+#																		SOURCEPAGE:SkillsII.rtf
 
 #Swim (Avoid taking nonlethal fatigue damage)	+4 from Endurance....
 
