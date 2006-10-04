@@ -90,6 +90,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -2490,7 +2491,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			// Virtual feat list might change so need
 			// to update the list as well as the feat tab
-			pc.setVirtualFeatsStable(false);
+			pc.setVirtualAbilitiesStable(AbilityCategory.FEAT, false);
 		}
 	}
 

@@ -36,6 +36,7 @@ import java.util.List;
  *
  * @author Dmitry Jemerov <yole@spb.cityline.ru>
  */
+@SuppressWarnings("nls")
 public class LevelAbilityTest extends AbstractCharacterTestCase
 {
 	PCClass pcClass;
@@ -50,6 +51,10 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
+	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -58,6 +63,10 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
+	 */
+	@Override
 	public void tearDown() throws Exception
 	{
 		pcClass = null;

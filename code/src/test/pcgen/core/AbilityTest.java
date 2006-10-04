@@ -30,6 +30,7 @@ import pcgen.util.TestHelper;
 /**
  * Class to test ABILITY
  */
+@SuppressWarnings("nls")
 public class AbilityTest extends PCGenTestCase {
 
 	/**
@@ -40,16 +41,18 @@ public class AbilityTest extends PCGenTestCase {
 		super(arg0);
 	}
 
-	/*
+	/**
 	 * @see PCGenTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
 
-	/*
-	 * @see TestCase#tearDown()
+	/**
+	 * @see PCGenTestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}

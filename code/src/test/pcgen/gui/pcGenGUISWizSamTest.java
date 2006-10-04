@@ -4,9 +4,16 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * JUnit test for Wizard Sam
+ * Tests a 3e 1st level Halfling Wizard(Transmuter).
+ * 
+ * See PCG file for details.
  */
+@SuppressWarnings("nls")
 public class pcGenGUISWizSamTest extends pcGenGUITestCase {
+	/**
+	 * Run the tests.
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		junit.textui.TestRunner.run(pcGenGUISWizSamTest.class);
@@ -34,10 +41,7 @@ public class pcGenGUISWizSamTest extends pcGenGUITestCase {
      * Run test
      * @throws Exception
      */
-    public void testSWizSam() throws Exception {
+	public void testSWizSam() throws Exception {
         runTest("SWizSam", "3e");
     }
-
-
-
 }

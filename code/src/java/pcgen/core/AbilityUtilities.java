@@ -81,7 +81,7 @@ public class AbilityUtilities
 	 * @param   addList
 	 * @return the Ability added, or null if Ability was not added to the list.
 	 */
-	private static Ability addCloneOfAbilityToListwithChoices(
+	public static Ability addCloneOfAbilityToListwithChoices(
 		final Ability anAbility,
 		final List<String>    choices,
 		final List<Ability>    addList)
@@ -115,7 +115,7 @@ public class AbilityUtilities
 	 *
 	 * @return The Ability processed
 	 */
-	private static Ability addCloneOfGlobalAbilityToListWithChoices(
+	public static Ability addCloneOfGlobalAbilityToListWithChoices(
 			final List<Ability>   theAbilityList,
 			final String category,
 			final String abilityName)
@@ -891,178 +891,186 @@ public class AbilityUtilities
 	 * @return a List of the Abilities this Character has
 	 */
 
-	static public List<Ability> rebuildAutoAbilityList(PlayerCharacter aPc)
-	{
-		final List<Ability> autoFeatList;
-		autoFeatList = new ArrayList<Ability>();
-
-		//
-		// add racial feats
-		//
-		if ((aPc.getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
-		{
-			final StringTokenizer aTok = new StringTokenizer(aPc.getRace().getFeatList(aPc), Constants.PIPE);
-
-			while (aTok.hasMoreTokens())
-			{
-				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, Constants.FEAT_CATEGORY, aTok.nextToken());
-				if ( added != null )
-				{
-					added.setFeatType(Ability.Nature.AUTOMATIC);
-				}
-			}
-		}
-
-		for (PCClass aClass : aPc.getClassList())
-		{
-			for (Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
-			{
-				//
-				// PCClass object have auto feats stored in format:
-				// lvl|feat_name
-				//
-				final String aString = e1.next();
-
-				if (aString.indexOf('|') < 1)
-				{
-					continue;
-				}
-
-				final StringTokenizer aTok = new StringTokenizer(aString, "|");
-				int i;
-
-				try
-				{
-					i = Integer.parseInt(aTok.nextToken());
-				}
-				catch (NumberFormatException exc)
-				{
-					continue;
-				}
-
-				if (i > aClass.getLevel())
-				{
-					continue;
-				}
-
-				String autoFeat = aTok.nextToken();
-				final int idx = autoFeat.indexOf('[');
-
-				if (idx >= 0)
-				{
-					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
-					final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
-
-					while (bTok.hasMoreTokens())
-					{
-						final String prereqString = bTok.nextToken();
-						Logging.debugPrint("Why is the prerequisite '"+prereqString+
-								"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
-						try {
-							final PreParserFactory factory = PreParserFactory.getInstance();
-							final Prerequisite prereq = factory.parse(prereqString);
-							preReqList.add(prereq);
-						}
-						catch (PersistenceLayerException ple){
-							Logging.errorPrint(ple.getMessage(), ple);
-						}
-					}
-
-					autoFeat = autoFeat.substring(0, idx);
-
-					if (preReqList.size() != 0)
-					{
-						//
-						// To avoid possible infinite loop
-						//
-						if (!aPc.isAutomaticFeatsStable())
-						{
-							aPc.setStableAutomaticFeatList(autoFeatList);
-						}
-
-						if (! PrereqHandler.passesAll(preReqList, aPc, null ))
-						{
-							continue;
-						}
-					}
-				}
-
-				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", autoFeat);
-				added.setFeatType(Ability.Nature.AUTOMATIC);
-			}
-		}
-
-		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !aPc.getTemplateList().isEmpty())
-		{
-			for (PCTemplate aTemplate : aPc.getTemplateList())
-			{
-				aPc.setStableAutomaticFeatList(autoFeatList);
-				final List<String> templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
-
-				if (!templateFeats.isEmpty())
-				{
-					for (Iterator<String> e2 = templateFeats.iterator(); e2.hasNext();)
-					{
-						final String aString = e2.next();
-						final StringTokenizer aTok = new StringTokenizer(aString, ",");
-
-						while (aTok.hasMoreTokens())
-						{
-							Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aTok.nextToken());
-							added.setFeatType(Ability.Nature.AUTOMATIC);
-						}
-					}
-				}
-			}
-		}
-
-		if (!aPc.getCharacterDomainList().isEmpty())
-		{
-			for (CharacterDomain aCD : aPc.getCharacterDomainList())
-			{
-				final Domain aDomain = aCD.getDomain();
-
-				if (aDomain != null)
-				{
-					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
-					{
-						final String aString = aDomain.getAssociated(e2);
-
-						if (aString.startsWith("FEAT"))
-						{
-							final int idx = aString.indexOf('?');
-
-							if (idx > -1)
-							{
-								Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aString.substring(idx + 1));
-								added.setFeatType(Ability.Nature.AUTOMATIC);
-							}
-							else
-							{
-								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
-							}
-						}
-					}
-
-					final Iterator<Categorisable> anIt = aDomain.getFeatIterator();
-
-					for (; anIt.hasNext();)
-					{
-						final Ability abI = (Ability)anIt.next();
-						Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", abI.getKeyName());
-						added.setFeatType(Ability.Nature.AUTOMATIC);
-					}
-				}
-			}
-		}
-
-		// Need to save current as stable as getAutoWeaponProfs() needs it
-
-		aPc.setStableAutomaticFeatList(autoFeatList);
-		aPc.getAutoWeaponProfs(autoFeatList);
-		aPc.setStableAutomaticFeatList(autoFeatList);
-		return autoFeatList;
-	}
+//	static public List<Ability> rebuildAutoAbilityList(PlayerCharacter aPc)
+//	{
+//		final List<Ability> autoFeatList;
+//		autoFeatList = new ArrayList<Ability>();
+//
+//		//
+//		// add racial feats
+//		//
+//		if ((aPc.getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
+//		{
+//			final StringTokenizer aTok = new StringTokenizer(aPc.getRace().getFeatList(aPc), Constants.PIPE);
+//
+//			while (aTok.hasMoreTokens())
+//			{
+//				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, Constants.FEAT_CATEGORY, aTok.nextToken());
+//				if ( added != null )
+//				{
+//					added.setFeatType(Ability.Nature.AUTOMATIC);
+//				}
+//			}
+//		}
+//
+//		for (PCClass aClass : aPc.getClassList())
+//		{
+//			for (Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
+//			{
+//				//
+//				// PCClass object have auto feats stored in format:
+//				// lvl|feat_name
+//				//
+//				final String aString = e1.next();
+//
+//				if (aString.indexOf('|') < 1)
+//				{
+//					continue;
+//				}
+//
+//				final StringTokenizer aTok = new StringTokenizer(aString, "|");
+//				int i;
+//
+//				try
+//				{
+//					i = Integer.parseInt(aTok.nextToken());
+//				}
+//				catch (NumberFormatException exc)
+//				{
+//					continue;
+//				}
+//
+//				if (i > aClass.getLevel())
+//				{
+//					continue;
+//				}
+//
+//				String autoFeat = aTok.nextToken();
+//				final int idx = autoFeat.indexOf('[');
+//
+//				if (idx >= 0)
+//				{
+//					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
+//					final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
+//
+//					while (bTok.hasMoreTokens())
+//					{
+//						final String prereqString = bTok.nextToken();
+//						Logging.debugPrint("Why is the prerequisite '"+prereqString+
+//								"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
+//						try {
+//							final PreParserFactory factory = PreParserFactory.getInstance();
+//							final Prerequisite prereq = factory.parse(prereqString);
+//							preReqList.add(prereq);
+//						}
+//						catch (PersistenceLayerException ple){
+//							Logging.errorPrint(ple.getMessage(), ple);
+//						}
+//					}
+//
+//					autoFeat = autoFeat.substring(0, idx);
+//
+//					if (preReqList.size() != 0)
+//					{
+//						//
+//						// To avoid possible infinite loop
+//						//
+//						if (!aPc.isAutomaticFeatsStable())
+//						{
+//							aPc.setStableAutomaticFeatList(autoFeatList);
+//						}
+//
+//						if (! PrereqHandler.passesAll(preReqList, aPc, null ))
+//						{
+//							continue;
+//						}
+//					}
+//				}
+//
+//				Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", autoFeat);
+//				if ( added != null )
+//				{
+//					added.setFeatType(Ability.Nature.AUTOMATIC);
+//				}
+//			}
+//		}
+//
+//		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !aPc.getTemplateList().isEmpty())
+//		{
+//			for (PCTemplate aTemplate : aPc.getTemplateList())
+//			{
+//				aPc.setStableAutomaticFeatList(autoFeatList);
+//				final List<String> templateFeats = aTemplate.feats(aPc.getTotalLevels(), aPc.totalHitDice(), aPc, false);
+//
+//				if (!templateFeats.isEmpty())
+//				{
+//					for (Iterator<String> e2 = templateFeats.iterator(); e2.hasNext();)
+//					{
+//						final String aString = e2.next();
+//						final StringTokenizer aTok = new StringTokenizer(aString, ",");
+//
+//						while (aTok.hasMoreTokens())
+//						{
+//							Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aTok.nextToken());
+//							if ( added != null )
+//							{
+//								added.setFeatType(Ability.Nature.AUTOMATIC);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//
+//		if (!aPc.getCharacterDomainList().isEmpty())
+//		{
+//			for (CharacterDomain aCD : aPc.getCharacterDomainList())
+//			{
+//				final Domain aDomain = aCD.getDomain();
+//
+//				if (aDomain != null)
+//				{
+//					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
+//					{
+//						final String aString = aDomain.getAssociated(e2);
+//
+//						if (aString.startsWith("FEAT"))
+//						{
+//							final int idx = aString.indexOf('?');
+//
+//							if (idx > -1)
+//							{
+//								Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", aString.substring(idx + 1));
+//								if ( added != null )
+//								{
+//									added.setFeatType(Ability.Nature.AUTOMATIC);
+//								}
+//							}
+//							else
+//							{
+//								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
+//							}
+//						}
+//					}
+//
+//					final Iterator<Categorisable> anIt = aDomain.getFeatIterator();
+//
+//					for (; anIt.hasNext();)
+//					{
+//						final Ability abI = (Ability)anIt.next();
+//						Ability added = addCloneOfGlobalAbilityToListWithChoices(autoFeatList, "FEAT", abI.getKeyName());
+//						if ( added != null )
+//						{
+//							added.setFeatType(Ability.Nature.AUTOMATIC);
+//						}
+//					}
+//				}
+//			}
+//		}
+//
+////		aPc.setStableAutomaticFeatList(autoFeatList);
+//		return autoFeatList;
+//	}
 
 	/**
 	 * This method attempts to get an Ability Object from the Global Store keyed

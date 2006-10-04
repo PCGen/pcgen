@@ -16,6 +16,7 @@ import java.io.*;
  * and compare the expected XML in the testsuite/csheets folder to 
  * the generated XML in the testsuite/output folder.
  */
+@SuppressWarnings("nls")
 public abstract class pcGenGUITestCase extends XMLTestCase
 {
 	/**
@@ -41,6 +42,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * Exceptions for us.
 	 * @throws Exception 
 	 */
+	@Override
 	public void setUp() throws Exception {
 		super.setUp();
 		XMLUnit.setControlParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");

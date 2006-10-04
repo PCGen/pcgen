@@ -83,17 +83,28 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		super(name);
 	}
 
+	/**
+	 * Run the test
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.textui.TestRunner.run(PCClassTest.class);
 	}
 
+	/**
+	 * Returns all test methods in this class.
+	 * @return A <tt>TestSuite</tt>
+	 */
 	public static Test suite()
 	{
 		// quick method, adds all methods beginning with "test"
 		return new TestSuite(PCClassTest.class);
 	}
 
+	/**
+	 * Test name change
+	 */
 	public void testFireNameChangedVariable()
 	{
 		final PCClass myClass = new PCClass();
@@ -115,6 +126,9 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 	}
 
+	/**
+	 * Test monster classes generating the correct number of skill points.
+	 */
 	public void testMonsterSkillPoints()
 	{
 		SettingsHandler.setMonsterDefault(false);
@@ -408,6 +422,10 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		return reconstClass;
 	}
 
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
+	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -499,6 +517,10 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 	}
 
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
+	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 

@@ -40,6 +40,7 @@ import java.util.List;
  * @version $Revision$
  * @see pcgen.core.utils.CoreUtility
  */
+@SuppressWarnings("nls")
 public class UtilityTest extends PCGenTestCase
 {
 	/**

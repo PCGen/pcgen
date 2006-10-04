@@ -189,7 +189,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private HashSet<String> variableSet           = new HashSet<String>();
 
 	// Weapon, Armor and Shield proficiencies
-	private final TreeSet<WeaponProf> weaponProfList = new TreeSet<WeaponProf>();
+//	private final TreeSet<WeaponProf> weaponProfList = new TreeSet<WeaponProf>();
 	private Double[]      movementMult   = Globals.EMPTY_DOUBLE_ARRAY;
 	private String[]      movementMultOp = Globals.EMPTY_STRING_ARRAY;
 	private String[]      movementTypes  = Globals.EMPTY_STRING_ARRAY;
@@ -268,6 +268,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private Map<AbilityCategory, BigDecimal> theUserPoolBonuses = null;
 	
+	private Set<WeaponProf> theWeaponProfs = null;
+	private Map<String, WeaponProf> cachedWeaponProfs = null;
+
 //	private Map<String, List<TypedBonus>> theBonusMap = new HashMap<String, List<TypedBonus>>();
 	
 	///////////////////////////////////////
@@ -278,7 +281,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public PlayerCharacter()
 	{
 		variableProcessor = new VariableProcessorPC(this);
-
 
 		for (int i = 0; i < 10; i++)
 		{
@@ -844,13 +846,23 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					// Found race and type of follower
 					// so add bonus to the master
-					companionModList.add(cm);
+					addCompanionMod( cm );
 					cm.activateBonuses(aPC);
 				}
 			}
 		}
 	}
 
+	/**
+	 * Adds a <tt>CompanionMod</tt> to the character.
+	 * 
+	 * @param aMod The <tt>CompanionMod</tt> to add.
+	 */
+	public void addCompanionMod( final CompanionMod aMod )
+	{
+		companionModList.add( aMod );
+	}
+	
 	/**
 	 * Set the catchphrase
 	 * @param aString
@@ -1119,8 +1131,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		if (dirtyState)
 		{
+			cachedWeaponProfs = null;
 			serial++;
 			getVariableProcessor().setSerial(serial);
+			setAggregateAbilitiesStable(null, false);
 		}
 
 		// TODO - This is kind of strange.  We probably either only want to 
@@ -1967,6 +1981,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		return 0;
 	}
+
+	/**
+	 * Removes all <tt>CompanionMod</tt>s from the character.
+	 */
+	public void clearCompanionMods()
+	{
+		companionModList.clear();
+	}
 	
 	/**
 	 * Set the master for this object
@@ -2018,7 +2040,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 
 		// Clear the companionModList so we can add everything to it
-		companionModList.clear();
+		clearCompanionMods();
 
 		for ( CompanionMod cMod : Globals.getCompanionMods( aM.getType() ) )
 		{
@@ -2040,7 +2062,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					if ( PrereqHandler.passesAll( cMod.getPreReqList(), this, cMod ) )
 //					if (!companionModList.contains(aComp))
 					{
-						companionModList.add(cMod);
+						addCompanionMod( cMod );
 						addHD += cMod.getHitDie();
 					}
 				}
@@ -2054,7 +2076,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					if ( PrereqHandler.passesAll( cMod.getPreReqList(), this, cMod ) )
 //					if (!companionModList.contains(aComp))
 					{
-						companionModList.add(cMod);
+						addCompanionMod( cMod );
 						addHD += cMod.getHitDie();
 					}
 				}
@@ -3499,24 +3521,24 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		for ( WeaponProf obj : weaponProfList )
-		{
-			if (obj == null)
-			{
-				continue;
-			}
-
-			final String aString = checkForVariableInList(obj, variableString, 
-												isMax, Constants.EMPTY_STRING, 
-												Constants.EMPTY_STRING, found, 
-												value, decrement);
-
-			if (aString.length() > 0)
-			{
-				value = getMinMaxFirstValue(found, isMax, value, Float.parseFloat(aString));
-				found = true;
-			}
-		}
+//		for ( final WeaponProf obj : getWeaponProfs() )
+//		{
+//			if (obj == null)
+//			{
+//				continue;
+//			}
+//
+//			final String aString = checkForVariableInList(obj, variableString, 
+//												isMax, Constants.EMPTY_STRING, 
+//												Constants.EMPTY_STRING, found, 
+//												value, decrement);
+//
+//			if (aString.length() > 0)
+//			{
+//				value = getMinMaxFirstValue(found, isMax, value, Float.parseFloat(aString));
+//				found = true;
+//			}
+//		}
 
 		for (PCStat obj : statList)
 		{
@@ -3571,35 +3593,84 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return new Float(value);
 	}
 
-	/**
-	 * Returns the <tt>Set</tt> of <tt>WeaponProf</tt> objects for the character.
-	 * 
-	 * @return A sorted <tt>Set</tt> of weapon proficiencies.
-	 */
-	public TreeSet<WeaponProf> getWeaponProfList()
+//	/**
+//	 * Returns the <tt>Set</tt> of <tt>WeaponProf</tt> objects for the character.
+//	 * 
+//	 * @return A sorted <tt>Set</tt> of weapon proficiencies.
+//	 */
+//	public TreeSet<WeaponProf> getWeaponProfList()
+//	{
+//		final TreeSet<WeaponProf> wp = new TreeSet<WeaponProf>(weaponProfList);
+//
+//		// Try all possible PObjects
+//		for (PObject pobj : getPObjectList())
+//		{
+//			if (pobj != null)
+//			{
+//				final List<String> profKeyList = pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
+//				for (String profKey : profKeyList)
+//				{
+//					final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);
+//					if (prof != null)
+//					{
+//						wp.add(prof);
+//					}
+//				}
+//			}
+//		}
+//
+//		return wp;
+//	}
+	
+	private Map<String, WeaponProf> buildWeaponProfCache()
 	{
-		final TreeSet<WeaponProf> wp = new TreeSet<WeaponProf>(weaponProfList);
-
+		final Map<String, WeaponProf> ret = new HashMap<String, WeaponProf>();
+		if ( theWeaponProfs != null )
+		{
+			for ( final WeaponProf wp : this.theWeaponProfs )
+			{
+				ret.put( wp.getKeyName(), wp );
+			}
+		}
+		
 		// Try all possible PObjects
-		for (PObject pobj : getPObjectList())
+		for ( final PObject pobj : getPObjectList() )
 		{
 			if (pobj != null)
 			{
-				final List<String> profKeyList = pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
-				for (String profKey : profKeyList)
+//				results = addWeaponProfsLists(aRace.getWeaponProfAutos(), results, aFeatList, true);
+				//
+//							for (String aString : aRace.getSafeListFor(weaponProfBonusKey))
+//							{
+//								results.add(aString);
+//								addWeaponProfToList(aFeatList, aString, true);
+//							}
+				final Set<String> profKeyList = new TreeSet<String>(pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
+// TODO - Need to handle more crap here.
+				pobj.addAutoTagsToList("WEAPONPROF", profKeyList, this, true);
+				for ( final String profKey : profKeyList )
 				{
 					final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);
 					if (prof != null)
 					{
-						wp.add(prof);
+						ret.put( prof.getKeyName(), prof );
 					}
 				}
 			}
 		}
-
-		return wp;
+		return ret;
 	}
-
+	
+	public SortedSet<WeaponProf> getWeaponProfs()
+	{
+		if ( this.cachedWeaponProfs == null )
+		{
+			cachedWeaponProfs = buildWeaponProfCache();
+		}
+		return Collections.unmodifiableSortedSet(
+				new TreeSet<WeaponProf>(cachedWeaponProfs.values()));
+	}
+	
 	/**
 	 * Sets the character's weight in pounds.
 	 * 
@@ -3774,17 +3845,32 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public boolean hasWeaponProfKeyed(final String aKey)
 	{
-		for ( WeaponProf wp : getWeaponProfList() )
+//		for ( WeaponProf wp : getWeaponProfList() )
+//		{
+//			if (aKey.equalsIgnoreCase(wp.getKeyName()))
+//			{
+//				return true;
+//			}
+//		}
+//
+//		return false;		
+		if ( cachedWeaponProfs == null )
 		{
-			if (aKey.equalsIgnoreCase(wp.getKeyName()))
-			{
-				return true;
-			}
+			cachedWeaponProfs = buildWeaponProfCache();
 		}
-
-		return false;
+		return cachedWeaponProfs.get(aKey) != null;
 	}
 
+	public boolean hasWeaponProf( final WeaponProf wp )
+	{
+//		return hasWeaponProfKeyed( wp.getKeyName() );
+		if ( cachedWeaponProfs == null )
+		{
+			cachedWeaponProfs = buildWeaponProfCache();
+		}
+		return cachedWeaponProfs.get(wp.getKeyName()) != null;
+	}
+	
 	public Equipment getEquipmentNamed(final String aString)
 	{
 		return getEquipmentNamed(aString, getEquipmentMasterList());
@@ -3899,7 +3985,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		for ( String var : variableList )
 		{
-			final StringTokenizer aTok = new StringTokenizer(var, "|");
+			final StringTokenizer aTok = new StringTokenizer(var, Constants.PIPE);
 			aTok.nextToken(); //source
 			aTok.nextToken(); //subSource
 
@@ -3909,10 +3995,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		if (Globals.hasWeaponProfVariableNamed(weaponProfList, variableString))
-		{
-			return true;
-		}
+//		if (Globals.hasWeaponProfVariableNamed(getWeaponProfs(), variableString))
+//		{
+//			return true;
+//		}
 
 		return variableSet.contains(variableString.toUpperCase());
 	}
@@ -4031,9 +4117,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				alignment = SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE);
 			}
 
-			// TODO raise an exception, once I define one. Maybe
-			// ArrayIndexOutOfBounds?
+			throw new IllegalArgumentException("Invalid alignment");
 		}
+		
 		setDirty(true);
 	}
 
@@ -4668,7 +4754,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public List<CharacterDomain> getCharacterDomainList()
 	{
-		return characterDomainList;
+		return Collections.unmodifiableList(characterDomainList);
 	}
 
 	public Domain getCharacterDomainKeyed(final String domainKey)
@@ -4696,7 +4782,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public List<CompanionMod> getCompanionModList()
 	{
-		return companionModList;
+		return Collections.unmodifiableList(companionModList);
 	}
 
 	public String getCopyMasterBAB()
@@ -5561,14 +5647,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 			languages.removeAll(oldRace.getSafeListFor(ListKey.AUTO_LANGUAGES));
 
-			if (oldRace.getWeaponProfAutos() != null)
-			{
-				final List<String> profKeys = oldRace.getWeaponProfAutos();
-				for (String s : profKeys)
-				{
-					weaponProfList.remove(Globals.getWeaponProfKeyed(s));
-				}
-			}
+			cachedWeaponProfs = null;
 
 			if (stringChar.hasCharacteristic(StringKey.RACIAL_FAVORED_CLASS))
 			{
@@ -7491,8 +7570,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setAggregateAbilitiesStable(null, false);
 //		setAutomaticFeatsStable(false);
 //		setAggregateFeatsStable(false);
-		AbilityUtilities.rebuildAutoAbilityList(this);
-		rebuildFeatAggreagateList();
+//		AbilityUtilities.rebuildAutoAbilityList(this);
+//		rebuildFeatAggreagateList();
 
 		calcActiveBonuses();
 		int postLockMonsterSkillPoints; // this is what this value was before adding this template
@@ -7587,7 +7666,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		final WeaponProf wp = Globals.getWeaponProfKeyed(aProfKey);
 		if (wp != null)
 		{
-			weaponProfList.add(wp);
+//			weaponProfList.add(wp);
+			if ( theWeaponProfs == null )
+			{
+				theWeaponProfs = new TreeSet<WeaponProf>();
+			}
+			theWeaponProfs.add( wp );
 			setDirty(true);
 		}
 	}
@@ -9015,6 +9099,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 				final int idx = classList.indexOf(aClass);
 				classList.set(idx, bClass);
+//				thePObjectList.remove(aClass);
+//				thePObjectList.add(bClass);
 			}
 			else
 			{
@@ -9027,6 +9113,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				}
 
 				classList.remove(aClass);
+//				thePObjectList.remove(aClass);
 			}
 
 			//
@@ -9600,10 +9687,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		if (!characterDomainList.isEmpty())
 		{
 			characterDomainList.remove(aCD);
+//			thePObjectList.remove(aCD);
 			setDirty(true);
 		}
 	}
 
+	public void removeCharacterDomain( final String aDomainKey )
+	{
+		final CharacterDomain cd = getCharacterDomainForDomain(aDomainKey);
+		characterDomainList.remove(cd);
+//		thePObjectList.remove(cd);
+	}
+	
 	public void removeNaturalWeapons(final PObject obj)
 	{
 		for ( Equipment weapon : obj.getNaturalWeapons() )
@@ -9640,14 +9735,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return;
 		}
 
-		if (inTmpl.getWeaponProfAutos() != null)
-		{
-			final List<String> profKeys = inTmpl.getWeaponProfAutos();
-			for ( String key : profKeys )
-			{
-				weaponProfList.remove(Globals.getWeaponProfKeyed(key));
-			}
-		}
+		cachedWeaponProfs = null;
 
 		languages.removeAll(inTmpl.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove template languages.
 		templateAutoLanguages.removeAll(inTmpl.getSafeListFor(ListKey.AUTO_LANGUAGES)); // remove them from the local listing. Don't clear though in case of multiple templates.
@@ -10379,7 +10467,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			if (!cd.isDomainValidFor(this))
 			{
-				characterDomainList.remove(cd);
+				removeCharacterDomain(cd);
 			}
 		}
 	}
@@ -10489,171 +10577,171 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return (raceName.equals(Constants.s_NONESELECTED) ? "Nothing" : raceName);
 	}
 
-	/**
-	 * Get AUTO weapon proficiencies from all granting objects
-	 * @param aFeatList
-	 * @return Sorted Set
-	 */
-	SortedSet<String> getAutoWeaponProfs(final List<Ability> aFeatList)
-	{
-		SortedSet<String> results = new TreeSet<String>();
-		final Race aRace = getRace();
-
-		ListKey<String> weaponProfBonusKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
-
-		//
-		// Add race-grantedweapon proficiencies
-		//
-		if (aRace != null)
-		{
-			results = addWeaponProfsLists(aRace.getWeaponProfAutos(), results, aFeatList, true);
-
-			for (String aString : aRace.getSafeListFor(weaponProfBonusKey))
-			{
-				results.add(aString);
-				addWeaponProfToList(aFeatList, aString, true);
-			}
-
-			aRace.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-		}
-
-		//
-		// Add template-granted weapon proficiencies
-		//
-		for ( PCTemplate template : getTemplateList() )
-		{
-			results = addWeaponProfsLists(template.getWeaponProfAutos(), results, aFeatList, true);
-
-			for (String aString : template.getSafeListFor(weaponProfBonusKey))
-			{
-				results.add(aString);
-				addWeaponProfToList(aFeatList, aString, true);
-			}
-
-			template.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-		}
-
-		//
-		// Add class-granted weapon proficiencies
-		//
-		for ( PCClass pcClass : classList )
-		{
-			results = addWeaponProfsLists(pcClass.getWeaponProfAutos(), results, aFeatList, true);
-
-			for (String aString : pcClass.getSafeListFor(weaponProfBonusKey))
-			{
-				results.add(aString);
-				addWeaponProfToList(aFeatList, aString, true);
-			}
-
-			pcClass.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-		}
-
-		//
-		// Add feat-granted weapon proficiencies
-		//
-		setAggregateFeatsStable(false);
-// TODO - ABILITYOBJECT
-//		setAggregateAbilitiesStable(null, false);
-
-		for ( Ability feat : aggregateFeatList() )
-		{
-			results = addWeaponProfsLists(feat.getWeaponProfAutos(), results, aFeatList, true);
-
-			List<String> staticProfList = new ArrayList<String>();
-			staticProfList.addAll(feat.getSafeListFor(weaponProfBonusKey));
-			for (String aString : staticProfList)
-			{
-				results.add(aString);
-				addWeaponProfToList(aFeatList, aString, true);
-			}
-
-			feat.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-		}
-
-		//
-		// Add skill-granted weapon proficiencies
-		//
-		for ( Skill skill : getSkillList() )
-		{
-			results = addWeaponProfsLists(skill.getWeaponProfAutos(), results, aFeatList, true);
-			// TODO Should skills grant BONUS profs?
-			skill.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-		}
-
-		//
-		// Add equipment-granted weapon proficiencies
-		//
-		for ( Equipment eq : equipmentList )
-		{
-			if (eq.isEquipped())
-			{
-				results = addWeaponProfsLists(eq.getWeaponProfAutos(), results, aFeatList, true);
-				eq.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-
-				// TODO Should eqMods add to Auto list or BONUS profs?
-				for ( EquipmentModifier eqMod : eq.getEqModifierList(true) )
-				{
-					results = addWeaponProfsLists(eqMod.getWeaponProfAutos(), results, aFeatList, true);
-				}
-
-				for ( EquipmentModifier eqMod : eq.getEqModifierList(false) )
-				{
-					results = addWeaponProfsLists(eqMod.getWeaponProfAutos(), results, aFeatList, true);
-				}
-			}
-		}
-
-		//
-		// Add deity-granted weapon proficiencies
-		//
-		if (deity != null)
-		{
-			results = addWeaponProfsLists(deity.getWeaponProfAutos(), results, aFeatList, true);
-			deity.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-			// TODO Should deity add BONUS profs
-		}
-
-		//
-		// Add domain-granted weapon proficiencies
-		//
-		for ( CharacterDomain cd : characterDomainList )
-		{
-			final Domain aDomain = cd.getDomain();
-
-			if (aDomain != null)
-			{
-				results = addWeaponProfsLists(aDomain.getWeaponProfAutos(), results, aFeatList, true);
-
-				for (String aString : aDomain.getSafeListFor(weaponProfBonusKey))
-				{
-					results.add(aString);
-					addWeaponProfToList(aFeatList, aString, true);
-				}
-
-				aDomain.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
-			}
-		}
-
-		//
-		// Parse though aggregate feat list, looking for any feats that grant weapon proficiencies
-		//
-		//addFeatProfs(getStableAggregateFeatList(), aFeatList, results);
-		//addFeatProfs(getStableAutomaticFeatList(), aFeatList, results);
-
-		// Why do we clear the list and then add it all again?
-		weaponProfList.clear(); // TheForken
-		for ( String profKey : results )
-		{
-			final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
-			if (wp != null)
-			{
-				weaponProfList.add(wp);
-			}
-		}
-
-		return results;
-	}
+//	/**
+//	 * Get AUTO weapon proficiencies from all granting objects
+//	 * @param aFeatList
+//	 * @return Sorted Set
+//	 */
+//	SortedSet<String> getAutoWeaponProfs(final List<Ability> aFeatList)
+//	{
+//		SortedSet<String> results = new TreeSet<String>();
+//		final Race aRace = getRace();
+//
+//		ListKey<String> weaponProfBonusKey = ListKey.SELECTED_WEAPON_PROF_BONUS;
+//
+//		//
+//		// Add race-grantedweapon proficiencies
+//		//
+//		if (aRace != null)
+//		{
+//			results = addWeaponProfsLists(aRace.getWeaponProfAutos(), results, aFeatList, true);
+//
+//			for (String aString : aRace.getSafeListFor(weaponProfBonusKey))
+//			{
+//				results.add(aString);
+//				addWeaponProfToList(aFeatList, aString, true);
+//			}
+//
+//			aRace.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//		}
+//
+//		//
+//		// Add template-granted weapon proficiencies
+//		//
+//		for ( PCTemplate template : getTemplateList() )
+//		{
+//			results = addWeaponProfsLists(template.getWeaponProfAutos(), results, aFeatList, true);
+//
+//			for (String aString : template.getSafeListFor(weaponProfBonusKey))
+//			{
+//				results.add(aString);
+//				addWeaponProfToList(aFeatList, aString, true);
+//			}
+//
+//			template.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//		}
+//
+//		//
+//		// Add class-granted weapon proficiencies
+//		//
+//		for ( PCClass pcClass : classList )
+//		{
+//			results = addWeaponProfsLists(pcClass.getWeaponProfAutos(), results, aFeatList, true);
+//
+//			for (String aString : pcClass.getSafeListFor(weaponProfBonusKey))
+//			{
+//				results.add(aString);
+//				addWeaponProfToList(aFeatList, aString, true);
+//			}
+//
+//			pcClass.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//		}
+//
+//		//
+//		// Add feat-granted weapon proficiencies
+//		//
+//		setAggregateFeatsStable(false);
+//// TODO - ABILITYOBJECT
+////		setAggregateAbilitiesStable(null, false);
+//
+//		for ( Ability feat : aggregateFeatList() )
+//		{
+//			results = addWeaponProfsLists(feat.getWeaponProfAutos(), results, aFeatList, true);
+//
+//			List<String> staticProfList = new ArrayList<String>();
+//			staticProfList.addAll(feat.getSafeListFor(weaponProfBonusKey));
+//			for (String aString : staticProfList)
+//			{
+//				results.add(aString);
+//				addWeaponProfToList(aFeatList, aString, true);
+//			}
+//
+//			feat.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//		}
+//
+//		//
+//		// Add skill-granted weapon proficiencies
+//		//
+//		for ( Skill skill : getSkillList() )
+//		{
+//			results = addWeaponProfsLists(skill.getWeaponProfAutos(), results, aFeatList, true);
+//			// TODO Should skills grant BONUS profs?
+//			skill.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//		}
+//
+//		//
+//		// Add equipment-granted weapon proficiencies
+//		//
+//		for ( Equipment eq : equipmentList )
+//		{
+//			if (eq.isEquipped())
+//			{
+//				results = addWeaponProfsLists(eq.getWeaponProfAutos(), results, aFeatList, true);
+//				eq.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//
+//				// TODO Should eqMods add to Auto list or BONUS profs?
+//				for ( EquipmentModifier eqMod : eq.getEqModifierList(true) )
+//				{
+//					results = addWeaponProfsLists(eqMod.getWeaponProfAutos(), results, aFeatList, true);
+//				}
+//
+//				for ( EquipmentModifier eqMod : eq.getEqModifierList(false) )
+//				{
+//					results = addWeaponProfsLists(eqMod.getWeaponProfAutos(), results, aFeatList, true);
+//				}
+//			}
+//		}
+//
+//		//
+//		// Add deity-granted weapon proficiencies
+//		//
+//		if (deity != null)
+//		{
+//			results = addWeaponProfsLists(deity.getWeaponProfAutos(), results, aFeatList, true);
+//			deity.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//			// TODO Should deity add BONUS profs
+//		}
+//
+//		//
+//		// Add domain-granted weapon proficiencies
+//		//
+//		for ( CharacterDomain cd : characterDomainList )
+//		{
+//			final Domain aDomain = cd.getDomain();
+//
+//			if (aDomain != null)
+//			{
+//				results = addWeaponProfsLists(aDomain.getWeaponProfAutos(), results, aFeatList, true);
+//
+//				for (String aString : aDomain.getSafeListFor(weaponProfBonusKey))
+//				{
+//					results.add(aString);
+//					addWeaponProfToList(aFeatList, aString, true);
+//				}
+//
+//				aDomain.addAutoTagsToList("WEAPONPROF", (TreeSet) results, this, true);
+//			}
+//		}
+//
+//		//
+//		// Parse though aggregate feat list, looking for any feats that grant weapon proficiencies
+//		//
+//		//addFeatProfs(getStableAggregateFeatList(), aFeatList, results);
+//		//addFeatProfs(getStableAutomaticFeatList(), aFeatList, results);
+//
+//		// Why do we clear the list and then add it all again?
+//		weaponProfList.clear(); // TheForken
+//		for ( String profKey : results )
+//		{
+//			final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
+//			if (wp != null)
+//			{
+//				weaponProfList.add(wp);
+//			}
+//		}
+//
+//		return results;
+//	}
 
 	/**
 	 * Parses through all Equipment items and calculates total Bonus
@@ -11005,6 +11093,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private boolean isProficientWithWeapon(final Equipment eq)
 	{
+		if (eq.isNatural())
+		{
+			return true;
+		}
+
 		final WeaponProf wp = eq.getExpandedWeaponProf(this);
 
 		if (wp == null)
@@ -11012,12 +11105,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return false;
 		}
 
-		if (eq.isNatural())
-		{
-			return true;
-		}
-
-		return getWeaponProfList().contains(wp);
+		return hasWeaponProfKeyed( wp.getKeyName() );
 	}
 
 	private void setQualifyListStable(final boolean state)
@@ -11334,6 +11422,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setAggregateFeatsStable(aFeatList != null);
 	}
 
+	/**
+	 * Not sure what this does yet.
+	 * @param aFeatList
+	 * @param aString
+	 * @param isAuto
+	 */
 	private void addWeaponProfToList(final List<Ability> aFeatList, final String aString, final boolean isAuto)
 	{
 		if (aString.startsWith("WEAPONTYPE=") || aString.startsWith("WEAPONTYPE."))
@@ -11447,10 +11541,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		if (wp != null && !weaponProfList.contains(wp))
+		if ( wp != null )
 		{
-			weaponProfList.add(wp);
+			cachedWeaponProfs.put(wp.getKeyName(), wp);
 		}
+//		if (wp != null && !weaponProfList.contains(wp))
+//		{
+//			weaponProfList.add(wp);
+//		}
 	}
 
 	private SortedSet<String> addWeaponProfsLists(final List<String> aList, final SortedSet<String> aSet, final List<Ability> aFeatList, final boolean addIt)
@@ -11706,7 +11804,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return Integer.toString(lvl);
 	}
 
-	private ArrayList<? extends PObject> getPObjectList()
+	private List<? extends PObject> getPObjectList()
 	{
 		// Possible object types include:
 		//  Campaigns
@@ -11725,8 +11823,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		//  Stat (PCStat)
 		//  Template (PCTemplate)
 		//
-		final ArrayList<PObject> results = new ArrayList<PObject>();
 
+		final ArrayList<PObject> results = new ArrayList<PObject>();
+		
 		// Loaded campaigns
 		final List<Campaign> campaigns = Globals.getCampaignList();
 		for ( final Campaign campaign : campaigns )
@@ -11748,13 +11847,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		//  armorProfList is still just a list of Strings
 		//results.addAll(getArmorProfList());
 		//  BioSet
-		BioSet bio = Globals.getBioSet();
-		if (bio != null)
-		{
-			results.add(bio);
-		}
+		results.add(Globals.getBioSet());
 
-		//  Checks
 		results.addAll(SettingsHandler.getGame().getUnmodifiableCheckList());
 
 		//  Class
@@ -11786,18 +11880,18 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (eq.isEquipped())
 			{
 				results.add(eq);
-
+	
 				for (EquipmentModifier eqMod : eq.getEqModifierList(true))
 				{
-						results.add(eqMod);
-					}
+					results.add(eqMod);
+				}
 
 				for (EquipmentModifier eqMod : eq.getEqModifierList(false))
 				{
-						results.add(eqMod);
-					}
+					results.add(eqMod);
 				}
 			}
+		}
 
 		//  Feat (virtual feats, auto feats)
 		results.addAll(aggregateFeatList());
@@ -13011,13 +13105,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-// TODO - ABILITYOBJECT
-//		setAggregateAbilitiesStable(null, false);
-		setAggregateFeatsStable(false);
-		setAutomaticFeatsStable(false);
-		setVirtualFeatsStable(false);
+		setAggregateAbilitiesStable(null, false);
+//		setAggregateFeatsStable(false);
+//		setAutomaticFeatsStable(false);
+//		setVirtualFeatsStable(false);
 		calcActiveBonuses();
-		getAutoWeaponProfs(featAutoList());
+//		getAutoWeaponProfs(featAutoList());
 		//setDirty(true);
 	}
 
@@ -13880,7 +13973,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		aClone.setTrait1(new String(getTrait1()));
 		aClone.setTrait2(new String(getTrait2()));
 		aClone.languages.addAll(languages);
-		aClone.weaponProfList.addAll(weaponProfList);
+		aClone.theWeaponProfs.addAll(theWeaponProfs);
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
@@ -14717,7 +14810,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	// Whether one can trust the most recently calculated aggregateFeatList
 	private boolean aggregateFeatsStable = false;
 	// Whether one can trust the most recently calculated automaticFeatList
-	private boolean       automaticFeatsStable = false;
+//	private boolean       automaticFeatsStable = false;
 	// Whether one can trust the most recently calculated virtualFeatList
 	private boolean virtualFeatsStable = false;
 
@@ -14735,13 +14828,21 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		aggregateFeatsStable = stable;
 		setVirtualFeatsStable(stable);
-		setAutomaticAbilitiesStable(AbilityCategory.FEAT, stable);
+		setAutomaticFeatsStable(stable);
+		if ( stable == false )
+		{
+			cachedWeaponProfs = null;
+		}
 		//setDirty(true);
 	}
 
 	public void setAggregateAbilitiesStable(final AbilityCategory aCategory,
 											final boolean stable)
 	{
+		if ( stable == false )
+		{
+			cachedWeaponProfs = null;
+		}
 		if ( aCategory == AbilityCategory.FEAT )
 		{
 			setAggregateFeatsStable(stable);
@@ -14775,7 +14876,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private boolean isAggregateFeatsStable()
 	{
-		return automaticFeatsStable && virtualFeatsStable && aggregateFeatsStable;
+		return (stableAutomaticFeatList != null) && virtualFeatsStable && aggregateFeatsStable;
 	}
 
 	public boolean isAggregateAbilitiesStable(final AbilityCategory aCategory)
@@ -14795,8 +14896,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	private void setAutomaticFeatsStable(final boolean stable)
 	{
-		automaticFeatsStable = stable;
-		//setDirty(true);
+		if ( stable == false )
+		{
+			stableAutomaticFeatList = null;
+		}
 	}
 
 	public void setAutomaticAbilitiesStable(final AbilityCategory aCategory,
@@ -14817,6 +14920,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		if ( aCategory == AbilityCategory.FEAT )
 		{
 			setAutomaticFeatsStable(stable);
+			return;
 		}
 		if ( stable == false )
 		{
@@ -15249,10 +15353,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	
 	public double getUserPoolBonus( final AbilityCategory aCategory )
 	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			throw new IllegalArgumentException("This method is not valid for feats."); //$NON-NLS-1$
-		}
+//		if ( aCategory == AbilityCategory.FEAT )
+//		{
+//			throw new IllegalArgumentException("This method is not valid for feats."); //$NON-NLS-1$
+//		}
 		BigDecimal userBonus = null;
 		if ( theUserPoolBonuses != null )
 		{
@@ -15442,7 +15546,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return getAbilityPoolSpent(aCategory).doubleValue();
 	}
 	
-	public void setVirtualFeatsStable(final boolean stable)
+	private void setVirtualFeatsStable(final boolean stable)
 	{
 		virtualFeatsStable = stable;
 		//setDirty(true);
@@ -15902,16 +16006,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return Collections.unmodifiableList(ret);
 	}
 
-	boolean isAutomaticFeatsStable()
-	{
-		return automaticFeatsStable;
-	}
+//	boolean isAutomaticFeatsStable()
+//	{
+//		return automaticFeatsStable;
+//	}
 
 	boolean isAutomaticAbilitiesStable(final AbilityCategory aCategory)
 	{
 		if (aCategory == AbilityCategory.FEAT )
 		{
-			return isAutomaticFeatsStable();
+			return stableAutomaticFeatList != null;
 		}
 		return theAbilities.get(aCategory, Ability.Nature.AUTOMATIC) != null;
 	}
@@ -16088,15 +16192,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	public List<Ability> featAutoList()
 	{
-		final List<Ability> autoFeatList = getStableAutomaticFeatList();
-
-		//Did we get a valid list? If so, return it.
-		if (autoFeatList != null)
+		if ( stableAutomaticFeatList == null )
 		{
-			return autoFeatList;
+			stableAutomaticFeatList = rebuildAutoFeatList();
+			setAutomaticFeatsStable(true);
 		}
-
-		return AbilityUtilities.rebuildAutoAbilityList(this);
+		if ( stableAutomaticFeatList == null )
+		{
+			return Collections.emptyList();
+		}
+		return stableAutomaticFeatList;
 	}
 
 	/**
@@ -16129,7 +16234,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				for ( final String key : abilityKeys )
 				{
 					final Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(abilities, aCategory, key);
-					added.setFeatType(Ability.Nature.AUTOMATIC);
+					if ( added != null )
+					{
+						added.setFeatType(Ability.Nature.AUTOMATIC);
+					}
 				}
 			}
 			//
@@ -16241,9 +16349,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 //					}
 //				}
 //			}
-
-			// TODO - Do we need to do this?
-			getAutoWeaponProfs(abilities);
+			
+			cachedWeaponProfs = null;
 		}
 		return abilities;
 	}
@@ -16260,22 +16367,27 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	void setStableAutomaticFeatList(final List<Ability> aFeatList)
 	{
 		stableAutomaticFeatList = aFeatList;
-		setAutomaticAbilitiesStable(AbilityCategory.FEAT, aFeatList != null);
+		cachedWeaponProfs = null;
+//		setAutomaticFeatsStable( aFeatList != null );
 	}
 
-	private List<Ability> getStableAutomaticFeatList()
-	{
-		if (isAutomaticFeatsStable())
-		{
-			return stableAutomaticFeatList;
-		}
-		return null;
-	}
+//	private List<Ability> getStableAutomaticFeatList()
+//	{
+//		if (isAutomaticFeatsStable())
+//		{
+//			return stableAutomaticFeatList;
+//		}
+//		return null;
+//	}
 
 	private void setStableVirtualFeatList(final List<Ability> aFeatList)
 	{
 		stableVirtualFeatList = aFeatList;
 		setVirtualFeatsStable(aFeatList != null);
+		if ( aFeatList == null )
+		{
+			cachedWeaponProfs = null;
+		}
 	}
 
 	private List<Ability> getStableVirtualFeatList()
@@ -16285,6 +16397,175 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			return stableVirtualFeatList;
 		}
 		return null;
+	}
+
+	private List<Ability> rebuildAutoFeatList()
+	{
+		stableAutomaticFeatList = new ArrayList<Ability>();
+
+		//
+		// add racial feats
+		//
+		if ((getRace() != null) && !PlayerCharacterUtilities.canReassignRacialFeats())
+		{
+			final StringTokenizer aTok = new StringTokenizer(getRace().getFeatList(this), Constants.PIPE);
+
+			while (aTok.hasMoreTokens())
+			{
+				Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(stableAutomaticFeatList, Constants.FEAT_CATEGORY, aTok.nextToken());
+				if ( added != null )
+				{
+					added.setFeatType(Ability.Nature.AUTOMATIC);
+				}
+			}
+		}
+
+		for (final PCClass aClass : getClassList())
+		{
+			for (final Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
+			{
+				//
+				// PCClass object have auto feats stored in format:
+				// lvl|feat_name
+				//
+				final String aString = e1.next();
+
+				if (aString.indexOf('|') < 1)
+				{
+					continue;
+				}
+
+				final StringTokenizer aTok = new StringTokenizer(aString, Constants.PIPE);
+				int i;
+
+				try
+				{
+					i = Integer.parseInt(aTok.nextToken());
+				}
+				catch (NumberFormatException exc)
+				{
+					continue;
+				}
+
+				if (i > aClass.getLevel())
+				{
+					continue;
+				}
+
+				String autoFeat = aTok.nextToken();
+				final int idx = autoFeat.indexOf('[');
+
+				if (idx >= 0)
+				{
+					final StringTokenizer bTok = new StringTokenizer(autoFeat.substring(idx + 1), "[]");
+					final List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
+
+					while (bTok.hasMoreTokens())
+					{
+						final String prereqString = bTok.nextToken();
+						Logging.debugPrint("Why is the prerequisite '"+prereqString+
+								"' parsed in PlayerCharacter.featAutoList() rather than the persistence layer");
+						try {
+							final PreParserFactory factory = PreParserFactory.getInstance();
+							final Prerequisite prereq = factory.parse(prereqString);
+							preReqList.add(prereq);
+						}
+						catch (PersistenceLayerException ple){
+							Logging.errorPrint(ple.getMessage(), ple);
+						}
+					}
+
+					autoFeat = autoFeat.substring(0, idx);
+
+					if (preReqList.size() != 0)
+					{
+						if (! PrereqHandler.passesAll(preReqList, this, null ))
+						{
+							continue;
+						}
+					}
+				}
+
+				Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(stableAutomaticFeatList, Constants.FEAT_CATEGORY, autoFeat);
+				if ( added != null )
+				{
+					added.setFeatType(Ability.Nature.AUTOMATIC);
+				}
+			}
+		}
+
+		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !getTemplateList().isEmpty())
+		{
+			for (final PCTemplate aTemplate : getTemplateList())
+			{
+				final List<String> templateFeats = aTemplate.feats(getTotalLevels(), totalHitDice(), this, false);
+
+				if (!templateFeats.isEmpty())
+				{
+					for (Iterator<String> e2 = templateFeats.iterator(); e2.hasNext();)
+					{
+						final String aString = e2.next();
+						final StringTokenizer aTok = new StringTokenizer(aString, Constants.COMMA);
+
+						while (aTok.hasMoreTokens())
+						{
+							Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(stableAutomaticFeatList, Constants.FEAT_CATEGORY, aTok.nextToken());
+							if ( added != null )
+							{
+								added.setFeatType(Ability.Nature.AUTOMATIC);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if (getCharacterDomainList().isEmpty())
+		{
+			for (final CharacterDomain aCD : getCharacterDomainList())
+			{
+				final Domain aDomain = aCD.getDomain();
+
+				if (aDomain != null)
+				{
+					for (int e2 = 0; e2 < aDomain.getAssociatedCount(); ++e2)
+					{
+						final String aString = aDomain.getAssociated(e2);
+
+						if (aString.startsWith("FEAT"))
+						{
+							final int idx = aString.indexOf('?');
+
+							if (idx > -1)
+							{
+								Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(stableAutomaticFeatList, Constants.FEAT_CATEGORY, aString.substring(idx + 1));
+								if ( added != null )
+								{
+									added.setFeatType(Ability.Nature.AUTOMATIC);
+								}
+							}
+							else
+							{
+								Logging.errorPrint("no '?' in Domain assocatedList entry: " + aString);
+							}
+						}
+					}
+
+					final Iterator<Categorisable> anIt = aDomain.getFeatIterator();
+
+					for (; anIt.hasNext();)
+					{
+						final Ability abI = (Ability)anIt.next();
+						Ability added = AbilityUtilities.addCloneOfGlobalAbilityToListWithChoices(stableAutomaticFeatList, Constants.FEAT_CATEGORY, abI.getKeyName());
+						if ( added != null )
+						{
+							added.setFeatType(Ability.Nature.AUTOMATIC);
+						}
+					}
+				}
+			}
+		}
+		return stableAutomaticFeatList;
 	}
 
 //	public double getBonusValue(final String aBonusType, final String aBonusName )

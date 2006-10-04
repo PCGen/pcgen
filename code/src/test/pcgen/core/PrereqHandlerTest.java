@@ -16,8 +16,13 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
+@SuppressWarnings("nls")
 public class PrereqHandlerTest extends AbstractCharacterTestCase
 {
+	/**
+	 * Default constructor
+	 * @param name
+	 */
 	public PrereqHandlerTest(final String name)
 	{
 		super(name);
@@ -54,6 +59,10 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 			prereqNeg, pc, null));
 	}
 
+	/**
+	 * Tests PREFEAT
+	 * @throws PersistenceLayerException
+	 */
 	public void testFeatPasses() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();

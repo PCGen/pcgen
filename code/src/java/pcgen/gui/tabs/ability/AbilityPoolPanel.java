@@ -127,6 +127,16 @@ public class AbilityPoolPanel extends JPanel
 	}
 
 	/**
+	 * Sets the PlayerCharacter this panel is displaying information for.
+	 * 
+	 * @param aPC The PlayerCharacter to set.
+	 */
+	public void setPC( final PlayerCharacter aPC )
+	{
+		thePC = aPC;
+	}
+	
+	/**
 	 * Displays the current number of remaining points in the ability pool.
 	 */
 	public void showRemainingAbilityPoints()

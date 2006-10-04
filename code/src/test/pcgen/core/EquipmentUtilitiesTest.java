@@ -31,23 +31,30 @@ import pcgen.PCGenTestCase;
  * @author andrew
  *
  */
+@SuppressWarnings("nls")
 public class EquipmentUtilitiesTest extends PCGenTestCase {
 
+	/**
+	 * Run the test
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		junit.textui.TestRunner.run(EquipmentUtilitiesTest.class);
 	}
 	
-	/*
+	/**
 	 * @see PCGenTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
 
-	/*
-	 * @see TestCase#tearDown()
+	/**
+	 * @see PCGenTestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}

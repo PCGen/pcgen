@@ -83,9 +83,7 @@ public class WeaponProfsToken extends Token
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
 			boolean first = true;
-			SortedSet<WeaponProf> sortedProfs = new TreeSet<WeaponProf> ();
-			sortedProfs.addAll(pc.getWeaponProfList());
-			for (WeaponProf wp : sortedProfs)
+			for ( final WeaponProf wp : pc.getWeaponProfs() )
 			{
 				if (first == false)
 				{

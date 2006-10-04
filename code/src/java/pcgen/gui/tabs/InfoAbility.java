@@ -305,6 +305,15 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString(
 					"InfoAbility.StatusLine.Info")); //$NON-NLS-1$
+		
+		theAvailablePane.setPC(getPc());
+		theSelectedPane.setPC(getPc());
+		theInfoPanel.setPC(getPc());
+		if ( thePoolPanel != null )
+		{
+			thePoolPanel.setPC(getPc());
+		}
+		
 		refresh();
 
 		if (!hasBeenSized)

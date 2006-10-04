@@ -136,8 +136,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> UMULT = new ListKey<String>();
 	/** Key for a list of virtual feats (feats granted regardless of the prereqs) */
 	public static final ListKey<Ability> VIRTUAL_FEATS = new ListKey<Ability>();
-	/** Key for a list of weapon proficiencies */
-	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
+//	/** Key for a list of weapon proficiencies */
+//	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
 
 	/** Private constructor to prevent instantiation of this class */
 	private ListKey() {

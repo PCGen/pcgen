@@ -145,7 +145,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 			else
 			{
 
-				Set<WeaponProf> pcProfs = aPc.getWeaponProfList();
+				Set<WeaponProf> pcProfs = aPc.getWeaponProfs();
 
 				if (intScope == SCOPE_PC)
 				{

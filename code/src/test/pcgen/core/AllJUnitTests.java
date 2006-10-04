@@ -37,6 +37,7 @@ import pcgen.persistence.lst.FeatTest;
  * @see <a href="http://www-106.ibm.com/developerworks/library/j-ant/?dwzone=java">Incremental
  *      development with Ant and JUnit</a>
  */
+@SuppressWarnings("nls")
 public class AllJUnitTests extends TestCase {
 
 	/**

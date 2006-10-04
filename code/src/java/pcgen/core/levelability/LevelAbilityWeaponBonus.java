@@ -102,7 +102,7 @@ final class LevelAbilityWeaponBonus extends LevelAbility
 			}
 			else if (cString.startsWith("PCPROFLIST"))
 			{
-				for ( WeaponProf wp : aPC.getWeaponProfList() )
+				for ( WeaponProf wp : aPC.getWeaponProfs() )
 				{
 					if (!aArrayList.contains(wp.getKeyName()))
 					{

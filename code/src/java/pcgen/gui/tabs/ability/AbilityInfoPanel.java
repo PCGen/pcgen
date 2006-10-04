@@ -85,6 +85,16 @@ public class AbilityInfoPanel extends JPanel
 	}
 	
 	/**
+	 * Sets the PlayerCharacter this panel is displaying information for.
+	 * 
+	 * @param aPC The PlayerCharacter to set.
+	 */
+	public void setPC( final PlayerCharacter aPC )
+	{
+		thePC = aPC;
+	}
+	
+	/**
 	 * Sets the <tt>Ability</tt> information will be displayed about.
 	 * 
 	 * @param anAbility The <tt>Ability</tt> to display

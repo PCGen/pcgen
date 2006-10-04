@@ -4,9 +4,10 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * Test a Cloud Giant PCG via PCGen, see it's PCG file for what 
- * it contains  
+ * Tests a 3.5e Cloud Giant with a Half-Dragon (Brass) template applied.
+ * See it's PCG file for what it contains.  
  */
+@SuppressWarnings("nls")
 public class pcGenGUICloudGiantTest extends pcGenGUITestCase {
 
     /**
@@ -30,7 +31,7 @@ public class pcGenGUICloudGiantTest extends pcGenGUITestCase {
 	 * Run the test
 	 * @throws Exception
 	 */
-    public void testCloudGiantHalfDragon() throws Exception {
+	public void testCloudGiantHalfDragon() throws Exception {
         runTest("CloudGiantHalfDragon", "35e");
     }
 

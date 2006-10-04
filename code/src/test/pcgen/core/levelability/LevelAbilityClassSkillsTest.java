@@ -25,7 +25,7 @@
 package pcgen.core.levelability;
 
 import java.awt.HeadlessException;
-import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
@@ -42,15 +42,17 @@ import pcgen.util.chooser.ChooserInterface;
 /**
  * Tests for Level Ability Class Skills
  */
+@SuppressWarnings("nls")
 public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 
 	PCClass pcClass;
 	Race    emptyRace = new Race();
 	boolean firstTime = true;
 
-	/*
-	 * @see TestCase#setUp()
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 
@@ -70,9 +72,10 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/*
-	 * @see TestCase#tearDown()
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception {
 		pcClass = null;
 		super.tearDown();
@@ -96,15 +99,25 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			final String bString = ability.prepareChooser(c, getCharacter());
 			is (c.getPool(), eq(2), "Ar two choices being offered");
 
-			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
+			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
 			is (choicesList.size(), eq(3), "Ar there three choices available");
 
-			String s = (String) choicesList.get(0);
-			is(s, strEq("KEY_Bluff"), "Is First choice correct");
-			s = (String) choicesList.get(1);
-			is(s, strEq("KEY_Listen"), "Is Second Choice");
-			s = (String) choicesList.get(2);
-			is(s, strEq("KEY_Move Silently"), "Is Third Choice");
+			for ( int i = 0; i < 3; i++ )
+			{
+				final String s = choicesList.get(i);
+				switch (i)
+				{
+				case 0:
+					is(s, strEq("KEY_Bluff"), "Is First choice correct");
+					break;
+				case 1:
+					is(s, strEq("KEY_Listen"), "Is Second Choice");
+					break;
+				case 2:
+					is(s, strEq("KEY_Move Silently"), "Is Third Choice");
+					break;
+				}
+			}
 		}
 		catch(HeadlessException e)
 		{
@@ -135,14 +148,14 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			final String bString = ability.prepareChooser(c, getCharacter());
 			is (c.getPool(), eq(2), "Ar two choices being offered");
 
-			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
+			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
 			is (choicesList.size(), eq(3), "Ar there three choices available");
 
-			String s = (String) choicesList.get(0);
+			String s = choicesList.get(0);
 			is(s, strEq("KEY_Bluff"), "Is First choice correct");
-			s = (String) choicesList.get(1);
+			s = choicesList.get(1);
 			is(s, strEq("KEY_Listen"), "Is Second Choice");
-			s = (String) choicesList.get(2);
+			s = choicesList.get(2);
 			is(s, strEq("KEY_Knowledge (Arcana)"), "Is Third Choice");
 		}
 		catch(HeadlessException e)
@@ -174,16 +187,16 @@ public class LevelAbilityClassSkillsTest extends AbstractCharacterTestCase {
 			final String bString = ability.prepareChooser(c, getCharacter());
 			is (c.getPool(), eq(2), "Ar two choices being offered");
 
-			final ArrayList choicesList = (ArrayList) ability.getChoicesList(bString, getCharacter());
+			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
 			is (choicesList.size(), eq(4), "Are there four choices available");
 
-			String s = (String) choicesList.get(0);
+			String s = choicesList.get(0);
 			is(s, strEq("KEY_Bluff"), "Is First choice correct");
-			s = (String) choicesList.get(1);
+			s = choicesList.get(1);
 			is(s, strEq("KEY_Listen"), "Is Second Choice");
-			s = (String) choicesList.get(2);
+			s = choicesList.get(2);
 			is(s, strEq("KEY_Knowledge (Arcana)"), "Is Third Choice");
-			s = (String) choicesList.get(3);
+			s = choicesList.get(3);
 			is(s, strEq("KEY_Knowledge (Dungeoneering)"), "Is Fourth Choice");
 		}
 		catch(HeadlessException e)

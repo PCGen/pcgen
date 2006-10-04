@@ -168,7 +168,7 @@ public class Page2Panel extends javax.swing.JPanel {
 			moneyPane.setList("MONEY", getMoneyList(pc));
 			magicPane.setList("MAGIC", getMagicList(pc));
 			specialPane.setList("SPECIAL ABILITIES", pc.getSpecialAbilityTimesList());
-			weaponProfPane.setList("WEAPON PROFICIENCIES", new ArrayList(pc.getWeaponProfList()));
+			weaponProfPane.setList("WEAPON PROFICIENCIES", new ArrayList(pc.getWeaponProfs()));
 			languagePane.setList("LANGUAGES", new ArrayList(pc.getLanguagesList()));
 			templatePane.setList("TEMPLATES", pc.getOutputVisibleTemplateList());
 			domainPane.setMap("DOMAINS", getDomainMap(pc));

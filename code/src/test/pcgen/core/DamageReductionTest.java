@@ -35,6 +35,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 /**
  * This class tests the handling of DRs in PCGen
  */
+@SuppressWarnings("nls")
 public class DamageReductionTest extends AbstractCharacterTestCase
 {
 	/**

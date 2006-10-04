@@ -94,6 +94,11 @@ final class PCGVer0Parser implements PCGParser
 	{
 		int i = 0;
 
+		if ( lines.length == 0 )
+		{
+			return;
+		}
+		
 		if (checkCampaignLine(lines[i]))
 		{
 			i++;
@@ -637,7 +642,7 @@ final class PCGVer0Parser implements PCGParser
 					if (j == -1)
 					{
 						CharacterDomain aCD = new CharacterDomain();
-						aPC.getCharacterDomainList().add(aCD);
+						aPC.addCharacterDomain(aCD);
 						j = aPC.getCharacterDomainList().size() - 1;
 					}
 
@@ -2248,7 +2253,7 @@ final class PCGVer0Parser implements PCGParser
 
 //		aPC.setAutomaticFeatsStable(false);
 		aPC.setAutomaticAbilitiesStable(null, false);
-		AbilityUtilities.rebuildAutoAbilityList(aPC); // populate profs array with automatic profs
+//		AbilityUtilities.rebuildAutoAbilityList(aPC); // populate profs array with automatic profs
 
 		final List nonproficient = new ArrayList();
 

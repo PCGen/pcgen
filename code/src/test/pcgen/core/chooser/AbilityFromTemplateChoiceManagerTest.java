@@ -40,6 +40,7 @@ import pcgen.util.TestHelper;
  * @author andrew
  *
  */
+@SuppressWarnings("nls")
 public class AbilityFromTemplateChoiceManagerTest extends
 		AbstractCharacterTestCase {
 
@@ -55,7 +56,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is empty");
@@ -76,7 +77,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
 			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Name map is not empty");
@@ -96,11 +97,11 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			HashMap name  = (HashMap) aField.get(choiceManager);
-			Set sName     = name.keySet();
+			HashMap<?,?> name  = (HashMap) aField.get(choiceManager);
+			Set<?> sName     = name.keySet();
 
 			Object st[]   = sName.toArray();
 
@@ -131,13 +132,13 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 2");
 
-		ChoiceManagerCategorisable choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
+		AbilityFromTemplateChoiceManager choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		choiceManager.initialise(1,2,3);
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(1), "Number of choices is set correctly");
@@ -156,7 +157,7 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(23), "Number of choices is set correctly");
@@ -179,11 +180,11 @@ public class AbilityFromTemplateChoiceManagerTest extends
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 3");
 
-		ChoiceManagerCategorisable choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
+		AbilityFromTemplateChoiceManager choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "pobject");
 			PObject pobject = (PObject) aField.get(choiceManager);

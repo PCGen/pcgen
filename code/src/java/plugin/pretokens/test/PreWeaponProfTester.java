@@ -43,9 +43,32 @@ import java.util.Iterator;
  */
 public class PreWeaponProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
+	/**
+	 * <b>Tag Name</b>: <code>PREWEAPONPROF:x,y,y</code><br />
+	 * &nbsp; <b>Variables Used (x)</b>: <i>Number</i> (The number of proficiencies that must match the specified requirements). <br/>
+	 * &nbsp; <b>Variables Used (y)</b>: <i>Text</i> (The name of a weapon proficiency). <br />
+	 * &nbsp; <b>Variables Used (y)</b>: <code>TYPE.</code><i>Text</i> (The name of a weaponprof type). <br />
+	 * &nbsp; <b>Variables Used (y)</b>: <code>DEITYWEAPON</code> (The favored weapon of the character's deity). <br />
+	 * <p />
+	 * <b>What it does:</b><br />
+	 * &nbsp; Sets weapon proficiency requirements.
+	 * <p />
+	 * <b>Examples</b>: <br/>
+	 * &nbsp; <code>PREWEAPONPROF:2,Kama,Katana</code><br />
+	 * &nbsp; &nbsp; Character must have both "Kama" and "Katana".
+	 * <p />
+	 * &nbsp; <code>PREWEAPONPROF:1,TYPE.Exotic</code> <br />
+	 * &nbsp; &nbsp; Character must have proficiency with any one exotic weaponprof type.
+	 * <p />
+	 * &nbsp; <code>PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)</code> <br />
+	 * &nbsp; &nbsp; Character must have proficiency with either the Chain (Spiked) or any martial weapon.
+	 * <p />
+	 * &nbsp; <code>PREWEAPONPROF:1,DEITYWEAPON</code> <br />
+	 * &nbsp; &nbsp; Weapon Prof in question must be one of the chosen deity's favored weapons.
+	 * 
+	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		int runningTotal=0;
 
@@ -60,9 +83,9 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		final String aString = prereq.getKey();
 		if ("DEITYWEAPON".equals(aString) && character.getDeity() != null) //$NON-NLS-1$
 		{
-			for (Iterator weapIter = CoreUtility.split(character.getDeity().getFavoredWeapon(), '|').iterator(); weapIter.hasNext();)
+			for (Iterator<String> weapIter = CoreUtility.split(character.getDeity().getFavoredWeapon(), '|').iterator(); weapIter.hasNext();)
 			{
-				final String weaponKey = (String) weapIter.next();
+				final String weaponKey = weapIter.next();
 				if (character.hasWeaponProfKeyed(weaponKey))
 					runningTotal++;
 			}
@@ -70,7 +93,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			final String requiredType = aString.substring(5);
-			for ( WeaponProf wp : character.getWeaponProfList() )
+			for ( WeaponProf wp : character.getWeaponProfs() )
 			{
 				if (wp.isType(requiredType))
 				{
@@ -99,8 +122,8 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
+	/**
+	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
 	 */
 	public String kindHandled() {
 		return "WEAPONPROF"; //$NON-NLS-1$

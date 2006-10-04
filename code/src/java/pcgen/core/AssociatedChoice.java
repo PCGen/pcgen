@@ -42,7 +42,7 @@ public class AssociatedChoice <T extends Comparable> implements Comparable
 
 	/** The "default" key to allow functionality to pretend it is a single
 	 * string value. */
-	public static final String DEFAULT_KEY = "CHOICE";
+	public static final String DEFAULT_KEY = "CHOICE"; //$NON-NLS-1$
 
 	/**
 	 * Empty constructor.  No choices are associated yet.
@@ -171,6 +171,13 @@ public class AssociatedChoice <T extends Comparable> implements Comparable
 		return choices.size();
 	}
 
+	/**
+	 * Compares two choices.
+	 * 
+	 * @param o The choice to compare with. 
+	 * @return See compareTo
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	public int compareTo(Object o)
 	{
 		AssociatedChoice<T> other = (AssociatedChoice<T>)o;

@@ -1478,7 +1478,7 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(LINE_SEP);
 				}
 				buffer.append(TAG_USERPOOL).append(TAG_END);
-				buffer.append(EntityEncoder.encode(cat.toString())).append(TAG_SEPARATOR);
+				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(TAG_SEPARATOR);
 				buffer.append(thePC.getUserPoolBonus(cat));
 				buffer.append(LINE_SEP);
 			}
@@ -2351,7 +2351,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendWeaponProficiencyLines(StringBuffer buffer)
 	{
-		final int size = thePC.getWeaponProfList().size();
+		final int size = thePC.getWeaponProfs().size();
 
 		if (size > 0)
 		{
@@ -2367,7 +2367,7 @@ final class PCGVer2Creator implements IOConstants
 
 			int j = 0;
 
-			for ( WeaponProf wp : thePC.getWeaponProfList() )
+			for ( WeaponProf wp : thePC.getWeaponProfs() )
 			{
 				weaponProficiencies[j++] = wp.getKeyName();
 			}

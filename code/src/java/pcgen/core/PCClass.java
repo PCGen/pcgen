@@ -2404,36 +2404,36 @@ public class PCClass extends PObject {
 			if (lp.getLevel() <= level) {
 				final Equipment weapon = (Equipment) lp.getObject();
 				tempArray.add(weapon);
-				addWeaponProfAutos(weapon.getName());
+//				addWeaponProfAutos(weapon.getName());
 			}
 		}
 
 		return tempArray;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.core.PObject#getWeaponProfAutos()
-	 */
-	public List<String> getWeaponProfAutos() {
-		// first build up the list of the standard auto weapon profs
-		final List<String> list = super.getWeaponProfAutos();
-
-		// then add in the proficiencies for each natural weapon
-		// we have active.
-		if (naturalWeapons != null) {
-			for (Iterator<LevelProperty> li = naturalWeapons.iterator(); li
-					.hasNext();) {
-				final LevelProperty lp = li.next();
-				if (lp.getLevel() <= level) {
-					final Equipment weapon = (Equipment) lp.getObject();
-					list.add(weapon.getSimpleName());
-				}
-			}
-		}
-		return list;
-	}
+//	/*
+//	 * (non-Javadoc)
+//	 * 
+//	 * @see pcgen.core.PObject#getWeaponProfAutos()
+//	 */
+//	public List<String> getWeaponProfAutos() {
+//		// first build up the list of the standard auto weapon profs
+//		final List<String> list = super.getWeaponProfAutos();
+//
+//		// then add in the proficiencies for each natural weapon
+//		// we have active.
+//		if (naturalWeapons != null) {
+//			for (Iterator<LevelProperty> li = naturalWeapons.iterator(); li
+//					.hasNext();) {
+//				final LevelProperty lp = li.next();
+//				if (lp.getLevel() <= level) {
+//					final Equipment weapon = (Equipment) lp.getObject();
+//					list.add(weapon.getSimpleName());
+//				}
+//			}
+//		}
+//		return list;
+//	}
 
 	public boolean isQualified(final PlayerCharacter aPC) {
 
@@ -4657,7 +4657,8 @@ public class PCClass extends PObject {
 				aPC.getSkillList().clear();
 				aPC.clearRealAbilities(null);
 //				aPC.clearRealFeats();
-				aPC.getWeaponProfList().clear();
+//				aPC.getWeaponProfList().clear();
+				aPC.setDirty(true);
 			} else {
 				aPC.setSkillPoints(aPC.getSkillPoints() - spMod);
 				skillPool = skillPool() - spMod;
@@ -5689,7 +5690,7 @@ public class PCClass extends PObject {
 						final int l = aPC.getCharacterDomainIndex(subKey);
 
 						if (l > -1) {
-							aPC.getCharacterDomainList().remove(l);
+							aPC.removeCharacterDomain(subKey);
 						}
 					} else if (adding && addNow && (subKey.length() > 0)) {
 						if (aPC.getCharacterDomainIndex(subKey) == -1) {

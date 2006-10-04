@@ -37,6 +37,7 @@ import pcgen.persistence.lst.RaceLoader;
  * Test the PObject class.
  * @author jdempsey
  */
+@SuppressWarnings("nls")
 public class PObjectTest extends AbstractCharacterTestCase
 {
 
@@ -62,17 +63,29 @@ public class PObjectTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
+	/**
+	 * Run the tests
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.textui.TestRunner.run(PObjectTest.class);
 	}
 
+	/**
+	 * Returns all the test methods in this class.
+	 * @return A <tt>TestSuite</tt>
+	 */
 	public static Test suite()
 	{
 		// quick method, adds all methods beginning with "test"
 		return new TestSuite(PObjectTest.class);
 	}
 
+	/**
+	 * Test DR
+	 * @throws Exception
+	 */
 	public void testDR() throws Exception
 	{
 		Race race = new Race();
@@ -174,6 +187,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test the function of adding an ability multiple times which has  
 	 * no choices and adds a static bonus.
+	 * @throws Exception 
 	 */
 	public void testNoChoiceBonus() throws Exception
 	{
@@ -205,6 +219,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test the function of adding an ability multiple times which has  
 	 * a single choice and adds a static bonus.
+	 * @throws Exception 
 	 */
 	public void testNoSubsChoiceBonus() throws Exception
 	{
@@ -232,11 +247,19 @@ public class PObjectTest extends AbstractCharacterTestCase
 		
 	}
 	
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
+	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
 
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
+	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();

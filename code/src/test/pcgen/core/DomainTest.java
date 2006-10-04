@@ -36,7 +36,7 @@ import pcgen.util.TestHelper;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-
+@SuppressWarnings("nls")
 public class DomainTest extends PCGenTestCase {
 	/**
 	 * Constructs a new <code>DomainTest</code>.

@@ -39,6 +39,7 @@ import pcgen.util.TestHelper;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: $
  */
+@SuppressWarnings("nls")
 public class EquipmentListTest extends PCGenTestCase
 {
 
@@ -77,6 +78,10 @@ public class EquipmentListTest extends PCGenTestCase
 		super(name);
 	}
 
+	/**
+	 * @see pcgen.PCGenTestCase#setUp()
+	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();

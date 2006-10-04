@@ -38,6 +38,7 @@ import pcgen.util.TestHelper;
 /**
  * Equipment Test
  */
+@SuppressWarnings("nls")
 public class EquipmentTest extends PCGenTestCase {
 
 	private Equipment    eq          = null;
@@ -84,6 +85,10 @@ public class EquipmentTest extends PCGenTestCase {
 		super(name);
 	}
 
+	/**
+	 * @see pcgen.PCGenTestCase#setUp()
+	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * This class tests global areas of PCGen
  */
+@SuppressWarnings("nls")
 public class GlobalsTest extends PCGenTestCase
 {
 	/**
@@ -33,6 +34,10 @@ public class GlobalsTest extends PCGenTestCase
 		super(name);
 	}
 
+	/**
+	 * @see pcgen.PCGenTestCase#setUp()
+	 */
+	@Override
 	protected void setUp()
 		throws Exception
 	{

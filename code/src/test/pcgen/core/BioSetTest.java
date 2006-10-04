@@ -39,6 +39,7 @@ import pcgen.persistence.lst.BioSetLoaderTest;
  * A collection of tests to validate the functioning of the core BioSet class.
  *
  */
+@SuppressWarnings("nls")
 public class BioSetTest extends AbstractCharacterTestCase
 {
 	static final String[] BIO_SET_DATA =
@@ -82,9 +83,10 @@ public class BioSetTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -92,9 +94,10 @@ public class BioSetTest extends AbstractCharacterTestCase
 		BioSetLoaderTest.loadBioSet(BIO_SET_DATA);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		Globals.getBioSet().clearUserMap();

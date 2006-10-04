@@ -41,7 +41,7 @@ import java.util.List;
  *
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
-
+@SuppressWarnings("nls")
 public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase {
 
 	/**
@@ -53,11 +53,19 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 	}
 
 
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#setUp()
+	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
 	
+	/**
+	 * @see pcgen.AbstractCharacterTestCase#tearDown()
+	 */
+	@Override
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -88,7 +96,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2), "Number of choices is set correctly");
@@ -97,7 +105,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 			is (aField.get(choiceManager), eq(1), "Requested selections are set correctly");
 			
 			aField  = (Field) TestHelper.findField(cMClass, "choices");
-			List choices = (List) aField.get(choiceManager);
+			List<?> choices = (List) aField.get(choiceManager);
 			is (choices.size(), eq(3), "There are three elements in the chooser");
 			is (choices.get(0), strEq("Foo"));
 			is (choices.get(1), strEq("Bar"));

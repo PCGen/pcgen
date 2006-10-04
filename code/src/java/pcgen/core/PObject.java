@@ -391,7 +391,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public final String getDescription()
 	{
 		String characteristic = stringChar.get(StringKey.DESCRIPTION);
-		return characteristic == null ? "" : characteristic;
+		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
 	/**
@@ -649,7 +649,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public final String getTempDescription()
 	{
 		String characteristic = stringChar.get(StringKey.TEMP_DESCRIPTION);
-		return characteristic == null ? "" : characteristic;
+		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
 	/**
@@ -749,58 +749,58 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return Collections.emptyList();
 	}
 	
-	/**
-	 * Add automatic weapon proficienies for this object
-	 * @param aString
-	 */
-	public final void addWeaponProfAutos(final String aString)
-	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
+//	/**
+//	 * Add automatic weapon proficienies for this object
+//	 * @param aString
+//	 */
+//	public final void addWeaponProfAutos(final String aString)
+//	{
+//		final StringTokenizer aTok = new StringTokenizer(aString, "|");
+//
+//		ListKey<String> weaponProfListKey = ListKey.WEAPON_PROF;
+//
+//		while (aTok.hasMoreTokens())
+//		{
+//			final String bString = aTok.nextToken();
+//
+//			if (".CLEAR".equals(bString))
+//			{
+//				listChar.removeListFor(weaponProfListKey);
+//			}
+//			else if (bString.startsWith("TYPE=") || bString.startsWith("TYPE."))
+//			{
+//				final Collection<WeaponProf> weaponProfsOfType = Globals.getAllWeaponProfsOfType(bString.substring(5));
+//				if (weaponProfsOfType != null)
+//				{
+//					for (Iterator<WeaponProf> e = weaponProfsOfType.iterator(); e.hasNext();)
+//					{
+//						final String cString = e.next().getKeyName();
+//
+//						if (!containsInList(weaponProfListKey, cString))
+//						{
+//							listChar.addToListFor(weaponProfListKey, cString);
+//						}
+//					}
+//				}
+//			}
+//			else
+//			{
+//				if (!containsInList(weaponProfListKey, bString))
+//				{
+//					listChar.addToListFor(weaponProfListKey, bString);
+//				}
+//			}
+//		}
+//	}
 
-		ListKey<String> weaponProfListKey = ListKey.WEAPON_PROF;
-
-		while (aTok.hasMoreTokens())
-		{
-			final String bString = aTok.nextToken();
-
-			if (".CLEAR".equals(bString))
-			{
-				listChar.removeListFor(weaponProfListKey);
-			}
-			else if (bString.startsWith("TYPE=") || bString.startsWith("TYPE."))
-			{
-				final Collection<WeaponProf> weaponProfsOfType = Globals.getAllWeaponProfsOfType(bString.substring(5));
-				if (weaponProfsOfType != null)
-				{
-					for (Iterator<WeaponProf> e = weaponProfsOfType.iterator(); e.hasNext();)
-					{
-						final String cString = e.next().getKeyName();
-
-						if (!containsInList(weaponProfListKey, cString))
-						{
-							listChar.addToListFor(weaponProfListKey, cString);
-						}
-					}
-				}
-			}
-			else
-			{
-				if (!containsInList(weaponProfListKey, bString))
-				{
-					listChar.addToListFor(weaponProfListKey, bString);
-				}
-			}
-		}
-	}
-
-	/**
-	 * Get the automatic weapon proficiencies for this object
-	 * @return the automatic weapon proficiencies for this object
-	 */
-	public List<String> getWeaponProfAutos()
-	{
-		return getSafeListFor(ListKey.WEAPON_PROF);
-	}
+//	/**
+//	 * Get the automatic weapon proficiencies for this object
+//	 * @return the automatic weapon proficiencies for this object
+//	 */
+//	public List<String> getWeaponProfAutos()
+//	{
+//		return getSafeListFor(ListKey.WEAPON_PROF);
+//	}
 
 	/**
 	 * Add the collection passed in to the associated list for this object
@@ -1256,8 +1256,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Add a natural weapon to the character list, also adds the
-	 * appropriate weapon proficiency.
+	 * Add a natural weapon to the character list.
 	 *
 	 * @param weapon
 	 * @param level
@@ -1265,7 +1264,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public void addNaturalWeapon(final Equipment weapon, final int level)
 	{
 		listChar.addToListFor(ListKey.NATURAL_WEAPONS, weapon);
-		addWeaponProfAutos( weapon.getSimpleName() );
 	}
 
 	/**
@@ -1308,6 +1306,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * @return cloned object
 	 * @throws CloneNotSupportedException
 	 */
+	@Override
 	public Object clone() throws CloneNotSupportedException
 	{
 		final PObject retVal = (PObject) super.clone();
@@ -1409,6 +1408,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return retVal;
 	}
 
+	/**
+	 * Compares the keys of the object.
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -1419,6 +1423,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return 1;
 	}
 
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals( final Object obj )
 	{
@@ -1457,7 +1464,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public final String getChoiceString()
 	{
 		String characteristic = stringChar.get(StringKey.CHOICE_STRING);
-		return characteristic == null ? "" : characteristic;
+		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
 	/**
@@ -1532,7 +1539,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public String getQualifiedKey()
 	{
-		return "";
+		return Constants.EMPTY_STRING;
 	}
 	
 	/**
@@ -1647,7 +1654,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public final String getQualifyString()
 	{
 		String characteristic = stringChar.get(StringKey.QUALIFY);
-		return characteristic == null ? "" : characteristic;
+		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 
 	/**
@@ -3171,7 +3178,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	  * @param aPC
 	  * @param expandWeaponTypes
 	  */
-	public final void addAutoTagsToList(final String tag, final AbstractCollection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
+	public final void addAutoTagsToList(final String tag, final Collection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
 	{
 		for (Iterator<String> i = getSafeListFor(ListKey.AUTO_ARRAY).iterator(); i.hasNext();)
 		{
@@ -3968,8 +3975,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		if ( weaponProfBonus == null )
 		{
-			final List<String> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+			return Collections.emptyList();
 		}
 		return Collections.unmodifiableList(weaponProfBonus);
 	}

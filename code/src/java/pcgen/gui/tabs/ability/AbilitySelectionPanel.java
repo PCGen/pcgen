@@ -147,6 +147,16 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	}
 	
 	/**
+	 * Sets the PlayerCharacter this panel is displaying information for.
+	 * 
+	 * @param aPC The PlayerCharacter to set.
+	 */
+	public void setPC( final PlayerCharacter aPC )
+	{
+		thePC = aPC;
+	}
+	
+	/**
 	 * Return the <tt>AbilityCategory</tt> these abilities come from.
 	 * 
 	 * @return The Ability category

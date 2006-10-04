@@ -33,18 +33,21 @@ import pcgen.util.TestHelper;
 /**
  * Test class for AbilityStore
  */
+@SuppressWarnings("nls")
 public class AbilityStoreTest extends PCGenTestCase {
 
-	/*
+	/**
 	 * @see PCGenTestCase#setUp()
 	 */
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
 
-	/*
-	 * @see TestCase#tearDown()
+	/**
+	 * @see PCGenTestCase#tearDown()
 	 */
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}

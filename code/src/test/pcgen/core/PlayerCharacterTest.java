@@ -64,6 +64,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	PCClass classWarmind = null;
 	Race human = null;
 
+	/**
+	 * Run the tests.
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		TestRunner.run(PlayerCharacterTest.class);
@@ -169,6 +173,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		is((int) character.getRawFeats(true), eq(1), "Default monster gets first feat at level 8 (4 monster + 4 extra)");
 	}
 
+	/**
+	 * Test that BAB is calcuated properly for default monsters.
+	 * @throws Exception
+	 */
 	public void testBabDefaultOgre() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(true);
@@ -178,6 +186,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals(3, character.baseAttackBonus());
 	}
 
+	/**
+	 * Tests that BAB is calculated properly for default monsters with levels.
+	 * @throws Exception
+	 */
 	public void testBabDefaultOgreLvl4() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(true);
@@ -188,6 +200,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals(6, character.baseAttackBonus());
 	}
 
+	/**
+	 * TODO - This seems to want to test non-default monsters but it is wrong
+	 * @throws Exception
+	 */
 	public void testBabNonDefaultOgre() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(true);
@@ -197,6 +213,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals(3, character.baseAttackBonus());
 	}
 
+	/**
+	 * TODO - This seems to want to test non-default monsters but it is wrong
+	 * @throws Exception
+	 */
 	public void testBabNonDefaultOgreLvl4() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(true);
@@ -207,6 +227,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals(6, character.baseAttackBonus());
 	}
 
+	/**
+	 * Tests getVariableValue
+	 * @throws Exception
+	 */
 	public void testGetVariableValue1() throws Exception
 	{
 		//Logging.setDebugMode(true);
@@ -231,6 +255,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 	}
 
+	/**
+	 * Tests getVariableValue
+	 * @throws Exception
+	 */
 	public void testGetVariableValue2() throws Exception
 	{
 		//Logging.setDebugMode(true);
@@ -255,6 +283,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		assertEquals("+6/+1", token.getToken("ATTACK.MELEE.TOTAL", character, null));
 	}
 
+	/**
+	 * Tests getVariableValue for stat modifier
+	 * @throws Exception
+	 */
 	public void testGetVariableValueStatMod() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
@@ -273,6 +305,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	}
 
 
+	/**
+	 * @throws Exception
+	 */
 	public void testGetVariableValueStatModNew() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
@@ -473,6 +508,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		pcClass.addAddList(3, "FEAT(KEY_Exotic Weapon Proficiency (Weapon C))");
 	}
 
+	/**
+	 * Tests CL variable
+	 * @throws Exception
+	 */
 	public void testGetClassVar() throws Exception
 	{
 		Logging.setDebugMode(true);
@@ -592,6 +631,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 	}
 
+	/**
+	 * Tests adding a spell.
+	 */
 	public void testAddSpells()
 	{
 		final PlayerCharacter character = new PlayerCharacter();

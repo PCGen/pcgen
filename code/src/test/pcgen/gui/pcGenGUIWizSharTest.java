@@ -4,9 +4,16 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * JUnit test to test the WizardShar  
+ * Tests a 3e 1st level Human Wizard.
+ * 
+ * See the PCG file for details.
  */
+@SuppressWarnings("nls")
 public class pcGenGUIWizSharTest extends pcGenGUITestCase {
+	/**
+	 * Run the tests.
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		junit.textui.TestRunner.run(pcGenGUIWizSharTest.class);
@@ -32,7 +39,7 @@ public class pcGenGUIWizSharTest extends pcGenGUITestCase {
      * Run the test
      * @throws Exception
      */
-    public void testWizShar() throws Exception {
+	public void testWizShar() throws Exception {
         runTest("WizShar", "3e");
     }
 

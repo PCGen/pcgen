@@ -12,6 +12,10 @@ import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.gui.NameElement;
 
+/**
+ * Test name generation
+ */
+@SuppressWarnings("nls")
 public class NamesTest extends AbstractCharacterTestCase
 {
 	/**
@@ -36,6 +40,9 @@ public class NamesTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
+	/**
+	 * Test generating an Arabic name.
+	 */
 	public void testArabic()
 	{
 		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
@@ -45,6 +52,9 @@ public class NamesTest extends AbstractCharacterTestCase
 		System.out.println("random arabic name: " + Names.getInstance().getRandomName());
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	public void testGettingNameFiles() throws Exception
 	{
 		assertTrue("got null back!", Names.findAllNamesFiles() != null);
@@ -53,11 +63,14 @@ public class NamesTest extends AbstractCharacterTestCase
 
 		for (int i = 0; i < nameList.size(); i++)
 		{
-			final NameElement e = (NameElement)nameList.get(i);
+			final NameElement e = nameList.get(i);
 			System.out.println("s = " + e);
 		}
 	}
 
+	/**
+	 * Test female name
+	 */
 	public void testASFemale()
 	{
 		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
@@ -67,6 +80,10 @@ public class NamesTest extends AbstractCharacterTestCase
 		System.out.println("random Anglo Saxon Female name: " + Names.getInstance().getRandomName());
 	}
 
+	/**
+	 * Test random name
+	 *
+	 */
 	public void testRandomName()
 	{
 		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
@@ -77,6 +94,10 @@ public class NamesTest extends AbstractCharacterTestCase
 		assertTrue("got a zero-length name!", Names.getInstance().getRandomName().length() > 0);
 	}
 
+	/**
+	 * Test names?
+	 *
+	 */
 	public void testTheNames()
 	{
 		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
@@ -95,6 +116,12 @@ public class NamesTest extends AbstractCharacterTestCase
 		assertTrue("There was nothing in syl1", Names.getInstance().getSyllablesByName("[SYL1]").length > 0);
 	}
 
+	/**
+	 * Create a name element
+	 * @param path
+	 * @param name
+	 * @return A <tt>NameElement</tt>
+	 */
 	public NameElement getNameElement(String path, String name) {
 		return new NameElement(new File(path + name + ".nam"), name);
 	}

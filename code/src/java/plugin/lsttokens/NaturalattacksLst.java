@@ -4,13 +4,19 @@
  */
 package plugin.lsttokens;
 
-import pcgen.core.*;
-import pcgen.persistence.lst.GlobalLstToken;
-import pcgen.util.Logging;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import pcgen.core.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.Race;
+import pcgen.core.WeaponProf;
+import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
@@ -18,10 +24,16 @@ import java.util.StringTokenizer;
  */
 public class NaturalattacksLst implements GlobalLstToken {
 
+	/**
+	 * @see pcgen.persistence.lst.LstToken#getTokenName()
+	 */
 	public String getTokenName() {
-		return "NATURALATTACKS";
+		return "NATURALATTACKS"; //$NON-NLS-1$
 	}
 
+	/**
+	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
+	 */
 	public boolean parse(PObject obj, String value, int anInt) {
 		// first entry is primary, others are secondary
 		// lets try the format:
@@ -185,6 +197,7 @@ public class NaturalattacksLst implements GlobalLstToken {
 			Globals.addWeaponProf(prof);
 		}
 
+		anEquip.addAutoArray("WEAPONPROF|" + attackName); //$NON-NLS-1$
 		return anEquip;
 	}
 }

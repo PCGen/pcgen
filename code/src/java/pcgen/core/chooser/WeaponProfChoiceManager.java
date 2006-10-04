@@ -85,7 +85,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 
 			if ("LIST".equals(ucString))
 			{
-				for ( WeaponProf wp : aPc.getWeaponProfList() )
+				for ( WeaponProf wp : aPc.getWeaponProfs() )
 				{
 					if (wp == null)
 					{
@@ -127,7 +127,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 			{
 				final String profKey = aString.substring(7);
 				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
-					&& aPc.getWeaponProfList().contains(profKey))
+					&& aPc.hasWeaponProfKeyed(profKey))
 				{
 					final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
 					if (!availableList.contains(wp))
@@ -150,7 +150,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					typeList.add(dString);
 				}
 
-				for ( WeaponProf wp : aPc.getWeaponProfList() )
+				for ( final WeaponProf wp : aPc.getWeaponProfs() )
 				{
 					if (wp == null)
 					{
@@ -288,7 +288,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 			{
 				String sString = aString.substring(5);
 				boolean adding = true;
-				Iterator<WeaponProf> setIter = aPc.getWeaponProfList().iterator();
+				Iterator<WeaponProf> setIter = aPc.getWeaponProfs().iterator();
 
 				if (sString.startsWith("Not."))
 				{
@@ -361,7 +361,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					profKey = aString.substring(4);
 				}
 				final WeaponProf wp = Globals.getWeaponProfKeyed(profKey);
-				if (wp != null && aPc.getWeaponProfList().contains(wp) && !availableList.contains(wp))
+				if (wp != null && aPc.hasWeaponProf(wp) && !availableList.contains(wp))
 				{
 					availableList.add(wp);
 				}
