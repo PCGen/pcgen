@@ -1456,20 +1456,11 @@ final class PCGVer2Creator implements IOConstants
 					buffer.append(TAG_TYPE).append(TAG_END);
 					buffer.append(EntityEncoder.encode(ability.getType()));
 
-					// TODO - No idea what the heck this is for
-					int it3 = 0;
-					int maxit3 = ability.getSizeOfListFor(ListKey.SAVE);
-					if (ability.getAssociatedCount() == maxit3)
+					for ( final String save : ability.getSafeListFor(ListKey.SAVE) )
 					{
-						it3 = it2;
-						maxit3 = it3 + 1;
-					}
-
-					for (; it3 < maxit3; ++it3)
-					{
+						buffer.append('|');
 						buffer.append(TAG_SAVE).append(':');
-						buffer.append(EntityEncoder.encode(ability.getElementInList(ListKey.SAVE, it3)));
-						buffer.append(TAG_SEPARATOR);
+						buffer.append( EntityEncoder.encode(save) );
 					}
 
 					buffer.append(TAG_DESC).append(':');
