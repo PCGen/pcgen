@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep 29 22:54:23 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Wed Oct  4 09:01:27 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 
@@ -82,28 +82,27 @@ Speak Language							USEUNTRAINED:NO					TYPE:None.Language																					
 Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SKILL.Spellcraft.MISC																		SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Spellcraft (Decipher spell on scroll)|SKILLRANK=Spellcraft|PRESKILL:1,Use Magic Device=5
 Spot							KEYSTAT:WIS								TYPE:Wisdom																																																			SOURCEPAGE:SkillsII.rtf
 Survival						KEYSTAT:WIS								TYPE:Wisdom							BONUS:SKILL|Survival (Underground),Survival (The Planes),Survival (Natural environments),Survival (Lost/Natural hazards)|SKILL.Survival.MISC																					SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Survival (Underground)|SKILLRANK=Survival|PRESKILL:1,Knowledge (Dungeoneering)=5	BONUS:SKILLRANK|Survival (The Planes)|SKILLRANK=Survival|PRESKILL:1,Knowledge (The Planes)=5	BONUS:SKILLRANK|Survival (Natural environments)|SKILLRANK=Survival|PRESKILL:1,Knowledge (Nature)=5	BONUS:SKILLRANK|Survival (Lost/Natural hazards)|SKILLRANK=Survival|PRESKILL:1,Knowledge (Geography)=5
-Swim							KEYSTAT:STR				ACHECK:DOUBLE		TYPE:Strength						BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial																																					SOURCEPAGE:SkillsII.rtf
+Swim							KEYSTAT:STR				ACHECK:DOUBLE		TYPE:Strength						BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|SKILL.Swim.MISC																								SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Swim (Avoid taking nonlethal fatigue damage)|SKILLRANK=Swim|PREVARGT:var("SKILL.Swim (Avoid taking nonlethal fatigue damage).MISC"),var("SKILL.Swim.MISC")
 Tumble						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK																																	SOURCEPAGE:SkillsII.rtf
 Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma						BONUS:SKILL|Use Magic Device (Scroll)|SKILL.Use Magic Device.MISC																																		SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Use Magic Device (Scroll)|SKILLRANK=Use Magic Device|PRESKILL:1,Decipher Script=5	BONUS:SKILLRANK|Use Magic Device (Scroll)|SKILLRANK=Use Magic Device|PRESKILL:1,Spellcraft=5
 Use Rope						KEYSTAT:DEX								TYPE:Dexterity						BONUS:SKILL|Use Rope (Bind someone)|SKILL.Use Rope.MISC																																			SOURCEPAGE:SkillsII.rtf								BONUS:SKILLRANK|Use Rope (Bind someone)|SKILLRANK=Use Rope|PRESKILL:1,Escape Artist=5
 
 ###Block: Expanding Survival variants to all skills for contigent Synergies. - Tir Gwaith
-# Skill Name					Key Stat	Untrained?		Type					Visible		Bonus to skill																															Source Page
-Climb (Using a rope)				KEYSTAT:STR	USEUNTRAINED:NO	TYPE:Subskill.Strength		VISIBLE:EXPORT	BONUS:SKILL|Climb (Using a rope)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																			SOURCEPAGE:SkillsI.rtf
-Concentration (Cast defensively)		KEYSTAT:CON	USEUNTRAINED:NO	TYPE:Subskill.Constitution	VISIBLE:EXPORT																																		SOURCEPAGE:SkillsI.rtf
-Disguise (Act in character)			KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Subskill.Charisma		VISIBLE:EXPORT	BONUS:SKILL|Disguise (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5																		SOURCEPAGE:SkillsI.rtf
-Escape Artist (Escape from rope bonds)	KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																SOURCEPAGE:SkillsI.rtf
-Spellcraft (Decipher spell on scroll)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Subskill.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5															SOURCEPAGE:SkillsII.rtf
-Survival (Underground)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Underground)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5																SOURCEPAGE:SkillsII.rtf
-Survival (The Planes)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (The Planes)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5																	SOURCEPAGE:SkillsII.rtf
-Survival (Natural environments)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Natural environments)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5																SOURCEPAGE:SkillsII.rtf
-Survival (Lost/Natural hazards)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Lost/Natural hazards)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5															SOURCEPAGE:SkillsII.rtf
-Survival (Find or follow tracks)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Subskill.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Find or follow tracks)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5																	SOURCEPAGE:SkillsII.rtf
-Use Magic Device (Scroll)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Subskill.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5	SOURCEPAGE:SkillsII.rtf
-Use Rope (Bind someone)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Subskill.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Use Rope (Bind someone)|SynergyBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK
-#																		SOURCEPAGE:SkillsII.rtf
-
-#Swim (Avoid taking nonlethal fatigue damage)	+4 from Endurance....
+# Skill Name						Key Stat	Untrained?		Skill Penalty Apply	Classes	Type					Visible		Bonus to skill																															Source Page
+Climb (Using a rope)					KEYSTAT:STR	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Strength		VISIBLE:EXPORT	BONUS:SKILL|Climb (Using a rope)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																			SOURCEPAGE:SkillsI.rtf
+Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Constitution	VISIBLE:EXPORT																																		SOURCEPAGE:SkillsI.rtf
+Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Charisma		VISIBLE:EXPORT	BONUS:SKILL|Disguise (Act in character)|SynergyBonus|TYPE=Synergy.STACK																						SOURCEPAGE:SkillsI.rtf
+#|PRESKILL:1,Bluff=5
+Escape Artist (Escape from rope bonds)		KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																SOURCEPAGE:SkillsI.rtf
+Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5															SOURCEPAGE:SkillsII.rtf
+Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Underground)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5																SOURCEPAGE:SkillsII.rtf
+Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (The Planes)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5																	SOURCEPAGE:SkillsII.rtf
+Survival (Natural environments)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Natural environments)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5																SOURCEPAGE:SkillsII.rtf
+Survival (Lost/Natural hazards)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Lost/Natural hazards)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5															SOURCEPAGE:SkillsII.rtf
+Survival (Find or follow tracks)			KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Find or follow tracks)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5																	SOURCEPAGE:SkillsII.rtf
+Use Magic Device (Scroll)				KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5	SOURCEPAGE:SkillsII.rtf
+Use Rope (Bind someone)					KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Use Rope (Bind someone)|SynergyBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK																		SOURCEPAGE:SkillsII.rtf
+Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:NO	ACHECK:DOUBLE				TYPE:SkillUse.Strength		VISIBLE:EXPORT	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|8|PREMOVE:1,Swim=1|TYPE=Racial																			SOURCEPAGE:SkillsII.rtf
 
 #
 # End
