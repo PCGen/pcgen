@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Thu Jun 29 15:11:03 2006 -- reformated by prettylst.pl v1.35 (build 561)
+CAMPAIGN:BFG - Fantasy Folio - Masterwork Qualities
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Fantasy
+TYPE:Alpha Datasets
+#TYPE:Big Finger Games.Fantasy Folio
+PUBNAMELONG:Big Finger Games
+PUBNAMESHORT:BFG
+PUBNAMEWEB:http://www.bigfingergames.com/
+SOURCELONG:Fantasy Folio - Masterwork Qualities
+SOURCESHORT:MW Qual
+SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=6569&
+SOURCEDATE:2006-03
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan,Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Spycraft Copyright 2002, Alderac Entertainment Group.
+COPYRIGHT:Mercenaries, Copyright 2002, Alderac Entertainment Group.
+COPYRIGHT:FANTASY FOLIO: Masterwork Qualities, Copyright 2006, Michael Todd. Published by Big Finger Games.
+COPYRIGHT:PCGen dataset conversion for Fantasy Folio: Masterwork Qualities Copyright 2006, PCGen Data team (Including, but not limited to Paul W. King, Andrew McDougall (Tir Gwaith))
+LICENSE:FILE=data\alpha\bigfingergames\masterwork_qualities\masterworkqualities_permission.htm
+
+#INFOTEXT:
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:masterworkqualities_permission.htm
+
+EQUIPMENT:masterworkqualities_equip_weap_melee.lst
+EQUIPMOD:masterworkqualities_equipmods.lst
