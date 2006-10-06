@@ -34,9 +34,10 @@ Shaken					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	BONUS:CHECKS|Fortitude
 Stunned					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										BONUS:COMBAT|AC|-2|PREAPPLY:ANYPC	BONUS:COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK|PREAPPLY:ANYPC																																							TEMPDESC:You are stunned, you drop everything held, and cannot take actions
 
 ###Block: Combat Templates
-# Template Name		Visible	Source Page				Combat bonus					Modify VAR																													Temporary effect description
-Fighting Defensively	VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC	TEMPDESC:You are fighting defensively when attacking
-Total Defense		VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC					TEMPDESC:You are defending yourself as a standard action
+# Template Name			Visible	Source Page				Combat bonus																					Modify VAR																													Choose									Temporary effect description
+Fighting Defensively		VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC																	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC											TEMPDESC:You are fighting defensively when attacking
+Total Defense			VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf																								BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC															TEMPDESC:You are defending yourself as a standard action
+Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf		BONUS:COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary|PREAPPLY:PC	BONUS:COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary|PREAPPLY:PC																															CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
 
 ###Block: Tracker Templates
 
