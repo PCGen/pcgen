@@ -867,20 +867,20 @@ Wisdom
 |IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE: )|
         <span class="lt5">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|)</span><br />
 |ENDIF|
-|FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip1.CHARGES,1,0|
+|FOR,%charges,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
-|IIF(EQ.%equip1.TYPE:Consumable)|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.TYPE:Consumable)|
 |FOR,%consumable,1,EQ.%equip1.QTY,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
-|IIF(EQ.%equip1.TYPE:Potion)|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.TYPE:Potion)|
 |FOR,%consumable,1,EQ.%equip1.QTY,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
-|IIF(EQ.%equip1.TYPE:Ammunition)|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.TYPE:Ammunition)|
 |FOR,%consumable,1,EQ.%equip1.QTY,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
@@ -915,21 +915,21 @@ Wisdom
 |IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE: )|
         <span class="lt5">(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.NOTE|)</span><br />
 |ENDIF|
-|FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip2.CHARGES,1,0|
+|FOR,%charges,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
-|IIF(EQ.%equip2.TYPE:Consumable)|
-|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
-        <font style="font-size: 7pt">&#9744;</font>
-|ENDFOR|
-|ELSE|
-|IIF(EQ.%equip2.TYPE:Potion)|
-|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.TYPE:Consumable)|
+|FOR,%consumable,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.QTY,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
-|IIF(EQ.%equip2.TYPE:Ammunition)|
-|FOR,%consumable,1,EQ.%equip2.QTY,1,0|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.TYPE:Potion)|
+|FOR,%consumable,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.QTY,1,0|
+        <font style="font-size: 7pt">&#9744;</font>
+|ENDFOR|
+|ELSE|
+|IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.TYPE:Ammunition)|
+|FOR,%consumable,1,EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.QTY,1,0|
         <font style="font-size: 7pt">&#9744;</font>
 |ENDFOR|
 |ELSE|
