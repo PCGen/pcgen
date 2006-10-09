@@ -339,6 +339,10 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 				}
 				associateChoice(aPC, strChoice, objPrefix);
 			}
+			else
+			{
+				pobject.addAssociated(Constants.EMPTY_STRING);
+			}
 		}
 
 		adjustFeats(aPC, selected);

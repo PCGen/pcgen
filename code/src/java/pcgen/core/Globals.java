@@ -2792,7 +2792,11 @@ public final class Globals
 		if (stringsInList)
 		{
 			Collections.sort(availableList);
-			Collections.sort(selectedList);
+			// NOCHOICE feats add nulls to the selectedList
+			if ( selectedList.get(0) != null )
+			{
+				Collections.sort(selectedList);
+			}
 		}
 		else
 		{

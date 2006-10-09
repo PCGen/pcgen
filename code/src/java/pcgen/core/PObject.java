@@ -39,6 +39,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -154,6 +156,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	
 	private Map<AbilityCategory, List<Ability>> theVirtualAbilities = null;
 
+	private List<Description> theDescriptions = null;
+	
 	/* ************
 	 * Methods
 	 * ************/
@@ -186,17 +190,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public final String getAssociated(int idx, final boolean expand)
 	{
-		if (associatedList == null) {
+		if (associatedList == null) 
+		{
 			return Constants.EMPTY_STRING;
 		}
 
 		if (expand)
 		{
 			int currentCount = 0;
-			for ( AssociatedChoice<String> choice : associatedList )
+			for ( final AssociatedChoice<String> choice : associatedList )
 			{
 				final int choiceInd = choice.size() - 1;
-				if ( currentCount + choiceInd <= idx )
+				if ( idx <= (currentCount + choiceInd) )
 				{
 					if ( choiceInd == 0 )
 					{
@@ -375,25 +380,100 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return descIsPI;
 	}
 
-	/**
-	 * Set the description of this object
-	 * @param a
-	 */
-	public final void setDescription(final String a)
-	{
-		stringChar.put(StringKey.DESCRIPTION, a);
-	}
+//	/**
+//	 * Set the description of this object
+//	 * @param a
+//	 */
+//	public final void setDescription(final String a)
+//	{
+//		stringChar.put(StringKey.DESCRIPTION, a);
+//	}
 
+	/**
+	 * Adds a description for this object.  Multiple descriptions are allowed 
+	 * and will be concatonated on output.
+	 * 
+	 * <p>The format of the description tag 
+	 * @param aDesc
+	 */
+	public void addDescription( final Description aDesc )
+	{
+		if ( theDescriptions == null )
+		{
+			theDescriptions = new ArrayList<Description>();
+		}
+		theDescriptions.add( aDesc );
+	}
+	
+	/**
+	 * Clears all current descriptions for the object.
+	 */
+	public void removeAllDescriptions()
+	{
+		theDescriptions = null;
+	}
+	
+	/**
+	 * Removes <tt>Description</tt>s who's PCC Text matches the pattern
+	 * specified.
+	 *  
+	 * @param aDescPattern The regular expression to search for.
+	 */
+	public void removeDescription( final String aDescPattern )
+	{
+		if ( theDescriptions == null )
+		{
+			return;
+		}
+		final Pattern pattern = Pattern.compile(aDescPattern);
+
+		for ( final Iterator<Description> i = theDescriptions.iterator(); i.hasNext(); )
+		{
+			final String descText = i.next().getPCCText();
+			final Matcher matcher = pattern.matcher(descText);
+			if ( matcher.find() )
+//			if ( descText.matches(aDescPattern) )
+			{
+				i.remove();
+			}
+		}
+	}
+	
 	/**
 	 * Get the description of this object
+	 * 
+	 * @param aPC The PlayerCharacter this object is associated to.
 	 * @return the description of this object
 	 */
-	public final String getDescription()
+	public String getDescription(final PlayerCharacter aPC)
 	{
-		String characteristic = stringChar.get(StringKey.DESCRIPTION);
-		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
+		if ( theDescriptions == null )
+		{
+			return Constants.EMPTY_STRING;
+		}
+		final StringBuffer buf = new StringBuffer();
+		boolean firstTime = true;
+		for ( final Description desc : theDescriptions )
+		{
+			if ( !firstTime )
+			{
+				buf.append(Constants.COMMA);
+			}
+			buf.append(desc.getDescription(aPC));
+			firstTime = false;
+		}
+		return buf.toString();
 	}
 
+	public List<Description> getDescriptionList()
+	{
+		if ( theDescriptions == null )
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableList(theDescriptions);
+	}
+	
 	/**
 	 * Get the plugin data for this object
 	 * @param key
@@ -853,7 +933,15 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			for ( AssociatedChoice<String> choice : associatedList )
 			{
-				choices.add( choice.getDefaultChoice() );
+				final String choiceStr = choice.getDefaultChoice();
+				if ( choiceStr.equals(Constants.EMPTY_STRING) )
+				{
+					choices.add(null);
+				}
+				else
+				{
+					choices.add( choice.getDefaultChoice() );
+				}
 			}
 		}
 	}
@@ -2589,9 +2677,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Get the Product Identity description String
 	 * @return the Product Identity description String
 	 */
-	public String piDescString()
+	public String piDescString(final PlayerCharacter aPC)
 	{
-		return piDescString(true);
+		return piDescString(aPC, true);
 	}
 
 	/**
@@ -2599,9 +2687,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * pre-existing <html> tag
 	 * @return PI description
 	 */
-	public String piDescSubString()
+	public String piDescSubString(final PlayerCharacter aPC)
 	{
-		return piDescString(false);
+		return piDescString(aPC, false);
 	}
 
 	/**
@@ -2742,12 +2830,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append("\tOUTPUTNAME:").append(outputName);
 		}
 
-		aString = getDescription();
-
-		if (aString.length() != 0)
+		for ( final Description desc : getDescriptionList() )
 		{
-			txt.append("\tDESC:").append(pcgen.io.EntityEncoder.encode(aString));
-
+			txt.append("\tDESC:").append(pcgen.io.EntityEncoder.encode(desc.getPCCText()));
+			
 			if (getDescIsPI())
 			{
 				txt.append("\tDESCISPI:Yes");
@@ -3596,25 +3682,20 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		listChar.removeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS);
 	}
 
-	private String piDescString(final boolean useHeader)
+	private String piDescString(final PlayerCharacter aPC, final boolean useHeader)
 	{
-		String aString = stringChar.get(StringKey.DESCRIPTION);
-
-		if (this instanceof Ability)
-		{
-			aString = ((Ability) this).getBenefitDescription();
-		}
+		final String desc = getDescription(aPC);
 
 		if (descIsPI)
 		{
-			final StringBuffer sb = new StringBuffer(aString.length() + 30);
+			final StringBuffer sb = new StringBuffer(desc.length() + 30);
 
 			if (useHeader)
 			{
 				sb.append("<html>");
 			}
 
-			sb.append("<b><i>").append(aString).append("</i></b>");
+			sb.append("<b><i>").append(desc).append("</i></b>");
 
 			if (useHeader)
 			{
@@ -3624,7 +3705,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return sb.toString();
 		}
 
-		return aString;
+		return desc;
 	}
 
 	/**
