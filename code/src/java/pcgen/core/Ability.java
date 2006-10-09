@@ -162,13 +162,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return characteristic == null ? "" : characteristic;
 	}
 
-	/**
-	 * Get a description of what this ability does
-	 *
-	 * @return  the benefit if it is set and they are turned on, otherwise
-	 *          return the description
-	 */
-
+	// TODO - Remove this once a decision is made about descriptions.
 	public String getBenefitDescription()
 	{
 		if (SettingsHandler.useFeatBenefits() && getBenefit().length() > 1)
@@ -177,6 +171,23 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		}
 
 		return getDescription();
+	}
+	
+	/**
+	 * Get a description of what this ability does
+	 *
+	 * @return  the benefit if it is set and they are turned on, otherwise
+	 *          return the description
+	 */
+
+	public String getDescription(final PlayerCharacter aPC)
+	{
+		if (SettingsHandler.useFeatBenefits() && getBenefit().length() > 1)
+		{
+			return getBenefit();
+		}
+
+		return super.getDescription(aPC);
 	}
 
 	/**

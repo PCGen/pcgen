@@ -380,14 +380,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		return descIsPI;
 	}
 
-//	/**
-//	 * Set the description of this object
-//	 * @param a
-//	 */
-//	public final void setDescription(final String a)
-//	{
-//		stringChar.put(StringKey.DESCRIPTION, a);
-//	}
+	/**
+	 * Set the description of this object
+	 * @param a
+	 */
+	public final void setDescription(final String a)
+	{
+		stringChar.put(StringKey.DESCRIPTION, a);
+	}
 
 	/**
 	 * Adds a description for this object.  Multiple descriptions are allowed 
@@ -437,6 +437,12 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				i.remove();
 			}
 		}
+	}
+	
+	public final String getDescription()
+	{
+		String characteristic = stringChar.get(StringKey.DESCRIPTION);
+		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
 	}
 	
 	/**
