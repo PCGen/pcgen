@@ -386,8 +386,10 @@ CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block:Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency|All Automatic Proficiencies
+###Block: Familiar
+1	FEATAUTO:Summon Familiar|Sorcerer Tracker - Summon Familiar
 ###Block: Level progression
-1	CAST:5,3				KNOWN:4,2				FEATAUTO:Summon Familiar|Sorcerer Tracker - Summon Familiar
+1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -434,8 +436,10 @@ SUBCLASS:Transmuter	COST:2	PROHIBITCOST:1	CHOICE:Transmutation	KNOWNSPELLSFROMSP
 SUBCLASSLEVEL:1	FEATAUTO:Transmuter Learning Bonus
 ###Block:Proficiencies
 1	FEATAUTO:Wizard Weapon Proficiencies|All Automatic Proficiencies
+###Block: Familiar
+1	FEATAUTO:Summon Familiar|Wizard Tracker - Summon Familiar
 ###Block: Level progression
-1	CAST:3,1														FEATAUTO:Summon Familiar|Wizard Tracker - Summon Familiar|Scribe Scroll
+1	CAST:3,1														FEATAUTO:Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
