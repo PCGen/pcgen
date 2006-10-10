@@ -93,9 +93,9 @@ public class PlayerCharacterOutput
 		return domain.getDisplayName();
 	}
 
-	public String getDomainPower(Domain domain)
+	public String getDomainPower(final PlayerCharacter aPC, Domain domain)
 	{
-		return domain.piDescString();
+		return domain.piDescString(aPC);
 	}
 
 	public String getEquipmentList()

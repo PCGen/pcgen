@@ -53,6 +53,7 @@ import pcgen.core.BioSet;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
 import pcgen.core.CustomData;
+import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -819,7 +820,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		// The dummy campaign for custom data.
 		Campaign customCampaign = new Campaign();
 		customCampaign.setName("Custom");
-		customCampaign.setDescription("Custom data");
+		customCampaign.addDescription(new Description("Custom data"));
 
 		//
 		// Add the custom bioset file to the start of the list if it exists

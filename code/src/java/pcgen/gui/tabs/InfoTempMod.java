@@ -681,7 +681,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			b.append(" <b>Duration:</b> ").append(aSpell.getDuration());
 			b.append(" <b>Range:</b> ").append(aSpell.getRange());
 			b.append(" <b>Target:</b> ").append(aSpell.getTarget());
-			b.append(" <b>Description:</b> ").append(aSpell.piDescSubString());
+			b.append(" <b>Description:</b> ").append(aSpell.piDescSubString(pc));
 
 			String spellSource = aSpell.getDefaultSourceString();
 

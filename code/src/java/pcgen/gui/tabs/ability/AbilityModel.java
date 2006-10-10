@@ -34,6 +34,7 @@ import javax.swing.tree.TreePath;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.gui.TableColumnManagerModel;
@@ -67,6 +68,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 {
 	private AbilitySelectionPanel.ViewMode theViewMode = AbilitySelectionPanel.ViewMode.TYPENAME;
 
+	private PlayerCharacter thePC = null;
 	private List<Ability> theAbilityList;
 	private AbilityCategory theCategory;
 	
@@ -80,17 +82,20 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	/**
 	 * Creates an AbilityModel.
 	 * 
+	 * @param aPC The PlayerCharacter this model is for.
 	 * @param aList The list of <tt>Ability</tt> objects to manage
 	 * @param aCategory The <tt>AbilityCategory</tt> this list comes from.
 	 * @param viewMode
 	 * @param anOptionRoot The key to store options under.
 	 */
-	public AbilityModel(final List<Ability> aList,
+	public AbilityModel(final PlayerCharacter aPC,
+						final List<Ability> aList,
 						final AbilityCategory aCategory,
 						final AbilitySelectionPanel.ViewMode viewMode,
 						final String anOptionRoot) 
 	{
 		super(null);
+		thePC = aPC;
 		theAbilityList = aList;
 
 		theOptionsRoot = anOptionRoot;
@@ -99,7 +104,11 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		
 		theCategory = aCategory;
 
-		resetModel(viewMode, false);
+		for ( final Column column : Column.values() )
+		{
+			column.setVisible(SettingsHandler.getPCGenOption(theOptionsRoot + ".viewcol." + column.toString(), column.isVisible())); //$NON-NLS-1$
+		}
+		resetModel(thePC, viewMode, false);
 	}
 
 	private void buildDefaultRoots()
@@ -292,7 +301,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 			case DESCRIPTION:
 				if (ability != null)
 				{
-					retVal = ability.piDescSubString();
+					retVal = ability.piDescSubString(thePC);
 				}
 				break;
 			case CHOICES:
@@ -697,7 +706,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	public void setAbilityList(final List<Ability> aList)
 	{
 		theAbilityList = aList;
-		resetModel(theViewMode, false);
+		resetModel(thePC, theViewMode, false);
 	}
 	
 	/**
@@ -709,8 +718,11 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 * 					<tt>AbilitySelectionPanel</tt>
 	 * @param showAll
 	 */
-	public void resetModel(final AbilitySelectionPanel.ViewMode mode, final boolean showAll)
+	public void resetModel(	final PlayerCharacter aPC, 
+							final AbilitySelectionPanel.ViewMode mode, 
+							final boolean showAll)
 	{
+		thePC = aPC;
 		// We are going to build and cache the type and source tree roots.
 		buildDefaultRoots();
 

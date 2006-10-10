@@ -571,9 +571,9 @@ public class EqToken extends Token
 	 * @param eq
 	 * @return Description Token
 	 */
-	public static String getDescriptionToken(Equipment eq)
+	public static String getDescriptionToken(final PlayerCharacter aPC, Equipment eq)
 	{
-		return eq.getDescription();
+		return eq.getDescription(aPC);
 	}
 
 	/**
@@ -1034,7 +1034,7 @@ public class EqToken extends Token
 		}
 		else if ("DESC".equals(token))
 		{
-			retString = getDescriptionToken(eq);
+			retString = getDescriptionToken(pc, eq);
 		}
 		else if ("FUMBLERANGE".equals(token))
 		{

@@ -25,6 +25,7 @@ package pcgen.gui.editor;
 import pcgen.core.*;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;
+import plugin.lsttokens.DescLst;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
@@ -200,7 +201,15 @@ final class DeityBasePanel extends BasePanel
 	{
 		((Deity) thisPObject).setHolyItem(getHolyItemText());
 		((Deity) thisPObject).setAlignment(getDeityAlignment());
-		thisPObject.setDescription(getDescriptionText());
+
+		final String desc = getDescriptionText();
+		final DescLst tokenParser = new DescLst();
+		
+		final StringTokenizer tok = new StringTokenizer(desc, "\t");
+		while ( tok.hasMoreTokens() )
+		{
+			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+		}
 		thisPObject.setDescIsPI(getDescIsPI());
 
 		//
@@ -224,7 +233,16 @@ final class DeityBasePanel extends BasePanel
 	public void updateView(PObject thisPObject)
 	{
 		setHolyItemText(((Deity) thisPObject).getHolyItem());
-		setDescriptionText(thisPObject.getDescription()); // don't want PI here
+		final StringBuffer buf = new StringBuffer();
+		for ( final Description desc : thisPObject.getDescriptionList() )
+		{
+			if ( buf.length() == 0 )
+			{
+				buf.append(Constants.COMMA);
+			}
+			buf.append(desc.getPCCText());
+		}
+		setDescriptionText(buf.toString()); // don't want PI here
 		setDescIsPI(thisPObject.getDescIsPI());
 
 		//

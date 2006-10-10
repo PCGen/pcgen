@@ -834,7 +834,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 						.getOwner()),
 					aSpell.getSaveInfo(),
 					aSpell.getSpellResistance(),
-					pc.parseSpellString(aSpell, aSpell.getDescription(), cs
+					pc.parseSpellString(aSpell, aSpell.getDescription(getPc()), cs
 						.getOwner())}));
 
 			if (Spell.hasPPCost())

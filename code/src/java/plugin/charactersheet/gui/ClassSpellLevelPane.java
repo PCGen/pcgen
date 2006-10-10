@@ -616,7 +616,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 		effect.setFont(new java.awt.Font(DIALOG, 0, 10));
 		effect.setText(
 			new StringBuffer(EFFECT)
-				.append(pc.parseSpellString(spell, spell.getDescription(), cs.getOwner())).toString()
+				.append(pc.parseSpellString(spell, spell.getDescription(pc), cs.getOwner())).toString()
 		);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

@@ -157,7 +157,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(BOLD);
 		sb.append(PropertyFactory.getString("in_descrip")).append(':'); //$NON-NLS-1$
 		sb.append(END_BOLD);
-		sb.append(theAbility.piDescSubString());
+		sb.append(theAbility.piDescSubString(thePC));
 		
 		sb.append(TWO_SPACES);
 		sb.append(BOLD);

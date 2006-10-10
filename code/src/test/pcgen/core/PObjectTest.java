@@ -246,6 +246,38 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertEquals("2 instances should have added 6 HPs", baseHP+6, aPC.hitPoints());
 		
 	}
+
+	/**
+	 * Tests description handling
+	 */
+	public void testDescription()
+	{
+		final Description desc1 = new Description("Description 1");
+		final PObject pobj = new PObject();
+		pobj.addDescription(desc1);
+		
+		assertEquals("Description should match", pobj.getDescription(getCharacter()), "Description 1");
+		
+		final Description desc2 = new Description("Description 2");
+		pobj.addDescription(desc2);
+
+		assertEquals("Description should match", "Description 1,Description 2", pobj.getDescription(getCharacter()));
+		
+		final Description desc3 = new Description("Description %1");
+		desc3.addVariable("\"3\"");
+		pobj.addDescription(desc3);
+
+		assertEquals("Description should match", "Description 1,Description 2,Description 3", pobj.getDescription(getCharacter()));
+		
+		pobj.removeDescription("Description 2");
+		assertEquals("Description should match", "Description 1,Description 3", pobj.getDescription(getCharacter()));
+		
+		pobj.removeDescription("Description %");
+		assertEquals("Description should match", "Description 1", pobj.getDescription(getCharacter()));
+
+		pobj.removeDescription("Description %\\w+");
+		assertEquals("Description should match", "Description 1", pobj.getDescription(getCharacter()));
+	}
 	
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()

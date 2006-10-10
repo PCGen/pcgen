@@ -433,7 +433,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		Campaign customCampaign = new Campaign();
 		customCampaign.setName("Unit Test");
 		customCampaign.setName("KEY_Unit Test");
-		customCampaign.setDescription("Unit Test data");
+		customCampaign.addDescription(new Description("Unit Test data"));
 		CampaignSourceEntry unitTestSource = new CampaignSourceEntry(
 			customCampaign, "PCClassTest");
 

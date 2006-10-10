@@ -111,7 +111,7 @@ public class DeityToken extends Token
 			}
 			else if ("DESCRIPTION".equals(subTag))
 			{
-				retString = getDescriptionToken(deity);
+				retString = getDescriptionToken(pc, deity);
 			}
 			else if ("HOLYITEM".equals(subTag))
 			{
@@ -171,9 +171,9 @@ public class DeityToken extends Token
 	 * @param deity
 	 * @return description sub token
 	 */
-	public static String getDescriptionToken(Deity deity)
+	public static String getDescriptionToken(final PlayerCharacter aPC, Deity deity)
 	{
-		return deity.getDescription();
+		return deity.getDescription(aPC);
 	}
 
 	/**

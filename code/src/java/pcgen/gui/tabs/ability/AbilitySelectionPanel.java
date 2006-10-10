@@ -195,7 +195,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 */
 	protected void initComponents()
 	{
-		theModel = new AbilityModel(getAbilityList(), theCategory, theViewMode, 
+		theModel = new AbilityModel(thePC, getAbilityList(), theCategory, theViewMode, 
 									getFullOptionKey());
 
 		theModel.setAbilityFilter(this);
@@ -396,7 +396,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 			theViewMode = theSavedViewMode;
 			theSavedViewMode = null;
 		}
-		theModel.resetModel(theViewMode, false);
+		theModel.resetModel(thePC, theViewMode, false);
 		theTable.updateUI();
 	}
 
@@ -433,7 +433,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 			theSavedViewMode = theViewMode;
 		}
 		theViewMode = ViewMode.NAMEONLY;
-		theModel.resetModel(theViewMode, false);
+		theModel.resetModel(thePC, theViewMode, false);
 		theTable.updateUI();
 	}
 
@@ -460,7 +460,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 		if (theTable != null) 
 		{
 			final List<String> pathList = theTable.getExpandedPaths();
-			theModel.resetModel(theViewMode, false);
+			theModel.resetModel(thePC, theViewMode, false);
 
 			if (theSorter != null)
 			{

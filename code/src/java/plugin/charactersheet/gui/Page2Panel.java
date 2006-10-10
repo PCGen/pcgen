@@ -239,7 +239,7 @@ public class Page2Panel extends javax.swing.JPanel {
 		Map featMap = new HashMap();
 		for(int i = 0; i < feats.size(); i++) {
 			Ability feat = (Ability)feats.get(i);
-			featMap.put(feat.qualifiedName(), feat.getBenefitDescription());
+			featMap.put(feat.qualifiedName(), feat.getDescription(aPC));
 		}
 		return featMap;
 	}

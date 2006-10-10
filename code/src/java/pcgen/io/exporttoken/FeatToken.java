@@ -198,7 +198,7 @@ public class FeatToken extends Token {
 			}
 
 			if (tokenSource.endsWith(".DESC")) {
-				retString += aFeat.getBenefitDescription();
+				retString += aFeat.getDescription(pc);
 			} else if (tokenSource.endsWith(".TYPE")) {
 				retString += aFeat.getType();
 			} else if (tokenSource.endsWith(".ASSOCIATED")) {

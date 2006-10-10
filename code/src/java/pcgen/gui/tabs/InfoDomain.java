@@ -356,7 +356,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 
 			infoText.append(" &nbsp;<b>").append(PropertyFactory.getString("in_descrip")).append("</b>:").append(aDeity
-					.piDescString());
+					.piDescString(pc));
 
 			aString = aDeity.preReqHTMLStrings(pc, false);
 
@@ -413,7 +413,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			infoText.append("<b>").append(aDomain.piSubString());
 
-			String aString = aDomain.getDescription();
+			String aString = aDomain.getDescription(getPc());
 
 			if (aString.length() != 0)
 			{

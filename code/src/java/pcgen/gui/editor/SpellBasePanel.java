@@ -22,6 +22,7 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
@@ -30,6 +31,7 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.PropertyFactory;
+import plugin.lsttokens.DescLst;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -100,7 +102,14 @@ public class SpellBasePanel extends BasePanel
 		String aString;
 		final Spell s = (Spell) thisPObject;
 
-		s.setDescription(pnlDescription.getText());
+		final String desc = pnlDescription.getText();
+		final DescLst tokenParser = new DescLst();
+		
+		final StringTokenizer tok = new StringTokenizer(desc, "\t");
+		while ( tok.hasMoreTokens() )
+		{
+			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+		}
 		s.setDescIsPI(pnlDescription.getDescIsPI());
 
 		s.setComponentList(".CLEAR");
@@ -215,7 +224,16 @@ public class SpellBasePanel extends BasePanel
 	public void updateView(PObject thisPObject)
 	{
 		Spell thisSpell = (Spell) thisPObject;
-		pnlDescription.setText(thisSpell.getDescription()); // don't want PI here
+		final StringBuffer buf = new StringBuffer();
+		for ( final Description desc : thisPObject.getDescriptionList() )
+		{
+			if ( buf.length() == 0 )
+			{
+				buf.append("\t");
+			}
+			buf.append(desc.getPCCText());
+		}
+		pnlDescription.setText(buf.toString()); // don't want PI here
 		pnlDescription.setDescIsPI(thisSpell.getDescIsPI());
 		cmbComponents.setSelectedItem(thisSpell.getComponentList());
 		cmbCastingTime.setSelectedItem(thisSpell.getCastingTime());

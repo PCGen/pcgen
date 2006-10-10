@@ -32,10 +32,12 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 import pcgen.core.Ability;
 import pcgen.core.Constants;
+import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.gui.utils.JComboBoxEx;
@@ -43,6 +45,7 @@ import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.DescLst;
 
 /**
  * <code>FeatBasePanel</code>
@@ -232,7 +235,14 @@ public class FeatBasePanel extends BasePanel
 	public void updateData(PObject thisPObject)
 	{
 		Ability thisFeat = (Ability) thisPObject;
-		thisFeat.setDescription(getDescriptionText());
+		final String desc = getDescriptionText();
+		final DescLst tokenParser = new DescLst();
+		
+		final StringTokenizer tok = new StringTokenizer(desc, "\t");
+		while ( tok.hasMoreTokens() )
+		{
+			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+		}
 		thisFeat.setDescIsPI(getDescIsPI());
 		thisFeat.setMultiples(getMultiples() ? "Y" : "N");
 		thisFeat.setStacks(getStacks() ? "Y" : "N");
@@ -255,7 +265,16 @@ public class FeatBasePanel extends BasePanel
 		Iterator e;
 		Ability thisFeat = (Ability) thisPObject;
 
-		setDescriptionText(thisPObject.getDescription()); // don't want PI here
+		final StringBuffer buf = new StringBuffer();
+		for ( final Description desc : thisPObject.getDescriptionList() )
+		{
+			if ( buf.length() == 0 )
+			{
+				buf.append("\t");
+			}
+			buf.append(desc.getPCCText());
+		}
+		setDescriptionText(buf.toString()); // don't want PI here
 		setDescIsPI(thisPObject.getDescIsPI());
 
 		//

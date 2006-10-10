@@ -22,10 +22,14 @@
  */
 package pcgen.gui.editor;
 
+import pcgen.core.Constants;
+import pcgen.core.Description;
 import pcgen.core.PObject;
+import plugin.lsttokens.DescLst;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.StringTokenizer;
 
 /**
  * <code>DomainBasePanel</code>
@@ -81,13 +85,29 @@ public class DomainBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		thisPObject.setDescription(getDescriptionText());
+		final String desc = getDescriptionText();
+		final DescLst tokenParser = new DescLst();
+		
+		final StringTokenizer tok = new StringTokenizer(desc, "\t");
+		while ( tok.hasMoreTokens() )
+		{
+			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+		}
 		thisPObject.setDescIsPI(getDescIsPI());
 	}
 
 	public void updateView(PObject thisPObject)
 	{
-		setDescriptionText(thisPObject.getDescription()); // don't want PI here
+		final StringBuffer buf = new StringBuffer();
+		for ( final Description desc : thisPObject.getDescriptionList() )
+		{
+			if ( buf.length() == 0 )
+			{
+				buf.append("\t");
+			}
+			buf.append(desc.getPCCText());
+		}
+		setDescriptionText(buf.toString()); // don't want PI here
 		setDescIsPI(thisPObject.getDescIsPI());
 	}
 

@@ -999,9 +999,12 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append('|');
 			buffer.append(TAG_ALIGNALLOW).append(':');
 			buffer.append(aDeity.getFollowerAlignments());
-			buffer.append('|');
-			buffer.append(TAG_DESC).append(':');
-			buffer.append(EntityEncoder.encode(aDeity.getDescription()));
+			for ( final Description desc : aDeity.getDescriptionList() )
+			{
+				buffer.append('|');
+				buffer.append(TAG_DESC).append(':');
+				buffer.append(desc.getPCCText());
+			}
 			buffer.append('|');
 			buffer.append(TAG_HOLYITEM).append(':');
 			buffer.append(EntityEncoder.encode(aDeity.getHolyItem()));
@@ -1078,9 +1081,12 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(domain.getAssociated(i)));
 			}
 
-			buffer.append('|');
-			buffer.append(TAG_DOMAINGRANTS).append(':');
-			buffer.append(EntityEncoder.encode(domain.getDescription()));
+			for ( final Description desc : domain.getDescriptionList() )
+			{
+				buffer.append('|');
+				buffer.append(TAG_DOMAINGRANTS).append(':');
+				buffer.append(desc.getPCCText());
+			}
 			buffer.append('|');
 			appendSourceInTaggedFormat(buffer, cd.getDomainSourcePcgString());
 
@@ -1332,9 +1338,13 @@ final class PCGVer2Creator implements IOConstants
 
 					appendLevelAbilityInfo(buffer, feat);
 
-					buffer.append('|');
-					buffer.append(TAG_DESC).append(':');
-					buffer.append(EntityEncoder.encode(feat.getDescription()));
+					
+					for ( final Description desc : feat.getDescriptionList() )
+					{
+						buffer.append('|');
+						buffer.append(TAG_DESC).append(':');
+						buffer.append(EntityEncoder.encode(desc.getPCCText()));
+					}
 
 //  					buffer.append('|');
 //  					buffer.append(TAG_DATA).append(':');
@@ -1388,9 +1398,12 @@ final class PCGVer2Creator implements IOConstants
 
 				appendLevelAbilityInfo(buffer, feat);
 
-				buffer.append('|');
-				buffer.append(TAG_DESC).append(':');
-				buffer.append(EntityEncoder.encode(feat.getDescription()));
+				for ( final Description desc : feat.getDescriptionList() )
+				{
+					buffer.append('|');
+					buffer.append(TAG_DESC).append(':');
+					buffer.append(EntityEncoder.encode(desc.getPCCText()));
+				}
 
 //  				buffer.append('|');
 //  				buffer.append(TAG_DATA).append(':');
@@ -1463,8 +1476,12 @@ final class PCGVer2Creator implements IOConstants
 						buffer.append( EntityEncoder.encode(save) );
 					}
 
-					buffer.append(TAG_DESC).append(':');
-					buffer.append(EntityEncoder.encode(ability.getDescription()));
+					for ( final Description desc : ability.getDescriptionList() )
+					{
+						buffer.append(Constants.PIPE);
+						buffer.append(TAG_DESC).append(':');
+						buffer.append(EntityEncoder.encode(desc.getPCCText()));
+					}
 
 					buffer.append(LINE_SEP);
 				}

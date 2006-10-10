@@ -33,6 +33,7 @@ import pcgen.io.EntityEncoder;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
+import plugin.lsttokens.DescLst;
 
 /**
  *
@@ -105,7 +106,7 @@ public class DomainLoader extends LstObjectFileLoader
 			}
 			else if (col == 1) //TODO (DJ)[tok]: This is crap, make this into a tag before in 6.0
 			{
-				domain.setDescription(EntityEncoder.decode(colString));
+				domain.addDescription(new DescLst().parseDescription(colString));
 			}
 			else
 			{

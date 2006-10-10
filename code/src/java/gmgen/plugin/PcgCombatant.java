@@ -780,7 +780,7 @@ public class PcgCombatant extends Combatant
 					Domain dom = cd.getDomain();
 					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
-					statBuf.append(pcOut.getDomainPower(dom)); //|DOMAIN.POWER|
+					statBuf.append(pcOut.getDomainPower(pc, dom)); //|DOMAIN.POWER|
 					statBuf.append(")");
 				}
 
@@ -987,7 +987,7 @@ public class PcgCombatant extends Combatant
 							statBuf.append("<a href=" + '"' + "spell:");
 							statBuf.append(spell.getDisplayName());
 							statBuf.append("\\");
-							statBuf.append(aPC.parseSpellString(spell, spell.getDescription(), cs.getOwner()));
+							statBuf.append(aPC.parseSpellString(spell, spell.getDescription(aPC), cs.getOwner()));
 							statBuf.append("\\");
 							statBuf.append(spell.getRange());
 							statBuf.append("\\");
