@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Sat Oct  7 00:47:56 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Oct 12 04:01:25 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -60,6 +60,10 @@ Alternative Animal Companion Master	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:4th Level or
 ###Block: Awakened Animal
 # Template Name	Required Race					ADD:Language			KIT				Bonus Languages		SUBRACE		Main Race Type		Race Subtype			ADDLEVEL
 Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	ADDLEVEL:Animal|2
+
+###Block: Righteous Might spell workaround
+# Template Name	Visible	Special Ability										Define
+RighteousMightDR	VISIBLE:NO	SA:DR %/Evil|RighteousMightDR_Evil	SA:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
 
 #
 # End

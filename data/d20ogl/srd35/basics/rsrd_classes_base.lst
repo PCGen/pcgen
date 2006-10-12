@@ -126,6 +126,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1												VFEAT:Aura of Evil|PREDEITYALIGN:2,5,8
 1												VFEAT:Aura of Good|PREDEITYALIGN:0,3,6
 1												VFEAT:Aura of Law|PREDEITYALIGN:0,1,2
+###Block: Righteous Might Workaround
+1	TEMPLATE:RighteousMindDR
 ###Block: Level progression
 1	CAST:3,1				SA:Spontaneous casting
 2	CAST:4,2
