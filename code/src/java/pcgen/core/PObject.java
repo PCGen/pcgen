@@ -3439,6 +3439,29 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 						aList.add(e.next().getDefaultChoice());
 					}
 				}
+				else if ("DEITYWEAPONS".equals(tok))
+				{
+					if (aPC.getDeity() != null)
+					{
+						String weaponList = aPC.getDeity().getFavoredWeapon();
+
+						if (!("ALL".equalsIgnoreCase(weaponList) || "ANY".equalsIgnoreCase(weaponList)))
+						{
+							final StringTokenizer bTok = new StringTokenizer(weaponList, "|");
+
+							while (bTok.hasMoreTokens())
+							{
+								final String bString = bTok.nextToken();
+								final WeaponProf wp = Globals.getWeaponProfKeyed(bString);
+								if (!wp.isType("Natural"))
+								{
+									aList.add(bString);
+								}
+							}
+						}
+
+					}
+				}
 				else
 				{
 					// add tok to list

@@ -101,11 +101,12 @@
 
 
 		<p></p><a name="AUTOWEAPONPROF"><hr>
-		</a><p class="new">*** Updated 5.4</p>
+		</a><p class="new">*** Updated 5.11.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> AUTO:WEAPONPROF|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Weapon Name&gt;)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Type.&lt;Weapon
 			Type&gt;)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> DEITYWEAPONS</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a | (pipe) delimited list of weapons that are granted as free weapon proficiencies.</li>
@@ -137,6 +138,8 @@
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Martial.Slashing.Melee</code></p>
 		<p class="indent3">All &quot;Melee&quot; type &quot;Martial&quot; weapons that
 											 are &quot;Slashing&quot; type are given as free weapon proficiencies.</p>
+		<p class="indent2"><code>AUTO:WEAPONPROF|DEITYWEAPONS</code></p>
+		<p class="indent3">All favored weapons of the character's deity are given as free weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|%LIST</code></p>
 		<p class="indent3">Not documented.</p>
 
@@ -204,11 +207,11 @@
         <p class="indent1"><strong class="indent0">Variables used (z): </strong> FOLLOWERADJUSTMENT=<number>
 																	(Adjustment to the follower level variable).</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
-        <p class="indent2">• Adds a specific race or races to the list of available companions for the specified
+        <p class="indent2">ï¿½ Adds a specific race or races to the list of available companions for the specified
         						companion type.</p>
-        <p class="indent2">• PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked
+        <p class="indent2">ï¿½ PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked
         						against the master.</p>
-        <p class="indent2">• If the master does not meet the prereqs the companion will be displayed in the list
+        <p class="indent2">ï¿½ If the master does not meet the prereqs the companion will be displayed in the list
         						but will be listed in red and cannot be added as a companion.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Global.</p>
@@ -277,11 +280,11 @@
 		<p class="indent1"><strong>Variables Used (x): </strong>Number, variable or formula (Number of this type
 																			of companion the master can have)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">• Limits the number of the specified type of companion the master can have.</p>
-		<p class="indent2">• Optional, if this tag is not present no limits are placed on the number of companions
+		<p class="indent2">ï¿½ Limits the number of the specified type of companion the master can have.</p>
+		<p class="indent2">ï¿½ Optional, if this tag is not present no limits are placed on the number of companions
 								the character can have. </p>
-		<p class="indent2">• If more than one tag is encountered the highest value is used. </p>
-		<p class="indent2">• The value can be adjusted with the BONUS:FOLLOWERS tag.</p>
+		<p class="indent2">ï¿½ If more than one tag is encountered the highest value is used. </p>
+		<p class="indent2">ï¿½ The value can be adjusted with the BONUS:FOLLOWERS tag.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Global tag, would most often be used in class and feat (ability) files, should also be
 							enabled for templates and Domains.</p>
