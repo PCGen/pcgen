@@ -101,18 +101,18 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements Prereq
 		return prereq;
 	}
 
-    /**
-     * @param string
-     * @param validAlignments
-     * @return String
-     */
-    private String convertFromNumber(String string, String[] validAlignments) {
-        try {
-            int alignInt = Integer.parseInt(string);
-            return validAlignments[alignInt];
-        }
-        catch (NumberFormatException e) {
-            return string;
-        }
-    }
+	/**
+	 * @param string
+	 * @param validAlignments
+	 * @return String
+	 */
+	private String convertFromNumber(String string, String[] validAlignments) {
+		try {
+			int alignInt = Integer.parseInt(string);
+			return validAlignments[alignInt];
+		}
+		catch (NumberFormatException e) {
+			return string;
+		}
+	}
 }
