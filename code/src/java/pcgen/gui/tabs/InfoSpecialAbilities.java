@@ -165,11 +165,11 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 		{
 			int numLanguages = pc.languageNum(false);
 			List<Language> availableLangs = new ArrayList<Language>();
-			List<String> selectedLangNames = new ArrayList<String>();
+			List<Language> selectedLangs = new ArrayList<Language>();
 			List<Language> excludedLangs = new ArrayList<Language>();
-			buildLangLists(availableLangs, selectedLangNames, excludedLangs);
+			buildLangLists(availableLangs, selectedLangs, excludedLangs);
 
-			if (selectedLangNames.size() < (numLanguages))
+			if (selectedLangs.size() < (numLanguages))
 			{
 				if (Globals.checkRule(RuleConstants.INTBONUSLANG))
 				{
@@ -180,7 +180,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 					toDoList.add(PropertyFactory.getString("in_isaTodoLangRemainFirstOnly")); //$NON-NLS-1$
 				}
 			}
-			else if (selectedLangNames.size() > (numLanguages))
+			else if (selectedLangs.size() > (numLanguages))
 			{
 				toDoList.add(PropertyFactory.getString("in_isaTodoLangTooMany")); //$NON-NLS-1$
 			}
@@ -442,21 +442,21 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			pc.setDirty(true);
 
 
-			List<Language> availableLangs = new ArrayList<Language>();
-			List<String> selectedLangNames = new ArrayList<String>();
-			List<Language> excludedLangs = new ArrayList<Language>();
-			List<Language> selLangs = new ArrayList<Language>();
+			final List<Language> availableLangs = new ArrayList<Language>();
+			final List<Language> selectedLangs = new ArrayList<Language>();
+			final List<Language> excludedLangs = new ArrayList<Language>();
+			final List<Language> selLangs = new ArrayList<Language>();
 
 			int numLanguages = pc.languageNum(false);
 
-			buildLangLists(availableLangs, selectedLangNames, excludedLangs);
+			buildLangLists(availableLangs, selectedLangs, excludedLangs);
 
 			Globals.sortPObjectListByName(availableLangs);
 
 			ChooserInterface lc = ChooserFactory.getChooserInstance();
 			lc.setVisible(false);
 			lc.setAvailableList(availableLangs);
-			lc.setSelectedList(selectedLangNames);
+			lc.setSelectedList(selectedLangs);
 
 			/* modified pklucas 10/2/03 for bug# 765360
 			 * should not be allowed to add languages after 1st lvl from increased intel bonus.
@@ -466,7 +466,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			{
 				if (Globals.checkRule(RuleConstants.INTBONUSLANG)) //$NON-NLS-1$
 				{
-					lc.setPool(numLanguages - selectedLangNames.size());
+					lc.setPool(numLanguages - selectedLangs.size());
 				}
 				else
 				{
@@ -475,7 +475,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			}
 			else
 			{
-				lc.setPool(numLanguages - selectedLangNames.size());
+				lc.setPool(numLanguages - selectedLangs.size());
 			}
 
 			lc.setPoolFlag(false);
@@ -486,18 +486,8 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 				return;
 			}
 			
-			for (String aString : (List<String>) lc.getSelectedList())
-			{
-				Language aLang = Globals.getLanguageKeyed(aString);
-
-				if (aLang != null)
-				{
-					selLangs.add(aLang);
-				}
-			}
-
 			pc.clearLanguages();
-			pc.addLanguages(selLangs);
+			pc.addLanguages(lc.getSelectedList());
 			pc.addLanguages(excludedLangs);
 			refresh();
 			ensureFocus();
@@ -510,12 +500,14 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 	 * @param selectedLangNames
 	 * @param excludedLangs
 	 */
-	private void buildLangLists(List<Language> availableLangs, List<String> selectedLangNames, List<Language> excludedLangs)
+	private void buildLangLists(final List<Language> availableLangs, 
+								final List<Language> selectedLangs, 
+								final List<Language> excludedLangs)
 	{
 		SortedSet<Language> autoLangs = pc.getAutoLanguages();
 		Skill speakLanguage = null;
 
-		for (Skill aSkill : pc.getSkillList())
+		for (final Skill aSkill : pc.getSkillList())
 		{
 			if (aSkill.getChoiceString().indexOf(PropertyFactory.getString("in_language")) >= 0)
 			{
@@ -523,7 +515,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 			}
 		}
 
-		for (Language aLang : pc.getLanguageBonusSelectionList())
+		for (final Language aLang : pc.getLanguageBonusSelectionList())
 		{
 			if (aLang != null)
 			{
@@ -554,7 +546,7 @@ public final class InfoSpecialAbilities extends JPanel implements CharacterInfoT
 
 			if (addLang)
 			{
-				selectedLangNames.add(aLang.getKeyName());
+				selectedLangs.add(aLang);
 			}
 			else
 			{
