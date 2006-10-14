@@ -13973,7 +13973,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		aClone.setTrait1(new String(getTrait1()));
 		aClone.setTrait2(new String(getTrait2()));
 		aClone.languages.addAll(languages);
-		aClone.theWeaponProfs.addAll(theWeaponProfs);
+		if (theWeaponProfs != null)
+		{
+			aClone.theWeaponProfs = new TreeSet<WeaponProf>();;
+			aClone.theWeaponProfs.addAll(theWeaponProfs);
+		}
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
