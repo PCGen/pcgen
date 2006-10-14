@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Oct 14 16:08:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
 # Original Entry by: Jerril
 
@@ -12,8 +12,8 @@ SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCES
 
 
 
-# Feat Name			Type			Req. Att.	Required Feat									Required Skill	Description																											Automaticaly Gained Weapon Prof.	Weapon prof. bonus					Source Page
-Amputate			TYPE:General														PRESKILL:1,Heal=8	DESC:This is the brutal but often necessary task of removing a shattered or sevearly injured limb either because it is ruined or to prevent the onset of gangrene.															SOURCEPAGE:p.33
-Behead			TYPE:General	PREATT:4	PREFEAT:1,Power Attack	PREFEAT:1,Weapon Focus(TYPE.Slashing)				DESC:See Text																																								SOURCEPAGE:p.33
-Firearms Proficiency	TYPE:General																	DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE.Arquebuse	BONUS:WEAPONPROF=Cannon|TOHIT|-2|GunneryPenalty	SOURCEPAGE:p.33
-Gunnery			TYPE:General																	DESC:The character is trained in the use of field cannon for sieges.																	AUTO:WEAPONPROF|TYPE.Cannon		BONUS:WEAPONPROF=Cannon|TOHIT|0|GunneryPenalty	SOURCEPAGE:p.33
+# Feat Name			Type			Req. Att.	Required Feat									Required Skill	Description																											Automaticaly Gained Weapon Prof.	Weapon prof. bonus						Source Page
+Amputate			TYPE:General														PRESKILL:1,Heal=8	DESC:This is the brutal but often necessary task of removing a shattered or sevearly injured limb either because it is ruined or to prevent the onset of gangrene.																SOURCEPAGE:p.33
+Behead			TYPE:General	PREATT:4	PREFEAT:1,Power Attack	PREFEAT:1,Weapon Focus(TYPE.Slashing)				DESC:See Text																																									SOURCEPAGE:p.33
+Firearms Proficiency	TYPE:General																	DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE.Arquebuse	BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty	SOURCEPAGE:p.33
+Gunnery			TYPE:General																	DESC:The character is trained in the use of field cannon for sieges.																	AUTO:WEAPONPROF|TYPE.Cannon		BONUS:WEAPONPROF=Cannon|TOHIT|0|TYPE=GunneryPenalty	SOURCEPAGE:p.33
