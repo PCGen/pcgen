@@ -1615,6 +1615,11 @@ public final class PCTemplate extends PObject implements HasCost
 		{
 			return availableList.get(0).getKeyName();
 		}
+		// If we are left without a choice, don't show the chooser.
+		if (availableList.size() < 1)
+		{
+			return "";
+		}
 		Globals.getChoiceFromList(title, availableList, selectedList, 1, forceChoice);
 		if (selectedList != null && selectedList.size() == 1)
 		{

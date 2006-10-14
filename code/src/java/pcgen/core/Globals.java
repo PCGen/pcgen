@@ -2749,19 +2749,19 @@ public final class Globals
 	}
 
 	/**
-	 * Sort campaigns
+	 * Sort campaign data using the order they will be searched by.
 	 */
 	public static void sortCampaigns()
 	{
-		sortPObjectListByName(getClassList());
-		sortPObjectListByName(getSkillList());
+		sortPObjectListByKey(getClassList());
+		sortPObjectListByKey(getSkillList());
 		// sortPObjectList(getFeatList()); Obsolete data structure
-		sortPObjectListByName(getDeityList());
-		sortPObjectListByName(getDomainList());
+		sortPObjectListByKey(getDeityList());
+		sortPObjectListByKey(getDomainList());
 		Collections.sort(getArmorProfList());
-		sortPObjectListByName(getTemplateList());
-		sortPObjectListByName(EquipmentList.getModifierList());
-		sortPObjectListByName(getLanguageList());
+		sortPObjectListByKey(getTemplateList());
+		sortPObjectListByKey(EquipmentList.getModifierList());
+		sortPObjectListByKey(getLanguageList());
 		setD_sorted(true);
 	}
 
@@ -2827,6 +2827,19 @@ public final class Globals
 	public static <T extends PObject> List<T> sortPObjectListByName(final List<T> aList)
 	{
 		Collections.sort(aList, pObjectNameComp);
+
+		return aList;
+	}
+	
+	/**
+	 * Sort Pcgen Object list by key
+	 * 
+	 * @param aList The list to be sorted.
+	 * @return Sorted list of Pcgen Objects
+	 */
+	public static <T extends PObject> List<T> sortPObjectListByKey(final List<T> aList)
+	{
+		Collections.sort(aList, pObjectStringComp);
 
 		return aList;
 	}
@@ -3188,6 +3201,14 @@ public final class Globals
 		return adjustDamage(aDamage, sizeInt(sBaseSize), sizeInt(sNewSize));
 	}
 
+	/**
+	 * Efficiently search for a PObject in a list with a particular key. The list
+	 * must be sorted by key, otherwise the search may fail find entries in the list.
+	 *   
+	 * @param aList The list to be searched, must be sorted by key.
+	 * @param keyName The key to be found.
+	 * @return The object found, or null if not found. 
+	 */
 	static <T extends PObject> T binarySearchPObject(final List<T> aList, final String keyName)
 	{
 		if ((keyName == null) || (keyName.length() <= 0))
