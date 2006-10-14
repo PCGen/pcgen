@@ -11877,7 +11877,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		//  Equipment
 		for (Equipment eq : getEquipmentList())
 		{
-			if (eq.isEquipped())
+			// Include natural weapons by default as they have an effect even if not equipped.
+			if (eq.isEquipped() || eq.isNatural())
 			{
 				results.add(eq);
 	
@@ -11974,6 +11975,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return aList;
 	}
 
+	/**
+	 * @todo Need to confirm that getSkillList is sorted, or switch to brute force search 
+	 * @param level
+	 */
 	private void addNewSkills(final int level)
 	{
 		final List<Skill> addItems = new ArrayList<Skill>();
