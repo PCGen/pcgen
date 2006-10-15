@@ -1536,8 +1536,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		
 		double startAdjust = startLevel/rangeLevel;
 		
-		pool += Math.floor((this.getTotalCharacterLevel() >= startLevel) ?
-								1.0d + pcpool - startAdjust + 0.0001 : 0);
+		pool += Math.floor((this.getTotalCharacterLevel() >= startLevel) ? 1.0d
+			+ pcpool - startAdjust + 0.0001 : pcpool + 0.0001);
 		pool += Math.floor(mpool + 0.0001);
 
 		Logging.debugPrint(""); //$NON-NLS-1$
@@ -3648,6 +3648,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				final Set<String> profKeyList = new TreeSet<String>(pobj.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS));
 // TODO - Need to handle more crap here.
 				pobj.addAutoTagsToList("WEAPONPROF", profKeyList, this, true);
+				//TODO: Selected bonus weapon prof is stored in the associated list
 				for ( final String profKey : profKeyList )
 				{
 					final WeaponProf prof = Globals.getWeaponProfKeyed(profKey);

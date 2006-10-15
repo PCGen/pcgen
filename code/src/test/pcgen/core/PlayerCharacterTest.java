@@ -31,6 +31,7 @@ package pcgen.core;
 import java.awt.HeadlessException;
 import java.util.List;
 import java.util.Collections;
+import java.util.logging.Logger;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -136,27 +137,27 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 
 	/**
+	 * Test bonus monster feats where there default monster mode is off.
+	 * Note: As PCClass grants feats which do not exist, the feat pool gets 
+	 * incremented instead.
 	 * @throws Exception
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel1() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
 		final PlayerCharacter character = new PlayerCharacter();
-
+		
 		character.setRace(giantRace);
 		character.incrementClassLevel(1, pcClass);
-		is((int) character.getRawFeats(true), eq(2), "One level of PCClass, PC has two feats");
+		is((int) character.getRawFeats(true), eq(2), "One level of PCClass, PC has one feat for level and one for a missing feat.");
 		character.incrementClassLevel(1, pcClass);
 		is((int) character.getRawFeats(true), eq(3), "Two levels of PCClass, feats increment");
 	}
 
 	/**
+	 * Test the number of feats a monster class gets when default monster
+	 * mode is on.
 	 * @throws Exception
-	 *
-	 * This test is currently broken because with default Monster mode on, although the program
-	 * gives the Ogre 4 racial HD, HD returns 0 instead of 4, so the !PREHD to turn off the
-	 * racial feat doesn;t work.  I consider this a bug, but Default Monster mode is going away
-	 * and I've wasted more time than I cared to on this already.  ARW 2006-11-09
 	 */
 	public void testGetMonsterBonusFeatsForNewLevel1Default() throws Exception
 	{
@@ -166,11 +167,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass);
 		
-		is((int) character.getRawFeats(true), eq(0), "2 Default monster doesn't get feats from initial levels");
-		character.incrementClassLevel(3, giantClass);
-		is((int) character.getRawFeats(true), eq(0), "Default monster doesn't get feats up to level 7 (4 monster + 3 extra)");
+		is((int) character.getRawFeats(true), eq(0), "Default monster doesn't get feats from initial levels");
+		character.incrementClassLevel(2, giantClass);
+		is((int) character.getRawFeats(true), eq(0), "Default monster doesn't get feats up to level 6 (4 monster + 2 extra)");
 		character.incrementClassLevel(1, giantClass);
-		is((int) character.getRawFeats(true), eq(1), "Default monster gets first feat at level 8 (4 monster + 4 extra)");
+		is((int) character.getRawFeats(true), eq(1), "Default monster gets first feat at level 7 (4 monster + 3 extra)");
 	}
 
 	/**
@@ -233,7 +234,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 	 */
 	public void testGetVariableValue1() throws Exception
 	{
-		//Logging.setDebugMode(true);
 		SettingsHandler.setMonsterDefault(false);
 		Logging.debugPrint("\n\n\ntestGetVariableValue1()");
 		giantRace.addVariable(-9, "GiantVar1", "0");
@@ -246,12 +246,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 
 
 		final PlayerCharacter character = new PlayerCharacter();
+		// NOTE: This will add 4 levels of giantClass to the character 
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass);
 
-		assertEquals(new Float(7.0), character.getVariableValue("GiantVar1", "CLASS:Giant"));
+		assertEquals(new Float(15.0), character.getVariableValue("GiantVar1", "CLASS:Giant"));
 		assertEquals(new Float(8.0), character.getVariableValue("GiantClass1", "CLASS:Giant"));
-
 
 	}
 
@@ -276,7 +276,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass);
 
-		assertEquals(new Float(7.0), character.getVariableValue("GiantVar1", "CLASS:Giant"));
+		assertEquals(new Float(11.0), character.getVariableValue("GiantVar1", "CLASS:Giant"));
 		assertEquals(new Float(4.0), character.getVariableValue("GiantClass1", "CLASS:Giant"));
 
 		final AttackToken token = new AttackToken();
@@ -446,6 +446,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase {
 		giantRace.setBonusInitialFeats(giantRaceFeatBonus);
 
 		Globals.addRace(giantRace);
+
+		// Create the monster class type
+		SettingsHandler.getGame().addClassType("Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
 
 		// Giant Class
 		giantClass = new PCClass();
