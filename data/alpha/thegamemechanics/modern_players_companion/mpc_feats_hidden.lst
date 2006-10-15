@@ -5,7 +5,7 @@ SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHO
 ###Block: Strong Talents
 # Feat Name			Type							Visible	Required Feat												Special Ability			Stackable?	Multiple?	Choose							Weapon prof. bonus							Source Page
 Greater Extreme Effort	TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:NO	PREFEAT:3,Extreme Effort,Improved Extreme Effort,Advanced Extreme Effort		SA:Greater Extreme Effort																							SOURCEPAGE:p.4
-Improved Melee Critical	TYPE:Talent.StrongTalent.MeleeSmash		VISIBLE:NO	PREFEAT:4,Extreme Effort,Melee Smash,Improved Melee Smash,Advanced Melee Smash	SA:Improved Melee Critical	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFS|TYPE.Melee	BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|Type=NonStackingCrit	SOURCEPAGE:p.4
+Improved Melee Critical	TYPE:Talent.StrongTalent.MeleeSmash		VISIBLE:NO	PREFEAT:4,Extreme Effort,Melee Smash,Improved Melee Smash,Advanced Melee Smash	SA:Improved Melee Critical	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFS|TYPE.Melee	BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit	SOURCEPAGE:p.4
 
 
 ###Block: Fast Talents
