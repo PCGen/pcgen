@@ -104,9 +104,25 @@ public class DomainLoader extends LstObjectFileLoader
 					domain.setSourceFile(source.getFile());
 				}
 			}
-			else if (col == 1) //TODO (DJ)[tok]: This is crap, make this into a tag before in 6.0
+			else if (col == 1)
 			{
-				domain.addDescription(new DescLst().parseDescription(colString));
+				LstUtils
+					.deprecationWarning(
+						"Positional DESC",
+						"domain",
+						domain.getDisplayName(),
+						colString,
+						"A DESC tag has been used instead, please update your LST code. "
+							+ "This default functionality will be removed in versions after 5.12");
+				token = (DomainLstToken) tokenMap.get("DESC");
+				if (token != null)
+				{
+					LstUtils.deprecationCheck(token, domain, colString);
+					if (!token.parse(domain, colString))
+					{
+						Logging.errorPrint("Error parsing domain " + domain.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					}
+				}
 			}
 			else
 			{

@@ -60,24 +60,36 @@ public class LstUtils
 
 	/**
 	 * Checks to see if a LST Token is deprecated
-	 * @param token
-	 * @param name
-	 * @param source
-	 * @param value
+	 * @param token The token to be checked.
+	 * @param name The tag name that was used
+	 * @param source The object in which the tag was found 
+	 * @param value The value of the tag
 	 */
 	public static void deprecationCheck(LstToken token, String name, String source, String value) {
 		if(token instanceof DeprecatedToken) 
 		{
-			final String msg = PropertyFactory.getFormattedString(
-					"Warnings.LstTokens.Deprecated",  //$NON-NLS-1$
-					token.getTokenName(),
-					value,
-					name,
-					source,
-					((DeprecatedToken)token).getMessage(null, value)
-					);
-			deprecationWarning( msg );
+			deprecationWarning(token.getTokenName(), name, source, value, ((DeprecatedToken)token).getMessage(null, value));
 		}
+	}
+
+	/**
+	 * Log the deprecation warning.
+	 * @param tokenName The name of the deprecated token
+	 * @param name The tag name that was used
+	 * @param source The object in which the tag was found 
+	 * @param value The value of the tag
+	 * @param message A message describing corrective action.
+	 */
+	public static void deprecationWarning(String tokenName, String name, String source, String value, String message)
+	{
+		final String msg = PropertyFactory.getFormattedString(
+				"Warnings.LstTokens.Deprecated",  //$NON-NLS-1$
+				tokenName,
+				value,
+				name,
+				source,
+				message);
+		deprecationWarning( msg );
 	}
 
 	/**
