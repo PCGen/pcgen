@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Oct 17 19:38:00 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html
 # Original Entry by: Paul W. King
 
@@ -6,10 +6,10 @@ SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-pres
 #Strong talents
 #
 ###Block: Brute Tree
-# Feat Name	Type						Visible	Required Feat		Special Ability					Define			Modify VAR			Weapon prof. bonus			Source Page
-Rough		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO					SA:Rough ~ +% on trip checks|BruteBonus	DEFINE:BruteBonus|0	BONUS:VAR|BruteBonus|1	BONUS:WEAPONPROF=Grapple|BruteBonus	SOURCEPAGE:p.4
-Rowdy		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREFEAT:1,Rough		SA:Rowdy										BONUS:VAR|BruteBonus|1							SOURCEPAGE:p.4
-Brutal	TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREFEAT:2,Rough,Rowdy	SA:Brutal										BONUS:VAR|BruteBonus|1							SOURCEPAGE:p.4
+# Feat Name	Type						Visible	Required Feat		Special Ability					Define			Combat bonus					Modify VAR			Source Page
+Rough		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO					SA:Rough ~ +% on trip checks|BruteBonus	DEFINE:BruteBonus|0	BONUS:COMBAT|TOHIT.GRAPPLE|BruteBonus	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
+Rowdy		TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREFEAT:1,Rough		SA:Rowdy																	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
+Brutal	TYPE:Talent.StrongTalent.Brute	VISIBLE:NO	PREFEAT:2,Rough,Rowdy	SA:Brutal																	BONUS:VAR|BruteBonus|1	SOURCEPAGE:p.4
 
 ###Block: Heavy Heavy Load Tree
 # Feat Name			Type						Visible	Required Feat								Special Ability										Define			Modify VAR			Source Page
