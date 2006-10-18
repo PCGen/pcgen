@@ -28,12 +28,14 @@ package plugin.exporttokens;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.math.BigDecimal;
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.Logging;
 
 /**
  * <code>TextToken</code> produces the output for the output token TEXT.
@@ -103,26 +105,127 @@ public class TextToken extends Token
 		{
 			retString = retString.toLowerCase();
 		}
+		else if (action.equalsIgnoreCase("SENTENCE")
+				|| action.equalsIgnoreCase("SENTENCECASE"))
+		{
+			retString = changeToSentenceCase(retString);
+		}
+		else if (action.equalsIgnoreCase("TITLE")
+				|| action.equalsIgnoreCase("TITLECASE"))
+		{
+			retString = changeToTitleCase(retString);
+		}
 		else if (action.equalsIgnoreCase("NUMSUFFIX"))
 		{
-			int intVal = Integer.parseInt(retString);
-			if (intVal % 10 == 1 && intVal % 100 != 11)
+			retString = buildNumSuffix(retString);
+		}
+		return retString;
+	}
+
+	/**
+	 * Change the supplied string to sentence case.
+	 * @param value The value to be modified. 
+	 * @return The value in sentence case.
+	 */
+	private String changeToSentenceCase(String value)
+	{
+		String temp = value.toLowerCase();
+		String sentence[] = temp.split("\\.");
+		StringBuffer res = new StringBuffer(value.length());
+		Pattern p = Pattern.compile("\\s*");
+		for (int i = 0; i < sentence.length; i++)
+		{
+			if (i > 0)
 			{
-				retString = "st";
+				res.append(".");
 			}
-			else if (intVal % 10 == 2 && intVal % 100 != 12)
+			if (sentence[i].trim().length() > 0)
 			{
-				retString = "nd";
-			}
-			else if (intVal % 10 == 3 && intVal % 100 != 13)
-			{
-				retString = "rd";
+				Matcher m = p.matcher(sentence[i]);
+				int pos = 0;
+				if (m.find())
+				{
+					pos = m.end();
+				}
+				if (pos > 0)
+				{
+					res.append(sentence[i].substring(0, pos));
+				}
+				res.append(sentence[i].substring(pos, pos+1).toUpperCase());
+				res.append(sentence[i].substring(pos+1));
 			}
 			else
 			{
-				retString = "th";
+				res.append(sentence[i]);
 			}
 		}
-		return retString;
+		return res.toString();
+	}
+
+	/**
+	 * Change the supplied string to sentence case.
+	 * @param value The value to be modified. 
+	 * @return The value in sentence case.
+	 */
+	private String changeToTitleCase(String value)
+	{
+		String temp = value.toLowerCase();
+		char[] chars = temp.toCharArray();
+		StringBuffer res = new StringBuffer(value.length());
+		boolean start = true;
+		for (int i = 0; i < chars.length; i++)
+		{
+			char c = chars[i];
+			boolean whiteSpace = (c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r'); 
+			if (start && !whiteSpace)
+			{
+				res.append(Character.toUpperCase(c));
+				start = false;
+			}
+			else
+			{
+				start = whiteSpace;
+				res.append(c);
+			}
+		}
+		return res.toString();
+	}
+
+	/**
+	 * Build the suffix for the provided number.
+	 * 
+	 * @param number The number to generate the suffix for.
+	 * @return The suffix (or an empty string if not a number)
+	 */
+	private String buildNumSuffix(String number)
+	{
+		String result = "";
+		int intVal = 0;
+		try
+		{
+			intVal = new BigDecimal(number).intValue();
+		}
+		catch (Exception e)
+		{
+			// Not a number, so no suffix
+			return "";
+		}
+		if (intVal % 10 == 1 && intVal % 100 != 11)
+		{
+			result = "st";
+		}
+		else if (intVal % 10 == 2 && intVal % 100 != 12)
+		{
+			result = "nd";
+		}
+		else if (intVal % 10 == 3 && intVal % 100 != 13)
+		{
+			result = "rd";
+		}
+		else
+		{
+			result = "th";
+		}
+		return result;
 	}
 }
