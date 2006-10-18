@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 25 00:11:32 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Wed Oct 18 17:11:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -43,12 +43,12 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowled
 9	ADD:SPELLCASTER(ANY)	SA:.CLEAR.Energy Drain Resistance	SA:Energy Drain Immunity
 10	ADD:SPELLCASTER(ANY)							SA:Lichdom																												TEMPLATE:Lich
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					SKILLLIST
-CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE	SKILLLIST:1,Druid
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
 # Class Name	Required AL	Required Class		Required Feat		Required Skill
 CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Incarnate	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
+# Class Name	Skill Pts/Lvl	Use Class Skill List	Class Skill
+CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE.Profession|Scry|Spellcraft|Swim|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Incarnate	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Incarnate|CL
 1	FEATAUTO:Incarnate Weapon Proficiencies
