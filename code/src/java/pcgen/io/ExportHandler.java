@@ -778,84 +778,127 @@ public final class ExportHandler
 		}
 	}
 
+	/**
+	 * Loop through a set of output as required by a FOR loop.
+	 * 
+	 * @param node The node being processed
+	 * @param min The starting value of the loop
+	 * @param max The ending value fo the loop
+	 * @param step The amount by which the counter should be changed each iteration.
+	 * @param output The writer output is to be sent to.
+	 * @param fa The FileAccess instance to be used to manage the output.
+	 * @param aPC The character being processed.
+	 */
 	private void loopFOR(FORNode node, int min, int max, int step, BufferedWriter output, FileAccess fa, PlayerCharacter aPC)
 	{
-		for (int x = min; x <= max; x += step)
+		if (step < 0)
 		{
-			loopVariables.put(node.var(), new Integer(x));
-
-			for (int y = 0; y < node.children().size(); ++y)
+			for (int x = min; x >= max; x += step)
 			{
-				if (node.children().get(y) instanceof FORNode)
+				boolean stopLoop = processLoop(node, output, fa, aPC, x);
+				if (stopLoop)
 				{
-					FORNode nextFor = (FORNode) node.children().get(y);
-					loopVariables.put(nextFor.var(), new Integer(0));
-					existsOnly = nextFor.exists();
-
-					String minString = nextFor.min();
-					String maxString = nextFor.max();
-					String stepString = nextFor.step();
-					String fString;
-					String rString;
-
-					for (Object anObject : loopVariables.keySet())
-					{
-						if (anObject == null)
-						{
-							continue;
-						}
-
-						fString = anObject.toString();
-						rString = loopVariables.get(fString).toString();
-						minString = CoreUtility.replaceAll(minString, fString, rString);
-						maxString = CoreUtility.replaceAll(maxString, fString, rString);
-						stepString = CoreUtility.replaceAll(stepString, fString, rString);
-					}
-
-					final int varMin = getVarValue(minString, aPC);
-					final int varMax = getVarValue(maxString, aPC);
-					final int varStep = getVarValue(stepString, aPC);
-					loopFOR(nextFor, varMin, varMax, varStep, output, fa, aPC);
-					existsOnly = node.exists();
-					loopVariables.remove(nextFor.var());
-				}
-				else if (node.children().get(y) instanceof IIFNode)
-				{
-					evaluateIIF((IIFNode) node.children().get(y), output, fa, aPC);
-				}
-				else
-				{
-					String lineString = (String) node.children().get(y);
-
-					for (Object anObject : loopVariables.keySet())
-					{
-						if (anObject == null)
-						{
-							continue;
-						}
-
-						String fString = anObject.toString();
-						String rString = loopVariables.get(fString).toString();
-						lineString = CoreUtility.replaceAll(lineString, fString, rString);
-					}
-
-					noMoreItems = false;
-					replaceLine(lineString, output, aPC);
-
-					// Allow the output sheet author to control new lines.
-					if (canWrite && !manualWhitespace)
-					{
-						FileAccess.newLine(output);
-					}
-
-					// break out of loop if no more items
-					if (existsOnly && noMoreItems)
-					{
-						x = max + 1;
-					}
+					x = max - 1;
 				}
 			}
 		}
+		else
+		{
+			for (int x = min; x <= max; x += step)
+			{
+				boolean stopLoop = processLoop(node, output, fa, aPC, x);
+				if (stopLoop)
+				{
+					x = max + 1;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Process an iteration of a FOR loop.
+	 * @param node The node being processed
+	 * @param output The writer output is to be sent to.
+	 * @param fa The FileAccess instance to be used to manage the output.
+	 * @param aPC The character being processed.
+	 * @param index The current value of the loop index
+	 * @return true if the loop should be stopped.
+	 */
+	private boolean processLoop(FORNode node, BufferedWriter output, FileAccess fa, PlayerCharacter aPC, int index)
+	{
+		loopVariables.put(node.var(), new Integer(index));
+		for (int y = 0; y < node.children().size(); ++y)
+		{
+			if (node.children().get(y) instanceof FORNode)
+			{
+				FORNode nextFor = (FORNode) node.children().get(y);
+				loopVariables.put(nextFor.var(), new Integer(0));
+				existsOnly = nextFor.exists();
+
+				String minString = nextFor.min();
+				String maxString = nextFor.max();
+				String stepString = nextFor.step();
+				String fString;
+				String rString;
+
+				for (Object anObject : loopVariables.keySet())
+				{
+					if (anObject == null)
+					{
+						continue;
+					}
+
+					fString = anObject.toString();
+					rString = loopVariables.get(fString).toString();
+					minString = CoreUtility.replaceAll(minString, fString, rString);
+					maxString = CoreUtility.replaceAll(maxString, fString, rString);
+					stepString = CoreUtility.replaceAll(stepString, fString, rString);
+				}
+
+				final int varMin = getVarValue(minString, aPC);
+				final int varMax = getVarValue(maxString, aPC);
+				final int varStep = getVarValue(stepString, aPC);
+				loopFOR(nextFor, varMin, varMax, varStep, output, fa, aPC);
+				existsOnly = node.exists();
+				loopVariables.remove(nextFor.var());
+			}
+			else if (node.children().get(y) instanceof IIFNode)
+			{
+				evaluateIIF((IIFNode) node.children().get(y), output, fa, aPC);
+			}
+			else
+			{
+				String lineString = (String) node.children().get(y);
+
+				for (Object anObject : loopVariables.keySet())
+				{
+					if (anObject == null)
+					{
+						continue;
+					}
+
+					String fString = anObject.toString();
+					String rString = loopVariables.get(fString).toString();
+					lineString = CoreUtility.replaceAll(lineString, fString, rString);
+				}
+
+				noMoreItems = false;
+				replaceLine(lineString, output, aPC);
+
+				// Allow the output sheet author to control new lines.
+				if (canWrite && !manualWhitespace)
+				{
+					FileAccess.newLine(output);
+				}
+
+				// break out of loop if no more items
+				if (existsOnly && noMoreItems)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
