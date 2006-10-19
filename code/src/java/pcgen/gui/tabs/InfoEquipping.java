@@ -4254,15 +4254,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			resetModel(mode, model);
 			String[] colNameList = getNameList();
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], true)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], true)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[3], true)));
+			displayList.add(Boolean.TRUE);
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[1], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[2], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[3], true)));
 			if(modelType == 0) {
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[4], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[4], true)));
 			}
 			else {
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[4], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[4], false)));
 			}
 		}
 
@@ -4964,7 +4964,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			String[] colNameList = getNameList();
 			setColumnViewOption(modelType + "." + colNameList[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset() 

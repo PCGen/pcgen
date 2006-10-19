@@ -2559,7 +2559,7 @@ public class PCClass extends PObject {
 	 */
 	public void setMonsterFlag(final boolean aFlag) {
 		if (monsterFlag == null) {
-			monsterFlag = new Boolean(aFlag);
+			monsterFlag = Boolean.valueOf(aFlag);
 		}
 		monsterFlag = aFlag;
 	}

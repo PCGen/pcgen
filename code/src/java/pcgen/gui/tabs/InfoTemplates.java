@@ -990,18 +990,18 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 			resetModel(viewMode, available);
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
+			displayList.add(Boolean.TRUE);
 			if(available) {
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[2], true)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[3], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[2], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[3], true)));
 			}
 			else {
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[1], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[2], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[3], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[1], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[2], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[3], false)));
 			}
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + COL_NAMES[4], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[4], false)));
 		}
 
 		public boolean isCellEditable(Object node, int column)
@@ -1302,7 +1302,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		public void setMColumnDisplayed(int col, boolean disp) {
 			setColumnViewOption(modelType + "." + COL_NAMES[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset() {

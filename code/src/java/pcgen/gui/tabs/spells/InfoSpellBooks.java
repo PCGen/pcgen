@@ -415,9 +415,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		colNameList.add(PropertyFactory.getString("InfoSpellBooks.Descriptor")); //$NON-NLS-1$
 		colNameList.add(PropertyFactory.getString("InfoSpellBooks.SourceFile")); //$NON-NLS-1$
 		List<Boolean> colActiveList = new ArrayList<Boolean>();
-		colActiveList.add(new Boolean(true));
-		colActiveList.add(new Boolean(true));
-		colActiveList.add(new Boolean(true));
+		colActiveList.add(Boolean.TRUE);
+		colActiveList.add(Boolean.TRUE);
+		colActiveList.add(Boolean.TRUE);
 
 		 // Build the Top Panel
 		buildTopPanel();

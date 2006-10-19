@@ -96,14 +96,14 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 
 		int i = 1;
 		displayList = new ArrayList<Boolean>();
-		displayList.add(new Boolean(true));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.TRUE);
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
 	}
 
 	/**
@@ -456,7 +456,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	public void setMColumnDisplayed(int col, boolean disp) 
 	{
 		setColumnViewOption( avaNameList[col], disp);
-		displayList.set(col, new Boolean(disp));
+		displayList.set(col, Boolean.valueOf(disp));
 	}
 
 	/**

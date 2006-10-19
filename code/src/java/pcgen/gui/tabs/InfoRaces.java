@@ -938,14 +938,14 @@ public class InfoRaces extends BaseCharacterInfoTab
 			super(null);
 			resetModel(mode);
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[1], true)));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[2], true)));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[3], true)));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[4], false)));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[5], false)));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[6], false)));
-			displayList.add(new Boolean(getColumnViewOption(raceNameList[7], true)));
+			displayList.add(Boolean.TRUE);
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[1], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[2], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[3], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[4], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[5], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[6], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[7], true)));
 		}
 
 		/**
@@ -1555,7 +1555,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		public void setMColumnDisplayed(int col, boolean disp) {
 			setColumnViewOption(raceNameList[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset() {

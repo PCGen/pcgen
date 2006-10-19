@@ -224,46 +224,46 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	private List<Boolean> makeDisplayList(boolean available)
 	{
 		List<Boolean> retList = new ArrayList<Boolean>();
-		retList.add(new Boolean(true));
+		retList.add(Boolean.TRUE);
 		if(available)
 		{
 			int i = 1;
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SCHOOL
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SUBSCHOOL
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTOR
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SCHOOL
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SUBSCHOOL
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTOR
 			if (Spell.hasPPCost())
 			{
-				retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_PPCOST
+				retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], true))); //COL_PPCOST
 			}
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_COMPONENT
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_CASTTIME
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_RANGE
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTION
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_TARGET
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DURATION
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SAVE
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SR
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SRC
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_COMPONENT
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_CASTTIME
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_RANGE
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTION
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_TARGET
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_DURATION
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SAVE
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SR
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SRC
 		}
 		else
 		{
 			int i = 1;
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_SCHOOL
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_SUBSCHOOL
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_DESCRIPTOR
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], true))); //COL_SCHOOL
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], true))); //COL_SUBSCHOOL
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], true))); //COL_DESCRIPTOR
 			if (Spell.hasPPCost())
 			{
-				retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_PPCOST
+				retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], true))); //COL_PPCOST
 			}
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_COMPONENT
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_CASTTIME
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_RANGE
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTION
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_TARGET
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_DURATION
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SAVE
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], false))); //COL_SR
-			retList.add(new Boolean(getColumnViewOption(colNameList[i++], true))); //COL_SRC
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_COMPONENT
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_CASTTIME
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_RANGE
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_DESCRIPTION
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_TARGET
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_DURATION
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SAVE
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], false))); //COL_SR
+			retList.add(Boolean.valueOf(getColumnViewOption(colNameList[i++], true))); //COL_SRC
 		}
 
 		return retList;
@@ -1159,7 +1159,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	public void setMColumnDisplayed(int col, boolean disp) 
 	{
 		setColumnViewOption(colNameList[col], disp);
-		displayList.set(col, new Boolean(disp));
+		displayList.set(col, Boolean.valueOf(disp));
 	}
 
 

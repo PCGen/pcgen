@@ -78,9 +78,9 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 
 		int i = 1;
 		displayList = new ArrayList<Boolean>();
-		displayList.add(new Boolean(true));
-		displayList.add(new Boolean(getColumnViewOption(selNameList[i++], true)));
-		displayList.add(new Boolean(getColumnViewOption(selNameList[i++], true)));
+		displayList.add(Boolean.TRUE);
+		displayList.add(Boolean.valueOf(getColumnViewOption(selNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(selNameList[i++], true)));
 	}
 
 	/**
@@ -423,7 +423,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	public void setMColumnDisplayed(int col, boolean disp)
 	{
 		setColumnViewOption( selNameList[col], disp);
-		displayList.set(col, new Boolean(disp));
+		displayList.set(col, Boolean.valueOf(disp));
 	}
 
 	/**

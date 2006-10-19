@@ -1706,10 +1706,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			resetModel(mode);
 			displayList = new ArrayList<Boolean>();
 			int i = 1;
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
-			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
-			displayList.add(new Boolean(getColumnViewOption(deityNameList[i++], true)));
+			displayList.add(Boolean.TRUE);
+			displayList.add(Boolean.valueOf(getColumnViewOption(deityNameList[i++], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(deityNameList[i++], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(deityNameList[i++], true)));
 		}
 
 		/**
@@ -2136,7 +2136,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDisplayed(int col, boolean disp) 
 		{
 			setColumnViewOption(deityNameList[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset() 
@@ -2193,8 +2193,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private DomainModel()
 		{
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(domainColList[1], true)));
+			displayList.add(Boolean.TRUE);
+			displayList.add(Boolean.valueOf(getColumnViewOption(domainColList[1], true)));
 		}
 
 		/**
@@ -2360,7 +2360,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDisplayed(int col, boolean disp) 
 		{
 			setColumnViewOption(domainColList[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset() 

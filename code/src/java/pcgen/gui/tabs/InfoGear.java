@@ -3247,21 +3247,21 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			resetModel(mode, available);
 			int i = 1;
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
+			displayList.add(Boolean.TRUE);
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
 			if(available)
 			{
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
 			}
 			else
 			{
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
 			}
 		}
 
@@ -3823,7 +3823,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		public void setMColumnDisplayed(int col, boolean disp)
 		{
 			setColumnViewOption(modelType + "." + names[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset()

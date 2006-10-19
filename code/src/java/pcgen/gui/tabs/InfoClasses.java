@@ -1576,21 +1576,21 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 			resetModel(mode, available);
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));
+			displayList.add(Boolean.TRUE);
 			if(modelType == 0) {
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], true)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[1], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[2], false)));
 			}
 			else {
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[1], false)));
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[2], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[1], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[2], true)));
 			}
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[3], false)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[4], false)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[5], false)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[6], false)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[7], false)));
-			displayList.add(new Boolean(getColumnViewOption(modelType + "." + colNameList[8], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[3], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[4], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[5], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[6], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[7], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[8], true)));
 		}
 
 		public boolean isCellEditable(Object node, int column)
@@ -1976,7 +1976,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		public void setMColumnDisplayed(int col, boolean disp) 
 		{
 			setColumnViewOption(modelType + "." + colNameList[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		public int getMColumnOffset() 

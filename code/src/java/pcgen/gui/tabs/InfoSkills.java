@@ -2465,24 +2465,24 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			resetModel(mode, available);
 			int i = 1;
 			displayList = new ArrayList<Boolean>();
-			displayList.add(new Boolean(true));	// Skill
+			displayList.add(Boolean.TRUE);	// Skill
 			if (available)
 			{
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Modifier
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Rank
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Total
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Source
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Order
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Modifier
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Rank
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Total
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Source
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Order
 			}
 			else
 			{
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Modifier
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Rank
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Total
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], false)));	// Source
-				displayList.add(new Boolean(getColumnViewOption(modelType + "." + names[i++], true)));		// Order
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Modifier
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Rank
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Total
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Source
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Order
 			}
 		}
 
@@ -3088,7 +3088,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		public void setMColumnDisplayed(int col, boolean disp)
 		{
 			setColumnViewOption(modelType + "." + names[col], disp);
-			displayList.set(col, new Boolean(disp));
+			displayList.set(col, Boolean.valueOf(disp));
 		}
 
 		private void setColumnViewOption(String colName, boolean val) {

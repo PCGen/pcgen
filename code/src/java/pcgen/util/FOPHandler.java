@@ -254,7 +254,7 @@ public final class FOPHandler implements Runnable
 			driver.setRenderer(renderer);
 
 /*            Hashtable rendererOptions = new Hashtable();
-   rendererOptions.put("fineDetail", new Boolean(false));
+   rendererOptions.put("fineDetail", Boolean.FALSE);
    driver.getRenderer().setOptions(rendererOptions);
    driver.getRenderer().setProducer("PC Gen Character Generator");
  */
