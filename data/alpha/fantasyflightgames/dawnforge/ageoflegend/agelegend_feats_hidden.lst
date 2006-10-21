@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Oct 21 05:57:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 # Original Entry by: Ratheof Blithwyn
 
@@ -31,17 +31,17 @@ Panthic Order Fourth Guide	TYPE:Special	VISIBLE:NO	SA:Fourth Guide (%CHOICE)	MUL
 
 
 ###Block: Disciple of Mystery's Disciplines
-# Feat Name				Type						Visible	Required Race	Special Ability			Multiple?	Choose											Source Page
-Clear Body				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Clear Body																	SOURCEPAGE:p.56
-Clear Mind				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Clear Mind																	SOURCEPAGE:p.56
-Clear Spirit			TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Clear Spirit																	SOURCEPAGE:p.56
-Extend Body				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Extend Body																	SOURCEPAGE:p.56
-Extend Mind				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Extend Mind																	SOURCEPAGE:p.56
-Extend Spirit			TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Extend Spirit																	SOURCEPAGE:p.56
-Focus Self				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO				SA:Focus Self																	SOURCEPAGE:p.56
+# Feat Name				Type						Visible	Required Race		Special Ability			Multiple?	Choose											Source Page
+Clear Body				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Clear Body																	SOURCEPAGE:p.56
+Clear Mind				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Clear Mind																	SOURCEPAGE:p.56
+Clear Spirit			TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Clear Spirit																	SOURCEPAGE:p.56
+Extend Body				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Extend Body																	SOURCEPAGE:p.56
+Extend Mind				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Extend Mind																	SOURCEPAGE:p.56
+Extend Spirit			TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Extend Spirit																	SOURCEPAGE:p.56
+Focus Self				TYPE:DiscipleMysteryDiscipline	VISIBLE:NO					SA:Focus Self																	SOURCEPAGE:p.56
 
 
-Orc Adapter Cultural Study	TYPE:Special				VISIBLE:NO	PRERACE:Orc (DF)	SA:Cultural Study (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Doppelganger|Dwarf|Dawn Elf|Ghost Elf|Wood Elf|	SOURCEPAGE:p.70
+Orc Adapter Cultural Study	TYPE:Special				VISIBLE:NO	PRERACE:1,Orc (DF)	SA:Cultural Study (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|Doppelganger|Dwarf|Dawn Elf|Ghost Elf|Wood Elf|	SOURCEPAGE:p.70
 
 
 ###Block: Circle Walker's Gift
@@ -71,17 +71,23 @@ Gift of Wisdom		TYPE:WildernessGuideGift	VISIBLE:NO	SA:Gift of Wisdom							BONU
 #TODO:Check if Gift of Wisdom PREs work, if yes add the rest...plus pre for charisma...
 
 ###Block: Unbroken's Resistance
-# Feat Name				Type				Visible	Required Feat									Special Ability												Define					Multiple?	Choose		Virtual Feat		Modify VAR													Damage Reduction	Source Page
-Toxin Resistance			TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Toxin Resistance																																									SOURCEPAGE:p.117
-Weather Hardened Acid		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AcidResistance|COUNT[FEATNAME=Weather Hardened Acid.ALL]*5						SOURCEPAGE:p.117
-Weather Hardened Cold		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ColdResistance|COUNT[FEATNAME=Weather Hardened Cold.ALL]*5						SOURCEPAGE:p.117
-Weather Hardened Electricity	TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ElectricityResistance|COUNT[FEATNAME=Weather Hardened Electricity.ALL]*5				SOURCEPAGE:p.117
-Weather Hardened Fire		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|FireResistance|COUNT[FEATNAME=Weather Hardened Fire.ALL]*5						SOURCEPAGE:p.117
-Weather Hardened Sonic		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|SonicResistance|COUNT[FEATNAME=Weather Hardened Sonic.ALL]*5						SOURCEPAGE:p.117
-Battle Hardened			TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Battle Hardened																																						DR:2/-		SOURCEPAGE:p.117
-Battle Hardened II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Battle Hardened																																																		DR:3/-		SOURCEPAGE:p.117
-Battle Hardened III		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:2,Battle Hardened II,Battle Hardened																																															DR:4/-		SOURCEPAGE:p.117
-Battle Hardened IV		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:3,Battle Hardened III,Battle Hardened II,Battle Hardened																																												DR:5/-		SOURCEPAGE:p.117
-Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Survival Instincts																			VFEAT:Evasion																			SOURCEPAGE:p.117
-Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																VFEAT:Improved Evasion																		SOURCEPAGE:p.117
+# Feat Name				Type				Visible	Required Feat									Special Ability												Define					Multiple?	Choose		Virtual Feat		Modify VAR														Damage Reduction	Source Page
+Toxin Resistance			TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Toxin Resistance																																										SOURCEPAGE:p.117
+Weather Hardened Acid		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|AcidResistance|var("COUNT[FEATNAME=Weather Hardened Acid.ALL]")*5						SOURCEPAGE:p.117
+Weather Hardened Cold		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ColdResistance|var("COUNT[FEATNAME=Weather Hardened Cold.ALL]")*5						SOURCEPAGE:p.117
+Weather Hardened Electricity	TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|ElectricityResistance|var("COUNT[FEATNAME=Weather Hardened Electricity.ALL]")*5				SOURCEPAGE:p.117
+Weather Hardened Fire		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|FireResistance|var("COUNT[FEATNAME=Weather Hardened Fire.ALL]")*5						SOURCEPAGE:p.117
+Weather Hardened Sonic		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		MULT:YES	CHOOSE:NOCHOICE					BONUS:VAR|SonicResistance|var("COUNT[FEATNAME=Weather Hardened Sonic.ALL]")*5						SOURCEPAGE:p.117
+Battle Hardened			TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Battle Hardened																																							DR:2/-		SOURCEPAGE:p.117
+Battle Hardened II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Battle Hardened																																																			DR:3/-		SOURCEPAGE:p.117
+Battle Hardened III		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:2,Battle Hardened II,Battle Hardened																																																DR:4/-		SOURCEPAGE:p.117
+Battle Hardened IV		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:3,Battle Hardened III,Battle Hardened II,Battle Hardened																																													DR:5/-		SOURCEPAGE:p.117
+Survival Instincts		TYPE:UnbrokenResistance	VISIBLE:NO												SA:Resistance (Ex) Survival Instincts																			VFEAT:Evasion																				SOURCEPAGE:p.117
+Survival Instincts II		TYPE:UnbrokenResistance	VISIBLE:NO	PREFEAT:1,Survival Instincts																																VFEAT:Improved Evasion																			SOURCEPAGE:p.117
+
+###Block: Trueborn Staunch bonuses
+# Feat Name						Type				Visible	Save checks bonus
+Trueborn Staunch Will Save Increase		TYPE:HTrueStaunchBonus	VISIBLE:NO	BONUS:CHECKS|BASE.Will|1|TYPE=Transformation
+Trueborn Staunch Reflex Save Increase	TYPE:HTrueStaunchBonus	VISIBLE:NO	BONUS:CHECKS|BASE.Reflex|1|TYPE=Transformation
+Trueborn Staunch Fortitude Save Increase	TYPE:HTrueStaunchBonus	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|1|TYPE=Transformation
 
