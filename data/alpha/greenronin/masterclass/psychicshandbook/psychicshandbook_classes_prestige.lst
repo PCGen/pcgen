@@ -1,0 +1,114 @@
+# CVS $Revision$ $Author$ -- Sat Oct 21 21:09:46 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://www.greenronin.com
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Beastmaster	HD:8		TYPE:PC.Prestige	ABB:Bmr		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat				Required Skill
+CLASS:Beastmaster	PREFEAT:2,Psychic Ability,Telepathy	PRESKILL:3,Handle Animal,Mental Contact,Survival=7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Beastmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim
+1	SA:Animal Bond	SA:Animal Empathy +1
+2	SA:Beast Link
+3	SA:Animal Empathy +2
+4	SA:Beast Empathy
+5	SA:Animal Empathy +3
+6	SA:Beast Cohorts
+7	SA:Animal Empathy +4
+8	SA:Reduced Strain
+9	SA:Animal Empathy +5
+10	SA:Ride Within
+
+# Firestarter requires ( Psychic Ability and Pyrokinesis ) OR Wild Talent (Pyrokinesis)
+# Since I don't know how to code the OR in the PREFEAT, I am just using the Pyrokinesis skill as the limiter,
+# because it cannot be selected unless the character has either Psychic Ability and Pyrokinesis OR the Wild Talent (Pyrokinesis) FEATS
+#
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Firestarter	HD:4		TYPE:PC.Prestige	ABB:Fsr		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Multiple Requirements
+CLASS:Firestarter	PREMULT:1,[PRESKILL:1,Pyrokinesis=8],[PREFEAT:1,FEAT_WILD_TALENT_PSYCHICS(Pyrokinesis)]
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Firestarter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Psionics)|Listen|Perform|Profession|Pyrokinesis|Search|Sense Motive|Spot
+1					ADD:FEAT(Reduced Strain (Pyrokinesis))
+2	SA:Flaming Torch
+3	SA:Fire Mastery
+4	SA:Fire Resistance
+5	SA:Flame Blast
+6	SA:Flaming Weapon
+7	SA:Flame Aura
+8	SA:Fire Immunity
+9	SA:Fiery Grip
+10	SA:Animate Fire
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Ghost Stalker	HD:8		TYPE:PC.Prestige	ABB:Ghu		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat					Required Skill
+CLASS:Ghost Stalker	PREFEAT:2,Psychic Ability,Clairsentience	PRESKILL:1,Psychic Sense=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Ghost Stalker	STARTSKILLPTS:4	CSKILL:Heal|Knowledge (Spirits)|Listen|Profession|Search|Spot|Survival
+1	SA:Ghost Hunt +1								ADD:FEAT(Psychic Weapon)
+2	SA:Ghost Touch
+3	SA:Improved Psychic Weapon
+4	SA:Ghost Hunt +2
+5						CSKILL:Dimensional Phase
+6	SA:Ghost Smile (Su)
+7	SA:Ghost Hunt +3
+8	SA:Improved Psychic Shield
+9	SA:Ghost Hunt +4
+10	SA:Shielded Spirit
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Mind Hunter	HD:8		TYPE:PC.Prestige	ABB:Mhu		MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Check	Required Feat				Required Skill				Required Text
+CLASS:Mind Hunter	PREATT:5	PRECHECK:1,Will=3	PREFEAT:2,Track,[TYPE=Psychic]	PRESKILL:1,Knowledge (Psionics)=3	PRETEXT:Must have overcome a psychic creature in single combat
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mind Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Hide|Intimidate|Jump|Knowledge (Psionics)|Listen|Move Silently|Profession|Search|Sense Motive|Spot|Survival
+1					CSKILL:Psychic Sense|Psychic Shield
+2					CSKILL:Psychic Static								ADD:FEAT(Imbue Weapon)
+3					CSKILL:Drain Power								ADD:FEAT(Mental Fortitude)
+4					CSKILL:Drain Vitality								ADD:FEAT(Mind Over Matter)
+5	SA:Psychically Null
+6																ADD:FEAT(Divert Teleport)	ADD:FEAT(Mental Fortitude)
+7																ADD:FEAT(Psychic Reflection)
+8	SA:Psychic Hampering
+9											ADD:FEAT:(Mental Fortitude)
+10																ADD:FEAT(Psychic Severance)
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Psychic Adept	HD:8		TYPE:PC.Prestige	ABB:Pad		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat						Required Skill
+CLASS:Psychic Adept	PREFEAT:2,Psychic Ability,Psychometabolism	PRESKILL:3,Balance,Body Control,Concentration=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Artist|Heal|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Profession|Search|Sense Motive|Spot|Swim|Tumble
+1																	ADD:FEAT(Improved Unarmed Strike)	ADD:FEAT(Psychic Stamina)
+2										BONUS:VAR|MonkACLvl|cl("Psychic Adept")												FEATAUTO:Monk AC
+3	SA:Perfect Balance	SA:Body Equilibrium (Su)
+4																	ADD:FEAT(Mind Over Body)
+5	SA:Psychic Leap
+6	SA:Psychic Speed (Su)
+7	SA:Improved Body Control
+8	SA:Improved Ability Enhancement
+9	SA:Timeless Body
+10	SA:Body Mastery
+
+# Psychic Healer requires ( Psychic Ability and Psychometabolism ) OR Wild Talent (Psychic Healing)
+# Since I don't know how to code the OR in the PREFEAT, I am just using the Psychic Healing skill as the limiter,
+# because it cannot be selected unless the character has either Psychic Ability and Psychometabolism OR the Wild Talent (Psychic Healing) FEATS
+#
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Psychic Healer	HD:6		TYPE:PC.Prestige	ABB:Phl		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Multiple Requirements
+CLASS:Psychic Healer	PREMULT:1,[PRESKILL:2,Heal,Psychic Healing=6],[PREFEAT:1,FEAT_WILD_TALENT_PSYCHICS(Psychic Healing)]
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psychic Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE.Craft|Intimidate|Knowledge (Psionics)|Heal|Listen|Profession|Search|Sense Motive|Spot
+1						BONUS:SKILL|Psychic Healing|3
+2											ADD:FEAT(Reduced Strain(Psychic Healing))
+3											ADD:FEAT(Cure Disease)	ADD:FEAT(Cure Poison)
+4											ADD:FEAT(Cure Blindness/Deafness)
+5	SA:Restoration
+6	SA:Heal Mastery
+7											ADD:FEAT(Maximize Talent (Psychic Healing))
+8	SA:Psychic Healing Mastery
+9	SA:Regeneration (Su)
+10	SA:Raise Dead (Su)

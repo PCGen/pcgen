@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat Oct 21 03:25:07 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://www.greenronin.com
+
+# Crystals
+# Equipment Name	Type				Cost		Weight	MODS			Source Page
+Crystal		TYPE:Psychic.Crystal	COST:0	WT:0		MODS:REQUIRED	SOURCEPAGE:pp.56-58
