@@ -350,13 +350,13 @@ public class Event implements InitHolder
 		else if (columnName.equals("Init"))
 		{ // Spell's Initiative
 
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			init.setCurrentInitiative(intData.intValue());
 		}
 		else if (columnName.equals("Dur"))
 		{ // Spell's duration
 
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			setDuration(intData.intValue());
 		}
 	}

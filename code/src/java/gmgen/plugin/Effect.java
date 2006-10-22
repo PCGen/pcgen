@@ -143,7 +143,7 @@ public class Effect extends Event
 		else if (columnName.equals("Dur"))
 		{ // Spell's duration
 
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			setDuration(intData.intValue());
 		}
 	}

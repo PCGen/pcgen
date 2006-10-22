@@ -271,8 +271,8 @@ public abstract class Plugin
 		 */
 		public int compare(Plugin p1, Plugin p2)
 		{
-			Integer load1 = new Integer(p1.getPluginLoadOrder());
-			Integer load2 = new Integer(p2.getPluginLoadOrder());
+			Integer load1 = Integer.valueOf(p1.getPluginLoadOrder());
+			Integer load2 = Integer.valueOf(p2.getPluginLoadOrder());
 			System.out.println(p1.getName() + ": " + p1.getPluginLoadOrder() + " - " + p2.getName() + ": " + p2.getPluginLoadOrder());
 
 			return load2.compareTo(load1);

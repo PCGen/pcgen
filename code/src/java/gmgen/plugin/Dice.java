@@ -67,7 +67,7 @@ public class Dice extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = new Integer(rand.nextInt(sides) + 1);
+			rolls[i] = Integer.valueOf(rand.nextInt(sides) + 1);
 			value = rolls[i].intValue() + value;
 		}
 

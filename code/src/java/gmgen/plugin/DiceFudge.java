@@ -69,7 +69,7 @@ public class DiceFudge extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = new Integer(die.roll());
+			rolls[i] = Integer.valueOf(die.roll());
 
 			if ((rolls[i].intValue() == 1) || (rolls[i].intValue() == 2))
 			{

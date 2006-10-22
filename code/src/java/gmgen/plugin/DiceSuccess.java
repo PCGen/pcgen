@@ -72,7 +72,7 @@ public class DiceSuccess extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = new Integer(die.roll());
+			rolls[i] = Integer.valueOf(die.roll());
 
 			if (rolls[i].intValue() >= difficulty)
 			{

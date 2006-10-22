@@ -96,7 +96,7 @@ public class DieEx extends Die
 
 		for (int x = 0; x < num; x++)
 		{
-			rolls[x] = new Integer((int) (Math.random() * sides) + 1);
+			rolls[x] = Integer.valueOf((int) (Math.random() * sides) + 1);
 			total += rolls[x].intValue();
 		}
 

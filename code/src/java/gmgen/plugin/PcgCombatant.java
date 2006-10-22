@@ -279,37 +279,37 @@ public class PcgCombatant extends Combatant
 		else if (columnName.equals("+"))
 		{
 			// Initative bonus
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			init.setBonus(intData.intValue());
 		}
 		else if (columnName.equals("Init"))
 		{
 			// Initative
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			init.setCurrentInitiative(intData.intValue());
 		}
 		else if (columnName.equals("#"))
 		{
 			// Number (for tokens)
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			setNumber(intData.intValue());
 		}
 		else if (columnName.equals("HP"))
 		{
 			// Current Hit Points
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			hitPoints.setCurrent(intData.intValue());
 		}
 		else if (columnName.equals("HP Max"))
 		{
 			// Maximum Hit Points
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			hitPoints.setMax(intData.intValue());
 		}
 		else if (columnName.equals("Dur"))
 		{
 			// Duration
-			Integer intData = new Integer(strData);
+			Integer intData = Integer.valueOf(strData);
 			setDuration(intData.intValue());
 		}
 		else if (columnName.equals("Type"))

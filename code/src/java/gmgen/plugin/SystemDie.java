@@ -40,7 +40,7 @@ public class SystemDie extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = new Integer(rand.nextInt(sides) + 1 + aModifier);
+			rolls[i] = Integer.valueOf(rand.nextInt(sides) + 1 + aModifier);
 
 			if (rolls[i].intValue() == 1)
 			{
