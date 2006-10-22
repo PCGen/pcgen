@@ -114,6 +114,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	protected String displayName = Constants.EMPTY_STRING;
 
 	/** Indicates if this object should be displayed to the user in the UI. */
+	/*
+	 * DELETEVARIABLE This should be deleted, and PCClass (the only user of
+	 * visible) should be trained to use the visibility variable
+	 */
 	protected boolean visible = true;
 	protected Visibility visibility = Visibility.DEFAULT;
 
@@ -3480,6 +3484,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		listChar.addToListFor(ListKey.TYPE, myType);
 	}
 
+	/*
+	 * REFACTOR Get this OUT of PObject's interface since this is ONLY in PCClass.
+	 * Not to mention that the overload code will probably be removed from PCClass.
+	 */
 	void fireNameChanged(final String oldName, final String newName)
 	{
 		// This method currently does nothing so it may be overriden in PCClass.
