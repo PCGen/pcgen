@@ -11542,7 +11542,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
-		if ( wp != null )
+		if ( wp != null && cachedWeaponProfs != null)
 		{
 			cachedWeaponProfs.put(wp.getKeyName(), wp);
 		}
@@ -16428,6 +16428,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					added.setFeatType(Ability.Nature.AUTOMATIC);
 				}
 			}
+			
+			addAutoProfsToList(getRace().getSafeListFor(
+				ListKey.SELECTED_WEAPON_PROF_BONUS), stableAutomaticFeatList);
+
 		}
 
 		for (final PCClass aClass : getClassList())
@@ -16502,6 +16506,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					added.setFeatType(Ability.Nature.AUTOMATIC);
 				}
 			}
+			addAutoProfsToList(aClass
+				.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS),
+				stableAutomaticFeatList);
 		}
 
 		if (!PlayerCharacterUtilities.canReassignTemplateFeats() && !getTemplateList().isEmpty())
@@ -16527,6 +16534,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 						}
 					}
 				}
+				addAutoProfsToList(aTemplate
+					.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS),
+					stableAutomaticFeatList);
+				
 			}
 		}
 
@@ -16572,10 +16583,30 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 							added.setFeatType(Ability.Nature.AUTOMATIC);
 						}
 					}
+					
+					addAutoProfsToList(aDomain
+						.getSafeListFor(ListKey.SELECTED_WEAPON_PROF_BONUS),
+						stableAutomaticFeatList);
+					
 				}
 			}
 		}
 		return stableAutomaticFeatList;
+	}
+
+	/**
+	 * Add the listed automatic weapon proficiencies to the list of abilities.
+	 *  
+	 * @param autoProfList The list of weapon profs to be added.
+	 * @param abilityList The list to add the new entries to.
+	 */
+	private void addAutoProfsToList(List<String> autoProfList, List<Ability> abilityList)
+	{
+		for (Iterator<String> iter = autoProfList.iterator(); iter.hasNext();)
+		{
+			String prof = iter.next();
+			addWeaponProfToList(abilityList, prof, true);
+		}
 	}
 
 //	public double getBonusValue(final String aBonusType, final String aBonusName )
