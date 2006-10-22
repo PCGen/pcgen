@@ -903,7 +903,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				switch (columnIndex)
 				{
 					case 0:
-						return new Integer(lt.getLevel());
+						return Integer.valueOf(lt.getLevel());
 
 					case 1:
 						return lt.getTag();

@@ -720,7 +720,7 @@ public final class ExportHandler
 			if (children.get(y) instanceof FORNode)
 			{
 				FORNode nextFor = (FORNode) children.get(y);
-				loopVariables.put(nextFor.var(), new Integer(0));
+				loopVariables.put(nextFor.var(), Integer.valueOf(0));
 				existsOnly = nextFor.exists();
 
 				String minString = nextFor.min();
@@ -826,13 +826,13 @@ public final class ExportHandler
 	 */
 	private boolean processLoop(FORNode node, BufferedWriter output, FileAccess fa, PlayerCharacter aPC, int index)
 	{
-		loopVariables.put(node.var(), new Integer(index));
+		loopVariables.put(node.var(), Integer.valueOf(index));
 		for (int y = 0; y < node.children().size(); ++y)
 		{
 			if (node.children().get(y) instanceof FORNode)
 			{
 				FORNode nextFor = (FORNode) node.children().get(y);
-				loopVariables.put(nextFor.var(), new Integer(0));
+				loopVariables.put(nextFor.var(), Integer.valueOf(0));
 				existsOnly = nextFor.exists();
 
 				String minString = nextFor.min();
@@ -1189,19 +1189,18 @@ public final class ExportHandler
 
 		if (endMode == SIGN_MODE)
 		{
-			final Integer valInt = new Integer(total.intValue());
-			return Delta.toString(valInt);
+			return Delta.toString(total.intValue());
 		}
 
 		if (endMode == NO_ZERO_MODE)
 		{
-			final Integer valInt = new Integer(total.intValue());
-			if (valInt.intValue() == 0)
+			final int totalIntValue = total.intValue();
+			if (totalIntValue == 0)
 			{
 				return "";
 			}
 
-			return Delta.toString(valInt);
+			return Delta.toString(totalIntValue);
 		}
 
 		return total.toString();
@@ -2955,9 +2954,9 @@ public final class ExportHandler
 									int j = 0;
 									final PStringTokenizer pTok = new PStringTokenizer(aString.substring(4), ",",
 											"\\\\", "\\\\");
-									Integer cMin = new Integer(0);
-									Integer cMax = new Integer(100);
-									Integer cStep = new Integer(1);
+									Integer cMin = Integer.valueOf(0);
+									Integer cMax = Integer.valueOf(100);
+									Integer cStep = Integer.valueOf(1);
 									String cString = "";
 									String cStartLineString = "";
 									String cEndLineString = "";
@@ -3018,7 +3017,7 @@ public final class ExportHandler
 
 									if ((cMax.intValue() >= PCs.length) && _existsOnly)
 									{
-										cMax = new Integer(PCs.length);
+										cMax = Integer.valueOf(PCs.length);
 									}
 
 									for (int k = cMin.intValue(); k < cMax.intValue(); k++)

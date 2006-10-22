@@ -4213,7 +4213,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// Assume a max of 10 attack cycles
 		for (int total = 0; total < 10; ++total)
 		{
-			ab.add(new Integer(0));
+			ab.add(Integer.valueOf(0));
 		}
 
 		// Some classes (like the Monk or Ranged Sniper) use
@@ -4231,7 +4231,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final int d = ab.get(c).intValue() + b;
 
 			// set new value for iteration
-			ab.set(c, new Integer(d));
+			ab.set(c, Integer.valueOf(d));
 
 			if (c != 3)
 			{
@@ -5739,7 +5739,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				adjustFeats(race.getBonusInitialFeats());
 
 				int totalLevels = this.getTotalLevels();
-//				final Integer zero = new Integer(0);
+//				final Integer zero = Integer.valueOf(0);
 
 				for ( PCClass pcClass : existingClasses )
 				{
@@ -10305,7 +10305,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		for (int i = 0; i < iCount; ++i)
 		{
 			toClass.setHitPoint(iToLevel + i, fromClass.getHitPoint(iFromLevel + i));
-			fromClass.setHitPoint(iFromLevel + i, new Integer(0));
+			fromClass.setHitPoint(iFromLevel + i, Integer.valueOf(0));
 		}
 
 		rebuildLists(toClass, fromClass, iCount, this);

@@ -179,7 +179,7 @@ final class MainHP extends JPanel
 				{
 					if (iRow < aRace.hitDice(aPC))
 					{
-						aRace.setHitPoint(iRow, new Integer(iRoll));
+						aRace.setHitPoint(iRow, Integer.valueOf(iRoll));
 					}
 
 					iRow -= aRace.hitDice(aPC);
@@ -192,7 +192,7 @@ final class MainHP extends JPanel
 					if (aClass != null)
 					{
 						final int lvl = aPC.getLevelInfoClassLevel(iRow) - 1;
-						aClass.setHitPoint(lvl, new Integer(iRoll));
+						aClass.setHitPoint(lvl, Integer.valueOf(iRoll));
 					}
 				}
 
@@ -452,7 +452,7 @@ final class MainHP extends JPanel
 						//
 						if (iHp > iSides)
 						{
-							aRace.setHitPoint(rowIndex, new Integer(iSides));
+							aRace.setHitPoint(rowIndex, Integer.valueOf(iSides));
 							iHp = iSides;
 						}
 					}
@@ -482,7 +482,7 @@ final class MainHP extends JPanel
 						//
 						if (iHp > iSides)
 						{
-							aClass.setHitPoint(lvl - 1, new Integer(iSides));
+							aClass.setHitPoint(lvl - 1, Integer.valueOf(iSides));
 							iHp = iSides;
 						}
 					}
@@ -503,7 +503,7 @@ final class MainHP extends JPanel
 						case 2:
 						case 4:
 
-							Integer iBonus = new Integer((int) aPC.getTotalBonusTo("HP", "CURRENTMAX"));
+							Integer iBonus = Integer.valueOf((int) aPC.getTotalBonusTo("HP", "CURRENTMAX"));
 
 							return iBonus;
 
@@ -539,7 +539,7 @@ final class MainHP extends JPanel
 								iHp += ((Integer) getValueAt(i, 4)).intValue();
 							}
 
-							return new Integer(iHp);
+							return Integer.valueOf(iHp);
 
 						default:
 							break;
@@ -559,16 +559,16 @@ final class MainHP extends JPanel
 						return aClass.getDisplayName();
 
 					case 1: // Sides
-						return new Integer(iSides);
+						return Integer.valueOf(iSides);
 
 					case 2: // Roll
-						return new Integer(iHp);
+						return Integer.valueOf(iHp);
 
 					case 3: // Con
 
 						int iConMod = (int) aPC.getStatBonusTo("HP", "BONUS");
 
-						return new Integer(iConMod);
+						return Integer.valueOf(iConMod);
 
 					case 4: // Total
 						iHp += (int) aPC.getStatBonusTo("HP", "BONUS");
@@ -578,7 +578,7 @@ final class MainHP extends JPanel
 							iHp = 1;
 						}
 
-						return new Integer(iHp);
+						return Integer.valueOf(iHp);
 
 					case 5:
 						return "+";

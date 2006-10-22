@@ -1058,7 +1058,7 @@ final class LstConverter extends JFrame
 				return;
 			}
 
-			final Integer i = new Integer(aValue.toString());
+			final Integer i = Integer.valueOf(aValue.toString());
 
 			switch (columnIndex)
 			{
@@ -1119,18 +1119,18 @@ final class LstConverter extends JFrame
 
 					final int x = lstTypeList.get(rowIndex);
 
-					return new Integer(x);
+					return Integer.valueOf(x);
 
 				case 3:
 
 					int ok = okList.get(rowIndex);
 
-					return new Integer(ok);
+					return Integer.valueOf(ok);
 
 				case 4:
 					ok = doneList.get(rowIndex);
 
-					return new Integer(ok);
+					return Integer.valueOf(ok);
 
 				default:
 					Logging.errorPrint("In LstConverter.LstTableModel.getValueAt the column " + columnIndex

@@ -428,7 +428,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 				return (aSpell != null) ? aSpell.getDefaultSourceString() : null;
 
 			case COL_PPCOST:
-				return (spellA != null) ? new Integer(((SpellInfo) fn.getItem()).getActualPPCost()) : null;
+				return (spellA != null) ? Integer.valueOf(((SpellInfo) fn.getItem()).getActualPPCost()) : null;
 
 			default:
 				return fn.getItem();

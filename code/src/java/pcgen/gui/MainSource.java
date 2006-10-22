@@ -310,7 +310,7 @@ public class MainSource extends FilterAdapterPanel
 
 		if (saveViewMode == null)
 		{
-			saveViewMode = new Integer(viewMode);
+			saveViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = VIEW_PRODUCT;
 		availableModel.resetModel(viewMode, true, false);

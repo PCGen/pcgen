@@ -50,9 +50,9 @@ public final class Race extends PObject
 	private ArrayList<String> monCSkillList = null;
 	// TODO - Why do we need a hit point map in the race?
 	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
-	private Integer initMod = new Integer(0);
-	private Integer naturalAC = new Integer(0);
-	private Integer startingAC = new Integer(10);
+	private Integer initMod = Integer.valueOf(0);
+	private Integer naturalAC = Integer.valueOf(0);
+	private Integer startingAC = Integer.valueOf(10);
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
 	private String bonusSkillList = Constants.EMPTY_STRING;
@@ -370,7 +370,7 @@ public final class Race extends PObject
 
 		if (aHP == null)
 		{
-			return new Integer(0);
+			return Integer.valueOf(0);
 		}
 
 		return aHP;
@@ -933,9 +933,6 @@ public final class Race extends PObject
 			aRace.heightString = heightString;
 			aRace.weightString = weightString;
 			aRace.featList = featList;
-			aRace.startingAC = new Integer(startingAC.intValue());
-			aRace.naturalAC = new Integer(naturalAC.intValue());
-			aRace.initMod = new Integer(initMod.intValue());
 			aRace.langNum = langNum;
 			aRace.initialSkillMultiplier = initialSkillMultiplier;
 			aRace.levelAdjustment = levelAdjustment;
@@ -1003,7 +1000,7 @@ public final class Race extends PObject
 
 			for (int x = 0; x < hitDice; ++x)
 			{
-				setHitPoint(x, new Integer(Globals.rollHP(min, max, getKeyName(), x + 1)));
+				setHitPoint(x, Integer.valueOf(Globals.rollHP(min, max, getKeyName(), x + 1)));
 			}
 		}
 

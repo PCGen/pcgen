@@ -169,7 +169,7 @@ public final class UIFactory
 	 */
 	public static void setLookAndFeel(int looknfeel)
 	{
-		internalSetLookAndFeel(new Integer(looknfeel));
+		internalSetLookAndFeel(Integer.valueOf(looknfeel));
 	}
 
 	/**
@@ -240,7 +240,7 @@ public final class UIFactory
 	{
 		if (SettingsHandler.getLookAndFeel() < lafData.length)
 		{
-			internalSetLookAndFeel(new Integer(SettingsHandler.getLookAndFeel()));
+			internalSetLookAndFeel(Integer.valueOf(SettingsHandler.getLookAndFeel()));
 		}
 		else if (SettingsHandler.getLookAndFeel() == lafData.length)
 		{

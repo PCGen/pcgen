@@ -3880,7 +3880,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (saveViewMode == null)
 		{
-			saveViewMode = new Integer(viewMode);
+			saveViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFOEQUIPPING_VIEW_NAME;
 		availableModel.resetModel(viewMode, MODEL_AVAIL);
@@ -4074,16 +4074,16 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			switch (this.getSelectedIndex())
 			{
 				case 0: // Don't use Temp Bonuses
-					return new Integer(0);
+					return Integer.valueOf(0);
 
 				case 1: // use selected Temp Bonuses
-					return new Integer(1);
+					return Integer.valueOf(1);
 
 				case 2: // use Temp Bonuses
-					return new Integer(2);
+					return Integer.valueOf(2);
 
 				default:
-					return new Integer(0);
+					return Integer.valueOf(0);
 			}
 		}
 

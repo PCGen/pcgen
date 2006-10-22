@@ -544,7 +544,7 @@ public final class Spell extends PObject
 					levelInfo = new HashMap<String, Integer>();
 				}
 
-				levelInfo.put(key, new Integer(level));
+				levelInfo.put(key, Integer.valueOf(level));
 			}
 		}
 	}
@@ -1036,7 +1036,7 @@ public final class Spell extends PObject
 	public boolean isLevel(final int aLevel, final PlayerCharacter aPC)
 	{
 		final Map<String, Integer> wLevelInfo = getLevelInfo(aPC);
-		final Integer levelKey = new Integer(aLevel);
+		final Integer levelKey = Integer.valueOf(aLevel);
 		for (String key : wLevelInfo.keySet())
 		{
 			if (wLevelInfo.get(key).equals(levelKey))

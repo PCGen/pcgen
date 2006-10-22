@@ -603,7 +603,7 @@ public final class BioSet extends PObject
 				for (int ageBracket = 0; (ageBracket < ageSets.size()) && iter.hasNext(); ageBracket++)
 				{
 					final String tagValue = (String) iter.next();
-					final SortedMap races = (SortedMap) ageSets.get(new Integer(ageBracket));
+					final SortedMap races = (SortedMap) ageSets.get(Integer.valueOf(ageBracket));
 					SortedMap tags = (SortedMap) races.get(aRaceName);
 
 					if (tags == null)
@@ -617,7 +617,7 @@ public final class BioSet extends PObject
 			}
 			else
 			{
-				final SortedMap races = (SortedMap) ageSets.get(new Integer(0));
+				final SortedMap races = (SortedMap) ageSets.get(Integer.valueOf(0));
 				SortedMap tags = (SortedMap) races.get(aRaceName);
 
 				if (tags == null)
@@ -916,7 +916,7 @@ public final class BioSet extends PObject
 		{
 			if (key.startsWith(region + "."))
 			{
-				final Integer setNum = new Integer(key.substring(region.length() + 1));
+				final Integer setNum = Integer.valueOf(key.substring(region.length() + 1));
 				final String value = ageMap.get(key);
 				final SortedMap<String, String> races = new TreeMap<String, String>();
 				races.put("AGESET", value);

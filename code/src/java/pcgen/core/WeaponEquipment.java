@@ -16,7 +16,7 @@ public class WeaponEquipment implements Cloneable
 	private Equipment theEquipment;
 	private String theDamage = "";
 	private String theDamageMod = "";
-	private Integer theRange = new Integer(0);
+	private Integer theRange = Integer.valueOf(0);
 	private String theCritRange = "";
 	private int theCritMult = 0;
 	private String theRateOfFire = "";
@@ -197,7 +197,7 @@ public class WeaponEquipment implements Cloneable
 
 			if (aRange.length() != 0)
 			{
-				myRange = new Integer(aRange);
+				myRange = Integer.valueOf(aRange);
 			}
 		}
 
@@ -237,7 +237,7 @@ public class WeaponEquipment implements Cloneable
 			r = 10;
 		}
 
-		return new Integer(r);
+		return Integer.valueOf(r);
 	}
 
 	/**
@@ -383,7 +383,7 @@ public class WeaponEquipment implements Cloneable
 			weapon = (WeaponEquipment) super.clone();
 			weapon.theDamage = new String(theDamage);
 			weapon.theDamageMod = new String(theDamageMod);
-			weapon.theRange = new Integer(theRange);
+			weapon.theRange = Integer.valueOf(theRange);
 			weapon.theCritRange = new String(theCritRange);
 			weapon.theCritMult = theCritMult;
 			weapon.theRateOfFire = new String(theRateOfFire);

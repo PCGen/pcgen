@@ -85,7 +85,7 @@ class SourceBasePanel extends BasePanel
 
 	public void updateData(PObject thisPObject)
 	{
-		theCampaign.setRank(new Integer(rank.getValue().toString()).intValue());
+		theCampaign.setRank(Integer.parseInt(rank.getValue().toString()));
 		game = "";
 		StringBuffer tempBuff = new StringBuffer(30);
 		if (gm35e.isSelected())
@@ -180,7 +180,7 @@ class SourceBasePanel extends BasePanel
 		theCampaign = (Campaign) thisPObject;
 		sourceModel.setLists(theCampaign.getOptionsList(), theCampaign.getLicenses(),
 		    theCampaign.getSection15s());
-		rank.setValue(new Integer(theCampaign.getRank()));
+		rank.setValue(Integer.valueOf(theCampaign.getRank()));
 		game = theCampaign.getGameModeString();
 
 		final StringTokenizer aTok = new StringTokenizer(game, ", ");

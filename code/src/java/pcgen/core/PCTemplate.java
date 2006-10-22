@@ -2174,7 +2174,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public void setHands(final int newHands)
 	{
-		hands = new Integer(newHands);
+		hands = Integer.valueOf(newHands);
 	}
 
 	/**
@@ -2193,7 +2193,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public void setLegs(final int argLegs)
 	{
-		legs = new Integer(argLegs);
+		legs = Integer.valueOf(argLegs);
 	}
 
 	/**
@@ -2211,7 +2211,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public void setReach(final int newReach)
 	{
-		reach = new Integer(newReach);
+		reach = Integer.valueOf(newReach);
 	}
 
 	/**

@@ -1437,7 +1437,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				try
 				{
-					aPCClass.setHitPoint(level - 1, new Integer(element.getText()));
+					aPCClass.setHitPoint(level - 1, Integer.valueOf(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -2809,7 +2809,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 							try
 							{
-								hitPointMap.put(Integer.toString(i++), new Integer(aTok.nextToken()));
+								hitPointMap.put(Integer.toString(i++), Integer.valueOf(aTok.nextToken()));
 							}
 							catch (NumberFormatException ex)
 							{

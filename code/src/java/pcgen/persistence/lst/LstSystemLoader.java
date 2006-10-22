@@ -414,7 +414,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			// to load in total so that they can set up any
 			// progress meters that they want to.
 			setChanged();
-			notifyObservers(new Integer(countTotalFilesToLoad()));
+			notifyObservers(Integer.valueOf(countTotalFilesToLoad()));
 
 			// Load using the new LstFileLoaders
 
@@ -2607,7 +2607,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 		{
 			public int compare(Campaign c1, Campaign c2)
 			{
-				return new Integer(c1.getRank()).compareTo(new Integer(c2.getRank()));
+				return c1.getRank() - c2.getRank();
 			}
 		});
 

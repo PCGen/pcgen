@@ -102,8 +102,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		   Added to pcgen by Scott Ellsworth
 		 */
 		UIManager.put("TreeTableUI", "javax.swing.plaf.metal.MetalTreeUI"); //$NON-NLS-1$ //$NON-NLS-2$
-		UIManager.put("Tree.leftChildIndent", new Integer(3)); //$NON-NLS-1$
-		UIManager.put("Tree.rightChildIndent", new Integer(8)); //$NON-NLS-1$
+		UIManager.put("Tree.leftChildIndent", Integer.valueOf(3)); //$NON-NLS-1$
+		UIManager.put("Tree.rightChildIndent", Integer.valueOf(8)); //$NON-NLS-1$
 
 		// Create the tree. It will be used as a renderer and editor.
 		tree = new TreeTableCellRenderer(treeTableModel);

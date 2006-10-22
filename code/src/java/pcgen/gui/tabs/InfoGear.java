@@ -2118,7 +2118,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		for (int i = 0; i < 5; ++i)
 		{
-			predefinedPercent[i] = new Integer(i * 50);
+			predefinedPercent[i] = Integer.valueOf(i * 50);
 		}
 
 		cmbBuyPercent.setEditable(true);
@@ -2126,8 +2126,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		cmbBuyPercent.setModel(new DefaultComboBoxModel(predefinedPercent));
 		cmbSellPercent.setModel(new DefaultComboBoxModel(predefinedPercent));
 
-		cmbBuyPercent.setSelectedItem(new Integer(SettingsHandler.getGearTab_BuyRate()));
-		cmbSellPercent.setSelectedItem(new Integer(SettingsHandler.getGearTab_SellRate()));
+		cmbBuyPercent.setSelectedItem(Integer.valueOf(SettingsHandler.getGearTab_BuyRate()));
+		cmbSellPercent.setSelectedItem(Integer.valueOf(SettingsHandler.getGearTab_SellRate()));
 
 		cmbBuyPercent.addActionListener(new ActionListener()
 			{
@@ -2157,7 +2157,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						if (rate < 0)
 						{
 							rate = SettingsHandler.getGearTab_BuyRate();
-							cmbBuyPercent.setSelectedItem(new Integer(rate));
+							cmbBuyPercent.setSelectedItem(Integer.valueOf(rate));
 						}
 
 						SettingsHandler.setGearTab_BuyRate(rate);
@@ -2192,7 +2192,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						if (rate < 0)
 						{
 							rate = SettingsHandler.getGearTab_SellRate();
-							cmbSellPercent.setSelectedItem(new Integer(rate));
+							cmbSellPercent.setSelectedItem(Integer.valueOf(rate));
 						}
 
 						SettingsHandler.setGearTab_SellRate(rate);
@@ -2378,7 +2378,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		if (saveAvailableViewMode == null)
 		{
-			saveAvailableViewMode = new Integer(viewMode);
+			saveAvailableViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFOINVENTORY_VIEW_NAME;
 		availableModel.resetModel(viewMode, true);
@@ -2401,7 +2401,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		if (saveSelectedViewMode == null)
 		{
-			saveSelectedViewMode = new Integer(viewSelectMode);
+			saveSelectedViewMode = Integer.valueOf(viewSelectMode);
 		}
 		viewSelectMode = GuiConstants.INFOINVENTORY_VIEW_NAME;
 		selectedModel.resetModel(viewMode, false);
@@ -3107,17 +3107,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			switch (this.getSelectedIndex())
 			{
 				case 0: // First
-					return new Integer(0);
+					return Integer.valueOf(0);
 
 				case 1: // Last
-					return new Integer(1000);
+					return Integer.valueOf(1000);
 
 				case 2: // Hidden
-					return new Integer(-1);
+					return Integer.valueOf(-1);
 
 				default: // A number
 
-					return new Integer((String) getSelectedItem());
+					return Integer.valueOf((String) getSelectedItem());
 			}
 		}
 
@@ -3379,7 +3379,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				case COL_INDEX: // Output index
 					if (eq != null)
 					{
-						retVal = new Integer(eq.getOutputIndex());
+						retVal = Integer.valueOf(eq.getOutputIndex());
 					}
 					break;
 

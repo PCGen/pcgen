@@ -2195,7 +2195,7 @@ public final class GameMode implements Comparable<Object>
 			pointBuyStatCosts = new TreeMap<Integer, PointBuyCost>(new ComparableComparator());
 		}
 		abilityScoreCost = null;
-		pointBuyStatCosts.put(new Integer(pbc.getStatValue()), pbc);
+		pointBuyStatCosts.put(Integer.valueOf(pbc.getStatValue()), pbc);
 	}
 
 	/**

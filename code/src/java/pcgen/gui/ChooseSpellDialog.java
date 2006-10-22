@@ -230,7 +230,7 @@ final class ChooseSpellDialog extends JDialog
 		}
 		else
 		{
-			cmbCasterLevel.setSelectedItem(new Integer(casterLevel));
+			cmbCasterLevel.setSelectedItem(Integer.valueOf(casterLevel));
 		}
 
 		if (lblCasterLevel.isEnabled() != bEnabled)
@@ -1341,7 +1341,7 @@ final class ChooseSpellDialog extends JDialog
 
 			for (int i = minimumLevel; i < levelList.size(); ++i)
 			{
-				levelsForCasting[i] = new Integer(levelList.get(i));
+				levelsForCasting[i] = Integer.valueOf(levelList.get(i));
 			}
 		}
 		else
@@ -1350,7 +1350,7 @@ final class ChooseSpellDialog extends JDialog
 
 			for (int i = minimumLevel; i <= maxLevel; i++)
 			{
-				levelsForCasting[i - minimumLevel] = new Integer(i);
+				levelsForCasting[i - minimumLevel] = Integer.valueOf(i);
 			}
 		}
 
@@ -1363,7 +1363,7 @@ final class ChooseSpellDialog extends JDialog
 
 		for (int i = 1; i <= 20; i++)
 		{
-			levelsForCasting[i - 1] = new Integer(i);
+			levelsForCasting[i - 1] = Integer.valueOf(i);
 		}
 
 		cmbCasterLevel.setModel(new DefaultComboBoxModel(levelsForCasting));

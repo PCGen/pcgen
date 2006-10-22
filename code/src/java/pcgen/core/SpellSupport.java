@@ -84,7 +84,7 @@ public class SpellSupport implements Cloneable
     public void putLevel(String tagType, String className, String spellName,
 			String spellLevel)
 	{
-		Integer lvl = new Integer(-1);
+		Integer lvl = Integer.valueOf(-1);
 		try
 		{
 			lvl = Integer.parseInt(spellLevel);

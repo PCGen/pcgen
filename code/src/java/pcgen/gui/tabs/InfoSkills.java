@@ -364,9 +364,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	public static SkillWrapper createSkillWrapper(boolean available, Skill skill, PlayerCharacter pc)
 	{
-		return available ? new SkillWrapper(skill, new Integer(0), new Float(0), new Integer(0))
+		return available ? new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0))
 						 : new SkillWrapper(skill, skill.modifier(pc), skill.getTotalRank(pc),
-			new Integer(skill.getOutputIndex()));
+			Integer.valueOf(skill.getOutputIndex()));
 	}
 
 	/**
@@ -2177,7 +2177,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (saveAvailableViewMode == null)
 		{
-			saveAvailableViewMode = new Integer(viewMode);
+			saveAvailableViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFOSKILLS_VIEW_NAME;
 		availableModel.resetModel(viewMode, true);
@@ -2200,7 +2200,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (saveSelectedViewMode == null)
 		{
-			saveSelectedViewMode = new Integer(viewSelectMode);
+			saveSelectedViewMode = Integer.valueOf(viewSelectMode);
 		}
 		viewSelectMode = GuiConstants.INFOSKILLS_VIEW_NAME;
 		selectedModel.resetModel(viewMode, false);
@@ -2294,17 +2294,17 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			switch (this.getSelectedIndex())
 			{
 				case 0: // First
-					return new Integer(0);
+					return Integer.valueOf(0);
 
 				case 1: // Last
-					return new Integer(1000);
+					return Integer.valueOf(1000);
 
 				case 2: // Hidden
-					return new Integer(-1);
+					return Integer.valueOf(-1);
 
 				default: // A number
 
-					return new Integer((String) getSelectedItem());
+					return Integer.valueOf((String) getSelectedItem());
 			}
 		}
 
@@ -2657,7 +2657,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 						aSkill.setOutputIndex(outputIndex);
 						skillA = new SkillWrapper(aSkill, aSkill.modifier(pc), aSkill.getTotalRank(pc),
-								new Integer(aSkill.getOutputIndex()));
+								Integer.valueOf(aSkill.getOutputIndex()));
 						fn.setItem(skillA);
 
 						if (needRefresh)
@@ -2736,13 +2736,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return gm.getSkillRankDisplayText(mods.intValue() + ranks.intValue());
 					}
-					return new Integer(mods.intValue() + ranks.intValue());
+					return Integer.valueOf(mods.intValue() + ranks.intValue());
 
 				case COL_COST: // Cost to buy skill points
 
 					if (aSkill != null)
 					{
-						return new Integer(aSkill.costForPCClass(getSelectedPCClass(), pc));
+						return Integer.valueOf(aSkill.costForPCClass(getSelectedPCClass(), pc));
 					}
 
 					return "0";

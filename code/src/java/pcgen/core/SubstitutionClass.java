@@ -62,7 +62,7 @@ public final class SubstitutionClass extends PCClass
 
 		levelArray.add(arg);
 
-		final Integer level = new Integer(arg.substring(0, arg.indexOf("\t")));
+		final Integer level = Integer.valueOf(arg.substring(0, arg.indexOf("\t")));
 		modLevels.add(level);
 	}
 
@@ -92,9 +92,9 @@ public final class SubstitutionClass extends PCClass
 
 			for (String aLine : levelArray)
 			{
-				final Integer modLevel = new Integer(aLine.substring(0, aLine.indexOf("\t")));
+				final int modLevel = Integer.parseInt(aLine.substring(0, aLine.indexOf("\t")));
 				
-				if (aLevel == modLevel.intValue())
+				if (aLevel == modLevel)
 				{
 					final PCClassLoader classLoader = new PCClassLoader();
 					classLoader.parseLine(aClass, aLine, tempSource);
@@ -113,7 +113,7 @@ public final class SubstitutionClass extends PCClass
 	 */
 	public boolean hasLevelArrayModsForLevel(final int aLevel)
 	{
-		return modLevels.contains(new Integer(aLevel));
+		return modLevels.contains(Integer.valueOf(aLevel));
 	}
 
 

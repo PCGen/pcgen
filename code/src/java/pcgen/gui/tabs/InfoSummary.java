@@ -3107,7 +3107,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						return "*"; //$NON-NLS-1$
 					}
 
-					return new Integer(pc.getStatList().getBaseStatFor(aStat));
+					return Integer.valueOf(pc.getStatList().getBaseStatFor(aStat));
 
 				case RACE_COLUMN:
 
@@ -3116,10 +3116,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						return "*"; //$NON-NLS-1$
 					}
 
-					//return new Integer(currentPC.getStatList().getTotalStatFor(aStat) - currentPC.getStatList().getBaseStatFor(aStat));
+					//return Integer.valueOf(currentPC.getStatList().getTotalStatFor(aStat) - currentPC.getStatList().getBaseStatFor(aStat));
 					int rBonus = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
-					return new Integer(rBonus);
+					return Integer.valueOf(rBonus);
 
 				case OTHER_COLUMN:
 
@@ -3130,7 +3130,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 					int iRace = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
-					return new Integer(pc.getStatList().getTotalStatFor(aStat)
+					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat)
 						- pc.getStatList().getBaseStatFor(aStat) - iRace);
 
 				case TOTAL_COLUMN:
@@ -3140,17 +3140,17 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						return "*"; //$NON-NLS-1$
 					}
 
-//					return new Integer(pc.getStatList().getTotalStatFor(aStat));
+//					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat));
 					return SettingsHandler.getGame().getStatDisplayText(pc.getStatList().getTotalStatFor(aStat));
 
 				case MOD_COLUMN:
 
 					if (pc.isNonAbility(rowIndex))
 					{
-						return new Integer(0);
+						return Integer.valueOf(0);
 					}
 
-					return new Integer(pc.getStatList().getStatModFor(aStat));
+					return Integer.valueOf(pc.getStatList().getStatModFor(aStat));
 
 				case INC_COLUMN:
 

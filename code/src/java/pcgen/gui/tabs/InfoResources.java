@@ -1696,7 +1696,7 @@ public class InfoResources extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (saveViewMode == null)
 		{
-			saveViewMode = new Integer(viewSortMode);
+			saveViewMode = Integer.valueOf(viewSortMode);
 		}
 		viewSortMode = 1;
 		availableModel.resetModel(viewSortMode);

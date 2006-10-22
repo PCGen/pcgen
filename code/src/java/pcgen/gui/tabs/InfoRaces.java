@@ -895,7 +895,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		if (saveViewMode == null)
 		{
-			saveViewMode = new Integer(viewMode);
+			saveViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFORACE_VIEW_NAME;
 		raceModel.resetModel(viewMode);
@@ -1109,7 +1109,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 		private Object getColumnLevel(PObjectNode fn) {
 			if (fn.getItem() instanceof Race) {
 				Race race = (Race) fn.getItem();
-				return new Integer(race.getLevelAdjustment(getPc()));
+				return Integer.valueOf(race.getLevelAdjustment(getPc()));
 			}
 			return null;
 		}

@@ -368,7 +368,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 	{
 		try
 		{
-			bonusValue = new Integer(bValue);
+			bonusValue = Integer.valueOf(bValue);
 		}
 		catch (NumberFormatException e1)
 		{

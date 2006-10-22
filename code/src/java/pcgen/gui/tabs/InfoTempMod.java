@@ -436,8 +436,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				for (int i = min; i <= max; i++)
 				{
-					final Integer anInt = new Integer(i);
-					numberList.add(anInt.toString());
+					numberList.add(Integer.toString(i));
 				}
 
 				// let them choose the number from a radio list

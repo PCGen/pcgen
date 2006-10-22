@@ -379,7 +379,7 @@ public final class PCGIOHandler extends IOHandler
 				for (int i = 0; i <= aRace.hitDice(aPC); i++)
 				{
 					final int roll = RollingMethods.roll(iSides);
-					aRace.setHitPoint(i, new Integer(roll));
+					aRace.setHitPoint(i, Integer.valueOf(roll));
 				}
 
 				warnings.add(
@@ -393,7 +393,7 @@ public final class PCGIOHandler extends IOHandler
 
 				if (iRoll > iSides)
 				{
-					aRace.setHitPoint(i, new Integer(iSides));
+					aRace.setHitPoint(i, Integer.valueOf(iSides));
 					bFixMade = true;
 				}
 			}
@@ -529,7 +529,7 @@ public final class PCGIOHandler extends IOHandler
 
 					if (iRoll > iSides)
 					{
-						pcClass.setHitPoint(i, new Integer(iSides));
+						pcClass.setHitPoint(i, Integer.valueOf(iSides));
 						bFixMade = true;
 					}
 				}

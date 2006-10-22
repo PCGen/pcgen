@@ -70,7 +70,7 @@ public class PCSpellTracker {
 		}
 		Map<String, Integer> newMap = buildSpellInfoMap(key1, key2);
 		spellMap.put(key1, key2, newMap);
-		spellSerialMap.put(key1, key2, new Integer(pc.getSerial()));
+		spellSerialMap.put(key1, key2, Integer.valueOf(pc.getSerial()));
 		return newMap;
 	}
 

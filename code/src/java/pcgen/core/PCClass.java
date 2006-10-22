@@ -2594,7 +2594,7 @@ public class PCClass extends PObject {
 			 * to the CALLING method to do that... protecting against bad coding
 			 * is a bad practice.
 			 */
-			levelsPerFeat = new Integer(-1); // -1 to indicate it's not a
+			levelsPerFeat = Integer.valueOf(-1); // -1 to indicate it's not a
 												// 'set' value, this is to avoid
 												// null pointer errors
 		}
@@ -6228,7 +6228,7 @@ public class PCClass extends PObject {
 				}
 			}
 
-			final Integer zeroInt = new Integer(0);
+			final Integer zeroInt = Integer.valueOf(0);
 			final int newLevel = level - 1;
 
 			if (level > 0) {
@@ -7504,7 +7504,7 @@ public class PCClass extends PObject {
 		}
 
 		roll += ((int) aPC.getTotalBonusTo("HP", "CURRENTMAXPERLEVEL"));
-		setHitPoint(aLevel - 1, new Integer(roll));
+		setHitPoint(aLevel - 1, Integer.valueOf(roll));
 		aPC.setCurrentHP(aPC.hitPoints());
 	}
 
@@ -7701,7 +7701,7 @@ public class PCClass extends PObject {
 			for (int x = featAutos.size() - 1; x >= 0; --x)
 			{
 				StringTokenizer aTok = new StringTokenizer(featAutos.get(x), "|", false);
-				final int level = new Integer(aTok.nextToken()).intValue();
+				final int level = Integer.parseInt(aTok.nextToken());
 
 				if (level == aLevel)
 				{

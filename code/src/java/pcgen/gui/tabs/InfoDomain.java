@@ -1351,7 +1351,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (saveDeityViewMode == null)
 		{
-			saveDeityViewMode = new Integer(viewMode);
+			saveDeityViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFODOMAIN_VIEW_NAME;
 		clearDeityQFilterButton.setEnabled(true);

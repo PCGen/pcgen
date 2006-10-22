@@ -1077,7 +1077,7 @@ public final class Skill extends PObject
 		int bonus = 0;
 		if (aPC == null)
 		{
-			return new Integer(0);
+			return Integer.valueOf(0);
 		}
 
 		final int stat = SettingsHandler.getGame().getStatFromAbbrev(keyStat);
@@ -1145,7 +1145,7 @@ public final class Skill extends PObject
 			bonus += aPC.getVariableValue(aString, "").intValue();
 		}
 
-		return new Integer(bonus);
+		return Integer.valueOf(bonus);
 	}
 
 	/**

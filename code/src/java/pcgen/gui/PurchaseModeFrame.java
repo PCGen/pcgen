@@ -572,7 +572,7 @@ final class PurchaseModeFrame extends JDialog
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(new Integer(purchaseModel.predictNextPurchaseCostMax()),
+			purchaseModel.setValueAt(Integer.valueOf(purchaseModel.predictNextPurchaseCostMax()),
 			    purchaseModel.getRowCount() - 1, 1);
 		}
 	}
@@ -619,7 +619,7 @@ final class PurchaseModeFrame extends JDialog
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(new Integer(purchaseModel.predictNextPurchaseCostMin()), 0, 1);
+			purchaseModel.setValueAt(Integer.valueOf(purchaseModel.predictNextPurchaseCostMin()), 0, 1);
 		}
 	}
 
@@ -832,8 +832,8 @@ final class PurchaseModeFrame extends JDialog
 				for (int i = savedPurchaseScoreMin, index; i <= savedPurchaseScoreMax; ++i)
 				{
 					index = i - savedPurchaseScoreMin;
-					savedValues[index][0] = new Integer(i);
-					savedValues[index][1] = new Integer(scoreCosts[index]);
+					savedValues[index][0] = Integer.valueOf(i);
+					savedValues[index][1] = Integer.valueOf(scoreCosts[index]);
 				}
 			}
 			else
@@ -845,8 +845,8 @@ final class PurchaseModeFrame extends JDialog
 				scoreCosts[0] = 0;
 
 				savedValues = new Object[1][2];
-				savedValues[0][0] = new Integer(10);
-				savedValues[0][1] = new Integer(0);
+				savedValues[0][0] = Integer.valueOf(10);
+				savedValues[0][1] = Integer.valueOf(0);
 			}
 
 			//
@@ -960,14 +960,14 @@ final class PurchaseModeFrame extends JDialog
 				{
 					final int score = (i + currentPurchaseScoreMax) - nrRows + 1;
 					int preVal = -1;
-					newValues[i + preLength][0] = new Integer(score);
+					newValues[i + preLength][0] = Integer.valueOf(score);
 
 					if ((i + preLength) != 0)
 					{
 						preVal = ((Integer) newValues[(i + preLength) - 1][1]).intValue();
 					}
 
-					newValues[i + preLength][1] = new Integer(preVal + 1);
+					newValues[i + preLength][1] = Integer.valueOf(preVal + 1);
 				}
 			}
 
@@ -1015,9 +1015,9 @@ final class PurchaseModeFrame extends JDialog
 				for (int i = 0; i < nrRows; ++i)
 				{
 					final int score = i + currentPurchaseScoreMin;
-					newValues[i][0] = new Integer(score);
+					newValues[i][0] = Integer.valueOf(score);
 
-//					newValues[i][1] = new Integer(tblStart - nrRows + i);
+//					newValues[i][1] = Integer.valueOf(tblStart - nrRows + i);
 				}
 			}
 

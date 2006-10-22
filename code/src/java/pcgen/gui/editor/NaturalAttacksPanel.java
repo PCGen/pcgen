@@ -112,22 +112,22 @@ final class NaturalAttacksPanel extends JPanel
 
 			// Set the number of attacks
 			String attacksTxt = natWpn.nextToken();
-			Integer anInt;
+			int anInt;
 
 			try
 			{
-				anInt = new Integer(attacksTxt);
+				anInt = Integer.parseInt(attacksTxt);
 			}
 			catch (NumberFormatException exc)
 			{
 				Logging.errorPrint("Natural Weapons Editor: non-numeric value for number of attacks: '" + attacksTxt
 				    + "'");
-				anInt = new Integer(1);
+				anInt = 1;
 			}
 
-			if (anInt.intValue() > 1)
+			if (anInt > 1)
 			{
-				String bonusString = "WEAPON|ATTACKS|" + (anInt.intValue() - 1);
+				String bonusString = "WEAPON|ATTACKS|" + (anInt - 1);
 				anEquip.addBonusList(bonusString);
 			}
 

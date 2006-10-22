@@ -768,7 +768,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		if (saveViewMode == null)
 		{
-			saveViewMode = new Integer(viewMode);
+			saveViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFOTEMPLATE_VIEW_NAME;
 		availableModel.resetModel(viewMode, true);
@@ -1109,7 +1109,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						return template.toString();
 
 					case COL_LEVEL:
-						return new Integer(template.getLevelAdjustment(getPc()));
+						return Integer.valueOf(template.getLevelAdjustment(getPc()));
 
 					case COL_MODIFIER:
 						return template.modifierString(getPc());

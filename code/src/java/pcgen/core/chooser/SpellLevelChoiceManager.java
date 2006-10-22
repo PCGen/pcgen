@@ -60,7 +60,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		{
 			try
 			{
-				numberOfChoices = new Integer(choices.get(1)).intValue();
+				numberOfChoices = Integer.parseInt(choices.get(1));
 			}
 			catch (NumberFormatException e)
 			{

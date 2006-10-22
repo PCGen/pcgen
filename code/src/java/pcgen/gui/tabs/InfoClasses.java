@@ -1499,7 +1499,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		if (saveViewMode == null)
 		{
-			saveViewMode = new Integer(viewMode);
+			saveViewMode = Integer.valueOf(viewMode);
 		}
 		viewMode = GuiConstants.INFOCLASS_VIEW_NAME;
 		availableModel.resetModel(viewMode, true);
@@ -1677,7 +1677,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				pcclass = (PCClass) fn.getItem();
 			}
 
-			final Integer c = new Integer(0);
+			final Integer c = Integer.valueOf(0);
 			String retString = "";
 
 			switch (column)
@@ -1704,7 +1704,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case COL_LEVEL:
 					if (pcclass != null)
 					{
-						return new Integer(pcclass.getLevel());
+						return Integer.valueOf(pcclass.getLevel());
 					}
 
 					return c;

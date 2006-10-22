@@ -375,34 +375,34 @@ final class NewWeaponInfoDialog extends JDialog
 
 		for (int i = 0; i <= 9; i++)
 		{
-			numbers[i] = new Integer(i);
+			numbers[i] = Integer.valueOf(i);
 		}
 
 		cmbDamageDieCount.setModel(new DefaultComboBoxModel(numbers));
 
 		numbers = new Integer[9];
-		numbers[0] = new Integer(0);
-		numbers[1] = new Integer(1);
-		numbers[2] = new Integer(2);
-		numbers[3] = new Integer(3);
-		numbers[4] = new Integer(4);
-		numbers[5] = new Integer(6);
-		numbers[6] = new Integer(8);
-		numbers[7] = new Integer(10);
-		numbers[8] = new Integer(20);
+		numbers[0] = Integer.valueOf(0);
+		numbers[1] = Integer.valueOf(1);
+		numbers[2] = Integer.valueOf(2);
+		numbers[3] = Integer.valueOf(3);
+		numbers[4] = Integer.valueOf(4);
+		numbers[5] = Integer.valueOf(6);
+		numbers[6] = Integer.valueOf(8);
+		numbers[7] = Integer.valueOf(10);
+		numbers[8] = Integer.valueOf(20);
 		cmbDamageDieSides.setModel(new DefaultComboBoxModel(numbers));
 
 		numbers = new Integer[4];
-		numbers[0] = new Integer(1);
-		numbers[1] = new Integer(2);
-		numbers[2] = new Integer(3);
-		numbers[3] = new Integer(4);
+		numbers[0] = Integer.valueOf(1);
+		numbers[1] = Integer.valueOf(2);
+		numbers[2] = Integer.valueOf(3);
+		numbers[3] = Integer.valueOf(4);
 		cmbCritRange.setModel(new DefaultComboBoxModel(numbers));
 
 		numbers = new Integer[3];
-		numbers[0] = new Integer(2);
-		numbers[1] = new Integer(3);
-		numbers[2] = new Integer(4);
+		numbers[0] = Integer.valueOf(2);
+		numbers[1] = Integer.valueOf(3);
+		numbers[2] = Integer.valueOf(4);
 		cmbCritMult.setModel(new DefaultComboBoxModel(numbers));
 
 		pack();

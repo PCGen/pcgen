@@ -222,7 +222,7 @@ public final class PJEP extends JEP
 				}
 				else if (param2 instanceof Double)
 				{
-					param2 = new Integer(((Double) param2).intValue());
+					param2 = Integer.valueOf(((Double) param2).intValue());
 				}
 				else
 				{

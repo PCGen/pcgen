@@ -555,7 +555,7 @@ final class PCGVer0Parser implements PCGParser
 				{
 					PCLevelInfo levelInfo = aPC.saveLevelInfo(aClass.getKeyName());
 					aClass.addLevel(levelInfo, false, aPC);
-					aClass.setHitPoint(i, new Integer(iHp));
+					aClass.setHitPoint(i, Integer.valueOf(iHp));
 					aPC.saveLevelInfo(aClass.getKeyName());
 				}
 			}
@@ -1739,7 +1739,7 @@ final class PCGVer0Parser implements PCGParser
 
 					try
 					{
-						hitPointMap.put(Integer.toString(x++), new Integer(token));
+						hitPointMap.put(Integer.toString(x++), Integer.valueOf(token));
 					}
 					catch (NumberFormatException ex)
 					{
@@ -1782,11 +1782,11 @@ final class PCGVer0Parser implements PCGParser
 				// If newer version, we can load in the order in which the skills should be displayed
 				if (pcgVersion >= 268)
 				{
-					outputIndex = new Integer(skillTokenizer.nextToken());
+					outputIndex = Integer.valueOf(skillTokenizer.nextToken());
 				}
 				else
 				{
-					outputIndex = new Integer(0);
+					outputIndex = Integer.valueOf(0);
 				}
 
 				//

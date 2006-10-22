@@ -2670,7 +2670,7 @@ public final class Globals
 
 			for (int i = min; i <= max; ++i)
 			{
-				rollChoices[i - min + 1] = new Integer(i);
+				rollChoices[i - min + 1] = Integer.valueOf(i);
 			}
 
 			while (min <= max)
@@ -2681,7 +2681,7 @@ public final class Globals
 					"Randomly generate a number between " + min + " and " + max + "." + Constants.s_LINE_SEP
 					+ "Select it from the box below.",
 					Globals.getGameModeHitPointText() + " for " + CoreUtility.ordinal(level) + " level of " + name,
-					MessageType.INFORMATION, rollChoices, new Integer(roll));
+					MessageType.INFORMATION, rollChoices, Integer.valueOf(roll));
 
 				if ((selectedValue != null) && (selectedValue instanceof Integer))
 				{

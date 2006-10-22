@@ -279,7 +279,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 			Object[] newRow = new Object[7];
 			newRow[0] = eq.getName(); // Attack
-			newRow[1] = new Integer((int) eq.qty()); // #
+			newRow[1] = Integer.valueOf((int) eq.qty()); // #
 
 			StringBuffer tohitStr = new StringBuffer(12);
 			int toHit = BAB + sizeAdj;

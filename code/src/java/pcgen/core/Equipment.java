@@ -160,17 +160,17 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private int numberEquipped = 0;
 
 	private Float containerWeightCapacity = new Float(0);
-	private Integer containerReduceWeight = new Integer(0);
+	private Integer containerReduceWeight = Integer.valueOf(0);
 	private boolean containerConstantWeight = false;
 	private boolean d_acceptsChildren = false;
 
-	private Integer acCheck = new Integer(0);
+	private Integer acCheck = Integer.valueOf(0);
 	private String fumbleRange = "";
 
 	// effective DR vales for Armor
-	private Integer eDR = new Integer(-1);
-	private Integer maxDex = new Integer(100);
-	private Integer spellFailure = new Integer(0);
+	private Integer eDR = Integer.valueOf(-1);
+	private Integer maxDex = Integer.valueOf(100);
+	private Integer spellFailure = Integer.valueOf(0);
 
 	private WeaponEquipment theWeaponStats = null;
 	private boolean isOnlyNaturalWeapon = false;
@@ -211,7 +211,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private double qty = 0.0;
 	private double weightInPounds = 0.0;
 
-	//private Integer acMod = new Integer(0);
+	//private Integer acMod = Integer.valueOf(0);
 	private int outputIndex = 0;
 	private int outputSubindex = 0;
 	private int slots = 1;
@@ -619,11 +619,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	{
 		try
 		{
-			acCheck = new Integer(aString);
+			acCheck = Integer.valueOf(aString);
 		}
 		catch (NumberFormatException nfe)
 		{
-			acCheck = new Integer(0);
+			acCheck = Integer.valueOf(0);
 		}
 	}
 
@@ -1603,7 +1603,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			mdex = 0;
 		}
 
-		return new Integer(mdex);
+		return Integer.valueOf(mdex);
 	}
 
 	/**
@@ -2714,7 +2714,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			check = 0;
 		}
 
-		return new Integer(check);
+		return Integer.valueOf(check);
 	}
 
 	/**
@@ -3396,7 +3396,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			check = 0;
 		}
 
-		return new Integer(check);
+		return Integer.valueOf(check);
 	}
 
 	/**
@@ -4067,11 +4067,11 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	{
 		try
 		{
-			eDR = new Integer(aString);
+			eDR = Integer.valueOf(aString);
 		}
 		catch (NumberFormatException nfe)
 		{
-			eDR = new Integer(0);
+			eDR = Integer.valueOf(0);
 
 			// ignore
 		}
@@ -4101,7 +4101,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			fail = 0;
 		}
 
-		return new Integer(fail);
+		return Integer.valueOf(fail);
 	}
 
 	/**
@@ -5052,8 +5052,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 					if (iOffs > 10)
 					{
-						Integer acCombatBonus = new Integer(aString.substring(10, iOffs));
-						acCombatBonus = new Integer(new Float(acCombatBonus.doubleValue() * mult).intValue());
+						Integer acCombatBonus = Integer.valueOf(aString.substring(10, iOffs));
+						acCombatBonus = Integer.valueOf(new Float(acCombatBonus.doubleValue() * mult).intValue());
 						aString = aString.substring(0, 10) + acCombatBonus.toString() + aString.substring(iOffs);
 						addBonusList(aString);
 					}
@@ -6423,7 +6423,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		int dbon = (int) bonusTo(aPC, "COMBAT", "AC", true);
 		dbon += (int) bonusTo(aPC, "EQMARMOR", "ACBONUS", true);
 
-		return new Integer(dbon);
+		return Integer.valueOf(dbon);
 	}
 
 	/**
@@ -6437,7 +6437,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	{
 		final int mod = (int) bonusTo(aPC, "EQMARMOR", "AC", true) + (int) bonusTo(aPC, "COMBAT", "AC", true);
 
-		return new Integer(mod);
+		return Integer.valueOf(mod);
 	}
 
 	//
@@ -7063,12 +7063,12 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 				try
 				{
-					containerReduceWeight = new Integer(redString);
+					containerReduceWeight = Integer.valueOf(redString);
 				}
 				catch (NumberFormatException ex)
 				{
 					Logging.errorPrint("Error in CONTAINS line: " + aString);
-					containerReduceWeight = new Integer(0);
+					containerReduceWeight = Integer.valueOf(0);
 				}
 			}
 

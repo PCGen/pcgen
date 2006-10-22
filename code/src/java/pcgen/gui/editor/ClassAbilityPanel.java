@@ -113,7 +113,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setLevelsPerFeat(new Integer(a));
+			obj.setLevelsPerFeat(Integer.valueOf(a));
 		}
 
 		a = castAs.getText().trim();

@@ -55,7 +55,7 @@ public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 
 	public Object getCellEditorValue()
 	{
-		return new Integer(getSelectedIndex());
+		return Integer.valueOf(getSelectedIndex());
 	}
 
 	public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row, int column)
