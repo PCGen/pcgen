@@ -820,7 +820,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		PCTemplate template = getSelectedTemplate();
 
-		if ((template == null) || !template.isQualified(getPc()))
+		//Change for FIX 1577347
+		//if ((template == null) || !template.isQualified(getPc()))
+		if (template == null)
 		{
 			return;
 		}
