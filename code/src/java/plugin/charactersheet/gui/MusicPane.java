@@ -189,7 +189,7 @@ public class MusicPane extends javax.swing.JPanel {
 					counter++;
 				}
 			}
-			pcProperties.put("cs.MusicPane", new Integer(counter).toString());
+			pcProperties.put("cs.MusicPane", Integer.toString(counter));
 		}
 	}
 

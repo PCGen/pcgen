@@ -74,9 +74,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 */
 	public int getMaxHP()
 	{
-		Integer intValue = new Integer(tbHitPoints.getText());
-
-		return intValue.intValue();
+		return Integer.parseInt(tbHitPoints.getText());
 	}
 
 	/**
@@ -96,9 +94,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 */
 	public int getNumber()
 	{
-		Integer intValue = new Integer(tbNumber.getText());
-
-		return intValue.intValue();
+		return Integer.parseInt(tbNumber.getText());
 	}
 
 	public void applyPreferences()

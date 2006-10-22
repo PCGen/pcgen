@@ -999,13 +999,13 @@ public class CombatPane1 extends javax.swing.JPanel {
 	public void refresh() {
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
-		totalHp.setText(new Integer(HPToken.getHPToken(pc)).toString());
+		totalHp.setText(Integer.toString(HPToken.getHPToken(pc)));
 		damageReduction.setText(DRToken.getDRToken(pc) + ' ');
 		speed.setText(MovementToken.getMovementToken(pc));
 
-		totalAc.setText(new Integer(pc.getACTotal()).toString());
-		flatAc.setText(new Integer(pc.flatfootedAC()).toString());
-		touchAc.setText(new Integer(pc.touchAC()).toString());
+		totalAc.setText(Integer.toString(pc.getACTotal()));
+		flatAc.setText(Integer.toString(pc.flatfootedAC()));
+		touchAc.setText(Integer.toString(pc.touchAC()));
 		acBase.setText(pcOut.getExportToken(AC_BASE_TOKEN));
 		acArmor.setText(pcOut.getExportToken(AC_ARMOR_TOKEN));
 		acShield.setText(pcOut.getExportToken(AC_SHIELD_TOKEN));
@@ -1018,7 +1018,7 @@ public class CombatPane1 extends javax.swing.JPanel {
 		spellFailure.setText(SpellFailureToken.getSpellFailureToken(SPELLFAILURE_TOKEN, pc) + PERCENT);
 		armorCheck.setText(Delta.toString(ACCheckToken.getACCheckToken(ACCHECK_TOKEN, pc)));
 		//Max Dex
-		spellResist.setText(new Integer(SRToken.getSRToken(pc)).toString());
+		spellResist.setText(Integer.toString(SRToken.getSRToken(pc)));
 		updatePane();
 	}
 

@@ -174,8 +174,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 		{
 			try
 			{
-				Integer intValue = new Integer(inputValue);
-				cbt.setCR(intValue.intValue());
+				cbt.setCR(Integer.parseInt(inputValue));
 			}
 			catch (NumberFormatException e)
 			{

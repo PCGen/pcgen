@@ -50,7 +50,7 @@ public class EncumbranceToken implements LoadInfoLstToken {
 
 		try {
 			String moveFormula = "";
-			Integer checkPenalty = new Integer(0);
+			Integer checkPenalty = Integer.valueOf(0);
 			String type = token.nextToken();
 			String number = token.nextToken();
 
@@ -59,7 +59,7 @@ public class EncumbranceToken implements LoadInfoLstToken {
 			}
 
 			if (token.hasMoreTokens()) {
-				checkPenalty = new Integer(token.nextToken());
+				checkPenalty = Integer.valueOf(token.nextToken());
 			}
 
 			double mult = 0;

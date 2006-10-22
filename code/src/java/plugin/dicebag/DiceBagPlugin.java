@@ -324,7 +324,7 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * </p>
 	 */
 	private void initMenus() {
-		notesToolsItem = makeMenuItem("DiceBag", DICEBAG_TOOLS_COMMAND, null, "Dice Bag Plugin", new Integer(KeyEvent.VK_G));
+		notesToolsItem = makeMenuItem("DiceBag", DICEBAG_TOOLS_COMMAND, null, "Dice Bag Plugin", Integer.valueOf(KeyEvent.VK_G));
 		GMBus.send(new ToolMenuItemAddMessage(this, notesToolsItem));
 	}
 

@@ -14,7 +14,7 @@ public class LevelsperfeatToken implements PCClassLstToken {
 
 	public boolean parse(PCClass pcclass, String value, int level) {
 		try {
-			pcclass.setLevelsPerFeat(new Integer(value));
+			pcclass.setLevelsPerFeat(Integer.valueOf(value));
 			return true;
 		}
 		catch (NumberFormatException nfe) {

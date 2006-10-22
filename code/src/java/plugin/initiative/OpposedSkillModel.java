@@ -100,7 +100,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				Skill skill = pc.getSkillKeyed(aSkillKey);
 				if (skill != null)
 				{
-					returnValue = new Integer(skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue());
+					returnValue = Integer.valueOf(skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue());
 				}
 				else
 				{
@@ -110,7 +110,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 							&& skill.getKeyStat().compareToIgnoreCase(
 									Constants.s_NONE) != 0)
 					{
-						returnValue = new Integer(skill.modifier(pc).intValue());
+						returnValue = Integer.valueOf(skill.modifier(pc).intValue());
 					}
 				}
 			}
@@ -126,7 +126,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		{
 			djep.parseExpression("1d20");
 			double r = djep.getValue();
-			roll = new Integer((int)r);
+			roll = Integer.valueOf((int)r);
 			calc();
 		}
 
@@ -147,7 +147,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				{
 					r += i.intValue();
 				}
-				result = new Integer(r);
+				result = Integer.valueOf(r);
 			}
 			else
 			{
@@ -215,7 +215,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel()
 	{
 		super();
-		columns.addColumn("BONUS", Integer.class, new Integer(0), false,
+		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
 				"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
@@ -231,7 +231,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel(List combatantList)
 	{
 		super(combatantList);
-		columns.addColumn("BONUS", Integer.class, new Integer(0), false,
+		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
 			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");

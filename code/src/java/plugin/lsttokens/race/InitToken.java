@@ -14,7 +14,7 @@ public class InitToken implements RaceLstToken {
 
 	public boolean parse(Race race, String value) {
 		try {
-			race.setInitMod(new Integer(value));
+			race.setInitMod(Integer.valueOf(value));
 			return true;
 		}
 		catch(NumberFormatException nfe) {

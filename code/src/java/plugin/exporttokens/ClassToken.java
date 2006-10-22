@@ -155,6 +155,8 @@ public class ClassToken extends Token
 			boolean firstLine = true;
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
+			//PERFORMANCE This can be extracted for speed - thpr 10/20/06
+			//REFACTOR Do we need a general purpose join method (like the perl function)
 			for (int i = 0; i < pcClass.getClassSpecialAbilityList(pc).size(); i++)
 			{
 				if (!firstLine)

@@ -188,7 +188,7 @@ public class RagePane extends javax.swing.JPanel {
 					counter++;
 				}
 			}
-			pcProperties.put(PROPERTY_RAGEPANE, new Integer(counter));
+			pcProperties.put(PROPERTY_RAGEPANE, Integer.valueOf(counter));
 		}
 	}
 

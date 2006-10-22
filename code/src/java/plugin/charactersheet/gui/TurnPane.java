@@ -575,7 +575,7 @@ public class TurnPane extends javax.swing.JPanel {
 				StringBuffer checkSb = new StringBuffer();
 				checkSb.append("1d20+").append(check);
 				turnCheck.setText(checkSb.toString());
-				turnLevel.setText(new Integer(level).toString());
+				turnLevel.setText(Integer.toString(level));
 				StringBuffer damSb = new StringBuffer();
 				damSb.append(dieNumber).append("d").append(dieSize).append(Delta.toString(damage));
 				turnDamage.setText(damSb.toString());
@@ -584,15 +584,15 @@ public class TurnPane extends javax.swing.JPanel {
 				daySb.append("Turns/day (").append(numDay).append(")");
 				turnDay.setText(daySb.toString());
 
-				turn1.setText(new Integer(level - 4).toString());
-				turn2.setText(new Integer(level - 3).toString());
-				turn3.setText(new Integer(level - 2).toString());
-				turn4.setText(new Integer(level - 1).toString());
-				turn5.setText(new Integer(level).toString());
-				turn6.setText(new Integer(level + 1).toString());
-				turn7.setText(new Integer(level + 2).toString());
-				turn8.setText(new Integer(level + 3).toString());
-				turn9.setText(new Integer(level + 4).toString());
+				turn1.setText(Integer.toString(level - 4));
+				turn2.setText(Integer.toString(level - 3));
+				turn3.setText(Integer.toString(level - 2));
+				turn4.setText(Integer.toString(level - 1));
+				turn5.setText(Integer.toString(level));
+				turn6.setText(Integer.toString(level + 1));
+				turn7.setText(Integer.toString(level + 2));
+				turn8.setText(Integer.toString(level + 3));
+				turn9.setText(Integer.toString(level + 4));
 				addCheckBoxes(numDay);
 				StringBuffer textSb = new StringBuffer();
 				if(getEffectType(pc, turnType).equals("Turn")) {

@@ -131,7 +131,6 @@ public class MoveToken extends Token
 
 	public static String getSquaresToken(PlayerCharacter pc, int moveIndex)
 	{
-		Integer squares = new Integer((int)(pc.movement(moveIndex) / Globals.getGameModeSquareSize()));
-		return squares.toString();
+		return Integer.toString((int)(pc.movement(moveIndex) / Globals.getGameModeSquareSize()));
 	}
 }

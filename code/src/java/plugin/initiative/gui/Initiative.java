@@ -1019,8 +1019,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			try
 			{
-				Integer intValue = new Integer(inputValue);
-				doHeal(intValue.intValue());
+				doHeal(Integer.parseInt(inputValue));
 			}
 			catch (NumberFormatException e)
 			{
@@ -2627,7 +2626,7 @@ public class Initiative extends javax.swing.JPanel
 		formatter.setCommitsOnValidEdit(true);
 		formatter.setValueClass(Integer.class);
 		JFormattedTextField field = new JFormattedTextField(formatter);
-		field.setValue(new Integer(1));
+		field.setValue(Integer.valueOf(1));
 		int choice = JOptionPane.showConfirmDialog(
 				GMGenSystem.inst,field,"How many copies?",
 				JOptionPane.OK_CANCEL_OPTION);

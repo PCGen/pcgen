@@ -409,7 +409,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(typeCombo, gridBagConstraints);
 
-		bonusField.setValue(new Integer(0));
+		bonusField.setValue(Integer.valueOf(0));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -418,7 +418,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
 		getContentPane().add(bonusField, gridBagConstraints);
 
-		hpField.setValue(new Integer(1));
+		hpField.setValue(Integer.valueOf(1));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -427,7 +427,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
 		getContentPane().add(hpField, gridBagConstraints);
 
-		numberField.setValue(new Integer(1));
+		numberField.setValue(Integer.valueOf(1));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -486,7 +486,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
 		getContentPane().add(chaLabel, gridBagConstraints);
 
-		conField.setValue(new Integer(10));
+		conField.setValue(Integer.valueOf(10));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -495,7 +495,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(conField, gridBagConstraints);
 
-		strField.setValue(new Integer(10));
+		strField.setValue(Integer.valueOf(10));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -504,7 +504,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(strField, gridBagConstraints);
 
-		dexField.setValue(new Integer(10));
+		dexField.setValue(Integer.valueOf(10));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -513,7 +513,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(dexField, gridBagConstraints);
 
-		intField.setValue(new Integer(10));
+		intField.setValue(Integer.valueOf(10));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -522,7 +522,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(intField, gridBagConstraints);
 
-		wisField.setValue(new Integer(10));
+		wisField.setValue(Integer.valueOf(10));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -531,7 +531,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(wisField, gridBagConstraints);
 
-		chaField.setValue(new Integer(10));
+		chaField.setValue(Integer.valueOf(10));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -565,7 +565,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
 		getContentPane().add(willLabel, gridBagConstraints);
 
-		fortitudeField.setValue(new Integer(0));
+		fortitudeField.setValue(Integer.valueOf(0));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -574,7 +574,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(fortitudeField, gridBagConstraints);
 
-		reflexField.setValue(new Integer(0));
+		reflexField.setValue(Integer.valueOf(0));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -583,7 +583,7 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(reflexField, gridBagConstraints);
 
-		willField.setValue(new Integer(0));
+		willField.setValue(Integer.valueOf(0));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;

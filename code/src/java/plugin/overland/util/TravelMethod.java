@@ -19,7 +19,7 @@ public class TravelMethod extends Pair
 	public TravelMethod(String name, int speed)
 	{
 		super.setLeft(name);
-		super.setRight(new Integer(speed));
+		super.setRight(Integer.valueOf(speed));
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class TravelMethod extends Pair
 	 */
 	public void setSpeed(int speed)
 	{
-		super.setRight(new Integer(speed));
+		super.setRight(Integer.valueOf(speed));
 	}
 
 	/**

@@ -14,7 +14,7 @@ public class AcToken implements RaceLstToken {
 
 	public boolean parse(Race race, String value) {
 		try {
-			race.setStartingAC(new Integer(value));
+			race.setStartingAC(Integer.valueOf(value));
 			return true;
 		}
 		catch(NumberFormatException nfe) {

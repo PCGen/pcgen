@@ -59,7 +59,7 @@ public final class DC extends BonusObj
 		{
 			if (token.equals(bonusTags[i]))
 			{
-				addBonusInfo(new Integer(i));
+				addBonusInfo(Integer.valueOf(i));
 
 				return true;
 			}

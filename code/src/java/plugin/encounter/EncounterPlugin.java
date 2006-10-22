@@ -561,6 +561,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		{
 			return getMonsterFromTable(tableEntry.substring(1, tableEntry.length() - 1));
 		}
+		
+		//TODO This calculation should be done as int and convert to Integer at the end - better speed. thpr 10/19/06
 		Integer num;
 
 		try
@@ -570,11 +572,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		catch (NumberFormatException e)
 		{
 			String[] dice = numMonsters.split("d");
-			num = new Integer(0);
+			num = Integer.valueOf(0);
 
-			for (int x = 0; x < Integer.valueOf(dice[0]).intValue(); x++)
+			for (int x = 0; x < Integer.parseInt(dice[0]); x++)
 			{
-				num = new Integer(num.intValue() + roll.nextInt(Integer.valueOf(dice[1]).intValue()) + 1);
+				num = Integer.valueOf(num.intValue() + roll.nextInt(Integer.parseInt(dice[1])) + 1);
 			}
 		}
 
@@ -752,11 +754,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 		try
 		{
-			crNum = -1 * Integer.valueOf(crSplit[1]).intValue();
+			crNum = -1 * Integer.parseInt(crSplit[1]);
 		}
 		catch (NumberFormatException e)
 		{
-			crNum = Integer.valueOf(cr).intValue();
+			crNum = Integer.parseInt(cr);
 		}
 
 		// populate critters with a list of matching monsters with the right CR.
@@ -770,7 +772,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 		int i = roll.nextInt(critters.size());
 
-		for (int x = 0; x < Integer.valueOf(size).intValue(); x++)
+		for (int x = 0; x < Integer.parseInt(size); x++)
 		{
 			theModel.addElement(critters.get(i).toString());
 		}
@@ -797,7 +799,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 			for (int x = 0; x < racehd; ++x)
 			{
-				aPC.getRace().setHitPoint(x, new Integer(new Dice(1, size, bonus).roll()));
+				aPC.getRace().setHitPoint(x, Integer.valueOf(new Dice(1, size, bonus).roll()));
 			}
 
 			aPC.setCurrentHP(aPC.hitPoints());
@@ -1197,7 +1199,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 			{
 				int bonus = (int) aPC.getTotalBonusTo("HD", "MIN") + (int) aPC.getTotalBonusTo("HD", "MIN;CLASS." + pcClass.getKeyName());
 				int size = pcClass.getLevelHitDie(aPC, j + 1);
-				pcClass.setHitPoint(j, new Integer(new Dice(1, size, bonus).roll()));
+				pcClass.setHitPoint(j, Integer.valueOf(new Dice(1, size, bonus).roll()));
 			}
 		}
 

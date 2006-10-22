@@ -48,7 +48,7 @@ public final class ToHit extends BonusObj
 		{
 			if (bonusTags[i].equals(token))
 			{
-				addBonusInfo(new Integer(i));
+				addBonusInfo(Integer.valueOf(i));
 
 				return true;
 			}

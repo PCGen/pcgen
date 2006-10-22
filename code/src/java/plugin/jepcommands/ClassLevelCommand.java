@@ -103,7 +103,7 @@ public class ClassLevelCommand extends PCGenCommand {
 				// TODO Do Nothing?
 			}
 			else if (param2 instanceof Double) {
-				param2 = new Integer(((Double) param2).intValue());
+				param2 = Integer.valueOf(((Double) param2).intValue());
 			}
 			else {
 				throw new ParseException("Invalid parameter type");

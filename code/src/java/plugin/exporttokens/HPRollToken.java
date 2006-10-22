@@ -63,7 +63,7 @@ public class HPRollToken extends Token
 		String retString = "";
 		bString = aTok.nextToken();
 
-		int levelOffset = Integer.valueOf(aTok.nextToken()).intValue() - 1;
+		int levelOffset = Integer.parseInt(aTok.nextToken()) - 1;
 
 		if (aTok.hasMoreTokens())
 		{

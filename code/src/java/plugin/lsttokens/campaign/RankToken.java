@@ -17,7 +17,7 @@ public class RankToken implements CampaignLstToken {
 
 	public boolean parse(Campaign campaign, String value, URL sourceUl) {
 		try {
-			campaign.setRank(Integer.valueOf(value).intValue());
+			campaign.setRank(Integer.parseInt(value));
 			return true;
 		}
 		catch(NumberFormatException nfe) {

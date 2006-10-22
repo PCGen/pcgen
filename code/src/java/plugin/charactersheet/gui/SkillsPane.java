@@ -338,7 +338,7 @@ public class SkillsPane extends javax.swing.JPanel {
 			}
 			String name = skill.qualifiedName();
 			String ability = skill.getKeyStat();
-			String total = new Integer(skill.getTotalRank(pc).intValue() + skill.modifier(pc).intValue()).toString();
+			String total = Integer.toString(skill.getTotalRank(pc).intValue() + skill.modifier(pc).intValue());
 			StringBuffer abSb = new StringBuffer();
 			abSb.append(SKILL_TOKEN).append('.').append(i).append('.').append(ABMOD_TOKEN);
 			String abilityMod = pcOut.getExportToken(abSb.toString());

@@ -79,7 +79,7 @@ public class CheckDialog extends DiceRollDialog
 		formatter.setValueClass(Integer.class);
 		m_dc = new JFormattedTextField(formatter);
 		m_dc.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
-		m_dc.setValue(new Integer(m_defaultDC));
+		m_dc.setValue(Integer.valueOf(m_defaultDC));
 		JLabel label = new JLabel("DC:");
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		addComponent(m_dc, label);

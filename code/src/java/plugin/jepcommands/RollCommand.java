@@ -54,7 +54,7 @@ public class RollCommand extends PCGenCommand {
 		Object result = null;
 
 		if (param1 instanceof String) {
-			result = new Integer(pcgen.core.RollingMethods.roll((String)param1));
+			result = Integer.valueOf(pcgen.core.RollingMethods.roll((String)param1));
 			inStack.push(result);
 		}
 		else {

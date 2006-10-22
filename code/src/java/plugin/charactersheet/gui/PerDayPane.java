@@ -195,7 +195,7 @@ public class PerDayPane extends javax.swing.JPanel {
 					counter++;
 				}
 			}
-			pcProperties.put("cs.PerDayPane." + getPropTitle(), new Integer(counter).toString());
+			pcProperties.put("cs.PerDayPane." + getPropTitle(), Integer.toString(counter));
 		}
 	}
 

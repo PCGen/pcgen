@@ -373,13 +373,13 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 			Collection spellList;
 			String spellBook;
 			if(!racial) {
-				Integer knownVal = new Integer(pcclass.getKnownForLevel(pcclass.getLevel(), level, pc));
-				if(knownVal.intValue() == 0){ // If knownVal is 0 then hide jLabel1 and Known label
+				int knownVal = pcclass.getKnownForLevel(pcclass.getLevel(), level, pc);
+				if(knownVal == 0){ // If knownVal is 0 then hide jLabel1 and Known label
 					jLabel1.setVisible(false);
 					known.setVisible(false);
 				}else
 				{
-				known.setText((knownVal).toString());
+				known.setText(Integer.toString(knownVal));
 				}
 				perDay.setText(pcclass.getCastForLevel(pcclass.getLevel(), level, Globals.getDefaultSpellBook(), pc) +
 				 pcclass.getBonusCastForLevelString(pcclass.getLevel(), level, Globals.getDefaultSpellBook(), pc));
@@ -461,7 +461,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 		dcPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 1, 0));
 		dcPanel.setBackground(color);
 		dc.setFont(new java.awt.Font(DIALOG, 1, 10));
-		dc.setText(new Integer(spell.getDCForPlayerCharacter(pc, si)).toString());
+		dc.setText(Integer.toString(spell.getDCForPlayerCharacter(pc, si)));
 		dcPanel.add(dc);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;

@@ -488,39 +488,27 @@ public class XMLCombatant extends Combatant
 		}
 		else if (columnName.equals("+"))
 		{ // Initative bonus
-
-			Integer intData = new Integer(strData);
-			setInitBonus(intData.intValue());
+			setInitBonus(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("Init"))
 		{ // Initative
-
-			Integer intData = new Integer(strData);
-			init.setCurrentInitiative(intData.intValue());
+			init.setCurrentInitiative(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("#"))
 		{ // Number (for tokens)
-
-			Integer intData = new Integer(strData);
-			setNumber(intData.intValue());
+			setNumber(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("HP"))
 		{ // Current Hit Points
-
-			Integer intData = new Integer(strData);
-			hitPoints.setCurrent(intData.intValue());
+			hitPoints.setCurrent(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("HP Max"))
 		{ // Maximum Hit Points
-
-			Integer intData = new Integer(strData);
-			hitPoints.setMax(intData.intValue());
+			hitPoints.setMax(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("Dur"))
 		{ // Duration
-
-			Integer intData = new Integer(strData);
-			setDuration(intData.intValue());
+			setDuration(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("Type"))
 		{
