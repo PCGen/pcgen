@@ -532,6 +532,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 *
 	 * @return The equipmentTypes value
 	 */
+	/*
+	 * TODO Why is this in Equipment when Class, Race, WeaponProf are all
+	 * in Globals? - thpr 10/20/06
+	 */
 	public static SortedSet<String> getEquipmentTypes()
 	{
 		return s_equipmentTypes;

@@ -2191,6 +2191,7 @@ public final class GameMode implements Comparable<Object>
 		if (pointBuyStatCosts == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
+			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
 			pointBuyStatCosts = new TreeMap<Integer, PointBuyCost>(new ComparableComparator());
 		}
 		abilityScoreCost = null;
@@ -2891,6 +2892,7 @@ public final class GameMode implements Comparable<Object>
 		if (statDisplayText == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
+			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
 			statDisplayText = new TreeMap<Integer, String>(new ComparableComparator());
 		}
 		statDisplayText.put(statValue, statText);
@@ -2999,6 +3001,7 @@ public final class GameMode implements Comparable<Object>
 		if (skillRankDisplayText == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
+			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
 			skillRankDisplayText = new TreeMap<Integer, String>(new ComparableComparator());
 		}
 		skillRankDisplayText.put(rankValue, rankText);
