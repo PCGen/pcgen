@@ -696,7 +696,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				b.append("</center></font></td>"); //$NON-NLS-1$
 			}
 			// Making sure KnownList can be handled safely and produces the correct behaviour
-			if (((aClass.getKnownList().size() > 0) && aClass.getKnownList() != null)
+			if ((aClass.getKnownList() != null && (aClass.getKnownList().size() > 0))
 				|| aClass.hasKnownSpells(pc))
 			{
 				b.append("<tr><td><font size=-1><b>Known</b></font></td>"); //$NON-NLS-1$
