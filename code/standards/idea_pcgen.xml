@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<code_scheme name="pcgennew">
+  <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+  <option name="JAVA_INDENT_OPTIONS">
+    <value>
+      <option name="INDENT_SIZE" value="4" />
+      <option name="CONTINUATION_INDENT_SIZE" value="4" />
+      <option name="TAB_SIZE" value="4" />
+      <option name="USE_TAB_CHARACTER" value="true" />
+      <option name="SMART_TABS" value="false" />
+    </value>
+  </option>
+  <option name="BRACE_STYLE" value="2" />
+  <option name="CLASS_BRACE_STYLE" value="2" />
+  <option name="METHOD_BRACE_STYLE" value="2" />
+  <option name="ELSE_ON_NEW_LINE" value="true" />
+  <option name="WHILE_ON_NEW_LINE" value="true" />
+  <option name="CATCH_ON_NEW_LINE" value="true" />
+  <option name="FINALLY_ON_NEW_LINE" value="true" />
+  <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
+  <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
+  <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="998" />
+  <option name="PACKAGES_TO_USE_IMPORT_ON_DEMAND">
+    <value />
+  </option>
+  <option name="IMPORT_LAYOUT_TABLE">
+    <value>
+      <package name="" withSubpackages="true" />
+    </value>
+  </option>
+  <option name="ENABLE_JAVADOC_FORMATTING" value="false" />
+</code_scheme>
+
