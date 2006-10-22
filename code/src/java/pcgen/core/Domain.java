@@ -130,6 +130,7 @@ public final class Domain extends PObject
 									if (aClass.getNumSpellsFromSpecialty() == 0)
 									{
 										aClass.setNumSpellsFromSpecialty(1);
+										break;
 									}
 								}
 							}
