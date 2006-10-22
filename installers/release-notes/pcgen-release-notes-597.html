@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Release Notes for PCGen v5.9.7 Beta
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.9.7 Beta</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.9.7 Beta</a></li>
+	<li><a href="#DirReorg">SRD, RSRD and MSRD Directory reorganization</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.9.7 Beta</a></h2>
+<p>
+Well, this is it. The first Beta release of the 5.9.x branch. If all things go well, you should see one more Beta release
+and the first Release Candidate should be around April 8.
+</p>
+<p>There was a massive reorganization of the SRD, RSRD and MSRD directories. Please see the following section for some
+very important information about this.
+</p>
+<p><b>Important note: </b> This is an <b>Beta</b> release. We make this release only to make
+it more easy for the users to test the development version. Use it at your own peril. For users that
+are looking for stability, please use the latest <A HREF="http://sourceforge.net/project/showfiles.php?group_id=25576&package_id=129606">stable</A> version.
+</p>
+<p>&Eacute;ric &quot;Space Monkey&quot; Beaudoin for the PCGEN Team -- March 27, 2006.</p>
+
+<h2><a name="DirReorg">SRD, RSRD and MSRD Directory reorganization</a></h2>
+<p>In this release we have reorganized the core datasets directories.
+Essentially we have moved the files loaded by each Partial set into it's own
+directory. We have done this to simplify maintenance and to stream line
+their use, since each is now a self-contained dataset you can be confident
+that no file is double loaded when you mix and match Partial sets. You can
+also load any combination of sets and know that only the basics set is
+required (with the exception of the Epic Psionics set which also requires
+the Psionics set).
+</p>
+<p>
+Impact: If you have created custom datasets which use relative links to load
+files from the core datasets these links will be broken. You will need to
+check out the new structure to see how it need to be fixed. Similarly if you
+have created a custom pcc with the Customize button in the Sources Tab you
+will need to manually edit it to correct the paths or simply recreate it.
+</p>
+<p>
+For the SRD and RSRD this change is not expected to break any previously
+created characters since the dataset names were not changed.
+</p>
+<p>
+Changes to the MSRD on the other hand are going deeper as they involve a
+major overhaul of the PCC Type and Campaign tags. Where the complete set
+previously only loaded the Basics and Menaces sections of the MSRD, there is
+now a much more modular structure that will help to better cope with the
+multitude of genres that can be covered by the Modern game.
+</p>
+<p>
+The new setup now shows under Complete: MSRD Arcana, MSRD Basics, MSRD
+Future, and MSRD Menaces. These sets will each load a complete section, as
+those appear as partially downloadable sections of the MSRD on the WotC
+webpage. To exactly do that, the section previously called "Core" has been
+renamed to "Basics" as that is what the MSRD uses. Of course there are still
+the optional partial sets for users that want to load only certain
+components, like loading the Basics without FX.
+</p>
+<p>
+But all those changes to the MSRD come at a price. Pre-existing characters
+will most certainly be broken and are unlikely to still work with this new
+version. To work around this you can try the following steps:
+<ul>
+<li>1st-make a copy of your character's .PCG file, in case you might mess up with editing
+the original;</li>
+<li>2nd-open the original .PCG file in a text-editor;</li>
+<li>3rd-delete the CAMPAIGN:xxx tags in the file (i.e. CAMPAIGN:Modern);</li>
+<li>4th-save the file again;</li>
+<li>5th-start PCGen;</li>
+<li>6th-select and load all sources that your character has previously taken choices from;</li>
+<li>7th-load the character;</li>
+<li>8th-if the character now loaded successfully, save it in the new format. That will
+store which sources were loaded with it, so you can treat that file as
+normal in the future.</li>
+</ul>
+<p>This procedure should usually work.</p>
+</p>
+
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 1.4.x or Java 5. PCGEN 5.9.7 is not compatible with Java
+1.3.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Alpha Data Sets</h3>
+<p>The Alpha directory contains data sets that were not judged to be &quot;production&quot; grade.
+They vary from &quot;better then nothing&quot; to &quot;nearly ready for production&quot;. Since this
+is an Alpha release, the alpha folder is include.</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_full.zip?download">pcgen597_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_full.zip.sig?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_partial.zip?download">pcgen597_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_partial.zip.sig?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_win_install.exe?download">pcgen597_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_win_install.exe.sig?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_mac_install.dmg?download">pcgen597_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen597_mac_install.dmg.sig?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log</a></h2>
+
+<h3>PCGen Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1001537&group_id=25576">1001537</a> ] 5.7.2 RSRD Weapon Feats &amp; Dwarven/Martial Waraxe</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1080188&group_id=25576">1080188</a> ] dwarven waraxe category tweak</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1185315&group_id=25576">1185315</a> ] Martial/Exotic weapons and CHANGEPROF issue</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1304156&group_id=25576">1304156</a> ] Unarmed Damage wrong for creatures with size increases</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1336842&group_id=25576">1336842</a> ] Paladin Detect Evil causes null dereference</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1337605&group_id=25576">1337605</a> ] KIT: Tag does not work in feats files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1347830&group_id=25576">1347830</a> ] Multiclassing and PRESPELLCAST</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1362270&group_id=25576">1362270</a> ] [5.8.1] Limits for Spells KNOWN broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1418772&group_id=25576">1418772</a> ] Complete Warning messages in KitGear</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1449502&group_id=25576">1449502</a> ] Prepared Spell Lists Not Shown</li>
+</ul>
+<h3>PCGen FREQs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=871933&group_id=25576">871933</a> ] Spell memorization warning</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=897645&group_id=25576">897645</a> ] Hide Columns</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1041465&group_id=25576">1041465</a> ] [MSRD] Restriction tag for equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1094612&group_id=25576">1094612</a> ] Pages for Spellbook</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1397148&group_id=25576">1397148</a> ] [KIT] Feat choices for granted feats</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1455053&group_id=25576">1455053</a> ] Template tag to add levels of a class</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1455074&group_id=25576">1455074</a> ] [KIT] Allow specifying template choices</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1455081&group_id=25576">1455081</a> ] Allow DR to take PRExxx tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1458567&group_id=25576">1458567</a> ] Add support for sponsors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1458665&group_id=25576">1458665</a> ] Make gui fit new standards</li>
+</ul>
+<h3>DATA Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1246099&group_id=25576">1246099</a> ] [MSRD Arcana] Dragons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1257266&group_id=25576">1257266</a> ] [RSRD] Incorrect pricing on resized specific armor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1305441&group_id=25576">1305441</a> ] Psionic Power Class Missing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1309982&group_id=25576">1309982</a> ] [RSRD] Heirophant special ability improvements needed</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340072&group_id=25576">1340072</a> ] [XCrawl] Wiz/Sor prereqs are causing errors </li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1365223&group_id=25576">1365223</a> ] [RPGO] [BnS2] Merchants, Smugglers and Pirates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1374884&group_id=25576">1374884</a> ] Wild Talent not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1377602&group_id=25576">1377602</a> ] [School of Evocation] Ball Lightning missing TARGETAREA</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1405946&group_id=25576">1405946</a> ] [RSRD] Resist Energy spell providing wrong info</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1431983&group_id=25576">1431983</a> ] [RSRD] Basics PCC  not loading mounts.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1447938&group_id=25576">1447938</a> ] [MSRD] Reorganize File structure and PCC types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1448469&group_id=25576">1448469</a> ] [Malhavoc] ITCK, Third eye entry has wrong TYPE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1448474&group_id=25576">1448474</a> ] [Malhavoc] ITCK typo in power Targetarea</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1450837&group_id=25576">1450837</a> ] Update miscinfo.lst in all gamemodes to use JEP formulas</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1453482&group_id=25576">1453482</a> ] Gallantry&#39;s Firearm Arcana</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1455490&group_id=25576">1455490</a> ] [RSRD] dorje price is wrong</li>
+</ul>
+<h3>DATA Feature Requests Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1362982&group_id=25576">1362982</a> ] [RSRD] Add RACETYPE and RACESUBTYPE tags to races</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411286&group_id=25576">1411286</a> ] Domain spell lists should be part of domain def&#39;n</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411313&group_id=25576">1411313</a> ] TYPE Turning VAR bonuses</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411328&group_id=25576">1411328</a> ] [SRD] [RSRD] Awakened Creatures</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411337&group_id=25576">1411337</a> ] Adding to Inspire Courage</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411346&group_id=25576">1411346</a> ] 1 handed Exotic/2 handed Martials</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1417768&group_id=25576">1417768</a> ] [RSRD] Type features and traits reconfiguration</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1440917&group_id=25576">1440917</a> ] Add new tags to spellbook equipment to support Spells Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1445954&group_id=25576">1445954</a> ] [RPGO] LotA - Macedon: Move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1450911&group_id=25576">1450911</a> ] [SRD] Default Monster Kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1450913&group_id=25576">1450913</a> ] Default Monster Kits for non-core datasets</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1450968&group_id=25576">1450968</a> ] split up SOURCE tags into separate tokens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1451855&group_id=25576">1451855</a> ] [RPGO] LotA - Carthage: Move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1451907&group_id=25576">1451907</a> ] [SRD/RSRD] dataset directory restructure</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1453531&group_id=25576">1453531</a> ] Sidewinder: Recoiled - cleanup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1457229&group_id=25576">1457229</a> ] [RSRD] Random Treasure Table kits</li>
+</ul>
+<h3>DATA New Source Material Requests Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027270&group_id=25576">1027270</a> ] [RSRD] Deities and Demigods material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027275&group_id=25576">1027275</a> ] [RSRD] Manual of the Planes material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1373768&group_id=25576">1373768</a> ] [SEP][Roles and Classes] Covert Hero</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1388273&group_id=25576">1388273</a> ] [RPGO] [BnS] Starship Construction Manual</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1434170&group_id=25576">1434170</a> ] [Silven] 50 New Ways to Blow Things UP</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1446955&group_id=25576">1446955</a> ] [SEP][Roles and Classes] Combat Hero</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1447704&group_id=25576">1447704</a> ] [Gallantry Productions] Firearm Arcana</li>
+</ul>
+<h3>OS Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1314420&group_id=25576">1314420</a> ] Error in Turn display</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1332047&group_id=25576">1332047</a> ] Character level / ECL on pdf</li>
+</ul>
+<h3>OS Freqs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1398989&group_id=25576">1398989</a> ] Save blocks converted to use looped array</li>
+</ul>
+<h3>DOC Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1359512&group_id=25576">1359512</a> ] Clarify: BONUS tags take variables, formulas and numbers</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1424758&group_id=25576">1424758</a> ] BONUS:COMBAT|DAMAGEMULT wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1456160&group_id=25576">1456160</a> ] INCLUDE needs note about only one line per file</li>
+</ul>
+<h3>DOC FREQs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1406869&group_id=25576">1406869</a> ] Doco SPELLMEM subtoken CASTERLEVEL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1441480&group_id=25576">1441480</a> ] Document New Tags Added for Spellbook Equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1458463&group_id=25576">1458463</a> ] Document COVER pcc tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1458638&group_id=25576">1458638</a> ] Document QUALITY equipment tag</li>
+</ul>
+
+</body>
+</html>
+<!--
+	http://sourceforge.net/docman/display_doc.php?docid=32512&group_id=25576
+-->

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.0
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.0</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.11.0</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.0</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.0</a></h2>
+<p>
+PCGen v5.11.0 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. Some notable new changes are:
+</p>
+<UL>
+<li> Support for substitution levels
+<li> Clean up the pcgen/lib directory.
+<li> Update skinlf to 6.2. 
+<li> Update JEP to 2.31. 
+<li> Default data directory to user's home directory. 
+<li> Correct the handling of accented characters in sources. 
+<li> Added completed FantasyGrounds sheet. 
+<li> Revamp of the chooser dialogs.
+</ul>
+
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- August 23, 2006.</p>
+
+
+<h2><a name="GMGenIssue">GMGen known issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.0 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_full.zip?download">pcgen5110_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_full.zip.sig?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_partial.zip?download">pcgen5110_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_partial.zip.sig?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_win_install.exe?download">pcgen5110_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_win_install.exe.sig?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_mac_install.dmg?download">pcgen5110_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5110_mac_install.dmg.sig?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</li>
+</ul>
+
+
+<p />
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.0</a></h2>
+
+<h3>Code Feature Requests Completed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1002586">1002586</a> ] 3.5: Druid advanced animal companion HD based on full level
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1004939">1004939</a> ] disable HITDICEADVANCEMENT in companions
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1038188">1038188</a> ] BONUS:DOMAINS NUMBER # functional from a race file
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1172978">1172978</a> ] Increase in HD
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1231443">1231443</a> ] Whitespace in OS
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1238040">1238040</a> ] Adding Hit Dice from Templates (Lycanthorpe + more support)
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1396081">1396081</a> ] CASTERLEVEL inside RANGE tag (spells file)
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1259027">1259027</a> ] CHOOSE tag for races/monsters
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1436352">1436352</a> ] Substitution Class Levels
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1461250">1461250</a> ] Move MW/Magic Type Definitions Used by Eq Customiser to Data
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1472258">1472258</a> ] Clean up the pcgen/lib directory
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1472270">1472270</a> ] Update skinlf to 6.2
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1472262">1472262</a> ] Update JEP to 2.31
+</ul>
+
+<h3>Data Feature Requests Completed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1464778">1464778</a> ] Arcane Archer Ability work
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1537412">1537412</a> ] MSRD Future Cybertaker feat: Increase attachment allowance
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1538295">1538295</a> ] MSRD Make Frightful Presence DC a variable
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1519701">1519701</a> ] (Better) Support for spell components
+</ul>
+
+<h3>New Data Source Development</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1438864">1438864</a> ] SEP Gunpowder Plots
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1502388">1502388</a> ] RPGO MD Issue #90 - The Watchers
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1505123">1505123</a> ] Goodman Games DCC25 - The Dread Crypt of Srihoz
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1523391">1523391</a> ] Goodman Games DCC27 Revenge of the Rat King
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1523393">1523393</a> ] Goodman Games DCC28 Into the wilds
+</ul>
+
+<h3>OS Feature Requests Completed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1507145">1507145</a> ] Add completed FantasyGrounds sheet to
+</ul>
+
+<h3>Doc Feature Requests Completed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1162090">1162090</a> ] Add how avoid to Out of memory on export to FA
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1217654">1217654</a> ] Size Adjustment file, document missing BONUS tags
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1259014">1259014</a> ] Skill Bonus Feats
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1261670">1261670</a> ] SRD Help Page
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1261672">1261672</a> ] RSRD Help Pages
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1356169">1356169</a> ] Document SPELL as possible variable for SPELLSTAT
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1375025">1375025</a> ] Document companion mod tags
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411269">1411269</a> ] spells file - PPCOST (Point Pool Cost)
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411274">1411274</a> ] When POINTPOOLNAME trigger tag is present in miscinfo file
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411280">1411280</a> ] statsandchecks file - STATMOD tag
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411284">1411284</a> ] statsandchecks file - Stat lines
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411288">1411288</a> ] BAB can be renamed in the GUI
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411290">1411290</a> ] Export Token BASEPPCOST
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411292">1411292</a> ] miscinfo.lst improvements
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1411293">1411293</a> ] IIF with conditionals other than equals
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1474721">1474721</a> ] statsandchecks file - Lang lines
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1479978">1479978</a> ] Document changed format for PRESPELLTYPE
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1490923">1490923</a> ] Document temp bonus tokens
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1507718">1507718</a> ] Add NAME as an example to .MOD
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1507927">1507927</a> ] Document that .pcc files can include other .pcc files
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1507932">1507932</a> ] Update to PCC description in "PCC and LST Files Explained
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1508553">1508553</a> ] Output Sheets" section needs an overhaul
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1508627">1508627</a> ] Export to Text is missing
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1517521">1517521</a> ] OS directories and file name conventions
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1519945">1519945</a> ] include Misc Info File Tags in main navlistindex
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1530739">1530739</a> ] Document tags for load.lst file
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1536337">1536337</a> ] New Tag: SPELLBOOK
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1541623">1541623</a> ] Document new Companion Mod tags
+</ul>
+
+<h3>Code Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=924272">924272</a> ] Default data directory on *nix
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1309972">1309972</a> ] Use one math syntax in PCGen (JEP?)
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1429034">1429034</a> ] LST Editors do not produce accented characters
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1442000">1442000</a> ] DOMAIN LST editor - Add FEAT support
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1454563">1454563</a> ] LST Editor using old SOURCE line
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1458846">1458846</a> ] SVN keyword are not replaces in source files
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1475821">1475821</a> ] SPELLLIST chooser is broken
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1478965">1478965</a> ] CHOOSE:FEAT= is broken
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1479787">1479787</a> ] KIT Duplicate ranks added when adding a Trained Only skill
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1494672">1494672</a> ] DR tag does not work per level in Class files
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1519437">1519437</a> ] Equiping Tab - Equip items vanish when no set selected
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1520915">1520915</a> ] OUTPUTNAME OS TEMPLATE Subtoken
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1534146">1534146</a> ] Spell Editor Copy uses cached Descriptor
+</ul>
+
+<h3>Doc Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1473099">1473099</a> ] CSS style errors
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1519761">1519761</a> ] Complete LST tag index
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1535433">1535433</a> ] Complete listing in navtokenindex
+</ul>
+
+<h3>Data Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1462505">1462505</a> ] FFG Against the Shadow issue
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1471781">1471781</a> ] Kobold Kit Error
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1482472">1482472</a> ] Modern Players Companion Update Classes to current methods
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1527236">1527236</a> ] RSRD Duergar, Deep Dwarves RACETYPE:Humanoid tag
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1537208">1537208</a> ] RSRD Glabrezu missing 2nd claw attack
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1537455">1537455</a> ] MSRD Rename Cyborg hidden feat
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1540815">1540815</a> ] .MOD incorrectly applied to a feat choice
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1543292">1543292</a> ] Plus modifiers to replace the masterwork EQMOD
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- $Id$ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Release Notes for PCGen v5.10.0
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.10.0</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.10.0</a></li>
+	<li><a href="#DirReorg">SRD, RSRD and MSRD Directory reorganization</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.10.0</a></h2>
+<p>
+A lot of things happened since the 5.8 release. 282 Feature requests (121 code, 74 data, 8 tags, 68 docs, 11 output sheets)
+396 Bug fixes (196 code, 153 data, 29 docs, 15 output sheets, 3 other) and
+49 New sources (26 prod, 23 alpha). Here's the summary, see the <a href="#ChangeLog">Change Log</a> for the details.
+</p>
+<h3>Main Data Changes</h3>
+<p>
+We have completed support for the core datasets with the addition of the
+Epic and Divine subsets in the RSRD and the completion of the Future and
+Arcana subsets of the MSRD.
+</p>
+<p>
+New code enhancements have allowed us to create Default Monster Kits for
+most of the monsters in our repository. The RSRD and MSRD monsters have
+received close attention with an extensive sweep for data errors. The
+Default Monster Kits for these sets include weapons, armor and other default
+equipment. A new output sheet, csheet_fantasy_statblock_SRD.htm, has been
+added which is formatted to look as close to the text of the SRD as PCGen
+can for the purpose of making the checking of Default Monster Kits easier.
+</p>
+<p>
+We have added support for the Vitality and Wound point system presented in
+Unearthed Arcana, an alternative to the standard Hit Point system. You can
+switch to this system from the Preferences &gt; House Rules window and the
+output sheet will then list Vitality and Wound points instead of Hit Points.
+</p>
+<p>
+Since the inception of the program we have mistakenly named the Will check
+Willpower. This has been corrected in 5.10. Users with homebrew datasets
+will need to update the Will check bonuses in their sets to use Will instead
+of Willpower. Several other objects have also received some name changes as
+well. In the MSRD the class named &quot;Battlemind&quot; was corrected to &quot;Battle
+Mind&quot;, the class &quot;Archaic Weaponmaster&quot; was corrected to &quot;Archaic
+Weaponsmaster&quot;. In the RSRD the class &quot;Warmind&quot; was corrected to &quot;War Mind&quot;.
+</p>
+<p>
+We have added many Wildshape templates which allow a Druid with to assume a
+Wildshape form and have the altered stats reflected in the output sheet.
+</p>
+<p>
+We have added temporary bonus templates for Two Weapon Defense & Fighting
+Defensively which can be applied to characters using these actions and the
+bonuses gained will be reflected on the OS. Other similar conditional
+templates such as Cowering, Energy Drained and Fatigued have also been
+added.
+</p>
+<p>
+The RSRD Lycanthrope Templates have received several rounds of improvements
+this cycle. Applying one is almost a one step process as the templates will
+now add temporary animal hit dice (which is removed when the template is
+removed). All that&acute;s left to do is spend the skill points gained from the
+animal hit dice.
+</p>
+<p>
+Random Treasure Table kits have been added to the RSRD set. A variety of
+these sets enable the addition of randomly selected items which can range
+from a kit that adds a particular type of item (like an Art object) to kits
+that roll on a series of tables based on the characters CR. These kits are
+an implementation of the treasure tables in the RSRD.
+</p>
+<p>
+A Blank data set with commented out examples has been added to the
+data/my_dataset folder. This is designed to provide a basic file structure
+for a beginner to start creating their own dataset.
+</p>
+
+<h3>GUI improvements: Common interface elements</h3>
+<p>
+Many tabs in PCGen now have common interface elements to aid in finding and
+sorting through the lists.
+</p>
+<p>
+The Filter field allows you to search for items by any text you enter, PCGen
+will display only those items which have names or types that match the text
+entered, this is the reason the Kukri is displayed when filtering for the
+word &quot;dagger&quot;, it has the &quot;Dagger&quot; type. If you have applied any other
+filters by using the Filter tool the text filter will limit it&acute;s search to
+those not filtered out by the filter tool. In other words the items
+displayed will match both the Filter tool and the text Filter.
+</p>
+<p>
+On the right side of many of the lists column label row is a small icon with
+three dots in it  . When clicked this will produce a pop up menu displaying
+all the possible columns the list can display with a check mark beside each
+item currently enabled. Selecting any item will change it&acute;s state from
+either being displayed or hidden.
+</p>
+<h3>New sub-tabs</h3>
+<p>
+The Race tab is now divided into two full sub-tabs: Races and Templates.
+</p>
+<p>
+The Spells Tab is divided into three sub-tabs: Known Spells, Prepared Spells
+and Spell Books. The Known Spells sub-tab is used to add spells to the PC&acute;s
+Known Spells lists. A spell caster who must prepare spell ahead of time can
+use the Prepared Spells sub-tab to create Prepared Spell lists. A spell
+caster who must record spells in a spellbook can use the Spell Books sub-tab
+to track which spells are kept in which books.
+</p>
+<h3>Other changes</h3>
+<p>
+The equipment customizer has been adjusted so that the default name is
+composed better. For example if you create a Returning Dagger the default
+name will be &quot;Dagger +1 (Returning)&quot; instead of &quot;Dagger (+1 enhancement to
+Weapon or Ammunition/Returning)&quot;.
+</p>
+<p>
+A list of things to be done for a character is now displayed on the summary page,
+and the relevant tabs are flagged. This covers things like feats or languages that
+need to be selected as well as having unspent skill points etc.
+</p>
+<p>
+The custom items are now split by game mode, so you'll no longer see your tough's
+customized plasma rifles in the equipment list when selecting your wizard's
+dungeoneering gear.
+</p>
+<p>
+The way PCGen handles weapons which have both martial and exotic proficiencies
+has been overhauled and feats like weapon focus in them work in a more predictable manner
+</p>
+
+<p>&Eacute;ric &quot;Space Monkey&quot; Beaudoin for the PCGEN Team -- April 27, 2006.</p>
+
+<h2><a name="DirReorg">SRD, RSRD and MSRD Directory reorganization</a></h2>
+<p>In the 5.9.7 release we have reorganized the core datasets directories.
+Essentially we have moved the files loaded by each Partial set into it's own
+directory. We have done this to simplify maintenance and to stream line
+their use, since each is now a self-contained dataset you can be confident
+that no file is double loaded when you mix and match Partial sets. You can
+also load any combination of sets and know that only the basics set is
+required (with the exception of the Epic Psionics set which also requires
+the Psionics set).
+</p>
+<p>
+Impact: If you have created custom datasets which use relative links to load
+files from the core datasets these links will be broken. You will need to
+check out the new structure to see how it need to be fixed. Similarly if you
+have created a custom pcc with the Customize button in the Sources Tab you
+will need to manually edit it to correct the paths or simply recreate it.
+</p>
+<p>
+For the SRD and RSRD this change is not expected to break any previously
+created characters since the dataset names were not changed.
+</p>
+<p>
+Changes to the MSRD on the other hand are going deeper as they involve a
+major overhaul of the PCC Type and Campaign tags. Where the complete set
+previously only loaded the Basics and Menaces sections of the MSRD, there is
+now a much more modular structure that will help to better cope with the
+multitude of genres that can be covered by the Modern game.
+</p>
+<p>
+The new setup now shows under Complete: MSRD Arcana, MSRD Basics, MSRD
+Future, and MSRD Menaces. These sets will each load a complete section, as
+those appear as partially downloadable sections of the MSRD on the WotC
+webpage. To exactly do that, the section previously called "Core" has been
+renamed to "Basics" as that is what the MSRD uses. Of course there are still
+the optional partial sets for users that want to load only certain
+components, like loading the Basics without FX.
+</p>
+<p>
+But all those changes to the MSRD come at a price. Pre-existing characters
+will most certainly be broken and are unlikely to still work with this new
+version. To work around this you can try the following steps:
+<ul>
+<li>1st-make a copy of your character's .PCG file, in case you might mess up with editing
+the original;</li>
+<li>2nd-open the original .PCG file in a text-editor;</li>
+<li>3rd-delete the CAMPAIGN:xxx tags in the file (i.e. CAMPAIGN:Modern);</li>
+<li>4th-save the file again;</li>
+<li>5th-start PCGen;</li>
+<li>6th-select and load all sources that your character has previously taken choices from;</li>
+<li>7th-load the character;</li>
+<li>8th-if the character now loaded successfully, save it in the new format. That will
+store which sources were loaded with it, so you can treat that file as
+normal in the future.</li>
+</ul>
+<p>This procedure should usually work.</p>
+</p>
+
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 1.4.x or Java 5. PCGEN 5.10.0 is not compatible with Java
+1.3.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Alpha Data Sets</h3>
+<p>The Alpha directory that contains data sets that were not judged to be &quot;production&quot; grade, is
+included in a separate package.
+They vary from &quot;better then nothing&quot; to &quot;nearly ready for production&quot;.</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_full.zip?download">pcgen5100_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_full.zip.sig?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_partial.zip?download">pcgen5100_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_partial.zip.sig?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_win_install.exe?download">pcgen5100_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_win_install.exe.sig?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_mac_install.dmg?download">pcgen5100_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_mac_install.dmg.sig?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_alpha.zip?download">pcgen5100_alpha.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_alpha.zip.sig?download">PGP Signature</a>): <br />
+the package with all the Alpha data sets
+</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_win_alpha_install.exe?download">pcgen5100_win_alpha_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5100_win_alpha_install.exe.sig?download">PGP Signature</a>): <br />
+the Windows installer for the Alpha data sets</li>
+</ul>
+
+
+<p />
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the development):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log</a></h2>
+
+<h3>PCGen Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=914993&group_id=25576">914993</a> ] Artisan Tools - Weaponsmith</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=918810&group_id=25576">918810</a> ] 5.60 3.0 Bug - Weapon Focus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=918822&group_id=25576">918822</a> ] 5.60 3.0 Bug - ACs not calculated correctly</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=931461&group_id=25576">931461</a> ] Sorter Error on opening pcgen.jar file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=937586&group_id=25576">937586</a> ] racial resizing of weapons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=945431&group_id=25576">945431</a> ] SA:foo|0 display bug?</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=956690&group_id=25576">956690</a> ] character portrait</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=956752&group_id=25576">956752</a> ] [5.7.1] Weapon Focus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=966281&group_id=25576">966281</a> ] [5.6.1] Output sheet selection</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=968202&group_id=25576">968202</a> ] AC Enhancement bonus --- buggy</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=978199&group_id=25576">978199</a> ] [5.7.2] [UI] [Class tab] wizard subclass</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=984451&group_id=25576">984451</a> ] Get rid of getCurrentPC()</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=993592&group_id=25576">993592</a> ] Items playing up when equipping multiple characters</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=998085&group_id=25576">998085</a> ] HELP tag in .pcc not quite working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1001537&group_id=25576">1001537</a> ] 5.7.2 RSRD Weapon Feats &amp; Dwarven/Martial Waraxe</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1004071&group_id=25576">1004071</a> ] duplicate feat names with () do not show up</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1021288&group_id=25576">1021288</a> ] [5.7.4] Items vanish from Equipping Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1028480&group_id=25576">1028480</a> ] Debug not working on Mac</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1034508&group_id=25576">1034508</a> ] LSTEXCLUDE not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1034509&group_id=25576">1034509</a> ] .FORGET not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1041414&group_id=25576">1041414</a> ] Small problem with sorting/filtering controls</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1043416&group_id=25576">1043416</a> ] Alignment for follower in red</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1044306&group_id=25576">1044306</a> ] text OS folder not being read for Export</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1045163&group_id=25576">1045163</a> ] EqSet Used for Calcs keeps reverting in Inventory/Equipping</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1061334&group_id=25576">1061334</a> ] deprecated tag and typo console errors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1068060&group_id=25576">1068060</a> ] containers not being stored correctly</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1079713&group_id=25576">1079713</a> ] Humanoid class and skill points incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1080188&group_id=25576">1080188</a> ] dwarven waraxe category tweak</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1080417&group_id=25576">1080417</a> ] removing a martial wpn feat doesn&#39;t work</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1081939&group_id=25576">1081939</a> ] Problem filtering deities by pantheon</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1082786&group_id=25576">1082786</a> ] Importing same pcg file multiple times</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1085704&group_id=25576">1085704</a> ] Auto-add spell and custom spellbook broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1086198&group_id=25576">1086198</a> ] Custom equipment creation focus bug</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1104238&group_id=25576">1104238</a> ] Mac - when command-quit it won&#39;t write options.ini</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1104484&group_id=25576">1104484</a> ] SPELLS tag non-functional in Domain file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1106834&group_id=25576">1106834</a> ] Double spell sort problem</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1113629&group_id=25576">1113629</a> ] PREAPPLY:&lt;Type&gt; doesn&#39;t immediatly pop</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1117125&group_id=25576">1117125</a> ] Bonus spells not present for multiclass</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1119800&group_id=25576">1119800</a> ] Unable to add multiple spells with metamagic effects</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1143800&group_id=25576">1143800</a> ] Spells Tab, Class Info pane info wrong for sub-stat casters</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1145124&group_id=25576">1145124</a> ] PRESPELLCAST:TYPE=Divine</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1145186&group_id=25576">1145186</a> ] BONUS:UDAM not working in Feat files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1153982&group_id=25576">1153982</a> ] AUTO:ARMORPROF|TYPE tag bug</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1161177&group_id=25576">1161177</a> ] BIO tag EOL exporting broken on .fo OS Sheets</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1162084&group_id=25576">1162084</a> ] Spell editor - Descriptor is not displayed (no field provide</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1162092&group_id=25576">1162092</a> ] Preview with lots of languages pushes most fields</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1171714&group_id=25576">1171714</a> ] Race Editor: AUTO:WEAPONPROF tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1175623&group_id=25576">1175623</a> ] Raising Int does not immediately affect Skill Points</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1178687&group_id=25576">1178687</a> ] Hidden feats with parens are not applied via ADD:FEAT tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1183456&group_id=25576">1183456</a> ] SPROP on weapons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1183949&group_id=25576">1183949</a> ] Template Tag, LEVEL:x:DR:x/x not behaving as expected</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1185315&group_id=25576">1185315</a> ] Martial/Exotic weapons and CHANGEPROF issue</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1185344&group_id=25576">1185344</a> ] Exotic Weapon Profeciancy feat and Half-Giants</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1188199&group_id=25576">1188199</a> ] Dragon Disciple Bonus Spell doesn&#39;t offer highest spell slot</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1188618&group_id=25576">1188618</a> ] ADD:Language(Name,Name)1 broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1189973&group_id=25576">1189973</a> ] Dragon Disciple Bonus Spell doesn&#39;t save with PC</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1192228&group_id=25576">1192228</a> ] Spells with metamagic feats, unable to select more than one</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1193100&group_id=25576">1193100</a> ] LST Editor truncating Craft/Knowledge PRESKILL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1195181&group_id=25576">1195181</a> ] Use Default Monster and unarmed damage</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1195224&group_id=25576">1195224</a> ] customizing a double weapon with the same material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1202858&group_id=25576">1202858</a> ] Double Weapons &amp; magical properties</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1209421&group_id=25576">1209421</a> ] Unloading and Reloading problem</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1212173&group_id=25576">1212173</a> ] Print Error - Entity name must immediately follow the &amp;...</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1213573&group_id=25576">1213573</a> ] Price rounding problem with equipmods</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1217735&group_id=25576">1217735</a> ] [KITS] SKILL and SPELL tags issues</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1217880&group_id=25576">1217880</a> ] Problem with dex bonus and armor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1218483&group_id=25576">1218483</a> ] EQMOD replication issue with .COPY tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1219187&group_id=25576">1219187</a> ] Spell list editor controls resize beyond client area</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1219195&group_id=25576">1219195</a> ] FEATALL token problem</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1223173&group_id=25576">1223173</a> ] Negative levels formula fails in Preview Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1223858&group_id=25576">1223858</a> ] Innate Spell DCs used for class lists</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1223859&group_id=25576">1223859</a> ] BONUS: involving DAMAGESIZE ?</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1224780&group_id=25576">1224780</a> ] Movement Rate on Race Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1225685&group_id=25576">1225685</a> ] Move item to feature in Gear Tab broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1225717&group_id=25576">1225717</a> ] Preview in external browser does not work in WinXP Pro x64</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1227266&group_id=25576">1227266</a> ] MSRD: Exotic Melee Proficiency not working.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1227699&group_id=25576">1227699</a> ] Fix output sheet token FACE and REACH to use unit settings</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1228714&group_id=25576">1228714</a> ] ADD:CLASSSKILLS fails with skills that use parens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1231438&group_id=25576">1231438</a> ] BONUS:FEAT|POOL giving double bonus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1234269&group_id=25576">1234269</a> ] LST Editor not interfacing with memory PRExxx information</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1234358&group_id=25576">1234358</a> ] Typo in Advanced Tag listings in LST Editor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1235550&group_id=25576">1235550</a> ] Remove deprecated tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1236448&group_id=25576">1236448</a> ] Template removal and ability scores</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1247802&group_id=25576">1247802</a> ] Infinite Loop Warning Message</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1253214&group_id=25576">1253214</a> ] can&#39;t set more than 1 MULT:YES feats in race lines</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1263626&group_id=25576">1263626</a> ] Rampant inflation of Mastercraft equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1263936&group_id=25576">1263936</a> ] [KITS] Adding EQMODs to Equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1273536&group_id=25576">1273536</a> ] NullPointerException when user cancels</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1273551&group_id=25576">1273551</a> ] LevelAbilityClassSkill</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1275621&group_id=25576">1275621</a> ] BONUS:SPELLKNOWN|CLASS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1277701&group_id=25576">1277701</a> ] Boolean expresions fail in JEP Formulas</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1279474&group_id=25576">1279474</a> ] bypass feat PRExxx should not enable BONUSes</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1280838&group_id=25576">1280838</a> ] VFEAT not applying feats with choices</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1281064&group_id=25576">1281064</a> ] Can&#39;t edit Feats in the LST Editor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1281456&group_id=25576">1281456</a> ] Long Spellsheet Path Resizes Textfield Too Large</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1281460&group_id=25576">1281460</a> ] SpellTab Buttons Wrapping</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1283153&group_id=25576">1283153</a> ] create MiscToken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1283158&group_id=25576">1283156</a> ] create SpellBookNameToken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1283167&group_id=25576">1283167</a> ] create Feat List Tokens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1283169&group_id=25576">1283169</a> ] create Feat Tokens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1283554&group_id=25576">1283554</a> ] Lost .pcg info because of crash/low memory</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1284324&group_id=25576">1284324</a> ] Equipment customiser is reporting error</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1287911&group_id=25576">1287911</a> ] Deprecate ISD20:YES tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1292043&group_id=25576">1292043</a> ] Del button on Spells tab does not delete spellbook</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1293270&group_id=25576">1293270</a> ] Known and Specialty spells not being saved correctly</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1295902&group_id=25576">1295902</a> ] ADD:FEAT(y,y)z should take formula&#39;s</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1295912&group_id=25576">1295912</a> ] plugins folder cluttered</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1298101&group_id=25576">1298101</a> ] BONUS:DC|SPELL Broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1298171&group_id=25576">1298171</a> ] create &#39;default&#39; system folder</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1298173&group_id=25576">1298173</a> ] remove specials.lst and schools.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1298174&group_id=25576">1298174</a> ] Enable .nam file loading in all of system</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1304156&group_id=25576">1304156</a> ] Unarmed Damage wrong for creatures with size increases</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1305420&group_id=25576">1305420</a> ] !PRESKILL fails when Skill name uses spaces</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1311883&group_id=25576">1311883</a> ] make PrerequisiteOperator instances singletons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1313465&group_id=25576">1313465</a> ] CHOOSE:NUMCHOICES=, CHOOSE:COUNT= broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1313510&group_id=25576">1313510</a> ] Enabling POINTPOOL in game mode causes stack overflow</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1315545&group_id=25576">1315545</a> ] [5.9.3] Kit window, race change does not update</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1315546&group_id=25576">1315546</a> ] [5.9.3] Kit window, can&#39;t select kit</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1323922&group_id=25576">1323922</a> ] Display Feat Description broke on OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1324458&group_id=25576">1324458</a> ] issues with PRESKILL on skills</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1329128&group_id=25576">1329128</a> ] ADD:SPELLCASTER tag conflicts with spellcaster types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1329185&group_id=25576">1329185</a> ] ADD:FEAT with COST &lt;&gt; 1 adds wrong # when feat removed</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1334638&group_id=25576">1334638</a> ] reference to d20 Modern book</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1336727&group_id=25576">1336727</a> ] Custom deities, templates only writes PObject props to .lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1336732&group_id=25576">1336732</a> ] Deity with no FOLLOWERALIGN show prereqs as &#39;One of ()&#39;</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1336842&group_id=25576">1336842</a> ] Paladin Detect Evil causes null dereference</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1336843&group_id=25576">1336843</a> ] [BUG][5.9.2++]SPELLLEVEL:CLASS broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1337605&group_id=25576">1337605</a> ] KIT: Tag does not work in feats files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1338468&group_id=25576">1338468</a> ] PRESPELLCAST:MEMORIZE fails with multiclass characters</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1341067&group_id=25576">1341067</a> ] Weapon Finesse Applying Dex wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1341511&group_id=25576">1341511</a> ] Cold Iron ammo costs too much</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1347830&group_id=25576">1347830</a> ] Multiclassing and PRESPELLCAST</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1351572&group_id=25576">1351572</a> ] TEMPLATE:CHOOSE broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1354563&group_id=25576">1354563</a> ] [5.9.4] PRERACE:RACESUBTYPE=x broke</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1354856&group_id=25576">1354856</a> ] Custom Equipment Fails to Save on Exit</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1356785&group_id=25576">1356785</a> ] Two-Handed Weapon Attack Bonus Incorrect with buckler</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1356880&group_id=25576">1356880</a> ] [5.9.4] ADD:SPELLCASTER broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1357653&group_id=25576">1357653</a> ] [5.9.4] BONUS:SPELLCAST broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1358381&group_id=25576">1358381</a> ] Adding war domain throws exception after weapon selected</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1358664&group_id=25576">1358664</a> ] ADD:FEAT(STACKS not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1358677&group_id=25576">1358677</a> ] Warning: game mode xxx is missing file pointbuymethods.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1361718&group_id=25576">1361718</a> ] Can&#39;t select Spell Mastery Feat in 5.94</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1362469&group_id=25576">1362469</a> ] [5.9.4] GUI missing buttons in Mac system</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1370444&group_id=25576">1370444</a> ] [5.9.4] Export to TXT does not include CR/LF</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1372291&group_id=25576">1372291</a> ] NPE on output if spell lists an unknown class</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1374694&group_id=25576">1374694</a> ] pressing key on class tab throws ClassCastException</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1375753&group_id=25576">1375753</a> ] CLASS line tag DOMAIN:x broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1377050&group_id=25576">1377050</a> ] Spell DC error messages</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1377575&group_id=25576">1377575</a> ] Preview missing Turning Check bonus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1378053&group_id=25576">1378053</a> ] [KIT] EQMODs with choices do not get added</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1378227&group_id=25576">1378227</a> ] [KIT] FREE:YES does not function without points in the pool</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1380105&group_id=25576">1380105</a> ] [KIT] LOCATION:Equipped not honoring TYPE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1391369&group_id=25576">1391369</a> ] PREDEFAULTMONSTER:YES does not pass</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1395457&group_id=25576">1395457</a> ] Cannot add to base move</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1397000&group_id=25576">1397000</a> ] VISION token should not list &quot;Normal Vision&quot;</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1397338&group_id=25576">1397338</a> ] CL not evaluated correctly in PREVAR</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1397987&group_id=25576">1397987</a> ] Math processing issue</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1398529&group_id=25576">1398529</a> ] Animal Companion data not output to character sheet.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1403538&group_id=25576">1403538</a> ] converting willpower to will references</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1407451&group_id=25576">1407451</a> ] Rapid Shot temp bonus weight error</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1410934&group_id=25576">1410934</a> ] change wieldcategories ToSmall,ToLarge to TooSmall,TooLarge</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1410949&group_id=25576">1410949</a> ] gnome cannot equip longsword, but can equip greatclub</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1411196&group_id=25576">1411196</a> ] Domain LST editor stripping custom SPELLLEVEL tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1418772&group_id=25576">1418772</a> ] Complete Warning messages in KitGear</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1423190&group_id=25576">1423190</a> ] Phantom levels for Anmal Companions with Master loaded</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1429632&group_id=25576">1429632</a> ] Class LST Editor does not display or save SPELLS entries</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1435586&group_id=25576">1435586</a> ] get rid of bonusstacks.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1435587&group_id=25576">1435587</a> ] get rid of unitset.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1442227&group_id=25576">1442227</a> ] pluginize kit tokens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1443312&group_id=25576">1443312</a> ] export party to pdf / UI issue</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1444534&group_id=25576">1444534</a> ] Finish migrating Lst Tokens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1449502&group_id=25576">1449502</a> ] Prepared Spell Lists Not Shown</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1451674&group_id=25576">1451674</a> ] error in CHOOSE:SPELLLEVEL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1451706&group_id=25576">1451706</a> ] weird WEAPONPROF behavior</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1451864&group_id=25576">1451864</a> ] [5.9.6] SOURCE display error</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1458573&group_id=25576">1458573</a> ] Fix Damagemult</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1458649&group_id=25576">1458649</a> ] Race ToDo broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1459839&group_id=25576">1459839</a> ] PC Height does not get saved to pcg file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1459906&group_id=25576">1459906</a> ] Recently Opened PC List Erased At Startup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1460584&group_id=25576">1460584</a> ] Spell Books Tab - Incorrect Page Count After Removal</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1460612&group_id=25576">1460612</a> ] Equipment Name Tidy Code Uses Wrong Types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1461012&group_id=25576">1461012</a> ] EquipSet temp bonuses setting</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1461423&group_id=25576">1461423</a> ] Cannot remove template</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1463228&group_id=25576">1463228</a> ] LEVEL:x:FEAT:TYPE.type broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1464070&group_id=25576">1464070</a> ] SPELLLIST for Psion not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1464112&group_id=25576">1464112</a> ] Error on exporting new char (no race) to PDF</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1464635&group_id=25576">1464635</a> ] 5.9.4 PRESIZE in EQMODs broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1465103&group_id=25576">1465103</a> ] Bug since ver 5.9.6: Monster Levels broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1468008&group_id=25576">1468008</a> ] Equipset control of temp bonuses should default to YES</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1468136&group_id=25576">1468136</a> ] Data file path issues on Mac and Linux systems</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1469160&group_id=25576">1469160</a> ] Custom Template Causes All Templates to be Ignored</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1469905&group_id=25576">1469905</a> ] Dwarven waraxe and weapon focus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1470008&group_id=25576">1470008</a> ] NPE when loading a character using feat-given spells</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1471138&group_id=25576">1471138</a> ] FEAT output token is broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1471260&group_id=25576">1471260</a> ] Pluginization of PCTemplateLoader broke .MOD of templates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384719&aid=1471344&group_id=25576">1471344</a> ] adding specific MULT:YES feats is broken</li>
+</ul>
+<h3>PCGen FREQs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=594370&group_id=25576">594370</a> ] KNOWNSPELLS:.CLEAR instead of CLEAR.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=663473&group_id=25576">663473</a> ] Sort Options for Deities - Add Pulldown Menu</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=717130&group_id=25576">717130</a> ] CASTSPELLSASSPECIALTY tag needed</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=720076&group_id=25576">720076</a> ] Make find available for all Lists, Tables and Trees</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=721937&group_id=25576">721937</a> ] DoubleClick on Entire Row or First Column</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=763825&group_id=25576">763825</a> ] HP methods in LST files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=765669&group_id=25576">765669</a> ] Start New PCs on Summary Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=781616&group_id=25576">781616</a> ] Upgrade to javacc 3.2</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=790940&group_id=25576">790940</a> ] Idea for the bringing back the Preview Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=797611&group_id=25576">797611</a> ] .ROUND and .ROUNDUP - Formula operator improvement/addition</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=829256&group_id=25576">829256</a> ] SPROP tag parsed for formulas</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=835676&group_id=25576">835676</a> ] add PRESPELLDESCRIPTOR tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=845545&group_id=25576">845545</a> ] 1/2HD+1 (Hit point allocation scheme)</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=856139&group_id=25576">856139</a> ] CHOOSE, choose a race</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=871933&group_id=25576">871933</a> ] Spell memorization warning</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=879614&group_id=25576">879614</a> ] Druid wild form utility</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=883078&group_id=25576">883078</a> ] Weapon finesse for grappling?</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=893460&group_id=25576">893460</a> ] random numbers in campaign files for gold and stats</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=894659&group_id=25576">894659</a> ] Enable .CLEAR. to Work with LANGAUTO on a Race</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=897645&group_id=25576">897645</a> ] Hide Columns</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=900482&group_id=25576">900482</a> ] class bonus feat interval</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=907231&group_id=25576">907231</a> ] class skills or +x bonus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=919783&group_id=25576">919783</a> ] Expansion ideas on the Spells tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=928306&group_id=25576">928306</a> ] Add PRECASTAS: tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=965469&group_id=25576">965469</a> ] test for class skills</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=991322&group_id=25576">991322</a> ] [5.10] Formula won&#39;t work with present SYNTAX</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=996660&group_id=25576">996660</a> ] Add TEMPLATE:x|x to global tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=998077&group_id=25576">998077</a> ] Racially Resizing Weapons preference</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1005839&group_id=25576">1005839</a> ] PREMOVE doesn&#39;t use the PRExxx standard</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1009004&group_id=25576">1009004</a> ] ADD can accept PRExxx</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1031985&group_id=25576">1031985</a> ] PREALIGN change to a letter format</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1034878&group_id=25576">1034878</a> ] Default Unit Set For a Game Mode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1040705&group_id=25576">1040705</a> ] quick display - character todo list</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1041465&group_id=25576">1041465</a> ] [MSRD] Restriction tag for equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1042382&group_id=25576">1042382</a> ] Implement TEMPLATE:.CLEAR.&lt;blah&gt; tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1076897&group_id=25576">1076897</a> ] Custom item name option</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1079182&group_id=25576">1079182</a> ] Allow random stat rolls again</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1082837&group_id=25576">1082837</a> ] Some classes need both spellbooks and memorised spell lists</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1085699&group_id=25576">1085699</a> ] Spell tab doesn&#39;t show spells with metamagic feats</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1094612&group_id=25576">1094612</a> ] Pages for Spellbook</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1104393&group_id=25576">1104393</a> ] Spellbook as containers</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1109566&group_id=25576">1109566</a> ] BONUS:PPCOST|&gt;spellname or TYPE=)</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1155167&group_id=25576">1155167</a> ] Option to enforce max skill ranks</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1156365&group_id=25576">1156365</a> ] [PCGEN]PREDEITYALIGN has only alignment numbers</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1160323&group_id=25576">1160323</a> ] Add Turning blocks to Preview</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1183416&group_id=25576">1183416</a> ] No more spells msg should report lower lvl spells</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1199739&group_id=25576">1199739</a> ] Prepared Spells spell book on Spells tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1205302&group_id=25576">1205302</a> ] Add Quaqua Look &amp; Feel for Macintosh</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1205523&group_id=25576">1205523</a> ] [5.10] Finish switching file reading to UTF-8</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1209995&group_id=25576">1209995</a> ] Move the remaining system.lst files into gameMode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1217048&group_id=25576">1217048</a> ] WEAPON.0.TOTALHIT.0 &amp; Natural Attacks</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1220789&group_id=25576">1220789</a> ] PRECSKILL tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1221938&group_id=25576">1221938</a> ] Caster/Manifester Level in spell/power lists</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1223350&group_id=25576">1223350</a> ] CHOOSE:SKILLSNAMED tag enhancement</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1226850&group_id=25576">1226850</a> ] [BUG] HIDETYPE:FEAT not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1227043&group_id=25576">1227043</a> ] Add |HITDICE.SHORT| output sheet token</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1227045&group_id=25576">1227045</a> ] Add TYPE to SKILL output sheet token</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1227521&group_id=25576">1227521</a> ] Extend MOVE output token</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1229658&group_id=25576">1229658</a> ] Add preference for automatic overwriting existing OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1233393&group_id=25576">1233393</a> ] Show subrace on preview</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1242242&group_id=25576">1242242</a> ] Add CHOOSE:EQUIPTYPE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1253664&group_id=25576">1253664</a> ] Object List view should use SOURCESHORT entry</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1258078&group_id=25576">1258078</a> ] Need new BONUS to BAB that only affects the current weapon</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1262306&group_id=25576">1262306</a> ] Ability Object: Add Tag Category</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1262309&group_id=25576">1262309</a> ] Ability Object: New pcc file type: ABILITY</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1262311&group_id=25576">1262311</a> ] Ability Object: Alter Feat tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1264236&group_id=25576">1264236</a> ] [KITS] Add SIZE tag for granted GEAR</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1264493&group_id=25576">1264493</a> ] [KITS] Add QUALIFY to VISIBLE tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1264548&group_id=25576">1264548</a> ] Add an option to the Equipment tab to automatically resize</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1276452&group_id=25576">1276452</a> ] Export SOURCE for feats to OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1277403&group_id=25576">1277403</a> ] Deprecate REGION tag in KITs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1277848&group_id=25576">1277848</a> ] Improve Kit GUI window</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1289913&group_id=25576">1289913</a> ] Use SCHOOL entry for sorting spells by school in UI</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1293257&group_id=25576">1293257</a> ] Highlight Custom Items in Editor List</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1295896&group_id=25576">1295896</a> ] New KIT tag STAT:x=y|x=y</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1301149&group_id=25576">1301149</a> ] Streamline unitset.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1304379&group_id=25576">1304379</a> ] add ENnie award to &#39;about&#39; box</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1309968&group_id=25576">1309968</a> ] PREEQUIP to check WIELDCATEGORY</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1310319&group_id=25576">1310319</a> ] Vitality and Wound Points as a House Rule</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1310324&group_id=25576">1310324</a> ] Add Common Stat Roll methods to gameModes</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1313829&group_id=25576">1313829</a> ] [KITS] Add ability to add other kits from a kit</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1315737&group_id=25576">1315737</a> ] Implement shortcut for Vendor Data Directory in PCC files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1315815&group_id=25576">1315815</a> ] [KITS] APPLY tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1323978&group_id=25576">1323978</a> ] PRERACE to take NONE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1324201&group_id=25576">1324201</a> ] CHOOSE:DOMAIN tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336906&group_id=25576">1336906</a> ] Save customxxx.lst files in different dirs for each gamemode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336907&group_id=25576">1336907</a> ] speed up with ArrayList</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336908&group_id=25576">1336908</a> ] memory indicator in status bar</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336909&group_id=25576">1336909</a> ] font smoothing option</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336910&group_id=25576">1336910</a> ] Status bar cuts of some messages when too long</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336911&group_id=25576">1336911</a> ] file preview for images</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336912&group_id=25576">1336912</a> ] portrait previews for PCG files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1336914&group_id=25576">1336914</a> ] increase max memory from 64MB to 96MB</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1339109&group_id=25576">1339109</a> ] HITDIE template tag enhancement</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1342801&group_id=25576">1342801</a> ] Expand PCG file backup functionality</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1347585&group_id=25576">1347585</a> ] Creature Type and Subtype support</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1349178&group_id=25576">1349178</a> ] UI: Add a user-friendly incremental search</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1350202&group_id=25576">1350202</a> ] Allow &quot;high level&quot; bonus spell slots</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1358665&group_id=25576">1358665</a> ] Add ENnie graphic</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1363887&group_id=25576">1363887</a> ] game mode override</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1366278&group_id=25576">1366278</a> ] Export SOURCE for equipment to OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1367958&group_id=25576">1367958</a> ] Save option files when close preferences dialog</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1370559&group_id=25576">1370559</a> ] kit drop-down on summary screen</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1372306&group_id=25576">1372306</a> ] Add medium display option for source names</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1372307&group_id=25576">1372307</a> ] Option to allow overriding of duplicate objects</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1382127&group_id=25576">1382127</a> ] Random object selection for kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1397007&group_id=25576">1397007</a> ] Extend VISION OS token for outputting Vision individually</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1397148&group_id=25576">1397148</a> ] [KIT] Feat choices for granted feats</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1404159&group_id=25576">1404159</a> ] Move hard coded ACHECK values into gameMode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1404774&group_id=25576">1404774</a> ] [KIT] Add support for setting gender</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1404955&group_id=25576">1404955</a> ] [KIT] Allow LEVEL: tag to accept formulas</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1408707&group_id=25576">1408707</a> ] Display Wield Category in the GUI</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1408857&group_id=25576">1408857</a> ] Add &quot;Birthday&quot; field to Description pane</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1410639&group_id=25576">1410639</a> ] Swap pcgen.bat to low_mem and high_mem to standard</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1417749&group_id=25576">1417749</a> ] Support for multiple base.xml files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1434631&group_id=25576">1434631</a> ] Implement CSKILL:ALL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1455053&group_id=25576">1455053</a> ] Template tag to add levels of a class</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1455074&group_id=25576">1455074</a> ] [KIT] Allow specifying template choices</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1455081&group_id=25576">1455081</a> ] Allow DR to take PRExxx tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1458567&group_id=25576">1458567</a> ] Add support for sponsors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=384722&aid=1458665&group_id=25576">1458665</a> ] Make gui fit new standards</li>
+</ul>
+<h3>DATA Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=993862&group_id=36698">993862</a> ] missing deadlands gamemode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1023539&group_id=36698">1023539</a> ] Certain spells can&#39;t be used as domain spells</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1046775&group_id=36698">1046775</a> ] Lizardfolk, two bites</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1067356&group_id=36698">1067356</a> ] epic BAB not working properly</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1090487&group_id=36698">1090487</a> ] [SRD] [RSRD] domains missing BONUS:CASTERLEVEL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1164981&group_id=36698">1164981</a> ] [SRD] Lycanthrope templates need natural attacks</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1175976&group_id=36698">1175976</a> ] [RSRD]Paladin: SA: Aura of Good</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1190642&group_id=36698">1190642</a> ] [MP] [BoEM2] .MOD errors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1198888&group_id=25576">1198888</a> ] [SRD] Weapon finnese feat seems not to work for animals</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1199655&group_id=25576">1199655</a> ] elocator does not gain transporter skill</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1199668&group_id=36698">1199668</a> ] [RSRD] Constructs not done correctly</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1200113&group_id=36698">1200113</a> ] [RSRD] &lt;1HD creatures getting prof.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1201371&group_id=36698">1201371</a> ] [RSRD] Problems with Wild Shape Level stacking</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1202050&group_id=36698">1202050</a> ] [RSRD] Evasion called wrong in Rogue, Ranger</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1204040&group_id=36698">1204040</a> ] [SRD] Dwarven Thrower</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1204880&group_id=36698">1204880</a> ] [RSRD] Errors in monster entry for Nymph</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1207911&group_id=36698">1207911</a> ] [RSRD] Bonus feats missing for Devil (Erinyes)</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1209127&group_id=36698">1209127</a> ] [RSRD] Good Hope spell temp bonus error</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1211642&group_id=36698">1211642</a> ] [SSS] Relics &amp; Rituals: Ritual Casting skill issue</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1215376&group_id=36698">1215376</a> ] [RSRD][Psionics] misspellings in DESC .MOD&#39;s</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1215378&group_id=36698">1215378</a> ] [RSRD][Psionics] commas in equipment names</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1215382&group_id=36698">1215382</a> ] [RSRD][psionic] prettylst reports commas in equipmod names</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1215981&group_id=36698">1215981</a> ] [RSRD] PREAPPLY Bonus for Shield spell has wrong bonus type</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1223871&group_id=25576">1223871</a> ] WEAPONAUTO is deprecated, use AUTO:WEAPONPROF</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1224030&group_id=36698">1224030</a> ] saddlebags have bogus CONTAINS item limit</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1224292&group_id=36698">1224292</a> ] [SRD/RSRD] Spell Resistance EQMOD errors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1225177&group_id=25576">1225177</a> ] [MSRD] Reputation and Wealth now DEFINEd in gameMode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1225827&group_id=25576">1225827</a> ] |Ability Bonus (Enhancement) EQMOD cost formula fails</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1226305&group_id=25576">1226305</a> ] [SRD/RSRD] Vestments (Druid) bonus the wrong VAR</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1230545&group_id=25576">1230545</a> ] Error adding Mithril type to Heavy armors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1231440&group_id=25576">1231440</a> ] Challenge Rating for Ordinaries should be adjusted only once</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1234569&group_id=25576">1234569</a> ] Wrong WIS Prereq for Inquistor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1234571&group_id=25576">1234571</a> ] [R/MSRD] Elemental MONSTERCLASS tags incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1236429&group_id=25576">1236429</a> ] Wrong base power points for Psionic Fist</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1239032&group_id=25576">1239032</a> ] [MSRD] Native Language</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1239185&group_id=25576">1239185</a> ] [SRD/RSRD] Buckler and weapon use penalty</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1239207&group_id=25576">1239207</a> ] Conditional &quot;Survival&quot; sub-skill ranks not correct in RSRD</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1243851&group_id=25576">1243851</a> ] [RSRD] Transport via Plants wrong school</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1245536&group_id=25576">1245536</a> ] [MSRD] Spell Mastery in Mage class error</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1246099&group_id=25576">1246099</a> ] [MSRD Arcana] Dragons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1246434&group_id=25576">1246434</a> ] [MSRD] mage and telepath have wrong HD</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1246925&group_id=25576">1246925</a> ] [MSRD] MSRD gamemode not capitalized like the others</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1247089&group_id=25576">1247089</a> ] Fighting Defensively and Total Defense should not stack</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1247578&group_id=25576">1247578</a> ] [MSRD] Masterwork should be Mastercraft</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1248138&group_id=25576">1248138</a> ] [MSRD] Modern gameMode does not have BASEDICE entries</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1248148&group_id=36698">1248148</a> ] [Cityscape] Typo on DEFINE tag in feat file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1248167&group_id=36698">1248167</a> ] PRESPELL used when PRESPELLTYPE(?) was intended?</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1249750&group_id=25576">1249750</a> ] [xSRD] Barkskin missing tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1249945&group_id=25576">1249945</a> ] [RSRD] Enhancement Bonuses to Natural Armor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1257266&group_id=25576">1257266</a> ] [RSRD] Incorrect pricing on resized specific armor</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1258944&group_id=25576">1258944</a> ] [FFG] Clean up of Spells and Spellcraft spells.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1258961&group_id=25576">1258961</a> ] [FFG] Traps and Treachery spells cleanup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1258966&group_id=25576">1258966</a> ] [FFG] School of illusion cleanup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1261170&group_id=25576">1261170</a> ] [RSRD] Various Equipment typos</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1262654&group_id=25576">1262654</a> ] [SRD] Half Dragon missing natural attacks</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1266035&group_id=25576">1266035</a> ] Scrolls with same name (Arcane/Divine) not listing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1266776&group_id=25576">1266776</a> ] [Spycraft] Facemans Fort save off</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1269863&group_id=25576">1269863</a> ] [RSRD] Arcane Trickster spellcasting</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1277868&group_id=25576">1277868</a> ] [SRD/RSRD] Basematerial EQMODs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1281086&group_id=25576">1281086</a> ] [Seafarer&#39;s Handbook] Equipment issues</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1286987&group_id=25576">1286987</a> ] [RSRD] Oathbow incorrectly listed as L</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1295923&group_id=25576">1295923</a> ] [MSRD] Robust ability should add HP</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1304941&group_id=25576">1304941</a> ] LICENSED tag bad and deprecated - convert to correct LICENSE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1305441&group_id=25576">1305441</a> ] Psionic Power Class Missing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1309982&group_id=25576">1309982</a> ] [RSRD] Heirophant special ability improvements needed</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1310510&group_id=25576">1310510</a> ] LichAbilityDC incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1311063&group_id=25576">1311063</a> ] [FFG Mythic Races] Vermen Race not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417816&aid=1311293&group_id=36698">1311293</a> ] [completebookofeldritchmight] Bad SPELL tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1314860&group_id=25576">1314860</a> ] Alter all PREMULT[PREMOVE, PREMOVE] to standard PREMOVE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1326004&group_id=25576">1326004</a> ] [MSRD] Custom Fiends broke</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1328305&group_id=25576">1328305</a> ] Lich template missing skill ajustements</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1332058&group_id=25576">1332058</a> ]  low-light vision ability appearing twice in charactersheet</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1334479&group_id=25576">1334479</a> ] [Eldritch Sorcery] dynamic Subdual Ray description</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1334482&group_id=25576">1334482</a> ] [Eldritch Sorcery] Greater Exp. Retreat missing School</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1334488&group_id=25576">1334488</a> ] [Eldritch Sorcery] Eyes of the Hawk DESC bad</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1336451&group_id=25576">1336451</a> ] [MSRD] Occupation_Skills have PRECSKILL wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1336849&group_id=25576">1336849</a> ] [rsrd] 581 RC1 - Monk&#39;s Belt still broken</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1339173&group_id=25576">1339173</a> ] [RSRD] Track should be a bonus feat for Dogs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1339174&group_id=25576">1339174</a> ] [RSRD] Abyssal Greater Basilisk entry missing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1339180&group_id=25576">1339180</a> ] [RSRD] Bracers of Archery (Lesser)</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340072&group_id=25576">1340072</a> ] [XCrawl] Wiz/Sor prereqs are causing errors </li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340088&group_id=25576">1340088</a> ] Willpower save should be Will</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340166&group_id=25576">1340166</a> ] [MSRD] Battle Mind misspelled</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340172&group_id=25576">1340172</a> ] [MSRD] Action Points</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340180&group_id=25576">1340180</a> ] Loremaster Instant Mastery doesn&#39;t choose RANK:0 skills</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340202&group_id=25576">1340202</a> ] Animal Domain missing SPELLS tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1340796&group_id=25576">1340796</a> ] [MSRD Arcana]Remove Weapon/Armor entries from normal equipme</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1341070&group_id=25576">1341070</a> ] Enlarge person bonus to Grapple Check</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1347887&group_id=25576">1347887</a> ] [MSRD] Monster Class Skill point errors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1350171&group_id=25576">1350171</a> ] [RSRD][5.9.3] Fighter BAB</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1352825&group_id=25576">1352825</a> ] [RSRD] Default Monster Kit Validation</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1354046&group_id=25576">1354046</a> ] [RSRD] Outsource psionic skills from rsrd_skills_epic.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1354085&group_id=25576">1354085</a> ] Elemental monster class Type prerequisite issue</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1356191&group_id=25576">1356191</a> ] [RSRD] [Epic] Improved Metamagic needs MULT:YES</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1357263&group_id=25576">1357263</a> ] [RSRD] Spell Component Pouch weight wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1359409&group_id=25576">1359409</a> ] [MSRD]Various Issues reported by prettylst.pl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1359613&group_id=25576">1359613</a> ] Positive Ability score mod always 0</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1360389&group_id=25576">1360389</a> ] [RSRD] Incorporeal undead missing templates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1361901&group_id=25576">1361901</a> ] Buckler penalties</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1365223&group_id=25576">1365223</a> ] [RPGO] [BnS2] Merchants, Smugglers and Pirates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1366430&group_id=25576">1366430</a> ] Survival Sub-skills not set up correctly</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1367031&group_id=25576">1367031</a> ] REACH token missing for REACH weapons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1367292&group_id=25576">1367292</a> ] [MSRD] Monster Classes Feat Pool off</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1368345&group_id=25576">1368345</a> ] [RSRD] Epic feat &quot;Trap Sense&quot; name conflict</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1368383&group_id=25576">1368383</a> ] [GR] Book of the Righteous cleanup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1372150&group_id=25576">1372150</a> ] [MSRD] Races cleanup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1374884&group_id=25576">1374884</a> ] Wild Talent not working</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1377044&group_id=25576">1377044</a> ] Load Conditional Templates with Basics set</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1377060&group_id=25576">1377060</a> ] zevious data bugs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1377484&group_id=25576">1377484</a> ] [RSRD] Epic Druid Wildshape times</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1377602&group_id=25576">1377602</a> ] [School of Evocation] Ball Lightning missing TARGETAREA</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1377702&group_id=25576">1377702</a> ] [MSRD] M79 grenade launcher</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1380111&group_id=25576">1380111</a> ] [RSRD] EQMOD:Bow_STR|5 in kits wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1385750&group_id=25576">1385750</a> ] HIDESIZEMOD variable is no longer valid</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1386399&group_id=25576">1386399</a> ] TL+HD in Rage hidden feat incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1387261&group_id=25576">1387261</a> ] [RSRD Epic] copy-and-paste-mistype</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1390240&group_id=25576">1390240</a> ] [RSRD] No feats or skills for mindless creatures</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1394682&group_id=25576">1394682</a> ] Reduced Speed mutation</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1396055&group_id=25576">1396055</a> ] [MSRD Arcana] Spell / Power Name conflicts</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1396516&group_id=25576">1396516</a> ] [MSRD Arcana] Archaic Weaponsmaster misspelled</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1396517&group_id=25576">1396517</a> ] [RSRD] War Mind misspelled</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1401398&group_id=25576">1401398</a> ] [RSRD] Lich template is missing racial skill bonuses</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1403988&group_id=25576">1403988</a> ] [FFG] Starfarers Handbook bugs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1405946&group_id=25576">1405946</a> ] [RSRD] Resist Energy spell providing wrong info</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1406797&group_id=25576">1406797</a> ] [RSRD] Celestial Template issues</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1412490&group_id=25576">1412490</a> ] [MSRD Arcana] Shields grant Shield Bonus, not Equipment Bon.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1417660&group_id=25576">1417660</a> ] [Dawnforge] Ogre Natural Armor Transformation</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1417661&group_id=25576">1417661</a> ] [Dawnforge] Medium sized Horned Club </li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1417664&group_id=25576">1417664</a> ] [Dawnforge]Ogre Awakening Magic Transformation</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1422813&group_id=25576">1422813</a> ] [RSRD] Psionics: Deep Crystal Special Material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1423105&group_id=25576">1423105</a> ] [RSRD] Psionics: Wilder incorrect proficiencies</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1425097&group_id=25576">1425097</a> ] [SRD] Extra Enlarge Spell</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1431983&group_id=25576">1431983</a> ] [RSRD] Basics PCC  not loading mounts.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1435366&group_id=25576">1435366</a> ] [SRD] Amulet of Undead Turning bonusing wrong VAR</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1437837&group_id=25576">1437837</a> ] [RSRD] Epic Spellcasting feat not granting Epic Spells</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1441233&group_id=25576">1441233</a> ] [RSRD EPIC] FEAT: Additional Magic Item Space</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1447938&group_id=25576">1447938</a> ] [MSRD] Reorganize File structure and PCC types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1448469&group_id=25576">1448469</a> ] [Malhavoc] ITCK, Third eye entry has wrong TYPE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1448474&group_id=25576">1448474</a> ] [Malhavoc] ITCK typo in power Targetarea</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1450837&group_id=25576">1450837</a> ] Update miscinfo.lst in all gamemodes to use JEP formulas</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1451777&group_id=25576">1451777</a> ] [RSRD] magical item creation price flaw</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1453482&group_id=25576">1453482</a> ] Gallantry&#39;s Firearm Arcana</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1455490&group_id=25576">1455490</a> ] [RSRD] dorje price is wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1456939&group_id=25576">1456939</a> ] [Malhavoc]classes missing the VAR for psicrystals</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1460343&group_id=25576">1460343</a> ] [MSRD]Thrown weapons missing TYPE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1460345&group_id=25576">1460345</a> ] [MSRD]Weapon Finesse (Unarmed Strike) and Unarmed Lethal Str</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1461788&group_id=25576">1461788</a> ] Collision Mod Typo</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1462237&group_id=25576">1462237</a> ] Psionic Body is... goofy</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1462301&group_id=25576">1462301</a> ] Remove [HANDS] references from all data</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1462487&group_id=25576">1462487</a> ] [TGM] MPC - unknown ADD:FEAT</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1462531&group_id=25576">1462531</a> ] Change armor AC bonus type in non-MSRD Modern datasets</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1462712&group_id=25576">1462712</a> ] [Malhavoc] old version of prettylst altered SOURCE tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750091&aid=1465391&group_id=25576">1465391</a> ] [Spycraft] C4/Dynamite missing info</li>
+</ul>
+<h3>DATA Feature Requests Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1038199&group_id=25576">1038199</a> ] Ability to increase damage dice for natural weapons</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1058850&group_id=36698">1058850</a> ] [RSRD] KITs for Default Monsters</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1081956&group_id=36698">1081956</a> ] [MSRD]Brawl &amp; Combat Martial Arts not affecting Unarmed Atta</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1085866&group_id=36698">1085866</a> ] [RSRD] Colossal+ size support</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1166244&group_id=36698">1166244</a> ] [Dawnforge]SPELLS tag update</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1170710&group_id=36698">1170710</a> ] [MSRD] Weapon prof choice by creature type</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1172774&group_id=36698">1172774</a> ] [SRD] [RSRD] Leadership feat not working on OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1203178&group_id=36698">1203178</a> ] [R/SRD] AUTO:EQUIP|Flurry of Blows to Monk class</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1215770&group_id=36698">1215770</a> ] [RSRD]Monk&#39;s Belt &amp; non-monks</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=417819&aid=1222326&group_id=36698">1222326</a> ] [RSRD][Psionics] allow PrC&#39;s to add to Soulknife Mind Blade </li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1224904&group_id=25576">1224904</a> ] [MSRD] Reputation as an SA</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1228662&group_id=25576">1228662</a> ] WEAPONNONPROFPENALTY to current GameModes&#39; miscinfo.lst</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1234989&group_id=25576">1234989</a> ] [RSRD] Siege Weapons missing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1237801&group_id=25576">1237801</a> ] [MSRD] Occupations to use PRECSKILL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1237870&group_id=25576">1237870</a> ] [RSRD] tempmod Wildshape templates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1238067&group_id=25576">1238067</a> ] PRExxx on Wildshape tempmod templates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1239163&group_id=25576">1239163</a> ] [MSRD] Partial .pcc set for non-human creatures</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1246923&group_id=25576">1246923</a> ] [RSRD] Two Weapon Defense &amp; fighting defensively</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1247584&group_id=25576">1247584</a> ] [MSRD] Firearms and Ammunition enhancments</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1247774&group_id=25576">1247774</a> ] [RSRD] Restrict choice of free clothing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1249398&group_id=25576">1249398</a> ] [RSRD] Hide internal function Equipment Types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1249401&group_id=25576">1249401</a> ] [SRD] Hide internal Equipment types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1251924&group_id=25576">1251924</a> ] PCGen Open Gaming Content dataset</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1252398&group_id=25576">1252398</a> ] [MSRD] Item Creation EQMODs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1257249&group_id=25576">1257249</a> ] [SRD/RSRD] Nonhumanoid Armor pricing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1263257&group_id=25576">1263257</a> ] [RSRD] Half-Dragon hit die boost</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1265857&group_id=25576">1265857</a> ] [MSRD] Add FX Skill to occupation feats</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1266192&group_id=25576">1266192</a> ] [MSRD] Vehicles need expansion, esp. Cost DC.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1281730&group_id=25576">1281730</a> ] [MSRD/SC] Vehicle equipment slot</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1297692&group_id=25576">1297692</a> ] [RSRD] add AC bonus to Improved Natural Armor feat</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1329125&group_id=25576">1329125</a> ] PRERACE tag syntax change</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1339117&group_id=25576">1339117</a> ] Edit tips in the Modern gameMode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1339183&group_id=25576">1339183</a> ] [RSRD] Default Monster Kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1347896&group_id=25576">1347896</a> ] [MSRD] Default Monster Kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1354015&group_id=25576">1354015</a> ] [RSRD] Please add altpcc for &quot;no psionics&quot;</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1362982&group_id=25576">1362982</a> ] [RSRD] Add RACETYPE and RACESUBTYPE tags to races</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1370083&group_id=25576">1370083</a> ] [MSRD] class talent TYPEing</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1375024&group_id=25576">1375024</a> ] Blank data set with commented out examples</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1384812&group_id=25576">1384812</a> ] Add WEAPONCATEGORY:Archaic to MSRD gamemode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1392412&group_id=25576">1392412</a> ] [RPGO]Blood and Circuits, review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1392425&group_id=25576">1392425</a> ] [RPGO]Blood and Guts - MM, review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1393934&group_id=25576">1393934</a> ] [RPGO]Blood and Guts - IVSmax, review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1393978&group_id=25576">1393978</a> ] [RPGO]Blood and Guts - War on Terror, review/move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1394023&group_id=25576">1394023</a> ] [RPGO]Blood and Guts - Soldiers, review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1394063&group_id=25576">1394063</a> ] [RPGO]Blood and Space - HFaGP, review and move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1397072&group_id=25576">1397072</a> ] [RPGO] Update Classes to grant Action Points</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1401076&group_id=25576">1401076</a> ] [Dawnforge] Racial Talent improvements</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1401150&group_id=25576">1401150</a> ] [RSRD] Add Domains, Spells and Feats from Divine section</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1405413&group_id=25576">1405413</a> ] Implement CHOOSE:NOCHOICE for MULT:Y STACK:Y feats</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1410406&group_id=25576">1410406</a> ] [Dawnforge] Implement Lizardfolk River Racer</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411286&group_id=25576">1411286</a> ] Domain spell lists should be part of domain def&#39;n</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411309&group_id=25576">1411309</a> ] Populate PCC tags GENRE, PUBNAMExxx, etc.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411313&group_id=25576">1411313</a> ] TYPE Turning VAR bonuses</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411326&group_id=25576">1411326</a> ] TYPE:Consumable for consumable checkboxes on OS.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411328&group_id=25576">1411328</a> ] [SRD] [RSRD] Awakened Creatures</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411335&group_id=25576">1411335</a> ] [FFG]  Sorcery and Steam - review &amp; move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411337&group_id=25576">1411337</a> ] Adding to Inspire Courage</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411342&group_id=25576">1411342</a> ] DR Standardization</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1411346&group_id=25576">1411346</a> ] 1 handed Exotic/2 handed Martials</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1417767&group_id=25576">1417767</a> ] [MSRD] Add RACETYPE and RACESUBTYPE tags to modern races</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1417768&group_id=25576">1417768</a> ] [RSRD] Type features and traits reconfiguration</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1424352&group_id=25576">1424352</a> ] [MSRD]Make Weapon Focus a prereq. for Greater Weapon Focus</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1429249&group_id=25576">1429249</a> ] [SRD] [RSRD] Invalid synergies conditions.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1440917&group_id=25576">1440917</a> ] Add new tags to spellbook equipment to support Spells Tab</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1445954&group_id=25576">1445954</a> ] [RPGO] LotA - Macedon: Move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1450911&group_id=25576">1450911</a> ] [SRD] Default Monster Kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1450913&group_id=25576">1450913</a> ] Default Monster Kits for non-core datasets</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1450968&group_id=25576">1450968</a> ] split up SOURCE tags into separate tokens</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1451855&group_id=25576">1451855</a> ] [RPGO] LotA - Carthage: Move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1451907&group_id=25576">1451907</a> ] [SRD/RSRD] dataset directory restructure</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1453531&group_id=25576">1453531</a> ] Sidewinder: Recoiled - cleanup</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1457229&group_id=25576">1457229</a> ] [RSRD] Random Treasure Table kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1458796&group_id=25576">1458796</a> ] [RSRD] Lycanthrope Template improvements</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=750092&aid=1462873&group_id=25576">1462873</a> ] Adjust NAMEOPT tag so enhancment EQMODs only add +X to name</li>
+</ul>
+<h3>DATA New Source Material Requests Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027261&group_id=25576">1027261</a> ] [MSRD] d20 Future material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027265&group_id=25576">1027265</a> ] [MSRD] Arcana material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027268&group_id=25576">1027268</a> ] [RSRD] Epic Level Handbook material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027270&group_id=25576">1027270</a> ] [RSRD] Deities and Demigods material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1027275&group_id=25576">1027275</a> ] [RSRD] Manual of the Planes material</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1231155&group_id=25576">1231155</a> ] [RPGO] Legends of the Ancients - Macedon</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1274598&group_id=25576">1274598</a> ] Secrets of the Planes: Planar Magic by Lion&#39;s Den Press</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1274832&group_id=25576">1274832</a> ] Open Spell Names Compendium by Necromancer Games</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1282547&group_id=25576">1282547</a> ] RPG Objects - Modern System - Gangland</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1293803&group_id=25576">1293803</a> ] Shaheen&#146;s Scratchpad &#150; Arcane Arsenal: Jet Spells</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1325692&group_id=25576">1325692</a> ] [Silverthorne] Kressmer&#39;s Bizarre Grimoire</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1373709&group_id=25576">1373709</a> ] [RPGO][Modern Dispatch] Dispatch #67 The Precinct</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1373768&group_id=25576">1373768</a> ] [SEP][Roles and Classes] Covert Hero</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1388273&group_id=25576">1388273</a> ] [RPGO] [BnS] Starship Construction Manual</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1407056&group_id=25576">1407056</a> ] [APG] Quests</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1409593&group_id=25576">1409593</a> ] [RPGO] Blood and Secrets</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1412313&group_id=25576">1412313</a> ] [RPGO][Modern Dispatch] Dispatch #1 - Alternate Armors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1412315&group_id=25576">1412315</a> ] [RPGO][Modern Dispatch] Dispatch #2 - Investigating NPCs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1412318&group_id=25576">1412318</a> ] [RPGO][Modern Dispatch] Dispatch #6 - 172nd Infantry Brigade</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1412320&group_id=25576">1412320</a> ] [RPGO][Modern Dispatch] #9 Talking &#39;bout my Reputation</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1418640&group_id=25576">1418640</a> ] [RPGO][Modern Disptach] #75 U.S.H.E.R. Dossiers #1</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1420411&group_id=25576">1420411</a> ] [RPGO][Modern Dispatch] #10 Near Future Firearms</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1434170&group_id=25576">1434170</a> ] [Silven] 50 New Ways to Blow Things UP</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1446955&group_id=25576">1446955</a> ] [SEP][Roles and Classes] Combat Hero</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1447704&group_id=25576">1447704</a> ] [Gallantry Productions] Firearm Arcana</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1451512&group_id=25576">1451512</a> ] [RPG Objects] [Timeline] Roaring 20s</li>
+</ul>
+<h3>DATA New Alpha Source Material Requests Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1022801&group_id=25576">1022801</a> ] Legends of Excalibur - Campaign Setting</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1023145&group_id=25576">1023145</a> ] Deadlands d20</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1048164&group_id=25576">1048164</a> ] Codex Arcanis by Paradigm Concepts</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1202445&group_id=25576">1202445</a> ] Modern Player&#39;s Companion by The Game Mechanics,Inc.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1202449&group_id=25576">1202449</a> ] Murchad&#39;s Legacy Campaign Setting</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1211082&group_id=25576">1211082</a> ] [Behemoth3] Maze of the Minotaur</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1222662&group_id=25576">1222662</a> ] [Malhavoc] If Thoughts Could Kill (3.5 update)</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1240268&group_id=25576">1240268</a> ] Edritch Sorcery by Necromancer Games</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1282664&group_id=25576">1282664</a> ] [FFG] Midnight - Campaign Source Book</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1286248&group_id=25576">1286248</a> ] Malhavoc Press: Book of Iron Might</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1287458&group_id=25576">1287458</a> ] RPGO: Modern Dispatch 47 - New Tortuga</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1297838&group_id=25576">1297838</a> ] [FanCC] Diadamon Pantheon</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1327669&group_id=25576">1327669</a> ] [Midnight] Against the Shadow</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1328798&group_id=25576">1328798</a> ] [ENPub] Secrets of Theurgy</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1333749&group_id=25576">1333749</a> ] Player&#39;s Guide to Arcanis by Paradigm Concepts</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1410042&group_id=25576">1410042</a> ] [Mythic Dreams Studios] Dark Inheritance Campaign Setting</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1423139&group_id=25576">1423139</a> ] [RPGO] Blood&#39;n&#39;Blades</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1433699&group_id=25576">1433699</a> ] [Bloodstone Press] Spellbinder&#39;s Sourcebook</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1436133&group_id=25576">1436133</a> ] [Bloodstone Press] Spellbinder 2</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1437528&group_id=25576">1437528</a> ] [Bloodstone Press] God Spells</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1437638&group_id=25576">1437638</a> ] [Bloodstone Press] 22 Talent Trees</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1448650&group_id=25576">1448650</a> ] [Necromancer] Tome of Horrors</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=679269&aid=1460693&group_id=25576">1460693</a> ] [The Game Mechanics] Martial Arts Mayhem</li>
+</ul>
+<h3>DATA Tag Addition Requests Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=642043&group_id=36698">642043</a> ] add PANTHEON tag for deities AEG/Evil</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=642048&group_id=36698">642048</a> ] add PANTHEON tag for deities FFG/Starfar</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=642049&group_id=36698">642049</a> ] add PANTHEON tag for deities FFG/Mythic</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=1058546&group_id=36698">1058546</a> ] Add FACE tag to Race files [Battlefield Press - Cityscape]</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=1058553&group_id=36698">1058553</a> ] Add FACE tag to race file[Malhavoc - Book of Eldritch Might]</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=1058592&group_id=36698">1058592</a> ] Add FACE tag to Race files [Atlas Games  - Backdrops]</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=1058602&group_id=36698">1058602</a> ] Add FACE tag to Race files [Bastion Press - Faeries]</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=430994&aid=1058606&group_id=36698">1058606</a> ] Add FACE tag to Race files [Pandahead - Sellout!]</li>
+</ul>
+<h3>List File Fixed/New Source Material Requests</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=450173&aid=613567&group_id=36698">613567</a> ] ITCK [bug] fix</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=450173&aid=1104095&group_id=36698">1104095</a> ] [FFG] Seafarer&#39;s Handbook move to d20ogl</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=450173&aid=1214524&group_id=36698">1214524</a> ] [SRD] 3e Still has Closed Content info</li>
+</ul>
+<h3>OS Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513779&aid=1204041&group_id=66204">1204041</a> ] CL v ECL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513779&aid=1207481&group_id=66204">1207481</a> ] PDF Output Sheet Fonts</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1255939&group_id=25576">1255939</a> ] Modern OS (htm) uses PowerPoints instead of TotalPowerPoints</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1274369&group_id=25576">1274369</a> ] ZapfDingbats symbols do not display correct on modern PDF-OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1274373&group_id=25576">1274373</a> ] Modern PDF-OS displays occupation skills as starting occupat</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1275619&group_id=25576">1275619</a> ] spell sheet problem</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1280765&group_id=25576">1280765</a> ] Update OpenRPG sheet to current standards</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1314420&group_id=25576">1314420</a> ] Error in Turn display</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1332047&group_id=25576">1332047</a> ] Character level / ECL on pdf</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1385651&group_id=25576">1385651</a> ] 2H Trident damage incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1385659&group_id=25576">1385659</a> ] [Combined html] Flurry of Blows stat doesn&#39;t change with STR</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1385667&group_id=25576">1385667</a> ] Long SPROP causes overflows in PDF</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1397081&group_id=25576">1397081</a> ] [MSRD] Adjust OS to use new Action Point variable</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1397404&group_id=25576">1397404</a> ] Remove Domains and prohibited Schools from Modern PDF-OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748296&aid=1408635&group_id=25576">1408635</a> ] Only showing automatic Feats when in print preview</li>
+</ul>
+<h3>OS Freqs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513780&aid=1044616&group_id=66204">1044616</a> ] d20 Modern OS</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1219393&group_id=25576">1219393</a> ] Caster/Manifester Level in spell/power lists</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1251089&group_id=25576">1251089</a> ] [MSRD] Ammo checkboxes on Weapon blocks</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1266243&group_id=25576">1266243</a> ] [MSRD] Rate of fire added to ranged weapon block</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1317364&group_id=25576">1317364</a> ] Add support for Vitality and Wound points</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1398989&group_id=25576">1398989</a> ] Save blocks converted to use looped array</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1407792&group_id=25576">1407792</a> ] New Sheet: csheet_fantasy_statblock_SRD.htm</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1411512&group_id=25576">1411512</a> ] Add Turning blocks to html OS  </li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1411525&group_id=25576">1411525</a> ] [MSRD] display offhand penalties for ranged weap</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1442224&group_id=25576">1442224</a> ] [MSRD] Filter Web Access Spellbook out of Equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748297&aid=1463625&group_id=25576">1463625</a> ] Add checkboxes for consumable equipment type</li>
+</ul>
+<h3>DOC Bugs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=869293&group_id=66204">869293</a> ] WEAPON Token copy/paste error.</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1035877&group_id=66204">1035877</a> ] BONUS:DC|FEATBONUS|x</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1037343&group_id=66204">1037343</a> ] WEAPON.%.TOTALHIT tag clarification</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1046287&group_id=66204">1046287</a> ] CHECK OS tag needs update</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1058589&group_id=66204">1058589</a> ] SPECIALTYKNOWN tag entry incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1064285&group_id=66204">1064285</a> ] CLASS.x.SALIST not documented</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1087879&group_id=66204">1087879</a> ] ACCHECk +&#39;s and -&#39;s</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1099251&group_id=66204">1099251</a> ] SKILLTYPE token entry error</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1176093&group_id=66204">1176093</a> ] PRECLASS:1,SPELLCASTER,x</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513777&aid=1183267&group_id=66204">1183267</a> ] Template, LEVEL tag syntax incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1217630&group_id=25576">1217630</a> ] Sex tag typo</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1217633&group_id=25576">1217633</a> ] Bio Settings List typo</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1217635&group_id=25576">1217635</a> ] LANGBONUS tag entry (Race files version)</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1217636&group_id=25576">1217636</a> ] LSTEXCLUDE tag entry</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1217926&group_id=25576">1217926</a> ] PREFEAT tag entry typo</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1218280&group_id=25576">1218280</a> ] CASTAS tag is deprecated</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1233582&group_id=25576">1233582</a> ] Documentation missing for several &quot;new&quot; game mode tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1236328&group_id=25576">1236328</a> ] SA:.CLEAR. has extra . at the end</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1259024&group_id=25576">1259024</a> ] Error in description of OS-Tag COUNT[FEATTYPE...]</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1267344&group_id=25576">1267344</a> ] ADD:SPELLCASTER and BONUS:PCLEVEL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1359512&group_id=25576">1359512</a> ] Clarify: BONUS tags take variables, formulas and numbers</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1385745&group_id=25576">1385745</a> ] HIDESIZEMOD variable no longer valid</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1424758&group_id=25576">1424758</a> ] BONUS:COMBAT|DAMAGEMULT wrong</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1426932&group_id=25576">1426932</a> ] OUTPUTNAME slightly incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1434163&group_id=25576">1434163</a> ] pcc LICENSE tag incorrectly listed as LICENSED</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1434257&group_id=25576">1434257</a> ] Update Kit window screen shot</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1435585&group_id=25576">1435585</a> ] bonusstack and unitset removed, tokens added to miscinfo</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1442149&group_id=25576">1442149</a> ] WEAPON.x.HEFT tag incorrect</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748234&aid=1456160&group_id=25576">1456160</a> ] INCLUDE needs note about only one line per file</li>
+</ul>
+<h3>DOC FREQs Closed</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=859421&group_id=66204">859421</a> ] Document user defined variables used in LST files</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=955548&group_id=66204">955548</a> ] Blank data set with commented out examples</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=969383&group_id=66204">969383</a> ] TYPE: has 2 formats in Eqmod file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=986848&group_id=66204">986848</a> ] HELP tag not documented</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=995920&group_id=66204">995920</a> ] Change Text designation to Property</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1031109&group_id=66204">1031109</a> ] missing documentation on ISTYPE with WEAPON</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1034507&group_id=66204">1034507</a> ] ALLOWEDMODES</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1039191&group_id=25576">1039191</a> ] Document skillinfo(&quot;x&quot;,&quot;y&quot;) JEP function</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1094764&group_id=66204">1094764</a> ] PCG format</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1107587&group_id=66204">1107587</a> ] funds in KIT file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1107604&group_id=66204">1107604</a> ] feats file - ADDPPCOST</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1107606&group_id=66204">1107606</a> ] miscinfo fie &iuml;&iquest;&frac12; RANKMODFORMULA</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1107607&group_id=66204">1107607</a> ] miscinfo fie &#150; POINTPOOLNAME</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1107609&group_id=66204">1107609</a> ] WEAPONNONPROFPENALTY doesn&#39;t take numbers</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1107610&group_id=66204">1107610</a> ] statsandchecks--STATMOD cannot contain more than 1 SCORE</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1123671&group_id=66204">1123671</a> ] Document FREE tag in KIT skill line</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1123672&group_id=66204">1123672</a> ] Document USEMASTERSKILL tag in COMPANIONMOD lines</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1170958&group_id=66204">1170958</a> ] DEFINE:LOCK.&lt;Stat&gt;|# not documented</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1193284&group_id=66204">1193284</a> ] REPEATLEVEL not documented</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1195049&group_id=66204">1195049</a> ] acronyms defined</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1204038&group_id=66204">1204038</a> ] RANGE tag not in doc</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1212875&group_id=66204">1212875</a> ] Add Customizer to Walkthrough</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1213523&group_id=66204">1213523</a> ] Document CLASSTYPE miscinfo.lst tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1213538&group_id=66204">1213538</a> ] Document XPPENALTY miscinfo.lst tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1214429&group_id=66204">1214429</a> ] Document EQUIPBUY tag in KIT file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=513778&aid=1214433&group_id=66204">1214433</a> ] VISIBLE:x tag implemented in KITs</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1217628&group_id=25576">1217628</a> ] Document unitSet.lst System file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1217647&group_id=25576">1217647</a> ] Complete CHOOSE Documentation</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1217650&group_id=25576">1217650</a> ] Document bonusstacks.lst System file</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1220863&group_id=25576">1220863</a> ] Document PRECSKILL tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1248150&group_id=25576">1248150</a> ] Document HIDETYPE .pcc tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1249538&group_id=25576">1249538</a> ] Add note for lower lvl spells going in higher slots</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1251090&group_id=25576">1251090</a> ] New Section: Source Help</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1259393&group_id=25576">1259393</a> ] Document ALTHP token</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1273450&group_id=25576">1273450</a> ] New KIT file tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1283512&group_id=25576">1283512</a> ] Document PRETYPE&#39;s mutiple uses and syntaxes</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1286013&group_id=25576">1286013</a> ] CHOOSE for templates</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1312564&group_id=25576">1312564</a> ] Document ROLLMETHOD</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1312567&group_id=25576">1312567</a> ] Document roll(&quot;x&quot;) JEP random number function</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1312570&group_id=25576">1312570</a> ] System files moved to gameMode</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1314854&group_id=25576">1314854</a> ] PREMOVE now meets PRE standards</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1329123&group_id=25576">1329123</a> ] PRERACE tag update</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1335068&group_id=25576">1335068</a> ] Document CHOOSE:DOMAIN</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1347011&group_id=25576">1347011</a> ] Document HITDIE template tag enhancement</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1347589&group_id=25576">1347589</a> ] New tags and tokens for Creature Type &amp; Subtype support</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1350179&group_id=25576">1350179</a> ] [OS] Count of movement types</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1357520&group_id=25576">1357520</a> ] CHOOSE:SKILLSNAMED tag enhancement</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1371400&group_id=25576">1371400</a> ] Document CHOOSE:NOCHOICE tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1386491&group_id=25576">1386491</a> ] New JEP Functions</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1392388&group_id=25576">1392388</a> ] Document SELECT and OPTION Kit tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1395414&group_id=25576">1395414</a> ] Doc new ALIGN, LOCATION, NAME &amp; RACE Kit tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1395649&group_id=25576">1395649</a> ] Document new STAT Kit tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1395709&group_id=25576">1395709</a> ] Document new DEITY, SPELLS &amp; SUBCLASS Kit tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1401048&group_id=25576">1401048</a> ] default monster kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1406869&group_id=25576">1406869</a> ] Doco SPELLMEM subtoken CASTERLEVEL</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1411277&group_id=25576">1411277</a> ] CAST: and KNOWN: to take formulas</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1437831&group_id=25576">1437831</a> ] Document CHOOSE:RACE tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1437832&group_id=25576">1437832</a> ] LST File Class for Default Monster Kits</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1441480&group_id=25576">1441480</a> ] Document New Tags Added for Spellbook Equipment</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1451456&group_id=25576">1451456</a> ] Document SIZE tag in template taking a Formula</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1451458&group_id=25576">1451458</a> ] FEAT/ABILITY tags in Kits can now use TYPE= syntax</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1458091&group_id=25576">1458091</a> ] [KIT] Document APPLY:INSTANT kit tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1458463&group_id=25576">1458463</a> ] Document COVER pcc tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1458638&group_id=25576">1458638</a> ] Document QUALITY equipment tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1460048&group_id=25576">1460048</a> ] Document additional options for NAMEOPT tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1465304&group_id=25576">1465304</a> ] DR to take PRExxx tags</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1468887&group_id=25576">1468887</a> ] Note use of Preference item with SOURCEDATE tag</li>
+<li>[ <a href="http://sourceforge.net/tracker/?func=detail&atid=748235&aid=1470689&group_id=25576">1470689</a> ] Spellcheck sweep</li>
+</ul>
+
+</body>
+</html>
+<!--
+	http://sourceforge.net/docman/display_doc.php?docid=33003&group_id=25576
+-->

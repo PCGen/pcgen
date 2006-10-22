@@ -1,0 +1,203 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf380
+{\fonttbl\f0\fnil\fcharset77 Verdana-Bold;\f1\fnil\fcharset77 Verdana;\f2\fnil\fcharset77 LucidaGrande;
+\f3\fnil\fcharset77 Verdana-Italic;\f4\fnil\fcharset77 Monaco;\f5\fswiss\fcharset77 Arial-ItalicMT;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww13720\viewh11620\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b\fs24 \cf0 Subject: 
+\f1\b0 PCGen Mac Build\
+
+\f0\b \
+Written by: 
+\f1\b0 Conor Schutzman <conor@mac.com>\
+
+\f0\b Updated by: 
+\f1\b0 Eddy Anthony <eddyba@mindspring.com>\
+
+\f0\b \
+
+\f1\b0 Here is a fairly complete set of instructions on how to bundle PCGen for OS X.  \
+\
+
+\f0\b Step 1:
+\f1\b0  Get everything you need. \
+\
+
+\f0\b 1 A)
+\f1\b0  So, first off, you will need the OS X developer tools installed.  If they didn't come with your computer/OS then you can setup a free Apple Developer Connection account (http://www.apple.com/developer) and download them from there.  The current version is XCode Tools 2.2.   \
+
+\f0\b 1 B)
+\f1\b0  You will also need to make sure that you have all of your OS updates installed.   \
+
+\f0\b 1 C)
+\f1\b0  Lastly, you will need the support files in this module of the PCGen project at:\
+https://svn.sourceforge.net/pcgen/Trunk/installers/
+\f2 mac-installer
+\f1 .   \
+
+\f0\b 1 D)
+\f1\b0  Oh, and of course you will need to download the full version of PCGen from SF. \
+\
+Now that we have all the parts and pieces, we can start to assemble. \
+\
+
+\f0\b Step 2: 
+\f1\b0 Converting PCGen to be an OS X app \
+\
+
+\f0\b 2 A)
+\f1\b0  Launch /Developer/Applications/Java Tools/Jar Bundler \
+
+\f0\b 2 B)
+\f1\b0  On the Build Information tab, click on the choose button to the right of the Main Class field.  Navigate to pcgen.jar \
+
+\f0\b 2 C)
+\f1\b0  Make sure the "Use Macintosh Menu Bar" is 
+\f0\b not
+\f1\b0  checked, in OS 10.4 Apple changed the way the menu bar in java is handled and checking this will cause the app to crash on launch in Tiger. \
+
+\f0\b 2 D)
+\f1\b0  Make sure the "Anti-Alias Text", "Anti-alias Graphics", and "Growbox Intrudes" checkboxs are all checked. \
+
+\f0\b 2 E)
+\f1\b0  Make sure the JVM version is 1.4+ \
+
+\f0\b 2 G)
+\f1\b0  Switch to the Properties tab.  In the Type field, verify that it is APPL.  Enter "PCGn" (without the quotes) into the Signature Field. \
+
+\f0\b 2 H)
+\f1\b0  In the Identifier field, enter: com.codemonkey.pcgen \
+
+\f0\b 2 I)
+\f1\b0  Enter relevant information into the Version, Get-Info String, and Short Version fields. \
+
+\f0\b 2 J)
+\f1\b0  In the VM Options enter: -Xms128m -Xmx256m\
+
+\f0\b 2 K)
+\f1\b0  In the Bundle Name field, enter: PCGen <version number>\
+
+\f0\b 2 L)
+\f1\b0  Make sure that "Set Working Directory to Inside Application Package" is checked.\
+
+\f0\b 2 M)
+\f1\b0  Switch back to the Build Information tab and click Choose Icon, navigate to "
+\f2 PCGenApp.icns
+\f1 " in the mac-installer/graphics/icon folder. You may have to paste it on the app after it is built anyway, I've found that it does not always stick for some reason.\
+
+\f0\b 2 N)
+\f1\b0  Click the Create Application button.  Save the application as PCGen <version number>.app into the folder you downloaded off of SF.\
+	\
+\
+This will encapsulate the PCGen jar file into an OS X application.  We then need to add the applications sub folders into the PCGen application package. \
+\
+
+\f0\b Step 3: 
+\f1\b0 Adding all the sub folders to the application\
+\
+
+\f0\b 3 A)
+\f1\b0  Navigate (in Finder) to the folder where you put PCGen.app \
+
+\f0\b 3 B)
+\f1\b0  Right click on the application icon, and choose Show Package Contents from the contextual menu. \
+
+\f0\b 3 C)
+\f1\b0  Navigate to ./Contents/Resources/Java within the application package. \
+
+\f0\b 3 D)
+\f1\b0  Move
+\f3\i  
+\f1\i0  the sub folders from the PCGen folder into the Java folder listed above.  These folders are: characters, data, docs, lib, outputsheets, plugins and system.\
+
+\f0\b 3 E)
+\f1\b0  Close the application package window.  Launch PCGen, verify that basic functionality is there. If you did not check "Set Working Directory to Inside Application Package" in the Jar Bundler things will appear terribly wrong at this point. Once you have verified that PCGen is working as it should quit the program and go back into /Contents/Resources/Java and remove the .ini preference files that were created when you ran the program.\
+\
+
+\f0\b Step 4: 
+\f1\b0 Creating an installation package \
+\
+
+\f0\b 4 A)
+\f1\b0  Launch /Developer/Applications/Utilities/PackageMaker \
+
+\f0\b 4 B)
+\f1\b0  On the Installer Interface tab, fill in relevant information for the Title and Description fields (I usually just grab the PCGen boiler plate from the website for the Description field).
+\f4 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f5\i \cf0 PCGen is a character generator for role-playing games. It currently is aimed at supporting as many RPGs as is humanly possible. The project's current focus is on OGL games (OGL is Wizards of the Coast's Open Gaming License). PCGen runs on Windows, Solaris, Mac OS X, and Unix/Linux using Java 1.5.
+\f4\i0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b \cf0 \
+4 C)
+\f1\b0  Click the Show Installer Interface Editor, for the background choose Custom background and navigate to the 
+\f2 /mac-installer/graphics/Installer_Background.tif image.\
+
+\f0\b 4 D)
+\f1\b0  
+\f2 Unstuff the mac-installer/text/Welcome.rtfd.zip file, it's stuffed because the file is really a folder which holds text and graphics and Mac just treats it as a file but SVN does not handle this well. Update the file if it need it. The mini splash screen graphics can all be found in mac-installer/graphics. In Introduction set Custom Welcome and choose the Welcome.rtfd file. \
+
+\f0\b 4 E)
+\f1\b0  Open the html release notes which came with the release in TextEdit and save it as an RTF file with the name ReadMe.rtf In Read Me set Custom Read Me and choose the ReadMe.rtf file you just created.\
+
+\f0\b 4 F)
+\f1\b0  In License set Custom License and choose the mac-installer/text/License.rtf file. This should not be edited. You can now close the Interface Editor by clicking the red button in the upper left of the window.\
+
+\f0\b 4 G)
+\f1\b0  Create a new folder, it's name does not matter, it only matters that it is new. Move the PCGen.app into it, the contents of this folder is what the installer will be installing so it should only contain the app.\
+
+\f0\b 4 H)
+\f1\b0  On the Contents tab, click on the Choose button to the right of the Root field.  Navigate to the folder you have the PCGen folder in.  Be sure that Compress Archive folder and Remove .DS_Store Files from Archive are checked. \
+
+\f0\b 4 I)
+\f1\b0  On the Configuration tab, enter "/Applications" (without the quotes) in the Default Location field. \
+
+\f0\b 4 J)
+\f1\b0  Set the Authorization Action to None. Set the Post-Install Action to None.\
+
+\f0\b 4 K)
+\f1\b0  Check the boxes for Relocatable and Follow Symbolic Links.  All of the other Flags checkboxes should be off. \
+
+\f0\b 4 L)
+\f1\b0  On the Package Version tab, in the Identifier field, enter com.codemonkey.pcgen. \
+
+\f0\b 4 M)
+\f1\b0  Enter relevant information in the Get-Info String and Short Version fields.  \
+
+\f0\b 4 N)
+\f1\b0  From the Project menu, choose Build.  Save the file as PCGen XXX Installer.pkg\
+
+\f0\b 4 O)
+\f1\b0  Test your creation, make sure it creates the PCGen app in your Applciations folder, and that all of the files are installed.  I would launch PCGen for additional testing, just to make sure. \
+\
+We now have a nicely bundled installer package.  The only problem is that the internet kinda eats .pkg files (since they are really just specially named and configured folders).  Disk images are much better. \
+\
+
+\f0\b Step 5: 
+\f1\b0 Disk Image creation \
+\
+
+\f0\b 5 A)
+\f1\b0  Launch /Applications/Utilities/Disk Utility.  Click on the New Image button in the toolbar of the main window.  Name this image "PCGen for OS X.dmg" (without the quotes). \
+
+\f0\b 5 B)
+\f1\b0  Mount the disk image and copy the PCGen installation package.  Place an additional copy of the ReadMe/Release Notes for this version on the image and a copy of the mac-installer/text/Where are all the folders.rtf file. \
+
+\f0\b 5 C)
+\f1\b0  Unmount/Eject the Image.  In Disk Utility, select the image name in the left sidebar of the main window.  From the Images menu above, select Convert. \
+
+\f0\b 5 D)
+\f1\b0  In the Save As: Field, enter a file name of pcgenXXX_mac_install.dmg \
+
+\f0\b 5 E)
+\f1\b0  From the Image Format menu towards the bottom of this sheet, select compressed, then click save \
+
+\f0\b 5 F)
+\f1\b0  Upload the new image to SourceForge.
+\f2 \
+}
