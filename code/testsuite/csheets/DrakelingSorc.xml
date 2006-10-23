@@ -1024,7 +1024,7 @@ BIO
 			<cr>0</cr>
 			<dr></dr>
 			<feat></feat>
-			<sa>Energy Substitution for element</sa>
+			<sa>CHOOSE:Acid Resistance 10|Cold Resistance 10|Electricity Resistance 10|Fire Resistance 10, Energy Substitution for element</sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
 		</template>
