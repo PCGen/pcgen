@@ -168,7 +168,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 	 */
 	public void adjustCR(Combatant cbt)
 	{
-		String inputValue = JOptionPane.showInputDialog(GMGenSystem.inst, "CR", cbt.getCR() + "");
+		String inputValue = JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float.toString(cbt.getCR()));
 
 		if (inputValue != null)
 		{

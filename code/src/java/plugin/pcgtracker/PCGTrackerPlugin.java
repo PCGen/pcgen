@@ -353,7 +353,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 					return false;
 				}
 
-				if (file.exists() && (newPC || (prevFile == null) || !file.getName().equals(prevFile.getName())))
+				if (file.exists() && (newPC || !file.getName().equals(prevFile.getName())))
 				{
 					int reallyClose = JOptionPane.showConfirmDialog(GMGenSystem.inst,
 						    "The file " + file.getName() + " already exists, are you sure you want to overwrite it?",

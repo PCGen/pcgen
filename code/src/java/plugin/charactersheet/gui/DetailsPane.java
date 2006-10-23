@@ -825,10 +825,8 @@ public class DetailsPane extends javax.swing.JPanel {
 
 	private String getClasses(PlayerCharacter aPC) {
 		StringBuffer sb = new StringBuffer();
-		ArrayList classList = aPC.getClassList();
-
-		for (int i = 0; i < classList.size(); i++) {
-			PCClass mClass = (PCClass) classList.get(i);
+		ArrayList<PCClass> classList = aPC.getClassList();
+		for (PCClass mClass : classList) {
 			sb.append(mClass.getAbbrev()).append(mClass.getLevel()).append(' ');
 		}
 

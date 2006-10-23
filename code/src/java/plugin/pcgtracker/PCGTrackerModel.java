@@ -56,7 +56,7 @@ public class PCGTrackerModel extends DefaultListModel
 		}
 	}
 
-	private class LoadedPC
+	private static class LoadedPC
 	{
 		private PlayerCharacter pc;
 

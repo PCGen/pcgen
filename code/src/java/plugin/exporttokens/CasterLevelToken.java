@@ -78,7 +78,7 @@ public class CasterLevelToken extends Token
 
 		if (varName.equals("TOTAL") || varName.equals(""))
 		{
-			return pc.getVariableValue(tokenSource, "TOTAL").intValue() + "";
+			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL").intValue());
 		}
 		return getClassToken(pc, i);
 	}
@@ -98,7 +98,7 @@ public class CasterLevelToken extends Token
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			cString = "CLASS:" + pcClass.getKeyName();
 		}
-		return pc.getVariableValue(TOKENNAME, cString).intValue() + "";
+		return Float.toString(pc.getVariableValue(TOKENNAME, cString).intValue());
 	}
 
 }

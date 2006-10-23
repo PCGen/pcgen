@@ -87,9 +87,9 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab {
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-	public List getToDos()
+	public List<String> getToDos()
 	{
-		return new ArrayList();
+		return new ArrayList<String>();
 	}
 
 	public void refresh() {

@@ -25,8 +25,6 @@
  */
 package plugin.lsttokens.pointbuy.method;
 
-import java.util.Iterator;
-
 import pcgen.core.PObject;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.bonus.BonusObj;
@@ -53,8 +51,8 @@ public class BonusToken implements PointBuyMethodLstToken {
 				return false;
 			}
 			
-			for (Iterator ab = dummy.getBonusList().iterator(); ab.hasNext(); ) {
-				final BonusObj bonus = (BonusObj) ab.next();
+			for (BonusObj bonus : dummy.getBonusList())
+			{
 				pbm.addBonusList(bonus);
 			}
 		}

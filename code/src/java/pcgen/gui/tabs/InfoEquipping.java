@@ -855,7 +855,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		aList = c.getSelectedList();
 
-		if (c.getSelectedList().size() > 0)
+		if (aList.size() > 0)
 		{
 			final Object loc = aList.get(0);
 
@@ -865,6 +865,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			else
 			{
+				/*
+				 * CONSIDER The generic type of aList above, this code is
+				 * unreachable. - thpr 10/21/06
+				 */
 				eTargetSet = ((EqSetWrapper) loc).getEqSet();
 				eqTarget = eTargetSet.getItem();
 				rootSet = pc.getEquipSetByIdPath(eTargetSet.getIdPath());
@@ -1796,7 +1800,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				c.setVisible(true);
 				aList = c.getSelectedList();
 
-				if (c.getSelectedList().size() > 0)
+				if (aList.size() > 0)
 				{
 					Object loc = aList.get(0);
 
@@ -1807,6 +1811,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					}
 					else
 					{
+						/*
+						 * CONSIDER Considering the Generic type of aList, this
+						 * else statement is unreachable - thpr 10/21/06
+						 */
 						eSet = ((EqSetWrapper) loc).getEqSet();
 						eqTarget = eSet.getItem();
 

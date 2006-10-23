@@ -65,19 +65,19 @@ public class UnitSetToken extends Token
 
 		if ("UNITSET".equals(tokenSource))
 		{
-			retString = Globals.getGameModeUnitSet().getName() + "";
+			retString = Globals.getGameModeUnitSet().getName();
 		}
 		else if ("UNITSET.HEIGHTUNIT".equals(tokenSource))
 		{
-			retString = Globals.getGameModeUnitSet().getHeightUnit() + "";
+			retString = Globals.getGameModeUnitSet().getHeightUnit();
 		}
 		else if ("UNITSET.DISTANCEUNIT".equals(tokenSource))
 		{
-			retString = Globals.getGameModeUnitSet().getDistanceUnit() + "";
+			retString = Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		else if ("UNITSET.WEIGHTUNIT".equals(tokenSource))
 		{
-			retString = Globals.getGameModeUnitSet().getWeightUnit() + "";
+			retString = Globals.getGameModeUnitSet().getWeightUnit();
 		}
 
 		return retString;

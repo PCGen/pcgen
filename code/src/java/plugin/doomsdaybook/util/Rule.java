@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author  devon
  */
-public class Rule extends ArrayList implements DataElement
+public class Rule extends ArrayList<String> implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 	String id;
@@ -52,9 +52,8 @@ public class Rule extends ArrayList implements DataElement
 	{
 		retList.clear();
 
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			DataElement ele = allVars.getDataElement(key);
 			retList.addAll(ele.getData());
 		}
@@ -81,9 +80,8 @@ public class Rule extends ArrayList implements DataElement
 	{
 		retList.clear();
 
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			DataElement ele = allVars.getDataElement(key);
 			retList.addAll(ele.getLastData());
 		}
@@ -115,10 +113,8 @@ public class Rule extends ArrayList implements DataElement
 	{
 		StringBuffer sb = new StringBuffer();
 
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
-
 			try
 			{
 				DataElement ele = allVars.getDataElement(key);

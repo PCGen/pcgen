@@ -30,9 +30,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.StringTokenizer;
+import java.util.Map;
 
 /**
  * Deals with BONUSLIST token
@@ -71,7 +70,7 @@ public class BonusListToken extends Token
 		String substring = "";
 		String typeSeparator = " ";
 		String delim = ", ";
-		String retString = "";
+		StringBuffer returnString = new StringBuffer();
 
 		if (bTok.hasMoreTokens())
 		{
@@ -97,12 +96,14 @@ public class BonusListToken extends Token
 
 		if ((substring.length() > 0) && (bonusString.length() > 0))
 		{
-			int total = (int) pc.getTotalBonusTo(bonusString, substring);
+			// Commented out this += since it's useless code (see TODO below) thpr 10/21/06
+			//int total = (int) pc.getTotalBonusTo(bonusString, substring);
 
 			if ("TOTAL".equals(typeSeparator))
 			{
-				// TODO - Shouldn't this return retString?
-				retString += total;
+				// TODO - Shouldn't this return retString? - ??? unknown date
+				// Commented out this += since it's useless code thpr 10/21/06
+				// retString += total;
 
 				return "";
 			}
@@ -122,33 +123,33 @@ public class BonusListToken extends Token
 //				needDelim = true;
 //			}
 
-			for (Iterator bi = pc.getActiveBonusMap().keySet().iterator(); bi.hasNext();)
+			for (Map.Entry<String, String> entry : pc.getActiveBonusMap().entrySet())
 			{
-				String aKey = bi.next().toString();
+				String aKey = entry.getKey();
 
 				if (aKey.startsWith(prefix))
 				{
 					if (needDelim)
 					{
-						retString += delim;
+						returnString.append(delim);
 					}
 
 					if (aKey.length() > typeLen)
 					{
-						retString += aKey.substring(typeLen);
+						returnString.append(aKey.substring(typeLen));
 					}
 					else
 					{
-						retString += "None";
+						returnString.append("None");
 					}
 
-					retString += typeSeparator;
-					retString += pc.getActiveBonusMap().get(aKey);
+					returnString.append(typeSeparator);
+					returnString.append(entry.getValue());
 					needDelim = true;
 				}
 			}
 		}
 
-		return retString;
+		return returnString.toString();
 	}
 }

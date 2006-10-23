@@ -34,9 +34,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-import java.util.Iterator;
-
-
 /**
  * @author wardc
  *
@@ -78,9 +75,9 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser imple
 	//
 	private void changeFromLevelMax(Prerequisite p)
 	{
-		for (Iterator iter = p.getPrerequisites().iterator(); iter.hasNext(); )
+		for (Prerequisite subreq : p.getPrerequisites())
 		{
-			changeFromLevelMax((Prerequisite) iter.next());
+			changeFromLevelMax(subreq);
 		}
 
 		if (p.getKind() == null)	// PREMULT

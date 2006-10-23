@@ -1,10 +1,9 @@
 package plugin.exporttokens;
 
-import java.util.Iterator;
-
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.CollectionUtilities;
 
 /**
  * @author karianna
@@ -29,8 +28,6 @@ public class SpecialListToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
-		
 		String delim = tokenSource.substring(11);
 
 		if ("".equals(delim))
@@ -38,20 +35,7 @@ public class SpecialListToken extends Token
 			delim = ", ";
 		}
 
-		int i = 0;
-		pc.getSpecialAbilityTimesList().size();
-
-		for (Iterator e = pc.getSpecialAbilityTimesList().iterator(); e.hasNext();)
-		{
-			if (i++ > 0)
-			{
-				retString += delim;
-			}
-
-			retString += (String) e.next();
-		}
-
-		return retString;
+		return CollectionUtilities.joinStringRepresentations(pc.getSpecialAbilityTimesList(), delim);
 	}
 	
 }

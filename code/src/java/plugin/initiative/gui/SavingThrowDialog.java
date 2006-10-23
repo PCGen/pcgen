@@ -25,6 +25,7 @@
 package plugin.initiative.gui;
 
 import gmgen.plugin.*;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import plugin.initiative.SaveModel;
@@ -48,14 +49,14 @@ import java.util.List;
 public class SavingThrowDialog extends javax.swing.JDialog
 {
 	/** Statis for save types */
-	public static int NULL_SAVE = 0;
-	public static int FORT_SAVE = 1;
-	public static int REF_SAVE = 2;
-	public static int WILL_SAVE = 3;
+	public static final int NULL_SAVE = 0;
+	public static final int FORT_SAVE = 1;
+	public static final int REF_SAVE = 2;
+	public static final int WILL_SAVE = 3;
 	/** Statics for pass/fail/cancel */
-	public static int CANCEL_OPTION = 0;
-	public static int PASS_OPTION = 1;
-	public static int FAIL_OPTION = 2;
+	public static final int CANCEL_OPTION = 0;
+	public static final int PASS_OPTION = 1;
+	public static final int FAIL_OPTION = 2;
 
 	private javax.swing.ButtonGroup saveTypeGroup;
 	private Combatant cbt;
@@ -306,7 +307,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
-			List checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+			List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 
 			if (saveType == FORT_SAVE)
 			{
@@ -372,10 +373,10 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private void setDefaults(int base, int ability, int magic, int misc, int temp)
 	{
-		saveBase.setText(base + "");
-		saveAbility.setText(ability + "");
+		saveBase.setText(Integer.toString(base));
+		saveAbility.setText(Integer.toString(ability));
 		saveMagic.setValue(Integer.valueOf(magic));
-		saveMisc.setText(misc + "");
+		saveMisc.setText(Integer.toString(misc));
 		saveTemp.setValue(Integer.valueOf(temp));
 		calculate();
 	}
@@ -463,7 +464,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		total += getFieldValue(saveMagic);
 		total += getFieldValue(saveMisc);
 		total += getFieldValue(saveTemp);
-		saveTotal.setText(total + "");
+		saveTotal.setText(Integer.toString(total));
 		setXMLCache(total);
 	}
 

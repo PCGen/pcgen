@@ -14,9 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class ArmorPane extends javax.swing.JPanel {
 	private PlayerCharacter pc;
-	private ArrayList fields = new ArrayList();
+	private ArrayList<Component> fields = new ArrayList<Component>();
 
 	private JLabel typeName;
 	private JPanel typeNamePanel;
@@ -170,11 +170,11 @@ public class ArmorPane extends javax.swing.JPanel {
 		final String armorType = typeName.getText();
 
 		for(int i = 0; i < fields.size(); i++) {
-			remove((java.awt.Component)fields.get(i));
+			remove(fields.get(i));
 		}
 		fields.clear();
 
-		List armorList = getArmorList(armorType);
+		List<Equipment> armorList = getArmorList(armorType);
 
 		if(armorList.size() == 0) {
 			setVisible(false);
@@ -215,8 +215,8 @@ public class ArmorPane extends javax.swing.JPanel {
 		repaint();
 	}
 
-	private List getArmorList(String armorType) {
-		List armorList = new ArrayList();
+	private List<Equipment> getArmorList(String armorType) {
+		List<Equipment> armorList = new ArrayList<Equipment>();
 
 		if(armorType.equals(ARMOR)) {
 			armorList = pc.getEquipmentOfTypeInOutputOrder(ARMOR, 3);
@@ -225,9 +225,8 @@ public class ArmorPane extends javax.swing.JPanel {
 			armorList = pc.getEquipmentOfTypeInOutputOrder(SHIELD, 3);
 		}
 		else if(armorType.equals(ITEM)) {
-			for (Iterator e = pc.getEquipmentListInOutputOrder().iterator(); e.hasNext();) {
-				Equipment eq = (Equipment) e.next();
-
+			for (Equipment eq : pc.getEquipmentListInOutputOrder())
+			{
 				if (eq.getBonusListString(AC) && (!eq.isArmor() && !eq.isShield())) {
 					armorList.add(eq);
 				}
@@ -243,10 +242,11 @@ public class ArmorPane extends javax.swing.JPanel {
 		field.setBackground(color);
 		field.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
 		data.setFont(FONT_TEN);
+		String dataText = text;
 		if(text.equals(BLANK)) {
-			text = SPACE;
+			dataText = SPACE;
 		}
-		data.setText(text);
+		data.setText(dataText);
 		field.add(data);
 
 		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();

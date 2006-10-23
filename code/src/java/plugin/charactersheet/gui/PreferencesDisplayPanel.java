@@ -108,7 +108,7 @@ public class PreferencesDisplayPanel extends gmgen.gui.PreferencesPanel {
 
 	private void initCb() {
 		cbColor.setRenderer(new ColorRenderer());
-		Vector data = new Vector();
+		Vector<Object> data = new Vector<Object>();
 		data.add(new ColorContainer(CharacterPanel.BLUE));
 		data.add(new ColorContainer(CharacterPanel.LIGHTBLUE));
 		data.add(new ColorContainer(CharacterPanel.GREEN));

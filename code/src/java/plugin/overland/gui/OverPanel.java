@@ -20,7 +20,6 @@ import javax.swing.SwingConstants;
 import java.io.File;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.ListIterator;
 
 /**
  *
@@ -985,17 +984,15 @@ public class OverPanel extends javax.swing.JPanel
 	private void loadRBData(Document methodSet)
 	{
 		Element table = methodSet.getRootElement();
-		java.util.List methods = table.getChildren("item");
-		ListIterator listIterator = methods.listIterator();
 
 		String type;
 		String name;
 		String priceS;
 		float priceF = 999; //999 is the debugging value
 
-		while (listIterator.hasNext())
+		for (Object methodObj : table.getChildren("item"))
 		{
-			Element method = (Element) listIterator.next();
+			Element method = (Element) methodObj;
 
 			if (method.getName().equals("item"))
 			{
@@ -1081,16 +1078,14 @@ public class OverPanel extends javax.swing.JPanel
 	private void loadTMData(Document methodSet)
 	{
 		Element table = methodSet.getRootElement();
-		java.util.List methods = table.getChildren("method");
-		ListIterator listIterator = methods.listIterator();
 
 		String name;
 		String speedS;
 		int speedI = 999; //999 is the debugging value
 
-		while (listIterator.hasNext())
+		for (Object methodObj : table.getChildren("item"))
 		{
-			Element method = (Element) listIterator.next();
+			Element method = (Element) methodObj;
 
 			if (method.getName().equals("method"))
 			{

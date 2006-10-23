@@ -203,9 +203,9 @@ public class Initiative extends javax.swing.JPanel
 	 *
 	 *@return    An ArrayList of currently selected InitHolders
 	 */
-	public List getSelected()
+	public List<InitHolder> getSelected()
 	{
-		final List retList = new ArrayList();
+		final List<InitHolder> retList = new ArrayList<InitHolder>();
 
 		int j = -1;
 
@@ -243,9 +243,9 @@ public class Initiative extends javax.swing.JPanel
 	 *
 	 *@return    An ArrayList of currently selected InitHolders
 	 */
-	public List getUnSelected()
+	public List<InitHolder> getUnSelected()
 	{
-		final List retList = new ArrayList();
+		final List<InitHolder> retList = new ArrayList<InitHolder>();
 
 		int j = -1;
 
@@ -295,11 +295,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public boolean isXMLCombatantSelected()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			return (iH instanceof XMLCombatant);
 		}
@@ -345,7 +345,8 @@ public class Initiative extends javax.swing.JPanel
 	{
 		String name = initList.getUniqueName(pc.getName());
 
-		if (name != pc.getName())
+		//Changed from != to .equals 10/21/06 thpr
+		if (!name.equals(pc.getName()))
 		{
 			//Means this one is already loaded, so it should be considered a new pc.
 			pc.setName(name);
@@ -479,11 +480,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void castSpell(String name)
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 			castSpell(name, iH, null);
 
 			return;
@@ -592,11 +593,11 @@ public class Initiative extends javax.swing.JPanel
 	/**  Copys the highlighted combatant by putting a pointer to it in copyCombatant */
 	public void copy()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -645,13 +646,13 @@ public class Initiative extends javax.swing.JPanel
 	/**  Deletes the selected combatants from the Init List */
 	public void deleteCombatant()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
 			try
 			{
-				InitHolder iH = (InitHolder) selectedList.remove(0);
+				InitHolder iH = selectedList.remove(0);
 				initList.remove(iH);
 				removeTab(iH);
 			}
@@ -672,11 +673,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void doDamage(int damage)
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			doDamage(damage, (InitHolder) selectedList.remove(0));
+			doDamage(damage, selectedList.remove(0));
 		}
 
 		initList.sort();
@@ -722,11 +723,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void doHeal(int heal)
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -840,11 +841,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void doNonLethal(int damage)
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 			doNonLethal(damage, iH);
 		}
 	}
@@ -937,11 +938,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void doSetCombatantType(String comType)
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -961,11 +962,11 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void doSubdual(int damage)
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 			doSubdual(damage, iH);
 		}
 
@@ -1013,7 +1014,7 @@ public class Initiative extends javax.swing.JPanel
 	/**  Heals the selected combatants */
 	public void healCombatant()
 	{
-		String inputValue = JOptionPane.showInputDialog(this, "Heal", 1 + "");
+		String inputValue = JOptionPane.showInputDialog(this, "Heal", Integer.toString(1));
 
 		if (inputValue != null)
 		{
@@ -1124,11 +1125,11 @@ public class Initiative extends javax.swing.JPanel
 	/**  Kills the selected combatants */
 	public void killCombatant()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -1604,11 +1605,11 @@ public class Initiative extends javax.swing.JPanel
 	/**  Re-rolls the selected combatant's initiatives */
 	public void rerollCombatant()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -1649,14 +1650,14 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void rollSave()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 		//int dc = 0;
 		//int type = SavingThrowDialog.NULL_SAVE;
 		SaveModel model = new SaveModel();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -1714,7 +1715,7 @@ public class Initiative extends javax.swing.JPanel
 		party.setAttribute("filetype", "initsave");
 
 		/*if(currentInit > -1) {
-		   party.setAttribute("current_init", currentInit + "");
+		   party.setAttribute("current_init", Integer.toString(currentInit));
 		   }*/
 		for (int i = 0; i < initList.size(); i++)
 		{
@@ -1802,11 +1803,11 @@ public class Initiative extends javax.swing.JPanel
 	/**  Stabilizes the selected combatants */
 	public void stabilizeCombatant()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
@@ -1824,11 +1825,11 @@ public class Initiative extends javax.swing.JPanel
 	/**  Calls up the CastSpell dialog, passing in the data for the first selected combatant, if there is one*/
 	public void startEvent()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 			StartEvent dialog = new StartEvent(JOptionPane
 					.getFrameForComponent(this), true, this, iH.getPlayer(), iH
 					.getInitiative().getCurrentInitiative());
@@ -2635,10 +2636,8 @@ public class Initiative extends javax.swing.JPanel
 			return;
 		}
 		int count = ((Number)field.getValue()).intValue();
-		List selectedHolders = getSelected();
-		for (Iterator selectedIterator = selectedHolders.iterator(); selectedIterator.hasNext();)
+		for (InitHolder holderToCopy : getSelected())
 		{
-			InitHolder holderToCopy = (InitHolder)selectedIterator.next();
 			if (holderToCopy instanceof XMLCombatant || holderToCopy instanceof PcgCombatant)
 			{
 				if (holderToCopy instanceof PcgCombatant)
@@ -2791,7 +2790,7 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	protected void opposedSkillActionPerformed(ActionEvent e)
 	{
-		List selected = getSelected();
+		List<InitHolder> selected = getSelected();
 		List notSelected = getUnSelected();
 		OpposedCheckDialog dlg = new OpposedCheckDialog(GMGenSystem.inst, selected, notSelected);
 		dlg.setModal(true);
@@ -3047,7 +3046,7 @@ public class Initiative extends javax.swing.JPanel
 	/**
 	 * A cell editor
 	 */
-	public class TypeEditor extends DefaultCellEditor {
+	public static class TypeEditor extends DefaultCellEditor {
 
 		/**
 		 * Constructor
@@ -3061,7 +3060,7 @@ public class Initiative extends javax.swing.JPanel
 	/**
 	 * A table cell renderer
 	 */
-	public class TypeRenderer extends JComboBox implements TableCellRenderer {
+	public static class TypeRenderer extends JComboBox implements TableCellRenderer {
 
 		/**
 		 * Constructor

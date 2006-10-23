@@ -35,7 +35,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -66,10 +65,10 @@ public class DiceRollDialog extends JDialog
 	protected JTextField m_roll;
 
 	/** List of components for field panel */
-	protected List m_fields = new ArrayList();
+	protected List<Component> m_fields = new ArrayList<Component>();
 
 	/** List of components for label panel */
-	protected List m_labels = new ArrayList();
+	protected List<Component> m_labels = new ArrayList<Component>();
 
 	protected JPanel m_buttons;
 
@@ -184,23 +183,13 @@ public class DiceRollDialog extends JDialog
 		m_fieldPanel = new JPanel(new GridLayout(0, 1));
 
 		//Add the components
-		Iterator i = m_labels.iterator();
-		while (i.hasNext())
+		for (Component label : m_labels)
 		{
-			Object label = i.next();
-			if (label instanceof Component)
-			{
-				m_labelPanel.add((Component)label);
-			}
+			m_labelPanel.add(label);
 		}
-		i = m_fields.iterator();
-		while (i.hasNext())
+		for (Component field : m_fields)
 		{
-			Object field = i.next();
-			if (field instanceof Component)
-			{
-				m_fieldPanel.add((Component)field);
-			}
+			m_fieldPanel.add(field);
 		}
 
 		//Add the panels to the content pane

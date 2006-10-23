@@ -34,7 +34,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /**
@@ -50,30 +49,24 @@ public class PreUnarmedAttackTester
 	 */
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		int att = 0;
-		if (!character.getClassList().isEmpty())
+		for (PCClass aClass : character.getClassList())
 		{
-			for (Iterator e2 = character.getClassList().iterator(); e2.hasNext();)
+			String s = aClass.getUattForLevel(aClass.getLevel());
+			if (s.length() == 0 || "0".equals(s)) //$NON-NLS-1$
 			{
-
-				final PCClass aClass = (PCClass) e2.next();
-				String s = aClass.getUattForLevel(aClass.getLevel());
-				if (s.length() == 0 || "0".equals(s)) //$NON-NLS-1$
+				att = Math.max(att, aClass.baseAttackBonus(character));
+			}
+			else
+			{
+				final StringTokenizer bTok = new StringTokenizer(s, ","); //$NON-NLS-1$
+				s = bTok.nextToken();
+				try
 				{
-					att = Math.max(att, aClass.baseAttackBonus(character));
+					att = Math.max(att, Integer.parseInt(s));
 				}
-				else
+				catch (NumberFormatException e)
 				{
-
-					final StringTokenizer bTok = new StringTokenizer(s, ","); //$NON-NLS-1$
-					s = bTok.nextToken();
-					try
-					{
-						att = Math.max(att, Integer.parseInt(s));
-					}
-					catch (NumberFormatException e)
-					{
-						Logging.errorPrint(PropertyFactory.getFormattedString("PreUnarmedAttack.error.bad_operand", s )); //$NON-NLS-1$
-					}
+					Logging.errorPrint(PropertyFactory.getFormattedString("PreUnarmedAttack.error.bad_operand", s )); //$NON-NLS-1$
 				}
 			}
 		}

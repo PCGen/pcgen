@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -91,8 +90,8 @@ public class SelectPanel extends JPanel implements ActionListener
     // End of variables declaration//GEN-END:variables
     private PlayerCharacter pc;
     private int serial           = 0;
-    private Map tempBonusWidgets = new HashMap();
-    private Map eqSetWidgets     = new HashMap();
+    private Map<String, Component> tempBonusWidgets = new HashMap<String, Component>();
+    private Map<String, JRadioButton> eqSetWidgets  = new HashMap<String, JRadioButton>();
     private CharacterPanel parent;
 
 
@@ -155,9 +154,9 @@ public class SelectPanel extends JPanel implements ActionListener
         tempBonusWidgets.clear();
         modifiersPanel.removeAll();
         eqSetPanel.removeAll();
-        for (Iterator i = eqSetWidgets.values().iterator(); i.hasNext();)
+        for (JRadioButton button : eqSetWidgets.values())
         {
-            eqSets.remove((JRadioButton) i.next());
+            eqSets.remove(button);
         }
         eqSetWidgets.clear();
     }
@@ -169,12 +168,12 @@ public class SelectPanel extends JPanel implements ActionListener
 	 * @param tempBonuses a <code>List</code> of temporary bonuses
 	 * @return a <code>Set</code> of bonus names(<code>String</code>'s)
 	 */
-	private Set tempBonus2Set(List tempBonuses)
+	private Set<String> tempBonus2Set(List<BonusObj> tempBonuses)
 	{
-        final Set ret = new TreeSet();
-        for (Iterator i = tempBonuses.iterator(); i.hasNext();)
-		{
-            ret.add(((BonusObj) i.next()).getName());
+        final Set<String> ret = new TreeSet<String>();
+        for (BonusObj bonus : tempBonuses)
+        {
+        	ret.add(bonus.getName());
         }
         return ret;
     }
@@ -186,12 +185,11 @@ public class SelectPanel extends JPanel implements ActionListener
 	 * @param eqSetList a <code>List</code> of Equipment set items
 	 * @return a <code>Set</code> of equipment set names
 	 */
-	private Set equipSet2Set(List eqSetList)
+	private Set<String> equipSet2Set(List<EquipSet> eqSetList)
 	{
-        final Set ret = new TreeSet();
-        for (Iterator i = eqSetList.iterator(); i.hasNext();)
-		{
-            EquipSet e = (EquipSet) i.next();
+        final Set<String> ret = new TreeSet<String>();
+        for (EquipSet e : eqSetList)
+        {
             if (e.getRootIdPath().equals(e.getIdPath()))
 			{
                 ret.add(e.getIdPath());
@@ -207,8 +205,8 @@ public class SelectPanel extends JPanel implements ActionListener
 
 		/* First, find which temporary bonuses have been removed,
 		   and which have been added */
-        Set newValues = tempBonus2Set(pc.getTempBonusList());
-        Set oldValues = new TreeSet(tempBonusWidgets.keySet());
+        Set<String> newValues = tempBonus2Set(pc.getTempBonusList());
+        Set<String> oldValues = new TreeSet<String>(tempBonusWidgets.keySet());
         oldValues.removeAll(newValues);
         newValues.removeAll(tempBonusWidgets.keySet());
 
@@ -240,25 +238,23 @@ public class SelectPanel extends JPanel implements ActionListener
 		}
     }
 
-    private void addEquipSets(Set eqSetIds)
+    private void addEquipSets(Set<String> eqSetIds)
 	{
 		/* just a temporary map to be able to lookup
 		   the name of an equipment set, given its ID */
-        final Map setId2Name = new HashMap();
+        final Map<String, String> setId2Name = new HashMap<String, String>();
 
-        for (Iterator i = pc.getEquipSet().iterator(); i.hasNext();)
+        for (EquipSet eset : pc.getEquipSet())
         {
-            EquipSet eset = (EquipSet) i.next();
             setId2Name.put(eset.getIdPath(), eset.getName());
         }
 
 		/* Create the buttons for the equipment sets. Note that we
 		   keep an internal reference to the buttons in a map, so that
 		   we can later remove them given an equipment set ID */
-        for (Iterator i = eqSetIds.iterator(); i.hasNext();)
+        for (String eqid : eqSetIds)
         {
-            String eqid         = (String) i.next();
-            String setName      = (String) setId2Name.get(eqid);
+            String setName      = setId2Name.get(eqid);
             JRadioButton button = new JRadioButton(setName);
             button.setActionCommand(eqid);
             button.addActionListener(this);
@@ -268,18 +264,18 @@ public class SelectPanel extends JPanel implements ActionListener
         }
     }
 
-    private void removeEquipSets(Set eqSetIds)
+    private void removeEquipSets(Set<String> eqSetIds)
 	{
-        for (Iterator i = eqSetIds.iterator(); i.hasNext();)
-        {
-            JRadioButton w = (JRadioButton) eqSetWidgets.remove(i.next());
+    	for (String key : eqSetIds)
+    	{
+            JRadioButton w = eqSetWidgets.remove(key);
             eqSets.remove(w);
             eqSetPanel.remove(w);
         }
     }
 
 
-    private class CheckBoxUpdater implements ItemListener
+    private static class CheckBoxUpdater implements ItemListener
     {
         private String bonus;
         private PlayerCharacter playerCharacter;
@@ -314,11 +310,10 @@ public class SelectPanel extends JPanel implements ActionListener
         }
     }
 
-    private void addTempBonus(final Set names)
+    private void addTempBonus(final Set<String> names)
     {
-        for (Iterator i = names.iterator(); i.hasNext();)
-        {
-            String name    = (String) i.next();
+    	for (String name : names)
+    	{
             JCheckBox aBox =
 				new JCheckBox(name, !pc.getTempBonusFilters().contains(name));
             aBox.addItemListener(new CheckBoxUpdater(name, pc, parent));
@@ -327,12 +322,11 @@ public class SelectPanel extends JPanel implements ActionListener
         }
     }
 
-    private void removeTempBonus(final Set names)
+    private void removeTempBonus(final Set<String> names)
 	{
-        for (Iterator i = names.iterator(); i.hasNext();)
-        {
-            String name = (String) i.next();
-            Component w = (Component) tempBonusWidgets.get(name);
+    	for (String name : names)
+    	{
+            Component w = tempBonusWidgets.get(name);
             if (w != null)
 			{
                 modifiersPanel.remove(w);

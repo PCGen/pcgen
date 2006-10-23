@@ -8,12 +8,10 @@
  */
 package plugin.encounter;
 
-import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Race;
 
 import javax.swing.DefaultListModel;
-import java.util.Iterator;
 
 /**
  * @author Jerril

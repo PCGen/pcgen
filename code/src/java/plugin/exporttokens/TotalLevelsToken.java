@@ -50,7 +50,7 @@ public class TotalLevelsToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getTotalLevelsToken(pc) + "";
+		return Integer.toString(getTotalLevelsToken(pc));
 	}
 
 	/**

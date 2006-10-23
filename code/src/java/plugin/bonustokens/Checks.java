@@ -29,8 +29,6 @@ import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.BonusObj;
 
-import java.util.Iterator;
-
 /**
  * <code>Checks</code>
  *
@@ -69,10 +67,9 @@ public final class Checks extends BonusObj
 		else if ("ALL".equals(token))
 		{
 			// Special case of:  BONUS:CHECKS|ALL|x
-			for (Iterator ac = SettingsHandler.getGame().getUnmodifiableCheckList().iterator(); ac.hasNext();)
+			for (PObject check : SettingsHandler.getGame().getUnmodifiableCheckList())
 			{
-				aCheck = (PObject) ac.next();
-				addBonusInfo(new CheckInfo(aCheck, isBase));
+				addBonusInfo(new CheckInfo(check, isBase));
 			}
 
 			return true;
@@ -96,7 +93,7 @@ public final class Checks extends BonusObj
 	/**
 	 * Deals with the CheckInfo
 	 */
-	public class CheckInfo
+	public static class CheckInfo
 	{
 		/** The PObject */
 		public final PObject pobj;

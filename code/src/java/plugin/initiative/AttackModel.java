@@ -26,8 +26,11 @@
  */
 package plugin.initiative;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
-import java.util.Vector;
+
+import pcgen.util.CollectionUtilities;
 
 /**
  * <p>Models an attack; that is a weapon or natural weapon with its
@@ -85,17 +88,17 @@ public class AttackModel extends PObjectModel
 	/** Type of weapon as string */
 	private String type = null;
 
-	/** Vector listing crit multiples for weapon. */
-	private Vector critMultiple = null;
+	/** List of crit multiples for weapon. */
+	private List<String> critMultiple = null;
 
-	/** Vector listing critical ranges for weapon. */
-	private Vector critRange = null;
+	/** List of critical ranges for weapon. */
+	private List<String> critRange = null;
 
-	/** Vector listing damage strings for weapon. */
-	private Vector damage = null;
+	/** List of damage strings for weapon. */
+	private List<String> damage = null;
 
-	/** Vector listing to-hit bonuses. */
-	private Vector toHit = null;
+	/** List of to-hit bonuses. */
+	private List<String> toHit = null;
 
 	/** Index of first off-hand attack. */
 	private int firstOffHandAttack = -1;
@@ -151,7 +154,7 @@ public class AttackModel extends PObjectModel
 
 			for (int i = 0; i < toHit.size(); i++)
 			{
-				returnValue[i] = getInt(toHit.get(i).toString().substring(1));
+				returnValue[i] = getInt(toHit.get(i).substring(1));
 			}
 		}
 
@@ -176,11 +179,11 @@ public class AttackModel extends PObjectModel
 
 			if (critMultiple == null)
 			{
-				critMultiple = new Vector(tok.countTokens());
+				critMultiple = new ArrayList<String>(tok.countTokens());
 			}
 			else
 			{
-				critMultiple.removeAllElements();
+				critMultiple.clear();
 			}
 
 			while (tok.hasMoreTokens())
@@ -192,11 +195,11 @@ public class AttackModel extends PObjectModel
 		{
 			if (critMultiple == null)
 			{
-				critMultiple = new Vector(1);
+				critMultiple = new ArrayList<String>(1);
 			}
 			else
 			{
-				critMultiple.removeAllElements();
+				critMultiple.clear();
 			}
 
 			critMultiple.add("2");
@@ -210,22 +213,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getCritMultiple()
 	{
-		StringBuffer sb = new StringBuffer();
-
-		if ((critMultiple != null) && (critMultiple.size() > 0))
-		{
-			for (int i = 0; i < critMultiple.size(); i++)
-			{
-				if (sb.length() > 0)
-				{
-					sb.append("/");
-				}
-
-				sb.append(critMultiple.get(i).toString());
-			}
-		}
-
-		return sb.toString();
+		return CollectionUtilities.joinStringRepresentations(critMultiple, "/");
 	}
 
 	/**
@@ -251,11 +239,11 @@ public class AttackModel extends PObjectModel
 
 		if ((critMultiple != null) && (critMultiple.size() > lookupAt))
 		{
-			returnValue = (String) critMultiple.get(lookupAt);
+			returnValue = critMultiple.get(lookupAt);
 		}
 		else if ((critMultiple != null) && (critMultiple.size() > 0))
 		{
-			returnValue = (String) critMultiple.get(0);
+			returnValue = critMultiple.get(0);
 		}
 
 		return returnValue;
@@ -279,11 +267,11 @@ public class AttackModel extends PObjectModel
 
 			if (critRange == null)
 			{
-				critRange = new Vector(tok.countTokens());
+				critRange = new ArrayList<String>(tok.countTokens());
 			}
 			else
 			{
-				critRange.removeAllElements();
+				critRange.clear();
 			}
 
 			while (tok.hasMoreTokens())
@@ -295,11 +283,11 @@ public class AttackModel extends PObjectModel
 		{
 			if (critRange == null)
 			{
-				critRange = new Vector(1);
+				critRange = new ArrayList<String>(1);
 			}
 			else
 			{
-				critRange.removeAllElements();
+				critRange.clear();
 			}
 
 			critRange.add("20");
@@ -313,22 +301,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getCritRange()
 	{
-		StringBuffer sb = new StringBuffer();
-
-		if ((critRange != null) && (critRange.size() > 0))
-		{
-			for (int i = 0; i < critRange.size(); i++)
-			{
-				if (sb.length() > 0)
-				{
-					sb.append("/");
-				}
-
-				sb.append(critRange.get(i).toString());
-			}
-		}
-
-		return sb.toString();
+		return CollectionUtilities.joinStringRepresentations(critRange, "/");
 	}
 
 	/**
@@ -354,11 +327,11 @@ public class AttackModel extends PObjectModel
 
 		if ((critRange != null) && (critRange.size() > lookupAt))
 		{
-			returnValue = (String) critRange.get(lookupAt);
+			returnValue = critRange.get(lookupAt);
 		}
 		else if ((critRange != null) && (critRange.size() > 0))
 		{
-			returnValue = (String) critRange.get(0);
+			returnValue = critRange.get(0);
 		}
 
 		return returnValue;
@@ -400,11 +373,11 @@ public class AttackModel extends PObjectModel
 
 			if (damage == null)
 			{
-				damage = new Vector(tok.countTokens());
+				damage = new ArrayList<String>(tok.countTokens());
 			}
 			else
 			{
-				damage.removeAllElements();
+				damage.clear();
 			}
 
 			while (tok.hasMoreTokens())
@@ -415,7 +388,7 @@ public class AttackModel extends PObjectModel
 			if (damage.size() > 1)
 			{
 				//If we've got a double weapon, pcgen is using AdB+C/+D, so
-				String damageDice = (String)damage.get(0);
+				String damageDice = damage.get(0);
 				if (damageDice.lastIndexOf("+") > 0)
 				{
 					damageDice = damageDice.substring(0,damageDice.lastIndexOf("+"));
@@ -426,7 +399,7 @@ public class AttackModel extends PObjectModel
 				}
 				for (int i = 1; i < damage.size(); i++)
 				{
-					String secondaryDamage = (String)damage.get(i);
+					String secondaryDamage = damage.get(i);
 					if (secondaryDamage.startsWith("+") || secondaryDamage.startsWith("-"))
 					{
 						damage.set(i,damageDice + secondaryDamage);
@@ -438,11 +411,11 @@ public class AttackModel extends PObjectModel
 		{
 			if (damage == null)
 			{
-				damage = new Vector(1);
+				damage = new ArrayList<String>(1);
 			}
 			else
 			{
-				damage.removeAllElements();
+				damage.clear();
 			}
 
 			damage.add("1");
@@ -455,22 +428,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getDamage()
 	{
-		StringBuffer sb = new StringBuffer();
-
-		if ((damage != null) && (damage.size() > 0))
-		{
-			for (int i = 0; i < damage.size(); i++)
-			{
-				if (sb.length() > 0)
-				{
-					sb.append("/");
-				}
-
-				sb.append(damage.get(i).toString());
-			}
-		}
-
-		return sb.toString();
+		return CollectionUtilities.joinStringRepresentations(damage, "/");
 	}
 
 	/**
@@ -496,11 +454,11 @@ public class AttackModel extends PObjectModel
 
 		if ((damage != null) && (damage.size() > lookupAt))
 		{
-			returnValue = (String) damage.get(lookupAt);
+			returnValue = damage.get(lookupAt);
 		}
 		else if ((damage != null) && (damage.size() > 0))
 		{
-			returnValue = (String) damage.get(0);
+			returnValue = damage.get(0);
 		}
 
 		return returnValue;
@@ -615,11 +573,11 @@ public class AttackModel extends PObjectModel
 	{
 		if (toHit == null)
 		{
-			toHit = new Vector();
+			toHit = new ArrayList<String>();
 		}
 		else
 		{
-			toHit.removeAllElements();
+			toHit.clear();
 		}
 
 		firstOffHandAttack = -1;
@@ -672,7 +630,7 @@ public class AttackModel extends PObjectModel
 					}
 				}
 
-				sb.append(toHit.get(i).toString());
+				sb.append(toHit.get(i));
 			}
 		}
 
@@ -691,7 +649,7 @@ public class AttackModel extends PObjectModel
 
 		if ((toHit != null) && (toHit.size() > index))
 		{
-			returnValue = (String) toHit.get(index);
+			returnValue = toHit.get(index);
 		}
 
 		return returnValue;

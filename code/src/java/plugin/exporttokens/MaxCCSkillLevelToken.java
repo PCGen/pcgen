@@ -51,7 +51,7 @@ public class MaxCCSkillLevelToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getMaxCCSkillLevelToken(pc) + "";
+		return getMaxCCSkillLevelToken(pc);
 	}
 
 	/**

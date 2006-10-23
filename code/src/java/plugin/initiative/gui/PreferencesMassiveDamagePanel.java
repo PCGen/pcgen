@@ -46,14 +46,14 @@ import java.awt.event.ActionListener;
  */
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 
-	public static int MASSIVE_OFF = 1;
-	public static int MASSIVE_DND = 2;
-	public static int MASSIVE_D20_MODERN = 3;
-	public static int MASSIVE_HOUSE_HALF = 4;
-	public static int MASSIVE_EFFECT_KILL = 1;
-	public static int MASSIVE_EFFECT_NEGATIVE = 2;
-	public static int MASSIVE_EFFECT_HALF_TOTAL = 3;
-	public static int MASSIVE_EFFECT_HALF_CURRENT = 4;
+	public static final int MASSIVE_OFF = 1;
+	public static final int MASSIVE_DND = 2;
+	public static final int MASSIVE_D20_MODERN = 3;
+	public static final int MASSIVE_HOUSE_HALF = 4;
+	public static final int MASSIVE_EFFECT_KILL = 1;
+	public static final int MASSIVE_EFFECT_NEGATIVE = 2;
+	public static final int MASSIVE_EFFECT_HALF_TOTAL = 3;
+	public static final int MASSIVE_EFFECT_HALF_CURRENT = 4;
 
 	private JPanel mainPanel;
 

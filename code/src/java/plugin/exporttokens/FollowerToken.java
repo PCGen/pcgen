@@ -26,7 +26,6 @@ package plugin.exporttokens;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -83,25 +82,21 @@ public class FollowerToken extends Token
 			i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));
 		}
 
-		String restString = "";
+		StringBuffer restString = new StringBuffer();
 		while (aTok.hasMoreTokens())
 		{
-			restString = restString + "." + aTok.nextToken();
+			restString.append(".").append(aTok.nextToken());
 		}
 		if (restString.indexOf(".") == 0)
 		{
-			restString = restString.substring(1);
+			restString = restString.deleteCharAt(0);
 		}
 		
 		String result = "";
-		final List followers = pc.getFollowerList();
+		final List<Follower> followers = pc.getFollowerList();
 		if (i < followers.size())
 		{
-			if (followers.get(i) instanceof Follower)
-			{
-				final Follower aF = (Follower) followers.get(i);
-				result = FollowerToken.getFollowerOutput(pc, eh, restString, aF);
-			}
+			result = FollowerToken.getFollowerOutput(pc, eh, restString.toString(), followers.get(i));
 		}
 
 		return result;
@@ -121,24 +116,19 @@ public class FollowerToken extends Token
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
 		PlayerCharacter newPC;
-		for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
-			PlayerCharacter nPC = (PlayerCharacter) p.next();
-
-			if (follower.getFileName().equals(nPC.getFileName()))
+			if (follower.getFileName().equals(eachPC.getFileName()))
 			{
-				newPC = nPC;
+				newPC = eachPC;
 
 				if (followerToken.equals(""))
 				{
 					followerToken = "NAME";
 				}
 
-				nPC = pc;
-				pc = newPC;
-				Globals.setCurrentPC(pc);
-				eh.replaceToken(followerToken, bw, pc);
-				pc = nPC;
+				Globals.setCurrentPC(newPC);
+				eh.replaceToken(followerToken, bw, newPC);
 				Globals.setCurrentPC(pc);
 			}
 		}

@@ -51,7 +51,7 @@ public class ACToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getACToken(tokenSource, pc) + "";
+		return Integer.toString(getACToken(tokenSource, pc));
 	}
 
 	/**

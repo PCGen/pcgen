@@ -59,7 +59,7 @@ public interface ChooserRadio
 	 * Get selected list
 	 * @return selected list
 	 */
-	ArrayList getSelectedList();
+	ArrayList<String> getSelectedList();
 
 	/**
 	 * Set the title

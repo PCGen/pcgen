@@ -36,8 +36,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -79,9 +77,8 @@ public class PreRuleTester
 			runningTotal = 1;
 		}
 
-		for (Iterator e = prereq.getPrerequisites().iterator(); e.hasNext();)
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final Prerequisite element = (Prerequisite) e.next();
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
@@ -116,9 +113,8 @@ public class PreRuleTester
 			runningTotal = 1;
 		}
 
-		for (Iterator e = prereq.getPrerequisites().iterator(); e.hasNext();)
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final Prerequisite element = (Prerequisite) e.next();
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)

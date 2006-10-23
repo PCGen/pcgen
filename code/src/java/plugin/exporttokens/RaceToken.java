@@ -84,10 +84,9 @@ public class RaceToken extends Token
 
 	private static String getSubToken( final String subToken, final PlayerCharacter pc)
 	{
-		String retString = Constants.EMPTY_STRING;
 		if ( !subToken.equals( SUBTOKENLIST[0] ) )
 		{
-			return retString;
+			return Constants.EMPTY_STRING;
 		}
 		final List<SpecialAbility> saList = pc.getRace().getListFor(ListKey.SPECIAL_ABILITY);
 
@@ -96,21 +95,21 @@ public class RaceToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 
+		StringBuffer returnString = new StringBuffer();
 		boolean firstLine = true;
-
-		for (int i = 0; i < saList.size(); i++)
+		for (SpecialAbility sa : saList)
 		{
 			if (!firstLine)
 			{
-				retString += ", "; //$NON-NLS-1$
+				returnString.append(", "); //$NON-NLS-1$
 			}
 
 			firstLine = false;
 
-			retString += saList.get(i).getDisplayName();
+			returnString.append(sa.getDisplayName());
 		}
 
-		return retString;
+		return returnString.toString();
 	}
 
 	private static String getRaceToken(PlayerCharacter pc)

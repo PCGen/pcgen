@@ -101,14 +101,14 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements Prerequis
 			//
 			// ...with exactly 2 entries...
 			//
-			List prereqList = prereq.getPrerequisites();
+			List<Prerequisite> prereqList = prereq.getPrerequisites();
 			if (prereqList.size() == 2)
 			{
 				//
 				// ...both of which are PREHD. The first must specify >= and the second <=
 				//
-				final Prerequisite elementGTEQ =(Prerequisite) prereqList.get(0);
-				final Prerequisite elementLTEQ =(Prerequisite) prereqList.get(1);
+				final Prerequisite elementGTEQ =prereqList.get(0);
+				final Prerequisite elementLTEQ =prereqList.get(1);
 				if ("hd".equalsIgnoreCase(elementGTEQ.getKind()) && elementGTEQ.getOperator().equals(PrerequisiteOperator.GTEQ) &&
 					"hd".equalsIgnoreCase(elementLTEQ.getKind()) && elementLTEQ.getOperator().equals(PrerequisiteOperator.LTEQ))
 				{

@@ -27,7 +27,6 @@
  */
 package plugin.pretokens.test;
 
-import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.Constants;
@@ -36,8 +35,6 @@ import pcgen.core.Race;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-
-import java.util.Iterator;
 
 /**
  * @author	wardc
@@ -84,11 +81,9 @@ public class PreRaceTester extends AbstractPrerequisiteTest implements Prerequis
 		}
 		else if (requiredRace.startsWith("RACESUBTYPE=") || requiredRace.startsWith("RACESUBTYPE."))
 		{
-			List subTypes = character.getRacialSubTypes();
 			final String reqType = requiredRace.substring(12);
-			for (Iterator i = subTypes.iterator(); i.hasNext(); )
+			for (String subType : character.getRacialSubTypes())
 			{
-				final String subType = (String)i.next();
 				if (reqType.equalsIgnoreCase(subType))
 				{
 					++runningTotal;

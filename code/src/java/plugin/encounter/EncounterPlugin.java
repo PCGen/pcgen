@@ -208,7 +208,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		File f = new File(getDataDir() + File.separator + "encounter_tables" + File.separator + "environments.xml");
 		ReadXML xml;
 
-		if ((f != null) && f.exists())
+		if (f.exists())
 		{
 			xml = new ReadXML(f);
 		}
@@ -540,8 +540,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		/*open file*/
 		File monsterFile = new File(tablePath);
 
-		if (monsterFile == null)
-		{
+		if (!monsterFile.exists()) {
 			Logging.errorPrint("could not open " + tablePath);
 
 			return null;
@@ -710,7 +709,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 	 */
 	private void generateXofYEL(String size, String totalEL)
 	{
-		File f;
+		File f = new File(getDataDir() + File.separator + "encounter_tables" + File.separator + "4_1.xml");
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
@@ -719,8 +718,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 		String[] crSplit;
 		float crNum;
 
-		if ((f = new File(getDataDir() + File.separator + "encounter_tables" + File.separator + "4_1.xml")) == null)
-		{
+		if (!f.exists()) {
 			Logging.errorPrint("ACK! No FILE! " + f.toString());
 
 			return;
@@ -978,13 +976,15 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	private String getEquipLocation(PlayerCharacter pc, EquipSet eSet, String locName, Equipment eqI)
 	{
-		if ("".equals(locName) || (locName.length() == 0))
+		String location = locName;
+		
+		if ("".equals(location) || (location.length() == 0))
 		{
 			// get the possible locations for this item
 			List<String> aList = locationChoices(pc, eqI);
-			locName = getSingleLocation(pc, eqI);
+			location = getSingleLocation(pc, eqI);
 
-			if (!((locName.length() != 0) && canAddEquip(pc, eSet, locName, eqI)))
+			if (!((location.length() != 0) && canAddEquip(pc, eSet, location, eqI)))
 			{
 				// let them choose where to put the item
 				ChooserRadio c = ChooserFactory.getRadioInstance();
@@ -995,19 +995,14 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 				c.setVisible(true);
 				aList = c.getSelectedList();
 
-				if (c.getSelectedList().size() > 0)
+				if (aList.size() > 0)
 				{
-					Object loc = aList.get(0);
-
-					if (loc instanceof String)
-					{
-						locName = (String) loc;
-					}
+					location = aList.get(0);
 				}
 			}
 		}
 
-		if ("".equals(locName) || (locName.length() == 0))
+		if ("".equals(location) || (location.length() == 0))
 		{
 			return null;
 		}
@@ -1160,17 +1155,17 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 
 	private EquipSet addEquipToTarget(PlayerCharacter aPC, EquipSet eSet, String locName, Equipment eqI, Float newQty)
 	{
-		locName = getEquipLocation(aPC, eSet, locName, eqI);
+		String location = getEquipLocation(aPC, eSet, locName, eqI);
 
 		// construct the new IdPath
 		// new id is one larger than any other id at this path level
 		String id = getNewIdPath(aPC, eSet);
 
-		Logging.debugPrint("--addEB-- IdPath:" + id + "  Parent:" + eSet.getIdPath() + " Location:" + locName
+		Logging.debugPrint("--addEB-- IdPath:" + id + "  Parent:" + eSet.getIdPath() + " Location:" + location
 			+ " eqName:" + eqI.getName() + "  eSet:" + eSet.getName());
 
 		// now create a new EquipSet to add this Equipment item to
-		EquipSet newSet = new EquipSet(id, locName, eqI.getName(), eqI);
+		EquipSet newSet = new EquipSet(id, location, eqI.getName(), eqI);
 
 		// set the Quantity of equipment
 		eqI.setQty(newQty);

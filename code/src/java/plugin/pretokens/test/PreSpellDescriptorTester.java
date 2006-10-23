@@ -29,6 +29,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.core.spell.Spell;
 import pcgen.util.PropertyFactory;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public class PreSpellDescriptorTester  extends AbstractPrerequisiteTest implemen
 		final int requiredLevel = Integer.parseInt( prereq.getSubKey() );
 		final int requiredNumber = Integer.parseInt( prereq.getOperand() );
 
-		final List aArrayList = character.aggregateSpellList("Any", "No-Match", "A", descriptor, requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
+		final List<Spell> aArrayList = character.aggregateSpellList("Any", "No-Match", "A", descriptor, requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
 		final int runningTotal = prereq.getOperator().compare(aArrayList.size(), requiredNumber );
 		return countedTotal(prereq, runningTotal);

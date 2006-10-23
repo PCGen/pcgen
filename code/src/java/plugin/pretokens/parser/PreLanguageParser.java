@@ -34,8 +34,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-import java.util.Iterator;
-
 
 /**
  * @author wardc
@@ -64,9 +62,8 @@ public class PreLanguageParser extends AbstractPrerequisiteListParser implements
 		}
 		else
 		{
-			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+			for (Prerequisite element : prereq.getPrerequisites())
 			{
-				Prerequisite element = (Prerequisite) iter.next();
 				element.setOperator(PrerequisiteOperator.EQ);
 				if (element.getKey().equalsIgnoreCase("ANY"))
 				{

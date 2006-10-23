@@ -52,7 +52,7 @@ public class MaxSkillLevelToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getMaxSkillLevelToken(pc) + "";
+		return Integer.toString(getMaxSkillLevelToken(pc));
 	}
 
 	/**

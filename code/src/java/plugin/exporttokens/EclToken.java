@@ -56,7 +56,7 @@ public class EclToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getEclToken(pc) + "";
+		return Integer.toString(getEclToken(pc));
 	}
 
 	/**

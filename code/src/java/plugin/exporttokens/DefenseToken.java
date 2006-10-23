@@ -74,47 +74,47 @@ public class DefenseToken extends Token
 
 			if (defenseType.equals("TOTAL"))
 			{
-				retString = getTotalToken(pc) + "";
+				retString = Integer.toString(getTotalToken(pc));
 			}
 			else if (defenseType.equals("FLATFOOTED"))
 			{
-				retString = getFlatFootedToken(pc) + "";
+				retString = Integer.toString(getFlatFootedToken(pc));
 			}
 			else if (defenseType.equals("TOUCH"))
 			{
-				retString = getTouchToken(pc) + "";
+				retString = Integer.toString(getTouchToken(pc));
 			}
 			else if (defenseType.equals("BASE"))
 			{
-				retString = getBaseToken(pc) + "";
+				retString = Integer.toString(getBaseToken(pc));
 			}
 			else if (defenseType.equals("ABILITY"))
 			{
-				retString = getAbilityToken(pc) + "";
+				retString = Integer.toString(getAbilityToken(pc));
 			}
 			else if (defenseType.equals("CLASS"))
 			{
-				retString = getClassToken(pc) + "";
+				retString = Integer.toString(getClassToken(pc));
 			}
 			else if (defenseType.equals("DODGE"))
 			{
-				retString = getDodgeToken(pc) + "";
+				retString = Integer.toString(getDodgeToken(pc));
 			}
 			else if (defenseType.equals("EQUIPMENT"))
 			{
-				retString = getEquipmentToken(pc) + "";
+				retString = Integer.toString(getEquipmentToken(pc));
 			}
 			else if (defenseType.equals("MISC"))
 			{
-				retString = getMiscToken(pc) + "";
+				retString = Integer.toString(getMiscToken(pc));
 			}
 			else if (defenseType.equals("NATURAL"))
 			{
-				retString = getNaturalToken(pc) + "";
+				retString = Integer.toString(getNaturalToken(pc));
 			}
 			else if (defenseType.equals("SIZE"))
 			{
-				retString = getSizeToken(pc) + "";
+				retString = Integer.toString(getSizeToken(pc));
 			}
 		}
 

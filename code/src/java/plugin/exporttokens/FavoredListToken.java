@@ -28,8 +28,7 @@ package plugin.exporttokens;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.Iterator;
+import pcgen.util.CollectionUtilities;
 
 /**
  * Handle the FAVOREDLIST token which produces a list of a character's
@@ -68,22 +67,6 @@ public class FavoredListToken extends Token
 	 */
 	public static String getFavoredListToken(PlayerCharacter pc)
 	{
-		String retString = "";
-		boolean firstLine = true;
-
-		for (Iterator e = pc.getFavoredClasses().iterator(); e.hasNext();)
-		{
-			// separator only on second and beyond iterations
-			if (!firstLine)
-			{
-				retString += ", ";
-			}
-
-			firstLine = false;
-
-			retString += (String) e.next();
-		}
-
-		return retString;
+		return CollectionUtilities.joinStringRepresentations(pc.getFavoredClasses(), ", ");
 	}
 }

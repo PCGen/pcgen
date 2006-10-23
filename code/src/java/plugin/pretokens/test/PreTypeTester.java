@@ -35,9 +35,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * @author frugal@purplewombat.co.uk
  *
@@ -102,10 +99,8 @@ public class PreTypeTester
 	    final int numRequired = Integer.parseInt(prereq.getOperand());
 	    int runningTotal = 0;
 
-	    final List typeList = aPC.getTypes();
-	    for (Iterator iter = typeList.iterator(); iter.hasNext();) {
-            final String element = (String) iter.next();
-
+	    for (String element : aPC.getTypes())
+	    {
             if (element.equalsIgnoreCase(requiredType)) {
                 runningTotal++;
             }

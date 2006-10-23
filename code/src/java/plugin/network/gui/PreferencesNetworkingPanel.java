@@ -57,7 +57,7 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	public void setPortNumber(int port) {
-		serverPort.setText(port + "");
+		serverPort.setText(Integer.toString(port));
 	}
 
 	public int getPortNumber() {

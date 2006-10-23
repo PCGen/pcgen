@@ -67,14 +67,14 @@ public class DescToken extends Token
 			delim = tok.nextToken();
 		}
 
-		List descList = getDescToken(pc);
+		List<String> descList = getDescToken(pc);
 		for (int i = 0; i < descList.size(); ++i)
 		{
 			if(i > 0)
 			{
 				sb.append(delim);
 			}
-			sb.append(FileAccess.filterString((String) descList.get(i)));
+			sb.append(FileAccess.filterString(descList.get(i)));
 		}
 		return sb.toString();
 	}

@@ -31,8 +31,6 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -47,9 +45,8 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements Pre
 		int runningTotal = 0;
 
 		final String aString = prereq.getKey();
-		for (Iterator e = character.getShieldProfList().iterator(); e.hasNext();)
+		for (String profName : character.getShieldProfList())
 		{
-			final String profName = (String) e.next();
 			if (profName.equalsIgnoreCase(aString))
 			{
 				runningTotal++;

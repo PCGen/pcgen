@@ -58,7 +58,7 @@ public class GoldToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getGoldToken(pc) + "";
+		return getGoldToken(pc).toString();
 	}
 
 	/**

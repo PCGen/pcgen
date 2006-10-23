@@ -98,8 +98,7 @@ public class WeaponSpecialPane extends javax.swing.JPanel {
 	 * Refresh the weapon special properties
 	 */	
 	public void refresh() {
-		String sprop = WeaponToken.getSpropToken(pc, eq);
-		sprop.trim();
+		String sprop = WeaponToken.getSpropToken(pc, eq).trim();
 		if(!sprop.equals(BLANK)) {
 			this.setVisible(true);
 			specialProperties.setText(sprop);

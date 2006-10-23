@@ -87,7 +87,13 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	/** optional user object */
 	protected transient Object userObject;
 
-	/** array of children, may be null if this node has no children. */
+	/**
+	 * array of children, may be null if this node has no children.
+	 * 
+	 * Note that this cannot be converted into an ArrayList or something other 
+	 * than Vector due to the TreeNode interface which uses Enumeration as 
+	 * the return type of children();
+	 */
 	protected Vector<MutableTreeNode> children;
 
 	/** true if the node is able to have children. */
@@ -547,15 +553,15 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	}
 
 	public static String checkName(String name) {
-		name = name.replaceAll("\\:", "-");
-		name = name.replaceAll("\\;", "-");
-		name = name.replaceAll("\\+", "-");
-		name = name.replaceAll("\\=", "-");
-		name = name.replaceAll("\\|", "-");
-		name = name.replaceAll("\\?", "-");
-		name = name.replaceAll("\\*", "-");
+		String returnName = name.replaceAll("\\:", "-");
+		returnName = returnName.replaceAll("\\;", "-");
+		returnName = returnName.replaceAll("\\+", "-");
+		returnName = returnName.replaceAll("\\=", "-");
+		returnName = returnName.replaceAll("\\|", "-");
+		returnName = returnName.replaceAll("\\?", "-");
+		returnName = returnName.replaceAll("\\*", "-");
 
-		return name;
+		return returnName;
 	}
 
 	/**

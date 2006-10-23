@@ -67,18 +67,17 @@ public class FollowerTypeToken extends Token
 		aTok.nextToken(); // FOLLOWERTYPE
 
 		String typeString = aTok.nextToken();
-		String restString = "";
+		StringBuffer restString = new StringBuffer();
 		int followerIndex = -1;
 
 		if (aTok.hasMoreTokens())
 		{
-			restString = aTok.nextToken();
+			String startString = aTok.nextToken();
 
 			// When removing old token syntax, remove the catch code
 			try
 			{
-				followerIndex = Integer.parseInt(restString);
-				restString = "";
+				followerIndex = Integer.parseInt(startString);
 			}
 			catch (NumberFormatException exc)
 			{
@@ -87,6 +86,8 @@ public class FollowerTypeToken extends Token
 				// them as they are found.
 				Logging.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
 
+				restString.append(startString);
+				
 				int numCharToRemove = 0;
 
 				for (int i = typeString.length() - 1; i > 0; i--)
@@ -110,24 +111,20 @@ public class FollowerTypeToken extends Token
 
 			while (aTok.hasMoreTokens())
 			{
-				restString = restString + "." + aTok.nextToken();
+				restString.append(".").append(aTok.nextToken());
 			}
 
 			if (restString.indexOf(".") == 0)
 			{
-				restString = restString.substring(1);
+				restString.deleteCharAt(0);
 			}
 		}
 
 		String result = "";
-		List aList = getFollowersOfType(pc, typeString);
+		List<Follower> aList = getFollowersOfType(pc, typeString);
 		if (followerIndex < aList.size())
 		{
-			if (aList.get(followerIndex) instanceof Follower)
-			{
-				final Follower aF = (Follower) aList.get(followerIndex);
-				result = FollowerToken.getFollowerOutput(pc, eh, restString, aF);
-			}
+			result = FollowerToken.getFollowerOutput(pc, eh, restString.toString(), aList.get(followerIndex));
 		}
 
 		return result;
@@ -140,7 +137,7 @@ public class FollowerTypeToken extends Token
 	 * @param typeString The follower type being looked for
 	 * @return The list of qualifying followers.
 	 */
-	private List getFollowersOfType(PlayerCharacter pc, String typeString)
+	private List<Follower> getFollowersOfType(PlayerCharacter pc, String typeString)
 	{
 		List<Follower> aList = new ArrayList<Follower>();
 		final List<Follower> followers = pc.getFollowerList();

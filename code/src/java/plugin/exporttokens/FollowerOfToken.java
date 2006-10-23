@@ -30,8 +30,6 @@ import pcgen.core.character.Follower;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-import java.util.Iterator;
-
 /**
  * Deal with FOLLOWEROF Token
  */
@@ -53,7 +51,7 @@ public class FollowerOfToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getFollowerOfToken(pc) + "";
+		return getFollowerOfToken(pc);
 	}
 
 	/**
@@ -69,10 +67,8 @@ public class FollowerOfToken extends Token
 
 		if (masterPC != null)
 		{
-			for (Iterator e = masterPC.getFollowerList().iterator(); e.hasNext();)
+			for (Follower aFollower : masterPC.getFollowerList())
 			{
-				Follower aFollower = (Follower) e.next();
-
 				if (aFollower.getFileName().equals(pc.getFileName()))
 				{
 					retString = aFollower.getType() + " of " + masterPC.getName();

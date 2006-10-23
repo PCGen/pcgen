@@ -34,8 +34,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
-
 
 /**
  * @author wardc
@@ -59,9 +57,8 @@ public class PreSubClassTester  extends AbstractPrerequisiteTest implements Prer
 		}
 
 		final String thisClass = prereq.getKey();
-		for (Iterator it = character.getClassList().iterator(); it.hasNext(); )
+		for (PCClass aClass : character.getClassList())
 		{
-			final PCClass aClass = (PCClass) it.next();
 			final String subClassName = aClass.getSubClassKey();
 			if (subClassName.length() != 0)
 			{

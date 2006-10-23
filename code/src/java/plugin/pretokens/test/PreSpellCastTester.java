@@ -33,11 +33,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-
 /**
  * @author wardc
  *
@@ -55,16 +50,11 @@ implements PrerequisiteTest {
 		final String prereqSpellType = prereq.getKey();
 		int runningTotal=0;
 
-		final List classList = (ArrayList) character.getClassList().clone();
-		if (!classList.isEmpty())
+		for (PCClass aClass : character.getClassList())
 		{
-			for (Iterator e1 = classList.iterator(); e1.hasNext();)
+			if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
 			{
-				final PCClass aClass = (PCClass) e1.next();
-				if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
-				{
-					runningTotal++;
-				}
+				runningTotal++;
 			}
 		}
 

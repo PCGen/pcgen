@@ -202,7 +202,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	}
 
 	/** A djep instance that allows dice rolling */
-	protected static JEP djep = new JEP();
+	protected static final JEP djep = new JEP();
 
 	/** Name of the skill being currently used for rolls */
 	protected String skillName;

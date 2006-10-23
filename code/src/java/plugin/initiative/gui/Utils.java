@@ -112,7 +112,7 @@ public class Utils
 			{
 				if ("value".equals(evt.getPropertyName())) {
 					Number value = (Number)evt.getNewValue();
-					if (matchingSlider != null && value != null) {
+					if (value != null) {
 						matchingSlider.setValue(value.intValue());
 					}
 				}

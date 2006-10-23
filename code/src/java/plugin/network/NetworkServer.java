@@ -95,7 +95,7 @@ public class NetworkServer extends Thread {
 			if(t instanceof NetworkServer.Handler) {
 				((NetworkServer.Handler)t).sendAddUser("GM");
 				for(int j = 0; j < clients.size(); j++) {
-					((NetworkServer.Handler)t).sendAddUser(clients.get(j).toString());
+					((NetworkServer.Handler)t).sendAddUser(clients.get(j));
 				}
 			}
 		}

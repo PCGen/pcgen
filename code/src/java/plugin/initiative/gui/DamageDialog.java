@@ -13,9 +13,9 @@ package plugin.initiative.gui;
 public class DamageDialog extends javax.swing.JDialog
 {
 	/** OK_VALUE = 0 */
-	public static int OK_VALUE = 0;
+	public static final int OK_VALUE = 0;
 	/** CANCEL_VALUE = 1 */
-	public static int CANCEL_VALUE = 1;
+	public static final int CANCEL_VALUE = 1;
 	
 	private javax.swing.JButton bCancel;
 	private javax.swing.JButton bOK;
@@ -84,7 +84,7 @@ public class DamageDialog extends javax.swing.JDialog
 		catch (NumberFormatException e)
 		{
 			damage = 0;
-			damageField.setText(damage + "");
+			damageField.setText(Integer.toString(damage));
 			throw e;
 		}
 	}

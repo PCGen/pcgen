@@ -37,8 +37,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.utils.CoreUtility;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -75,9 +73,8 @@ public class PreVariableTester
 		{
 			return 0;
 		}
-		for (Iterator e = prereq.getPrerequisites().iterator(); e.hasNext();)
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final Prerequisite element = (Prerequisite) e.next();
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
@@ -109,9 +106,8 @@ public class PreVariableTester
 		{
 			return 0;
 		}
-		for (Iterator e = prereq.getPrerequisites().iterator(); e.hasNext();)
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final Prerequisite element = (Prerequisite) e.next();
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 

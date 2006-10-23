@@ -52,11 +52,11 @@ public class PoolToken extends Token
 
 		if ("POOL.CURRENT".equals(tokenSource))
 		{
-			retString = getCurrentToken(pc) + "";
+			retString = Integer.toString(getCurrentToken(pc));
 		}
 		else if ("POOL.COST".equals(tokenSource))
 		{
-			retString = getCostToken(pc) + "";
+			retString = Integer.toString(getCostToken(pc));
 		}
 
 		return retString;

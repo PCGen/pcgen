@@ -20,7 +20,7 @@ import java.util.Properties;
  */
 public class RagePane extends javax.swing.JPanel {
 	private PlayerCharacter pc;
-	private ArrayList checkList = new ArrayList();
+	private ArrayList<JCheckBox> checkList = new ArrayList<JCheckBox>();
 	private static final String rageText1 = "The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC.";
 	private static final String rageText2 = "The Barbarian temporarily gains +6 to Strength, +6 to Constitution, and a +3 morale bonus on Will saves, but suffers a -2 penalty to AC.";
 	private static final String rageText3 = "The Barbarian temporarily gains +8 to Strength, +8 to Constitution, and a +4 morale bonus on Will saves, but suffers a -2 penalty to AC.";
@@ -182,8 +182,8 @@ public class RagePane extends javax.swing.JPanel {
 	public void updateProperties() {
 		if(updateProperties) {
 			int counter = 0;
-			for(int i = 0; i < checkList.size(); i++) {
-				JCheckBox checkBox = (JCheckBox)checkList.get(i);
+			for (JCheckBox checkBox : checkList)
+			{
 				if(checkBox.isSelected()) {
 					counter++;
 				}
@@ -195,8 +195,8 @@ public class RagePane extends javax.swing.JPanel {
 	public void updatePane() {
 		try {
 			int counter = Integer.parseInt((String)pcProperties.get(PROPERTY_RAGEPANE));
-			for(int i = 0; i < checkList.size(); i++) {
-				JCheckBox checkBox = (JCheckBox)checkList.get(i);
+			for (JCheckBox checkBox : checkList)
+			{
 				if(counter > 0) {
 					checkBox.setSelected(true);
 					counter--;

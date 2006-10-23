@@ -5,8 +5,6 @@ import pcgen.core.SystemCollections;
 import pcgen.persistence.lst.CampaignLstToken;
 
 import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Class deals with HIDETYPE Token
@@ -18,9 +16,7 @@ public class HidetypeToken implements CampaignLstToken {
 	}
 
 	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
-		final List gameModes = campaign.getGameModes();
-		for (Iterator gm = gameModes.iterator(); gm.hasNext();) {
-			String gmName = (String) gm.next();
+		for (String gmName : campaign.getGameModes()) {
 			if (value.startsWith("EQUIP|")) {
 				SystemCollections.getGameModeNamed(gmName).setHiddenEquipmentTypes(value.substring(6));
 			}

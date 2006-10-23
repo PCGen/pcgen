@@ -1,7 +1,5 @@
 package plugin.lsttokens.statsandchecks.check;
 
-import java.util.Iterator;
-
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.PCCheckLstToken;
@@ -17,11 +15,8 @@ public class ChecknameToken implements PCCheckLstToken {
 
 	public boolean parse(PObject obj, String value) {
 		obj.setName(value);
-		final Iterator iter = SettingsHandler.getGame().getUnmodifiableCheckList().iterator();
-
-		while (iter.hasNext()) {
-			final PObject testObj = (PObject) iter.next();
-
+		for (PObject testObj : SettingsHandler.getGame().getUnmodifiableCheckList())
+		{
 			if (testObj.getKeyName().equals(obj.getKeyName())) {
 				return true; //we already have this object in our list, so just return
 			}

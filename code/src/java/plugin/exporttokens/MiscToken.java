@@ -51,13 +51,14 @@ public class MiscToken extends Token
 		// |MISC.MAGIC,</fo:block><fo:block font-size="7pt">|
 		final int k = tokenSource.lastIndexOf(',');
 
+		String sourceText;
 		if (k >= 0)
 		{
-			tokenSource = tokenSource.substring(k + 1);
+			sourceText = tokenSource.substring(k + 1);
 		}
 		else
 		{
-			tokenSource = "";
+			sourceText = "";
 		}
 
 		StringBuffer buf = new StringBuffer();
@@ -68,7 +69,7 @@ public class MiscToken extends Token
 			for ( String str : stringList )
 			{
 				buf.append( str );
-				buf.append( tokenSource );
+				buf.append( sourceText );
 			}
 		}
 		return buf.toString();

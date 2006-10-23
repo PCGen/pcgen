@@ -67,11 +67,11 @@ public class ExpToken extends Token
 
 			if ("CURRENT".equals(token))
 			{
-				retString = getCurrentToken(pc) + "";
+				retString = Integer.toString(getCurrentToken(pc));
 			}
 			else if ("NEXT".equals(token))
 			{
-				retString = getNextToken(pc) + "";
+				retString = Integer.toString(getNextToken(pc));
 			}
 			else if ("FACTOR".equals(token))
 			{

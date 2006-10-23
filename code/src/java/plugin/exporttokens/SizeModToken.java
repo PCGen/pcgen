@@ -51,7 +51,7 @@ public class SizeModToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getSizeModToken(pc) + "";
+		return Integer.toString(getSizeModToken(pc));
 	}
 
 	/**

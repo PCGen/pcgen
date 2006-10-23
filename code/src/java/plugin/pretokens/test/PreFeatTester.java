@@ -17,7 +17,6 @@ import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -26,7 +25,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.util.PropertyFactory;
-import pcgen.util.enumeration.Tab;
 
 /**
  * @author wardc
@@ -196,6 +194,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeySpell(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
+		int returnTotal = runningTotal;
 		for (Object aObj : selectedList) {
 			final Spell sp;
 			String spellKey = null;
@@ -212,13 +211,13 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 				continue;
 			}
 			if (sp.isType(cType)) {
-				runningTotal++;
+				returnTotal++;
 				if (!countMults) {
 					break;
 				}
 			}
 		}
-		return runningTotal;
+		return returnTotal;
 	}
 
 	/**
@@ -229,6 +228,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeyDomain(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
+		int returnTotal = runningTotal;
 		for (Object aObj : selectedList) {
 			final Domain dom;
 			dom = Globals.getDomainKeyed(aObj.toString());
@@ -236,13 +236,13 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 				continue;
 			}
 			if (dom.isType(cType)) {
-				runningTotal++;
+				returnTotal++;
 				if (!countMults) {
 					break;
 				}
 			}
 		}
-		return runningTotal;
+		return returnTotal;
 	}
 
 	/**
@@ -253,6 +253,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeyWeaponProf(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
+		int returnTotal = runningTotal;
 		for (Object aObj : selectedList) {
 			final WeaponProf wp;
 			wp = Globals.getWeaponProfKeyed(aObj.toString());
@@ -265,13 +266,13 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 				continue;
 			}
 			if (eq.isType(cType)) {
-				runningTotal++;
+				returnTotal++;
 				if (!countMults) {
 					break;
 				}
 			}
 		}
-		return runningTotal;
+		return returnTotal;
 	}
 
 	/**
@@ -282,6 +283,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @return int
 	 */
 	private int subKeySkill(final boolean countMults, int runningTotal, final String cType, final List selectedList) {
+		int returnTotal = runningTotal;
 		for (Object aObj : selectedList) {
 			final Skill sk;
 			sk = Globals.getSkillKeyed(aObj.toString());
@@ -289,13 +291,13 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 				continue;
 			}
 			if (sk.isType(cType)) {
-				runningTotal++;
+				returnTotal++;
 				if (!countMults) {
 					break;
 				}
 			}
 		}
-		return runningTotal;
+		return returnTotal;
 	}
 
 	public String toHtmlString(final Prerequisite prereq)

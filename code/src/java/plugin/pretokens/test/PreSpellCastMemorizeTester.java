@@ -13,10 +13,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * @author Valued Customer
  *
@@ -43,15 +39,11 @@ public class PreSpellCastMemorizeTester
 		final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
 		int runningTotal=0;
 
-		final List classList = (ArrayList) character.getClassList().clone();
-		if (!classList.isEmpty())
+		for (PCClass aClass : character.getClassList())
 		{
-			for (Iterator e1 = classList.iterator(); e1.hasNext();)
+			if (aClass.getMemorizeSpells() == prereqMemorized)
 			{
-				final PCClass aClass = (PCClass) e1.next();
-				final boolean classMemorized = aClass.getMemorizeSpells();
-				if (classMemorized == prereqMemorized)
-					runningTotal++;
+				runningTotal++;
 			}
 		}
 

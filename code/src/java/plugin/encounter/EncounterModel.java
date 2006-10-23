@@ -8,7 +8,6 @@ import pcgen.core.Race;
 import javax.swing.DefaultListModel;
 import java.io.File;
 import java.lang.reflect.Array;
-import java.util.Vector;
 
 /**
  * This <code>class</code> holds all the necessary data in order to have
@@ -49,7 +48,6 @@ public class EncounterModel extends DefaultListModel
 	public int getCR()
 	{
 		ReadXML xml;
-		new Vector();
 		File f = new File(dir + File.separator + "encounter_tables/4_1.xml");
 		int i;
 		float cr = 0;

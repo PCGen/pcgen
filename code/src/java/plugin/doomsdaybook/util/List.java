@@ -13,9 +13,9 @@ import java.util.ArrayList;
  *
  * @author  devon
  */
-public class List extends ArrayList implements DataElement
+public class List extends ArrayList<WeightedDataValue> implements DataElement
 {
-	ArrayList retList = new ArrayList();
+	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 	String id;
 	String title;
 	VariableHashMap allVars;
@@ -55,7 +55,7 @@ public class List extends ArrayList implements DataElement
 		this.weight = weight;
 	}
 
-	public ArrayList getData()
+	public ArrayList<DataValue> getData()
 	{
 		retList.clear();
 
@@ -81,9 +81,8 @@ public class List extends ArrayList implements DataElement
 		int aWeight = 0;
 
 		//Iterate through the list of choices until the weights (from each DataValue) are greater the the num chosen as the 'choice'
-		for (int i = 0; i < this.size(); i++)
+		for (WeightedDataValue chkValue : this)
 		{
-			WeightedDataValue chkValue = (WeightedDataValue) get(i);
 			int valueWeight = chkValue.getWeight();
 
 			if (valueWeight > 0)
@@ -102,7 +101,7 @@ public class List extends ArrayList implements DataElement
 		return retList;
 	}
 
-	public ArrayList getData(int choice)
+	public ArrayList<DataValue> getData(int choice)
 	{
 		retList.clear();
 
@@ -110,9 +109,8 @@ public class List extends ArrayList implements DataElement
 		int aWeight = 0;
 
 		//Iterate through the list of choices until the weights (from each DataValue) are greater the the num chosen as the 'choice'
-		for (int i = 0; i < this.size(); i++)
+		for (WeightedDataValue chkValue : this)
 		{
-			WeightedDataValue chkValue = (WeightedDataValue) get(i);
 			int valueWeight = chkValue.getWeight();
 
 			if (valueWeight > 0)
@@ -145,7 +143,7 @@ public class List extends ArrayList implements DataElement
 		return id;
 	}
 
-	public ArrayList getLastData()
+	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
 	}
@@ -158,9 +156,8 @@ public class List extends ArrayList implements DataElement
 	{
 		int rangeTop = 0;
 
-		for (int i = 0; i < this.size(); i++)
+		for (WeightedDataValue value : this)
 		{
-			WeightedDataValue value = (WeightedDataValue) get(i);
 			rangeTop += value.getWeight();
 		}
 

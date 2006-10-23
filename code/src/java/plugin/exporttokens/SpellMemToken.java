@@ -210,7 +210,7 @@ public class SpellMemToken extends Token
 							retValue.append(String.valueOf(si.getTimes()));
 						}
 					}
-					else if (aSpell != null)
+					else // if (aSpell != null) can't be null
 					{
 						if ("RANGE".equals(aLabel))
 						{
@@ -456,10 +456,9 @@ public class SpellMemToken extends Token
 		StringBuffer tempSource = new StringBuffer();
 		final Set<String> levelSet = new TreeSet<String>();
 
-		for ( String classKey : tempHash.keySet() )
+		for ( Map.Entry<String, Integer> entry : tempHash.entrySet() )
 		{
-			Integer classLevel = tempHash.get(classKey);
-
+			String classKey = entry.getKey();
 			if (classKey.startsWith("CLASS|"))
 			{
 				classKey = classKey.substring(6);
@@ -482,7 +481,7 @@ public class SpellMemToken extends Token
 
 			if (classKey != null)
 			{
-				levelSet.add(classKey + classLevel.toString());
+				levelSet.add(classKey + entry.getValue().toString());
 			}
 		}
 

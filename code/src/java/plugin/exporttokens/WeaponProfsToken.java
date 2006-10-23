@@ -30,9 +30,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-import java.util.SortedSet;
 import pcgen.core.WeaponProf;
-import java.util.TreeSet;
 
 /**
  * <code>WeaponProfsToken</code>.

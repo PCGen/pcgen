@@ -22,8 +22,8 @@ import java.util.ArrayList;
  */
 public class CharacterSheetModel {
 	private JTabbedPane masterPane = new JTabbedPane();
-	private ArrayList characters = new ArrayList();
-	private ArrayList infoPanes = new ArrayList();
+	private ArrayList<PlayerCharacter> characters = new ArrayList<PlayerCharacter>();
+	private ArrayList<CharacterPanel> infoPanes = new ArrayList<CharacterPanel>();
 	private CharacterInfoTabPanel infoPanel;
 
 	/** Creates a new instance of CharacterSheetModel */
@@ -81,7 +81,7 @@ public class CharacterSheetModel {
 	/**
 	 * @return Returns the infoPanes.
 	 */
-	public ArrayList getInfoPanes() {
+	public ArrayList<CharacterPanel> getInfoPanes() {
 		return infoPanes;
 	}
 
@@ -203,8 +203,7 @@ public class CharacterSheetModel {
 			}
 		}
 		for(int i = 0; i < infoPanes.size(); i++) {
-			CharacterPanel cp = (CharacterPanel)infoPanes.get(i);
-			cp.setColor();
+			infoPanes.get(i).setColor();
 		}
 	}
 
@@ -221,8 +220,7 @@ public class CharacterSheetModel {
 			}
 		}
 		for(int i = 0; i < infoPanes.size(); i++) {
-			CharacterPanel cp = (CharacterPanel)infoPanes.get(i);
-			cp.setSystemRefresh(refresh);
+			infoPanes.get(i).setSystemRefresh(refresh);
 		}
 	}
 }

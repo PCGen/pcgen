@@ -35,7 +35,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -66,16 +65,14 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 		{
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
-			List typeList = null;
+			List<String> typeList = null;
 			if (aString.startsWith("TYPE=") || aString.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 			{
 				typeList = CoreUtility.split(aString.substring(5), '.');
 			}
 
-
-			for (Iterator e1 = character.getEquipmentList().iterator(); e1.hasNext();)
+			for (Equipment eq : character.getEquipmentList())
 			{
-				final Equipment eq = (Equipment) e1.next();
 				if (typeList != null)
 				{
 					// Check to see if the equipment matches
@@ -83,7 +80,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 					boolean bMatches = true;
 					for (int i = 0, x = typeList.size(); i < x; ++i)
 					{
-						if (!eq.isType((String) typeList.get(i)))
+						if (!eq.isType(typeList.get(i)))
 						{
 							bMatches = false;
 							break;

@@ -32,10 +32,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * @author frugal@purplewombat.co.uk
  *
@@ -62,11 +58,8 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 
 		boolean foundMatch = false;
-		final List sList = (ArrayList) character.getSkillList().clone();
-		for (Iterator e1 = sList.iterator(); e1.hasNext() && !foundMatch ;)
+		for (Skill aSkill : character.getSkillList())
 		{
-			final Skill aSkill = (Skill) e1.next();
-
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
 			{
@@ -104,6 +97,10 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 					foundMatch=true;
 					runningTotal = result;
 				}
+			}
+			if (foundMatch)
+			{
+				break;
 			}
 		}
 

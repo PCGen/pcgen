@@ -33,8 +33,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -80,9 +78,8 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 		//
 		// In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)', need to check all sub-prereqs
 		//
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
-		{
-			doTypeInvertFixup((Prerequisite) iter.next());
+		for (Prerequisite subreq : prereq.getPrerequisites()) {
+			doTypeInvertFixup(subreq);
 		}		
 	}
 }

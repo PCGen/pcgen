@@ -30,7 +30,6 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -63,7 +62,6 @@ public class SpellListBookToken extends SpellListToken
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuffer retValue = new StringBuffer();
-		int y = 0;
 
 		SpellListTokenParams params = new SpellListTokenParams(tokenSource,
 			SpellListToken.SPELLTAG_BOOK);
@@ -72,7 +70,6 @@ public class SpellListBookToken extends SpellListToken
 
 		if (aObject != null)
 		{
-			CharacterSpell cs;
 			String bookName = Globals.getDefaultSpellBook();
 
 			if (params.getBookNum() > 0)
@@ -80,22 +77,22 @@ public class SpellListBookToken extends SpellListToken
 				bookName = pc.getSpellBooks().get(params.getBookNum());
 			}
 
-			final List spells = aObject.getSpellSupport().getCharacterSpell(null,
+			final List<CharacterSpell> spells = aObject.getSpellSupport().getCharacterSpell(null,
 				bookName, params.getLevel());
 
-			for (Iterator se = spells.iterator(); se.hasNext();)
+			boolean needcomma = false;
+			for (CharacterSpell cs : spells)
 			{
-				cs = (CharacterSpell) se.next();
-
-				if (y++ > 0)
+				if (needcomma)
 				{
 					retValue.append(", ");
 				}
+				needcomma = true;
 
 				retValue.append(cs.getSpell().getOutputName());
 			}
 
-			if ((y == 0) && eh != null && eh.getExistsOnly())
+			if (!needcomma && eh != null && eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}

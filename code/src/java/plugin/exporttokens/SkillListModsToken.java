@@ -1,7 +1,5 @@
 package plugin.exporttokens;
 
-import java.util.Iterator;
-
 import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -31,14 +29,11 @@ public class SkillListModsToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
+		StringBuffer returnString = new StringBuffer();
+		boolean needcomma = false;
 		
-		int i = 0;
-
-		for (Iterator e = pc.getSkillListInOutputOrder().iterator(); e.hasNext();)
+		for (Skill aSkill : pc.getSkillListInOutputOrder())
 		{
-			// final
-			Skill aSkill = (Skill) e.next();
 			int modSkill = -1;
 
 			if (aSkill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
@@ -51,17 +46,17 @@ public class SkillListModsToken extends Token
 				//final
 				int temp = aSkill.modifier(pc).intValue() + aSkill.getTotalRank(pc).intValue();
 
-				if (i > 0)
+				if (needcomma)
 				{
-					retString += ", ";
+					returnString.append(", ");
 				}
+				needcomma = true;
 
-				retString += aSkill.getOutputName() + " +" + Integer.toString(temp);
-				++i;
+				returnString.append(aSkill.getOutputName()).append(" +").append(Integer.toString(temp));
 			}
 		}
 		
-		return retString;
+		return returnString.toString();
 	}
 	
 }

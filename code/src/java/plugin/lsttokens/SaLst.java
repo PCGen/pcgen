@@ -47,7 +47,9 @@ public class SaLst implements GlobalLstToken {
 
 		if (!aTok.hasMoreTokens()) { return; }
 
-		String saName = aTok.nextToken();
+		StringBuffer saName = new StringBuffer();
+		saName.append(aTok.nextToken());
+		
 		SpecialAbility sa = new SpecialAbility();
 
 		while (aTok.hasMoreTokens()) {
@@ -68,16 +70,16 @@ public class SaLst implements GlobalLstToken {
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			} else {
-				saName += cString;
+				saName.append(cString);
 			}
 
 			if (".CLEAR".equals(cString)) {
 				obj.clearSpecialAbilityList();
-				saName = "";
+				saName.setLength(0);
 			}
 		}
 
-		sa.setName(saName);
+		sa.setName(saName.toString());
 
 		if (obj instanceof PCClass) {
 			sa.setSASource("PCCLASS=" + obj.getKeyName() + "|" + level);

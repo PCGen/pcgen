@@ -50,7 +50,7 @@ public class AgeToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getAgeToken(pc) + "";
+		return Integer.toString(getAgeToken(pc));
 	}
 
 	/**

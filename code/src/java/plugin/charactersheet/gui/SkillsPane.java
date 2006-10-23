@@ -6,6 +6,7 @@
 
 package plugin.charactersheet.gui;
 
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -26,7 +27,7 @@ import plugin.charactersheet.CharacterSheetUtils;
  */
 public class SkillsPane extends javax.swing.JPanel {
 	private PlayerCharacter pc;
-	private ArrayList componentList = new ArrayList();
+	private ArrayList<Component> componentList = new ArrayList<Component>();
 
 	private static final String BLANK = "";
 	private static final String STAR = "*";

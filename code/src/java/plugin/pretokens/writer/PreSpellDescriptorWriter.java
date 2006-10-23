@@ -36,7 +36,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Iterator;
 
 
 public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
@@ -105,9 +104,8 @@ public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter impleme
 
 			writer.write("PRESPELLDESCRIPTOR:");
 			writer.write(prereq.getOperand());
-			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
+			for (Prerequisite element : prereq.getPrerequisites())
 			{
-				final Prerequisite element = (Prerequisite) iter.next();
 				writer.write(',');
 				writer.write(element.getKey());
 				writer.write('=');

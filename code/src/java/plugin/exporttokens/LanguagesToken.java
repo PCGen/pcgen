@@ -25,11 +25,14 @@
  */
 package plugin.exporttokens;
 
+import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.CollectionUtilities;
 
-import java.util.SortedSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -59,12 +62,18 @@ public class LanguagesToken extends Token
 		int languageIndex = 0;
 		int startIndex = 0;
 
+		List<Language> languageList = new ArrayList<Language>(pc.getLanguagesList());
+		
 		if (aTok.hasMoreTokens())
 		{
 			try
 			{
-				languageIndex = Integer.parseInt(aTok.nextToken());
-				startIndex = languageIndex;
+				startIndex = Integer.parseInt(aTok.nextToken());
+				languageIndex = startIndex + 1;
+				/*
+				 * PERFORMANCE This can actually shortcut the subList below, as
+				 * it really is only grabbling one language
+				 */ 
 			}
 			catch (NumberFormatException e)
 			{
@@ -73,39 +82,16 @@ public class LanguagesToken extends Token
 		}
 		else
 		{
-			languageIndex = pc.getLanguagesList().size();
+			languageIndex = languageList.size();
 		}
 
-		StringBuffer langBuf = new StringBuffer();
-
-		for (int i = startIndex; i <= languageIndex; i++)
-		{
-			if ((i > startIndex) && (i < languageIndex))
-			{
-				langBuf.append(", ");
-			}
-
-			langBuf.append(getLanguagesToken(pc, i));
+		if (languageList.isEmpty()) {
+			return "";
 		}
-
-		return langBuf.toString();
-	}
-
-	/**
-	 * Get the languages token
-	 * @param pc
-	 * @param languageIndex
-	 * @return the languages token
-	 */
-	public static String getLanguagesToken(PlayerCharacter pc, int languageIndex)
-	{
-		SortedSet languageSet = pc.getLanguagesList();
-
-		if ((languageIndex >= 0) && (languageIndex < languageSet.size()))
-		{
-			return languageSet.toArray()[languageIndex].toString();
-		}
-
-		return "";
+		
+		List<Language> subList = languageList.subList(Math.max(startIndex, 0),
+				Math.min(languageIndex, languageList.size()));
+		
+		return CollectionUtilities.joinStringRepresentations(subList, ", ");
 	}
 }

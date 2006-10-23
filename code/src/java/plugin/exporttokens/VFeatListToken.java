@@ -2,6 +2,7 @@ package plugin.exporttokens;
 
 import java.util.List;
 
+import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.FeatListToken;
 
@@ -28,7 +29,7 @@ public class VFeatListToken extends FeatListToken
 	/**
 	 * @see pcgen.io.exporttoken.FeatListToken#getFeatList(PlayerCharacter)
 	 */
-	protected List getFeatList(PlayerCharacter pc)
+	protected List<Ability> getFeatList(PlayerCharacter pc)
 	{
 		return pc.getVirtualFeatList();
 	}

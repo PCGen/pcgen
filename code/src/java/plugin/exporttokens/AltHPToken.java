@@ -51,7 +51,7 @@ public class AltHPToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getAltHPToken(pc) + "";
+		return Integer.toString(getAltHPToken(pc));
 	}
 
 	/**

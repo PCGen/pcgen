@@ -40,15 +40,15 @@ import java.util.HashMap;
  * @author devon
  * @version $Revision$
  */
-public class VariableHashMap extends HashMap
+public class VariableHashMap extends HashMap<String, String>
 {
-	private ArrayList initialize = new ArrayList();
-	private HashMap dataElements;
+	private ArrayList<Operation> initialize = new ArrayList<Operation>();
+	private HashMap<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()
 	{
-		this.dataElements = new HashMap();
+		this.dataElements = new HashMap<String, DataElement>();
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class VariableHashMap extends HashMap
 	 * retained by the new VariableHashMap. 
 	 * @param dataElements 
 	 */
-	public VariableHashMap(HashMap dataElements)
+	public VariableHashMap(HashMap<String, DataElement> dataElements)
 	{
 		this.dataElements = dataElements;
 	}
@@ -72,7 +72,7 @@ public class VariableHashMap extends HashMap
 	 */
 	public DataElement getDataElement(String key) throws Exception
 	{
-		DataElement de = (DataElement) dataElements.get(key);
+		DataElement de = dataElements.get(key);
 
 		if (de == null)
 		{
@@ -92,12 +92,14 @@ public class VariableHashMap extends HashMap
 	 */
 	public String getVal(String key) throws variableException
 	{
-		if (get(key) == null)
+		String value = get(key);
+		
+		if (value == null)
 		{
 			throw new variableException("Variable " + key + " does not exist, cannot get value");
 		}
 
-		return (String) get(key);
+		return value;
 	}
 
 	/**
@@ -152,23 +154,24 @@ public class VariableHashMap extends HashMap
 	 */
 	public String addVar(String key, int add) throws variableException
 	{
-		if (get(key) == null)
+		String value = get(key);
+		
+		if (value == null)
 		{
 			throw new variableException("Variable " + key + " does not exist, cannot add to value");
 		}
 
-		if (get(key) == "")
-		{
-			put(key, "0");
+		int val;
+		
+		if ("".equals(value)) {
+			val = 0;
+		} else {
+			val = Integer.parseInt(get(key));
 		}
 
-		int val = Integer.parseInt((String) get(key));
-		val += add;
-		put(key, val + "");
-
-		return val + "";
+		return put(key, Integer.toString(val + add));
 	}
-
+	
 	/**
 	 * Divide the value of an existing variable by an amount. If no entry is 
 	 * present for the key, an exception will be thrown. NB: Integer divison 
@@ -181,21 +184,22 @@ public class VariableHashMap extends HashMap
 	 */
 	public String divideVar(String key, int divide) throws variableException
 	{
-		if (get(key) == null)
+		String value = get(key);
+		
+		if (value == null)
 		{
 			throw new variableException("Variable " + key + " does not exist, cannot divide by value");
 		}
 
-		if (get(key) == "")
-		{
-			put(key, "0");
+		int val;
+		
+		if ("".equals(value)) {
+			val = 0;
+		} else {
+			val = Integer.parseInt(get(key));
 		}
 
-		int val = Integer.parseInt((String) get(key));
-		val /= divide;
-		put(key, val + "");
-
-		return val + "";
+		return put(key, Integer.toString(val / divide));
 	}
 
 	/**
@@ -204,11 +208,11 @@ public class VariableHashMap extends HashMap
 	 * @param ops The Operations to be performed.
 	 * @throws variableException When no entry exists for an Operation's key.
 	 */
-	public void doOperation(ArrayList ops) throws variableException
+	public void doOperation(ArrayList<Operation> ops) throws variableException
 	{
-		for (int i = 0; i < ops.size(); i++)
+		for (Operation op : ops)
 		{
-			doOperation((Operation) ops.get(i));
+			doOperation(op);
 		}
 	}
 
@@ -277,21 +281,22 @@ public class VariableHashMap extends HashMap
 	public String multiplyVar(String key, int multiply)
 		throws variableException
 	{
-		if (get(key) == null)
+		String value = get(key);
+		
+		if (value == null)
 		{
 			throw new variableException("Variable " + key + " does not exist, cannot multiply by value");
 		}
 
-		if (get(key) == "")
-		{
-			put(key, "0");
+		int val;
+		
+		if ("".equals(value)) {
+			val = 0;
+		} else {
+			val = Integer.parseInt(get(key));
 		}
 
-		int val = Integer.parseInt((String) get(key));
-		val *= multiply;
-		put(key, val + "");
-
-		return val + "";
+		return put(key, Integer.toString(val * multiply));
 	}
 
 	/**
@@ -308,7 +313,7 @@ public class VariableHashMap extends HashMap
 		if (val.matches("\\$\\{.*?\\}.*"))
 		{
 			String var = val.substring(val.indexOf("${") + 2, val.indexOf("}"));
-			String value = (String) get(var);
+			String value = get(var);
 
 			if (value == null)
 			{
@@ -333,20 +338,21 @@ public class VariableHashMap extends HashMap
 	public String subtractVar(String key, int subtract)
 		throws variableException
 	{
-		if (get(key) == null)
+		String value = get(key);
+		
+		if (value == null)
 		{
 			throw new variableException("Variable " + key + " does not exist, cannot subtract from value");
 		}
 
-		if (get(key) == "")
-		{
-			put(key, "0");
+		int val;
+		
+		if ("".equals(value)) {
+			val = 0;
+		} else {
+			val = Integer.parseInt(get(key));
 		}
 
-		int val = Integer.parseInt((String) get(key));
-		val -= subtract;
-		put(key, val + "");
-
-		return val + "";
+		return put(key, Integer.toString(val - subtract));
 	}
 }

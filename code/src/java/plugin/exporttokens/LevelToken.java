@@ -69,9 +69,10 @@ public class LevelToken extends Token
 
 		PCLevelInfo pcl = null;
 
-		for (Iterator i = pc.getLevelInfo().iterator(); i.hasNext();)
+		//CONSIDER Shouldn't this for loop really be a method in PlayerCharacter?
+		for (Iterator<PCLevelInfo> i = pc.getLevelInfo().iterator(); i.hasNext();)
 		{
-			pcl = (PCLevelInfo) i.next();
+			pcl = i.next();
 			if (pcl.getLevel() == level)
 			{
 				break;

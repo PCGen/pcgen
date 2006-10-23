@@ -14,7 +14,6 @@ import pcgen.persistence.PersistenceLayerException;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-import pcgen.core.PCClass;
 
 /**
  * @author djones4

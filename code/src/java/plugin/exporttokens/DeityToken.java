@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
@@ -183,23 +184,22 @@ public class DeityToken extends Token
 	 */
 	public static String getDomainListToken(Deity deity)
 	{
-		String retString = "";
-		deity.getDomainList();
+		StringBuffer returnString = new StringBuffer();
 		boolean firstLine = true;
 
-		for (int i = 0; i < deity.getDomainList().size(); i++)
+		for (Domain domain : deity.getDomainList())
 		{
 			if (!firstLine)
 			{
-				retString += ", ";
+				returnString.append(", ");
 			}
 
 			firstLine = false;
-
-			retString += (deity.getDomainList().get(i)).getDisplayName();
+			
+			returnString.append(domain.getDisplayName());
 		}
 
-		return retString;
+		return returnString.toString();
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class DeityToken extends Token
 	 */
 	public static String getFollowerAlignmentToken(Deity deity)
 	{
-		String retString = "";
+		StringBuffer returnString = new StringBuffer();
 		boolean firstLine = true;
 		String fAlignment = deity.getFollowerAlignments();
 
@@ -227,15 +227,15 @@ public class DeityToken extends Token
 		{
 			if (!firstLine)
 			{
-				retString += ", ";
+				returnString.append(", ");
 			}
 
 			firstLine = false;
 
-			retString += SettingsHandler.getGame().getShortAlignmentAtIndex(fAlignment.charAt(i) - 48);
+			returnString.append(SettingsHandler.getGame().getShortAlignmentAtIndex(fAlignment.charAt(i) - 48));
 		}
 
-		return retString;
+		return returnString.toString();
 	}
 
 	/**

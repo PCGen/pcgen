@@ -33,8 +33,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -66,10 +64,8 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements Pre
 	private void NegateRaceChoice(Prerequisite prereq)
 	{
 		int modified = 0;
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
+		for (Prerequisite p : prereq.getPrerequisites())
 		{
-			final Prerequisite p = (Prerequisite) iter.next();
-
 			if (p.getKind() == null)		// PREMULT
 			{
 				NegateRaceChoice(p);

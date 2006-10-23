@@ -35,7 +35,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -61,51 +60,29 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 
 
 		final String aString = prereq.getKey().toUpperCase();
-		if (!character.getSpecialAbilityList().isEmpty())
+		for (SpecialAbility sa : character.getSpecialAbilityList())
 		{
-			for (Iterator e1 = character.getSpecialAbilityList().iterator(); e1.hasNext();)
+			if (sa.getKeyName().toUpperCase().startsWith(aString))
 			{
-				//final String e1String = ((SpecialAbility)e1.next()).getName();
-				final Object obj = e1.next();
-				String e1String = ((SpecialAbility) obj).getKeyName();
-				e1String = e1String.toUpperCase();
-				if (e1String.startsWith(aString))
-				{
-					runningTotal++;
-				}
+				runningTotal++;
 			}
 		}
 
 		//
 		// Now check any templates
 		//
-		if (!character.getTemplateList().isEmpty())
+		for (PCTemplate aTempl : character.getTemplateList())
 		{
-			for (Iterator e1 = character.getTemplateList().iterator(); e1.hasNext();)
+			final List<SpecialAbility> SAs = aTempl.getSpecialAbilityList(
+					character.getTotalLevels(), character.totalHitDice());
+
+			if (SAs != null)
 			{
-
-				final PCTemplate aTempl = (PCTemplate) e1.next();
-				final List SAs = aTempl.getSpecialAbilityList(character.getTotalLevels(), character.totalHitDice());
-
-				if (SAs != null)
+				for (SpecialAbility sa : SAs)
 				{
-					for (Iterator e2 = SAs.iterator(); e2.hasNext();)
+					if (sa.getKeyName().toUpperCase().startsWith(aString))
 					{
-						final Object obj = e2.next();
-						String e1String;
-						if (obj instanceof String)
-						{
-							e1String = (String) obj;
-						}
-						else
-						{
-							e1String = ((SpecialAbility) obj).getKeyName();
-						}
-						e1String = e1String.toUpperCase();
-						if (e1String.startsWith(aString))
-						{
-							runningTotal++;
-						}
+						runningTotal++;
 					}
 				}
 			}

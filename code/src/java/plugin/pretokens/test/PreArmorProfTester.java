@@ -31,8 +31,6 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -47,9 +45,8 @@ public class PreArmorProfTester
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		int runningTotal=0;
 
-		for (Iterator e = character.getArmorProfList().iterator(); e.hasNext();)
-			{
-				final String profName = (String) e.next();
+		for (String profName : character.getArmorProfList())
+		{
 				if (profName.equalsIgnoreCase(prereq.getKey()))
 				{
 					runningTotal++;

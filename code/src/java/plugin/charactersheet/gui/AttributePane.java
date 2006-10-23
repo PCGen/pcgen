@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class AttributePane extends JPanel {
 	private PlayerCharacter pc;
-	private ArrayList attrList = new ArrayList();
+	private ArrayList<Attribute> attrList = new ArrayList<Attribute>();
 
 	private static final Font FONT_EIGHT = new Font("Dialog", 0, 8);
 	private static final Font FONT_BFOURTEEN = new Font("Dialog", 1, 14);
@@ -106,9 +106,9 @@ public class AttributePane extends JPanel {
 	 */
 	public void setColor() {
 		setLocalColor();
-		for(int i = 0; i < attrList.size(); i++) {
-			Attribute attr = (Attribute)attrList.get(i);
-			attr.setColor();
+		for (Attribute att : attrList)
+		{
+			att.setColor();
 		}
 	}
 
@@ -128,12 +128,8 @@ public class AttributePane extends JPanel {
 		setVisible(true);
 		StatList sl = pc.getStatList();
 
-		for(int i = 0; i < attrList.size(); i++) {
-			Attribute attr = (Attribute)attrList.get(i);
-			attr.destruct();
-		}
-		attrList.clear();
-
+		destruct();
+		
 		for (int i = 0; i < sl.size(); i++) {
 			Attribute attr = new Attribute(i);
 			attrList.add(attr);
@@ -145,9 +141,9 @@ public class AttributePane extends JPanel {
 	 */
 	public void refresh() {
 		Globals.setCurrentPC(pc);
-		for(int i = 0; i < attrList.size(); i++) {
-			Attribute attr = (Attribute)attrList.get(i);
-			attr.refresh();
+		for (Attribute att : attrList)
+		{
+			att.refresh();
 		}
 	}
 
@@ -155,9 +151,9 @@ public class AttributePane extends JPanel {
 	 * Destroy this pane
 	 */
 	public void destruct() {
-		for(int i = 0; i < attrList.size(); i++) {
-			Attribute attr = (Attribute)attrList.get(i);
-			attr.destruct();
+		for (Attribute att : attrList)
+		{
+			att.destruct();
 		}
 		attrList.clear();
 	}

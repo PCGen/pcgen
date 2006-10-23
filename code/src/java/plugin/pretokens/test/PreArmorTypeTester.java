@@ -26,7 +26,6 @@
  */
 package plugin.pretokens.test;
 
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
 import pcgen.core.Equipment;
@@ -57,11 +56,8 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 		if (!character.getEquipmentList().isEmpty())
 		{
 			final String desiredType = prereq.getKey();
-			for (Iterator e1 = character.getEquipmentList().iterator();
-				 e1.hasNext(); )
+			for (Equipment eq : character.getEquipmentList()) 
 			{
-				// For every item of equipment the character has.
-				final Equipment eq = (Equipment) e1.next();
 				if (!eq.isEquipped() || !eq.isArmor())
 				{
 					continue;

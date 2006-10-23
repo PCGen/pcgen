@@ -30,7 +30,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Iterator;
 
 /**
  * <code>PrerequisitePointBuyMethodWriter</code>.
@@ -93,24 +92,21 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter implemen
 		//
 		if (checkForPremultOfKind(prereq, kindHandled(), false))
 		{
-			int iCount = 0;
-
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
 			}
 
 			writer.write("PREPOINTBUYMETHOD:");
-			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
+			boolean needComma = false;
+			for (Prerequisite element : prereq.getPrerequisites())
 			{
-				final Prerequisite element = (Prerequisite) iter.next();
-				if (iCount != 0)
+				if (needComma)
 				{
 					writer.write(',');
 				}
-
+				needComma = true;
 				writer.write(element.getKey());
-				++iCount;
 			}
 			return true;
 		}

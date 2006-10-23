@@ -28,10 +28,11 @@ package plugin.exporttokens;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SpecialAbility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.CollectionUtilities;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -70,7 +71,7 @@ public class TemplateToken extends Token
 		String retString = "";
 		PCTemplate template;
 
-		List tl = pc.getOutputVisibleTemplateList();
+		List<PCTemplate> tl = pc.getOutputVisibleTemplateList();
 
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -82,7 +83,7 @@ public class TemplateToken extends Token
 
 		if ((indexOfTemplate > -1) && (indexOfTemplate < tl.size()))
 		{
-			template = (PCTemplate) tl.get(indexOfTemplate);
+			template = tl.get(indexOfTemplate);
 
 			if ("NAME".equals(aLabel))
 			{
@@ -102,11 +103,11 @@ public class TemplateToken extends Token
 			}
 			else if ("SR".equals(aLabel))
 			{
-				retString = getSRToken(template, pc) + "";
+				retString = Integer.toString(getSRToken(template, pc));
 			}
 			else if ("CR".equals(aLabel))
 			{
-				retString = getCRToken(template, pc) + "";
+				retString = Integer.toString(getCRToken(template, pc));
 			}
 			else if ("DR".equals(aLabel))
 			{
@@ -152,21 +153,8 @@ public class TemplateToken extends Token
 	 */
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
-		String retString = "";
-		List fList = template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc, false);
-		int x = 0;
-
-		for (Iterator e = fList.iterator(); e.hasNext();)
-		{
-			if (x++ > 0)
-			{
-				retString += ", ";
-			}
-
-			retString += e.next().toString();
-		}
-
-		return retString;
+		List<String> fList = template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc, false);
+		return CollectionUtilities.joinStringRepresentations(fList, ", ");
 	}
 
 	/**
@@ -178,7 +166,7 @@ public class TemplateToken extends Token
 	 */
 	public static String getModToken(PlayerCharacter pc, PCTemplate template, String aLabel)
 	{
-		String retString = "";
+		StringBuffer retString = new StringBuffer();
 
 		for (int iMod = 0; iMod < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++iMod)
 		{
@@ -188,18 +176,18 @@ public class TemplateToken extends Token
 			{
 				if (template.isNonAbility(iMod))
 				{
-					retString += "*";
+					retString.append("*");
 				}
 				else
 				{
-					retString += template.getStatMod(iMod, pc);
+					retString.append(template.getStatMod(iMod, pc));
 				}
 
 				break;
 			}
 		}
 
-		return retString;
+		return retString.toString();
 	}
 
 	/**
@@ -230,27 +218,8 @@ public class TemplateToken extends Token
 	 */
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
-		String retString = "";
-
-		List saList = template.getSpecialAbilityList(pc.getTotalLevels(), pc.totalHitDice());
-		int x = 0;
-
-		if (saList == null)
-		{
-			return "";
-		}
-
-		for (Iterator e = saList.iterator(); e.hasNext();)
-		{
-			if (x++ > 0)
-			{
-				retString += ", ";
-			}
-
-			retString += e.next().toString();
-		}
-
-		return retString;
+		List<SpecialAbility> saList = template.getSpecialAbilityList(pc.getTotalLevels(), pc.totalHitDice());
+		return CollectionUtilities.joinStringRepresentations(saList, ", ");
 	}
 
 	/**

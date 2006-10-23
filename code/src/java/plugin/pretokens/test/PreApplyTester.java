@@ -37,8 +37,6 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -84,9 +82,8 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 			targetNumber = 1;
 		}
 
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final Prerequisite element = (Prerequisite) iter.next();
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
                         final PrerequisiteTest test = factory.getTest(element.getKind());
                         if (test != null) {

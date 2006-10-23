@@ -28,8 +28,8 @@ package plugin.pretokens.test;
 
 import pcgen.core.CharacterDomain;
 import pcgen.core.Globals;
+import pcgen.core.PCSpell;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -37,7 +37,6 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -65,9 +64,8 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 		final List<Spell> aArrayList = character.aggregateSpellList("Any", "", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		//Needs to add domain spells as well
-		for (Iterator domains = character.getCharacterDomainList().iterator(); domains.hasNext();)
+		for (CharacterDomain aCD : character.getCharacterDomainList())
 		{
-			final CharacterDomain aCD = (CharacterDomain) domains.next();
 			if ((aCD != null) && (aCD.getDomain() != null))
 			{
 				aArrayList.addAll(Globals.getSpellsIn(-1, "", aCD.getDomain().toString())); //$NON-NLS-1$
@@ -77,14 +75,8 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
 		{
-			Race pcRace = character.getRace();
-			List raceList = pcRace.getSpellList();
-			if (raceList != null)
-			{
-				for (Iterator e = raceList.iterator(); e.hasNext();)
-				{
-					aArrayList.add(Globals.getSpellKeyed(e.next().toString()));
-				}
+			for (PCSpell spell : character.getRace().getSpellList()) {
+				aArrayList.add(Globals.getSpellKeyed(spell.toString()));
 			}
 		}
 
@@ -92,15 +84,11 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 		final String spellName = prereq.getKey();
 		int runningTotal=0;
 
-		if (!aArrayList.isEmpty())
+		for (Spell aSpell : aArrayList)
 		{
-			for (Iterator e1 = aArrayList.iterator(); e1.hasNext();)
+			if (aSpell.getKeyName().equalsIgnoreCase(spellName))
 			{
-				final Spell aSpell = (Spell) e1.next();
-				if (aSpell.getKeyName().equalsIgnoreCase(spellName))
-				{
-					runningTotal++;
-				}
+				runningTotal++;
 			}
 		}
 		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);

@@ -447,9 +447,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				c.setMessageText(titleString);
 				c.setVisible(true);
 
-				if (c.getSelectedList().size() > 0)
+				ArrayList<String> selectedList = c.getSelectedList();
+				if (selectedList.size() > 0)
 				{
-					String aI = (String) c.getSelectedList().get(0);
+					String aI = selectedList.get(0);
 					repeatValue = aI;
 
 					// need to parse the bonus.getValue()

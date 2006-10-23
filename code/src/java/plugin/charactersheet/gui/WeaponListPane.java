@@ -22,7 +22,7 @@ import pcgen.core.PlayerCharacter;
  */
 public class WeaponListPane extends javax.swing.JPanel {
 	private PlayerCharacter pc;
-	private ArrayList weaponList = new ArrayList();
+	private ArrayList<WeaponPane> weaponList = new ArrayList<WeaponPane>();
 	private int serial = 0;
 
 	/**
@@ -44,8 +44,7 @@ public class WeaponListPane extends javax.swing.JPanel {
 	 */
 	public void setColor() {
 		setLocalColor();
-		for(int i = 0; i < weaponList.size(); i++) {
-			WeaponPane weapPane = (WeaponPane)weaponList.get(i);
+		for (WeaponPane weapPane : weaponList) {
 			weapPane.setColor();
 		}
 	}
@@ -80,7 +79,7 @@ public class WeaponListPane extends javax.swing.JPanel {
 			// Get the EquipSet used for output and calculations
 			// possibly include equipment from temporary bonuses
 			pc.setCalcEquipmentList(pc.getUseTempMods());
-			List weaps = pc.getExpandedWeapons(Constants.MERGE_ALL);
+			List<Equipment> weaps = pc.getExpandedWeapons(Constants.MERGE_ALL);
 //			broken, if you remove a weapon and add another one the weapontotal is the same so no refresh is performed
 //			fix for bug [ 1153155 ] Preview pane not updated when changing equiped weapon or ski
 //			if(weaps.size() != weaponTotal || firstTime) {
@@ -107,7 +106,7 @@ public class WeaponListPane extends javax.swing.JPanel {
 	public void clear() {
 		removeAll();
 		for(int i = weaponList.size()-1; i >= 0 ; i--) {
-			WeaponPane pane = (WeaponPane)weaponList.get(i);
+			WeaponPane pane = weaponList.get(i);
 			pane.clear();
 			weaponList.remove(pane);
 			pane = null;
@@ -115,14 +114,14 @@ public class WeaponListPane extends javax.swing.JPanel {
 		weaponList.clear();
 	}
 
-	private void addEqPanes(List weapons) {
+	private void addEqPanes(List<Equipment> weapons) {
 		clear();
 
 		int gridBag = 1;
 
-		for(int i = 0; i < weapons.size(); i++) {
+		for (Equipment weapon : weapons) {
 			WeaponPane weaponPane = new WeaponPane();
-			weaponPane.setWeapon(pc, (Equipment)weapons.get(i));
+			weaponPane.setWeapon(pc, weapon);
 			weaponList.add(weaponPane);
 			weaponPane.refresh();
 			add(weaponPane);

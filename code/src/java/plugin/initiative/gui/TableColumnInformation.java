@@ -49,10 +49,10 @@ public class TableColumnInformation
 	 * Internal utility for maintaining information about a column.
 	 * </p>
 	 */
-	private class ColStruct
+	private static class ColStruct
 	{
 		/** The runtime class the column stores. */
-		public Class columnClass = null;
+		public Class<?> columnClass = null;
 		/** A string key by which the column is identified. */
 		public String columnKey = null;
 		/** The default value used when a new row is created. */
@@ -83,7 +83,7 @@ public class TableColumnInformation
 		 * @param peditable
 		 * @param plabel
 		 */
-		public ColStruct(String pcolumnKey, Class pcolumnClass,
+		public ColStruct(String pcolumnKey, Class<?> pcolumnClass,
 				Object pdefaultValue, boolean peditable, String plabel)
 		{
 			this.columnKey = pcolumnKey;
@@ -95,7 +95,7 @@ public class TableColumnInformation
 	}
 	
 	/** An arraylist of <code>ColStructs</code> */
-	private ArrayList columns = null;
+	private ArrayList<ColStruct> columns = null;
 	
 	/**
 	 * <p>
@@ -107,7 +107,7 @@ public class TableColumnInformation
 	 */
 	public TableColumnInformation(int initialCapacity)
 	{
-		columns = new ArrayList(initialCapacity);
+		columns = new ArrayList<ColStruct>(initialCapacity);
 	}
 	
 	/**
@@ -123,7 +123,7 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(int columnIndex, String columnKey, Class columnClass,
+	public void addColumn(int columnIndex, String columnKey, Class<?> columnClass,
 			Object defaultValue, boolean editable, String label)
 	{
 		columns.add(columnIndex, new ColStruct(columnKey, columnClass,
@@ -142,7 +142,7 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(String columnKey, Class columnClass,
+	public void addColumn(String columnKey, Class<?> columnClass,
 			Object defaultValue, boolean editable, String label)
 	{
 		columns.add(new ColStruct(columnKey, columnClass,
@@ -162,7 +162,7 @@ public class TableColumnInformation
 
 		for (int i = 0; i < columns.size(); i++)
 		{
-			if (((ColStruct)columns.get(i)).columnKey.equals(key))
+			if (columns.get(i).columnKey.equals(key))
 			{
 				returnValue = i;
 				break;
@@ -180,9 +180,9 @@ public class TableColumnInformation
 	 * @param column
 	 * @return Class
 	 */
-	public Class getClass(int column)
+	public Class<?> getClass(int column)
 	{
-		return ((ColStruct)columns.get(column)).columnClass;
+		return columns.get(column).columnClass;
 	}
 	
 	/**
@@ -194,7 +194,7 @@ public class TableColumnInformation
 	 * @param key
 	 * @return Class
 	 */
-	public Class getClass(String key)
+	public Class<?> getClass(String key)
 	{
 		return getClass(columnFromKey(key));
 	}
@@ -223,7 +223,7 @@ public class TableColumnInformation
 	 */
 	public Object getDefaultValue(int column)
 	{
-		return ((ColStruct)columns.get(column)).defaultValue;
+		return columns.get(column).defaultValue;
 	}
 	
 	/**
@@ -251,7 +251,7 @@ public class TableColumnInformation
 	 */
 	public String getKey(int column)
 	{
-		return ((ColStruct)columns.get(column)).columnKey;
+		return columns.get(column).columnKey;
 	}
 	
 	/**
@@ -264,7 +264,7 @@ public class TableColumnInformation
 	 */
 	public String getLabel(int column)
 	{
-		return ((ColStruct)columns.get(column)).label;
+		return columns.get(column).label;
 	}
 	
 	/**
@@ -290,7 +290,7 @@ public class TableColumnInformation
 	 */
 	public boolean isColumnEditable(int column)
 	{
-		return ((ColStruct)columns.get(column)).editable;
+		return columns.get(column).editable;
 	}
 
 	/**
@@ -350,9 +350,9 @@ public class TableColumnInformation
 	 * @param column
 	 * @param pClass
 	 */
-	public void setClass(int column, Class pClass)
+	public void setClass(int column, Class<?> pClass)
 	{
-		((ColStruct)columns.get(column)).columnClass = pClass;
+		columns.get(column).columnClass = pClass;
 	}
 	
 	/**
@@ -363,7 +363,7 @@ public class TableColumnInformation
 	 * @param key
 	 * @param pClass
 	 */
-	public void setClass(String key, Class pClass)
+	public void setClass(String key, Class<?> pClass)
 	{
 		setClass(columnFromKey(key), pClass);
 	}
@@ -378,7 +378,7 @@ public class TableColumnInformation
 	 */
 	public void setColumnEditable(int column, boolean editable)
 	{
-		((ColStruct)columns.get(column)).editable = editable;
+		columns.get(column).editable = editable;
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class TableColumnInformation
 	 */
 	public void setDefaultValue(int column, Object value)
 	{
-		((ColStruct)columns.get(column)).defaultValue = value;
+		columns.get(column).defaultValue = value;
 	}
 	
 	/**
@@ -430,7 +430,7 @@ public class TableColumnInformation
 	 */
 	public void setKey(int column, String key)
 	{
-		((ColStruct)columns.get(column)).columnKey = key;
+		columns.get(column).columnKey = key;
 	}
 	
 	/**
@@ -456,7 +456,7 @@ public class TableColumnInformation
 	 */
 	public void setLabel(int column, String label)
 	{
-		((ColStruct)columns.get(column)).label = label;
+		columns.get(column).label = label;
 	}
 	
 	/**

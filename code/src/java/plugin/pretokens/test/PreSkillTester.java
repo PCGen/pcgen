@@ -32,9 +32,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import pcgen.core.prereq.PrerequisiteOperator;
 
 /**
@@ -70,11 +67,8 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 
 		boolean foundMatch = false;
 		boolean foundSkill = false;
-		final List sList = (ArrayList) character.getSkillList().clone();
-		for (Iterator e1 = sList.iterator(); e1.hasNext() && !foundMatch ;)
+		for (Skill aSkill : character.getSkillList())
 		{
-			final Skill aSkill = (Skill) e1.next();
-
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
 			{
@@ -136,6 +130,10 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 			{
 				// For counted totals we want to count all occurances, not just the first
 				foundMatch=false;
+			}
+			if (foundMatch)
+			{
+				break;
 			}
 		}
 

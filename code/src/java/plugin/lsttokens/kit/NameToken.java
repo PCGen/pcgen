@@ -66,11 +66,7 @@ public class NameToken extends KitLstToken
 		final StringTokenizer colToken = new StringTokenizer(value,
 				SystemLoader.TAB_DELIM);
 
-		KitBio kBio = null;
-		if (kBio == null)
-		{
-			kBio = new KitBio();
-		}
+		KitBio kBio = new KitBio();
 		kBio.setCharacterName(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -81,10 +77,7 @@ public class NameToken extends KitLstToken
 				kBio.setGender(colString.substring(7));
 			}
 		}
-		if (kBio != null)
-		{
-			aKit.addObject(kBio);
-		}
+		aKit.addObject(kBio);
 
 		return true;
 	}

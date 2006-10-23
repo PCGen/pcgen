@@ -21,7 +21,7 @@ public class PerDayPane extends javax.swing.JPanel {
 	private PlayerCharacter pc;
 	private String var = "";
 	private String var2 = "";
-	private ArrayList checkList = new ArrayList();
+	private ArrayList<JCheckBox> checkList = new ArrayList<JCheckBox>();
 	private Properties pcProperties;
 	private boolean updateProperties = false;
 
@@ -189,8 +189,7 @@ public class PerDayPane extends javax.swing.JPanel {
 	public void updateProperties() {
 		if(updateProperties) {
 			int counter = 0;
-			for(int i = 0; i < checkList.size(); i++) {
-				JCheckBox checkBox = (JCheckBox)checkList.get(i);
+			for (JCheckBox checkBox : checkList) {
 				if(checkBox.isSelected()) {
 					counter++;
 				}
@@ -202,8 +201,7 @@ public class PerDayPane extends javax.swing.JPanel {
 	public void updatePane() {
 		try {
 			int counter = Integer.parseInt((String)pcProperties.get("cs.PerDayPane." + getPropTitle()));
-			for(int i = 0; i < checkList.size(); i++) {
-				JCheckBox checkBox = (JCheckBox)checkList.get(i);
+			for (JCheckBox checkBox : checkList) {
 				if(counter > 0) {
 					checkBox.setSelected(true);
 					counter--;

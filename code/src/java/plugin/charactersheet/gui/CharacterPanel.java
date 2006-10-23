@@ -26,6 +26,7 @@ import javax.swing.JViewport;
 import pcgen.core.Globals;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
@@ -41,7 +42,7 @@ public class CharacterPanel extends FlippingSplitPane {
 	private Page2Panel page2;
 	private ScrollablePanel page1layout;
 	private ScrollablePanel page2layout;
-	private List spellPaneList;
+	private List<SpellPage> spellPaneList;
 	private NotesPanel notesPanel;
 	private SelectPanel selectPanel;
 	private FlippingSplitPane rightSidePane;
@@ -192,14 +193,14 @@ public class CharacterPanel extends FlippingSplitPane {
 				selectPanel = new SelectPanel(this);
 			}
 			if(spellPaneList != null) {
-				for(int i = 0; i < spellPaneList.size(); i++) {
-					SpellPage spellPage = (SpellPage)spellPaneList.get(i);
-					spellPage.destruct();
+				for (SpellPage spellPane : spellPaneList)
+				{
+					spellPane.destruct();
 				}
 				spellPaneList.clear();
 			}
 			else {
-				spellPaneList = new ArrayList();
+				spellPaneList = new ArrayList<SpellPage>();
 			}
 
 			pcProperties = new Properties();
@@ -237,7 +238,7 @@ public class CharacterPanel extends FlippingSplitPane {
 			page2layout.add(page2);
 			mainTabs.add("Page 2", new JScrollPane(page2layout));
 		}
-		List spellClassList = pc.getSpellClassList();
+		List<? extends PObject> spellClassList = pc.getSpellClassList();
 		for(int i = 0; i < spellClassList.size(); i++) {
 			Object object = spellClassList.get(i);
 			if (object instanceof PCClass) {
@@ -314,9 +315,7 @@ public class CharacterPanel extends FlippingSplitPane {
 	}
 
 	private void populatePcProperties() {
-		List notesList = pc.getNotesList();
-		for(int i = 0; i < notesList.size(); i++) {
-			NoteItem note = (NoteItem)notesList.get(i);
+		for (NoteItem note : pc.getNotesList()) {
 			if(note.getName().equals("Hidden")) {
 				try {
 					pcProperties.load(new ByteArrayInputStream(note.getValue().getBytes()));
@@ -338,9 +337,8 @@ public class CharacterPanel extends FlippingSplitPane {
 		if(page1 != null) {
 			page1.updateProperties();
 			page2.updateProperties();
-			for(int i = 0; i < spellPaneList.size(); i++) {
-				SpellPage spellPage = (SpellPage)spellPaneList.get(i);
-				spellPage.updateProperties();
+			for (SpellPage spellPane : spellPaneList) {
+				spellPane.updateProperties();
 			}
 			notesPanel.updateProperties();
 		}
@@ -356,9 +354,7 @@ public class CharacterPanel extends FlippingSplitPane {
 			pcProperties.store(os, "Character Sheet Plugin Properties");
 			NoteItem hiddenNote = null;
 			int newNodeId = 0;
-			List notesList = pc.getNotesList();
-			for(int i = 0; i < notesList.size(); i++) {
-				NoteItem testNote = (NoteItem)notesList.get(i);
+			for (NoteItem testNote : pc.getNotesList()) {
 				if (testNote.getId() > newNodeId) {
 					newNodeId = testNote.getId();
 				}
@@ -391,9 +387,8 @@ public class CharacterPanel extends FlippingSplitPane {
 		if(page1 != null) {
 			page1.setColor();
 			page2.setColor();
-			for(int i = 0; i < spellPaneList.size(); i++) {
-				SpellPage spellPage = (SpellPage)spellPaneList.get(i);
-				spellPage.setColor();
+			for (SpellPage spellPane : spellPaneList) {
+				spellPane.setColor();
 			}
 		}
 	}

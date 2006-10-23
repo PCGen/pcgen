@@ -51,7 +51,7 @@ public class CharacterSheetUtils {
 	 * @param color
 	 * @param componentList
 	 */
-	public static void addGbCell(Container cont, String text, int gridX, int gridY, int gridHeight, int gridWidth, int fill, int anchor, int layout, Color color, List componentList) {
+	public static void addGbCell(Container cont, String text, int gridX, int gridY, int gridHeight, int gridWidth, int fill, int anchor, int layout, Color color, List<Component> componentList) {
 		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
 		JPanel cell = new JPanel();
 		JLabel cellText = new JLabel();
@@ -60,7 +60,6 @@ public class CharacterSheetUtils {
 		cellText.setFont(new java.awt.Font("Dialog", 0, 10));
 		cellText.setText(text);
 		cell.add(cellText);
-		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = gridX;
 		gridBagConstraints.gridy = gridY;
 		gridBagConstraints.gridwidth = gridHeight;
@@ -102,9 +101,8 @@ public class CharacterSheetUtils {
 	 * @param anchor
 	 * @param componentList
 	 */
-	public static void addGbComponentCell(Container cont, Component comp, int gridX, int gridY, int gridHeight, int gridWidth, Insets insets, int fill, int anchor, List componentList) {
+	public static void addGbComponentCell(Container cont, Component comp, int gridX, int gridY, int gridHeight, int gridWidth, Insets insets, int fill, int anchor, List<Component> componentList) {
 		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = gridX;
 		gridBagConstraints.gridy = gridY;
 		gridBagConstraints.gridheight = gridHeight;

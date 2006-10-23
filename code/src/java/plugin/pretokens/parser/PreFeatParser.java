@@ -26,8 +26,6 @@
  */
 package plugin.pretokens.parser;
 
-import java.util.Iterator;
-
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
@@ -96,10 +94,8 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 	private void negateFeatChoice(Prerequisite prereq)
 	{
 		int modified = 0;
-		for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
+		for (Prerequisite p : prereq.getPrerequisites())
 		{
-			final Prerequisite p = (Prerequisite) iter.next();
-
 			if (p.getKind() == null)		// PREMULT
 			{
 				negateFeatChoice(p);

@@ -26,6 +26,7 @@ package plugin.initiative.gui;
 import gmgen.GMGenSystem;
 import gmgen.plugin.PcgCombatant;
 import pcgen.core.Globals;
+import pcgen.core.Skill;
 import plugin.initiative.OpposedSkillBasicModel;
 import plugin.initiative.OpposedSkillModel;
 import plugin.initiative.OpposedSkillTypeModel;
@@ -100,7 +101,7 @@ public class OpposedCheckDialog extends JDialog
 	 * table.  It is designed to be shared by all the tables.
 	 * </p>
 	 */
-	private class CombatantTransferHandler extends TransferHandler
+	private static class CombatantTransferHandler extends TransferHandler
 	{
 
 		/**
@@ -114,7 +115,7 @@ public class OpposedCheckDialog extends JDialog
 			/**
 			 * A list of combatants that are being transferred.
 			 */
-			private List items = null;
+			private List<PcgCombatant> items = null;
 
 			/**
 			 * <p>
@@ -131,7 +132,7 @@ public class OpposedCheckDialog extends JDialog
 				if (rows != null && rows.length > 0)
 				{
 					OpposedSkillBasicModel model = (OpposedSkillBasicModel)table.getModel();
-					items = new ArrayList();
+					items = new ArrayList<PcgCombatant>();
 					for (int i = 0; i < rows.length; i++)
 					{
 						items.add(model.getCombatant(rows[i]));
@@ -330,7 +331,7 @@ public class OpposedCheckDialog extends JDialog
 	/** Table that holds the main (rolling) group of combatants */
 	private javax.swing.JTable rollingGroupTable = null; //
 	/** Sorted list of skill names */
-	private TreeSet skillNames = new TreeSet();
+	private TreeSet<String> skillNames = new TreeSet<String>();
 
 	/**
 	 * This is the default constructor
@@ -520,10 +521,8 @@ public class OpposedCheckDialog extends JDialog
 	 */
 	private void initializeLists(List rollingGroup, List availableGroup)
 	{
-		List skills = Globals.getSkillList();
-		for (Iterator i = skills.iterator(); i.hasNext();)
-		{
-			skillNames.add(i.next().toString());
+		for (Skill skill : Globals.getSkillList()) {
+			skillNames.add(skill.toString());
 		}
 		ivjAvailableModel = new OpposedSkillTypeModel(availableGroup);
 		ivjRollingSkillModel = new OpposedSkillModel(rollingGroup);

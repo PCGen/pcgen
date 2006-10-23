@@ -196,31 +196,31 @@ public class XMLCombatant extends Combatant
 		combatant.setAttribute("player", player);
 
 		Element attributes = new Element("Attributes");
-		attributes.addContent(new Element("Strength").setAttribute("value", strVal + ""));
-		attributes.addContent(new Element("Dexterity").setAttribute("value", dexVal + ""));
-		attributes.addContent(new Element("Constitution").setAttribute("value", conVal + ""));
-		attributes.addContent(new Element("Intelligence").setAttribute("value", intVal + ""));
-		attributes.addContent(new Element("Wisdom").setAttribute("value", wisVal + ""));
-		attributes.addContent(new Element("Charisma").setAttribute("value", chaVal + ""));
+		attributes.addContent(new Element("Strength").setAttribute("value", Integer.toString(strVal)));
+		attributes.addContent(new Element("Dexterity").setAttribute("value", Integer.toString(dexVal)));
+		attributes.addContent(new Element("Constitution").setAttribute("value", Integer.toString(conVal)));
+		attributes.addContent(new Element("Intelligence").setAttribute("value", Integer.toString(intVal)));
+		attributes.addContent(new Element("Wisdom").setAttribute("value", Integer.toString(wisVal)));
+		attributes.addContent(new Element("Charisma").setAttribute("value", Integer.toString(chaVal)));
 		combatant.addContent(attributes);
 
 		Element saves = new Element("Saves");
-		saves.addContent(new Element("Fortitude").setAttribute("total", fortSave + ""));
-		saves.addContent(new Element("Reflex").setAttribute("total", refSave + ""));
-		saves.addContent(new Element("Will").setAttribute("total", willSave + ""));
+		saves.addContent(new Element("Fortitude").setAttribute("total", Integer.toString(fortSave)));
+		saves.addContent(new Element("Reflex").setAttribute("total", Integer.toString(refSave)));
+		saves.addContent(new Element("Will").setAttribute("total", Integer.toString(willSave)));
 		combatant.addContent(saves);
 
 		Element general = new Element("General");
-		general.addContent(new Element("Experience").setAttribute("total", 0 + ""));
-		general.addContent(new Element("CR").setAttribute("value", cr + ""));
+		general.addContent(new Element("Experience").setAttribute("total", Integer.toString(0)));
+		general.addContent(new Element("CR").setAttribute("value", Float.toString(cr)));
 		combatant.addContent(general);
 		this.cr = cr;
 
 		Element combat = new Element("Combat");
 		combat.addContent(new Element("Initiative").setAttribute("mod", formatBonus(initBonus))
 			.setAttribute("Dex", formatBonus(dexMod)).setAttribute("Misc", formatBonus(miscMod)));
-		combat.addContent(new Element("HitPoints").setAttribute("max", hpVal + "").setAttribute("current",
-				hpCurrVal + ""));
+		combat.addContent(new Element("HitPoints").setAttribute("max", Integer.toString(hpVal)).setAttribute("current",
+				Integer.toString(hpCurrVal)));
 		combatant.addContent(combat);
 	}
 
@@ -258,7 +258,7 @@ public class XMLCombatant extends Combatant
 	{
 		try
 		{
-			combatant.getChild("Attributes").getChild(name).setAttribute("value", value + "");
+			combatant.getChild("Attributes").getChild(name).setAttribute("value", Integer.toString(value));
 		}
 		catch (Exception e)
 		{
@@ -365,7 +365,7 @@ public class XMLCombatant extends Combatant
 	{
 		try
 		{
-			combatant.getChild("Saves").getChild(name).setAttribute("total", value + "");
+			combatant.getChild("Saves").getChild(name).setAttribute("total", Integer.toString(value));
 		}
 		catch (Exception e)
 		{
@@ -417,13 +417,13 @@ public class XMLCombatant extends Combatant
 		int initBonus = init.getModifier();
 		int miscMod = init.getBonus();
 		retElement.getChild("Attributes").getChild("Dexterity").setAttribute("value",
-			init.getAttribute().getValue() + "");
+				Integer.toString(init.getAttribute().getValue()));
 		retElement.getChild("Attributes").getChild("Constitution").setAttribute("value",
-			hitPoints.getAttribute().getValue() + "");
-		retElement.getChild("Combat").getChild("HitPoints").setAttribute("max", hitPoints.getMax() + "");
-		retElement.getChild("Combat").getChild("HitPoints").setAttribute("current", hitPoints.getCurrent() + "");
-		retElement.getChild("Combat").getChild("HitPoints").setAttribute("subdual", hitPoints.getSubdual() + "");
-		retElement.getChild("Combat").getChild("HitPoints").setAttribute("state", hitPoints.getState() + "");
+				Integer.toString(hitPoints.getAttribute().getValue()));
+		retElement.getChild("Combat").getChild("HitPoints").setAttribute("max", Integer.toString(hitPoints.getMax()));
+		retElement.getChild("Combat").getChild("HitPoints").setAttribute("current", Integer.toString(hitPoints.getCurrent()));
+		retElement.getChild("Combat").getChild("HitPoints").setAttribute("subdual", Integer.toString(hitPoints.getSubdual()));
+		retElement.getChild("Combat").getChild("HitPoints").setAttribute("state", hitPoints.getState());
 		retElement.getChild("Combat").getChild("Initiative").setAttribute("mod", formatBonus(initBonus));
 		retElement.getChild("Combat").getChild("Initiative").setAttribute("Dex", formatBonus(dexMod));
 		retElement.getChild("Combat").getChild("Initiative").setAttribute("Misc", formatBonus(miscMod));
@@ -431,10 +431,10 @@ public class XMLCombatant extends Combatant
 		if (init.getCurrentInitiative() > 0)
 		{
 			retElement.getChild("Combat").getChild("Initiative").setAttribute("current",
-				init.getCurrentInitiative() + "");
+					Integer.toString(init.getCurrentInitiative()));
 		}
 
-		retElement.getChild("General").getChild("CR").setAttribute("value", cr + "");
+		retElement.getChild("General").getChild("CR").setAttribute("value", Float.toString(cr));
 		retElement.setAttribute("name", getName());
 		retElement.setAttribute("player", getPlayer());
 		retElement.setAttribute("type", getCombatantType());

@@ -274,10 +274,8 @@ public class NameGenPanel extends JPanel
 	{
 		clearButtons();
 
-		for (int i = 0; i < rule.size(); i++)
+		for (String key : rule)
 		{
-			String key = (String) rule.get(i);
-
 			try
 			{
 				DataElement ele = allVars.getDataElement(key);
@@ -688,6 +686,7 @@ public class NameGenPanel extends JPanel
 		java.util.List rulesets = generator.getChildren("RULESET");
 		java.util.List lists = generator.getChildren("LIST");
 		ListIterator listIterator = lists.listIterator();
+		//TODO This is a "dead local store" - is this intended to do something? thpr 10/21/06
 		RuleSet rs = new RuleSet(allVars);
 
 		while (listIterator.hasNext())
@@ -823,12 +822,9 @@ public class NameGenPanel extends JPanel
 		else
 		{
 			Vector struct = new Vector();
-			RuleSet rs = (RuleSet) cbCatalog.getSelectedItem();
-
-			for (int i = 0; i < rs.size(); i++)
+			
+			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
 			{
-				String key = (String) rs.get(i);
-
 				try
 				{
 					struct.add(allVars.getDataElement(key));

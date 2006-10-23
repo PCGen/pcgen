@@ -53,7 +53,7 @@ public class InitiativeModToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return Delta.toString(getInitiativeModToken(pc)) + "";
+		return Delta.toString(getInitiativeModToken(pc));
 	}
 
 	/**

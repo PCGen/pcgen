@@ -60,7 +60,7 @@ import java.util.Vector;
 public class AttackDialog extends JDialog
 {
 	/** <p>List of resulting damage values, one for each successful attack.</p> */
-	private ArrayList m_damageList = null;
+	private ArrayList<Integer> m_damageList = null;
 
 	/**
 	 * <p>List of targets, one for each successful attack.  Each one matches a damage value in
@@ -143,7 +143,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @return Damage list
 	 */
-	public ArrayList getDamageList()
+	public ArrayList<Integer> getDamageList()
 	{
 		return m_damageList;
 	}

@@ -49,7 +49,7 @@ public class EnvironmentModel extends DefaultComboBoxModel
 
 		this.removeAllElements();
 
-		if (f == null)
+		if (!f.exists())
 		{
 			Logging.errorPrint("Eek! environments.xml is missing!");
 
@@ -59,7 +59,7 @@ public class EnvironmentModel extends DefaultComboBoxModel
 		reader = new ReadXML(f);
 		table = reader.getTable();
 
-		this.addElement(new String("Generic"));
+		this.addElement("Generic");
 
 		for (int x = 1; x < table.sizeY(); x++)
 		{

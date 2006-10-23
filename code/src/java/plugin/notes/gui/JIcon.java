@@ -45,7 +45,7 @@ import java.io.IOException;
 public class JIcon extends JPanel
 {
 	/**  Boolean true if this is a Macintosh systems */
-	public static boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
+	public static final boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
 	File launch;
 	NotesPlugin plugin;
 

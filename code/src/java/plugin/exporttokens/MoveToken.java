@@ -96,22 +96,22 @@ public class MoveToken extends Token
 
 	public static String getMoveToken(PlayerCharacter pc)
 	{
-		String retString = "";
+		StringBuffer retString = new StringBuffer();
 		boolean firstLine = true;
 
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
 			if (!firstLine)
 			{
-				retString += ", ";
+				retString.append(", ");
 			}
 
 			firstLine = false;
 
-			retString += getMoveXToken(pc, i);
+			retString.append(getMoveXToken(pc, i));
 		}
 
-		return retString;
+		return retString.toString();
 	}
 
 	public static String getMoveXToken(PlayerCharacter pc, int moveIndex)

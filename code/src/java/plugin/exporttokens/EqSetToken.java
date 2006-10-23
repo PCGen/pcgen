@@ -67,7 +67,7 @@ public class EqSetToken extends Token
 		}
 		else if ("EQSET.NUMBER".equals(tokenSource))
 		{
-			retString = getNumberToken(pc) + "";
+			retString = Integer.toString(getNumberToken(pc));
 		}
 		else if ("EQSET.NAME".equals(tokenSource))
 		{

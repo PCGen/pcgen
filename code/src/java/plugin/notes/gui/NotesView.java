@@ -571,7 +571,7 @@ public class NotesView extends JPanel
 		{
 			String value = (String) sizeCB.getItemAt(i);
 
-			if (value.equals(fontSize + ""))
+			if (value.equals(Integer.toString(fontSize)))
 			{
 				sizeCB.setSelectedItem(value);
 
@@ -598,6 +598,7 @@ public class NotesView extends JPanel
 
 		byte[] buffer = new byte[4096];
 		int bytes_read;
+		int returnValue = progress;
 
 		for (int i = 0; i < entries.length; i++)
 		{
@@ -610,7 +611,7 @@ public class NotesView extends JPanel
 
 			if (f.isDirectory())
 			{
-				progress = writeNotesDir(out, parentDir, f, pm, progress);
+				returnValue = writeNotesDir(out, parentDir, f, pm, returnValue);
 			}
 			else
 			{
@@ -629,26 +630,23 @@ public class NotesView extends JPanel
 				}
 				finally
 				{
-					if (in != null)
+					try
 					{
-						try
-						{
-							in.close();
-						}
-						catch (IOException e)
-						{
-							//TODO: Should this really be ignored?
-						}
+						in.close();
+					}
+					catch (IOException e)
+					{
+						//TODO: Should this really be ignored?
 					}
 				}
 
-				progress++;
+				returnValue++;
 			}
 		}
 
-		pm.setProgress(progress);
+		pm.setProgress(returnValue);
 
-		return progress;
+		return returnValue;
 	}
 
 	/**
@@ -675,16 +673,13 @@ public class NotesView extends JPanel
 		// Always close the streams, even if exceptions were thrown
 		finally
 		{
-			if (out != null)
+			try
 			{
-				try
-				{
-					out.close();
-				}
-				catch (IOException e)
-				{
-					//TODO: Should this really be ignored?
-				}
+				out.close();
+			}
+			catch (IOException e)
+			{
+				//TODO: Should this really be ignored?
 			}
 		}
 
@@ -987,10 +982,10 @@ public class NotesView extends JPanel
 
 		try
 		{
-			if ((ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
-			        HTML.Tag.UL) == true)
-			    | (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
-			        HTML.Tag.OL) == true))
+			if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
+			        HTML.Tag.UL)
+			    | ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
+			        HTML.Tag.OL))
 			{
 				elem = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
 
@@ -1564,6 +1559,7 @@ public class NotesView extends JPanel
 	 */
 	private void insertLocalImage(File whatImage) throws IOException, BadLocationException, RuntimeException
 	{
+		File image = whatImage;
 		if (whatImage == null)
 		{
 			File dir = getCurrentDir();
@@ -1572,21 +1568,21 @@ public class NotesView extends JPanel
 			//null possible if user cancelled
 			if (newImage != null && newImage.exists())
 			{
-				whatImage = new File(dir.getAbsolutePath() + File.separator + newImage.getName());
+				image = new File(dir.getAbsolutePath() + File.separator + newImage.getName());
 
-				if (!whatImage.exists())
+				if (!image.exists())
 				{
-					MiscUtilities.copy(newImage, whatImage);
+					MiscUtilities.copy(newImage, image);
 				}
 			}
 		}
 
-		if (whatImage != null)
+		if (image != null)
 		{
 			int caretPos = editor.getCaretPosition();
 			ExtendedHTMLEditorKit htmlKit = (ExtendedHTMLEditorKit) editor.getEditorKit();
 			ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
-			htmlKit.insertHTML(htmlDoc, caretPos, "<IMG SRC=\"" + whatImage + "\">", 0, 0, HTML.Tag.IMG);
+			htmlKit.insertHTML(htmlDoc, caretPos, "<IMG SRC=\"" + image + "\">", 0, 0, HTML.Tag.IMG);
 			editor.setCaretPosition(caretPos + 1);
 		}
 	}
@@ -1614,11 +1610,7 @@ public class NotesView extends JPanel
 	{
 		Element h = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
 		h.getParentElement();
-
-		if (h != null)
-		{
-			ExtendedHTMLEditorKit.removeTag(editor, h, true);
-		}
+		ExtendedHTMLEditorKit.removeTag(editor, h, true);
 	}
 
 	//GEN-LAST:event_saveButtonActionPerformed

@@ -8,16 +8,14 @@ package plugin.charactersheet.gui;
 
 import java.awt.Color;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 /**
  *
  * @author  ddjone3
  */
 public class DualListPane extends javax.swing.JPanel {
-	private Map map = new HashMap();
+	private Map<String, String> map = new HashMap<String, String>();
 
 	/** Creates new form featPane */
 	public DualListPane() {
@@ -82,7 +80,7 @@ public class DualListPane extends javax.swing.JPanel {
 	 * @param title
 	 * @param map
 	 */
-	public void setMap(String title, Map map) {
+	public void setMap(String title, Map<String, String> map) {
 		this.map = map;
 		this.title.setText(title);
 		setVisible(false);
@@ -97,10 +95,8 @@ public class DualListPane extends javax.swing.JPanel {
 			setVisible(true);
 			listPane.removeAll();
 
-			Set keySet = map.keySet();
 			int i = 0;
-			for(Iterator it = keySet.iterator(); it.hasNext();) {
-				String key = (String)it.next();
+			for (Map.Entry<String, String> entry : map.entrySet()) {
 				Color color;
 				if(i % 2 == 0) {
 					color = CharacterPanel.bodyLight;
@@ -108,7 +104,7 @@ public class DualListPane extends javax.swing.JPanel {
 				else {
 					color = CharacterPanel.bodyMedLight;
 				}
-				addLine(key, (String)map.get(key), color);
+				addLine(entry.getKey(), entry.getValue(), color);
 				i++;
 			}
 		}

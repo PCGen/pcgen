@@ -113,8 +113,8 @@ public class NetworkModel {
 
 	public void combatantUpdated(Combatant cbt) {
 		if(combat != null) {
-			for (int i = 0; i < combat.size(); i++) {
-				InitHolder iH = combat.get(i);
+			for (InitHolder iH : combat)
+			{
 				if(iH == cbt) {
 					sendCombatant(cbt);
 				}
@@ -282,10 +282,7 @@ public class NetworkModel {
 	}
 
 	private Color getLineColor(int num) {
-		if(num >= colorList.size()) {
-			num = num % colorList.size();
-		}
-		return colorList.get(num);
+		return colorList.get(num >= colorList.size() ? num % colorList.size() : num);
 	}
 
 	private JTextPane getLogPane(String title) {

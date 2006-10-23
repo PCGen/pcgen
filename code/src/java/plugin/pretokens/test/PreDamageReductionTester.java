@@ -31,8 +31,6 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import java.util.List;
-import java.util.Iterator;
 import pcgen.core.DamageReduction;
 
 /**
@@ -47,12 +45,9 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest implement
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		int runningTotal = 0;
 
-		// Parse the character's DR into a lookup map
-		List drList = character.getDRList();
 		final int target = Integer.parseInt(prereq.getOperand());
-		for (Iterator i = drList.iterator(); i.hasNext(); )
+		for (DamageReduction dr : character.getDRList())
 		{
-			DamageReduction dr = (DamageReduction)i.next();
 			if (dr.getBypass().equalsIgnoreCase(prereq.getKey()))
 			{
 				runningTotal = prereq.getOperator().compare(dr.getReductionValue(), target);

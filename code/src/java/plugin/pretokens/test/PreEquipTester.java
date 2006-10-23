@@ -26,7 +26,6 @@
  */
 package plugin.pretokens.test;
 
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
 import pcgen.core.Equipment;
@@ -67,10 +66,8 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 		{
 
 			final String targetEquip = prereq.getKey();
-			for (Iterator e1 = character.getEquipmentList().iterator(); e1.hasNext();)
+			for (Equipment eq : character.getEquipmentList())
 			{
-				final Equipment eq = (Equipment) e1.next();
-
 				if (!eq.isEquipped())
 				{
 					continue;

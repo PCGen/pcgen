@@ -71,10 +71,11 @@ public class RaceSubTypeToken extends Token
 
 	private static String getRaceSubTypeToken(PlayerCharacter pc, int index)
 	{
-		List subTypes = pc.getRacialSubTypes();
+		//CONSIDER Why is this necessary to protect the index?  Calling code should be more careful
+		List<String> subTypes = pc.getRacialSubTypes();
 		if (index >= 0 && index < subTypes.size())
 		{
-			return (String)subTypes.get(index);
+			return subTypes.get(index);
 		}
 		return "";
 	}

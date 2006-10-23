@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author  devon
  */
-public class RuleSet extends ArrayList implements DataElement
+public class RuleSet extends ArrayList<String> implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 	Rule retRule;
@@ -85,9 +85,8 @@ public class RuleSet extends ArrayList implements DataElement
 		int aWeight = 0;
 
 		//Iterate through the list of choices until the weights (from each DataValue) are greater the the num chosen as the 'choice'
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			Rule chkValue = (Rule) allVars.getDataElement(key);
 			int valueWeight = chkValue.getWeight();
 
@@ -115,9 +114,8 @@ public class RuleSet extends ArrayList implements DataElement
 		int aWeight = 0;
 
 		//Iterate through the list of choices until the weights (from each DataValue) are greater the the num chosen as the 'choice'
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			Rule chkValue = (Rule) allVars.getDataElement(key);
 			int valueWeight = chkValue.getWeight();
 
@@ -161,9 +159,8 @@ public class RuleSet extends ArrayList implements DataElement
 	{
 		int rangeTop = 0;
 
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			Rule value = (Rule) allVars.getDataElement(key);
 			rangeTop = rangeTop + value.getWeight();
 		}
@@ -201,9 +198,8 @@ public class RuleSet extends ArrayList implements DataElement
 		int aWeight = 0;
 
 		//Iterate through the list of choices until the weights (from each DataValue) are greater the the num chosen as the 'choice'
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			Rule chkValue = (Rule) allVars.getDataElement(key);
 			int valueWeight = chkValue.getWeight();
 
@@ -229,9 +225,8 @@ public class RuleSet extends ArrayList implements DataElement
 		int aWeight = 0;
 
 		//Iterate through the list of choices until the weights (from each DataValue) are greater the the num chosen as the 'choice'
-		for (int i = 0; i < this.size(); i++)
+		for (String key : this)
 		{
-			String key = (String) this.get(i);
 			Rule chkValue = (Rule) allVars.getDataElement(key);
 			int valueWeight = chkValue.getWeight();
 

@@ -77,7 +77,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	/**
 	 * @see pcgen.util.chooser.ChooserRadio#getSelectedList()
 	 */
-	public ArrayList getSelectedList()
+	public ArrayList<String> getSelectedList()
 	{
 		return null;
 	}

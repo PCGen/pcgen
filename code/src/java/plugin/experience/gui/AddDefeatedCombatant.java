@@ -128,7 +128,7 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 				name.append(tName.getText() + " CR: ");
 			}
 
-			name.append(checkCRField(tCR, 0) + "");
+			name.append(checkCRField(tCR, 0));
 			model.addEnemy(new ExperienceListItem(new DefeatedCombatant(name.toString(), checkCRField(tCR, 0))));
 		}
 
@@ -144,6 +144,10 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 		{
 			value = Float.parseFloat(tf.getText());
 
+			/*
+			 * CONSIDER What is this trying to do, and is there a clear way 
+			 * to perform that action?  Is this a Math.floor? - thpr 10/21/06
+			 */
 			if (value > 1.0)
 			{
 				value = ((int) value / 1);
@@ -153,7 +157,7 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 		}
 		catch (NumberFormatException e)
 		{
-			tf.setText(def + "");
+			tf.setText(Float.toString(def));
 
 			return def;
 		}
@@ -168,7 +172,7 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 		}
 		catch (NumberFormatException e)
 		{
-			tf.setText(def + "");
+			tf.setText(Integer.toString(def));
 
 			return def;
 		}

@@ -32,8 +32,6 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-import java.util.Iterator;
-
 /**
  * @author wardc
  *
@@ -48,12 +46,12 @@ public class PreSpellBookTester  extends AbstractPrerequisiteTest implements Pre
 		int runningTotal=0;
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
-		for (Iterator ee = character.getClassList().iterator(); ee.hasNext();)
+		for (PCClass spellClass : character.getClassList())
 		{
-			final PCClass spellClass = (PCClass) ee.next();
-			final boolean classUsesBook = spellClass.getSpellBookUsed();
-			if (classUsesBook == prereqUsesBook)
+			if (spellClass.getSpellBookUsed() == prereqUsesBook)
+			{
 				runningTotal++;
+			}
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);

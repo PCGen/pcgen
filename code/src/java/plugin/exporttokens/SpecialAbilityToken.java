@@ -77,7 +77,7 @@ public class SpecialAbilityToken extends Token
 	{
 		if(specialIndex >=0 && specialIndex < pc.getSpecialAbilityTimesList().size())
 		{
-			return pc.getSpecialAbilityTimesList().get(specialIndex).toString();
+			return pc.getSpecialAbilityTimesList().get(specialIndex);
 		}
 		return "";
 	}
@@ -94,7 +94,7 @@ public class SpecialAbilityToken extends Token
 				}
 
 				String description = "";
-				String search = "SA" + ":" + pc.getSpecialAbilityTimesList().get(specialIndex).toString() + Constants.s_LINE_SEP;
+				String search = "SA" + ":" + pc.getSpecialAbilityTimesList().get(specialIndex) + Constants.s_LINE_SEP;
 				int pos = pc.getDescriptionLst().indexOf(search);
 
 				if (pos >= 0)

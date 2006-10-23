@@ -63,7 +63,7 @@ public class ClassListToken extends Token
 	 */
 	public static String getClassListToken(PlayerCharacter pc)
 	{
-		String retString = "";
+		StringBuffer returnString = new StringBuffer();
 		boolean firstLine = true;
 
 		for (int i = 0; i < pc.getClassList().size(); i++)
@@ -72,23 +72,23 @@ public class ClassListToken extends Token
 
 			if (!firstLine)
 			{
-				retString += " ";
+				returnString.append(" ");
 			}
 
 			firstLine = false;
 
 			if (Constants.s_NONE.equals(pcClass.getSubClassKey()) || "".equals(pcClass.getSubClassKey()))
 			{
-				retString += pcClass.getOutputName();
+				returnString.append(pcClass.getOutputName());
 			}
 			else
 			{
-				retString += Globals.getClassKeyed(pcClass.getSubClassKey()).getDisplayName();
+				returnString.append(Globals.getClassKeyed(pcClass.getSubClassKey()).getDisplayName());
 			}
 
-			retString += pcClass.getLevel();
+			returnString.append(pcClass.getLevel());
 		}
 
-		return retString;
+		return returnString.toString();
 	}
 }

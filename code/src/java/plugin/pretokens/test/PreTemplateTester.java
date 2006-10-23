@@ -34,8 +34,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
-
 
 /**
  * @author wardc
@@ -66,9 +64,8 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 			if (wildCard >= 0)
 			{
 				templateKey = templateKey.substring(0, wildCard);
-				for (Iterator ti = character.getTemplateList().iterator(); ti.hasNext();)
+				for (PCTemplate aTemplate : character.getTemplateList())
 				{
-					final PCTemplate aTemplate = (PCTemplate) ti.next();
 					if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
 					{
 						runningTotal++;

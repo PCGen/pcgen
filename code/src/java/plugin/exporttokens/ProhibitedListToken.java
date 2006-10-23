@@ -30,6 +30,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.CollectionUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,16 +58,16 @@ public class ProhibitedListToken extends Token
 
 	public static String getProhibitedListToken(String tokenSource, PlayerCharacter pc)
 	{
-		int i;
 		int k = tokenSource.lastIndexOf(',');
 
+		String jointext;
 		if (k >= 0)
 		{
-			tokenSource = tokenSource.substring(k + 1);
+			jointext = tokenSource.substring(k + 1);
 		}
 		else
 		{
-			tokenSource = ", ";
+			jointext = ", ";
 		}
 
 		List<String> stringList = new ArrayList<String>();
@@ -82,17 +83,6 @@ public class ProhibitedListToken extends Token
 			}
 		}
 
-		StringBuffer buf = new StringBuffer();
-		for (i = 0; i < stringList.size(); ++i)
-		{
-			buf.append(stringList.get(i));
-
-			if (i < (stringList.size() - 1))
-			{
-				buf.append( tokenSource );
-			}
-		}
-
-		return buf.toString();
+		return CollectionUtilities.joinStringRepresentations(stringList, jointext);
 	}
 }

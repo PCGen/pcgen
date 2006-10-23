@@ -15,7 +15,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -27,9 +26,9 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 	private PCClass pcclass;
 	private int level;
 	private boolean racial = false;
-	private List removeList = new ArrayList();
-	private List lightList = new ArrayList();
-	private List darkList = new ArrayList();
+	private List<Component> removeList = new ArrayList<Component>();
+	private List<Component> lightList = new ArrayList<Component>();
+	private List<Component> darkList = new ArrayList<Component>();
 	private int serial = 0;
 
 	//Seperated out for performance reasons
@@ -323,13 +322,10 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 		jPanel12.setBackground(CharacterPanel.header);
 		jPanel13.setBackground(CharacterPanel.header);
 		jPanel14.setBackground(CharacterPanel.header);
-		for(int i = 0; i < lightList.size(); i++) {
-			Component c = (Component)lightList.get(i);
+		for (Component c : lightList) {
 			c.setBackground(CharacterPanel.bodyLight);
 		}
-
-		for(int i = 0; i < darkList.size(); i++) {
-			Component c = (Component)darkList.get(i);
+		for (Component c : darkList) {
 			c.setBackground(CharacterPanel.bodyMedLight);
 		}
 	}
@@ -370,7 +366,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 	 */
 	public void refresh() {
 		if(serial < pc.getSerial()) {
-			Collection spellList;
+			Collection<CharacterSpell> spellList;
 			String spellBook;
 			if(!racial) {
 				int knownVal = pcclass.getKnownForLevel(pcclass.getLevel(), level, pc);
@@ -392,17 +388,17 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 				spellBook = Globals.INNATE_SPELL_BOOK_NAME;
 			}
 
-			for(int i = 0; i < removeList.size(); i++) {
-				remove((java.awt.Component)removeList.get(i));
+			for (Component c : removeList) {
+				remove(c);
 			}
 			removeList.clear();
 
 			int gridY = 1;
 			boolean light = true;
-			for (Iterator it = spellList.iterator(); it.hasNext();)
+			for (CharacterSpell cs : spellList)
 			{
 				Color color;
-				List colorList;
+				List<Component> colorList;
 				if(light) {
 					color = CharacterPanel.bodyLight;
 					colorList = lightList;
@@ -413,14 +409,13 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 					colorList = darkList;
 					light = true;
 				}
-				CharacterSpell cs = (CharacterSpell) it.next();
 				gridY = addLine(cs, spellBook, color, gridY, colorList);
 			}
 			serial = pc.getSerial();
 		}
 	}
 
-	private int addLine(CharacterSpell cs, String spellBook, Color color, int gridY, List colorList) {
+	private int addLine(CharacterSpell cs, String spellBook, Color color, int gridY, List<Component> colorList) {
 		Spell spell = cs.getSpell();
 		SpellInfo si = cs.getSpellInfoFor(spellBook, level, -1);
 

@@ -37,17 +37,17 @@ import javax.swing.JRadioButton;
  */
 public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 
-	public static int DAMAGE_DYING_END = 1;
-	public static int DAMAGE_DYING_INITIATIVE = 2;
-	public static int DAMAGE_DISABLED_ZERO = 1;
-	public static int DAMAGE_DISABLED_CON = 2;
-	public static int DAMAGE_DEATH_NEG_TEN = 1;
-	public static int DAMAGE_DEATH_NEG_CON = 2;
-	public static int DAMAGE_STABLE_PERCENT = 1;
-	public static int DAMAGE_STABLE_SAVE = 2;
-	public static int DAMAGE_STABLE_NONE = 3;
-	public static int DAMAGE_SUBDUAL = 1;
-	public static int DAMAGE_NON_LETHAL = 2;
+	public static final int DAMAGE_DYING_END = 1;
+	public static final int DAMAGE_DYING_INITIATIVE = 2;
+	public static final int DAMAGE_DISABLED_ZERO = 1;
+	public static final int DAMAGE_DISABLED_CON = 2;
+	public static final int DAMAGE_DEATH_NEG_TEN = 1;
+	public static final int DAMAGE_DEATH_NEG_CON = 2;
+	public static final int DAMAGE_STABLE_PERCENT = 1;
+	public static final int DAMAGE_STABLE_SAVE = 2;
+	public static final int DAMAGE_STABLE_NONE = 3;
+	public static final int DAMAGE_SUBDUAL = 1;
+	public static final int DAMAGE_NON_LETHAL = 2;
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.ButtonGroup deathGroup;

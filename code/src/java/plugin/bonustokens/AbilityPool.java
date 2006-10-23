@@ -23,8 +23,6 @@
  */
 package plugin.bonustokens;
 
-import java.util.Collection;
-
 import pcgen.core.AbilityCategory;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.BonusObj;

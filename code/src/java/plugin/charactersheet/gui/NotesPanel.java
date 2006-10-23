@@ -311,11 +311,10 @@ public class NotesPanel extends FlippingSplitPane {
 	}
 
 	private void populateNotes() {
-		List notesList = pc.getNotesList();
+		List<NoteItem> notesList = pc.getNotesList();
 		NoteItem csNotes = null;
 		int newNodeId = 0;
-		for(int i = 0; i < notesList.size(); i++) {
-			NoteItem note = (NoteItem)notesList.get(i);
+		for (NoteItem note : notesList) {
 			if (note.getId() > newNodeId) {
 				newNodeId = note.getId();
 			}
@@ -356,15 +355,14 @@ public class NotesPanel extends FlippingSplitPane {
 	 * The tree is built off the root node rootTreeNode
 	 */
 	private void establishTreeNodes() {
-		List nodesToBeAddedList = new ArrayList();
+		List<NoteItem> nodesToBeAddedList = new ArrayList<NoteItem>();
 
 		int order = 0;
 		rootTreeNode = new NoteTreeNode(null, pc);
 		notesModel = new DefaultTreeModel(rootTreeNode);
 		notesTree.setModel(notesModel);
-		List testList = pc.getNotesList();
-		for(int i = 0; i < testList.size(); i++) {
-			NoteItem testnote = (NoteItem)testList.get(i);
+		List<NoteItem> testList = pc.getNotesList();
+		for (NoteItem testnote : testList) {
 			//Don't fuck with this - I plan on uncommenting this later when I don't need to test the hidden node anymore -DJ
 			//if(!testnote.getName().equals("Hidden")) {
 				nodesToBeAddedList.add(testnote);
@@ -388,20 +386,19 @@ public class NotesPanel extends FlippingSplitPane {
 		addNodes(rootTreeNode, nodesToBeAddedList);
 	}
 
-	private void addNodes(NoteTreeNode node, List nodesToBeAddedList) {
+	private void addNodes(NoteTreeNode node, List<NoteItem> nodesToBeAddedList) {
 		int index = -1;
 		if(node.getItem() != null) {
 			index = node.getItem().getId();
 		}
 
-		for (int i = 0; i < nodesToBeAddedList.size(); i++) {
-			NoteItem ni = (NoteItem) nodesToBeAddedList.get(i);
+		for (Iterator<NoteItem> it = nodesToBeAddedList.iterator(); it.hasNext();) {
+			NoteItem ni = it.next();
 
 			if (ni.getParentId() == index) {
 				NoteTreeNode childNode = new NoteTreeNode(ni, pc);
 				node.add(childNode);
-				nodesToBeAddedList.remove(i);
-				i--;
+				it.remove();
 			}
 		}
 
@@ -567,11 +564,7 @@ public class NotesPanel extends FlippingSplitPane {
 
 			parentId = getItem().getId();
 
-			Iterator allNotes = pc.getNotesList().iterator();
-
-			while (allNotes.hasNext()) {
-				final NoteItem currItem = (NoteItem) allNotes.next();
-
+			for (NoteItem currItem : pc.getNotesList()) {
 				if (currItem.getId() > newNodeId) {
 					newNodeId = currItem.getId();
 				}

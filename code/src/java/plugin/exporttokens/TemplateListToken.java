@@ -30,8 +30,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-import java.util.Iterator;
-
 /**
  * Deals with returning value of TEMPLATELIST token
  */
@@ -64,9 +62,7 @@ public class TemplateListToken extends Token {
         StringBuffer retString = new StringBuffer();
         String del = "";
 
-        for (Iterator it = pc.getOutputVisibleTemplateList().iterator(); it.hasNext();) {
-            PCTemplate template = (PCTemplate) it.next();
-
+        for (PCTemplate template : pc.getOutputVisibleTemplateList()) {
             // karianna bug 1514970
             retString.append(del).append(template.getOutputName());
 			del = ", ";

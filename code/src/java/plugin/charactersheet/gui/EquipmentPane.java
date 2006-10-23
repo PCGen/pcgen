@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.Component;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ import java.util.List;
  */
 public class EquipmentPane extends JPanel {
 	private PlayerCharacter pc;
-	private List removeList = new ArrayList();
+	private List<Component> removeList = new ArrayList<Component>();
 
   private JPanel costHeaderPanel;
   private JPanel equipmentHeaderPanel;
@@ -186,14 +187,14 @@ public class EquipmentPane extends JPanel {
 	 * Refresh
 	 */
 	public void refresh() {
-		List eqList = getEqList(pc);
+		List<Equipment> eqList = getEqList(pc);
 		if(eqList.size() == 0) {
 			setVisible(false);
 		}
 		else {
 			setVisible(true);
-			for(int i = 0; i < removeList.size(); i++) {
-				remove((java.awt.Component)removeList.get(i));
+			for (Component c : removeList) {
+				remove(c);
 			}
 			removeList.clear();
 
@@ -484,9 +485,9 @@ public class EquipmentPane extends JPanel {
 		removeList.add(totalGpPanel);
 	}
 
-	private List getEqList(PlayerCharacter aPC) {
+	private List<Equipment> getEqList(PlayerCharacter aPC) {
 		int merge = Constants.MERGE_LOCATION;
-		List eqList = aPC.getEquipmentListInOutputOrder(merge);
+		List<Equipment> eqList = aPC.getEquipmentListInOutputOrder(merge);
 		eqList = EquipmentUtilities.removeEqType(eqList, COIN);
 		eqList = EquipmentUtilities.removeEqType(eqList, GEM);
 		return eqList;

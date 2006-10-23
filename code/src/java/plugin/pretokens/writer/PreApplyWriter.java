@@ -36,8 +36,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Iterator;
-import java.util.List;
 
 public class PreApplyWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
@@ -66,8 +64,6 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements Prereq
 	 */
 	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
-		List subreqs = prereq.getPrerequisites();
-
 		try
 		{
 			checkValidOperator(prereq, operatorsHandled());
@@ -80,34 +76,32 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements Prereq
 			if ( Integer.parseInt(prereq.getOperand()) > 1 )
 			{
 				// must be a "A and b" operation
-				int i=0;
-				for (Iterator iter = subreqs.iterator(); iter.hasNext(); i++)
+				boolean needComma = false;
+				for (Prerequisite subreq : prereq.getPrerequisites())
 				{
-					Prerequisite subreq = (Prerequisite) iter.next();
-					if (i > 0)
+					if (needComma)
 					{
 						writer.write(',');
 					}
+					needComma = true;
 					writer.write(subreq.getOperand());
 				}
 			}
 			else
 			{
-				for (Iterator iter = subreqs.iterator(); iter.hasNext();)
+				for (Prerequisite subreq : prereq.getPrerequisites())
 				{
-					Prerequisite subreq = (Prerequisite) iter.next();
 					if (subreq.getKind()==null)
 					{
 						// must be an "A or B" operation
-						List subsubreqs = subreq.getPrerequisites();
-						int i = 0;
-						for (Iterator iterator = subsubreqs.iterator(); iterator.hasNext(); i++)
+						boolean needSemi = false;
+						for (Prerequisite subsubreq : subreq.getPrerequisites())
 						{
-							Prerequisite subsubreq = (Prerequisite) iterator.next();
-							if (i > 0)
+							if (needSemi)
 							{
 								writer.write(';');
 							}
+							needSemi = true;
 							writer.write(subsubreq.getOperand());
 						}
 					}

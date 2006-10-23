@@ -8,13 +8,10 @@ import java.util.Comparator;
 /**
  * DataElementComperator
  */
-public class DataElementComperator implements Comparator
+public class DataElementComperator implements Comparator<DataElement>
 {
-	public int compare(Object o1, Object o2)
+	public int compare(DataElement o1, DataElement o2)
 	{
-		DataElement i1 = (DataElement) o1;
-		DataElement i2 = (DataElement) o2;
-
-		return i1.getTitle().compareTo(i2.getTitle());
+		return o1.getTitle().compareTo(o2.getTitle());
 	}
 }

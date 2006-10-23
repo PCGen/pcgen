@@ -23,9 +23,6 @@
  */
 package plugin.exporttokens;
 
-import java.util.Iterator;
-import java.util.List;
-
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
@@ -61,7 +58,7 @@ public class FollowerListToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return getFollowerListToken(pc) + "";
+		return getFollowerListToken(pc);
 	}
 
 	/**
@@ -74,30 +71,21 @@ public class FollowerListToken extends Token
 	{
 		StringBuffer buf = new StringBuffer();
 
-		int i;
-		boolean lastflag = false;
+		boolean needComma = false;
 
-		final List followers = pc.getFollowerList();
-		for (i = 0; i < followers.size(); ++i)
+		for (Follower aF : pc.getFollowerList())
 		{
-			if (followers.get(i) instanceof Follower)
+			for (PlayerCharacter nPC : Globals.getPCList())
 			{
-				Follower aF = (Follower) followers.get(i);
-
-				for (Iterator p = Globals.getPCList().iterator(); p.hasNext();)
+				if (aF.getFileName().equals(nPC.getFileName()))
 				{
-					PlayerCharacter nPC = (PlayerCharacter) p.next();
-
-					if (aF.getFileName().equals(nPC.getFileName()))
+					if (needComma)
 					{
-						if (lastflag)
-						{
-							buf.append(", ");
-						}
-
-						buf.append(FileAccess.filterString(nPC.getName()));
-						lastflag = true;
+						buf.append(", ");
 					}
+					
+					buf.append(FileAccess.filterString(nPC.getName()));
+					needComma = true;
 				}
 			}
 		}

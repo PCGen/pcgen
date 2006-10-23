@@ -55,39 +55,39 @@ public class PaperInfoToken extends Token
 	public static String getPaperInfoToken(String tokenSource)
 	{
 		String oString = tokenSource;
-		tokenSource = tokenSource.substring(10);
+		String sourceText = tokenSource.substring(10);
 
 		int infoType = -1;
 
-		if (tokenSource.startsWith("NAME"))
+		if (sourceText.startsWith("NAME"))
 		{
 			infoType = Constants.PAPERINFO_NAME;
 		}
-		else if (tokenSource.startsWith("HEIGHT"))
+		else if (sourceText.startsWith("HEIGHT"))
 		{
 			infoType = Constants.PAPERINFO_HEIGHT;
 		}
-		else if (tokenSource.startsWith("WIDTH"))
+		else if (sourceText.startsWith("WIDTH"))
 		{
 			infoType = Constants.PAPERINFO_WIDTH;
 		}
-		else if (tokenSource.startsWith("MARGIN"))
+		else if (sourceText.startsWith("MARGIN"))
 		{
-			tokenSource = tokenSource.substring(6);
+			sourceText = tokenSource.substring(6);
 
-			if (tokenSource.startsWith("TOP"))
+			if (sourceText.startsWith("TOP"))
 			{
 				infoType = Constants.PAPERINFO_TOPMARGIN;
 			}
-			else if (tokenSource.startsWith("BOTTOM"))
+			else if (sourceText.startsWith("BOTTOM"))
 			{
 				infoType = Constants.PAPERINFO_BOTTOMMARGIN;
 			}
-			else if (tokenSource.startsWith("LEFT"))
+			else if (sourceText.startsWith("LEFT"))
 			{
 				infoType = Constants.PAPERINFO_LEFTMARGIN;
 			}
-			else if (tokenSource.startsWith("RIGHT"))
+			else if (sourceText.startsWith("RIGHT"))
 			{
 				infoType = Constants.PAPERINFO_RIGHTMARGIN;
 			}
@@ -95,14 +95,14 @@ public class PaperInfoToken extends Token
 
 		if (infoType >= 0)
 		{
-			int offs = tokenSource.indexOf('=');
+			int offs = sourceText.indexOf('=');
 			String info = Globals.getPaperInfo(infoType);
 
 			if (info == null)
 			{
 				if (offs >= 0)
 				{
-					oString = tokenSource.substring(offs + 1);
+					oString = sourceText.substring(offs + 1);
 				}
 			}
 			else

@@ -76,11 +76,11 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 	public int getTotalPreferredWidth()
 	{
 		int returnValue = 0;
-		Enumeration columns = getColumns();
+		Enumeration<TableColumn> columns = getColumns();
 
 		while (columns.hasMoreElements())
 		{
-			returnValue += ((TableColumn) columns.nextElement()).getPreferredWidth();
+			returnValue += columns.nextElement().getPreferredWidth();
 		}
 
 		return returnValue;

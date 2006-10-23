@@ -82,7 +82,7 @@ public class InitOutputter extends XMLOutputter
 
 				default:
 
-					int charnum = new Character(ch).hashCode();
+					int charnum = Character.valueOf(ch).hashCode();
 
 					if (charnum <= 127)
 					{
@@ -173,7 +173,7 @@ public class InitOutputter extends XMLOutputter
 
 				default:
 
-					int charnum = new Character(ch).hashCode();
+					int charnum = Character.valueOf(ch).hashCode();
 
 					if (charnum <= 127)
 					{

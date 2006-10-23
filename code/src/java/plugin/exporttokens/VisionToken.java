@@ -107,7 +107,7 @@ public class VisionToken extends Token
 	 */
 	public static String getVisionToken(PlayerCharacter pc, int visionIndex)
 	{
-		SortedSet visionSet = pc.getVisiontypeList();
+		SortedSet<String> visionSet = pc.getVisiontypeList();
 
 		if ((visionIndex >= 0) && (visionIndex < visionSet.size()))
 		{
