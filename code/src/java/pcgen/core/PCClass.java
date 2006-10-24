@@ -52,6 +52,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.DefaultTriState;
 
 /**
  * <code>PCClass</code>.
@@ -104,11 +105,6 @@ public class PCClass extends PObject {
 	protected int numSpellsFromSpecialty = 0;
 
 	/*
-	 * STRINGREFACTOR The Domains are parsed both in PCClass.modDomainsForLevel
-	 * as well as InfoDomain.addUnfilteredDomains, thus that processing needs to
-	 * be avoided.
-	 */
-	/*
 	 * LEVELONEONLY Since this is for a Class Line and not a ClassLevel line, a
 	 * granting of Domains only needs to occur in first level.
 	 * 
@@ -116,11 +112,7 @@ public class PCClass extends PObject {
 	 * the code seems to want to allow a Domain on a Class Level line. (Not sure
 	 * if this functions correctly, though)
 	 */
-	/*
-	 * TYPESAFETY should be introduced to Domains in order to correctly
-	 * store/process them as something other than a String
-	 */
-	private ArrayList<String> domainList = null;
+	private ArrayList<LevelProperty> domainList = null;
 
 	/*
 	 * ALLCLASSLEVELS The automatic Feats appropriate to any given level (they
@@ -360,16 +352,6 @@ public class PCClass extends PObject {
 	 */
 	private String CRFormula = null; // null or formula
 
-	// XPPenalty can't be boolean, because null has a meaning.
-	// Null means use the default (look for the types on class types)
-	/*
-	 * STRINGREFACTOR Make this an enumeration, so that string processing is not
-	 * done.
-	 * 
-	 * XPPenalty can't be boolean, because null has a meaning. Null means use
-	 * the default (look for the types on class types).  Should I dig out my
-	 * TriState class??
-	 */
 	/*
 	 * REFACTOR This gets really strange since this is part of a calculation
 	 * based on differences between class levels. The question is: Is there a
@@ -385,7 +367,7 @@ public class PCClass extends PObject {
 	 * PlayerCharacter. Perhaps this is best to dump into all PCClassLevels for
 	 * safety? I really hate to get into that mode.
 	 */
-	private String XPPenalty = null; // Valid values are null, "YES", "NO"
+	private DefaultTriState XPPenalty = DefaultTriState.DEFAULT;
 
 	/*
 	 * ALLCLASSLEVELS The abbrev simply needs to be directly loaded into each
@@ -1523,15 +1505,32 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final List<String> getDomainList() {
+	/**
+	 * Returns the Domains provided to a character up to and including
+	 * the given level
+	 * 
+	 * There is a contract on the users of getDomainList: If you take 
+	 * a Domain out of the List returned, you MUST clone the Domain or you 
+	 * can cause problems for PCClass.  This is allowed for speed today and
+	 * in the hopes that Domain and the PObjects become immutable soon :)
+	 */
+	public final List<Domain> getDomainList(int domainLevel) {
 		if (domainList == null) {
-			final List<String> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+			final List<Domain> ret = Collections.emptyList();
+			return ret;
 		}
-		return Collections.unmodifiableList(domainList);
+		List<Domain> returnList = new ArrayList<Domain>();
+		for (LevelProperty prop : domainList)
+		{
+			if (prop.getLevel() <= domainLevel)
+			{
+				returnList.add((Domain) prop.getObject());
+			}
+		}
+		return returnList;
 	}
 
 	/*
@@ -3279,22 +3278,15 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * STRINGREFACTOR currently this is passed in as a String, and should
-	 * probably be processed in the tag (NOT in SpellProhibitor's constructor)
-	 * and then passed in as a fully formed SpellProhibitor
-	 */
-	/*
 	 * PCCLASSANDLEVEL Since this is set in Level one of a PCClassLevel, it
 	 * will need to be present in the PCClass (to handle import from the Tag) 
 	 * and PCClassLevel
 	 */
-	public void setProhibitSpell(String aString) {
-		SpellProhibitor aProhibitor = new SpellProhibitor(aString);
-
+	public void setProhibitSpell(SpellProhibitor prohibitor) {
 		if (prohibitSpellDescriptorList == null) {
 			prohibitSpellDescriptorList = new ArrayList<SpellProhibitor>();
 		}
-		prohibitSpellDescriptorList.add(aProhibitor);
+		prohibitSpellDescriptorList.add(prohibitor);
 	}
 
 	/**
@@ -4098,8 +4090,15 @@ public class PCClass extends PObject {
 					"\tADDDOMAINS:", lineSep);
 		}
 
-		buildPccText(pccTxt, getDomainList().iterator(), Constants.PIPE,
-				"\tDOMAIN:", lineSep);
+		if (domainList != null)
+		{
+			for (LevelProperty domainProp : domainList)
+			{
+				pccTxt.append(lineSep).append(domainProp.getLevel());
+				pccTxt.append("\tDOMAIN:").append(
+						domainProp.getObject().getKeyName());
+			}
+		}
 
 		buildPccText(pccTxt, getFeatList().iterator(), ":", "\tFEAT:", lineSep);
 
@@ -4199,7 +4198,7 @@ public class PCClass extends PObject {
 		return super.getVision();
 	}
 
-	public void setXPPenalty(final String argXPPenalty) {
+	public void setXPPenalty(final DefaultTriState argXPPenalty) {
 		XPPenalty = argXPPenalty;
 	}
 
@@ -4264,11 +4263,11 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void addDomainList(final String domainItem) {
+	public void addDomain(final Domain domain, int domainLevel) {
 		if (domainList == null) {
-			domainList = new ArrayList<String>();
+			domainList = new ArrayList<LevelProperty>();
 		}
-		domainList.add(domainItem);
+		domainList.add(new LevelProperty(domainLevel, domain));
 	}
 
 	/*
@@ -4806,7 +4805,8 @@ public class PCClass extends PObject {
 
 			// aClass.ageSet = ageSet;
 			if (domainList != null) {
-				aClass.domainList = new ArrayList<String>(domainList);
+				//This is ok as a shallow copy - contract on readers of domainList
+				aClass.domainList = new ArrayList<LevelProperty>(domainList);
 			}
 			if (addDomains != null) {
 				aClass.addDomains = new ArrayList<String>(addDomains);
@@ -5075,22 +5075,19 @@ public class PCClass extends PObject {
 	 * interact with a PlayerCharacter being reimported if those rules change?
 	 */
 	public boolean hasXPPenalty() {
-		String wXPPenalty = "YES";
+		if (XPPenalty.equals(DefaultTriState.DEFAULT))
+		{
+			for (String type : getSafeListFor(ListKey.TYPE)) {
+				final ClassType aClassType = SettingsHandler.getGame()
+						.getClassTypeByName(type);
 
-		if (XPPenalty != null) {
-			return "YES".equals(XPPenalty);
-		}
-
-		for (String type : getSafeListFor(ListKey.TYPE)) {
-			final ClassType aClassType = SettingsHandler.getGame()
-					.getClassTypeByName(type);
-
-			if ((aClassType != null) && !aClassType.getXPPenalty()) {
-				wXPPenalty = "NO";
+				if ((aClassType != null) && !aClassType.getXPPenalty()) {
+					return false;
+				}
 			}
+			return true;
 		}
-
-		return "YES".equals(wXPPenalty);
+		return XPPenalty.booleanValue();
 	}
 
 	/*
@@ -5439,70 +5436,20 @@ public class PCClass extends PObject {
 	 * PlayerCharacter...
 	 */
 	public boolean isProhibited(final Spell aSpell, final PlayerCharacter aPC) {
-		final StringTokenizer aTok = new StringTokenizer(prohibitedString, ",",
-				false);
-
 		if (!PrereqHandler.passesAll(aSpell.getPreReqList(), aPC, this)) {
 			return true;
 		}
 
 		if (prohibitSpellDescriptorList != null) {
 			for (SpellProhibitor prohibit : prohibitSpellDescriptorList) {
-				if (PrereqHandler
-						.passesAll(prohibit.getPrereqList(), aPC, null)) {
-					/*
-					 * CONSIDER Should this Globals Check be outside this IF in
-					 * such a way as to do NONE of the three types of
-					 * prohibitor? This seems inconsistent?
-					 */
-
-					/*
-					 * CONSIDER This seems inappropriate to have this processing
-					 * HERE in PCClass, rather than in the SpellProhibitor, and
-					 * hiding the internal functionality from other people. I
-					 * don't CARE how it was rejected, just do it... right??
-					 */
-					if (prohibit.getType() == SpellProhibitor.TYPE_ALIGNMENT
-							&& Globals.checkRule(RuleConstants.PROHIBITSPELLS)) {
-						int hits = 0;
-						for (String desc : aSpell.getDescriptorList()) {
-							for (String prohib : prohibit.getValueList()) {
-								if (prohib.equals(desc.toUpperCase())) {
-									hits++;
-								}
-							}
-						}
-						if (hits == prohibit.getValueList().size()) {
-							return true;
-						}
-					} else if (prohibit.getType() == SpellProhibitor.TYPE_DESCRIPTOR) {
-						int hits = 0;
-						for (String desc : aSpell.getDescriptorList()) {
-							for (String prohib : prohibit.getValueList()) {
-								if (prohib.equals(desc.toUpperCase())) {
-									hits++;
-								}
-							}
-						}
-						if (hits == prohibit.getValueList().size()) {
-							return true;
-						}
-					} else if (prohibit.getType() == SpellProhibitor.TYPE_SCHOOL) {
-						int hits = 0;
-						for (String desc : aSpell.getSchools()) {
-							for (String prohib : prohibit.getValueList()) {
-								if (prohib.equals(desc.toUpperCase())) {
-									hits++;
-								}
-							}
-						}
-						if (hits == prohibit.getValueList().size()) {
-							return true;
-						}
-					}
+				if (prohibit.isProhibited(aSpell, aPC)) {
+					return true;
 				}
 			}
 		}
+
+		final StringTokenizer aTok = new StringTokenizer(prohibitedString, ",",
+				false);
 
 		while (aTok.hasMoreTokens()) {
 			final String a = aTok.nextToken();
@@ -5515,7 +5462,7 @@ public class PCClass extends PObject {
 
 		return false;
 	}
-
+	
 	/**
 	 * Get the unarmed Damage for this class at the given level.
 	 * 
@@ -7380,79 +7327,37 @@ public class PCClass extends PObject {
 			return;
 		}
 
-		int c = 2;
+		/*
+		 * Note this uses ALL of the domains up to and including this level,
+		 * because there is the possibility (albeit strange) that the PC was not
+		 * qualified at a previous level change, but the PlayerCharacter is now
+		 * qualified for the given Domain. Even this has quirks, since it is
+		 * only applied at the time of level increase, but I think that quirk
+		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
+		 */
+		for (final Domain dom : getDomainList(aLevel)) {
+			if (dom.qualifies(aPC))
+			{
+				String domKey = dom.getKeyName();
+				if (adding)
+				{
+					if (!aPC.containsCharacterDomain(domKey))
+					{
+						Domain aDomain = dom.clone();
 
-		if (aLevel > 9) {
-			c = 3;
-		}
-
-		if (getDomainList().isEmpty()) {
-			return;
-		}
-
-		for (final String domainKey : getDomainList()) {
-			final StringTokenizer aTok = new StringTokenizer(domainKey, "|");
-			final int bLevel = Integer.parseInt(aTok.nextToken());
-			int d = c;
-
-			if (aLevel == bLevel) {
-				final StringTokenizer bTok = new StringTokenizer(domainKey
-						.substring(c), "[]|", true);
-				boolean addNow = true;
-				String subKey = "";
-				boolean inPreReqs = false;
-
-				while (bTok.hasMoreTokens()) {
-					final String bString = bTok.nextToken();
-
-					if (!inPreReqs && !"[".equals(bString)
-							&& !"|".equals(bString)) {
-						subKey = bString;
+						final CharacterDomain aCD = aPC
+								.getNewCharacterDomain(getKeyName());
+						aCD.setDomain(aDomain, aPC);
+						aPC.addCharacterDomain(aCD);
+						aDomain = aCD.getDomain();
+						aDomain.setIsLocked(true, aPC);
 					}
-
-					d += bString.length();
-
-					if (bTok.hasMoreTokens()) {
-						if ("[".equals(domainKey.substring(d, d + 1))) {
-							addNow = false;
-						}
-					} else {
-						addNow = true;
-					}
-
-					if ("[".equals(bString)) {
-						inPreReqs = true;
-					} else if ("]".equals(bString)) { // this ends a PRExxx
-														// tag so next time
-														// through we can add
-														// name
-						addNow = true;
-						inPreReqs = false;
-					}
-
-					if (addNow && !adding) {
-						final int l = aPC.getCharacterDomainIndex(subKey);
-
-						if (l > -1) {
-							aPC.removeCharacterDomain(subKey);
-						}
-					} else if (adding && addNow && (subKey.length() > 0)) {
-						if (aPC.getCharacterDomainIndex(subKey) == -1) {
-							Domain aDomain = Globals.getDomainKeyed(subKey);
-
-							if (aDomain != null) {
-								aDomain = (Domain) aDomain.clone();
-
-								final CharacterDomain aCD = aPC
-										.getNewCharacterDomain(getKeyName());
-								aCD.setDomain(aDomain, aPC);
-								aPC.addCharacterDomain(aCD);
-								aDomain = aCD.getDomain();
-								aDomain.setIsLocked(true, aPC);
-							}
-						}
-
-						subKey = "";
+				}
+				else
+				{
+					if (aPC.containsCharacterDomain(domKey))
+					{
+						aPC.removeCharacterDomain(domKey);
 					}
 				}
 			}

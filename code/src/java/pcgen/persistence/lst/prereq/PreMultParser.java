@@ -63,9 +63,9 @@ public class PreMultParser extends AbstractPrerequisiteParser implements Prerequ
 		}
 
 		// [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+		PreParserFactory parser = PreParserFactory.getInstance();
 		for (String s : splitOnTopLevelToken(formula, '[', ']'))
 		{
-			PreParser parser = new PreParser();
 			prereq.addPrerequisite(parser.parse(s));
 		}
 

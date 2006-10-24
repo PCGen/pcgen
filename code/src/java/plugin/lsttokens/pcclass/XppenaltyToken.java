@@ -2,6 +2,7 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.util.enumeration.DefaultTriState;
 
 /**
  * Class deals with XPPENALTY Token
@@ -25,7 +26,7 @@ public class XppenaltyToken implements PCClassLstToken {
      * @return true
      */
 	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.setXPPenalty(value);
+		pcclass.setXPPenalty(DefaultTriState.valueOf(value));
 		return true;
 	}
 }

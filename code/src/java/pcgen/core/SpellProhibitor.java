@@ -25,14 +25,13 @@
  */
 package pcgen.core;
 
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.Logging;
+import pcgen.core.spell.Spell;
+import pcgen.util.enumeration.ProhibitedSpellType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * @author stefan
@@ -42,76 +41,13 @@ import java.util.StringTokenizer;
  */
 public class SpellProhibitor {
 
-	public static final String[] typeTags =
-	{
-		"ALIGNMENT",
-		"DESCRIPTOR",
-		"SCHOOL"
-	};
-	public final static int TYPE_UNDEFINED = -1;
-	public final static int TYPE_ALIGNMENT = 0;
-	public final static int TYPE_DESCRIPTOR = 1;
-	public final static int TYPE_SCHOOL = 2;
-
-	private int type = TYPE_UNDEFINED;
+	private ProhibitedSpellType type = null;
 	private List<String> valueList = null;
 	private List<Prerequisite> prereqList = null;
 
-	public SpellProhibitor(String prohibitString)
+	public SpellProhibitor()
 	{
-		final StringTokenizer aTok = new StringTokenizer(prohibitString, "|", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aString = aTok.nextToken().toUpperCase();
-
-			if (aString.startsWith("!PRE") || aString.startsWith("PRE"))
-			{
-				try
-				{
-					final PreParserFactory factory = PreParserFactory.getInstance();
-					addPreReq(factory.parse(aString) );
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple);
-				}
-			}
-			else
-			{
-				final StringTokenizer elements = new StringTokenizer(aString, ".", false);
-				final String aType = elements.nextToken();
-
-				for (int idx = 0; idx < typeTags.length; idx++)
-				{
-					if (typeTags[idx].equals(aType))
-					{
-						type = idx;
-						while (elements.hasMoreTokens())
-						{
-							String aValue = elements.nextToken();
-							if (type == TYPE_ALIGNMENT && (! aValue.equals("GOOD")) && (! aValue.equals("EVIL")) &&
-									(! aValue.equals("LAWFUL")) && (! aValue.equals("CHAOTIC")))
-							{
-								Logging.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '" + aValue + "'");
-							}
-							else
-							{
-								if (valueList == null)
-								{
-									valueList = new ArrayList<String>();
-								}
-								valueList.add(aValue);
-							}
-						}
-					}
-				}
-				if (type == TYPE_UNDEFINED)
-				{
-					Logging.errorPrint("Illegal PROHIBITSPELL subtag '" + aString + "'");
-				}
-			}
-		}
+		//Empty Construtor
 	}
 
 	public void addPreReq(final Prerequisite prereq)
@@ -132,7 +68,7 @@ public class SpellProhibitor {
 		return prereqList;
 	}
 
-	public int getType()
+	public ProhibitedSpellType getType()
 	{
 		return type;
 	}
@@ -140,5 +76,53 @@ public class SpellProhibitor {
 	public List<String> getValueList()
 	{
 		return valueList;
+	}
+
+	public void setType(ProhibitedSpellType prohibitedType) 
+	{
+		type = prohibitedType;
+	}
+
+	public void addValue(String value)
+	{
+		if (valueList == null)
+		{
+			valueList = new ArrayList<String>();
+		}
+		valueList.add(value);
+	}
+	
+	public boolean isProhibited(Spell s, PlayerCharacter aPC)
+	{
+		/*
+		 * Note the rule is only "Prohibit Cleric/Druid spells based on
+		 * Alignment" - thus this Globals check is only relevant to the
+		 * Alignment type
+		 */
+		if (type.equals(ProhibitedSpellType.ALIGNMENT)
+				&& !Globals.checkRule(RuleConstants.PROHIBITSPELLS))
+		{
+			return false;
+		}
+		
+		if (prereqList != null && !PrereqHandler.passesAll(prereqList, aPC, null))
+		{
+			return false;
+		}
+		
+		int hits = 0;
+		
+		for (String typeDesc : type.getCheckList(s))
+		{
+			for (String prohib : valueList)
+			{
+				if (prohib.equalsIgnoreCase(typeDesc))
+				{
+					hits++;
+				}
+			}
+		}
+		
+		return hits == valueList.size();
 	}
 }

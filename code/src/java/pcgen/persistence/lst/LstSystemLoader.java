@@ -434,8 +434,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			featLoader.loadLstFiles(featFileList);
 
 			raceLoader.loadLstFiles(raceFileList);
-			classLoader.loadLstFiles(classFileList);
 			domainLoader.loadLstFiles(domainFileList);
+			classLoader.loadLstFiles(classFileList);
 			deityLoader.loadLstFiles(deityFileList);
 			spellLoader.loadLstFiles(spellFileList);
 

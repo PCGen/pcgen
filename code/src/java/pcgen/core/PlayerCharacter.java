@@ -10357,11 +10357,30 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 //	}
 
 	/**
+	 * Returns true if this PlayerCharacter contains a Domain with a key that
+	 * matches the given Domain
+	 */
+	public boolean containsCharacterDomain(String aDomainKey)
+	{
+		for (CharacterDomain cd : characterDomainList)
+		{
+			Domain d = cd.getDomain();
+			if (d.getKeyName().equalsIgnoreCase(aDomainKey))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * return the index of CharacterDomain matching domainName
 	 * else return -1
 	 * @param domainName
 	 * @return character domain index
+	 * @deprecated 10/21/06 thpr as part of PCClass rebuilding
 	 */
+	@Deprecated
 	public int getCharacterDomainIndex(final String domainKey)
 	{
 		for (int i = 0; i < characterDomainList.size(); ++i)

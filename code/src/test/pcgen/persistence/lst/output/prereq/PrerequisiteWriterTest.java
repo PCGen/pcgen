@@ -44,7 +44,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParser;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -481,14 +481,12 @@ public class PrerequisiteWriterTest extends TestCase
 	 */
 	private void PreTest(final String aPreString, final String expectedOutput)
 	{
-		PreParser parser = new PreParser();
-
 		Prerequisite prereq = null;
 		boolean bExceptionThrown = false;
 		boolean bExceptionExpected = (expectedOutput.length() == 0);
 		try
 		{
-			prereq = parser.parse(aPreString);
+			prereq = PreParserFactory.getInstance().parse(aPreString);
 		}
 		catch (PersistenceLayerException ple)
 		{

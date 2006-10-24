@@ -448,7 +448,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			for (Domain aDomain : pcDeity.getDomainList())
 			{
-				aDomain = (Domain) aDomain.clone();
+				aDomain = aDomain.clone();
 
 				if (!availDomainList.contains(aDomain))
 				{
@@ -475,7 +475,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 						if (prestigeDomain != null)
 						{
-							prestigeDomain = (Domain) prestigeDomain.clone();
+							prestigeDomain = prestigeDomain.clone();
 						}
 
 						if (!availDomainList.contains(prestigeDomain))
@@ -486,29 +486,17 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			}
 
-			for (String prestigeString : aClass.getDomainList())
+			for (Domain prestigeDomain : aClass.getDomainList(aClass.getLevel()))
 			{
-				final StringTokenizer domainTok = new StringTokenizer(prestigeString, "|", false);
-
-				final int level = Integer.parseInt(domainTok.nextToken());
-
-				if (aClass.getLevel() >= level)
+				//CONSIDER Should this be gated by null? - thpr 10/23/06
+				if (prestigeDomain != null)
 				{
-					while (domainTok.hasMoreTokens())
-					{
-						final String prestigeKey = domainTok.nextToken();
-						Domain prestigeDomain = Globals.getDomainKeyed(prestigeKey);
+					prestigeDomain = prestigeDomain.clone();
+				}
 
-						if (prestigeDomain != null)
-						{
-							prestigeDomain = (Domain) prestigeDomain.clone();
-						}
-
-						if (!availDomainList.contains(prestigeDomain))
-						{
-							availDomainList.add(prestigeDomain);
-						}
-					}
+				if (!availDomainList.contains(prestigeDomain))
+				{
+					availDomainList.add(prestigeDomain);
 				}
 			}
 		}

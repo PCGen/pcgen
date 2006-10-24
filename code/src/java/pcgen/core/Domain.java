@@ -201,7 +201,7 @@ public final class Domain extends PObject
 		return "DOMAIN|" + keyName;
 	}
 
-	public Object clone()
+	public Domain clone()
 	{
 		Domain aObj = null;
 

@@ -89,7 +89,7 @@ public class PreStatParserTest extends TestCase
 	 */
 	public void testDex9a() throws Exception
 	{
-		PreParser parser = new PreParser();
+		PreParserFactory parser = PreParserFactory.getInstance();
 		Prerequisite prereq = parser.parse("PRESTAT:1,DEX=9");
 System.out.println(prereq);
 		assertEquals("<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n",

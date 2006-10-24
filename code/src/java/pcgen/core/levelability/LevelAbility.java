@@ -373,7 +373,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 		{
 			final String domainKey = (String) i.next();
 
-			if (aPC.getCharacterDomainIndex(domainKey) == -1)
+			if (!aPC.containsCharacterDomain(domainKey))
 			{
 				Domain aDom = Globals.getDomainKeyed(domainKey);
 
@@ -382,7 +382,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 					continue;
 				}
 
-				aDom = (Domain) aDom.clone();
+				aDom = aDom.clone();
 
 				final CharacterDomain aCD = aPC.getNewCharacterDomain(
 						classKey);
