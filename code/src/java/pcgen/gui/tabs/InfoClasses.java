@@ -1038,6 +1038,12 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private boolean maybeSetExperience(int xp)
 	{
+		// Skip this processing if we have already been through
+		if (xp == pc.getXP())
+		{
+			return true;
+		}
+		
 		pc.setXP(xp);
 
 		if (xp >= pc.minXPForNextECL())
