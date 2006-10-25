@@ -4,6 +4,9 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 # Made weapon accessories into eqmods but not sure how to represent the cost.
 # They are purchsed separately and don't modify the basecost of the item.
 #
+#I'm running into COST problems with applying these EQMODS to weapons in D20 Weapons Locker. I'm setting the cost of the following
+#Eqmods to 0 for that matter, and leave a commented out line with the Puchase DC in for later reference:Suppressor (Rifle),
+#Laser Sight, Illuminator, Standard Scope - Frank
 
 # Modifier Name		Output Name			Unique Key				Type				Cost			Visible		Type granted	Keys to replace																			Choose Naming Option		Source Page							Required Type			Combat bonus			BONUS:EQM					BONUS:EQMARMOR					Modify the item cost			Weapon prop. bonus												Special Property								Choose						Apply to both heads
 Mastercraft +1 To Hit					KEY:MASTERCRAFT_WEAP_HIT_1	TYPE:Ammunition.Weapon	COST:3		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_2,MASTERCRAFT_WEAP_HIT_3,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	NAMEOPT:TEXT=Mastercraft +1	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|1|TYPE=Enhancement									SPROP:Mastercraft (+1)														ASSIGNTOALL:YES
@@ -38,13 +41,17 @@ Burst fire							KEY:BURSTFIRE			TYPE:Automatic					VISIBLE:QUALIFY													
 Double Tap fire						KEY:DBLTAP				TYPE:Semiauto					VISIBLE:QUALIFY				REPLACES:AUTOFIRE																								SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|-2												SPROP:Adds 1 die to damage.
 
 Upgrade							KEY:UPGRADE				TYPE:Desktop.Desktop	COST:1		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf																										BONUS:ITEMCOST|1|PRETYPE:Notebook																SPROP:Applies EXTRA +1 Bonus beyond normal.
-Illuminator							KEY:ILLUMINATOR			TYPE:Firearm		COST:7		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
-Laser Sight							KEY:LSR_SIGHT			TYPE:Firearm		COST:15		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
-Scope (Standard)		OUTPUTNAME:[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
+Illuminator							KEY:ILLUMINATOR			TYPE:Firearm		COST:0		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5																															SPROP:Illuminator Purchase DC 7
+#Illuminator						KEY:ILLUMINATOR			TYPE:Firearm		COST:7		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
+Laser Sight							KEY:LSR_SIGHT			TYPE:Firearm		COST:0		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5																															SPROP:Laser Sight Purchase DC 15
+#Laser Sight						KEY:LSR_SIGHT			TYPE:Firearm		COST:15		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
+Scope (Standard)		OUTPUTNAME:[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:0		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5																															SPROP:Standard Scope Purchase DC 11
+#Scope (Standard)		OUTPUTNAME:[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 Scope (Electro-optical)	OUTPUTNAME:[NAME] Scope	KEY:SCP_ELE_OP			TYPE:Firearm		COST:18		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|3
 Speed Loader						KEY:SPEED_LD			TYPE:Firearm		COST:3		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
-Suppressor (Pistol)	OUTPUTNAME:Suppressor	KEY:SPPRSS_PIS			TYPE:Pistol			COST:12		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|1																															SPROP:Mil(+3)
-Suppressor (Rifle)	OUTPUTNAME:Suppressor	KEY:SPPRSS_RFL			TYPE:Longarm		COST:14		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|4																															SPROP:Mil(+3)
+Suppressor (Pistol)	OUTPUTNAME:Suppressor	KEY:SPPRSS_PIS			TYPE:Pistol			COST:12		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf			!PRETYPE:SpecialSuppressor						BONUS:EQM|WEIGHTADD|1																															SPROP:Mil(+3)
+Suppressor (Rifle)	OUTPUTNAME:Suppressor	KEY:SPPRSS_RFL			TYPE:Longarm		COST:0		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf			!PRETYPE:SpecialSuppressor						BONUS:EQM|WEIGHTADD|4																															SPROP:Suppressor Purchase DC 14,Mil(+3)
+#Suppressor (Rifle)	OUTPUTNAME:Suppressor	KEY:SPPRSS_RFL			TYPE:Longarm		COST:14		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf			!PRETYPE:SpecialSuppressor						BONUS:EQM|WEIGHTADD|4																															SPROP:Mil(+3)
 
 ###Block: Vehicle STATS (Workaround for SPROP not taking variables in EQUIPMENT), the KEY starts with AA so it comes first in SPROP output
 # Modifier Name	Unique Key		Choose Naming Option	Special Property
