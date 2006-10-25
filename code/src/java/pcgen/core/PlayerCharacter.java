@@ -6858,7 +6858,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			if (pObj != null)
 			{
-				visMap = addStringToVisionMap(visMap, pObj.getVision());
+				visMap = addStringToVisionMap(visMap, pObj.getVision(this));
 			}
 		}
 

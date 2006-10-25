@@ -1531,7 +1531,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Populate the vision panel
 				//
-				vision = thisPObject.getVision();
+				vision = thisPObject.getVision(null);
 
 				visionValues = new ArrayList();
 

@@ -28,7 +28,6 @@ package pcgen.core;
 import java.io.Serializable;
 import java.io.StringWriter;
 import java.text.ParseException;
-import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -1293,9 +1292,13 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/**
 	 * Retrieve the vision types associated with the object.
 	 * Key: vision type, Value: vision range.
+	 * 
+	 * add PlayerCharacter argument to allow PCClass to override
+	 *  - Tracker 1489300 - thpr 10/24/06
+	 * 
 	 * @return Map of the vision types associated with the object.
 	 */
-	public Map<String, String> getVision()
+	public Map<String, String> getVision(final PlayerCharacter aPC)
 	{
 		return vision;
 	}

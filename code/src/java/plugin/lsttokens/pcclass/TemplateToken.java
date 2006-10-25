@@ -1,7 +1,6 @@
 package plugin.lsttokens.pcclass;
 
 import pcgen.core.PCClass;
-import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.PCClassLstToken;
 
 /**
@@ -14,7 +13,7 @@ public class TemplateToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.addTemplate(PCClassLoader.fixParameter(level, value));
+		pcclass.addTemplate(level, value);
 		return true;
 	}
 }

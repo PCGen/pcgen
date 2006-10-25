@@ -112,7 +112,7 @@ public class PCClass extends PObject {
 	 * the code seems to want to allow a Domain on a Class Level line. (Not sure
 	 * if this functions correctly, though)
 	 */
-	private ArrayList<LevelProperty> domainList = null;
+	private ArrayList<LevelProperty<Domain>> domainList = null;
 
 	/*
 	 * ALLCLASSLEVELS The automatic Feats appropriate to any given level (they
@@ -162,8 +162,7 @@ public class PCClass extends PObject {
 
 	/*
 	 * STRINGREFACTOR This is currently taking in a delimited String and should
-	 * be taking in a List or somesuch. (Actually building a LevelProperty<Template>
-	 * or something like that)
+	 * be taking in a List or somesuch.
 	 */
 	/*
 	 * TYPESAFETY This is throwing around template names as Strings. :(
@@ -172,13 +171,13 @@ public class PCClass extends PObject {
 	 * ALLCLASSLEVELS The templates [based on their LevelProperty] (not the raw
 	 * Strings) need to be stored in EACH individual PCClassLevel.
 	 */
-	private ArrayList<String> templates = null;
+	private ArrayList<LevelProperty<String>> templates = null;
 
 	/*
 	 * ALLCLASSLEVELS The SR List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
-	private ArrayList<LevelProperty> SR = null;
+	private ArrayList<LevelProperty<String>> SR = null;
 
 	/*
 	 * ALLCLASSLEVELS Since this seems to allow for class dependent additions of
@@ -190,7 +189,7 @@ public class PCClass extends PObject {
 	 * ALLCLASSLEVELS This is pretty obvious, as these are already in a
 	 * LevelProperty... these go into the PCClassLevel
 	 */
-	private ArrayList<LevelProperty> naturalWeapons = null;
+	private ArrayList<LevelProperty<Equipment>> naturalWeapons = null;
 
 	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
@@ -209,13 +208,6 @@ public class PCClass extends PObject {
 																		// of
 																		// SubstitutionClass
 																		// objects
-
-	/*
-	 * DELETEVARIABLE This appears to be an unused cache, and will not be very
-	 * useful once the Templates are level dependent and in different
-	 * PCClassLevels
-	 */
-	private ArrayList<String> templatesAdded = null;
 
 	/*
 	 * DELETEVARIABLE There is NO use of this Tag at all in the data/* structure
@@ -262,6 +254,14 @@ public class PCClass extends PObject {
 	 * necessarily a number; however, the complex processing that takes place on
 	 * it is NOT a Formula, per se. Therefore, the processing can be done either
 	 * at import of the Tag, or at least before a PCClassLevel is created.
+	 * 
+	 * This is, unfortunately, a bit more difficult than it looks, since it is
+	 * processing based on currently known data (the hit die size).  This makes
+	 * it a bit more complicated to get the formula processing correct.
+	 * 
+	 * Note hat .MOD processing needs to be considered here - what happens when 
+	 * a later .MOD copies a class and changes the HITDIE?  This can't be 
+	 * completely pre-processed or it won't work
 	 */
 	/*
 	 * REFACTOR This name??? Lock what? It is really a modification of the HITDIE
@@ -319,7 +319,7 @@ public class PCClass extends PObject {
 	 * ALLCLASSLEVELS The Vision List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
-	private List<LevelProperty> visionList = null;
+	private List<LevelProperty<String>> visionList = null;
 
 	/*
 	 * STRINGREFACTOR Need to rebuild this String into a List<Integer>
@@ -1523,11 +1523,11 @@ public class PCClass extends PObject {
 			return ret;
 		}
 		List<Domain> returnList = new ArrayList<Domain>();
-		for (LevelProperty prop : domainList)
+		for (LevelProperty<Domain> prop : domainList)
 		{
 			if (prop.getLevel() <= domainLevel)
 			{
-				returnList.add((Domain) prop.getObject());
+				returnList.add(prop.getObject());
 			}
 		}
 		return returnList;
@@ -3078,16 +3078,20 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * CONSIDER Should this be overriding getTemplateList from PObject?? (it
-	 * isn't)
+	 * Note: Since this is local access, it does not need to override
+	 * getTemplateList from PObject (although it is probably confusing that it
+	 * doesn't). The key point is ensuring that getTemplates(final boolean flag,
+	 * final PlayerCharacter aPC) is still properly overriding the PObject
+	 * method so that the proper templates for this PCClass are applied to the
+	 * PlayerCharacter.
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public List<String> getTemplates() {
+	public List<LevelProperty<String>> getTemplates() {
 		if (templates == null) {
-			final List<String> ret = Collections.emptyList();
+			final List<LevelProperty<String>> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
 		}
 		return Collections.unmodifiableList(templates);
@@ -3327,11 +3331,10 @@ public class PCClass extends PObject {
 				.indexOf(Constants.PIPE) + 1);
 
 		if (visionList == null) {
-			visionList = new ArrayList<LevelProperty>();
+			visionList = new ArrayList<LevelProperty<String>>();
 		}
 
-		final LevelProperty lp = new LevelProperty(lvl, newString);
-		visionList.add(lp);
+		visionList.add(LevelProperty.getLevelProperty(lvl, newString));
 	}
 
 	/*
@@ -3603,34 +3606,6 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * Class section of Natural Attacks Is just a wrapper to remove the level
-	 * dependent stuff
-	 * 
-	 * @param obj
-	 * @param aString
-	 */
-	/*
-	 * DELETEMETHOD This should be refactored out and this work (prior to the
-	 * proposed call to addNaturalWeapon) should be done in the Tag
-	 */
-	public void setNaturalAttacks(final PObject obj, final String aString) {
-		final StringTokenizer attackTok = new StringTokenizer(aString,
-				Constants.PIPE, false);
-		final int lvl = Integer.parseInt(attackTok.nextToken());
-		final String sNat = attackTok.nextToken();
-		/*
-		 * REFACTOR This should be using addNaturalWeapon(eq, lvl);
-		 */
-		final LevelProperty lp = new LevelProperty(lvl, sNat);
-
-		if (naturalWeapons == null) {
-			naturalWeapons = new ArrayList<LevelProperty>();
-		}
-
-		naturalWeapons.add(lp);
-	}
-
-	/**
 	 * get the Natural Attacks for this level
 	 * 
 	 * @return natural weapons list
@@ -3646,9 +3621,9 @@ public class PCClass extends PObject {
 			return tempArray;
 		}
 
-		for (LevelProperty lp : naturalWeapons) {
+		for (LevelProperty<Equipment> lp : naturalWeapons) {
 			if (lp.getLevel() <= level) {
-				final Equipment weapon = (Equipment) lp.getObject();
+				final Equipment weapon = lp.getObject();
 				tempArray.add(weapon);
 //				addWeaponProfAutos(weapon.getName());
 			}
@@ -3746,11 +3721,10 @@ public class PCClass extends PObject {
 			SR = null;
 		} else {
 			if (SR == null) {
-				SR = new ArrayList<LevelProperty>();
+				SR = new ArrayList<LevelProperty<String>>();
 			}
 
-			final LevelProperty lp = new LevelProperty(lvl, tokenSrString);
-			SR.add(lp);
+			SR.add(LevelProperty.getLevelProperty(lvl, tokenSrString));
 		}
 	}
 
@@ -3767,7 +3741,7 @@ public class PCClass extends PObject {
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public String getSRFormula() {
-		LevelProperty lp = null;
+		LevelProperty<String> lp = null;
 
 		if (SR != null) {
 			final int lvl = level;
@@ -3782,7 +3756,7 @@ public class PCClass extends PObject {
 		}
 
 		if (lp != null) {
-			return lp.getProperty();
+			return lp.getObject();
 		}
 
 		return null;
@@ -3803,9 +3777,9 @@ public class PCClass extends PObject {
 	 */
 	public String getSRListString(final int index, final String delimiter) {
 		if ((SR != null) && (SR.size() > index)) {
-			final LevelProperty lp = SR.get(index);
+			final LevelProperty<String> lp = SR.get(index);
 
-			return lp.getLevel() + delimiter + lp.getProperty();
+			return lp.getLevel() + delimiter + lp.getObject();
 		}
 
 		return null;
@@ -4015,9 +3989,9 @@ public class PCClass extends PObject {
 		}
 
 		if (SR != null) {
-			for (LevelProperty lp : SR) {
+			for (LevelProperty<String> lp : SR) {
 				pccTxt.append(lineSep).append(lp.getLevel()).append("\tSR:")
-						.append(lp.getProperty());
+						.append(lp.getObject());
 			}
 		}
 
@@ -4035,10 +4009,11 @@ public class PCClass extends PObject {
 
 		}
 
-		for (final String template : getTemplates()) {
-			final int y = template.indexOf('|');
-			pccTxt.append(lineSep).append(template.substring(0, y));
-			pccTxt.append("\tTEMPLATE:").append(template.substring(y + 1));
+		if (templates != null) {
+			for (final LevelProperty<String> lp : templates) {
+				pccTxt.append(lineSep).append(lp.getLevel());
+				pccTxt.append("\tTEMPLATE:").append(lp.getObject());
+			}
 		}
 
 		for (int x = 0; x < getBonusList().size(); ++x) {
@@ -4092,7 +4067,7 @@ public class PCClass extends PObject {
 
 		if (domainList != null)
 		{
-			for (LevelProperty domainProp : domainList)
+			for (LevelProperty<Domain> domainProp : domainList)
 			{
 				pccTxt.append(lineSep).append(domainProp.getLevel());
 				pccTxt.append("\tDOMAIN:").append(
@@ -4178,6 +4153,8 @@ public class PCClass extends PObject {
 	 * Here is where we do the real work of setting the vision information on
 	 * the PObject
 	 * 
+	 * Must Override to fix 1489300
+	 * 
 	 * @param aPC
 	 * @return Map
 	 */
@@ -4186,16 +4163,17 @@ public class PCClass extends PObject {
 	 * PCClass for PCClassLevel creation (in the factory) [with level dependent
 	 * differences, of course]
 	 */
+	@Override
 	public Map<String, String> getVision(final PlayerCharacter aPC) {
 		if (visionList != null) {
-			for (LevelProperty vision : visionList) {
-				if (vision.getLevel() <= level) {
-					super.setVision(vision.getProperty(), aPC);
+			for (LevelProperty<String> vis : visionList) {
+				if (vis.getLevel() <= level) {
+					super.setVision(vis.getObject(), aPC);
 				}
 			}
 		}
 
-		return super.getVision();
+		return super.getVision(aPC);
 	}
 
 	public void setXPPenalty(final DefaultTriState argXPPenalty) {
@@ -4265,9 +4243,9 @@ public class PCClass extends PObject {
 	 */
 	public void addDomain(final Domain domain, int domainLevel) {
 		if (domainList == null) {
-			domainList = new ArrayList<LevelProperty>();
+			domainList = new ArrayList<LevelProperty<Domain>>();
 		}
-		domainList.add(new LevelProperty(domainLevel, domain));
+		domainList.add(LevelProperty.getLevelProperty(domainLevel, domain));
 	}
 
 	/*
@@ -4425,11 +4403,11 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void addTemplate(final String template) {
+	public void addTemplate(int lvl, final String template) {
 		if (templates == null) {
-			templates = new ArrayList<String>();
+			templates = new ArrayList<LevelProperty<String>>();
 		}
-		templates.add(template);
+		templates.add(LevelProperty.getLevelProperty(lvl, template));
 	}
 
 	/*
@@ -4806,7 +4784,7 @@ public class PCClass extends PObject {
 			// aClass.ageSet = ageSet;
 			if (domainList != null) {
 				//This is ok as a shallow copy - contract on readers of domainList
-				aClass.domainList = new ArrayList<LevelProperty>(domainList);
+				aClass.domainList = new ArrayList<LevelProperty<Domain>>(domainList);
 			}
 			if (addDomains != null) {
 				aClass.addDomains = new ArrayList<String>(addDomains);
@@ -4820,7 +4798,7 @@ public class PCClass extends PObject {
 			aClass.hasSpellFormulas = hasSpellFormulas;
 
 			if (naturalWeapons != null) {
-				aClass.naturalWeapons = new ArrayList<LevelProperty>(
+				aClass.naturalWeapons = new ArrayList<LevelProperty<Equipment>>(
 						naturalWeapons);
 			}
 		} catch (CloneNotSupportedException exc) {
@@ -6533,8 +6511,7 @@ public class PCClass extends PObject {
 	 * </p>
 	 * <p>
 	 * Passing <code>false</code> to this function results in nothing
-	 * happening, although the function still parses all of the template lines,
-	 * it doesn't add anything to the class.
+	 * happening, it doesn't add anything to the class.
 	 * </p>
 	 * 
 	 * @param flag
@@ -6550,34 +6527,28 @@ public class PCClass extends PObject {
 	public List<String> getTemplates(final boolean flag,
 			final PlayerCharacter aPC) {
 		final ArrayList<String> newTemplates = new ArrayList<String>();
-		templatesAdded = new ArrayList<String>();
 
-		for (final String template : getTemplates()) {
-			final StringTokenizer aTok = new StringTokenizer(template, "|",
-					false);
-
-			if (level < Integer.parseInt(aTok.nextToken())) {
+		if (!flag) {
+			return newTemplates;
+		}
+		
+		for (final LevelProperty<String> template : getTemplates()) {
+			if (level < template.getLevel()) {
 				continue;
 			}
 
-			// The next token will either be a CHOOSE: tag or a template;
-			// we handle CHOOSE: tags by retrieving the rest of the string
-			final String tString = aTok.nextToken();
+			/*
+			 * The template string will either be a CHOOSE: tag or a bar
+			 * separated list of templates
+			 */
+			final String tString = template.getObject();
 
-			if (tString.startsWith("CHOOSE:") && !flag) {
-				newTemplates
-						.add(PCTemplate.chooseTemplate(this, template
-								.substring(template.indexOf("CHOOSE:") + 7),
-								true, aPC));
-				templatesAdded.add(newTemplates.get(newTemplates.size() - 1));
-			} else if (!flag) {
-				newTemplates.add(tString);
-				templatesAdded.add(newTemplates.get(newTemplates.size() - 1));
-
-				while (aTok.hasMoreTokens()) {
-					newTemplates.add(aTok.nextToken());
-					templatesAdded.add(newTemplates
-							.get(newTemplates.size() - 1));
+			if (tString.startsWith("CHOOSE:")) {
+				newTemplates.add(PCTemplate.chooseTemplate(this, tString
+						.substring(7), true, aPC));
+			} else {
+				for (String templ : tString.split("|")) {
+					newTemplates.add(templ);
 				}
 			}
 		}
@@ -7301,7 +7272,7 @@ public class PCClass extends PObject {
 		}
 
 		if (otherClass.SR != null) {
-			SR = (ArrayList<LevelProperty>) otherClass.SR.clone();
+			SR = (ArrayList<LevelProperty<String>>) otherClass.SR.clone();
 		}
 
 		if (otherClass.vision != null) {
@@ -7313,7 +7284,7 @@ public class PCClass extends PObject {
 		}
 
 		if (otherClass.naturalWeapons != null) {
-			naturalWeapons = (ArrayList<LevelProperty>) otherClass.naturalWeapons
+			naturalWeapons = (ArrayList<LevelProperty<Equipment>>) otherClass.naturalWeapons
 					.clone();
 		}
 	}
@@ -7447,40 +7418,6 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * REFACTOR This can be done in a Generic typesafe way (e.g. LevelProperty<T>)
-	 * to avoid some casting
-	 */
-	private static class LevelProperty {
-		private String property = "";
-
-		private int propLevel = 0;
-
-		private PObject object;
-
-		LevelProperty(final int argLevel, final String argProperty) {
-			propLevel = argLevel;
-			property = argProperty;
-		}
-
-		LevelProperty(final int argLevel, final PObject argObject) {
-			propLevel = argLevel;
-			object = argObject;
-		}
-
-		public final int getLevel() {
-			return propLevel;
-		}
-
-		public final String getProperty() {
-			return property;
-		}
-
-		public final PObject getObject() {
-			return object;
-		}
-	}
-
-	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see pcgen.core.PObject#addNaturalWeapon(pcgen.core.Equipment, int)
@@ -7493,8 +7430,7 @@ public class PCClass extends PObject {
 		/*
 		 * CONSIDER Should this be checking for a null list??
 		 */
-		final LevelProperty lp = new LevelProperty(aLevel, weapon);
-		naturalWeapons.add(lp);
+		naturalWeapons.add(LevelProperty.getLevelProperty(aLevel, weapon));
 	}
 
 	/**
