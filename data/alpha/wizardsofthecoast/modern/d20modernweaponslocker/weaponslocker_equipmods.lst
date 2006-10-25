@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Wed Oct 25 03:30:13 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
+
+# Suppressors
+# Equipment Name						Output Name										Type								Cost		Weight	Source Page		Special Property
+# Modifier Name				Output Name									Unique Key		Type			Cost		Visible		Type granted	Source Page		Required Type		BONUS:EQM			Special Property
+FN Five-seveN Suppressor		OUTPUTNAME:Suppressors Kit: FN Five-seveN				KEY:SPPRSS_FN57	TYPE:Pistol		COST:1	VISIBLE:QUALIFY				SOURCEPAGE:p.25	PRETYPE:1,FN57						SPROP:Res(+2)
+Ingram MAC-10 Suppressor		OUTPUTNAME:Conversion Kit: Ingram MAC-10 Suppressor		KEY:SPPRSS_MAC10	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.128	PRETYPE:1,MAC10		BONUS:EQM|WEIGHTADD|2	SPROP:Suppressor Puchase DC 12,Res(+2)
+Ingram MAC-11 Suppressor		OUTPUTNAME:Conversion Kit: Ingram MAC-11 Suppressor		KEY:SPPRSS_MAC11	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.128	PRETYPE:1,MAC11		BONUS:EQM|WEIGHTADD|2	SPROP:Suppressor Puchase DC 11,Res(+2)
+OTs-02 Kiparis Suppressor		OUTPUTNAME:Conversion Kit: OTs-02 Kiparis Suppressor		KEY:SPPRSS_OTS02	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.131	PRETYPE:1,OTS02						SPROP:Suppressor Puchase DC 14,Res(+2)
+SCH-21 Gorda Suppressor Barrel	OUTPUTNAME:Conversion Kit: SCH-21 Gorda Suppressor Barrel	KEY:SPPRSS_SCH21	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.136	PRETYPE:1,SCH21						SPROP:Suppressor Puchase DC 15,Res(+2)
+Steyr MPi69 Suppressor			OUTPUTNAME:Conversion Kit: Steyr MPi69 Suppressor		KEY:SPPRSS_MPI69	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:1,MPI69						SPROP:Suppressor Puchase DC 17,Mil(+3)
+Steyr MPi81 Suppressor			OUTPUTNAME:Conversion Kit: Steyr MPi81 Suppressor		KEY:SPPRSS_MPI81	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:1,MPI83						SPROP:Suppressor Puchase DC 17.Mil(+3)
+Silenced Barrel				OUTPUTNAME:Conversion Kit: Silenced Barrel			KEY:SPPRSS_PGM_UR	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.99	PRETYPE:1,PGM_UR						SPROP:Silenced barrel (Puchase DC 16),Res (+2)
+
+# Misc Kits
+Rifle Scope Mount				OUTPUTNAME:Conversion Kit: Rifle Scope Mount			KEY:MOUNT_SCP_RFL	TYPE:Longarm	COST:0	VISIBLE:QUALIFY	ITYPE:Scope		SOURCEPAGE:p.56									SPROP:Rifle Scope Mount (Purchase DC 10)
+SUSAT						OUTPUTNAME:Sighting Kit: SUSAT Optical Sight			KEY:SUSAT_SIGHT	TYPE:Firearm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:1,SUSAT						SPROP:4x optical sight w/tritium-powered glowing pointer for limited night sighting as well as the CWS (Common Weapon Sight) - a ultraviolet night sight,Mil(+3)
+Kahles ZF69					OUTPUTNAME:Sighting Kit: Kahles ZF69 Optical Sight		KEY:KAHLES_SIGHT	TYPE:Firearm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.172	PRETYPE:1,KAHLES						SPROP:6x optical sight,Mil(+3)
+
+#modifying basic EQMODS to enforce the use of the Rofle Scope Mount when Weapons Locker is loaded
+SCP_STD.MOD																																PRETYPE:1,Pistol,Scope
+SCP_ELE_OP.MOD																															PRETYPE:1,Pistol,Scope

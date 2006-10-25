@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Wed Oct 25 03:30:13 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
+# Author Terry FitzSimons   Date 8 May 2006
+
+
+# Copied from MSRD Melee file created by frank_kliewe
+# Changed the names and Proficiency
+# Removed the double from TYPE, deleted the 2ndary data
+
+#	Archaic Melee Weapons
+# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
+Bayonet (Pistol)	OUTPUTNAME:Pistol Bayonet	PROFICIENCY:Pistol Bayonet	TYPE:Weapon.Archaic.Melee.Standard.Piercing.Metal	COST:0	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf
+Bayonet (Rifle)	OUTPUTNAME:Rifle Bayonet	PROFICIENCY:Rifle Bayonet	TYPE:Weapon.Archaic.Melee.Standard.Piercing.Metal	COST:0	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf

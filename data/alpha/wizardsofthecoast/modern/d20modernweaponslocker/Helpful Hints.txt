@@ -1,0 +1,5 @@
+This a catch-all of things that should help.
+
+There is one pistol, one rifle that have bayonets, and a bunch of Assault ritles and submachine guns that have grenade launchers.  To get them to work correctly.  In the Inventory screen, select the item that you want to add to your character.  Switch to the Equipping screen and add the item to your character, in a primary/secondary/both location.  This will get the AUTO:EQUIP to fire and add all of the additional parts.  Then right click on the main equipment and move it to another location.
+
+

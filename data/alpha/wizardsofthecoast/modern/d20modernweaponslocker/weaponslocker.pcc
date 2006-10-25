@@ -1,0 +1,46 @@
+# CVS $Revision$ $Author$ -- Tue Aug 29 21:16:24 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# Author Terry FitzSimons		Date 7 May 06
+CAMPAIGN:WotC - d20 Modern Weapons Locker
+GAMEMODE:Modern
+RANK:3
+GENRE:Modern
+BOOKTYPE:Supplement
+SETTING:Modern
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Wizards of the Coast.Supplement.d20 Weapons Locker
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/d20modern
+SOURCELONG:d20 Weapons Locker
+SOURCESHORT:d20WL
+SOURCEWEB:http://www.wizards.com/d20modern
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Ultramodern Firearms d20, Copyright 2002 Charles McManus
+COPYRIGHT:d20 Modern Weapons Locker, Copyright 2004, Wizards of the Coast, Inc.; Author Keith Potter
+COPYRIGHT:PCGen Dataset conversion for the d20 Weapons Locker book Copyright &copy 2005-2006, PCGen Data team (including, but not limited to, Paul W. King, Terry FitzSimons, Frank Kliewe.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:Helpful_Hints.txt
+
+EQUIPMOD:weaponslocker_equipmods.lst
+
+EQUIPMENT:weaponslocker_equip_weap.lst
+EQUIPMENT:weaponslocker_equip_weap_ammo.lst
+EQUIPMENT:weaponslocker_equip_weap_antimaterial.lst
+EQUIPMENT:weaponslocker_equip_weap_grenade_launchers.lst
+EQUIPMENT:weaponslocker_equip_weap_machine_guns.lst
+EQUIPMENT:weaponslocker_equip_weap_melee.lst
+EQUIPMENT:weaponslocker_equip_weap_pistols.lst
+EQUIPMENT:weaponslocker_equip_weap_rifles.lst
+EQUIPMENT:weaponslocker_equip_weap_shotguns.lst
+EQUIPMENT:weaponslocker_equip_weap_sniper.lst
+EQUIPMENT:weaponslocker_equip_weap_submachine_guns.lst
+
+WEAPONPROF:weaponslocker_weaponprofs.lst
+
+#Hiding Equipment Types that control EQMODS
+HIDETYPE:EQUIP|FN57|KAHLES|MAC10|MAC11|MPI69|MPI81|OTS02|PGM_UR|SCH21|Scope|SUSAT
