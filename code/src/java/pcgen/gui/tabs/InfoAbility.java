@@ -305,7 +305,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString(
 					"InfoAbility.StatusLine.Info")); //$NON-NLS-1$
-		
+	
+		//TODO: These setPC	calls may no longer be required now that they are also done in updateCharacterInfo
 		if ( theAvailablePane != null )
 		{
 			theAvailablePane.setPC(getPc());
@@ -479,6 +480,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	{
 		if ( theAvailablePane != null )
 		{
+			theAvailablePane.setPC(getPc());
 			theAvailablePane.update();
 		}
 	}
@@ -509,6 +511,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 		if ( theInfoPanel != null )
 		{
+			theInfoPanel.setPC(getPc());
 			theInfoPanel.setAbility(null);
 		}
 		
@@ -517,6 +520,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 		if ( thePoolPanel != null )
 		{
+			thePoolPanel.setPC(getPc());
 			thePoolPanel.showRemainingAbilityPoints();
 		}
 		setNeedsUpdate(false);
@@ -526,6 +530,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	{
 		if ( theSelectedPane != null )
 		{
+			theSelectedPane.setPC(getPc());
 			theSelectedPane.update();
 		}
 	}
