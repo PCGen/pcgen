@@ -747,7 +747,14 @@ public final class EditorMainForm extends JDialog
 				Movement cm = Movement.getMovementFrom(pnlMovement.getMoveValues());
 				cm.setMovementTypes(pnlMovement.getMoveTypes());
 				thisRace.setMovement(cm);
-				thisRace.setVisionTable(pnlVision.getVision());
+				
+				thisRace.clearVisionList();
+				List<Vision> visionList = pnlVision.getVision();
+				for (Vision vis : visionList) 
+				{
+					thisRace.addVision(vis);
+				}
+				
 				thisRace.setNaturalWeapons(pnlNaturalAttacks.getNaturalWeapons());
 				pnlAppearance.updateData(thisPObject);
 				pnlAge.updateData(thisPObject);
@@ -1165,7 +1172,7 @@ public final class EditorMainForm extends JDialog
 		List aList;
 		List movementValues;
 		List visionValues;
-		Map vision;
+		List<Vision> vision;
 		List naturalAttacks;
 
 		pnlMainTab.setNameText(thisPObject.getKeyName());
@@ -1531,22 +1538,18 @@ public final class EditorMainForm extends JDialog
 				//
 				// Populate the vision panel
 				//
-				vision = thisPObject.getVision(null);
+				vision = thisPObject.getVision();
 
 				visionValues = new ArrayList();
 
 				if (vision != null)
 				{
-					for (Iterator i = vision.keySet().iterator(); i.hasNext();)
+					for (Vision vis : vision)
 					{
-						final StringBuffer vis = new StringBuffer(25);
-						final String aKey = i.next().toString();
-						final String aVal = vision.get(aKey).toString();
-
-						vis.append(aKey);
-						vis.append(',').append(aVal);
-
-						visionValues.add(vis.toString());
+						final StringBuffer visionString = new StringBuffer(25);
+						visionString.append(vis.getType());
+						visionString.append(',').append(vis.getDistance());
+						visionValues.add(visionString.toString());
 					}
 				}
 

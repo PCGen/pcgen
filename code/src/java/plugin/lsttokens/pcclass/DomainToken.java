@@ -2,6 +2,7 @@ package plugin.lsttokens.pcclass;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -20,7 +21,7 @@ public class DomainToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		final StringTokenizer aTok = new StringTokenizer(value, "|");
+		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		
 		while (aTok.hasMoreTokens())
 		{

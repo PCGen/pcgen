@@ -26,7 +26,6 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -87,10 +86,6 @@ public final class Race extends PObject
 	private String raceType = Constants.s_NONE;
 	private ArrayList<String> racialSubTypes = new ArrayList<String>();
 	private Map<AbilityCategory, List<String>> theAutoAbilities;
-
-	{
-		vision = new HashMap<String, String>();
-	}
 
 	/**
 	 * Sets this races advancement to not be limited.
@@ -172,28 +167,19 @@ public final class Race extends PObject
 			return "";
 		}
 
-		final StringBuffer vis = new StringBuffer(25);
+		final StringBuffer visionString = new StringBuffer(25);
 
-		for (Iterator<String> i = vision.keySet().iterator(); i.hasNext();)
+		for (Vision vis : vision)
 		{
-			final String aKey = i.next();
-			final String aVal = vision.get(aKey);
-			final int val = aPC.getVariableValue(aVal, "").intValue();
-
-			if (vis.length() > 0)
+			if (visionString.length() > 0)
 			{
-				vis.append(';');
+				visionString.append(';');
 			}
 
-			vis.append(aKey);
-
-			if (val != 0)
-			{
-				vis.append(" (").append(val).append("')");
-			}
+			visionString.append(vis.toString(aPC));
 		}
 
-		return vis.toString();
+		return visionString.toString();
 	}
 
 	public void setFace(final double width, final double height)
@@ -909,11 +895,6 @@ public final class Race extends PObject
 	public void setStartingAC(final Integer anInt)
 	{
 		startingAC = anInt;
-	}
-
-	public void setVisionTable(final Map<String, String> visionTable)
-	{
-		vision = visionTable;
 	}
 
 	public Object clone()

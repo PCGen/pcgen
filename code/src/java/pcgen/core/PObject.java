@@ -67,6 +67,7 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PObject</code><br>
@@ -104,7 +105,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * A map of vision types associated with the object,
 	 * Key: vision type, Value: vision range.
 	 */
-	protected Map<String, String> vision = null;
+	protected List<Vision> vision = null;
 	private HashMap<String, String> pluginDataMap = new HashMap<String, String>();
 
 	/** The Non-internationalized name to use to refer to this object. */
@@ -1171,134 +1172,40 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * @param aString
 	 * @param aPC
 	 */
-	public void setVision(final String aString, final PlayerCharacter aPC)
+	public void addVision(Vision v)
 	{
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-
-		while (aTok.hasMoreTokens())
+		//CONSIDER Need null check?
+		if (vision == null) {
+			vision = new ArrayList<Vision>();
+		}
+		vision.add(v);
+	}
+	
+	public void clearVisionList() {
+		if (vision != null)
 		{
-			final String bString = aTok.nextToken();
-
-			// This is a hack to fix a specific bug.  It is
-			// unintelligent.  FIXME XXX
-			if (".CLEAR".equals(bString))
-			{
-				vision = null;
-
-				continue;
-			}
-
-			final String cString;
-			String dString;
-
-			if (bString.indexOf(',') < 0)
-			{
-				cString = bString;
-				dString = bString;
-			}
-			else
-			{
-				final StringTokenizer bTok = new StringTokenizer(bString, ",");
-				cString = bTok.nextToken();
-				dString = bTok.nextToken();
-			}
-
-			if (cString.startsWith(".CLEAR.") || "2".equals(cString))
-			{
-				if (vision == null)
-				{
-					continue;
-				}
-
-				if (cString.startsWith(".CLEAR."))
-				{
-					// Strip off the .CLEAR.
-					dString = dString.substring(7);
-				}
-
-				final Object aKey = vision.get(dString);
-
-				if (aKey != null)
-				{
-					vision.remove(dString);
-				}
-			}
-			else if (cString.startsWith(".SET.") || "0".equals(cString))
-			{
-				if (vision == null)
-				{
-					vision = new HashMap<String, String>();
-				}
-
-				vision.clear();
-
-				if (cString.startsWith(".SET."))
-				{
-					// Strip off the .SET.
-					dString = dString.substring(5);
-				}
-
-				// expecting value in form of Darkvision (60')
-				final StringTokenizer cTok = new StringTokenizer(dString, "(')");
-				final String aKey = cTok.nextToken().trim(); //	 e.g. Darkvision
-				final String aVal = cTok.nextToken(); // e.g. 60
-				vision.put(aKey, aVal);
-			}
-			else
-			{
-				if (vision == null)
-				{
-					vision = new HashMap<String, String>();
-				}
-
-				// expecting value in form of: Darkvision (60')
-				final StringTokenizer cTok = new StringTokenizer(dString, "(')");
-				final String aKey = cTok.nextToken().trim(); //	 e.g. Darkvision
-				Globals.putVisionMap(aKey);
-
-				String aVal = "0";
-
-				if (cTok.hasMoreTokens())
-				{
-					aVal = cTok.nextToken(); // e.g. 60
-				}
-
-				final Object bObj = vision.get(aKey);
-
-				if (bObj == null)
-				{
-					vision.put(aKey, aVal);
-				}
-				else
-				{
-					if (aPC != null)
-					{
-						final int b = aPC.getVariableValue(bObj.toString(), "").intValue();
-
-						if (b < aPC.getVariableValue(aVal, "").intValue())
-						{
-							vision.put(aKey, aVal);
-						}
-					}
-					else
-					{
-						vision.put(aKey, aVal);
-					}
-				}
+			vision.clear();
+		}
+	}
+	
+	public boolean removeVisionType(VisionType type) {
+		if (vision == null) {
+			return false;
+		}
+		for (Vision vis : vision) {
+			if (vis.getType().equals(type)) {
+				return vision.remove(vis);
 			}
 		}
+		return false;
 	}
 
 	/**
 	 * Retrieve the vision types associated with the object.
-	 * Key: vision type, Value: vision range.
 	 * 
-	 * add PlayerCharacter argument to allow PCClass to override
-	 *  - Tracker 1489300 - thpr 10/24/06
-	 * 
-	 * @return Map of the vision types associated with the object.
+	 * @return List of Vision objects associated with the object.
 	 */
-	public Map<String, String> getVision(final PlayerCharacter aPC)
+	public List<Vision> getVision()
 	{
 		return vision;
 	}
@@ -2988,19 +2895,15 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			final StringBuffer sb = new StringBuffer();
 
-			for (String key : vision.keySet())
+			for (Vision vis : vision)
 			{
-				final String val = vision.get(key);
-
-				if ((val.length() > 0) && !"0".equals(val))
+				if (!"0".equals(vis.getDistance()))
 				{
 					if (sb.length() > 0)
 					{
 						sb.append('|');
 					}
-
-					sb.append(key).append(" (");
-					sb.append(val).append("')");
+					sb.append(vis);
 				}
 			}
 

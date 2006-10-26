@@ -53,6 +53,7 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.DefaultTriState;
+import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PCClass</code>.
@@ -183,7 +184,7 @@ public class PCClass extends PObject {
 	 * ALLCLASSLEVELS Since this seems to allow for class dependent additions of
 	 * Domains, this needs to occur in each class level as appropriate.
 	 */
-	private ArrayList<String> addDomains = null;
+	private ArrayList<LevelProperty<Domain>> addDomains = null;
 
 	/*
 	 * ALLCLASSLEVELS This is pretty obvious, as these are already in a
@@ -311,15 +312,10 @@ public class PCClass extends PObject {
 											// really working properly
 
 	/*
-	 * TYPESAFETY The VisionList should be something other than String! There
-	 * should probably be a Typesafe Enumeration of Vision Types. This would
-	 * then be stored in a VisionMap with the value being the vision distance.
-	 */
-	/*
 	 * ALLCLASSLEVELS The Vision List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
-	private List<LevelProperty<String>> visionList = null;
+	private List<LevelProperty<Vision>> visionList = null;
 
 	/*
 	 * STRINGREFACTOR Need to rebuild this String into a List<Integer>
@@ -909,23 +905,35 @@ public class PCClass extends PObject {
 	/**
 	 * Returns the list of domains that this class grants access to.
 	 * 
-	 * <p>
-	 * The list returned actually consists of a level|domainkey|domainkey
-	 * series.
-	 * <p>
-	 * TODO - Fix this.
-	 * 
-	 * @return List of strings representing additional domain choices for this
-	 *         class.
+	 * @return List of Domain choices for this class.
 	 */
 	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final List<String> getAddDomains() {
+	public final List<Domain> getAddDomains(int domainLevel) {
 		if (addDomains == null) {
-			final List<String> ret = Collections.emptyList();
+			final List<Domain> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
+		}
+		List<Domain> returnList = new ArrayList<Domain>();
+		for (LevelProperty<Domain> prop : addDomains)
+		{
+			if (prop.getLevel() <= domainLevel)
+			{
+				returnList.add(prop.getObject());
+			}
+		}
+		return returnList;
+	}
+	
+	/*
+	 * PCCLASSONLY This is only for editing of a PCClass; therefore
+	 * not required for a PCClassLevel
+	 */
+	public List<LevelProperty<Domain>> getAddDomains() {
+		if (addDomains == null) {
+			return null;
 		}
 		return Collections.unmodifiableList(addDomains);
 	}
@@ -1857,34 +1865,15 @@ public class PCClass extends PObject {
 		specialtyList.add(aSpecialty);
 	}
 
-	/**
-	 * 
-	 * @param level
-	 * @param aString
-	 *            <p>
-	 *            TODO - Fix this to not store level|key. Ideally should store a
-	 *            <tt>LevelProperty</tt> object with a <tt>Domain</tt>
-	 *            reference.
-	 */
-	/*
-	 * STRINGREFACTOR This needs to store a LevelProperty object that contains a
-	 * Domain, NOT a String, especially a | delimited String... !!
-	 */
-	/*
-	 * TYPESAFETY should also be introduced by String refactoring from
-	 * domainList
-	 */
 	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method (of course, a level independent version for PCClassLevel
 	 */
-	public void addAddDomain(final int level, final String aString) {
-		final String prefix = Integer.toString(level) + Constants.PIPE;
-
+	public void addAddDomain(final int aLevel, final Domain aDomain) {
 		if (addDomains == null) {
-			addDomains = new ArrayList<String>();
+			addDomains = new ArrayList<LevelProperty<Domain>>();
 		}
-		addDomains.add(prefix + aString);
+		addDomains.add(LevelProperty.getLevelProperty(aLevel, aDomain));
 	}
 
 	/*
@@ -3301,42 +3290,43 @@ public class PCClass extends PObject {
 	 * @param aPC
 	 */
 	/*
-	 * REFACTOR The PlayerCharacter here is NEVER used in production code, only
-	 * test code - that is bad behavior, and thus the reference to
-	 * PlayerCharacter in this method should be removed from both PCClass and
-	 * PObject
-	 */
-	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel PCClass since it is
 	 * a Tag [with level dependence differences, of course)
 	 */
-	public final void setVision(final String aString, final PlayerCharacter aPC) {
-		/*
-		 * STRINGREFACTOR This can be refactored out of PCClass and put into the
-		 * VISION tag. Then the tag needs to build the visionMap (below) and
-		 * properly load that map into PCClass.
-		 */
-		// Class based vision lines are of the form:
-		// 1|Darkvision(60'),Lowlight
-		if (".CLEAR".equals(aString)) {
-			visionList = null;
-
-			return;
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(aString,
-				Constants.PIPE, false);
-		final int lvl = Integer.parseInt(aTok.nextToken());
-		final String newString = aString.substring(aString
-				.indexOf(Constants.PIPE) + 1);
-
+	public final void addVision(int aLevel, Vision vis) {
 		if (visionList == null) {
-			visionList = new ArrayList<LevelProperty<String>>();
+			visionList = new ArrayList<LevelProperty<Vision>>();
 		}
-
-		visionList.add(LevelProperty.getLevelProperty(lvl, newString));
+		visionList.add(LevelProperty.getLevelProperty(aLevel, vis));
 	}
 
+	/*
+	 * PCCLASSONLY This is an editor and loader requirement, therefore
+	 * PCClass only
+	 */
+	public void clearVisionList() {
+		if (visionList != null)
+		{
+			visionList.clear();
+		}
+	}
+	
+	/*
+	 * PCCLASSONLY This is an editor and loader requirement, therefore
+	 * PCClass only
+	 */
+	public boolean removeVisionType(VisionType type) {
+		if (visionList == null) {
+			return false;
+		}
+		for (LevelProperty<Vision> lp : visionList) {
+			if (lp.getObject().getType().equals(type)) {
+				return visionList.remove(lp);
+			}
+		}
+		return false;
+	}
+	
 	/*
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
@@ -4060,18 +4050,23 @@ public class PCClass extends PObject {
 			}
 		}
 
-		if ((addDomains != null) && (addDomains.size() != 0)) {
-			buildPccText(pccTxt, addDomains.iterator(), Constants.PIPE,
-					"\tADDDOMAINS:", lineSep);
+		if (addDomains != null)
+		{
+			for (LevelProperty<Domain> domainLP : addDomains)
+			{
+				pccTxt.append(lineSep).append(domainLP.getLevel());
+				pccTxt.append("\tADDDOMAINS:").append(
+						domainLP.getObject().getKeyName());
+			}
 		}
 
 		if (domainList != null)
 		{
-			for (LevelProperty<Domain> domainProp : domainList)
+			for (LevelProperty<Domain> domainLP : domainList)
 			{
-				pccTxt.append(lineSep).append(domainProp.getLevel());
+				pccTxt.append(lineSep).append(domainLP.getLevel());
 				pccTxt.append("\tDOMAIN:").append(
-						domainProp.getObject().getKeyName());
+						domainLP.getObject().getKeyName());
 			}
 		}
 
@@ -4164,16 +4159,17 @@ public class PCClass extends PObject {
 	 * differences, of course]
 	 */
 	@Override
-	public Map<String, String> getVision(final PlayerCharacter aPC) {
+	public List<Vision> getVision() {
+		List<Vision> returnList = super.getVision();
 		if (visionList != null) {
-			for (LevelProperty<String> vis : visionList) {
+			for (LevelProperty<Vision> vis : visionList) {
 				if (vis.getLevel() <= level) {
-					super.setVision(vis.getObject(), aPC);
+					returnList.add(vis.getObject());
 				}
 			}
 		}
 
-		return super.getVision(aPC);
+		return returnList;
 	}
 
 	public void setXPPenalty(final DefaultTriState argXPPenalty) {
@@ -4787,7 +4783,8 @@ public class PCClass extends PObject {
 				aClass.domainList = new ArrayList<LevelProperty<Domain>>(domainList);
 			}
 			if (addDomains != null) {
-				aClass.addDomains = new ArrayList<String>(addDomains);
+				//This is ok as a shallow copy - contract on readers of domainList
+				aClass.addDomains = new ArrayList<LevelProperty<Domain>>(addDomains);
 			}
 			aClass.setHitPointMap(this);
 			aClass.hasSubClass = hasSubClass;

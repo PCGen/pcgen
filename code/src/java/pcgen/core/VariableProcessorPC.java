@@ -1093,7 +1093,7 @@ public class VariableProcessorPC extends VariableProcessor
 		}
 		else if ("COUNT[VISION]".equals(valString))
 		{
-			valString = Integer.toString(getPc().getVisiontypeList().size());
+			valString = Integer.toString(getPc().getVisionList().size());
 		}
 		else if (valString.startsWith("COUNT[FOLLOWERTYPE.") && valString.endsWith("]"))
 		{

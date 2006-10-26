@@ -79,6 +79,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.LevelProperty;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -460,29 +461,17 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Loop through the available prestige domains
 		for (PCClass aClass : pc.getClassList())
 		{
-			for (String prestigeString : aClass.getAddDomains())
+			for (Domain prestigeDomain : aClass.getAddDomains(aClass.getLevel()))
 			{
-				final StringTokenizer domainTok = new StringTokenizer(prestigeString, "|", false);
-
-				final int level = Integer.parseInt(domainTok.nextToken());
-
-				if (aClass.getLevel() >= level)
+				//CONSIDER Should this be gated by null? - thpr 10/26/06
+				if (prestigeDomain != null)
 				{
-					while (domainTok.hasMoreTokens())
-					{
-						final String prestigeKey = domainTok.nextToken();
-						Domain prestigeDomain = Globals.getDomainKeyed(prestigeKey);
+					prestigeDomain = prestigeDomain.clone();
+				}
 
-						if (prestigeDomain != null)
-						{
-							prestigeDomain = prestigeDomain.clone();
-						}
-
-						if (!availDomainList.contains(prestigeDomain))
-						{
-							availDomainList.add(prestigeDomain);
-						}
-					}
+				if (!availDomainList.contains(prestigeDomain))
+				{
+					availDomainList.add(prestigeDomain);
 				}
 			}
 

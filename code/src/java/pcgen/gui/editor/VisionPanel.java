@@ -23,11 +23,13 @@
 package pcgen.gui.editor;
 
 import pcgen.core.Constants;
+import pcgen.core.Vision;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.VisionType;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -102,22 +104,21 @@ final class VisionPanel extends JPanel
 	}
 
 	/**
-	 * Returns the selected vision data as a hashmap
+	 * Returns the selected vision data
 	 *
-	 * @return HashMap The vision table.
+	 * @return The vision List
 	 */
-	Map getVision()
+	List<Vision> getVision()
 	{
-		Map vision = new HashMap();
+		List<Vision> vision = new ArrayList<Vision>();
 
-		//vision.put("Normal", "0");
-		Object[] selected = getSelectedList();
-
-		for (int index = 0; index < selected.length; index++)
+		for(Object visionObj : getSelectedList())
 		{
-			final String moveString = (String) selected[index];
-			final int idx = moveString.indexOf(",");
-			vision.put(moveString.substring(0, idx), moveString.substring(idx + 1));
+			String visionString = (String) visionObj;
+			final int idx = visionString.indexOf(",");
+			VisionType visionType = VisionType.getVisionType(visionString
+					.substring(0, idx));
+			vision.add(new Vision(visionType, visionString.substring(idx + 1)));
 		}
 
 		return vision;

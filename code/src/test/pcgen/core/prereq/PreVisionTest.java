@@ -11,6 +11,8 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Vision;
+import pcgen.util.enumeration.VisionType;
 
 /**
  * Tests PREVISION token
@@ -43,11 +45,11 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template.setVision("Darkvision (60')", character);
+		template.addVision(new Vision(VisionType.getVisionType("Darkvision"), "60"));
 		character.addTemplate(template);
 
 		final PCTemplate template2 = new PCTemplate();
-		template2.setVision("Low-light (30')", character);
+		template2.addVision(new Vision(VisionType.getVisionType("Low-Light"), "30"));
 		character.addTemplate(template2);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -68,7 +70,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template.setVision("Normal (60')", character);
+		template.addVision(new Vision(VisionType.getVisionType("Normal"), "60"));
 
 		character.addTemplate(template);
 
@@ -89,7 +91,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
-		template.setVision("Darkvision (60')", character);
+		template.addVision(new Vision(VisionType.getVisionType("Darkvision"), "60"));
 
 		character.addTemplate(template);
 

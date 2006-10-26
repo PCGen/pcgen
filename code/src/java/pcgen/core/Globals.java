@@ -62,6 +62,7 @@ import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.VisionType;
 import pcgen.util.PropertyFactory;
 
 /**
@@ -117,7 +118,6 @@ public final class Globals
 	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
 	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
 	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
-	private static Map<String, String>        visionMap       = new HashMap<String, String>();
 	private static Map<String, List<CompanionMod>>  companionModMap = new TreeMap<String, List<CompanionMod>>();
 
 	/** We use lists for efficient iteration */
@@ -2003,15 +2003,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get map of VISIONs
-	 * @return map of VISIONs
-	 */
-	public static Map<String, String> getVisionMap()
-	{
-		return visionMap;
-	}
-
-	/**
 	 * Get copy of weapon prof array
 	 * @return copy of weapon prof array
 	 */
@@ -2412,7 +2403,7 @@ public final class Globals
 		domainMap = new HashMap<String, Domain>();
 		raceMap = new TreeMap<String, Race>();
 		spellMap = new HashMap<String, Object>();
-		visionMap = new HashMap<String, String>();
+		VisionType.clearConstants();
 
 		// Clear Sets (not strictly necessary, but done for consistency)
 		clearSpellSets();
@@ -2574,15 +2565,6 @@ public final class Globals
 	public static int minLevelForSpellLevel(final PCClass castingClass, final int spellLevel, final boolean allowBonus)
 	{
 		return castingClass.minLevelForSpellLevel(spellLevel, allowBonus);
-	}
-
-	/**
-	 * Store a list of all vision types (such as Darkvision)
-	 * @param aKey
-	 */
-	public static void putVisionMap(final String aKey)
-	{
-		visionMap.put(aKey, "0");
 	}
 
 	/**

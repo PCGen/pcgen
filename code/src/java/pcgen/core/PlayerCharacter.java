@@ -85,6 +85,7 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -6850,96 +6851,59 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	}
 
-	private Map<String, String> getVisionMap()
+	public List<Vision> getVisionList()
 	{
-		Map<String, String> visMap = new HashMap<String, String>();
+		List<Vision> visionList = new ArrayList<Vision>();
 
 		for ( PObject pObj : getPObjectList() )
 		{
 			if (pObj != null)
 			{
-				visMap = addStringToVisionMap(visMap, pObj.getVision(this));
+				visionList = addStringToVisionList(visionList, pObj.getVision());
 			}
 		}
 
 		// parse through the global list of vision tags and see
 		// if this PC has any BONUS:VISION tags which will create
 		// a new visionMap entry
-		for (String aKey : Globals.getVisionMap().keySet())
+		for (VisionType vType : VisionType.getAllVisionTypes())
 		{
-			final int aVal = (int) getTotalBonusTo("VISION", aKey);
+			final int aVal = (int) getTotalBonusTo("VISION", vType.toString());
 
 			if (aVal > 0)
 			{
 				// add a 0 value, as the bonus is added
 				// in the addStringToVisionMap() routine
-				final HashMap<String, String> newMap = new HashMap<String, String>();
-				newMap.put(aKey, "0");
-				visMap = addStringToVisionMap(visMap, newMap);
+				final List<Vision> newList = new ArrayList<Vision>();
+				newList.add(new Vision(vType, "0"));
+				visionList = addStringToVisionList(visionList, newList);
 			}
 		}
-		return visMap;
+		
+		//CONSIDER Is this sort really necessary?
+		if (visionList.size() > 1) {
+			Collections.sort(visionList);
+		}
+		
+		return visionList;
 	}
 
 	public String getVision()
 	{
-		final StringBuffer vision = new StringBuffer();
+		final StringBuffer visionString = new StringBuffer();
 
-		final Map<String, String> visMap = getVisionMap();
-		for ( String aKey : visMap.keySet() )
+		final List<Vision> visionList = getVisionList();
+		for ( Vision vision : visionList )
 		{
-			final String bObj = visMap.get(aKey);
-
-			if (bObj == null)
+			if (visionString.length() > 0)
 			{
-				continue;
+				visionString.append(", ");
 			}
-
-			final int val = Integer.parseInt(bObj);
-
-			if (vision.length() > 0)
-			{
-				vision.append(", ");
-			}
-
-			vision.append(aKey);
-
-			if (val > 0)
-			{
-				vision.append(" (").append(val).append("')");
-			}
+			
+			visionString.append(vision);
 		}
 
-		return vision.toString();
-	}
-
-	public TreeSet<String> getVisiontypeList()
-	{
-		final TreeSet<String> visions = new TreeSet<String>();
-
-		final Map<String, String> visMap = getVisionMap();
-		for ( String aKey : visMap.keySet() )
-		{
-			final String bObj = visMap.get(aKey);
-
-			if (bObj == null)
-			{
-				continue;
-			}
-
-			final int val = Integer.parseInt(bObj);
-
-			final StringBuffer vision = new StringBuffer();
-			vision.append(aKey);
-
-			if (val > 0)
-			{
-				vision.append(" (").append(val).append("')");
-			}
-			visions.add(vision.toString());
-		}
-
-		return visions;
+		return visionString.toString();
 	}
 
 	public int abilityAC()
@@ -11403,36 +11367,47 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @param aMap
 	 * @return Map
 	 */
-	private Map<String, String> addStringToVisionMap(final Map<String, String> visMap, final Map<String, String> aMap)
+	private List<Vision> addStringToVisionList(final List<Vision> visionList, final List<Vision> addList)
 	{
-		if ((aMap == null) || (aMap.size() == 0))
+		if ((addList == null) || (addList.size() == 0))
 		{
-			return visMap;
+			return visionList;
 		}
 
-		for (String aKey : aMap.keySet())
+		for (Vision vis : addList)
 		{
-			final String aVal = aMap.get(aKey);
-			final String bObj = visMap.get(aKey);
-			int b = 0;
-
-			if (bObj != null)
+			final VisionType visType = vis.getType();
+			if (!vis.qualifies(this)) {
+				continue;
+			}
+			Vision foundVision = null;
+			for (Vision baseVis : visionList) 
 			{
-				b = getVariableValue(bObj, "").intValue();
+				if (baseVis.getType() == visType)
+				{
+					foundVision = baseVis;
+					break;
+				}
 			}
 
-			int a = getVariableValue(aVal, "").intValue();
-
+			int a = getVariableValue(vis.getDistance(), "").intValue();
 			// Add any bonuses to new value
-			a += (int) getTotalBonusTo("VISION", aKey);
-
-			if (a >= b)
+			a += (int) getTotalBonusTo("VISION", visType.toString());
+			
+			if (foundVision == null) {
+				visionList.add(new Vision(visType, String.valueOf(a)));
+			}
+			else 
 			{
-				visMap.put(aKey, String.valueOf(a));
+				if (a > Integer.parseInt(foundVision.getDistance()))
+				{
+					visionList.remove(foundVision);
+					visionList.add(new Vision(visType, String.valueOf(a)));
+				}
 			}
 		}
 
-		return visMap;
+		return visionList;
 	}
 
 

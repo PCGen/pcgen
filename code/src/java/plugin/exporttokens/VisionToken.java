@@ -26,10 +26,13 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Vision;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.CollectionUtilities;
 
-import java.util.SortedSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -63,6 +66,8 @@ public class VisionToken extends Token
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
 
+		List<Vision> visionList = new ArrayList<Vision>(pc.getVisionList());
+		
 		int visionIndex = 0;
 		int startIndex = 0;
 
@@ -70,8 +75,8 @@ public class VisionToken extends Token
 		{
 			try
 			{
-				visionIndex = Integer.parseInt(aTok.nextToken());
-				startIndex = visionIndex;
+				startIndex = Integer.parseInt(aTok.nextToken());
+				visionIndex = startIndex + 1;
 			}
 			catch (NumberFormatException e)
 			{
@@ -80,40 +85,16 @@ public class VisionToken extends Token
 		}
 		else
 		{
-			visionIndex = pc.getVisiontypeList().size();
+			visionIndex = visionList.size();
 		}
 
-		StringBuffer visionBuf = new StringBuffer();
-
-		for (int i = startIndex; i <= visionIndex; i++)
-		{
-			if ((i > startIndex) && (i < visionIndex))
-			{
-				visionBuf.append(", ");
-			}
-
-			visionBuf.append(getVisionToken(pc, i));
+		if (visionList.isEmpty()) {
+			return "";
 		}
-
-		return visionBuf.toString();
-	}
-
-	/**
-	 * Produce the output for a vision type.
-	 * 
-	 * @param pc The character being procesed.
-	 * @param visionIndex The index of the vision type to be output.
-	 * @return A description of the vision type suitable for output.
-	 */
-	public static String getVisionToken(PlayerCharacter pc, int visionIndex)
-	{
-		SortedSet<String> visionSet = pc.getVisiontypeList();
-
-		if ((visionIndex >= 0) && (visionIndex < visionSet.size()))
-		{
-			return visionSet.toArray()[visionIndex].toString();
-		}
-
-		return "";
+		
+		List<Vision> subList = visionList.subList(Math.max(startIndex, 0),
+				Math.min(visionIndex, visionList.size()));
+		
+		return CollectionUtilities.joinStringRepresentations(subList, ", ");
 	}
 }
