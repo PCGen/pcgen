@@ -29,6 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import pcgen.core.Ability;
+import pcgen.core.AssociatedChoice;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 
@@ -36,7 +37,7 @@ import pcgen.core.PlayerCharacter;
  * This is one of the choosers that deals with choosing from among a set
  * of Ability objects of Category FEAT.
  */
-public class FeatChoiceManager extends AbstractComplexChoiceManager<Ability>
+public class FeatChoiceManager extends AbstractComplexChoiceManager<String>
 {
 
 	/**
@@ -70,28 +71,28 @@ public class FeatChoiceManager extends AbstractComplexChoiceManager<Ability>
 
 	/**
 	 * Parse the Choice string and build a list of available choices.
-	 * @param aPc
-	 * @param availableList
-	 * @param selectedList
+	 * @param aPc The character being processed.
+	 * @param availableList The list to be populated with the possible choices.
+	 * @param selectedList The list to be populated with the choices that have already been selected.
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List<Ability>            availableList,
-			final List<Ability>            selectedList)
+			final List<String>            availableList,
+			final List<String>            selectedList)
 	{
 		final Ability theFeat = aPc.getFeatNamed(choices.get(0));
 
 		if (theFeat != null)
 		{
-			for ( Ability ability : availableList )
+			for (AssociatedChoice<String> choice : theFeat.getAssociatedList())
 			{
-				theFeat.addAssociated( ability.getKeyName() );
+				availableList.add(choice.getDefaultChoice());
 			}
 		}
 
-		for ( Ability ability : selectedList )
+		for (AssociatedChoice<String> choice : pobject.getAssociatedList())
 		{
-			pobject.addAssociated( ability.getKeyName() );
+			selectedList.add(choice.getDefaultChoice());
 		}
 	}
 
