@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by A Divinsk (None) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="stats">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="stat" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="stat">
+		<xs:complexType>
+			<xs:attribute name="weight" type="xs:integer" use="optional" default="1"/>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="skills">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="skill" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="skill">
+		<xs:complexType>
+			<xs:attribute name="weight" type="xs:integer" use="optional" default="1"/>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="class_data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="class" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="game_mode" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="class">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="stats"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="skills" minOccurs="0"/>
+					<xs:element ref="abilities" minOccurs="0"/>
+				</xs:sequence>
+			</xs:sequence>
+			<xs:attribute name="key" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ability">
+		<xs:complexType>
+			<xs:attribute name="weight" type="xs:integer" use="optional" default="1"/>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="abilities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ability" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="category" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

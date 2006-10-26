@@ -131,7 +131,7 @@ import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
 
 // WIP please leave boomer70
-//import pcgen.core.npcgen.NPCGenerator;
+import pcgen.core.npcgen.NPCGenerator;
 
 /**
  * Main screen of the application. Some of the custom JPanels created
@@ -604,12 +604,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		toolBar.newItem.setEnabled(itemState);
 		mainPopupMenu.newItem.setEnabled(itemState);
 		pcPopupMenu.getNewItem().setEnabled(itemState);
-
-// WIP please leave boomer70
-//		pcgenMenuBar.newNPCItem.setEnabled(itemState);
-//		toolBar.newNPCItem.setEnabled(itemState);
-//		mainPopupMenu.newNPCItem.setEnabled(itemState);
-//		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
 	}
 
 	/**
@@ -620,6 +614,12 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		pcgenMenuBar.openItem.setEnabled(itemState);
 		toolBar.openItem.setEnabled(itemState);
+
+//		 WIP please leave boomer70
+		pcgenMenuBar.newNPCItem.setEnabled(itemState);
+		toolBar.newNPCItem.setEnabled(itemState);
+		mainPopupMenu.newNPCItem.setEnabled(itemState);
+		pcPopupMenu.getNewNPCItem().setEnabled(itemState);
 	}
 
 	//
@@ -677,6 +677,53 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		return loadPCFromFile(file, false);
 	}
 
+	public void setPC( final PlayerCharacter aPC )
+	{
+		if ( mainClass == null || aPC == null )
+		{
+			return;
+		}
+
+		Globals.getPCList().add(aPC);
+		Globals.setCurrentPC(aPC);
+		addPCTab(aPC);
+		
+		if (aPC.getLoadCompanion() && !aPC.getFollowerList().isEmpty())
+		{
+			for (Follower nPC : aPC.getFollowerList())
+			{
+				boolean aLoaded = false;
+
+				// is this companion already loaded?
+				for (PlayerCharacter testPC : Globals.getPCList())
+				{
+					if (nPC.getFileName().equals(testPC.getFileName()))
+					{
+						aLoaded = true;
+					}
+				}
+
+				if (!aLoaded)
+				{
+					// not loaded, so load this file
+					final File aFile = new File(nPC.getFileName());
+					Party followerParty = Party.makeSingleCharacterParty(aFile);
+					final PlayerCharacter follower = followerParty.load(null);
+					if ((mainClass != null) && follower != null)
+					{
+						addPCTab(follower);
+					}
+					else
+					{
+						//todo: i18n these messages
+						ShowMessageDelegate.showMessageDialog("Unrecoverable problems occurred while loading a companion or follower.",
+							"Error", MessageType.ERROR);
+					}
+				}
+			}
+		}
+	}
+	
 	public PlayerCharacter loadPCFromFile(File file, boolean blockLoadedMessage)
 	{
 		PlayerCharacter aPC;
@@ -702,12 +749,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		try {
 			GMBus.send(new PauseRefreshMessage(this));
 			aPC =  party.load(null);
-			if ((mainClass != null) && aPC != null)
-			{
-				addPCTab(aPC);
-				pcgenMenuBar.openRecentPCMenu.add(aPC.getDisplayName(), file);
-			}
-			else
+			
+			if (mainClass == null || aPC == null)
 			{
 				//todo: i18n these messages
 				ShowMessageDelegate.showMessageDialog("Unrecoverable problems occurred while loading the character.", "Error", MessageType.ERROR);
@@ -715,42 +758,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 				return null;
 			}
+			pcgenMenuBar.openRecentPCMenu.add(aPC.getDisplayName(), file);
+			setPC(aPC);
 
-			// Check to see if we should auto load companions
-			if (aPC.getLoadCompanion() && !aPC.getFollowerList().isEmpty())
-			{
-				for (Follower nPC : aPC.getFollowerList())
-				{
-					boolean aLoaded = false;
-
-					// is this companion already loaded?
-					for (PlayerCharacter testPC : Globals.getPCList())
-					{
-						if (nPC.getFileName().equals(testPC.getFileName()))
-						{
-							aLoaded = true;
-						}
-					}
-
-					if (!aLoaded)
-					{
-						// not loaded, so load this file
-						final File aFile = new File(nPC.getFileName());
-						Party followerParty = Party.makeSingleCharacterParty(aFile);
-						aPC = followerParty.load(null);
-						if ((mainClass != null) && aPC != null)
-						{
-							addPCTab(aPC);
-						}
-						else
-						{
-							//todo: i18n these messages
-							ShowMessageDelegate.showMessageDialog("Unrecoverable problems occurred while loading a companion or follower.",
-								"Error", MessageType.ERROR);
-						}
-					}
-				}
-			}
 			if(!blockLoadedMessage) {
 				GMBus.send(new PCLoadedMessage(this, aPC));
 			}
@@ -1257,42 +1267,31 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	}
 
 // WIP please leave boomer70
-//	void doNewNPC()
-//	{
-//		NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
-//		genDlg.pack();
-//		genDlg.setVisible(true);
-//
-//		getCurrentPC().setDirty(false);
-//		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
-//		{
-//			NPCGenerator npcgen = NPCGenerator.getInst();
-//			npcgen.generate(getCurrentPC(), genDlg.getAlignment(),
-//								  genDlg.getRace(), genDlg.getGender(),
-//								  genDlg.getClassList(), genDlg.getLevels(),
-//									  genDlg.getRollMethod());
-//
-//			getCurrentPC().setDirty(true);
-//
-//			this.featList_Changed();
-//			this.hpTotal_Changed();
-//			forceUpdate_PlayerTabs();
-//			CharacterInfo pane = getCharacterPane();
-//			pane.setPaneForUpdate(pane.infoRace());
-//			pane.setPaneForUpdate(pane.infoClasses());
-//			pane.setPaneForUpdate(pane.infoSkills());
-//			pane.setPaneForUpdate(pane.infoSpells());
-//			pane.setPaneForUpdate(pane.infoDomain());
-//			pane.setPaneForUpdate(pane.infoInventory());
-//			pane.setPaneForUpdate(pane.infoSummary());
-//			pane.refresh();
-//		}
-//	}
+	void doNewNPC()
+	{
+		final PlayerCharacter pc = new PlayerCharacter();
+		
+		NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
+		genDlg.pack();
+		genDlg.setVisible(true);
+
+		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
+		{
+			NPCGenerator npcgen = NPCGenerator.getInst();
+			npcgen.generate(pc, genDlg.getAlignment(),
+								  genDlg.getRace(), genDlg.getGender(),
+								  genDlg.getClassList(), genDlg.getLevels(),
+									  genDlg.getRollMethod());
+
+			pc.setDirty(true);
+			
+			setPC(pc);
+		}
+	}
 
 	void newNPCItem_actionPerformed()
 	{
-		GMBus.send(new NewMessage(this));
-//		doNewNPC();
+		doNewNPC();
 	}
 
 	void newPopupItem_actionPerformed()
@@ -1301,11 +1300,11 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	}
 
 // WIP please leave boomer70
-//	void newNPCPopupItem_actionPerformed()
-//	{
+	void newNPCPopupItem_actionPerformed()
+	{
 //		doNewItem();
-//		doNewNPC();
-//	}
+		doNewNPC();
+	}
 
 	/**
 	 * Launches GMGen.
@@ -1615,7 +1614,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 
 	private void addPCTab(PlayerCharacter aPC)
 	{
-	aPC.addObserver(this);
+		aPC.addObserver(this);
 
 		if (characterPane == null)
 		{
@@ -2515,7 +2514,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		JMenuItem listEditor;
 		JMenuItem newItem;
 // WIP please leave boomer70
-//		JMenuItem newNPCItem;
+		JMenuItem newNPCItem;
 		JMenuItem openItem;
 		JMenuItem partyCloseItem;
 		JMenuItem partyOpenItem;
@@ -2549,9 +2548,9 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			fileMenu.add(newItem);
 
 // WIP please leave boomer70
-//			newNPCItem = Utility.createMenuItem("mnuFileNewNPC", frameActionListener.newNPCActionListener, "file.newNPC",
-//					null, "New16.gif", false);
-//			fileMenu.add(newNPCItem);
+			newNPCItem = Utility.createMenuItem("mnuFileNewNPC", frameActionListener.newNPCActionListener, "file.newNPC",
+					null, "New16.gif", false);
+			fileMenu.add(newNPCItem);
 
 			openItem = Utility.createMenuItem("mnuFileOpen", frameActionListener.openActionListener, "file.open",
 					"shortcut O", "Open16.gif", true);

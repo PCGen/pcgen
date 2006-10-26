@@ -71,7 +71,7 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		else
 		{
 			Skill skill = Globals.getSkillKeyed(skillKey);
-			if ( skill.isClassSkill( character ) )
+			if ( skill != null && skill.isClassSkill( character ) )
 			{
 				runningTotal++;
 			}

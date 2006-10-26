@@ -170,7 +170,7 @@ public final class GameMode implements Comparable<Object>
 	private boolean [] summaryTabStatColumnVisible = { true, true, true, true, true, true, true };
 	private boolean [] skillTabColumnVisible = { true, true, true, true, true, true, true };				// Skill, Modifier, Ranks, Total, Cost, Source, Order
 
-	private static List<AbilityCategory> theAbilityCategories = new ArrayList<AbilityCategory>(5);
+	private List<AbilityCategory> theAbilityCategories = new ArrayList<AbilityCategory>(5);
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -1897,6 +1897,28 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
+	 * Returns a <tt>PCAlignment</tt> object for the alignment key or name 
+	 * passed in.
+	 * 
+	 * @param aKey A short alignment (LG) or long alignment (Lawful Good)
+	 * 
+	 * @return A <tt>PCAlignment</tt> object or null if no match is found.
+	 */
+	public PCAlignment getAlignment( final String aKey )
+	{
+		for ( final PCAlignment align : alignmentList )
+		{
+			// if long name or short name of alignment matches, return index
+			if (align.getDisplayName().equalsIgnoreCase(aKey)
+			 || align.getKeyName().equalsIgnoreCase(aKey))
+			{
+				return align;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * Return the long version of the alignment name found at the index. (E.g. Lawful Good)
 	 * @param index
 	 * @return String
@@ -3107,7 +3129,7 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public AbilityCategory getAbilityCategory(final String aKey)
 	{
-		for ( final AbilityCategory cat : theAbilityCategories )
+		for ( final AbilityCategory cat : getAllAbilityCategories() )
 		{
 			if ( cat.getKeyName().equalsIgnoreCase(aKey) )
 			{
