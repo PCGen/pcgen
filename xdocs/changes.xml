@@ -5,6 +5,12 @@
   <body>
 
     <release version="5.11.1" date="in CVS">
+      <action dev="thpr" type="fix" issue="1577347">
+        Template prerequisites (no longer) prevent removal
+      </action>              
+      <action dev="thpr" type="fix" issue="1489300">
+        VISION Tag now works on Class Level Lines
+      </action>              
     </release>
     
     <release version="5.11.0" date="2006-08-24">
