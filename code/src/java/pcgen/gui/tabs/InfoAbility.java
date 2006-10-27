@@ -550,6 +550,15 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	}
 
 	/**
+	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTabName()
+	 */
+	@Override
+	public String getTabName()
+	{
+		return theCategory.getPluralName();
+	}
+	
+	/**
 	 * @see pcgen.gui.tabs.ability.IAbilitySelectionListener#abilitySelected(pcgen.core.Ability)
 	 */
 	public void abilitySelected(final Ability anAbility)

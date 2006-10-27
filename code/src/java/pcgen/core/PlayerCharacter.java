@@ -15343,11 +15343,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	
 	public void setUserPoolBonus( final AbilityCategory aCategory, final BigDecimal anAmount )
 	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			throw new IllegalArgumentException("This method is not valid for feats."); //$NON-NLS-1$
-		}
-		
 		if ( theUserPoolBonuses == null )
 		{
 			theUserPoolBonuses = new HashMap<AbilityCategory, BigDecimal>();
@@ -15357,10 +15352,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	
 	public double getUserPoolBonus( final AbilityCategory aCategory )
 	{
-//		if ( aCategory == AbilityCategory.FEAT )
-//		{
-//			throw new IllegalArgumentException("This method is not valid for feats."); //$NON-NLS-1$
-//		}
 		BigDecimal userBonus = null;
 		if ( theUserPoolBonuses != null )
 		{

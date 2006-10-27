@@ -684,8 +684,6 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			return;
 		}
 
-		Globals.getPCList().add(aPC);
-		Globals.setCurrentPC(aPC);
 		addPCTab(aPC);
 		
 		if (aPC.getLoadCompanion() && !aPC.getFollowerList().isEmpty())
@@ -1283,6 +1281,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 								  genDlg.getClassList(), genDlg.getLevels(),
 									  genDlg.getRollMethod());
 
+			Globals.getPCList().add(aPC);
+			Globals.setCurrentPC(aPC);
 			pc.setDirty(true);
 			
 			setPC(pc);

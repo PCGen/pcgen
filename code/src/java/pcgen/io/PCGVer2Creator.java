@@ -1444,8 +1444,11 @@ final class PCGVer2Creator implements IOConstants
 				{
 					buffer.append(TAG_ABILITY).append(TAG_END);
 					buffer.append(EntityEncoder.encode(cat.getKeyName())).append(TAG_SEPARATOR);
+					buffer.append(TAG_TYPE).append(TAG_END);
 					buffer.append(EntityEncoder.encode(ability.getFeatType().toString())).append(TAG_SEPARATOR);
+					buffer.append(TAG_CATEGORY).append(TAG_END);
 					buffer.append(EntityEncoder.encode(ability.getCategory())).append(TAG_SEPARATOR);
+					buffer.append(TAG_MAPKEY).append(TAG_END);
 					buffer.append(EntityEncoder.encode(ability.getKeyName())).append(TAG_SEPARATOR);
 					int it2 = 0;
 					if ( ability.isMultiples() )
@@ -1487,6 +1490,7 @@ final class PCGVer2Creator implements IOConstants
 				}
 				buffer.append(TAG_USERPOOL).append(TAG_END);
 				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(TAG_SEPARATOR);
+				buffer.append(TAG_POOLPOINTS).append(TAG_END);
 				buffer.append(thePC.getUserPoolBonus(cat));
 				buffer.append(LINE_SEP);
 			}
