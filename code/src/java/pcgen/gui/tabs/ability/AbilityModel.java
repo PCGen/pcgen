@@ -182,6 +182,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	public void setAbilityFilter( final IAbilityListFilter aFilter )
 	{
 		theFilter = aFilter;
+		resetModel(thePC, theViewMode, false);
 	}
 	
 	/**
