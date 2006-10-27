@@ -1281,8 +1281,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 								  genDlg.getClassList(), genDlg.getLevels(),
 									  genDlg.getRollMethod());
 
-			Globals.getPCList().add(aPC);
-			Globals.setCurrentPC(aPC);
+			Globals.getPCList().add(pc);
+			Globals.setCurrentPC(pc);
 			pc.setDirty(true);
 			
 			setPC(pc);
