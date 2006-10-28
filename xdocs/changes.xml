@@ -1,83 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <document>
   <properties>
     <title>PCGen Change Log</title>
   </properties>
   <body>
-
-    <release version="5.11.1" date="in CVS">
-      <action dev="thpr" type="fix" issue="1577347">
-        Template prerequisites (no longer) prevent removal
-      </action>              
-      <action dev="thpr" type="fix" issue="1489300">
-        VISION Tag now works on Class Level Lines
-      </action>              
-      <action dev="jdempsey" type="add" issue="1578536">
-        New Output Tag - TEXT. Used to format text output, see 
+    <release version="5.11.1" date="2006-10-29">
+      <action dev="thpr" type="fix" issue="1577347">Template prerequisites (no longer) prevent removal</action>
+      <action dev="thpr" type="fix" issue="1489300">VISION Tag now works on Class Level Lines</action>
+      <action dev="jdempsey" type="add" issue="1578536">New Output Tag - TEXT. Used to format text output, see
         <a href="http://pcgen.sourceforge.net/autobuilds/pcgen-docs/outputsheetpages/tokens/outputsheettokensmisc.html#TEXT">PCGen Documentation</a>
-      </action>     
-      <action dev="jdempsey" type="add" issue="1579482">
-        Add .NOSTAR option to ARMOR.x.y.NAME tag
-      </action>     
-      <action dev="jdempsey" type="fix" issue="1579545">
-        Fix FOR loop can only count upwards.
-      </action>              
-      <action dev="boomer70" type="update" issue="1484380">
-        Companion Mod Enhancements
-      </action>     
-      <action dev="zaister" type="add" issue="1575974">
-         AUTO:WEAPONPROF for deity's favored weapon
-      </action>     
-      <action dev="boomer70" type="update" issue="1262313">
-         Further work on the ability object
-      </action>     
-      <action dev="boomer70" type="add">
-         Version 0.001 of NPC Generator
-      </action>   
-      <action dev="frank_kliewe" type="add" issue="1026942">
-         [WotC] d20 Weapons Locker
-      </action>   
-      <action dev="tir-gwaith" type="add" issue="1516477">
-         [BFG] Masterwork Qualities
-      </action>   
-      <action dev="frank_kliewe" type="add" issue="1533248">
-         [SEP] Modern Principles
-      </action>   
+      </action>
+      <action dev="jdempsey" type="add" issue="1579482">Add .NOSTAR option to ARMOR.x.y.NAME tag</action>
+      <action dev="jdempsey" type="fix" issue="1579545">Fix FOR loop can only count upwards.</action>
+      <action dev="boomer70" type="update" issue="1484380">Companion Mod Enhancements</action>
+      <action dev="zaister" type="add" issue="1575974">AUTO:WEAPONPROF for deity's favored weapon</action>
+      <action dev="boomer70" type="update" issue="1262313">Further work on the ability object</action>
+      <action dev="boomer70" type="add">Version 0.001 of NPC Generator</action>
+      <action dev="frank_kliewe" type="add" issue="1026942">[WotC] d20 Weapons Locker</action>
+      <action dev="tir-gwaith" type="add" issue="1516477">[BFG] Masterwork Qualities</action>
+      <action dev="frank_kliewe" type="add" issue="1533248">[SEP] Modern Principles</action>
     </release>
-    
     <release version="5.11.0" date="2006-08-24">
-      <action dev="zaister" type="add" issue="1436352">
-        Implement Substitution Levels.
-      </action>              
-      <action dev="jdempsey" type="add" issue="1231443">
-        Added MANUALWHITESPACE output tag.
-      </action>              
-      <action dev="jujutsunerd" type="update" issue="1472258">
-        Clean up the pcgen/lib directory.
-      </action>              
-      <action dev="jujutsunerd" type="update" issue="1472270">
-        Update skinlf to 6.2.
-      </action>              
-      <action dev="jujutsunerd" type="update" issue="1472262">
-        Update JEP to 2.31.
-      </action>              
-      <action dev="jdempsey" type="fix" issue="924272">
-        Default data directory to user's home directory.
-      </action>              
-      <action dev="jdempsey" type="fix" issue="1429034">
-        Correct the handling of accented characters in sources.
-      </action>              
-      <action dev="jdempsey" type="fix" issue="1442000">
-        DOMAIN LST editor - Add FEAT support.
-      </action>              
-      <action dev="boomer70" type="fix" issue="1479787">
-        KIT Duplicate ranks added when adding a Trained Only skill.
-      </action>              
-      <action dev="jdempsey" type="fix" issue="1494672">
-        DR tag does not work per level in Class files.
-      </action>
-      <action dev="frank_kliewe" type="add" issue="1507145" due-to="gwjrabbit">
-        Added completed FantasyGrounds sheet.
-      </action>
+      <action dev="zaister" type="add" issue="1436352">Implement Substitution Levels.</action>
+      <action dev="jdempsey" type="add" issue="1231443">Added MANUALWHITESPACE output tag.</action>
+      <action dev="jujutsunerd" type="update" issue="1472258">Clean up the pcgen/lib directory.</action>
+      <action dev="jujutsunerd" type="update" issue="1472270">Update skinlf to 6.2.</action>
+      <action dev="jujutsunerd" type="update" issue="1472262">Update JEP to 2.31.</action>
+      <action dev="jdempsey" type="fix" issue="924272">Default data directory to user's home directory.</action>
+      <action dev="jdempsey" type="fix" issue="1429034">Correct the handling of accented characters in sources.</action>
+      <action dev="jdempsey" type="fix" issue="1442000">DOMAIN LST editor - Add FEAT support.</action>
+      <action dev="boomer70" type="fix" issue="1479787">KIT Duplicate ranks added when adding a Trained Only skill.</action>
+      <action dev="jdempsey" type="fix" issue="1494672">DR tag does not work per level in Class files.</action>
+      <action dev="frank_kliewe" type="add" issue="1507145" due-to="gwjrabbit">Added completed FantasyGrounds sheet.</action>
     </release>
   </body>
 </document>
