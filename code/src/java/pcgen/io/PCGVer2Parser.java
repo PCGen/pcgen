@@ -2119,7 +2119,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if ( nature == Ability.Nature.NORMAL )
 			{
-				thePC.addAbility(category, ability, null);
+				// TODO - Ability Object - Remove this if statement when feats
+				// aren't duplicated.
+				if ( category != AbilityCategory.FEAT )
+				{
+					thePC.addAbility(category, ability, null);
+				}
 			}
 			else if ( nature == Ability.Nature.VIRTUAL )
 			{
