@@ -104,16 +104,16 @@
 ; Begin Script ----------------------------------------------------------------------------
 ; Define constants
 !define APPNAME "PCGen"
-!define SIMPVER "5110"
-!define APPNAMEANDVERSION "PCGen 5.11.0"
+!define SIMPVER "5111"
+!define APPNAMEANDVERSION "PCGen 5.11.1"
 !define APPDIR "PCGen${SIMPVER}"
 !define TargetVer "1.5"
 !define OverVer "1.6"
 !define OutName "pcgen${SIMPVER}_win_install"
-!define OutDir "E:\Work\PCGen\Installer\Build\nsis_dir"
-;;!define OutDir "E:\Projects\release"
-!define SrcDir "E:\Work\PCGen\Installer\Build\nsis_dir"
-;;!define SrcDir "E:\Projects\release\nsis_dir"
+;;!define OutDir "E:\Work\PCGen\Installer\Build\nsis_dir"
+!define OutDir "E:\Projects\release"
+;;!define SrcDir "E:\Work\PCGen\Installer\Build\nsis_dir"
+!define SrcDir "E:\Projects\release\nsis_dir"
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
@@ -354,6 +354,15 @@ SubSection "d20OGL"
 
 	SetOutPath "$INSTDIR\${APPDIR}\data\d20ogl\gallantryproductions\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\d20ogl\gallantryproductions\*.*"
+
+	SectionEnd
+
+	Section "Goodman Games"
+
+	SectionIn 1 2
+
+	SetOutPath "$INSTDIR\${APPDIR}\data\d20ogl\goodmangames\"
+	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\d20ogl\goodmangames\*.*"
 
 	SectionEnd
 
@@ -599,6 +608,16 @@ SubSection "Alpha"
 
 	SectionEnd
 
+	Section "BigFingerGames"
+
+	SectionIn 1
+
+	SetOutPath "$INSTDIR\${APPDIR}\data\alpha\bigfingergames\"
+	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\alpha\bigfingergames\*.*"
+
+	SectionEnd
+
+
 	Section "Bloodstone Press"
 
 	SectionIn 1
@@ -639,6 +658,15 @@ SubSection "Alpha"
 
 	SetOutPath "$INSTDIR\${APPDIR}\data\alpha\fantasyflightgames\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\alpha\fantasyflightgames\*.*"
+
+	SectionEnd
+
+	Section "Goodman Games"
+
+	SectionIn 1
+
+	SetOutPath "$INSTDIR\${APPDIR}\data\alpha\goodmangames\"
+	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\alpha\goodmangames\*.*"
 
 	SectionEnd
 
@@ -741,12 +769,30 @@ SubSection "Alpha"
 
 	SectionEnd
 
+	Section "Swords Edge Publishing"
+
+	SectionIn 1
+
+	SetOutPath "$INSTDIR\${APPDIR}\data\alpha\swordsedgepublishing\"
+	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\alpha\swordsedgepublishing\*.*"
+
+	SectionEnd
+
 	Section "The Game Mechanics"
 
 	SectionIn 1
 
 	SetOutPath "$INSTDIR\${APPDIR}\data\alpha\thegamemechanics\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\alpha\thegamemechanics\*.*"
+
+	SectionEnd
+
+	Section "Wizards of the Coast"
+
+	SectionIn 1
+
+	SetOutPath "$INSTDIR\${APPDIR}\data\alpha\wizardsofthecoast\"
+	File /r "${SrcDir}\PCGen_${SIMPVER}c\data\alpha\wizardsofthecoast\*.*"
 
 	SectionEnd
 
