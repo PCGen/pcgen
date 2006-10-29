@@ -5,7 +5,9 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.1" date="2006-10-29">
+    <release version="5.11.2" date="In SVN" description="Alpha release">
+    </release>
+    <release version="5.11.1" date="2006-10-29" description="Alpha release">
       <action dev="thpr" type="fix" issue="1577347">Template prerequisites (no longer) prevent removal</action>
       <action dev="thpr" type="fix" issue="1489300">VISION Tag now works on Class Level Lines</action>
       <action dev="jdempsey" type="add" issue="1578536">New Output Tag - TEXT. Used to format text output, see
@@ -17,11 +19,11 @@
       <action dev="zaister" type="add" issue="1575974">AUTO:WEAPONPROF for deity's favored weapon</action>
       <action dev="boomer70" type="update" issue="1262313">Further work on the ability object</action>
       <action dev="boomer70" type="add">Version 0.001 of NPC Generator</action>
-      <action dev="frank_kliewe" type="add" issue="1026942">[WotC] d20 Weapons Locker</action>
-      <action dev="tir-gwaith" type="add" issue="1516477">[BFG] Masterwork Qualities</action>
-      <action dev="frank_kliewe" type="add" issue="1533248">[SEP] Modern Principles</action>
+      <action dev="frank_kliewe" type="add" issue="1026942" due-to="Terry FitzSimons (fitzs)">[WotC] d20 Weapons Locker</action>
+      <action dev="tir-gwaith" type="add" issue="1516477" due-to="Paul W. King (kingpaul)">[BFG] Masterwork Qualities</action>
+      <action dev="frank_kliewe" type="add" issue="1533248" due-to="Paul W. King (kingpaul)">[SEP] Modern Principles</action>
     </release>
-    <release version="5.11.0" date="2006-08-24">
+    <release version="5.11.0" date="2006-08-24" description="Alpha release">
       <action dev="zaister" type="add" issue="1436352">Implement Substitution Levels.</action>
       <action dev="jdempsey" type="add" issue="1231443">Added MANUALWHITESPACE output tag.</action>
       <action dev="jujutsunerd" type="update" issue="1472258">Clean up the pcgen/lib directory.</action>
