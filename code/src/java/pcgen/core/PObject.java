@@ -462,15 +462,23 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return Constants.EMPTY_STRING;
 		}
 		final StringBuffer buf = new StringBuffer();
-		boolean firstTime = true;
+		boolean wrote = false;
 		for ( final Description desc : theDescriptions )
 		{
-			if ( !firstTime )
+			if ( wrote )
 			{
 				buf.append(Constants.COMMA);
 			}
-			buf.append(desc.getDescription(aPC));
-			firstTime = false;
+			final String str = desc.getDescription(aPC);
+			if ( str.length() > 0 )
+			{
+				buf.append(str);
+				wrote = true;
+			}
+			else
+			{
+				wrote = false;
+			}
 		}
 		return buf.toString();
 	}
