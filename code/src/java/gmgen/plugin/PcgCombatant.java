@@ -700,6 +700,10 @@ public class PcgCombatant extends Combatant
 
 			pc.getAllSkillList(true); //force refresh of skills
 
+			/*
+			 * TODO includeSkill is written and never read... so what does it do?
+			 * - thpr 10/27/06
+			 */
 			int includeSkills = SettingsHandler.getIncludeSkills();
 
 			if (includeSkills == 3)

@@ -80,8 +80,6 @@ public class SystemAttribute
 
 	public boolean difficultyCheck(int difficulty, int mod)
 	{
-		int check = check(mod);
-
-		return check >= difficulty;
+		return check(mod) >= difficulty;
 	}
 }

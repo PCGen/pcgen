@@ -102,7 +102,7 @@ public class LogPanel extends JPanel implements LogReceiver
 	 * The rest of it is
 	 * Copyright 2003 (C) Tod Milam
 	 */
-	private class TabContents extends JPanel
+	private static class TabContents extends JPanel
 	{
 		private JScrollPane debugCenter = new JScrollPane();
 		private JTextArea txtAreaDebug = new JTextArea();

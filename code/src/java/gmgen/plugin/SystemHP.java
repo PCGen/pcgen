@@ -77,18 +77,20 @@ public class SystemHP
 	 */
 	public void setCurrent(int current)
 	{
-		if (current > max)
+		int currentHP = current;
+		
+		if (currentHP > max)
 		{
-			current = max;
+			currentHP = max;
 		}
 
-		if (current > this.current)
+		if (currentHP > this.current)
 		{
-			heal(current - this.current);
+			heal(currentHP - this.current);
 		}
-		else if (current < this.current)
+		else if (currentHP < this.current)
 		{
-			damage(this.current - current);
+			damage(this.current - currentHP);
 		}
 	}
 

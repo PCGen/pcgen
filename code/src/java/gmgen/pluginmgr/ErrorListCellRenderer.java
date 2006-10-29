@@ -117,9 +117,9 @@ public class ErrorListCellRenderer extends JComponent implements ListCellRendere
 		int y = insets.top + boldFM.getHeight() + 2;
 		g.setFont(plainFont);
 
-		for (int i = 0; i < messages.length; i++)
+		for (String message : messages)
 		{
-			g.drawString(messages[i], insets.left, y + plainFM.getAscent());
+			g.drawString(message, insets.left, y + plainFM.getAscent());
 			y += plainFM.getHeight();
 		}
 	}

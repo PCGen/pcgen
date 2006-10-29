@@ -42,7 +42,7 @@ public class Dice extends Die
 		this.num = num;
 		this.sides = sides;
 		this.aModifier = modifier;
-		rolls = new Integer[num];
+		rolls = new int[num];
 		roll();
 	}
 
@@ -67,8 +67,8 @@ public class Dice extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = Integer.valueOf(rand.nextInt(sides) + 1);
-			value = rolls[i].intValue() + value;
+			rolls[i] = rand.nextInt(sides) + 1;
+			value = rolls[i] + value;
 		}
 
 		total = value + aModifier;

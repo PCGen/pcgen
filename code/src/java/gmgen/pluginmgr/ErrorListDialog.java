@@ -54,7 +54,7 @@ public class ErrorListDialog extends EnhancedDialog
 	 *@param  showPluginMgrButton  Description of the Parameter
 	 *@since        GMGen 3.3
 	 */
-	public ErrorListDialog(Frame frame, String title, String caption, Vector messages, boolean showPluginMgrButton)
+	public ErrorListDialog(Frame frame, String title, String caption, Vector<?> messages, boolean showPluginMgrButton)
 	{
 		super(frame, title, true);
 
@@ -163,6 +163,10 @@ public class ErrorListDialog extends EnhancedDialog
 				message = "Undefined property: " + messageProp;
 			}
 
+			/*
+			 * TODO Is this really the equivalent of message.split("\n")? 
+			 *  - thpr 10/29/06
+			 */
 			Vector tokenizedMessage = new Vector();
 			int lastIndex = -1;
 

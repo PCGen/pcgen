@@ -39,7 +39,7 @@ import java.util.HashMap;
  * @author  soulcatcher
  */
 public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
-	public static HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
+	public static final HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;

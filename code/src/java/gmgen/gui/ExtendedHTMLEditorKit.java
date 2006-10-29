@@ -58,7 +58,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 	 */
 	public static HTML.Tag getHTMLTag(Element e) {
 		//Set List of tags
-		Hashtable tags = new Hashtable();
+		Hashtable<String, HTML.Tag> tags = new Hashtable<String, HTML.Tag>();
 		HTML.Tag[] tagList = HTML.getAllTags();
 
 		for (int i = 0; i < tagList.length; i++) {
@@ -67,7 +67,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
 		//Get Tag
 		if (tags.containsKey(e.getName())) {
-			return (HTML.Tag) tags.get(e.getName());
+			return tags.get(e.getName());
 		}
 		return null;
 	}
@@ -80,11 +80,14 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 	public static Element getListItemParent(Element eleSearch) {
 		String listItemTag = HTML.Tag.LI.toString();
 
+		Element workingElement = eleSearch;
 		do {
-			if (listItemTag.equals(eleSearch.getName())) { return eleSearch; }
+			if (listItemTag.equals(workingElement.getName())) {
+				return workingElement;
+			}
 
-			eleSearch = eleSearch.getParentElement();
-		} while (!((eleSearch.getName()).equals(HTML.Tag.HTML.toString())));
+			workingElement = workingElement.getParentElement();
+		} while (!((workingElement.getName()).equals(HTML.Tag.HTML.toString())));
 
 		return null;
 	}
@@ -136,11 +139,19 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 	 * @return true if the tag equals the element
 	 */
 	public static boolean checkParentsTag(Element e, HTML.Tag tag) {
-		if (e.getName().equalsIgnoreCase(tag.toString())) { return true; }
+		if (e.getName().equalsIgnoreCase(tag.toString()))
+		{
+			return true;
+		}
 
+		Element workingElement = e;
 		do {
-			if ((e = e.getParentElement()).getName().equalsIgnoreCase(tag.toString())) { return true; }
-		} while (!(e.getName().equalsIgnoreCase("html")));
+			workingElement = workingElement.getParentElement();
+			if (workingElement.getName().equalsIgnoreCase(tag.toString()))
+			{
+				return true;
+			}
+		} while (!(workingElement.getName().equalsIgnoreCase("html")));
 
 		return false;
 	}
@@ -251,7 +262,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 		try {
 			String[] sourceKeys = new String[sourceAS.getAttributeCount()];
 			String[] sourceValues = new String[sourceAS.getAttributeCount()];
-			Enumeration sourceEn = sourceAS.getAttributeNames();
+			Enumeration<?> sourceEn = sourceAS.getAttributeNames();
 			int i = 0;
 
 			while (sourceEn.hasMoreElements()) {
@@ -265,7 +276,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
 			String[] removeKeys = new String[removeAS.getAttributeCount()];
 			String[] removeValues = new String[removeAS.getAttributeCount()];
-			Enumeration removeEn = removeAS.getAttributeNames();
+			Enumeration<?> removeEn = removeAS.getAttributeNames();
 			int j = 0;
 
 			while (removeEn.hasMoreElements()) {
@@ -275,13 +286,11 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 			}
 
 			SimpleAttributeSet result = new SimpleAttributeSet();
-			boolean hit;
 
 			for (int countSource = 0; countSource < sourceKeys.length; countSource++) {
-				hit = false;
+				boolean hit = false;
 
-				//TODO Are you absolutely sure you want bitwise or here?
-				if ("name".equals(sourceKeys[countSource]) | "resolver".equals(sourceKeys[countSource])) {
+				if ("name".equals(sourceKeys[countSource]) || "resolver".equals(sourceKeys[countSource])) {
 					hit = true;
 				} else {
 					for (int countRemove = 0; countRemove < removeKeys.length; countRemove++) {
@@ -650,7 +659,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 			JTextComponent target = getTextComponent(e);
 			Clipboard clipboard = target.getToolkit().getSystemClipboard();
 			clipboard.getContents(null);
-			Class k = target.getClass();
+			Class<? extends JTextComponent> k = target.getClass();
 			BeanInfo bi;
 			try {
 				bi = Introspector.getBeanInfo(k);
@@ -658,9 +667,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 			} catch (IntrospectionException ex) {
 				// TODO Handle this?
 			}
-			if (target != null) {
-				target.paste();
-			}
+			target.paste();
 		}
 	}
 }

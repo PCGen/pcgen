@@ -34,14 +34,14 @@ import java.util.ArrayList;
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private ArrayList panelList = new ArrayList();
+	private ArrayList<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
 
 	public PreferencesRootTreeNode()
 	{
 		super("Preferences");
 	}
 
-	public ArrayList getPanelList()
+	public ArrayList<PreferencesPanel> getPanelList()
 	{
 		return panelList;
 	}
@@ -57,10 +57,8 @@ public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 	{
 		if(children != null)
 		{
-			for(int i = 0; i < children.size(); i++)
+			for (Object obj : children)
 			{
-				Object obj = children.get(i);
-
 				if (obj instanceof DefaultMutableTreeNode)
 				{
 					DefaultMutableTreeNode mnode = (DefaultMutableTreeNode) obj;

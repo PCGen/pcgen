@@ -58,7 +58,7 @@ import java.util.EventObject;
  *@version    3.3
  *@since      GMGen 3.3
  */
-public class GMGenSystem extends JFrame implements ChangeListener, MenuListener, ActionListener, GMBComponent
+public final class GMGenSystem extends JFrame implements ChangeListener, MenuListener, ActionListener, GMBComponent
 {
 	/**
 	 *  Holds an instance of the top window, so components and windows can get
@@ -69,7 +69,7 @@ public class GMGenSystem extends JFrame implements ChangeListener, MenuListener,
 	/**
 	 *  Boolean true if this is a Macintosh system.
 	 */
-	public static boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
+	public static final boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
 
 	/**
 	 *  The copy menu item in the edit menu.
@@ -410,7 +410,7 @@ public class GMGenSystem extends JFrame implements ChangeListener, MenuListener,
 		{
 			try
 			{
-				Class osxAdapter = Class.forName("gmgen.util.OSXAdapter");
+				Class<?> osxAdapter = Class.forName("gmgen.util.OSXAdapter");
 				Class[] defArgs = { GMGenSystem.class };
 				Method registerMethod = osxAdapter.getDeclaredMethod("registerMacOSXApplication", defArgs);
 

@@ -289,44 +289,45 @@ public final class MiscUtilities
 	 */
 	public static String canonPath(String path)
 	{
-		if (path.startsWith("file://"))
+		String returnPath = path;
+		if (returnPath.startsWith("file://"))
 		{
-			path = path.substring("file://".length());
+			returnPath = returnPath.substring("file://".length());
 		}
-		else if (path.startsWith("file:"))
+		else if (returnPath.startsWith("file:"))
 		{
-			path = path.substring("file:".length());
+			returnPath = returnPath.substring("file:".length());
 		}
-		else if (isURL(path))
+		else if (isURL(returnPath))
 		{
-			return path;
+			return returnPath;
 		}
 
 		if (File.separatorChar == '\\')
 		{
 			// get rid of mixed paths on Windows
-			path = path.replace('/', '\\');
+			returnPath = returnPath.replace('/', '\\');
 		}
 
-		if (path.startsWith("~" + File.separator))
+		if (returnPath.startsWith("~" + File.separator))
 		{
-			path = path.substring(2);
+			returnPath = returnPath.substring(2);
 
 			String home = System.getProperty("user.home");
 
 			if (home.endsWith(File.separator))
 			{
-				return home + path;
+				return home + returnPath;
 			}
-			return home + File.separator + path;
+			return home + File.separator + returnPath;
 		}
-		else if (path.equals("~"))
+		else if (returnPath.equals("~"))
 		{
 			return System.getProperty("user.home");
 		}
 		else
 		{
-			return path;
+			return returnPath;
 		}
 	}
 
@@ -458,39 +459,35 @@ public final class MiscUtilities
 			}
 			else if ((path.length() > 2) && (path.charAt(1) == ':') && (path.charAt(2) != '\\'))
 			{
-				path = path.substring(0, 2) + '\\' + path.substring(2);
-
-				return canonPath(path);
+				return canonPath(path.substring(0, 2) + '\\' + path.substring(2));
 			}
 		}
 
 		String dd = ".." + File.separator;
 		String d = "." + File.separator;
 
-		if (parent == null)
-		{
-			parent = Globals.getDefaultPath();
-		}
-
+		String returnParent = (parent == null) ? Globals.getDefaultPath() : parent;
+		String returnPath = path;
+		
 		//DJ: This sucks, this also needs to be fixed
 		for (;;)
 		{
-			if (path.equals("."))
+			if (returnPath.equals("."))
 			{
-				return parent;
+				return returnParent;
 			}
-			else if (path.equals(".."))
+			else if (returnPath.equals(".."))
 			{
-				return getParentOfPath(parent);
+				return getParentOfPath(returnParent);
 			}
-			else if (path.startsWith(dd) || path.startsWith("../"))
+			else if (returnPath.startsWith(dd) || returnPath.startsWith("../"))
 			{
-				parent = getParentOfPath(parent);
-				path = path.substring(3);
+				returnParent = getParentOfPath(returnParent);
+				returnPath = returnPath.substring(3);
 			}
-			else if (path.startsWith(d))
+			else if (returnPath.startsWith(d))
 			{
-				path = path.substring(2);
+				returnPath = returnPath.substring(2);
 			}
 			else
 			{
@@ -498,17 +495,17 @@ public final class MiscUtilities
 			}
 		}
 
-		if (OperatingSystem.isDOSDerived() && path.startsWith("\\"))
+		if (OperatingSystem.isDOSDerived() && returnPath.startsWith("\\"))
 		{
-			parent = parent.substring(0, 2);
+			returnParent = returnParent.substring(0, 2);
 		}
 
-		if (!path.endsWith("\\") && !path.endsWith("/"))
+		if (!returnPath.endsWith("\\") && !returnPath.endsWith("/"))
 		{
-			parent += File.separator;
+			returnParent += File.separator;
 		}
 
-		return parent + path;
+		return returnParent + returnPath;
 	}
 
 	/**

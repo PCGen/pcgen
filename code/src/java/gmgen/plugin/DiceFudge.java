@@ -46,7 +46,7 @@ public class DiceFudge extends Die
 	{
 		this.num = num;
 		this.aModifier = modifier;
-		rolls = new Integer[num];
+		rolls = new int[num];
 		die = new Dice(1, aSides);
 		roll();
 	}
@@ -69,13 +69,14 @@ public class DiceFudge extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = Integer.valueOf(die.roll());
+			int thisRoll = die.roll();
+			rolls[i] = thisRoll;
 
-			if ((rolls[i].intValue() == 1) || (rolls[i].intValue() == 2))
+			if ((thisRoll == 1) || (thisRoll == 2))
 			{
 				total--;
 			}
-			else if ((rolls[i].intValue() == 5) || (rolls[i].intValue() == 6))
+			else if ((thisRoll == 5) || (thisRoll == 6))
 			{
 				total++;
 			}

@@ -30,10 +30,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Vector;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -67,7 +68,7 @@ public class JARClassLoader extends ClassLoader
 	private static final JARClassLoader NO_CLASS = new JARClassLoader();
 	private static Hashtable<String, JARClassLoader> classHash = new Hashtable<String, JARClassLoader>();
 	private Plugin.JAR jar;
-	private Vector<String> pluginClasses = new Vector<String>();
+	private List<String> pluginClasses = new ArrayList<String>();
 	private ZipFile zipFile;
 
 	/**
@@ -109,7 +110,7 @@ public class JARClassLoader extends ClassLoader
 			{
 				classHash.put(MiscUtilities.fileToClass(name), this);
 
-				pluginClasses.addElement(name);
+				pluginClasses.add(name);
 			}
 		}
 
@@ -159,7 +160,7 @@ public class JARClassLoader extends ClassLoader
 	 *@exception  ClassNotFoundException  Didn't find the class we were looking for
 	 *@since        GMGen 3.3
 	 */
-	public Class loadClass(String clazz, boolean resolveIt)
+	public Class<?> loadClass(String clazz, boolean resolveIt)
 		throws ClassNotFoundException
 	{
 		// see what JARClassLoader this class is in
@@ -181,7 +182,7 @@ public class JARClassLoader extends ClassLoader
 		// non-existent, try loading it from the CLASSPATH
 		try
 		{
-			Class cls;
+			Class<?> cls;
 
 			/*
 			 *  Defer to whoever loaded us (such as JShell,
@@ -217,7 +218,7 @@ public class JARClassLoader extends ClassLoader
 	 */
 	public void startAllPlugins(String system)
 	{
-		Vector<Plugin> plugins = new Vector<Plugin>();
+		List<Plugin> plugins = new ArrayList<Plugin>();
 		for ( String name : pluginClasses )
 		{
 			name = MiscUtilities.fileToClass(name);
@@ -249,10 +250,10 @@ public class JARClassLoader extends ClassLoader
 		}
 	}
 
-	private Class _loadClass(String clazz, boolean resolveIt)
+	private Class<?> _loadClass(String clazz, boolean resolveIt)
 		throws ClassNotFoundException
 	{
-		Class cls = findLoadedClass(clazz);
+		Class<?> cls = findLoadedClass(clazz);
 
 		if (cls != null)
 		{
@@ -448,7 +449,7 @@ public class JARClassLoader extends ClassLoader
 
 		// JDK 1.1.8 throws a GPF when we do an isAssignableFrom()
 		// on an unresolved class
-		Class clazz = loadClass(name, true);
+		Class<?> clazz = loadClass(name, true);
 		int modifiers = clazz.getModifiers();
 
 		if(system.equals(Constants.s_SYSTEM_TOKENS)) {
@@ -461,7 +462,7 @@ public class JARClassLoader extends ClassLoader
 		return loadPluginClass(clazz, modifiers, name, system);
 	}
 
-	private Plugin loadPluginClass(Class clazz, int modifiers, String name, String system) throws Exception {
+	private Plugin loadPluginClass(Class<?> clazz, int modifiers, String name, String system) throws Exception {
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && Plugin.class.isAssignableFrom(clazz))
 		{
 			Plugin pl = (Plugin) clazz.newInstance();
@@ -486,7 +487,7 @@ public class JARClassLoader extends ClassLoader
 		return null;
 	}
 
-	private void loadOutputTokenClass(Class clazz, int modifiers) throws Exception {
+	private void loadOutputTokenClass(Class<?> clazz, int modifiers) throws Exception {
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && Token.class.isAssignableFrom(clazz))
 		{
 			Token pl = (Token) clazz.newInstance();
@@ -494,7 +495,7 @@ public class JARClassLoader extends ClassLoader
 		}
 	}
 
-	private void loadLstTokens(Class clazz, int modifiers) throws Exception
+	private void loadLstTokens(Class<?> clazz, int modifiers) throws Exception
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && LstToken.class.isAssignableFrom(clazz))
 		{
@@ -503,7 +504,7 @@ public class JARClassLoader extends ClassLoader
 		}
 	}
 
-	private void loadBonusTokens(Class clazz, String name, int modifiers) throws Exception
+	private void loadBonusTokens(Class<?> clazz, String name, int modifiers) throws Exception
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers) && BonusObj.class.isAssignableFrom(clazz))
 		{
@@ -511,7 +512,7 @@ public class JARClassLoader extends ClassLoader
 		}
 	}
 
-	private void loadPreTokens(Class clazz, int modifiers) throws Exception
+	private void loadPreTokens(Class<?> clazz, int modifiers) throws Exception
 	{
 		if (!Modifier.isInterface(modifiers) && !Modifier.isAbstract(modifiers))
 		{
@@ -539,7 +540,7 @@ public class JARClassLoader extends ClassLoader
 
 	}
 
-	private boolean addPreferencesPanel(Class clazz, Plugin pl) {
+	private boolean addPreferencesPanel(Class<?> clazz, Plugin pl) {
 		boolean load = true;
 		try {
 			Field f = clazz.getField("LOG_NAME");

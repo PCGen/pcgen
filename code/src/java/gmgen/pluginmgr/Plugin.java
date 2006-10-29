@@ -24,8 +24,10 @@ package gmgen.pluginmgr;
 import pcgen.core.SettingsHandler;
 
 import java.io.File;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Vector;
+import java.util.List;
 
 /**
  *  The interface between GMGen and a plugin.  All plugins to be loaded should
@@ -170,7 +172,7 @@ public abstract class Plugin
 
 		// private members
 		private String path;
-		private Vector<Plugin> plugins;
+		private List<Plugin> plugins;
 
 		/**
 		 *  Constructor for the JAR object
@@ -183,7 +185,7 @@ public abstract class Plugin
 		{
 			this.path = path;
 			this.classLoader = classLoader;
-			plugins = new Vector<Plugin>();
+			plugins = new ArrayList<Plugin>();
 		}
 
 		/**
@@ -216,24 +218,18 @@ public abstract class Plugin
 		 */
 		public Plugin[] getPlugins()
 		{
-			Plugin[] array = new Plugin[plugins.size()];
-			plugins.copyInto(array);
-
-			return array;
+			return plugins.toArray(new Plugin[plugins.size()]);
 		}
 
 		/**
 		 *  Adds all the plugins in this jar to a vector
 		 *
-		 *@param  vector  Vector to add all the plugins to.
+		 *@param  list  Vector to add all the plugins to.
 		 *@since        GMGen 3.3
 		 */
-		public void getPlugins(Vector<Plugin> vector)
+		public void getPlugins(List<Plugin> list)
 		{
-			for ( Plugin plugin : plugins )
-			{
-				vector.addElement(plugin);
-			}
+			list.addAll(plugins);
 		}
 
 		/**
@@ -256,11 +252,11 @@ public abstract class Plugin
 				GMBus.addToBus((GMBPlugin) plugin);
 			}
 
-			plugins.addElement(plugin);
+			plugins.add(plugin);
 		}
 	}
 
-	public static class PluginComperator implements Comparator<Plugin>
+	public static class PluginComperator implements Comparator<Plugin>, Serializable
 	{
 		/**
 		 *  Description of the Method

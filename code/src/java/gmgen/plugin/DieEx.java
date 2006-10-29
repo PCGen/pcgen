@@ -28,7 +28,7 @@ public class DieEx extends Die
 		String hold = "";
 		num = Integer.parseInt(strTok.nextToken());
 		sides = Integer.parseInt(strTok.nextToken());
-		rolls = new Integer[num];
+		rolls = new int[num];
 
 		if (strTok.hasMoreTokens())
 		{
@@ -76,14 +76,14 @@ public class DieEx extends Die
 	public static void main(String[] args)
 	{
 		DieEx DieRoller;
-		String temp = "";
+		StringBuffer temp = new StringBuffer();
 
 		for (int x = 0; x < args.length; x++)
 		{
-			temp += (args[x] + " ");
+			temp.append(args[x]).append(" ");
 		}
 
-		DieRoller = new DieEx(temp);
+		DieRoller = new DieEx(temp.toString());
 		System.out.println("you rolled " + DieRoller.roll());
 	}
 
@@ -96,8 +96,8 @@ public class DieEx extends Die
 
 		for (int x = 0; x < num; x++)
 		{
-			rolls[x] = Integer.valueOf((int) (Math.random() * sides) + 1);
-			total += rolls[x].intValue();
+			rolls[x] = rand.nextInt(sides) + 1;
+			total += rolls[x];
 		}
 
 		if (drops != 0)
@@ -109,14 +109,14 @@ public class DieEx extends Die
 			{
 				for (int x = 0; ((x < drops) && (x < rolls.length)); x++)
 				{
-					total -= rolls[x].intValue();
+					total -= rolls[x];
 				}
 			}
 			else
 			{
 				for (int x = rolls.length - 1; x > (rolls.length - drops - 1); x--)
 				{
-					total -= rolls[x].intValue();
+					total -= rolls[x];
 				}
 			}
 		}
@@ -131,6 +131,6 @@ public class DieEx extends Die
 	 */
 	public String toString()
 	{
-		return Integer.toString(num) + "d" + Integer.toString(sides);
+		return num + "d" + sides;
 	}
 }

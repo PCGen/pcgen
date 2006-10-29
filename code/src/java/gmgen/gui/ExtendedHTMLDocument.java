@@ -125,7 +125,7 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 
 				MutableAttributeSet attr
 						= (MutableAttributeSet) e.getAttributes();
-				Enumeration aNames = attr.getAttributeNames();
+				Enumeration<?> aNames = attr.getAttributeNames();
 				Object value;
 				Object aName;
 

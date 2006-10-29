@@ -45,8 +45,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	public int getMaxInit() {
 		int maxInit = 20;
 
-		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = this.get(i);
+		for (InitHolder c : this) {
 			int cInit = c.getInitiative().getCurrentInitiative();
 
 			if (cInit > maxInit) {
@@ -68,9 +67,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 * @return The Vector that contains a table row.
 	 */
 	public Vector<String> getRowVector(int i, List<String> columnOrder) {
-		InitHolder iH = this.get(i);
-
-		return iH.getRowVector(columnOrder);
+		return this.get(i).getRowVector(columnOrder);
 	}
 
 	/**
@@ -83,11 +80,12 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 */
 	public String getUniqueName(String name) {
 		int i = 1;
-		while (!isUniqueName(name)) {
-			name = name.replaceAll(" \\(\\d.*\\)", "") + " (" + i + ")";
+		String workingName = name;
+		while (!isUniqueName(workingName)) {
+			workingName = workingName.replaceAll(" \\(\\d.*\\)", "") + " (" + i + ")";
 			i++;
 		}
-		return name;
+		return workingName;
 	}
 
 	/**
@@ -98,18 +96,12 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 * @return if the string is unique or not
 	 */
 	public boolean isUniqueName(String name) {
-		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = this.get(i);
-
+		for (InitHolder c : this) {
 			if (c.getName().equals(name)) { return false; }
 		}
 
 		return true;
 	}
-
-	/*
-	 * History: March 20, 2003: Cleanup for Version 1.0
-	 */
 
 	/**
 	 * Method for adding a combatant to the list
@@ -134,9 +126,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	public void calculateNumberField() {
 		int j = 1;
 
-		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = this.get(i);
-
+		for (InitHolder c : this) {
 			if (c instanceof Combatant) {
 				Combatant cbt = (Combatant) c;
 				cbt.setNumber(j);
@@ -150,8 +140,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 		Dice d20 = new Dice(1, 20);
 		boolean pcroll = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true);
 
-		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = this.get(i);
+		for (InitHolder c : this) {
 			int roll = d20.roll();
 			boolean doroll = true;
 			if (!pcroll && c instanceof Combatant) {
@@ -182,9 +171,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 * @return if it is active
 	 */
 	public boolean initValid(int init) {
-		for (int i = 0; i < this.size(); i++) {
-			InitHolder c = this.get(i);
-
+		for (InitHolder c : this) {
 			if (!c.getStatus().equals("Dead")) {
 				int cInit = c.getInitiative().getCurrentInitiative();
 

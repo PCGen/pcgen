@@ -21,11 +21,12 @@
  */
 package gmgen.pluginmgr;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import gmgen.pluginmgr.messages.ComponentAddedMessage;
 import gmgen.pluginmgr.messages.ComponentRemovedMessage;
 import pcgen.util.Logging;
-
-import java.util.Vector;
 
 /**
  *  The EditBus is GMGen's global event notification mechanism. A number of
@@ -39,7 +40,7 @@ import java.util.Vector;
 public class GMBus
 {
 	// private members
-	private static Vector<GMBComponent> components = new Vector<GMBComponent>();
+	private static List<GMBComponent> components = new ArrayList<GMBComponent>();
 	private static GMBComponent[] copyComponents;
 
 	//private static Hashtable listVectors = new Hashtable();
@@ -62,8 +63,7 @@ public class GMBus
 		{
 			if (copyComponents == null)
 			{
-				copyComponents = new GMBComponent[components.size()];
-				components.copyInto(copyComponents);
+				copyComponents = components.toArray(new GMBComponent[components.size()]);
 			}
 
 			return copyComponents;
@@ -80,7 +80,7 @@ public class GMBus
 	{
 		synchronized (components)
 		{
-			components.addElement(comp);
+			components.add(comp);
 			send(new ComponentAddedMessage(comp));
 			copyComponents = null;
 		}
@@ -96,7 +96,7 @@ public class GMBus
 	{
 		synchronized (components)
 		{
-			components.removeElement(comp);
+			components.remove(comp);
 			send(new ComponentRemovedMessage(comp));
 			copyComponents = null;
 		}
@@ -115,16 +115,14 @@ public class GMBus
 
 		// To avoid any problems if components are added or removed
 		// while the message is being sent
-		GMBComponent[] comps = getComponents();
-
-		for (int i = 0; i < comps.length; i++)
+		for (GMBComponent component : getComponents())
 		{
 			try
 			{
 				//Do everyone else first
-				if (comps[i] != message.getSource())
+				if (component != message.getSource())
 				{
-					comps[i].handleMessage(message);
+					component.handleMessage(message);
 
 					if (message.isVetoed())
 					{

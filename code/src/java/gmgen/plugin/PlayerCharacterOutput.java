@@ -2,14 +2,13 @@ package gmgen.plugin;
 
 import pcgen.core.*;
 import pcgen.io.ExportHandler;
+import pcgen.util.CollectionUtilities;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class PlayerCharacterOutput
@@ -24,17 +23,17 @@ public class PlayerCharacterOutput
 
 	public String getAC()
 	{
-		return pc.getACTotal() + "";
+		return Integer.toString(pc.getACTotal());
 	}
 
 	public String getACFlatFooted()
 	{
-		return pc.flatfootedAC() + "";
+		return Integer.toString(pc.flatfootedAC());
 	}
 
 	public String getACTouch()
 	{
-		return pc.touchAC() + "";
+		return Integer.toString(pc.touchAC());
 	}
 
 	public String getAlignmentLong()
@@ -49,28 +48,28 @@ public class PlayerCharacterOutput
 
 	public String getBAB()
 	{
-		return pc.baseAttackBonus() + "";
+		return Integer.toString(pc.baseAttackBonus());
 	}
 
 	public String getCR()
 	{
-		return pc.calcCR() + "";
+		return Integer.toString(pc.calcCR());
 	}
 
 	public String getClasses()
 	{
 		StringBuffer sb = new StringBuffer();
-		ArrayList<PCClass> classList = pc.getClassList();
-
-		for (int i = 0; i < classList.size(); i++)
+		for (PCClass mClass : pc.getClassList())
 		{
-			PCClass mClass = classList.get(i);
 			sb.append(mClass.getDisplayName() + mClass.getLevel() + " ");
 		}
 
 		return sb.toString();
 	}
 
+	/**
+	 * @deprecated since pc.getCritterType is deprecated
+	 */
 	public String getCritterType()
 	{
 		return pc.getCritterType();
@@ -101,13 +100,10 @@ public class PlayerCharacterOutput
 	public String getEquipmentList()
 	{
 		StringBuffer sb = new StringBuffer();
-		List<Equipment> eqList = pc.getEquipmentListInOutputOrder();
 		boolean firstLine = true;
 
-		for (int i = 0; i < eqList.size(); i++)
+		for (Equipment eq : pc.getEquipmentListInOutputOrder())
 		{
-			Equipment eq = eqList.get(i);
-
 			if (!firstLine)
 			{
 				sb.append(", ");
@@ -182,7 +178,7 @@ public class PlayerCharacterOutput
 
 	public String getHitPoints()
 	{
-		return pc.hitPoints() + "";
+		return Integer.toString(pc.hitPoints());
 	}
 
 	public String getInitMiscMod()
@@ -261,12 +257,10 @@ public class PlayerCharacterOutput
 	public String getSkillList()
 	{
 		StringBuffer sb = new StringBuffer();
-		ArrayList<Skill> skillList = pc.getSkillListInOutputOrder();
 		boolean firstLine = true;
 
-		for (int i = 0; i < skillList.size(); i++)
+		for (Skill skill : pc.getSkillListInOutputOrder())
 		{
-			Skill skill = skillList.get(i);
 			int modSkill = -1;
 
 			if (skill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
@@ -293,22 +287,7 @@ public class PlayerCharacterOutput
 
 	public String getSpecialAbilities()
 	{
-		StringBuffer sb = new StringBuffer();
-		boolean firstLine = true;
-		ArrayList<String> saList = pc.getSpecialAbilityTimesList();
-
-		for (int i = 0; i < saList.size(); i++)
-		{
-			if (!firstLine)
-			{
-				sb.append(", ");
-			}
-
-			firstLine = false;
-			sb.append(saList.get(i));
-		}
-
-		return sb.toString();
+		return CollectionUtilities.joinStringRepresentations(pc.getSpecialAbilityTimesList(), ", ");
 	}
 
 	public String getSpeed()
@@ -327,7 +306,7 @@ public class PlayerCharacterOutput
 	{
 		StatList sl = pc.getStatList();
 
-		return sl.getTotalStatFor(statAbbrev) + "";
+		return Integer.toString(sl.getTotalStatFor(statAbbrev));
 	}
 
 	public StatList getStatList()

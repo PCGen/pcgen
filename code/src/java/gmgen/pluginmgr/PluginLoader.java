@@ -27,9 +27,10 @@ import pcgen.util.Logging;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 /**
  *  Loads plugins into gmgen.  looks dor any .jar files in ./plugins, and then
@@ -40,8 +41,8 @@ import java.util.Vector;
  */
 public class PluginLoader
 {
-	private static Vector<Plugin.JAR> jars = new Vector<Plugin.JAR>();
-	private static Vector<ErrorListDialog.ErrorEntry> pluginErrors;
+	private static List<Plugin.JAR> jars = new ArrayList<Plugin.JAR>();
+	private static List<ErrorListDialog.ErrorEntry> pluginErrors;
 
 	private static PluginLoader inst;
 	private static Map<String, String> loadedMap = new HashMap<String, String>();
@@ -95,13 +96,11 @@ public class PluginLoader
 	 */
 	public static Plugin getPlugin(String name)
 	{
-		Plugin[] plugins = getPlugins();
-
-		for (int i = 0; i < plugins.length; i++)
+		for (Plugin pi : getPlugins())
 		{
-			if (plugins[i].getClassName().equals(name))
+			if (pi.getClassName().equals(name))
 			{
-				return plugins[i];
+				return pi;
 			}
 		}
 
@@ -115,17 +114,14 @@ public class PluginLoader
 	 */
 	public static Plugin[] getPlugins()
 	{
-		Vector<Plugin> vector = new Vector<Plugin>();
+		List<Plugin> vector = new ArrayList<Plugin>();
 
 		for ( Plugin.JAR jar : jars )
 		{
 			jar.getPlugins(vector);
 		}
 
-		Plugin[] array = new Plugin[vector.size()];
-		vector.copyInto(array);
-
-		return array;
+		return vector.toArray(new Plugin[vector.size()]);
 	}
 
 	/**
@@ -135,17 +131,17 @@ public class PluginLoader
 	 */
 	public static void addPluginJAR(Plugin.JAR plugin)
 	{
-		jars.addElement(plugin);
+		jars.add(plugin);
 	}
 
 	static void pluginError(final String path, String messageProp, Object[] args)
 	{
 		if (pluginErrors == null)
 		{
-			pluginErrors = new Vector<ErrorListDialog.ErrorEntry>();
+			pluginErrors = new ArrayList<ErrorListDialog.ErrorEntry>();
 		}
 
-		pluginErrors.addElement(new ErrorListDialog.ErrorEntry(path, messageProp, args));
+		pluginErrors.add(new ErrorListDialog.ErrorEntry(path, messageProp, args));
 	}
 
 	/**

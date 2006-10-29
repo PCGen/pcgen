@@ -41,8 +41,12 @@ import java.awt.Component;
 public class GMGenSystemView extends JPanel implements ChangeListener
 {
 	/**
-	 * A value that signifies the current pane that is showing.  Is not 
-	 * directly used in this class, but is needed to support interface
+	 * A value that signifies the current pane that is showing. Is not directly
+	 * used in this class, but is needed to support interface
+	 * 
+	 * TODO How can this support anything when Eclipse shows this is assigned
+	 * (below) but never used? An interface is not requiring this, and can't
+	 * because it's static... - thpr 10/27/06
 	 */
 	public static int currentPane;
 
@@ -59,6 +63,11 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	 */
 	public GMGenSystemView()
 	{
+		/*
+		 * TODO This is very strange - multiple instances of GMGenSystemView can
+		 * theoretically be created, but then they will share a JTabbedPane
+		 * because it is static?? - thpr 10/27/06
+		 */
 		tabbedPane = new JTabbedPane();
 		initComponents();
 		tabbedPane.addChangeListener(this);

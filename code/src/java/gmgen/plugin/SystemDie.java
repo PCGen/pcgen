@@ -18,7 +18,7 @@ public class SystemDie extends Die
 		this.num = 1;
 		this.sides = 20;
 		this.aModifier = modifier;
-		rolls = new Integer[num];
+		rolls = new int[num];
 		roll();
 	}
 
@@ -40,19 +40,20 @@ public class SystemDie extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = Integer.valueOf(rand.nextInt(sides) + 1 + aModifier);
+			int thisRoll = rand.nextInt(sides) + 1 + aModifier;
+			rolls[i] = thisRoll;
 
-			if (rolls[i].intValue() == 1)
+			if (thisRoll == 1)
 			{
 				value -= 10;
 			}
 
-			if (rolls[i].intValue() == 20)
+			if (thisRoll == 20)
 			{
 				value += 10;
 			}
 
-			value = rolls[i].intValue() + value;
+			value = thisRoll + value;
 		}
 
 		total = value;

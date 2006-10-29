@@ -266,7 +266,14 @@ public class VectorTable extends AbstractList
 	 */
 	public boolean equals(Object o)
 	{
-		if (this.name == o.toString())
+		/*
+		 * TODO - this seems a bit strange, to have an .equals on a VectorTable that tests
+		 * only the name of the vector?  It seems that .equals should behave much more like
+		 * the .equals of other objects, and this should be something else?  If there is a
+		 * special consideration for a Set or something that VectorTables are stored in, 
+		 * then a special comparator should be built, in my opinion - thpr 10/29/06
+		 */
+		if (o != null && o.toString().equals(name))
 		{
 			return true;
 		}

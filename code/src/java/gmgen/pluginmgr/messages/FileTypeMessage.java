@@ -37,7 +37,7 @@ import java.util.Arrays;
  */
 public class FileTypeMessage extends GMBMessage {
 
-	private ArrayList fileTypes = new ArrayList();
+	private ArrayList<FileFilter> fileTypes = new ArrayList<FileFilter>();
 
 	/**
 	 * Constructor for the StateChangedMessage object
@@ -53,7 +53,7 @@ public class FileTypeMessage extends GMBMessage {
 	 * @return Returns the file.
 	 */
 	public FileFilter[] getFileypes() {
-		return (FileFilter[]) fileTypes.toArray(new FileFilter[fileTypes.size()]);
+		return fileTypes.toArray(new FileFilter[fileTypes.size()]);
 	}
 
 	/**

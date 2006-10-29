@@ -29,7 +29,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import java.util.ArrayList;
 
 /**
  *@author     devon
@@ -69,11 +68,8 @@ public class PreferencesDialog extends javax.swing.JDialog
 	 */
 	public void applyPreferences()
 	{
-		ArrayList panelList = root.getPanelList();
-
-		for (int i = 0; i < panelList.size(); i++)
+		for (PreferencesPanel panel : root.getPanelList())
 		{
-			PreferencesPanel panel = (PreferencesPanel) panelList.get(i);
 			panel.applyPreferences();
 		}
 	}
@@ -242,11 +238,8 @@ public class PreferencesDialog extends javax.swing.JDialog
 	/** Sets all the widgets to refelct the current preferences */
 	private void initPreferences()
 	{
-		ArrayList panelList = root.getPanelList();
-
-		for (int i = 0; i < panelList.size(); i++)
+		for (PreferencesPanel panel : root.getPanelList())
 		{
-			PreferencesPanel panel = (PreferencesPanel) panelList.get(i);
 			panel.initPreferences();
 		}
 	}

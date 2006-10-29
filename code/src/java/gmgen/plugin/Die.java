@@ -34,7 +34,7 @@ public abstract class Die
 	protected static Random rand = new Random();
 
 	/** Holds the rolls of each die */
-	public Integer[] rolls;
+	public int[] rolls;
 
 	/** Die modifier */
 	public int modifier;

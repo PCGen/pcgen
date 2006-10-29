@@ -224,7 +224,6 @@ public class Event implements InitHolder
 	public Vector<String> getRowVector(List<String> columnOrder)
 	{
 		Vector<String> rowVector = new Vector<String>();
-		int columns = columnOrder.size();
 
 		for ( String columnName : columnOrder )
 		{

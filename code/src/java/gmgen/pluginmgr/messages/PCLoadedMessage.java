@@ -36,7 +36,7 @@ import java.util.List;
  */
 public class PCLoadedMessage extends GMBMessage
 {
-	private List ignoreList = new ArrayList();
+	private List<GMBComponent> ignoreList = new ArrayList<GMBComponent>();
 	private PlayerCharacter pc;
 
 	/**
@@ -53,9 +53,9 @@ public class PCLoadedMessage extends GMBMessage
 
 	public boolean isIgnored(GMBComponent comp)
 	{
-		for (int i = 0; i < ignoreList.size(); i++)
+		for (GMBComponent gmbc : ignoreList)
 		{
-			if (comp == ignoreList.get(i))
+			if (comp == gmbc)
 			{
 				return true;
 			}

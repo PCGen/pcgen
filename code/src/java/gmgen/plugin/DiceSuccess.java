@@ -47,7 +47,7 @@ public class DiceSuccess extends Die
 		this.num = num;
 		this.sides = sides;
 		this.difficulty = difficulty;
-		rolls = new Integer[num];
+		rolls = new int[num];
 		die = new Dice(1, sides);
 		roll();
 	}
@@ -72,9 +72,9 @@ public class DiceSuccess extends Die
 
 		for (i = 0; i < num; i++)
 		{
-			rolls[i] = Integer.valueOf(die.roll());
+			rolls[i] = die.roll();
 
-			if (rolls[i].intValue() >= difficulty)
+			if (rolls[i] >= difficulty)
 			{
 				total++;
 			}

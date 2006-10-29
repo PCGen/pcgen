@@ -41,9 +41,9 @@ public class SimpleFileFilter extends FileFilter
 			extensions[i] = exts[i].toLowerCase();
 		}
 
-		desc = ((desc == null) ? "Unknown File" : desc);
+		String workingDesc = ((desc == null) ? "Unknown File" : desc);
 
-		StringBuffer strbDesc = new StringBuffer(desc + " (");
+		StringBuffer strbDesc = new StringBuffer(workingDesc + " (");
 
 		for (int i = 0; i < extensions.length; i++)
 		{

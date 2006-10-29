@@ -19,7 +19,11 @@ package gmgen.gui;
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
 
-/** Class for providing JFileChooser with a FileFilter
+/**
+ * Class for providing JFileChooser with a FileFilter
+ * 
+ * TODO This class should be deleted as it is unused and incomplete
+ * (nothing can be written to, etc.) - thpr 10/27/06
  */
 public class MutableFilter extends FileFilter
 {
@@ -43,9 +47,12 @@ public class MutableFilter extends FileFilter
 
 		if (fileExt != null)
 		{
-			for (int i = 0; i < acceptableExtensions.length; i++)
+			/*
+			 * TODO This really isn't useful, since this array is ALWAYS null??
+			 */
+			for (String extension : acceptableExtensions)
 			{
-				if (fileExt.equals(acceptableExtensions[i]))
+				if (fileExt.equals(extension))
 				{
 					return true;
 				}

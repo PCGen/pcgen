@@ -21,7 +21,6 @@
 package gmgen.util;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -35,10 +34,8 @@ import java.util.List;
 public class LogUtilities implements LogReceiver
 {
 	private static LogUtilities singleton = null;
-	private List receivers;
+	private List<LogReceiver> receivers;
 	private boolean loggingOn;
-
-	// end inst
 
 	/**
 	 *  The private constructor. Called by inst to create the singleton instance if
@@ -49,7 +46,7 @@ public class LogUtilities implements LogReceiver
 	private LogUtilities()
 	{
 		loggingOn = false;
-		receivers = new ArrayList();
+		receivers = new ArrayList<LogReceiver>();
 	}
 
 	/**
@@ -68,8 +65,6 @@ public class LogUtilities implements LogReceiver
 		return singleton;
 	}
 
-	// end constructor
-
 	/**
 	 *  Turns on or off logging.
 	 *
@@ -80,8 +75,6 @@ public class LogUtilities implements LogReceiver
 	{
 		loggingOn = on;
 	}
-
-	// end setLoggingOn
 
 	/**
 	 *  Add a receiver that will be called when a message is to be logged.
@@ -94,8 +87,6 @@ public class LogUtilities implements LogReceiver
 		receivers.add(rcvr);
 	}
 
-	// end removeReceiver
-
 	/**
 	 * Log a message associated with a specific owner - from LogReceiver
 	 *
@@ -107,22 +98,13 @@ public class LogUtilities implements LogReceiver
 	{
 		if (loggingOn)
 		{
-			Iterator itr = receivers.iterator();
-
 			// send the message to all registered receivers
-			while (itr.hasNext())
+			for (LogReceiver rcvr : receivers)
 			{
-				LogReceiver rcvr = (LogReceiver) itr.next();
 				rcvr.logMessage(owner, message);
 			}
-
-			// end for each registered receiver
 		}
-
-		// end if we are logging
 	}
-
-	// end logMessage - 2 params
 
 	/**
 	 * Log a message without an owner - from LogReceiver
@@ -134,24 +116,10 @@ public class LogUtilities implements LogReceiver
 	{
 		if (loggingOn)
 		{
-			Iterator itr = receivers.iterator();
-
-			// send the message to all registered receivers
-			while (itr.hasNext())
+			for (LogReceiver rcvr : receivers)
 			{
-				LogReceiver rcvr = (LogReceiver) itr.next();
 				rcvr.logMessage(message);
 			}
-
-			// end for each registered receiver
 		}
-
-		// end if we are logging
 	}
-
-	// end addReceiver
-	// end logMessage - 1 param
 }
-
-
-// end class LogUtilities

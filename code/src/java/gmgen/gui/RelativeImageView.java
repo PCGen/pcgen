@@ -586,7 +586,7 @@ public class RelativeImageView extends View implements ImageObserver
 			if (!hasPixels(anImage))
 			{
 				// No pixels yet, use the default
-				Icon icon = (anImage == null) ? getNoImageIcon() : getLoadingImageIcon();
+				Icon icon = getLoadingImageIcon();
 
 				if (icon != null)
 				{
@@ -869,7 +869,7 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if (src != null)
 			{
-				Dictionary cache = (Dictionary) getDocument().getProperty(IMAGE_CACHE_PROPERTY);
+				Dictionary<?, ?> cache = (Dictionary) getDocument().getProperty(IMAGE_CACHE_PROPERTY);
 
 				if (cache != null)
 				{
@@ -1013,7 +1013,7 @@ public class RelativeImageView extends View implements ImageObserver
 			if (pv != null)
 			{
 				File f = new File(pv);
-				val = (new File(f.getParent(), imageFile.getPath().toString())).toString();
+				val = (new File(f.getParent(), imageFile.getPath())).toString();
 				found = true;
 			}
 		}
@@ -1446,7 +1446,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * the attribute specified an alt attribute. It overriden a handle of
 	 * methods as the text is hardcoded and does not come from the document.
 	 */
-	private class ImageLabelView extends InlineView
+	private static class ImageLabelView extends InlineView
 	{
 		private Color fg;
 		private Segment segment;
