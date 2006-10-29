@@ -113,9 +113,9 @@ public class PreRuleTester
 			runningTotal = 1;
 		}
 
+		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
 			{

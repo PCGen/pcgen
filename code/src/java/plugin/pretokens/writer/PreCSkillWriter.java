@@ -78,7 +78,9 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements Prere
 			writer.write(prereq.getKey() );
 			if (prereq.getSubKey() != null)
 			{
-				writer.write( " (" + prereq.getSubKey() + ")");
+				writer.write(" (");
+				writer.write(prereq.getSubKey());
+				writer.write(")");
 			}
 		}
 		catch (IOException e)

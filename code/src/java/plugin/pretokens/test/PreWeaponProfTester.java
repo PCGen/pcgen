@@ -34,9 +34,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.PropertyFactory;
 
-import java.util.Iterator;
-
-
 /**
  * @author wardc
  *
@@ -83,11 +80,12 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		final String aString = prereq.getKey();
 		if ("DEITYWEAPON".equals(aString) && character.getDeity() != null) //$NON-NLS-1$
 		{
-			for (Iterator<String> weapIter = CoreUtility.split(character.getDeity().getFavoredWeapon(), '|').iterator(); weapIter.hasNext();)
+			for (String weaponKey : CoreUtility.split(character.getDeity().getFavoredWeapon(), '|'))
 			{
-				final String weaponKey = weapIter.next();
 				if (character.hasWeaponProfKeyed(weaponKey))
+				{
 					runningTotal++;
+				}
 			}
 		}
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$
@@ -115,7 +113,9 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		else
 		{
 			if (character.hasWeaponProfKeyed(aString))
+			{
 				runningTotal++;
+			}
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, number);

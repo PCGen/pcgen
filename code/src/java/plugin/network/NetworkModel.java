@@ -164,8 +164,7 @@ public class NetworkModel {
 			ThreadGroup tg = server.getThreadGroup();
 			Thread[] tl = new Thread[tg.activeCount()];
 			tg.enumerate(tl);
-			for(int i = 0; i < tl.length; i++) {
-				Thread t = tl[i];
+			for (Thread t : tl) {
 				if(t instanceof NetworkServer) {
 					serverThread = (NetworkServer)t;
 				}
@@ -173,7 +172,9 @@ public class NetworkModel {
 					((NetworkServer.Handler)t).setRun(false);
 				}
 			}
-			serverThread.setRun(false);
+			if (serverThread != null) {
+				serverThread.setRun(false);
+			}
 		}
 		server = null;
 		log("Local", "Local", "Server Shut Down");

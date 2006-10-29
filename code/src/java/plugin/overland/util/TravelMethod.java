@@ -10,7 +10,7 @@ package plugin.overland.util;
  *
  * @author  Juliean Galak
  */
-public class TravelMethod extends Pair
+public class TravelMethod extends Pair<String, Integer>
 {
 	/** Creates a new instance of TravelMethod
 	 * @param name - String containing name
@@ -45,7 +45,7 @@ public class TravelMethod extends Pair
 	 */
 	public String getName()
 	{
-		return (String) super.getLeft();
+		return super.getLeft();
 	}
 
 	/**
@@ -63,6 +63,6 @@ public class TravelMethod extends Pair
 	 */
 	public int getSpeed()
 	{
-		return (((Integer) super.getRight()).intValue());
+		return super.getRight().intValue();
 	}
 }

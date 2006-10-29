@@ -17,12 +17,11 @@ public class HitdiceadvancementToken implements RaceLstToken {
 	public boolean parse(Race race, String value) {
 		try {
 			final StringTokenizer advancement = new StringTokenizer(value, ",");
-			String temp;
 
 			final int[] hitDiceAdvancement = new int[advancement.countTokens()];
 
 			for (int x = 0; x < hitDiceAdvancement.length; ++x) {
-				temp = advancement.nextToken();
+				String temp = advancement.nextToken();
 
 				if ((temp.length() > 0) && (temp.charAt(0) == '*')) {
 					race.setAdvancementUnlimited(true);

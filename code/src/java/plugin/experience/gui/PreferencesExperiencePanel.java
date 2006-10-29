@@ -39,8 +39,8 @@ import java.awt.Font;
  */
 public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel {
 
-	public static int EXPERIENCE_3 = 1;
-	public static int EXPERIENCE_35 = 2;
+	public static final int EXPERIENCE_3 = 1;
+	public static final int EXPERIENCE_35 = 2;
 
 	private JPanel mainPanel;
 	private JPanel expPanel;

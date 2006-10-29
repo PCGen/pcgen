@@ -82,12 +82,15 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements Prereq
 			{
 				writer.write("PRESKILL:1,");
 			}
-			String toWrite = prereq.getKey();
+			writer.write(prereq.getKey());
 			if (prereq.getSubKey() != null)
 			{
-				toWrite += " (" + prereq.getSubKey() + ")";
+				writer.write(" (");
+				writer.write(prereq.getSubKey());
+				writer.write(')');
 			}
-			writer.write(toWrite + "=" + prereq.getOperand() );
+			writer.write("=");
+			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)
 		{

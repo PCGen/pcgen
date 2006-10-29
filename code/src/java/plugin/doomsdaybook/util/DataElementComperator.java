@@ -3,12 +3,13 @@
  */
 package plugin.doomsdaybook.util;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * DataElementComperator
  */
-public class DataElementComperator implements Comparator<DataElement>
+public class DataElementComperator implements Comparator<DataElement>, Serializable
 {
 	public int compare(DataElement o1, DataElement o2)
 	{

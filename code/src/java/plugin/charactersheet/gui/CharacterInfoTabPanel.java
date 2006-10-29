@@ -64,6 +64,7 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab {
 	}
 
 	public PlayerCharacter getPc() {
+		//TODO Should this be cp.getPC()?? - thpr 10/27/06
 		return pc;
 	}
 

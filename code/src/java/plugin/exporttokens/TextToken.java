@@ -68,23 +68,23 @@ public class TextToken extends Token
 		aTok.nextToken(); //this should be VAR
 
 		String action = "";
-		String varName = "";
+		StringBuffer varName = new StringBuffer();
 		if (aTok.hasMoreElements())
 		{
 			action = aTok.nextToken();
 		}
 		if (aTok.hasMoreElements())
 		{
-			varName = aTok.nextToken();
+			varName.append(aTok.nextToken());
 		}
 		while (aTok.hasMoreElements())
 		{
-			varName += "." + aTok.nextToken();
+			varName.append(".").append(aTok.nextToken());
 		}
 
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
-		eh.replaceToken(varName, bw, pc);
+		eh.replaceToken(varName.toString(), bw, pc);
 		try
 		{
 			bw.flush();

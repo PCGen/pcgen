@@ -82,7 +82,9 @@ public class PreFeatWriter extends AbstractPrerequisiteWriter implements Prerequ
 			writer.write(prereq.getKey() );
 			if (prereq.getSubKey() != null)
 			{
-				writer.write( " (" + prereq.getSubKey() + ")");
+				writer.write(" (");
+				writer.write(prereq.getSubKey());
+				writer.write(")");
 			}
 		}
 		catch (IOException e)

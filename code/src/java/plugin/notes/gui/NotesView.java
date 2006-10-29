@@ -176,12 +176,8 @@ public class NotesView extends JPanel
 	public Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
-		Action[] actionsArray = textComponent.getActions();
-
-		for (int i = 0; i < actionsArray.length; i++)
+		for (Action a : textComponent.getActions())
 		{
-			Action a = actionsArray[i];
-
 			if (a.getValue(Action.NAME).equals(name))
 			{
 				return a;
@@ -202,11 +198,10 @@ public class NotesView extends JPanel
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
 
-		FileFilter[] ff = plugin.getFileTypes();
-		for(int i = 0; i < ff.length; i++)
+		for (FileFilter filter : plugin.getFileTypes())
 		{
-			chooser.addChoosableFileFilter(ff[i]);
-			chooser.setFileFilter(ff[i]);
+			chooser.addChoosableFileFilter(filter);
+			chooser.setFileFilter(filter);
 		}
 		chooser.setMultiSelectionEnabled(true);
 
@@ -215,15 +210,13 @@ public class NotesView extends JPanel
 
 		if (option == JFileChooser.APPROVE_OPTION)
 		{
-			File[] noteFiles = chooser.getSelectedFiles();
-
-			for (int i = 0; i < noteFiles.length; i++)
+			for (File noteFile : chooser.getSelectedFiles())
 			{
-				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME + ".LastFile", noteFiles[i].toString());
+				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME + ".LastFile", noteFile.toString());
 
-				if (noteFiles[i].toString().endsWith(".gmn"))
+				if (noteFile.toString().endsWith(".gmn"))
 				{
-					openGMN(noteFiles[i]);
+					openGMN(noteFile);
 				}
 			}
 		}
@@ -418,12 +411,8 @@ public class NotesView extends JPanel
 	{
 		// TODO: Shouldn't this really be a static method in MiscUtils?
 		int num = 0;
-		File[] entries = count.listFiles();
-
-		for (int i = 0; i < entries.length; i++)
+		for (File f : count.listFiles())
 		{
-			File f = entries[i];
-
 			if (f.isDirectory())
 			{
 				num = num + fileCount(f);
@@ -594,20 +583,16 @@ public class NotesView extends JPanel
 	protected int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
 		throws IOException
 	{
-		File[] entries = currentDir.listFiles();
-
 		byte[] buffer = new byte[4096];
 		int bytes_read;
 		int returnValue = progress;
 
-		for (int i = 0; i < entries.length; i++)
+		for (File f : currentDir.listFiles())
 		{
 			if (pm.isCanceled())
 			{
 				return 0;
 			}
-
-			File f = entries[i];
 
 			if (f.isDirectory())
 			{
@@ -984,7 +969,7 @@ public class NotesView extends JPanel
 		{
 			if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
 			        HTML.Tag.UL)
-			    | ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
+			    || ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
 			        HTML.Tag.OL))
 			{
 				elem = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
@@ -2004,9 +1989,9 @@ public class NotesView extends JPanel
 		 */
 		public void handleImageDropInsertion(File image)
 		{
-			for (int i = 0; i < extsIMG.length; i++)
+			for (String s : extsIMG)
 			{
-				if (image.getName().endsWith(extsIMG[i]))
+				if (image.getName().endsWith(s))
 				{
 					try
 					{

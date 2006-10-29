@@ -549,7 +549,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#getColumnClass(int)
 		 */
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}

@@ -82,7 +82,9 @@ public class PreSkillMultWriter extends AbstractPrerequisiteWriter implements Pr
 			{
 				writer.write("PRESKILL:1,");
 			}
-			writer.write(prereq.getKey() + "=" + prereq.getOperand() );
+			writer.write(prereq.getKey());
+			writer.write('=');
+			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)
 		{

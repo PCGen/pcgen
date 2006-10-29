@@ -115,20 +115,16 @@ public class FollowerToken extends Token
 	{
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
-		PlayerCharacter newPC;
+		
+		String token = "".equals(followerToken) ? "NAME" : followerToken;
+		
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
 			if (follower.getFileName().equals(eachPC.getFileName()))
 			{
-				newPC = eachPC;
-
-				if (followerToken.equals(""))
-				{
-					followerToken = "NAME";
-				}
-
+				PlayerCharacter newPC = eachPC;
 				Globals.setCurrentPC(newPC);
-				eh.replaceToken(followerToken, bw, newPC);
+				eh.replaceToken(token, bw, newPC);
 				Globals.setCurrentPC(pc);
 			}
 		}

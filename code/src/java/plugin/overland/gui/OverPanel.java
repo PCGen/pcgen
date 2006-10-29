@@ -10,10 +10,9 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 import pcgen.util.Logging;
+import plugin.overland.util.PairList;
 import plugin.overland.util.RBCost;
-import plugin.overland.util.RBCosts;
 import plugin.overland.util.TravelMethod;
-import plugin.overland.util.TravelMethods;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -88,9 +87,9 @@ public class OverPanel extends javax.swing.JPanel
 	private javax.swing.JTextField txtWeekTotal;
 	private NumberFormat gp = NumberFormat.getNumberInstance();
 	private NumberFormat nf = NumberFormat.getNumberInstance();
-	private RBCosts animals; //holds animal costs
-	private RBCosts foods; //holds inn costs
-	private RBCosts inns; //holds inn costs
+	private PairList<RBCost> animals; //holds animal costs
+	private PairList<RBCost> foods; //holds inn costs
+	private PairList<RBCost> inns; //holds inn costs
 
 	// End of variables declaration//GEN-END:variables
 
@@ -98,7 +97,7 @@ public class OverPanel extends javax.swing.JPanel
 	   private HashMap categories = new HashMap();
 	   private VariableHashMap allVars = new VariableHashMap();
 	 */
-	private TravelMethods tms; //holds the travel methods list
+	private PairList<TravelMethod> tms; //holds the travel methods list
 	private boolean StupidKludge = true; /* This is a stupid kludge!
 	 * the room & board combo boxes fire events when changed,
 	 * and these events trigger updateTopUI
@@ -128,7 +127,7 @@ public class OverPanel extends javax.swing.JPanel
 		try
 		{
 			float time = nf.parse(txtTime.getText()).floatValue();
-			int speed = tms.getMethodAtI(i).getSpeed();
+			int speed = tms.get(i).getSpeed();
 			float result = 0;
 			result = time * speed;
 			txtDist.setText(nf.format(result));
@@ -199,7 +198,7 @@ public class OverPanel extends javax.swing.JPanel
 		try
 		{
 			float dist = nf.parse(txtDist.getText()).floatValue();
-			int speed = tms.getMethodAtI(i).getSpeed();
+			int speed = tms.get(i).getSpeed();
 			float result = 0;
 			result = dist / speed;
 			txtTime.setText(nf.format(result));
@@ -222,7 +221,7 @@ public class OverPanel extends javax.swing.JPanel
 		int speed;
 		int i;
 		i = cmbMethod.getSelectedIndex();
-		speed = tms.getMethodAtI(i).getSpeed();
+		speed = tms.get(i).getSpeed();
 		lblSpeed.setText(Integer.toString(speed));
 	}
 	 //GEN-LAST:event_cmbMethodActionPerformed
@@ -903,7 +902,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		for (int i = 0; i < tms.getCount(); i++)
 		{
-			cmbMethod.addItem(tms.getMethodAtI(i).getName());
+			cmbMethod.addItem(tms.get(i).getName());
 		}
 
 		//End travel methods setup
@@ -911,17 +910,17 @@ public class OverPanel extends javax.swing.JPanel
 		//the data is loaded into the data structures, now just load the combo boxes
 		for (int i = 0; i < inns.getCount(); i++)
 		{
-			cmbInn.addItem(inns.getRBCostAtI(i).getName());
+			cmbInn.addItem(inns.get(i).getName());
 		}
 
 		for (int i = 0; i < foods.getCount(); i++)
 		{
-			cmbFood.addItem(foods.getRBCostAtI(i).getName());
+			cmbFood.addItem(foods.get(i).getName());
 		}
 
 		for (int i = 0; i < animals.getCount(); i++)
 		{
-			cmbAnimal.addItem(animals.getRBCostAtI(i).getName());
+			cmbAnimal.addItem(animals.get(i).getName());
 		}
 
 		//End costs setup
@@ -941,9 +940,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void loadRB(String DataPath)
 	{
 		//Create a new list for the room and board
-		inns = new RBCosts();
-		foods = new RBCosts();
-		animals = new RBCosts();
+		inns = new PairList<RBCost>();
+		foods = new PairList<RBCost>();
+		animals = new PairList<RBCost>();
 
 		File path = new File(DataPath);
 
@@ -1020,15 +1019,15 @@ public class OverPanel extends javax.swing.JPanel
 				 */
 				if (type.equals("Inn"))
 				{
-					inns.addRBCost(new RBCost(name, priceF));
+					inns.add(new RBCost(name, priceF));
 				}
 				else if (type.equals("Food"))
 				{
-					foods.addRBCost(new RBCost(name, priceF));
+					foods.add(new RBCost(name, priceF));
 				}
 				else if (type.equals("Animal"))
 				{
-					animals.addRBCost(new RBCost(name, priceF));
+					animals.add(new RBCost(name, priceF));
 				}
 			}
 		}
@@ -1037,7 +1036,7 @@ public class OverPanel extends javax.swing.JPanel
 	private void loadTM(String DataPath)
 	{
 		//Create a new list for the travel methods
-		tms = new TravelMethods();
+		tms = new PairList<TravelMethod>();
 
 		File path = new File(DataPath);
 
@@ -1105,7 +1104,7 @@ public class OverPanel extends javax.swing.JPanel
 					JOptionPane.showMessageDialog(null, "Invalid number formatin XML File");
 				}
 
-				tms.addTravelMethod(new TravelMethod(name, speedI));
+				tms.add(new TravelMethod(name, speedI));
 			}
 		}
 	}
@@ -1207,15 +1206,15 @@ public class OverPanel extends javax.swing.JPanel
 		int i3;
 		i1 = cmbFood.getSelectedIndex();
 
-		float food = foods.getRBCostAtI(i1).getCost();
+		float food = foods.get(i1).getCost();
 
 		i2 = cmbInn.getSelectedIndex();
 
-		float inn = inns.getRBCostAtI(i2).getCost();
+		float inn = inns.get(i2).getCost();
 
 		i3 = cmbAnimal.getSelectedIndex();
 
-		float animal = animals.getRBCostAtI(i3).getCost();
+		float animal = animals.get(i3).getCost();
 
 		try
 		{

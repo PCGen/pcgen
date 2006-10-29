@@ -123,22 +123,18 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 		if (e.getSource() == theView.getSaveButton())
 		{
-			Object[] list = theView.getLoadedList().getSelectedValues();
-
-			for (int i = 0; i < list.length; i++)
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
-				PlayerCharacter pc = model.get(list[i]);
+				PlayerCharacter pc = model.get(obj);
 				savePC(pc, false);
 			}
 		}
 
 		if (e.getSource() == theView.getSaveAsButton())
 		{
-			Object[] list = theView.getLoadedList().getSelectedValues();
-
-			for (int i = 0; i < list.length; i++)
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
-				PlayerCharacter pc = model.get(list[i]);
+				PlayerCharacter pc = model.get(obj);
 				savePC(pc, true);
 			}
 		}
@@ -153,6 +149,12 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 	public void handleClose()
 	{
+		/*
+		 * TODO This method seems like a "dead" chain of events - the PCs are
+		 * fetched, but nothing happens. As best I can tell, none of these
+		 * methods have side effects (that is good), but that means this method
+		 * does nothing. - thpr 10/26/06
+		 */
 		if (model.size() > 0)
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
@@ -208,15 +210,12 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		else if (message instanceof PCClosedMessage)
 		{
 			PCClosedMessage cmessage = (PCClosedMessage) message;
-			Object[] list = theView.getLoadedList().getSelectedValues();
-
-			for (int i = 0; i < list.length; i++)
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
-				PlayerCharacter pc = model.get(list[i]);
-
+				PlayerCharacter pc = model.get(obj);
 				if (pc == cmessage.getPC())
 				{
-					model.removeElement(list[i]);
+					model.removeElement(obj);
 				}
 			}
 		}
@@ -249,15 +248,13 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 		if (option == JFileChooser.APPROVE_OPTION)
 		{
-			File[] pcFiles = chooser.getSelectedFiles();
-
-			for (int i = 0; i < pcFiles.length; i++)
+			for (File selectedFile : chooser.getSelectedFiles())
 			{
-				SettingsHandler.setPcgPath(pcFiles[i].getParentFile());
+				SettingsHandler.setPcgPath(selectedFile.getParentFile());
 
-				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i]))
+				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
 				{
-					GMBus.send(new OpenPCGRequestMessage(this, pcFiles[i], false));
+					GMBus.send(new OpenPCGRequestMessage(this, selectedFile, false));
 				}
 			}
 		}
@@ -282,12 +279,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 	public void removeSelected()
 	{
-		Object[] list = theView.getLoadedList().getSelectedValues();
-
-		for (int i = 0; i < list.length; i++)
+		for (Object obj : theView.getLoadedList().getSelectedValues())
 		{
-			PlayerCharacter pc = model.get(list[i]);
-			model.removeElement(list[i]);
+			PlayerCharacter pc = model.get(obj);
+			model.removeElement(obj);
 			GMBus.send(new PCClosedMessage(this, pc));
 		}
 	}
@@ -401,7 +396,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 	public void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
-
+		
 		for (int i = 0; i < tp.getTabCount(); i++)
 		{
 			if (tp.getComponentAt(i) instanceof PCGTrackerView)

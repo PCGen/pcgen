@@ -10,7 +10,7 @@ package plugin.overland.util;
  *
  * @author  Juliean Galak
  */
-public class RBCost extends Pair
+public class RBCost extends Pair<String, Float>
 {
 	/** Creates a new instance of TravelMethod
 	 * @param name - String containing name
@@ -34,7 +34,7 @@ public class RBCost extends Pair
 
 	public float getCost()
 	{
-		return (((Float) super.getRight()).floatValue());
+		return super.getRight().floatValue();
 	}
 
 	public void setName(String name)
@@ -44,6 +44,6 @@ public class RBCost extends Pair
 
 	public String getName()
 	{
-		return (String) super.getLeft();
+		return super.getLeft();
 	}
 }

@@ -6,30 +6,32 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+
+import pcgen.util.CaseInsensitiveString;
 
 public final class VisionType extends AbstractConstant {
 
-	private static Map<String, VisionType> typeMap;
+	private static Map<CaseInsensitiveString, VisionType> typeMap;
 
 	public static VisionType getVisionType(String s) {
 		if (typeMap == null) {
 			buildMap();
 		}
+		CaseInsensitiveString caseInsensitiveS = new CaseInsensitiveString(s);
 		/*
-		 * CONSIDER Right now this is CASE SENSITIVE. Should this really be the
-		 * case? - thpr 10/25/06
+		 * CONSIDER Now this is CASE INSENSITIVE. Should this really be the
+		 * case? - thpr 10/28/06
 		 */
-		VisionType o = typeMap.get(s);
+		VisionType o = typeMap.get(caseInsensitiveS);
 		if (o == null) {
 			o = new VisionType();
-			typeMap.put(s, o);
+			typeMap.put(caseInsensitiveS, o);
 		}
 		return o;
 	}
 
 	private static void buildMap() {
-		typeMap = new HashMap<String, VisionType>();
+		typeMap = new HashMap<CaseInsensitiveString, VisionType>();
 		Field[] fields = VisionType.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++) {
 			int mod = fields[i].getModifiers();
@@ -39,7 +41,8 @@ public final class VisionType extends AbstractConstant {
 				try {
 					Object o = fields[i].get(null);
 					if (o instanceof VisionType) {
-						typeMap.put(fields[i].getName(), (VisionType) o);
+						typeMap.put(new CaseInsensitiveString(fields[i]
+								.getName()), (VisionType) o);
 					}
 				} catch (IllegalArgumentException e) {
 					throw new InternalError();
@@ -54,9 +57,9 @@ public final class VisionType extends AbstractConstant {
 		/*
 		 * CLEANUP Oh my, this should NOT be this way
 		 */
-		for (Map.Entry<String, VisionType> me : typeMap.entrySet()) {
+		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap.entrySet()) {
 			if (me.getValue().equals(this)) {
-				return me.getKey();
+				return me.getKey().toString();
 			}
 		}
 		// Error

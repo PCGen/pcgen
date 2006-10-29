@@ -221,12 +221,11 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 */
 	public List<File> getFiles() {
 		ArrayList<File> list = new ArrayList<File>();
-		File[] aChildren = dir.listFiles();
-
-		for (int i = 0; i < aChildren.length; i++) {
-			if (!aChildren[i].isDirectory()) {
-				if (!aChildren[i].getName().equals("data.html")) {
-					list.add(aChildren[i]);
+		for (File child : dir.listFiles())
+		{
+			if (!child.isDirectory()) {
+				if (!child.getName().equals("data.html")) {
+					list.add(child);
 				}
 			}
 		}
@@ -678,8 +677,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * deleted, let the use know.
 	 */
 	public void delete() {
-		File[] aChildren = dir.listFiles();
-
 		if (!isEmpty()) {
 			int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Node " + dir.getName()
 					+ " Contains Content.  Delete?", "Node Populated", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -688,11 +685,12 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 		}
 
 		try {
-			for (int i = 0; i < aChildren.length; i++) {
-				boolean test = aChildren[i].delete();
+			for (File child : dir.listFiles())
+			{
+				boolean test = child.delete();
 
 				if (!test) {
-					JOptionPane.showMessageDialog(null, "Cannot delete file " + aChildren[i].getName());
+					JOptionPane.showMessageDialog(null, "Cannot delete file " + child.getName());
 
 					break;
 				}
@@ -818,9 +816,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 				}
 			}
 
-			for (int i = 0; i < childDirs.size(); i++) {
-				File childDir = childDirs.get(i);
-
+			for (File childDir : childDirs)
+			{
 				if (!removeDirs.contains(childDir)) {
 					if (childDir.isDirectory() && !childDir.getName().equals("CVS")) {
 						add(new NotesTreeNode(childDir.getName(), childDir, tree));
@@ -1029,11 +1026,10 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	private void populate() {
 		hasBeenPopulated = true;
 
-		File[] aChildren = dir.listFiles();
-
-		for (int i = 0; i < aChildren.length; i++) {
-			if (aChildren[i].isDirectory() && !aChildren[i].getName().equals("CVS")) {
-				add(new NotesTreeNode(aChildren[i].getName(), aChildren[i], tree));
+		for (File child : dir.listFiles())
+		{
+			if (child.isDirectory() && !child.getName().equals("CVS")) {
+				add(new NotesTreeNode(child.getName(), child, tree));
 			}
 		}
 	}

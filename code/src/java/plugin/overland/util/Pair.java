@@ -11,16 +11,16 @@ package plugin.overland.util;
  *    IT OPERATES ON ORIGINAL INSTANCES!  BE CAREFUL!
  * @author  Juliean Galak
  */
-public abstract class Pair
+public abstract class Pair<K, V>
 {
-	private Object left; //store one item here
-	private Object right; //store other item here
+	private K left; //store one item here
+	private V right; //store other item here
 
 	/** Creates a new instance of TravelMethod
 	 * @param left - left Object to add
 	 * @param right - right Object to add
 	 */
-	public Pair(Object left, Object right)
+	public Pair(K left, V right)
 	{
 		this.left = left;
 		this.right = right;
@@ -31,22 +31,22 @@ public abstract class Pair
 		this(null, null);
 	}
 
-	protected void setLeft(Object left)
+	protected void setLeft(K left)
 	{
 		this.left = left;
 	}
 
-	protected Object getLeft()
+	protected K getLeft()
 	{
 		return left;
 	}
 
-	protected void setRight(Object right)
+	protected void setRight(V right)
 	{
 		this.right = right;
 	}
 
-	protected Object getRight()
+	protected V getRight()
 	{
 		return right;
 	}

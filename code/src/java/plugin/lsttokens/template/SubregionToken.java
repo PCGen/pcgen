@@ -14,11 +14,13 @@ public class SubregionToken implements PCTemplateLstToken {
 	}
 
 	public boolean parse(PCTemplate template, String value) {
+		String subregion = value;
+		//CONSIDER This prohibits any Sub-Region that starts with Y ... too general? - thpr 10/27/06
 		if (value.toUpperCase().startsWith("Y")) {
-			value = template.getDisplayName();
+			subregion = template.getDisplayName();
 		}
 
-		template.setSubRegion(value);
+		template.setSubRegion(subregion);
 		return true;
 	}
 }

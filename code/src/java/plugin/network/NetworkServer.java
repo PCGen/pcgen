@@ -78,8 +78,7 @@ public class NetworkServer extends Thread {
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for(int i = 0; i < tl.length; i++) {
-			Thread t = tl[i];
+		for(Thread t : tl) {
 			if(t instanceof NetworkServer.Handler) {
 				((NetworkServer.Handler)t).sendRemoveUser(user);
 			}
@@ -90,12 +89,11 @@ public class NetworkServer extends Thread {
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for(int i = 0; i < tl.length; i++) {
-			Thread t = tl[i];
+		for(Thread t : tl) {
 			if(t instanceof NetworkServer.Handler) {
 				((NetworkServer.Handler)t).sendAddUser("GM");
-				for(int j = 0; j < clients.size(); j++) {
-					((NetworkServer.Handler)t).sendAddUser(clients.get(j));
+				for (String client : clients) {
+					((NetworkServer.Handler)t).sendAddUser(client);
 				}
 			}
 		}
@@ -105,8 +103,7 @@ public class NetworkServer extends Thread {
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for(int i = 0; i < tl.length; i++) {
-			Thread t = tl[i];
+		for(Thread t : tl) {
 			if(t instanceof NetworkServer.Handler) {
 				if(target.equals("Broadcast")) {
 					((NetworkServer.Handler)t).sendBroadcast(source, text);
@@ -122,8 +119,7 @@ public class NetworkServer extends Thread {
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for(int i = 0; i < tl.length; i++) {
-			Thread t = tl[i];
+		for(Thread t : tl) {
 			if(t instanceof NetworkServer.Handler) {
 				((NetworkServer.Handler)t).sendBroadcast(user, text);
 			}
@@ -147,8 +143,8 @@ public class NetworkServer extends Thread {
 
 	private void handleExitMessage(String user) throws Exception {
 		model.log(user, "Network", "Disconnected");
-		for(int i = 0; i < clients.size(); i++) {
-			String test = clients.get(i);
+		for ( String test : clients )
+		{
 			if(test.equals(user)) {
 				clients.remove(test);
 				break;
@@ -314,8 +310,8 @@ public class NetworkServer extends Thread {
 				view.setConnectionText("Server Status", user + disconnection + clients.size() + " clients connected");
 			}
 			catch (Exception e) {
-				for(int i = 0; i < clients.size(); i++) {
-					String test = clients.get(i);
+				for ( String test : clients )
+				{
 					if(test.equals(user)) {
 						clients.remove(test);
 						break;

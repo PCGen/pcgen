@@ -27,10 +27,11 @@
 package plugin.pretokens.test;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Vision;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.core.utils.CoreUtility;
+import pcgen.util.enumeration.VisionType;
 
 
 /**
@@ -44,42 +45,21 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		final String requiredVision = prereq.getKey().toUpperCase();
-		final int requiredRange = Integer.parseInt( prereq.getOperand() );
-		int charVisionRange = 0;
-		boolean foundVision = false;
+		final int requiredRange = Integer.parseInt(prereq.getOperand());
+		int runningTotal = 0;
+		VisionType requiredVisionType = VisionType.getVisionType(prereq.getKey());
 
-		final String[] charVisions = character.getVision().split(","); //$NON-NLS-1$
-		for (int i = 0; i < charVisions.length && !foundVision ; i++) {
-			String charVision = charVisions[i];
-			charVision = CoreUtility.replaceAll(charVision, " ", ""); //$NON-NLS-1$ //$NON-NLS-2$
-			charVision = CoreUtility.replaceAll(charVision, "'", ""); //$NON-NLS-1$ //$NON-NLS-2$
-
-			if (charVision.toUpperCase().startsWith( requiredVision )) {
-				// Extract the range integer from the character
-				// vision string
-				foundVision = true;
-				if (charVision.indexOf("(") > 0) //$NON-NLS-1$
-				{
-					String wString = charVision.substring(charVision.indexOf("(") + 1); //$NON-NLS-1$
-					wString = wString.substring(0, wString.length() - 1);
-					try
-					{
-						charVisionRange = Integer.parseInt(wString);
-					}
-					catch (NumberFormatException e)
-					{
-						charVisionRange = 0;
-					}
-				}
+		for (Vision charVision : character.getVisionList())
+		{
+			if (charVision.getType().equals(requiredVisionType))
+			{
+				int visionRange = Integer.parseInt(charVision.getDistance());
+				runningTotal += prereq.getOperator().compare(visionRange, requiredRange);
+				break;
 			}
 		}
-
-		final int runningTotal = prereq.getOperator().compare(charVisionRange, requiredRange);
 		return countedTotal(prereq, runningTotal);
 	}
-
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()

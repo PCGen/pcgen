@@ -207,7 +207,7 @@ public class EquipmentPane extends JPanel {
 				else {
 					color = CharacterPanel.bodyMedLight;
 				}
-				Equipment eq = (Equipment)eqList.get(i);
+				Equipment eq = eqList.get(i);
 				gridY = addLine(eq, color, gridY);
 			}
 			addEnd(gridY, TotalToken.getWeightToken(pc), TotalToken.getValueToken(pc));

@@ -493,25 +493,30 @@ public class AttackDialog extends JDialog
 		 * This array is used to initialize the names of the columns and for returning values from
 		 * <code>getColumClass</code> and <code>isCellEditable</code>.
 		 */
+		/*
+		 * CONSIDER Could this be a List<Blah> where Blah is a type-safe immutable object?
+		 * Seems that might be a way to clean this up to be more understandable - would also 
+		 * prevent some object use (Boolean) - thpr 10/27/06
+		 */
 		private Object[][] columns =
 		{
-			{ "Bonus", Integer.class, null, Boolean.valueOf(false), COLUMN_KEY_BONUS },
-			{ "Fudge", Integer.class, Integer.valueOf(0), Boolean.valueOf(true), COLUMN_KEY_FUDGE },
+			{ "Bonus", Integer.class, null, Boolean.FALSE, COLUMN_KEY_BONUS },
+			{ "Fudge", Integer.class, Integer.valueOf(0), Boolean.TRUE, COLUMN_KEY_FUDGE },
 			{
-				"Increment", Integer.class, Integer.valueOf(m_attack.getRangeAsInt()), Boolean.valueOf(false),
+				"Increment", Integer.class, Integer.valueOf(m_attack.getRangeAsInt()), Boolean.FALSE,
 				COLUMN_KEY_INCREMENT
 			},
-			{ "Range", Integer.class, null, Boolean.valueOf(true), COLUMN_KEY_RANGE },
-			{ "Roll", Integer.class, null, Boolean.valueOf(false), COLUMN_KEY_ROLL },
-			{ "Total", Integer.class, null, Boolean.valueOf(false), COLUMN_KEY_TOTAL },
-			{ "Target", PcgCombatant.class, null, Boolean.valueOf(true), COLUMN_KEY_TARGET },
-			{ "AC", Integer.class, null, Boolean.valueOf(true), COLUMN_KEY_AC },
-			{ "Crit Roll", Integer.class, null, Boolean.valueOf(false), COLUMN_KEY_CRITROLL },
-			{ "Crit Total", Integer.class, null, Boolean.valueOf(false), COLUMN_KEY_CRITTOTAL },
-			{ "Hit", Boolean.class, Boolean.valueOf(false), Boolean.valueOf(true), COLUMN_KEY_HIT },
-			{ "Crit", Boolean.class, Boolean.valueOf(false), Boolean.valueOf(true), COLUMN_KEY_CRIT },
-			{ "Dmg", String.class, null, Boolean.valueOf(true), COLUMN_KEY_DMG },
-			{ "Dmg Tot", Integer.class, null, Boolean.valueOf(true), COLUMN_KEY_DMGTOT }
+			{ "Range", Integer.class, null, Boolean.TRUE, COLUMN_KEY_RANGE },
+			{ "Roll", Integer.class, null, Boolean.FALSE, COLUMN_KEY_ROLL },
+			{ "Total", Integer.class, null, Boolean.FALSE, COLUMN_KEY_TOTAL },
+			{ "Target", PcgCombatant.class, null, Boolean.TRUE, COLUMN_KEY_TARGET },
+			{ "AC", Integer.class, null, Boolean.TRUE, COLUMN_KEY_AC },
+			{ "Crit Roll", Integer.class, null, Boolean.FALSE, COLUMN_KEY_CRITROLL },
+			{ "Crit Total", Integer.class, null, Boolean.FALSE, COLUMN_KEY_CRITTOTAL },
+			{ "Hit", Boolean.class, Boolean.FALSE, Boolean.TRUE, COLUMN_KEY_HIT },
+			{ "Crit", Boolean.class, Boolean.FALSE, Boolean.TRUE, COLUMN_KEY_CRIT },
+			{ "Dmg", String.class, null, Boolean.TRUE, COLUMN_KEY_DMG },
+			{ "Dmg Tot", Integer.class, null, Boolean.TRUE, COLUMN_KEY_DMGTOT }
 		};
 
 		/**
@@ -719,11 +724,11 @@ public class AttackDialog extends JDialog
 				if ((attTotal >= getIntAt(row, columnFromKey(COLUMN_KEY_AC)))
 				    || (getIntAt(row, columnFromKey(COLUMN_KEY_ROLL)) >= 20))
 				{
-					setValueAt(Boolean.valueOf(true), row, columnFromKey(COLUMN_KEY_HIT));
+					setValueAt(Boolean.TRUE, row, columnFromKey(COLUMN_KEY_HIT));
 				}
 				else
 				{
-					setValueAt(Boolean.valueOf(false), row, columnFromKey(COLUMN_KEY_HIT));
+					setValueAt(Boolean.FALSE, row, columnFromKey(COLUMN_KEY_HIT));
 				}
 			}
 
@@ -753,11 +758,11 @@ public class AttackDialog extends JDialog
 				if ((critTotal > getIntAt(row, columnFromKey(COLUMN_KEY_AC)))
 				    || (getIntAt(row, columnFromKey(COLUMN_KEY_CRITROLL)) >= 20))
 				{
-					setValueAt(Boolean.valueOf(true), row, columnFromKey(COLUMN_KEY_CRIT));
+					setValueAt(Boolean.TRUE, row, columnFromKey(COLUMN_KEY_CRIT));
 				}
 				else
 				{
-					setValueAt(Boolean.valueOf(false), row, columnFromKey(COLUMN_KEY_CRIT));
+					setValueAt(Boolean.FALSE, row, columnFromKey(COLUMN_KEY_CRIT));
 				}
 			}
 

@@ -14,10 +14,11 @@ public class CrToken implements RaceLstToken {
 
 	public boolean parse(Race race, String value) {
 		try {
-			if (value.startsWith("1/")) {
-				value = "-" + value.substring(2);
+			String intValue = value;
+			if (intValue.startsWith("1/")) {
+				intValue = "-" + intValue.substring(2);
 			}
-			race.setCR(Integer.parseInt(value));
+			race.setCR(Integer.parseInt(intValue));
 			return true;
 		}
 		catch(NumberFormatException nfe) {
