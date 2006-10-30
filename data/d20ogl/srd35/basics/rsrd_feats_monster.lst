@@ -14,7 +14,7 @@ Improved Natural Attack									TYPE:General		PREATT:4														PREITEM:1,TY
 Multiattack											TYPE:General																																					DESC:See Text											BONUS:COMBAT|TOHIT-SECONDARY|3												SOURCEPAGE:rsrd monster feats.rtf
 Multiweapon Fighting									TYPE:General														PREHANDSGTEQ:3											PRESTAT:1,DEX=13								DESC:See Text											BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6							SOURCEPAGE:rsrd monster feats.rtf
 Quicken Spell Like Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
-Snatch											TYPE:General																																					DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
+Snatch											TYPE:General																								PRESIZEGTEQ:H											DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
 Wingover											TYPE:General																					PREMOVE:1,Fly=1														DESC:See Text																												SOURCEPAGE:rsrd monster feats.rtf
 
 ###Block: Descriptions
