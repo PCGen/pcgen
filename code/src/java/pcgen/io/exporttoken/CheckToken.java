@@ -62,21 +62,21 @@ public class CheckToken extends Token
 
 		String saveType = aTok.nextToken();
 
-		String saveMods = "";
+		StringBuffer saveMods = new StringBuffer();
 		while (aTok.hasMoreTokens())
 		{
 			if (saveMods.length() > 0)
 			{
-				saveMods += ".";
+				saveMods.append(".");
 			}
-			saveMods += aTok.nextToken();
+			saveMods.append(aTok.nextToken());
 		}
 
 		if ("NAME".equals(saveMods))
 		{
 			return getNameToken(saveType);
 		}
-		return Delta.toString(getCheckToken(pc, saveType, saveMods));
+		return Delta.toString(getCheckToken(pc, saveType, saveMods.toString()));
 	}
 
 	/**
@@ -88,13 +88,8 @@ public class CheckToken extends Token
 	 */
 	public static int getCheckToken(PlayerCharacter pc, String saveType, String saveMods)
 	{
-		saveType = getNameToken(saveType);
-
-		if ("".equals(saveMods))
-		{
-			saveMods = "TOTAL";
-		}
-		return pc.calculateSaveBonus(1, saveType, saveMods);
+		String type = getNameToken(saveType);
+		return pc.calculateSaveBonus(1, type, "".equals(saveMods) ? "TOTAL" : saveMods);
 	}
 
 	/**
@@ -110,7 +105,7 @@ public class CheckToken extends Token
 
 			if ((i >= 0) && (i < SettingsHandler.getGame().getUnmodifiableCheckList().size()))
 			{
-				saveType = SettingsHandler.getGame().getUnmodifiableCheckList().get(i).toString();
+				return SettingsHandler.getGame().getUnmodifiableCheckList().get(i).toString();
 			}
 		}
 		catch (NumberFormatException e)

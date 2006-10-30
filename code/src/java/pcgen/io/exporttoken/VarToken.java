@@ -84,30 +84,30 @@ public class VarToken extends Token
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken(); //this should be VAR
 
-		String varName = "";
+		StringBuffer varName = new StringBuffer();
 
 		if (aTok.hasMoreElements())
 		{
-			varName = aTok.nextToken();
+			varName.append(aTok.nextToken());
 		}
 		while (aTok.hasMoreElements())
 		{
-			varName += "." + aTok.nextToken();
+			varName.append(".").append(aTok.nextToken());
 		}
 
 		if(isInt)
 		{
 			if(isSign)
 			{
-				return Delta.toString(getIntVarToken(pc, varName, isMin));
+				return Delta.toString(getIntVarToken(pc, varName.toString(), isMin));
 			}
-			return getIntVarToken(pc, varName, isMin) + "";
+			return getIntVarToken(pc, varName.toString(), isMin) + "";
 		}
 		if(isSign)
 		{
-			return Delta.toString(getVarToken(pc, varName, isMin));
+			return Delta.toString(getVarToken(pc, varName.toString(), isMin));
 		}
-		return getVarToken(pc, varName, isMin) + "";
+		return getVarToken(pc, varName.toString(), isMin) + "";
 	}
 
 	/**

@@ -345,9 +345,9 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 			newRow[3] = damage.toString(); // Damage
 
-			newRow[4] = Boolean.valueOf(false); // Excludes Weapons
-			newRow[5] = Boolean.valueOf(false); // Iterative BAB
-			newRow[6] = Boolean.valueOf(true); // Enabled
+			newRow[4] = Boolean.FALSE; // Excludes Weapons
+			newRow[5] = Boolean.FALSE; // Iterative BAB
+			newRow[6] = Boolean.TRUE; // Enabled
 			tblModel.addRow(newRow);
 		}
 	}

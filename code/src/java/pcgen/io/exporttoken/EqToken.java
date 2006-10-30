@@ -26,7 +26,6 @@
 package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -47,7 +46,7 @@ public class EqToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "EQ";
 	private static String cachedString=null;
-	private static List cachedList=null;
+	private static List<Equipment> cachedList=null;
 	private static int cachedSerial=0;
 	private static PlayerCharacter cachedPC=null;
 
@@ -116,7 +115,7 @@ public class EqToken extends Token
 		// check to see if this was the same as the last list we were asked to export.
 		//
 		String comparatorString = tokenSource.split("[0-9]+")[0];
-		List eqList = null;
+		List<Equipment> eqList = null;
 		StringTokenizer aTok = null;
 		int temp=-1;
 		if (comparatorString.equals(cachedString) && pc==cachedPC && pc.getSerial()==cachedSerial)
@@ -166,10 +165,9 @@ public class EqToken extends Token
 
 
 			// Get the list of equipment
-			eqList = new ArrayList();
-			for (Iterator e = pc.getEquipmentListInOutputOrder(merge).iterator(); e.hasNext();)
+			eqList = new ArrayList<Equipment>();
+			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
 			{
-				Equipment eq = (Equipment) e.next();
 				eqList.add(eq);
 			}
 
@@ -222,7 +220,7 @@ public class EqToken extends Token
 
 		if ((temp >= 0) && (temp < eqList.size()))
 		{
-			Equipment eq = (Equipment)eqList.get(temp);
+			Equipment eq = eqList.get(temp);
 			retString = getEqToken(pc, eq, tempString, aTok);
 
 			// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
@@ -963,7 +961,7 @@ public class EqToken extends Token
 	 * @param type
 	 * @return List
 	 */
-	public static List listNotType(PlayerCharacter pc, List eqList, String type)
+	public static List<Equipment> listNotType(PlayerCharacter pc, List<Equipment> eqList, String type)
 	{
 		return EquipmentUtilities.removeEqType(eqList, type);
 	}
@@ -975,7 +973,7 @@ public class EqToken extends Token
 	 * @param type
 	 * @return List
 	 */
-	public static List listAddType(PlayerCharacter pc, List eqList, String type)
+	public static List<Equipment> listAddType(PlayerCharacter pc, List<Equipment> eqList, String type)
 	{
 		return pc.addEqType(eqList, type);
 	}
@@ -987,7 +985,7 @@ public class EqToken extends Token
 	 * @param type
 	 * @return List
 	 */
-	public static List listIsType(PlayerCharacter pc, List eqList, String type)
+	public static List<Equipment> listIsType(PlayerCharacter pc, List<Equipment> eqList, String type)
 	{
 		return EquipmentUtilities.removeNotEqType(eqList, type);
 	}

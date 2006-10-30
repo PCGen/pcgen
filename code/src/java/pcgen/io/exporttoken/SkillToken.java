@@ -529,7 +529,7 @@ public class SkillToken extends Token
 	 * instances of this class are immutable.
 	 *
 	 */
-	final protected class SkillDetails
+	final protected static class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
 		final protected String skillId;

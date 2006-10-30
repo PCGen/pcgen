@@ -31,7 +31,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -69,13 +68,11 @@ public class EqTypeToken extends EqToken
 		}
 
 		//Get List
-		List eqList = new ArrayList();
+		List<Equipment> eqList = new ArrayList<Equipment>();
 		if ("Container".equals(token))
 		{
-			for (Iterator e = pc.getEquipmentListInOutputOrder(merge).iterator(); e.hasNext();)
+			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
 			{
-				Equipment eq = (Equipment) e.next();
-
 				if (eq.acceptsChildren())
 				{
 					eqList.add(eq);
@@ -128,7 +125,7 @@ public class EqTypeToken extends EqToken
 
 		if ((temp >= 0) && (temp < eqList.size()))
 		{
-			Equipment eq = (Equipment)eqList.get(temp);
+			Equipment eq = eqList.get(temp);
 			return getEqToken(pc, eq, tempString, aTok);
 		}
 		return "";

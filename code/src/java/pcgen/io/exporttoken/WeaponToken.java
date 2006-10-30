@@ -1882,7 +1882,7 @@ public class WeaponToken extends Token
 		if (range > -1)
 		{
 			int rangeSize  = eq.getRangeList(true, pc).size();
-			int thisRange  = Integer.parseInt(eq.getRangeList(true, pc).get(range).toString());
+			int thisRange  = Integer.parseInt(eq.getRangeList(true, pc).get(range));
 			int shortRange = SettingsHandler.getGame().getShortRangeDistance();
 
 			/* range here is an index that represents a number of range

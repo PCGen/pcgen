@@ -53,7 +53,7 @@ public abstract class SpellListToken extends Token
 	 * <code>SpellListTokenParams</code> is ...
 	 *
 	 */
-	protected final class SpellListTokenParams
+	protected final static class SpellListTokenParams
 	{
 		private int classNum = 0;
 		private int level = 0;

@@ -49,7 +49,7 @@ public final class ChooserFactory
 	public static ChooserInterface getChooserInstance()
 	{
 		try {
-			Class c = Class.forName(interfaceClassname);
+			Class<?> c = Class.forName(interfaceClassname);
 			ChooserInterface ci = (ChooserInterface) c.newInstance();
 			return ci;
 		}
@@ -72,7 +72,7 @@ public final class ChooserFactory
 	public static ChooserRadio getRadioInstance()
 	{
 		try {
-			Class c = Class.forName(radioInterfaceClassname);
+			Class<?> c = Class.forName(radioInterfaceClassname);
 			ChooserRadio ci = (ChooserRadio) c.newInstance();
 			return ci;
 		}

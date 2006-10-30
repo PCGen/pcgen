@@ -86,23 +86,23 @@ public class MovementToken extends Token
 
 	public static String getMovementToken(PlayerCharacter pc)
 	{
-		String retString = "";
+		StringBuffer retString = new StringBuffer();
 		boolean firstLine = true;
 
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
 			if (!firstLine)
 			{
-				retString += ", ";
+				retString.append(", ");
 			}
 
 			firstLine = false;
 
-			retString += (pc.getMovementType(i) + " ");
-			retString += getRateToken(pc, i);
+			retString.append(pc.getMovementType(i)).append(" ");
+			retString.append(getRateToken(pc, i));
 		}
 
-		return retString;
+		return retString.toString();
 	}
 
 	public static String getRateToken(PlayerCharacter pc, int moveNumber)

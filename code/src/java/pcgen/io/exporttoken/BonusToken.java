@@ -35,8 +35,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -176,15 +174,9 @@ public class BonusToken extends Token
 					restOfBucket = bucket.substring(7);
 				}
 
-				List aList = pc.getEquipmentOfType(restOfBucket, "", 1);
-
-				if (!aList.isEmpty())
+				for (Equipment eq : pc.getEquipmentOfType(restOfBucket, "", 1))
 				{
-					for (Iterator e = aList.iterator(); e.hasNext();)
-					{
-						Equipment eq = (Equipment) e.next();
-						lastValue += eq.bonusTo(pc, aType, aName, true);
-					}
+					lastValue += eq.bonusTo(pc, aType, aName, true);
 				}
 			}
 			else

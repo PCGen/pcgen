@@ -38,7 +38,7 @@ public class FeatListToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
+		StringBuffer retString = new StringBuffer();
 
 		delim = getDelimiter(tokenSource);
 
@@ -62,13 +62,13 @@ public class FeatListToken extends Token
 			}
 			catch (StringIndexOutOfBoundsException e)
 			{
-				return retString;
+				return "";
 			}
 		}
 
 		delim = ", ";
-
-		int i = 0;
+		boolean needComma = false;
+		
 		int dotpos = aString.indexOf('.');
 		String typeStr = "";
 
@@ -123,18 +123,18 @@ public class FeatListToken extends Token
 				if ((aFeat.getVisibility() == Visibility.DEFAULT)
 					|| (aFeat.getVisibility() == Visibility.OUTPUT_ONLY))
 				{
-					if (i > 0)
+					if (needComma)
 					{
-						retString += delim;
+						retString.append(delim);
 					}
+					needComma = true;
 
-					retString += aFeat.qualifiedName();
-					++i;
+					retString.append(aFeat.qualifiedName());
 				}
 			}
 		}
 
-		return retString;
+		return retString.toString();
 	}
 
 	protected String getDelimiter(final String tokenSource)

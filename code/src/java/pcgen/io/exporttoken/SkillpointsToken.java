@@ -30,7 +30,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.io.ExportHandler;
 
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
 /**
@@ -98,10 +97,8 @@ public class SkillpointsToken extends Token
 	{
 		float usedPoints = 0;
 
-		for (Iterator it = pc.getClassList().iterator(); it.hasNext();)
+		for (PCClass pcClass : pc.getClassList())
 		{
-			PCClass pcClass = (PCClass) it.next();
-
 			if (pcClass.getSkillPool(pc) > 0)
 			{
 				usedPoints += pcClass.getSkillPool(pc);
@@ -119,26 +116,15 @@ public class SkillpointsToken extends Token
 	public static int getUsedSkillPoints(PlayerCharacter pc)
 	{
 		float usedPoints = 0;
-		Skill aSkill;
-
-		for (Iterator it = pc.getSkillList().iterator(); it.hasNext();)
+		for (Skill aSkill : pc.getSkillList())
 		{
-			aSkill = (Skill) it.next();
-
 			if ((aSkill.getRank().doubleValue() > 0) || (aSkill.getOutputIndex() != 0))
 			{
-				float ranks;
-				String className;
-				String classRanks;
-
-				for (Iterator it2 = aSkill.getRankList().iterator(); it2.hasNext();)
+				for (String classRanks : aSkill.getRankList())
 				{
-					classRanks = (String) it2.next();
-
 					int index = classRanks.indexOf(':');
-					className = classRanks.substring(0, index);
-					ranks = Float.valueOf(classRanks.substring(index + 1)).floatValue();
-
+					String className = classRanks.substring(0, index);
+					float ranks = Float.valueOf(classRanks.substring(index + 1)).floatValue();
 					PCClass pcClass = pc.getClassKeyed(className);
 
 					usedPoints += (ranks * aSkill.costForPCClass(pcClass, pc));
