@@ -57,24 +57,19 @@ public class BigDecimalHelper
             // Java 1.5 will not throw an ArthmeticException if you change the
             // scale of 0.0 to 0, so it will keep going through the loop below
             // forever. To get around this we test for the special case here.
-            return n.setScale(0);
+            return ZERO;
         }
 
-		try
-		{
-			// loop until we catch an exception
-			while (n.scale()>0)
-			{
-				n = n.setScale(n.scale() - 1);
-			}
-		}
-		catch (ArithmeticException ignore)
-		{
-			// Not "real" error
-			// setScale() tried to eliminate a non-zero digit
-		}
-
-		return n;
+	    if (n.scale() <= 0) {
+	    	return n;
+	    }
+	    
+    	BigDecimal stripped = n.stripTrailingZeros();
+    	if (stripped.scale() < 0) {
+    		stripped = n.setScale(0);
+    	}
+    	
+    	return stripped;
 	}
 
 	/**
