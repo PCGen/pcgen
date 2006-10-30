@@ -26,9 +26,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
-import pcgen.core.Constants;
 import pcgen.core.GameMode;
-import pcgen.core.character.WieldCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;

@@ -37,7 +37,6 @@ import java.util.TreeSet;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Source;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
@@ -57,7 +56,7 @@ import pcgen.util.PropertyFactory;
  *
  * @author AD9C15
  */
-public abstract class LstObjectFileLoader extends LstFileLoader
+public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoader
 {
 	/** The String that separates fields in the file. */
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
@@ -165,7 +164,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 *         LST line
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public abstract T parseLine(T target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException;
 
 	/**
@@ -221,7 +220,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 		if ( includeObject(pObj) )
 		{
 			finishObject( pObj );
-			final PObject currentObj = getObjectKeyed( pObj.getKeyName() );
+			final T currentObj = getObjectKeyed( pObj.getKeyName() );
 
 			if (currentObj == null || !pObj.equals(currentObj) )
 			{
@@ -330,7 +329,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	 * @param aKey String key of PObject to retrieve
 	 * @return PObject from Globals
 	 */
-	protected abstract PObject getObjectKeyed(String aKey);
+	protected abstract T getObjectKeyed(String aKey);
 
 	/**
 	 * This method loads a single LST formatted file.
@@ -382,7 +381,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 
 		final String aString = dataBuffer.toString();
 		final StringTokenizer fileLines = new StringTokenizer(aString, LINE_SEPARATOR);
-		PObject target = null;
+		T target = null;
 		ArrayList<ModEntry> classModLines = null;
 
 		int currentLineNumber = 0;
@@ -566,7 +565,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 	private void performCopy(String baseKey, String copyName) 
 		throws PersistenceLayerException
 	{
-		PObject object = getObjectKeyed(baseKey);
+		T object = getObjectKeyed(baseKey);
 
 		try
 		{
@@ -638,7 +637,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			return;
 		}
 		// get the actual object to modify
-		PObject object = getObjectKeyed(key);
+		T object = getObjectKeyed(key);
 
 		if (object == null)
 		{
@@ -736,7 +735,7 @@ public abstract class LstObjectFileLoader extends LstFileLoader
 			// Commented out so that deprcated method no longer used
 			// performForget(forgetName);
 
-			PObject objToForget = getObjectKeyed(forgetKey);
+			T objToForget = getObjectKeyed(forgetKey);
 			if (objToForget != null)
 			{
 				performForget(objToForget);

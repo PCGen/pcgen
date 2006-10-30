@@ -38,7 +38,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-final class LanguageLoader extends LstObjectFileLoader
+final class LanguageLoader extends LstObjectFileLoader<Language>
 {
 	/** Creates a new instance of LanguageLoader */
 	public LanguageLoader()
@@ -50,11 +50,9 @@ final class LanguageLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Language parseLine(Language lang, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Language lang = (Language) target;
-
 		if (lang == null)
 		{
 			lang = new Language();
@@ -114,7 +112,7 @@ final class LanguageLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
-	protected PObject getObjectKeyed(String aKey)
+	protected Language getObjectKeyed(String aKey)
 	{
 		return Globals.getLanguageKeyed(aKey);
 	}

@@ -63,7 +63,7 @@ public class PointBuyLoader extends LstLineFileLoader
 	 */
 	public void parseLine(String lstLine, URL sourceURL)
 	{
-		GameMode gameMode = SystemCollections.getGameModeNamed(getGameMode());
+		GameMode thisGameMode = SystemCollections.getGameModeNamed(getGameMode());
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)
 		{
@@ -76,15 +76,15 @@ public class PointBuyLoader extends LstLineFileLoader
 		PointBuyLstToken token = (PointBuyLstToken) tokenMap.get(key);
 		if (token != null)
 		{
-			LstUtils.deprecationCheck(token, gameMode.getName(), sourceURL.toString(), value);
-			if (!token.parse(gameMode, value))
+			LstUtils.deprecationCheck(token, thisGameMode.getName(), sourceURL.toString(), value);
+			if (!token.parse(thisGameMode, value))
 			{
-				Logging.errorPrint("Error parsing point buy method " + gameMode.getName() + '/' + sourceURL.toString() + ':' + " \"" + lstLine + "\"");
+				Logging.errorPrint("Error parsing point buy method " + thisGameMode.getName() + '/' + sourceURL.toString() + ':' + " \"" + lstLine + "\"");
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Illegal point buy method info " + gameMode.getName() + '/' + sourceURL.toString() + ':' +  " \"" + lstLine + "\"");
+			Logging.errorPrint("Illegal point buy method info " + thisGameMode.getName() + '/' + sourceURL.toString() + ':' +  " \"" + lstLine + "\"");
 		}
 	}
 

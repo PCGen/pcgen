@@ -44,7 +44,7 @@ public class AbstractPrerequisiteWriter
 
 	protected void checkValidOperator( Prerequisite prereq, PrerequisiteOperator[] comparators ) throws PersistenceLayerException
 	{
-		String comparatorString = "";
+		StringBuffer comparatorString = new StringBuffer();
 		for (int i = 0; i < comparators.length; i++)
 		{
 			PrerequisiteOperator comparator = comparators[i];
@@ -54,9 +54,9 @@ public class AbstractPrerequisiteWriter
 			}
 			if (i > 0)
 			{
-				comparatorString += ", ";
+				comparatorString.append(", ");
 			}
-			comparatorString += comparator;
+			comparatorString.append(comparator);
 		}
 
 		String kind = prereq.getKind();
@@ -64,7 +64,7 @@ public class AbstractPrerequisiteWriter
 		{
 			kind = "<NULL>";
 		}
-		throw new PersistenceLayerException("Cannot write token: LST syntax only supports " + comparatorString + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
+		throw new PersistenceLayerException("Cannot write token: LST syntax only supports " + comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
 	}
 
 

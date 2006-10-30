@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class PCClassLoader extends LstObjectFileLoader
+public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
 	/** Creates a new instance of PCClassLoader */
 	public PCClassLoader()
@@ -53,10 +53,10 @@ public final class PCClassLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public PCClass parseLine(PCClass target, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		PCClass pcClass = (PCClass) target;
+		PCClass pcClass = target;
 
 		if (pcClass == null)
 		{
@@ -141,10 +141,10 @@ public final class PCClassLoader extends LstObjectFileLoader
 			return pcClass;
 		}
 
-		return parseClassLine(target, lstLine, source, pcClass, false);
+		return parseClassLine(lstLine, source, pcClass, false);
 	}
 
-	private PObject parseClassLine(PObject target, String lstLine, CampaignSourceEntry source, PCClass pcClass, boolean bRepeating)
+	private PCClass parseClassLine(String lstLine, CampaignSourceEntry source, PCClass pcClass, boolean bRepeating)
 		throws PersistenceLayerException
 	{
 
@@ -262,12 +262,12 @@ public final class PCClassLoader extends LstObjectFileLoader
 		//
 		if ((repeatTag != null)  && (iLevel > 0))
 		{
-			parseRepeatClassLevel(target, lstLine, source, pcClass, iLevel, repeatTag);
+			parseRepeatClassLevel(lstLine, source, pcClass, iLevel, repeatTag);
 		}
 		return pcClass;
 	}
 
-	private void parseRepeatClassLevel(PObject target, String lstLine, CampaignSourceEntry source, PCClass pcClass, int iLevel, String colString)
+	private void parseRepeatClassLevel(String lstLine, CampaignSourceEntry source, PCClass pcClass, int iLevel, String colString)
 		throws PersistenceLayerException
 	{
 		//
@@ -318,7 +318,7 @@ public final class PCClassLoader extends LstObjectFileLoader
 		{
 			if ((consecutive == 0) || (count != 0))
 			{
-				parseClassLine(target, Integer.toString(lvl) + lstLine.substring(tabIndex), source, pcClass, true);
+				parseClassLine(Integer.toString(lvl) + lstLine.substring(tabIndex), source, pcClass, true);
 			}
 			if (consecutive != 0)
 			{
@@ -338,11 +338,9 @@ public final class PCClassLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectKeyed(String aKey)
+	protected PCClass getObjectKeyed(String aKey)
 	{
-		if (aKey.startsWith("CLASS:"))
-			aKey = aKey.substring(6);
-		return Globals.getClassKeyed(aKey);
+		return Globals.getClassKeyed(aKey.startsWith("CLASS:") ? aKey.substring(6) : aKey);
 	}
 
 	/**

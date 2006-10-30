@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class SkillLoader extends LstObjectFileLoader
+public final class SkillLoader extends LstObjectFileLoader<Skill>
 {
 	/** Creates a new instance of SkillLoader */
 	public SkillLoader()
@@ -49,11 +49,9 @@ public final class SkillLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Skill parseLine(Skill skill, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Skill skill = (Skill) target;
-
 		if (skill == null)
 		{
 			skill = new Skill();
@@ -112,7 +110,7 @@ public final class SkillLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected PObject getObjectKeyed(String aKey)
+	protected Skill getObjectKeyed(String aKey)
 	{
 		return Globals.getSkillKeyed(aKey);
 	}

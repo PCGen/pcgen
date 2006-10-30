@@ -29,18 +29,16 @@ import pcgen.core.Constants;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.io.EntityEncoder;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
-import plugin.lsttokens.DescLst;
 
 /**
  *
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public class DomainLoader extends LstObjectFileLoader
+public class DomainLoader extends LstObjectFileLoader<Domain>
 {
 	/** Creates a new instance of DomainLoader */
 	public DomainLoader()
@@ -52,11 +50,9 @@ public class DomainLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Domain parseLine(Domain domain, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Domain domain = (Domain) target;
-
 		if (domain == null)
 		{
 			domain = new Domain();
@@ -139,7 +135,7 @@ public class DomainLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
-	protected PObject getObjectKeyed(String aKey)
+	protected Domain getObjectKeyed(String aKey)
 	{
 		return Globals.getDomainKeyed(aKey);
 	}

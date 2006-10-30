@@ -28,7 +28,6 @@ package pcgen.persistence.lst;
 import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
@@ -51,11 +50,9 @@ public final class FeatLoader extends AbilityLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Ability parseLine(Ability feat, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Ability feat = (Ability) target;
-
 		if (feat == null)
 		{
 			feat = new Ability();
@@ -116,7 +113,7 @@ public final class FeatLoader extends AbilityLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected PObject getObjectKeyed(final String aKey)
+	protected Ability getObjectKeyed(final String aKey)
 	{
 		return Globals.getAbilityKeyed(Constants.FEAT_CATEGORY, aKey);
 	}

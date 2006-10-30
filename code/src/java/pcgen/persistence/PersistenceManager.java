@@ -24,6 +24,7 @@ package pcgen.persistence;
 
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.persistence.lst.LstSystemLoader;
 
 import java.util.List;
@@ -202,7 +203,7 @@ public final class PersistenceManager
 	 *                    The new data is appended to this.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadFileIntoList(String fileName, int fileType, List aList)
+	public void loadFileIntoList(String fileName, int fileType, List<PObject> aList)
 		throws PersistenceLayerException
 	{
 		instance.loadFileIntoList(fileName, fileType, aList);

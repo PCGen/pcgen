@@ -259,7 +259,7 @@ public abstract class LstFileLoader extends Observable
 				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of " + "sources from web links. \n" + url
                 + " is a web link",
 				    Constants.s_APPNAME, MessageType.ERROR);
-				aURL = null;
+				// aURL = null; //currently unnecessary reassignment 
 			}
 		}
 		catch (IOException ioe)

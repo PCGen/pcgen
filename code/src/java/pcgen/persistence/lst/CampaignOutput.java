@@ -26,9 +26,14 @@ import pcgen.core.Source;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * <code>CampaignOutput</code>.
@@ -100,29 +105,27 @@ public final class CampaignOutput
 			FileAccess.write(out, "GENRE:" + campaign.getGenre());
 			FileAccess.newLine(out);
 
-			final List aList = campaign.getOptionsList();
-
-			for (Iterator i = aList.iterator(); i.hasNext();)
+			for (Iterator i = campaign.getOptionsList().iterator(); i.hasNext();)
 			{
 				FileAccess.write(out, "OPTION:" + campaign.getOptions().getProperty((String) i.next()));
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator i = campaign.getSection15s().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getSection15s().iterator(); i.hasNext();)
 			{
 				FileAccess.write(out, "COPYRIGHT:" + i.next());
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator i = campaign.getLicenses().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getLicenses().iterator(); i.hasNext();)
 			{
 				FileAccess.write(out, "LICENSE:" + i.next());
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator i = campaign.getLines().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getLines().iterator(); i.hasNext();)
 			{
-				FileAccess.write(out, (String) i.next());
+				FileAccess.write(out, i.next());
 				FileAccess.newLine(out);
 			}
 		}

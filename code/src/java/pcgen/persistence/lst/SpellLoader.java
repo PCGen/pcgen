@@ -44,7 +44,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class SpellLoader extends LstObjectFileLoader
+public final class SpellLoader extends LstObjectFileLoader<Spell>
 {
 	/** Creates a new instance of SpellLoader */
 	public SpellLoader()
@@ -55,11 +55,9 @@ public final class SpellLoader extends LstObjectFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Spell parseLine(Spell spell, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Spell spell = (Spell) target;
-
 		if (spell == null)
 		{
 			spell = new Spell();
@@ -128,7 +126,7 @@ public final class SpellLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected PObject getObjectKeyed( final String aKey )
+	protected Spell getObjectKeyed( final String aKey )
 	{
 		return Globals.getSpellKeyed(aKey);
 	}

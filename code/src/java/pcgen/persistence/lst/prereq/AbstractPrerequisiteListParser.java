@@ -216,9 +216,9 @@ public abstract class AbstractPrerequisiteListParser
 							subreq.setKey(tokens[0]);
 
 							// now back fill all of the previous prereqs with this minium
-							for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+							for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
 							{
-								Prerequisite element = (Prerequisite) iter.next();
+								Prerequisite element = iter.next();
 								if (element.getOperand().equals("-99"))
 								{
 									element.setOperand(Integer.toString(min));
@@ -241,11 +241,8 @@ public abstract class AbstractPrerequisiteListParser
 						subreq.setOperator(PrerequisiteOperator.GTEQ);
 						subreq.setOperand(Integer.toString(min));
 					}
-					if (subreq != null)
-					{
-						subreq.setOperand(Integer.toString(min));
-						prereq.addPrerequisite(subreq);
-					}
+					subreq.setOperand(Integer.toString(min));
+					prereq.addPrerequisite(subreq);
 				}
 				for (Prerequisite element : prereq.getPrerequisites())
 				{

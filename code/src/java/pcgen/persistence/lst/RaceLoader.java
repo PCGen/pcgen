@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class RaceLoader extends LstObjectFileLoader
+public final class RaceLoader extends LstObjectFileLoader<Race>
 {
 	/** Creates a new instance of RaceLoader */
 	public RaceLoader()
@@ -53,11 +53,9 @@ public final class RaceLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Race parseLine(Race race, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Race race = (Race) target;
-
 		if (race == null)
 		{
 			race = new Race();
@@ -137,7 +135,7 @@ public final class RaceLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected PObject getObjectKeyed(String aKey)
+	protected Race getObjectKeyed(String aKey)
 	{
 		return Globals.getRaceKeyed(aKey);
 	}

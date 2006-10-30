@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public class DeityLoader extends LstObjectFileLoader
+public class DeityLoader extends LstObjectFileLoader<Deity>
 {
 	/**
 	 * Creates a new instance of DeityLoader
@@ -53,11 +53,9 @@ public class DeityLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Deity parseLine(Deity deity, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Deity deity = (Deity) target;
-
 		if (deity == null)
 		{
 			deity = new Deity();
@@ -132,7 +130,7 @@ public class DeityLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected PObject getObjectKeyed( final String aKey )
+	protected Deity getObjectKeyed( final String aKey )
 	{
 		return Globals.getDeityKeyed(aKey);
 	}

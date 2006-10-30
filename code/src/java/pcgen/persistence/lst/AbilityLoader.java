@@ -42,7 +42,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public class AbilityLoader extends LstObjectFileLoader
+public class AbilityLoader extends LstObjectFileLoader<Ability>
 {
 	/** Creates a new instance of AbilityLoader */
 	public AbilityLoader()
@@ -54,11 +54,9 @@ public class AbilityLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
+	public Ability parseLine(Ability anAbility, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
-		Ability anAbility = (Ability) target;
-
 		if (anAbility == null)
 		{
 			anAbility = new Ability();
@@ -140,7 +138,7 @@ public class AbilityLoader extends LstObjectFileLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected PObject getObjectKeyed(String aKey)
+	protected Ability getObjectKeyed(String aKey)
 	{
 		return Globals.getAbilityKeyed(Constants.ALL_CATEGORIES, aKey);
 	}
