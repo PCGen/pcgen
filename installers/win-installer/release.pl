@@ -58,9 +58,9 @@ Readonly my $SRC_PCGEN          => "$SRC_BRANCH/pcgen";
 Readonly my $SRC_DATA           => "$SRC_BRANCH/pcgen/data";
 Readonly my $SRC_OUTPUTSHEETS   => "$SRC_BRANCH/pcgen/outputsheets";
 Readonly my $SRC_DOCS           => "$SRC_BRANCH/pcgen/docs";
+Readonly my $SRC_NSIS           => "$SRC_BRANCH/pcgen/installers/win-installer";
 
-Readonly my $SRC_NSIS_LICENCE_FILE
-    => "$SRC_BRANCH/pcgen/installers/win-installer/PCGenLicense.txt";
+Readonly my $SRC_NSIS_LICENCE_FILE => "$SRC_NSIS/PCGenLicense.txt";
 
 # ------------------------------------------
 # Destination folder and file information
@@ -161,6 +161,20 @@ if($SEPERATE_ALPHA) {
     mkpath("$DEST_ALPHA_FOLDER/data");
 }
 
+# Generate the publisher/data list for the Windows installer script 
+
+print "Generating the Windows installer publisher list...\n";
+do 'gendatalist.pl';
+ 
+ 
+# Copy the Windows Installer local fiels over
+
+print "Copy Windows local files...\n";
+
+rcopy( "$SRC_NSIS/Local", "$DEST_BASE_FOLDER/nsis_dir/Local" );
+rmtree( "$DEST_BASE_FOLDER/nsis_dir/Local/.svn" );
+ 
+ 
 # Copy the release notes over
 
 print "Release notes...\n";

@@ -1,0 +1,149 @@
+#!/usr/bin/perl
+
+# gendatalist.pl
+# ==============
+#
+# This script prepares the list of data directories and publishers
+# for the NSIS script that builds the Windows installer.
+# Author: James Dempsey October 2006
+#
+# $Id: release.pl 1551 2006-10-29 03:21:16Z jdempsey $
+
+
+use strict;
+use warnings;
+use Readonly;
+use English;
+
+my $DATA_ROOT = "../../data/";
+my $data_dir;
+my $filename;
+my @nondots;
+my @dirlist;
+my %pub;
+my @basedirlist;
+my %basedir;
+my $dirname;
+my $pubname;
+
+# The directories under data that will be included.
+@basedirlist = qw(d20ogl permissioned alpha);
+$basedir{'d20ogl'} = 'd20OGL';
+$basedir{'permissioned'} = 'Permissioned';
+$basedir{'alpha'} = 'Alpha';
+
+# The list of publishers - add an entry here to correct a reported missing publisher
+$pub{'alderacentertainmentgroup'} = 'Alderac Entertainment Group';
+$pub{'alderacentgroup'} = 'Alderac Entertainment Group';
+$pub{'aleapublishinggroup'} = 'Alea Publishing Group';
+$pub{'atlasgames'} = 'Atlas Games';
+$pub{'aurand20'} = 'Auran d20';
+$pub{'avalanchepress'} = 'Avalanche Press';
+$pub{'bastionpress'} = 'Bastion Press';
+$pub{'battlefieldpress'} = 'Battlefield Press';
+$pub{'behemoth3'} = 'Behemoth3';
+$pub{'bigfingergames'} = 'Big Finger Games';
+$pub{'bloodstonepress'} = 'Bloodstone Press';
+$pub{'creativemountaingames'} = 'Creative Mountain Games';
+$pub{'doghouserules'} = 'Dog House Rules';
+$pub{'en_publishing'} = 'EN Publishing';
+$pub{'fantasycommunitycouncil'} = 'Fantasy Community Council';
+$pub{'fantasyflightgames'} = 'Fantasy Flight Games';
+$pub{'gallantryproductions'} = 'Gallantry Productions';
+$pub{'goodmangames'} = 'Goodman Games';
+$pub{'greenronin'} = 'Green Ronin';
+$pub{'lionsdenpress'} = 'Lions Den Press';
+$pub{'malhavocpress'} = 'Malhavoc Press';
+$pub{'mongoose'} = 'Mongoose';
+$pub{'mongoosepublishing'} = 'Mongoose Publishing';
+$pub{'msrd'} = 'MSRD';
+$pub{'mythicdreamsstudios'} = 'Mythic Dreams Studios';
+$pub{'necromancergames'} = 'Necromancer Games';
+$pub{'pandahead'} = 'Pandahead';
+$pub{'paradigmconcepts'} = 'Paradigm Concepts Inc';
+$pub{'parentsbasementgames'} = 'Parents Basement Games';
+$pub{'pcgen'} = 'PCGen OGL';
+$pub{'pinnacleentertainment'} = 'Pinnacle Entertainment';
+$pub{'rpgobjects'} = 'RPG Objects';
+$pub{'silvenpublishing'} = 'Silven Publishing';
+$pub{'silverthornegames'} = 'Silverthorne Games';
+$pub{'sovereignpress'} = 'Sovereign Press';
+$pub{'srd'} = 'SRD';
+$pub{'srd35'} = 'SRD35';
+$pub{'stcooleypublishing'} = 'S T Cooley Publishing';
+$pub{'swordandsorcerystudios'} = 'Sword and Sorcery Studios';
+$pub{'swordsedgepublishing'} = 'Swords Edge Publishing';
+$pub{'thegamemechanics'} = 'The Game Mechanics Inc';
+$pub{'wizardsofthecoast'} = 'Wizards of the Coast';
+
+# Open the script output file
+my $script_file = 'data.nsh';
+
+open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
+# Loop through each of the directories under data
+foreach $dirname (@basedirlist)
+{
+	# Read the files under the directory that do not have have names starting with "."
+	$data_dir = $DATA_ROOT . $dirname;
+	opendir(DIR, $data_dir) || die "can't opendir $data_dir: $!";
+	@dirlist =  readdir(DIR);
+	@nondots = grep ( !/^[\.]/, @dirlist );
+
+	# generate the Data category section
+	print SCRIPT "SubSection \"$basedir{$dirname}\"\n";
+	
+	# Loop through the publisher directories adding a section for each
+	foreach $filename (@nondots)
+	{
+		if (defined($pub{$filename}))
+		{
+			$pubname = $pub{$filename};
+		}
+		else
+		{
+			$pubname = $filename;
+			print STDERR "Unknown publisher \"$filename\" - using directory name instead.\n";			
+		}
+		
+		print SCRIPT "	Section \"$pubname\"\n";
+
+		if ($dirname eq 'd20ogl')
+		{
+			print SCRIPT "	SectionIn 1 2";
+			# The SRD files get installed under some extra configs, so add those in
+			if ($filename eq 'msrd')
+			{
+				print SCRIPT " 3 6";
+			}
+			if ($filename eq 'pcgen')
+			{
+				print SCRIPT " 3 4 5";
+			}
+			if ($filename eq 'srd')
+			{
+				print SCRIPT " 3 4";
+			}
+			if ($filename eq 'srd35' || $filename eq 'necromancergames')
+			{
+				print SCRIPT " 3 5";
+			}
+			print SCRIPT "\n";
+		}
+		elsif ($dirname eq 'permissioned')
+		{
+			print SCRIPT "	SectionIn 1 2\n";
+		}
+		else
+		{
+			print SCRIPT "	SectionIn 1\n";
+		}
+
+		print SCRIPT "	SetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\$dirname\\" . $filename . "\"\n";
+		print SCRIPT "	File /r \"\${SrcDir}\\PCGen_\${SIMPVER}c\\data\\$dirname\\" . $filename . "\\*.*\"\n";
+
+		print SCRIPT "	SectionEnd\n\n";
+	}
+	print SCRIPT "SubSectionEnd\n\n";
+	closedir DIR;
+}
+close(SCRIPT);
