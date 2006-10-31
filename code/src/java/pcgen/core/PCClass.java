@@ -40,12 +40,14 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.core.utils.ChoiceList;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.CollectionUtilities;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
@@ -120,7 +122,7 @@ public class PCClass extends PObject {
 	 * should be stored in a series of LevelProperty objects) need to be placed
 	 * into each individual PCClassLevel when it is constructed.
 	 */
-	private ArrayList<String> featAutos = null;
+	private ArrayList<LevelProperty<String>> featAutos = null;
 
 	/*
 	 * TYPESAFETY The Feats should be type safe, not Strings...
@@ -379,28 +381,16 @@ public class PCClass extends PObject {
 	private String castAs = Constants.EMPTY_STRING;
 
 	/*
-	 * REFACTOR This is actually a challenge in refactoring PCClassLevel out of
-	 * PCClass. This actually does a deferral to another class' Skill List.
-	 * 
-	 * This is possible to do in a reasonable way, given that there is a Global
-	 * Class list.
-	 * 
-	 * However, this gets a LOT more complicated when you consider that this MAY
-	 * have to enforce the same skikll list across multiple instantiations of
-	 * this PCClass (meaning multiple PCClassLevels). This is because it could
-	 * be CLASSSKILL:2,Druid|Ranger|Sorcerer ... the user only gets to select
-	 * two... the question being, does it always have to be the same two?? If
-	 * SO, can that trigger a multi-class situation, and still use the same
-	 * class, or is the user stuck with the original choice?
-	 */
-	/*
 	 * ALLCLASSLEVELS The selected delegate skill lists (not the raw
-	 * classSkellString) need to be stored in EACH individual PCClassLevel. This
-	 * is the case because each individual PCClassLevel will be capable of
+	 * classSkillChoices) need to be stored in EACH individual PCClassLevel.
+	 * This is the case because each individual PCClassLevel will be capable of
 	 * granting skills, and this is the delegate to determine what is
 	 * appropriate (skill-wise) for any given PCClassLevel.
 	 */
-	private String classSkillString = null;
+	/*
+	 * TYPESAFETY This should be better than a String...
+	 */
+	private ChoiceList<String> classSkillChoices = null;
 
 	/*
 	 * REFACTOR This is actually a moderate challenge in refactoring
@@ -422,7 +412,7 @@ public class PCClass extends PObject {
 	 * holding individual spells known and spells cast (per day) and this is the
 	 * delegate to determine what is appropriate for any given PCClassLevel.
 	 */
-	private String classSpellString = null;
+	private ChoiceList<String> classSpellChoices = null;
 
 	/*
 	 * TYPESAFETY The Deity List should be something other than Strings
@@ -514,7 +504,11 @@ public class PCClass extends PObject {
 	 * Known and Cast are granted by each PCClassLevel, this must be passed into
 	 * each and every PCClassLevel (though it can be given in its pure form).
 	 */
-	private String prohibitedString = Constants.s_NONE;
+	/*
+	 * TYPESAFETY Since this is storing Spell Schools/SubSchools, this should
+	 * be type safe
+	 */
+	private List<String> prohibitedSchools = null;
 
 	/*
 	 * DELETEVARIABLE This variable is never used (get method is never called)
@@ -1349,35 +1343,12 @@ public class PCClass extends PObject {
 		return total;
 	}
 
-	/**
-	 * Set the Class Skill string
-	 * 
-	 * @param aString
-	 */
-	/*
-	 * STRINGREFACTOR This is currently passing in a 1,A|B String that needs to
-	 * be parsed back in the SKILLLIST tag
-	 */
 	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since it is 
 	 * a Tag
 	 */
-	public final void setClassSkillString(final String aString) {
-		classSkillString = aString;
-	}
-
-	/**
-	 * Return the value set by the SKILLLIST token
-	 * 
-	 * @return The pipe-delimited list of class skills
-	 */
-	/*
-	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final String getClassSkillString() {
-		return classSkillString;
+	public void setClassSkillChoices(int choiceCount, List<String> choices) {
+		classSkillChoices = ChoiceList.getChoiceList(choiceCount, choices);
 	}
 
 	/*
@@ -1558,15 +1529,31 @@ public class PCClass extends PObject {
 	}
 
 	/*
+	 * PCCLASSONLY This is only for PCClass - used to edit the class
+	 */
+	public final Collection<LevelProperty<String>> getAllFeatAutos() {
+		if (featAutos == null) {
+			List<LevelProperty<String>> empty = Collections.emptyList();
+			return Collections.unmodifiableCollection(empty);
+		} else {
+			return Collections.unmodifiableCollection(featAutos);
+		}
+	}
+	
+	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final Collection<String> getFeatAutos() {
-		if (featAutos == null) {
-			final List<String> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+		List<String> returnList = new ArrayList<String>();
+		if (featAutos != null) {
+			for (LevelProperty<String> autoFeat : featAutos) {
+				if (autoFeat.getLevel() <= level) {
+					returnList.add(autoFeat.getObject());
+				}
+			}
 		}
-		return Collections.unmodifiableList(featAutos);
+		return returnList;
 	}
 
 //	public Collection<String> getAutoAbilityList(final AbilityCategory aCategory)
@@ -1592,6 +1579,28 @@ public class PCClass extends PObject {
 	/**
 	 * Removes an AUTO feat from the list of feats this class grants.
 	 * 
+	 * @param aFeat
+	 *            The feat string to remove.
+	 */
+	/*
+	 * PCCLASSONLY This is for GUI construction of a PCClass and is therefore
+	 * only required in PCClass and not PCClassLevel
+	 */
+	public boolean removeFeatAuto(String type) {
+		if (featAutos == null) {
+			return false;
+		}
+		for (LevelProperty<String> autoFeat : featAutos) {
+			if (autoFeat.getObject().equals(type)) {
+				return featAutos.remove(autoFeat);
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Removes an AUTO feat from the list of feats this class grants.
+	 * 
 	 * @param aLevel
 	 *            The level the feat would have been granted at.
 	 * @param aFeat
@@ -1601,11 +1610,16 @@ public class PCClass extends PObject {
 	 * PCCLASSONLY This is for GUI construction of a PCClass and is therefore
 	 * only required in PCClass and not PCClassLevel
 	 */
-	public final void removeFeatAuto(final int aLevel, final String aFeat) {
+	public boolean removeFeatAuto(int aLevel, String type) {
 		if (featAutos == null) {
-			return;
+			return false;
 		}
-		featAutos.remove(Integer.toString(aLevel) + Constants.PIPE + aFeat);
+		for (LevelProperty<String> autoFeat : featAutos) {
+			if (autoFeat.getLevel() == aLevel && autoFeat.getObject().equals(type)) {
+				return featAutos.remove(autoFeat);
+			}
+		}
+		return false;
 	}
 
 //	public void removeAutoAbility(final AbilityCategory aCategory, final int aLevel, final String aKey)	
@@ -1956,28 +1970,26 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * STRINGREFACTOR This is currently processed outside of this set (it is a ,
-	 * delimited list) This processing needs to be moved back into the
-	 * PROHIBITED Tag
-	 */
-	/*
-	 * TYPESAFETY This is actually passing around DOMAINs of Spells, and thus
-	 * can be made type safe.
-	 */
-	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass because it
 	 * is a Tag
 	 */
-	public final void setProhibitedString(final String aString) {
-		prohibitedString = aString;
+	public final boolean addProhibitedSchool(String school) {
+		if (prohibitedSchools == null) {
+			prohibitedSchools = new ArrayList<String>();
+		}
+		if (prohibitedSchools.contains(school)) {
+			return false;
+		} else {
+			return prohibitedSchools.add(school);
+		}
 	}
-
+	
 	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final String getProhibitedString() {
-		return prohibitedString;
+	public final List<String> getProhibitedSchools() {
+		return prohibitedSchools;
 	}
 
 	/*
@@ -2284,10 +2296,6 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * STRINGREFACTOR This is currently taking in a delimited String and should
-	 * be taking in a List or somesuch.
-	 */
-	/*
 	 * TYPESAFETY This is throwing around Spell names as Strings. :(
 	 */
 	/*
@@ -2308,16 +2316,16 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass
 	 * because it is a Tag
 	 */
-	public final void setSpellLevelString(final String aString) {
-		classSpellString = aString;
+	public final void setClassSpellChoices(int choiceCount, List<String> choices) {
+		classSpellChoices = ChoiceList.getChoiceList(choiceCount, choices);
 	}
 
 	/*
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final String getSpellLevelString() {
-		return classSpellString;
+	public final ChoiceList<String> getClassSpellChoices() {
+		return classSpellChoices;
 	}
 
 	/*
@@ -3135,14 +3143,6 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * STRINGREFACTOR This is currently taking in a delimited String and should
-	 * be taking in a List or somesuch. The processing needs to be moved back
-	 * into the FEATAUTO tag
-	 * 
-	 * In addition, this needs to be using LevelProperty here in PCClass, since
-	 * it is level dependent.
-	 */
-	/*
 	 * TYPESAFETY This is throwing around Feat names as Strings. :(
 	 */
 	/*
@@ -3150,37 +3150,25 @@ public class PCClass extends PObject {
 	 * require this method.  The PCClassLevelversion should NOT be level 
 	 * dependent
 	 */
-	public void setFeatAutos(final int aLevel, final String aString) {
-		final StringTokenizer aTok = new StringTokenizer(aString,
-				Constants.PIPE);
-		final String prefix = aLevel + Constants.PIPE;
-
+	public void addFeatAuto(final int aLevel, final String aString) {
 		if (featAutos == null) {
-			featAutos = new ArrayList<String>();
+			featAutos = new ArrayList<LevelProperty<String>>();
 		}
-		// TODO - This token processing should happen in the token.
-		while (aTok.hasMoreTokens()) {
-			final String fName = aTok.nextToken();
+		featAutos.add(LevelProperty.getLevelProperty(aLevel, aString));
+	}
 
-			if (fName.startsWith(".CLEAR")) {
-				if (fName.startsWith(".CLEAR.")) {
-					final String postFix = Constants.PIPE + fName.substring(7);
-
-					// remove feat by name, must run through all 20 levels
-					for (int i = 0; i < 45; ++i) {
-						featAutos.remove(i + postFix);
-					}
-				} else // clear em all
-				{
-					featAutos.clear();
-				}
-			} else {
-				featAutos.add(prefix + fName);
-			}
+	/*
+	 * PCCLASSONLY This is an editor and loader requirement, therefore
+	 * PCClass only
+	 */
+	public void clearFeatAutos() {
+		if (featAutos != null)
+		{
+			featAutos.clear();
 		}
 	}
 
-//	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
+	//	public void setAutoAbilities(final AbilityCategory aCategory, final int aLevel, final List<String> aList)
 //	{
 //		if ( aCategory == AbilityCategory.FEAT )
 //		{
@@ -3839,7 +3827,12 @@ public class PCClass extends PObject {
 		checkAdd(pccTxt, "ANY", "DEITY:", CoreUtility.join(deityList, '|'));
 		checkAdd(pccTxt, "", "ATTACKCYCLE", attackCycle);
 		checkAdd(pccTxt, "", "CASTAS:", castAs);
-		checkAdd(pccTxt, Constants.s_NONE, "PROHIBITED:", prohibitedString);
+		
+		if (prohibitedSchools != null) {
+			pccTxt.append('\t').append("PROHIBITED:");
+			pccTxt.append(CollectionUtilities.joinStringRepresentations(prohibitedSchools, ","));
+		}
+		
 		checkAdd(pccTxt, Constants.s_NONE, "SPELLSTAT:", spellBaseStat);
 		checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", spellType);
 
@@ -3898,12 +3891,14 @@ public class PCClass extends PObject {
 			pccTxt.append("\tITEMCREATE:").append(itemCreationMultiplier);
 		}
 
-		if (classSpellString != null) {
-			pccTxt.append("\tSPELLLIST:").append(classSpellString).append('\t');
+		if (classSpellChoices != null) {
+			checkAdd(pccTxt, "", "SPELLLIST:", classSpellChoices.toString());
 		}
 
 		checkAdd(pccTxt, "", "SPECIALS:", specialsString);
-		checkAdd(pccTxt, "", "SKILLLIST:", classSkillString);
+		if (classSkillChoices != null) {
+			checkAdd(pccTxt, "", "SKILLLIST:", classSkillChoices.toString());
+		}
 
 		if (getWeaponProfBonus().size() != 0) {
 			pccTxt.append("\tWEAPONBONUS:");
@@ -4073,8 +4068,14 @@ public class PCClass extends PObject {
 		buildPccText(pccTxt, getFeatList().iterator(), ":", "\tFEAT:", lineSep);
 
 		// TODO - Add ABILITY tokens.
-		buildPccText(pccTxt, getFeatAutos().iterator(), Constants.PIPE,
-				"\tFEATAUTO:", lineSep);
+		if (featAutos != null)
+		{
+			for (LevelProperty<String> autoFeat : featAutos)
+			{
+				pccTxt.append(lineSep).append(autoFeat.getLevel());
+				pccTxt.append("\tFEATAUTO:").append(autoFeat.getObject());
+			}
+		}
 
 		// TODO - This should be removed.
 		if ((uattList != null) && (uattList.size() != 0)) {
@@ -4225,11 +4226,20 @@ public class PCClass extends PObject {
 	 */
 	public void addClassSpellList(final String tok) {
 		if (classSpellList == null) {
-			newClassSpellList();
+			classSpellList = new ArrayList<String>();
+		} else {
+			classSpellList.clear();
 		}
 
 		classSpellList.add(tok);
-		classSpellString = null;
+		/*
+		 * CONSIDER I have taken out classSpellString = null; which is now the
+		 * equivalent of classSpellChoices = null; ... I don't understand why in
+		 * this unique situation of Player Character Import that resetting this
+		 * produces better behavior than adding a class (which doesn't delete
+		 * the list). Seems to me a case of unnecessary (and confusing)
+		 * deletion... - thpr 10/29/06
+		 */
 		stableSpellKey = null;
 	}
 
@@ -4696,7 +4706,9 @@ public class PCClass extends PObject {
 			aClass.setSubClassKey(getSubClassKey());
 
 			// aClass.setSubClassString(getSubClassString());
-			aClass.setProhibitedString(getProhibitedString());
+			if (prohibitedSchools != null) {
+				aClass.prohibitedSchools = new ArrayList<String>(prohibitedSchools);
+			}
 			aClass.setHitDie(hitDie);
 			// aClass.setSkillPoints(skillPoints);
 			aClass.setSkillPointFormula(skillPointFormula);
@@ -4734,7 +4746,7 @@ public class PCClass extends PObject {
 						hitDieLockMap);
 			}
 			if (featAutos != null) {
-				aClass.featAutos = new ArrayList<String>(featAutos);
+				aClass.featAutos = new ArrayList<LevelProperty<String>>(featAutos);
 			}
 //			if ( theAutoAbilities != null )
 //			{
@@ -4743,9 +4755,7 @@ public class PCClass extends PObject {
 			// TODO - Why is this not copying the skillList from the master?
 			aClass.skillList = null;
 
-			aClass.classSkillString = classSkillString;
 			aClass.classSkillList = null;
-			aClass.classSpellString = classSpellString;
 			aClass.classSpellList = null;
 			aClass.stableSpellKey = null;
 
@@ -5423,18 +5433,15 @@ public class PCClass extends PObject {
 			}
 		}
 
-		final StringTokenizer aTok = new StringTokenizer(prohibitedString, ",",
-				false);
-
-		while (aTok.hasMoreTokens()) {
-			final String a = aTok.nextToken();
-
-			if (aSpell.getSchools().contains(a)
-					|| aSpell.getSubschools().contains(a)) {
-				return true;
+		if (prohibitedSchools != null) {
+			for (String school : prohibitedSchools) {
+				if (aSpell.getSchools().contains(school)
+						|| aSpell.getSubschools().contains(school)) {
+					return true;
+				}
 			}
 		}
-
+		
 		return false;
 	}
 	
@@ -7012,7 +7019,7 @@ public class PCClass extends PObject {
 		List<List<SubClass>> selectedList = c.getSelectedList();
 
 		if (!selectedList.isEmpty()) {
-			setProhibitedString("");
+			prohibitedSchools = null;
 			specialtyList = null;
 
 			SubClass sc = selectedList.get(0).get(0);
@@ -7057,12 +7064,7 @@ public class PCClass extends PObject {
 						.hasNext();) {
 					final List columns = i.next();
 					sc = (SubClass) columns.get(0);
-
-					if (prohibitedString.length() > 0) {
-						prohibitedString = prohibitedString.concat(",");
-					}
-
-					prohibitedString = prohibitedString.concat(sc.getChoice());
+					addProhibitedSchool(sc.getChoice());
 				}
 			}
 		}
@@ -7116,35 +7118,21 @@ public class PCClass extends PObject {
 	 */
 	private void chooseClassSkillList() {
 		// if no entry or no choices, just return
-		if (classSkillString == null) {
+		if (classSkillChoices == null) {
 			return;
 		}
 
-		final StringTokenizer aTok = new StringTokenizer(classSkillString, "|",
-				false);
-		int amt = 0;
-
-		if (classSkillString.indexOf('|') >= 0) {
-			amt = Integer.parseInt(aTok.nextToken());
-		}
-
-		final List<String> aList = new ArrayList<String>();
-
-		while (aTok.hasMoreTokens()) {
-			aList.add(aTok.nextToken());
-		}
-
-		if (aList.size() == 1) {
-			classSkillList = aList;
-
+		List<String> classSkillChoiceList = classSkillChoices.getList();
+		if (classSkillChoiceList.size() == 1) {
+			classSkillList = classSkillChoiceList;
 			return;
 		}
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Select class whose class-skills this class will inherit");
-		c.setPool(amt);
+		c.setPool(classSkillChoices.getCount());
 		c.setPoolFlag(false);
-		c.setAvailableList(aList);
+		c.setAvailableList(classSkillChoiceList);
 		c.setVisible(true);
 
 		final List<String> selectedList = c.getSelectedList();
@@ -7161,35 +7149,21 @@ public class PCClass extends PObject {
 	 */
 	private void chooseClassSpellList() {
 		// if no entry or no choices, just return
-		if ((classSpellString == null) || (level < 1)) {
+		if (classSpellChoices == null) {
 			return;
 		}
 
-		final StringTokenizer aTok = new StringTokenizer(classSpellString, "|",
-				false);
-		int amt = 0;
-
-		if (classSpellString.indexOf('|') >= 0) {
-			amt = Integer.parseInt(aTok.nextToken());
-		}
-
-		final List<String> aList = new ArrayList<String>();
-
-		while (aTok.hasMoreTokens()) {
-			aList.add(aTok.nextToken());
-		}
-
-		if (aList.size() == amt) {
-			classSpellList = aList;
-
+		List<String> classSpellChoiceList = classSpellChoices.getList();
+		if (classSpellChoiceList.size() == 1) {
+			classSpellList = classSpellChoiceList;
 			return;
 		}
 
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("Select class whose list of spells this class will use");
-		c.setPool(amt);
+		c.setPool(classSpellChoices.getCount());
 		c.setPoolFlag(false);
-		c.setAvailableList(aList);
+		c.setAvailableList(classSpellChoiceList);
 		c.setVisible(true);
 
 		final List<String> selectedList = c.getSelectedList();
@@ -7214,6 +7188,9 @@ public class PCClass extends PObject {
 	 * PCClass. Either way, this will be far from its current form in the final
 	 * solution.
 	 */
+	/*
+	 * CONSIDER Why does this not inherit classSkillChoices?
+	 */
 	private void inheritAttributesFrom(final PCClass otherClass) {
 		if (otherClass.getBonusSpellBaseStat() != null) {
 			setBonusSpellBaseStat(otherClass.getBonusSpellBaseStat());
@@ -7223,9 +7200,7 @@ public class PCClass extends PObject {
 			setSpellBaseStat(otherClass.getSpellBaseStat());
 		}
 
-		if (otherClass.classSpellString != null) {
-			classSpellString = otherClass.classSpellString;
-		}
+		classSpellChoices = otherClass.classSpellChoices;
 
 		addAutoArray(otherClass.getSafeListFor(ListKey.AUTO_ARRAY));
 
@@ -7329,18 +7304,6 @@ public class PCClass extends PObject {
 					}
 				}
 			}
-		}
-	}
-
-	/*
-	 * REFACTOR to DELETEMETHOD This is only called in one place, it should
-	 * be inlined for clarity - not worth the separate method call
-	 */
-	private void newClassSpellList() {
-		if (classSpellList == null) {
-			classSpellList = new ArrayList<String>();
-		} else {
-			classSpellList.clear();
 		}
 	}
 
@@ -7536,14 +7499,13 @@ public class PCClass extends PObject {
 	{
 		if (featAutos != null)
 		{
-			for (int x = featAutos.size() - 1; x >= 0; --x)
+			for (Iterator<LevelProperty<String>> it = featAutos.iterator(); it
+					.hasNext();)
 			{
-				StringTokenizer aTok = new StringTokenizer(featAutos.get(x), "|", false);
-				final int level = Integer.parseInt(aTok.nextToken());
-
-				if (level == aLevel)
+				LevelProperty<String> autoFeat = it.next();
+				if (autoFeat.getLevel() == aLevel)
 				{
-					featAutos.remove(x);
+					it.remove();
 				}
 			}
 		}

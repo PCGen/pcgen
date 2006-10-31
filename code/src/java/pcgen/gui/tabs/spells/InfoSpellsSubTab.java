@@ -78,6 +78,7 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.Utility;
+import pcgen.util.CollectionUtilities;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
 
@@ -745,12 +746,13 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				b.append(aClass.getSpecialtyListString(pc)).append("</b><br>"); //$NON-NLS-1$
 			}
 
-			if (aClass.getProhibitedString().length() != 0)
+			if (aClass.getProhibitedSchools() != null)
 			{
 				b.append(PropertyFactory
 					.getString("InfoSpells.prohibited.school")); //$NON-NLS-1$
 				b.append("<b>"); //$NON-NLS-1$
-				b.append(aClass.getProhibitedString()).append("</b><br>"); //$NON-NLS-1$
+				b.append(CollectionUtilities.joinStringRepresentations(aClass.getProhibitedSchools(), ","));
+				b.append("</b><br>"); //$NON-NLS-1$
 			}
 
 			String bString = aClass.getDefaultSourceString();

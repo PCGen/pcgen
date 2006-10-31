@@ -315,25 +315,10 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		Collection aCol = obj.getFeatAutos();
-
-		if (aCol != null)
+		for ( final LevelProperty<String> c : obj.getAllFeatAutos() )
 		{
-			for (Iterator se = aCol.iterator(); se.hasNext();)
-			{
-				String c = (String) se.next();
-				int y = c.indexOf('|');
-
-				try
-				{
-					LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_FEATAUTO, c.substring(y + 1));
-					levelTagList.add(lt);
-				}
-				catch (Exception exc)
-				{
-					Logging.errorPrint("Unrecognized FEATAUTO format:" + c, exc);
-				}
-			}
+			LevelTag lt = new LevelTag(c.getLevel(), LevelTag.TAG_FEATAUTO, c.getObject());
+			levelTagList.add(lt);
 		}
 
 		/*

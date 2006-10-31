@@ -25,6 +25,12 @@ package pcgen.gui.editor;
 import pcgen.core.*;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JComboBoxEx;
+import pcgen.io.EntityEncoder;
+import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.lst.TokenStore;
+import pcgen.util.CollectionUtilities;
+import plugin.lsttokens.pcclass.ProhibitedToken;
+import plugin.lsttokens.pcclass.SpelllistToken;
 
 import javax.swing.*;
 import java.awt.GridBagConstraints;
@@ -136,7 +142,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setProhibitedString(a);
+			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+					.getTokenMap(PCClassLstToken.class).get("PROHIBITED");
+			token.parse(obj, a, -9);
 		}
 
 		a = specialtyKnown.getText().trim();
@@ -147,12 +155,8 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 
 		obj.setSpellBookUsed(spellBook.getSelectedObjects() != null);
-		a = spellList.getText().trim();
-
-		if (a.length() > 0)
-		{
-			obj.setSpellLevelString(a);
-		}
+		
+		SpelllistToken.parseSpellList(obj, spellList.getText().trim());
 
 		//a = spellStat.getText().trim();
 		//if (a.length() > 0)
@@ -219,7 +223,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 		knownSpells.setText(known.toString());
 		memorize.setSelected(obj.getMemorizeSpells());
-		prohibited.setText(obj.getProhibitedString());
+		prohibited.setText(CollectionUtilities.joinStringRepresentations(obj.getProhibitedSchools(), ","));
 
 		StringBuffer specKnown = new StringBuffer();
 		for (Iterator iter = obj.getSpecialtyKnownList().iterator(); iter.hasNext();)
@@ -233,7 +237,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 		specialtyKnown.setText(specKnown.toString());
 		spellBook.setSelected(obj.getSpellBookUsed());
-		spellList.setText(obj.getSpellLevelString());
+		spellList.setText(obj.getClassSpellChoices().toString());
 
 		//spellStat.setText(obj.getSpellBaseStat());
 		//spellType.setText(obj.getSpellType());

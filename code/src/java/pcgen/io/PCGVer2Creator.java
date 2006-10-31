@@ -39,6 +39,7 @@ import pcgen.core.utils.ListKey;
 
 import java.util.*;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
+import pcgen.util.CollectionUtilities;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -787,13 +788,13 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(pcClass.getCastStringForLevel(classLevel));
 			}
 
-			final String prohibited = pcClass.getProhibitedString();
+			List<String> prohibited = pcClass.getProhibitedSchools();
 
-			if (!Constants.EMPTY_STRING.equals(prohibited))
+			if (prohibited != null)
 			{
 				buffer.append('|');
 				buffer.append(TAG_PROHIBITED).append(':');
-				buffer.append(EntityEncoder.encode(prohibited));
+				buffer.append(EntityEncoder.encode(CollectionUtilities.joinStringRepresentations(prohibited, ",")));
 			}
 
 			buffer.append(LINE_SEP);

@@ -9,8 +9,10 @@ public enum ProhibitedSpellType {
 	
 	DESCRIPTOR("Descriptor") { public Collection<String>getCheckList(Spell s) { return s.getDescriptorList(); }},
 
-	SCHOOL("Export")         { public Collection<String>getCheckList(Spell s) { return s.getSchools(); }};
+	SCHOOL("School")         { public Collection<String>getCheckList(Spell s) { return s.getSchools(); }},
 
+	SUBSCHOOL("SubSchool")   { public Collection<String>getCheckList(Spell s) { return s.getSubschools(); }};
+	
 	private final String text;
 
 	ProhibitedSpellType(String s)

@@ -25,7 +25,6 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -67,7 +66,7 @@ public class ProhibitedListToken extends Token
 		}
 		else
 		{
-			jointext = ", ";
+			jointext = ",";
 		}
 
 		List<String> stringList = new ArrayList<String>();
@@ -76,9 +75,19 @@ public class ProhibitedListToken extends Token
 		{
 			if (pcClass.getLevel() > 0)
 			{
-				if (!pcClass.getProhibitedString().equals(Constants.s_NONE))
+				if (pcClass.getProhibitedSchools() != null)
 				{
-					stringList.add(pcClass.getProhibitedString());
+					/*
+					 * CONSIDER This was changed from adding
+					 * pcClass.getProhibitedString() directly into stringList,
+					 * which was adding a string which was "," delimited into
+					 * the List, which gets joined by ", " below... SOOOOO, in
+					 * THEORY, it is easier to add the individual items here and
+					 * let the join happen in one step below - but it will
+					 * change some spacing!! I hope this doesn't break anything :) -
+					 * thpr 10/29/06
+					 */
+					stringList.addAll(pcClass.getProhibitedSchools());
 				}
 			}
 		}

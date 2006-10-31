@@ -37,8 +37,11 @@ import pcgen.core.utils.ListKey;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
+import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import plugin.lsttokens.pcclass.ProhibitedToken;
 
 import java.util.*;
 
@@ -539,7 +542,9 @@ final class PCGVer0Parser implements PCGParser
 				}
 
 				aClass.setSubClassKey(subClassKey);
-				aClass.setProhibitedString(prohibitedString);
+				PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+						.getTokenMap(PCClassLstToken.class).get("PROHIBITED");
+				token.parse(aClass, prohibitedString, -9);
 			}
 
 			//

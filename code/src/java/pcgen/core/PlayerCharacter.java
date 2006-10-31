@@ -16423,35 +16423,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			for (final Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
 			{
-				//
-				// PCClass object have auto feats stored in format:
-				// lvl|feat_name
-				//
-				final String aString = e1.next();
+				String autoFeat = e1.next();
 
-				if (aString.indexOf('|') < 1)
-				{
-					continue;
-				}
-
-				final StringTokenizer aTok = new StringTokenizer(aString, Constants.PIPE);
-				int i;
-
-				try
-				{
-					i = Integer.parseInt(aTok.nextToken());
-				}
-				catch (NumberFormatException exc)
-				{
-					continue;
-				}
-
-				if (i > aClass.getLevel())
-				{
-					continue;
-				}
-
-				String autoFeat = aTok.nextToken();
 				final int idx = autoFeat.indexOf('[');
 
 				if (idx >= 0)

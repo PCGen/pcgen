@@ -1705,7 +1705,7 @@ public final class ExportHandler
 					{
 						if (pcClass.getLevel() > 0)
 						{
-							if (!pcClass.getProhibitedString().equals(Constants.s_NONE))
+							if (pcClass.getProhibitedSchools() != null)
 							{
 								return 0;
 							}

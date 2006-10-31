@@ -41,8 +41,11 @@ import pcgen.gui.GuiConstants;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
+import pcgen.persistence.lst.PCClassLstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import plugin.lsttokens.pcclass.ProhibitedToken;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -1714,7 +1717,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_PROHIBITED.equals(tag))
 			{
-				aPCClass.setProhibitedString(EntityEncoder.decode(element.getText()));
+				PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+						.getTokenMap(PCClassLstToken.class).get(TAG_PROHIBITED);
+				token.parse(aPCClass, EntityEncoder.decode(element.getText()), -9);
 			}
 		}
 

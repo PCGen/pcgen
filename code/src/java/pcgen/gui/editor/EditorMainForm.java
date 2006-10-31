@@ -1010,7 +1010,7 @@ public final class EditorMainForm extends JDialog
 				PCClass thisPCClass = (PCClass) thisPObject;
 				thisPCClass.clearTemplates();
 				thisPCClass.addUmult(".CLEAR");
-				thisPCClass.setFeatAutos(-1, ".CLEAR");
+				thisPCClass.clearFeatAutos();
 				thisPCClass.addUdamList(".CLEAR");
 				break;
 
