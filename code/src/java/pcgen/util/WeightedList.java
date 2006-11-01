@@ -89,7 +89,11 @@ public class WeightedList<E> implements List<E>
 		}
 		else
 		{
-			theData = new ArrayList<WeightedItem<E>>(wl.theData);
+			theData = new ArrayList<WeightedItem<E>>(wl.theData.size());
+			for ( final WeightedItem<E> item : wl.theData )
+			{
+				theData.add( new WeightedItem<E>(item.getElement(), item.getWeight()) );
+			}
 		}
 	}
 
@@ -603,6 +607,8 @@ public class WeightedList<E> implements List<E>
 	 * <tt>WeightedList</tt> and its weight.
 	 * 
 	 * @author boomer70
+	 * 
+	 * @param <T> 
 	 */
 	class WeightedItem<T>
 	{
@@ -627,7 +633,7 @@ public class WeightedList<E> implements List<E>
 		 * 
 		 * @return The object this item wraps
 		 */
-		public T getElement()
+		public final T getElement()
 		{
 			return theElement;
 		}
@@ -637,7 +643,7 @@ public class WeightedList<E> implements List<E>
 		 * 
 		 * @return The weight of this item
 		 */
-		public int getWeight()
+		public final int getWeight()
 		{
 			return theWeight;
 		}
@@ -687,6 +693,7 @@ public class WeightedList<E> implements List<E>
 
 	private class Itr implements Iterator<E>
 	{
+		/** An iterator that iterates over the raw data elements. */
 		Iterator<WeightedItem<E>> realIterator = theData.iterator();
 
 		/**
@@ -728,6 +735,7 @@ public class WeightedList<E> implements List<E>
 
 	private class ListItr implements ListIterator<E>
 	{
+		/** An Iterator that iterates over the raw data elements */
 		ListIterator<WeightedItem<E>> realIterator = null;
 
 		/**
@@ -879,8 +887,28 @@ public class WeightedList<E> implements List<E>
 	}
 }
 
+/**
+ * A class that implements the SubList functionality for a WeightedList.
+ * 
+ * @author boomer70 <boomer70@yahoo.com>
+ *
+ * @see WeightedList#subList(int, int)
+ * 
+ * @param <E>
+ */
 class WeightedSubList<E> extends WeightedList<E>
 {
+	/**
+	 * Constructs a new List that is a view of a portion of the List passed in.
+	 * 
+	 * @param list The backing List
+	 * @param fromIndex The starting index of the new list
+	 * @param toIndex The ending index of the new list.
+	 * 
+	 * @throws IndexOutOfBoundsException if either index is outside the range
+	 * of indexes in the backing list.
+	 * @throws IllegalArgumentException if the fromIndex is greater than toIndex
+	 */
 	@SuppressWarnings("nls")
 	WeightedSubList(final WeightedList<E> list, final int fromIndex, final int toIndex) 
     {

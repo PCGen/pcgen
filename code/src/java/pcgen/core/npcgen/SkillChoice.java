@@ -29,6 +29,14 @@ import pcgen.core.Skill;
 import pcgen.util.WeightedList;
 
 /**
+ * This class represents a potential skill choice.  The class is needed because
+ * PCGen does not treat skill groups specially in the code but the user expects
+ * to treat them special.
+ * 
+ * <p>As an example, if the user specifies that TYPE.Profession skills are to 
+ * have a certain weight the assumption is that that weight applies to picking
+ * a single Profession skill and not to each Profession skill individually.
+ * 
  * @author boomer70 <boomer70@yahoo.com>
  * 
  * @since 5.11.1
@@ -38,10 +46,18 @@ public class SkillChoice
 	private String theKey = null;
 	private List<Skill> theSkillList = new WeightedList<Skill>();
 	
+	/**
+	 * Creates a new SkillChoice.
+	 * 
+	 * <p>If the key passed in starts with &quot;<code>TYPE.</code>&quot;, the
+	 * group of skills of that type will be stored as this chice.
+	 * 
+	 * @param aKey A Skill key or TYPE.&lt;skill type&gt;
+	 */
 	public SkillChoice(final String aKey)
 	{
 		theKey = aKey;
-		if ( theKey.startsWith("TYPE") )
+		if ( theKey.startsWith("TYPE") ) //$NON-NLS-1$
 		{
 			final List<Skill> subSkills = Globals.getSkillsByType(theKey.substring(5));
 			theSkillList.addAll( subSkills );
@@ -52,6 +68,12 @@ public class SkillChoice
 		}
 	}
 	
+	/**
+	 * Gets the skill associated with this chioce.  If this choice is a group
+	 * of choices, the specific skill will be selected randomly.
+	 * 
+	 * @return A <tt>Skill</tt>
+	 */
 	public Skill getSkill()
 	{
 		final Skill skill = theSkillList.get(Globals.getRandomInt(theSkillList.size()));
@@ -59,6 +81,15 @@ public class SkillChoice
 		return skill;
 	}
 	
+	/**
+	 * Checks if this <tt>SkillChoice</tt> has the specified skill as an option.
+	 * That is, if this skill represents the same skill or if the skill is in
+	 * the list of possible skill choices.
+	 * 
+	 * @param aKey The Skill key to check.
+	 * 
+	 * @return <tt>true</tt> if this choice contains the skill.
+	 */
 	public boolean hasSkill( final String aKey )
 	{
 		if ( theKey.equals(aKey) )
@@ -85,6 +116,10 @@ public class SkillChoice
 		return false;
 	}
 	
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
 	public String toString()
 	{
 		return theSkillList.toString();

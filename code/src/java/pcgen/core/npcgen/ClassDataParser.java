@@ -39,7 +39,6 @@ import org.xml.sax.helpers.DefaultHandler;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Categorisable;
-import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -62,9 +61,9 @@ public class ClassDataParser
 	private GameMode theMode;
 	
 	/**
-	 * Creates a new OptionsParser for the specified game mode.
+	 * Creates a new <tt>ClassDataParser</tt> for the specified game mode.
 	 * 
-	 * @param aMode The game mode to parse options for.
+	 * @param aMode The game mode to parse class options for.
 	 * 
 	 * @throws ParserConfigurationException
 	 * @throws SAXException
@@ -80,8 +79,13 @@ public class ClassDataParser
 	}
 	
 	/**
+	 * Parses a XML class data options file.
+	 * 
 	 * @param aFileName File to parse.
-	 * @return
+	 * 
+	 * @return A <tt>List</tt> of <tt>ClassData</tt> objects representing the
+	 * options in the file.
+	 * 
 	 * @throws SAXException
 	 * @throws IOException
 	 */
@@ -102,6 +106,14 @@ public class ClassDataParser
 	}
 }
 
+/**
+ * This is the parsing event handler class.  The methods in this class are
+ * called by the SAX parser as it finds various elements in the XML file.
+ * 
+ * @author boomer70 <boomer70@yahoo.com>
+ *
+ * @since 5.11.1
+ */
 class ClassDataHandler extends DefaultHandler
 {
 	private List<ClassData> theList;
@@ -109,7 +121,21 @@ class ClassDataHandler extends DefaultHandler
 	private GameMode theGameMode = null;
 	private boolean theValidFlag = false;
 	
-	private enum ParserState { INIT, CLASSDATA, STATDATA, SKILLDATA, ABILITYDATA };
+	/** An enum for the current state in the state machine the parser is in */
+	private enum ParserState 
+	{
+		/** The initial state of the parser */
+		INIT,
+		/** Found a class tag */
+		CLASSDATA,
+		/** Found stat data */ 
+		STATDATA,
+		/** Found skill data */
+		SKILLDATA,
+		/** Found Ability data */
+		ABILITYDATA 
+	}
+	
 	private ParserState theState = ParserState.INIT;
 	
 	private ClassData theCurrentData = null;
@@ -120,6 +146,12 @@ class ClassDataHandler extends DefaultHandler
 	private int remainingWeight = -1;
 	private List<String> removeList = new ArrayList<String>();
 	
+	/**
+	 * Constructs the handler
+	 * 
+	 * @param aMode The game mode to expect the file to be for.
+	 * @param aList The list of <tt>ClassData</tt> objects to fill
+	 */
 	public ClassDataHandler( final GameMode aMode, final List<ClassData> aList )
 	{
 		theGameMode = aMode;
@@ -208,7 +240,7 @@ class ClassDataHandler extends DefaultHandler
 				if ( anAttrs != null )
 				{
 					final int weight = getWeight(anAttrs);
-					final String statAbbr = anAttrs.getValue("value");
+					final String statAbbr = anAttrs.getValue("value"); //$NON-NLS-1$
 					if ( statAbbr != null )
 					{
 						theCurrentData.addStat(statAbbr, weight);
@@ -247,7 +279,7 @@ class ClassDataHandler extends DefaultHandler
 								Logging.debugPrint("NPCGenerator: Skill not found (" + key + ")"); //$NON-NLS-1$ //$NON-NLS-2$
 							}
 						}
-						if ( weight > 0 )
+						if ( weight > 0 && !key.equals("*") ) //$NON-NLS-1$
 						{
 							theCurrentData.addSkill(key, weight);
 						}
@@ -324,8 +356,11 @@ class ClassDataHandler extends DefaultHandler
 		}
 	}
 	
+	/**
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
 	public void endElement(final String uri, final String localName, final String qName)
-    	throws SAXException
     {
 		if ( "skills".equals(qName) && theState == ParserState.SKILLDATA ) //$NON-NLS-1$
 		{
@@ -349,7 +384,7 @@ class ClassDataHandler extends DefaultHandler
 			removeList = new ArrayList<String>();
 			theState = ParserState.CLASSDATA;
 		}
-		else if ( "abilities".equals(qName) && theState == ParserState.ABILITYDATA )
+		else if ( "abilities".equals(qName) && theState == ParserState.ABILITYDATA ) //$NON-NLS-1$
 		{
 			if ( remainingWeight > 0 )
 			{
@@ -373,12 +408,12 @@ class ClassDataHandler extends DefaultHandler
 			theCurrentCategory = null;
 			theState = ParserState.CLASSDATA;
 		}
-		else if ( "class".equals(qName) )
+		else if ( "class".equals(qName) ) //$NON-NLS-1$
 		{
 			theList.add(theCurrentData);
 			theState = ParserState.INIT;
 		}
-		else if ( "stats".equals(qName) )
+		else if ( "stats".equals(qName) ) //$NON-NLS-1$
 		{
 			theState = ParserState.CLASSDATA;
 		}

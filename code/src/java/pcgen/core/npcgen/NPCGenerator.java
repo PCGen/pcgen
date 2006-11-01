@@ -22,23 +22,18 @@
  */
 package pcgen.core.npcgen;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Categorisable;
+import pcgen.core.CharacterDomain;
 import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -69,10 +64,6 @@ public class NPCGenerator
 	private static final NPCGenerator theInstance = new NPCGenerator();
 
 	private Configuration theConfiguration = null;
-	
-//	private Map<String, WeightedList<SkillChoice>> skillListMap = new HashMap<String, WeightedList<SkillChoice>>();
-//	private HashMap statWeightMap = new HashMap();
-//	private HashMap<String, WeightedList<Ability>> featListMap = new HashMap<String, WeightedList<Ability>>();
 
 	// Rule options
 	private int theSubSkillWeightAdd = 10;
@@ -320,8 +311,7 @@ public class NPCGenerator
 		}
 	}
 
-	private WeightedList<Ability> getFeatWeights(final PCClass aClass,
-										final PlayerCharacter aPC)
+	private WeightedList<Ability> getFeatWeights(final PCClass aClass)
 	{
 		WeightedList<Ability> weightedList = theConfiguration.getAbilityWeights(aClass.getKeyName(), AbilityCategory.FEAT);
 		if (weightedList == null)
@@ -339,7 +329,7 @@ public class NPCGenerator
 				{
 					continue;
 				}
-				if (ability.isType("GENERAL"))
+				if (ability.isType("GENERAL")) //$NON-NLS-1$
 				{
 					weight = 5;
 				}
@@ -349,33 +339,92 @@ public class NPCGenerator
 		return weightedList;
 	}
 
-	private void selectFeats(final PlayerCharacter aPC, final List aFeatList, final PCClass aClass, final int aLevel)
+	private void selectFeats(final PlayerCharacter aPC, final List<Ability> aFeatList)
 	{
 		while ((int)aPC.getFeats() > 0)
 		{
-			final Object obj = aFeatList.get(Globals.getRandomInt(aFeatList.
-				size()));
+			final Ability ability = aFeatList.get(Globals.getRandomInt(aFeatList.size()));
 
-			Ability feat = null;
-			if (obj instanceof WeightedList)
-			{
-				final WeightedList subList = (WeightedList) obj;
-				feat = (Ability) subList.get(Globals.getRandomInt(aFeatList.
-					size()));
-			}
-			else
-			{
-				feat = (Ability) obj;
-			}
-			if (!PrereqHandler.passesAll(feat.getPreReqList(), aPC, feat))
+			if (!PrereqHandler.passesAll(ability.getPreReqList(), aPC, ability))
 			{
 				// We will leave the feat because we may qualify later.
 				continue;
 			}
-			AbilityUtilities.modFeat(aPC, null, feat.getKeyName(), true, false);
+			AbilityUtilities.modFeat(aPC, null, ability.getKeyName(), true, false);
 		}
 	}
 
+	private void selectDeity( final PlayerCharacter aPC, final PCClass aClass )
+	{
+		// Copy the list since we may modify it
+		final List<Deity> deities = new WeightedList<Deity>(theConfiguration.getDeityWeights(aClass.getKeyName()));
+		boolean selected = false;
+		while ( deities.size() > 0 )
+		{
+			final Deity deity = deities.get(Globals.getRandomInt(deities.size()));
+			if ( aPC.canSelectDeity(deity))
+			{
+				aPC.setDeity(deity);
+				selected = true;
+				break;
+			}
+			deities.remove(deity);
+		}
+		if ( selected == false )
+		{
+			Logging.errorPrintLocalised("NPCGen.Errors.CantSelectDeity"); //$NON-NLS-1$
+		}
+	}
+	
+	private void selectDomains( final PlayerCharacter aPC, final PCClass aClass )
+	{
+		while (aPC.getCharacterDomainUsed() < aPC.getMaxCharacterDomains())
+		{
+			final List<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
+			final Domain domain = domains.get(Globals.getRandomInt(domains.size()));
+			if ( ! domain.qualifiesForDomain(aPC) )
+			{
+				continue;
+			}
+
+			CharacterDomain aCD = aPC.getCharacterDomainForDomain(domain.getKeyName());
+
+			if (aCD == null)
+			{
+				aCD = aPC.getNewCharacterDomain();
+			}
+
+			// TODO - This seems kind of silly.  How would this ever happen?
+			final Domain existingDomain = aCD.getDomain();
+
+			if ((existingDomain != null) && existingDomain.equals(domain))
+			{
+				aPC.removeCharacterDomain(aCD);
+			}
+			
+			// space remains for another domain, so add it
+			if (existingDomain == null)
+			{
+				domain.setIsLocked(true, aPC);
+				aCD.setDomain(domain, aPC);
+				aPC.addCharacterDomain(aCD);
+
+				aPC.calcActiveBonuses();
+			}
+		}
+	}
+	
+	/**
+	 * Generate a new NPC
+	 * 
+	 * @param aPC The PlayerCharacter to fill in options for
+	 * @param align Alignment options to choose from
+	 * @param aRace Race options to choose from
+	 * @param aGender Gender options to choose from
+	 * @param classList <tt>List</tt> of class options to choose from
+	 * @param levels <tt>List</tt> of 
+	 * @param aRollMethod
+	 */
 	public void generate(	final PlayerCharacter aPC, 
 							final AlignGeneratorOption align,
 							final RaceGeneratorOption aRace, 
@@ -455,30 +504,38 @@ public class NPCGenerator
 				if (i == 0)
 				{
 					generateStats(aPC, aClass, aRollMethod);
+					selectDeity(aPC, aClass);
 				}
 
 				// Make a copy of the list because we are going to modify it.
-				List skillList = new WeightedList(getSkillWeights(aClass, aPC));
-				List featList = new WeightedList(getFeatWeights(aClass, aPC));
+				List<SkillChoice> skillList = new WeightedList<SkillChoice>(getSkillWeights(aClass, aPC));
+				List<Ability> featList = new WeightedList<Ability>(getFeatWeights(aClass));
 				for (int j = 0; j < numLevels; j++)
 				{
 					aPC.incrementClassLevel(1, aClass, true);
 
+					final PCClass pcClass = aPC.getClassKeyed(aClass.getKeyName());
 					selectSkills(aPC, skillList, aClass, j + 1);
-					selectFeats(aPC, featList, aClass, j + 1);
+					selectFeats(aPC, featList);
+					
+					selectDomains( aPC, aClass );
+					
 					if ( !aClass.getSpellType().equals( Constants.s_NONE ) )
 					{
 						// This is a spellcasting class.  We may have to select
 						// spells of some sort (known or prepared).
 						if ( aClass.getKnownList().size() > 0 || aClass.hasKnownSpells(aPC) )
 						{
-							Logging.debugPrint("NPCGenerator: known spells to select");
+							Logging.debugPrint("NPCGenerator: known spells to select"); //$NON-NLS-1$
 							int highestSpellLevel = aClass.getHighestLevelSpell(aPC);
 							for (int lvl = 0; lvl <= highestSpellLevel; ++lvl)
 							{
-								if (aPC.availableSpells(lvl, aClass, Globals.getDefaultSpellBook(), true, true))
+								if (aPC.availableSpells(lvl, pcClass, Globals.getDefaultSpellBook(), true, true))
 								{
-									Logging.debugPrint("NPCGenerator: known spells to select");
+									final int a = pcClass.getKnownForLevel(pcClass.getLevel(), lvl, aPC);
+									final int bonus = pcClass.getSpecialtyKnownForLevel(pcClass
+											.getLevel(), lvl, aPC);
+									Logging.debugPrint("NPCGenerator: " + a + "known spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
 								}
 							}
 						}

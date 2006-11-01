@@ -32,6 +32,8 @@ import java.util.Map;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -240,21 +242,41 @@ public class Configuration
 	
 	public WeightedList<SkillChoice> getSkillWeights(final String aKey)
 	{
-		final ClassData data = theClassData.get(aKey);
-		if ( data != null )
+		ClassData data = theClassData.get(aKey);
+		if ( data == null )
 		{
-			return data.getSkillWeights();
+			data = new ClassData(Constants.EMPTY_STRING);
 		}
-		return null;
+		return data.getSkillWeights();
 	}
 	
 	public WeightedList<Ability> getAbilityWeights( final String aKey, final AbilityCategory aCategory )
 	{
-		final ClassData data = theClassData.get(aKey);
-		if ( data != null )
+		ClassData data = theClassData.get(aKey);
+		if ( data == null )
 		{
-			return data.getAbilityWeights(aCategory);
+			data = new ClassData(Constants.EMPTY_STRING);
 		}
-		return null;
+		return data.getAbilityWeights(aCategory);
+	}
+	
+	public WeightedList<Deity> getDeityWeights( final String aKey )
+	{
+		ClassData data = theClassData.get( aKey );
+		if ( data == null )
+		{
+			data = new ClassData(Constants.EMPTY_STRING);
+		}
+		return data.getDeityWeights();
+	}
+
+	public WeightedList<Domain> getDomainWeights(final String aDeityKey, final String aClassKey ) 
+	{
+		ClassData data = theClassData.get( aClassKey );
+		if ( data == null )
+		{
+			data = new ClassData(Constants.EMPTY_STRING);
+		}
+		return data.getDomainWeights(aDeityKey);
 	}
 }

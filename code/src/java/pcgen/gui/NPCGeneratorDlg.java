@@ -32,7 +32,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.Box;
@@ -46,7 +45,6 @@ import javax.swing.SwingUtilities;
 
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.npcgen.AlignGeneratorOption;
 import pcgen.core.npcgen.ClassGeneratorOption;
@@ -58,6 +56,25 @@ import pcgen.core.npcgen.RaceGeneratorOption;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.util.PropertyFactory;
 
+/**
+ * This class implements a dialog to present the configurable options for 
+ * generating a random NPC.
+ * 
+ * <p>It includes dropdowns for Alignment, Race, Gender, Classes and Levels, 
+ * and rolling method.
+ * 
+ * <ul>
+ * <li>TODO - Implement Edit buttons</li>
+ * <li>TODO - Only display Alignment panel if Alignment is used by the Game Mode</li>
+ * <li>TODO - Add interface to the random name generator (which one?) </li>
+ * </ul>
+ * 
+ * @author boomer70 <boomer70@yahoo.com>
+ * 
+ * @since 5.11.1
+ *
+ */
+@SuppressWarnings("serial")
 public class NPCGeneratorDlg extends JDialog
 {
 	JButton okButton = new JButton();

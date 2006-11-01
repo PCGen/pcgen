@@ -29,6 +29,8 @@ import java.util.Map;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Categorisable;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
@@ -50,6 +52,8 @@ public class ClassData
 	private WeightedList<String> theStatWeights = null;
 	private WeightedList<SkillChoice> theSkillWeights = null;
 	private Map<AbilityCategory, WeightedList<Ability>> theAbilityWeights = null;
+	private WeightedList<Deity> theDeityWeights = null;
+	private Map<String, WeightedList<Domain>> theDomainWeights = null;
 	
 	/**
 	 * Creates an empty <tt>ClassData</tt> object
@@ -93,7 +97,7 @@ public class ClassData
 		{
 			if ( theStatWeights == null || theStatWeights.contains(stat.getAbb()) == false )
 			{
-				theStatWeights.add(1, stat.getAbb());
+				addStat(stat.getAbb(), 1);
 			}
 		}
 		return theStatWeights;
@@ -208,5 +212,63 @@ public class ClassData
 			}
 		}
 		return theAbilityWeights.get(aCategory);
+	}
+	
+	public void addDeity( final Deity aDeity, final int aWeight )
+	{
+		if ( theDeityWeights == null )
+		{
+			theDeityWeights = new WeightedList<Deity>();
+		}
+		
+		theDeityWeights.add(aWeight, aDeity);
+	}
+	
+	public WeightedList<Deity> getDeityWeights()
+	{
+		if ( theDeityWeights == null )
+		{
+			for ( final Deity deity : Globals.getDeityList() )
+			{
+				addDeity(deity, 1);
+			}
+		}
+		return theDeityWeights;
+	}
+
+	public void addDomain( final String aDeityKey, final Domain aDomain, final int aWeight )
+	{
+		if ( theDomainWeights == null )
+		{
+			theDomainWeights  = new HashMap<String, WeightedList<Domain>>();
+		}
+		WeightedList<Domain> domains = theDomainWeights.get(aDeityKey);
+		if ( domains == null )
+		{
+			domains = new WeightedList<Domain>();
+			theDomainWeights.put( aDeityKey, domains );
+		}
+		domains.add(aWeight, aDomain);
+	}
+	
+	public WeightedList<Domain> getDomainWeights( final String aDeityKey ) 
+	{
+		if ( theDomainWeights == null )
+		{
+			theDomainWeights  = new HashMap<String, WeightedList<Domain>>();
+		}
+		WeightedList<Domain> domains = theDomainWeights.get(aDeityKey);
+		if ( domains == null )
+		{
+			domains = new WeightedList<Domain>();
+			
+			final Deity deity = Globals.getDeityKeyed(aDeityKey);
+			final List<Domain> deityDomains = deity.getDomainList();
+			for ( final Domain domain : deityDomains )
+			{
+				domains.add(1, domain);
+			}
+		}
+		return domains;
 	}
 }
