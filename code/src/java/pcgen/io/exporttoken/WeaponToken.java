@@ -31,6 +31,7 @@ import pcgen.core.bonus.BonusUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.AttackType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -2639,7 +2640,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getRangedAttackString(PlayerCharacter pc)
 	{
-		return pc.getAttackString(Constants.ATTACKSTRING_RANGED, 0, 0);
+		return pc.getAttackString(AttackType.RANGED, 0, 0);
 	}
 
 	/**
@@ -2659,7 +2660,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getRangedAttackString(PlayerCharacter pc, int bonus, int BABBonus)
 	{
-		return pc.getAttackString(Constants.ATTACKSTRING_RANGED, bonus, BABBonus);
+		return pc.getAttackString(AttackType.RANGED, bonus, BABBonus);
 	}
 
 	/**
@@ -2670,7 +2671,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getMeleeAttackString(PlayerCharacter pc)
 	{
-		return pc.getAttackString(Constants.ATTACKSTRING_MELEE, 0, 0);
+		return pc.getAttackString(AttackType.MELEE, 0, 0);
 	}
 
 	/**
@@ -2690,7 +2691,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getMeleeAttackString(PlayerCharacter pc, int bonus, int BABBonus)
 	{
-		return pc.getAttackString(Constants.ATTACKSTRING_MELEE, bonus, BABBonus);
+		return pc.getAttackString(AttackType.MELEE, bonus, BABBonus);
 	}
 
 	/**
@@ -2701,7 +2702,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getUnarmedAttackString(PlayerCharacter pc)
 	{
-		return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, 0, 0);
+		return pc.getAttackString(AttackType.UNARMED, 0, 0);
 	}
 
 	/**
@@ -2721,7 +2722,7 @@ public class WeaponToken extends Token
 	 */
 	private static String getUnarmedAttackString(PlayerCharacter pc, int bonus, int BABBonus)
 	{
-		return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, bonus, BABBonus);
+		return pc.getAttackString(AttackType.UNARMED, bonus, BABBonus);
 	}
 
 	/**

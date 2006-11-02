@@ -1,5 +1,7 @@
 package plugin.lsttokens.pcclass;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 
@@ -13,7 +15,11 @@ public class KnownspellsToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.addKnownSpellsList(value);
+		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+
+		while (aTok.hasMoreTokens()) {
+			pcclass.addKnownSpell(aTok.nextToken());
+		}
 		return true;
 	}
 }

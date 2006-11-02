@@ -1674,16 +1674,20 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Set the SR (or clear it)
+	 * Set the SR
 	 * @param newSR
 	 */
-	public void setSR(String newSR)
+	public void setSR(int aLevel, String newSR)
 	{
-		if (".CLEAR".equals(newSR))
-		{
-			newSR = null;
-		 }
 		stringChar.put(StringKey.SR_FORMULA, newSR);
+	}
+	
+	/**
+	 * Clear the SR
+	 */
+	public void clearSRList()
+	{
+		stringChar.remove(StringKey.SR_FORMULA);
 	}
 
 	/**

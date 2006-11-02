@@ -47,7 +47,6 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import pcgen.core.prereq.Prerequisite;
@@ -438,6 +437,10 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
    tagList.addItem("UMULT");
    tagList.addItem("UDAM");
  */
+		/*
+		 * CONSIDER TODO Need to add SpecialtyKnown to the above list...
+		 * and add the functionality to this class - thpr 10/31/06
+		 */
 		tagList.setSelectedIndex(0);
 		level.setText("1     ");
 

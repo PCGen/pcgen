@@ -54,6 +54,7 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.DefaultTriState;
 import pcgen.util.enumeration.VisionType;
 
@@ -132,7 +133,7 @@ public class PCClass extends PObject {
 	 * account for that and actually store these by level and put them into the
 	 * appropriate PCClassLevel.
 	 */
-	private ArrayList<String> featList = null;
+	private ArrayList<LevelProperty<String>> featList = null;
 
 	/*
 	 * ALLCLASSLEVELS Since the known list is class level dependent, it needs to
@@ -161,7 +162,7 @@ public class PCClass extends PObject {
 	 * LevelProperty (if it gets used)] (not the raw Strings) need to be stored
 	 * in EACH individual PCClassLevel.
 	 */
-	private ArrayList<String> specialtyknownList = null;
+	private ArrayList<LevelProperty<String>> specialtyknownList = null;
 
 	/*
 	 * STRINGREFACTOR This is currently taking in a delimited String and should
@@ -810,7 +811,7 @@ public class PCClass extends PObject {
 	 * item from the second one. For small maps, this can be > 50% memory
 	 * savings.
 	 */
-	private HashMap<String, String> attackCycleMap = null;
+	private HashMap<AttackType, String> attackCycleMap = null;
 
 	
 //	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
@@ -1644,9 +1645,9 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final List<String> getFeatList() {
+	public final List<LevelProperty<String>> getFeatList() {
 		if (featList == null) {
-			final List<String> ret = Collections.emptyList();
+			final List<LevelProperty<String>> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
 		}
 		return Collections.unmodifiableList(featList);
@@ -2681,17 +2682,31 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
+	 * PCCLASSONLY This is required in PCClass for PCClass editing
 	 */
-	public final Collection<String> getSpecialtyKnownList() {
+	public final Collection<LevelProperty<String>> getSpecialtyKnownList() {
 		if (specialtyknownList == null) {
-			final List<String> ret = Collections.emptyList();
+			final List<LevelProperty<String>> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
 		}
 		return Collections.unmodifiableList(specialtyknownList);
 	}
 
+	/*
+	 * PCCLASSLEVELONLY This is required in PCClassLevel and should be present in 
+	 * PCClass for PCClassLevel creation (in the factory)
+	 */
+	public final String getSpecialtyKnownList(int aLevel) {
+		if (specialtyknownList != null) {
+			for (LevelProperty<String> lp : specialtyknownList) {
+				if (lp.getLevel() == aLevel) {
+					return lp.getObject();
+				}
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * Adds the numeric value given to the number of specialty school spells
 	 * that the class can cast per spell level.
@@ -2704,8 +2719,6 @@ public class PCClass extends PObject {
 	 * 
 	 * <p>
 	 * TODO - Why is this stored as a String????
-	 * <p>
-	 * TODO - Why is this a list?
 	 */
 	/*
 	 * STRINGREFACTOR This should really be stored as an Array, not as a String,
@@ -2716,20 +2729,14 @@ public class PCClass extends PObject {
 	 * done from there.
 	 */
 	/*
-	 * BUG This is not correctly accounting for the LEVEL of the SPECIALTYKNOWN.
-	 * If SPECIALTYKNOWN did not appear in EACH AND EVERY level then something
-	 * would break. It should be stored as a Map of levels, taking the level
-	 * from the SPECIALTYKNOWN Tag call.
-	 */
-	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public final void addSpecialtyKnown(final String aNumber) {
+	public final void addSpecialtyKnown(int aLevel, String aNumber) {
 		if (specialtyknownList == null) {
-			specialtyknownList = new ArrayList<String>(2);
+			specialtyknownList = new ArrayList<LevelProperty<String>>();
 		}
-		specialtyknownList.add(aNumber);
+		specialtyknownList.add(LevelProperty.getLevelProperty(aLevel, aNumber));
 	}
 
 	/**
@@ -2898,35 +2905,23 @@ public class PCClass extends PObject {
 			}
 		}
 
-		StringTokenizer aTok;
-		int x = spellLevel;
+		String aString = getSpecialtyKnownList(pcLevel);
+		if (aString != null) 
+		{
+			StringTokenizer aTok = new StringTokenizer(aString, ",");
+			int x = spellLevel;
 
-		/*
-		 * REFACTOR This should really be calling a getSpecialtyKnownList(int
-		 * level) method.
-		 */
-		for (final String aString : getSpecialtyKnownList()) {
-			if (pcLevel == 1) {
-				aTok = new StringTokenizer(aString, ",");
+			while (aTok.hasMoreTokens()) {
+				final String spells = aTok.nextToken();
+				final int t = Integer.parseInt(spells);
 
-				while (aTok.hasMoreTokens()) {
-					final String spells = aTok.nextToken();
-					final int t = Integer.parseInt(spells);
+				if (x == 0) {
+					total += t;
 
-					if (x == 0) {
-						total += t;
-
-						break;
-					}
-
-					--x;
+					break;
 				}
-			}
 
-			--pcLevel;
-
-			if (pcLevel < 1) {
-				break;
+				--x;
 			}
 		}
 
@@ -3676,34 +3671,21 @@ public class PCClass extends PObject {
 	 * @param srString
 	 */
 	/*
-	 * STRINGREFACTOR This should be moved OUT of PCClass and put into the SR
-	 * Tag.
-	 */
-	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void setSR(final String srString) {
-		if (".CLEAR".equals(srString)) {
-			SR = null;
-
-			return;
+	public void setSR(int aLevel, String srString) {
+		if (SR == null) {
+			SR = new ArrayList<LevelProperty<String>>();
 		}
-
-		final StringTokenizer aTok = new StringTokenizer(srString,
-				Constants.PIPE, false);
-		final int lvl = Integer.parseInt(aTok.nextToken());
-		final String tokenSrString = aTok.nextToken();
-
-		if (".CLEAR".equals(tokenSrString)) {
-			SR = null;
-		} else {
-			if (SR == null) {
-				SR = new ArrayList<LevelProperty<String>>();
-			}
-
-			SR.add(LevelProperty.getLevelProperty(lvl, tokenSrString));
-		}
+		SR.add(LevelProperty.getLevelProperty(aLevel, srString));
+	}
+	
+	/*
+	 * PCCLASSONLY Since this is part of LST file import
+	 */
+	public void clearSR() {
+		SR = null;
 	}
 
 	/**
@@ -3941,8 +3923,16 @@ public class PCClass extends PObject {
 			}
 		}
 
-		for (final String known : getSpecialtyKnownList()) {
-			pccTxt.append("\tSPECIALTYKNOWN:").append(known);
+		/*
+		 * CONSIDER This is different than it was before - this outputs the
+		 * level, whereas the previous code for outputting SPECIALTYKNOWN did
+		 * not - is this a problem??? - thpr 10/31/06
+		 */
+		if (specialtyknownList != null) {
+			for (LevelProperty<String> lp : specialtyknownList) {
+				pccTxt.append(lineSep).append(lp.getLevel()).append("\tSPECIALTYKNOWN:")
+						.append(lp.getObject());
+			}
 		}
 
 		pccTxt.append(lineSep);
@@ -4065,7 +4055,14 @@ public class PCClass extends PObject {
 			}
 		}
 
-		buildPccText(pccTxt, getFeatList().iterator(), ":", "\tFEAT:", lineSep);
+		if (featList != null)
+		{
+			for (LevelProperty<String> lp : featList)
+			{
+				pccTxt.append(lineSep).append(lp.getLevel());
+				pccTxt.append("\tFEATAUTO:").append(lp.getObject());
+			}
+		}
 
 		// TODO - Add ABILITY tokens.
 		if (featAutos != null)
@@ -4285,22 +4282,16 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * STRINGREFACTOR This needs to store a LevelProperty object that contains a
-	 * Domain, NOT a String, especially a | or : delimited String... !!
-	 */
-	/*
 	 * PCCLASSANDLEVEL This needs to be in both PCClass (since it's imported from
 	 * a Tag) and PCClassLevel (although the PCClassLevel version should not be 
 	 * level dependent)
 	 */
 	public void addFeatList(final int aLevel, final String aFeatList) {
-		// TODO - Why oh Why do we need yet another separator.
 		// TODO - Make this not string based.
-		final String aString = aLevel + ":" + aFeatList;
 		if (featList == null) {
-			featList = new ArrayList<String>();
+			featList = new ArrayList<LevelProperty<String>>();
 		}
-		featList.add(aString);
+		featList.add(LevelProperty.getLevelProperty(aLevel, aFeatList));
 	}
 
 	/*
@@ -4334,40 +4325,24 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * STRINGREFACTOR This is currently taking in a delimited String and should
-	 * be taking in a List or somesuch. The processing needs to be moved back
-	 * into the KNOWNSPELL tag. Actually, this needs to use LevelProperty to
-	 * make the proper assignments.
-	 */
-	/*
 	 * TYPESAFETY This is throwing around Spell names as Strings. :(
 	 */
 	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void addKnownSpellsList(final String aString) {
-
+	public void addKnownSpell(final String aString) {
 		if (knownSpellsList == null) {
 			knownSpellsList = new ArrayList<String>();
 		}
-		final StringTokenizer aTok;
-
-		if (aString.startsWith(".CLEAR")) {
-			knownSpellsList.clear();
-
-			if (".CLEAR".equals(aString)) {
-				return;
-			}
-
-			aTok = new StringTokenizer(aString.substring(6), "|", false);
-		} else {
-			aTok = new StringTokenizer(aString, "|", false);
-		}
-
-		while (aTok.hasMoreTokens()) {
-			knownSpellsList.add(aTok.nextToken());
-		}
+		knownSpellsList.add(aString);
+	}
+	
+	/*
+	 * PCCLASSONLY - for class construction
+	 */
+	public void clearKnownSpellsList() {
+		knownSpellsList = null;
 	}
 
 	/**
@@ -4549,28 +4524,9 @@ public class PCClass extends PObject {
 	 * PlayerCharacter.getAttackString()) to determine what the final attack
 	 * bonuses are.
 	 */
-	public int attackCycle(final int index) {
-		String aKey = null;
-
+	public int attackCycle(final AttackType at) {
 		if (attackCycleMap != null) {
-			/*
-			 * TYPESAFETY These Constants could be a Typesafe Enumeration, and
-			 * that would be a good thing for memory use (less strings) and
-			 * error catching (note that this method does not complain if the
-			 * index is out of bounds)
-			 */
-			if (index == Constants.ATTACKSTRING_MELEE) {
-				// Base attack
-				aKey = "BAB";
-			} else if (index == Constants.ATTACKSTRING_RANGED) {
-				// Ranged attack
-				aKey = "RAB";
-			} else if (index == Constants.ATTACKSTRING_UNARMED) {
-				// Unarmed attack
-				aKey = "UAB";
-			}
-
-			final String aString = attackCycleMap.get(aKey);
+			final String aString = attackCycleMap.get(at);
 
 			if (aString != null) {
 				return Integer.parseInt(aString);
@@ -4713,12 +4669,11 @@ public class PCClass extends PObject {
 			// aClass.setSkillPoints(skillPoints);
 			aClass.setSkillPointFormula(skillPointFormula);
 			aClass.setInitialFeats(initialFeats);
-			aClass.setSpellBaseStat(spellBaseStat);
 			aClass.setBonusSpellBaseStat(bonusSpellBaseStat);
 			aClass.setSpellType(spellType);
 			// aClass.setAttackBonusType(attackBonusType);
 			if (specialtyknownList != null) {
-				aClass.specialtyknownList = new ArrayList<String>(
+				aClass.specialtyknownList = new ArrayList<LevelProperty<String>>(
 						specialtyknownList);
 			}
 			if (knownList != null) {
@@ -4731,7 +4686,7 @@ public class PCClass extends PObject {
 			aClass.uattList = new ArrayList<String>(uattList);
 			// aClass.acList = new ArrayList<String>(acList);
 			if (featList != null) {
-				aClass.featList = new ArrayList<String>(featList);
+				aClass.featList = new ArrayList<LevelProperty<String>>(featList);
 			}
 			// aClass.vFeatList = (ArrayList) vFeatList.clone();
 			if (vFeatMap != null) {
@@ -4773,9 +4728,8 @@ public class PCClass extends PObject {
 			if (knownSpellsList != null) {
 				aClass.knownSpellsList = new ArrayList<String>(knownSpellsList);
 			}
-			aClass.attackCycle = attackCycle;
 			if (attackCycleMap != null) {
-				aClass.attackCycleMap = new HashMap<String, String>(
+				aClass.attackCycleMap = new HashMap<AttackType, String>(
 						attackCycleMap);
 			}
 			aClass.castAs = castAs;
@@ -6948,11 +6902,12 @@ public class PCClass extends PObject {
 			}
 		}
 
-		for (String feats : getFeatList()) {
-			if (aLevel == Integer.parseInt(getToken(0, feats, ":"))) {
+		for (LevelProperty<String> lp : getFeatList()) {
+			if (lp.getLevel() == aLevel)
+			{
 				final double preFeatCount = aPC.getUsedFeatCount();
-				AbilityUtilities.modFeatsFromList(aPC, pcLevelInfo, getToken(1,
-						feats, ":"), addThem, aLevel == 1);
+				AbilityUtilities.modFeatsFromList(aPC, pcLevelInfo, lp
+						.getObject(), addThem, aLevel == 1);
 
 				final double postFeatCount = aPC.getUsedFeatCount();
 
@@ -7453,37 +7408,24 @@ public class PCClass extends PObject {
 	 *            Unparsed ATTACKCYCLE string.
 	 */
 	/*
-	 * DELETEMETHOD by putting this back in the ATTACKCYCLE tag. That should 
-	 * then provide an attackCycleMap into PCClass.
+	 * PCCLASSANDLEVEL since this is from a TAG and also is required in 
+	 * the PCClassLevel
 	 */
-	public final void setAttackCycle(final String aString) {
-		attackCycle = aString;
-		if (aString.indexOf('|') == -1)
-			return;
-
-		final StringTokenizer aTok = new StringTokenizer(attackCycle,
-				Constants.PIPE);
-
-		while (aTok.hasMoreTokens()) {
-			final String attackType = aTok.nextToken();
-			final String aVal = aTok.nextToken();
-			if (attackCycleMap == null) {
-				attackCycleMap = new HashMap<String, String>();
-			}
-			attackCycleMap.put(attackType, aVal);
+	public final void setAttackCycle(AttackType at, String aString) {
+		if (attackCycleMap == null) {
+			attackCycleMap = new HashMap<AttackType, String>();
 		}
+		attackCycleMap.put(at, aString);
 	}
-
-	/**
-	 * Returns the unadjusted unprocessed attackCycle.
-	 * 
-	 * @return The base attackCycle string.
-	 */
+	
 	/*
-	 * DELETEMETHOD since attackCycle will be deleted
+	 * PCCLASSONLY Only for editing classes
 	 */
-	public final String getAttackCycle() {
-		return attackCycle;
+	public final Map<AttackType, String> getAttackCycle() {
+		if (attackCycleMap == null) {
+			return null;
+		}
+		return Collections.unmodifiableMap(attackCycleMap);
 	}
 
 	/**

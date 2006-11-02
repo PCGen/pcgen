@@ -23,13 +23,14 @@
 package pcgen.gui.editor;
 
 import pcgen.core.*;
+import pcgen.core.utils.ChoiceList;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.CollectionUtilities;
-import plugin.lsttokens.pcclass.ProhibitedToken;
+import pcgen.util.MapCollection;
+import pcgen.util.enumeration.AttackType;
 import plugin.lsttokens.pcclass.SpelllistToken;
 
 import javax.swing.*;
@@ -40,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * <code>ClassAbilityPanel</code>
@@ -65,7 +68,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 	private JTextField levelsPerFeat = new JTextField();
 	private JTextField maxLevel = new JTextField();
 	private JTextField prohibited = new JTextField();
-	private JTextField specialtyKnown = new JTextField();
 	private JTextField spellList = new JTextField();
 
 	/** Creates new form ClassAbilityPanel */
@@ -87,7 +89,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setAttackCycle(a);
+			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+					.getTokenMap(PCClassLstToken.class).get("ATTACKCYCLE");
+			token.parse(obj, a, -9);
 		}
 
 		a = hitDice.getText().trim();
@@ -133,8 +137,12 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.addKnownSpellsList(".CLEAR");
-			obj.addKnownSpellsList(a);
+			obj.clearKnownSpellsList();
+			final StringTokenizer aTok = new StringTokenizer(a, "|", false);
+
+			while (aTok.hasMoreTokens()) {
+				obj.addKnownSpell(aTok.nextToken());
+			}
 		}
 
 		obj.setMemorizeSpells(memorize.getSelectedObjects() != null);
@@ -145,13 +153,6 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
 					.getTokenMap(PCClassLstToken.class).get("PROHIBITED");
 			token.parse(obj, a, -9);
-		}
-
-		a = specialtyKnown.getText().trim();
-
-		if (a.length() > 0)
-		{
-			obj.addSpecialtyKnown(a);
 		}
 
 		obj.setSpellBookUsed(spellBook.getSelectedObjects() != null);
@@ -200,7 +201,11 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 
 		PCClass obj = (PCClass) po;
-		attackCycle.setText(obj.getAttackCycle());
+		Map<AttackType, String> attackCycleMap = obj.getAttackCycle();
+		if (attackCycleMap != null) {
+			MapCollection mc = new MapCollection(attackCycleMap);
+			attackCycle.setText(CollectionUtilities.joinStringRepresentations(mc, Constants.PIPE));
+		}
 		hitDice.setText(String.valueOf(obj.getBaseHitDie()));
 		deity.setText(CoreUtility.join(obj.getDeityList(), '|'));
 		itemCreate.setText(obj.getItemCreationMultiplier());
@@ -212,32 +217,34 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		castAs.setText(obj.getCastAs());
 
 		StringBuffer known = new StringBuffer();
-		for (Iterator iter = obj.getKnownSpellsList().iterator(); iter.hasNext();)
+		for (String str : obj.getKnownSpellsList())
 		{
-			String element = (String) iter.next();
 			if (known.length() > 0)
 			{
 				known.append('|');
 			}
-			known.append(element);
+			known.append(str);
 		}
 		knownSpells.setText(known.toString());
 		memorize.setSelected(obj.getMemorizeSpells());
 		prohibited.setText(CollectionUtilities.joinStringRepresentations(obj.getProhibitedSchools(), ","));
 
-		StringBuffer specKnown = new StringBuffer();
-		for (Iterator iter = obj.getSpecialtyKnownList().iterator(); iter.hasNext();)
-		{
-			String element = (String) iter.next();
-			if (known.length() > 0)
-			{
-				specKnown.append('|');
-			}
-			specKnown.append(element);
-		}
-		specialtyKnown.setText(specKnown.toString());
+//		StringBuffer specKnown = new StringBuffer();
+//		for (LevelProperty<String> lp : obj.getSpecialtyKnownList())
+//		{
+//			if (known.length() > 0)
+//			{
+//				specKnown.append('|');
+//			}
+//			specKnown.append(lp.getLevel());
+//			specKnown.append('=');
+//			specKnown.append(lp.getObject());
+//		}
 		spellBook.setSelected(obj.getSpellBookUsed());
-		spellList.setText(obj.getClassSpellChoices().toString());
+		ChoiceList<String> classSpellChoices = obj.getClassSpellChoices();
+		if (classSpellChoices != null) {
+			spellList.setText(classSpellChoices.toString());
+		}
 
 		//spellStat.setText(obj.getSpellBaseStat());
 		//spellType.setText(obj.getSpellType());
@@ -412,12 +419,13 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		add(memorize, gridBagConstraints);
 
 
-		tempLabel = new JLabel("Specialty Known:");
-		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 6, true);
-		add(tempLabel, gridBagConstraints);
+		//Removed specialtyKnown because it is level dependent - thpr 10/31/06
+		//tempLabel = new JLabel("Specialty Known:");
+		//gridBagConstraints = buildConstraints(gridBagConstraints, 0, 6, true);
+		//add(tempLabel, gridBagConstraints);
 
-		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 6, true);
-		add(specialtyKnown, gridBagConstraints);
+		//gridBagConstraints = buildConstraints(gridBagConstraints, 1, 6, true);
+		//add(specialtyKnown, gridBagConstraints);
 
 		tempLabel = new JLabel("Prohibited:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 6, true);

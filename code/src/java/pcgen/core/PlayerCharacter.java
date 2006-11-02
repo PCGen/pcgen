@@ -83,6 +83,7 @@ import pcgen.util.Delta;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
@@ -4125,15 +4126,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setDirty(true);
 	}
 
-	public String getAttackString(final int index)
+	public String getAttackString(AttackType at)
 	{
-		// index: 0 = melee; 1 = ranged; 2 = unarmed
-		return getAttackString(index, 0);
+		return getAttackString(at, 0);
 	}
 
-	public String getAttackString(final int index, final int bonus)
+	public String getAttackString(AttackType at, final int bonus)
 	{
-		return getAttackString(index, bonus, 0);
+		return getAttackString(at, bonus, 0);
 	}
 
 	/**
@@ -4146,12 +4146,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * only the size of the attacks generated.  The second increases both
 	 * the size and number of attacks
 	 *
-	 * @param index The type of attack. Takes one of three values;
-	 *              <ul>
-	 *              <li> Constants.ATTACKSTRING_MELEE
-	 *              <li> Constants.ATTACKSTRING_RANGED
-	 *              <li> Constants.ATTACKSTRING_UNARMED
-	 *              </ul>
+	 * @param index The type of attack. Takes an AttackType (an enumeration)
+	 * 
 	 * @param TOHITBonus A bonus that will be added to the TOHIT numbers.  This
 	 *              bonus affects only the numbers produced, not the number
 	 *              of attacks
@@ -4161,9 +4157,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * @return The attack string for this character
 	 */
 
-	public String getAttackString(final int index, final int TOHITBonus, int BABBonus)
+	public String getAttackString(AttackType at, final int TOHITBonus, int BABBonus)
 	{
-		final String cacheLookup = "AttackString:" + index + "," + TOHITBonus + "," + BABBonus;
+		final String cacheLookup = "AttackString:" + at.getIdentifier() + "," + TOHITBonus + "," + BABBonus;
 		final String cached = getVariableProcessor().getCachedString(cacheLookup);
 
 		if (cached != null)
@@ -4226,7 +4222,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			final int b = pcClass.baseAttackBonus(this);
 
 			// Get the attack cycle
-			final int c = pcClass.attackCycle(index);
+			final int c = pcClass.attackCycle(at);
 
 			// add to all other classes
 			final int d = ab.get(c).intValue() + b;

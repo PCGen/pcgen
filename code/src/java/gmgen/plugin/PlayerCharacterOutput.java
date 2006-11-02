@@ -3,6 +3,7 @@ package gmgen.plugin;
 import pcgen.core.*;
 import pcgen.io.ExportHandler;
 import pcgen.util.CollectionUtilities;
+import pcgen.util.enumeration.AttackType;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -208,7 +209,7 @@ public class PlayerCharacterOutput
 		int tohitBonus = (int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc.getTotalBonusTo("TOHIT", "TYPE.MELEE")
 			+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc.getTotalBonusTo("COMBAT", "TOHIT.MELEE");
 
-		return pc.getAttackString(Constants.ATTACKSTRING_MELEE, tohitBonus);
+		return pc.getAttackString(AttackType.MELEE, tohitBonus);
 	}
 
 	public String getName()
@@ -226,7 +227,7 @@ public class PlayerCharacterOutput
 		int tohitBonus = (int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc.getTotalBonusTo("TOHIT", "TYPE.RANGED")
 			+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc.getTotalBonusTo("COMBAT", "TOHIT.RANGED");
 
-		return pc.getAttackString(Constants.ATTACKSTRING_MELEE, tohitBonus);
+		return pc.getAttackString(AttackType.MELEE, tohitBonus);
 	}
 
 	public String getRegion()

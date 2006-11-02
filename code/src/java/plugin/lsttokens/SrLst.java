@@ -18,10 +18,10 @@ public class SrLst implements GlobalLstToken {
 	}
 
 	public boolean parse(PObject obj, String value, int anInt) {
-		if (anInt > -9) {
-			obj.setSR(anInt + "|" + value);
+		if (".CLEAR".equals(value)) {
+			obj.clearSRList();
 		} else {
-			obj.setSR(value);
+			obj.setSR(anInt, value);
 		}
 		return true;
 	}

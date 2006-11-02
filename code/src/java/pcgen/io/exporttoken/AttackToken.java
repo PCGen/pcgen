@@ -25,10 +25,10 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
+import pcgen.util.enumeration.AttackType;
 
 import java.util.StringTokenizer;
 
@@ -123,19 +123,19 @@ public class AttackToken extends Token
 			if (attackType.equals("RANGED"))
 			{
 				int total = getTotalToken(pc, attackType);
-				return pc.getAttackString(Constants.ATTACKSTRING_RANGED, total);
+				return pc.getAttackString(AttackType.RANGED, total);
 			}
 			else if (attackType.equals("UNARMED"))
 			{
 				int total = getTotalToken(pc, "MELEE");
 				// TODO: Is this correct for 3.0 also?
-				return pc.getAttackString(Constants.ATTACKSTRING_MELEE, total);
+				return pc.getAttackString(AttackType.MELEE, total);
 				//return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, total);
 			}
 			else
 			{
 				int total = getTotalToken(pc, attackType);
-				return pc.getAttackString(Constants.ATTACKSTRING_MELEE, total);
+				return pc.getAttackString(AttackType.MELEE, total);
 			}
 		}
 		return getSubToken(pc, attackType, modifier);
@@ -171,18 +171,7 @@ public class AttackToken extends Token
 		}
 		else
 		{
-			if (attackType.equals("RANGED"))
-			{
-				return pc.getAttackString(Constants.ATTACKSTRING_RANGED);
-			}
-			else if (attackType.equals("UNARMED"))
-			{
-				return pc.getAttackString(Constants.ATTACKSTRING_UNARMED);
-			}
-			else
-			{
-				return pc.getAttackString(Constants.ATTACKSTRING_MELEE);
-			}
+			return pc.getAttackString(AttackType.valueOf(attackType));
 		}
 		return "";
 	}
