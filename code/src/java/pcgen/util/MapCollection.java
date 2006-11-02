@@ -53,7 +53,7 @@ public class MapCollection implements Collection<Object> {
 	}
 
 	public void clear() {
-		map.clear();
+		throw new UnsupportedOperationException();
 	}
 
 	public boolean contains(Object arg0) {
