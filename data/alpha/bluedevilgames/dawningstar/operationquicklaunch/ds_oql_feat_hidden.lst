@@ -1,0 +1,55 @@
+# CVS $Revision$ $Author$ -- Wed Aug 23 10:13:59 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
+
+###BLOCK: Velin abilities
+# Feat Name		Type			Visible	Special Ability										Define									Modify VAR
+Detect Vaasi	TYPE:RaceAbility	VISIBLE:NO	SA:Detect Vaasi within % feet, +%|DetectVaasiDistance|DetectVaasiBonus	DEFINE:DetectVaasiDistance|0	DEFINE:DetectVaasiBonus|0	BONUS:VAR|DetectVaasiDistance|30	BONUS:VAR|DetectVaasiBonus|WIS
+
+###BLOCK: Human Survivor abilities
+# Feat Name		Type			Visible	Special Ability		Define				Bonus to skill
+Survival Instinct	TYPE:ClassAbility	VISIBLE:NO	SA:Survival Instinct	DEFINE:SurvivalInstinct|0	BONUS:SKILL|Survival|SurvivalInstinct
+
+###BLOCK: Velin Hunter abilities
+# Feat Name			Type			Visible	Special Ability			Define				Bonus to skill												Modify VAR
+Improved Detect Vaasi	TYPE:ClassAbility	VISIBLE:NO	SA:Improved Detect Vaasi																				BONUS:VAR|DetectVaasiDistance|30	BONUS:VAR|DetectVaasiBonus|WIS
+Wilderness Training	TYPE:ClassAbility	VISIBLE:NO	SA:Wilderness Traiing		DEFINE:WildernessTraining|0	BONUS:SKILL|Handle Animal,Ride,Navigate,Survival|WildernessTraining|TYPE=Species
+
+###BLOCK: Barter King abilities
+# Feat Name		Type			Visible	Special Ability			Define			Bonus to skill
+Big Money		TYPE:ClassAbility	VISIBLE:NO	SA:Big Money +%|BigMoney	DEFINE:BigMoney|0
+Deliveryman		TYPE:ClassAbility	VISIBLE:NO	SA:Deliveryman							BONUS:SKILL|Navigate,Survival|2
+Haggling King	TYPE:ClassAbility	VISIBLE:NO	SA:Haggling King			DEFINE:HagglingKing|0	BONUS:SKILL|Barter|HagglingKing|TYPE=Competence
+
+###BLOCK: Gunhand abilities
+# Feat Name		Type			Visible	Special Ability					Define
+Signature Weapon	TYPE:ClassAbility	VISIBLE:NO	SA:Signature Weapon +%|SignatureWeapon	DEFINE:SignatureWeapon|0
+
+###BLOCK: Lawman abilities
+# Feat Name		Type			Visible	Special Ability		Combat bonus					Damage reduction	Bonus to skill										Modify VAR
+Grit Your Teeth	TYPE:ClassAbility	VISIBLE:NO	SA:Grit Your Teeth								BONUS:DR|-|1													BONUS:VAR|DamageThreshold|1
+Improved Reaction	TYPE:ClassAbility	VISIBLE:NO	SA:Improved Reaction	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+Legwork		TYPE:ClassAbility	VISIBLE:NO	SA:Legwork													BONUS:SKILL|Gather Information,Investigate,Research|2|TYPE=Competence
+
+###BLOCK: Rebuilder abilities
+# Feat Name					Type			Visible	Special Ability					Define					Bonus to skill								Modify VAR
+Dawning Star Systems Expert		TYPE:ClassAbility	VISIBLE:NO	SA:Dawning Star Systems Expert		DEFINE:DawningStarSystemsExpert|0	BONUS:SKILL|TYPE.Craft,Repair|DawningStarSystemsExpert
+Government Issue				TYPE:ClassAbility	VISIBLE:NO	SA:Government Issue
+Improved Dawning Star Familiarity	TYPE:ClassAbility	VISIBLE:NO	SA:Improved Dawning Star Familiarity																	BONUS:VAR|DawningStarFamiliarity|2
+Surprise Sense				TYPE:ClassAbility	VISIBLE:NO	SA:Surprise Sense +%|SurpriseSense		DEFINE:SurpriseSense|0
+
+###BLOCK: Velin Guardian abilities
+# Feat Name			Type							Visible	Special Ability					Define				Modify VAR				Source Page
+Sworn Enemy (Vaasi)	TYPE:ClassAbility.VelinGuardianSwornEnemy	VISIBLE:NO	SA:Sworn Enemy (Vaasi) +%|SwornEnemyVaasi	DEFINE:SwornEnemyVaasi|0	BONUS:VAR|SwornEnemyVaasi|2	SOURCEPAGE:p.66
+
+###BLOCK: Shared abilities
+# Feat Name					Type						Visible	Required Feat		Special Ability																Define				Stackable?	Multiple?	Choose			Modify VAR
+Increased Massive Damage Threshold	TYPE:RaceAbility				VISIBLE:NO					SA:Increased Massive Damage Threshold (Ex)																								BONUS:VAR|DamageThreshold|3
+Force of Law				TYPE:ClassAbility.ForceLaw		VISIBLE:NO					SA:Force of Law
+Legal Authority				TYPE:ClassAbility.ForceLaw.WordLaw	VISIBLE:NO	PREFEAT:1,Word of Law	SA:+% bonus on all Charisma and Charisma based skill checks when asserting legal authority|LegalAuthority	DEFINE:LegalAuthority|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE		BONUS:VAR|LegalAuthority|2
+Region Familiarity			TYPE:ClassAbility				VISIBLE:NO					SA:Region Familiarity, % regions|RegionFamiliarity										DEFINE:RegionFamiliarity|0	STACK:YES	MULT:YES	CHOOSE:Specific Region	BONUS:VAR|RegionFamiliarity|1
+Word of Law					TYPE:ClassAbility.ForceLaw.WordLaw	VISIBLE:NO	PREFEAT:1,Force of Law	SA:Word of Law
+
+###BLOCK: Vaasi racial
+# Feat Name		Type				Visible	Combat bonus			Add to base move
+Vaasi Two Legs	TYPE:RacialAbility	VISIBLE:NO	BONUS:COMBAT|TOHIT.GRAPPLE|4
+Vaasi Four Legs	TYPE:RacialAbility	VISIBLE:NO						BONUS:MOVEADD|TYPE=Walk|10

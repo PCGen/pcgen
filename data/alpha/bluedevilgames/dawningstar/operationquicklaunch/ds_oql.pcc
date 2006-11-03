@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Thu Aug  3 13:27:56 2006 -- reformated by prettylst.pl v1.35 (build 561)
+CAMPAIGN:Dawning Star - Operation Quick Launch
+GAMEMODE:Modern
+RANK:6
+GENRE:Science Fiction
+BOOKTYPE:PDF
+SETTING:Space Opera
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Blue Devil Games.Dawning Star.Operation Quick Launch
+PUBNAMELONG:Blue Devil Games
+PUBNAMESHORT:BDG
+PUBNAMEWEB:http://www.bluedevilgames.com/
+SOURCELONG:Dawning Star-Operation Quick Launch
+SOURCESHORT:DS-OQL
+SOURCEWEB:http://www.dawningstar.com/oql.htm
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Dawning Star: Operation Quick Launch Copyright 2004, Justin D. Jacobson
+COPYRIGHT:PCGen dataset conversion for Dawning Star: Operation Quick Launch 2006, PCgen Data team including, but not limited to, Paul W. King, Sean "Salcor" Masters, Frank Kliewe
+ISLICENSED:YES
+LICENSE:Vaasi is a trademark of Blue Devil Games and is used with permission
+INFOTEXT:Vaasi is a trademark of Blue Devil Games and is used with permission
+
+BIOSET:ds_oql_bioset.lst
+CLASS:ds_oql_class_advanced.lst
+CLASS:ds_oql_class_prestige.lst
+CLASS:ds_oql_class_race.lst
+COMPANIONMOD:ds_oql_companionmod.lst
+EQUIPMENT:ds_oql_equip.lst
+EQUIPMENT:ds_oql_equip_armorshield.lst
+EQUIPMENT:ds_oql_equip_weapon_melee.lst
+EQUIPMENT:ds_oql_equip_weapon_ranged.lst
+EQUIPMOD:ds_oql_equipmod.lst
+FEAT:ds_oql_feat.lst
+FEAT:ds_oql_feat_hidden.lst
+FEAT:ds_oql_feat_mod.lst
+FEAT:ds_oql_feat_occupations.lst
+FEAT:ds_oql_feat_talents.lst
+KIT:ds_oql_kits_defaultmonster.lst
+RACE:ds_oql_race.lst
+SKILL:ds_oql_skills.lst
+TEMPLATE:ds_oql_template.lst
+WEAPONPROF:ds_oql_weapon_prof.lst

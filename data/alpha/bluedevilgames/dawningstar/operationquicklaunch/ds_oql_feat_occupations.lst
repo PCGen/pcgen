@@ -1,0 +1,209 @@
+# CVS $Revision$ $Author$ -- Tue Aug  8 10:54:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
+
+###BLOCK: occupation
+# Feat Name				Output Name		Type			Visible	Required Stat	Choose a Feat										Modify VAR							Source Page
+Occupation (Bureaucrat)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Bureaucrat_Skills)2	ADD:FEAT(TYPE=Bureaucrat)		BONUS:VAR|Wealth|2					SOURCEPAGE:p.36
+Occupation (Courtier)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,CHA=13	ADD:FEAT(TYPE=Courtier_Skills)3							BONUS:VAR|Wealth|4					SOURCEPAGE:p.36
+Occupation (Dissident)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Dissident_Skills)3	ADD:FEAT(TYPE=Dissident)		BONUS:VAR|Wealth|1					SOURCEPAGE:p.36
+Occupation (Explorer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Explorer_Skills)3	ADD:FEAT(TYPE=Explorer)			BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Hunter)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Hunter_Skills)3	ADD:FEAT(TYPE=Hunter)												SOURCEPAGE:p.37
+Occupation (Nomad)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Nomad_Skills)3	ADD:FEAT(TYPE=Nomad)				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Pilot)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Pilot_Skills)2	ADD:FEAT(TYPE=Pilot)				BONUS:VAR|Wealth|1					SOURCEPAGE:p.37
+Occupation (Ranch Hand)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Ranch_Hand_Skills)3	ADD:FEAT(TYPE=RanchHand)		BONUS:VAR|Wealth|1					SOURCEPAGE:p.38
+Occupation (Scientist)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Scientist_Skills)	ADD:FEAT(TYPE=Scientist)		BONUS:VAR|Wealth|3					SOURCEPAGE:p.38
+Occupation (Spacer)		OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Spacer_Skills)2	ADD:FEAT(TYPE=Spacer)				BONUS:VAR|Wealth|2					SOURCEPAGE:p.38
+Occupation (Terraformer)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO				ADD:FEAT(TYPE=Terraformer_Skills)2	ADD:FEAT(TYPE=Terraformer)		BONUS:VAR|Wealth|3					SOURCEPAGE:p.38
+Occupation (Tribal Leader)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,WIS=13	ADD:FEAT(TYPE=Tribal_Leader_Skills)2	ADD:FEAT(TYPE=TribalLeader)	BONUS:VAR|Wealth|2	BONUS:VAR|Reputation|1	SOURCEPAGE:p.39
+Occupation (Xeno Expert)	OUTPUTNAME:[NAME]	TYPE:Occupation	VISIBLE:NO	PRESTAT:1,INT=13	ADD:FEAT(TYPE=Xeno_Expert_Skills)2	ADD:FEAT(TYPE=XenoExpert)		BONUS:VAR|Wealth|3					SOURCEPAGE:p.39
+
+###BLOCK: new occupation skills
+# Feat Name					Type																										Visible	Required Class Skill			Prohibited Class SKill			Bonus to skill							Class Skill
+Barter(class skill)			TYPE:Bureaucrat_Skills.Ranch_Hand_Skills																				VISIBLE:NO							!PRECSKILL:1,Barter												CSKILL:Barter
+Barter(+1 to skill)			TYPE:Bureaucrat_Skills.Ranch_Hand_Skills																				VISIBLE:NO	PRECSKILL:1,Barter									BONUS:SKILL|Barter|1|TYPE=Competance			CSKILL:Barter
+
+Craft (Tribal - class skill)		TYPE:Hunter_Skills.Nomad_Skills.Terraformer_Skills.Tribal_Leader_Skills															VISIBLE:NO							!PRECSKILL:1,Craft (Tribal)											CSKILL:Craft (Tribal)
+Craft (Tribal - +1 to skill)		TYPE:Hunter_Skills.Nomad_Skills.Terraformer_Skills.Tribal_Leader_Skills															VISIBLE:NO	PRECSKILL:1,Craft (Tribal)								BONUS:SKILL|Craft (Tribal)|1|TYPE=Competance		CSKILL:Craft (Tribal)
+
+Knowledge (Local - class skill)	TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills	VISIBLE:NO							!PRECSKILL:1,Knowledge (Local)										CSKILL:Knowledge (Local)
+Knowledge (Local - +1 to skill)	TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills	VISIBLE:NO	PRECSKILL:1,Knowledge (Local)								BONUS:SKILL|Knowledge (Local)|1|TYPE=Competance		CSKILL:Knowledge (Local)
+
+Knowledge (Species - class skill)	TYPE:Explorer_Skills.Hunter_Skills.Xeno_Expert_Skills																		VISIBLE:NO							!PRECSKILL:1,Knowledge (Species)										CSKILL:Knowledge (Species)
+Knowledge (Species - +1 to skill)	TYPE:Explorer_Skills.Hunter_Skills.Xeno_Expert_Skills																		VISIBLE:NO	PRECSKILL:1,Knowledge (Species)							BONUS:SKILL|Knowledge (Species)|1|TYPE=Competance	CSKILL:Knowledge (Species)
+
+Terraforming(class skill)		TYPE:Scientst_Skills.Terraformer_Skills																				VISIBLE:NO							!PRECSKILL:1,Terraforming											CSKILL:Terraforming
+Terraforming(+1 to skill)		TYPE:Scientst_Skills.Terraformer_Skills																				VISIBLE:NO	PRECSKILL:1,Terraforming								BONUS:SKILL|Terraforming|1|TYPE=Competance		CSKILL:Terraforming
+
+
+###BLOCK: .MOD occupation skills
+# Feat Name								Type
+Balance(class skill).MOD					TYPE:Spacer_Skills
+Balance(+1 to skill).MOD					TYPE:Spacer_Skills
+
+Bluff(class skill).MOD						TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+Bluff(+1 to skill).MOD						TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+
+Climb(class skill).MOD						TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Tribal_Leader_Skills
+Climb(+1 to skill).MOD						TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Tribal_Leader_Skills
+
+Computer Use(class skill).MOD					TYPE:Bureaucrat_Skills.Pilot_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills.Xeno_Expert_Skills
+Computer Use(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Pilot_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills.Xeno_Expert_Skills
+
+Craft (Chemical - class skill).MOD				TYPE:Dissident_Skills.Terraformer_Skills
+Craft (Chemical - +1 to skill).MOD				TYPE:Dissident_Skills.Terraformer_Skills
+
+Craft (Electronic - class skill).MOD			TYPE:Scientist_Skills.Terraformer_Skills
+Craft (Electronic - +1 to skill).MOD			TYPE:Scientist_Skills.Terraformer_Skills
+
+Craft (Mechanical - class skill).MOD			TYPE:Dissident_Skills.Terraformer_Skills
+Craft (Mechanical - +1 to skill).MOD			TYPE:Dissident_Skills.Terraformer_Skills
+
+Craft (Pharmaceutical - class skill).MOD			TYPE:Dissident_Skills.Terraformer_Skills
+Craft (Pharmaceutical - +1 to skill).MOD			TYPE:Dissident_Skills.Terraformer_Skills
+
+Craft (Structural - class skill).MOD			TYPE:Scientist_Skills.Terraformer_Skills
+Craft (Structural - +1 to skill).MOD			TYPE:Scientist_Skills.Terraformer_Skills
+
+Craft (Visual Art - class skill).MOD			TYPE:Scientist_Skills.Terraformer_Skills
+Craft (Visual Art - +1 to skill).MOD			TYPE:Scientist_Skills.Terraformer_Skills
+
+Decipher Script(class skill).MOD				TYPE:Xeno_Expert_Skills
+Decipher Script(+1 to skill).MOD				TYPE:Xeno_Expert_Skills
+
+Demolitions(class skill).MOD					TYPE:Dissident_Skills
+Demolitions(+1 to skill).MOD					TYPE:Dissident_Skills
+
+Diplomacy(class skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Tribal_Leader_Skills
+Diplomacy(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Tribal_Leader_Skills
+
+Disable Device(class skill).MOD				TYPE:Dissident_Skills.Explorer_Skills.Scientist_Skills.Spacer_Skills
+Disable Device(+1 to skill).MOD				TYPE:Dissident_Skills.Explorer_Skills.Scientist_Skills.Spacer_Skills
+
+Disguise(class skill).MOD					TYPE:Dissident_Skills
+Disguise(+1 to skill).MOD					TYPE:Dissident_Skills
+
+Drive(class skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills
+Drive(+1 to skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills
+
+Forgery(class skill).MOD					TYPE:Bureaucrat_Skills.Dissident_Skills
+Forgery(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Dissident_Skills
+
+Gamble(class skill).MOD						TYPE:Courtier_Skills.Nomad_Skills.Ranch_Hand_Skills
+Gamble(+1 to skill).MOD						TYPE:Courtier_Skills.Nomad_Skills.Ranch_Hand_Skills
+
+Gather Information(class skill).MOD				TYPE:Dissident_Skills.Nomad_Skills.Tribal_Leader_Skills
+Gather Information(+1 to skill).MOD				TYPE:Dissident_Skills.Nomad_Skills.Tribal_Leader_Skills
+
+Handle Animal(class skill).MOD				TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+Handle Animal(+1 to skill).MOD				TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+
+Hide(class skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Hunter_Skills.Tribal_Leader_Skills
+Hide(+1 to skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Hunter_Skills.Tribal_Leader_Skills
+
+Intimidate(class skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Hunter_Skills.Tribal_Leader_Skills
+Intimidate(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Hunter_Skills.Tribal_Leader_Skills
+
+Investigate(class skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills
+Investigate(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills
+
+Jump(class skill).MOD						TYPE:Explorer_Skills.Hunter_Skills.Ranch_Hand_Skills.Spacer_Skills
+Jump(+1 to skill).MOD						TYPE:Explorer_Skills.Hunter_Skills.Ranch_Hand_Skills.Spacer_Skills
+
+Knowledge (Business - class skill).MOD			TYPE:Bureaucrat_Skills.Xeno_Expert_Skills
+Knowledge (Business - +1 to skill).MOD			TYPE:Bureaucrat_Skills.Xeno_Expert_Skills
+
+Knowledge (Civics - class skill).MOD			TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Xeno_Expert_Skills
+Knowledge (Civics - +1 to skill).MOD			TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Xeno_Expert_Skills
+
+Knowledge (Current Events - class skill).MOD		TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Nomad_Skills.Pilot_Skills.Spacer_Skills.Xeno_Expert_Skills
+Knowledge (Current Events - +1 to skill).MOD		TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Nomad_Skills.Pilot_Skills.Spacer_Skills.Xeno_Expert_Skills
+
+Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills
+Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills
+
+Knowledge (History - class skill).MOD			TYPE:Bureaucrat_Skills.Courtier_Skills.Explorer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+Knowledge (History - +1 to skill).MOD			TYPE:Bureaucrat_Skills.Courtier_Skills.Explorer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+
+Knowledge (Physical Sciences - class skill).MOD		TYPE:Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills.Xeno_Expert_Skills
+Knowledge (Physical Sciences - +1 to skill).MOD		TYPE:Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills.Xeno_Expert_Skills
+
+Knowledge (Popular Culture - class skill).MOD		TYPE:Courtier_Skills.Pilot_Skills.Spacer_Skills.Xeno_Expert_Skills.Xeno_Expert_Skills
+Knowledge (Popular Culture - +1 to skill).MOD		TYPE:Courtier_Skills.Pilot_Skills.Spacer_Skills.Xeno_Expert_Skills.Xeno_Expert_Skills
+
+Knowledge (Tactics - class skill).MOD			TYPE:Courtier_Skills.Xeno_Expert_Skills
+Knowledge (Tactics - +1 to skill).MOD			TYPE:Courtier_Skills.Xeno_Expert_Skills
+
+Knowledge (Technology - class skill).MOD			TYPE:Courtier_Skills.Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills
+Knowledge (Technology - +1 to skill).MOD			TYPE:Courtier_Skills.Scientist_Skills.Terraformer_Skills.Xeno_Expert_Skills
+
+Listen(class skill).MOD						TYPE:Courtier_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+Listen(+1 to skill).MOD						TYPE:Courtier_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+
+Move Silently(class skill).MOD				TYPE:Dissident_Skills.Explorer_Skills.Hunter_Skills.Tribal_Leader_Skills
+Move Silently(+1 to skill).MOD				TYPE:Dissident_Skills.Explorer_Skills.Hunter_Skills.Tribal_Leader_Skills
+
+Navigate(class skill).MOD					TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills
+Navigate(+1 to skill).MOD					TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills
+
+Perform (Act - class skill).MOD				TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Act - +1 to skill).MOD				TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Dance - class skill).MOD				TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Dance - +1 to skill).MOD				TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Keyboards - class skill).MOD			TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Keyboards - +1 to skill).MOD			TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Percussion Instruments - class skill).MOD	TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Percussion Instruments - +1 to skill).MOD	TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Sing - class skill).MOD				TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Sing - +1 to skill).MOD				TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Stand-Up - class skill).MOD			TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Stand-Up - +1 to skill).MOD			TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Stringed Instruments - class skill).MOD	TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Stringed Instruments - +1 to skill).MOD	TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Perform (Wind Instruments - class skill).MOD		TYPE:Courtier_Skills.Tribal_Leader_Skills
+Perform (Wind Instruments - +1 to skill).MOD		TYPE:Courtier_Skills.Tribal_Leader_Skills
+
+Pilot(class skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Pilot_Skills.Ranch_Hand_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills
+Pilot(+1 to skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Pilot_Skills.Ranch_Hand_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills
+
+Read/Write Language(class skill).MOD			TYPE:Bureaucrat_Skills.Courtier_Skills.Scientist_Skills.Xeno_Expert_Skills
+Read/Write Language(1 additional language).MOD		TYPE:Bureaucrat_Skills.Courtier_Skills.Scientist_Skills.Xeno_Expert_Skills
+
+Repair(class skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Pilot_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills
+Repair(+1 to skill).MOD						TYPE:Dissident_Skills.Explorer_Skills.Pilot_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills
+
+Research(class skill).MOD					TYPE:Bureaucrat_Skills.Scientist_Skills.Xeno_Expert_Skills
+Research(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Scientist_Skills.Xeno_Expert_Skills
+
+Ride(class skill).MOD						TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+Ride(+1 to skill).MOD						TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+
+Search(class skill).MOD						TYPE:Bureaucrat_Skills.Dissident_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills
+Search(+1 to skill).MOD						TYPE:Bureaucrat_Skills.Dissident_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Scientist_Skills.Spacer_Skills.Terraformer_Skills.Tribal_Leader_Skills
+
+Sense Motive(class skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Xeno_Expert_Skills
+Sense Motive(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Courtier_Skills.Dissident_Skills.Xeno_Expert_Skills
+
+Speak Language(class skill).MOD				TYPE:Bureaucrat_Skills.Courtier_Skills.Explorer_Skills.Nomad_Skills.Pilot_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+Speak Language(1 additional language).MOD			TYPE:Bureaucrat_Skills.Courtier_Skills.Explorer_Skills.Nomad_Skills.Pilot_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+
+Spot(class skill).MOD						TYPE:Bureaucrat_Skills.Dissident_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+Spot(+1 to skill).MOD						TYPE:Bureaucrat_Skills.Dissident_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Spacer_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+
+Survival(class skill).MOD					TYPE:Dissident_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+Survival(+1 to skill).MOD					TYPE:Dissident_Skills.Explorer_Skills.Hunter_Skills.Nomad_Skills.Pilot_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+
+Swim(class skill).MOD						TYPE:Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+Swim(+1 to skill).MOD						TYPE:Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills
+
+Treat Injury(class skill).MOD					TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+Treat Injury(+1 to skill).MOD					TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Ranch_Hand_Skills.Tribal_Leader_Skills.Xeno_Expert_Skills
+
+Tumble(class skill).MOD						TYPE:Hunter_Skills
+Tumble(+1 to skill).MOD						TYPE:Hunter_Skills

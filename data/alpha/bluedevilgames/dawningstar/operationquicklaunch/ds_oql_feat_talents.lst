@@ -1,0 +1,124 @@
+# CVS $Revision$ $Author$ -- Sat Oct 28 05:06:13 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
+
+###BLOCK: Strong talents
+# Feat Name				Type										Visible	Required Feat							Special Ability										Define																													Save checks bonus								Combat bonus									BONUS:RANGEADD			Stat bonus																			Modify VAR																																					Source Page
+Gravity Resistance		TYPE:Talent.StrongTalent.HeavyGravityResistance			VISIBLE:NO	PREFEAT:1,Extreme Effort					SA:Gravity Resistance																																																																																																																											SOURCEPAGE:p.28
+Improved Gravity Resistance	TYPE:Talent.StrongTalent.HeavyGravityResistance.StrongPlus	VISIBLE:NO	PREFEAT:1,Gravity Resistance					SA:Improved Gravity Resistance																																																																																																																									SOURCEPAGE:p.28
+
+Strong Rage				TYPE:Talent.StrongTalent.StrongRage					VISIBLE:NO	PREFEAT:1,Extreme Effort,Ignore Hardness,Melee Smash	SA:Strong Rage %/day (% rounds)|StrongRageTimes|StrongRageDuration	DEFINE:StrongRageTimes|0	DEFINE:StrongRageDuration|0	DEFINE:StrongRageSTRBonus|0	DEFINE:StrongRageCONBonus|0	DEFINE:StrongRageACPenalty|0	DEFINE:StrongRageMorale|0	BONUS:CHECKS|Will|StrongRageMorale|PREAPPLY:PC|TYPE=Rage	BONUS:COMBAT|AC|-1*(StrongRageACPenalty)|PREAPPLY:PC|TYPE=Rage						BONUS:STAT|CON|StrongRageCONBonus|PREAPPLY:PC|TYPE=Rage	BONUS:STAT|STR|StrongRageSTRBonus|PREAPPLY:PC|TYPE=Rage	BONUS:VAR|StrongRageTimes|1	BONUS:VAR|StrongRageDuration|CON+3+(StrongRageCONBonus/2)	BONUS:VAR|StrongRageSTRBonus|4	BONUS:VAR|StrongRageCONBonus|2	BONUS:VAR|StrongRageACPenalty|-2	BONUS:VAR|StrongRageMorale|2	SOURCEPAGE:p.28
+Improved Strong Rage		TYPE:Talent.StrongTalent.StrongRage.StrongPlus			VISIBLE:NO	PREFEAT:1,Strong Rage						SA:Improved Rage																																																																																						BONUS:VAR|StrongRageSTRBonus,StrongRageCONBonus|2	BONUS:VAR|StrongRageTimes|1																									SOURCEPAGE:p.29
+Advanced Strong Rage		TYPE:Talent.StrongTalent.STrongRage.StrongPlus			VISIBLE:NO	PREFEAT:1,Improved Strong Rage				SA:Advanced Rage																																																																																						BONUS:VAR|StrongRageTimes|1																																		SOURCEPAGE:p.29
+
+Throwing Arm			TYPE:Talent.StrongTalent.ThrowingArm				VISIBLE:NO										SA:Throwing Arm																																																		BONUS:COMBAT|DAMAGE.Thrown|1							BONUS:RANGEADD|THROWN|10																																																											SOURCEPAGE:p.29
+Improved Throwing Arm		TYPE:Talent.StrongTalent.ThrowingArm.StrongPlus			VISIBLE:NO	PREFEAT:1,Throwing Arm						SA:Improved Throwing Arm																																																BONUS:COMBAT|DAMAGE.Thrown|1							BONUS:RANGEADD|THROWN|10																																																											SOURCEPAGE:p.29
+Advanced Throwing Arm		TYPE:Talent.StrongTalent.ThrowingArm.StrongPlus			VISIBLE:NO	PREFEAT:1,Improved Throwing Arm				SA:Advanced Throwing Arm																																																BONUS:COMBAT|DAMAGE.Thrown|1							BONUS:RANGEADD|THROWN|10																																																											SOURCEPAGE:p.29
+
+###BLOCK: Fast talents
+# Feat Name			Type								Visible	Required Feat				Special Ability			Combat bonus			Source Page
+Footwork			TYPE:Talent.FastTalent.Footwork			VISIBLE:NO							SA:Footwork									SOURCEPAGE:p.29
+Improved Footwork		TYPE:Talent.FastTalent.Footwork.FastPlus		VISIBLE:NO	PREFEAT:1,Footwork			SA:Improved Footwork							SOURCEPAGE:p.29
+Advanced Footwork		TYPE:Talent.FastTalent.Footwork.FastPlus		VISIBLE:NO	PREFEAT:1,Improved Footwork		SA:Advanced Footwork							SOURCEPAGE:p.29
+
+Sharpshooter		TYPE:Talent.FastTalent.Sharpshooter			VISIBLE:NO							SA:Sharpshooter			BONUS:COMBAT|DAMAGE.Ranged|1	SOURCEPAGE:p.29
+Improved Sharpshooter	TYPE:Talent.FastTalent.Sharpshooter.FastPlus	VISIBLE:NO	PREFEAT:1,Sharpshooter			SA:Improved Sharpshooter	BONUS:COMBAT|DAMAGE.Ranged|1	SOURCEPAGE:p.29
+Advanced Sharpshooter	TYPE:Talent.FastTalent.Sharpshooter.FastPlus	VISIBLE:NO	PREFEAT:1,Improved Sharpshooter	SA:Advanced Sharpshooter	BONUS:COMBAT|DAMAGE.Ranged|1	SOURCEPAGE:p.29
+
+###BLOCK: Tough talents
+# Feat Name				Type									Visible	Required Feat							Special Ability									Define																												Save checks bonus								Combat bonus									Stat bonus																			Modify VAR																																			Source Page
+Tough Rage				TYPE:Talent.ToughTalent.ToughRage				VISIBLE:NO	PREFEAT:1,Damage Reduction I,Remain Conscious,Robust	SA:Tough Rage %/day (% rounds)|ToughRageTimes|ToughRageDuration	DEFINE:ToughRageTimes|0	DEFINE:ToughRageDuration|0	DEFINE:ToughRageSTRBonus|0	DEFINE:ToughRageCONBonus|0	DEFINE:ToughRageACPenalty|0	DEFINE:ToughRageMorale|0	BONUS:CHECKS|Will|ToughRageMorale|PREAPPLY:PC|TYPE=Rage	BONUS:COMBAT|AC|-1*(ToughRageACPenalty)|PREAPPLY:PC|TYPE=Rage	BONUS:STAT|CON|ToughRageCONBonus|PREAPPLY:PC|TYPE=Rage	BONUS:STAT|STR|ToughRageSTRBonus|PREAPPLY:PC|TYPE=Rage	BONUS:VAR|ToughRageTimes|1	BONUS:VAR|ToughRageDuration|CON+3+(ToughRageCONBonus/2)	BONUS:VAR|ToughRageSTRBonus|4	BONUS:VAR|ToughRageCONBonus|2	BONUS:VAR|ToughRageACPenalty|-2	BONUS:VAR|ToughRageMorale|2	SOURCEPAGE:p.30
+Improved Tough Rage		TYPE:Talent.ToughTalent.ToughRage.ToughPlus		VISIBLE:NO	PREFEAT:1,Tough Rage						SA:Improved Rage																																																																															BONUS:VAR|ToughRageSTRBonus,ToughRageCONBonus|2	BONUS:VAR|ToughRageTimes|1																								SOURCEPAGE:p.30
+Advanced Tough Rage		TYPE:Talent.ToughTalent.ToughRage.ToughPlus		VISIBLE:NO	PREFEAT:1,Improved Tough Rage					SA:Advanced Rage																																																																															BONUS:VAR|ToughRageTimes|1																																SOURCEPAGE:p.30
+
+Radiation Resistance		TYPE:Talent.ToughTalent.RadiationResistnace		VISIBLE:NO										SA:Radiation Resistance																																																																																																																		SOURCEPAGE:p.30
+Improved Radiation Resistance	TYPE:Talent.ToughTalent.RadiationResistnace.ToughPlus	VISIBLE:NO	PREFEAT:1,Radiation Resistance				SA:Improved Radiation Resistance																																																																																																																SOURCEPAGE:p.30
+Advanced Radiation Resistance	TYPE:Talent.ToughTalent.RadiationResistnace.ToughPlus	VISIBLE:NO	PREFEAT:1,Improved Radiation Resistance			SA:Advanced Radiation Resistance																																																																																																																SOURCEPAGE:p.30
+
+Stun Resistance			TYPE:Talent.ToughTalent.StunResistance.ToughPlus	VISIBLE:NO	PREFEAT:1,TYPE=Unbreakable					SA:Stun Resistance																																																																																																																		SOURCEPAGE:p.31
+Stun Reduction			TYPE:Talent.ToughTalent.StunResistance.ToughPlus	VISIBLE:NO	PREFEAT:1,Stun Resistance					SA:Stun Reduction																																																																																																																			SOURCEPAGE:p.31
+Stun Breaker			TYPE:Talent.ToughTalent.StunResistance.ToughPlus	VISIBLE:NO	PREFEAT:1,Stun Reduction					SA:Stun Breaker																																																																																																																			SOURCEPAGE:p.31
+
+###BLOCK: Smart talents
+# Feat Name				Type								Visible	Required Feat				Special Ability						Define				Bonus to skill								Modify VAR							Source Page
+Perceptive				TYPE:Talent.SmartTalent.Investigation.SmartPlus	VISIBLE:NO	PREFEAT:1,TYPE=Research			SA:Perceptive											BONUS:SKILL|Investigate,Research,Search|var("CL=Smart")/2									SOURCEPAGE:p.31
+Notice				TYPE:Talent.SmartTalent.Investigation.SmartPlus	VISIBLE:NO	PREFEAT:1,Perceptive			SA:Notice
+
+Plot the Course			TYPE:Talent.SmartTalent.Navigation			VISIBLE:NO							SA:Plot the Course																												SOURCEPAGE:p.31
+Safe Passage			TYPE:Talent.SmartTalent.Navigation.SmartPlus	VISIBLE:NO							SA:Safe Passage																													SOURCEPAGE:p.31
+Alert Passage			TYPE:Talent.SmartTalent.Navigation.SmartPlus	VISIBLE:NO							SA:Alert Passage																													SOURCEPAGE:p.31
+
+World Knowledge			TYPE:Talent.SmartTalent.Scholar			VISIBLE:NO							SA:World Knowledge +%|WorldKnowledge		DEFINE:WorldKnowledge|0												BONUS:VAR|WorldKnowledge|INT+var("CL=Smart")	SOURCEPAGE:p.31
+Sector Knowledge			TYPE:Talent.SmartTalent.Scholar.SmartPlus		VISIBLE:NO	PREFEAT:1,World Knowledge		SA:Sector Knowledge - % worlds|SectorKnowledge	DEFINE:SectorKnowledge|0											BONUS:VAR|SectorKnowledge|INT				SOURCEPAGE:p.32
+Improved World Knowledge	TYPE:Talent.SmartTalent.Scholar.SmartPlus		VISIBLE:NO	PREFEAT:1,World Knowledge		SA:Improved World Knowledge																			BONUS:VAR|WorldKnowledge|5				SOURCEPAGE:p.32
+Improved Sector Knowledge	TYPE:Talent.SmartTalent.Scholar.SmartPlus		VISIBLE:NO	PREFEAT:1,Sector Knowledge		SA:Improved sector Knowledge																			BONUS:VAR|SectorKnowledge|INT				SOURCEPAGE:p.32
+
+Identify Alien Technology	TYPE:Talent.SmartTalent.Xenotech			VISIBLE:NO							SA:Identify Alien Technology +%|INT																										SOURCEPAGE:p.32
+Utilize Alien Technology	TYPE:Talent.SmartTalent.Xenotech.SmartPlus	VISIBLE:NO	PREFEAT:1,Identify Alien Technology	SA:Utilize Alien Technology																											SOURCEPAGE:p.32
+Repair Alien Technology		TYPE:Talent.SmartTalent.Xenotech.SmartPlus	VISIBLE:NO	PREFEAT:1,Utilize Alien Technology	SA:Repair Alien Technology																											SOURCEPAGE:p.32
+
+###BLOCK: Dedicated talents
+# Feat Name							Type													Visible	Required Feat							Special Ability										Define					Bonus to skill					Modify VAR																																	Source Page
+Survival Training						TYPE:Talent.DedicatedTalent.Survival							VISIBLE:NO										SA:Survival Training															BONUS:SKILL|Survival|var("CL=Dedicated")																																			SOURCEPAGE:p.33
+Defense Training						TYPE:Talent.DedicatedTalent.Survival.DedicatedPlus					VISIBLE:NO	PREFEAT:2,Survival Training,TYPE=Insightful		SA:Defense Training +%|var("CL=Dedicated")																																																				SOURCEPAGE:p.33
+Imrpoved Defense Training				TYPE:Talent.DedicatedTalent.Survival.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Defense Training					SA:Imrpoved Defense Training +%|var("CL=Dedicated")																																																			SOURCEPAGE:p.33
+Survival Save						TYPE:Talent.DedicatedTalent.Survival.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Survival Training					SA:Survival Save																																																									SOURCEPAGE:p.33
+
+Sworn Enemy (Aberration)				TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Aberration) +%|SwornEnemyAberration				DEFINE:SwornEnemyAberration|0									BONUS:VAR|SwornEnemyAberration|2	BONUS:VAR|XenotypeAberration|2	BONUS:VAR|SwornEnemyAberration|2*var("COUNT[FEATNAME=Xenotype (Aberration)]")+2*var("COUNT[FEATNAME=Xenotype Bonus (Aberration)]")	SOURCEPAGE:p.33
+Sworn Enemy (Animal)					TYPE:Talent.DedicatedTalent.SwornEnemy.RebuilderSwornEnemy				VISIBLE:NO										SA:Sworn Enemy (Animal) +%|SwornEnemyAnimal					DEFINE:SwornEnemyAnimal|0									BONUS:VAR|SwornEnemyAnimal|2	BONUS:VAR|XenotypeAnimal|2	BONUS:VAR|SwornEnemyAnimal|2*var("COUNT[FEATNAME=Xenotype (Animal)]")+2*var("COUNT[FEATNAME=Xenotype Bonus (Animal)]")					SOURCEPAGE:p.33
+Sworn Enemy (Cyborg)					TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Cyborg) +%|SwornEnemyCyborg					DEFINE:SwornEnemyCyborg|0									BONUS:VAR|SwornEnemyCyborg|2																														SOURCEPAGE:p.33
+Sworn Enemy (Humanoid - Humans)			TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Humanoid - Humans) +%|SwornEnemyHumanoidHumans		DEFINE:SwornEnemyHumanoidHumans|0								BONUS:VAR|SwornEnemyHumanoidHumans|2																												SOURCEPAGE:p.33
+Sworn Enemy (Humanoid - Tentaari)			TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Humanoid - Tentaari) +%|SwornEnemyHumanoidTentaari	DEFINE:SwornEnemyHumanoidTentaari|0								BONUS:VAR|SwornEnemyHumanoidTentaari|2																												SOURCEPAGE:p.33
+Sworn Enemy (Humanoid - Velin)			TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Humanoid - Velin) +%|SwornEnemyHumanoidVelin		DEFINE:SwornEnemyHumanoidVelin|0								BONUS:VAR|SwornEnemyHumanoidVelin|2																													SOURCEPAGE:p.33
+Sworn Enemy (Mutants)					TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Mutants) +%|SwornEnemyMutants					DEFINE:SwornEnemyMutants|0									BONUS:VAR|SwornEnemyMutants|2																														SOURCEPAGE:p.33
+Sworn Enemy (Plant)					TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Plant) +%|SwornEnemyPlant						DEFINE:SwornEnemyPlant|0									BONUS:VAR|SwornEnemyPlant|2	BONUS:VAR|XenotypePlant|2	BONUS:VAR|SwornEnemyPlant|2*var("COUNT[FEATNAME=Xenotype (Plant)]")+2*var("COUNT[FEATNAME=Xenotype Bonus (Plant)]")					SOURCEPAGE:p.33
+Sworn Enemy (Robot)					TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Robot) +%|SwornEnemyRobot						DEFINE:SwornEnemyRobot|0									BONUS:VAR|SwornEnemyRobot|2																														SOURCEPAGE:p.33
+Sworn Enemy (Ooze)					TYPE:Talent.DedicatedTalent.SwornEnemy							VISIBLE:NO										SA:Sworn Enemy (Ooze) +%|SwornEnemyOoze						DEFINE:SwornEnemyOoze|0										BONUS:VAR|SwornEnemyOoze|2	BONUS:VAR|XenotypeOoze|2	BONUS:VAR|SwornEnemyOoze|2*var("COUNT[FEATNAME=Xenotype (Ooze)]")+2*var("COUNT[FEATNAME=Xenotype Bonus (Ooze)]")						SOURCEPAGE:p.33
+Sworn Enemy (Vermin)					TYPE:Talent.DedicatedTalent.SwornEnemy.RebuilderSwornEnemy				VISIBLE:NO										SA:Sworn Enemy (Vermin) +%|SwornEnemyVermin					DEFINE:SwornEnemyVermin|0									BONUS:VAR|SwornEnemyVermin|2	BONUS:VAR|XenotypeVermin|2	BONUS:VAR|SwornEnemyVermin|2*var("COUNT[FEATNAME=Xenotype (Vermin)]")+2*var("COUNT[FEATNAME=Xenotype Bonus (Vermin)]")					SOURCEPAGE:p.33
+Improved Sworn Enemy (Aberration)			TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO										SA:Improved Sworn Enemy (Aberration)																			BONUS:VAR|SwornEnemyAberration|2	BONUS:VAR|XenotypeAberration|2																							SOURCEPAGE:p.34
+Improved Sworn Enemy (Animal)				TYPE:Talent.DedicatedTalent.SwornEnemy.RebuilderSwornEnemy.DedicatedPlus	VISIBLE:NO	PREFEAT:1,Sworn Enemy (Aberration)				SA:Improved Sworn Enemy (Animal)																				BONUS:VAR|SwornEnemyAnimal|2	BONUS:VAR|XenotypeAnimal|2																									SOURCEPAGE:p.34
+Improved Sworn Enemy (Cyborg)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Cyborg)				SA:Improved Sworn Enemy (Cyborg)																				BONUS:VAR|SwornEnemyCyborg|2																														SOURCEPAGE:p.34
+Improved Sworn Enemy (Humanoid - Humans)		TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Humanoid - Humans)			SA:Improved Sworn Enemy (Humanoid - Humans)																		BONUS:VAR|SwornEnemyHumanoidHumans|2																												SOURCEPAGE:p.34
+Improved Sworn Enemy (Humanoid - Tentaari)	TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Humanoid - Tentaari)		SA:Improved Sworn Enemy (Humanoid - Tentaari)																		BONUS:VAR|SwornEnemyHumanoidTentaari|2																												SOURCEPAGE:p.34
+Improved Sworn Enemy (Humanoid - Velin)		TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Humanoid - Velin)			SA:Improved Sworn Enemy (Humanoid - Velin)																		BONUS:VAR|SwornEnemyHumanoidVelin|2																													SOURCEPAGE:p.34
+Improved Sworn Enemy (Mutants)			TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Mutants)				SA:Improved Sworn Enemy (Mutants)																				BONUS:VAR|SwornEnemyMutants|2																														SOURCEPAGE:p.34
+Improved Sworn Enemy (Plant)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Plant)					SA:Improved Sworn Enemy (Plant)																				BONUS:VAR|SwornEnemyPlant|2	BONUS:VAR|XenotypePlant|2																									SOURCEPAGE:p.34
+Improved Sworn Enemy (Robot)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Robot)					SA:Improved Sworn Enemy (Robot)																				BONUS:VAR|SwornEnemyRobot|2																														SOURCEPAGE:p.34
+Improved Sworn Enemy (Ooze)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Ooze)					SA:Improved Sworn Enemy (Ooze)																				BONUS:VAR|SwornEnemyOoze|2	BONUS:VAR|XenotypeOoze|2																									SOURCEPAGE:p.34
+Improved Sworn Enemy (Vaasi)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Sworn Enemy (Vaasi)					SA:Improved Sworn Enemy (Vaasi)																				BONUS:VAR|SwornEnemyVaasi|2																														SOURCEPAGE:p.66
+Improved Sworn Enemy (Vermin)				TYPE:Talent.DedicatedTalent.SwornEnemy.RebuilderSwornEnemy.DedicatedPlus	VISIBLE:NO	PREFEAT:1,Sworn Enemy (Vermin)				SA:Improved Sworn Enemy (Vermin)																				BONUS:VAR|SwornEnemyVermin|2	BONUS:VAR|XenotypeVermin|2																									SOURCEPAGE:p.34
+Advanced Sworn Enemy (Aberration)			TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO										SA:Avanced Sworn Enemy (Aberration)																				BONUS:VAR|SwornEnemyAberration|2	BONUS:VAR|XenotypeAberration|2																							SOURCEPAGE:p.33
+Advanced Sworn Enemy (Animal)				TYPE:Talent.DedicatedTalent.SwornEnemy.RebuilderSwornEnemy.DedicatedPlus	VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Animal)			SA:Advanced Sworn Enemy (Animal)																				BONUS:VAR|SwornEnemyAnimal|2	BONUS:VAR|XenotypeAnimal|2																									SOURCEPAGE:p.34
+Advanced Sworn Enemy (Cyborg)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Cyborg)			SA:Advanced Sworn Enemy (Cyborg)																				BONUS:VAR|SwornEnemyCyborg|2																														SOURCEPAGE:p.34
+Advanced Sworn Enemy (Humanoid - Humans)		TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Humanoid - Humans)	SA:Advanced Sworn Enemy (Humanoid - Humans)																		BONUS:VAR|SwornEnemyHumanoidHumans|2																												SOURCEPAGE:p.34
+Advanced Sworn Enemy (Humanoid - Tentaari)	TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Humanoid - Tentaari)	SA:Advanced Sworn Enemy (Humanoid - Tentaari)																		BONUS:VAR|SwornEnemyHumanoidTentaari|2																												SOURCEPAGE:p.34
+Advanced Sworn Enemy (Humanoid - Velin)		TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Humanoid - Velin)	SA:Advanced Sworn Enemy (Humanoid - Velin)																		BONUS:VAR|SwornEnemyHumanoidVelin|2																													SOURCEPAGE:p.34
+Advanced Sworn Enemy (Mutants)			TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Mutants)			SA:Advanced Sworn Enemy (Mutants)																				BONUS:VAR|SwornEnemyMutants|2																														SOURCEPAGE:p.34
+Advanced Sworn Enemy (Plant)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Plant)			SA:Advanced Sworn Enemy (Plant)																				BONUS:VAR|SwornEnemyPlant|2	BONUS:VAR|XenotypePlant|2																									SOURCEPAGE:p.34
+Advanced Sworn Enemy (Robot)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Robot)			SA:Advanced Sworn Enemy (Robot)																				BONUS:VAR|SwornEnemyRobot|2																														SOURCEPAGE:p.34
+Advanced Sworn Enemy (Ooze)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Ooze)			SA:Advanced Sworn Enemy (Ooze)																				BONUS:VAR|SwornEnemyOoze|2	BONUS:VAR|XenotypeOoze|2																									SOURCEPAGE:p.34
+Advanced Sworn Enemy (Vaasi)				TYPE:Talent.DedicatedTalent.SwornEnemy.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Vaasi)			SA:Advanced Sworn Enemy (Vaasi)																				BONUS:VAR|SwornEnemyVaasi|2																														SOURCEPAGE:p.66
+Advanced Sworn Enemy (Vermin)				TYPE:Talent.DedicatedTalent.SwornEnemy.RebuilderSwornEnemy.DedicatedPlus	VISIBLE:NO	PREFEAT:1,Improved Sworn Enemy (Vermin)			SA:Advanced Sworn Enemy (Vermin)																				BONUS:VAR|SwornEnemyVermin|2	BONUS:VAR|XenotypeVermin|2																									SOURCEPAGE:p.34
+
+Revive							TYPE:Talent.DedicatedTalent.Treatment.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Healing Knack						SA:Revive																																																										SOURCEPAGE:p.34
+Improved Revive						TYPE:Talent.DedicatedTalent.Treatment.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Revive							SA:Improved Revive																																																								SOURCEPAGE:p.34
+Treat Disease						TYPE:Talent.DedicatedTalent.Treatment.DedicatedPlus					VISIBLE:NO	PREFEAT:1,Revive							SA:Treat Disease																																																									SOURCEPAGE:p.34
+
+###BLOCK: Charismatic talents
+# Feat Name					Type										Visible	Required Feat						Special Ability				Define			Bonus to skill								Modify VAR							Source Page
+Animal Touch				TYPE:Talent.CharismaticTalent.AnimalHusbandry			VISIBLE:NO									SA:Animal Touch								BONUS:SKILL|Ride,Handle Animal|var("CL=Charismatic")/2									SOURCEPAGE:p.34
+Wild Empathy				TYPE:Talent.CharismaticTalent.AnimalHusbandry			VISIBLE:NO	PREFEAT:1,Animal Touch					SA:Wild Empathy +%|WildEmpathy	DEFINE:WildEmpathy|0											BONUS:VAR|WildEmpathy|CHA+var("CL=Charismatic")	SOURCEPAGE:p.34
+Imrpoved Wild Empathy			TYPE:Talent.CharismaticTalent.AnimalHusbandry			VISIBLE:NO	PREFEAT:1,Animal Touch	PREFEAT:1,Wild Empathy	SA:Improved Wild Empathy																BONUS:VAR|WildEmpathy|CHA+var("CL=Charismatic")	SOURCEPAGE:p.35
+
+Command					TYPE:Talent.CharismaticTalent.Command				VISIBLE:NO									SA:Command																											SOURCEPAGE:p.35
+Rally						TYPE:Talent.CharismaticTalent.Command.CharismaticPlus		VISIBLE:NO	PREFEAT:1,Command						SA:Rally																											SOURCEPAGE:p.35
+Improved Rally				TYPE:Talent.CharismaticTalent.Command.CharismaticPlus		VISIBLE:NO	PREFEAT:1,Rally						SA:Improved Rally																										SOURCEPAGE:p.35
+Advanced Rally				TYPE:Talent.CharismaticTalent.Command.CharismaticPlus		VISIBLE:NO	PREFEAT:1,Improved Rally				SA:Advanced Rally																										SOURCEPAGE:p.35
+
+Diplomatic Tongue				TYPE:Talent.CharismaticTalent.Diplomatic				VISIBLE:NO									SA:Diplomatic Tongue																									SOURCEPAGE:p.35
+Universal Communication			TYPE:Talent.CharismaticTalent.Diplomatic.CharismaticPlus	VISIBLE:NO									SA:Universal Communication																								SOURCEPAGE:p.35
+Improved Universal Communication	TYPE:Talent.CharismaticTalent.Diplomatic.CharismaticPlus	VISIBLE:NO									SA:Improved Universal Communication																							SOURCEPAGE:p.35
+Cultural Grasp				TYPE:Talent.CharismaticTalent.Diplomatic.CharismaticPlus	VISIBLE:NO									SA:Cultural Grasp																										SOURCEPAGE:p.35
+
+Bargain Mastery				TYPE:Talent.CharismaticTalent.Mercantile				VISIBLE:NO									SA:Bargain Mastery																									SOURCEPAGE:p.36
+Improved Bargain Mastery		TYPE:Talent.CharismaticTalent.Mercantile.CharismaticPlus	VISIBLE:NO	PREFEAT:1,Bargain Mastery				SA:Improved Bargain Mastery																								SOURCEPAGE:p.36
+Advanced Bargain Mastery		TYPE:Talent.CharismaticTalent.Mercantile.CharismaticPlus	VISIBLE:NO	PREFEAT:1,Improved Bargain Mastery			SA:Advanced Bargain Mastery																								SOURCEPAGE:p.36
