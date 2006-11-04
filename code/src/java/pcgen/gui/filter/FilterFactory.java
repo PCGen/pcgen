@@ -27,6 +27,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 import java.util.*;
 
@@ -295,7 +296,7 @@ public final class FilterFactory implements FilterConstants
 
 			for ( final PCClass pcClass : Globals.getClassList() )
 			{
-				if (pcClass.isVisible() && filter.accept(null, pcClass))
+				if (pcClass.getVisibility().equals(Visibility.DEFAULT) && filter.accept(null, pcClass))
 				{
 					raceFilters.add(FilterFactory.createFavoredClassFilter(pcClass.getKeyName()));
 				}

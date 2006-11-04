@@ -279,45 +279,25 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		flag = true;
 		index = 0;
 
-		while (flag)
+		while (true)
 		{
-			String src = obj.getSRListString(index++, "|");
-
-			if (src != null)
-			{
-				int y = src.indexOf('|');
-				String lev = src.substring(y + 1);
-				src = src.substring(0, y);
-
-				LevelTag lt = new LevelTag(src, LevelTag.TAG_SR, lev);
-				levelTagList.add(lt);
+			LevelProperty<String> lp = obj.getSRforLevel(index++);
+			if (lp == null) {
+				break;
 			}
-			else
-			{
-				flag = false;
-			}
+			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_SR, lp.getObject()));
 		}
 
-		aList = obj.getFeatList();
-
-		if ((aList != null) && (aList.size() != 0))
+		for (LevelProperty<String> lp : obj.getFeatList())
 		{
-			for (Iterator se = aList.iterator(); se.hasNext();)
-			{
-				String c = (String) se.next();
-				int y = c.indexOf(':');
-				LevelTag lt = new LevelTag(c.substring(0, y), LevelTag.TAG_FEAT, c.substring(y + 1));
-				levelTagList.add(lt);
-			}
+			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_FEAT, lp.getObject()));
 		}
 
-		for ( final LevelProperty<String> c : obj.getAllFeatAutos() )
+		for (LevelProperty<String> c : obj.getAllFeatAutos() )
 		{
-			LevelTag lt = new LevelTag(c.getLevel(), LevelTag.TAG_FEATAUTO, c.getObject());
-			levelTagList.add(lt);
+			levelTagList.add(new LevelTag(c.getLevel(), LevelTag.TAG_FEATAUTO, c.getObject()));
 		}
 
 		/*

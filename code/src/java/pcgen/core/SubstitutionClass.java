@@ -44,8 +44,8 @@ public final class SubstitutionClass extends PCClass
 	/** Constructor */
 	public SubstitutionClass()
 	{
-		numSpellsFromSpecialty = 0;
-		spellBaseStat = null;
+		setNumSpellsFromSpecialty(0);
+		setSpellBaseStat(null);
 	}
 
 	/**

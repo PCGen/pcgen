@@ -43,7 +43,6 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -110,6 +109,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>InfoSummary</code> is a panel which allows the user to enter
@@ -2808,7 +2808,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					continue;
 				}
 
-				if (aClass.isVisible() && accept(pc, aClass))
+				if (aClass.getVisibility().equals(Visibility.DEFAULT) && accept(pc, aClass))
 				{
 					addElement(aClass);
 				}

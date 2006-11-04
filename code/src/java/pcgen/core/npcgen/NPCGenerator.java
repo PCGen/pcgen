@@ -488,7 +488,7 @@ public class NPCGenerator
 					{
 						break;
 					}
-					if (aClass.isVisible()
+					if (aClass.getVisibility().equals(Visibility.DEFAULT)
 						&& PrereqHandler.passesAll(aClass.getPreReqList(), aPC,
 						aClass) && aClass.isQualified(aPC))
 					{

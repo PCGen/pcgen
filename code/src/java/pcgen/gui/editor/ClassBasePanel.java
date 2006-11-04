@@ -27,6 +27,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.Visibility;
 
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -110,7 +111,7 @@ class ClassBasePanel extends BasePanel
 		obj.setHasSubClass(hasSubClass.getSelectedObjects() != null);
 		obj.setModToSkills(modToSkills.getSelectedObjects() != null);
 		obj.setMultiPreReqs(multiPreReq.getSelectedObjects() != null);
-		obj.setVisible(chkVisible.getSelectedObjects() != null);
+		obj.setVisibility(chkVisible.getSelectedObjects() == null ? Visibility.HIDDEN : Visibility.DEFAULT);
 
 		Object[] sel = getTypesSelectedList();
 		thisPObject.setTypeInfo(".CLEAR");
@@ -180,7 +181,7 @@ class ClassBasePanel extends BasePanel
 		hasSubClass.setSelected(obj.hasSubClass());
 		modToSkills.setSelected(obj.getModToSkills());
 		multiPreReq.setSelected(obj.multiPreReqs());
-		chkVisible.setSelected(obj.isVisible());
+		chkVisible.setSelected(obj.getVisibility().equals(Visibility.DEFAULT));
 	}
 
 	private static GridBagConstraints buildConstraints(GridBagConstraints gridBagConstraints, int gridx, int gridy,

@@ -375,7 +375,7 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @return  a copy of this Ability
 	 */
 	@Override
-	public Object clone()
+	public Ability clone()
 	{
 		Ability anAbility = null;
 

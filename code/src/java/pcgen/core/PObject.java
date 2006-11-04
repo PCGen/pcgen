@@ -114,11 +114,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	protected String displayName = Constants.EMPTY_STRING;
 
 	/** Indicates if this object should be displayed to the user in the UI. */
-	/*
-	 * DELETEVARIABLE This should be deleted, and PCClass (the only user of
-	 * visible) should be trained to use the visibility variable
-	 */
-	protected boolean visible = true;
 	protected Visibility visibility = Visibility.DEFAULT;
 
 	/** Map of the bonuses for the object  */
@@ -1337,7 +1332,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		retVal.listChar.removeListFor(ListKey.SAVE);
 
 		retVal.setName(displayName);
-		retVal.visible = visible;
 		retVal.visibility = visibility;
 		retVal.setKeyName(keyName);
 		retVal.spellSupport = (SpellSupport) spellSupport.clone();

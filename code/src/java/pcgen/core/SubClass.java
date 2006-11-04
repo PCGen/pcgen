@@ -55,8 +55,8 @@ public final class SubClass extends PCClass
 	/** Constructor */
 	public SubClass()
 	{
-		numSpellsFromSpecialty = 0;
-		spellBaseStat = null;
+		setNumSpellsFromSpecialty(0);
+		setSpellBaseStat(null);
 	}
 
 	/**

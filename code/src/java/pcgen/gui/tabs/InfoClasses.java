@@ -114,6 +114,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * ???
@@ -895,7 +896,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		for (int i = 0; i < pTypes.length; i++)
 		{
 			pTypes[i] = new PObjectNode();
-			pTypes[i].setItem(typeList.get(i).toString());
+			pTypes[i].setItem(typeList.get(i));
 			pTypes[i].setParent(typeRoot);
 		}
 		typeRoot.setChildren(pTypes);
@@ -1962,7 +1963,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				return false;
 			}
 
-			return ((modelType == 1) || (aClass.isVisible() && accept(pc, aClass)));
+			return (modelType == 1)
+					|| (aClass.getVisibility().equals(Visibility.DEFAULT) && accept(
+							pc, aClass));
 		}
 
 		public List<String> getMColumnList() 
