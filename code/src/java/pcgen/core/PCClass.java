@@ -23,6 +23,7 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -47,11 +48,11 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.CollectionUtilities;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
+import pcgen.util.MapCollection;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
@@ -111,12 +112,7 @@ public class PCClass extends PObject {
 	private int numSpellsFromSpecialty = 0;
 
 	/*
-	 * LEVELONEONLY Since this is for a Class Line and not a ClassLevel line, a
-	 * granting of Domains only needs to occur in first level.
-	 * 
-	 * Note this should be checked, as this is what the DOCUMENTATION says, but
-	 * the code seems to want to allow a Domain on a Class Level line. (Not sure
-	 * if this functions correctly, though)
+	 * ALLCLASSLEVELS Since this applies to a ClassLevel line
 	 */
 	private ArrayList<LevelProperty<Domain>> domainList = null;
 
@@ -151,19 +147,16 @@ public class PCClass extends PObject {
 	private ArrayList<LevelProperty<String>> featList = null;
 
 	/*
-	 * STRINGREFACTOR This is currently storing a String with lots of gunk in it
-	 * to identify what Spell levels, et al are known - this should really be an
-	 * Array of Arrays or something to that effect...
+	 * FUTURETYPESAFETY Currently can't do better than String, because each one
+	 * of these can be a formula, or some special gunk for Psionicists (can we
+	 * clean that up??)
 	 */
 	/*
 	 * ALLCLASSLEVELS Since the known list is class level dependent, it needs to
 	 * be stored into each PCClassLevel
 	 */
-	private ArrayList<String> knownList = null;
+	private ArrayList<LevelProperty<List<String>>> knownList = null;
 
-	/*
-	 * TYPESAFETY This is throwing around Spell names as Strings. :(
-	 */
 	/*
 	 * LEVELONEONLY This variable (automatically known spells) only needs to be
 	 * loaded into the first PCClassLevel returned by PCClass, because the data
@@ -171,7 +164,7 @@ public class PCClass extends PObject {
 	 * dynamically (does the PCClassLevel automatically know spell A?), it only
 	 * needs to appear on one of the PlayerCharacter's PCClassLevels.
 	 */
-	private ArrayList<String> knownSpellsList = null;
+	private ArrayList<SpellFilter> knownSpellsList = null;
 
 	/*
 	 * TYPESAFETY This is an interesting case of Type Safety, that may not be
@@ -187,19 +180,11 @@ public class PCClass extends PObject {
 	private ArrayList<String> specialtyList = null;
 
 	/*
-	 * STRINGREFACTOR This should really be stored as an Array, not as a String,
-	 * since it is listing the specialty known "spells" for a level.
-	 * 
-	 * In reality, one needs to consider whether this is stored as an array of
-	 * arrays or whether this is yet another LevelProperty, and searches can be
-	 * done from there.
-	 */
-	/*
 	 * ALLCLASSLEVELS The specialtyKnownList [based on their level and/or
 	 * LevelProperty (if it gets used)] (not the raw Strings) need to be stored
 	 * in EACH individual PCClassLevel.
 	 */
-	private ArrayList<LevelProperty<String>> specialtyknownList = null;
+	private ArrayList<LevelProperty<int[]>> specialtyknownList = null;
 
 	/*
 	 * STRINGREFACTOR This is currently taking in a delimited String and should
@@ -241,19 +226,15 @@ public class PCClass extends PObject {
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel
 	 */
-	private ArrayList<SubClass> subClassList = null; // list of SubClass
-														// objects
+	private ArrayList<SubClass> subClassList = null;
 
 	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected substitutionClass, if any, is structured into the PCClassLevel
 	 * during the construction of the PCClassLevel
 	 */
-	private ArrayList<SubstitutionClass> substitutionClassList = null; // list
-																		// of
-																		// SubstitutionClass
-																		// objects
-
+	private ArrayList<SubstitutionClass> substitutionClassList = null;
+	
 	/*
 	 * DELETEVARIABLE There is NO use of this Tag at all in the data/* structure
 	 * today, so support for this should be removed from this class.
@@ -370,14 +351,9 @@ public class PCClass extends PObject {
 	private List<LevelProperty<Vision>> visionList = null;
 
 	/*
-	 * STRINGREFACTOR Need to rebuild this String into a List<Integer>
-	 * 
-	 * On the other hand, this could be int[][]?? might be smaller/faster?
-	 * 
-	 * Or what about also using LevelProperty, since if that is generally used,
-	 * it could be looked at to optimize the speed of creation of a PCClassLevel
-	 * as much as possible? (seems like that could be really fast in a CDOM 
-	 * environment)
+	 * FUTURETYPESAFETY Currently can't do better than String, because each one
+	 * of these can be a formula, or some special gunk for Psionicists (can we
+	 * clean that up??)
 	 */
 	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel, although some 'advanced'
@@ -386,8 +362,7 @@ public class PCClass extends PObject {
 	 * readibility!). Remember to consider PCClassLevels where 0 spells are
 	 * acquired (vs -) since that is where ability bonuses are triggered...
 	 */
-	private Map<Integer, String> castMap = null; // TODO - Convert String to
-													// List<Integer>
+	private List<LevelProperty<List<String>>> castList = null;
 
 	/*
 	 * UNKNOWNDESTINATION Actually, the question becomes: Does the CR simply get
@@ -820,15 +795,6 @@ public class PCClass extends PObject {
 	 * and stored information
 	 */
 	protected int level = 0; // TODO - This should be moved.
-
-	/*
-	 * DELETEVARIABLE This can be refactored out of PCClass and put into the
-	 * ATTACKCYCLE tag. Then the tag needs to build the attackCycleMap (below)
-	 * and properly load that map into PCClass. There will also need to be
-	 * something to UNDO the map creation (the export tags do UNTAG or
-	 * something?) in order to convert back into the String.
-	 */
-	private String attackCycle = Constants.EMPTY_STRING;
 
 	/*
 	 * attackCycleMap is part of PCClass (not PCClassLevel) because it is loaded
@@ -1505,13 +1471,15 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is appropriate for both PCClassLevel and 
 	 * PCClass since it is a Tag
 	 */
-	public final void setDeityList(final List<String> aDeityList) {
-		// deityList must be a concrete list so we can clone it,
-		// but we can not guarantee that the list passed in is
-		// a ArrayList, so we have to copy the entries.
-		// This should not be onerous as it is done infrequently
-		// and the lists are short (1-2 entries).
-		this.deityList = new ArrayList<String>(aDeityList);
+	public final void addDeity(String aDeity) {
+		deityList.add(aDeity);
+	}
+	
+	/*
+	 * PCCLASSONLY Since this is for constructing a PCClass
+	 */
+	public final void clearDeityList() {
+		deityList.clear();
 	}
 
 	/*
@@ -1537,8 +1505,7 @@ public class PCClass extends PObject {
 	 */
 	public final List<Domain> getDomainList(int domainLevel) {
 		if (domainList == null) {
-			final List<Domain> ret = Collections.emptyList();
-			return ret;
+			return Collections.emptyList();
 		}
 		List<Domain> returnList = new ArrayList<Domain>();
 		for (LevelProperty<Domain> prop : domainList)
@@ -2371,14 +2338,21 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since
 	 * it is a Tag [with level dependent differences, of course)
 	 */
-	public void setCastMap(final int aLevel, final String cast) {
-		if (castMap == null) {
-			castMap = new HashMap<Integer, String>();
+	public void setCast(final int aLevel, final List<String> cast) {
+		if (castList == null) {
+			castList = new ArrayList<LevelProperty<List<String>>>();
 		}
 		if (aLevel > maxCastLevel) {
 			maxCastLevel = aLevel;
 		}
-		castMap.put(aLevel, cast);
+		for (LevelProperty<List<String>> lp : castList) {
+			if (lp.getLevel() == aLevel) {
+				castList.remove(lp);
+				break;
+			}
+		}
+		
+		castList.add(LevelProperty.getLevelProperty(aLevel, cast));
 	}
 
 	/**
@@ -2393,16 +2367,16 @@ public class PCClass extends PObject {
 	 * recreating Strings out of more advanced structures.  PCClass and 
 	 * PCClassLevel are not the place for this
 	 */
-	public String getCastStringForLevel(int aLevel) {
-		if (castMap != null) {
+	public List<String> getCastListForLevel(int aLevel) {
+		if (castList != null) {
 			final int lvl = Math.min(aLevel, maxCastLevel);
-
-			if (castMap.containsKey(lvl)) {
-				return castMap.get(lvl);
+			for (LevelProperty<List<String>> lp : castList) {
+				if (lp.getLevel() == lvl) {
+					return lp.getObject();
+				}
 			}
 		}
-
-		return Constants.EMPTY_STRING;
+		return Collections.emptyList();
 	}
 
 	/*
@@ -2415,37 +2389,27 @@ public class PCClass extends PObject {
 			final boolean allowBonus) {
 		int minLevel = Constants.INVALID_LEVEL;
 
-		int loopMax = castMap.keySet().size();
-		for (int i = 0; i < loopMax; i++) {
-			final String castPerDay = castMap.get(i);
-
-			if ((castPerDay == null) || (castPerDay.length() <= 0)) {
-				continue;
-			}
-
-			final StringTokenizer bTok = new StringTokenizer(castPerDay, ",");
+		for (LevelProperty<List<String>> lp : castList) {
 			int maxCastable = -1;
 
 			if (allowBonus) {
-				maxCastable = bTok.countTokens() - 1;
+				maxCastable = lp.getObject().size() - 1;
 			} else {
 				int j = 0;
-
-				while (bTok.hasMoreTokens()) {
+				for (String st : lp.getObject()) {
 					try {
-						if (Integer.parseInt(bTok.nextToken()) != 0) {
+						if (Integer.parseInt(st) != 0) {
 							maxCastable = j;
 						}
 					} catch (NumberFormatException ignore) {
 						// ignore
 					}
-
 					j++;
 				}
 			}
 
 			if (maxCastable >= spellLevel) {
-				minLevel = i;
+				minLevel = lp.getLevel();
 
 				break;
 			}
@@ -2455,39 +2419,35 @@ public class PCClass extends PObject {
 			return minLevel;
 		}
 
-		loopMax = knownList.size();
+		for (LevelProperty<List<String>> lp : knownList) {
+			final List<String> knownSpells = lp.getObject();
 
-		for (int i = 0; i < loopMax; ++i) {
-			final String knownSpells = knownList.get(i);
-
-			if ("0".equals(knownSpells)) {
+			if (knownSpells.size() == 0) {
 				continue;
 			}
 
-			final StringTokenizer bTok = new StringTokenizer(knownSpells, ",");
 			int maxCastable = -1;
 
 			if (allowBonus) {
-				maxCastable = bTok.countTokens() - 1;
+				maxCastable = knownSpells.size() - 1;
 			} else {
 				int j = 0;
-
-				while (bTok.hasMoreTokens()) {
+				for (String st : knownSpells) {
 					try {
-						if (Integer.parseInt(bTok.nextToken()) != 0) {
+						if (Integer.parseInt(st) != 0) {
 							maxCastable = j;
 						}
 					} catch (NumberFormatException e) {
 						// TODO: Should this really be ignored?
+						// CONSIDER This could be a formula, so what does THAT mean - thpr 11/3/06
 						Logging.errorPrint("", e);
 					}
-
-					j += 1;
+					j++;
 				}
 			}
 
 			if (maxCastable >= spellLevel) {
-				minLevel = i + 1;
+				minLevel = lp.getLevel();
 
 				break;
 			}
@@ -2515,19 +2475,18 @@ public class PCClass extends PObject {
 		}
 
 		int highestCastable = -1;
-		if (castMap != null) {
-			for (final String entry : castMap.values()) {
-				highestCastable = Math.max(highestCastable,
-						entry.split(",").length - 1);
+		if (castList != null) {
+			for (LevelProperty<List<String>> lp : castList) {
+				highestCastable = Math.max(highestCastable, lp.getObject().size() - 1);
 			}
 		}
 
 		// Highest Known spell for level
-		final List<String> known = getKnownList();
 		int highestKnown = -1;
-		for (final String element : known) {
-			highestKnown = Math
-					.max(highestKnown, element.split(",").length - 1);
+		if (knownList != null) {
+			for (LevelProperty<List<String>> lp : knownList) {
+				highestKnown = Math.max(highestKnown, lp.getObject().size() - 1);
+			}
 		}
 
 		int highest = Math.max(highestCastable, highestKnown);
@@ -2635,11 +2594,11 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public List<String> getKnownList() {
+	public List<LevelProperty<List<String>>> getKnownList() {
 		if (Constants.EMPTY_STRING.equals(castAs)
 				|| getKeyName().equals(castAs)) {
 			if (knownList == null) {
-				final List<String> ret = Collections.emptyList();
+				final List<LevelProperty<List<String>>> ret = Collections.emptyList();
 				return Collections.unmodifiableList(ret);
 			}
 			return knownList;
@@ -2652,7 +2611,7 @@ public class PCClass extends PObject {
 		}
 
 		if (knownList == null) {
-			final List<String> ret = Collections.emptyList();
+			final List<LevelProperty<List<String>>> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
 		}
 		return knownList;
@@ -2673,17 +2632,16 @@ public class PCClass extends PObject {
 	 * should also be refactored (as part of the getKnownList() rebuild) to pass
 	 * around something more intelligent than a String.
 	 */
-	public String getKnownStringForLevel(int aInt) {
-		final List<String> known = getKnownList();
-
+	public List<String> getKnownListForLevel(int aInt) {
 		if (aInt > maxKnownLevel) {
 			aInt = maxKnownLevel;
 		}
-		if (aInt >= 0 && aInt < known.size()) {
-			return known.get(aInt);
+		for (LevelProperty<List<String>> lp : knownList) {
+			if (lp.getLevel() == aInt) {
+				return lp.getObject();
+			}
 		}
-
-		return Constants.EMPTY_STRING;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -2693,9 +2651,9 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public List<String> getKnownSpellsList() {
+	public List<SpellFilter> getKnownSpellsList() {
 		if (knownSpellsList == null) {
-			final List<String> ret = Collections.emptyList();
+			final List<SpellFilter> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
 		}
 		return Collections.unmodifiableList(knownSpellsList);
@@ -2704,9 +2662,9 @@ public class PCClass extends PObject {
 	/*
 	 * PCCLASSONLY This is required in PCClass for PCClass editing
 	 */
-	public final Collection<LevelProperty<String>> getSpecialtyKnownList() {
+	public final Collection<LevelProperty<int[]>> getSpecialtyKnownList() {
 		if (specialtyknownList == null) {
-			final List<LevelProperty<String>> ret = Collections.emptyList();
+			final List<LevelProperty<int[]>> ret = Collections.emptyList();
 			return Collections.unmodifiableList(ret);
 		}
 		return Collections.unmodifiableList(specialtyknownList);
@@ -2716,9 +2674,9 @@ public class PCClass extends PObject {
 	 * PCCLASSLEVELONLY This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final String getSpecialtyKnownList(int aLevel) {
+	public final int[] getSpecialtyKnownList(int aLevel) {
 		if (specialtyknownList != null) {
-			for (LevelProperty<String> lp : specialtyknownList) {
+			for (LevelProperty<int[]> lp : specialtyknownList) {
 				if (lp.getLevel() == aLevel) {
 					return lp.getObject();
 				}
@@ -2741,11 +2699,11 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public final void addSpecialtyKnown(int aLevel, String aNumber) {
+	public final void addSpecialtyKnown(int aLevel, int[] array) {
 		if (specialtyknownList == null) {
-			specialtyknownList = new ArrayList<LevelProperty<String>>();
+			specialtyknownList = new ArrayList<LevelProperty<int[]>>();
 		}
-		specialtyknownList.add(LevelProperty.getLevelProperty(aLevel, aNumber));
+		specialtyknownList.add(LevelProperty.getLevelProperty(aLevel, array));
 	}
 
 	/**
@@ -2771,39 +2729,24 @@ public class PCClass extends PObject {
 			return aNum;
 		}
 
-		if (castMap != null) {
-			if (!castMap.containsKey(iCasterLevel)) {
-				// Recurse in case we are actually past the end of a class's
-				// definition - use the last enterd value
-				return getNumFromCastList(iCasterLevel - 1, iSpellLevel, aPC);
+		int useCastLevel = iCasterLevel > maxCastLevel ? maxCastLevel : iCasterLevel;
+		
+		List<String> castListForLevel = getCastListForLevel(useCastLevel);
+		if (iSpellLevel >= castListForLevel.size()) {
+			return aNum;
+		}
+		String aString = castListForLevel.get(iSpellLevel);
+
+		if ((aPC != null) && hasSpellFormula()) {
+			aNum = aPC.getVariableValue(aString, "").intValue();
+		} else {
+			try {
+				aNum = Integer.parseInt(aString);
+			} catch (NumberFormatException ex) {
+				// ignore
+				aNum = 0;
 			}
 		}
-
-		int iCount = 0;
-		String aString = getCastStringForLevel(iCasterLevel);
-
-		final StringTokenizer aTok = new StringTokenizer(aString, ",");
-
-		while (aTok.hasMoreTokens()) {
-			aString = aTok.nextToken();
-
-			if (iCount == iSpellLevel) {
-				if ((aPC != null) && hasSpellFormula()) {
-					aNum = aPC.getVariableValue(aString, "").intValue();
-				} else {
-					try {
-						aNum = Integer.parseInt(aString);
-					} catch (NumberFormatException ex) {
-						// ignore
-						aNum = 0;
-					}
-				}
-				return aNum;
-			}
-
-			++iCount;
-		}
-
 		return aNum;
 	}
 
@@ -2914,23 +2857,11 @@ public class PCClass extends PObject {
 			}
 		}
 
-		String aString = getSpecialtyKnownList(pcLevel);
-		if (aString != null) 
+		int[] specKnown = getSpecialtyKnownList(pcLevel);
+		if (specKnown != null) 
 		{
-			StringTokenizer aTok = new StringTokenizer(aString, ",");
-			int x = spellLevel;
-
-			while (aTok.hasMoreTokens()) {
-				final String spells = aTok.nextToken();
-				final int t = Integer.parseInt(spells);
-
-				if (x == 0) {
-					total += t;
-
-					break;
-				}
-
-				--x;
+			if (specKnown.length > spellLevel) {
+				total += specKnown[spellLevel];
 			}
 		}
 
@@ -3706,9 +3637,11 @@ public class PCClass extends PObject {
 	 * PCCLASSONLY This is for editing classes
 	 */
 	public LevelProperty<String> getSRforLevel(int aLevel) {
-		for (LevelProperty<String> lp : SR) {
-			if (lp.getLevel() == aLevel) {
-				return lp;
+		if (SR != null) {
+			for (LevelProperty<String> lp : SR) {
+				if (lp.getLevel() == aLevel) {
+					return lp;
+				}
 			}
 		}
 		return null;
@@ -3776,12 +3709,15 @@ public class PCClass extends PObject {
 
 		pccTxt.append("\tHD:").append(hitDie);
 		checkAdd(pccTxt, "ANY", "DEITY:", CoreUtility.join(deityList, '|'));
-		checkAdd(pccTxt, "", "ATTACKCYCLE", attackCycle);
+		if (attackCycleMap != null) {
+			checkAdd(pccTxt, "", "ATTACKCYCLE", CoreUtility.join(new MapCollection(
+					attackCycleMap), Constants.PIPE));
+		}
 		checkAdd(pccTxt, "", "CASTAS:", castAs);
 		
 		if (prohibitedSchools != null) {
 			pccTxt.append('\t').append("PROHIBITED:");
-			pccTxt.append(CollectionUtilities.joinStringRepresentations(prohibitedSchools, ","));
+			pccTxt.append(CoreUtility.join(prohibitedSchools, ","));
 		}
 		
 		checkAdd(pccTxt, Constants.s_NONE, "SPELLSTAT:", spellBaseStat);
@@ -3825,17 +3761,7 @@ public class PCClass extends PObject {
 
 		if (!getKnownSpellsList().isEmpty()) {
 			pccTxt.append("\tKNOWNSPELLS:");
-
-			boolean flag = false;
-
-			for (String spell : knownSpellsList) {
-				if (flag) {
-					pccTxt.append(Constants.PIPE);
-				}
-
-				flag = true;
-				pccTxt.append(spell);
-			}
+			pccTxt.append(CoreUtility.join(knownSpellsList, Constants.PIPE));
 		}
 
 		if (itemCreationMultiplier.length() != 0) {
@@ -3852,16 +3778,7 @@ public class PCClass extends PObject {
 
 		if (getWeaponProfBonus().size() != 0) {
 			pccTxt.append("\tWEAPONBONUS:");
-
-			boolean first = true;
-			for (final String prof : getWeaponProfBonus()) {
-				if (first != true) {
-					pccTxt.append(Constants.PIPE);
-				}
-
-				pccTxt.append(prof);
-				first = false;
-			}
+			pccTxt.append(CoreUtility.join(getWeaponProfBonus(), Constants.PIPE));
 		}
 
 		// now all the level-based stuff
@@ -3891,34 +3808,27 @@ public class PCClass extends PObject {
 			}
 		}
 
-		/*
-		 * CONSIDER This is different than it was before - this outputs the
-		 * level, whereas the previous code for outputting SPECIALTYKNOWN did
-		 * not - is this a problem??? - thpr 10/31/06
-		 */
 		if (specialtyknownList != null) {
-			for (LevelProperty<String> lp : specialtyknownList) {
+			for (LevelProperty<int[]> lp : specialtyknownList) {
 				pccTxt.append(lineSep).append(lp.getLevel()).append("\tSPECIALTYKNOWN:")
-						.append(lp.getObject());
+						.append(CoreUtility.join(Arrays.asList(lp.getObject()), ","));
 			}
 		}
 
 		pccTxt.append(lineSep);
 
-		if (castMap != null) {
-			for (int x = 0; x < castMap.size(); ++x) {
-				if (castMap.containsKey(x)) {
-					final String c = castMap.get(x);
-					final String l = lineSep + String.valueOf(x) + "\tCAST:";
-					checkAdd(pccTxt, "0", l, c);
-				}
+		if (castList != null) {
+			for (LevelProperty<List<String>> lp : castList) {
+				checkAdd(pccTxt, "0", lineSep + lp.getLevel() + "\tCAST:",
+						CoreUtility.join(lp.getObject(), ","));
 			}
 		}
 
-		for (int x = 0; x < getKnownList().size(); ++x) {
-			final String c = knownList.get(x);
-			final String l = lineSep + String.valueOf(x + 1) + "\tKNOWN:";
-			checkAdd(pccTxt, "0", l, c);
+		if (knownList != null) {
+			for (LevelProperty<List<String>> lp : knownList) {
+				checkAdd(pccTxt, "0", lineSep + lp.getLevel() + "\tKNOWN:",
+						CoreUtility.join(lp.getObject(), ","));
+			}
 		}
 
 		// Output the level based DR only
@@ -4270,36 +4180,31 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void addKnown(final int iLevel, final String aString) {
+	public void setKnown(final int iLevel, final List<String> aList) {
 		if (knownList == null) {
-			knownList = new ArrayList<String>();
+			knownList = new ArrayList<LevelProperty<List<String>>>();
 		}
-
 		if (iLevel > maxKnownLevel) {
 			maxKnownLevel = iLevel;
 		}
-		// pad to with empty entries
-		while (knownList.size() < (iLevel - 1)) {
-			knownList.add("0");
+		for (LevelProperty<List<String>> lp : knownList) {
+			if (lp.getLevel() == iLevel) {
+				knownList.remove(lp);
+				break;
+			}
 		}
-
-		// Replace existing with new entry
-		if (knownList.size() >= iLevel) {
-			knownList.set(iLevel - 1, aString);
-		} else {
-			knownList.add(aString);
-		}
+		knownList.add(LevelProperty.getLevelProperty(iLevel, aList));
 	}
 
 	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void addKnownSpell(final String aString) {
+	public void addKnownSpell(final SpellFilter aFilter) {
 		if (knownSpellsList == null) {
-			knownSpellsList = new ArrayList<String>();
+			knownSpellsList = new ArrayList<SpellFilter>();
 		}
-		knownSpellsList.add(aString);
+		knownSpellsList.add(aFilter);
 	}
 	
 	/*
@@ -4639,14 +4544,14 @@ public class PCClass extends PObject {
 			aClass.setSpellType(spellType);
 			// aClass.setAttackBonusType(attackBonusType);
 			if (specialtyknownList != null) {
-				aClass.specialtyknownList = new ArrayList<LevelProperty<String>>(
+				aClass.specialtyknownList = new ArrayList<LevelProperty<int[]>>(
 						specialtyknownList);
 			}
 			if (knownList != null) {
-				aClass.knownList = new ArrayList<String>(knownList);
+				aClass.knownList = new ArrayList<LevelProperty<List<String>>>(knownList);
 			}
-			if (castMap != null) {
-				aClass.castMap = new HashMap<Integer, String>(castMap);
+			if (castList != null) {
+				aClass.castList = new ArrayList<LevelProperty<List<String>>>(castList);
 			}
 			// TODO - This should be removed
 			aClass.uattList = new ArrayList<String>(uattList);
@@ -4692,7 +4597,7 @@ public class PCClass extends PObject {
 			aClass.deityList = new ArrayList<String>(deityList);
 			aClass.maxLevel = maxLevel;
 			if (knownSpellsList != null) {
-				aClass.knownSpellsList = new ArrayList<String>(knownSpellsList);
+				aClass.knownSpellsList = new ArrayList<SpellFilter>(knownSpellsList);
 			}
 			if (attackCycleMap != null) {
 				aClass.attackCycleMap = new HashMap<AttackType, String>(
@@ -5058,25 +4963,17 @@ public class PCClass extends PObject {
 	 * after all...
 	 */
 	public boolean zeroCastSpells() {
-		if (castMap == null) {
+		if (castList == null) {
 			return true;
 		}
-		for (final int key : castMap.keySet()) {
-			final String aVal = castMap.get(key);
-			final StringTokenizer aTok = new StringTokenizer(aVal, ",");
-			int numSpells = 0;
-
-			while (aTok.hasMoreTokens()) {
-				final String spellNum = aTok.nextToken();
-
+		for (LevelProperty<List<String>> lp : castList) {
+			for (String st : lp.getObject()) {
 				try {
-					numSpells = Integer.parseInt(spellNum);
+					if (Integer.parseInt(st) > 0) {
+						return false;
+					}
 				} catch (NumberFormatException nfe) {
 					// ignore
-				}
-
-				if (numSpells > 0) {
-					return false;
 				}
 			}
 		}
@@ -5186,7 +5083,7 @@ public class PCClass extends PObject {
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE."
 				+ getSpellType());
 
-		if ((castMap != null)
+		if ((castList != null)
 				&& (getNumFromCastList(pcLevel, spellLevel, aPC) < 0)) {
 			// Don't know any spells of this level
 			// however, character might have a bonus spells e.g. from certain
@@ -5253,59 +5150,50 @@ public class PCClass extends PObject {
 
 		boolean psiSpecialty = false;
 
-		if (!getKnownList().isEmpty()) {
-			if (pcLevel > getKnownList().size()) {
-				// doesn't know any spells of this level
-				return 0;
+		if (knownList != null && !knownList.isEmpty()) {
+			String spells = null;
+			for (LevelProperty<List<String>> lp : knownList) {
+				if (lp.getLevel() == pcLevel) {
+					spells = lp.getObject().get(spellLevel);
+					break;
+				}
+			}
+			
+			if (spells.endsWith("+d")) {
+				psiSpecialty = true;
+
+				if (spells.length() > 1) {
+					spells = spells.substring(0, spells.length() - 2);
+				}
 			}
 
-			final String aString = getKnownList().get(pcLevel - 1);
-			final StringTokenizer aTok = new StringTokenizer(aString, ",");
-			int iCount = 0;
+			int t;
+			if (hasSpellFormula()) {
+				t = aPC.getVariableValue(spells, "").intValue();
+			} else {
+				t = Integer.parseInt(spells);
+			}
+			total += (t * mult);
 
-			while (aTok.hasMoreTokens()) {
-				String spells = aTok.nextToken();
+			// add Stat based bonus
+			final String bonusSpell = Globals.getBonusSpellMap().get(
+					String.valueOf(spellLevel));
 
-				if (iCount == spellLevel) {
-					if (spells.endsWith("+d")) {
-						psiSpecialty = true;
+			if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN)
+					&& (bonusSpell != null)
+					&& !bonusSpell.equals("0|0")) {
+				final StringTokenizer s = new StringTokenizer(
+						bonusSpell, "|");
+				final int base = Integer.parseInt(s.nextToken());
+				final int range = Integer.parseInt(s.nextToken());
 
-						if (spells.length() > 1) {
-							spells = spells.substring(0, spells.length() - 2);
-						}
-					}
-
-					int t;
-					if (hasSpellFormula()) {
-						t = aPC.getVariableValue(spells, "").intValue();
-					} else {
-						t = Integer.parseInt(spells);
-					}
-					total += (t * mult);
-
-					// add Stat based bonus
-					final String bonusSpell = Globals.getBonusSpellMap().get(
-							String.valueOf(spellLevel));
-
-					if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN)
-							&& (bonusSpell != null)
-							&& !bonusSpell.equals("0|0")) {
-						final StringTokenizer s = new StringTokenizer(
-								bonusSpell, "|");
-						final int base = Integer.parseInt(s.nextToken());
-						final int range = Integer.parseInt(s.nextToken());
-
-						if (stat >= base) {
-							total += Math.max(0, (stat - base + range) / range);
-						}
-					}
-
-					if (psiSpecialty) {
-						total += numSpellsFromSpecialty;
-					}
+				if (stat >= base) {
+					total += Math.max(0, (stat - base + range) / range);
 				}
+			}
 
-				iCount++;
+			if (psiSpecialty) {
+				total += numSpellsFromSpecialty;
 			}
 		}
 
@@ -6222,7 +6110,7 @@ public class PCClass extends PObject {
 	private boolean isAutoKnownSpell(final String aSpellKey,
 			final int spellLevel, final boolean useMap,
 			final PlayerCharacter aPC) {
-		if (getKnownSpellsList().isEmpty()) {
+		if (knownSpellsList == null || knownSpellsList.size() == 0) {
 			return false;
 		}
 
@@ -6243,46 +6131,13 @@ public class PCClass extends PObject {
 			return false;
 		}
 
-		boolean flag = true;
-
 		// iterate through the KNOWNSPELLS: tag
-		for (String spellStr : getKnownSpellsList()) {
-			flag = true;
-
-			final StringTokenizer spellTok = new StringTokenizer(spellStr, ",",
-					false);
-
-			// must satisfy all elements in a comma delimited list
-			while (spellTok.hasMoreTokens() && flag) {
-				final String bString = spellTok.nextToken();
-
-				// if the argument starts with LEVEL=, compare the level to the
-				// desired spellLevel
-				if (bString.startsWith("LEVEL=")
-						|| bString.startsWith("LEVEL.")) {
-					flag = Integer.parseInt(bString.substring(6)) == spellLevel;
-				}
-
-				// if it starts with TYPE=, compare it to the spells type list
-				else if (bString.startsWith("TYPE=")
-						|| bString.startsWith("TYPE.")) {
-					flag = aSpell.isType(bString.substring(5));
-				}
-
-				// otherwise it must be the spell's name
-				else {
-					flag = bString.equals(aSpellKey);
-				}
-			}
-
-			// if we found an entry in KNOWNSPELLS: that is satisfied, we can
-			// stop
-			if (flag) {
-				break;
+		for (SpellFilter filter : knownSpellsList) {
+			if (filter.matchesFilter(aSpellKey, spellLevel)) {
+				return true;
 			}
 		}
-
-		return flag;
+		return false;
 	}
 
 	/*
@@ -7105,7 +6960,7 @@ public class PCClass extends PObject {
 		}
 
 		if (otherClass.SR != null) {
-			SR = (ArrayList<LevelProperty<String>>) otherClass.SR.clone();
+			SR = new ArrayList<LevelProperty<String>>(otherClass.SR);
 		}
 
 		if (otherClass.vision != null) {
@@ -7117,8 +6972,7 @@ public class PCClass extends PObject {
 		}
 
 		if (otherClass.naturalWeapons != null) {
-			naturalWeapons = (ArrayList<LevelProperty<Equipment>>) otherClass.naturalWeapons
-					.clone();
+			naturalWeapons = new ArrayList<LevelProperty<Equipment>>(otherClass.naturalWeapons);
 		}
 	}
 

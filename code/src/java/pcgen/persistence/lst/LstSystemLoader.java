@@ -438,11 +438,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader, O
 			//Domain must load before CLASS - thpr 10/29/06
 			domainLoader.loadLstFiles(domainFileList);
 			
-			//Spell must load before CLASS - thpr 10/30/06
 			spellLoader.loadLstFiles(spellFileList);
+			deityLoader.loadLstFiles(deityFileList);
 			
 			classLoader.loadLstFiles(classFileList);
-			deityLoader.loadLstFiles(deityFileList);
 
 			// loaded before equipment to cover costs
 

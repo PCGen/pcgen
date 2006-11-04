@@ -31,7 +31,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -207,13 +206,11 @@ public class ChooserUtilities
 		{ // some classes, like "Domain" are level 0, so this index would
 			// be -1
 
-			String tempString = aClass.getCastStringForLevel(aLevel);
-			if (tempString == null || tempString.length() == 0)
+			j = aClass.getCastListForLevel(aLevel).size() - 1;
+			if (j == -1)
 			{
-				tempString = aClass.getKnownStringForLevel(aLevel);
+				j = aClass.getKnownListForLevel(aLevel).size() - 1;
 			}
-			final StringTokenizer bTok = new StringTokenizer(tempString, ",");
-			j = bTok.countTokens() - 1;
 		}
 		return j;
 	}
@@ -241,27 +238,16 @@ public class ChooserUtilities
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getKeyName());
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
 
-		String bString = "0";
-
 		if (aLevel >= 0)
 		{  // some classes, like "Domain" are level 0,
 			// so this index would be -1
-			bString = aClass.getCastStringForLevel(aLevel);
-			if (bString == null || bString.length() == 0)
+			maxLevel = aClass.getCastListForLevel(aLevel).size() - 1;
+			if (maxLevel == -1)
 			{
-				bString = aClass.getKnownStringForLevel(aLevel);
+				maxLevel = aClass.getKnownListForLevel(aLevel).size() - 1;
 			}
 		}
 
-		if ("0".equals(bString))
-		{
-			maxLevel = -1;
-		}
-		else
-		{
-			final StringTokenizer bTok = new StringTokenizer(bString, ",");
-			maxLevel = bTok.countTokens() - 1;
-		}
 		return maxLevel;
 	}
 

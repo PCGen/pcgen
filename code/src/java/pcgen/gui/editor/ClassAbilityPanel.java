@@ -28,10 +28,8 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
-import pcgen.util.CollectionUtilities;
 import pcgen.util.MapCollection;
 import pcgen.util.enumeration.AttackType;
-import plugin.lsttokens.pcclass.SpelllistToken;
 
 import javax.swing.*;
 import java.awt.GridBagConstraints;
@@ -42,7 +40,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 /**
  * <code>ClassAbilityPanel</code>
@@ -105,8 +102,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			String[] deities = a.split("\\|");
-			obj.setDeityList( CoreUtility.arrayToList(deities) );
+			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+					.getTokenMap(PCClassLstToken.class).get("DEITY");
+			token.parse(obj, a, -9);
 		}
 
 		a = itemCreate.getText().trim();
@@ -138,11 +136,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		if (a.length() > 0)
 		{
 			obj.clearKnownSpellsList();
-			final StringTokenizer aTok = new StringTokenizer(a, "|", false);
-
-			while (aTok.hasMoreTokens()) {
-				obj.addKnownSpell(aTok.nextToken());
-			}
+			PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+					.getTokenMap(PCClassLstToken.class).get("KNOWNSPELLS");
+			token.parse(obj, a, -9);
 		}
 
 		obj.setMemorizeSpells(memorize.getSelectedObjects() != null);
@@ -157,7 +153,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		obj.setSpellBookUsed(spellBook.getSelectedObjects() != null);
 		
-		SpelllistToken.parseSpellList(obj, spellList.getText().trim());
+		PCClassLstToken token = (PCClassLstToken) TokenStore.inst()
+				.getTokenMap(PCClassLstToken.class).get("SPELLLIST");
+		token.parse(obj, spellList.getText().trim(), -9);
 
 		//a = spellStat.getText().trim();
 		//if (a.length() > 0)
@@ -204,7 +202,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		Map<AttackType, String> attackCycleMap = obj.getAttackCycle();
 		if (attackCycleMap != null) {
 			MapCollection mc = new MapCollection(attackCycleMap);
-			attackCycle.setText(CollectionUtilities.joinStringRepresentations(mc, Constants.PIPE));
+			attackCycle.setText(CoreUtility.join(mc, Constants.PIPE));
 		}
 		hitDice.setText(String.valueOf(obj.getBaseHitDie()));
 		deity.setText(CoreUtility.join(obj.getDeityList(), '|'));
@@ -216,18 +214,9 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		}
 		castAs.setText(obj.getCastAs());
 
-		StringBuffer known = new StringBuffer();
-		for (String str : obj.getKnownSpellsList())
-		{
-			if (known.length() > 0)
-			{
-				known.append('|');
-			}
-			known.append(str);
-		}
-		knownSpells.setText(known.toString());
+		knownSpells.setText(CoreUtility.join(obj.getKnownSpellsList(), "|"));
 		memorize.setSelected(obj.getMemorizeSpells());
-		prohibited.setText(CollectionUtilities.joinStringRepresentations(obj.getProhibitedSchools(), ","));
+		prohibited.setText(CoreUtility.join(obj.getProhibitedSchools(), ","));
 
 //		StringBuffer specKnown = new StringBuffer();
 //		for (LevelProperty<String> lp : obj.getSpecialtyKnownList())

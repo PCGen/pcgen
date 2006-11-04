@@ -18,13 +18,9 @@ public class SpelllistToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		return parseSpellList(pcclass, value);
-	}
-
-	public static boolean parseSpellList(PCClass pcclass, String value) {
 		final StringTokenizer aTok = new StringTokenizer(value, "|");
 		int spellCount = 0;
-
+		
 		if (value.indexOf('|') >= 0) {
 			try {
 				spellCount = Integer.parseInt(aTok.nextToken());
@@ -34,13 +30,13 @@ public class SpelllistToken implements PCClassLstToken {
 				return false;
 			}
 		}
-
+		
 		final List<String> spellChoices = new ArrayList<String>();
-
+		
 		while (aTok.hasMoreTokens()) {
 			spellChoices.add(aTok.nextToken());
 		}
-
+		
 		//Protection against a "" value parameter
 		if (spellChoices.size() > 0) {
 			pcclass.setClassSpellChoices(spellCount, spellChoices);

@@ -27,9 +27,9 @@ package plugin.exporttokens;
 
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.CollectionUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +92,6 @@ public class LanguagesToken extends Token
 		List<Language> subList = languageList.subList(Math.max(startIndex, 0),
 				Math.min(languageIndex, languageList.size()));
 		
-		return CollectionUtilities.joinStringRepresentations(subList, ", ");
+		return CoreUtility.join(subList, ", ");
 	}
 }

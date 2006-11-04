@@ -29,9 +29,9 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.CollectionUtilities;
 
 import java.util.List;
 import java.util.StringTokenizer;
@@ -154,7 +154,7 @@ public class TemplateToken extends Token
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
 		List<String> fList = template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc, false);
-		return CollectionUtilities.joinStringRepresentations(fList, ", ");
+		return CoreUtility.join(fList, ", ");
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class TemplateToken extends Token
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
 		List<SpecialAbility> saList = template.getSpecialAbilityList(pc.getTotalLevels(), pc.totalHitDice());
-		return CollectionUtilities.joinStringRepresentations(saList, ", ");
+		return CoreUtility.join(saList, ", ");
 	}
 
 	/**

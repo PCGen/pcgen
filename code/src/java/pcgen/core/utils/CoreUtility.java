@@ -49,10 +49,15 @@ public final class CoreUtility
 
 	/**
 	 * Converts an array of Objects into a List of Objects
-	 * @param <T> 
-	 * @param array the array to be converted. If this array is null
-	 * then this method will return an empty list;
+	 * 
+	 * @param <T>
+	 * @param array
+	 *            the array to be converted. If this array is null then this
+	 *            method will return an empty list;
 	 * @return The list containing the objects passed in.
+	 * 
+	 * CONSIDER This should really be eliminated, as the only value over
+	 * Arrays.asList is the null check... - thpr 11/3/06
 	 */
 	public static <T> List<T> arrayToList(final T[] array)
 	{
@@ -390,20 +395,22 @@ public final class CoreUtility
 	 */
 	public static StringBuffer joinToStringBuffer(final Collection<?> strings, final String separator)
 	{
+		if (strings == null) {
+			return new StringBuffer();
+		}
+		
 		final StringBuffer result = new StringBuffer(strings.size() * 10);
 
-		final Iterator<?> iter = strings.iterator();
-
-		while (iter.hasNext())
-		{
-			result.append(iter.next().toString());
-
-			if (iter.hasNext())
-			{
+		boolean needjoin = false;
+		
+		for (Object obj : strings) {
+			if (needjoin) {
 				result.append(separator);
 			}
+			needjoin = true;
+			result.append(obj.toString());
 		}
-
+		
 		return result;
 	}
 

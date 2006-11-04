@@ -27,9 +27,9 @@ package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.CollectionUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +95,6 @@ public class VisionToken extends Token
 		List<Vision> subList = visionList.subList(Math.max(startIndex, 0),
 				Math.min(visionIndex, visionList.size()));
 		
-		return CollectionUtilities.joinStringRepresentations(subList, ", ");
+		return CoreUtility.join(subList, ", ");
 	}
 }

@@ -23,6 +23,7 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.Arrays;
 import java.util.List;
 
 import junit.framework.Test;
@@ -102,8 +103,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		arcaneClass.addKnown(1, "4,2,1");
-		arcaneClass.setCastMap(1, "3,1,0");
+		arcaneClass.setKnown(1, Arrays.asList("4,2,1".split(",")));
+		arcaneClass.setCast(1, Arrays.asList("3,1,0".split(",")));
 		Globals.getClassList().add(arcaneClass);
 		CharacterSpell aCharacterSpell = new CharacterSpell(arcaneClass,
 			testSpell);
@@ -118,7 +119,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		divineClass.setCastMap(1, "3,1,0");
+		divineClass.setCast(1, Arrays.asList("3,1,0".split(",")));
 		Globals.getClassList().add(divineClass);
 		aCharacterSpell = new CharacterSpell(divineClass, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);

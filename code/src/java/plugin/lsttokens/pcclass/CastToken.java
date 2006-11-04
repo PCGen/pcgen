@@ -1,5 +1,9 @@
 package plugin.lsttokens.pcclass;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.PCClass;
 import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.util.Logging;
@@ -15,7 +19,14 @@ public class CastToken implements PCClassLstToken {
 
 	public boolean parse(PCClass pcclass, String value, int level) {
 		if(level > 0) {
-			pcclass.setCastMap(level, value);
+			StringTokenizer st = new StringTokenizer(value, ",");
+			
+			List<String> castList = new ArrayList<String>(st.countTokens());
+			while (st.hasMoreTokens()) {
+				castList.add(st.nextToken());
+			}
+			
+			pcclass.setCast(level, castList);
 			return true;
 		}
 		Logging.errorPrint("CAST tag without level not allowed!");

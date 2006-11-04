@@ -1,8 +1,8 @@
 package gmgen.plugin;
 
 import pcgen.core.*;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
-import pcgen.util.CollectionUtilities;
 import pcgen.util.enumeration.AttackType;
 
 import java.io.BufferedWriter;
@@ -288,7 +288,7 @@ public class PlayerCharacterOutput
 
 	public String getSpecialAbilities()
 	{
-		return CollectionUtilities.joinStringRepresentations(pc.getSpecialAbilityTimesList(), ", ");
+		return CoreUtility.join(pc.getSpecialAbilityTimesList(), ", ");
 	}
 
 	public String getSpeed()

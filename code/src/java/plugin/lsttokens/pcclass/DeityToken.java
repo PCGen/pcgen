@@ -1,7 +1,9 @@
 package plugin.lsttokens.pcclass;
 
+import java.util.StringTokenizer;
+
+import pcgen.core.Constants;
 import pcgen.core.PCClass;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.PCClassLstToken;
 
 /**
@@ -14,8 +16,12 @@ public class DeityToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		String[] deities = value.split("\\|");
-		pcclass.setDeityList( CoreUtility.arrayToList(deities) );
+		pcclass.clearDeityList();
+		
+		StringTokenizer st = new StringTokenizer(Constants.PIPE);
+		while (st.hasMoreTokens()) {
+			pcclass.addDeity(st.nextToken());
+		}
 		return true;
 	}
 }

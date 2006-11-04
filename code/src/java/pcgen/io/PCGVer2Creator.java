@@ -35,11 +35,11 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
+import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 
 import java.util.*;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
-import pcgen.util.CollectionUtilities;
 
 /**
  * <code>PCGVer2Creator</code><br>
@@ -771,6 +771,14 @@ final class PCGVer2Creator implements IOConstants
 			// determine if this class can cast spells
 			boolean isCaster = false;
 
+			/*
+			 * TODO WARNING: Technically, this is WRONG. A 4th level Ranger with
+			 * good stats will show up here as as NOT being a caster, but is
+			 * lucky enough to be considered Psionic! zeroCastSpells() is not
+			 * accurate because it is based on the base list, not on the list
+			 * with adjustments for stats. The method should be destroyed, and
+			 * spell casting made more explicit.
+			 */
 			if (!pcClass.zeroCastSpells())
 			{
 				isCaster = true;
@@ -785,7 +793,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(pcClass.getSpellBaseStat()));
 				buffer.append('|');
 				buffer.append(TAG_CANCASTPERDAY).append(':');
-				buffer.append(pcClass.getCastStringForLevel(classLevel));
+				buffer.append(pcClass.getCastListForLevel(classLevel));
 			}
 
 			List<String> prohibited = pcClass.getProhibitedSchools();
@@ -794,7 +802,7 @@ final class PCGVer2Creator implements IOConstants
 			{
 				buffer.append('|');
 				buffer.append(TAG_PROHIBITED).append(':');
-				buffer.append(EntityEncoder.encode(CollectionUtilities.joinStringRepresentations(prohibited, ",")));
+				buffer.append(EntityEncoder.encode(CoreUtility.join(prohibited, ",")));
 			}
 
 			buffer.append(LINE_SEP);

@@ -28,9 +28,9 @@ package plugin.exporttokens;
 import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.CollectionUtilities;
 
 import java.util.List;
 import java.util.StringTokenizer;
@@ -154,7 +154,7 @@ public class ClassToken extends Token
 		{
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			List<String> saList = pcClass.getClassSpecialAbilityList(pc);
-			return CollectionUtilities.joinStringRepresentations(saList, ", ");
+			return CoreUtility.join(saList, ", ");
 		}
 
 		return "";

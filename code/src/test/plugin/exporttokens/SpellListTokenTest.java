@@ -24,6 +24,7 @@
 package plugin.exporttokens;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -92,8 +93,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		arcaneClass.addKnown(1, "4,2,1");
-		arcaneClass.setCastMap(1, "3,1,0");
+		arcaneClass.setKnown(1, Arrays.asList("4,2,1".split(",")));
+		arcaneClass.setCast(1, Arrays.asList("3,1,0".split(",")));
 		Globals.getClassList().add(arcaneClass);
 
 		divineClass = new PCClass();
@@ -103,7 +104,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		divineClass.setCastMap(1, "4,2,1");
+		divineClass.setCast(1, Arrays.asList("4,2,1".split(",")));
 		divineClass.getSpellSupport().addSpellLevel("CLASS", "SPELLCASTER.Divine", "Cure Light Wounds", "1", new ArrayList<Prerequisite>());
 		Globals.getClassList().add(divineClass);
 	}

@@ -23,6 +23,8 @@
  */
 package pcgen.core;
 
+import java.util.Arrays;
+
 import pcgen.AbstractCharacterTestCase;
 
 /**
@@ -64,12 +66,12 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		arcaneClass.setSpellBaseStat("CHA");
 		arcaneClass.setSpellBookUsed(false);
 		arcaneClass.setMemorizeSpells(false);
-		arcaneClass.addKnown(1, "4,2");
-		arcaneClass.setCastMap(1, "3,1");
-		arcaneClass.addKnown(2, "4,3,1");
-		arcaneClass.setCastMap(2, "3,2,1");
-		arcaneClass.addKnown(3, "5,5,2,1");
-		arcaneClass.setCastMap(3, "5,5,3,1");
+		arcaneClass.setKnown(1, Arrays.asList("4,2".split(",")));
+		arcaneClass.setCast(1, Arrays.asList("3,1".split(",")));
+		arcaneClass.setKnown(2, Arrays.asList("4,3,1".split(",")));
+		arcaneClass.setCast(2, Arrays.asList("3,2,1".split(",")));
+		arcaneClass.setKnown(3, Arrays.asList("5,5,2,1".split(",")));
+		arcaneClass.setCast(3, Arrays.asList("5,5,3,1".split(",")));
 		Globals.getClassList().add(arcaneClass);
 
 		divineClass = new PCClass();
@@ -79,7 +81,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		divineClass.setSpellBaseStat("WIS");
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
-		divineClass.setCastMap(1, "3,1,0");
+		divineClass.setCast(1, Arrays.asList("3,1,0".split(",")));
 		Globals.getClassList().add(divineClass);
 		
 		psionicClass = new PCClass();
@@ -89,11 +91,11 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		psionicClass.setSpellBaseStat("CHA");
 		psionicClass.setSpellBookUsed(false);
 		psionicClass.setMemorizeSpells(false);
-		psionicClass.addKnown(1, "0,3");
-		psionicClass.addKnown(2, "0.5");
-		psionicClass.addKnown(3, "0,5,2");
-		psionicClass.addKnown(4, "0,5,4");
-		psionicClass.addKnown(5, "0,5,4,2");
+		psionicClass.setKnown(1, Arrays.asList("0,3".split(",")));
+		psionicClass.setKnown(2, Arrays.asList("0.5".split(",")));
+		psionicClass.setKnown(3, Arrays.asList("0,5,2".split(",")));
+		psionicClass.setKnown(4, Arrays.asList("0,5,4".split(",")));
+		psionicClass.setKnown(5, Arrays.asList("0,5,4,2".split(",")));
 		Globals.getClassList().add(psionicClass);
 
 		super.setUp();

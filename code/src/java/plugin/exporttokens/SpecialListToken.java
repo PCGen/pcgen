@@ -1,9 +1,9 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.CollectionUtilities;
 
 /**
  * @author karianna
@@ -35,7 +35,7 @@ public class SpecialListToken extends Token
 			delim = ", ";
 		}
 
-		return CollectionUtilities.joinStringRepresentations(pc.getSpecialAbilityTimesList(), delim);
+		return CoreUtility.join(pc.getSpecialAbilityTimesList(), delim);
 	}
 	
 }

@@ -62,6 +62,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
+import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.CharacterInfoTab;
@@ -78,7 +79,6 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.Utility;
-import pcgen.util.CollectionUtilities;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
 
@@ -751,7 +751,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				b.append(PropertyFactory
 					.getString("InfoSpells.prohibited.school")); //$NON-NLS-1$
 				b.append("<b>"); //$NON-NLS-1$
-				b.append(CollectionUtilities.joinStringRepresentations(aClass.getProhibitedSchools(), ","));
+				b.append(CoreUtility.join(aClass.getProhibitedSchools(), ","));
 				b.append("</b><br>"); //$NON-NLS-1$
 			}
 

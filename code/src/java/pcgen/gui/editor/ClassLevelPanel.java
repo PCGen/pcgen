@@ -25,6 +25,7 @@ package pcgen.gui.editor;
 import pcgen.core.*;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.levelability.LevelAbility;
+import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -202,24 +203,20 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 
 		for (int x = 1; x <= obj.getMaxLevel(); ++x)
 		{
-			String c = obj.getCastStringForLevel(x);
+			List<String> c = obj.getCastListForLevel(x);
 
-			if (!c.equals("0") && !c.equals(""))
+			if (!c.isEmpty())
 			{
-				LevelTag lt = new LevelTag(x, LevelTag.TAG_CAST, c);
+				LevelTag lt = new LevelTag(x, LevelTag.TAG_CAST, CoreUtility.join(c, ","));
 				levelTagList.add(lt);
 			}
 		}
 
-		Object[] oList = obj.getKnownList().toArray();
-
-		for (int x = 0; x < oList.length; ++x)
+		for (LevelProperty<List<String>> lp : obj.getKnownList())
 		{
-			String c = (String) oList[x];
-
-			if (!c.equals("0"))
+			if (!lp.getObject().isEmpty())
 			{
-				LevelTag lt = new LevelTag(x + 1, LevelTag.TAG_KNOWN, c);
+				LevelTag lt = new LevelTag(lp.getLevel(), LevelTag.TAG_KNOWN, CoreUtility.join(lp.getObject(), ","));
 				levelTagList.add(lt);
 			}
 		}

@@ -28,6 +28,7 @@
  */
 package pcgen.core;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -354,10 +355,10 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		megaCasterClass.setSpellBaseStat("CHA");
 		megaCasterClass.setSpellBookUsed(false);
 		megaCasterClass.setMemorizeSpells(false);
-		megaCasterClass.addKnown(1, "4,2,2,3,4,5");
-		megaCasterClass.setCastMap(1, "3,1,2,3,4,5");
-		megaCasterClass.addKnown(2, "4,2,2,3,4,5,6,7,8,9,10");
-		megaCasterClass.setCastMap(2, "3,1,2,3,4,5,6,7,8,9,10");
+		megaCasterClass.setKnown(1, Arrays.asList("4,2,2,3,4,5".split(",")));
+		megaCasterClass.setCast(1, Arrays.asList("3,1,2,3,4,5".split(",")));
+		megaCasterClass.setKnown(2, Arrays.asList("4,2,2,3,4,5,6,7,8,9,10".split(",")));
+		megaCasterClass.setCast(2, Arrays.asList("3,1,2,3,4,5,6,7,8,9,10".split(",")));
 		Globals.getClassList().add(megaCasterClass);
 
 		assertEquals("Highest spell level for class", 10, megaCasterClass.getHighestLevelSpell());

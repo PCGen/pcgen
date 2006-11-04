@@ -23,6 +23,8 @@
  */
 package pcgen.core.prereq;
 
+import java.util.Arrays;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -107,14 +109,14 @@ public class PreMultTest extends AbstractCharacterTestCase
 		pcClass.setAbbrev("My");
 		pcClass.setSpellBaseStat("CHA");
 		pcClass.setSpellType("ARCANE");
-		pcClass.setCastMap(1, "5,4");
+		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		pcClass2.setAbbrev("OC");
 		pcClass2.setSpellBaseStat("INT");
 		pcClass2.setSpellType("ARCANE");
-		pcClass2.setCastMap(1, "5,4");
+		pcClass2.setCast(1, Arrays.asList("5,4".split(",")));
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
