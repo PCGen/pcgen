@@ -6,10 +6,10 @@ SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com
 
 # Conversion Kits
 # Equipment Name								Output Name									Type								Cost		Weight	Source Page		Special Property
-Conversion Kit (H&K HK4 .380ACP)					OUTPUTNAME:Conversion Kit: H&K HK4 .380ACP			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
-Conversion Kit (H&K HK4 .32ACP)					OUTPUTNAME:Conversion Kit: H&K HK4 .32ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
-Conversion Kit (H&K HK4 .25ACP)					OUTPUTNAME:Conversion Kit: H&K HK4 .25ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
-Conversion Kit (H&K HK4 .22)						OUTPUTNAME:Conversion Kit: H&K HK4 .22				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .380ACP)						OUTPUTNAME:Conversion Kit: HK4 .380ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .32ACP)						OUTPUTNAME:Conversion Kit: HK4 .32ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .25ACP)						OUTPUTNAME:Conversion Kit: HK4 .25ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .22)						OUTPUTNAME:Conversion Kit: HK4 .22					TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
 Conversion Kit (Jericho 941 9mm)					OUTPUTNAME:Conversion Kit: Jericho 941 9mm			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
 Conversion Kit (Jericho 941 .40SW)					OUTPUTNAME:Conversion Kit: Jericho 941 .40SW			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
 Conversion Kit (Jericho 941 .45ACP)					OUTPUTNAME:Conversion Kit: Jericho 941 .45ACP			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
