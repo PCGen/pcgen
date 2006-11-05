@@ -2564,7 +2564,73 @@ public final class Globals
 	 */
 	public static int minLevelForSpellLevel(final PCClass castingClass, final int spellLevel, final boolean allowBonus)
 	{
-		return castingClass.minLevelForSpellLevel(spellLevel, allowBonus);
+		int minLevel = Constants.INVALID_LEVEL;
+
+		for (LevelProperty<List<String>> lp : castingClass.getCastList()) {
+			int maxCastable = -1;
+
+			if (allowBonus) {
+				maxCastable = lp.getObject().size() - 1;
+			} else {
+				int j = 0;
+				for (String st : lp.getObject()) {
+					try {
+						if (Integer.parseInt(st) != 0) {
+							maxCastable = j;
+						}
+					} catch (NumberFormatException ignore) {
+						// ignore
+					}
+					j++;
+				}
+			}
+
+			if (maxCastable >= spellLevel) {
+				minLevel = lp.getLevel();
+
+				break;
+			}
+		}
+
+		if (minLevel < Constants.INVALID_LEVEL) {
+			return minLevel;
+		}
+
+		for (LevelProperty<List<String>> lp : castingClass.getKnownList()) {
+			final List<String> knownSpells = lp.getObject();
+
+			if (knownSpells.size() == 0) {
+				continue;
+			}
+
+			int maxCastable = -1;
+
+			if (allowBonus) {
+				maxCastable = knownSpells.size() - 1;
+			} else {
+				int j = 0;
+				for (String st : knownSpells) {
+					try {
+						if (Integer.parseInt(st) != 0) {
+							maxCastable = j;
+						}
+					} catch (NumberFormatException e) {
+						// TODO: Should this really be ignored?
+						// CONSIDER This could be a formula, so what does THAT mean - thpr 11/3/06
+						Logging.errorPrint("", e);
+					}
+					j++;
+				}
+			}
+
+			if (maxCastable >= spellLevel) {
+				minLevel = lp.getLevel();
+
+				break;
+			}
+		}
+
+		return minLevel;
 	}
 
 	/**

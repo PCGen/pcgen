@@ -697,8 +697,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				b.append("</center></font></td>"); //$NON-NLS-1$
 			}
 			// Making sure KnownList can be handled safely and produces the correct behaviour
-			if ((aClass.getKnownList() != null && (aClass.getKnownList().size() > 0))
-				|| aClass.hasKnownSpells(pc))
+			if (aClass.hasKnownList() || aClass.hasKnownSpells(pc))
 			{
 				b.append("<tr><td><font size=-1><b>Known</b></font></td>"); //$NON-NLS-1$
 
@@ -739,11 +738,29 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 			b.append("<b>"); //$NON-NLS-1$
 			b.append(aClass.getSpellBaseStat()).append("</b><br>"); //$NON-NLS-1$
 
-			if (aClass.getSpecialtyListString(pc).length() != 0)
+			if (aClass.hasSpecialtyList() || pc.hasCharacterDomainList() )
 			{
 				b.append(PropertyFactory.getString("InfoSpells.school")); //$NON-NLS-1$
 				b.append("<b>"); //$NON-NLS-1$
-				b.append(aClass.getSpecialtyListString(pc)).append("</b><br>"); //$NON-NLS-1$
+				boolean needComma = false;
+				for (final String spec : aClass.getSpecialtyList()) {
+					if (needComma) {
+						b.append(',');
+					}
+					needComma = true;
+					b.append(spec);
+				}
+				
+				for (CharacterDomain cd : pc.getCharacterDomainList()) {
+					if (cd.getDomain() != null) {
+						if (needComma) {
+							b.append(',');
+						}
+						needComma = true;
+						b.append(cd.getDomain().getKeyName());
+					}
+				}
+				b.append("</b><br>"); //$NON-NLS-1$
 			}
 
 			if (aClass.getProhibitedSchools() != null)

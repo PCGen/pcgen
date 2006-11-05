@@ -45,7 +45,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
@@ -79,7 +78,6 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.LevelProperty;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -461,31 +459,34 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Loop through the available prestige domains
 		for (PCClass aClass : pc.getClassList())
 		{
-			for (Domain prestigeDomain : aClass.getAddDomains(aClass.getLevel()))
+			for (int lvl = 0; lvl <= aClass.getLevel(); lvl++)
 			{
-				//CONSIDER Should this be gated by null? - thpr 10/26/06
-				if (prestigeDomain != null)
+				for (Domain prestigeDomain : aClass.getAddDomains(aClass.getLevel()))
 				{
-					prestigeDomain = prestigeDomain.clone();
-				}
+					// CONSIDER Should this be gated by null? - thpr 10/26/06
+					if (prestigeDomain != null)
+					{
+						prestigeDomain = prestigeDomain.clone();
+					}
 
-				if (!availDomainList.contains(prestigeDomain))
-				{
-					availDomainList.add(prestigeDomain);
+					if (!availDomainList.contains(prestigeDomain))
+					{
+						availDomainList.add(prestigeDomain);
+					}
 				}
-			}
-
-			for (Domain prestigeDomain : aClass.getDomainList(aClass.getLevel()))
-			{
-				//CONSIDER Should this be gated by null? - thpr 10/23/06
-				if (prestigeDomain != null)
+				for (Domain prestigeDomain : aClass.getDomainList(lvl))
 				{
-					prestigeDomain = prestigeDomain.clone();
-				}
+					// CONSIDER Should this be gated by null? - thpr
+					// 10/23/06
+					if (prestigeDomain != null)
+					{
+						prestigeDomain = prestigeDomain.clone();
+					}
 
-				if (!availDomainList.contains(prestigeDomain))
-				{
-					availDomainList.add(prestigeDomain);
+					if (!availDomainList.contains(prestigeDomain))
+					{
+						availDomainList.add(prestigeDomain);
+					}
 				}
 			}
 		}
@@ -1078,10 +1079,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		addUnfilteredDomains(availDomainList, pc.getDeity());
 
 		// Loop through the character's selected domains
-		for (int i = 0; i < pc.getCharacterDomainList().size(); i++)
+		for (CharacterDomain aCD : pc.getCharacterDomainList())
 		{
-			final CharacterDomain aCD = pc.getCharacterDomainList().get(i);
-
 			if ((aCD != null) && (aCD.getDomain() != null))
 			{
 				// Get the selected domain

@@ -4747,12 +4747,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return null;
 	}
 
-	/**
-	 * @return characterDomainList
-	 */
 	public List<CharacterDomain> getCharacterDomainList()
 	{
 		return Collections.unmodifiableList(characterDomainList);
+	}
+	
+	public boolean hasCharacterDomainList() {
+		return characterDomainList != null && !characterDomainList.isEmpty();
 	}
 
 	public Domain getCharacterDomainKeyed(final String domainKey)
@@ -8188,7 +8189,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// If they don't memorise spells and don't have
 				// a CastList then they use something funky
 				// like Power Points (psionic)
-				if (!aClass.getMemorizeSpells() && aClass.getKnownList().isEmpty() && aClass.zeroCastSpells())
+				if (!aClass.getMemorizeSpells() && !aClass.hasKnownList() && aClass.zeroCastSpells())
 				{
 					return true;
 				}
@@ -16417,10 +16418,14 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (final PCClass aClass : getClassList())
 		{
-			for (final Iterator<String> e1 = aClass.getFeatAutos().iterator(); e1.hasNext();)
+			List<String> classFeatList = new ArrayList<String>();
+			for (int lvl = 0; lvl <= aClass.getLevel(); lvl++) {
+				for (String st : aClass.getFeatAutos(lvl)) {
+					classFeatList.add(st);
+				}
+			}
+			for (String autoFeat : classFeatList)
 			{
-				String autoFeat = e1.next();
-
 				final int idx = autoFeat.indexOf('[');
 
 				if (idx >= 0)
@@ -16495,6 +16500,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 
+		/*
+		 * BUG I think -> if it's empty, we step through it?!? - thpr 11/3/06
+		 */
 		if (getCharacterDomainList().isEmpty())
 		{
 			for (final CharacterDomain aCD : getCharacterDomainList())

@@ -457,10 +457,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 	 **/
 	private void addDomainSpellsForClass(PCClass aClass, PObjectNode theParent, int iLev)
 	{
-		int iMax = pc.getCharacterDomainList().size();
-
-		if (iMax == 0)
-		{
+		if (!pc.hasCharacterDomainList()) {
 			return;
 		}
 
@@ -469,9 +466,8 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 		boolean dom = false;
 
-		for (int iDom = 0; iDom < pc.getCharacterDomainList().size(); ++iDom)
+		for (CharacterDomain aCD : pc.getCharacterDomainList())
 		{
-			CharacterDomain aCD = pc.getCharacterDomainList().get(iDom);
 			Domain aDom = aCD.getDomain();
 
 			// if any domains have this class as a source
@@ -950,7 +946,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 		{
 			if (!aClass.getSpellType().equals(Constants.s_NONE))
 			{
-				if (aClass.zeroCastSpells() && aClass.getKnownList().isEmpty())
+				if (aClass.zeroCastSpells() && !aClass.hasKnownList())
 				{
 					continue;
 				}

@@ -524,7 +524,7 @@ public class NPCGenerator
 					{
 						// This is a spellcasting class.  We may have to select
 						// spells of some sort (known or prepared).
-						if ( aClass.getKnownList().size() > 0 || aClass.hasKnownSpells(aPC) )
+						if ( aClass.hasKnownList() || aClass.hasKnownSpells(aPC) )
 						{
 							Logging.debugPrint("NPCGenerator: known spells to select"); //$NON-NLS-1$
 							int highestSpellLevel = aClass.getHighestLevelSpell(aPC);

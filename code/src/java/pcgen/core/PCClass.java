@@ -76,7 +76,7 @@ public class PCClass extends PObject {
 	 * be Involatile.
 	 */
 	/*
-	 * ALLCLASSLEVELS The spellBaseStat needs to be stored in EACH individual
+	 * FINALALLCLASSLEVELS The spellBaseStat needs to be stored in EACH individual
 	 * PCClassLevel, since each individual PCClassLevel is granting spells, and
 	 * will be "looked to" to determine the base 'properties' of those spells
 	 */
@@ -92,7 +92,7 @@ public class PCClass extends PObject {
 	 * be Involatile.
 	 */
 	/*
-	 * ALLCLASSLEVELS The challenge here is that the bonus spells must be
+	 * FINALALLCLASSLEVELS The challenge here is that the bonus spells must be
 	 * calculated by the PCClassLevel based on the current Stat (which may
 	 * change over the life of a PC and from one PC to another). However, in a
 	 * literal check, this variable then only needs to be present in the first
@@ -112,18 +112,18 @@ public class PCClass extends PObject {
 	private int numSpellsFromSpecialty = 0;
 
 	/*
-	 * ALLCLASSLEVELS Since this applies to a ClassLevel line
+	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
 	 */
 	private ArrayList<LevelProperty<Domain>> domainList = null;
 
 	/*
-	 * TYPESAFETY This is throwing around Feat names as Strings. :(
+	 * FUTURETYPESAFETY This is throwing around Feat names as Strings. :(
 	 * 
 	 * This requires a Chooser of some type to be able to be present in PCClass, as
 	 * this may be a CHOOSE: String rather than an individual Feat
 	 */
 	/*
-	 * ALLCLASSLEVELS The automatic Feats appropriate to any given level (they
+	 * FINALALLCLASSLEVELS The automatic Feats appropriate to any given level (they
 	 * should be stored in a series of LevelProperty objects) need to be placed
 	 * into each individual PCClassLevel when it is constructed.
 	 */
@@ -140,7 +140,7 @@ public class PCClass extends PObject {
 	 * the magical string here (and somehow do that in a typesafe way).
 	 */
 	/*
-	 * ALLCLASSLEVELS Since the Feats are being granted by level, this needs to
+	 * FINALALLCLASSLEVELS Since the Feats are being granted by level, this needs to
 	 * account for that and actually store these by level and put them into the
 	 * appropriate PCClassLevel.
 	 */
@@ -167,20 +167,20 @@ public class PCClass extends PObject {
 	private ArrayList<SpellFilter> knownSpellsList = null;
 
 	/*
-	 * TYPESAFETY This is an interesting case of Type Safety, that may not be
+	 * FUTURETYPESAFETY This is an interesting case of Type Safety, that may not be
 	 * possible, as this is a big magical in what it could be - School,
 	 * Subschool, and other things. Need lots of investigation as to what the
 	 * appropriate Type for this is or whether it's stuck as a String.
 	 */
 	/*
-	 * ALLCLASSLEVELS This is the list of specialties that were taken as part of
+	 * FINALALLCLASSLEVELS This is the list of specialties that were taken as part of
 	 * leveling up at a certain point. Therefore this gets moved to PCClassLevel =
 	 * byproduct of addLevel
 	 */
 	private ArrayList<String> specialtyList = null;
 
 	/*
-	 * ALLCLASSLEVELS The specialtyKnownList [based on their level and/or
+	 * FINALALLCLASSLEVELS The specialtyKnownList [based on their level and/or
 	 * LevelProperty (if it gets used)] (not the raw Strings) need to be stored
 	 * in EACH individual PCClassLevel.
 	 */
@@ -204,19 +204,19 @@ public class PCClass extends PObject {
 	private ArrayList<LevelProperty<String>> templates = null;
 
 	/*
-	 * ALLCLASSLEVELS The SR List is level dependent - heck, it's in a
+	 * FINALALLCLASSLEVELS The SR List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
 	private ArrayList<LevelProperty<String>> SR = null;
 
 	/*
-	 * ALLCLASSLEVELS Since this seems to allow for class dependent additions of
+	 * FINALALLCLASSLEVELS Since this seems to allow for class dependent additions of
 	 * Domains, this needs to occur in each class level as appropriate.
 	 */
 	private ArrayList<LevelProperty<Domain>> addDomains = null;
 
 	/*
-	 * ALLCLASSLEVELS This is pretty obvious, as these are already in a
+	 * FINALALLCLASSLEVELS This is pretty obvious, as these are already in a
 	 * LevelProperty... these go into the PCClassLevel
 	 */
 	private ArrayList<LevelProperty<Equipment>> naturalWeapons = null;
@@ -310,20 +310,24 @@ public class PCClass extends PObject {
 	private int skillPool = 0;
 
 	/*
-	 * TYPESAFETY Dependent upon classSkillChoices being type safe
+	 * FUTURETYPESAFETY Dependent upon classSkillChoices being type safe, which
+	 * in turn is dependent on the Chooser system being type safe :/
 	 */
 	/*
-	 * ALLCLASSLEVELS classSkillList is part of PCClassLevel (they are the
+	 * FINALPCCLASSLEVELONLY
+	 * FINALALLCLASSLEVELS classSkillList is part of PCClassLevel (they are the
 	 * selections the character takes at a given level) - triggered by
 	 * addLevel
 	 */
 	private List<String> classSkillList = null;
 
 	/*
-	 * TYPESAFETY Dependent upon classSpellChoices being type safe
+	 * FUTURETYPESAFETY Dependent upon classSpellChoices being type safe, which
+	 * in turn is dependent on the Chooser system being type safe :/
 	 */
 	/*
-	 * ALLCLASSLEVELS classSpellList is part of PCClassLevel (they are the
+	 * FINALPCCLASSLEVELONLY
+	 * FINALALLCLASSLEVELS classSpellList is part of PCClassLevel (they are the
 	 * selections the character takes at a given level) - triggered by
 	 * addLevel
 	 */
@@ -345,7 +349,7 @@ public class PCClass extends PObject {
 											// really working properly
 
 	/*
-	 * ALLCLASSLEVELS The Vision List is level dependent - heck, it's in a
+	 * FINALALLCLASSLEVELS The Vision List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
 	private List<LevelProperty<Vision>> visionList = null;
@@ -393,7 +397,7 @@ public class PCClass extends PObject {
 	private DefaultTriState XPPenalty = DefaultTriState.DEFAULT;
 
 	/*
-	 * ALLCLASSLEVELS The abbrev simply needs to be directly loaded into each
+	 * FINALALLCLASSLEVELS The abbrev simply needs to be directly loaded into each
 	 * individual PCClassLevel. No modification or level dependency on the way
 	 * there.
 	 */
@@ -406,19 +410,29 @@ public class PCClass extends PObject {
 	private String castAs = Constants.EMPTY_STRING;
 
 	/*
-	 * ALLCLASSLEVELS The selected delegate skill lists (not the raw
-	 * classSkillChoices) need to be stored in EACH individual PCClassLevel.
-	 * This is the case because each individual PCClassLevel will be capable of
-	 * granting skills, and this is the delegate to determine what is
-	 * appropriate (skill-wise) for any given PCClassLevel.
+	 * FINALPCCLASSONLY The selected delegate skill lists [see classSkillList]
+	 * (not the raw classSkillChoices) need to be stored in EACH individual
+	 * PCClassLevel. This is the case because each individual PCClassLevel will
+	 * be capable of granting skills, and this is the delegate to determine what
+	 * is appropriate (skill-wise) for any given PCClassLevel.
 	 */
 	/*
-	 * TYPESAFETY This should be better than a String...
+	 * FUTURETYPESAFETY This should be better than a String... the problem here
+	 * is that this is dependent upon the Choice system being type safe. While
+	 * it doesn't LOOK type-hostile, it is using a LOT of unchecked Objects,
+	 * which makes me sensitive to the fact that it may NOT be entirely type
+	 * safe. Better to rebuild that at some point to be Java 1.5 friendly and
+	 * then have this as a later dependency.
 	 */
 	private ChoiceList<String> classSkillChoices = null;
 
 	/*
-	 * TYPESAFETY This is throwing around Spell names as Strings. :(
+	 * FUTURETYPESAFETY This should be better than a String... the problem here
+	 * is that this is dependent upon the Choice system being type safe. While
+	 * it doesn't LOOK type-hostile, it is using a LOT of unchecked Objects,
+	 * which makes me sensitive to the fact that it may NOT be entirely type
+	 * safe. Better to rebuild that at some point to be Java 1.5 friendly and
+	 * then have this as a later dependency.
 	 */
 	/*
 	 * REFACTOR This is actually a moderate challenge in refactoring
@@ -434,19 +448,22 @@ public class PCClass extends PObject {
 	 * still use the same class, or is the user stuck with the original choice.
 	 */
 	/*
-	 * ALLCLASSLEVELS The selected delegate spell lists (not the raw
-	 * classSpellString) need to be stored in EACH individual PCClassLevel. This
-	 * is the case because each individual PCClassLevel will be capable of
-	 * holding individual spells known and spells cast (per day) and this is the
-	 * delegate to determine what is appropriate for any given PCClassLevel.
+	 * FINALPCCLASSONLY The selected delegate spell lists [see classSpellList]
+	 * (not the raw classSpellString) need to be stored in EACH individual
+	 * PCClassLevel. This is the case because each individual PCClassLevel will
+	 * be capable of holding individual spells known and spells cast (per day)
+	 * and this is the delegate to determine what is appropriate for any given
+	 * PCClassLevel.
 	 */
 	private ChoiceList<String> classSpellChoices = null;
 
 	/*
-	 * TYPESAFETY The Deity List should be something other than Strings
+	 * FUTURETYPESAFETY The Deity List should be something other than Strings
+	 * 
+	 * Question: How to do this with the 'Magical' ANY Deity?
 	 */
 	/*
-	 * ALLCLASSLEVELS Might as well place this into all PCCLassLevels, since it
+	 * FINALALLCLASSLEVELS Might as well place this into all PCCLassLevels, since it
 	 * does seem to apply to all of them individually
 	 */
 	private List<String> deityList = new ArrayList<String>(2);
@@ -524,7 +541,7 @@ public class PCClass extends PObject {
 	private String preRaceType = null;
 
 	/*
-	 * ALLCLASSLEVELS Because this indicates prohibited Spell Schools and Spells
+	 * FINALALLCLASSLEVELS Because this indicates prohibited Spell Schools and Spells
 	 * Known and Cast are granted by each PCClassLevel, this must be passed into
 	 * each and every PCClassLevel (though it can be given in its pure form).
 	 */
@@ -535,11 +552,14 @@ public class PCClass extends PObject {
 	private List<String> prohibitedSchools = null;
 
 	/*
-	 * TYPESAFETY This should NOT be a String, as Spell Types are a specific set
-	 * of items...
+	 * FUTURETYPESAFETY This should NOT be a String, as Spell Types are a
+	 * specific set of items... This, however is NON Trivial, since Spell Types
+	 * are used WIDELY through the code base. It will be a nice thing to make
+	 * type safe, but it is best done by itself in a checkin specifically
+	 * focused on making Spell Types type safe.
 	 */
 	/*
-	 * ALLCLASSLEVELS Because this indicates a Spell Type of a Class and
+	 * FINALALLCLASSLEVELS Because this indicates a Spell Type of a Class and
 	 * PCClassLevels are capable of issuing Spells Known and Cast per day, this
 	 * must be passed into each and every PCClassLevel (though it can be given
 	 * in its pure form).
@@ -549,6 +569,9 @@ public class PCClass extends PObject {
 	/*
 	 * PCCLASSLEVELONLY Since this is not part of a tag and is related to how
 	 * spells are related to a PCClassLevel
+	 * 
+	 * Actually, I may want to DELETEVARIABLE - this is really a cache, and 
+	 * need to consider how valuable it is to have a cache vs. not have it.
 	 */
 	private String stableSpellKey = null;
 
@@ -560,9 +583,7 @@ public class PCClass extends PObject {
 	private String subClassKey = Constants.s_NONE;
 
 	/*
-	 * PCCLASSONLY This is reference information from a Tag, and is used to
-	 * allow a choice of sublevel that is made and placed into the PCClassLevel
-	 * in the subClassKey.
+	 * DELETEVARIABLE from ancient code - can delete
 	 */
 	private String subClassString = Constants.s_NONE;
 
@@ -574,9 +595,7 @@ public class PCClass extends PObject {
 	private Map<Integer, String> substitutionClassKey = null;
 
 	/*
-	 * PCCLASSONLY This is reference information from a Tag, and is used to
-	 * allow a choice of substituion level that is made and placed into the
-	 * PCClassLevel in the substitutionClassKey.
+	 * DELETEVARIABLE Unused variable
 	 */
 	private String substitutionClassString = Constants.s_NONE;
 
@@ -736,15 +755,6 @@ public class PCClass extends PObject {
 	private int maxKnownLevel = -1; // max level KNOWN: tag is found
 
 	/*
-	 * DELETEVARIABLE This is a cache, and a weird one at that, given that it
-	 * only ever stores a key of "-1". This processing should probably be done
-	 * by a Utility Class which parses through the PCClassLevels of a given
-	 * PlayerCharacter... it can reasonably be cached there in the
-	 * PlayerCharacter, but no longer in the PCClass or PCClassLevel.
-	 */
-	private HashMap<Integer, Integer> highestSpellLevelMap = null;
-
-	/*
 	 * FORMULAREFACTOR This is currently processed elsewhere - should be
 	 * processed as a Formula, not a String...
 	 */
@@ -839,7 +849,7 @@ public class PCClass extends PObject {
 	 *            The abbreviation to use.
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClassLevel since
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClassLevel since
 	 * it is a Tag
 	 */
 	public final void setAbbrev(final String argAbbrev) {
@@ -852,7 +862,7 @@ public class PCClass extends PObject {
 	 * @return The abbreviation string.
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getAbbrev() {
@@ -902,12 +912,13 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * Returns the list of domains that this class grants access to.
+	 * Returns the list of domains that this class grants access to for ONLY the
+	 * specifically given level
 	 * 
-	 * @return List of Domain choices for this class.
+	 * @return List of Domain choices for the given level of this class.
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final List<Domain> getAddDomains(int domainLevel) {
@@ -918,7 +929,7 @@ public class PCClass extends PObject {
 		List<Domain> returnList = new ArrayList<Domain>();
 		for (LevelProperty<Domain> prop : addDomains)
 		{
-			if (prop.getLevel() <= domainLevel)
+			if (prop.getLevel() == domainLevel)
 			{
 				returnList.add(prop.getObject());
 			}
@@ -927,7 +938,7 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSONLY This is only for editing of a PCClass; therefore
+	 * FINALPCCLASSONLY This is only for editing of a PCClass; therefore
 	 * not required for a PCClassLevel
 	 */
 	public List<LevelProperty<Domain>> getAddDomains() {
@@ -986,7 +997,7 @@ public class PCClass extends PObject {
 	 *            Stat abbreviation to use as bonus spell stat.
 	 */
 	/*
-	 * PCCLASSANDLEVEL Since this comes from a tag and is requried by at least
+	 * FINALPCCLASSANDLEVEL Since this comes from a tag and is requried by at least
 	 * some PCClassLevels in order to calculate bonus spells, this must appear
 	 * in both PCClass and PCClassLevel
 	 */
@@ -1003,7 +1014,7 @@ public class PCClass extends PObject {
 	 * @return Stat abbreviation that should be used to calculate bonus spells.
 	 */
 	/*
-	 * PCCLASSANDLEVEL Since this comes from a tag and is requried by at least
+	 * FINALPCCLASSANDLEVEL Since this comes from a tag and is requried by at least
 	 * some PCClassLevels in order to calculate bonus spells, this must appear
 	 * in both PCClass and PCClassLevel
 	 */
@@ -1261,8 +1272,7 @@ public class PCClass extends PObject {
 
 		if (includeAdj
 				&& !bookName.equals(Globals.getDefaultSpellBook())
-				&& ((getSpecialtyList().size() > 0) || (aPC
-						.getCharacterDomainList().size() > 0))) {
+				&& (hasSpecialtyList() || aPC.hasCharacterDomainList())) {
 			// We need to do this for EVERY spell level up to the
 			// one really under consideration, because if there
 			// are any specialty spells available BELOW this level,
@@ -1349,8 +1359,9 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since it is 
-	 * a Tag
+	 * FINALPCCLASSONLY This is required in PCClass since it is 
+	 * a Tag, but is used for construction of PCClassLevels and therefore
+	 * not passed into a PCCLassLevel
 	 */
 	public void setClassSkillChoices(int choiceCount, List<String> choices) {
 		classSkillChoices = ChoiceList.getChoiceList(choiceCount, choices);
@@ -1460,7 +1471,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the spell list is
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
 	public final List<String> getClassSpellList() {
@@ -1468,7 +1479,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is appropriate for both PCClassLevel and 
+	 * FINALPCCLASSANDLEVEL This is appropriate for both PCClassLevel and 
 	 * PCClass since it is a Tag
 	 */
 	public final void addDeity(String aDeity) {
@@ -1476,14 +1487,14 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSONLY Since this is for constructing a PCClass
+	 * FINALPCCLASSONLY Since this is for constructing a PCClass
 	 */
 	public final void clearDeityList() {
 		deityList.clear();
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final List<String> getDeityList() {
@@ -1491,12 +1502,11 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	/**
-	 * Returns the Domains provided to a character up to and including
-	 * the given level
+	 * Returns the Domains provided to a character by ONLY the given level
 	 * 
 	 * There is a contract on the users of getDomainList: If you take 
 	 * a Domain out of the List returned, you MUST clone the Domain or you 
@@ -1510,7 +1520,7 @@ public class PCClass extends PObject {
 		List<Domain> returnList = new ArrayList<Domain>();
 		for (LevelProperty<Domain> prop : domainList)
 		{
-			if (prop.getLevel() <= domainLevel)
+			if (prop.getLevel() == domainLevel)
 			{
 				returnList.add(prop.getObject());
 			}
@@ -1535,7 +1545,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is only for PCClass - used to edit the class
+	 * FINALPCCLASSONLY This is only for PCClass - used to edit the class
 	 */
 	public final Collection<LevelProperty<String>> getAllFeatAutos() {
 		if (featAutos == null) {
@@ -1547,14 +1557,14 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public final Collection<String> getFeatAutos() {
+	public final Collection<String> getFeatAutos(int aLevel) {
 		List<String> returnList = new ArrayList<String>();
 		if (featAutos != null) {
 			for (LevelProperty<String> autoFeat : featAutos) {
-				if (autoFeat.getLevel() <= level) {
+				if (autoFeat.getLevel() == aLevel) {
 					returnList.add(autoFeat.getObject());
 				}
 			}
@@ -1589,7 +1599,7 @@ public class PCClass extends PObject {
 	 *            The feat string to remove.
 	 */
 	/*
-	 * PCCLASSONLY This is for GUI construction of a PCClass and is therefore
+	 * FINALPCCLASSONLY This is for GUI construction of a PCClass and is therefore
 	 * only required in PCClass and not PCClassLevel
 	 */
 	public boolean removeFeatAuto(String type) {
@@ -1613,7 +1623,7 @@ public class PCClass extends PObject {
 	 *            The feat string to remove.
 	 */
 	/*
-	 * PCCLASSONLY This is for GUI construction of a PCClass and is therefore
+	 * FINALPCCLASSONLY This is for GUI construction of a PCClass and is therefore
 	 * only required in PCClass and not PCClassLevel
 	 */
 	public boolean removeFeatAuto(int aLevel, String type) {
@@ -1647,8 +1657,7 @@ public class PCClass extends PObject {
 //	}
 	
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
+	 * FINALPCCLASSONLY This is for construction of a PCClass
 	 */
 	public final List<LevelProperty<String>> getFeatList() {
 		if (featList == null) {
@@ -1862,7 +1871,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY created during PCClassLevel creation (in the factory)
+	 * FINALPCCLASSLEVELONLY created during PCClassLevel creation (in the factory)
 	 */
 	public final Collection<String> getSpecialtyList() {
 		if (specialtyList == null) {
@@ -1873,7 +1882,14 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY Input during construction of a PCClassLevel
+	 * FINALPCCLASSLEVELONLY For boolean testing of possession
+	 */
+	public final boolean hasSpecialtyList() {
+		return specialtyList != null && specialtyList.size() > 0;
+	}
+	
+	/*
+	 * FINALPCCLASSLEVELONLY Input during construction of a PCClassLevel
 	 */
 	public final void addSpecialty(final String aSpecialty) {
 		if (specialtyList == null) {
@@ -1883,7 +1899,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method (of course, a level independent version for PCClassLevel
 	 */
 	public void addAddDomain(final int aLevel, final Domain aDomain) {
@@ -1973,7 +1989,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass because it
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass because it
 	 * is a Tag
 	 */
 	public final boolean addProhibitedSchool(String school) {
@@ -1988,7 +2004,15 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSONLY This is required in PCClass because it is used in
+	 * construction of PCClassLevel... (or is it required there too??)
+	 */
+	public final void clearProhibitedSchools() {
+		prohibitedSchools = null;
+	}
+	
+	/*
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final List<String> getProhibitedSchools() {
@@ -2206,35 +2230,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY since the specialtyList is 
-	 * created during PCClassLevel creation (in the factory)
-	 */
-	public String getSpecialtyListString(final PlayerCharacter aPC) {
-		final StringBuffer retString = new StringBuffer();
-
-		for (final String spec : getSpecialtyList()) {
-			if (retString.length() > 0) {
-				retString.append(',');
-			}
-
-			retString.append(spec);
-		}
-
-		for (CharacterDomain cd : aPC.getCharacterDomainList()) {
-			if (cd.getDomain() != null) {
-				if (retString.length() > 0) {
-					retString.append(',');
-				}
-
-				retString.append(cd.getDomain().getKeyName());
-			}
-		}
-
-		return retString.toString();
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public final void setSpellBaseStat(final String baseStat) {
@@ -2242,7 +2238,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellBaseStat() {
@@ -2269,11 +2265,13 @@ public class PCClass extends PObject {
 		}
 
 		final StringBuffer aBuf = new StringBuffer();
+		boolean needPipe = false;
 
 		for (String keyStr : classSpellList) {
-			if (aBuf.length() > 0) {
+			if (needPipe) {
 				aBuf.append(Constants.PIPE);
 			}
+			needPipe = true;
 
 			if (keyStr.endsWith("(Domain)")) {
 				aBuf.append("DOMAIN").append(Constants.PIPE).append(
@@ -2303,23 +2301,24 @@ public class PCClass extends PObject {
 	 * consistent with the lower levels (or first level) of this PCClass
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass
-	 * because it is a Tag
+	 * FINALPCCLASSONLY This is required in PCClass since it is 
+	 * a Tag, but is used for construction of PCClassLevels and therefore
+	 * not passed into a PCCLassLevel
 	 */
 	public final void setClassSpellChoices(int choiceCount, List<String> choices) {
 		classSpellChoices = ChoiceList.getChoiceList(choiceCount, choices);
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
+	 * FINALPCCLASSONLY This is only the choice list, not the actual choices
+	 * that were made, so this is only required in the PCClass
 	 */
 	public final ChoiceList<String> getClassSpellChoices() {
 		return classSpellChoices;
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since 
 	 * it is a Tag
 	 */
 	public final void setSpellType(final String newType) {
@@ -2327,7 +2326,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellType() {
@@ -2355,12 +2354,6 @@ public class PCClass extends PObject {
 		castList.add(LevelProperty.getLevelProperty(aLevel, cast));
 	}
 
-	/**
-	 * Return CAST: string for a level
-	 * 
-	 * @param aLevel
-	 * @return String
-	 */
 	/*
 	 * REFACTOR to DELETEMETHOD This should really be handled elsewhere, such
 	 * as in an export Token or something that is the universal location for 
@@ -2378,82 +2371,16 @@ public class PCClass extends PObject {
 		}
 		return Collections.emptyList();
 	}
-
+	
 	/*
-	 * REFACTOR This really needs to be an external item to both PCClass and
-	 * PCClassLevel, in some external Utility Class which is smart enough to do
-	 * mass PCClassLevel processing. Thus this is really a candidate for
-	 * DELETEMETHOD
+	 * PCCLASSONLY For editing a PCClass and Global checks...
 	 */
-	public int minLevelForSpellLevel(final int spellLevel,
-			final boolean allowBonus) {
-		int minLevel = Constants.INVALID_LEVEL;
-
-		for (LevelProperty<List<String>> lp : castList) {
-			int maxCastable = -1;
-
-			if (allowBonus) {
-				maxCastable = lp.getObject().size() - 1;
-			} else {
-				int j = 0;
-				for (String st : lp.getObject()) {
-					try {
-						if (Integer.parseInt(st) != 0) {
-							maxCastable = j;
-						}
-					} catch (NumberFormatException ignore) {
-						// ignore
-					}
-					j++;
-				}
-			}
-
-			if (maxCastable >= spellLevel) {
-				minLevel = lp.getLevel();
-
-				break;
-			}
+	public List<LevelProperty<List<String>>> getCastList() {
+		if (castList == null) {
+			final List<LevelProperty<List<String>>> ret = Collections.emptyList();
+			return Collections.unmodifiableList(ret);
 		}
-
-		if (minLevel < Constants.INVALID_LEVEL) {
-			return minLevel;
-		}
-
-		for (LevelProperty<List<String>> lp : knownList) {
-			final List<String> knownSpells = lp.getObject();
-
-			if (knownSpells.size() == 0) {
-				continue;
-			}
-
-			int maxCastable = -1;
-
-			if (allowBonus) {
-				maxCastable = knownSpells.size() - 1;
-			} else {
-				int j = 0;
-				for (String st : knownSpells) {
-					try {
-						if (Integer.parseInt(st) != 0) {
-							maxCastable = j;
-						}
-					} catch (NumberFormatException e) {
-						// TODO: Should this really be ignored?
-						// CONSIDER This could be a formula, so what does THAT mean - thpr 11/3/06
-						Logging.errorPrint("", e);
-					}
-					j++;
-				}
-			}
-
-			if (maxCastable >= spellLevel) {
-				minLevel = lp.getLevel();
-
-				break;
-			}
-		}
-
-		return minLevel;
+		return castList;
 	}
 
 	/**
@@ -2461,41 +2388,21 @@ public class PCClass extends PObject {
 	 * 
 	 * @return The level of the highest level spell available.
 	 */
-	/*
-	 * REFACTOR to eliminate the caching (highestSpellLevelMap is useless
-	 * in a case where PCClassLevel is broken out)
-	 */
 	public int getHighestLevelSpell() {
-		// check to see if we have a cached value first
-		if (highestSpellLevelMap != null) {
-			final Integer highest = highestSpellLevelMap.get(-1);
-			if (highest != null) {
-				return highest.intValue();
-			}
-		}
-
-		int highestCastable = -1;
+		int highest = -1;
+		
 		if (castList != null) {
 			for (LevelProperty<List<String>> lp : castList) {
-				highestCastable = Math.max(highestCastable, lp.getObject().size() - 1);
+				highest = Math.max(highest, lp.getObject().size() - 1);
 			}
 		}
 
-		// Highest Known spell for level
-		int highestKnown = -1;
 		if (knownList != null) {
 			for (LevelProperty<List<String>> lp : knownList) {
-				highestKnown = Math.max(highestKnown, lp.getObject().size() - 1);
+				highest = Math.max(highest, lp.getObject().size() - 1);
 			}
 		}
 
-		int highest = Math.max(highestCastable, highestKnown);
-
-		// cache the value
-		if (highestSpellLevelMap == null) {
-			highestSpellLevelMap = new HashMap<Integer, Integer>();
-			highestSpellLevelMap.put(-1, highest);
-		}
 		return highest;
 	}
 
@@ -2591,8 +2498,7 @@ public class PCClass extends PObject {
 	 * PCClassLevel
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
+	 * FINALPCCLASSONLY This is for PCClass construction and Global queries
 	 */
 	public List<LevelProperty<List<String>>> getKnownList() {
 		if (Constants.EMPTY_STRING.equals(castAs)
@@ -2616,23 +2522,40 @@ public class PCClass extends PObject {
 		}
 		return knownList;
 	}
+	
+	/*
+	 * FINALPCCLASSANDLEVEL This is used for detecting spell casting ability
+	 */
+	public boolean hasKnownList() {
+		if (!Constants.EMPTY_STRING.equals(castAs) && !getKeyName().equals(castAs)) {
+			final PCClass aClass = Globals.getClassKeyed(castAs);
+			if (aClass != null) {
+				return aClass.hasKnownList();
+			}
+		}
+		return knownList != null && !knownList.isEmpty();
+	}
 
 	/**
-	 * Return KNOWN: string for a level
+	 * Return KNOWN: List for a level
 	 * 
 	 * @param aInt
 	 *            The level of the class to be retrieved
-	 * @return String The KNOWN string, if any
-	 *         <p>
-	 *         TODO - Why is this a String???
+	 * @return String The KNOWN List, if any
 	 */
 	/*
-	 * PCCLASSLEVELONLY This is required in PCClassLevel since it is level
+	 * FINALPCCLASSLEVELONLY This is required in PCClassLevel since it is level
 	 * dependent (though it no longer needs the int argument :) ). Note this
 	 * should also be refactored (as part of the getKnownList() rebuild) to pass
 	 * around something more intelligent than a String.
 	 */
 	public List<String> getKnownListForLevel(int aInt) {
+		/*
+		 * CONSIDER We need to think about where this max level check goes - if
+		 * there is a KNOWN for Level 20 and not for Level 21, does the KNOWN
+		 * for level 20 get applied into the PCClassLevel object for Level 21,
+		 * or not? - thpr 11/4/06
+		 */
 		if (aInt > maxKnownLevel) {
 			aInt = maxKnownLevel;
 		}
@@ -2660,7 +2583,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is required in PCClass for PCClass editing
+	 * FINALPCCLASSONLY This is required in PCClass for PCClass editing
 	 */
 	public final Collection<LevelProperty<int[]>> getSpecialtyKnownList() {
 		if (specialtyknownList == null) {
@@ -2671,7 +2594,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final int[] getSpecialtyKnownList(int aLevel) {
@@ -2696,7 +2619,7 @@ public class PCClass extends PObject {
 	 *            String version of the number of bonus spells.
 	 */
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public final void addSpecialtyKnown(int aLevel, int[] array) {
@@ -2776,11 +2699,11 @@ public class PCClass extends PObject {
 			final PlayerCharacter aPC) {
 		if (getCastForLevel(pcLevel, spellLevel, bookName, aPC) > 0) {
 			// if this class has a specialty, return +1
-			if (getSpecialtyList().size() > 0) {
+			if (hasSpecialtyList()) {
 				return "+1";
 			}
 
-			if (aPC.getCharacterDomainList().isEmpty()) {
+			if (!aPC.hasCharacterDomainList()) {
 				return "";
 			}
 
@@ -2953,18 +2876,14 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY Since this is setting the possible subclasses, this is only
-	 * part of PCClass, since the specific subclass key will be set during
-	 * PCClassLevel construction
+	 * DELETEMETHOD - unused variable
 	 */
 	public final void setSubClassString(final String aString) {
 		subClassString = aString;
 	}
 
 	/*
-	 * PCCLASSONLY Since this is setting the possible subclasses, this is only
-	 * part of PCClass, since the specific subclass key will be set during
-	 * PCClassLevel construction
+	 * DELETEMETHOD Per Tir, this is from the 3.0/4.0 cleanup and is unused code.
 	 */
 	public final String getSubClassString() {
 		return subClassString;
@@ -2992,18 +2911,14 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY Since this is setting the possible substitution classes, this
-	 * is only part of PCClass, since the specific substitution class key will
-	 * be set during PCClassLevel construction
+	 * DELETEMETHOD - variable is unused
 	 */
 	public final void setSubstitutionClassString(final String aString) {
 		substitutionClassString = aString;
 	}
 
 	/*
-	 * PCCLASSONLY Since this is getting the possible substitution classes, this
-	 * is only part of PCClass, since the specific substitution class key will
-	 * be set during PCClassLevel construction
+	 * DELETEMETHOD unused method
 	 */
 	public final String getSubstitutionClassString() {
 		return substitutionClassString;
@@ -3051,7 +2966,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method.  The PCClassLevelversion should NOT be level 
 	 * dependent
 	 */
@@ -3063,7 +2978,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is an editor and loader requirement, therefore
+	 * FINALPCCLASSONLY This is an editor and loader requirement, therefore
 	 * PCClass only
 	 */
 	public void clearFeatAutos() {
@@ -3180,7 +3095,7 @@ public class PCClass extends PObject {
 	 * @param aPC
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel PCClass since it is
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel PCClass since it is
 	 * a Tag [with level dependence differences, of course)
 	 */
 	public final void addVision(int aLevel, Vision vis) {
@@ -3191,7 +3106,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is an editor and loader requirement, therefore
+	 * FINALPCCLASSONLY This is an editor and loader requirement, therefore
 	 * PCClass only
 	 */
 	public void clearVisionList() {
@@ -3202,7 +3117,7 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSONLY This is an editor and loader requirement, therefore
+	 * FINALPCCLASSONLY This is an editor and loader requirement, therefore
 	 * PCClass only
 	 */
 	public boolean removeVisionType(VisionType type) {
@@ -3491,25 +3406,41 @@ public class PCClass extends PObject {
 	 * @return natural weapons list
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSLEVELONLY This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	public List<Equipment> getNaturalWeapons() {
+	/*
+	 * CONSIDER The fact that this does NOT override PObject would break
+	 * EditorMainForm, if EditorMainForm was smart enough to realize that a
+	 * PCClass can have natural weapons. Currently it does not. It would also
+	 * need to be smart enough to deal with level dependencies of Natural
+	 * Weapons in PCClasses, so that is non-trivial. This issue is trackered as
+	 * 1590553
+	 */
+	public List<Equipment> getNaturalWeapons(int aLevel) {
+		if (naturalWeapons == null) {
+			return new ArrayList<Equipment>();
+		}
+		
 		final List<Equipment> tempArray = new ArrayList<Equipment>();
 
-		if ((naturalWeapons == null) || (naturalWeapons.isEmpty())) {
-			return tempArray;
-		}
-
 		for (LevelProperty<Equipment> lp : naturalWeapons) {
-			if (lp.getLevel() <= level) {
-				final Equipment weapon = lp.getObject();
-				tempArray.add(weapon);
-//				addWeaponProfAutos(weapon.getName());
+			if (lp.getLevel() == level) {
+				tempArray.add(lp.getObject());
 			}
 		}
 
 		return tempArray;
+	}
+	
+	/*
+	 * FINALPCCLASSONLY For editing PCClasses
+	 */
+	public List<LevelProperty<Equipment>> getAllNaturalWeapons() {
+		if (naturalWeapons == null) {
+			return new ArrayList<LevelProperty<Equipment>>();
+		}
+		return naturalWeapons;
 	}
 
 //	/*
@@ -3582,7 +3513,7 @@ public class PCClass extends PObject {
 	 * @param srString
 	 */
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public void setSR(int aLevel, String srString) {
@@ -3593,48 +3524,58 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSONLY Since this is part of LST file import
+	 * FINALPCCLASSONLY Since this is part of LST file import
 	 */
 	public void clearSR() {
 		SR = null;
 	}
 
-	/**
-	 * Assumption: SR list is sorted by level.
-	 * 
-	 * REFACTOR This needs to be changed so that there isn't an assumption that
-	 * the SR is sorted by level...
-	 * 
-	 * @return SR formula
-	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
+	 * FINALPCCLASSLEVELONLY This is required to fetch the SR
+	 * 
+	 * UNWIND the level checking will have to be unwound into the users of this
+	 * class, as these SRs will not pass from one PCClassLevel to another unless
+	 * they are specified...
 	 */
-	public String getSRFormula() {
-		LevelProperty<String> lp = null;
+	protected int getSR(PlayerCharacter aPC) {
+		if (aPC == null) {
+			return 0;
+		}
+		
+		LevelProperty<String> activeLP = null;
 
 		if (SR != null) {
 			final int lvl = level;
-
-			for (int i = 0, x = SR.size(); i < x; ++i) {
-				if (SR.get(i).getLevel() > lvl) {
-					break;
+			for (LevelProperty<String> lp : SR) {
+				if (lp.getLevel() > lvl) {
+					continue;
 				}
-
-				lp = SR.get(i);
+				if (activeLP == null || activeLP.getLevel() < lp.getLevel()) {
+					activeLP = lp;
+					continue;
+				}
 			}
 		}
 
-		if (lp != null) {
-			return lp.getObject();
+		//if there's a current PC, go ahead and evaluate the formula
+		if (activeLP != null)
+		{
+			return aPC.getVariableValue(activeLP.getObject(), getQualifiedKey()).intValue();
 		}
 
-		return null;
+		return 0;
+		
+	}
+	
+	/*
+	 * FINALPCCLASSONLY This is for building a PCClass
+	 */
+	public List<LevelProperty<String>> getSRlist() {
+		return SR;
 	}
 
 	/*
-	 * PCCLASSONLY This is for editing classes
+	 * FINALPCCLASSONLY This is for editing classes
 	 */
 	public LevelProperty<String> getSRforLevel(int aLevel) {
 		if (SR != null) {
@@ -4034,9 +3975,14 @@ public class PCClass extends PObject {
 	 * @return Map
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory) [with level dependent
 	 * differences, of course]
+	 */
+	/*
+	 * UNWIND I'm not going to unwind this one early, because PC.getVisionList 
+	 * actually depends on this for a bug fix - this will 'naturally' be fixed 
+	 * when PCClassLevel is broken out because it is used in few places.
 	 */
 	@Override
 	public List<Vision> getVision() {
@@ -4100,16 +4046,32 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the spell list is
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
+	 * calculated based on other factors, it is not a Tag
+	 */
+	public void addClassSkill(final String tok) {
+		if (classSkillList == null) {
+			classSkillList = new ArrayList<String>();
+		}
+		classSkillList.add(tok);
+	}
+	
+	/*
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
+	 * calculated based on other factors, it is not a Tag
+	 */
+	public void clearClassSkillList() {
+		classSkillList = null;
+	}
+
+	/*
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
 	 * calculated based on other factors, it is not a Tag
 	 */
 	public void addClassSpellList(final String tok) {
 		if (classSpellList == null) {
 			classSpellList = new ArrayList<String>();
-		} else {
-			classSpellList.clear();
 		}
-
 		classSpellList.add(tok);
 		/*
 		 * CONSIDER I have taken out classSpellString = null; which is now the
@@ -4119,14 +4081,27 @@ public class PCClass extends PObject {
 		 * the list). Seems to me a case of unnecessary (and confusing)
 		 * deletion... - thpr 10/29/06
 		 */
+		/*
+		 * CONSIDER This is a confusing side-effect - this really needs to be
+		 * identified better as a cached variable (transient) so that it is
+		 * recognized that this is simply making a 'cache' dirty - thpr 11/4/06
+		 */
 		stableSpellKey = null;
+	}
+	
+	/*
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the spell list is
+	 * calculated based on other factors, it is not a Tag
+	 */
+	public void clearClassSpellList() {
+		classSpellList = null;
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public void addDomain(final Domain domain, int domainLevel) {
+	public void addDomain(int domainLevel, final Domain domain) {
 		if (domainList == null) {
 			domainList = new ArrayList<LevelProperty<Domain>>();
 		}
@@ -4164,7 +4139,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This needs to be in both PCClass (since it's imported from
+	 * FINALPCCLASSANDLEVEL This needs to be in both PCClass (since it's imported from
 	 * a Tag) and PCClassLevel (although the PCClassLevel version should not be 
 	 * level dependent)
 	 */
@@ -4177,7 +4152,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public void setKnown(final int iLevel, final List<String> aList) {
@@ -4540,8 +4515,6 @@ public class PCClass extends PObject {
 			// aClass.setSkillPoints(skillPoints);
 			aClass.setSkillPointFormula(skillPointFormula);
 			aClass.setInitialFeats(initialFeats);
-			aClass.setBonusSpellBaseStat(bonusSpellBaseStat);
-			aClass.setSpellType(spellType);
 			// aClass.setAttackBonusType(attackBonusType);
 			if (specialtyknownList != null) {
 				aClass.specialtyknownList = new ArrayList<LevelProperty<int[]>>(
@@ -4591,7 +4564,6 @@ public class PCClass extends PObject {
 			aClass.maxCastLevel = maxCastLevel;
 			aClass.maxKnownLevel = maxKnownLevel;
 
-			aClass.abbrev = abbrev;
 			aClass.memorizeSpells = memorizeSpells;
 			aClass.multiPreReqs = multiPreReqs;
 			aClass.deityList = new ArrayList<String>(deityList);
@@ -4603,7 +4575,6 @@ public class PCClass extends PObject {
 				aClass.attackCycleMap = new HashMap<AttackType, String>(
 						attackCycleMap);
 			}
-			aClass.castAs = castAs;
 			aClass.preRaceType = preRaceType;
 			aClass.modToSkills = modToSkills;
 			aClass.levelsPerFeat = levelsPerFeat;
@@ -4686,11 +4657,12 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass, since it is a Tag
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass, since it is a Tag
 	 * 
 	 * Need to look into the details of stableSpellKey to figure out the appropriate
 	 * place for that
 	 */
+	@Override
 	public void setName(final String newName) {
 		super.setName(newName);
 
@@ -4704,6 +4676,12 @@ public class PCClass extends PObject {
 			abbrev = newName.substring(0, i);
 		}
 
+		/*
+		 * CONSIDER This (below) is a bit of a confusing side effect - needs to be
+		 * far more explicit that stableSpellKey is a cache, and that there are 
+		 * also side effects to getSpellKey (side effects are bad :( ) - 
+		 * thpr 11/4/06
+		 */
 		stableSpellKey = null;
 		getSpellKey();
 	}
@@ -4815,10 +4793,10 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the skill list is
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
-	public boolean hasClassSkillList(final String aString) {
+	public boolean hasClassSkill(final String aString) {
 		if ((classSkillList == null) || classSkillList.isEmpty()) {
 			return false;
 		}
@@ -4838,7 +4816,8 @@ public class PCClass extends PObject {
 	 * PCCLASSLEVELONLY? This really seems to be a shortcut test that is part of
 	 * the GUI presentation of a PlayerCharacter. It would be really nice if
 	 * this could be deleted, but it may actually be providing some speed (need
-	 * to evaluate whether a better test exists, however)
+	 * to evaluate whether a better test exists, however, since it seems REALLY 
+	 * slow for something that should be a quick test!)
 	 */
 	public boolean hasKnownSpells(final PlayerCharacter aPC) {
 		for (int i = 0; i <= getHighestLevelSpell(); i++) {
@@ -5051,7 +5030,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This is only part of the level, as the skill list is
+	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */
 	final List<String> getClassSkillList() {
@@ -5324,7 +5303,7 @@ public class PCClass extends PObject {
 			}
 
 			final StringTokenizer aTok = new StringTokenizer(udamList.get(
-					Math.max(iLevel - 1, 0)).toString(), ",", false);
+					Math.max(iLevel - 1, 0)), ",", false);
 
 			while ((iSize > -1) && aTok.hasMoreTokens()) {
 				aDamage = aTok.nextToken();
@@ -5605,7 +5584,15 @@ public class PCClass extends PObject {
 			makeRegionSelection(newLevel, aPC);
 
 			// Make sure any natural weapons are added
-			aPC.addNaturalWeapons(getNaturalWeapons());
+			if (naturalWeapons != null) {
+				List<Equipment> natWeap = new ArrayList<Equipment>();
+				for (LevelProperty<Equipment> lp : naturalWeapons) {
+					if (lp.getLevel() <= newLevel) {
+						natWeap.add(lp.getObject());
+					}
+				}
+				aPC.addNaturalWeapons(natWeap);
+			}
 		}
 
 		// this is a monster class, so don't worry about experience
@@ -6033,7 +6020,19 @@ public class PCClass extends PObject {
 			aPC.validateCharacterDomains();
 
 			// be sure to remove any natural weapons
-			aPC.removeNaturalWeapons(this);
+			for (Equipment eq : this.getNaturalWeapons(newLevel + 1)) {
+				/*
+				 * This is a COMPLETE hack to emulate PC.removeNaturalWeapons 
+				 * without going through the convoluted "I am level dependent,
+				 * you're not" game that is required in today's PCClass is
+				 * level-aware world.  This becomes a lot easier in a 
+				 * PCClass/PCClassLevel world, and the system can go back to
+				 * using PC.removeNaturalWeapons
+				 */
+				aPC.removeEquipment(eq);
+				aPC.delEquipSetItem(eq);
+				aPC.setDirty(true);
+			}
 		} else {
 			Logging
 					.errorPrint("No current pc in subLevel()? How did this happen?");
@@ -6672,15 +6671,14 @@ public class PCClass extends PObject {
 			}
 		}
 
-		for (LevelProperty<String> lp : getFeatList()) {
+		for (LevelProperty<String> lp : featList) {
 			if (lp.getLevel() == aLevel)
 			{
 				final double preFeatCount = aPC.getUsedFeatCount();
 				AbilityUtilities.modFeatsFromList(aPC, pcLevelInfo, lp
 						.getObject(), addThem, aLevel == 1);
-
+				
 				final double postFeatCount = aPC.getUsedFeatCount();
-
 				// Adjust the feat count by the total number that were given
 				aPC.adjustFeats(postFeatCount - preFeatCount);
 			}
@@ -6744,7 +6742,10 @@ public class PCClass extends PObject {
 		List<List<SubClass>> selectedList = c.getSelectedList();
 
 		if (!selectedList.isEmpty()) {
-			prohibitedSchools = null;
+			clearProhibitedSchools();
+			/*
+			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
+			 */
 			specialtyList = null;
 
 			SubClass sc = selectedList.get(0).get(0);
@@ -6847,9 +6848,11 @@ public class PCClass extends PObject {
 			return;
 		}
 
+		clearClassSkillList();
+		
 		List<String> classSkillChoiceList = classSkillChoices.getList();
 		if (classSkillChoiceList.size() == 1) {
-			classSkillList = classSkillChoiceList;
+			addClassSkill(classSkillChoiceList.get(0));
 			return;
 		}
 
@@ -6861,10 +6864,8 @@ public class PCClass extends PObject {
 		c.setVisible(true);
 
 		final List<String> selectedList = c.getSelectedList();
-		classSkillList = new ArrayList<String>();
-
 		for (String sel : selectedList) {
-			classSkillList.add(sel);
+			addClassSkill(sel);
 		}
 	}
 
@@ -6877,10 +6878,12 @@ public class PCClass extends PObject {
 		if (classSpellChoices == null) {
 			return;
 		}
+		
+		clearClassSpellList();
 
 		List<String> classSpellChoiceList = classSpellChoices.getList();
 		if (classSpellChoiceList.size() == 1) {
-			classSpellList = classSpellChoiceList;
+			addClassSpellList(classSpellChoiceList.get(0));
 			return;
 		}
 
@@ -6891,10 +6894,10 @@ public class PCClass extends PObject {
 		c.setAvailableList(classSpellChoiceList);
 		c.setVisible(true);
 
-		final List<String> selectedList = c.getSelectedList();
-		classSpellList = new ArrayList<String>();
-
-		classSpellList.addAll(selectedList);
+		List<String> selectedList = c.getSelectedList();
+		for (String st : selectedList) {
+			addClassSpellList(st);
+		}
 	}
 
 	/*
@@ -6993,7 +6996,13 @@ public class PCClass extends PObject {
 		 * only applied at the time of level increase, but I think that quirk
 		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
 		 */
-		for (final Domain dom : getDomainList(aLevel)) {
+		List<Domain> domList = new ArrayList<Domain>();
+		for (int lvl = 0 ; lvl <= aLevel ; lvl++) {
+			for (Domain dom : getDomainList(lvl)) {
+				domList.add(dom);
+			}
+		}
+		for (final Domain dom : domList) {
 			if (dom.qualifies(aPC))
 			{
 				String domKey = dom.getKeyName();
@@ -7098,13 +7107,13 @@ public class PCClass extends PObject {
 	 * @see pcgen.core.PObject#addNaturalWeapon(pcgen.core.Equipment, int)
 	 */
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method (of course, a level independent version for PCClassLevel)
 	 */
 	public void addNaturalWeapon(final Equipment weapon, final int aLevel) {
-		/*
-		 * CONSIDER Should this be checking for a null list??
-		 */
+		if (naturalWeapons == null) {
+			naturalWeapons = new ArrayList<LevelProperty<Equipment>>();
+		}
 		naturalWeapons.add(LevelProperty.getLevelProperty(aLevel, weapon));
 	}
 
@@ -7179,7 +7188,7 @@ public class PCClass extends PObject {
 	 * @param aLevel
 	 */
 	/*
-	 * PCCLASSONLY I think (heh) that committing this to the PCClassLevel really should
+	 * FINALPCCLASSONLY I think (heh) that committing this to the PCClassLevel really should
 	 * be part of the PCClass Factory, and thus part of the creation of the PCClassLevel
 	 * and thus only in PCClass
 	 */

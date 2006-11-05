@@ -103,7 +103,7 @@ public class PCSpellTracker {
 			buildSpellInfoMap(spellInfoMap, key1, key2, e);
 		}
 
-		if (!pc.getCharacterDomainList().isEmpty()) {
+		if (pc.hasCharacterDomainList()) {
 			List<Domain> domains = new ArrayList<Domain>();
 			for ( CharacterDomain cd : pc.getCharacterDomainList() )
 			{
@@ -214,7 +214,7 @@ public class PCSpellTracker {
 			buildSpellLevelMap(levelMatch, e);
 		}
 
-		if (!pc.getCharacterDomainList().isEmpty()) {
+		if (pc.hasCharacterDomainList()) {
 			e = pc.getCharacterDomainList().iterator();
 			buildSpellLevelMap(levelMatch, e);
 		}

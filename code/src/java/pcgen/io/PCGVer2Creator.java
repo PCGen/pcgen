@@ -784,7 +784,7 @@ final class PCGVer2Creator implements IOConstants
 				isCaster = true;
 			}
 
-			boolean isPsionic = (pcClass.getKnownList().size() > 0) && !isCaster;
+			boolean isPsionic = pcClass.hasKnownList() && !isCaster;
 
 			if (isCaster || isPsionic)
 			{

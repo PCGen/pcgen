@@ -276,14 +276,8 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			}
 		}
 
-		index = 0;
-
-		while (true)
+		for (LevelProperty<String> lp : obj.getSRlist())
 		{
-			LevelProperty<String> lp = obj.getSRforLevel(index++);
-			if (lp == null) {
-				break;
-			}
 			levelTagList.add(new LevelTag(lp.getLevel(), LevelTag.TAG_SR, lp.getObject()));
 		}
 

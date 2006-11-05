@@ -215,7 +215,7 @@ public final class Skill extends PObject
 		}
 
 		// test for SKILLLIST skill
-		if (aClass.hasClassSkillList(keyName))
+		if (aClass.hasClassSkill(keyName))
 		{
 			return true;
 		}

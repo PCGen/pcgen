@@ -372,10 +372,9 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		// Check to see if we have any domains that have this spell.
 
 		PObject owner = null;
-		List<CharacterDomain> cdl = pc.getCharacterDomainList();
-		if (cdl != null)
+		if (pc.hasCharacterDomainList())
 		{
-			for (CharacterDomain cd : cdl)
+			for (CharacterDomain cd : pc.getCharacterDomainList())
 			{
 				Domain domain = cd.getDomain();
 				final String key = domain.getSpellKey();

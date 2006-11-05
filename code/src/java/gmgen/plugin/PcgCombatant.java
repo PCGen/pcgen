@@ -757,9 +757,7 @@ public class PcgCombatant extends Combatant
 		{
 			StringBuffer statBuf = new StringBuffer();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
-			List<CharacterDomain> domainList = pc.getCharacterDomainList();
-
-			if (domainList.size() > 0)
+			if (pc.hasCharacterDomainList())
 			{
 				//Domains
 				//Deity
@@ -772,7 +770,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for ( CharacterDomain cd : domainList )
+				for ( CharacterDomain cd : pc.getCharacterDomainList() )
 				{
 					if (!firstLine)
 					{

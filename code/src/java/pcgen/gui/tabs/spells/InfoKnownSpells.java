@@ -176,8 +176,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		boolean hasFree = false;
 		for (PCClass aClass : pc.getClassList())
 		{
-			if ((aClass.getKnownList() != null && (aClass.getKnownList().size() > 0))
-					|| aClass.hasKnownSpells(pc))
+			if (aClass.hasKnownList() || aClass.hasKnownSpells(pc))
 			{
 				int highestSpellLevel = aClass.getHighestLevelSpell(pc);
 				for (int i = 0; i <= highestSpellLevel; ++i)

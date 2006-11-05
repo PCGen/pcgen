@@ -63,7 +63,7 @@ public class DomainToken implements PCClassLstToken {
 								+ prereq + " in " + getTokenName());
 					}
 				}
-				pcclass.addDomain(clonedDomain, level);
+				pcclass.addDomain(level, clonedDomain);
 			}
 		}
 		
