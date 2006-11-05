@@ -35,4 +35,4 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson
 Legions of Hell, Copyright 2001, Green Ronin Publishing; Author Chris Pramas.
 Arcana: Societies of Magic, Copyright 2001, Kevin Brennan and James Maliszewski
-PCGen dataset conversion for Arcana: Societies of Magic Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King)
+PCGen dataset conversion for Arcana: Societies of Magic Copyright 2003-2006, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougall, Paul W. King, Frank Kliewe)
