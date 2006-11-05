@@ -27,7 +27,6 @@ package pcgen.gui;
 
 import pcgen.core.*;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
@@ -83,7 +82,6 @@ final class ChooseSpellDialog extends JDialog
 	private List<Spell> classSpells = null;
 	private List<String> levelList = null;
 	private List<String> subTypeList = new ArrayList<String>();
-	private Map<String, List<String>> specialists = null;
 	private PObject castingClass = null;
 	private Spell theSpell = null;
 	private String choiceString = "";
@@ -237,94 +235,6 @@ final class ChooseSpellDialog extends JDialog
 		{
 			lblCasterLevel.setEnabled(bEnabled);
 			cmbCasterLevel.setEnabled(bEnabled);
-		}
-	}
-
-	private void getSpecialists()
-	{
-		specialists = new HashMap<String, List<String>>();
-
-		for (PCClass aClass : Globals.getClassList())
-		{
-			final List<String> subClasses = CoreUtility.split(aClass.getSubClassString(), '|');
-
-			if (subClasses.size() > 1)
-			{
-				subClasses.remove(0); // level
-			}
-
-			for (int idx = 0; idx < subClasses.size(); idx++)
-			{
-				String fileName = subClasses.get(idx);
-				int i = fileName.indexOf('(');
-
-				if (i >= 0)
-				{
-					fileName = fileName.substring(0, i);
-				}
-
-				if (fileName.startsWith("FILE="))
-				{
-					CoreUtility.fixFilenamePath(fileName);
-					i = 5;
-
-					if (fileName.charAt(6) == File.separatorChar)
-					{
-						i = 6;
-					}
-
-					fileName = fileName.substring(i);
-					fileName = SettingsHandler.getPccFilesLocation() + File.separator + fileName;
-
-					File aFile = new File(fileName);
-
-					try
-					{
-						BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(aFile),
-									"UTF-8"));
-
-						String line = reader.readLine();
-
-						while (line != null)
-						{
-							if (!((line.length() > 0) && (line.charAt(0) == '#')))
-							{
-								final StringTokenizer aTok = new StringTokenizer(line.trim(), "\t");
-
-								if (aTok.countTokens() > 2)
-								{
-									final String specialty = aTok.nextToken();
-									final String cost = aTok.nextToken();
-									final String className = aTok.nextToken();
-									List<String> aList = new ArrayList<String>(5);
-									aList.add(aClass.getKeyName());
-									aList.add(specialty);
-									aList.add(cost);
-
-									//specialists.put(className, aClass.getName() + "\t" + specialty + "\t" + cost);
-									specialists.put(className, aList);
-								}
-							}
-
-							line = reader.readLine();
-						}
-
-						reader.close();
-					}
-					catch (FileNotFoundException exception)
-					{
-						//TODO: Should we really ignore this?
-					}
-					catch (UnsupportedEncodingException exception)
-					{
-						//TODO: Should we really ignore this?
-					}
-					catch (IOException exception)
-					{
-						//TODO: Should we really ignore this?
-					}
-				}
-			}
 		}
 	}
 
@@ -1195,8 +1105,6 @@ final class ChooseSpellDialog extends JDialog
 
 			if (unfoundItems.size() > 0)
 			{
-				specialists = null;
-
 				for (String eMsg : unfoundItems)
 				{
 					String bMsg = null;
@@ -1209,37 +1117,7 @@ final class ChooseSpellDialog extends JDialog
 					switch (eMsg.charAt(0))
 					{
 						case 'C':
-
-							//
-							// Get a list of all possible specialists
-							//
-							if (specialists == null)
-							{
-								getSpecialists();
-							}
-
-							final String sub = eMsg.substring(1);
-							final List<String> specInfo = specialists.get(sub);
-
-							if (specInfo == null)
-							{
-								bMsg = "Class";
-							}
-							else
-							{
-								//
-								// hack: specialists used to appear in in PObjects somehow, make it look similar
-								//
-								PObject pobj = new PObject();
-								pobj.setName(sub);
-								pobj.addAllToAssociated(specInfo);
-
-								if (!classWithSpell.contains(pobj))
-								{
-									classWithSpell.add(pobj);
-								}
-							}
-
+							bMsg = "Class";
 							break;
 
 						case 'D':

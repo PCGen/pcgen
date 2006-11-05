@@ -583,21 +583,11 @@ public class PCClass extends PObject {
 	private String subClassKey = Constants.s_NONE;
 
 	/*
-	 * DELETEVARIABLE from ancient code - can delete
-	 */
-	private String subClassString = Constants.s_NONE;
-
-	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
 	 * store what the substitution level actually is. This is NOT set by a tag, so it is
 	 * PCCLASSLEVELONLY
 	 */
 	private Map<Integer, String> substitutionClassKey = null;
-
-	/*
-	 * DELETEVARIABLE Unused variable
-	 */
-	private String substitutionClassString = Constants.s_NONE;
 
 	// private TreeSet<Language> languageBonus = new TreeSet<Language>();
 
@@ -2876,20 +2866,6 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * DELETEMETHOD - unused variable
-	 */
-	public final void setSubClassString(final String aString) {
-		subClassString = aString;
-	}
-
-	/*
-	 * DELETEMETHOD Per Tir, this is from the 3.0/4.0 cleanup and is unused code.
-	 */
-	public final String getSubClassString() {
-		return subClassString;
-	}
-
-	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected substitutionClass, if any, is structured into the PCClassLevel
 	 * during the construction of the PCClassLevel
@@ -2908,20 +2884,6 @@ public class PCClass extends PObject {
 		}
 
 		return null;
-	}
-
-	/*
-	 * DELETEMETHOD - variable is unused
-	 */
-	public final void setSubstitutionClassString(final String aString) {
-		substitutionClassString = aString;
-	}
-
-	/*
-	 * DELETEMETHOD unused method
-	 */
-	public final String getSubstitutionClassString() {
-		return substitutionClassString;
 	}
 
 	/*
