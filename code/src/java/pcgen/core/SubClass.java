@@ -172,4 +172,27 @@ public final class SubClass extends PCClass
 			Logging.errorPrint(exc.getMessage());
 		}
 	}
+
+	public String getSupplementalDisplayInfo() {
+		boolean added = false;
+		StringBuffer displayInfo = new StringBuffer();
+		if (getNumSpellsFromSpecialty() != 0) {
+			displayInfo.append("SPECIALTY SPELLS:").append(
+					getNumSpellsFromSpecialty());
+			added = true;
+		}
+
+		if (getSpellBaseStat() != null) {
+			if (added) {
+				displayInfo.append(" ");
+			}
+			displayInfo.append("SPELL BASE STAT:").append(getSpellBaseStat());
+			added = true;
+		}
+
+		if (!added) {
+			displayInfo.append(' ');
+		}
+		return displayInfo.toString();
+	}
 }

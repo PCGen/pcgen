@@ -53,7 +53,7 @@ public class SpellSupport implements Cloneable
 
 	private HashMap<String, Integer> spellLevelMap = new HashMap<String, Integer>();
 	private DoubleKeyMap<String, String, Info> spellInfoMap = new DoubleKeyMap<String, String, Info>();
-	private HashMapToList<String, PCSpell> spellMap = new HashMapToList<String, PCSpell>();
+	private HashMapToList<Integer, PCSpell> spellMap = new HashMapToList<Integer, PCSpell>();
 	private HashMap<String, List<Prerequisite>> preReqSpellLevelMap = new HashMap<String, List<Prerequisite>>();
 
 	/*
@@ -180,7 +180,7 @@ public class SpellSupport implements Cloneable
 	 */
     public void addSpells(final int level, final List<PCSpell> aSpellList)
 	{
-		final String aLevel = Integer.toString(level);
+    	Integer aLevel = Integer.valueOf(level);
 		for (PCSpell spell : aSpellList )
 		{
 			if (!spellMap.containsInList(aLevel, spell))
@@ -202,9 +202,9 @@ public class SpellSupport implements Cloneable
 
 		if (spellMap != null)
 		{
-			for ( String key : spellMap.getKeySet() )
+			for ( Integer key : spellMap.getKeySet() )
 			{
-				if (allSpells || Integer.parseInt(key.toString()) <= levelLimit)
+				if (allSpells || key <= levelLimit)
 				{
 					aList.addAll(spellMap.getListFor(key));
 				}
@@ -226,9 +226,9 @@ public class SpellSupport implements Cloneable
 
 		if (spellMap != null)
 		{
-			for ( String key : spellMap.getKeySet() )
+			for ( Integer key : spellMap.getKeySet() )
 			{
-				if (Integer.parseInt(key.toString()) == level)
+				if (key == level)
 				{
 					aList.addAll(spellMap.getListFor(key));
 				}
@@ -243,7 +243,7 @@ public class SpellSupport implements Cloneable
 	 */
     public final void clearSpellList()
 	{
-		spellMap = new HashMapToList<String, PCSpell>();
+		spellMap = new HashMapToList<Integer, PCSpell>();
 	}
 
     /**
@@ -545,7 +545,7 @@ public class SpellSupport implements Cloneable
 	public Object clone() throws CloneNotSupportedException {
 		SpellSupport ss = (SpellSupport) super.clone();
 		ss.spellInfoMap = (DoubleKeyMap<String, String, Info>) spellInfoMap.clone();
-		ss.spellMap = new HashMapToList<String, PCSpell>();
+		ss.spellMap = new HashMapToList<Integer, PCSpell>();
 		ss.spellMap.addAllLists(spellMap);
 		if (characterSpellList != null) {
 			ss.characterSpellList = new ArrayList<CharacterSpell>(characterSpellList);

@@ -13,7 +13,7 @@ public class UattToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.getUattList().add(value);
+		pcclass.addUatt(value);
 		return true;
 	}
 }

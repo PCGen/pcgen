@@ -9,11 +9,11 @@ import pcgen.persistence.lst.SubClassLstToken;
 public class SubclassToken implements SubClassLstToken {
 
 	public String getTokenName() {
-		return "SUBCLASSLEVEL";
+		return "SUBCLASS";
 	}
 
 	public boolean parse(SubClass subclass, String value) {
-		subclass.addToLevelArray(value);
+		subclass.setName(value);
 		return true;
 	}
 }

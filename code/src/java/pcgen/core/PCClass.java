@@ -224,14 +224,16 @@ public class PCClass extends PObject {
 	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected subClass, if any, is structured into the PCClassLevel during the
-	 * construction of the PCClassLevel
+	 * construction of the PCClassLevel (inheritAttributesFrom - although that 
+	 * could really be cleaned up and a better method found)
 	 */
 	private ArrayList<SubClass> subClassList = null;
 
 	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected substitutionClass, if any, is structured into the PCClassLevel
-	 * during the construction of the PCClassLevel
+	 * during the construction of the PCClassLevel (inheritAttributesFrom -
+	 * although that could really be cleaned up and a better method found)
 	 */
 	private ArrayList<SubstitutionClass> substitutionClassList = null;
 	
@@ -469,11 +471,13 @@ public class PCClass extends PObject {
 	private List<String> deityList = new ArrayList<String>(2);
 
 	/*
-	 * TYPESAFETY This should not be a String, but a member of a Typesafe
-	 * Enumeration of Classes...
+	 * FUTURETYPESAFETY This should not be a String, but a member of a Typesafe
+	 * Enumeration of Classes... unfortunately, that really requires a two-pass
+	 * design for the LST files... because the EX Class may not exist at the 
+	 * time this tag is hit.
 	 */
 	/*
-	 * ALLCLASSLEVELS Because this indicates what a Class becomes when the
+	 * FINALALLCLASSLEVELS Because this indicates what a Class becomes when the
 	 * prerequisites are no longer met, this must be passed into each and every
 	 * PCClassLevel (though it can be given in its pure form).
 	 */
@@ -515,7 +519,7 @@ public class PCClass extends PObject {
 	 */
 	/*
 	 * UNKNOWNDESTINATION Don't know where to put this yet... this is a
-	 * COMPLICATED function that allows the exchange of leveis (presumably on a
+	 * COMPLICATED function that allows the exchange of levels (presumably on a
 	 * one-time basis). Thus, this needs to be tagged as performed, and thus
 	 * unrepeatable.
 	 */
@@ -594,12 +598,25 @@ public class PCClass extends PObject {
 	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
 	 * indicate if the given PCClassLevel is actualy a SubClass
+	 * 
+	 * CONSIDER Technically, that's not true ... this is really an indication of 
+	 * whether the class HAS subclasses or not (an abstract test, not a practical
+	 * "a subclass has been selected" test.  Is this therefore duplicate information??
+	 * 
+	 * Can I DELETEVARIABLE?
 	 */
 	private boolean hasSubClass = false;
 
 	/*
 	 * ALLCLASSLEVELS This goes into each PCClassLevel from PCClass in order to
 	 * indicate if the given PCClassLevel is actualy a SubstitutionClass
+	 * 
+	 * CONSIDER Technically, that's not true ... this is really an indication of
+	 * whether the class HAS substitution classes or not (an abstract test, not
+	 * a practical "a substitution class has been selected" test. Is this
+	 * therefore duplicate information??
+	 * 
+	 * Can I DELETEVARIABLE?
 	 */
 	private boolean hasSubstitutionClass = false;
 
@@ -650,6 +667,8 @@ public class PCClass extends PObject {
 	 * "post-hoc" verifications (to find cases later invalidated due to Data
 	 * updates or code fixes) and therefore it should be stored in the
 	 * PCClassLevel
+	 * 
+	 * I really want to DELETEVARIABLE
 	 */
 	private boolean multiPreReqs = false;
 
@@ -1519,7 +1538,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since it
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since it
 	 * is a Tag
 	 */
 	public final void setExClass(final String aString) {
@@ -1527,7 +1546,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getExClass() {
@@ -2461,16 +2480,6 @@ public class PCClass extends PObject {
 	 * feats).
 	 */
 	public final Integer getLevelsPerFeat() {
-		if (levelsPerFeat == null) {
-			/*
-			 * REFACTOR This SHOULD NOT protect against a NPE, that should be up
-			 * to the CALLING method to do that... protecting against bad coding
-			 * is a bad practice.
-			 */
-			levelsPerFeat = Integer.valueOf(-1); // -1 to indicate it's not a
-												// 'set' value, this is to avoid
-												// null pointer errors
-		}
 		return levelsPerFeat;
 	}
 
@@ -2561,7 +2570,7 @@ public class PCClass extends PObject {
 	 * @return The list of automatically known spells.
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public List<SpellFilter> getKnownSpellsList() {
@@ -2847,7 +2856,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
+	 * FINALPCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel
 	 */
@@ -2915,16 +2924,13 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * 
-	 * @return uattList
-	 *         <p>
 	 *         TODO - This should be removed.
 	 */
 	/*
 	 * DELETEMETHOD Associated with the unused List uattList
 	 */
-	public final Collection<String> getUattList() {
-		return uattList;
+	public final void addUatt(String s) {
+		uattList.add(s);
 	}
 
 	/*
@@ -2978,6 +2984,13 @@ public class PCClass extends PObject {
 	}
 
 	/*
+	 * PCCLASSLEVELONLY This is required for PlayerCharacter.makeEXclass()
+	 */
+	public Map<Integer, Integer> getHitPointMap() {
+		return new HashMap<Integer, Integer>(hitPointMap);
+	}
+	
+	/*
 	 * PCCLASSLEVELONLY This is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
 	 */
@@ -2998,10 +3011,10 @@ public class PCClass extends PObject {
 	 * PCCLASSLEVELONLY This is dependent upon the class level
 	 * and is therefore appropriate only for PCClassLevel
 	 */
-	public final void setHitPointMap(final PCClass otherClass) {
+	public final void setHitPointMap(Map<Integer, Integer> hpMap) {
 		hitPointMap = null;
-		if (otherClass.hitPointMap != null) {
-			hitPointMap = new HashMap<Integer, Integer>(otherClass.hitPointMap);
+		if (hpMap != null) {
+			hitPointMap = new HashMap<Integer, Integer>(hpMap);
 		}
 	}
 
@@ -3129,8 +3142,8 @@ public class PCClass extends PObject {
 					{
 						int monLev = aPC.getRace().getMonsterClassLevels(aPC, false);
 
-						int MLevPerFeat = this.getLevelsPerFeat().intValue();
-						divisor = (MLevPerFeat >= 1) ? MLevPerFeat : rangeLevel;
+						Integer mLevPerFeat = getLevelsPerFeat();
+						divisor = (mLevPerFeat != null && mLevPerFeat >= 1) ? mLevPerFeat : rangeLevel;
 						formula = new StringBuffer("max(0,floor((CL-");
 						formula.append(monLev);
 						formula.append(")/");
@@ -3338,12 +3351,20 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
+	 */
+	/*
+	 * FUTUREREFACTOR This would really be nice to have initilized when the LST files
+	 * are read in, which is possible because the ClassTypes are all defined as part
+	 * of the GameMode... however the problem is that the order of the ISMONSTER tag
+	 * and the TYPE tags cannot be defined - .MODs and .COPYs make it impossible to 
+	 * guarantee an order.  Therefore, this must wait for a two-pass design in the
+	 * import system - thpr 10/4/06
 	 */
 	public boolean isMonster() {
 		if (monsterFlag != null) {
-			return monsterFlag.equals(Boolean.TRUE);
+			return monsterFlag.booleanValue();
 		}
 
 		if (getMyTypeCount() == 0) {
@@ -3572,24 +3593,17 @@ public class PCClass extends PObject {
 
 	/**
 	 * Sets this class as a "monster" class.
-	 * 
 	 * <p>
 	 * Monster classes have special behaviour in certain cases.
-	 * 
-	 * <p>
-	 * TODO - Figure out what those cases are.
 	 * 
 	 * @param aFlag
 	 *            true if this is a monster class.
 	 */
 	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and PCClass since
+	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and PCClass since
 	 * it is a Tag
 	 */
 	public void setMonsterFlag(final boolean aFlag) {
-		if (monsterFlag == null) {
-			monsterFlag = Boolean.valueOf(aFlag);
-		}
 		monsterFlag = aFlag;
 	}
 
@@ -4071,7 +4085,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
+	 * FINALPCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel
 	 */
@@ -4080,7 +4094,7 @@ public class PCClass extends PObject {
 			subClassList = new ArrayList<SubClass>();
 		}
 
-		sClass.setHitPointMap(this);
+		sClass.setHitPointMap(hitPointMap);
 		sClass.setHitDie(hitDie);
 		subClassList.add(sClass);
 	}
@@ -4095,7 +4109,7 @@ public class PCClass extends PObject {
 			substitutionClassList = new ArrayList<SubstitutionClass>();
 		}
 
-		sClass.setHitPointMap(this);
+		sClass.setHitPointMap(hitPointMap);
 		sClass.setHitDie(hitDie);
 		substitutionClassList.add(sClass);
 	}
@@ -4134,7 +4148,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
+	 * FINALPCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public void addKnownSpell(final SpellFilter aFilter) {
@@ -4145,7 +4159,7 @@ public class PCClass extends PObject {
 	}
 	
 	/*
-	 * PCCLASSONLY - for class construction
+	 * FINALPCCLASSONLY - for class construction
 	 */
 	public void clearKnownSpellsList() {
 		knownSpellsList = null;
@@ -4521,7 +4535,6 @@ public class PCClass extends PObject {
 			aClass.classSpellList = null;
 			aClass.stableSpellKey = null;
 
-			aClass.setExClass(exClass);
 			aClass.setLevelExchange(levelExchange);
 			aClass.maxCastLevel = maxCastLevel;
 			aClass.maxKnownLevel = maxKnownLevel;
@@ -4554,9 +4567,10 @@ public class PCClass extends PObject {
 				//This is ok as a shallow copy - contract on readers of domainList
 				aClass.addDomains = new ArrayList<LevelProperty<Domain>>(addDomains);
 			}
-			aClass.setHitPointMap(this);
+			if (hitPointMap != null) {
+				aClass.hitPointMap = new HashMap<Integer, Integer>(hitPointMap);
+			}
 			aClass.hasSubClass = hasSubClass;
-			aClass.subClassList = subClassList;
 			aClass.hasSubstitutionClass = hasSubstitutionClass;
 			aClass.substitutionClassList = substitutionClassList; 
 
@@ -4665,7 +4679,7 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
+	 * FINALPCCLASSONLY This is really an item that the PCClass knows, and then the
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel
 	 */
@@ -6251,8 +6265,7 @@ public class PCClass extends PObject {
 	 */
 	/*
 	 * DELETEMETHOD if not PCCLASSONLY.  This is required in PCClass since
-	 * it is really done during addLevel.  Note that templatesAdded is 
-	 * never used and will be deleted.
+	 * it is really done during addLevel.
 	 */
 	public List<String> getTemplates(final boolean flag,
 			final PlayerCharacter aPC) {
@@ -6436,91 +6449,6 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * Build a list of Sub-Classes for the user to choose from. The two lists
-	 * passed in will be populated.
-	 * 
-	 * @param choiceList
-	 *            The list of sub-classes to choose from.
-	 * @param removeList
-	 *            The list of sub-classes that cannot be chosen
-	 * @param useProhibitCost
-	 *            SHould the prohibited cost be used rather than the cost of the
-	 *            sub-class.
-	 * @param aPC
-	 */
-	/*
-	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
-	 * selected substitutionClass, if any, is structured into the PCClassLevel
-	 * during the construction of the PCClassLevel
-	 */
-	private void buildSubClassChoiceList(final List<List> choiceList,
-			final List<List> removeList, final boolean useProhibitCost,
-			final PlayerCharacter aPC) {
-		int displayedCost;
-
-		boolean subClassSelected = false;
-		for (SubClass sc : subClassList) {
-			if (!PrereqHandler.passesAll(sc.getPreReqList(), aPC, this)) {
-				continue;
-			}
-
-			final List<Object> columnList = new ArrayList<Object>(3);
-
-			if (useProhibitCost) {
-				displayedCost = sc.getProhibitCost();
-			} else {
-				if (!this.getSubClassKey().equals("None")) {
-					// We already have a subclass requested.
-					// If it is legal we will return that.
-					subClassSelected = true;
-				}
-				displayedCost = sc.getCost();
-			}
-
-			boolean added = false;
-			columnList.add(sc);
-			columnList.add(String.valueOf(displayedCost));
-
-			StringBuffer otherColumn = new StringBuffer();
-			if (sc.getNumSpellsFromSpecialty() != 0) {
-				otherColumn.append("SPECIALTY SPELLS:").append(
-						sc.getNumSpellsFromSpecialty());
-				added = true;
-			}
-
-			if (sc.getSpellBaseStat() != null) {
-				if (otherColumn.length() > 0) {
-					otherColumn.append(" ");
-				}
-				otherColumn.append("SPELL BASE STAT:").append(
-						sc.getSpellBaseStat());
-				added = true;
-			}
-
-			if (!added) {
-				otherColumn.append(' ');
-			}
-			columnList.add(otherColumn.toString());
-
-			if (displayedCost == 0) {
-				removeList.add(columnList);
-			}
-
-			choiceList.add(columnList);
-		}
-		if (useProhibitCost == false && subClassSelected == true) {
-			// We want to return just the selected class.
-			for (Iterator<List> i = choiceList.iterator(); i.hasNext();) {
-				List columns = i.next();
-				SubClass sc = (SubClass) columns.get(0);
-				if (!sc.getKeyName().equals(this.getSubClassKey())) {
-					i.remove();
-				}
-			}
-		}
-	}
-
-	/**
 	 * Build a list of Substitution Classes for the user to choose from. The
 	 * list passed in will be populated.
 	 * 
@@ -6674,17 +6602,41 @@ public class PCClass extends PObject {
 		columnNames.add("Other");
 
 		List<List> choiceList = new ArrayList<List>();
-		List<List> removeList = new ArrayList<List>();
-		buildSubClassChoiceList(choiceList, removeList, false, aPC);
+		
+		for (SubClass sc : subClassList) {
+			/*
+			 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
+			 * 
+			 * STOP THE MAGIC, I want to delete MULTIPREREQs
+			 */
+			if (!PrereqHandler.passesAll(sc.getPreReqList(), aPC, this)) {
+				continue;
+			}
 
+			final List<Object> columnList = new ArrayList<Object>(3);
+
+			columnList.add(sc);
+			columnList.add(Integer.toString(sc.getCost()));
+			columnList.add(sc.getSupplementalDisplayInfo());
+			
+			if (!getSubClassKey().equals(Constants.s_NONE)) {
+				// We already have a subclass requested.
+				// If it is legal we will return that.
+				choiceList.clear();
+				choiceList.add(columnList);
+				break;
+			}
+
+			choiceList.add(columnList);
+		}
+		
 		/*
 		 * REFACTOR This makes an assumption that SubClasses are ONLY Schools, which may
 		 * not be a fabulous assumption
 		 */
 		final ChooserInterface c = ChooserFactory.getChooserInstance();
 		c.setTitle("School Choice (Specialisation)");
-		c
-				.setMessageText("Make a selection.  The cost column indicates the cost of that selection. "
+		c.setMessageText("Make a selection.  The cost column indicates the cost of that selection. "
 						+ "If this cost is non-zero, you will be asked to also "
 						+ "select items from this list to give up to cover that cost.");
 		c.setPool(1);
@@ -6712,21 +6664,35 @@ public class PCClass extends PObject {
 
 			SubClass sc = selectedList.get(0).get(0);
 			choiceList = new ArrayList<List>();
-			removeList = new ArrayList<List>();
-			buildSubClassChoiceList(choiceList, removeList, true, aPC);
-
-			// Remove the specialist school
-			for (Iterator<List> iter = choiceList.iterator(); iter.hasNext();) {
-				final List columns = iter.next();
-
-				if (columns.get(0).equals(sc)) {
-					iter.remove();
-
-					break;
+			
+			for (SubClass sub : subClassList) {
+				if (sub.equals(sc)) {
+					//Skip the selected specialist school
+					continue;
 				}
+				/*
+				 * BUG MULTIPREREQS would fail here on a SubClass :( - thpr 11/4/06
+				 * 
+				 * STOP THE MAGIC, I want to delete MULTIPREREQs
+				 */
+				if (!PrereqHandler.passesAll(sub.getPreReqList(), aPC, this)) {
+					continue;
+				}
+
+				final List<Object> columnList = new ArrayList<Object>(3);
+
+				int displayedCost = sub.getProhibitCost();
+				if (displayedCost == 0) {
+					continue;
+				}
+
+				columnList.add(sub);
+				columnList.add(Integer.toString(displayedCost));
+				columnList.add(sub.getSupplementalDisplayInfo());
+
+				choiceList.add(columnList);
 			}
 
-			choiceList.removeAll(removeList);
 			setSubClassKey(sc.getKeyName());
 
 			if (sc.getChoice().length() > 0) {
@@ -6738,8 +6704,7 @@ public class PCClass extends PObject {
 				c1.setTitle("School Choice (Prohibited)");
 				c1.setAvailableColumnNames(columnNames);
 				c1.setAvailableList(choiceList);
-				c1
-						.setMessageText("Make a selection.  You must make as many selections "
+				c1.setMessageText("Make a selection.  You must make as many selections "
 								+ "necessary to cover the cost of your previous selections.");
 				c1.setPool(sc.getCost());
 				c1.setPoolFlag(true);
