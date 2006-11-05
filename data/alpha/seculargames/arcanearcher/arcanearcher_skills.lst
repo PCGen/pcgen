@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Aug  3 20:00:57 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
+#Originally done by Paul W. King
+
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Craft (Poison Making)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p.13

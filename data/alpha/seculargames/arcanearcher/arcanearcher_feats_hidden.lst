@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Thu Aug  3 20:02:30 2006 -- reformated by prettylst.pl v1.35 (build 565)
+SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
+#Originally done by Paul W. King
+
+###Block: .MOD
+# Feat Name			Clear SAs	Special Ability
+Arrow of Death.MOD	SA:.CLEAR	SA:Arrow of Death (Sp)|PREVARLTEQ:ArrowDeathLevel,20	SA:Greater Arrow of Death (Sp)|PREVARGTEQ:ArrowDeathLevel,20
+
+###Block: Arcane Crossbowman
+# Feat Name		Type				Visible	Special Ability					Define
+Enhance Bolt	TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Enhance Bolt +%|EnhanceBolt		DEFINE:EnhanceBolt|0
+Imbue Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Imbue Bolt (Sp)
+Phase Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Phase Bolt %/day|PhaseBoltTimes		DEFINE:PhaseBoltTimes|0
+Seeker Bolt		TYPE:ArcaneCrossbowman	VISIBLE:NO	SA:Seeker Bolt %/day|SeekerBoltTimes	DEFINE:SeekerBoltTimes|0

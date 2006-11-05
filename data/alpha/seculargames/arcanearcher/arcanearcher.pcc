@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Wed Jun 21 08:24:30 2006 -- reformated by prettylst.pl v1.35 (build 561)
+CAMPAIGN:Secular Games - Advanced Character Guide - Arcane Archer
+RANK:6
+GAMEMODE:35e
+GENRE:Generic
+BOOKTYPE:PDF
+SETTING:Fantasy
+TYPE:Alpha
+#TYPE:Secular Games.Advanced Character Guide.Arcane Archer
+PUBNAMELONG:Secular Games
+PUBNAMESHORT:SG
+PUBNAMEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/index.html
+SOURCELONG:Advanced Character Guide - Arcane Archer
+SOURCESHORT:ArcaneArcher
+SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2004, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Character Guide - Arcane Archer, Copyright 2005, Secular Games; Author Giltônio Santos.
+COPYRIGHT:PCGen dataset conversion for Advanced Character Guide - Arcane Archer Copyright 2006, PCGen Data team (including, but not limited to, Paul W. King, Andrew McDougall (Tir Gwaith))
+
+CLASS:arcanearcher_classes_base.lst
+CLASS:arcanearcher_classes_prestige.lst
+EQUIPMENT:arcanearcher_equip.lst
+FEAT:arcanearcher_feats.lst
+FEAT:arcanearcher_feats_schools.lst
+FEAT:arcanearcher_feats_hidden.lst
+SKILL:arcanearcher_skills.lst
+SPELL:arcanearcher_spells.lst
