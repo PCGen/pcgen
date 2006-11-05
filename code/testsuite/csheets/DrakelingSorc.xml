@@ -953,6 +953,10 @@ BIO
 			<description></description>
 		</ability>
 		<ability>
+			<name>Fire Resistance 10</name>
+			<description></description>
+		</ability>
+		<ability>
 			<name>Summon Familiar</name>
 			<description></description>
 		</ability>
@@ -986,6 +990,16 @@ BIO
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+		<feat>
+			<name>Drakeling Resistance Selection (Fire Resistance 10)</name>
+			<description></description>
+			<type>RACIALSELECTION</type>
+			<associated>Fire Resistance 10</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
 		<feat>
@@ -1024,7 +1038,7 @@ BIO
 			<cr>0</cr>
 			<dr></dr>
 			<feat></feat>
-			<sa>CHOOSE:Acid Resistance 10|Cold Resistance 10|Electricity Resistance 10|Fire Resistance 10, Energy Substitution for element</sa>
+			<sa>Energy Substitution for element</sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
 		</template>

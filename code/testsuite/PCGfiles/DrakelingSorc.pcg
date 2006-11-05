@@ -93,6 +93,7 @@ SKILL:Wilderness Lore|OUTPUTORDER:24|
 LANGUAGE:Common|LANGUAGE:Draconic|LANGUAGE:Literacy
 
 # Character Feats
+FEAT:Drakeling Resistance Selection|APPLIEDTO:Fire Resistance 10|TYPE:RACIALSELECTION
 FEATPOOL:3.0
 
 # Character Weapon proficiencies
