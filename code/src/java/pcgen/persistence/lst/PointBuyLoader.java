@@ -61,6 +61,7 @@ public class PointBuyLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		GameMode thisGameMode = SystemCollections.getGameModeNamed(getGameMode());

@@ -49,6 +49,7 @@ final class EquipSlotLoader extends LstLineFileLoader
 	/**
 	 * @see LstLineFileLoader#parseLine(String, URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		final EquipSlot eqSlot = new EquipSlot();

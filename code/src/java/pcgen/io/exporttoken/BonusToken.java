@@ -45,6 +45,7 @@ public class BonusToken extends Token
 	/** Name of token */
 	public static final String TOKENNAME = "BONUS";
 
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -55,6 +56,7 @@ public class BonusToken extends Token
 	 *
 	 * TODO: Bonuses need to be stripped out, and there need to be methods for the various types.
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return getBonusToken(tokenSource, pc);

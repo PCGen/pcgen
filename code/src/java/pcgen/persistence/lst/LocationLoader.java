@@ -51,6 +51,7 @@ public class LocationLoader extends LstLineFileLoader
 		super();
 	}
 
+	@Override
 	public void loadLstFile(String source) throws PersistenceLayerException
 	{
 		traitType = -1;
@@ -60,6 +61,7 @@ public class LocationLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		if (lstLine.charAt(0) != '[')

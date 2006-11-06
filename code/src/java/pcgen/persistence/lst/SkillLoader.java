@@ -49,9 +49,11 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Skill parseLine(Skill skill, String lstLine, CampaignSourceEntry source)
+	public Skill parseLine(Skill aSkill, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Skill skill = aSkill;
+		
 		if (skill == null)
 		{
 			skill = new Skill();

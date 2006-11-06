@@ -53,10 +53,8 @@ public final class VisionType extends AbstractConstant {
 		}
 	}
 
+	@Override
 	public String toString() {
-		/*
-		 * CLEANUP Oh my, this should NOT be this way
-		 */
 		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap.entrySet()) {
 			if (me.getValue().equals(this)) {
 				return me.getKey().toString();

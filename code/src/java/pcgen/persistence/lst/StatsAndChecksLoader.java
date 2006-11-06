@@ -56,6 +56,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	 * @throws PersistenceLayerException
 	 * @see pcgen.persistence.lst.LstFileLoader#loadLstFiles(java.util.List)
 	 */
+	@Override
 	public void loadLstFile(String fileName) throws PersistenceLayerException
 	{
 		// Clear relevant Globals
@@ -84,6 +85,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		final int idxColon = lstLine.indexOf(':');

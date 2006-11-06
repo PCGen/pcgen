@@ -53,9 +53,11 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Deity parseLine(Deity deity, String lstLine, CampaignSourceEntry source)
+	public Deity parseLine(Deity aDeity, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Deity deity = aDeity;
+		
 		if (deity == null)
 		{
 			deity = new Deity();

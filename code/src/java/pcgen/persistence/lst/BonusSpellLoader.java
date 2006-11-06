@@ -54,6 +54,7 @@ public final class BonusSpellLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);

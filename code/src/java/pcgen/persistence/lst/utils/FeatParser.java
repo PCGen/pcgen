@@ -82,7 +82,7 @@ public class FeatParser {
 				if (anAbility == null) {
 					anAbility = Globals.getAbilityKeyed("FEAT", abilityName);
 					if (anAbility != null) {
-						anAbility = (Ability) anAbility.clone();
+						anAbility = anAbility.clone();
 						anAbility.setFeatType(Ability.Nature.VIRTUAL);
 						anAbility.clearPreReq();
 					}

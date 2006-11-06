@@ -80,6 +80,7 @@ public class CampaignLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.lang.String)
 	 */
+	@Override
 	public void loadLstFile(String fileName) throws PersistenceLayerException
 	{
 		campaign = new Campaign();
@@ -89,6 +90,7 @@ public class CampaignLoader extends LstLineFileLoader
 		finishCampaign();
 	}
 
+	@Override
 	public void parseLine(String inputLine, URL sourceUrl) throws PersistenceLayerException
 	{
 		final int idxColon = inputLine.indexOf(':');

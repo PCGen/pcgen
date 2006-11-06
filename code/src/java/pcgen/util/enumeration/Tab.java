@@ -59,6 +59,7 @@ public enum Tab {
 		}
 	}
 	
+	@Override
 	public String toString()
 	{
 		return text;

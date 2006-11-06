@@ -50,9 +50,11 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Language parseLine(Language lang, String lstLine, CampaignSourceEntry source)
+	public Language parseLine(Language aLang, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Language lang = aLang;
+		
 		if (lang == null)
 		{
 			lang = new Language();
@@ -112,6 +114,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
+	@Override
 	protected Language getObjectKeyed(String aKey)
 	{
 		return Globals.getLanguageKeyed(aKey);

@@ -54,9 +54,11 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Ability parseLine(Ability anAbility, String lstLine, CampaignSourceEntry source)
+	public Ability parseLine(Ability ability, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Ability anAbility = ability;
+		
 		if (anAbility == null)
 		{
 			anAbility = new Ability();

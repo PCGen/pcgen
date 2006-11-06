@@ -55,9 +55,12 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public Spell parseLine(Spell spell, String lstLine, CampaignSourceEntry source)
+	@Override
+	public Spell parseLine(Spell aSpell, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Spell spell = aSpell;
+		
 		if (spell == null)
 		{
 			spell = new Spell();
@@ -134,6 +137,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(pcgen.core.PObject)
 	 */
+	@Override
 	protected void finishObject(PObject target)
 	{
 		// TODO - This code is broken now.  I think it always was though.

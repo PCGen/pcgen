@@ -47,6 +47,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 		throws PersistenceLayerException
 	{

@@ -46,9 +46,10 @@ public class PreMultParser extends AbstractPrerequisiteParser implements Prerequ
 		return new String[]{ "MULT" };
 	}
 
-	public Prerequisite parse(String kind,
-														String formula,
-														boolean invertResult, boolean overrideQualify) throws PersistenceLayerException {
+	@Override
+	public Prerequisite parse(String kind, String formula,
+			boolean invertResult, boolean overrideQualify)
+			throws PersistenceLayerException {
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(null);
 

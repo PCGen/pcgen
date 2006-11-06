@@ -45,6 +45,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 		// TODO: Exception needs to be handled
 	}
 
+	@Override
 	public void loadLstFile(String fileName, String gameModeIn) throws PersistenceLayerException
 	{
 		SystemCollections.getGameModeNamed(gameModeIn).clearSizeAdjustmentList();
@@ -54,6 +55,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 		throws PersistenceLayerException
 	{

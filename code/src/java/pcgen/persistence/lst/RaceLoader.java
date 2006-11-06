@@ -53,9 +53,11 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Race parseLine(Race race, String lstLine, CampaignSourceEntry source)
+	public Race parseLine(Race aRace, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Race race = aRace;
+		
 		if (race == null)
 		{
 			race = new Race();

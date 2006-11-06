@@ -30,6 +30,7 @@ public class SponsorLoader extends LstLineFileLoader {
 	 * @param sourceURL
 	 * @throws PersistenceLayerException
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL) throws PersistenceLayerException {
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		Map<String, String> sponsor = new HashMap<String, String>();

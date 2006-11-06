@@ -48,7 +48,8 @@ public abstract class AbstractPrerequisiteSimpleParser extends AbstractPrerequis
 	 * @return PreReq
 	 * @throws PersistenceLayerException 
 	 */
-    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+    @Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);

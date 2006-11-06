@@ -49,9 +49,11 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public WeaponProf parseLine(WeaponProf prof, String lstLine, CampaignSourceEntry source)
+	public WeaponProf parseLine(WeaponProf aWP, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		WeaponProf prof = aWP;
+		
 		// Make sure we have a weapon prof to load
 		if (prof == null)
 		{
@@ -118,6 +120,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	 * @return PObject
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
+	@Override
 	protected WeaponProf getObjectKeyed(String aKey)
 	{
 		return Globals.getWeaponProfKeyed(aKey);

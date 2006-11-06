@@ -50,9 +50,11 @@ public final class FeatLoader extends AbilityLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Ability parseLine(Ability feat, String lstLine, CampaignSourceEntry source)
+	public Ability parseLine(Ability aFeat, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Ability feat = aFeat;
+		
 		if (feat == null)
 		{
 			feat = new Ability();
@@ -66,6 +68,7 @@ public final class FeatLoader extends AbilityLoader
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFile(pcgen.persistence.lst.CampaignSourceEntry)
 	 */
+	@Override
 	protected void loadLstFile(CampaignSourceEntry sourceEntry)
 	{
 		super.loadLstFile(sourceEntry);

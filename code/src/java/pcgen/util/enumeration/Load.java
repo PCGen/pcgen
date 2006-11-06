@@ -14,6 +14,7 @@ public enum Load {
 		text = s;
 	}
 	
+	@Override
 	public String toString()
 	{
 		return text;

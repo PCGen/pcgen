@@ -338,6 +338,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
+	@Override
 	protected PCClass getObjectKeyed(String aKey)
 	{
 		return Globals.getClassKeyed(aKey.startsWith("CLASS:") ? aKey.substring(6) : aKey);

@@ -48,8 +48,9 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
-		throws PersistenceLayerException
+			throws PersistenceLayerException
 	{
 		PCAlignment alignment = new PCAlignment();
 

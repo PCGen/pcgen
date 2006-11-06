@@ -50,9 +50,11 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Domain parseLine(Domain domain, String lstLine, CampaignSourceEntry source)
+	public Domain parseLine(Domain aDomain, String lstLine, CampaignSourceEntry source)
 		throws PersistenceLayerException
 	{
+		Domain domain = aDomain;
+		
 		if (domain == null)
 		{
 			domain = new Domain();
@@ -135,6 +137,7 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
+	@Override
 	protected Domain getObjectKeyed(String aKey)
 	{
 		return Globals.getDomainKeyed(aKey);

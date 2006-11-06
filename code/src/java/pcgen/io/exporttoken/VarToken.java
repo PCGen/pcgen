@@ -49,6 +49,7 @@ public class VarToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
@@ -57,6 +58,7 @@ public class VarToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
+	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		boolean isMin = tokenSource.lastIndexOf(".MINVAL") >= 0;
@@ -69,19 +71,20 @@ public class VarToken extends Token
 				+ " is deprecated. " + "The default output format is unsigned.");
 		}
 
+		String workingSource = tokenSource;
 		// clear out the gunk
 		if (isMin)
 		{
-			tokenSource = tokenSource.replaceAll(".MINVAL", "");
+			workingSource = workingSource.replaceAll(".MINVAL", "");
 		}
 		if (isInt)
 		{
-			tokenSource = tokenSource.replaceAll(".INTVAL", "");
+			workingSource = workingSource.replaceAll(".INTVAL", "");
 		}
-		tokenSource = tokenSource.replaceAll(".NOSIGN", "");
-		tokenSource = tokenSource.replaceAll(".SIGN", "");
+		workingSource = workingSource.replaceAll(".NOSIGN", "");
+		workingSource = workingSource.replaceAll(".SIGN", "");
 
-		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+		StringTokenizer aTok = new StringTokenizer(workingSource, ".");
 		aTok.nextToken(); //this should be VAR
 
 		StringBuffer varName = new StringBuffer();

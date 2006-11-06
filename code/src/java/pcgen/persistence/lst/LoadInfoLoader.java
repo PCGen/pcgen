@@ -46,6 +46,7 @@ public class LoadInfoLoader extends LstLineFileLoader
 	    // Empty Constructor
 	}
 
+	@Override
 	public void loadLstFile(String source, String gameModeIn) throws PersistenceLayerException
 	{
 		super.loadLstFile(source, gameModeIn);
@@ -69,6 +70,7 @@ public class LoadInfoLoader extends LstLineFileLoader
 	/**
 	 * @see LstLineFileLoader#parseLine(String, URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 

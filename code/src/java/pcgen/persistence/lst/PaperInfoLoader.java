@@ -46,6 +46,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 	    // Empty Constructor
 	}
 
+	@Override
 	public void loadLstFile(String fileName) throws PersistenceLayerException
 	{
 		// We cannot clear the global list as we are only setting one 
@@ -58,6 +59,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
 	 */
+	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
 		final PaperInfo psize = new PaperInfo();

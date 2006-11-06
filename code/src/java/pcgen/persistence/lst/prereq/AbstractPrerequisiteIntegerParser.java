@@ -40,6 +40,7 @@ public abstract class AbstractPrerequisiteIntegerParser extends AbstractPrerequi
 	/**
 	 * @see pcgen.persistence.lst.prereq.AbstractPrerequisiteParser#parse(java.lang.String, java.lang.String, boolean, boolean)
 	 */
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

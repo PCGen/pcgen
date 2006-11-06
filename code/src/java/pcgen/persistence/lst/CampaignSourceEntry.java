@@ -146,6 +146,7 @@ public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
 	/**
 	 * @see java.lang.Object#hashCode()
 	 */
+	@Override
 	public int hashCode()
 	{
 		return this.file.hashCode();
@@ -154,6 +155,7 @@ public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
 	/**
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString()
 	{
 		if (stringForm == null)

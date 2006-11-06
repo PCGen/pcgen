@@ -14,6 +14,7 @@ public enum Visibility {
 		text = s;
 	}
 	
+	@Override
 	public String toString()
 	{
 		return text;
