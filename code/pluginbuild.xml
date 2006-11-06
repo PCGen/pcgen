@@ -5590,6 +5590,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-ROLLED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/statsandchecks/stat/RolledToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-STATMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
