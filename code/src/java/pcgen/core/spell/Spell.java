@@ -1037,10 +1037,12 @@ public final class Spell extends PObject
 	{
 		final Map<String, Integer> wLevelInfo = getLevelInfo(aPC);
 		final Integer levelKey = Integer.valueOf(aLevel);
-		for (String key : wLevelInfo.keySet())
+		for (Integer value : wLevelInfo.values())
 		{
-			if (wLevelInfo.get(key).equals(levelKey))
+			if (value.equals(levelKey))
+			{
 				return true;
+			}
 		}
 		return false;
 	}

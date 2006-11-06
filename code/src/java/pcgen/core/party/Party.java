@@ -148,7 +148,7 @@ public class Party
 			{
 				final String fileName = fileNames.nextToken();
 				File characterFile = buildCharacterFile(fileName);
-				PlayerCharacter currPC = null;
+				PlayerCharacter currPC;
 
 				if (!characterFile.exists())
 				{

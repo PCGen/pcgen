@@ -39,7 +39,7 @@ import java.util.*;
  */
 public class LevelAbilityAbility extends LevelAbility
 {
-	protected class AbilityChoice
+	protected static class AbilityChoice
 	{
 		Ability ability;
 		String  choice;

@@ -30,6 +30,7 @@ import java.util.Collections;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
+import pcgen.util.UnreachableError;
 import pcgen.core.prereq.Prerequisite;
 
 /**
@@ -123,7 +124,7 @@ public abstract class BaseKit implements Cloneable
 		}
 		catch (CloneNotSupportedException notUsed)
 		{
-			// This will never happen
+			throw new UnreachableError(notUsed);
 		}
 		if ( prereqs != null )
 		{
@@ -257,7 +258,7 @@ public abstract class BaseKit implements Cloneable
 	 */
 	public abstract String getObjectName();
 
-	class Range
+	static class Range
 	{
 		private String lowValue = "" + Integer.MIN_VALUE;
 		private String highValue = "" + Integer.MAX_VALUE;

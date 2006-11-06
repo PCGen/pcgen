@@ -266,45 +266,31 @@ public class PrereqHandler {
 			return ""; //$NON-NLS-1$
 		}
 
-		try
+		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+
+		final StringBuffer pString = new StringBuffer(anArrayList.size() * 20);
+
+		String delimiter = ""; //$NON-NLS-1$
+
+		for (Prerequisite prereq : anArrayList)
 		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-			final PreParserFactory pfactory = PreParserFactory.getInstance();
-
-			final StringBuffer pString = new StringBuffer(anArrayList.size() * 20);
-
-			String delimiter = ""; //$NON-NLS-1$
-
-			for (Object obj : anArrayList)
+			final PrerequisiteTest preHtml = factory.getTest(prereq.getKind());
+			if (preHtml==null)
 			{
-				final Prerequisite prereq;
-				if (obj instanceof String)
-					prereq = pfactory.parse( (String) obj );
-				else
-					prereq = (Prerequisite) obj;
-				final PrerequisiteTest preHtml = factory.getTest(prereq.getKind());
-				if (preHtml==null)
-				{
-					Logging.errorPrintLocalised("PrereqHandler.No_known_formatter", prereq.getKind()); //$NON-NLS-1$
-				}
-				else
-				{
-					pString.append(delimiter);
-					if (prereq.getLevelQualifier() > 0)
-						pString.append("at level "+prereq.getLevelQualifier()+":");
-					pString.append(preHtml.toHtmlString(prereq) );
+				Logging.errorPrintLocalised("PrereqHandler.No_known_formatter", prereq.getKind()); //$NON-NLS-1$
+			}
+			else
+			{
+				pString.append(delimiter);
+				if (prereq.getLevelQualifier() > 0)
+					pString.append("at level "+prereq.getLevelQualifier()+":");
+				pString.append(preHtml.toHtmlString(prereq) );
 
 					delimiter = PropertyFactory.getString("PrereqHandler.HTML_prerequisite_delimiter"); //$NON-NLS-1$
-				}
 			}
+		}
 
-			return pString.toString();
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
-			return "";
-		}
+		return pString.toString();
 	}
 
 

@@ -204,7 +204,7 @@ public class LoadInfo {
 		return loadMultiplierMap.size();
 	}
 
-	private class LoadMapEntry
+	private static class LoadMapEntry
 	{
 		private Float multiplier;
 		private String moveFormula;

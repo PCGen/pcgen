@@ -165,7 +165,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		aPC.setDeity(theDeity);
 
 		List<String> domains = getDomains();
-		if (domains == null || (domains != null && domains.size() == 0))
+		if (domains == null || domains.size() == 0)
 		{
 			// nothing else to do.
 			return true;

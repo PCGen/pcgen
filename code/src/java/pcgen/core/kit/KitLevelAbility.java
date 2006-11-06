@@ -73,7 +73,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 		theLevel = level;
 	}
 
-	class AbilityChoice
+	static class AbilityChoice
 	{
 		private ArrayList<String> theChoices = new ArrayList<String>();
 		private String theAbilityName = "";

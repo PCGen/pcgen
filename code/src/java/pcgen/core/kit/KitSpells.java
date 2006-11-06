@@ -306,8 +306,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 					}
 					else
 					{
-						warnings.add(
-							"SPELLS: Non-existant spell \"" + obj.toString() + "\"");
+						warnings.add("SPELLS: Non-existant spell chosen");
 					}
 				}
 

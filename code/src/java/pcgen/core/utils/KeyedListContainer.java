@@ -37,7 +37,7 @@ public interface KeyedListContainer
 	 * @param key
 	 * @return true if it contains a list for that key
 	 */
-	public boolean containsListFor(ListKey key);
+	public boolean containsListFor(ListKey<?> key);
 
 	/**
 	 * Retrieves a list based on key
@@ -51,7 +51,7 @@ public interface KeyedListContainer
 	 * @param key
 	 * @return The size of a list based off a key
 	 */
-	public int getSizeOfListFor(ListKey key);
+	public int getSizeOfListFor(ListKey<?> key);
 
 	/**
 	 * Returns true if a value is in a list for that key
@@ -81,5 +81,5 @@ public interface KeyedListContainer
 	 * @param key
 	 * @return The size of a safe list
 	 */
-	public int getSafeSizeOfListFor(ListKey key);
+	public int getSafeSizeOfListFor(ListKey<?> key);
 }

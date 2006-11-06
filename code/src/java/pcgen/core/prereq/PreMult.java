@@ -92,10 +92,9 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
 	public String toHtmlString(final Prerequisite prereq) {
-		String str = ""; //$NON-NLS-1$
-
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 
+		StringBuffer str = new StringBuffer();
 		String delimiter = ""; //$NON-NLS-1$
 		for ( Prerequisite element : prereq.getPrerequisites() )
 		{
@@ -105,8 +104,8 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 				Logging.errorPrintLocalised("PreMult.cannot_find_subformatter", element.getKind() ); //$NON-NLS-1$
 			}
 			else {
-				str += delimiter;
-				str += test.toHtmlString( element );
+				str.append(delimiter);
+				str.append(test.toHtmlString(element));
 				delimiter = PropertyFactory.getString("PreMult.html_delimiter"); //$NON-NLS-1$
 			}
 		}
@@ -114,7 +113,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		return PropertyFactory.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
 				new Object[] {prereq.getOperator().toDisplayString(),
 						prereq.getOperand(),
-						str} );
+						str.toString()} );
 
 	}
 
