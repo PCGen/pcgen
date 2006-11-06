@@ -41,6 +41,7 @@ public class PreSpellBookTester  extends AbstractPrerequisiteTest implements Pre
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		final boolean prereqUsesBook = prereq.getKey().toUpperCase().startsWith("Y");  //$NON-NLS-1$
 		int runningTotal=0;

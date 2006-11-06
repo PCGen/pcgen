@@ -57,6 +57,7 @@ public class PreVariableTester
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
 		throws PrerequisiteException
 	{
@@ -94,6 +95,7 @@ public class PreVariableTester
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 		throws PrerequisiteException
 	{

@@ -26,6 +26,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
 	{
 		Logging.errorPrint("PreClass on equipment: "+equipment.getName()+"  pre: "+toHtmlString(prereq));
@@ -35,6 +36,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		int runningTotal = 0;

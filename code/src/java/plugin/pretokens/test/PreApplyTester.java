@@ -46,11 +46,13 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		return 0;
 	}
 
+	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException
 	{
 		// PREAPPLY target could be a Player or Equipment types

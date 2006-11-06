@@ -37,6 +37,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, final PlayerCharacter aPC)
 		throws PrerequisiteException
 	{
@@ -52,6 +53,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements Prerequis
 	 *
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
 	{
 		final boolean countMults = prereq.isCountMultiples();

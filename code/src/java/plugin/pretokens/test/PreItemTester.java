@@ -47,6 +47,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	// TODO Refactor this with all the equipment tests.
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		final int number;
 		try

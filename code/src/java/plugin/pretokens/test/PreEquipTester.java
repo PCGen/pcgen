@@ -48,6 +48,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 	 *
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
 	{
 		int runningTotal = 0;

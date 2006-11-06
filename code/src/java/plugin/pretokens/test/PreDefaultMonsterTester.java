@@ -41,6 +41,7 @@ public class PreDefaultMonsterTester extends AbstractPrerequisiteTest implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter pc)
 	{
 		final char key = prereq.getKey().toUpperCase().charAt(0);

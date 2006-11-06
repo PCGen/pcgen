@@ -41,6 +41,7 @@ public class PreGenderTester  extends AbstractPrerequisiteTest implements Prereq
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		int runningTotal;
 		if (prereq.getOperator().equals( PrerequisiteOperator.EQ ))

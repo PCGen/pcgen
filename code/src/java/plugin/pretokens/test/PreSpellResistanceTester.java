@@ -40,6 +40,7 @@ public class PreSpellResistanceTester  extends AbstractPrerequisiteTest implemen
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		final int requiredSR = Integer.parseInt(prereq.getOperand());
 		final int characterSR = character.calcSR(false);

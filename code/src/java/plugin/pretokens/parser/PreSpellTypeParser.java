@@ -49,6 +49,7 @@ public class PreSpellTypeParser extends AbstractPrerequisiteParser implements Pr
 		return new String[]{ "SPELLTYPE" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

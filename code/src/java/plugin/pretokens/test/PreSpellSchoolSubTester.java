@@ -44,6 +44,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		final String subSchool = prereq.getKey();
 		final int requiredLevel = Integer.parseInt( prereq.getSubKey() );

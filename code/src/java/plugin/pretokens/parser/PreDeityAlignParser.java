@@ -51,6 +51,7 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements P
 		return new String[]{ "DEITYALIGN" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

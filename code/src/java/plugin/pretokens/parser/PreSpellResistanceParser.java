@@ -45,6 +45,7 @@ public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser 
 		return new String[]{ "SR", "SREQ", "SRGT", "SRGTEQ", "SRLT", "SRLTEQ", "SRNEQ" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

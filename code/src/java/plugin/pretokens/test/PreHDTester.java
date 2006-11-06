@@ -41,6 +41,7 @@ public class PreHDTester extends AbstractPrerequisiteTest implements Prerequisit
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		int runningTotal;
 		try

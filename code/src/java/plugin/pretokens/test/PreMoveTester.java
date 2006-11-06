@@ -47,6 +47,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements Prerequis
 	 * (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 		throws PrerequisiteException
 	{

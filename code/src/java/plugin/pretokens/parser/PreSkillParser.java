@@ -47,6 +47,7 @@ public class PreSkillParser extends AbstractPrerequisiteListParser implements Pr
 		return new String[]{ "SKILL", "SKILLMULT" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

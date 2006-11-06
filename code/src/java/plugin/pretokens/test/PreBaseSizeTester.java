@@ -43,6 +43,7 @@ public class PreBaseSizeTester extends AbstractPrerequisiteTest implements Prere
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
 	{
 		int runningTotal = 0;

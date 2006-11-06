@@ -41,6 +41,7 @@ public class PreTextTester extends AbstractPrerequisiteTest implements Prerequis
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		// PRETEXT: is a flavor text string that needs

@@ -44,6 +44,7 @@ public class PreLanguageTester  extends AbstractPrerequisiteTest implements Prer
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		final String requiredLang = prereq.getKey();
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());

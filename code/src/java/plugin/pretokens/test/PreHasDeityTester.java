@@ -42,6 +42,7 @@ public class PreHasDeityTester extends AbstractPrerequisiteTest implements
 	PrerequisiteTest
 {
 
+	@Override
 	public int passes(final Prerequisite prereq,
 					  final PlayerCharacter character)
 	{

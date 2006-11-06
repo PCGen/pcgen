@@ -48,6 +48,7 @@ public class PreDeityParser extends AbstractPrerequisiteParser implements Prereq
 		return new String[]{ "DEITY" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

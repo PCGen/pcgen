@@ -40,6 +40,7 @@ public class PreCSkillParser extends AbstractPrerequisiteListParser implements P
 		return new String[]{ "CSKILL" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

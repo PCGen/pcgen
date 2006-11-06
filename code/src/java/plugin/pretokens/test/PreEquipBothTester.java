@@ -42,6 +42,7 @@ public class PreEquipBothTester  extends PreEquippedTester implements Prerequisi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
 		return passesPreEquipHandleTokens(prereq, character, Equipment.EQUIPPED_BOTH);
 	}

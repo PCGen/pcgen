@@ -47,6 +47,7 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 		return new String[]{ "DR" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

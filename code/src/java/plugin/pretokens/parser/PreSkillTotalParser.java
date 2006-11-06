@@ -50,11 +50,10 @@ public class PreSkillTotalParser extends AbstractPrerequisiteParser implements P
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
-	public Prerequisite parse(
-		String kind,
-		String formula,
-		boolean invertResult, boolean overrideQualify)
-		throws PersistenceLayerException {
+	@Override
+	public Prerequisite parse(String kind, String formula,
+			boolean invertResult, boolean overrideQualify)
+			throws PersistenceLayerException {
 		
 		// PRESKILLTOT:Spot,Listen,Search=30
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);

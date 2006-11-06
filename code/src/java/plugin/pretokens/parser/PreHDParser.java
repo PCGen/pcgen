@@ -45,6 +45,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 		return new String[]{ "HD" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

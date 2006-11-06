@@ -61,6 +61,7 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 	/**
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean, boolean)
 	 */
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

@@ -44,6 +44,7 @@ public class PreTextParser extends AbstractPrerequisiteParser implements Prerequ
 		return new String[]{ "TEXT" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

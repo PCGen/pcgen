@@ -49,6 +49,7 @@ public class PreSpellDescriptorParser extends AbstractPrerequisiteParser impleme
 		return new String[]{ "SPELLDESCRIPTOR" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

@@ -48,6 +48,7 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 
 	// TODO All the equipment related PRE tag code should be refactored into a
 	// common base class.
+	@Override
 	public int passes(final Prerequisite prereq,
 					  final PlayerCharacter character)
 	{

@@ -39,41 +39,42 @@ import pcgen.util.PropertyFactory;
  */
 public class PreSpellTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
 
-		/* (non-Javadoc)
-		 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-		 */
-		public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-			final String castingType = prereq.getKey();
-			int requiredLevel;
-			int requiredNumber;
-			try
-			{
-				requiredLevel = Integer.parseInt( prereq.getSubKey() );
-			}
-			catch (NumberFormatException e)
-			{
-				requiredLevel = 1;
-				Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
-			}
-
-			try
-			{
-				requiredNumber = Integer.parseInt( prereq.getOperand() );
-			}
-			catch (NumberFormatException e)
-			{
-				requiredNumber = 1;
-				Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
-			}
-
-			int runningTotal = 0;
-			if (character.canCastSpellTypeLevel(castingType, requiredLevel, requiredNumber))
-			{
-				runningTotal = requiredNumber;
-			}
-
-			return countedTotal(prereq, runningTotal);
+	/* (non-Javadoc)
+	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
+	 */
+	@Override
+	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+		final String castingType = prereq.getKey();
+		int requiredLevel;
+		int requiredNumber;
+		try
+		{
+			requiredLevel = Integer.parseInt( prereq.getSubKey() );
 		}
+		catch (NumberFormatException e)
+		{
+			requiredLevel = 1;
+			Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
+		}
+
+		try
+		{
+			requiredNumber = Integer.parseInt( prereq.getOperand() );
+		}
+		catch (NumberFormatException e)
+		{
+			requiredNumber = 1;
+			Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
+		}
+
+		int runningTotal = 0;
+		if (character.canCastSpellTypeLevel(castingType, requiredLevel, requiredNumber))
+		{
+			runningTotal = requiredNumber;
+		}
+
+		return countedTotal(prereq, runningTotal);
+	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()

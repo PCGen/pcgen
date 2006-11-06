@@ -47,6 +47,7 @@ public class PreSpellCastParser extends AbstractPrerequisiteParser implements Pr
 		return new String[]{ "SPELLCAST" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

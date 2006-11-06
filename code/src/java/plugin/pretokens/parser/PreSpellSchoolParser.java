@@ -49,6 +49,7 @@ public class PreSpellSchoolParser extends AbstractPrerequisiteParser implements 
 		return new String[]{ "SPELLSCHOOL" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

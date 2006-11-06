@@ -41,6 +41,7 @@ public class PreWieldTester
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) {
 		int runningTotal = 0;
 		if (equipment.getWield().equalsIgnoreCase(prereq.getKey()))

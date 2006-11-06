@@ -41,6 +41,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, final PlayerCharacter aPC)
 	{
 		if (aPC == null)
@@ -50,6 +51,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		return passes(prereq, aPC);
 	}
 
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		//

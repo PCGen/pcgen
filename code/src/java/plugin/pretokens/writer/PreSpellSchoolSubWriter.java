@@ -90,6 +90,7 @@ public class PreSpellSchoolSubWriter extends AbstractPrerequisiteWriter implemen
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
 	 */
+	@Override
 	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		//

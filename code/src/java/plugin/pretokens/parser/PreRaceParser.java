@@ -44,6 +44,7 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements Pre
 		return new String[]{ "RACE" };
 	}
 
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

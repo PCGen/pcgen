@@ -43,6 +43,7 @@ public class PreSizeTester  extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		final int targetSize = Globals.sizeInt(prereq.getOperand());
 
@@ -51,6 +52,7 @@ public class PreSizeTester  extends AbstractPrerequisiteTest implements Prerequi
 		return countedTotal(prereq, runningTotal);
 	}
 
+	@Override
 	public int passes(
 			final Prerequisite prereq,
 			final Equipment    equipment,

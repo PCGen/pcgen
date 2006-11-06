@@ -40,6 +40,7 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements Pre
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		final int numberRequired = Integer.parseInt( prereq.getOperand() );
 		int runningTotal = 0;

@@ -47,6 +47,7 @@ public class PreRaceTester extends AbstractPrerequisiteTest implements Prerequis
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());

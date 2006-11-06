@@ -51,6 +51,7 @@ public class PreAttackParser extends AbstractPrerequisiteParser implements Prere
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
+	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{

@@ -41,6 +41,7 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
 		int runningTotal=0;
 		final int requiredRanks = Integer.parseInt( prereq.getOperand());
