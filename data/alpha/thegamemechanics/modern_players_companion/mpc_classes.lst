@@ -151,7 +151,7 @@ CLASS:Gentle Warrior	HD:8		TYPE:PC.Advanced	ABB:GntlW		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Gentle Warrior	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Balance=6	PREVARGTEQ:ClassDefense,4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Gentle Warrior	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|Spot|Tumble
-1					ADD:FEAT(Uncanny Dodge X1,Uncanny Dodge X2)	FEAT:Unarmed Weapon Finesse
+1					ADD:FEAT(Uncanny Dodge X1,Uncanny Dodge X2)	VFEAT:Unarmed Weapon Finesse
 2	SA:Improved Grapple
 3					ADD:FEAT(TYPE=GentleWarrior)
 4					ADD:FEAT(Uncanny Dodge X2)

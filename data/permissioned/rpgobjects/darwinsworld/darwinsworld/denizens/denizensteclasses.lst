@@ -149,7 +149,7 @@ CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Hand
 ###Block: Normal Level Progression
 1	SA:Rigorous Training
 2	SA:Wanderer's Reputation +%|WanderersReputation	BONUS:VAR|WanderersReputation|2	BONUS:SKILL|Diplomacy,Intimidate|CL)	DEFINE:WanderersReputation|CL
-3																											FEAT:Feel for Weapon
+3																											ADD:FEAT(Feel for Weapon)
 4	SA:Do It with Eyes Closed
 5	SA:Leave No One Behind
 

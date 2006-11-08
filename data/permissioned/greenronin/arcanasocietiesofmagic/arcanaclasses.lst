@@ -25,7 +25,7 @@ CLASS:Green Steel Monk	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Green St
 2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8				CAST:0,1						SA:Magic Touch
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8				CAST:0,1,0						SA:Devil Skin +%|DevilSkin		BONUS:VAR|DevilSkin|CL/3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	DEFINE:DevilSkin|0
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,1						SA:See in Darkness
-5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,1,0																												FEAT:Unarmed Sunder
+5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,1,0																												VFEAT:Unarmed Sunder
 6	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,2,2,1																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 7	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			CAST:0,3,2,1,0					SA:Cold and Acid Resistance 20
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12			CAST:0,3,2,2,1	SR:5+TL

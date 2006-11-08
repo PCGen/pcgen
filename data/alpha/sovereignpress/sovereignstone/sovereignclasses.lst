@@ -63,7 +63,7 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 ###Block: Normal Level Progression
 1	SA:Deceptive Melee								BONUS:COMBAT|AC|max(CHA,0)				BONUS:SKILL|Bluff,Innuendo,Sense Motive|2
 2	SA:Monthly Funds %|MonthlyFunds																					DEFINE:MonthlyFunds|25
-6																																FEAT:Leadership
+6																																ADD:FEAT(Leadership)
 8							BONUS:VAR|MonthlyFunds|25	BONUS:COMBAT|AC|max(CHA,0)|PRETYPE:ARMOR,LIGHT
 10	SA:Leadership +%|NobleLeadership																					DEFINE:NobleLeadership|1
 11							BONUS:VAR|MonthlyFunds|50
