@@ -28,10 +28,13 @@ package plugin.exporttokens;
 import pcgen.core.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SpecialAbility;
 import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.ListKey;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -153,13 +156,103 @@ public class ClassToken extends Token
 		if (pc.getClassList().size() > classNumber)
 		{
 			PCClass pcClass = pc.getClassList().get(classNumber);
-			List<String> saList = pcClass.getClassSpecialAbilityList(pc);
+			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
 			return CoreUtility.join(saList, ", ");
 		}
 
 		return "";
 	}
 
+
+	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
+			final PlayerCharacter aPC) {
+		final List<String> aList = new ArrayList<String>();
+		final List<String> formattedList = new ArrayList<String>();
+		final List<SpecialAbility> abilityList = pcclass.getListFor(ListKey.SPECIAL_ABILITY);
+
+		//
+		// Determine the list of abilities from this class
+		// that the character is eligable for
+		//
+		if (abilityList == null || abilityList.isEmpty()) {
+			return aList;
+		}
+
+		for (SpecialAbility saAbility : abilityList) {
+			final String aString = saAbility.toString();
+
+			if (aList.contains(aString)) {
+				break;
+			}
+
+			if (saAbility.pcQualifiesFor(aPC)) {
+				aList.add(aString);
+			}
+		}
+
+		// From the list of allowed SAs, format the output strings
+		// to include all of the variables
+		for (String str : aList) {
+			StringTokenizer varTok = new StringTokenizer(str, Constants.PIPE);
+			final String aString = varTok.nextToken();
+
+			int[] varValue = null;
+			int varCount = varTok.countTokens();
+
+			if (varCount != 0) {
+				varValue = new int[varCount];
+
+				for (int j = 0; j < varCount; ++j) {
+					// Get the value for each variable
+					final String vString = varTok.nextToken();
+					varValue[j] = aPC.getVariable(vString, true, true, "", "",
+							0).intValue();
+				}
+			}
+
+			final StringBuffer newAbility = new StringBuffer();
+			varTok = new StringTokenizer(aString, "%", true);
+			varCount = 0;
+
+			boolean isZero = false;
+
+			// Fill in each % with the value of the appropriate token
+			while (varTok.hasMoreTokens()) {
+				final String nextTok = varTok.nextToken();
+
+				if ("%".equals(nextTok)) {
+					if (varCount == 0) {
+						// If this is the first token, then set the count of
+						// successfull token replacements to 0
+						isZero = true;
+					}
+
+					if ((varValue != null) && (varCount < varValue.length)) {
+						final int thisVar = varValue[varCount++];
+
+						// Update isZero if this token has a value of anything
+						// other than 0
+						isZero &= (thisVar == 0);
+						newAbility.append(thisVar);
+					} else {
+						newAbility.append('%');
+					}
+				} else {
+					newAbility.append(nextTok);
+				}
+			}
+
+			if (!isZero) {
+				// If all of the tokens for this ability were 0 then we do not
+				// show it,
+				// otherwise we add it to the return list.
+				formattedList.add(newAbility.toString());
+			}
+		}
+
+		return formattedList;
+	}
+	
 	/**
 	 * @param pc
 	 * @param classNumber

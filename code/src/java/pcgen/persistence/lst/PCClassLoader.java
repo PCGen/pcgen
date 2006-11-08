@@ -69,6 +69,11 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
+				if (lstLine.indexOf("\t") == -1) {
+					Logging.errorPrint("Expected SUBCLASS to have "
+							+ "additional Tags in " + source.getFile()
+							+ " (e.g. COST is a required Tag in a SUBCLASS)");
+				}
 				final String n = lstLine.substring(9, lstLine.indexOf("\t"));
 				subClass = pcClass.getSubClassKeyed(n);
 

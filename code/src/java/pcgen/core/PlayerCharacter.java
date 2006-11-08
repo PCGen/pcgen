@@ -7569,8 +7569,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				{
 					for (int level = 1; level <= pcClass.getLevel(); level++)
 					{
-						int baseHD = pcClass.getLevelHitDieUnadjusted(this,
-							level);
+						int baseHD = pcClass.getBaseHitDie();
 						if (baseHD != pcClass.getLevelHitDie(this, level))
 						{
 							// If the HD has changed from base reroll

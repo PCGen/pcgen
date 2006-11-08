@@ -129,7 +129,7 @@ public final class SpecialAbility extends TextProperty
 		return displayName;
 	}
 
-	boolean pcQualifiesFor(final PlayerCharacter aPC)
+	public boolean pcQualifiesFor(final PlayerCharacter aPC)
 	{
 		if ("".equals(saSource) || saSource.endsWith("|0"))
 		{
