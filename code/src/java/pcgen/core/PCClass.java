@@ -6183,7 +6183,7 @@ public class PCClass extends PObject {
 			final PlayerCharacter aPC) {
 		final ArrayList<String> newTemplates = new ArrayList<String>();
 
-		if (!flag) {
+		if (flag) {
 			return newTemplates;
 		}
 		
@@ -6202,7 +6202,7 @@ public class PCClass extends PObject {
 				newTemplates.add(PCTemplate.chooseTemplate(this, tString
 						.substring(7), true, aPC));
 			} else {
-				for (String templ : tString.split("|")) {
+				for (String templ : tString.split("\\|")) {
 					newTemplates.add(templ);
 				}
 			}
