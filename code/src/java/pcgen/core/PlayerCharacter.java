@@ -13767,9 +13767,10 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				// The bonus has been applied to the target stat
 				// Should it be included?
 				boolean addIt = false;
-				if (bonus.getCreatorObject() instanceof Equipment)
+				if (bonus.getCreatorObject() instanceof Equipment
+					|| bonus.getCreatorObject() instanceof EquipmentModifier)
 				{
-						addIt = useEquip;
+					addIt = useEquip;
 				}
 				else if (tempBonusList.contains(bonus))
 				{
