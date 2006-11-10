@@ -6,6 +6,9 @@
   </properties>
   <body>
     <release version="5.11.2" date="In SVN" description="Alpha release">
+      <action dev="thpr" type="fix" issue="1580188">MULTIPREREQs no longer ignored</action>
+      <action dev="thpr" type="fix" issue="1592361">HITDIE: mods in Templates no longer applied twice to SUBCLASSes</action>
+      <action dev="thpr" type="fix" issue="1593500">Templates once again properly applied to PlayerCharacters (broken in 5.11.1)</action>
     </release>
     <release version="5.11.1" date="2006-10-29" description="Alpha release">
       <action dev="thpr" type="fix" issue="1577347">Template prerequisites (no longer) prevent removal</action>
