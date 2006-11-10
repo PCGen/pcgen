@@ -133,6 +133,7 @@ PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoin
 
 ###Block: All Proficiencies (for referencing)
 # Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
+All Automatic Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Flamethrower
 All Exotic Firearms Proficiency		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.ExoticFirearms
 All Exotic Melee Weapons Proficiency	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Exotic
 
