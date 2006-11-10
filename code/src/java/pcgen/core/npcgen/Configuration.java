@@ -38,6 +38,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
+import pcgen.core.spell.Spell;
 import pcgen.util.WeightedList;
 
 /**
@@ -278,5 +279,35 @@ public class Configuration
 			data = new ClassData(Constants.EMPTY_STRING);
 		}
 		return data.getDomainWeights(aDeityKey);
+	}
+
+	public WeightedList<Spell> getKnownSpellWeights(final String aClassKey, final int aLevel)
+	{
+		ClassData data = theClassData.get( aClassKey );
+		if ( data == null )
+		{
+			data = new ClassData( Constants.EMPTY_STRING );
+		}
+		return data.getKnownSpellWeights(aLevel);
+	}
+
+	public WeightedList<Spell> getPreparedSpellWeights(final String aClassKey, final int aLevel)
+	{
+		ClassData data = theClassData.get( aClassKey );
+		if ( data == null )
+		{
+			data = new ClassData( Constants.EMPTY_STRING );
+		}
+		return data.getPreparedSpellWeights(aLevel);
+	}
+
+	public WeightedList<String> getSubClassWeights(final String aClassKey)
+	{
+		ClassData data = theClassData.get( aClassKey );
+		if ( data == null )
+		{
+			data = new ClassData( Constants.EMPTY_STRING );
+		}
+		return data.getSubClassWeights();
 	}
 }

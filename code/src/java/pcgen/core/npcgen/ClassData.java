@@ -29,12 +29,16 @@ import java.util.Map;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Categorisable;
+import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.SubClass;
+import pcgen.core.spell.Spell;
 import pcgen.util.WeightedList;
 
 /**
@@ -54,6 +58,9 @@ public class ClassData
 	private Map<AbilityCategory, WeightedList<Ability>> theAbilityWeights = null;
 	private WeightedList<Deity> theDeityWeights = null;
 	private Map<String, WeightedList<Domain>> theDomainWeights = null;
+	private Map<Integer, WeightedList<Spell>> theKnownSpellWeights = null;
+	private Map<Integer, WeightedList<Spell>> thePreparedSpellWeights = null;
+	private WeightedList<String> theSubClassWeights = null;
 	
 	/**
 	 * Creates an empty <tt>ClassData</tt> object
@@ -270,5 +277,130 @@ public class ClassData
 			}
 		}
 		return domains;
+	}
+
+	public void addKnownSpell( final int aLevel, final Spell aSpell, final int aWeight )
+	{
+		if ( theKnownSpellWeights == null )
+		{
+			theKnownSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+		}
+		WeightedList<Spell> spells = theKnownSpellWeights.get(aLevel);
+		if ( spells == null )
+		{
+			spells = new WeightedList<Spell>();
+			theKnownSpellWeights.put(aLevel, spells);
+		}
+		if ( ! spells.contains(aSpell) )
+		{
+			spells.add(aWeight, aSpell);
+		}
+	}
+	
+	public void removeKnownSpell( final int aLevel, final Spell aSpell )
+	{
+		if ( theKnownSpellWeights == null )
+		{
+			return;
+		}
+		
+		final WeightedList<Spell> spells = theKnownSpellWeights.get(aLevel);
+		if ( spells != null )
+		{
+			spells.remove( aSpell );
+		}
+	}
+	
+	public WeightedList<Spell> getKnownSpellWeights( final int aLevel ) 
+	{
+		if ( theKnownSpellWeights == null )
+		{
+			theKnownSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+		}
+		WeightedList<Spell> spells = theKnownSpellWeights.get(aLevel);
+		if ( spells == null )
+		{
+			spells = new WeightedList<Spell>();
+			
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, theClassKey, Constants.EMPTY_STRING) )
+			{
+				spells.add(1, spell);
+			}
+		}
+		return spells;
+	}
+
+	public void addPreparedSpell( final int aLevel, final Spell aSpell, final int aWeight )
+	{
+		if ( thePreparedSpellWeights == null )
+		{
+			thePreparedSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+		}
+		WeightedList<Spell> spells = thePreparedSpellWeights.get(aLevel);
+		if ( spells == null )
+		{
+			spells = new WeightedList<Spell>();
+			thePreparedSpellWeights.put(aLevel, spells);
+		}
+		if ( ! spells.contains(aSpell) )
+		{
+			spells.add(aWeight, aSpell);
+		}
+	}
+	
+	public void removePreparedSpell( final int aLevel, final Spell aSpell )
+	{
+		if ( thePreparedSpellWeights == null )
+		{
+			return;
+		}
+		
+		final WeightedList<Spell> spells = thePreparedSpellWeights.get(aLevel);
+		if ( spells != null )
+		{
+			spells.remove( aSpell );
+		}
+	}
+	
+	public WeightedList<Spell> getPreparedSpellWeights( final int aLevel ) 
+	{
+		if ( thePreparedSpellWeights == null )
+		{
+			thePreparedSpellWeights = new HashMap<Integer, WeightedList<Spell>>();
+		}
+		WeightedList<Spell> spells = thePreparedSpellWeights.get(aLevel);
+		if ( spells == null )
+		{
+			spells = new WeightedList<Spell>();
+			
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, theClassKey, Constants.EMPTY_STRING) )
+			{
+				spells.add(1, spell);
+			}
+		}
+		return spells;
+	}
+
+	public void addSubClass( final String aKey, final int aWeight )
+	{
+		if ( theSubClassWeights == null )
+		{
+			theSubClassWeights = new WeightedList<String>();
+		}
+		theSubClassWeights.add( aWeight, aKey );
+	}
+	
+	public WeightedList<String> getSubClassWeights()
+	{
+		if ( theSubClassWeights == null )
+		{
+			final PCClass pcClass = Globals.getClassKeyed( theClassKey );
+			final List<SubClass> subClasses = pcClass.getSubClassList();
+			for ( final SubClass subClass : subClasses )
+			{
+				addSubClass( subClass.getKeyName(), 1 );
+			}
+		}
+		return theSubClassWeights;
 	}
 }

@@ -29,6 +29,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import pcgen.core.Globals;
+
 /**
  * An implementation of the <tt>List</tt> interface that allows objects added
  * to the list to have a &quot;weight&quot; associated with them.  This weight
@@ -197,7 +199,7 @@ public class WeightedList<E> implements List<E>
 		{
 			WeightedItem<E> wi = theData.get(i);
 			total += wi.getWeight();
-			if (total >= index)
+			if (total > index)
 			{
 				return wi.getElement();
 			}
@@ -205,6 +207,16 @@ public class WeightedList<E> implements List<E>
 		return null;
 	}
 
+	/**
+	 * Returns a random selection from the list based on weight.
+	 * 
+	 * @return The random element selected.
+	 */
+	public E getRandomValue()
+	{
+		return get(Globals.getRandomInt(size()));
+	}
+	
 	/**
 	 * Returns an <tt>Iterator</tt> that iterates over the elements in the list
 	 * ignoring weight.  Therefore in a list with three elements of differing

@@ -39,12 +39,14 @@ import org.xml.sax.helpers.DefaultHandler;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Categorisable;
+import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
+import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
@@ -133,7 +135,13 @@ class ClassDataHandler extends DefaultHandler
 		/** Found skill data */
 		SKILLDATA,
 		/** Found Ability data */
-		ABILITYDATA 
+		ABILITYDATA,
+		/** Found spell data */
+		SPELLDATA,
+		/** Found spells of a level */
+		SPELLLEVELDATA,
+		/** Found subclass data */
+		SUBCLASSDATA
 	}
 	
 	private ParserState theState = ParserState.INIT;
@@ -142,9 +150,20 @@ class ClassDataHandler extends DefaultHandler
 	
 	private AbilityCategory theCurrentCategory = null;
 
+	private enum SpellType
+	{
+		/** Adding Known spells */
+		KNOWN,
+		/** Adding Prepared Spells */
+		PREPARED
+	}
+	private SpellType theCurrentSpellType = SpellType.KNOWN;
+	
+	private int theCurrentLevel = -1;
+	
 	// Weight for any skills added from *
-	private int remainingWeight = -1;
-	private List<String> removeList = new ArrayList<String>();
+	private transient int remainingWeight = -1;
+	private transient List<String> removeList = new ArrayList<String>();
 	
 	/**
 	 * Constructs the handler
@@ -231,6 +250,26 @@ class ClassDataHandler extends DefaultHandler
 						theCurrentCategory = SettingsHandler.getGame().getAbilityCategory(catName);
 					}
 				}
+			}
+			else if ( "spells".equals(aName) )  //$NON-NLS-1$
+			{
+				theState = ParserState.SPELLDATA;
+				theCurrentSpellType = SpellType.KNOWN;
+				if ( anAttrs != null )
+				{
+					final String bookName = anAttrs.getValue("type"); //$NON-NLS-1$
+					if ( bookName != null )
+					{
+						if ( "Prepared Spells".equals(bookName) ) //$NON-NLS-1$
+						{
+							theCurrentSpellType = SpellType.PREPARED;
+						}
+					}
+				}
+			}
+			else if ( "subclasses".equals(aName) ) //$NON-NLS-1$
+			{
+				theState = ParserState.SUBCLASSDATA;
 			}
 		}
 		else if ( theState == ParserState.STATDATA )
@@ -354,6 +393,66 @@ class ClassDataHandler extends DefaultHandler
 				}
 			}
 		}
+		else if ( theState == ParserState.SPELLDATA )
+		{
+			if ( "level".equals(aName) && anAttrs != null ) //$NON-NLS-1$
+			{
+				final String lvlStr = anAttrs.getValue("id"); //$NON-NLS-1$
+				if ( lvlStr != null )
+				{
+					theCurrentLevel = Integer.parseInt( lvlStr );
+					theState = ParserState.SPELLLEVELDATA;
+				}
+			}
+		}
+		else if ( theState == ParserState.SPELLLEVELDATA )
+		{
+			if ( "spell".equals(aName) && anAttrs != null ) //$NON-NLS-1$
+			{
+				final int weight = getWeight(anAttrs);
+
+				final String key = anAttrs.getValue("name"); //$NON-NLS-1$
+				if ( key != null )
+				{
+					if ( "*".equals(key) ) //$NON-NLS-1$
+					{
+						remainingWeight = weight;
+					}
+					else if (key.startsWith("SCHOOL")) //$NON-NLS-1$
+					{
+						// Not sure how to do this yet
+					}
+					else
+					{
+						final Spell spell = Globals.getSpellKeyed(key);
+						if ( spell != null )
+						{
+							if ( theCurrentSpellType == SpellType.KNOWN )
+							{
+								theCurrentData.addKnownSpell( theCurrentLevel, spell, weight );
+							}
+							else if ( theCurrentSpellType == SpellType.PREPARED )
+							{
+								theCurrentData.addPreparedSpell( theCurrentLevel, spell, weight );
+							}
+						}
+						else
+						{
+							Logging.errorPrint("Spell \"" + key + "\" not found.");
+						}
+					}
+				}
+			}
+		}
+		else if ( theState == ParserState.SUBCLASSDATA )
+		{
+			if ( "subclass".equals(aName) && anAttrs != null ) //$NON-NLS-1$
+			{
+				final int weight = getWeight(anAttrs);
+				final String key = anAttrs.getValue("value"); //$NON-NLS-1$
+				theCurrentData.addSubClass(key, weight);
+			}
+		}
 	}
 	
 	/**
@@ -388,7 +487,7 @@ class ClassDataHandler extends DefaultHandler
 		{
 			if ( remainingWeight > 0 )
 			{
-				// Add all abilities skills at this weight.
+				// Add all abilities at this weight.
 				for (Iterator<? extends Categorisable> i = Globals.getAbilityNameIterator(theCurrentCategory.getAbilityCategory()); i.hasNext(); )
 				{
 					final Ability ability = (Ability)i.next();
@@ -417,6 +516,50 @@ class ClassDataHandler extends DefaultHandler
 		{
 			theState = ParserState.CLASSDATA;
 		}
+		else if ( "level".equals(qName) ) //$NON-NLS-1$
+		{
+			if ( remainingWeight > 0 )
+			{
+				// Add all spells at this weight.
+				final List<Spell> allSpells = Globals.getSpellsIn(theCurrentLevel, theCurrentData.getClassKey(), Constants.EMPTY_STRING);
+				for ( final Spell spell : allSpells )
+				{
+					if ( theCurrentSpellType == SpellType.KNOWN )
+					{
+						theCurrentData.addKnownSpell( theCurrentLevel, spell, remainingWeight );
+					}
+					else if ( theCurrentSpellType == SpellType.PREPARED )
+					{
+						theCurrentData.addPreparedSpell( theCurrentLevel, spell, remainingWeight );
+					}
+				}
+				remainingWeight = -1;
+			}
+			for ( final String remove : removeList )
+			{
+				final Spell spell = Globals.getSpellKeyed( remove );
+				if ( theCurrentSpellType == SpellType.KNOWN )
+				{
+					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
+				}
+				else if ( theCurrentSpellType == SpellType.PREPARED )
+				{
+					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
+				}
+			}
+			removeList = new ArrayList<String>();
+			theCurrentLevel = -1;
+			theState = ParserState.SPELLDATA;
+		}
+		else if ( "spells".equals(qName) ) //$NON-NLS-1$
+		{
+			theState = ParserState.CLASSDATA;
+			theCurrentSpellType = SpellType.KNOWN;
+		}
+		else if ( "subclasses".equals(qName) ) //$NON-NLS-1$
+		{
+			theState = ParserState.CLASSDATA;
+		}
     }
 
     private int getWeight( final Attributes anAttrs )
@@ -425,7 +568,7 @@ class ClassDataHandler extends DefaultHandler
 		final String wtStr = anAttrs.getValue("weight"); //$NON-NLS-1$
 		if ( wtStr != null )
 		{
-			weight = Integer.parseInt(wtStr);
+			weight = Integer.parseInt(wtStr.trim());
 		}
 		return weight;
 	}

@@ -40,8 +40,10 @@
 			<xs:sequence>
 				<xs:element ref="stats"/>
 				<xs:sequence minOccurs="0">
+					<xs:element ref="subclasses" minOccurs="0" />
 					<xs:element ref="skills" minOccurs="0"/>
 					<xs:element ref="abilities" minOccurs="0"/>
+					<xs:element ref="spells" minOccurs="0"/>
 				</xs:sequence>
 			</xs:sequence>
 			<xs:attribute name="key" type="xs:string" use="required"/>
@@ -59,6 +61,48 @@
 				<xs:element ref="ability" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="category" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="spells">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="level" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="type" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Known Spells"/>
+						<xs:enumeration value="Prepared Spells"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="level">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="spell" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="spell">
+		<xs:complexType>
+			<xs:attribute name="weight" type="xs:integer" use="optional" default="1"/>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subclasses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="subclass" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subclass">
+		<xs:complexType>
+			<xs:attribute name="weight" type="xs:integer" use="optional" default="1"/>
+			<xs:attribute name="value" type="xs:string" use="required"/>
 		</xs:complexType>
 	</xs:element>
 </xs:schema>

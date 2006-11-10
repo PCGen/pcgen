@@ -44,8 +44,10 @@ import pcgen.core.Race;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.util.Logging;
 import pcgen.util.WeightedList;
@@ -414,6 +416,96 @@ public class NPCGenerator
 		}
 	}
 	
+	private WeightedList<Spell> getKnownSpellWeights(final PCClass aClass, final int aLevel )
+	{
+		WeightedList<Spell> weightedList = theConfiguration.getKnownSpellWeights(aClass.getKeyName(), aLevel);
+		if (weightedList == null)
+		{
+			weightedList = new WeightedList<Spell>();
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, aClass.getKeyName(), Constants.EMPTY_STRING) )
+			{
+				weightedList.add(1, spell);
+			}
+		}
+		return weightedList;
+	}
+
+	private WeightedList<Spell> getPreparedSpellWeights(final PCClass aClass, final int aLevel )
+	{
+		WeightedList<Spell> weightedList = theConfiguration.getPreparedSpellWeights(aClass.getKeyName(), aLevel);
+		if (weightedList == null)
+		{
+			weightedList = new WeightedList<Spell>();
+			for ( final Spell spell : Globals.getSpellsIn(aLevel, aClass.getKeyName(), Constants.EMPTY_STRING) )
+			{
+				weightedList.add(1, spell);
+			}
+		}
+		return weightedList;
+	}
+
+	private void selectDomainSpell( final PlayerCharacter aPC, final PCClass aClass, final int aLevel )
+	{
+		final int numDomains = aPC.getCharacterDomainList().size();
+		if ( numDomains < 1 )
+		{
+			return;
+		}
+		final WeightedList<Domain> domains = new WeightedList<Domain>();
+		for (int iDom = 0; iDom < numDomains; ++iDom)
+		{
+			CharacterDomain aCD = aPC.getCharacterDomainList().get(iDom);
+			final Domain aDom = aCD.getDomain();
+
+			// if any domains have this class as a source
+			// and is a valid domain, add them
+			if ((aDom != null) && aCD.isFromPCClass(aClass.getKeyName()))
+			{
+				domains.add( aDom );
+			}
+		}
+		final Domain domain = domains.getRandomValue();
+		final WeightedList<Spell> domainSpells = new WeightedList<Spell>(Globals.getSpellsIn(aLevel, Constants.EMPTY_STRING, domain.getKeyName()));
+		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel );
+	}
+	
+	private void selectSpell( final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedList<Spell> aSpellList, final int aLevel )
+	{
+		boolean added = false;
+		while ( !added )
+		{
+			final Spell spell = aSpellList.get( Globals.getRandomInt(aSpellList.size()) );
+			// TODO - How do I check if this spell is prohibiited?
+			
+			final CharacterSpell cs;
+			if ( aDomain != null )
+			{
+				cs = new CharacterSpell( aDomain, spell );
+			}
+			else
+			{
+				cs = new CharacterSpell( aClass, spell );
+			}
+			final String aString = aPC.addSpell(cs, new ArrayList<Ability>(), aClass.getKeyName(),
+					   aBookName, aLevel, aLevel);
+			if (aString.length() != 0)
+			{
+				Logging.debugPrint("Add spell failed: " + aString); //$NON-NLS-1$
+			}
+			else
+			{
+				added = true;
+			}
+		}
+	}
+	
+	private void selectSubClass( final PlayerCharacter aPC, final PCClass aClass )
+	{
+		WeightedList<String> subClasses = theConfiguration.getSubClassWeights( aClass.getKeyName() );
+		// TODO - Probably should do some checking here.
+		aClass.setSubClassKey( subClasses.get( Globals.getRandomInt(subClasses.size()) ) );
+	}
+	
 	/**
 	 * Generate a new NPC
 	 * 
@@ -501,33 +593,44 @@ public class NPCGenerator
 				{
 					continue;
 				}
+				final PCClass classCopy = (PCClass)aClass.clone();
+				if ( classCopy.hasSubClass() )
+				{
+					selectSubClass(aPC, classCopy);
+				}
 				if (i == 0)
 				{
-					generateStats(aPC, aClass, aRollMethod);
-					selectDeity(aPC, aClass);
+					generateStats(aPC, classCopy, aRollMethod);
+					selectDeity(aPC, classCopy);
 				}
 
+				int highestSpellLevel = aClass.getHighestLevelSpell(aPC);
+				final int[] selectedSpells = new int[highestSpellLevel + 1];
+				for ( int k = 0; k < highestSpellLevel; k++ ) { selectedSpells[k] = 0; }
+				
+				final int[] bonusSpells = new int[highestSpellLevel + 1];
+				for ( int k = 0; k < highestSpellLevel; k++ ) { bonusSpells[k] = 0; }
+
 				// Make a copy of the list because we are going to modify it.
-				List<SkillChoice> skillList = new WeightedList<SkillChoice>(getSkillWeights(aClass, aPC));
-				List<Ability> featList = new WeightedList<Ability>(getFeatWeights(aClass));
+				List<SkillChoice> skillList = new WeightedList<SkillChoice>(getSkillWeights(classCopy, aPC));
+				List<Ability> featList = new WeightedList<Ability>(getFeatWeights(classCopy));
 				for (int j = 0; j < numLevels; j++)
 				{
-					aPC.incrementClassLevel(1, aClass, true);
+					aPC.incrementClassLevel(1, classCopy, true);
 
-					final PCClass pcClass = aPC.getClassKeyed(aClass.getKeyName());
-					selectSkills(aPC, skillList, aClass, j + 1);
+					final PCClass pcClass = aPC.getClassKeyed(classCopy.getKeyName());
+					selectSkills(aPC, skillList, pcClass, j + 1);
 					selectFeats(aPC, featList);
 					
-					selectDomains( aPC, aClass );
+					selectDomains( aPC, pcClass );
 					
-					if ( !aClass.getSpellType().equals( Constants.s_NONE ) )
+					if ( !pcClass.getSpellType().equals( Constants.s_NONE ) )
 					{
 						// This is a spellcasting class.  We may have to select
 						// spells of some sort (known or prepared).
-						if ( aClass.hasKnownList() || aClass.hasKnownSpells(aPC) )
+						if ( pcClass.getKnownList().size() > 0 || pcClass.hasKnownSpells(aPC) )
 						{
 							Logging.debugPrint("NPCGenerator: known spells to select"); //$NON-NLS-1$
-							int highestSpellLevel = aClass.getHighestLevelSpell(aPC);
 							for (int lvl = 0; lvl <= highestSpellLevel; ++lvl)
 							{
 								if (aPC.availableSpells(lvl, pcClass, Globals.getDefaultSpellBook(), true, true))
@@ -536,6 +639,48 @@ public class NPCGenerator
 									final int bonus = pcClass.getSpecialtyKnownForLevel(pcClass
 											.getLevel(), lvl, aPC);
 									Logging.debugPrint("NPCGenerator: " + a + "known spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
+									
+									final WeightedList<Spell> spellChoices = getKnownSpellWeights(pcClass, lvl);
+
+									final int numToSelect = a - selectedSpells[lvl];
+									for ( int sp = 0; sp < numToSelect; sp ++ )
+									{
+										selectSpell( aPC, pcClass, null, Globals.getDefaultSpellBook(), spellChoices, lvl );
+										selectedSpells[lvl]++;
+									}
+									
+								}
+							}
+						}
+						else
+						{
+							// Prepared spells?
+							Logging.debugPrint("NPCGenerator: prepared spells to select"); //$NON-NLS-1$
+							
+							aPC.addSpellBook("Prepared Spells");
+							for (int lvl = 0; lvl <= highestSpellLevel; ++lvl)
+							{
+								final int castTot = pcClass.getCastForLevel(pcClass.getLevel(), lvl, "Prepared Spells", true, true, aPC);
+								final int castNon = pcClass.getCastForLevel(pcClass.getLevel(), lvl, "Prepared Spells", false, true, aPC);
+								final int castSpec = castTot - castNon;
+								Logging.debugPrint("NPCGenerator: " + castTot + "+" + castSpec + " prepared spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
+								if ( castSpec - bonusSpells[lvl] > 0 )
+								{
+									selectDomainSpell( aPC, pcClass, lvl );
+									bonusSpells[lvl]++;
+								}
+								
+								if (castTot > 0)
+								{
+									final WeightedList<Spell> spellChoices = getPreparedSpellWeights(pcClass, lvl);
+
+									final int numToSelect = castNon - selectedSpells[lvl];
+									for ( int sp = 0; sp < numToSelect; sp ++ )
+									{
+										selectSpell( aPC, pcClass, null, "Prepared Spells", spellChoices, lvl );
+										selectedSpells[lvl]++;
+									}
+									
 								}
 							}
 						}
