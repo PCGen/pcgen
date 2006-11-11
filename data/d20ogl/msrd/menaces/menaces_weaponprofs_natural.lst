@@ -4,15 +4,6 @@ SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:
 
 # Weapon Name	Type
 Armspike		TYPE:Natural
-Bite			TYPE:Natural
-Claw			TYPE:Natural
 Energy Claw		TYPE:Natural
-Gore			TYPE:Natural
 Incorporeal Touch	TYPE:Natural
-Pincer		TYPE:Natural
 Shock Touch		TYPE:Natural
-Slam			TYPE:Natural
-Strand		TYPE:Natural
-Tail Slap		TYPE:Natural
-Tentacle		TYPE:Natural
-Tentacle Rake	TYPE:Natural
