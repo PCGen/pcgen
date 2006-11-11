@@ -3473,6 +3473,10 @@ public class PCClass extends PObject {
 	 * FINALPCCLASSONLY This is for building a PCClass
 	 */
 	public List<LevelProperty<String>> getSRlist() {
+		if (SR == null)
+		{
+			SR = new ArrayList<LevelProperty<String>>();
+		}
 		return SR;
 	}
 
