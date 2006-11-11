@@ -3,9 +3,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 
 # Feat Name				Type							Visible	Required Skill							Special Ability																																Define																																												Multiple?	Choose																																							Add Spell Lvl	Weapon prof. bonus
 Craft Wand				TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Mechanical)=1				SA:Craft Wand
-Empower Spell			TYPE:Special					VISIBLE:NO																																																																																																																																			ADDSPELLLEVEL:2
 Find the Mark			TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Finesse|1																																							BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
-Greater Weapon Specialization	TYPE:Special					VISIBLE:NO																																																																																									MULT:YES	CHOOSE:FEAT=Weapon Specialization|1																																						BONUS:WEAPONPROF=%LIST|DAMAGE|2
 Improved Brew Potion		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Chemical)=1					SA:Improved Brew Potion
 Improved Scribe Scroll		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Writing)=1					SA:Improved Scribe Scroll
 Improved Scribe Tattoo		TYPE:CraftArtifice				VISIBLE:NO	PRESKILL:1,Craft (Visual Art)=1				SA:Improved Scribe Tattoo
