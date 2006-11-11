@@ -793,7 +793,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(pcClass.getSpellBaseStat()));
 				buffer.append('|');
 				buffer.append(TAG_CANCASTPERDAY).append(':');
-				buffer.append(pcClass.getCastListForLevel(classLevel));
+				buffer.append(CoreUtility.join(pcClass.getCastListForLevel(classLevel), ","));
 			}
 
 			List<String> prohibited = pcClass.getProhibitedSchools();
