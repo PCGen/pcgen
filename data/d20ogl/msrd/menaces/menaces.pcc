@@ -34,4 +34,6 @@ TEMPLATE:menaces_templates_hidden.lst
 SPELL:menaces_spells.lst
 WEAPONPROF:menaces_weaponprofs_natural.lst
 
+#Included from Arcana to avoid duplicates
+LANGUAGE:@/d20ogl/msrd/arcana/basics/arcanabasics_languages.lst|(INCLUDE:Abyssal|Auran|Draconic|Giant|Gnoll|Goblin|Terran)
 WEAPONPROF:@/d20ogl/msrd/arcana/basics/arcanabasics_weaponprofs.lst|(INCLUDE:Greatsword)
