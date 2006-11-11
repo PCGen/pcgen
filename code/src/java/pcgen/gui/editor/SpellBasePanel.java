@@ -22,6 +22,33 @@
  */
 package pcgen.gui.editor;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import javax.swing.AbstractAction;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.TitledBorder;
+
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -29,20 +56,11 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.SpellLstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.PropertyFactory;
-import plugin.lsttokens.DescLst;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * <code>SpellBasePanel</code>
@@ -103,12 +121,16 @@ public class SpellBasePanel extends BasePanel
 		final Spell s = (Spell) thisPObject;
 
 		final String desc = pnlDescription.getText();
-		final DescLst tokenParser = new DescLst();
-		
-		final StringTokenizer tok = new StringTokenizer(desc, "\t");
-		while ( tok.hasMoreTokens() )
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+			SpellLstToken.class);
+		SpellLstToken tokenParser = (SpellLstToken) tokenMap.get("DESC");
+		if (tokenParser != null)
 		{
-			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+			final StringTokenizer tok = new StringTokenizer(desc, "\t");
+			while (tok.hasMoreTokens())
+			{
+				tokenParser.parse(s, tok.nextToken());
+			}
 		}
 		s.setDescIsPI(pnlDescription.getDescIsPI());
 

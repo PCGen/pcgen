@@ -25,7 +25,33 @@
  */
 package pcgen.io;
 
-import pcgen.core.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Campaign;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
+import pcgen.core.NoteItem;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
+import pcgen.core.SpecialProperty;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
@@ -41,9 +67,6 @@ import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import plugin.lsttokens.pcclass.ProhibitedToken;
-
-import java.util.*;
 
 /**
  * <code>PCGVer0Parser</code>

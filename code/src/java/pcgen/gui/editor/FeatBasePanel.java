@@ -22,18 +22,20 @@
  */
 package pcgen.gui.editor;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import pcgen.core.Ability;
 import pcgen.core.Constants;
@@ -42,10 +44,12 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
+import pcgen.persistence.lst.AbilityLstToken;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.DescLst;
 
 /**
  * <code>FeatBasePanel</code>
@@ -236,13 +240,18 @@ public class FeatBasePanel extends BasePanel
 	{
 		Ability thisFeat = (Ability) thisPObject;
 		final String desc = getDescriptionText();
-		final DescLst tokenParser = new DescLst();
-		
-		final StringTokenizer tok = new StringTokenizer(desc, "\t");
-		while ( tok.hasMoreTokens() )
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+			AbilityLstToken.class);
+		AbilityLstToken tokenParser = (AbilityLstToken) tokenMap.get("DESC");
+		if (tokenParser != null)
 		{
-			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+			final StringTokenizer tok = new StringTokenizer(desc, "\t");
+			while (tok.hasMoreTokens())
+			{
+				tokenParser.parse(thisFeat, tok.nextToken());
+			}
 		}
+
 		thisFeat.setDescIsPI(getDescIsPI());
 		thisFeat.setMultiples(getMultiples() ? "Y" : "N");
 		thisFeat.setStacks(getStacks() ? "Y" : "N");

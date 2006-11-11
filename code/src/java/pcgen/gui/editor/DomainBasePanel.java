@@ -22,14 +22,17 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.Constants;
-import pcgen.core.Description;
-import pcgen.core.PObject;
-import plugin.lsttokens.DescLst;
-
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.Map;
 import java.util.StringTokenizer;
+
+import pcgen.core.Description;
+import pcgen.core.Domain;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DomainLstToken;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
 
 /**
  * <code>DomainBasePanel</code>
@@ -86,12 +89,16 @@ public class DomainBasePanel extends BasePanel
 	public void updateData(PObject thisPObject)
 	{
 		final String desc = getDescriptionText();
-		final DescLst tokenParser = new DescLst();
-		
-		final StringTokenizer tok = new StringTokenizer(desc, "\t");
-		while ( tok.hasMoreTokens() )
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+			DomainLstToken.class);
+		DomainLstToken tokenParser = (DomainLstToken) tokenMap.get("DESC");
+		if (tokenParser != null)
 		{
-			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+			final StringTokenizer tok = new StringTokenizer(desc, "\t");
+			while (tok.hasMoreTokens())
+			{
+				tokenParser.parse((Domain) thisPObject, tok.nextToken());
+			}
 		}
 		thisPObject.setDescIsPI(getDescIsPI());
 	}

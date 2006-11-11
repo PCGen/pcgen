@@ -25,7 +25,40 @@
  */
 package pcgen.io;
 
-import pcgen.core.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Campaign;
+import pcgen.core.CharacterDomain;
+import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.FeatMultipleChoice;
+import pcgen.core.GameMode;
+import pcgen.core.Globals;
+import pcgen.core.Kit;
+import pcgen.core.NoteItem;
+import pcgen.core.PCClass;
+import pcgen.core.PCSpell;
+import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
+import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
+import pcgen.core.SubstitutionClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -45,10 +78,6 @@ import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import plugin.lsttokens.pcclass.ProhibitedToken;
-
-import java.math.BigDecimal;
-import java.util.*;
 
 /**
  * <code>PCGVer2Parser</code>

@@ -22,15 +22,6 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.core.*;
-import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
-import plugin.lsttokens.DescLst;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -38,7 +29,27 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import pcgen.core.Constants;
+import pcgen.core.Deity;
+import pcgen.core.Description;
+import pcgen.core.Globals;
+import pcgen.core.PCAlignment;
+import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
+import pcgen.core.WeaponProf;
+import pcgen.gui.utils.JComboBoxEx;
+import pcgen.persistence.lst.DeityLstToken;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.TokenStore;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>DeityBasePanel</code>
@@ -203,13 +214,18 @@ final class DeityBasePanel extends BasePanel
 		((Deity) thisPObject).setAlignment(getDeityAlignment());
 
 		final String desc = getDescriptionText();
-		final DescLst tokenParser = new DescLst();
-		
-		final StringTokenizer tok = new StringTokenizer(desc, "\t");
-		while ( tok.hasMoreTokens() )
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+			DeityLstToken.class);
+		DeityLstToken tokenParser = (DeityLstToken) tokenMap.get("DESC");
+		if (tokenParser != null)
 		{
-			thisPObject.addDescription(tokenParser.parseDescription(tok.nextToken()));
+			final StringTokenizer tok = new StringTokenizer(desc, "\t");
+			while (tok.hasMoreTokens())
+			{
+				tokenParser.parse((Deity) thisPObject, tok.nextToken());
+			}
 		}
+	
 		thisPObject.setDescIsPI(getDescIsPI());
 
 		//
