@@ -3,7 +3,6 @@ SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http
 
 
 # Skill Name	Key Stat	Untrained?		Type			Source Page
-Control Shape	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom		SOURCEPAGE:msrdcreatures.rtf
 Psicraft		KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma	SOURCEPAGE:msrdskillsii.rtf
 Spellcraft		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence	SOURCEPAGE:msrdskillsii.rtf
 Autohypnosis	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom		SOURCEPAGE:msrdskillsii.rtf
