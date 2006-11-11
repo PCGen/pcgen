@@ -1921,6 +1921,16 @@ BIO
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
 		<feat>
+			<name>All Automatic Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Starting Wealth</name>
 			<description></description>
 			<type>STARTINGWEALTH</type>
