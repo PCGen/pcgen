@@ -136,6 +136,10 @@ public class HashMapToList<K, V>
 	 */
 	public void addAllToListFor(K key, List<V> list)
 	{
+		if (list == null)
+		{
+			return;
+		}
 		/*
 		 * Note there is no requirement that a Key is added before this method
 		 * is called
