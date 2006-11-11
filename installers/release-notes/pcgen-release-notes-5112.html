@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.2
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.2</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.11.2</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.2</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.2</a></h2>
+<p>
+PCGen v5.11.2 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. Some notable new changes are:
+</p>
+        <table style="border : 1px solid black">
+<tr class="b"><th style="width:50px">Type</th>
+<th>Changes</th>
+<th style="width:70px">By</th>
+</tr>
+<tr class="a"><td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+</td>
+<td>MULTIPREREQs no longer ignored                          Fixes<a href="http://sourceforge.net/support/tracker.php?aid=1580188" class="externalLink" title="External Link">1580188</a>
+.</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+</td>
+</tr>
+<tr class="b"><td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+</td>
+<td>HITDIE: mods in Templates no longer applied twice to SUBCLASSes                          Fixes<a href="http://sourceforge.net/support/tracker.php?aid=1592361" class="externalLink" title="External Link">1592361</a>
+.</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+</td>
+</tr>
+<tr class="a"><td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+</td>
+<td>Templates once again properly applied to PlayerCharacters (broken in 5.11.1)                          Fixes<a href="http://sourceforge.net/support/tracker.php?aid=1593500" class="externalLink" title="External Link">1593500</a>
+.</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+</td>
+</tr>
+<tr class="b"><td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+</td>
+<td>[RSRD       ]        Phrenic Creature template missing                          Fixes<a href="http://sourceforge.net/support/tracker.php?aid=1580216" class="externalLink" title="External Link">1580216</a>
+.                              Thanks to tir-gwaith.</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#frank_kliewe">frank_kliewe</a>
+</td>
+</tr>
+<tr class="a"><td><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+</td>
+<td>New source [Secular Games       ]        [ACG       ]        Arcane Archer.                          Fixes<a href="http://sourceforge.net/support/tracker.php?aid=1464776" class="externalLink" title="External Link">1464776</a>
+.                              Thanks to Paul W. King (kingpaul).</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#tir-gwaith">tir-gwaith</a>
+</td>
+</tr>
+<tr class="b"><td><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+</td>
+<td>New source [Blue Devil Games       ]        [DS       ]        Operation Quick Launch.                          Fixes<a href="http://sourceforge.net/support/tracker.php?aid=1541502" class="externalLink" title="External Link">1541502</a>
+.                              Thanks to Paul W. King (kingpaul).</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#frank_kliewe">frank_kliewe</a>
+</td>
+</tr>
+        </table>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- November 12, 2006.</p>
+
+
+<h2><a name="GMGenIssue">GMGen known issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.2 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_full.zip?download">pcgen5112_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_full.zip.sig?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_partial.zip?download">pcgen5112_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_partial.zip.sig?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_win_install.exe?download">pcgen5112_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_win_install.exe.sig?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_mac_install.dmg?download">pcgen5112_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5112_mac_install.dmg.sig?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.2</a></h2>
+
+<h3>Data FREQs</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1588329">1588329</a> ] [MSRD Future] Add Types to Laser and Plasma Weapons
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1593541">1593541</a> ] [MSRD] Add 'All Automatic Prof' feat to Base Classes
+</ul>
+
+<h3>New Data Source Development</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1464776">1464776</a> ] [Secular Games] [ACG] Arcane Archer
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1541502">1541502</a> ] [Blue Devil Games] [DS] Operation Quick Launch
+</ul>
+
+<h3>Code Bugs</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1580188">1580188</a> ] MULTIPREREQS ignored
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1580948">1580948</a> ] SPECIALTYKNOWN
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1592361">1592361</a> ] HITDIE: mods in Templates applied twice to SUBCLASSes
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1593068">1593068</a> ] Equipmod "Ability Bonus" adding to base
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1593500">1593500</a> ] Hidden templates do not work
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1594543">1594543</a> ] LST Editors failing to save
+</ul>
+
+<h3>Data Bugs</h3>
+<ul>
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1580216">1580216</a> ] [RSRD] Phrenic Creature template missing
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1583173">1583173</a> ] Incorrect SA syntax in Arcana - Societies of Magic
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1590728">1590728</a> ] [D20 Weapons Locker] Remove unwanted ampersand from names
+<li>[ <a href="http://sourceforge.net/support/tracker.php?aid=1592429">1592429</a> ] Replace old FEAT tags in class files
+</ul>
+</body>
+</html>
