@@ -466,6 +466,7 @@ public final class Deity extends PObject
 	 */
 	public void setDomainList(final List<Domain> domainList)
 	{
+		listChar.removeListFor(ListKey.DOMAIN);
 		listChar.addAllToListFor(ListKey.DOMAIN, domainList);
 		stringChar.put(StringKey.DOMAIN_LIST_PI, null);
 	}
