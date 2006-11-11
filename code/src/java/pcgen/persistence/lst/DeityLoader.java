@@ -64,7 +64,7 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-		int col = 0;
+		boolean firstCol = true;
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(DeityLstToken.class);
 		while (colToken.hasMoreTokens())
@@ -86,41 +86,33 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 				LstUtils.deprecationCheck(token, deity, value);
 				if (!token.parse(deity, value))
 				{
-					Logging.errorPrint("Error parsing deity " + deity.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing deity "
+						+ deity.getDisplayName() + ':' + source.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(deity, colString))
 			{
 				continue;
 			}
-			else if ((col >= 0) && (col < 6))
+			else if (firstCol)
 			{
-				switch (col)
+				if ((!colString.equals(deity.getKeyName()))
+					&& (colString.indexOf(".MOD") < 0))
 				{
-					case 0:
-
-						if ((!colString.equals(deity.getKeyName())) && (colString.indexOf(".MOD") < 0))
-						{
-							completeObject(deity);
-							deity = new Deity();
-							deity.setName(colString);
-							deity.setSourceCampaign(source.getCampaign());
-							deity.setSourceFile(source.getFile());
-						}
-
-						break;
-
-					default:
-						Logging.errorPrint("In DeityLoader.parseLine the column " + col + " is not possible.");
-
-						break;
+					completeObject(deity);
+					deity = new Deity();
+					deity.setName(colString);
+					deity.setSourceCampaign(source.getCampaign());
+					deity.setSourceFile(source.getFile());
 				}
-
-				col++;
+				firstCol = false;
 			}
 			else
 			{
-				Logging.errorPrint("Illegal deity info '" + colString + "' in " + source.getFile());
+				Logging.errorPrint("Illegal deity info '" + colString
+					+ "' for " + deity.getDisplayName() + " in "
+					+ source.getFile() + " of " + source.getCampaign() + ".");
 			}
 		}
 
