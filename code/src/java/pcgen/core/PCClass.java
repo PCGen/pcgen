@@ -3043,7 +3043,7 @@ public class PCClass extends PObject {
 		}
 
 		if (level == 1) {
-			if (level > curLevel) {
+			if (level > curLevel || aPC.isImporting()) {
 				try
 				{
 					PreParserFactory factory = PreParserFactory.getInstance();
@@ -3092,7 +3092,6 @@ public class PCClass extends PObject {
 						bon.addPreReq(prereq);
 						addBonusList(bon);
 					}
-
 					StringBuffer aBuf = new StringBuffer("0|FEAT|PCPOOL|CL/");
 					aBuf.append(rangeLevel);
 					BonusObj bon = Bonus.newBonus(aBuf.toString());
