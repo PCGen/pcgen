@@ -103,18 +103,17 @@
 
 
 ; Begin Script ----------------------------------------------------------------------------
+; Include the externally defined constants
+!include includes\constants.nsh
+
 ; Define constants
 !define APPNAME "PCGen"
-!define SIMPVER "5111"
-!define APPNAMEANDVERSION "PCGen 5.11.1"
+!define APPNAMEANDVERSION "${APPNAME} ${LONGVER}"
 !define APPDIR "PCGen${SIMPVER}"
 !define TargetVer "1.5"
 !define OverVer "1.6"
 !define OutName "pcgen${SIMPVER}_win_install"
-;;!define OutDir "E:\Work\PCGen\Installer\Build\nsis_dir"
-!define OutDir "E:\Projects\release"
-;;!define SrcDir "E:\Work\PCGen\Installer\Build\nsis_dir"
-!define SrcDir "E:\Projects\release\nsis_dir"
+
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
@@ -258,7 +257,7 @@ SectionEnd
 SubSection /e "Data" Section2
 
 # Run the perl script gendatalist.pl to generate the file below.
-!include data.nsh
+!include includes\data.nsh
 
 SubSectionEnd
 

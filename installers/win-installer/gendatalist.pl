@@ -77,7 +77,7 @@ $pub{'thegamemechanics'} = 'The Game Mechanics Inc';
 $pub{'wizardsofthecoast'} = 'Wizards of the Coast';
 
 # Open the script output file
-my $script_file = 'data.nsh';
+my $script_file = 'includes/data.nsh';
 
 open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 # Loop through each of the directories under data
