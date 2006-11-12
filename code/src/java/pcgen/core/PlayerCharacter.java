@@ -7947,7 +7947,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		
 		for ( final PObject pobj : getPObjectList() )
 		{
-			if ( pobj != null )
+			// We exclude equipmods here as their bonuses are already counted in the equipment they belong to.
+			if ( pobj != null && !(pobj instanceof EquipmentModifier))
 			{
 				pobj.activateBonuses(this);
 
