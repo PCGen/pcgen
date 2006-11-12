@@ -7,6 +7,7 @@
   <body>
     <release version="5.11.3" date="In SVN" description="Alpha release">
       <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>
+      <action dev="thpr" type="fix" issue="1594925">Officially Deprecate FEAT in PCClass</action>
     </release>
     <release version="5.11.2" date="2006-11-12" description="Alpha release">
       <action dev="thpr" type="fix" issue="1580188">MULTIPREREQs no longer ignored</action>
