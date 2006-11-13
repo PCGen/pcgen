@@ -591,7 +591,7 @@ final class ChooseSpellDialog extends JDialog
 
 			if (aClass != null)
 			{
-				minLevel = Globals.minLevelForSpellLevel(aClass, baseSpellLevel + levelAdjust, true);
+				minLevel = aClass.getMinLevelForSpellLevel(baseSpellLevel + levelAdjust, true);
 				maxClassLevel = aClass.getMaxLevel();
 			}
 			else

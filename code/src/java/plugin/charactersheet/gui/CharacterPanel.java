@@ -246,8 +246,8 @@ public class CharacterPanel extends FlippingSplitPane {
 				String className = pcclass.getDisplayClassName();
 				int highestSpellLevel = pcclass.getHighestLevelSpell(pc);
 				for(int j = 0; j <= highestSpellLevel; j++) {
-					pcclass.getCastForLevel(pcclass.getLevel(), j, Globals.getDefaultSpellBook(), pc);
-					pcclass.getKnownForLevel(pcclass.getLevel(), j, pc);
+					pcclass.getCastForLevel(j, Globals.getDefaultSpellBook(), pc);
+					pcclass.getKnownForLevel(j, pc);
 
 					StringBuffer sb = new StringBuffer();
 					sb.append(className).append(' ').append(j);

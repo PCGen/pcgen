@@ -13,6 +13,10 @@ public class SpelltypeToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
+		/*
+		 * CONSIDER In the future it may be useful here to check for "" or
+		 * "None" and filter those out (never set the spell type) - thpr 11/9/06
+		 */
 		pcclass.setSpellType(value);
 		return true;
 	}

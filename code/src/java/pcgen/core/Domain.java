@@ -108,7 +108,7 @@ public final class Domain extends PObject
 
 						for (maxLevel = 0; maxLevel < 10; maxLevel++)
 						{
-							if (aClass.getCastForLevel(aClass.getLevel(), maxLevel, aPC) == 0)
+							if (aClass.getCastForLevel(maxLevel, aPC) == 0)
 							{
 								break;
 							}
@@ -119,7 +119,7 @@ public final class Domain extends PObject
 							addSpellsToClassForLevels(aClass, 0, maxLevel - 1);
 						}
 
-						if ((maxLevel > 1) && (aClass.getNumSpellsFromSpecialty() == 0))
+						if ((maxLevel > 1) && (aClass.getKnownSpellsFromSpecialty() == 0))
 						{
 							final List<Spell> aList = Globals.getSpellsIn(-1, "", keyName);
 
@@ -127,9 +127,9 @@ public final class Domain extends PObject
 							{
 								if (gcs.levelForKey("DOMAIN", keyName, aPC) < maxLevel)
 								{
-									if (aClass.getNumSpellsFromSpecialty() == 0)
+									if (aClass.getKnownSpellsFromSpecialty() == 0)
 									{
-										aClass.setNumSpellsFromSpecialty(1);
+										aClass.setKnownSpellsFromSpecialty(1);
 										break;
 									}
 								}

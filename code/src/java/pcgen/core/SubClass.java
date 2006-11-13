@@ -55,7 +55,7 @@ public final class SubClass extends PCClass
 	/** Constructor */
 	public SubClass()
 	{
-		setNumSpellsFromSpecialty(0);
+		setKnownSpellsFromSpecialty(0);
 		setSpellBaseStat(null);
 	}
 
@@ -176,9 +176,9 @@ public final class SubClass extends PCClass
 	public String getSupplementalDisplayInfo() {
 		boolean added = false;
 		StringBuffer displayInfo = new StringBuffer();
-		if (getNumSpellsFromSpecialty() != 0) {
+		if (getKnownSpellsFromSpecialty() != 0) {
 			displayInfo.append("SPECIALTY SPELLS:").append(
-					getNumSpellsFromSpecialty());
+					getKnownSpellsFromSpecialty());
 			added = true;
 		}
 

@@ -369,7 +369,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 			Collection<CharacterSpell> spellList;
 			String spellBook;
 			if(!racial) {
-				int knownVal = pcclass.getKnownForLevel(pcclass.getLevel(), level, pc);
+				int knownVal = pcclass.getKnownForLevel(level, pc);
 				if(knownVal == 0){ // If knownVal is 0 then hide jLabel1 and Known label
 					jLabel1.setVisible(false);
 					known.setVisible(false);
@@ -377,8 +377,8 @@ public class ClassSpellLevelPane extends javax.swing.JPanel {
 				{
 				known.setText(Integer.toString(knownVal));
 				}
-				perDay.setText(pcclass.getCastForLevel(pcclass.getLevel(), level, Globals.getDefaultSpellBook(), pc) +
-				 pcclass.getBonusCastForLevelString(pcclass.getLevel(), level, Globals.getDefaultSpellBook(), pc));
+				perDay.setText(pcclass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc) +
+				 pcclass.getBonusCastForLevelString(level, Globals.getDefaultSpellBook(), pc));
 
 				spellList = pcclass.getSpellSupport().getCharacterSpell(null, Globals.getDefaultSpellBook(), level);
 				spellBook = Globals.getDefaultSpellBook();

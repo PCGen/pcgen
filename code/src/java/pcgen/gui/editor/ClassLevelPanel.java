@@ -50,6 +50,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
+
 import pcgen.core.prereq.Prerequisite;
 
 /**
@@ -201,27 +203,22 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			levelTagList.add(lt);
 		}
 
-		for (int x = 1; x <= obj.getMaxLevel(); ++x)
+		if (obj.hasCastList())
 		{
-			List<String> c = obj.getCastListForLevel(x);
-
-			if (!c.isEmpty())
+			for (Entry<Integer, List<String>> me : obj.getCastProgression().entrySet())
 			{
-				LevelTag lt = new LevelTag(x, LevelTag.TAG_CAST, CoreUtility.join(c, ","));
+				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_CAST, CoreUtility.join(me.getValue(), ","));
 				levelTagList.add(lt);
 			}
 		}
-
-		for (LevelProperty<List<String>> lp : obj.getKnownList())
-		{
-			if (!lp.getObject().isEmpty())
+		
+		if (obj.hasKnownList()) {
+			for (Entry<Integer, List<String>> me : obj.getKnownMap().entrySet())
 			{
-				LevelTag lt = new LevelTag(lp.getLevel(), LevelTag.TAG_KNOWN, CoreUtility.join(lp.getObject(), ","));
+				LevelTag lt = new LevelTag(me.getKey(), LevelTag.TAG_KNOWN, CoreUtility.join(me.getValue(), ","));
 				levelTagList.add(lt);
 			}
 		}
-
-		int index = 0;
 
 		// Output the list of spells associated with the class.
 		for (int i=0;i<=obj.getMaxLevel();i++)
@@ -258,9 +255,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				}
 			}
 		}
-		boolean flag = true;
-		index = 0;
-
+		
 		aList = obj.getListFor(ListKey.SPECIAL_ABILITY);
 
 		if ((aList != null) && (aList.size() != 0))

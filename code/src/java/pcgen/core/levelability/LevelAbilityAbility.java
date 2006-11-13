@@ -656,6 +656,7 @@ public class LevelAbilityAbility extends LevelAbility
 				if ((ab != null) && choiceString.startsWith("SPELLLEVEL"))
 				{
 					spellLevelProcess = true;
+					//TODO - This split [] needs to be reviewed??
 					final List<String> bonuses = Arrays.asList(choiceString.split("[]"));
 
 					Iterator<String> bonusIt = bonuses.iterator();

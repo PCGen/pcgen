@@ -452,6 +452,14 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 				aString = aClass.getSpellBaseStat();
 
+				/*
+				 * CONSIDER This test here is the ONLY place where the "magical"
+				 * value of null is tested for in getSpellBaseStat(). This is
+				 * currently set by SubClass and SubstititionClass, so it IS
+				 * used, but the question is: Is there a better method for
+				 * identifying this special deferral to the "lastClass" other
+				 * than null SpellBaseStat? - thpr 11/9/06
+				 */
 				if (isSubClass && ((aString == null) || (aString.length() == 0)))
 				{
 					aString = lastClass.getSpellBaseStat();

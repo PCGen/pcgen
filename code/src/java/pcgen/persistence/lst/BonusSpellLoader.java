@@ -93,6 +93,11 @@ public final class BonusSpellLoader extends LstLineFileLoader
 			}
 		}
 
+		/*
+		 * CONSIDER This is VERY deceptive to use a GET to actually perform a
+		 * SET. This should be refactored to allow a set of some sort and to
+		 * have GETs actually performing only GET operations. - thpr 11/10/06
+		 */
 		Globals.getBonusSpellMap().put(bonus.get(LEVEL), bonus.get(BASE_STAT_SCORE) + "|" + bonus.get(STAT_RANGE));
 	}
 }

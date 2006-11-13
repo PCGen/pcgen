@@ -370,13 +370,13 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 		String sbook = Globals.getDefaultSpellBook();
 
-		String cast = charClass.getCastForLevel(1, 10, sbook, true,
+		String cast = charClass.getCastForLevel(10, sbook, true,
 			false, character)
-			+ charClass.getBonusCastForLevelString(1, 10, sbook, character);
+			+ charClass.getBonusCastForLevelString(10, sbook, character);
 		assertEquals("Should not be able to cast 10th level spells at 1st level", "0", cast);
-		cast = charClass.getCastForLevel(1, 5, sbook, true,
+		cast = charClass.getCastForLevel(5, sbook, true,
 			false, character)
-			+ charClass.getBonusCastForLevelString(1, 5, sbook, character);
+			+ charClass.getBonusCastForLevelString(5, sbook, character);
 		assertEquals("Should be able to cast 5th level spells at 1st level", "5", cast);
 
 		Ability casterFeat = new Ability();
@@ -390,9 +390,9 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		Globals.addAbility(casterFeat);
 
 		AbilityUtilities.modFeat(character, null, "CasterBoost", true, false);
-		cast = charClass.getCastForLevel(1, 11, sbook, true,
+		cast = charClass.getCastForLevel(11, sbook, true,
 			false, character)
-			+ charClass.getBonusCastForLevelString(1, 11, sbook, character);
+			+ charClass.getBonusCastForLevelString(11, sbook, character);
 		assertEquals("Should be able to cast 11th level spells with feat", "1", cast);
 		assertEquals("Should be able to cast 11th level spells with feat", 11, charClass.getHighestLevelSpell(character));
 	}

@@ -114,7 +114,9 @@ public class ChooserUtilities
 
 				if (mString.indexOf("MAXLEVEL") >= 0)
 				{
-					int maxLevelVal = calcMaxSpellLevel(aClass);
+					int maxLevelVal = (aClass == null) ? 0 :
+						aClass.getMaxSpellLevelForClassLevel(aClass.getLevel());
+
 					mString = mString.replaceAll("MAXLEVEL", String
 						.valueOf(maxLevelVal));
 				}
@@ -190,37 +192,6 @@ public class ChooserUtilities
 	 * what spells can be cast, its limits on known spells will be checked instead.
 	 *
 	 * @param aClass The class to be checked.
-	 * @return The highest level spell castable
-	 */
-	private static int calcMaxSpellLevel(final PCClass aClass)
-	{
-		if (aClass == null)
-		{
-			return 0;
-		}
-
-		int j = -1;
-		final int aLevel = aClass.getLevel();
-
-		if (aLevel >= 0)
-		{ // some classes, like "Domain" are level 0, so this index would
-			// be -1
-
-			j = aClass.getCastListForLevel(aLevel).size() - 1;
-			if (j == -1)
-			{
-				j = aClass.getKnownListForLevel(aLevel).size() - 1;
-			}
-		}
-		return j;
-	}
-
-	/**
-	 * Calculate the maximum level of spell that is castable by the
-	 * PC for the supplied Class. If the class is not restricted in
-	 * what spells can be cast, its limits on known spells will be checked instead.
-	 *
-	 * @param aClass The class to be checked.
 	 * @param aType The class type to be checked.
 	 * @param aPC The character to be checked.
 	 * @return The highest level spell castable
@@ -233,22 +204,10 @@ public class ChooserUtilities
 			return 0;
 		}
 
-		int maxLevel = -1;
 		int aLevel = aClass.getLevel();
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", aClass.getKeyName());
 		aLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + aType);
-
-		if (aLevel >= 0)
-		{  // some classes, like "Domain" are level 0,
-			// so this index would be -1
-			maxLevel = aClass.getCastListForLevel(aLevel).size() - 1;
-			if (maxLevel == -1)
-			{
-				maxLevel = aClass.getKnownListForLevel(aLevel).size() - 1;
-			}
-		}
-
-		return maxLevel;
+		return aClass.getMaxSpellLevelForClassLevel(aLevel);
 	}
 
 	/**

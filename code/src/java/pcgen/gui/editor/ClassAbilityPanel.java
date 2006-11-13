@@ -167,14 +167,25 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 		//{
 		//	obj.setSpellType(a);
 		//}
-		obj.setSpellBaseStat(Constants.s_NONE);
+		if (!Constants.s_NONE.equals(obj.getSpellBaseStat())) {
+			//This IF gate exists to prevent useless instantiation of SpellProgressionInfo
+			obj.setSpellBaseStat(Constants.s_NONE);
+		}
 		a = (String) spellStat.getSelectedItem();
 
-		if ((a != null) && (a.length() > 0))
+		if ((a != null) && (a.length() > 0) && !Constants.s_NONE.equals(a))
 		{
 			obj.setSpellBaseStat(a);
 		}
 
+		/*
+		 * CONSIDER I find this interesting that one can unset the Spell Type,
+		 * but this does not ensure consistency with KNOWN, et al. to ensure the
+		 * class is valid. Isn't SpellType required if there are spells known or
+		 * cast? - thpr 11/9/06
+		 * 
+		 * Ditto SpellBaseStat above...
+		 */
 		obj.setSpellType(Constants.s_NONE);
 		a = (String) spellType.getSelectedItem();
 

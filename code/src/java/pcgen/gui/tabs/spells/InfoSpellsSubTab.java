@@ -703,10 +703,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
-					final int a = aClass.getKnownForLevel(aClass.getLevel(), i,
-						pc);
-					final int bonus = aClass.getSpecialtyKnownForLevel(aClass
-						.getLevel(), i, pc);
+					final int a = aClass.getKnownForLevel(i, pc);
+					final int bonus = aClass.getSpecialtyKnownForLevel(i, pc);
 					StringBuffer bString = new StringBuffer();
 
 					if (bonus > 0)
@@ -1030,12 +1028,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 	private static final String getNumCast(PCClass aClass, int level,
 		PlayerCharacter pc)
 	{
-		int cLevel = aClass.getLevel();
 		String sbook = Globals.getDefaultSpellBook();
-		//		final String cast = aClass.getCastForLevel(cLevel, level, sbook, pc)
-		final String cast = aClass.getCastForLevel(cLevel, level, sbook, true,
-			false, pc)
-			+ aClass.getBonusCastForLevelString(cLevel, level, sbook, pc);
+		final String cast = aClass.getCastForLevel(level, sbook, true, false,
+				pc)
+				+ aClass.getBonusCastForLevelString(level, sbook, pc);
 
 		return cast;
 	}

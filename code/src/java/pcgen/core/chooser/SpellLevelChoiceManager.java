@@ -119,6 +119,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		}
 
 		//final StringTokenizer choicesTok = new StringTokenizer(choicesSt, "|");
+		//CONSIDER TODO - This split | needs to be reviewed?? - should be \\|??
 		String choicesArr[] = choicesSt.split("|");
 		List<String> choicesList = Arrays.asList(choicesArr);
 

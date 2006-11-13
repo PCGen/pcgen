@@ -7182,16 +7182,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		// Now let's see if they should be able to add this spell
 		// first check for known/cast/threshold
-		final int known = aClass.getKnownForLevel(aClass.getLevel(), spellLevel, this);
+		final int known = aClass.getKnownForLevel(spellLevel, this);
 		int specialKnown = 0;
-		final int cast = aClass.getCastForLevel(aClass.getLevel(), adjSpellLevel, bookName, true, true, this);
+		final int cast = aClass.getCastForLevel(adjSpellLevel, bookName, true, true, this);
 		aClass.memorizedSpellForLevelBook(adjSpellLevel, bookName);
 
 		final boolean isDefault = bookName.equals(Globals.getDefaultSpellBook());
 
 		if (isDefault)
 		{
-			specialKnown = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), spellLevel, this);
+			specialKnown = aClass.getSpecialtyKnownForLevel(spellLevel, this);
 		}
 
 		int numPages = 0;
@@ -7256,8 +7256,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				&& availableSpells(adjSpellLevel, aClass, bookName, false, true))
 			{
 				ret = "Your remaining slot(s) must be filled with your speciality or domain.";
-				maxAllowed = aClass.getCastForLevel(aClass.getLevel(),
-					adjSpellLevel, bookName, false, true, this);
+				maxAllowed = aClass.getCastForLevel(adjSpellLevel, bookName, false, true, this);
 			}
 			else
 			{
@@ -8171,9 +8170,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				&& !aClass.getSpellType().equalsIgnoreCase(Constants.s_NONE))
 			{
 				// Get the number of known spells for the level
-				final int classLevel = aClass.getLevel();
-				int knownForLevel = aClass.getKnownForLevel(classLevel, spellLevel, this);
-				knownForLevel += aClass.getSpecialtyKnownForLevel(classLevel, spellLevel, this);
+				int knownForLevel = aClass.getKnownForLevel(spellLevel, this);
+				knownForLevel += aClass.getSpecialtyKnownForLevel(spellLevel, this);
 				if (knownForLevel >= minNumSpells)
 				{
 					return true;
@@ -8181,7 +8179,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 				// See if the character can cast
 				// at the required spell level
-				if (aClass.getCastForLevel(classLevel, spellLevel, this) >= minNumSpells)
+				if (aClass.getCastForLevel(spellLevel, this) >= minNumSpells)
 				{
 					return true;
 				}
@@ -12032,15 +12030,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			// Get the number of castable slots
 			if (knownLearned)
 			{
-				knownNon = aClass.getKnownForLevel(aClass.getLevel(), i, bookName, this);
-				knownSpec = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), i, this);
+				knownNon = aClass.getKnownForLevel(i, bookName, this);
+				knownSpec = aClass.getSpecialtyKnownForLevel(i, this);
 				knownTot = knownNon + knownSpec; // TODO: : value never used
 			}
 			else
 			{
 				// Get the number of castable slots
-				knownTot = aClass.getCastForLevel(aClass.getLevel(), i, bookName, true, true, this);
-				knownNon = aClass.getCastForLevel(aClass.getLevel(), i, bookName, false, true, this);
+				knownTot = aClass.getCastForLevel(i, bookName, true, true, this);
+				knownNon = aClass.getCastForLevel(i, bookName, false, true, this);
 				knownSpec = knownTot - knownNon;
 			}
 
@@ -12107,15 +12105,15 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		{
 			if (knownLearned)
 			{
-				knownNon = aClass.getKnownForLevel(aClass.getLevel(), i, bookName, this);
-				knownSpec = aClass.getSpecialtyKnownForLevel(aClass.getLevel(), i, this);
+				knownNon = aClass.getKnownForLevel(i, bookName, this);
+				knownSpec = aClass.getSpecialtyKnownForLevel(i, this);
 				knownTot = knownNon + knownSpec; // for completeness
 			}
 			else
 			{
 				// Get the number of castable slots
-				knownTot = aClass.getCastForLevel(aClass.getLevel(), i, bookName, true, true, this);
-				knownNon = aClass.getCastForLevel(aClass.getLevel(), i, bookName, false, true, this);
+				knownTot = aClass.getCastForLevel(i, bookName, true, true, this);
+				knownNon = aClass.getCastForLevel(i, bookName, false, true, this);
 				knownSpec = knownTot - knownNon;
 			}
 

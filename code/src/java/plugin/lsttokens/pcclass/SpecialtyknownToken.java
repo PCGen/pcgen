@@ -1,5 +1,7 @@
 package plugin.lsttokens.pcclass;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.PCClass;
@@ -16,14 +18,13 @@ public class SpecialtyknownToken implements PCClassLstToken {
 
 	public boolean parse(PCClass pcclass, String value, int level) {
 		StringTokenizer st = new StringTokenizer(value, ",");
-		int[] array = new int[st.countTokens()];
-		
-		int index = 0;
+		List<String> list = new ArrayList<String>(st.countTokens());
+
 		while (st.hasMoreTokens()) {
-			array[index++] = Integer.parseInt(st.nextToken());
+			list.add(st.nextToken());
 		}
-		
-		pcclass.addSpecialtyKnown(level, array);
+
+		pcclass.addSpecialtyKnown(level, list);
 		return true;
 	}
 }

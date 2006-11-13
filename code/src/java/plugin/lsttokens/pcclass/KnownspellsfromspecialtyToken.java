@@ -14,7 +14,7 @@ public class KnownspellsfromspecialtyToken implements PCClassLstToken {
 
 	public boolean parse(PCClass pcclass, String value, int level) {
 		try {
-			pcclass.setNumSpellsFromSpecialty(Integer.parseInt(value));
+			pcclass.setKnownSpellsFromSpecialty(Integer.parseInt(value));
 			return true;
 		}
 		catch (NumberFormatException nfe) {

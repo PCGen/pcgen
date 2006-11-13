@@ -23,7 +23,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,51 +66,6 @@ import pcgen.util.enumeration.VisionType;
  */
 public class PCClass extends PObject {
 	/*
-	 * FUTURETYPESAFETY If this really is a Base stat, then this should be
-	 * storing that Stat in a type safe form.... which is a really great idea,
-	 * except for the fact that PCStat actually is SPECIFIC to the
-	 * PlayerCharacter, is cloned as a result, and therefore, storing a PCStat
-	 * here doesn't store the PCStat from the PlayerCharacter, and is therefore
-	 * wrong. Fixing this has a prerequisite of actually 'fixing' PCStat to also
-	 * be Involatile.
-	 */
-	/*
-	 * FINALALLCLASSLEVELS The spellBaseStat needs to be stored in EACH individual
-	 * PCClassLevel, since each individual PCClassLevel is granting spells, and
-	 * will be "looked to" to determine the base 'properties' of those spells
-	 */
-	private String spellBaseStat = Constants.s_NONE;
-
-	/*
-	 * FUTURETYPESAFETY This should really be storing a PCStat or something else
-	 * that is type safe, not simply a String.... which is a really great idea,
-	 * except for the fact that PCStat actually is SPECIFIC to the
-	 * PlayerCharacter, is cloned as a result, and therefore, storing a PCStat
-	 * here doesn't store the PCStat from the PlayerCharacter, and is therefore
-	 * wrong. Fixing this has a prerequisite of actually 'fixing' PCStat to also
-	 * be Involatile.
-	 */
-	/*
-	 * FINALALLCLASSLEVELS The challenge here is that the bonus spells must be
-	 * calculated by the PCClassLevel based on the current Stat (which may
-	 * change over the life of a PC and from one PC to another). However, in a
-	 * literal check, this variable then only needs to be present in the first
-	 * PCClassLevel that can cast any given spell level (otherwise, bonus spells
-	 * will unreasonably stack). I think another variable is needed to indicate
-	 * to a particular PCClassLevel whether it is allowed to grant bonus spells,
-	 * and for what level(s) it grants those bonuses.
-	 * 
-	 * Note this is dependent upon how PCClassLevel ends up calculating the
-	 * known and cast spells for any given level.
-	 */
-	private String bonusSpellBaseStat = Constants.s_DEFAULT;
-
-	/*
-	 * UNKNOWNDESTINATION Don't know where to put this yet
-	 */
-	private int numSpellsFromSpecialty = 0;
-
-	/*
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
 	 */
 	private ArrayList<LevelProperty<Domain>> domainList = null;
@@ -147,17 +101,6 @@ public class PCClass extends PObject {
 	private ArrayList<LevelProperty<String>> featList = null;
 
 	/*
-	 * FUTURETYPESAFETY Currently can't do better than String, because each one
-	 * of these can be a formula, or some special gunk for Psionicists (can we
-	 * clean that up??)
-	 */
-	/*
-	 * ALLCLASSLEVELS Since the known list is class level dependent, it needs to
-	 * be stored into each PCClassLevel
-	 */
-	private ArrayList<LevelProperty<List<String>>> knownList = null;
-
-	/*
 	 * LEVELONEONLY This variable (automatically known spells) only needs to be
 	 * loaded into the first PCClassLevel returned by PCClass, because the data
 	 * is static (doesn't change by level) and because it will be tested
@@ -178,13 +121,6 @@ public class PCClass extends PObject {
 	 * byproduct of addLevel
 	 */
 	private ArrayList<String> specialtyList = null;
-
-	/*
-	 * ALLCLASSLEVELS The specialtyKnownList [based on their level and/or
-	 * LevelProperty (if it gets used)] (not the raw Strings) need to be stored
-	 * in EACH individual PCClassLevel.
-	 */
-	private ArrayList<LevelProperty<int[]>> specialtyknownList = null;
 
 	/*
 	 * STRINGREFACTOR This is currently taking in a delimited String and should
@@ -355,25 +291,6 @@ public class PCClass extends PObject {
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
 	private List<LevelProperty<Vision>> visionList = null;
-
-	/*
-	 * FUTURETYPESAFETY Currently can't do better than String, because each one
-	 * of these can be a formula, or some special gunk for Psionicists (can we
-	 * clean that up??)
-	 */
-	/*
-	 * ALLCLASSLEVELS This goes into each PCClassLevel, although some 'advanced'
-	 * processing may need to take place to do a differential of each class
-	 * (class tables should still be stored in their total form for human
-	 * readibility!). Remember to consider PCClassLevels where 0 spells are
-	 * acquired (vs -) since that is where ability bonuses are triggered...
-	 */
-	/*
-	 * REFACTOR Should decide whether this should be LevelProperty<String> and
-	 * allow multiple instances of the same level within the List? that is how
-	 * other variables are working
-	 */
-	private List<LevelProperty<List<String>>> castList = null;
 
 	/*
 	 * UNKNOWNDESTINATION Actually, the question becomes: Does the CR simply get
@@ -561,21 +478,6 @@ public class PCClass extends PObject {
 	private List<String> prohibitedSchools = null;
 
 	/*
-	 * FUTURETYPESAFETY This should NOT be a String, as Spell Types are a
-	 * specific set of items... This, however is NON Trivial, since Spell Types
-	 * are used WIDELY through the code base. It will be a nice thing to make
-	 * type safe, but it is best done by itself in a checkin specifically
-	 * focused on making Spell Types type safe.
-	 */
-	/*
-	 * FINALALLCLASSLEVELS Because this indicates a Spell Type of a Class and
-	 * PCClassLevels are capable of issuing Spells Known and Cast per day, this
-	 * must be passed into each and every PCClassLevel (though it can be given
-	 * in its pure form).
-	 */
-	private String spellType = Constants.s_NONE;
-
-	/*
 	 * PCCLASSLEVELONLY Since this is not part of a tag and is related to how
 	 * spells are related to a PCClassLevel
 	 * 
@@ -626,22 +528,6 @@ public class PCClass extends PObject {
 	private boolean hasSubstitutionClass = false;
 
 	/*
-	 * FINALALLCLASSLEVELS I think this is appropriate to put into all PCClassLevels,
-	 * since PCClassLevel has the ability to grant known spells and cast spells
-	 * (per day).
-	 */
-	/*
-	 * CONSIDER This gets VERY interesting as far as prerequisite checking.
-	 * There is a PRESPELLCASTMEMORIZE tag (or some such) that tests how many
-	 * classes the character has that memorizes spells. That test gets MUCH more
-	 * complicated in a PCClassLevel world, since there will be multiple
-	 * PCClassLevels that memorize spells; all of which will use the same
-	 * PCClass as a base (therefore does the PREREQ need to keep track of the
-	 * matching keys? - I think so, yes.)
-	 */
-	private boolean memorizeSpells = true;
-
-	/*
 	 * UNKNOWNDESTINATION This seems initially to be part of the Factory that
 	 * creates the PCClassLevels, and not something that would end up in
 	 * PCClassLevel. This should NOT need to be added to the PCClassLevel since
@@ -676,22 +562,6 @@ public class PCClass extends PObject {
 	 * I really want to DELETEVARIABLE
 	 */
 	private boolean multiPreReqs = false;
-
-	/*
-	 * ALLCLASSLEVELS I think this is appropriate to put into all PCClassLevels,
-	 * since PCClassLevel has the ability to grant known spells and cast spells
-	 * (per day).
-	 */
-	/*
-	 * REFACTOR This gets VERY interesting as far as prerequisite checking.
-	 * There is a PRESPELLBOOKTESTER tag (or some such) that tests how many
-	 * classes the character has that memorizes spells. That test gets MUCH more
-	 * complicated in a PCClassLevel world, since there will be multiple
-	 * PCClassLevels that use a spell book; all of which will use the same
-	 * PCClass as a base (therefore does the PREREQ need to keep track of the
-	 * matching keys?)
-	 */
-	private boolean usesSpellbook = false;
 
 	/*
 	 * LEVELONEONLY Because this indicates a set of prohibitions, it only needs
@@ -759,23 +629,6 @@ public class PCClass extends PObject {
 	private int maxLevel = 20;
 
 	/*
-	 * DELETEVARIABLE MaxCastLevel is ONLY used in capping the level at which
-	 * the Class can cast spells. This should easily be factorable out at very
-	 * little CPU cost and hopefully a significant increase in clarity (caching
-	 * can be confusing)...
-	 */
-	private int maxCastLevel = -1; // max level CAST: tag is found
-
-	/*
-	 * DELETEVARIABLE MaxKnownLevel is ONLY used in determining the known spells
-	 * for a given level. This represents the maximum level at which the Class
-	 * can gain spells. This should easily be factorable out at very little CPU
-	 * cost and hopefully a significant increase in clarity (caching can be
-	 * confusing)...
-	 */
-	private int maxKnownLevel = -1; // max level KNOWN: tag is found
-
-	/*
 	 * FORMULAREFACTOR This is currently processed elsewhere - should be
 	 * processed as a Formula, not a String...
 	 */
@@ -788,18 +641,6 @@ public class PCClass extends PObject {
 	 * PCClassLevel is GameMode aware??
 	 */
 	private String skillPointFormula = "0";
-
-	/*
-	 * ALLCLASSLEVELS This needs to appear in both PCClass and PCClassLevel, on
-	 * all class levels, since it is controlling the behavior of the castMap.
-	 */
-	/*
-	 * REFACTOR This is actually a pretty large concern: Like the CR formula,
-	 * this makes the castMap impossible to do in an incremental fashion,
-	 * because the castMap becomes dependent on things that make the
-	 * calculations rather difficult.
-	 */
-	private boolean hasSpellFormulas = false;
 
 	/*
 	 * TYPESAFETY This is definitely something that needs to NOT be a String,
@@ -848,9 +689,10 @@ public class PCClass extends PObject {
 	 */
 	private HashMap<AttackType, String> attackCycleMap = null;
 
-	
+	private SpellProgressionInfo castInfo = null;
+
 //	private DoubleKeyMap<AbilityCategory, Integer, List<String>> theAutoAbilities = null;
-	
+
 	/**
 	 * Default Constructor. Constructs an empty PCClass.
 	 */
@@ -1023,7 +865,7 @@ public class PCClass extends PObject {
 	 * in both PCClass and PCClassLevel
 	 */
 	public final void setBonusSpellBaseStat(final String baseStat) {
-		bonusSpellBaseStat = baseStat;
+		getConstructingSpellProgressionInfo().setBonusSpellBaseStatAbbr(baseStat);
 	}
 
 	/**
@@ -1040,7 +882,7 @@ public class PCClass extends PObject {
 	 * in both PCClass and PCClassLevel
 	 */
 	public final String getBonusSpellBaseStat() {
-		return bonusSpellBaseStat;
+		return castInfo == null ? Constants.s_DEFAULT : castInfo.getBonusSpellBaseStatAbbr();
 	}
 
 	/**
@@ -1143,11 +985,9 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * Return the number of spells a character can cast in this class for a
-	 * specified level.
+	 * Return the number of spells a character can cast in this class for the
+	 * current level.
 	 * 
-	 * @param pcLevel
-	 *            The number of levels in this class that the character has
 	 * @param spellLevel
 	 *            The spell level we are interested in
 	 * @param bookName
@@ -1157,41 +997,9 @@ public class PCClass extends PObject {
 	 * @return The number of spells per day that this cahracter can cast of this
 	 *         level.
 	 */
-	/*
-	 * REFACTOR There seems to be redundant information here (if there
-	 * is a PC, why do we need to know the PC Level?
-	 */
-	public int getCastForLevel(final int pcLevel, final int spellLevel,
-			final String bookName, final PlayerCharacter aPC) {
-		return getCastForLevel(pcLevel, spellLevel, bookName, true, aPC);
-	}
-
-	/**
-	 * Return the number of spells a character can cast in this class for a
-	 * specified level.
-	 * 
-	 * @param pcLevel
-	 *            The number of levels in this class that the character has
-	 * @param spellLevel
-	 *            The spell level we are interested in
-	 * @param bookName
-	 *            the name of the spell book we are interested in
-	 * @param includeAdj
-	 *            Seems to have something to do with speciality spells
-	 * @param aPC
-	 *            The character we are interested in
-	 * @return The number of spells per day that this cahracter can cast of this
-	 *         level.
-	 */
-	/*
-	 * REFACTOR There seems to be redundant information here (if there
-	 * is a PC, why do we need to know the PC Level?
-	 */
-	public int getCastForLevel(final int pcLevel, final int spellLevel,
-			final String bookName, final boolean includeAdj,
+	public int getCastForLevel(final int spellLevel, final String bookName,
 			final PlayerCharacter aPC) {
-		return getCastForLevel(pcLevel, spellLevel, bookName, includeAdj, true,
-				aPC);
+		return getCastForLevel(spellLevel, bookName, true, true, aPC);
 	}
 
 	/**
@@ -1214,13 +1022,10 @@ public class PCClass extends PObject {
 	 * @return The number of spells per day that this cahracter can cast of this
 	 *         level.
 	 */
-	/*
-	 * REFACTOR There seems to be redundant information here (if there
-	 * is a PC, why do we need to know the PC Level?
-	 */
-	public int getCastForLevel(int pcLevel, final int spellLevel,
+	public int getCastForLevel(final int spellLevel,
 			final String bookName, final boolean includeAdj,
 			final boolean limitByStat, final PlayerCharacter aPC) {
+		int pcLevel = getLevel();
 		int total = 0;
 		int stat = 0;
 		final String classKeyName = "CLASS." + getKeyName();
@@ -1304,7 +1109,9 @@ public class PCClass extends PObject {
 				List<Spell> bList = new ArrayList<Spell>();
 
 				if (!aList.isEmpty()) {
-					if ((ix > 0) && "DIVINE".equalsIgnoreCase(spellType)) {
+					// Assume no null check on castInfo requried, because
+					// getNumFromCastList above would have returned -1
+					if ((ix > 0) && "DIVINE".equalsIgnoreCase(castInfo.getSpellType())) {
 						for (CharacterDomain cd : aPC.getCharacterDomainList()) {
 							if (cd.isFromPCClass(getKeyName())
 									&& (cd.getDomain() != null)) {
@@ -1730,7 +1537,7 @@ public class PCClass extends PObject {
 	 * the individual PCClassLevels (because they grant spells)
 	 */
 	public final void setMemorizeSpells(final boolean memorizeSpells) {
-		this.memorizeSpells = memorizeSpells;
+		getConstructingSpellProgressionInfo().setMemorizeSpells(memorizeSpells);
 	}
 
 	/*
@@ -1738,7 +1545,8 @@ public class PCClass extends PObject {
 	 * the individual PCClassLevels (because they grant spells)
 	 */
 	public final boolean getMemorizeSpells() {
-		return memorizeSpells;
+		//Defaults to true, so null returns true
+		return castInfo == null || castInfo.memorizesSpells();
 	}
 
 	/*
@@ -1927,7 +1735,7 @@ public class PCClass extends PObject {
 	 * active)
 	 */
 	public final void setHasSpellFormula(final boolean arg) {
-		hasSpellFormulas = arg;
+		getConstructingSpellProgressionInfo().setContainsSpellFormula(arg);
 	}
 
 	/*
@@ -2168,7 +1976,7 @@ public class PCClass extends PObject {
 	 * require this method
 	 */
 	public final void setSpellBaseStat(final String baseStat) {
-		spellBaseStat = baseStat;
+		getConstructingSpellProgressionInfo().setSpellBaseStatAbbr(baseStat);
 	}
 
 	/*
@@ -2176,7 +1984,7 @@ public class PCClass extends PObject {
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellBaseStat() {
-		return spellBaseStat;
+		return castInfo == null ? Constants.s_NONE : castInfo.getSpellBaseStatAbbr();
 	}
 
 	/*
@@ -2252,7 +2060,11 @@ public class PCClass extends PObject {
 	 * it is a Tag
 	 */
 	public final void setSpellType(final String newType) {
-		spellType = newType;
+		if (castInfo == null && Constants.s_NONE.equals(newType)) {
+			//Don't create a SpellProgressionInfo to set to default!!
+			return;
+		}
+		getConstructingSpellProgressionInfo().setSpellType(newType);
 	}
 
 	/*
@@ -2260,7 +2072,7 @@ public class PCClass extends PObject {
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
 	public final String getSpellType() {
-		return spellType;
+		return castInfo == null ? Constants.s_NONE : castInfo.getSpellType();
 	}
 
 	/*
@@ -2268,20 +2080,7 @@ public class PCClass extends PObject {
 	 * it is a Tag [with level dependent differences, of course)
 	 */
 	public void setCast(final int aLevel, final List<String> cast) {
-		if (castList == null) {
-			castList = new ArrayList<LevelProperty<List<String>>>();
-		}
-		if (aLevel > maxCastLevel) {
-			maxCastLevel = aLevel;
-		}
-		for (LevelProperty<List<String>> lp : castList) {
-			if (lp.getLevel() == aLevel) {
-				castList.remove(lp);
-				break;
-			}
-		}
-		
-		castList.add(LevelProperty.getLevelProperty(aLevel, cast));
+		getConstructingSpellProgressionInfo().setCast(aLevel, cast);
 	}
 
 	/*
@@ -2292,26 +2091,24 @@ public class PCClass extends PObject {
 	 * also appear in PCClass.
 	 */
 	public List<String> getCastListForLevel(int aLevel) {
-		if (castList != null) {
-			final int lvl = Math.min(aLevel, maxCastLevel);
-			for (LevelProperty<List<String>> lp : castList) {
-				if (lp.getLevel() == lvl) {
-					return lp.getObject();
-				}
-			}
+		if (castInfo == null) {
+			return null;
 		}
-		return Collections.emptyList();
+		return castInfo.getCastForLevel(aLevel);
+	}
+	
+	public boolean hasCastList() {
+		return castInfo != null && castInfo.hasCastProgression();
 	}
 	
 	/*
 	 * PCCLASSONLY For editing a PCClass and Global checks...
 	 */
-	public List<LevelProperty<List<String>>> getCastList() {
-		if (castList == null) {
-			final List<LevelProperty<List<String>>> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+	public Map<Integer, List<String>> getCastProgression() {
+		if (castInfo == null) {
+			return null;
 		}
-		return castList;
+		return castInfo.getCastProgression();
 	}
 
 	/**
@@ -2320,21 +2117,11 @@ public class PCClass extends PObject {
 	 * @return The level of the highest level spell available.
 	 */
 	public int getHighestLevelSpell() {
-		int highest = -1;
-		
-		if (castList != null) {
-			for (LevelProperty<List<String>> lp : castList) {
-				highest = Math.max(highest, lp.getObject().size() - 1);
-			}
+		if (castInfo == null) {
+			return -1;
 		}
-
-		if (knownList != null) {
-			for (LevelProperty<List<String>> lp : knownList) {
-				highest = Math.max(highest, lp.getObject().size() - 1);
-			}
-		}
-
-		return highest;
+		return Math.max(castInfo.getHighestCastSpellLevel(),
+				castInfo.getHighestKnownSpellLevel());
 	}
 
 	/**
@@ -2370,16 +2157,9 @@ public class PCClass extends PObject {
 	 * @param aPC
 	 * @return int
 	 */
-	/*
-	 * REFACTOR This, like many of the spell counting methods, contains both
-	 * redundant information (the PC and the PC Level) and also is rather ugly.
-	 * This should really be part of PCClassLevel only, but some major
-	 * rethinking of these methods needs to take place to minimize the number of
-	 * them, and to make sure they are efficiently used.
-	 */
-	public int getKnownForLevel(final int pcLevel, final int spellLevel,
+	public int getKnownForLevel(final int spellLevel,
 			final PlayerCharacter aPC) {
-		return getKnownForLevel(pcLevel, spellLevel, "null", aPC);
+		return getKnownForLevel(spellLevel, "null", aPC);
 	}
 
 	/*
@@ -2420,27 +2200,21 @@ public class PCClass extends PObject {
 	/*
 	 * PCCLASSONLY This is for PCClass construction and Global queries
 	 */
-	public List<LevelProperty<List<String>>> getKnownList() {
+	public Map<Integer, List<String>> getKnownMap() {
 		if (Constants.EMPTY_STRING.equals(castAs)
 				|| getKeyName().equals(castAs)) {
-			if (knownList == null) {
-				final List<LevelProperty<List<String>>> ret = Collections.emptyList();
-				return Collections.unmodifiableList(ret);
+			if (castInfo == null) {
+				return null;
 			}
-			return knownList;
+			return castInfo.getKnownProgression();
 		}
 
 		final PCClass aClass = Globals.getClassKeyed(castAs);
-
 		if (aClass != null) {
-			return aClass.getKnownList();
+			return aClass.getKnownMap();
 		}
 
-		if (knownList == null) {
-			final List<LevelProperty<List<String>>> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
-		}
-		return knownList;
+		throw new IllegalStateException("Unknown Class for CASTAS: " + castAs);
 	}
 	
 	/*
@@ -2453,38 +2227,7 @@ public class PCClass extends PObject {
 				return aClass.hasKnownList();
 			}
 		}
-		return knownList != null && !knownList.isEmpty();
-	}
-
-	/**
-	 * Return KNOWN: List for a level
-	 * 
-	 * @param aInt
-	 *            The level of the class to be retrieved
-	 * @return String The KNOWN List, if any
-	 */
-	/*
-	 * PCCLASSLEVELONLY This is required in PCClassLevel since it is level
-	 * dependent (though it no longer needs the int argument :) ). Note this
-	 * should also be refactored (as part of the getKnownList() rebuild) to pass
-	 * around something more intelligent than a String.
-	 */
-	public List<String> getKnownListForLevel(int aInt) {
-		/*
-		 * CONSIDER We need to think about where this max level check goes - if
-		 * there is a KNOWN for Level 20 and not for Level 21, does the KNOWN
-		 * for level 20 get applied into the PCClassLevel object for Level 21,
-		 * or not? - thpr 11/4/06
-		 */
-		if (aInt > maxKnownLevel) {
-			aInt = maxKnownLevel;
-		}
-		for (LevelProperty<List<String>> lp : knownList) {
-			if (lp.getLevel() == aInt) {
-				return lp.getObject();
-			}
-		}
-		return Collections.emptyList();
+		return castInfo != null && castInfo.hasKnownProgression();
 	}
 
 	/**
@@ -2504,28 +2247,15 @@ public class PCClass extends PObject {
 
 	/*
 	 * PCCLASSONLY This is required in PCClass for PCClass editing
+	 * 
+	 * DELETEMETHOD - this isn't used??? Or perhaps that indicates 
+	 * that the GUI LST CLASS editor is incomplete :)
 	 */
-	public final Collection<LevelProperty<int[]>> getSpecialtyKnownList() {
-		if (specialtyknownList == null) {
-			final List<LevelProperty<int[]>> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+	public final Map<Integer, List<String>> getSpecialtyKnownList() {
+		if (castInfo == null) {
+			return null;
 		}
-		return Collections.unmodifiableList(specialtyknownList);
-	}
-
-	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public final int[] getSpecialtyKnownList(int aLevel) {
-		if (specialtyknownList != null) {
-			for (LevelProperty<int[]> lp : specialtyknownList) {
-				if (lp.getLevel() == aLevel) {
-					return lp.getObject();
-				}
-			}
-		}
-		return null;
+		return castInfo.getSpecialtyKnownMap();
 	}
 	
 	/**
@@ -2542,11 +2272,8 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
-	public final void addSpecialtyKnown(int aLevel, int[] array) {
-		if (specialtyknownList == null) {
-			specialtyknownList = new ArrayList<LevelProperty<int[]>>();
-		}
-		specialtyknownList.add(LevelProperty.getLevelProperty(aLevel, array));
+	public final void addSpecialtyKnown(int aLevel, List<String> aList) {
+		getConstructingSpellProgressionInfo().setSpecialtyKnown(aLevel, aList);
 	}
 
 	/**
@@ -2566,20 +2293,18 @@ public class PCClass extends PObject {
 	 */
 	public int getNumFromCastList(final int iCasterLevel,
 			final int iSpellLevel, final PlayerCharacter aPC) {
-		int aNum = -1;
 		if (iCasterLevel == 0) {
 			// can't cast spells!
-			return aNum;
+			return -1;
 		}
 
-		int useCastLevel = iCasterLevel > maxCastLevel ? maxCastLevel : iCasterLevel;
-		
-		List<String> castListForLevel = getCastListForLevel(useCastLevel);
-		if (iSpellLevel >= castListForLevel.size()) {
-			return aNum;
+		List<String> castListForLevel = getCastListForLevel(iCasterLevel);
+		if (castListForLevel == null || iSpellLevel >= castListForLevel.size()) {
+			return -1;
 		}
 		String aString = castListForLevel.get(iSpellLevel);
 
+		int aNum;
 		if ((aPC != null) && hasSpellFormula()) {
 			aNum = aPC.getVariableValue(aString, "").intValue();
 		} else {
@@ -2594,30 +2319,16 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * REFACTOR This is a real challenge. This method is actually set from
-	 * Domain, as Domain can actually grant domain spells as an addition to the
-	 * PCClass. This is a challenge to define how this will actually play out in
-	 * the new implementation (When PCClass is static and creates a
-	 * PCClassLevel, where do the spells from the Domain come into play?? How
-	 * are they added to the character?) Potentially they are added directly to
-	 * the PCClassLevel and the refactoring to make PCClassLevel immutable will
-	 * have to take place at a later time (As we approach 6.0)
-	 */
-	public final void setNumSpellsFromSpecialty(final int anInt) {
-		numSpellsFromSpecialty = anInt;
-	}
-
-	/*
 	 * REFACTOR Again, there is rudundant information here in the fetching of
 	 * what is currently possible for the current character level. This is
 	 * generally something that should only appear in the PCClassLevel, but
 	 * should be considered with the wider range of "what can I really cast"
 	 * methods that are tagged to be refactored.
 	 */
-	public String getBonusCastForLevelString(final int pcLevel,
+	public String getBonusCastForLevelString(
 			final int spellLevel, final String bookName,
 			final PlayerCharacter aPC) {
-		if (getCastForLevel(pcLevel, spellLevel, bookName, aPC) > 0) {
+		if (getCastForLevel(spellLevel, bookName, true, true, aPC) > 0) {
 			// if this class has a specialty, return +1
 			if (hasSpecialtyList()) {
 				return "+1";
@@ -2629,7 +2340,7 @@ public class PCClass extends PObject {
 
 			// if the spelllevel is >0 and this class has a characterdomain
 			// associated with it, return +1
-			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(spellType)) {
+			if ((spellLevel > 0) && "DIVINE".equalsIgnoreCase(getSpellType())) {
 				for (CharacterDomain cd : aPC.getCharacterDomainList()) {
 					if (cd.isFromPCClass(getKeyName())) {
 						return "+1";
@@ -2645,22 +2356,16 @@ public class PCClass extends PObject {
 	 * Return the number of spells a character can cast in this class for a
 	 * specified level.
 	 * 
-	 * @param pcLevel
-	 *            The number of levels in this class that the character has
 	 * @param spellLevel
 	 *            The spell level we are interested in
 	 * @param aPC
 	 *            The character we are interested in
-	 * @return The number of spells per day that this cahracter can cast of this
-	 *         level.
+	 * @return The number of spells per day that this character can cast of the
+	 *         given spell level.
 	 */
-	/*
-	 * REFACTOR Yea, Yea, yet another interface to the same internal methods... 
-	 */
-	public int getCastForLevel(final int pcLevel, final int spellLevel,
-			final PlayerCharacter aPC) {
-		return getCastForLevel(pcLevel, spellLevel, Globals
-				.getDefaultSpellBook(), true, aPC);
+	public int getCastForLevel(final int spellLevel, final PlayerCharacter aPC) {
+		return getCastForLevel(spellLevel, Globals.getDefaultSpellBook(), true,
+				true, aPC);
 	}
 
 	/**
@@ -2676,7 +2381,7 @@ public class PCClass extends PObject {
 	 * REFACTOR More redundant information and opportunity to refactor to 
 	 * simplify the interface of PCClassLevel
 	 */
-	public int getSpecialtyKnownForLevel(int pcLevel, final int spellLevel,
+	public int getSpecialtyKnownForLevel(final int spellLevel,
 			final PlayerCharacter aPC) {
 		int total;
 		total = (int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "CLASS."
@@ -2684,6 +2389,7 @@ public class PCClass extends PObject {
 		total += (int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "TYPE."
 				+ getSpellType() + ";LEVEL." + spellLevel);
 
+		int pcLevel = getLevel();
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE."
 				+ getSpellType());
@@ -2700,20 +2406,28 @@ public class PCClass extends PObject {
 			}
 		}
 
-		int[] specKnown = getSpecialtyKnownList(pcLevel);
-		if (specKnown != null) 
-		{
-			if (specKnown.length > spellLevel) {
-				total += specKnown[spellLevel];
+		if (castInfo != null) {
+			List<String> specKnown = castInfo.getSpecialtyKnownForLevel(pcLevel);
+			if (specKnown != null) 
+			{
+				if (specKnown.size() > spellLevel) {
+					int t;
+					if (castInfo.containsSpellFormula()) {
+						t = aPC.getVariableValue(specKnown.get(spellLevel), "").intValue();
+					} else {
+						t = Integer.parseInt(specKnown.get(spellLevel));
+					}
+					total += t;
+				}
 			}
-		}
 
-		// if we have known spells (0==no known spells recorded) or a psi
-		// specialty.
-		if ((total > 0) && (spellLevel > 0)) {
-			// make sure any slots due from specialties (including domains) are
-			// added
-			total += numSpellsFromSpecialty;
+			// if we have known spells (0==no known spells recorded) or a psi
+			// specialty.
+			if ((total > 0) && (spellLevel > 0)) {
+				// make sure any slots due from specialties (including domains) are
+				// added
+				total += castInfo.getKnownSpellsFromSpecialty();
+			}
 		}
 
 		return total;
@@ -3474,6 +3188,13 @@ public class PCClass extends PObject {
 	public List<LevelProperty<String>> getSRlist() {
 		if (SR == null)
 		{
+			/*
+			 * CONSIDER This is a heavy-weight get... and inconsistent with
+			 * getFeatList, et al. What should be the proper method (should the
+			 * caller be required to gate on null, should these be safe gets,
+			 * should the variables be initialized empty lists??) - thpr
+			 * 11/10/06
+			 */
 			SR = new ArrayList<LevelProperty<String>>();
 		}
 		return SR;
@@ -3494,19 +3215,19 @@ public class PCClass extends PObject {
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
+	 * FINALPCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
 	 * PCClassLevel (as an indication of the spells granted by the PCClassLevel)
 	 */
 	public final void setSpellBookUsed(final boolean argUseBook) {
-		usesSpellbook = argUseBook;
+		getConstructingSpellProgressionInfo().setSpellBookUsed(argUseBook);
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
+	 * FINALPCCLASSANDLEVEL Since this is in the PCClass (from a Tag) and
 	 * PCClassLevel (as an indication of the spells granted by the PCClassLevel)
 	 */
 	public final boolean getSpellBookUsed() {
-		return usesSpellbook;
+		return castInfo != null && castInfo.usesSpellBook();
 	}
 
 	public void setCRFormula(final String argCRFormula) {
@@ -3559,11 +3280,12 @@ public class PCClass extends PObject {
 			pccTxt.append(CoreUtility.join(prohibitedSchools, ","));
 		}
 		
-		checkAdd(pccTxt, Constants.s_NONE, "SPELLSTAT:", spellBaseStat);
-		checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", spellType);
-
-		if (usesSpellbook) {
-			pccTxt.append("\tSPELLBOOK:Y");
+		if (castInfo != null) {
+			checkAdd(pccTxt, Constants.s_NONE, "SPELLSTAT:", castInfo.getSpellBaseStatAbbr());
+			checkAdd(pccTxt, Constants.s_NONE, "SPELLTYPE:", castInfo.getSpellType());
+			if (castInfo.usesSpellBook()) {
+				pccTxt.append("\tSPELLBOOK:Y");
+			}
 		}
 
 		// if (skillPoints != 0)
@@ -3590,8 +3312,8 @@ public class PCClass extends PObject {
 			pccTxt.append("\tMAXLEVEL:").append(maxLevel);
 		}
 
-		if (!memorizeSpells) {
-			pccTxt.append("\tMEMORIZE:N");
+		if (castInfo != null) {
+			pccTxt.append("\tMEMORIZE:" + (castInfo.memorizesSpells() ? "Y" : "N"));
 		}
 
 		if (multiPreReqs) {
@@ -3647,27 +3369,16 @@ public class PCClass extends PObject {
 			}
 		}
 
-		if (specialtyknownList != null) {
-			for (LevelProperty<int[]> lp : specialtyknownList) {
-				pccTxt.append(lineSep).append(lp.getLevel()).append("\tSPECIALTYKNOWN:")
-						.append(CoreUtility.join(Arrays.asList(lp.getObject()), ","));
-			}
+		if (castInfo != null && castInfo.hasSpecialtyKnownProgression()) {
+			pccTxt.append(castInfo.getSpecialtyKnownPCC(lineSep));
 		}
-
-		pccTxt.append(lineSep);
-
-		if (castList != null) {
-			for (LevelProperty<List<String>> lp : castList) {
-				checkAdd(pccTxt, "0", lineSep + lp.getLevel() + "\tCAST:",
-						CoreUtility.join(lp.getObject(), ","));
-			}
+		
+		if (castInfo != null && castInfo.hasCastProgression()) {
+			pccTxt.append(castInfo.getCastPCC(lineSep));
 		}
-
-		if (knownList != null) {
-			for (LevelProperty<List<String>> lp : knownList) {
-				checkAdd(pccTxt, "0", lineSep + lp.getLevel() + "\tKNOWN:",
-						CoreUtility.join(lp.getObject(), ","));
-			}
+		
+		if (castInfo != null && castInfo.hasKnownProgression()) {
+			pccTxt.append(castInfo.getKnownPCC(lineSep));
 		}
 
 		// Output the level based DR only
@@ -4049,24 +3760,18 @@ public class PCClass extends PObject {
 		featList.add(LevelProperty.getLevelProperty(aLevel, aFeatList));
 	}
 
+	private SpellProgressionInfo getConstructingSpellProgressionInfo() {
+		if (castInfo == null) {
+			castInfo = new SpellProgressionInfo();
+		}
+		return castInfo;
+	}
 	/*
 	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
 	 * require this method
 	 */
 	public void setKnown(final int iLevel, final List<String> aList) {
-		if (knownList == null) {
-			knownList = new ArrayList<LevelProperty<List<String>>>();
-		}
-		if (iLevel > maxKnownLevel) {
-			maxKnownLevel = iLevel;
-		}
-		for (LevelProperty<List<String>> lp : knownList) {
-			if (lp.getLevel() == iLevel) {
-				knownList.remove(lp);
-				break;
-			}
-		}
-		knownList.add(LevelProperty.getLevelProperty(iLevel, aList));
+		getConstructingSpellProgressionInfo().setKnown(iLevel, aList);
 	}
 
 	/*
@@ -4286,7 +3991,7 @@ public class PCClass extends PObject {
 
 		// final int i = (int) this.getBonusTo("TOHIT", "TOHIT", level) + (int)
 		// getBonusTo("COMBAT", "BAB");
-		final int i = (int) getBonusTo("COMBAT", "BAB", aPC);
+		final int i = (int) getBonusTo("COMBAT", "BAB", level, aPC);
 
 		return i;
 	}
@@ -4398,6 +4103,7 @@ public class PCClass extends PObject {
 		return aString.toString();
 	}
 
+	@Override
 	public Object clone() {
 		PCClass aClass = null;
 
@@ -4411,15 +4117,8 @@ public class PCClass extends PObject {
 			}
 			// aClass.setSkillPoints(skillPoints);
 			// aClass.setAttackBonusType(attackBonusType);
-			if (specialtyknownList != null) {
-				aClass.specialtyknownList = new ArrayList<LevelProperty<int[]>>(
-						specialtyknownList);
-			}
-			if (knownList != null) {
-				aClass.knownList = new ArrayList<LevelProperty<List<String>>>(knownList);
-			}
-			if (castList != null) {
-				aClass.castList = new ArrayList<LevelProperty<List<String>>>(castList);
+			if (castInfo != null) {
+				aClass.castInfo = castInfo.clone();
 			}
 			// TODO - This should be removed
 			aClass.uattList = new ArrayList<String>(uattList);
@@ -4455,8 +4154,6 @@ public class PCClass extends PObject {
 			aClass.stableSpellKey = null;
 
 			aClass.setLevelExchange(levelExchange);
-			aClass.maxCastLevel = maxCastLevel;
-			aClass.maxKnownLevel = maxKnownLevel;
 
 			aClass.multiPreReqs = multiPreReqs;
 			aClass.deityList = new ArrayList<String>(deityList);
@@ -4489,8 +4186,6 @@ public class PCClass extends PObject {
 			aClass.hasSubstitutionClass = hasSubstitutionClass;
 			aClass.substitutionClassList = substitutionClassList; 
 
-			aClass.hasSpellFormulas = hasSpellFormulas;
-
 			if (naturalWeapons != null) {
 				aClass.naturalWeapons = new ArrayList<LevelProperty<Equipment>>(
 						naturalWeapons);
@@ -4510,7 +4205,7 @@ public class PCClass extends PObject {
 	 * active)
 	 */
 	public final boolean hasSpellFormula() {
-		return hasSpellFormulas;
+		return castInfo != null && castInfo.containsSpellFormula();
 	}
 
 	/*
@@ -4712,7 +4407,7 @@ public class PCClass extends PObject {
 	 */
 	public boolean hasKnownSpells(final PlayerCharacter aPC) {
 		for (int i = 0; i <= getHighestLevelSpell(); i++) {
-			if (getKnownForLevel(getLevel(), i, aPC) > 0) {
+			if (getKnownForLevel(i, aPC) > 0) {
 				return true;
 			}
 		}
@@ -4833,11 +4528,18 @@ public class PCClass extends PObject {
 	 * after all...
 	 */
 	public boolean zeroCastSpells() {
-		if (castList == null) {
+		if (castInfo == null) {
 			return true;
 		}
-		for (LevelProperty<List<String>> lp : castList) {
-			for (String st : lp.getObject()) {
+		/*
+		 * CONSIDER This is just blatently wrong because it is not considering
+		 * formulas, and not considering bonuses... - thpr 11/8/06
+		 *
+		 * May not be a big issue other than a poorly named method, but
+		 * need to check what is really required here
+		 */
+		for (List<String> l : castInfo.getCastProgression().values()) {
+			for (String st : l) {
 				try {
 					if (Integer.parseInt(st) > 0) {
 						return false;
@@ -4937,11 +4639,7 @@ public class PCClass extends PObject {
 	 * @param aPC
 	 * @return known for spell level
 	 */
-	/*
-	 * REFACTOR There seems to be redundant information here (if there
-	 * is a PC, why do we need to know the PC Level?
-	 */
-	int getKnownForLevel(int pcLevel, final int spellLevel,
+	int getKnownForLevel(final int spellLevel,
 			final String bookName, final PlayerCharacter aPC) {
 		int total = 0;
 		int stat = 0;
@@ -4949,20 +4647,21 @@ public class PCClass extends PObject {
 		final String levelSpellLevel = ";LEVEL." + spellLevel;
 		final String allSpellLevel = ";LEVEL.All";
 
+		int pcLevel = getLevel();
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", keyName);
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE."
 				+ getSpellType());
 
-		if ((castList != null)
+		/*
+		 * CONSIDER Why is known testing getNumFromCastList??? - thpr 11/8/06
+		 */
+		if ((castInfo != null) && castInfo.hasCastProgression()
 				&& (getNumFromCastList(pcLevel, spellLevel, aPC) < 0)) {
 			// Don't know any spells of this level
 			// however, character might have a bonus spells e.g. from certain
 			// feats
 			return (int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName
 					+ levelSpellLevel);
-		}
-		if (pcLevel > maxKnownLevel) {
-			pcLevel = maxKnownLevel;
 		}
 
 		total += (int) aPC.getTotalBonusTo("SPELLKNOWN", classKeyName
@@ -5018,27 +4717,22 @@ public class PCClass extends PObject {
 			mult = 1;
 		}
 
+		if (castInfo == null) {
+			return total;
+		}
+
 		boolean psiSpecialty = false;
 
-		if (knownList != null && !knownList.isEmpty()) {
-			String spells = null;
-			for (LevelProperty<List<String>> lp : knownList) {
-				if (lp.getLevel() == pcLevel) {
-					spells = lp.getObject().get(spellLevel);
-					break;
-				}
-			}
+		if (castInfo.hasKnownProgression()) {
+			String spells = castInfo.getKnownForLevel(pcLevel).get(spellLevel);
 			
 			if (spells.endsWith("+d")) {
 				psiSpecialty = true;
-
-				if (spells.length() > 1) {
-					spells = spells.substring(0, spells.length() - 2);
-				}
+				spells = spells.substring(0, spells.length() - 2);
 			}
 
 			int t;
-			if (hasSpellFormula()) {
+			if (castInfo.containsSpellFormula()) {
 				t = aPC.getVariableValue(spells, "").intValue();
 			} else {
 				t = Integer.parseInt(spells);
@@ -5063,7 +4757,7 @@ public class PCClass extends PObject {
 			}
 
 			if (psiSpecialty) {
-				total += numSpellsFromSpecialty;
+				total += castInfo.getKnownSpellsFromSpecialty();
 			}
 		}
 
@@ -5072,14 +4766,10 @@ public class PCClass extends PObject {
 		if (((total > 0) && (spellLevel > 0)) && !psiSpecialty) {
 			// make sure any slots due from specialties
 			// (including domains) are added
-			total += numSpellsFromSpecialty;
+			total += castInfo.getKnownSpellsFromSpecialty();
 		}
 
 		return total;
-	}
-
-	final int getNumSpellsFromSpecialty() {
-		return numSpellsFromSpecialty;
 	}
 
 	/*
@@ -5932,15 +5622,6 @@ public class PCClass extends PObject {
 		}
 	}
 
-	/*
-	 * DELETEMETHOD This only has one local call and adds no value to the interface
-	 * of PCClass (delete through inlining)
-	 */
-	private double getBonusTo(final String type, final String mname,
-			final PlayerCharacter aPC) {
-		return getBonusTo(type, mname, level, aPC);
-	}
-
 	/**
 	 * This method can be called to determine if the number of extra HD for
 	 * purposes of skill points, feats, etc. See MM p. 11 extracted 03 Dec 2002
@@ -6012,7 +5693,7 @@ public class PCClass extends PObject {
 			if ((val == null) || val == 0 || (aSpell == null)) {
 				return false;
 			}
-		} else if ((getCastForLevel(level, spellLevel, aPC) == 0)
+		} else if ((getCastForLevel(spellLevel, aPC) == 0)
 				|| (aSpell == null)) {
 			return false;
 		}
@@ -6152,7 +5833,7 @@ public class PCClass extends PObject {
 			castForLevelMap = new HashMap<Integer, Integer>(100);
 		}
 		for (int i = 0; i < 100; i++) {
-			final int s = getCastForLevel(level, i, aPC);
+			final int s = getCastForLevel(i, aPC);
 			castForLevelMap.put(i, s);
 		}
 	}
@@ -6988,18 +6669,6 @@ public class PCClass extends PObject {
 	}
 
 	/**
-	 * Returns the highest spell level for which a KNOWN: tag entry was found.
-	 * 
-	 * @return The highest spell level this class can know spells to.
-	 */
-	/*
-	 * DELETEMETHOD since maxknownlevel is going to be deleted
-	 */
-	public int getMaxKnownSpellLevel() {
-		return this.maxKnownLevel;
-	}
-
-	/**
 	 * Parse the ATTACKCYCLE: string and build HashMap Only allowed values in
 	 * attackCycle are: BAB, RAB or UAB
 	 * 
@@ -7051,6 +6720,32 @@ public class PCClass extends PObject {
 			}
 		}
 		return;
+	}
+
+	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus) {
+		if (castInfo == null) {
+			return -1;
+		}
+		return castInfo.getMinLevelForSpellLevel(spellLevel, allowBonus);
+	}
+
+	public int getMaxSpellLevelForClassLevel(int classLevel) {
+		if (castInfo == null) {
+			return -1;
+		}
+		return castInfo.getMaxSpellLevelForClassLevel(classLevel);
+	}
+	
+	public void setKnownSpellsFromSpecialty(int i) {
+		if (castInfo == null && i == 0) {
+			//Avoid useless construction of castInfo
+			return;
+		}
+		getConstructingSpellProgressionInfo().setKnownSpellsFromSpecialty(i);
+	}
+	
+	public int getKnownSpellsFromSpecialty() {
+		return castInfo == null ? 0 : castInfo.getKnownSpellsFromSpecialty();
 	}
 	
 //	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
