@@ -140,12 +140,12 @@
 		<p class="indent2"><code>DESC:Kick Butt (level 3)|PRELEVEL:3</code></p>
 		<p class="indent3">Adds feat description only if the PC is level 3 or higher.</p><br>
 		<p class="indent2"><code>DESC:Assembly ~ 1 table|PREVAREQ:AssemblyTables,1
-			<br>DESC:Assembly ~ % tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code></p>
+			<br>DESC:Assembly ~ %1 tables|AssemblyTables|PREVARGTEQ:AssemblyTables,2</code></p>
 		<p class="indent3">Adds a feat description which is dependent upon the value of the variable AssemblyTables.</p><br>
-		<p class="indent2"><code>DESC:You get a +2 bonus on all %CHOICE saving throws.</code></p>
-		<p class="indent3">Adds feat description and replaces %CHOICE with the first choice made.</p><br>
-		<p class="indent2"><code>DESC:You get a +3 bonus on all checks involving %LIST.</code></p>
-		<p class="indent3">Adds feat description replaces %LIST with all choices made.</p><br>
+		<p class="indent2"><code>DESC:You get a +2 bonus on all %1 saving throws|%CHOICE</code></p>
+		<p class="indent3">Adds feat description and replaces %1 with the first choice made.</p><br>
+		<p class="indent2"><code>DESC:You get a +3 bonus on all checks involving %1|%LIST.</code></p>
+		<p class="indent3">Adds feat description replaces %LIST with all choices made. </p><br>
 		<p class="indent2"><code>DESC:%3 Sneak Attacks per day for +%1d%2 damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code></p>
 		<p class="indent3">Adds feat description substituting the variables from the positions specified.</p>
 		
