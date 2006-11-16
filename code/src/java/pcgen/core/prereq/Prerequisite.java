@@ -33,7 +33,7 @@ public class Prerequisite implements Cloneable
 {
 	/** Kind to be used for a clear prerequisite request. */
 	public static final String CLEAR_KIND = "clear";
-	public static final String APPLY_KIND = "apply";
+	public static final String APPLY_KIND = "APPLY";
 
 	private String kind;
 	private String key = null;

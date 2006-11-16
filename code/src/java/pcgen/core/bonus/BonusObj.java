@@ -263,7 +263,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 			{
 				continue;
 			}
-			if ( prereq.getKind().equals(Prerequisite.APPLY_KIND) )
+			if ( prereq.getKind().equalsIgnoreCase(Prerequisite.APPLY_KIND) )
 			{
 				return true;
 			}
