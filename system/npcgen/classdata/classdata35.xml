@@ -1056,6 +1056,207 @@
 			<ability value="Widen Spell" weight="8"/>
 			<ability value="*" weight="1"/>
 		</abilities>
+		<spells type="Prepared Spells">
+			<level id="0">
+				<spell name="Create Water" weight="2" />
+				<spell name="Cure Minor Wounds" weight="5" />
+				<spell name="Detect Magic" weight="5" />
+				<spell name="Detect Poison" weight="2" />
+				<spell name="Flare" weight="2" />
+				<spell name="Guidance" weight="3" />
+				<spell name="Know Direction" weight="5" />
+				<spell name="Light" weight="4" />
+				<spell name="Mending" weight="2" />
+				<spell name="Purify Food and Drink" weight="3" />
+				<spell name="Read Magic" weight="5" />
+				<spell name="Resistance" weight="3" />
+				<spell name="Virtue" weight="3" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="1">
+				<spell name="Calm Animals" weight="2" />
+				<spell name="Charm Animal" weight="2" />
+				<spell name="Cure Light Wounds" weight="6" />
+				<spell name="Detect Animals or Plants" weight="2" />
+				<spell name="Detect Snares and Pits" weight="2" />
+				<spell name="Endure Elements" weight="4" />
+				<spell name="Entangle" weight="5" />
+				<spell name="Faerie Fire" weight="2" />
+				<spell name="Goodberry" weight="3" />
+				<spell name="Hide from Animals" weight="2" />
+				<spell name="Jump" weight="2" />
+				<spell name="Longstrider" weight="2" />
+				<spell name="Magic Fang" weight="4" />
+				<spell name="Magic Stone" weight="2" />
+				<spell name="Obscuring Mist" weight="2" />
+				<spell name="Pass without Trace" weight="2" />
+				<spell name="Produce Flame" weight="2" />
+				<spell name="Shillelagh" weight="2" />
+				<spell name="Speak with Animals" weight="2" />
+				<spell name="Summon Nature's Ally I" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="2">
+				<spell name="Animal Messenger" weight="2" />
+				<spell name="Animal Trance" weight="2" />
+				<spell name="Barkskin" weight="5" />
+				<spell name="Bear's Endurance" weight="3" />
+				<spell name="Bull's Strength" weight="3" />
+				<spell name="Cat's Grace" weight="2" />
+				<spell name="Chill Metal" weight="2" />
+				<spell name="Delay Poison" weight="2" />
+				<spell name="Fire Trap" weight="2" />
+				<spell name="Flame Blade" weight="2" />
+				<spell name="Flaming Sphere" weight="3" />
+				<spell name="Fog Cloud" weight="2" />
+				<spell name="Gust of Wind" weight="2" />
+				<spell name="Heat Metal" weight="3" />
+				<spell name="Hold Animal" weight="2" />
+				<spell name="Owl's Wisdom" weight="5" />
+				<spell name="Reduce Animal" weight="2" />
+				<spell name="Resist Energy" weight="2" />
+				<spell name="Restoration (Lesser)" weight="3" />
+				<spell name="Soften Earth and Stone" weight="2" />
+				<spell name="Spider Climb" weight="2" />
+				<spell name="Summon Nature's Ally II" weight="2" />
+				<spell name="Summon Swarm" weight="3" />
+				<spell name="Tree Shape" weight="2" />
+				<spell name="Warp Wood" weight="2" />
+				<spell name="Wood Shape" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="3">
+				<spell name="Call Lightning" weight="5" />
+				<spell name="Contagion" weight="2" />
+				<spell name="Cure Moderate Wounds" weight="5" />
+				<spell name="Daylight" weight="3" />
+				<spell name="Diminish Plants" weight="2" />
+				<spell name="Dominate Animal" weight="2" />
+				<spell name="Magic Fang (Greater)" weight="2" />
+				<spell name="Meld into Stone" weight="2" />
+				<spell name="Neutralize Poison" weight="4" />
+				<spell name="Plant Growth" weight="2" />
+				<spell name="Poison" weight="2" />
+				<spell name="Protection from Energy" weight="2" />
+				<spell name="Quench" weight="2" />
+				<spell name="Remove Disease" weight="2" />
+				<spell name="Sleet Storm" weight="3" />
+				<spell name="Snare" weight="2" />
+				<spell name="Speak with Plants" weight="2" />
+				<spell name="Spike Growth" weight="2" />
+				<spell name="Stone Shape" weight="2" />
+				<spell name="Summon Nature's Ally III" weight="2" />
+				<spell name="Water Breathing" weight="2" />
+				<spell name="Wind Wall" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="4">
+				<spell name="Air Walk" weight="2" />
+				<spell name="Antiplant Shell" weight="2" />
+				<spell name="Blight" weight="2" />
+				<spell name="Command Plants" weight="2" />
+				<spell name="Control Water" weight="2" />
+				<spell name="Cure Serious Wounds" weight="5" />
+				<spell name="Dispel Magic" weight="2" />
+				<spell name="Flame Strike" weight="5" />
+				<spell name="Freedom of Movement" weight="2" />
+				<spell name="Giant Vermin" weight="4" />
+				<spell name="Ice Storm" weight="4" />
+				<spell name="Reincarnate" weight="2" />
+				<spell name="Repel Vermin" weight="2" />
+				<spell name="Rusting Grasp" weight="2" />
+				<spell name="Scrying" weight="2" />
+				<spell name="Spike Stones" weight="2" />
+				<spell name="Summon Nature's Ally IV" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="5">
+				<spell name="Animal Growth" weight="2" />
+				<spell name="Atonement" weight="2" />
+				<spell name="Awaken" weight="2" />
+				<spell name="Baleful Polymorph" weight="4" />
+				<spell name="Call Lightning Storm" weight="5" />
+				<spell name="Commune with Nature" weight="2" />
+				<spell name="Control Winds" weight="2" />
+				<spell name="Cure Critical Wounds" weight="5" />
+				<spell name="Death Ward" weight="2" />
+				<spell name="Hallow" weight="2" />
+				<spell name="Insect Plague" weight="5" />
+				<spell name="Stoneskin" weight="5" />
+				<spell name="Summon Nature's Ally V" weight="2" />
+				<spell name="Transmute Mud to Rock" weight="2" />
+				<spell name="Transmute Rock to Mud" weight="2" />
+				<spell name="Tree Stride" weight="2" />
+				<spell name="Unhallow" weight="2" />
+				<spell name="Wall of Fire" weight="2" />
+				<spell name="Wall of Thorns" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="6">
+				<spell name="Antilife Shell" weight="2" />
+				<spell name="Bear's Endurance (Mass)" weight="2" />
+				<spell name="Bull's Strength (Mass)" weight="2" />
+				<spell name="Cat's Grace (Mass)" weight="2" />
+				<spell name="Cure Light Wounds (Mass)" weight="4" />
+				<spell name="Dispel Magic (Greater)" weight="4" />
+				<spell name="Find the Path" weight="2" />
+				<spell name="Fire Seeds" weight="4" />
+				<spell name="Ironwood" weight="2" />
+				<spell name="Liveoak" weight="3" />
+				<spell name="Move Earth" weight="2" />
+				<spell name="Owl's Wisdom (Mass)" weight="2" />
+				<spell name="Repel Wood" weight="2" />
+				<spell name="Spellstaff" weight="2" />
+				<spell name="Stone Tell" weight="2" />
+				<spell name="Summon Nature's Ally VI" weight="2" />
+				<spell name="Transport via Plants" weight="2" />
+				<spell name="Wall of Stone" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="7">
+				<spell name="Animate Plants" weight="2" />
+				<spell name="Changestaff" weight="2" />
+				<spell name="Control Weather" weight="2" />
+				<spell name="Creeping Doom" weight="5" />
+				<spell name="Cure Moderate Wounds (Mass)" weight="5" />
+				<spell name="Fire Storm" weight="5" />
+				<spell name="Heal" weight="5" />
+				<spell name="Scrying (Greater)" weight="2" />
+				<spell name="Summon Nature's Ally VII" weight="2" />
+				<spell name="Sunbeam" weight="3" />
+				<spell name="Transmute Metal to Wood" weight="2" />
+				<spell name="True Seeing" weight="2" />
+				<spell name="Wind Walk" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="8">
+				<spell name="Animal Shapes" weight="2" />
+				<spell name="Control Plants" weight="2" />
+				<spell name="Cure Serious Wounds (Mass)" weight="5" />
+				<spell name="Earthquake" weight="5" />
+				<spell name="Finger of Death" weight="4" />
+				<spell name="Repel Metal or Stone" weight="2" />
+				<spell name="Reverse Gravity" weight="2" />
+				<spell name="Summon Nature's Ally VIII" weight="2" />
+				<spell name="Sunburst" weight="4" />
+				<spell name="Whirlwind" weight="2" />
+				<spell name="Word of Recall" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="9">
+				<spell name="Antipathy" weight="2" />
+				<spell name="Cure Critical Wounds (Mass)" weight="2" />
+				<spell name="Elemental Swarm" weight="5" />
+				<spell name="Foresight" weight="2" />
+				<spell name="Regenerate" weight="2" />
+				<spell name="Shambler" weight="3" />
+				<spell name="Shapechange" weight="5" />
+				<spell name="Storm of Vengeance" weight="5" />
+				<spell name="Summon Nature's Ally IX" weight="2" />
+				<spell name="Sympathy" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+		</spells>
 	</class>
 	<class key="Fighter">
 		<stats>
@@ -1501,6 +1702,65 @@
 			<ability value="Widen Spell" weight="2"/>
 			<ability value="*" weight="1"/>
 		</abilities>
+		<spells type="Prepared Spells">
+			<level id="1">
+				<spell name="Bless" weight="4" />
+				<spell name="Bless Water" weight="2" />
+				<spell name="Bless Weapon" weight="5" />
+				<spell name="Create Water" weight="2" />
+				<spell name="Cure Light Wounds" weight="5" />
+				<spell name="Detect Poison" weight="2" />
+				<spell name="Detect Undead" weight="2" />
+				<spell name="Divine Favor" weight="4" />
+				<spell name="Endure Elements" weight="2" />
+				<spell name="Magic Weapon" weight="5" />
+				<spell name="Protection from Chaos" weight="2" />
+				<spell name="Protection from Evil" weight="4" />
+				<spell name="Read Magic" weight="2" />
+				<spell name="Resistance" weight="2" />
+				<spell name="Restoration (Lesser)" weight="1" />
+				<spell name="Virtue" weight="1" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="2">
+				<spell name="Bull's Strength" weight="4" />
+				<spell name="Delay Poison" weight="2" />
+				<spell name="Eagle's Splendor" weight="3" />
+				<spell name="Owl's Wisdom" weight="3" />
+				<spell name="Remove Paralysis" weight="2" />
+				<spell name="Resist Energy" weight="2" />
+				<spell name="Shield Other" weight="3" />
+				<spell name="Undetectable Alignment" weight="2" />
+				<spell name="Zone of Truth" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="3">
+				<spell name="Cure Moderate Wounds" weight="5" />
+				<spell name="Daylight" weight="2" />
+				<spell name="Discern Lies" weight="2" />
+				<spell name="Dispel Magic" weight="2" />
+				<spell name="Heal Mount" weight="2" />
+				<spell name="Magic Circle against Chaos" weight="2" />
+				<spell name="Magic Circle against Evil" weight="4" />
+				<spell name="Magic Weapon (Greater)" weight="5" />
+				<spell name="Prayer" weight="4" />
+				<spell name="Remove Blindness/Deafness" weight="2" />
+				<spell name="Remove Curse" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="4">
+				<spell name="Break Enchantment" weight="2" />
+				<spell name="Cure Serious Wounds" weight="5" />
+				<spell name="Death Ward" weight="2" />
+				<spell name="Dispel Chaos" weight="2" />
+				<spell name="Dispel Evil" weight="4" />
+				<spell name="Holy Sword" weight="5" />
+				<spell name="Mark of Justice" weight="2" />
+				<spell name="Neutralize Poison" weight="2" />
+				<spell name="Restoration" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+		</spells>
 	</class>
 	<class key="Ranger">
 		<stats>
@@ -1655,6 +1915,71 @@
 			<ability value="Widen Spell" weight="2"/>
 			<ability value="*" weight="1"/>
 		</abilities>
+		<spells type="Prepared Spells">
+			<level id="1">
+				<spell name="Alarm" weight="2" />
+				<spell name="Animal Messenger" weight="2" />
+				<spell name="Calm Animals" weight="2" />
+				<spell name="Charm Animal" weight="2" />
+				<spell name="Delay Poison" weight="2" />
+				<spell name="Detect Animals or Plants" weight="2" />
+				<spell name="Detect Poison" weight="2" />
+				<spell name="Detect Snares and Pits" weight="2" />
+				<spell name="Endure Elements" weight="2" />
+				<spell name="Entangle" weight="5" />
+				<spell name="Hide from Animals" weight="2" />
+				<spell name="Jump" weight="2" />
+				<spell name="Longstrider" weight="2" />
+				<spell name="Magic Fang" weight="3" />
+				<spell name="Pass without Trace" weight="2" />
+				<spell name="Read Magic" weight="2" />
+				<spell name="Resist Energy" weight="2" />
+				<spell name="Speak with Animals" weight="2" />
+				<spell name="Summon Nature's Ally I" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="2">
+				<spell name="Barkskin" weight="5" />
+				<spell name="Bear's Endurance" weight="3" />
+				<spell name="Cat's Grace" weight="3" />
+				<spell name="Cure Light Wounds" weight="5" />
+				<spell name="Hold Animal" weight="2" />
+				<spell name="Owl's Wisdom" weight="2" />
+				<spell name="Protection from Energy" weight="2" />
+				<spell name="Snare" weight="2" />
+				<spell name="Speak with Plants" weight="2" />
+				<spell name="Spike Growth" weight="2" />
+				<spell name="Summon Nature's Ally II" weight="2" />
+				<spell name="Wind Wall" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="3">
+				<spell name="Command Plants" weight="2" />
+				<spell name="Cure Moderate Wounds" weight="5" />
+				<spell name="Darkvision" weight="2" />
+				<spell name="Diminish Plants" weight="2" />
+				<spell name="Magic Fang (Greater)" weight="4" />
+				<spell name="Neutralize Poison" weight="4" />
+				<spell name="Plant Growth" weight="2" />
+				<spell name="Reduce Animal" weight="2" />
+				<spell name="Remove Disease" weight="2" />
+				<spell name="Repel Vermin" weight="2" />
+				<spell name="Summon Nature's Ally III" weight="2" />
+				<spell name="Tree Shape" weight="2" />
+				<spell name="Water Walk" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="4">
+				<spell name="Animal Growth" weight="2" />
+				<spell name="Commune with Nature" weight="2" />
+				<spell name="Cure Serious Wounds" weight="5" />
+				<spell name="Freedom of Movement" weight="4" />
+				<spell name="Nondetection" weight="2" />
+				<spell name="Summon Nature's Ally IV" weight="2" />
+				<spell name="Tree Stride" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+		</spells>
 	</class>
 	<class key="Rogue">
 		<stats>
@@ -2182,7 +2507,7 @@
 				<spell name="Break Enchantment" weight="2" />
 				<spell name="Cloudkill" weight="5" />
 				<spell name="Cone of Cold" weight="5" />
-				<spell name="Contact other Plane" weight="2" />
+				<spell name="Contact Other Plane" weight="2" />
 				<spell name="Dismissal" weight="2" />
 				<spell name="Dominate Person" weight="2" />
 				<spell name="Dream" weight="2" />
@@ -2264,6 +2589,109 @@
 				<spell name="Undeath to Death" weight="2" />
 				<spell name="Veil" weight="2" />
 				<spell name="Wall of Iron" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="7">
+				<spell name="Arcane Sight (Greater)" weight="2" />
+				<spell name="Banishment" weight="2" />
+				<spell name="Control Undead" weight="2" />
+				<spell name="Control Weather" weight="2" />
+				<spell name="Delayed Blast Fireball" weight="5" />
+				<spell name="Ethereal Jaunt" weight="2" />
+				<spell name="Finger of Death" weight="2" />
+				<spell name="Forcecage" weight="2" />
+				<spell name="Grasping Hand" weight="2" />
+				<spell name="Hold Person (Mass)" weight="2" />
+				<spell name="Insanity" weight="2" />
+				<spell name="Instant Summons" weight="2" />
+				<spell name="Invisibility (Mass)" weight="5" />
+				<spell name="Limited Wish" weight="2" />
+				<spell name="Mage's Magnificent Mansion" weight="2" />
+				<spell name="Mage's Sword" weight="2" />
+				<spell name="Phase Door" weight="2" />
+				<spell name="Plane Shift" weight="2" />
+				<spell name="Power Word Blind" weight="2" />
+				<spell name="Prismatic Spray" weight="2" />
+				<spell name="Project Image" weight="2" />
+				<spell name="Reverse Gravity" weight="2" />
+				<spell name="Scrying (Greater)" weight="2" />
+				<spell name="Sequester" weight="2" />
+				<spell name="Shadow Conjuration (Greater)" weight="2" />
+				<spell name="Simulacrum" weight="2" />
+				<spell name="Spell Turning" weight="2" />
+				<spell name="Statue" weight="2" />
+				<spell name="Summon Monster VII" weight="2" />
+				<spell name="Symbol of Stunning" weight="2" />
+				<spell name="Symbol of Weakness" weight="2" />
+				<spell name="Teleport (Greater)" weight="5" />
+				<spell name="Teleport Object" weight="2" />
+				<spell name="Vision" weight="2" />
+				<spell name="Waves of Exhaustion" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="8">
+				<spell name="Antipathy" weight="2" />
+				<spell name="Binding" weight="2" />
+				<spell name="Charm Monster (Mass)" weight="5" />
+				<spell name="Clenched Fist" weight="2" />
+				<spell name="Clone" weight="2" />
+				<spell name="Create Greater Undead" weight="2" />
+				<spell name="Demand" weight="2" />
+				<spell name="Discern Location" weight="2" />
+				<spell name="Dimensional Lock" weight="2" />
+				<spell name="Horrid Wilting" weight="5" />
+				<spell name="Incendiary Cloud" weight="5" />
+				<spell name="Iron Body" weight="2" />
+				<spell name="Irresistible Dance" weight="2" />
+				<spell name="Maze" weight="2" />
+				<spell name="Mind Blank" weight="2" />
+				<spell name="Moment of Prescience" weight="2" />
+				<spell name="Planar Binding (Greater)" weight="2" />
+				<spell name="Polar Ray" weight="2" />
+				<spell name="Polymorph Any Object" weight="5" />
+				<spell name="Power Word Stun" weight="2" />
+				<spell name="Prismatic Wall" weight="2" />
+				<spell name="Protection from Spells" weight="2" />
+				<spell name="Prying Eyes (Greater)" weight="2" />
+				<spell name="Scintillating Pattern" weight="2" />
+				<spell name="Screen" weight="2" />
+				<spell name="Shadow Evocation (Greater)" weight="2" />
+				<spell name="Shout (Greater)" weight="2" />
+				<spell name="Summon Monster VIII" weight="2" />
+				<spell name="Sunburst" weight="2" />
+				<spell name="Symbol of Death" weight="2" />
+				<spell name="Symbol of Insanity" weight="2" />
+				<spell name="Sympathy" weight="2" />
+				<spell name="Telekinetic Sphere" weight="2" />
+				<spell name="Temporal Stasis" weight="2" />
+				<spell name="Trap the Soul" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="9">
+				<spell name="Astral Projection" weight="2" />
+				<spell name="Crushing Hand" weight="2" />
+				<spell name="Dominate Monster" weight="2" />
+				<spell name="Energy Drain" weight="2" />
+				<spell name="Etherealness" weight="2" />
+				<spell name="Foresight" weight="2" />
+				<spell name="Freedom" weight="2" />
+				<spell name="Gate" weight="2" />
+				<spell name="Hold Monster (Mass)" weight="2" />
+				<spell name="Imprisonment" weight="2" />
+				<spell name="Mage's Disjunction" weight="2" />
+				<spell name="Meteor Swarm" weight="5" />
+				<spell name="Power Word Kill" weight="2" />
+				<spell name="Prismatic Sphere" weight="2" />
+				<spell name="Refuge" weight="2" />
+				<spell name="Shades" weight="2" />
+				<spell name="Shapechange" weight="5" />
+				<spell name="Soul Bind" weight="2" />
+				<spell name="Summon Monster IX" weight="2" />
+				<spell name="Teleportation Circle" weight="2" />
+				<spell name="Time Stop" weight="2" />
+				<spell name="Wail of the Banshee" weight="2" />
+				<spell name="Weird" weight="2" />
+				<spell name="Wish" weight="1" />
 				<spell name="*" weight="1" />
 			</level>
 		</spells>
@@ -2428,5 +2856,414 @@
 			<ability value="Widen Spell" weight="8"/>
 			<ability value="*" weight="1"/>
 		</abilities>
+		<spells type="Prepared Spells">
+			<level id="0">
+				<spell name="Acid Splash" weight="2" />
+				<spell name="Arcane Mark" weight="2" />
+				<spell name="Dancing Lights" weight="5" />
+				<spell name="Daze" weight="2" />
+				<spell name="Detect Magic" weight="5" />
+				<spell name="Detect Poison" weight="2" />
+				<spell name="Disrupt Undead" weight="2" />
+				<spell name="Flare" weight="2" />
+				<spell name="Ghost Sound" weight="5" />
+				<spell name="Light" weight="5" />
+				<spell name="Mage Hand" weight="5" />
+				<spell name="Mending" weight="2" />
+				<spell name="Message" weight="2" />
+				<spell name="Open/Close" weight="2" />
+				<spell name="Prestidigitation" weight="2" />
+				<spell name="Ray of Frost" weight="2" />
+				<spell name="Read Magic" weight="5" />
+				<spell name="Resistance" weight="2" />
+				<spell name="Touch of Fatigue" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="1">
+				<spell name="Alarm" weight="2" />
+				<spell name="Animate Rope" weight="2" />
+				<spell name="Burning Hands" weight="2" />
+				<spell name="Cause Fear" weight="2" />
+				<spell name="Charm Person" weight="5" />
+				<spell name="Chill Touch" weight="2" />
+				<spell name="Color Spray" weight="2" />
+				<spell name="Comprehend Languages" weight="2" />
+				<spell name="Detect Secret Doors" weight="2" />
+				<spell name="Detect Undead" weight="2" />
+				<spell name="Disguise Self" weight="2" />
+				<spell name="Endure Elements" weight="2" />
+				<spell name="Enlarge Person" weight="2" />
+				<spell name="Erase" weight="2" />
+				<spell name="Expeditious Retreat" weight="2" />
+				<spell name="Feather Fall" weight="2" />
+				<spell name="Floating Disk" weight="2" />
+				<spell name="Grease" weight="2" />
+				<spell name="Hold Portal" weight="2" />
+				<spell name="Hypnotism" weight="2" />
+				<spell name="Identify" weight="5" />
+				<spell name="Jump" weight="2" />
+				<spell name="Mage Armor" weight="5" />
+				<spell name="Magic Aura" weight="2" />
+				<spell name="Magic Missile" weight="10" />
+				<spell name="Magic Weapon" weight="2" />
+				<spell name="Mount" weight="2" />
+				<spell name="Obscuring Mist" weight="2" />
+				<spell name="Protection from Chaos" weight="2" />
+				<spell name="Protection from Evil" weight="2" />
+				<spell name="Protection from Good" weight="2" />
+				<spell name="Protection from Law" weight="2" />
+				<spell name="Ray of Enfeeblement" weight="2" />
+				<spell name="Reduce Person" weight="2" />
+				<spell name="Shield" weight="5" />
+				<spell name="Shocking Grasp" weight="2" />
+				<spell name="Silent Image" weight="2" />
+				<spell name="Sleep" weight="5" />
+				<spell name="Summon Monster I" weight="2" />
+				<spell name="True Strike" weight="2" />
+				<spell name="Unseen Servant" weight="2" />
+				<spell name="Ventriloquism" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="2">
+				<spell name="Acid Arrow" weight="5" />
+				<spell name="Alter Self" weight="2" />
+				<spell name="Arcane Lock" weight="2" />
+				<spell name="Bear's Endurance" weight="2" />
+				<spell name="Blindness/Deafness" weight="2" />
+				<spell name="Blur" weight="5" />
+				<spell name="Bull's Strength" weight="2" />
+				<spell name="Cat's Grace" weight="2" />
+				<spell name="Command Undead" weight="2" />
+				<spell name="Continual Flame" weight="2" />
+				<spell name="Darkness" weight="2" />
+				<spell name="Darkvision" weight="2" />
+				<spell name="Daze Monster" weight="2" />
+				<spell name="Detect Thoughts" weight="2" />
+				<spell name="Eagle's Splendor" weight="2" />
+				<spell name="False Life" weight="2" />
+				<spell name="Flaming Sphere" weight="2" />
+				<spell name="Fog Cloud" weight="2" />
+				<spell name="Fox's Cunning" weight="2" />
+				<spell name="Ghoul Touch" weight="2" />
+				<spell name="Glitterdust" weight="2" />
+				<spell name="Gust of Wind" weight="2" />
+				<spell name="Hideous Laughter" weight="2" />
+				<spell name="Hypnotic Pattern" weight="2" />
+				<spell name="Invisibility" weight="5" />
+				<spell name="Knock" weight="5" />
+				<spell name="Levitate" weight="2" />
+				<spell name="Locate Object" weight="2" />
+				<spell name="Magic Mouth" weight="2" />
+				<spell name="Minor Image" weight="2" />
+				<spell name="Mirror Image" weight="5" />
+				<spell name="Misdirection" weight="2" />
+				<spell name="Obscure Object" weight="2" />
+				<spell name="Owl's Wisdom" weight="2" />
+				<spell name="Phantom Trap" weight="2" />
+				<spell name="Protection from Arrows" weight="2" />
+				<spell name="Pyrotechnics" weight="2" />
+				<spell name="Resist Energy" weight="2" />
+				<spell name="Rope Trick" weight="2" />
+				<spell name="Scare" weight="2" />
+				<spell name="Scorching Ray" weight="2" />
+				<spell name="See Invisibility" weight="2" />
+				<spell name="Shatter" weight="2" />
+				<spell name="Spectral Hand" weight="2" />
+				<spell name="Spider Climb" weight="2" />
+				<spell name="Summon Monster II" weight="2" />
+				<spell name="Summon Swarm" weight="2" />
+				<spell name="Touch of Idiocy" weight="2" />
+				<spell name="Web" weight="5" />
+				<spell name="Whispering Wind" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="3">
+				<spell name="Arcane Sight" weight="2" />
+				<spell name="Blink" weight="2" />
+				<spell name="Clairaudience/Clairvoyance" weight="2" />
+				<spell name="Daylight" weight="2" />
+				<spell name="Deep Slumber" weight="2" />
+				<spell name="Dispel Magic" weight="5" />
+				<spell name="Displacement" weight="2" />
+				<spell name="Explosive Runes" weight="2" />
+				<spell name="Fireball" weight="5" />
+				<spell name="Flame Arrow" weight="2" />
+				<spell name="Fly" weight="5" />
+				<spell name="Gaseous Form" weight="1" />
+				<spell name="Gentle Repose" weight="2" />
+				<spell name="Halt Undead" weight="2" />
+				<spell name="Haste" weight="5" />
+				<spell name="Heroism" weight="2" />
+				<spell name="Hold Person" weight="5" />
+				<spell name="Illusory Script" weight="2" />
+				<spell name="Invisibility Sphere" weight="2" />
+				<spell name="Keen Edge" weight="2" />
+				<spell name="Lightning Bolt" weight="5" />
+				<spell name="Magic Circle against Chaos" weight="2" />
+				<spell name="Magic Circle against Evil" weight="2" />
+				<spell name="Magic Circle against Good" weight="2" />
+				<spell name="Magic Circle against Law" weight="2" />
+				<spell name="Magic Weapon (Greater)" weight="2" />
+				<spell name="Major Image" weight="2" />
+				<spell name="Nondetection" weight="2" />
+				<spell name="Phantom Steed" weight="2" />
+				<spell name="Protection from Energy" weight="2" />
+				<spell name="Rage" weight="2" />
+				<spell name="Ray of Exhaustion" weight="2" />
+				<spell name="Secret Page" weight="2" />
+				<spell name="Sepia Snake Sigil" weight="2" />
+				<spell name="Shrink Item" weight="2" />
+				<spell name="Sleet Storm" weight="2" />
+				<spell name="Slow" weight="5" />
+				<spell name="Stinking Cloud" weight="2" />
+				<spell name="Suggestion" weight="2" />
+				<spell name="Summon Monster III" weight="2" />
+				<spell name="Tiny Hut" weight="2" />
+				<spell name="Tongues" weight="2" />
+				<spell name="Vampiric Touch" weight="2" />
+				<spell name="Water Breathing" weight="2" />
+				<spell name="Wind Wall" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="4">
+				<spell name="Animate Dead" weight="2" />
+				<spell name="Arcane Eye" weight="2" />
+				<spell name="Bestow Curse" weight="2" />
+				<spell name="Black Tentacles" weight="2" />
+				<spell name="Charm Monster" weight="5" />
+				<spell name="Confusion" weight="2" />
+				<spell name="Contagion" weight="2" />
+				<spell name="Crushing Despair" weight="2" />
+				<spell name="Detect Scrying" weight="2" />
+				<spell name="Dimension Door" weight="2" />
+				<spell name="Dimensional Anchor" weight="2" />
+				<spell name="Enervation" weight="2" />
+				<spell name="Enlarge Person (Mass)" weight="2" />
+				<spell name="Fear" weight="2" />
+				<spell name="Fire Shield" weight="2" />
+				<spell name="Fire Trap" weight="2" />
+				<spell name="Geas (Lesser)" weight="2" />
+				<spell name="Globe of Invulnerability (Lesser)" weight="2" />
+				<spell name="Hallucinatory Terrain" weight="2" />
+				<spell name="Ice Storm" weight="2" />
+				<spell name="Illusory Wall" weight="2" />
+				<spell name="Invisibility (Greater)" weight="5" />
+				<spell name="Locate Creature" weight="2" />
+				<spell name="Minor Creation" weight="2" />
+				<spell name="Mnemonic Enhancer" weight="2" />
+				<spell name="Phantasmal Killer" weight="2" />
+				<spell name="Polymorph" weight="5" />
+				<spell name="Rainbow Pattern" weight="2" />
+				<spell name="Reduce Person (Mass)" weight="2" />
+				<spell name="Remove Curse" weight="2" />
+				<spell name="Resilient Sphere" weight="2" />
+				<spell name="Scrying" weight="2" />
+				<spell name="Secure Shelter" weight="2" />
+				<spell name="Shadow Conjuration" weight="2" />
+				<spell name="Shout" weight="2" />
+				<spell name="Solid Fog" weight="2" />
+				<spell name="Stone Shape" weight="2" />
+				<spell name="Stoneskin" weight="2" />
+				<spell name="Summon Monster IV" weight="2" />
+				<spell name="Wall of Fire" weight="2" />
+				<spell name="Wall of Ice" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="5">
+				<spell name="Animal Growth" weight="2" />
+				<spell name="Baleful Polymorph" weight="5" />
+				<spell name="Blight" weight="2" />
+				<spell name="Break Enchantment" weight="2" />
+				<spell name="Cloudkill" weight="5" />
+				<spell name="Cone of Cold" weight="5" />
+				<spell name="Contact Other Plane" weight="2" />
+				<spell name="Dismissal" weight="2" />
+				<spell name="Dominate Person" weight="2" />
+				<spell name="Dream" weight="2" />
+				<spell name="Fabricate" weight="2" />
+				<spell name="False Vision" weight="2" />
+				<spell name="Feeblemind" weight="2" />
+				<spell name="Hold Monster" weight="5" />
+				<spell name="Interposing Hand" weight="2" />
+				<spell name="Mage's Faithful Hound" weight="2" />
+				<spell name="Mage's Private Sanctum" weight="2" />
+				<spell name="Magic Jar" weight="2" />
+				<spell name="Major Creation" weight="2" />
+				<spell name="Mind Fog" weight="2" />
+				<spell name="Mirage Arcana" weight="2" />
+				<spell name="Nightmare" weight="2" />
+				<spell name="Overland Flight" weight="2" />
+				<spell name="Passwall" weight="2" />
+				<spell name="Permanency" weight="2" />
+				<spell name="Persistent Image" weight="2" />
+				<spell name="Planar Binding (Lesser)" weight="2" />
+				<spell name="Prying Eyes" weight="2" />
+				<spell name="Secret Chest" weight="2" />
+				<spell name="Seeming" weight="2" />
+				<spell name="Sending" weight="2" />
+				<spell name="Shadow Evocation" weight="2" />
+				<spell name="Summon Monster V" weight="2" />
+				<spell name="Symbol of Pain" weight="2" />
+				<spell name="Symbol of Sleep" weight="2" />
+				<spell name="Telekinesis" weight="2" />
+				<spell name="Telepathic Bond" weight="2" />
+				<spell name="Teleport" weight="5" />
+				<spell name="Transmute Mud to Rock" weight="2" />
+				<spell name="Transmute Rock to Mud" weight="2" />
+				<spell name="Wall of Force" weight="2" />
+				<spell name="Wall of Stone" weight="2" />
+				<spell name="Waves of Fatigue" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="6">
+				<spell name="Acid Fog" weight="2" />
+				<spell name="Analyze Dweomer" weight="5" />
+				<spell name="Antimagic Field" weight="2" />
+				<spell name="Bear's Endurance (Mass)" weight="2" />
+				<spell name="Bull's Strength" weight="2" />
+				<spell name="Cat's Grace (Mass)" weight="2" />
+				<spell name="Chain Lightning" weight="5" />
+				<spell name="Circle of Death" weight="2" />
+				<spell name="Contingency" weight="2" />
+				<spell name="Control Water" weight="2" />
+				<spell name="Create Undead" weight="2" />
+				<spell name="Disintegrate" weight="5" />
+				<spell name="Dispel Magic (Greater)" weight="2" />
+				<spell name="Eagle's Splendor (Mass)" weight="2" />
+				<spell name="Eyebite" weight="5" />
+				<spell name="Flesh to Stone" weight="5" />
+				<spell name="Forceful Hand" weight="2" />
+				<spell name="Fox's Cunning (Mass)" weight="2" />
+				<spell name="Freezing Sphere" weight="2" />
+				<spell name="Geas/Quest" weight="1" />
+				<spell name="Globe of Invulnerability" weight="2" />
+				<spell name="Guards and Wards" weight="2" />
+				<spell name="Heroism (Greater)" weight="2" />
+				<spell name="Legend Lore" weight="2" />
+				<spell name="Mage's Lucubration" weight="2" />
+				<spell name="Mislead" weight="2" />
+				<spell name="Move Earth" weight="2" />
+				<spell name="Owl's Wisdom (Mass)" weight="2" />
+				<spell name="Permanent Image" weight="2" />
+				<spell name="Planar Binding" weight="2" />
+				<spell name="Programmed Image" weight="2" />
+				<spell name="Repulsion" weight="2" />
+				<spell name="Shadow Walk" weight="2" />
+				<spell name="Stone to Flesh" weight="2" />
+				<spell name="Suggestion (Mass)" weight="2" />
+				<spell name="Summon Monster VI" weight="2" />
+				<spell name="Symbol of Fear" weight="2" />
+				<spell name="Symbol of Persuasion" weight="2" />
+				<spell name="Transformation" weight="2" />
+				<spell name="True Seeing" weight="2" />
+				<spell name="Undeath to Death" weight="2" />
+				<spell name="Veil" weight="2" />
+				<spell name="Wall of Iron" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="7">
+				<spell name="Arcane Sight (Greater)" weight="2" />
+				<spell name="Banishment" weight="2" />
+				<spell name="Control Undead" weight="2" />
+				<spell name="Control Weather" weight="2" />
+				<spell name="Delayed Blast Fireball" weight="5" />
+				<spell name="Ethereal Jaunt" weight="2" />
+				<spell name="Finger of Death" weight="2" />
+				<spell name="Forcecage" weight="2" />
+				<spell name="Grasping Hand" weight="2" />
+				<spell name="Hold Person (Mass)" weight="2" />
+				<spell name="Insanity" weight="2" />
+				<spell name="Instant Summons" weight="2" />
+				<spell name="Invisibility (Mass)" weight="5" />
+				<spell name="Limited Wish" weight="2" />
+				<spell name="Mage's Magnificent Mansion" weight="2" />
+				<spell name="Mage's Sword" weight="2" />
+				<spell name="Phase Door" weight="2" />
+				<spell name="Plane Shift" weight="2" />
+				<spell name="Power Word Blind" weight="2" />
+				<spell name="Prismatic Spray" weight="2" />
+				<spell name="Project Image" weight="2" />
+				<spell name="Reverse Gravity" weight="2" />
+				<spell name="Scrying (Greater)" weight="2" />
+				<spell name="Sequester" weight="2" />
+				<spell name="Shadow Conjuration (Greater)" weight="2" />
+				<spell name="Simulacrum" weight="2" />
+				<spell name="Spell Turning" weight="2" />
+				<spell name="Statue" weight="2" />
+				<spell name="Summon Monster VII" weight="2" />
+				<spell name="Symbol of Stunning" weight="2" />
+				<spell name="Symbol of Weakness" weight="2" />
+				<spell name="Teleport (Greater)" weight="5" />
+				<spell name="Teleport Object" weight="2" />
+				<spell name="Vision" weight="2" />
+				<spell name="Waves of Exhaustion" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="8">
+				<spell name="Antipathy" weight="2" />
+				<spell name="Binding" weight="2" />
+				<spell name="Charm Monster (Mass)" weight="5" />
+				<spell name="Clenched Fist" weight="2" />
+				<spell name="Clone" weight="2" />
+				<spell name="Create Greater Undead" weight="2" />
+				<spell name="Demand" weight="2" />
+				<spell name="Discern Location" weight="2" />
+				<spell name="Dimensional Lock" weight="2" />
+				<spell name="Horrid Wilting" weight="5" />
+				<spell name="Incendiary Cloud" weight="5" />
+				<spell name="Iron Body" weight="2" />
+				<spell name="Irresistible Dance" weight="2" />
+				<spell name="Maze" weight="2" />
+				<spell name="Mind Blank" weight="2" />
+				<spell name="Moment of Prescience" weight="2" />
+				<spell name="Planar Binding (Greater)" weight="2" />
+				<spell name="Polar Ray" weight="2" />
+				<spell name="Polymorph Any Object" weight="5" />
+				<spell name="Power Word Stun" weight="2" />
+				<spell name="Prismatic Wall" weight="2" />
+				<spell name="Protection from Spells" weight="2" />
+				<spell name="Prying Eyes (Greater)" weight="2" />
+				<spell name="Scintillating Pattern" weight="2" />
+				<spell name="Screen" weight="2" />
+				<spell name="Shadow Evocation (Greater)" weight="2" />
+				<spell name="Shout (Greater)" weight="2" />
+				<spell name="Summon Monster VIII" weight="2" />
+				<spell name="Sunburst" weight="2" />
+				<spell name="Symbol of Death" weight="2" />
+				<spell name="Symbol of Insanity" weight="2" />
+				<spell name="Sympathy" weight="2" />
+				<spell name="Telekinetic Sphere" weight="2" />
+				<spell name="Temporal Stasis" weight="2" />
+				<spell name="Trap the Soul" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="9">
+				<spell name="Astral Projection" weight="2" />
+				<spell name="Crushing Hand" weight="2" />
+				<spell name="Dominate Monster" weight="2" />
+				<spell name="Energy Drain" weight="2" />
+				<spell name="Etherealness" weight="2" />
+				<spell name="Foresight" weight="2" />
+				<spell name="Freedom" weight="2" />
+				<spell name="Gate" weight="2" />
+				<spell name="Hold Monster (Mass)" weight="2" />
+				<spell name="Imprisonment" weight="2" />
+				<spell name="Mage's Disjunction" weight="2" />
+				<spell name="Meteor Swarm" weight="5" />
+				<spell name="Power Word Kill" weight="2" />
+				<spell name="Prismatic Sphere" weight="2" />
+				<spell name="Refuge" weight="2" />
+				<spell name="Shades" weight="2" />
+				<spell name="Shapechange" weight="5" />
+				<spell name="Soul Bind" weight="2" />
+				<spell name="Summon Monster IX" weight="2" />
+				<spell name="Teleportation Circle" weight="2" />
+				<spell name="Time Stop" weight="2" />
+				<spell name="Wail of the Banshee" weight="2" />
+				<spell name="Weird" weight="2" />
+				<spell name="Wish" weight="1" />
+				<spell name="*" weight="1" />
+			</level>
+		</spells>
 	</class>
 </class_data>

@@ -158,13 +158,16 @@ public class NPCGenerator
 			// are 1/8 as likely to be selected.
 			for ( Skill skill : Globals.getSkillList() )
 			{
-				if (skill.isClassSkill(aClass, aPC))
+				if ( skill.getVisibility() == Visibility.DEFAULT )
 				{
-					weightedList.add(8, new SkillChoice(skill.getKeyName()));
-				}
-				else if (!skill.isExclusive() && skill.getVisibility() == Visibility.DEFAULT)
-				{
-					weightedList.add(1, new SkillChoice(skill.getKeyName()));
+					if (skill.isClassSkill(aClass, aPC))
+					{
+						weightedList.add(8, new SkillChoice(skill.getKeyName()));
+					}
+					else if (!skill.isExclusive())
+					{
+						weightedList.add(1, new SkillChoice(skill.getKeyName()));
+					}
 				}
 			}
 		}
@@ -274,7 +277,7 @@ public class NPCGenerator
 	private int getLevel(final LevelGeneratorOption option)
 	{
 		final WeightedList<Integer> options = option.getList();
-		int val = Globals.getRandomInt(options.size()) + 1;
+		int val = Globals.getRandomInt(options.size());
 		return options.get(val);
 	}
 
@@ -568,26 +571,39 @@ public class NPCGenerator
 			Logging.debugPrint( "NPCGenerator: Selecting " + gender + " for gender " + aGender ); //$NON-NLS-1$ //$NON-NLS-2$
 			aPC.setGender( gender );
 
+			boolean doneRacialClasses = false;
 			for (int i = 0; i < classList.size(); i++)
 			{
-				final int numLevels = getLevel(levels.get(i));
+				int numLevels = getLevel(levels.get(i));
 				Logging.debugPrint( "NPCGenerator: Selecting " + numLevels + " for level " + levels.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
 				PCClass aClass = null;
-				for ( ; ; )
+				
+				if ( !doneRacialClasses && aPC.getClassList().size() > 0 )
 				{
-					aClass = getClass(classList.get(i));
-					if (aClass == null)
+					aClass = aPC.getClassList().get(0);
+					numLevels = aClass.getLevel();
+					doneRacialClasses = true;
+					i--;
+				}
+				else
+				{
+					doneRacialClasses = true;
+					for ( ; ; )
 					{
-						break;
+						aClass = getClass(classList.get(i));
+						if (aClass == null)
+						{
+							break;
+						}
+						if (aClass.getVisibility().equals(Visibility.DEFAULT)
+							&& PrereqHandler.passesAll(aClass.getPreReqList(), aPC,
+							aClass) && aClass.isQualified(aPC))
+						{
+							Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
+							break;
+						}
+						// TODO Remove a failed class from the list.
 					}
-					if (aClass.getVisibility().equals(Visibility.DEFAULT)
-						&& PrereqHandler.passesAll(aClass.getPreReqList(), aPC,
-						aClass) && aClass.isQualified(aPC))
-					{
-						Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
-						break;
-					}
-					// TODO Remove a failed class from the list.
 				}
 				if (aClass == null)
 				{
@@ -616,7 +632,10 @@ public class NPCGenerator
 				List<Ability> featList = new WeightedList<Ability>(getFeatWeights(classCopy));
 				for (int j = 0; j < numLevels; j++)
 				{
-					aPC.incrementClassLevel(1, classCopy, true);
+					if ( i >= 0 )
+					{
+						aPC.incrementClassLevel(1, classCopy, true);
+					}
 
 					final PCClass pcClass = aPC.getClassKeyed(classCopy.getKeyName());
 					selectSkills(aPC, skillList, pcClass, j + 1);

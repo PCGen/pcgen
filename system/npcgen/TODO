@@ -1,10 +1,13 @@
 TODO List - Code
 * Add Spell support for Known, Prepared and Spellbooks
+---- Known and Prepared done.
 * Add Deity and Domain selection
+---- Done.
 * Adapt to Ability objects when done
 * Add editing support
 * Allow edits to be used one time only or saved as default
 * Make configuration Game Mode specific
+---- Done.
 * Add support for multiple options files
 * Add equipment selection
 * Add support for conditionals (maybe PRExxx tags?) 
@@ -15,6 +18,8 @@ TODO List - Code
 
 Data
 * Finish updating Skill and feat lists
+---- Need to add NPC classes
 * Add spell weights
+---- Done.
 * Add equipment weights
 * Create 3e and Modern files

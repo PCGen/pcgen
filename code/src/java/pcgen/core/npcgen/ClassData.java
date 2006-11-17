@@ -40,6 +40,7 @@ import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
 import pcgen.util.WeightedList;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * Stores information about how to randomly generate selections for a class.
@@ -147,13 +148,6 @@ public class ClassData
 	 */
 	public WeightedList<SkillChoice> getSkillWeights()
 	{
-		if ( theSkillWeights == null )
-		{
-			for ( final Skill skill : Globals.getSkillList() )
-			{
-				addSkill( skill.getKeyName(), 1 );
-			}
-		}
 		return theSkillWeights;
 	}
 	
@@ -213,10 +207,7 @@ public class ClassData
 	{
 		if ( theAbilityWeights == null )
 		{
-			for ( final Categorisable cat : Globals.getUnmodifiableAbilityList(aCategory.getAbilityCategory()) )
-			{
-				addAbility( aCategory, (Ability)cat, 1);
-			}
+			return null;
 		}
 		return theAbilityWeights.get(aCategory);
 	}

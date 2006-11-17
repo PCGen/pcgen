@@ -52,7 +52,7 @@ public class AlignGeneratorOption extends GeneratorOption
 		{
 			for ( final PCAlignment align : SettingsHandler.getGame().getUnmodifiableAlignmentList() )
 			{
-				if ( ! theChoices.contains(align) )
+				if ( align.isValidForFollower() && ! theChoices.contains(align) )
 				{
 					theChoices.add(aWeight, align);
 				}
