@@ -401,6 +401,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			theDescriptions = new ArrayList<Description>();
 		}
+		aDesc.setOwner( this );
 		theDescriptions.add( aDesc );
 	}
 	
@@ -1415,6 +1416,15 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			retVal.weaponProfBonus = new ArrayList<String>(weaponProfBonus);
 		}
 		
+		if ( this.theDescriptions != null )
+		{
+			retVal.theDescriptions = new ArrayList<Description>();
+			for ( final Description desc : theDescriptions )
+			{
+				desc.setOwner(retVal);
+				retVal.theDescriptions.add(desc);
+			}
+		}
 		return retVal;
 	}
 
