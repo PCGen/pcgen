@@ -54,9 +54,7 @@
 			<short>|ALIGNMENT.SHORT|</short>
 		</alignment>
 		<bab>|ATTACK.MELEE.BASE|</bab>
-		<bio>
-			<para>|BIO,</para><para>|</para>
-		</bio>
+		<bio>|BIO|</bio>
 		<birthday>|BIRTHDAY|</birthday>
 		<birthplace>|BIRTHPLACE|</birthplace>
 		<catchphrase>|CATCHPHRASE|</catchphrase>
@@ -91,9 +89,7 @@
 			<title>|DEITY.TITLE|</title>
 			<worshippers>|DEITY.WORSHIPPERS|</worshippers>
 		</deity>
-		<description>
-			<para>|DESC,</para><para>|</para>
-		</description>
+		<description>|DESC|</description>
 		<experience>
 			<current>|EXP.CURRENT|</current>
 			<next_level>|EXP.NEXT|</next_level>
@@ -187,7 +183,7 @@
 |FOR,%note,0,COUNT[NOTES]-1,1,0|
 			<note>
 				<name>|NOTE.%note.NAME|</name>
-				<value>|NOTE.%note.VALUE.<para>.</para>|</value>
+				<value>|NOTE.%note.VALUE.|</value>
 			</note>
 |ENDFOR|
 		</notes>
