@@ -4402,7 +4402,11 @@
 			<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Effect: </fo:inline>
-					<xsl:value-of select="effect"/>
+					<xsl:for-each select="effect/para">
+						<fo:block text-align="justify" text-indent="10pt">
+							<xsl:value-of select="."/>
+						</fo:block>
+					</xsl:for-each>
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="3">

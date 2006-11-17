@@ -21,17 +21,11 @@
 package pcgen.io;
 
 import pcgen.core.Constants;
-import pcgen.core.Globals;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.util.Delta;
-import pcgen.util.Logging;
+import pcgen.io.filters.*;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * <code>FileAccess</code>.
@@ -41,86 +35,47 @@ import java.util.Map;
  */
 public final class FileAccess
 {
-	private static String outputFilterName = "";
-	private static Map<Integer, String> outputFilter = null;
+	private static OutputFilter outputFilter = null;
 	private static int maxLength = -1;
+	
+	/**
+	 * Filter the supplied string according to the current output filter. This
+	 * can do things such as escaping HTML entities.
+	 *
+	 * @param aString The string to be filtered
+	 * @return The filtered string.
+	 */
+	public static String filterString(String aString)
+	{
+		if (null == outputFilter)
+			return aString;
+		else
+			return outputFilter.filterString(aString);		
+	}
 
 	/**
-	 * Set the current output filter
-	 * @param filterName
+	 * Set the current output filter (legacy - should be deprecated later)
+	 * @param filterName (used to create instance of CharacterFilter)
 	 */
 	public static void setCurrentOutputFilter(String filterName)
 	{
-		final int idx = filterName.lastIndexOf('.');
-
-		if (idx >= 0)
-		{
-			filterName = filterName.substring(idx + 1);
-		}
-
-		filterName = filterName.toLowerCase();
-
-		if (filterName.equals(outputFilterName))
-		{
-			return;
-		}
-
-		outputFilter = null;
-
-		filterName = Globals.getDefaultPath() + File.separator + "system" + File.separator + "outputFilters"
-			+ File.separator + filterName + Constants.s_PCGEN_LIST_EXTENSION;
-
-		final File filterFile = new File(filterName);
-
 		try
 		{
-			if (filterFile.canRead() && filterFile.isFile())
-			{
-				final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
-							"UTF-8"));
-
-				if (br != null)
-				{
-					outputFilterName = filterName;
-					outputFilter = new HashMap<Integer, String>();
-
-					for (;;)
-					{
-						final String aLine = br.readLine();
-
-						if (aLine == null)
-						{
-							break;
-						}
-
-						final List<String> filterEntry = CoreUtility.split(aLine, '\t');
-
-						if (filterEntry.size() >= 2)
-						{
-							try
-							{
-								final Integer key = Delta.decode(filterEntry.get(0));
-								outputFilter.put(key, filterEntry.get(1));
-							}
-							catch (NullPointerException e)
-							{
-								Logging.errorPrint("Exception in setCurrentOutputFilter", e);
-							}
-							catch (NumberFormatException e)
-							{
-								Logging.errorPrint("Exception in setCurrentOutputFilter", e);
-							}
-						}
-					}
-
-					br.close();
-				}
-			}
+			outputFilter = new PatternFilter(filterName);
 		}
 		catch (IOException e)
 		{
-			//Should this be ignored?
+			outputFilter = new CharacterFilter(filterName);
 		}
+	}
+
+	/**
+	 * Set the current output filter
+	 * @param filter
+	 */
+	public static void setCurrentOutputFilter(OutputFilter filter)
+	{
+		outputFilter = filter;
 	}
 
 	/**
@@ -131,39 +86,6 @@ public final class FileAccess
 	public static void encodeWrite(Writer output, String aString)
 	{
 		write(output, filterString(aString));
-	}
-
-	/**
-	 * Filter the supplied string according to the current output filter. This
-	 * can do things such as escaping HTML entities.
-	 *
-	 * @param aString The string to be filtered
-	 * @return The filtered string.
-	 */
-	public static String filterString(String aString)
-	{
-		if ((outputFilter != null) && (outputFilter.size() != 0) && aString != null)
-		{
-			final StringBuffer xlatedString = new StringBuffer(aString.length());
-
-			for (int i = 0; i < aString.length(); i++)
-			{
-				final char c = aString.charAt(i);
-				final String xlation = outputFilter.get((int)c);
-
-				if (xlation != null)
-				{
-					xlatedString.append(xlation);
-				}
-				else
-				{
-					xlatedString.append(c);
-				}
-			}
-
-			aString = xlatedString.toString();
-		}
-		return aString;
 	}
 
 	/**
