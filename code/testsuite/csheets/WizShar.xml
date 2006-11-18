@@ -18,9 +18,7 @@ BIO
 			<short>LG</short>
 		</alignment>
 		<bab>+0</bab>
-		<bio>
-			<para></para>
-		</bio>
+		<bio></bio>
 		<birthplace></birthplace>
 		<catchphrase></catchphrase>
 		<classes>
@@ -123,7 +121,7 @@ BIO
 		<notes>
 			<note>
 				<name>New Item</name>
-				<value><para>New Value</para></value>
+				<value>New Value</value>
 			</note>
 		</notes>
 	</basics>
