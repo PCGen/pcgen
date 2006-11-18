@@ -87,7 +87,8 @@ public class PatternFilter implements OutputFilter {
 						if (filterEntry.size() == 2)
 						{
 							match.add(filterEntry.get(0));
-							replace.add(filterEntry.get(1));
+							
+							replace.add(filterEntry.get(1).replaceAll("\\\\n", System.getProperty("line.separator")));
 							Logging.debugPrint("Match: [" + filterEntry.get(0) + "] and replace with [" + filterEntry.get(1) + "]");
 						}
 						else if (filterEntry.size() == 1)

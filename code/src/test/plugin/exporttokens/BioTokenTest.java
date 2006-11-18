@@ -69,54 +69,39 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Class under test for String getToken(String, PlayerCharacter)
-	 * @throws Exception
-	 */
-	public void testGetTokenStringPlayerCharacter() throws Exception
-	{
-		assertEquals("Default Bio",
-			"Test bio entry<br/>2nd line<br/>Third line<br/>last one", new BioToken()
-				.getToken("BIO", getCharacter(), null));
-
-		assertEquals("Old Style Bio",
-			"Test bio entry|2nd line|Third line|last one", new BioToken()
-				.getToken("BIO,|", getCharacter(), null));
-
-		assertEquals("Old Style Bio with comma",
-			"Test bio entry,2nd line,Third line,last one", new BioToken()
-				.getToken("BIO,,", getCharacter(), null));
-
-		assertEquals(
-			"New Style Bio start and end",
-			"<b>Test bio entry</b>| <b>2nd line</b>| <b>Third line</b>| <b>last one</b>| ",
-			new BioToken().getToken("BIO.<b>.</b>| ", getCharacter(), null));
-
-		assertEquals("New Style Bio start only",
-			"**Test bio entry<br/>**2nd line<br/>**Third line<br/>**last one<br/>", new BioToken()
-				.getToken("BIO.**", getCharacter(), null));
-
-		assertEquals("New Style Bio start only",
-			"Test bio entry,2nd line,Third line,last one,", new BioToken()
-				.getToken("BIO..,", getCharacter(), null));
-	}
-	
-	/**
 	 * Test the bio export
 	 * @throws Exception
 	 */
 	public void testBioExport() throws Exception
 	{
-		FileAccess.setCurrentOutputFilter("foo.htm");
+		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
+		assertEquals("Default Bio"
+				, "<para>Test bio entry</para><para>2nd line</para><para>Third line</para><para>last one</para>"
+				, evaluateToken("BIO", character));
+
+		assertEquals("New Style Bio start and end"
+				, "<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]</para><para>[b]last one[/b]</para>"
+				, evaluateToken("BIO.[b].[/b]", character));
+
+		assertEquals("New Style Bio start only"
+				, "<para>**Test bio entry</para><para>**2nd line</para><para>**Third line</para><para>**last one</para>"
+				, evaluateToken("BIO.**", character));
+
+		assertEquals("New Style Bio start only"
+				, "<para>Test bio entry,</para><para>2nd line,</para><para>Third line,</para><para>last one,</para>"
+				, evaluateToken("BIO..,", character));
+
+		FileAccess.setCurrentOutputFilter("foo.htm");
 		character.setBio("Test bio <br/>entry\n2nd line\nThird line\nlast one");
 		
-		assertEquals("Bio and exportHandler should be the same",
-			evaluateToken("BIO.<b>.</b>", character), new BioToken()
-				.getToken("BIO.<b>.</b>", character, null));
+		String expected = "<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>\n<p>[b]Third line[/b]</p>\n<p>[b]last one[/b]</p>"; 
+		String actual = evaluateToken("BIO.[b].[/b]", character);
+		assertEquals(expected, actual);
 
-		assertEquals("New Style Bio start only",
-			"Test bio &lt;br/&gt;entry,2nd line,Third line,last one,", new BioToken()
-				.getToken("BIO..,", getCharacter(), null));
+		actual = evaluateToken("BIO..,", character);
+		expected = "<p>Test bio &lt;br/&gt;entry,</p>\n<p>2nd line,</p>\n<p>Third line,</p>\n<p>last one,</p>"; 
+		assertEquals("New Style Bio start only", expected, actual);
 	}
 
 

@@ -28,7 +28,6 @@ package plugin.exporttokens;
 import pcgen.core.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.FileAccess;
 import pcgen.io.exporttoken.Token;
 
 import java.util.ArrayList;
@@ -65,8 +64,7 @@ public class BioToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String beforeValue = "";
-		String afterValue = getAfterValue(eh);
-		boolean addAfterOnLast = true;
+		String afterValue = "";
 
 		if (tokenSource.length()<=3 || tokenSource.charAt(3)==',')
 		{
@@ -74,42 +72,15 @@ public class BioToken extends Token
 			{
 				afterValue = tokenSource.substring(4);
 			}
-			addAfterOnLast=false;
 		}
 		else
 		{
 			String[] tokens = tokenSource.split("\\.");
-			if(tokens.length>1)
-			{
-				beforeValue=tokens[1];
-			}
-			if(tokens.length>2)
-			{
-				afterValue=tokens[2];
-			}
+			if(tokens.length>1) beforeValue=tokens[1];
+			if(tokens.length>2) afterValue=tokens[2];
 		}
 
-		StringBuffer sb = new StringBuffer();
-		List<String> bioList = getBioToken(pc);
-		for (int i = 0; i < bioList.size(); ++i)
-		{
-			sb.append(beforeValue);
-			sb.append(FileAccess.filterString(bioList.get(i)));
-			if (addAfterOnLast || i+1<bioList.size())
-			{
-				sb.append(afterValue);
-			}
-		}
-
-		return sb.toString();
-	}
-
-    /**
-     * Returns false
-     * @return false
-     */
-	public boolean isEncoded() {
-		return false;
+		return beforeValue + pc.getBio().replaceAll("\n", afterValue + "\n" + beforeValue) + afterValue;
 	}
 
 	/**
