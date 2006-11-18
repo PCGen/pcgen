@@ -216,7 +216,11 @@
 							</fo:table-cell>
 							<xsl:if test="$desc.tag!=''">
 								<fo:table-cell padding="1pt">
-									<fo:block font-size="7pt" text-align="justify"><xsl:value-of select="./*[name()=$desc.tag]"/></fo:block>
+									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$desc.tag"/>
+										</xsl:call-template>
+									</fo:block>
 								</fo:table-cell>
 							</xsl:if>
 						</fo:table-row>
@@ -560,6 +564,26 @@
 				<xsl:value-of select="$string"/>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - PARAGRAGH LIST
+====================================
+====================================-->
+	<xsl:template name="paragraghlist">
+		<xsl:param name="tag"/>
+		<xsl:if test="count(./*[name()=$tag]/*[name()='para']) = 0">
+			<xsl:value-of select="./*[name()=$tag]"/>
+		</xsl:if>
+		<xsl:if test="count(./*[name()=$tag]/*[name()='para']) &gt; 0">
+			<xsl:for-each select="./*[name()=$tag]/*[name()='para']">
+				<fo:block text-indent="5pt">
+					<xsl:value-of select="."/>
+				</fo:block>
+			</xsl:for-each>
+		</xsl:if>
 	</xsl:template>
 
 </xsl:stylesheet>

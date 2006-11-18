@@ -4402,11 +4402,11 @@
 			<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Effect: </fo:inline>
-					<xsl:for-each select="effect/para">
-						<fo:block text-align="justify" text-indent="10pt">
-							<xsl:value-of select="."/>
-						</fo:block>
-					</xsl:for-each>
+					<fo:block text-align="justify" text-indent="5pt">
+						<xsl:call-template name="paragraghlist">
+							<xsl:with-param name="tag" select="'effect'"/>
+						</xsl:call-template>
+					</fo:block>
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
@@ -4807,19 +4807,19 @@
 					<fo:block font-size="14pt" font-weight="bold" space-before="5mm" span="all">
 						Description:
 					</fo:block>
-					<xsl:for-each select="description/para">
-						<fo:block font-size="9pt" text-indent="5mm" span="all">
-							<xsl:value-of select="."/>
-						</fo:block>
-					</xsl:for-each>
+					<fo:block font-size="9pt" text-indent="5mm" span="all">
+						<xsl:call-template name="paragraghlist">
+							<xsl:with-param name="tag" select="'description'"/>
+						</xsl:call-template>
+					</fo:block>
 					<fo:block font-size="14pt" font-weight="bold" span="all">
 						Biography:
 					</fo:block>
-					<xsl:for-each select="bio/para">
-						<fo:block font-size="9pt" text-indent="5mm" span="all">
-							<xsl:value-of select="."/>
-						</fo:block>
-					</xsl:for-each>
+					<fo:block font-size="9pt" text-indent="5mm" span="all">
+						<xsl:call-template name="paragraghlist">
+							<xsl:with-param name="tag" select="'bio'"/>
+						</xsl:call-template>
+					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
 		</xsl:if>
@@ -4844,11 +4844,11 @@
 						<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
 							<xsl:value-of select="name"/>:
 						</fo:block>
-						<xsl:for-each select="value/para">
-							<fo:block font-size="9pt" text-indent="5mm">
-								<xsl:value-of select="."/>
-							</fo:block>
-						</xsl:for-each>
+						<fo:block font-size="9pt" text-indent="5mm">
+							<xsl:call-template name="paragraghlist">
+								<xsl:with-param name="tag" select="'value'"/>
+							</xsl:call-template>
+						</fo:block>
 					</xsl:for-each>
 				</fo:flow>
 			</fo:page-sequence>
