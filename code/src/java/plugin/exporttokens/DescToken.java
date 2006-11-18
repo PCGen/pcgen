@@ -60,27 +60,14 @@ public class DescToken extends Token
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ",", false);
 		tok.nextToken();
-		StringBuffer sb = new StringBuffer();
-		String delim = ", ";
+
+		String delim = "$1";
 		if(tok.hasMoreTokens())
 		{
 			delim = tok.nextToken();
 		}
 
-		List<String> descList = getDescToken(pc);
-		for (int i = 0; i < descList.size(); ++i)
-		{
-			if(i > 0)
-			{
-				sb.append(delim);
-			}
-			sb.append(FileAccess.filterString(descList.get(i)));
-		}
-		return sb.toString();
-	}
-
-	public boolean isEncoded() {
-		return false;
+		return getDescToken(pc).replaceAll("(\n)", delim);
 	}
 
 	/**
@@ -88,17 +75,9 @@ public class DescToken extends Token
 	 * @param pc
 	 * @return Desc token
 	 */
-	public static List<String> getDescToken(PlayerCharacter pc)
+	public static String getDescToken(PlayerCharacter pc)
 	{
-		List<String> descList = new ArrayList<String>();
-		StringTokenizer tok = new StringTokenizer(pc.getDescription(), "\r\n", false);
-
-		while (tok.hasMoreTokens())
-		{
-			descList.add(tok.nextToken());
-		}
-
-		return descList;
+		return pc.getDescription();
 	}
 }
 

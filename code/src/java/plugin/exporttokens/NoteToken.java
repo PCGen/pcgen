@@ -126,28 +126,21 @@ public class NoteToken extends Token
 			}
 			else if ("NAME".equals(token))
 			{
-				sb.append(FileAccess.filterString(ni.getName()));
+				sb.append(ni.getName());
 			}
 			else if ("VALUE".equals(token))
 			{
-				StringTokenizer cTok = new StringTokenizer(ni.getValue(), "\r\n");
-
-				while (cTok.hasMoreTokens())
-				{
-					sb.append(beforeValue);
-					sb.append(FileAccess.filterString(cTok.nextToken()));
-					sb.append(afterValue);
-				}
+				String internal = beforeValue + afterValue; 
+				if ("".equals(internal))
+					internal = "$1";
+				sb.append(beforeValue);
+				sb.append(ni.getValue().replaceAll("(\n)", internal));
+				sb.append(afterValue);
 			}
 		}
 
 		return sb.toString();
 	}
-
-	public boolean isEncoded() {
-		return false;
-	}
-
 
 	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name) {
 		ArrayList<NoteItem> noteList = new ArrayList<NoteItem>();
