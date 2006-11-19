@@ -29,22 +29,20 @@
 package pcgen.core;
 
 import java.awt.HeadlessException;
-import java.util.List;
 import java.util.Collections;
-import java.util.logging.Logger;
+import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
-
 import pcgen.AbstractCharacterTestCase;
-import pcgen.gui.utils.SwingChooser;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.gui.utils.SwingChooser;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.persistence.lst.prereq.PreParserFactory;

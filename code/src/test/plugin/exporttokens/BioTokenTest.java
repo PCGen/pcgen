@@ -34,7 +34,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
-import plugin.exporttokens.BioToken;
 
 /**
  * <code>BioTokenTest</code> is ...

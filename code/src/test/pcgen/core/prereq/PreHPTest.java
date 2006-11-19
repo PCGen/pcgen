@@ -30,7 +30,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.core.Race;
 
 /**
  * <code>PreHPTest</code> tests that the PREHP tag is
@@ -67,7 +66,6 @@ public class PreHPTest extends AbstractCharacterTestCase
 		throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		final Race race = new Race();
 
 		character.incrementClassLevel(1, myClass, true);
 		myClass = character.getClassList().get(0);
