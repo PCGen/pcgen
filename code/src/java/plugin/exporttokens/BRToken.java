@@ -53,7 +53,8 @@ public class BRToken extends Token
 	 */
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return System.getProperty("line.separator");
+		return "[BR]";
+//		return System.getProperty("line.separator");
 	}
 }
 
