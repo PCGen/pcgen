@@ -831,6 +831,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						ShowMessageDelegate.showMessageDialog("You can not set the total number of '"+updatedItem.getName() + "' to be "+newQty+" as there is an Equipment Set that is using "+numberOfItemInUse + " of them.", "Error", MessageType.ERROR);
 						return 0.0;
 					}
+					pc.updateEquipmentQty(updatedItem, prevQty, newQty);
 					Float qty = new Float(newQty);
 					updatedItem.setQty(qty);
 					updatedItem.setNumberCarried(qty);

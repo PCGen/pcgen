@@ -23,7 +23,10 @@
  */
 package pcgen.core.character;
 
+import pcgen.core.Constants;
 import pcgen.core.Equipment;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>SpellBook</code> contains details of a prepared spell list or 
@@ -37,7 +40,7 @@ import pcgen.core.Equipment;
  * @version $Revision$
  */
 
-public class SpellBook
+public class SpellBook implements Cloneable
 {
 
 	/** Spell book type indicating a list of known spells. */
@@ -257,4 +260,26 @@ public class SpellBook
 		this.numSpells = numSpells;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#clone()
+	 */
+	public Object clone()
+	{
+		SpellBook aClone = null;
+		try
+		{
+			aClone = (SpellBook) super.clone();
+			if (equip != null)
+			{
+				aClone.equip = (Equipment) equip.clone();
+			}
+		}
+		catch (CloneNotSupportedException e)
+		{
+			ShowMessageDelegate.showMessageDialog(
+				"Clone of SpellBook failed due to " + e.getMessage(),
+				Constants.s_APPNAME, MessageType.ERROR);
+		}
+		return aClone;
+	}
 }

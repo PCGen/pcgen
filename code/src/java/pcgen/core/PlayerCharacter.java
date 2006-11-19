@@ -3760,6 +3760,11 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		setDirty(true);
 	}
 
+	/**
+	 * Add an item of equipment to the character.
+	 * 
+	 * @param eq The equipment to be added.
+	 */
 	public void addEquipment(final Equipment eq)
 	{
 		equipmentList.add(eq);
@@ -3771,9 +3776,62 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
 		{
-			SpellBook book = new SpellBook(eq.getName(), SpellBook.TYPE_SPELL_BOOK);
-			book.setEquip(eq);
-			addSpellBook(book);
+			String baseBookname = eq.getName();
+			String bookName = eq.getName();
+			int qty = (int)eq.qty();
+			for (int i=0;i < qty;i++)
+			{
+				if (i > 0)
+				{
+					bookName = baseBookname + " #" + (i+1);
+				}
+				SpellBook book = new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				book.setEquip(eq);
+				addSpellBook(book);
+			}
+		}
+		setDirty(true);
+	}
+
+	/**
+	 * Update the number of a particular equipment item the character possesses.
+	 * Mostly concerned with ensuring that the spellbook objects remain in sync 
+	 * with the number of equipment spellbooks.
+	 *  
+	 * @param eq The Equipment being updated.
+	 * @param oldQty The original number of items.
+	 * @param newQty The new number of items.
+	 */
+	public void updateEquipmentQty(final Equipment eq, double oldQty, double newQty)
+	{
+		if (eq.isType(Constants.s_TYPE_SPELLBOOK))
+		{
+			String baseBookname = eq.getName();
+			String bookName = eq.getName();
+			int old = (int)oldQty;
+			int newQ = (int)newQty;
+			
+			// Add any new items
+			for (int i=old;i < newQ;i++)
+			{
+				if (i > 0)
+				{
+					bookName = baseBookname + " #" + (i+1);
+				}
+				SpellBook book = new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				book.setEquip(eq);
+				addSpellBook(book);
+			}
+			
+			// Remove any old items
+			for (int i=old;i > newQ;i--)
+			{
+				if (i > 0)
+				{
+					bookName = baseBookname + " #" + i;
+				}
+				delSpellBook(bookName);
+			}
 		}
 		setDirty(true);
 	}

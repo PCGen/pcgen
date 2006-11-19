@@ -4133,7 +4133,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (TAG_QUANTITY.equals(tag))
 			{
+				float oldQty = aEquip.getQty();
 				aEquip.setQty(element.getText());
+				thePC.updateEquipmentQty(aEquip, oldQty, aEquip.getQty());
 			}
 			else if (TAG_OUTPUTORDER.equals(tag))
 			{
