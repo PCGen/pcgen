@@ -88,8 +88,8 @@ public class PatternFilter implements OutputFilter {
 						{
 							match.add(filterEntry.get(0));
 							
-							replace.add(filterEntry.get(1).replaceAll("\\\\n", System.getProperty("line.separator")));
 							Logging.debugPrint("Match: [" + filterEntry.get(0) + "] and replace with [" + filterEntry.get(1) + "]");
+							replace.add(filterEntry.get(1).replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"));
 						}
 						else if (filterEntry.size() == 1)
 						{
@@ -130,7 +130,7 @@ public class PatternFilter implements OutputFilter {
 				if (!aProcessedString.equals(aPreprocessedString))
 				{
 					Logging.debugPrint("Match: [" + match.get(i) + "] and replace with [" + replace.get(i) + "]");
-					Logging.debugPrint(aProcessedString + "\n=>\n" + aPreprocessedString);
+					Logging.debugPrint("[" +aPreprocessedString + "]=>[" + aProcessedString + "]");
 				}
 			}
 		}
