@@ -580,7 +580,7 @@
 		<xsl:if test="count(./*[name()=$tag]/*[name()='para']) &gt; 0">
 			<xsl:for-each select="./*[name()=$tag]/*[name()='para']">
 				<fo:block text-indent="5pt">
-					<xsl:value-of select="."/>
+					<xsl:value-of disable-output-escaping="yes" select="."/>
 				</fo:block>
 			</xsl:for-each>
 		</xsl:if>

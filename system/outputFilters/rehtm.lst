@@ -136,3 +136,13 @@
 ^(.*[\r\n](.*[\r\n]?)*)$	<p>$1</p>
 ([\r\n]+)	</p>$1<p>
 \[BR\]	<BR/>
+\{table\}	<table>
+\{/table\}	</table>
+\{table-column([^{}]*)\}	<col$1></col>
+\{table-body\}	
+\{/table-body\}	
+\{tr\}	<tr>
+\{/tr\}	</tr>
+\{td\}	<td>
+\{/td\}	</td>
+column-width=&quot;([^&]*)&quot;	width="$1"

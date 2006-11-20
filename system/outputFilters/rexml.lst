@@ -165,3 +165,13 @@
 ^(.*[\r\n](.*[\r\n]?)*)$	<para>$1</para>
 [\r\n]	</para><para>
 \[BR\]	\n
+\{table\}	&lt;fo:table table-layout=&quot;fixed&quot;&gt;
+\{/table\}	&lt;/fo:table&gt;
+\{table-column([^{}]*)\}	&lt;fo:table-column$1/&gt;
+\{table-body\}	&lt;fo:table-body&gt;
+\{/table-body\}	&lt;/fo:table-body&gt;
+\{tr\}	&lt;fo:table-row&gt;
+\{/tr\}	&lt;/fo:table-row&gt;
+\{td\}	&lt;fo:table-cell&gt;&lt;fo:block&gt;
+\{/td\}	&lt;/fo:block&gt;&lt;/fo:table-cell&gt;
+column-width=&quot;([^&%]*)\%&quot;	column-width=&quot;proportional-column-width($1)&quot;
