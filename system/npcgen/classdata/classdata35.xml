@@ -3266,4 +3266,826 @@
 			</level>
 		</spells>
 	</class>
+	<class key="Adept">
+		<stats>
+			<stat value="WIS" weight="9"/>
+			<stat value="DEX" weight="4"/>
+			<stat value="CON" weight="4"/>
+			<stat value="INT" weight="3"/>
+			<stat value="CHA" weight="2"/>
+			<stat value="STR" weight="1"/>
+		</stats>
+		<skills>
+			<skill value="Climb" weight="2"/>
+			<skill value="Concentration" weight="20"/>
+			<skill value="Control Shape" weight="0"/>
+			<skill value="TYPE.Craft" weight="10"/>
+			<skill value="Handle Animal" weight="6"/>
+			<skill value="Heal" weight="22"/>
+			<skill value="Intimidate" weight="2"/>
+			<skill value="Jump" weight="2"/>
+			<skill value="Knowledge (Arcana)" weight="15"/>
+			<skill value="Knowledge (Dungeoneering)" weight="4"/>
+			<skill value="Knowledge (Geography)" weight="15"/>
+			<skill value="Knowledge (History)" weight="15"/>
+			<skill value="Knowledge (Local)" weight="2"/>
+			<skill value="Knowledge (Nature)" weight="15"/>
+			<skill value="Knowledge (Religion)" weight="10"/>
+			<skill value="Knowledge (The Planes)" weight="6"/>
+			<skill value="Listen" weight="2"/>
+			<skill value="Literacy" weight="0"/>
+			<skill value="TYPE.Perform" weight="2"/>
+			<skill value="TYPE.Profession" weight="4"/>
+			<skill value="Spellcraft" weight="10"/>
+			<skill value="Survival" weight="10"/>
+			<skill value="Swim" weight="10"/>
+			<skill value="Autohypnosis" weight="0"/>
+			<skill value="*" weight="1"/>
+		</skills>
+		<abilities category="FEAT">
+			<ability value="Acrobatic" weight="2"/>
+			<ability value="Agile" weight="2"/>
+			<ability value="Alertness" weight="8"/>
+			<ability value="Animal Affinity" weight="4"/>
+			<ability value="Armor Proficiency (Heavy)" weight="0"/>
+			<ability value="Armor Proficiency (Light)" weight="2"/>
+			<ability value="Armor Proficiency (Medium)" weight="1"/>
+			<ability value="Athletic" weight="2"/>
+			<ability value="Augment Summoning" weight="0"/>
+			<ability value="Blind Fight" weight="2"/>
+			<ability value="Brew Potion" weight="20"/>
+			<ability value="Cleave" weight="2"/>
+			<ability value="Combat Casting" weight="20"/>
+			<ability value="Combat Expertise" weight="2"/>
+			<ability value="Combat Reflexes" weight="2"/>
+			<ability value="Craft Construct" weight="4"/>
+			<ability value="Craft Magic Arms and Armor" weight="20"/>
+			<ability value="Craft Rod" weight="20"/>
+			<ability value="Craft Staff" weight="20"/>
+			<ability value="Craft Wand" weight="20"/>
+			<ability value="Craft Wondrous Item" weight="20"/>
+			<ability value="Deceitful" weight="2"/>
+			<ability value="Deflect Arrows" weight="2"/>
+			<ability value="Deft Hands" weight="2"/>
+			<ability value="Diehard" weight="2"/>
+			<ability value="Diligent" weight="2"/>
+			<ability value="Dodge" weight="8"/>
+			<ability value="Empower Spell" weight="20"/>
+			<ability value="Endurance" weight="2"/>
+			<ability value="Enlarge Spell" weight="20"/>
+			<ability value="Eschew Materials" weight="4"/>
+			<ability value="Exotic Weapon Proficiency" weight="2"/>
+			<ability value="Extend Spell" weight="20"/>
+			<ability value="Extra Turning" weight="0"/>
+			<ability value="Far Shot" weight="8"/>
+			<ability value="Forge Ring" weight="20"/>
+			<ability value="Great Cleave" weight="2"/>
+			<ability value="Great Fortitude" weight="4"/>
+			<ability value="Greater Spell Focus" weight="8"/>
+			<ability value="Greater Spell Penetration" weight="8"/>
+			<ability value="Greater Two Weapon Fighting" weight="2"/>
+			<ability value="Greater Weapon Focus" weight="0"/>
+			<ability value="Greater Weapon Specialization" weight="0"/>
+			<ability value="Heighten Spell" weight="20"/>
+			<ability value="Improved Bull Rush" weight="2"/>
+			<ability value="Improved Counterspell" weight="4"/>
+			<ability value="Improved Critical" weight="2"/>
+			<ability value="Improved Disarm" weight="2"/>
+			<ability value="Improved Familiar" weight="2"/>
+			<ability value="Improved Feint" weight="2"/>
+			<ability value="Improved Grapple" weight="2"/>
+			<ability value="Improved Initiative" weight="8"/>
+			<ability value="Improved Overrun" weight="2"/>
+			<ability value="Improved Precise Shot" weight="2"/>
+			<ability value="Improved Shield Bash" weight="0"/>
+			<ability value="Improved Sunder" weight="2"/>
+			<ability value="Improved Trip" weight="2"/>
+			<ability value="Improved Turning" weight="0"/>
+			<ability value="Improved Two Weapon Fighting" weight="2"/>
+			<ability value="Improved Unarmed Strike" weight="8"/>
+			<ability value="Investigator" weight="2"/>
+			<ability value="Iron Will" weight="8"/>
+			<ability value="Leadership" weight="8"/>
+			<ability value="Lightning Reflexes" weight="8"/>
+			<ability value="Magical Aptitude" weight="4"/>
+			<ability value="Manyshot" weight="2"/>
+			<ability value="Martial Weapon Proficiency" weight="2"/>
+			<ability value="Maximize Spell" weight="20"/>
+			<ability value="Mobility" weight="8"/>
+			<ability value="Mounted Archery" weight="2"/>
+			<ability value="Mounted Combat" weight="2"/>
+			<ability value="Natural Spell" weight="0"/>
+			<ability value="Negotiator" weight="2"/>
+			<ability value="Nimble Fingers" weight="2"/>
+			<ability value="Persuasive" weight="2"/>
+			<ability value="Point Blank Shot" weight="8"/>
+			<ability value="Power Attack" weight="2"/>
+			<ability value="Precise Shot" weight="8"/>
+			<ability value="Quick Draw" weight="2"/>
+			<ability value="Quicken Spell" weight="20"/>
+			<ability value="Rapid Reload" weight="2"/>
+			<ability value="Rapid Shot" weight="8"/>
+			<ability value="Ride By Attack" weight="2"/>
+			<ability value="Run" weight="8"/>
+			<ability value="Scribe Scroll" weight="40"/>
+			<ability value="Self Sufficient" weight="4"/>
+			<ability value="Shield Proficiency" weight="2"/>
+			<ability value="Shot on the Run" weight="2"/>
+			<ability value="Silent Spell" weight="20"/>
+			<ability value="Simple Weapon Proficiency" weight="2"/>
+			<ability value="Skill Focus" weight="8"/>
+			<ability value="Snatch Arrows" weight="2"/>
+			<ability value="Spell Focus" weight="20"/>
+			<ability value="Spell Mastery" weight="0"/>
+			<ability value="Spell Penetration" weight="20"/>
+			<ability value="Spirited Charge" weight="2"/>
+			<ability value="Spring Attack" weight="2"/>
+			<ability value="Stealthy" weight="2"/>
+			<ability value="Still Spell" weight="20"/>
+			<ability value="Stunning Fist" weight="2"/>
+			<ability value="Toughness" weight="8"/>
+			<ability value="Tower Shield Proficiency" weight="0"/>
+			<ability value="Track" weight="2"/>
+			<ability value="Trample" weight="2"/>
+			<ability value="Two Weapon Fighting" weight="2"/>
+			<ability value="Two Weapon Defense" weight="2"/>
+			<ability value="Weapon Finesse" weight="2"/>
+			<ability value="Weapon Focus" weight="2"/>
+			<ability value="Weapon Specialization" weight="0"/>
+			<ability value="Whirlwind Attack" weight="2"/>
+			<ability value="Widen Spell" weight="8"/>
+			<ability value="*" weight="1"/>
+		</abilities>
+		<spells type="Prepared Spells">
+			<level id="0">
+				<spell name="Create Water" weight="2" />
+				<spell name="Cure Minor Wounds" weight="5" />
+				<spell name="Detect Magic" weight="5" />
+				<spell name="Ghost Sound" weight="2" />
+				<spell name="Guidance" weight="3" />
+				<spell name="Light" weight="4" />
+				<spell name="Mending" weight="2" />
+				<spell name="Purify Food and Drink" weight="3" />
+				<spell name="Read Magic" weight="5" />
+				<spell name="Touch of Fatigue" weight="3" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="1">
+				<spell name="Bless" weight="5" />
+				<spell name="Burning Hands" weight="3" />
+				<spell name="Cause Fear" weight="3" />
+				<spell name="Command" weight="3" />
+				<spell name="Comprehend Languages" weight="2" />
+				<spell name="Cure Light Wounds" weight="6" />
+				<spell name="Detect Chaos" weight="5" />
+				<spell name="Detect Evil" weight="5" />
+				<spell name="Detect Good" weight="5" />
+				<spell name="Detect Law" weight="5" />
+				<spell name="Endure Elements" weight="4" />
+				<spell name="Obscuring Mist" weight="2" />
+				<spell name="Protection from Chaos" weight="4" />
+				<spell name="Protection from Evil" weight="4" />
+				<spell name="Protection from Good" weight="4" />
+				<spell name="Protection from Law" weight="4" />
+				<spell name="Sleep" weight="4" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="2">
+				<spell name="Aid" weight="4" />
+				<spell name="Animal Trance" weight="2" />
+				<spell name="Bear's Endurance" weight="3" />
+				<spell name="Bull's Strength" weight="3" />
+				<spell name="Cat's Grace" weight="3" />
+				<spell name="Cure Moderate Wounds" weight="5" />
+				<spell name="Darkness" weight="2" />
+				<spell name="Delay Poison" weight="2" />
+				<spell name="Invisibility" weight="5" />
+				<spell name="Mirror Image" weight="4" />
+				<spell name="Resist Energy" weight="2" />
+				<spell name="Scorching Ray" weight="4" />
+				<spell name="See Invisibility" weight="3" />
+				<spell name="Web" weight="5" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="3">
+				<spell name="Animate Dead" weight="2" />
+				<spell name="Bestow Curse" weight="2" />
+				<spell name="Contagion" weight="2" />
+				<spell name="Continual Flame" weight="2" />
+				<spell name="Cure Serious Wounds" weight="5" />
+				<spell name="Daylight" weight="3" />
+				<spell name="Deeper Darkness" weight="3" />
+				<spell name="Lightning Bolt" weight="5" />
+				<spell name="Neutralize Poison" weight="2" />
+				<spell name="Remove Curse" weight="2" />
+				<spell name="Remove Disease" weight="2" />
+				<spell name="Tongues" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="4">
+				<spell name="Cure Critical Wounds" weight="5" />
+				<spell name="Minor Creation" weight="2" />
+				<spell name="Polymorph" weight="4" />
+				<spell name="Restoration" weight="2" />
+				<spell name="Stoneskin" weight="4" />
+				<spell name="Wall of Fire" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+			<level id="5">
+				<spell name="Baleful Polymorph" weight="5" />
+				<spell name="Break Enchantment" weight="2" />
+				<spell name="Commune" weight="2" />
+				<spell name="Heal" weight="5" />
+				<spell name="Major Creation" weight="2" />
+				<spell name="Raise Dead" weight="2" />
+				<spell name="True Seeing" weight="2" />
+				<spell name="Wall of Stone" weight="2" />
+				<spell name="*" weight="1" />
+			</level>
+		</spells>
+	</class>
+	<class key="Aristocrat">
+		<stats>
+			<stat value="CHA" weight="6" />
+			<stat value="INT" weight="4" />
+			<stat value="WIS" weight="4" />
+			<stat value="STR" weight="3" />
+			<stat value="CON" weight="3" />
+			<stat value="DEX" weight="2" />
+		</stats>
+		<skills>
+			<skill value="Appraise" weight="8" />
+			<skill value="Bluff" weight="24" />
+			<skill value="Control Shape" weight="0" />
+			<skill value="TYPE.Craft" weight="1" />
+			<skill value="Diplomacy" weight="40" />
+			<skill value="Disguise" weight="16" />
+			<skill value="Forgery" weight="8" />
+			<skill value="Gather Information" weight="8" />
+			<skill value="Handle Animal" weight="6" />
+			<skill value="Intimidate" weight="32" />
+			<skill value="Knowledge (Arcana)" weight="4" />
+			<skill value="Knowledge (Architecture and Engineering)" weight="8" />
+			<skill value="Knowledge (Geography)" weight="8" />
+			<skill value="Knowledge (History)" weight="24" />
+			<skill value="Knowledge (Local)" weight="8" />
+			<skill value="Knowledge (Nature)" weight="4" />
+			<skill value="Knowledge (Nobility and Royalty)" weight="48" />
+			<skill value="Knowledge (Religion)" weight="24" />
+			<skill value="Knowledge (The Planes)" weight="4" />
+			<skill value="Listen" weight="8" />
+			<skill value="Literacy" weight="0"/>
+			<skill value="TYPE.Perform" weight="16" />
+			<skill value="TYPE.Profession" weight="1" />
+			<skill value="Ride" weight="18" />
+			<skill value="Sense Motive" weight="32" />
+			<skill value="Speak Language" weight="12" />
+			<skill value="Spot" weight="8" />
+			<skill value="Survival" weight="8" />
+			<skill value="Swim" weight="4" />
+			<skill value="*" weight="1"/>
+		</skills>
+		<abilities category="FEAT">
+			<ability value="Acrobatic" weight="2"/>
+			<ability value="Agile" weight="2"/>
+			<ability value="Alertness" weight="20"/>
+			<ability value="Animal Affinity" weight="2"/>
+			<ability value="Armor Proficiency (Heavy)" weight="0"/>
+			<ability value="Armor Proficiency (Light)" weight="0"/>
+			<ability value="Armor Proficiency (Medium)" weight="0"/>
+			<ability value="Athletic" weight="4"/>
+			<ability value="Augment Summoning" weight="0"/>
+			<ability value="Blind Fight" weight="2"/>
+			<ability value="Brew Potion" weight="0"/>
+			<ability value="Cleave" weight="2"/>
+			<ability value="Combat Casting" weight="0"/>
+			<ability value="Combat Expertise" weight="8"/>
+			<ability value="Combat Reflexes" weight="2"/>
+			<ability value="Craft Construct" weight="0"/>
+			<ability value="Craft Magic Arms and Armor" weight="0"/>
+			<ability value="Craft Rod" weight="0"/>
+			<ability value="Craft Staff" weight="0"/>
+			<ability value="Craft Wand" weight="0"/>
+			<ability value="Craft Wondrous Item" weight="0"/>
+			<ability value="Deceitful" weight="8"/>
+			<ability value="Deflect Arrows" weight="2"/>
+			<ability value="Deft Hands" weight="2"/>
+			<ability value="Diehard" weight="2"/>
+			<ability value="Diligent" weight="2"/>
+			<ability value="Dodge" weight="2"/>
+			<ability value="Empower Spell" weight="0"/>
+			<ability value="Endurance" weight="2"/>
+			<ability value="Enlarge Spell" weight="0"/>
+			<ability value="Eschew Materials" weight="0"/>
+			<ability value="Exotic Weapon Proficiency" weight="2"/>
+			<ability value="Extend Spell" weight="0"/>
+			<ability value="Extra Turning" weight="0"/>
+			<ability value="Far Shot" weight="8"/>
+			<ability value="Forge Ring" weight="0"/>
+			<ability value="Great Cleave" weight="2"/>
+			<ability value="Great Fortitude" weight="2"/>
+			<ability value="Greater Spell Focus" weight="0"/>
+			<ability value="Greater Spell Penetration" weight="0"/>
+			<ability value="Greater Two Weapon Fighting" weight="2"/>
+			<ability value="Greater Weapon Focus" weight="0"/>
+			<ability value="Greater Weapon Specialization" weight="0"/>
+			<ability value="Heighten Spell" weight="0"/>
+			<ability value="Improved Bull Rush" weight="2"/>
+			<ability value="Improved Counterspell" weight="0"/>
+			<ability value="Improved Critical" weight="2"/>
+			<ability value="Improved Disarm" weight="4"/>
+			<ability value="Improved Familiar" weight="0"/>
+			<ability value="Improved Feint" weight="4"/>
+			<ability value="Improved Grapple" weight="2"/>
+			<ability value="Improved Initiative" weight="8"/>
+			<ability value="Improved Overrun" weight="4"/>
+			<ability value="Improved Precise Shot" weight="2"/>
+			<ability value="Improved Shield Bash" weight="2"/>
+			<ability value="Improved Sunder" weight="2"/>
+			<ability value="Improved Trip" weight="2"/>
+			<ability value="Improved Turning" weight="0"/>
+			<ability value="Improved Two Weapon Fighting" weight="2"/>
+			<ability value="Improved Unarmed Strike" weight="2"/>
+			<ability value="Investigator" weight="2"/>
+			<ability value="Iron Will" weight="8"/>
+			<ability value="Leadership" weight="40"/>
+			<ability value="Lightning Reflexes" weight="2"/>
+			<ability value="Magical Aptitude" weight="0"/>
+			<ability value="Manyshot" weight="2"/>
+			<ability value="Martial Weapon Proficiency" weight="0"/>
+			<ability value="Maximize Spell" weight="0"/>
+			<ability value="Mobility" weight="2"/>
+			<ability value="Mounted Archery" weight="8"/>
+			<ability value="Mounted Combat" weight="20"/>
+			<ability value="Natural Spell" weight="0"/>
+			<ability value="Negotiator" weight="8"/>
+			<ability value="Nimble Fingers" weight="2"/>
+			<ability value="Persuasive" weight="8"/>
+			<ability value="Point Blank Shot" weight="20"/>
+			<ability value="Power Attack" weight="2"/>
+			<ability value="Precise Shot" weight="8"/>
+			<ability value="Quick Draw" weight="2"/>
+			<ability value="Quicken Spell" weight="0"/>
+			<ability value="Rapid Reload" weight="2"/>
+			<ability value="Rapid Shot" weight="2"/>
+			<ability value="Ride By Attack" weight="8"/>
+			<ability value="Run" weight="2"/>
+			<ability value="Scribe Scroll" weight="0"/>
+			<ability value="Self Sufficient" weight="2"/>
+			<ability value="Shield Proficiency" weight="0"/>
+			<ability value="Shot on the Run" weight="2"/>
+			<ability value="Silent Spell" weight="0"/>
+			<ability value="Simple Weapon Proficiency" weight="0"/>
+			<ability value="Skill Focus" weight="60"/>
+			<ability value="Snatch Arrows" weight="2"/>
+			<ability value="Spell Focus" weight="0"/>
+			<ability value="Spell Mastery" weight="0"/>
+			<ability value="Spell Penetration" weight="0"/>
+			<ability value="Spirited Charge" weight="8"/>
+			<ability value="Spring Attack" weight="2"/>
+			<ability value="Stealthy" weight="2"/>
+			<ability value="Still Spell" weight="0"/>
+			<ability value="Stunning Fist" weight="2"/>
+			<ability value="Toughness" weight="2"/>
+			<ability value="Tower Shield Proficiency" weight="2"/>
+			<ability value="Track" weight="2"/>
+			<ability value="Trample" weight="8"/>
+			<ability value="Two Weapon Fighting" weight="2"/>
+			<ability value="Two Weapon Defense" weight="2"/>
+			<ability value="Weapon Finesse" weight="2"/>
+			<ability value="Weapon Focus" weight="8"/>
+			<ability value="Weapon Specialization" weight="0"/>
+			<ability value="Whirlwind Attack" weight="2"/>
+			<ability value="Widen Spell" weight="0"/>
+			<ability value="*" weight="1"/>
+		</abilities>
+	</class>
+	<class key="Commoner">
+		<stats>
+			<stat value="CHA" weight="1" />
+			<stat value="INT" weight="1" />
+			<stat value="WIS" weight="1" />
+			<stat value="STR" weight="2" />
+			<stat value="CON" weight="2" />
+			<stat value="DEX" weight="1" />
+		</stats>
+		<skills>
+			<skill value="Balance" weight="2" />
+			<skill value="Bluff" weight="4" />
+			<skill value="Climb" weight="10" />
+			<skill value="Concentration" weight="0" />
+			<skill value="Control Shape" weight="0" />
+			<skill value="TYPE.Craft" weight="8" />
+			<skill value="Gather Information" weight="6" />
+			<skill value="Handle Animal" weight="8" />
+			<skill value="Heal" weight="2"/>
+			<skill value="Hide" weight="2"/>
+			<skill value="Intimidate" weight="2" />
+			<skill value="Jump" weight="8"/>
+			<skill value="Knowledge (Geography)" weight="2" />
+			<skill value="Knowledge (History)" weight="2" />
+			<skill value="Knowledge (Local)" weight="12" />
+			<skill value="Knowledge (Nature)" weight="4" />
+			<skill value="Knowledge (Nobility and Royalty)" weight="2" />
+			<skill value="Knowledge (Religion)" weight="2" />
+			<skill value="Listen" weight="16" />
+			<skill value="Literacy" weight="0"/>
+			<skill value="TYPE.Perform" weight="2" />
+			<skill value="TYPE.Profession" weight="40" />
+			<skill value="Ride" weight="10" />
+			<skill value="Sense Motive" weight="2" />
+			<skill value="Spellcraft" weight="0"/>
+			<skill value="Spot" weight="16" />
+			<skill value="Survival" weight="4" />
+			<skill value="Swim" weight="10" />
+			<skill value="Use Rope" weight="6"/>
+			<skill value="*" weight="1"/>
+		</skills>
+		<abilities category="FEAT">
+			<ability value="Acrobatic" weight="4"/>
+			<ability value="Agile" weight="4"/>
+			<ability value="Alertness" weight="8"/>
+			<ability value="Animal Affinity" weight="4"/>
+			<ability value="Armor Proficiency (Heavy)" weight="2"/>
+			<ability value="Armor Proficiency (Light)" weight="2"/>
+			<ability value="Armor Proficiency (Medium)" weight="2"/>
+			<ability value="Athletic" weight="4"/>
+			<ability value="Augment Summoning" weight="0"/>
+			<ability value="Blind Fight" weight="2"/>
+			<ability value="Brew Potion" weight="0"/>
+			<ability value="Cleave" weight="2"/>
+			<ability value="Combat Casting" weight="0"/>
+			<ability value="Combat Expertise" weight="2"/>
+			<ability value="Combat Reflexes" weight="2"/>
+			<ability value="Craft Construct" weight="0"/>
+			<ability value="Craft Magic Arms and Armor" weight="0"/>
+			<ability value="Craft Rod" weight="0"/>
+			<ability value="Craft Staff" weight="0"/>
+			<ability value="Craft Wand" weight="0"/>
+			<ability value="Craft Wondrous Item" weight="0"/>
+			<ability value="Deceitful" weight="4"/>
+			<ability value="Deflect Arrows" weight="2"/>
+			<ability value="Deft Hands" weight="4"/>
+			<ability value="Diehard" weight="2"/>
+			<ability value="Diligent" weight="4"/>
+			<ability value="Dodge" weight="2"/>
+			<ability value="Empower Spell" weight="0"/>
+			<ability value="Endurance" weight="2"/>
+			<ability value="Enlarge Spell" weight="0"/>
+			<ability value="Eschew Materials" weight="0"/>
+			<ability value="Exotic Weapon Proficiency" weight="2"/>
+			<ability value="Extend Spell" weight="0"/>
+			<ability value="Extra Turning" weight="0"/>
+			<ability value="Far Shot" weight="2"/>
+			<ability value="Forge Ring" weight="0"/>
+			<ability value="Great Cleave" weight="2"/>
+			<ability value="Great Fortitude" weight="8"/>
+			<ability value="Greater Spell Focus" weight="0"/>
+			<ability value="Greater Spell Penetration" weight="0"/>
+			<ability value="Greater Two Weapon Fighting" weight="2"/>
+			<ability value="Greater Weapon Focus" weight="0"/>
+			<ability value="Greater Weapon Specialization" weight="0"/>
+			<ability value="Heighten Spell" weight="0"/>
+			<ability value="Improved Bull Rush" weight="2"/>
+			<ability value="Improved Counterspell" weight="0"/>
+			<ability value="Improved Critical" weight="2"/>
+			<ability value="Improved Disarm" weight="2"/>
+			<ability value="Improved Familiar" weight="0"/>
+			<ability value="Improved Feint" weight="2"/>
+			<ability value="Improved Grapple" weight="4"/>
+			<ability value="Improved Initiative" weight="2"/>
+			<ability value="Improved Overrun" weight="2"/>
+			<ability value="Improved Precise Shot" weight="2"/>
+			<ability value="Improved Shield Bash" weight="2"/>
+			<ability value="Improved Sunder" weight="2"/>
+			<ability value="Improved Trip" weight="2"/>
+			<ability value="Improved Turning" weight="0"/>
+			<ability value="Improved Two Weapon Fighting" weight="2"/>
+			<ability value="Improved Unarmed Strike" weight="2"/>
+			<ability value="Investigator" weight="4"/>
+			<ability value="Iron Will" weight="8"/>
+			<ability value="Leadership" weight="2"/>
+			<ability value="Lightning Reflexes" weight="8"/>
+			<ability value="Magical Aptitude" weight="0"/>
+			<ability value="Manyshot" weight="2"/>
+			<ability value="Martial Weapon Proficiency" weight="2"/>
+			<ability value="Maximize Spell" weight="0"/>
+			<ability value="Mobility" weight="2"/>
+			<ability value="Mounted Archery" weight="2"/>
+			<ability value="Mounted Combat" weight="2"/>
+			<ability value="Natural Spell" weight="0"/>
+			<ability value="Negotiator" weight="4"/>
+			<ability value="Nimble Fingers" weight="4"/>
+			<ability value="Persuasive" weight="4"/>
+			<ability value="Point Blank Shot" weight="8"/>
+			<ability value="Power Attack" weight="2"/>
+			<ability value="Precise Shot" weight="8"/>
+			<ability value="Quick Draw" weight="2"/>
+			<ability value="Quicken Spell" weight="0"/>
+			<ability value="Rapid Reload" weight="2"/>
+			<ability value="Rapid Shot" weight="2"/>
+			<ability value="Ride By Attack" weight="2"/>
+			<ability value="Run" weight="8"/>
+			<ability value="Scribe Scroll" weight="0"/>
+			<ability value="Self Sufficient" weight="4"/>
+			<ability value="Shield Proficiency" weight="2"/>
+			<ability value="Shot on the Run" weight="2"/>
+			<ability value="Silent Spell" weight="0"/>
+			<ability value="Simple Weapon Proficiency" weight="2"/>
+			<ability value="Skill Focus" weight="60"/>
+			<ability value="Snatch Arrows" weight="2"/>
+			<ability value="Spell Focus" weight="0"/>
+			<ability value="Spell Mastery" weight="0"/>
+			<ability value="Spell Penetration" weight="0"/>
+			<ability value="Spirited Charge" weight="2"/>
+			<ability value="Spring Attack" weight="2"/>
+			<ability value="Stealthy" weight="4"/>
+			<ability value="Still Spell" weight="0"/>
+			<ability value="Stunning Fist" weight="2"/>
+			<ability value="Toughness" weight="2"/>
+			<ability value="Tower Shield Proficiency" weight="2"/>
+			<ability value="Track" weight="2"/>
+			<ability value="Trample" weight="2"/>
+			<ability value="Two Weapon Fighting" weight="2"/>
+			<ability value="Two Weapon Defense" weight="2"/>
+			<ability value="Weapon Finesse" weight="2"/>
+			<ability value="Weapon Focus" weight="2"/>
+			<ability value="Weapon Specialization" weight="0"/>
+			<ability value="Whirlwind Attack" weight="2"/>
+			<ability value="Widen Spell" weight="0"/>
+			<ability value="*" weight="1"/>
+		</abilities>
+	</class>
+	<class key="Expert">
+		<stats>
+			<stat value="INT" weight="4" />
+			<stat value="WIS" weight="3" />
+			<stat value="STR" weight="1" />
+			<stat value="CON" weight="1" />
+			<stat value="DEX" weight="2" />
+			<stat value="CHA" weight="1" />
+		</stats>
+		<!-- No skills defined.  This will use the default which is based on class skills. -->
+		<abilities category="FEAT">
+			<ability value="Acrobatic" weight="2"/>
+			<ability value="Agile" weight="2"/>
+			<ability value="Alertness" weight="20"/>
+			<ability value="Animal Affinity" weight="2"/>
+			<ability value="Armor Proficiency (Heavy)" weight="2"/>
+			<ability value="Armor Proficiency (Light)" weight="0"/>
+			<ability value="Armor Proficiency (Medium)" weight="2"/>
+			<ability value="Athletic" weight="2"/>
+			<ability value="Augment Summoning" weight="0"/>
+			<ability value="Blind Fight" weight="2"/>
+			<ability value="Brew Potion" weight="0"/>
+			<ability value="Cleave" weight="2"/>
+			<ability value="Combat Casting" weight="0"/>
+			<ability value="Combat Expertise" weight="2"/>
+			<ability value="Combat Reflexes" weight="2"/>
+			<ability value="Craft Construct" weight="0"/>
+			<ability value="Craft Magic Arms and Armor" weight="0"/>
+			<ability value="Craft Rod" weight="0"/>
+			<ability value="Craft Staff" weight="0"/>
+			<ability value="Craft Wand" weight="0"/>
+			<ability value="Craft Wondrous Item" weight="0"/>
+			<ability value="Deceitful" weight="2"/>
+			<ability value="Deflect Arrows" weight="2"/>
+			<ability value="Deft Hands" weight="4"/>
+			<ability value="Diehard" weight="2"/>
+			<ability value="Diligent" weight="4"/>
+			<ability value="Dodge" weight="2"/>
+			<ability value="Empower Spell" weight="0"/>
+			<ability value="Endurance" weight="2"/>
+			<ability value="Enlarge Spell" weight="0"/>
+			<ability value="Eschew Materials" weight="0"/>
+			<ability value="Exotic Weapon Proficiency" weight="2"/>
+			<ability value="Extend Spell" weight="0"/>
+			<ability value="Extra Turning" weight="0"/>
+			<ability value="Far Shot" weight="2"/>
+			<ability value="Forge Ring" weight="0"/>
+			<ability value="Great Cleave" weight="2"/>
+			<ability value="Great Fortitude" weight="2"/>
+			<ability value="Greater Spell Focus" weight="0"/>
+			<ability value="Greater Spell Penetration" weight="0"/>
+			<ability value="Greater Two Weapon Fighting" weight="2"/>
+			<ability value="Greater Weapon Focus" weight="0"/>
+			<ability value="Greater Weapon Specialization" weight="0"/>
+			<ability value="Heighten Spell" weight="0"/>
+			<ability value="Improved Bull Rush" weight="2"/>
+			<ability value="Improved Counterspell" weight="0"/>
+			<ability value="Improved Critical" weight="2"/>
+			<ability value="Improved Disarm" weight="2"/>
+			<ability value="Improved Familiar" weight="0"/>
+			<ability value="Improved Feint" weight="2"/>
+			<ability value="Improved Grapple" weight="2"/>
+			<ability value="Improved Initiative" weight="2"/>
+			<ability value="Improved Overrun" weight="2"/>
+			<ability value="Improved Precise Shot" weight="2"/>
+			<ability value="Improved Shield Bash" weight="2"/>
+			<ability value="Improved Sunder" weight="2"/>
+			<ability value="Improved Trip" weight="2"/>
+			<ability value="Improved Turning" weight="0"/>
+			<ability value="Improved Two Weapon Fighting" weight="2"/>
+			<ability value="Improved Unarmed Strike" weight="2"/>
+			<ability value="Investigator" weight="4"/>
+			<ability value="Iron Will" weight="4"/>
+			<ability value="Leadership" weight="2"/>
+			<ability value="Lightning Reflexes" weight="8"/>
+			<ability value="Magical Aptitude" weight="2"/>
+			<ability value="Manyshot" weight="2"/>
+			<ability value="Martial Weapon Proficiency" weight="2"/>
+			<ability value="Maximize Spell" weight="0"/>
+			<ability value="Mobility" weight="2"/>
+			<ability value="Mounted Archery" weight="2"/>
+			<ability value="Mounted Combat" weight="2"/>
+			<ability value="Natural Spell" weight="0"/>
+			<ability value="Negotiator" weight="2"/>
+			<ability value="Nimble Fingers" weight="4"/>
+			<ability value="Persuasive" weight="2"/>
+			<ability value="Point Blank Shot" weight="2"/>
+			<ability value="Power Attack" weight="2"/>
+			<ability value="Precise Shot" weight="2"/>
+			<ability value="Quick Draw" weight="2"/>
+			<ability value="Quicken Spell" weight="0"/>
+			<ability value="Rapid Reload" weight="2"/>
+			<ability value="Rapid Shot" weight="2"/>
+			<ability value="Ride By Attack" weight="2"/>
+			<ability value="Run" weight="2"/>
+			<ability value="Scribe Scroll" weight="0"/>
+			<ability value="Self Sufficient" weight="2"/>
+			<ability value="Shield Proficiency" weight="2"/>
+			<ability value="Shot on the Run" weight="2"/>
+			<ability value="Silent Spell" weight="0"/>
+			<ability value="Simple Weapon Proficiency" weight="0"/>
+			<ability value="Skill Focus" weight="80"/>
+			<ability value="Snatch Arrows" weight="2"/>
+			<ability value="Spell Focus" weight="0"/>
+			<ability value="Spell Mastery" weight="0"/>
+			<ability value="Spell Penetration" weight="0"/>
+			<ability value="Spirited Charge" weight="2"/>
+			<ability value="Spring Attack" weight="2"/>
+			<ability value="Stealthy" weight="2"/>
+			<ability value="Still Spell" weight="0"/>
+			<ability value="Stunning Fist" weight="2"/>
+			<ability value="Toughness" weight="2"/>
+			<ability value="Tower Shield Proficiency" weight="2"/>
+			<ability value="Track" weight="2"/>
+			<ability value="Trample" weight="2"/>
+			<ability value="Two Weapon Fighting" weight="2"/>
+			<ability value="Two Weapon Defense" weight="2"/>
+			<ability value="Weapon Finesse" weight="2"/>
+			<ability value="Weapon Focus" weight="2"/>
+			<ability value="Weapon Specialization" weight="0"/>
+			<ability value="Whirlwind Attack" weight="2"/>
+			<ability value="Widen Spell" weight="0"/>
+			<ability value="*" weight="1"/>
+		</abilities>
+	</class>
+	<class key="Warrior">
+		<stats>
+			<stat value="STR" weight="9"/>
+			<stat value="CON" weight="7"/>
+			<stat value="DEX" weight="7"/>
+			<stat value="INT" weight="3"/>
+			<stat value="WIS" weight="2"/>
+			<stat value="CHA" weight="1"/>
+		</stats>
+		<skills>
+			<skill value="Climb" weight="24"/>
+			<skill value="Control Shape" weight="0"/>
+			<skill value="TYPE.Craft" weight="6"/>
+			<skill value="Handle Animal" weight="18"/>
+			<skill value="Heal" weight="6"/>
+			<skill value="Hide" weight="6"/>
+			<skill value="Intimidate" weight="12"/>
+			<skill value="Jump" weight="22"/>
+			<skill value="Knowledge (Local)" weight="6"/>
+			<skill value="Listen" weight="6"/>
+			<skill value="Literacy" weight="0"/>
+			<skill value="Move Silently" weight="10"/>
+			<skill value="TYPE.Perform" weight="1"/>
+			<skill value="TYPE.Profession" weight="1"/>
+			<skill value="Ride" weight="20"/>
+			<skill value="Search" weight="6"/>
+			<skill value="Spot" weight="6"/>
+			<skill value="Swim" weight="20"/>
+			<skill value="Tumble" weight="6"/>
+			<skill value="Autohypnosis" weight="0"/>
+			<skill value="*" weight="1"/>
+		</skills>
+		<abilities category="FEAT">
+			<ability value="Acrobatic" weight="2"/>
+			<ability value="Agile" weight="2"/>
+			<ability value="Alertness" weight="20"/>
+			<ability value="Animal Affinity" weight="2"/>
+			<ability value="Armor Proficiency (Heavy)" weight="0"/>
+			<ability value="Armor Proficiency (Light)" weight="0"/>
+			<ability value="Armor Proficiency (Medium)" weight="0"/>
+			<ability value="Athletic" weight="4"/>
+			<ability value="Augment Summoning" weight="0"/>
+			<ability value="Blind Fight" weight="20"/>
+			<ability value="Brew Potion" weight="0"/>
+			<ability value="Cleave" weight="20"/>
+			<ability value="Combat Casting" weight="0"/>
+			<ability value="Combat Expertise" weight="8"/>
+			<ability value="Combat Reflexes" weight="8"/>
+			<ability value="Craft Construct" weight="0"/>
+			<ability value="Craft Magic Arms and Armor" weight="0"/>
+			<ability value="Craft Rod" weight="0"/>
+			<ability value="Craft Staff" weight="0"/>
+			<ability value="Craft Wand" weight="0"/>
+			<ability value="Craft Wondrous Item" weight="0"/>
+			<ability value="Deceitful" weight="2"/>
+			<ability value="Deflect Arrows" weight="2"/>
+			<ability value="Deft Hands" weight="2"/>
+			<ability value="Diehard" weight="4"/>
+			<ability value="Diligent" weight="2"/>
+			<ability value="Dodge" weight="8"/>
+			<ability value="Empower Spell" weight="0"/>
+			<ability value="Endurance" weight="8"/>
+			<ability value="Enlarge Spell" weight="0"/>
+			<ability value="Eschew Materials" weight="0"/>
+			<ability value="Exotic Weapon Proficiency" weight="4"/>
+			<ability value="Extend Spell" weight="0"/>
+			<ability value="Extra Turning" weight="0"/>
+			<ability value="Far Shot" weight="2"/>
+			<ability value="Forge Ring" weight="0"/>
+			<ability value="Great Cleave" weight="8"/>
+			<ability value="Great Fortitude" weight="4"/>
+			<ability value="Greater Spell Focus" weight="0"/>
+			<ability value="Greater Spell Penetration" weight="0"/>
+			<ability value="Greater Two Weapon Fighting" weight="2"/>
+			<ability value="Greater Weapon Focus" weight="0"/>
+			<ability value="Greater Weapon Specialization" weight="0"/>
+			<ability value="Heighten Spell" weight="0"/>
+			<ability value="Improved Bull Rush" weight="8"/>
+			<ability value="Improved Counterspell" weight="0"/>
+			<ability value="Improved Critical" weight="8"/>
+			<ability value="Improved Disarm" weight="8"/>
+			<ability value="Improved Familiar" weight="0"/>
+			<ability value="Improved Feint" weight="8"/>
+			<ability value="Improved Grapple" weight="8"/>
+			<ability value="Improved Initiative" weight="20"/>
+			<ability value="Improved Overrun" weight="8"/>
+			<ability value="Improved Precise Shot" weight="8"/>
+			<ability value="Improved Shield Bash" weight="8"/>
+			<ability value="Improved Sunder" weight="8"/>
+			<ability value="Improved Trip" weight="8"/>
+			<ability value="Improved Turning" weight="0"/>
+			<ability value="Improved Two Weapon Fighting" weight="8"/>
+			<ability value="Improved Unarmed Strike" weight="8"/>
+			<ability value="Investigator" weight="2"/>
+			<ability value="Iron Will" weight="4"/>
+			<ability value="Leadership" weight="20"/>
+			<ability value="Lightning Reflexes" weight="8"/>
+			<ability value="Magical Aptitude" weight="0"/>
+			<ability value="Manyshot" weight="2"/>
+			<ability value="Martial Weapon Proficiency" weight="0"/>
+			<ability value="Maximize Spell" weight="0"/>
+			<ability value="Mobility" weight="8"/>
+			<ability value="Mounted Archery" weight="8"/>
+			<ability value="Mounted Combat" weight="20"/>
+			<ability value="Natural Spell" weight="0"/>
+			<ability value="Negotiator" weight="2"/>
+			<ability value="Nimble Fingers" weight="2"/>
+			<ability value="Persuasive" weight="2"/>
+			<ability value="Point Blank Shot" weight="8"/>
+			<ability value="Power Attack" weight="20"/>
+			<ability value="Precise Shot" weight="8"/>
+			<ability value="Quick Draw" weight="8"/>
+			<ability value="Quicken Spell" weight="0"/>
+			<ability value="Rapid Reload" weight="4"/>
+			<ability value="Rapid Shot" weight="4"/>
+			<ability value="Ride By Attack" weight="20"/>
+			<ability value="Run" weight="4"/>
+			<ability value="Scribe Scroll" weight="0"/>
+			<ability value="Self Sufficient" weight="4"/>
+			<ability value="Shield Proficiency" weight="0"/>
+			<ability value="Shot on the Run" weight="4"/>
+			<ability value="Silent Spell" weight="0"/>
+			<ability value="Simple Weapon Proficiency" weight="0"/>
+			<ability value="Skill Focus" weight="8"/>
+			<ability value="Snatch Arrows" weight="2"/>
+			<ability value="Spell Focus" weight="0"/>
+			<ability value="Spell Mastery" weight="0"/>
+			<ability value="Spell Penetration" weight="0"/>
+			<ability value="Spirited Charge" weight="8"/>
+			<ability value="Spring Attack" weight="8"/>
+			<ability value="Stealthy" weight="4"/>
+			<ability value="Still Spell" weight="0"/>
+			<ability value="Stunning Fist" weight="2"/>
+			<ability value="Toughness" weight="8"/>
+			<ability value="Tower Shield Proficiency" weight="2"/>
+			<ability value="Track" weight="4"/>
+			<ability value="Trample" weight="20"/>
+			<ability value="Two Weapon Fighting" weight="8"/>
+			<ability value="Two Weapon Defense" weight="2"/>
+			<ability value="Weapon Finesse" weight="16"/>
+			<ability value="Weapon Focus" weight="16"/>
+			<ability value="Weapon Specialization" weight="0"/>
+			<ability value="Whirlwind Attack" weight="8"/>
+			<ability value="Widen Spell" weight="0"/>
+			<ability value="*" weight="1"/>
+		</abilities>
+	</class>
 </class_data>
