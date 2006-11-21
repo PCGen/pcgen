@@ -135,6 +135,10 @@
       <name>Tom Parker</name>
       <id>thpr</id>
     </developer>
+    <developer>
+      <name>Andriy Sen</name>
+      <id>apsen</id>
+    </developer>
   </developers>
   <dependencies>
     <!-- Compiling -->
