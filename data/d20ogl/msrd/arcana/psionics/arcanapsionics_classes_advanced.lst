@@ -4,8 +4,8 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 
 # Class Name		Hit Dice	Type			Max Level	Source Page				Save checks bonus												Combat bonus		Modify VAR
 CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4
-# Class Name		Req. Att.	Required Feat																															Required Skill
-CLASS:Psionic Agent	PREATT:2	PREFEAT:1,Wild Talent (Burst),Wild Talent (Daze),Wild Talent (Detect Psionics),Wild Talent (Far Hand),Wild Talent (Far Punch),Wild Talent (Finger of Fire),Wild Talent (Missive),Wild Talent (Verve)	PRESKILL:2,Hide,Move Silently=6
+# Class Name		Req. Att.	Required Feat		Required Skill
+CLASS:Psionic Agent	PREATT:2	PREFEAT:1,Wild Talent	PRESKILL:2,Hide,Move Silently=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
