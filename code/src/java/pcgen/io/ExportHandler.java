@@ -1403,6 +1403,7 @@ public final class ExportHandler
 	private static void populateTokenMap()
 	{
 		if(!tokenMapPopulated) {
+			addToTokenMap(new AbilityToken());
 			addToTokenMap(new ACCheckToken());
 			addToTokenMap(new AlignmentToken());
 			addToTokenMap(new AttackToken());
