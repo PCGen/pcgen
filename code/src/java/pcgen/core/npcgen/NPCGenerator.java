@@ -36,6 +36,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Names;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -44,11 +45,14 @@ import pcgen.core.Race;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.SystemCollections;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
+import pcgen.gui.NameElement;
+import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.WeightedList;
 import pcgen.util.chooser.ChooserFactory;
@@ -469,7 +473,7 @@ public class NPCGenerator
 		}
 		final Domain domain = domains.getRandomValue();
 		final WeightedList<Spell> domainSpells = new WeightedList<Spell>(Globals.getSpellsIn(aLevel, Constants.EMPTY_STRING, domain.getKeyName()));
-		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel );
+		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	
 	private void selectSpell( final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedList<Spell> aSpellList, final int aLevel )
@@ -526,7 +530,8 @@ public class NPCGenerator
 							final GenderGeneratorOption aGender,
 							final List<ClassGeneratorOption> classList, 
 							final List<LevelGeneratorOption> levels,
-							final GameModeRollMethod aRollMethod)
+							final GameModeRollMethod aRollMethod,
+							final NameElement nameChoice)
 	{
 		// Force a more quiet process
 		final String oldChooser = ChooserFactory.getInterfaceClassname();
@@ -705,6 +710,37 @@ public class NPCGenerator
 					}
 				}
 			}
+			final String randBioString = "EYES.HAIR.SKIN.HT.WT.AGE."; //$NON-NLS-1$
+			Globals.getBioSet().randomize(randBioString, aPC);
+			
+			final List<String> globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
+			aPC.setHairStyle(globalHairStyleList.get(Globals.getRandomInt(globalHairStyleList.size())));
+			final List<String> speechList = SystemCollections.getUnmodifiableSpeechList();
+			aPC.setSpeechTendency(speechList.get(Globals.getRandomInt(speechList.size())));
+			final List<String> globalPhobiaList = SystemCollections.getUnmodifiablePhobiaList();
+			aPC.setPhobias(globalPhobiaList.get(Globals.getRandomInt(globalPhobiaList.size())));
+			final List<String> globalInterestsList = SystemCollections.getUnmodifiableInterestsList();
+			aPC.setInterests(globalInterestsList.get(Globals.getRandomInt(globalInterestsList.size())));
+			final List<String> globalPhraseList = SystemCollections.getUnmodifiablePhraseList();
+			aPC.setCatchPhrase(globalPhraseList.get(Globals.getRandomInt(globalPhraseList.size())));
+			final List<String> globalTraitList = SystemCollections.getUnmodifiableTraitList();
+			aPC.setTrait1(globalTraitList.get(Globals.getRandomInt(globalTraitList.size())));
+			aPC.setTrait2(globalTraitList.get(Globals.getRandomInt(globalTraitList.size())));
+
+			final List<String> globalCityList = SystemCollections.getUnmodifiableCityList();
+			aPC.setResidence(globalCityList.get(Globals.getRandomInt(globalCityList.size())));
+			final List<String> globalLocationList = SystemCollections.getUnmodifiableLocationList();
+			aPC.setLocation(globalLocationList.get(Globals.getRandomInt(globalLocationList.size())));
+			final List<String> globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
+			aPC.setBirthplace(globalBirthplaceList.get(Globals.getRandomInt(globalBirthplaceList.size())));
+			
+			final Names nameGen = Names.getInstance();
+			nameGen.init(nameChoice, aPC);
+			aPC.setName(nameGen.getRandomName());
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Problem generation NPC", e);
 		}
 		finally
 		{

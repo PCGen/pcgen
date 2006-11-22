@@ -1279,7 +1279,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			npcgen.generate(pc, genDlg.getAlignment(),
 								  genDlg.getRace(), genDlg.getGender(),
 								  genDlg.getClassList(), genDlg.getLevels(),
-									  genDlg.getRollMethod());
+									  genDlg.getRollMethod(),
+									  genDlg.getNameChoice());
 
 			Globals.getPCList().add(pc);
 			Globals.setCurrentPC(pc);

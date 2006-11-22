@@ -32,6 +32,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.Box;
@@ -45,6 +46,7 @@ import javax.swing.SwingUtilities;
 
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
+import pcgen.core.Names;
 import pcgen.core.SettingsHandler;
 import pcgen.core.npcgen.AlignGeneratorOption;
 import pcgen.core.npcgen.ClassGeneratorOption;
@@ -77,17 +79,17 @@ import pcgen.util.PropertyFactory;
 @SuppressWarnings("serial")
 public class NPCGeneratorDlg extends JDialog
 {
-	JButton okButton = new JButton();
-	JButton cancelButton = new JButton();
-	JComboBox alignCombo = new JComboBox();
-	JComboBox raceCombo = new JComboBox();
-	JButton editRace = new JButton();
-	JButton editAlign = new JButton();
-	JButton editGender = new JButton();
-	JComboBox genderCombo = new JComboBox();
+	private JButton okButton = new JButton();
+	private JButton cancelButton = new JButton();
+	private JComboBox alignCombo = new JComboBox();
+	private JComboBox raceCombo = new JComboBox();
+	private JButton editRace = new JButton();
+	private JButton editAlign = new JButton();
+	private JButton editGender = new JButton();
+	private JComboBox genderCombo = new JComboBox();
 
-	JButton editStats = new JButton();
-	JComboBox statsCombo = new JComboBox();
+	private JButton editStats = new JButton();
+	private JComboBox statsCombo = new JComboBox();
 
 	public static final int OK_BUTTON = 1;
 	public static final int CANCEL_BUTTON = 0;
@@ -102,9 +104,11 @@ public class NPCGeneratorDlg extends JDialog
 
 	private static final int MAX_CLASSES = 3;
 
-	JComboBox[] classCombos = new JComboBox[MAX_CLASSES];
-	JComboBox[] lvlCombos = new JComboBox[MAX_CLASSES];
+	private JComboBox[] classCombos = new JComboBox[MAX_CLASSES];
+	private JComboBox[] lvlCombos = new JComboBox[MAX_CLASSES];
 
+	private JComboBox nameCombo = new JComboBox();
+	
 	public NPCGeneratorDlg(final Frame owner, final String title, final boolean modal)
 	{
 		super(owner, title, modal);
@@ -168,6 +172,11 @@ public class NPCGeneratorDlg extends JDialog
 		return theRollMethod;
 	}
 
+	public NameElement getNameChoice()
+	{
+		return (NameElement)nameCombo.getSelectedItem();
+	}
+	
 	private void okActionPerformed()
 	{
 		if (okButton.isEnabled())
@@ -318,6 +327,16 @@ public class NPCGeneratorDlg extends JDialog
 
 		workPanel.add(statsPanel);
 
+		final JPanel namePanel = new JPanel();
+		final JLabel nameLabel = new JLabel("Name Set:");
+
+		nameCombo.setMinimumSize(new Dimension(210, 19));
+		nameCombo.setPreferredSize(new Dimension(210, 19));
+		namePanel.add(nameLabel);
+		namePanel.add(nameCombo);
+
+		workPanel.add(namePanel);
+		
 		mainPanel.add(workPanel, java.awt.BorderLayout.CENTER);
 
 		// Create the Button panel
@@ -421,6 +440,14 @@ public class NPCGeneratorDlg extends JDialog
 		{
 			statsCombo.addItem(rm);
 			rm = gameMode.getRollingMethod(++gmi);
+		}
+
+		List<NameElement> allNamesFiles = Names.findAllNamesFiles();
+		Collections.sort(allNamesFiles);
+
+		for (int i = 0; i < allNamesFiles.size(); i++)
+		{
+			nameCombo.addItem(allNamesFiles.get(i));
 		}
 	}
 }
