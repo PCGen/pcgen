@@ -579,11 +579,51 @@
 		</xsl:if>
 		<xsl:if test="count(./*[name()=$tag]/*[name()='para']) &gt; 0">
 			<xsl:for-each select="./*[name()=$tag]/*[name()='para']">
-				<fo:block text-indent="5pt">
-					<xsl:value-of disable-output-escaping="yes" select="."/>
-				</fo:block>
+				<xsl:if test="count(./*[name()='table']) &gt; 0">
+					<xsl:call-template name="paragraghlist.table"/>
+				</xsl:if>
+				<xsl:if test="count(./*[name()='table']) = 0">
+					<fo:block text-indent="5pt">
+						<xsl:value-of select="."/>
+					</fo:block>
+				</xsl:if>
 			</xsl:for-each>
 		</xsl:if>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - PARAGRAGH LIST
+====================================
+====================================-->
+	<xsl:template name="paragraghlist.table">
+		<xsl:for-each select="./table">
+			<fo:table table-layout="fixed" inline-progression-dimension="auto">
+				<xsl:for-each select="./table-column">
+					<fo:table-column>
+						<xsl:attribute name="column-width">
+							<xsl:value-of select="@column-width" />
+						</xsl:attribute> 
+					</fo:table-column>
+				</xsl:for-each>
+				<xsl:for-each select="./table-body">
+					<fo:table-body>
+						<xsl:for-each select="./table-row">
+							<fo:table-row>
+								<xsl:for-each select="./table-cell">
+									<fo:table-cell>
+										<fo:block text-indent="5pt">
+											<xsl:value-of select="." />
+										</fo:block> 
+									</fo:table-cell>
+								</xsl:for-each>
+							</fo:table-row>
+						</xsl:for-each>
+					</fo:table-body>
+				</xsl:for-each>
+			</fo:table>
+		</xsl:for-each>
 	</xsl:template>
 
 </xsl:stylesheet>
