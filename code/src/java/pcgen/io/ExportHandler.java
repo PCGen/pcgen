@@ -1404,6 +1404,7 @@ public final class ExportHandler
 	{
 		if(!tokenMapPopulated) {
 			addToTokenMap(new AbilityToken());
+			addToTokenMap(new AbilityListToken());
 			addToTokenMap(new ACCheckToken());
 			addToTokenMap(new AlignmentToken());
 			addToTokenMap(new AttackToken());

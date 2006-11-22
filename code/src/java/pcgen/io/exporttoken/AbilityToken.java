@@ -53,13 +53,13 @@ public class AbilityToken extends Token
 	public static final String TOKENNAME = "ABILITY";
 
 	/** Default Ability = 0**/
-	public final int ABILITY_DEFAULT = 0;
+	public static final int ABILITY_DEFAULT = 0;
 	/** Visible Ability = 1 */
-	public final int ABILITY_VISIBLE = 1;
+	public static final int ABILITY_VISIBLE = 1;
 	/** Hidden Ability = 2 */
-	public final int ABILITY_HIDDEN = 2;
+	public static final int ABILITY_HIDDEN = 2;
 	/** All Abilitys = 3 */
-	public final int ABILITY_ALL = 3;
+	public static final int ABILITY_ALL = 3;
 
 	//private int visibility = ABILITY_DEFAULT;
 	private List<Ability> abilityList = new ArrayList<Ability>();
@@ -168,8 +168,8 @@ public class AbilityToken extends Token
 			}
 		}
 
-		List<Ability> aList = buildAbilityList(types, negate, abilityType,
-			visibility);
+		List<Ability> aList = AbilityToken.buildAbilityList(types, negate,
+			abilityType, visibility, abilityList);
 
 		String retString = getRetString(tokenSource, pc, eh, abilityIndex,
 			aList);
@@ -185,7 +185,7 @@ public class AbilityToken extends Token
 	 * @param abilityType The type definition it must match.
 	 * @return
 	 */
-	private List<Ability> buildAbilityList(List<String> types, List<String> negate, String abilityType, int visibility)
+	static List<Ability> buildAbilityList(List<String> types, List<String> negate, String abilityType, int visibility, List<Ability> abilityList)
 	{
 		List<Ability> aList = new ArrayList<Ability>();
 

@@ -925,11 +925,11 @@
 		<!-- Visible standard feats (not including the auto feats) -->
 |FOR,%feat,0,COUNT[FEATS.VISIBLE]-1,1,0|	
 		<feat>
-			<name>|FEAT.VISIBLE.%feat|</name>
-			<description>|FEAT.VISIBLE.%feat.DESC|</description>
-			<type>|FEAT.VISIBLE.%feat.TYPE|</type>
-			<associated>|FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
-			<count>|FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
+			<name>|ABILITY.FEAT.VISIBLE.%feat|</name>
+			<description>|ABILITY.FEAT.VISIBLE.%feat.DESC|</description>
+			<type>|ABILITY.FEAT.VISIBLE.%feat.TYPE|</type>
+			<associated>|ABILITY.FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
+			<count>|ABILITY.FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -939,11 +939,11 @@
 		<!-- Auto feats -->
 |FOR,%feat,0,COUNT[FEATSAUTO.VISIBLE]-1,1,0|	
 		<feat>
-			<name>|FEATAUTO.VISIBLE.%feat|</name>
-			<description>|FEATAUTO.VISIBLE.%feat.DESC|</description>
-			<type>|FEATAUTO.VISIBLE.%feat.TYPE|</type>
-			<associated>|FEATAUTO.VISIBLE.%feat.ASSOCIATED|</associated>
-			<count>|FEATAUTO.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
+			<name>|ABILITYAUTO.FEAT.VISIBLE.%feat|</name>
+			<description>|ABILITYAUTO.FEAT.VISIBLE.%feat.DESC|</description>
+			<type>|ABILITYAUTO.FEAT.VISIBLE.%feat.TYPE|</type>
+			<associated>|ABILITYAUTO.FEAT.VISIBLE.%feat.ASSOCIATED|</associated>
+			<count>|ABILITYAUTO.FEAT.VISIBLE.%feat.ASSOCIATEDCOUNT|</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -980,11 +980,11 @@
 <!-- Hidden VFEATS -->
 |FOR,%feat,0,COUNT[VFEATS.HIDDEN]-1,1,0|
 		<feat>
-			<name>|VFEAT.HIDDEN.%feat|</name>
-			<description>|VFEAT.HIDDEN.%feat.DESC|</description>
-			<type>|VFEAT.HIDDEN.%feat.TYPE|</type>
-			<associated>|VFEAT.HIDDEN.%feat.ASSOCIATED|</associated>
-			<count>|VFEAT.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
+			<name>|VABILITY.FEAT.HIDDEN.%feat|</name>
+			<description>|VABILITY.FEAT.HIDDEN.%feat.DESC|</description>
+			<type>|VABILITY.FEAT.HIDDEN.%feat.TYPE|</type>
+			<associated>|VABILITY.FEAT.HIDDEN.%feat.ASSOCIATED|</associated>
+			<count>|VABILITY.FEAT.HIDDEN.%feat.ASSOCIATEDCOUNT|</count>
 			<auto>F</auto>
 			<hidden>T</hidden>
 			<virtual>T</virtual>

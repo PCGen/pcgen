@@ -121,10 +121,24 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-ABILITYALLLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/AbilityAllListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-ABILITYAUTO.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/exporttokens/AbilityAutoToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-ABILITYAUTOLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/AbilityAutoListToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -874,6 +888,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/exporttokens/VAbilityToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-VABILITYLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/VAbilityListToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
