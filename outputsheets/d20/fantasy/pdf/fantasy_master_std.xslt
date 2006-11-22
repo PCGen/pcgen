@@ -4398,8 +4398,7 @@
 		</fo:table-row>
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
-			<fo:table-cell padding-top="1pt"/>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="5">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 				<fo:block text-align="start" font-size="5pt">
 					<fo:inline font-style="italic">Effect: </fo:inline>
 					<fo:block text-align="justify" text-indent="5pt">
