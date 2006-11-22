@@ -6,6 +6,7 @@
   </properties>
   <body>
     <release version="5.11.3" date="In SVN" description="Alpha release">
+      <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
       <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>
       <action dev="thpr" type="fix" issue="1594925">Officially Deprecate FEAT in PCClass</action>
     </release>
