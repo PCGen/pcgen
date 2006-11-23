@@ -5888,7 +5888,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${lstplugins.dir}/ClassLstToken-DEPRECATED-SUBCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/deprecateds/SubclassToken.class" />
+					<include name="plugin/lsttokens/deprecated/SubclassToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
