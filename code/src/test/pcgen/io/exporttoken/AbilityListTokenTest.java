@@ -23,6 +23,8 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
@@ -32,7 +34,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
-import plugin.exporttokens.TextToken;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * <code>AbilityListTokenTest</code> tests the functioning of the ABILITYLIST 
@@ -67,6 +69,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT",
 			"General.Fighter");
 		ab1.setMultiples("NO");
+		ab1.setVisibility(Visibility.DEFAULT);
 		AbilityCategory aCategory = SettingsHandler.getGame()
 			.getAbilityCategory(ab1.getCategory());
 		if (aCategory == null)
@@ -146,4 +149,38 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				.getToken("ABILITYLIST.BARDIC", character, eh));
 	}
 
+	/**
+	 * Test the JEP count function on abilities.  
+	 */
+	public void testCount()
+	{
+		PlayerCharacter character = getCharacter();
+
+		assertEquals(
+			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")", 3.0,
+			character.getVariableValue(
+				"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")",
+				""), 0.01);
+	}
+	
+	/**
+	 * Test the mechanism of splitting FOR node parameters to
+	 * ensure it copes with JEP functions with multiple comma 
+	 * separated parameters. 
+	 */
+	public void testForNodeSplit()
+	{
+		String testStr = "|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
+
+		List<String> result = ExportHandler.getParameters(testStr);
+		assertEquals("Complex split len", 6, result.size());
+		assertEquals("Complex split combined token 0", "|FOR", result.get(0));
+		assertEquals("Complex split combined token 1", "%feat", result.get(1));
+		assertEquals("Complex split combined token 2", "0", result.get(2));
+		assertEquals("Complex split combined token 3",
+			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1",
+			result.get(3));
+		assertEquals("Complex split combined token 4", "1", result.get(4));
+		assertEquals("Complex split combined token 5", "0|", result.get(5));
+	}
 }

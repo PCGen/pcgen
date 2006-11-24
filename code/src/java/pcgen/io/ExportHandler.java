@@ -1271,14 +1271,12 @@ public final class ExportHandler
 
 	private FORNode parseFORs(String forLine, StringTokenizer tokens)
 	{
-		final StringTokenizer forVars = new StringTokenizer(forLine, ",");
-		forVars.nextToken();
-
-		final String var = forVars.nextToken();
-		final String min = forVars.nextToken();
-		final String max = forVars.nextToken();
-		final String step = forVars.nextToken();
-		final String eTest = forVars.nextToken();
+		final List<String> forVars = ExportHandler.getParameters(forLine);
+		final String var = forVars.get(1);
+		final String min = forVars.get(2);
+		final String max = forVars.get(3);
+		final String step = forVars.get(4);
+		final String eTest = forVars.get(5);
 		boolean exists = false;
 
 		if (((eTest.length() > 0) && (eTest.charAt(0) == '1')) || ((eTest.length() > 0) && (eTest.charAt(0) == '2')))
@@ -1325,6 +1323,49 @@ public final class ExportHandler
 		return node;
 	}
 
+
+	/**
+	 * Retrieve the parameters of a comma seperated command such as a 
+	 * FOR token. Commas inside brackets are ignored, thus allowing JEP 
+	 * functions with multiple parameters to be included in FOR loops.
+	 *  
+	 * @param forToken The token to be broken up. 
+	 * @return The token parameters.
+	 */
+	public static List<String> getParameters(String forToken)
+	{
+		String splitStr[] = forToken.split(",");
+		List<String> result = new ArrayList<String>();
+		StringBuffer buf = new StringBuffer();
+		boolean inFormula = false;
+		for (String string : splitStr)
+		{
+			if (string.indexOf("(") >= 0)
+			{
+				inFormula = true;
+				buf.append(string);
+			}
+			else if (inFormula && string.indexOf(")") >= 0)
+			{
+				inFormula = false;
+				buf.append(",");
+				buf.append(string);
+				result.add(buf.toString());
+				buf = new StringBuffer();
+			}
+			else if (inFormula)
+			{
+				buf.append(",");
+				buf.append(string);
+			}
+			else
+			{
+				result.add(string);
+			}
+		}
+		return result;
+	}
+	
 	private IIFNode parseIIFs(String expr, StringTokenizer tokens)
 	{
 		final IIFNode node = new IIFNode(expr);
