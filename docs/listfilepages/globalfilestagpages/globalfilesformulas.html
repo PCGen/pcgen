@@ -279,6 +279,20 @@
 		<p class="indent3"><code>charbonusto("WEAPONPROF=Dagger", "PCSIZE")</code></p>
 		<p class="indent3"><code>charbonusto("WEAPONPROF=TYPE.Martial", "PCSIZE")</code></p><br />
 
+		<hr><a name="count"></a>
+		<p class="indent1"><strong>Count Information</strong></p><br>
+		<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p><br />
+		<p class="indent3">This function returns the number of objects of the requested type. It is commonly 
+		used in output sheet FOR loops as the maximum value.</p><br />
+		<p class="indent3">parameter 1 is required. It is the type of object to be counted. Different types of objects will require different 
+							numbers of following parameters</p><br />
+
+		<p class="indent2"><code>count("ABILITIES", "&lt;param=value&gt;")</code></p>
+		<p class="indent3">Returns the number of abiltiies meeting the critieria. Allowed parameters are CATEGORY (the name of the category of abilities to be listed), VISIBILITY (ALL, HIDDEN, VISIBILE) and NATURE (ALL, VIRTUAL, AUTO or NORMAL)</p><br />
+		<p class="indent3">Examples:</p>
+		<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE")</code> List all visible feat abilities.</p>
+		<br />
+
 
 		<hr><a name="DeprecatedOper"></a>
 		<hr><p class="indent1"><font color="#FF0000"><strong>Deprecated operators</strong></font></p>

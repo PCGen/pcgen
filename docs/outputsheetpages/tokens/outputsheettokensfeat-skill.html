@@ -27,6 +27,183 @@
 		<h1>Feats &amp; Skills Related Output Sheet Tokens</h1>
 
 
+		<p></p><a name="ABILITY"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> ABILITY.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The ability's position in the character's complete ability list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
+			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
+			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth ability in the character's chosen ability list (no automatic or virtual abilities included).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITY.FEAT.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> chosen feat.</p>
+		<p class="indent2"><code>ABILITY.FIGHTER.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> chosen fighter ability.</p>
+		<p class="indent2"><code>ABILITY.FEAT.3.TYPE=General</code></p>
+		<p class="indent3">Displays the name of the 4<sup>th</sup> chosen feat with a type of general.</p>
+		<p class="indent2"><code>ABILITY.ECHIDNA.3.TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> chosen echidna category ability with a type of general.</p>
+
+
+		<p></p><a name="ABILITYALL"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> ABILITYALL.v.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Visibility).</p>
+		<ul class="indent2">
+			<li>VISIBLE - Filter the abilities that are visible in the outputsheets (default option).</li>
+			<li>HIDDEN - Filter the abilities that are not visible in the outputsheets.</li>
+			<li>ALL - Shows all abilities.</li>
+		</ul>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any Ability Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Number (The abilities position in the character's complete ability list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
+			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
+			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the yth ability in the character's complete ability list.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITYALL.FEAT.0</code></p>
+		<p class="indent3">Displays the first feat name.</p>
+		<p class="indent2"><code>ABILITYALL.FIGHTER.0.DESC</code></p>
+		<p class="indent3">Displays the description of the first fighter ability.</p>
+		<p class="indent2"><code>ABILITYALL.WIZARD.1.TYPE=Metamagic</code></p>
+		<p class="indent3">Displays the 2<sup>nd</sup> ability name if it is a metamagic wizard ability.</p>
+		<p class="indent2"><code>ABILITYALL.FIGHTER.2.!TYPE=General.DESC</code></p>
+		<p class="indent3">Displays the 3<sup>rd</sup> ability description if it is a General fighter ability.</p>
+		<p class="indent2"><code>ABILITYALL.STARTING.3.TYPE=Occupation.TYPE</code></p>
+		<p class="indent3">Displays the type of the 4<sup>th</sup> ability if it is an Occupation starting ability.</p>
+
+
+		<p></p><a name="ABILITYALLLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> ABILITYALLLIST.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's abilities (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays the character's abilities (comma delimited).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITYALLLIST.FEAT</code></p>
+		<p class="indent3">Displays all of the character's feats (comma delimited).</p>
+		<p class="indent2"><code>ABILITYALLLIST.FEAT.TYPE=Fighter</code></p>
+		<p class="indent3">Displays all of the character's fighter feats (comma delimited).</p>
+		<p class="indent2"><code>ABILITYALLLIST.WIZARD.!TYPE=Metamagic.!TYPE=ItemCreation</code></p>
+		<p class="indent3">Displays all of the character's wizard abilities except metamagic and item creation type abilities (comma delimited).</p>
+
+
+		<p></p><a name="ABILITYAUTO"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> ABILITYAUTO.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The abilities position in the character's complete ability list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
+			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
+			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth ability in the character's automatic ability list.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITYAUTO.FEAT.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> automatic feat.</p>
+		<p class="indent2"><code>ABILITYAUTO.ROGUE.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> automatic rogue ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.ROGUE.1.TYPE=General</code></p>
+		<p class="indent3">Displays the name of the 2<sup>nd</sup> automatic rogue ability if it is a general type ability.</p>
+		<p class="indent2"><code>ABILITYAUTO.RACIAL.1.TYPE=General.TYPE</code></p>
+		<p class="indent3">Displays the type of the 2<sup>nd</sup> automatic racial ability if it is a general type ability.</p>
+
+
+		<p></p><a name="ABILITYAUTOLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> ABILITYAUTOLIST.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's abilities (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays all the character's automatic abilities (comma delimited).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITYAUTOLIST.RACIAL</code></p>
+		<p class="indent3">Displays all of the character's automatic racial abilities (comma delimited).</p>
+		<p class="indent2"><code>ABILITYAUTOLIST.RACIAL.!TYPE=General</code></p>
+		<p class="indent3">Displays all of the character's automatic racial abilities except general type abilities (comma delimited).</p>
+
+
+		<p></p><a name="ABILITYLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> ABILITYLIST.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's abilities (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays all the character's chosen abilities (comma delimited, no virtual or automatic abilities).</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITYLIST.ROGUE</code></p>
+		<p class="indent3">Displays all of the character's chosen rogue abilities (comma delimited).</p>
+		<p class="indent2"><code>ABILITYLIST.WIZARD.TYPE=ItemCreation</code></p>
+		<p class="indent3">Displays all of the character's chosen item creation type wizard abilities (comma delimited).</p>
+
 		<p></p><a name="FEAT"></a><hr>
 		<p class="indent0"><strong>Token Name:</strong> FEAT.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The feats position in the character's complete feat list
@@ -430,6 +607,62 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>TEMPLATELIST</code></p>
 		<p class="indent3">Displays your templates in a comma delimited list.</p>
+
+
+		<p></p><a name="VABILITY"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> VABILITY.w.x.y.z</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The abilities position in the character's complete ability list
+		                                                                 - 0-based index).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property)</p>
+		<ul class="indent2">
+			<li>None - Displays the name of the ability in position x in the character's ability list.</li>
+			<li>DESC - Displays the description of the ability in position x in the character's ability list.</li>
+			<li>TYPE - Displays the type of the ability in position x in the character's ability list.</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+			<li>SOURCE - Displays the source of the ability in position x in the character's ability list.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays information about the xth ability in the character's virtual ability list.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>VABILITY.FIGHTER.0</code></p>
+		<p class="indent3">Displays the name of the 1<sup>st</sup> ability in the character's virtual fighter ability list.</p>
+		<p class="indent2"><code>VABILITY.FIGHTER.0.DESC</code></p>
+		<p class="indent3">Displays the description of the 1<sup>st</sup> ability in the character's virtual fighter ability list.</p>
+		<p class="indent2"><code>VABILITY.FEAT.2.TYPE=Fighter</code></p>
+		<p class="indent3">Displays the name of the 3<sup>rd</sup> ability in the character's virtual feat list if it is a fighter type ability.</p>
+		<p class="indent2"><code>VABILITY.FEAT.2.TYPE=Fighter.TYPE</code></p>
+		<p class="indent3">Displays the type of the 3<sup>rd</sup> ability in the character's virtual feat list if it is a fighter type ability.</p>
+
+
+		<p></p><a name="VABILITYLIST"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> VABILITYLIST.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Category of ability to be listed).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any Ability Type - default is ALL).</p>
+		<ul class="indent2">
+			<li>None?- Displays all of the character's virtual abilities (comma delimited).</li>
+			<li>TYPE=&lt;type&gt; - Filters for abilities with the indicated TYPE tag.</li>
+		</ul>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays all the character's virtual abilities.</li>
+			<li>You may include more than one TYPE=type in the token.</li>
+			<li>You may use &quot;!&quot; in front of a TYPE=type to exclude the particular type from the list.</li>
+			<li>You may not have an inclusion and exclusion in the same token.</li>
+			<li>You may still append .DESC or .TYPE after TYPE=type variables.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>VABILITYLIST.RACIAL</code></p>
+		<p class="indent3">Displays all of the character's virtual racial abilities (comma delimited).</p>
+		<p class="indent2"><code>VABILITYLIST.FEAT.TYPE=Fighter</code></p>
+		<p class="indent3">Displays all of the character's virtual feats that are fighter type abilities (comma delimited).</p>
 
 
 		<p></p><a name="VFEAT"></a><hr>
