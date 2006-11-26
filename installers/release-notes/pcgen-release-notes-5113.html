@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.3
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.3</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.11.3</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.3</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.3</a></h2>
+<p>
+PCGen v5.11.3 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. Some notable new changes are:
+</p>
+        <table style="border : 1px solid black">
+<tr class="a"><th style="width:50px">Type</th><th>Changes</th><th style="width:70px">By</th></tr>
+<tr class="b">
+<td><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img></td>
+<td>
+Carriage Return support in OS
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1313263" class="externalLink" title="External Link">1313263</a>.
+</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#apsen">apsen</a></td>
+</tr>
+<tr class="a">
+<td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img></td>
+<td>
+Loaded Characters correctly receive level-based feats
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1594925" class="externalLink" title="External Link">1594925</a>.
+</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a></td>
+</tr>
+<tr class="b">
+<td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img></td>
+<td>
+Officially Deprecate FEAT in PCClass
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1594925" class="externalLink" title="External Link">1594925</a>.
+</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a></td>
+</tr>
+<tr class="a">
+<td><img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img></td>
+<td>
+Add new suite of ABILITY output tags, including a new JEP based count function for abilities.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1262322" class="externalLink" title="External Link">1262322</a>.
+</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a></td>
+</tr>
+<tr class="b">
+<td><img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img></td>
+<td>
+Update output sheet FOR node to allow it to call multi parameter JEP functions.
+</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a></td>
+</tr>
+<tr class="a">
+<td><img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img></td>
+<td>
+[MSRD
+]
+Move real world animals from Creatures to Basics
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1602948" class="externalLink" title="External Link">1602948</a>.
+</td>
+<td><a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#frank_kliewe">frank_kliewe</a></td>
+</tr>
+        </table>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- November 26, 2006.</p>
+
+
+<h2><a name="GMGenIssue">GMGen known issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.3 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_full.zip?download">pcgen5113_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_full.zip.sig?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_partial.zip?download">pcgen5113_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_partial.zip.sig?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_win_install.exe?download">pcgen5113_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_win_install.exe.sig?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_mac_install.dmg?download">pcgen5113_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5113_mac_install.dmg.sig?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.3</a></h2>
+
+<h3>Code FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1262322">1262322</a> ] - Ability Object: Output
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1313263">1313263</a> ] - Carriage Return support in OS
+</ul>
+
+<h3>Data FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1602948">1602948</a> ] - [MSRD] Move real world animals from Creatures to Basics
+</ul>
+
+<h3>New Data Source Development
+</h3><ul>
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+</ul>
+
+<h3>Doc FREQs
+</h3><ul>
+</ul>
+
+<h3>Code Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1530489">1530489</a> ] - Multiple spell books only show once on spell books tab
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1593113">1593113</a> ] - Deprecate old FEAT tag in Classes
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1594925">1594925</a> ] - Bonus feat every 3rd level not added to loaded character
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1597390">1597390</a> ] - Temporary Bonuses broken
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+</ul>
+
+<h3>Output Sheet Bugs
+</h3><ul>
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1599843">1599843</a> ] - Psionic Agent Pre-Req Incorrect
+</ul>
+
+
+</body>
+</html>
