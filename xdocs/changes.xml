@@ -5,19 +5,17 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.4" date="In SVN" description="Alpha release">
-      <action dev="thpr" type="update" issue="1599063">Deprecate AL Token in Race LST Files</action>
-      <action dev="thpr" type="update" issue="1599062">Deprecate RACENAME Token in Race LST Files</action>
-      <action dev="thpr" type="update" issue="1599064">Deprecate SKILL Token in Race LST Files</action>
-      <action dev="thpr" type="update" issue="1600646">Deprecate ROOT Token in Skill LST Files</action>
-    </release>
-    <release version="5.11.3" date="2006-11-26" description="Alpha release">
+    <release version="5.11.3" date="In SVN" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
       <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>
       <action dev="thpr" type="fix" issue="1593113">Officially Deprecate FEAT in PCClass</action>
       <action dev="jdempsey" type="add" issue="1262322">Add new suite of ABILITY output tags, including a new JEP based count function for abilities.</action>
       <action dev="jdempsey" type="update">Update output sheet FOR node to allow it to call multi parameter JEP functions.</action>
       <action dev="frank_kliewe" type="fix" issue="1602948">[MSRD] Move real world animals from Creatures to Basics</action>
+      <action dev="thpr" type="update" issue="1599063">Deprecate AL Token in Race LST Files</action>
+      <action dev="thpr" type="update" issue="1599062">Deprecate RACENAME Token in Race LST Files</action>
+      <action dev="thpr" type="update" issue="1599064">Deprecate SKILL Token in Race LST Files</action>
+      <action dev="thpr" type="update" issue="1600646">Deprecate ROOT Token in Skill LST Files</action>
     </release>
     <release version="5.11.2" date="2006-11-12" description="Alpha release">
       <action dev="thpr" type="fix" issue="1580188">MULTIPREREQs no longer ignored</action>
