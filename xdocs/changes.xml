@@ -8,7 +8,7 @@
     <release version="5.11.3" date="In SVN" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
       <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>
-      <action dev="thpr" type="fix" issue="1594925">Officially Deprecate FEAT in PCClass</action>
+      <action dev="thpr" type="fix" issue="1593113">Officially Deprecate FEAT in PCClass</action>
       <action dev="jdempsey" type="add" issue="1262322">Add new suite of ABILITY output tags, including a new JEP based count function for abilities.</action>
       <action dev="jdempsey" type="update">Update output sheet FOR node to allow it to call multi parameter JEP functions.</action>
       <action dev="frank_kliewe" type="fix" issue="1602948">[MSRD] Move real world animals from Creatures to Basics</action>
