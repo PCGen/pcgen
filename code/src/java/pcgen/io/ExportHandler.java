@@ -1340,7 +1340,7 @@ public final class ExportHandler
 		boolean inFormula = false;
 		for (String string : splitStr)
 		{
-			if (string.indexOf("(") >= 0)
+			if (string.indexOf("(") >= 0  && (string.indexOf(")") < string.indexOf("(")))
 			{
 				inFormula = true;
 				buf.append(string);

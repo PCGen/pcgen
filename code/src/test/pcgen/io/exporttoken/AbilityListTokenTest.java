@@ -183,4 +183,12 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		assertEquals("Complex split combined token 4", "1", result.get(4));
 		assertEquals("Complex split combined token 5", "0|", result.get(5));
 	}
+	
+	public void testForNodeSplitNonJEP()
+	{
+		String testStr = "|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";
+
+		List<String> result = ExportHandler.getParameters(testStr);
+		assertEquals("Complex split len", 6, result.size());
+	}
 }
