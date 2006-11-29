@@ -38,9 +38,19 @@ Readonly my $SEPERATE_ALPHA     => 0;
 # TODO: This stuff should be being read (or calced) from PCGenProp.properties
 # ------------------------------------------
 
-Readonly my $VER_NUMBER         => '5113';
-Readonly my $VER_NUMBER_SUFIX   => '';
-Readonly my $VER_NUMBER_FULL    => '5.11.3';
+my $VER_NUMBER_FULL    = '5.11.0';
+if ($#ARGV >= 0) {
+	$VER_NUMBER_FULL = $ARGV[0];
+}
+
+my $VER_NUMBER         = $VER_NUMBER_FULL;
+my $VER_NUMBER_SUFIX = '';
+$VER_NUMBER =~ s/\.//g;
+my $index = index($VER_NUMBER, "RC");
+if ($index > 0) {
+	$VER_NUMBER_SUFIX = substr($VER_NUMBER, $index);
+	$VER_NUMBER = substr($VER_NUMBER, 0, $index);
+}
 
 Readonly my $RELEASE_NAME       => "pcgen$VER_NUMBER$VER_NUMBER_SUFIX";
 

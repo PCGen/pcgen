@@ -27,6 +27,7 @@ if ($#ARGV >= 0) {
 my @files_found = <$DEST_FOLDER/*>;
 my $file;
 my $outputFileName = $DEST_FOLDER . "/SHA1-digests.txt";
+print "Generating SHA1 digests to $outputFileName";
 open (OUTPUT, ">$outputFileName") or die "Can't open '$outputFileName': $!";
 
 # Loop through the files in the releas folder, only working on the release files.

@@ -82,6 +82,46 @@
 			excludes="lib/emma/**, lib/test/**"/>
 	</goal>
 
+	<!-- 
+	   - This goal runs the PCGen release process, including:
+	   -   * Creating the release zip files
+	   -   * Running NSIS to create the Windows installer
+	   -   * Generate checksums for all distributable files
+	   -   * Upload the distributable files to Sourceforge
+	   -
+	   -  TODO: Sign the files with PGP
+  	   -->
+	<goal name="pcgen:release">
+		<!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->	
+		<ant:exec dir="${basedir}/installers/win-installer" executable="perl">
+		  <arg line="release.pl ${pom.currentVersion}"/>
+		</ant:exec>	
+
+		<!-- Run the NSIS compiler to create the windows installation .exe -->	
+		<attainGoal name="nsis:installer" />
+
+		<!--  Run gendigest.pl to generate the SHA1 checksums for the files.		-->
+		<ant:copy todir="${maven.build.dir}">
+		    <fileset dir="${basedir}\..\release">
+		    	<include name="*.zip"/>
+		    	<include name="*.exe"/>
+		    	<include name="*.dmg"/>
+		    	<include name="*.jar"/>
+		    </fileset>
+		</ant:copy>
+		<ant:exec dir="${basedir}/installers/win-installer" executable="perl">
+		  <arg line="gendigest.pl ${maven.build.dir}"/>
+		</ant:exec>	
+
+		<!--  # Upload zip, signature and windows installer files to SourceForge at ftp://upload.sourceforge.net/incoming (anonymous access only) -->
+	    <attainGoal name="sourceforge:init"/>
+	    <echo>Releasing package ${maven.sourceforge.project.packageName} version ${maven.sourceforge.project.version}</echo>
+	    <attainGoal name="sourceforge:changes"/>
+	    <attainGoal name="sourceforge:preparefiles"/>
+	    <attainGoal name="sourceforge:upload"/>
+
+	</goal>
+	
 	<!-- Simple report to copy the pcgen documentation into the published site -->
 	<goal name="pcgen-docs-plugin:register">
       <doc:registerReport 
