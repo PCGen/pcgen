@@ -51,6 +51,9 @@ while (<CHANGES>) {
 	s/\s*$//;
 	s/src="images/src="http:\/\/pcgen.sourceforge.net\/autobuilds\/images/;
 	s/href="team/href="http:\/\/pcgen.sourceforge.net\/autobuilds\/team/;
+	s/<tr class=".">/<li>/;
+	s/<\/*td>//g;
+	s/<\/tr>//g;
 	if (length $_ > 0 && !/<table/i && !/<\/table>/) {
 	   	print WHATSNEW $_ . "\n";
 	}
