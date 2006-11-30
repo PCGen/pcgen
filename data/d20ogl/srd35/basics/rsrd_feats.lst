@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct  7 00:47:56 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Nov 30 03:48:41 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Drew Bernat (abernat@zathras.net)
 # Uses the following variables defined elsewhere:
@@ -133,117 +133,117 @@ Widen Spell											TYPE:Metamagic																																												
 #
 
 ###Block: Feat Descriptions
-# Feat Name					Description
-Acrobatic.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Jump checks and Tumble checks.
-Agile.MOD					DESC:.CLEAR	DESC:You get a +2 bonus on all Balance checks and Escape Artist checks.
-Alertness.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Listen checks and Spot checks.
-Animal Affinity.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on all Handle Animal checks and Ride checks.
-Armor Proficiency (Heavy).MOD		DESC:.CLEAR	DESC:When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
-Armor Proficiency (Light).MOD		DESC:.CLEAR	DESC:When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
-Armor Proficiency (Medium).MOD	DESC:.CLEAR	DESC:When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
-Athletic.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Climb checks and Swim checks.
-Augment Summoning.MOD			DESC:.CLEAR	DESC:Each creature you conjure with any summon spell gains a +4 enhancement bonus to Strength and Constitution for the duration of the spell that summoned it.
-Blind Fight.MOD				DESC:.CLEAR	DESC:In melee, every time you miss because of concealment, you can reroll your miss chance percentile roll one time to see if you actually hit.
-Brew Potion.MOD				DESC:.CLEAR	DESC:You can create a potion of any 3rd-level or lower spell that you know and that targets one or more creatures.
-Cleave.MOD					DESC:.CLEAR	DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
-Combat Casting.MOD			DESC:.CLEAR	DESC:You get a +4 bonus on Concentration checks made to cast a spell or use a spell-like ability while on the defensive or while you are grappling or pinned.
-Combat Expertise.MOD			DESC:.CLEAR	DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number as a dodge bonus to your Armor Class.
-Combat Reflexes.MOD			DESC:.CLEAR	DESC:You may make a number of additional attacks of opportunity equal to your Dexterity bonus.
-Craft Magic Arms and Armor.MOD	DESC:.CLEAR	DESC:You can create any magic weapon, armor, or shield whose prerequisites you meet.
-Craft Rod.MOD				DESC:.CLEAR	DESC:You can create any rod whose prerequisites you meet.
-Craft Staff.MOD				DESC:.CLEAR	DESC:You can create any staff whose prerequisites you meet.
-Craft Wand.MOD				DESC:.CLEAR	DESC:You can create a wand of any 4th-level or lower spell that you know.
-Craft Wondrous Item.MOD			DESC:.CLEAR	DESC:You can create any wondrous item whose prerequisites you meet.
-Deceitful.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Disguise checks and Forgery checks.
-Deflect Arrows.MOD			DESC:.CLEAR	DESC:Once per round when you would normally be hit with a ranged weapon, you may deflect it so that you take no damage from it.
-Deft Hands.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Sleight of Hand checks and Use Rope checks.
-Diehard.MOD					DESC:.CLEAR	DESC:When reduced to between -1 and -9 hit points, you automatically become stable.
-Diligent.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Appraise checks and Decipher Script checks.
-Dodge.MOD					DESC:.CLEAR	DESC:During your action, you designate an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
-Empower Spell.MOD				DESC:.CLEAR	DESC:All variable, numeric effects of an empowered spell are increased by one-half.
-Endurance.MOD				DESC:.CLEAR	DESC:You gain a +4 bonus on checks relating to stamina or extended physical activity. Also, you may sleep in light or medium armor without becoming fatigued.
-Enlarge Spell.MOD				DESC:.CLEAR	DESC:You can alter a spell with a range of close, medium, or long to increase its range by 100%.
-Eschew Materials.MOD			DESC:.CLEAR	DESC:You can cast any spell that has a material component costing 1 gp or less without needing that component.
-Exotic Weapon Proficiency.MOD		DESC:.CLEAR	DESC:Choose a type of exotic weapon. You understand how to use that type of exotic weapon in combat.
-Extend Spell.MOD				DESC:.CLEAR	DESC:An extended spell lasts twice as long as normal.
-Extra Turning.MOD				DESC:.CLEAR	DESC:You can use your ability to turn or rebuke creatures four more times per day than normal.
-Far Shot.MOD				DESC:.CLEAR	DESC:When you use a projectile weapon, such as a bow, its range increment increases by one-half (multiply by 1-1/2). When you use a thrown weapon, its range increment is doubled.
-Forge Ring.MOD				DESC:.CLEAR	DESC:You can create any ring whose prerequisites you meet.
-Great Cleave.MOD				DESC:.CLEAR	DESC:This feat works like Cleave, except that there is no limit to the number of times you can use it per round.
-Great Fortitude.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on all Fortitude saving throws.
-Greater Spell Focus.MOD			DESC:.CLEAR	DESC:Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select. This bonus stacks with the bonus from Spell Focus.
-Greater Spell Penetration.MOD		DESC:.CLEAR	DESC:You get a +2 bonus on caster level checks made to overcome a creature's spell resistance. This bonus stacks with the one from Spell Penetration.
-Greater Two Weapon Fighting.MOD	DESC:.CLEAR	DESC:You get a third attack with your off-hand weapon, albeit at a -10 penalty.
-Greater Weapon Focus.MOD		DESC:.CLEAR	DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including the one from Weapon Focus.
-Greater Weapon Specialization.MOD	DESC:.CLEAR	DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon. This bonus stacks with other bonuses on damage rolls, including the one from Weapon Specialization.
-Heighten Spell.MOD			DESC:.CLEAR	DESC:A heightened spell has a higher spell level than normal (up to a maximum of 9th level).
-Improved Bull Rush.MOD			DESC:.CLEAR	DESC:When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.
-Improved Counterspell.MOD		DESC:.CLEAR	DESC:When counterspelling, you may use a spell of the same school that is one or more spell levels higher than the target spell.
-Improved Critical.MOD			DESC:.CLEAR	DESC:When using the weapon you selected, your threat range is doubled.
-Improved Disarm.MOD			DESC:.CLEAR	DESC:You do not provoke an attack of opportunity when you attempt to disarm an opponent, nor does the opponent have a chance to disarm you. You also gain a +4 bonus on the opposed attack roll you make to disarm your opponent.
-Improved Familiar.MOD			DESC:.CLEAR	DESC:This feat allows spellcasters to acquire a new familiar from a nonstandard list, but only when they could normally acquire a new familiar.
-Improved Feint.MOD			DESC:.CLEAR	DESC:You can make a Bluff check to feint in combat as a move action.
-Improved Grapple.MOD			DESC:.CLEAR	DESC:You do not provoke an attack of opportunity when you make a touch attack to start a grapple. You also gain a +4 bonus on all grapple checks, regardless of whether you started the grapple.
-Improved Initiative.MOD			DESC:.CLEAR	DESC:You get a +4 bonus on initiative checks.
-Improved Overrun.MOD			DESC:.CLEAR	DESC:When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.
-Improved Precise Shot.MOD		DESC:.CLEAR	DESC:Your ranged attacks ignore the AC bonus granted to targets by anything less than total cover, and the miss chance granted to targets by anything less than total concealment.
-Improved Shield Bash.MOD		DESC:.CLEAR	DESC:When you perform a shield bash, you may still apply the shield's shield bonus to your AC.
-Improved Sunder.MOD			DESC:.CLEAR	DESC:When you strike at an object held or carried by an opponent (such as a weapon or shield), you do not provoke an attack of opportunity. You also gain a +4 bonus on any attack roll made to attack an object held or carried by another character.
-Improved Trip.MOD				DESC:.CLEAR	DESC:You do not provoke an attack of opportunity when you attempt to trip an opponent while you are unarmed and gain a +4 bonus on your Strength check to trip your opponent. If you trip an opponent in melee combat, you immediately get a melee attack against that opponent.
-Improved Turning.MOD			DESC:.CLEAR	DESC:You turn or rebuke creatures as if you were one level higher than you are in the class that grants you the ability.
-Improved Two Weapon Fighting.MOD	DESC:.CLEAR	DESC:In addition to the standard single extra attack you get with an off-hand weapon, you get a second attack with it, albeit at a -5 penalty.
-Improved Unarmed Strike.MOD		DESC:.CLEAR	DESC:You are considered to be armed even when unarmed. However, you still get an attack of opportunity against any opponent who makes an unarmed attack on you. In addition, your unarmed strikes can deal lethal or nonlethal damage, at your option.
-Investigator.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Gather Information checks and Search checks.
-Iron Will.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Will saving throws.
-Leadership.MOD				DESC:.CLEAR	DESC:Benefits: Having this feat enables you to attract loyal companions and devoted followers, subordinates who assist you.
-Lightning Reflexes.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on all Reflex saving throws.
-Magical Aptitude.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on all Spellcraft checks and Use Magic Device checks.
-Manyshot.MOD				DESC:.CLEAR	DESC:As a standard action, you may fire many arrows at a single opponent within 30 feet.
-Martial Weapon Proficiency.MOD	DESC:.CLEAR	DESC:Choose a type of martial weapon. You understand how to use that type of martial weapon in combat.
-Maximize Spell.MOD			DESC:.CLEAR	DESC:All variable, numeric effects of a spell modified by this feat are maximized.
-Mobility.MOD				DESC:.CLEAR	DESC:You get a +4 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area.
-Mounted Archery.MOD			DESC:.CLEAR	DESC:The penalty you take when using a ranged weapon while mounted is halved: -2 instead of -4 if your mount is taking a double move, and -4 instead of -8 if your mount is running.
-Mounted Combat.MOD			DESC:.CLEAR	DESC:Once per round when your mount is hit in combat, you may attempt a Ride check (as a reaction) to negate the hit. The hit is negated if your Ride check result is greater than the opponent's attack roll.
-Natural Spell.MOD				DESC:.CLEAR	DESC:You can complete the verbal and somatic components of spells while in a wild shape. You can also use any material components or focuses you possess, even if such items are melded within your current form.
-Negotiator.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Diplomacy checks and Sense Motive checks.
-Nimble Fingers.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on all Disable Device checks and Open Lock checks.
-Persuasive.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Bluff checks and Intimidate checks.
-Point Blank Shot.MOD			DESC:.CLEAR	DESC:You get a +1 bonus on attack and damage rolls with ranged weapons at ranges of up to 30 feet.
-Power Attack.MOD				DESC:.CLEAR	DESC:On your action, before making attack rolls for a round, you may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed your base attack bonus.
-Precise Shot.MOD				DESC:.CLEAR	DESC:You can shoot or throw ranged weapons at an opponent engaged in melee without taking the standard -4 penalty on your attack roll.
-Quick Draw.MOD				DESC:.CLEAR	DESC:You can draw a weapon as a free action instead of as a move action. You can draw a hidden weapon as a move action. A character who has selected this feat may throw weapons at his full normal rate of attacks (much like a character with a bow).
-Quicken Spell.MOD				DESC:.CLEAR	DESC:Casting a quickened spell is a free action.
-Rapid Reload.MOD				DESC:.CLEAR	DESC:The time required for you to reload your chosen type of crossbow is reduced to a free action (for a hand or light crossbow) or a move action (for a heavy crossbow). Reloading a crossbow still provokes an attack of opportunity.
-Rapid Shot.MOD				DESC:.CLEAR	DESC:You can get one extra attack per round with a ranged weapon. The attack is at your highest base attack bonus, but each attack you make in that round takes a -2 penalty. You must use the full attack action to use this feat.
-Ride By Attack.MOD			DESC:.CLEAR	DESC:When you are mounted and use the charge action, you may move and attack as if with a standard charge and then move again.
-Run.MOD					DESC:.CLEAR	DESC:When running, you move five times your normal speed or four times your speed (if wearing medium or heavy armor or carrying a medium or heavy load). If you make a jump after a running start, you gain a +4 bonus on your Jump check. While running, you retain your Dexterity bonus to AC.
-Scribe Scroll.MOD				DESC:.CLEAR	DESC:You can create a scroll of any spell that you know.
-Self Sufficient.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on all Heal checks and Survival checks.
-Shield Proficiency.MOD			DESC:.CLEAR	DESC:You can use a shield and take only the standard penalties.
-Shot on the Run.MOD			DESC:.CLEAR	DESC:When using the attack action with a ranged weapon, you can move both before and after the attack, provided that your total distance moved is not greater than your speed.
-Silent Spell.MOD				DESC:.CLEAR	DESC:A silent spell can be cast with no verbal components. Spells without verbal components are not affected. A silent spell uses up a spell slot one level higher than the spell's actual level.
-Simple Weapon Proficiency.MOD		DESC:.CLEAR	DESC:You make attack rolls with simple weapons normally.
-Skill Focus.MOD				DESC:.CLEAR	DESC:You get a +3 bonus on all checks involving that skill.
-Snatch Arrows.MOD				DESC:.CLEAR	DESC:When using the Deflect Arrows feat you may catch the weapon instead of just deflecting it. Thrown weapons can immediately be thrown back at the original attacker (even though it isn't your turn) or kept for later use. You must have at least one hand free to use this feat.
-Spell Focus.MOD				DESC:.CLEAR	DESC:Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select.
-Spell Mastery.MOD				DESC:.CLEAR	DESC:Each time you take this feat, choose a number of spells equal to your Intelligence modifier that you already know. From that point on, you can prepare these spells without referring to a spellbook.
-Spell Penetration.MOD			DESC:.CLEAR	DESC:You get a +2 bonus on caster level checks (1d20 + caster level) made to overcome a creature's spell resistance.
-Spirited Charge.MOD			DESC:.CLEAR	DESC:When mounted and using the charge action, you deal double damage with a melee weapon (or triple damage with a lance).
-Spring Attack.MOD				DESC:.CLEAR	DESC:When using the attack action with a melee weapon, you can move both before and after the attack, provided that your total distance moved is not greater than your speed.
-Stealthy.MOD				DESC:.CLEAR	DESC:You get a +2 bonus on all Hide checks and Move Silently checks.
-Still Spell.MOD				DESC:.CLEAR	DESC:A stilled spell can be cast with no somatic components.
-Stunning Fist.MOD				DESC:.CLEAR	DESC:You may stun an opponant with a carefully placed unarmed attack.
-Toughness.MOD				DESC:.CLEAR	DESC:You gain +3 hit points.
-Tower Shield Proficiency.MOD		DESC:.CLEAR	DESC:You can use a tower shield and suffer only the standard penalties.
-Track.MOD					DESC:.CLEAR	DESC:To find tracks or to follow them for 1 mile requires a successful Survival check. You must make another Survival check every time the tracks become difficult to follow.
-Trample.MOD					DESC:.CLEAR	DESC:When you attempt to overrun an opponent while mounted, your target may not choose to avoid you. Your mount may make one hoof attack against any target you knock down.
-Two Weapon Defense.MOD			DESC:.CLEAR	DESC:When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively or using the total defense action, this shield bonus increases to +2.
-Two Weapon Fighting.MOD			DESC:.CLEAR	DESC:You can fight with a weapon in each hand. You can make one extra attack each round with the second weapon.
-Weapon Finesse.MOD			DESC:.CLEAR	DESC:With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.
-Weapon Focus.MOD				DESC:.CLEAR	DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon.
-Weapon Specialization.MOD		DESC:.CLEAR	DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon.
-Whirlwind Attack.MOD			DESC:.CLEAR	DESC:When you use the full attack action, you can give up your regular attacks and instead make one melee attack at your full base attack bonus against each opponent within reach.
-Widen Spell.MOD				DESC:.CLEAR	DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%. A widened spell uses up a spell slot three levels higher than the spell's actual level.
+# Feat Name					Clear Description	Description
+Acrobatic.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Jump checks and Tumble checks.
+Agile.MOD					DESC:.CLEAR		DESC:You get a +2 bonus on all Balance checks and Escape Artist checks.
+Alertness.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Listen checks and Spot checks.
+Animal Affinity.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Handle Animal checks and Ride checks.
+Armor Proficiency (Heavy).MOD		DESC:.CLEAR		DESC:When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
+Armor Proficiency (Light).MOD		DESC:.CLEAR		DESC:When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
+Armor Proficiency (Medium).MOD	DESC:.CLEAR		DESC:When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.
+Athletic.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Climb checks and Swim checks.
+Augment Summoning.MOD			DESC:.CLEAR		DESC:Each creature you conjure with any summon spell gains a +4 enhancement bonus to Strength and Constitution for the duration of the spell that summoned it.
+Blind Fight.MOD				DESC:.CLEAR		DESC:In melee, every time you miss because of concealment, you can reroll your miss chance percentile roll one time to see if you actually hit.
+Brew Potion.MOD				DESC:.CLEAR		DESC:You can create a potion of any 3rd-level or lower spell that you know and that targets one or more creatures.
+Cleave.MOD					DESC:.CLEAR		DESC:If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.
+Combat Casting.MOD			DESC:.CLEAR		DESC:You get a +4 bonus on Concentration checks made to cast a spell or use a spell-like ability while on the defensive or while you are grappling or pinned.
+Combat Expertise.MOD			DESC:.CLEAR		DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number as a dodge bonus to your Armor Class.
+Combat Reflexes.MOD			DESC:.CLEAR		DESC:You may make a number of additional attacks of opportunity equal to your Dexterity bonus.
+Craft Magic Arms and Armor.MOD	DESC:.CLEAR		DESC:You can create any magic weapon, armor, or shield whose prerequisites you meet.
+Craft Rod.MOD				DESC:.CLEAR		DESC:You can create any rod whose prerequisites you meet.
+Craft Staff.MOD				DESC:.CLEAR		DESC:You can create any staff whose prerequisites you meet.
+Craft Wand.MOD				DESC:.CLEAR		DESC:You can create a wand of any 4th-level or lower spell that you know.
+Craft Wondrous Item.MOD			DESC:.CLEAR		DESC:You can create any wondrous item whose prerequisites you meet.
+Deceitful.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Disguise checks and Forgery checks.
+Deflect Arrows.MOD			DESC:.CLEAR		DESC:Once per round when you would normally be hit with a ranged weapon, you may deflect it so that you take no damage from it.
+Deft Hands.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Sleight of Hand checks and Use Rope checks.
+Diehard.MOD					DESC:.CLEAR		DESC:When reduced to between -1 and -9 hit points, you automatically become stable.
+Diligent.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Appraise checks and Decipher Script checks.
+Dodge.MOD					DESC:.CLEAR		DESC:During your action, you designate an opponent and receive a +1 dodge bonus to Armor Class against attacks from that opponent.
+Empower Spell.MOD				DESC:.CLEAR		DESC:All variable, numeric effects of an empowered spell are increased by one-half.
+Endurance.MOD				DESC:.CLEAR		DESC:You gain a +4 bonus on checks relating to stamina or extended physical activity. Also, you may sleep in light or medium armor without becoming fatigued.
+Enlarge Spell.MOD				DESC:.CLEAR		DESC:You can alter a spell with a range of close, medium, or long to increase its range by 100%.
+Eschew Materials.MOD			DESC:.CLEAR		DESC:You can cast any spell that has a material component costing 1 gp or less without needing that component.
+Exotic Weapon Proficiency.MOD		DESC:.CLEAR		DESC:Choose a type of exotic weapon. You understand how to use that type of exotic weapon in combat.
+Extend Spell.MOD				DESC:.CLEAR		DESC:An extended spell lasts twice as long as normal.
+Extra Turning.MOD				DESC:.CLEAR		DESC:You can use your ability to turn or rebuke creatures four more times per day than normal.
+Far Shot.MOD				DESC:.CLEAR		DESC:When you use a projectile weapon, such as a bow, its range increment increases by one-half (multiply by 1-1/2). When you use a thrown weapon, its range increment is doubled.
+Forge Ring.MOD				DESC:.CLEAR		DESC:You can create any ring whose prerequisites you meet.
+Great Cleave.MOD				DESC:.CLEAR		DESC:This feat works like Cleave, except that there is no limit to the number of times you can use it per round.
+Great Fortitude.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Fortitude saving throws.
+Greater Spell Focus.MOD			DESC:.CLEAR		DESC:Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select. This bonus stacks with the bonus from Spell Focus.
+Greater Spell Penetration.MOD		DESC:.CLEAR		DESC:You get a +2 bonus on caster level checks made to overcome a creature's spell resistance. This bonus stacks with the one from Spell Penetration.
+Greater Two Weapon Fighting.MOD	DESC:.CLEAR		DESC:You get a third attack with your off-hand weapon, albeit at a -10 penalty.
+Greater Weapon Focus.MOD		DESC:.CLEAR		DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including the one from Weapon Focus.
+Greater Weapon Specialization.MOD	DESC:.CLEAR		DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon. This bonus stacks with other bonuses on damage rolls, including the one from Weapon Specialization.
+Heighten Spell.MOD			DESC:.CLEAR		DESC:A heightened spell has a higher spell level than normal (up to a maximum of 9th level).
+Improved Bull Rush.MOD			DESC:.CLEAR		DESC:When you perform a bull rush you do not provoke an attack of opportunity from the defender. You also gain a +4 bonus on the opposed Strength check you make to push back the defender.
+Improved Counterspell.MOD		DESC:.CLEAR		DESC:When counterspelling, you may use a spell of the same school that is one or more spell levels higher than the target spell.
+Improved Critical.MOD			DESC:.CLEAR		DESC:When using the weapon you selected, your threat range is doubled.
+Improved Disarm.MOD			DESC:.CLEAR		DESC:You do not provoke an attack of opportunity when you attempt to disarm an opponent, nor does the opponent have a chance to disarm you. You also gain a +4 bonus on the opposed attack roll you make to disarm your opponent.
+Improved Familiar.MOD			DESC:.CLEAR		DESC:This feat allows spellcasters to acquire a new familiar from a nonstandard list, but only when they could normally acquire a new familiar.
+Improved Feint.MOD			DESC:.CLEAR		DESC:You can make a Bluff check to feint in combat as a move action.
+Improved Grapple.MOD			DESC:.CLEAR		DESC:You do not provoke an attack of opportunity when you make a touch attack to start a grapple. You also gain a +4 bonus on all grapple checks, regardless of whether you started the grapple.
+Improved Initiative.MOD			DESC:.CLEAR		DESC:You get a +4 bonus on initiative checks.
+Improved Overrun.MOD			DESC:.CLEAR		DESC:When you attempt to overrun an opponent, the target may not choose to avoid you. You also gain a +4 bonus on your Strength check to knock down your opponent.
+Improved Precise Shot.MOD		DESC:.CLEAR		DESC:Your ranged attacks ignore the AC bonus granted to targets by anything less than total cover, and the miss chance granted to targets by anything less than total concealment.
+Improved Shield Bash.MOD		DESC:.CLEAR		DESC:When you perform a shield bash, you may still apply the shield's shield bonus to your AC.
+Improved Sunder.MOD			DESC:.CLEAR		DESC:When you strike at an object held or carried by an opponent (such as a weapon or shield), you do not provoke an attack of opportunity. You also gain a +4 bonus on any attack roll made to attack an object held or carried by another character.
+Improved Trip.MOD				DESC:.CLEAR		DESC:You do not provoke an attack of opportunity when you attempt to trip an opponent while you are unarmed and gain a +4 bonus on your Strength check to trip your opponent. If you trip an opponent in melee combat, you immediately get a melee attack against that opponent.
+Improved Turning.MOD			DESC:.CLEAR		DESC:You turn or rebuke creatures as if you were one level higher than you are in the class that grants you the ability.
+Improved Two Weapon Fighting.MOD	DESC:.CLEAR		DESC:In addition to the standard single extra attack you get with an off-hand weapon, you get a second attack with it, albeit at a -5 penalty.
+Improved Unarmed Strike.MOD		DESC:.CLEAR		DESC:You are considered to be armed even when unarmed. However, you still get an attack of opportunity against any opponent who makes an unarmed attack on you. In addition, your unarmed strikes can deal lethal or nonlethal damage, at your option.
+Investigator.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Gather Information checks and Search checks.
+Iron Will.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Will saving throws.
+Leadership.MOD				DESC:.CLEAR		DESC:Benefits: Having this feat enables you to attract loyal companions and devoted followers, subordinates who assist you.
+Lightning Reflexes.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Reflex saving throws.
+Magical Aptitude.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Spellcraft checks and Use Magic Device checks.
+Manyshot.MOD				DESC:.CLEAR		DESC:As a standard action, you may fire many arrows at a single opponent within 30 feet.
+Martial Weapon Proficiency.MOD	DESC:.CLEAR		DESC:Choose a type of martial weapon. You understand how to use that type of martial weapon in combat.
+Maximize Spell.MOD			DESC:.CLEAR		DESC:All variable, numeric effects of a spell modified by this feat are maximized.
+Mobility.MOD				DESC:.CLEAR		DESC:You get a +4 dodge bonus to Armor Class against attacks of opportunity caused when you move out of or within a threatened area.
+Mounted Archery.MOD			DESC:.CLEAR		DESC:The penalty you take when using a ranged weapon while mounted is halved: -2 instead of -4 if your mount is taking a double move, and -4 instead of -8 if your mount is running.
+Mounted Combat.MOD			DESC:.CLEAR		DESC:Once per round when your mount is hit in combat, you may attempt a Ride check (as a reaction) to negate the hit. The hit is negated if your Ride check result is greater than the opponent's attack roll.
+Natural Spell.MOD				DESC:.CLEAR		DESC:You can complete the verbal and somatic components of spells while in a wild shape. You can also use any material components or focuses you possess, even if such items are melded within your current form.
+Negotiator.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Diplomacy checks and Sense Motive checks.
+Nimble Fingers.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Disable Device checks and Open Lock checks.
+Persuasive.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Bluff checks and Intimidate checks.
+Point Blank Shot.MOD			DESC:.CLEAR		DESC:You get a +1 bonus on attack and damage rolls with ranged weapons at ranges of up to 30 feet.
+Power Attack.MOD				DESC:.CLEAR		DESC:On your action, before making attack rolls for a round, you may choose to subtract a number from all melee attack rolls and add the same number to all melee damage rolls. This number may not exceed your base attack bonus.
+Precise Shot.MOD				DESC:.CLEAR		DESC:You can shoot or throw ranged weapons at an opponent engaged in melee without taking the standard -4 penalty on your attack roll.
+Quick Draw.MOD				DESC:.CLEAR		DESC:You can draw a weapon as a free action instead of as a move action. You can draw a hidden weapon as a move action. A character who has selected this feat may throw weapons at his full normal rate of attacks (much like a character with a bow).
+Quicken Spell.MOD				DESC:.CLEAR		DESC:Casting a quickened spell is a free action.
+Rapid Reload.MOD				DESC:.CLEAR		DESC:The time required for you to reload your chosen type of crossbow is reduced to a free action (for a hand or light crossbow) or a move action (for a heavy crossbow). Reloading a crossbow still provokes an attack of opportunity.
+Rapid Shot.MOD				DESC:.CLEAR		DESC:You can get one extra attack per round with a ranged weapon. The attack is at your highest base attack bonus, but each attack you make in that round takes a -2 penalty. You must use the full attack action to use this feat.
+Ride By Attack.MOD			DESC:.CLEAR		DESC:When you are mounted and use the charge action, you may move and attack as if with a standard charge and then move again.
+Run.MOD					DESC:.CLEAR		DESC:When running, you move five times your normal speed or four times your speed (if wearing medium or heavy armor or carrying a medium or heavy load). If you make a jump after a running start, you gain a +4 bonus on your Jump check. While running, you retain your Dexterity bonus to AC.
+Scribe Scroll.MOD				DESC:.CLEAR		DESC:You can create a scroll of any spell that you know.
+Self Sufficient.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on all Heal checks and Survival checks.
+Shield Proficiency.MOD			DESC:.CLEAR		DESC:You can use a shield and take only the standard penalties.
+Shot on the Run.MOD			DESC:.CLEAR		DESC:When using the attack action with a ranged weapon, you can move both before and after the attack, provided that your total distance moved is not greater than your speed.
+Silent Spell.MOD				DESC:.CLEAR		DESC:A silent spell can be cast with no verbal components. Spells without verbal components are not affected. A silent spell uses up a spell slot one level higher than the spell's actual level.
+Simple Weapon Proficiency.MOD		DESC:.CLEAR		DESC:You make attack rolls with simple weapons normally.
+Skill Focus.MOD				DESC:.CLEAR		DESC:You get a +3 bonus on all checks involving that skill.
+Snatch Arrows.MOD				DESC:.CLEAR		DESC:When using the Deflect Arrows feat you may catch the weapon instead of just deflecting it. Thrown weapons can immediately be thrown back at the original attacker (even though it isn't your turn) or kept for later use. You must have at least one hand free to use this feat.
+Spell Focus.MOD				DESC:.CLEAR		DESC:Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select.
+Spell Mastery.MOD				DESC:.CLEAR		DESC:Each time you take this feat, choose a number of spells equal to your Intelligence modifier that you already know. From that point on, you can prepare these spells without referring to a spellbook.
+Spell Penetration.MOD			DESC:.CLEAR		DESC:You get a +2 bonus on caster level checks (1d20 + caster level) made to overcome a creature's spell resistance.
+Spirited Charge.MOD			DESC:.CLEAR		DESC:When mounted and using the charge action, you deal double damage with a melee weapon (or triple damage with a lance).
+Spring Attack.MOD				DESC:.CLEAR		DESC:When using the attack action with a melee weapon, you can move both before and after the attack, provided that your total distance moved is not greater than your speed.
+Stealthy.MOD				DESC:.CLEAR		DESC:You get a +2 bonus on all Hide checks and Move Silently checks.
+Still Spell.MOD				DESC:.CLEAR		DESC:A stilled spell can be cast with no somatic components.
+Stunning Fist.MOD				DESC:.CLEAR		DESC:You may stun an opponant with a carefully placed unarmed attack.
+Toughness.MOD				DESC:.CLEAR		DESC:You gain +3 hit points.
+Tower Shield Proficiency.MOD		DESC:.CLEAR		DESC:You can use a tower shield and suffer only the standard penalties.
+Track.MOD					DESC:.CLEAR		DESC:To find tracks or to follow them for 1 mile requires a successful Survival check. You must make another Survival check every time the tracks become difficult to follow.
+Trample.MOD					DESC:.CLEAR		DESC:When you attempt to overrun an opponent while mounted, your target may not choose to avoid you. Your mount may make one hoof attack against any target you knock down.
+Two Weapon Defense.MOD			DESC:.CLEAR		DESC:When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively or using the total defense action, this shield bonus increases to +2.
+Two Weapon Fighting.MOD			DESC:.CLEAR		DESC:You can fight with a weapon in each hand. You can make one extra attack each round with the second weapon.
+Weapon Finesse.MOD			DESC:.CLEAR		DESC:With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.
+Weapon Focus.MOD				DESC:.CLEAR		DESC:You gain a +1 bonus on all attack rolls you make using the selected weapon.
+Weapon Specialization.MOD		DESC:.CLEAR		DESC:You gain a +2 bonus on all damage rolls you make using the selected weapon.
+Whirlwind Attack.MOD			DESC:.CLEAR		DESC:When you use the full attack action, you can give up your regular attacks and instead make one melee attack at your full base attack bonus against each opponent within reach.
+Widen Spell.MOD				DESC:.CLEAR		DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%. A widened spell uses up a spell slot three levels higher than the spell's actual level.
 
 #
 # DONE
