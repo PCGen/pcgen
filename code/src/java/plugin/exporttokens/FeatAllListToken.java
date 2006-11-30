@@ -1,39 +1,41 @@
 package plugin.exporttokens;
 
-import java.util.List;
+import java.util.StringTokenizer;
 
-import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.FeatListToken;
+import pcgen.core.SettingsHandler;
+import pcgen.io.ExportHandler;
 
 /**
  * @author karianna
  * Class deals with FEATALLLIST Token
  */
-public class FeatAllListToken extends FeatListToken
+public class FeatAllListToken extends AbilityAllListToken
 {
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "FEATALLLIST";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.FeatListToken#getDelimiter(String tokenSource)
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	protected String getDelimiter(final String tokenSource)
+	@Override
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
-		return tokenSource.substring(11);
-	}
+		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+		// Skip the token itself
+		final String tokenString = aTok.nextToken();
+		final AbilityCategory aCategory = SettingsHandler.getGame()
+			.getAbilityCategory("FEAT");
 
-	/**
-	 * @see pcgen.io.exporttoken.FeatListToken#getFeatList(PlayerCharacter)
-	 */
-	protected List<Ability> getFeatList(PlayerCharacter pc)
-	{
-		return pc.aggregateVisibleFeatList();
+		return getTokenForCategory(pc, aTok, tokenString, aCategory);
 	}
 }

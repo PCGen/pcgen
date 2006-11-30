@@ -373,6 +373,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FEAT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FeatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-FEATALLLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -391,6 +398,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/exporttokens/FeatAutoListToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-FEATLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/FeatListToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

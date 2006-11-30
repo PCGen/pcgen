@@ -1455,8 +1455,6 @@ public final class ExportHandler
 			addToTokenMap(new DRToken());
 			addToTokenMap(new EqToken());
 			addToTokenMap(new EqTypeToken());
-			addToTokenMap(new FeatToken());
-			addToTokenMap(new FeatListToken());
 			addToTokenMap(new GameModeToken());
 			addToTokenMap(new HeightToken());
 			addToTokenMap(new HPToken());

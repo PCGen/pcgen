@@ -1,16 +1,17 @@
 package plugin.exporttokens;
 
-import java.util.List;
+import java.util.StringTokenizer;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.FeatToken;
-import pcgen.core.Ability;
+import pcgen.core.SettingsHandler;
+import pcgen.io.ExportHandler;
 
 /**
  * @author karianna
  * Class deals with FEATAUTO Token
  */
-public class FeatAutoToken extends FeatToken
+public class FeatAutoToken extends AbilityAutoToken
 {
 
 	/**
@@ -22,10 +23,16 @@ public class FeatAutoToken extends FeatToken
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.FeatToken#getFeatList(pcgen.core.PlayerCharacter)
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	protected List<Ability> getFeatList(PlayerCharacter pc)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return pc.featAutoList();
+		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+		final String fString = aTok.nextToken();
+		final AbilityCategory aCategory = SettingsHandler.getGame()
+			.getAbilityCategory("FEAT");
+
+		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
+			aCategory);
 	}
 }

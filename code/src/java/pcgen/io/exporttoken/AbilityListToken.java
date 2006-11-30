@@ -51,6 +51,7 @@ public class AbilityListToken extends Token
 {
 	private static final String DELIM = ", ";
 
+	//TODO: Should these be static to enable the caching?
 	private List<Ability> abilityList = null;
 	private PlayerCharacter lastPC = null;
 	private int lastPCSerial;
@@ -77,8 +78,6 @@ public class AbilityListToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		StringBuffer retString = new StringBuffer();
-
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		// Skip the ABILITYLIST token itself
 		final String tokenString = aTok.nextToken();
@@ -86,6 +85,22 @@ public class AbilityListToken extends Token
 		final AbilityCategory aCategory = SettingsHandler.getGame()
 			.getAbilityCategory(catString);
 
+		return getTokenForCategory(pc, aTok, tokenString, aCategory);
+	}
+
+	/**
+	 * Produce the ABILITY token output for a specific ability 
+	 * category.
+	 *  
+	 * @param pc The character being processed.
+	 * @param aTok The tokenised request, already past the category.
+	 * @param tokenString The output token requested 
+	 * @param aCategory The ability category being output.
+	 * @return The token value.
+	 */
+	protected String getTokenForCategory(PlayerCharacter pc, final StringTokenizer aTok, final String tokenString, final AbilityCategory aCategory)
+	{
+		StringBuffer retString = new StringBuffer();
 		if (lastPC != pc || !aCategory.equals(lastCategory)
 			|| lastPCSerial != pc.getSerial() || !tokenString.equals(lastType))
 		{

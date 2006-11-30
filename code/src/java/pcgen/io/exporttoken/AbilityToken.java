@@ -63,6 +63,7 @@ public class AbilityToken extends Token
 
 	//private int visibility = ABILITY_DEFAULT;
 	private List<Ability> abilityList = new ArrayList<Ability>();
+	//TODO: Should these be static? They probably never get used if not.
 	private PlayerCharacter cachedPC = null;
 	private int cachedPcSerial = 0;
 	private String lastToken = null;
@@ -94,6 +95,23 @@ public class AbilityToken extends Token
 		final AbilityCategory aCategory = SettingsHandler.getGame()
 			.getAbilityCategory(catString);
 
+		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString, aCategory);
+	}
+
+	/**
+	 * Produce the ABILITY token output for a specific ability 
+	 * category.
+	 *  
+	 * @param tokenSource The token being processed. 
+	 * @param pc The character being processed.
+	 * @param eh The export handler in use for the export.
+	 * @param aTok The tokenised request, already past the category.
+	 * @param tokenString The output token requested 
+	 * @param aCategory The ability category being output.
+	 * @return The token value.
+	 */
+	protected String getTokenForCategory(String tokenSource, PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok, final String tokenString, final AbilityCategory aCategory)
+	{
 		if (cachedPC != pc || !aCategory.equals(lastCategory)
 			|| cachedPcSerial != pc.getSerial() || !tokenString.equals(lastToken))
 		{

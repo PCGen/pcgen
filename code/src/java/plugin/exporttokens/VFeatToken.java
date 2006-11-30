@@ -1,10 +1,11 @@
 package plugin.exporttokens;
 
-import java.util.List;
+import java.util.StringTokenizer;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.FeatToken;
-import pcgen.core.Ability;
+import pcgen.core.SettingsHandler;
+import pcgen.io.ExportHandler;
 
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
@@ -15,7 +16,7 @@ import pcgen.core.Ability;
  * @author karianna
  * @version $Revision$
  */
-public class VFeatToken extends FeatToken
+public class VFeatToken extends VAbilityToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -26,10 +27,17 @@ public class VFeatToken extends FeatToken
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.FeatToken#getFeatList(PlayerCharacter)
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	protected List<Ability> getFeatList(PlayerCharacter pc)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return pc.getVirtualFeatList();
+		setVisibility(ABILITY_ALL);
+		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+		final String fString = aTok.nextToken();
+		final AbilityCategory aCategory = SettingsHandler.getGame()
+			.getAbilityCategory("FEAT");
+
+		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
+			aCategory);
 	}
 }

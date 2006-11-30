@@ -6,21 +6,31 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbilityListToken;
 
 /**
+ * <code>FeatListToken</code> deals with FEATLIST Token
+ *
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ *
  * @author karianna
- * Class deals with FEATAUTOLIST Token
+ * @version $Revision$
  */
-public class FeatAutoListToken extends AbilityAutoListToken
+public class FeatListToken extends AbilityListToken
 {
 
+	/** Token Name */
+	public static final String TOKENNAME = "FEATLIST";
+
 	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
+	 * Get the TOKENNAME
+	 * @return TOKENNAME
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return "FEATAUTOLIST";
+		return TOKENNAME;
 	}
 
 	/**
@@ -31,11 +41,12 @@ public class FeatAutoListToken extends AbilityAutoListToken
 		ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
-		// Skip the token itself
+		// Skip the ABILITYLIST token itself
 		final String tokenString = aTok.nextToken();
 		final AbilityCategory aCategory = SettingsHandler.getGame()
 			.getAbilityCategory("FEAT");
 
 		return getTokenForCategory(pc, aTok, tokenString, aCategory);
 	}
+
 }
