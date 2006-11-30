@@ -18,7 +18,18 @@ public class KnownspellsToken implements PCClassLstToken {
 	}
 
 	public boolean parse(PCClass pcclass, String value, int level) {
-		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
+		StringTokenizer pipeTok;
+
+		if (value.startsWith(".CLEAR")) {
+			pcclass.clearKnownSpellsList();
+
+			if (".CLEAR".equals(value)) {
+				return true;
+			}
+
+			pipeTok = new StringTokenizer(value.substring(6), Constants.PIPE);
+		} else {
+			pipeTok = new StringTokenizer(value, Constants.PIPE);		}
 
 		while (pipeTok.hasMoreTokens()) {
 			String totalFilter = pipeTok.nextToken();
