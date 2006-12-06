@@ -162,26 +162,21 @@ public class pcGenGUI
 			System.exit(0);
 		}
 
-		// Fixes for Mac OS X look-and-feel menu problems.
-		// sk4p 12 Dec 2002
-		// Moved into separate class
-		// tmilam 21 Jan 2006
-		if (System.getProperty("os.name").equals("Mac OS X"))
+		if (Globals.getUseGUI())
 		{
-			try {
-				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[]) null, (Object[])null);
-			} catch (ClassNotFoundException e) {
-				// don't do anything, just default to standard Java style
-				System.out.println("This build of PCGen doesn't include Mac-enhanced features.  Try the Mac build for a more Mac-like interface.");
-			} catch (NoSuchMethodException e) {
-				// don't do anything, just default to standard Java style
-			} catch (IllegalAccessException e) {
-				// don't do anything, just default to standard Java style
-			} catch (java.lang.reflect.InvocationTargetException e) {
-				// don't do anything, just default to standard Java style
-			}
+			macSpecificInit();
+			ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
+			ChooserFactory.setRadioInterfaceClassname(SwingChooserRadio.class
+				.getName());
+			InputFactory.setInterfaceClassname(DialogInputInterface.class
+				.getName());
 		}
-
+		else
+		{
+			ChooserFactory.setInterfaceClassname(NonGuiChooser.class.getName());
+			ChooserFactory.setRadioInterfaceClassname(NonGuiChooserRadio.class
+				.getName());
+		}
 
 		// If we are not using the GUI then just load, export and exit
 		if (!Globals.getUseGUI())
@@ -272,6 +267,33 @@ public class pcGenGUI
 	}
 
 	/**
+	 * Test if we are running on Mac OS X, and if so do some Mac 
+	 * specific intialization. 
+	 */
+	private static void macSpecificInit()
+	{
+		// Fixes for Mac OS X look-and-feel menu problems.
+		// sk4p 12 Dec 2002
+		// Moved into separate class
+		// tmilam 21 Jan 2006
+		if (System.getProperty("os.name").equals("Mac OS X"))
+		{
+			try {
+				Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[]) null, (Object[])null);
+			} catch (ClassNotFoundException e) {
+				// don't do anything, just default to standard Java style
+				System.out.println("This build of PCGen doesn't include Mac-enhanced features.  Try the Mac build for a more Mac-like interface.");
+			} catch (NoSuchMethodException e) {
+				// don't do anything, just default to standard Java style
+			} catch (IllegalAccessException e) {
+				// don't do anything, just default to standard Java style
+			} catch (java.lang.reflect.InvocationTargetException e) {
+				// don't do anything, just default to standard Java style
+			}
+		}
+	}
+
+	/**
 	 * Run PCGen in non GUI mode. This means we just load the PC and export
 	 * it, then exit.
 	 */
@@ -348,7 +370,10 @@ public class pcGenGUI
 
     /**
 	 * Instantiates itself after setting look & feel, and
-	 * opening splash screen.
+	 * opening splash screen. Warning - this method should 
+	 * avoid any calls which are internationalised, as this would
+	 * lock in the system default language before the user 
+	 * options are loaded. 
 	 *
 	 * @param args "-j" If first command line parameter is -j then the cross
 	 *             platform look and feel is used. Otherwise the current
@@ -375,30 +400,12 @@ public class pcGenGUI
 		{
 			// need to set Mac GUI props before any other GUI stuff
 			// tmilam 21 Jan 2006
-			if (System.getProperty("os.name").equals("Mac OS X"))
-			{
-				try {
-					Class.forName("pcgen.gui.MacGUI").getDeclaredMethod("initialize", (Class[])null).invoke((Object[])null, (Object[])null);
-				} catch (ClassNotFoundException e) {
-					// don't do anything, just default to standard Java style
-				} catch (NoSuchMethodException e) {
-					// don't do anything, just default to standard Java style
-				} catch (IllegalAccessException e) {
-					// don't do anything, just default to standard Java style
-				} catch (java.lang.reflect.InvocationTargetException e) {
-					// don't do anything, just default to standard Java style
-				}
-			}
+			macSpecificInit();
 			messageObserver = new ShowMessageGuiObserver();
-			ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-			ChooserFactory.setRadioInterfaceClassname(SwingChooserRadio.class.getName());
-			InputFactory.setInterfaceClassname(DialogInputInterface.class.getName());
 		}
 		else
 		{
 			messageObserver = new ShowMessageConsoleObserver();
-			ChooserFactory.setInterfaceClassname(NonGuiChooser.class.getName());
-			ChooserFactory.setRadioInterfaceClassname(NonGuiChooserRadio.class.getName());
 		}
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
 

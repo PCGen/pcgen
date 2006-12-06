@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
+    <release version="5.11.4" date="In SVN" description="Alpha release">
+      <action dev="jdempsey" type="fix" issue="1598598">Internationalization Choice Broken in 5.10.1</action>
+    </release>
     <release version="5.11.3" date="2006-11-27" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
       <action dev="thpr" type="fix" issue="1594925">Loaded Characters correctly receive level-based feats</action>
