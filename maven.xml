@@ -100,6 +100,9 @@
 		<!-- Run the NSIS compiler to create the windows installation .exe -->	
 		<attainGoal name="nsis:installer" />
 
+		<!-- Generate the source archive  -->	
+		<attainGoal name="source:source" />
+		
 		<!--  Run gendigest.pl to generate the SHA1 checksums for the files.		-->
 		<ant:copy todir="${maven.build.dir}">
 		    <fileset dir="${basedir}\..\release">
