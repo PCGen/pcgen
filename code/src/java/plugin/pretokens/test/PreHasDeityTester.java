@@ -49,10 +49,11 @@ public class PreHasDeityTester extends AbstractPrerequisiteTest implements
 		int runningTotal;
 		final boolean charHasDeity = character.getDeity() != null;
 
-		final String ucOp = prereq.getOperand().toUpperCase();
+		final String ucOp = prereq.getKey().toUpperCase();
 		final boolean flag = (ucOp.startsWith("Y") && charHasDeity)
 			|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$ //$NON-NLS-2$
-		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
+		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
+			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
 			runningTotal = flag == true ? 1 : 0;
 		}

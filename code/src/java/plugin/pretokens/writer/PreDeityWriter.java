@@ -55,6 +55,8 @@ public class PreDeityWriter extends AbstractPrerequisiteWriter implements Prereq
 	{
 		return new PrerequisiteOperator[] {
 				PrerequisiteOperator.EQ,
+				PrerequisiteOperator.GTEQ,
+				PrerequisiteOperator.LT,
 				PrerequisiteOperator.NEQ
 		} ;
 	}
@@ -68,13 +70,16 @@ public class PreDeityWriter extends AbstractPrerequisiteWriter implements Prereq
 
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
+				|| prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
 			}
 
 			writer.write("PREDEITY:");
 			writer.write(prereq.getOperand());
+			writer.write(",");
+			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
 		{

@@ -6,6 +6,7 @@
   </properties>
   <body>
     <release version="5.11.4" date="In SVN" description="Alpha release">
+      <action dev="jdempsey" type="add" issue="1439802">Enhance the PREDEITY tag</action>
       <action dev="jdempsey" type="fix" issue="1598598">Internationalization Choice Broken in 5.10.1</action>
     </release>
     <release version="5.11.3" date="2006-11-27" description="Alpha release">

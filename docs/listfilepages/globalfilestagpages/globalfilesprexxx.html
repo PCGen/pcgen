@@ -301,19 +301,23 @@
 		<p class="indent3">This bonus is applied when the <strong>Use Default Monsters</strong> checkbox is checked.</p>
 
 		<p></p><a name="PREDEITY"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> PREDEITY:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Y (The character must have chosen a deity).</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> N (The character must not have chosen a deity).</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name(s) of deities). </p>
+		<p class="indent0"><strong>Tag Name:</strong> PREDEITY:x,y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's name or pantheons that must match).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Y (The character must have chosen a deity).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> N (The character must not have chosen a deity).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name(s) of deities). </p>
+		<p class="indent1"><strong>Variables Used (y):</strong> PANTHEON.Text (The name(s) of pantheons). </p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets deity requirements.</p>
+		<p class="indent2">Sets deity requirements by presence, name or pantheon name.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>PREDEITY:Y</code></p>
+		<p class="indent2"><code>PREDEITY:1,Y</code></p>
 		<p class="indent3">Character must have a deity chosen.</p>
-		<p class="indent2"><code>PREDEITY:N</code></p>
+		<p class="indent2"><code>PREDEITY:1,N</code></p>
 		<p class="indent3">Character must NOT have a deity chosen.</p>
-		<p class="indent2"><code>PREDEITY:Zeus,Odin</code></p>
+		<p class="indent2"><code>PREDEITY:1,Zeus,Odin</code></p>
 		<p class="indent3">Character must have chosen either &quot;Zeus&quot; or &quot;Odin&quot;.</p>
+		<p class="indent2"><code>PREDEITY:1,Zeus,PANTHEON.Celtic,Odin</code></p>
+		<p class="indent3">Character must have chosen either &quot;Zeus&quot;, &quot;Odin&quot; or a deity in the &quot;Celtic&quot; pantheon.</p>
 
 		<p></p><a name="PREDEITYALIGN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITYALIGN:x</p>

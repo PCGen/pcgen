@@ -55,8 +55,10 @@ public class PreHasDeityWriter extends AbstractPrerequisiteWriter implements Pre
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ
+			PrerequisiteOperator.EQ,
+			PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT,
+			PrerequisiteOperator.NEQ
 		} ;
 	}
 
@@ -69,13 +71,16 @@ public class PreHasDeityWriter extends AbstractPrerequisiteWriter implements Pre
 
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
+				|| prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
 			}
 
 			writer.write("PREDEITY:");
 			writer.write(prereq.getOperand());
+			writer.write(",");
+			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
 		{

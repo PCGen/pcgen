@@ -26,6 +26,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -163,6 +164,77 @@ public class PreDeityTest extends AbstractCharacterTestCase
 				   PrereqHandler.passes(prereq, character, null));
 	}
 
+	/**
+	 * Test that the new standardised format works correctly.
+	 * @throws PersistenceLayerException
+	 */
+	public void testNewFormat() throws PersistenceLayerException
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("PREDEITY:1,YES");
+
+		assertFalse("Character has no deity selected",
+					PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("PREDEITY:1,NO");
+
+		assertTrue("Character has no deity selected",
+				   PrereqHandler.passes(prereq, character, null));
+
+		character.setAlignment(3, false);
+		character.setDeity(deity);
+
+		assertFalse("Character has deity selected",
+					PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("PREDEITY:1,YES");
+
+		assertTrue("Character has deity selected",
+				   PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("PREDEITY:1,yes");
+
+		assertTrue("Character has deity selected",
+				   PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("PREDEITY:1,Yesmeth");
+
+		assertFalse("Character does not have Yesmeth as deity",
+					PrereqHandler.passes(prereq, character, null));
+	}
+
+	/**
+	 * Test the pantheon fucntioanlity of the PREDEITY tag. 
+	 * @throws PersistenceLayerException 
+	 */
+	public void testPantheon() throws PersistenceLayerException
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("PREDEITY:1,PANTHEON.Celtic");
+
+		assertFalse("Character has no deity selected",
+					PrereqHandler.passes(prereq, character, null));
+
+		character.setAlignment(3, false);
+		character.setDeity(deity);
+
+		assertTrue("Character has Celtic deity selected",
+				   PrereqHandler.passes(prereq, character, null));
+
+		prereq = factory.parse("PREDEITY:Zeus,PANTHEON.Celtic,Odin");
+
+		assertTrue("Character has Celtic deity selected",
+				   PrereqHandler.passes(prereq, character, null));
+	}
+	
 	protected void setUp()
 		throws Exception
 	{
@@ -170,6 +242,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		deity.setName("Test Deity");
 		deity.setAlignment("NG");
 		deity.setFollowerAlignments("012345678");
+		deity.addPantheon("Celtic");
 
 		super.setUp();
 	}

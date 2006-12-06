@@ -28,19 +28,27 @@
  */
 package plugin.pretokens.parser;
 
+import java.util.Iterator;
+
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
+import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * @author wardc
+ * <code>PreDeityParser</code> parses PREDEITY prerequisites. It handles both 
+ * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
+ * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
  *
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ *
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
  */
-public class PreDeityParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreDeityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
@@ -48,59 +56,48 @@ public class PreDeityParser extends AbstractPrerequisiteParser implements Prereq
 		return new String[]{ "DEITY" };
 	}
 
+	/**
+	 * @see pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser#parse(java.lang.String, java.lang.String, boolean, boolean)
+	 */
 	@Override
 	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-
-		String[] tokens = formula.split(",");
-
-		if (tokens.length != 1)
-		{
-			prereq.setKind(null);		// PREMULT
-		}
-
-
-		for (int i = 0; i < tokens.length; i++)
-		{
-			String token = tokens[i];
-
-			Prerequisite subprereq;
-			if (tokens.length == 1)
-			{
-				subprereq = prereq;
-			}
-			else
-			{
-				subprereq = new Prerequisite();
-				prereq.addPrerequisite(subprereq);
-			}
-			subprereq.setOperator(PrerequisiteOperator.EQ);
-
-			if (token.equalsIgnoreCase("y") || token.equalsIgnoreCase("n")
-			|| token.equalsIgnoreCase("yes") || token.equalsIgnoreCase("no"))
-			{
-				if (token.toLowerCase().startsWith("y"))
-				{
-					subprereq.setOperand("Y");
-				}
-				else
-				{
-					subprereq.setOperand("N");
-				}
-				subprereq.setKind("has.deity");
-			}
-			else
-			{
-				subprereq.setOperand(token);
-				subprereq.setKind("deity");
-			}
-		}
-
-		if (invertResult) {
-			prereq.setOperator( prereq.getOperator().invert());
-		}
+		
+		// Scan for any has deity options
+		replaceHasDeityPrereqs(prereq);
 		return prereq;
+	}
+
+	/**
+	 * Scan a predeity prerequisite and its children, converting any yes or no deity 
+	 * entries into hasdeity prereqs.
+	 *   
+	 * @param prereq The prereq to be scanned.
+	 */
+	private void replaceHasDeityPrereqs(Prerequisite prereq)
+	{
+		String key = prereq.getKey();
+		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null
+			&& (key.equalsIgnoreCase("y") || key.equalsIgnoreCase("n")
+				|| key.equalsIgnoreCase("yes") || key.equalsIgnoreCase("no")))
+		{
+			if (key.toLowerCase().startsWith("y"))
+			{
+				prereq.setKey("Y");
+			}
+			else
+			{
+				prereq.setKey("N");
+			}
+			prereq.setKind("has.deity");
+		}
+
+		for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+		{
+			Prerequisite subprereq = iter.next();
+			replaceHasDeityPrereqs(subprereq);
+		}
 	}
 }
