@@ -19,8 +19,8 @@
   <description>PCGen RPG character generator.</description>
   <shortDescription>PCGen RPG character generator.</shortDescription>
   <repository>
-    <connection>scm:svn:https://svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</connection>
-    <url>https://svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</url>
+    <connection>scm:svn:https://pcgen.svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</connection>
+    <url>https://pcgen.svn.sourceforge.net/svnroot/pcgen/Trunk/pcgen</url>
   </repository>
   <developers>
     <developer>
@@ -254,7 +254,8 @@
     <report>maven-javadoc-plugin</report>
     <report>maven-jdepend-plugin</report>
     <report>maven-junit-report-plugin</report>
-    <report>maven-jxr-plugin</report>
+    <!--  Overly large report -->
+    <!--  <report>maven-jxr-plugin</report>  -->
     <report>maven-license-plugin</report>
     <!-- Another slow'un -->
     <!-- <report>maven-linkcheck-plugin</report> -->
