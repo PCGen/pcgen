@@ -104,7 +104,7 @@ public final class PCTemplate extends PObject implements HasCost
 
 	private ArrayList<String> addedSubTypes   = new ArrayList<String>();
 
-	private Point2D.Double face       = new Point2D.Double(5, 0);
+	private Point2D.Double face       = null;
 
 	private ArrayList<String> removedSubTypes = new ArrayList<String>();
 
@@ -772,6 +772,33 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tWEAPONBONUS:").append(buffer.toString());
 		}
 
+		if (face != null)
+		{
+			if(CoreUtility.doublesEqual(face.getY(), 0.0))
+			{
+				txt.append("\tFACE:").append( face.getX());
+			}
+			else
+			{
+				txt.append("\tFACE:").append( face.getX() + "," + face.getY());
+			}
+		}
+
+		if (hands != null)
+		{
+			txt.append("\tHANDS:").append(hands);
+		}
+
+		if (legs != null)
+		{
+			txt.append("\tLEGS:").append(legs);
+		}
+
+		if (reach != null)
+		{
+			txt.append("\tREACH:").append(reach);
+		}
+		
 		txt.append(super.getPCCText(false));
 
 		return txt.toString();

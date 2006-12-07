@@ -71,9 +71,9 @@ public class ReachToken extends Token
 
 	public static int getReachToken(PlayerCharacter pc)
 	{
-		if (pc.getRace() != null)
+		if (pc != null)
 		{
-			return pc.getRace().getReach() + (int) pc.getTotalBonusTo("COMBAT", "REACH");
+			return pc.getReach();
 		}
 
 		return 0;

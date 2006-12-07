@@ -25,6 +25,7 @@
  */
 package pcgen.core;
 
+import java.awt.geom.Point2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16622,6 +16623,33 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	/**
+	 * Determine the character's facing. This is based
+	 * on their race and any applied templates.
+	 *  
+	 * @return The facing.
+	 */
+	public Point2D.Double getFace()
+	{
+		final Race aRace = getRace();
+		// Default to 5' by 5'
+		Point2D.Double face = new Point2D.Double(5, 0);
+		if (aRace != null)
+		{
+			face = aRace.getFace();
+		}
+		
+		// Scan templates for any overrides
+		for ( PCTemplate template : getTemplateList() )
+		{
+			if (template.getFace() != null)
+			{
+				face = template.getFace();
+			}
+		}
+		return face;
+	}
+
+	/**
 	 * Determine the number of hands the character has. This
 	 * is based on their race and any applied templates.
 	 *  
@@ -16651,7 +16679,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Determine the number of legs the character has. This
 	 * is based on their race and any applied templates.
 	 *  
-	 * @return The number of hands.
+	 * @return The number of legs.
 	 */
 	public int getLegs()
 	{
@@ -16671,6 +16699,34 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			}
 		}
 		return legs;
+	}
+
+	/**
+	 * Determine the character's reach. This is based
+	 * on their race, any applied templates and any other 
+	 * bonuses to reach.
+	 *  
+	 * @return The reach radius.
+	 */
+	public int getReach()
+	{
+		final Race aRace = getRace();
+		int reach = 0;
+		if (aRace != null)
+		{
+			reach = aRace.getReach();
+		}
+		
+		// Scan templates for any overrides
+		for ( PCTemplate template : getTemplateList() )
+		{
+			if (template.getReach() != null)
+			{
+				reach = template.getReach();
+			}
+		}
+		reach +=  (int) getTotalBonusTo("COMBAT", "REACH");
+		return reach;
 	}
 
 //	public double getBonusValue(final String aBonusType, final String aBonusName )

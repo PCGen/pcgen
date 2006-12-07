@@ -93,7 +93,7 @@ public class FaceToken extends Token
 	 */
 	public static String getFaceToken(PlayerCharacter pc)
 	{
-		Point2D.Double face = pc.getRace().getFace();
+		Point2D.Double face = pc.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -114,7 +114,7 @@ public class FaceToken extends Token
 	 */
 	public static String getShortToken(PlayerCharacter pc)
 	{
-		Point2D.Double face = pc.getRace().getFace();
+		Point2D.Double face = pc.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -135,7 +135,7 @@ public class FaceToken extends Token
 	 */
 	public static String getSquaresToken(PlayerCharacter pc)
 	{
-		Point2D.Double face = pc.getRace().getFace();
+		Point2D.Double face = pc.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -156,7 +156,7 @@ public class FaceToken extends Token
 	 */
 	public static String get1Token(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.getRace().getFace().getX());
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.getFace().getX());
 	}
 
 	/**
@@ -166,6 +166,6 @@ public class FaceToken extends Token
 	 */
 	public static String get2Token(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.getRace().getFace().getY());
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.getFace().getY());
 	}
 }
