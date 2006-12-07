@@ -49,7 +49,7 @@ public class PreLegsTester  extends AbstractPrerequisiteTest implements Prerequi
 		{
 			final int targetLegs = Integer.parseInt(prereq.getOperand());
 
-			runningTotal = prereq.getOperator().compare(character.getRace().getLegs(), targetLegs);
+			runningTotal = prereq.getOperator().compare(character.getLegs(), targetLegs);
 		}
 		catch (NumberFormatException nfe)
 		{

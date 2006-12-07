@@ -16647,6 +16647,32 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return hands;
 	}
 
+	/**
+	 * Determine the number of legs the character has. This
+	 * is based on their race and any applied templates.
+	 *  
+	 * @return The number of hands.
+	 */
+	public int getLegs()
+	{
+		final Race aRace = getRace();
+		int legs = 0;
+		if (aRace != null)
+		{
+			legs = aRace.getLegs();
+		}
+		
+		// Scan templates for any overrides
+		for ( PCTemplate template : getTemplateList() )
+		{
+			if (template.getLegs() != null)
+			{
+				legs = template.getLegs();
+			}
+		}
+		return legs;
+	}
+
 //	public double getBonusValue(final String aBonusType, final String aBonusName )
 //	{
 //		return TypedBonus.totalBonuses(getBonusesTo(aBonusType, aBonusName));

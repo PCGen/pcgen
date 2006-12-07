@@ -24,6 +24,7 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -83,5 +84,12 @@ public class PreLegsTest extends AbstractCharacterTestCase
 
 		assertFalse("Character does not have more than 2 legs",
 					PrereqHandler.passes(prereq, character, null));
+
+		PCTemplate tmpl = new PCTemplate();
+		tmpl.setLegs(3);
+
+		character.addTemplate(tmpl);
+		assertTrue("Character does have more than 2 legs",
+			PrereqHandler.passes(prereq, character, null));
 	}
 }
