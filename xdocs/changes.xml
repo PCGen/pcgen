@@ -11,6 +11,7 @@
       <action dev="thpr" type="update" issue="1604156">Deprecate LONGNAME in Equipment LST Files</action>
       <action dev="thpr" type="update" issue="1604159">Deprecate AC in Equipment LST Files</action>
       <action dev="thpr" type="update" issue="1605662">Deprecate IGNORES in EquipmentMod LST Files</action>
+      <action dev="jdempsey" type="add" issue="1335943">Activate FACE, HANDS, LEGS and REACH Template tags</action>
     </release>
     <release version="5.11.3" date="2006-11-27" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
