@@ -9,6 +9,7 @@
       <action dev="jdempsey" type="add" issue="1439802">Enhance the PREDEITY tag</action>
       <action dev="jdempsey" type="fix" issue="1598598">Internationalization Choice Broken in 5.10.1</action>
       <action dev="thpr" type="update" issue="1604156">Deprecate LONGNAME in Equipment LST Files</action>
+      <action dev="thpr" type="update" issue="1604159">Deprecate AC in Equipment LST Files</action>
     </release>
     <release version="5.11.3" date="2006-11-27" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>

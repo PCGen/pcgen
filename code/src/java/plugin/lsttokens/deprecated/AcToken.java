@@ -1,13 +1,15 @@
-package plugin.lsttokens.equipment;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.Equipment;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.EquipmentLstToken;
 import pcgen.persistence.lst.PObjectLoader;
 
 /**
  * Deals with AC token 
  */
-public class AcToken implements EquipmentLstToken {
+public class AcToken implements EquipmentLstToken, DeprecatedToken {
 
 	/**
      * Return token name
@@ -32,6 +34,10 @@ public class AcToken implements EquipmentLstToken {
 		} catch(Exception e) {
 			return false;
 		}
+	}
+
+	public String getMessage(PObject obj, String value) {
+		return "Replaced by: BONUS:COMBAT|AC|<value>|TYPE=Armor.REPLACE";
 	}
 }
 
