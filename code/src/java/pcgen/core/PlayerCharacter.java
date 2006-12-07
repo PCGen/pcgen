@@ -14217,14 +14217,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public List<String> getEquippableLocations(EquipSet eqSet, Equipment eqI, List<String> containers)
 	{
 		// Some Equipment locations are based on the number of hands
-		int hands = 0;
-
-		final Race aRace = getRace();
-
-		if (aRace != null)
-		{
-			hands = aRace.getHands();
-		}
+		int hands = getHands();
 
 		List<String> aList = new ArrayList<String>();
 
@@ -16626,6 +16619,32 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			String prof = iter.next();
 			addWeaponProfToList(abilityList, prof, true);
 		}
+	}
+
+	/**
+	 * Determine the number of hands the character has. This
+	 * is based on their race and any applied templates.
+	 *  
+	 * @return The number of hands.
+	 */
+	public int getHands()
+	{
+		final Race aRace = getRace();
+		int hands = 0;
+		if (aRace != null)
+		{
+			hands = aRace.getHands();
+		}
+		
+		// Scan templates for any overrides
+		for ( PCTemplate template : getTemplateList() )
+		{
+			if (template.getHands() != null)
+			{
+				hands = template.getHands();
+			}
+		}
+		return hands;
 	}
 
 //	public double getBonusValue(final String aBonusType, final String aBonusName )

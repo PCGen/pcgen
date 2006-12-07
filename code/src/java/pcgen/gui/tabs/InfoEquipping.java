@@ -103,7 +103,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.bonus.BonusObj;
@@ -3454,12 +3453,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (pc != null)
 		{
-			final Race race = pc.getRace();
-
-			if (race != null)
-			{
-				hands = race.getHands();
-			}
+			hands = pc.getHands();
 		}
 
 		List<String> aList = new ArrayList<String>();

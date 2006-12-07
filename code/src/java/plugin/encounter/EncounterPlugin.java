@@ -851,11 +851,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener, ItemLi
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
-		final Race race = pc.getRace();
-
-		if (race != null)
+		if (pc != null)
 		{
-			hands = race.getHands();
+			hands = pc.getHands();
 		}
 
 		List<String> aList = new ArrayList<String>();
