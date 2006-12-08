@@ -302,10 +302,6 @@ public class AbilityToken extends Token
 			{
 				eh.setNoMoreItems(true);
 			}
-			else if (eh != null && eh.getExistsOnly())
-			{
-				eh.setNoMoreItems(true);
-			}
 
 			if (tokenSource.endsWith(".DESC"))
 			{
@@ -343,6 +339,11 @@ public class AbilityToken extends Token
 				retString += aAbility.qualifiedName();
 			}
 		}
+		else if (eh != null && eh.getExistsOnly())
+		{
+			eh.setNoMoreItems(true);
+		}
+
 		return retString;
 	}
 
