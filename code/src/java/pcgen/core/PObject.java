@@ -206,11 +206,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 					{
 						return choice.getDefaultChoice();
 					}
-					return choice.getChoice(String.valueOf(currentCount
-						+ idx));
+					return choice.getChoice(String.valueOf(idx - currentCount));
 				}
 				currentCount += choice.size();
 			}
+		}
+		else if (associatedList.get(idx) instanceof FeatMultipleChoice)
+		{
+			return associatedList.get(idx).toString();
 		}
 
 		return associatedList.get(idx).getDefaultChoice();

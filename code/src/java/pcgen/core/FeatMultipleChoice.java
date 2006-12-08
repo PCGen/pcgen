@@ -83,7 +83,7 @@ public final class FeatMultipleChoice extends AssociatedChoice<String> implement
 
 			for (int i = 0; i < choices.size(); ++i)
 			{
-				sb.append(':').append(choices.get(i));
+				sb.append(':').append(getChoice(i));
 			}
 		}
 		else
@@ -103,7 +103,7 @@ public final class FeatMultipleChoice extends AssociatedChoice<String> implement
 	{
 		if ((choices != null) && (idx < choices.size()))
 		{
-			return choices.get(idx);
+			return choices.get(String.valueOf(idx));
 		}
 
 		return "";

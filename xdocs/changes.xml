@@ -17,6 +17,7 @@
       <action dev="thpr" type="update" issue="1605660">Deprecate MULTIPREREQS in Class LST Files</action>
       <action dev="thpr" type="fix" issue="1611238">Fix Save Error due to null Known List</action>
       <action dev="thpr" type="add" issue="1335943">Allow BONUS:CHECKS to use %LIST</action>
+      <action dev="jdempsey" type="fix" issue="1608799"> CHOOSE from Spell Mastery not allowing save</action>
     </release>
     <release version="5.11.3" date="2006-11-27" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>
