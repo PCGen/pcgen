@@ -3597,6 +3597,9 @@ public class PCClass extends PObject {
 	public List<Vision> getVision() {
 		List<Vision> returnList = super.getVision();
 		if (visionList != null) {
+			if (returnList == null) {
+				returnList = new ArrayList<Vision>();
+			}
 			for (LevelProperty<Vision> vis : visionList) {
 				if (vis.getLevel() <= level) {
 					returnList.add(vis.getObject());
