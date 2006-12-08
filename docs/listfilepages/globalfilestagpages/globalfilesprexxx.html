@@ -321,13 +321,21 @@
 
 		<p></p><a name="PREDEITYALIGN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITYALIGN:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the required alignment).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>LG,LN,LE,NG,TN,NE,CG,CN,CE (Alignment abbreviation).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>0,1,2,3,4,5,6,7,8 (Alignment array number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Having a deity with a particular alignment is a prerequisite.
-			(0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE, 6=CG, 7=CN, 8=CE).</p>
+			Alignment names and abbreviations (ABB) are defined in the statsandchecks.lst gameMode file.
+			The array number is based on the order the Alignments are presented in the statsandchecks.lst file the first one being 0.
+			You can now use the Alignment abbreviation directly in addition to using the Alignment array number.
+			If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.
+			In the 3e and 35e gameModes these are the listed Alignments:
+			(0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE,  6=CG, 7=CN, 8=CE, 9=None).</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREDEITYALIGN:0</code></p>
 		<p class="indent3">Character must have chosen a Lawful Good deity.</p>
+		<p class="indent2"><code>PREDEITYALIGN:LG,NG,CG</code></p>
+		<p class="indent3">Character must have chosen a deity of any Good alignment.</p>
 
 		<p></p><a name="PREDEITYDOMAIN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITYDOMAIN:x,y,y</p>
