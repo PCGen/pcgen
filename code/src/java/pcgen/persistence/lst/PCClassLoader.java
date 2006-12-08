@@ -229,6 +229,16 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else if (colString.startsWith("MULTIPREREQS"))
 			{
+				//Deprecated in 5.11 Alpha cycle - thpr 12/7/06
+				Logging.errorPrint("In: "
+								+ pcClass.getDisplayName()
+								+ ':'
+								+ source.getFile()
+								+ ':'
+								+ colString
+								+ ", The MULTIPREREQS tag has been deprecated.  "
+								+ "Use PREMULT with !PRECLASS:1,Any instead. "
+								+ "(e.g. PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,Any] )");
 				pcClass.setMultiPreReqs(true);
 			}
 			else if (colString.startsWith("REPEATLEVEL:"))
