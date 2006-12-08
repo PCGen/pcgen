@@ -13,6 +13,7 @@
       <action dev="thpr" type="update" issue="1605662">Deprecate IGNORES in EquipmentMod LST Files</action>
       <action dev="jdempsey" type="add" issue="1335943">Activate FACE, HANDS, LEGS and REACH Template tags</action>
       <action dev="thpr" type="fix" issue="1611183">Fix Save Error due to Vision List issues</action>
+      <action dev="thpr" type="add" issue="1605655">PRECLASS: Add support for keyword "Any"</action>
     </release>
     <release version="5.11.3" date="2006-11-27" description="Alpha release">
       <action dev="apsen" type="add" issue="1313263">Carriage Return support in OS</action>

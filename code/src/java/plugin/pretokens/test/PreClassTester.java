@@ -60,6 +60,13 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 				runningTotal = preClass;
 			}
 		}
+		else if (aString.equals("ANY"))
+		{
+			for (PCClass cl : character.getClassList())
+			{
+				runningTotal += cl.getLevel();
+			}
+		}
 		else
 		{
 			final PCClass aClass = character.getClassKeyed(aString);

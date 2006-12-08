@@ -437,4 +437,64 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertFalse("Should not pass with 3 levels of ftr", PrereqHandler.passes(prereq, character, null));
 
 	}
+	
+	/**
+	 * Test to ensure that a character will fail a test
+	 * if it does not have the correct number of levels
+	 * in the class.
+	 * @throws Exception
+	 */
+	public void testAnyLevelsOneClass()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("class");
+		prereq.setKey("Any");
+		prereq.setOperand("3");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreClassTester test = new PreClassTester();
+		assertEquals(0, test.passes(prereq, character));
+		
+		character.incrementClassLevel(2, pcClass);
+		assertEquals(1, test.passes(prereq, character));
+	}
+
+	public void testAnyLevelsTwoClasses()
+	throws Exception
+	{
+		final PCClass pcClass = new PCClass();
+		pcClass.setName("MyClass");
+		pcClass.setAbbrev("My");
+		pcClass.setSpellType("ARCANE");
+
+		final PCClass pcClass2 = new PCClass();
+		pcClass2.setName("MyClass2");
+		pcClass2.setAbbrev("My2");
+		pcClass2.setSpellType("DIVINE");
+
+		final PlayerCharacter character = getCharacter();
+		character.incrementClassLevel(1, pcClass);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("class");
+		prereq.setKey("Any");
+		prereq.setOperand("3");
+		prereq.setOperator( PrerequisiteOperator.GTEQ );
+
+		final PreClassTester test = new PreClassTester();
+		assertEquals(0, test.passes(prereq, character));
+		
+		character.incrementClassLevel(2, pcClass2);
+		assertEquals(1, test.passes(prereq, character));
+	}
 }
