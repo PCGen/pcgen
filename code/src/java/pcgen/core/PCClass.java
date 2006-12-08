@@ -4531,7 +4531,7 @@ public class PCClass extends PObject {
 	 * after all...
 	 */
 	public boolean zeroCastSpells() {
-		if (castInfo == null) {
+		if (castInfo == null || !castInfo.hasCastProgression()) {
 			return true;
 		}
 		/*
