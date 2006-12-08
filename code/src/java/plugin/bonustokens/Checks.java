@@ -64,6 +64,13 @@ public final class Checks extends BonusObj
 
 			return true;
 		}
+		else if ("%LIST".equals(token))
+		{
+			// Special case of:  BONUS:CHECKS|%LIST|x
+			addBonusInfo(LIST_CHECK);
+
+			return true;
+		}
 		else if ("ALL".equals(token))
 		{
 			// Special case of:  BONUS:CHECKS|ALL|x
@@ -82,7 +89,11 @@ public final class Checks extends BonusObj
 	{
 		String token = "";
 
-		if (((CheckInfo) obj).isBase)
+		if (obj.equals(LIST_CHECK))
+		{
+			return token + "%LIST";
+		}
+		else if (((CheckInfo) obj).isBase)
 		{
 			token = "BASE.";
 		}
@@ -111,6 +122,8 @@ public final class Checks extends BonusObj
 			isBase = argIsBase;
 		}
 	}
+	
+	public static CheckInfo LIST_CHECK = new CheckInfo(null, false);
 
 	protected String[] getBonusesHandled()
 	{
