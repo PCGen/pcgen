@@ -911,6 +911,13 @@ public final class EditorMainForm extends JDialog
 				cmv.setMoveRatesFlag(pnlMovement.getMoveRateType());
 				thisPCTemplate.setMovement(cmv);
 
+				thisPCTemplate.clearVisionList();
+				List<Vision> tplVisionList = pnlVision.getVision();
+				for (Vision vis : tplVisionList) 
+				{
+					thisPCTemplate.addVision(vis);
+				}
+
 				//
 				// Save granted templates
 				//
@@ -1171,7 +1178,7 @@ public final class EditorMainForm extends JDialog
 		List selectedList2 = new ArrayList();
 		List aList;
 		List movementValues;
-		List visionValues;
+		List<String> visionValues;
 		List<Vision> vision;
 		List naturalAttacks;
 
@@ -1539,20 +1546,7 @@ public final class EditorMainForm extends JDialog
 				// Populate the vision panel
 				//
 				vision = thisPObject.getVision();
-
-				visionValues = new ArrayList();
-
-				if (vision != null)
-				{
-					for (Vision vis : vision)
-					{
-						final StringBuffer visionString = new StringBuffer(25);
-						visionString.append(vis.getType());
-						visionString.append(',').append(vis.getDistance());
-						visionValues.add(visionString.toString());
-					}
-				}
-
+				visionValues = buildVisionValues(vision);
 				pnlVision.setSelectedList(visionValues);
 
 				//
@@ -1912,6 +1906,13 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlMovement.setSelectedList(movementValues);
+
+				//
+				// Populate the vision panel
+				//
+				vision = thisPObject.getVision();
+				visionValues = buildVisionValues(vision);
+				pnlVision.setSelectedList(visionValues);
 
 				//
 				// Populate the specialabilities panel
@@ -2290,6 +2291,30 @@ public final class EditorMainForm extends JDialog
 	}
 
 	/**
+	 * Build up a list of the vision strings based on a list of 
+	 * vision objects. 
+	 * @param vision The vision objects
+	 * @return List of vision strings
+	 */
+	private List<String> buildVisionValues(List<Vision> vision)
+	{
+		List<String> visionValues;
+		visionValues = new ArrayList<String>();
+
+		if (vision != null)
+		{
+			for (Vision vis : vision)
+			{
+				final StringBuffer visionString = new StringBuffer(25);
+				visionString.append(vis.getType());
+				visionString.append(',').append(vis.getDistance());
+				visionValues.add(visionString.toString());
+			}
+		}
+		return visionValues;
+	}
+
+	/**
 	 * Move the named Weapon Proficiency from the available list to the
 	 * selected list.
 	 * @param availableList The list of available weapon prof names
@@ -2524,6 +2549,7 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_TEMPLATE:
+				pnlVision = new VisionPanel();
 				pnlMovement = new MovementPanel(false);
 				pnlLevelAbilities = new LevelAbilitiesPanel();
 				pnlLanguages = new AvailableSelectedPanel(true);

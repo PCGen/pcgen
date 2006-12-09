@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+
 import pcgen.core.levelability.LevelAbility;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -1406,7 +1407,8 @@ public final class PCTemplate extends PObject implements HasCost
 			aTemp.hitDiceStrings = new ArrayList<String>(hitDiceStrings);
 		}
 
-		if (abilityCatStore != null) {
+		if (abilityCatStore != null && !abilityCatStore.isEmpty())
+		{
 			aTemp.abilityCatStore = new AbilityStore();
 			aTemp.abilityCatStore.addAbilityInfo(
 					abilityCatStore.getParsableStringRepresentation(), "", "|", false, false);
