@@ -3610,10 +3610,10 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-skill-plugins" depends="makeplugindirs" description="Build (Link) Skill Lst Token plugin jar files">
 		<!-- Skill tokens-->
-		<jar jarfile="${lstplugins.dir}/SkillLstToken-ACCHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-ACHECK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/skill/AccheckToken.class" />
+					<include name="plugin/lsttokens/skill/AcheckToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -3705,10 +3705,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/SpellLstToken-DOMAIN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/SpellLstToken-DOMAINS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/spell/DomainToken.class" />
+					<include name="plugin/lsttokens/spell/DomainsToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5916,7 +5916,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-DEPRECATED-AC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/deprecate/AcToken.class" />
+					<include name="plugin/lsttokens/deprecated/AcToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

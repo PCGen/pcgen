@@ -8,7 +8,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with DOMAINS Token
  */
-public class DomainToken implements SpellLstToken {
+public class DomainsToken implements SpellLstToken {
 
 	public String getTokenName() {
 		return "DOMAINS";

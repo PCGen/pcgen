@@ -6,7 +6,7 @@ import pcgen.persistence.lst.SkillLstToken;
 /**
  * Class deals with ACHECK Token
  */
-public class AccheckToken implements SkillLstToken {
+public class AcheckToken implements SkillLstToken {
 
 	public String getTokenName() {
 		return "ACHECK";
