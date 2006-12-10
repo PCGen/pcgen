@@ -127,7 +127,7 @@
 
 ; Main Install settings
 Name "$${APPNAMEANDVERSION}"
-InstallDir "$PROGRAMFILES\$${APPNAME}"
+InstallDir "$$PROGRAMFILES\$${APPNAME}"
 InstallDirRegKey HKLM "Software\$${APPNAME}\$${APPDIR}" ""
 OutFile "$${OutDir}\$${OutName}.exe"
 ;This will save a little less than 1mb, it should be left enabled -Ed
@@ -180,13 +180,13 @@ Function .onInit
 	ClearErrors
 	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment" "CurrentVersion"
 	StrCpy $$JREVer $$R0
-	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$R0" "JavaHome"
+	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$$R0" "JavaHome"
 	IfErrors 0 FoundVM
 
 	ClearErrors
 	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit" "CurrentVersion"
 	StrCpy $$JDKVer $$R0
-	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit\$R0" "JavaHome"
+	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit\$$R0" "JavaHome"
 	IfErrors 0 FoundVM
 
 	ClearErrors
@@ -197,8 +197,8 @@ Function .onInit
 	Sleep 800
 	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
 		'Could not find a Java Runtime Environment installed on your computer. \
-		$\nWithout it you cannot run "$${APPNAME}". \
-		$\n$\nWould you like to visit the Java website to download it?' \
+		$$\nWithout it you cannot run "$${APPNAME}". \
+		$$\n$$\nWould you like to visit the Java website to download it?' \
 		IDNO End
 	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
 	Goto End
@@ -207,8 +207,8 @@ Function .onInit
 	DetailPrint "Java was found"
 	DetailPrint $$JREVer
 	DetailPrint $$JDKVer
-	IntCmp $JREVer $${TargetVer} VMGood VMOld VMOver
-	IntCmp $JDKVer $${TargetVer} VMGood VMOld VMOver
+	IntCmp $$JREVer $${TargetVer} VMGood VMOld VMOver
+	IntCmp $$JDKVer $${TargetVer} VMGood VMOld VMOver
 	Goto Error
 
 	VMOver:
@@ -221,8 +221,8 @@ Function .onInit
 	Sleep 800
 	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
 		'Found Java Runtime Environment installed on your computer. \
-		$\nVersion was not "$${TargetVer}". \
-		$\n$\nWould you like to visit the Java website to download newest?' \
+		$$\nVersion was not "$${TargetVer}". \
+		$$\n$$\nWould you like to visit the Java website to download newest?' \
 		IDNO Error
 	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
 	Goto Error
@@ -236,8 +236,8 @@ Function .onInit
 	Sleep 800
 	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
 		'Found Java Runtime Environment installed on your computer. \
-		$\nVersion was not "$${TargetVer}". \
-		$\n$\nWould you like to visit the Java website to download newest?' \
+		$$\nVersion was not "$${TargetVer}". \
+		$$\n$$\nWould you like to visit the Java website to download newest?' \
 		IDNO Error
 	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
 	Goto Error
@@ -312,17 +312,17 @@ Section "-Local" Section4
 
 	; Create Shortcuts
 	SetOutPath "$$INSTDIR\$${APPDIR}\"
-	CreateDirectory "$SMPROGRAMS\PCGen\$${APPDIR}"
-	CreateShortCut "$DESKTOP\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.bat" "" \
+	CreateDirectory "$$SMPROGRAMS\PCGen\$${APPDIR}"
+	CreateShortCut "$$DESKTOP\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.bat" "" \
 				"$$INSTDIR\$${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}-Low.lnk" "$$INSTDIR\$${APPDIR}\pcgen_low_mem.bat" "" \
+	CreateShortCut "$$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}-Low.lnk" "$$INSTDIR\$${APPDIR}\pcgen_low_mem.bat" "" \
 				"$$INSTDIR\$${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.bat" "" \
+	CreateShortCut "$$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.bat" "" \
 				"$$INSTDIR\$${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGen\$${APPDIR}\Release Notes.lnk" "$$INSTDIR\$${APPDIR}\pcgen-release-notes-$${SIMPVER}.html" "" "$$INSTDIR\$${APPDIR}\Local\knight.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\$${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/01_news.php" "" "$$INSTDIR\$${APPDIR}\Local\queen.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\$${APPDIR}\uninstall-$${APPDIR}.lnk" "$$INSTDIR\uninstall-$${APPDIR}.exe"
-	CreateShortCut "$SMPROGRAMS\PCGen\$${APPDIR}\Manual.lnk" "$$INSTDIR\$${APPDIR}\docs\index.html" "" "$$INSTDIR\$${APPDIR}\Local\castle.ico"
+	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\Release Notes.lnk" "$$INSTDIR\$${APPDIR}\pcgen-release-notes-$${SIMPVER}.html" "" "$$INSTDIR\$${APPDIR}\Local\knight.ico"
+	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/01_news.php" "" "$$INSTDIR\$${APPDIR}\Local\queen.ico"
+	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\uninstall-$${APPDIR}.lnk" "$$INSTDIR\uninstall-$${APPDIR}.exe"
+	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\Manual.lnk" "$$INSTDIR\$${APPDIR}\docs\index.html" "" "$$INSTDIR\$${APPDIR}\Local\castle.ico"
 
 SectionEnd
 
@@ -354,11 +354,11 @@ Section Uninstall
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\$${APPDIR}_alpha"
 
 	; Delete Desktop Shortcut
-	Delete "$DESKTOP\$${APPDIR}.lnk"
+	Delete "$$DESKTOP\$${APPDIR}.lnk"
 	; Delete Shortcut Directory
-	RMDir /r "$SMPROGRAMS\PCGen\$${APPDIR}"
+	RMDir /r "$$SMPROGRAMS\PCGen\$${APPDIR}"
 
-	MessageBox MB_YESNO|MB_ICONEXCLAMATION "Do you wish a full uninstall? $\nThis will remove all versions of pcgen from your computer." IDYES Full IDNO Partial
+	MessageBox MB_YESNO|MB_ICONEXCLAMATION "Do you wish a full uninstall? $$\nThis will remove all versions of pcgen from your computer." IDYES Full IDNO Partial
 
 	Full:
 	MessageBox MB_YESNO "This option could be dangerous, if you have other versions of $${APPNAME}, or if $${APPNAMEANDVERSION} was installed to a directory other than the default.  Do you wish to proceed?" IDYES Proceed IDNO Save
@@ -368,14 +368,14 @@ Section Uninstall
 	; This is a safer mode
 	RMDir /r "$$INSTDIR"
 	; Delete Shortcut Directory
-	RMDir /r "$SMPROGRAMS\PCGen"
+	RMDir /r "$$SMPROGRAMS\PCGen"
 	;Remove registry entry
 	DeleteRegKey HKLM "Software\$${APPNAME}"
 
 	Goto End
 	
 	Partial:
-	MessageBox MB_YESNO "Do you wish to save, your characters, custom sources etc? $\nAnswering no will delete $${APPDIR}." IDYES Save IDNO NoSave
+	MessageBox MB_YESNO "Do you wish to save, your characters, custom sources etc? $$\nAnswering no will delete $${APPDIR}." IDYES Save IDNO NoSave
 
 	Save:
 	CreateDirectory "$$INSTDIR\$${APPDIR}_Save"
@@ -389,7 +389,7 @@ Section Uninstall
 	;Ed- This has not been tested, Please test.
 	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\plugins\Notes\*.*" 				"$$INSTDIR\$${APPDIR}_Save\GMGen\"
 	MessageBox MB_ICONINFORMATION|MB_OK "A shortcut will be created on your desktop to the saved files."
-	CreateShortCut "$DESKTOP\$${APPDIR}_Save.lnk" "$$INSTDIR\$${APPDIR}_Save"
+	CreateShortCut "$$DESKTOP\$${APPDIR}_Save.lnk" "$$INSTDIR\$${APPDIR}_Save"
 
 	NoSave:
 	; Clean up PCGen program directory by deleting folders.
