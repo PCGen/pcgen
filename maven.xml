@@ -105,7 +105,7 @@
 		
 		<!--  Run gendigest.pl to generate the SHA1 checksums for the files.		-->
 		<ant:copy todir="${maven.build.dir}">
-		    <fileset dir="${basedir}\..\release">
+		    <fileset dir="${basedir}\..\..\release">
 		    	<include name="*.zip"/>
 		    	<include name="*.exe"/>
 		    	<include name="*.dmg"/>
