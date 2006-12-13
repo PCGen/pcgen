@@ -1029,7 +1029,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		// Find the previous selected value.
 		int selectedInd = aTable.getSelectedRow();
 
-		if (selectedInd >= 0)
+		if (selectedInd >= 0 && selectedInd < anInputList.size())
 		{
 			selectedValue = anInputList.get(selectedInd);
 		}
