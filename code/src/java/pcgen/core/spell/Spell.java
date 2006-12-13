@@ -1035,11 +1035,38 @@ public final class Spell extends PObject
 	 */
 	public boolean isLevel(final int aLevel, final PlayerCharacter aPC)
 	{
-		final Map<String, Integer> wLevelInfo = getLevelInfo(aPC);
 		final Integer levelKey = Integer.valueOf(aLevel);
-		for (Integer value : wLevelInfo.values())
+		for (PCClass cls : aPC.getClassList())
 		{
-			if (value.equals(levelKey))
+			if (levelKey.equals(levelInfo.get("CLASS|" + cls.getKeyName())))
+			{
+				return true;
+			}
+		}
+		for (CharacterDomain domain : aPC.getCharacterDomainList())
+		{
+			if (levelKey.equals(levelInfo.get("DOMAIN|" + domain.getDomain().getKeyName())))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Assess if this spell is of the requested level for any class.
+	 * @param level The level to be checked.
+	 * @return True if the spell is the requested level.
+	 */
+	public boolean isLevel(final int level)
+	{
+		if (levelInfo == null)
+		{
+			return false;
+		}
+		for (String key : levelInfo.keySet())
+		{
+			if (level == levelInfo.get(key))
 			{
 				return true;
 			}

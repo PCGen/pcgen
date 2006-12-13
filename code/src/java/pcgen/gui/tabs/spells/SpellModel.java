@@ -695,6 +695,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 					PObject aClass = null;
 					int iLev = -1;
 
+					PObjectNode primaryNode = primaryNodes[pindex];
 					switch (primaryMode)
 					{
 						case GuiConstants.INFOSPELLS_VIEW_CLASS:     	// By Class
@@ -735,23 +736,23 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 								continue;
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR:   // By Descriptor
-							primaryMatch = spell.getDescriptorList().contains(primaryNodes[pindex].toString());
+							primaryMatch = spell.getDescriptorList().contains(primaryNode.toString());
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_RANGE:   // By Range
-							primaryMatch = spell.getRange().equals(primaryNodes[pindex].toString());
+							primaryMatch = spell.getRange().equals(primaryNode.toString());
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_DURATION:   // By Duration
-							primaryMatch = spell.getDuration().equals(primaryNodes[pindex].toString());
+							primaryMatch = spell.getDuration().equals(primaryNode.toString());
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_TYPE:   // By Type
-							primaryMatch = spell.isType(primaryNodes[pindex].toString());
+							primaryMatch = spell.isType(primaryNode.toString());
 						break;
 						case GuiConstants.INFOSPELLS_VIEW_SCHOOL:   // By Type
-							primaryMatch = spell.getSchools().contains(primaryNodes[pindex].toString());
+							primaryMatch = spell.getSchools().contains(primaryNode.toString());
 						break;
 					}
 
-					   if (secondaryMode == GuiConstants.INFOSPELLS_VIEW_NOTHING)
+					if (secondaryMode == GuiConstants.INFOSPELLS_VIEW_NOTHING)
 					{
 						if (!firstPass && !primaryMatch)
 							continue;
@@ -769,12 +770,12 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 						{
 							continue;
 						}
-						primaryNodes[pindex].getChildren().toArray(secondaryNodes);
+						primaryNode.getChildren().toArray(secondaryNodes);
 					}
 
 					for (int sindex = 0 ; sindex < secondaryNodes.length; sindex++)
 					{
-						mapKey = bookName+"."+primaryNodes[pindex].toString()+"."+secondaryNodes[sindex].toString(); //$NON-NLS-1$ //$NON-NLS-2$
+						mapKey = bookName+"."+primaryNode.toString()+"."+secondaryNodes[sindex].toString(); //$NON-NLS-1$ //$NON-NLS-2$
 						switch (secondaryMode)
 						{
 							case GuiConstants.INFOSPELLS_VIEW_CLASS:     	// By Class
@@ -783,18 +784,31 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_LEVEL:     	// By Level
 								iLev = sindex;
-								spellMatch = primaryMatch;
+								spellMatch = false;
 								si = null;
-								if (spellMatch && cs != null)
+								if (primaryMatch)
 								{
-									si = cs.getSpellInfoFor(bookName, iLev, -1);
-								}
-								if (si == null && primaryMatch)
-								{
-									spellMatch = spell.levelForKeyContains(aClass.getSpellKey(), iLev, pc);
+									if (cs != null)
+									{
+										si = cs.getSpellInfoFor(bookName, iLev, -1);
+										spellMatch = si != null;
+									}
+									if (si == null)
+									{
+										if (aClass != null)
+										{
+											spellMatch = spell.levelForKeyContains(aClass.getSpellKey(), iLev, pc);
+										}
+										else
+										{
+											spellMatch = spell.isLevel(iLev, pc);
+										}
+									}
 								}
 								if (!knownSpellsOnly && si != null && si.getFeatList()!=null)
+								{
 									continue;
+								}
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_DESCRIPTOR:   // By Descriptor
 								spellMatch = primaryMatch && spell.getDescriptorList().contains(secondaryNodes[sindex].toString());
@@ -803,7 +817,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 								spellMatch = primaryMatch && spell.getRange().equals(secondaryNodes[sindex].toString());
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_DURATION:   // By Duration
-								spellMatch = primaryMatch && spell.getRange().equals(secondaryNodes[sindex].toString());
+								spellMatch = primaryMatch && spell.getDuration().equals(secondaryNodes[sindex].toString());
 							break;
 							case GuiConstants.INFOSPELLS_VIEW_TYPE:   // By Type
 								spellMatch = primaryMatch && spell.isType(secondaryNodes[sindex].toString());
@@ -817,7 +831,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 						}
 						if (firstPass && secondaryMode != GuiConstants.INFOSPELLS_VIEW_NOTHING)
 						{
-							secondaryNodes[sindex].setParent(primaryNodes[pindex]);
+							secondaryNodes[sindex].setParent(primaryNode);
 							if (!knownSpellsOnly && aClass != null && iLev > -1 && (aClass instanceof PCClass))
 							{
 								addDomainSpellsForClass(Globals.getClassKeyed(((PCClass)aClass).getCastAs()), secondaryNodes[sindex], iLev);
@@ -858,7 +872,7 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 							cs = new CharacterSpell(bClass, spell);
 							si = cs.addInfo(iLev, 1, bookName);
 						}
-						// didn't find a match, so continue
+						// didn't find a match, so try the next node
 						if (!spellMatch || si == null)
 						{
 							continue;
@@ -866,30 +880,22 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 
 						// Everything looks ok
 						// so add this spell
-						PObjectNode spellNode = new PObjectNode();
-						spellNode.setItem(si);
 						PObjectNode thisNode = secondaryNodes[sindex];
 						if (secondaryMode == GuiConstants.INFOSPELLS_VIEW_NOTHING)
-							thisNode = primaryNodes[pindex];
-						spellNode.setParent(thisNode);
-						thisNode.addChild(spellNode);
-						List<SpellInfo> aList = usedMap.get(mapKey);
-						if (aList == null) 
 						{
-							aList = new ArrayList<SpellInfo>();
+							thisNode = primaryNode;
 						}
-						aList.add(si);
-						usedMap.put(mapKey, aList);
+						addSpellToNode(si, thisNode, usedMap, mapKey);
 					}
 					if (secondaryMode != GuiConstants.INFOSPELLS_VIEW_NOTHING)
-						primaryNodes[pindex].setChildren(secondaryNodes);
+						primaryNode.setChildren(secondaryNodes);
 					if (!knownSpellsOnly)
 					{
-						primaryNodes[pindex].setParent(theRoot);
+						primaryNode.setParent(theRoot);
 					}
 					else
 					{
-						primaryNodes[pindex].setParent(bookNodes[ix]);
+						primaryNode.setParent(bookNodes[ix]);
 					}
 				} // end primaryNodes
 				if (knownSpellsOnly)
@@ -921,6 +927,33 @@ public final class SpellModel extends AbstractTreeTableModel implements TableCol
 			node.setParent(rootAsPObjectNode);
 			rootAsPObjectNode.addChild(node);
 		}
+	}
+
+
+	/**
+	 * Add the spell to the node and to the map of spell assignments.
+	 *  
+	 * @param si The spell to be added.
+	 * @param parentNode The node to add the spell to.
+	 * @param usedMap The map of spell assignments
+	 * @param mapKey The key of the node the spell is being added to.
+	 */
+	private void addSpellToNode(SpellInfo si, PObjectNode parentNode, HashMap<String, List<SpellInfo>> usedMap, String mapKey)
+	{
+		// Add the spell to the node
+		PObjectNode spellNode = new PObjectNode();
+		spellNode.setItem(si);
+		spellNode.setParent(parentNode);
+		parentNode.addChild(spellNode);
+		
+		// Add it to the map of spells
+		List<SpellInfo> aList = usedMap.get(mapKey);
+		if (aList == null) 
+		{
+			aList = new ArrayList<SpellInfo>();
+			usedMap.put(mapKey, aList);
+		}
+		aList.add(si);
 	}
 
 

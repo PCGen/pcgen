@@ -6179,7 +6179,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	public String getSpellRange(final Spell aSpell, final PObject owner, final SpellInfo si)
 	{
 		String aRange = aSpell.getRange();
-		final String aSpellClass = "CLASS:" + owner.getKeyName();
+		final String aSpellClass = "CLASS:" + (owner != null ? owner.getKeyName() : "");
 		int rangeInFeet = 0;
 		String aString = Globals.getGameModeSpellRangeFormula(aRange.toUpperCase());
 
@@ -15387,6 +15387,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			setFeats(arg);
 			return;
 		}
+		
+		//TODO: What about other types of ability pools?
 	}
 	
 	public void setUserPoolBonus( final AbilityCategory aCategory, final BigDecimal anAmount )
