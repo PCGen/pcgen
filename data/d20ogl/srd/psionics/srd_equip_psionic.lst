@@ -1,34 +1,34 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Dec 12 20:26:52 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-# Equipment Name			Type						Cost		Slot Needed	Choose					Source Page					Bonus to skill			Special Property
-Amulet of Catapsi			TYPE:Psionic.Universal.Amulet		COST:12000									SOURCEPAGE:srdpsionicitems.rtf
-Amulet of Psychic Bastion	TYPE:Psionic.Universal.Amulet		COST:2000									SOURCEPAGE:srdpsionicitems.rtf
-Boots (Skating)			TYPE:Psionic.Universal.Boot		COST:2000	SLOTS:2							SOURCEPAGE:srdpsionicitems.rtf
-Boots (Stomping)			TYPE:Psionic.Universal.Boot		COST:1200	SLOTS:2							SOURCEPAGE:srdpsionicitems.rtf
-Brain Lock Pearl			TYPE:Psionic.Universal			COST:1000									SOURCEPAGE:srdpsionicitems.rtf
-Crystal Mask (Detection)	TYPE:Psionic.Universal.Mask		COST:12000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make search checks for traps like a rogue
-Crystal Mask (Fear)		TYPE:Psionic.Universal.Mask		COST:56000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make gaze attack (Will DC 16) to Panick a target
-Crystal Mask (Knowledge)	TYPE:Psionic.Universal.Mask		COST:500			CHOOSE:SKILLSNAMED|Knowledge %|1	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
-Crystal Mask (Language)		TYPE:Psionic.Universal.Mask		COST:500									SOURCEPAGE:srdpsionicitems.rtf
-Crystal Mask (Mindarmour)	TYPE:Psionic.Universal.Mask		COST:4000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:+4 on all saves vs. Compulsions
-Eyes of Powerleech		TYPE:Psionic.Universal.Eyegear	COST:7200									SOURCEPAGE:srdpsionicitems.rtf
-Eyes of Vampiric Powerleech	TYPE:Psionic.Universal.Eyegear	COST:61000									SOURCEPAGE:srdpsionicitems.rtf
-Gloves of Object Reading	TYPE:Psionic.Universal.Glove		COST:2000	SLOTS:2							SOURCEPAGE:srdpsionicitems.rtf
-Ioun Stone (Rainbow)		TYPE:Psionic.Universal			COST:16000									SOURCEPAGE:srdpsionicitems.rtf
-Mirror of Suggestion		TYPE:Psionic.Universal			COST:12000									SOURCEPAGE:srdpsionicitems.rtf
-Powerleech Pearl			TYPE:Psionic.Universal			COST:1000									SOURCEPAGE:srdpsionicitems.rtf
-Reverse Capacitor			TYPE:Psionic.Universal			COST:182000									SOURCEPAGE:srdpsionicitems.rtf
-Ring (Self-Sufficiency)		TYPE:Psionic.Universal.Ring		COST:2000									SOURCEPAGE:srdpsionicitems.rtf
-Ring (Stabilization)		TYPE:Psionic.Universal.Ring		COST:2000									SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Stabilize Self|10
-Psionatrix				TYPE:Psionic.Universal			COST:2000									SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Average)	TYPE:Psionic.Universal			COST:6000									SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Damping)	TYPE:Psionic.Universal			COST:24000									SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Greater)	TYPE:Psionic.Universal			COST:12000									SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Lesser)	TYPE:Psionic.Universal			COST:1000									SOURCEPAGE:srdpsionicitems.rtf
-Torc of Free Will			TYPE:Psionic.Universal.Torc		COST:12000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Not affected by Brain Lock or Brain Lock-like effects
-Torc of Power			TYPE:Psionic.Universal.Torc		COST:12000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Protected from Powerleech effects
-Torc of Psionic Might		TYPE:Psionic.Universal.Torc		COST:10000									SOURCEPAGE:srdpsionicitems.rtf						SPROP:Wearer spends one less PP on powers manifested (min cost 1)
+# Equipment Name			Type						Cost		Slot Needed	Choose					Modifier	Source Page					Bonus to skill			Special Property
+Amulet of Catapsi			TYPE:Psionic.Universal.Amulet		COST:12000											SOURCEPAGE:srdpsionicitems.rtf
+Amulet of Psychic Bastion	TYPE:Psionic.Universal.Amulet		COST:2000											SOURCEPAGE:srdpsionicitems.rtf
+Boots (Skating)			TYPE:Psionic.Universal.Boot		COST:2000	SLOTS:2									SOURCEPAGE:srdpsionicitems.rtf
+Boots (Stomping)			TYPE:Psionic.Universal.Boot		COST:1200	SLOTS:2									SOURCEPAGE:srdpsionicitems.rtf
+Brain Lock Pearl			TYPE:Psionic.Universal			COST:1000											SOURCEPAGE:srdpsionicitems.rtf
+Crystal Mask (Detection)	TYPE:Psionic.Universal.Mask		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make search checks for traps like a rogue
+Crystal Mask (Fear)		TYPE:Psionic.Universal.Mask		COST:56000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make gaze attack (Will DC 16) to Panick a target
+Crystal Mask (Knowledge)	TYPE:Psionic.Universal.Mask		COST:500			CHOOSE:SKILLSNAMED|Knowledge %|1			SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
+Crystal Mask (Language)		TYPE:Psionic.Universal.Mask		COST:500											SOURCEPAGE:srdpsionicitems.rtf
+Crystal Mask (Mindarmour)	TYPE:Psionic.Universal.Mask		COST:4000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:+4 on all saves vs. Compulsions
+Eyes of Powerleech		TYPE:Psionic.Universal.Eyegear	COST:7200											SOURCEPAGE:srdpsionicitems.rtf
+Eyes of Vampiric Powerleech	TYPE:Psionic.Universal.Eyegear	COST:61000											SOURCEPAGE:srdpsionicitems.rtf
+Gloves of Object Reading	TYPE:Psionic.Universal.Glove		COST:2000	SLOTS:2									SOURCEPAGE:srdpsionicitems.rtf
+Ioun Stone (Rainbow)		TYPE:Psionic.Universal			COST:16000									EQMOD:STONE	SOURCEPAGE:srdpsionicitems.rtf
+Mirror of Suggestion		TYPE:Psionic.Universal			COST:12000									EQMOD:GLASS	SOURCEPAGE:srdpsionicitems.rtf
+Powerleech Pearl			TYPE:Psionic.Universal			COST:1000											SOURCEPAGE:srdpsionicitems.rtf
+Reverse Capacitor			TYPE:Psionic.Universal			COST:182000											SOURCEPAGE:srdpsionicitems.rtf
+Ring (Self-Sufficiency)		TYPE:Psionic.Universal.Ring		COST:2000											SOURCEPAGE:srdpsionicitems.rtf
+Ring (Stabilization)		TYPE:Psionic.Universal.Ring		COST:2000											SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Stabilize Self|10
+Psionatrix				TYPE:Psionic.Universal			COST:2000											SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Average)	TYPE:Psionic.Universal			COST:6000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Damping)	TYPE:Psionic.Universal			COST:24000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Greater)	TYPE:Psionic.Universal			COST:12000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Lesser)	TYPE:Psionic.Universal			COST:1000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Torc of Free Will			TYPE:Psionic.Universal.Torc		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Not affected by Brain Lock or Brain Lock-like effects
+Torc of Power			TYPE:Psionic.Universal.Torc		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Protected from Powerleech effects
+Torc of Psionic Might		TYPE:Psionic.Universal.Torc		COST:10000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Wearer spends one less PP on powers manifested (min cost 1)
 
 ###Block: Crystal Capacitors
 # Equipment Name			Type				Cost		Source Page

@@ -1,18 +1,37 @@
-# CVS $Revision$ $Author$ -- Tue Aug 22 01:29:44 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Wed Dec 13 01:26:42 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Still need to take the separate entry weapons for Spiked Armor/Shield
 
-# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Choose Naming Option	Source Page				Required Type			Prohibited Type						BONUS:EQM					BONUS:EQMARMOR					Modify the item cost									Bonus to skill					Weapon prop. bonus				Apply to both heads	FORMATCAT
-Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood														BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300								BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES		FORMATCAT:FRONT
-Masterwork		KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood							BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																											ASSIGNTOALL:YES		FORMATCAT:FRONT
-Masterwork		KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																										BONUS:SKILL|Perform|2|TYPE=Circumstance								ASSIGNTOALL:YES		FORMATCAT:FRONT
-Masterwork		KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQM|WEIGHTADD|1|PRETYPE:Thief								BONUS:ITEMCOST|TYPE=Thief|20																						ASSIGNTOALL:YES		FORMATCAT:FRONT
+# Modifier Name	Naming Format	Naming Option	Unique Key	Type				Cost		Visible		Type granted	Source Page				Required Type			Prohibited Type						BONUS:EQM					BONUS:EQMARMOR					Modify the item cost									Bonus to skill					Weapon prop. bonus				Apply to both heads
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood														BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300								BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood							BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																											ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																										BONUS:SKILL|Perform|2|TYPE=Circumstance								ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQM|WEIGHTADD|1|PRETYPE:Thief								BONUS:ITEMCOST|TYPE=Thief|20																						ASSIGNTOALL:YES
 
 ###Block: Base Materials
 
-# Modifier Name	Unique Key	Type														Cost		Visible		Type granted	Choose Naming Option	Source Page				Prohibited Type						Apply to both heads
-Wood			KEY:WOOD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal	ASSIGNTOALL:YES
-Steel			KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
+# Modifier Name	Naming Option	Unique Key	Type														Cost		Visible		Type granted	Source Page								Prohibited Type							Apply to both heads
+Wood			NAMEOPT:NORMAL	KEY:WOOD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	SOURCEPAGE:RSRD Equipment.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal		ASSIGNTOALL:YES
+Steel			NAMEOPT:NORMAL	KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Clay			NAMEOPT:NORMAL	KEY:CLAY	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDEquipmentII.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Cloth			NAMEOPT:NORMAL	KEY:CLOTH	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDEquipment.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Glass			NAMEOPT:NORMAL	KEY:GLASS	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Hemp			NAMEOPT:NORMAL	KEY:HEMP	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Ice			NAMEOPT:NORMAL	KEY:ICE	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Iron			NAMEOPT:NORMAL	KEY:IRON	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Leather		NAMEOPT:NORMAL	KEY:LEATHER	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDEquipment.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Paper			NAMEOPT:NORMAL	KEY:PAPER	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Silk			NAMEOPT:NORMAL	KEY:SILK	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Silver		NAMEOPT:NORMAL	KEY:SILVER	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:SRDEquipmentII.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Stone			NAMEOPT:NORMAL	KEY:STONE	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Wax			NAMEOPT:NORMAL	KEY:WAX	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDBreakingItemsandAttackingObjects.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+#The following are not explicitely mentioned in the SRD but are derived from existing equipment like a ring or a gong
+Gold			NAMEOPT:NORMAL	KEY:GOLD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:SRDEquipmentII.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Bronze		NAMEOPT:NORMAL	KEY:BRONZE	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:SRDEquipmentII.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Brass			NAMEOPT:NORMAL	KEY:BRASS	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:SRDEquipmentII.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+Bone			NAMEOPT:NORMAL	KEY:BONE	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:SRDEquipmentII.rtf					!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:1,Wooden,Metal
+#I didn't include mention of hp and hardness since I wouldn't want to see that printed as property for every normal equipmment,
+#leaving that until we have equipment variables -- Frank
 
 ###Block: Armor Accesories
 
@@ -24,9 +43,9 @@ Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITY
 Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
 
 ###Block Spell Component stuff
-# Modifier Name				Unique Key		Type				Cost		Visible		Choose Naming Option	Source Page					Required Type			Modify the item cost					Choose
-Spell Material Component Value	KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	NAMEOPT:NOTHING		SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
-Spell Focus Value				KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	NAMEOPT:NOTHING		SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000
+# Modifier Name				Naming Option	Unique Key		Type				Cost		Visible		Source Page					Required Type			Modify the item cost					Choose
+Spell Material Component Value	NAMEOPT:NOTHING	KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
+Spell Focus Value				NAMEOPT:NOTHING	KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:srdmagicoverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000
 
 # Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0												NAMEOPT:NONAME		SOURCEPAGE:p.																																																																		CHOOSE:Select desired TYPE(s)|TYPE=ALL
 

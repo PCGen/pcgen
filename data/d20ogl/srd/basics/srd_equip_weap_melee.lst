@@ -37,7 +37,7 @@ Hammer (Light)		OUTPUTNAME:Hammer, Light	PROFICIENCY:Hammer (Light)		TYPE:Weapon
 Handaxe								PROFICIENCY:Handaxe			TYPE:Weapon.Martial.Melee.Standard.Slashing.Axe											COST:6	WT:5									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 Lance (Light)		OUTPUTNAME:Lance, Light		PROFICIENCY:Lance				TYPE:Weapon.Martial.Melee.Standard.Piercing.Lance										COST:6	WT:5									CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 Pick (Light)		OUTPUTNAME:Pick, Light		PROFICIENCY:Pick				TYPE:Weapon.Martial.Melee.Standard.Piercing.Pick										COST:4	WT:4									CRITMULT:x4			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
-Sap									PROFICIENCY:Sap				TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Subdual									COST:1	WT:3									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6																	SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
+Sap									PROFICIENCY:Sap				TYPE:Weapon.Martial.Melee.Standard.Bludgeoning.Subdual									COST:1	WT:3									CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:LEATHER										SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 Sword (Short)		OUTPUTNAME:Sword, Short		PROFICIENCY:Sword (Short)		TYPE:Weapon.Martial.Melee.Standard.Piercing.Sword										COST:10	WT:3									CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL											SIZE:S	SOURCEPAGE:SRDEquipmentI.rtf
 
 

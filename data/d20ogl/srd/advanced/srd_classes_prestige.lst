@@ -4,7 +4,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat											Required Race		Req. Spell Type
-CLASS:Arcane Archer	PREATT:6	PREFEAT:1,Weapon Focus(TYPE=Bow)	PREFEAT:2,Point Blank Shot,Precise Shot	PRERACE:Half-Elf,Elf%	PRESPELLTYPE:Arcane,1,1
+CLASS:Arcane Archer	PREATT:6	PREFEAT:1,Weapon Focus(TYPE=Bow)	PREFEAT:2,Point Blank Shot,Precise Shot	PRERACE:1,Half-Elf,Elf%	PRESPELLTYPE:Arcane,1,1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Intuit Direction|Listen|Move Silently|Ride|Spot|Use Rope|Wilderness Lore
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
