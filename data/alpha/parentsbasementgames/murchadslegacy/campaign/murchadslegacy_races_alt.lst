@@ -8,7 +8,7 @@ Dwarf.MOD				LANGAUTO:Galkarnic	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisi
 Elf.MOD				LANGAUTO:Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
 Gnome.MOD				LANGAUTO:Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
 Half-Elf.MOD			LANGAUTO:Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Half-orc.MOD			LANGAUTO:Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
+Half-Orc.MOD			LANGAUTO:Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
 Halfling.MOD			LANGAUTO:Homish		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
 
 Elf (Aquatic).MOD			LANGAUTO:Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
