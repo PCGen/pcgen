@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct  4 09:01:27 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Dec 14 03:56:08 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 
@@ -75,7 +75,7 @@ Profession (Hunter)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession			
 Profession (Miner)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession																																																	SOURCEPAGE:MonstersK-L.rtf
 Profession (Siege Engineer)			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession																																																	SOURCEPAGE:WildernessandEnvironment.rtf
 Ride							KEYSTAT:DEX								TYPE:Dexterity						BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK	BONUS:SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE.Saddle|PREAPPLY:ANYPC																			SOURCEPAGE:SkillsII.rtf																																																																																						TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
-Search						KEYSTAT:INT								TYPE:Intelligence						BONUS:SKILL|Search|SynergyBonus|PRESKILL:1,Knowledge (Architecture and Engineering)=5|TYPE=Synergy.STACK																											SOURCEPAGE:SkillsII.rtf
+Search						KEYSTAT:INT								TYPE:Intelligence						BONUS:SKILL|Search (Secret doors and hidden compartments)|SKILL.Search.MISC																																SOURCEPAGE:SkillsII.rtf
 Sense Motive					KEYSTAT:WIS								TYPE:Wisdom																																																			SOURCEPAGE:SkillsII.rtf
 Sleight of Hand					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						BONUS:SKILL|Sleight of Hand|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK																															SOURCEPAGE:SkillsII.rtf
 Speak Language							USEUNTRAINED:NO					TYPE:None.Language																																																	SOURCEPAGE:SkillsII.rtf				CHOOSE:Language(Spoken)
@@ -94,6 +94,7 @@ Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:NO					CLASSES:ALL	T
 Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Charisma		VISIBLE:EXPORT	BONUS:SKILL|Disguise (Act in character)|SynergyBonus|TYPE=Synergy.STACK																						SOURCEPAGE:SkillsI.rtf
 #|PRESKILL:1,Bluff=5
 Escape Artist (Escape from rope bonds)		KEYSTAT:DEX	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Dexterity		VISIBLE:EXPORT	BONUS:SKILL|Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5																SOURCEPAGE:SkillsI.rtf
+Search (Secret doors and hidden compartments)	KEYSTAT:INT								CLASSES:ALL	TYPE:SkillUse.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Search (Secret doors and hidden compartments)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Architecture and Engineering)=5|TYPE=Synergy.STACK						SOURCEPAGE:SkillsII.rtf
 Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Intelligence	VISIBLE:EXPORT	BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5															SOURCEPAGE:SkillsII.rtf
 Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (Underground)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5																SOURCEPAGE:SkillsII.rtf
 Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:NO					CLASSES:ALL	TYPE:SkillUse.Wisdom		VISIBLE:EXPORT	BONUS:SKILL|Survival (The Planes)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5																	SOURCEPAGE:SkillsII.rtf
