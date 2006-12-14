@@ -1,24 +1,24 @@
-# CVS $Revision$ $Author$ -- Tue Aug 22 00:55:37 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Dec 14 00:44:06 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Masterwork
 
-# Modifier Name	Unique Key	Type				Cost		Visible		Type granted	Choose Naming Option	Source Page				Required Type			Prohibited Type						BONUS:EQMARMOR					Modify the item cost									Weapon prop. bonus				Apply to both heads	FORMATCAT
-Masterwork		KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES		FORMATCAT:FRONT
-Masterwork		KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																				ASSIGNTOALL:YES		FORMATCAT:FRONT
-Masterwork		KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																											ASSIGNTOALL:YES		FORMATCAT:FRONT
-Masterwork		KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Thief|20															ASSIGNTOALL:YES		FORMATCAT:FRONT
+# Modifier Name	Naming Format	Naming Option	Unique Key	Type							Cost		Visible		Type granted	Source Page				Required Type			Prohibited Type						BONUS:EQMARMOR					Modify the item cost									Weapon prop. bonus				Apply to both heads
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKW	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300	BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKA	TYPE:MasterworkQuality.Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																				ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKI	TYPE:MasterworkQuality.Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																											ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKT	TYPE:MasterworkQuality.Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood								BONUS:ITEMCOST|TYPE=Thief|20															ASSIGNTOALL:YES
 
 ###Block: Base Materials
 
-# Modifier Name	Unique Key	Type														Cost		Visible		Type granted	Choose Naming Option	Source Page				Prohibited Type						Apply to both heads
-Wood			KEY:WOOD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal	ASSIGNTOALL:YES
-Steel			KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
+# Modifier Name	Naming Option	Unique Key	Type														Cost		Visible		Type granted	Source Page				Prohibited Type						Apply to both heads
+Wood			NAMEOPT:NORMAL	KEY:WOOD	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Metal	ASSIGNTOALL:YES
+Steel			NAMEOPT:NORMAL	KEY:STEEL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:RSRD Equipment.rtf	!PRETYPE:EQMODTYPE=Mundane	!PRETYPE:Wooden
 
 ###Block: Strength Bow
 
-# Modifier Name	Unique Key	Type				Cost		Visible		Choose Naming Option	Source Page				Required Type	Modify the item cost																	Weapon prop. bonus												Special Property			Choose				Apply to both heads
-Bow_STR		KEY:BOWSTR	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage	CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
+# Modifier Name	Naming Option	Unique Key	Type				Cost		Visible		Source Page				Required Type	Modify the item cost																	Weapon prop. bonus												Special Property			Choose				Apply to both heads
+Bow_STR		NAMEOPT:NONAME	KEY:BOWSTR	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage	CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
 
 #Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage			CHOOSE:STR mod|MIN=-5|MAX=100	ASSIGNTOALL:YES
 #Bow_STR		KEY:BOWSTR		TYPE:Bow.Composite	COST:0MAX(100*%CHOICE)	VISIBLE:QUALIFY		NAMEOPT:NONAME		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Composite		BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|((%CHOICE)MIN(STR))	SPROP:STR bonus to damage of %|%CHOICE	CHOOSE:STR mod|MIN=-5|MAX=20	ASSIGNTOALL:YES
@@ -43,6 +43,6 @@ Thrown Ammunition	KEY:THROWN_AMMO	COST:0	VISIBLE:NO	BONUS:ITEMCOST|TYPE.Masterwo
 # Add Type		KEY:ADD_TYPE	TYPE:ALL			COST:0														NAMEOPT:NONAME		SOURCEPAGE:p.																																																																												CHOOSE:Select desired TYPE(s)|TYPE=ALL
 
 ###Block Spell Component stuff
-# Modifier Name				Unique Key		Type				Cost		Visible		Choose Naming Option	Source Page				Required Type			Modify the item cost					Choose
-Spell Material Component Value	KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	NAMEOPT:NOTHING		SOURCEPAGE:MagicOverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
-Spell Focus Value				KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	NAMEOPT:NOTHING		SOURCEPAGE:MagicOverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000
+# Modifier Name				Naming Option	Unique Key		Type				Cost		Visible		Source Page				Required Type			Modify the item cost					Choose
+Spell Material Component Value	NAMEOPT:NOTHING	KEY:SPELLMATERIAL	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:Material Component Value|MIN=0|MAX=50000
+Spell Focus Value				NAMEOPT:NOTHING	KEY:SPELLFOCUS	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:Spell Focus Value|MIN=0|MAX=10000

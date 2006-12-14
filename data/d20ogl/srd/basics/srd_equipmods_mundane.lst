@@ -2,11 +2,11 @@
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Still need to take the separate entry weapons for Spiked Armor/Shield
 
-# Modifier Name	Naming Format	Naming Option	Unique Key	Type				Cost		Visible		Type granted	Source Page				Required Type			Prohibited Type						BONUS:EQM					BONUS:EQMARMOR					Modify the item cost									Bonus to skill					Weapon prop. bonus				Apply to both heads
-Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKW	TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood														BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300								BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
-Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKA	TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood							BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																											ASSIGNTOALL:YES
-Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKI	TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																										BONUS:SKILL|Perform|2|TYPE=Circumstance								ASSIGNTOALL:YES
-Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKT	TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQM|WEIGHTADD|1|PRETYPE:Thief								BONUS:ITEMCOST|TYPE=Thief|20																						ASSIGNTOALL:YES
+# Modifier Name	Naming Format	Naming Option	Unique Key	Type							Cost		Visible		Type granted	Source Page				Required Type			Prohibited Type						BONUS:EQM					BONUS:EQMARMOR					Modify the item cost									Bonus to skill					Weapon prop. bonus				Apply to both heads
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKW	TYPE:MasterworkQuality.Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood														BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300								BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKA	TYPE:MasterworkQuality.Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood							BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																											ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKI	TYPE:MasterworkQuality.Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																										BONUS:SKILL|Perform|2|TYPE=Circumstance								ASSIGNTOALL:YES
+Masterwork		FORMATCAT:FRONT	NAMEOPT:NORMAL	KEY:MWORKT	TYPE:MasterworkQuality.Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork	SOURCEPAGE:SRDEquipmentI.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood	BONUS:EQM|WEIGHTADD|1|PRETYPE:Thief								BONUS:ITEMCOST|TYPE=Thief|20																						ASSIGNTOALL:YES
 
 ###Block: Base Materials
 
