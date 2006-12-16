@@ -75,7 +75,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 		 * with bonuses of other types.
 		 */
 		REPLACE 
-	};
+	}
 	private StackType theStackingFlag = StackType.NORMAL;
 
 	/** %LIST - Replace one value selected into this spot */

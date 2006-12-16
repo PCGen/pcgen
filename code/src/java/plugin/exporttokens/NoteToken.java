@@ -28,7 +28,6 @@ package plugin.exporttokens;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.FileAccess;
 import pcgen.io.exporttoken.Token;
 
 import java.util.ArrayList;

@@ -1,6 +1,5 @@
 package plugin.lsttokens.pcclass;
 
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import pcgen.core.Constants;

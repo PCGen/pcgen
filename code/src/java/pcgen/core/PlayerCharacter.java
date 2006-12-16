@@ -11527,7 +11527,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					}
 				}
 
-					  ;
+					  
 				Ability anAbility = AbilityUtilities.getAbilityFromList(aFeatList, "FEAT", featKey, Ability.Nature.ANY);
 
 				if (anAbility != null)
@@ -14030,7 +14030,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		aClone.languages.addAll(languages);
 		if (theWeaponProfs != null)
 		{
-			aClone.theWeaponProfs = new TreeSet<WeaponProf>();;
+			aClone.theWeaponProfs = new TreeSet<WeaponProf>();
 			aClone.theWeaponProfs.addAll(theWeaponProfs);
 		}
 		aClone.autoKnownSpells = autoKnownSpells;

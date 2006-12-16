@@ -25,7 +25,6 @@
  */
 package pcgen.gui;
 
-import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;

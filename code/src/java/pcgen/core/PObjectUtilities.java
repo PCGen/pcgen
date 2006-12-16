@@ -26,29 +26,6 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.chooser.ChooserUtilities;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.spell.Spell;
-import pcgen.core.utils.ListKey;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.io.PCGIOHandler;
-import pcgen.util.InputFactory;
-import pcgen.util.InputInterface;
-import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
-
 /**
  * Modify an Ability object for a given PC (or remove an Ability
  * Object from a given PC)

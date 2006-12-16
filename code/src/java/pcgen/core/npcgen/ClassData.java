@@ -28,7 +28,6 @@ import java.util.Map;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Categorisable;
 import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -36,11 +35,9 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
-import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
 import pcgen.util.WeightedList;
-import pcgen.util.enumeration.Visibility;
 
 /**
  * Stores information about how to randomly generate selections for a class.

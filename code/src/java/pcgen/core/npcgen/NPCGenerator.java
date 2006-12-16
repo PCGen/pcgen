@@ -52,7 +52,6 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.GameModeRollMethod;
 import pcgen.gui.NameElement;
-import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.WeightedList;
 import pcgen.util.chooser.ChooserFactory;

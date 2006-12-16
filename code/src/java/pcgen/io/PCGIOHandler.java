@@ -399,7 +399,7 @@ public final class PCGIOHandler extends IOHandler
 			}
 		}
 
-		;
+		
 
 		for (Ability aFeat : aPC.getRealFeatList())
 		{

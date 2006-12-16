@@ -24,8 +24,6 @@ package pcgen.core;
 
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
-import pcgen.core.prereq.PrereqHandler;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

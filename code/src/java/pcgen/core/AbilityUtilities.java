@@ -25,16 +25,11 @@ package pcgen.core;
 
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.ListKey;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
