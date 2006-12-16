@@ -117,10 +117,12 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Save Bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to indicated saving throw.</p>
+		<p class="indent2">it takes %LIST as a substitution now.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
 		<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
-
+		<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will  <TAB>  BONUS:CHECKS|%LIST|1</p>
+		<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will, of which the selection is put into BONUS:CHECKS|%LIST|1<br /></p>
 
 		<p></p><a name="CHECKSBASE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:CHECKS|BASE.x,BASE.x|y</p>

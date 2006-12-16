@@ -89,6 +89,11 @@
 		<p class="indent3">Parenthesis () nesting - the result of three multiplied
 		by Total Level divided by two, plus Class Level + 1 is divided by four.<br /></p>
 
+		<p class="indent2"><code>CL%3</code><br /></p>
+		<p class="indent2">The % performs a modulus... or is the remainder operator.</p>
+		<p class="indent3"><code>would determine the remainder after performing an integer divide on the Class Level by three. If the class level was
+		7, the remainder is 1 ( 7 / 3 = 2 remainder 1  ... or alternately 2 * 3 + 1 = 7)</code><br /></p>
+
 		<hr><a name="MinMax"></a>
 		<p class="indent1"><strong>Minimums and maximums<br></strong></p><br />
 
@@ -282,9 +287,9 @@
 		<hr><a name="count"></a>
 		<p class="indent1"><strong>Count Information</strong></p><br>
 		<p class="indent2"><code>count("parameter 1", "parameter 2", ...)</code></p><br />
-		<p class="indent3">This function returns the number of objects of the requested type. It is commonly 
+		<p class="indent3">This function returns the number of objects of the requested type. It is commonly
 		used in output sheet FOR loops as the maximum value.</p><br />
-		<p class="indent3">parameter 1 is required. It is the type of object to be counted. Different types of objects will require different 
+		<p class="indent3">parameter 1 is required. It is the type of object to be counted. Different types of objects will require different
 							numbers of following parameters</p><br />
 
 		<p class="indent2"><code>count("ABILITIES", "&lt;param=value&gt;")</code></p>
@@ -292,6 +297,35 @@
 		<p class="indent3">Examples:</p>
 		<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE")</code> List all visible feat abilities.</p>
 		<br />
+
+		<p class="new">*** New 5.11.X</p>
+		<hr><a name="SymbolsOpers"></a>
+		<hr><p class="indent1"><strong>Symbols Operators</strong></font></p>
+		<p class="indent2">The following symbol operators are explained below.<br></p>
+
+		<p class="indent1"><code>%LIST</code></p>
+		<p class="indent2"><strong>What it does:</strong></p>
+		<p class="indent2">The %LIST will put the input from a CHOOSE tag into its place.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL</code></p>
+		<p class="indent2"><code>BONUS:CHECKS|%LIST|1</code></p>
+		<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
+
+		<p class="indent1"><code>(!)</code></p>
+		<p class="indent2"><strong>What it does:</strong></p>
+		<p class="indent2">The NOT operator.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
+		<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
+
+		<p class="indent1"><code>(%)</code></p>
+		<p class="indent2"><strong>What it does:</strong></p>
+		<p class="indent2">The Substitution Operator, used in the SA: tag.</p>
+		<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire</code></p>
+		<p class="indent2"><code>SA:Resistance to % 5|LIST</code></p>
+		<p class="indent3"><code>CHOOSE:Acid|Cold|Electricity|Fire, of which the selection is put into SA:Resistance to % 5|LIST</code></p>
 
 
 		<hr><a name="DeprecatedOper"></a>
