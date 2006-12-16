@@ -1680,9 +1680,9 @@ function Compact()
 	document.getElementById('WeaponsExtra').style.display = 'none';
 	document.getElementById('SpellsSemicompact').style.display = 'none';
 };
-// ********************************************
+// *************************************************
 // This puts a '+' in front of a number if necessary
-// ********************************************
+// *************************************************
 function modPlusMinus( what )
 {
    if ( what < 0 )
@@ -1835,21 +1835,25 @@ function Weapon( wNum, wName, wCategory, wAttackBonus, wDam, wHands, wRange, wCr
 	this.meleeVectors = new Array();
 	this.addRangedData = WeaponAddRangedData;
 	this.rangedData = new Array();
-   // Try to figure out if this is a melee or ranged weapon
-	if ( wCategory.search("Melee") != -1 )  // melee weapon?
+
+    // Try to figure out if this is a melee or ranged weapon
+	if ( wCategory.search("Melee") != -1 )
 	   this.category = "M";
 	else
 		this.category = "R";
-	// Most weapons aren't mighty.
+
+	// Most weapons aren't mighty, so set that as a default.
 	this.maxMighty = 0;
 	this.isMighty = WeaponIsMighty;
+
 	// Now, based on weapon type, choose the default ability affecting the "Attack Bonus"
+	// If it's melee then the default is strength
 	if ( this.category == "M" )
 		this.abilityNum = STRindex;
 	else
 	{
-		this.abilityNum = DEXindex;
 		// OK, this is a ranged weapon.  Is it mighty?  If so, then how mighty is it?
+		this.abilityNum = DEXindex;
 		var mightyIndex = this.name.search(" Mighty" );  // < - note the space before Mighty!!
 		if ( mightyIndex > -1 )
 		{
@@ -1866,15 +1870,19 @@ function Weapon( wNum, wName, wCategory, wAttackBonus, wDam, wHands, wRange, wCr
 			}
 		}
 	}
+
 	// is this a thrown weapon?
 	if ( this.name.search("(Thrown)") != -1 )
 		this.isThrown = TRUE;
 	else
 		this.isThrown = FALSE;
+
 	this.hands = FirstChar( wHands );
 	this.range = wRange;
 	this.miscTHMod = 0;
 	this.miscDamMod = 0;
+	
+	// Call a series of functions to determine the modifications to hit, damage etc
 	this.hasModifiedTH = WeaponTHIsModified;
 	this.hasModifiedDam = WeaponDamageIsModified;
 	this.modifyDamage = WeaponModDamage;
@@ -1976,20 +1984,26 @@ function modAttackBonusString( astr, amod )
 function modDamageString( astr, amod, addBns )
 {
 	var modRoundingAdjuster = 0;
-	// Sigh.  I wish | wasnt a special character.
+	// Sigh.  I wish | was not a special character.
 	if ( addBns == "Y" )
 		modRoundingAdjuster = 0.002;
 	if ( addBns == "T" )
 		modRoundingAdjuster = 0.002;
+
 	if ( addBns == "Y" )
 		amod = amod + Math.round((amod-modRoundingAdjuster)/2);
 	else if ( addBns == "T" )
 		amod = Math.round((amod-modRoundingAdjuster)/2);
+
 	var modLoc=astr.search("[\+-]");  // Look for either a + or a -
+
+	// If there is no modification then exit
 	if ( modLoc == -1 )
 		return astr+modPlusMinus(amod);
-	// OK, we found a +/- at modLoc
-	var oldMod = new Number( astr.substr(modLoc+1,astr.length-(modLoc+1)) );
+
+	// OK, we found a +/- at modLoc, so grab the old modifier
+	var oldMod = new Number( astr.substr(modLoc,astr.length-1) );
+	
 	// Modifiers cancel?
 	if ( oldMod+amod == 0 )
 		return astr.substr(0,modLoc);
@@ -2168,8 +2182,9 @@ function WeaponModDamage()
 			aMod = this.miscDamMod;
 		else	//except thrown weapons
 			aMod = AbArr[STRindex].curmodifier() + this.miscDamMod;
-	else
+	else {
 		aMod = this.miscDamMod + AbArr[STRindex].curModifierDiff();
+	}
 	// Decide if a partial modifier is going to have to be applied
 	// Specifically, wielding a melee weapon in both hands or
 	// as an off-hand weapon.
@@ -2185,8 +2200,9 @@ function WeaponModDamage()
 			retval = retval+'/';
 		if ( aMod == 0 )
 			retval = retval + this.damageBaseArr[i];
-		else
+		else {
 			retval = retval+modDamageString(this.damageBaseArr[i], aMod, addBns );
+		}
 		if ( this.category=="M" && this.hands=="T" )
 			addBns = "T";
 		else
