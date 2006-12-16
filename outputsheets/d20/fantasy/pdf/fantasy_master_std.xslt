@@ -4170,6 +4170,7 @@
 			</xsl:call-template>
 			<xsl:apply-templates select="spell" mode="details">
 				<xsl:with-param name="columnOne" select="$columnOne"/>
+				<xsl:sort select="name"/>
 			</xsl:apply-templates>
 			<fo:table-row height="1mm"/>
 		</xsl:if>
