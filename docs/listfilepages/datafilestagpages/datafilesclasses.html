@@ -321,6 +321,7 @@
 
 
 		<p></p><a name="DOMAIN"></a><hr>
+		<p class="new">*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> DOMAIN:x</p>
 		<p class="indent1"><strong>Variables Used:</strong> Text</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -334,15 +335,15 @@
 					with a BONUS:DOMAIN|NUMBER|x.</li>
 		</ul>
 		<p class="indent1"><strong>Example:s</strong></p>
-		<p class="indent2"><code>DOMAIN:Sun</code></p>
-		<p class="indent3">The class gets the Sun domain added.</p>
-		<p class="indent2"><code>DOMAIN:Sun|Law</code></p>
-		<p class="indent3">The class gets the Sun or law domain added.</p>
-		<p class="indent2"><code>DOMAIN:Sun[PREDEITY:Pelor]|Law</code></p>
-		<p class="indent3">The class gets the Sun or law domain added if thier deity
+		<p class="indent2"><code>7 TAB DOMAIN:Sun</code></p>
+		<p class="indent3">At the seventh level class gets the Sun domain added.</p>
+		<p class="indent2"><code>15 TAB DOMAIN:Sun|Law</code></p>
+		<p class="indent3">At fifteenth level class gets the Sun or law domain added.</p>
+		<p class="indent2"><code>11 TAB DOMAIN:Sun[PREDEITY:Pelor]|Law</code></p>
+		<p class="indent3">At eleventh level class gets the Sun or law domain added if thier deity
 							is &quot;Pelor&quot; or only Law if the deity is not &quot;Pelor&quot;.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Class Line.</p>
+		<p class="indent2">Class Level Line.</p>
 
 
 		<p></p><a name="HASSPELLFORMULA"></a><hr/>
@@ -398,6 +399,7 @@
 
 
 		<p></p><a name="KNOWNSPELLS"></a><hr>
+		<p class="new">*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> KNOWNSPELLS:x</p>
 		<p class="indent1"><strong>Variables Used:</strong> Text and/or Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -415,16 +417,16 @@
 			<li>Anyone who wanted clerics to know all divine spells anyway could have CLASS:Cleric.MOD[tab]KNOWNSPELLS:TYPE=Divine</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>KNOWNSPELLS:Acid Fog</code></p>
-		<p class="indent3">The class knows the spell &quot;Acid Fog&quot;.</p>
-		<p class="indent2"><code>KNOWNSPELLS:Acid Fog|Alarm</code></p>
-		<p class="indent3">The class knows the spell &quot;Acid Fog&quot; and &quot;Alarm&quot;.</p>
-		<p class="indent2"><code>KNOWNSPELLS:LEVEL=3</code></p>
-		<p class="indent3">The class knows all level 3 spells.</p>
-		<p class="indent2"><code>KNOWNSPELLS:TYPE:Divine</code></p>
-		<p class="indent3">The class knows all divine spells.</p>
-		<p class="indent2"><code>KNOWNSPELLS:LEVEL=3,TYPE=Arcane</code></p>
-		<p class="indent3">The class knows all level 3 arcane spells.</p>
+		<p class="indent2"><code>6 TAB KNOWNSPELLS:Acid Fog</code></p>
+		<p class="indent3">The class knows the spell &quot;Acid Fog&quot; at 6th Level.</p>
+		<p class="indent2"><code>1 TAB KNOWNSPELLS:Acid Fog|Alarm</code></p>
+		<p class="indent3">The class knows the spell &quot;Acid Fog&quot at 6th Level; and &quot;Alarm&quot; at 1st Level.</p>
+		<p class="indent2"><code>3 TAB KNOWNSPELLS:LEVEL=3</code></p>
+		<p class="indent3">The class knows all level 3 spells available.</p>
+		<p class="indent2"><code>0 TAB KNOWNSPELLS:TYPE:Divine</code></p>
+		<p class="indent3">The class knows all divine spells AT 0 Level available.</p>
+		<p class="indent2"><code>3 TAB KNOWNSPELLS:LEVEL=3,TYPE=Arcane</code></p>
+		<p class="indent3">The class knows all level 3 arcane spells available.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Level Line.</p>
 
@@ -545,16 +547,16 @@
 
 
 		<p></p><a name="SPECIALTYKNOWN"></a><hr>
-		<p class="indent0"><strong>Tag Name:</strong> SPECIALTYKNOWN:x</p>
+		<p class="new">*** Updated 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> SPECIALTYKNOWN:x,x,x,x,...</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds the numeric value given to the number of specialty school
-		spells that the class can cast per spell level. If not listed, the
-		default value is 0.</p>
+		spells that the class can cast per spell level. If not listed, the default value is 0.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPECIALTYKNOWN:1</code></p>
-		<p class="indent3">The specialist can prepare one additional spell (of the school
-		selected as a specialty) per spell level each day.</p>
+		<p class="indent2"><code>19 TAB SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1</code></p>
+		<p class="indent3">At 19 level the specialist can prepare one additional Zero thru ninth level spell (of
+							the school selected as a specialty) per spell level each day.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2"> Class Level Line.</p>
 
@@ -788,7 +790,7 @@
 
 
 		<p></p><a name="HITDIE"></a><hr>
-		<p class="new">*** New 5.7.8</p>
+		<p class="new">*** New 5.7.8 *** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> HITDIE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Hit Dice size)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> %+Number (Amount added to Hit Dice)</p>
@@ -797,10 +799,16 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> %/Number (Amount Hit Dice is divided by)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> %upNumber (Amount Hit Dice size is stepped up by)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> %downNumber (Amount Hit Dice size is stepped down by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %Hup (Amount Hit Dice size is stepped up by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %Hdown (Amount Hit Dice size is stepped down by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied only that level.
-			When using the step up function the steps are d4,d6,d8,d10 and stops at d12.
-			When using the step down function the steps are d12,d10,d8,d6 and stops at d4.
+			When using the step up function (%upNumber) the steps are d4,d6,d8,d10 and stops at d12.
+			When using the step down function (%downNumber) the steps are d12,d10,d8,d6 and stops at d4.
+			 Regardless of the number it will never allow a hit die below 1.</p>
+		<p class="indent2">This tag can be used on a level line to specify a hit dice size which will be applied only that level.
+			When using the step up function (%Hup) the steps are d1-d1000.
+			When using the step down function (%Hdown) the steps are d1-d1000.
 			 Regardless of the number it will never allow a hit die below 1.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>HITDIE:12</code></p>
@@ -817,6 +825,10 @@
 		<p class="indent3">Steps up the Hit Dice size by two steps. If the class has a Hit Die of d6 it will be stepped up to d10.</p>
 		<p class="indent2"><code>HITDIE:%down1</code></p>
 		<p class="indent3">Steps down the Hit Dice size by one step. If the class has a Hit Die of d6 it will be stepped down to d4.</p>
+		<p class="indent2"><code>HITDIE:%Hup9</code></p>
+		<p class="indent3">Steps up the Hit Dice size by nine steps. If the class has a Hit Die of d6 it will be stepped up to d15.</p>
+		<p class="indent2"><code>HITDIE:%Hdown3</code></p>
+		<p class="indent3">Steps down the Hit Dice size by three step. If the class has a Hit Die of d6 it will be stepped down to d3.</p>
 
 
 		<p></p><a name="LANGBONUS"></a><hr>

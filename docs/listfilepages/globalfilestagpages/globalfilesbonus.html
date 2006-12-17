@@ -313,7 +313,7 @@
 
 
 		<p></p><a name="COMBATTOHIT"></a><hr>
-		<p class="new">*** New 5.3.12</p>
+		<p class="new">*** New 5.3.12 *** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (adds to attack bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -321,10 +321,13 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT|2|TYPE=Luck</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two.</p>
-
+		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 
 		<p></p><a name="COMBATTOHIT2" id="COMBATTOHIT2"></a><hr>
-		<p class="new">*** New 5.3.12</p>
+		<p class="new">*** New 5.3.12 *** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT.x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> GRAPPLE, MELEE, RANGED or any weapon type</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (adds to attack bonus)</p>
@@ -335,9 +338,13 @@
 		<p class="indent3">Increases Attack for thrown weapons bonus by two.</p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code></p>
 		<p class="indent3">Increases Attack bonus by two when using a Slashing weapon.</p>
-
+		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT|1|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT|2|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 
 		<p></p><a name="COMBATTOHITPRIMARY"></a><hr>
+		<p class="new">*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT-PRIMARY|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Primary attack bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -345,9 +352,14 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
 		<p class="indent3">Increases Primary Attack bonus to two.</p>
+		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT-PRIMARY|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-PRIMARY|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 
 
 		<p></p><a name="COMBATTOHITSECONDARY"></a><hr>
+		<p class="new">*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT-SECONDARY|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Secondary attack bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -355,10 +367,14 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-SECONDARY|1</code></p>
 		<p class="indent3">Increases Secondary Attack bonus to one.</p>
+		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT-SECONDARY|1|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-SECONDARY|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
 
 
 		<p></p><a name="COMBATTOHITSHORTRANGE"></a><hr>
-		<p class="new">*** New 5.3.12</p>
+		<p class="new">*** New 5.3.12 *** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT-SHORTRANGE|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to To-Hit)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -368,6 +384,10 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-SHORTRANGE|1</code></p>
 		<p class="indent3">Adds one to character's short range To-Hit attack rolls.</p>
+		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-SHORTRANGE|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-SHORTRANGE|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
 
 
 		<p></p><a name="DAMAGE"></a><hr>
