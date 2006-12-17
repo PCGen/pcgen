@@ -31,10 +31,13 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 /**
  * @author wardc
  */
-public class PreMoveParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface {
+public class PreMoveParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
+{
 
-	public String[] kindsHandled() {
-		return new String[] { "MOVE" };
+	public String[] kindsHandled()
+	{
+		return new String[]{"MOVE"};
 	}
-	
+
 }

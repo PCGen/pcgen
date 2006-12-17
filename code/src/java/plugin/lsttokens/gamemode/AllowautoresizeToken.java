@@ -28,19 +28,21 @@ package plugin.lsttokens.gamemode;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
-
 /**
  * <code>AllowautoresizeToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class AllowautoresizeToken implements GameModeLstToken {
+public class AllowautoresizeToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALLOWAUTORESIZE";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setAllowAutoResize(value.toUpperCase().startsWith("Y"));
 		return true;
 	}

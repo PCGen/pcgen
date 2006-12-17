@@ -23,23 +23,25 @@ import pcgen.util.PropertyFactory;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreDeityTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreDeityTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
 	{
 		int runningTotal;
-
 
 		if (prereq.getKey().startsWith("PANTHEON."))//$NON-NLS-1$
 		{
 			String pantheon = prereq.getKey().substring(9);
-			List<String> charDeityPantheon = character.getDeity() != null ? character
-				.getDeity().getPantheonList()
-				: new ArrayList<String>(); 
+			List<String> charDeityPantheon =
+					character.getDeity() != null ? character.getDeity()
+						.getPantheonList() : new ArrayList<String>();
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 				|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
@@ -52,25 +54,33 @@ public class PreDeityTester  extends AbstractPrerequisiteTest implements Prerequ
 			}
 			else
 			{
-				throw new PrerequisiteException(PropertyFactory.getFormattedString("PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+				throw new PrerequisiteException(PropertyFactory
+					.getFormattedString(
+						"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 			}
 		}
 		else
 		{
-			final String charDeity = character.getDeity()!=null ? character.getDeity().getKeyName() : ""; //$NON-NLS-1$
+			final String charDeity =
+					character.getDeity() != null ? character.getDeity()
+						.getKeyName() : ""; //$NON-NLS-1$
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
-					|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+				|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
-				runningTotal = (charDeity.equalsIgnoreCase(prereq.getKey())) ? 1 : 0;
+				runningTotal =
+						(charDeity.equalsIgnoreCase(prereq.getKey())) ? 1 : 0;
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ)
-					|| prereq.getOperator().equals(PrerequisiteOperator.LT))
+				|| prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
-				runningTotal = (charDeity.equalsIgnoreCase(prereq.getKey())) ? 0 : 1;
+				runningTotal =
+						(charDeity.equalsIgnoreCase(prereq.getKey())) ? 0 : 1;
 			}
 			else
 			{
-				throw new PrerequisiteException(PropertyFactory.getFormattedString("PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+				throw new PrerequisiteException(PropertyFactory
+					.getFormattedString(
+						"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 			}
 		}
 
@@ -80,7 +90,8 @@ public class PreDeityTester  extends AbstractPrerequisiteTest implements Prerequ
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "DEITY"; //$NON-NLS-1$
 	}
 

@@ -30,49 +30,61 @@ import java.util.StringTokenizer;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.lst.LoadInfoLstToken;
 
-
 /**
  * <code>EncumbranceToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class EncumbranceToken implements LoadInfoLstToken {
+public class EncumbranceToken implements LoadInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ENCUMBRANCE";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value) {
+	public boolean parse(LoadInfo loadInfo, String value)
+	{
 		final StringTokenizer token = new StringTokenizer(value, "|");
-		if(token.countTokens() < 2 || token.countTokens() > 4) {
+		if (token.countTokens() < 2 || token.countTokens() > 4)
+		{
 			return false;
 		}
 
-		try {
+		try
+		{
 			String moveFormula = "";
 			Integer checkPenalty = Integer.valueOf(0);
 			String type = token.nextToken();
 			String number = token.nextToken();
 
-			if (token.hasMoreTokens() && value.indexOf("||") == -1) {
+			if (token.hasMoreTokens() && value.indexOf("||") == -1)
+			{
 				moveFormula = token.nextToken();
 			}
 
-			if (token.hasMoreTokens()) {
+			if (token.hasMoreTokens())
+			{
 				checkPenalty = Integer.valueOf(token.nextToken());
 			}
 
 			double mult = 0;
-			if (number.indexOf("/") == -1) {
+			if (number.indexOf("/") == -1)
+			{
 				mult = Double.parseDouble(number);
 			}
-			else {
+			else
+			{
 				final StringTokenizer numTok = new StringTokenizer(number, "/");
-				mult = Double.parseDouble(numTok.nextToken()) / Double.parseDouble(numTok.nextToken());
+				mult =
+						Double.parseDouble(numTok.nextToken())
+							/ Double.parseDouble(numTok.nextToken());
 			}
-			loadInfo.addLoadMultiplier(type.toUpperCase(), new Float(mult), moveFormula, checkPenalty);
+			loadInfo.addLoadMultiplier(type.toUpperCase(), new Float(mult),
+				moveFormula, checkPenalty);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 		return true;

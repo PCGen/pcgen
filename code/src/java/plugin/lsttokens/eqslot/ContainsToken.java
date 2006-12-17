@@ -8,24 +8,30 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 /**
  * Class deals with CONTAINS Token
  */
-public class ContainsToken implements EquipSlotLstToken {
+public class ContainsToken implements EquipSlotLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CONTAINS";
 	}
 
-	public boolean parse(EquipSlot eqSlot, String value) {
+	public boolean parse(EquipSlot eqSlot, String value)
+	{
 		final StringTokenizer token = new StringTokenizer(value, "=");
 
-		if (token.countTokens() == 2) {
+		if (token.countTokens() == 2)
+		{
 			final String type = token.nextToken();
 			final String numString = token.nextToken();
 			final int num;
 
-			if (numString.equals("*")) {
+			if (numString.equals("*"))
+			{
 				num = 9999;
 			}
-			else {
+			else
+			{
 				num = Integer.parseInt(numString);
 			}
 

@@ -6,18 +6,23 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with HANDS token 
  */
-public class HandsToken implements EquipmentLstToken {
+public class HandsToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HANDS";
 	}
 
-	public boolean parse(Equipment eq, String value) {
-		try {
+	public boolean parse(Equipment eq, String value)
+	{
+		try
+		{
 			eq.setHands(Integer.parseInt(value));
 			return true;
 		}
-		catch (NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

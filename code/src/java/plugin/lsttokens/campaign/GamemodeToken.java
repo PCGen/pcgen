@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with GAMEMODE Token
  */
-public class GamemodeToken implements CampaignLstToken {
+public class GamemodeToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "GAMEMODE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setGameMode(value);
 		return true;
 	}

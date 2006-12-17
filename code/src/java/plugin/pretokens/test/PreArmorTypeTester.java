@@ -39,7 +39,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  *
  */
 public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
-	PrerequisiteTest
+		PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -49,15 +49,14 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 	// TODO All the equipment related PRE tag code should be refactored into a
 	// common base class.
 	@Override
-	public int passes(final Prerequisite prereq,
-					  final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		int runningTotal = 0;
 
 		if (!character.getEquipmentList().isEmpty())
 		{
 			final String desiredType = prereq.getKey();
-			for (Equipment eq : character.getEquipmentList()) 
+			for (Equipment eq : character.getEquipmentList())
 			{
 				if (!eq.isEquipped() || !eq.isArmor())
 				{
@@ -68,8 +67,9 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 				if (desiredType.startsWith("TYPE=")
 					|| desiredType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 				{
-					StringTokenizer tok = new StringTokenizer(desiredType.
-						substring(5).toUpperCase(), ".");
+					StringTokenizer tok =
+							new StringTokenizer(desiredType.substring(5)
+								.toUpperCase(), ".");
 					boolean match = false;
 					if (tok.hasMoreTokens())
 					{
@@ -101,8 +101,9 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements
 						//handle wildcards (always assume they
 						// end the line)
 						final int percentPos = desiredType.indexOf('%');
-						final String substring = desiredType.substring(0,
-							percentPos).toUpperCase();
+						final String substring =
+								desiredType.substring(0, percentPos)
+									.toUpperCase();
 						if (eqName.startsWith(substring))
 						{
 							runningTotal++;

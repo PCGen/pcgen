@@ -45,7 +45,8 @@ import java.util.Vector;
  *@since    March 20, 2003
  *@version $Revision$
  */
-public class NetworkCombatant extends Combatant {
+public class NetworkCombatant extends Combatant
+{
 	/*
 	 *  History:
 	 *  March 20, 2003: Cleanup for Version 1.0
@@ -63,27 +64,33 @@ public class NetworkCombatant extends Combatant {
 	 * @param uid
 	 * @param sock
 	 */
-	public NetworkCombatant(String uid, Socket sock) {
+	public NetworkCombatant(String uid, Socket sock)
+	{
 		this.uid = uid;
 		this.sock = sock;
 		this.init = new NetworkInitiative(uid, sock);
-		this.hitPoints = new SystemHP(new SystemAttribute("Constitution", 10), 1, 1);
+		this.hitPoints =
+				new SystemHP(new SystemAttribute("Constitution", 10), 1, 1);
 	}
 
-	public void setCR(float cr) {
+	public void setCR(float cr)
+	{
 		this.cr = cr;
 		sendNetMessage("CR|" + cr);
 	}
 
-	public float getCR() {
+	public float getCR()
+	{
 		return cr;
 	}
 
-	public String getUid() {
+	public String getUid()
+	{
 		return uid;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
@@ -92,18 +99,20 @@ public class NetworkCombatant extends Combatant {
 	 * @param comType
 	 *
 	 */
-	public void setCombatantType(String comType) {
+	public void setCombatantType(String comType)
+	{
 		super.setCombatantType(comType);
 		sendNetMessage("COMTYPE|" + comType);
 	}
 
-
-	public void setDuration(int duration) {
+	public void setDuration(int duration)
+	{
 		super.setDuration(duration);
 		sendNetMessage("DURATION|" + duration);
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 		sendNetMessage("NAME|" + name);
 	}
@@ -113,7 +122,8 @@ public class NetworkCombatant extends Combatant {
 	 *
 	 *@param  number  The new number value
 	 */
-	public void setNumber(int number) {
+	public void setNumber(int number)
+	{
 		super.setNumber(number);
 		sendNetMessage("NUMBER|" + number);
 	}
@@ -124,53 +134,68 @@ public class NetworkCombatant extends Combatant {
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector<String> getRowVector(List<String> columnOrder) {
+	public Vector<String> getRowVector(List<String> columnOrder)
+	{
 		Vector<String> rowVector = new Vector<String>();
 
 		//Iterate through all the columns, and create the vector in that order
-		for ( String columnName : columnOrder )
+		for (String columnName : columnOrder)
 		{
-			if (columnName.equals("Name")) { // Character's Name
+			if (columnName.equals("Name"))
+			{ // Character's Name
 				rowVector.add(getName());
 			}
-			else if (columnName.equals("Player")) { // Player's Name
+			else if (columnName.equals("Player"))
+			{ // Player's Name
 				rowVector.add("Net: " + getPlayer());
 			}
-			else if (columnName.equals("Status")) { // Status of Combatant
+			else if (columnName.equals("Status"))
+			{ // Status of Combatant
 				rowVector.add(getStatus());
 			}
-			else if (columnName.equals("+")) { // Initiative bonus
+			else if (columnName.equals("+"))
+			{ // Initiative bonus
 				rowVector.add("" + init.getModifier());
 			}
-			else if (columnName.equals("Init")) { // Initiative #
+			else if (columnName.equals("Init"))
+			{ // Initiative #
 				rowVector.add("" + init.getCurrentInitiative());
 			}
-			else if (columnName.equals("Dur")) { // Duration
-				if (duration == 0) {
+			else if (columnName.equals("Dur"))
+			{ // Duration
+				if (duration == 0)
+				{
 					rowVector.add("");
 				}
-				else {
+				else
+				{
 					rowVector.add("" + getDuration());
 				}
 			}
-			else if (columnName.equals("#")) { // Number (for tokens)
+			else if (columnName.equals("#"))
+			{ // Number (for tokens)
 				rowVector.add("" + number);
 			}
-			else if (columnName.equals("HP")) { // Current Hit Points
+			else if (columnName.equals("HP"))
+			{ // Current Hit Points
 				int hp = hitPoints.getCurrent();
 				int sub = hitPoints.getSubdual();
 
-				if (sub == 0) {
+				if (sub == 0)
+				{
 					rowVector.add("" + hp);
 				}
-				else if (sub > 0) {
+				else if (sub > 0)
+				{
 					rowVector.add(hp + "/" + sub + "s");
 				}
 			}
-			else if (columnName.equals("HP Max")) { // Max Hit Points
+			else if (columnName.equals("HP Max"))
+			{ // Max Hit Points
 				rowVector.add("" + hitPoints.getMax());
 			}
-			else if (columnName.equals("Type")) { //PC, Enemy, Ally, Non-Com
+			else if (columnName.equals("Type"))
+			{ //PC, Enemy, Ally, Non-Com
 				rowVector.add(comType);
 			}
 		}
@@ -178,46 +203,57 @@ public class NetworkCombatant extends Combatant {
 		return rowVector;
 	}
 
-	public void editRow(List<String> columnOrder, int colNumber, Object data) {
+	public void editRow(List<String> columnOrder, int colNumber, Object data)
+	{
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited
-		if (columnName.equals("Name")) { // Character's Name
+		if (columnName.equals("Name"))
+		{ // Character's Name
 			setName(strData);
 		}
-		else if (columnName.equals("Player")) { // Player's Name
+		else if (columnName.equals("Player"))
+		{ // Player's Name
 			setPlayer(strData);
 		}
-		else if (columnName.equals("Status")) { // XML Combatant's Status
+		else if (columnName.equals("Status"))
+		{ // XML Combatant's Status
 			setStatus(strData);
 		}
-		else if (columnName.equals("+")) { // Initative bonus
+		else if (columnName.equals("+"))
+		{ // Initative bonus
 			init.setBonus(Integer.parseInt(strData));
 		}
-		else if (columnName.equals("Init")) { // Initative
+		else if (columnName.equals("Init"))
+		{ // Initative
 			init.setCurrentInitiative(Integer.parseInt(strData));
 		}
-		else if (columnName.equals("#")) { // Number (for tokens)
+		else if (columnName.equals("#"))
+		{ // Number (for tokens)
 			setNumber(Integer.parseInt(strData));
 		}
-		else if (columnName.equals("HP")) { // Current Hit Points
+		else if (columnName.equals("HP"))
+		{ // Current Hit Points
 			hitPoints.setCurrent(Integer.parseInt(strData));
 			sendNetMessage("HP|" + hitPoints.getCurrent());
 			sendNetMessage("HPSTATE|" + hitPoints.getState());
 			sendNetMessage("STATUS|" + status);
 		}
-		else if (columnName.equals("HP Max")) { // Maximum Hit Points
+		else if (columnName.equals("HP Max"))
+		{ // Maximum Hit Points
 			hitPoints.setMax(Integer.parseInt(strData));
 			sendNetMessage("HPMAX|" + hitPoints.getMax());
 			sendNetMessage("HP|" + hitPoints.getCurrent());
 			sendNetMessage("HPSTATE|" + hitPoints.getState());
 			sendNetMessage("STATUS|" + status);
 		}
-		else if (columnName.equals("Dur")) { // Duration
+		else if (columnName.equals("Dur"))
+		{ // Duration
 			setDuration(Integer.parseInt(strData));
 		}
-		else if (columnName.equals("Type")) {
+		else if (columnName.equals("Type"))
+		{
 			// Type
 			setCombatantType(strData);
 		}
@@ -228,22 +264,26 @@ public class NetworkCombatant extends Combatant {
 	 *
 	 *@param  status  The new status value
 	 */
-	public void setStatus(String status) {
+	public void setStatus(String status)
+	{
 		super.setStatus(status);
 		sendNetMessage("STATUS|" + status);
 	}
 
-	public void setXP(int xp) {
+	public void setXP(int xp)
+	{
 		this.xp = xp;
 		sendNetMessage("XP|" + xp);
 	}
 
-	public int getXP() {
+	public int getXP()
+	{
 		return xp;
 	}
 
 	/**  Causes the Combatant to bleed for 1 point of damage */
-	public void bleed() {
+	public void bleed()
+	{
 		super.bleed();
 		sendNetMessage("HP|" + hitPoints.getCurrent());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
@@ -255,7 +295,8 @@ public class NetworkCombatant extends Combatant {
 	 *
 	 *@param  damage  number of points of damage to do
 	 */
-	public void damage(int damage) {
+	public void damage(int damage)
+	{
 		super.damage(damage);
 		sendNetMessage("HP|" + hitPoints.getCurrent());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
@@ -267,7 +308,8 @@ public class NetworkCombatant extends Combatant {
 	 *
 	 *@return    new duration
 	 */
-	 public int decDuration() {
+	public int decDuration()
+	{
 		super.decDuration();
 		sendNetMessage("DURATION|" + duration);
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
@@ -275,7 +317,8 @@ public class NetworkCombatant extends Combatant {
 		return duration;
 	}
 
-	public void endRound() {
+	public void endRound()
+	{
 		super.endRound();
 		sendNetMessage("HP|" + hitPoints.getCurrent());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
@@ -287,28 +330,32 @@ public class NetworkCombatant extends Combatant {
 	 *
 	 *@param  heal  amount of healing to do
 	 */
-	public void heal(int heal) {
+	public void heal(int heal)
+	{
 		super.heal(heal);
 		sendNetMessage("HP|" + hitPoints.getCurrent());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
 		sendNetMessage("STATUS|" + status);
 	}
 
-	public void kill() {
+	public void kill()
+	{
 		super.kill();
 		sendNetMessage("HP|" + hitPoints.getCurrent());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
 		sendNetMessage("STATUS|" + status);
 	}
 
-	public void nonLethalDamage(boolean type) {
+	public void nonLethalDamage(boolean type)
+	{
 		super.nonLethalDamage(type);
 		sendNetMessage("DURATION|" + duration);
 		sendNetMessage("STATUS|" + status);
 	}
 
 	/**  Raises a dead Combatant */
-	public void raise() {
+	public void raise()
+	{
 		super.raise();
 		sendNetMessage("HP|" + hitPoints.getCurrent());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
@@ -316,7 +363,8 @@ public class NetworkCombatant extends Combatant {
 	}
 
 	/**  Stabilizes the Combatant */
-	public void stabilize() {
+	public void stabilize()
+	{
 		super.stabilize();
 		sendNetMessage("STATUS|" + status);
 	}
@@ -326,168 +374,219 @@ public class NetworkCombatant extends Combatant {
 	 *
 	 *@param  damage  number of points of damage to do
 	 */
-	public void subdualDamage(int damage) {
+	public void subdualDamage(int damage)
+	{
 		super.subdualDamage(damage);
 		sendNetMessage("HPSUB|" + hitPoints.getSubdual());
 		sendNetMessage("HPSTATE|" + hitPoints.getState());
 		sendNetMessage("STATUS|" + status);
 	}
 
-	public SystemInitiative getInitiative() {
+	public SystemInitiative getInitiative()
+	{
 		return init;
 	}
 
-	public String getPlayer() {
+	public String getPlayer()
+	{
 		return player;
 	}
 
-	public void setPlayer(String player) {
+	public void setPlayer(String player)
+	{
 		this.player = player;
 		sendNetMessage("PLAYER|" + player);
 	}
 
-	public Element getSaveElement() {
+	public Element getSaveElement()
+	{
 		return new Element("NetworkCombatant");
 	}
 
-	private void sendNetMessage(String message) {
-		try {
-			PrintStream os = new PrintStream(new BufferedOutputStream(sock.getOutputStream()), true, "UTF-8");
+	private void sendNetMessage(String message)
+	{
+		try
+		{
+			PrintStream os =
+					new PrintStream(new BufferedOutputStream(sock
+						.getOutputStream()), true, "UTF-8");
 			os.print("Pcg: " + uid + ":" + message + "\r\n");
 			os.flush();
 			//os.close();
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			// TODO Handle this?
 		}
 	}
 
-	public void recieveNetMessage(String message) {
+	public void recieveNetMessage(String message)
+	{
 		String type = "";
 		String value = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
-		if(st.hasMoreTokens()) {
+		if (st.hasMoreTokens())
+		{
 			type = st.nextToken();
 		}
-		if(st.hasMoreTokens()) {
+		if (st.hasMoreTokens())
+		{
 			value = st.nextToken();
 		}
 
-		try {
-			if(type != "" && value != "") {
-				if(type.equals("COMTYPE")) {
+		try
+		{
+			if (type != "" && value != "")
+			{
+				if (type.equals("COMTYPE"))
+				{
 					super.setCombatantType(value);
 				}
-				else if(type.equals("CR")) {
+				else if (type.equals("CR"))
+				{
 					this.cr = Float.parseFloat(value);
 				}
-				else if(type.equals("DURATION")) {
+				else if (type.equals("DURATION"))
+				{
 					super.setDuration(Integer.parseInt(value));
 				}
-				else if(type.equals("HP")) {
+				else if (type.equals("HP"))
+				{
 					hitPoints.setCurrent(Integer.parseInt(value));
 				}
-				else if(type.equals("HPMAX")) {
+				else if (type.equals("HPMAX"))
+				{
 					hitPoints.setMax(Integer.parseInt(value));
 				}
-				else if(type.equals("HPSUB")) {
+				else if (type.equals("HPSUB"))
+				{
 					hitPoints.setSubdual(Integer.parseInt(value));
 				}
-				else if(type.equals("HPSTATE")) {
+				else if (type.equals("HPSTATE"))
+				{
 					hitPoints.setState(value);
 				}
-				else if(type.equals("NAME")) {
+				else if (type.equals("NAME"))
+				{
 					this.name = value;
 				}
-				else if(type.equals("NUMBER")) {
+				else if (type.equals("NUMBER"))
+				{
 					super.setNumber(Integer.parseInt(value));
 				}
-				else if(type.equals("PLAYER")) {
+				else if (type.equals("PLAYER"))
+				{
 					this.player = value;
 				}
-				else if(type.equals("STATUS")) {
+				else if (type.equals("STATUS"))
+				{
 					super.setStatus(value);
 				}
-				else if(type.equals("XP")) {
+				else if (type.equals("XP"))
+				{
 					this.xp = Integer.parseInt(value);
 				}
-				else if(type.startsWith("HTMLSTRING")) {
+				else if (type.startsWith("HTMLSTRING"))
+				{
 					this.htmlString = value;
 				}
-				else if(type.startsWith("INIT")) {
-					((NetworkInitiative)init).recieveNetMessage(message);
+				else if (type.startsWith("INIT"))
+				{
+					((NetworkInitiative) init).recieveNetMessage(message);
 				}
 			}
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			// TODO Handle this?
 		}
 	}
 
-	public static void recieveServerMessage(String message, Combatant cbt) {
+	public static void recieveServerMessage(String message, Combatant cbt)
+	{
 		String type = "";
 		String value = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
-		if(st.hasMoreTokens()) {
+		if (st.hasMoreTokens())
+		{
 			type = st.nextToken();
 		}
-		if(st.hasMoreTokens()) {
+		if (st.hasMoreTokens())
+		{
 			value = st.nextToken();
 		}
 
-		try {
-			if(type != "" && value != "") {
-				if(type.equals("COMTYPE")) {
+		try
+		{
+			if (type != "" && value != "")
+			{
+				if (type.equals("COMTYPE"))
+				{
 					cbt.setCombatantType(value);
 				}
-				else if(type.equals("CR")) {
+				else if (type.equals("CR"))
+				{
 					cbt.setCR(Float.parseFloat(value));
 				}
-				else if(type.equals("DURATION")) {
+				else if (type.equals("DURATION"))
+				{
 					cbt.setDuration(Integer.parseInt(value));
 				}
-				else if(type.equals("HPMAX")) {
+				else if (type.equals("HPMAX"))
+				{
 					cbt.getHP().setMax(Integer.parseInt(value));
 				}
-				else if(type.equals("HP")) {
+				else if (type.equals("HP"))
+				{
 					cbt.getHP().setCurrent(Integer.parseInt(value));
 				}
-				else if(type.equals("HPSUB")) {
+				else if (type.equals("HPSUB"))
+				{
 					cbt.getHP().setSubdual(Integer.parseInt(value));
 				}
-				else if(type.equals("HPSTATE")) {
+				else if (type.equals("HPSTATE"))
+				{
 					cbt.getHP().setState(value);
 				}
-				else if(type.equals("NAME")) {
+				else if (type.equals("NAME"))
+				{
 					cbt.setName(value);
 				}
-				else if(type.equals("NUMBER")) {
+				else if (type.equals("NUMBER"))
+				{
 					cbt.setNumber(Integer.parseInt(value));
 				}
-				else if(type.equals("STATUS")) {
+				else if (type.equals("STATUS"))
+				{
 					cbt.setStatus(value);
 				}
-				else if(type.equals("XP")) {
+				else if (type.equals("XP"))
+				{
 					cbt.setXP(Integer.parseInt(value));
 				}
-				else if(type.startsWith("INITBONUS")) {
+				else if (type.startsWith("INITBONUS"))
+				{
 					cbt.init.setBonus(Integer.parseInt(value));
 				}
-				else if(type.startsWith("INIT")) {
+				else if (type.startsWith("INIT"))
+				{
 					cbt.init.setCurrentInitiative(Integer.parseInt(value));
 				}
 			}
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			// TODO Handle This?
 		}
 	}
 
-	public static String getCombatantUid(Combatant cbt, String user) {
+	public static String getCombatantUid(Combatant cbt, String user)
+	{
 		return cbt.getName() + "-" + cbt.getPlayer() + "-" + user;
 	}
 
-	public static void sendCombatant(Combatant cbt, NetworkClient client) {
+	public static void sendCombatant(Combatant cbt, NetworkClient client)
+	{
 		String uid = getCombatantUid(cbt, client.getUser());
 		client.sendPcgMessage(uid, "COMTYPE|" + cbt.getCombatantType());
 		client.sendPcgMessage(uid, "CR|" + cbt.getCR());
@@ -506,8 +605,8 @@ public class NetworkCombatant extends Combatant {
 		client.sendPcgMessage(uid, "HTMLSTRING|" + cbt.toHtmlString());
 	}
 
-	public String toHtmlString() {
+	public String toHtmlString()
+	{
 		return htmlString;
 	}
 }
-

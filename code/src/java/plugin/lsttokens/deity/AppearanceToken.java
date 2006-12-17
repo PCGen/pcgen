@@ -6,13 +6,16 @@ import pcgen.persistence.lst.DeityLstToken;
 /**
  * Class deals with APPEARANCE Token
  */
-public class AppearanceToken implements DeityLstToken{
+public class AppearanceToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "APPEARANCE";
 	}
 
-	public boolean parse(Deity deity, String value) {
+	public boolean parse(Deity deity, String value)
+	{
 		deity.setAppearance(value);
 		return true;
 	}

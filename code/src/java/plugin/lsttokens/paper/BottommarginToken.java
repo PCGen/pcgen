@@ -29,19 +29,21 @@ import pcgen.core.Constants;
 import pcgen.core.PaperInfo;
 import pcgen.persistence.lst.PaperInfoLstToken;
 
-
 /**
  * <code>BottommarginToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class BottommarginToken implements PaperInfoLstToken {
+public class BottommarginToken implements PaperInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BOTTOMMARGIN";
 	}
 
-	public boolean parse(PaperInfo paperInfo, String value) {
+	public boolean parse(PaperInfo paperInfo, String value)
+	{
 		paperInfo.setPaperInfo(Constants.PAPERINFO_BOTTOMMARGIN, value);
 		return true;
 	}

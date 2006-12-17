@@ -8,15 +8,19 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with RACESUBTYPE Token
  */
-public class RacesubtypeToken implements RaceLstToken {
+public class RacesubtypeToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RACESUBTYPE";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		StringTokenizer tok = new StringTokenizer(value, "|");
-		while (tok.hasMoreTokens()) {
+		while (tok.hasMoreTokens())
+		{
 			String subType = tok.nextToken();
 			race.addRacialSubType(subType);
 		}

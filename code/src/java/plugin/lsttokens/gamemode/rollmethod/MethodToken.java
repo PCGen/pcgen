@@ -8,13 +8,16 @@ import pcgen.persistence.lst.RollMethodLstToken;
 /**
  * Class deals with METHOD Token
  */
-public class MethodToken implements RollMethodLstToken {
+public class MethodToken implements RollMethodLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "METHOD";
 	}
 
-	public boolean parse(Map<String, String> method, String value) {
+	public boolean parse(Map<String, String> method, String value)
+	{
 		method.put(RollMethodLoader.METHOD, value);
 		return true;
 	}

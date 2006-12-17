@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BONUS_ACTOUCH Token
  */
-public class Bonus_actouchToken implements GameModeLstToken {
+public class Bonus_actouchToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BONUS_ACTOUCH";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setAcTouchBonus(value);
 		return true;
 	}

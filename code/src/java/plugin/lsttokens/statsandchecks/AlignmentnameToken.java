@@ -33,18 +33,23 @@ import pcgen.persistence.lst.StatsAndChecksLstToken;
 /**
  * Class deals with ALIGNMENTNAME Token
  */
-public class AlignmentnameToken implements StatsAndChecksLstToken {
-	public String getTokenName() {
+public class AlignmentnameToken implements StatsAndChecksLstToken
+{
+	public String getTokenName()
+	{
 		return "ALIGNMENTNAME";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL) {
-		try {
+	public boolean parse(String lstLine, URL sourceURL)
+	{
+		try
+		{
 			PCAlignmentLoader alignmentLoader = new PCAlignmentLoader();
 			alignmentLoader.parseLine(lstLine, sourceURL);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

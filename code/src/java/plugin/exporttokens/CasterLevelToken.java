@@ -32,7 +32,6 @@ import pcgen.io.exporttoken.Token;
 
 import java.util.StringTokenizer;
 
-
 /**
  * Deals with following tokens
  * CASTERLEVEL
@@ -55,7 +54,8 @@ public class CasterLevelToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken(); // burn off CASTERLEVEL
@@ -78,7 +78,8 @@ public class CasterLevelToken extends Token
 
 		if (varName.equals("TOTAL") || varName.equals(""))
 		{
-			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL").intValue());
+			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL")
+				.intValue());
 		}
 		return getClassToken(pc, i);
 	}
@@ -98,7 +99,8 @@ public class CasterLevelToken extends Token
 			PCClass pcClass = pc.getClassList().get(classNumber);
 			cString = "CLASS:" + pcClass.getKeyName();
 		}
-		return Float.toString(pc.getVariableValue(TOKENNAME, cString).intValue());
+		return Float.toString(pc.getVariableValue(TOKENNAME, cString)
+			.intValue());
 	}
 
 }

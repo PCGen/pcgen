@@ -20,7 +20,8 @@ import pcgen.core.PlayerCharacter;
  * @author  ddjone3
  * @version	$Revision$
  */
-public class WeaponListPane extends javax.swing.JPanel {
+public class WeaponListPane extends javax.swing.JPanel
+{
 	private PlayerCharacter pc;
 	private ArrayList<WeaponPane> weaponList = new ArrayList<WeaponPane>();
 	private int serial = 0;
@@ -28,12 +29,14 @@ public class WeaponListPane extends javax.swing.JPanel {
 	/**
 	 * Constructor
 	 */
-	public WeaponListPane () {
+	public WeaponListPane()
+	{
 		initComponents();
 		setLocalColor();
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
@@ -42,9 +45,11 @@ public class WeaponListPane extends javax.swing.JPanel {
 	/**
 	 * Set the colour for the local pane and others in the weapon list.
 	 */
-	public void setColor() {
+	public void setColor()
+	{
 		setLocalColor();
-		for (WeaponPane weapPane : weaponList) {
+		for (WeaponPane weapPane : weaponList)
+		{
 			weapPane.setColor();
 		}
 	}
@@ -52,7 +57,8 @@ public class WeaponListPane extends javax.swing.JPanel {
 	/**
 	 * Set the colour for the local pane.
 	 */
-	public void setLocalColor() {
+	public void setLocalColor()
+	{
 		setBackground(CharacterPanel.white);
 	}
 
@@ -61,8 +67,10 @@ public class WeaponListPane extends javax.swing.JPanel {
 	 * 
 	 * @param pc Player Character to assocaiate with the pane.
 	 */
-	public void setPc(PlayerCharacter pc) {
-		if(this.pc != pc) {
+	public void setPc(PlayerCharacter pc)
+	{
+		if (this.pc != pc)
+		{
 			this.pc = pc;
 			serial = 0;
 		}
@@ -74,24 +82,26 @@ public class WeaponListPane extends javax.swing.JPanel {
 	 * list must only be processed by one refresh at a time, otherwise
 	 * duplicates may appear in the list.
 	 */
-	public synchronized void refresh() {
-		if(serial < pc.getSerial()) {
+	public synchronized void refresh()
+	{
+		if (serial < pc.getSerial())
+		{
 			// Get the EquipSet used for output and calculations
 			// possibly include equipment from temporary bonuses
 			pc.setCalcEquipmentList(pc.getUseTempMods());
 			List<Equipment> weaps = pc.getExpandedWeapons(Constants.MERGE_ALL);
-//			broken, if you remove a weapon and add another one the weapontotal is the same so no refresh is performed
-//			fix for bug [ 1153155 ] Preview pane not updated when changing equiped weapon or ski
-//			if(weaps.size() != weaponTotal || firstTime) {
-//				addEqPanes(weaps);
-//				firstTime = false;
-//			}
-//			else {
-//				for(int i = 0; i < weaponList.size(); i++) {
-//					WeaponPane weapPane = (WeaponPane)weaponList.get(i);
-//					weapPane.refresh();
-//				}
-//			}
+			//			broken, if you remove a weapon and add another one the weapontotal is the same so no refresh is performed
+			//			fix for bug [ 1153155 ] Preview pane not updated when changing equiped weapon or ski
+			//			if(weaps.size() != weaponTotal || firstTime) {
+			//				addEqPanes(weaps);
+			//				firstTime = false;
+			//			}
+			//			else {
+			//				for(int i = 0; i < weaponList.size(); i++) {
+			//					WeaponPane weapPane = (WeaponPane)weaponList.get(i);
+			//					weapPane.refresh();
+			//				}
+			//			}
 			addEqPanes(weaps);
 			serial = pc.getSerial();
 		}
@@ -103,9 +113,11 @@ public class WeaponListPane extends javax.swing.JPanel {
 	 * Remove components from the current pane and all those panes in the weapon list.  
 	 * Remove the panes from the weapon list.
 	 */
-	public void clear() {
+	public void clear()
+	{
 		removeAll();
-		for(int i = weaponList.size()-1; i >= 0 ; i--) {
+		for (int i = weaponList.size() - 1; i >= 0; i--)
+		{
 			WeaponPane pane = weaponList.get(i);
 			pane.clear();
 			weaponList.remove(pane);
@@ -114,12 +126,14 @@ public class WeaponListPane extends javax.swing.JPanel {
 		weaponList.clear();
 	}
 
-	private void addEqPanes(List<Equipment> weapons) {
+	private void addEqPanes(List<Equipment> weapons)
+	{
 		clear();
 
 		int gridBag = 1;
 
-		for (Equipment weapon : weapons) {
+		for (Equipment weapon : weapons)
+		{
 			WeaponPane weaponPane = new WeaponPane();
 			weaponPane.setWeapon(pc, weapon);
 			weaponList.add(weaponPane);
@@ -135,7 +149,8 @@ public class WeaponListPane extends javax.swing.JPanel {
 	 * 
 	 * @see #clear()
 	 */
-	public void destruct() {
+	public void destruct()
+	{
 		clear();
 	}
 }

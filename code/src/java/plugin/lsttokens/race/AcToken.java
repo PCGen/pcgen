@@ -6,18 +6,23 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with AC Token
  */
-public class AcToken implements RaceLstToken {
+public class AcToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "AC";
 	}
 
-	public boolean parse(Race race, String value) {
-		try {
+	public boolean parse(Race race, String value)
+	{
+		try
+		{
 			race.setStartingAC(Integer.valueOf(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

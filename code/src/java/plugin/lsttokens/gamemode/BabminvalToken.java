@@ -6,18 +6,23 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BABMINVAL Token
  */
-public class BabminvalToken implements GameModeLstToken {
+public class BabminvalToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BABMINVAL";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			gameMode.setBabMinVal(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

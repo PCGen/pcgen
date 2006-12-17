@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>DC</code>
  *
@@ -35,12 +34,9 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class DC extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"DC"
-		};
+	private static final String[] bonusHandled = {"DC"};
 
-	private static final String[] bonusTags = { "FEATBONUS", "ALLSPELLS" };
+	private static final String[] bonusTags = {"FEATBONUS", "ALLSPELLS"};
 
 	/*
 	 * is either a bonusTag[]
@@ -68,13 +64,14 @@ public final class DC extends BonusObj
 		// Must remove the %LIST if present
 
 		/*
-		   if (token.indexOf(".%LIST") > 0)
-		   {
-		       token = token.substring(0, token.indexOf(".%LIST"));
-		   }
+		 if (token.indexOf(".%LIST") > 0)
+		 {
+		 token = token.substring(0, token.indexOf(".%LIST"));
+		 }
 		 */
-		if (token.startsWith("CLASS") || token.startsWith("DESCRIPTOR") || token.startsWith("DOMAIN")
-			|| token.startsWith("SCHOOL") || token.startsWith("SUBSCHOOL") || token.startsWith("TYPE")
+		if (token.startsWith("CLASS") || token.startsWith("DESCRIPTOR")
+			|| token.startsWith("DOMAIN") || token.startsWith("SCHOOL")
+			|| token.startsWith("SUBSCHOOL") || token.startsWith("TYPE")
 			|| token.startsWith("SPELL"))
 		{
 			addBonusInfo(token);

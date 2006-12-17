@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with DAMAGE token 
  */
-public class DamageToken implements EquipmentLstToken {
+public class DamageToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DAMAGE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setDamage(value);
 		return true;
 	}

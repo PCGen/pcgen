@@ -6,18 +6,23 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with PPCOST Token
  */
-public class PpcostToken implements SpellLstToken {
+public class PpcostToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "PPCOST";
 	}
 
-	public boolean parse(Spell spell, String value) {
-		try {
+	public boolean parse(Spell spell, String value)
+	{
+		try
+		{
 			spell.setPPCost(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

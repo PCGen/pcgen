@@ -33,18 +33,23 @@ import pcgen.persistence.lst.StatsAndChecksLstToken;
 /**
  * Class deals with STATNAME Token
  */
-public class StatnameToken implements StatsAndChecksLstToken {
-	public String getTokenName() {
+public class StatnameToken implements StatsAndChecksLstToken
+{
+	public String getTokenName()
+	{
 		return "STATNAME";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL) {
-		try {
+	public boolean parse(String lstLine, URL sourceURL)
+	{
+		try
+		{
 			PCStatLoader statLoader = new PCStatLoader();
 			statLoader.parseLine(lstLine, sourceURL);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

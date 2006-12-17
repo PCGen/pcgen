@@ -40,7 +40,8 @@ import java.io.Writer;
 /**
  * Writer for PRECITY
  */
-public class PreCityWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreCityWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -56,16 +57,15 @@ public class PreCityWriter extends AbstractPrerequisiteWriter implements Prerequ
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
+			PrerequisiteOperator.NEQ};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 		try

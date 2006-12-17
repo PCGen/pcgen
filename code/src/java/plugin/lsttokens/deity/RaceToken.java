@@ -9,14 +9,18 @@ import java.util.List;
 /**
  * Class deals with RACE Token
  */
-public class RaceToken implements DeityLstToken{
+public class RaceToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RACE";
 	}
 
-	public boolean parse(Deity deity, String value) {
-		if(value.length() > 0) {
+	public boolean parse(Deity deity, String value)
+	{
+		if (value.length() > 0)
+		{
 			String[] races = value.split("\\|");
 			List<String> raceList = CoreUtility.arrayToList(races);
 			deity.setRacePantheonList(raceList);

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with WEIGHTPATTERN Token
  */
-public class WeightpatternToken implements UnitSetLstToken {
+public class WeightpatternToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WEIGHTPATTERN";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
+	public boolean parse(UnitSet unitSet, String value)
+	{
 		unitSet.setWeightDisplayPattern(value);
 		return true;
 	}

@@ -51,7 +51,8 @@ public class MoveToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -126,11 +127,14 @@ public class MoveToken extends Token
 
 	public static String getRateToken(PlayerCharacter pc, int moveIndex)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.movement(moveIndex)) + Globals.getGameModeUnitSet().getDistanceUnit();
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			pc.movement(moveIndex))
+			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
 	public static String getSquaresToken(PlayerCharacter pc, int moveIndex)
 	{
-		return Integer.toString((int)(pc.movement(moveIndex) / Globals.getGameModeSquareSize()));
+		return Integer.toString((int) (pc.movement(moveIndex) / Globals
+			.getGameModeSquareSize()));
 	}
 }

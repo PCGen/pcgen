@@ -58,7 +58,8 @@ public class ExportToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String exportString = "";
 
@@ -109,7 +110,8 @@ public class ExportToken extends Token
 
 		try
 		{
-			ResourceBundle d_properties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
+			ResourceBundle d_properties =
+					ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
 			retString = d_properties.getString("VersionNumber");
 		}
 		catch (MissingResourceException mre)

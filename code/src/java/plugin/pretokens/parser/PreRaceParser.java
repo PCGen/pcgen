@@ -37,19 +37,22 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreRaceParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreRaceParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "RACE" };
+		return new String[]{"RACE"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 
-		final Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		final Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		//
 		// Negate the race names wrapped in []'s. Then need to bump up the required number of matches
@@ -67,7 +70,7 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements Pre
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
-			if (p.getKind() == null)		// PREMULT
+			if (p.getKind() == null) // PREMULT
 			{
 				NegateRaceChoice(p);
 			}

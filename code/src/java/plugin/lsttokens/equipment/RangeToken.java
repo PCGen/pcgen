@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with RANGE token 
  */
-public class RangeToken implements EquipmentLstToken {
+public class RangeToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RANGE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setRange(value);
 		return true;
 	}

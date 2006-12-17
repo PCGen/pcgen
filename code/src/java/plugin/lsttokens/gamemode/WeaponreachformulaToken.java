@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with WEAPONCATEGORY Token
  */
-public class WeaponreachformulaToken implements GameModeLstToken {
+public class WeaponreachformulaToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WEAPONREACH";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setWeaponReachFormula(value);
 		return true;
 	}

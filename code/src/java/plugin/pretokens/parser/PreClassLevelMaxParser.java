@@ -38,21 +38,24 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
+		implements PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "CLASSLEVELMAX" };
+		return new String[]{"CLASSLEVELMAX"};
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		// ClassLevelMax is basically the inverse of class
 		//
@@ -81,7 +84,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser imple
 			changeFromLevelMax(subreq);
 		}
 
-		if (p.getKind() == null)	// PREMULT
+		if (p.getKind() == null) // PREMULT
 		{
 			// Nothing to do. This is a PREMULT and we don't care about them.
 		}
@@ -93,7 +96,6 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser imple
 			// which results in the of negation of the PRECLASS
 			// 'class_levels >= 4'   --> 'class_levels < 5'
 			//
-
 
 			//
 			// If the entry after the '=' is non-numeric AbstractPrerequisiteListParser#parse will
@@ -111,7 +113,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser imple
 			{
 				oper = p.getOperand();
 			}
-			
+
 			try
 			{
 				oper = Integer.toString(Integer.parseInt(oper) + 1);

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with CHOOSE token 
  */
-public class ChooseToken implements EquipmentLstToken {
+public class ChooseToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CHOOSE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setChoiceString(value);
 		return true;
 	}

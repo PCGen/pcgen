@@ -6,18 +6,23 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with REACHMULT token 
  */
-public class ReachMultToken implements EquipmentLstToken {
+public class ReachMultToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "REACHMULT";
 	}
 
-	public boolean parse(Equipment eq, String value) {
-		try {
+	public boolean parse(Equipment eq, String value)
+	{
+		try
+		{
 			eq.setReachMult(Integer.parseInt(value));
 			return true;
 		}
-		catch (NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with DISTANCEUNIT Token
  */
-public class DistanceunitToken implements UnitSetLstToken {
+public class DistanceunitToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DISTANCEUNIT";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
+	public boolean parse(UnitSet unitSet, String value)
+	{
 		unitSet.setDistanceUnit(value);
 		return true;
 	}

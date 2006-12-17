@@ -28,19 +28,21 @@ package plugin.lsttokens.level;
 import pcgen.core.LevelInfo;
 import pcgen.persistence.lst.LevelLstToken;
 
-
 /**
  * <code>LevelToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class LevelToken implements LevelLstToken {
+public class LevelToken implements LevelLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LEVEL";
 	}
 
-	public boolean parse(LevelInfo levelInfo, String value) {
+	public boolean parse(LevelInfo levelInfo, String value)
+	{
 		levelInfo.setLevelString(value);
 		return true;
 	}

@@ -63,7 +63,8 @@ public class SkillSubsetToken extends SkillToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -109,10 +110,11 @@ public class SkillSubsetToken extends SkillToken
 		// Build the list of matching skills
 		String skillPrefix = details.getProperties()[0].toUpperCase();
 		List<Skill> skillSubset = new ArrayList<Skill>();
-		final List<Skill> skills = pc.getSkillListInOutputOrder(
-			pc.getPartialSkillList(Visibility.OUTPUT_ONLY));
+		final List<Skill> skills =
+				pc.getSkillListInOutputOrder(pc
+					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
-		for ( Skill bSkill : skills )
+		for (Skill bSkill : skills)
 		{
 			if (bSkill.getKeyName().toUpperCase().startsWith(skillPrefix))
 			{

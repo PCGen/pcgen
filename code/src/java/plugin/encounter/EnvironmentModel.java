@@ -45,7 +45,9 @@ public class EnvironmentModel extends DefaultComboBoxModel
 	{
 		VectorTable table;
 		ReadXML reader;
-		File f = new File(dir + File.separator + "encounter_tables/environments.xml");
+		File f =
+				new File(dir + File.separator
+					+ "encounter_tables/environments.xml");
 
 		this.removeAllElements();
 

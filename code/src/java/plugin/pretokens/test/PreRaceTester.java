@@ -41,7 +41,8 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl <byngl@hotmail.com>
  *
  */
-public class PreRaceTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreRaceTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -54,15 +55,16 @@ public class PreRaceTester extends AbstractPrerequisiteTest implements Prerequis
 		final String requiredRace = prereq.getKey();
 		int runningTotal = 0;
 
-		if (requiredRace.startsWith("TYPE=") || requiredRace.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+		if (requiredRace.startsWith("TYPE=") || requiredRace.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			final Race pcRace = character.getRace();
-			StringTokenizer tok = new StringTokenizer(requiredRace.substring(5), ".");
+			StringTokenizer tok =
+					new StringTokenizer(requiredRace.substring(5), ".");
 			boolean match = true;
 			//
 			// Must match all listed types in order to qualify
 			//
-			while(tok.hasMoreTokens())
+			while (tok.hasMoreTokens())
 			{
 				final String type = tok.nextToken();
 				if (!pcRace.isType(type))
@@ -76,11 +78,13 @@ public class PreRaceTester extends AbstractPrerequisiteTest implements Prerequis
 				++runningTotal;
 			}
 		}
-		else if (requiredRace.startsWith("RACETYPE=") || requiredRace.startsWith("RACETYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+		else if (requiredRace.startsWith("RACETYPE=") || requiredRace.startsWith("RACETYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
-			return character.getRaceType().equalsIgnoreCase(requiredRace.substring(9)) ? 1 : 0;
+			return character.getRaceType().equalsIgnoreCase(
+				requiredRace.substring(9)) ? 1 : 0;
 		}
-		else if (requiredRace.startsWith("RACESUBTYPE=") || requiredRace.startsWith("RACESUBTYPE."))
+		else if (requiredRace.startsWith("RACESUBTYPE=")
+			|| requiredRace.startsWith("RACESUBTYPE."))
 		{
 			final String reqType = requiredRace.substring(12);
 			for (String subType : character.getRacialSubTypes())

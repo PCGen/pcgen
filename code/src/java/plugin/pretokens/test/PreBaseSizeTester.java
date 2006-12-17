@@ -38,25 +38,34 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreBaseSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreBaseSizeTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
-		if ((character.getRace() != null) && !character.getRace().equals(Globals.s_EMPTYRACE))
+		if ((character.getRace() != null)
+			&& !character.getRace().equals(Globals.s_EMPTYRACE))
 		{
-			final String key = String.valueOf(prereq.getOperand().toUpperCase().charAt(0));
+			final String key =
+					String.valueOf(prereq.getOperand().toUpperCase().charAt(0));
 			final int targetSize = Globals.sizeInt(key, -1);
 			if (targetSize < 0)
 			{
-				throw new PrerequisiteException(PropertyFactory.getFormattedString("PreBaseSize.error.bad_size", prereq.getOperand() )); //$NON-NLS-1$
+				throw new PrerequisiteException(PropertyFactory
+					.getFormattedString(
+						"PreBaseSize.error.bad_size", prereq.getOperand())); //$NON-NLS-1$
 			}
-			runningTotal = prereq.getOperator().compare(character.racialSizeInt(), targetSize);
+			runningTotal =
+					prereq.getOperator().compare(character.racialSizeInt(),
+						targetSize);
 		}
 
 		return countedTotal(prereq, runningTotal);

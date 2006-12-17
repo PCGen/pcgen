@@ -39,40 +39,46 @@ import java.util.List;
  * @author wardc
  *
  */
-public class PreSpellSchoolTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		final String school = prereq.getKey();
-		final int requiredLevel = Integer.parseInt( prereq.getSubKey() );
-		final int requiredNumber = Integer.parseInt( prereq.getOperand() );
+		final int requiredLevel = Integer.parseInt(prereq.getSubKey());
+		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
-		final List<Spell> aArrayList = character.aggregateSpellList("Any", school, "A", "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
+		final List<Spell> aArrayList =
+				character.aggregateSpellList(
+					"Any", school, "A", "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
-		final int runningTotal = prereq.getOperator().compare(aArrayList.size(), requiredNumber );
+		final int runningTotal =
+				prereq.getOperator().compare(aArrayList.size(), requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SPELL.SCHOOL"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		final Object[] args = new Object[] {
-					 prereq.getOperator().toDisplayString(),
-					 prereq.getOperand(),
-					 prereq.getSubKey(),
-					 prereq.getKey()
-		};
-		return PropertyFactory.getFormattedString("PreSpellSchool.toHtml", args); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		final Object[] args =
+				new Object[]{prereq.getOperator().toDisplayString(),
+					prereq.getOperand(), prereq.getSubKey(), prereq.getKey()};
+		return PropertyFactory
+			.getFormattedString("PreSpellSchool.toHtml", args); //$NON-NLS-1$
 	}
 }

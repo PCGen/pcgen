@@ -56,7 +56,7 @@ public class SkillToken implements KitSkillLstToken
 	public boolean parse(KitSkill kitSkill, String value)
 	{
 		Logging.errorPrint("Ignoring second SKILL tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 }

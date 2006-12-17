@@ -25,7 +25,6 @@
  */
 package plugin.initiative;
 
-
 /**
  * <p>
  * An abstract class used for the "model" classes for the plugins.  Basically
@@ -50,13 +49,13 @@ public abstract class PObjectModel
 
 	/** Constant for decoding incoming string types */
 	private static final String TYPE_PREFIX_SPELL = "spell:";
-	
+
 	/** Constant for decoding incoming string types */
 	private static final String TYPE_PREFIX_SAVE = "save:";
-	
+
 	/** Constant for decoding incoming string types */
 	private static final String TYPE_PREFIX_DICE_ROLL = "dice:";
-	
+
 	protected String m_name = null;
 	protected String[] outputTokens = null;
 
@@ -117,27 +116,39 @@ public abstract class PObjectModel
 		{
 			if (objectString.startsWith(TYPE_PREFIX_SKILL))
 			{
-				returnValue = new SkillModel(objectString.substring(TYPE_PREFIX_SKILL.length()));
+				returnValue =
+						new SkillModel(objectString.substring(TYPE_PREFIX_SKILL
+							.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_CHECK))
 			{
-				returnValue = new CheckModel(objectString.substring(TYPE_PREFIX_CHECK.length()));
+				returnValue =
+						new CheckModel(objectString.substring(TYPE_PREFIX_CHECK
+							.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_ATTACK))
 			{
-				returnValue = new AttackModel(objectString.substring(TYPE_PREFIX_ATTACK.length()));
+				returnValue =
+						new AttackModel(objectString
+							.substring(TYPE_PREFIX_ATTACK.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_SPELL))
 			{
-				returnValue = new SpellModel(objectString.substring(TYPE_PREFIX_SPELL.length()));
+				returnValue =
+						new SpellModel(objectString.substring(TYPE_PREFIX_SPELL
+							.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_SAVE))
 			{
-				returnValue = new SaveModel(objectString.substring(TYPE_PREFIX_SAVE.length()));
+				returnValue =
+						new SaveModel(objectString.substring(TYPE_PREFIX_SAVE
+							.length()));
 			}
 			else if (objectString.startsWith(TYPE_PREFIX_DICE_ROLL))
 			{
-				returnValue = new DiceRollModel(objectString.substring(TYPE_PREFIX_DICE_ROLL.length()));
+				returnValue =
+						new DiceRollModel(objectString
+							.substring(TYPE_PREFIX_DICE_ROLL.length()));
 			}
 		}
 

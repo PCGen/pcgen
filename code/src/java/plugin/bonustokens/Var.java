@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>Var</code> deals with bonuses to data defined variables.
  *

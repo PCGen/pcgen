@@ -12,35 +12,40 @@ import pcgen.util.Logging;
 /**
  * Class deals with STARTFEATS Token
  */
-public class StartfeatsToken implements RaceLstToken {
+public class StartfeatsToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "STARTFEATS";
 	}
 
-	public boolean parse(Race race, String value) {
-		try {
+	public boolean parse(Race race, String value)
+	{
+		try
+		{
 			StringBuffer sb = new StringBuffer();
 			sb.append("FEAT|POOL|").append(Integer.parseInt(value));
 
-			final BonusObj	       bon     = Bonus.newBonus(sb.toString());
+			final BonusObj bon = Bonus.newBonus(sb.toString());
 			final PreParserFactory factory = PreParserFactory.getInstance();
-			final StringBuffer     buf     = new StringBuffer();
+			final StringBuffer buf = new StringBuffer();
 
 			buf.append("PREMULT:1,[PREHD:1],[PRELEVEL:1]");
-			
-			final Prerequisite     prereq  = factory.parse(buf.toString());
+
+			final Prerequisite prereq = factory.parse(buf.toString());
 			bon.addPreReq(prereq);
-			
+
 			race.setBonusInitialFeats(bon);
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 		catch (PersistenceLayerException e)
 		{
-			Logging.errorPrint("Caught " +  e);
+			Logging.errorPrint("Caught " + e);
 			return false;
 		}
 	}

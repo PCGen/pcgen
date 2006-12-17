@@ -13,19 +13,22 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class LangautoLst implements GlobalLstToken {
+public class LangautoLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LANGAUTO";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, ",");
 
-		while (tok.hasMoreTokens()) {
+		while (tok.hasMoreTokens())
+		{
 			obj.addLanguageAuto(tok.nextToken());
 		}
 		return true;
 	}
 }
-

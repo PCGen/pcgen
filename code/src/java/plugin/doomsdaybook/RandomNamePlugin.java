@@ -55,7 +55,8 @@ public class RandomNamePlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
+	public FileFilter[] getFileTypes()
+	{
 		return null;
 	}
 
@@ -69,11 +70,14 @@ public class RandomNamePlugin extends GMBPlugin
 		initMenus();
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 80);
 	}
 
@@ -113,7 +117,8 @@ public class RandomNamePlugin extends GMBPlugin
 	{
 		if (message instanceof StateChangedMessage)
 		{
-			if(isActive()) {
+			if (isActive())
+			{
 				nameToolsItem.setEnabled(false);
 			}
 			else
@@ -127,10 +132,11 @@ public class RandomNamePlugin extends GMBPlugin
 	 * Returns true if this plugin is active
 	 * @return true if this plugin is active
 	 */
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+	public boolean isActive()
+	{
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theView);
+			&& tp.getSelectedComponent().equals(theView);
 	}
 
 	/**
@@ -141,12 +147,12 @@ public class RandomNamePlugin extends GMBPlugin
 		nameToolsItem.setMnemonic('R');
 		nameToolsItem.setText("Random Name Generator");
 		nameToolsItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					toolMenuItem(evt);
-				}
-			});
+				toolMenuItem(evt);
+			}
+		});
 		GMBus.send(new ToolMenuItemAddMessage(this, nameToolsItem));
 	}
 

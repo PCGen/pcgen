@@ -6,15 +6,19 @@ import pcgen.persistence.lst.WieldCategoryLstToken;
 /**
  * Class deals with FINESSABLE Token
  */
-public class FinessableToken implements WieldCategoryLstToken {
+public class FinessableToken implements WieldCategoryLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "FINESSABLE";
 	}
 
-	public boolean parse(WieldCategory cat, String value) {
+	public boolean parse(WieldCategory cat, String value)
+	{
 		// Is this category finessable?
-		if (value.toUpperCase().startsWith("Y")) {
+		if (value.toUpperCase().startsWith("Y"))
+		{
 			cat.setFinessable(true);
 		}
 		return true;

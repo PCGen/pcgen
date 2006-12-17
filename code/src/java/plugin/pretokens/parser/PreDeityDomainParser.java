@@ -31,15 +31,15 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreDeityDomainParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreDeityDomainParser extends AbstractPrerequisiteListParser
+		implements PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "DEITYDOMAIN" };
+		return new String[]{"DEITYDOMAIN"};
 	}
 }

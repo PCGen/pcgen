@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with DURATION Token
  */
-public class DurationToken implements SpellLstToken {
+public class DurationToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DURATION";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		spell.setDuration(value);
 		return true;
 	}

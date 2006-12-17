@@ -23,7 +23,8 @@ import java.util.List;
  * Confirmed no memory Leaks Dec 10, 2004
  * @author  ddjone3
  */
-public class ArmorPane extends javax.swing.JPanel {
+public class ArmorPane extends javax.swing.JPanel
+{
 	private PlayerCharacter pc;
 	private ArrayList<Component> fields = new ArrayList<Component>();
 
@@ -59,12 +60,14 @@ public class ArmorPane extends javax.swing.JPanel {
 	/**
 	 * Constructor
 	 */
-	public ArmorPane() {
+	public ArmorPane()
+	{
 		initComponents();
 		setColor();
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 		java.awt.GridBagConstraints gridBagConstraints;
 
 		typeNamePanel = new JPanel();
@@ -77,7 +80,8 @@ public class ArmorPane extends javax.swing.JPanel {
 
 		setLayout(new java.awt.GridBagLayout());
 
-		typeNamePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		typeNamePanel.setLayout(new java.awt.FlowLayout(
+			java.awt.FlowLayout.CENTER, 1, 0));
 		typeName.setFont(FONT_TEN);
 		typeName.setText(ARMOR_TEXT);
 		typeNamePanel.add(typeName);
@@ -85,7 +89,8 @@ public class ArmorPane extends javax.swing.JPanel {
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		add(typeNamePanel, gridBagConstraints);
 
-		typePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		typePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
+			1, 0));
 		JLabel typeLabel = new JLabel();
 		typeLabel.setFont(FONT_TEN);
 		typeLabel.setText(TYPE_TEXT);
@@ -94,7 +99,8 @@ public class ArmorPane extends javax.swing.JPanel {
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		add(typePanel, gridBagConstraints);
 
-		acPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		acPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
+			1, 0));
 		JLabel acLabel = new JLabel();
 		acLabel.setFont(FONT_TEN);
 		acLabel.setText(AC_TEXT);
@@ -103,7 +109,8 @@ public class ArmorPane extends javax.swing.JPanel {
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		add(acPanel, gridBagConstraints);
 
-		maxDexPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		maxDexPanel.setLayout(new java.awt.FlowLayout(
+			java.awt.FlowLayout.CENTER, 1, 0));
 		JLabel maxDexLabel = new JLabel();
 		maxDexLabel.setFont(FONT_TEN);
 		maxDexLabel.setText(MAX_DEX_TEXT);
@@ -112,7 +119,8 @@ public class ArmorPane extends javax.swing.JPanel {
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		add(maxDexPanel, gridBagConstraints);
 
-		checkPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		checkPanel.setLayout(new java.awt.FlowLayout(
+			java.awt.FlowLayout.CENTER, 1, 0));
 		JLabel checkLabel = new JLabel();
 		checkLabel.setFont(FONT_TEN);
 		checkLabel.setText(CHECK_TEXT);
@@ -121,7 +129,8 @@ public class ArmorPane extends javax.swing.JPanel {
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		add(checkPanel, gridBagConstraints);
 
-		failurePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		failurePanel.setLayout(new java.awt.FlowLayout(
+			java.awt.FlowLayout.CENTER, 1, 0));
 		JLabel failureLabel = new JLabel();
 		failureLabel.setFont(FONT_TEN);
 		failureLabel.setText(FAIL_TEXT);
@@ -134,7 +143,8 @@ public class ArmorPane extends javax.swing.JPanel {
 	/**
 	 * Sets the colors
 	 */
-	public void setColor() {
+	public void setColor()
+	{
 		refresh();
 		setBackground(CharacterPanel.border);
 		typeNamePanel.setBackground(CharacterPanel.header);
@@ -144,12 +154,18 @@ public class ArmorPane extends javax.swing.JPanel {
 		checkPanel.setBackground(CharacterPanel.header);
 		failurePanel.setBackground(CharacterPanel.header);
 		setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
-		typeNamePanel.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
-		typePanel.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
-		acPanel.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
-		maxDexPanel.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
-		checkPanel.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
-		failurePanel.setBorder(new javax.swing.border.LineBorder(CharacterPanel.border));
+		typeNamePanel.setBorder(new javax.swing.border.LineBorder(
+			CharacterPanel.border));
+		typePanel.setBorder(new javax.swing.border.LineBorder(
+			CharacterPanel.border));
+		acPanel.setBorder(new javax.swing.border.LineBorder(
+			CharacterPanel.border));
+		maxDexPanel.setBorder(new javax.swing.border.LineBorder(
+			CharacterPanel.border));
+		checkPanel.setBorder(new javax.swing.border.LineBorder(
+			CharacterPanel.border));
+		failurePanel.setBorder(new javax.swing.border.LineBorder(
+			CharacterPanel.border));
 	}
 
 	/**
@@ -157,7 +173,8 @@ public class ArmorPane extends javax.swing.JPanel {
 	 * @param pc
 	 * @param type
 	 */
-	public void setPc(PlayerCharacter pc, String type) {
+	public void setPc(PlayerCharacter pc, String type)
+	{
 		this.pc = pc;
 		this.typeName.setText(type);
 	}
@@ -165,46 +182,61 @@ public class ArmorPane extends javax.swing.JPanel {
 	/**
 	 * Refreshes the pane
 	 */
-	public void refresh() {
+	public void refresh()
+	{
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 		final String armorType = typeName.getText();
 
-		for(int i = 0; i < fields.size(); i++) {
+		for (int i = 0; i < fields.size(); i++)
+		{
 			remove(fields.get(i));
 		}
 		fields.clear();
 
 		List<Equipment> armorList = getArmorList(armorType);
 
-		if(armorList.size() == 0) {
+		if (armorList.size() == 0)
+		{
 			setVisible(false);
 		}
-		else {
+		else
+		{
 			setVisible(true);
 			int gridY = 1;
 
-			for(int i = 0; i < armorList.size(); i++) {
+			for (int i = 0; i < armorList.size(); i++)
+			{
 				Color color;
-				if(i % 2 == 0) {
+				if (i % 2 == 0)
+				{
 					color = CharacterPanel.bodyLight;
 				}
-				else {
+				else
+				{
 					color = CharacterPanel.bodyMedLight;
 				}
 				armorList.get(i);
 
 				StringBuffer sb = new StringBuffer();
-				sb.append(ARMOR).append('.').append(armorType).append('.').append(i).append('.');
+				sb.append(ARMOR).append('.').append(armorType).append('.')
+					.append(i).append('.');
 
-				addField(0, gridY, pcOut.getExportToken(sb.toString() + NAME), color);
-				addField(1, gridY, pcOut.getExportToken(sb.toString() + TYPE), color);
-				addField(2, gridY, pcOut.getExportToken(sb.toString() + ACBONUS), color);
-				addField(3, gridY, pcOut.getExportToken(sb.toString() + MAXDEX), color);
-				addField(4, gridY, pcOut.getExportToken(sb.toString() + ACCHECK), color);
-				addField(5, gridY, pcOut.getExportToken(sb.toString() + SPELLFAIL), color);
+				addField(0, gridY, pcOut.getExportToken(sb.toString() + NAME),
+					color);
+				addField(1, gridY, pcOut.getExportToken(sb.toString() + TYPE),
+					color);
+				addField(2, gridY, pcOut
+					.getExportToken(sb.toString() + ACBONUS), color);
+				addField(3, gridY,
+					pcOut.getExportToken(sb.toString() + MAXDEX), color);
+				addField(4, gridY, pcOut
+					.getExportToken(sb.toString() + ACCHECK), color);
+				addField(5, gridY, pcOut.getExportToken(sb.toString()
+					+ SPELLFAIL), color);
 				String sprops = pcOut.getExportToken(sb.toString() + SPROPS);
 
-				if(!sprops.equals(BLANK)) {
+				if (!sprops.equals(BLANK))
+				{
 					gridY++;
 					addSprops(gridY, sprops, color);
 				}
@@ -215,19 +247,25 @@ public class ArmorPane extends javax.swing.JPanel {
 		repaint();
 	}
 
-	private List<Equipment> getArmorList(String armorType) {
+	private List<Equipment> getArmorList(String armorType)
+	{
 		List<Equipment> armorList = new ArrayList<Equipment>();
 
-		if(armorType.equals(ARMOR)) {
+		if (armorType.equals(ARMOR))
+		{
 			armorList = pc.getEquipmentOfTypeInOutputOrder(ARMOR, 3);
 		}
-		else if(armorType.equals(SHIELD)) {
+		else if (armorType.equals(SHIELD))
+		{
 			armorList = pc.getEquipmentOfTypeInOutputOrder(SHIELD, 3);
 		}
-		else if(armorType.equals(ITEM)) {
+		else if (armorType.equals(ITEM))
+		{
 			for (Equipment eq : pc.getEquipmentListInOutputOrder())
 			{
-				if (eq.getBonusListString(AC) && (!eq.isArmor() && !eq.isShield())) {
+				if (eq.getBonusListString(AC)
+					&& (!eq.isArmor() && !eq.isShield()))
+				{
 					armorList.add(eq);
 				}
 			}
@@ -235,21 +273,25 @@ public class ArmorPane extends javax.swing.JPanel {
 		return armorList;
 	}
 
-	private void addField(int gridx, int gridy, String text, Color color) {
+	private void addField(int gridx, int gridy, String text, Color color)
+	{
 		javax.swing.JPanel field = new javax.swing.JPanel();
 		javax.swing.JLabel data = new javax.swing.JLabel();
 
 		field.setBackground(color);
-		field.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 0));
+		field.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1,
+			0));
 		data.setFont(FONT_TEN);
 		String dataText = text;
-		if(text.equals(BLANK)) {
+		if (text.equals(BLANK))
+		{
 			dataText = SPACE;
 		}
 		data.setText(dataText);
 		field.add(data);
 
-		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+		java.awt.GridBagConstraints gridBagConstraints =
+				new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = gridx;
 		gridBagConstraints.gridy = gridy;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -257,14 +299,16 @@ public class ArmorPane extends javax.swing.JPanel {
 		fields.add(field);
 	}
 
-	private void addSprops (int gridY, String text, Color color) {
+	private void addSprops(int gridY, String text, Color color)
+	{
 		JTextArea sprops = new JTextArea();
 		sprops.setFont(FONT_TEN);
 		sprops.setLineWrap(true);
 		sprops.setWrapStyleWord(true);
 		sprops.setText(text);
 		sprops.setBackground(color);
-		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+		java.awt.GridBagConstraints gridBagConstraints =
+				new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridY;
 		gridBagConstraints.gridwidth = 6;
@@ -276,7 +320,8 @@ public class ArmorPane extends javax.swing.JPanel {
 	/**
 	 * Destroy panel
 	 */
-	public void destruct() {
+	public void destruct()
+	{
 		// Put any code here that is needed to prevent memory leaks
 		// when this panel is destroyed
 	}

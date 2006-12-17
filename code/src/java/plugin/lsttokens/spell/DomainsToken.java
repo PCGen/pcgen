@@ -8,18 +8,23 @@ import pcgen.util.Logging;
 /**
  * Class deals with DOMAINS Token
  */
-public class DomainsToken implements SpellLstToken {
+public class DomainsToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DOMAINS";
 	}
 
-	public boolean parse(Spell spell, String value) {
-		try {
+	public boolean parse(Spell spell, String value)
+	{
+		try
+		{
 			SpellLoader.setLevelList(spell, "DOMAIN", value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			Logging.errorPrint("Error in DOMAIN token: " + e.getMessage());
 			e.printStackTrace();
 			return false;

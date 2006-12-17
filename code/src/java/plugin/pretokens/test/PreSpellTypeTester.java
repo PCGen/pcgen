@@ -37,38 +37,46 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreSpellTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		final String castingType = prereq.getKey();
 		int requiredLevel;
 		int requiredNumber;
 		try
 		{
-			requiredLevel = Integer.parseInt( prereq.getSubKey() );
+			requiredLevel = Integer.parseInt(prereq.getSubKey());
 		}
 		catch (NumberFormatException e)
 		{
 			requiredLevel = 1;
-			Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
+			Logging
+				.errorPrintLocalised(
+					"PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
 		}
 
 		try
 		{
-			requiredNumber = Integer.parseInt( prereq.getOperand() );
+			requiredNumber = Integer.parseInt(prereq.getOperand());
 		}
 		catch (NumberFormatException e)
 		{
 			requiredNumber = 1;
-			Logging.errorPrintLocalised("PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
+			Logging
+				.errorPrintLocalised(
+					"PreSpellType.Badly_formed_spell_type", prereq.getSubKey(), prereq.toString()); //$NON-NLS-1$
 		}
 
 		int runningTotal = 0;
-		if (character.canCastSpellTypeLevel(castingType, requiredLevel, requiredNumber))
+		if (character.canCastSpellTypeLevel(castingType, requiredLevel,
+			requiredNumber))
 		{
 			runningTotal = requiredNumber;
 		}
@@ -79,19 +87,19 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements Prer
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SPELL.TYPE"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreSpellType.toHtml",  //$NON-NLS-1$
-		       		new Object[] {prereq.getOperator().toDisplayString(),
-		       				prereq.getOperand(),
-		       				prereq.getKey(),
-									prereq.getSubKey()} );
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory.getFormattedString("PreSpellType.toHtml", //$NON-NLS-1$
+			new Object[]{prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), prereq.getKey(), prereq.getSubKey()});
 	}
 
 }

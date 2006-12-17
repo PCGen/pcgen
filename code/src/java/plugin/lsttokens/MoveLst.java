@@ -13,14 +13,18 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class MoveLst implements GlobalLstToken {
+public class MoveLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MOVE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if (obj instanceof Equipment) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (obj instanceof Equipment)
+		{
 			return false;
 		}
 		Movement cm = Movement.getMovementFrom(value);
@@ -29,4 +33,3 @@ public class MoveLst implements GlobalLstToken {
 		return true;
 	}
 }
-

@@ -23,12 +23,14 @@ import pcgen.util.enumeration.VisionType;
  * @author Devon Jones
  * @version $Revision$
  */
-public class VisionLst implements GlobalLstToken {
+public class VisionLst implements GlobalLstToken
+{
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "VISION";
 	}
 
@@ -36,61 +38,81 @@ public class VisionLst implements GlobalLstToken {
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject,
 	 *      java.lang.String, int)
 	 */
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		final StringTokenizer aTok = new StringTokenizer(value, "|");
 
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			String visionString = aTok.nextToken();
 
-			if (".CLEAR".equals(visionString)) {
+			if (".CLEAR".equals(visionString))
+			{
 				obj.clearVisionList();
 				continue;
 			}
 
-			if (visionString.indexOf(',') >= 0) {
+			if (visionString.indexOf(',') >= 0)
+			{
 				Logging
-						.errorPrint("Use of comma in VISION Tag is deprecated.  Use .CLEAR.[Vision] instead.");
-				final StringTokenizer visionTok = new StringTokenizer(
-						visionString, ",");
+					.errorPrint("Use of comma in VISION Tag is deprecated.  Use .CLEAR.[Vision] instead.");
+				final StringTokenizer visionTok =
+						new StringTokenizer(visionString, ",");
 				String numberTok = visionTok.nextToken();
-				if (numberTok == "2") {
+				if (numberTok == "2")
+				{
 					visionString = ".CLEAR." + visionTok.nextToken();
-				} else if (numberTok == "0") {
+				}
+				else if (numberTok == "0")
+				{
 					visionString = ".SET." + visionTok.nextToken();
-				} else {
+				}
+				else
+				{
 					visionString = visionTok.nextToken();
 				}
 			}
 
 			Vision vis = null;
-			if (visionString.startsWith(".CLEAR.")) {
+			if (visionString.startsWith(".CLEAR."))
+			{
 				obj.removeVisionType(VisionType.getVisionType(visionString
-						.substring(7)));
-			} else if (visionString.startsWith(".SET.")) {
+					.substring(7)));
+			}
+			else if (visionString.startsWith(".SET."))
+			{
 				obj.clearVisionList();
 				vis = getVision(anInt, visionString.substring(5));
-			} else {
+			}
+			else
+			{
 				vis = getVision(anInt, visionString);
 			}
-			
-			if (vis != null) {
-				if (anInt > -9) {
+
+			if (vis != null)
+			{
+				if (anInt > -9)
+				{
 					((PCClass) obj).addVision(anInt, vis);
-				} else {
+				}
+				else
+				{
 					obj.addVision(vis);
 				}
 			}
-			
+
 		}
 		return true;
 	}
 
-	private Vision getVision(int anInt, String visionType) {
+	private Vision getVision(int anInt, String visionType)
+	{
 		// expecting value in form of Darkvision (60')
 		final StringTokenizer cTok = new StringTokenizer(visionType, "(')");
 		final String aKey = cTok.nextToken().trim(); // e.g. Darkvision
 		String aVal = "0";
-		if (cTok.hasMoreTokens()) {
+		if (cTok.hasMoreTokens())
+		{
 			aVal = cTok.nextToken(); // e.g. 60
 		}
 		return new Vision(VisionType.getVisionType(aKey), aVal);

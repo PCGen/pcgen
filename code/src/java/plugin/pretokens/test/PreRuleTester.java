@@ -26,7 +26,6 @@
  */
 package plugin.pretokens.test;
 
-
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -40,10 +39,9 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
  * @author wardc
  *
  */
-public class PreRuleTester
-	extends AbstractPrerequisiteTest
-	implements PrerequisiteTest
-	{
+public class PreRuleTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
@@ -57,8 +55,8 @@ public class PreRuleTester
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
-		throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter aPC) throws PrerequisiteException
 	{
 		int runningTotal = 0;
 		int targetNumber;
@@ -80,14 +78,16 @@ public class PreRuleTester
 
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+			final PrerequisiteTestFactory factory =
+					PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
 			{
 				runningTotal += test.passes(element, equipment, aPC);
 			}
 		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
+			targetNumber));
 	}
 
 	/* (non-Javadoc)
@@ -115,7 +115,8 @@ public class PreRuleTester
 			runningTotal = 1;
 		}
 
-		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+		final PrerequisiteTestFactory factory =
+				PrerequisiteTestFactory.getInstance();
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
 			final PrerequisiteTest test = factory.getTest(element.getKind());
@@ -124,7 +125,8 @@ public class PreRuleTester
 				runningTotal += test.passes(element, character);
 			}
 		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
+			targetNumber));
 	}
 
 }

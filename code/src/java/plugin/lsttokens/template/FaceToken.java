@@ -6,38 +6,53 @@ import pcgen.persistence.lst.PCTemplateLstToken;
 /**
  * Class deals with FACE Token
  */
-public class FaceToken implements PCTemplateLstToken {
+public class FaceToken implements PCTemplateLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "FACE";
 	}
 
-	public boolean parse(PCTemplate template, String value) {
+	public boolean parse(PCTemplate template, String value)
+	{
 		int commaLoc = value.indexOf(",");
-		if(commaLoc > -1) {
+		if (commaLoc > -1)
+		{
 			double width;
 			double height;
-			try {
-				width = Double.parseDouble(value.substring(0, commaLoc - 1).trim());
+			try
+			{
+				width =
+						Double.parseDouble(value.substring(0, commaLoc - 1)
+							.trim());
 			}
-			catch (NumberFormatException nfe) {
+			catch (NumberFormatException nfe)
+			{
 				width = 5;
 			}
-			
-			try {
-				height = Double.parseDouble(value.substring(commaLoc + 1).trim());
+
+			try
+			{
+				height =
+						Double
+							.parseDouble(value.substring(commaLoc + 1).trim());
 			}
-			catch (NumberFormatException ne) {
+			catch (NumberFormatException ne)
+			{
 				height = 5;
 			}
 			template.setFace(width, height);
 		}
-		else {
+		else
+		{
 			double width;
-			try {
+			try
+			{
 				width = Double.parseDouble(value);
 			}
-			catch (NumberFormatException nfe) {
+			catch (NumberFormatException nfe)
+			{
 				width = 5;
 			}
 			template.setFace(width, 0);
@@ -45,5 +60,3 @@ public class FaceToken implements PCTemplateLstToken {
 		return true;
 	}
 }
-
-

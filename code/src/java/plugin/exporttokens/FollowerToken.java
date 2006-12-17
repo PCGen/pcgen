@@ -62,7 +62,8 @@ public class FollowerToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		/* FOLLOWER%.subtag stuff handled in here*/
 
@@ -77,9 +78,12 @@ public class FollowerToken extends Token
 		}
 		else
 		{
-			Logging.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
+			Logging
+				.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
 
-			i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));
+			i =
+					Integer.parseInt(tokenSource.substring(8, tokenSource
+						.indexOf('.')));
 		}
 
 		StringBuffer restString = new StringBuffer();
@@ -91,12 +95,14 @@ public class FollowerToken extends Token
 		{
 			restString = restString.deleteCharAt(0);
 		}
-		
+
 		String result = "";
 		final List<Follower> followers = pc.getFollowerList();
 		if (i < followers.size())
 		{
-			result = FollowerToken.getFollowerOutput(pc, eh, restString.toString(), followers.get(i));
+			result =
+					FollowerToken.getFollowerOutput(pc, eh, restString
+						.toString(), followers.get(i));
 		}
 
 		return result;
@@ -111,13 +117,14 @@ public class FollowerToken extends Token
 	 * @param follower The follower to be reported upon.
 	 * @return The follower's token output
 	 */
-	public static String getFollowerOutput(PlayerCharacter pc, ExportHandler eh, String followerToken, final Follower follower)
+	public static String getFollowerOutput(PlayerCharacter pc,
+		ExportHandler eh, String followerToken, final Follower follower)
 	{
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
-		
+
 		String token = "".equals(followerToken) ? "NAME" : followerToken;
-		
+
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
 			if (follower.getFileName().equals(eachPC.getFileName()))
@@ -134,7 +141,10 @@ public class FollowerToken extends Token
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint("Ignoring error while processing FOLLOWER or FOLLOWERTYPE token", e);
+			Logging
+				.errorPrint(
+					"Ignoring error while processing FOLLOWER or FOLLOWERTYPE token",
+					e);
 		}
 		return writer.toString();
 	}

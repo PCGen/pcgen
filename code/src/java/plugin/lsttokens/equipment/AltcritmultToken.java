@@ -6,9 +6,11 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with ALTCRITMULT token
  */
-public class AltcritmultToken implements EquipmentLstToken {
+public class AltcritmultToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALTCRITMULT";
 	}
 

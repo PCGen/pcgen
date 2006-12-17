@@ -77,7 +77,8 @@ public class StartEvent extends javax.swing.JDialog
 	 *@param  modal       is modal?
 	 *@param  initiative  Initiative panel
 	 */
-	public StartEvent(java.awt.Frame parent, boolean modal, Initiative initiative)
+	public StartEvent(java.awt.Frame parent, boolean modal,
+		Initiative initiative)
 	{
 		super(parent, modal);
 		initComponents();
@@ -95,7 +96,8 @@ public class StartEvent extends javax.swing.JDialog
 	 *@param  player      player name
 	 *@param  init        player's initiative
 	 */
-	public StartEvent(java.awt.Frame parent, boolean modal, Initiative initiative, String player, int init)
+	public StartEvent(java.awt.Frame parent, boolean modal,
+		Initiative initiative, String player, int init)
 	{
 		super(parent, modal);
 		initComponents();
@@ -113,7 +115,9 @@ public class StartEvent extends javax.swing.JDialog
 	 */
 	public void initCheckBox()
 	{
-		boolean box = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowEvents", true);
+		boolean box =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".ShowEvents", true);
 
 		if (box)
 		{
@@ -149,23 +153,19 @@ public class StartEvent extends javax.swing.JDialog
 		save();
 	}
 
-	protected void save() {
-		initiative.initList.add(
-			new Event(
-				tName.getText(),
-				tPlayer.getText(),
-				tEffect.getText(),
-				((Integer)lDuration.getValue()).intValue(),
-				((Integer)lInit.getValue()).intValue(),
-		        cbAlert.isSelected()));
-		initiative.writeToCombatTabWithRound(" Event Timer " + tName.getText() + " Started");
+	protected void save()
+	{
+		initiative.initList.add(new Event(tName.getText(), tPlayer.getText(),
+			tEffect.getText(), ((Integer) lDuration.getValue()).intValue(),
+			((Integer) lInit.getValue()).intValue(), cbAlert.isSelected()));
+		initiative.writeToCombatTabWithRound(" Event Timer " + tName.getText()
+			+ " Started");
 		initiative.refreshTable();
 		initiative.grabFocus();
 		initiative.focusNextInit();
 		setVisible(false);
 		dispose();
 	}
-
 
 	/**
 	 *  Closes the dialog
@@ -219,12 +219,12 @@ public class StartEvent extends javax.swing.JDialog
 		//Buttons
 		bSave.setText("Save");
 		bSave.addActionListener(new ActionListener()
-			{
+		{
 			public void actionPerformed(ActionEvent e)
-				{
+			{
 				saveAndClose(e);
-				}
-			});
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -234,12 +234,12 @@ public class StartEvent extends javax.swing.JDialog
 
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(new ActionListener()
-			{
+		{
 			public void actionPerformed(ActionEvent e)
-				{
+			{
 				cancelAndClose(e);
-				}
-			});
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -297,7 +297,7 @@ public class StartEvent extends javax.swing.JDialog
 	protected void addInitiative()
 	{
 		initiativeLabel = new javax.swing.JLabel();
-		sInit = Utils.buildSlider(1,50);
+		sInit = Utils.buildSlider(1, 50);
 		lInit = Utils.buildIntegerFieldWithSlider(sInit);
 		lInit.setValue(Integer.valueOf(1));
 
@@ -323,8 +323,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		mainPanel.add(lInit, gridBagConstraints);
-		lInit.setMinimumSize(new Dimension(
-			lInit.getPreferredSize().width,
+		lInit.setMinimumSize(new Dimension(lInit.getPreferredSize().width,
 			lInit.getPreferredSize().height));
 
 		lInit.addKeyListener(new EnterKeyAdapter());
@@ -334,7 +333,7 @@ public class StartEvent extends javax.swing.JDialog
 	protected void addDuration()
 	{
 		durationLabel = new javax.swing.JLabel();
-		sDuration = Utils.buildSlider(1,50);
+		sDuration = Utils.buildSlider(1, 50);
 		lDuration = Utils.buildIntegerFieldWithSlider(sDuration);
 		lDuration.setValue(Integer.valueOf(1));
 
@@ -400,19 +399,19 @@ public class StartEvent extends javax.swing.JDialog
 	protected void basicSetup()
 	{
 		mainPanel = new JPanel(new java.awt.GridBagLayout());
-		mainPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+		mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(mainPanel,BorderLayout.CENTER);
+		getContentPane().add(mainPanel, BorderLayout.CENTER);
 
 		setTitle(sTitle);
 
 		addWindowListener(new java.awt.event.WindowAdapter()
+		{
+			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					closeDialog(evt);
-				}
-			});
+				closeDialog(evt);
+			}
+		});
 	}
 
 	protected void addName()
@@ -448,7 +447,8 @@ public class StartEvent extends javax.swing.JDialog
 	{
 		public void keyReleased(java.awt.event.KeyEvent evt)
 		{
-			if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+			{
 				save();
 			}
 		}

@@ -34,24 +34,27 @@ import pcgen.persistence.lst.PaperInfoLstToken;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class WidthToken implements PaperInfoLstToken {
+public class WidthToken implements PaperInfoLstToken
+{
 
-    /**
-     * Get token name
-     * @return token name
-     */
-	public String getTokenName() {
+	/**
+	 * Get token name
+	 * @return token name
+	 */
+	public String getTokenName()
+	{
 		return "WIDTH";
 	}
 
-    /**
-     * Parse WIDTH token
-     * 
-     * @param paperInfo 
-     * @param value 
-     * @return true 
-     */
-	public boolean parse(PaperInfo paperInfo, String value) {
+	/**
+	 * Parse WIDTH token
+	 * 
+	 * @param paperInfo 
+	 * @param value 
+	 * @return true 
+	 */
+	public boolean parse(PaperInfo paperInfo, String value)
+	{
 		paperInfo.setPaperInfo(Constants.PAPERINFO_WIDTH, value);
 		return true;
 	}

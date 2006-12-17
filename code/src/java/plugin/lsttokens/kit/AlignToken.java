@@ -35,7 +35,6 @@ import pcgen.persistence.lst.BaseKitLoader;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
 
-
 /**
  * Handles the ALIGN tag for a Kit. Also will handle any Common tags on the
  * ALIGN line.
@@ -63,10 +62,10 @@ public class AlignToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 		KitAlignment kAlign = new KitAlignment(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -75,14 +74,14 @@ public class AlignToken extends KitLstToken
 			if (colString.startsWith("ALIGN:"))
 			{
 				Logging.errorPrint("Ignoring second ALIGN tag \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 			else
 			{
 				if (BaseKitLoader.parseCommonTags(kAlign, colString) == false)
 				{
 					throw new PersistenceLayerException(
-							"Unknown KitAlign info " + " \"" + colString + "\"");
+						"Unknown KitAlign info " + " \"" + colString + "\"");
 				}
 			}
 		}

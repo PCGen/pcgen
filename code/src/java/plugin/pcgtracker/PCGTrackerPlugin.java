@@ -39,7 +39,8 @@ import java.io.File;
  * @author  Expires 2003
  * @version 2.10
  */
-public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.ActionListener
+public class PCGTrackerPlugin extends GMBPlugin implements
+		java.awt.event.ActionListener
 {
 	public static final String LOG_NAME = "PCG_Tracker";
 
@@ -62,7 +63,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
+	public FileFilter[] getFileTypes()
+	{
 		return null;
 	}
 
@@ -79,11 +81,14 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		getPluginSystem();
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 1000);
 	}
 
@@ -175,7 +180,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 	{
 		if (message instanceof FileOpenMessage)
 		{
-			if(isActive()) {
+			if (isActive())
+			{
 				handleOpen();
 			}
 		}
@@ -190,10 +196,14 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		}
 		else if (message instanceof StateChangedMessage)
 		{
-			if(isActive()) {
-				try {
+			if (isActive())
+			{
+				try
+				{
 					GMGenSystem.inst.openFileItem.setEnabled(true);
-				} catch(Exception e) {
+				}
+				catch (Exception e)
+				{
 					// TODO Handle this?
 				}
 			}
@@ -203,10 +213,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 			handleClose();
 		}
 		/*else if (message instanceof SavePCGRequestMessage)
-		{
-			SavePCGRequestMessage smessage = (SavePCGRequestMessage) message;
-			savePC(smessage.getPC(), false);
-		}*/
+		 {
+		 SavePCGRequestMessage smessage = (SavePCGRequestMessage) message;
+		 savePC(smessage.getPC(), false);
+		 }*/
 		else if (message instanceof PCClosedMessage)
 		{
 			PCClosedMessage cmessage = (PCClosedMessage) message;
@@ -221,10 +231,11 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		}
 	}
 
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+	public boolean isActive()
+	{
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theView);
+			&& tp.getSelectedComponent().equals(theView);
 	}
 
 	/**
@@ -233,17 +244,18 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 	public void handleOpen()
 	{
 		File defaultFile = SettingsHandler.getPcgPath();
-		JFileChooser chooser
-				= ImagePreview.decorateWithImagePreview(new JFileChooser());
+		JFileChooser chooser =
+				ImagePreview.decorateWithImagePreview(new JFileChooser());
 		chooser.setCurrentDirectory(defaultFile);
 
-		String[] pcgs = new String[]{ "pcg", "pcp" };
+		String[] pcgs = new String[]{"pcg", "pcp"};
 		SimpleFileFilter ff = new SimpleFileFilter(pcgs, "PCGen File");
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
 
-		java.awt.Cursor saveCursor = MiscUtilities.setBusyCursor(GMGenSystem.inst);
+		java.awt.Cursor saveCursor =
+				MiscUtilities.setBusyCursor(GMGenSystem.inst);
 		int option = chooser.showOpenDialog(GMGenSystem.inst);
 
 		if (option == JFileChooser.APPROVE_OPTION)
@@ -254,13 +266,14 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
 				{
-					GMBus.send(new OpenPCGRequestMessage(this, selectedFile, false));
+					GMBus.send(new OpenPCGRequestMessage(this, selectedFile,
+						false));
 				}
 			}
 		}
 		else
 		{
-			 /* this means the file is invalid */
+			/* this means the file is invalid */
 		}
 
 		MiscUtilities.setCursor(GMGenSystem.inst, saveCursor);
@@ -305,8 +318,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 		if (aPCFileName.equals(""))
 		{
-			prevFile = new File(SettingsHandler.getPcgPath().toString(),
-				    aPC.getDisplayName() + Constants.s_PCGEN_CHARACTER_EXTENSION);
+			prevFile =
+					new File(SettingsHandler.getPcgPath().toString(), aPC
+						.getDisplayName()
+						+ Constants.s_PCGEN_CHARACTER_EXTENSION);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
@@ -317,14 +332,15 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 		if (saveas || newPC)
 		{
-			JFileChooser fc
-					= ImagePreview.decorateWithImagePreview(new JFileChooser());
-			String[] pcgs = new String[]{ "pcg" };
+			JFileChooser fc =
+					ImagePreview.decorateWithImagePreview(new JFileChooser());
+			String[] pcgs = new String[]{"pcg"};
 			SimpleFileFilter ff = new SimpleFileFilter(pcgs, "PCGen Character");
 			fc.setFileFilter(ff);
 			fc.setSelectedFile(prevFile);
 
-			FilenameChangeListener listener = new FilenameChangeListener(aPCFileName, fc);
+			FilenameChangeListener listener =
+					new FilenameChangeListener(aPCFileName, fc);
 
 			fc.addPropertyChangeListener(listener);
 
@@ -337,22 +353,32 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 				if (!PCGFile.isPCGenCharacterFile(file))
 				{
-					file = new File(file.getParent(), file.getName() + Constants.s_PCGEN_CHARACTER_EXTENSION);
+					file =
+							new File(file.getParent(), file.getName()
+								+ Constants.s_PCGEN_CHARACTER_EXTENSION);
 				}
 
 				if (file.isDirectory())
 				{
-					JOptionPane.showMessageDialog(null, "You cannot overwrite a directory with a character.",
-					    Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,
+						"You cannot overwrite a directory with a character.",
+						Constants.s_APPNAME, JOptionPane.ERROR_MESSAGE);
 
 					return false;
 				}
 
-				if (file.exists() && (newPC || !file.getName().equals(prevFile.getName())))
+				if (file.exists()
+					&& (newPC || !file.getName().equals(prevFile.getName())))
 				{
-					int reallyClose = JOptionPane.showConfirmDialog(GMGenSystem.inst,
-						    "The file " + file.getName() + " already exists, are you sure you want to overwrite it?",
-						    "Confirm overwriting " + file.getName(), JOptionPane.YES_NO_OPTION);
+					int reallyClose =
+							JOptionPane
+								.showConfirmDialog(
+									GMGenSystem.inst,
+									"The file "
+										+ file.getName()
+										+ " already exists, are you sure you want to overwrite it?",
+									"Confirm overwriting " + file.getName(),
+									JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -382,8 +408,9 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		}
 		catch (Exception ex)
 		{
-			JOptionPane.showMessageDialog(null, "Could not save " + aPC.getDisplayName(), Constants.s_APPNAME,
-			    JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Could not save "
+				+ aPC.getDisplayName(), Constants.s_APPNAME,
+				JOptionPane.ERROR_MESSAGE);
 			Logging.errorPrint("Could not save " + aPC.getDisplayName());
 			Logging.errorPrint(ex.getMessage(), ex);
 
@@ -396,7 +423,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 	public void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
-		
+
 		for (int i = 0; i < tp.getTabCount(); i++)
 		{
 			if (tp.getComponentAt(i) instanceof PCGTrackerView)
@@ -411,12 +438,12 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 		charToolsItem.setMnemonic('C');
 		charToolsItem.setText("Character Tracker");
 		charToolsItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					toolMenuItem(evt);
-				}
-			});
+				toolMenuItem(evt);
+			}
+		});
 		GMBus.send(new ToolMenuItemAddMessage(this, charToolsItem));
 	}
 
@@ -454,7 +481,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements java.awt.event.Action
 
 		private void onDirectoryChange()
 		{
-			fileChooser.setSelectedFile(new File(fileChooser.getCurrentDirectory(), lastSelName));
+			fileChooser.setSelectedFile(new File(fileChooser
+				.getCurrentDirectory(), lastSelName));
 		}
 
 		private void onSelectedFileChange(PropertyChangeEvent evt)

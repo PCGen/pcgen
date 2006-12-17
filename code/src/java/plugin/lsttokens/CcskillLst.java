@@ -13,18 +13,21 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class CcskillLst implements GlobalLstToken {
+public class CcskillLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CCSKILL";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
-		while (tok.hasMoreTokens()) {
+		while (tok.hasMoreTokens())
+		{
 			obj.addCcSkill(tok.nextToken());
 		}
 		return true;
 	}
 }
-

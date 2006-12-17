@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with HPFORMULA Token
  */
-public class HpformulaToken implements GameModeLstToken {
+public class HpformulaToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HPFORMULA";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setHPFormula(value);
 		return true;
 	}

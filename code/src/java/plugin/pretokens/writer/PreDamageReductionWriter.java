@@ -37,8 +37,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
-public class PreDamageReductionWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
+		implements PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -54,16 +54,15 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter impleme
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -75,7 +74,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter impleme
 			}
 
 			writer.write("PREDR:1,");
-			writer.write(prereq.getKey() + "=" + prereq.getOperand() );
+			writer.write(prereq.getKey() + "=" + prereq.getOperand());
 		}
 		catch (IOException e)
 		{

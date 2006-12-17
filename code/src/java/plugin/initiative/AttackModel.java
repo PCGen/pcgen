@@ -349,7 +349,8 @@ public class AttackModel extends PObjectModel
 	public int getCritRangeMin(int index)
 	{
 		int returnValue;
-		String aRange = new StringTokenizer(getCritRange(index), "-").nextToken();
+		String aRange =
+				new StringTokenizer(getCritRange(index), "-").nextToken();
 		returnValue = getInt(aRange);
 
 		return returnValue;
@@ -384,25 +385,30 @@ public class AttackModel extends PObjectModel
 			{
 				damage.add(tok.nextToken());
 			}
-			
+
 			if (damage.size() > 1)
 			{
 				//If we've got a double weapon, pcgen is using AdB+C/+D, so
 				String damageDice = damage.get(0);
 				if (damageDice.lastIndexOf("+") > 0)
 				{
-					damageDice = damageDice.substring(0,damageDice.lastIndexOf("+"));
+					damageDice =
+							damageDice
+								.substring(0, damageDice.lastIndexOf("+"));
 				}
 				else if (damageDice.lastIndexOf("-") > 0)
 				{
-					damageDice = damageDice.substring(0,damageDice.lastIndexOf("-"));
+					damageDice =
+							damageDice
+								.substring(0, damageDice.lastIndexOf("-"));
 				}
 				for (int i = 1; i < damage.size(); i++)
 				{
 					String secondaryDamage = damage.get(i);
-					if (secondaryDamage.startsWith("+") || secondaryDamage.startsWith("-"))
+					if (secondaryDamage.startsWith("+")
+						|| secondaryDamage.startsWith("-"))
 					{
-						damage.set(i,damageDice + secondaryDamage);
+						damage.set(i, damageDice + secondaryDamage);
 					}
 				}
 			}
@@ -681,9 +687,13 @@ public class AttackModel extends PObjectModel
 	public String toString()
 	{
 		String returnValue;
-		returnValue = getName() + " " + getToHit() + " " + getRange() + "/" + getType() + " (" + getDamage() + " "
-			+ getCritRange() + "/x" + getCritMultiple() + " " + getHand() + " " + getSize()
-			+ ("".equals(getSpecialProp()) ? "" : getSpecialProp()) + ")";
+		returnValue =
+				getName() + " " + getToHit() + " " + getRange() + "/"
+					+ getType() + " (" + getDamage() + " " + getCritRange()
+					+ "/x" + getCritMultiple() + " " + getHand() + " "
+					+ getSize()
+					+ ("".equals(getSpecialProp()) ? "" : getSpecialProp())
+					+ ")";
 
 		return returnValue;
 	}

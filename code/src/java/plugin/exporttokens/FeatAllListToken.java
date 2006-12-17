@@ -33,8 +33,8 @@ public class FeatAllListToken extends AbilityAllListToken
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		// Skip the token itself
 		final String tokenString = aTok.nextToken();
-		final AbilityCategory aCategory = SettingsHandler.getGame()
-			.getAbilityCategory("FEAT");
+		final AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory("FEAT");
 
 		return getTokenForCategory(pc, aTok, tokenString, aCategory);
 	}

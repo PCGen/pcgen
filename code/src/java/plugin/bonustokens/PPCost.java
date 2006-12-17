@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>PPCost</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class PPCost extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"PPCOST"
-		};
+	private static final String[] bonusHandled = {"PPCOST"};
 
 	protected boolean parseToken(final String token)
 	{

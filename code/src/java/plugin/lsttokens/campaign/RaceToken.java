@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with RACE Token
  */
-public class RaceToken implements CampaignLstToken {
+public class RaceToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RACE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("RACE:" + value);
-		campaign.addRaceFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addRaceFile(new CampaignSourceEntry(campaign, CampaignLoader
+			.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

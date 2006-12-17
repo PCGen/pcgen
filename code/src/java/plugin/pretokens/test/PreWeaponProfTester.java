@@ -38,7 +38,9 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreWeaponProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreWeaponProfTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/**
 	 * <b>Tag Name</b>: <code>PREWEAPONPROF:x,y,y</code><br />
@@ -66,21 +68,27 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
+		int runningTotal = 0;
 
 		final int number;
-		try {
+		try
+		{
 			number = Integer.parseInt(prereq.getOperand());
 		}
-		catch (NumberFormatException exceptn) {
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
+		catch (NumberFormatException exceptn)
+		{
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		final String aString = prereq.getKey();
 		if ("DEITYWEAPON".equals(aString) && character.getDeity() != null) //$NON-NLS-1$
 		{
-			for (String weaponKey : CoreUtility.split(character.getDeity().getFavoredWeapon(), '|'))
+			for (String weaponKey : CoreUtility.split(character.getDeity()
+				.getFavoredWeapon(), '|'))
 			{
 				if (character.hasWeaponProfKeyed(weaponKey))
 				{
@@ -91,7 +99,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			final String requiredType = aString.substring(5);
-			for ( WeaponProf wp : character.getWeaponProfs() )
+			for (WeaponProf wp : character.getWeaponProfs())
 			{
 				if (wp.isType(requiredType))
 				{
@@ -99,7 +107,8 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 				}
 				else
 				{
-					final Equipment eq = EquipmentList.getEquipmentNamed(wp.getKeyName());
+					final Equipment eq =
+							EquipmentList.getEquipmentNamed(wp.getKeyName());
 					if (eq != null)
 					{
 						if (eq.isType(requiredType))
@@ -125,7 +134,8 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "WEAPONPROF"; //$NON-NLS-1$
 	}
 

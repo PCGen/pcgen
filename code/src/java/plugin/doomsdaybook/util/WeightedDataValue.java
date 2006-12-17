@@ -5,7 +5,6 @@
  */
 package plugin.doomsdaybook.util;
 
-
 /**
  * <code>WeightedDataValue</code>.
  * 

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.WeaponProfLstToken;
 /**
  * Class deals with QUALIFY Token
  */
-public class QualifyToken implements WeaponProfLstToken {
+public class QualifyToken implements WeaponProfLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "QUALIFY";
 	}
 
-	public boolean parse(WeaponProf prof, String value) {
+	public boolean parse(WeaponProf prof, String value)
+	{
 		prof.setQualifyString(value);
 		return true;
 	}

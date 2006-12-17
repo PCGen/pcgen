@@ -21,7 +21,8 @@ import pcgen.util.PCGenCommand;
  * @author Ross M. Lodge
  *
  */
-public class IfCommand extends PCGenCommand {
+public class IfCommand extends PCGenCommand
+{
 	/**
 	 * <p>
 	 * Initializes the number of parameters to = 3, indicating three number
@@ -29,12 +30,14 @@ public class IfCommand extends PCGenCommand {
 	 * </p>
 	 *
 	 */
-	public IfCommand() {
+	public IfCommand()
+	{
 		super();
 		numberOfParameters = 3;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "IF";
 	}
 
@@ -50,9 +53,11 @@ public class IfCommand extends PCGenCommand {
 	 *            Stack of incoming arguments.
 	 * @throws ParseException
 	 */
-	public void run(Stack stack) throws ParseException {
+	public void run(Stack stack) throws ParseException
+	{
 		// Check if stack is null
-		if (null == stack) {
+		if (null == stack)
+		{
 			throw new ParseException("Stack argument null");
 		}
 
@@ -64,20 +69,25 @@ public class IfCommand extends PCGenCommand {
 		Object param2 = stack.pop();
 		Object param1 = stack.pop();
 
-		if (param1 instanceof Number) {
+		if (param1 instanceof Number)
+		{
 			condition = (((Number) param1).doubleValue() != 0d);
 		}
-		else if (param1 instanceof Boolean) {
+		else if (param1 instanceof Boolean)
+		{
 			condition = ((Boolean) param1).booleanValue();
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type for Parameter 1");
 		}
 
-		if (condition) {
+		if (condition)
+		{
 			result = param2;
 		}
-		else {
+		else
+		{
 			result = param3;
 		}
 

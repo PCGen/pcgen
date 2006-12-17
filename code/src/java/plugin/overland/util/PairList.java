@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author  Juliean Galak
  */
-public class PairList<T extends Pair<?,?>>
+public class PairList<T extends Pair<?, ?>>
 {
 	private List<T> vPairs;
 

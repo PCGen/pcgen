@@ -13,13 +13,16 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class ChangeprofLst implements GlobalLstToken {
+public class ChangeprofLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CHANGEPROF";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		//value should be of the format:
 		//Name1,TYPE.type1,Name3=Prof1|Name4,Name5=Prof2
 		//
@@ -27,7 +30,8 @@ public class ChangeprofLst implements GlobalLstToken {
 		//
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 
-		while (tok.hasMoreTokens()) {
+		while (tok.hasMoreTokens())
+		{
 			String entry = tok.nextToken();
 			String newProf;
 			final int indx = entry.indexOf('=');

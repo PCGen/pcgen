@@ -37,19 +37,20 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreSpellCastTester
-extends AbstractPrerequisiteTest
-implements PrerequisiteTest {
+public class PreSpellCastTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 
-		final int requiredNumber = Integer.parseInt( prereq.getOperand() );
+		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 		final String prereqSpellType = prereq.getKey();
-		int runningTotal=0;
+		int runningTotal = 0;
 
 		for (PCClass aClass : character.getClassList())
 		{
@@ -59,26 +60,28 @@ implements PrerequisiteTest {
 			}
 		}
 
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal =
+				prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "spellcast.type"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		final Object[] args = new Object[] { prereq.getOperator().toDisplayString(),
-		prereq.getOperand(),
-		prereq.getKey()};
-		return  PropertyFactory.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		final Object[] args =
+				new Object[]{prereq.getOperator().toDisplayString(),
+					prereq.getOperand(), prereq.getKey()};
+		return PropertyFactory.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
 	}
 
 }

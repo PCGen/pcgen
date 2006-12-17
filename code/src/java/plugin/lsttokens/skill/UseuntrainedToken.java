@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SkillLstToken;
 /**
  * Class deals with USEUNTRAINED Token
  */
-public class UseuntrainedToken implements SkillLstToken {
+public class UseuntrainedToken implements SkillLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "USEUNTRAINED";
 	}
 
-	public boolean parse(Skill skill, String value) {
+	public boolean parse(Skill skill, String value)
+	{
 		skill.setUntrained(value.startsWith("Y"));
 		return true;
 	}

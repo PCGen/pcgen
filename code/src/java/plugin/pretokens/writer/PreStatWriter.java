@@ -40,7 +40,8 @@ import java.io.Writer;
 /**
  * Writes PRESTAT Token 
  */
-public class PreStatWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreStatWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -56,38 +57,36 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements Prerequ
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT,
-				PrerequisiteOperator.LTEQ,
-				PrerequisiteOperator.GT,
-				PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+			PrerequisiteOperator.GT, PrerequisiteOperator.EQ,
+			PrerequisiteOperator.NEQ};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
 		try
 		{
-//			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
-//			{
-//				writer.write('!');
-//			}
-//
-//			writer.write("PRESTAT:1," + prereq.getKey().toUpperCase() + "=" + prereq.getOperand() );
+			//			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+			//			{
+			//				writer.write('!');
+			//			}
+			//
+			//			writer.write("PRESTAT:1," + prereq.getKey().toUpperCase() + "=" + prereq.getOperand() );
 
 			writer.write("PRESTAT");
 			if (!prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
 				writer.write(prereq.getOperator().toString().toUpperCase());
 			}
-			writer.write(":1," + prereq.getKey().toUpperCase() + "=" + prereq.getOperand());
+			writer.write(":1," + prereq.getKey().toUpperCase() + "="
+				+ prereq.getOperand());
 
 		}
 		catch (IOException e)

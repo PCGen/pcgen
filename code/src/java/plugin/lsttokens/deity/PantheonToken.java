@@ -9,14 +9,18 @@ import java.util.List;
 /**
  * Class deals with PANTHEON Token
  */
-public class PantheonToken implements DeityLstToken{
+public class PantheonToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "PANTHEON";
 	}
 
-	public boolean parse(Deity deity, String value) {
-		if(value.length() > 0) {
+	public boolean parse(Deity deity, String value)
+	{
+		if (value.length() > 0)
+		{
 			String[] pantheons = value.split("\\|");
 			List<String> pantheonList = CoreUtility.arrayToList(pantheons);
 			deity.setPantheonList(pantheonList);

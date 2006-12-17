@@ -5,7 +5,6 @@
  */
 package plugin.doomsdaybook.gui;
 
-
 /**
  *
  * @author  devon
@@ -15,17 +14,17 @@ public class XMLFilter implements java.io.FilenameFilter
 	/** Creates a new instance of XMLFilter */
 	public XMLFilter()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
-     * Returns true if file matches *.xml
-     * 
+	 * Returns true if file matches *.xml
+	 * 
 	 * @param file 
 	 * @param str 
 	 * @return true if filter matches *.xml
 	 */
-    public boolean accept(java.io.File file, String str)
+	public boolean accept(java.io.File file, String str)
 	{
 		return str.matches(".*\\.xml$");
 	}

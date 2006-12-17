@@ -40,20 +40,23 @@ import java.util.StringTokenizer;
  * @author blithwyn
  *
  */
-public class PreSpellDescriptorParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreSpellDescriptorParser extends AbstractPrerequisiteParser
+		implements PrerequisiteParserInterface
 {
 	private final static String prereqKind = "spell.descriptor";
 
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SPELLDESCRIPTOR" };
+		return new String[]{"SPELLDESCRIPTOR"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(prereqKind);
 
 		// old-style: PRESPELLDESCRIPTOR:<name of spell descriptor>,<number of spells required>,<minimum spell level>
@@ -64,7 +67,7 @@ public class PreSpellDescriptorParser extends AbstractPrerequisiteParser impleme
 		String aString = aTok.nextToken();
 		try
 		{
-			Integer.parseInt(aString);		// to test if number
+			Integer.parseInt(aString); // to test if number
 
 			if (aTok.hasMoreTokens())
 			{
@@ -73,7 +76,7 @@ public class PreSpellDescriptorParser extends AbstractPrerequisiteParser impleme
 				final int totalTokens = aTok.countTokens();
 				if (totalTokens > 1)
 				{
-					prereq.setKind(null);				// PREMULT
+					prereq.setKind(null); // PREMULT
 				}
 				while (aTok.hasMoreTokens())
 				{
@@ -126,9 +129,9 @@ public class PreSpellDescriptorParser extends AbstractPrerequisiteParser impleme
 		}
 		if (bError)
 		{
-			throw new PersistenceLayerException("PRE" + kindsHandled()[0] + " formula '" + formula + "' is not valid.");
+			throw new PersistenceLayerException("PRE" + kindsHandled()[0]
+				+ " formula '" + formula + "' is not valid.");
 		}
-
 
 		if (invertResult)
 		{

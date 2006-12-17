@@ -56,7 +56,7 @@ public class LevelAbilityToken implements KitLevelAbilityLstToken
 	public boolean parse(KitLevelAbility kitLA, String value)
 	{
 		Logging.errorPrint("Ignoring second LEVELABILITY tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 }

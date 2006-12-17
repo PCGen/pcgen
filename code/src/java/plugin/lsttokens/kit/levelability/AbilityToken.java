@@ -68,7 +68,7 @@ public class AbilityToken implements KitLevelAbilityLstToken
 		if (choices.size() < 1)
 		{
 			Logging.errorPrint("Missing choice in KitLevelAbility info \""
-					+ value + "\"");
+				+ value + "\"");
 			return false;
 		}
 		kitLA.addAbility(ability, choices);

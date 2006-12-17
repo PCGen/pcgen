@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with CASTTIME Token
  */
-public class CasttimeToken implements SpellLstToken {
+public class CasttimeToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CASTTIME";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		spell.setCastingTime(value);
 		return true;
 	}

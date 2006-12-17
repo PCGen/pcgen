@@ -41,7 +41,9 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreEquipTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreEquipTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/*
 	 * (non-Javadoc)
@@ -49,7 +51,8 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
@@ -60,7 +63,8 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		if (!character.getEquipmentList().isEmpty())
@@ -74,18 +78,24 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 					continue;
 				}
 
-				if (targetEquip.startsWith("WIELDCATEGORY=") || targetEquip.startsWith("WIELDCATEGORY."))
+				if (targetEquip.startsWith("WIELDCATEGORY=")
+					|| targetEquip.startsWith("WIELDCATEGORY."))
 				{
-					final WieldCategory wCat = eq.getEffectiveWieldCategory(character);
-					if ((wCat != null) && wCat.getName().equalsIgnoreCase(targetEquip.substring(14)))
+					final WieldCategory wCat =
+							eq.getEffectiveWieldCategory(character);
+					if ((wCat != null)
+						&& wCat.getName().equalsIgnoreCase(
+							targetEquip.substring(14)))
 					{
 						++runningTotal;
 						break;
 					}
 				}
-				else if (targetEquip.startsWith("TYPE=") || targetEquip.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+				else if (targetEquip.startsWith("TYPE=") || targetEquip.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 				{
-					StringTokenizer tok = new StringTokenizer(targetEquip.substring(5).toUpperCase(), ".");
+					StringTokenizer tok =
+							new StringTokenizer(targetEquip.substring(5)
+								.toUpperCase(), ".");
 					boolean match = false;
 					if (tok.hasMoreTokens())
 					{
@@ -94,7 +104,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 					//
 					// Must match all listed types in order to qualify
 					//
-					while(tok.hasMoreTokens())
+					while (tok.hasMoreTokens())
 					{
 						final String type = tok.nextToken();
 						if (!eq.isType(type))
@@ -109,7 +119,8 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 						break;
 					}
 				}
-				else	//not a TYPE string
+				else
+				//not a TYPE string
 				{
 					final String eqName = eq.getName().toUpperCase();
 
@@ -118,7 +129,9 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = targetEquip.indexOf('%');
-						final String substring = targetEquip.substring(0, percentPos).toUpperCase();
+						final String substring =
+								targetEquip.substring(0, percentPos)
+									.toUpperCase();
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;
@@ -144,7 +157,8 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 	 *
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "EQUIP"; //$NON-NLS-1$
 	}
 }

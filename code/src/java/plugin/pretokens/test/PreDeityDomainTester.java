@@ -32,18 +32,20 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-
 /**
  * @author wardc
  *
  */
-public class PreDeityDomainTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreDeityDomainTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		int runningTotal = 0;
 
 		if (character.getDeity() != null)
@@ -59,15 +61,19 @@ public class PreDeityDomainTester  extends AbstractPrerequisiteTest implements P
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "DEITYDOMAIN"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
 	}
 
 }

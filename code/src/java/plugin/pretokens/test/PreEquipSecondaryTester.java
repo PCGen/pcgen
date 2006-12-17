@@ -32,26 +32,32 @@ import pcgen.core.prereq.PreEquippedTester;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
+
 /**
  * @author wardc
  *
  */
-public class PreEquipSecondaryTester extends PreEquippedTester implements PrerequisiteTest {
+public class PreEquipSecondaryTester extends PreEquippedTester implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
-		return passesPreEquipHandleTokens(prereq, character, Equipment.EQUIPPED_SECONDARY);
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
+		return passesPreEquipHandleTokens(prereq, character,
+			Equipment.EQUIPPED_SECONDARY);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "EQUIPSECONDARY"; //$NON-NLS-1$
 	}
-
 
 }

@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>Eqm</code>
  *
@@ -35,16 +34,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Eqm extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"EQM"
-		};
+	private static final String[] bonusHandled = {"EQM"};
 	private static final String[] bonusTags =
-		{
-			"WEIGHTADD",
-			"WEIGHTDIV",
-			"WEIGHTMULT"
-		};
+			{"WEIGHTADD", "WEIGHTDIV", "WEIGHTMULT"};
 
 	protected String[] getBonusesHandled()
 	{

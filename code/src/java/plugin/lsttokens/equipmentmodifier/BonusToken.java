@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentModifierLstToken;
 /**
  * Deals with BONUS token 
  */
-public class BonusToken implements EquipmentModifierLstToken {
+public class BonusToken implements EquipmentModifierLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BONUS";
 	}
 
-	public boolean parse(EquipmentModifier mod, String value) {
+	public boolean parse(EquipmentModifier mod, String value)
+	{
 		mod.addBonusList(value);
 		return true;
 	}

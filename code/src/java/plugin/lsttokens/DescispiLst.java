@@ -11,15 +11,17 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class DescispiLst implements GlobalLstToken {
+public class DescispiLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DESCISPI";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.setDescIsPI(value.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }
-

@@ -21,15 +21,19 @@ import pcgen.util.PropertyFactory;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreClassTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreClassTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter aPC)
 	{
-		Logging.errorPrint("PreClass on equipment: "+equipment.getName()+"  pre: "+toHtmlString(prereq));
+		Logging.errorPrint("PreClass on equipment: " + equipment.getName()
+			+ "  pre: " + toHtmlString(prereq));
 		return 0;
 	}
 
@@ -45,7 +49,6 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		final String aString = prereq.getKey().toUpperCase();
 		final int preClass = Integer.parseInt(prereq.getOperand());
 
-
 		if ("SPELLCASTER".equals(aString)) //$NON-NLS-1$
 		{
 			if (character.isSpellCaster(preClass, sumLevels))
@@ -55,7 +58,8 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else if (aString.startsWith("SPELLCASTER.")) //$NON-NLS-1$
 		{
-			if (character.isSpellCaster(aString.substring(12), preClass, sumLevels))
+			if (character.isSpellCaster(aString.substring(12), preClass,
+				sumLevels))
 			{
 				runningTotal = preClass;
 			}
@@ -82,18 +86,21 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "CLASS"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
+	public String toHtmlString(final Prerequisite prereq)
+	{
 		final String level = prereq.getOperand();
 		final String operator = prereq.getOperator().toDisplayString();
 
-		return PropertyFactory.getFormattedString("PreClass.toHtml",prereq.getKey(), operator, level ); //$NON-NLS-1$
+		return PropertyFactory.getFormattedString(
+			"PreClass.toHtml", prereq.getKey(), operator, level); //$NON-NLS-1$
 	}
 
 }

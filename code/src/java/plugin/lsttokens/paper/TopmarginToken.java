@@ -29,19 +29,21 @@ import pcgen.core.Constants;
 import pcgen.core.PaperInfo;
 import pcgen.persistence.lst.PaperInfoLstToken;
 
-
 /**
  * <code>TopmarginToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class TopmarginToken implements PaperInfoLstToken {
+public class TopmarginToken implements PaperInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TOPMARGIN";
 	}
 
-	public boolean parse(PaperInfo paperInfo, String value) {
+	public boolean parse(PaperInfo paperInfo, String value)
+	{
 		paperInfo.setPaperInfo(Constants.PAPERINFO_TOPMARGIN, value);
 		return true;
 	}

@@ -63,14 +63,17 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 	 *@param  modal       Description of the Parameter
 	 *@param  model  Description of the Parameter
 	 */
-	public AddDefeatedCombatant(java.awt.Frame parent, boolean modal, ExperienceAdjusterModel model)
+	public AddDefeatedCombatant(java.awt.Frame parent, boolean modal,
+		ExperienceAdjusterModel model)
 	{
 		super(parent, modal);
 		initComponents();
 		setLocation(parent.getX() + 100, parent.getY() + 100);
 		this.model = model;
 
-		int maxNum = SettingsHandler.getGMGenOption(ExperienceAdjusterPlugin.LOG_NAME + ".dbMaxNum", 20);
+		int maxNum =
+				SettingsHandler.getGMGenOption(
+					ExperienceAdjusterPlugin.LOG_NAME + ".dbMaxNum", 20);
 		sNumber.setMaximum(maxNum);
 	}
 
@@ -110,7 +113,8 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 
 				name.append(checkCRField(tCR, 0) + " ");
 				name.append("(" + i + ")");
-				model.addEnemy(new ExperienceListItem(new DefeatedCombatant(name.toString(), checkCRField(tCR, 0))));
+				model.addEnemy(new ExperienceListItem(new DefeatedCombatant(
+					name.toString(), checkCRField(tCR, 0))));
 			}
 		}
 
@@ -129,7 +133,8 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 			}
 
 			name.append(checkCRField(tCR, 0));
-			model.addEnemy(new ExperienceListItem(new DefeatedCombatant(name.toString(), checkCRField(tCR, 0))));
+			model.addEnemy(new ExperienceListItem(new DefeatedCombatant(name
+				.toString(), checkCRField(tCR, 0))));
 		}
 
 		setVisible(false);
@@ -217,12 +222,12 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 		getContentPane().setLayout(new java.awt.GridBagLayout());
 
 		addWindowListener(new java.awt.event.WindowAdapter()
+		{
+			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					closeDialog(evt);
-				}
-			});
+				closeDialog(evt);
+			}
+		});
 
 		lCR.setText("CR");
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -265,20 +270,20 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 
 		tCR.setText("1.0");
 		tCR.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					tCRActionPerformed(evt);
-				}
-			});
+				tCRActionPerformed(evt);
+			}
+		});
 
 		tCR.addFocusListener(new java.awt.event.FocusAdapter()
+		{
+			public void focusLost(java.awt.event.FocusEvent evt)
 			{
-				public void focusLost(java.awt.event.FocusEvent evt)
-				{
-					tCRFocusLost(evt);
-				}
-			});
+				tCRFocusLost(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -292,44 +297,45 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 		sNumber.setMinimum(1);
 		sNumber.setValue(1);
 		sNumber.addKeyListener(new java.awt.event.KeyAdapter()
+		{
+			public void keyPressed(java.awt.event.KeyEvent evt)
 			{
-				public void keyPressed(java.awt.event.KeyEvent evt)
-				{
-					sNumberKeyPressed(evt);
-				}
+				sNumberKeyPressed(evt);
+			}
 
-				public void keyReleased(java.awt.event.KeyEvent evt)
-				{
-					sNumberKeyReleased(evt);
-				}
-			});
+			public void keyReleased(java.awt.event.KeyEvent evt)
+			{
+				sNumberKeyReleased(evt);
+			}
+		});
 
 		sNumber.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mousePressed(java.awt.event.MouseEvent evt)
 			{
-				public void mousePressed(java.awt.event.MouseEvent evt)
-				{
-					sNumberMousePressed(evt);
-				}
+				sNumberMousePressed(evt);
+			}
 
-				public void mouseReleased(java.awt.event.MouseEvent evt)
-				{
-					sNumberMouseReleased(evt);
-				}
-			});
+			public void mouseReleased(java.awt.event.MouseEvent evt)
+			{
+				sNumberMouseReleased(evt);
+			}
+		});
 
 		sNumber.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
+		{
+			public void mouseDragged(java.awt.event.MouseEvent evt)
 			{
-				public void mouseDragged(java.awt.event.MouseEvent evt)
-				{
-					sNumberMouseDragged(evt);
-				}
+				sNumberMouseDragged(evt);
+			}
 
-				/*public void mouseMoved(java.awt.event.MouseEvent evt) {
-				   sNumberMouseMoved(evt);
-				   }*/
-			});
+			/*public void mouseMoved(java.awt.event.MouseEvent evt) {
+			 sNumberMouseMoved(evt);
+			 }*/
+		});
 
-		sNumber.addPropertyChangeListener(new java.beans.PropertyChangeListener()
+		sNumber
+			.addPropertyChangeListener(new java.beans.PropertyChangeListener()
 			{
 				public void propertyChange(java.beans.PropertyChangeEvent evt)
 				{
@@ -347,20 +353,20 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 
 		tNumber.setText("1");
 		tNumber.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					tNumberActionPerformed(evt);
-				}
-			});
+				tNumberActionPerformed(evt);
+			}
+		});
 
 		tNumber.addFocusListener(new java.awt.event.FocusAdapter()
+		{
+			public void focusLost(java.awt.event.FocusEvent evt)
 			{
-				public void focusLost(java.awt.event.FocusEvent evt)
-				{
-					tNumberFocusLost(evt);
-				}
-			});
+				tNumberFocusLost(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -381,12 +387,12 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 
 		bSave.setText("Save");
 		bSave.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bSaveActionPerformed(evt);
-				}
-			});
+				bSaveActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -396,12 +402,12 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCancelActionPerformed(evt);
-				}
-			});
+				bCancelActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
@@ -411,7 +417,8 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 
 		pack();
 	}
-	 //GEN-END:initComponents
+
+	//GEN-END:initComponents
 
 	//GEN-LAST:event_sNumberKeyReleased
 	private void sNumberKeyPressed(java.awt.event.KeyEvent evt)
@@ -458,25 +465,28 @@ public class AddDefeatedCombatant extends javax.swing.JDialog
 	{ //GEN-FIRST:event_tCRActionPerformed
 		tCR.setText(Float.toString(checkCRField(tCR, 1)));
 	}
-	 //GEN-LAST:event_tCRActionPerformed
+
+	//GEN-LAST:event_tCRActionPerformed
 
 	private void tCRFocusLost(java.awt.event.FocusEvent evt)
 	{ //GEN-FIRST:event_tCRFocusLost
 		tCR.setText(Float.toString(checkCRField(tCR, 1)));
 	}
-	 //GEN-LAST:event_tCRFocusLost
+
+	//GEN-LAST:event_tCRFocusLost
 
 	private void tNumberActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_tNumberActionPerformed
 		checkNumberField(tNumber, 1);
 	}
-	 //GEN-LAST:event_tNumberActionPerformed
+
+	//GEN-LAST:event_tNumberActionPerformed
 
 	private void tNumberFocusLost(java.awt.event.FocusEvent evt)
 	{ //GEN-FIRST:event_tNumberFocusLost
 		checkNumberField(tNumber, 1);
 	}
-	 //GEN-LAST:event_tNumberFocusLost
+	//GEN-LAST:event_tNumberFocusLost
 
 	//private Preferences initPrefs = Preferences.userNodeForPackage(Initiative.class);
 }

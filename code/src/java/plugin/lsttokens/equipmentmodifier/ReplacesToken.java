@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentModifierLstToken;
 /**
  * Deals with REPLACES token 
  */
-public class ReplacesToken implements EquipmentModifierLstToken {
+public class ReplacesToken implements EquipmentModifierLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "REPLACES";
 	}
 
-	public boolean parse(EquipmentModifier mod, String value) {
+	public boolean parse(EquipmentModifier mod, String value)
+	{
 		mod.setReplacement(value);
 		return true;
 	}

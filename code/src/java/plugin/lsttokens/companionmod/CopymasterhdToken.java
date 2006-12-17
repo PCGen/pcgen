@@ -6,13 +6,16 @@ import pcgen.persistence.lst.CompanionModLstToken;
 /**
  * Class deals with COPYMASTERHP Token
  */
-public class CopymasterhdToken implements CompanionModLstToken {
+public class CopymasterhdToken implements CompanionModLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COPYMASTERHP";
 	}
 
-	public boolean parse(CompanionMod cmpMod, String value) {
+	public boolean parse(CompanionMod cmpMod, String value)
+	{
 		cmpMod.setCopyMasterHP(value);
 		return true;
 	}

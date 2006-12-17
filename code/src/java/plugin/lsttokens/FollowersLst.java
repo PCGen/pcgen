@@ -76,22 +76,24 @@ public class FollowersLst implements GlobalLstToken
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		final String followerType;
-		if ( tok.hasMoreTokens() )
+		if (tok.hasMoreTokens())
 		{
 			followerType = tok.nextToken().toUpperCase();
 		}
 		else
 		{
-			throw new PersistenceLayerException("Invalid FOLLOWERS token format");
+			throw new PersistenceLayerException(
+				"Invalid FOLLOWERS token format");
 		}
 		final String followerNumber;
-		if ( tok.hasMoreTokens() )
+		if (tok.hasMoreTokens())
 		{
 			followerNumber = tok.nextToken();
 		}
 		else
 		{
-			throw new PersistenceLayerException("Invalid FOLLOWERS token format");
+			throw new PersistenceLayerException(
+				"Invalid FOLLOWERS token format");
 		}
 
 		obj.setNumFollowers(followerType, followerNumber);

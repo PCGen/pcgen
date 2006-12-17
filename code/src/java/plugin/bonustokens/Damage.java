@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>Damage</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Damage extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"DAMAGE"
-		};
+	private static final String[] bonusHandled = {"DAMAGE"};
 
 	protected boolean parseToken(final String token)
 	{

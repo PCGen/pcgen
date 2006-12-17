@@ -56,7 +56,7 @@ public class StartpackToken implements KitStartpackLstToken
 	public boolean parse(Kit kit, String value)
 	{
 		Logging.errorPrint("Ignoring second STARTPACK tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 }

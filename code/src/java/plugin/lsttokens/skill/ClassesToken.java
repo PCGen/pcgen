@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SkillLstToken;
 /**
  * Class deals with CLASSES Token
  */
-public class ClassesToken implements SkillLstToken {
+public class ClassesToken implements SkillLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CLASSES";
 	}
 
-	public boolean parse(Skill skill, String value) {
+	public boolean parse(Skill skill, String value)
+	{
 		skill.addClassList(value);
 		return true;
 	}

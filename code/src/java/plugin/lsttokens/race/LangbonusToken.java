@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with LANGBONUS Token
  */
-public class LangbonusToken implements RaceLstToken {
+public class LangbonusToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LANGBONUS";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setLanguageBonus(value);
 		return true;
 	}

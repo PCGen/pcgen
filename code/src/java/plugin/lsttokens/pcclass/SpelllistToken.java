@@ -11,34 +11,43 @@ import pcgen.util.Logging;
 /**
  * Class deals with SPELLLIST Token
  */
-public class SpelllistToken implements PCClassLstToken {
+public class SpelllistToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SPELLLIST";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		final StringTokenizer aTok = new StringTokenizer(value, "|");
 		int spellCount = 0;
-		
-		if (value.indexOf('|') >= 0) {
-			try {
+
+		if (value.indexOf('|') >= 0)
+		{
+			try
+			{
 				spellCount = Integer.parseInt(aTok.nextToken());
-			} catch (NumberFormatException e) {
+			}
+			catch (NumberFormatException e)
+			{
 				Logging.errorPrint("Import error: Expected first value of "
-						+ "SPELLLIST token with a | to be a number");
+					+ "SPELLLIST token with a | to be a number");
 				return false;
 			}
 		}
-		
+
 		final List<String> spellChoices = new ArrayList<String>();
-		
-		while (aTok.hasMoreTokens()) {
+
+		while (aTok.hasMoreTokens())
+		{
 			spellChoices.add(aTok.nextToken());
 		}
-		
+
 		//Protection against a "" value parameter
-		if (spellChoices.size() > 0) {
+		if (spellChoices.size() > 0)
+		{
 			pcclass.setClassSpellChoices(spellCount, spellChoices);
 		}
 		return true;

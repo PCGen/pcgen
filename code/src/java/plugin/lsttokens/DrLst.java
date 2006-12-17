@@ -20,54 +20,66 @@ import java.util.StringTokenizer;
  *
  */
 
-public class DrLst implements GlobalLstToken {
+public class DrLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DR";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		ArrayList<Prerequisite> preReqs = new ArrayList<Prerequisite>();
-		if (anInt > -9) {
-			try {
+		if (anInt > -9)
+		{
+			try
+			{
 				PreParserFactory factory = PreParserFactory.getInstance();
 				String preLevelString = "PRELEVEL:" + anInt;
 				if (obj instanceof PCClass)
 				{
 					// Classes handle this differently
-					preLevelString = "PRECLASS:1," + obj.getKeyName() + "=" + anInt;
+					preLevelString =
+							"PRECLASS:1," + obj.getKeyName() + "=" + anInt;
 				}
 				Prerequisite r = factory.parse(preLevelString);
 				preReqs.add(r);
 			}
-			catch (PersistenceLayerException notUsed) {
+			catch (PersistenceLayerException notUsed)
+			{
 				return false;
 			}
 		}
 
-		if (".CLEAR".equals(value)) {
+		if (".CLEAR".equals(value))
+		{
 			obj.clearDR();
 			return true;
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, "|");
 		String[] values = tok.nextToken().split("/");
-		if (values.length != 2) {
+		if (values.length != 2)
+		{
 			return false;
 		}
 		DamageReduction dr = new DamageReduction(values[0], values[1]);
 
-		if (tok.hasMoreTokens()) {
-			try {
+		if (tok.hasMoreTokens())
+		{
+			try
+			{
 				PreParserFactory factory = PreParserFactory.getInstance();
 				Prerequisite r = factory.parse(tok.nextToken());
 				preReqs.add(r);
 			}
-			catch (PersistenceLayerException notUsed) {
+			catch (PersistenceLayerException notUsed)
+			{
 				return false;
 			}
 		}
-		for ( Prerequisite prereq : preReqs )
+		for (Prerequisite prereq : preReqs)
 		{
 			dr.addPreReq(prereq);
 		}
@@ -76,4 +88,3 @@ public class DrLst implements GlobalLstToken {
 		return true;
 	}
 }
-

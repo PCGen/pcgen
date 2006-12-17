@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with CLASS Token
  */
-public class ClassToken implements CampaignLstToken {
+public class ClassToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CLASS";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("CLASS:" + value);
-		campaign.addClassFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addClassFile(new CampaignSourceEntry(campaign, CampaignLoader
+			.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

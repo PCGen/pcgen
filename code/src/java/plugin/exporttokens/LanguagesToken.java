@@ -54,7 +54,8 @@ public class LanguagesToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -62,8 +63,9 @@ public class LanguagesToken extends Token
 		int languageIndex = 0;
 		int startIndex = 0;
 
-		List<Language> languageList = new ArrayList<Language>(pc.getLanguagesList());
-		
+		List<Language> languageList =
+				new ArrayList<Language>(pc.getLanguagesList());
+
 		if (aTok.hasMoreTokens())
 		{
 			try
@@ -73,7 +75,7 @@ public class LanguagesToken extends Token
 				/*
 				 * PERFORMANCE This can actually shortcut the subList below, as
 				 * it really is only grabbling one language
-				 */ 
+				 */
 			}
 			catch (NumberFormatException e)
 			{
@@ -85,13 +87,15 @@ public class LanguagesToken extends Token
 			languageIndex = languageList.size();
 		}
 
-		if (languageList.isEmpty()) {
+		if (languageList.isEmpty())
+		{
 			return "";
 		}
-		
-		List<Language> subList = languageList.subList(Math.max(startIndex, 0),
-				Math.min(languageIndex, languageList.size()));
-		
+
+		List<Language> subList =
+				languageList.subList(Math.max(startIndex, 0), Math.min(
+					languageIndex, languageList.size()));
+
 		return CoreUtility.join(subList, ", ");
 	}
 }

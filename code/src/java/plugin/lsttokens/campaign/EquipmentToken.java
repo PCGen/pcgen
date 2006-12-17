@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with EQUIPMENT Token
  */
-public class EquipmentToken implements CampaignLstToken {
+public class EquipmentToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "EQUIPMENT";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("EQUIPMENT:" + value);
-		campaign.addEquipFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addEquipFile(new CampaignSourceEntry(campaign, CampaignLoader
+			.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

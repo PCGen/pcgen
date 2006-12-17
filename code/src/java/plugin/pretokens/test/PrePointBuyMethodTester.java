@@ -36,7 +36,8 @@ import pcgen.util.PropertyFactory;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -50,7 +51,8 @@ public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements
 		if (gm != null)
 		{
 			final String purchaseMode = gm.getPurchaseModeMethodName();
-			if ((purchaseMode != null) && purchaseMode.equalsIgnoreCase(prereq.getKey()))
+			if ((purchaseMode != null)
+				&& purchaseMode.equalsIgnoreCase(prereq.getKey()))
 			{
 				++runningTotal;
 			}
@@ -63,7 +65,7 @@ public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements
 	 */
 	public String kindHandled()
 	{
-		return "POINTBUYMETHOD" ; //$NON-NLS-1$
+		return "POINTBUYMETHOD"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
@@ -71,10 +73,10 @@ public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements
 	 */
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final String foo = PropertyFactory.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getKey()} );
+		final String foo =
+				PropertyFactory.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
+					new Object[]{prereq.getKey()});
 		return foo;
 	}
-
 
 }

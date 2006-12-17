@@ -38,24 +38,28 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreVariableParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreVariableParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[] {"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ", "VARGT", "VARGTEQ"};
+		return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ",
+			"VARGT", "VARGTEQ"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind("var");
 
 		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
@@ -72,7 +76,9 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements Pre
 		//
 		if ((tokens.length & 0x01) == 0x01)
 		{
-			throw new PersistenceLayerException("Unable to parse prrequisite 'PRE" + kind + ":" + formula + "'. Incorrect parameter count (must be even)" );
+			throw new PersistenceLayerException(
+				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+					+ "'. Incorrect parameter count (must be even)");
 		}
 
 		try
@@ -86,7 +92,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements Pre
 				Prerequisite andPrereq;
 				if (tokens.length > 2)
 				{
-					prereq.setKind(null);		// PREMULT
+					prereq.setKind(null); // PREMULT
 					andPrereq = new Prerequisite();
 					prereq.addPrerequisite(andPrereq);
 					andPrereq.setKind("var");
@@ -102,7 +108,9 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements Pre
 		}
 		catch (PrerequisiteException pe)
 		{
-			throw new PersistenceLayerException("Unable to parse prrequisite 'PRE" + kind + ":" + formula + "'. " + pe.getLocalizedMessage());
+			throw new PersistenceLayerException(
+				"Unable to parse prrequisite 'PRE" + kind + ":" + formula
+					+ "'. " + pe.getLocalizedMessage());
 		}
 
 		if (invertResult)

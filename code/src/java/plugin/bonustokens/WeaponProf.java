@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>WeaponProf</code>
  *
@@ -35,25 +34,12 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class WeaponProf extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"WEAPONPROF="
-		};
+	private static final String[] bonusHandled = {"WEAPONPROF="};
 	private static final String[] bonusTags =
-		{
-			"CRITMULTADD",
-			"CRITRANGEADD",
-			"CRITRANGEDOUBLE",
-			"DAMAGE",
-			"DAMAGE-SHORTRANGE",
-			"DAMAGESIZE",
-			"PCSIZE",
-			"TOHIT",
-			"TOHIT-SHORTRANGE",
-			"TOHITOVERSIZE",
-			"WEAPONBAB",
-			"WIELDCATEGORY"
-		};
+			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE",
+				"DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE", "TOHIT",
+				"TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB",
+				"WIELDCATEGORY"};
 
 	protected String[] getBonusesHandled()
 	{

@@ -6,22 +6,28 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with CR Token
  */
-public class CrToken implements RaceLstToken {
+public class CrToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CR";
 	}
 
-	public boolean parse(Race race, String value) {
-		try {
+	public boolean parse(Race race, String value)
+	{
+		try
+		{
 			String intValue = value;
-			if (intValue.startsWith("1/")) {
+			if (intValue.startsWith("1/"))
+			{
 				intValue = "-" + intValue.substring(2);
 			}
 			race.setCR(Integer.parseInt(intValue));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

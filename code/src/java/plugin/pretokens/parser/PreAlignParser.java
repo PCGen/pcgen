@@ -37,24 +37,27 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreAlignParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreAlignParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "align" };
+		return new String[]{"align"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#parse(java.lang.String)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		String[] alignments = formula.split(",");
 
 		final GameMode gm = SettingsHandler.getGame();
@@ -68,12 +71,13 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements Prereq
 		String[] validAlignments = gm.getAlignmentListStrings(false);
 		if (validAlignments.length == 0)
 		{
-		    // There are no alignments for this game mode, so we
-		    // do not do prereqs.
+			// There are no alignments for this game mode, so we
+			// do not do prereqs.
 			prereq.setKey("");
 			prereq.setOperator(PrerequisiteOperator.EQ);
 		}
-		else {
+		else
+		{
 			if (alignments.length == 1)
 			{
 				prereq.setKey(convertFromNumber(formula, validAlignments));
@@ -84,12 +88,13 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements Prereq
 				prereq.setKind(null);
 				prereq.setOperator(PrerequisiteOperator.GTEQ);
 				prereq.setOperand("1");
-	
+
 				for (int i = 0; i < alignments.length; i++)
 				{
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind("align");
-					subreq.setKey(convertFromNumber(alignments[i], validAlignments));
+					subreq.setKey(convertFromNumber(alignments[i],
+						validAlignments));
 					subreq.setOperator(PrerequisiteOperator.EQ);
 					prereq.addPrerequisite(subreq);
 				}
@@ -107,12 +112,15 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements Prereq
 	 * @param validAlignments
 	 * @return String
 	 */
-	private String convertFromNumber(String string, String[] validAlignments) {
-		try {
+	private String convertFromNumber(String string, String[] validAlignments)
+	{
+		try
+		{
 			int alignInt = Integer.parseInt(string);
 			return validAlignments[alignInt];
 		}
-		catch (NumberFormatException e) {
+		catch (NumberFormatException e)
+		{
 			return string;
 		}
 	}

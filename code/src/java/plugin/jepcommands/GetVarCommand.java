@@ -16,14 +16,17 @@ import pcgen.util.PCGenCommand;
  * 
  * eg. getvar("CL=Fighter")
  */
-public class GetVarCommand extends PCGenCommand {
-	
+public class GetVarCommand extends PCGenCommand
+{
+
 	/** Constructor */
-	public GetVarCommand() {
+	public GetVarCommand()
+	{
 		numberOfParameters = -1; // allow variable # of parameters
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "VAR";
 	}
 
@@ -34,7 +37,8 @@ public class GetVarCommand extends PCGenCommand {
 	 * @param inStack
 	 * @throws ParseException
 	 */
-	public void run(Stack inStack) throws ParseException {
+	public void run(Stack inStack) throws ParseException
+	{
 		// check the stack
 		checkStack(inStack);
 
@@ -45,66 +49,92 @@ public class GetVarCommand extends PCGenCommand {
 		//
 		// have to do this in reverse order...this is a stack afterall
 		//
-		if (curNumberOfParameters == 1) {
+		if (curNumberOfParameters == 1)
+		{
 			param1 = inStack.pop();
 		}
-		else if (curNumberOfParameters == 2) {
+		else if (curNumberOfParameters == 2)
+		{
 			param2 = inStack.pop();
 			param1 = inStack.pop();
 
-			if (!(param2 instanceof Double)) {
+			if (!(param2 instanceof Double))
+			{
 				throw new ParseException("Invalid parameter type");
 			}
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter count");
 		}
 
 		Float result = null;
 
-		if (param1 instanceof String) {
-			if (parent instanceof PlayerCharacter) {
-				PlayerCharacter character = (PlayerCharacter)parent;
+		if (param1 instanceof String)
+		{
+			if (parent instanceof PlayerCharacter)
+			{
+				PlayerCharacter character = (PlayerCharacter) parent;
 				result = getVariableForCharacter(character, param1);
 			}
-			else if (parent instanceof Equipment) {
+			else if (parent instanceof Equipment)
+			{
 				boolean bPrimary = true;
 
-				if (param2 != null) {
+				if (param2 != null)
+				{
 					bPrimary = (((Double) param2).intValue() != 0);
 				}
 
-				result = ((Equipment) parent).getVariableValue((String) param1, "", bPrimary, null);
+				result =
+						((Equipment) parent).getVariableValue((String) param1,
+							"", bPrimary, null);
 			}
-			else if (parent instanceof VariableProcessorPC) {
+			else if (parent instanceof VariableProcessorPC)
+			{
 				VariableProcessorPC vpc = (VariableProcessorPC) parent;
 				// check to see if this is just a variable
-				result = vpc.lookupVariable((String)param1, variableSource, null);
-				if (result == null) {
-					result = vpc.getVariableValue(null, (String)param1, variableSource, 0);
+				result =
+						vpc.lookupVariable((String) param1, variableSource,
+							null);
+				if (result == null)
+				{
+					result =
+							vpc.getVariableValue(null, (String) param1,
+								variableSource, 0);
 				}
 			}
-			else if (parent instanceof VariableProcessorEq) {
+			else if (parent instanceof VariableProcessorEq)
+			{
 				VariableProcessorEq veq = (VariableProcessorEq) parent;
-				result = veq.getVariableValue(null, (String)param1, variableSource, 0);
+				result =
+						veq.getVariableValue(null, (String) param1,
+							variableSource, 0);
 			}
-			else if (parent == null) {
-				Logging.errorPrint("Ignored request for var " + String.valueOf(param1) + " with no parent.");
+			else if (parent == null)
+			{
+				Logging.errorPrint("Ignored request for var "
+					+ String.valueOf(param1) + " with no parent.");
 			}
 
-			if (result == null) {
+			if (result == null)
+			{
 				throw new ParseException("Error retreiving variable:" + param1);
 			}
 
 			inStack.push(new Double(result.doubleValue()));
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type");
 		}
 	}
 
-	protected Float getVariableForCharacter(PlayerCharacter character, Object param1) {
-		Float result = character.getVariableValue((String) param1, variableSource);
+	protected Float getVariableForCharacter(PlayerCharacter character,
+		Object param1)
+	{
+		Float result =
+				character.getVariableValue((String) param1, variableSource);
 		return result;
 	}
 }

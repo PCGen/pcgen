@@ -8,13 +8,16 @@ import pcgen.persistence.lst.BonusSpellLstToken;
 /**
  * Class deals with BONUSSPELLLEVEL Token
  */
-public class BonusspelllevelToken implements BonusSpellLstToken {
+public class BonusspelllevelToken implements BonusSpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BONUSSPELLLEVEL";
 	}
 
-	public boolean parse(Map<String, String> bonus, String value) {
+	public boolean parse(Map<String, String> bonus, String value)
+	{
 		bonus.put(BonusSpellLoader.LEVEL, value);
 		return true;
 	}

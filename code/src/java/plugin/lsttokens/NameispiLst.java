@@ -11,15 +11,17 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class NameispiLst implements GlobalLstToken {
+public class NameispiLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "NAMEISPI";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.setNameIsPI(value.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }
-

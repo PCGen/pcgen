@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>HD</code>
  *
@@ -35,15 +34,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class HD extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"HD"
-		};
-	private static final String[] bonusTags =
-		{
-			"MAX",
-			"MIN"
-		};
+	private static final String[] bonusHandled = {"HD"};
+	private static final String[] bonusTags = {"MAX", "MIN"};
 
 	protected String[] getBonusesHandled()
 	{

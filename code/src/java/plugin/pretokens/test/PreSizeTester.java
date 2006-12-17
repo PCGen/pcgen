@@ -38,33 +38,36 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSizeTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSizeTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		final int targetSize = Globals.sizeInt(prereq.getOperand());
 
-		final int runningTotal = prereq.getOperator().compare( character.sizeInt(), targetSize);
+		final int runningTotal =
+				prereq.getOperator().compare(character.sizeInt(), targetSize);
 
 		return countedTotal(prereq, runningTotal);
 	}
 
 	@Override
-	public int passes(
-			final Prerequisite prereq,
-			final Equipment    equipment,
-			PlayerCharacter    character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter character) throws PrerequisiteException
 	{
 		final int targetSize = Globals.sizeInt(prereq.getOperand());
 
-		final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(), targetSize);
+		final int runningTotal =
+				prereq.getOperator().compare(equipment.sizeInt(), targetSize);
 
 		return countedTotal(prereq, runningTotal);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */

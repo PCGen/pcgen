@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentModifierLstToken;
 /**
  * Deals with ITYPE token 
  */
-public class ItypeToken implements EquipmentModifierLstToken {
+public class ItypeToken implements EquipmentModifierLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ITYPE";
 	}
 
-	public boolean parse(EquipmentModifier mod, String value) {
+	public boolean parse(EquipmentModifier mod, String value)
+	{
 		mod.setItemType(value);
 		return true;
 	}

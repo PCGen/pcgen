@@ -107,12 +107,12 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 */
 	protected void buildCombatantList(List combatantList)
 	{
-		for (Iterator i = combatantList.iterator(); i.hasNext(); )
+		for (Iterator i = combatantList.iterator(); i.hasNext();)
 		{
 			Object o = i.next();
 			if (o != null && o instanceof PcgCombatant)
 			{
-				PcgCombatant cbt = (PcgCombatant)o;
+				PcgCombatant cbt = (PcgCombatant) o;
 				addCombatant(cbt);
 			}
 		}
@@ -155,7 +155,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 */
 	public int getRowCount()
 	{
-		return Math.max(combatants.size(),1);
+		return Math.max(combatants.size(), 1);
 	}
 
 	/**
@@ -171,7 +171,9 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 		InitWrapper returnValue = null;
 		if (rowIndex < combatants.size())
 		{
-			returnValue = (InitWrapper)((Map.Entry)combatants.entrySet().toArray()[rowIndex]).getValue();
+			returnValue =
+					(InitWrapper) ((Map.Entry) combatants.entrySet().toArray()[rowIndex])
+						.getValue();
 		}
 		return returnValue;
 	}
@@ -188,7 +190,8 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	{
 		int returnValue = -1;
 		int counter = -1;
-		for (Iterator i = combatants.keySet().iterator(); i.hasNext() && returnValue < 0; )
+		for (Iterator i = combatants.keySet().iterator(); i.hasNext()
+			&& returnValue < 0;)
 		{
 			counter++;
 			if (i.next().equals(name))
@@ -212,9 +215,9 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 			InitWrapper entry = getRowEntry(rowIndex);
 			switch (columnIndex)
 			{
-			case 0:
-				returnValue = entry.initiative.getName();
-				break;
+				case 0:
+					returnValue = entry.initiative.getName();
+					break;
 			}
 		}
 		return returnValue;
@@ -246,7 +249,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	{
 		combatants.put(combatant.getName(), new InitWrapper(combatant));
 		int rowIndex = getIndexOf(combatant.getName());
-		fireTableRowsInserted(rowIndex,rowIndex);
+		fireTableRowsInserted(rowIndex, rowIndex);
 	}
 
 	/**
@@ -262,7 +265,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 		{
 			InitWrapper entry = getRowEntry(rowIndex);
 			combatants.remove(entry.initiative.getName());
-			fireTableRowsDeleted(rowIndex,rowIndex);
+			fireTableRowsDeleted(rowIndex, rowIndex);
 		}
 	}
 
@@ -277,7 +280,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	{
 		int rowIndex = getIndexOf(name);
 		combatants.remove(name);
-		fireTableRowsDeleted(rowIndex,rowIndex);
+		fireTableRowsDeleted(rowIndex, rowIndex);
 	}
 
 	/**

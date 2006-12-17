@@ -7,20 +7,25 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BASEDICE Token
  */
-public class BasediceToken implements GameModeLstToken {
+public class BasediceToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BASEDICE";
 	}
 
 	//FLP WEAPONSIZEPENALTY3.5
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			BaseDiceLoader baseDiceLoader = new BaseDiceLoader();
 			baseDiceLoader.parseLine(gameMode, "BASEDICE:" + value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

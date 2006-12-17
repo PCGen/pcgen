@@ -28,19 +28,21 @@ package plugin.lsttokens.gamemode;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
-
 /**
  * <code>AlthpnameToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class AlthpnameToken implements GameModeLstToken {
+public class AlthpnameToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALTHPNAME";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setAltHPText(value);
 		return true;
 	}

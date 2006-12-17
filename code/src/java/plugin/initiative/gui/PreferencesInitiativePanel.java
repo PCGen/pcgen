@@ -42,24 +42,30 @@ import java.awt.Font;
  * @author devon
  * @since April 7, 2003
  */
-public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel {
+public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
+{
 
 	private JPanel performancePanel;
 	private JPanel mainPanel;
 	private JCheckBox rollPCInitiatives;
 
 	/** Creates new form PreferencesMiscPanel */
-	public PreferencesInitiativePanel() {
+	public PreferencesInitiativePanel()
+	{
 		initComponents();
 		initPreferences();
 	}
 
-	public void applyPreferences() {
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".rollPCInitiatives", getRollPCInitiatives());
+	public void applyPreferences()
+	{
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".rollPCInitiatives", getRollPCInitiatives());
 	}
 
-	public void initPreferences() {
-		setRollPCInitiatives(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true));
+	public void initPreferences()
+	{
+		setRollPCInitiatives(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true));
 	}
 
 	/**
@@ -69,7 +75,8 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel {
 	 *
 	 * @param b
 	 */
-	private void setRollPCInitiatives(boolean b) {
+	private void setRollPCInitiatives(boolean b)
+	{
 		rollPCInitiatives.setSelected(b);
 	}
 
@@ -80,15 +87,18 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel {
 	 *
 	 * @return true or false
 	 */
-	private boolean getRollPCInitiatives() {
+	private boolean getRollPCInitiatives()
+	{
 		return rollPCInitiatives.isSelected();
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return "Initiative";
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 		setLayout(new BorderLayout());
 
 		mainPanel = new JPanel();
@@ -97,12 +107,14 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel {
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
 		performancePanel = new JPanel();
-		performancePanel.setLayout(new BoxLayout(performancePanel, BoxLayout.Y_AXIS));
+		performancePanel.setLayout(new BoxLayout(performancePanel,
+			BoxLayout.Y_AXIS));
 		performancePanel.setBorder(new TitledBorder(null, "Initiative",
-				TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-				new Font("Dialog", 1, 11)));
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
+			new Font("Dialog", 1, 11)));
 
-		rollPCInitiatives.setText("Automatically roll PC initiatives at combat start");
+		rollPCInitiatives
+			.setText("Automatically roll PC initiatives at combat start");
 		performancePanel.add(rollPCInitiatives);
 
 		mainPanel.add(performancePanel);

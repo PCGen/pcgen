@@ -11,34 +11,43 @@ import pcgen.util.Logging;
 /**
  * Class deals with SKILLLIST Token
  */
-public class SkilllistToken implements PCClassLstToken {
+public class SkilllistToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SKILLLIST";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		final StringTokenizer aTok = new StringTokenizer(value, "|");
 		int skillCount = 0;
 
-		if (value.indexOf('|') >= 0) {
-			try {
+		if (value.indexOf('|') >= 0)
+		{
+			try
+			{
 				skillCount = Integer.parseInt(aTok.nextToken());
-			} catch (NumberFormatException e) {
+			}
+			catch (NumberFormatException e)
+			{
 				Logging.errorPrint("Import error: Expected first value of "
-						+ "SKILLLIST token with a | to be a number");
+					+ "SKILLLIST token with a | to be a number");
 				return false;
 			}
 		}
 
 		final List<String> skillChoices = new ArrayList<String>();
 
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			skillChoices.add(aTok.nextToken());
 		}
 
 		//Protection against a "" value parameter
-		if (skillChoices.size() > 0) {
+		if (skillChoices.size() > 0)
+		{
 			pcclass.setClassSkillChoices(skillCount, skillChoices);
 		}
 		return true;

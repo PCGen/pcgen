@@ -40,7 +40,8 @@ import java.io.Writer;
 /**
  * Does the writing of the PREWEAPONPROF token
  */
-public class PreWeaponProfWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreWeaponProfWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -56,16 +57,15 @@ public class PreWeaponProfWriter extends AbstractPrerequisiteWriter implements P
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -77,7 +77,7 @@ public class PreWeaponProfWriter extends AbstractPrerequisiteWriter implements P
 			}
 
 			writer.write("PREWEAPONPROF:1,");
-//			writer.write(prereq.getKey() + "=" + prereq.getOperand() );
+			//			writer.write(prereq.getKey() + "=" + prereq.getOperand() );
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

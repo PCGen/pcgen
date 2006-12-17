@@ -34,60 +34,61 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreApplyParser
-	extends AbstractPrerequisiteParser
-	implements PrerequisiteParserInterface
-	{
+public class PreApplyParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[] {"APPLY"};
+		return new String[]{"APPLY"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#parse(java.lang.String)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 	{
 
 		String[] andTokens = formula.split(",");
 		Prerequisite prereq = new Prerequisite();
 		prereq.setOperator(PrerequisiteOperator.EQ);
-		prereq.setOperand( Integer.toString(andTokens.length) );
+		prereq.setOperand(Integer.toString(andTokens.length));
 		prereq.setKind("APPLY");
-		
+
 		for (int i = 0; i < andTokens.length; i++)
 		{
 			String andToken = andTokens[i];
-			
+
 			Prerequisite andPrereq = new Prerequisite();
 			prereq.addPrerequisite(andPrereq);
-			
+
 			if (andToken.indexOf(';') > -1)
 			{
 				String[] orTokens = andToken.split("\\;");
-				andPrereq.setOperand( "1" );
+				andPrereq.setOperand("1");
 				andPrereq.setOperator(PrerequisiteOperator.GTEQ);
-				
+
 				for (int j = 0; j < orTokens.length; j++)
 				{
 					String orToken = orTokens[j];
-					
+
 					Prerequisite orPrereq = new Prerequisite();
 					andPrereq.addPrerequisite(orPrereq);
 					orPrereq.setKind("APPLY");
 					if (orToken.startsWith("["))
 					{
-						orPrereq.setOperand( orToken.substring(1, orToken.length()-1) );
+						orPrereq.setOperand(orToken.substring(1, orToken
+							.length() - 1));
 						orPrereq.setOperator(PrerequisiteOperator.NEQ);
 					}
-					else 
+					else
 					{
-						orPrereq.setOperand( orToken );
+						orPrereq.setOperand(orToken);
 						orPrereq.setOperator(PrerequisiteOperator.EQ);
 					}
 				}
@@ -97,20 +98,21 @@ public class PreApplyParser
 				andPrereq.setKind("APPLY");
 				if (andToken.startsWith("["))
 				{
-					andPrereq.setOperand( andToken.substring(1, andToken.length()-1) );
+					andPrereq.setOperand(andToken.substring(1, andToken
+						.length() - 1));
 					andPrereq.setOperator(PrerequisiteOperator.NEQ);
 				}
-				else 
+				else
 				{
-					andPrereq.setOperand( andToken );
+					andPrereq.setOperand(andToken);
 					andPrereq.setOperator(PrerequisiteOperator.EQ);
 				}
 			}
-			
+
 		}
 		if (invertResult)
 		{
-			prereq.setOperator( prereq.getOperator().invert() );
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		prereq.setOverrideQualify(overrideQualify);
 		return prereq;

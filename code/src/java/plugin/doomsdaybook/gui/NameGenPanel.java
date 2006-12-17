@@ -36,8 +36,10 @@ import java.util.prefs.Preferences;
 public class NameGenPanel extends JPanel
 {
 	// End of variables declaration//GEN-END:variables
-	public Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);
-	private HashMap<String, ArrayList> categories = new HashMap<String, ArrayList>();
+	public Preferences namePrefs =
+			Preferences.userNodeForPackage(NameGenPanel.class);
+	private HashMap<String, ArrayList> categories =
+			new HashMap<String, ArrayList>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -160,7 +162,7 @@ public class NameGenPanel extends JPanel
 	{
 		StringBuffer meaningBuffer = new StringBuffer();
 
-		for ( DataValue val : data )
+		for (DataValue val : data)
 		{
 			String aMeaning = val.getSubValue("meaning");
 
@@ -185,7 +187,7 @@ public class NameGenPanel extends JPanel
 	{
 		StringBuffer nameBuffer = new StringBuffer();
 
-		for ( DataValue val : data )
+		for (DataValue val : data)
 		{
 			nameBuffer.append(val.getValue());
 		}
@@ -202,7 +204,7 @@ public class NameGenPanel extends JPanel
 	{
 		StringBuffer proBuffer = new StringBuffer();
 
-		for ( DataValue val : data )
+		for (DataValue val : data)
 		{
 			String aPronounciation = val.getSubValue("pronounciation");
 
@@ -242,27 +244,31 @@ public class NameGenPanel extends JPanel
 	{ //GEN-FIRST:event_cbCatalogActionPerformed
 		loadStructureDD();
 	}
-	 //GEN-LAST:event_cbCatalogActionPerformed
+
+	//GEN-LAST:event_cbCatalogActionPerformed
 
 	private void cbCategoryActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbCategoryActionPerformed
 		loadCatalogDD();
 		loadStructureDD();
 	}
-	 //GEN-LAST:event_cbCategoryActionPerformed
+
+	//GEN-LAST:event_cbCategoryActionPerformed
 
 	private void cbSexActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbSexActionPerformed
 		loadCatalogDD();
 		loadStructureDD();
 	}
-	 //GEN-LAST:event_cbSexActionPerformed
+
+	//GEN-LAST:event_cbSexActionPerformed
 
 	private void chkStructureActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_chkStructureActionPerformed
 		loadStructureDD();
 	}
-	 //GEN-LAST:event_chkStructureActionPerformed
+
+	//GEN-LAST:event_chkStructureActionPerformed
 
 	private void clearButtons()
 	{
@@ -284,12 +290,12 @@ public class NameGenPanel extends JPanel
 				{
 					NameButton nb = new NameButton(ele);
 					nb.addActionListener(new ActionListener()
+					{
+						public void actionPerformed(ActionEvent evt)
 						{
-							public void actionPerformed(ActionEvent evt)
-							{
-								NameButtonActionPerformed(evt);
-							}
-						});
+							NameButtonActionPerformed(evt);
+						}
+					});
 					buttonPanel.add(nb);
 				}
 			}
@@ -315,7 +321,8 @@ public class NameGenPanel extends JPanel
 			Logging.errorPrint(e.getMessage(), e);
 		}
 	}
-	 //GEN-LAST:event_generateButtonActionPerformed
+
+	//GEN-LAST:event_generateButtonActionPerformed
 
 	/**
 	 * This method is called from within the constructor to
@@ -375,12 +382,12 @@ public class NameGenPanel extends JPanel
 		jPanel10.add(jLabel4);
 
 		cbCatalog.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					cbCatalogActionPerformed(evt);
-				}
-			});
+				cbCatalogActionPerformed(evt);
+			}
+		});
 
 		jPanel10.add(cbCatalog);
 
@@ -392,12 +399,12 @@ public class NameGenPanel extends JPanel
 		jPanel8.add(jLabel1);
 
 		cbCategory.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					cbCategoryActionPerformed(evt);
-				}
-			});
+				cbCategoryActionPerformed(evt);
+			}
+		});
 
 		jPanel8.add(cbCategory);
 
@@ -411,12 +418,12 @@ public class NameGenPanel extends JPanel
 
 		generateButton.setText("Generate");
 		generateButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					generateButtonActionPerformed(evt);
-				}
-			});
+				generateButtonActionPerformed(evt);
+			}
+		});
 
 		jPanel11.add(generateButton);
 
@@ -428,12 +435,12 @@ public class NameGenPanel extends JPanel
 		jPanel9.add(jLabel5);
 
 		cbSex.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					cbSexActionPerformed(evt);
-				}
-			});
+				cbSexActionPerformed(evt);
+			}
+		});
 
 		jPanel9.add(cbSex);
 
@@ -458,12 +465,12 @@ public class NameGenPanel extends JPanel
 		chkStructure.setSelected(true);
 		chkStructure.setText("Random");
 		chkStructure.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					chkStructureActionPerformed(evt);
-				}
-			});
+				chkStructureActionPerformed(evt);
+			}
+		});
 
 		jPanel12.add(chkStructure);
 
@@ -514,12 +521,12 @@ public class NameGenPanel extends JPanel
 		jButton1.setIconTextGap(0);
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
 		jButton1.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					jButton1ActionPerformed(evt);
-				}
-			});
+				jButton1ActionPerformed(evt);
+			}
+		});
 
 		jPanel6.add(jButton1);
 
@@ -529,7 +536,8 @@ public class NameGenPanel extends JPanel
 
 		add(jPanel2, BorderLayout.NORTH);
 	}
-	 //GEN-END:initComponents
+
+	//GEN-END:initComponents
 
 	private void jButton1ActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_jButton1ActionPerformed
@@ -538,7 +546,8 @@ public class NameGenPanel extends JPanel
 		StringSelection ss = new StringSelection(name.getText());
 		cb.setContents(ss, ss);
 	}
-	 //GEN-LAST:event_jButton1ActionPerformed
+
+	//GEN-LAST:event_jButton1ActionPerformed
 
 	private void loadCatalogDD()
 	{
@@ -583,7 +592,8 @@ public class NameGenPanel extends JPanel
 
 			Collections.sort(catalogs, new DataElementComperator());
 
-			DefaultComboBoxModel catalogModel = new DefaultComboBoxModel(catalogs);
+			DefaultComboBoxModel catalogModel =
+					new DefaultComboBoxModel(catalogs);
 			cbCatalog.setModel(catalogModel);
 			cbCatalog.setSelectedIndex(oldSelected);
 		}
@@ -635,7 +645,8 @@ public class NameGenPanel extends JPanel
 				}
 				catch (Exception e)
 				{
-					JOptionPane.showMessageDialog(this, "XML Error with file " + dataFiles[i].getName());
+					JOptionPane.showMessageDialog(this, "XML Error with file "
+						+ dataFiles[i].getName());
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
@@ -644,7 +655,8 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(this, "No data files in directory " + path.getPath());
+			JOptionPane.showMessageDialog(this, "No data files in directory "
+				+ path.getPath());
 		}
 	}
 
@@ -680,7 +692,8 @@ public class NameGenPanel extends JPanel
 		loadCatalogDD();
 	}
 
-	private void loadFromDocument(Document nameSet) throws DataConversionException
+	private void loadFromDocument(Document nameSet)
+		throws DataConversionException
 	{
 		Element generator = nameSet.getRootElement();
 		java.util.List rulesets = generator.getChildren("RULESET");
@@ -707,8 +720,9 @@ public class NameGenPanel extends JPanel
 
 	private String loadList(Element list) throws DataConversionException
 	{
-		plugin.doomsdaybook.util.List dataList = new plugin.doomsdaybook.util.List(allVars,
-				list.getAttributeValue("title"), list.getAttributeValue("id"));
+		plugin.doomsdaybook.util.List dataList =
+				new plugin.doomsdaybook.util.List(allVars, list
+					.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List elements = list.getChildren();
 		ListIterator elementsIterator = elements.listIterator();
 
@@ -719,14 +733,17 @@ public class NameGenPanel extends JPanel
 
 			if (elementName.equals("VALUE"))
 			{
-				WeightedDataValue dv = new WeightedDataValue(child.getText(), child.getAttribute("weight").getIntValue());
+				WeightedDataValue dv =
+						new WeightedDataValue(child.getText(), child
+							.getAttribute("weight").getIntValue());
 				java.util.List subElements = child.getChildren("SUBVALUE");
 				ListIterator subElementsIterator = subElements.listIterator();
 
 				while (subElementsIterator.hasNext())
 				{
 					Element subElement = (Element) subElementsIterator.next();
-					dv.addSubValue(subElement.getAttributeValue("type"), subElement.getText());
+					dv.addSubValue(subElement.getAttributeValue("type"),
+						subElement.getText());
 				}
 
 				dataList.add(dv);
@@ -738,9 +755,12 @@ public class NameGenPanel extends JPanel
 		return dataList.getId();
 	}
 
-	private String loadRule(Element rule, String id) throws DataConversionException
+	private String loadRule(Element rule, String id)
+		throws DataConversionException
 	{
-		Rule dataRule = new Rule(allVars, id, id, rule.getAttribute("weight").getIntValue());
+		Rule dataRule =
+				new Rule(allVars, id, id, rule.getAttribute("weight")
+					.getIntValue());
 		java.util.List elements = rule.getChildren();
 		ListIterator elementsIterator = elements.listIterator();
 
@@ -786,8 +806,10 @@ public class NameGenPanel extends JPanel
 
 	private RuleSet loadRuleSet(Element ruleSet) throws DataConversionException
 	{
-		RuleSet rs = new RuleSet(allVars, ruleSet.getAttributeValue("title"), ruleSet.getAttributeValue("id"),
-				ruleSet.getAttributeValue("usage"));
+		RuleSet rs =
+				new RuleSet(allVars, ruleSet.getAttributeValue("title"),
+					ruleSet.getAttributeValue("id"), ruleSet
+						.getAttributeValue("usage"));
 		java.util.List elements = ruleSet.getChildren();
 		ListIterator elementsIterator = elements.listIterator();
 		int num = 0;
@@ -822,7 +844,7 @@ public class NameGenPanel extends JPanel
 		else
 		{
 			Vector struct = new Vector();
-			
+
 			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
 			{
 				try

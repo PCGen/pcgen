@@ -162,12 +162,14 @@ public class DiceRollDialog extends JDialog
 	protected void initResult(String labelText)
 	{
 		m_result = new JLabel("<html><body><b>-</b></body></html>");
-		m_result.setMinimumSize(new Dimension(100, (int) m_result.getMinimumSize().getWidth()));
-		m_result.setPreferredSize(new Dimension(100, (int) m_result.getPreferredSize().getWidth()));
+		m_result.setMinimumSize(new Dimension(100, (int) m_result
+			.getMinimumSize().getWidth()));
+		m_result.setPreferredSize(new Dimension(100, (int) m_result
+			.getPreferredSize().getWidth()));
 		JLabel label = null;
 		label = new JLabel(labelText);
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		addComponent(m_result,label);
+		addComponent(m_result, label);
 	}
 
 	/**
@@ -210,7 +212,7 @@ public class DiceRollDialog extends JDialog
 		m_roll = new JTextField(m_model.getExpression());
 		JLabel label = new JLabel(labelText);
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		addComponent(m_roll,label);
+		addComponent(m_roll, label);
 	}
 
 	/**
@@ -241,19 +243,19 @@ public class DiceRollDialog extends JDialog
 	{
 		//Initialize listeners
 		m_doRoll.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					handleRoll(e);
-				}
-			});
+				handleRoll(e);
+			}
+		});
 		m_ok.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					handleOk(e);
-				}
-			});
+				handleOk(e);
+			}
+		});
 	}
 
 	/**
@@ -275,8 +277,7 @@ public class DiceRollDialog extends JDialog
 	 */
 	protected void setResult(int result)
 	{
-		m_result.setText("<html><body><b>" + result
-			+ "</b></body></html>");
+		m_result.setText("<html><body><b>" + result + "</b></body></html>");
 	}
 
 }

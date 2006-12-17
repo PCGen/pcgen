@@ -6,18 +6,23 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with REACH Token
  */
-public class ReachToken implements RaceLstToken {
+public class ReachToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "REACH";
 	}
 
-	public boolean parse(Race race, String value) {
-		try {
+	public boolean parse(Race race, String value)
+	{
+		try
+		{
 			race.setReach(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

@@ -36,20 +36,23 @@ import pcgen.util.PropertyFactory;
  * @author frugal@purplewombat.co.uk
  *
  */
-public class PreSkillMultTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSkillMultTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		int runningTotal=0;
-		final int requiredRanks = Integer.parseInt( prereq.getOperand());
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		int runningTotal = 0;
+		final int requiredRanks = Integer.parseInt(prereq.getOperand());
 
 		String requiredSkillKey = prereq.getKey().toUpperCase();
 
-
-		final boolean isType = (requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType =
+				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
 			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
@@ -67,9 +70,10 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 				if (percentageSignPosition >= 0)
 				{
 					final int maxCount = aSkill.getMyTypeCount();
-					for (int k=0; k < maxCount && !foundMatch; k++)
+					for (int k = 0; k < maxCount && !foundMatch; k++)
 					{
-						if (aSkill.getMyType(k).startsWith(skillKey.substring(0, percentageSignPosition)))
+						if (aSkill.getMyType(k).startsWith(
+							skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;
 						}
@@ -77,25 +81,36 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 				}
 				else if (aSkill.isType(skillKey))
 				{
-					foundMatch=true;
+					foundMatch = true;
 				}
 
-				if (foundMatch) {
-					final int result = prereq.getOperator().compare( aSkill.getTotalRank(character).intValue(), requiredRanks );
-					if (result==0) {
-						foundMatch=false;
+				if (foundMatch)
+				{
+					final int result =
+							prereq.getOperator().compare(
+								aSkill.getTotalRank(character).intValue(),
+								requiredRanks);
+					if (result == 0)
+					{
+						foundMatch = false;
 					}
-					else {
+					else
+					{
 						runningTotal = result;
 					}
 				}
 			}
-			else if (aSkillKey.equals(skillKey) ||
-					((percentageSignPosition >= 0) && aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
+			else if (aSkillKey.equals(skillKey)
+				|| ((percentageSignPosition >= 0) && aSkillKey
+					.startsWith(skillKey.substring(0, percentageSignPosition))))
 			{
-				final int result = prereq.getOperator().compare(aSkill.getTotalRank(character).intValue() , requiredRanks);
-				if (result>0) {
-					foundMatch=true;
+				final int result =
+						prereq.getOperator().compare(
+							aSkill.getTotalRank(character).intValue(),
+							requiredRanks);
+				if (result > 0)
+				{
+					foundMatch = true;
 					runningTotal = result;
 				}
 			}
@@ -111,25 +126,27 @@ public class PreSkillMultTester  extends AbstractPrerequisiteTest implements Pre
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SKILLMULT"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
+	public String toHtmlString(final Prerequisite prereq)
+	{
 		String skillName = prereq.getKey();
-		if (prereq.getSubKey() != null && !prereq.getSubKey().equals(""))  //$NON-NLS-1$
+		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
 			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 
-		final String foo = PropertyFactory.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						skillName } );
+		final String foo =
+				PropertyFactory.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
+					new Object[]{prereq.getOperator().toDisplayString(),
+						prereq.getOperand(), skillName});
 		return foo;
 	}
 

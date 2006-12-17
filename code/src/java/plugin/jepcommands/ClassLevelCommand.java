@@ -16,39 +16,48 @@ import pcgen.util.PJEP;
  * eg. cl("Fighter", 21)
  * eg. cl()
  */
-public class ClassLevelCommand extends PCGenCommand {
-	
+public class ClassLevelCommand extends PCGenCommand
+{
+
 	/**
 	 * Constructor
 	 */
-	public ClassLevelCommand() {
+	public ClassLevelCommand()
+	{
 		numberOfParameters = -1;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "CLASSLEVEL";
 	}
 
-	public boolean updateVariables(PJEP jep) {
+	public boolean updateVariables(PJEP jep)
+	{
 		boolean updated = false;
-		if (jep.removeVariable("CL") != null) {
+		if (jep.removeVariable("CL") != null)
+		{
 			updated = true;
 		}
 
 		String src = variableSource;
-		if ((src == null) || !src.startsWith("CLASS:")) {
+		if ((src == null) || !src.startsWith("CLASS:"))
+		{
 			return updated;
 		}
 		src = src.substring(6);
 
 		PlayerCharacter pc = null;
-		if (parent instanceof VariableProcessor) {
+		if (parent instanceof VariableProcessor)
+		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
-		else if (parent instanceof PlayerCharacter) {
+		else if (parent instanceof PlayerCharacter)
+		{
 			pc = (PlayerCharacter) parent;
 		}
-		if (pc == null) {
+		if (pc == null)
+		{
 			return updated;
 		}
 
@@ -80,9 +89,11 @@ public class ClassLevelCommand extends PCGenCommand {
 		// If there are no parameters and this is used in a CLASS file, then use the
 		// class name
 		//
-		if (paramCount == 0) {
+		if (paramCount == 0)
+		{
 			String src = variableSource;
-			if (src.startsWith("CLASS:")) {
+			if (src.startsWith("CLASS:"))
+			{
 				src = src.substring(6);
 				inStack.push(src);
 				++paramCount;
@@ -92,44 +103,56 @@ public class ClassLevelCommand extends PCGenCommand {
 		//
 		// have to do this in reverse order...this is a stack afterall
 		//
-		if (paramCount == 1) {
+		if (paramCount == 1)
+		{
 			param1 = inStack.pop();
 		}
-		else if (paramCount == 2) {
+		else if (paramCount == 2)
+		{
 			param2 = inStack.pop();
 			param1 = inStack.pop();
 
-			if (param2 instanceof Integer) {
+			if (param2 instanceof Integer)
+			{
 				// TODO Do Nothing?
 			}
-			else if (param2 instanceof Double) {
+			else if (param2 instanceof Double)
+			{
 				param2 = Integer.valueOf(((Double) param2).intValue());
 			}
-			else {
+			else
+			{
 				throw new ParseException("Invalid parameter type");
 			}
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter count");
 		}
 
 		Object result = null;
 
-		if (param1 instanceof String) {
+		if (param1 instanceof String)
+		{
 			PlayerCharacter pc = null;
-			if (parent instanceof VariableProcessor) {
+			if (parent instanceof VariableProcessor)
+			{
 				pc = ((VariableProcessor) parent).getPc();
 			}
-			else if (parent instanceof PlayerCharacter) {
+			else if (parent instanceof PlayerCharacter)
+			{
 				pc = (PlayerCharacter) parent;
 			}
-			if (pc == null) {
-				throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
+			if (pc == null)
+			{
+				throw new ParseException("Invalid parent (no PC): "
+					+ parent.getClass().getName());
 			}
 
 			// ";BEFORELEVEL="
-			String cl = (String)param1;
-			if (param2 != null) {
+			String cl = (String) param1;
+			if (param2 != null)
+			{
 				cl += ";BEFORELEVEL=" + param2.toString();
 			}
 
@@ -137,9 +160,9 @@ public class ClassLevelCommand extends PCGenCommand {
 
 			inStack.push(result);
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type");
 		}
 	}
 }
-

@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with KIT Token
  */
-public class KitToken implements CampaignLstToken {
+public class KitToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "KIT";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("KIT:" + value);
-		campaign.addKitFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addKitFile(new CampaignSourceEntry(campaign, CampaignLoader
+			.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

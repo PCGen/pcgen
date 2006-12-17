@@ -60,7 +60,8 @@ public class ClassToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -113,14 +114,17 @@ public class ClassToken extends Token
 		{
 			PCClass pcClass = pc.getClassList().get(classNumber);
 
-			if (Constants.s_NONE.equals(pcClass.getSubClassKey()) || "".equals(pcClass.getSubClassKey()))
+			if (Constants.s_NONE.equals(pcClass.getSubClassKey())
+				|| "".equals(pcClass.getSubClassKey()))
 			{
 				//FileAccess.encodeWrite(output, aClass.getName());
 				retString = pcClass.getOutputName();
 			}
 			else
 			{
-				retString = pcClass.getSubClassKeyed(pcClass.getSubClassKey()).getDisplayName();
+				retString =
+						pcClass.getSubClassKeyed(pcClass.getSubClassKey())
+							.getDisplayName();
 			}
 		}
 
@@ -163,50 +167,59 @@ public class ClassToken extends Token
 		return "";
 	}
 
-
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
-			final PlayerCharacter aPC) {
+		final PlayerCharacter aPC)
+	{
 		final List<String> aList = new ArrayList<String>();
 		final List<String> formattedList = new ArrayList<String>();
-		final List<SpecialAbility> abilityList = pcclass.getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> abilityList =
+				pcclass.getListFor(ListKey.SPECIAL_ABILITY);
 
 		//
 		// Determine the list of abilities from this class
 		// that the character is eligable for
 		//
-		if (abilityList == null || abilityList.isEmpty()) {
+		if (abilityList == null || abilityList.isEmpty())
+		{
 			return aList;
 		}
 
-		for (SpecialAbility saAbility : abilityList) {
+		for (SpecialAbility saAbility : abilityList)
+		{
 			final String aString = saAbility.toString();
 
-			if (aList.contains(aString)) {
+			if (aList.contains(aString))
+			{
 				break;
 			}
 
-			if (saAbility.pcQualifiesFor(aPC)) {
+			if (saAbility.pcQualifiesFor(aPC))
+			{
 				aList.add(aString);
 			}
 		}
 
 		// From the list of allowed SAs, format the output strings
 		// to include all of the variables
-		for (String str : aList) {
+		for (String str : aList)
+		{
 			StringTokenizer varTok = new StringTokenizer(str, Constants.PIPE);
 			final String aString = varTok.nextToken();
 
 			int[] varValue = null;
 			int varCount = varTok.countTokens();
 
-			if (varCount != 0) {
+			if (varCount != 0)
+			{
 				varValue = new int[varCount];
 
-				for (int j = 0; j < varCount; ++j) {
+				for (int j = 0; j < varCount; ++j)
+				{
 					// Get the value for each variable
 					final String vString = varTok.nextToken();
-					varValue[j] = aPC.getVariable(vString, true, true, "", "",
-							0).intValue();
+					varValue[j] =
+							aPC.getVariable(vString, true, true, "", "", 0)
+								.intValue();
 				}
 			}
 
@@ -217,32 +230,41 @@ public class ClassToken extends Token
 			boolean isZero = false;
 
 			// Fill in each % with the value of the appropriate token
-			while (varTok.hasMoreTokens()) {
+			while (varTok.hasMoreTokens())
+			{
 				final String nextTok = varTok.nextToken();
 
-				if ("%".equals(nextTok)) {
-					if (varCount == 0) {
+				if ("%".equals(nextTok))
+				{
+					if (varCount == 0)
+					{
 						// If this is the first token, then set the count of
 						// successfull token replacements to 0
 						isZero = true;
 					}
 
-					if ((varValue != null) && (varCount < varValue.length)) {
+					if ((varValue != null) && (varCount < varValue.length))
+					{
 						final int thisVar = varValue[varCount++];
 
 						// Update isZero if this token has a value of anything
 						// other than 0
 						isZero &= (thisVar == 0);
 						newAbility.append(thisVar);
-					} else {
+					}
+					else
+					{
 						newAbility.append('%');
 					}
-				} else {
+				}
+				else
+				{
 					newAbility.append(nextTok);
 				}
 			}
 
-			if (!isZero) {
+			if (!isZero)
+			{
 				// If all of the tokens for this ability were 0 then we do not
 				// show it,
 				// otherwise we add it to the return list.
@@ -252,7 +274,7 @@ public class ClassToken extends Token
 
 		return formattedList;
 	}
-	
+
 	/**
 	 * @param pc
 	 * @param classNumber

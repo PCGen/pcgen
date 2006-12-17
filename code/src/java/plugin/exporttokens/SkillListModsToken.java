@@ -27,24 +27,30 @@ public class SkillListModsToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringBuffer returnString = new StringBuffer();
 		boolean needcomma = false;
-		
+
 		for (Skill aSkill : pc.getSkillListInOutputOrder())
 		{
 			int modSkill = -1;
 
 			if (aSkill.getKeyStat().compareToIgnoreCase(Constants.s_NONE) != 0)
 			{
-				modSkill = aSkill.modifier(pc).intValue() - pc.getStatList().getStatModFor(aSkill.getKeyStat());
+				modSkill =
+						aSkill.modifier(pc).intValue()
+							- pc.getStatList().getStatModFor(
+								aSkill.getKeyStat());
 			}
 
 			if ((aSkill.getTotalRank(pc).intValue() > 0) || (modSkill > 0))
 			{
 				//final
-				int temp = aSkill.modifier(pc).intValue() + aSkill.getTotalRank(pc).intValue();
+				int temp =
+						aSkill.modifier(pc).intValue()
+							+ aSkill.getTotalRank(pc).intValue();
 
 				if (needcomma)
 				{
@@ -52,11 +58,12 @@ public class SkillListModsToken extends Token
 				}
 				needcomma = true;
 
-				returnString.append(aSkill.getOutputName()).append(" +").append(Integer.toString(temp));
+				returnString.append(aSkill.getOutputName()).append(" +")
+					.append(Integer.toString(temp));
 			}
 		}
-		
+
 		return returnString.toString();
 	}
-	
+
 }

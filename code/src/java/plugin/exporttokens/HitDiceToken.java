@@ -54,7 +54,8 @@ public class HitDiceToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -90,23 +91,27 @@ public class HitDiceToken extends Token
 			del = "+";
 		}
 
-		for ( PCClass pcClass : pc.getClassList() )
+		for (PCClass pcClass : pc.getClassList())
 		{
-			HashMap<Integer, Integer> hdMap = new LinkedHashMap<Integer, Integer>();
+			HashMap<Integer, Integer> hdMap =
+					new LinkedHashMap<Integer, Integer>();
 
-			for(int i = 0; i < pcClass.getLevel(); i++) {
+			for (int i = 0; i < pcClass.getLevel(); i++)
+			{
 				int hitDie = pcClass.getLevelHitDie(pc, i + 1);
 				Integer num = hdMap.get(hitDie);
-				if(num == null) {
+				if (num == null)
+				{
 					hdMap.put(hitDie, 1);
 				}
-				else {
+				else
+				{
 					hdMap.put(hitDie, num.intValue() + 1);
 				}
 			}
 
 			Set<Integer> keys = hdMap.keySet();
-			for ( int key : keys )
+			for (int key : keys)
 			{
 				Integer value = hdMap.get(key);
 				ret.append(del);
@@ -123,10 +128,12 @@ public class HitDiceToken extends Token
 		int temp = (int) pc.getStatBonusTo("HP", "BONUS");
 		int a = pc.getRace().hitDice(pc);
 		int b = 0;
-		if(pc.isMonsterDefault()) {
+		if (pc.isMonsterDefault())
+		{
 			b = pc.totalNonMonsterLevels();
 		}
-		else {
+		else
+		{
 			b = pc.getTotalLevels();
 		}
 		temp *= (a + b);
@@ -155,28 +162,32 @@ public class HitDiceToken extends Token
 
 		dice = pc.getRace().hitDice(pc);
 
-		for ( PCClass pcClass : pc.getClassList() )
+		for (PCClass pcClass : pc.getClassList())
 		{
-			HashMap<Integer, Integer> hdMap = new LinkedHashMap<Integer, Integer>();
+			HashMap<Integer, Integer> hdMap =
+					new LinkedHashMap<Integer, Integer>();
 
-			for(int i = 0; i < pcClass.getLevel(); i++) {
+			for (int i = 0; i < pcClass.getLevel(); i++)
+			{
 				int hitDie = pcClass.getLevelHitDie(pc, i + 1);
 				Integer num = hdMap.get(hitDie);
-				if(num == null) {
+				if (num == null)
+				{
 					hdMap.put(hitDie, 1);
 				}
-				else {
+				else
+				{
 					hdMap.put(hitDie, num.intValue() + 1);
 				}
 			}
 
 			Set<Integer> keys = hdMap.keySet();
-			for ( int hdSize : keys )
+			for (int hdSize : keys)
 			{
 				dice += hdMap.get(hdSize);
 			}
 		}
 
-		return String.valueOf( dice );
+		return String.valueOf(dice);
 	}
 }

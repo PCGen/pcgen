@@ -41,9 +41,8 @@ import pcgen.core.utils.CoreUtility;
  * @author wardc
  *
  */
-public class PreVariableTester
-	extends AbstractPrerequisiteTest
-	implements PrerequisiteTest
+public class PreVariableTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -58,16 +57,20 @@ public class PreVariableTester
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
-		throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter aPC) throws PrerequisiteException
 	{
 		if (aPC == null)
 		{
 			return 0;
 		}
 		final String eqVar = "EQ:" + equipment.getNonHeadedName(); //$NON-NLS-1$
-		final float aVar = equipment.getVariableValue(prereq.getKey(), eqVar, aPC).floatValue(); //$NON-NLS-1$
-		final float aTarget = equipment.getVariableValue(prereq.getOperand(), eqVar, aPC).floatValue(); //$NON-NLS-1$
+		final float aVar =
+				equipment.getVariableValue(prereq.getKey(), eqVar, aPC)
+					.floatValue(); //$NON-NLS-1$
+		final float aTarget =
+				equipment.getVariableValue(prereq.getOperand(), eqVar, aPC)
+					.floatValue(); //$NON-NLS-1$
 
 		float runningTotal = prereq.getOperator().compare(aVar, aTarget);
 		if (CoreUtility.doublesEqual(runningTotal, 0.0))
@@ -76,7 +79,8 @@ public class PreVariableTester
 		}
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+			final PrerequisiteTestFactory factory =
+					PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
 			{
@@ -100,17 +104,21 @@ public class PreVariableTester
 		throws PrerequisiteException
 	{
 		String src = prereq.getSubKey() != null ? prereq.getSubKey() : "";
-		final float aVar = character.getVariableValue(prereq.getKey(), src).floatValue(); //$NON-NLS-1$
-		final float aTarget = character.getVariableValue(prereq.getOperand(), src).floatValue(); //$NON-NLS-1$
+		final float aVar =
+				character.getVariableValue(prereq.getKey(), src).floatValue(); //$NON-NLS-1$
+		final float aTarget =
+				character.getVariableValue(prereq.getOperand(), src)
+					.floatValue(); //$NON-NLS-1$
 
 		float runningTotal = prereq.getOperator().compare(aVar, aTarget);
-		if(CoreUtility.doublesEqual(runningTotal, 0.0))
+		if (CoreUtility.doublesEqual(runningTotal, 0.0))
 		{
 			return 0;
 		}
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
+			final PrerequisiteTestFactory factory =
+					PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 
 			if (test != null)
@@ -118,7 +126,7 @@ public class PreVariableTester
 				// all of the tests must pass, so just
 				// assign the value here, don't add
 				runningTotal = test.passes(element, character);
-				if(CoreUtility.doublesEqual(runningTotal, 0.0))
+				if (CoreUtility.doublesEqual(runningTotal, 0.0))
 				{
 					return 0;
 				}

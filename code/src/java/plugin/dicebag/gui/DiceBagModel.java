@@ -249,12 +249,15 @@ public class DiceBagModel extends Observable
 			returnValue = m_jep.getValue();
 			if (m_jep.hasError())
 			{
-				JOptionPane.showMessageDialog(GMGenSystem.inst,m_jep.getErrorInfo());
-				LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME, "Parse error: " + expression + ": " + m_jep.getErrorInfo());
+				JOptionPane.showMessageDialog(GMGenSystem.inst, m_jep
+					.getErrorInfo());
+				LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
+					"Parse error: " + expression + ": " + m_jep.getErrorInfo());
 			}
 			else
 			{
-				LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME, "Roll of: " + expression + ": " + returnValue);
+				LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
+					"Roll of: " + expression + ": " + returnValue);
 			}
 		}
 
@@ -275,12 +278,15 @@ public class DiceBagModel extends Observable
 		returnValue = m_jep.getValue();
 		if (m_jep.hasError())
 		{
-			JOptionPane.showMessageDialog(GMGenSystem.inst,m_jep.getErrorInfo());
-			LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME, "Parse error: " + expression + ": " + m_jep.getErrorInfo());
+			JOptionPane.showMessageDialog(GMGenSystem.inst, m_jep
+				.getErrorInfo());
+			LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
+				"Parse error: " + expression + ": " + m_jep.getErrorInfo());
 		}
 		else
 		{
-			LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME, "Roll of: " + expression + ": " + returnValue);
+			LogUtilities.inst().logMessage(DiceBagPlugin.LOG_NAME,
+				"Roll of: " + expression + ": " + returnValue);
 		}
 
 		return returnValue;
@@ -313,7 +319,8 @@ public class DiceBagModel extends Observable
 		}
 		catch (Exception e)
 		{
-			JOptionPane.showMessageDialog(GMGenSystem.inst, "File load error: " + file.getName());
+			JOptionPane.showMessageDialog(GMGenSystem.inst, "File load error: "
+				+ file.getName());
 			Logging.errorPrint("File Load Error" + file.getName());
 			Logging.errorPrint(e.getMessage(), e);
 		}
@@ -369,7 +376,8 @@ public class DiceBagModel extends Observable
 		}
 		catch (Exception e)
 		{
-			JOptionPane.showMessageDialog(GMGenSystem.inst, "File load error: " + file.getName());
+			JOptionPane.showMessageDialog(GMGenSystem.inst, "File load error: "
+				+ file.getName());
 			Logging.errorPrint("File Load Error" + file.getName());
 			Logging.errorPrint(e.getMessage(), e);
 		}
@@ -386,7 +394,7 @@ public class DiceBagModel extends Observable
 		Element party = new Element("dice-bag");
 		party.setAttribute("name", m_name);
 
-		for ( String dieString : m_dice )
+		for (String dieString : m_dice)
 		{
 			Element die = new Element("dice-roll");
 			die.addContent(dieString);

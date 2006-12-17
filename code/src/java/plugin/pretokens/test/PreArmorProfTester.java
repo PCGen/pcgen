@@ -35,39 +35,39 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreArmorProfTester
-	extends AbstractPrerequisiteTest
-	implements PrerequisiteTest {
+public class PreArmorProfTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		int runningTotal = 0;
 
 		for (String profName : character.getArmorProfList())
 		{
-				if (profName.equalsIgnoreCase(prereq.getKey()))
-				{
-					runningTotal++;
-				}
-				else if (profName.substring(5).equalsIgnoreCase(prereq.getKey()))
-				{
-					// TYPE=Light equals TYPE.Light
-					runningTotal++;
-				}
+			if (profName.equalsIgnoreCase(prereq.getKey()))
+			{
+				runningTotal++;
 			}
+			else if (profName.substring(5).equalsIgnoreCase(prereq.getKey()))
+			{
+				// TYPE=Light equals TYPE.Light
+				runningTotal++;
+			}
+		}
 
 		return countedTotal(prereq, runningTotal);
 	}
 
-
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "armorprof"; //$NON-NLS-1$
 	}
 

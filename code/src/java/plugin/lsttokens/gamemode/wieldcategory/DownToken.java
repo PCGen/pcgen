@@ -8,18 +8,22 @@ import pcgen.persistence.lst.WieldCategoryLstToken;
 /**
  * Class deals with DOWN Token
  */
-public class DownToken implements WieldCategoryLstToken {
+public class DownToken implements WieldCategoryLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DOWN";
 	}
 
-	public boolean parse(WieldCategory cat, String value) {
+	public boolean parse(WieldCategory cat, String value)
+	{
 		//The wield category steps
 		StringTokenizer dTok = new StringTokenizer(value, "|");
 		int count = -1;
 
-		while (dTok.hasMoreTokens()) {
+		while (dTok.hasMoreTokens())
+		{
 			String dString = dTok.nextToken();
 			cat.setWCStep(count, dString);
 			count--;

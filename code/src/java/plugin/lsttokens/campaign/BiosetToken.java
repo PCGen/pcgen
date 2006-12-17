@@ -9,15 +9,19 @@ import java.net.URL;
 /**
  * Class deals with BIOSET Token
  */
-public class BiosetToken implements CampaignLstToken {
+public class BiosetToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BIOSET";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("BIOSET:" + value);
-		campaign.addBioSetFile(CampaignLoader.convertFilePath(sourceUrl, value));
+		campaign
+			.addBioSetFile(CampaignLoader.convertFilePath(sourceUrl, value));
 		return true;
 	}
 }

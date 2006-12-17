@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>EqmArmor</code>
  *
@@ -35,19 +34,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class EqmArmor extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"EQMARMOR"
-		};
+	private static final String[] bonusHandled = {"EQMARMOR"};
 	private static final String[] bonusTags =
-		{
-			"AC",
-			"ACCHECK",
-			"DEFBONUS",
-			"EDR",
-			"MAXDEX",
-			"SPELLFAILURE"
-		};
+			{"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
 
 	protected String[] getBonusesHandled()
 	{

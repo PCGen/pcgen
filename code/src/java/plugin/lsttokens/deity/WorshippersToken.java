@@ -6,24 +6,27 @@ import pcgen.persistence.lst.DeityLstToken;
 /**
  * Class deals with WORSHIPPERS Token
  */
-public class WorshippersToken implements DeityLstToken{
+public class WorshippersToken implements DeityLstToken
+{
 
 	/**
-     * Get token name
-     * @return token name 
+	 * Get token name
+	 * @return token name 
 	 */
-    public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WORSHIPPERS";
 	}
 
-    /**
-     * Parse WORSHIPPERS token
-     * 
-     * @param deity 
-     * @param value 
-     * @return true
-     */
-	public boolean parse(Deity deity, String value) {
+	/**
+	 * Parse WORSHIPPERS token
+	 * 
+	 * @param deity 
+	 * @param value 
+	 * @return true
+	 */
+	public boolean parse(Deity deity, String value)
+	{
 		deity.setWorshippers(value);
 		return true;
 	}

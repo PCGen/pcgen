@@ -40,20 +40,23 @@ import java.util.StringTokenizer;
  * @author wardc
  *
  */
-public class PreSpellSchoolParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreSpellSchoolParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	private final static String prereqKind = "spell.school";
 
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SPELLSCHOOL" };
+		return new String[]{"SPELLSCHOOL"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(prereqKind);
 
 		// old-style: PRESPELLSCHOOL:<name of spell school>,<number of spells required>,<minimum spell level>
@@ -64,7 +67,7 @@ public class PreSpellSchoolParser extends AbstractPrerequisiteParser implements 
 		String aString = aTok.nextToken();
 		try
 		{
-			Integer.parseInt(aString);		// to test if number
+			Integer.parseInt(aString); // to test if number
 
 			if (aTok.hasMoreTokens())
 			{
@@ -73,7 +76,7 @@ public class PreSpellSchoolParser extends AbstractPrerequisiteParser implements 
 				final int totalTokens = aTok.countTokens();
 				if (totalTokens > 1)
 				{
-					prereq.setKind(null);				// PREMULT
+					prereq.setKind(null); // PREMULT
 				}
 				while (aTok.hasMoreTokens())
 				{
@@ -126,9 +129,9 @@ public class PreSpellSchoolParser extends AbstractPrerequisiteParser implements 
 		}
 		if (bError)
 		{
-			throw new PersistenceLayerException("PRE" + kindsHandled()[0] + " formula '" + formula + "' is not valid.");
+			throw new PersistenceLayerException("PRE" + kindsHandled()[0]
+				+ " formula '" + formula + "' is not valid.");
 		}
-
 
 		if (invertResult)
 		{

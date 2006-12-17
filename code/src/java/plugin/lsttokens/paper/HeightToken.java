@@ -29,19 +29,21 @@ import pcgen.core.Constants;
 import pcgen.core.PaperInfo;
 import pcgen.persistence.lst.PaperInfoLstToken;
 
-
 /**
  * <code>HeightToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class HeightToken implements PaperInfoLstToken {
+public class HeightToken implements PaperInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HEIGHT";
 	}
 
-	public boolean parse(PaperInfo paperInfo, String value) {
+	public boolean parse(PaperInfo paperInfo, String value)
+	{
 		paperInfo.setPaperInfo(Constants.PAPERINFO_HEIGHT, value);
 		return true;
 	}

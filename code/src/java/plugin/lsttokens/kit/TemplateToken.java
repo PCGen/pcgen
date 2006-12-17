@@ -73,10 +73,10 @@ public class TemplateToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 		KitTemplate kTemplate = new KitTemplate(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -85,15 +85,14 @@ public class TemplateToken extends KitLstToken
 			if (colString.startsWith("TEMPLATE:"))
 			{
 				Logging.errorPrint("Ignoring second TEMPLATE tag \""
-						+ colString + "\" in TemplateToken.parse");
+					+ colString + "\" in TemplateToken.parse");
 			}
 			else
 			{
 				if (BaseKitLoader.parseCommonTags(kTemplate, colString) == false)
 				{
 					throw new PersistenceLayerException(
-							"Unknown KitTemplate info " + " \"" + colString
-									+ "\"");
+						"Unknown KitTemplate info " + " \"" + colString + "\"");
 				}
 			}
 		}

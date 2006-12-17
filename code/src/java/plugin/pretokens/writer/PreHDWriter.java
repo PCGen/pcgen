@@ -38,8 +38,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-
-public class PreHDWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreHDWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -55,16 +55,15 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements Prerequis
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -92,7 +91,8 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements Prerequis
 	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
 	 */
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+		throws IOException
 	{
 		//
 		// If this is a PREMULT...
@@ -108,10 +108,14 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements Prerequis
 				//
 				// ...both of which are PREHD. The first must specify >= and the second <=
 				//
-				final Prerequisite elementGTEQ =prereqList.get(0);
-				final Prerequisite elementLTEQ =prereqList.get(1);
-				if ("hd".equalsIgnoreCase(elementGTEQ.getKind()) && elementGTEQ.getOperator().equals(PrerequisiteOperator.GTEQ) &&
-					"hd".equalsIgnoreCase(elementLTEQ.getKind()) && elementLTEQ.getOperator().equals(PrerequisiteOperator.LTEQ))
+				final Prerequisite elementGTEQ = prereqList.get(0);
+				final Prerequisite elementLTEQ = prereqList.get(1);
+				if ("hd".equalsIgnoreCase(elementGTEQ.getKind())
+					&& elementGTEQ.getOperator().equals(
+						PrerequisiteOperator.GTEQ)
+					&& "hd".equalsIgnoreCase(elementLTEQ.getKind())
+					&& elementLTEQ.getOperator().equals(
+						PrerequisiteOperator.LTEQ))
 				{
 					if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 					{

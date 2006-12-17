@@ -56,8 +56,7 @@ public class ProfToken implements KitProfLstToken
 	public boolean parse(KitProf kitProf, String value)
 	{
 		Logging
-				.errorPrint("Ignoring second PROF tag \"" + value
-						+ "\" in Kit.");
+			.errorPrint("Ignoring second PROF tag \"" + value + "\" in Kit.");
 		return false;
 	}
 }

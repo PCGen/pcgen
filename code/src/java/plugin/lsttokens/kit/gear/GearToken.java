@@ -56,8 +56,7 @@ public class GearToken implements KitGearLstToken
 	public boolean parse(KitGear kitGear, String value)
 	{
 		Logging
-				.errorPrint("Ignoring second GEAR tag \"" + value
-						+ "\" in Kit.");
+			.errorPrint("Ignoring second GEAR tag \"" + value + "\" in Kit.");
 		return false;
 	}
 }

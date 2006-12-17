@@ -7,20 +7,21 @@ package plugin.lsttokens;
 import pcgen.core.PObject;
 import pcgen.persistence.lst.GlobalLstToken;
 
-
 /**
  * @author djones4
  *
  */
-public class AutoLst implements GlobalLstToken {
+public class AutoLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "AUTO";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.addAutoArray(value);
 		return true;
 	}
 }
-

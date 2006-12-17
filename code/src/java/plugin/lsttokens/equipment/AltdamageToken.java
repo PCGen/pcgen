@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with ALTDAMAGE token 
  */
-public class AltdamageToken implements EquipmentLstToken {
+public class AltdamageToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALTDAMAGE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setAltDamage(value);
 		return true;
 	}

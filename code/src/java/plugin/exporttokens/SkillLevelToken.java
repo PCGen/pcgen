@@ -54,11 +54,12 @@ public class SkillLevelToken extends SkillToken
 	{
 		return TOKEN_NAME;
 	}
-	
+
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -77,8 +78,8 @@ public class SkillLevelToken extends SkillToken
 					return "0";
 				}
 
-				final PCLevelInfo wLevelInfo = pc.getLevelInfo()
-					.get(aLevelOffset);
+				final PCLevelInfo wLevelInfo =
+						pc.getLevelInfo().get(aLevelOffset);
 				final int wOutput = wLevelInfo.getSkillPointsGained();
 				return Integer.toString(wOutput);
 			}

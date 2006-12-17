@@ -38,7 +38,7 @@ public class InitFileFilter extends FileFilter
 	/**  Creates a new instance of InitFileFilter */
 	public InitFileFilter()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**

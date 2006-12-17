@@ -9,16 +9,20 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with AL Token
  */
-public class AlToken implements RaceLstToken, DeprecatedToken {
+public class AlToken implements RaceLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "AL";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		// Pass into PREALIGN instead
 		Prerequisite prereq = new Prerequisite();
-		for (int i = 0; i < value.length() ; i++) {
+		for (int i = 0; i < value.length(); i++)
+		{
 			Prerequisite subreq = new Prerequisite();
 			subreq.setKind("align");
 			subreq.setKey(value.substring(i, i + 1));
@@ -28,7 +32,8 @@ public class AlToken implements RaceLstToken, DeprecatedToken {
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value) {
+	public String getMessage(PObject obj, String value)
+	{
 		return "AL Tag has been deprecated.  Use PREALIGN instead";
 	}
 }

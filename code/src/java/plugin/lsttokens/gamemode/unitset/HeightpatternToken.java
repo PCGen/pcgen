@@ -6,13 +6,16 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with HEIGHTPATTERN Token
  */
-public class HeightpatternToken implements UnitSetLstToken {
+public class HeightpatternToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HEIGHTPATTERN";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
+	public boolean parse(UnitSet unitSet, String value)
+	{
 		unitSet.setHeightDisplayPattern(value);
 		return true;
 	}

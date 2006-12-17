@@ -85,7 +85,7 @@ public class Initiative extends javax.swing.JPanel
 	private javax.swing.JButton bRefocus;
 	private javax.swing.JButton bRoll;
 	private JButton bRefresh = new JButton();
-	private  javax.swing.JButton bDuplicateCombatant = new JButton();
+	private javax.swing.JButton bDuplicateCombatant = new JButton();
 
 	// End of variables declaration//GEN-END:variables
 	//** Dynamic Components **
@@ -164,9 +164,12 @@ public class Initiative extends javax.swing.JPanel
 	/**  Sets current situation for some objects as the default locations, as the program exits */
 	public void setExitPrefs()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDead", showDead.isSelected());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ShowEvents", showEvents.isSelected());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", jSplitPane1.getDividerLocation());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDead",
+			showDead.isSelected());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".ShowEvents", showEvents.isSelected());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".DividerLocation", jSplitPane1.getDividerLocation());
 	}
 
 	/**
@@ -310,8 +313,9 @@ public class Initiative extends javax.swing.JPanel
 	/**  Calls up the AddCombatant dialog for adding a new combatant */
 	public void addCombatant()
 	{
-		AddCombatant dialog = new AddCombatant(JOptionPane
-				.getFrameForComponent(this), true, this);
+		AddCombatant dialog =
+				new AddCombatant(JOptionPane.getFrameForComponent(this), true,
+					this);
 		dialog.setVisible(true);
 		refreshTable();
 	}
@@ -376,14 +380,14 @@ public class Initiative extends javax.swing.JPanel
 		tpaneInfo.addTab(cbt.getName(), ic.getScrollPane());
 		lp.setEditable(false);
 		lp.addHyperlinkListener(new HyperlinkListener()
-			{
-				private Combatant combatant = cbt;
+		{
+			private Combatant combatant = cbt;
 
-				public void hyperlinkUpdate(HyperlinkEvent e)
-				{
-					hyperLinkSelected(e, combatant);
-				}
-			});
+			public void hyperlinkUpdate(HyperlinkEvent e)
+			{
+				hyperLinkSelected(e, combatant);
+			}
+		});
 	}
 
 	//** End Table CoreUtility Functions **
@@ -393,71 +397,85 @@ public class Initiative extends javax.swing.JPanel
 	public void applyPrefs()
 	{
 		//Combat Prefs
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doCombat", true)
-		    && !bottomToolbar.isAncestorOf(bSave))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doCombat", true)
+			&& !bottomToolbar.isAncestorOf(bSave))
 		{
 			bottomToolbar.add(bSave);
 		}
 
-		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doCombat", true)
-		    && bottomToolbar.isAncestorOf(bSave))
+		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doCombat", true)
+			&& bottomToolbar.isAncestorOf(bSave))
 		{
 			bottomToolbar.remove(bSave);
 		}
 
 		//Spell Prefs
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true)
-		    && !bottomToolbar.isAncestorOf(bCast))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doSpells", true)
+			&& !bottomToolbar.isAncestorOf(bCast))
 		{
 			bottomToolbar.add(bCast);
 			bottomToolbar.add(bEvent);
 		}
 
-		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true)
-		    && bottomToolbar.isAncestorOf(bCast))
+		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doSpells", true)
+			&& bottomToolbar.isAncestorOf(bCast))
 		{
 			bottomToolbar.remove(bCast);
 			bottomToolbar.remove(bEvent);
 			bottomToolbar.add(showEvents);
 		}
 
-		checkAndFixColumns(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true), "Dur");
+		checkAndFixColumns(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doSpells", true), "Dur");
 
 		//Mixed Prefs
-		checkAndFixColumns(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true)
-		    || SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true), "Status");
+		checkAndFixColumns(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doSpells", true)
+			|| SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doDeath", true), "Status");
 
 		//HP Prefs
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true)
-		    && !bottomToolbar.isAncestorOf(bDamage))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP",
+			true)
+			&& !bottomToolbar.isAncestorOf(bDamage))
 		{
 			bottomToolbar.add(bDamage);
 			bottomToolbar.add(bHeal);
 			bottomToolbar.add(bStabilize);
 		}
 
-		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true)
-		    && bottomToolbar.isAncestorOf(bDamage))
+		if (!SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doHP", true)
+			&& bottomToolbar.isAncestorOf(bDamage))
 		{
 			bottomToolbar.remove(bDamage);
 			bottomToolbar.remove(bHeal);
 			bottomToolbar.remove(bStabilize);
 		}
 
-		checkAndFixColumns(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true), "HP");
-		checkAndFixColumns(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true), "HP Max");
-		checkAndFixColumns(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doNumber", true), "#");
+		checkAndFixColumns(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doHP", true), "HP");
+		checkAndFixColumns(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doHP", true), "HP Max");
+		checkAndFixColumns(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doNumber", true), "#");
 
 		//Death Prefs
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true)
-		    && !bottomToolbar.isAncestorOf(bKill))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doDeath", true)
+			&& !bottomToolbar.isAncestorOf(bKill))
 		{
 			bottomToolbar.add(bKill);
 			bottomToolbar.add(showDead);
 		}
 
-		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true)
-		    && bottomToolbar.isAncestorOf(bKill))
+		if (!SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doDeath", true)
+			&& bottomToolbar.isAncestorOf(bKill))
 		{
 			bottomToolbar.remove(bKill);
 			bottomToolbar.remove(showDead);
@@ -510,13 +528,15 @@ public class Initiative extends javax.swing.JPanel
 
 		if (iH == null)
 		{
-			dialog = new CastSpell(JOptionPane.getFrameForComponent(this),
-					true, this);
+			dialog =
+					new CastSpell(JOptionPane.getFrameForComponent(this), true,
+						this);
 		}
 		else
 		{
-			dialog = new CastSpell(JOptionPane.getFrameForComponent(this),
-					true, this, iH.getPlayer(), iH.getInitiative()
+			dialog =
+					new CastSpell(JOptionPane.getFrameForComponent(this), true,
+						this, iH.getPlayer(), iH.getInitiative()
 							.getCurrentInitiative());
 		}
 
@@ -545,7 +565,8 @@ public class Initiative extends javax.swing.JPanel
 
 			if (iH.getStatus().equals("Dead"))
 			{
-				if (showDead.isSelected() && iH instanceof Combatant && (tpaneInfo.indexOfTab(iH.getName()) == -1))
+				if (showDead.isSelected() && iH instanceof Combatant
+					&& (tpaneInfo.indexOfTab(iH.getName()) == -1))
 				{
 					Combatant cbt = (Combatant) iH;
 					addTab(cbt);
@@ -564,7 +585,8 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void combatantDied(InitHolder deadIH)
 	{
-		writeToCombatTabWithRound(deadIH.getName() + " (" + deadIH.getPlayer() + ") Killed");
+		writeToCombatTabWithRound(deadIH.getName() + " (" + deadIH.getPlayer()
+			+ ") Killed");
 
 		for (int i = 0; i < initList.size(); i++)
 		{
@@ -612,8 +634,9 @@ public class Initiative extends javax.swing.JPanel
 	/**  Damages the selected combatants */
 	public void damageCombatant()
 	{
-		int subdualType = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Subdual",
-			    PreferencesDamagePanel.DAMAGE_SUBDUAL);
+		int subdualType =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".Damage.Subdual", PreferencesDamagePanel.DAMAGE_SUBDUAL);
 
 		DamageDialog dialog = new DamageDialog(GMGenSystem.inst, true);
 		dialog.setVisible(true);
@@ -658,7 +681,7 @@ public class Initiative extends javax.swing.JPanel
 			}
 			catch (Exception e)
 			{
-			    // TODO:  Exception Needs to be handled
+				// TODO:  Exception Needs to be handled
 			}
 		}
 
@@ -702,8 +725,9 @@ public class Initiative extends javax.swing.JPanel
 			cbt.damage(damage);
 
 			String newStatus = cbt.getStatus();
-			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Took " + damage + " Damage: "
-			    + cbt.getHP().getCurrent() + "/" + cbt.getHP().getMax());
+			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer()
+				+ ") Took " + damage + " Damage: " + cbt.getHP().getCurrent()
+				+ "/" + cbt.getHP().getMax());
 			doMassiveDamage(cbt, damage);
 
 			if (!oldStatus.equals(newStatus) && newStatus.equals("Dead"))
@@ -734,8 +758,9 @@ public class Initiative extends javax.swing.JPanel
 				Combatant cbt = (Combatant) iH;
 				cbt.heal(heal);
 				combatantUpdated(cbt);
-				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Gained " + heal + " Healing: "
-				    + cbt.getHP().getCurrent() + "/" + cbt.getHP().getMax());
+				writeToCombatTabWithRound(cbt.getName() + " ("
+					+ cbt.getPlayer() + ") Gained " + heal + " Healing: "
+					+ cbt.getHP().getCurrent() + "/" + cbt.getHP().getMax());
 			}
 		}
 
@@ -750,8 +775,10 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void doMassiveDamage(Combatant cbt, int damage)
 	{
-		int massiveType = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Type",
-			    PreferencesMassiveDamagePanel.MASSIVE_DND);
+		int massiveType =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".Damage.Massive.Type",
+					PreferencesMassiveDamagePanel.MASSIVE_DND);
 		boolean isMassive = false;
 
 		if (massiveType == PreferencesMassiveDamagePanel.MASSIVE_DND)
@@ -770,8 +797,9 @@ public class Initiative extends javax.swing.JPanel
 		if (isMassive)
 		{
 			StringBuffer sb = new StringBuffer();
-			SavingThrowDialog dialog = new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
-				    SavingThrowDialog.FORT_SAVE);
+			SavingThrowDialog dialog =
+					new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
+						SavingThrowDialog.FORT_SAVE);
 			dialog.setVisible(true);
 			dialog.dispose();
 
@@ -794,17 +822,22 @@ public class Initiative extends javax.swing.JPanel
 			//write out the results to the combat tab
 			if (returnVal == SavingThrowDialog.PASS_OPTION)
 			{
-				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Passed a " + sb
-				    + " to avoid massive damage effects");
+				writeToCombatTabWithRound(cbt.getName() + " ("
+					+ cbt.getPlayer() + ") Passed a " + sb
+					+ " to avoid massive damage effects");
 			}
 			else if (returnVal == SavingThrowDialog.FAIL_OPTION)
 			{
-				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Failed a " + sb
-				    + " to avoid massive damage effects");
+				writeToCombatTabWithRound(cbt.getName() + " ("
+					+ cbt.getPlayer() + ") Failed a " + sb
+					+ " to avoid massive damage effects");
 
 				//Failure
-				int massiveEffect = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Effect",
-					    PreferencesMassiveDamagePanel.MASSIVE_EFFECT_KILL);
+				int massiveEffect =
+						SettingsHandler.getGMGenOption(
+							InitiativePlugin.LOG_NAME
+								+ ".Damage.Massive.Effect",
+							PreferencesMassiveDamagePanel.MASSIVE_EFFECT_KILL);
 
 				if (massiveEffect == PreferencesMassiveDamagePanel.MASSIVE_EFFECT_KILL)
 				{
@@ -894,8 +927,9 @@ public class Initiative extends javax.swing.JPanel
 			if (isEnough)
 			{
 				StringBuffer sb = new StringBuffer();
-				SavingThrowDialog dialog = new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
-					    SavingThrowDialog.FORT_SAVE);
+				SavingThrowDialog dialog =
+						new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
+							SavingThrowDialog.FORT_SAVE);
 				dialog.setVisible(true);
 				dialog.dispose();
 
@@ -917,14 +951,16 @@ public class Initiative extends javax.swing.JPanel
 
 				if (returnVal == SavingThrowDialog.PASS_OPTION)
 				{
-					writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Passed a " + sb
-					    + " to avoid unconsiousness");
+					writeToCombatTabWithRound(cbt.getName() + " ("
+						+ cbt.getPlayer() + ") Passed a " + sb
+						+ " to avoid unconsiousness");
 					cbt.nonLethalDamage(false);
 				}
 				else if (returnVal == SavingThrowDialog.FAIL_OPTION)
 				{
-					writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Failed a " + sb
-					    + " to avoid unconsiousness");
+					writeToCombatTabWithRound(cbt.getName() + " ("
+						+ cbt.getPlayer() + ") Failed a " + sb
+						+ " to avoid unconsiousness");
 					cbt.nonLethalDamage(true);
 				}
 			}
@@ -991,8 +1027,10 @@ public class Initiative extends javax.swing.JPanel
 			cbt.subdualDamage(damage);
 			combatantUpdated(cbt);
 
-			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Took " + damage + " Subdual Damage: "
-			    + cbt.getHP().getCurrent() + "(" + cbt.getHP().getSubdual() + "s)/" + cbt.getHP().getMax());
+			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer()
+				+ ") Took " + damage + " Subdual Damage: "
+				+ cbt.getHP().getCurrent() + "(" + cbt.getHP().getSubdual()
+				+ "s)/" + cbt.getHP().getMax());
 		}
 	}
 
@@ -1014,7 +1052,8 @@ public class Initiative extends javax.swing.JPanel
 	/**  Heals the selected combatants */
 	public void healCombatant()
 	{
-		String inputValue = JOptionPane.showInputDialog(this, "Heal", Integer.toString(1));
+		String inputValue =
+				JOptionPane.showInputDialog(this, "Heal", Integer.toString(1));
 
 		if (inputValue != null)
 		{
@@ -1032,11 +1071,14 @@ public class Initiative extends javax.swing.JPanel
 	/**  Finishes the initialization, by implementing the last portions of the user's preferences */
 	public void initLast()
 	{
-		int iDividerLocation = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", 400);
+		int iDividerLocation =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".DividerLocation", 400);
 		jSplitPane1.setDividerLocation(iDividerLocation);
 
 		//Spell Tracking On
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doSpells", true))
 		{
 			bottomToolbar.add(bCast);
 			bottomToolbar.add(bEvent);
@@ -1044,13 +1086,15 @@ public class Initiative extends javax.swing.JPanel
 		}
 
 		//Combat Tracking On
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doCombat", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doCombat", true))
 		{
 			bottomToolbar.add(bSave);
 		}
 
 		//HP Tracking On
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP",
+			true))
 		{
 			bottomToolbar.add(bDamage);
 			bottomToolbar.add(bHeal);
@@ -1058,17 +1102,22 @@ public class Initiative extends javax.swing.JPanel
 		}
 
 		//Death Tracking On
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doDeath", true))
 		{
 			bottomToolbar.add(bKill);
 			bottomToolbar.add(bRaise);
 			bottomToolbar.add(showDead);
 		}
 
-		boolean bShowDead = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDead", false);
+		boolean bShowDead =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".ShowDead", false);
 		showDead.setSelected(bShowDead);
 
-		boolean bShowEvents = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowEvents", true);
+		boolean bShowEvents =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".ShowEvents", true);
 		showEvents.setSelected(bShowEvents);
 	}
 
@@ -1078,47 +1127,82 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void initPrefs()
 	{
-		boolean prefsSet = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".arePrefsSet", false);
+		boolean prefsSet =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".arePrefsSet", false);
 
 		if (!prefsSet)
 		{
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".arePrefsSet", true);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".arePrefsSet", true);
 		}
 
-		Double version = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Version", 0.0);
+		Double version =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".Version", 0.0);
 
 		if ((version.doubleValue() < 1.0) || !prefsSet)
 		{
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doMaxHP", 100);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doMaxNum", 20);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doNum", 20);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.0", "#");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.0", 25);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.1", "Name");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.1", 100);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.2", "Player");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.2", 100);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.3", "Status");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.3", 75);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.4", "+");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.4", 25);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.5", "Init");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.5", 25);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.6", "Dur");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.6", 25);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.7", "HP");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.7", 25);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.8", "HP Max");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.8", 50);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.9", "Type");
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.9", 50);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".NumberOfColumns", 10);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", 450);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".SubVersion", 1.0);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Version", 1.0);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doSpells", true);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doDeath", true);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP",
+				true);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doMaxHP", 100);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doMaxNum", 20);
+			SettingsHandler.setGMGenOption(
+				InitiativePlugin.LOG_NAME + ".doNum", 20);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.0", "#");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.0", 25);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.1", "Name");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.1", 100);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.2", "Player");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.2", 100);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.3", "Status");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.3", 75);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.4", "+");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.4", 25);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.5", "Init");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.5", 25);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.6", "Dur");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.6", 25);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.7", "HP");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.7", 25);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.8", "HP Max");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.8", 50);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName.9", "Type");
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth.9", 50);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".NumberOfColumns", 10);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".DividerLocation", 450);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".SubVersion", 1.0);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".Version", 1.0);
 		}
 	}
 
@@ -1157,7 +1241,7 @@ public class Initiative extends javax.swing.JPanel
 			Element party = character.getRootElement();
 			List xmlList = party.getChildren("Character");
 
-			for(int i = 0; i < xmlList.size(); i++)
+			for (int i = 0; i < xmlList.size(); i++)
 			{
 				Element eCharacter = (Element) xmlList.get(i);
 				XMLCombatant combatant = new XMLCombatant(eCharacter);
@@ -1166,17 +1250,18 @@ public class Initiative extends javax.swing.JPanel
 
 			List pcgList = party.getChildren("PcgCombatant");
 
-			for(int i = 0; i < pcgList.size(); i++)
+			for (int i = 0; i < pcgList.size(); i++)
 			{
 				Element eCharacter = (Element) pcgList.get(i);
-				final PcgCombatant combatant = new PcgCombatant(eCharacter, comp);
+				final PcgCombatant combatant =
+						new PcgCombatant(eCharacter, comp);
 				initList.add(combatant);
 				addTab(combatant);
 			}
 
 			List eventList = party.getChildren("Event");
 
-			for(int i = 0; i < eventList.size(); i++)
+			for (int i = 0; i < eventList.size(); i++)
 			{
 				Element eCharacter = (Element) eventList.get(i);
 				Event combatant = new Event(eCharacter);
@@ -1185,7 +1270,7 @@ public class Initiative extends javax.swing.JPanel
 
 			List spellList = party.getChildren("Spell");
 
-			for(int i = 0; i < spellList.size(); i++)
+			for (int i = 0; i < spellList.size(); i++)
 			{
 				Element eCharacter = (Element) spellList.get(i);
 				Spell combatant = new Spell(eCharacter);
@@ -1218,8 +1303,8 @@ public class Initiative extends javax.swing.JPanel
 		catch (Exception e)
 		{
 			JOptionPane.showMessageDialog(JOptionPane
-					.getFrameForComponent(this), "File load error: "
-					+ initFile.getName());
+				.getFrameForComponent(this), "File load error: "
+				+ initFile.getName());
 			Logging.errorPrint("File Load Error" + initFile.getName());
 			Logging.errorPrint(e.getMessage(), e);
 		}
@@ -1231,8 +1316,9 @@ public class Initiative extends javax.swing.JPanel
 		int oldInit = currentInit;
 		setCurrentInit(currentInit - 1);
 
-		int bleedingTime = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Dying",
-			    PreferencesDamagePanel.DAMAGE_DYING_END);
+		int bleedingTime =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".Damage.Dying", PreferencesDamagePanel.DAMAGE_DYING_END);
 
 		for (int i = 0; i < initList.size(); i++)
 		{
@@ -1249,7 +1335,8 @@ public class Initiative extends javax.swing.JPanel
 
 					if (duration < 0)
 					{
-						writeToCombatTabWithRound(e.getPlayer() + "'s " + e.getName() + " ended");
+						writeToCombatTabWithRound(e.getPlayer() + "'s "
+							+ e.getName() + " ended");
 
 						if (e.isAlert())
 						{
@@ -1322,27 +1409,31 @@ public class Initiative extends javax.swing.JPanel
 			SystemInitiative init = cb.getInitiative();
 			SystemHP hitPoints = cb.getHP();
 			String name = initList.getUniqueName(cb.getName());
-			newCbt = new XMLCombatant(name, toPaste.getPlayer(), init.getAttribute().getValue(),
-				    hitPoints.getAttribute().getValue(), hitPoints.getMax(), hitPoints.getCurrent(),
-				    hitPoints.getSubdual(), init.getBonus(), cb.getCombatantType(), cb.getCR());
+			newCbt =
+					new XMLCombatant(name, toPaste.getPlayer(), init
+						.getAttribute().getValue(), hitPoints.getAttribute()
+						.getValue(), hitPoints.getMax(),
+						hitPoints.getCurrent(), hitPoints.getSubdual(), init
+							.getBonus(), cb.getCombatantType(), cb.getCR());
 			initList.add(newCbt);
 		}
 
 		if (toPaste instanceof PcgCombatant)
 		{
 			PcgCombatant cb = (PcgCombatant) toPaste;
-			if (PCGen_Frame1.getInst().loadPCFromFile(new File(cb.getPC().getFileName())) != null)
+			if (PCGen_Frame1.getInst().loadPCFromFile(
+				new File(cb.getPC().getFileName())) != null)
 			{
 				//
 			}
 			/*PcgCombatant newCbt;
 
-			PcgCombatant cb = (PcgCombatant) toPaste;
-			SystemInitiative init = cb.getInitiative();
-			SystemHP hitPoints = cb.getHP();
-			String name = initList.getUniqueName(cb.getName());
-			newCbt = new PcgCombatant(cb.getPC());
-			initList.add(newCbt);*/
+			 PcgCombatant cb = (PcgCombatant) toPaste;
+			 SystemInitiative init = cb.getInitiative();
+			 SystemHP hitPoints = cb.getHP();
+			 String name = initList.getUniqueName(cb.getName());
+			 newCbt = new PcgCombatant(cb.getPC());
+			 initList.add(newCbt);*/
 		}
 
 		refreshTable();
@@ -1397,8 +1488,10 @@ public class Initiative extends javax.swing.JPanel
 
 		for (int i = 0; i < initList.size(); i++)
 		{
-			if (initList.get(i) instanceof PcgCombatant && (initList.get(i) != combatant)
-			    && (!(initList.get(i)).getStatus().equals("Dead") || showDead.isSelected()))
+			if (initList.get(i) instanceof PcgCombatant
+				&& (initList.get(i) != combatant)
+				&& (!(initList.get(i)).getStatus().equals("Dead") || showDead
+					.isSelected()))
 			{
 				combatants.add(initList.get(i));
 			}
@@ -1411,29 +1504,36 @@ public class Initiative extends javax.swing.JPanel
 		final ArrayList dmgList = dlg.getDamageList();
 		final ArrayList targetList = dlg.getDamagedCombatants();
 
-		if ((dmgList != null) && (targetList != null) && (dmgList.size() > 0) && (targetList.size() > 0))
+		if ((dmgList != null) && (targetList != null) && (dmgList.size() > 0)
+			&& (targetList.size() > 0))
 		{
-			writeToCombatTabWithRound(combatant.getName() + " successfully attacks using " + attack);
+			writeToCombatTabWithRound(combatant.getName()
+				+ " successfully attacks using " + attack);
 
 			for (int i = 0; (i < dmgList.size()) && (i < targetList.size()); i++)
 			{
 				if (dlg.isSubdual())
 				{
-					int subdualType = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Subdual",
-						    PreferencesDamagePanel.DAMAGE_SUBDUAL);
+					int subdualType =
+							SettingsHandler.getGMGenOption(
+								InitiativePlugin.LOG_NAME + ".Damage.Subdual",
+								PreferencesDamagePanel.DAMAGE_SUBDUAL);
 
 					if (subdualType == PreferencesDamagePanel.DAMAGE_SUBDUAL)
 					{
-						doSubdual(((Integer) dmgList.get(i)).intValue(), (PcgCombatant) targetList.get(i));
+						doSubdual(((Integer) dmgList.get(i)).intValue(),
+							(PcgCombatant) targetList.get(i));
 					}
 					else if (subdualType == PreferencesDamagePanel.DAMAGE_NON_LETHAL)
 					{
-						doNonLethal(((Integer) dmgList.get(i)).intValue(), (PcgCombatant) targetList.get(i));
+						doNonLethal(((Integer) dmgList.get(i)).intValue(),
+							(PcgCombatant) targetList.get(i));
 					}
 				}
 				else
 				{
-					doDamage(((Integer) dmgList.get(i)).intValue(), (PcgCombatant) targetList.get(i));
+					doDamage(((Integer) dmgList.get(i)).intValue(),
+						(PcgCombatant) targetList.get(i));
 				}
 			}
 
@@ -1442,11 +1542,13 @@ public class Initiative extends javax.swing.JPanel
 		}
 		else if ((dmgList != null) && (dmgList.size() > 0))
 		{
-			writeToCombatTabWithRound(combatant.getName() + " successfully attacks using " + attack);
+			writeToCombatTabWithRound(combatant.getName()
+				+ " successfully attacks using " + attack);
 		}
 		else
 		{
-			writeToCombatTabWithRound(combatant.getName() + " fails with attack using " + attack);
+			writeToCombatTabWithRound(combatant.getName()
+				+ " fails with attack using " + attack);
 		}
 
 		dlg.dispose();
@@ -1464,7 +1566,8 @@ public class Initiative extends javax.swing.JPanel
 			if (iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
-				writeToCombatTabWithRound(iH.getName() + " (" + cbt.getPlayer() + ") Raised");
+				writeToCombatTabWithRound(iH.getName() + " (" + cbt.getPlayer()
+					+ ") Raised");
 				cbt.raise();
 				combatantUpdated(cbt);
 			}
@@ -1488,7 +1591,8 @@ public class Initiative extends javax.swing.JPanel
 				Combatant cbt = (Combatant) iH;
 				cbt.init.refocus();
 				combatantUpdated(cbt);
-				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Refocused");
+				writeToCombatTabWithRound(cbt.getName() + " ("
+					+ cbt.getPlayer() + ") Refocused");
 			}
 		}
 
@@ -1514,7 +1618,7 @@ public class Initiative extends javax.swing.JPanel
 			InitHolder c = initList.get(i);
 
 			if ((!c.getStatus().equals("Dead") || showDead.isSelected())
-			    && (!(c instanceof Event) || showEvents.isSelected()))
+				&& (!(c instanceof Event) || showEvents.isSelected()))
 			{
 				Vector rowVector = initList.getRowVector(i, columnList);
 				model.addRow(rowVector);
@@ -1549,13 +1653,14 @@ public class Initiative extends javax.swing.JPanel
 		{
 			InitHolder iH = initList.get(i);
 
-			if ((!iH.getStatus().equals("Dead") || showDead.isSelected()) && iH instanceof Combatant)
+			if ((!iH.getStatus().equals("Dead") || showDead.isSelected())
+				&& iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
 
 				//if (pcgcbt.getPC().isDisplayUpdate())
 				//{
-					//pcgcbt.getPC().setDisplayUpdate(false);
+				//pcgcbt.getPC().setDisplayUpdate(false);
 				removeTab(cbt);
 				addTab(cbt);
 				//}
@@ -1598,7 +1703,7 @@ public class Initiative extends javax.swing.JPanel
 		}
 		catch (Exception e)
 		{
-		    // TODO:  Exception Needs to be handled
+			// TODO:  Exception Needs to be handled
 		}
 	}
 
@@ -1615,7 +1720,8 @@ public class Initiative extends javax.swing.JPanel
 			{
 				Combatant cbt = (Combatant) iH;
 				cbt.init.check();
-				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Rerolled");
+				writeToCombatTabWithRound(cbt.getName() + " ("
+					+ cbt.getPlayer() + ") Rerolled");
 				combatantUpdated(cbt);
 			}
 		}
@@ -1672,7 +1778,8 @@ public class Initiative extends javax.swing.JPanel
 	{
 		Combatant cbt = (Combatant) iH;
 
-		SavingThrowDialog dialog = new SavingThrowDialog(GMGenSystem.inst, true, cbt, model);
+		SavingThrowDialog dialog =
+				new SavingThrowDialog(GMGenSystem.inst, true, cbt, model);
 		dialog.setVisible(true);
 		dialog.dispose();
 
@@ -1693,11 +1800,13 @@ public class Initiative extends javax.swing.JPanel
 
 		if (returnVal == SavingThrowDialog.PASS_OPTION)
 		{
-			writeToCombatTabWithRound(iH.getName() + " (" + iH.getPlayer() + ") Passed a " + sb);
+			writeToCombatTabWithRound(iH.getName() + " (" + iH.getPlayer()
+				+ ") Passed a " + sb);
 		}
 		else if (returnVal == SavingThrowDialog.FAIL_OPTION)
 		{
-			writeToCombatTabWithRound(iH.getName() + " (" + iH.getPlayer() + ") Failed a " + sb);
+			writeToCombatTabWithRound(iH.getName() + " (" + iH.getPlayer()
+				+ ") Failed a " + sb);
 		}
 		return model;
 	}
@@ -1715,8 +1824,8 @@ public class Initiative extends javax.swing.JPanel
 		party.setAttribute("filetype", "initsave");
 
 		/*if(currentInit > -1) {
-		   party.setAttribute("current_init", Integer.toString(currentInit));
-		   }*/
+		 party.setAttribute("current_init", Integer.toString(currentInit));
+		 }*/
 		for (int i = 0; i < initList.size(); i++)
 		{
 			InitHolder iH = initList.get(i);
@@ -1747,8 +1856,10 @@ public class Initiative extends javax.swing.JPanel
 			fLoad.setCurrentDirectory(defaultFile);
 		}
 
-		String[] fileExt = new String[]{ "gmi", "init" };
-		SimpleFileFilter ff = new SimpleFileFilter(fileExt, "GMGen Initiative/Encounter Export");
+		String[] fileExt = new String[]{"gmi", "init"};
+		SimpleFileFilter ff =
+				new SimpleFileFilter(fileExt,
+					"GMGen Initiative/Encounter Export");
 		fLoad.addChoosableFileFilter(ff);
 		fLoad.setFileFilter(ff);
 
@@ -1766,12 +1877,17 @@ public class Initiative extends javax.swing.JPanel
 					ext = ".gmi";
 				}
 
-				File xml = new File(fLoad.getSelectedFile().getParent() + File.separator + fileName + ext);
+				File xml =
+						new File(fLoad.getSelectedFile().getParent()
+							+ File.separator + fileName + ext);
 
 				if (xml.exists())
 				{
-					int choice = JOptionPane.showConfirmDialog(this, "File Exists, Overwrite?", "File Exists",
-							JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					int choice =
+							JOptionPane.showConfirmDialog(this,
+								"File Exists, Overwrite?", "File Exists",
+								JOptionPane.YES_NO_OPTION,
+								JOptionPane.QUESTION_MESSAGE);
 
 					if (choice == JOptionPane.YES_OPTION)
 					{
@@ -1812,7 +1928,8 @@ public class Initiative extends javax.swing.JPanel
 			if (iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
-				writeToCombatTabWithRound(iH.getName() + " (" + cbt.getPlayer() + ") Stabilized");
+				writeToCombatTabWithRound(iH.getName() + " (" + cbt.getPlayer()
+					+ ") Stabilized");
 				cbt.stabilize();
 				combatantUpdated(cbt);
 			}
@@ -1830,9 +1947,10 @@ public class Initiative extends javax.swing.JPanel
 		while (!selectedList.isEmpty())
 		{
 			InitHolder iH = selectedList.remove(0);
-			StartEvent dialog = new StartEvent(JOptionPane
-					.getFrameForComponent(this), true, this, iH.getPlayer(), iH
-					.getInitiative().getCurrentInitiative());
+			StartEvent dialog =
+					new StartEvent(JOptionPane.getFrameForComponent(this),
+						true, this, iH.getPlayer(), iH.getInitiative()
+							.getCurrentInitiative());
 			dialog.setVisible(true);
 			refreshTable();
 
@@ -1842,8 +1960,9 @@ public class Initiative extends javax.swing.JPanel
 		initList.sort();
 		refreshTable();
 
-		StartEvent dialog = new StartEvent(JOptionPane
-				.getFrameForComponent(this), true, this);
+		StartEvent dialog =
+				new StartEvent(JOptionPane.getFrameForComponent(this), true,
+					this);
 		dialog.setVisible(true);
 		refreshTable();
 	}
@@ -1868,7 +1987,8 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void writeToCombatTabWithRound(String message)
 	{
-		writeToCombatTab(" (Round: " + round + ", Init: " + currentInit + "): " + message);
+		writeToCombatTab(" (Round: " + round + ", Init: " + currentInit + "): "
+			+ message);
 	}
 
 	/**
@@ -1903,7 +2023,8 @@ public class Initiative extends javax.swing.JPanel
 				{
 					performSave((SaveModel) model, cbt);
 				}
-				else if (model instanceof DiceRollModel && cbt instanceof PcgCombatant)
+				else if (model instanceof DiceRollModel
+					&& cbt instanceof PcgCombatant)
 				{
 					performDiceRoll((DiceRollModel) model);
 				}
@@ -1942,11 +2063,12 @@ public class Initiative extends javax.swing.JPanel
 
 		if (row >= 0)
 		{
-			final String name = (String) combatantTable.getValueAt(row,
-				    combatantTable.getColumnModel().getColumnIndex("Name"));
+			final String name =
+					(String) combatantTable.getValueAt(row, combatantTable
+						.getColumnModel().getColumnIndex("Name"));
 
 			if ((name != null) && (name.length() > 0)
-			    && (tpaneInfo.indexOfTab(name) >= 0))
+				&& (tpaneInfo.indexOfTab(name) >= 0))
 			{
 				tpaneInfo.setSelectedIndex(tpaneInfo.indexOfTab(name));
 			}
@@ -1996,7 +2118,8 @@ public class Initiative extends javax.swing.JPanel
 
 	private void addColumn(String name, int width)
 	{
-		DefaultTableModel tabModel = (DefaultTableModel) combatantTable.getModel();
+		DefaultTableModel tabModel =
+				(DefaultTableModel) combatantTable.getModel();
 		TableColumnModel colModel = combatantTable.getColumnModel();
 		tabModel.addColumn(name);
 
@@ -2010,29 +2133,35 @@ public class Initiative extends javax.swing.JPanel
 	private void addTableListener()
 	{
 		TableColumnModel colModel = combatantTable.getColumnModel();
-		colModel.addColumnModelListener(new javax.swing.event.TableColumnModelListener()
+		colModel
+			.addColumnModelListener(new javax.swing.event.TableColumnModelListener()
 			{
-				public void columnAdded(javax.swing.event.TableColumnModelEvent evt)
+				public void columnAdded(
+					javax.swing.event.TableColumnModelEvent evt)
 				{
 					colModAdded(evt);
 				}
 
-				public void columnMarginChanged(javax.swing.event.ChangeEvent evt)
+				public void columnMarginChanged(
+					javax.swing.event.ChangeEvent evt)
 				{
 					colModMarginChanged(evt);
 				}
 
-				public void columnMoved(javax.swing.event.TableColumnModelEvent evt)
+				public void columnMoved(
+					javax.swing.event.TableColumnModelEvent evt)
 				{
 					colModMoved(evt);
 				}
 
-				public void columnRemoved(javax.swing.event.TableColumnModelEvent evt)
+				public void columnRemoved(
+					javax.swing.event.TableColumnModelEvent evt)
 				{
 					colModRemoved(evt);
 				}
 
-				public void columnSelectionChanged(javax.swing.event.ListSelectionEvent evt)
+				public void columnSelectionChanged(
+					javax.swing.event.ListSelectionEvent evt)
 				{
 					colModSelectionChanged(evt);
 				}
@@ -2139,8 +2268,10 @@ public class Initiative extends javax.swing.JPanel
 	{
 		if (cbt.getStatus().equals("Bleeding"))
 		{
-			int stableType = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Stable",
-				    PreferencesDamagePanel.DAMAGE_STABLE_PERCENT);
+			int stableType =
+					SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+						+ ".Damage.Stable",
+						PreferencesDamagePanel.DAMAGE_STABLE_PERCENT);
 
 			if (stableType == PreferencesDamagePanel.DAMAGE_STABLE_PERCENT)
 			{
@@ -2149,19 +2280,22 @@ public class Initiative extends javax.swing.JPanel
 				if (roll <= 10)
 				{
 					cbt.stabilize();
-					writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") auto-stabilized  (" + roll
-					    + "%)");
+					writeToCombatTabWithRound(cbt.getName() + " ("
+						+ cbt.getPlayer() + ") auto-stabilized  (" + roll
+						+ "%)");
 				}
 				else
 				{
-					writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") failed to auto-stabilize ("
-					    + roll + "%)");
+					writeToCombatTabWithRound(cbt.getName() + " ("
+						+ cbt.getPlayer() + ") failed to auto-stabilize ("
+						+ roll + "%)");
 				}
 			}
 			else if (stableType == PreferencesDamagePanel.DAMAGE_STABLE_SAVE)
 			{
-				SavingThrowDialog dialog = new SavingThrowDialog(GMGenSystem.inst, true, cbt, 20,
-					    SavingThrowDialog.FORT_SAVE);
+				SavingThrowDialog dialog =
+						new SavingThrowDialog(GMGenSystem.inst, true, cbt, 20,
+							SavingThrowDialog.FORT_SAVE);
 				dialog.setVisible(true);
 				dialog.dispose();
 
@@ -2191,13 +2325,15 @@ public class Initiative extends javax.swing.JPanel
 				//write out the results to the combat tab
 				if (returnVal == SavingThrowDialog.PASS_OPTION)
 				{
-					writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Passed a " + sb
-					    + " to auto-stabilize");
+					writeToCombatTabWithRound(cbt.getName() + " ("
+						+ cbt.getPlayer() + ") Passed a " + sb
+						+ " to auto-stabilize");
 				}
 				else if (returnVal == SavingThrowDialog.FAIL_OPTION)
 				{
-					writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Failed a " + sb
-					    + " to auto-stabilize");
+					writeToCombatTabWithRound(cbt.getName() + " ("
+						+ cbt.getPlayer() + ") Failed a " + sb
+						+ " to auto-stabilize");
 				}
 			}
 
@@ -2255,7 +2391,7 @@ public class Initiative extends javax.swing.JPanel
 
 	private void colModAdded(javax.swing.event.TableColumnModelEvent evt)
 	{
-	    // TODO:  Method does nothing?
+		// TODO:  Method does nothing?
 	}
 
 	private void colModMarginChanged(javax.swing.event.ChangeEvent evt)
@@ -2270,12 +2406,12 @@ public class Initiative extends javax.swing.JPanel
 
 	private void colModRemoved(javax.swing.event.TableColumnModelEvent evt)
 	{
-	    // TODO:  Method does nothing?
+		// TODO:  Method does nothing?
 	}
 
 	private void colModSelectionChanged(javax.swing.event.ListSelectionEvent evt)
 	{
-	    // TODO:  Method does nothing?
+		// TODO:  Method does nothing?
 	}
 
 	//GEN-LAST:event_bRollActionPerformed
@@ -2370,7 +2506,8 @@ public class Initiative extends javax.swing.JPanel
 		bottomToolbar = new javax.swing.JToolBar();
 
 		tablePopupCBNumber.setText("#");
-		tablePopupCBNumber.addActionListener(new java.awt.event.ActionListener()
+		tablePopupCBNumber
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -2381,16 +2518,17 @@ public class Initiative extends javax.swing.JPanel
 		tablePopup.add(tablePopupCBNumber);
 		tablePopupCBName.setText("Name");
 		tablePopupCBName.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					TablePopupActionPerformed(evt);
-				}
-			});
+				TablePopupActionPerformed(evt);
+			}
+		});
 
 		tablePopup.add(tablePopupCBName);
 		tablePopupCBPlayer.setText("Player");
-		tablePopupCBPlayer.addActionListener(new java.awt.event.ActionListener()
+		tablePopupCBPlayer
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -2400,7 +2538,8 @@ public class Initiative extends javax.swing.JPanel
 
 		tablePopup.add(tablePopupCBPlayer);
 		tablePopupCBStatus.setText("Status");
-		tablePopupCBStatus.addActionListener(new java.awt.event.ActionListener()
+		tablePopupCBStatus
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -2411,16 +2550,17 @@ public class Initiative extends javax.swing.JPanel
 		tablePopup.add(tablePopupCBStatus);
 		tablePopupCBPlus.setText("Plus");
 		tablePopupCBPlus.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					TablePopupActionPerformed(evt);
-				}
-			});
+				TablePopupActionPerformed(evt);
+			}
+		});
 
 		tablePopup.add(tablePopupCBPlus);
 		tablePopupCBInitiative.setText("Initiative");
-		tablePopupCBInitiative.addActionListener(new java.awt.event.ActionListener()
+		tablePopupCBInitiative
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -2430,7 +2570,8 @@ public class Initiative extends javax.swing.JPanel
 
 		tablePopup.add(tablePopupCBInitiative);
 		tablePopupCBDuration.setText("Duration");
-		tablePopupCBDuration.addActionListener(new java.awt.event.ActionListener()
+		tablePopupCBDuration
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -2442,130 +2583,132 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBHP.setText("HP");
 		tablePopupCBHP.setEnabled(false);
 		tablePopupCBHP.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					TablePopupActionPerformed(evt);
-				}
-			});
+				TablePopupActionPerformed(evt);
+			}
+		});
 
 		tablePopup.add(tablePopupCBHP);
 		tablePopupCBHPMax.setText("HP Max");
 		tablePopupCBHPMax.setEnabled(false);
 		tablePopupCBHPMax.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					TablePopupActionPerformed(evt);
-				}
-			});
+				TablePopupActionPerformed(evt);
+			}
+		});
 
 		tablePopup.add(tablePopupCBHPMax);
 		tablePopupCBType.setText("Type");
 		tablePopupCBType.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					TablePopupActionPerformed(evt);
-				}
-			});
+				TablePopupActionPerformed(evt);
+			}
+		});
 
 		tablePopup.add(tablePopupCBType);
 
 		setLayout(new java.awt.BorderLayout());
 
 		setPreferredSize(new java.awt.Dimension(700, 600));
-		buttonPanelTop.setLayout(new javax.swing.BoxLayout(buttonPanelTop, javax.swing.BoxLayout.X_AXIS));
+		buttonPanelTop.setLayout(new javax.swing.BoxLayout(buttonPanelTop,
+			javax.swing.BoxLayout.X_AXIS));
 
 		bRoll.setText("Start Combat");
 		bRoll.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bRollActionPerformed(evt);
-				}
-			});
+				bRollActionPerformed(evt);
+			}
+		});
 
 		buttonPanelTop.add(bRoll);
 
 		bAddCombatant.setText("Add Combatant");
 		bAddCombatant.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bAddCombatantActionPerformed(evt);
-				}
-			});
+				bAddCombatantActionPerformed(evt);
+			}
+		});
 
 		buttonPanelTop.add(bAddCombatant);
 
-//		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDuplicateButton", false))
-//		{
-			bDuplicateCombatant.setText("Duplicate");
-			bDuplicateCombatant.addActionListener(new java.awt.event.ActionListener()
-				{
-					public void actionPerformed(java.awt.event.ActionEvent evt)
-					{
-						bDuplicateCombatantActionPerformed(evt);
-					}
-				});
-
-			buttonPanelTop.add(bDuplicateCombatant);
-//		}
-
-		bNextInit.setText("Next Initiative");
-		bNextInit.addActionListener(new java.awt.event.ActionListener()
+		//		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDuplicateButton", false))
+		//		{
+		bDuplicateCombatant.setText("Duplicate");
+		bDuplicateCombatant
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
-					bNextInitActionPerformed(evt);
+					bDuplicateCombatantActionPerformed(evt);
 				}
 			});
+
+		buttonPanelTop.add(bDuplicateCombatant);
+		//		}
+
+		bNextInit.setText("Next Initiative");
+		bNextInit.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				bNextInitActionPerformed(evt);
+			}
+		});
 
 		buttonPanelTop.add(bNextInit);
 
 		bRefocus.setText("Refocus");
 		bRefocus.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bRefocusActionPerformed(evt);
-				}
-			});
+				bRefocusActionPerformed(evt);
+			}
+		});
 
 		buttonPanelTop.add(bRefocus);
 
 		bCombatantReRoll.setText("Roll");
 		bCombatantReRoll.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCombatantReRollActionPerformed(evt);
-				}
-			});
+				bCombatantReRollActionPerformed(evt);
+			}
+		});
 
 		buttonPanelTop.add(bCombatantReRoll);
 
 		bDelete.setText("Delete");
 		bDelete.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bDeleteActionPerformed(evt);
-				}
-			});
+				bDeleteActionPerformed(evt);
+			}
+		});
 
 		buttonPanelTop.add(bDelete);
 
 		bRefresh.setText("Refresh Tabs");
 		bRefresh.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					refreshTable();
-					refreshTabs();
-				}
-			});
+				refreshTable();
+				refreshTabs();
+			}
+		});
 		buttonPanelTop.add(bRefresh);
 
 		topToolbar.add(buttonPanelTop);
@@ -2581,19 +2724,20 @@ public class Initiative extends javax.swing.JPanel
 		jSplitPane1.setOneTouchExpandable(true);
 		jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 405));
 		combatantTable.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mousePressed(java.awt.event.MouseEvent evt)
 			{
-				public void mousePressed(java.awt.event.MouseEvent evt)
-				{
-					combatantTableMousePressed(evt);
-				}
+				combatantTableMousePressed(evt);
+			}
 
-				public void mouseReleased(java.awt.event.MouseEvent evt)
-				{
-					combatantTableMouseReleased(evt);
-				}
-			});
+			public void mouseReleased(java.awt.event.MouseEvent evt)
+			{
+				combatantTableMouseReleased(evt);
+			}
+		});
 
-		combatantTable.addPropertyChangeListener(new java.beans.PropertyChangeListener()
+		combatantTable
+			.addPropertyChangeListener(new java.beans.PropertyChangeListener()
 			{
 				public void propertyChange(java.beans.PropertyChangeEvent evt)
 				{
@@ -2614,11 +2758,13 @@ public class Initiative extends javax.swing.JPanel
 		add(bottomToolbar, java.awt.BorderLayout.SOUTH);
 		bottomToolbar.add(bOpposedSkill);
 	}
-	 /**
+
+	/**
 	 * <p></p>
 	 * @param evt
 	 */
-	protected void bDuplicateCombatantActionPerformed(ActionEvent evt) {
+	protected void bDuplicateCombatantActionPerformed(ActionEvent evt)
+	{
 		//TODO: This only works for saved pcgen files and xml combatants.
 		//For pcgen files, it reloads the file, since there's no good way
 		//curently to clone a PlayerCharacter.
@@ -2628,48 +2774,52 @@ public class Initiative extends javax.swing.JPanel
 		formatter.setValueClass(Integer.class);
 		JFormattedTextField field = new JFormattedTextField(formatter);
 		field.setValue(Integer.valueOf(1));
-		int choice = JOptionPane.showConfirmDialog(
-				GMGenSystem.inst,field,"How many copies?",
-				JOptionPane.OK_CANCEL_OPTION);
+		int choice =
+				JOptionPane.showConfirmDialog(GMGenSystem.inst, field,
+					"How many copies?", JOptionPane.OK_CANCEL_OPTION);
 		if (choice == JOptionPane.CANCEL_OPTION)
 		{
 			return;
 		}
-		int count = ((Number)field.getValue()).intValue();
+		int count = ((Number) field.getValue()).intValue();
 		for (InitHolder holderToCopy : getSelected())
 		{
-			if (holderToCopy instanceof XMLCombatant || holderToCopy instanceof PcgCombatant)
+			if (holderToCopy instanceof XMLCombatant
+				|| holderToCopy instanceof PcgCombatant)
 			{
 				if (holderToCopy instanceof PcgCombatant)
 				{
-					if (((PcgCombatant)holderToCopy).getPC().getFileName() != null
-							&& ((PcgCombatant)holderToCopy).getPC().getFileName().length() > 0)
+					if (((PcgCombatant) holderToCopy).getPC().getFileName() != null
+						&& ((PcgCombatant) holderToCopy).getPC().getFileName()
+							.length() > 0)
 					{
-						pasteNew((Combatant)holderToCopy,count);
+						pasteNew((Combatant) holderToCopy, count);
 					}
 					else
 					{
 						JOptionPane
-								.showMessageDialog(
-										GMGenSystem.inst,
-										"Combatant "
-												+ holderToCopy.getName()
-												+ " cannot be duplicated because it has not been saved to a valid .pcg file.",
-										"Cannot Duplicate",
-										JOptionPane.WARNING_MESSAGE);
+							.showMessageDialog(
+								GMGenSystem.inst,
+								"Combatant "
+									+ holderToCopy.getName()
+									+ " cannot be duplicated because it has not been saved to a valid .pcg file.",
+								"Cannot Duplicate", JOptionPane.WARNING_MESSAGE);
 					}
 				}
 				else
 				{
-					pasteNew((Combatant)holderToCopy,count);
+					pasteNew((Combatant) holderToCopy, count);
 				}
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(GMGenSystem.inst,"Combatant " +
-						holderToCopy.getName() +
-						" cannot be duplicated because it is not a PCGen or XML combatant.",
-						"Cannot Duplicate",JOptionPane.WARNING_MESSAGE);
+				JOptionPane
+					.showMessageDialog(
+						GMGenSystem.inst,
+						"Combatant "
+							+ holderToCopy.getName()
+							+ " cannot be duplicated because it is not a PCGen or XML combatant.",
+						"Cannot Duplicate", JOptionPane.WARNING_MESSAGE);
 			}
 
 		}
@@ -2682,95 +2832,95 @@ public class Initiative extends javax.swing.JPanel
 	{
 		bSave.setText("Roll Save");
 		bSave.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bSaveActionPerformed(evt);
-				}
-			});
+				bSaveActionPerformed(evt);
+			}
+		});
 
 		bCast.setText("Cast Spell");
 		bCast.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCastActionPerformed(evt);
-				}
-			});
+				bCastActionPerformed(evt);
+			}
+		});
 
 		bEvent.setText("Start Event");
 		bEvent.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bEventActionPerformed(evt);
-				}
-			});
+				bEventActionPerformed(evt);
+			}
+		});
 
 		bKill.setText("Kill");
 		bKill.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bKillActionPerformed(evt);
-				}
-			});
+				bKillActionPerformed(evt);
+			}
+		});
 
 		bDamage.setText("Damage");
 		bDamage.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bDamageActionPerformed(evt);
-				}
-			});
+				bDamageActionPerformed(evt);
+			}
+		});
 
 		bHeal.setText("Heal");
 		bHeal.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bHealActionPerformed(evt);
-				}
-			});
+				bHealActionPerformed(evt);
+			}
+		});
 
 		bStabilize.setText("Stabilize");
 		bStabilize.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bStabilizeActionPerformed(evt);
-				}
-			});
+				bStabilizeActionPerformed(evt);
+			}
+		});
 
 		bRaise.setText("Raise");
 		bRaise.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bRaiseActionPerformed(evt);
-				}
-			});
+				bRaiseActionPerformed(evt);
+			}
+		});
 
 		showDead.setSelected(true);
 		showDead.setText("Show Dead");
 		showDead.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					showDeadActionPerformed(evt);
-				}
-			});
+				showDeadActionPerformed(evt);
+			}
+		});
 
 		showEvents.setSelected(true);
 		showEvents.setText("Show Events");
 		showEvents.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					showEventsActionPerformed(evt);
-				}
-			});
+				showEventsActionPerformed(evt);
+			}
+		});
 		bOpposedSkill.setText("Mass Skill Check");
 		bOpposedSkill.addActionListener(new ActionListener()
 		{
@@ -2792,7 +2942,8 @@ public class Initiative extends javax.swing.JPanel
 	{
 		List<InitHolder> selected = getSelected();
 		List notSelected = getUnSelected();
-		OpposedCheckDialog dlg = new OpposedCheckDialog(GMGenSystem.inst, selected, notSelected);
+		OpposedCheckDialog dlg =
+				new OpposedCheckDialog(GMGenSystem.inst, selected, notSelected);
 		dlg.setModal(true);
 		dlg.setVisible(true);
 		dlg.dispose();
@@ -2804,19 +2955,20 @@ public class Initiative extends javax.swing.JPanel
 
 		JTableHeader header = combatantTable.getTableHeader();
 		header.addMouseListener(new java.awt.event.MouseAdapter()
+		{
+			public void mousePressed(java.awt.event.MouseEvent evt)
 			{
-				public void mousePressed(java.awt.event.MouseEvent evt)
-				{
-					combatantTableMousePressed(evt);
-				}
+				combatantTableMousePressed(evt);
+			}
 
-				public void mouseReleased(java.awt.event.MouseEvent evt)
-				{
-					combatantTableMouseReleased(evt);
-				}
-			});
+			public void mouseReleased(java.awt.event.MouseEvent evt)
+			{
+				combatantTableMouseReleased(evt);
+			}
+		});
 		columnList = getColumnOrder();
-		combatantTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		combatantTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -2825,28 +2977,35 @@ public class Initiative extends javax.swing.JPanel
 			});
 
 		TableColumn typeColumn = combatantTable.getColumn("Type");
-    // These are the combobox values
+		// These are the combobox values
 		String[] values = new String[]{"PC", "Enemy", "Ally", "Non Combatant"};
 
-    // Set the combobox editor on the 1st visible column
-    //int vColIndex = 0;
-    //TableColumn col = table.getColumnModel().getColumn(vColIndex);
+		// Set the combobox editor on the 1st visible column
+		//int vColIndex = 0;
+		//TableColumn col = table.getColumnModel().getColumn(vColIndex);
 		typeColumn.setCellEditor(new TypeEditor(values));
 		//typeColumn.setCellRenderer(new TypeRenderer(values));
 	}
 
 	private void initTableColumns()
 	{
-		DefaultTableModel tabModel = (DefaultTableModel) combatantTable.getModel();
+		DefaultTableModel tabModel =
+				(DefaultTableModel) combatantTable.getModel();
 		tabModel.setColumnCount(0);
 
-		int colNo = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".NumberOfColumns", 0);
+		int colNo =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".NumberOfColumns", 0);
 		int[] widths = new int[colNo];
 
 		for (int i = 0; i < colNo; i++)
 		{
-			String name = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName." + i, "");
-			int width = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth." + i, 100);
+			String name =
+					SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+						+ ".ColumnName." + i, "");
+			int width =
+					SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+						+ ".ColumnWidth." + i, 100);
 			addColumn(name, width);
 			widths[i] = width;
 		}
@@ -2916,9 +3075,12 @@ public class Initiative extends javax.swing.JPanel
 			}
 		}
 
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true)
-		    || SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true)
-		    || SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doSpells", true)
+			|| SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doDeath", true)
+			|| SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".doHP", true))
 		{
 			tablePopupCBDuration.setEnabled(true);
 		}
@@ -2927,7 +3089,8 @@ public class Initiative extends javax.swing.JPanel
 			tablePopupCBDuration.setEnabled(false);
 		}
 
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP",
+			true))
 		{
 			tablePopupCBHP.setEnabled(true);
 			tablePopupCBHPMax.setEnabled(true);
@@ -2938,7 +3101,8 @@ public class Initiative extends javax.swing.JPanel
 			tablePopupCBHPMax.setEnabled(false);
 		}
 
-		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doNumber", true))
+		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".doNumber", true))
 		{
 			tablePopupCBNumber.setEnabled(true);
 		}
@@ -3003,21 +3167,25 @@ public class Initiative extends javax.swing.JPanel
 	{
 		refreshTable();
 		focusNextInit();
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ShowEvents", showEvents.isSelected());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".ShowEvents", showEvents.isSelected());
 	}
 
 	private void trackTable()
 	{
 		TableColumnModel colModel = combatantTable.getColumnModel();
 		int numCols = colModel.getColumnCount();
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".NumberOfColumns", numCols);
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".NumberOfColumns", numCols);
 
 		for (int i = 0; i < numCols; i++)
 		{
 			TableColumn col = colModel.getColumn(i);
 			String name = col.getIdentifier().toString();
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName." + i, name);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth." + i, col.getWidth());
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnName." + i, name);
+			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".ColumnWidth." + i, col.getWidth());
 		}
 	}
 
@@ -3027,9 +3195,9 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public static void initHolderUpdated(InitHolder iH)
 	{
-		if(iH instanceof Combatant)
+		if (iH instanceof Combatant)
 		{
-			combatantUpdated((Combatant)iH);
+			combatantUpdated((Combatant) iH);
 		}
 	}
 
@@ -3041,18 +3209,21 @@ public class Initiative extends javax.swing.JPanel
 	{
 		GMBus.send(new CombatantUpdatedMessage(GMGenSystem.inst, cbt));
 	}
+
 	//** End Other Variables **
 
 	/**
 	 * A cell editor
 	 */
-	public static class TypeEditor extends DefaultCellEditor {
+	public static class TypeEditor extends DefaultCellEditor
+	{
 
 		/**
 		 * Constructor
 		 * @param items
 		 */
-		public TypeEditor(String[] items) {
+		public TypeEditor(String[] items)
+		{
 			super(new JComboBox(items));
 		}
 	}
@@ -3060,22 +3231,30 @@ public class Initiative extends javax.swing.JPanel
 	/**
 	 * A table cell renderer
 	 */
-	public static class TypeRenderer extends JComboBox implements TableCellRenderer {
+	public static class TypeRenderer extends JComboBox implements
+			TableCellRenderer
+	{
 
 		/**
 		 * Constructor
 		 * @param items
 		 */
-		public TypeRenderer(String[] items) {
+		public TypeRenderer(String[] items)
+		{
 			super(items);
 		}
 
-		public Component getTableCellRendererComponent(JTable table, Object value,
-				boolean isSelected, boolean hasFocus, int row, int column) {
-			if (isSelected) {
+		public Component getTableCellRendererComponent(JTable table,
+			Object value, boolean isSelected, boolean hasFocus, int row,
+			int column)
+		{
+			if (isSelected)
+			{
 				setForeground(table.getSelectionForeground());
 				super.setBackground(table.getSelectionBackground());
-			} else {
+			}
+			else
+			{
 				setForeground(table.getForeground());
 				setBackground(table.getBackground());
 			}
@@ -3086,5 +3265,3 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 }
-
-

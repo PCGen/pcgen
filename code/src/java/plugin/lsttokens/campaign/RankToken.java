@@ -9,18 +9,23 @@ import java.net.URL;
 /**
  * Class deals with RANK Token
  */
-public class RankToken implements CampaignLstToken {
+public class RankToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RANK";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUl) {
-		try {
+	public boolean parse(Campaign campaign, String value, URL sourceUl)
+	{
+		try
+		{
 			campaign.setRank(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			Logging.errorPrint("Bad RANK " + value);
 		}
 		return false;

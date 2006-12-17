@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with EQUIPMOD Token
  */
-public class EquipmodToken implements CampaignLstToken {
+public class EquipmodToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "EQUIPMOD";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("EQUIPMOD:" + value);
-		campaign.addEquipModFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addEquipModFile(new CampaignSourceEntry(campaign,
+			CampaignLoader.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

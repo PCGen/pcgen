@@ -6,13 +6,16 @@ import pcgen.persistence.lst.AbilityLstToken;
 /**
  * Deal with COST Token
  */
-public class CostToken  implements AbilityLstToken{
+public class CostToken implements AbilityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COST";
 	}
 
-	public boolean parse(Ability ability, String value) {
+	public boolean parse(Ability ability, String value)
+	{
 		ability.setCost(value);
 		return true;
 	}

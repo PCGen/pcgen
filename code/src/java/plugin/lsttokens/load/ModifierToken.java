@@ -28,19 +28,21 @@ package plugin.lsttokens.load;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.lst.LoadInfoLstToken;
 
-
 /**
  * <code>ModifierToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class ModifierToken implements LoadInfoLstToken {
+public class ModifierToken implements LoadInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MODIFIER";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value) {
+	public boolean parse(LoadInfo loadInfo, String value)
+	{
 		loadInfo.setLoadModifierFormula(value);
 		return true;
 	}

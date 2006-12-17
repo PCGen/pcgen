@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with ISOGL Token
  */
-public class IsoglToken implements CampaignLstToken {
+public class IsoglToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ISOGL";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setIsOGL(value.startsWith("Y"));
 		return true;
 	}

@@ -5,7 +5,6 @@
  */
 package plugin.initiative.gui;
 
-
 /**
  *
  * @author  soulcatcher
@@ -16,7 +15,7 @@ public class DamageDialog extends javax.swing.JDialog
 	public static final int OK_VALUE = 0;
 	/** CANCEL_VALUE = 1 */
 	public static final int CANCEL_VALUE = 1;
-	
+
 	private javax.swing.JButton bCancel;
 	private javax.swing.JButton bOK;
 	private javax.swing.JCheckBox subdualField;
@@ -76,7 +75,8 @@ public class DamageDialog extends javax.swing.JDialog
 	 * Check damage field
 	 * @throws NumberFormatException
 	 */
-	public void checkDamageField() throws NumberFormatException {
+	public void checkDamageField() throws NumberFormatException
+	{
 		try
 		{
 			damage = Integer.parseInt(damageField.getText());
@@ -92,7 +92,8 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * submit
 	 */
-	public void submit() {
+	public void submit()
+	{
 		try
 		{
 			checkDamageField();
@@ -109,7 +110,8 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * Cancel
 	 */
-	public void cancel() {
+	public void cancel()
+	{
 		retVal = 1;
 		setVisible(false);
 		dispose();
@@ -136,17 +138,20 @@ public class DamageDialog extends javax.swing.JDialog
 
 	private void damageFieldActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		try {
+		try
+		{
 			checkDamageField();
 		}
-		catch(NumberFormatException e) {
+		catch (NumberFormatException e)
+		{
 			// TODO Handle this?
 		}
 	}
 
 	private void damageFieldKeyTyped(java.awt.event.KeyEvent evt)
 	{
-		if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+		if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+		{
 			submit();
 		}
 	}
@@ -169,12 +174,12 @@ public class DamageDialog extends javax.swing.JDialog
 		getContentPane().setLayout(new java.awt.GridBagLayout());
 
 		addWindowListener(new java.awt.event.WindowAdapter()
+		{
+			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					closeDialog(evt);
-				}
-			});
+				closeDialog(evt);
+			}
+		});
 
 		jLabel1.setText("Damage");
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -182,19 +187,19 @@ public class DamageDialog extends javax.swing.JDialog
 		getContentPane().add(jLabel1, gridBagConstraints);
 
 		damageField.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					damageFieldActionPerformed(evt);
-				}
-			});
+				damageFieldActionPerformed(evt);
+			}
+		});
 		damageField.addKeyListener(new java.awt.event.KeyAdapter()
+		{
+			public void keyReleased(java.awt.event.KeyEvent evt)
 			{
-				public void keyReleased(java.awt.event.KeyEvent evt)
-				{
-					damageFieldKeyTyped(evt);
-				}
-			});
+				damageFieldKeyTyped(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -209,12 +214,12 @@ public class DamageDialog extends javax.swing.JDialog
 
 		bOK.setText("Ok");
 		bOK.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bOKActionPerformed(evt);
-				}
-			});
+				bOKActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -224,12 +229,12 @@ public class DamageDialog extends javax.swing.JDialog
 
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCancelActionPerformed(evt);
-				}
-			});
+				bCancelActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

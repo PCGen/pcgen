@@ -28,23 +28,27 @@ package plugin.lsttokens.load;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.lst.LoadInfoLstToken;
 
-
 /**
  * <code>LoadmultToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class LoadmultToken implements LoadInfoLstToken {
+public class LoadmultToken implements LoadInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LOADMULT";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value) {
-		try {
+	public boolean parse(LoadInfo loadInfo, String value)
+	{
+		try
+		{
 			loadInfo.setLoadScoreMultiplier(new Float(value));
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 		return true;

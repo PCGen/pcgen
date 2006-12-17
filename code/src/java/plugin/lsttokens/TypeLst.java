@@ -11,15 +11,17 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class TypeLst implements GlobalLstToken {
+public class TypeLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TYPE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.setTypeInfo(value);
 		return true;
 	}
 }
-

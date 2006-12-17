@@ -61,10 +61,10 @@ public class RaceToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 		KitRace kRace = new KitRace(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -73,14 +73,14 @@ public class RaceToken extends KitLstToken
 			if (colString.startsWith("RACE:"))
 			{
 				Logging.errorPrint("Ignoring second RACE tag \"" + colString
-						+ "\" in RaceToken.parse");
+					+ "\" in RaceToken.parse");
 			}
 			else
 			{
 				if (BaseKitLoader.parseCommonTags(kRace, colString) == false)
 				{
 					throw new PersistenceLayerException("Unknown KitRace info "
-							+ " \"" + colString + "\"");
+						+ " \"" + colString + "\"");
 				}
 			}
 		}

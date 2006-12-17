@@ -38,18 +38,22 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreRegionTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreRegionTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character)  throws PrerequisiteException{
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 
 		final String requiredRegion = prereq.getKey().toUpperCase();
 		final String characterRegion = character.getFullRegion().toUpperCase();
 
-		final boolean sameRegion = characterRegion.startsWith( requiredRegion );
+		final boolean sameRegion = characterRegion.startsWith(requiredRegion);
 
 		int runningTotal;
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
@@ -62,7 +66,8 @@ public class PreRegionTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		else
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreRegion.error.invalid_comparator", prereq.toString() )); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreRegion.error.invalid_comparator", prereq.toString())); //$NON-NLS-1$
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -71,7 +76,8 @@ public class PreRegionTester extends AbstractPrerequisiteTest implements Prerequ
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "REGION"; //$NON-NLS-1$
 	}
 

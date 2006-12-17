@@ -62,7 +62,8 @@ public class PreVariableWriter implements PrerequisiteWriterInterface
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		try
 		{
@@ -72,14 +73,14 @@ public class PreVariableWriter implements PrerequisiteWriterInterface
 			writer.write(prereq.getKey());
 			writer.write(',');
 			writer.write(prereq.getOperand());
-//			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
-//			{
-//				final Prerequisite p = (Prerequisite) iter.next();
-//				writer.write(',');
-//				writer.write(p.getKey());
-//				writer.write(',');
-//				writer.write(p.getOperand());
-//			}
+			//			for (Iterator iter = prereq.getPrerequisites().iterator(); iter.hasNext(); )
+			//			{
+			//				final Prerequisite p = (Prerequisite) iter.next();
+			//				writer.write(',');
+			//				writer.write(p.getKey());
+			//				writer.write(',');
+			//				writer.write(p.getOperand());
+			//			}
 		}
 		catch (IOException e)
 		{

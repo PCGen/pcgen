@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with HASSPELLFORMULA Token
  */
-public class HasspellformulaToken implements PCClassLstToken {
+public class HasspellformulaToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HASSPELLFORMULA";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		pcclass.setHasSpellFormula(true);
 		return true;
 	}

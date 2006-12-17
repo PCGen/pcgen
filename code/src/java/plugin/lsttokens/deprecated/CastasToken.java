@@ -11,13 +11,16 @@ import pcgen.util.PropertyFactory;
  * 
  * Deprecated prior to 5.11.1 Alpha (to be removed after 5.12 release)
  */
-public class CastasToken implements PCClassLstToken, DeprecatedToken  {
+public class CastasToken implements PCClassLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CASTAS";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		pcclass.setCastAs(value);
 		return true;
 	}
@@ -25,8 +28,9 @@ public class CastasToken implements PCClassLstToken, DeprecatedToken  {
 	/**
 	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
 	 */
-	public String getMessage(@SuppressWarnings("unused")PObject anObj, 
-							 @SuppressWarnings("unused")String anValue)
+	public String getMessage(@SuppressWarnings("unused")
+	PObject anObj, @SuppressWarnings("unused")
+	String anValue)
 	{
 		return PropertyFactory.getString("Use SPELLLIST instead of CASTAS"); //$NON-NLS-1$
 	}

@@ -11,18 +11,21 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class ChooseLst implements GlobalLstToken {
+public class ChooseLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CHOOSE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if (!value.startsWith("CHOOSE:LANGAUTO")) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (!value.startsWith("CHOOSE:LANGAUTO"))
+		{
 			obj.setChoiceString(value);
 			return true;
 		}
 		return false;
 	}
 }
-

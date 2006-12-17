@@ -99,16 +99,20 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP", getMaxHP());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum", getNumber());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP",
+			getMaxHP());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum",
+			getNumber());
 		initiative.applyPrefs();
 		initiative.refreshTable();
 	}
 
 	public void initPreferences()
 	{
-		setMaxHP(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP", 100));
-		setNumber(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum", 20));
+		setMaxHP(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".dbMaxHP", 100));
+		setNumber(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".dbMaxNum", 20));
 	}
 
 	public String toString()
@@ -201,5 +205,5 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
 		add(tbNumber, gridBagConstraints);
 	}
-	 //GEN-END:initComponents
+	//GEN-END:initComponents
 }

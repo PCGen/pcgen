@@ -45,7 +45,8 @@ import java.io.IOException;
 public class JIcon extends JPanel
 {
 	/**  Boolean true if this is a Macintosh systems */
-	public static final boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
+	public static final boolean MAC_OS_X =
+			(System.getProperty("os.name").equals("Mac OS X"));
 	File launch;
 	NotesPlugin plugin;
 
@@ -94,55 +95,69 @@ public class JIcon extends JPanel
 
 		if (ext.equalsIgnoreCase("html") || ext.equalsIgnoreCase("htm"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/gnome-text-html.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/gnome-text-html.png"));
 		}
 		else if (ext.equalsIgnoreCase("doc"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/win-word.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/win-word.png"));
 		}
 		else if (ext.equalsIgnoreCase("pdf"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/win-acrobat.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/win-acrobat.png"));
 		}
 		else if (ext.equalsIgnoreCase("rtf"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/gnome-application-rtf.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/gnome-application-rtf.png"));
 		}
 		else if (ext.equalsIgnoreCase("xls"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/win-excel.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/win-excel.png"));
 		}
 		else if (ext.equalsIgnoreCase("ppt"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/gnome-application-vnd.ms-powerpoint.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/gnome-application-vnd.ms-powerpoint.png"));
 		}
 		else if (ext.equalsIgnoreCase("txt"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/gnome-text-plain.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/gnome-text-plain.png"));
 		}
 		else if (ext.equalsIgnoreCase("fcw"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/win-cc2.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/win-cc2.png"));
 		}
 		else if (ext.equalsIgnoreCase("zip"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/win-zip.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/win-zip.png"));
 		}
-		else if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif") || ext.equalsIgnoreCase("png"))
+		else if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif")
+			|| ext.equalsIgnoreCase("png"))
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/gnome-image-generic.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/gnome-image-generic.png"));
 		}
 		else
 		{
-			return new ImageIcon(getClass().getResource("/pcgen/gui/resource/gnome-generic.png"));
+			return new ImageIcon(getClass().getResource(
+				"/pcgen/gui/resource/gnome-generic.png"));
 		}
 	}
 
 	/**  Delete the file from disk that this icon represents */
 	protected void deleteFile()
 	{
-		int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file " + launch.getPath(), "Delete File?",
-			    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		int choice =
+				JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file "
+					+ launch.getPath(), "Delete File?",
+					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
 		if (choice == JOptionPane.YES_OPTION)
 		{
@@ -189,8 +204,9 @@ public class JIcon extends JPanel
 				//
 				String openCmd = ("/usr/bin/open");
 				String filePath = (launch.getAbsolutePath());
-				String[] args = { openCmd, filePath };
-				System.err.println("Runtime.getRuntime().exec: [" + args[0] + "] [" + args[1] + "]");
+				String[] args = {openCmd, filePath};
+				System.err.println("Runtime.getRuntime().exec: [" + args[0]
+					+ "] [" + args[1] + "]");
 
 				try
 				{
@@ -207,7 +223,9 @@ public class JIcon extends JPanel
 			{
 				try
 				{
-					String start = (" rundll32 url.dll,FileProtocolHandler file://" + launch.getAbsoluteFile());
+					String start =
+							(" rundll32 url.dll,FileProtocolHandler file://" + launch
+								.getAbsoluteFile());
 					Runtime.getRuntime().exec(start);
 				}
 				catch (Exception e)
@@ -237,7 +255,8 @@ public class JIcon extends JPanel
 	{
 		//GEN-FIRST:event_buttonFocusLost
 		setBackground((Color) UIManager.getDefaults().get("Panel.background"));
-		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
+		button.setBackground((Color) UIManager.getDefaults().get(
+			"Button.background"));
 	}
 
 	//GEN-LAST:event_launchMIActionPerformed
@@ -299,22 +318,22 @@ public class JIcon extends JPanel
 
 		launchMI.setText("Launch File (enter)");
 		launchMI.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					launchMIActionPerformed(evt);
-				}
-			});
+				launchMIActionPerformed(evt);
+			}
+		});
 
 		contextMenu.add(launchMI);
 		deleteMI.setText("Delete File (del)");
 		deleteMI.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					deleteMIActionPerformed(evt);
-				}
-			});
+				deleteMIActionPerformed(evt);
+			}
+		});
 
 		contextMenu.add(deleteMI);
 
@@ -322,49 +341,50 @@ public class JIcon extends JPanel
 
 		setBackground((Color) UIManager.getDefaults().get("Panel.background"));
 		setBorder(new LineBorder(new Color(0, 0, 0)));
-		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
+		button.setBackground((Color) UIManager.getDefaults().get(
+			"Button.background"));
 		button.setBorder(null);
 		button.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					buttonActionPerformed(evt);
-				}
-			});
+				buttonActionPerformed(evt);
+			}
+		});
 
 		button.addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					buttonFocusGained(evt);
-				}
+				buttonFocusGained(evt);
+			}
 
-				public void focusLost(FocusEvent evt)
-				{
-					buttonFocusLost(evt);
-				}
-			});
+			public void focusLost(FocusEvent evt)
+			{
+				buttonFocusLost(evt);
+			}
+		});
 
 		button.addKeyListener(new KeyAdapter()
+		{
+			public void keyReleased(KeyEvent evt)
 			{
-				public void keyReleased(KeyEvent evt)
-				{
-					buttonKeyReleased(evt);
-				}
-			});
+				buttonKeyReleased(evt);
+			}
+		});
 
 		button.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent evt)
 			{
-				public void mouseClicked(MouseEvent evt)
-				{
-					buttonMouseClicked(evt);
-				}
+				buttonMouseClicked(evt);
+			}
 
-				public void mouseReleased(MouseEvent evt)
-				{
-					buttonMouseReleased(evt);
-				}
-			});
+			public void mouseReleased(MouseEvent evt)
+			{
+				buttonMouseReleased(evt);
+			}
+		});
 
 		add(button, BorderLayout.NORTH);
 

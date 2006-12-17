@@ -59,8 +59,8 @@ public class GenderToken extends KitLstToken
 	 */
 	public boolean parse(Kit aKit, String value)
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 
 		KitBio kBio = new KitBio();
 		kBio.setGender(colToken.nextToken());

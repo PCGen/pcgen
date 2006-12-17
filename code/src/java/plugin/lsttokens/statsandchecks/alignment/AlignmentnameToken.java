@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCAlignmentLstToken;
 /**
  * Class deals with ALIGNMENTNAME Token
  */
-public class AlignmentnameToken implements PCAlignmentLstToken{
+public class AlignmentnameToken implements PCAlignmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALIGNMENTNAME";
 	}
 
-	public boolean parse(PCAlignment align, String value) {
+	public boolean parse(PCAlignment align, String value)
+	{
 		align.setName(value);
 		return true;
 	}

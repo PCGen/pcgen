@@ -12,17 +12,19 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class MovecloneLst implements GlobalLstToken {
+public class MovecloneLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MOVECLONE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		Movement cm = Movement.getMovementFrom(value);
 		cm.setMoveRatesFlag(2);
 		obj.setMovement(cm);
 		return true;
 	}
 }
-

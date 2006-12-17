@@ -33,18 +33,23 @@ import pcgen.persistence.lst.StatsAndChecksLstToken;
 /**
  * Class deals with CHECKNAME Token
  */
-public class ChecknameToken implements StatsAndChecksLstToken {
-	public String getTokenName() {
+public class ChecknameToken implements StatsAndChecksLstToken
+{
+	public String getTokenName()
+	{
 		return "CHECKNAME";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL) {
-		try {
+	public boolean parse(String lstLine, URL sourceURL)
+	{
+		try
+		{
 			PCCheckLoader checkLoader = new PCCheckLoader();
 			checkLoader.parseLine(lstLine, sourceURL);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

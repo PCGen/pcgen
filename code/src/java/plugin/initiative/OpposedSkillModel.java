@@ -74,7 +74,8 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 *
 		 * @param init
 		 */
-		public SkillInitWrapper(PcgCombatant init) {
+		public SkillInitWrapper(PcgCombatant init)
+		{
 			super(init);
 			if (skillName != null)
 			{
@@ -100,17 +101,20 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				Skill skill = pc.getSkillKeyed(aSkillKey);
 				if (skill != null)
 				{
-					returnValue = Integer.valueOf(skill.modifier(pc).intValue() + skill.getTotalRank(pc).intValue());
+					returnValue =
+							Integer.valueOf(skill.modifier(pc).intValue()
+								+ skill.getTotalRank(pc).intValue());
 				}
 				else
 				{
 					skill = Globals.getSkillKeyed(aSkillKey);
 					if (skill != null
-							&& skill.isUntrained()
-							&& skill.getKeyStat().compareToIgnoreCase(
-									Constants.s_NONE) != 0)
+						&& skill.isUntrained()
+						&& skill.getKeyStat().compareToIgnoreCase(
+							Constants.s_NONE) != 0)
 					{
-						returnValue = Integer.valueOf(skill.modifier(pc).intValue());
+						returnValue =
+								Integer.valueOf(skill.modifier(pc).intValue());
 					}
 				}
 			}
@@ -126,7 +130,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		{
 			djep.parseExpression("1d20");
 			double r = djep.getValue();
-			roll = Integer.valueOf((int)r);
+			roll = Integer.valueOf((int) r);
 			calc();
 		}
 
@@ -178,6 +182,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			this.fudge = fudge;
 			calc();
 		}
+
 		/**
 		 * <p>
 		 * Gets the value of result
@@ -188,6 +193,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		{
 			return result;
 		}
+
 		/**
 		 * <p>
 		 * Sets the value of result
@@ -216,7 +222,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	{
 		super();
 		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
-				"Bonus");
+			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
 	}
@@ -247,21 +253,21 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		Object returnValue = null;
 		if (rowIndex < combatants.size())
 		{
-			SkillInitWrapper entry = (SkillInitWrapper)getRowEntry(rowIndex);
+			SkillInitWrapper entry = (SkillInitWrapper) getRowEntry(rowIndex);
 			switch (columnIndex)
 			{
-			case 0:
-				returnValue = super.getValueAt(rowIndex, columnIndex);
-				break;
-			case 1:
-				returnValue = entry.getSkillBonus(skillName);
-				break;
-			case 2:
-				returnValue = entry.getFudge();
-				break;
-			case 3:
-				returnValue = entry.getResult();
-				break;
+				case 0:
+					returnValue = super.getValueAt(rowIndex, columnIndex);
+					break;
+				case 1:
+					returnValue = entry.getSkillBonus(skillName);
+					break;
+				case 2:
+					returnValue = entry.getFudge();
+					break;
+				case 3:
+					returnValue = entry.getResult();
+					break;
 			}
 		}
 		return returnValue;
@@ -278,7 +284,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	{
 		if (rowIndex < combatants.size())
 		{
-			((SkillInitWrapper)getRowEntry(rowIndex)).roll();
+			((SkillInitWrapper) getRowEntry(rowIndex)).roll();
 			fireTableCellUpdated(rowIndex, 3);
 		}
 	}
@@ -314,10 +320,11 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	 */
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 	{
-		if (rowIndex < combatants.size() && columnIndex == 2 && aValue instanceof Integer)
+		if (rowIndex < combatants.size() && columnIndex == 2
+			&& aValue instanceof Integer)
 		{
-			SkillInitWrapper entry = (SkillInitWrapper)getRowEntry(rowIndex);
-			entry.setFudge((Integer)aValue);
+			SkillInitWrapper entry = (SkillInitWrapper) getRowEntry(rowIndex);
+			entry.setFudge((Integer) aValue);
 		}
 		else
 		{
@@ -332,6 +339,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	{
 		combatants.put(combatant.getName(), new SkillInitWrapper(combatant));
 		int rowIndex = getIndexOf(combatant.getName());
-		fireTableRowsInserted(rowIndex,rowIndex);
+		fireTableRowsInserted(rowIndex, rowIndex);
 	}
 }

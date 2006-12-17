@@ -58,12 +58,14 @@ public class SpellListCastToken extends SpellListToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringBuffer retValue = new StringBuffer();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource,
-			SpellListToken.SPELLTAG_CAST);
+		SpellListTokenParams params =
+				new SpellListTokenParams(tokenSource,
+					SpellListToken.SPELLTAG_CAST);
 
 		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
@@ -91,9 +93,12 @@ public class SpellListCastToken extends SpellListToken
 		if (aObject instanceof PCClass)
 		{
 			PCClass aClass = (PCClass) aObject;
-//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
-			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), true, false, pc))
-				+ aClass.getBonusCastForLevelString(level, Globals.getDefaultSpellBook(), pc);
+			//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
+			castNum =
+					String.valueOf(aClass.getCastForLevel(level, Globals
+						.getDefaultSpellBook(), true, false, pc))
+						+ aClass.getBonusCastForLevelString(level, Globals
+							.getDefaultSpellBook(), pc);
 		}
 
 		return castNum;

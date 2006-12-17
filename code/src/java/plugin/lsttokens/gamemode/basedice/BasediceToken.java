@@ -8,13 +8,16 @@ import pcgen.persistence.lst.BaseDiceLstToken;
 /**
  * Class deals with BASEDICE Token
  */
-public class BasediceToken implements BaseDiceLstToken {
+public class BasediceToken implements BaseDiceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BASEDICE";
 	}
 
-	public boolean parse(Map<String, String> baseDice, String value) {
+	public boolean parse(Map<String, String> baseDice, String value)
+	{
 		baseDice.put(BaseDiceLoader.BASEDICE, value);
 		return true;
 	}

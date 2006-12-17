@@ -29,25 +29,29 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.TabLoader;
 
-
 /**
  * <code>TabToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class TabToken implements GameModeLstToken {
+public class TabToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TAB";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			TabLoader tabLoader = new TabLoader();
 			tabLoader.parseLine(gameMode, "TAB:" + value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

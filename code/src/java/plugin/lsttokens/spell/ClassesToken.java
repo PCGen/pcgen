@@ -8,18 +8,23 @@ import pcgen.util.Logging;
 /**
  * Class deals with CLASSES Token
  */
-public class ClassesToken implements SpellLstToken {
+public class ClassesToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CLASSES";
 	}
 
-	public boolean parse(Spell spell, String value) {
-		try {
+	public boolean parse(Spell spell, String value)
+	{
+		try
+		{
 			SpellLoader.setLevelList(spell, "CLASS", value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			Logging.errorPrint("Error in CLASSES token: " + e.getMessage());
 			e.printStackTrace();
 			return false;

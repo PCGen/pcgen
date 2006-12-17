@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with DEITY Token
  */
-public class DisplayorderToken implements GameModeLstToken {
+public class DisplayorderToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DISPLAYORDER";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setDisplayOrder(value);
 		return true;
 	}

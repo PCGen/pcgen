@@ -32,27 +32,35 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
+
 /**
  * @author wardc
  *
  */
-public class PreHandsTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreHandsTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 		int runningTotal;
 		try
 		{
 			final int targetHands = Integer.parseInt(prereq.getOperand());
 
-			runningTotal = prereq.getOperator().compare(character.getHands(), targetHands);
+			runningTotal =
+					prereq.getOperator().compare(character.getHands(),
+						targetHands);
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreHands.error.badly_formed", prereq.getOperand())); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreHands.error.badly_formed", prereq.getOperand())); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}
@@ -60,7 +68,8 @@ public class PreHandsTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
-		return "HANDS" ; //$NON-NLS-1$
+	public String kindHandled()
+	{
+		return "HANDS"; //$NON-NLS-1$
 	}
 }

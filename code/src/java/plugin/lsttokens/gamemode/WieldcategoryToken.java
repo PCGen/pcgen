@@ -7,29 +7,34 @@ import pcgen.persistence.lst.WieldCategoryLoader;
 /**
  * Class deals with WIELDCATEGORY Token
  */
-public class WieldcategoryToken implements GameModeLstToken {
+public class WieldcategoryToken implements GameModeLstToken
+{
 
 	/**
-     * Get token name
-     * @return token name  
+	 * Get token name
+	 * @return token name  
 	 */
-    public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WIELDCATEGORY";
 	}
 
-    /**
-     * Parse WIELDCATEGORY token
-     * @param gameMode 
-     * @param value 
-     * @return true if successful
-     */
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	/**
+	 * Parse WIELDCATEGORY token
+	 * @param gameMode 
+	 * @param value 
+	 * @return true if successful
+	 */
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			WieldCategoryLoader catDiceLoader = new WieldCategoryLoader();
 			catDiceLoader.parseLine(gameMode, "WIELDCATEGORY:" + value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 

@@ -41,7 +41,9 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreApplyTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreApplyTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -53,7 +55,8 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter aPC) throws PrerequisiteException
 	{
 		// PREAPPLY target could be a Player or Equipment types
 		//
@@ -75,7 +78,7 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 
 		try
 		{
-			targetNumber = Integer.parseInt( prereq.getOperand() );
+			targetNumber = Integer.parseInt(prereq.getOperand());
 		}
 		catch (NumberFormatException ne)
 		{
@@ -86,14 +89,18 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-                        final PrerequisiteTest test = factory.getTest(element.getKind());
-                        if (test != null) {
-                                runningTotal += test.passes(element, equipment, aPC);
-                        }
-                        else {
-                                Logging.errorPrintLocalised("PreApply.cannot_find_test", element.getKind()); //$NON-NLS-1$
-                        }
+			final PrerequisiteTestFactory factory =
+					PrerequisiteTestFactory.getInstance();
+			final PrerequisiteTest test = factory.getTest(element.getKind());
+			if (test != null)
+			{
+				runningTotal += test.passes(element, equipment, aPC);
+			}
+			else
+			{
+				Logging.errorPrintLocalised(
+					"PreApply.cannot_find_test", element.getKind()); //$NON-NLS-1$
+			}
 		}
 
 		if (requiredType == null)
@@ -117,7 +124,8 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreApply.invalid_comparison", prereq.getOperator().toString()) ); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreApply.invalid_comparison", prereq.getOperator().toString())); //$NON-NLS-1$
 		}
 
 		runningTotal = countedTotal(prereq, runningTotal);
@@ -135,8 +143,11 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreApply.toHtml", prereq.getOperator().toString(), prereq.getOperand() ); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreApply.toHtml", prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
 	}
 
 }

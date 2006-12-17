@@ -3,21 +3,25 @@ package plugin.lsttokens.template;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.lst.PCTemplateLstToken;
 
-
 /**
  * Class deals with CR Token
  */
-public class CrToken implements PCTemplateLstToken {
+public class CrToken implements PCTemplateLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CR";
 	}
 
-	public boolean parse(PCTemplate template, String value) {
-		try {
+	public boolean parse(PCTemplate template, String value)
+	{
+		try
+		{
 			template.setCR(Integer.parseInt(value));
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 		return true;

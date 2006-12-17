@@ -40,21 +40,25 @@ import java.util.StringTokenizer;
  * @author wardc
  *
  */
-public class PreSpellCastParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreSpellCastParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SPELLCAST" };
+		return new String[]{"SPELLCAST"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKind(null);		// PREMULT
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
+		prereq.setKind(null); // PREMULT
 
-		final StringTokenizer inputTokenizer = new StringTokenizer(formula, ",");
+		final StringTokenizer inputTokenizer =
+				new StringTokenizer(formula, ",");
 
 		while (inputTokenizer.hasMoreTokens())
 		{
@@ -87,14 +91,14 @@ public class PreSpellCastParser extends AbstractPrerequisiteParser implements Pr
 				subprereq.setKey(token.substring(5));
 			}
 		}
-		
-		if ((prereq.getPrerequisites().size() == 1) &&
-			prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &&
-			prereq.getOperand().equals("1"))
+
+		if ((prereq.getPrerequisites().size() == 1)
+			&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
+			&& prereq.getOperand().equals("1"))
 		{
 			prereq = prereq.getPrerequisites().get(0);
 		}
-		
+
 		if (invertResult)
 		{
 			prereq.setOperator(prereq.getOperator().invert());

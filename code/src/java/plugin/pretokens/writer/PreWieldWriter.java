@@ -40,7 +40,8 @@ import java.io.Writer;
 /**
  * Performs the writing for the PREWIELD tag
  */
-public class PreWieldWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreWieldWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -56,16 +57,15 @@ public class PreWieldWriter extends AbstractPrerequisiteWriter implements Prereq
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 

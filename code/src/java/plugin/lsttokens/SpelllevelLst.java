@@ -21,18 +21,23 @@ import pcgen.persistence.PersistenceLayerException;
  * @author djones4
  *
  */
-public class SpelllevelLst implements GlobalLstToken {
+public class SpelllevelLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SPELLLEVEL";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		// SPELLLEVEL:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
-		if (!(obj instanceof Campaign)) {
+		if (!(obj instanceof Campaign))
+		{
 			final StringTokenizer tok = new StringTokenizer(value, "|");
 
-			if (tok.countTokens() < 3) {
+			if (tok.countTokens() < 3)
+			{
 				Logging.errorPrint("Badly formed SPELLLEVEL tag1: " + value);
 				return false;
 			}
@@ -44,37 +49,47 @@ public class SpelllevelLst implements GlobalLstToken {
 			final List<String> wNameList = new ArrayList<String>();
 			final List<String> wSpellList = new ArrayList<String>();
 
-			while (tok.hasMoreTokens()) {
+			while (tok.hasMoreTokens())
+			{
 				final String nameList = tok.nextToken();
 
-				if (nameList.startsWith("PRE") || nameList.startsWith("!PRE")) {
+				if (nameList.startsWith("PRE") || nameList.startsWith("!PRE"))
+				{
 					preList.add(nameList);
 					break;
 				}
 
-				if (nameList.indexOf("=") < 0) {
-					Logging.errorPrint("Badly formed SPELLLEVEL tag2: " + value);
+				if (nameList.indexOf("=") < 0)
+				{
+					Logging
+						.errorPrint("Badly formed SPELLLEVEL tag2: " + value);
 					return false;
 				}
 
 				wNameList.add(nameList);
 
-				if (!tok.hasMoreTokens()) {
-					Logging.errorPrint("Badly formed SPELLLEVEL tag3: " + value);
+				if (!tok.hasMoreTokens())
+				{
+					Logging
+						.errorPrint("Badly formed SPELLLEVEL tag3: " + value);
 					return false;
 				}
 
 				wSpellList.add(tok.nextToken());
 			}
 
-			while (tok.hasMoreTokens()) {
+			while (tok.hasMoreTokens())
+			{
 				final String nameList = tok.nextToken();
 
-				if (nameList.startsWith("PRE") || nameList.startsWith("!PRE")) {
+				if (nameList.startsWith("PRE") || nameList.startsWith("!PRE"))
+				{
 					preList.add(nameList);
 				}
-				else {
-					Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: " + value);
+				else
+				{
+					Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: "
+						+ value);
 					return false;
 				}
 			}
@@ -93,27 +108,40 @@ public class SpelllevelLst implements GlobalLstToken {
 				Logging.errorPrint("Badly formed SPELLLEVEL PRE tag: " + value);
 			}
 
-			for (Iterator<String> iSpell = wSpellList.iterator(), iName = wNameList.iterator(); iSpell.hasNext() || iName.hasNext();) {
+			for (Iterator<String> iSpell = wSpellList.iterator(), iName =
+					wNameList.iterator(); iSpell.hasNext() || iName.hasNext();)
+			{
 				// Check to see if both exists
-				if (!(iSpell.hasNext() && iName.hasNext())) {
-					Logging.errorPrint("Badly formed SPELLLEVEL tag4: " + value);
+				if (!(iSpell.hasNext() && iName.hasNext()))
+				{
+					Logging
+						.errorPrint("Badly formed SPELLLEVEL tag4: " + value);
 					return false;
 				}
 
-				final StringTokenizer bTok = new StringTokenizer(iSpell.next(), ",");
+				final StringTokenizer bTok =
+						new StringTokenizer(iSpell.next(), ",");
 				final String classList = iName.next();
 
-				while (bTok.hasMoreTokens()) {
-					final String spellLevel = classList.substring(classList.indexOf("=") + 1);
+				while (bTok.hasMoreTokens())
+				{
+					final String spellLevel =
+							classList.substring(classList.indexOf("=") + 1);
 					final String spellName = bTok.nextToken();
-					final StringTokenizer cTok = new StringTokenizer(classList.substring(0, classList.indexOf("=")), ",");
+					final StringTokenizer cTok =
+							new StringTokenizer(classList.substring(0,
+								classList.indexOf("=")), ",");
 
-					while (cTok.hasMoreTokens()) {
+					while (cTok.hasMoreTokens())
+					{
 						final String className = cTok.nextToken();
 
 						if (className.startsWith("SPELLCASTER.")
-								|| !obj.getSpellSupport().containsLevelFor(tagType, className, spellName)) {
-							obj.getSpellSupport().addSpellLevel(tagType, className, spellName, spellLevel, prereqs);
+							|| !obj.getSpellSupport().containsLevelFor(tagType,
+								className, spellName))
+						{
+							obj.getSpellSupport().addSpellLevel(tagType,
+								className, spellName, spellLevel, prereqs);
 						}
 					}
 				}
@@ -123,4 +151,3 @@ public class SpelllevelLst implements GlobalLstToken {
 		return false;
 	}
 }
-

@@ -38,28 +38,32 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreBaseSizeParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "BASESIZE", "BASESIZEEQ", "BASESIZEGT", "BASESIZEGTEQ", "BASESIZELT", "BASESIZELTEQ", "BASESIZENEQ" };
+		return new String[]{"BASESIZE", "BASESIZEEQ", "BASESIZEGT",
+			"BASESIZEGTEQ", "BASESIZELT", "BASESIZELTEQ", "BASESIZENEQ"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		try
 		{
 			prereq.setKind("basesize");
-	
+
 			// Get the comparator type BASESIZEGTEQ, BASESIZE, BASESIZENEQ etc.
 			String compType = kind.substring(8).toLowerCase();
 			if (compType.length() == 0)
@@ -67,16 +71,18 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements Pre
 				compType = "gteq";
 			}
 			prereq.setOperator(compType);
-	
+
 			prereq.setOperand(formula);
 			if (invertResult)
 			{
-				prereq.setOperator( prereq.getOperator().invert());
+				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
 		catch (PrerequisiteException pe)
 		{
-			throw new PersistenceLayerException("Unable to parse the prerequisite :'" + kind + ":" + formula + "'. " + pe.getLocalizedMessage());
+			throw new PersistenceLayerException(
+				"Unable to parse the prerequisite :'" + kind + ":" + formula
+					+ "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

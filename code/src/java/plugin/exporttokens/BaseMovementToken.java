@@ -68,7 +68,8 @@ public class BaseMovementToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 		if ((pc.getRace() != null) && !pc.getRace().equals(Globals.s_EMPTYRACE))
@@ -80,7 +81,8 @@ public class BaseMovementToken extends Token
 			boolean flag = true;
 
 			//Move Type
-			if(aTok.hasMoreElements()) {
+			if (aTok.hasMoreElements())
+			{
 				moveType = aTok.nextToken();
 				try
 				{
@@ -92,12 +94,13 @@ public class BaseMovementToken extends Token
 				}
 				catch (NumberFormatException e)
 				{
-				    // Delibrately ignore exception, means movetype is not am index
+					// Delibrately ignore exception, means movetype is not am index
 				}
 			}
 
 			//Encumberance Level
-			if(aTok.hasMoreElements()) {
+			if (aTok.hasMoreElements())
+			{
 				String loadName = aTok.nextToken();
 				for (Load aLoad : Load.values())
 				{
@@ -109,8 +112,9 @@ public class BaseMovementToken extends Token
 			}
 
 			//Display Movement Measurement type?
-			if(aTok.hasMoreElements()) {
-				flag =  "TRUE".equals((aTok.nextToken()).toUpperCase());
+			if (aTok.hasMoreElements())
+			{
+				flag = "TRUE".equals((aTok.nextToken()).toUpperCase());
 			}
 			retString = getBaseMovementToken(pc, moveType, load, flag);
 		}
@@ -125,22 +129,26 @@ public class BaseMovementToken extends Token
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(PlayerCharacter pc, String moveType, Load load, boolean displayFlag)
+	public static String getBaseMovementToken(PlayerCharacter pc,
+		String moveType, Load load, boolean displayFlag)
 	{
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
-			if (pc.getMovementType(i).toUpperCase().equals(moveType.toUpperCase()))
+			if (pc.getMovementType(i).toUpperCase().equals(
+				moveType.toUpperCase()))
 			{
 				if (displayFlag)
 				{
-					return moveType +
-					 " " +
-					 Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.basemovement(i, load)) + Globals.getGameModeUnitSet().getDistanceUnit();
+					return moveType
+						+ " "
+						+ Globals.getGameModeUnitSet()
+							.displayDistanceInUnitSet(pc.basemovement(i, load))
+						+ Globals.getGameModeUnitSet().getDistanceUnit();
 				}
-				return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.basemovement(i, load));
+				return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+					pc.basemovement(i, load));
 			}
 		}
 		return "";
 	}
 }
-

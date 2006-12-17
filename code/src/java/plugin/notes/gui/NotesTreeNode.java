@@ -49,19 +49,23 @@ import java.util.*;
  * @author devon
  * @since August 27, 2003
  */
-public class NotesTreeNode implements MutableTreeNode, DocumentListener {
+public class NotesTreeNode implements MutableTreeNode, DocumentListener
+{
 
 	/**
 	 * An enumeration that is always empty. This is used when an enumeration of a
 	 * leaf node's children is requested.
 	 */
-	public static final Enumeration EMPTY_ENUMERATION = new Enumeration() {
+	public static final Enumeration EMPTY_ENUMERATION = new Enumeration()
+	{
 
-		public boolean hasMoreElements() {
+		public boolean hasMoreElements()
+		{
 			return false;
 		}
 
-		public Object nextElement() {
+		public Object nextElement()
+		{
 			throw new NoSuchElementException("No more elements");
 		}
 	};
@@ -125,7 +129,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param tree
 	 *          tree the node will live in
 	 */
-	public NotesTreeNode(String name, File dir, JTree tree) {
+	public NotesTreeNode(String name, File dir, JTree tree)
+	{
 		userObject = name;
 		this.tree = tree;
 		this.dir = dir;
@@ -136,7 +141,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The allowsChildren value
 	 */
-	public boolean getAllowsChildren() {
+	public boolean getAllowsChildren()
+	{
 		return allowsChildren;
 	}
 
@@ -147,12 +153,17 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          index to get the child from
 	 * @return The child At value
 	 */
-	public TreeNode getChildAt(int index) {
-		if (!hasBeenPopulated) {
+	public TreeNode getChildAt(int index)
+	{
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
-		if (children == null) { throw new ArrayIndexOutOfBoundsException("node has no children"); }
+		if (children == null)
+		{
+			throw new ArrayIndexOutOfBoundsException("node has no children");
+		}
 
 		return children.elementAt(index);
 	}
@@ -164,19 +175,26 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The childCount value
 	 */
-	public int getChildCount() {
+	public int getChildCount()
+	{
 		int counter = 0;
 
-		if (children != null) {
+		if (children != null)
+		{
 			counter = children.size();
 		}
 
-		if (!hasBeenPopulated) {
+		if (!hasBeenPopulated)
+		{
 			File[] kids = dir.listFiles();
 
-			if (kids != null) {
-				for (int i = 0; i < kids.length; i++) {
-					if (kids[i].isDirectory() && !kids[i].getName().equals("CVS")) {
+			if (kids != null)
+			{
+				for (int i = 0; i < kids.length; i++)
+				{
+					if (kids[i].isDirectory()
+						&& !kids[i].getName().equals("CVS"))
+					{
 						counter++;
 					}
 				}
@@ -191,7 +209,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The dir
 	 */
-	public File getDir() {
+	public File getDir()
+	{
 		return dir;
 	}
 
@@ -201,14 +220,19 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return boolean of the dirty state
 	 */
-	public boolean isDirty() {
+	public boolean isDirty()
+	{
 		return dirty;
 	}
 
-	public boolean isEmpty() {
+	public boolean isEmpty()
+	{
 		File[] aChildren = dir.listFiles();
 
-		if ((aChildren.length > 0) || dirty) { return false; }
+		if ((aChildren.length > 0) || dirty)
+		{
+			return false;
+		}
 
 		return true;
 	}
@@ -219,12 +243,15 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return A List of File objects
 	 */
-	public List<File> getFiles() {
+	public List<File> getFiles()
+	{
 		ArrayList<File> list = new ArrayList<File>();
 		for (File child : dir.listFiles())
 		{
-			if (!child.isDirectory()) {
-				if (!child.getName().equals("data.html")) {
+			if (!child.isDirectory())
+			{
+				if (!child.getName().equals("data.html"))
+				{
 					list.add(child);
 				}
 			}
@@ -240,14 +267,22 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          Node to get the index of
 	 * @return The index value
 	 */
-	public int getIndex(TreeNode node) {
-		if (node == null) { throw new IllegalArgumentException("argument is null"); }
+	public int getIndex(TreeNode node)
+	{
+		if (node == null)
+		{
+			throw new IllegalArgumentException("argument is null");
+		}
 
-		if (!hasBeenPopulated) {
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
-		if (!isNodeChild(node)) { return -1; }
+		if (!isNodeChild(node))
+		{
+			return -1;
+		}
 
 		return children.indexOf(node);
 
@@ -259,7 +294,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The leaf value
 	 */
-	public boolean isLeaf() {
+	public boolean isLeaf()
+	{
 		return (getChildCount() == 0);
 	}
 
@@ -270,14 +306,23 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          Description of the Parameter
 	 * @return The nodeAncestor value
 	 */
-	public boolean isNodeAncestor(TreeNode node) {
-		if (node == null) { return false; }
+	public boolean isNodeAncestor(TreeNode node)
+	{
+		if (node == null)
+		{
+			return false;
+		}
 
 		TreeNode ancestor = this;
 
-		do {
-			if (ancestor == node) { return true; }
-		} while ((ancestor = ancestor.getParent()) != null);
+		do
+		{
+			if (ancestor == node)
+			{
+				return true;
+			}
+		}
+		while ((ancestor = ancestor.getParent()) != null);
 
 		return false;
 	}
@@ -289,15 +334,22 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          Description of the Parameter
 	 * @return The nodeChild value
 	 */
-	public boolean isNodeChild(TreeNode node) {
+	public boolean isNodeChild(TreeNode node)
+	{
 		boolean retval;
 
-		if (node == null) {
+		if (node == null)
+		{
 			retval = false;
-		} else {
-			if (getChildCount() == 0) {
+		}
+		else
+		{
+			if (getChildCount() == 0)
+			{
 				retval = false;
-			} else {
+			}
+			else
+			{
 				retval = (node.getParent() == this);
 			}
 		}
@@ -311,7 +363,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param newParent
 	 *          The new parent value
 	 */
-	public void setParent(MutableTreeNode newParent) {
+	public void setParent(MutableTreeNode newParent)
+	{
 		parent = newParent;
 	}
 
@@ -320,7 +373,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The parent value
 	 */
-	public TreeNode getParent() {
+	public TreeNode getParent()
+	{
 		return parent;
 	}
 
@@ -334,48 +388,62 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          Editor pane you want to populate
 	 * @return The populated Pane
 	 */
-	public JTextPane getTextPane(JTextPane editor) {
+	public JTextPane getTextPane(JTextPane editor)
+	{
 		boolean repopulate = false;
 		cacheCounter = 10;
 
-		if (notesDoc != null) {
+		if (notesDoc != null)
+		{
 			//setDocument causes an event to fire, which makes the document dirty -
 			// these semaphores prevent that
 			ignoreUpdateSemaphore = true;
 		}
 
-		if (pane == null) {
+		if (pane == null)
+		{
 			pane = editor;
 			repopulate = true;
 
 			ExtendedHTMLEditorKit htmlKit = new ExtendedHTMLEditorKit();
 			pane.setEditorKit(htmlKit);
 			notesDoc = (ExtendedHTMLDocument) (htmlKit.createDefaultDocument());
-			notesDoc.putProperty("docroot", dir.getAbsolutePath() + File.separator + "data.html");
+			notesDoc.putProperty("docroot", dir.getAbsolutePath()
+				+ File.separator + "data.html");
 		}
 
 		pane.setDocument(notesDoc);
 
-		if (repopulate) {
-			File notes = new File(dir.getAbsolutePath() + File.separator + "data.html");
+		if (repopulate)
+		{
+			File notes =
+					new File(dir.getAbsolutePath() + File.separator
+						+ "data.html");
 
-			if (notes.exists()) {
-				try {
-					BufferedReader br = new BufferedReader(new FileReader(notes));
+			if (notes.exists())
+			{
+				try
+				{
+					BufferedReader br =
+							new BufferedReader(new FileReader(notes));
 					StringBuffer sb = new StringBuffer();
 					String newLine = "";
 
-					while (newLine != null) {
+					while (newLine != null)
+					{
 						newLine = br.readLine();
 
-						if (newLine != null) {
+						if (newLine != null)
+						{
 							sb.append(newLine + "\n");
 						}
 					}
 
 					br.close();
 					pane.setText(sb.toString());
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
@@ -394,42 +462,55 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The populated JTextPane
 	 */
-	public JTextPane getTextPane() {
+	public JTextPane getTextPane()
+	{
 		boolean repopulate = false;
 		cacheCounter = 10;
 
-		if (pane == null) {
+		if (pane == null)
+		{
 			pane = new JTextPane();
 			repopulate = true;
 
 			ExtendedHTMLEditorKit htmlKit = new ExtendedHTMLEditorKit();
 			pane.setEditorKit(htmlKit);
 			notesDoc = (ExtendedHTMLDocument) (htmlKit.createDefaultDocument());
-			notesDoc.putProperty("docroot", dir.getAbsolutePath() + File.separator + "data.html");
+			notesDoc.putProperty("docroot", dir.getAbsolutePath()
+				+ File.separator + "data.html");
 		}
 
 		pane.setDocument(notesDoc);
 
-		if (repopulate) {
-			File notes = new File(dir.getAbsolutePath() + File.separator + "data.html");
+		if (repopulate)
+		{
+			File notes =
+					new File(dir.getAbsolutePath() + File.separator
+						+ "data.html");
 
-			if (notes.exists()) {
-				try {
-					BufferedReader br = new BufferedReader(new FileReader(notes));
+			if (notes.exists())
+			{
+				try
+				{
+					BufferedReader br =
+							new BufferedReader(new FileReader(notes));
 					StringBuffer sb = new StringBuffer();
 					String newLine = "";
 
-					while (newLine != null) {
+					while (newLine != null)
+					{
 						newLine = br.readLine();
 
-						if (newLine != null) {
+						if (newLine != null)
+						{
 							sb.append(newLine + "\n");
 						}
 					}
 
 					br.close();
 					pane.setText(sb.toString());
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
@@ -446,17 +527,24 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return true if even a single node is dirty, false otherwise.
 	 */
-	public boolean isTreeDirty() {
-		if (dirty) {
+	public boolean isTreeDirty()
+	{
+		if (dirty)
+		{
 			return true;
 		}
 
-		if (hasBeenPopulated) {
+		if (hasBeenPopulated)
+		{
 			Enumeration newNodes = children();
 
-			for (; newNodes.hasMoreElements();) {
+			for (; newNodes.hasMoreElements();)
+			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
-				if (node.isTreeDirty()) { return true; }
+				if (node.isTreeDirty())
+				{
+					return true;
+				}
 			}
 		}
 
@@ -469,7 +557,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param object
 	 *          The new userObject value
 	 */
-	public void setUserObject(Object object) {
+	public void setUserObject(Object object)
+	{
 		this.userObject = object;
 	}
 
@@ -480,7 +569,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return The userObject value
 	 */
-	public Object getUserObject() {
+	public Object getUserObject()
+	{
 		return userObject;
 	}
 
@@ -490,22 +580,32 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param node
 	 *          Node to add
 	 */
-	public void add(MutableTreeNode node) {
-		if ((node != null) && (node.getParent() == this)) {
+	public void add(MutableTreeNode node)
+	{
+		if ((node != null) && (node.getParent() == this))
+		{
 			insert(node, getChildCount() - 1);
-		} else {
+		}
+		else
+		{
 			insert(node, getChildCount());
 		}
 	}
 
-	public void appendText(String text) {
-		try {
-			if (notesDoc == null) {
+	public void appendText(String text)
+	{
+		try
+		{
+			if (notesDoc == null)
+			{
 				getTextPane();
 			}
 
-			notesDoc.insertAfterEnd(notesDoc.getCharacterElement(notesDoc.getLength()), text);
-		} catch (Exception e) {
+			notesDoc.insertAfterEnd(notesDoc.getCharacterElement(notesDoc
+				.getLength()), text);
+		}
+		catch (Exception e)
+		{
 			Logging.errorPrint(e.getMessage(), e);
 		}
 	}
@@ -517,10 +617,14 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param e
 	 *          a Document Event
 	 */
-	public void changedUpdate(DocumentEvent e) {
-		if (ignoreUpdateSemaphore) {
+	public void changedUpdate(DocumentEvent e)
+	{
+		if (ignoreUpdateSemaphore)
+		{
 			ignoreUpdateSemaphore = false;
-		} else {
+		}
+		else
+		{
 			dirty = true;
 			tree.updateUI();
 		}
@@ -530,28 +634,37 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * Check to see if this object's cache should be cleared. If it should,
 	 * revert. Then check all children
 	 */
-	public void checkCache() {
-		if (!dirty) {
-			if (pane != null) {
-				if (cacheCounter > 0) {
+	public void checkCache()
+	{
+		if (!dirty)
+		{
+			if (pane != null)
+			{
+				if (cacheCounter > 0)
+				{
 					cacheCounter--;
-				} else {
+				}
+				else
+				{
 					revert();
 				}
 			}
 		}
 
-		if (hasBeenPopulated) {
+		if (hasBeenPopulated)
+		{
 			Enumeration newNodes = children();
 
-			for (; newNodes.hasMoreElements();) {
+			for (; newNodes.hasMoreElements();)
+			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				node.checkCache();
 			}
 		}
 	}
 
-	public static String checkName(String name) {
+	public static String checkName(String name)
+	{
 		String returnName = name.replaceAll("\\:", "-");
 		returnName = returnName.replaceAll("\\;", "-");
 		returnName = returnName.replaceAll("\\+", "-");
@@ -567,33 +680,47 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * Check to see if this node or any of it's children are dirty. If they are,
 	 * ask if the user wants to save them, and then do so.
 	 */
-	public void checkSave() {
-		if (((String) userObject).equals("Logs")) {
-			if (isTreeDirty()) {
-				int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "You have unsaved Logs.  Save?", "Save",
-						JOptionPane.YES_NO_OPTION);
+	public void checkSave()
+	{
+		if (((String) userObject).equals("Logs"))
+		{
+			if (isTreeDirty())
+			{
+				int choice =
+						JOptionPane.showConfirmDialog(GMGenSystem.inst,
+							"You have unsaved Logs.  Save?", "Save",
+							JOptionPane.YES_NO_OPTION);
 
-				if (choice == JOptionPane.YES_OPTION) {
+				if (choice == JOptionPane.YES_OPTION)
+				{
 					save();
 					saveChildren();
 				}
 			}
 
 			trimEmpty();
-		} else {
-			if (dirty) {
-				int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Note '" + getUserObject() + "' changed.  Save?",
-						"Save", JOptionPane.YES_NO_OPTION);
+		}
+		else
+		{
+			if (dirty)
+			{
+				int choice =
+						JOptionPane.showConfirmDialog(GMGenSystem.inst,
+							"Note '" + getUserObject() + "' changed.  Save?",
+							"Save", JOptionPane.YES_NO_OPTION);
 
-				if (choice == JOptionPane.YES_OPTION) {
+				if (choice == JOptionPane.YES_OPTION)
+				{
 					save();
 				}
 			}
 
-			if (hasBeenPopulated) {
+			if (hasBeenPopulated)
+			{
 				Enumeration newNodes = children();
 
-				for (; newNodes.hasMoreElements();) {
+				for (; newNodes.hasMoreElements();)
+				{
 					NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 					node.checkSave();
 				}
@@ -606,12 +733,15 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return Enumeration containing MutableTreeNodes
 	 */
-	public Enumeration children() {
-		if (!hasBeenPopulated) {
+	public Enumeration children()
+	{
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
-		if (children == null) {
+		if (children == null)
+		{
 			return EMPTY_ENUMERATION;
 		}
 		return children.elements();
@@ -625,34 +755,44 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          where n = the number of existing directories with the same name
 	 * @return NotesTreeNode
 	 */
-	public NotesTreeNode createChild(String newName) {
+	public NotesTreeNode createChild(String newName)
+	{
 		boolean notDone = true;
 
 		newName = checkName(newName);
 
 		int num = 1;
 
-		if (!hasBeenPopulated) {
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
-		while (notDone) {
-			if (num > 1) {
+		while (notDone)
+		{
+			if (num > 1)
+			{
 				newName = newName += (" (" + num + ")");
 			}
 
-			File newDir = new File(dir.getAbsolutePath() + File.separator + newName);
+			File newDir =
+					new File(dir.getAbsolutePath() + File.separator + newName);
 
-			if (!newDir.exists()) {
-				try {
+			if (!newDir.exists())
+			{
+				try
+				{
 					newDir.mkdir();
 					notDone = false;
 
-					NotesTreeNode newNode = new NotesTreeNode(newName, newDir, tree);
+					NotesTreeNode newNode =
+							new NotesTreeNode(newName, newDir, tree);
 					add(newNode);
 
 					return newNode;
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					Logging.errorPrint(e.getMessage(), e);
 
 					return null;
@@ -667,7 +807,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 
 	/** Create a new child named "New Node (n)", and create it's directory.
 	 * @return NotesTreeNode */
-	public NotesTreeNode createChild() {
+	public NotesTreeNode createChild()
+	{
 		return createChild("New Note");
 	}
 
@@ -676,21 +817,32 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * let the user block this deletion. If any files or directories cannot be
 	 * deleted, let the use know.
 	 */
-	public void delete() {
-		if (!isEmpty()) {
-			int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Node " + dir.getName()
-					+ " Contains Content.  Delete?", "Node Populated", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+	public void delete()
+	{
+		if (!isEmpty())
+		{
+			int choice =
+					JOptionPane.showConfirmDialog(GMGenSystem.inst, "Node "
+						+ dir.getName() + " Contains Content.  Delete?",
+						"Node Populated", JOptionPane.YES_NO_OPTION,
+						JOptionPane.QUESTION_MESSAGE);
 
-			if (choice != JOptionPane.YES_OPTION) { return; }
+			if (choice != JOptionPane.YES_OPTION)
+			{
+				return;
+			}
 		}
 
-		try {
+		try
+		{
 			for (File child : dir.listFiles())
 			{
 				boolean test = child.delete();
 
-				if (!test) {
-					JOptionPane.showMessageDialog(null, "Cannot delete file " + child.getName());
+				if (!test)
+				{
+					JOptionPane.showMessageDialog(null, "Cannot delete file "
+						+ child.getName());
 
 					break;
 				}
@@ -698,12 +850,18 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 
 			boolean test = dir.delete();
 
-			if (test) {
+			if (test)
+			{
 				removeFromParent();
-			} else {
-				JOptionPane.showMessageDialog(null, "Cannot delete directory " + dir.getName());
 			}
-		} catch (Exception e) {
+			else
+			{
+				JOptionPane.showMessageDialog(null, "Cannot delete directory "
+					+ dir.getName());
+			}
+		}
+		catch (Exception e)
+		{
 			Logging.errorPrint(e.getMessage(), e);
 		}
 	}
@@ -718,22 +876,30 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *          something that represents this node.
 	 * @return returns true if the drop takes place, false if not
 	 */
-	public boolean handleDropJavaFileList(DropTargetDropEvent dtde) {
+	public boolean handleDropJavaFileList(DropTargetDropEvent dtde)
+	{
 		dtde.acceptDrop(dtde.getDropAction());
 
 		Transferable t = dtde.getTransferable();
 
-		try {
-			List fileList = ((List) t.getTransferData(DataFlavor.javaFileListFlavor));
+		try
+		{
+			List fileList =
+					((List) t.getTransferData(DataFlavor.javaFileListFlavor));
 
-			for (int i = 0; i < fileList.size(); i++) {
+			for (int i = 0; i < fileList.size(); i++)
+			{
 				File newFile = (File) fileList.get(i);
 
-				if (newFile.exists()) {
-					MiscUtilities.copy(newFile, new File(dir.getAbsolutePath() + File.separator + newFile.getName()));
+				if (newFile.exists())
+				{
+					MiscUtilities.copy(newFile, new File(dir.getAbsolutePath()
+						+ File.separator + newFile.getName()));
 				}
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			Logging.errorPrint(e.getMessage(), e);
 
 			return false;
@@ -750,26 +916,37 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param index
 	 *          Location to insert it.
 	 */
-	public void insert(MutableTreeNode child, int index) {
-		if (!allowsChildren) {
+	public void insert(MutableTreeNode child, int index)
+	{
+		if (!allowsChildren)
+		{
 			throw new IllegalStateException("node does not allow children");
-		} else if (child == null) {
+		}
+		else if (child == null)
+		{
 			throw new IllegalArgumentException("new child is null");
-		} else if (isNodeAncestor(child)) { throw new IllegalArgumentException("new child is an ancestor"); }
+		}
+		else if (isNodeAncestor(child))
+		{
+			throw new IllegalArgumentException("new child is an ancestor");
+		}
 
-		if (!hasBeenPopulated) {
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
 		MutableTreeNode oldParent = (MutableTreeNode) child.getParent();
 
-		if (oldParent != null) {
+		if (oldParent != null)
+		{
 			oldParent.remove(child);
 		}
 
 		child.setParent(this);
 
-		if (children == null) {
+		if (children == null)
+		{
 			children = new Vector<MutableTreeNode>();
 		}
 
@@ -783,51 +960,65 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param e
 	 *          a Document Event
 	 */
-	public void insertUpdate(DocumentEvent e) {
+	public void insertUpdate(DocumentEvent e)
+	{
 		dirty = true;
 		tree.updateUI();
 	}
 
 	/** Refereshs the tree to take into account any added/removed directories */
-	public void refresh() {
+	public void refresh()
+	{
 		// TODO: This function seems to not always generate the proper results.
 		// Sometimes duplicating nodes.
-		if (hasBeenPopulated) {
+		if (hasBeenPopulated)
+		{
 			Enumeration childNodes = children();
 			List<File> childDirs = Arrays.asList(dir.listFiles());
 			List<File> removeDirs = new ArrayList<File>();
 
-			for (; childNodes.hasMoreElements();) {
+			for (; childNodes.hasMoreElements();)
+			{
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();
 				File nodeDir = node.getDir();
 
-				if (nodeDir.exists()) {
-					for (int i = 0; i < childDirs.size(); i++) {
+				if (nodeDir.exists())
+				{
+					for (int i = 0; i < childDirs.size(); i++)
+					{
 						File childDir = childDirs.get(i);
 
-						if (nodeDir.getName().equals(childDir.getName())) {
+						if (nodeDir.getName().equals(childDir.getName()))
+						{
 							removeDirs.add(childDir);
 
 							continue;
 						}
 					}
-				} else {
+				}
+				else
+				{
 					remove(node);
 				}
 			}
 
 			for (File childDir : childDirs)
 			{
-				if (!removeDirs.contains(childDir)) {
-					if (childDir.isDirectory() && !childDir.getName().equals("CVS")) {
-						add(new NotesTreeNode(childDir.getName(), childDir, tree));
+				if (!removeDirs.contains(childDir))
+				{
+					if (childDir.isDirectory()
+						&& !childDir.getName().equals("CVS"))
+					{
+						add(new NotesTreeNode(childDir.getName(), childDir,
+							tree));
 					}
 				}
 			}
 
 			Enumeration newNodes = children();
 
-			for (; newNodes.hasMoreElements();) {
+			for (; newNodes.hasMoreElements();)
+			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				node.refresh();
 			}
@@ -842,11 +1033,13 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param path
 	 *          New path to move the children to.
 	 */
-	public void rehome(String path) {
+	public void rehome(String path)
+	{
 		// TODO: Children cease being editable after a rehome, fix this.
 		dir = new File(path + File.separator + dir.getName());
 		rehomeChildren(dir.getAbsolutePath());
-		notesDoc.putProperty("docroot", dir.getAbsolutePath() + File.separator + "data.html");
+		notesDoc.putProperty("docroot", dir.getAbsolutePath() + File.separator
+			+ "data.html");
 	}
 
 	/**
@@ -855,11 +1048,14 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param path
 	 *          New path for the child
 	 */
-	public void rehomeChildren(String path) {
-		if (hasBeenPopulated) {
+	public void rehomeChildren(String path)
+	{
+		if (hasBeenPopulated)
+		{
 			Enumeration childNodes = children();
 
-			for (; childNodes.hasMoreElements();) {
+			for (; childNodes.hasMoreElements();)
+			{
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();
 				node.rehome(path);
 			}
@@ -872,8 +1068,10 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param index
 	 *          index of child to remove
 	 */
-	public void remove(int index) {
-		if (!hasBeenPopulated) {
+	public void remove(int index)
+	{
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
@@ -888,12 +1086,20 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param node
 	 *          node to remove
 	 */
-	public void remove(MutableTreeNode node) {
-		if (node == null) { throw new IllegalArgumentException("argument is null"); }
+	public void remove(MutableTreeNode node)
+	{
+		if (node == null)
+		{
+			throw new IllegalArgumentException("argument is null");
+		}
 
-		if (!isNodeChild(node)) { throw new IllegalArgumentException("argument is not a child"); }
+		if (!isNodeChild(node))
+		{
+			throw new IllegalArgumentException("argument is not a child");
+		}
 
-		if (!hasBeenPopulated) {
+		if (!hasBeenPopulated)
+		{
 			populate();
 		}
 
@@ -903,17 +1109,21 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	}
 
 	/** Removes all child nodes */
-	public void removeAllChildren() {
-		for (int i = children.size() - 1; i >= 0; i--) {
+	public void removeAllChildren()
+	{
+		for (int i = children.size() - 1; i >= 0; i--)
+		{
 			remove(i);
 		}
 	}
 
 	/** Removes this node from it's parent */
-	public void removeFromParent() {
+	public void removeFromParent()
+	{
 		MutableTreeNode aParent = (MutableTreeNode) getParent();
 
-		if (aParent != null) {
+		if (aParent != null)
+		{
 			aParent.remove(this);
 		}
 	}
@@ -925,7 +1135,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param e
 	 *          a Document Event
 	 */
-	public void removeUpdate(DocumentEvent e) {
+	public void removeUpdate(DocumentEvent e)
+	{
 		dirty = true;
 		tree.updateUI();
 	}
@@ -937,36 +1148,54 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 * @param newName
 	 *          New name for the node
 	 */
-	public void rename(String newName) {
+	public void rename(String newName)
+	{
 		String path = dir.getParent();
 
-		if (dir.exists()) {
+		if (dir.exists())
+		{
 			String oldPath = dir.getAbsolutePath();
 			String oldName = dir.getName();
-			boolean tryrename = dir.renameTo(new File(path + File.separator + newName));
+			boolean tryrename =
+					dir.renameTo(new File(path + File.separator + newName));
 
-			if (!tryrename) {
+			if (!tryrename)
+			{
 				dir = new File(oldPath);
 				setUserObject(oldName);
-			} else {
+			}
+			else
+			{
 				dir = new File(path + File.separator + newName);
 				rehomeChildren(dir.getAbsolutePath());
 			}
-		} else {
+		}
+		else
+		{
 			dir = new File(path + File.separator + newName);
 			dir.mkdirs();
 		}
 	}
 
 	/** reverts back to the saved file (and as a consequence, clears the cache) */
-	public void revert() {
+	public void revert()
+	{
 		//If it is modified, confirm
-		if (dirty) {
-			int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Note '" + getUserObject()
-					+ "' has been altered, are you sure you wish to revert to the saved copy?", "Revert?",
-					JOptionPane.YES_NO_OPTION);
+		if (dirty)
+		{
+			int choice =
+					JOptionPane
+						.showConfirmDialog(
+							GMGenSystem.inst,
+							"Note '"
+								+ getUserObject()
+								+ "' has been altered, are you sure you wish to revert to the saved copy?",
+							"Revert?", JOptionPane.YES_NO_OPTION);
 
-			if (choice == JOptionPane.NO_OPTION) { return; }
+			if (choice == JOptionPane.NO_OPTION)
+			{
+				return;
+			}
 		}
 
 		dirty = false;
@@ -976,16 +1205,23 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	}
 
 	/** Saves this node's data. */
-	public void save() {
-		if (dirty) {
-			try {
-				File notes = new File(dir.getAbsolutePath() + File.separator + "data.html");
+	public void save()
+	{
+		if (dirty)
+		{
+			try
+			{
+				File notes =
+						new File(dir.getAbsolutePath() + File.separator
+							+ "data.html");
 
-				if (!notes.exists()) {
+				if (!notes.exists())
+				{
 					notes.createNewFile();
 				}
 
-				if (pane != null) {
+				if (pane != null)
+				{
 					FileWriter fw = new FileWriter(notes);
 					HTMLWriter hw = new HTMLWriter(fw, notesDoc);
 					hw.write();
@@ -993,16 +1229,20 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 					fw.close();
 					dirty = false;
 				}
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				Logging.errorPrint(e.getMessage(), e);
 			}
 		}
 	}
 
-	public void saveChildren() {
+	public void saveChildren()
+	{
 		Enumeration newNodes = children();
 
-		for (; newNodes.hasMoreElements();) {
+		for (; newNodes.hasMoreElements();)
+		{
 			NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 			node.save();
 			node.saveChildren();
@@ -1016,32 +1256,39 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener {
 	 *
 	 * @return the name of the node (with a * if it is dirty)
 	 */
-	public String toString() {
-		if (dirty) {
+	public String toString()
+	{
+		if (dirty)
+		{
 			return "* " + getUserObject().toString();
 		}
 		return getUserObject().toString();
 	}
 
-	private void populate() {
+	private void populate()
+	{
 		hasBeenPopulated = true;
 
 		for (File child : dir.listFiles())
 		{
-			if (child.isDirectory() && !child.getName().equals("CVS")) {
+			if (child.isDirectory() && !child.getName().equals("CVS"))
+			{
 				add(new NotesTreeNode(child.getName(), child, tree));
 			}
 		}
 	}
 
-	private void trimEmpty() {
+	private void trimEmpty()
+	{
 		Enumeration newNodes = children();
 
-		for (; newNodes.hasMoreElements();) {
+		for (; newNodes.hasMoreElements();)
+		{
 			NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 			node.trimEmpty();
 
-			if (node.isEmpty()) {
+			if (node.isEmpty())
+			{
 				node.delete();
 			}
 		}

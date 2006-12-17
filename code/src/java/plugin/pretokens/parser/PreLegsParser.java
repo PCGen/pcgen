@@ -38,28 +38,32 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreLegsParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreLegsParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "LEGS", "LEGSEQ", "LEGSGT", "LEGSGTEQ", "LEGSLT", "LEGSLTEQ", "LEGSNEQ"};
+		return new String[]{"LEGS", "LEGSEQ", "LEGSGT", "LEGSGTEQ", "LEGSLT",
+			"LEGSLTEQ", "LEGSNEQ"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		try
 		{
 			prereq.setKind("legs");
-	
+
 			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
 			String compType = kind.substring(4).toLowerCase();
 			if (compType.length() == 0)
@@ -67,16 +71,18 @@ public class PreLegsParser extends AbstractPrerequisiteParser implements Prerequ
 				compType = "gteq";
 			}
 			prereq.setOperator(compType);
-			
+
 			prereq.setOperand(formula);
 			if (invertResult)
 			{
-				prereq.setOperator( prereq.getOperator().invert());
+				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
 		catch (PrerequisiteException pe)
 		{
-			throw new PersistenceLayerException("Unable to parse the prerequisite :'" + kind + ":" + formula + "'. " + pe.getLocalizedMessage());
+			throw new PersistenceLayerException(
+				"Unable to parse the prerequisite :'" + kind + ":" + formula
+					+ "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

@@ -7,7 +7,8 @@ import pcgen.core.PlayerCharacter;
 /**
  * The pane for the master turning (e.g. Turn Undead) 
  */
-public class MasterTurnPane extends javax.swing.JPanel {
+public class MasterTurnPane extends javax.swing.JPanel
+{
 	private PlayerCharacter pc;
 	private int serial = 0;
 
@@ -22,11 +23,13 @@ public class MasterTurnPane extends javax.swing.JPanel {
 	/**
 	 * Constructor
 	 */
-	public MasterTurnPane() {
+	public MasterTurnPane()
+	{
 		initComponents();
 	}
-	
-	private void initComponents() {
+
+	private void initComponents()
+	{
 		turnUndeadPane = new TurnPane();
 		turnAirPane = new TurnPane();
 		turnEarthPane = new TurnPane();
@@ -34,7 +37,7 @@ public class MasterTurnPane extends javax.swing.JPanel {
 		turnWaterPane = new TurnPane();
 		turnPlantPane = new TurnPane();
 		turnScalyPane = new TurnPane();
-		
+
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 		add(turnUndeadPane);
 		add(turnAirPane);
@@ -48,7 +51,8 @@ public class MasterTurnPane extends javax.swing.JPanel {
 	/**
 	 * Set color for this pane
 	 */
-	public void setColor() {
+	public void setColor()
+	{
 		turnAirPane.setColor();
 		turnEarthPane.setColor();
 		turnFirePane.setColor();
@@ -63,8 +67,10 @@ public class MasterTurnPane extends javax.swing.JPanel {
 	 * @param pc
 	 * @param pcProperties
 	 */
-	public void setPc(PlayerCharacter pc, Properties pcProperties) {
-		if(this.pc != pc) {
+	public void setPc(PlayerCharacter pc, Properties pcProperties)
+	{
+		if (this.pc != pc)
+		{
 			this.pc = pc;
 			serial = 0;
 			turnUndeadPane.setPc(pc, pcProperties, "Undead");
@@ -80,8 +86,10 @@ public class MasterTurnPane extends javax.swing.JPanel {
 	/**
 	 * Refresh this pane
 	 */
-	public void refresh() {
-		if(serial < pc.getSerial()) {
+	public void refresh()
+	{
+		if (serial < pc.getSerial())
+		{
 			turnAirPane.refresh();
 			turnEarthPane.refresh();
 			turnFirePane.refresh();
@@ -96,7 +104,8 @@ public class MasterTurnPane extends javax.swing.JPanel {
 	/**
 	 * Update the properties for this pane
 	 */
-	public void updateProperties() {
+	public void updateProperties()
+	{
 		turnAirPane.updateProperties();
 		turnEarthPane.updateProperties();
 		turnFirePane.updateProperties();
@@ -109,7 +118,8 @@ public class MasterTurnPane extends javax.swing.JPanel {
 	/**
 	 * Destroy this pane
 	 */
-	public void destruct() {
+	public void destruct()
+	{
 		turnAirPane.destruct();
 		turnEarthPane.destruct();
 		turnFirePane.destruct();
@@ -128,4 +138,3 @@ public class MasterTurnPane extends javax.swing.JPanel {
 		removeAll();
 	}
 }
-

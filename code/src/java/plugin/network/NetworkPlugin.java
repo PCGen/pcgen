@@ -27,7 +27,8 @@ import java.awt.event.ActionListener;
  * @author  Expires 2003
  * @version 2.10
  */
-public class NetworkPlugin extends GMBPlugin {
+public class NetworkPlugin extends GMBPlugin
+{
 	public static final String LOG_NAME = "Network";
 
 	/** The English name of the plugin. */
@@ -43,29 +44,37 @@ public class NetworkPlugin extends GMBPlugin {
 	/**
 	 * Creates a new instance of NetworkPlugin
 	 */
-	public NetworkPlugin() {
+	public NetworkPlugin()
+	{
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
+	public FileFilter[] getFileTypes()
+	{
 		return null;
 	}
 
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
-	public void start() {
+	public void start()
+	{
 		model = new NetworkModel();
-		GMBus.send(new TabAddMessage(this, name, model.getView(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, name, model.getView(),
+			getPluginSystem()));
 		initMenus();
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesNetworkingPanel(model)));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesNetworkingPanel(model)));
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 60);
 	}
 
@@ -73,7 +82,8 @@ public class NetworkPlugin extends GMBPlugin {
 	 * Accessor for name
 	 * @return name
 	 */
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
@@ -81,7 +91,8 @@ public class NetworkPlugin extends GMBPlugin {
 	 * Accessor for version
 	 * @return version
 	 */
-	public String getVersion() {
+	public String getVersion()
+	{
 		return version;
 	}
 
@@ -90,59 +101,78 @@ public class NetworkPlugin extends GMBPlugin {
 	 * @param message the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
-	public void handleMessage(GMBMessage message) {
-		if (message instanceof CombatRequestMessage) {
+	public void handleMessage(GMBMessage message)
+	{
+		if (message instanceof CombatRequestMessage)
+		{
 			handleCombatRequestMessage((CombatRequestMessage) message);
 		}
-		else if (message instanceof StateChangedMessage) {
+		else if (message instanceof StateChangedMessage)
+		{
 			handleStateChangedMessage((StateChangedMessage) message);
 		}
-		else if (message instanceof CombatantUpdatedMessage) {
+		else if (message instanceof CombatantUpdatedMessage)
+		{
 			handleCombatantUpdatedMessage((CombatantUpdatedMessage) message);
 		}
 	}
 
-	private void handleStateChangedMessage(StateChangedMessage message) {
-		if(isActive()) {
+	private void handleStateChangedMessage(StateChangedMessage message)
+	{
+		if (isActive())
+		{
 			netToolsItem.setEnabled(false);
-			if(model.getCombat() == null) {
+			if (model.getCombat() == null)
+			{
 				GMBus.send(new CombatRequestMessage(this));
 			}
-			try {
-				GMGenSystemView.getTabPane().setIconAt(GMGenSystemView.getTabPane().indexOfTab(name), null);
-			} catch(Exception e) {
+			try
+			{
+				GMGenSystemView.getTabPane().setIconAt(
+					GMGenSystemView.getTabPane().indexOfTab(name), null);
+			}
+			catch (Exception e)
+			{
 				// TODO Handle this?
 			}
 			model.clearIcon();
 			model.refresh();
 		}
-		else {
+		else
+		{
 			netToolsItem.setEnabled(true);
 		}
 	}
 
-	private void handleCombatRequestMessage(CombatRequestMessage message) {
-		if (message.getSource() == this) {
+	private void handleCombatRequestMessage(CombatRequestMessage message)
+	{
+		if (message.getSource() == this)
+		{
 			model.setCombat(message.getCombat());
 		}
 		model.refresh();
 	}
 
-	private void handleCombatantUpdatedMessage(CombatantUpdatedMessage message) {
+	private void handleCombatantUpdatedMessage(CombatantUpdatedMessage message)
+	{
 		model.combatantUpdated(message.getCombatant());
 	}
 
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(model.getView());
+	public boolean isActive()
+	{
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(model.getView());
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(model.getView());
+			&& tp.getSelectedComponent().equals(model.getView());
 	}
 
-	public void toolMenuItem(ActionEvent evt) {
+	public void toolMenuItem(ActionEvent evt)
+	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++) {
-			if (tp.getComponentAt(i) instanceof NetworkView) {
+		for (int i = 0; i < tp.getTabCount(); i++)
+		{
+			if (tp.getComponentAt(i) instanceof NetworkView)
+			{
 				tp.setSelectedIndex(i);
 			}
 		}
@@ -152,8 +182,10 @@ public class NetworkPlugin extends GMBPlugin {
 	{
 		netToolsItem.setMnemonic('N');
 		netToolsItem.setText("Network");
-		netToolsItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
+		netToolsItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
 				toolMenuItem(evt);
 			}
 		});

@@ -35,24 +35,29 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSpellResistanceTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSpellResistanceTester extends AbstractPrerequisiteTest
+		implements PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		final int requiredSR = Integer.parseInt(prereq.getOperand());
 		final int characterSR = character.calcSR(false);
 
-		final int runningTotal = prereq.getOperator().compare(characterSR, requiredSR);
+		final int runningTotal =
+				prereq.getOperator().compare(characterSR, requiredSR);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SR"; //$NON-NLS-1$
 	}
 

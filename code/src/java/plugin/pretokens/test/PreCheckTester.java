@@ -18,17 +18,21 @@ import pcgen.core.prereq.PrerequisiteTest;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreCheckTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreCheckTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/** Constructor */
-	public PreCheckTester() {
+	public PreCheckTester()
+	{
 		super();
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "CHECK"; //$NON-NLS-1$
 	}
 
@@ -36,15 +40,22 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		int runningTotal = 0;
 
 		final String checkName = prereq.getKey();
-		final int operand = character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		final int characterCheckVal = SettingsHandler.getGame().getIndexOfCheck(checkName);
-		if (characterCheckVal>=0) {
-			final int characterCheckBonus = character.getTotalCheck(characterCheckVal);
-			runningTotal = prereq.getOperator().compare(characterCheckBonus, operand) > 0 ? 1 : 0;
+		final int operand =
+				character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
+		final int characterCheckVal =
+				SettingsHandler.getGame().getIndexOfCheck(checkName);
+		if (characterCheckVal >= 0)
+		{
+			final int characterCheckBonus =
+					character.getTotalCheck(characterCheckVal);
+			runningTotal =
+					prereq.getOperator().compare(characterCheckBonus, operand) > 0
+						? 1 : 0;
 		}
 		return countedTotal(prereq, runningTotal);
 	}

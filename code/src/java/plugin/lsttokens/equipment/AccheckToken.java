@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with ACCHECK token 
  */
-public class AccheckToken implements EquipmentLstToken {
+public class AccheckToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ACCHECK";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setACCheck(value);
 		return true;
 	}

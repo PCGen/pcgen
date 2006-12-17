@@ -6,13 +6,16 @@ import pcgen.persistence.lst.AbilityLstToken;
 /**
  * Deal with CATEGORY token
  */
-public class CategoryToken  implements AbilityLstToken{
+public class CategoryToken implements AbilityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CATEGORY";
 	}
 
-	public boolean parse(Ability ability, String value) {
+	public boolean parse(Ability ability, String value)
+	{
 		ability.setCategory(value);
 		return true;
 	}

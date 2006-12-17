@@ -36,17 +36,22 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreStatTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreStatTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		final int targetNumber = Integer.parseInt( prereq.getOperand());
-		final int statValue = character.getStatList().getTotalStatFor( prereq.getKey() );
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		final int targetNumber = Integer.parseInt(prereq.getOperand());
+		final int statValue =
+				character.getStatList().getTotalStatFor(prereq.getKey());
 
-		final int runningTotal = prereq.getOperator().compare(statValue, targetNumber);
+		final int runningTotal =
+				prereq.getOperator().compare(statValue, targetNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -61,8 +66,11 @@ public class PreStatTester extends AbstractPrerequisiteTest implements Prerequis
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreStat.toHtml", prereq.getKey(), prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreStat.toHtml", prereq.getKey(), prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
 	}
 
 }

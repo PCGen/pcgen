@@ -35,10 +35,7 @@ import pcgen.core.bonus.util.SpellCastInfo;
  */
 public final class SpellKnownMult extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"SPELLKNOWNMULT"
-		};
+	private static final String[] bonusHandled = {"SPELLKNOWNMULT"};
 
 	/*
 	 * CLASS.<classname OR Any>;LEVEL.<level>
@@ -70,7 +67,7 @@ public final class SpellKnownMult extends BonusObj
 	protected String unparseToken(final Object obj)
 	{
 		final StringBuffer sb = new StringBuffer(30);
-		final SpellCastInfo sci = (SpellCastInfo)obj;
+		final SpellCastInfo sci = (SpellCastInfo) obj;
 
 		if (sci.getType() != null)
 		{

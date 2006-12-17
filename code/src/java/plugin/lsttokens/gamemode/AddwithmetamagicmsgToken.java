@@ -28,19 +28,21 @@ package plugin.lsttokens.gamemode;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
-
 /**
  * <code>AddwithmetamagicmsgToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class AddwithmetamagicmsgToken implements GameModeLstToken {
+public class AddwithmetamagicmsgToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ADDWITHMETAMAGICMSG";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setAddWithMetamagicMessage(value);
 		return true;
 	}

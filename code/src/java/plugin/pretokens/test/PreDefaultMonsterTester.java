@@ -36,7 +36,9 @@ import pcgen.core.SettingsHandler;
  * @author wardc
  *
  */
-public class PreDefaultMonsterTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreDefaultMonsterTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -51,7 +53,8 @@ public class PreDefaultMonsterTester extends AbstractPrerequisiteTest implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "DEFAULTMONSTER"; //$NON-NLS-1$
 	}
 

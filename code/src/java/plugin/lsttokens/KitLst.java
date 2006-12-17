@@ -11,19 +11,24 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class KitLst implements GlobalLstToken {
+public class KitLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "KIT";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if (anInt > -9) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (anInt > -9)
+		{
 			obj.setKitString(anInt + "|" + value);
-		} else {
+		}
+		else
+		{
 			obj.setKitString("0|" + value);
 		}
 		return true;
 	}
 }
-

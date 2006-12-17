@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with SKILL Token
  */
-public class SkillToken implements CampaignLstToken {
+public class SkillToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SKILL";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("SKILL:" + value);
-		campaign.addSkillFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addSkillFile(new CampaignSourceEntry(campaign, CampaignLoader
+			.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

@@ -36,10 +36,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Checks extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"CHECKS"
-		};
+	private static final String[] bonusHandled = {"CHECKS"};
 
 	protected boolean parseToken(final String argToken)
 	{
@@ -74,7 +71,8 @@ public final class Checks extends BonusObj
 		else if ("ALL".equals(token))
 		{
 			// Special case of:  BONUS:CHECKS|ALL|x
-			for (PObject check : SettingsHandler.getGame().getUnmodifiableCheckList())
+			for (PObject check : SettingsHandler.getGame()
+				.getUnmodifiableCheckList())
 			{
 				addBonusInfo(new CheckInfo(check, isBase));
 			}
@@ -122,7 +120,7 @@ public final class Checks extends BonusObj
 			isBase = argIsBase;
 		}
 	}
-	
+
 	public static CheckInfo LIST_CHECK = new CheckInfo(null, false);
 
 	protected String[] getBonusesHandled()

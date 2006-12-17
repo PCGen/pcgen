@@ -42,7 +42,8 @@ import java.io.File;
  * @author devon
  * @since April 7, 2003
  */
-public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel {
+public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
+{
 
 	private JPanel dirPanel;
 	private JPanel loggingPanel;
@@ -51,20 +52,24 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel {
 	private JButton browseButton;
 
 	/** Creates new form PreferencesNotesPanel */
-	public PreferencesNotesPanel() {
+	public PreferencesNotesPanel()
+	{
 		initComponents();
 		initPreferences();
 	}
 
-	public void applyPreferences() {
+	public void applyPreferences()
+	{
 		SettingsHandler.setGMGenOption("Notes.DataDir", getDataDir());
 		SettingsHandler.setGMGenOption("Logging.On", isLogging());
 		LogUtilities.inst().setLoggingOn(isLogging());
 	}
 
-	public void initPreferences() {
-		setDataDir(SettingsHandler.getGMGenOption("Notes.DataDir", SettingsHandler.getGmgenPluginDir().toString()
-				+ File.separator + "Notes"));
+	public void initPreferences()
+	{
+		setDataDir(SettingsHandler.getGMGenOption("Notes.DataDir",
+			SettingsHandler.getGmgenPluginDir().toString() + File.separator
+				+ "Notes"));
 		setLogging(SettingsHandler.getGMGenOption("Logging.On", false));
 	}
 
@@ -75,7 +80,8 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel {
 	 *
 	 * @param dir
 	 */
-	private void setDataDir(String dir) {
+	private void setDataDir(String dir)
+	{
 		dataDirField.setText(dir);
 	}
 
@@ -86,23 +92,28 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel {
 	 * @return data directory
 	 *
 	 */
-	private String getDataDir() {
+	private String getDataDir()
+	{
 		return dataDirField.getText();
 	}
 
-	private boolean isLogging() {
+	private boolean isLogging()
+	{
 		return logging.isSelected();
 	}
 
-	private void setLogging(boolean isLogging) {
+	private void setLogging(boolean isLogging)
+	{
 		logging.setSelected(isLogging);
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return "General";
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 		setLayout(new BorderLayout());
 
 		dirPanel = new JPanel();
@@ -111,9 +122,11 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel {
 		logging = new JCheckBox();
 		browseButton = new JButton("Browse");
 
-		browseButton.addActionListener(new ActionListener() {
+		browseButton.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e)
+			{
 				browseButtonActionPerformed(e);
 			}
 		});
@@ -168,10 +181,12 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel {
 	 *
 	 * @param e
 	 */
-	protected void browseButtonActionPerformed(ActionEvent e) {
+	protected void browseButtonActionPerformed(ActionEvent e)
+	{
 		JFileChooser dlg = new JFileChooser(getDataDir());
 		dlg.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		if (dlg.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+		if (dlg.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+		{
 			setDataDir(dlg.getSelectedFile().getAbsolutePath());
 		}
 	}

@@ -35,7 +35,8 @@ import javax.swing.JRadioButton;
  *
  * @author soulcatcher
  */
-public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
+public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
+{
 
 	public static final int DAMAGE_DYING_END = 1;
 	public static final int DAMAGE_DYING_INITIATIVE = 2;
@@ -76,45 +77,62 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 	private JPanel disabledPanel;
 
 	/** Creates new form PreferencesDamagePanel */
-	public PreferencesDamagePanel() {
+	public PreferencesDamagePanel()
+	{
 		initComponents();
 		initPreferences();
 	}
 
-	public void setDeath(int death) {
-		if (death == DAMAGE_DEATH_NEG_TEN) {
+	public void setDeath(int death)
+	{
+		if (death == DAMAGE_DEATH_NEG_TEN)
+		{
 			deathRB1.setSelected(true);
-		} else if (death == DAMAGE_DEATH_NEG_CON) {
+		}
+		else if (death == DAMAGE_DEATH_NEG_CON)
+		{
 			deathRB2.setSelected(true);
 		}
 	}
 
-	public int getDeath() {
+	public int getDeath()
+	{
 		int returnVal = 0;
 
-		if (deathRB1.isSelected()) {
+		if (deathRB1.isSelected())
+		{
 			returnVal = DAMAGE_DEATH_NEG_TEN;
-		} else if (deathRB2.isSelected()) {
+		}
+		else if (deathRB2.isSelected())
+		{
 			returnVal = DAMAGE_DEATH_NEG_CON;
 		}
 
 		return returnVal;
 	}
 
-	public void setDisabled(int disabled) {
-		if (disabled == DAMAGE_DISABLED_ZERO) {
+	public void setDisabled(int disabled)
+	{
+		if (disabled == DAMAGE_DISABLED_ZERO)
+		{
 			disabledRBZero.setSelected(true);
-		} else if (disabled == DAMAGE_DISABLED_CON) {
+		}
+		else if (disabled == DAMAGE_DISABLED_CON)
+		{
 			disabledRBCon.setSelected(true);
 		}
 	}
 
-	public int getDisabled() {
+	public int getDisabled()
+	{
 		int returnVal = 0;
 
-		if (disabledRBZero.isSelected()) {
+		if (disabledRBZero.isSelected())
+		{
 			returnVal = DAMAGE_DISABLED_ZERO;
-		} else if (disabledRBCon.isSelected()) {
+		}
+		else if (disabledRBCon.isSelected())
+		{
 			returnVal = DAMAGE_DISABLED_CON;
 		}
 
@@ -122,93 +140,137 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	// End of variables declaration//GEN-END:variables
-	public void setDying(int dying) {
-		if (dying == DAMAGE_DYING_END) {
+	public void setDying(int dying)
+	{
+		if (dying == DAMAGE_DYING_END)
+		{
 			dyingRB1.setSelected(true);
-		} else if (dying == DAMAGE_DYING_INITIATIVE) {
+		}
+		else if (dying == DAMAGE_DYING_INITIATIVE)
+		{
 			dyingRB2.setSelected(true);
 		}
 	}
 
-	public int getDying() {
+	public int getDying()
+	{
 		int returnVal = 0;
 
-		if (dyingRB1.isSelected()) {
+		if (dyingRB1.isSelected())
+		{
 			returnVal = DAMAGE_DYING_END;
-		} else if (dyingRB2.isSelected()) {
+		}
+		else if (dyingRB2.isSelected())
+		{
 			returnVal = DAMAGE_DYING_INITIATIVE;
 		}
 
 		return returnVal;
 	}
 
-	public void setDyingStart(boolean dyingStart) {
+	public void setDyingStart(boolean dyingStart)
+	{
 		dyingCB1.setSelected(dyingStart);
 	}
 
-	public void setStable(int stable) {
-		if (stable == DAMAGE_STABLE_PERCENT) {
+	public void setStable(int stable)
+	{
+		if (stable == DAMAGE_STABLE_PERCENT)
+		{
 			stableRB1.setSelected(true);
-		} else if (stable == DAMAGE_STABLE_SAVE) {
+		}
+		else if (stable == DAMAGE_STABLE_SAVE)
+		{
 			stableRB2.setSelected(true);
-		} else if (stable == DAMAGE_STABLE_NONE) {
+		}
+		else if (stable == DAMAGE_STABLE_NONE)
+		{
 			stableRB3.setSelected(true);
 		}
 	}
 
-	public int getStable() {
+	public int getStable()
+	{
 		int returnVal = 0;
 
-		if (stableRB1.isSelected()) {
+		if (stableRB1.isSelected())
+		{
 			returnVal = DAMAGE_STABLE_PERCENT;
-		} else if (stableRB2.isSelected()) {
+		}
+		else if (stableRB2.isSelected())
+		{
 			returnVal = DAMAGE_STABLE_SAVE;
-		} else if (stableRB3.isSelected()) {
+		}
+		else if (stableRB3.isSelected())
+		{
 			returnVal = DAMAGE_STABLE_NONE;
 		}
 
 		return returnVal;
 	}
 
-	public void setSubdual(int subdual) {
-		if (subdual == DAMAGE_SUBDUAL) {
+	public void setSubdual(int subdual)
+	{
+		if (subdual == DAMAGE_SUBDUAL)
+		{
 			nonLethalRB1.setSelected(true);
-		} else if (subdual == DAMAGE_NON_LETHAL) {
+		}
+		else if (subdual == DAMAGE_NON_LETHAL)
+		{
 			nonLethalRB2.setSelected(true);
 		}
 	}
 
-	public int getSubdual() {
+	public int getSubdual()
+	{
 		int returnVal = 0;
 
-		if (nonLethalRB1.isSelected()) {
+		if (nonLethalRB1.isSelected())
+		{
 			returnVal = DAMAGE_SUBDUAL;
-		} else if (nonLethalRB2.isSelected()) {
+		}
+		else if (nonLethalRB2.isSelected())
+		{
 			returnVal = DAMAGE_NON_LETHAL;
 		}
 
 		return returnVal;
 	}
 
-	public void applyPreferences() {
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Dying", getDying());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Dying.Start", dyingCB1.isSelected());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Death", getDeath());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Stable", getStable());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Subdual", getSubdual());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Disabled", getDisabled());
+	public void applyPreferences()
+	{
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Dying", getDying());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Dying.Start", dyingCB1.isSelected());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Death", getDeath());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Stable", getStable());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Subdual", getSubdual());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Disabled", getDisabled());
 	}
 
-	public void initPreferences() {
-		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Dying", DAMAGE_DYING_END));
-		setDyingStart(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Dying.Start", true));
-		setDeath(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Death", DAMAGE_DEATH_NEG_TEN));
-		setStable(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Stable", DAMAGE_STABLE_PERCENT));
-		setSubdual(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Subdual", DAMAGE_SUBDUAL));
-		setDisabled(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Disabled", DAMAGE_DISABLED_ZERO));
+	public void initPreferences()
+	{
+		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Dying", DAMAGE_DYING_END));
+		setDyingStart(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Dying.Start", true));
+		setDeath(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Death", DAMAGE_DEATH_NEG_TEN));
+		setStable(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Stable", DAMAGE_STABLE_PERCENT));
+		setSubdual(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Subdual", DAMAGE_SUBDUAL));
+		setDisabled(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Disabled", DAMAGE_DISABLED_ZERO));
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return "Damage";
 	}
 
@@ -217,7 +279,8 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 	 * WARNING: Do NOT modify this code. The content of this method is always
 	 * regenerated by the Form Editor.
 	 */
-	private void initComponents() { //GEN-BEGIN:initComponents
+	private void initComponents()
+	{ //GEN-BEGIN:initComponents
 		deathGroup = new javax.swing.ButtonGroup();
 		stableGroup = new javax.swing.ButtonGroup();
 		nonLethalGroup = new javax.swing.ButtonGroup();
@@ -245,50 +308,64 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 
 		setLayout(new java.awt.BorderLayout());
 
-		mainPanel.setLayout(new javax.swing.BoxLayout(mainPanel, javax.swing.BoxLayout.Y_AXIS));
+		mainPanel.setLayout(new javax.swing.BoxLayout(mainPanel,
+			javax.swing.BoxLayout.Y_AXIS));
 
-		dyingPanel.setLayout(new javax.swing.BoxLayout(dyingPanel, javax.swing.BoxLayout.Y_AXIS));
+		dyingPanel.setLayout(new javax.swing.BoxLayout(dyingPanel,
+			javax.swing.BoxLayout.Y_AXIS));
 
-		dyingPanel.setBorder(new javax.swing.border.TitledBorder(null, "Dying Damage",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Dialog", 1, 11)));
+		dyingPanel.setBorder(new javax.swing.border.TitledBorder(null,
+			"Dying Damage",
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+			javax.swing.border.TitledBorder.DEFAULT_POSITION,
+			new java.awt.Font("Dialog", 1, 11)));
 		dyingRB1.setSelected(true);
-		dyingRB1.setText("Dying damage happens at the end of each round (3rd Ed)");
+		dyingRB1
+			.setText("Dying damage happens at the end of each round (3rd Ed)");
 		dyingGroup.add(dyingRB1);
 		dyingPanel.add(dyingRB1);
 
-		dyingRB2.setText("Dying damage happens on character's initiative (House)");
+		dyingRB2
+			.setText("Dying damage happens on character's initiative (House)");
 		dyingGroup.add(dyingRB2);
 		dyingPanel.add(dyingRB2);
 
 		dyingCB1.setSelected(true);
-		dyingCB1.setText("Dying damage starts same round character started dying");
+		dyingCB1
+			.setText("Dying damage starts same round character started dying");
 		dyingPanel.add(dyingCB1);
 
 		mainPanel.add(dyingPanel);
 
 		//DISABLED OPTION
-		disabledPanel.setLayout(new javax.swing.BoxLayout(disabledPanel, javax.swing.BoxLayout.Y_AXIS));
+		disabledPanel.setLayout(new javax.swing.BoxLayout(disabledPanel,
+			javax.swing.BoxLayout.Y_AXIS));
 
-		disabledPanel.setBorder(new javax.swing.border.TitledBorder(null, "Disabled Behavior",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Dialog", 1, 11)));
+		disabledPanel.setBorder(new javax.swing.border.TitledBorder(null,
+			"Disabled Behavior",
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+			javax.swing.border.TitledBorder.DEFAULT_POSITION,
+			new java.awt.Font("Dialog", 1, 11)));
 		disabledRBZero.setSelected(true);
-		disabledRBZero.setText("Character becomes disabled at 0 HP (Standard).");
+		disabledRBZero
+			.setText("Character becomes disabled at 0 HP (Standard).");
 		disabledGroup.add(disabledRBZero);
 		disabledPanel.add(disabledRBZero);
 
-		disabledRBCon.setText("Character becomes disabled at -CON Modifier HP (House).");
+		disabledRBCon
+			.setText("Character becomes disabled at -CON Modifier HP (House).");
 		disabledGroup.add(disabledRBCon);
 		disabledPanel.add(disabledRBCon);
 		mainPanel.add(disabledPanel);
 		//END DISABLED OPTION
 
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
+		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
+			javax.swing.BoxLayout.Y_AXIS));
 
 		jPanel3.setBorder(new javax.swing.border.TitledBorder(null, "Death",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Dialog", 1, 11)));
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+			javax.swing.border.TitledBorder.DEFAULT_POSITION,
+			new java.awt.Font("Dialog", 1, 11)));
 		deathRB1.setSelected(true);
 		deathRB1.setText("Death at -10 hit points (3rd Ed, Modern)");
 		deathGroup.add(deathRB1);
@@ -300,11 +377,14 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 
 		mainPanel.add(jPanel3);
 
-		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
+		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4,
+			javax.swing.BoxLayout.Y_AXIS));
 
-		jPanel4.setBorder(new javax.swing.border.TitledBorder(null, "Auto Stabilize",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Dialog", 1, 11)));
+		jPanel4.setBorder(new javax.swing.border.TitledBorder(null,
+			"Auto Stabilize",
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+			javax.swing.border.TitledBorder.DEFAULT_POSITION,
+			new java.awt.Font("Dialog", 1, 11)));
 		stableRB1.setSelected(true);
 		stableRB1.setText("10% chance/round (3rd Ed)");
 		stableGroup.add(stableRB1);
@@ -320,11 +400,14 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel {
 
 		mainPanel.add(jPanel4);
 
-		jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
+		jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5,
+			javax.swing.BoxLayout.Y_AXIS));
 
-		jPanel5.setBorder(new javax.swing.border.TitledBorder(null, "Subdual/Non Lethal Damage",
-				javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION,
-				new java.awt.Font("Dialog", 1, 11)));
+		jPanel5.setBorder(new javax.swing.border.TitledBorder(null,
+			"Subdual/Non Lethal Damage",
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+			javax.swing.border.TitledBorder.DEFAULT_POSITION,
+			new java.awt.Font("Dialog", 1, 11)));
 		nonLethalRB1.setSelected(true);
 		nonLethalRB1.setText("Subdual Damage (3rd Ed)");
 		nonLethalRB1.setToolTipText("null");

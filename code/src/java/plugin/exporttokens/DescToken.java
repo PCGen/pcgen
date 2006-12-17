@@ -53,13 +53,14 @@ public class DescToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ",", false);
 		tok.nextToken();
 
 		String delim = "$1";
-		if(tok.hasMoreTokens())
+		if (tok.hasMoreTokens())
 		{
 			delim = tok.nextToken();
 		}
@@ -77,4 +78,3 @@ public class DescToken extends Token
 		return pc.getDescription();
 	}
 }
-

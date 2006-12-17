@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with ALTCRITRANGE token 
  */
-public class AltcritrangeToken implements EquipmentLstToken {
+public class AltcritrangeToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALTCRITRANGE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setAltCritRange(value);
 		return true;
 	}

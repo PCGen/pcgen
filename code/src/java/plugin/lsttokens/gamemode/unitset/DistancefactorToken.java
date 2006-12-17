@@ -6,18 +6,23 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with DISTANCEFACTOR Token
  */
-public class DistancefactorToken implements UnitSetLstToken {
+public class DistancefactorToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DISTANCEFACTOR";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
-		try {
+	public boolean parse(UnitSet unitSet, String value)
+	{
+		try
+		{
 			unitSet.setDistanceFactor(Double.parseDouble(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

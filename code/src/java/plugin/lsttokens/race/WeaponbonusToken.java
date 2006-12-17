@@ -9,14 +9,18 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with WEAPONBONUS Token
  */
-public class WeaponbonusToken implements RaceLstToken {
+public class WeaponbonusToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WEAPONBONUS"; //$NON-NLS-1$
 	}
 
-	public boolean parse(Race race, String value) {
-		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
+	public boolean parse(Race race, String value)
+	{
+		final StringTokenizer aTok =
+				new StringTokenizer(value, Constants.PIPE, false);
 
 		while (aTok.hasMoreTokens())
 		{

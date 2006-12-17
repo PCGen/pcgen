@@ -34,27 +34,31 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-
 /**
  * @author wardc
  *
  */
-public class PreSubClassTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSubClassTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
+		int runningTotal = 0;
 		int num;
 		try
 		{
-			num = Integer.parseInt( prereq.getOperand() ); // number we must match
+			num = Integer.parseInt(prereq.getOperand()); // number we must match
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreSubClass.error.badly_formed", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreSubClass.error.badly_formed", prereq.toString())); //$NON-NLS-1$
 		}
 
 		final String thisClass = prereq.getKey();
@@ -78,7 +82,8 @@ public class PreSubClassTester  extends AbstractPrerequisiteTest implements Prer
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SUBCLASS"; //$NON-NLS-1$
 	}
 

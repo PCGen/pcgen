@@ -6,13 +6,16 @@ import pcgen.persistence.lst.DeityLstToken;
 /**
  * Class deals with SYMBOL Token
  */
-public class SymbolToken implements DeityLstToken{
+public class SymbolToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SYMBOL";
 	}
 
-	public boolean parse(Deity deity, String value) {
+	public boolean parse(Deity deity, String value)
+	{
 		deity.setHolyItem(value);
 		return true;
 	}

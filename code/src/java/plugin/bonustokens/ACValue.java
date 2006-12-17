@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>ACValue</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class ACValue extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"ACVALUE"
-		};
+	private static final String[] bonusHandled = {"ACVALUE"};
 
 	protected boolean parseToken(final String token)
 	{

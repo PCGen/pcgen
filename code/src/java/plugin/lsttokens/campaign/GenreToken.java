@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with GENRE Token
  */
-public class GenreToken implements CampaignLstToken {
+public class GenreToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "GENRE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setGenre(value);
 		return true;
 	}

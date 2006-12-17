@@ -37,13 +37,16 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreAttackTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreAttackTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
 	{
 		int runningTotal;
 		final int att = character.baseAttackBonus();
@@ -55,7 +58,8 @@ public class PreAttackTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		catch (NumberFormatException exc)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAttack.error.badly_formed_attribute", prereq.getOperand()) ); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreAttack.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -72,8 +76,11 @@ public class PreAttackTester extends AbstractPrerequisiteTest implements Prerequ
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreAttack.toHtml", new Object[] {prereq.getOperator().toDisplayString(), prereq.getOperand() } ); //$NON-NLS-1$ //$NON-NLS-2$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreAttack.toHtml", new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()}); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }

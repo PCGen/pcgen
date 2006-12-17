@@ -41,24 +41,28 @@ import java.util.List;
  * @author wardc
  *
  */
-public class PreItemTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreItemTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	// TODO Refactor this with all the equipment tests.
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 		final int number;
 		try
 		{
-			number = Integer.parseInt( prereq.getOperand() );
+			number = Integer.parseInt(prereq.getOperand());
 		}
 		catch (NumberFormatException e)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreItem.error.bad_operand", prereq.toString()) ); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
-
 
 		int runningTotal = 0;
 
@@ -101,7 +105,8 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = aString.indexOf('%');
-						final String substring = aString.substring(0, percentPos).toUpperCase();
+						final String substring =
+								aString.substring(0, percentPos).toUpperCase();
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;
@@ -122,13 +127,11 @@ public class PreItemTester extends AbstractPrerequisiteTest implements Prerequis
 		return countedTotal(prereq, runningTotal);
 	}
 
-
-
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "ITEM"; //$NON-NLS-1$
 	}
 

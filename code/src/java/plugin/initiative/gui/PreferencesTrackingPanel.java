@@ -121,18 +121,24 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", isSpellCheckBoxChecked());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", isDeathCheckBoxChecked());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", isHPCheckBoxChecked());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells",
+			isSpellCheckBoxChecked());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath",
+			isDeathCheckBoxChecked());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP",
+			isHPCheckBoxChecked());
 		initiative.applyPrefs();
 		initiative.refreshTable();
 	}
 
 	public void initPreferences()
 	{
-		setSpellCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true));
-		setDeathCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true));
-		setHPCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true));
+		setSpellCheckBoxChecked(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doSpells", true));
+		setDeathCheckBoxChecked(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doDeath", true));
+		setHPCheckBoxChecked(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".doHP", true));
 	}
 
 	public String toString()
@@ -240,5 +246,5 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
 		add(hpCheckBox, gridBagConstraints);
 	}
-	 //GEN-END:initComponents
+	//GEN-END:initComponents
 }

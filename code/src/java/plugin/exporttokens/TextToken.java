@@ -60,10 +60,11 @@ public class TextToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
-		
+
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken(); //this should be VAR
 
@@ -106,12 +107,12 @@ public class TextToken extends Token
 			retString = retString.toLowerCase();
 		}
 		else if (action.equalsIgnoreCase("SENTENCE")
-				|| action.equalsIgnoreCase("SENTENCECASE"))
+			|| action.equalsIgnoreCase("SENTENCECASE"))
 		{
 			retString = changeToSentenceCase(retString);
 		}
 		else if (action.equalsIgnoreCase("TITLE")
-				|| action.equalsIgnoreCase("TITLECASE"))
+			|| action.equalsIgnoreCase("TITLECASE"))
 		{
 			retString = changeToTitleCase(retString);
 		}
@@ -151,8 +152,8 @@ public class TextToken extends Token
 				{
 					res.append(sentence[i].substring(0, pos));
 				}
-				res.append(sentence[i].substring(pos, pos+1).toUpperCase());
-				res.append(sentence[i].substring(pos+1));
+				res.append(sentence[i].substring(pos, pos + 1).toUpperCase());
+				res.append(sentence[i].substring(pos + 1));
 			}
 			else
 			{
@@ -176,7 +177,8 @@ public class TextToken extends Token
 		for (int i = 0; i < chars.length; i++)
 		{
 			char c = chars[i];
-			boolean whiteSpace = (c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r'); 
+			boolean whiteSpace =
+					(c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r');
 			if (start && !whiteSpace)
 			{
 				res.append(Character.toUpperCase(c));

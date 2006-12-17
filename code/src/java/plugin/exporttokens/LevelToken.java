@@ -54,7 +54,8 @@ public class LevelToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -70,7 +71,8 @@ public class LevelToken extends Token
 		PCLevelInfo pcl = null;
 
 		//CONSIDER Shouldn't this for loop really be a method in PlayerCharacter?
-		for (Iterator<PCLevelInfo> i = pc.getLevelInfo().iterator(); i.hasNext();)
+		for (Iterator<PCLevelInfo> i = pc.getLevelInfo().iterator(); i
+			.hasNext();)
 		{
 			pcl = i.next();
 			if (pcl.getLevel() == level)
@@ -159,7 +161,7 @@ public class LevelToken extends Token
 		}
 		if (aClass != null)
 		{
-			return String.valueOf(aClass.getHitPoint(pcl.getLevel()-1));
+			return String.valueOf(aClass.getHitPoint(pcl.getLevel() - 1));
 		}
 		return "";
 	}

@@ -38,18 +38,21 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreHDParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreHDParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "HD" };
+		return new String[]{"HD"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		/*
 		 * either PREHD:xxx+ or PREHD:xxx-yyy
@@ -62,7 +65,8 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 
 		try
 		{
-			if ((tokens.length == 1) || ((tokens.length == 2) && tokens[1].equals("")))
+			if ((tokens.length == 1)
+				|| ((tokens.length == 2) && tokens[1].equals("")))
 			{
 				int min = Integer.parseInt(tokens[0]);
 
@@ -84,7 +88,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 				maxPrereq.setOperator(PrerequisiteOperator.LTEQ);
 				maxPrereq.setOperand(Integer.toString(max));
 
-				prereq.setKind(null);		// PREMULT
+				prereq.setKind(null); // PREMULT
 				prereq.setOperand("2");
 				prereq.addPrerequisite(minPrereq);
 				prereq.addPrerequisite(maxPrereq);
@@ -92,17 +96,19 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 			else
 			{
 				throw new PersistenceLayerException(
-				    "PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
-				    + "' is not valid ");
+					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
+						+ formula + "' is not valid ");
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
-			    + formula + "' is not valid ");
+			throw new PersistenceLayerException(
+				"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
+					+ formula + "' is not valid ");
 		}
-		if (invertResult) {
-			prereq.setOperator( prereq.getOperator().invert());
+		if (invertResult)
+		{
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with FEAT Token
  */
-public class FeatToken implements RaceLstToken {
+public class FeatToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "FEAT";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setFeatList(value);
 		return true;
 	}

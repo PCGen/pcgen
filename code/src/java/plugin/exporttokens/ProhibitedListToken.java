@@ -50,12 +50,14 @@ public class ProhibitedListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getProhibitedListToken(tokenSource, pc);
 	}
 
-	public static String getProhibitedListToken(String tokenSource, PlayerCharacter pc)
+	public static String getProhibitedListToken(String tokenSource,
+		PlayerCharacter pc)
 	{
 		int k = tokenSource.lastIndexOf(',');
 
@@ -71,7 +73,7 @@ public class ProhibitedListToken extends Token
 
 		List<String> stringList = new ArrayList<String>();
 
-		for ( PCClass pcClass : pc.getClassList() )
+		for (PCClass pcClass : pc.getClassList())
 		{
 			if (pcClass.getLevel() > 0)
 			{

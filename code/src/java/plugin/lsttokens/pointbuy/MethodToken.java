@@ -29,19 +29,21 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.PointBuyLoader;
 import pcgen.persistence.lst.PointBuyLstToken;
 
-
 /**
  * <code>StatToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class MethodToken implements PointBuyLstToken {
+public class MethodToken implements PointBuyLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "METHOD";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		return PointBuyLoader.parseMethodLine(gameMode, value);
 	}
 }

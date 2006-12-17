@@ -190,11 +190,12 @@ public class EncounterView extends javax.swing.JPanel
 
 	private void generateEncounterActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		 //GEN-FIRST:event_generateEncounterActionPerformed
+		//GEN-FIRST:event_generateEncounterActionPerformed
 
 		// Add your handling code here:
 	}
-	 //GEN-LAST:event_generateEncounterActionPerformed
+
+	//GEN-LAST:event_generateEncounterActionPerformed
 
 	/** This method is called from within the constructor to
 	 * initialize the form.
@@ -239,7 +240,8 @@ public class EncounterView extends javax.swing.JPanel
 		jPanel1.add(targetLabel, gridBagConstraints);
 
 		targetEncounterLevel.setText("1");
-		targetEncounterLevel.addActionListener(new java.awt.event.ActionListener()
+		targetEncounterLevel
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -264,12 +266,12 @@ public class EncounterView extends javax.swing.JPanel
 
 		numberOfCreatures.setText("1");
 		numberOfCreatures.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					numberOfCreaturesActionPerformed(evt);
-				}
-			});
+				numberOfCreaturesActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -296,12 +298,12 @@ public class EncounterView extends javax.swing.JPanel
 
 		generateEncounter.setText("New Encounter");
 		generateEncounter.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					generateEncounterActionPerformed(evt);
-				}
-			});
+				generateEncounterActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -327,16 +329,20 @@ public class EncounterView extends javax.swing.JPanel
 
 		jPanel2.add(jScrollPane1);
 
-		jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.X_AXIS));
+		jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6,
+			javax.swing.BoxLayout.X_AXIS));
 
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
+		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
+			javax.swing.BoxLayout.Y_AXIS));
 
-		addCreature.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pcgen/gui/resource/Forward16.gif")));
+		addCreature.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/Forward16.gif")));
 		addCreature.setMaximumSize(new java.awt.Dimension(50, 50));
 		addCreature.setMinimumSize(new java.awt.Dimension(50, 50));
 		jPanel3.add(addCreature);
 
-		removeCreature.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pcgen/gui/resource/Back16.gif")));
+		removeCreature.setIcon(new javax.swing.ImageIcon(getClass()
+			.getResource("/pcgen/gui/resource/Back16.gif")));
 		removeCreature.setMaximumSize(new java.awt.Dimension(50, 50));
 		removeCreature.setMinimumSize(new java.awt.Dimension(50, 50));
 		jPanel3.add(removeCreature);
@@ -363,21 +369,24 @@ public class EncounterView extends javax.swing.JPanel
 
 		add(jPanel4, java.awt.BorderLayout.CENTER);
 	}
-	 //GEN-END:initComponents
+
+	//GEN-END:initComponents
 
 	private void numberOfCreaturesActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		 //GEN-FIRST:event_numberOfCreaturesActionPerformed
+		//GEN-FIRST:event_numberOfCreaturesActionPerformed
 
 		// Add your handling code here:
 	}
-	 //GEN-LAST:event_numberOfCreaturesActionPerformed
 
-	private void targetEncounterLevelActionPerformed(java.awt.event.ActionEvent evt)
+	//GEN-LAST:event_numberOfCreaturesActionPerformed
+
+	private void targetEncounterLevelActionPerformed(
+		java.awt.event.ActionEvent evt)
 	{
-		 //GEN-FIRST:event_targetEncounterLevelActionPerformed
+		//GEN-FIRST:event_targetEncounterLevelActionPerformed
 
 		// Add your handling code here:
 	}
-	 //GEN-LAST:event_targetEncounterLevelActionPerformed
+	//GEN-LAST:event_targetEncounterLevelActionPerformed
 }

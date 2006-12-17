@@ -11,19 +11,24 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class RemoveLst implements GlobalLstToken {
+public class RemoveLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "REMOVE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if (anInt > -9) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (anInt > -9)
+		{
 			obj.setRemoveString(anInt + "|" + value);
-		} else {
+		}
+		else
+		{
 			obj.setRemoveString("0|" + value);
 		}
 		return true;
 	}
 }
-

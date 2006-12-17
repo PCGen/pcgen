@@ -82,12 +82,14 @@ public class NotesView extends JPanel
 	protected DropTarget treeDT;
 
 	/**  Insert OL Action for JTextPane */
-	protected ExtendedHTMLEditorKit.InsertListAction actionListOrdered = new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem",
-		    HTML.Tag.OL);
+	protected ExtendedHTMLEditorKit.InsertListAction actionListOrdered =
+			new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem",
+				HTML.Tag.OL);
 
 	/**  Insert UL Action for JTextPane */
-	protected ExtendedHTMLEditorKit.InsertListAction actionListUnordered = new ExtendedHTMLEditorKit.InsertListAction("InsertULItem",
-		    HTML.Tag.UL);
+	protected ExtendedHTMLEditorKit.InsertListAction actionListUnordered =
+			new ExtendedHTMLEditorKit.InsertListAction("InsertULItem",
+				HTML.Tag.UL);
 
 	// End of variables declaration//GEN-END:variables
 	protected NotesPlugin plugin;
@@ -110,7 +112,7 @@ public class NotesView extends JPanel
 	/**  Image extensions that this supports */
 
 	// TODO: Move Image extensions to properties
-	protected final String[] extsIMG = { "gif", "jpg", "jpeg", "png" };
+	protected final String[] extsIMG = {"gif", "jpg", "jpeg", "png"};
 	private JButton boldButton;
 	private JButton bulletButton;
 	private JButton centerJustifyButton;
@@ -193,7 +195,9 @@ public class NotesView extends JPanel
 	 */
 	public void handleOpen()
 	{
-		String sFile = SettingsHandler.getGMGenOption(NotesPlugin.LOG_NAME + ".LastFile", System.getProperty("user.dir"));
+		String sFile =
+				SettingsHandler.getGMGenOption(NotesPlugin.LOG_NAME
+					+ ".LastFile", System.getProperty("user.dir"));
 		File defaultFile = new File(sFile);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
@@ -205,14 +209,16 @@ public class NotesView extends JPanel
 		}
 		chooser.setMultiSelectionEnabled(true);
 
-		java.awt.Cursor saveCursor = MiscUtilities.setBusyCursor(GMGenSystem.inst);
+		java.awt.Cursor saveCursor =
+				MiscUtilities.setBusyCursor(GMGenSystem.inst);
 		int option = chooser.showOpenDialog(GMGenSystem.inst);
 
 		if (option == JFileChooser.APPROVE_OPTION)
 		{
 			for (File noteFile : chooser.getSelectedFiles())
 			{
-				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME + ".LastFile", noteFile.toString());
+				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME
+					+ ".LastFile", noteFile.toString());
 
 				if (noteFile.toString().endsWith(".gmn"))
 				{
@@ -234,32 +240,32 @@ public class NotesView extends JPanel
 	{
 		JMenuItem paste = new JMenuItem("Paste");
 		paste.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					pasteButtonActionPerformed(evt);
-				}
-			});
+				pasteButtonActionPerformed(evt);
+			}
+		});
 		editMenu.insert(paste, 0);
 
 		JMenuItem copy = new JMenuItem("Copy");
 		paste.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					copyButtonActionPerformed(evt);
-				}
-			});
+				copyButtonActionPerformed(evt);
+			}
+		});
 		editMenu.insert(copy, 0);
 
 		JMenuItem cut = new JMenuItem("Cut");
 		paste.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					cutButtonActionPerformed(evt);
-				}
-			});
+				cutButtonActionPerformed(evt);
+			}
+		});
 		editMenu.insert(cut, 0);
 		editMenu.insertSeparator(0);
 		editMenu.insert(redoAction, 0);
@@ -283,10 +289,16 @@ public class NotesView extends JPanel
 
 				if (node != root)
 				{
-					int choice = JOptionPane.showConfirmDialog(this,
-						    "Importing note " + notesFile.getName() + " into a node other then root, Continue?",
-						    "Importing to a node other then root", JOptionPane.YES_NO_OPTION,
-						    JOptionPane.QUESTION_MESSAGE);
+					int choice =
+							JOptionPane
+								.showConfirmDialog(
+									this,
+									"Importing note "
+										+ notesFile.getName()
+										+ " into a node other then root, Continue?",
+									"Importing to a node other then root",
+									JOptionPane.YES_NO_OPTION,
+									JOptionPane.QUESTION_MESSAGE);
 
 					if (choice == JOptionPane.NO_OPTION)
 					{
@@ -294,11 +306,14 @@ public class NotesView extends JPanel
 					}
 				}
 
-				InputStream in = new BufferedInputStream(new FileInputStream(notesFile));
+				InputStream in =
+						new BufferedInputStream(new FileInputStream(notesFile));
 				ZipInputStream zin = new ZipInputStream(in);
 				ZipEntry e;
 
-				ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Reading Notes Export", "Reading", 1, 1000);
+				ProgressMonitor pm =
+						new ProgressMonitor(GMGenSystem.inst,
+							"Reading Notes Export", "Reading", 1, 1000);
 				int progress = 1;
 
 				while ((e = zin.getNextEntry()) != null)
@@ -320,7 +335,8 @@ public class NotesView extends JPanel
 		}
 		catch (IOException e)
 		{
-			JOptionPane.showMessageDialog(this, "Error Reading File" + notesFile.getName());
+			JOptionPane.showMessageDialog(this, "Error Reading File"
+				+ notesFile.getName());
 			Logging.errorPrint("Error Reading File" + notesFile.getName());
 			Logging.errorPrint(e.getMessage(), e);
 		}
@@ -354,10 +370,13 @@ public class NotesView extends JPanel
 	protected void exportFile(NotesTreeNode node)
 	{
 		JFileChooser fLoad = new JFileChooser();
-		String sFile = SettingsHandler.getGMGenOption(NotesPlugin.LOG_NAME + ".LastFile", "");
+		String sFile =
+				SettingsHandler.getGMGenOption(NotesPlugin.LOG_NAME
+					+ ".LastFile", "");
 		new File(sFile);
-		String[] fileExt = new String[]{ "gmn" };
-		SimpleFileFilter ff = new SimpleFileFilter(fileExt, "GMGen Notes Export");
+		String[] fileExt = new String[]{"gmn"};
+		SimpleFileFilter ff =
+				new SimpleFileFilter(fileExt, "GMGen Notes Export");
 		fLoad.addChoosableFileFilter(ff);
 		fLoad.setFileFilter(ff);
 
@@ -376,12 +395,16 @@ public class NotesView extends JPanel
 					ext = ".gmn";
 				}
 
-				File expFile = new File(dirName + File.separator + fileName + ext);
+				File expFile =
+						new File(dirName + File.separator + fileName + ext);
 
 				if (expFile.exists())
 				{
-					int choice = JOptionPane.showConfirmDialog(this, "File Exists, Overwrite?", "File Exists",
-						    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					int choice =
+							JOptionPane.showConfirmDialog(this,
+								"File Exists, Overwrite?", "File Exists",
+								JOptionPane.YES_NO_OPTION,
+								JOptionPane.QUESTION_MESSAGE);
 
 					if (choice == JOptionPane.NO_OPTION)
 					{
@@ -389,7 +412,8 @@ public class NotesView extends JPanel
 					}
 				}
 
-				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME + ".LastFile", expFile.toString());
+				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME
+					+ ".LastFile", expFile.toString());
 				writeNotesFile(expFile, node);
 			}
 		}
@@ -445,7 +469,8 @@ public class NotesView extends JPanel
 	 *@param  name  name of the action to perform.
 	 *@param  evt   ActionEvent that sparked the calling of this function.
 	 */
-	protected void performTextPaneAction(String name, java.awt.event.ActionEvent evt)
+	protected void performTextPaneAction(String name,
+		java.awt.event.ActionEvent evt)
 	{
 		Action action = getActionByName(editor, name);
 		action.actionPerformed(evt);
@@ -580,8 +605,8 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	protected int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
-		throws IOException
+	protected int writeNotesDir(ZipOutputStream out, File parentDir,
+		File currentDir, ProgressMonitor pm, int progress) throws IOException
 	{
 		byte[] buffer = new byte[4096];
 		int bytes_read;
@@ -604,8 +629,11 @@ public class NotesView extends JPanel
 
 				try
 				{
-					String parentPath = parentDir.getParentFile().getAbsolutePath();
-					ZipEntry entry = new ZipEntry(f.getAbsolutePath().substring(parentPath.length() + 1));
+					String parentPath =
+							parentDir.getParentFile().getAbsolutePath();
+					ZipEntry entry =
+							new ZipEntry(f.getAbsolutePath().substring(
+								parentPath.length() + 1));
 					out.putNextEntry(entry);
 
 					while ((bytes_read = in.read(buffer)) != -1)
@@ -646,9 +674,12 @@ public class NotesView extends JPanel
 	{
 		File dir = node.getDir();
 
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));
+		ZipOutputStream out =
+				new ZipOutputStream(new FileOutputStream(exportFile));
 		int max = fileCount(dir);
-		ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
+		ProgressMonitor pm =
+				new ProgressMonitor(GMGenSystem.inst,
+					"Writing out Notes Export", "Writing", 0, max);
 
 		try
 		{
@@ -739,10 +770,13 @@ public class NotesView extends JPanel
 	}
 
 	//GEN-LAST:event_rightJustifyButtonActionPerformed
-	private void centerJustifyButtonActionPerformed(java.awt.event.ActionEvent evt)
+	private void centerJustifyButtonActionPerformed(
+		java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_centerJustifyButtonActionPerformed
-		Action action = new StyledEditorKit.AlignmentAction("Align Centre", StyleConstants.ALIGN_CENTER);
+		Action action =
+				new StyledEditorKit.AlignmentAction("Align Centre",
+					StyleConstants.ALIGN_CENTER);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -756,8 +790,9 @@ public class NotesView extends JPanel
 		//GEN-FIRST:event_colorButtonActionPerformed
 		AttributeSet as = editor.getCharacterAttributes();
 		SimpleAttributeSet sas = new SimpleAttributeSet(as);
-		Color newColor = JColorChooser.showDialog(GMGenSystem.inst, "Choose Text Color",
-			    editor.getStyledDocument().getForeground(as));
+		Color newColor =
+				JColorChooser.showDialog(GMGenSystem.inst, "Choose Text Color",
+					editor.getStyledDocument().getForeground(as));
 
 		if (newColor != null)
 		{
@@ -865,7 +900,8 @@ public class NotesView extends JPanel
 		//GEN-FIRST:event_fileLeftActionPerformed
 		if (filesBar.getComponentCount() > 1)
 		{
-			Component c = filesBar.getComponent(filesBar.getComponentCount() - 1);
+			Component c =
+					filesBar.getComponent(filesBar.getComponentCount() - 1);
 			filesBar.remove(c);
 			filesBar.add(c, 0);
 		}
@@ -893,7 +929,8 @@ public class NotesView extends JPanel
 		// TODO: This sucks, clean it up
 		Element elem;
 		int pos = editor.getCaretPosition();
-		ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
+		ExtendedHTMLDocument htmlDoc =
+				(ExtendedHTMLDocument) editor.getStyledDocument();
 
 		try
 		{
@@ -911,18 +948,22 @@ public class NotesView extends JPanel
 				{
 					boolean content = true;
 
-					if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
-					        HTML.Tag.LI))
+					if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc
+						.getParagraphElement(editor.getCaretPosition()),
+						HTML.Tag.LI))
 					{
-						elem = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(
-							        editor.getCaretPosition()));
+						elem =
+								ExtendedHTMLEditorKit.getListItemParent(htmlDoc
+									.getCharacterElement(editor
+										.getCaretPosition()));
 						content = false;
 						int so = elem.getStartOffset();
 						int eo = elem.getEndOffset();
 
 						if ((so + 1) < eo)
 						{
-							char[] temp = editor.getText(so, eo - so).toCharArray();
+							char[] temp =
+									editor.getText(so, eo - so).toCharArray();
 							for (int i = 0; i < temp.length; i++)
 							{
 								if (!Character.isWhitespace(temp[i]))
@@ -963,16 +1004,20 @@ public class NotesView extends JPanel
 		Element elem;
 		int pos = editor.getCaretPosition();
 		int repos = -1;
-		ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
+		ExtendedHTMLDocument htmlDoc =
+				(ExtendedHTMLDocument) editor.getStyledDocument();
 
 		try
 		{
-			if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
-			        HTML.Tag.UL)
-			    || ExtendedHTMLEditorKit.checkParentsTag(htmlDoc.getParagraphElement(editor.getCaretPosition()),
-			        HTML.Tag.OL))
+			if (ExtendedHTMLEditorKit.checkParentsTag(htmlDoc
+				.getParagraphElement(editor.getCaretPosition()), HTML.Tag.UL)
+				|| ExtendedHTMLEditorKit.checkParentsTag(htmlDoc
+					.getParagraphElement(editor.getCaretPosition()),
+					HTML.Tag.OL))
 			{
-				elem = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
+				elem =
+						ExtendedHTMLEditorKit.getListItemParent(htmlDoc
+							.getCharacterElement(editor.getCaretPosition()));
 
 				int so = elem.getStartOffset();
 				int eo = elem.getEndOffset();
@@ -1039,10 +1084,13 @@ public class NotesView extends JPanel
 						String tempString = editor.getText(caret, eo - caret);
 						editor.select(caret, eo - 1);
 						editor.replaceSelection("");
-						ExtendedHTMLEditorKit.insertListElement(editor, tempString);
+						ExtendedHTMLEditorKit.insertListElement(editor,
+							tempString);
 
-						Element newLi = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(
-							        editor.getCaretPosition()));
+						Element newLi =
+								ExtendedHTMLEditorKit.getListItemParent(htmlDoc
+									.getCharacterElement(editor
+										.getCaretPosition()));
 						editor.setCaretPosition(newLi.getEndOffset());
 					}
 				}
@@ -1122,127 +1170,136 @@ public class NotesView extends JPanel
 		jPanel1.setLayout(new java.awt.BorderLayout());
 
 		editor.addCaretListener(new CaretListener()
+		{
+			public void caretUpdate(CaretEvent evt)
 			{
-				public void caretUpdate(CaretEvent evt)
-				{
-					editorCaretUpdate(evt);
-				}
-			});
+				editorCaretUpdate(evt);
+			}
+		});
 
 		jScrollPane2.setViewportView(editor);
 
 		jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-		jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+		jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0,
+			0));
 
-		newButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_new-16.png")));
+		newButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_new-16.png")));
 		newButton.setToolTipText("New Node");
 		newButton.setBorder(new EtchedBorder());
 		newButton.setEnabled(false);
 		newButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					newButtonActionPerformed();
-				}
-			});
+				newButtonActionPerformed();
+			}
+		});
 
 		fileBar.add(newButton);
 
-		saveButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_save-16.png")));
+		saveButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_save-16.png")));
 		saveButton.setToolTipText("Save Node");
 		saveButton.setBorder(new EtchedBorder());
 		saveButton.setEnabled(false);
 		saveButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					saveButtonActionPerformed();
-				}
-			});
+				saveButtonActionPerformed();
+			}
+		});
 
 		fileBar.add(saveButton);
 
-		exportButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_export-16.png")));
+		exportButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_export-16.png")));
 		exportButton.setToolTipText("Export");
 		exportButton.setBorder(new EtchedBorder());
 		exportButton.setEnabled(false);
 		exportButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					exportButtonActionPerformed();
-				}
-			});
+				exportButtonActionPerformed();
+			}
+		});
 
 		fileBar.add(exportButton);
 
-		revertButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_revert-16.png")));
+		revertButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_revert-16.png")));
 		revertButton.setToolTipText("Revert to Saved");
 		revertButton.setBorder(new EtchedBorder());
 		revertButton.setEnabled(false);
 		revertButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					revertButtonActionPerformed();
-				}
-			});
+				revertButtonActionPerformed();
+			}
+		});
 
 		fileBar.add(revertButton);
 
-		deleteButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_broken_image-16.png")));
+		deleteButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_broken_image-16.png")));
 		deleteButton.setToolTipText("Delete Node");
 		deleteButton.setBorder(new EtchedBorder());
 		deleteButton.setEnabled(false);
 		deleteButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					deleteButtonActionPerformed();
-				}
-			});
+				deleteButtonActionPerformed();
+			}
+		});
 
 		fileBar.add(deleteButton);
 
 		jPanel2.add(fileBar);
 
-		cutButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_cut-16.png")));
+		cutButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_cut-16.png")));
 		cutButton.setToolTipText("Cut");
 		cutButton.setBorder(new EtchedBorder());
 		cutButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					cutButtonActionPerformed(evt);
-				}
-			});
+				cutButtonActionPerformed(evt);
+			}
+		});
 
 		clipboardBar.add(cutButton);
 
-		copyButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_copy-16.png")));
+		copyButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_copy-16.png")));
 		copyButton.setToolTipText("Copy");
 		copyButton.setBorder(new EtchedBorder());
 		copyButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					copyButtonActionPerformed(evt);
-				}
-			});
+				copyButtonActionPerformed(evt);
+			}
+		});
 
 		clipboardBar.add(copyButton);
 
-		pasteButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_paste-16.png")));
+		pasteButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_paste-16.png")));
 		pasteButton.setToolTipText("Paste");
 		pasteButton.setBorder(new EtchedBorder());
 		pasteButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					pasteButtonActionPerformed(evt);
-				}
-			});
+				pasteButtonActionPerformed(evt);
+			}
+		});
 
 		clipboardBar.add(pasteButton);
 
@@ -1251,111 +1308,121 @@ public class NotesView extends JPanel
 		sizeCB.setToolTipText("Size");
 		sizeCB.setBorder(new EtchedBorder());
 		sizeCB.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					sizeCBActionPerformed(evt);
-				}
-			});
+				sizeCBActionPerformed(evt);
+			}
+		});
 
 		formatBar.add(sizeCB);
 
-		boldButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_text_bold-16.png")));
+		boldButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_text_bold-16.png")));
 		boldButton.setToolTipText("Bold");
 		boldButton.setBorder(new EtchedBorder());
 		boldButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					boldButtonActionPerformed(evt);
-				}
-			});
+				boldButtonActionPerformed(evt);
+			}
+		});
 
 		formatBar.add(boldButton);
 
-		italicButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_text_italic-16.png")));
+		italicButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_text_italic-16.png")));
 		italicButton.setToolTipText("Italic");
 		italicButton.setBorder(new EtchedBorder());
 		italicButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					italicButtonActionPerformed(evt);
-				}
-			});
+				italicButtonActionPerformed(evt);
+			}
+		});
 
 		formatBar.add(italicButton);
 
-		underlineButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_text_underline-16.png")));
+		underlineButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_text_underline-16.png")));
 		underlineButton.setToolTipText("Underline");
 		underlineButton.setBorder(new EtchedBorder());
 		underlineButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					underlineButtonActionPerformed(evt);
-				}
-			});
+				underlineButtonActionPerformed(evt);
+			}
+		});
 
 		formatBar.add(underlineButton);
 
 		colorButton.setForeground(new java.awt.Color(0, 0, 0));
-		colorButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/menu-mode-RGB-alt.png")));
+		colorButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/menu-mode-RGB-alt.png")));
 		colorButton.setToolTipText("Color");
 		colorButton.setBorder(new EtchedBorder());
 		colorButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					colorButtonActionPerformed();
-				}
-			});
+				colorButtonActionPerformed();
+			}
+		});
 
 		formatBar.add(colorButton);
 
-		bulletButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_list_bulet-16.png")));
+		bulletButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_list_bulet-16.png")));
 		bulletButton.setToolTipText("Bulleted List");
 		bulletButton.setAction(actionListUnordered);
 		bulletButton.setBorder(new EtchedBorder());
 		formatBar.add(bulletButton);
 
-		enumButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_list_enum-16.png")));
+		enumButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_list_enum-16.png")));
 		enumButton.setToolTipText("Numbered List");
 		enumButton.setAction(actionListOrdered);
 		enumButton.setBorder(new EtchedBorder());
 		formatBar.add(enumButton);
 
-		imageButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_insert_graphic-16.png")));
+		imageButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_insert_graphic-16.png")));
 		imageButton.setBorder(new EtchedBorder());
 		imageButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					imageButtonActionPerformed();
-				}
-			});
+				imageButtonActionPerformed();
+			}
+		});
 
 		formatBar.add(imageButton);
 
 		jPanel2.add(formatBar);
 
-		leftJustifyButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_text_align_left-16.png")));
+		leftJustifyButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_text_align_left-16.png")));
 		leftJustifyButton.setToolTipText("Left Justify");
 		leftJustifyButton.setBorder(new EtchedBorder());
 		leftJustifyButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					leftJustifyButtonActionPerformed(evt);
-				}
-			});
+				leftJustifyButtonActionPerformed(evt);
+			}
+		});
 
 		alignmentBar.add(leftJustifyButton);
 
-		centerJustifyButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_text_align_center-16.png")));
+		centerJustifyButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_text_align_center-16.png")));
 		centerJustifyButton.setToolTipText("Center");
 		centerJustifyButton.setBorder(new EtchedBorder());
-		centerJustifyButton.addActionListener(new java.awt.event.ActionListener()
+		centerJustifyButton
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -1365,10 +1432,12 @@ public class NotesView extends JPanel
 
 		alignmentBar.add(centerJustifyButton);
 
-		rightJustifyButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_text_align_right-16.png")));
+		rightJustifyButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_text_align_right-16.png")));
 		rightJustifyButton.setToolTipText("Right Justify");
 		rightJustifyButton.setBorder(new EtchedBorder());
-		rightJustifyButton.addActionListener(new java.awt.event.ActionListener()
+		rightJustifyButton
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -1387,24 +1456,24 @@ public class NotesView extends JPanel
 		fileLeft.setText("<");
 		fileLeft.setBorder(new EtchedBorder());
 		fileLeft.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					fileLeftActionPerformed();
-				}
-			});
+				fileLeftActionPerformed();
+			}
+		});
 
 		filePane.add(fileLeft);
 
 		fileRight.setText(">");
 		fileRight.setBorder(new EtchedBorder());
 		fileRight.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					fileRightActionPerformed();
-				}
-			});
+				fileRightActionPerformed();
+			}
+		});
 
 		filePane.add(fileRight);
 
@@ -1425,9 +1494,11 @@ public class NotesView extends JPanel
 
 	private void initEditingComponents()
 	{
-		bulletButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_list_bulet-16.png")));
+		bulletButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_list_bulet-16.png")));
 		bulletButton.setToolTipText("Bulleted List");
-		enumButton.setIcon(new ImageIcon(getClass().getResource("/pcgen/gui/resource/stock_list_enum-16.png")));
+		enumButton.setIcon(new ImageIcon(getClass().getResource(
+			"/pcgen/gui/resource/stock_list_enum-16.png")));
 		enumButton.setToolTipText("Numbered List");
 		enumButton.setText("");
 		bulletButton.setText("");
@@ -1500,36 +1571,37 @@ public class NotesView extends JPanel
 		TreeModel model = new DefaultTreeModel(root);
 		notesTree.setModel(model);
 		notesTree.addTreeSelectionListener(new TreeSelectionListener()
+		{
+			public void valueChanged(TreeSelectionEvent evt)
 			{
-				public void valueChanged(TreeSelectionEvent evt)
-				{
-					notesTreeActionPerformed();
-				}
-			});
-		notesTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+				notesTreeActionPerformed();
+			}
+		});
+		notesTree.getSelectionModel().setSelectionMode(
+			TreeSelectionModel.SINGLE_TREE_SELECTION);
 		notesTree.setEditable(true);
 		model.addTreeModelListener(new TreeModelListener()
+		{
+			public void treeNodesChanged(TreeModelEvent e)
 			{
-				public void treeNodesChanged(TreeModelEvent e)
-				{
-					notesTreeNodesChanged();
-				}
+				notesTreeNodesChanged();
+			}
 
-				public void treeNodesInserted(TreeModelEvent e)
-				{
-				    // TODO:  Method does nothing?
-				}
+			public void treeNodesInserted(TreeModelEvent e)
+			{
+				// TODO:  Method does nothing?
+			}
 
-				public void treeNodesRemoved(TreeModelEvent e)
-				{
-				    // TODO:  Method does nothing?
-				}
+			public void treeNodesRemoved(TreeModelEvent e)
+			{
+				// TODO:  Method does nothing?
+			}
 
-				public void treeStructureChanged(TreeModelEvent e)
-				{
-				    // TODO:  Method does nothing?
-				}
-			});
+			public void treeStructureChanged(TreeModelEvent e)
+			{
+				// TODO:  Method does nothing?
+			}
+		});
 	}
 
 	//Image insertion methods
@@ -1542,18 +1614,22 @@ public class NotesView extends JPanel
 	 *@exception  BadLocationException  if the file does not exist
 	 *@exception  RuntimeException      cause
 	 */
-	private void insertLocalImage(File whatImage) throws IOException, BadLocationException, RuntimeException
+	private void insertLocalImage(File whatImage) throws IOException,
+		BadLocationException, RuntimeException
 	{
 		File image = whatImage;
 		if (whatImage == null)
 		{
 			File dir = getCurrentDir();
-			File newImage = getImageFromChooser(dir.getPath(), extsIMG, "Image File");
+			File newImage =
+					getImageFromChooser(dir.getPath(), extsIMG, "Image File");
 
 			//null possible if user cancelled
 			if (newImage != null && newImage.exists())
 			{
-				image = new File(dir.getAbsolutePath() + File.separator + newImage.getName());
+				image =
+						new File(dir.getAbsolutePath() + File.separator
+							+ newImage.getName());
 
 				if (!image.exists())
 				{
@@ -1565,9 +1641,12 @@ public class NotesView extends JPanel
 		if (image != null)
 		{
 			int caretPos = editor.getCaretPosition();
-			ExtendedHTMLEditorKit htmlKit = (ExtendedHTMLEditorKit) editor.getEditorKit();
-			ExtendedHTMLDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
-			htmlKit.insertHTML(htmlDoc, caretPos, "<IMG SRC=\"" + image + "\">", 0, 0, HTML.Tag.IMG);
+			ExtendedHTMLEditorKit htmlKit =
+					(ExtendedHTMLEditorKit) editor.getEditorKit();
+			ExtendedHTMLDocument htmlDoc =
+					(ExtendedHTMLDocument) editor.getStyledDocument();
+			htmlKit.insertHTML(htmlDoc, caretPos,
+				"<IMG SRC=\"" + image + "\">", 0, 0, HTML.Tag.IMG);
 			editor.setCaretPosition(caretPos + 1);
 		}
 	}
@@ -1583,7 +1662,9 @@ public class NotesView extends JPanel
 	private void leftJustifyButtonActionPerformed(java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_leftJustifyButtonActionPerformed
-		Action action = new StyledEditorKit.AlignmentAction("Left Justify", StyleConstants.ALIGN_LEFT);
+		Action action =
+				new StyledEditorKit.AlignmentAction("Left Justify",
+					StyleConstants.ALIGN_LEFT);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -1593,7 +1674,9 @@ public class NotesView extends JPanel
 
 	private void manageListElement(ExtendedHTMLDocument htmlDoc)
 	{
-		Element h = ExtendedHTMLEditorKit.getListItemParent(htmlDoc.getCharacterElement(editor.getCaretPosition()));
+		Element h =
+				ExtendedHTMLEditorKit.getListItemParent(htmlDoc
+					.getCharacterElement(editor.getCaretPosition()));
 		h.getParentElement();
 		ExtendedHTMLEditorKit.removeTag(editor, h, true);
 	}
@@ -1638,38 +1721,39 @@ public class NotesView extends JPanel
 			editor = node.getTextPane();
 			root.checkCache();
 			// TODO: Uh-oh -- never call gc manually without strong reason
-//			Runtime.getRuntime().gc();
+			//			Runtime.getRuntime().gc();
 
 			JViewport vp = new JViewport();
 			vp.setView(editor);
 			jScrollPane2.setViewport(vp);
 			editAreaDT = new DropTarget(editor, new DropEditorListener());
 			editor.addCaretListener(new CaretListener()
+			{
+				public void caretUpdate(CaretEvent evt)
 				{
-					public void caretUpdate(CaretEvent evt)
-					{
-						editorCaretUpdate(evt);
-					}
-				});
+					editorCaretUpdate(evt);
+				}
+			});
 			editor.addKeyListener(new java.awt.event.KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						editorKeyTyped(e);
-					}
+					editorKeyTyped(e);
+				}
 
-					public void keyPressed(KeyEvent e)
-					{
-					    // TODO:  Method does nothing?
-					}
+				public void keyPressed(KeyEvent e)
+				{
+					// TODO:  Method does nothing?
+				}
 
-					public void keyReleased(KeyEvent e)
-					{
-					    // TODO:  Method does nothing?
-					}
-				});
+				public void keyReleased(KeyEvent e)
+				{
+					// TODO:  Method does nothing?
+				}
+			});
 
-			editor.getStyledDocument().addUndoableEditListener(new UndoableEditListener()
+			editor.getStyledDocument().addUndoableEditListener(
+				new UndoableEditListener()
 				{
 					public void undoableEditHappened(UndoableEditEvent evt)
 					{
@@ -1733,10 +1817,13 @@ public class NotesView extends JPanel
 	}
 
 	//GEN-LAST:event_sizeCBActionPerformed
-	private void rightJustifyButtonActionPerformed(java.awt.event.ActionEvent evt)
+	private void rightJustifyButtonActionPerformed(
+		java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_rightJustifyButtonActionPerformed
-		Action action = new StyledEditorKit.AlignmentAction("Right Justify", StyleConstants.ALIGN_RIGHT);
+		Action action =
+				new StyledEditorKit.AlignmentAction("Right Justify",
+					StyleConstants.ALIGN_RIGHT);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -1810,7 +1897,7 @@ public class NotesView extends JPanel
 		 */
 		public void dragExit(DropTargetEvent dte)
 		{
-		    // TODO:  Method does nothing?
+			// TODO:  Method does nothing?
 		}
 
 		/**
@@ -1845,7 +1932,7 @@ public class NotesView extends JPanel
 		 */
 		public void dropActionChanged(DropTargetDragEvent dtde)
 		{
-		    // TODO:  Method does nothing?
+			// TODO:  Method does nothing?
 		}
 	}
 
@@ -1951,7 +2038,9 @@ public class NotesView extends JPanel
 
 			try
 			{
-				List fileList = ((List) t.getTransferData(DataFlavor.javaFileListFlavor));
+				List fileList =
+						((List) t
+							.getTransferData(DataFlavor.javaFileListFlavor));
 				File dir = getCurrentDir();
 
 				for (int i = 0; i < fileList.size(); i++)
@@ -1960,14 +2049,17 @@ public class NotesView extends JPanel
 
 					if (newFile.exists())
 					{
-						File destFile = new File(dir.getAbsolutePath() + File.separator + newFile.getName());
+						File destFile =
+								new File(dir.getAbsolutePath() + File.separator
+									+ newFile.getName());
 
 						if (!isImageFile(destFile) || !destFile.exists())
 						{
 							MiscUtilities.copy(newFile, destFile);
 						}
 
-						editor.setCaretPosition(editor.viewToModel(dtde.getLocation()));
+						editor.setCaretPosition(editor.viewToModel(dtde
+							.getLocation()));
 						handleImageDropInsertion(destFile);
 					}
 				}
@@ -2079,8 +2171,11 @@ public class NotesView extends JPanel
 
 			NotesTreeNode node = getChildNode(owner, log);
 
-			SimpleDateFormat dateFmt = new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
-			node.appendText("<br>\n<b>" + dateFmt.format(Calendar.getInstance().getTime()) + "</b> " + message);
+			SimpleDateFormat dateFmt =
+					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
+			node.appendText("<br>\n<b>"
+				+ dateFmt.format(Calendar.getInstance().getTime()) + "</b> "
+				+ message);
 		}
 
 		/**

@@ -28,19 +28,21 @@ package plugin.lsttokens.pointbuy.method;
 import pcgen.core.PointBuyMethod;
 import pcgen.persistence.lst.PointBuyMethodLstToken;
 
-
 /**
  * <code>CostToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class PointsToken implements PointBuyMethodLstToken {
+public class PointsToken implements PointBuyMethodLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "POINTS";
 	}
 
-	public boolean parse(PointBuyMethod pbm, String value) {
+	public boolean parse(PointBuyMethod pbm, String value)
+	{
 		pbm.setPointFormula(value);
 		return true;
 	}

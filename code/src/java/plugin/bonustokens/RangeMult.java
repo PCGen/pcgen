@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>RangeMult</code>
  *
@@ -35,16 +34,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class RangeMult extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"RANGEADD",
-			"RANGEMULT"
-		};
-	private static final String[] bonusTags =
-		{
-			"PROJECTILE",
-			"THROWN"
-		};
+	private static final String[] bonusHandled = {"RANGEADD", "RANGEMULT"};
+	private static final String[] bonusTags = {"PROJECTILE", "THROWN"};
 
 	protected String[] getBonusesHandled()
 	{

@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>SkillPoints</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class SkillPool extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"SKILLPOOL"
-		};
+	private static final String[] bonusHandled = {"SKILLPOOL"};
 
 	protected boolean parseToken(final String token)
 	{

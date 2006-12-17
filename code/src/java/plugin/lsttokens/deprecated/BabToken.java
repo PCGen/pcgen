@@ -11,12 +11,12 @@ import pcgen.util.PropertyFactory;
 /**
  * Class deals with BAB Token
  */
-public class BabToken implements RaceLstToken, DeprecatedToken 
+public class BabToken implements RaceLstToken, DeprecatedToken
 {
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
-	public String getTokenName() 
+	public String getTokenName()
 	{
 		return "BAB"; //$NON-NLS-1$
 	}
@@ -24,17 +24,18 @@ public class BabToken implements RaceLstToken, DeprecatedToken
 	/**
 	 * @see pcgen.persistence.lst.RaceLstToken#parse(pcgen.core.Race, java.lang.String)
 	 */
-	public boolean parse(Race race, String value) 
+	public boolean parse(Race race, String value)
 	{
-		try 
+		try
 		{
 			final int bonus = Integer.parseInt(value);
-			final BonusObj babBonus = Bonus.newBonus( "BONUS:COMBAT|BAB|" + bonus ); //$NON-NLS-1$
+			final BonusObj babBonus =
+					Bonus.newBonus("BONUS:COMBAT|BAB|" + bonus); //$NON-NLS-1$
 			babBonus.setCreatorObject(race);
 			race.addBonusList(babBonus);
 			return true;
 		}
-		catch(NumberFormatException nfe) 
+		catch (NumberFormatException nfe)
 		{
 			return false;
 		}
@@ -43,9 +44,11 @@ public class BabToken implements RaceLstToken, DeprecatedToken
 	/**
 	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
 	 */
-	public String getMessage(@SuppressWarnings("unused")PObject anObj, 
-							 @SuppressWarnings("unused")String anValue)
+	public String getMessage(@SuppressWarnings("unused")
+	PObject anObj, @SuppressWarnings("unused")
+	String anValue)
 	{
-		return PropertyFactory.getString("Warnings.LstTokens.Deprecated.BabToken"); //$NON-NLS-1$
+		return PropertyFactory
+			.getString("Warnings.LstTokens.Deprecated.BabToken"); //$NON-NLS-1$
 	}
 }

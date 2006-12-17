@@ -20,13 +20,16 @@ import java.util.StringTokenizer;
  * @author djones4
  *
  */
-public class SaLst implements GlobalLstToken {
+public class SaLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SA";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		parseSpecialAbility(obj, value, anInt);
 		return true;
 	}
@@ -42,22 +45,30 @@ public class SaLst implements GlobalLstToken {
 	 * @param level
 	 *          int level at which the ability is gained
 	 */
-	public static void parseSpecialAbility(PObject obj, String aString, int level) {
+	public static void parseSpecialAbility(PObject obj, String aString,
+		int level)
+	{
 		StringTokenizer aTok = new StringTokenizer(aString, "|", true);
 
-		if (!aTok.hasMoreTokens()) { return; }
+		if (!aTok.hasMoreTokens())
+		{
+			return;
+		}
 
 		StringBuffer saName = new StringBuffer();
 		saName.append(aTok.nextToken());
-		
+
 		SpecialAbility sa = new SpecialAbility();
 
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			String cString = aTok.nextToken();
 
 			// Check to see if it's a PRExxx: tag
-			if (cString.startsWith("PRE") && (cString.indexOf(":") > 0)) {
-				try {
+			if (cString.startsWith("PRE") && (cString.indexOf(":") > 0))
+			{
+				try
+				{
 					PreParserFactory factory = PreParserFactory.getInstance();
 					Prerequisite prereq = factory.parse(cString);
 					if (obj instanceof PCClass
@@ -66,14 +77,19 @@ public class SaLst implements GlobalLstToken {
 						prereq.setSubKey("CLASS:" + obj.getKeyName());
 					}
 					sa.addPreReq(prereq);
-				} catch (PersistenceLayerException ple) {
+				}
+				catch (PersistenceLayerException ple)
+				{
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
-			} else {
+			}
+			else
+			{
 				saName.append(cString);
 			}
 
-			if (".CLEAR".equals(cString)) {
+			if (".CLEAR".equals(cString))
+			{
 				obj.clearSpecialAbilityList();
 				saName.setLength(0);
 			}
@@ -81,14 +97,15 @@ public class SaLst implements GlobalLstToken {
 
 		sa.setName(saName.toString());
 
-		if (obj instanceof PCClass) {
+		if (obj instanceof PCClass)
+		{
 			sa.setSASource("PCCLASS=" + obj.getKeyName() + "|" + level);
 		}
 
-		if (!aString.equals(".CLEAR")) {
+		if (!aString.equals(".CLEAR"))
+		{
 			Globals.addToSASet(sa);
 			obj.addSpecialAbilityToList(sa);
 		}
 	}
 }
-

@@ -10,19 +10,23 @@ import pcgen.util.enumeration.AttackType;
 /**
  * Class deals with ATTACKCYCLE Token
  */
-public class AttackcycleToken implements PCClassLstToken {
+public class AttackcycleToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ATTACKCYCLE";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		if (value.indexOf('|') == -1)
 			return true;
 
 		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			AttackType at = AttackType.getInstance(aTok.nextToken());
 			String cycle = aTok.nextToken();
 			pcclass.setAttackCycle(at, cycle);
@@ -38,7 +42,8 @@ public class AttackcycleToken implements PCClassLstToken {
 			 * attack types (rather than treating GRAPPLE as a special case
 			 * throughout the core code) - thpr 11/1/06
 			 */
-			if (at.equals(AttackType.MELEE)) {
+			if (at.equals(AttackType.MELEE))
+			{
 				pcclass.setAttackCycle(AttackType.GRAPPLE, cycle);
 			}
 		}

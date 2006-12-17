@@ -34,25 +34,29 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreLanguageParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface {
+public class PreLanguageParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
+{
 
-	public String[] kindsHandled() {
+	public String[] kindsHandled()
+	{
 		return new String[]{"LANGUAGE", "LANG"};
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		if (prereq.getKind() != null)
 		{

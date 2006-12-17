@@ -39,13 +39,17 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreLanguageTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreLanguageTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 		final String requiredLang = prereq.getKey();
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
@@ -53,7 +57,8 @@ public class PreLanguageTester  extends AbstractPrerequisiteTest implements Prer
 		if (prereq.getKey().equalsIgnoreCase("ANY")) { //$NON-NLS-1$
 			runningTotal = character.getLanguagesList().size();
 		}
-		else {
+		else
+		{
 			final Language aLang = Globals.getLanguageKeyed(requiredLang);
 			if (aLang != null)
 			{
@@ -64,19 +69,22 @@ public class PreLanguageTester  extends AbstractPrerequisiteTest implements Prer
 			}
 			else if (!requiredLang.equals("ANY")) //$NON-NLS-1$
 			{
-				throw new PrerequisiteException(PropertyFactory.getFormattedString("PreLanguage.error.no_such_language", requiredLang )); //$NON-NLS-1$
+				throw new PrerequisiteException(PropertyFactory
+					.getFormattedString(
+						"PreLanguage.error.no_such_language", requiredLang)); //$NON-NLS-1$
 			}
 		}
 
-
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal =
+				prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "LANG"; //$NON-NLS-1$
 	}
 

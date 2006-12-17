@@ -11,7 +11,7 @@ public class AddLevelToken implements PCTemplateLstToken
 
 	public boolean parse(PCTemplate template, String value)
 	{
-		template.addLevelMod("ADD|"+value);
+		template.addLevelMod("ADD|" + value);
 		return true;
 	}
 

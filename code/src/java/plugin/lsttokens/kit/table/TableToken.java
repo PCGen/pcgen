@@ -56,7 +56,7 @@ public class TableToken implements KitTableLstToken
 	public boolean parse(Kit kit, final String tableName, String value)
 	{
 		Logging.errorPrint("Ignoring second TABLE tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 }

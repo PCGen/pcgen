@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>Weapon</code>
  *
@@ -35,20 +34,10 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Weapon extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled = new String[]
-		{
-			"WEAPON"
-		};
-	private static final String[] bonusTags = new String[]
-		{
-			"ATTACKS",
-			"ATTACKSPROGRESS",
-			"WEAPONBAB",
-			"DAMAGE",
-			"DAMAGESIZE",
-			"TOHIT",
-			"WIELDCATEGORY"
-		};
+	private static final String[] bonusHandled = new String[]{"WEAPON"};
+	private static final String[] bonusTags =
+			new String[]{"ATTACKS", "ATTACKSPROGRESS", "WEAPONBAB", "DAMAGE",
+				"DAMAGESIZE", "TOHIT", "WIELDCATEGORY"};
 
 	protected String[] getBonusesHandled()
 	{

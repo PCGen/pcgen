@@ -38,22 +38,27 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreGenderParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface {
+public class PreGenderParser extends AbstractPrerequisiteSimpleParser implements
+		PrerequisiteParserInterface
+{
 
-	public String[] kindsHandled() {
+	public String[] kindsHandled()
+	{
 		return new String[]{"GENDER"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKey(formula);
 		prereq.setOperator(PrerequisiteOperator.EQ);
 		if (invertResult)
 		{
-			prereq.setOperator( prereq.getOperator().invert());
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}

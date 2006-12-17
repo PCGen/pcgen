@@ -10,18 +10,22 @@ import java.net.URL;
 /**
  * Class deals with LICENSED Token
  */
-public class LicensedToken implements CampaignLstToken, DeprecatedToken {
+public class LicensedToken implements CampaignLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LICENSED";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setIsLicensed(value.startsWith("Y"));
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value) {
+	public String getMessage(PObject obj, String value)
+	{
 		return "Use ISLICENSED: instead.";
 	}
 }

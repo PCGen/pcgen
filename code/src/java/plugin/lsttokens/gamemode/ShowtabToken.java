@@ -9,19 +9,23 @@ import pcgen.util.enumeration.Tab;
 /**
  * Class deals with SHOWTAB Token
  */
-public class ShowtabToken implements GameModeLstToken {
+public class ShowtabToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SHOWTAB";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		final String tabName = tok.nextToken();
 		final String visibility = tok.nextToken();
 		final Tab aTab = GameMode.getTab(tabName);
 
-		if (aTab == Tab.INVALID) {
+		if (aTab == Tab.INVALID)
+		{
 			return false;
 		}
 

@@ -36,13 +36,16 @@ import pcgen.util.Logging;
  * @author wardc
  *
  */
-public class PreDomainTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreDomainTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		int runningTotal;
 		int number = 0;
 		try
@@ -51,22 +54,24 @@ public class PreDomainTester  extends AbstractPrerequisiteTest implements Prereq
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrintLocalised("PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
+			Logging.errorPrintLocalised(
+				"PreDomain.error.bad_operand", prereq.toString()); //$NON-NLS-1$
 		}
 
-		final boolean hasDomain = character.getCharacterDomainKeyed(prereq.getKey()) != null;
+		final boolean hasDomain =
+				character.getCharacterDomainKeyed(prereq.getKey()) != null;
 
 		runningTotal = hasDomain ? 1 : 0;
 
-		runningTotal = prereq.getOperator().compare( runningTotal, number);
+		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "DOMAIN"; //$NON-NLS-1$
 	}
 

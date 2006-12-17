@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with COMPANIONMOD Token
  */
-public class CompanionmodToken implements CampaignLstToken {
+public class CompanionmodToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COMPANIONMOD";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("COMPANIONMOD:" + value);
-		campaign.addCompanionModFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addCompanionModFile(new CampaignSourceEntry(campaign,
+			CampaignLoader.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

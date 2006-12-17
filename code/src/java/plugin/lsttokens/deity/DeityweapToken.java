@@ -6,13 +6,16 @@ import pcgen.persistence.lst.DeityLstToken;
 /**
  * Class deals with DEITYWEAP Token
  */
-public class DeityweapToken implements DeityLstToken{
+public class DeityweapToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DEITYWEAP";
 	}
 
-	public boolean parse(Deity deity, String value) {
+	public boolean parse(Deity deity, String value)
+	{
 		deity.setFavoredWeapon(value);
 		return true;
 	}

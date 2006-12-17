@@ -29,25 +29,29 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.RollMethodLoader;
 
-
 /**
  * <code>RollmethodToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class RollmethodToken implements GameModeLstToken {
+public class RollmethodToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ROLLMETHOD";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			RollMethodLoader methodLoader = new RollMethodLoader();
 			methodLoader.parseLine(gameMode, "ROLLMETHOD:" + value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

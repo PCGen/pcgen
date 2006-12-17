@@ -15,20 +15,23 @@ import pcgen.persistence.lst.SourceLstToken;
  * @author djones4
  *
  */
-public class SourceshortLst implements GlobalLstToken, SourceLstToken {
+public class SourceshortLst implements GlobalLstToken, SourceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SOURCESHORT";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.getSourceEntry().getSourceBook().setShortName(value);
 		return true;
 	}
 
-	public boolean parse(Map<String, String> sourceMap, String value) {
+	public boolean parse(Map<String, String> sourceMap, String value)
+	{
 		sourceMap.putAll(SourceLoader.parseSource("SOURCESHORT:" + value));
 		return true;
 	}
 }
-

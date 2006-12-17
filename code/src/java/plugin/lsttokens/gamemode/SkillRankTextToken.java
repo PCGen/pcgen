@@ -30,34 +30,40 @@ import pcgen.persistence.lst.GameModeLstToken;
 
 import java.util.StringTokenizer;
 
-
 /**
  * <code>SkillRankTextToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class SkillRankTextToken implements GameModeLstToken {
+public class SkillRankTextToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SKILLRANKTEXT";
 	}
 
 	//
 	// SKILLRANKTEXT:<rank_val> <tab> <display_text>
 	//
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");
-		if (tok.countTokens() == 2) {
-			try {
+		if (tok.countTokens() == 2)
+		{
+			try
+			{
 				final int rankValue = Integer.parseInt(tok.nextToken());
 				String rankText = tok.nextToken();
-				if ("&nbsp;".equals(rankText)) {
+				if ("&nbsp;".equals(rankText))
+				{
 					rankText = "";
 				}
 				gameMode.addSkillRankDisplayText(rankValue, rankText);
 				return true;
 			}
-			catch (NumberFormatException exc) {
+			catch (NumberFormatException exc)
+			{
 				//returns false
 			}
 		}

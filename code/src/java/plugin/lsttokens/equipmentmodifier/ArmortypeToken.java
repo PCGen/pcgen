@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentModifierLstToken;
 /**
  * Deals with ARMORTYPE token 
  */
-public class ArmortypeToken implements EquipmentModifierLstToken {
+public class ArmortypeToken implements EquipmentModifierLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ARMORTYPE";
 	}
 
-	public boolean parse(EquipmentModifier mod, String value) {
+	public boolean parse(EquipmentModifier mod, String value)
+	{
 		mod.setArmorType(value);
 		return true;
 	}

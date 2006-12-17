@@ -13,23 +13,27 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class DefineLst implements GlobalLstToken {
+public class DefineLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DEFINE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
-		try {
+		try
+		{
 			String varName = tok.nextToken();
 			String defineFormula = tok.nextToken();
 			obj.addVariable(anInt, varName, defineFormula);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 		return true;
 	}
 }
-

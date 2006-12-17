@@ -58,7 +58,8 @@ import java.net.URL;
  * </p>
  *
  */
-public class DiceBagPlugin extends GMBPlugin {
+public class DiceBagPlugin extends GMBPlugin
+{
 
 	/** Menu item command string for tools menu item */
 	private static final String DICEBAG_TOOLS_COMMAND = "TOOLS_MENU_ENTRY";
@@ -86,12 +87,14 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * Default (and only) constructure. Initializes the plugin.
 	 * </p>
 	 */
-	public DiceBagPlugin() {
+	public DiceBagPlugin()
+	{
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
-		FileFilter[] ff = { getFileType() };
+	public FileFilter[] getFileTypes()
+	{
+		FileFilter[] ff = {getFileType()};
 
 		return ff;
 	}
@@ -100,8 +103,9 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * Get File type
 	 * @return FileFilter
 	 */
-	public FileFilter getFileType() {
-		String[] fileExt = new String[] { "dbg" };
+	public FileFilter getFileType()
+	{
+		String[] fileExt = new String[]{"dbg"};
 		return new SimpleFileFilter(fileExt, "GMGen Dice Bag");
 	}
 
@@ -112,31 +116,38 @@ public class DiceBagPlugin extends GMBPlugin {
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#start()
 	 */
-	public void start() {
+	public void start()
+	{
 		theController = new DiceBagPluginController();
-		GMBus.send(new TabAddMessage(this, name, theController.getComponent(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, name, theController.getComponent(),
+			getPluginSystem()));
 		initMenus();
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 20);
 	}
 
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getName()
 	 */
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getVersion()
 	 */
-	public String getVersion() {
+	public String getVersion()
+	{
 		return version;
 	}
 
@@ -158,22 +169,38 @@ public class DiceBagPlugin extends GMBPlugin {
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage
 	 */
-	public void handleMessage(GMBMessage message) {
-		if (message instanceof StateChangedMessage) {
+	public void handleMessage(GMBMessage message)
+	{
+		if (message instanceof StateChangedMessage)
+		{
 			handleStateChangedMessage((StateChangedMessage) message);
-		} else if (message instanceof WindowClosedMessage) {
+		}
+		else if (message instanceof WindowClosedMessage)
+		{
 			handleWindowClosedMessage((WindowClosedMessage) message);
-		} else if (message instanceof FileOpenMessage) {
+		}
+		else if (message instanceof FileOpenMessage)
+		{
 			handleFileOpenMessage((FileOpenMessage) message);
-		} else if (message instanceof SaveMessage) {
+		}
+		else if (message instanceof SaveMessage)
+		{
 			handleSaveMessage((SaveMessage) message);
-		} else if (message instanceof LoadMessage) {
+		}
+		else if (message instanceof LoadMessage)
+		{
 			handleLoadMessage((LoadMessage) message);
-		} else if (message instanceof OpenMessage) {
+		}
+		else if (message instanceof OpenMessage)
+		{
 			handleOpenMessage((OpenMessage) message);
-		} else if (message instanceof NewMessage) {
+		}
+		else if (message instanceof NewMessage)
+		{
 			handleNewMessage((NewMessage) message);
-		} else if (message instanceof FileTypeMessage) {
+		}
+		else if (message instanceof FileTypeMessage)
+		{
 			handleFileTypeMessage((FileTypeMessage) message);
 		}
 	}
@@ -181,18 +208,22 @@ public class DiceBagPlugin extends GMBPlugin {
 	/**
 	 * @param message
 	 */
-	private void handleFileTypeMessage(FileTypeMessage message) {
+	private void handleFileTypeMessage(FileTypeMessage message)
+	{
 		message.addFileTypes(getFileTypes());
 	}
 
 	/**
 	 * @param message
 	 */
-	private void handleOpenMessage(OpenMessage message) {
+	private void handleOpenMessage(OpenMessage message)
+	{
 		final File[] files = message.getFile();
 		final FileFilter filter = getFileType();
-		for (int i = 0; i < files.length; i++) {
-			if(filter.accept(files[i])) {
+		for (int i = 0; i < files.length; i++)
+		{
+			if (filter.accept(files[i]))
+			{
 				theController.openFile(files[i]);
 			}
 		}
@@ -201,8 +232,10 @@ public class DiceBagPlugin extends GMBPlugin {
 	/**
 	 * @param message
 	 */
-	private void handleNewMessage(NewMessage message) {
-		if(isActive()) {
+	private void handleNewMessage(NewMessage message)
+	{
+		if (isActive())
+		{
 			theController.fileNew();
 			message.veto();
 		}
@@ -216,11 +249,14 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * @param evt
 	 *          ActionEvent that fired this method.
 	 */
-	public void toolMenuItem(ActionEvent evt) {
+	public void toolMenuItem(ActionEvent evt)
+	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++) {
-			if (tp.getComponentAt(i).equals(theController.getComponent())) {
+		for (int i = 0; i < tp.getTabCount(); i++)
+		{
+			if (tp.getComponentAt(i).equals(theController.getComponent()))
+			{
 				tp.setSelectedIndex(i);
 			}
 		}
@@ -236,8 +272,11 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * @param message
 	 *          <code>FileOpenMessage</code>
 	 */
-	private void handleFileOpenMessage(FileOpenMessage message) {
-		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(theController.getComponent())) {
+	private void handleFileOpenMessage(FileOpenMessage message)
+	{
+		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(
+			theController.getComponent()))
+		{
 			theController.fileOpen();
 			message.veto();
 		}
@@ -252,8 +291,11 @@ public class DiceBagPlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	private void handleLoadMessage(LoadMessage message) {
-		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(theController.getComponent())) {
+	private void handleLoadMessage(LoadMessage message)
+	{
+		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(
+			theController.getComponent()))
+		{
 			theController.fileNew();
 			message.veto();
 		}
@@ -267,8 +309,10 @@ public class DiceBagPlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	private void handleSaveMessage(SaveMessage message) {
-		if(isActive()) {
+	private void handleSaveMessage(SaveMessage message)
+	{
+		if (isActive())
+		{
 			theController.fileSave();
 			message.veto();
 		}
@@ -283,15 +327,19 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * @param message
 	 *          The message
 	 */
-	private void handleStateChangedMessage(StateChangedMessage message) {
-		if(GMGenSystemView.getTabPane() != null) {
-			if(isActive()) {
+	private void handleStateChangedMessage(StateChangedMessage message)
+	{
+		if (GMGenSystemView.getTabPane() != null)
+		{
+			if (isActive())
+			{
 				notesToolsItem.setEnabled(false);
 				GMGenSystem.inst.openFileItem.setEnabled(true);
 				GMGenSystem.inst.saveFileItem.setEnabled(true);
 				GMGenSystem.inst.newFileItem.setEnabled(true);
 			}
-			else {
+			else
+			{
 				notesToolsItem.setEnabled(true);
 			}
 		}
@@ -304,7 +352,8 @@ public class DiceBagPlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	private void handleWindowClosedMessage(WindowClosedMessage message) {
+	private void handleWindowClosedMessage(WindowClosedMessage message)
+	{
 		theController.windowClosed();
 	}
 
@@ -312,10 +361,13 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * isActive
 	 * @return TRUE if active
 	 */
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theController.getComponent());
+	public boolean isActive()
+	{
+		JTabbedPane tp =
+				TabbedPaneUtilities.getTabbedPaneFor(theController
+					.getComponent());
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theController.getComponent());
+			&& tp.getSelectedComponent().equals(theController.getComponent());
 	}
 
 	/**
@@ -323,8 +375,11 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * Adds DiceBag menu items to tools and menu.
 	 * </p>
 	 */
-	private void initMenus() {
-		notesToolsItem = makeMenuItem("DiceBag", DICEBAG_TOOLS_COMMAND, null, "Dice Bag Plugin", Integer.valueOf(KeyEvent.VK_G));
+	private void initMenus()
+	{
+		notesToolsItem =
+				makeMenuItem("DiceBag", DICEBAG_TOOLS_COMMAND, null,
+					"Dice Bag Plugin", Integer.valueOf(KeyEvent.VK_G));
 		GMBus.send(new ToolMenuItemAddMessage(this, notesToolsItem));
 	}
 
@@ -347,19 +402,25 @@ public class DiceBagPlugin extends GMBPlugin {
 	 *          Mnemonic integer. Should be from KeyEvents
 	 * @return A new JMenuItem
 	 */
-	private JMenuItem makeMenuItem(String text, String key, String iconPath, String desc, Integer mnemonic) {
+	private JMenuItem makeMenuItem(String text, String key, String iconPath,
+		String desc, Integer mnemonic)
+	{
 		JMenuItem menuItem;
 
 		Action action;
 		URL imageURL = null;
 
-		if ((iconPath != null) && (iconPath.length() > 0)) {
+		if ((iconPath != null) && (iconPath.length() > 0))
+		{
 			imageURL = getClass().getResource(iconPath);
 		}
 
-		if (imageURL != null) {
+		if (imageURL != null)
+		{
 			action = new ActionDelegate(text, new ImageIcon(imageURL));
-		} else {
+		}
+		else
+		{
 			action = new ActionDelegate(text);
 		}
 
@@ -379,26 +440,30 @@ public class DiceBagPlugin extends GMBPlugin {
 	 * Action class to handle all menu item actions.
 	 * </p>
 	 */
-	private class ActionDelegate extends AbstractAction {
+	private class ActionDelegate extends AbstractAction
+	{
 
 		/**
 		 * @see javax.swing.AbstractAction#AbstractAction()
 		 */
-		public ActionDelegate() {
+		public ActionDelegate()
+		{
 			super();
 		}
 
 		/**
 		 * @see javax.swing.AbstractAction#AbstractAction(String)
 		 */
-		public ActionDelegate(String name) {
+		public ActionDelegate(String name)
+		{
 			super(name);
 		}
 
 		/**
 		 * @see javax.swing.AbstractAction#AbstractAction(String, Icon)
 		 */
-		public ActionDelegate(String name, Icon icon) {
+		public ActionDelegate(String name, Icon icon)
+		{
 			super(name, icon);
 		}
 
@@ -407,10 +472,12 @@ public class DiceBagPlugin extends GMBPlugin {
 		 *
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e)
+		{
 			String command = e.getActionCommand();
 
-			if (DICEBAG_TOOLS_COMMAND.equals(command)) {
+			if (DICEBAG_TOOLS_COMMAND.equals(command))
+			{
 				toolMenuItem(e);
 			}
 		}

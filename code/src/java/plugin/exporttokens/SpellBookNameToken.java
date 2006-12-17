@@ -31,7 +31,8 @@ public class SpellBookNameToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = Constants.EMPTY_STRING;
 
@@ -45,20 +46,21 @@ public class SpellBookNameToken extends Token
 		}
 		else
 		{
-			Logging.errorPrint("Old syntax SPELLBOOKNAMEx will be replaced for SPELLBOOKNAME.x");
+			Logging
+				.errorPrint("Old syntax SPELLBOOKNAMEx will be replaced for SPELLBOOKNAME.x");
 			bookNum = Integer.parseInt(tokenSource.substring(13));
 		}
 
-//		final List<String> spellBooks = pc.getSpellBooks();
-//		// TODO - Remove SLAs from Spellbook "logic"
-//		spellBooks.addAll(1, pc.getSpellLikeAbilityCategories());
-//		if ( bookNum < spellBooks.size() )
-//		{
-//			return spellBooks.get(bookNum);
-//		}
-		
+		//		final List<String> spellBooks = pc.getSpellBooks();
+		//		// TODO - Remove SLAs from Spellbook "logic"
+		//		spellBooks.addAll(1, pc.getSpellLikeAbilityCategories());
+		//		if ( bookNum < spellBooks.size() )
+		//		{
+		//			return spellBooks.get(bookNum);
+		//		}
+
 		retString = pc.getSpellBooks().get(bookNum);
 		return retString;
 	}
-	
+
 }

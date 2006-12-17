@@ -52,7 +52,8 @@ public class BonusListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getBonusListToken(tokenSource, pc);
 	}
@@ -63,9 +64,11 @@ public class BonusListToken extends Token
 	 * @param pc
 	 * @return String of Bonus List
 	 */
-	public static String getBonusListToken(String tokenSource, PlayerCharacter pc)
+	public static String getBonusListToken(String tokenSource,
+		PlayerCharacter pc)
 	{
-		StringTokenizer bTok = new StringTokenizer(tokenSource.substring(10), ".", false);
+		StringTokenizer bTok =
+				new StringTokenizer(tokenSource.substring(10), ".", false);
 		String bonusString = "";
 		String substring = "";
 		String typeSeparator = " ";
@@ -110,20 +113,21 @@ public class BonusListToken extends Token
 
 			boolean needDelim = false;
 			String prefix = bonusString + "." + substring + ".";
-			
-//			final List<String> bonuses = TypedBonus.totalBonusesByType( pc.getBonusesTo(bonusString, substring));
-//			for ( final String str : bonuses )
-//			{
-//				if ( needDelim )
-//				{
-//					retString += delim;
-//				}
-//				
-//				retString += str;
-//				needDelim = true;
-//			}
 
-			for (Map.Entry<String, String> entry : pc.getActiveBonusMap().entrySet())
+			//			final List<String> bonuses = TypedBonus.totalBonusesByType( pc.getBonusesTo(bonusString, substring));
+			//			for ( final String str : bonuses )
+			//			{
+			//				if ( needDelim )
+			//				{
+			//					retString += delim;
+			//				}
+			//				
+			//				retString += str;
+			//				needDelim = true;
+			//			}
+
+			for (Map.Entry<String, String> entry : pc.getActiveBonusMap()
+				.entrySet())
 			{
 				String aKey = entry.getKey();
 

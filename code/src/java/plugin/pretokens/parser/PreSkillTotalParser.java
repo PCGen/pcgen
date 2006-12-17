@@ -37,14 +37,16 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreSkillTotalParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface {
+public class PreSkillTotalParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SKILLTOT" };
+		return new String[]{"SKILLTOT"};
 	}
 
 	/* (non-Javadoc)
@@ -52,32 +54,36 @@ public class PreSkillTotalParser extends AbstractPrerequisiteParser implements P
 	 */
 	@Override
 	public Prerequisite parse(String kind, String formula,
-			boolean invertResult, boolean overrideQualify)
-			throws PersistenceLayerException {
-		
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+
 		// PRESKILLTOT:Spot,Listen,Search=30
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		int total = 0;
-		
+
 		String[] tokens = formula.split(",");
-		for (int i = 0; i < tokens.length; i++) {
+		for (int i = 0; i < tokens.length; i++)
+		{
 			String token = tokens[i];
-			if (token.indexOf("=")>-1) {
+			if (token.indexOf("=") > -1)
+			{
 				String[] subTokens = token.split("=");
 				token = subTokens[0];
 				total = Integer.parseInt(subTokens[1]);
 			}
-			
+
 			Prerequisite subreq = new Prerequisite();
 			subreq.setKind("skill");
 			subreq.setKey(token);
 			subreq.setTotalValues(true);
 			prereq.addPrerequisite(subreq);
 		}
-		
+
 		if (invertResult)
 		{
-			prereq.setOperator( prereq.getOperator().invert() );
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		prereq.setOperand(Integer.toString(total));
 		prereq.setKind(null);

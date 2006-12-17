@@ -36,7 +36,9 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreTextTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreTextTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -58,7 +60,8 @@ public class PreTextTester extends AbstractPrerequisiteTest implements Prerequis
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "TEXT"; //$NON-NLS-1$
 	}
 

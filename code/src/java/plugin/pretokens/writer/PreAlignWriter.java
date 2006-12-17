@@ -37,8 +37,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
-public class PreAlignWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreAlignWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -54,16 +54,15 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements Prereq
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
+			PrerequisiteOperator.NEQ};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 		try

@@ -33,18 +33,23 @@ import pcgen.persistence.lst.StatsAndChecksLstToken;
 /**
  * Class deals with BONUSSPELLLEVEL Token
  */
-public class BonusspelllevelToken implements StatsAndChecksLstToken {
-	public String getTokenName() {
+public class BonusspelllevelToken implements StatsAndChecksLstToken
+{
+	public String getTokenName()
+	{
 		return "BONUSSPELLLEVEL";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL) {
-		try {
+	public boolean parse(String lstLine, URL sourceURL)
+	{
+		try
+		{
 			BonusSpellLoader bonusSpellLoader = new BonusSpellLoader();
 			bonusSpellLoader.parseLine(lstLine, sourceURL);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

@@ -10,11 +10,13 @@ import java.util.StringTokenizer;
 public class DamagemultToken implements WieldCategoryLstToken
 {
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DAMAGEMULT";
 	}
 
-	public boolean parse(WieldCategory cat, String value) {
+	public boolean parse(WieldCategory cat, String value)
+	{
 		// The damage multiplier based on
 		// number of hands used to wield weapon
 		// dString is of form:

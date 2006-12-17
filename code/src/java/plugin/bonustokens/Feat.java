@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>Feat</code>
  *
@@ -36,14 +35,12 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class Feat extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"FEAT"
-		};
+	private static final String[] bonusHandled = {"FEAT"};
 
 	protected boolean parseToken(final String token)
 	{
-		if ("POOL".equals(token) || "MONSTERPOOL".equals(token) || "PCPOOL".equals(token))
+		if ("POOL".equals(token) || "MONSTERPOOL".equals(token)
+			|| "PCPOOL".equals(token))
 		{
 			addBonusInfo(token);
 			return true;

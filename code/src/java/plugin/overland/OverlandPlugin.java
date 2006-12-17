@@ -53,7 +53,8 @@ public class OverlandPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
+	public FileFilter[] getFileTypes()
+	{
 		return null;
 	}
 
@@ -69,11 +70,14 @@ public class OverlandPlugin extends GMBPlugin
 		getPluginSystem();
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 90);
 	}
 
@@ -113,10 +117,12 @@ public class OverlandPlugin extends GMBPlugin
 	{
 		if (message instanceof StateChangedMessage)
 		{
-			if(isActive()) {
+			if (isActive())
+			{
 				overToolsItem.setEnabled(false);
 			}
-			else {
+			else
+			{
 				overToolsItem.setEnabled(true);
 			}
 		}
@@ -126,10 +132,11 @@ public class OverlandPlugin extends GMBPlugin
 	 * Returns true if the pane is active
 	 * @return true if the pane is active
 	 */
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+	public boolean isActive()
+	{
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theView);
+			&& tp.getSelectedComponent().equals(theView);
 	}
 
 	/**
@@ -140,12 +147,12 @@ public class OverlandPlugin extends GMBPlugin
 		overToolsItem.setMnemonic('O');
 		overToolsItem.setText("Overland Travel");
 		overToolsItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					toolMenuItem(evt);
-				}
-			});
+				toolMenuItem(evt);
+			}
+		});
 		GMBus.send(new ToolMenuItemAddMessage(this, overToolsItem));
 	}
 

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SubClassLstToken;
 /**
  * Class deals with CHOICE Token
  */
-public class ChoiceToken implements SubClassLstToken {
+public class ChoiceToken implements SubClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CHOICE";
 	}
 
-	public boolean parse(SubClass subclass, String value) {
+	public boolean parse(SubClass subclass, String value)
+	{
 		subclass.setChoice(value);
 		return true;
 	}

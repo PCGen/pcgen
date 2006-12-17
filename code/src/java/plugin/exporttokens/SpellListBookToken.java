@@ -59,12 +59,14 @@ public class SpellListBookToken extends SpellListToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringBuffer retValue = new StringBuffer();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource,
-			SpellListToken.SPELLTAG_BOOK);
+		SpellListTokenParams params =
+				new SpellListTokenParams(tokenSource,
+					SpellListToken.SPELLTAG_BOOK);
 
 		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
@@ -77,8 +79,9 @@ public class SpellListBookToken extends SpellListToken
 				bookName = pc.getSpellBooks().get(params.getBookNum());
 			}
 
-			final List<CharacterSpell> spells = aObject.getSpellSupport().getCharacterSpell(null,
-				bookName, params.getLevel());
+			final List<CharacterSpell> spells =
+					aObject.getSpellSupport().getCharacterSpell(null, bookName,
+						params.getLevel());
 
 			boolean needcomma = false;
 			for (CharacterSpell cs : spells)

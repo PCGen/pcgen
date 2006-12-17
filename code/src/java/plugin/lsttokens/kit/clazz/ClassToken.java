@@ -38,7 +38,7 @@ public class ClassToken implements KitClassLstToken
 	public boolean parse(KitClass kitClass, String value)
 	{
 		Logging.errorPrint("Ignoring second CLASS tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 

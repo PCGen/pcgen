@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with SAVEINFO Token
  */
-public class SaveinfoToken implements SpellLstToken {
+public class SaveinfoToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SAVEINFO";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		spell.setSaveInfo(value);
 		return true;
 	}

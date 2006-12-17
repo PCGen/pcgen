@@ -35,14 +35,18 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreCityTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreCityTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		if ( character.getResidence().equalsIgnoreCase( prereq.getKey() ) ) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		if (character.getResidence().equalsIgnoreCase(prereq.getKey()))
+		{
 			return countedTotal(prereq, 1);
 		}
 		return countedTotal(prereq, 0);
@@ -51,7 +55,8 @@ public class PreCityTester  extends AbstractPrerequisiteTest implements Prerequi
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "CITY"; //$NON-NLS-1$
 	}
 }

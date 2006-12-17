@@ -33,29 +33,34 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.enumeration.VisionType;
 
-
 /**
  * @author wardc
  *
  * Checks a characters vision..
  */
-public class PreVisionTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreVisionTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		final int requiredRange = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
-		VisionType requiredVisionType = VisionType.getVisionType(prereq.getKey());
+		VisionType requiredVisionType =
+				VisionType.getVisionType(prereq.getKey());
 
 		for (Vision charVision : character.getVisionList())
 		{
 			if (charVision.getType().equals(requiredVisionType))
 			{
 				int visionRange = Integer.parseInt(charVision.getDistance());
-				runningTotal += prereq.getOperator().compare(visionRange, requiredRange);
+				runningTotal +=
+						prereq.getOperator()
+							.compare(visionRange, requiredRange);
 				break;
 			}
 		}
@@ -65,7 +70,8 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "VISION"; //$NON-NLS-1$
 	}
 

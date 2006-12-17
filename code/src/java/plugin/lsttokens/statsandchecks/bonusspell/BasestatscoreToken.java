@@ -8,13 +8,16 @@ import pcgen.persistence.lst.BonusSpellLstToken;
 /**
  * Class deals with BASESTATSCORE Token
  */
-public class BasestatscoreToken implements BonusSpellLstToken {
+public class BasestatscoreToken implements BonusSpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BASESTATSCORE";
 	}
 
-	public boolean parse(Map<String, String> bonus, String value) {
+	public boolean parse(Map<String, String> bonus, String value)
+	{
 		bonus.put(BonusSpellLoader.BASE_STAT_SCORE, value);
 		return true;
 	}

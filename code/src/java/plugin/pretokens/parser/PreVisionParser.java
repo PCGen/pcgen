@@ -31,16 +31,15 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
-
 /**
  * @author wardc
  *
  */
-public class PreVisionParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreVisionParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "VISION" };
+		return new String[]{"VISION"};
 	}
 }

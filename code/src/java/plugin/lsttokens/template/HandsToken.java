@@ -6,18 +6,23 @@ import pcgen.persistence.lst.PCTemplateLstToken;
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken implements PCTemplateLstToken {
+public class HandsToken implements PCTemplateLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HANDS";
 	}
 
-	public boolean parse(PCTemplate template, String value) {
-		try {
+	public boolean parse(PCTemplate template, String value)
+	{
+		try
+		{
 			template.setHands(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

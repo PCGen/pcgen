@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with LEVELMSG Token
  */
-public class LevelmsgToken implements GameModeLstToken {
+public class LevelmsgToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LEVELMSG";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setLevelUpMessage(value.replace('|', '\n'));
 		return true;
 	}

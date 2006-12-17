@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with ALTEQMOD token 
  */
-public class AlteqmodToken implements EquipmentLstToken {
+public class AlteqmodToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALTEQMOD";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.addEqModifiers(value, false);
 		return true;
 	}

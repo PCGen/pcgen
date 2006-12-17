@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>PostRangeAdd</code>
  *
@@ -35,15 +34,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class PostRangeAdd extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"POSTRANGEADD"
-		};
-	private static final String[] bonusTags =
-		{
-			"PROJECTILE",
-			"THROWN"
-		};
+	private static final String[] bonusHandled = {"POSTRANGEADD"};
+	private static final String[] bonusTags = {"PROJECTILE", "THROWN"};
 
 	protected String[] getBonusesHandled()
 	{

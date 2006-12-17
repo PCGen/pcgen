@@ -54,7 +54,8 @@ import java.awt.event.ActionListener;
  * </p>
  *
  */
-public class CharacterSheetPlugin extends GMBPlugin {
+public class CharacterSheetPlugin extends GMBPlugin
+{
 
 	/** Name for logger. TODO: Should be exteranlized */
 	public static final String LOG_NAME = "CharacterSheet";
@@ -75,7 +76,8 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * Default (and only) constructure. Initializes the plugin.
 	 * </p>
 	 */
-	public CharacterSheetPlugin() {
+	public CharacterSheetPlugin()
+	{
 		// Do Nothing
 	}
 
@@ -86,40 +88,53 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#start()
 	 */
-	public void start() {
+	public void start()
+	{
 		model = new CharacterSheetModel();
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesDisplayPanel(model)));
-		if (getPluginSystem().equals(Constants.s_SYSTEM_PCGEN)) {
-			GMBus.send(new TabAddMessage(this, name, model.getInfoPanel(), getPluginSystem()));
-		} else {
-			GMBus.send(new TabAddMessage(this, name, model.getComponent(), getPluginSystem()));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesDisplayPanel(model)));
+		if (getPluginSystem().equals(Constants.s_SYSTEM_PCGEN))
+		{
+			GMBus.send(new TabAddMessage(this, name, model.getInfoPanel(),
+				getPluginSystem()));
+		}
+		else
+		{
+			GMBus.send(new TabAddMessage(this, name, model.getComponent(),
+				getPluginSystem()));
 		}
 		initMenus();
 	}
 
-	public FileFilter[] getFileTypes() {
+	public FileFilter[] getFileTypes()
+	{
 		return null;
 	}
 
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getName()
 	 */
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getVersion()
 	 */
-	public String getVersion() {
+	public String getVersion()
+	{
 		return version;
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_PCGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_PCGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 10);
 	}
 
@@ -138,22 +153,37 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage
 	 */
-	public void handleMessage(GMBMessage message) {
-		if (getPluginSystem() == "GMGen") {
-			if (message instanceof StateChangedMessage) {
+	public void handleMessage(GMBMessage message)
+	{
+		if (getPluginSystem() == "GMGen")
+		{
+			if (message instanceof StateChangedMessage)
+			{
 				handleStateChangedMessage((StateChangedMessage) message);
-			} else if (message instanceof PCLoadedMessage) {
+			}
+			else if (message instanceof PCLoadedMessage)
+			{
 				handlePCLoadedMessage((PCLoadedMessage) message);
-			} else if (message instanceof PCClosedMessage) {
+			}
+			else if (message instanceof PCClosedMessage)
+			{
 				handlePCClosedMessage((PCClosedMessage) message);
-			} else if (message instanceof SavePCGNotificationMessage) {
+			}
+			else if (message instanceof SavePCGNotificationMessage)
+			{
 				handleSavePCGNotificationMessage((SavePCGNotificationMessage) message);
-			} else if (message instanceof WindowClosedMessage) {
+			}
+			else if (message instanceof WindowClosedMessage)
+			{
 				handleWindowClosedMessage((WindowClosedMessage) message);
 			}
-		} else if (message instanceof PauseRefreshMessage) {
+		}
+		else if (message instanceof PauseRefreshMessage)
+		{
 			handlePauseRefreshMessage((PauseRefreshMessage) message);
-		}	else if (message instanceof ResumeRefreshMessage) {
+		}
+		else if (message instanceof ResumeRefreshMessage)
+		{
 			handleResumeRefreshMessage((ResumeRefreshMessage) message);
 		}
 	}
@@ -166,11 +196,14 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * @param evt
 	 *          ActionEvent that fired this method.
 	 */
-	public void toolMenuItem(ActionEvent evt) {
+	public void toolMenuItem(ActionEvent evt)
+	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++) {
-			if (tp.getComponentAt(i).equals(model.getComponent())) {
+		for (int i = 0; i < tp.getTabCount(); i++)
+		{
+			if (tp.getComponentAt(i).equals(model.getComponent()))
+			{
 				tp.setSelectedIndex(i);
 			}
 		}
@@ -185,11 +218,15 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * @param message
 	 *          The message
 	 */
-	private void handleStateChangedMessage(StateChangedMessage message) {
-		if (isActive()) {
+	private void handleStateChangedMessage(StateChangedMessage message)
+	{
+		if (isActive())
+		{
 			csToolsItem.setEnabled(false);
 			model.refresh();
-		} else {
+		}
+		else
+		{
 			csToolsItem.setEnabled(true);
 		}
 	}
@@ -198,8 +235,10 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * Handle the pc loaded message
 	 * @param message
 	 */
-	public void handlePCLoadedMessage(PCLoadedMessage message) {
-		if (!message.isIgnored(this)) {
+	public void handlePCLoadedMessage(PCLoadedMessage message)
+	{
+		if (!message.isIgnored(this))
+		{
 			model.addPc(message.getPC());
 		}
 	}
@@ -208,7 +247,8 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * Handle the pc closed message
 	 * @param message
 	 */
-	public void handlePCClosedMessage(PCClosedMessage message) {
+	public void handlePCClosedMessage(PCClosedMessage message)
+	{
 		model.removePc(message.getPC());
 	}
 
@@ -216,7 +256,9 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * Handle the save pcg notification message
 	 * @param message
 	 */
-	public void handleSavePCGNotificationMessage(SavePCGNotificationMessage message) {
+	public void handleSavePCGNotificationMessage(
+		SavePCGNotificationMessage message)
+	{
 		model.savePc(message.getPC());
 	}
 
@@ -224,15 +266,18 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * Handle the window closed message
 	 * @param message
 	 */
-	public void handleWindowClosedMessage(WindowClosedMessage message) {
+	public void handleWindowClosedMessage(WindowClosedMessage message)
+	{
 		model.closeWindow();
 	}
 
-	private void handlePauseRefreshMessage(PauseRefreshMessage message) {
+	private void handlePauseRefreshMessage(PauseRefreshMessage message)
+	{
 		model.setRefresh(false);
 	}
 
-	private void handleResumeRefreshMessage(ResumeRefreshMessage message) {
+	private void handleResumeRefreshMessage(ResumeRefreshMessage message)
+	{
 		model.setRefresh(true);
 	}
 
@@ -240,10 +285,12 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * is Active
 	 * @return TRUE if active else FALSE
 	 */
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(model.getComponent());
+	public boolean isActive()
+	{
+		JTabbedPane tp =
+				TabbedPaneUtilities.getTabbedPaneFor(model.getComponent());
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(model.getComponent());
+			&& tp.getSelectedComponent().equals(model.getComponent());
 	}
 
 	/**
@@ -251,12 +298,15 @@ public class CharacterSheetPlugin extends GMBPlugin {
 	 * Adds menu items to tools and menu.
 	 * </p>
 	 */
-	public void initMenus() {
+	public void initMenus()
+	{
 		csToolsItem.setMnemonic('S');
 		csToolsItem.setText("Character Sheet");
-		csToolsItem.addActionListener(new ActionListener() {
+		csToolsItem.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt)
+			{
 				toolMenuItem(evt);
 			}
 		});

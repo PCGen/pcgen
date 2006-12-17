@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with STAT Token
  */
-public class StatToken implements SpellLstToken {
+public class StatToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "STAT";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		spell.setStat(value);
 		return true;
 	}

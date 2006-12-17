@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>ItemCapacity</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class ItemCapacity extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"ITEMCAPACITY"
-		};
+	private static final String[] bonusHandled = {"ITEMCAPACITY"};
 
 	protected boolean parseToken(final String token)
 	{

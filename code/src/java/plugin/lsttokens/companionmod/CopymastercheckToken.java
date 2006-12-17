@@ -6,13 +6,16 @@ import pcgen.persistence.lst.CompanionModLstToken;
 /**
  * Class deals with COPYMASTERCHECK Token
  */
-public class CopymastercheckToken implements CompanionModLstToken {
+public class CopymastercheckToken implements CompanionModLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COPYMASTERCHECK";
 	}
 
-	public boolean parse(CompanionMod cmpMod, String value) {
+	public boolean parse(CompanionMod cmpMod, String value)
+	{
 		cmpMod.setCopyMasterCheck(value);
 		return true;
 	}

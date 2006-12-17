@@ -27,7 +27,6 @@ package plugin.initiative.gui;
 
 import java.util.ArrayList;
 
-
 /**
  * <p>
  * This class assists in managing a set of columns for a custom
@@ -43,7 +42,7 @@ import java.util.ArrayList;
  */
 public class TableColumnInformation
 {
-	
+
 	/**
 	 * <p>
 	 * Internal utility for maintaining information about a column.
@@ -61,7 +60,7 @@ public class TableColumnInformation
 		public boolean editable = false;
 		/** The column heading label */
 		public String label = null;
-		
+
 		/**
 		 * <p>
 		 * Default, empty constructor
@@ -71,7 +70,7 @@ public class TableColumnInformation
 		{
 			// Do Nothing
 		}
-		
+
 		/**
 		 * <p>
 		 * A constructor that fills in all the information.
@@ -84,7 +83,7 @@ public class TableColumnInformation
 		 * @param plabel
 		 */
 		public ColStruct(String pcolumnKey, Class<?> pcolumnClass,
-				Object pdefaultValue, boolean peditable, String plabel)
+			Object pdefaultValue, boolean peditable, String plabel)
 		{
 			this.columnKey = pcolumnKey;
 			this.columnClass = pcolumnClass;
@@ -93,10 +92,10 @@ public class TableColumnInformation
 			this.label = plabel;
 		}
 	}
-	
+
 	/** An arraylist of <code>ColStructs</code> */
 	private ArrayList<ColStruct> columns = null;
-	
+
 	/**
 	 * <p>
 	 * A constructor, specifying how many columns the table
@@ -109,7 +108,7 @@ public class TableColumnInformation
 	{
 		columns = new ArrayList<ColStruct>(initialCapacity);
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -123,13 +122,14 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(int columnIndex, String columnKey, Class<?> columnClass,
-			Object defaultValue, boolean editable, String label)
+	public void addColumn(int columnIndex, String columnKey,
+		Class<?> columnClass, Object defaultValue, boolean editable,
+		String label)
 	{
 		columns.add(columnIndex, new ColStruct(columnKey, columnClass,
-				defaultValue, editable, label));
+			defaultValue, editable, label));
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -143,12 +143,12 @@ public class TableColumnInformation
 	 * @param label
 	 */
 	public void addColumn(String columnKey, Class<?> columnClass,
-			Object defaultValue, boolean editable, String label)
+		Object defaultValue, boolean editable, String label)
 	{
-		columns.add(new ColStruct(columnKey, columnClass,
-				defaultValue, editable, label));
+		columns.add(new ColStruct(columnKey, columnClass, defaultValue,
+			editable, label));
 	}
-	
+
 	/**
 	 * Shortcut to get the index of a column based on the string
 	 * key value.
@@ -171,7 +171,7 @@ public class TableColumnInformation
 
 		return returnValue;
 	}
-	
+
 	/**
 	 * <p>
 	 * Gets the column's class by index
@@ -184,7 +184,7 @@ public class TableColumnInformation
 	{
 		return columns.get(column).columnClass;
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -198,7 +198,7 @@ public class TableColumnInformation
 	{
 		return getClass(columnFromKey(key));
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -211,7 +211,7 @@ public class TableColumnInformation
 	{
 		return columns.size();
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -225,7 +225,7 @@ public class TableColumnInformation
 	{
 		return columns.get(column).defaultValue;
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -239,7 +239,7 @@ public class TableColumnInformation
 	{
 		return getDefaultValue(columnFromKey(key));
 	}
-	
+
 	/**
 	 * 
 	 * <p>
@@ -253,7 +253,7 @@ public class TableColumnInformation
 	{
 		return columns.get(column).columnKey;
 	}
-	
+
 	/**
 	 * <p>
 	 * Gets the label for a column by index
@@ -266,7 +266,7 @@ public class TableColumnInformation
 	{
 		return columns.get(column).label;
 	}
-	
+
 	/**
 	 * <p>
 	 * Gets the label for a column by key
@@ -305,7 +305,7 @@ public class TableColumnInformation
 	{
 		return isColumnEditable(columnFromKey(key));
 	}
-	
+
 	/**
 	 * <p>
 	 * Removes all columns
@@ -317,7 +317,7 @@ public class TableColumnInformation
 	{
 		columns.clear();
 	}
-	
+
 	/**
 	 * <p>
 	 * Removes the column at index.
@@ -329,7 +329,7 @@ public class TableColumnInformation
 	{
 		columns.remove(columnIndex);
 	}
-	
+
 	/**
 	 * <p>
 	 * Removes the column with key.
@@ -341,7 +341,7 @@ public class TableColumnInformation
 	{
 		columns.remove(columnFromKey(key));
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the class of column by index
@@ -354,7 +354,7 @@ public class TableColumnInformation
 	{
 		columns.get(column).columnClass = pClass;
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the class of column by key
@@ -393,7 +393,7 @@ public class TableColumnInformation
 	{
 		setColumnEditable(columnFromKey(key), editable);
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the default value by index
@@ -406,7 +406,7 @@ public class TableColumnInformation
 	{
 		columns.get(column).defaultValue = value;
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the default value of column by key
@@ -419,7 +419,7 @@ public class TableColumnInformation
 	{
 		setDefaultValue(columnFromKey(key), value);
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the key of a column by index
@@ -432,7 +432,7 @@ public class TableColumnInformation
 	{
 		columns.get(column).columnKey = key;
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the key of a column by key
@@ -445,7 +445,7 @@ public class TableColumnInformation
 	{
 		setKey(columnFromKey(key), keyValue);
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the label of a column by index
@@ -458,7 +458,7 @@ public class TableColumnInformation
 	{
 		columns.get(column).label = label;
 	}
-	
+
 	/**
 	 * <p>
 	 * Sets the label of a column by key

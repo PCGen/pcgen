@@ -36,10 +36,10 @@ package plugin.initiative;
  */
 public class SaveModel extends PObjectModel
 {
-	
+
 	/** Bonus segment position */
 	private static final int SEGMENT_POSITION_BONUS = 1;
-	
+
 	/** Save Type = NONE */
 	public static final String SAVE_TYPE_NONE = "NONE";
 	/** Save Type = FORTITUDE */
@@ -48,16 +48,16 @@ public class SaveModel extends PObjectModel
 	public static final String SAVE_TYPE_REFLEX = "REFLEX";
 	/** Save Type = WILL */
 	public static final String SAVE_TYPE_WILL = "WILL";
-	
+
 	/** Bonus value */
 	int m_bonus = 0;
-	
+
 	/** DC (not set by initialization */
 	int m_dc = 0;
-	
+
 	/** Save type */
 	String m_saveType = null;
-	
+
 	/**
 	 * <p>
 	 * Constructs a SaveModel with type NONE and +0 bonus.
@@ -67,7 +67,7 @@ public class SaveModel extends PObjectModel
 	{
 		this(SAVE_TYPE_NONE + "\\+0");
 	}
-	
+
 	/**
 	 * <p>
 	 * Constructs a new save model based on a string.  The string should

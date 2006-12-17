@@ -28,19 +28,21 @@ package plugin.lsttokens.gamemode;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
-
 /**
  * <code>ActypeToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class ActypeToken implements GameModeLstToken {
+public class ActypeToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ACTYPE";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.addACType(value);
 		return true;
 	}

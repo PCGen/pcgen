@@ -50,7 +50,8 @@ public class MaxSkillLevelToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return Integer.toString(getMaxSkillLevelToken(pc));
 	}
@@ -62,6 +63,7 @@ public class MaxSkillLevelToken extends Token
 	 */
 	public static int getMaxSkillLevelToken(PlayerCharacter pc)
 	{
-		return SkillUtilities.maxClassSkillForLevel(pc.getTotalLevels(), pc).intValue();
+		return SkillUtilities.maxClassSkillForLevel(pc.getTotalLevels(), pc)
+			.intValue();
 	}
 }

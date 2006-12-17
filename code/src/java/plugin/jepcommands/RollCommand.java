@@ -10,18 +10,22 @@ import pcgen.util.PJEP;
 /**
  * eg. roll("10+d10") 
  */
-public class RollCommand extends PCGenCommand {
-	
+public class RollCommand extends PCGenCommand
+{
+
 	/** Constructor */
-	public RollCommand() {
+	public RollCommand()
+	{
 		numberOfParameters = 1;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "ROLL";
 	}
 
-	public boolean updateVariables(PJEP jep) {
+	public boolean updateVariables(PJEP jep)
+	{
 		return false;
 	}
 
@@ -29,10 +33,11 @@ public class RollCommand extends PCGenCommand {
 	 * Is this command cacheable?
 	 * @return true if cacheable, false if not.
 	 */
-	public boolean getCachable() {
+	public boolean getCachable()
+	{
 		return false;
 	}
-	
+
 	/**
 	 * Runs getvar on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is
@@ -40,7 +45,8 @@ public class RollCommand extends PCGenCommand {
 	 * @param inStack
 	 * @throws ParseException
 	 */
-	public void run(Stack inStack) throws ParseException {
+	public void run(Stack inStack) throws ParseException
+	{
 		// check the stack
 		checkStack(inStack);
 
@@ -53,11 +59,15 @@ public class RollCommand extends PCGenCommand {
 		param1 = inStack.pop();
 		Object result = null;
 
-		if (param1 instanceof String) {
-			result = Integer.valueOf(pcgen.core.RollingMethods.roll((String)param1));
+		if (param1 instanceof String)
+		{
+			result =
+					Integer.valueOf(pcgen.core.RollingMethods
+						.roll((String) param1));
 			inStack.push(result);
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type");
 		}
 	}

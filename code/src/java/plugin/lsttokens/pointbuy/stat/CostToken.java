@@ -28,26 +28,29 @@ package plugin.lsttokens.pointbuy.stat;
 import pcgen.core.PointBuyCost;
 import pcgen.persistence.lst.PointBuyStatLstToken;
 
-
 /**
  * <code>CostToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class CostToken implements PointBuyStatLstToken {
+public class CostToken implements PointBuyStatLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COST";
 	}
 
-	public boolean parse(PointBuyCost pbc, String value) {
-		try {
+	public boolean parse(PointBuyCost pbc, String value)
+	{
+		try
+		{
 			pbc.setStatCost(Integer.parseInt(value));
 		}
-		catch (NumberFormatException exc) {
+		catch (NumberFormatException exc)
+		{
 			return false;
 		}
 		return true;
 	}
 }
-

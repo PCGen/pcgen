@@ -30,29 +30,34 @@ import java.util.StringTokenizer;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.lst.LoadInfoLstToken;
 
-
 /**
  * <code>SizemultToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class SizemultToken implements LoadInfoLstToken {
+public class SizemultToken implements LoadInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SIZEMULT";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value) {
+	public boolean parse(LoadInfo loadInfo, String value)
+	{
 		final StringTokenizer token = new StringTokenizer(value, "|");
-		if(token.countTokens() != 2) {
+		if (token.countTokens() != 2)
+		{
 			return false;
 		}
-		try {
-			String size = token.nextToken().substring(0,1);
+		try
+		{
+			String size = token.nextToken().substring(0, 1);
 			Float num = new Float(token.nextToken());
 			loadInfo.addSizeAdjustment(size, num);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 		return true;

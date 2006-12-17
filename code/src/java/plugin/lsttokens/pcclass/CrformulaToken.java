@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with CRFORMULA Token
  */
-public class CrformulaToken implements PCClassLstToken {
+public class CrformulaToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CRFORMULA";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		pcclass.setCRFormula(value);
 		return true;
 	}

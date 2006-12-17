@@ -57,13 +57,15 @@ public class SpellListTypeToken extends SpellListToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringBuffer retValue = new StringBuffer();
 
-		SpellListTokenParams params = new SpellListTokenParams(tokenSource,
-			SpellListToken.SPELLTAG_TYPE);
-		
+		SpellListTokenParams params =
+				new SpellListTokenParams(tokenSource,
+					SpellListToken.SPELLTAG_TYPE);
+
 		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
 		if (aObject != null)
@@ -74,7 +76,7 @@ public class SpellListTypeToken extends SpellListToken
 			{
 				aClass = (PCClass) aObject;
 			}
-			
+
 			if (aClass != null)
 			{
 				retValue.append(aClass.getSpellType());

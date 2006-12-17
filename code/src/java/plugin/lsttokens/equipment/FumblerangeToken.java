@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with FUMBLERANGE token 
  */
-public class FumblerangeToken implements EquipmentLstToken {
+public class FumblerangeToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "FUMBLERANGE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setFumbleRange(value);
 		return true;
 	}

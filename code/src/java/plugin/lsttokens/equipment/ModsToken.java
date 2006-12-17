@@ -6,14 +6,18 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with MODS token 
  */
-public class ModsToken implements EquipmentLstToken {
+public class ModsToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MODS";
 	}
 
-	public boolean parse(Equipment eq, String value) {
-		switch (value.charAt(0)) {
+	public boolean parse(Equipment eq, String value)
+	{
+		switch (value.charAt(0))
+		{
 			case 'R':
 			case 'r':
 				eq.setModifiersAllowed(true);

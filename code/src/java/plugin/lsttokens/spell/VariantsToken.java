@@ -8,23 +8,29 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with VARIANTS Token
  */
-public class VariantsToken implements SpellLstToken {
+public class VariantsToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "VARIANTS";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
 
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			final String variant = aTok.nextToken();
 
-			if (variant.equals(".CLEAR")) {
+			if (variant.equals(".CLEAR"))
+			{
 				spell.clearVariants();
 			}
-			else {
-				spell.addVariant( variant );
+			else
+			{
+				spell.addVariant(variant);
 			}
 		}
 		return true;

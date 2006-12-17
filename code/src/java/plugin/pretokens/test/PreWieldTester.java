@@ -34,29 +34,32 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author jayme cox <jaymecox@users.sourceforge.net>
  *
  */
-public class PreWieldTester
-	extends AbstractPrerequisiteTest
-	implements PrerequisiteTest {
+public class PreWieldTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) {
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter aPC)
+	{
 		int runningTotal = 0;
 		if (equipment.getWield().equalsIgnoreCase(prereq.getKey()))
 		{
 			runningTotal++;
 		}
 
-		return countedTotal( prereq, prereq.getOperator().compare(runningTotal, 1));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
+			1));
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "WIELD"; //$NON-NLS-1$
 	}
 }
-

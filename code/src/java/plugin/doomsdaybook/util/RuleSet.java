@@ -45,12 +45,14 @@ public class RuleSet extends ArrayList<String> implements DataElement
 		this.weight = weight;
 	}
 
-	public RuleSet(VariableHashMap allVars, String title, String id, String usage)
+	public RuleSet(VariableHashMap allVars, String title, String id,
+		String usage)
 	{
 		this(allVars, title, id, 1, usage);
 	}
 
-	public RuleSet(VariableHashMap allVars, String title, String id, int weight, String usage)
+	public RuleSet(VariableHashMap allVars, String title, String id,
+		int weight, String usage)
 	{
 		this.allVars = allVars;
 		this.title = title;

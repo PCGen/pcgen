@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with HELP Token
  */
-public class HelpToken implements CampaignLstToken {
+public class HelpToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HELP";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setHelp(value);
 		campaign.addLine("HELP:" + value);
 		return true;

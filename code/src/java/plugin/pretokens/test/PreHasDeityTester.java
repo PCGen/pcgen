@@ -39,19 +39,19 @@ import pcgen.core.prereq.PrerequisiteTest;
  *
  */
 public class PreHasDeityTester extends AbstractPrerequisiteTest implements
-	PrerequisiteTest
+		PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq,
-					  final PlayerCharacter character)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
 		int runningTotal;
 		final boolean charHasDeity = character.getDeity() != null;
 
 		final String ucOp = prereq.getKey().toUpperCase();
-		final boolean flag = (ucOp.startsWith("Y") && charHasDeity)
-			|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean flag =
+				(ucOp.startsWith("Y") && charHasDeity)
+					|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$ //$NON-NLS-2$
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{

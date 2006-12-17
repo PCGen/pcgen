@@ -25,7 +25,6 @@
  */
 package plugin.doomsdaybook.util;
 
-
 /**
  * <code>variableException</code> is an exception raised when a problem 
  * occurs when processing a variable.
@@ -43,7 +42,7 @@ public class variableException extends Exception
 	 */
 	public variableException()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**

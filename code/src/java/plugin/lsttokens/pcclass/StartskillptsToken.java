@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with STARTSKILLPTS Token
  */
-public class StartskillptsToken implements PCClassLstToken {
+public class StartskillptsToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "STARTSKILLPTS";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		pcclass.setSkillPointFormula(value);
 		return true;
 	}

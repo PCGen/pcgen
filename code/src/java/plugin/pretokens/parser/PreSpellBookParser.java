@@ -31,15 +31,15 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteSimpleParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreSpellBookParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface
+public class PreSpellBookParser extends AbstractPrerequisiteSimpleParser
+		implements PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SPELLBOOK" };
+		return new String[]{"SPELLBOOK"};
 	}
 }

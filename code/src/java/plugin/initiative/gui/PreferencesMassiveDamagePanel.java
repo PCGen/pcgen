@@ -44,7 +44,8 @@ import java.awt.event.ActionListener;
  *
  * @author soulcatcher
  */
-public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
+public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
+{
 
 	public static final int MASSIVE_OFF = 1;
 	public static final int MASSIVE_DND = 2;
@@ -76,89 +77,132 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 	private JLabel sizeLabel1;
 	private JLabel sizeLabel2;
 
-
-	public PreferencesMassiveDamagePanel() {
+	public PreferencesMassiveDamagePanel()
+	{
 		initComponents();
 		initPreferences();
 	}
 
-	public void applyPreferences() {
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Type", getType());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Effect", getEffect());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.SizeMod", sizeCheck.isSelected());
+	public void applyPreferences()
+	{
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.Type", getType());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.Effect", getEffect());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.SizeMod", sizeCheck.isSelected());
 	}
 
-	public void initPreferences() {
-		setType(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Type", MASSIVE_OFF));
-		setEffect(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.Effect", MASSIVE_EFFECT_KILL));
-		setSizeMod(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Damage.Massive.SizeMod", true));
+	public void initPreferences()
+	{
+		setType(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.Type", MASSIVE_OFF));
+		setEffect(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.Effect", MASSIVE_EFFECT_KILL));
+		setSizeMod(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.SizeMod", true));
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return "Massive Damage";
 	}
 
-	private void setEffect(int choice) {
-		if (choice == MASSIVE_EFFECT_KILL) {
+	private void setEffect(int choice)
+	{
+		if (choice == MASSIVE_EFFECT_KILL)
+		{
 			effect1.setSelected(true);
-		} else if (choice == MASSIVE_EFFECT_NEGATIVE) {
+		}
+		else if (choice == MASSIVE_EFFECT_NEGATIVE)
+		{
 			effect2.setSelected(true);
-		} else if (choice == MASSIVE_EFFECT_HALF_TOTAL) {
+		}
+		else if (choice == MASSIVE_EFFECT_HALF_TOTAL)
+		{
 			effect3.setSelected(true);
-		} else if (choice == MASSIVE_EFFECT_HALF_CURRENT) {
+		}
+		else if (choice == MASSIVE_EFFECT_HALF_CURRENT)
+		{
 			effect4.setSelected(true);
 		}
 	}
 
-	private int getEffect() {
+	private int getEffect()
+	{
 		int returnVal = 0;
 
-		if (effect1.isSelected()) {
+		if (effect1.isSelected())
+		{
 			returnVal = MASSIVE_EFFECT_KILL;
-		} else if (effect2.isSelected()) {
+		}
+		else if (effect2.isSelected())
+		{
 			returnVal = MASSIVE_EFFECT_NEGATIVE;
-		} else if (effect3.isSelected()) {
+		}
+		else if (effect3.isSelected())
+		{
 			returnVal = MASSIVE_EFFECT_HALF_TOTAL;
-		} else if (effect4.isSelected()) {
+		}
+		else if (effect4.isSelected())
+		{
 			returnVal = MASSIVE_EFFECT_HALF_CURRENT;
 		}
 
 		return returnVal;
 	}
 
-	private void setSizeMod(boolean selected) {
+	private void setSizeMod(boolean selected)
+	{
 		sizeCheck.setSelected(selected);
 	}
 
-	private void setType(int choice) {
-		if (choice == MASSIVE_OFF) {
+	private void setType(int choice)
+	{
+		if (choice == MASSIVE_OFF)
+		{
 			massive1.setSelected(true);
-		} else if (choice == MASSIVE_DND) {
+		}
+		else if (choice == MASSIVE_DND)
+		{
 			massive2.setSelected(true);
-		} else if (choice == MASSIVE_D20_MODERN) {
+		}
+		else if (choice == MASSIVE_D20_MODERN)
+		{
 			massive3.setSelected(true);
-		} else if (choice == MASSIVE_HOUSE_HALF) {
+		}
+		else if (choice == MASSIVE_HOUSE_HALF)
+		{
 			massive4.setSelected(true);
 		}
 	}
 
-	private int getType() {
+	private int getType()
+	{
 		int returnVal = 0;
 
-		if (massive1.isSelected()) {
+		if (massive1.isSelected())
+		{
 			returnVal = MASSIVE_OFF;
-		} else if (massive2.isSelected()) {
+		}
+		else if (massive2.isSelected())
+		{
 			returnVal = MASSIVE_DND;
-		} else if (massive3.isSelected()) {
+		}
+		else if (massive3.isSelected())
+		{
 			returnVal = MASSIVE_D20_MODERN;
-		} else if (massive4.isSelected()) {
+		}
+		else if (massive4.isSelected())
+		{
 			returnVal = MASSIVE_HOUSE_HALF;
 		}
 
 		return returnVal;
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 		mainPanel = new JPanel();
 
 		massiveDamageGroup = new ButtonGroup();
@@ -187,14 +231,16 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 		massivePanel.setLayout(new BoxLayout(massivePanel, BoxLayout.Y_AXIS));
 
 		massivePanel.setBorder(new TitledBorder(null, "Massive Damage",
-				TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-				new Font("Dialog", 1, 11)));
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
+			new Font("Dialog", 1, 11)));
 		massive1.setSelected(true);
 		massive1.setText("Don't Track Massive Damage");
 		massiveDamageGroup.add(massive1);
-		massive1.addActionListener(new ActionListener() {
+		massive1.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt)
+			{
 				massiveActionPerformed(evt);
 			}
 		});
@@ -203,9 +249,11 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 
 		massive2.setText("Roll Fort for more than 50 damage (3rd Ed)");
 		massiveDamageGroup.add(massive2);
-		massive2.addActionListener(new ActionListener() {
+		massive2.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt)
+			{
 				massiveActionPerformed(evt);
 			}
 		});
@@ -214,20 +262,25 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 
 		massive3.setText("Roll Fort for CON Damage (Modern)");
 		massiveDamageGroup.add(massive3);
-		massive3.addActionListener(new ActionListener() {
+		massive3.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt)
+			{
 				massiveActionPerformed(evt);
 			}
 		});
 
 		massivePanel.add(massive3);
 
-		massive4.setText("Roll Fort for more than half of total hit points (House)");
+		massive4
+			.setText("Roll Fort for more than half of total hit points (House)");
 		massiveDamageGroup.add(massive4);
-		massive4.addActionListener(new ActionListener() {
+		massive4.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt)
+			{
 				massiveActionPerformed(evt);
 			}
 		});
@@ -239,8 +292,8 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 		effectPanel.setLayout(new BoxLayout(effectPanel, BoxLayout.Y_AXIS));
 
 		effectPanel.setBorder(new TitledBorder(null, "Massive Damage Failure",
-				TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-				new Font("Dialog", 1, 11)));
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
+			new Font("Dialog", 1, 11)));
 		effect1.setSelected(true);
 		effect1.setText("Failure kills character (3rd Ed)");
 		effectGroup.add(effect1);
@@ -267,8 +320,8 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 		miscPanel.setLayout(new BoxLayout(miscPanel, BoxLayout.Y_AXIS));
 
 		miscPanel.setBorder(new TitledBorder(null, "Misc",
-				TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-				new Font("Dialog", 1, 11)));
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
+			new Font("Dialog", 1, 11)));
 		sizeCheck.setSelected(true);
 		sizeCheck.setText("Take size into account (3rd Ed)");
 		sizeCheck.setEnabled(false);
@@ -289,8 +342,10 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 		add(jScrollPane1, BorderLayout.CENTER);
 	}
 
-	private void massiveActionPerformed(ActionEvent evt) {
-		if (evt.getSource() == massive1) {
+	private void massiveActionPerformed(ActionEvent evt)
+	{
+		if (evt.getSource() == massive1)
+		{
 			effect1.setEnabled(false);
 			effect2.setEnabled(false);
 			effect3.setEnabled(false);
@@ -298,7 +353,9 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 			sizeCheck.setEnabled(false);
 			sizeLabel1.setEnabled(false);
 			sizeLabel2.setEnabled(false);
-		} else if (evt.getSource() == massive2) {
+		}
+		else if (evt.getSource() == massive2)
+		{
 			effect1.setEnabled(true);
 			effect2.setEnabled(true);
 			effect3.setEnabled(true);
@@ -306,7 +363,9 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel {
 			sizeCheck.setEnabled(true);
 			sizeLabel1.setEnabled(true);
 			sizeLabel2.setEnabled(true);
-		} else if ((evt.getSource() == massive3) || (evt.getSource() == massive4)) {
+		}
+		else if ((evt.getSource() == massive3) || (evt.getSource() == massive4))
+		{
 			effect1.setEnabled(true);
 			effect2.setEnabled(true);
 			effect3.setEnabled(true);

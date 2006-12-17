@@ -42,7 +42,8 @@ import java.io.File;
  * @author Expires 2003
  * @version 2.10
  */
-public class InitiativePlugin extends GMBPlugin {
+public class InitiativePlugin extends GMBPlugin
+{
 
 	/** Name used for initiative logging. */
 	public static final String LOG_NAME = "Initiative";
@@ -62,12 +63,14 @@ public class InitiativePlugin extends GMBPlugin {
 	/**
 	 * Creates a new instance of InitiativePlugin
 	 */
-	public InitiativePlugin() {
+	public InitiativePlugin()
+	{
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
-		FileFilter[] ff = { getFileType() };
+	public FileFilter[] getFileTypes()
+	{
+		FileFilter[] ff = {getFileType()};
 
 		return ff;
 	}
@@ -76,31 +79,40 @@ public class InitiativePlugin extends GMBPlugin {
 	 * Get the file type
 	 * @return the file type
 	 */
-	public FileFilter getFileType() {
-		String[] init = new String[] { "gmi", "init" };
+	public FileFilter getFileType()
+	{
+		String[] init = new String[]{"gmi", "init"};
 		return new SimpleFileFilter(init, "Initiative Export");
 	}
 
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
-	public void start() {
+	public void start()
+	{
 		theView = new Initiative();
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesDamagePanel()));
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesMassiveDamagePanel()));
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesInitiativePanel()));
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesPerformancePanel()));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesDamagePanel()));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesMassiveDamagePanel()));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesInitiativePanel()));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesPerformancePanel()));
 
 		theView.setLog(LogUtilities.inst());
 		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
 		initMenus();
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 40);
 	}
 
@@ -109,7 +121,8 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @return name
 	 */
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
@@ -118,7 +131,8 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @return version
 	 */
-	public String getVersion() {
+	public String getVersion()
+	{
 		return version;
 	}
 
@@ -127,27 +141,31 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @return the view.
 	 */
-	public Component getView() {
+	public Component getView()
+	{
 		return theView;
 	}
 
 	/**
 	 * Handles the clicking of the <b>Add </b> button on the GUI.
 	 */
-	public void fileOpen() {
-		JFileChooser chooser
-				= ImagePreview.decorateWithImagePreview(new JFileChooser());
+	public void fileOpen()
+	{
+		JFileChooser chooser =
+				ImagePreview.decorateWithImagePreview(new JFileChooser());
 		File defaultFile = SettingsHandler.getPcgPath();
 
-		if (defaultFile.exists()) {
+		if (defaultFile.exists())
+		{
 			chooser.setCurrentDirectory(defaultFile);
 		}
 
-		String[] pcgs = new String[] { "pcg", "pcp" };
-		String[] init = new String[] { "gmi", "init" };
+		String[] pcgs = new String[]{"pcg", "pcp"};
+		String[] init = new String[]{"gmi", "init"};
 		SimpleFileFilter ff = new SimpleFileFilter(init, "Initiative Export");
 		chooser.addChoosableFileFilter(ff);
-		chooser.addChoosableFileFilter(new SimpleFileFilter(pcgs, "PCGen File"));
+		chooser
+			.addChoosableFileFilter(new SimpleFileFilter(pcgs, "PCGen File"));
 		chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
@@ -155,24 +173,33 @@ public class InitiativePlugin extends GMBPlugin {
 		Cursor saveCursor = MiscUtilities.setBusyCursor(theView);
 		int option = chooser.showOpenDialog(theView);
 
-		if (option == JFileChooser.APPROVE_OPTION) {
+		if (option == JFileChooser.APPROVE_OPTION)
+		{
 			File[] pcFiles = chooser.getSelectedFiles();
 
-			for (int i = 0; i < pcFiles.length; i++) {
+			for (int i = 0; i < pcFiles.length; i++)
+			{
 				SettingsHandler.setPcgPath(pcFiles[i].getParentFile());
 
-				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i])) {
-					GMBus.send(new OpenPCGRequestMessage(this, pcFiles[i], false));
+				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i]))
+				{
+					GMBus.send(new OpenPCGRequestMessage(this, pcFiles[i],
+						false));
 
 					//loadPCG(pcFiles[i]);
-				} else if (pcFiles[i].toString().endsWith(".init") || pcFiles[i].toString().endsWith(".gmi")) {
+				}
+				else if (pcFiles[i].toString().endsWith(".init")
+					|| pcFiles[i].toString().endsWith(".gmi"))
+				{
 					loadINIT(pcFiles[i]);
 				}
 			}
 			/* loop through selected files */
 
 			theView.refreshTable();
-		} else {
+		}
+		else
+		{
 			/* this means the file is invalid */
 		}
 
@@ -186,7 +213,8 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handleCombatRequestMessage(CombatRequestMessage message) {
+	public void handleCombatRequestMessage(CombatRequestMessage message)
+	{
 		message.setCombat(theView.initList);
 	}
 
@@ -197,8 +225,10 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handleFileOpenMessage(FileOpenMessage message) {
-		if (GMGenSystemView.getTabPane().getSelectedComponent() instanceof Initiative) {
+	public void handleFileOpenMessage(FileOpenMessage message)
+	{
+		if (GMGenSystemView.getTabPane().getSelectedComponent() instanceof Initiative)
+		{
 			fileOpen();
 		}
 	}
@@ -211,11 +241,15 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handleInitHolderListSendMessage(InitHolderListSendMessage message) {
-		if (message.getSource() != this) {
+	public void handleInitHolderListSendMessage(
+		InitHolderListSendMessage message)
+	{
+		if (message.getSource() != this)
+		{
 			InitHolderList cl = message.getInitHolderList();
 
-			for (int i = 0; i < cl.size(); i++) {
+			for (int i = 0; i < cl.size(); i++)
+			{
 				InitHolder iH = cl.get(i);
 				theView.addInitHolder(iH);
 			}
@@ -233,26 +267,46 @@ public class InitiativePlugin extends GMBPlugin {
 	 *          the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
-	public void handleMessage(GMBMessage message) {
-		if (message instanceof FileOpenMessage) {
+	public void handleMessage(GMBMessage message)
+	{
+		if (message instanceof FileOpenMessage)
+		{
 			handleFileOpenMessage((FileOpenMessage) message);
-		} else if (message instanceof SaveMessage) {
+		}
+		else if (message instanceof SaveMessage)
+		{
 			handleSaveMessage((SaveMessage) message);
-		} else if (message instanceof InitHolderListSendMessage) {
+		}
+		else if (message instanceof InitHolderListSendMessage)
+		{
 			handleInitHolderListSendMessage((InitHolderListSendMessage) message);
-		} else if (message instanceof PCLoadedMessage) {
+		}
+		else if (message instanceof PCLoadedMessage)
+		{
 			handlePCLoadedMessage((PCLoadedMessage) message);
-		} else if (message instanceof PCClosedMessage) {
+		}
+		else if (message instanceof PCClosedMessage)
+		{
 			handlePCClosedMessage((PCClosedMessage) message);
-		} else if (message instanceof WindowClosedMessage) {
+		}
+		else if (message instanceof WindowClosedMessage)
+		{
 			handleWindowClosedMessage((WindowClosedMessage) message);
-		} else if (message instanceof StateChangedMessage) {
+		}
+		else if (message instanceof StateChangedMessage)
+		{
 			handleStateChangedMessage((StateChangedMessage) message);
-		} else if (message instanceof CombatRequestMessage) {
+		}
+		else if (message instanceof CombatRequestMessage)
+		{
 			handleCombatRequestMessage((CombatRequestMessage) message);
-		} else if (message instanceof OpenMessage) {
+		}
+		else if (message instanceof OpenMessage)
+		{
 			handleOpenMessage((OpenMessage) message);
-		} else if (message instanceof FileTypeMessage) {
+		}
+		else if (message instanceof FileTypeMessage)
+		{
 			handleFileTypeMessage((FileTypeMessage) message);
 		}
 	}
@@ -260,18 +314,22 @@ public class InitiativePlugin extends GMBPlugin {
 	/**
 	 * @param message
 	 */
-	private void handleFileTypeMessage(FileTypeMessage message) {
+	private void handleFileTypeMessage(FileTypeMessage message)
+	{
 		message.addFileTypes(getFileTypes());
 	}
 
 	/**
 	 * @param message
 	 */
-	private void handleOpenMessage(OpenMessage message) {
+	private void handleOpenMessage(OpenMessage message)
+	{
 		final File[] files = message.getFile();
 		final FileFilter filter = getFileType();
-		for (int i = 0; i < files.length; i++) {
-			if(filter.accept(files[i])) {
+		for (int i = 0; i < files.length; i++)
+		{
+			if (filter.accept(files[i]))
+			{
 				loadINIT(files[i]);
 			}
 		}
@@ -284,7 +342,8 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handlePCClosedMessage(PCClosedMessage message) {
+	public void handlePCClosedMessage(PCClosedMessage message)
+	{
 		theView.removePcgCombatant(message.getPC());
 		theView.refreshTable();
 	}
@@ -296,18 +355,27 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handlePCLoadedMessage(PCLoadedMessage message) {
-		if (!message.isIgnored(this)) {
+	public void handlePCLoadedMessage(PCLoadedMessage message)
+	{
+		if (!message.isIgnored(this))
+		{
 			PlayerCharacter pc = message.getPC();
 			String type = "PC";
 			String player = pc.getPlayersName();
 
 			//Based on the Player's name, auto set the combatant's type
-			if (player.equalsIgnoreCase("Ally")) {
+			if (player.equalsIgnoreCase("Ally"))
+			{
 				type = "Ally";
-			} else if (player.equalsIgnoreCase("GM") || player.equalsIgnoreCase("DM") || player.equalsIgnoreCase("Enemy")) {
+			}
+			else if (player.equalsIgnoreCase("GM")
+				|| player.equalsIgnoreCase("DM")
+				|| player.equalsIgnoreCase("Enemy"))
+			{
 				type = "Enemy";
-			} else if (player.equals("-")) {
+			}
+			else if (player.equals("-"))
+			{
 				type = "-";
 			}
 
@@ -321,11 +389,14 @@ public class InitiativePlugin extends GMBPlugin {
 	 * Saves the combatants to a file
 	 * </p>
 	 */
-	public void fileSave() {
-		for (int i = 0; i < theView.initList.size(); i++) {
+	public void fileSave()
+	{
+		for (int i = 0; i < theView.initList.size(); i++)
+		{
 			InitHolder iH = theView.initList.get(i);
 
-			if (iH instanceof PcgCombatant) {
+			if (iH instanceof PcgCombatant)
+			{
 				PcgCombatant pcgcbt = (PcgCombatant) iH;
 				GMBus.send(new SavePCGRequestMessage(this, pcgcbt.getPC()));
 			}
@@ -341,8 +412,10 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handleSaveMessage(SaveMessage message) {
-		if(isActive()) {
+	public void handleSaveMessage(SaveMessage message)
+	{
+		if (isActive())
+		{
 			fileSave();
 			message.veto();
 		}
@@ -356,18 +429,25 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handleStateChangedMessage(StateChangedMessage message) {
-		if (isActive()) {
+	public void handleStateChangedMessage(StateChangedMessage message)
+	{
+		if (isActive())
+		{
 			initToolsItem.setEnabled(false);
-			if(GMGenSystem.inst != null) {
+			if (GMGenSystem.inst != null)
+			{
 				GMGenSystem.inst.openFileItem.setEnabled(true);
 				GMGenSystem.inst.saveFileItem.setEnabled(true);
 			}
 			theView.refreshTable();
-			if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".refreshOnStateChange", true)) {
+			if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+				+ ".refreshOnStateChange", true))
+			{
 				theView.refreshTabs();
 			}
-		} else {
+		}
+		else
+		{
 			initToolsItem.setEnabled(true);
 		}
 	}
@@ -379,7 +459,8 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param message
 	 */
-	public void handleWindowClosedMessage(WindowClosedMessage message) {
+	public void handleWindowClosedMessage(WindowClosedMessage message)
+	{
 		theView.setExitPrefs();
 	}
 
@@ -387,10 +468,11 @@ public class InitiativePlugin extends GMBPlugin {
 	 * Returns true if this plugin is active
 	 * @return true if this plugin is active
 	 */
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+	public boolean isActive()
+	{
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(theView);
+			&& tp.getSelectedComponent().equals(theView);
 	}
 
 	/**
@@ -400,11 +482,14 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param evt
 	 */
-	public void initMenuItem(ActionEvent evt) {
+	public void initMenuItem(ActionEvent evt)
+	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++) {
-			if (tp.getComponentAt(i) instanceof Initiative) {
+		for (int i = 0; i < tp.getTabCount(); i++)
+		{
+			if (tp.getComponentAt(i) instanceof Initiative)
+			{
 				tp.setSelectedIndex(i);
 			}
 		}
@@ -415,12 +500,15 @@ public class InitiativePlugin extends GMBPlugin {
 	 * Initializes the menus.
 	 * </p>
 	 */
-	public void initMenus() {
+	public void initMenus()
+	{
 		initToolsItem.setMnemonic('I');
 		initToolsItem.setText("Initiative");
-		initToolsItem.addActionListener(new ActionListener() {
+		initToolsItem.addActionListener(new ActionListener()
+		{
 
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt)
+			{
 				initMenuItem(evt);
 			}
 		});
@@ -434,7 +522,8 @@ public class InitiativePlugin extends GMBPlugin {
 	 *
 	 * @param initFile
 	 */
-	public void loadINIT(File initFile) {
+	public void loadINIT(File initFile)
+	{
 		theView.loadINIT(initFile, this);
 	}
 }

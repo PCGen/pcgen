@@ -39,11 +39,9 @@ import pcgen.core.bonus.util.MissingObject;
  */
 public final class Stat extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"STAT"
-		};
-	private static final String[] bonusTags = { "BASESPELLSTAT", "BASESPELLKNOWNSTAT" };
+	private static final String[] bonusHandled = {"STAT"};
+	private static final String[] bonusTags =
+			{"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
 
 	protected boolean parseToken(final String token)
 	{
@@ -61,11 +59,14 @@ public final class Stat extends BonusObj
 
 		if (token.startsWith("CAST=") || token.startsWith("CAST."))
 		{
-			iStat = SettingsHandler.getGame().getStatFromAbbrev(token.substring(5));
+			iStat =
+					SettingsHandler.getGame().getStatFromAbbrev(
+						token.substring(5));
 
 			if (iStat >= 0)
 			{
-				addBonusInfo(new CastStat(SettingsHandler.getGame().getUnmodifiableStatList().get(iStat)));
+				addBonusInfo(new CastStat(SettingsHandler.getGame()
+					.getUnmodifiableStatList().get(iStat)));
 
 				return true;
 			}
@@ -76,7 +77,8 @@ public final class Stat extends BonusObj
 
 			if (iStat >= 0)
 			{
-				addBonusInfo(SettingsHandler.getGame().getUnmodifiableStatList().get(iStat));
+				addBonusInfo(SettingsHandler.getGame()
+					.getUnmodifiableStatList().get(iStat));
 			}
 			else
 			{

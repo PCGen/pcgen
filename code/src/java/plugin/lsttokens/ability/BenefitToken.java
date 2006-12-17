@@ -6,13 +6,16 @@ import pcgen.persistence.lst.AbilityLstToken;
 /**
  * This class deals with the BENEFIT Token
  */
-public class BenefitToken  implements AbilityLstToken{
+public class BenefitToken implements AbilityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BENEFIT";
 	}
 
-	public boolean parse(Ability ability, String value) {
+	public boolean parse(Ability ability, String value)
+	{
 		ability.setBenefit(value);
 		return true;
 	}

@@ -14,21 +14,24 @@ import pcgen.util.Logging;
 /**
  * Class deals with DOMAIN Token
  */
-public class DomainToken implements PCClassLstToken {
+public class DomainToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DOMAIN";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
-		
+
 		while (aTok.hasMoreTokens())
 		{
 			final String aString = aTok.nextToken();
 			String domainKey;
 			String prereq = null; //Do not initialize, null is significant!
-			
+
 			//Note: May contain PRExxx
 			if (aString.indexOf("[") == -1)
 			{
@@ -41,32 +44,40 @@ public class DomainToken implements PCClassLstToken {
 				if (!aString.endsWith("]"))
 				{
 					Logging.errorPrint("Unresolved Prerequisite on Domain "
-							+ aString + " in " + getTokenName());
+						+ aString + " in " + getTokenName());
 				}
-				prereq = aString.substring(openBracketLoc + 1,
-						aString.length() - openBracketLoc - 2);
+				prereq =
+						aString.substring(openBracketLoc + 1, aString.length()
+							- openBracketLoc - 2);
 			}
-			
+
 			Domain thisDomain = Globals.getDomainKeyed(domainKey);
-			
-			if (thisDomain == null) {
+
+			if (thisDomain == null)
+			{
 				Logging.errorPrint("Unresolved Domain " + domainKey + " in "
-						+ getTokenName());
-			} else {
+					+ getTokenName());
+			}
+			else
+			{
 				Domain clonedDomain = thisDomain.clone();
 				if (prereq != null)
 				{
-					try {
-						clonedDomain.addPreReq(PreParserFactory.getInstance().parse(prereq));
-					} catch (PersistenceLayerException e) {
+					try
+					{
+						clonedDomain.addPreReq(PreParserFactory.getInstance()
+							.parse(prereq));
+					}
+					catch (PersistenceLayerException e)
+					{
 						Logging.errorPrint("Error generating Prerequisite "
-								+ prereq + " in " + getTokenName());
+							+ prereq + " in " + getTokenName());
 					}
 				}
 				pcclass.addDomain(level, clonedDomain);
 			}
 		}
-		
+
 		return true;
 	}
 }

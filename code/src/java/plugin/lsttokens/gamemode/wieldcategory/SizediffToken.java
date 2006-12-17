@@ -6,19 +6,24 @@ import pcgen.persistence.lst.WieldCategoryLstToken;
 /**
  * Class deals with SIZEDIFF Token
  */
-public class SizediffToken implements WieldCategoryLstToken {
+public class SizediffToken implements WieldCategoryLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SIZEDIFF";
 	}
 
-	public boolean parse(WieldCategory cat, String value) {
+	public boolean parse(WieldCategory cat, String value)
+	{
 		// Number of size categories Object Size diff
-		try {
+		try
+		{
 			cat.setSizeDiff(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

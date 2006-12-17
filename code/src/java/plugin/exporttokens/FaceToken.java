@@ -58,7 +58,8 @@ public class FaceToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -97,12 +98,21 @@ public class FaceToken extends Token
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
-			retString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getX()) + Globals.getGameModeUnitSet().getDistanceUnit();
+			retString =
+					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+						face.getX())
+						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		else
 		{
-			retString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getX()) + Globals.getGameModeUnitSet().getDistanceUnit() + " by " +
-				Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getY()) + Globals.getGameModeUnitSet().getDistanceUnit();
+			retString =
+					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+						face.getX())
+						+ Globals.getGameModeUnitSet().getDistanceUnit()
+						+ " by "
+						+ Globals.getGameModeUnitSet()
+							.displayDistanceInUnitSet(face.getY())
+						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return retString;
 	}
@@ -118,12 +128,21 @@ public class FaceToken extends Token
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
-			retString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getX()) + Globals.getGameModeUnitSet().getDistanceUnit();
+			retString =
+					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+						face.getX())
+						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		else
 		{
-			retString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getX()) + Globals.getGameModeUnitSet().getDistanceUnit() + " x " +
-			Globals.getGameModeUnitSet().displayDistanceInUnitSet(face.getY()) + Globals.getGameModeUnitSet().getDistanceUnit();
+			retString =
+					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+						face.getX())
+						+ Globals.getGameModeUnitSet().getDistanceUnit()
+						+ " x "
+						+ Globals.getGameModeUnitSet()
+							.displayDistanceInUnitSet(face.getY())
+						+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return retString;
 	}
@@ -139,12 +158,18 @@ public class FaceToken extends Token
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
-			retString = new DecimalFormat("#.#").format(face.getX() / Globals.getGameModeSquareSize());
+			retString =
+					new DecimalFormat("#.#").format(face.getX()
+						/ Globals.getGameModeSquareSize());
 		}
 		else
 		{
-			retString = new DecimalFormat("#.#").format(face.getX() / Globals.getGameModeSquareSize()) + " x " +
-				new DecimalFormat("#.#").format(face.getY() / Globals.getGameModeSquareSize());
+			retString =
+					new DecimalFormat("#.#").format(face.getX()
+						/ Globals.getGameModeSquareSize())
+						+ " x "
+						+ new DecimalFormat("#.#").format(face.getY()
+							/ Globals.getGameModeSquareSize());
 		}
 		return retString;
 	}
@@ -156,7 +181,8 @@ public class FaceToken extends Token
 	 */
 	public static String get1Token(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.getFace().getX());
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			pc.getFace().getX());
 	}
 
 	/**
@@ -166,6 +192,7 @@ public class FaceToken extends Token
 	 */
 	public static String get2Token(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.getFace().getY());
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			pc.getFace().getY());
 	}
 }

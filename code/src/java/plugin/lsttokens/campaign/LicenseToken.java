@@ -9,17 +9,23 @@ import java.net.URL;
 /**
  * Class deals with LICENSE Token
  */
-public class LicenseToken implements CampaignLstToken {
+public class LicenseToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LICENSE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
-		if(value.startsWith("FILE=")) {
-			campaign.addLicenseFile(CampaignLoader.convertFilePath(sourceUrl, value.substring(5)));
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
+		if (value.startsWith("FILE="))
+		{
+			campaign.addLicenseFile(CampaignLoader.convertFilePath(sourceUrl,
+				value.substring(5)));
 		}
-		else {
+		else
+		{
 			campaign.addLicense(value);
 		}
 		return true;

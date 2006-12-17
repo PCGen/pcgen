@@ -37,10 +37,7 @@ import pcgen.util.Logging;
  */
 public final class UDam extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"UDAM"
-		};
+	private static final String[] bonusHandled = {"UDAM"};
 
 	protected boolean parseToken(final String token)
 	{
@@ -56,7 +53,8 @@ public final class UDam extends BonusObj
 				return true;
 			}
 			addBonusInfo(classKey);
-			Logging.errorPrint("Could not find class '" + classKey + "' for UDAM token");
+			Logging.errorPrint("Could not find class '" + classKey
+				+ "' for UDAM token");
 		}
 
 		return false;

@@ -61,7 +61,8 @@ public class SpellListClassToken extends SpellListToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		int i;
 		StringBuffer retValue = new StringBuffer();
@@ -71,7 +72,6 @@ public class SpellListClassToken extends SpellListToken
 		aTok.nextToken();
 
 		i = Integer.parseInt(aTok.nextToken());
-
 
 		//
 		final PObject aObject = pc.getSpellClassAtIndex(i);
@@ -87,9 +87,10 @@ public class SpellListClassToken extends SpellListToken
 
 			if ((aClass != null) && tokenSource.endsWith("LEVEL"))
 			{
-				retValue.append(String.valueOf(aClass.getLevel()
-					+ (int) pc.getTotalBonusTo("PCLEVEL", aClass
-						.getKeyName())));
+				retValue
+					.append(String.valueOf(aClass.getLevel()
+						+ (int) pc.getTotalBonusTo("PCLEVEL", aClass
+							.getKeyName())));
 			}
 			else
 			{

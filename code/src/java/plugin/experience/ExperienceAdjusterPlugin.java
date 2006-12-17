@@ -38,8 +38,8 @@ import java.text.NumberFormat;
  * @author  Expires 2003
  * @version 2.10
  */
-public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListener, ChangeListener,
-	KeyListener /*Observer*/
+public class ExperienceAdjusterPlugin extends GMBPlugin implements
+		ActionListener, ChangeListener, KeyListener /*Observer*/
 {
 	/** Log name */
 	public static final String LOG_NAME = "Experience_Adjuster";
@@ -68,7 +68,8 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes() {
+	public FileFilter[] getFileTypes()
+	{
 		return null;
 	}
 
@@ -79,18 +80,22 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 	{
 		eaModel = new ExperienceAdjusterModel(getDataDir());
 		eaView = new ExperienceAdjusterView();
-		GMBus.send(new PreferencesPanelAddMessage(this, name, new PreferencesExperiencePanel()));
+		GMBus.send(new PreferencesPanelAddMessage(this, name,
+			new PreferencesExperiencePanel()));
 		initListeners();
 		update();
 		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
 		initMenus();
 	}
 
-	public String getPluginSystem() {
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System", Constants.s_SYSTEM_GMGEN);
+	public String getPluginSystem()
+	{
+		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+			Constants.s_SYSTEM_GMGEN);
 	}
 
-	public int getPluginLoadOrder() {
+	public int getPluginLoadOrder()
+	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 50);
 	}
 
@@ -168,7 +173,9 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 	 */
 	public void adjustCR(Combatant cbt)
 	{
-		String inputValue = JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float.toString(cbt.getCR()));
+		String inputValue =
+				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
+					.toString(cbt.getCR()));
 
 		if (inputValue != null)
 		{
@@ -188,7 +195,8 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 	 */
 	public void handleAddEnemyButton()
 	{
-		AddDefeatedCombatant dialog = new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
+		AddDefeatedCombatant dialog =
+				new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
 		dialog.setVisible(true);
 		handleGroupBox();
 		update();
@@ -208,8 +216,9 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 
 				for (int i = 0; i < list.length; i++)
 				{
-					eaModel.addExperienceToCharacter((ExperienceListItem) list[i],
-					    Integer.parseInt(eaView.getExperienceField().getText()));
+					eaModel.addExperienceToCharacter(
+						(ExperienceListItem) list[i], Integer.parseInt(eaView
+							.getExperienceField().getText()));
 				}
 			}
 			catch (NumberFormatException e)
@@ -271,17 +280,17 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 	public void handleExportButton()
 	{
 		/*if(c.size() != 0) {
-		   JFileChooser chooser = new JFileChooser();
-		   String[] txts = new String[] {"txt"};
-		   chooser.addChoosableFileFilter(new SimpleFileFilter(txts, "Text Format (*.txt)"));
-		   chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
-		   int option = chooser.showSaveDialog(eaView);
-		   if(option == JFileChooser.APPROVE_OPTION) {
-		       eaModel.export( chooser.getSelectedFile() );
-		   } else {
-		       // this means the file is invalid
-		   }
-		   }*/
+		 JFileChooser chooser = new JFileChooser();
+		 String[] txts = new String[] {"txt"};
+		 chooser.addChoosableFileFilter(new SimpleFileFilter(txts, "Text Format (*.txt)"));
+		 chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
+		 int option = chooser.showSaveDialog(eaView);
+		 if(option == JFileChooser.APPROVE_OPTION) {
+		 eaModel.export( chooser.getSelectedFile() );
+		 } else {
+		 // this means the file is invalid
+		 }
+		 }*/
 	}
 
 	/**
@@ -391,18 +400,18 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 		experienceToolsItem.setMnemonic('E');
 		experienceToolsItem.setText("Experience Adjuster");
 		experienceToolsItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					toolMenuItem(evt);
-				}
-			});
+				toolMenuItem(evt);
+			}
+		});
 		GMBus.send(new ToolMenuItemAddMessage(this, experienceToolsItem));
 	}
 
 	public void keyPressed(KeyEvent e)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public void keyReleased(KeyEvent e)
@@ -412,7 +421,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 
 	public void keyTyped(KeyEvent e)
 	{
-	    // TODO:  Method doesn't do anything?
+		// TODO:  Method doesn't do anything?
 	}
 
 	public void stateChanged(ChangeEvent e)
@@ -477,7 +486,8 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 		}
 		else if (message instanceof StateChangedMessage)
 		{
-			if(isActive()) {
+			if (isActive())
+			{
 				experienceToolsItem.setEnabled(false);
 
 				if (initList == null)
@@ -487,13 +497,15 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 
 				update();
 			}
-			else {
+			else
+			{
 				experienceToolsItem.setEnabled(true);
 			}
 		}
 		else if (message instanceof SaveMessage)
 		{
-			if(isActive()) {
+			if (isActive())
+			{
 				handleExportButton();
 			}
 		}
@@ -503,9 +515,10 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements ActionListene
 	 * Return TRUE if active
 	 * @return TRUE if active
 	 */
-	public boolean isActive() {
-    	JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(eaView);
+	public boolean isActive()
+	{
+		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(eaView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
-				&& tp.getSelectedComponent().equals(eaView);
+			&& tp.getSelectedComponent().equals(eaView);
 	}
 }

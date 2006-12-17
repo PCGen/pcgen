@@ -28,19 +28,21 @@ package plugin.lsttokens.level;
 import pcgen.core.LevelInfo;
 import pcgen.persistence.lst.LevelLstToken;
 
-
 /**
  * <code>MinxpToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class MinxpToken implements LevelLstToken {
+public class MinxpToken implements LevelLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MINXP";
 	}
 
-	public boolean parse(LevelInfo levelInfo, String value) {
+	public boolean parse(LevelInfo levelInfo, String value)
+	{
 		levelInfo.setMinXPString(value);
 		return true;
 	}

@@ -46,25 +46,28 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PreDeityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreDeityParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	/**
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "DEITY" };
+		return new String[]{"DEITY"};
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser#parse(java.lang.String, java.lang.String, boolean, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
+
 		// Scan for any has deity options
 		replaceHasDeityPrereqs(prereq);
 		return prereq;
@@ -79,7 +82,8 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements Pr
 	private void replaceHasDeityPrereqs(Prerequisite prereq)
 	{
 		String key = prereq.getKey();
-		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null
+		if ("deity".equalsIgnoreCase(prereq.getKind())
+			&& key != null
 			&& (key.equalsIgnoreCase("y") || key.equalsIgnoreCase("n")
 				|| key.equalsIgnoreCase("yes") || key.equalsIgnoreCase("no")))
 		{
@@ -94,7 +98,8 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements Pr
 			prereq.setKind("has.deity");
 		}
 
-		for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+		for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter
+			.hasNext();)
 		{
 			Prerequisite subprereq = iter.next();
 			replaceHasDeityPrereqs(subprereq);

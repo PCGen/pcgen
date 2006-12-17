@@ -8,18 +8,23 @@ import pcgen.util.Logging;
 /**
  * Class deals with ADDSPELLLEVEL Token
  */
-public class AddspelllevelToken implements AbilityLstToken{
+public class AddspelllevelToken implements AbilityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ADDSPELLLEVEL";
 	}
 
-	public boolean parse(Ability ability, String value) {
-		try {
+	public boolean parse(Ability ability, String value)
+	{
+		try
+		{
 			ability.setAddSpellLevel(Delta.parseInt(value));
 			return true;
 		}
-		catch (NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			Logging.errorPrint("Bad addSpellLevel " + value);
 		}
 		return false;

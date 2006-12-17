@@ -11,19 +11,24 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class RegionLst implements GlobalLstToken {
+public class RegionLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "REGION";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if (anInt > -9) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (anInt > -9)
+		{
 			obj.setRegionString(anInt + "|" + value);
-		} else {
+		}
+		else
+		{
 			obj.setRegionString("0|" + value);
 		}
 		return true;
 	}
 }
-

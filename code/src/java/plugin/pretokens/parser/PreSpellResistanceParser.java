@@ -38,40 +38,47 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser implements PrerequisiteParserInterface
+public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser
+		implements PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SR", "SREQ", "SRGT", "SRGTEQ", "SRLT", "SRLTEQ", "SRNEQ" };
+		return new String[]{"SR", "SREQ", "SRGT", "SRGTEQ", "SRLT", "SRLTEQ",
+			"SRNEQ"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		try
 		{
 			prereq.setKind("sr");
-	
+
 			// Get the comparator type SRGTEQ, SR, SRNEQ etc.
 			String compType = kind.substring(2).toLowerCase();
-	
+
 			if (compType.length() == 0)
 			{
 				compType = "gteq";
 			}
-	
+
 			prereq.setOperator(compType);
-			if (invertResult) {
-				prereq.setOperator( prereq.getOperator().invert());
+			if (invertResult)
+			{
+				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
 		catch (PrerequisiteException pe)
 		{
-			throw new PersistenceLayerException("Unable to parse the prerequisite :'"+kind+":"+formula+"'. "+pe.getLocalizedMessage());
+			throw new PersistenceLayerException(
+				"Unable to parse the prerequisite :'" + kind + ":" + formula
+					+ "'. " + pe.getLocalizedMessage());
 		}
-		
+
 		return prereq;
 	}
 }

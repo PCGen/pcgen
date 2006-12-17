@@ -61,10 +61,10 @@ public class NameToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 
 		KitBio kBio = new KitBio();
 		kBio.setCharacterName(colToken.nextToken());

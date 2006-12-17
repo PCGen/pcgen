@@ -25,7 +25,6 @@
  */
 package plugin.dicebag.gui;
 
-
 /**
  * <p>This class is the message class that will be used to pass messages
  * from the model class to the view classes.  This class defines

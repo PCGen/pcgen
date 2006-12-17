@@ -108,7 +108,8 @@ public class DiceBagPluginView implements Observer
 			}
 		}
 
-		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + "closeFiles", files.toString());
+		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + "closeFiles",
+			files.toString());
 	}
 
 	/**
@@ -119,7 +120,8 @@ public class DiceBagPluginView implements Observer
 	 */
 	public void internalFrameActivated(InternalFrameEvent e)
 	{
-		if ((e.getInternalFrame() != null) && e.getInternalFrame() instanceof DiceBagView)
+		if ((e.getInternalFrame() != null)
+			&& e.getInternalFrame() instanceof DiceBagView)
 		{
 			m_model.setActiveBag(((DiceBagView) e.getInternalFrame()).getBag());
 		}
@@ -133,7 +135,8 @@ public class DiceBagPluginView implements Observer
 	 */
 	public void internalFrameClosed(InternalFrameEvent e)
 	{
-		if ((e.getInternalFrame() != null) && e.getInternalFrame() instanceof DiceBagView)
+		if ((e.getInternalFrame() != null)
+			&& e.getInternalFrame() instanceof DiceBagView)
 		{
 			m_model.closeDiceBag(((DiceBagView) e.getInternalFrame()).getBag());
 		}
@@ -147,18 +150,23 @@ public class DiceBagPluginView implements Observer
 	 */
 	public void internalFrameClosing(InternalFrameEvent e)
 	{
-		if ((e.getInternalFrame() != null) && e.getInternalFrame() instanceof DiceBagView)
+		if ((e.getInternalFrame() != null)
+			&& e.getInternalFrame() instanceof DiceBagView)
 		{
-			final int answer = askSaveBag(((DiceBagView) e.getInternalFrame()).getBag(),
-				    JOptionPane.YES_NO_CANCEL_OPTION);
+			final int answer =
+					askSaveBag(((DiceBagView) e.getInternalFrame()).getBag(),
+						JOptionPane.YES_NO_CANCEL_OPTION);
 
 			if (answer == JOptionPane.CANCEL_OPTION)
 			{
-				e.getInternalFrame().setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+				e.getInternalFrame().setDefaultCloseOperation(
+					WindowConstants.DO_NOTHING_ON_CLOSE);
 			}
-			else if ((answer == JOptionPane.NO_OPTION) && (answer == JOptionPane.YES_OPTION))
+			else if ((answer == JOptionPane.NO_OPTION)
+				&& (answer == JOptionPane.YES_OPTION))
 			{
-				e.getInternalFrame().setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+				e.getInternalFrame().setDefaultCloseOperation(
+					WindowConstants.HIDE_ON_CLOSE);
 			}
 		}
 	}
@@ -170,7 +178,8 @@ public class DiceBagPluginView implements Observer
 	 */
 	public void update(Observable o, Object arg)
 	{
-		if ((o != null) && o instanceof DiceBagPluginModel && (arg != null) && arg instanceof DiceBagMessage)
+		if ((o != null) && o instanceof DiceBagPluginModel && (arg != null)
+			&& arg instanceof DiceBagMessage)
 		{
 			DiceBagMessage msg = (DiceBagMessage) arg;
 
@@ -242,18 +251,22 @@ public class DiceBagPluginView implements Observer
 
 		if (bag.isChanged())
 		{
-			returnValue = JOptionPane.showConfirmDialog(getMainComponent(),
-				    "Do you want to save your changes to dicebag " + bag.getName() + "?", "Save?", option);
+			returnValue =
+					JOptionPane.showConfirmDialog(getMainComponent(),
+						"Do you want to save your changes to dicebag "
+							+ bag.getName() + "?", "Save?", option);
 
 			if (returnValue == JOptionPane.YES_OPTION)
 			{
-				if ((bag.getFilePath() != null) && (bag.getFilePath().length() > 0))
+				if ((bag.getFilePath() != null)
+					&& (bag.getFilePath().length() > 0))
 				{
 					m_model.saveDiceBag(bag);
 				}
 				else
 				{
-					final File saveFile = DiceBagPluginController.chooseSaveFile(bag);
+					final File saveFile =
+							DiceBagPluginController.chooseSaveFile(bag);
 
 					if (saveFile != null)
 					{

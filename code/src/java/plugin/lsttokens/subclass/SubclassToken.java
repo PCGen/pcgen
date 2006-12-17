@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SubClassLstToken;
 /**
  * Class deals with SUBCLASSLEVEL Token
  */
-public class SubclassToken implements SubClassLstToken {
+public class SubclassToken implements SubClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SUBCLASS";
 	}
 
-	public boolean parse(SubClass subclass, String value) {
+	public boolean parse(SubClass subclass, String value)
+	{
 		subclass.setName(value);
 		return true;
 	}

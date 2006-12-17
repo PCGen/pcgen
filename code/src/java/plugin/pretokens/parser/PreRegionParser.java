@@ -31,18 +31,18 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteSimpleParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreRegionParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface
+public class PreRegionParser extends AbstractPrerequisiteSimpleParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "REGION" };
+		return new String[]{"REGION"};
 	}
 }

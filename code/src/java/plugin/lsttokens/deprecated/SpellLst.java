@@ -3,6 +3,7 @@
  *
  */
 package plugin.lsttokens.deprecated;
+
 import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.DeprecatedToken;
@@ -19,26 +20,31 @@ import pcgen.core.PCSpell;
  * @author djones4
  *
  */
-public class SpellLst implements GlobalLstToken, DeprecatedToken {
+public class SpellLst implements GlobalLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SPELL";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-//		obj.addSpellLikeAbilities( anInt, createSpellList(value) );
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		//		obj.addSpellLikeAbilities( anInt, createSpellList(value) );
 		obj.getSpellSupport().addSpells(anInt, createSpellList(value));
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value) {
+	public String getMessage(PObject obj, String value)
+	{
 		return "Use SPELLS: instead.";
 	}
 
-//	private static List<SpellLikeAbility> createSpellList(final String sourceLine) {
-	private static List<PCSpell> createSpellList(final String sourceLine) {
+	//	private static List<SpellLikeAbility> createSpellList(final String sourceLine) {
+	private static List<PCSpell> createSpellList(final String sourceLine)
+	{
 		List<PCSpell> spellList = new ArrayList<PCSpell>();
-//		List<SpellLikeAbility> spellList = new ArrayList<SpellLikeAbility>();
+		//		List<SpellLikeAbility> spellList = new ArrayList<SpellLikeAbility>();
 
 		String preTag = "";
 		String spellSrc = "";
@@ -50,25 +56,33 @@ public class SpellLst implements GlobalLstToken, DeprecatedToken {
 		StringBuffer preTagBuffer = new StringBuffer();
 		StringTokenizer st = new StringTokenizer(sourceLine, "|");
 
-		while (st.hasMoreTokens()) {
+		while (st.hasMoreTokens())
+		{
 			String token = st.nextToken();
 
-			if (token.startsWith("PRE") || token.startsWith("!PRE")) {
+			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			{
 				// check as mixed case. Wouldn't want to
 				// mistake Prestidigitation as a PRE tag.
 				preTagBuffer.append(token);
 				preTagBuffer.append("|");
-			} else {
+			}
+			else
+			{
 				spellSrcBuffer.append(token);
 				spellSrcBuffer.append("|");
 			}
 		}
 
 		// remove final "|" when creating string
-		if ((preTagBuffer.length() > 0) && preTagBuffer.toString().endsWith("|")) {
+		if ((preTagBuffer.length() > 0)
+			&& preTagBuffer.toString().endsWith("|"))
+		{
 			preTag = preTagBuffer.substring(0, preTagBuffer.length() - 1);
 		}
-		if ((spellSrcBuffer.length() > 0) && spellSrcBuffer.toString().endsWith("|")) {
+		if ((spellSrcBuffer.length() > 0)
+			&& spellSrcBuffer.toString().endsWith("|"))
+		{
 			spellSrc = spellSrcBuffer.substring(0, spellSrcBuffer.length() - 1);
 		}
 
@@ -76,19 +90,23 @@ public class SpellLst implements GlobalLstToken, DeprecatedToken {
 		// here for backwards compatability
 		final int i = sourceLine.lastIndexOf('[');
 
-		if (i >= 0) {
+		if (i >= 0)
+		{
 			int j = sourceLine.lastIndexOf(']');
 
 			// If there's a line of LST syntax such as:
 			// SPELL:Bless|1|Innate[PREMULT:2,[PRELEVEL:1],[PRESTAT:1,INT=8,WIS=8]]
 			// Then not even the deprecated method can handle it. Throw a different
 			// warning.
-			if (sourceLine.charAt(j - 1) == ']') {
-				Logging.errorPrint("The SPELL: tag with [PRExxx] syntax with mulitiple [] characters is no longer supported.");
+			if (sourceLine.charAt(j - 1) == ']')
+			{
+				Logging
+					.errorPrint("The SPELL: tag with [PRExxx] syntax with mulitiple [] characters is no longer supported.");
 				Logging.errorPrint("Please change: " + sourceLine);
 			}
 
-			if (j < i) {
+			if (j < i)
+			{
 				j = sourceLine.length();
 			}
 
@@ -97,43 +115,57 @@ public class SpellLst implements GlobalLstToken, DeprecatedToken {
 
 			// In the future the "[]" notation to delimite PRExxx
 			// tags for the SPELL tag should not be used
-			Logging.errorPrint("The SPELL: tag with [PRExxx] syntax has been deprecated.");
+			Logging
+				.errorPrint("The SPELL: tag with [PRExxx] syntax has been deprecated.");
 			Logging.errorPrint("Please change: " + sourceLine);
 		}
 
 		final StringTokenizer aTok = new StringTokenizer(spellSrc, "|");
 
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			PCSpell spell = new PCSpell();
-//			final SpellLikeAbility spell = new SpellLikeAbility();
+			//			final SpellLikeAbility spell = new SpellLikeAbility();
 
 			// Get the name/key out of the string
 			spell.setName(aTok.nextToken());
 			spell.setKeyName(spell.getKeyName());
 
 			// Get the number of times per day (default is 1)
-			if (aTok.hasMoreTokens()) {
+			if (aTok.hasMoreTokens())
+			{
 				spell.setTimesPerDay(aTok.nextToken());
-			} else {
+			}
+			else
+			{
 				spell.setTimesPerDay("1");
 			}
 
 			// Get the spellbook (default is Innate)
-			if (aTok.hasMoreTokens()) {
+			if (aTok.hasMoreTokens())
+			{
 				spell.setSpellbook(aTok.nextToken());
-			} else {
+			}
+			else
+			{
 				spell.setSpellbook("Innate");
 			}
 
 			// Set the pre-reqs if needed
-			if (preTag != null) {
+			if (preTag != null)
+			{
 				StringTokenizer preTok = new StringTokenizer(preTag, "|");
 
-				while (preTok.hasMoreTokens()) {
-					try {
-						PreParserFactory factory = PreParserFactory.getInstance();
+				while (preTok.hasMoreTokens())
+				{
+					try
+					{
+						PreParserFactory factory =
+								PreParserFactory.getInstance();
 						spell.addPreReq(factory.parse(preTok.nextToken()));
-					} catch (PersistenceLayerException ple) {
+					}
+					catch (PersistenceLayerException ple)
+					{
 						Logging.errorPrint(ple.getMessage(), ple);
 					}
 				}

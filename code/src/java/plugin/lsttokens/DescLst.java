@@ -19,12 +19,12 @@ import pcgen.persistence.lst.GlobalLstToken;
  * 
  * @author djones4
  */
-public class DescLst implements GlobalLstToken 
+public class DescLst implements GlobalLstToken
 {
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
-	public String getTokenName() 
+	public String getTokenName()
 	{
 		return "DESC"; //$NON-NLS-1$
 	}
@@ -32,12 +32,13 @@ public class DescLst implements GlobalLstToken
 	/**
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
 	 */
-	public boolean parse(final PObject obj, final String value, 
-						 @SuppressWarnings("unused")int anInt) 
+	public boolean parse(final PObject obj, final String value,
+		@SuppressWarnings("unused")
+		int anInt)
 	{
-		if ( value.startsWith(".CLEAR") ) //$NON-NLS-1$
+		if (value.startsWith(".CLEAR")) //$NON-NLS-1$
 		{
-			if ( value.equals(".CLEAR") ) //$NON-NLS-1$
+			if (value.equals(".CLEAR")) //$NON-NLS-1$
 			{
 				obj.removeAllDescriptions();
 			}
@@ -50,22 +51,23 @@ public class DescLst implements GlobalLstToken
 		obj.addDescription(parseDescription(value));
 		return true;
 	}
-	
+
 	/**
 	 * Parses the DESC tag into a Description object.
 	 * 
 	 * @param aDesc The LST tag
 	 * @return A <tt>Description</tt> object
 	 */
-	public Description parseDescription( final String aDesc )
+	public Description parseDescription(final String aDesc)
 	{
 		final StringTokenizer tok = new StringTokenizer(aDesc, Constants.PIPE);
-		
-		final Description desc = new Description(EntityEncoder.decode(tok.nextToken()));
-		while ( tok.hasMoreTokens() )
+
+		final Description desc =
+				new Description(EntityEncoder.decode(tok.nextToken()));
+		while (tok.hasMoreTokens())
 		{
 			final String token = tok.nextToken();
-			if ( token.startsWith( "PRE" ) ) //$NON-NLS-1$
+			if (token.startsWith("PRE")) //$NON-NLS-1$
 			{
 				desc.addPrerequisites(token, '|');
 			}
@@ -74,8 +76,7 @@ public class DescLst implements GlobalLstToken
 				desc.addVariable(token);
 			}
 		}
-		
+
 		return desc;
 	}
 }
-

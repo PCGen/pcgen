@@ -14,14 +14,17 @@ import pcgen.util.PCGenCommand;
  * eg. charbonusto("PCLEVEL", "Wizard");
  * eg. charbonusto("Wizard");
  */
-public class CharBonusToCommand extends PCGenCommand {
-	
+public class CharBonusToCommand extends PCGenCommand
+{
+
 	/** Constructor*/
-	public CharBonusToCommand() {
+	public CharBonusToCommand()
+	{
 		numberOfParameters = -1;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "CHARBONUSTO";
 	}
 
@@ -32,7 +35,8 @@ public class CharBonusToCommand extends PCGenCommand {
 	 * @param inStack
 	 * @throws ParseException
 	 */
-	public void run(Stack inStack) throws ParseException {
+	public void run(Stack inStack) throws ParseException
+	{
 		// check the stack
 		checkStack(inStack);
 
@@ -43,37 +47,48 @@ public class CharBonusToCommand extends PCGenCommand {
 		//
 		// have to do this in reverse order...this is a stack afterall
 		//
-		if (curNumberOfParameters == 1) {
+		if (curNumberOfParameters == 1)
+		{
 			param2 = inStack.pop();
 			param1 = "PCLEVEL";
 		}
-		else if (curNumberOfParameters == 2) {
+		else if (curNumberOfParameters == 2)
+		{
 			param2 = inStack.pop();
 			param1 = inStack.pop();
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter count");
 		}
 
 		Object result = null;
 
-		if ((param1 instanceof String) && (param2 instanceof String)) {
+		if ((param1 instanceof String) && (param2 instanceof String))
+		{
 			PlayerCharacter pc = null;
-			if (parent instanceof VariableProcessor) {
+			if (parent instanceof VariableProcessor)
+			{
 				pc = ((VariableProcessor) parent).getPc();
 			}
-			else if (parent instanceof PlayerCharacter) {
+			else if (parent instanceof PlayerCharacter)
+			{
 				pc = (PlayerCharacter) parent;
 			}
-			if (pc == null) {
-				throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
+			if (pc == null)
+			{
+				throw new ParseException("Invalid parent (no PC): "
+					+ parent.getClass().getName());
 			}
 
-			result = new Double(pc.getTotalBonusTo((String)param1, (String)param2));
+			result =
+					new Double(pc.getTotalBonusTo((String) param1,
+						(String) param2));
 
 			inStack.push(result);
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type");
 		}
 	}

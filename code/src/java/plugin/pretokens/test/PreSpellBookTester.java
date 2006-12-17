@@ -36,15 +36,19 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSpellBookTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSpellBookTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		final boolean prereqUsesBook = prereq.getKey().toUpperCase().startsWith("Y");  //$NON-NLS-1$
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		final boolean prereqUsesBook =
+				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		int runningTotal = 0;
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 
 		for (PCClass spellClass : character.getClassList())
@@ -55,14 +59,16 @@ public class PreSpellBookTester  extends AbstractPrerequisiteTest implements Pre
 			}
 		}
 
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal =
+				prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SPELLBOOK"; //$NON-NLS-1$
 	}
 

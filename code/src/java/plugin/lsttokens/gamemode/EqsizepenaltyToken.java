@@ -7,21 +7,25 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with EQSIZEPENALTY Token
  */
-public class EqsizepenaltyToken implements GameModeLstToken {
+public class EqsizepenaltyToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "EQSIZEPENALTY";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			EqSizePenaltyLoader penaltyDiceLoader = new EqSizePenaltyLoader();
 			penaltyDiceLoader.parseLine(gameMode, "EQSIZEPENALTY:" + value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}
 }
-

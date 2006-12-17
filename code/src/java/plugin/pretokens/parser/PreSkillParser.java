@@ -37,21 +37,24 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreSkillParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreSkillParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "SKILL", "SKILLMULT" };
+		return new String[]{"SKILL", "SKILLMULT"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		// Convert all of the key="feat (subfeat)" to key="feat" subkey="subfeat"
 		convertKeysToSubKeys(prereq, "skill");

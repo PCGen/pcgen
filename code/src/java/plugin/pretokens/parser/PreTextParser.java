@@ -37,22 +37,26 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreTextParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreTextParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "TEXT" };
+		return new String[]{"TEXT"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKey(formula);
-		
-		if (invertResult) {
-			prereq.setOperator( prereq.getOperator().invert());
+
+		if (invertResult)
+		{
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}

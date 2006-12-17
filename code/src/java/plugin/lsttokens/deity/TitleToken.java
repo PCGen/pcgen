@@ -6,13 +6,16 @@ import pcgen.persistence.lst.DeityLstToken;
 /**
  * Class deals with TITLE Token
  */
-public class TitleToken implements DeityLstToken{
+public class TitleToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TITLE";
 	}
 
-	public boolean parse(Deity deity, String value) {
+	public boolean parse(Deity deity, String value)
+	{
 		deity.setTitle(value);
 		return true;
 	}

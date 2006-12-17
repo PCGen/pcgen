@@ -41,24 +41,28 @@ import java.util.StringTokenizer;
  * @author wardc
  *
  */
-public class PreDeityAlignParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "DEITYALIGN" };
+		return new String[]{"DEITYALIGN"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKind(null);		// PREMULT
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
+		prereq.setKind(null); // PREMULT
 
-		final StringTokenizer inputTokenizer = new StringTokenizer(formula, ",");
+		final StringTokenizer inputTokenizer =
+				new StringTokenizer(formula, ",");
 
 		while (inputTokenizer.hasMoreTokens())
 		{
@@ -71,24 +75,25 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements P
 
 			try
 			{
-				subprereq.setOperand( SettingsHandler.getGame().getShortAlignmentAtIndex(Integer.parseInt(token)) );
+				subprereq.setOperand(SettingsHandler.getGame()
+					.getShortAlignmentAtIndex(Integer.parseInt(token)));
 			}
 			catch (NumberFormatException e)
 			{
-				subprereq.setOperand( token.trim() );
+				subprereq.setOperand(token.trim());
 			}
 		}
 
-		if ((prereq.getPrerequisites().size() == 1) &&
-			prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &&
-			prereq.getOperand().equals("1"))
+		if ((prereq.getPrerequisites().size() == 1)
+			&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
+			&& prereq.getOperand().equals("1"))
 		{
 			prereq = prereq.getPrerequisites().get(0);
 		}
 
 		if (invertResult)
 		{
-			prereq.setOperator( prereq.getOperator().invert());
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}

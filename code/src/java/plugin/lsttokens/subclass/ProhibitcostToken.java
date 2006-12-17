@@ -6,18 +6,23 @@ import pcgen.persistence.lst.SubClassLstToken;
 /**
  * Class deals with PROHIBITCOST Token
  */
-public class ProhibitcostToken implements SubClassLstToken {
+public class ProhibitcostToken implements SubClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "PROHIBITCOST";
 	}
 
-	public boolean parse(SubClass subclass, String value) {
-		try {
+	public boolean parse(SubClass subclass, String value)
+	{
+		try
+		{
 			subclass.setProhibitCost(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

@@ -61,10 +61,10 @@ public class KitToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 		KitKit kKit = new KitKit(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -73,14 +73,14 @@ public class KitToken extends KitLstToken
 			if (colString.startsWith("KIT:"))
 			{
 				Logging.errorPrint("Ignoring second KIT tag \"" + colString
-						+ "\" in KitToken.parse");
+					+ "\" in KitToken.parse");
 			}
 			else
 			{
 				if (BaseKitLoader.parseCommonTags(kKit, colString) == false)
 				{
 					throw new PersistenceLayerException("Unknown KitKit info "
-							+ " \"" + colString + "\"");
+						+ " \"" + colString + "\"");
 				}
 			}
 		}

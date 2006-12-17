@@ -43,13 +43,16 @@ import java.util.List;
  * @author wardc
  *
  */
-public class PreSpellTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSpellTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		int requiredNumber = 0;
 		try
 		{
@@ -57,33 +60,36 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.errorPrint(PropertyFactory.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
+			Logging
+				.errorPrint(PropertyFactory
+					.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
 		}
 
-
 		// Build a list of all possible spells
-		final List<Spell> aArrayList = character.aggregateSpellList("Any", "", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		final List<Spell> aArrayList =
+				character.aggregateSpellList("Any", "", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		//Needs to add domain spells as well
 		for (CharacterDomain aCD : character.getCharacterDomainList())
 		{
 			if ((aCD != null) && (aCD.getDomain() != null))
 			{
-				aArrayList.addAll(Globals.getSpellsIn(-1, "", aCD.getDomain().toString())); //$NON-NLS-1$
+				aArrayList.addAll(Globals.getSpellsIn(-1,
+					"", aCD.getDomain().toString())); //$NON-NLS-1$
 			}
 		}
 
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
 		{
-			for (PCSpell spell : character.getRace().getSpellList()) {
+			for (PCSpell spell : character.getRace().getSpellList())
+			{
 				aArrayList.add(Globals.getSpellKeyed(spell.toString()));
 			}
 		}
 
-
 		final String spellName = prereq.getKey();
-		int runningTotal=0;
+		int runningTotal = 0;
 
 		for (Spell aSpell : aArrayList)
 		{
@@ -92,28 +98,28 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 				runningTotal++;
 			}
 		}
-		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal =
+				prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SPELL"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		final Object[] args = new Object[] { prereq.getOperator().toDisplayString(),
-				prereq.getOperand(),
-				prereq.getKey()
-		};
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		final Object[] args =
+				new Object[]{prereq.getOperator().toDisplayString(),
+					prereq.getOperand(), prereq.getKey()};
 		return PropertyFactory.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
 	}
-
 
 }

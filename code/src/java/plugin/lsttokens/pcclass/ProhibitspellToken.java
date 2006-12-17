@@ -13,17 +13,20 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 /**
  * Class deals with PROHIBITSPELL Token
  */
-public class ProhibitspellToken implements PCClassLstToken {
+public class ProhibitspellToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "PROHIBITSPELL";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
 
 		SpellProhibitor spellProb = new SpellProhibitor();
-		
+
 		while (aTok.hasMoreTokens())
 		{
 			final String aString = aTok.nextToken().toUpperCase();
@@ -32,8 +35,9 @@ public class ProhibitspellToken implements PCClassLstToken {
 			{
 				try
 				{
-					final PreParserFactory factory = PreParserFactory.getInstance();
-					spellProb.addPreReq(factory.parse(aString) );
+					final PreParserFactory factory =
+							PreParserFactory.getInstance();
+					spellProb.addPreReq(factory.parse(aString));
 				}
 				catch (PersistenceLayerException ple)
 				{
@@ -42,7 +46,8 @@ public class ProhibitspellToken implements PCClassLstToken {
 			}
 			else
 			{
-				final StringTokenizer elements = new StringTokenizer(aString, ".", false);
+				final StringTokenizer elements =
+						new StringTokenizer(aString, ".", false);
 				final String aType = elements.nextToken();
 
 				for (ProhibitedSpellType type : ProhibitedSpellType.values())
@@ -54,12 +59,14 @@ public class ProhibitspellToken implements PCClassLstToken {
 						{
 							String aValue = elements.nextToken();
 							if (type.equals(ProhibitedSpellType.ALIGNMENT)
-									&& (!aValue.equals("GOOD"))
-									&& (!aValue.equals("EVIL"))
-									&& (!aValue.equals("LAWFUL"))
-									&& (!aValue.equals("CHAOTIC")))
+								&& (!aValue.equals("GOOD"))
+								&& (!aValue.equals("EVIL"))
+								&& (!aValue.equals("LAWFUL"))
+								&& (!aValue.equals("CHAOTIC")))
 							{
-								Logging.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '" + aValue + "'");
+								Logging
+									.errorPrint("Illegal PROHIBITSPELL:ALIGNMENT subtag '"
+										+ aValue + "'");
 							}
 							else
 							{
@@ -70,7 +77,8 @@ public class ProhibitspellToken implements PCClassLstToken {
 				}
 				if (spellProb.getType() == null)
 				{
-					Logging.errorPrint("Illegal PROHIBITSPELL subtag '" + aString + "'");
+					Logging.errorPrint("Illegal PROHIBITSPELL subtag '"
+						+ aString + "'");
 				}
 			}
 		}

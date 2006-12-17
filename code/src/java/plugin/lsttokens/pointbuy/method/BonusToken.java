@@ -32,31 +32,36 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PObjectLoader;
 import pcgen.persistence.lst.PointBuyMethodLstToken;
 
-
 /**
  * <code>CostToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class BonusToken implements PointBuyMethodLstToken {
+public class BonusToken implements PointBuyMethodLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "BONUS";
 	}
 
-	public boolean parse(PointBuyMethod pbm, String value) {
+	public boolean parse(PointBuyMethod pbm, String value)
+	{
 		final PObject dummy = new PObject();
-		try {
-			if (!PObjectLoader.parseTag(dummy, "BONUS:" + value)) {
+		try
+		{
+			if (!PObjectLoader.parseTag(dummy, "BONUS:" + value))
+			{
 				return false;
 			}
-			
+
 			for (BonusObj bonus : dummy.getBonusList())
 			{
 				pbm.addBonusList(bonus);
 			}
 		}
-		catch(PersistenceLayerException ple) {
+		catch (PersistenceLayerException ple)
+		{
 			return false;
 		}
 

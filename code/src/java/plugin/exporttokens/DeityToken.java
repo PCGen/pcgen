@@ -70,7 +70,8 @@ public class DeityToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -172,7 +173,8 @@ public class DeityToken extends Token
 	 * @param deity
 	 * @return description sub token
 	 */
-	public static String getDescriptionToken(final PlayerCharacter aPC, Deity deity)
+	public static String getDescriptionToken(final PlayerCharacter aPC,
+		Deity deity)
 	{
 		return deity.getDescription(aPC);
 	}
@@ -195,7 +197,7 @@ public class DeityToken extends Token
 			}
 
 			firstLine = false;
-			
+
 			returnString.append(domain.getDisplayName());
 		}
 
@@ -232,7 +234,8 @@ public class DeityToken extends Token
 
 			firstLine = false;
 
-			returnString.append(SettingsHandler.getGame().getShortAlignmentAtIndex(fAlignment.charAt(i) - 48));
+			returnString.append(SettingsHandler.getGame()
+				.getShortAlignmentAtIndex(fAlignment.charAt(i) - 48));
 		}
 
 		return returnString.toString();
@@ -287,7 +290,8 @@ public class DeityToken extends Token
 	{
 		if (deity.containsListFor(ListKey.SPECIAL_ABILITY))
 		{
-			return CoreUtility.join(deity.getListFor(ListKey.SPECIAL_ABILITY), ", ");
+			return CoreUtility.join(deity.getListFor(ListKey.SPECIAL_ABILITY),
+				", ");
 		}
 
 		return "";

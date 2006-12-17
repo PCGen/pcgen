@@ -94,8 +94,8 @@ public class OverPanel extends javax.swing.JPanel
 	// End of variables declaration//GEN-END:variables
 
 	/* public Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);
-	   private HashMap categories = new HashMap();
-	   private VariableHashMap allVars = new VariableHashMap();
+	 private HashMap categories = new HashMap();
+	 private VariableHashMap allVars = new VariableHashMap();
 	 */
 	private PairList<TravelMethod> tms; //holds the travel methods list
 	private boolean StupidKludge = true; /* This is a stupid kludge!
@@ -134,14 +134,17 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 	}
-	 //GEN-LAST:event_butToDistActionPerformed
+
+	//GEN-LAST:event_butToDistActionPerformed
 
 	private void butToMapActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_butToMapActionPerformed
@@ -157,14 +160,17 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 	}
-	 //GEN-LAST:event_butToMapActionPerformed
+
+	//GEN-LAST:event_butToMapActionPerformed
 
 	private void butToRealActionPerformed(java.awt.event.ActionEvent evt) //GEN-FIRST:event_butToRealActionPerformed
 	{ //GEN-HEADEREND:event_butToRealActionPerformed
@@ -180,14 +186,17 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 	}
-	 //GEN-LAST:event_butToRealActionPerformed
+
+	//GEN-LAST:event_butToRealActionPerformed
 
 	private void butToTimeActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_butToTimeActionPerformed
@@ -205,14 +214,17 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 	}
-	 //GEN-LAST:event_butToTimeActionPerformed
+
+	//GEN-LAST:event_butToTimeActionPerformed
 
 	private void cmbMethodActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_cmbMethodActionPerformed
@@ -224,7 +236,8 @@ public class OverPanel extends javax.swing.JPanel
 		speed = tms.get(i).getSpeed();
 		lblSpeed.setText(Integer.toString(speed));
 	}
-	 //GEN-LAST:event_cmbMethodActionPerformed
+
+	//GEN-LAST:event_cmbMethodActionPerformed
 
 	/**
 	 * This method is called from within the constructor to
@@ -382,12 +395,12 @@ public class OverPanel extends javax.swing.JPanel
 
 		butToMap.setText("<-");
 		butToMap.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					butToMapActionPerformed(evt);
-				}
-			});
+				butToMapActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -396,12 +409,12 @@ public class OverPanel extends javax.swing.JPanel
 
 		butToReal.setText("->");
 		butToReal.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					butToRealActionPerformed(evt);
-				}
-			});
+				butToRealActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -450,12 +463,12 @@ public class OverPanel extends javax.swing.JPanel
 		jPanel3.add(jLabel9, gridBagConstraints);
 
 		cmbMethod.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					cmbMethodActionPerformed(evt);
-				}
-			});
+				cmbMethodActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -503,12 +516,12 @@ public class OverPanel extends javax.swing.JPanel
 
 		butToTime.setText("->");
 		butToTime.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					butToTimeActionPerformed(evt);
-				}
-			});
+				butToTimeActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -518,12 +531,12 @@ public class OverPanel extends javax.swing.JPanel
 
 		butToDist.setText("<-");
 		butToDist.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					butToDistActionPerformed(evt);
-				}
-			});
+				butToDistActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -652,12 +665,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayFood.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayFood.setText("0");
 		txtDayFood.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtDayFoodActionPerformed(evt);
-				}
-			});
+				txtDayFoodActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -668,12 +681,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayInn.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayInn.setText("0");
 		txtDayInn.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtDayFoodActionPerformed(evt);
-				}
-			});
+				txtDayFoodActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -684,12 +697,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayAnimal.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayAnimal.setText("0");
 		txtDayAnimal.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtDayFoodActionPerformed(evt);
-				}
-			});
+				txtDayFoodActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -724,12 +737,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtDays.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDays.setText("1");
 		txtDays.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtDaysActionPerformed(evt);
-				}
-			});
+				txtDaysActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -747,12 +760,12 @@ public class OverPanel extends javax.swing.JPanel
 		jPanel6.add(txtTotal, gridBagConstraints);
 
 		cmbFood.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtPeopActionPerformed(evt);
-				}
-			});
+				txtPeopActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -761,12 +774,12 @@ public class OverPanel extends javax.swing.JPanel
 		jPanel6.add(cmbFood, gridBagConstraints);
 
 		cmbInn.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtPeopActionPerformed(evt);
-				}
-			});
+				txtPeopActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -775,12 +788,12 @@ public class OverPanel extends javax.swing.JPanel
 		jPanel6.add(cmbInn, gridBagConstraints);
 
 		cmbAnimal.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtPeopActionPerformed(evt);
-				}
-			});
+				txtPeopActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -815,12 +828,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtPeop.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPeop.setText("1");
 		txtPeop.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtPeopActionPerformed(evt);
-				}
-			});
+				txtPeopActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -831,12 +844,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtAnim.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAnim.setText("1");
 		txtAnim.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtPeopActionPerformed(evt);
-				}
-			});
+				txtPeopActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -847,12 +860,12 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayTotal.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayTotal.setText("0");
 		txtDayTotal.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					txtDaysActionPerformed(evt);
-				}
-			});
+				txtDaysActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -891,7 +904,8 @@ public class OverPanel extends javax.swing.JPanel
 
 		add(jPanel5);
 	}
-	 //GEN-END:initComponents
+
+	//GEN-END:initComponents
 
 	private void initData()
 	{
@@ -969,14 +983,16 @@ public class OverPanel extends javax.swing.JPanel
 				}
 				catch (Exception e)
 				{
-					JOptionPane.showMessageDialog(this, "XML Error with file " + dataFiles[i].getName());
+					JOptionPane.showMessageDialog(this, "XML Error with file "
+						+ dataFiles[i].getName());
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(this, "No data files in directory " + path.getPath());
+			JOptionPane.showMessageDialog(this, "No data files in directory "
+				+ path.getPath());
 		}
 	}
 
@@ -1005,11 +1021,13 @@ public class OverPanel extends javax.swing.JPanel
 				}
 				catch (NumberFormatException e1)
 				{
-					JOptionPane.showMessageDialog(null, "Invalid number formatin XML File");
+					JOptionPane.showMessageDialog(null,
+						"Invalid number formatin XML File");
 				}
 				catch (ParseException e1)
 				{
-					JOptionPane.showMessageDialog(null, "Invalid number formatin XML File");
+					JOptionPane.showMessageDialog(null,
+						"Invalid number formatin XML File");
 				}
 
 				/*These if-else statements are OK for now.  Eventually, I would
@@ -1063,14 +1081,16 @@ public class OverPanel extends javax.swing.JPanel
 				}
 				catch (Exception e)
 				{
-					JOptionPane.showMessageDialog(this, "XML Error with file " + dataFiles[i].getName());
+					JOptionPane.showMessageDialog(this, "XML Error with file "
+						+ dataFiles[i].getName());
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(this, "No data files in directory " + path.getPath());
+			JOptionPane.showMessageDialog(this, "No data files in directory "
+				+ path.getPath());
 		}
 	}
 
@@ -1097,11 +1117,13 @@ public class OverPanel extends javax.swing.JPanel
 				}
 				catch (NumberFormatException e1)
 				{
-					JOptionPane.showMessageDialog(null, "Invalid number formatin XML File");
+					JOptionPane.showMessageDialog(null,
+						"Invalid number formatin XML File");
 				}
 				catch (ParseException e1)
 				{
-					JOptionPane.showMessageDialog(null, "Invalid number formatin XML File");
+					JOptionPane.showMessageDialog(null,
+						"Invalid number formatin XML File");
 				}
 
 				tms.add(new TravelMethod(name, speedI));
@@ -1113,29 +1135,32 @@ public class OverPanel extends javax.swing.JPanel
 	{ //GEN-FIRST:event_txtDayFoodActionPerformed
 		updateMidUI();
 	}
-	 //GEN-LAST:event_txtDayFoodActionPerformed
+
+	//GEN-LAST:event_txtDayFoodActionPerformed
 
 	private void txtDaysActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_txtDaysActionPerformed
 		updateBottomUI();
 	}
-	 //GEN-LAST:event_txtDaysActionPerformed
+
+	//GEN-LAST:event_txtDaysActionPerformed
 
 	private void txtPeopActionPerformed(java.awt.event.ActionEvent evt)
 	{ //GEN-FIRST:event_txtPeopActionPerformed
 
 		/*    int i,j;
-		   String er;
-		   er=evt.getActionCommand();
-		   i=evt.getID();
-		   j=15;
+		 String er;
+		 er=evt.getActionCommand();
+		 i=evt.getID();
+		 j=15;
 		 */
 		if (StupidKludge)
 		{
 			updateTopUI();
 		}
 	}
-	 //GEN-LAST:event_txtPeopActionPerformed
+
+	//GEN-LAST:event_txtPeopActionPerformed
 
 	/** This method updates the Bottom portions of the UI based on changes in the total cost
 	 *  and number of days.  It sets the value into the total box
@@ -1153,11 +1178,13 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 	}
 
@@ -1180,11 +1207,13 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 
 		updateBottomUI(); //propagate changes down
@@ -1241,11 +1270,13 @@ public class OverPanel extends javax.swing.JPanel
 		}
 		catch (NumberFormatException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 		catch (ParseException e1)
 		{
-			JOptionPane.showMessageDialog(null, "Invalid number format, try again.");
+			JOptionPane.showMessageDialog(null,
+				"Invalid number format, try again.");
 		}
 
 		updateMidUI(); //propagate changes down

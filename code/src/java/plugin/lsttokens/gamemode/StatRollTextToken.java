@@ -30,30 +30,35 @@ import pcgen.persistence.lst.GameModeLstToken;
 
 import java.util.StringTokenizer;
 
-
 /**
  * <code>StatRollTextToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class StatRollTextToken implements GameModeLstToken {
+public class StatRollTextToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "STATROLLTEXT";
 	}
 
 	//
 	// STATROLLTEXT:<stat_val>,<display_text>
 	//
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");
-		if (tok.countTokens() == 2) {
-			try {
+		if (tok.countTokens() == 2)
+		{
+			try
+			{
 				final int statValue = Integer.parseInt(tok.nextToken());
 				gameMode.addStatDisplayText(statValue, tok.nextToken());
 				return true;
 			}
-			catch (NumberFormatException exc) {
+			catch (NumberFormatException exc)
+			{
 				// returns false
 			}
 		}

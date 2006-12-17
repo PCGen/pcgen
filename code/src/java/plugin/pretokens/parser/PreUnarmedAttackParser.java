@@ -31,18 +31,18 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteIntegerParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreUnarmedAttackParser extends AbstractPrerequisiteIntegerParser implements PrerequisiteParserInterface
+public class PreUnarmedAttackParser extends AbstractPrerequisiteIntegerParser
+		implements PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "UATT" };
+		return new String[]{"UATT"};
 	}
 }

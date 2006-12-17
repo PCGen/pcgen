@@ -8,18 +8,22 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with RACENAME Token
  */
-public class RacenameToken implements RaceLstToken, DeprecatedToken {
+public class RacenameToken implements RaceLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RACENAME";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setName(value);
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value) {
+	public String getMessage(PObject obj, String value)
+	{
 		return "This was a PCGen 2.X Tag.  Use OUTPUTNAME instead";
 	}
 }

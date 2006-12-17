@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken implements RaceLstToken {
+public class SizeToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SIZE";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setSize(value);
 		return true;
 	}

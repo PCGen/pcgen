@@ -17,16 +17,19 @@ import pcgen.util.PCGenCommand;
  * eg. skill("modifier", "Swim")
  * eg. skill("totalrank", "Swim")
  */
-public class SkillInfoCommand extends PCGenCommand {
+public class SkillInfoCommand extends PCGenCommand
+{
 
 	/**
 	 * Constructor
 	 */
-	public SkillInfoCommand() {
+	public SkillInfoCommand()
+	{
 		numberOfParameters = 2;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "SKILLINFO";
 	}
 
@@ -37,7 +40,8 @@ public class SkillInfoCommand extends PCGenCommand {
 	 * @param inStack
 	 * @throws ParseException
 	 */
-	public void run(Stack inStack) throws ParseException {
+	public void run(Stack inStack) throws ParseException
+	{
 		// check the stack
 		checkStack(inStack);
 
@@ -48,43 +52,57 @@ public class SkillInfoCommand extends PCGenCommand {
 		Object param2 = inStack.pop();
 		Object param1 = inStack.pop();
 
-		if ((param1 instanceof String) && (param2 instanceof String)) {
+		if ((param1 instanceof String) && (param2 instanceof String))
+		{
 			PlayerCharacter pc = null;
 
-			if (parent instanceof VariableProcessor) {
+			if (parent instanceof VariableProcessor)
+			{
 				pc = ((VariableProcessor) parent).getPc();
 			}
-			else if (parent instanceof PlayerCharacter) {
+			else if (parent instanceof PlayerCharacter)
+			{
 				pc = (PlayerCharacter) parent;
 			}
-			if (pc == null) {
-				throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
+			if (pc == null)
+			{
+				throw new ParseException("Invalid parent (no PC): "
+					+ parent.getClass().getName());
 			}
 
-			final Skill aSkill = pc.getSkillKeyed((String)param2);
+			final Skill aSkill = pc.getSkillKeyed((String) param2);
 
 			Object result = null;
-			if (aSkill != null) {
-				if (((String) param1).equalsIgnoreCase("modifier")) {
-					result = new Double(aSkill.modifier(pc).intValue());		// aSkill.modifier() returns Integer
+			if (aSkill != null)
+			{
+				if (((String) param1).equalsIgnoreCase("modifier"))
+				{
+					result = new Double(aSkill.modifier(pc).intValue()); // aSkill.modifier() returns Integer
 				}
-				else if (((String) param1).equalsIgnoreCase("rank")) {
-					result = new Double(aSkill.getRank().doubleValue());		// aSkill.getRank() returns Float
+				else if (((String) param1).equalsIgnoreCase("rank"))
+				{
+					result = new Double(aSkill.getRank().doubleValue()); // aSkill.getRank() returns Float
 				}
-				else if (((String) param1).equalsIgnoreCase("total")) {
-					result = new Double(aSkill.getTotalRank(pc).intValue() + aSkill.modifier(pc).intValue());
+				else if (((String) param1).equalsIgnoreCase("total"))
+				{
+					result =
+							new Double(aSkill.getTotalRank(pc).intValue()
+								+ aSkill.modifier(pc).intValue());
 				}
-				else if (((String) param1).equalsIgnoreCase("totalrank")) {
-					result = new Double(aSkill.getTotalRank(pc).doubleValue());	// aSkill.getTotalRank() returns Float
+				else if (((String) param1).equalsIgnoreCase("totalrank"))
+				{
+					result = new Double(aSkill.getTotalRank(pc).doubleValue()); // aSkill.getTotalRank() returns Float
 				}
 			}
-			else {
+			else
+			{
 				result = new Double(0);
 			}
 
 			inStack.push(result);
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type");
 		}
 	}

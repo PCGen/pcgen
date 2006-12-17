@@ -37,7 +37,7 @@ public class FundsToken implements KitFundsLstToken
 	public boolean parse(KitFunds kitFunds, String value)
 	{
 		Logging.errorPrint("Ignoring second FUNDS tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 

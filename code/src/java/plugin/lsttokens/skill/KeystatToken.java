@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SkillLstToken;
 /**
  * Class deals with KEYSTAT Token
  */
-public class KeystatToken implements SkillLstToken {
+public class KeystatToken implements SkillLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "KEYSTAT";
 	}
 
-	public boolean parse(Skill skill, String value) {
+	public boolean parse(Skill skill, String value)
+	{
 		skill.setKeyStat(value);
 		return true;
 	}

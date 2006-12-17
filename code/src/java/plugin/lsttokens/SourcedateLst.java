@@ -17,13 +17,16 @@ import pcgen.util.Logging;
  * @author zaister
  *
  */
-public class SourcedateLst implements GlobalLstToken, SourceLstToken {
+public class SourcedateLst implements GlobalLstToken, SourceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SOURCEDATE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		try
 		{
 			obj.getSourceEntry().getSourceBook().setDate(value);
@@ -36,9 +39,9 @@ public class SourcedateLst implements GlobalLstToken, SourceLstToken {
 		return true;
 	}
 
-	public boolean parse(Map<String, String> sourceMap, String value) {
+	public boolean parse(Map<String, String> sourceMap, String value)
+	{
 		sourceMap.putAll(SourceLoader.parseSource("SOURCEDATE:" + value));
 		return true;
 	}
 }
-

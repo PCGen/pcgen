@@ -61,14 +61,15 @@ public class BioToken extends Token
 	 *
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String beforeValue = "";
 		String afterValue = "";
 
-		if (tokenSource.length()<=3 || tokenSource.charAt(3)==',')
+		if (tokenSource.length() <= 3 || tokenSource.charAt(3) == ',')
 		{
-			if (tokenSource.length()>4)
+			if (tokenSource.length() > 4)
 			{
 				afterValue = tokenSource.substring(4);
 			}
@@ -76,11 +77,15 @@ public class BioToken extends Token
 		else
 		{
 			String[] tokens = tokenSource.split("\\.");
-			if(tokens.length>1) beforeValue=tokens[1];
-			if(tokens.length>2) afterValue=tokens[2];
+			if (tokens.length > 1)
+				beforeValue = tokens[1];
+			if (tokens.length > 2)
+				afterValue = tokens[2];
 		}
 
-		return beforeValue + pc.getBio().replaceAll("\n", afterValue + "\n" + beforeValue) + afterValue;
+		return beforeValue
+			+ pc.getBio().replaceAll("\n", afterValue + "\n" + beforeValue)
+			+ afterValue;
 	}
 
 	/**
@@ -109,12 +114,15 @@ public class BioToken extends Token
 	 * @param eh
 	 * @return CR/LF equivalent
 	 */
-	private static String getAfterValue(ExportHandler eh) {
-		if (eh != null && eh.getTemplateFile().getName().endsWith(Constants.XSL_FO_EXTENSION)) {
+	private static String getAfterValue(ExportHandler eh)
+	{
+		if (eh != null
+			&& eh.getTemplateFile().getName().endsWith(
+				Constants.XSL_FO_EXTENSION))
+		{
 			return "			</fo:block><fo:block font-size=\"9pt\" text-indent=\"5mm\" space-after.optimum=\"2mm\">";
 		}
 		return "<br/>";
 	}
 
 }
-

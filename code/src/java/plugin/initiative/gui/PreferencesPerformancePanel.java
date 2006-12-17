@@ -42,24 +42,30 @@ import java.awt.Font;
  * @author devon
  * @since April 7, 2003
  */
-public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel {
+public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
+{
 
 	private JPanel performancePanel;
 	private JPanel mainPanel;
 	private JCheckBox refreshOnStateChange;
 
 	/** Creates new form PreferencesMiscPanel */
-	public PreferencesPerformancePanel() {
+	public PreferencesPerformancePanel()
+	{
 		initComponents();
 		initPreferences();
 	}
 
-	public void applyPreferences() {
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".refreshOnStateChange", getRefreshOnStateChange());
+	public void applyPreferences()
+	{
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
+			+ ".refreshOnStateChange", getRefreshOnStateChange());
 	}
 
-	public void initPreferences() {
-		setRefreshOnStateChange(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".refreshOnStateChange", true));
+	public void initPreferences()
+	{
+		setRefreshOnStateChange(SettingsHandler.getGMGenOption(
+			InitiativePlugin.LOG_NAME + ".refreshOnStateChange", true));
 	}
 
 	/**
@@ -69,7 +75,8 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel {
 	 *
 	 * @param b
 	 */
-	private void setRefreshOnStateChange(boolean b) {
+	private void setRefreshOnStateChange(boolean b)
+	{
 		refreshOnStateChange.setSelected(b);
 	}
 
@@ -80,15 +87,18 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel {
 	 *
 	 * @return true or false
 	 */
-	private boolean getRefreshOnStateChange() {
+	private boolean getRefreshOnStateChange()
+	{
 		return refreshOnStateChange.isSelected();
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		return "Performance";
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 		setLayout(new BorderLayout());
 
 		mainPanel = new JPanel();
@@ -97,10 +107,11 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel {
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
 		performancePanel = new JPanel();
-		performancePanel.setLayout(new BoxLayout(performancePanel, BoxLayout.Y_AXIS));
+		performancePanel.setLayout(new BoxLayout(performancePanel,
+			BoxLayout.Y_AXIS));
 		performancePanel.setBorder(new TitledBorder(null, "Performance",
-				TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-				new Font("Dialog", 1, 11)));
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
+			new Font("Dialog", 1, 11)));
 
 		refreshOnStateChange.setText("Refresh tabs on state change");
 		performancePanel.add(refreshOnStateChange);

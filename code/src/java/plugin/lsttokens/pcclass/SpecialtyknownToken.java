@@ -10,17 +10,21 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with SPECIALTYKNOWN Token
  */
-public class SpecialtyknownToken implements PCClassLstToken {
+public class SpecialtyknownToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SPECIALTYKNOWN";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		StringTokenizer st = new StringTokenizer(value, ",");
 		List<String> list = new ArrayList<String>(st.countTokens());
 
-		while (st.hasMoreTokens()) {
+		while (st.hasMoreTokens())
+		{
 			list.add(st.nextToken());
 		}
 

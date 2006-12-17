@@ -6,13 +6,16 @@ import pcgen.persistence.lst.WeaponProfLstToken;
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken implements WeaponProfLstToken {
+public class HandsToken implements WeaponProfLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HANDS";
 	}
 
-	public boolean parse(WeaponProf prof, String value) {
+	public boolean parse(WeaponProf prof, String value)
+	{
 		prof.setHands(value);
 		return true;
 	}

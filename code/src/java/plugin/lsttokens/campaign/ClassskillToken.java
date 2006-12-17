@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with CLASSSKILL Token
  */
-public class ClassskillToken implements CampaignLstToken {
+public class ClassskillToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CLASSSKILL";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("CLASSSKILL:" + value);
-		campaign.addClassSkillFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addClassSkillFile(new CampaignSourceEntry(campaign,
+			CampaignLoader.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

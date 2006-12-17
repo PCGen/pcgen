@@ -61,13 +61,14 @@ public class VisionToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
 
 		List<Vision> visionList = new ArrayList<Vision>(pc.getVisionList());
-		
+
 		int visionIndex = 0;
 		int startIndex = 0;
 
@@ -88,13 +89,15 @@ public class VisionToken extends Token
 			visionIndex = visionList.size();
 		}
 
-		if (visionList.isEmpty()) {
+		if (visionList.isEmpty())
+		{
 			return "";
 		}
-		
-		List<Vision> subList = visionList.subList(Math.max(startIndex, 0),
-				Math.min(visionIndex, visionList.size()));
-		
+
+		List<Vision> subList =
+				visionList.subList(Math.max(startIndex, 0), Math.min(
+					visionIndex, visionList.size()));
+
 		return CoreUtility.join(subList, ", ");
 	}
 }

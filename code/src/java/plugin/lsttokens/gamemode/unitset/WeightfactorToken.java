@@ -6,18 +6,23 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with WEIGHTFACTOR Token
  */
-public class WeightfactorToken implements UnitSetLstToken {
+public class WeightfactorToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WEIGHTFACTOR";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
-		try {
+	public boolean parse(UnitSet unitSet, String value)
+	{
+		try
+		{
 			unitSet.setWeightFactor(Double.parseDouble(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

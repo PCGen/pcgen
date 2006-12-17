@@ -6,9 +6,11 @@ import pcgen.persistence.lst.CompanionModLstToken;
 /**
  * Class deals with RACETYPE: Token
  */
-public class RaceTypeToken implements CompanionModLstToken {
+public class RaceTypeToken implements CompanionModLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RACETYPE";
 	}
 

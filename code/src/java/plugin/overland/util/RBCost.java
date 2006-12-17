@@ -5,7 +5,6 @@
  */
 package plugin.overland.util;
 
-
 /** Class that holds a single travel method and its speed.  Note: This is a wrapper for the Pair class
  *
  * @author  Juliean Galak

@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with RANGE Token
  */
-public class RangeToken implements SpellLstToken {
+public class RangeToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "RANGE";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		spell.setRange(value);
 		return true;
 	}

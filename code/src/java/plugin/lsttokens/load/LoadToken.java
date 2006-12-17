@@ -30,29 +30,34 @@ import java.util.StringTokenizer;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.lst.LoadInfoLstToken;
 
-
 /**
  * <code>LoadToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class LoadToken implements LoadInfoLstToken {
+public class LoadToken implements LoadInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LOAD";
 	}
 
-	public boolean parse(LoadInfo loadInfo, String value) {
+	public boolean parse(LoadInfo loadInfo, String value)
+	{
 		final StringTokenizer token = new StringTokenizer(value, "|");
-		if(token.countTokens() != 2) {
+		if (token.countTokens() != 2)
+		{
 			return false;
 		}
-		try {
+		try
+		{
 			int str = Integer.parseInt(token.nextToken());
 			Float num = new Float(token.nextToken());
 			loadInfo.addLoadScoreValue(str, num);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 		return true;

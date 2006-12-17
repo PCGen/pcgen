@@ -61,10 +61,10 @@ public class SelectToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(value,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(value, SystemLoader.TAB_DELIM);
 		KitSelect kSelect = new KitSelect(colToken.nextToken());
 
 		while (colToken.hasMoreTokens())
@@ -73,15 +73,14 @@ public class SelectToken extends KitLstToken
 			if (colString.startsWith("SELECT:"))
 			{
 				Logging.errorPrint("Ignoring second SELECT tag \"" + colString
-						+ "\" in SelectToken.parse");
+					+ "\" in SelectToken.parse");
 			}
 			else
 			{
 				if (BaseKitLoader.parseCommonTags(kSelect, colString) == false)
 				{
 					throw new PersistenceLayerException(
-							"Unknown KitSelect info " + " \"" + colString
-									+ "\"");
+						"Unknown KitSelect info " + " \"" + colString + "\"");
 				}
 			}
 		}

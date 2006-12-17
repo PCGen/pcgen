@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>PCLevel</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class PCLevel extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"PCLEVEL"
-		};
+	private static final String[] bonusHandled = {"PCLEVEL"};
 
 	protected boolean parseToken(final String token)
 	{

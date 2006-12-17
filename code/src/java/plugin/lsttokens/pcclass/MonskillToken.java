@@ -6,14 +6,18 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with MONSKILL Token
  */
-public class MonskillToken implements PCClassLstToken {
+public class MonskillToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MONSKILL";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
-		pcclass.addBonusList("0|MONSKILLPTS|NUMBER|" + value + "|PRELEVELMAX:1");
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
+		pcclass
+			.addBonusList("0|MONSKILLPTS|NUMBER|" + value + "|PRELEVELMAX:1");
 		return true;
 	}
 }

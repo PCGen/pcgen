@@ -51,7 +51,8 @@ public class ClassListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getClassListToken(pc);
 	}
@@ -77,13 +78,15 @@ public class ClassListToken extends Token
 
 			firstLine = false;
 
-			if (Constants.s_NONE.equals(pcClass.getSubClassKey()) || "".equals(pcClass.getSubClassKey()))
+			if (Constants.s_NONE.equals(pcClass.getSubClassKey())
+				|| "".equals(pcClass.getSubClassKey()))
 			{
 				returnString.append(pcClass.getOutputName());
 			}
 			else
 			{
-				returnString.append(Globals.getClassKeyed(pcClass.getSubClassKey()).getDisplayName());
+				returnString.append(Globals.getClassKeyed(
+					pcClass.getSubClassKey()).getDisplayName());
 			}
 
 			returnString.append(pcClass.getLevel());

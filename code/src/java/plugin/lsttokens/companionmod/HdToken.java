@@ -6,13 +6,16 @@ import pcgen.persistence.lst.CompanionModLstToken;
 /**
  * Class deals with HD Token
  */
-public class HdToken implements CompanionModLstToken {
+public class HdToken implements CompanionModLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HD";
 	}
 
-	public boolean parse(CompanionMod cmpMod, String value) {
+	public boolean parse(CompanionMod cmpMod, String value)
+	{
 		cmpMod.setHitDie(Integer.parseInt(value));
 		return true;
 	}

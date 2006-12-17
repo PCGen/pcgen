@@ -25,14 +25,14 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * <code>PrePointBuyMethodParser</code>.
  *
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class PrePointBuyMethodParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PrePointBuyMethodParser extends AbstractPrerequisiteListParser
+		implements PrerequisiteParserInterface
 {
 
 	/* (non-Javadoc)

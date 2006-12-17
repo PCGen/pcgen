@@ -7,13 +7,16 @@ import pcgen.persistence.lst.SponsorLstToken;
 /**
  * Class deals with IMAGEBANNER Token
  */
-public class ImagebannerToken implements SponsorLstToken {
+public class ImagebannerToken implements SponsorLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "IMAGEBANNER";
 	}
 
-	public boolean parse(Map<String, String> sponsor, String value) {
+	public boolean parse(Map<String, String> sponsor, String value)
+	{
 		sponsor.put("IMAGEBANNER", value);
 		return true;
 	}

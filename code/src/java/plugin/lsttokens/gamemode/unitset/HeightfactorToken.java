@@ -6,18 +6,23 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with HEIGHTFACTOR Token
  */
-public class HeightfactorToken implements UnitSetLstToken {
+public class HeightfactorToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HEIGHTFACTOR";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
-		try {
+	public boolean parse(UnitSet unitSet, String value)
+	{
+		try
+		{
 			unitSet.setHeightFactor(Double.parseDouble(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

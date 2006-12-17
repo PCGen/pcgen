@@ -64,7 +64,8 @@ public class WeaponoToken extends WeaponToken
 	 * @return The value of the token.
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		//Weapono Token
@@ -72,7 +73,7 @@ public class WeaponoToken extends WeaponToken
 
 		Equipment eq = getWeaponEquipment(pc);
 
-		if(eq != null)
+		if (eq != null)
 		{
 			return getWeaponToken(pc, eq, aTok);
 		}
@@ -93,7 +94,8 @@ public class WeaponoToken extends WeaponToken
 	 * @param pc The character used to generate the size.
 	 * @return The equipment.
 	 */
-	public static Equipment getWeaponEquipment(PlayerCharacter pc) {
+	public static Equipment getWeaponEquipment(PlayerCharacter pc)
+	{
 		if (!pc.getSecondaryWeapons().isEmpty())
 		{
 			return pc.getSecondaryWeapons().get(0);
@@ -101,4 +103,3 @@ public class WeaponoToken extends WeaponToken
 		return null;
 	}
 }
-

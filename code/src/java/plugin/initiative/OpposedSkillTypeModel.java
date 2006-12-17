@@ -55,10 +55,9 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 	public OpposedSkillTypeModel()
 	{
 		super();
-		columns.addColumn("TYPE", String.class, null, false,
-				"Type");
+		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
-	
+
 	/**
 	 * <p>
 	 * Constructor builds the combatant list, adds columns
@@ -69,8 +68,7 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 	public OpposedSkillTypeModel(List combatantList)
 	{
 		super(combatantList);
-		columns.addColumn("TYPE", String.class, null, false,
-			"Type");
+		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
 
 	/* (non-Javadoc)

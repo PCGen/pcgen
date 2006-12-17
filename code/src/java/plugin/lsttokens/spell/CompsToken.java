@@ -6,15 +6,17 @@ import pcgen.persistence.lst.SpellLstToken;
 /**
  * Class deals with COMPS Token
  */
-public class CompsToken implements SpellLstToken {
+public class CompsToken implements SpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COMPS";
 	}
 
-	public boolean parse(Spell spell, String value) {
+	public boolean parse(Spell spell, String value)
+	{
 		spell.setComponentList(value);
 		return true;
 	}
 }
-

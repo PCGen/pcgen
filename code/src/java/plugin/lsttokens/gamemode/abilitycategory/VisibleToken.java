@@ -39,11 +39,11 @@ public class VisibleToken implements AbilityCategoryLstToken
 	 */
 	public boolean parse(final AbilityCategory aCat, final String aValue)
 	{
-		if ( aValue.charAt(0) == 'Y' )
+		if (aValue.charAt(0) == 'Y')
 		{
 			aCat.setVisible(true);
 		}
-		else if ( aValue.charAt(0) == 'N' )
+		else if (aValue.charAt(0) == 'N')
 		{
 			aCat.setVisible(false);
 		}

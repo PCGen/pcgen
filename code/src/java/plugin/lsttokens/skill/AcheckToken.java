@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SkillLstToken;
 /**
  * Class deals with ACHECK Token
  */
-public class AcheckToken implements SkillLstToken {
+public class AcheckToken implements SkillLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ACHECK";
 	}
 
-	public boolean parse(Skill skill, String value) {
+	public boolean parse(Skill skill, String value)
+	{
 		skill.setACheck(value);
 		return true;
 	}

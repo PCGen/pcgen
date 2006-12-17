@@ -10,15 +10,19 @@ import java.net.URL;
 /**
  * Class deals with TEMPLATE Token
  */
-public class TemplateToken implements CampaignLstToken {
+public class TemplateToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TEMPLATE";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("TEMPLATE:" + value);
-		campaign.addTemplateFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addTemplateFile(new CampaignSourceEntry(campaign,
+			CampaignLoader.convertFilePath(sourceUrl, value)));
 		return true;
 	}
 }

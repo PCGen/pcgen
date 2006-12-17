@@ -6,13 +6,16 @@ import pcgen.persistence.lst.AbilityLstToken;
 /**
  * Deals with the QUALIFY token for Abilities
  */
-public class QualifyToken implements AbilityLstToken {
+public class QualifyToken implements AbilityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "QUALIFY";
 	}
 
-	public boolean parse(Ability ability, String value) {
+	public boolean parse(Ability ability, String value)
+	{
 		ability.setQualifyString(value);
 		return true;
 	}

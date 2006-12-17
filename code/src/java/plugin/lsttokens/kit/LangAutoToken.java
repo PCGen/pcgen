@@ -58,7 +58,7 @@ public class LangAutoToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	public boolean parse(Kit aKit, String value)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		String colString = "LANGAUTO:" + value;
 		if (PObjectLoader.parseTag(aKit, colString))

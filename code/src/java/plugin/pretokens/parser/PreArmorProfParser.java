@@ -31,17 +31,19 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreArmorProfParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface {
+public class PreArmorProfParser extends AbstractPrerequisiteListParser
+		implements PrerequisiteParserInterface
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
 	 */
-	public String[] kindsHandled() {
+	public String[] kindsHandled()
+	{
 		return new String[]{"ARMORPROF"};
 	}
 

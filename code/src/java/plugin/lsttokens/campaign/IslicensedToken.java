@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with ISLICENSED Token
  */
-public class IslicensedToken implements CampaignLstToken {
+public class IslicensedToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ISLICENSED";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setIsLicensed(value.startsWith("Y"));
 		return true;
 	}

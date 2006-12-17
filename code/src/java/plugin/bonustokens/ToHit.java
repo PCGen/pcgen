@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>ToHit</code>
  *
@@ -35,12 +34,9 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class ToHit extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"TOHIT"
-		};
+	private static final String[] bonusHandled = {"TOHIT"};
 
-	private static final String[] bonusTags = { "TOHIT" };
+	private static final String[] bonusTags = {"TOHIT"};
 
 	protected boolean parseToken(final String token)
 	{

@@ -12,18 +12,21 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class HitdieLst implements GlobalLstToken {
+public class HitdieLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HITDIE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if(obj instanceof PCClass) {
-			((PCClass)obj).putHitDieLock(value, anInt);
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (obj instanceof PCClass)
+		{
+			((PCClass) obj).putHitDieLock(value, anInt);
 			return true;
 		}
 		return false;
 	}
 }
-

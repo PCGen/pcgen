@@ -10,18 +10,22 @@ import java.net.URL;
 /**
  * Class deals with GAME Token
  */
-public class GameToken implements CampaignLstToken, DeprecatedToken {
+public class GameToken implements CampaignLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "GAME";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.setGameMode(value);
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value) {
+	public String getMessage(PObject obj, String value)
+	{
 		return "Use GAMEMODE: instead.";
 	}
 }

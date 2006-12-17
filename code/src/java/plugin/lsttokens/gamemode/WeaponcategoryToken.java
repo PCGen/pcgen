@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with WEAPONCATEGORY Token
  */
-public class WeaponcategoryToken implements GameModeLstToken {
+public class WeaponcategoryToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "WEAPONCATEGORY";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.addWeaponCategory(value);
 		return true;
 	}

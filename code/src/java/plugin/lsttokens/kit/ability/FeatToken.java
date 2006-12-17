@@ -47,7 +47,7 @@ public class FeatToken implements KitAbilityLstToken
 	public boolean parse(KitAbilities kitAbility, String value)
 	{
 		Logging.errorPrint("Ignoring second FEAT or ABILITY tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 }

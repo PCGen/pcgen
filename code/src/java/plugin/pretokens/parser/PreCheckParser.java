@@ -31,18 +31,18 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreCheckParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreCheckParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "CHECK", "CHECKBASE" };
+		return new String[]{"CHECK", "CHECKBASE"};
 	}
 }

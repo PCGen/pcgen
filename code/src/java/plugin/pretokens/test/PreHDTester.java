@@ -32,27 +32,35 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
+
 /**
  * @author wardc
  *
  */
-public class PreHDTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreHDTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 		int runningTotal;
 		try
 		{
 			final int targetHD = Integer.parseInt(prereq.getOperand());
 
-			runningTotal = prereq.getOperator().compare(character.totalHitDice(), targetHD);
+			runningTotal =
+					prereq.getOperator().compare(character.totalHitDice(),
+						targetHD);
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreHD.error.bad_operand", prereq.getOperand() )); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreHD.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}
@@ -60,8 +68,9 @@ public class PreHDTester extends AbstractPrerequisiteTest implements Prerequisit
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
-		return "HD" ; //$NON-NLS-1$
+	public String kindHandled()
+	{
+		return "HD"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
@@ -69,13 +78,11 @@ public class PreHDTester extends AbstractPrerequisiteTest implements Prerequisit
 	 */
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final String foo = PropertyFactory.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
-			    new Object[]
-			    {
-				    prereq.getKind().toUpperCase() + ":",
-				    prereq.getOperator().toDisplayString(),
-				    prereq.getOperand()
-				} );
+		final String foo =
+				PropertyFactory.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
+					new Object[]{prereq.getKind().toUpperCase() + ":",
+						prereq.getOperator().toDisplayString(),
+						prereq.getOperand()});
 		return foo;
 	}
 

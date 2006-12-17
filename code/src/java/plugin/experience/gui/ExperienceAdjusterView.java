@@ -288,7 +288,8 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 		jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
+		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
+			javax.swing.BoxLayout.Y_AXIS));
 
 		jLabel1.setText("Characters");
 		jPanel3.add(jLabel1);
@@ -303,7 +304,8 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 		jPanel1.setLayout(new java.awt.BorderLayout());
 
-		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
+		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4,
+			javax.swing.BoxLayout.Y_AXIS));
 
 		jLabel3.setText("Enemies");
 		jPanel4.add(jLabel3);

@@ -42,7 +42,7 @@ import java.util.List;
 public class RaceToken extends Token
 {
 	private static final String TOKENNAME = "RACE"; //$NON-NLS-1$
-	private static final String[] SUBTOKENLIST = { "ABILITYLIST" }; //$NON-NLS-1$
+	private static final String[] SUBTOKENLIST = {"ABILITYLIST"}; //$NON-NLS-1$
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -57,8 +57,9 @@ public class RaceToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, 
-			@SuppressWarnings("unused")	ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		@SuppressWarnings("unused")
+		ExportHandler eh)
 	{
 		String retString = Constants.EMPTY_STRING;
 
@@ -69,12 +70,12 @@ public class RaceToken extends Token
 		else
 		{
 			final String preString = TOKENNAME + SUBTOKENSEP;
-			for ( int i = 0; i < SUBTOKENLIST.length; i++ )
+			for (int i = 0; i < SUBTOKENLIST.length; i++)
 			{
 				final String subToken = preString + SUBTOKENLIST[i];
-				if ( subToken.equals( tokenSource ) )
+				if (subToken.equals(tokenSource))
 				{
-					retString = getSubToken( SUBTOKENLIST[i], pc );
+					retString = getSubToken(SUBTOKENLIST[i], pc);
 				}
 			}
 		}
@@ -82,13 +83,15 @@ public class RaceToken extends Token
 		return retString;
 	}
 
-	private static String getSubToken( final String subToken, final PlayerCharacter pc)
+	private static String getSubToken(final String subToken,
+		final PlayerCharacter pc)
 	{
-		if ( !subToken.equals( SUBTOKENLIST[0] ) )
+		if (!subToken.equals(SUBTOKENLIST[0]))
 		{
 			return Constants.EMPTY_STRING;
 		}
-		final List<SpecialAbility> saList = pc.getRace().getListFor(ListKey.SPECIAL_ABILITY);
+		final List<SpecialAbility> saList =
+				pc.getRace().getListFor(ListKey.SPECIAL_ABILITY);
 
 		if ((saList == null) || saList.isEmpty())
 		{
@@ -116,20 +119,20 @@ public class RaceToken extends Token
 	{
 		String retString = Constants.EMPTY_STRING;
 
-//		String tempRaceName = pc.getRace().getDisplayName();
+		//		String tempRaceName = pc.getRace().getDisplayName();
 
-//		if (tempRaceName.equals(Constants.s_NONE))
-//		{
-//			tempRaceName = pc.getRace().getOutputName();
-//		}
+		//		if (tempRaceName.equals(Constants.s_NONE))
+		//		{
+		//			tempRaceName = pc.getRace().getOutputName();
+		//		}
 
 		String tempRaceName = pc.getRace().getOutputName();
 
-		if ( tempRaceName == null || tempRaceName.length() == 0 )
+		if (tempRaceName == null || tempRaceName.length() == 0)
 		{
 			tempRaceName = pc.getRace().getDisplayName();
 		}
-		
+
 		StringBuffer extraRaceInfo = new StringBuffer(40);
 
 		if (!pc.getSubRace().equals(Constants.s_NONE))
@@ -147,8 +150,11 @@ public class RaceToken extends Token
 
 				if (aClass != null)
 				{
-					int minHD = pc.getRace().hitDice(pc) + pc.getRace().getMonsterClassLevels(pc);
-					int monsterHD = pc.getRace().hitDice(pc) + aClass.getLevel();
+					int minHD =
+							pc.getRace().hitDice(pc)
+								+ pc.getRace().getMonsterClassLevels(pc);
+					int monsterHD =
+							pc.getRace().hitDice(pc) + aClass.getLevel();
 
 					if (monsterHD != minHD)
 					{
@@ -157,7 +163,8 @@ public class RaceToken extends Token
 							extraRaceInfo.append(' ');
 						}
 
-						extraRaceInfo.append(monsterHD).append(PropertyFactory.getString("in_hdLabel")); //$NON-NLS-1$
+						extraRaceInfo.append(monsterHD).append(
+							PropertyFactory.getString("in_hdLabel")); //$NON-NLS-1$
 					}
 				}
 			}

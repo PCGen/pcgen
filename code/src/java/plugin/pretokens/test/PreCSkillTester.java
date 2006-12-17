@@ -31,7 +31,8 @@ import pcgen.util.PropertyFactory;
  * @author arknight
  *
  */
-public class PreCSkillTester  extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCSkillTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
 {
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -45,11 +46,13 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
 
-		if (prereq.getSubKey()!=null) {
+		if (prereq.getSubKey() != null)
+		{
 			requiredSkillKey += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		final boolean isType = (requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType =
+				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
 			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
@@ -61,9 +64,9 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 			//Skill name is actually type to compare for
 
 			//loop through skill list checking for type and class skill
-			for ( Skill skill : Globals.getSkillList() )
+			for (Skill skill : Globals.getSkillList())
 			{
-				if ( skill.isType(skillKey) && skill.isClassSkill(character) )
+				if (skill.isType(skillKey) && skill.isClassSkill(character))
 				{
 					runningTotal++;
 				}
@@ -72,7 +75,7 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 		else
 		{
 			Skill skill = Globals.getSkillKeyed(skillKey);
-			if ( skill != null && skill.isClassSkill( character ) )
+			if (skill != null && skill.isClassSkill(character))
 			{
 				runningTotal++;
 			}
@@ -96,16 +99,16 @@ public class PreCSkillTester  extends AbstractPrerequisiteTest implements Prereq
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String skillName = prereq.getKey();
-		if (prereq.getSubKey() != null && !prereq.getSubKey().equals(""))  //$NON-NLS-1$
+		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
 			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 
-		final String foo = PropertyFactory.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						skillName } );
+		final String foo =
+				PropertyFactory.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+					new Object[]{prereq.getOperator().toDisplayString(),
+						prereq.getOperand(), skillName});
 		return foo;
 	}
 }

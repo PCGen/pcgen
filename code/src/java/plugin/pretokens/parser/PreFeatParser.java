@@ -40,7 +40,8 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author Chris Ward <frugal@purplewombat.co.uk>
  * @version $Revision$
  */
-public class PreFeatParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreFeatParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	/**
 	 * Create a new PreFeatParser instance.
@@ -55,17 +56,19 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "feat" };
+		return new String[]{"feat"};
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		//
 		// Negate the feat names wrapped in []'s. Then need to bump up the required number of matches
@@ -97,7 +100,7 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements Pre
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
-			if (p.getKind() == null)		// PREMULT
+			if (p.getKind() == null) // PREMULT
 			{
 				negateFeatChoice(p);
 			}

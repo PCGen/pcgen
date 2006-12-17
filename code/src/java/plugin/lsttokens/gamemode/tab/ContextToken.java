@@ -10,13 +10,17 @@ import pcgen.util.enumeration.Tab;
 /**
  * Class deals with CONTEXT Token
  */
-public class ContextToken implements TabLstToken {
+public class ContextToken implements TabLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CONTEXT";
 	}
 
-	public boolean parse(GameMode gameMode, Map<String, String> tab, String value) {
+	public boolean parse(GameMode gameMode, Map<String, String> tab,
+		String value)
+	{
 		final Tab aTab = GameMode.getTab(tab.get(TabLoader.TAB));
 		gameMode.setTabContext(aTab, value);
 		return true;

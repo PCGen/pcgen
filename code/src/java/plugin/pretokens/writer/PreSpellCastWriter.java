@@ -37,8 +37,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
-public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -54,16 +54,15 @@ public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements Pr
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -75,7 +74,7 @@ public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements Pr
 			}
 
 			writer.write("PRESPELLCAST:TYPE=");
-			writer.write(prereq.getKey() );
+			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
 		{

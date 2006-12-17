@@ -44,24 +44,33 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 
 			if (renderer != null)
 			{
-				headerWidth = renderer.getTableCellRendererComponent(m_table, aColumn.getHeaderValue(), false, false,
-					    0, 0).getPreferredSize().width;
+				headerWidth =
+						renderer.getTableCellRendererComponent(m_table,
+							aColumn.getHeaderValue(), false, false, 0, 0)
+							.getPreferredSize().width;
 			}
 
-			renderer = m_table.getDefaultRenderer(m_table.getModel().getColumnClass(getColumnCount()));
+			renderer =
+					m_table.getDefaultRenderer(m_table.getModel()
+						.getColumnClass(getColumnCount()));
 
 			if (renderer != null)
 			{
 				for (int row = 0; row < rowCount; row++)
 				{
-					contentsWidth = Math.max(contentsWidth,
-						    renderer.getTableCellRendererComponent(m_table,
-						        m_table.getModel().getValueAt(row, getColumnCount()), false, false, row, 0)
-						    .getPreferredSize().width);
+					contentsWidth =
+							Math.max(contentsWidth,
+								renderer
+									.getTableCellRendererComponent(
+										m_table,
+										m_table.getModel().getValueAt(row,
+											getColumnCount()), false, false,
+										row, 0).getPreferredSize().width);
 				}
 			}
 
-			aColumn.setPreferredWidth(Math.max(headerWidth, contentsWidth) + getColumnMargin() + COLUMN_WIDTH_PADDING);
+			aColumn.setPreferredWidth(Math.max(headerWidth, contentsWidth)
+				+ getColumnMargin() + COLUMN_WIDTH_PADDING);
 		}
 		else
 		{

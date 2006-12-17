@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with QUALIFY Token
  */
-public class QualifyToken implements RaceLstToken {
+public class QualifyToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "QUALIFY";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setQualifyString(value);
 		return true;
 	}

@@ -27,7 +27,6 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * Handles <code>BONUS:ABILITYPOOL|&lt;ability category&gt;|&lt;number&gt;
  * </code> token
@@ -38,10 +37,8 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class AbilityPool extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"ABILITYPOOL" //$NON-NLS-1$
-		};
+	private static final String[] bonusHandled = {"ABILITYPOOL" //$NON-NLS-1$
+			};
 
 	/**
 	 * @see pcgen.core.bonus.BonusObj#parseToken(java.lang.String)
@@ -49,8 +46,9 @@ public final class AbilityPool extends BonusObj
 	@Override
 	protected boolean parseToken(final String token)
 	{
-		final AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(token);
-		if ( cat != null )
+		final AbilityCategory cat =
+				SettingsHandler.getGame().getAbilityCategory(token);
+		if (cat != null)
 		{
 			addBonusInfo(token);
 			return true;

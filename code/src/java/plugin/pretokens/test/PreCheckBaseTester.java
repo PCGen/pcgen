@@ -38,29 +38,38 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreCheckBaseTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreCheckBaseTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "checkbase"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		int runningTotal = 0;
 
 		final String checkName = prereq.getKey();
-		final int operand = character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		final int characterCheckVal = SettingsHandler.getGame().getIndexOfCheck(checkName);
-		if (characterCheckVal>=0) {
-			final int characterCheckBonus = character.getBaseCheck(characterCheckVal);
-			runningTotal = prereq.getOperator().compare(characterCheckBonus, operand) > 0 ? 1 : 0;
+		final int operand =
+				character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
+		final int characterCheckVal =
+				SettingsHandler.getGame().getIndexOfCheck(checkName);
+		if (characterCheckVal >= 0)
+		{
+			final int characterCheckBonus =
+					character.getBaseCheck(characterCheckVal);
+			runningTotal =
+					prereq.getOperator().compare(characterCheckBonus, operand) > 0
+						? 1 : 0;
 		}
 		return countedTotal(prereq, runningTotal);
 	}

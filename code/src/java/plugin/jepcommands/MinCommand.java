@@ -9,20 +9,23 @@ import pcgen.util.PCGenCommand;
 /**
  * Deal with min JEP command eg. min(12.6, 20) --> 12.6
  */
-public class MinCommand extends PCGenCommand {
-	
+public class MinCommand extends PCGenCommand
+{
+
 	/**
 	 * <p>
 	 * Initializes the number of parameters to = -1, indicating a variable
 	 * number of parameters.
 	 * </p>
 	 */
-	public MinCommand() {
+	public MinCommand()
+	{
 		super();
 		numberOfParameters = -1;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "MIN";
 	}
 
@@ -36,9 +39,11 @@ public class MinCommand extends PCGenCommand {
 	 *            Stack of incoming arguments.
 	 * @throws ParseException
 	 */
-	public void run(Stack stack) throws ParseException {
+	public void run(Stack stack) throws ParseException
+	{
 		// Check if stack is null
-		if (null == stack) {
+		if (null == stack)
+		{
 			throw new ParseException("Stack argument null");
 		}
 
@@ -48,16 +53,20 @@ public class MinCommand extends PCGenCommand {
 		int i = 0;
 
 		// repeat summation for each one of the current parameters
-		while (i < curNumberOfParameters) {
+		while (i < curNumberOfParameters)
+		{
 			// get the parameter from the stack
 			param = stack.pop();
-			if (param instanceof Number) {
+			if (param instanceof Number)
+			{
 				// calculate the result
-				if (first || ((Number) param).doubleValue() < result) {
+				if (first || ((Number) param).doubleValue() < result)
+				{
 					result = ((Number) param).doubleValue();
 				}
 			}
-			else {
+			else
+			{
 				throw new ParseException("Invalid parameter type");
 			}
 			first = false;

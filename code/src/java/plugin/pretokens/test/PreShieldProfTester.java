@@ -35,14 +35,17 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreShieldProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreShieldProfTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		final int numberRequired = Integer.parseInt( prereq.getOperand() );
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		final int numberRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 
 		final String aString = prereq.getKey();
@@ -52,20 +55,23 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements Pre
 			{
 				runningTotal++;
 			}
-			else if (profName.substring(5).equalsIgnoreCase(aString.substring(5)))
+			else if (profName.substring(5).equalsIgnoreCase(
+				aString.substring(5)))
 			{
 				runningTotal++;
 			}
 		}
 
-		runningTotal = prereq.getOperator().compare(runningTotal, numberRequired);
+		runningTotal =
+				prereq.getOperator().compare(runningTotal, numberRequired);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SHIELDPROF"; //$NON-NLS-1$
 	}
 

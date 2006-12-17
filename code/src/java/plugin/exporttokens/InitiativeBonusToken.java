@@ -51,7 +51,8 @@ public class InitiativeBonusToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return Delta.toString(getInitiativeBonusToken(pc));
 	}
@@ -63,6 +64,7 @@ public class InitiativeBonusToken extends Token
 	 */
 	public static int getInitiativeBonusToken(PlayerCharacter pc)
 	{
-		return pc.initiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
+		return pc.initiativeMod()
+			- pc.getVariableValue("INITCOMP", "").intValue();
 	}
 }

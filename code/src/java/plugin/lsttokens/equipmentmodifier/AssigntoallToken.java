@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentModifierLstToken;
 /**
  * Deals with ASSIGNTOALL token 
  */
-public class AssigntoallToken implements EquipmentModifierLstToken {
+public class AssigntoallToken implements EquipmentModifierLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ASSIGNTOALL";
 	}
 
-	public boolean parse(EquipmentModifier mod, String value) {
+	public boolean parse(EquipmentModifier mod, String value)
+	{
 		mod.setAssignment(value);
 		return true;
 	}

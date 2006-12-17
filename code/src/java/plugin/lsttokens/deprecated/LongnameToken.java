@@ -8,18 +8,22 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with LONGNAME token 
  */
-public class LongnameToken implements EquipmentLstToken, DeprecatedToken {
+public class LongnameToken implements EquipmentLstToken, DeprecatedToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LONGNAME";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setLongName(value);
 		return true;
 	}
 
-	public String getMessage(PObject obj, String value) {
+	public String getMessage(PObject obj, String value)
+	{
 		return "Use OUTPUTNAME: instead.";
 	}
 }

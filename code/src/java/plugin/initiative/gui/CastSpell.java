@@ -59,7 +59,7 @@ public class CastSpell extends StartEvent
 	 */
 	public CastSpell(java.awt.Frame parent, boolean modal, Initiative initiative)
 	{
-		super(parent, modal,initiative);
+		super(parent, modal, initiative);
 	}
 
 	/**
@@ -72,9 +72,10 @@ public class CastSpell extends StartEvent
 	 *@param  player      player name
 	 *@param  init        player's initiative
 	 */
-	public CastSpell(java.awt.Frame parent, boolean modal, Initiative initiative, String player, int init)
+	public CastSpell(java.awt.Frame parent, boolean modal,
+		Initiative initiative, String player, int init)
 	{
-		super(parent, modal,initiative,player,init);
+		super(parent, modal, initiative, player, init);
 	}
 
 	/**
@@ -107,7 +108,8 @@ public class CastSpell extends StartEvent
 		text.append("<b>Desc: </b>" + model.getDesc() + " ");
 		text.append("</font></body></html>");
 		descText.setText(text.toString());
-		descPanel.setPreferredSize(new Dimension(mainPanel.getWidth() - 16, 75));
+		descPanel
+			.setPreferredSize(new Dimension(mainPanel.getWidth() - 16, 75));
 		descPanel.setMaximumSize(new Dimension(mainPanel.getWidth() - 16, 75));
 		descPanel.setMinimumSize(new Dimension(mainPanel.getWidth() - 16, 75));
 		pack();
@@ -124,16 +126,13 @@ public class CastSpell extends StartEvent
 		tName.setText(spellName);
 	}
 
-	protected void save() {
-		initiative.initList.add(
-			new Spell(
-				tName.getText(),
-				tPlayer.getText(),
-				tEffect.getText(),
-				((Integer)lDuration.getValue()).intValue(),
-				((Integer)lInit.getValue()).intValue(),
-				cbAlert.isSelected()));
-		initiative.writeToCombatTabWithRound(tPlayer.getText() + " Cast " + tName.getText());
+	protected void save()
+	{
+		initiative.initList.add(new Spell(tName.getText(), tPlayer.getText(),
+			tEffect.getText(), ((Integer) lDuration.getValue()).intValue(),
+			((Integer) lInit.getValue()).intValue(), cbAlert.isSelected()));
+		initiative.writeToCombatTabWithRound(tPlayer.getText() + " Cast "
+			+ tName.getText());
 		initiative.refreshTable();
 		initiative.grabFocus();
 		initiative.focusNextInit();
@@ -159,7 +158,6 @@ public class CastSpell extends StartEvent
 		addButtons();
 
 		finalizeSetup();
-
 
 	}
 

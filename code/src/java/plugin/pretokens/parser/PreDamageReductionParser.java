@@ -40,21 +40,25 @@ import java.util.StringTokenizer;
  * @author wardc
  *
  */
-public class PreDamageReductionParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreDamageReductionParser extends AbstractPrerequisiteParser
+		implements PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "DR" };
+		return new String[]{"DR"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setKind(null);		// PREMULT
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
+		prereq.setKind(null); // PREMULT
 
-		final StringTokenizer inputTokenizer = new StringTokenizer(formula, ",");
+		final StringTokenizer inputTokenizer =
+				new StringTokenizer(formula, ",");
 
 		// the number of DRs which must match
 		String tok = inputTokenizer.nextToken();
@@ -65,13 +69,15 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 		}
 		catch (NumberFormatException exc)
 		{
-			throw new PersistenceLayerException("Badly formed passesPreDR/number of DRs attribute: " + tok);
+			throw new PersistenceLayerException(
+				"Badly formed passesPreDR/number of DRs attribute: " + tok);
 		}
 
 		// Parse all of the tokens in the input list
 		while (inputTokenizer.hasMoreTokens())
 		{
-			final StringTokenizer inputDRTokenizer = new StringTokenizer(inputTokenizer.nextToken(), "=.");
+			final StringTokenizer inputDRTokenizer =
+					new StringTokenizer(inputTokenizer.nextToken(), "=.");
 			final String drType = inputDRTokenizer.nextToken(); // either Good.10 or Good=10
 			final int drValue;
 
@@ -83,7 +89,8 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 				}
 				catch (NumberFormatException nfe)
 				{
-					throw new PersistenceLayerException("Badly formed passesPreDR value: " + formula);
+					throw new PersistenceLayerException(
+						"Badly formed passesPreDR value: " + formula);
 				}
 			}
 			else
@@ -98,9 +105,9 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 			prereq.addPrerequisite(subprereq);
 		}
 
-		if ((prereq.getPrerequisites().size() == 1) &&
-			prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &&
-			prereq.getOperand().equals("1"))
+		if ((prereq.getPrerequisites().size() == 1)
+			&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
+			&& prereq.getOperand().equals("1"))
 		{
 			prereq = prereq.getPrerequisites().get(0);
 		}

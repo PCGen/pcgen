@@ -39,24 +39,24 @@ import pcgen.util.PropertyFactory;
  * @author frugal@purplewombat.co.uk
  *
  */
-public class PreTypeTester
-	extends AbstractPrerequisiteTest
-	implements PrerequisiteTest {
+public class PreTypeTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "TYPE"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
-		throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		PlayerCharacter aPC) throws PrerequisiteException
 	{
 
 		final String requiredType = prereq.getKey();
@@ -78,13 +78,15 @@ public class PreTypeTester
 		}
 		else
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreType.error.invalidComparison", prereq.getOperator().toString(), prereq.toString() )); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				PropertyFactory
+					.getFormattedString(
+						"PreType.error.invalidComparison", prereq.getOperator().toString(), prereq.toString())); //$NON-NLS-1$
 		}
 
 		runningTotal = countedTotal(prereq, runningTotal);
 		return runningTotal;
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
@@ -93,31 +95,35 @@ public class PreTypeTester
 	public int passes(final Prerequisite prereq, final PlayerCharacter aPC)
 	{
 
-	    if (aPC==null) {
-	        return 0;
-	    }
+		if (aPC == null)
+		{
+			return 0;
+		}
 
-	    final String requiredType = prereq.getKey();
-	    final int numRequired = Integer.parseInt(prereq.getOperand());
-	    int runningTotal = 0;
+		final String requiredType = prereq.getKey();
+		final int numRequired = Integer.parseInt(prereq.getOperand());
+		int runningTotal = 0;
 
-	    for (String element : aPC.getTypes())
-	    {
-            if (element.equalsIgnoreCase(requiredType)) {
-                runningTotal++;
-            }
-        }
+		for (String element : aPC.getTypes())
+		{
+			if (element.equalsIgnoreCase(requiredType))
+			{
+				runningTotal++;
+			}
+		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, numRequired);
 		return countedTotal(prereq, runningTotal);
 	}
 
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreType.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey() ); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreType.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
 	}
 
 }

@@ -38,18 +38,21 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreHPParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreHPParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "HP" };
+		return new String[]{"HP"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		try
 		{
@@ -59,11 +62,14 @@ public class PreHPParser extends AbstractPrerequisiteParser implements Prerequis
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("PREHP formula must be an integer '" + formula + "' is not valid.");
+			throw new PersistenceLayerException(
+				"PREHP formula must be an integer '" + formula
+					+ "' is not valid.");
 		}
-		
-		if (invertResult) {
-			prereq.setOperator( prereq.getOperator().invert());
+
+		if (invertResult)
+		{
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}

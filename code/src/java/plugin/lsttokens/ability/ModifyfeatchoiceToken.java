@@ -6,13 +6,16 @@ import pcgen.persistence.lst.AbilityLstToken;
 /**
  * Deals with the MODIFYFEATCHOICE token
  */
-public class ModifyfeatchoiceToken  implements AbilityLstToken{
+public class ModifyfeatchoiceToken implements AbilityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MODIFYFEATCHOICE";
 	}
 
-	public boolean parse(Ability ability, String value) {
+	public boolean parse(Ability ability, String value)
+	{
 		ability.setChoiceToModify(value);
 		return true;
 	}

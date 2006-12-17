@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with TEMPLATE Token
  */
-public class TemplateToken implements PCClassLstToken {
+public class TemplateToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TEMPLATE";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		pcclass.addTemplate(level, value);
 		return true;
 	}

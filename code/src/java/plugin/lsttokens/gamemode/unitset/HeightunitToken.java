@@ -6,13 +6,16 @@ import pcgen.persistence.lst.UnitSetLstToken;
 /**
  * Class deals with HEIGHTUNIT Token
  */
-public class HeightunitToken implements UnitSetLstToken {
+public class HeightunitToken implements UnitSetLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HEIGHTUNIT";
 	}
 
-	public boolean parse(UnitSet unitSet, String value) {
+	public boolean parse(UnitSet unitSet, String value)
+	{
 		unitSet.setHeightUnit(value);
 		return true;
 	}

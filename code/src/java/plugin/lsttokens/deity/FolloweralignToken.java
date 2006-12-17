@@ -6,13 +6,16 @@ import pcgen.persistence.lst.DeityLstToken;
 /**
  * Class deals with FOLLOWERALIGN Token
  */
-public class FolloweralignToken implements DeityLstToken{
+public class FolloweralignToken implements DeityLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "FOLLOWERALIGN";
 	}
 
-	public boolean parse(Deity deity, String value) {
+	public boolean parse(Deity deity, String value)
+	{
 		deity.setFollowerAlignments(value);
 		return true;
 	}

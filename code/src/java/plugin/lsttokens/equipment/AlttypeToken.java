@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with ALTTYPE token 
  */
-public class AlttypeToken implements EquipmentLstToken {
+public class AlttypeToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALTTYPE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.addToAltTypeList(value);
 		return true;
 	}

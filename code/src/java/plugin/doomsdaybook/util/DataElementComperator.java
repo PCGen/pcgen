@@ -9,7 +9,8 @@ import java.util.Comparator;
 /**
  * DataElementComperator
  */
-public class DataElementComperator implements Comparator<DataElement>, Serializable
+public class DataElementComperator implements Comparator<DataElement>,
+		Serializable
 {
 	public int compare(DataElement o1, DataElement o2)
 	{

@@ -31,18 +31,18 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreDomainParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreDomainParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "domain" };
+		return new String[]{"domain"};
 	}
 }

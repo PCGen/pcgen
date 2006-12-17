@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>CasterLevel</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class CasterLevel extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"CASTERLEVEL"
-		};
+	private static final String[] bonusHandled = {"CASTERLEVEL"};
 
 	protected boolean parseToken(final String token)
 	{

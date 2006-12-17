@@ -75,7 +75,7 @@ public class CheckDialog extends DiceRollDialog
 	protected void initDC(String labelText)
 	{
 		NumberFormatter formatter =
-			new NumberFormatter(new DecimalFormat("##"));
+				new NumberFormatter(new DecimalFormat("##"));
 		formatter.setValueClass(Integer.class);
 		m_dc = new JFormattedTextField(formatter);
 		m_dc.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
@@ -108,13 +108,10 @@ public class CheckDialog extends DiceRollDialog
 	 */
 	protected void setResult(int result)
 	{
-		m_result.setText(
-			"<html><body><b>"
-				+ result
-				+ ((result >= ((Integer) m_dc.getValue()).intValue())
-					? " (passed)"
-					: "")
-				+ "</b></body></html>");
+		m_result.setText("<html><body><b>"
+			+ result
+			+ ((result >= ((Integer) m_dc.getValue()).intValue()) ? " (passed)"
+				: "") + "</b></body></html>");
 	}
 
 	/*
@@ -131,7 +128,7 @@ public class CheckDialog extends DiceRollDialog
 			{
 				if ("value".equals(evt.getPropertyName()))
 				{
-					m_defaultDC = ((Integer)m_dc.getValue()).intValue();
+					m_defaultDC = ((Integer) m_dc.getValue()).intValue();
 				}
 			}
 		});

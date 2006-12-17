@@ -39,11 +39,11 @@ public class EditPoolToken implements AbilityCategoryLstToken
 	 */
 	public boolean parse(final AbilityCategory aCat, final String aValue)
 	{
-		if ( aValue.charAt(0) == 'Y' )
+		if (aValue.charAt(0) == 'Y')
 		{
 			aCat.setModPool(true);
 		}
-		else if ( aValue.charAt(0) == 'N' )
+		else if (aValue.charAt(0) == 'N')
 		{
 			aCat.setModPool(false);
 		}

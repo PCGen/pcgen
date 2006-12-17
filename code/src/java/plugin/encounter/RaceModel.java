@@ -35,12 +35,12 @@ public class RaceModel extends DefaultListModel
 	{
 		clear();
 
-		for ( final Race race : Globals.getAllRaces() )
+		for (final Race race : Globals.getAllRaces())
 		{
-//TODO: This is the original code. I took a wild guess at what the code was intended to do, and added braces.
-//			if (!contains(aRace.toString()));
-//				this.addElement(aRace.toString());
-//				this.removeElement(Globals.getRaceMap().get(Constants.s_NONESELECTED).toString());
+			//TODO: This is the original code. I took a wild guess at what the code was intended to do, and added braces.
+			//			if (!contains(aRace.toString()));
+			//				this.addElement(aRace.toString());
+			//				this.removeElement(Globals.getRaceMap().get(Constants.s_NONESELECTED).toString());
 			if (!contains(race.toString()))
 			{
 				this.addElement(race.toString());

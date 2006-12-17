@@ -11,20 +11,25 @@ import java.util.StringTokenizer;
 /**
  * Class deals with LSTEXCLUDE Token
  */
-public class LstexcludeToken implements CampaignLstToken {
+public class LstexcludeToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LSTEXCLUDE";
 	}
 
 	//check here for LST files to exclude from any further loading
-	public boolean parse(Campaign campaign, String value, URL sourceUrl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	{
 		campaign.addLine("LSTEXCLUDE:" + value);
 		final StringTokenizer lstTok = new StringTokenizer(value, "|");
 
-		while (lstTok.hasMoreTokens()) {
+		while (lstTok.hasMoreTokens())
+		{
 			final String lstFilename = lstTok.nextToken();
-			campaign.addLstExcludeFile(new CampaignSourceEntry(campaign, CampaignLoader.convertFilePath(sourceUrl, lstFilename)));
+			campaign.addLstExcludeFile(new CampaignSourceEntry(campaign,
+				CampaignLoader.convertFilePath(sourceUrl, lstFilename)));
 		}
 		return true;
 	}

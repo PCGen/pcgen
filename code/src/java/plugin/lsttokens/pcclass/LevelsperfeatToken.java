@@ -6,18 +6,23 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with LEVELSPERFEAT Token
  */
-public class LevelsperfeatToken implements PCClassLstToken {
+public class LevelsperfeatToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LEVELSPERFEAT";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
-		try {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
+		try
+		{
 			pcclass.setLevelsPerFeat(Integer.valueOf(value));
 			return true;
 		}
-		catch (NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

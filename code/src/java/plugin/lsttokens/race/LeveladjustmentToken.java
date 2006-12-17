@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with LEVELADJUSTMENT Token
  */
-public class LeveladjustmentToken implements RaceLstToken {
+public class LeveladjustmentToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LEVELADJUSTMENT";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setLevelAdjustment(value);
 		return true;
 	}

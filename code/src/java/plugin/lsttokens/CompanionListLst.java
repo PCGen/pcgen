@@ -95,86 +95,89 @@ public class CompanionListLst implements GlobalLstToken
 	 * @throws PersistenceLayerException
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
 	 */
-	public boolean parse(final PObject anObj, final String aValue, @SuppressWarnings("unused")
-	final
-	int anInt)
-			throws PersistenceLayerException
+	public boolean parse(final PObject anObj, final String aValue,
+		@SuppressWarnings("unused")
+		final int anInt) throws PersistenceLayerException
 	{
 		final StringTokenizer tok = new StringTokenizer(aValue, LstUtils.PIPE);
-		if ( tok.hasMoreTokens() )
+		if (tok.hasMoreTokens())
 		{
 			final String companionType = tok.nextToken();
-			if ( tok.hasMoreTokens()) 
+			if (tok.hasMoreTokens())
 			{
 				final Set<String> races = new HashSet<String>();
-				
+
 				final String list = tok.nextToken();
-				final StringTokenizer subTok = new StringTokenizer( list, LstUtils.COMMA );
-				while ( subTok.hasMoreTokens() )
+				final StringTokenizer subTok =
+						new StringTokenizer(list, LstUtils.COMMA);
+				while (subTok.hasMoreTokens())
 				{
 					// We can't expand races here since this is a global tag 
 					// and races may not have been processed yet.
 					// For the same reason ANY will be passed on.
 					// TODO Need to figure out how to deal with this issue.
-					races.add( subTok.nextToken() );
+					races.add(subTok.nextToken());
 				}
 
 				int followerAdjustment = 0;
-				final List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
-				
+				final List<Prerequisite> prereqs =
+						new ArrayList<Prerequisite>();
+
 				// The remainder of the elements are optional.
-				while ( tok.hasMoreTokens() )
+				while (tok.hasMoreTokens())
 				{
 					final String optArg = tok.nextToken();
-					if ( optArg.startsWith(FOLLOWERADJUSTMENT) )
+					if (optArg.startsWith(FOLLOWERADJUSTMENT))
 					{
-						if ( followerAdjustment != 0 )
+						if (followerAdjustment != 0)
 						{
-							Logging.debugPrint( getTokenName() + ": Multiple "  //$NON-NLS-1$
-									+ FOLLOWERADJUSTMENT 
-									+ " tags specified.  Will use last one." ); //$NON-NLS-1$
+							Logging.debugPrint(getTokenName()
+								+ ": Multiple " //$NON-NLS-1$
+								+ FOLLOWERADJUSTMENT
+								+ " tags specified.  Will use last one."); //$NON-NLS-1$
 						}
 
-						final String adj = optArg.
-									substring(FOLLOWERADJUSTMENT.length() + 1);
-						
-						followerAdjustment = Integer.parseInt( adj );
+						final String adj =
+								optArg
+									.substring(FOLLOWERADJUSTMENT.length() + 1);
+
+						followerAdjustment = Integer.parseInt(adj);
 					}
-					else if ( optArg.startsWith(PRE) )
+					else if (optArg.startsWith(PRE))
 					{
-						final PreParserFactory factory = PreParserFactory.getInstance();
-						final Prerequisite prereq = factory.parse( optArg );
-						prereqs.add( prereq );
+						final PreParserFactory factory =
+								PreParserFactory.getInstance();
+						final Prerequisite prereq = factory.parse(optArg);
+						prereqs.add(prereq);
 					}
 					else
 					{
-						Logging.debugPrint( getTokenName() 
-								+ ": Unknown optional argument: "  //$NON-NLS-1$
-								+ optArg );
+						Logging.debugPrint(getTokenName()
+							+ ": Unknown optional argument: " //$NON-NLS-1$
+							+ optArg);
 					}
 				}
-				for ( final String r : races )
+				for (final String r : races)
 				{
-					final FollowerOption option = new FollowerOption( r );
-					option.setType( companionType );
-					if ( prereqs.size() > 0 )
+					final FollowerOption option = new FollowerOption(r);
+					option.setType(companionType);
+					if (prereqs.size() > 0)
 					{
 						option.addPrerequisites(prereqs);
 					}
-					if ( followerAdjustment != 0 )
+					if (followerAdjustment != 0)
 					{
-						option.setAdjustment( followerAdjustment );
+						option.setAdjustment(followerAdjustment);
 					}
-					anObj.addToFollowerList( companionType, option );
+					anObj.addToFollowerList(companionType, option);
 				}
 				return true;
 			}
 		}
 
-		throw new PersistenceLayerException(
-				PropertyFactory.getFormattedString(
-						"Errors.LstTokens.InvalidTokenFormat",  //$NON-NLS-1$
-						getTokenName(), aValue));
+		throw new PersistenceLayerException(PropertyFactory.getFormattedString(
+			"Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
+			getTokenName(), aValue));
 	}
 
 	/**

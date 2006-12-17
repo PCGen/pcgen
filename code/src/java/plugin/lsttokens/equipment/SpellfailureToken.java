@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipmentLstToken;
 /**
  * Deals with SPELLFAILURE token 
  */
-public class SpellfailureToken implements EquipmentLstToken {
+public class SpellfailureToken implements EquipmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SPELLFAILURE";
 	}
 
-	public boolean parse(Equipment eq, String value) {
+	public boolean parse(Equipment eq, String value)
+	{
 		eq.setSpellFailure(value);
 		return true;
 	}

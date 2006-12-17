@@ -6,38 +6,53 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with FACE Token
  */
-public class FaceToken implements RaceLstToken {
+public class FaceToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "FACE";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		int commaLoc = value.indexOf(",");
-		if(commaLoc > -1) {
+		if (commaLoc > -1)
+		{
 			double width;
 			double height;
-			try {
-				width = Double.parseDouble(value.substring(0, commaLoc - 1).trim());
+			try
+			{
+				width =
+						Double.parseDouble(value.substring(0, commaLoc - 1)
+							.trim());
 			}
-			catch (NumberFormatException nfe) {
+			catch (NumberFormatException nfe)
+			{
 				width = 5;
 			}
-			
-			try {
-				height = Double.parseDouble(value.substring(commaLoc + 1).trim());
+
+			try
+			{
+				height =
+						Double
+							.parseDouble(value.substring(commaLoc + 1).trim());
 			}
-			catch (NumberFormatException ne) {
+			catch (NumberFormatException ne)
+			{
 				height = 5;
 			}
 			race.setFace(width, height);
 		}
-		else {
+		else
+		{
 			double width;
-			try {
+			try
+			{
 				width = Double.parseDouble(value);
 			}
-			catch (NumberFormatException nfe) {
+			catch (NumberFormatException nfe)
+			{
 				width = 5;
 			}
 			race.setFace(width, 0);
@@ -45,5 +60,3 @@ public class FaceToken implements RaceLstToken {
 		return true;
 	}
 }
-
-

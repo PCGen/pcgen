@@ -49,7 +49,8 @@ public class ACToken extends Token
 	 * TODO: get the parsing out of PlayerCharacter - we should know the AC Types here. 
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return Integer.toString(getACToken(tokenSource, pc));
 	}

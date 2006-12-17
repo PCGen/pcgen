@@ -6,13 +6,16 @@ import pcgen.persistence.lst.SkillLstToken;
 /**
  * Class deals with EXCLUSIVE Token
  */
-public class ExclusiveToken implements SkillLstToken {
+public class ExclusiveToken implements SkillLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "EXCLUSIVE";
 	}
 
-	public boolean parse(Skill skill, String value) {
+	public boolean parse(Skill skill, String value)
+	{
 		skill.setIsExclusive(value.startsWith("Y"));
 		return true;
 	}

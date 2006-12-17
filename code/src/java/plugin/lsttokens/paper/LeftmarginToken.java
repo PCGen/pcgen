@@ -29,19 +29,21 @@ import pcgen.core.Constants;
 import pcgen.core.PaperInfo;
 import pcgen.persistence.lst.PaperInfoLstToken;
 
-
 /**
  * <code>LeftmarginToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class LeftmarginToken implements PaperInfoLstToken {
+public class LeftmarginToken implements PaperInfoLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "LEFTMARGIN";
 	}
 
-	public boolean parse(PaperInfo paperInfo, String value) {
+	public boolean parse(PaperInfo paperInfo, String value)
+	{
 		paperInfo.setPaperInfo(Constants.PAPERINFO_LEFTMARGIN, value);
 		return true;
 	}

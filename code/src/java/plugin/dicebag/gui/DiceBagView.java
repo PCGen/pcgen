@@ -173,7 +173,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 			resultString = Double.toString(result);
 		}
 
-		m_exprResult.setText("<html><b>" + diceRoll + ": " + resultString + "</b></html>");
+		m_exprResult.setText("<html><b>" + diceRoll + ": " + resultString
+			+ "</b></html>");
 	}
 
 	/**
@@ -197,10 +198,12 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private void deleteRecords(ActionEvent e)
 	{
-		while ((m_table.getSelectedRow() >= 0) && (m_table.getSelectedRow() < m_bag.diceCount()))
+		while ((m_table.getSelectedRow() >= 0)
+			&& (m_table.getSelectedRow() < m_bag.diceCount()))
 		{
 			m_bag.removeDie(m_table.getSelectedRow());
-			m_tableModel.fireTableRowsDeleted(m_table.getSelectedRow(), m_table.getSelectedRow());
+			m_tableModel.fireTableRowsDeleted(m_table.getSelectedRow(), m_table
+				.getSelectedRow());
 		}
 	}
 
@@ -247,7 +250,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_top.setLayout(new GridLayout(2, 1));
 		m_topTop.setLayout(new BoxLayout(m_topTop, BoxLayout.X_AXIS));
 		m_topBottom.setLayout(new BoxLayout(m_topBottom, BoxLayout.X_AXIS));
-		m_center.setLayout(new DiceBagGridLayout(0, 3, DiceBagGridLayout.MANAGE_BY_COLUMNS, 75, 100));
+		m_center.setLayout(new DiceBagGridLayout(0, 3,
+			DiceBagGridLayout.MANAGE_BY_COLUMNS, 75, 100));
 		m_center.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		//Rolling mode controls
@@ -255,9 +259,12 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_rollButton.setActionCommand("ROLL");
 		m_rollButton.addActionListener(m_bagListener);
 		m_exprResult = new JLabel(" ");
-		m_exprResult.setMinimumSize(new Dimension(50, m_exprResult.getMinimumSize().height));
-		m_exprResult.setPreferredSize(new Dimension(50, m_exprResult.getPreferredSize().height));
-		m_exprResult.setMaximumSize(new Dimension(Integer.MAX_VALUE, m_exprResult.getMaximumSize().height));
+		m_exprResult.setMinimumSize(new Dimension(50, m_exprResult
+			.getMinimumSize().height));
+		m_exprResult.setPreferredSize(new Dimension(50, m_exprResult
+			.getPreferredSize().height));
+		m_exprResult.setMaximumSize(new Dimension(Integer.MAX_VALUE,
+			m_exprResult.getMaximumSize().height));
 		m_editButton = new JButton("Edit");
 		m_editButton.setActionCommand("EDIT");
 		m_editButton.addActionListener(m_bagListener);
@@ -290,27 +297,29 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_nameField = new JTextField();
 		m_nameFieldLabel = new JLabel("Name: ");
 		m_nameField.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void insertUpdate(DocumentEvent e)
 			{
-				public void insertUpdate(DocumentEvent e)
-				{
-					m_bag.setName(m_nameField.getText());
-					setTitle(m_nameField.getText());
-				}
+				m_bag.setName(m_nameField.getText());
+				setTitle(m_nameField.getText());
+			}
 
-				public void removeUpdate(DocumentEvent e)
-				{
-					m_bag.setName(m_nameField.getText());
-					setTitle(m_nameField.getText());
-				}
+			public void removeUpdate(DocumentEvent e)
+			{
+				m_bag.setName(m_nameField.getText());
+				setTitle(m_nameField.getText());
+			}
 
-				public void changedUpdate(DocumentEvent e)
-				{
-					// TODO:  Method doesn't do anything?
-				}
-			});
+			public void changedUpdate(DocumentEvent e)
+			{
+				// TODO:  Method doesn't do anything?
+			}
+		});
 
 		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.getImage(getClass().getResource("/pcgen/gui/resource/gmgen_icon.png"));
+		Image img =
+				kit.getImage(getClass().getResource(
+					"/pcgen/gui/resource/gmgen_icon.png"));
 		setFrameIcon(new ImageIcon(img));
 
 		//Start in rolling mode
@@ -330,14 +339,17 @@ public class DiceBagView extends JInternalFrame implements Observer
 	{
 		for (int row = m_table.getRowCount() - 2; row >= 0; row--)
 		{
-			if ((row < (m_table.getRowCount() - 2)) && m_table.isRowSelected(row) && !m_table.isRowSelected(row + 1))
+			if ((row < (m_table.getRowCount() - 2))
+				&& m_table.isRowSelected(row)
+				&& !m_table.isRowSelected(row + 1))
 			{
 				final String die1 = m_bag.getDie(row);
 				final String die2 = m_bag.getDie(row + 1);
 				m_bag.setDie(row + 1, die1);
 				m_bag.setDie(row, die2);
 				m_tableModel.fireTableRowsUpdated(row, row + 1);
-				m_table.getSelectionModel().addSelectionInterval(row + 1, row + 1);
+				m_table.getSelectionModel().addSelectionInterval(row + 1,
+					row + 1);
 				m_table.getSelectionModel().removeSelectionInterval(row, row);
 			}
 		}
@@ -353,14 +365,16 @@ public class DiceBagView extends JInternalFrame implements Observer
 	{
 		for (int row = 0; row < m_table.getRowCount(); row++)
 		{
-			if ((row > 0) && m_table.isRowSelected(row) && !m_table.isRowSelected(row - 1))
+			if ((row > 0) && m_table.isRowSelected(row)
+				&& !m_table.isRowSelected(row - 1))
 			{
 				final String die1 = m_bag.getDie(row);
 				final String die2 = m_bag.getDie(row - 1);
 				m_bag.setDie(row - 1, die1);
 				m_bag.setDie(row, die2);
 				m_tableModel.fireTableRowsUpdated(row - 1, row);
-				m_table.getSelectionModel().addSelectionInterval(row - 1, row - 1);
+				m_table.getSelectionModel().addSelectionInterval(row - 1,
+					row - 1);
 				m_table.getSelectionModel().removeSelectionInterval(row, row);
 			}
 		}
@@ -377,7 +391,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 		getContentPane().add(m_top, BorderLayout.NORTH);
 		m_top.add(m_topTop);
 		m_top.add(m_topBottom);
-		m_nameField.setPreferredSize(new Dimension(100, m_nameField.getPreferredSize().height));
+		m_nameField.setPreferredSize(new Dimension(100, m_nameField
+			.getPreferredSize().height));
 		m_topBottom.add(m_nameFieldLabel);
 		m_topBottom.add(m_nameField);
 		m_nameField.setText(m_bag.getName());
@@ -396,7 +411,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_topTop.add(m_moveUp);
 		m_topTop.add(Box.createHorizontalStrut(5));
 		m_topTop.add(m_moveDown);
-		m_table.setPreferredScrollableViewportSize(new Dimension(m_table.getPreferredScrollableViewportSize().width, 200));
+		m_table.setPreferredScrollableViewportSize(new Dimension(m_table
+			.getPreferredScrollableViewportSize().width, 200));
 		getContentPane().validate();
 		pack();
 	}
@@ -427,7 +443,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 		//Add components to topTop panel
 		m_topTop.add(m_exprFieldLabel);
-		m_exprField.setPreferredSize(new Dimension(50, m_exprField.getPreferredSize().height));
+		m_exprField.setPreferredSize(new Dimension(50, m_exprField
+			.getPreferredSize().height));
 		m_topTop.add(m_exprField);
 		m_topTop.add(Box.createHorizontalStrut(10));
 		m_topTop.add(m_rollButton);
@@ -449,7 +466,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 			else
 			{
 				button = new JButton(" ");
-				button.setPreferredSize(new Dimension(100, button.getPreferredSize().height));
+				button.setPreferredSize(new Dimension(100, button
+					.getPreferredSize().height));
 				button.addActionListener(m_bagListener);
 				button.setActionCommand(Integer.toString(i));
 				m_diceButtons.add(button);
@@ -489,7 +507,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 			if ("ROLL".equals(command))
 			{
-				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField.getText()));
+				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField
+					.getText()));
 			}
 			else if ("EDIT".equals(command))
 			{
@@ -520,7 +539,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 				}
 				catch (NumberFormatException ex)
 				{
-					System.err.println("Invalid command passed to BagListener.");
+					System.err
+						.println("Invalid command passed to BagListener.");
 					ex.printStackTrace();
 				}
 			}

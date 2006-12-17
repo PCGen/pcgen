@@ -11,14 +11,17 @@ import pcgen.util.PCGenCommand;
  * 
  * eg. floor(12.6) --> 12
  */
-public class FloorCommand extends PCGenCommand {
-	
+public class FloorCommand extends PCGenCommand
+{
+
 	/** Constructor */
-	public FloorCommand() {
+	public FloorCommand()
+	{
 		numberOfParameters = 1;
 	}
 
-	public String getFunctionName() {
+	public String getFunctionName()
+	{
 		return "FLOOR";
 	}
 
@@ -29,7 +32,8 @@ public class FloorCommand extends PCGenCommand {
 	 * @param inStack
 	 * @throws ParseException
 	 */
-	public void run(Stack inStack) throws ParseException {
+	public void run(Stack inStack) throws ParseException
+	{
 		// check the stack
 		checkStack(inStack);
 
@@ -37,14 +41,16 @@ public class FloorCommand extends PCGenCommand {
 		Object param = inStack.pop();
 
 		// check whether the argument is of the right type
-		if (param instanceof Double) {
+		if (param instanceof Double)
+		{
 			// calculate the result
 			double r = Math.floor(((Double) param).doubleValue());
 
 			// push the result on the inStack
 			inStack.push(new Double(r));
 		}
-		else {
+		else
+		{
 			throw new ParseException("Invalid parameter type");
 		}
 	}

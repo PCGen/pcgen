@@ -63,7 +63,8 @@ public class WeaponProfsToken extends Token
 	 * @return The value of the token.
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getWeaponProfsToken(pc);
 	}
@@ -81,7 +82,7 @@ public class WeaponProfsToken extends Token
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
 			boolean first = true;
-			for ( final WeaponProf wp : pc.getWeaponProfs() )
+			for (final WeaponProf wp : pc.getWeaponProfs())
 			{
 				if (first == false)
 				{
@@ -94,5 +95,3 @@ public class WeaponProfsToken extends Token
 		return sb.toString();
 	}
 }
-
-

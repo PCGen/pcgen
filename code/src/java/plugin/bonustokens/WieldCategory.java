@@ -26,7 +26,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>WieldCategory</code>
  *
@@ -35,16 +34,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class WieldCategory extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"WIELDCATEGORY"
-		};
+	private static final String[] bonusHandled = {"WIELDCATEGORY"};
 	private static final String[] bonusTags =
-		{
-			"LIGHT",
-			"ONEHANDED",
-			"TWOHANDED"
-		};
+			{"LIGHT", "ONEHANDED", "TWOHANDED"};
 
 	protected String[] getBonusesHandled()
 	{

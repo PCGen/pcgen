@@ -36,21 +36,26 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreGenderTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreGenderTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		int runningTotal;
-		if (prereq.getOperator().equals( PrerequisiteOperator.EQ ))
+		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 		{
-			runningTotal = character.getGender().startsWith( prereq.getKey() ) ? 1 : 0;
+			runningTotal =
+					character.getGender().startsWith(prereq.getKey()) ? 1 : 0;
 		}
 		else
 		{
-			runningTotal = character.getGender().startsWith( prereq.getKey() ) ? 0 : 1;
+			runningTotal =
+					character.getGender().startsWith(prereq.getKey()) ? 0 : 1;
 		}
 		return countedTotal(prereq, runningTotal);
 	}
@@ -58,7 +63,8 @@ public class PreGenderTester  extends AbstractPrerequisiteTest implements Prereq
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "GENDER"; //$NON-NLS-1$
 	}
 

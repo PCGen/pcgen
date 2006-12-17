@@ -7,19 +7,24 @@ import pcgen.persistence.lst.UnitSetLoader;
 /**
  * Class deals with UNITSET Token
  */
-public class UnitsetToken implements GameModeLstToken {
+public class UnitsetToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "UNITSET";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
-		try {
+	public boolean parse(GameMode gameMode, String value)
+	{
+		try
+		{
 			UnitSetLoader unitSetLoader = new UnitSetLoader();
 			unitSetLoader.parseLine(gameMode, "UNITSET:" + value);
 			return true;
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			return false;
 		}
 	}

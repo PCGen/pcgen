@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>PointBuy</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class PointBuy extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"POINTBUY"
-		};
+	private static final String[] bonusHandled = {"POINTBUY"};
 
 	protected boolean parseToken(final String token)
 	{
@@ -56,12 +52,12 @@ public final class PointBuy extends BonusObj
 		return false;
 	}
 
-	protected  String unparseToken(final Object obj)
+	protected String unparseToken(final Object obj)
 	{
 		return (String) obj;
 	}
 
-	protected  String[] getBonusesHandled()
+	protected String[] getBonusesHandled()
 	{
 		return bonusHandled;
 	}

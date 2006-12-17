@@ -37,20 +37,26 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreEquipTwoWeaponTester extends PreEquippedTester implements PrerequisiteTest {
+public class PreEquipTwoWeaponTester extends PreEquippedTester implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
-		return passesPreEquipHandleTokens(prereq, character, Equipment.EQUIPPED_TWO_HANDS);
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
+		return passesPreEquipHandleTokens(prereq, character,
+			Equipment.EQUIPPED_TWO_HANDS);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "EQUIPTWOWEAPON"; //$NON-NLS-1$
 	}
 }

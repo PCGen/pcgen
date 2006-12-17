@@ -40,15 +40,16 @@ import java.util.StringTokenizer;
  * @author wardc
  *
  */
-public class PreUnarmedAttackTester
-	extends AbstractPrerequisiteTest
-	implements PrerequisiteTest {
+public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		int att = 0;
 		for (PCClass aClass : character.getClassList())
 		{
@@ -67,32 +68,34 @@ public class PreUnarmedAttackTester
 				}
 				catch (NumberFormatException e)
 				{
-					Logging.errorPrint(PropertyFactory.getFormattedString("PreUnarmedAttack.error.bad_operand", s )); //$NON-NLS-1$
+					Logging.errorPrint(PropertyFactory.getFormattedString(
+						"PreUnarmedAttack.error.bad_operand", s)); //$NON-NLS-1$
 				}
 			}
 		}
 
-		final int requiredValue = Integer.parseInt( prereq.getOperand() );
-		final int runningTotal = prereq.getOperator().compare(att, requiredValue);
+		final int requiredValue = Integer.parseInt(prereq.getOperand());
+		final int runningTotal =
+				prereq.getOperator().compare(att, requiredValue);
 		return countedTotal(prereq, runningTotal);
 	}
-
-
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "UATT"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreUnarmedAttack.toHtml", prereq.getOperator().toString(), prereq.getOperand() ); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreUnarmedAttack.toHtml", prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
 	}
 
 }

@@ -6,18 +6,23 @@ import pcgen.persistence.lst.SubClassLstToken;
 /**
  * Class deals with COST Token
  */
-public class CostToken implements SubClassLstToken {
+public class CostToken implements SubClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "COST";
 	}
 
-	public boolean parse(SubClass subclass, String value) {
-		try {
+	public boolean parse(SubClass subclass, String value)
+	{
+		try
+		{
 			subclass.setCost(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>EqmWeapon</code>
  *
@@ -35,18 +34,10 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class EqmWeapon extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"EQMWEAPON"
-		};
+	private static final String[] bonusHandled = {"EQMWEAPON"};
 	private static final String[] bonusTags =
-		{
-			"CRITRANGEADD",
-			"CRITRANGEDOUBLE",
-			"DAMAGESIZE",
-			"RANGEADD",
-			"RANGEMULT"
-		};
+			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD",
+				"RANGEMULT"};
 
 	protected String[] getBonusesHandled()
 	{

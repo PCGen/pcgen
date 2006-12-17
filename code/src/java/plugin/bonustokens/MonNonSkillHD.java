@@ -40,15 +40,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
 
 public final class MonNonSkillHD extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"MONNONSKILLHD"
-		};
-	private static final String[] bonusTags =
-		{
-			"NUMBER",
-			"LOCKNUMBER"
-		};
+	private static final String[] bonusHandled = {"MONNONSKILLHD"};
+	private static final String[] bonusTags = {"NUMBER", "LOCKNUMBER"};
 
 	protected String[] getBonusesHandled()
 	{

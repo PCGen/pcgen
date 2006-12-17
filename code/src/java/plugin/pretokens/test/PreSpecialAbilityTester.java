@@ -41,14 +41,18 @@ import java.util.List;
  * @author wardc
  *
  */
-public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
-		int runningTotal=0;
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
+		int runningTotal = 0;
 		int number;
 		try
 		{
@@ -56,9 +60,9 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreSpecialAbility.error.bad_operand", prereq.toString() )); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreSpecialAbility.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
-
 
 		final String aString = prereq.getKey().toUpperCase();
 		for (SpecialAbility sa : character.getSpecialAbilityList())
@@ -74,8 +78,9 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 		//
 		for (PCTemplate aTempl : character.getTemplateList())
 		{
-			final List<SpecialAbility> SAs = aTempl.getSpecialAbilityList(
-					character.getTotalLevels(), character.totalHitDice());
+			final List<SpecialAbility> SAs =
+					aTempl.getSpecialAbilityList(character.getTotalLevels(),
+						character.totalHitDice());
 
 			if (SAs != null)
 			{
@@ -89,14 +94,15 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 			}
 		}
 
-		runningTotal = prereq.getOperator().compare( runningTotal, number);
+		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SA"; //$NON-NLS-1$
 	}
 

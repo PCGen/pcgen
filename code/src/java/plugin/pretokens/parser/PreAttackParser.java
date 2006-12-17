@@ -38,24 +38,27 @@ import pcgen.util.Logging;
  * @author wardc
  *
  */
-public class PreAttackParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreAttackParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "ATT" };
+		return new String[]{"ATT"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		try
 		{
@@ -63,12 +66,14 @@ public class PreAttackParser extends AbstractPrerequisiteParser implements Prere
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Badly formed PREATT attribute: '" + formula + "' assuming '1'");
+			Logging.errorPrint("Badly formed PREATT attribute: '" + formula
+				+ "' assuming '1'");
 			prereq.setOperand("1");
 		}
-		
-		if (invertResult) {
-			prereq.setOperator( prereq.getOperator().invert());
+
+		if (invertResult)
+		{
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}

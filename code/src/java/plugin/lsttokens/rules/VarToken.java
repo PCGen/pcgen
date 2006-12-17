@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RuleCheckLstToken;
 /**
  * Class deals with VAR Token
  */
-public class VarToken implements RuleCheckLstToken {
+public class VarToken implements RuleCheckLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "VAR";
 	}
 
-	public boolean parse(RuleCheck rule, String value) {
+	public boolean parse(RuleCheck rule, String value)
+	{
 		rule.setVariable(value);
 		return true;
 	}

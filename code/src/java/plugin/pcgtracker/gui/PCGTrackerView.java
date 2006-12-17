@@ -88,7 +88,8 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 		setLayout(new java.awt.BorderLayout());
 
-		jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
+		jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2,
+			javax.swing.BoxLayout.Y_AXIS));
 
 		removeButton.setText("Remove");
 		jPanel2.add(removeButton);
@@ -108,7 +109,7 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 		add(jScrollPane1, java.awt.BorderLayout.CENTER);
 	}
-	 //GEN-END:initComponents
+	//GEN-END:initComponents
 
 	// End of variables declaration//GEN-END:variables
 }

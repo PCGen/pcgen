@@ -18,7 +18,8 @@ import java.util.List;
  *
  * @author  ddjone3
  */
-public class CharacterSheetUtils {
+public class CharacterSheetUtils
+{
 
 	/**
 	 * Add cell
@@ -33,8 +34,12 @@ public class CharacterSheetUtils {
 	 * @param layout
 	 * @param color
 	 */
-	public static void addGbCell(Container cont, String text, int gridX, int gridY, int gridHeight, int gridWidth, int fill, int anchor, int layout, Color color) {
-		CharacterSheetUtils.addGbCell(cont, text, gridX, gridY, gridHeight, gridWidth, fill, anchor, layout, color, null);
+	public static void addGbCell(Container cont, String text, int gridX,
+		int gridY, int gridHeight, int gridWidth, int fill, int anchor,
+		int layout, Color color)
+	{
+		CharacterSheetUtils.addGbCell(cont, text, gridX, gridY, gridHeight,
+			gridWidth, fill, anchor, layout, color, null);
 	}
 
 	/**
@@ -51,8 +56,12 @@ public class CharacterSheetUtils {
 	 * @param color
 	 * @param componentList
 	 */
-	public static void addGbCell(Container cont, String text, int gridX, int gridY, int gridHeight, int gridWidth, int fill, int anchor, int layout, Color color, List<Component> componentList) {
-		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+	public static void addGbCell(Container cont, String text, int gridX,
+		int gridY, int gridHeight, int gridWidth, int fill, int anchor,
+		int layout, Color color, List<Component> componentList)
+	{
+		java.awt.GridBagConstraints gridBagConstraints =
+				new java.awt.GridBagConstraints();
 		JPanel cell = new JPanel();
 		JLabel cellText = new JLabel();
 		cell.setLayout(new java.awt.FlowLayout(layout, 1, 0));
@@ -67,7 +76,8 @@ public class CharacterSheetUtils {
 		gridBagConstraints.fill = fill;
 		gridBagConstraints.anchor = anchor;
 		cont.add(cell, gridBagConstraints);
-		if(componentList != null) {
+		if (componentList != null)
+		{
 			componentList.add(cell);
 		}
 	}
@@ -84,8 +94,12 @@ public class CharacterSheetUtils {
 	 * @param fill
 	 * @param anchor
 	 */
-	public static void addGbComponentCell(Container cont, Component comp, int gridX, int gridY, int gridHeight, int gridWidth, Insets insets, int fill, int anchor) {
-		addGbComponentCell(cont, comp, gridX, gridY, gridHeight, gridWidth, insets, fill, anchor, null);
+	public static void addGbComponentCell(Container cont, Component comp,
+		int gridX, int gridY, int gridHeight, int gridWidth, Insets insets,
+		int fill, int anchor)
+	{
+		addGbComponentCell(cont, comp, gridX, gridY, gridHeight, gridWidth,
+			insets, fill, anchor, null);
 	}
 
 	/**
@@ -101,8 +115,12 @@ public class CharacterSheetUtils {
 	 * @param anchor
 	 * @param componentList
 	 */
-	public static void addGbComponentCell(Container cont, Component comp, int gridX, int gridY, int gridHeight, int gridWidth, Insets insets, int fill, int anchor, List<Component> componentList) {
-		java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+	public static void addGbComponentCell(Container cont, Component comp,
+		int gridX, int gridY, int gridHeight, int gridWidth, Insets insets,
+		int fill, int anchor, List<Component> componentList)
+	{
+		java.awt.GridBagConstraints gridBagConstraints =
+				new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = gridX;
 		gridBagConstraints.gridy = gridY;
 		gridBagConstraints.gridheight = gridHeight;
@@ -111,7 +129,8 @@ public class CharacterSheetUtils {
 		gridBagConstraints.anchor = anchor;
 		gridBagConstraints.insets = insets;
 		cont.add(comp, gridBagConstraints);
-		if(componentList != null) {
+		if (componentList != null)
+		{
 			componentList.add(comp);
 		}
 	}
@@ -121,7 +140,8 @@ public class CharacterSheetUtils {
 	 * @param fullTitle
 	 * @return title
 	 */
-	public static String getTitle(String fullTitle) {
+	public static String getTitle(String fullTitle)
+	{
 		return getTitle(fullTitle, "", "");
 	}
 
@@ -132,14 +152,17 @@ public class CharacterSheetUtils {
 	 * @param post
 	 * @return title
 	 */
-	public static String getTitle(String fullTitle, String pre, String post) {
+	public static String getTitle(String fullTitle, String pre, String post)
+	{
 		StringBuffer sb = new StringBuffer();
-		if(fullTitle.indexOf("(") > -1) {
+		if (fullTitle.indexOf("(") > -1)
+		{
 			sb.append(pre);
 			sb.append(fullTitle.substring(0, fullTitle.indexOf("(")).trim());
 			sb.append(post);
 		}
-		else {
+		else
+		{
 			sb.append(pre);
 			sb.append(fullTitle);
 			sb.append(post);
@@ -152,7 +175,8 @@ public class CharacterSheetUtils {
 	 * @param fullTitle
 	 * @return sub title
 	 */
-	public static String getSubTitle(String fullTitle) {
+	public static String getSubTitle(String fullTitle)
+	{
 		return getSubTitle(fullTitle, "", "");
 	}
 
@@ -163,8 +187,10 @@ public class CharacterSheetUtils {
 	 * @param post
 	 * @return sub title
 	 */
-	public static String getSubTitle(String fullTitle, String pre, String post) {
-		if(fullTitle.indexOf("(") > -1) {
+	public static String getSubTitle(String fullTitle, String pre, String post)
+	{
+		if (fullTitle.indexOf("(") > -1)
+		{
 			StringBuffer sb = new StringBuffer();
 			sb.append(pre);
 			sb.append(fullTitle.substring(fullTitle.indexOf("(")).trim());

@@ -11,25 +11,27 @@ import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.SourceLoader;
 import pcgen.persistence.lst.SourceLstToken;
 
-
 /**
  * @author djones4
  *
  */
-public class SourcelongLst implements GlobalLstToken, SourceLstToken  {
+public class SourcelongLst implements GlobalLstToken, SourceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SOURCELONG";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.getSourceEntry().getSourceBook().setLongName(value);
 		return true;
 	}
 
-	public boolean parse(Map<String, String> sourceMap, String value) {
+	public boolean parse(Map<String, String> sourceMap, String value)
+	{
 		sourceMap.putAll(SourceLoader.parseSource("SOURCELONG:" + value));
 		return true;
 	}
 }
-

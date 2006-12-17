@@ -6,13 +6,16 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 /**
  * Class deals with EQSLOT Token
  */
-public class EqslotToken implements EquipSlotLstToken {
+public class EqslotToken implements EquipSlotLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "EQSLOT";
 	}
 
-	public boolean parse(EquipSlot eqSlot, String value) {
+	public boolean parse(EquipSlot eqSlot, String value)
+	{
 		eqSlot.setSlotName(value);
 		return true;
 	}

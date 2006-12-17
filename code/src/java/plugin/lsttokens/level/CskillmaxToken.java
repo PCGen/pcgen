@@ -28,19 +28,21 @@ package plugin.lsttokens.level;
 import pcgen.core.LevelInfo;
 import pcgen.persistence.lst.LevelLstToken;
 
-
 /**
  * <code>CskillmaxToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public class CskillmaxToken implements LevelLstToken {
+public class CskillmaxToken implements LevelLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "CSKILLMAX";
 	}
 
-	public boolean parse(LevelInfo levelInfo, String value) {
+	public boolean parse(LevelInfo levelInfo, String value)
+	{
 		levelInfo.setMaxClassSkillString(value);
 		return true;
 	}

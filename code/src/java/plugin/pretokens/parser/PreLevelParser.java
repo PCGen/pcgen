@@ -31,18 +31,18 @@ package plugin.pretokens.parser;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteIntegerParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
-
 /**
  * @author wardc
  *
  */
-public class PreLevelParser extends AbstractPrerequisiteIntegerParser implements PrerequisiteParserInterface
+public class PreLevelParser extends AbstractPrerequisiteIntegerParser implements
+		PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "LEVEL" };
+		return new String[]{"LEVEL"};
 	}
 }

@@ -56,7 +56,7 @@ public class SpellsToken implements KitSpellsLstToken
 	public boolean parse(KitSpells kitSpells, String value)
 	{
 		Logging.errorPrint("Ignoring second SPELLS tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 }

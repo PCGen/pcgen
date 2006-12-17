@@ -37,29 +37,32 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreWeaponProfParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreWeaponProfParser extends AbstractPrerequisiteListParser
+		implements PrerequisiteParserInterface
 {
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "WEAPONPROF" };
+		return new String[]{"WEAPONPROF"};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 
 		doTypeInvertFixup(prereq);
 
 		return prereq;
 	}
-
 
 	private void doTypeInvertFixup(Prerequisite prereq)
 	{
@@ -71,7 +74,10 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 			}
 			else if (prereq.getKey().startsWith("["))
 			{
-				prereq.setKey(prereq.getKey().substring(1, Math.max(prereq.getKey().length() - 1, prereq.getKey().lastIndexOf(']'))));
+				prereq.setKey(prereq.getKey().substring(
+					1,
+					Math.max(prereq.getKey().length() - 1, prereq.getKey()
+						.lastIndexOf(']'))));
 				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
@@ -79,8 +85,9 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 		//
 		// In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)', need to check all sub-prereqs
 		//
-		for (Prerequisite subreq : prereq.getPrerequisites()) {
+		for (Prerequisite subreq : prereq.getPrerequisites())
+		{
 			doTypeInvertFixup(subreq);
-		}		
+		}
 	}
 }

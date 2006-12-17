@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCClassLstToken;
 /**
  * Class deals with UATT Token
  */
-public class UattToken implements PCClassLstToken {
+public class UattToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "UATT";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
 		pcclass.addUatt(value);
 		return true;
 	}

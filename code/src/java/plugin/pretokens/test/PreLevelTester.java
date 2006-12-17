@@ -35,23 +35,29 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreLevelTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreLevelTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 
-		final int requiredLevel = Integer.parseInt( prereq.getOperand() );
-		final int runningTotal = prereq.getOperator().compare( character.getTotalLevels(), requiredLevel);
+		final int requiredLevel = Integer.parseInt(prereq.getOperand());
+		final int runningTotal =
+				prereq.getOperator().compare(character.getTotalLevels(),
+					requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "LEVEL"; //$NON-NLS-1$
 	}
 

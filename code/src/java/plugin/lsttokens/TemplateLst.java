@@ -12,18 +12,21 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class TemplateLst implements GlobalLstToken {
+public class TemplateLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "TEMPLATE";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if(!(obj instanceof Campaign)) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (!(obj instanceof Campaign))
+		{
 			obj.addTemplate(value);
 			return true;
 		}
 		return false;
 	}
 }
-

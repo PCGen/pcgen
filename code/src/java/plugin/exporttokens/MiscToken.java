@@ -29,7 +29,8 @@ public class MiscToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		int i = -1;
 
@@ -66,10 +67,10 @@ public class MiscToken extends Token
 		{
 			final List<String> stringList = getLineForMiscList(i, pc);
 
-			for ( String str : stringList )
+			for (String str : stringList)
 			{
-				buf.append( str );
-				buf.append( sourceText );
+				buf.append(str);
+				buf.append(sourceText);
 			}
 		}
 		return buf.toString();
@@ -84,7 +85,8 @@ public class MiscToken extends Token
 	private List<String> getLineForMiscList(int index, PlayerCharacter aPC)
 	{
 		final List<String> aArrayList = new ArrayList<String>();
-		final StringTokenizer aTok = new StringTokenizer(aPC.getMiscList().get(index), "\r\n", false);
+		final StringTokenizer aTok =
+				new StringTokenizer(aPC.getMiscList().get(index), "\r\n", false);
 
 		while (aTok.hasMoreTokens())
 		{

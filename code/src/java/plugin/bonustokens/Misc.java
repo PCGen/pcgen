@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>Misc</code>
  *
@@ -35,17 +34,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Misc extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"MISC"
-		};
+	private static final String[] bonusHandled = {"MISC"};
 	private static final String[] bonusTags =
-		{
-			"ACCHECK",
-			"MAXDEX",
-			"SPELLFAILURE",
-			"SR"
-		};
+			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR"};
 
 	protected String[] getBonusesHandled()
 	{

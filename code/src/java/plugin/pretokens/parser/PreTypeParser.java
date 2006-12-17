@@ -20,24 +20,25 @@ import java.util.StringTokenizer;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreTypeParser
-	extends AbstractPrerequisiteParser
-	implements PrerequisiteParserInterface {
+public class PreTypeParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#kindsHandled()
 	 */
-	public String[] kindsHandled() {
-		return new String[] {"TYPE"};
+	public String[] kindsHandled()
+	{
+		return new String[]{"TYPE"};
 	}
-
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.prereq.PrerequisiteParserInterface#parse(java.lang.String, java.lang.String, boolean)
 	 */
 	@Override
-	public Prerequisite parse( String kind, String formula, boolean invertResult, boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 
 		int aNum = 1;
@@ -55,7 +56,8 @@ public class PreTypeParser
 		}
 
 		// Parse new style syntax
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setOperand(Integer.toString(aNum));
 
 		//
@@ -69,7 +71,7 @@ public class PreTypeParser
 		}
 		else
 		{
-			prereq.setKind(null);				// PREMULT
+			prereq.setKind(null); // PREMULT
 			while (aTok.hasMoreTokens())
 			{
 				Prerequisite subreq = new Prerequisite();
@@ -87,26 +89,27 @@ public class PreTypeParser
 		return prereq;
 	}
 
-	protected Prerequisite parseOldPreType(String kind, String formula,	boolean invertResult)
+	protected Prerequisite parseOldPreType(String kind, String formula,
+		boolean invertResult)
 	{
 		// This one uses:
 		//  PRETYPE:type1,type2|type3,[type4]
 
 		/*
-<prereq operator="eq" operand="3" >
- <prereq kind="type" operator="eq" operand="type1" ></prereq>
- <prereq operator="eq" operand="2" >
-  <prereq kind="type" operator="eq" operand="type2" ></prereq>
-  <prereq kind="type" operator="eq" operand="type3" ></prereq>
- </prereq>
- <prereq kind="type" operator="neq" operand="type4" ></prereq>
-</prereq>
+		 <prereq operator="eq" operand="3" >
+		 <prereq kind="type" operator="eq" operand="type1" ></prereq>
+		 <prereq operator="eq" operand="2" >
+		 <prereq kind="type" operator="eq" operand="type2" ></prereq>
+		 <prereq kind="type" operator="eq" operand="type3" ></prereq>
+		 </prereq>
+		 <prereq kind="type" operator="neq" operand="type4" ></prereq>
+		 </prereq>
 		 */
 
 		String[] andTokens = formula.split(",");
 		Prerequisite prereq = new Prerequisite();
-		prereq.setKind(null);		// PREMULT
-		prereq.setOperand( Integer.toString(andTokens.length) );
+		prereq.setKind(null); // PREMULT
+		prereq.setOperand(Integer.toString(andTokens.length));
 
 		// e.g.
 		// PRETYPE:type1,type2|type3,[type4]
@@ -124,7 +127,7 @@ public class PreTypeParser
 
 			if (idxPipe >= 0)
 			{
-				andPrereq.setKind(null);		// PREMULT
+				andPrereq.setKind(null); // PREMULT
 
 				String[] orTokens = andToken.split("\\|");
 				andPrereq.setOperand("1");
@@ -140,7 +143,8 @@ public class PreTypeParser
 					orPrereq.setOperand("1");
 					if (orToken.startsWith("["))
 					{
-						orPrereq.setKey(orToken.substring(1, orToken.length()-1));
+						orPrereq.setKey(orToken.substring(1,
+							orToken.length() - 1));
 						orPrereq.setOperator(PrerequisiteOperator.NEQ);
 					}
 					else
@@ -156,7 +160,8 @@ public class PreTypeParser
 				andPrereq.setOperand("1");
 				if (andToken.startsWith("["))
 				{
-					andPrereq.setKey(andToken.substring(1, andToken.length()-1));
+					andPrereq.setKey(andToken.substring(1,
+						andToken.length() - 1));
 					andPrereq.setOperator(PrerequisiteOperator.NEQ);
 				}
 				else

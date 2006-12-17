@@ -121,7 +121,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param dc
 	 * @param saveType
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal, Combatant cbt, int dc, int saveType)
+	public SavingThrowDialog(java.awt.Frame parent, boolean modal,
+		Combatant cbt, int dc, int saveType)
 	{
 		super(parent, modal);
 		initComponents();
@@ -143,7 +144,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param cbt
 	 * @param model
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal, Combatant cbt, SaveModel model)
+	public SavingThrowDialog(java.awt.Frame parent, boolean modal,
+		Combatant cbt, SaveModel model)
 	{
 		super(parent, modal);
 		initComponents();
@@ -307,28 +309,53 @@ public class SavingThrowDialog extends javax.swing.JDialog
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
-			List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+			List<PObject> checkList =
+					SettingsHandler.getGame().getUnmodifiableCheckList();
 
 			if (saveType == FORT_SAVE)
 			{
-				base = pc.calculateSaveBonus(1, checkList.get(0).toString(), "BASE");
-				ability = pc.calculateSaveBonus(1, checkList.get(0).toString(), "STATMOD");
-				magic = pc.calculateSaveBonus(1,  checkList.get(0).toString(), "MAGIC");
-				misc = pc.calculateSaveBonus(1, checkList.get(0).toString(), "MISC.NOMAGIC.NOSTAT");
+				base =
+						pc.calculateSaveBonus(1, checkList.get(0).toString(),
+							"BASE");
+				ability =
+						pc.calculateSaveBonus(1, checkList.get(0).toString(),
+							"STATMOD");
+				magic =
+						pc.calculateSaveBonus(1, checkList.get(0).toString(),
+							"MAGIC");
+				misc =
+						pc.calculateSaveBonus(1, checkList.get(0).toString(),
+							"MISC.NOMAGIC.NOSTAT");
 			}
 			else if (saveType == REF_SAVE)
 			{
-				base = pc.calculateSaveBonus(2, checkList.get(1).toString(), "BASE");
-				ability = pc.calculateSaveBonus(2, checkList.get(1).toString(), "STATMOD");
-				magic = pc.calculateSaveBonus(2, checkList.get(1).toString(), "MAGIC");
-				misc = pc.calculateSaveBonus(2, checkList.get(1).toString(), "MISC.NOMAGIC.NOSTAT");
+				base =
+						pc.calculateSaveBonus(2, checkList.get(1).toString(),
+							"BASE");
+				ability =
+						pc.calculateSaveBonus(2, checkList.get(1).toString(),
+							"STATMOD");
+				magic =
+						pc.calculateSaveBonus(2, checkList.get(1).toString(),
+							"MAGIC");
+				misc =
+						pc.calculateSaveBonus(2, checkList.get(1).toString(),
+							"MISC.NOMAGIC.NOSTAT");
 			}
 			else if (saveType == WILL_SAVE)
 			{
-				base = pc.calculateSaveBonus(3, checkList.get(2).toString(), "BASE");
-				ability = pc.calculateSaveBonus(3, checkList.get(2).toString(), "STATMOD");
-				magic = pc.calculateSaveBonus(3, checkList.get(2).toString(), "MAGIC");
-				misc = pc.calculateSaveBonus(3, checkList.get(2).toString(), "MISC.NOMAGIC.NOSTAT");
+				base =
+						pc.calculateSaveBonus(3, checkList.get(2).toString(),
+							"BASE");
+				ability =
+						pc.calculateSaveBonus(3, checkList.get(2).toString(),
+							"STATMOD");
+				magic =
+						pc.calculateSaveBonus(3, checkList.get(2).toString(),
+							"MAGIC");
+				misc =
+						pc.calculateSaveBonus(3, checkList.get(2).toString(),
+							"MISC.NOMAGIC.NOSTAT");
 			}
 		}
 		else if (cbt instanceof XMLCombatant)
@@ -337,19 +364,25 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 			if (saveType == FORT_SAVE)
 			{
-				int mod = new SystemAttribute("Constitution", xmlcbt.getAttribute("Constitution")).getModifier();
+				int mod =
+						new SystemAttribute("Constitution", xmlcbt
+							.getAttribute("Constitution")).getModifier();
 				ability = mod;
 				base = xmlcbt.getSave("Fortitude") - mod;
 			}
 			else if (saveType == REF_SAVE)
 			{
-				int mod = new SystemAttribute("Dexterity", xmlcbt.getAttribute("Dexterity")).getModifier();
+				int mod =
+						new SystemAttribute("Dexterity", xmlcbt
+							.getAttribute("Dexterity")).getModifier();
 				ability = mod;
 				base = xmlcbt.getSave("Reflex") - mod;
 			}
 			else if (saveType == WILL_SAVE)
 			{
-				int mod = new SystemAttribute("Wisdom", xmlcbt.getAttribute("Wisdom")).getModifier();
+				int mod =
+						new SystemAttribute("Wisdom", xmlcbt
+							.getAttribute("Wisdom")).getModifier();
 				ability = mod;
 				base = xmlcbt.getSave("Will") - mod;
 			}
@@ -371,7 +404,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param misc
 	 * @param temp
 	 */
-	private void setDefaults(int base, int ability, int magic, int misc, int temp)
+	private void setDefaults(int base, int ability, int magic, int misc,
+		int temp)
 	{
 		saveBase.setText(Integer.toString(base));
 		saveAbility.setText(Integer.toString(ability));
@@ -468,7 +502,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		setXMLCache(total);
 	}
 
-	private void roll() {
+	private void roll()
+	{
 		int total = getFieldValue(saveTotal);
 		int dc = getFieldValue(saveDC);
 		int roll = new Dice(1, 20).roll();
@@ -476,16 +511,18 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		if ((total + roll) >= dc)
 		{
 			retValue = PASS_OPTION;
-			JOptionPane.showMessageDialog(this,
-			    getSaveAbbrev(getSaveType()) + " DC " + dc + " Passed.  Save: " + total + " + Roll: " + roll + " = "
-			    + (total + roll), "Save Passed", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, getSaveAbbrev(getSaveType())
+				+ " DC " + dc + " Passed.  Save: " + total + " + Roll: " + roll
+				+ " = " + (total + roll), "Save Passed",
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 		{
 			retValue = FAIL_OPTION;
-			JOptionPane.showMessageDialog(this,
-			    getSaveAbbrev(getSaveType()) + " DC " + dc + " Failed.  Save: " + total + " + Roll: " + roll + " = "
-			    + (total + roll), "Save Failed", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, getSaveAbbrev(getSaveType())
+				+ " DC " + dc + " Failed.  Save: " + total + " + Roll: " + roll
+				+ " = " + (total + roll), "Save Failed",
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 		updateModel();
 
@@ -503,13 +540,15 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private JFormattedTextField buildIntegerField(int min, int max)
 	{
-		final JFormattedTextField returnValue = Utils.buildIntegerField(min,max);
+		final JFormattedTextField returnValue =
+				Utils.buildIntegerField(min, max);
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
 			public void propertyChange(PropertyChangeEvent evt)
 			{
-				if ("value".equals(evt.getPropertyName())) {
+				if ("value".equals(evt.getPropertyName()))
+				{
 					calculate();
 				}
 			}
@@ -531,7 +570,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		}
 		catch (NumberFormatException e)
 		{
-		    // TODO:  Exception Needs to be handled
+			// TODO:  Exception Needs to be handled
 		}
 
 		return 0;
@@ -613,15 +652,14 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		jSeparator1 = new javax.swing.JSeparator();
 
-
 		saveTempSlider = Utils.buildSlider(-5, 20);
 		saveMagicSlider = Utils.buildSlider(-5, 20);
 		saveDCSlider = Utils.buildSlider(0, 50);
 
-		saveBase = buildIntegerField(-50,50);
-		saveAbility = buildIntegerField(-50,50);
-		saveMisc = buildIntegerField(-50,50);
-		saveTotal = buildIntegerField(-50,50);
+		saveBase = buildIntegerField(-50, 50);
+		saveAbility = buildIntegerField(-50, 50);
+		saveMisc = buildIntegerField(-50, 50);
+		saveTotal = buildIntegerField(-50, 50);
 
 		saveMagic = Utils.buildIntegerFieldWithSlider(saveMagicSlider);
 		saveTemp = Utils.buildIntegerFieldWithSlider(saveTempSlider);
@@ -629,56 +667,56 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		setTitle("Saving Throw");
 		addWindowListener(new java.awt.event.WindowAdapter()
+		{
+			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					closeDialog(evt);
-				}
-			});
+				closeDialog(evt);
+			}
+		});
 
 		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
 		rollButton.setText("Roll");
 		rollButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					rollButtonActionPerformed(evt);
-				}
-			});
+				rollButtonActionPerformed(evt);
+			}
+		});
 
 		jPanel1.add(rollButton);
 
 		passButton.setText("Pass");
 		passButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					passButtonActionPerformed(evt);
-				}
-			});
+				passButtonActionPerformed(evt);
+			}
+		});
 
 		jPanel1.add(passButton);
 
 		failButton.setText("Fail");
 		failButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					failButtonActionPerformed(evt);
-				}
-			});
+				failButtonActionPerformed(evt);
+			}
+		});
 
 		jPanel1.add(failButton);
 
 		cancelButton.setText("Cancel");
 		cancelButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					cancelButtonActionPerformed(evt);
-				}
-			});
+				cancelButtonActionPerformed(evt);
+			}
+		});
 
 		jPanel1.add(cancelButton);
 
@@ -840,7 +878,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		fortitudeSelection.setText("Fortitude");
 		saveTypeGroup.add(fortitudeSelection);
-		fortitudeSelection.addActionListener(new java.awt.event.ActionListener()
+		fortitudeSelection
+			.addActionListener(new java.awt.event.ActionListener()
 			{
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
@@ -853,24 +892,24 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		reflexSelection.setText("Reflex");
 		saveTypeGroup.add(reflexSelection);
 		reflexSelection.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					saveSelectedActionPerformed(evt);
-				}
-			});
+				saveSelectedActionPerformed(evt);
+			}
+		});
 
 		jPanel3.add(reflexSelection);
 
 		willSelection.setText("Will");
 		saveTypeGroup.add(willSelection);
 		willSelection.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					saveSelectedActionPerformed(evt);
-				}
-			});
+				saveSelectedActionPerformed(evt);
+			}
+		});
 
 		jPanel3.add(willSelection);
 
@@ -978,7 +1017,8 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	{
 		public void keyReleased(java.awt.event.KeyEvent evt)
 		{
-			if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+			{
 				roll();
 			}
 		}

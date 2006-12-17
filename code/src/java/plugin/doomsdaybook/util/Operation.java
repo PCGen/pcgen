@@ -25,7 +25,6 @@
  */
 package plugin.doomsdaybook.util;
 
-
 /**
  * <code>Operation</code> encapsulates an action that can be performed 
  * on a variable. These are actions such as setting, adding or 

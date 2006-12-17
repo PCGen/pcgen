@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>LoadMult</code>
  *
@@ -35,15 +34,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class LoadMult extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"LOADMULT"
-		};
-	private static final String[] bonusTags =
-		{
-			"TYPE.SIZE",
-			"TYPE=SIZE"
-		};
+	private static final String[] bonusHandled = {"LOADMULT"};
+	private static final String[] bonusTags = {"TYPE.SIZE", "TYPE=SIZE"};
 
 	protected String[] getBonusesHandled()
 	{

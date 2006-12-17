@@ -26,7 +26,8 @@ public class SpecialListToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String delim = tokenSource.substring(11);
 
@@ -37,5 +38,5 @@ public class SpecialListToken extends Token
 
 		return CoreUtility.join(pc.getSpecialAbilityTimesList(), delim);
 	}
-	
+
 }

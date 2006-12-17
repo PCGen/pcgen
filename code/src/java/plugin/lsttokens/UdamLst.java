@@ -11,15 +11,17 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class UdamLst implements GlobalLstToken {
+public class UdamLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "UDAM";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		obj.addUdamList(value);
 		return true;
 	}
 }
-

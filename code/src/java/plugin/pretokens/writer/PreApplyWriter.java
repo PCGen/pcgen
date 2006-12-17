@@ -37,7 +37,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-public class PreApplyWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreApplyWriter extends AbstractPrerequisiteWriter implements
+		PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -53,27 +54,26 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements Prereq
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ
-		};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
+			PrerequisiteOperator.NEQ};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		try
 		{
 			checkValidOperator(prereq, operatorsHandled());
-			if (prereq.getOperator().equals( PrerequisiteOperator.NEQ ))
+			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
 			{
 				writer.write('!');
 			}
 			writer.write("PREAPPLY:");
 
-			if ( Integer.parseInt(prereq.getOperand()) > 1 )
+			if (Integer.parseInt(prereq.getOperand()) > 1)
 			{
 				// must be a "A and b" operation
 				boolean needComma = false;
@@ -91,7 +91,7 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements Prereq
 			{
 				for (Prerequisite subreq : prereq.getPrerequisites())
 				{
-					if (subreq.getKind()==null)
+					if (subreq.getKind() == null)
 					{
 						// must be an "A or B" operation
 						boolean needSemi = false;

@@ -106,7 +106,8 @@ public class AddCombatant extends javax.swing.JDialog
 	 * @param  modal       Is the dialog modal
 	 * @param  initiative  The initiative tracker reference.
 	 */
-	public AddCombatant(java.awt.Frame parent, boolean modal, Initiative initiative)
+	public AddCombatant(java.awt.Frame parent, boolean modal,
+		Initiative initiative)
 	{
 		super(parent, modal);
 		initComponents();
@@ -114,19 +115,26 @@ public class AddCombatant extends javax.swing.JDialog
 		setLocation(parent.getX() + 100, parent.getY() + 100);
 		this.initiative = initiative;
 
-		boolean bHP = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true);
+		boolean bHP =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".doHP", true);
 
 		hpSlider.setEnabled(bHP);
 
-		int maxHp = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP", 100);
+		int maxHp =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".dbMaxHP", 100);
 
-		int maxNum = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum", 20);
+		int maxNum =
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
+					+ ".dbMaxNum", 20);
 
 		numberSlider.setMaximum(maxNum);
 		hpSlider.setMaximum(maxHp);
 	}
 
-	private void save() {
+	private void save()
+	{
 		String comString = (String) typeCombo.getSelectedItem();
 
 		if (comString.equals("Non Combatant"))
@@ -139,11 +147,19 @@ public class AddCombatant extends javax.swing.JDialog
 		{
 			for (int i = 1; i <= getIntegerValue(numberField, 1); i++)
 			{
-				XMLCombatant xmlcbt = new XMLCombatant(nameField.getText() + " (" + i + ")", playerField.getText(),
-						getIntegerValue(strField, 10), getIntegerValue(dexField, 10), getIntegerValue(conField, 10), getIntegerValue(intField, 10),
-						getIntegerValue(wisField, 10), getIntegerValue(chaField, 10), getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0),
-						getIntegerValue(willField, 0), getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0),
-						comString, getIntegerValue(crField, 0), 0);
+				XMLCombatant xmlcbt =
+						new XMLCombatant(nameField.getText() + " (" + i + ")",
+							playerField.getText(),
+							getIntegerValue(strField, 10), getIntegerValue(
+								dexField, 10), getIntegerValue(conField, 10),
+							getIntegerValue(intField, 10), getIntegerValue(
+								wisField, 10), getIntegerValue(chaField, 10),
+							getIntegerValue(fortitudeField, 0),
+							getIntegerValue(reflexField, 0), getIntegerValue(
+								willField, 0), getIntegerValue(hpField, 1),
+							getIntegerValue(hpField, 1), 0, getIntegerValue(
+								bonusField, 0), comString, getIntegerValue(
+								crField, 0), 0);
 				initiative.initList.add(xmlcbt);
 				initiative.addTab(xmlcbt);
 			}
@@ -152,10 +168,18 @@ public class AddCombatant extends javax.swing.JDialog
 		// If if not, just add one
 		else
 		{
-			XMLCombatant xmlcbt = new XMLCombatant(nameField.getText(), playerField.getText(), getIntegerValue(strField, 10),
-					getIntegerValue(dexField, 10), getIntegerValue(conField, 10), getIntegerValue(intField, 10), getIntegerValue(wisField, 10),
-					getIntegerValue(chaField, 10), getIntegerValue(fortitudeField, 0), getIntegerValue(reflexField, 0), getIntegerValue(willField, 0),
-					getIntegerValue(hpField, 1), getIntegerValue(hpField, 1), 0, getIntegerValue(bonusField, 0), comString, getIntegerValue(crField, 0), 0);
+			XMLCombatant xmlcbt =
+					new XMLCombatant(nameField.getText(),
+						playerField.getText(), getIntegerValue(strField, 10),
+						getIntegerValue(dexField, 10), getIntegerValue(
+							conField, 10), getIntegerValue(intField, 10),
+						getIntegerValue(wisField, 10), getIntegerValue(
+							chaField, 10), getIntegerValue(fortitudeField, 0),
+						getIntegerValue(reflexField, 0), getIntegerValue(
+							willField, 0), getIntegerValue(hpField, 1),
+						getIntegerValue(hpField, 1), 0, getIntegerValue(
+							bonusField, 0), comString, getIntegerValue(crField,
+							0), 0);
 			initiative.initList.add(xmlcbt);
 			initiative.addTab(xmlcbt);
 		}
@@ -213,9 +237,9 @@ public class AddCombatant extends javax.swing.JDialog
 
 		java.awt.GridBagConstraints gridBagConstraints;
 
-		bonusSlider = Utils.buildSlider(-20,20);
-		numberSlider = Utils.buildSlider(1,20);
-		hpSlider = Utils.buildSlider(1,100,5,25);
+		bonusSlider = Utils.buildSlider(-20, 20);
+		numberSlider = Utils.buildSlider(1, 20);
+		hpSlider = Utils.buildSlider(1, 100, 5, 25);
 
 		saveButton = new javax.swing.JButton();
 		cancelButton = new javax.swing.JButton();
@@ -247,16 +271,16 @@ public class AddCombatant extends javax.swing.JDialog
 		nameField = new javax.swing.JTextField();
 		playerField = new javax.swing.JTextField();
 
-		crField = Utils.buildIntegerField(-10,50);
-		conField = Utils.buildIntegerField(0,100);
-		strField = Utils.buildIntegerField(0,100);
-		dexField = Utils.buildIntegerField(0,100);
-		intField = Utils.buildIntegerField(0,100);
-		wisField = Utils.buildIntegerField(0,100);
-		chaField = Utils.buildIntegerField(0,100);
-		fortitudeField = Utils.buildIntegerField(-20,50);
-		reflexField = Utils.buildIntegerField(-20,50);
-		willField = Utils.buildIntegerField(-20,50);
+		crField = Utils.buildIntegerField(-10, 50);
+		conField = Utils.buildIntegerField(0, 100);
+		strField = Utils.buildIntegerField(0, 100);
+		dexField = Utils.buildIntegerField(0, 100);
+		intField = Utils.buildIntegerField(0, 100);
+		wisField = Utils.buildIntegerField(0, 100);
+		chaField = Utils.buildIntegerField(0, 100);
+		fortitudeField = Utils.buildIntegerField(-20, 50);
+		reflexField = Utils.buildIntegerField(-20, 50);
+		willField = Utils.buildIntegerField(-20, 50);
 
 		bonusField = Utils.buildIntegerFieldWithSlider(bonusSlider);
 		hpField = Utils.buildIntegerFieldWithSlider(hpSlider);
@@ -265,12 +289,12 @@ public class AddCombatant extends javax.swing.JDialog
 		getContentPane().setLayout(new java.awt.GridBagLayout());
 
 		addWindowListener(new java.awt.event.WindowAdapter()
+		{
+			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					closeDialog(evt);
-				}
-			});
+				closeDialog(evt);
+			}
+		});
 
 		nameLabel.setText("Name");
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -340,12 +364,12 @@ public class AddCombatant extends javax.swing.JDialog
 
 		saveButton.setText("Save");
 		saveButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bSaveActionPerformed(evt);
-				}
-			});
+				bSaveActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -355,12 +379,12 @@ public class AddCombatant extends javax.swing.JDialog
 
 		cancelButton.setText("Cancel");
 		cancelButton.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCancelActionPerformed(evt);
-				}
-			});
+				bCancelActionPerformed(evt);
+			}
+		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
@@ -609,7 +633,8 @@ public class AddCombatant extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
 		getContentPane().add(crLabel, gridBagConstraints);
 
-		noteLabel.setText("(Note, use negative numbers for fractions. Ex: -2 = 1/2)");
+		noteLabel
+			.setText("(Note, use negative numbers for fractions. Ex: -2 = 1/2)");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
@@ -643,7 +668,8 @@ public class AddCombatant extends javax.swing.JDialog
 		vType.add("PC");
 		vType.add("Non Combatant");
 
-		javax.swing.DefaultComboBoxModel typeModel = new javax.swing.DefaultComboBoxModel(vType);
+		javax.swing.DefaultComboBoxModel typeModel =
+				new javax.swing.DefaultComboBoxModel(vType);
 		typeCombo.setModel(typeModel);
 	}
 
@@ -658,7 +684,7 @@ public class AddCombatant extends javax.swing.JDialog
 		int returnValue = defaultValue;
 		if (field.isValid() && field.getValue() instanceof Integer)
 		{
-			returnValue = ((Integer)field.getValue()).intValue();
+			returnValue = ((Integer) field.getValue()).intValue();
 		}
 		return returnValue;
 	}

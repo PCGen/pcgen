@@ -63,7 +63,8 @@ public class SkillTypeToken extends SkillToken
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -105,7 +106,7 @@ public class SkillTypeToken extends SkillToken
 		}
 
 		final List<Skill> skillSubset = new ArrayList<Skill>();
-		for ( Skill bSkill : pc.getSkillListInOutputOrder() )
+		for (Skill bSkill : pc.getSkillListInOutputOrder())
 		{
 			if (bSkill.isType(details.getProperties()[0]))
 			{

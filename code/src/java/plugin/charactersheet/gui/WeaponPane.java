@@ -15,7 +15,7 @@ import pcgen.core.PlayerCharacter;
  * @author  ddjone3
  * @version	$Revision$
  */
-public class WeaponPane extends javax.swing.JPanel 
+public class WeaponPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
 	private Equipment eq;
@@ -28,13 +28,13 @@ public class WeaponPane extends javax.swing.JPanel
 	/**
 	 * Constructor
 	 */
-	public WeaponPane() 
+	public WeaponPane()
 	{
 		initComponents();
 		setLocalColor();
 	}
 
-	private void initComponents() 
+	private void initComponents()
 	{
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
@@ -54,7 +54,7 @@ public class WeaponPane extends javax.swing.JPanel
 	/**
 	 * Set the colour of the pane and sub panes.
 	 */
-	public void setColor() 
+	public void setColor()
 	{
 		setLocalColor();
 		meleeWeaponPane.setColor();
@@ -67,7 +67,7 @@ public class WeaponPane extends javax.swing.JPanel
 	/**
 	 * Set the colour of the pane.
 	 */
-	public void setLocalColor() 
+	public void setLocalColor()
 	{
 		setBackground(CharacterPanel.white);
 	}
@@ -78,7 +78,7 @@ public class WeaponPane extends javax.swing.JPanel
 	 * @param pc Player Character associated with the pane.
 	 * @param eq Equipment associated with the pane.
 	 */
-	public void setWeapon(PlayerCharacter pc, Equipment eq) 
+	public void setWeapon(PlayerCharacter pc, Equipment eq)
 	{
 		this.pc = pc;
 		this.eq = eq;
@@ -88,30 +88,35 @@ public class WeaponPane extends javax.swing.JPanel
 	 * Refresh the pane.  Creates sub panes and sets the weapon for each 
 	 * sub pane if they don't exist.
 	 */
-	public void refresh() 
+	public void refresh()
 	{
 		setVisible(true);
-		if(weaponTitlePane == null) {
+		if (weaponTitlePane == null)
+		{
 			weaponTitlePane = new WeaponTitlePane();
 			add(weaponTitlePane);
 		}
 		weaponTitlePane.setWeapon(pc, eq);
-		if(meleeWeaponPane == null) {
+		if (meleeWeaponPane == null)
+		{
 			meleeWeaponPane = new MeleeWeaponPane();
 			add(meleeWeaponPane);
 		}
 		meleeWeaponPane.setWeapon(pc, eq);
-		if(naturalWeaponPane == null) {
+		if (naturalWeaponPane == null)
+		{
 			naturalWeaponPane = new NaturalWeaponPane();
 			add(naturalWeaponPane);
 		}
 		naturalWeaponPane.setWeapon(pc, eq);
-		if(rangedWeaponPane == null) {
+		if (rangedWeaponPane == null)
+		{
 			rangedWeaponPane = new RangedWeaponPane();
 			add(rangedWeaponPane);
 		}
 		rangedWeaponPane.setWeapon(pc, eq);
-		if(weaponSpecialPane == null) {
+		if (weaponSpecialPane == null)
+		{
 			weaponSpecialPane = new WeaponSpecialPane();
 			add(weaponSpecialPane);
 		}
@@ -121,7 +126,7 @@ public class WeaponPane extends javax.swing.JPanel
 	/**
 	 * Clear the pane.
 	 */
-	public void clear() 
+	public void clear()
 	{
 		meleeWeaponPane = null;
 		naturalWeaponPane = null;

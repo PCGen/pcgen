@@ -50,7 +50,8 @@ public class NoteToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ".");
 		tok.nextToken();
@@ -65,7 +66,7 @@ public class NoteToken extends Token
 		String afterValue = "<br/>";
 		String token = "ALL";
 
-		if(tok.hasMoreTokens())
+		if (tok.hasMoreTokens())
 		{
 			beforeHeader = tok.nextToken();
 			if ("NAME".equals(beforeHeader))
@@ -116,12 +117,13 @@ public class NoteToken extends Token
 			}
 		}
 
-		for ( NoteItem ni : noteList )
+		for (NoteItem ni : noteList)
 		{
 			if ("ALL".equals(token))
 			{
 				// TODO - Why doesn't this handle value the same as the VALUE token
-				sb.append(ni.getExportString(beforeHeader, afterHeader, beforeValue, afterValue));
+				sb.append(ni.getExportString(beforeHeader, afterHeader,
+					beforeValue, afterValue));
 			}
 			else if ("NAME".equals(token))
 			{
@@ -129,7 +131,7 @@ public class NoteToken extends Token
 			}
 			else if ("VALUE".equals(token))
 			{
-				String internal = beforeValue + afterValue; 
+				String internal = beforeValue + afterValue;
 				if ("".equals(internal))
 					internal = "$1";
 				sb.append(beforeValue);
@@ -141,7 +143,8 @@ public class NoteToken extends Token
 		return sb.toString();
 	}
 
-	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name) {
+	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name)
+	{
 		ArrayList<NoteItem> noteList = new ArrayList<NoteItem>();
 		List<NoteItem> resultList;
 
@@ -192,12 +195,10 @@ public class NoteToken extends Token
 	 * @param baseList The source list for notes
 	 * @param parentNode The id of the node to be processed.
 	 */
-	private static void buildSubTree(
-		List<NoteItem> targetList,
-		List<NoteItem> baseList,
-		int parentNode)
+	private static void buildSubTree(List<NoteItem> targetList,
+		List<NoteItem> baseList, int parentNode)
 	{
-		for ( NoteItem note : baseList )
+		for (NoteItem note : baseList)
 		{
 			if (note.getParentId() == parentNode
 				|| (parentNode == -1 && note.getParentId() < 0))
@@ -208,4 +209,3 @@ public class NoteToken extends Token
 		}
 	}
 }
-

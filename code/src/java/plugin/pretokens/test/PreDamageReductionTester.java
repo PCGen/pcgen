@@ -37,13 +37,16 @@ import pcgen.core.DamageReduction;
  * @author wardc
  *
  */
-public class PreDamageReductionTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreDamageReductionTester extends AbstractPrerequisiteTest
+		implements PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
 		int runningTotal = 0;
 
 		final int target = Integer.parseInt(prereq.getOperand());
@@ -51,7 +54,9 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest implement
 		{
 			if (dr.getBypass().equalsIgnoreCase(prereq.getKey()))
 			{
-				runningTotal = prereq.getOperator().compare(dr.getReductionValue(), target);
+				runningTotal =
+						prereq.getOperator().compare(dr.getReductionValue(),
+							target);
 				break;
 			}
 		}
@@ -62,7 +67,8 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest implement
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "DR"; //$NON-NLS-1$
 	}
 }

@@ -33,10 +33,11 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * @author wardc
  *
  */
-public class PreRuleParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreRuleParser extends AbstractPrerequisiteListParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "RULE" };
+		return new String[]{"RULE"};
 	}
 }

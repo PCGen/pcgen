@@ -37,8 +37,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import java.io.IOException;
 import java.io.Writer;
 
-
-public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter
+		implements PrerequisiteWriterInterface
 {
 
 	/* (non-Javadoc)
@@ -54,16 +54,15 @@ public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter impleme
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -91,7 +90,8 @@ public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter impleme
 	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
 	 */
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+		throws IOException
 	{
 		//
 		// If this is a PREMULT with all PRESPELLDESCRIPTORs ...
@@ -117,5 +117,3 @@ public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter impleme
 		return false;
 	}
 }
-
-

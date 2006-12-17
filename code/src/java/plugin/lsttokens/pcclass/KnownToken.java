@@ -11,18 +11,23 @@ import pcgen.util.Logging;
 /**
  * Class deals with KNOWN Token
  */
-public class KnownToken implements PCClassLstToken {
+public class KnownToken implements PCClassLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "KNOWN";
 	}
 
-	public boolean parse(PCClass pcclass, String value, int level) {
-		if (level > 0) {
+	public boolean parse(PCClass pcclass, String value, int level)
+	{
+		if (level > 0)
+		{
 			StringTokenizer st = new StringTokenizer(value, ",");
 
 			List<String> knownList = new ArrayList<String>(st.countTokens());
-			while (st.hasMoreTokens()) {
+			while (st.hasMoreTokens())
+			{
 				knownList.add(st.nextToken());
 			}
 

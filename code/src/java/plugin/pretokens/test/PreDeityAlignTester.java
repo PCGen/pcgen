@@ -21,7 +21,9 @@ import pcgen.util.PropertyFactory;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreDeityAlignTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -49,7 +51,9 @@ public class PreDeityAlignTester  extends AbstractPrerequisiteTest implements Pr
 			{
 				try
 				{
-					final int align = Integer.parseInt(character.getDeity().getAlignment());
+					final int align =
+							Integer.parseInt(character.getDeity()
+								.getAlignment());
 					deityAlign = aligns[align];
 				}
 				catch (NumberFormatException e)
@@ -82,16 +86,19 @@ public class PreDeityAlignTester  extends AbstractPrerequisiteTest implements Pr
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "DEITYALIGN"; //$NON-NLS-1$
 	}
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
-		return PropertyFactory.getFormattedString("PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), SettingsHandler.getGame().getShortAlignmentAtIndex(Integer.parseInt(prereq.getKey()) )); //$NON-NLS-1$
+	public String toHtmlString(final Prerequisite prereq)
+	{
+		return PropertyFactory
+			.getFormattedString(
+				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), SettingsHandler.getGame().getShortAlignmentAtIndex(Integer.parseInt(prereq.getKey()))); //$NON-NLS-1$
 	}
 
 }

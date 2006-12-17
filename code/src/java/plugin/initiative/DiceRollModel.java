@@ -57,8 +57,8 @@ public class DiceRollModel extends PObjectModel
 	public DiceRollModel(String objectString)
 	{
 		super(objectString);
-		setExpression(
-			getStringValue(outputTokens, SEGMENT_POSITION_DICE_EXPRESSION));
+		setExpression(getStringValue(outputTokens,
+			SEGMENT_POSITION_DICE_EXPRESSION));
 	}
 
 	/**

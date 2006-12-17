@@ -38,7 +38,7 @@ public class DeityToken implements KitDeityLstToken
 	public boolean parse(KitDeity kitDeity, String value)
 	{
 		Logging.errorPrint("Ignoring second DEITY tag \"" + value
-				+ "\" in Kit.");
+			+ "\" in Kit.");
 		return false;
 	}
 

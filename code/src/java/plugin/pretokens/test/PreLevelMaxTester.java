@@ -36,7 +36,9 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreLevelMaxTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreLevelMaxTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
@@ -44,8 +46,10 @@ public class PreLevelMaxTester extends AbstractPrerequisiteTest implements Prere
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character)
 	{
-		final int requiredLevel = Integer.parseInt( prereq.getOperand() );
-		final int runningTotal = prereq.getOperator().compare( character.getTotalPlayerLevels(), requiredLevel);
+		final int requiredLevel = Integer.parseInt(prereq.getOperand());
+		final int runningTotal =
+				prereq.getOperator().compare(character.getTotalPlayerLevels(),
+					requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -62,12 +66,9 @@ public class PreLevelMaxTester extends AbstractPrerequisiteTest implements Prere
 	 */
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
-			    "PreLevelMax.toHtml",
-			    new Object[]
-			    {
-				    prereq.getOperator().toDisplayString(), prereq.getOperand()
-			    }); // $NON-NLS-1$
+		return PropertyFactory.getFormattedString("PreLevelMax.toHtml",
+			new Object[]{prereq.getOperator().toDisplayString(),
+				prereq.getOperand()}); // $NON-NLS-1$
 	}
 
 }

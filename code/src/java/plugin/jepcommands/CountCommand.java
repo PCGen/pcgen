@@ -68,7 +68,7 @@ public class CountCommand extends PCGenCommand
 	{
 		return "COUNT";
 	}
-	
+
 	/**
 	 * Runs count on the inStack. The parameter is popped
 	 * off the <code>inStack</code>, and the variable's value is
@@ -88,7 +88,7 @@ public class CountCommand extends PCGenCommand
 		// have to do this in reverse order...this is a stack afterall
 		//
 		Object params[] = new Object[curNumberOfParameters];
-		for (int i = curNumberOfParameters-1; i >= 0 ; i--)
+		for (int i = curNumberOfParameters - 1; i >= 0; i--)
 		{
 			params[i] = inStack.pop();
 		}
@@ -135,17 +135,19 @@ public class CountCommand extends PCGenCommand
 	 * @return A Double with the number of matching abilities.
 	 * @throws ParseException If any invalid parameters are encountered.
 	 */
-	private Object countAbilities(PlayerCharacter pc, Object[] params) throws ParseException
+	private Object countAbilities(PlayerCharacter pc, Object[] params)
+		throws ParseException
 	{
 		if (params.length < 2)
 		{
-			throw new ParseException("Count of abilities had too few parameters.");
+			throw new ParseException(
+				"Count of abilities had too few parameters.");
 		}
-		
+
 		String visibility = "VISIBLE";
 		String category = null;
 		String nature = "NORMAL";
-		
+
 		// Parse the parameters passed in
 		for (int i = 1; i < params.length; i++)
 		{
@@ -156,7 +158,7 @@ public class CountCommand extends PCGenCommand
 						+ String.valueOf(params[i]));
 			}
 
-			String[] keyValue=((String)params[i]).split("=");
+			String[] keyValue = ((String) params[i]).split("=");
 			if ("CATEGORY".equalsIgnoreCase(keyValue[0]))
 			{
 				category = keyValue[1];
@@ -176,14 +178,14 @@ public class CountCommand extends PCGenCommand
 						+ String.valueOf(params[i]));
 			}
 		}
-		
+
 		// Fetch the requested list of abilities
-		final AbilityCategory aCategory = SettingsHandler.getGame()
-			.getAbilityCategory(category);
+		final AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory(category);
 		if (aCategory == null)
 		{
-			throw new ParseException(
-				"Invalid category specified " + String.valueOf(category));
+			throw new ParseException("Invalid category specified "
+				+ String.valueOf(category));
 		}
 		final List<Ability> abilities = new ArrayList<Ability>();
 		if ("ALL".equals(nature))
@@ -215,7 +217,7 @@ public class CountCommand extends PCGenCommand
 				count++;
 			}
 		}
-		
+
 		return new Double(count);
 	}
 }

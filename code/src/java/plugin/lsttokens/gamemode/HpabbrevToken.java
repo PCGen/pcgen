@@ -6,13 +6,16 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with HPABBREV Token
  */
-public class HpabbrevToken implements GameModeLstToken {
+public class HpabbrevToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HPABBREV";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setHPAbbrev(value);
 		return true;
 	}

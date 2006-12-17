@@ -37,23 +37,30 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreHPTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreHPTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 		int runningTotal;
 		try
 		{
 			final int targetHP = Integer.parseInt(prereq.getOperand());
 
-			runningTotal = prereq.getOperator().compare(character.hitPoints(), targetHP);
+			runningTotal =
+					prereq.getOperator().compare(character.hitPoints(),
+						targetHP);
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreHP.error.bad_operand", prereq.getOperand()) ); //$NON-NLS-1$
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreHP.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}
@@ -61,9 +68,9 @@ public class PreHPTester extends AbstractPrerequisiteTest implements Prerequisit
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
-		return "HP" ; //$NON-NLS-1$
+	public String kindHandled()
+	{
+		return "HP"; //$NON-NLS-1$
 	}
-
 
 }

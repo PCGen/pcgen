@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RuleCheckLstToken;
 /**
  * Class deals with DESC Token
  */
-public class DescToken implements RuleCheckLstToken {
+public class DescToken implements RuleCheckLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "DESC";
 	}
 
-	public boolean parse(RuleCheck rule, String value) {
+	public boolean parse(RuleCheck rule, String value)
+	{
 		rule.setDesc(value);
 		return true;
 	}

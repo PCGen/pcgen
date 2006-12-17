@@ -11,19 +11,24 @@ import pcgen.persistence.lst.GlobalLstToken;
  * @author djones4
  *
  */
-public class SrLst implements GlobalLstToken {
+public class SrLst implements GlobalLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SR";
 	}
 
-	public boolean parse(PObject obj, String value, int anInt) {
-		if (".CLEAR".equals(value)) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
+		if (".CLEAR".equals(value))
+		{
 			obj.clearSRList();
-		} else {
+		}
+		else
+		{
 			obj.setSR(anInt, value);
 		}
 		return true;
 	}
 }
-

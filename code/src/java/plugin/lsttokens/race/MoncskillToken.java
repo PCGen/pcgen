@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RaceLstToken;
 /**
  * Class deals with MONCSKILL Token
  */
-public class MoncskillToken implements RaceLstToken {
+public class MoncskillToken implements RaceLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "MONCSKILL";
 	}
 
-	public boolean parse(Race race, String value) {
+	public boolean parse(Race race, String value)
+	{
 		race.setMonCSkillList(value);
 		return true;
 	}

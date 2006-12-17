@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with PUBNAMELONG Token
  */
-public class PubnamelongToken implements CampaignLstToken {
+public class PubnamelongToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "PUBNAMELONG";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUl)
+	{
 		campaign.setPubNameLong(value);
 		return true;
 	}

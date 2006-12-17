@@ -33,41 +33,47 @@ import pcgen.io.exporttoken.Token;
 /**
  * Deals with returning value of TEMPLATELIST token
  */
-public class TemplateListToken extends Token {
-    /** Token name */
-    public static final String TOKENNAME = "TEMPLATELIST";
+public class TemplateListToken extends Token
+{
+	/** Token name */
+	public static final String TOKENNAME = "TEMPLATELIST";
 
-    /**
-     * @see pcgen.io.exporttoken.Token#getTokenName()
-     */
-    public String getTokenName() {
-        return TOKENNAME;
-    }
+	/**
+	 * @see pcgen.io.exporttoken.Token#getTokenName()
+	 */
+	public String getTokenName()
+	{
+		return TOKENNAME;
+	}
 
-    /**
-     * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
-     *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-     */
-    public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh) {
-        return getTemplateListToken(pc);
-    }
+	/**
+	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
+	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 */
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
+	{
+		return getTemplateListToken(pc);
+	}
 
-    /**
-     * Get value of TEMPALTELIST token
-     * 
-     * @param pc
-     * @return value of TEMPALTELIST token
-     */
-    public static String getTemplateListToken(PlayerCharacter pc) {
-        StringBuffer retString = new StringBuffer();
-        String del = "";
+	/**
+	 * Get value of TEMPALTELIST token
+	 * 
+	 * @param pc
+	 * @return value of TEMPALTELIST token
+	 */
+	public static String getTemplateListToken(PlayerCharacter pc)
+	{
+		StringBuffer retString = new StringBuffer();
+		String del = "";
 
-        for (PCTemplate template : pc.getOutputVisibleTemplateList()) {
-            // karianna bug 1514970
-            retString.append(del).append(template.getOutputName());
+		for (PCTemplate template : pc.getOutputVisibleTemplateList())
+		{
+			// karianna bug 1514970
+			retString.append(del).append(template.getOutputName());
 			del = ", ";
 		}
 
-        return retString.toString();
-    }
+		return retString.toString();
+	}
 }

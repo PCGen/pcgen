@@ -8,13 +8,16 @@ import java.net.URL;
 /**
  * Class deals with SETTING Token
  */
-public class SettingToken implements CampaignLstToken {
+public class SettingToken implements CampaignLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "SETTING";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUl) {
+	public boolean parse(Campaign campaign, String value, URL sourceUl)
+	{
 		campaign.setSetting(value);
 		return true;
 	}

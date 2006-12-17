@@ -8,13 +8,16 @@ import pcgen.persistence.lst.BonusSpellLstToken;
 /**
  * Class deals with STATRANGE Token
  */
-public class StatrangeToken implements BonusSpellLstToken {
+public class StatrangeToken implements BonusSpellLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "STATRANGE";
 	}
 
-	public boolean parse(Map<String, String> bonus, String value) {
+	public boolean parse(Map<String, String> bonus, String value)
+	{
 		bonus.put(BonusSpellLoader.STAT_RANGE, value);
 		return true;
 	}

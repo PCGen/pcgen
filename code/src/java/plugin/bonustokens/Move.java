@@ -36,14 +36,11 @@ import pcgen.util.enumeration.Load;
 public final class Move extends BonusObj
 {
 	private static final String[] bonusHandled =
-		{
-		    "MOVE",
-			"MOVEADD",
-			"MOVEMULT",
-			"POSTMOVEADD"
-		};
+			{"MOVE", "MOVEADD", "MOVEMULT", "POSTMOVEADD"};
 
-	private static final String[] bonusTags = { Load.LIGHT.toString(), Load.MEDIUM.toString(), Load.HEAVY.toString(), Load.OVERLOAD.toString() };
+	private static final String[] bonusTags =
+			{Load.LIGHT.toString(), Load.MEDIUM.toString(),
+				Load.HEAVY.toString(), Load.OVERLOAD.toString()};
 
 	protected boolean parseToken(final String token)
 	{

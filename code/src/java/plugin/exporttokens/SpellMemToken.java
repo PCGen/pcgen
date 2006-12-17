@@ -61,7 +61,8 @@ public class SpellMemToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter aPC, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter aPC,
+		ExportHandler eh)
 	{
 		StringBuffer retValue = new StringBuffer();
 
@@ -122,15 +123,18 @@ public class SpellMemToken extends Token
 				if (classNum == -1)
 				{
 					// List of all the character's spells (including SLAs)
-					final List<CharacterSpell> charSpellList = new ArrayList<CharacterSpell>();
+					final List<CharacterSpell> charSpellList =
+							new ArrayList<CharacterSpell>();
 
 					// For each class
-					for ( PCClass pcClass : aPC.getClassList() )
+					for (PCClass pcClass : aPC.getClassList())
 					{
 						// Get the spells provided by the class
-						List<CharacterSpell> aList = pcClass.getSpellSupport().getCharacterSpell(null, bookName, spellLevel);
+						List<CharacterSpell> aList =
+								pcClass.getSpellSupport().getCharacterSpell(
+									null, bookName, spellLevel);
 
-						for ( CharacterSpell cs : aList )
+						for (CharacterSpell cs : aList)
 						{
 							// Add to the list if they are not there already
 							if (!charSpellList.contains(cs))
@@ -154,7 +158,9 @@ public class SpellMemToken extends Token
 				else if (aObject != null)
 				{
 					// List of spells provided by this PObject
-					final List<CharacterSpell> charSpells = aObject.getSpellSupport().getCharacterSpell(null, bookName, spellLevel);
+					final List<CharacterSpell> charSpells =
+							aObject.getSpellSupport().getCharacterSpell(null,
+								bookName, spellLevel);
 
 					if (spellNumber < charSpells.size())
 					{
@@ -180,7 +186,9 @@ public class SpellMemToken extends Token
 				}
 
 				// Get the SpellInfo for the selected spell
-				final SpellInfo si = selectedCSpell.getSpellInfoFor(bookName, spellLevel, -1);
+				final SpellInfo si =
+						selectedCSpell
+							.getSpellInfoFor(bookName, spellLevel, -1);
 
 				if (found && (aSpell != null) && (si != null))
 				{
@@ -210,11 +218,13 @@ public class SpellMemToken extends Token
 							retValue.append(String.valueOf(si.getTimes()));
 						}
 					}
-					else // if (aSpell != null) can't be null
+					else
+					// if (aSpell != null) can't be null
 					{
 						if ("RANGE".equals(aLabel))
 						{
-							retValue.append(aPC.getSpellRange(aSpell, selectedCSpell.getOwner(), si));
+							retValue.append(aPC.getSpellRange(aSpell,
+								selectedCSpell.getOwner(), si));
 						}
 						else if ("BASEPPCOST".equals(aLabel))
 						{
@@ -222,7 +232,8 @@ public class SpellMemToken extends Token
 						}
 						else if ("CASTERLEVEL".equals(aLabel))
 						{
-							retValue.append(aPC.getCasterLevelForSpell(aSpell, selectedCSpell.getOwner().getKeyName()));
+							retValue.append(aPC.getCasterLevelForSpell(aSpell,
+								selectedCSpell.getOwner().getKeyName()));
 						}
 						else if ("CASTINGTIME".equals(aLabel))
 						{
@@ -243,17 +254,29 @@ public class SpellMemToken extends Token
 						}
 						else if ("DURATION".equals(aLabel))
 						{
-							String mString = aPC.parseSpellString(aSpell, aSpell.getDuration(), selectedCSpell.getOwner());
+							String mString =
+									aPC.parseSpellString(aSpell, aSpell
+										.getDuration(), selectedCSpell
+										.getOwner());
 							retValue.append(mString);
 						}
-						else if ("DESC".equals(aLabel) || "EFFECT".equals(aLabel))
+						else if ("DESC".equals(aLabel)
+							|| "EFFECT".equals(aLabel))
 						{
-							String mString = aPC.parseSpellString(aSpell, aSpell.getDescription(aPC), selectedCSpell.getOwner());
+							String mString =
+									aPC.parseSpellString(aSpell, aSpell
+										.getDescription(aPC), selectedCSpell
+										.getOwner());
 							retValue.append(mString);
 						}
-						else if ("TARGET".equals(aLabel) || "EFFECTYPE".equals(aLabel))
+						else if ("TARGET".equals(aLabel)
+							|| "EFFECTYPE".equals(aLabel))
 						{
-							String mString = aPC.parseSpellString(aSpell, aSpell.getTarget(), selectedCSpell.getOwner());
+							String mString =
+									aPC
+										.parseSpellString(aSpell, aSpell
+											.getTarget(), selectedCSpell
+											.getOwner());
 							retValue.append(mString);
 						}
 						else if ("SAVEINFO".equals(aLabel))
@@ -266,7 +289,8 @@ public class SpellMemToken extends Token
 						}
 						else if ("SOURCELEVEL".equals(aLabel))
 						{
-							retValue.append(replaceTokenSpellMemSourceLevel(aSpell, aPC));
+							retValue.append(replaceTokenSpellMemSourceLevel(
+								aSpell, aPC));
 						}
 						else if ("SOURCE".equals(aLabel))
 						{
@@ -295,7 +319,8 @@ public class SpellMemToken extends Token
 							String aTemp = aSpell.getSchool();
 
 							if ((aSpell.getSubschool().length() > 0)
-								&& (!"NONE".equals(aSpell.getSubschool().trim().toUpperCase())))
+								&& (!"NONE".equals(aSpell.getSubschool().trim()
+									.toUpperCase())))
 							{
 								aTemp += (" (" + aSpell.getSubschool() + ')');
 							}
@@ -339,14 +364,15 @@ public class SpellMemToken extends Token
 						}
 						else if (aLabel.startsWith("DESCRIPTION"))
 						{
-							final String sString = ExportHandler
-								.getItemDescription("SPELL", aSpell.getKeyName(),
-									aSpell.getDescription(aPC), aPC);
+							final String sString =
+									ExportHandler.getItemDescription("SPELL",
+										aSpell.getKeyName(), aSpell
+											.getDescription(aPC), aPC);
 
 							if (altLabel.length() > 0)
 							{
-								retValue.append(Token
-									.replaceWithDelimiter(sString, altLabel));
+								retValue.append(Token.replaceWithDelimiter(
+									sString, altLabel));
 							}
 							else
 							{
@@ -362,10 +388,9 @@ public class SpellMemToken extends Token
 								sString = aLabel.substring(10);
 							}
 
-							retValue
-								.append(getBonusSpellValue(aPC, spellLevel,
-									sString, altLabel, aObject, bookName,
-									selectedCSpell,	aSpell));
+							retValue.append(getBonusSpellValue(aPC, spellLevel,
+								sString, altLabel, aObject, bookName,
+								selectedCSpell, aSpell));
 						}
 						else if ("XPCOST".equals(aLabel))
 						{
@@ -387,7 +412,6 @@ public class SpellMemToken extends Token
 		return retValue.toString();
 	}
 
-
 	/**
 	 * Display an * is the spell is a domain/specialty spell,
 	 * display ** if it is ONLY a domain/specialty spell. A value
@@ -403,7 +427,9 @@ public class SpellMemToken extends Token
 	 * @param aSpell The generic spell.
 	 * @return The annotation string indicating domain/specialty status
 	 */
-	private String getBonusSpellValue(PlayerCharacter aPC, final int spellLevel, String sString, String altLabel, final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
+	private String getBonusSpellValue(PlayerCharacter aPC,
+		final int spellLevel, String sString, String altLabel,
+		final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
 	{
 		final List<String> dList = new ArrayList<String>();
 		StringBuffer retValue = new StringBuffer();
@@ -411,7 +437,7 @@ public class SpellMemToken extends Token
 		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell()
 			&& (aObject instanceof PCClass))
 		{
-			for ( CharacterDomain cd : aPC.getCharacterDomainList() )
+			for (CharacterDomain cd : aPC.getCharacterDomainList())
 			{
 				if ((cd != null) && (cd.getDomain() != null)
 					&& cd.isFromPCClass(aObject.getKeyName()))
@@ -420,10 +446,12 @@ public class SpellMemToken extends Token
 				}
 			}
 
-			final List<CharacterSpell> charSpells = aObject.getSpellSupport().getCharacterSpell(aSpell, bookName, spellLevel);
+			final List<CharacterSpell> charSpells =
+					aObject.getSpellSupport().getCharacterSpell(aSpell,
+						bookName, spellLevel);
 			boolean isDomainOnly = true;
 
-			for ( CharacterSpell cSpell : charSpells )
+			for (CharacterSpell cSpell : charSpells)
 			{
 				if (!cSpell.isSpecialtySpell())
 				{
@@ -450,19 +478,20 @@ public class SpellMemToken extends Token
 		return retValue.toString();
 	}
 
-	private static String replaceTokenSpellMemSourceLevel(Spell aSpell, PlayerCharacter aPC)
+	private static String replaceTokenSpellMemSourceLevel(Spell aSpell,
+		PlayerCharacter aPC)
 	{
 		final Map<String, Integer> tempHash = aSpell.getLevelInfo(aPC);
 		StringBuffer tempSource = new StringBuffer();
 		final Set<String> levelSet = new TreeSet<String>();
 
-		for ( Map.Entry<String, Integer> entry : tempHash.entrySet() )
+		for (Map.Entry<String, Integer> entry : tempHash.entrySet())
 		{
 			String classKey = entry.getKey();
 			if (classKey.startsWith("CLASS|"))
 			{
 				classKey = classKey.substring(6);
-				if (! "ALL".equals(classKey))
+				if (!"ALL".equals(classKey))
 				{
 					if (Globals.getClassKeyed(classKey) != null)
 					{
@@ -485,7 +514,7 @@ public class SpellMemToken extends Token
 			}
 		}
 
-		for ( String levelString : levelSet )
+		for (String levelString : levelSet)
 		{
 			if (tempSource.length() > 0)
 			{

@@ -34,26 +34,32 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.PropertyFactory;
 
-
 /**
  * @author wardc
  *
  */
-public class PreTemplateTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreTemplateTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+		throws PrerequisiteException
+	{
 		int runningTotal = 0;
 
 		final int number;
-		try {
+		try
+		{
 			number = Integer.parseInt(prereq.getOperand());
 		}
-		catch (NumberFormatException exceptn) {
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreTemplate.error", prereq.toString())); //$NON-NLS-1$
+		catch (NumberFormatException exceptn)
+		{
+			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+				"PreTemplate.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		if (!character.getTemplateList().isEmpty())
@@ -67,7 +73,8 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 				templateKey = templateKey.substring(0, wildCard);
 				for (PCTemplate aTemplate : character.getTemplateList())
 				{
-					if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
+					if (aTemplate.getKeyName().toUpperCase().startsWith(
+						templateKey))
 					{
 						runningTotal++;
 					}
@@ -85,7 +92,8 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "TEMPLATE"; //$NON-NLS-1$
 	}
 

@@ -66,7 +66,8 @@ public class TemplateToken extends Token
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 		PCTemplate template;
@@ -112,7 +113,7 @@ public class TemplateToken extends Token
 			else if ("DR".equals(aLabel))
 			{
 				retString = pc.calcDR();
-//				retString = getDRToken(template, pc);
+				//				retString = getDRToken(template, pc);
 			}
 			else
 			{
@@ -140,11 +141,10 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of DR sub token
 	 */
-//	public static String getDRToken(PCTemplate template, PlayerCharacter pc)
-//	{
-//		return template.getDR(pc.getTotalLevels(), pc.totalHitDice());
-//	}
-
+	//	public static String getDRToken(PCTemplate template, PlayerCharacter pc)
+	//	{
+	//		return template.getDR(pc.getTotalLevels(), pc.totalHitDice());
+	//	}
 	/**
 	 * Get value of FEAT sub token
 	 * @param template
@@ -153,7 +153,9 @@ public class TemplateToken extends Token
 	 */
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
-		List<String> fList = template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc, false);
+		List<String> fList =
+				template.feats(pc.getTotalLevels(), pc.totalHitDice(), pc,
+					false);
 		return CoreUtility.join(fList, ", ");
 	}
 
@@ -164,13 +166,15 @@ public class TemplateToken extends Token
 	 * @param aLabel
 	 * @return value of MOD sub token
 	 */
-	public static String getModToken(PlayerCharacter pc, PCTemplate template, String aLabel)
+	public static String getModToken(PlayerCharacter pc, PCTemplate template,
+		String aLabel)
 	{
 		StringBuffer retString = new StringBuffer();
 
 		for (int iMod = 0; iMod < SettingsHandler.getGame().s_ATTRIBSHORT.length; ++iMod)
 		{
-			String modName = SettingsHandler.getGame().s_ATTRIBSHORT[iMod] + "MOD";
+			String modName =
+					SettingsHandler.getGame().s_ATTRIBSHORT[iMod] + "MOD";
 
 			if (aLabel.equals(modName))
 			{
@@ -218,7 +222,9 @@ public class TemplateToken extends Token
 	 */
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
-		List<SpecialAbility> saList = template.getSpecialAbilityList(pc.getTotalLevels(), pc.totalHitDice());
+		List<SpecialAbility> saList =
+				template.getSpecialAbilityList(pc.getTotalLevels(), pc
+					.totalHitDice());
 		return CoreUtility.join(saList, ", ");
 	}
 

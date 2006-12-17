@@ -38,7 +38,8 @@ import pcgen.util.Logging;
  * @author wardc
  *
  */
-public class PreStatParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreStatParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/**
 	 *
@@ -53,7 +54,8 @@ public class PreStatParser extends AbstractPrerequisiteParser implements Prerequ
 	 */
 	public String[] kindsHandled()
 	{
-		return new String[]{ "STAT", "STATEQ", "STATGT", "STATGTEQ", "STATLT", "STATLTEQ", "STATNEQ" };
+		return new String[]{"STAT", "STATEQ", "STATGT", "STATGTEQ", "STATLT",
+			"STATLTEQ", "STATNEQ"};
 	}
 
 	/**
@@ -65,13 +67,15 @@ public class PreStatParser extends AbstractPrerequisiteParser implements Prerequ
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		try
 		{
-			prereq.setKind(null);		// PREMULT
+			prereq.setKind(null); // PREMULT
 
 			// Get the comparator type STATGTEQ, STAT, STATNEQ etc.
 			String compType = kind.substring(4).toLowerCase();
@@ -93,7 +97,8 @@ public class PreStatParser extends AbstractPrerequisiteParser implements Prerequ
 			}
 			catch (NumberFormatException e)
 			{
-				Logging.errorPrint("Badly formed PRESTAT attribute: " + aString);
+				Logging
+					.errorPrint("Badly formed PRESTAT attribute: " + aString);
 				prereq.setOperand("1");
 			}
 
@@ -104,10 +109,13 @@ public class PreStatParser extends AbstractPrerequisiteParser implements Prerequ
 				final int idxEquals = aString.lastIndexOf('=');
 				if (idxEquals < 3)
 				{
-					throw new PersistenceLayerException("PRE" + kindsHandled()[0] + " formula '" + formula + "' is not valid.");
+					throw new PersistenceLayerException("PRE"
+						+ kindsHandled()[0] + " formula '" + formula
+						+ "' is not valid.");
 				}
 
-				final String stat = aString.substring(0, Math.min(3, idxEquals));
+				final String stat =
+						aString.substring(0, Math.min(3, idxEquals));
 				Prerequisite statPrereq = new Prerequisite();
 				statPrereq.setKind("stat");
 				statPrereq.setKey(stat);
@@ -117,21 +125,23 @@ public class PreStatParser extends AbstractPrerequisiteParser implements Prerequ
 				prereq.addPrerequisite(statPrereq);
 			}
 
-			if ((prereq.getPrerequisites().size() == 1) &&
-				prereq.getOperator().equals(PrerequisiteOperator.GTEQ) &&
-				prereq.getOperand().equals("1"))
+			if ((prereq.getPrerequisites().size() == 1)
+				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
+				&& prereq.getOperand().equals("1"))
 			{
 				prereq = prereq.getPrerequisites().get(0);
 			}
 
 			if (invertResult)
 			{
-				prereq.setOperator( prereq.getOperator().invert());
+				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
 		catch (PrerequisiteException pe)
 		{
-			throw new PersistenceLayerException("Unable to parse the prerequisite :'" + kind + ":" + formula + "'. "+ pe.getLocalizedMessage());
+			throw new PersistenceLayerException(
+				"Unable to parse the prerequisite :'" + kind + ":" + formula
+					+ "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

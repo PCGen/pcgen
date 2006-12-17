@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.BonusObj;
 
-
 /**
  * <code>ItemWeight</code>
  *
@@ -35,10 +34,7 @@ import pcgen.core.bonus.BonusObj;
  */
 public final class ItemWeight extends BonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"ITEMWEIGHT"
-		};
+	private static final String[] bonusHandled = {"ITEMWEIGHT"};
 
 	protected boolean parseToken(final String token)
 	{

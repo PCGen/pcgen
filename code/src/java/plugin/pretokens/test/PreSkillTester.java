@@ -38,33 +38,36 @@ import pcgen.core.prereq.PrerequisiteOperator;
  * @author wardc
  *
  */
-public class PreSkillTester  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreSkillTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character) {
-		final int requiredRanks = Integer.parseInt( prereq.getOperand());
+	public int passes(final Prerequisite prereq, final PlayerCharacter character)
+	{
+		final int requiredRanks = Integer.parseInt(prereq.getOperand());
 
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
-		if (prereq.getSubKey()!=null) {
+		if (prereq.getSubKey() != null)
+		{
 			requiredSkillKey += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		final boolean isType = (requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType =
+				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
 			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
 		}
 		final String skillKey = requiredSkillKey.toUpperCase();
 
-
 		// Now locate all instances of this skillname and test them
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 		int runningTotal = 0;
-
 
 		boolean foundMatch = false;
 		boolean foundSkill = false;
@@ -76,9 +79,10 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 				if (percentageSignPosition >= 0)
 				{
 					final int maxCount = aSkill.getMyTypeCount();
-					for (int k=0; k < maxCount && !foundMatch; k++)
+					for (int k = 0; k < maxCount && !foundMatch; k++)
 					{
-						if (aSkill.getMyType(k).startsWith(skillKey.substring(0, percentageSignPosition)))
+						if (aSkill.getMyType(k).startsWith(
+							skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;
 						}
@@ -86,29 +90,35 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 				}
 				else if (aSkill.isType(skillKey))
 				{
-					foundMatch=true;
+					foundMatch = true;
 				}
 
-				if (foundMatch) {
+				if (foundMatch)
+				{
 					foundSkill = foundMatch;
 					if (prereq.isTotalValues())
 					{
-						runningTotal += aSkill.getTotalRank(character).intValue();
+						runningTotal +=
+								aSkill.getTotalRank(character).intValue();
 					}
 					else
 					{
-						if (prereq.getOperator().compare( aSkill.getTotalRank(character).intValue(), requiredRanks ) > 0)
+						if (prereq.getOperator().compare(
+							aSkill.getTotalRank(character).intValue(),
+							requiredRanks) > 0)
 						{
 							runningTotal++;
 						}
 					}
-					if (runningTotal==0) {
-						foundMatch=false;
+					if (runningTotal == 0)
+					{
+						foundMatch = false;
 					}
 				}
 			}
-			else if (aSkillKey.equals(skillKey) ||
-					((percentageSignPosition >= 0) && aSkillKey.startsWith(skillKey.substring(0, percentageSignPosition))))
+			else if (aSkillKey.equals(skillKey)
+				|| ((percentageSignPosition >= 0) && aSkillKey
+					.startsWith(skillKey.substring(0, percentageSignPosition))))
 			{
 				foundSkill = true;
 				if (prereq.isTotalValues())
@@ -117,20 +127,23 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 				}
 				else
 				{
-					if (prereq.getOperator().compare( aSkill.getTotalRank(character).intValue(), requiredRanks ) > 0)
+					if (prereq.getOperator().compare(
+						aSkill.getTotalRank(character).intValue(),
+						requiredRanks) > 0)
 					{
 						runningTotal++;
 					}
 				}
-				if (runningTotal>0) {
-					foundMatch=true;
+				if (runningTotal > 0)
+				{
+					foundMatch = true;
 				}
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
 			{
 				// For counted totals we want to count all occurances, not just the first
-				foundMatch=false;
+				foundMatch = false;
 			}
 			if (foundMatch)
 			{
@@ -153,25 +166,27 @@ public class PreSkillTester  extends AbstractPrerequisiteTest implements Prerequ
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "SKILL"; //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
+	public String toHtmlString(final Prerequisite prereq)
+	{
 		String skillName = prereq.getKey();
-		if (prereq.getSubKey() != null && !prereq.getSubKey().equals(""))  //$NON-NLS-1$
+		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
 			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 
 		}
 
-		final String foo = PropertyFactory.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						skillName } );
+		final String foo =
+				PropertyFactory.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+					new Object[]{prereq.getOperator().toDisplayString(),
+						prereq.getOperand(), skillName});
 		return foo;
 	}
 

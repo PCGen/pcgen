@@ -6,13 +6,16 @@ import pcgen.persistence.lst.PCAlignmentLstToken;
 /**
  * Class deals with VALIDFORFOLLOWER Token
  */
-public class ValidforfollowerToken implements PCAlignmentLstToken{
+public class ValidforfollowerToken implements PCAlignmentLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "VALIDFORFOLLOWER";
 	}
 
-	public boolean parse(PCAlignment align, String value) {
+	public boolean parse(PCAlignment align, String value)
+	{
 		align.setValidForFollower(value.toUpperCase().startsWith("Y"));
 		return true;
 	}

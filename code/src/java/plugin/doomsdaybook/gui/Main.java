@@ -43,7 +43,8 @@ public class Main extends javax.swing.JFrame
 		nameGenPanel1.namePrefs.putInt("WindowHeight", this.getSize().height);
 		System.exit(0);
 	}
-	 //GEN-LAST:event_exitForm
+
+	//GEN-LAST:event_exitForm
 
 	/** This method is called from within the constructor to
 	 * initialize the form.
@@ -52,19 +53,21 @@ public class Main extends javax.swing.JFrame
 	 */
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
-		nameGenPanel1 = new plugin.doomsdaybook.gui.NameGenPanel(new File("./Data/"));
+		nameGenPanel1 =
+				new plugin.doomsdaybook.gui.NameGenPanel(new File("./Data/"));
 		setTitle("The Doomsday Book Name Generator");
 		addWindowListener(new java.awt.event.WindowAdapter()
+		{
+			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					exitForm(evt);
-				}
-			});
+				exitForm(evt);
+			}
+		});
 		getContentPane().add(nameGenPanel1, java.awt.BorderLayout.CENTER);
 		pack();
 	}
-	 //GEN-END:initComponents
+
+	//GEN-END:initComponents
 
 	private void initPrefs()
 	{
@@ -75,8 +78,9 @@ public class Main extends javax.swing.JFrame
 		int iWinWidth = nameGenPanel1.namePrefs.getInt("WindowWidth", 700);
 		int iWinHeight = nameGenPanel1.namePrefs.getInt("WindowHeight", 300);
 		this.setSize(iWinWidth, iWinHeight);
-		setTitle(getTitle() + " v" + nameGenPanel1.namePrefs.getDouble("Version", 0) + "."
-		    + nameGenPanel1.namePrefs.getDouble("SubVersion", 0));
+		setTitle(getTitle() + " v"
+			+ nameGenPanel1.namePrefs.getDouble("Version", 0) + "."
+			+ nameGenPanel1.namePrefs.getDouble("SubVersion", 0));
 	}
 
 	// End of variables declaration//GEN-END:variables

@@ -28,19 +28,21 @@ package plugin.lsttokens.gamemode;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
-
 /**
  * <code>AlignmentnameToken</code>
  *
  * @author  Greg Bingleman <byngl@hotmail.com>
  */
-public class AlignmentnameToken implements GameModeLstToken {
+public class AlignmentnameToken implements GameModeLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "ALIGNMENTNAME";
 	}
 
-	public boolean parse(GameMode gameMode, String value) {
+	public boolean parse(GameMode gameMode, String value)
+	{
 		gameMode.setAlignmentText(value);
 		return true;
 	}

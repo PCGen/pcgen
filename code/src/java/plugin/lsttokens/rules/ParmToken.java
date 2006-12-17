@@ -6,13 +6,16 @@ import pcgen.persistence.lst.RuleCheckLstToken;
 /**
  * Class deals with PARM Token
  */
-public class ParmToken implements RuleCheckLstToken {
+public class ParmToken implements RuleCheckLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "PARM";
 	}
 
-	public boolean parse(RuleCheck rule, String value) {
+	public boolean parse(RuleCheck rule, String value)
+	{
 		rule.setParameter(value);
 		return true;
 	}

@@ -27,7 +27,6 @@ package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
-
 /**
  * <code>Lang</code>
  *
@@ -35,14 +34,8 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class Lang extends MultiTagBonusObj
 {
-	private static final String[] bonusHandled =
-		{
-			"LANG"
-		};
-	private static final String[] bonusTags =
-		{
-			"BONUS"
-		};
+	private static final String[] bonusHandled = {"LANG"};
+	private static final String[] bonusTags = {"BONUS"};
 
 	protected String[] getBonusesHandled()
 	{

@@ -36,13 +36,16 @@ import pcgen.util.PropertyFactory;
  * @author wardc
  *
  */
-public class PreAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest {
+public class PreAlignTester extends AbstractPrerequisiteTest implements
+		PrerequisiteTest
+{
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, final PlayerCharacter aPC)
+	public int passes(final Prerequisite prereq, final Equipment equipment,
+		final PlayerCharacter aPC)
 	{
 		if (aPC == null)
 		{
@@ -67,26 +70,33 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		{
 			final GameMode gm = SettingsHandler.getGame();
 			String desiredAlignment = prereq.getKey();
-			try {
+			try
+			{
 				final int align = Integer.parseInt(prereq.getKey());
-				final String[] aligns = SettingsHandler.getGame().getAlignmentListStrings(false);
+				final String[] aligns =
+						SettingsHandler.getGame()
+							.getAlignmentListStrings(false);
 				desiredAlignment = aligns[align];
 			}
-			catch (Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle this?
 			}
-			final String charAlignment = gm.getShortAlignmentAtIndex(character.getAlignment());
+			final String charAlignment =
+					gm.getShortAlignmentAtIndex(character.getAlignment());
 
 			if (desiredAlignment.equalsIgnoreCase(charAlignment))
 			{
-				runningTotal=1;
+				runningTotal = 1;
 			}
-			else if ((desiredAlignment.equalsIgnoreCase("Deity")) && (character.getDeity() != null))
+			else if ((desiredAlignment.equalsIgnoreCase("Deity"))
+				&& (character.getDeity() != null))
 			{
-				final String deityAlignStr = character.getDeity().getAlignment();
-				if (deityAlignStr.equalsIgnoreCase( charAlignment ))
+				final String deityAlignStr =
+						character.getDeity().getAlignment();
+				if (deityAlignStr.equalsIgnoreCase(charAlignment))
 				{
-					runningTotal= 1;
+					runningTotal = 1;
 				}
 			}
 		}
@@ -94,31 +104,34 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		return countedTotal(prereq, runningTotal);
 	}
 
-
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled()
+	{
 		return "align"; //$NON-NLS-1$
 	}
-
-
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
-	public String toHtmlString(final Prerequisite prereq) {
+	public String toHtmlString(final Prerequisite prereq)
+	{
 		String alignment = prereq.getKey();
-		try {
+		try
+		{
 			final int align = Integer.parseInt(prereq.getKey());
-			final String[] aligns = SettingsHandler.getGame().getAlignmentListStrings(false);
+			final String[] aligns =
+					SettingsHandler.getGame().getAlignmentListStrings(false);
 			alignment = aligns[align];
 		}
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			// TODO Handle this?
 		}
-		return PropertyFactory.getFormattedString("PreAlign.toHtml", prereq.getOperator().toDisplayString(), alignment); //$NON-NLS-1$
+		return PropertyFactory
+			.getFormattedString(
+				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), alignment); //$NON-NLS-1$
 	}
 
 }

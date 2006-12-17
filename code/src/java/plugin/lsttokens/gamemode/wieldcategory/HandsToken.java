@@ -6,19 +6,24 @@ import pcgen.persistence.lst.WieldCategoryLstToken;
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken implements WieldCategoryLstToken {
+public class HandsToken implements WieldCategoryLstToken
+{
 
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "HANDS";
 	}
 
-	public boolean parse(WieldCategory cat, String value) {
+	public boolean parse(WieldCategory cat, String value)
+	{
 		// Minimum hands required to wield weapon
-		try {
+		try
+		{
 			cat.setHands(Integer.parseInt(value));
 			return true;
 		}
-		catch(NumberFormatException nfe) {
+		catch (NumberFormatException nfe)
+		{
 			return false;
 		}
 	}

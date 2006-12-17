@@ -22,26 +22,29 @@ import pcgen.util.Logging;
  * @author djones4
  *
  */
-public class NaturalattacksLst implements GlobalLstToken {
+public class NaturalattacksLst implements GlobalLstToken
+{
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
-	public String getTokenName() {
+	public String getTokenName()
+	{
 		return "NATURALATTACKS"; //$NON-NLS-1$
 	}
 
 	/**
 	 * @see pcgen.persistence.lst.GlobalLstToken#parse(pcgen.core.PObject, java.lang.String, int)
 	 */
-	public boolean parse(PObject obj, String value, int anInt) {
+	public boolean parse(PObject obj, String value, int anInt)
+	{
 		// first entry is primary, others are secondary
 		// lets try the format:
 		// NATURALATTACKS:primary weapon name,num attacks,damage|secondary1 weapon
 		// name,num attacks,damage|secondary2.....
 		// damage will be of the form XdY+Z or XdY-Z
 		List<Equipment> naturalWeapons = parseNaturalAttacks(obj, value);
-		for ( Equipment weapon : naturalWeapons )
+		for (Equipment weapon : naturalWeapons)
 		{
 			obj.addNaturalWeapon(weapon, anInt);
 		}
@@ -60,18 +63,24 @@ public class NaturalattacksLst implements GlobalLstToken {
 	 * @param aString
 	 * @return List
 	 */
-	private static List<Equipment> parseNaturalAttacks(PObject obj, String aString) {
+	private static List<Equipment> parseNaturalAttacks(PObject obj,
+		String aString)
+	{
 		// Currently, this isn't going to work with monk attacks
 		// - their unarmed stuff won't be affected.
 		String aSize = "M";
 
-		if (obj instanceof PCTemplate) {
+		if (obj instanceof PCTemplate)
+		{
 			aSize = ((PCTemplate) obj).getTemplateSize();
-		} else if (obj instanceof Race) {
+		}
+		else if (obj instanceof Race)
+		{
 			aSize = ((Race) obj).getSize();
 		}
 
-		if (aSize == null) {
+		if (aSize == null)
+		{
 			aSize = "M";
 		}
 
@@ -81,7 +90,8 @@ public class NaturalattacksLst implements GlobalLstToken {
 		final StringTokenizer attackTok = new StringTokenizer(aString, "|");
 
 		// Make a preliminary guess at whether this is an "only" attack
-		if (attackTok.countTokens() == 1) {
+		if (attackTok.countTokens() == 1)
+		{
 			onlyOne = true;
 		}
 
@@ -89,20 +99,29 @@ public class NaturalattacksLst implements GlobalLstToken {
 		// with "better" ones
 		List<Equipment> naturalWeapons = new ArrayList<Equipment>();
 
-		while (attackTok.hasMoreTokens()) {
-			StringTokenizer aTok = new StringTokenizer(attackTok.nextToken(), ",");
+		while (attackTok.hasMoreTokens())
+		{
+			StringTokenizer aTok =
+					new StringTokenizer(attackTok.nextToken(), ",");
 			Equipment anEquip = createNaturalWeapon(aTok, aSize);
 
-			if (anEquip != null) {
-				if (count == 1) {
+			if (anEquip != null)
+			{
+				if (count == 1)
+				{
 					anEquip.setModifiedName("Natural/Primary");
-				} else {
+				}
+				else
+				{
 					anEquip.setModifiedName("Natural/Secondary");
 				}
 
-				if (onlyOne && anEquip.isOnlyNaturalWeapon()) {
+				if (onlyOne && anEquip.isOnlyNaturalWeapon())
+				{
 					anEquip.setOnlyNaturalWeapon(true);
-				} else {
+				}
+				else
+				{
 					anEquip.setOnlyNaturalWeapon(false);
 				}
 
@@ -124,10 +143,15 @@ public class NaturalattacksLst implements GlobalLstToken {
 	 * @param aSize
 	 * @return natural weapon
 	 */
-	private static Equipment createNaturalWeapon(StringTokenizer aTok, String aSize) {
+	private static Equipment createNaturalWeapon(StringTokenizer aTok,
+		String aSize)
+	{
 		final String attackName = aTok.nextToken();
 
-		if (attackName.equalsIgnoreCase(Constants.s_NONE)) { return null; }
+		if (attackName.equalsIgnoreCase(Constants.s_NONE))
+		{
+			return null;
+		}
 
 		Equipment anEquip = new Equipment();
 		final String profType = aTok.nextToken();
@@ -140,23 +164,31 @@ public class NaturalattacksLst implements GlobalLstToken {
 		String numAttacks = aTok.nextToken();
 		boolean attacksProgress = true;
 
-		if ((numAttacks.length() > 0) && (numAttacks.charAt(0) == '*')) {
+		if ((numAttacks.length() > 0) && (numAttacks.charAt(0) == '*'))
+		{
 			numAttacks = numAttacks.substring(1);
 			attacksProgress = false;
 		}
 
 		int bonusAttacks = 0;
 
-		try {
+		try
+		{
 			bonusAttacks = Integer.parseInt(numAttacks) - 1;
-		} catch (NumberFormatException exc) {
-			Logging.errorPrint("Non-numeric value for number of attacks: '" + numAttacks + "'");
+		}
+		catch (NumberFormatException exc)
+		{
+			Logging.errorPrint("Non-numeric value for number of attacks: '"
+				+ numAttacks + "'");
 		}
 
-		if (bonusAttacks > 0) {
+		if (bonusAttacks > 0)
+		{
 			anEquip.addBonusList("WEAPON|ATTACKS|" + bonusAttacks);
 			anEquip.setOnlyNaturalWeapon(false);
-		} else {
+		}
+		else
+		{
 			anEquip.setOnlyNaturalWeapon(true);
 		}
 
@@ -169,13 +201,18 @@ public class NaturalattacksLst implements GlobalLstToken {
 		// allow hands to be required to equip natural weapons
 		int handsRequired = 0;
 
-		if (aTok.hasMoreTokens()) {
+		if (aTok.hasMoreTokens())
+		{
 			final String hString = aTok.nextToken();
 
-			try {
+			try
+			{
 				handsRequired = Integer.parseInt(hString);
-			} catch (NumberFormatException exc) {
-				Logging.errorPrint("Non-numeric value for hands required: '" + hString + "'");
+			}
+			catch (NumberFormatException exc)
+			{
+				Logging.errorPrint("Non-numeric value for hands required: '"
+					+ hString + "'");
 			}
 		}
 
@@ -189,7 +226,8 @@ public class NaturalattacksLst implements GlobalLstToken {
 		// Check if the proficiency needs created
 		WeaponProf prof = Globals.getWeaponProfKeyed(attackName);
 
-		if (prof == null) {
+		if (prof == null)
+		{
 			prof = new WeaponProf();
 			prof.setTypeInfo(profType);
 			prof.setName(attackName);
@@ -201,4 +239,3 @@ public class NaturalattacksLst implements GlobalLstToken {
 		return anEquip;
 	}
 }
-
