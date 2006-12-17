@@ -1,16 +1,14 @@
 #/*****************************************************/
 #/* MALL.NAM                                          */
-#/* Namnfil f”r namn fr†n xxxxxxxxxxx                 */
-#/* av Johan Danforth                                 */
-#/* rader som b”rjar med / „r kommentar-rader         */
-#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/* Namefile for dwarven names                        */
+#/* by Johan Danforth                                 */
 #/*****************************************************/
-#/* balin durin bofur bifur bombur belin */
+#/* examples balin durin bofur bifur bombur belin */
 [RULES]
 100	[SYL1]	[SYL2]	[SYL3]
 [FULL]
 [SYL1]
-#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+#/* The fist part ends with a consonant like b,k,t etc... */
 B
 D
 F
@@ -26,7 +24,7 @@ S
 T
 V
 [SYL2]
-#/* mittstavelser skall b”rja och sluta med en vokal som a,o,u,i,e,y etc... */
+#/* The middle part begins and ends with a vovel like a,o,u,i,e,y etc... */
 a
 e
 i
@@ -34,7 +32,7 @@ o
 oi
 u
 [SYL3]
-#/* slutstavelser skall b”rja med en konsonant som b,k,t etc... */
+#/* The final part begins with a consonant like b,k,t etc... */
 bur
 fur
 gan

@@ -1,15 +1,13 @@
 #/*****************************************************/
-#/* KERREL.NAM                                        */
-#/* Namnfil för namn från Deverry alver               */
-#/* av Johan Danforth                                 */
-#/* rader som börjar med / är kommentar-rader         */
-#/* varje section börjar med [xxx] enlig filen nedan  */
+#/* kerrel.nam                                        */
+#/* Name file for kerrel type names                   */
+#/* by Johan Danforth                                 */
 #/*****************************************************/
 [RULES]
 100	[SYL1]	[SYL2]	[SYL3]
 [FULL]
 [SYL1]
-#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+#/* first part ends with a consonant like b,k,t etc... */
 Ad
 Adr
 Al
@@ -47,7 +45,7 @@ Tal
 Val
 Wyl
 [SYL2]
-#/* mittstavelser skall börja och sluta med en vokal som a,o,u,i,e,y etc... */
+#/* beginning and end of the middle part is a vowel like a,o,u,i,e,y etc... */
 a
 a
 abe
@@ -69,7 +67,7 @@ o
 oba
 obre
 [SYL3]
-#/* slutstavelser skall börja med en konsonant som b,k,t etc... */
+#/* final part begins with a consonant like b,k,t etc... */
 beriel
 clya
 danten

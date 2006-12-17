@@ -1,9 +1,7 @@
 #/*****************************************************/
-#/* ALBION.NAM                                        */
-#/* Namnfil f”r namn med Albion-klang                 */
-#/* Johan Danforth                                    */
-#/* rader som b”rjar med / „r kommentar-rader         */
-#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/* Albion.nam                                        */
+#/* Namefile for Albion names                         */
+#/* by Johan Danforth                                 */
 #/*****************************************************/
 [RULES]
 30	[SYL1]	[SYL2]

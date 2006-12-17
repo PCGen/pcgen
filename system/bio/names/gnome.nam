@@ -1,15 +1,13 @@
 #/*****************************************************/
-#/* Deverry1.nam                                      */
-#/* Namnfil f”r namn fr†n Deverry (m„n)               */
-#/* av Johan Danforth                                 */
-#/* rader som b”rjar med / „r kommentar-rader         */
-#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/* gnome.nam                                         */
+#/* Namefile for Gnomish names                        */
+#/* by Johan Danforth                                 */
 #/*****************************************************/
 [RULES]
 100	[SYL1]	[SYL2]	[SYL3]
 [FULL]
 [SYL1]
-#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+#/* first part ends with a consonant like b,k,t etc... */
 Aeth
 Addr
 Bl
@@ -29,7 +27,7 @@ T
 V
 Yr
 [SYL2]
-#/* mittstavelser skall b”rja och sluta med en vokal som a,o,u,i,e,y etc... */
+#/* middle ends with a vovel like a,o,u,i,e,y etc... */
 a
 ae
 e
@@ -39,7 +37,7 @@ o
 u
 y
 [SYL3]
-#/* slutstavelser skall b”rja med en konsonant som b,k,t etc... */
+#/* final part ends with a consonant like b,k,t etc... */
 bryn
 c
 cyn

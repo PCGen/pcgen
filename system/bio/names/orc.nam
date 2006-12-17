@@ -1,15 +1,13 @@
 #/*****************************************************/
-#/* ORC1.NAM                                          */
-#/* Namnfil f”r orch-f”rnamn                          */
-#/* av Johan Danforth och Tobias Petersson            */
-#/* rader som b”rjar med / „r kommentar-rader         */
-#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/* orc.nam                                           */
+#/* Namefile for orc first names                      */
+#/* by Johan Danforth and Tobias Petersson            */
 #/*****************************************************/
 [RULES]
 100	[SYL1]	[SYL2]	[SYL3]
 [FULL]
 [SYL1]
-#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+#/* First part ends with a consonant like b,k,t etc... */
 B
 C
 D
@@ -30,13 +28,13 @@ T
 V
 Vr
 [SYL2]
-#/* mittstavelser skall b”rja och sluta med en vokal som a,o,u,i,e,y etc... */
+#/* middle part begins and ends with a vovel like a,o,u,i,e,y etc... */
 a
 i
 o
 u
 [SYL3]
-#/* slutstavelser skall b”rja med en konsonant som b,k,t etc... */
+#/* final part ends with a consonant like b,k,t etc... */
 dak
 dash
 dish

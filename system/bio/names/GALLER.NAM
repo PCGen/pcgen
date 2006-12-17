@@ -1,15 +1,13 @@
 #/*****************************************************/
 #/* GALLER.NAM                                        */
-#/* Namnfil f”r namn fr†n Gallien                     */
-#/* av Johan Danforth                                 */
-#/* rader som b”rjar med / „r kommentar-rader         */
-#/* varje section b”rjar med [xxx] enlig filen nedan  */
+#/* Namefile for Gaulish names                        */
+#/* by Johan Danforth                                 */
 #/*****************************************************/
 [RULES]
 100	[SYL1]	[SYL2]	[SYL3]
 [FULL]
 [SYL1]
-#/* startstavelser skall sluta med en konsonant som b,k,t etc... */
+#/* The first part ends with a consonant like b,k,t etc... */
 A
 Ab
 Ac
@@ -68,7 +66,7 @@ Yb
 Z
 W
 [SYL2]
-#/* mittstavelser skall b”rja och sluta med en vokal som a,o,u,i,e,y etc... */
+#/* The middle part begins and ends with a vovel like a,o,u,i,e,y etc... */
 aku
 e
 eli
@@ -76,7 +74,7 @@ eri
 o
 uba
 [SYL3]
-#/* slutstavelser skall b”rja med en konsonant som b,k,t etc... */
+#/* The final part begins with a consonant like b,k,t etc... and ends with ix */
 dix
 fax
 fix

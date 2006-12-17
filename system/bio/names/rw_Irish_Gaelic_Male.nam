@@ -3,17 +3,17 @@
 // Bynames are a descriptive of the person, such as:
 //
 // an Eich Gil ("[of] the bright steed")
-// Catha an Dúna ("[of] the battle of Down")
-// Canóne ("of the canon")
+// Catha an DÃºna ("[of] the battle of Down")
+// CanÃ³ne ("of the canon")
 // Crobderg ("of the Wine-red hand")
-// Damán ("little stag, little ox")
+// DamÃ¡n ("little stag, little ox")
 // Donn ("brown, brown-haired")
 // Finn ("fair, bright white, light-hued")
 // Flann ("bright red, blood red")
 // Mainistrech ("monastery, abbey")
-// Rúanaid ("champion, strong man")
+// RÃºanaid ("champion, strong man")
 // Sotal ("the arrogant")
-// ó
+// Ã³
 
 [RULES]
 10	[GIVEN]
@@ -36,55 +36,55 @@
  mac
 
 [O]
- ó
+ Ã³
 
 [UI]
- uí
- toísech clainne
+ uÃ­
+ toÃ­sech clainne
 
 [MHIC]
  mhic
  mec
 
 [GIVEN]
-Abél
-Adomnán
+AbÃ©l
+AdomnÃ¡n
 Aedc
 Affiath
-Ailchú
-Ailerán
+AilchÃº
+AilerÃ¡n
 Ailill
-Aindíles
+AindÃ­les
 Ainmere
 Airard
 Airbertach
 Amalgaid
-Amlaíb
-Anfudán
+AmlaÃ­b
+AnfudÃ¡n
 Anmchaid
 Artt
-Artúr
-Assíd
-Augustín
+ArtÃºr
+AssÃ­d
+AugustÃ­n
 Awley
 Baiscend
-Banbán
-Beollán
+BanbÃ¡n
+BeollÃ¡n
 Blathmac
 Bran
 Bresalc
 Bressa
 Bressal
 Brianc
-Briccéne
-Brotchú
-Bróccan
-Báethchellach
-Báethgalach
-Báethíne
-Báetán
-Bécc
-Búadachán
+BriccÃ©ne
+BrotchÃº
+BrÃ³ccan
+BÃ¡ethchellach
+BÃ¡ethgalach
+BÃ¡ethÃ­ne
+BÃ¡etÃ¡n
+BÃ©cc
+BÃºadachÃ¡n
 Caicher
 Cailte
 Cairbre
@@ -94,24 +94,24 @@ Carthach
 Catha
 Cathal
 Cathassach
-Causantín
-Caílte
+CausantÃ­n
+CaÃ­lte
 Cellach
 Cellachc
-Cellachán
+CellachÃ¡n
 Cenn
-Cenn-fáelad
-Cennétig
+Cenn-fÃ¡elad
+CennÃ©tig
 Cerball
 Cernach
 Cett
 Cian
-Cillíne
-Cináed
+CillÃ­ne
+CinÃ¡ed
 Clemens
 Cobthach
 Colcu
-Colmán
+ColmÃ¡n
 Columb
 Conaing
 Conall
@@ -125,47 +125,47 @@ Conlae
 Connlac
 Corcc
 Cormac
-Cormacán
+CormacÃ¡n
 Coscrach
 Crimthann
-Crinán
-Crundmáel
-Cuilén
+CrinÃ¡n
+CrundmÃ¡el
+CuilÃ©n
 Cuindles
 Cummascach
-Cáirthenn
-Cú
-Cúán
-Daniél
-Demmán
+CÃ¡irthenn
+CÃº
+CÃºÃ¡n
+DaniÃ©l
+DemmÃ¡n
 Diarmait
 Domnall
 Domnallc
 Donnchad
 Donnchadc
-Donndubán
+DonndubÃ¡n
 Donngal
 Dub
 Dubthach
 Duinechaid
 Dunchad
-Dáire
-Dálach
-Dícuill
-Díglach
-Dímmae
-Dínertach
-Dúnchad
-Dúngal
-Dúngalc
-Dúnlang
-Echmhílidh
+DÃ¡ire
+DÃ¡lach
+DÃ­cuill
+DÃ­glach
+DÃ­mmae
+DÃ­nertach
+DÃºnchad
+DÃºngal
+DÃºngalc
+DÃºnlang
+EchmhÃ­lidh
 Eochaid
 Eochaidc
 Eochu
 Ercc
 Failge
-Faílbe
+FaÃ­lbe
 Fechtnach
 Fedacch
 Fedelmid
@@ -184,167 +184,167 @@ Find
 Findchad
 Finguine
 Finnchad
-Finnchú
+FinnchÃº
 Fintan
-Finán
+FinÃ¡n
 Flaithbertach
 Flaithem
-Flaithrí
+FlaithrÃ­
 Fland
 Fland, Flann
 Flann
-Flannacán
+FlannacÃ¡n
 Fogartach
-Forannán
+ForannÃ¡n
 Forbassach
 Fothad
 Fothud
-Fáelad
-Fáelán
-Fínghin
-Fíngin
-Fínnechta
+FÃ¡elad
+FÃ¡elÃ¡n
+FÃ­nghin
+FÃ­ngin
+FÃ­nnechta
 Gadra
 Garalt
 Gerald
 Geralt
-Geróitin
-Gilla Brénainn
+GerÃ³itin
+Gilla BrÃ©nainn
 Gilla Comgaill
 Gilla Mochutu
-Gilla Pátraic
-Gilla na Náem
-Glassán
+Gilla PÃ¡traic
+Gilla na NÃ¡em
+GlassÃ¡n
 Gormgilla
-Gormán
+GormÃ¡n
 Guaire
-Gáethínec
-Gébennach
+GÃ¡ethÃ­nec
+GÃ©bennach
 Imchad
 Indrechtach
 Labraid
-Lachtnán
-Lennán
+LachtnÃ¡n
+LennÃ¡n
 Liber
 Loingsech
-Lorccán
+LorccÃ¡n
 Luachra
 Lugaid
-Lóegaire
+LÃ³egaire
 Mac Bethad
 Mac Laisre
 Magnus
 Maine
 Malachy
 Mara
-Marcán
+MarcÃ¡n
 Martan
 Matheus
 Mathgamain
 Morand
 Moriartogh
 Morrann
-Mugrón
+MugrÃ³n
 Muirchertach
 Muirchertachc
 Muiredach
 Muirgius
 Murchad
-Máel Dúinc
-Máel Mithig
-Máel Muad
-Máel Ruanaid
-Máel Sechnaill
-Máel Ísu
-Máel-dúin
-Máel-ruanaid
-Máel-tuili
-Máelodor
-Máelán
-Máenach
-Móenach
-Nath-í
+MÃ¡el DÃºinc
+MÃ¡el Mithig
+MÃ¡el Muad
+MÃ¡el Ruanaid
+MÃ¡el Sechnaill
+MÃ¡el Ãsu
+MÃ¡el-dÃºin
+MÃ¡el-ruanaid
+MÃ¡el-tuili
+MÃ¡elodor
+MÃ¡elÃ¡n
+MÃ¡enach
+MÃ³enach
+Nath-Ã­
 Niall
 Nicholas
 Nuadu
 Odar
-Oisséne
-Olibhéar
+OissÃ©ne
+OlibhÃ©ar
 Orthanach
 Oscar
-Paitín
+PaitÃ­n
 Patrick
-Petrán
+PetrÃ¡n
 Piarag
 Ragallach
 Ragnall
-Rebachán
+RebachÃ¡n
 Rechtabra
 Rechtabrac
 Robartach
 Rosa
 Rossa
-Roí
-Ruaidrí
-Ruissíne
+RoÃ­
+RuaidrÃ­
+RuissÃ­ne
 Rumann
-Rígbarddán
-Rónán
+RÃ­gbarddÃ¡n
+RÃ³nÃ¡n
 Scandal
-Scandlán
-Scothíne
+ScandlÃ¡n
+ScothÃ­ne
 Sechnassach
 Selbach
 Senach
-Senchán
+SenchÃ¡n
 Siacas
 Sitric
 Sleimhne
 Suibne
-Sáerbrethach
-Séigíne
-Sétnae
+SÃ¡erbrethach
+SÃ©igÃ­ne
+SÃ©tnae
 Tadc
 Tairdelbach
 Tanaide
 Tigernach
-Tigernánc
+TigernÃ¡nc
 Tipraite
-Toimicín
+ToimicÃ­n
 Toimilin
 Tomag
-Tomás
+TomÃ¡s
 Tressach
 Trian
 Tuathal
 TuathalAbner
 Uaithne
 Uillec
-Ádam
-Áed
-Áedgen
-Áengus
-Éicnechán
-Énnae
-Énri
-Éogan
-Érennach
-Óengus
-Óenucán
-Ólchobar
+Ãdam
+Ãed
+Ãedgen
+Ãengus
+Ã‰icnechÃ¡n
+Ã‰nnae
+Ã‰nri
+Ã‰ogan
+Ã‰rennach
+Ã“engus
+Ã“enucÃ¡n
+Ã“lchobar
 
 [GENITIVE]
  Ailella
  Airt
  Amalgada
  Arcill
- Batín
+ BatÃ­n
  Beicce
  Blaithmeic
  Brain
  Bressail
- Broccáin
- Báetáin
+ BroccÃ¡in
+ BÃ¡etÃ¡in
  Caennaig
  Caerill
  Cainnaig
@@ -355,19 +355,19 @@ Uillec
  Cathail
  Celaig
  Cellaich
- Cennédig
+ CennÃ©dig
  Cerbaill
  Cernaich
  Cernaig
- Cillíni
+ CillÃ­ni
  Cinaeda
  Cinatha
- Cinn-fáelad
- Cináeda
+ Cinn-fÃ¡elad
+ CinÃ¡eda
  Cobthaich
  Cobthaig
  Colgan
- Colmáin
+ ColmÃ¡in
  Coluimb
  Conaill
  Conchobair
@@ -379,17 +379,17 @@ Uillec
  Cormaic
  Crimthaind
  Crimthainn
- Crundmaíl
- Crunnmaíl
+ CrundmaÃ­l
+ CrunnmaÃ­l
  Cuircc
- Culéoin
- Culéon
+ CulÃ©oin
+ CulÃ©on
  Cummascaich
  Cummascaig
- Cáirthind
- Cáirthinn
- Cúáin
- Dauíd
+ CÃ¡irthind
+ CÃ¡irthinn
+ CÃºÃ¡in
+ DauÃ­d
  Diarmata
  Domnaill
  Donnchada
@@ -398,17 +398,17 @@ Uillec
  Donngaile
  Dubthaig
  Duinechda
- Dáire
- Dímmai
- Dúnchda
- Dúngaile
- Dúnlaing
- Dúnlainge
+ DÃ¡ire
+ DÃ­mmai
+ DÃºnchda
+ DÃºngaile
+ DÃºnlaing
+ DÃºnlainge
  Echach
  Echuid
  Eircc
  Eochada
- Faílbe
+ FaÃ­lbe
  Feideilmid
  Feidelmid
  Feidlimid
@@ -424,20 +424,20 @@ Uillec
  Finguni
  Finnachta
  Fintain
- Fináin
+ FinÃ¡in
  Flaind
  Flainn
  Flaithbertaich
  Flaithbertaig
  Fogartaich
  Fogartaig
- Forannáin
+ ForannÃ¡in
  Fothaid
- Fáeláin
+ FÃ¡elÃ¡in
  Garnait
- Gille-Mícael
- Gille-Míchéil
- Gille-Míchél
+ Gille-MÃ­cael
+ Gille-MÃ­chÃ©il
+ Gille-MÃ­chÃ©l
  Giric
  Guaire
  Hidid
@@ -447,50 +447,50 @@ Uillec
  Indrechtaig
  Lugdach
  Luloig
- Láegaire
- Lóegairi
+ LÃ¡egaire
+ LÃ³egairi
  Maili-tuile
  Maine
  Mal-Colaim
  Matni
- Maíl-Bricín
- Mal-Bricín
- Maíl-Brigte
- Maíl-Choluim
+ MaÃ­l-BricÃ­n
+ Mal-BricÃ­n
+ MaÃ­l-Brigte
+ MaÃ­l-Choluim
  Mec-Bead
  Meic-Dobarchon
  Meic-Dobarcon
- Meic-Dubbacín
- Molíne
+ Meic-DubbacÃ­n
+ MolÃ­ne
  Morcunn
  Morcunt
  Morgainn
- Moíl-Brigte
+ MoÃ­l-Brigte
  Muirchertaig
  Muiredaich
  Muiredaig
  Murchada
  Muredig
  Muridaig
- Máel-duin
- Máel-ruanaid
- Máeludir
- Móenaig
- Nath-í
- Néill
+ MÃ¡el-duin
+ MÃ¡el-ruanaid
+ MÃ¡eludir
+ MÃ³enaig
+ Nath-Ã­
+ NÃ©ill
  Rechtabrat
- Ruadrí
- Ruaidrí
- Rónáin
- Scandláin
+ RuadrÃ­
+ RuaidrÃ­
+ RÃ³nÃ¡in
+ ScandlÃ¡in
  Sechnassaich
  Sechnassaig
  Senaich
  Senaig
  Suibne
- Sétna
- Sétnae
- Síthig
+ SÃ©tna
+ SÃ©tnae
+ SÃ­thig
  Taidc
  Tigernaich
  Tigernaig
@@ -498,27 +498,27 @@ Uillec
  Trena
  Treno
  Triain
- Trálín
+ TrÃ¡lÃ­n
  Tuathail
- Áeda
- Áengusa
- Éda
- Énnai
- Éogain
- Óengusa
+ Ãeda
+ Ãengusa
+ Ã‰da
+ Ã‰nnai
+ Ã‰ogain
+ Ã“engusa
 
 [GENITIVELENITED]
  Ailella
  Airt
  Amalgada
  Arcill
- Batín
+ BatÃ­n
  Beicce
  Blaithmeic
  Brain
  Bressail
- Broccáin
- Báetáin
+ BroccÃ¡in
+ BÃ¡etÃ¡in
  Chaennaig
  Chaerill
  Chainnaig
@@ -529,19 +529,19 @@ Uillec
  Chathail
  Chelaig
  Chellaich
- Chennédig
+ ChennÃ©dig
  Cherbaill
  Chernaich
  Chernaig
- Chillíni
+ ChillÃ­ni
  Chinaeda
  Chinatha
- Chinn-fáelad
- Chináeda
+ Chinn-fÃ¡elad
+ ChinÃ¡eda
  Chobthaich
  Chobthaig
  Cholgan
- Cholmáin
+ CholmÃ¡in
  Choluimb
  Chonaill
  Chonchobair
@@ -553,17 +553,17 @@ Uillec
  Chormaic
  Chrimthaind
  Chrimthainn
- Chrundmaíl
- Chrunnmaíl
+ ChrundmaÃ­l
+ ChrunnmaÃ­l
  Chuircc
- Chuléoin
- Chuléon
+ ChulÃ©oin
+ ChulÃ©on
  Chummascaich
  Chummascaig
- Cháirthind
- Cháirthinn
- Chúáin
- Dhauíd
+ ChÃ¡irthind
+ ChÃ¡irthinn
+ ChÃºÃ¡in
+ DhauÃ­d
  Dhiarmata
  Dhomnaill
  Dhonnchada
@@ -572,17 +572,17 @@ Uillec
  Dhonngaile
  Dhubthaig
  Dhuinechda
- Dháire
- Dhímmai
- Dhúnchda
- Dhúngaile
- Dhúnlaing
- Dhúnlainge
+ DhÃ¡ire
+ DhÃ­mmai
+ DhÃºnchda
+ DhÃºngaile
+ DhÃºnlaing
+ DhÃºnlainge
  Echach
  Echuid
  Eircc
  Eochada
- Fhaílbe
+ FhaÃ­lbe
  Fheideilmid
  Fheidelmid
  Fheidlimid
@@ -598,20 +598,20 @@ Uillec
  Fhinguni
  Fhinnachta
  Fhintain
- Fhináin
+ FhinÃ¡in
  Fhlaind
  Fhlainn
  Fhlaithbertaich
  Fhlaithbertaig
  Fhogartaich
  Fhogartaig
- Fhorannáin
+ FhorannÃ¡in
  Fhothaid
- Fháeláin
+ FhÃ¡elÃ¡in
  Gharnait
- Ghille-Mícael
- Ghille-Míchéil
- Ghille-Míchél
+ Ghille-MÃ­cael
+ Ghille-MÃ­chÃ©il
+ Ghille-MÃ­chÃ©l
  Ghiric
  Ghuaire
  Hidid
@@ -621,50 +621,50 @@ Uillec
  Indrechtaig
  Lugdach
  Luloig
- Láegaire
- Lóegairi
+ LÃ¡egaire
+ LÃ³egairi
  Mhaili-tuile
  Mhaine
  Mhal-Colaim
  Mhatni
- Mhaíl-Bricín
- Mhal-Bricín
- Mhaíl-Brigte
- Mhaíl-Choluim
+ MhaÃ­l-BricÃ­n
+ Mhal-BricÃ­n
+ MhaÃ­l-Brigte
+ MhaÃ­l-Choluim
  Mhec-Bead
  Mheic-Dobarchon
  Mheic-Dobarcon
- Mheic-Dubbacín
- Mholíne
+ Mheic-DubbacÃ­n
+ MholÃ­ne
  Mhorcunn
  Mhorcunt
  Mhorgainn
- Mhoíl-Brigte
+ MhoÃ­l-Brigte
  Mhuirchertaig
  Mhuiredaich
  Mhuiredaig
  Mhurchada
  Mhuredig
  Mhuridaig
- Mháel-duin
- Mháel-ruanaid
- Mháeludir
- Mhóenaig
- Nath-í
- Néill
+ MhÃ¡el-duin
+ MhÃ¡el-ruanaid
+ MhÃ¡eludir
+ MhÃ³enaig
+ Nath-Ã­
+ NÃ©ill
  Rechtabrat
- Ruadrí
- Ruaidrí
- Rónáin
- Scandláin
+ RuadrÃ­
+ RuaidrÃ­
+ RÃ³nÃ¡in
+ ScandlÃ¡in
  Shechnassaich
  Shechnassaig
  Shenaich
  Shenaig
  Shuibne
- Shétna
- Shétnae
- Shíthig
+ ShÃ©tna
+ ShÃ©tnae
+ ShÃ­thig
  Thaidc
  Thigernaich
  Thigernaig
@@ -672,27 +672,27 @@ Uillec
  Threna
  Threno
  Thriain
- Thrálín
+ ThrÃ¡lÃ­n
  Thuathail
- Áeda
- Áengusa
- Éda
- Énnai
- Éogain
- Óengusa
+ Ãeda
+ Ãengusa
+ Ã‰da
+ Ã‰nnai
+ Ã‰ogain
+ Ã“engusa
 
 [GENITIVELENITEDNOC]
  Ailella
  Airt
  Amalgada
  Arcill
- Batín
+ BatÃ­n
  Beicce
  Blaithmeic
  Brain
  Bressail
- Broccáin
- Báetáin
+ BroccÃ¡in
+ BÃ¡etÃ¡in
  Caennaig
  Caerill
  Cainnaig
@@ -703,19 +703,19 @@ Uillec
  Cathail
  Celaig
  Cellaich
- Cennédig
+ CennÃ©dig
  Cerbaill
  Cernaich
  Cernaig
- Cillíni
+ CillÃ­ni
  Cinaeda
  Cinatha
- Cinn-fáelad
- Cináeda
+ Cinn-fÃ¡elad
+ CinÃ¡eda
  Cobthaich
  Cobthaig
  Colgan
- Colmáin
+ ColmÃ¡in
  Coluimb
  Conaill
  Conchobair
@@ -727,17 +727,17 @@ Uillec
  Cormaic
  Crimthaind
  Crimthainn
- Crundmaíl
- Crunnmaíl
+ CrundmaÃ­l
+ CrunnmaÃ­l
  Cuircc
- Culéoin
- Culéon
+ CulÃ©oin
+ CulÃ©on
  Cummascaich
  Cummascaig
- Cáirthind
- Cáirthinn
- Cúáin
- Dhauíd
+ CÃ¡irthind
+ CÃ¡irthinn
+ CÃºÃ¡in
+ DhauÃ­d
  Dhiarmata
  Dhomnaill
  Dhonnchada
@@ -746,17 +746,17 @@ Uillec
  Dhonngaile
  Dhubthaig
  Dhuinechda
- Dháire
- Dhímmai
- Dhúnchda
- Dhúngaile
- Dhúnlaing
- Dhúnlainge
+ DhÃ¡ire
+ DhÃ­mmai
+ DhÃºnchda
+ DhÃºngaile
+ DhÃºnlaing
+ DhÃºnlainge
  Echach
  Echuid
  Eircc
  Eochada
- Fhaílbe
+ FhaÃ­lbe
  Fheideilmid
  Fheidelmid
  Fheidlimid
@@ -772,20 +772,20 @@ Uillec
  Fhinguni
  Fhinnachta
  Fhintain
- Fhináin
+ FhinÃ¡in
  Fhlaind
  Fhlainn
  Fhlaithbertaich
  Fhlaithbertaig
  Fhogartaich
  Fhogartaig
- Fhorannáin
+ FhorannÃ¡in
  Fhothaid
- Fháeláin
+ FhÃ¡elÃ¡in
  Gharnait
- Ghille-Mícael
- Ghille-Míchéil
- Ghille-Míchél
+ Ghille-MÃ­cael
+ Ghille-MÃ­chÃ©il
+ Ghille-MÃ­chÃ©l
  Ghiric
  Ghuaire
  Hidid
@@ -795,50 +795,50 @@ Uillec
  Indrechtaig
  Lugdach
  Luloig
- Láegaire
- Lóegairi
+ LÃ¡egaire
+ LÃ³egairi
  Mhaili-tuile
  Mhaine
  Mhal-Colaim
  Mhatni
- Mhaíl-Bricín
- Mhal-Bricín
- Mhaíl-Brigte
- Mhaíl-Choluim
+ MhaÃ­l-BricÃ­n
+ Mhal-BricÃ­n
+ MhaÃ­l-Brigte
+ MhaÃ­l-Choluim
  Mhec-Bead
  Mheic-Dobarchon
  Mheic-Dobarcon
- Mheic-Dubbacín
- Mholíne
+ Mheic-DubbacÃ­n
+ MholÃ­ne
  Mhorcunn
  Mhorcunt
  Mhorgainn
- Mhoíl-Brigte
+ MhoÃ­l-Brigte
  Mhuirchertaig
  Mhuiredaich
  Mhuiredaig
  Mhurchada
  Mhuredig
  Mhuridaig
- Mháel-duin
- Mháel-ruanaid
- Mháeludir
- Mhóenaig
- Nath-í
- Néill
+ MhÃ¡el-duin
+ MhÃ¡el-ruanaid
+ MhÃ¡eludir
+ MhÃ³enaig
+ Nath-Ã­
+ NÃ©ill
  Rechtabrat
- Ruadrí
- Ruaidrí
- Rónáin
- Scandláin
+ RuadrÃ­
+ RuaidrÃ­
+ RÃ³nÃ¡in
+ ScandlÃ¡in
  Shechnassaich
  Shechnassaig
  Shenaich
  Shenaig
  Shuibne
- Shétna
- Shétnae
- Shíthig
+ ShÃ©tna
+ ShÃ©tnae
+ ShÃ­thig
  Thaidc
  Thigernaich
  Thigernaig
@@ -846,48 +846,48 @@ Uillec
  Threna
  Threno
  Thriain
- Thrálín
+ ThrÃ¡lÃ­n
  Thuathail
- Áeda
- Áengusa
- Éda
- Énnai
- Éogain
- Óengusa
+ Ãeda
+ Ãengusa
+ Ã‰da
+ Ã‰nnai
+ Ã‰ogain
+ Ã“engusa
 
 [BYNAME]
- Allán
- Bennán
+ AllÃ¡n
+ BennÃ¡n
  Boru
  Brithem
- Bán
+ BÃ¡n
  Caille
- Canóne
- Catha an Dúna
+ CanÃ³ne
+ Catha an DÃºna
  Cennmagair
  Crobderg
  Cualann
- Cáech
- Damán
+ CÃ¡ech
+ DamÃ¡n
  Donn
- Feórna
+ FeÃ³rna
  Finn
  Finnliath
  Fland
  Flann
  Fledach
  Frassach
- Glúndub
+ GlÃºndub
  Mainistrech
  Menn
  Mide
  Muillethan
- Máelgarb
+ MÃ¡elgarb
  Ornide
- Rúanaid
+ RÃºanaid
  Sacart
  Sinna
- Sláne
+ SlÃ¡ne
  Sotal
  an Eich Gil
  na Saide Buide
