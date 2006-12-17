@@ -75,7 +75,7 @@ import pcgen.util.PropertyFactory;
  **/
 final class PCGVer0Parser implements PCGParser
 {
-	private List warnings = new ArrayList();
+	private List<String> warnings = new ArrayList<String>();
 	private PlayerCharacter aPC;
 
 	/**
@@ -105,7 +105,7 @@ final class PCGVer0Parser implements PCGParser
 	 *
 	 * @return a list of warning messages
 	 **/
-	public List getWarnings()
+	public List<String> getWarnings()
 	{
 		return warnings;
 	}
@@ -256,7 +256,7 @@ final class PCGVer0Parser implements PCGParser
 		{
 			if (SettingsHandler.isLoadCampaignsWithPC())
 			{
-				final List campList = new ArrayList();
+				final List<Campaign> campList = new ArrayList<Campaign>();
 
 				while (aTok.hasMoreTokens())
 				{
@@ -398,7 +398,7 @@ final class PCGVer0Parser implements PCGParser
 			String token;
 			StringTokenizer aTok;
 
-			ListKey saveKey = ListKey.SAVE;
+			ListKey<String> saveKey = ListKey.SAVE;
 
 			for (int i = 0; i < aPC.getClassList().size(); i++)
 			{
@@ -813,9 +813,9 @@ final class PCGVer0Parser implements PCGParser
 		final StringTokenizer aTok = new StringTokenizer(line, ":");
 		String aName;
 		Equipment eq;
-		final Map containers = new HashMap();
+		final Map<String, String> containers = new HashMap<String, String>();
 		boolean bFound;
-		final List headerChildren = new ArrayList();
+		final List<Equipment> headerChildren = new ArrayList<Equipment>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -997,14 +997,14 @@ final class PCGVer0Parser implements PCGParser
 		//now insert parent/child relationships
 		Equipment aParent;
 
-		for (Iterator it = containers.keySet().iterator(); it.hasNext();)
+		for (Iterator<String> it = containers.keySet().iterator(); it.hasNext();)
 		{
-			aName = (String) it.next();
+			aName = it.next();
 			eq = aPC.getEquipmentNamed(aName);
 
 			if (eq != null)
 			{
-				final String containerName = (String) containers.get(aName);
+				final String containerName = containers.get(aName);
 				aParent = aPC.getEquipmentNamed(containerName);
 
 				if (aParent != null)
@@ -1633,7 +1633,7 @@ final class PCGVer0Parser implements PCGParser
 				si = cs.addInfo(sLevel, times, book);
 			}
 
-			List featList = new ArrayList();
+			List<Ability> featList = new ArrayList<Ability>();
 
 			while (aTok.hasMoreTokens())
 			{
@@ -1674,7 +1674,7 @@ final class PCGVer0Parser implements PCGParser
 	{
 		final StringTokenizer aTok = new StringTokenizer(line, ":");
 		int x = 0;
-		HashMap hitPointMap = new HashMap();
+		HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 		Race aRace = null;
 		String token;
 
@@ -2001,7 +2001,7 @@ final class PCGVer0Parser implements PCGParser
 				continue;
 			}
 
-			List featList = new ArrayList();
+			List<Ability> featList = new ArrayList<Ability>();
 
 			while (aTok.hasMoreTokens())
 			{
@@ -2196,7 +2196,7 @@ final class PCGVer0Parser implements PCGParser
 		PCClass aClass = null;
 		Domain aDomain = null;
 		Ability aFeat = null;
-		final List myProfs = new ArrayList();
+		final List<String> myProfs = new ArrayList<String>();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -2283,11 +2283,11 @@ final class PCGVer0Parser implements PCGParser
 		aPC.setAutomaticAbilitiesStable(null, false);
 //		AbilityUtilities.rebuildAutoAbilityList(aPC); // populate profs array with automatic profs
 
-		final List nonproficient = new ArrayList();
+		final List<String> nonproficient = new ArrayList<String>();
 
-		for (Iterator e = myProfs.iterator(); e.hasNext();)
+		for (Iterator<String> e = myProfs.iterator(); e.hasNext();)
 		{
-			final String aString = (String) e.next();
+			final String aString = e.next();
 
 			if (!aPC.hasWeaponProfKeyed(aString))
 			{

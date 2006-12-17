@@ -194,7 +194,7 @@ public class FeatBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List aList, final boolean sort)
+	public void setTypesAvailableList(final List<String> aList, final boolean sort)
 	{
 		pnlFeatType.setAvailableList(aList, sort);
 	}
@@ -204,7 +204,7 @@ public class FeatBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List aList, final boolean sort)
+	public void setTypesSelectedList(final List<String> aList, final boolean sort)
 	{
 		pnlFeatType.setSelectedList(aList, sort);
 	}
@@ -289,8 +289,8 @@ public class FeatBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
 		for (e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 		{

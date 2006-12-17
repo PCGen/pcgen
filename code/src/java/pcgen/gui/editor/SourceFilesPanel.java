@@ -65,15 +65,15 @@ final class SourceFilesPanel extends JPanel
 
 	public void updateData(PObject thisPObject)
 	{
-		List fList = fileModel.getFileList();
-		List lList = fileModel.getLocationList();
-		Iterator j = lList.iterator();
+		List<String> fList = fileModel.getFileList();
+		List<String> lList = fileModel.getLocationList();
+		Iterator<String> j = lList.iterator();
 		theCampaign.addLine(".CLEAR");
 
-		for (Iterator i = fList.iterator(); i.hasNext();)
+		for (Iterator<String> i = fList.iterator(); i.hasNext();)
 		{
-			String name = (String) i.next();
-			String val = (String) j.next();
+			String name = i.next();
+			String val = j.next();
 
 			if (name.equals("COMMENT"))
 			{
@@ -252,15 +252,15 @@ final class SourceFilesPanel extends JPanel
 
 	final class SourceFileModel extends AbstractTableModel
 	{
-		List fileList = new ArrayList();
-		List locationList = new ArrayList();
+		List<String> fileList = new ArrayList<String>();
+		List<String> locationList = new ArrayList<String>();
 
 		public boolean isCellEditable(int rowIndex, int colIndex)
 		{
 			return (colIndex == 1);
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<String> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}
@@ -270,12 +270,12 @@ final class SourceFilesPanel extends JPanel
 			return 2;
 		}
 
-		public List getFileList()
+		public List<String> getFileList()
 		{
 			return fileList;
 		}
 
-		public List getLocationList()
+		public List<String> getLocationList()
 		{
 			return locationList;
 		}
@@ -321,7 +321,7 @@ final class SourceFilesPanel extends JPanel
 
 					if (rowIndex < fileList.size())
 					{
-						rc = fileList.get(rowIndex).toString();
+						rc = fileList.get(rowIndex);
 					}
 					else
 					{
@@ -334,7 +334,7 @@ final class SourceFilesPanel extends JPanel
 
 					if (rowIndex < locationList.size())
 					{
-						rc = locationList.get(rowIndex).toString();
+						rc = locationList.get(rowIndex);
 					}
 					else
 					{

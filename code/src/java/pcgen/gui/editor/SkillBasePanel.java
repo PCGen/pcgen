@@ -131,12 +131,12 @@ final class SkillBasePanel extends BasePanel
 		return (SettingsHandler.getGame().getUnmodifiableStatList().get(idx)).getAbb();
 	}
 
-	public void setTypesAvailableList(final List aList, final boolean sort)
+	public void setTypesAvailableList(final List<String> aList, final boolean sort)
 	{
 		pnlSkillType.setAvailableList(aList, sort);
 	}
 
-	public void setTypesSelectedList(final List aList, final boolean sort)
+	public void setTypesSelectedList(final List<String> aList, final boolean sort)
 	{
 		pnlSkillType.setSelectedList(aList, sort);
 	}
@@ -172,8 +172,8 @@ final class SkillBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
 		for (e = Globals.getSkillList().iterator(); e.hasNext();)
 		{
@@ -221,7 +221,7 @@ final class SkillBasePanel extends BasePanel
 		//
 		// Initialize the contents of the skill's key stat combo
 		//
-		List availableList = new ArrayList(SettingsHandler.getGame().getUnmodifiableStatList().size() + 1);
+		List<String> availableList = new ArrayList<String>(SettingsHandler.getGame().getUnmodifiableStatList().size() + 1);
 		availableList.add(Constants.s_NONE);
 
 		for (Iterator e = SettingsHandler.getGame().getUnmodifiableStatList().iterator(); e.hasNext();)

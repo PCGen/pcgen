@@ -5393,9 +5393,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	private void splitModListByFormatCat(final List<EquipmentModifier> modList, final List<EquipmentModifier>[] splitModList)
 	{
-		for (Iterator iter = modList.iterator(); iter.hasNext();)
+		for (Iterator<EquipmentModifier> iter = modList.iterator(); iter.hasNext();)
 		{
-			EquipmentModifier eqMod = (EquipmentModifier) iter.next();
+			EquipmentModifier eqMod = iter.next();
 			splitModList[eqMod.getFormatCat()].add(eqMod);
 			
 		}

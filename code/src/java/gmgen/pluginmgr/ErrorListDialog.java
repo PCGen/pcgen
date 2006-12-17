@@ -167,7 +167,7 @@ public class ErrorListDialog extends EnhancedDialog
 			 * TODO Is this really the equivalent of message.split("\n")? 
 			 *  - thpr 10/29/06
 			 */
-			Vector tokenizedMessage = new Vector();
+			Vector<String> tokenizedMessage = new Vector<String>();
 			int lastIndex = -1;
 
 			for (int i = 0; i < message.length(); i++)

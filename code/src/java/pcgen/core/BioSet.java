@@ -97,11 +97,11 @@ public final class BioSet extends PObject
 
 		for (Map.Entry<String, String> entry : ageMap.entrySet())
 		{
-			aString = entry.getValue().toString();
+			aString = entry.getValue();
 
 			if (aString.equals(ageCategory) || aString.startsWith(ageCategory + "\t"))
 			{
-				aString = entry.getKey().toString();
+				aString = entry.getKey();
 
 				final int idx = aString.indexOf('.');
 

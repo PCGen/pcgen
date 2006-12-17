@@ -6722,7 +6722,6 @@ public class PCClass extends PObject {
 				}
 			}
 		}
-		return;
 	}
 
 	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus) {

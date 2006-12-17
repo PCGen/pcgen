@@ -74,7 +74,7 @@ final class EditUtil
 		return false;
 	}
 
-	static void addPObjectTypes(final PObject pobj, List l)
+	static void addPObjectTypes(final PObject pobj, List<String> l)
 	{
 		String aString;
 

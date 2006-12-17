@@ -67,7 +67,7 @@ final class FilterParser
 	public PObjectFilter parse(String filterDefinition)
 		throws FilterParseException
 	{
-		List tokenList = createTokenList(normalize(filterDefinition));
+		List<String> tokenList = createTokenList(normalize(filterDefinition));
 		checkTokens(tokenList);
 
 		return parseTokenList(enforceStrongAssociationForNOT(tokenList));
@@ -171,14 +171,14 @@ final class FilterParser
 	 * @param tokenList
 	 * @throws FilterParseException
 	 */
-	private static void checkTokens(List tokenList) throws FilterParseException
+	private static void checkTokens(List<String> tokenList) throws FilterParseException
 	{
 		String token;
 		String lastToken = "";
 
-		for (Iterator it = tokenList.iterator(); it.hasNext();)
+		for (Iterator<String> it = tokenList.iterator(); it.hasNext();)
 		{
-			token = (String) it.next();
+			token = it.next();
 
 			if (!isLegalToken(token))
 			{
@@ -222,13 +222,13 @@ final class FilterParser
 	 * @return token list
 	 * @throws FilterParseException
 	 */
-	private static List createTokenList(String parseString)
+	private static List<String> createTokenList(String parseString)
 		throws FilterParseException
 	{
 		int braceCount = 0;
 		int bracketCount = 0;
 
-		List list = new ArrayList();
+		List<String> list = new ArrayList<String>();
 
 		boolean filterName = false;
 
@@ -312,9 +312,9 @@ final class FilterParser
 	 * @param tokenList
 	 * @return List
 	 */
-	private List enforceStrongAssociationForNOT(List tokenList)
+	private List<String> enforceStrongAssociationForNOT(List<String> tokenList)
 	{
-		List newTokenList = new ArrayList();
+		List<String> newTokenList = new ArrayList<String>();
 
 		final int index = tokenList.indexOf(TOKEN_NOT);
 
@@ -327,9 +327,9 @@ final class FilterParser
 		newTokenList.add(TOKEN_STARTGROUP);
 		newTokenList.add(TOKEN_NOT);
 
-		List restList = new ArrayList(tokenList.subList(index + 1, tokenList.size()));
+		List<String> restList = new ArrayList<String>(tokenList.subList(index + 1, tokenList.size()));
 
-		String firstRestToken = (String) restList.get(0);
+		String firstRestToken = restList.get(0);
 
 		if (firstRestToken.equals(TOKEN_STARTGROUP))
 		{
@@ -339,9 +339,9 @@ final class FilterParser
 
 			restList.remove(i);
 
-			for (Iterator it = restList.iterator(); it.hasNext(); i++)
+			for (Iterator<String> it = restList.iterator(); it.hasNext(); i++)
 			{
-				token = (String) it.next();
+				token = it.next();
 
 				if (token.equals(TOKEN_STARTGROUP))
 				{
@@ -416,13 +416,13 @@ final class FilterParser
 	 * @return PObjectFilter
 	 * @throws FilterParseException
 	 */
-	private PObjectFilter parseTokenList(List tokenList)
+	private PObjectFilter parseTokenList(List<String> tokenList)
 		throws FilterParseException
 	{
 		PObjectFilter filter;
 
 		String firstToken;
-		firstToken = (String) tokenList.get(0);
+		firstToken = tokenList.get(0);
 
 		if (firstToken.equals(TOKEN_STARTGROUP))
 		{
@@ -432,9 +432,9 @@ final class FilterParser
 
 			tokenList.remove(i);
 
-			for (Iterator it = tokenList.iterator(); it.hasNext(); i++)
+			for (Iterator<String> it = tokenList.iterator(); it.hasNext(); i++)
 			{
-				token = (String) it.next();
+				token = it.next();
 
 				if (token.equals(TOKEN_STARTGROUP))
 				{
@@ -459,10 +459,10 @@ final class FilterParser
 			}
 			else
 			{
-				List tokenList1 = new ArrayList(tokenList.subList(0, i));
-				List tokenList2 = new ArrayList(tokenList.subList(i + 1, tokenList.size()));
+				List<String> tokenList1 = new ArrayList<String>(tokenList.subList(0, i));
+				List<String> tokenList2 = new ArrayList<String>(tokenList.subList(i + 1, tokenList.size()));
 				filter = FilterFactory.createCompoundFilter(parseTokenList(tokenList1), parseTokenList(tokenList2),
-					    (String) tokenList.get(i));
+					    tokenList.get(i));
 			}
 		}
 		else if (firstToken.equals(TOKEN_NOT))
@@ -475,11 +475,11 @@ final class FilterParser
 		}
 		else if ((firstToken.length() > 0) && (firstToken.charAt(0) == TOKEN_STARTFILTER))
 		{
-			String filterName = (String) tokenList.remove(0);
+			String filterName = tokenList.remove(0);
 
 			if (tokenList.size() > 0)
 			{
-				String operand = (String) tokenList.remove(0);
+				String operand = tokenList.remove(0);
 				filter = FilterFactory.createCompoundFilter(retrieveFilter(filterName), parseTokenList(tokenList),
 					    operand);
 			}

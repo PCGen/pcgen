@@ -417,7 +417,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 			if (line.trim().length() > 0)
 			{
 				System.out.println("Processing line:'" + line + "'.");
-				reconstClass = (PCClass) pcClassLoader.parseLine(reconstClass, line, source);
+				reconstClass = pcClassLoader.parseLine(reconstClass, line, source);
 			}
 		}
 		return reconstClass;
@@ -448,12 +448,12 @@ public class PCClassTest extends AbstractCharacterTestCase {
 			+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
 			+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
-		humanoidClass = (PCClass) classLoader.parseLine(null, classDef, unitTestSource);
+		humanoidClass = classLoader.parseLine(null, classDef, unitTestSource);
 		Globals.getClassList().add(humanoidClass);
 
 		classDef = "CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
-		nymphClass = (PCClass) classLoader.parseLine(null, classDef, unitTestSource);
+		nymphClass = classLoader.parseLine(null, classDef, unitTestSource);
 		Globals.getClassList().add(nymphClass);
 
 		// Create the large size mod

@@ -569,7 +569,7 @@ public class NameGenPanel extends JPanel
 			join.addAll(cats);
 			join.retainAll(sexes);
 
-			Vector catalogs = new Vector();
+			Vector<RuleSet> catalogs = new Vector<RuleSet>();
 			int oldSelected = 0;
 			int n = 0;
 
@@ -606,16 +606,16 @@ public class NameGenPanel extends JPanel
 	private void loadCategory(Element category, RuleSet rs)
 	{
 		Object cat = categories.get(category.getAttributeValue("title"));
-		ArrayList thiscat;
+		ArrayList<RuleSet> thiscat;
 
 		if (cat == null)
 		{
-			thiscat = new ArrayList();
+			thiscat = new ArrayList<RuleSet>();
 			categories.put(category.getAttributeValue("title"), thiscat);
 		}
 		else
 		{
-			thiscat = (ArrayList) cat;
+			thiscat = (ArrayList<RuleSet>) cat;
 		}
 
 		thiscat.add(rs);
@@ -662,14 +662,14 @@ public class NameGenPanel extends JPanel
 
 	private void loadDropdowns()
 	{
-		Vector cats = new java.util.Vector();
-		Vector sexes = new java.util.Vector();
-		Set keySet = categories.keySet();
-		Iterator itr = keySet.iterator();
+		Vector<String> cats = new java.util.Vector<String>();
+		Vector<String> sexes = new java.util.Vector<String>();
+		Set<String> keySet = categories.keySet();
+		Iterator<String> itr = keySet.iterator();
 
 		while (itr.hasNext())
 		{
-			String key = (String) itr.next();
+			String key = itr.next();
 
 			if (key.startsWith("Sex:"))
 			{
@@ -843,7 +843,7 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			Vector struct = new Vector();
+			Vector<DataElement> struct = new Vector<DataElement>();
 
 			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
 			{

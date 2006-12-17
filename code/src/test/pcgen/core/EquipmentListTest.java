@@ -44,7 +44,7 @@ public class EquipmentListTest extends PCGenTestCase
 {
 
 	private Equipment eq = null;
-	private final String OriginalKey = "OrigKey";
+	private static final String originalKey = "OrigKey";
 	private boolean firstTime = true;
 
 	/**
@@ -97,7 +97,7 @@ public class EquipmentListTest extends PCGenTestCase
 		this.eq.setSize("M", true);
 		this.eq.setTypeInfo("WEAPON.MELEE.CHOCOLATE");
 
-		this.eq.setKeyName(this.OriginalKey);
+		this.eq.setKeyName(originalKey);
 	}
 
 	/**

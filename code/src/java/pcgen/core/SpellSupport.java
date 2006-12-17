@@ -490,7 +490,7 @@ public class SpellSupport implements Cloneable
      * @return list of CharacterSpells from the character spell list
 	 */
     public final List<CharacterSpell> getCharacterSpell(final Spell aSpell, final String book,
-			final int level, final ArrayList fList)
+			final int level, final ArrayList<Ability> fList)
 	{
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 

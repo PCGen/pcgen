@@ -113,7 +113,7 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		dr2.setPC(getCharacter());
 
 		String result = DamageReduction.combineDRs(dr1, dr2);
-		is(result.toString(), strEq("10/magic and good"));
+		is(result, strEq("10/magic and good"));
 
 		getCharacter().removeTemplate(template);
 
@@ -227,7 +227,7 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		dr1 = new DamageReduction("10", "magic and good");
 		dr2 = new DamageReduction("10", "magic and lawful");
 		result = DamageReduction.combineDRs(dr1, dr2);
-		is(result, strEq("10/magic and good and lawful"));
+		is(result, strEq("10/magic and lawful and good"));
 
 		// Sanity check we don't have anything hardcoded.
 		dr1 = new DamageReduction("10", "lawful");

@@ -271,7 +271,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 	{
 		Iterator e;
 		String aString;
-		List aList = new ArrayList();
+		List<String> aList = new ArrayList<String>();
 
 		//
 		// Make list of stats

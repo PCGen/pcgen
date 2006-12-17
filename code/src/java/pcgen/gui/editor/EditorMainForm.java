@@ -2050,7 +2050,7 @@ public final class EditorMainForm extends JDialog
 			// generated things, such as natural weapon proficiencies
 			final List autoWeap = new ArrayList();
 			thisPObject.addAutoTagsToList("WEAPONPROF",
-				(AbstractCollection) autoWeap, null, false);
+				autoWeap, null, false);
 
 			for (e = autoWeap.iterator(); e.hasNext();)
 			{

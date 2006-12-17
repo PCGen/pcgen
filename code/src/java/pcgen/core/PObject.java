@@ -2666,7 +2666,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				}
 			}
 		}
-		return;
 	}
 
 	/**
@@ -3146,7 +3145,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			return aPC.getRace().getUdam();
 		}
 
-		final StringBuffer aString = new StringBuffer(getElementInList(ListKey.UDAM, 0).toString());
+		final StringBuffer aString = new StringBuffer(getElementInList(ListKey.UDAM, 0));
 
 		//Added to handle sizes for damage, Ross M. Lodge
 		int iSize = Globals.sizeInt(aPC.getSize());
@@ -3180,7 +3179,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		List<String> umultList = getListFor(ListKey.UMULT);
 		if (includeCrit && (umultList != null) && !umultList.isEmpty())
 		{
-			final String dString = umultList.get(0).toString();
+			final String dString = umultList.get(0);
 
 			if (!"0".equals(dString))
 			{
@@ -4482,7 +4481,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				}
 			}
 		}
-		return;
 	}
 
 	/**

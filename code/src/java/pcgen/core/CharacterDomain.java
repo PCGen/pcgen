@@ -67,7 +67,7 @@ public final class CharacterDomain
 		}
 		else
 		{
-			domain = (Domain) aDomain.clone();
+			domain = aDomain.clone();
 			setSpecialAbilities(domain, true, pc);
 		}
 

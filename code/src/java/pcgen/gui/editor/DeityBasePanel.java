@@ -157,7 +157,7 @@ final class DeityBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setFavoredWeaponsAvailableList(List aList, boolean sort)
+	public void setFavoredWeaponsAvailableList(List<WeaponProf> aList, boolean sort)
 	{
 		pnlFavoredWeapons.setAvailableList(aList, sort);
 	}
@@ -176,7 +176,7 @@ final class DeityBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setFavoredWeaponsSelectedList(List aList, boolean sort)
+	public void setFavoredWeaponsSelectedList(List<WeaponProf> aList, boolean sort)
 	{
 		pnlFavoredWeapons.setSelectedList(aList, sort);
 	}
@@ -269,8 +269,8 @@ final class DeityBasePanel extends BasePanel
 		//
 		// Initialize the contents of the available and selected favored weapons lists
 		//
-		List selectedList = new ArrayList();
-		List availableList = Globals.getWeaponProfArrayCopy();
+		List<WeaponProf> selectedList = new ArrayList<WeaponProf>();
+		List<WeaponProf> availableList = Globals.getWeaponProfArrayCopy();
 		final StringTokenizer aTok = new StringTokenizer(((Deity) thisPObject).getFavoredWeapon(), "|", false);
 
 		while (aTok.hasMoreTokens())
@@ -302,7 +302,7 @@ final class DeityBasePanel extends BasePanel
 		//
 		// Initialize the contents of the deity's alignment combo
 		//
-		List availableList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
 
 		for (Iterator e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
 		{

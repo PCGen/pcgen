@@ -2085,7 +2085,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			ability = Globals.getAbilityKeyed(abilityCat, abilityKey);
 			if ( ability != null )
 			{
-				ability = (Ability)ability.clone();
+				ability = ability.clone();
 			}
 		}
 		
@@ -2222,7 +2222,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (anAbility != null)
 				{
 					// Clone the new feat
-					anAbility = (Ability) anAbility.clone();
+					anAbility = anAbility.clone();
 
 					// parse all the tags for this Feat
 					added = parseFeatsHandleAppliedToAndSaveTags(it, anAbility, line);

@@ -20,7 +20,9 @@ import java.util.StringTokenizer;
 import pcgen.core.Ability;
 import pcgen.core.Constants;
 import pcgen.core.Equipment;
+import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.WeaponProf;
 import pcgen.io.exporttoken.DomainToken;
 import pcgen.io.exporttoken.EqToken;
 import plugin.charactersheet.CharacterSheetUtils;
@@ -198,9 +200,9 @@ public class Page2Panel extends javax.swing.JPanel
 			magicPane.setList("MAGIC", getMagicList(pc));
 			specialPane.setList("SPECIAL ABILITIES", pc
 				.getSpecialAbilityTimesList());
-			weaponProfPane.setList("WEAPON PROFICIENCIES", new ArrayList(pc
+			weaponProfPane.setList("WEAPON PROFICIENCIES", new ArrayList<WeaponProf>(pc
 				.getWeaponProfs()));
-			languagePane.setList("LANGUAGES", new ArrayList(pc
+			languagePane.setList("LANGUAGES", new ArrayList<Language>(pc
 				.getLanguagesList()));
 			templatePane
 				.setList("TEMPLATES", pc.getOutputVisibleTemplateList());
@@ -269,10 +271,10 @@ public class Page2Panel extends javax.swing.JPanel
 	}
 
 	//TODO: [DJ] add to DomainToken
-	private Map getDomainMap(PlayerCharacter aPC)
+	private Map<String, String> getDomainMap(PlayerCharacter aPC)
 	{
 		int numDomains = aPC.getCharacterDomainList().size();
-		Map domainMap = new HashMap();
+		Map<String, String> domainMap = new HashMap<String, String>();
 		for (int i = 0; i < numDomains; i++)
 		{
 			domainMap.put(DomainToken.getDomainToken(aPC, i), DomainToken
@@ -282,10 +284,10 @@ public class Page2Panel extends javax.swing.JPanel
 	}
 
 	//TODO: [DJ] remove when I add FeatToken
-	private Map getFeatMap(PlayerCharacter aPC)
+	private Map<String, String> getFeatMap(PlayerCharacter aPC)
 	{
 		List feats = aPC.aggregateVisibleFeatList();
-		Map featMap = new HashMap();
+		Map<String, String> featMap = new HashMap<String, String>();
 		for (int i = 0; i < feats.size(); i++)
 		{
 			Ability feat = (Ability) feats.get(i);
@@ -295,10 +297,10 @@ public class Page2Panel extends javax.swing.JPanel
 	}
 
 	//TODO: [DJ] remove when I modify the money token
-	private List getMoneyList(PlayerCharacter aPC)
+	private List<String> getMoneyList(PlayerCharacter aPC)
 	{
 		int merge = Constants.MERGE_LOCATION;
-		List returnList = new ArrayList();
+		List<String> returnList = new ArrayList<String>();
 
 		List moneyList = aPC.getEquipmentOfTypeInOutputOrder("Coin", 3, merge);
 		for (int i = 0; i < moneyList.size(); i++)
@@ -324,9 +326,9 @@ public class Page2Panel extends javax.swing.JPanel
 	}
 
 	//TODO: [DJ] remove when I add MiscToken
-	private List getMagicList(PlayerCharacter aPC)
+	private List<String> getMagicList(PlayerCharacter aPC)
 	{
-		List returnList = new ArrayList();
+		List<String> returnList = new ArrayList<String>();
 		StringTokenizer aTok =
 				new StringTokenizer(aPC.getMiscList().get(2), "\r\n", false);
 

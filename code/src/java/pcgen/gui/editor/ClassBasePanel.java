@@ -69,7 +69,7 @@ class ClassBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List aList, final boolean sort)
+	public void setTypesAvailableList(final List<String> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setAvailableList(aList, sort);
 	}
@@ -79,7 +79,7 @@ class ClassBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List aList, final boolean sort)
+	public void setTypesSelectedList(final List<String> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setSelectedList(aList, sort);
 	}
@@ -135,8 +135,8 @@ class ClassBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
 		for (e = Globals.getClassList().iterator(); e.hasNext();)
 		{

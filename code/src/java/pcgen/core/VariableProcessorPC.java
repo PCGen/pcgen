@@ -385,13 +385,13 @@ public class VariableProcessorPC extends VariableProcessor
 
 			for ( PCClass pcClass : getPc().getClassList() )
 			{
-				if (pcClass.getSpellType() != Constants.s_NONE)
+				if (!pcClass.getSpellType().equals(Constants.s_NONE))
 				{
 					final String classKey = pcClass.getKeyName();
 					String spellType = Constants.s_NONE;
 					final int pcBonusLevel = (int) getPc().getTotalBonusTo("PCLEVEL", classKey);
 
-					if ((pcClass != null) && (pcClass.getSpellType() != Constants.s_NONE))
+					if ((pcClass != null) && (!pcClass.getSpellType().equals(Constants.s_NONE)))
 					{
 						spellType = pcClass.getSpellType();
 					}
@@ -424,7 +424,7 @@ public class VariableProcessorPC extends VariableProcessor
 			final PCClass spClass = Globals.getClassKeyed(classKey);
 
 			String spellType = Constants.s_NONE;
-			if ((spClass != null) && (spClass.getSpellType() != Constants.s_NONE))
+			if ((spClass != null) && (!spClass.getSpellType().equals(Constants.s_NONE)))
 			{
 				spellType = spClass.getSpellType();
 			}

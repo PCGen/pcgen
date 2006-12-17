@@ -91,10 +91,10 @@ final class NaturalAttacksPanel extends JPanel
 	 *
 	 * @return ArrayList The natural weapons.
 	 */
-	public List getNaturalWeapons()
+	public List<Equipment> getNaturalWeapons()
 	{
 		final JListModel lmd = (JListModel) lstSelected.getModel();
-		List naturalWeapons = new ArrayList();
+		List<Equipment> naturalWeapons = new ArrayList<Equipment>();
 		Equipment anEquip;
 
 		for (int i = 0, x = lmd.getSize(); i < x; ++i)

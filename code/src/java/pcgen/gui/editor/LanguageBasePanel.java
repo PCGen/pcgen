@@ -56,7 +56,7 @@ public class LanguageBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesAvailableList(final List aList, final boolean sort)
+	public void setTypesAvailableList(final List<String> aList, final boolean sort)
 	{
 		pnlLanguageType.setAvailableList(aList, sort);
 	}
@@ -66,7 +66,7 @@ public class LanguageBasePanel extends BasePanel
 	 * @param aList
 	 * @param sort
 	 */
-	public void setTypesSelectedList(final List aList, final boolean sort)
+	public void setTypesSelectedList(final List<String> aList, final boolean sort)
 	{
 		pnlLanguageType.setSelectedList(aList, sort);
 	}
@@ -97,8 +97,8 @@ public class LanguageBasePanel extends BasePanel
 		Iterator e;
 		Language thisLanguage = (Language) thisPObject;
 
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
 		for (e = Globals.getLanguageList().iterator(); e.hasNext();)
 		{

@@ -95,8 +95,8 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		//
 		// Populate the types
 		//
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
 		for (e = Globals.getSpellMap().values().iterator(); e.hasNext();)
 		{

@@ -331,7 +331,7 @@ public class SpellBasePanel extends BasePanel
 		cmbDuration.setModel(new DefaultComboBoxModel(Globals.getDurationSet().toArray()));
 		cmbStat.setModel(new DefaultComboBoxModel(Globals.getStatSet().toArray()));
 
-		List subschools = new ArrayList(10);
+		List<String> subschools = new ArrayList<String>(10);
 		subschools.add("(None)");
 		subschools.addAll(Globals.getSubschools());
 		cmbSubschool.setModel(new DefaultComboBoxModel(subschools.toArray()));

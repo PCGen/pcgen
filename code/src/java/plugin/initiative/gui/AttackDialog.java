@@ -206,7 +206,7 @@ public class AttackDialog extends JDialog
 	 */
 	protected void handleOk()
 	{
-		m_damageList = new ArrayList(m_tableModel.getRowCount());
+		m_damageList = new ArrayList<Integer>(m_tableModel.getRowCount());
 		m_targetList = new ArrayList(m_tableModel.getRowCount());
 
 		for (int i = 0; i < m_table.getRowCount(); i++)

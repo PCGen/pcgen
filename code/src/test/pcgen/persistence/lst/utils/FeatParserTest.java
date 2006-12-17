@@ -55,7 +55,7 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 
 		List<Prerequisite> prereqs = feat.getPreReqList();
 		is(prereqs.size(), eq(1), "there is only one Prerequisite.");
-		Prerequisite prereq = (Prerequisite) prereqs.get(0);
+		Prerequisite prereq = prereqs.get(0);
 		assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n" +
 				"<prereq kind=\"var\" key=\"RangerCombatTree\" operator=\"gteq\" operand=\"1\" >\n" +
 				"</prereq>\n" +
@@ -93,7 +93,7 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 
 		List<Prerequisite> prereqs = feat.getPreReqList();
 		is(prereqs.size(), eq(1), "there is only one Prerequisite.");
-		prereq = (Prerequisite) prereqs.get(0);
+		prereq = prereqs.get(0);
 		assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n" +
 				"<prereq kind=\"var\" key=\"RangerCombatTree\" operator=\"gteq\" operand=\"1\" >\n" +
 				"</prereq>\n" +

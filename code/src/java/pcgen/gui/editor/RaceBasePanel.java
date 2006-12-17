@@ -330,7 +330,7 @@ public class RaceBasePanel extends BasePanel
 		return (String) cmbMonsterClass.getSelectedItem();
 	}
 
-	public void setMonsterClassList(final List classList)
+	public void setMonsterClassList(final List<String> classList)
 	{
 		cmbMonsterClass.setModel(new DefaultComboBoxModel(classList.toArray()));
 	}
@@ -397,12 +397,12 @@ public class RaceBasePanel extends BasePanel
 		return cmbSkillMult.getSelectedIndex();
 	}
 
-	public void setTypesAvailableList(final List aList, final boolean sort)
+	public void setTypesAvailableList(final List<String> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setAvailableList(aList, sort);
 	}
 
-	public void setTypesSelectedList(final List aList, final boolean sort)
+	public void setTypesSelectedList(final List<String> aList, final boolean sort)
 	{
 		pnlTemplateTypes.setSelectedList(aList, sort);
 	}
@@ -458,8 +458,8 @@ public class RaceBasePanel extends BasePanel
 		//
 		// Populate the types
 		//
-		List availableList = new ArrayList();
-		List selectedList = new ArrayList();
+		List<String> availableList = new ArrayList<String>();
+		List<String> selectedList = new ArrayList<String>();
 
 		for ( final Race race : Globals.getAllRaces() )
 		{
