@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May 19 00:41:17 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Mon Dec 18 04:15:55 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 # Entries by: Tir Gwaith, Doug Mcmillan, and Ian Dale
 
@@ -82,10 +82,10 @@ Scroll (Neutralize Poison)	TYPE:FX.Scroll.Magic.Divine	COST:29	WT:0		SOURCEPAGE:
 
 ###Block: Staffs
 
-# Equipment Name		Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Size		Source Page				Spells																Special Property
-Staff of Fire		PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Arcane.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:43	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Fire|TIMES=-1|CASTERLEVEL=9|Burning Hands,13|Fireball,15|Wall of Fire,17			SPROP:Burning Hands (1 Chrg), Fireball (1 Chrg), Wall of Fire (2 Chrg)
-Staff of Illumination	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Divine.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:41	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Illumination|TIMES=-1|CASTERLEVEL=9|Light,10|Searing Light,15|True Seeing,17		SPROP:Light (No Chrg), Searing Light (1 Chrg), True Seeing (2 Chrg)
-Staff of the Mind's Eye	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Psionic.Weapon.Simple.Melee.Bludgeoning.Standard.Double		ALTTYPE:Weapon.Melee.Bludgeoning	COST:40	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of the Mind's Eye|TIMES=-1|CASTERLEVEL=9|Brain Lock,13|Inflict Pain,15|Whitefire,17	SPROP:Brain Lock (1 Chrg), Inflict Pain (1 Chrg), Whitefire (1 Chrg)
+# Equipment Name		Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical Range	Damage	Alternative Damage	Modifier					Size		Source Page				Spells																Special Property										ALTCRITMULT
+Staff of Fire		PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Arcane.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:43	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Fire|TIMES=-1|CASTERLEVEL=9|Burning Hands,13|Fireball,15|Wall of Fire,17			SPROP:Burning Hands (1 Chrg), Fireball (1 Chrg), Wall of Fire (2 Chrg)	ALTCRITMULT:x2
+Staff of Illumination	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Magic.Divine.Weapon.Simple.Melee.Bludgeoning.Standard.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:41	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of Illumination|TIMES=-1|CASTERLEVEL=9|Light,10|Searing Light,15|True Seeing,17		SPROP:Light (No Chrg), Searing Light (1 Chrg), True Seeing (2 Chrg)	ALTCRITMULT:x2
+Staff of the Mind's Eye	PROFICIENCY:Quarterstaff	TYPE:FX.Staff.Psionic.Weapon.Simple.Melee.Bludgeoning.Standard.Double		ALTTYPE:Weapon.Melee.Bludgeoning	COST:40	WT:5		CRITMULT:x2			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SIZE:L	SOURCEPAGE:msrdfxitems.rtf	SPELLS:Staff of the Mind's Eye|TIMES=-1|CASTERLEVEL=9|Brain Lock,13|Inflict Pain,15|Whitefire,17	SPROP:Brain Lock (1 Chrg), Inflict Pain (1 Chrg), Whitefire (1 Chrg)	ALTCRITMULT:x2
 
 ###Block: Tattoos
 

@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Dec 18 04:00:57 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html
 # Original entry by: Ratheof Blithwyn and Paul "Yes, that Paul" Grosse
 
 ###Block: Staffs
-# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Staff (Illusionist)	OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x2			CRITRANGE:1			ALTCRITICAL:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.60	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Staff (Terror)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:112500	WT:0																											SOURCEPAGE:p.60
+# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus					ALTCRITMULT
+Staff (Illusionist)	OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x2			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.60	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ALTCRITMULT:x2
+Staff (Terror)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:112500	WT:0																							SOURCEPAGE:p.60
 
 ###Block: Wands
 # Equipment Name			Output Name				Type				Weight	Base Item for EQMOD	Modifier														Source Page

@@ -1,18 +1,18 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Dec 18 04:00:57 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original entry by: Ratheof Blithwyn
 
 ###Block: Rods
-# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Rod (Shocking Cage)	OUTPUTNAME:Rod of the [NAME]							TYPE:Magic.Rod																	COST:31500	WT:0																											SOURCEPAGE:p.57
-Rod (Silent)		OUTPUTNAME:Silent Rod								TYPE:Magic.Rod																	COST:65000	WT:0																											SOURCEPAGE:p.57
+# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus					ALTCRITMULT
+Rod (Shocking Cage)	OUTPUTNAME:Rod of the [NAME]							TYPE:Magic.Rod																	COST:31500	WT:0																							SOURCEPAGE:p.57
+Rod (Silent)		OUTPUTNAME:Silent Rod								TYPE:Magic.Rod																	COST:65000	WT:0																							SOURCEPAGE:p.57
 
 ####Block: Staves
-# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Staff (Acid)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:78750	WT:0																											SOURCEPAGE:p.57
-Staff (Evoker)		OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x3			CRITRANGE:1			ALTCRITICAL:x3		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
-Staff (Hands)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:105200	WT:0																											SOURCEPAGE:p.58
-Staff (Sound)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:80800	WT:0																											SOURCEPAGE:p.58
+# Equipment Name		Output Name					Required Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus					ALTCRITMULT
+Staff (Acid)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:78750	WT:0																							SOURCEPAGE:p.57
+Staff (Evoker)		OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x3			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.58	BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement	ALTCRITMULT:x3
+Staff (Hands)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:105200	WT:0																							SOURCEPAGE:p.58
+Staff (Sound)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:80800	WT:0																							SOURCEPAGE:p.58
 
 ###Block: Wands
 #Wand Name				Output name			Type				Weight		Base item	EQMod												Sourcepage
