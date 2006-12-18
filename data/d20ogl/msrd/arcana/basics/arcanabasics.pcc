@@ -50,7 +50,7 @@ TEMPLATE:arcanabasics_templates_incantations.lst
 
 # Stuff referenced from other MSRD sets
 EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
-
+FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:Jack of All Trades)
 
 #
 # End
