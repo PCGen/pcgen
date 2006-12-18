@@ -227,7 +227,8 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		dr1 = new DamageReduction("10", "magic and good");
 		dr2 = new DamageReduction("10", "magic and lawful");
 		result = DamageReduction.combineDRs(dr1, dr2);
-		is(result, strEq("10/magic and lawful and good"));
+		// Order of lawful and good does matter
+		is(result, or(strEq("10/magic and lawful and good"),strEq("10/magic and good and lawful")));
 
 		// Sanity check we don't have anything hardcoded.
 		dr1 = new DamageReduction("10", "lawful");
