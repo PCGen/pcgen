@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 14 03:56:08 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Tue Dec 19 00:41:22 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 
@@ -47,7 +47,7 @@ Heal							KEYSTAT:WIS								TYPE:Wisdom																																							
 Hide							KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																																																		SOURCEPAGE:SkillsII.rtf
 Intimidate						KEYSTAT:CHA								TYPE:Charisma						BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK																																SOURCEPAGE:SkillsII.rtf
 # There is an issue with Monk movement bonus and the Jump/speed synergy
-Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						BONUS:SKILL|Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|(((MOVE[Walk]-30)/10*4).TRUNC)MAX0|TYPE=Speed.STACK	BONUS:SKILL|Jump|(((MOVE[Walk]-30)/10*6).TRUNC)MIN0|TYPE=Speed.STACK									SOURCEPAGE:SkillsII.rtf
+Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						BONUS:SKILL|Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|max(floor(var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK							SOURCEPAGE:SkillsII.rtf
 Knowledge (Arcana)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
 Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
 Knowledge (Dungeoneering)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
