@@ -840,12 +840,13 @@ public final class GMGenSystem extends JFrame implements ChangeListener, MenuLis
 		PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
 		dialog.setVisible(true);
 	}
-
+	
 	private class Renderer extends Thread
 	{
 		public void run()
 		{
-			initialize();
+			GMGenSystem.this.initialize();
+			
 		}
 	}
 }
