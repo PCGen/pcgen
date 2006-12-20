@@ -4115,6 +4115,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					setSelectedItem("Yes");
 				}
 			}
+			else if (obj instanceof String)
+			{
+				setSelectedItem((String) obj);
+			}
 			else
 			{
 				setSelectedItem("No");
@@ -4430,6 +4434,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					if (eSet.getIdPath().equals(pc.getCalcEquipSetId()))
 					{
 						pc.setUseTempMods(eSet.getUseTempMods());
+						pc.setDirty(true);
 						updateOtherTabs();
 					}
 					break;
