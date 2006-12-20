@@ -94,6 +94,8 @@
 			<p class="indent2"><code>BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4 </code></p>
 				<p class="indent3">Sets the Paladins spell caster level to half his class level after he reaches level 4.</p>
 				<p class="indent3">(Note that the syntax used in this last example is only valid in a class line)</p>
+			<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
+				<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
 
 		<p class="indent1"><strong>Additional qualifier:</strong> .RESET</p>
 			<p class="indent2">.RESET is an additional qualifier that can be used for all subtags except CLASS and RACE.
@@ -121,8 +123,12 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
 		<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
-		<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will  <TAB>  BONUS:CHECKS|%LIST|1</p>
+		<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will &lt;tab&gt; BONUS:CHECKS|%LIST|1</p>
 		<p class="indent3">CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will, of which the selection is put into BONUS:CHECKS|%LIST|1<br /></p>
+		<p class="indent2"><code>BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS</code></p>
+		<p class="indent3">> How does one code up something like 'you can add your Charisma modifier instead of
+		Wisdom for Willpower saves'?</p>
+
 
 		<p></p><a name="CHECKSBASE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:CHECKS|BASE.x,BASE.x|y</p>
@@ -165,11 +171,16 @@
 		<p class="indent3">Increases enchantment armor bonus to two.</p>
 		<p class="indent2"><code>BONUS:COMBAT|AC|1|TYPE=NaturalArmor</code></p>
 		<p class="indent3">Increases natural armor bonus to one.</p>
+		<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
+		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
 
 
 		<p></p><a name="COMBATATTACKS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|ATTACKS|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of primary hand attacks)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of primary
+		hand attacks)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to number of attacks the primary hand gets.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -179,7 +190,8 @@
 
 		<p></p><a name="COMBATBAB"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|BAB|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of primary hand attacks)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of primary
+		hand attacks)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 			<ul class="indent2">
 				<li>Adds to number of attacks the primary hand gets.</li>
@@ -195,9 +207,11 @@
 		<p class="new">*** New 5.7.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|DAMAGE.x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Damage type&gt;)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage bonus or stat name)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage bonus or
+		stat name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Adds to damage bonus. Damage type can be Melee, Ranged, Unarmed, Shortrange, Thrown, Unarmed Strike or any weapon type such as Piercing, Slashing, Martial, Simple, Blunt, Projectile, etc.</p>
+		<p class="indent2">Adds to damage bonus. Damage type can be Melee, Ranged, Unarmed, Shortrange, Thrown,
+		Unarmed Strike or any weapon type such as Piercing, Slashing, Martial, Simple, Blunt, Projectile, etc.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Melee|2</code></p>
 		<p class="indent3">Increases &quot;Melee&quot; damage bonus by two.</p>
@@ -208,7 +222,8 @@
 		<p></p><a name="COMBATDAMAGEMULT"></a><hr>
 		<p class="new">*** New 5.5.6</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|DAMAGEMULT:x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (0 for off-hand, 1 for primary and 2 for two handed)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (0 for off-hand, 1 for primary and 2 for
+		two handed)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Damage multiplier)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Increases damage multiplier by the number specified.</p>
@@ -217,27 +232,33 @@
 		<p class="indent3"><code>BONUS:COMBAT|DAMAGEMULT:1|1</code></p>
 		<p class="indent3"><code>BONUS:COMBAT|DAMAGEMULT:2|1.5</code></p>
 		<p class="indent2">Which means off hand wielded weapons have a damage bonus of half your strength bonus,
-			primary wielded weapons have a damage bonus of your full strength bonus and weapons wielded with two hand
-			have a damage bonus of your strength and half again.</p>
+			primary wielded weapons have a damage bonus of your full strength bonus and weapons wielded with two
+			hand have a damage bonus of your strength and half again.</p>
 		<p class="indent2">This sub-tag can also be used in the <a href="#WEAPON">BONUS:WEAPON</a> and
-		<a href="#WEAPONPROF">BONUS:WEAPONPROF</a> tags though the syntax is slightly different so examples are provided here.</p>
+		<a href="#WEAPONPROF">BONUS:WEAPONPROF</a> tags though the syntax is slightly different so examples are
+		provided here.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:0|0.5</code></p>
-		<p class="indent3">Increases the damage multiplier by half your strength bonus. Combined with the existing bonus
-			this bonus will total your full strength bonus for an off hand weapon.</p>
+		<p class="indent3">Increases the damage multiplier by half your strength bonus. Combined with the
+		existing bonus this bonus will total your full strength bonus for an off hand weapon.</p>
 		<p class="indent2"><code>BONUS:WEAPON|DAMAGEMULT:1|.5</code></p>
-		<p class="indent3">Increases the damage multiplier of the weapon by half your strength bonus when wielding in your primary hand.</p>
+		<p class="indent3">Increases the damage multiplier of the weapon by half your strength bonus when
+		wielding in your primary hand.</p>
 		<p class="indent2"><code>BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5</code></p>
-		<p class="indent3">Increases the damage multiplier of the dagger weapon by half your strength bonus when wielding it off handed.</p>
-		<p class="indent1"><strong>NOTE:</strong> BONUSes are additive between each BONUS.  Two <code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> tags will do a total of x3 (1.5 + 1.5), not 2.25.
+		<p class="indent3">Increases the damage multiplier of the dagger weapon by half your strength bonus when
+		wielding it off handed.</p>
+		<p class="indent1"><strong>NOTE:</strong> BONUSes are additive between each BONUS.  Two
+		<code>BONUS:WEAPON|DAMAGEMULT:0|1.5</code> tags will do a total of x3 (1.5 + 1.5), not 2.25.
 
 
 		<p></p><a name="COMBATDAMAGESIZE"></a><hr>
 		<p class="new">*** New Entry</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|DAMAGESIZE|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of steps along the damage dice scale)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of steps
+		along the damage dice scale)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Increases or decreases damage dice size along the same scale as is used for weapons size.</p>
+		<p class="indent2">Increases or decreases damage dice size along the same scale as is used for weapons
+		size.</p>
 		<p class="indent2">This effects all damage dice associated with the PC including Unarmed damage.</p>
 		<p class="indent2">The DAMAGESIZE property can also be used in the
 		<a href="#WEAPON">BONUS:WEAPON</a> and
@@ -294,7 +315,8 @@
 
 		<p></p><a name="COMBATSECONDARYATTACKS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|SECONDARYATTACKS|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of secondary attacks)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number of secondary
+		attacks)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Increases the number of Secondary attacks.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -315,16 +337,22 @@
 		<p></p><a name="COMBATTOHIT"></a><hr>
 		<p class="new">*** New 5.3.12 *** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (adds to attack bonus)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (adds to attack
+		bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to Primary Attack bonus.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT|2|TYPE=Luck</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two.</p>
-		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
+		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+
 
 		<p></p><a name="COMBATTOHIT2" id="COMBATTOHIT2"></a><hr>
 		<p class="new">*** New 5.3.12 *** Updated 5.11.4</p>
@@ -338,10 +366,15 @@
 		<p class="indent3">Increases Attack for thrown weapons bonus by two.</p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code></p>
 		<p class="indent3">Increases Attack bonus by two when using a Slashing weapon.</p>
-		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT|1|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT|1|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT|2|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
+		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
+		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+
 
 		<p></p><a name="COMBATTOHITPRIMARY"></a><hr>
 		<p class="new">*** Updated 5.11.4</p>
@@ -352,9 +385,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
 		<p class="indent3">Increases Primary Attack bonus to two.</p>
-		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT-PRIMARY|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-PRIMARY|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 
 
@@ -367,9 +400,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-SECONDARY|1</code></p>
 		<p class="indent3">Increases Secondary Attack bonus to one.</p>
-		<p class="indent2"><code>2 TAB BONUS:COMBAT|TOHIT-SECONDARY|1|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT-SECONDARY|1|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-SECONDARY|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SECONDARY|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
 
 
@@ -384,9 +417,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-SHORTRANGE|1</code></p>
 		<p class="indent3">Adds one to character's short range To-Hit attack rolls.</p>
-		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-SHORTRANGE|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SHORTRANGE|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>5 TAB BONUS:COMBAT|TOHIT-SHORTRANGE|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SHORTRANGE|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Secondary Hand. Class Level or ClassSubLevel</p>
 
 
@@ -410,6 +443,8 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:DC|SPELL.Fireball|7</code></p>
 		<p class="indent3">Adds 7 to the DC of the spell Fireball.</p>
+		<p class="indent2"><code>CHOOSE:SCHOOLS|1 &lt;tab&gt BONUS:DC|SCHOOL.%LIST|1</code></p>
+		<p class="indent3">Choose 1 School and add 1 to its DC.</p>
 
 
 		<p></p><a name="DCALLSPELLS"></a><hr>
@@ -457,6 +492,8 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:DC|DOMAIN.War|6</code></p>
 		<p class="indent3">Adds 6 to the DC of War Domain spells.</p>
+		<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:Afterlife|Air|Ancestor|Animal|Artificer|Binding|Cavern|Charm|Cold|Commerce|Daemonology|Death|Destruction|Disease|Divination|Earth|Fate|Fire|Glory|Healing|Holy|Honor|Knowledge|Luck|Magic|Murder|Music|Nature|Oath|Pain|Plant|Pleasure|Protection|Refuge|Saurian|Sea|Secrets|Senses|Storm|Strength|Subterfuge|Suffering|Sun|Trickery|Undead|War|Water &lt;tab&gt; BONUS:DC|DOMAIN.%LIST|1</code></p>
+		<p class="indent3">A chooser to add 1 to the DC of Domain spells, may be used multiple times.</p>
 
 
 		<p></p><a name="DCFEATBONUS"></a><hr>
@@ -725,6 +762,8 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:HP|CURRENTMAX|2</code></p>
 		<p class="indent3">Character gains two additional hit points.</p>
+		<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:NUMCHOICES=1|STAT|CON &lt;tab&gt; BONUS:HP|CURRENTMAX|%LIST-CON</code></p>
+		<p class="indent3">Character gains between 1 and CON Bonus additional hit points, can be used multiple time, does not stack.</p>
 
 
 		<p></p><a name="ITEMCOST"></a><hr>
@@ -943,6 +982,18 @@
 		<p class="indent3">Adds one to size. A &quot;Medium&quot; character would become &quot;Large&quot;.</p>
 		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|-2</code></p>
 		<p class="indent3">Reduces size by two. A &quot;Medium&quot; character would become &quot;Tiny&quot;.</p>
+		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PREDEFAULTMONSTER:Y</code></p>
+		<p class="indent3">If PREDEFAULTMONSTER in Preferences is set to on, adds 1 to SIZEMOD. To be Deprecated</p>
+		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T</code></p>
+		<p class="indent3">If size is greater than Tiny (T) add 1 to SIZEMOD.</p>
+		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PREAPPLY:PC</code></p>
+		<p class="indent3">Add 1 to SIZEMOD of any PC.</p>
+		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7</code></p>
+		<p class="indent3">If Total Levels (TL) are more than 3 and less than 7, and you are a Dire Wolf, reduce the SIZEMOD by 1.</p>
+		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7.CLEAR</code></p>
+		<p class="indent3">Removes the if Total Levels (TL) are more than 3 and less than 7, and you are a Dire Wolf, reduce the SIZEMOD by 1.</p>
+		<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T.MOD &lt;tab&gt; BONUS:SIZEMOD|NUMBER|2|PRESIZEGT:T</code></p>
+		<p class="indent3">Changes the if size is greater than Tiny (T) add 1 to SIZEMOD to add 2 to the SIZEMOD.</p>
 
 
 		<p></p><a name="SKILL"></a><hr>
@@ -958,6 +1009,8 @@
 		<p class="indent3">Adds 10 to &quot;Bluff&quot; &amp; &quot;Listen&quot;.</p>
 		<p class="indent2"><code>BONUS:SKILL|TYPE=Charisma|2</code></p>
 		<p class="indent3">Adds 2 to Charisma type skills.</p>
+		<p class="indent2"><code>BONUS:SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
+		<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you figure out the math.</p>
 
 
  		<p></p><a name="SKILLALL"></a><hr>
@@ -1217,7 +1270,8 @@
  		<p></p><a name="STAT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:STAT|x,x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust stat by)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust
+		stat by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to character stats (stat can be any stat that has been defined in the
 			statsandchecks.lst system file).</p>
@@ -1226,6 +1280,13 @@
 		<p class="indent3">Adds two to character's STR stat.</p>
 		<p class="indent2"><code>BONUS:STAT|DEX,CON,INT|1</code></p>
 		<p class="indent3">Adds 1 to character's DEX, CON, &amp; INT stats.</p>
+		<p class="indent2"><code>CHOOSE:Ability|STR|DEX|CON &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; BONUS:STAT|%LIST|1|TYPE=Inherent</code></p>
+		<p class="indent3">Adds 1 to character's STR, DEX, &amp; CON stats, can be chosen multiple time, does not stack.</p>
+		<p class="indent2"><code>#Dwarf Racial Progression.MOD &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:3
+		&lt;tab&gt; BONUS:STAT|STR|2|PRELEVEL:5 &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:7 &lt;tab&gt;
+		BONUS:STAT|WIS|2|PRELEVEL:9</code></p>
+		<p class="indent3">Modifies the character based on what level they are, i.e. +2 to CON at 3, +2 to STR
+		at 5, +2 to CON at 7, +2 to WIS at 9.</p>
 
 
 		<p></p><a name="STATBASESPELLKNOWNSTAT"></a><hr>
@@ -1316,6 +1377,8 @@
 		<p class="indent3">Adds 2 to character's SneakAttack variable.</p>
 		<p class="indent2"><code>BONUS:VAR|SneakAttack,TrapSense|1</code></p>
 		<p class="indent3">Adds 1 to character's SneakAttack and TrapSense variables.</p>
+		<p class="indent2"><code>BONUS:VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points</code></p>
+		<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if your a Titan and a PC.</p>
 
 
 		<p></p><a name="VISION"></a><hr>
@@ -1423,8 +1486,11 @@
   		<p class="indent3">Allows a medium character to use a Greatsword one handed without penalty.</p>
 		<p class="indent2"><code>BONUS:WEAPONPROF=Longsword|WIELDCATEGORY|-1</code></p>
 		<p class="indent3">Lowers the weapons wieldcatagory, if it were OneHanded it becomes Light.</p>
-		<p class="indent2"><code>BONUS:WEAPONPROF=%LIST|TOHIT|1</code></p>
-		<p class="indent3">Not documented.</p>
+		<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus|1 &lt;tab&gt; BONUS:WEAPONPROF=%LIST|TOHIT|1</code></p>
+		<p class="indent3">Chooser for weapons proficiency to add 1 to the to-hit of a Weapon Focus.</p>
+		<p class="indent2"><code>CHOOSE:FEAT=Greater Weapon Focus|1 &lt;tab&gt; BONUS:WEAPONPROF=%LIST|DAMAGE|2</code></p>
+		<p class="indent3">Chooser for weapons proficiency to add 2 to the damager of a Weapon Focus.</p>
+
 
 		<p></p><a name="WIELDCATEGORY"></a><hr>
 		<p class="new">*** New 5.5.2</p>

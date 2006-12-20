@@ -89,6 +89,7 @@
 		<p class="indent3">Parenthesis () nesting - the result of three multiplied
 		by Total Level divided by two, plus Class Level + 1 is divided by four.<br /></p>
 
+		<hr><a name="modulus/remainder"></a>
 		<p class="indent2"><code>CL%3</code><br /></p>
 		<p class="indent2">The % performs a modulus... or is the remainder operator.</p>
 		<p class="indent3"><code>would determine the remainder after performing an integer divide on the Class Level by three. If the class level was
@@ -298,33 +299,47 @@
 		<p class="indent3"><code>count("ABILITIES","CATEGORY=FEAT","VISIBILITY=VISIBLE")</code> List all visible feat abilities.</p>
 		<br />
 
+
 		<p class="new">*** New 5.11.X</p>
 		<hr><a name="SymbolsOpers"></a>
 		<hr><p class="indent1"><strong>Symbols Operators</strong></font></p>
 		<p class="indent2">The following symbol operators are explained below.<br></p>
 
+
+		<a name="%CHOICE"></a>
+		<p class="indent1"><code>%CHOICE</code></p>
+		<p class="indent2"><strong>What it does:</strong></p>
+		<p class="indent2">The %CHOICE will put the input from a CHOOSE tag into its place, can be used in math computations.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SPROP:Unreliable (%CHOICE) &lt;tab&gt; CHOOSE:5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%</code></p>
+		<p class="indent3">Chooser to select the level of unreliablty.</p>
+
+
+		<a name="%LIST"></a>
 		<p class="indent1"><code>%LIST</code></p>
 		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent2">The %LIST will put the input from a CHOOSE tag into its place.</p>
+		<p class="indent2">The %LIST will put the input from a CHOOSE tag into its place, can not be used in math computations.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL</code></p>
-		<p class="indent2"><code>BONUS:CHECKS|%LIST|1</code></p>
+		<p class="indent2"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
 		<p class="indent3"><code>CHOOSE:NUMCHOICES=1|FORTITUDE|REFLEX|WILL, of which the selection is put into BONUS:CHECKS|%LIST|1</code></p>
 
-		<p class="indent1"><code>(!)</code></p>
+
+		<a name="!"></a>
+		<p class="indent1"><code>! (Not)</code></p>
 		<p class="indent2"><strong>What it does:</strong></p>
 		<p class="indent2">The NOT operator.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:SKILL|Swim|1|!PRESKILL:1,Swim=1.</code></p>
 		<p class="indent3"><code>If the character has swim, add 1 to it, if not add 1 to swim.</code></p>
 
-		<p class="indent1"><code>(%)</code></p>
+
+		<a name="%"></a>
+		<p class="indent1"><code>% (Replacement/Substitution)</code></p>
 		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent2">The Substitution Operator, used in the SA: tag.</p>
+		<p class="indent2">The Replacement/Substitution Operator, used in the SA: tag.</p>
 		<p class="indent2">See the <a href="globalfilesother.html#SA">SA:</a>tag for more information.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire</code></p>
-		<p class="indent2"><code>SA:Resistance to % 5|LIST</code></p>
+		<p class="indent2"><code>CHOOSE:Acid|Cold|Electricity|Fire &lt;tab&gt; SA:Resistance to % 5|LIST</code></p>
 		<p class="indent3"><code>CHOOSE:Acid|Cold|Electricity|Fire, of which the selection is put into SA:Resistance to % 5|LIST</code></p>
 
 

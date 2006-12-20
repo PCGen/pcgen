@@ -58,7 +58,8 @@
 
 		<p></p><a name="CHOOSELanguage"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:Language(x.y,x.y)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language TYPE, i.e. Spoken, Written, or Read)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language TYPE, i.e. Spoken, Written, or
+		Read)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Language name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
@@ -74,8 +75,8 @@
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHOOSE:Language(Read.Draconic,Spoken)</code></p>
-		<p class="indent3">Choose between &quot;Spoken&quot; type languages or &quot;Read&quot; and &quot;Draconic&quot;
-		  type languages.</p>
+		<p class="indent3">Choose between &quot;Spoken&quot; type languages or &quot;Read&quot; and
+		&quot;Draconic&quot; type languages.</p>
 
 		<p></p><a name="CLASSES"></a><hr>
 		<p class="new">*** New 5.3.3</p>
@@ -95,8 +96,10 @@
 		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (skill point cost)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is how many skill points the skill costs. A decimal value,
-			as the example below, would mean that it only costs 1/2 a skill point.</p>
+		<p class="indent2">This is how many skill points the skill costs. A decimal value, as the example below,
+		would mean that it only costs 1/2 a skill point.</p>
+		<p class="indent2">Deduct from skills tab (see UI changes) point pool when the miscinfo trigger tag
+		POINTPOOLNAME (See new tag) is present.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>COST:1</code></p>
 		<p class="indent3">Skill costs one skill point.</p>
@@ -109,8 +112,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This tells PCGen whether a skill is an exclusive skill or not.</li>
-			<li>If this is set to YES then ONLY classes that have this listed as a class skill
-				can take it.</li>
+			<li>If this is set to YES then ONLY classes that have this listed as a class skill can take it.</li>
 			<li>The Default is NO.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -119,12 +121,11 @@
 
 		<p></p><a name="KEYSTAT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> KEYSTAT:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Abbreviated name
-			of stat from statsandchecks.lst)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Abbreviated name of stat from
+		statsandchecks.lst)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This is to set what stat (as defined by the Game Mode List
-				File) the skill draw and bonuses from.</li>
+			<li>This is to set what stat (as defined by the Game Mode List File) the skill draw and bonuses from.</li>
 			<li>If the tag is left off, no Stat bonus will be automatically applied.</li>
 			<li>The Default is NO.</li>
 		</ul>
@@ -135,6 +136,25 @@
 		<p></p><a name="REQ"></a><hr>
 		<p class="new">*** Deprecated ***</p>
 		<p class="indent0"><strong>Tag Name:</strong> REQ:x</p>
+
+		<p></p><a name="SKILLCHANGE"></a><hr>
+		<p class="new">*** New 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> (SKILLNAME).MOD or .COPY or .CLEAR</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Allows for changes to the defined Skill in the Skills file.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
+		<p class="indent3">Copy the Equipment possesses the &quot;Light-Duty Vest&quot; identifyer to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
+		<p class="indent2"><code>Climb(class skill).MOD &lt;tab&gt; TYPE:Explorer_Skills.Hunter_Skills.Nomad_Skills.Tribal_Leader_Skills</code></p>
+		<p class="indent3">Modifies the Skill &quot;Climb&quot;.</p>
+		<p class="indent2"><code>Demolitions.MOD &lt;tab&gt; PRE:.CLEAR</code></p>
+		<p class="indent3">Modifies the Skill &quot;Demolitions&quot; by getting rid of all PRE: tags.</p>
+		<p class="indent2"><code>Computer Use.FORGET</code></p>
+		<p class="indent3">Forget the Skill &quot;Computer Use&quot;.</p>
+
 
 		<p></p><a name="SYNERGY"></a><hr>
 		<p class="new">*** Deprecated - Use <a href="../globalfilestagpages/globalfilesbonus.html#SKILL">BONUS:SKILL</a>|&lt;skillname&gt;|x|PRESKILL:1,&lt;synergyskillname&gt;=y</p>
@@ -152,6 +172,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TYPE:Charisma.Perform</code></p>
 		<p class="indent3">This skill belongs to the &quot;Charisma&quot; and &quot;Perform&quot; types.</p>
+		<p class="indent2"><code>Craft (Electronic - class skill).MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Scientist_Skills.Terraformer_Skills</code></p>
+		<p class="indent3">This skill is modified to be in the &quot;Scientist_Skills&quot; and &quot;Terraformer_Skills&quot; types.</p>
+
 
 		<p></p><a name="USEUNTRAINED"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> USEUNTRAINED:x</p>

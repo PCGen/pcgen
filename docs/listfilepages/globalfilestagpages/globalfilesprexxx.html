@@ -227,9 +227,8 @@
 
 		<p></p><a name="PRECLASS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRECLASS:x,y=z,y=z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number
-			(The number of classes that must be equal to or greater than the numbers specified for the check to succeed).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined class name).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of classes that must be equal to or greater than the numbers specified for the check to succeed).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined class name or ANY).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.ClassType (A Class type such as Base or Prestige).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER (Any spellcaster).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER.Type (A spellcaster type such as Arcane or Divine).</p>
@@ -247,6 +246,30 @@
 		<p class="indent3">Character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class.</p>
 		<p class="indent2"><code>PRECLASS:2,TYPE.Base=5,TYPE.Prestige=1</code></p>
 		<p class="indent3">Character must have 5 levels in any Base class and 1 level in any Prestige class.</p>
+		<p class="indent2"><code>PRECLASS:2,ANY</code></p>
+		<p class="indent3">Multi-classed character must be at least two Classes.</p>
+		<p class="indent2"><code>PRECLASS:1,ANY</code></p>
+		<p class="indent3">Character must have 1 level in any class.</p>
+		<p class="indent2"><code>PREMULT:1,[PREFEAT:1,Blood of the Fey],[PRECLASS:1,Fey-Touched=1]</code></p>
+		<p class="indent3">Character must have 1 level in Fey-Touched class or feat Blood of the Fey.</p>
+		<p class="indent2"><code>PRECLASS:1,Jack o' the Green=5	!PREFEAT:1,TYPE.LASlipperyEel</code></p>
+		<p class="indent3">Character must have 5 levels in Jack o' the Green class and not have the feat LASlipperyEel.</p>
+		<p class="indent2"><code>!PRECLASS:1,SPELLCASTER.Arcane=1</code></p>
+		<p class="indent3">Character must not have 1 level in SPELLCASTER.Arcane class.</p>
+		<p class="indent2"><code>BONUS:COMBAT|AC|1|PRECLASS:1,Shaper=10</code></p>
+		<p class="indent3">Character adds 1 to armor class if 10 levels in Shaper Class.</p>
+		<p class="indent2"><code>BONUS:WEAPON|TOHIT|4|TYPE=Luck|PRECLASS:1,Wizard=1,Sorcerer=1</code></p>
+		<p class="indent3">Character adds 4 to To-Hit from luck if 1 level in either Wizard/Sorcerer Class.</p>
+		<p class="indent2"><code>BONUS:CASTERLEVEL|Minstrel|CL-3|PRECLASS:1,Minstrel=4</code></p>
+		<p class="indent3">Character adds CL-3 bonus to Casterlevel if 4 levels in Minstrel Class.</p>
+		<p class="indent2"><code>SA:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper=10</code></p>
+		<p class="indent3">SA: will fire with 10 levels of Shaper Class.</p>
+		<p class="indent2"><code>SA:Spy|PREMULT:2,[PRECLASS:1,Aradil's Eye=5],[PRECLASSLEVELMAX:1,Aradil's Eye=9]</code></p>
+		<p class="indent3">SA: will fire with 5 levels of Aradil's Eye Class or not more than 9 levels of Aradil's Eye Class.</p>
+		<p class="indent2"><code>!PRECLASS:1,SPELLCASTER.Arcane=1.CLEAR &lt;tab&gt; PRECLASS:1,ANY</code></p>
+		<p class="indent3">Removes the character must have 1 level in SPELLCASTER.Arcane class. Can now be any Class</p>
+		<p class="indent2"><code>PRECLASS:1,SPELLCASTER.Divine=6,SPELLCASTER.Psionic=3.MOD &lt;tab&gt; PRECLASS:1,Rogue=6,Ranger=3.MOD</code></p>
+		<p class="indent3">Changes the character must have 6 levels in any divine spellcasting class or 3 levels in any psionic manifesting class, with a requirement for either Rogue at 6 levels or Ranger at 3 levels.</p>
 
 		<p></p><a name="PRECLASSLEVELMAX"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PRECLASSLEVELMAX:x,x=y</p>
@@ -320,6 +343,9 @@
 		<p class="indent3">Character must have chosen either &quot;Zeus&quot; or &quot;Odin&quot;.</p>
 		<p class="indent2"><code>PREDEITY:1,Zeus,PANTHEON.Celtic,Odin</code></p>
 		<p class="indent3">Character must have chosen either &quot;Zeus&quot;, &quot;Odin&quot; or a deity in the &quot;Celtic&quot; pantheon.</p>
+		<p class="indent2"><code>CLASS:Druid.MOD &lt;tab&gt; PREDEITY:Saluwe,Yarris,Belisarda,Fire Dragon</code></p>
+		<p class="indent3">Character must have chosen either &quot;Saluwe&quot; &quot;Yarris&quot; &quot;Belisarda&quot; or &quot;Fire Dragon&quot;.</p>
+
 
 		<p></p><a name="PREDEITYALIGN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREDEITYALIGN:x</p>
@@ -516,6 +542,11 @@
 		<p class="indent3">Character must have any two of &quot;Skill Focus(Spot)&quot;, &quot;Skill Focus(Listen)&quot;, or &quot;Skill Focus(Search)&quot;.</p>
 		<p class="indent2"><code>PREFEAT:2,TYPE=ItemCreation</code></p>
 		<p class="indent3">Character must have any two ItemCreation type feats.</p>
+		<p class="indent2"><code>PREFEAT:1,Skill Focus(Knowledge%)</code></p>
+		<p class="indent3">Character must have one Skill Focus Knowledge sub-type (%) feats.</p>
+		<p class="indent2"><code>Magecraft (Charismatic).MOD &lt;tab&gt; !PREFEAT:1,Untapped Potential</code></p>
+		<p class="indent3">Character must not (!) have one feat called Untapped Potential.</p>
+
 
 		<p></p><a name="PREGENDER"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREGENDER:x</p>
@@ -699,6 +730,11 @@
 		<p class="indent3">Character must be either a &quot;Gnome&quot; or a &quot;Cleric&quot;.</p>
 		<p class="indent2"><code>PREMULT:1,[PRERACE:Gnome],[PREMULT:2,[PRESIZEGTEQ:M],[PREFEAT:1,Alertness]]</code></p>
 		<p class="indent3">Character must be &quot;Gnome&quot; OR a medium sized or larger creature with the &quot;Alertness&quot; feat.</p>
+		<p class="indent2"><code>PREMULT:1,[!PRERACE:%],[PRERACE:Bunch of Rocks]</code></p>
+		<p class="indent3">Character only be from a &quot;Bunch of Rocks&quot;.</p>
+		<p class="indent2"><code>Stamina.MOD &lt;tab&gt; PRE:.CLEAR &lt;tab&gt; PREMULT:1,[PREFEAT:1,Robust],[PRECLASS:1,Super Soldier=1]</code></p>
+		<p class="indent3">The Stamna feat is modified to remove all PRE tags and replace with the following.</p>
+
 
 		<p></p><a name="PRERACE"></a><hr>
 		<p class="new">*** Updated 5.9.5</p>
@@ -730,11 +766,15 @@
 		<p class="indent2"><code>PRERACE:1,RACESUBTYPE=Incorporeal</code></p>
 		<p class="indent3">Character must have the &quot;Incorporeal&quot; subtype.</p>
 		<p class="indent2"><code>PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal</code></p>
-		<p class="indent3">Character must have both a race type of &quot;Undead&quot; and a subtype of &quot;Incorporeal&quot;.</p>
+		<p class="indent3">Character must have both a race type of &quot;Undead&quot; and a subtype of
+		&quot;Incorporeal&quot;.</p>
 		<p class="indent2"><code>PRERACE:1,%</code></p>
 		<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
 		<p class="indent2"><code>!PRERACE:1,%</code></p>
 		<p class="indent3">This will pass if no race has been selected.</p>
+		<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
+		<p class="indent3">This will pass if no Human race has been selected.</p>
+
 
 		<p></p><a name="PREREGION"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREREGION:x (y)</p>
@@ -764,14 +804,18 @@
 
 		<p></p><a name="PRESA"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESA:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of Special Abilities a character must have).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of Special Abilities a
+		character must have).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>Text (The name of an Special Abilities).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Makes having certain special abilities a prerequisite.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESA:1,Turn undead,Rebuke undead,Smite Evil</code></p>
 		<p class="indent3">Character must have any one of &quot;Turn Undead&quot;,
-			&quot;Rebuke Undead&quot; or &quot;Smite Evil&quot;.</p>
+		&quot;Rebuke Undead&quot; or &quot;Smite Evil&quot;.</p>
+		<p class="indent2"><code>CLASS:Mystic Theurge.MOD &lt;tab&gt; !PRESA:1,Theurgy</code></p>
+		<p class="indent3">Character must not have any Special Abilities of &quot;Theurgy&quot;.</p>
+
 
 		<p></p><a name="PRESHIELDPROF"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESHIELDPROF:x,y,y</p>
@@ -1026,6 +1070,12 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRETEMPLATE:Celestial,Fiendish</code></p>
 		<p class="indent3">Character must be either &quot;Celestial&quot; or &quot;Fiendish&quot;.</p>
+		<p class="indent2"><code>PRETEMPLATE:Feral%</code></p>
+		<p class="indent3">Character must be any subrace of Feral.</p>
+		<p class="indent2"><code>PRETEMPLATE:Feral%.CLEAR</code></p>
+		<p class="indent3">Removes the character requirement to be any subrace of Feral.</p>
+		<p class="indent2"><code>CLASS:Eldritch Knight.MOD &lt;tab&gt; PRETEMPLATE:.CLEAR &lt;tab&gt; PRETEMPLATE:Celestial%,Fiendish%</code></p>
+		<p class="indent3">Removes the character requirement to be either &quot;Celestial&quot; or &quot;Fiendish&quot;, and allows any subrace of either.</p>
 
 		<p></p><a name="PRETEXT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRETEXT:x</p>

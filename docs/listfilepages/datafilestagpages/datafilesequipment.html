@@ -153,9 +153,11 @@
 		<p class="indent3">Creates a sword that is keen and also has Bane Undead.</p>
 		<p class="indent2"><code>EQMOD:ABILITYPLUS|STR+2</code></p>
 		<p class="indent3">this applies a +2 STR bonus to the char when using the item.</p>
+		<p class="indent2"><code>Leather Armor.MOD &lt;tab&gt; EQMOD:DR_CONVERSION_ARCHAIC|2</code></p>
+		<p class="indent3">this applies a damage reduction of 2 bonus to the char when using the item.</p>
+
 
 		<p></p><a name="LONGNAME"></a><hr>
-
 		<p class="new">*** Deprecated - Use the global <a href="../globalfilestagpages/globalfilesother.html#OUTPUTNAME">OUTPUTNAME</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> LONGNAME:x</p>
 
@@ -307,26 +309,32 @@
 		<p class="indent2"><code>SPROP:+2 against undead|PRECLASS:Paladin=1</code></p>
 		<p class="indent3">Outputs the text if the character has at least 1 level of Paladin.</p>
 		<p class="indent2"><code>SPROP:+% vs. code bugs|ColaIntake|PRESKILL:1,Programming=10</code></p>
-		<p class="indent3">If the character has the Programming skill of at least 10
-			and the variable &quot;ColaIntake&quot; is defined as equal to 4 then
-			the output sheet reads &quot;+4 vs. code bugs&quot;.</p>
+		<p class="indent3">If the character has the Programming skill of at least 10 and the variable
+		&quot;ColaIntake&quot; is defined as equal to 4 then the output sheet reads &quot;+4 vs. code bugs&quot;.</p>
+		<p class="indent2"><code>SPROP:+1 luck bonus to saves vs. %|%CHOICE &lt;tab&gt; CHOOSE:Abjuration|Conjuration|Divination|Evocation|Necromancy|Enchantment|Transmutation|Universal</code></p>
+		<p class="indent3">Allows for the selection of the type of luck bonus and inserts it in the %CHOICE.</p>
+
 
 		<p></p><a name="TYPE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Item Type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>The TYPE tag is used for many filtering and PRExxx tags. Please follow the conventions used in the
-				Players Rules for the TYPE tag.</li>
-			<li>TYPE:Armor items should also have the type of SLOTS it uses. This is usually TYPE:Suit. See BONUS:SLOTS
-				global tag entry for more information.</li>
+			<li>The TYPE tag is used for many filtering and PRExxx tags. Please follow the conventions used in
+			the Players Rules for the TYPE tag.</li>
+			<li>TYPE:Armor items should also have the type of SLOTS it uses. This is usually TYPE:Suit. See
+			BONUS:SLOTS	global tag entry for more information.</li>
 			<li>TYPE:Container is a special type name. It activates the CONTAINS tag in the item.</li>
 			<li>Every TYPE:Weapon item must be also have either TYPE:Melee or TYPE:Ranged (TYPE:Weapon.Melee.Foo)</li>
-			<li>TYPE:Double is a special weapon tag. It activates the three ALTxxx tags for the second head statistics.</li>
+			<li>TYPE:Double is a special weapon tag. It activates the three ALTxxx tags for the second head
+			statistics.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TYPE:Weapon.Simple.Melee.Slashing.Metal</code></p>
 		<p class="indent3">Item is a Simple Melee Slashing Metal Weapon.</p>
+		<p class="indent2"><code>Scythe.MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:Weapon.Exotic.Melee.Piercing.Slashing.Standard</code></p>
+		<p class="indent3">Modifying the Scythe to have a few more capabilities.</p>
+
 
 		<p></p><a name="WT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> WT:x</p>

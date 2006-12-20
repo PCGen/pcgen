@@ -62,10 +62,16 @@
 			<a href="globalfilesother.html#MOD">.MOD</a> tag to alter a class or other objects.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ADD:.CLEAR.LEVEL2</code></p>
-		<p class="indent3">If this were used in a CLASS:Rogue.MOD line it would clear the <code>ADD:FEAT(Evasion,Improved Evasion)</code> tag normally found there
-		and allow you to add a new one, perhaps: <code>ADD:FEAT(Evasion,Improved Evasion,Shadow)</code>.</p>
+		<p class="indent3">If this were used in a CLASS:Rogue.MOD line it would clear the <code>ADD:FEAT(Evasion,
+		Improved Evasion)</code> tag normally found there and allow you to add a new one, perhaps: <code>ADD:FEAT
+		(Evasion,Improved Evasion,Shadow)</code>.</p>
 		<p class="indent2"><code>ADD:.CLEAR</code></p>
-		<p class="indent3">If this were used in a Zombie.MOD line it would clear the <code>ADD:FEAT(TYPE=SlamWeapons)</code> tag normally found in that template.</p>
+		<p class="indent3">If this were used in a Zombie.MOD line it would clear the <code>ADD:FEAT
+		(TYPE=SlamWeapons)</code> tag normally found in that template.</p>
+		<p class="indent2"><code>CLASS:Gunslinger.MOD &lt;tab&gt; ADD:.CLEAR.LEVEL2 &lt;tab&gt; ADD:.CLEAR.LEVEL3
+		&lt;tab&gt; ADD:.CLEAR.LEVEL6 &lt;tab&gt; ADD:.CLEAR.LEVEL8 &lt;tab&gt; ADD:.CLEAR.LEVEL9</code></p>
+		<p class="indent3">This modification of the Gunslinger Class removes the benefits of level 2,3,6,8, and
+		9, replacing them with nothing.</p>
 
 		<p></p><a name="EQUIP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ADD:EQUIP(y,y)z</p>

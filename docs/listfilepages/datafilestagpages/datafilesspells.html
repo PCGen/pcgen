@@ -109,6 +109,9 @@
   			class. This is especially useful if you need to create a spell lists for prestige
   			classes that add castor levels to existing levels but does not otherwise have
   			a spell progression.</p>
+		<p class="indent2"><code>Misdirection.MOD &lt;tab&gt; CLASSES:Circle Walker=2</code></p>
+		<p class="indent3">Indicates this spell is modified to 2nd Level for Circle Walker classes.</p>
+
 
 		<p></p><a name="COMPS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> COMPS:x</p>
@@ -153,6 +156,8 @@
 		<p class="indent3">What the spell does.</p>
 		<p class="indent2"><code>DESC:Target is prone for (CASTERLEVEL) rounds.</code></p>
 		<p class="indent3">If the value of CASTERLEVEL is equal to 3 then this would output: "Target is prone for 3 rounds.".</p>
+		<p class="indent2"><code>Maximize Power.MOD &lt;tab&gt; DESC:You can manifest powers to maximum effect.</code></p>
+		<p class="indent3">Replaces the standard spell DESC with the attached.".</p>
 
 
 		<p></p><a name="DESCISPI"></a><hr>
@@ -200,6 +205,8 @@
 		<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain,
 			and 3rd level for the Beauty domain, but will only be added to the spell list
 			of a character with a level of the Supermodel prestige class.</p>
+		<p class="indent2"><code>Binding.MOD &lt;tab&gt; DOMAINS:Fate=8</code></p>
+		<p class="indent3">Indicates that this is a 8th level spell for the Fate domain.</p>
 
 		<p></p><a name="DURATION"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DURATION:x</p>
@@ -273,7 +280,7 @@
 		<p class="indent3">A successful Will save will negate the spell effects.</p>
 
 		<p></p><a name="SCHOOL"></a><hr>
-		<p class="new">*** Updated 5.7.3</p>
+		<p class="new">*** Updated 5.7.3*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> SCHOOL:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -284,6 +291,8 @@
 		<p class="indent3">This spell belongs to the &quot;Divination&quot; school.</p>
 		<p class="indent2"><code>SCHOOL:Enchantment|Illusion</code></p>
 		<p class="indent3">This spell belongs to the &quot;Enchantment&quot; and &quot;Illusion&quot; schools.</p>
+		<p class="indent2"><code>Summon Monster VII.MOD &lt;tab&gt; CLASSES:Channeler=7 &lt;tab&gt; SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Greater Conjuration</code></p>
+		<p class="indent3">For the Class Channeler of level 7 the spell Summon Monster VII is modified, moving it from whatever schools it was in to just &quot;Greater Conjuration&quot;.</p>
 
 		<p></p><a name="SUBSCHOOL"></a><hr>
 		<p class="new">*** Updated 5.7.3</p>
@@ -297,6 +306,22 @@
 		<p class="indent3">This spell belongs to the &quot;Charm&quot; sub-school.</p>
 		<p class="indent2"><code>SUBSCHOOL:Creation|Calling</code></p>
 		<p class="indent3">This spell belongs to the &quot;Creation&quot; and &quot;Calling&quot; subschools.</p>
+		<p class="indent2"><code>Wall of Force.MOD &lt;tab&gt; SUBSCHOOL:Force</code></p>
+		<p class="indent3">This spell belongs to the &quot;Force&quot; sub-school.</p>
+
+
+		<p></p><a name="SPELLCHANGE"></a><hr>
+		<p class="new">*** New 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> (SPELLNAME).MOD or .COPY or .CLEAR</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Allows for changes to the defined Spells in the Spells file.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>Holy Aura.FORGET</code></p>
+		<p class="indent3">Forget the spell &quot;Holy Aura&quot;.</p>
+
 
 		<p></p><a name="SPELLLEVEL"></a><hr>
 		<p class="new">*** Deprecated - Use <a href="#CLASSES">CLASSES</a> or <a href="#DOMAINS">DOMAINS</a> tags instead</p>
@@ -311,6 +336,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLRES:Yes</code></p>
 		<p class="indent3">This spell is susceptible to spell resistance.</p>
+
 
 		<p></p><a name="TARGETAREA"></a><hr>
 		<p class="new">*** New</p>

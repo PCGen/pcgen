@@ -78,6 +78,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>FAVCLASS:Wizard</code></p>
 		<p class="indent3">Race's favored class is Wizard.</p>
+		<p class="indent2"><code>Gnome.MOD &lt;tab&gt; FAVCLASS:Illusionist|Mechanist</code></p>
+		<p class="indent3">Race's favored class is Illusionist or Mechanist.</p>
+
 
 		<p></p><a name="FEAT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> FEAT:x|x</p>
@@ -150,6 +153,11 @@
 		<p class="indent2"><code>LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc</code></p>
 		<p class="indent3">Race can choose starting languages from &quot;Dwarven&quot;, &quot;Elven&quot;,
 		  &quot;Gnome&quot;, &quot;Goblin&quot; or &quot;Orc&quot;.</p>
+		<p class="indent2"><code>Hobgoblin.MOD &lt;tab&gt; LANGAUTO:Gadohig &lt;tab&gt; LANGBONUS:.CLEAR &lt;tab&gt; LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code></p>
+		<p class="indent3">Race can choose starting languages from &quot;Aeylamdyarian&quot;,
+		&quot;Calisian&quot;, &quot;Desolati&quot;, &quot;Galkarnic&quot; or &quot;Homish&quot;, or
+		&quot;Launhymian&quot;, in addition to the Autoknown &quot;Gadohig&quot;.</p>
+
 
 		<p></p><a name="LEGS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> LEGS:x</p>
@@ -177,6 +185,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
 		<p class="indent3">Effective Character Level is raised by one.</p>
+		<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
+		<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
+
 
 		<p></p><a name="MFEAT"></a><hr>
 		<p class="new">deprecated . . 5.11.4</p>
@@ -268,6 +279,20 @@
 			1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
 		<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
 
+
+		<p></p><a name="RACECHANGE"></a><hr>
+		<p class="new">*** New 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> (RACENAME).MOD or .COPY or .CLEAR</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Allows for changes to the defined Races in the Biosettings file.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>Human.COPY=Nimmr</code></p>
+		<p class="indent3">Copy the race possesses the &quot;Human&quot; RACENAME: to &quot;Nimmr&quot; in all aspects.</p>
+
+
 		<p></p><a name="RACESUBTYPE"></a><hr>
 		<p class="new">*** New 5.9.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> RACESUBTYPE:x|x</p>
@@ -284,6 +309,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>
 		<p class="indent3">The race possesses the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>
+		<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
+		<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
+
 
 		<p></p><a name="RACETYPE"></a><hr>
 		<p class="new">*** New 5.9.4</p>
@@ -302,6 +330,9 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RACETYPE:Outsider</code></p>
 		<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>
+		<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
+		<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
+
 
 		<p></p><a name="REACH"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> REACH:x</p>
@@ -358,6 +389,9 @@
 		<p class="indent2"><code>TEMPLATE:Incorporeal|Undead|Celestial</code></p>
 		<p class="indent3">The race uses the &quot;Incorporeal&quot;, &quot;Undead&quot; and &quot;Celestial&quot;
 		  templates.</p>
+		<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
+		<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
+
 
 		<p></p><a name="TEMPLATECHOOSE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:CHOOSE:x|x</p>

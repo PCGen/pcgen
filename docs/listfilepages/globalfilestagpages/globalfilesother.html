@@ -31,6 +31,35 @@
 		the pcc and specialist files). There are: </p>
 
 		<p></p>
+		<a name="ABILITY"></a><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong> ABILITY:x|y|z|z</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Ability Category (The Ability Category this ability will be added to).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Ability Nature (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Ability Key or TYPE(The Ability to add. Can have choices specified in "()")</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>* Adds an Ability to a character.</li>
+			<li>* The Ability is added to the Ability Category specified and that category's pool will be
+			charged if the Nature is NORMAL.</li>
+			<li>* This tag will not cause a chooser to appear so all required choices must be specified in the
+			tag.</li>
+			<li>* Choices can be specified by including them in parenthesis after the ability key name
+			(whitespace is ignored).</li>
+			<li>* A CATEGORY tag can be added to the ability key to specify that the innate ability category
+			specified be searched for a matching ability.</li>
+			<li>* If no CATEGORY is specified the standard list for the ability category will be used to find a
+			matching ability.</li>
+			<li>* This tag is a replacement for the following tags: FEAT, VFEAT, and FEATAUTO.</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code></p>
+		<p class="indent3">Adds a Metamagic feat as an Auto feat.</p>
+		<p class="indent2"><code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code></p>
+		<p class="indent3">Adds the Stunning Fist feat as a virtual class feature.</p>
+
+
+		<p></p>
 		<a name="AUTOEQUIP"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> AUTO:EQUIP|x|x</p>
@@ -48,10 +77,11 @@
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
-		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the character has a level of Monk.</p>
+		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
+		character has a level of Monk.</p>
 		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
-		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the character has a level of Monk
-			and a DEX score of 15 or better.</p>
+		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
+		character has a level of Monk and a DEX score of 15 or better.</p>
 
 
 		<p></p><a name="AUTOARMORPROF"></a><hr>
@@ -63,11 +93,12 @@
 		<ul class="indent2">
 			<li>This is a | (pipe) delimited list of armor that are granted as free armor proficiencies.</li>
 			<li>You can specify individual armor or all armor of an armor proficiency type.</li>
-			<li>You may have one TYPE with multiple &quot;.&quot; period delimited armor types. This will grant the character proficiency with
-					only armor that meet all off the listed choices.</li>
+			<li>You may have one TYPE with multiple &quot;.&quot; period delimited armor types. This will grant
+			the character proficiency with only armor that meet all off the listed choices.</li>
 			<li>If multiple armor or types, etc, are listed type will ALL be given as free proficiencies.</li>
 			<li>You can now have multiple AUTO: tags (before you could only have 1).</li>
-			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
+			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must
+			enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -86,11 +117,12 @@
 		<ul class="indent2">
 			<li>This is a | (pipe) delimited list of shields that are granted as free shield proficiencies.</li>
 			<li>You can specify individual shields or all shields of a shield proficiency type.</li>
-			<li>You may have one TYPE with multiple &quot;.&quot; period delimited shield types. This will grant the character proficiency with
-					only shields that meet all off the listed choices.</li>
+			<li>You may have one TYPE with multiple &quot;.&quot; period delimited shield types. This will grant
+			the character proficiency with only shields that meet all off the listed choices.</li>
 			<li>If multiple shield or types, etc, are listed type will ALL be given as free proficiencies.</li>
 			<li>You can now have multiple AUTO: tags (before you could only have 1).</li>
-			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
+			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must
+			enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -111,37 +143,36 @@
 		<ul class="indent2">
 			<li>This is a | (pipe) delimited list of weapons that are granted as free weapon proficiencies.</li>
 			<li>You can specify individual weapons or all weapons of a weapon proficiency type.</li>
-			<li>You may have one TYPE with multiple &quot;.&quot; period delimited weapon types. This will grant the character proficiency with
-					only those weapons that meet all off the listed choices.</li>
-			<li>If multiple weapons or types, etc, are listed type will ALL be
-					given as free proficiencies.</li>
+			<li>You may have one TYPE with multiple &quot;.&quot; period delimited weapon types. This will grant
+			the character proficiency with only those weapons that meet all off the listed choices.</li>
+			<li>If multiple weapons or types, etc, are listed type will ALL be given as free proficiencies.</li>
 			<li>You can now have multiple AUTO: tags (before you could only have 1).</li>
-			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must enclose the PRExxx statement with brackets [ ].</li>
+			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must
+			enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|Sword (Long)|Shortbow (Composite)</code></p>
-		<p class="indent3">The &quot;Sword (Long)&quot; and &quot;Shortbow (Composite)&quot; are given as
-											 free weapon proficiencies.</p>
+		<p class="indent3">The &quot;Sword (Long)&quot; and &quot;Shortbow (Composite)&quot; are given as free
+		weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Simple</code></p>
-		<p class="indent3">All &quot;Simple&quot; weapons are given as
-											 free weapon proficiencies.</p>
+		<p class="indent3">All &quot;Simple&quot; weapons are given as free weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Simple|TYPE.Martial</code></p>
-		<p class="indent3">All &quot;Simple&quot; and &quot;Martial&quot; weapons are given as
-											 free weapon proficiencies.</p>
+		<p class="indent3">All &quot;Simple&quot; and &quot;Martial&quot; weapons are given as free weapon
+		proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Ranged|TYPE.Piercing|TYPE.Simple</code></p>
-		<p class="indent3">All &quot;Ranged&quot;, &quot;Piercing&quot; and &quot;Simple&quot; weapons are given as
-											 free weapon proficiencies.</p>
+		<p class="indent3">All &quot;Ranged&quot;, &quot;Piercing&quot; and &quot;Simple&quot; weapons are given
+		as free weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Martial.Slashing</code></p>
-		<p class="indent3">All &quot;Martial&quot; weapons that are &quot;Slashing&quot; type are
-											 given as free weapon proficiencies.</p>
+		<p class="indent3">All &quot;Martial&quot; weapons that are &quot;Slashing&quot; type are given as free
+		weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE.Martial.Slashing.Melee</code></p>
-		<p class="indent3">All &quot;Melee&quot; type &quot;Martial&quot; weapons that
-											 are &quot;Slashing&quot; type are given as free weapon proficiencies.</p>
+		<p class="indent3">All &quot;Melee&quot; type &quot;Martial&quot; weapons that are &quot;Slashing&quot;
+		type are given as free weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|DEITYWEAPONS</code></p>
 		<p class="indent3">All favored weapons of the character's deity are given as free weapon proficiencies.</p>
-		<p class="indent2"><code>AUTO:WEAPONPROF|%LIST</code></p>
-		<p class="indent3">Not documented.</p>
+		<p class="indent2"><code>CLASS:Rogue.MOD &lt;tab&gt; AUTO:WEAPONPROF|Gladius</code></p>
+		<p class="indent3">Modified the Rogue Class to include the Gladius weapon.</p>
 
 		<p></p><a name="CSKILL"></a><hr>
 		<p class="new">*** Updated 5.9.5</p>
@@ -161,6 +192,10 @@
 		<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made class skills.</p>
 		<p class="indent2"><code>CSKILL:ALL</code></p>
 		<p class="indent3">All skills are made class skills.</p>
+		<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; CSKILL:.CLEAR.Scry &lt;tab&gt; CSKILL:Drive|TYPE.Knowledge|Perform</code></p>
+		<p class="indent3">Modifies the Class Sorcerer, droping the class skill Scry and adding Drive, Perform and all TYPE.Knowledge skills.</p>
+		<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
+		<p class="indent3">Modified Class that changes all of these Tags from their starting values.</p>
 
 
 		<p></p><a name="CCSKILL"></a><hr>
@@ -174,7 +209,8 @@
 		<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made cross class skills.</p>
 		<p class="indent2"><code>CCSKILL:Search|TYPE.Knowledge</code></p>
 		<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made cross class skills.</p>
-
+		<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
+		<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
 
 		<p></p><a name="CHANGEPROF"></a><hr>
 		<p class="new">*** New 5.3.13</p>
@@ -196,45 +232,46 @@
 		<p><a name="COMPANIONLIST"></a><hr>
 		<p class="new">*** New 5.10.1+</p>
 	    <p class="indent0"><strong>Tag Name:</strong> COMPANIONLIST:x|y,y|z</p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text (The type of companion list to
-																						add to).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>Text (A race of companion to allow
-																						to the character).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACETYPE=Text (all races with the
-													specified RACETYPE are available as this type of companion).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>ANY (Any race can be a companion of
-																						this type).</p>
+        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text (The type of companion list
+        to add to).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>Text (A race of companion to
+        allow to the character).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACETYPE=Text (all races with
+        the specified RACETYPE are available as this type of companion).</p>
+        <p class="indent1"><strong class="indent0">Variables used (y): </strong>ANY (Any race can be a companion
+        of this type).</p>
         <p class="indent1"><strong class="indent0">Variables used (z): </strong> FOLLOWERADJUSTMENT=<number>
-																	(Adjustment to the follower level variable).</p>
+        (Adjustment to the follower level variable).</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
         <p class="indent2">? Adds a specific race or races to the list of available companions for the specified
-        						companion type.</p>
+        companion type.</p>
         <p class="indent2">? PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked
-        						against the master.</p>
+        against the master.</p>
         <p class="indent2">? If the master does not meet the prereqs the companion will be displayed in the list
-        						but will be listed in red and cannot be added as a companion.</p>
+        but will be listed in red and cannot be added as a companion.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Global.</p>
         <p class="indent1"><strong>Example:</strong> </p>
         <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,
-        							Weasel</code> </p>
+        Weasel</code> </p>
         <p class="indent3">Would build the list of standard familiars available to a Sorcerer or Wizard.</p>
         <p class="indent2"><code>COMPANIONLIST:Pet|RACETYPE=Animal</code> </p>
         <p class="indent3">Would build a list of all animals to available as a Pet.</p>
         <p class="indent2"><code>COMPANIONLIST:Familiar|Quasit <tab> PREFEAT:1,Special Familiar|PREALIGN:CE</code> </p>
-        <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the Special
-        					Familiar feat.</p>
+        <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the
+        Special Familiar feat.</p>
         <p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code> </p>
-        <p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a companion
-        					of a 1st level Druid..</p>
+        <p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a
+        companion of a 1st level Druid..</p>
 
 		<p></p><a name="DEFINELOCK"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DEFINE:LOCK.x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Ability Score (STR, DEX, CON, INT, CHA, WIS or other stat defined in the gameMode)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Ability Score (STR, DEX, CON, INT, CHA, WIS or
+		other stat defined in the gameMode)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Value stat is to be locked to)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
-		<p class="indent2">Locks the specified ability score to a specific value regardless of any other bonuses to that ability.
-		If the locked value is 10 the OS will output an asterisk (*) instead of the number.
+		<p class="indent2">Locks the specified ability score to a specific value regardless of any other bonuses
+		to that ability. If the locked value is 10 the OS will output an asterisk (*) instead of the number.
 		This is commonly used when a creature has a non-ability such as the undeads lack of a constitution score.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEFINE:LOCK.CON|10</code></p>
@@ -245,13 +282,13 @@
 		<p class="indent0"><strong>Tag Name:</strong> DESCISPI:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> BOOLEAN (YES or NO)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
-		<p class="indent2">YES means it will bold and italicize the description of an item in the info boxes in PCGen,
-							to indicate that the name of the item is Product Identity. This is only visible in the
-							 Domain, Feats, and Spells tabs since no other objects display a description. Default is NO.</p>
+		<p class="indent2">YES means it will bold and italicize the description of an item in the info boxes in
+		PCGen, to indicate that the name of the item is Product Identity. This is only visible in the Domain,
+		Feats, and Spells tabs since no other objects display a description. Default is NO.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DESCISPI:YES</code></p>
-		<p class="indent3">It will bold and italicize the description of an item in the info boxes in PCGen,
-											 to indicate that the name of the item is Product Identity.</p>
+		<p class="indent3">It will bold and italicize the description of an item in the info boxes in PCGen, to
+		indicate that the name of the item is Product Identity.</p>
 
 
 		<p></p><a name="DR"></a><hr>
@@ -276,18 +313,19 @@
 		<p></p><a name="FOLLOWERS"></a><hr>
 		<p class="new">*** New 5.10.1+</p>
 		<p class="indent0"><strong>Tag Name:</strong> FOLLOWERS:x|y</p>
-		<p class="indent1"><strong>Variables Used (x): </strong>Text (The type of companion the limit will apply to).</p>
+		<p class="indent1"><strong>Variables Used (x): </strong>Text (The type of companion the limit will apply
+		to).</p>
 		<p class="indent1"><strong>Variables Used (x): </strong>Number, variable or formula (Number of this type
-																			of companion the master can have)</p>
+		of companion the master can have)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">? Limits the number of the specified type of companion the master can have.</p>
-		<p class="indent2">? Optional, if this tag is not present no limits are placed on the number of companions
-								the character can have. </p>
+		<p class="indent2">? Optional, if this tag is not present no limits are placed on the number of
+		companions the character can have. </p>
 		<p class="indent2">? If more than one tag is encountered the highest value is used. </p>
 		<p class="indent2">? The value can be adjusted with the BONUS:FOLLOWERS tag.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">Global tag, would most often be used in class and feat (ability) files, should also be
-							enabled for templates and Domains.</p>
+		<p class="indent2">Global tag, would most often be used in class and feat (ability) files, should also
+		be enabled for templates and Domains.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FOLLOWERS:Familiar|1</code></p>
 		<p class="indent3">A character is allowed only 1 companion of type Familiar.</p>
@@ -306,14 +344,18 @@
 
 		<p></p><a name="LANGAUTO"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> LANGAUTO:x,x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Language
-			Name&gt;)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Language Name&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
 		<p class="indent2"> This is a comma delimited list of languages that the character automatically gains.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>LANGAUTO:Common,Gnome</code></p>
 		<p class="indent3">Character automatically gains &quot;Common&quot; &amp; &quot;Gnome&quot;.</p>
-
+		<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code></p>
+		<p class="indent3">Race Gnome is modified, clearing all of the Auto Languages and replaces with  &quot;Low Coryani&quot; &amp; &quot;Gnome&quot;.</p>
+		<p class="indent2"><code>Human.MOD &lt;tab&gt; LANGAUTO:Remarian &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt;
+		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code></p>
+		<p class="indent3">THIS IS AN ERROR... The .CLEAR has cleared all of the LANGAUTO: freebies, if it were
+		not	for the LANGBONUS: this race could not speak or write.</p>
 
 		<p></p><a name="MOVE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MOVE:x,y,x,y</p>
@@ -323,37 +365,40 @@
 		<p class="indent2">Determines the Type and Speed of the different movement types the race has.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>MOVE:Walk,30,Fly,10</code></p>
-		<p class="indent3">This would grant a walking speed of 30 ft per round and a flying speed of 10 feet per round</p>
+		<p class="indent3">This would grant a walking speed of 30 ft per round and a flying speed of 10 feet per
+		round</p>
 
 
 		<p></p><a name="MOVECLONE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> MOVECLONE:w,x,y,z</p>
 		<p class="indent1"><strong>Variables Used (w):</strong> Text (Movement Mode)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (Correction to 1st Mode Movement Rate per round)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Correction to 1st Mode Movement Rate per
+		round)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (2nd Movement Mode)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Mathematical (Calculation for 2nd Mode Movement Rate per round)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Mathematical (Calculation for 2nd Mode Movement
+		Rate per round)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
 		<ul class="indent2">
 			<li>Creates a new type of movement based on another type.</li>
-			<li>&quot;z&quot; is applied to the original movement rate, then it is copied to the new movement type
-					and the second modifier is applied. </li>
+			<li>&quot;z&quot; is applied to the original movement rate, then it is copied to the new movement
+			type and the second modifier is applied. </li>
 			<li>If no symbol is in the mathematical expression then addition is assumed</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>MOVECLONE:Walk,0,Fly,*2</code></p>
 		<p class="indent3">Do nothing to &quot;Walk&quot;, create the &quot;Fly&quot; movement type and set it
-											 equal to &quot;Walk&quot; multiplied by 2.</p>
+		equal to &quot;Walk&quot; multiplied by 2.</p>
 		<p class="indent2"><code>MOVECLONE:Walk,10,Tunnel,/3</code></p>
 		<p class="indent3">Add 10 to &quot;Walk&quot;, create &quot;Tunnel&quot; movement type and set it equal
-											 to 1/3 of the new &quot;Walk&quot; movement rate.</p>
+		to 1/3 of the new &quot;Walk&quot; movement rate.</p>
 
 
 		<p></p><a name="NAMEISPI"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> NAMEISPI:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> BOOLEAN (YES or NO)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
-		<p class="indent2">&quot;YES&quot; means it will bold the item in the program, to indicate
-			that the name of the item is the Product Identity. The Default is &quot;NO&quot;.</p>
+		<p class="indent2">&quot;YES&quot; means it will bold the item in the program, to indicate that the name
+		of the item is the Product Identity. The Default is &quot;NO&quot;.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>NAMEISPI:YES </code></p>
 		<p class="indent3">The name is the Product Identity</p>
@@ -363,30 +408,35 @@
 		<p class="new">*** Updated 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> OUTPUTNAME:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name to appear on the output sheet)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> [NAME] (This is replaced by anything in parenthesis on output)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> [NAME] (This is replaced by anything in
+		parenthesis on output)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Alters the name of the object when output.</p>
 		<p class="indent2">When the [NAME] tag is used it will be replaced by whatever
-		  is in parenthesis in the object's name, or the object name if no parenthetical exists in the object's name.</p>
-		<p class="indent2">This is useful when the name you wish to appear on the output
-  			sheet would contains symbols that might interfere with the program. It also
-  			helps to keep the list orderly as you can group a series of objects like scrolls
-  			and potions together without sacrificing the preferred name of the object.</p>
-		<p class="indent2">You can use a % to add a variable number to the output in the
-  			same way the SA tag works. <a href="#SA">See the global tag SA</a> for details</p>
+		  is in parenthesis in the object's name, or the object name if no parenthetical exists in the object's
+		  name.</p>
+		<p class="indent2">This is useful when the name you wish to appear on the output sheet would contains
+		symbols that might interfere with the program. It also helps to keep the list orderly as you can group
+		a series of objects like scrolls and potions together without sacrificing the preferred name of the
+		object.</p>
+		<p class="indent2">You can use a % to add a variable number to the output in the same way the SA tag
+		works. <a href="#SA">See the global tag SA</a> for details</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>OUTPUTNAME:Jason's [NAME]</code></p>
 		<p class="indent3">LST entry &quot;Magic Spell&quot; will output as &quot;Jason's Magic Spell&quot;</p>
 		<p class="indent2"><code>OUTPUTNAME:[NAME] Elf</code></p>
 		<p class="indent3">LST entry &quot;Elf (Gray)&quot; will output as &quot;Gray Elf&quot;.</p>
 		<p class="indent2"><code>OUTPUTNAME:Huge Water Elemental</code></p>
-		<p class="indent3">LST entry &quot;Elemental (Water/Huge)&quot; will output as &quot;Huge Water Elemental&quot;.</p>
+		<p class="indent3">LST entry &quot;Elemental (Water/Huge)&quot; will output as &quot;Huge Water
+		Elemental&quot;.</p>
 		<p class="indent2"><code>OUTPUTNAME:Formian [NAME]</code></p>
 		<p class="indent3">LST entry &quot;Formian (Queen)&quot; will output as &quot;Formian Queen&quot;.</p>
 		<p class="indent2"><code>OUTPUTNAME:Potion of [NAME]</code></p>
 		<p class="indent3">LST entry &quot;Potion (Glibness)&quot; will output as &quot;Potion of Glibness&quot;.</p>
 		<p class="indent2"><code>OUTPUTNAME:Magic Sword +%|((TL/5)+1)</code></p>
 		<p class="indent3">If the character is level 10 this would output as &quot;Magic Sword +2&quot;.</p>
+		<p class="indent2"><code>Clenched Fist.MOD &lt;tab&gt; OUTPUTNAME:Big [NAME]</code></p>
+		<p class="indent3">This spell will output as &quot;Big Clenched Fist&quot;.</p>
 
 
 		<p></p><a name="REGION"></a><hr>
@@ -412,13 +462,13 @@
 		<p><strong> Variables Used (x):</strong>.CLEAR.Text (Clear Special Ability Totals)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>This grants the character a Special Ability that will get listed together with all other special abilities
-					the character has.</li>
+			<li>This grants the character a Special Ability that will get listed together with all other special
+			abilities the character has.</li>
 			<li>The &quot;%&quot; tag will fill in a number from a variable listed after a &quot;|&quot; (pipe).</li>
 			<li>This can be done numerous times, with each successive &quot;%&quot; relating to the
 				next variable listed after  another &quot;|&quot; (pipe).</li>
-			<li>This can be specified via number of %#, with each successive numbered &quot;%&quot; relating to the
-				next variable listed after another &quot;|&quot; (pipe). The count starts at 0 and counts up.</li>
+			<li>This can be specified via number of %#, with each successive numbered &quot;%&quot; relating to
+			the next variable listed after another &quot;|&quot; (pipe). The count starts at 0 and counts up.</li>
 			<li>Each variable needs to be defined (via the global DEFINE tag.)</li>
 			<li>The SA will NOT be displayed if the last variable or formula equals 0.</li>
 			<li><code>SA:.CLEAR</code> will only clear a previous SA in the same object
@@ -440,6 +490,12 @@
 		<p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
 		<p class="indent2"><code>SA:Banana toss|PRERACE:monkey</code></p>
 		<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the characters race is &quot;monkey&quot;.</p>
+		<p class="indent2"><code>SA:Banana toss via (%CHOICE) &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
+		CHOOSE:Air|Earth|Fire|Water</code></p>
+		<p class="indent3">Offers a Choice between Air/Earth/Fire/Water for banana tossing, may be used multiple
+		times, but selected only once.</p>
+		<p class="indent2"><code> 4 &lt;tab&gt; SA:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SA:Shield Brother (standard action)</code></p>
+		<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
 
 
 		<p></p><a name="SOURCELONG"></a><hr>
@@ -450,8 +506,9 @@
 		<p class="indent2">Specifies the full product/book name.
 			SOURCELONG tags can be used on individual object lines or it can be used by itself on it's own line.
 			When used by itself the SOURCELONG tag will be used by all objects which follow it.
-			When used on an object line it is used only by the object it is in and overrides any stand alone SOURCELONG on lines which preceeded it.
-			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should be separated by tabs.</p>
+			When used on an object line it is used only by the object it is in and overrides any stand alone
+			SOURCELONG on lines which preceeded it. Multiple SOURCE tags can be used in objects and on their
+			own lines but in all cases the tags should be separated by tabs.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCELONG:Core Rulebook I (Foo Handbook)</code></p>
 		<p class="indent3">The long source name for this file is &quot;Core Rulebook I (Foo Handbook)&quot;.</p>
@@ -467,6 +524,8 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCEPAGE:p.102</code></p>
 		<p class="indent3">Further information can be found on page 102 of the source.</p>
+		<p class="indent2"><code>CLASS:Strong.MOD &lt;tab&gt; SOURCEPAGE:p. 28</code></p>
+		<p class="indent3">Further information can be found on page 28 of the changed source.</p>
 
 
 		<p></p><a name="SOURCESHORT"></a><hr>
@@ -477,8 +536,10 @@
 		<p class="indent2">Specifies the short product/book name.
 			SOURCESHORT tags can be used on individual object lines or it can be used by itself on it's own line.
 			When used by itself the SOURCESHORT tag will be used by all objects which follow it.
-			When used on an object line it is used only by the object it is in and overrides any stand alone SOURCESHORT on lines which preceeded it.
-			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should be separated by tabs.</p>
+			When used on an object line it is used only by the object it is in and overrides any stand alone
+			SOURCESHORT on lines which preceeded it.
+			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should
+			be separated by tabs.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCESHORT:FHB</code></p>
 		<p class="indent3">The short source name for this file is &quot;FHB&quot;.</p>
@@ -492,8 +553,10 @@
 		<p class="indent2">Specifies the URL that points directly to this product/book.
 			SOURCEWEB tags can be used on individual object lines or it can be used by itself on it's own line.
 			When used by itself the SOURCEWEB tag will be used by all objects which follow it.
-			When used on an object line it is used only by the object it is in and overrides any stand alone SOURCEWEB on lines which preceeded it.
-			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should be separated by tabs.</p>
+			When used on an object line it is used only by the object it is in and overrides any stand alone
+			SOURCEWEB on lines which preceeded it.
+			Multiple SOURCE tags can be used in objects and on their own lines but in all cases the tags should
+			be separated by tabs.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SOURCEWEB:http://www.foogames.com/product.php?products=654321</code></p>
 		<p class="indent3">The web site for this source is &quot;SOURCEWEB:http://www.foogames.com/product.php?products=654321&quot;.</p>
@@ -511,10 +574,13 @@
 			<li>The &lt;spellbook&gt; should never be the same name as a Class, as it
 					will cause an exception in PCGen.</li>
 			<li>&quot;-1&quot; in the times per day will result in &quot;At will&quot; on the Output Sheets.</li>
-			<li>You can apply PRExxx tags to the SPELL tag. If a SPELL tag requires multiple PRExxx statements it is &quot;|&quot; delimited.
-			Some of the PRExxx statements have &quot;|&quot; delimiting in them, if a spell requires a PRExxx statement that has &quot;|&quot;
+			<li>You can apply PRExxx tags to the SPELL tag. If a SPELL tag requires multiple PRExxx statements
+			it is &quot;|&quot; delimited.
+			Some of the PRExxx statements have &quot;|&quot; delimiting in them, if a spell requires a PRExxx
+			statement that has &quot;|&quot;
 			delimiting in it, simply put that PRExxx statement in a separate SPELL tag by itself.</li>
-			<li><strong>NOTE:</strong> The [PRExxx:blah] syntax has been deprecated and will soon cease to function.</li>
+			<li><strong>NOTE:</strong> The [PRExxx:blah] syntax has been deprecated and will soon cease to
+			function.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SPELL:Acid Fog|1|Innate</code></p>
@@ -537,18 +603,19 @@
 		<p></p><a name="SPELLLEVELCLASS"></a><hr>
 		<p class="new">*** Updated 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLLEVEL:CLASS|x|y,y|x|y,y</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> text (&lt;Classname&gt;=&lt;spell
-		                   level being assigned&gt;)</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> SPELLCASTER.Type (&lt;Spellcaster type, i.e. Arcane, Divine or Psionic&gt;=&lt;spell
-		                   level being assigned&gt;)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> text (&lt;Classname&gt;=&lt;spell level being
+		assigned&gt;)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> SPELLCASTER.Type (&lt;Spellcaster type, i.e.
+		Arcane, Divine or Psionic&gt;=&lt;spell level being assigned&gt;)</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> text (&lt;spellname&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Assigns spells to a class or spellcaster type at a level specified.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPELLLEVEL:CLASS|Assassin=1|Change Self,Detect Poison,Spider Climb|Assassin=2|Alter Self,Darkness</code></p>
-		<p class="indent3">Adds &quot;Change Self&quot;, &quot;Detect Poison&quot; and &quot;Spider
-											 Climb&quot; as level 1 &quot;Assassin&quot; spells and &quot;Alter Self&quot and
-			&quot;Darkness&quot; as level 2 &quot;Assassin&quot; spells.</p>
+		<p class="indent2"><code>SPELLLEVEL:CLASS|Assassin=1|Change Self,Detect Poison,Spider
+		Climb|Assassin=2|Alter Self,Darkness</code></p>
+		<p class="indent3">Adds &quot;Change Self&quot;, &quot;Detect Poison&quot; and &quot;Spider Climb&quot;
+		as level 1 &quot;Assassin&quot; spells and &quot;Alter Self&quot and &quot;Darkness&quot; as level 2
+		&quot;Assassin&quot; spells.</p>
 		<p class="indent2"><code>SPELLLEVEL:CLASS|SPELLCASTER.Arcane=1|Cure Light Wounds</code></p>
 		<p class="indent3">Adds Cure Light Wounds to any arcane spellcaster's list of 1st level spells.</p>
 
@@ -564,7 +631,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLLEVEL:DOMAIN|Air=1|Obscuring Mist|Animal=4|Repel Vermin</code></p>
 		<p class="indent3">Adds &quot;Obscuring Mist&quot; as a level 1 &quot;Air&quot; domain spell and
-											 &quot;Repel Vermin&quot as a level 4 &quot;Air&quot; domain spell.</p>
+		&quot;Repel Vermin&quot as a level 4 &quot;Air&quot; domain spell.</p>
 
 
 		<p></p><a name="SPELLS"></a><hr>
@@ -579,19 +646,24 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This grants the character spell like abilities.</li>
-			<li>The &lt;spellbook&gt; should never be the same name as a Class, as it will cause an exception in PCGen.</li>
+			<li>The &lt;spellbook&gt; should never be the same name as a Class, as it will cause an exception in
+			PCGen.</li>
 			<li>TIMES is an optional parameter and if not present will default to 1.</li>
 			<li>CASTERLEVEL is an optional parameter and if not present will default to 1.</li>
 			<li>&quot;-1&quot; in the times per day will result in &quot;At will&quot; on the Output Sheets.</li>
 			<li>There should never be more than one TIMES and CASTERLEVEL tag used within a SPELLS tag.</li>
-			<li>&lt;formula for DC&gt; is totally optional for each spell, and fills in the DC value in the appropriate OS field.</li>
-			<li>You can apply PRExxx tags to the SPELLS tag. If a SPELLS tag requires multiple PRExxx statements it is &quot;|&quot; delimited.
-			Some of the PRExxx statements have &quot;|&quot; delimiting in them, if a spell requires a PRExxx statement that has &quot;|&quot;
-			delimiting in it, simply put that PRExxx statement in a separate SPELLS tag by itself.</li>
+			<li>&lt;formula for DC&gt; is totally optional for each spell, and fills in the DC value in the
+			appropriate OS field.</li>
+			<li>You can apply PRExxx tags to the SPELLS tag. If a SPELLS tag requires multiple PRExxx statements
+			it is &quot;|&quot; delimited. Some of the PRExxx statements have &quot;|&quot; delimiting in them,
+			if a spell requires a PRExxx statement that has &quot;|&quot; delimiting in it, simply put that
+			PRExxx statement in a separate SPELLS tag by itself.</li>
 			<li> Once one PRExxx tag is reached at the end, all subsequent fields must also be PRExxx tags.
-				PRExxx's apply to the whole tag.</li>
-			<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;, see example.</li>
-			<li>Because the SPELLS tag is not associated with any one class the variable &quot;CL&quot; will not work in it.</li>
+			PRExxx's apply to the whole tag.</li>
+			<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;,
+			see example.</li>
+			<li>Because the SPELLS tag is not associated with any one class the variable &quot;CL&quot; will not
+			work in it.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid Arrow,12+CHA|PRESTAT:1,CHA=12</code></p>
@@ -607,6 +679,8 @@
 			&quot;Dragon&quot; requiring a Wisdom of 20 and any good alignment.</p>
 		<p class="indent2"><code>SPELLS:Innate|TIMES=5|Wall of Stone</code></p>
 		<p class="indent3">Grants &quot;Wall of Stone&quot;, 5 times a day at 1st level in Spellbook &quot;Innate&quot;.</p>
+		<p class="indent2"><code>Barkskin.COPY=Earthskin</code></p>
+		<p class="indent3">Renames &quot;Barkskin&quot; to &quot;Earthskin&quot;.</p>
 
 
 		<p></p><a name="SR"></a><hr>
@@ -623,18 +697,15 @@
 		<p></p><a name="STATNOTEMP"></a><hr>
 		<p class="new">*** New 5.3.3</p>
 		<p class="indent0"><strong>Tag Name:</strong> STAT.x.NOTEMP</p>
-
 		<p class="indent1"><strong> Variables Used (x):</strong> STR, DEX, CON, INT, WIS or CHA (Stat)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tag outputs the value of the given stat (i.e. STR, DEX,
-			 								 CON, INT, WIS and CHA) without any temporary modifiers applied.</p>
+		<p class="indent2">This tag outputs the value of the given stat (i.e. STR, DEX, CON, INT, WIS and CHA)
+		without any temporary modifiers applied.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>STAT.STR.NOTEMP</code></p>
-		<p class="indent3">This would output the character's unmodified strength score when
-			 								 used.</p>
+		<p class="indent3">This would output the character's unmodified strength score when used.</p>
 		<p class="indent2"><code>STAT.INT.NOTEMP</code></p>
-		<p class="indent3">This would output the character's unmodified intelligence score when
-			 								 used.</p>
+		<p class="indent3">This would output the character's unmodified intelligence score when used.</p>
 
 
 		<p></p><a name="STATNOTEMPMOD"></a><hr>
@@ -642,11 +713,12 @@
 		<p class="indent0"><strong>Tag Name:</strong> STAT.x.NOTEMPMOD</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> STR, DEX, CON, INT, WIS or CHA (Stat)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tag outputs the modifier of the given stat (i.e. STR, DEX,
-			 								 CON, INT, WIS and CHA) without any temporary modifiers applied.</p>
+		<p class="indent2">This tag outputs the modifier of the given stat (i.e. STR, DEX, CON, INT, WIS and
+		CHA) without any temporary modifiers applied.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SR:STAT.INT.NOTEMP</code></p>
-		<p class="indent3">This would set the character's spell resistance to their natural (unmodified) intelligence modifier.</p>
+		<p class="indent3">This would set the character's spell resistance to their natural (unmodified)
+		intelligence modifier.</p>
 
 
 		<p></p><a name="TEMPDESC"></a><hr>
@@ -654,11 +726,12 @@
 		<p class="indent0"><strong>Tag Name:</strong> TEMPDESC:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">A sentence of any length used to describe what the
-			BONUS: with PREAPPLY tags are going to do or when they should be used.</p>
+		<p class="indent2">A sentence of any length used to describe what the BONUS: with PREAPPLY tags are
+		going to do or when they should be used.</p>
 		<p class="indent2">The text will only be displayed in the Temporary Bonus Sub-Tab.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TEMPDESC:This bonus can be applied when the character is in an underground environment.</code></p>
+		<p class="indent2"><code>TEMPDESC:This bonus can be applied when the character is in an underground
+		environment.</code></p>
 		<p class="indent3">Describes the conditions needed for the bonus to be valid.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Any line with a BONUS tag qualified with a PREAPPLY tag.</p>
@@ -669,7 +742,7 @@
 		<p class="indent1"><strong>Variables Used:</strong> ADDCHOICE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is a | (pipe) delimited  list of template choices that are added to the list
-											 presented by the original TEMPLATE tag found in other lst files.</p>
+		presented by the original TEMPLATE tag found in other lst files.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TEMPLATE:ADDCHOICE:Celestial|Outsider</code></p>
 		<p class="indent3">The PC receives the &quot;Celestial&quot; and &quot;Outsider&quot; templates.</p>
@@ -684,9 +757,8 @@
 		<p class="indent0"><strong>Tag Name:</strong> UDAM:x,x,x,x,x,x,x,x,x </p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (By Creature Size)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This indicates the unarmed damage the character does. There
-											 should always be 9 fields, one for each size. From Finite to Colossal,
-											 left to right.</p>
+		<p class="indent2">This indicates the unarmed damage the character does. There should always be 9
+		fields, one for each size. From Finite to Colossal, left to right.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code></p>
 		<p class="indent3">This sets unarmed damage done as 1 for finite to 2d8 for colossal.</p>
@@ -696,8 +768,8 @@
 		<p class="indent0"><strong>Tag Name:</strong> UMULT</p>
 		<p class="indent1"><strong> Variables Used:</strong> Number (Unarmed damage critical multiplier)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This indicates the unarmed damage critical multiplier the character
-											 has. This tag <strong>ONLY</strong> works with the UDAM tag on the same line.</p>
+		<p class="indent2">This indicates the unarmed damage critical multiplier the character has. This tag
+		<strong>ONLY</strong> works with the UDAM tag on the same line.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>UMULT:2</code></p>
 		<p class="indent3">This set unarmed damage critical multiplier as x2.</p>
@@ -714,13 +786,16 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> MediumArmor</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> HeavyArmor</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a global tag that allows the character to ignore encumbrance penalties to movement.</p>
-		<p class="indent2">This tag is backwards inclusive, so if you have UNENCUMBEREDMOVE:MediumLoad it means you also have UNENCUMBEREDMOVE:LightLoad.</p>
-		<p class="indent2">This can be | (pipe) delimited in order to negate both the encumbrance and armor penalties.</p>
+		<p class="indent2">This is a global tag that allows the character to ignore encumbrance penalties to
+		movement.</p>
+		<p class="indent2">This tag is backwards inclusive, so if you have UNENCUMBEREDMOVE:MediumLoad it means
+		you also have UNENCUMBEREDMOVE:LightLoad.</p>
+		<p class="indent2">This can be | (pipe) delimited in order to negate both the encumbrance and armor
+		penalties.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor</code></p>
-		<p class="indent3">This is used in the Race entry for Dwarves, Dwarves ignore encumbrance penalties to movement
-			for heavy armor and heavy loads.</p>
+		<p class="indent3">This is used in the Race entry for Dwarves, Dwarves ignore encumbrance penalties to
+		movement for heavy armor and heavy loads.</p>
 
 
 		<p></p><a name="VFEAT"></a><hr>
@@ -740,7 +815,8 @@
 		<p class="indent2"><code>VFEAT:Simple Weapon Proficiency</code></p>
 		<p class="indent3">The character gains &quot;Simple Weapon Proficiency&quot; as a virtual feat.</p>
 		<p class="indent2"><code>VFEAT:Alertness|Blind Fight</code></p>
-		<p class="indent3">The character gains &quot;Alertness&quot; and &quot;Blind Fight&quot; as virtual feats.</p>
+		<p class="indent3">The character gains &quot;Alertness&quot; and &quot;Blind Fight&quot; as virtual
+		feats.</p>
 		<p class="indent2"><code>VFEAT:Banana Barrage|PRECLASS:1,Ninja Monkey=1</code></p>
 		<p class="indent3">The character gains &quot;Banana Barrage&quot; as virtual feats
 			only if they have at least one level of &quot;Ninja Monkey&quot;.</p>
@@ -750,24 +826,23 @@
 		<p class="indent0"><strong>Tag Name:</strong> VISION:x (y)|x (y)</p>
 		<p class="indent1"><strong> Variables Used:</strong>Text, | delimited</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This tag is &quot;|&quot; pipe delimited. This grants the specified vision to the character
-											 and formulas can be used to determine the distance.</p>
+		<p class="indent2">This tag is &quot;|&quot; pipe delimited. This grants the specified vision to the
+		character and formulas can be used to determine the distance.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>VISION:Low-light</code></p>
 		<p class="indent3">This gives the &quot;Low-Light&quot; vision mode to the PC.</p>
 		<p class="indent2"><code>VISION:Darkvision (60')</code></p>
 		<p class="indent3">This gives the &quot;Dark&quot; vision mode of 60 foot to the PC.</p>
 		<p class="indent2"><code>VISION:Darkvision (10*TL)</code></p>
-		<p class="indent3">This gives the &quot;Dark&quot; vision mode of 10 x their
-											 total level to the PC.</p>
+		<p class="indent3">This gives the &quot;Dark&quot; vision mode of 10 x their total level to the PC.</p>
 		<p class="indent2"><code>VISION:Darkvision (120')|Low-light</code></p>
-		<p class="indent3">This gives the &quot;Dark&quot; vision mode of 120 foot and the &quot;Low-Light&quot; vision mode
-											 to the PC.</p>
+		<p class="indent3">This gives the &quot;Dark&quot; vision mode of 120 foot and the &quot;Low-Light&quot;
+		vision mode to the PC.</p>
 		<p class="indent0"></p>
 		<p class="indent0"><strong> Variables Used:</strong> .SET, or .CLEAR</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">.CLEAR. will clear the vision listed after it from the character.
-											 The .SET. will change the characters vision to the new vision.</p>
+		<p class="indent2">.CLEAR. will clear the vision listed after it from the character. The .SET. will
+		change the characters vision to the new vision.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISION:.CLEAR.Low-light</code></p>
 		<p class="indent3">Removes the Low-light vision from the character</p>
@@ -788,25 +863,24 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This defines what object is going to be modified.</li>
-			<li>Please note that the name must match EXACTLY (case
-					sensitive, and the classes need the beginning CLASS: tag, see examples).</li>
+			<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
+			CLASS: tag, see examples).</li>
 			<li>If you want to .MOD the name, you need to include the NAME: designator (see examples).</li>
 			<li>Any tags that are listed are added to the list of tags already in the object.</li>
-			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag
-					will replace the tag in the original entry. If more than one tag is
-					allowed (most notably BONUS statements), then the new tag will be added to the
-					other tags in the object.</li>
+			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
+			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
+			statements), then the new tag will be added to the other tags in the object.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.MOD</code></p>
 		<p class="indent3">Modifies the Human race (in a race.lst file)</p>
-		<p class="indent2"><code>Dagger.MOD		DESC:Short and pointy</code></p>
+		<p class="indent2"><code>Dagger.MOD &lt;tab&gt; DESC:Short and pointy</code></p>
 		<p class="indent3">Replaces the description of the Dagger weapon (in equipment.lst file)</p>
 		<p class="indent2"><code>CLASS:Ranger.MOD</code></p>
 		<p class="indent3">Modifies the Ranger class (in class.lst)</p>
-		<p class="indent2"><code>Acid Arrow.MOD		NAME:My Acid Arrow</code></p>
+		<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; NAME:My Acid Arrow</code></p>
 		<p class="indent3">Renames the Acid Arrow spell to My Acid Arrow(in a spells.lst file)</p>
-		<p class="indent2"><code>Resistance.MOD		BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC</code></p>
+		<p class="indent2"><code>Resistance.MOD &lt;tab&gt; BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC</code></p>
 		<p class="indent3">Adds a Saving Throw Temporary bonus function to the Resistance spell</p>
 		<p class="indent2"><code>Skill Focus.MOD</code></p>
 		<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
@@ -818,19 +892,19 @@
 		<ul class="indent2">
 			<li>This defines what object is going to be copied.</li>
 			<li>This creates a new object with the same properties of the original object.</li>
-			<li>Tags following the .COPY line modify the new object in the same way the .MOD tag modifies objects.</li>
-			<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning CLASS: tag).</li>
-			<li>Warning! While it can be done copying a Class is not recommended, the reason
-    			being that while the class lines are copied into a new class there remain
-    			tags in those lines which refer to the original class by name. The effect
-    			of this is that you r new class will not inherit any class abilities that
-    			reference the old class name, some of these include: Spellcasting, Favored
-    			enemies and other special abilities.</li>
+			<li>Tags following the .COPY line modify the new object in the same way the .MOD tag modifies
+			objects.</li>
+			<li>Please note that the name must match EXACTLY (case sensitive, and the classes need the beginning
+			CLASS: tag).</li>
+			<li>Warning! While it can be done copying a Class is not recommended, the reason being that while
+			the class lines are copied into a new class there remain tags in those lines which refer to the
+			original class by name. The effect of this is that you r new class will not inherit any class
+			abilities that reference the old class name, some of these include: Spellcasting, Favored Enemies
+			and other special abilities.</li>
 			<li>Any tags that are listed are added to the list of tags already in the object.</li>
-			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag
-				will replace the tag in the original entry. If more than one tag is
-				allowed (most notably BONUS statements), then the new tag will be added to the
-				other tags in the object.</li>
+			<li>If only one tag is allowed (such as HD for classes, or COST in equipment) the new tag will
+			replace the tag in the original entry. If more than one tag is allowed (most notably BONUS
+			statements), then the new tag will be added to the other tags in the object.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.COPY=Aboriginee</code></p>
@@ -846,12 +920,13 @@
 		<p class="indent0"><strong>Tag Name:</strong> &lt;tag&gt;.CLEAR.&lt;variable&gt;</p>
 		<p class="indent1"><strong>Variables Used: </strong>Text, Last field is the item to be cleared</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">
- 		This is used in conjunction with the .MOD and .COPY tags.<br>
-		This tag is also useful in CLASS lines. (see entry for SA in Other global tags)<br>
-  		Tags that can have multiple items (such as TYPE) and tags that can be used multiple times can be eliminated.<br>
-		the .CLEAR syntax has not yet been standardized as many of the other tags have been and there are at least 3 variations on how it can be used.
-		Some experimentation may be required to see which usage is required with which tags.
+		<p class="indent2">This is used in conjunction with the .MOD and .COPY tags.</p>
+		<p class="indent2">This tag is also useful in CLASS lines. (see entry for SA in Other global tags)</p>
+  		<p class="indent2">Tags that can have multiple items (such as TYPE) and tags that can be used multiple
+  		times can be eliminated.</p>
+  		<p class="indent2">The .CLEAR syntax has not yet been standardized as many of the other tags have been
+  		and there are at least 3 variations on how it can be used.</p>
+  		<p class="indent2">Some experimentation may be required to see which usage is required with which tags.
 		<font color="FF0000">Note:</font> Although listed as global not all tags will work with .CLEAR.</p>
 		<p class="indent1"><strong>Syntax usage:</strong></p>
 		<p class="indent2"><code>TAG:.CLEAR.&lt;Values to be cleared&gt;</code></p>
@@ -899,9 +974,9 @@
 		<p class="indent3">Removes the Skill Focus feat (in feat.lst)</p>
 		<p class="indent1"><strong>What it does:</strong> </p>
 		<p class="indent2"> This is a variation of .MOD.
-		Unlike .MOD, this tag has no other tags following it. .FORGET completely
-		removes a class from a listing. Since this is done last, you can not
-		.FORGET the Ranger class, then load up your own modified Ranger class.</p>
+		Unlike .MOD, this tag has no other tags following it. .FORGET completely removes a class from a listing.
+		Since this is done last, you can not .FORGET the Ranger class, then load up your own modified Ranger
+		class.</p>
 
 		<p></p><a name="WILDCARD"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> TAGNAME:% "Wildcard"</p>

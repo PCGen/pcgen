@@ -90,6 +90,24 @@
 		<p class="indent3">My choose between &quot;Weapon Focus&quot;, &quot;Improved Unarmed
 			Combat&quot;, any &quot;Metamagic&quot; type feat or any &quot;ItemCreation&quot; type feat..</p>
 
+
+		<p></p><a name="FEATCHANGE"></a><hr>
+		<p class="new">*** New 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> (FEATNAME).MOD or .COPY or .CLEAR</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (.MOD or .COPY or .CLEAR)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Allows for changes to the defined Feats in the Feat files.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>Alertness.MOD &lt;tab&gt; TYPE:HumanSurvivor.AirRunner.BarterKing.Gunhand.Lawman.Rancher.VelinChief</code></p>
+		<p class="indent3">Modified the Alertness feat .</p>
+		<p class="indent2"><code>Stamina.MOD &lt;tab&gt; PRE:.CLEAR &lt;tab&gt; PREMULT:1,[PREFEAT:1,Robust],[PRECLASS:1,Super Soldier=1]</code></p>
+		<p class="indent3">Modified the &quot;Stamina&quot;  by clearing the PRE: tags and inserting new ones feat .</p>
+		<p class="indent2"><code>Favored Bonus__Humanoid_Halfling.FORGET</code></p>
+		<p class="indent3">Forget the Favored Bonus__Humanoid_Halfling feat .</p>
+
+
 		<p></p><a name="COST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (feat point cost)</p>
@@ -148,6 +166,9 @@
 		<p class="indent3">Adds feat description replaces %LIST with all choices made. </p><br>
 		<p class="indent2"><code>DESC:%3 Sneak Attacks per day for +%1d%2 damage|SneakAttack|SneakAttackDie|SneakAttackTimes</code></p>
 		<p class="indent3">Adds feat description substituting the variables from the positions specified.</p>
+		<p class="indent2"><code>Advanced Combat Martial Arts.MOD &lt;tab&gt; DESC:.CLEAR &lt;tab&gt; DESC:When the character scores a critical hit on an opponent with an unarmed strike, the character deals triple damage</code></p>
+		<p class="indent3">Changes the feat description, substituting the specified.</p>
+
 
 		<p></p><a name="DESCISPI"></a><hr>
 		<p class="new">*** New</p>
@@ -200,6 +221,11 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TYPE:General.Fighter</code></p>
 		<p class="indent3">This Feat is part of the &quot;General&quot; and &quot;Fighter&quot; feat types.</p>
+		<p class="indent2"><code>Acrobatic.MOD &lt;tab&gt; TYPE:.CLEAR &lt;tab&gt; TYPE:General.Fast.Pugilist.Rustler.Showman</code></p>
+		<p class="indent3">Modification of the Acrobatic Class to be &quot;General&quot;, &quot;Fast&quot;, &quot;Pugilist&quot;, &quot;Rustler&quot;, &quot;Showman&quot;, feat types.</p>
+		<p class="indent2"><code>Charm.MOD &lt;tab&gt; TYPE:Efficacious</code></p>
+		<p class="indent3">This Feat replaces all of the TYPES with &quot;Efficacious&quot; feat type.</p>
+
 
 		<p></p><a name="VISIBLE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
