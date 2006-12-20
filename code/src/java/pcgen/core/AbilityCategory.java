@@ -91,8 +91,8 @@ public class AbilityCategory implements KeyedObject
 	public AbilityCategory( final String aKeyName, final String aDisplayName )
 	{
 		theKeyName = aKeyName;
-		theDisplayName = PropertyFactory.getString(aDisplayName);
-		thePluralName = theDisplayName;
+		setName(aDisplayName);
+		setPluralName(aDisplayName);
 
 		theAbilityCategory = aKeyName;
 	}
@@ -189,7 +189,14 @@ public class AbilityCategory implements KeyedObject
 	 */
 	public void setPluralName(final String aName)
 	{
-		thePluralName = aName;
+		if (aName.startsWith("in_"))
+		{
+			thePluralName = PropertyFactory.getString(aName);
+		}
+		else
+		{
+			thePluralName = aName;
+		}
 	}
 	
 	/**
@@ -315,7 +322,14 @@ public class AbilityCategory implements KeyedObject
 	 */
 	public void setName(final String aName)
 	{
-		theDisplayName = aName;
+		if (aName.startsWith("in_"))
+		{
+			theDisplayName = PropertyFactory.getString(aName);
+		}
+		else
+		{
+			theDisplayName = aName;
+		}
 	}
 
 	/**
