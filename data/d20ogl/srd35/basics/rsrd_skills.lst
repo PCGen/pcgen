@@ -47,7 +47,7 @@ Heal							KEYSTAT:WIS								TYPE:Wisdom																																							
 Hide							KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity																																																		SOURCEPAGE:SkillsII.rtf
 Intimidate						KEYSTAT:CHA								TYPE:Charisma						BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK																																SOURCEPAGE:SkillsII.rtf
 # There is an issue with Monk movement bonus and the Jump/speed synergy
-Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						BONUS:SKILL|Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|max(floor((var("MOVE[Walk]")-30)/10)	*4,0)|TYPE=Speed.STACK	BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK							SOURCEPAGE:SkillsII.rtf
+Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength						BONUS:SKILL|Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK							SOURCEPAGE:SkillsII.rtf
 Knowledge (Arcana)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
 Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
 Knowledge (Dungeoneering)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge																																																SOURCEPAGE:SkillsII.rtf
