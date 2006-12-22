@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
+    <release version="5.11.5" date="In SVN" description="Alpha release">
+      <action dev="jdempsey" type="fix" issue="1613069">Correct processing of various spell sort orders</action>
+    </release>
     <release version="5.11.4" date="2006-12-10" description="Alpha release">
       <action dev="jdempsey" type="add" issue="1439802">Enhance the PREDEITY tag</action>
       <action dev="jdempsey" type="fix" issue="1598598">Internationalization Choice Broken in 5.10.1</action>
