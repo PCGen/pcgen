@@ -7,6 +7,11 @@
   <body>
     <release version="5.11.5" date="In SVN" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1613069">Correct processing of various spell sort orders</action>
+      <action dev="perchrh" type="fix" due-to="Jonas Karlsson">Fixed compilation on Linux PPC with IBM JDK 1.5.0</action>
+      <action dev="perchrh" type="fix" >Workaround for bug in the IBM JDK that resulted in Random name generation not working for most types of names</action>
+      <action dev="fitzs" type="add" issue="1617919">Document New Ability Tag</action>
+      <action dev="fitzs" type="update" issue="1612002">Improved Documentation Request - .MOD, .CLEAR, etc.</action>
+      <action dev="fitzs" type="update">Large number of docs updates, see changelog.</action>
     </release>
     <release version="5.11.4" date="2006-12-10" description="Alpha release">
       <action dev="jdempsey" type="add" issue="1439802">Enhance the PREDEITY tag</action>

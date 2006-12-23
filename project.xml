@@ -139,6 +139,10 @@
       <name>Andriy Sen</name>
       <id>apsen</id>
     </developer>
+    <developer>
+      <name>Per Christian Henden</name>
+      <id>perchrh</id>
+    </developer>
   </developers>
   <dependencies>
     <!-- Compiling -->
