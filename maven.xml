@@ -1,5 +1,5 @@
 <project xmlns:maven="jelly:maven" xmlns:j="jelly:core"
-    xmlns:ant="jelly:ant" xmlns:u="jelly:util" xmlns:doc="doc">
+    xmlns:ant="jelly:ant" xmlns:u="jelly:util" xmlns:doc="doc" xmlns:i="jelly:interaction">
 
 	<goal name="generate-jars">
 		<ant:ant dir="${basedir}" antfile="build.xml" target="scripts">
@@ -82,6 +82,13 @@
 			excludes="lib/emma/**, lib/test/**"/>
 	</goal>
 
+	<!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->	
+	<goal name="pcgen:genrelease">
+		<ant:exec dir="${basedir}/installers/win-installer" executable="perl">
+		  <arg line="release.pl ${pom.currentVersion}"/>
+		</ant:exec>	
+	</goal>
+
 	<!-- 
 	   - This goal runs the PCGen release process, including:
 	   -   * Creating the release zip files
@@ -93,9 +100,7 @@
   	   -->
 	<goal name="pcgen:release">
 		<!-- Run release.pl to create the .zip files and to prepare the nsis directory for the Windows installer -->	
-		<ant:exec dir="${basedir}/installers/win-installer" executable="perl">
-		  <arg line="release.pl ${pom.currentVersion}"/>
-		</ant:exec>	
+		<attainGoal name="pcgen:genrelease" />
 
 		<!-- Run the NSIS compiler to create the windows installation .exe -->	
 		<attainGoal name="nsis:installer" />
@@ -116,6 +121,8 @@
 		  <arg line="gendigest.pl ${maven.build.dir}"/>
 		</ant:exec>	
 
+		<i:ask question="Please sign the release files in ${maven.build.dir} now and press enter when completed."/>
+		
 		<!--  # Upload zip, signature and windows installer files to SourceForge at ftp://upload.sourceforge.net/incoming (anonymous access only) -->
 	    <attainGoal name="sourceforge:init"/>
 	    <echo>Releasing package ${maven.sourceforge.project.packageName} version ${maven.sourceforge.project.version}</echo>

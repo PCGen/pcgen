@@ -237,6 +237,19 @@
       <type>plugin</type>
       <url>http://emma.sourceforge.net/maven-emma-plugin/</url>
     </dependency>
+    <!-- Maven -->
+    <dependency>
+      <groupId>commons-jelly</groupId>
+      <artifactId>commons-jelly-tags-interaction</artifactId>
+      <version>1.1</version>
+      <url>http://jakarta.apache.org/commons/jelly/libs/interaction/index.html</url>
+    </dependency>
+    <dependency>
+      <groupId>jline</groupId>
+      <artifactId>jline</artifactId>
+      <version>0.9.9</version>
+      <url>http://jline.sourceforge.net/</url>
+    </dependency>
     <!--
         <dependency>
             <groupId>maven-plugins</groupId>
