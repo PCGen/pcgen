@@ -747,6 +747,7 @@ Scroll (Word of Recall)													TYPE:Magic.Scroll.Divine.Consumable	COST:165
 # Equipment Name					Output Name								Type						Cost		Weight	Source Page
 Scroll (Animate Plants)													TYPE:Magic.Scroll.Divine.Consumable	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Blasphemy)													TYPE:Magic.Scroll.Divine.Consumable	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Changestaff)													TYPE:Magic.Scroll.Divine.Consumable	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Control Weather/Divine)		OUTPUTNAME:Scroll (Control Weather)				TYPE:Magic.Scroll.Divine.Consumable	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Creeping Doom)													TYPE:Magic.Scroll.Divine.Consumable	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Cure Serious Wounds/Mass)		OUTPUTNAME:Scroll (Cure Serious Wounds, Mass)		TYPE:Magic.Scroll.Divine.Consumable	COST:2275	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
