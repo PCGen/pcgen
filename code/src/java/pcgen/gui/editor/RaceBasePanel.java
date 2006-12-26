@@ -510,7 +510,7 @@ public class RaceBasePanel extends BasePanel
 
 		setMonsterClassList(availableList);
 
-		setBonusFeats(thisRace.getBonusInitialFeats());
+		setBonusFeats(0);
 		setBonusSkillPoints(thisRace.getBonusSkillsPerLevel());
 		setCR(thisRace.getCR());
 		setDisplayName(thisRace.getDisplayName());

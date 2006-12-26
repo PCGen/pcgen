@@ -73,7 +73,6 @@ public final class Race extends PObject
 	private boolean unlimitedAdvancement = false;
 //	private int BAB = 0;
 	private int CR = 0;
-	private int bonusInitialFeats = 0;
 	private int bonusSkillsPerLevel = 0;
 	private int hands = 2;
 	private int hitDice = 0;
@@ -127,7 +126,7 @@ public final class Race extends PObject
 
 	public int getBonusInitialFeats()
 	{
-		return bonusInitialFeats;
+		return 0;
 	}
 
 	public void setBonusSkillList(final String aString)
@@ -633,11 +632,6 @@ public final class Race extends PObject
 			txt.append("\tFAVCLASS:").append(favoredClass);
 		}
 
-		if (bonusInitialFeats != 0)
-		{
-			txt.append("\tSTARTFEATS:").append(bonusInitialFeats);
-		}
-
 		if ((size != null) && (size.length() > 0))
 		{
 			txt.append("\tSIZE:").append(size);
@@ -906,7 +900,6 @@ public final class Race extends PObject
 			aRace = (Race) super.clone();
 			aRace.favoredClass = favoredClass;
 			aRace.bonusSkillsPerLevel = bonusSkillsPerLevel;
-			aRace.bonusInitialFeats = bonusInitialFeats;
 			aRace.size = size;
 
 			aRace.bonusSkillList = bonusSkillList;

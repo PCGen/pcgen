@@ -5652,11 +5652,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		// remove current race attributes
 		if (!raceIsNull)
 		{
-			if (firstLevel)
-			{
-//				setFeats(feats - oldRace.getBonusInitialFeats());
-				adjustFeats(-oldRace.getBonusInitialFeats());
-			}
 			oldRace.getSpellSupport().clearCharacterSpells();
 
 			if (PlayerCharacterUtilities.canReassignRacialFeats())
@@ -5745,11 +5740,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			if (!isImporting())
 			{
 				Globals.getBioSet().randomize("AGE.HT.WT", this);
-				if (firstLevel)
-				{
-//					setFeats(feats + race.getBonusInitialFeats());
-					adjustFeats(race.getBonusInitialFeats());
-				}
 			}
 
 			// Get existing classes
@@ -5792,9 +5782,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			//
 			if (!isImporting() && existingClasses.size()!=0)
 			{
-//				setFeats(feats + race.getBonusInitialFeats());
-				adjustFeats(race.getBonusInitialFeats());
-
 				int totalLevels = this.getTotalLevels();
 //				final Integer zero = Integer.valueOf(0);
 
