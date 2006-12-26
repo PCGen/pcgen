@@ -884,9 +884,13 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		if (namingOption == NAMINGOPTION_SPELL)
 		{
-			if (getAssociatedCount() > 0)
+			for (int i=0;i<getAssociatedCount();i++)
 			{
-				final String listEntry = getAssociated(0);
+				if (i>0)
+				{
+					aString.append(", ");
+				}
+				final String listEntry = getAssociated(i);
 
 				String     spellName = getSpellName(listEntry);
 
