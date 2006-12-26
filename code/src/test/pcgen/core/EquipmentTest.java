@@ -29,6 +29,7 @@ package pcgen.core;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
+import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.Constants;
@@ -39,11 +40,10 @@ import pcgen.util.TestHelper;
  * Equipment Test
  */
 @SuppressWarnings("nls")
-public class EquipmentTest extends PCGenTestCase {
+public class EquipmentTest extends AbstractCharacterTestCase {
 
 	private Equipment    eq          = null;
 	private final String OriginalKey = "OrigKey";
-	private boolean firstTime = true;
 	
 	/**
 	 * Main
@@ -92,11 +92,6 @@ public class EquipmentTest extends PCGenTestCase {
 	public void setUp() throws Exception
 	{
 		super.setUp();
-
-		if (firstTime) {
-			TestHelper.makeSizeAdjustments();
-			firstTime = false;
-		}
 
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
@@ -285,5 +280,36 @@ public class EquipmentTest extends PCGenTestCase {
 		// Now check that new name is generated Correctly
 		is(this.eq.createNameForAutoResize("c"), strEq("Pointy Stick (+1/Speed) (Colossal)"));
 	}
-
+	
+	public void testResizeItem()
+	{
+		// Make it a weapon
+		eq.setDamage("1d6");
+		eq.setTypeInfo("WEAPON");
+		
+		// Create a base item
+		Equipment custEq = (Equipment) eq.clone();
+		custEq.setKeyName("Custom");
+		custEq.setBaseItem(eq.getKeyName());
+		EquipmentList.addEquipment(custEq);
+		EquipmentList.addEquipment(eq);
+		
+		GameMode gameMode = SettingsHandler.getGame();
+		is(gameMode.getSizeAdjustmentListSize(), gt(0), "size list initialised");
+		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
+		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
+		
+		is(custEq.getSize(), eq("M"), "starting size");
+		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
+		
+		// Drop the size
+		custEq.resizeItem(getCharacter(), "S");
+		is(custEq.getSize(), eq("S"), "reduce size size");
+		is(custEq.getDamage(getCharacter()), eq("1d4"), "reduce size damage");
+		
+		// Increase the size
+		custEq.resizeItem(getCharacter(), "L");
+		is(custEq.getSize(), eq("L"), "reduce size size");
+		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
+	}
 }

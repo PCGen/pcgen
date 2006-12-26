@@ -1,6 +1,7 @@
 package pcgen.core;
 
 import pcgen.PCGenTestCase;
+import pcgen.util.TestHelper;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -41,6 +42,8 @@ public class GlobalsTest extends PCGenTestCase
 	protected void setUp()
 		throws Exception
 	{
+		super.setUp();
+		TestHelper.makeSizeAdjustments();
 		Globals.clearCampaignsForRefresh();
 	}
 
@@ -357,5 +360,15 @@ public class GlobalsTest extends PCGenTestCase
 		ab = (Ability) li.get(1);
 		is(ab.getDisplayName(), strEq("Ability002"), "second Ability from list is correct 01");
 
+	}
+	
+	public void testAdjustDamage()
+	{
+		GameMode gameMode = SettingsHandler.getGame();
+		is(gameMode.getSizeAdjustmentListSize(), gt(0), "size list initialised");
+		gameMode.getDamageUpMap().put("1d6", "1d8,2d6,3d6,4d6,6d6,8d6,12d6");
+		gameMode.getDamageDownMap().put("1d6", "1d4,1d3,1d2,1");
+		is(Globals.adjustDamage("1d6", "Medium", "Small"), strEq("1d4"),
+			"reduction of damage due to smaller size");
 	}
 }

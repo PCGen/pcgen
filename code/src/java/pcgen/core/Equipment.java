@@ -3995,10 +3995,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 				setCost(eq.getCostAdjustedForSize(aPC, newSize).toString());
 				setWeight(eq.getWeightAdjustedForSize(aPC, newSize).toString());
 				adjustACForSize(aPC, eq, newSize);
-				if ( theWeaponStats != null )
+				if ( eq.theWeaponStats != null )
 				{
-					setDamage(theWeaponStats.getDamageAdjustedForSize(newSize));
-					setAltDamage(theWeaponStats.getAltDamageAdjustedForSize(newSize));
+					setDamage(eq.theWeaponStats.getDamageAdjustedForSize(newSize));
+					setAltDamage(eq.theWeaponStats.getAltDamageAdjustedForSize(newSize));
 				}
 				//
 				// Adjust the capacity of the container (if it is one)
