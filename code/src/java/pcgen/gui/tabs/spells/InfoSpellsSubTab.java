@@ -549,8 +549,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		{
 			return null;
 		}
+		SpellInfo spellInfo = (SpellInfo) fNode.getItem();
 
-		CharacterSpell spellA = ((SpellInfo) fNode.getItem()).getOwner();
+		CharacterSpell spellA = spellInfo.getOwner();
 		if (spellA.getOwner() instanceof Race)
 		{
 			return null;
@@ -589,7 +590,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 			classKey = aClass.getCastAs();
 		}
 		List<CharacterSpell> aList = aClass.getSpellSupport().getCharacterSpell(aSpell,
-			"", spLevel); //$NON-NLS-1$
+			spellInfo.getBook(), spLevel);
 		returnList.add(spellA);
 		returnList.add(classKey);
 		returnList.add(String.valueOf(spLevel));

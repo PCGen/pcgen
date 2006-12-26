@@ -7208,26 +7208,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			//numSpellsFromSpecialty = 0;
 		//}
 		// all the exists checks are done.
-		// now determine how many specialtySpells
-		// of this level for this class in this book
-		int spellsFromSpecialty = 0; // TODO: value never used
 
-		// first we check this spell being added
-		if (acs.isSpecialtySpell())
-		{
-			++spellsFromSpecialty;
-		}
-
-		// now all the rest of the already known spells
-		final List<CharacterSpell> sList = aClass.getSpellSupport().getCharacterSpell(null, bookName, adjSpellLevel);
-
-		for ( CharacterSpell cs : sList )
-		{
-			if (!cs.equals(acs) && cs.isSpecialtySpell())
-			{
-				++spellsFromSpecialty;
-			}
-		}
 
 		// don't allow adding spells which are prohibited to known
 		// or prepared lists
@@ -7255,7 +7236,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		int numPages = 0;
 
-		// known is the maximun spells that can be known this level
+		// known is the maximum spells that can be known this level
 		// listNum is the current spells already memorized this level
 		// cast is the number of spells that can be cast at this level
 		// Modified this to use new availableSpells() method so you can "blow" higher-level slots on
@@ -7381,9 +7362,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		else
 		{
-			if (isEmpty)
+			if (isEmpty && !aClass.getSpellSupport().containsCharacterSpell(acs))
 			{
-				acs = new CharacterSpell(acs.getOwner(), acs.getSpell());
 				aClass.getSpellSupport().addCharacterSpell(acs);
 			}
 			si = acs.addInfo(adjSpellLevel, 1, bookName, aFeatList);
@@ -8321,12 +8301,9 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			acs.removeSpellInfo(si);
 		}
 
-		si = acs.getSpellInfoFor("", -1, -1, null);
-
-		if (si == null)
-		{
-			aClass.getSpellSupport().removeCharacterSpell(acs);
-		}
+		// Remove the spell form the character's class instance if it 
+		// is no longer present in any book
+		aClass.getSpellSupport().removeSpellIfUnused(acs);
 
 		return "";
 	}
@@ -13325,17 +13302,26 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 	private void removeExcessSkills(final int level)
 	{
-		final Iterator<Skill> skillIter = getSkillList().iterator();
-
+		// Elaborate code here is in order to avoid a ConcurrentModificationException
+		List<Skill> skills = getSkillList();
+		List<Skill> skillIndexList = new ArrayList<Skill>();
+		skillIndexList.addAll(skills);
+		final Iterator<Skill> skillIter = skillIndexList.iterator();
+		boolean modified = false;
 		while (skillIter.hasNext())
 		{
 			Skill skill = skillIter.next();
 
 			if (!includeSkill(skill, level))
 			{
-				skillIter.remove();
-				setDirty(true);
+				skills.remove(skill);
+				modified = true;
 			}
+		}
+		
+		if (modified)
+		{
+			setDirty(true);
 		}
 	}
 

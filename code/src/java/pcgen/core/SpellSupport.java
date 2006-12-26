@@ -379,6 +379,23 @@ public class SpellSupport implements Cloneable
 		return characterSpellList.remove(spell);
 	}
 
+    /**
+     * Remove the spell from the character spell list if it
+     * is no longer present in any spell lists.
+     * 
+     * @param spell The spell to be checked
+     * @return True if the spell was removed, false otherwise.
+     */
+    final public boolean removeSpellIfUnused(final CharacterSpell spell)
+    {
+		SpellInfo si = spell.getSpellInfoFor("", -1, -1, null);
+		if (si == null)
+		{
+			return removeCharacterSpell(spell);
+		}
+		return false;
+    }
+    
 	/**
      * Clear the character spell list 
 	 */

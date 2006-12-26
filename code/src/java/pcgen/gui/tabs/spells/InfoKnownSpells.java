@@ -67,6 +67,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -932,7 +933,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				}
 				else
 				{
-					bookName = currSpellBook = bookName;
+					currSpellBook = bookName;
 
 					final String aString = pc.delSpell(si, aClass, bookName);
 
@@ -941,6 +942,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 						ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
 							MessageType.ERROR);
 					}
+					
+					// As we are deleting this from known spells we need to 
+					// remove it from any prepared spell lists too.
+					removeFromPreparedLists(cs, aClass);
 				}
 			}
 		}
@@ -948,6 +953,28 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		updateSelectedModel();
 	}
 
+
+	/**
+	 * Remove the spell from all prepared lists, generally used 
+	 * when removing the spell from the known list
+	 * 
+	 * @param cs the spell to be removed.
+	 * @param aClass The class to remove the spell from
+	 */
+	private void removeFromPreparedLists(CharacterSpell cs, PCClass aClass)
+	{
+		List<SpellInfo> il = new ArrayList<SpellInfo>();
+		il.addAll(cs.getInfoList());
+		for (SpellInfo si : il)
+		{
+			if (pc.getSpellBookByName(si.getBook()).getType() == SpellBook.TYPE_PREPARED_LIST)
+			{
+				cs.removeSpellInfo(si);
+			}
+		}
+		aClass.getSpellSupport().removeSpellIfUnused(cs);
+	}
+	
 	/**
 	 *  Select a spell output sheet
 	 */
