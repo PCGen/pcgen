@@ -1823,42 +1823,6 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	}
 
 	/**
-	 * 0-level feat count (racial, templates, etc.), excluding any
-	 * feats from levelling.
-	 *
-	 * @return count of initial, non-leveling feats
-	 * @deprecated Now handled by a BONUS object.
-	 */
-	@Deprecated
-	public double getInitialFeats()
-	{
-		double initFeats = 0.0;
-
-		// This is used by the PCClass to add any initial feats from a
-		// Creature's race.  The bonus is now doing that itself, so no
-		// need to duplicate it in this figure. 
-//		final String monsterRace = getRace().getMonsterClass(this, false);
-//		if (monsterRace==null || !isMonsterDefault())
-//		{
-//			Race r = getRace();
-//			initFeats =  r.bonusTo("FEAT", "POOL", r, this);
-//		}
-//
-//		if (PlayerCharacterUtilities.canReassignTemplateFeats())
-//		{
-//			for (PCTemplate template : getTemplateList())
-//			{
-//				if (template != null)
-//				{
-//					initFeats += template.getBonusInitialFeats();
-//				}
-//			}
-//		}
-
-		return initFeats;
-	}
-
-	/**
 	 * Sets the character's interests.
 	 * 
 	 * @param aString A string of interests for the character.
