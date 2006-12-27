@@ -16156,12 +16156,16 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			ret = new ArrayList<Ability>();
 			for ( final PObject pobj : getPObjectList() )
 			{
-				final List<Ability> abilities = pobj.getVirtualAbilityList(aCategory);
-				for ( final Ability ability : abilities )
+				if (pobj instanceof PCClass)
 				{
-					if (PrereqHandler.passesAll(ability.getPreReqList(), this, ability)) 
+					final List<Ability> abilities =
+							((PCClass) pobj).getVirtualAbilityList(aCategory);
+					for ( final Ability ability : abilities )
 					{
-						ret.add(ability);
+						if (PrereqHandler.passesAll(ability.getPreReqList(), this, ability)) 
+						{
+							ret.add(ability);
+						}
 					}
 				}
 			}

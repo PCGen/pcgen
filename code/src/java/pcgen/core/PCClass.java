@@ -3552,7 +3552,6 @@ public class PCClass extends PObject {
 	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	@Override
 	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
 	{
 		if ( aCategory == AbilityCategory.FEAT )
@@ -3841,6 +3840,7 @@ public class PCClass extends PObject {
 		templates.add(LevelProperty.getLevelProperty(lvl, template));
 	}
 
+	//TODO: Replace these with equivalents for the PObject addAbility method. 
 	/*
 	 * DELETEMETHOD - or at least that's my dream. I would like to have this
 	 * system be intelligent enough to distinguish items that are level
@@ -3852,7 +3852,6 @@ public class PCClass extends PObject {
 	 * should handle the rest as LevelPropertys to be loaded into the
 	 * appropriate PCClassLevel)
 	 */
-	@Override
 	public void addVirtualAbility(final AbilityCategory aCategory, final Ability anAbility)
 	{
 		if ( aCategory == AbilityCategory.FEAT )
@@ -3930,7 +3929,6 @@ public class PCClass extends PObject {
 	 * should handle the rest as LevelPropertys to be loaded into the
 	 * appropriate PCClassLevel)
 	 */
-	@Override
 	public void addVirtualAbilities(final AbilityCategory aCategory, final List<Ability> aList)
 	{
 		if ( aCategory == AbilityCategory.FEAT )

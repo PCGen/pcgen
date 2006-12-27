@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.bonus.BonusObj;
@@ -50,7 +49,6 @@ public final class Race extends PObject
 	// TODO - Why do we need a hit point map in the race?
 	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private Integer initMod = Integer.valueOf(0);
-	private Integer naturalAC = Integer.valueOf(0);
 	private Integer startingAC = Integer.valueOf(10);
 	private String hitDieLock = Constants.EMPTY_STRING;
 	private String ageString = Constants.EMPTY_STRING;
@@ -84,7 +82,6 @@ public final class Race extends PObject
 	private int reach = 5;
 	private String raceType = Constants.s_NONE;
 	private ArrayList<String> racialSubTypes = new ArrayList<String>();
-	private Map<AbilityCategory, List<String>> theAutoAbilities;
 
 	/**
 	 * Sets this races advancement to not be limited.
@@ -200,35 +197,6 @@ public final class Race extends PObject
 	{
 		return favoredClass;
 	}
-
-	public void setAutoAbilityList(final AbilityCategory aCategory, final List<String> anAbilityList)
-	{
-		if ( aCategory.equals(AbilityCategory.FEAT.getAbilityCategory()) )
-		{
-			final StringBuffer buf = new StringBuffer();
-			for (final String ability : anAbilityList)
-			{
-				if (buf.length() != 0)
-				{
-					buf.append(Constants.PIPE);
-				}
-				buf.append(ability);
-			}
-			setFeatList(buf.toString());
-			return;
-		}
-		if ( theAutoAbilities == null )
-		{
-			theAutoAbilities = new HashMap<AbilityCategory, List<String>>();
-		}
-		List<String> abilities = theAutoAbilities.get(aCategory);
-		if ( abilities == null )
-		{
-			abilities = new ArrayList<String>();
-			theAutoAbilities.put(aCategory, abilities);
-		}
-		abilities.addAll(anAbilityList);
-	}
 	
 	public void setFeatList(final String featList)
 	{
@@ -258,20 +226,6 @@ public final class Race extends PObject
 		{
 			return "";
 		}
-	}
-
-	public List<String> getAutoAbilityList(final AbilityCategory aCategory)
-	{
-		if ( theAutoAbilities == null )
-		{
-			return Collections.emptyList();
-		}
-		final List<String> ret = theAutoAbilities.get(aCategory);
-		if ( ret == null )
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(ret);
 	}
 	
 	public void setHands(final int newHands)
