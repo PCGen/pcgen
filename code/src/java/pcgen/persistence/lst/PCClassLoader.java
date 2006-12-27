@@ -53,8 +53,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public PCClass parseLine(PCClass target, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public PCClass parseLine(PCClass target, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		PCClass pcClass = target;
 
@@ -63,16 +63,18 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			pcClass = new PCClass();
 		}
 
-		if (lstLine.startsWith("SUBCLASS:") || lstLine.startsWith("SUBCLASSLEVEL:"))
+		if (lstLine.startsWith("SUBCLASS:")
+			|| lstLine.startsWith("SUBCLASSLEVEL:"))
 		{
 			SubClass subClass = null;
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
-				if (lstLine.indexOf("\t") == -1) {
+				if (lstLine.indexOf("\t") == -1)
+				{
 					Logging.errorPrint("Expected SUBCLASS to have "
-							+ "additional Tags in " + source.getFile()
-							+ " (e.g. COST is a required Tag in a SUBCLASS)");
+						+ "additional Tags in " + source.getFile()
+						+ " (e.g. COST is a required Tag in a SUBCLASS)");
 				}
 				final String n = lstLine.substring(9, lstLine.indexOf("\t"));
 				subClass = pcClass.getSubClassKeyed(n);
@@ -87,9 +89,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
-				if ((pcClass.getSubClassList() != null) && !pcClass.getSubClassList().isEmpty())
+				if ((pcClass.getSubClassList() != null)
+					&& !pcClass.getSubClassList().isEmpty())
 				{
-					subClass = pcClass.getSubClassList().get(pcClass.getSubClassList().size() - 1);
+					subClass =
+							pcClass.getSubClassList().get(
+								pcClass.getSubClassList().size() - 1);
 					subClass.addToLevelArray(lstLine.substring(14));
 
 					return pcClass;
@@ -104,7 +109,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			return pcClass;
 		}
 
-		if (lstLine.startsWith("SUBSTITUTIONCLASS:") || lstLine.startsWith("SUBSTITUTIONLEVEL:"))
+		if (lstLine.startsWith("SUBSTITUTIONCLASS:")
+			|| lstLine.startsWith("SUBSTITUTIONLEVEL:"))
 		{
 			SubstitutionClass substitutionClass = null;
 
@@ -112,11 +118,15 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				if (lstLine.indexOf("\t") > 0)
 				{
-					substitutionClass = pcClass.getSubstitutionClassKeyed(lstLine.substring(18, lstLine.indexOf("\t")));
+					substitutionClass =
+							pcClass.getSubstitutionClassKeyed(lstLine
+								.substring(18, lstLine.indexOf("\t")));
 				}
 				else
 				{
-					substitutionClass = pcClass.getSubstitutionClassKeyed(lstLine.substring(18));
+					substitutionClass =
+							pcClass.getSubstitutionClassKeyed(lstLine
+								.substring(18));
 				}
 
 				if (substitutionClass == null)
@@ -129,9 +139,14 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
-				if ((pcClass.getSubstitutionClassList() != null) && !pcClass.getSubstitutionClassList().isEmpty())
+				if ((pcClass.getSubstitutionClassList() != null)
+					&& !pcClass.getSubstitutionClassList().isEmpty())
 				{
-					substitutionClass = (SubstitutionClass) pcClass.getSubstitutionClassList().get(pcClass.getSubstitutionClassList().size() - 1);
+					substitutionClass =
+							(SubstitutionClass) pcClass
+								.getSubstitutionClassList()
+								.get(
+									pcClass.getSubstitutionClassList().size() - 1);
 					substitutionClass.addToLevelArray(lstLine.substring(18));
 
 					return pcClass;
@@ -140,7 +155,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 			if (substitutionClass != null)
 			{
-				SubstitutionClassLoader.parseLine(substitutionClass, lstLine, source);
+				SubstitutionClassLoader.parseLine(substitutionClass, lstLine,
+					source);
 			}
 
 			return pcClass;
@@ -149,17 +165,19 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		return parseClassLine(lstLine, source, pcClass, false);
 	}
 
-	private PCClass parseClassLine(String lstLine, CampaignSourceEntry source, PCClass pcClass, boolean bRepeating)
-		throws PersistenceLayerException
+	private PCClass parseClassLine(String lstLine, CampaignSourceEntry source,
+		PCClass pcClass, boolean bRepeating) throws PersistenceLayerException
 	{
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int iLevel = 0;
 		boolean isNumber = true;
 
 		String repeatTag = null;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCClassLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PCClassLstToken.class);
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
 		{
@@ -170,7 +188,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			PCClassLstToken token = (PCClassLstToken) tokenMap.get(key);
@@ -181,7 +200,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 				String name = colString.substring(6);
 
-				if ((!name.equals(pcClass.getKeyName())) && (name.indexOf(".MOD") < 0))
+				if ((!name.equals(pcClass.getKeyName()))
+					&& (name.indexOf(".MOD") < 0))
 				{
 					// TODO - This should never happen
 					completeObject(pcClass);
@@ -193,10 +213,13 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				// need to grab PCClass instance for this .MOD minus the .MOD part of the name
 				else if (name.endsWith(".MOD"))
 				{
-					pcClass = Globals.getClassKeyed(name.substring(0, name.length()-4));
+					pcClass =
+							Globals.getClassKeyed(name.substring(0, name
+								.length() - 4));
 				}
 			}
-			else if (!(pcClass instanceof SubClass) && !(pcClass instanceof SubstitutionClass) && (isNumber))
+			else if (!(pcClass instanceof SubClass)
+				&& !(pcClass instanceof SubstitutionClass) && (isNumber))
 			{
 				try
 				{
@@ -230,15 +253,16 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			else if (colString.startsWith("MULTIPREREQS"))
 			{
 				//Deprecated in 5.11 Alpha cycle - thpr 12/7/06
-				Logging.errorPrint("In: "
-								+ pcClass.getDisplayName()
-								+ ':'
-								+ source.getFile()
-								+ ':'
-								+ colString
-								+ ", The MULTIPREREQS tag has been deprecated.  "
-								+ "Use PREMULT with !PRECLASS:1,Any instead. "
-								+ "(e.g. PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,Any] )");
+				Logging
+					.errorPrint("In: "
+						+ pcClass.getDisplayName()
+						+ ':'
+						+ source.getFile()
+						+ ':'
+						+ colString
+						+ ", The MULTIPREREQS tag has been deprecated.  "
+						+ "Use PREMULT with !PRECLASS:1,Any instead. "
+						+ "(e.g. PREMULT:1,[PRECLASS:1,Noble=1],[!PRECLASS:1,Any] )");
 				pcClass.setMultiPreReqs(true);
 			}
 			else if (colString.startsWith("REPEATLEVEL:"))
@@ -254,7 +278,9 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				LstUtils.deprecationCheck(token, pcClass, value);
 				if (!token.parse(pcClass, value, iLevel))
 				{
-					Logging.errorPrint("Error parsing ability " + pcClass.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ pcClass.getDisplayName() + ':' + source.getFile()
+						+ ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTagLevel(pcClass, colString, iLevel))
@@ -263,9 +289,11 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
-				if (!(pcClass instanceof SubClass) && !(pcClass instanceof SubstitutionClass))
+				if (!(pcClass instanceof SubClass)
+					&& !(pcClass instanceof SubstitutionClass))
 				{
-					Logging.errorPrint("Illegal class info tag '" + colString + "' in " + source.getFile());
+					Logging.errorPrint("Illegal class info tag '" + colString
+						+ "' in " + source.getFile());
 				}
 			}
 
@@ -275,23 +303,24 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		//
 		// Process after all other tokens so 'order' is preserved
 		//
-		if ((repeatTag != null)  && (iLevel > 0))
+		if ((repeatTag != null) && (iLevel > 0))
 		{
 			parseRepeatClassLevel(lstLine, source, pcClass, iLevel, repeatTag);
 		}
 		return pcClass;
 	}
 
-	private void parseRepeatClassLevel(String lstLine, CampaignSourceEntry source, PCClass pcClass, int iLevel, String colString)
-		throws PersistenceLayerException
+	private void parseRepeatClassLevel(String lstLine,
+		CampaignSourceEntry source, PCClass pcClass, int iLevel,
+		String colString) throws PersistenceLayerException
 	{
 		//
 		// REPEAT:<level increment>|<consecutive>|<max level>
 		//
 		final StringTokenizer repeatToken = new StringTokenizer(colString, "|");
 		final int tokenCount = repeatToken.countTokens();
-		int lvlIncrement = 1000;					// an arbitrarily large number...
-		int consecutive = 0;						// 0 means don't skip any
+		int lvlIncrement = 1000; // an arbitrarily large number...
+		int consecutive = 0; // 0 means don't skip any
 		int maxLevel = pcClass.getMaxLevel();
 		if (tokenCount > 0)
 		{
@@ -301,7 +330,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Non-Numeric Level Increment info '" + colString + "' in " + source.getFile(), nfe);
+				Logging.errorPrint("Non-Numeric Level Increment info '"
+					+ colString + "' in " + source.getFile(), nfe);
 			}
 		}
 		if (tokenCount > 1)
@@ -312,7 +342,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Non-Numeric Consecutive Level info '" + colString + "' in " + source.getFile(), nfe);
+				Logging.errorPrint("Non-Numeric Consecutive Level info '"
+					+ colString + "' in " + source.getFile(), nfe);
 			}
 		}
 		if (tokenCount > 2)
@@ -323,17 +354,20 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Non-Numeric Max Level info '" + colString + "' in " + source.getFile(), nfe);
+				Logging.errorPrint("Non-Numeric Max Level info '" + colString
+					+ "' in " + source.getFile(), nfe);
 			}
 		}
 
 		final int tabIndex = lstLine.indexOf(SystemLoader.TAB_DELIM);
-		int count = consecutive - 1;		// first one already added by processing of lstLine, so skip it
-		for(int lvl = iLevel + lvlIncrement; lvl <= maxLevel; lvl += lvlIncrement)
+		int count = consecutive - 1; // first one already added by processing of lstLine, so skip it
+		for (int lvl = iLevel + lvlIncrement; lvl <= maxLevel; lvl +=
+				lvlIncrement)
 		{
 			if ((consecutive == 0) || (count != 0))
 			{
-				parseClassLine(Integer.toString(lvl) + lstLine.substring(tabIndex), source, pcClass, true);
+				parseClassLine(Integer.toString(lvl)
+					+ lstLine.substring(tabIndex), source, pcClass, true);
 			}
 			if (consecutive != 0)
 			{
@@ -349,14 +383,14 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-
 	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
 	 */
 	@Override
 	protected PCClass getObjectKeyed(String aKey)
 	{
-		return Globals.getClassKeyed(aKey.startsWith("CLASS:") ? aKey.substring(6) : aKey);
+		return Globals.getClassKeyed(aKey.startsWith("CLASS:") ? aKey
+			.substring(6) : aKey);
 	}
 
 	/**
@@ -390,7 +424,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 
 	public static String fixParameter(int aInt, final String colString)
 	{
-		return new StringBuffer().append(aInt).append("|").append(colString).toString();
+		return new StringBuffer().append(aInt).append("|").append(colString)
+			.toString();
 	}
 
 	/**
@@ -400,6 +435,6 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	protected void addGlobalObject(final PObject pObj)
 	{
 		// TODO - Create Globals.addClass( final PCClass aClass )
-		Globals.getClassList().add((PCClass)pObj);
+		Globals.getClassList().add((PCClass) pObj);
 	}
 }

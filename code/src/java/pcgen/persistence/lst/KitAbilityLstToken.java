@@ -5,8 +5,9 @@ import pcgen.core.kit.KitAbilities;
 /**
  * Interface for Kit Ability LST tokens
  */
-public interface KitAbilityLstToken extends LstToken {
-	
+public interface KitAbilityLstToken extends LstToken
+{
+
 	/**
 	 * Parse the token
 	 * @param kitAbility

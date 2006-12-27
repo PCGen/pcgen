@@ -43,27 +43,35 @@ public class LoadInfoLoader extends LstLineFileLoader
 	/** Creates a new instance of LoadInfoLoader */
 	public LoadInfoLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	@Override
-	public void loadLstFile(String source, String gameModeIn) throws PersistenceLayerException
+	public void loadLstFile(String source, String gameModeIn)
+		throws PersistenceLayerException
 	{
 		super.loadLstFile(source, gameModeIn);
 
 		if (SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplierCount() == 0)
 		{
-			Logging.errorPrint("Warning: load.lst for game mode " + gameModeIn +
-				" does not contain load category definitions. No weight categories will be available. " +
-				"Please refer to the documentation for the Load List file.");
+			Logging
+				.errorPrint("Warning: load.lst for game mode "
+					+ gameModeIn
+					+ " does not contain load category definitions. No weight categories will be available. "
+					+ "Please refer to the documentation for the Load List file.");
 		}
-		else if (SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier("LIGHT") == null ||
-				SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier("MEDIUM") == null ||
-				SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier("HEAVY") == null )
+		else if (SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier(
+			"LIGHT") == null
+			|| SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier(
+				"MEDIUM") == null
+			|| SystemCollections.getLoadInfo(gameModeIn).getLoadMultiplier(
+				"HEAVY") == null)
 		{
-			Logging.errorPrint("Warning: load.lst for game mode " + gameModeIn +
-				" does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. " +
-				"Please refer to the documentation for the Load List file.");
+			Logging
+				.errorPrint("Warning: load.lst for game mode "
+					+ gameModeIn
+					+ " does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. "
+					+ "Please refer to the documentation for the Load List file.");
 		}
 	}
 
@@ -75,7 +83,8 @@ public class LoadInfoLoader extends LstLineFileLoader
 	{
 
 		LoadInfo loadInfo = SystemCollections.getLoadInfo(getGameMode());
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LoadInfoLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(LoadInfoLstToken.class);
 
 		final int idxColon = lstLine.indexOf(':');
 		String key = "";
@@ -83,7 +92,8 @@ public class LoadInfoLoader extends LstLineFileLoader
 		{
 			key = lstLine.substring(0, idxColon);
 		}
-		catch(StringIndexOutOfBoundsException e) {
+		catch (StringIndexOutOfBoundsException e)
+		{
 			// TODO Handle Exception
 		}
 		LoadInfoLstToken token = (LoadInfoLstToken) tokenMap.get(key);
@@ -91,15 +101,18 @@ public class LoadInfoLoader extends LstLineFileLoader
 		if (token != null)
 		{
 			final String value = lstLine.substring(idxColon + 1);
-			LstUtils.deprecationCheck(token, loadInfo.toString(), "level.lst", value);
+			LstUtils.deprecationCheck(token, loadInfo.toString(), "level.lst",
+				value);
 			if (!token.parse(loadInfo, value))
 			{
-				Logging.errorPrint("Error parsing ability " + loadInfo + ':' + "level.lst" + ':' + lstLine + "\"");
+				Logging.errorPrint("Error parsing ability " + loadInfo + ':'
+					+ "level.lst" + ':' + lstLine + "\"");
 			}
 		}
 		else
 		{
-			LstUtils.deprecationWarning("Using deprecated style of load.lst.  Please consult the docs for information about the new style load.lst");
+			LstUtils
+				.deprecationWarning("Using deprecated style of load.lst.  Please consult the docs for information about the new style load.lst");
 			String[] sets = lstLine.split(",");
 			if (sets.length > 1)
 			{
@@ -112,7 +125,9 @@ public class LoadInfoLoader extends LstLineFileLoader
 						fields = sets[i].split("\\|");
 						if (fields.length != 2)
 						{
-							Logging.errorPrint("LoadInfoLoader got unexpected line '" + lstLine + ". Line ignored.");
+							Logging
+								.errorPrint("LoadInfoLoader got unexpected line '"
+									+ lstLine + ". Line ignored.");
 							return;
 						}
 						String size = fields[0];
@@ -122,7 +137,8 @@ public class LoadInfoLoader extends LstLineFileLoader
 				}
 				else
 				{
-					Logging.errorPrint("LoadInfoLoader got unexpected line '" + lstLine + ". Line ignored.");
+					Logging.errorPrint("LoadInfoLoader got unexpected line '"
+						+ lstLine + ". Line ignored.");
 					return;
 				}
 			}
@@ -138,15 +154,17 @@ public class LoadInfoLoader extends LstLineFileLoader
 					}
 					else
 					{
-						loadInfo.addLoadScoreValue(Integer.parseInt(values[0]), new Float(values[1]));
+						loadInfo.addLoadScoreValue(Integer.parseInt(values[0]),
+							new Float(values[1]));
 					}
 
 				}
 				else
 				{
-					Logging.errorPrint("LoadInfoLoader got unexpected line '" + lstLine + ". Line ignored.");
+					Logging.errorPrint("LoadInfoLoader got unexpected line '"
+						+ lstLine + ". Line ignored.");
 					return;
-					}
+				}
 			}
 		}
 	}

@@ -32,7 +32,8 @@ import pcgen.core.RuleCheck;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface RuleCheckLstToken extends LstToken {
+public interface RuleCheckLstToken extends LstToken
+{
 	/**
 	 * @param rule
 	 * @param value

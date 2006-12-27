@@ -55,10 +55,12 @@ public final class PJEP extends JEP
 {
 	private Object parent;
 	private String variableSource;
-	private static List<Class<PCGenCommand>> commandList = new ArrayList<Class<PCGenCommand>>();
+	private static List<Class<PCGenCommand>> commandList =
+			new ArrayList<Class<PCGenCommand>>();
 	private List<PCGenCommand> localCommandList = new ArrayList<PCGenCommand>();
 
-	public static void addCommand(Class<PCGenCommand> clazz) {
+	public static void addCommand(Class<PCGenCommand> clazz)
+	{
 		commandList.add(clazz);
 	}
 
@@ -67,16 +69,22 @@ public final class PJEP extends JEP
 		setAllowUndeclared(true);
 		addStandardFunctions();
 
-		for(int i = 0; i < commandList.size(); i++) {
-			try {
+		for (int i = 0; i < commandList.size(); i++)
+		{
+			try
+			{
 				Class<PCGenCommand> clazz = commandList.get(i);
 				PCGenCommand com = clazz.newInstance();
 				localCommandList.add(com);
 				addFunction(com.getFunctionName().toLowerCase(), com);
 				addFunction(com.getFunctionName().toUpperCase(), com);
-			} catch (InstantiationException e) {
+			}
+			catch (InstantiationException e)
+			{
 				e.printStackTrace();
-			} catch (IllegalAccessException e) {
+			}
+			catch (IllegalAccessException e)
+			{
 				e.printStackTrace();
 			}
 		}
@@ -145,9 +153,9 @@ public final class PJEP extends JEP
 	private boolean updateVariables()
 	{
 		boolean updated = true;
-		if(localCommandList != null)
+		if (localCommandList != null)
 		{
-			for ( PCGenCommand com : localCommandList )
+			for (PCGenCommand com : localCommandList)
 			{
 				updated = updated && !com.updateVariables(this);
 			}
@@ -162,7 +170,7 @@ public final class PJEP extends JEP
 	 * eg. cl()
 	 */
 	@Deprecated
-    private final class ClassLevel extends PostfixMathCommand
+	private final class ClassLevel extends PostfixMathCommand
 	{
 		private ClassLevel()
 		{
@@ -178,7 +186,8 @@ public final class PJEP extends JEP
 		 */
 		public void run(Stack inStack) throws ParseException
 		{
-			LstUtils.deprecationWarning("Jep function cl deprecated, use classlvl instead");
+			LstUtils
+				.deprecationWarning("Jep function cl deprecated, use classlvl instead");
 
 			// check the stack
 			checkStack(inStack);
@@ -249,11 +258,12 @@ public final class PJEP extends JEP
 				}
 				if (aPC == null)
 				{
-					throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
+					throw new ParseException("Invalid parent (no PC): "
+						+ parent.getClass().getName());
 				}
 
 				// ";BEFORELEVEL="
-				String cl = (String)param1;
+				String cl = (String) param1;
 				if (param2 != null)
 				{
 					cl += ";BEFORELEVEL=" + param2.toString();
@@ -275,7 +285,7 @@ public final class PJEP extends JEP
 	 * @return Returns the variableSource.
 	 */
 	@Deprecated
-    protected String getVariableSource()
+	protected String getVariableSource()
 	{
 		return variableSource;
 	}
@@ -286,7 +296,7 @@ public final class PJEP extends JEP
 	protected void setVariableSource(String variableSource)
 	{
 		this.variableSource = variableSource;
-		for ( PCGenCommand com : localCommandList )
+		for (PCGenCommand com : localCommandList)
 		{
 			com.setVariableSource(variableSource);
 		}
@@ -298,7 +308,7 @@ public final class PJEP extends JEP
 	public void setParent(Object parent)
 	{
 		this.parent = parent;
-		for ( PCGenCommand com : localCommandList )
+		for (PCGenCommand com : localCommandList)
 		{
 			com.setParent(parent);
 		}

@@ -46,7 +46,8 @@ public final class ResizeColumnListener implements PropertyChangeListener
 	 * @param fromString
 	 * @param fromIndex
 	 */
-	public ResizeColumnListener(JTableEx fromTable, String fromString, int fromIndex)
+	public ResizeColumnListener(JTableEx fromTable, String fromString,
+		int fromIndex)
 	{
 		table = fromTable;
 		colFrom = fromString;
@@ -54,25 +55,26 @@ public final class ResizeColumnListener implements PropertyChangeListener
 		mouseIsDown = false;
 		colChange = false;
 		table.getTableHeader().addMouseListener(new MouseAdapter()
+		{
+			public void mousePressed(MouseEvent evt)
 			{
-				public void mousePressed(MouseEvent evt)
-				{
-					mouseIsDown = true;
-				}
+				mouseIsDown = true;
+			}
 
-				public void mouseReleased(MouseEvent evt)
-				{
-					mouseIsDown = false;
+			public void mouseReleased(MouseEvent evt)
+			{
+				mouseIsDown = false;
 
-					if (colChange)
-					{
-						TableColumn col = table.getColumnModel().getColumn(colIndex);
-						int colWidth = col.getWidth();
-						Globals.setCustColumnWidth(colFrom, colIndex, colWidth);
-						colChange = false;
-					}
+				if (colChange)
+				{
+					TableColumn col =
+							table.getColumnModel().getColumn(colIndex);
+					int colWidth = col.getWidth();
+					Globals.setCustColumnWidth(colFrom, colIndex, colWidth);
+					colChange = false;
 				}
-			});
+			}
+		});
 	}
 
 	public void propertyChange(PropertyChangeEvent evt)

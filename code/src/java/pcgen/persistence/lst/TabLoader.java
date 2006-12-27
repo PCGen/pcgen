@@ -12,7 +12,8 @@ import pcgen.util.Logging;
 /**
  * Loads and parses TAB Lst token
  */
-public class TabLoader  {
+public class TabLoader
+{
 
 	/** TAB = "tab" */
 	public static final String TAB = "tab";
@@ -23,20 +24,27 @@ public class TabLoader  {
 	 * @param lstLine
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(GameMode gameMode, String lstLine) throws PersistenceLayerException {
-		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+	public void parseLine(GameMode gameMode, String lstLine)
+		throws PersistenceLayerException
+	{
+		StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		Map<String, String> tab = new HashMap<String, String>();
 		tab.put(TAB, "");
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(TabLstToken.class);
-		while (colToken.hasMoreTokens()) {
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(TabLstToken.class);
+		while (colToken.hasMoreTokens())
+		{
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
 			String key = "";
-			try {
+			try
+			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Deal with Exception
 			}
 
@@ -45,14 +53,21 @@ public class TabLoader  {
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "TAB", "miscinfo.lst from the " + gameMode.getName() + " Game Mode", value);
-				if (!token.parse(gameMode, tab, value)) {
-					Logging.errorPrint("Error parsing tabs:" + "miscinfo.lst from the " + gameMode.getName() + " Game Mode" + ':' + colString + "\"");
+				LstUtils.deprecationCheck(token, "TAB",
+					"miscinfo.lst from the " + gameMode.getName()
+						+ " Game Mode", value);
+				if (!token.parse(gameMode, tab, value))
+				{
+					Logging.errorPrint("Error parsing tabs:"
+						+ "miscinfo.lst from the " + gameMode.getName()
+						+ " Game Mode" + ':' + colString + "\"");
 				}
 			}
-			else {
+			else
+			{
 				Logging.errorPrint("Invalid sub tag " + token + " on TAB line");
-				throw new PersistenceLayerException("Invalid sub tag " + token + " on TAB line");
+				throw new PersistenceLayerException("Invalid sub tag " + token
+					+ " on TAB line");
 			}
 		}
 	}

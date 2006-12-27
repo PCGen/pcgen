@@ -40,11 +40,12 @@ import pcgen.util.Logging;
 public class PrerequisiteWriterFactory
 {
 	private static PrerequisiteWriterFactory instance = null;
-	private static Map<String, PrerequisiteWriterInterface> parserLookup = new HashMap<String, PrerequisiteWriterInterface>();
+	private static Map<String, PrerequisiteWriterInterface> parserLookup =
+			new HashMap<String, PrerequisiteWriterInterface>();
 
 	private PrerequisiteWriterFactory()
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -52,7 +53,8 @@ public class PrerequisiteWriterFactory
 	 */
 	public static PrerequisiteWriterFactory getInstance()
 	{
-		if (instance == null){
+		if (instance == null)
+		{
 			instance = new PrerequisiteWriterFactory();
 		}
 		return instance;
@@ -72,19 +74,22 @@ public class PrerequisiteWriterFactory
 		else
 		{
 			test = parserLookup.get(kind.toLowerCase());
-			if (test == null) {
-				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
+			if (test == null)
+			{
+				Logging.errorPrintLocalised(
+					"PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
 			}
 		}
 		return test;
 	}
 
-    /**
-     * Register the test class with the factory 
-     * @param testClass
-     * @throws PersistenceLayerException
-     */
-	public static void register(PrerequisiteWriterInterface testClass) throws PersistenceLayerException
+	/**
+	 * Register the test class with the factory 
+	 * @param testClass
+	 * @throws PersistenceLayerException
+	 */
+	public static void register(PrerequisiteWriterInterface testClass)
+		throws PersistenceLayerException
 	{
 		String kindHandled = testClass.kindHandled();
 
@@ -92,9 +97,10 @@ public class PrerequisiteWriterFactory
 
 		if (test != null)
 		{
-			throw new PersistenceLayerException("Error registering '" + testClass.getClass().getName()
-					+ "' as test '" + kindHandled + "'. The test is already registered to '"
-					+ test.getClass().getName() + "'");
+			throw new PersistenceLayerException("Error registering '"
+				+ testClass.getClass().getName() + "' as test '" + kindHandled
+				+ "'. The test is already registered to '"
+				+ test.getClass().getName() + "'");
 		}
 
 		parserLookup.put(kindHandled.toLowerCase(), testClass);

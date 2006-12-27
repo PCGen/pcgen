@@ -40,5 +40,6 @@ public interface SubstitutionClassLstToken extends LstToken
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(SubstitutionClass substitutionclass, String value);
+	public abstract boolean parse(SubstitutionClass substitutionclass,
+		String value);
 }

@@ -14,6 +14,5 @@ public interface KitTableLstToken extends LstToken
 	 * @param value
 	 * @return true if OK
 	 */
-	public abstract boolean parse(Kit kit, final String tableName,String value);
+	public abstract boolean parse(Kit kit, final String tableName, String value);
 }
-

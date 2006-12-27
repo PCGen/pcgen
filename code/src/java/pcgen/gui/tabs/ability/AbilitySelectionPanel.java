@@ -65,7 +65,8 @@ import pcgen.util.enumeration.Visibility;
  *
  * @since 5.11.1
  */
-public abstract class AbilitySelectionPanel extends JPanel implements IFilterableView, IAbilityListFilter
+public abstract class AbilitySelectionPanel extends JPanel implements
+		IFilterableView, IAbilityListFilter
 {
 	private PlayerCharacter thePC;
 	private AbilityCategory theCategory;
@@ -76,14 +77,15 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	protected JTreeTable theTable;
 	/** The sorter object used to sort the table */
 	protected JTreeTableSorter theSorter;
-	
+
 	/** A list of listeners registered to receive ability selection events */
-	private List<IAbilitySelectionListener> theListeners = new ArrayList<IAbilitySelectionListener>(2);
-	
+	private List<IAbilitySelectionListener> theListeners =
+			new ArrayList<IAbilitySelectionListener>(2);
+
 	private String theOptionsRoot = "InfoAbility."; //$NON-NLS-1$
 
 	/** enum for the possible view modes supported */
-	public enum ViewMode 
+	public enum ViewMode
 	{
 		/** view mode for Type->Name */
 		TYPENAME,
@@ -92,15 +94,15 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 		/** view in requirement tree mode */
 		PREREQTREE,
 		/** view mode for Source->Name */
-		SOURCENAME 
+		SOURCENAME
 	}
-	
+
 	/**
 	 * The manner in which to display the tree.
 	 * TODO - Yuck.  Why is this in GuiConstants?
 	 */
 	private ViewMode theViewMode = ViewMode.PREREQTREE;
-	
+
 	/** 
 	 * This is a temporary used to store the current value of the view mode
 	 * when the QFilter changes it.
@@ -118,15 +120,19 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 * @param aPC
 	 * @param aCategory
 	 */
-	public AbilitySelectionPanel(final PlayerCharacter aPC, final AbilityCategory aCategory) 
+	public AbilitySelectionPanel(final PlayerCharacter aPC,
+		final AbilityCategory aCategory)
 	{
 		thePC = aPC;
 		theCategory = aCategory;
 
 		theOptionsRoot += aCategory.getKeyName();
-		
-		final int vm = SettingsHandler.getPCGenOption(getFullOptionKey() + ".viewmode", getDefaultViewMode().ordinal()); //$NON-NLS-1$
-		theViewMode = ViewMode.values()[vm]; 
+
+		final int vm =
+				SettingsHandler
+					.getPCGenOption(
+						getFullOptionKey() + ".viewmode", getDefaultViewMode().ordinal()); //$NON-NLS-1$
+		theViewMode = ViewMode.values()[vm];
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run()
@@ -145,17 +151,17 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	{
 		return thePC;
 	}
-	
+
 	/**
 	 * Sets the PlayerCharacter this panel is displaying information for.
 	 * 
 	 * @param aPC The PlayerCharacter to set.
 	 */
-	public void setPC( final PlayerCharacter aPC )
+	public void setPC(final PlayerCharacter aPC)
 	{
 		thePC = aPC;
 	}
-	
+
 	/**
 	 * Return the <tt>AbilityCategory</tt> these abilities come from.
 	 * 
@@ -174,7 +180,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 * @return A <tt>List</tt> of <tt>Ability</tt> objects.
 	 */
 	protected abstract List<Ability> getAbilityList();
-	
+
 	/**
 	 * Return a String key to use when saving state and options.
 	 * 
@@ -183,7 +189,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 * @return A String to use as a base key.
 	 */
 	protected abstract String getOptionKey();
-	
+
 	/**
 	 * Initializes the GUI components.
 	 * 
@@ -195,52 +201,62 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 */
 	protected void initComponents()
 	{
-		theModel = new AbilityModel(thePC, getAbilityList(), theCategory, theViewMode, 
-									getFullOptionKey());
+		theModel =
+				new AbilityModel(thePC, getAbilityList(), theCategory,
+					theViewMode, getFullOptionKey());
 
 		theModel.setAbilityFilter(this);
 
 		theTable = new JTreeTable(theModel);
 		final TableColumnModel tableColumnModel = theTable.getColumnModel();
 
-		for ( int i = 0; i < tableColumnModel.getColumnCount(); i++ )
+		for (int i = 0; i < tableColumnModel.getColumnCount(); i++)
 		{
 			final TableColumn col = tableColumnModel.getColumn(i);
-			
-			final AbilityModel.Column amCol = AbilityModel.Column.get(i); 
-			final int colWidth = SettingsHandler.getPCGenOption(getFullOptionKey() + ".sizecol." + amCol.toString(), amCol.getWidth()); //$NON-NLS-1$
+
+			final AbilityModel.Column amCol = AbilityModel.Column.get(i);
+			final int colWidth =
+					SettingsHandler.getPCGenOption(getFullOptionKey()
+						+ ".sizecol." + amCol.toString(), amCol.getWidth()); //$NON-NLS-1$
 			col.setPreferredWidth(colWidth);
 
-			col.addPropertyChangeListener(new PropertyChangeListener() {
+			col.addPropertyChangeListener(new PropertyChangeListener()
+			{
 
 				public void propertyChange(final PropertyChangeEvent anEvt)
 				{
-					if ( anEvt.getPropertyName().equals("width") ) //$NON-NLS-1$
+					if (anEvt.getPropertyName().equals("width")) //$NON-NLS-1$
 					{
-						SettingsHandler.setPCGenOption(getFullOptionKey() + ".sizecol." + Column.get(col.getModelIndex()), Integer.parseInt(anEvt.getNewValue().toString())); //$NON-NLS-1$
+						SettingsHandler
+							.setPCGenOption(
+								getFullOptionKey()
+									+ ".sizecol." + Column.get(col.getModelIndex()), Integer.parseInt(anEvt.getNewValue().toString())); //$NON-NLS-1$
 					}
 				}
-				
+
 			});
 		}
 
-		theSorter = new JTreeTableSorter(theTable, 
-				(PObjectNode) theModel.getRoot(), theModel);
+		theSorter =
+				new JTreeTableSorter(theTable,
+					(PObjectNode) theModel.getRoot(), theModel);
 
 		addListSelectionListener();
-		
+
 		final JTree tree = theTable.getTree();
 		tree.setRootVisible(false);
 		tree.setShowsRootHandles(true);
 		tree.setCellRenderer(new LabelTreeCellRenderer());
 
-		final JScrollPane scrollPane = new JScrollPane(theTable, 
-							ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
-							ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		final JScrollPane scrollPane =
+				new JScrollPane(theTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		add(scrollPane, BorderLayout.CENTER);
 
 		final JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		// TODO - This should probably be an icon.
 		columnButton.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(theTable, columnButton, theModel);
@@ -252,9 +268,10 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 * 
 	 * @param aListener The object to notify
 	 */
-	public void addAbilitySelectionListener(final IAbilitySelectionListener aListener)
+	public void addAbilitySelectionListener(
+		final IAbilitySelectionListener aListener)
 	{
-		if ( theListeners.contains(aListener) == false )
+		if (theListeners.contains(aListener) == false)
 		{
 			theListeners.add(aListener);
 		}
@@ -269,7 +286,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	{
 		return Collections.unmodifiableList(theListeners);
 	}
-	
+
 	/**
 	 * This method adds a <tt>ListSelectionListener</tt> to the table and adds
 	 * itself as the listener so that we will be advised of selection changes
@@ -284,36 +301,39 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 */
 	private void addListSelectionListener()
 	{
-		theTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
-		{
-			public void valueChanged(ListSelectionEvent e)
+		theTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
-				if (!e.getValueIsAdjusting())
+				public void valueChanged(ListSelectionEvent e)
 				{
-					final int idx = InfoTabUtils.getSelectedIndex(e);
-
-					if (idx < 0)
+					if (!e.getValueIsAdjusting())
 					{
-						return;
-					}
+						final int idx = InfoTabUtils.getSelectedIndex(e);
 
-					final Object temp = theTable.getTree().getPathForRow(idx).getLastPathComponent();
-					final Ability ability = getAbilityFromObject(temp);
-
-					for ( final IAbilitySelectionListener listener : theListeners )
-					{
-						SwingUtilities.invokeLater(new Runnable()
+						if (idx < 0)
 						{
-							public void run()
+							return;
+						}
+
+						final Object temp =
+								theTable.getTree().getPathForRow(idx)
+									.getLastPathComponent();
+						final Ability ability = getAbilityFromObject(temp);
+
+						for (final IAbilitySelectionListener listener : theListeners)
+						{
+							SwingUtilities.invokeLater(new Runnable()
 							{
-								abilitySelected(ability);
-								listener.abilitySelected(ability);
-							}
-						});
+								public void run()
+								{
+									abilitySelected(ability);
+									listener.abilitySelected(ability);
+								}
+							});
+						}
 					}
 				}
-			}
-		});
+			});
 
 	}
 
@@ -326,11 +346,12 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 * 
 	 * @param anAbility The selected <tt>Ability</tt>
 	 */
-	protected void abilitySelected( @SuppressWarnings("unused")final Ability anAbility )
+	protected void abilitySelected(@SuppressWarnings("unused")
+	final Ability anAbility)
 	{
 		// Placeholder.
 	}
-	
+
 	/**
 	 * This is a utility method that safely gets an <tt>Ability</tt> object from
 	 * the tree.
@@ -359,10 +380,10 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 				return (Ability) temp;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * Gets the starting view mode if one hasn't been set.
 	 * 
@@ -375,16 +396,16 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 * 
 	 * @param aMode A mode to construct the tree in.
 	 */
-	public void setViewMode( final int aMode )
+	public void setViewMode(final int aMode)
 	{
 		theViewMode = ViewMode.values()[aMode];
-		if ( theModel != null )
+		if (theModel != null)
 		{
 			theModel.setViewMode(theViewMode);
 		}
 		SettingsHandler.setPCGenOption(getFullOptionKey() + ".viewmode", aMode); //$NON-NLS-1$
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.IFilterableView#clearQFilter()
 	 */
@@ -443,7 +464,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	public void viewChanged(int aNewView)
 	{
 		setViewMode(aNewView);
-//		SettingsHandler.setFeatTab_SelectedListMode(viewSelectedMode);
+		//		SettingsHandler.setFeatTab_SelectedListMode(viewSelectedMode);
 		rebuildView();
 	}
 
@@ -457,7 +478,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 */
 	public void rebuildView()
 	{
-		if (theTable != null) 
+		if (theTable != null)
 		{
 			final List<String> pathList = theTable.getExpandedPaths();
 			theModel.resetModel(thePC, theViewMode, false);
@@ -480,7 +501,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 	 */
 	public void update()
 	{
-		if ( theTable != null )
+		if (theTable != null)
 		{
 			theModel.setAbilityList(getAbilityList());
 			if (theSorter != null)
@@ -490,38 +511,38 @@ public abstract class AbilitySelectionPanel extends JPanel implements IFilterabl
 			theTable.updateUI();
 		}
 	}
-	
+
 	/**
 	 * Adds a <tt>Filterable</tt> object so that Abilities in the list will be
 	 * filtered.
 	 * 
 	 * @param aFilterer A Filterable object.
 	 */
-	public void addFilterer( final Filterable aFilterer )
+	public void addFilterer(final Filterable aFilterer)
 	{
 		theFilter = aFilterer;
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.ability.IAbilityListFilter#accept(ViewMode, pcgen.core.Ability)
 	 */
-	public boolean accept(@SuppressWarnings("unused")final ViewMode aMode, 
-													 final Ability anAbility)
+	public boolean accept(@SuppressWarnings("unused")
+	final ViewMode aMode, final Ability anAbility)
 	{
-		if (!((anAbility.getVisibility() == Visibility.DEFAULT)
-				|| (anAbility.getVisibility() == Visibility.DISPLAY_ONLY)))
+		if (!((anAbility.getVisibility() == Visibility.DEFAULT) || (anAbility
+			.getVisibility() == Visibility.DISPLAY_ONLY)))
 		{
 			return false;
 		}
-		
+
 		if (theFilter != null && theFilter.accept(getPC(), anAbility) == false)
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	private String getFullOptionKey()
 	{
 		return theOptionsRoot + "." + getOptionKey(); //$NON-NLS-1$

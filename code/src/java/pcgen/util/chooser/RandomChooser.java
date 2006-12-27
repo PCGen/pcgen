@@ -218,7 +218,9 @@ public final class RandomChooser implements ChooserInterface
 			return;
 		}
 
-		final Object addObj = theAvailableList.get(Globals.getRandomInt(theAvailableList.size() -1 ));
+		final Object addObj =
+				theAvailableList.get(Globals.getRandomInt(theAvailableList
+					.size() - 1));
 		if (theUniqueList.contains(addObj))
 		{
 			return;
@@ -237,25 +239,25 @@ public final class RandomChooser implements ChooserInterface
 		//
 		// Make sure there are enough points remaining...
 		//
-//		final String[] fields = addString.split("\t");
-//
-//		int adjustment = 1;
-//		if (fields.length > 1)b
-//		{
-//			adjustment = Integer.parseInt(fields[theCostColumnNumber]);
-//		}
-//		if ((getPool() - adjustment) < 0)
-//		{
-//			if (!canGoNegative)
-//			{
-//				return;
-//			}
-//		}
+		//		final String[] fields = addString.split("\t");
+		//
+		//		int adjustment = 1;
+		//		if (fields.length > 1)b
+		//		{
+		//			adjustment = Integer.parseInt(fields[theCostColumnNumber]);
+		//		}
+		//		if ((getPool() - adjustment) < 0)
+		//		{
+		//			if (!canGoNegative)
+		//			{
+		//				return;
+		//			}
+		//		}
 
 		theSelectedList.add(addObj);
 
-//		setPool(getPool() - adjustment);
-		setPool( getPool() - 1 );
+		//		setPool(getPool() - adjustment);
+		setPool(getPool() - 1);
 	}
 
 	public void setTitle(String title)

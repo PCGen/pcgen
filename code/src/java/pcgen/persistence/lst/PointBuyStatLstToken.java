@@ -27,13 +27,13 @@ package pcgen.persistence.lst;
 
 import pcgen.core.PointBuyCost;
 
-
 /**
  * <code>PointBuyLstToken</code>
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface PointBuyStatLstToken extends LstToken {
+public interface PointBuyStatLstToken extends LstToken
+{
 	/**
 	 * @param penalty
 	 * @param value

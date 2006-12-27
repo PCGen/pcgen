@@ -32,7 +32,8 @@ import pcgen.core.PaperInfo;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface PaperInfoLstToken extends LstToken {
+public interface PaperInfoLstToken extends LstToken
+{
 	/**
 	 * @param paperInfo
 	 * @param value

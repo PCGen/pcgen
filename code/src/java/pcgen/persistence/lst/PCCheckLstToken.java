@@ -27,7 +27,6 @@ package pcgen.persistence.lst;
 
 import pcgen.core.PObject;
 
-
 /**
  * <code>PCCheckLstToken</code>
  *

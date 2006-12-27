@@ -27,7 +27,6 @@ package pcgen.persistence.lst;
 
 import java.util.Map;
 
-
 /**
  * <code>PCAlignmentLstToken</code>
  *

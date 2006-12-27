@@ -17,7 +17,7 @@ import pcgen.gui.utils.Utility;
 /**
  * Tab utilities
  */
-public class InfoTabUtils 
+public class InfoTabUtils
 {
 	/**
 	 * Gets the index of the selected row for this ListSelectionEvent.
@@ -31,7 +31,8 @@ public class InfoTabUtils
 	 */
 	public static int getSelectedIndex(final ListSelectionEvent evt)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) evt.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) evt.getSource();
 
 		if (model == null)
 		{
@@ -40,7 +41,7 @@ public class InfoTabUtils
 
 		return model.getMinSelectionIndex();
 	}
-	
+
 	/**
 	 * Create a filter pane for a tab
 	 * 
@@ -51,13 +52,14 @@ public class InfoTabUtils
 	 * @param clearButton
 	 * @return the Filter pane
 	 */
-	public static JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb, JLabel filterLabel, JTextField filterText, JButton clearButton)
+	public static JPanel createFilterPane(JLabel treeLabel, JComboBox treeCb,
+		JLabel filterLabel, JTextField filterText, JButton clearButton)
 	{
 		GridBagConstraints c = new GridBagConstraints();
 		JPanel filterPanel = new JPanel(new GridBagLayout());
 		int i = 0;
 
-		if(treeLabel != null)
+		if (treeLabel != null)
 		{
 			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
 			c.insets = new Insets(1, 2, 1, 2);
@@ -65,8 +67,8 @@ public class InfoTabUtils
 			c.anchor = GridBagConstraints.LINE_START;
 			filterPanel.add(treeLabel, c);
 		}
-		
-		if(treeCb != null)
+
+		if (treeCb != null)
 		{
 			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
 			c.insets = new Insets(1, 2, 1, 2);
@@ -75,7 +77,7 @@ public class InfoTabUtils
 			filterPanel.add(treeCb, c);
 		}
 
-		if(filterLabel != null)
+		if (filterLabel != null)
 		{
 			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
 			c.insets = new Insets(1, 2, 1, 2);
@@ -83,8 +85,8 @@ public class InfoTabUtils
 			c.anchor = GridBagConstraints.LINE_START;
 			filterPanel.add(filterLabel, c);
 		}
-		
-		if(filterText != null)
+
+		if (filterText != null)
 		{
 			Utility.buildConstraints(c, i++, 0, 1, 1, 95, 0);
 			c.insets = new Insets(1, 2, 1, 2);
@@ -92,8 +94,8 @@ public class InfoTabUtils
 			c.anchor = GridBagConstraints.LINE_START;
 			filterPanel.add(filterText, c);
 		}
-		
-		if(clearButton != null)
+
+		if (clearButton != null)
 		{
 			Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
 			c.insets = new Insets(0, 2, 0, 2);

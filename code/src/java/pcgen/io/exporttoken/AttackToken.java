@@ -76,7 +76,8 @@ public class AttackToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -115,9 +116,7 @@ public class AttackToken extends Token
 	 *                  SIZE, STAT, TOTAL or an empty string
 	 * @return The token value.
 	 */
-	public static String getParsedToken(
-		PlayerCharacter pc,
-		String attackType,
+	public static String getParsedToken(PlayerCharacter pc, String attackType,
 		String modifier)
 	{
 		if (modifier.equals("TOTAL"))
@@ -143,7 +142,8 @@ public class AttackToken extends Token
 		return getSubToken(pc, attackType, modifier);
 	}
 
-	private static String getSubToken(PlayerCharacter pc, String attackType, String modifier)
+	private static String getSubToken(PlayerCharacter pc, String attackType,
+		String modifier)
 	{
 		if (modifier.equals("BASE"))
 		{
@@ -206,16 +206,19 @@ public class AttackToken extends Token
 	 */
 	public static int getMiscToken(PlayerCharacter pc, String aType)
 	{
-		int tohitBonus = ((int) pc.getTotalBonusTo("TOHIT", "TOHIT")
-			+ (int) pc.getTotalBonusTo("TOHIT", "TYPE."+aType))
-			- (int) pc.getStatBonusTo("TOHIT", "TYPE."+aType)
-			- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
-		int miscBonus = ((int) pc.getTotalBonusTo("COMBAT", "TOHIT")
-			+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT."+aType))
-			- (int) pc.getStatBonusTo("COMBAT", "TOHIT."+aType)
-			- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
-			- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."+aType)
-			- (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");
+		int tohitBonus =
+				((int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc
+					.getTotalBonusTo("TOHIT", "TYPE." + aType))
+					- (int) pc.getStatBonusTo("TOHIT", "TYPE." + aType)
+					- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
+		int miscBonus =
+				((int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc
+					.getTotalBonusTo("COMBAT", "TOHIT." + aType))
+					- (int) pc.getStatBonusTo("COMBAT", "TOHIT." + aType)
+					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
+					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."
+						+ aType)
+					- (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");
 		return miscBonus + tohitBonus;
 	}
 
@@ -227,10 +230,14 @@ public class AttackToken extends Token
 	 */
 	public static int getSizeToken(PlayerCharacter pc, String aType)
 	{
-		int tohitBonus = (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT")
-			+ (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TYPE."+aType);
-		int sizeBonus = (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
-			+ (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."+aType);
+		int tohitBonus =
+				(int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT")
+					+ (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TYPE."
+						+ aType);
+		int sizeBonus =
+				(int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
+					+ (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."
+						+ aType);
 
 		return sizeBonus + tohitBonus;
 	}
@@ -243,8 +250,10 @@ public class AttackToken extends Token
 	 */
 	public static int getStatToken(PlayerCharacter pc, String aType)
 	{
-		final int tohitBonus = (int) pc.getStatBonusTo("TOHIT", "TYPE."+aType);
-		final int statBonus = (int) pc.getStatBonusTo("COMBAT", "TOHIT."+aType);
+		final int tohitBonus =
+				(int) pc.getStatBonusTo("TOHIT", "TYPE." + aType);
+		final int statBonus =
+				(int) pc.getStatBonusTo("COMBAT", "TOHIT." + aType);
 
 		return statBonus + tohitBonus;
 	}
@@ -257,10 +266,12 @@ public class AttackToken extends Token
 	 */
 	public static int getTotalToken(PlayerCharacter pc, String aType)
 	{
-		final int tohitBonus = (int) pc.getTotalBonusTo("TOHIT", "TOHIT")
-			+ (int) pc.getTotalBonusTo("TOHIT", "TYPE."+aType);
-		final int totalBonus = (int) pc.getTotalBonusTo("COMBAT", "TOHIT")
-			+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT."+aType);
+		final int tohitBonus =
+				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE." + aType);
+		final int totalBonus =
+				(int) pc.getTotalBonusTo("COMBAT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + aType);
 		return tohitBonus + totalBonus;
 	}
 }

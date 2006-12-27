@@ -26,8 +26,9 @@ import pcgen.core.utils.MessageType;
 /**
  * Interface for Inputs
  */
-public interface InputInterface {
-	
+public interface InputInterface
+{
+
 	/**
 	 * Show an Input Dialog to the user
 	 * @param parentComponent
@@ -38,7 +39,8 @@ public interface InputInterface {
 	 * @param initialSelectionValue
 	 * @return an Input Dialog for the user
 	 */
-	public Object showInputDialog(Object parentComponent, Object message, String title, MessageType type,
-			Object[] selectionValues, Object initialSelectionValue);
+	public Object showInputDialog(Object parentComponent, Object message,
+		String title, MessageType type, Object[] selectionValues,
+		Object initialSelectionValue);
 
 }

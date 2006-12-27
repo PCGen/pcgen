@@ -68,7 +68,8 @@ public class WeaponhToken extends WeaponToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		//Weapono Token
@@ -76,7 +77,8 @@ public class WeaponhToken extends WeaponToken
 
 		Equipment eq = getWeaponEquipment(pc);
 
-		if(eq != null) {
+		if (eq != null)
+		{
 			return getWeaponToken(pc, eq, aTok);
 		}
 		else if (eh != null && eh.getExistsOnly())
@@ -114,7 +116,8 @@ public class WeaponhToken extends WeaponToken
 		eq.setKeyName("KEY_Unarmed Strike");
 		eq.setProfName("Unarmed Strike");
 		eq.setOutputName(PropertyFactory.getString("Equipment.UnarmedStrike"));
-		eq.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
+		eq
+			.setTypeInfo("Weapon.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning");
 		eq.setWield("Light");
 		eq.setCost("0", true);
 		eq.setWeight("0");
@@ -128,4 +131,3 @@ public class WeaponhToken extends WeaponToken
 		return eq;
 	}
 }
-

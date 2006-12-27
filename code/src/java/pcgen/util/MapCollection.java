@@ -32,101 +32,127 @@ import java.util.Map.Entry;
 /*
  * 
  */
-public class MapCollection implements Collection<Object> {
+public class MapCollection implements Collection<Object>
+{
 
 	private final Map<?, ?> map;
 
-	public MapCollection(Map<?, ?> m) {
-		if (m == null) {
+	public MapCollection(Map<?, ?> m)
+	{
+		if (m == null)
+		{
 			throw new IllegalArgumentException(
-					"Cannot provide null to MapCollection");
+				"Cannot provide null to MapCollection");
 		}
 		map = new HashMap<Object, Object>(m);
 	}
 
-	public boolean add(Object arg0) {
+	public boolean add(Object arg0)
+	{
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean addAll(Collection<?> arg0) {
+	public boolean addAll(Collection<?> arg0)
+	{
 		throw new UnsupportedOperationException();
 	}
 
-	public void clear() {
+	public void clear()
+	{
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean contains(Object arg0) {
+	public boolean contains(Object arg0)
+	{
 		return map.containsKey(arg0) || map.containsValue(arg0);
 	}
 
-	public boolean containsAll(Collection<?> arg0) {
-		for (Object obj : arg0) {
-			if (!map.containsKey(obj) && !map.containsValue(obj)) {
+	public boolean containsAll(Collection<?> arg0)
+	{
+		for (Object obj : arg0)
+		{
+			if (!map.containsKey(obj) && !map.containsValue(obj))
+			{
 				return false;
 			}
 		}
 		return true;
 	}
 
-	public boolean isEmpty() {
+	public boolean isEmpty()
+	{
 		return map.isEmpty();
 	}
 
-	public Iterator<Object> iterator() {
+	public Iterator<Object> iterator()
+	{
 		return new MapCollectionIterator(map);
 	}
 
-	public boolean remove(Object arg0) {
+	public boolean remove(Object arg0)
+	{
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean removeAll(Collection<?> arg0) {
+	public boolean removeAll(Collection<?> arg0)
+	{
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean retainAll(Collection<?> arg0) {
+	public boolean retainAll(Collection<?> arg0)
+	{
 		throw new UnsupportedOperationException();
 	}
 
-	public int size() {
+	public int size()
+	{
 		return map.size();
 	}
 
-	public Object[] toArray() {
+	public Object[] toArray()
+	{
 		// FIXME Auto-generated method stub
 		return null;
 	}
 
-	public Object[] toArray(Object[] arg0) {
+	public Object[] toArray(Object[] arg0)
+	{
 		// FIXME Auto-generated method stub
 		return null;
 	}
 
-	private class MapCollectionIterator implements Iterator<Object> {
+	private class MapCollectionIterator implements Iterator<Object>
+	{
 		Entry<?, ?> workingEntry;
 
 		private boolean returnedKey = false;
 
 		private final Iterator hashIterator;
 
-		MapCollectionIterator(Map<?, ?> m) {
+		MapCollectionIterator(Map<?, ?> m)
+		{
 			hashIterator = m.entrySet().iterator();
 		}
 
-		public boolean hasNext() {
+		public boolean hasNext()
+		{
 			return returnedKey || hashIterator.hasNext();
 		}
 
-		public void remove() {
+		public void remove()
+		{
 			throw new UnsupportedOperationException();
 		}
 
-		public Object next() {
-			if (returnedKey) {
+		public Object next()
+		{
+			if (returnedKey)
+			{
 				returnedKey = false;
 				return workingEntry.getValue();
-			} else {
+			}
+			else
+			{
 				workingEntry = (Entry<?, ?>) hashIterator.next();
 				returnedKey = true;
 				return workingEntry.getKey();

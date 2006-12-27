@@ -41,11 +41,11 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	}
 
 	/**
-     * This is not called in the JTree's default mode: use a naive implementation.
-     * 
+	 * This is not called in the JTree's default mode: use a naive implementation.
+	 * 
 	 * @param parent 
 	 * @param child 
-     * @return index of the child or -1 
+	 * @return index of the child or -1 
 	 */
 	public final int getIndexOfChild(Object parent, Object child)
 	{
@@ -60,12 +60,12 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		return -1;
 	}
 
-    /**
-     * Returns true if its a leaf node
-     * 
-     * @param node 
-     * @return true if its a leaf node
-     */
+	/**
+	 * Returns true if its a leaf node
+	 * 
+	 * @param node 
+	 * @return true if its a leaf node
+	 */
 	public final boolean isLeaf(Object node)
 	{
 		return getChildCount(node) == 0;
@@ -74,22 +74,22 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	//
 	// Default implmentations for methods in the TreeModel interface.
 	//
-    
-    /**
-     * Get the root node
-     * @return root
-     */
+
+	/**
+	 * Get the root node
+	 * @return root
+	 */
 	public Object getRoot()
 	{
 		return root;
 	}
 
 	/**
-     * Add a listener to the tree model
-     * 
-     * @param l
+	 * Add a listener to the tree model
+	 * 
+	 * @param l
 	 */
-    public final void addTreeModelListener(TreeModelListener l)
+	public final void addTreeModelListener(TreeModelListener l)
 	{
 		listenerList.add(TreeModelListener.class, l);
 	}
@@ -126,11 +126,11 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		}
 	}
 
-    /**
-     * Remove the listener for this tree model
-     * 
-     * @param l
-     */
+	/**
+	 * Remove the listener for this tree model
+	 * 
+	 * @param l
+	 */
 	public final void removeTreeModelListener(TreeModelListener l)
 	{
 		listenerList.remove(TreeModelListener.class, l);
@@ -141,7 +141,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	 */
 	public final void valueForPathChanged(TreePath path, Object newValue)
 	{
-	    // TODO This method currently does nothing?
+		// TODO This method currently does nothing?
 	}
 
 	/**
@@ -183,13 +183,13 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	//
 	// Default impelmentations for methods in the TreeTableModel interface.
 	//
-    
-    /**
-     * Get the column class
-     * 
-     * @param column
-     * @return Object.class
-     */
+
+	/**
+	 * Get the column class
+	 * 
+	 * @param column
+	 * @return Object.class
+	 */
 	public Class<?> getColumnClass(int column)
 	{
 		return Object.class;
@@ -204,16 +204,16 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 		this.root = root;
 	}
 
-    /**
-     * Does nothing
-     * 
-     * @param aValue 
-     * @param node 
-     * @param column 
-     */
+	/**
+	 * Does nothing
+	 * 
+	 * @param aValue 
+	 * @param node 
+	 * @param column 
+	 */
 	public void setValueAt(Object aValue, Object node, int column)
 	{
-	    // TODO This method currently does nothing
+		// TODO This method currently does nothing
 	}
 
 	/**
@@ -230,7 +230,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	 * notification on this event type.  The event instance
 	 * is lazily created using the parameters passed into
 	 * the fire method.
-     * 
+	 * 
 	 * @see EventListenerList
 	 */
 	protected final void fireTreeStructureChanged(Object source, TreePath path)
@@ -277,12 +277,14 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	 * Set theQuickFilter
 	 * @param quickFilter
 	 */
-	public void setQFilter(String quickFilter) 
+	public void setQFilter(String quickFilter)
 	{
-		if(quickFilter != null) {
+		if (quickFilter != null)
+		{
 			this.qFilter = quickFilter.toLowerCase();
 		}
-		else {
+		else
+		{
 			this.qFilter = null;
 		}
 	}
@@ -290,7 +292,7 @@ public abstract class AbstractTreeTableModel implements TreeTableModel
 	/**
 	 * Clear the QuickFilter
 	 */
-	public void clearQFilter() 
+	public void clearQFilter()
 	{
 		this.qFilter = null;
 	}

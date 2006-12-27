@@ -74,9 +74,12 @@ public class JTableEx extends JTable
 	{
 		super(tm, tcm, lsm);
 
-		setDefaultRenderer(BigDecimal.class, new AlignCellRenderer(SwingConstants.RIGHT));
-		setDefaultRenderer(Float.class, new AlignCellRenderer(SwingConstants.RIGHT));
-		setDefaultRenderer(Integer.class, new AlignCellRenderer(SwingConstants.RIGHT));
+		setDefaultRenderer(BigDecimal.class, new AlignCellRenderer(
+			SwingConstants.RIGHT));
+		setDefaultRenderer(Float.class, new AlignCellRenderer(
+			SwingConstants.RIGHT));
+		setDefaultRenderer(Integer.class, new AlignCellRenderer(
+			SwingConstants.RIGHT));
 	}
 
 	/**
@@ -88,7 +91,8 @@ public class JTableEx extends JTable
 	public final void setOptimalColumnWidths(int[] columns)
 	{
 		final JTableHeader header = getTableHeader();
-		final TableCellRenderer defaultHeaderRenderer = ((header != null) ? header.getDefaultRenderer() : null);
+		final TableCellRenderer defaultHeaderRenderer =
+				((header != null) ? header.getDefaultRenderer() : null);
 		final TableColumnModel aColumnModel = getColumnModel();
 
 		if (aColumnModel == null)
@@ -98,9 +102,11 @@ public class JTableEx extends JTable
 
 		final int columncount = aColumnModel.getColumnCount();
 
-		if ((columns.length <= 0) || (columncount < columns.length) || (columncount < columns[columns.length - 1]))
+		if ((columns.length <= 0) || (columncount < columns.length)
+			|| (columncount < columns[columns.length - 1]))
 		{
-			Logging.errorPrint("Bad parameters passed to setOptimalColumnWidth.");
+			Logging
+				.errorPrint("Bad parameters passed to setOptimalColumnWidth.");
 
 			return;
 		}
@@ -140,7 +146,9 @@ public class JTableEx extends JTable
 
 					if (value != null)
 					{
-						final Component c = h.getTableCellRendererComponent(this, value, false, false, -1, i);
+						final Component c =
+								h.getTableCellRendererComponent(this, value,
+									false, false, -1, i);
 
 						if (c != null)
 						{
@@ -156,7 +164,9 @@ public class JTableEx extends JTable
 
 				if (r == null)
 				{
-					r = this.getDefaultRenderer(data.getColumnClass(columnIndex));
+					r =
+							this.getDefaultRenderer(data
+								.getColumnClass(columnIndex));
 				}
 
 				if (r != null)
@@ -167,12 +177,15 @@ public class JTableEx extends JTable
 
 						if (value != null)
 						{
-							final Component c = r.getTableCellRendererComponent(this, value, false, false, row,
-								    columnIndex);
+							final Component c =
+									r.getTableCellRendererComponent(this,
+										value, false, false, row, columnIndex);
 
 							if (c != null)
 							{
-								width = Math.max(width, c.getPreferredSize().width);
+								width =
+										Math.max(width,
+											c.getPreferredSize().width);
 							}
 						}
 					}
@@ -187,9 +200,11 @@ public class JTableEx extends JTable
 			}
 			catch (Exception e)
 			{
-				Logging.errorPrint("Exception JTableEx.setOptimalColumnWidths:" + i + ":" + columns.length + ":"
-				    + columncount + Constants.s_LINE_SEP + "Exception type:" + e.getClass().getName()
-				    + Constants.s_LINE_SEP + "Message:" + e.getMessage());
+				Logging.errorPrint("Exception JTableEx.setOptimalColumnWidths:"
+					+ i + ":" + columns.length + ":" + columncount
+					+ Constants.s_LINE_SEP + "Exception type:"
+					+ e.getClass().getName() + Constants.s_LINE_SEP
+					+ "Message:" + e.getMessage());
 			}
 		}
 
@@ -239,7 +254,8 @@ public class JTableEx extends JTable
 	 **/
 	public void setColAlign(int col, int alignment)
 	{
-		getColumnModel().getColumn(col).setCellRenderer(new AlignCellRenderer(alignment));
+		getColumnModel().getColumn(col).setCellRenderer(
+			new AlignCellRenderer(alignment));
 	}
 
 	/*
@@ -362,7 +378,8 @@ public class JTableEx extends JTable
 	/**
 	 * Align the cell text in a column
 	 **/
-	public static final class AlignCellRenderer extends DefaultTableCellRenderer
+	public static final class AlignCellRenderer extends
+			DefaultTableCellRenderer
 	{
 		/**
 		 * align is one of:
@@ -383,10 +400,12 @@ public class JTableEx extends JTable
 			setHorizontalAlignment(align);
 		}
 
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-		    boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table,
+			Object value, boolean isSelected, boolean hasFocus, int row,
+			int column)
 		{
-			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+			super.getTableCellRendererComponent(table, value, isSelected,
+				hasFocus, row, column);
 			setEnabled((table == null) || table.isEnabled());
 
 			setHorizontalAlignment(align);

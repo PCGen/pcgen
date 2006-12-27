@@ -48,14 +48,15 @@ final class PCTemplateLoader
 		// Empty Constructor
 	}
 
-	public static void parseLine(PCTemplate template, String inputLine, URL sourceURL, int lineNum)
-		throws PersistenceLayerException
+	public static void parseLine(PCTemplate template, String inputLine,
+		URL sourceURL, int lineNum) throws PersistenceLayerException
 	{
 		if (template == null)
 		{
 			return;
 		}
-		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
 		if (!template.isNewItem())
@@ -64,7 +65,8 @@ final class PCTemplateLoader
 			colToken.nextToken();
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCTemplateLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PCTemplateLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -75,7 +77,8 @@ final class PCTemplateLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			PCTemplateLstToken token = (PCTemplateLstToken) tokenMap.get(key);
@@ -94,7 +97,9 @@ final class PCTemplateLoader
 				LstUtils.deprecationCheck(token, template, value);
 				if (!token.parse(template, value))
 				{
-					Logging.errorPrint("Error parsing template " + template.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing template "
+						+ template.getDisplayName() + ':'
+						+ sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(template, colString))
@@ -103,7 +108,8 @@ final class PCTemplateLoader
 			}
 			else
 			{
-				Logging.errorPrint("Unknown tag '" + colString + "' in " + sourceURL.toString());
+				Logging.errorPrint("Unknown tag '" + colString + "' in "
+					+ sourceURL.toString());
 			}
 
 			++col;

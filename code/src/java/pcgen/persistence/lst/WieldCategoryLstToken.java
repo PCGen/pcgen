@@ -32,7 +32,8 @@ import pcgen.core.character.WieldCategory;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface WieldCategoryLstToken extends LstToken {
+public interface WieldCategoryLstToken extends LstToken
+{
 	/**
 	 * @param cat
 	 * @param value

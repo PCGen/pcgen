@@ -128,35 +128,36 @@ public final class TableSorter extends TableMap
 		tableView.setColumnSelectionAllowed(false);
 
 		MouseAdapter listMouseListener = new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
 			{
-				public void mouseClicked(MouseEvent e)
+				final TableColumnModel columnModel = tableView.getColumnModel();
+				final int viewColumn = columnModel.getColumnIndexAtX(e.getX());
+				final int column =
+						tableView.convertColumnIndexToModel(viewColumn);
+
+				if ((e.getClickCount() == 1) && (column != -1))
 				{
-					final TableColumnModel columnModel = tableView.getColumnModel();
-					final int viewColumn = columnModel.getColumnIndexAtX(e.getX());
-					final int column = tableView.convertColumnIndexToModel(viewColumn);
+					int shiftPressed = e.getModifiers() & InputEvent.SHIFT_MASK;
 
-					if ((e.getClickCount() == 1) && (column != -1))
+					if (shiftPressed == 0)
 					{
-						int shiftPressed = e.getModifiers() & InputEvent.SHIFT_MASK;
-
-						if (shiftPressed == 0)
+						if (column == sortingColumn)
 						{
-							if (column == sortingColumn)
-							{
-								sorter.sortByColumn(column, !ascending);
-							}
-							else
-							{
-								sorter.sortByColumn(column, true);
-							}
+							sorter.sortByColumn(column, !ascending);
 						}
 						else
 						{
-							sorter.sortByColumn(column, false);
+							sorter.sortByColumn(column, true);
 						}
 					}
+					else
+					{
+						sorter.sortByColumn(column, false);
+					}
 				}
-			};
+			}
+		};
 
 		JTableHeader th = tableView.getTableHeader();
 		th.addMouseListener(listMouseListener);
@@ -196,9 +197,15 @@ public final class TableSorter extends TableMap
 	{
 		if ((indexes.length != model.getRowCount()) && !hasBeenWarned)
 		{
-			Logging.errorPrint("Sorter not informed of a change in model named: " + model.getClass().getName());
-			Logging.errorPrint("Indexes Length = " + indexes.length + " Model Row Count = " + model.getRowCount());
-			Logging.errorPrint("Fixing by reallocating the indexes.  Please report this as a bug.", new Throwable());
+			Logging
+				.errorPrint("Sorter not informed of a change in model named: "
+					+ model.getClass().getName());
+			Logging.errorPrint("Indexes Length = " + indexes.length
+				+ " Model Row Count = " + model.getRowCount());
+			Logging
+				.errorPrint(
+					"Fixing by reallocating the indexes.  Please report this as a bug.",
+					new Throwable());
 			reallocateIndexes();
 			hasBeenWarned = true;
 		}
@@ -322,7 +329,8 @@ public final class TableSorter extends TableMap
 		}
 	}
 
-	private void mergeSort(int[] indices, int[] workspace, final int start, final int end)
+	private void mergeSort(int[] indices, int[] workspace, final int start,
+		final int end)
 	{
 		final int numElem = end - start;
 
@@ -353,12 +361,14 @@ public final class TableSorter extends TableMap
 			{
 				final int numLeft = mid - j;
 				System.arraycopy(indices, j, indices, end - numLeft, numLeft);
-				System.arraycopy(workspace, start, indices, start, numElem - numLeft);
+				System.arraycopy(workspace, start, indices, start, numElem
+					- numLeft);
 			}
 			else
 			{
 				final int numLeft = end - k;
-				System.arraycopy(workspace, start, indices, start, numElem - numLeft);
+				System.arraycopy(workspace, start, indices, start, numElem
+					- numLeft);
 			}
 		}
 	}

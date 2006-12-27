@@ -56,20 +56,25 @@ public final class CampaignOutput
 	 */
 	public static void output(Campaign campaign)
 	{
-		final File outFile = new File(SettingsHandler.getPccFilesLocation().getAbsolutePath() + File.separator
-				+ campaign.getDestination());
+		final File outFile =
+				new File(SettingsHandler.getPccFilesLocation()
+					.getAbsolutePath()
+					+ File.separator + campaign.getDestination());
 		BufferedWriter out = null;
 
 		try
 		{
-			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
+			out =
+					new BufferedWriter(new OutputStreamWriter(
+						new FileOutputStream(outFile), "UTF-8"));
 			FileAccess.write(out, "CAMPAIGN:" + campaign.getKeyName());
 			FileAccess.newLine(out);
 			FileAccess.write(out, "RANK:" + campaign.getRank());
 			FileAccess.newLine(out);
 			FileAccess.write(out, "GAMEMODE:");
 
-			for (Iterator<String> gm = campaign.getGameModes().iterator(); gm.hasNext();)
+			for (Iterator<String> gm = campaign.getGameModes().iterator(); gm
+				.hasNext();)
 			{
 				String gmName = gm.next();
 				FileAccess.write(out, gmName);
@@ -84,19 +89,21 @@ public final class CampaignOutput
 			FileAccess.write(out, "INFOTEXT:" + campaign.getInfoText());
 			FileAccess.newLine(out);
 			final Source source = campaign.getSourceEntry().getSourceBook();
-			FileAccess.write(out, "SOURCELONG:" + source.getLongName() );
+			FileAccess.write(out, "SOURCELONG:" + source.getLongName());
 			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCESHORT:" + source.getShortName() );
+			FileAccess.write(out, "SOURCESHORT:" + source.getShortName());
 			FileAccess.newLine(out);
-			FileAccess.write(out, "SOURCEWEB:" + source.getWebsite() );
+			FileAccess.write(out, "SOURCEWEB:" + source.getWebsite());
 			FileAccess.newLine(out);
 			FileAccess.write(out, "ISD20:" + (campaign.isD20() ? "YES" : "NO"));
 			FileAccess.newLine(out);
 			FileAccess.write(out, "ISOGL:" + (campaign.isOGL() ? "YES" : "NO"));
 			FileAccess.newLine(out);
-			FileAccess.write(out, "SHOWINMENU:" + (campaign.canShowInMenu() ? "YES" : "NO"));
+			FileAccess.write(out, "SHOWINMENU:"
+				+ (campaign.canShowInMenu() ? "YES" : "NO"));
 			FileAccess.newLine(out);
-			FileAccess.write(out, "ISLICENSED:" + (campaign.isLicensed() ? "YES" : "NO"));
+			FileAccess.write(out, "ISLICENSED:"
+				+ (campaign.isLicensed() ? "YES" : "NO"));
 			FileAccess.newLine(out);
 			FileAccess.write(out, "BOOKTYPE:" + campaign.getBookType());
 			FileAccess.newLine(out);
@@ -107,23 +114,27 @@ public final class CampaignOutput
 
 			for (Iterator i = campaign.getOptionsList().iterator(); i.hasNext();)
 			{
-				FileAccess.write(out, "OPTION:" + campaign.getOptions().getProperty((String) i.next()));
+				FileAccess.write(out, "OPTION:"
+					+ campaign.getOptions().getProperty((String) i.next()));
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator<String> i = campaign.getSection15s().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getSection15s().iterator(); i
+				.hasNext();)
 			{
 				FileAccess.write(out, "COPYRIGHT:" + i.next());
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator<String> i = campaign.getLicenses().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getLicenses().iterator(); i
+				.hasNext();)
 			{
 				FileAccess.write(out, "LICENSE:" + i.next());
 				FileAccess.newLine(out);
 			}
 
-			for (Iterator<String> i = campaign.getLines().iterator(); i.hasNext();)
+			for (Iterator<String> i = campaign.getLines().iterator(); i
+				.hasNext();)
 			{
 				FileAccess.write(out, i.next());
 				FileAccess.newLine(out);
@@ -131,13 +142,15 @@ public final class CampaignOutput
 		}
 		catch (FileNotFoundException exc)
 		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(), exc);
+			Logging.errorPrint("Error while writing to " + outFile.toString(),
+				exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
 		}
 		catch (UnsupportedEncodingException exc)
 		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(), exc);
+			Logging.errorPrint("Error while writing to " + outFile.toString(),
+				exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
 		}

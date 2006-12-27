@@ -58,7 +58,8 @@ public class SkillpointsToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString;
@@ -120,13 +121,16 @@ public class SkillpointsToken extends Token
 		float usedPoints = 0;
 		for (Skill aSkill : pc.getSkillList())
 		{
-			if ((aSkill.getRank().doubleValue() > 0) || (aSkill.getOutputIndex() != 0))
+			if ((aSkill.getRank().doubleValue() > 0)
+				|| (aSkill.getOutputIndex() != 0))
 			{
 				for (String classRanks : aSkill.getRankList())
 				{
 					int index = classRanks.indexOf(':');
 					String className = classRanks.substring(0, index);
-					float ranks = Float.valueOf(classRanks.substring(index + 1)).floatValue();
+					float ranks =
+							Float.valueOf(classRanks.substring(index + 1))
+								.floatValue();
 					PCClass pcClass = pc.getClassKeyed(className);
 
 					usedPoints += (ranks * aSkill.costForPCClass(pcClass, pc));

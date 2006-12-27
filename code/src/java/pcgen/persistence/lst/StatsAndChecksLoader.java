@@ -69,7 +69,8 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		super.loadLstFile(fileName);
 
 		// Reinit relevant globals from SystemCollections
-		List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
+		List<PCStat> statList =
+				SettingsHandler.getGame().getUnmodifiableStatList();
 		int statCount = statList.size();
 		SettingsHandler.getGame().setAttribLong(new String[statCount]);
 		SettingsHandler.getGame().setAttribShort(new String[statCount]);
@@ -95,19 +96,24 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		}
 
 		final String key = lstLine.substring(0, idxColon);
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(StatsAndChecksLstToken.class);
-		StatsAndChecksLstToken token = (StatsAndChecksLstToken) tokenMap.get(key);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(StatsAndChecksLstToken.class);
+		StatsAndChecksLstToken token =
+				(StatsAndChecksLstToken) tokenMap.get(key);
 		if (token != null)
 		{
-			LstUtils.deprecationCheck(token, key, sourceURL.toString(), lstLine);
+			LstUtils
+				.deprecationCheck(token, key, sourceURL.toString(), lstLine);
 			if (!token.parse(lstLine, sourceURL))
 			{
-				Logging.errorPrint("Error parsing StatsAndChecks object: " + lstLine + '/' + sourceURL.toString());
+				Logging.errorPrint("Error parsing StatsAndChecks object: "
+					+ lstLine + '/' + sourceURL.toString());
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Illegal StatsAndChecks object: " + lstLine + '/' + sourceURL.toString());
+			Logging.errorPrint("Illegal StatsAndChecks object: " + lstLine
+				+ '/' + sourceURL.toString());
 		}
 	}
 }

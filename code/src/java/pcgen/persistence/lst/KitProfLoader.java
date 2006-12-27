@@ -46,14 +46,15 @@ public class KitProfLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		KitProf kitProf = new KitProf(colToken.nextToken());
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitProfLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitProfLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -78,7 +79,7 @@ public class KitProfLoader
 				if (!token.parse(kitProf, value))
 				{
 					Logging.errorPrint("Error parsing Kit Prof tag "
-							+ kitProf.getObjectName() + ':' + colString + "\"");
+						+ kitProf.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitProf, colString))
@@ -88,7 +89,7 @@ public class KitProfLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Prof info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 
 		}

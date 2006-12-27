@@ -58,63 +58,70 @@ public class AbilityCategoryLoader
 	 * 
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(final GameMode aGameMode, final String aLine) 
-		throws PersistenceLayerException 
+	public void parseLine(final GameMode aGameMode, final String aLine)
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(aLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(aLine, SystemLoader.TAB_DELIM);
 
 		// Get all the tokens for this tag (all classes implementing the 
 		// AbilityCategoryLstToken interface.
-		final Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(AbilityCategoryLstToken.class);
-		
+		final Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(AbilityCategoryLstToken.class);
+
 		AbilityCategory cat = null;
-		while ( colToken.hasMoreTokens() ) 
+		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
 			final int idxColon = colString.indexOf(':');
 			final String key;
-			try 
+			try
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) 
+			catch (StringIndexOutOfBoundsException e)
 			{
-				throw new PersistenceLayerException(
-						PropertyFactory.getFormattedString(
-								"Errors.LstTokens.InvalidTokenFormat",  //$NON-NLS-1$
-								getClass().toString(), 
-								colString));
+				throw new PersistenceLayerException(PropertyFactory
+					.getFormattedString("Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
+						getClass().toString(), colString));
 			}
-			
-			final AbilityCategoryLstToken token = (AbilityCategoryLstToken) tokenMap.get(key);
 
-			if (key.equals("ABILITYCATEGORY"))  //$NON-NLS-1$
+			final AbilityCategoryLstToken token =
+					(AbilityCategoryLstToken) tokenMap.get(key);
+
+			if (key.equals("ABILITYCATEGORY")) //$NON-NLS-1$
 			{
 				final String value = colString.substring(idxColon + 1).trim();
 				cat = aGameMode.getAbilityCategory(value);
 
-				if (cat == null) 
+				if (cat == null)
 				{
 					cat = new AbilityCategory(value);
 					aGameMode.addAbilityCategory(cat);
 				}
 			}
-			else if (token != null) 
+			else if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
 				// TODO - i18n
-				LstUtils.deprecationCheck(token, "Ability Category", "miscinfo.lst from the " + aGameMode.getName() + " Game Mode", value);
-				if (!token.parse(cat, value)) 
+				LstUtils.deprecationCheck(token, "Ability Category",
+					"miscinfo.lst from the " + aGameMode.getName()
+						+ " Game Mode", value);
+				if (!token.parse(cat, value))
 				{
 					// TODO - i18n
-					Logging.errorPrint("Error parsing ability category:" + "miscinfo.lst from the " + aGameMode.getName() + " Game Mode" + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability category:"
+						+ "miscinfo.lst from the " + aGameMode.getName()
+						+ " Game Mode" + ':' + colString + "\"");
 				}
 			}
-			else 
+			else
 			{
 				// TODO - i18n
-				Logging.errorPrint("Invalid sub tag " + key + " on ABILITYCATEGORY line");
-				throw new PersistenceLayerException("Invalid sub tag " + key + " on ABILITYCATEGORY line");
+				Logging.errorPrint("Invalid sub tag " + key
+					+ " on ABILITYCATEGORY line");
+				throw new PersistenceLayerException("Invalid sub tag " + key
+					+ " on ABILITYCATEGORY line");
 			}
 		}
 	}

@@ -144,20 +144,26 @@ public final class Utility
 	 * @param equipmentTemplate the alternative template from the equipment sub tab
 	 * @return temporary preview file
 	 **/
-	public static File getTempPreviewFile(PlayerCharacter pc, String equipmentTemplate)
+	public static File getTempPreviewFile(PlayerCharacter pc,
+		String equipmentTemplate)
 	{
 		// Karianna - Fix for bug 966281
 		final String template;
-		if (equipmentTemplate == null || equipmentTemplate.equals("")) {
+		if (equipmentTemplate == null || equipmentTemplate.equals(""))
+		{
 			template = SettingsHandler.getSelectedCharacterHTMLOutputSheet(pc);
-		} else {
+		}
+		else
+		{
 			template = equipmentTemplate;
 		}
 		// Karianna - End of Fix for bug 966281
 
 		if ((template == null) || (template.trim().length() == 0))
 		{
-			ShowMessageDelegate.showMessageDialog("No HTML template specified in preferences.", "PCGen", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"No HTML template specified in preferences.", "PCGen",
+				MessageType.ERROR);
 			return null;
 		}
 
@@ -168,11 +174,15 @@ public final class Utility
 		try
 		{
 			// create a temporary file to view the character output
-			tempFile = File.createTempFile(Constants.s_TempFileName, extension, SettingsHandler.getTempPath());
+			tempFile =
+					File.createTempFile(Constants.s_TempFileName, extension,
+						SettingsHandler.getTempPath());
 		}
 		catch (IOException ioe)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not create temporary preview file.", "PCGen", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Could not create temporary preview file.", "PCGen",
+				MessageType.ERROR);
 			Logging.errorPrint("Could not create temporary preview file.", ioe);
 		}
 
@@ -252,7 +262,8 @@ public final class Utility
 	 * @param wx  weight of x, I typically put in percentile, only need to specify this once for each column, other values in same column are 0.0
 	 * @param wy  weight of y, same as weight for cols, just specify a non-zero value for one cell in each row.
 	 */
-	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy, int gw, int gh, double wx, double wy)
+	public static void buildConstraints(GridBagConstraints gbc, int gx, int gy,
+		int gw, int gh, double wx, double wy)
 	{
 		gbc.gridx = gx;
 		gbc.gridy = gy;
@@ -308,7 +319,8 @@ public final class Utility
 			dialogSize.width = screenSize.width;
 		}
 
-		dialog.setLocation((screenSize.width - dialogSize.width) / 2, (screenSize.height - dialogSize.height) / 2);
+		dialog.setLocation((screenSize.width - dialogSize.width) / 2,
+			(screenSize.height - dialogSize.height) / 2);
 	}
 
 	/**
@@ -343,7 +355,8 @@ public final class Utility
 			frameSize.width = screenSize.width;
 		}
 
-		frame.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
+		frame.setLocation((screenSize.width - frameSize.width) / 2,
+			(screenSize.height - frameSize.height) / 2);
 	}
 
 	/**
@@ -358,8 +371,8 @@ public final class Utility
 	 *
 	 * @return JButtonMenuItem the new  button menu item
 	 */
-	public static JButton createButton(ActionListener listener, String command, String description, String iconName,
-	    boolean enable)
+	public static JButton createButton(ActionListener listener, String command,
+		String description, String iconName, boolean enable)
 	{
 		final JButton button = new JButton();
 
@@ -398,11 +411,13 @@ public final class Utility
 	 *
 	 * @return JMenu the new menu
 	 */
-	public static JMenu createMenu(final String prop, String iconName, boolean enable)
+	public static JMenu createMenu(final String prop, String iconName,
+		boolean enable)
 	{
 		final String label = PropertyFactory.getString("in_" + prop);
 		final char mnemonic = PropertyFactory.getMnemonic("in_mn_" + prop);
-		final String description = PropertyFactory.getString("in_" + prop + "Tip");
+		final String description =
+				PropertyFactory.getString("in_" + prop + "Tip");
 
 		return createMenu(label, mnemonic, description, iconName, enable);
 	}
@@ -419,7 +434,8 @@ public final class Utility
 	 *
 	 * @return JMenu the new menu
 	 */
-	public static JMenu createMenu(String label, char mnemonic, String description, String iconName, boolean enable)
+	public static JMenu createMenu(String label, char mnemonic,
+		String description, String iconName, boolean enable)
 	{
 		final JMenu menu = new JMenu(label);
 
@@ -452,14 +468,16 @@ public final class Utility
 	 *
 	 * @return JMenuItem the new menu item
 	 */
-	public static JMenuItem createMenuItem(final String prop, final ActionListener listener, final String command,
-	    final String accelerator, final String iconName, final boolean enable)
+	public static JMenuItem createMenuItem(final String prop,
+		final ActionListener listener, final String command,
+		final String accelerator, final String iconName, final boolean enable)
 	{
 		String label = PropertyFactory.getString("in_" + prop);
 		char mnemonic = PropertyFactory.getMnemonic("in_mn_" + prop);
 		String description = PropertyFactory.getString("in_" + prop + "Tip");
 
-		return createMenuItem(label, listener, command, mnemonic, accelerator, description, iconName, enable);
+		return createMenuItem(label, listener, command, mnemonic, accelerator,
+			description, iconName, enable);
 	}
 
 	/**
@@ -477,9 +495,10 @@ public final class Utility
 	 *
 	 * @return JMenuItem the new menu item
 	 */
-	public static JMenuItem createMenuItem(final String label, final ActionListener listener, final String command,
-	    final char mnemonic, final String accelerator, final String description, final String iconName,
-	    final boolean enable)
+	public static JMenuItem createMenuItem(final String label,
+		final ActionListener listener, final String command,
+		final char mnemonic, final String accelerator,
+		final String description, final String iconName, final boolean enable)
 	{
 		final JMenuItem item = new JMenuItem(label);
 
@@ -513,13 +532,17 @@ public final class Utility
 
 			if (aString.equalsIgnoreCase("shortcut"))
 			{
-				iShortCut = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
+				iShortCut =
+						Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
 			}
 			else if (aString.equalsIgnoreCase("alt"))
 			{
 				if (System.getProperty("mrj.version") != null)
 				{
-					iShortCut = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | Event.ALT_MASK;
+					iShortCut =
+							Toolkit.getDefaultToolkit()
+								.getMenuShortcutKeyMask()
+								| Event.ALT_MASK;
 				}
 				else
 				{
@@ -528,7 +551,9 @@ public final class Utility
 			}
 			else if (aString.equalsIgnoreCase("shift-shortcut"))
 			{
-				iShortCut = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask() | Event.SHIFT_MASK;
+				iShortCut =
+						Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()
+							| Event.SHIFT_MASK;
 			}
 
 			if (aTok.hasMoreTokens())
@@ -542,7 +567,8 @@ public final class Utility
 			if (aKey != null)
 			{
 				int iKeyCode = aKey.getKeyCode();
-				item.setAccelerator(KeyStroke.getKeyStroke(iKeyCode, iShortCut));
+				item
+					.setAccelerator(KeyStroke.getKeyStroke(iKeyCode, iShortCut));
 			}
 		}
 
@@ -579,9 +605,10 @@ public final class Utility
 	 * @return JRadioButtonMenuItemMenuItem the new radio button
 	 * menu item
 	 */
-	public static JRadioButtonMenuItem createRadioButtonMenuItem(ButtonGroup group, String label,
-	    ActionListener listener, String command, char mnemonic, String accelerator, String description,
-	    String iconName, boolean enable)
+	public static JRadioButtonMenuItem createRadioButtonMenuItem(
+		ButtonGroup group, String label, ActionListener listener,
+		String command, char mnemonic, String accelerator, String description,
+		String iconName, boolean enable)
 	{
 		final JRadioButtonMenuItem button = new JRadioButtonMenuItem(label);
 
@@ -628,7 +655,7 @@ public final class Utility
 	public static void handleToolTipShownStateChange()
 	{
 		ToolTipManager.sharedInstance().setEnabled(
-				SettingsHandler.isToolTipTextShown());
+			SettingsHandler.isToolTipTextShown());
 	}
 
 	/**
@@ -637,7 +664,9 @@ public final class Utility
 	 **/
 	public static void previewInBrowser(PlayerCharacter currentPC)
 	{
-		File template = new File(SettingsHandler.getSelectedCharacterHTMLOutputSheet(currentPC));
+		File template =
+				new File(SettingsHandler
+					.getSelectedCharacterHTMLOutputSheet(currentPC));
 		String fileName = template.getAbsolutePath();
 		previewInBrowser(fileName, currentPC);
 	}
@@ -665,7 +694,9 @@ public final class Utility
 
 		try
 		{
-			OutputStreamWriter w = new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8");
+			OutputStreamWriter w =
+					new OutputStreamWriter(new FileOutputStream(outFile),
+						"UTF-8");
 			printToWriter(w, fileName, pc);
 			w.close();
 
@@ -674,8 +705,11 @@ public final class Utility
 		}
 		catch (Exception ex)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not preview file in external browser. Sorry...", "PCGen", MessageType.ERROR);
-			Logging.errorPrint("Could not preview file in external browser. Sorry...", ex);
+			ShowMessageDelegate.showMessageDialog(
+				"Could not preview file in external browser. Sorry...",
+				"PCGen", MessageType.ERROR);
+			Logging.errorPrint(
+				"Could not preview file in external browser. Sorry...", ex);
 		}
 	}
 
@@ -702,7 +736,7 @@ public final class Utility
 		BufferedWriter bw = new BufferedWriter(w);
 
 		if (fileName.startsWith(Constants.s_CHARACTER_TEMPLATE_START)
-		    || fileName.startsWith(Constants.s_EQSET_TEMPLATE_START))
+			|| fileName.startsWith(Constants.s_EQSET_TEMPLATE_START))
 		{
 			(new ExportHandler(template)).write(aPC, bw);
 		}
@@ -712,7 +746,8 @@ public final class Utility
 		}
 		else
 		{
-			throw new IOException(fileName + " is not a valid template file name.");
+			throw new IOException(fileName
+				+ " is not a valid template file name.");
 		}
 
 		bw.close();
@@ -730,7 +765,9 @@ public final class Utility
 		if (System.getProperty("os.name").startsWith("Mac OS"))
 		{
 			// On MacOS X, do not traverse file bundles
-			fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
+			fc
+				.putClientProperty("JFileChooser.appBundleIsTraversable",
+					"never");
 		}
 
 		if (SettingsHandler.getBrowserPath() == null)
@@ -762,8 +799,10 @@ public final class Utility
 
 		while (stringOut.indexOf('<') >= 0)
 		{
-			stringOut = stringOut.substring(0, stringOut.indexOf('<'))
-				+ stringOut.substring(stringOut.indexOf('>') + 1, stringOut.length());
+			stringOut =
+					stringOut.substring(0, stringOut.indexOf('<'))
+						+ stringOut.substring(stringOut.indexOf('>') + 1,
+							stringOut.length());
 		}
 
 		return stringOut;
@@ -788,7 +827,8 @@ public final class Utility
 			// pick one and it doesn't work, at least they
 			// might know enough to try selecting one the
 			// next time.
-			if (osName.startsWith("Windows ") && (SettingsHandler.getBrowserPath() == null))
+			if (osName.startsWith("Windows ")
+				&& (SettingsHandler.getBrowserPath() == null))
 			{
 				Utility.selectDefaultBrowser(null);
 			}
@@ -804,8 +844,11 @@ public final class Utility
 		}
 		catch (Exception ex)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not preview file in external browser. Sorry...", "PCGen", MessageType.ERROR);
-			Logging.errorPrint("Could not preview file in external browser. Sorry...", ex);
+			ShowMessageDelegate.showMessageDialog(
+				"Could not preview file in external browser. Sorry...",
+				"PCGen", MessageType.ERROR);
+			Logging.errorPrint(
+				"Could not preview file in external browser. Sorry...", ex);
 		}
 	}
 

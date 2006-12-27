@@ -50,11 +50,11 @@ public final class FeatLoader extends AbilityLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Ability parseLine(Ability aFeat, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Ability parseLine(Ability aFeat, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Ability feat = aFeat;
-		
+
 		if (feat == null)
 		{
 			feat = new Ability();
@@ -93,20 +93,21 @@ public final class FeatLoader extends AbilityLoader
 			 * Weapon Proficiency feat, but it does not allow multiples (either all or
 			 * nothing).  So monk class weapons will get dumped into this bucket.  */
 
-			String aLine = Constants.s_INTERNAL_WEAPON_PROF +
-				"\tOUTPUTNAME:Weapon Proficiency\tTYPE:General\tCATEGORY:FEAT" +
-				"\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tDESC:You attack with this" +
-				" specific weapon normally, non-proficiency incurs a -4 to"    +
-					" hit penalty.\tSOURCELONG:PCGen Internal";
+			String aLine =
+					Constants.s_INTERNAL_WEAPON_PROF
+						+ "\tOUTPUTNAME:Weapon Proficiency\tTYPE:General\tCATEGORY:FEAT"
+						+ "\tVISIBLE:NO\tMULT:YES\tSTACK:YES\tDESC:You attack with this"
+						+ " specific weapon normally, non-proficiency incurs a -4 to"
+						+ " hit penalty.\tSOURCELONG:PCGen Internal";
 			try
 			{
 				parseLine(null, aLine, firstSource);
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.errorPrint(
-					"Unable to parse the internal default feats '" +
-					aLine + "': " + ple.getMessage());
+				Logging
+					.errorPrint("Unable to parse the internal default feats '"
+						+ aLine + "': " + ple.getMessage());
 			}
 			defaultFeatsLoaded = true;
 		}

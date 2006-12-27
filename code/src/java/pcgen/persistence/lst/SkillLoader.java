@@ -49,11 +49,11 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Skill parseLine(Skill aSkill, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Skill parseLine(Skill aSkill, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Skill skill = aSkill;
-		
+
 		if (skill == null)
 		{
 			skill = new Skill();
@@ -61,12 +61,14 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 			skill.setSourceFile(source.getFile());
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		// first column is the name; after that are LST tags
 		skill.setName(colToken.nextToken());
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SkillLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(SkillLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -76,7 +78,8 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			SkillLstToken token = (SkillLstToken) tokenMap.get(key);
@@ -91,7 +94,9 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 				LstUtils.deprecationCheck(token, skill, value);
 				if (!token.parse(skill, value))
 				{
-					Logging.errorPrint("Error parsing skill " + skill.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing skill "
+						+ skill.getDisplayName() + ':' + source.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(skill, colString))
@@ -100,11 +105,12 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 			}
 			else
 			{
-				Logging.errorPrint("Illegal skill info '" + lstLine + "' in " + source.toString());
+				Logging.errorPrint("Illegal skill info '" + lstLine + "' in "
+					+ source.toString());
 			}
 		}
 
-		completeObject( skill );
+		completeObject(skill);
 		return null;
 	}
 
@@ -130,9 +136,9 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
 		// TODO - Create Globals.addSkill(pObj);
-		Globals.getSkillList().add( (Skill)pObj );
+		Globals.getSkillList().add((Skill) pObj);
 	}
 }

@@ -50,13 +50,15 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 	 */
 	@Override
 	public void parseLine(String lstLine, URL sourceURL)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
 		PCAlignment alignment = new PCAlignment();
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCAlignmentLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PCAlignmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -66,7 +68,8 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			PCAlignmentLstToken token = (PCAlignmentLstToken) tokenMap.get(key);
@@ -77,7 +80,9 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, alignment, value);
 				if (!token.parse(alignment, value))
 				{
-					Logging.errorPrint("Error parsing alignment " + alignment.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing alignment "
+						+ alignment.getDisplayName() + ':'
+						+ sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(alignment, colString))
@@ -86,11 +91,13 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 			}
 			else
 			{
-				Logging.errorPrint("Illegal alignment info '" + lstLine + "' in " + sourceURL.toString());
+				Logging.errorPrint("Illegal alignment info '" + lstLine
+					+ "' in " + sourceURL.toString());
 			}
 		}
 
-		if (!SettingsHandler.getGame().getUnmodifiableAlignmentList().contains(alignment))
+		if (!SettingsHandler.getGame().getUnmodifiableAlignmentList().contains(
+			alignment))
 		{
 			SettingsHandler.getGame().addToAlignmentList(alignment);
 		}

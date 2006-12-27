@@ -37,7 +37,8 @@ package pcgen.util;
  * "consistent with equals" behavior that is appropriate (and expected by
  * certain classes, such as java.util.HashMap)
  */
-public class CaseInsensitiveString {
+public class CaseInsensitiveString
+{
 
 	/**
 	 * The String that underlies this CaseInsensitiveString
@@ -58,25 +59,30 @@ public class CaseInsensitiveString {
 	 * @param s
 	 *            The underlying String of this CaseInsensitiveString
 	 */
-	public CaseInsensitiveString(String s) {
+	public CaseInsensitiveString(String s)
+	{
 		string = s;
 	}
 
 	@Override
-	public boolean equals(Object s) {
+	public boolean equals(Object s)
+	{
 		return string.equalsIgnoreCase(((CaseInsensitiveString) s).toString());
 	}
 
 	@Override
-	public int hashCode() {
-		if (hashCode == 0) {
+	public int hashCode()
+	{
+		if (hashCode == 0)
+		{
 			hashCode = string.toUpperCase().hashCode();
 		}
 		return hashCode;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return string;
 	}
 }

@@ -45,9 +45,9 @@ public abstract class BaseCharacterInfoTab extends FilterAdapterPanel implements
 {
 	private PlayerCharacter thePC = null;
 	private int serial = 0;
-//	private boolean readyForRefresh = false;
+	//	private boolean readyForRefresh = false;
 	private boolean needsUpdate = true;
-	
+
 	/**
 	 * Default constructor.
 	 * 
@@ -55,12 +55,12 @@ public abstract class BaseCharacterInfoTab extends FilterAdapterPanel implements
 	 * 
 	 * @param aPC The PC to display info for.
 	 */
-	public BaseCharacterInfoTab( final PlayerCharacter aPC )
+	public BaseCharacterInfoTab(final PlayerCharacter aPC)
 	{
 		thePC = aPC;
 		setName(getTab().toString());
 	}
-	
+
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#forceRefresh()
 	 */
@@ -95,7 +95,7 @@ public abstract class BaseCharacterInfoTab extends FilterAdapterPanel implements
 	 * This method is called when the PC being displayed on the tab has changed.
 	 */
 	protected abstract void updateCharacterInfo();
-	
+
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getPc()
 	 */
@@ -119,7 +119,7 @@ public abstract class BaseCharacterInfoTab extends FilterAdapterPanel implements
 	 * @return A <tt>Tab</tt> enum value.
 	 */
 	protected abstract Tab getTab();
-	
+
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getTabOrder()
 	 */

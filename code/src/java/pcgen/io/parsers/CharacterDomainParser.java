@@ -58,13 +58,13 @@ public class CharacterDomainParser
 			return;
 		}
 
-		charDomain.setDomainType( aTok.nextToken().toUpperCase() );
+		charDomain.setDomainType(aTok.nextToken().toUpperCase());
 
-		charDomain.setDomainName( aTok.nextToken().toUpperCase() );
+		charDomain.setDomainName(aTok.nextToken().toUpperCase());
 
 		if (aTok.hasMoreTokens())
 		{
-			charDomain.setLevel( Integer.parseInt(aTok.nextToken()) );
+			charDomain.setLevel(Integer.parseInt(aTok.nextToken()));
 		}
 
 		//domainSource = aSource;

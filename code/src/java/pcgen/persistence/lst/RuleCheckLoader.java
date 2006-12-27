@@ -45,7 +45,7 @@ final class RuleCheckLoader
 	 **/
 	private RuleCheckLoader()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	/**
@@ -58,9 +58,11 @@ final class RuleCheckLoader
 		RuleCheck rule = new RuleCheck();
 
 		String inputLine = aLine.trim();
-		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(RuleCheckLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(RuleCheckLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -71,7 +73,8 @@ final class RuleCheckLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			RuleCheckLstToken token = (RuleCheckLstToken) tokenMap.get(key);
@@ -82,7 +85,8 @@ final class RuleCheckLoader
 				LstUtils.deprecationCheck(token, rule.getName(), "", value);
 				if (!token.parse(rule, value))
 				{
-					Logging.errorPrint("Error parsing Rule Check " + rule.getName() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing Rule Check "
+						+ rule.getName() + ':' + colString + "\"");
 				}
 			}
 			else

@@ -144,12 +144,13 @@ import pcgen.util.enumeration.Tab;
  * @author  Mario Bonassin
  * @version $Revision$
  **/
-public final class InfoGear extends FilterAdapterPanel implements CharacterInfoTab
+public final class InfoGear extends FilterAdapterPanel implements
+		CharacterInfoTab
 {
 	static final long serialVersionUID = -2320970658737297916L;
 
 	private static final Tab tab = Tab.GEAR;
-	
+
 	private static boolean needsUpdate = true;
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 	private static int viewMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME; // keep track of what view mode we're in for Available
@@ -183,31 +184,36 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private JComboBoxEx cmbBuyPercent = new JComboBoxEx();
 	private JComboBoxEx cmbSellPercent = new JComboBoxEx();
 	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
-	private final JLabel lblSelectedQFilter  = new JLabel("Filter:");
-	private final JLabel goldLabel   = new JLabel(Globals.getLongCurrencyDisplay() + ": ");
-	private final JLabel lblBuyRate  = new JLabel("Buy percentage:");
+	private final JLabel lblSelectedQFilter = new JLabel("Filter:");
+	private final JLabel goldLabel =
+			new JLabel(Globals.getLongCurrencyDisplay() + ": ");
+	private final JLabel lblBuyRate = new JLabel("Buy percentage:");
 	private final JLabel lblSellRate = new JLabel("Sell percentage:");
-	private final JLabel valueLabel  = new JLabel("Total Value: ");
+	private final JLabel valueLabel = new JLabel("Total Value: ");
 	private JButton addButton;
 	private JButton removeButton;
 	private JButton clearAvailableQFilterButton = new JButton("Clear");
 	private JButton clearSelectedQFilterButton = new JButton("Clear");
 	private JCheckBox allowDebtBox = new JCheckBox("Allow Debt");
-	private JCheckBox autoResize   = new JCheckBox("Auto Resize");
-	private JCheckBox autoSort     = new JCheckBox("Auto-sort output", true);
+	private JCheckBox autoResize = new JCheckBox("Auto Resize");
+	private JCheckBox autoSort = new JCheckBox("Auto-sort output", true);
 	private JCheckBox chkViewAll = new JCheckBox();
-	private JCheckBox costBox      = new JCheckBox("Ignore Cost");
+	private JCheckBox costBox = new JCheckBox("Ignore Cost");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JLabelPane infoLabel = new JLabelPane();
-	private JMenu pcCopyMenu = Utility.createMenu("Copy Item To", (char) 0, "Copy Item To", null, true);
-	private JMenu pcMoveMenu = Utility.createMenu("Move Item To", (char) 0, "Move Item To", null, true);
-	private JPanel center  = new JPanel();
-	private JPanel pnlBuy  = new JPanel();
+	private JMenu pcCopyMenu =
+			Utility.createMenu("Copy Item To", (char) 0, "Copy Item To", null,
+				true);
+	private JMenu pcMoveMenu =
+			Utility.createMenu("Move Item To", (char) 0, "Move Item To", null,
+				true);
+	private JPanel center = new JPanel();
+	private JPanel pnlBuy = new JPanel();
 	private JPanel pnlSell = new JPanel();
-	private JPanel south   = new JPanel();
+	private JPanel south = new JPanel();
 	private JScrollPane eqScroll = new JScrollPane();
-//rivate JScrollPane scrollPane;
+	//rivate JScrollPane scrollPane;
 	private JTextField textAvailableQFilter = new JTextField();
 	private JTextField textSelectedQFilter = new JTextField();
 	private JTextField gold = new JTextField();
@@ -216,24 +222,25 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private JTreeTable selectedTable; // the selected Equipment
 	private JTreeTableSorter availableSort = null;
 	private JTreeTableSorter selectedSort = null;
-	private SellGearActionListener sellOneListener = new SellGearActionListener(1);
+	private SellGearActionListener sellOneListener =
+			new SellGearActionListener(1);
 	private Runnable sellOneRunnable = new Runnable()
+	{
+		public void run()
 		{
-			public void run()
-			{
-				sellOneListener.actionPerformed(null);
-			}
-		};
+			sellOneListener.actionPerformed(null);
+		}
+	};
 
 	private TreePath selPath;
 	private boolean hasBeenSized = false;
 	private boolean readyForRefresh = false;
 
-//	private static final int COL_CARRIED = 4;
-//	private static final int EQUIPMENT_NOTCARRIED = 0;
-//	private static final int EQUIPMENT_CARRIED = 1;
-//	private static final int EQUIPMENT_EQUIPPED = 2;
-//	private static final int EQUIPMENT_CONTAINED = 3;
+	//	private static final int COL_CARRIED = 4;
+	//	private static final int EQUIPMENT_NOTCARRIED = 0;
+	//	private static final int EQUIPMENT_CARRIED = 1;
+	//	private static final int EQUIPMENT_EQUIPPED = 2;
+	//	private static final int EQUIPMENT_CONTAINED = 3;
 	// Right-click inventory item
 
 	private PlayerCharacter pc;
@@ -251,18 +258,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initActionListeners();
-				}
-			});
+				initComponents();
+				initActionListeners();
+			}
+		});
 	}
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -277,7 +284,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Gear.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Gear.Order", tab
+			.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -309,7 +317,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -318,7 +326,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -379,7 +387,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 **/
 	public void buySpecifiedEquipment(Equipment selectedEquipment, double newQty)
 	{
-		buySpecifiedEquipmentRate(selectedEquipment, newQty, SettingsHandler.getGearTab_BuyRate());
+		buySpecifiedEquipmentRate(selectedEquipment, newQty, SettingsHandler
+			.getGearTab_BuyRate());
 	}
 
 	/**
@@ -398,7 +407,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @param purchase
 	 * @param isCurrent
 	 */
-	public void refreshAvailableList(Equipment newEq, boolean purchase, boolean isCurrent)
+	public void refreshAvailableList(Equipment newEq, boolean purchase,
+		boolean isCurrent)
 	{
 		// Add new item to available list
 		availableModel.addItemToModel(newEq, true);
@@ -440,7 +450,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 **/
 	public void sellSpecifiedEquipment(Equipment selectedEquipment, double qty)
 	{
-		sellSpecifiedEquipmentRate(selectedEquipment, qty, SettingsHandler.getGearTab_SellRate());
+		sellSpecifiedEquipmentRate(selectedEquipment, qty, SettingsHandler
+			.getGearTab_SellRate());
 	}
 
 	// This recalculates the states of everything based upon the currently selected
@@ -455,10 +466,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			if (testPc != pc)
 			{
-				pcMoveMenu.add(Utility.createMenuItem(testPc.getName(), new MoveItemListener(ix, 0), "MoveItemTo",
-						(char) 0, null, "Move Item To " + testPc.getName(), null, true));
-				pcCopyMenu.add(Utility.createMenuItem(testPc.getName(), new MoveItemListener(ix, 1), "CopyItemTo",
-						(char) 0, null, "Copy Item To " + testPc.getName(), null, true));
+				pcMoveMenu.add(Utility.createMenuItem(testPc.getName(),
+					new MoveItemListener(ix, 0), "MoveItemTo", (char) 0, null,
+					"Move Item To " + testPc.getName(), null, true));
+				pcCopyMenu.add(Utility.createMenuItem(testPc.getName(),
+					new MoveItemListener(ix, 1), "CopyItemTo", (char) 0, null,
+					"Copy Item To " + testPc.getName(), null, true));
 			}
 
 			++ix;
@@ -484,7 +497,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	private static int getEventSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -502,11 +516,13 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private Object getCurrentAvailableTableItem()
 	{
 		Object item = null;
-		final int row = availableTable.getSelectionModel().getAnchorSelectionIndex();
+		final int row =
+				availableTable.getSelectionModel().getAnchorSelectionIndex();
 
 		if (row >= 0)
 		{
-			final TreePath treePath = availableTable.getTree().getPathForRow(row);
+			final TreePath treePath =
+					availableTable.getTree().getPathForRow(row);
 			final Object eo = treePath.getLastPathComponent();
 			final PObjectNode e = (PObjectNode) eo;
 			item = e.getItem();
@@ -523,11 +539,13 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	private Object getCurrentSelectedTableItem()
 	{
 		Object item = null;
-		final int row = selectedTable.getSelectionModel().getAnchorSelectionIndex();
+		final int row =
+				selectedTable.getSelectionModel().getAnchorSelectionIndex();
 
 		if (row >= 0)
 		{
-			final TreePath treePath = selectedTable.getTree().getPathForRow(row);
+			final TreePath treePath =
+					selectedTable.getTree().getPathForRow(row);
 			final Object eo = treePath.getLastPathComponent();
 			final PObjectNode e = (PObjectNode) eo;
 			item = e.getItem();
@@ -585,17 +603,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				b.append(" <b>Wield:</b> ").append(wCat.getName());
 			}
 
-
 			//
 			// Only meaningful for weapons, armor and shields
 			//
 			if (aEq.isWeapon() || aEq.isArmor() || aEq.isShield())
 			{
 				b.append(" <b>PROFICIENT</b>:");
-				b.append(((pc.isProficientWith(aEq) && aEq.meetsPreReqs(pc)) ? "Y"
-																										  : (SettingsHandler
-					.getPrereqFailColorAsHtmlStart() + "N" + SettingsHandler
-					.getPrereqFailColorAsHtmlEnd())));
+				b
+					.append(((pc.isProficientWith(aEq) && aEq.meetsPreReqs(pc))
+						? "Y" : (SettingsHandler
+							.getPrereqFailColorAsHtmlStart()
+							+ "N" + SettingsHandler
+							.getPrereqFailColorAsHtmlEnd())));
 			}
 
 			final String cString = aEq.preReqHTMLStrings(pc, false);
@@ -612,11 +631,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				b.append(" &nbsp;<b>Properties</b>:").append(IDS);
 			}
 
-			String bString = Globals.getGameModeUnitSet().displayWeightInUnitSet(aEq.getWeight(pc).doubleValue());
+			String bString =
+					Globals.getGameModeUnitSet().displayWeightInUnitSet(
+						aEq.getWeight(pc).doubleValue());
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>WT</b>:").append(bString).append(Globals.getGameModeUnitSet().getWeightUnit());
+				b.append(" <b>WT</b>:").append(bString).append(
+					Globals.getGameModeUnitSet().getWeightUnit());
 			}
 
 			Integer a = aEq.getMaxDex(pc);
@@ -639,7 +661,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(Globals.getGameModeACText()).append(" Bonus</b>:").append(a.toString());
+					b.append(" <b>").append(Globals.getGameModeACText())
+						.append(" Bonus</b>:").append(a.toString());
 				}
 			}
 
@@ -661,7 +684,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(bString).append("</b>:").append(a.toString());
+					b.append(" <b>").append(bString).append("</b>:").append(
+						a.toString());
 				}
 			}
 
@@ -697,7 +721,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				b.append(" <b>Crit Range</b>:").append(bString);
 
-				if (aEq.isDouble() && !aEq.getCritRange(pc).equals(aEq.getAltCritRange(pc)))
+				if (aEq.isDouble()
+					&& !aEq.getCritRange(pc).equals(aEq.getAltCritRange(pc)))
 				{
 					b.append('/').append(aEq.getAltCritRange(pc));
 				}
@@ -709,7 +734,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				b.append(" <b>Crit Mult</b>:").append(bString);
 
-				if (aEq.isDouble() && !(aEq.getCritMultiplier() == aEq.getAltCritMultiplier()))
+				if (aEq.isDouble()
+					&& !(aEq.getCritMultiplier() == aEq.getAltCritMultiplier()))
 				{
 					b.append('/').append(aEq.getAltCritMult());
 				}
@@ -717,11 +743,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			if (aEq.isWeapon())
 			{
-				bString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(aEq.getRange(pc).intValue());
+				bString =
+						Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+							aEq.getRange(pc).intValue());
 
 				if (bString.length() > 0)
 				{
-					b.append(" <b>Range</b>:").append(bString).append(Globals.getGameModeUnitSet().getDistanceUnit());
+					b.append(" <b>Range</b>:").append(bString).append(
+						Globals.getGameModeUnitSet().getDistanceUnit());
 				}
 			}
 
@@ -782,36 +811,46 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * i.e. if 10 were requested removed but the charater only had 5,
 	 * this will return 5.
 	 */
-	private double adjustBelongings(final Equipment equipItemToAdjust, final double adjustment)
+	private double adjustBelongings(final Equipment equipItemToAdjust,
+		final double adjustment)
 	{
 		int nextOutputIndex = 1;
 		double actualAdjustment = adjustment;
 
 		if (pc != null)
 		{
-			Equipment updatedItem = pc.getEquipmentNamed(equipItemToAdjust.getName());
+			Equipment updatedItem =
+					pc.getEquipmentNamed(equipItemToAdjust.getName());
 
 			// see if item is already in inventory; update it
 			if (updatedItem != null)
 			{
-				final double prevQty = (updatedItem.qty() < 0) ? 0 : updatedItem.qty();
+				final double prevQty =
+						(updatedItem.qty() < 0) ? 0 : updatedItem.qty();
 				final double newQty = prevQty + adjustment;
 
-				final double numberOfItemInUse = getNumberOfItemInUse(pc, updatedItem);
+				final double numberOfItemInUse =
+						getNumberOfItemInUse(pc, updatedItem);
 				if (newQty <= 0)
 				{
 					// completely remove item
-					if (numberOfItemInUse>0.0) {
-						ShowMessageDelegate.showMessageDialog("You can not remove all of '"+updatedItem.getName() + "' as it is still present in at least one equipment set.", "Error", MessageType.ERROR);
+					if (numberOfItemInUse > 0.0)
+					{
+						ShowMessageDelegate
+							.showMessageDialog(
+								"You can not remove all of '"
+									+ updatedItem.getName()
+									+ "' as it is still present in at least one equipment set.",
+								"Error", MessageType.ERROR);
 						return 0.0;
 					}
-
 
 					actualAdjustment = -prevQty;
 					updatedItem.setNumberCarried(new Float(0));
 					updatedItem.setLocation(Equipment.NOT_CARRIED);
 
-					final Equipment eqParent = (Equipment) updatedItem.getParent();
+					final Equipment eqParent =
+							(Equipment) updatedItem.getParent();
 
 					if (eqParent != null)
 					{
@@ -827,18 +866,29 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				else
 				{
 					// update item count
-					if (numberOfItemInUse>newQty) {
-						ShowMessageDelegate.showMessageDialog("You can not set the total number of '"+updatedItem.getName() + "' to be "+newQty+" as there is an Equipment Set that is using "+numberOfItemInUse + " of them.", "Error", MessageType.ERROR);
+					if (numberOfItemInUse > newQty)
+					{
+						ShowMessageDelegate
+							.showMessageDialog(
+								"You can not set the total number of '"
+									+ updatedItem.getName()
+									+ "' to be "
+									+ newQty
+									+ " as there is an Equipment Set that is using "
+									+ numberOfItemInUse + " of them.", "Error",
+								MessageType.ERROR);
 						return 0.0;
 					}
 					pc.updateEquipmentQty(updatedItem, prevQty, newQty);
 					Float qty = new Float(newQty);
 					updatedItem.setQty(qty);
 					updatedItem.setNumberCarried(qty);
-					selectedModel.setValueForItemInNodes(null, updatedItem, newQty, COL_QTY);
+					selectedModel.setValueForItemInNodes(null, updatedItem,
+						newQty, COL_QTY);
 				}
 			}
-			else // item is not in inventory; add it
+			else
+			// item is not in inventory; add it
 			{
 				if (adjustment > 0)
 				{
@@ -850,13 +900,15 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						if (autoSort.isSelected())
 						{
 							updatedItem.setOutputIndex(nextOutputIndex);
-							resortSelected(ResortComparator.RESORT_NAME, ResortComparator.RESORT_ASCENDING);
+							resortSelected(ResortComparator.RESORT_NAME,
+								ResortComparator.RESORT_ASCENDING);
 						}
 						else
 						{
 							if (updatedItem.getOutputIndex() == 0)
 							{
-								updatedItem.setOutputIndex(getHighestOutputIndex() + 1);
+								updatedItem
+									.setOutputIndex(getHighestOutputIndex() + 1);
 							}
 						}
 
@@ -903,22 +955,27 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @return The number of times this piece of equipment has been allocated in
 	 *         a single EqSet
 	 */
-	private double getNumberOfItemInUse(PlayerCharacter pc2, Equipment equipment) 
+	private double getNumberOfItemInUse(PlayerCharacter pc2, Equipment equipment)
 	{
 		Map<String, Float> foundCounts = new HashMap<String, Float>();
-		for (EquipSet element : pc2.getEquipSet()) 
+		for (EquipSet element : pc2.getEquipSet())
 		{
-			if (element.getValue().equalsIgnoreCase(equipment.getName())) {
+			if (element.getValue().equalsIgnoreCase(equipment.getName()))
+			{
 				String path = element.getRootIdPath();
-				if (!foundCounts.containsKey(path)) {
+				if (!foundCounts.containsKey(path))
+				{
 					foundCounts.put(path, new Float(0.0));
 				}
 				Float count = foundCounts.get(path);
-				count = new Float(count.floatValue()+element.getQty().floatValue());
+				count =
+						new Float(count.floatValue()
+							+ element.getQty().floatValue());
 				foundCounts.put(path, count);
 			}
 		}
-		if (foundCounts.size()==0) {
+		if (foundCounts.size() == 0)
+		{
 			return 0.0;
 		}
 		Float max = Collections.max(foundCounts.values());
@@ -934,7 +991,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 *
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 */
-	private void adjustGold(Equipment base, double diffQty, int buyRate, int sellRate)
+	private void adjustGold(Equipment base, double diffQty, int buyRate,
+		int sellRate)
 	{
 		if (!costBox.isSelected() && (pc != null))
 		{
@@ -962,12 +1020,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @param selectedEquipment Equipment to buy
 	 * @param qty double number of the item to buy
 	 **/
-	private void buySpecifiedEquipmentRate(Equipment selectedEquipment, double qty)
+	private void buySpecifiedEquipmentRate(Equipment selectedEquipment,
+		double qty)
 	{
 		Object defaultValue = cmbSellPercent.getSelectedItem().toString();
 		InputInterface ii = InputFactory.getInputInstance();
-		Object input = ii.showInputDialog(this, "Enter buy price percentage:", "Buy at Percent",
-				MessageType.QUESTION, null, defaultValue);
+		Object input =
+				ii.showInputDialog(this, "Enter buy price percentage:",
+					"Buy at Percent", MessageType.QUESTION, null, defaultValue);
 
 		if (input != null)
 		{
@@ -980,7 +1040,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 			catch (NumberFormatException nfe)
 			{
-				ShowMessageDelegate.showMessageDialog("You must enter an integer value.", "Error", MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"You must enter an integer value.", "Error",
+					MessageType.ERROR);
 			}
 		}
 	}
@@ -994,7 +1056,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 *
 	 * sage_sam 27 Feb 2003 for FREQ 606205
 	 */
-	private void buySpecifiedEquipmentRate(Equipment selectedEquipment, double qtyToBuy, int buyRate)
+	private void buySpecifiedEquipmentRate(Equipment selectedEquipment,
+		double qtyToBuy, int buyRate)
 	{
 		try
 		{
@@ -1003,8 +1066,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				if ((selectedEquipment.getEqModifierList(true).size() == 0)
 					&& (selectedEquipment.getEqModifierList(false).size() == 0))
 				{
-					ShowMessageDelegate.showMessageDialog("You cannot buy this item as is; you must \"customize\" it first.",
-						Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate
+						.showMessageDialog(
+							"You cannot buy this item as is; you must \"customize\" it first.",
+							Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
@@ -1017,18 +1082,23 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			if (buyQty < 0)
 			{
-				Object selectedValue = JOptionPane.showInputDialog(null, "Enter Quantity", Constants.s_APPNAME,
-						JOptionPane.QUESTION_MESSAGE);
+				Object selectedValue =
+						JOptionPane.showInputDialog(null, "Enter Quantity",
+							Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 				if (selectedValue != null)
 				{
 					try
 					{
-						buyQty = Float.parseFloat(((String) selectedValue).trim());
+						buyQty =
+								Float.parseFloat(((String) selectedValue)
+									.trim());
 					}
 					catch (Exception e)
 					{
-						ShowMessageDelegate.showMessageDialog("Invalid number!", Constants.s_APPNAME, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(
+							"Invalid number!", Constants.s_APPNAME,
+							MessageType.ERROR);
 
 						return;
 					}
@@ -1039,24 +1109,25 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 			}
 
-			if (selectedEquipment.acceptsChildren() && !CoreUtility.doublesEqual((buyQty % 1), 0))
+			if (selectedEquipment.acceptsChildren()
+				&& !CoreUtility.doublesEqual((buyQty % 1), 0))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"You cannot buy, own or carry non-integral numbers of containers\n" +
-					"i.e. Half a sack is nonsensical.",
-					Constants.s_APPNAME,
-					MessageType.ERROR);
+					"You cannot buy, own or carry non-integral numbers of containers\n"
+						+ "i.e. Half a sack is nonsensical.",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
 
-			if (	autoResize.isEnabled() && autoResize.isSelected() &&
-					Globals.canResizeHaveEffect(pc, selectedEquipment, null) &&
-					pc.sizeInt() != Globals.sizeInt(selectedEquipment.getSize()))
+			if (autoResize.isEnabled() && autoResize.isSelected()
+				&& Globals.canResizeHaveEffect(pc, selectedEquipment, null)
+				&& pc.sizeInt() != Globals.sizeInt(selectedEquipment.getSize()))
 			{
-				final String newSize     = pc.getSize();
+				final String newSize = pc.getSize();
 				final String existingKey = selectedEquipment.getKeyName();
-				final String newKey      = selectedEquipment.createKeyForAutoResize(newSize);
+				final String newKey =
+						selectedEquipment.createKeyForAutoResize(newSize);
 
 				Equipment potential = EquipmentList.getEquipmentKeyed(newKey);
 
@@ -1074,8 +1145,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 				else
 				{
-					final String newName = selectedEquipment.createNameForAutoResize(newSize);
-					potential            = EquipmentList.getEquipmentNamed(newName);
+					final String newName =
+							selectedEquipment.createNameForAutoResize(newSize);
+					potential = EquipmentList.getEquipmentNamed(newName);
 
 					if (potential != null)
 					{
@@ -1084,7 +1156,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					else
 					{
 						final String existingName = selectedEquipment.getName();
-						final Equipment newEq     = (Equipment) selectedEquipment.clone();
+						final Equipment newEq =
+								(Equipment) selectedEquipment.clone();
 
 						// This may seem insane, but if the base item is not set,
 						// getBaseItemName returns the result of getName
@@ -1099,7 +1172,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 						newEq.resizeItem(pc, newSize);
 						newEq.removeType("AUTO_GEN");
 						newEq.removeType("STANDARD");
-						if (!newEq.isType(Constants.s_CUSTOM)) {
+						if (!newEq.isType(Constants.s_CUSTOM))
+						{
 							newEq.addMyType(Constants.s_CUSTOM);
 						}
 
@@ -1122,16 +1196,16 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(
-						"Insufficient funds for purchase of " +
-						qtyToBuy + " " + selectedEquipment.getName(),
-						Constants.s_APPNAME,
-						MessageType.INFORMATION);
+					"Insufficient funds for purchase of " + qtyToBuy + " "
+						+ selectedEquipment.getName(), Constants.s_APPNAME,
+					MessageType.INFORMATION);
 			}
 		}
 		catch (Exception exc)
 		{
-			ShowMessageDelegate.showMessageDialog("buySpecifiedEquipment: Exception:" + exc.getMessage(), Constants.s_APPNAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"buySpecifiedEquipment: Exception:" + exc.getMessage(),
+				Constants.s_APPNAME, MessageType.ERROR);
 		}
 	}
 
@@ -1145,11 +1219,15 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 * @return true if it can be afforded
 	 */
-	private boolean canAfford(Equipment selected, double purchaseQty, int buyRate)
+	private boolean canAfford(Equipment selected, double purchaseQty,
+		int buyRate)
 	{
-		final float currentFunds = ((pc != null) ? pc.getGold().floatValue() : 0);
+		final float currentFunds =
+				((pc != null) ? pc.getGold().floatValue() : 0);
 
-		final double itemCost = (purchaseQty * buyRate) * (float) 0.01 * selected.getCost(pc).floatValue();
+		final double itemCost =
+				(purchaseQty * buyRate) * (float) 0.01
+					* selected.getCost(pc).floatValue();
 
 		return (costBox.isSelected() || allowDebtBox.isSelected() || (itemCost <= currentFunds));
 	}
@@ -1225,7 +1303,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		autoSort.setSelected(pc.getAutoSpells());
 		riPanel.add(autoSort);
 
-		Utility.setDescription(autoSort, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
+		Utility.setDescription(autoSort, PropertyFactory
+			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		autoSort.setEnabled(true);
 		autoSort.setMargin(new Insets(1, 14, 1, 14));
 
@@ -1261,7 +1340,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -1269,6 +1349,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			buyOneListener.actionPerformed(null);
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -1277,7 +1358,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -1285,6 +1367,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			SwingUtilities.invokeLater(sellOneRunnable);
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -1301,7 +1384,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		avaTree.setCellRenderer(new LabelTreeCellRenderer());
 		availableTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		availableTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		availableTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -1315,7 +1399,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 							return;
 						}
 
-						final Object temp = availableTable.getTree().getPathForRow(idx).getLastPathComponent();
+						final Object temp =
+								availableTable.getTree().getPathForRow(idx)
+									.getLastPathComponent();
 						Equipment aEq;
 
 						if (temp != null)
@@ -1351,19 +1437,22 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 			});
 
-		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
+		availableTable.addMouseListener(new JTreeTableMouseAdapter(
+			availableTable, new AvailableClickHandler(), false));
 
 		selectedTable = new JTreeTable(selectedModel);
 
-		selectedTable.getColumnModel().getColumn(COL_QTY).setCellEditor(new QuantityEditor());
-		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellEditor(new OutputOrderEditor(
-				new String[]{ "First", "Last", "Hidden" }));
+		selectedTable.getColumnModel().getColumn(COL_QTY).setCellEditor(
+			new QuantityEditor());
+		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellEditor(
+			new OutputOrderEditor(new String[]{"First", "Last", "Hidden"}));
 
 		final JTree selTree = selectedTable.getTree();
 		selTree.setRootVisible(false);
 		selTree.setShowsRootHandles(true);
 		selTree.setCellRenderer(new LabelTreeCellRenderer());
-		selectedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		selectedTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -1397,7 +1486,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 			});
 		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), false));
+		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
+			selectedTable, new SelectedClickHandler(), false));
 
 		hookupPopupMenu(availableTable);
 		hookupPopupMenu(selectedTable);
@@ -1414,14 +1504,18 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		if (currentRow >= 0)
 		{
-			int row = availableTable.getSelectionModel().getAnchorSelectionIndex();
+			int row =
+					availableTable.getSelectionModel()
+						.getAnchorSelectionIndex();
 			TreePath treePath = availableTable.getTree().getPathForRow(row);
 			Object eo = treePath.getLastPathComponent();
 			PObjectNode e = (PObjectNode) eo;
 
 			if (!(e.getItem() instanceof Equipment))
 			{
-				ShowMessageDelegate.showMessageDialog("Can only customise items, not types.", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"Can only customise items, not types.",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1437,14 +1531,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		if (currentRow >= 0)
 		{
-			int row = availableTable.getSelectionModel().getAnchorSelectionIndex();
+			int row =
+					availableTable.getSelectionModel()
+						.getAnchorSelectionIndex();
 			TreePath treePath = availableTable.getTree().getPathForRow(row);
 			Object eo = treePath.getLastPathComponent();
 			PObjectNode e = (PObjectNode) eo;
 
 			if (!(e.getItem() instanceof Equipment))
 			{
-				ShowMessageDelegate.showMessageDialog("Cannot delete types.", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Cannot delete types.",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1453,7 +1550,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			if (!aEq.isType(Constants.s_CUSTOM))
 			{
-				ShowMessageDelegate.showMessageDialog("Can only delete custom items.", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"Can only delete custom items.", Constants.s_APPNAME,
+					MessageType.ERROR);
 
 				return;
 			}
@@ -1472,9 +1571,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			{
 				String whose = whoHasIt.toString();
 				whose = whose.substring(1, whose.length() - 1);
-				ShowMessageDelegate.showMessageDialog("Can only delete items that are in no character's possession. "
-				+ "The following character(s) have this item in their possession:\n" + whose,
-					Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate
+					.showMessageDialog(
+						"Can only delete items that are in no character's possession. "
+							+ "The following character(s) have this item in their possession:\n"
+							+ whose, Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1486,8 +1587,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				//
 				// Give user a chance to bail
 				//
-				if (JOptionPane.showConfirmDialog(null, "Delete " + aEq.getName() + " from database?",
-						Constants.s_APPNAME, JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
+				if (JOptionPane.showConfirmDialog(null, "Delete "
+					+ aEq.getName() + " from database?", Constants.s_APPNAME,
+					JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
 				{
 					return;
 				}
@@ -1518,16 +1620,20 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		if (minCharges < 0)
 		{
-			ShowMessageDelegate.showMessageDialog("This item cannot hold charges.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"This item cannot hold charges.", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		InputInterface ii = InputFactory.getInputInstance();
-		Object selectedValue = ii.showInputDialog(null,
-				"Enter Number of Charges (" + Integer.toString(minCharges) + "-" + Integer.toString(maxCharges) + ")",
-				Constants.s_APPNAME, MessageType.INFORMATION, null,
-				Integer.toString(aEq.getRemainingCharges()));
+		Object selectedValue =
+				ii.showInputDialog(null, "Enter Number of Charges ("
+					+ Integer.toString(minCharges) + "-"
+					+ Integer.toString(maxCharges) + ")", Constants.s_APPNAME,
+					MessageType.INFORMATION, null, Integer.toString(aEq
+						.getRemainingCharges()));
 
 		if (selectedValue == null)
 		{
@@ -1541,7 +1647,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			if ((charges < minCharges) || (charges > maxCharges))
 			{
-				ShowMessageDelegate.showMessageDialog("Value out of range", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Value out of range",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1577,7 +1684,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	{
 		requestFocus();
 		// TODO: I18N
-		PCGen_Frame1.setMessageAreaTextWithoutSaving("Equipment character is not proficient with are in Red.");
+		PCGen_Frame1
+			.setMessageAreaTextWithoutSaving("Equipment character is not proficient with are in Red.");
 		refresh();
 
 		int width;
@@ -1585,29 +1693,35 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		int t = bsplit.getDividerLocation();
 		int u = asplit.getDividerLocation();
 
-//		TableColumn[] acol = new TableColumn[NUM_COL_AVAILABLE];
-//		TableColumn[] scol = new TableColumn[NUM_COL_SELECTED];
-//		int[] awidth = new int[NUM_COL_AVAILABLE];
-//		int[] swidth = new int[NUM_COL_SELECTED];
-//
-//		for (int i = 0; i < NUM_COL_AVAILABLE; i++)
-//		{
-//			acol[i] = availableTable.getColumnModel().getColumn(i);
-//			awidth[i] = acol[i].getWidth();
-//		}
-//
-//		for (int i = 0; i < NUM_COL_SELECTED; i++)
-//		{
-//			scol[i] = selectedTable.getColumnModel().getColumn(i);
-//			swidth[i] = scol[i].getWidth();
-//		}
-//
+		//		TableColumn[] acol = new TableColumn[NUM_COL_AVAILABLE];
+		//		TableColumn[] scol = new TableColumn[NUM_COL_SELECTED];
+		//		int[] awidth = new int[NUM_COL_AVAILABLE];
+		//		int[] swidth = new int[NUM_COL_SELECTED];
+		//
+		//		for (int i = 0; i < NUM_COL_AVAILABLE; i++)
+		//		{
+		//			acol[i] = availableTable.getColumnModel().getColumn(i);
+		//			awidth[i] = acol[i].getWidth();
+		//		}
+		//
+		//		for (int i = 0; i < NUM_COL_SELECTED; i++)
+		//		{
+		//			scol[i] = selectedTable.getColumnModel().getColumn(i);
+		//			swidth[i] = scol[i].getWidth();
+		//		}
+		//
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
-			s = SettingsHandler.getPCGenOption("InfoGear.splitPane", (int) ((this.getSize().getWidth() * 6) / 10));
-			t = SettingsHandler.getPCGenOption("InfoGear.bsplit", (int) (this.getSize().getHeight() - 120));
-			u = SettingsHandler.getPCGenOption("InfoGear.asplit", (int) (this.getSize().getWidth() - 295));
+			s =
+					SettingsHandler.getPCGenOption("InfoGear.splitPane",
+						(int) ((this.getSize().getWidth() * 6) / 10));
+			t =
+					SettingsHandler.getPCGenOption("InfoGear.bsplit",
+						(int) (this.getSize().getHeight() - 120));
+			u =
+					SettingsHandler.getPCGenOption("InfoGear.asplit",
+						(int) (this.getSize().getWidth() - 295));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); i++)
@@ -1620,7 +1734,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(selectedTable, "InvSel", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					selectedTable, "InvSel", i));
 			}
 
 			// set the prefered width on availableTable
@@ -1634,7 +1749,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "InvAva", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					availableTable, "InvAva", i));
 			}
 		}
 
@@ -1659,7 +1775,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new GearPopupListener(treeTable, new GearPopupMenu(treeTable)));
+		treeTable.addMouseListener(new GearPopupListener(treeTable,
+			new GearPopupMenu(treeTable)));
 	}
 
 	private void initActionListeners()
@@ -1684,117 +1801,125 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 				return valueOk;
 			}
-			
+
 			public boolean verify(JComponent input)
 			{
 				return true;
 			}
 		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
+				formComponentShown();
+			}
 
-				public void componentResized(ComponentEvent e)
-				{
-					bsplit.setDividerLocation((int) (InfoGear.this.getSize().getHeight() - 120));
-					asplit.setDividerLocation((int) (InfoGear.this.getSize().getWidth() - 295));
-				}
-			});
+			public void componentResized(ComponentEvent e)
+			{
+				bsplit.setDividerLocation((int) (InfoGear.this.getSize()
+					.getHeight() - 120));
+				asplit.setDividerLocation((int) (InfoGear.this.getSize()
+					.getWidth() - 295));
+			}
+		});
 		removeButton.addActionListener(sellOneListener);
 		addButton.addActionListener(buyOneListener);
 		viewComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewComboBoxActionPerformed();
-				}
-			});
+				viewComboBoxActionPerformed();
+			}
+		});
 		viewSelectComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewSelectComboBoxActionPerformed();
-				}
-			});
-		textAvailableQFilter.getDocument().addDocumentListener(new DocumentListener()
+				viewSelectComboBoxActionPerformed();
+			}
+		});
+		textAvailableQFilter.getDocument().addDocumentListener(
+			new DocumentListener()
 			{
 				public void changedUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
+
 				public void insertUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
+
 				public void removeUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
 			});
 		clearAvailableQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearAvailableQFilter();
-				}
-			});
-		textSelectedQFilter.getDocument().addDocumentListener(new DocumentListener()
+				clearAvailableQFilter();
+			}
+		});
+		textSelectedQFilter.getDocument().addDocumentListener(
+			new DocumentListener()
 			{
 				public void changedUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
+
 				public void insertUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
+
 				public void removeUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
 			});
 		clearSelectedQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearSelectedQFilter();
-				}
-			});
+				clearSelectedQFilter();
+			}
+		});
 		costBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					SettingsHandler.setGearTab_IgnoreCost(costBox.isSelected());
-				}
-			});
+				SettingsHandler.setGearTab_IgnoreCost(costBox.isSelected());
+			}
+		});
 		allowDebtBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					SettingsHandler.setGearTab_AllowDebt(allowDebtBox.isSelected());
-				}
-			});
+				SettingsHandler.setGearTab_AllowDebt(allowDebtBox.isSelected());
+			}
+		});
 		autoResize.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					SettingsHandler.setGearTab_AutoResize(autoResize.isSelected());
-				}
-			});
+				SettingsHandler.setGearTab_AutoResize(autoResize.isSelected());
+			}
+		});
 		autoSort.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				if (pc != null)
 				{
-					if (pc != null)
-					{
-						pc.setDirty(true);
-						pc.setAutoSortGear(autoSort.isSelected());
-					}
+					pc.setDirty(true);
+					pc.setAutoSortGear(autoSort.isSelected());
 				}
-			});
+			}
+		});
 
 		FilterFactory.restoreFilterSettings(this);
 	}
@@ -1833,18 +1958,22 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
 		viewComboBox.addItem(PropertyFactory.getString("in_allTypes"));
 		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		Utility.setDescription(viewComboBox, "You can change how the Equipment in the Tables are listed.");
+		Utility.setDescription(viewComboBox,
+			"You can change how the Equipment in the Tables are listed.");
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
 
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_typeSubtypeName"));
+		viewSelectComboBox.addItem(PropertyFactory
+			.getString("in_typeSubtypeName"));
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_typeName"));
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_allTypes"));
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		Utility.setDescription(viewSelectComboBox, "You can change how the Equipment in the Tables are listed.");
+		Utility.setDescription(viewSelectComboBox,
+			"You can change how the Equipment in the Tables are listed.");
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
-		boolean customExists = Equipment.getEquipmentTypes().contains(Constants.s_CUSTOM);
+		boolean customExists =
+				Equipment.getEquipmentTypes().contains(Constants.s_CUSTOM);
 
 		typeSubtypeRoot = new PObjectNode();
 		typeRoot = new PObjectNode();
@@ -1862,11 +1991,13 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			sourceList.add(Constants.s_CUSTOMSOURCE);
 		}
 
-		for (Iterator<Map.Entry<String, Equipment>> i = EquipmentList.getEquipmentListIterator(); i.hasNext(); )
+		for (Iterator<Map.Entry<String, Equipment>> i =
+				EquipmentList.getEquipmentListIterator(); i.hasNext();)
 		{
 			Map.Entry<String, Equipment> entry = i.next();
 			final Equipment bEq = entry.getValue();
-			final StringTokenizer aTok = new StringTokenizer(bEq.getTypeUsingFlag(true), ".", false);
+			final StringTokenizer aTok =
+					new StringTokenizer(bEq.getTypeUsingFlag(true), ".", false);
 
 			// we only want the first TYPE to be in the top-level
 			if (!aTok.hasMoreTokens())
@@ -1896,7 +2027,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 			}
 
-			final String sourceString = bEq.getSourceEntry().getSourceBook().getLongName();
+			final String sourceString =
+					bEq.getSourceEntry().getSourceBook().getLongName();
 			if ((sourceString != null) && (!sourceList.contains(sourceString)))
 			{
 				sourceList.add(sourceString);
@@ -1936,7 +2068,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			aList.clear();
 
-			for (Iterator<Map.Entry<String, Equipment>> e = EquipmentList.getEquipmentListIterator(); e.hasNext(); ) 
+			for (Iterator<Map.Entry<String, Equipment>> e =
+					EquipmentList.getEquipmentListIterator(); e.hasNext();)
 			{
 				Map.Entry<String, Equipment> entry = e.next();
 				final Equipment bEq = entry.getValue();
@@ -1947,7 +2080,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					continue;
 				}
 
-				final StringTokenizer aTok = new StringTokenizer(bEq.getTypeUsingFlag(true), ".", false);
+				final StringTokenizer aTok =
+						new StringTokenizer(bEq.getTypeUsingFlag(true), ".",
+							false);
 
 				//String aString = aTok.nextToken(); // skip first one, already in top-level
 				while (aTok.hasMoreTokens())
@@ -1996,7 +2131,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		JPanel leftPane = new JPanel();
 		JPanel rightPane = new JPanel();
 
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane =
+				new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -2006,55 +2142,75 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		leftPane.setLayout(new BorderLayout());
 
 		JLabel avaLabel = new JLabel("Available: ");
-		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox,
+			lblAvailableQFilter, textAvailableQFilter,
+			clearAvailableQFilterButton), BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		leftPane.add(buildModPanel(addButton, "Click to add the selected item from the Available list of items"), BorderLayout.SOUTH);
+		leftPane.add(buildModPanel(addButton,
+			"Click to add the selected item from the Available list of items"),
+			BorderLayout.SOUTH);
 
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^");
 
 		availableTable.setColAlign(COL_COST, SwingConstants.RIGHT);
-//		availableTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
-//		availableTable.setColAlign(COL_SRC, SwingConstants.LEFT);
+		//		availableTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
+		//		availableTable.setColAlign(COL_SRC, SwingConstants.LEFT);
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		// Right Pane - Selected
 		rightPane.setLayout(new BorderLayout());
 
 		JLabel selLabel = new JLabel("Selected: ");
-		rightPane.add(InfoTabUtils.createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selLabel,
+			viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter,
+			clearSelectedQFilterButton), BorderLayout.NORTH);
 
-		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		rightPane.add(buildDelPanel(removeButton, "Click to remove the selected item from the Selected list of items"), BorderLayout.SOUTH);
+		rightPane
+			.add(
+				buildDelPanel(removeButton,
+					"Click to remove the selected item from the Selected list of items"),
+				BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^");
-//		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
-//		selectedTable.setColAlign(COL_COST, SwingConstants.RIGHT);
-//		selectedTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
-//		selectedTable.setColAlign(COL_QTY, SwingConstants.CENTER);
-//		selectedTable.getColumnModel().getColumn(COL_QTY).setPreferredWidth(10);
-//		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellRenderer(new OutputOrderRenderer());
-//		selectedTable.getColumnModel().getColumn(COL_INDEX).setPreferredWidth(20);
+		//		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
+		//		selectedTable.setColAlign(COL_COST, SwingConstants.RIGHT);
+		//		selectedTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
+		//		selectedTable.setColAlign(COL_QTY, SwingConstants.CENTER);
+		//		selectedTable.getColumnModel().getColumn(COL_QTY).setPreferredWidth(10);
+		//		selectedTable.getColumnModel().getColumn(COL_INDEX).setCellRenderer(new OutputOrderRenderer());
+		//		selectedTable.getColumnModel().getColumn(COL_INDEX).setPreferredWidth(20);
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
 		rightPane.add(buildRemoveItemPanel(), BorderLayout.SOUTH);
 
-		TitledBorder title1 = BorderFactory.createTitledBorder("Equipment Info");
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder("Equipment Info");
 		title1.setTitleJustification(TitledBorder.CENTER);
 		eqScroll.setBorder(title1);
 		infoLabel.setBackground(rightPane.getBackground());
 		eqScroll.setViewportView(infoLabel);
-		Utility.setDescription(eqScroll, "Any requirements you don't meet are in italics.");
+		Utility.setDescription(eqScroll,
+			"Any requirements you don't meet are in italics.");
 
 		GridBagLayout gridbag2 = new GridBagLayout();
 		GridBagConstraints c2 = new GridBagConstraints();
@@ -2127,79 +2283,81 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		cmbBuyPercent.setModel(new DefaultComboBoxModel(predefinedPercent));
 		cmbSellPercent.setModel(new DefaultComboBoxModel(predefinedPercent));
 
-		cmbBuyPercent.setSelectedItem(Integer.valueOf(SettingsHandler.getGearTab_BuyRate()));
-		cmbSellPercent.setSelectedItem(Integer.valueOf(SettingsHandler.getGearTab_SellRate()));
+		cmbBuyPercent.setSelectedItem(Integer.valueOf(SettingsHandler
+			.getGearTab_BuyRate()));
+		cmbSellPercent.setSelectedItem(Integer.valueOf(SettingsHandler
+			.getGearTab_SellRate()));
 
 		cmbBuyPercent.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				if (evt.getActionCommand().equals("comboBoxChanged"))
 				{
-					if (evt.getActionCommand().equals("comboBoxChanged"))
+					final Object enteredRate = cmbBuyPercent.getSelectedItem();
+					int rate;
+
+					if (enteredRate instanceof Integer)
 					{
-						final Object enteredRate = cmbBuyPercent.getSelectedItem();
-						int rate;
-
-						if (enteredRate instanceof Integer)
-						{
-							rate = ((Integer) enteredRate).intValue();
-						}
-						else
-						{
-							try
-							{
-								rate = Integer.parseInt((String) enteredRate);
-							}
-							catch (Exception exc)
-							{
-								rate = -1;
-							}
-						}
-
-						if (rate < 0)
-						{
-							rate = SettingsHandler.getGearTab_BuyRate();
-							cmbBuyPercent.setSelectedItem(Integer.valueOf(rate));
-						}
-
-						SettingsHandler.setGearTab_BuyRate(rate);
+						rate = ((Integer) enteredRate).intValue();
 					}
+					else
+					{
+						try
+						{
+							rate = Integer.parseInt((String) enteredRate);
+						}
+						catch (Exception exc)
+						{
+							rate = -1;
+						}
+					}
+
+					if (rate < 0)
+					{
+						rate = SettingsHandler.getGearTab_BuyRate();
+						cmbBuyPercent.setSelectedItem(Integer.valueOf(rate));
+					}
+
+					SettingsHandler.setGearTab_BuyRate(rate);
 				}
-			});
+			}
+		});
 		cmbSellPercent.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				if (evt.getActionCommand().equals("comboBoxChanged"))
 				{
-					if (evt.getActionCommand().equals("comboBoxChanged"))
+					final Object enteredRate = cmbSellPercent.getSelectedItem();
+					int rate;
+
+					if (enteredRate instanceof Integer)
 					{
-						final Object enteredRate = cmbSellPercent.getSelectedItem();
-						int rate;
-
-						if (enteredRate instanceof Integer)
-						{
-							rate = ((Integer) enteredRate).intValue();
-						}
-						else
-						{
-							try
-							{
-								rate = Integer.parseInt((String) enteredRate);
-							}
-							catch (Exception exc)
-							{
-								rate = -1;
-							}
-						}
-
-						if (rate < 0)
-						{
-							rate = SettingsHandler.getGearTab_SellRate();
-							cmbSellPercent.setSelectedItem(Integer.valueOf(rate));
-						}
-
-						SettingsHandler.setGearTab_SellRate(rate);
+						rate = ((Integer) enteredRate).intValue();
 					}
+					else
+					{
+						try
+						{
+							rate = Integer.parseInt((String) enteredRate);
+						}
+						catch (Exception exc)
+						{
+							rate = -1;
+						}
+					}
+
+					if (rate < 0)
+					{
+						rate = SettingsHandler.getGearTab_SellRate();
+						cmbSellPercent.setSelectedItem(Integer.valueOf(rate));
+					}
+
+					SettingsHandler.setGearTab_SellRate(rate);
 				}
-			});
+			}
+		});
 
 		pnlBuy.setLayout(new BorderLayout());
 		pnlSell.setLayout(new BorderLayout());
@@ -2220,7 +2378,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		gridbag2.setConstraints(pnlSell, c2);
 		south.add(pnlSell);
 
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, eqScroll, south);
+		asplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, eqScroll,
+					south);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
@@ -2228,21 +2388,27 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		botPane.setLayout(new BorderLayout());
 		botPane.setMinimumSize(new Dimension(200, 120));
 		botPane.add(asplit, BorderLayout.CENTER);
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, center, botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, center,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
 		this.setLayout(new BorderLayout());
 		this.add(bsplit, BorderLayout.CENTER);
-		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
-		selectedSort = new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel.getRoot(), selectedModel);
+		availableSort =
+				new JTreeTableSorter(availableTable,
+					(PObjectNode) availableModel.getRoot(), availableModel);
+		selectedSort =
+				new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel
+					.getRoot(), selectedModel);
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
 	private void openCustomizer(Equipment aEq)
@@ -2271,15 +2437,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @param qty double number of items to remove
 	 * @return double number of items actually removed from the character's inventory
 	 */
-	private double removeSpecifiedEquipment(Equipment selectedEquipment, double qty)
+	private double removeSpecifiedEquipment(Equipment selectedEquipment,
+		double qty)
 	{
 		// Get a number from the user via a popup
 		double sellQty = qty;
 
 		if (sellQty < 0.0f)
 		{
-			Object selectedValue = JOptionPane.showInputDialog(null, "Enter Quantity", Constants.s_APPNAME,
-					JOptionPane.QUESTION_MESSAGE);
+			Object selectedValue =
+					JOptionPane.showInputDialog(null, "Enter Quantity",
+						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -2289,7 +2457,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!", Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog("Invalid number!",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return 0;
 				}
@@ -2302,17 +2471,21 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 		if (selectedEquipment.getChildCount() == 0)
 		{
-			if (!selectedEquipment.acceptsChildren() || (CoreUtility.doublesEqual((sellQty % 1), 0)))
+			if (!selectedEquipment.acceptsChildren()
+				|| (CoreUtility.doublesEqual((sellQty % 1), 0)))
 			{
 				return adjustBelongings(selectedEquipment, -sellQty);
 			}
-			ShowMessageDelegate.showMessageDialog("You cannot buy, own or carry non-integral numbers of containers\ni.e. Half a sack is nonsensical.",
-				Constants.s_APPNAME,
-				MessageType.ERROR);
+			ShowMessageDelegate
+				.showMessageDialog(
+					"You cannot buy, own or carry non-integral numbers of containers\ni.e. Half a sack is nonsensical.",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 			return 0;
 		}
-		ShowMessageDelegate.showMessageDialog("Cannot remove container unless it is empty.", Constants.s_APPNAME, MessageType.ERROR);
+		ShowMessageDelegate.showMessageDialog(
+			"Cannot remove container unless it is empty.", Constants.s_APPNAME,
+			MessageType.ERROR);
 		return 0;
 	}
 
@@ -2429,12 +2602,16 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @param selectedEquipment Equipment to sell
 	 * @param qty double number of the item to sell
 	 **/
-	private void sellSpecifiedEquipmentRate(Equipment selectedEquipment, double qty)
+	private void sellSpecifiedEquipmentRate(Equipment selectedEquipment,
+		double qty)
 	{
 		Object defaultValue = cmbSellPercent.getSelectedItem().toString();
 		InputInterface ii = InputFactory.getInputInstance();
-		Object input = ii.showInputDialog(this, "Enter sell price percentage:", "Sell at Percent",
-				MessageType.QUESTION, null, defaultValue);
+		Object input =
+				ii
+					.showInputDialog(this, "Enter sell price percentage:",
+						"Sell at Percent", MessageType.QUESTION, null,
+						defaultValue);
 
 		if (input != null)
 		{
@@ -2447,7 +2624,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 			catch (NumberFormatException nfe)
 			{
-				ShowMessageDelegate.showMessageDialog("You must enter an integer value.", "Error", MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"You must enter an integer value.", "Error",
+					MessageType.ERROR);
 			}
 		}
 	}
@@ -2460,9 +2639,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * @param qty double number of the item to sell
 	 * @param sellRate int rate percentage (typically 0 to 100) at which to sell the item
 	 **/
-	private void sellSpecifiedEquipmentRate(Equipment selectedEquipment, double qty, int sellRate)
+	private void sellSpecifiedEquipmentRate(Equipment selectedEquipment,
+		double qty, int sellRate)
 	{
-		adjustGold(selectedEquipment, removeSpecifiedEquipment(selectedEquipment, qty), 0, sellRate);
+		adjustGold(selectedEquipment, removeSpecifiedEquipment(
+			selectedEquipment, qty), 0, sellRate);
 	}
 
 	/**
@@ -2509,7 +2690,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 	private void updateTotalValue()
 	{
-		totalValue.setText(BigDecimalHelper.trimZeros(pc.totalValue()) + " " + Globals.getCurrencyDisplay());
+		totalValue.setText(BigDecimalHelper.trimZeros(pc.totalValue()) + " "
+			+ Globals.getCurrencyDisplay());
 	}
 
 	private void viewComboBoxActionPerformed()
@@ -2564,7 +2746,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 *
 	 * sage_sam 27 Feb 2003 for FREQ 606205
 	 */
-	private abstract class AvailableGearActionListener extends GearActionListener
+	private abstract class AvailableGearActionListener extends
+			GearActionListener
 	{
 		private AvailableGearActionListener(int aQty)
 		{
@@ -2590,7 +2773,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 *
 	 * sage_sam 27 Feb 2003 for FREQ 606205
 	 */
-	private abstract class SelectedGearActionListener extends GearActionListener
+	private abstract class SelectedGearActionListener extends
+			GearActionListener
 	{
 		private SelectedGearActionListener(int aQty)
 		{
@@ -2659,9 +2843,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			if (treeTable == availableTable)
 			{
-				GearPopupMenu.this.add(createBuyMenuItem("Buy  1", 1, "shortcut EQUALS"));
+				GearPopupMenu.this.add(createBuyMenuItem("Buy  1", 1,
+					"shortcut EQUALS"));
 
-				JMenu buyMenu = Utility.createMenu("Buy # ...", (char) 0, "Buy # ...", null, true);
+				JMenu buyMenu =
+						Utility.createMenu("Buy # ...", (char) 0, "Buy # ...",
+							null, true);
 
 				buyMenu.add(createBuyMenuItem("Buy  2", 2, null));
 				buyMenu.add(createBuyMenuItem("Buy  5", 5, null));
@@ -2670,11 +2857,15 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				buyMenu.add(createBuyMenuItem("Buy 20", 20, null));
 				buyMenu.add(createBuyMenuItem("Buy 50", 50, null));
 				GearPopupMenu.this.add(buyMenu);
-				GearPopupMenu.this.add(createBuyMenuItem("Buy  n", -1, "alt N"));
+				GearPopupMenu.this
+					.add(createBuyMenuItem("Buy  n", -1, "alt N"));
 				this.addSeparator();
-				GearPopupMenu.this.add(createBuyRateMenuItem("Buy  1 at...", 1, null));
+				GearPopupMenu.this.add(createBuyRateMenuItem("Buy  1 at...", 1,
+					null));
 
-				JMenu buyAtMenu = Utility.createMenu("Buy # at ...", (char) 0, "Buy # at ...", null, true);
+				JMenu buyAtMenu =
+						Utility.createMenu("Buy # at ...", (char) 0,
+							"Buy # at ...", null, true);
 				buyAtMenu.add(createBuyRateMenuItem("Buy  2 at...", 2, null));
 				buyAtMenu.add(createBuyRateMenuItem("Buy  5 at...", 5, null));
 				buyAtMenu.add(createBuyRateMenuItem("Buy 10 at...", 10, null));
@@ -2682,43 +2873,50 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				buyAtMenu.add(createBuyRateMenuItem("Buy 20 at...", 20, null));
 				buyAtMenu.add(createBuyRateMenuItem("Buy 50 at...", 50, null));
 				GearPopupMenu.this.add(buyAtMenu);
-				GearPopupMenu.this.add(createBuyRateMenuItem("Buy  n at...", -1, "alt N"));
+				GearPopupMenu.this.add(createBuyRateMenuItem("Buy  n at...",
+					-1, "alt N"));
 				this.addSeparator();
 
-				GearPopupMenu.this.add(Utility.createMenuItem("Create custom item",
-						new ActionListener()
+				GearPopupMenu.this.add(Utility.createMenuItem(
+					"Create custom item", new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							customizeButtonClick();
 						}
-					}, "newCustomItem", (char) 0, "alt C", "Create new customized item", null, true));
-				GearPopupMenu.this.add(Utility.createMenuItem("Delete custom item",
-						new ActionListener()
+					}, "newCustomItem", (char) 0, "alt C",
+					"Create new customized item", null, true));
+				GearPopupMenu.this.add(Utility.createMenuItem(
+					"Delete custom item", new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							deleteCustomButtonClick();
 						}
-					}, "deleteItem", (char) 0, "DELETE", "Delete custom item", null, true));
+					}, "deleteItem", (char) 0, "DELETE", "Delete custom item",
+					null, true));
 
-/*                GearPopupMenu.this.add(CoreUtility.createMenuItem("Create custom item from scratch",
-   new ActionListener()
-   {
-	   public void actionPerformed(ActionEvent e)
-	   {
-		   createGenericItemButtonClick();
-	   }
-   }
-   , "createGenericItem", (char)0, "GENERIC", "Create custom item from scratch", null, true));
- */
+				/*                GearPopupMenu.this.add(CoreUtility.createMenuItem("Create custom item from scratch",
+				 new ActionListener()
+				 {
+				 public void actionPerformed(ActionEvent e)
+				 {
+				 createGenericItemButtonClick();
+				 }
+				 }
+				 , "createGenericItem", (char)0, "GENERIC", "Create custom item from scratch", null, true));
+				 */
 			}
 
-			else // selectedTable
+			else
+			// selectedTable
 			{
-				GearPopupMenu.this.add(createRemoveMenuItem("Remove  1", 1, "shortcut MINUS"));
+				GearPopupMenu.this.add(createRemoveMenuItem("Remove  1", 1,
+					"shortcut MINUS"));
 
-				JMenu remMenu = Utility.createMenu("Remove # ...", (char) 0, "Remove # ...", null, true);
+				JMenu remMenu =
+						Utility.createMenu("Remove # ...", (char) 0,
+							"Remove # ...", null, true);
 				remMenu.add(createRemoveMenuItem("Remove  2", 2, null));
 				remMenu.add(createRemoveMenuItem("Remove  5", 5, null));
 				remMenu.add(createRemoveMenuItem("Remove 10", 10, null));
@@ -2727,12 +2925,15 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				remMenu.add(createRemoveMenuItem("Remove 50", 50, null));
 				remMenu.add(createRemoveMenuItem("Remove  n", -1, null));
 				GearPopupMenu.this.add(remMenu);
-				GearPopupMenu.this.add(createRemoveMenuItem("Remove All", -5, null));
+				GearPopupMenu.this.add(createRemoveMenuItem("Remove All", -5,
+					null));
 				this.addSeparator();
 
 				GearPopupMenu.this.add(createSellMenuItem("Sell  1", 1, null));
 
-				JMenu sellMenu = Utility.createMenu("Sell # ...", (char) 0, "Sell # ...", null, true);
+				JMenu sellMenu =
+						Utility.createMenu("Sell # ...", (char) 0,
+							"Sell # ...", null, true);
 				sellMenu.add(createSellMenuItem("Sell  2", 2, null));
 				sellMenu.add(createSellMenuItem("Sell  5", 5, null));
 				sellMenu.add(createSellMenuItem("Sell 10", 10, null));
@@ -2741,81 +2942,123 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				sellMenu.add(createSellMenuItem("Sell 50", 50, null));
 				sellMenu.add(createSellMenuItem("Sell  n", -1, null));
 				GearPopupMenu.this.add(sellMenu);
-				GearPopupMenu.this.add(createSellMenuItem("Sell  All", -5, null));
+				GearPopupMenu.this
+					.add(createSellMenuItem("Sell  All", -5, null));
 				this.addSeparator();
 
-				GearPopupMenu.this.add(createSellRateMenuItem("Sell 1 at...", 1, null));
-				GearPopupMenu.this.add(createSellRateMenuItem("Sell n at...", -1, null));
-				GearPopupMenu.this.add(createSellRateMenuItem("Sell All at...", -5, null));
+				GearPopupMenu.this.add(createSellRateMenuItem("Sell 1 at...",
+					1, null));
+				GearPopupMenu.this.add(createSellRateMenuItem("Sell n at...",
+					-1, null));
+				GearPopupMenu.this.add(createSellRateMenuItem("Sell All at...",
+					-5, null));
 				this.addSeparator();
 
 				GearPopupMenu.this.add(Utility.createMenuItem("Modify Charges",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							editChargesButtonClicked();
 						}
-					}, "editCharges", (char) 0, "shortcut ?", "Edit charges", null, true));
+					}, "editCharges", (char) 0, "shortcut ?", "Edit charges",
+					null, true));
 				this.addSeparator();
-
 
 				GearPopupMenu.this.add(pcMoveMenu);
 				GearPopupMenu.this.add(pcCopyMenu);
 				this.addSeparator();
 
-				JMenu resortMenu = Utility.createMenu("Output Order", (char) 0, "Output Order", null, true);
+				JMenu resortMenu =
+						Utility.createMenu("Output Order", (char) 0,
+							"Output Order", null, true);
 
 				GearPopupMenu.this.add(resortMenu);
 
-				resortMenu.add(Utility.createMenuItem("By name (ascending)",
-						new ResortActionListener(ResortComparator.RESORT_NAME, ResortComparator.RESORT_ASCENDING),
-						"sortOutput", (char) 0, null, "Sort equipment list by name in ascending alphabetical order",
-						null, true));
-				resortMenu.add(Utility.createMenuItem("By name (descending)",
-						new ResortActionListener(ResortComparator.RESORT_NAME, ResortComparator.RESORT_DESCENDING),
-						"sortOutput", (char) 0, null, "Sort equipment list by name in descending alphabetical order",
-						null, true));
+				resortMenu
+					.add(Utility
+						.createMenuItem(
+							"By name (ascending)",
+							new ResortActionListener(
+								ResortComparator.RESORT_NAME,
+								ResortComparator.RESORT_ASCENDING),
+							"sortOutput",
+							(char) 0,
+							null,
+							"Sort equipment list by name in ascending alphabetical order",
+							null, true));
+				resortMenu
+					.add(Utility
+						.createMenuItem(
+							"By name (descending)",
+							new ResortActionListener(
+								ResortComparator.RESORT_NAME,
+								ResortComparator.RESORT_DESCENDING),
+							"sortOutput",
+							(char) 0,
+							null,
+							"Sort equipment list by name in descending alphabetical order",
+							null, true));
 				resortMenu.add(Utility.createMenuItem("By weight (ascending)",
-						new ResortActionListener(ResortComparator.RESORT_WEIGHT, ResortComparator.RESORT_ASCENDING),
-						"sortOutput", (char) 0, null, "Sort equipment list by weight in ascending order", null, true));
+					new ResortActionListener(ResortComparator.RESORT_WEIGHT,
+						ResortComparator.RESORT_ASCENDING), "sortOutput",
+					(char) 0, null,
+					"Sort equipment list by weight in ascending order", null,
+					true));
 				resortMenu.add(Utility.createMenuItem("By weight (descending)",
-						new ResortActionListener(ResortComparator.RESORT_WEIGHT, ResortComparator.RESORT_DESCENDING),
-						"sortOutput", (char) 0, null, "Sort equipment list by weight in descending order", null, true));
+					new ResortActionListener(ResortComparator.RESORT_WEIGHT,
+						ResortComparator.RESORT_DESCENDING), "sortOutput",
+					(char) 0, null,
+					"Sort equipment list by weight in descending order", null,
+					true));
 			}
 		}
 
-		private JMenuItem createBuyMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createBuyMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new BuyGearActionListener(qty), "Buy" + qty, (char) 0, accelerator,
-				"Buy " + ((qty < 0) ? "n" : Integer.toString(qty)) + " at the current rate", "Add16.gif", true);
+			return Utility.createMenuItem(label,
+				new BuyGearActionListener(qty), "Buy" + qty, (char) 0,
+				accelerator, "Buy " + ((qty < 0) ? "n" : Integer.toString(qty))
+					+ " at the current rate", "Add16.gif", true);
 		}
 
-		private JMenuItem createBuyRateMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createBuyRateMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new BuyRateGearActionListener(qty), "Buy" + qty, (char) 0,
-				accelerator, "Buy " + ((qty < 0) ? "n" : Integer.toString(qty)) + " at a specified rate", "Add16.gif",
-				true);
+			return Utility.createMenuItem(label, new BuyRateGearActionListener(
+				qty), "Buy" + qty, (char) 0, accelerator, "Buy "
+				+ ((qty < 0) ? "n" : Integer.toString(qty))
+				+ " at a specified rate", "Add16.gif", true);
 		}
 
-		private JMenuItem createRemoveMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createRemoveMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveGearActionListener(qty), "Remove" + qty, (char) 0,
-				accelerator, "Remove " + ((qty < 0) ? "n" : Integer.toString(qty)) + " from your inventory",
-				"Remove16.gif", true);
+			return Utility.createMenuItem(label, new RemoveGearActionListener(
+				qty), "Remove" + qty, (char) 0, accelerator, "Remove "
+				+ ((qty < 0) ? "n" : Integer.toString(qty))
+				+ " from your inventory", "Remove16.gif", true);
 		}
 
-		private JMenuItem createSellMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createSellMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new SellGearActionListener(qty), "Sell" + qty, (char) 0, accelerator,
-				"Sell " + ((qty < 0) ? "n" : Integer.toString(qty)) + " from your inventory", null, true);
+			return Utility.createMenuItem(label,
+				new SellGearActionListener(qty), "Sell" + qty, (char) 0,
+				accelerator, "Sell "
+					+ ((qty < 0) ? "n" : Integer.toString(qty))
+					+ " from your inventory", null, true);
 		}
 
-		private JMenuItem createSellRateMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createSellRateMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new SellRateGearActionListener(qty), "Sell" + qty, (char) 0,
-				accelerator, "Sell " + ((qty < 0) ? "n" : Integer.toString(qty)) + " from your inventory at a rate",
-				null, true);
+			return Utility.createMenuItem(label,
+				new SellRateGearActionListener(qty), "Sell" + qty, (char) 0,
+				accelerator, "Sell "
+					+ ((qty < 0) ? "n" : Integer.toString(qty))
+					+ " from your inventory at a rate", null, true);
 		}
 	}
 
@@ -2962,7 +3205,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				case RESORT_WEIGHT:
 					return e1.getWeight(pc).compareTo(e2.getWeight(pc));
 
-				case RESORT_NAME:default:
+				case RESORT_NAME:
+				default:
 					return e1.getName().compareToIgnoreCase(e2.getName());
 			}
 		}
@@ -2979,52 +3223,56 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					//
-					// Walk through the list of accelerators to see if the user has
-					// pressed a sequence used by the popup.
-					// This would not otherwise happen unless the popup was showing
-					//
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				//
+				// Walk through the list of accelerators to see if the user has
+				// pressed a sequence used by the popup.
+				// This would not otherwise happen unless the popup was showing
+				//
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); i++)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							final Component menuComponent =
+									menu.getComponent(i);
 
-							for (int i = 0; i < menu.getComponentCount(); i++)
+							if (menuComponent instanceof JMenuItem)
 							{
-								final Component menuComponent = menu.getComponent(i);
+								KeyStroke ks =
+										((JMenuItem) menuComponent)
+											.getAccelerator();
 
-								if (menuComponent instanceof JMenuItem)
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+									selPath = tree.getSelectionPath();
+									((JMenuItem) menuComponent).doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										selPath = tree.getSelectionPath();
-										((JMenuItem) menuComponent).doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -3043,7 +3291,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -3078,9 +3327,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * selected, then special values are returned to the setValueAt
 	 * method, which are actioned by that method.
 	 **/
-	private static final class OutputOrderEditor extends JComboBoxEx implements TableCellEditor
+	private static final class OutputOrderEditor extends JComboBoxEx implements
+			TableCellEditor
 	{
-		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
+		private final transient List<CellEditorListener> d_listeners =
+				new ArrayList<CellEditorListener>();
 		private transient int d_originalValue = 0;
 
 		private OutputOrderEditor(String[] choices)
@@ -3090,12 +3341,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			setEditable(true);
 
 			addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent ae)
 				{
-					public void actionPerformed(ActionEvent ae)
-					{
-						stopCellEditing();
-					}
-				});
+					stopCellEditing();
+				}
+			});
 		}
 
 		public boolean isCellEditable(EventObject eventObject)
@@ -3122,8 +3373,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 		}
 
-		public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row,
-			int column)
+		public Component getTableCellEditorComponent(JTable jTable,
+			Object value, boolean isSelected, int row, int column)
 		{
 			if (value == null)
 			{
@@ -3166,7 +3417,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			fireEditingCanceled();
 		}
 
-		public void removeCellEditorListener(CellEditorListener cellEditorListener)
+		public void removeCellEditorListener(
+			CellEditorListener cellEditorListener)
 		{
 			d_listeners.remove(cellEditorListener);
 		}
@@ -3205,7 +3457,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 		}
 	}
-	 //End OutputOrderEditor classes
+
+	//End OutputOrderEditor classes
 
 	/**
 	 * In the TreeTableModel there is a single <code>root</code>
@@ -3218,16 +3471,19 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 	 * nodes which have at least 1 child are not leafs. Leafs are like files
 	 * and non-leafs are like directories.
 	 **/
-	private final class EquipmentModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	private final class EquipmentModel extends AbstractTreeTableModel implements
+			TableColumnManagerModel
 	{
-		private int currentMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME;
+		private int currentMode =
+				GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME;
 
 		private static final int MODEL_TYPE_AVAIL = 0;
 		private static final int MODEL_TYPE_SELECTED = 1;
 
 		// Names of the columns.
-		private String[] names = { "Item", "Cost", "Weight", "Qty", "Order", "Source" };
-		private int[] widths = { 100, 20, 20, 20, 20, 100 };
+		private String[] names =
+				{"Item", "Cost", "Weight", "Qty", "Order", "Source"};
+		private int[] widths = {100, 20, 20, 20, 20, 100};
 
 		// Types of the columns.
 		private int modelType = MODEL_TYPE_AVAIL; // availableModel
@@ -3238,10 +3494,12 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param mode
 		 * @param available
 		 **/
-		private EquipmentModel(int mode, boolean available) {
+		private EquipmentModel(int mode, boolean available)
+		{
 			super(null);
 
-			if (!available) {
+			if (!available)
+			{
 				modelType = MODEL_TYPE_SELECTED;
 			}
 
@@ -3249,27 +3507,36 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			int i = 1;
 			displayList = new ArrayList<Boolean>();
 			displayList.add(Boolean.TRUE);
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
-			if(available)
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ names[i++], true)));
+			if (available)
 			{
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true)));
 			}
 			else
 			{
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false)));
 			}
 		}
 
-		public boolean isCellEditable(Object node, int column) {
-			return ((column == COL_NAME)
-			|| ((modelType == MODEL_TYPE_SELECTED) && (((PObjectNode) node).getItem() instanceof Equipment)
-			&& ((column == COL_QTY) || (column == COL_INDEX))));
+		public boolean isCellEditable(Object node, int column)
+		{
+			return ((column == COL_NAME) || ((modelType == MODEL_TYPE_SELECTED)
+				&& (((PObjectNode) node).getItem() instanceof Equipment) && ((column == COL_QTY) || (column == COL_INDEX))));
 		}
 
 		/**
@@ -3277,8 +3544,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param column
 		 * @return Class
 		 */
-		public Class<?> getColumnClass(int column) {
-			switch (column) {
+		public Class<?> getColumnClass(int column)
+		{
+			switch (column)
+			{
 				case COL_NAME:
 					return TreeTableModel.class;
 
@@ -3298,15 +3567,15 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					return Integer.class;
 
 				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.getColumnClass the column " + column
-						+ " is not supported.");
+					Logging
+						.errorPrint("In InfoGear.EquipmentModel.getColumnClass the column "
+							+ column + " is not supported.");
 
 					break;
 			}
 
 			return String.class;
 		}
-
 
 		/* The JTreeTableNode interface. */
 
@@ -3329,7 +3598,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			return names[column];
 		}
 
-		public Object getRoot() {
+		public Object getRoot()
+		{
 			return super.getRoot();
 		}
 
@@ -3351,7 +3621,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				eq = (Equipment) temp;
 			}
 
-			switch (column) {
+			switch (column)
+			{
 				case COL_NAME:
 					retVal = fn.toString();
 					break;
@@ -3393,7 +3664,9 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					break;
 
 				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.getValueAt the column " + column + " is not supported.");
+					Logging
+						.errorPrint("In InfoGear.EquipmentModel.getValueAt the column "
+							+ column + " is not supported.");
 					break;
 			}
 			return retVal;
@@ -3405,33 +3678,39 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 *
 		 * @param aNode
 		 */
-		private void setRoot(PObjectNode aNode) {
+		private void setRoot(PObjectNode aNode)
+		{
 			super.setRoot(aNode);
 		}
 
-
-		public void setValueAt(Object value, Object node, int column) {
-			if (pc == null) {
+		public void setValueAt(Object value, Object node, int column)
+		{
+			if (pc == null)
+			{
 				return;
 			}
 
-			if (modelType != MODEL_TYPE_SELECTED) {
+			if (modelType != MODEL_TYPE_SELECTED)
+			{
 				return; // can only set values for selectedTableModel
 			}
 
 			Object obj = ((PObjectNode) node).getItem();
 
-			if (!(obj instanceof Equipment)) {
+			if (!(obj instanceof Equipment))
+			{
 				return; // can only use rows with Equipment in them
 			}
 
-			Equipment selectedEquipment = (Equipment)obj;
+			Equipment selectedEquipment = (Equipment) obj;
 
-			if (getBaseEquipment(selectedEquipment) == null) {
+			if (getBaseEquipment(selectedEquipment) == null)
+			{
 				return;
 			}
 
-			switch (column) {
+			switch (column)
+			{
 				case COL_QTY:
 					setColumnQty(selectedEquipment, value);
 					break;
@@ -3441,31 +3720,39 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					break;
 
 				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.setValueAt the column " + column + " is not supported.");
+					Logging
+						.errorPrint("In InfoGear.EquipmentModel.setValueAt the column "
+							+ column + " is not supported.");
 					break;
 			}
 		}
 
-		private void setColumnQty(Equipment eq, Object value) {
+		private void setColumnQty(Equipment eq, Object value)
+		{
 			double qtyToAdd = ((Float) value).floatValue() - eq.qty();
 
-			if (qtyToAdd > 0.0) {
+			if (qtyToAdd > 0.0)
+			{
 				buySpecifiedEquipment(eq, qtyToAdd);
 			}
-			else if (qtyToAdd < 0.0) {
+			else if (qtyToAdd < 0.0)
+			{
 				sellSpecifiedEquipment(eq, -qtyToAdd);
 			}
 		}
 
-		private void setColumnIndex(Equipment eq, Object value) {
+		private void setColumnIndex(Equipment eq, Object value)
+		{
 			int outputIndex = ((Integer) value).intValue();
 			int workingIndex = 1;
 
-			if (outputIndex == 1000) { // Last
+			if (outputIndex == 1000)
+			{ // Last
 				// Set it to one higher that the highest output index so far
 				outputIndex = getHighestOutputIndex() + 1;
 			}
-			else if (outputIndex == 0) { // First
+			else if (outputIndex == 0)
+			{ // First
 				// Set it to 1 and shuffle everyone up in order
 				outputIndex = 1;
 				workingIndex = 2;
@@ -3473,13 +3760,15 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			eq.setOutputIndex(outputIndex);
 
-			for (Equipment item : pc.getEquipmentMasterListInOutputOrder()) 
+			for (Equipment item : pc.getEquipmentMasterListInOutputOrder())
 			{
-				if (workingIndex == outputIndex) {
+				if (workingIndex == outputIndex)
+				{
 					workingIndex++;
 				}
 
-				if ((item.getOutputIndex() > -1) && (item != eq)) {
+				if ((item.getOutputIndex() > -1) && (item != eq))
+				{
 					item.setOutputIndex(workingIndex++);
 				}
 			}
@@ -3489,60 +3778,75 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			pc.setDirty(true);
 		}
 
-		private Equipment getBaseEquipment(Equipment selectedEquipment) {
+		private Equipment getBaseEquipment(Equipment selectedEquipment)
+		{
 			String keyName = selectedEquipment.getKeyName();
 			Equipment baseEquipment = EquipmentList.getEquipmentNamed(keyName);
 
-			if (baseEquipment == null) {
+			if (baseEquipment == null)
+			{
 				baseEquipment = pc.getEquipmentNamed(keyName);
 			}
 
 			return baseEquipment;
 		}
 
-		private void setValueForItemInNodes(PObjectNode p, Equipment e, double f, int column) {
-			if (p == null) {
+		private void setValueForItemInNodes(PObjectNode p, Equipment e,
+			double f, int column)
+		{
+			if (p == null)
+			{
 				p = (PObjectNode) super.getRoot();
 			}
 
 			Object obj = p.getItem();
 
 			// if no children, remove it and update parent
-			if ((p.getChildCount() == 0) && (obj != null) && (obj instanceof Equipment) && obj.equals(e)) {
+			if ((p.getChildCount() == 0) && (obj != null)
+				&& (obj instanceof Equipment) && obj.equals(e))
+			{
 				final Equipment pe = (Equipment) obj;
 
-				switch (column) {
+				switch (column)
+				{
 					case COL_QTY:
 						pe.setQty(new Float(f));
 
-						if (pe.getCarried().floatValue() > f) {
+						if (pe.getCarried().floatValue() > f)
+						{
 							pe.setNumberCarried(new Float(f));
 						}
 
 						break;
 
 					default:
-						Logging.errorPrint("In InfoGear.EquipmentModel.setValueForItemInNodes the column " + column
-							+ " is not supported.");
+						Logging
+							.errorPrint("In InfoGear.EquipmentModel.setValueForItemInNodes the column "
+								+ column + " is not supported.");
 
 						break;
 				}
 			}
-			else {
-				for (int i = 0; i < p.getChildCount(); i++) {
+			else
+			{
+				for (int i = 0; i < p.getChildCount(); i++)
+				{
 					setValueForItemInNodes(p.getChild(i), e, f, column);
 				}
 			}
 		}
 
-		private void addItemToModel(Equipment eq, boolean fireEvent) {
+		private void addItemToModel(Equipment eq, boolean fireEvent)
+		{
 			PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-			if (eq == null || !shouldDisplayThis(eq)) {
+			if (eq == null || !shouldDisplayThis(eq))
+			{
 				return;
 			}
 
-			switch (currentMode) {
+			switch (currentMode)
+			{
 				case GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME: // Type/SubType/Name
 					addChildTypeSubtypeName(eq, rootAsPObjectNode, fireEvent);
 					break;
@@ -3564,15 +3868,21 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					break;
 
 				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.addItemToModel (second switch) the mode " + currentMode + " is not supported.");
+					Logging
+						.errorPrint("In InfoGear.EquipmentModel.addItemToModel (second switch) the mode "
+							+ currentMode + " is not supported.");
 					break;
 			}
 		}
 
-		private void addChildTypeSubtypeName(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
-			if (fireEvent) {
+		private void addChildTypeSubtypeName(Equipment eq,
+			PObjectNode rootAsPObjectNode, boolean fireEvent)
+		{
+			if (fireEvent)
+			{
 				//Add custom node if it does not exist
-				if (eq.isType(Constants.s_CUSTOM)) {
+				if (eq.isType(Constants.s_CUSTOM))
+				{
 					addChild(Constants.s_CUSTOM, typeSubtypeRoot, true);
 				}
 
@@ -3581,39 +3891,52 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 				addChild(type, typeSubtypeRoot, true);
 
 				// Now add any missing subtypes to type/subtype/name tree
-				PObjectNode typeSubtypeRootAsPObjectNode = (PObjectNode) typeSubtypeRoot;
-				for (String s : eq.typeList()) 
+				PObjectNode typeSubtypeRootAsPObjectNode =
+						(PObjectNode) typeSubtypeRoot;
+				for (String s : eq.typeList())
 				{
-					for (int i = 0; i < typeSubtypeRootAsPObjectNode.getChildCount(); i++) {
-						final String treeType = typeSubtypeRootAsPObjectNode.getChild(i).toString();
+					for (int i = 0; i < typeSubtypeRootAsPObjectNode
+						.getChildCount(); i++)
+					{
+						final String treeType =
+								typeSubtypeRootAsPObjectNode.getChild(i)
+									.toString();
 						if ((typeSubtypeRootAsPObjectNode.getChild(i).getItem() instanceof PObject)
-								|| !eq.isType(treeType)
-								|| s.equals(treeType)) {
+							|| !eq.isType(treeType) || s.equals(treeType))
+						{
 							continue;
 						}
-						addChild(s, typeSubtypeRootAsPObjectNode.getChild(i), true);
+						addChild(s, typeSubtypeRootAsPObjectNode.getChild(i),
+							true);
 					}
 				}
 			}
 
 			//Add Equipment
-			for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++) {
-				if (eq.isType(rootAsPObjectNode.getChild(i).toString())) {
+			for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
+			{
+				if (eq.isType(rootAsPObjectNode.getChild(i).toString()))
+				{
 					// Items with only 1 type will not show up unless we do this
 					List<PObjectNode> d;
 
-					if (eq.typeList().size() == 1) {
+					if (eq.typeList().size() == 1)
+					{
 						d = new ArrayList<PObjectNode>(1);
 						d.add(rootAsPObjectNode.getChild(i));
 					}
-					else {
+					else
+					{
 						d = rootAsPObjectNode.getChild(i).getChildren();
 					}
 
-					for (int k = 0; (d != null) && (k < d.size()); k++) {
+					for (int k = 0; (d != null) && (k < d.size()); k++)
+					{
 						// Don't add children to items (those with only 1 type)
-						if (!((d.get(k)).getItem() instanceof PObject)) {
-							if (eq.isType((d.get(k)).toString())) {
+						if (!((d.get(k)).getItem() instanceof PObject))
+						{
+							if (eq.isType((d.get(k)).toString()))
+							{
 								addChild(eq, d.get(k), fireEvent);
 							}
 						}
@@ -3622,10 +3945,14 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 		}
 
-		private void addChildTypeName(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
-			if(fireEvent) {
+		private void addChildTypeName(Equipment eq,
+			PObjectNode rootAsPObjectNode, boolean fireEvent)
+		{
+			if (fireEvent)
+			{
 				//Add custom node if it does not exist
-				if (eq.isType(Constants.s_CUSTOM)) {
+				if (eq.isType(Constants.s_CUSTOM))
+				{
 					addChild(Constants.s_CUSTOM, typeRoot, true);
 				}
 
@@ -3636,41 +3963,54 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			//Add Equipment
 			int length = rootAsPObjectNode.getChildCount(); // seperated out for performance reasons
-			for (int i = 0; i < length; i++) {
-				if (eq.isType(rootAsPObjectNode.getChild(i).toString())) {
+			for (int i = 0; i < length; i++)
+			{
+				if (eq.isType(rootAsPObjectNode.getChild(i).toString()))
+				{
 					addChild(eq, rootAsPObjectNode.getChild(i), fireEvent);
 				}
 			}
 		}
 
-		private void addChildName(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
+		private void addChildName(Equipment eq, PObjectNode rootAsPObjectNode,
+			boolean fireEvent)
+		{
 			//Add Equipment
 			addChild(eq, rootAsPObjectNode, fireEvent);
 		}
 
-		private void addChildAllTypes(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) 
+		private void addChildAllTypes(Equipment eq,
+			PObjectNode rootAsPObjectNode, boolean fireEvent)
 		{
-			if (fireEvent) {
+			if (fireEvent)
+			{
 				// Add Types
-				for (String type : eq.typeList()) 
+				for (String type : eq.typeList())
 				{
 					addChild(type, allTypeRoot, true);
 				}
 			}
 
 			//Add Equipment
-			for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++) {
-				if (eq.isType(rootAsPObjectNode.getChild(i).toString())) {
+			for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
+			{
+				if (eq.isType(rootAsPObjectNode.getChild(i).toString()))
+				{
 					addChild(eq, rootAsPObjectNode.getChild(i), fireEvent);
 				}
 			}
 		}
 
-		private void addChildSourceName(Equipment eq, PObjectNode rootAsPObjectNode, boolean fireEvent) {
-			final String sourceString = eq.getSourceEntry().getSourceBook().getLongName();
-			if(fireEvent) {
+		private void addChildSourceName(Equipment eq,
+			PObjectNode rootAsPObjectNode, boolean fireEvent)
+		{
+			final String sourceString =
+					eq.getSourceEntry().getSourceBook().getLongName();
+			if (fireEvent)
+			{
 				//Add custom node if it does not exist
-				if (eq.isType(Constants.s_CUSTOM)) {
+				if (eq.isType(Constants.s_CUSTOM))
+				{
 					addChild(Constants.s_CUSTOMSOURCE, sourceRoot, true);
 				}
 
@@ -3680,33 +4020,40 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			//Add Equipment
 			int length = rootAsPObjectNode.getChildCount(); // seperated out for performance reasons
-			for (int i = 0; i < length; i++) {
+			for (int i = 0; i < length; i++)
+			{
 				if (sourceString == null)
 				{
 					Logging.errorPrint("Gear " + eq.getName()
 						+ " has no source long entry.");
 				}
-				else if (sourceString.equals(rootAsPObjectNode.getChild(i).toString())) {
+				else if (sourceString.equals(rootAsPObjectNode.getChild(i)
+					.toString()))
+				{
 					addChild(eq, rootAsPObjectNode.getChild(i), fireEvent);
 				}
 			}
 		}
 
-		private boolean addChild(Object aChild, Object aParent, boolean sort) {
+		private boolean addChild(Object aChild, Object aParent, boolean sort)
+		{
 			PObjectNode aFN = new PObjectNode();
 			aFN.setItem(aChild);
 			aFN.setParent((PObjectNode) aParent);
 
-			if (aChild instanceof Equipment) {
+			if (aChild instanceof Equipment)
+			{
 				Equipment eq = (Equipment) aChild;
-				PrereqHandler.passesAll( eq.getPreReqList(), pc, eq);
+				PrereqHandler.passesAll(eq.getPreReqList(), pc, eq);
 			}
 
 			return ((PObjectNode) aParent).addChild(aFN, sort);
 		}
 
-		private void removeItemFromNodes(PObjectNode p, Object e) {
-			if (p == null) {
+		private void removeItemFromNodes(PObjectNode p, Object e)
+		{
+			if (p == null)
+			{
 				p = (PObjectNode) super.getRoot();
 			}
 			p.removeItemFromNodes(e);
@@ -3717,16 +4064,16 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param mode
 		 * @param available
 		 */
-		private void resetModel(int mode, boolean available) 
+		private void resetModel(int mode, boolean available)
 		{
 			Collection<Equipment> eqList;
 
 			//TODO (DJ) Equipment fix, make this more efficient
-			if (available) 
+			if (available)
 			{
 				eqList = EquipmentList.getEquipmentList();
 			}
-			else 
+			else
 			{
 				eqList = pc.getEquipmentMasterList();
 			}
@@ -3734,9 +4081,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			currentMode = mode;
 			String qFilter = this.getQFilter();
 
-			switch (mode) {
+			switch (mode)
+			{
 				case GuiConstants.INFOINVENTORY_VIEW_TYPE_SUBTYPE_NAME: // Type/SubType/Name
-					setRoot((PObjectNode) ((PObjectNode) typeSubtypeRoot).clone());
+					setRoot((PObjectNode) ((PObjectNode) typeSubtypeRoot)
+						.clone());
 					break;
 
 				case GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME: // Type/Name
@@ -3756,15 +4105,17 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 					break;
 
 				default:
-					Logging.errorPrint("In InfoGear.EquipmentModel.resetModel the mode " + mode + " is not supported.");
+					Logging
+						.errorPrint("In InfoGear.EquipmentModel.resetModel the mode "
+							+ mode + " is not supported.");
 					break;
 			}
 
-			for (Equipment aEq : eqList) 
+			for (Equipment aEq : eqList)
 			{
-				if (qFilter == null ||
-						( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 ||
-						  aEq.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+				if (qFilter == null
+					|| (aEq.getName().toLowerCase().indexOf(qFilter) >= 0 || aEq
+						.getType().toLowerCase().indexOf(qFilter) >= 0))
 				{
 					addItemToModel(aEq, false);
 				}
@@ -3772,8 +4123,10 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 
 			PObjectNode rootAsmyPONode = (PObjectNode) super.getRoot();
 
-			if (rootAsmyPONode.getChildCount() > 0) {
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+			if (rootAsmyPONode.getChildCount() > 0)
+			{
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 
@@ -3786,16 +4139,19 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		 * @param equip
 		 * @return true if should be displayed
 		 */
-		private boolean shouldDisplayThis(Equipment equip) {
-			if (modelType == MODEL_TYPE_AVAIL) {
+		private boolean shouldDisplayThis(Equipment equip)
+		{
+			if (modelType == MODEL_TYPE_AVAIL)
+			{
 				return accept(pc, equip);
 			}
 			return true;
 		}
+
 		public List<String> getMColumnList()
 		{
 			List<String> retList = new ArrayList<String>();
-			for(int i = 1; i < names.length; i++) 
+			for (int i = 1; i < names.length; i++)
 			{
 				retList.add(names[i]);
 			}
@@ -3809,7 +4165,7 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 		public List<String> getMColumnAlignList()
 		{
 			List<String> retAlignList = new ArrayList<String>();
-			for(int i = 1; i < names.length; i++) 
+			for (int i = 1; i < names.length; i++)
 			{
 				retAlignList.add(names[i]);
 			}
@@ -3832,45 +4188,52 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) 
+		public int getMColumnDefaultWidth(int col)
 		{
-			return SettingsHandler.getPCGenOption("InfoGear.sizecol." + names[col], widths[col]);
+			return SettingsHandler.getPCGenOption("InfoGear.sizecol."
+				+ names[col], widths[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) 
+		public void setMColumnDefaultWidth(int col, int width)
 		{
-			SettingsHandler.setPCGenOption("InfoGear.sizecol." + names[col], width);
+			SettingsHandler.setPCGenOption("InfoGear.sizecol." + names[col],
+				width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
 		{
-			return SettingsHandler.getPCGenOption("InfoGear.viewcol." + colName, defaultVal);
+			return SettingsHandler.getPCGenOption(
+				"InfoGear.viewcol." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) 
+		private void setColumnViewOption(String colName, boolean val)
 		{
 			SettingsHandler.setPCGenOption("InfoGear.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) 
+		public void resetMColumn(int col, TableColumn column)
 		{
-			switch(col)
+			switch (col)
 			{
 				case COL_COST:
 				case COL_WEIGHT:
 				case COL_QTY:
-					column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+					column
+						.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
+							SwingConstants.CENTER));
 					break;
 
 				default:
 					break;
 			}
 		}
-}
+	}
 
-	private static final class QuantityEditor extends JTextField implements TableCellEditor
+	private static final class QuantityEditor extends JTextField implements
+			TableCellEditor
 	{
-		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
+		private final transient List<CellEditorListener> d_listeners =
+				new ArrayList<CellEditorListener>();
 		private transient String d_originalValue = "";
 
 		private QuantityEditor()
@@ -3896,9 +4259,11 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			}
 		}
 
-		public Component getTableCellEditorComponent(JTable jTable, Object obj, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable jTable, Object obj,
+			boolean isSelected, int row, int column)
 		{
-			if (obj instanceof Number && (((Number) obj).intValue() == ((Number) obj).floatValue()))
+			if (obj instanceof Number
+				&& (((Number) obj).intValue() == ((Number) obj).floatValue()))
 			{
 				setText(Integer.toString(((Number) obj).intValue()));
 			}
@@ -3933,7 +4298,8 @@ public final class InfoGear extends FilterAdapterPanel implements CharacterInfoT
 			fireEditingCanceled();
 		}
 
-		public void removeCellEditorListener(CellEditorListener cellEditorListener)
+		public void removeCellEditorListener(
+			CellEditorListener cellEditorListener)
 		{
 			d_listeners.remove(cellEditorListener);
 		}

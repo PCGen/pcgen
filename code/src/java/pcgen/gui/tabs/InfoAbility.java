@@ -81,16 +81,17 @@ import pcgen.util.enumeration.Tab;
  * 
  * @version $Revision$
  */
-public final class InfoAbility extends BaseCharacterInfoTab implements IAbilitySelectionListener
+public final class InfoAbility extends BaseCharacterInfoTab implements
+		IAbilitySelectionListener
 {
 	private static final Tab tab = Tab.ABILITIES;
-	
-	private static final String NO_QUALIFY_MESSAGE = PropertyFactory.getString(
-				"InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
-	private static final String DUPLICATE_MESSAGE  = PropertyFactory.getString(
-				"InfoAbility.Messages.Duplicate"); //$NON-NLS-1$
-	private static String POOL_FULL_MESSAGE  = PropertyFactory.getString(
-				"InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
+
+	private static final String NO_QUALIFY_MESSAGE =
+			PropertyFactory.getString("InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
+	private static final String DUPLICATE_MESSAGE =
+			PropertyFactory.getString("InfoAbility.Messages.Duplicate"); //$NON-NLS-1$
+	private static String POOL_FULL_MESSAGE =
+			PropertyFactory.getString("InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 
 	private static final int ABILITY_OK = 0;
@@ -109,12 +110,12 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	private FlippingSplitPane splitTopBot = null;
 	private FlippingSplitPane splitTopLeftRight = null;
 	private JCheckBox chkViewAll = new JCheckBox();
-	
+
 	/** This flag is used to signal that we have set the divider locations */
 	private boolean hasBeenSized = false;
 
 	private String theOptionKey = "InfoAbility."; //$NON-NLS-1$
-	
+
 	/**
 	 * Constructor
 	 * 
@@ -126,17 +127,17 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		super(pc);
 		theCategory = aCategory;
 		theOptionKey += theCategory.getKeyName();
-		
+
 		setName(theCategory.getPluralName());
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initActionListeners();
-				}
-			});
+				initComponents();
+				initActionListeners();
+			}
+		});
 	}
 
 	/**
@@ -175,17 +176,20 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	public List<String> getToDos()
 	{
 		List<String> toDoList = new ArrayList<String>();
-		if ( getPc() != null )
+		if (getPc() != null)
 		{
-			final BigDecimal pool = getPc().getAvailableAbilityPool(theCategory);
+			final BigDecimal pool =
+					getPc().getAvailableAbilityPool(theCategory);
 			final int dir = pool.compareTo(BigDecimal.ZERO);
-			if ( dir > 0 )
+			if (dir > 0)
 			{
-				toDoList.add(PropertyFactory.getFormattedString("in_featTodoRemain", theCategory.getPluralName())); //$NON-NLS-1$
+				toDoList.add(PropertyFactory.getFormattedString(
+					"in_featTodoRemain", theCategory.getPluralName())); //$NON-NLS-1$
 			}
-			else if ( dir < 0 )
+			else if (dir < 0)
 			{
-				toDoList.add(PropertyFactory.getFormattedString("in_featTodoTooMany", theCategory.getPluralName())); //$NON-NLS-1$
+				toDoList.add(PropertyFactory.getFormattedString(
+					"in_featTodoTooMany", theCategory.getPluralName())); //$NON-NLS-1$
 			}
 		}
 
@@ -261,7 +265,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	private int checkAbilityQualify(final Ability anAbility)
 	{
 		final PlayerCharacter pc = getPc();
-		
+
 		final String aKey = anAbility.getKeyName();
 		Ability ability = pc.getAbilityKeyed(theCategory, aKey);
 
@@ -275,10 +279,9 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		if (!pcHasIt)
 		{
 			ability = Globals.getAbilityKeyed(theCategory, aKey);
-			if (
-				ability != null &&
-				!PrereqHandler.passesAll( ability.getPreReqList(), pc, ability ) &&
-				!Globals.checkRule(RuleConstants.FEATPRE))
+			if (ability != null
+				&& !PrereqHandler.passesAll(ability.getPreReqList(), pc,
+					ability) && !Globals.checkRule(RuleConstants.FEATPRE))
 			{
 				return ABILITY_NOT_QUALIFIED;
 			}
@@ -287,7 +290,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		if ((ability != null))
 		{
 			final BigDecimal cost = BigDecimal.valueOf(ability.getCost(pc));
-			if ( cost.compareTo(pc.getAvailableAbilityPool(theCategory)) > 0 )
+			if (cost.compareTo(pc.getAvailableAbilityPool(theCategory)) > 0)
 			{
 				return ABILITY_FULL;
 			}
@@ -303,48 +306,54 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	{
 		requestFocus();
 
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString(
-					"InfoAbility.StatusLine.Info")); //$NON-NLS-1$
-	
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+			.getString("InfoAbility.StatusLine.Info")); //$NON-NLS-1$
+
 		//TODO: These setPC	calls may no longer be required now that they are also done in updateCharacterInfo
-		if ( theAvailablePane != null )
+		if (theAvailablePane != null)
 		{
 			theAvailablePane.setPC(getPc());
 		}
-		if ( theSelectedPane != null )
+		if (theSelectedPane != null)
 		{
 			theSelectedPane.setPC(getPc());
 		}
-		if ( theInfoPanel != null )
+		if (theInfoPanel != null)
 		{
 			theInfoPanel.setPC(getPc());
 		}
-		if ( thePoolPanel != null )
+		if (thePoolPanel != null)
 		{
 			thePoolPanel.setPC(getPc());
 		}
-		
+
 		refresh();
 
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
-			if ( splitTopLeftRight != null )
+			if (splitTopLeftRight != null)
 			{
-				final int s = SettingsHandler.getPCGenOption(theOptionKey + ".splitTopLeftRight", //$NON-NLS-1$
-						(int) ((this.getSize().getWidth() * 6) / 10));
+				final int s =
+						SettingsHandler.getPCGenOption(theOptionKey
+							+ ".splitTopLeftRight", //$NON-NLS-1$
+							(int) ((this.getSize().getWidth() * 6) / 10));
 				splitTopLeftRight.setDividerLocation(s);
 			}
-			if ( splitTopBot != null )
+			if (splitTopBot != null)
 			{
-				final int t = SettingsHandler.getPCGenOption(theOptionKey + ".splitTopBot",  //$NON-NLS-1$
-						(int) ((this.getSize().getHeight() * 75) / 100));
+				final int t =
+						SettingsHandler.getPCGenOption(theOptionKey
+							+ ".splitTopBot", //$NON-NLS-1$
+							(int) ((this.getSize().getHeight() * 75) / 100));
 				splitTopBot.setDividerLocation(t);
 			}
-			if ( splitBotLeftRight != null )
+			if (splitBotLeftRight != null)
 			{
-				final int u = SettingsHandler.getPCGenOption(theOptionKey + ".splitBotLeftRight", //$NON-NLS-1$
-						(int) ((this.getSize().getWidth() * 6) / 10));
+				final int u =
+						SettingsHandler.getPCGenOption(theOptionKey
+							+ ".splitBotLeftRight", //$NON-NLS-1$
+							(int) ((this.getSize().getWidth() * 6) / 10));
 				splitBotLeftRight.setDividerLocation(u);
 			}
 		}
@@ -353,20 +362,22 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	private void initActionListeners()
 	{
 		chkViewAll.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(@SuppressWarnings("unused")
+			ActionEvent evt)
 			{
-				public void actionPerformed(@SuppressWarnings("unused")ActionEvent evt)
-				{
-					chkViewAllActionPerformed();
-				}
-			});
+				chkViewAllActionPerformed();
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			@Override
+			public void componentShown(@SuppressWarnings("unused")
+			ComponentEvent evt)
 			{
-				@Override
-				public void componentShown(@SuppressWarnings("unused")ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
+				formComponentShown();
+			}
+		});
 
 		FilterFactory.restoreFilterSettings(this);
 	}
@@ -375,7 +386,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	{
 		if (Globals.getGameModeHasPointPool())
 		{
-//			FEAT_FULL_MESSAGE  = "You do not have enough remaining " + Globals.getGameModePointPoolName() + " to select this " + getSingularTabName() + ".";
+			//			FEAT_FULL_MESSAGE  = "You do not have enough remaining " + Globals.getGameModePointPoolName() + " to select this " + getSingularTabName() + ".";
 		}
 
 		final JPanel topPane = new JPanel();
@@ -384,7 +395,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		//-------------------------------------------------------------
 		// Top Pane - Left Available, Right Selected
 		//
-		if ( theCategory.isEditable() )
+		if (theCategory.isEditable())
 		{
 			theAvailablePane = new AvailableAbilityPanel(getPc(), theCategory);
 			theAvailablePane.addAbilitySelectionListener(this);
@@ -392,21 +403,27 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		theSelectedPane = new SelectedAbilityPanel(getPc(), theCategory);
 		theSelectedPane.addAbilitySelectionListener(this);
 
-		if ( theCategory.isEditable() )
+		if (theCategory.isEditable())
 		{
-			splitTopLeftRight = new FlippingSplitPane(splitOrientation, theAvailablePane, theSelectedPane);
+			splitTopLeftRight =
+					new FlippingSplitPane(splitOrientation, theAvailablePane,
+						theSelectedPane);
 			splitTopLeftRight.setOneTouchExpandable(true);
 			splitTopLeftRight.setDividerSize(10);
 			// Register a listener so that we can save the location each time it
 			// changes.
-			splitTopLeftRight.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener() {
-				public void propertyChange(PropertyChangeEvent anEvt)
+			splitTopLeftRight.addPropertyChangeListener(
+				JSplitPane.DIVIDER_LOCATION_PROPERTY,
+				new PropertyChangeListener()
 				{
-					SettingsHandler.setPCGenOption(theOptionKey + ".splitTopLeftRight", //$NON-NLS-1$ 
-									anEvt.getNewValue().toString());
-				}
-			});
-	
+					public void propertyChange(PropertyChangeEvent anEvt)
+					{
+						SettingsHandler.setPCGenOption(theOptionKey
+							+ ".splitTopLeftRight", //$NON-NLS-1$ 
+							anEvt.getNewValue().toString());
+					}
+				});
+
 			topPane.add(splitTopLeftRight, BorderLayout.CENTER);
 		}
 		else
@@ -420,26 +437,35 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		final JPanel botPane = new JPanel();
 		botPane.setLayout(new BorderLayout());
 
-		theInfoPanel = new AbilityInfoPanel(getPc(), PropertyFactory.getFormattedString("InfoAbility.Title", theCategory.getDisplayName())); //$NON-NLS-1$
-		if ( theCategory.isEditable() )
+		theInfoPanel =
+				new AbilityInfoPanel(getPc(), PropertyFactory
+					.getFormattedString(
+						"InfoAbility.Title", theCategory.getDisplayName())); //$NON-NLS-1$
+		if (theCategory.isEditable())
 		{
 			thePoolPanel = new AbilityPoolPanel(getPc(), theCategory);
 
-			splitBotLeftRight = new FlippingSplitPane(splitOrientation, theInfoPanel, thePoolPanel);
-		
+			splitBotLeftRight =
+					new FlippingSplitPane(splitOrientation, theInfoPanel,
+						thePoolPanel);
+
 			splitBotLeftRight.setOneTouchExpandable(true);
-		
+
 			splitBotLeftRight.setDividerSize(10);
 			// Register a listener so that we can save the location each time it
 			// changes.
-			splitBotLeftRight.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener() {
-				public void propertyChange(PropertyChangeEvent anEvt)
+			splitBotLeftRight.addPropertyChangeListener(
+				JSplitPane.DIVIDER_LOCATION_PROPERTY,
+				new PropertyChangeListener()
 				{
-					SettingsHandler.setPCGenOption(theOptionKey + ".splitBotLeftRight", //$NON-NLS-1$ 
-									anEvt.getNewValue().toString());
-				}
-			});
-	
+					public void propertyChange(PropertyChangeEvent anEvt)
+					{
+						SettingsHandler.setPCGenOption(theOptionKey
+							+ ".splitBotLeftRight", //$NON-NLS-1$ 
+							anEvt.getNewValue().toString());
+					}
+				});
+
 			botPane.add(splitBotLeftRight, BorderLayout.CENTER);
 		}
 		else
@@ -449,36 +475,41 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 		//----------------------------------------------------------------------
 		// Split Top and Bottom
-		splitTopBot = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
+		splitTopBot =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		splitTopBot.setOneTouchExpandable(true);
 		splitTopBot.setDividerSize(10);
 		// Register a listener so that we can save the location each time it
 		// changes.
-		splitTopBot.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent anEvt)
+		splitTopBot.addPropertyChangeListener(
+			JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener()
 			{
-				SettingsHandler.setPCGenOption(theOptionKey + ".splitTopBot", //$NON-NLS-1$ 
-								anEvt.getNewValue().toString());
-			}
-		});
+				public void propertyChange(PropertyChangeEvent anEvt)
+				{
+					SettingsHandler.setPCGenOption(theOptionKey
+						+ ".splitTopBot", //$NON-NLS-1$ 
+						anEvt.getNewValue().toString());
+				}
+			});
 
 		this.setLayout(new BorderLayout());
 		this.add(splitTopBot, BorderLayout.CENTER);
 
 		addFocusListener(new FocusAdapter()
+		{
+			@Override
+			public void focusGained(@SuppressWarnings("unused")
+			FocusEvent evt)
 			{
-				@Override
-				public void focusGained(@SuppressWarnings("unused")
-				FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
 	private void updateAvailableModel()
 	{
-		if ( theAvailablePane != null )
+		if (theAvailablePane != null)
 		{
 			theAvailablePane.setPC(getPc());
 			theAvailablePane.update();
@@ -503,22 +534,22 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		}
 
 		getPc().setAggregateAbilitiesStable(theCategory, false);
-		if ( theCategory == AbilityCategory.FEAT )
+		if (theCategory == AbilityCategory.FEAT)
 		{
 			// Called for side effects
 			getPc().aggregateFeatList();
 		}
 
-		if ( theInfoPanel != null )
+		if (theInfoPanel != null)
 		{
 			theInfoPanel.setPC(getPc());
 			theInfoPanel.setAbility(null);
 		}
-		
+
 		updateAvailableModel();
 		updateSelectedModel();
 
-		if ( thePoolPanel != null )
+		if (thePoolPanel != null)
 		{
 			thePoolPanel.setPC(getPc());
 			thePoolPanel.showRemainingAbilityPoints();
@@ -528,7 +559,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 	private void updateSelectedModel()
 	{
-		if ( theSelectedPane != null )
+		if (theSelectedPane != null)
 		{
 			theSelectedPane.setPC(getPc());
 			theSelectedPane.update();
@@ -557,7 +588,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 	{
 		return theCategory.getPluralName();
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.ability.IAbilitySelectionListener#abilitySelected(pcgen.core.Ability)
 	 */
@@ -580,17 +611,20 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		switch (aq)
 		{
 			case ABILITY_NOT_QUALIFIED:
-				ShowMessageDelegate.showMessageDialog(NO_QUALIFY_MESSAGE, Constants.s_APPNAME, MessageType.INFORMATION);
+				ShowMessageDelegate.showMessageDialog(NO_QUALIFY_MESSAGE,
+					Constants.s_APPNAME, MessageType.INFORMATION);
 
 				return false;
 
 			case ABILITY_DUPLICATE:
-				ShowMessageDelegate.showMessageDialog(DUPLICATE_MESSAGE, Constants.s_APPNAME, MessageType.INFORMATION);
+				ShowMessageDelegate.showMessageDialog(DUPLICATE_MESSAGE,
+					Constants.s_APPNAME, MessageType.INFORMATION);
 
 				return false;
 
 			case ABILITY_FULL:
-				ShowMessageDelegate.showMessageDialog(POOL_FULL_MESSAGE, Constants.s_APPNAME, MessageType.INFORMATION);
+				ShowMessageDelegate.showMessageDialog(POOL_FULL_MESSAGE,
+					Constants.s_APPNAME, MessageType.INFORMATION);
 
 				return false;
 
@@ -600,8 +634,10 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 				break;
 
 			default:
-				Logging.debugPrint(theCategory.getDisplayName() + " " + anAbility.getDisplayName() + " is somehow in state " + aq //$NON-NLS-1$ //$NON-NLS-2$
-					+ " which is not handled in InfoAbility.addAbility()"); //$NON-NLS-1$
+				Logging
+					.debugPrint(theCategory.getDisplayName()
+						+ " " + anAbility.getDisplayName() + " is somehow in state " + aq //$NON-NLS-1$ //$NON-NLS-2$
+						+ " which is not handled in InfoAbility.addAbility()"); //$NON-NLS-1$
 
 				break;
 		}
@@ -611,18 +647,21 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		{
 			getPc().setDirty(true);
 
-			if ( theCategory == AbilityCategory.FEAT )
+			if (theCategory == AbilityCategory.FEAT)
 			{
-				AbilityUtilities.modFeat(getPc(), null, anAbility.getKeyName(), true, false);
+				AbilityUtilities.modFeat(getPc(), null, anAbility.getKeyName(),
+					true, false);
 			}
 			else
 			{
-				getPc().addAbility(null, theCategory, anAbility.getKeyName(), true, false);
+				getPc().addAbility(null, theCategory, anAbility.getKeyName(),
+					true, false);
 			}
 		}
 		catch (Exception exc)
 		{
-			ShowMessageDelegate.showMessageDialog("Add Ability: " + exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Add Ability: "
+				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
 		}
 
 		// update the skills tab, as feats could effect totals
@@ -638,8 +677,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		updateSelectedModel();
 
 		// TODO - Make sure this is handled elsewhere.
-//		setAddEnabled(false);
-		
+		//		setAddEnabled(false);
+
 		getPc().calcActiveBonuses();
 
 		thePoolPanel.showRemainingAbilityPoints();
@@ -655,20 +694,23 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 		{
 			getPc().setDirty(true);
 
-			if ( theCategory == AbilityCategory.FEAT )
+			if (theCategory == AbilityCategory.FEAT)
 			{
-				AbilityUtilities.modFeat(getPc(), null, anAbility.getKeyName(), false, false);
+				AbilityUtilities.modFeat(getPc(), null, anAbility.getKeyName(),
+					false, false);
 			}
 			else
 			{
 				// TODO - ABILITYOBJECT - This won't work
 				// TODO - ABILITYOBJECT - getPc().removeAbility(theCategory, anAbility);
-				AbilityUtilities.modAbility(getPc(), null, anAbility, null, false);
+				AbilityUtilities.modAbility(getPc(), null, anAbility, null,
+					false);
 			}
 		}
 		catch (Exception exc)
 		{
-			ShowMessageDelegate.showMessageDialog("Remove Ability: " + exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Remove Ability: "
+				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
 			return false;
 		}
 
@@ -682,14 +724,14 @@ public final class InfoAbility extends BaseCharacterInfoTab implements IAbilityS
 
 		// Called for side effects
 		getPc().aggregateFeatList();
-		
+
 		updateAvailableModel();
 		updateSelectedModel();
 
 		getPc().calcActiveBonuses();
 		thePoolPanel.showRemainingAbilityPoints();
 		// TODO - Make sure this is handled by the removal
-//		setRemoveEnabled(false);
+		//		setRemoveEnabled(false);
 		return true;
 	}
 }

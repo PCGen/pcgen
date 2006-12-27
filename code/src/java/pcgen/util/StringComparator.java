@@ -36,13 +36,14 @@ public final class StringComparator implements Comparator
 	/** Constructs a <code>StringComparator</code>. */
 	public StringComparator()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	/** {@inheritDoc} */
 	public int compare(Object o1, Object o2)
 	{
 		// Treat null as the empty string.
-		return ((o1 == null) ? "" : o1.toString()).compareTo((o2 == null) ? "" : o2.toString());
+		return ((o1 == null) ? "" : o1.toString()).compareTo((o2 == null) ? ""
+			: o2.toString());
 	}
 }

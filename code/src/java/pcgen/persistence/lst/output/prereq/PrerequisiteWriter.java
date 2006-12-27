@@ -37,13 +37,18 @@ import java.io.Writer;
 
 public class PrerequisiteWriter
 {
-	public void write(Writer stringWriter, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer stringWriter, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
-		PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
-		PrerequisiteWriterInterface writer = factory.getWriter(prereq.getKind());
+		PrerequisiteWriterFactory factory =
+				PrerequisiteWriterFactory.getInstance();
+		PrerequisiteWriterInterface writer =
+				factory.getWriter(prereq.getKind());
 		if (writer == null)
 		{
-			throw new PersistenceLayerException("Can not find a Writer for prerequisites fo kind: " + prereq.getKind());
+			throw new PersistenceLayerException(
+				"Can not find a Writer for prerequisites fo kind: "
+					+ prereq.getKind());
 		}
 		writer.write(stringWriter, prereq);
 	}

@@ -58,7 +58,8 @@ public final class Hyperactive implements HyperlinkListener
 				}
 				catch (Throwable t)
 				{
-					Logging.errorPrint("Exception in Hyperactive::hyperlinkUpdate", t);
+					Logging.errorPrint(
+						"Exception in Hyperactive::hyperlinkUpdate", t);
 				}
 			}
 		}

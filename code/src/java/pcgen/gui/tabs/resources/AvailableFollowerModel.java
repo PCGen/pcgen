@@ -36,7 +36,8 @@ import pcgen.util.PropertyFactory;
  *  Leafs are like files and non-leafs are like directories.
  *  The leafs contain an Object that we want to know about (Equipment)
  **/
-public final class AvailableFollowerModel extends AbstractTreeTableModel implements TableColumnManagerModel
+public final class AvailableFollowerModel extends AbstractTreeTableModel
+		implements TableColumnManagerModel
 {
 	// column positions for Famliar tables
 	// if you change these, you also have to change
@@ -60,18 +61,19 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	private PObjectNode avaRoot;
 
 	// list of columns names
-	private String[] avaNameList = new String[] {
-			PropertyFactory.getString("in_typeName"), //$NON-NLS-1$
-			PropertyFactory.getString("in_size"), //$NON-NLS-1$
-			PropertyFactory.getString("in_speed"), //$NON-NLS-1$
-			PropertyFactory.getString("in_vision"), //$NON-NLS-1$
-			PropertyFactory.getString("in_alignLabel"), //$NON-NLS-1$
-			PropertyFactory.getString("in_typeRace"), //$NON-NLS-1$
-			PropertyFactory.getString("in_source"), //$NON-NLS-1$
-			PropertyFactory.getString("in_adjustment") //$NON-NLS-1$
-	};
+	private String[] avaNameList =
+			new String[]{PropertyFactory.getString("in_typeName"), //$NON-NLS-1$
+				PropertyFactory.getString("in_size"), //$NON-NLS-1$
+				PropertyFactory.getString("in_speed"), //$NON-NLS-1$
+				PropertyFactory.getString("in_vision"), //$NON-NLS-1$
+				PropertyFactory.getString("in_alignLabel"), //$NON-NLS-1$
+				PropertyFactory.getString("in_typeRace"), //$NON-NLS-1$
+				PropertyFactory.getString("in_source"), //$NON-NLS-1$
+				PropertyFactory.getString("in_adjustment") //$NON-NLS-1$
+			};
 
-	private final int[] avaDefaultWidth = { 200, 100, 100, 100, 100, 100, 100, 100 };
+	private final int[] avaDefaultWidth =
+			{200, 100, 100, 100, 100, 100, 100, 100};
 
 	private PlayerCharacter pc;
 
@@ -97,13 +99,20 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 		int i = 1;
 		displayList = new ArrayList<Boolean>();
 		displayList.add(Boolean.TRUE);
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(avaNameList[i++],
+			true)));
 	}
 
 	/**
@@ -165,7 +174,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * Set pc
 	 * @param aPC The PlayerCharacter this model is associated with
 	 */
-	public void setCharacter(final PlayerCharacter aPC) {
+	public void setCharacter(final PlayerCharacter aPC)
+	{
 		this.pc = aPC;
 	}
 
@@ -183,15 +193,17 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 
 		if (fn == null)
 		{
-			Logging.errorPrintLocalised("Errors.TreeTableModel.NoActiveNode", this.getClass().toString()); //$NON-NLS-1$
+			Logging
+				.errorPrintLocalised(
+					"Errors.TreeTableModel.NoActiveNode", this.getClass().toString()); //$NON-NLS-1$
 
 			return null;
 		}
 
 		FollowerOption option = null;
-		if ( fn.getItem() instanceof FollowerOption )
+		if (fn.getItem() instanceof FollowerOption)
 		{
-			option = (FollowerOption)fn.getItem();
+			option = (FollowerOption) fn.getItem();
 			race = option.getRace();
 		}
 		else if (fn.getItem() instanceof Race)
@@ -236,7 +248,8 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 				 * race null, return null That's inconsistent and should
 				 * probably be cleaned up...
 				 */
-				if (race.getMovement() != null) {
+				if (race.getMovement() != null)
+				{
 					sRet = race.getMovement().toString();
 				}
 
@@ -279,15 +292,15 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 				break;
 
 			case COL_ADJUSTMENT:
-				if ( option != null )
+				if (option != null)
 				{
 					return String.valueOf(option.getAdjustment());
 				}
 				break;
-				
+
 			default:
-				Logging.errorPrintLocalised("Errors.FollowerModel", column,  //$NON-NLS-1$
-						this.getClass().toString() );
+				Logging.errorPrintLocalised("Errors.FollowerModel", column, //$NON-NLS-1$
+					this.getClass().toString());
 
 				break;
 		}
@@ -321,94 +334,106 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 *
 	 * @param viewMode
 	 */
-	public void resetModel( final int viewMode )
+	public void resetModel(final int viewMode)
 	{
 		avaRoot = new PObjectNode();
 		setRoot(avaRoot);
 		final String qFilter = this.getQFilter();
 
-		for ( String compType : Globals.getFollowerTypes() )
+		for (String compType : Globals.getFollowerTypes())
 		{
 			// Check if we have a number set for this type
-			final int maxVal = pc.getMaxFollowers( compType );
-			if ( maxVal != 0 )
+			final int maxVal = pc.getMaxFollowers(compType);
+			if (maxVal != 0)
 			{
 				final PObjectNode node = new PObjectNode();
-				node.setDisplayName( CoreUtility.capitalizeFirstLetter( compType ) );
-				avaRoot.addChild( node );
-				
-				final List<FollowerOption> followers = pc.getAvailableFollowers( compType );
-				switch ( viewMode )
+				node
+					.setDisplayName(CoreUtility.capitalizeFirstLetter(compType));
+				avaRoot.addChild(node);
+
+				final List<FollowerOption> followers =
+						pc.getAvailableFollowers(compType);
+				switch (viewMode)
 				{
 					case VIEW_NAME:
-					default:
-					{
-						Collections.sort( followers );
+					default: {
+						Collections.sort(followers);
 						break;
 					}
-					case VIEW_ADJUSTMENT:
-					{
-						Collections.sort(followers, new Comparator<FollowerOption>() {
-							public int compare( final FollowerOption anO1, final FollowerOption anO2 )
+					case VIEW_ADJUSTMENT: {
+						Collections.sort(followers,
+							new Comparator<FollowerOption>()
 							{
-								final int diff = anO2.getAdjustment() - anO1.getAdjustment();
-								if ( diff == 0 )
+								public int compare(final FollowerOption anO1,
+									final FollowerOption anO2)
 								{
-									return anO1.compareTo( anO2 );
+									final int diff =
+											anO2.getAdjustment()
+												- anO1.getAdjustment();
+									if (diff == 0)
+									{
+										return anO1.compareTo(anO2);
+									}
+									return diff;
 								}
-								return diff;
-							}
-						});
+							});
 						break;
 					}
-					case VIEW_RACETYPE:
-					{
-						Collections.sort( followers, new Comparator<FollowerOption>() {
-							public int compare( final FollowerOption anO1, final FollowerOption anO2 )
+					case VIEW_RACETYPE: {
+						Collections.sort(followers,
+							new Comparator<FollowerOption>()
 							{
-								final Race r1 = anO1.getRace();
-								final Race r2 = anO2.getRace();
-								if ( r1 == null )
+								public int compare(final FollowerOption anO1,
+									final FollowerOption anO2)
 								{
-									return 1;
+									final Race r1 = anO1.getRace();
+									final Race r2 = anO2.getRace();
+									if (r1 == null)
+									{
+										return 1;
+									}
+									if (r2 == null)
+									{
+										return -1;
+									}
+									final Collator col = Collator.getInstance();
+									final int diff =
+											col.compare(r1.getRaceType(), r2
+												.getRaceType());
+									if (diff == 0)
+									{
+										return anO1.compareTo(anO2);
+									}
+									return diff;
 								}
-								if ( r2 == null )
-								{
-									return -1;
-								}
-								final Collator col = Collator.getInstance();
-								final int diff = col.compare( r1.getRaceType(), r2.getRaceType() );
-								if ( diff == 0 )
-								{
-									return anO1.compareTo( anO2 );
-								}
-								return diff;
-							}
-						});
+							});
 						break;
 					}
 				}
-				for ( final FollowerOption follower : followers )
+				for (final FollowerOption follower : followers)
 				{
-					if ( qFilter == null || (qFilter != null && 
-						follower.getRace().getDisplayName().toLowerCase().indexOf(qFilter) >= 0) )
+					if (qFilter == null
+						|| (qFilter != null && follower.getRace()
+							.getDisplayName().toLowerCase().indexOf(qFilter) >= 0))
 					{
-						final PObjectNode fol = new PObjectNode( follower );
+						final PObjectNode fol = new PObjectNode(follower);
 						final StringBuffer buf = new StringBuffer();
-						final boolean qual = follower.qualifies( pc );
-						if ( !qual )
+						final boolean qual = follower.qualifies(pc);
+						if (!qual)
 						{
-							buf.append( HTMLUtils.HTML );
-							buf.append(SettingsHandler.getPrereqFailColorAsHtmlStart());
+							buf.append(HTMLUtils.HTML);
+							buf.append(SettingsHandler
+								.getPrereqFailColorAsHtmlStart());
 						}
-						buf.append( follower.getRace().getDisplayName() );
-						if ( !qual )
+						buf.append(follower.getRace().getDisplayName());
+						if (!qual)
 						{
-							buf.append( SettingsHandler.getPrereqFailColorAsHtmlEnd() );
-							buf.append( HTMLUtils.END_HTML );
+							buf.append(SettingsHandler
+								.getPrereqFailColorAsHtmlEnd());
+							buf.append(HTMLUtils.END_HTML);
 						}
-						fol.setDisplayName( buf.toString() );
-						node.addChild( fol );
+						fol.setDisplayName(buf.toString());
+						node.addChild(fol);
 					}
 				}
 			}
@@ -426,10 +451,10 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @return List of column names
 	 * @see pcgen.gui.TableColumnManagerModel#getMColumnList()
 	 */
-	public List<String> getMColumnList() 
+	public List<String> getMColumnList()
 	{
 		List<String> retList = new ArrayList<String>();
-		for(int i = 1; i < avaNameList.length; i++) 
+		for (int i = 1; i < avaNameList.length; i++)
 		{
 			retList.add(avaNameList[i]);
 		}
@@ -442,7 +467,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @return true if the column is visible
 	 * @see pcgen.gui.TableColumnManagerModel#isMColumnDisplayed(int)
 	 */
-	public boolean isMColumnDisplayed(int col) 
+	public boolean isMColumnDisplayed(int col)
 	{
 		return displayList.get(col).booleanValue();
 	}
@@ -453,9 +478,9 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @param disp true if the column should be displayed.
 	 * @see pcgen.gui.TableColumnManagerModel#setMColumnDisplayed(int, boolean)
 	 */
-	public void setMColumnDisplayed(int col, boolean disp) 
+	public void setMColumnDisplayed(int col, boolean disp)
 	{
-		setColumnViewOption( avaNameList[col], disp);
+		setColumnViewOption(avaNameList[col], disp);
 		displayList.set(col, Boolean.valueOf(disp));
 	}
 
@@ -465,7 +490,7 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @return The second column in the table
 	 * @see pcgen.gui.TableColumnManagerModel#getMColumnOffset()
 	 */
-	public int getMColumnOffset() 
+	public int getMColumnOffset()
 	{
 		return 1;
 	}
@@ -476,9 +501,11 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @return The width of the specified column.
 	 * @see pcgen.gui.TableColumnManagerModel#getMColumnDefaultWidth(int)
 	 */
-	public int getMColumnDefaultWidth(int col) 
+	public int getMColumnDefaultWidth(int col)
 	{
-		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], avaDefaultWidth[col]); //$NON-NLS-1$
+		return SettingsHandler
+			.getPCGenOption(
+				"InfoResources.AFollowerModel.sizecol." + avaNameList[col], avaDefaultWidth[col]); //$NON-NLS-1$
 	}
 
 	/**
@@ -488,19 +515,22 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @param width The width to set
 	 * @see pcgen.gui.TableColumnManagerModel#setMColumnDefaultWidth(int, int)
 	 */
-	public void setMColumnDefaultWidth(int col, int width) 
+	public void setMColumnDefaultWidth(int col, int width)
 	{
-		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.sizecol." + avaNameList[col], width); //$NON-NLS-1$
+		SettingsHandler.setPCGenOption(
+			"InfoResources.AFollowerModel.sizecol." + avaNameList[col], width); //$NON-NLS-1$
 	}
 
-	private boolean getColumnViewOption(String colName, boolean defaultVal) 
+	private boolean getColumnViewOption(String colName, boolean defaultVal)
 	{
-		return SettingsHandler.getPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, defaultVal); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			"InfoResources.AFollowerModel.viewcol." + colName, defaultVal); //$NON-NLS-1$
 	}
 
-	private void setColumnViewOption(String colName, boolean val) 
+	private void setColumnViewOption(String colName, boolean val)
 	{
-		SettingsHandler.setPCGenOption("InfoResources.AFollowerModel.viewcol." + colName, val); //$NON-NLS-1$
+		SettingsHandler.setPCGenOption(
+			"InfoResources.AFollowerModel.viewcol." + colName, val); //$NON-NLS-1$
 	}
 
 	/**
@@ -508,8 +538,9 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel impleme
 	 * @param column
 	 * @see pcgen.gui.TableColumnManagerModel#resetMColumn(int, javax.swing.table.TableColumn)
 	 */
-	public void resetMColumn(@SuppressWarnings("unused")int col, 
-			@SuppressWarnings("unused")	TableColumn column) 
+	public void resetMColumn(@SuppressWarnings("unused")
+	int col, @SuppressWarnings("unused")
+	TableColumn column)
 	{
 		// Nothing to do here.
 	}

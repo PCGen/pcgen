@@ -32,7 +32,8 @@ import pcgen.core.PObject;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface EqSizePenaltyLstToken extends LstToken {
+public interface EqSizePenaltyLstToken extends LstToken
+{
 	/**
 	 * @param penalty
 	 * @param value

@@ -52,7 +52,8 @@ public class MovementToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -77,7 +78,8 @@ public class MovementToken extends Token
 
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
-			if (pc.getMovementType(i).toUpperCase().equals(moveType.toUpperCase()))
+			if (pc.getMovementType(i).toUpperCase().equals(
+				moveType.toUpperCase()))
 			{
 				retString = getRateToken(pc, i);
 			}
@@ -109,6 +111,8 @@ public class MovementToken extends Token
 
 	public static String getRateToken(PlayerCharacter pc, int moveNumber)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(pc.movement(moveNumber)) + Globals.getGameModeUnitSet().getDistanceUnit();
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			pc.movement(moveNumber))
+			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 }

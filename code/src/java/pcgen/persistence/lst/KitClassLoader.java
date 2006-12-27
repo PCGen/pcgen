@@ -46,15 +46,16 @@ public class KitClassLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 		KitClass kitClass = null;
 		String className = colToken.nextToken();
 		kitClass = new KitClass(className);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitClassLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitClassLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -78,10 +79,8 @@ public class KitClassLoader
 				LstUtils.deprecationCheck(token, kit, value);
 				if (!token.parse(kitClass, value))
 				{
-					Logging
-							.errorPrint("Error parsing Kit Ability tag "
-									+ kitClass.getObjectName() + ':'
-									+ colString + "\"");
+					Logging.errorPrint("Error parsing Kit Ability tag "
+						+ kitClass.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitClass, colString))
@@ -91,7 +90,7 @@ public class KitClassLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Class info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 		}
 		kit.addObject(kitClass);

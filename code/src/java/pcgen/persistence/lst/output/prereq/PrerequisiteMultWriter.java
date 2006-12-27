@@ -35,7 +35,8 @@ import pcgen.persistence.PersistenceLayerException;
 import java.io.IOException;
 import java.io.Writer;
 
-public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
+		implements PrerequisiteWriterInterface
 {
 	private boolean allSkillTot = false;
 
@@ -52,18 +53,16 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 	 */
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[] {
-				PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT,
-				PrerequisiteOperator.EQ,
-				PrerequisiteOperator.NEQ
-		} ;
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+			PrerequisiteOperator.LT, PrerequisiteOperator.EQ,
+			PrerequisiteOperator.NEQ};
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
-	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 		try
@@ -75,21 +74,23 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			if (prereq.getPrerequisites().size() != 0)
 			{
 				subreq = prereq.getPrerequisites().get(0);
-				final PrerequisiteWriterInterface test = PrerequisiteWriterFactory.getInstance().getWriter(subreq.getKind());
-				if ((test != null) && (test instanceof AbstractPrerequisiteWriter) && ((AbstractPrerequisiteWriter) test).specialCase(writer, prereq))
+				final PrerequisiteWriterInterface test =
+						PrerequisiteWriterFactory.getInstance().getWriter(
+							subreq.getKind());
+				if ((test != null)
+					&& (test instanceof AbstractPrerequisiteWriter)
+					&& ((AbstractPrerequisiteWriter) test).specialCase(writer,
+						prereq))
 				{
 					return;
 				}
 			}
-
 
 			if (isSpecialCase(prereq))
 			{
 				handleSpecialCase(writer, prereq);
 				return;
 			}
-
-
 
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
@@ -100,7 +101,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			int i = 0;
-			for (Prerequisite pre :  prereq.getPrerequisites())
+			for (Prerequisite pre : prereq.getPrerequisites())
 			{
 				if (i > 0)
 				{
@@ -108,8 +109,10 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 				}
 				writer.write('[');
 
-				PrerequisiteWriterFactory factory = PrerequisiteWriterFactory.getInstance();
-				PrerequisiteWriterInterface w = factory.getWriter(pre.getKind());
+				PrerequisiteWriterFactory factory =
+						PrerequisiteWriterFactory.getInstance();
+				PrerequisiteWriterInterface w =
+						factory.getWriter(pre.getKind());
 				if (w != null)
 				{
 					w.write(writer, pre);
@@ -133,7 +136,8 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 	 * @param prereq
 	 * @throws IOException
 	 */
-	private void handleSpecialCase(Writer writer, Prerequisite prereq) throws IOException
+	private void handleSpecialCase(Writer writer, Prerequisite prereq)
+		throws IOException
 	{
 		if (allSkillTot)
 		{
@@ -172,7 +176,8 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			{
 				break;
 			}
-			if (!"skill".equalsIgnoreCase(element.getKind()) || !element.isTotalValues())
+			if (!"skill".equalsIgnoreCase(element.getKind())
+				|| !element.isTotalValues())
 			{
 				allSkillTot = false;
 			}

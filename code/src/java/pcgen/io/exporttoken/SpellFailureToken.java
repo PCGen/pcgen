@@ -47,12 +47,14 @@ public class SpellFailureToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getSpellFailureToken(tokenSource, pc) + "";
 	}
 
-	public static int getSpellFailureToken(String tokenSource, PlayerCharacter pc)
+	public static int getSpellFailureToken(String tokenSource,
+		PlayerCharacter pc)
 	{
 		return pc.modToFromEquipment(tokenSource);
 	}

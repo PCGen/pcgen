@@ -59,7 +59,8 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	private int theSerial = 0;
 	private boolean theReadyForRefreshFlag = false;
 
-	private List<BaseCharacterInfoTab> theSubTabs = new ArrayList<BaseCharacterInfoTab>();
+	private List<BaseCharacterInfoTab> theSubTabs =
+			new ArrayList<BaseCharacterInfoTab>();
 
 	/**
 	 * Default constructor.
@@ -71,9 +72,11 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 		thePC = aPC;
 		setName(getTab().toString());
 
-		addFocusListener(new FocusAdapter()	{
+		addFocusListener(new FocusAdapter()
+		{
 			@Override
-			public void focusGained(@SuppressWarnings("unused")FocusEvent evt) 
+			public void focusGained(@SuppressWarnings("unused")
+			FocusEvent evt)
 			{
 				refresh();
 			}
@@ -92,14 +95,14 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 		add(aTab);
 		setTitleAt(getTabCount() - 1, aTab.getTabName());
 	}
-	
+
 	/**
 	 * @see pcgen.gui.filter.Filterable#getAvailableFilters()
 	 */
 	public List<PObjectFilter> getAvailableFilters()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return null;
 		}
@@ -112,7 +115,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public int getFilterMode()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return FilterConstants.MATCH_ALL;
 		}
@@ -125,7 +128,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public List<PObjectFilter> getRemovedFilters()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return null;
 		}
@@ -138,7 +141,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public List<PObjectFilter> getSelectedFilters()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return null;
 		}
@@ -151,7 +154,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public int getSelectionMode()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return FilterConstants.DISABLED_MODE;
 		}
@@ -164,7 +167,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public void initializeFilters()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind >= 0 && ind < theSubTabs.size() )
+		if (ind >= 0 && ind < theSubTabs.size())
 		{
 			theSubTabs.get(ind).initializeFilters();
 		}
@@ -176,7 +179,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public boolean isMatchAnyEnabled()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return true;
 		}
@@ -189,7 +192,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public boolean isNegateEnabled()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return true;
 		}
@@ -202,7 +205,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public void refreshFiltering()
 	{
 		final int ind = getSelectedIndex();
-		if ( ind >= 0 && ind < theSubTabs.size() )
+		if (ind >= 0 && ind < theSubTabs.size())
 		{
 			theSubTabs.get(ind).refreshFiltering();
 		}
@@ -214,7 +217,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public void setFilterMode(int aMode)
 	{
 		final int ind = getSelectedIndex();
-		if ( ind >= 0 && ind < theSubTabs.size() )
+		if (ind >= 0 && ind < theSubTabs.size())
 		{
 			theSubTabs.get(ind).setFilterMode(aMode);
 		}
@@ -225,16 +228,16 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	 */
 	public void forceRefresh()
 	{
-		if ( theReadyForRefreshFlag == true ) 
+		if (theReadyForRefreshFlag == true)
 		{
 			setNeedsUpdate(true);
 
-			for ( final BaseCharacterInfoTab tab : theSubTabs )
+			for (final BaseCharacterInfoTab tab : theSubTabs)
 			{
 				tab.setPc(thePC);
 			}
 		}
-		else 
+		else
 		{
 			theSerial = 0;
 		}
@@ -244,14 +247,13 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	 * Sets the needsUpdate flag for Race and Tempalte tabs
 	 * @param update <tt>true</tt> to mark all the subtabs dirty.
 	 */
-	public void setNeedsUpdate(final boolean update) 
+	public void setNeedsUpdate(final boolean update)
 	{
-		for ( final BaseCharacterInfoTab tab : theSubTabs )
+		for (final BaseCharacterInfoTab tab : theSubTabs)
 		{
 			tab.setNeedsUpdate(update);
 		}
 	}
-
 
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getPc()
@@ -267,9 +269,9 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	public List<String> getToDos()
 	{
 		final List<String> ret = new ArrayList<String>();
-		for ( final BaseCharacterInfoTab tab : theSubTabs )
+		for (final BaseCharacterInfoTab tab : theSubTabs)
 		{
-			ret.addAll( tab.getToDos() );
+			ret.addAll(tab.getToDos());
 		}
 		return ret;
 	}
@@ -303,7 +305,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	 */
 	public void refresh()
 	{
-		if ( thePC.getSerial() > theSerial ) 
+		if (thePC.getSerial() > theSerial)
 		{
 			theSerial = thePC.getSerial();
 			forceRefresh();
@@ -315,7 +317,7 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	 */
 	public void setPc(PlayerCharacter aPC)
 	{
-		if ( thePC != aPC || aPC.getSerial() > theSerial ) 
+		if (thePC != aPC || aPC.getSerial() > theSerial)
 		{
 			thePC = aPC;
 			theSerial = thePC.getSerial();
@@ -326,19 +328,19 @@ public abstract class TabContainer extends JTabbedPane implements Filterable,
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getTabName()
 	 */
-	public String getTabName() 
+	public String getTabName()
 	{
 		final GameMode game = SettingsHandler.getGame();
 		return game.getTabName(getTab());
 	}
-	
+
 	/**
 	 * @see pcgen.gui.filter.Filterable#accept(pcgen.core.PlayerCharacter, pcgen.core.PObject)
 	 */
 	public boolean accept(final PlayerCharacter aPC, final PObject pObject)
 	{
 		final int ind = getSelectedIndex();
-		if ( ind < 0 || ind >= theSubTabs.size() )
+		if (ind < 0 || ind >= theSubTabs.size())
 		{
 			return true;
 		}

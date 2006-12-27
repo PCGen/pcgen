@@ -52,10 +52,11 @@ final class KitLoader
 	 * @param lineNum
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(Kit obj, String inputLine, URL sourceURL, int lineNum)
-		throws PersistenceLayerException
+	public static void parseLine(Kit obj, String inputLine, URL sourceURL,
+		int lineNum) throws PersistenceLayerException
 	{
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitLstToken.class);
 
 		// We will find the first ":" for the "controlling" line token
 		final int idxColon = inputLine.indexOf(':');
@@ -64,7 +65,8 @@ final class KitLoader
 		{
 			key = inputLine.substring(0, idxColon);
 		}
-		catch(StringIndexOutOfBoundsException e) {
+		catch (StringIndexOutOfBoundsException e)
+		{
 			// TODO Handle Exception
 		}
 		KitLstToken token = (KitLstToken) tokenMap.get(key);
@@ -75,13 +77,15 @@ final class KitLoader
 			LstUtils.deprecationCheck(token, obj, value);
 			if (!token.parse(obj, value))
 			{
-				Logging.errorPrint("Error parsing Kit tag " + obj.getDisplayName() + ':' + sourceURL.getFile() + ':' + inputLine + "\"");
+				Logging.errorPrint("Error parsing Kit tag "
+					+ obj.getDisplayName() + ':' + sourceURL.getFile() + ':'
+					+ inputLine + "\"");
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Unknown kit info " + sourceURL.toString() + ":" + Integer.toString(lineNum) + " \""
-				+ inputLine + "\"");
+			Logging.errorPrint("Unknown kit info " + sourceURL.toString() + ":"
+				+ Integer.toString(lineNum) + " \"" + inputLine + "\"");
 		}
 	}
 }

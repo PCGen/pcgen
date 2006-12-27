@@ -57,7 +57,7 @@ public abstract class LstFileLoader extends Observable
 {
 	/** The String that represents the start of a line comment. */
 	public static final String LINE_COMMENT_STR = "#"; //$NON-NLS-1$
-	
+
 	/**
 	 * This method loads the given list of LST files.
 	 *
@@ -65,8 +65,8 @@ public abstract class LstFileLoader extends Observable
 	 * @throws PersistenceLayerException if there is a problem with the
 	 *                                   LST syntax
 	 */
-	public abstract void loadLstFiles(List<?> fileList) throws PersistenceLayerException;
-
+	public abstract void loadLstFiles(List<?> fileList)
+		throws PersistenceLayerException;
 
 	/**
 	 * Logs an error that has occured during data loading.
@@ -81,8 +81,6 @@ public abstract class LstFileLoader extends Observable
 		notifyObservers(new Exception(message));
 	}
 
-
-
 	/**
 	 * This method reads the given file or URL and stores its contents in the
 	 * provided data buffer, returning a URL to the specified file for use in
@@ -94,15 +92,16 @@ public abstract class LstFileLoader extends Observable
 	 *         messages
 	 * @throws PersistenceLayerException if an error occurs in reading the file
 	 */
-	public static URL readFileGetURL(final String argFileName, final StringBuffer dataBuffer)
-		throws PersistenceLayerException
+	public static URL readFileGetURL(final String argFileName,
+		final StringBuffer dataBuffer) throws PersistenceLayerException
 	{
 		URL aURL;
 
 		if (argFileName.length() <= 0)
 		{
 			// We have a problem!
-			throw new PersistenceLayerException("LstFileLoader.readFileGetURL() has a blank argFileName!");
+			throw new PersistenceLayerException(
+				"LstFileLoader.readFileGetURL() has a blank argFileName!");
 		}
 
 		// Don't changes the slashes if this is a url.
@@ -152,7 +151,8 @@ public abstract class LstFileLoader extends Observable
 	 * @return URL pointing to the actual file read, for use in debug/log
 	 *         messages
 	 */
-	private static URL readFromFile(String fileName, final StringBuffer dataBuffer)
+	private static URL readFromFile(String fileName,
+		final StringBuffer dataBuffer)
 	{
 		URL aURL = null;
 		InputStream inputStream = null;
@@ -180,8 +180,9 @@ public abstract class LstFileLoader extends Observable
 
 			if (bytesRead != length)
 			{
-				Logging.errorPrint("Only read " + bytesRead + " bytes from " + fileName + " but expected " + length
-				    + " in LstSystemLoader.initFile. Continuing anyway");
+				Logging.errorPrint("Only read " + bytesRead + " bytes from "
+					+ fileName + " but expected " + length
+					+ " in LstSystemLoader.initFile. Continuing anyway");
 			}
 
 			dataBuffer.append(new String(inputLine, "UTF-8"));
@@ -193,8 +194,9 @@ public abstract class LstFileLoader extends Observable
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR:" + fileName + "\n" + "Exception type:" + ioe.getClass().getName() + "\n"
-			    + "Message:" + ioe.getMessage());
+			Logging.errorPrint("ERROR:" + fileName + "\n" + "Exception type:"
+				+ ioe.getClass().getName() + "\n" + "Message:"
+				+ ioe.getMessage());
 		}
 		finally
 		{
@@ -206,7 +208,9 @@ public abstract class LstFileLoader extends Observable
 				}
 				catch (IOException e2)
 				{
-					Logging.errorPrint("Can't close inputStream in LstSystemLoader.initFile", e2);
+					Logging.errorPrint(
+						"Can't close inputStream in LstSystemLoader.initFile",
+						e2);
 				}
 			}
 		}
@@ -240,7 +244,8 @@ public abstract class LstFileLoader extends Observable
 				inputStream = aURL.openStream();
 
 				// Read from the stream
-				final InputStreamReader ir = new InputStreamReader(inputStream, "UTF-8"); //$NON-NLS-1$
+				final InputStreamReader ir =
+						new InputStreamReader(inputStream, "UTF-8"); //$NON-NLS-1$
 
 				// Buffer the stream content
 				final char[] b = new char[512];
@@ -256,9 +261,12 @@ public abstract class LstFileLoader extends Observable
 				// Just to protect people from using web
 				// sources without their knowledge,
 				// we added a preference.
-				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of " + "sources from web links. \n" + url
-                + " is a web link",
-				    Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate
+					.showMessageDialog(
+						"Preferences are currently set to NOT allow\nloading of "
+							+ "sources from web links. \n" + url
+							+ " is a web link", Constants.s_APPNAME,
+						MessageType.ERROR);
 				// aURL = null; //currently unnecessary reassignment 
 			}
 		}
@@ -269,8 +277,9 @@ public abstract class LstFileLoader extends Observable
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR:" + url + "\n" + "Exception type:" + ioe.getClass().getName() + "\n" + "Message:"
-			    + ioe.getMessage());
+			Logging.errorPrint("ERROR:" + url + "\n" + "Exception type:"
+				+ ioe.getClass().getName() + "\n" + "Message:"
+				+ ioe.getMessage());
 		}
 		finally
 		{
@@ -282,7 +291,9 @@ public abstract class LstFileLoader extends Observable
 				}
 				catch (IOException e2)
 				{
-					Logging.errorPrint("Can't close inputStream in LstSystemLoader.initFile", e2);
+					Logging.errorPrint(
+						"Can't close inputStream in LstSystemLoader.initFile",
+						e2);
 				}
 			}
 		}

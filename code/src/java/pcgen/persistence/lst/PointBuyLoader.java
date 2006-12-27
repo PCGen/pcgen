@@ -64,7 +64,8 @@ public class PointBuyLoader extends LstLineFileLoader
 	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
-		GameMode thisGameMode = SystemCollections.getGameModeNamed(getGameMode());
+		GameMode thisGameMode =
+				SystemCollections.getGameModeNamed(getGameMode());
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)
 		{
@@ -73,25 +74,32 @@ public class PointBuyLoader extends LstLineFileLoader
 
 		final String key = lstLine.substring(0, idxColon);
 		final String value = lstLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PointBuyLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PointBuyLstToken.class);
 		PointBuyLstToken token = (PointBuyLstToken) tokenMap.get(key);
 		if (token != null)
 		{
-			LstUtils.deprecationCheck(token, thisGameMode.getName(), sourceURL.toString(), value);
+			LstUtils.deprecationCheck(token, thisGameMode.getName(), sourceURL
+				.toString(), value);
 			if (!token.parse(thisGameMode, value))
 			{
-				Logging.errorPrint("Error parsing point buy method " + thisGameMode.getName() + '/' + sourceURL.toString() + ':' + " \"" + lstLine + "\"");
+				Logging.errorPrint("Error parsing point buy method "
+					+ thisGameMode.getName() + '/' + sourceURL.toString() + ':'
+					+ " \"" + lstLine + "\"");
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Illegal point buy method info " + thisGameMode.getName() + '/' + sourceURL.toString() + ':' +  " \"" + lstLine + "\"");
+			Logging.errorPrint("Illegal point buy method info "
+				+ thisGameMode.getName() + '/' + sourceURL.toString() + ':'
+				+ " \"" + lstLine + "\"");
 		}
 	}
 
 	public static boolean parseStatLine(GameMode gameMode, String lstLine)
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		int statValue;
 		try
@@ -100,14 +108,16 @@ public class PointBuyLoader extends LstLineFileLoader
 		}
 		catch (NumberFormatException exc)
 		{
-			Logging.errorPrint("NumberFormatException in Point Buy Line:" + Constants.s_LINE_SEP, exc);
+			Logging.errorPrint("NumberFormatException in Point Buy Line:"
+				+ Constants.s_LINE_SEP, exc);
 			return true;
 		}
 
 		PointBuyCost pbc = new PointBuyCost(statValue);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PointBuyStatLstToken.class);
-		while(colToken.hasMoreTokens())
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PointBuyStatLstToken.class);
+		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
 
@@ -117,21 +127,27 @@ public class PointBuyLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
-			PointBuyStatLstToken token = (PointBuyStatLstToken) tokenMap.get(key);
+			PointBuyStatLstToken token =
+					(PointBuyStatLstToken) tokenMap.get(key);
 
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, gameMode.getName(), "pointbuymethod.lst", value);
+				LstUtils.deprecationCheck(token, gameMode.getName(),
+					"pointbuymethod.lst", value);
 				if (!token.parse(pbc, value))
 				{
-					Logging.errorPrint("Error parsing point buy method " + gameMode.getName() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing point buy method "
+						+ gameMode.getName() + ':' + colString + "\"");
 				}
 			}
-			else if (colString.startsWith("PRE") || colString.startsWith("!PRE") || colString.startsWith("RESTRICT:"))
+			else if (colString.startsWith("PRE")
+				|| colString.startsWith("!PRE")
+				|| colString.startsWith("RESTRICT:"))
 			{
 				if (colString.toUpperCase().equals("PRE:.CLEAR"))
 				{
@@ -141,12 +157,15 @@ public class PointBuyLoader extends LstLineFileLoader
 				{
 					try
 					{
-						PreParserFactory factory = PreParserFactory.getInstance();
+						PreParserFactory factory =
+								PreParserFactory.getInstance();
 						pbc.addPreReq(factory.parse(colString));
 					}
 					catch (PersistenceLayerException ple)
 					{
-						Logging.errorPrint("PersistenceLayerException in Point Buy Line:" + Constants.s_LINE_SEP, ple);
+						Logging.errorPrint(
+							"PersistenceLayerException in Point Buy Line:"
+								+ Constants.s_LINE_SEP, ple);
 						return false;
 					}
 				}
@@ -164,11 +183,13 @@ public class PointBuyLoader extends LstLineFileLoader
 
 	public static boolean parseMethodLine(GameMode gameMode, String lstLine)
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		PointBuyMethod pbm = new PointBuyMethod(colToken.nextToken(), "0");
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PointBuyMethodLstToken.class);
-		while(colToken.hasMoreTokens())
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PointBuyMethodLstToken.class);
+		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
 
@@ -178,18 +199,22 @@ public class PointBuyLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
-			PointBuyMethodLstToken token = (PointBuyMethodLstToken) tokenMap.get(key);
+			PointBuyMethodLstToken token =
+					(PointBuyMethodLstToken) tokenMap.get(key);
 
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, gameMode.getName(), "pointbuymethod.lst", value);
+				LstUtils.deprecationCheck(token, gameMode.getName(),
+					"pointbuymethod.lst", value);
 				if (!token.parse(pbm, value))
 				{
-					Logging.errorPrint("Error parsing point buy method " + gameMode.getName() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing point buy method "
+						+ gameMode.getName() + ':' + colString + "\"");
 				}
 			}
 			else

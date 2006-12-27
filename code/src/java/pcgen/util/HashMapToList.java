@@ -84,7 +84,7 @@ public class HashMapToList<K, V>
 		if (mapToList.containsKey(key))
 		{
 			throw new IllegalArgumentException("Cannot re-initialize key: "
-					+ key);
+				+ key);
 		}
 		mapToList.put(key, new ArrayList<V>());
 	}
@@ -244,7 +244,8 @@ public class HashMapToList<K, V>
 		 * 24, 2005
 		 */
 		List<V> list = mapToList.get(key);
-		if (list == null) {
+		if (list == null)
+		{
 			return 0;
 		}
 		return list.size();

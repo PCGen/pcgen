@@ -69,7 +69,8 @@ public class CampaignLoader extends LstLineFileLoader
 	{
 		// This may modify the globals list; need a local copy so
 		// the iteration doesn't fail.
-		List<Campaign> initialCampaigns = new ArrayList<Campaign>(Globals.getCampaignList());
+		List<Campaign> initialCampaigns =
+				new ArrayList<Campaign>(Globals.getCampaignList());
 
 		for (Campaign c : initialCampaigns)
 		{
@@ -91,17 +92,20 @@ public class CampaignLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(String inputLine, URL sourceUrl) throws PersistenceLayerException
+	public void parseLine(String inputLine, URL sourceUrl)
+		throws PersistenceLayerException
 	{
 		final int idxColon = inputLine.indexOf(':');
 		if (idxColon < 0)
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceUrl.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in "
+				+ sourceUrl.toString());
 			return;
 		}
 		final String key = inputLine.substring(0, idxColon);
 		final String value = inputLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(CampaignLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(CampaignLstToken.class);
 		CampaignLstToken token = (CampaignLstToken) tokenMap.get(key);
 
 		if (token != null)
@@ -109,7 +113,8 @@ public class CampaignLoader extends LstLineFileLoader
 			LstUtils.deprecationCheck(token, campaign, value);
 			if (!token.parse(campaign, value, sourceUrl))
 			{
-				Logging.errorPrint("Error parsing campaign " + campaign.getDisplayName() + ':' + inputLine);
+				Logging.errorPrint("Error parsing campaign "
+					+ campaign.getDisplayName() + ':' + inputLine);
 			}
 		}
 		else if (PObjectLoader.parseTag(campaign, inputLine))
@@ -118,7 +123,8 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 		else
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceUrl.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in "
+				+ sourceUrl.toString());
 		}
 	}
 
@@ -136,9 +142,12 @@ public class CampaignLoader extends LstLineFileLoader
 			if ((sect15 != null) && (sect15.trim().length() > 0))
 			{
 				Globals.getSection15().append("<br><b>Source Material:</b>");
-				Globals.getSection15().append(campaign.getSourceEntry().getFormattedString(SourceEntry.SourceFormat.LONG, true));
+				Globals.getSection15().append(
+					campaign.getSourceEntry().getFormattedString(
+						SourceEntry.SourceFormat.LONG, true));
 				Globals.getSection15().append("<br>");
-				Globals.getSection15().append("<b>Section 15 Entry in Source Material:</b><br>");
+				Globals.getSection15().append(
+					"<b>Section 15 Entry in Source Material:</b><br>");
 				Globals.getSection15().append(sect15);
 			}
 
@@ -180,17 +189,24 @@ public class CampaignLoader extends LstLineFileLoader
 		 */
 		if (basePath.charAt(0) == '@')
 		{
-			final String pathNoLeader = trimLeadingFileSeparator(basePath.substring(1));
-			convertedPath = SettingsHandler.getPccFilesLocation().getAbsolutePath() + File.separator + pathNoLeader;
+			final String pathNoLeader =
+					trimLeadingFileSeparator(basePath.substring(1));
+			convertedPath =
+					SettingsHandler.getPccFilesLocation().getAbsolutePath()
+						+ File.separator + pathNoLeader;
 		}
 		else if (basePath.charAt(0) == '&')
 		{
-			final String pathNoLeader = trimLeadingFileSeparator(basePath.substring(1));
-			convertedPath = SettingsHandler.getPcgenVendorDataDir().getAbsolutePath() + File.separator + pathNoLeader;
+			final String pathNoLeader =
+					trimLeadingFileSeparator(basePath.substring(1));
+			convertedPath =
+					SettingsHandler.getPcgenVendorDataDir().getAbsolutePath()
+						+ File.separator + pathNoLeader;
 		}
 
 		// the line doesn't use "@" or "&" then it's a relative path,
-		else //if (aLine.indexOf('@') < 0) and (aLine.indexOf('&') < 0)
+		else
+		//if (aLine.indexOf('@') < 0) and (aLine.indexOf('&') < 0)
 		{
 			/*
 			 * 1) If the path starts with '/data',
@@ -202,14 +218,18 @@ public class CampaignLoader extends LstLineFileLoader
 
 			if (pathNoLeader.startsWith("data"))
 			{
-				convertedPath = SettingsHandler.getPccFilesLocation() + pathNoLeader.substring(4);
+				convertedPath =
+						SettingsHandler.getPccFilesLocation()
+							+ pathNoLeader.substring(4);
 			}
 			else
 			{
 				convertedPath = pccPath.getPath();
 				// URLs always use forward slash; take off the file name
 				int separatorLoc = convertedPath.lastIndexOf("/");
-				convertedPath = convertedPath.substring(0, separatorLoc) + "/" + basePath;
+				convertedPath =
+						convertedPath.substring(0, separatorLoc) + "/"
+							+ basePath;
 			}
 		}
 
@@ -229,7 +249,8 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 		catch (MalformedURLException e)
 		{
-			Logging.errorPrint("failed to convert " + convertedPath + " to true URL.");
+			Logging.errorPrint("failed to convert " + convertedPath
+				+ " to true URL.");
 
 			return convertedPath;
 		}
@@ -246,7 +267,8 @@ public class CampaignLoader extends LstLineFileLoader
 	{
 		String pathNoLeader = basePath;
 
-		if (pathNoLeader.startsWith("/") || pathNoLeader.startsWith(File.separator))
+		if (pathNoLeader.startsWith("/")
+			|| pathNoLeader.startsWith(File.separator))
 		{
 			pathNoLeader = pathNoLeader.substring(1);
 		}
@@ -261,7 +283,8 @@ public class CampaignLoader extends LstLineFileLoader
 	 * @param baseCampaign Campaign that includes another campaign
 	 * @param subCampaign  Campaign included by the baseCampaign
 	 */
-	private void initRecursivePccFiles(Campaign baseCampaign, Campaign subCampaign)
+	private void initRecursivePccFiles(Campaign baseCampaign,
+		Campaign subCampaign)
 	{
 		if (subCampaign == null)
 		{
@@ -271,7 +294,8 @@ public class CampaignLoader extends LstLineFileLoader
 		baseCampaign.addAllLstExcludeFiles(subCampaign.getLstExcludeFiles());
 		baseCampaign.addAllRaceFiles(subCampaign.getRaceFiles());
 		baseCampaign.addAllClassFiles(subCampaign.getClassFiles());
-		baseCampaign.addAllCompanionModFiles(subCampaign.getCompanionModFiles());
+		baseCampaign
+			.addAllCompanionModFiles(subCampaign.getCompanionModFiles());
 		baseCampaign.addAllCoverFiles(subCampaign.getCoverFiles());
 		baseCampaign.addAllSkillFiles(subCampaign.getSkillFiles());
 		baseCampaign.addAllAbilityFiles(subCampaign.getAbilityFiles());
@@ -317,18 +341,21 @@ public class CampaignLoader extends LstLineFileLoader
 		{
 			if (PCGFile.isPCGenCampaignFile(new File(fName)))
 			{
-				Campaign globalSubCampaign = Globals.getCampaignByFilename(fName, false);
+				Campaign globalSubCampaign =
+						Globals.getCampaignByFilename(fName, false);
 
 				if (globalSubCampaign == null)
 				{
 					try
 					{
 						loadLstFile(fName);
-						globalSubCampaign = Globals.getCampaignByFilename(fName, false);
+						globalSubCampaign =
+								Globals.getCampaignByFilename(fName, false);
 					}
 					catch (PersistenceLayerException e)
 					{
-						Logging.errorPrint("Recursive init failed on file " + fName, e);
+						Logging.errorPrint("Recursive init failed on file "
+							+ fName, e);
 					}
 				}
 

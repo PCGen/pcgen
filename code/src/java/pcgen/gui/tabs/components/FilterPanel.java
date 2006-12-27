@@ -54,13 +54,13 @@ import pcgen.util.PropertyFactory;
 public class FilterPanel extends JPanel
 {
 	private IFilterableView theView;
-	
+
 	private int theViewIndex = 0;
-	
+
 	private JComboBoxEx theViewComboBox;
 	private JTextField theFilterText;
 	private JButton theClearButton;
-	
+
 	/**
 	 * Constructs the <tt>FilterPanel</tt> object.
 	 * 
@@ -71,7 +71,7 @@ public class FilterPanel extends JPanel
 	public FilterPanel(final IFilterableView aView, final String aLabel)
 	{
 		theView = aView;
-		
+
 		// TODO - GridBag is probably overkill for this simple panel but this 
 		// is how it was done and I don't feel like breaking it now.
 		setLayout(new GridBagLayout());
@@ -88,7 +88,7 @@ public class FilterPanel extends JPanel
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
 		add(treeLabel, c);
-		
+
 		// --------------------------------------------------------
 		// View Combo
 		// --------------------------------------------------------
@@ -100,23 +100,24 @@ public class FilterPanel extends JPanel
 			 * selected index is different from the existing one, the listener
 			 * will be told of the change.
 			 */
-			public void actionPerformed(@SuppressWarnings("unused")ActionEvent evt)
+			public void actionPerformed(@SuppressWarnings("unused")
+			ActionEvent evt)
 			{
 				final int index = theViewComboBox.getSelectedIndex();
-				if ( theViewIndex != index )
+				if (theViewIndex != index)
 				{
 					theViewIndex = index;
 					theView.viewChanged(theViewIndex);
 				}
 			}
 		});
-		for ( final String choice : aView.getViewChoices() )
+		for (final String choice : aView.getViewChoices())
 		{
 			theViewComboBox.addItem(choice);
 		}
-		Utility.setDescription(theViewComboBox,
-				PropertyFactory.getString("InfoTabs.ViewCombo.Description")); //$NON-NLS-1$
-		
+		Utility.setDescription(theViewComboBox, PropertyFactory
+			.getString("InfoTabs.ViewCombo.Description")); //$NON-NLS-1$
+
 		theViewComboBox.setSelectedIndex(aView.getInitialChoice());
 
 		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
@@ -128,14 +129,14 @@ public class FilterPanel extends JPanel
 		// --------------------------------------------------------
 		// Filter Label
 		// --------------------------------------------------------
-		final JLabel filterLabel = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
+		final JLabel filterLabel =
+				new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
 		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
 		c.insets = new Insets(1, 2, 1, 2);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.LINE_START;
 		add(filterLabel, c);
 
-		
 		// --------------------------------------------------------
 		// Filter text field
 		// --------------------------------------------------------
@@ -147,11 +148,13 @@ public class FilterPanel extends JPanel
 			{
 				setQFilter();
 			}
+
 			public void insertUpdate(@SuppressWarnings("unused")
 			DocumentEvent evt)
 			{
 				setQFilter();
 			}
+
 			public void removeUpdate(@SuppressWarnings("unused")
 			DocumentEvent evt)
 			{
@@ -163,7 +166,7 @@ public class FilterPanel extends JPanel
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.LINE_START;
 		add(theFilterText, c);
-		
+
 		// --------------------------------------------------------
 		// Clear filter button
 		// --------------------------------------------------------

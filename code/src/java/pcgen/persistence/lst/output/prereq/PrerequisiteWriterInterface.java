@@ -42,18 +42,17 @@ public interface PrerequisiteWriterInterface
 	 */
 	String kindHandled();
 
-
 	/**
 	 * @return PrerequisiteOperator[]
 	 */
 	PrerequisiteOperator[] operatorsHandled();
-
 
 	/**
 	 * @param writer
 	 * @param prereq
 	 * @throws PersistenceLayerException
 	 */
-	void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException;
+	void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException;
 
 }

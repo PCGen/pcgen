@@ -80,7 +80,7 @@ public interface LstConstants
 	int POINTBUY_TYPE = 27;
 
 	// The following are used by loadOrder in Globals.
-	
+
 	/** RACE_TYPE = 0 */
 	int RACE_TYPE = 0;
 	/** REQSKILL_TYPE = 16 */

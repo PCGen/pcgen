@@ -52,11 +52,12 @@ public class RemoveItemPanel extends JPanel
 	 */
 	public RemoveItemPanel()
 	{
-		theRemoveButton = new JButton(IconUtilitities.getImageIcon("Back16.gif")); //$NON-NLS-1$
-		
+		theRemoveButton =
+				new JButton(IconUtilitities.getImageIcon("Back16.gif")); //$NON-NLS-1$
+
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(theRemoveButton, 
-				PropertyFactory.getString("InfoTabs.RemoveButton.Description")); //$NON-NLS-1$
+		Utility.setDescription(theRemoveButton, PropertyFactory
+			.getString("InfoTabs.RemoveButton.Description")); //$NON-NLS-1$
 		theRemoveButton.setEnabled(false);
 		theRemoveButton.setMargin(new Insets(1, 14, 1, 14));
 		this.add(theRemoveButton);
@@ -72,7 +73,7 @@ public class RemoveItemPanel extends JPanel
 	{
 		theRemoveButton.setEnabled(yesNo);
 	}
-	
+
 	/**
 	 * Add a listener to the contained button.
 	 * 
@@ -80,7 +81,6 @@ public class RemoveItemPanel extends JPanel
 	 */
 	public void addActionListener(final ActionListener aListener)
 	{
-		theRemoveButton.addActionListener( aListener );
+		theRemoveButton.addActionListener(aListener);
 	}
 }
-

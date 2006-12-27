@@ -54,12 +54,13 @@ import pcgen.util.enumeration.Tab;
  * @author Thomas Behr 16-09-02
  * @version $Revision$
  */
-public final class InfoInventory extends JTabbedPane implements Filterable, CharacterInfoTab
+public final class InfoInventory extends JTabbedPane implements Filterable,
+		CharacterInfoTab
 {
 	static final long serialVersionUID = -4186874622211290063L;
-	
+
 	private static final Tab tab = Tab.INVENTORY;
-	
+
 	private InfoEquipping equipment;
 	private InfoGear gear;
 	private InfoNaturalWeapons naturalWeapons;
@@ -93,7 +94,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -108,7 +109,8 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Inventory.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Inventory.Order", tab
+			.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -148,7 +150,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -157,7 +159,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			setNeedsUpdate(true);
 
@@ -190,7 +192,7 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	{
 		return tempmod;
 	}
-	
+
 	/**
 	 * delegates filter related stuff to gear tab
 	 * @return available filters
@@ -331,74 +333,85 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 
 	private void initActionListeners()
 	{
-		gear.addComponentListener(PToolBar.getCurrentInstance().getComponentListener());
-		equipment.addComponentListener(PToolBar.getCurrentInstance().getComponentListener());
-		resources.addComponentListener(PToolBar.getCurrentInstance().getComponentListener());
-		tempmod.addComponentListener(PToolBar.getCurrentInstance().getComponentListener());
+		gear.addComponentListener(PToolBar.getCurrentInstance()
+			.getComponentListener());
+		equipment.addComponentListener(PToolBar.getCurrentInstance()
+			.getComponentListener());
+		resources.addComponentListener(PToolBar.getCurrentInstance()
+			.getComponentListener());
+		tempmod.addComponentListener(PToolBar.getCurrentInstance()
+			.getComponentListener());
 
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					// As the selected child panel (gear, equipped etc) will not be
-					// sending a message saying it is visible, we need to send one for it.
-					ComponentEvent childEvent = new ComponentEvent(getSelectedComponent(),
-								ComponentEvent.COMPONENT_SHOWN);
-					PToolBar.getCurrentInstance().getComponentListener().componentShown(childEvent);
-					refresh();
-				}
-			});
+				// As the selected child panel (gear, equipped etc) will not be
+				// sending a message saying it is visible, we need to send one for it.
+				ComponentEvent childEvent =
+						new ComponentEvent(getSelectedComponent(),
+							ComponentEvent.COMPONENT_SHOWN);
+				PToolBar.getCurrentInstance().getComponentListener()
+					.componentShown(childEvent);
+				refresh();
+			}
+		});
 
 		addChangeListener(new ChangeListener()
+		{
+			public void stateChanged(ChangeEvent e)
 			{
-				public void stateChanged(ChangeEvent e)
+				if (getSelectedIndex() == Tab.GEAR.index())
 				{
-					if (getSelectedIndex() == Tab.GEAR.index())
-					{
-						InfoGear.setNeedsUpdate(true);
-					}
-					else if (getSelectedIndex() == Tab.EQUIPPING.index())
-					{
-					    InfoEquipping.setNeedsUpdate(true);
-					}
-					else if (getSelectedIndex() == Tab.RESOURCES.index())
-					{
-					    InfoResources.setNeedsUpdate(true);
-					}
-					else if (getSelectedIndex() == Tab.TEMPBONUS.index())
-					{
-					    InfoTempMod.setNeedsUpdate(true);
-					}
+					InfoGear.setNeedsUpdate(true);
 				}
-			});
+				else if (getSelectedIndex() == Tab.EQUIPPING.index())
+				{
+					InfoEquipping.setNeedsUpdate(true);
+				}
+				else if (getSelectedIndex() == Tab.RESOURCES.index())
+				{
+					InfoResources.setNeedsUpdate(true);
+				}
+				else if (getSelectedIndex() == Tab.TEMPBONUS.index())
+				{
+					InfoTempMod.setNeedsUpdate(true);
+				}
+			}
+		});
 	}
 
 	private void initComponents()
 	{
 		readyForRefresh = true;
 		add(gear, Tab.GEAR.index());
-		setTitleAt(Tab.GEAR.index(), PropertyFactory.getString("in_Info" + gear.getName()));
+		setTitleAt(Tab.GEAR.index(), PropertyFactory.getString("in_Info"
+			+ gear.getName()));
 		add(equipment, Tab.EQUIPPING.index());
-		setTitleAt(Tab.EQUIPPING.index(), PropertyFactory.getString("in_Info" + equipment.getName()));
+		setTitleAt(Tab.EQUIPPING.index(), PropertyFactory.getString("in_Info"
+			+ equipment.getName()));
 		add(resources, Tab.RESOURCES.index());
-		setTitleAt(Tab.RESOURCES.index(), PropertyFactory.getString("in_Info" + resources.getName()));
+		setTitleAt(Tab.RESOURCES.index(), PropertyFactory.getString("in_Info"
+			+ resources.getName()));
 		add(tempmod, Tab.TEMPBONUS.index());
-		setTitleAt(Tab.TEMPBONUS.index(), PropertyFactory.getString("in_Info" + tempmod.getName()));
+		setTitleAt(Tab.TEMPBONUS.index(), PropertyFactory.getString("in_Info"
+			+ tempmod.getName()));
 
 		if (SettingsHandler.showNaturalWeaponTab())
 		{
 			naturalWeapons = new InfoNaturalWeapons(pc);
 			add(naturalWeapons, Tab.NATWEAPONS.index());
-			setTitleAt(Tab.NATWEAPONS.index(), PropertyFactory.getString("in_Info" + naturalWeapons.getName()));
+			setTitleAt(Tab.NATWEAPONS.index(), PropertyFactory
+				.getString("in_Info" + naturalWeapons.getName()));
 		}
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
 	/**
@@ -407,19 +420,19 @@ public final class InfoInventory extends JTabbedPane implements Filterable, Char
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
 	{
 		final int ind = getSelectedIndex();
-		if ( ind == Tab.GEAR.index())
+		if (ind == Tab.GEAR.index())
 		{
 			return gear.accept(aPC, pObject);
 		}
-		else if ( ind == Tab.EQUIPPING.index() )
+		else if (ind == Tab.EQUIPPING.index())
 		{
 			return equipment.accept(aPC, pObject);
 		}
-		else if ( ind == Tab.RESOURCES.index() )
+		else if (ind == Tab.RESOURCES.index())
 		{
 			return resources.accept(aPC, pObject);
 		}
-		else if ( ind == Tab.TEMPBONUS.index() )
+		else if (ind == Tab.TEMPBONUS.index())
 		{
 			return tempmod.accept(aPC, pObject);
 		}

@@ -42,8 +42,8 @@ public final class PropertyFactory
 {
 	/** Undefined Property */
 	public static final String UNDEFINED = " not defined."; //$NON-NLS-1$
-    
-    private static ResourceBundle bundle;
+
+	private static ResourceBundle bundle;
 
 	/**
 	 * author: Thomas Behr 03-01-02
@@ -83,9 +83,9 @@ public final class PropertyFactory
 	 * returned string.
 	 * @return A formatted localized string
 	 */
-	public static String getFormattedString( String aKey, Object... varargs )
+	public static String getFormattedString(String aKey, Object... varargs)
 	{
-		return MessageFormat.format( getString(aKey), varargs );
+		return MessageFormat.format(getString(aKey), varargs);
 	}
 
 	private static char getMnemonic(String property, char def)
@@ -107,13 +107,15 @@ public final class PropertyFactory
 	 */
 	private static String getProperty(String key)
 	{
-	    String value=null;
-	    try {
-	        value = bundle.getString(key);
-	    }
-	    catch (MissingResourceException mre) {
-	        value = key + UNDEFINED;
-	    }
+		String value = null;
+		try
+		{
+			value = bundle.getString(key);
+		}
+		catch (MissingResourceException mre)
+		{
+			value = key + UNDEFINED;
+		}
 		return value;
 	}
 
@@ -141,7 +143,9 @@ public final class PropertyFactory
 
 		try
 		{
-			bundle = ResourceBundle.getBundle("pcgen/gui/prop/LanguageBundle", locale); //$NON-NLS-1$
+			bundle =
+					ResourceBundle.getBundle(
+						"pcgen/gui/prop/LanguageBundle", locale); //$NON-NLS-1$
 		}
 		catch (MissingResourceException mrex)
 		{

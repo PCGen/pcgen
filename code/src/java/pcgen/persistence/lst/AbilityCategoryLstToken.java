@@ -41,5 +41,6 @@ public interface AbilityCategoryLstToken extends LstToken
 	 * 
 	 * @return <tt>true</tt> if the token is valid.
 	 */
-	public abstract boolean parse(final AbilityCategory aCat, final String aValue);
+	public abstract boolean parse(final AbilityCategory aCat,
+		final String aValue);
 }

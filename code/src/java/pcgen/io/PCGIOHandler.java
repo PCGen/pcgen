@@ -75,8 +75,8 @@ public final class PCGIOHandler extends IOHandler
 	{
 		final List<String> messages = new ArrayList<String>();
 
-		messages.addAll( errors );
-		messages.addAll( warnings );
+		messages.addAll(errors);
+		messages.addAll(warnings);
 
 		return messages;
 	}
@@ -93,7 +93,8 @@ public final class PCGIOHandler extends IOHandler
 		return warnings;
 	}
 
-	public static void buildSALIST(String aChoice, List<String> aAvailable, List<String> aBonus, final PlayerCharacter currentPC)
+	public static void buildSALIST(String aChoice, List<String> aAvailable,
+		List<String> aBonus, final PlayerCharacter currentPC)
 	{
 		// SALIST:Smite|VAR|%|1
 		// SALIST:Turn ,Rebuke|VAR|%|1
@@ -124,16 +125,18 @@ public final class PCGIOHandler extends IOHandler
 		//
 		// Add special abilities due to templates
 		//
-		for ( PCTemplate template : currentPC.getTemplateList() )
+		for (PCTemplate template : currentPC.getTemplateList())
 		{
-			final List<SpecialAbility> SAs = template.getSpecialAbilityList(currentPC.getTotalLevels(), currentPC.totalHitDice());
+			final List<SpecialAbility> SAs =
+					template.getSpecialAbilityList(currentPC.getTotalLevels(),
+						currentPC.totalHitDice());
 
 			if ((SAs == null) || SAs.isEmpty()) // null pointer/empty check
 			{
 				continue;
 			}
 
-			for ( SpecialAbility sa : SAs )
+			for (SpecialAbility sa : SAs)
 			{
 				if (!aSAList.contains(sa))
 				{
@@ -142,9 +145,9 @@ public final class PCGIOHandler extends IOHandler
 			}
 		}
 
-		for ( String name : saNames )
+		for (String name : saNames)
 		{
-			for ( SpecialAbility sa : aSAList )
+			for (SpecialAbility sa : aSAList)
 			{
 				String aSA = sa.getKeyName();
 
@@ -180,7 +183,9 @@ public final class PCGIOHandler extends IOHandler
 
 						if (iOffs >= 0)
 						{
-							aVar = aPost.substring(0, iOffs) + aVar + aPost.substring(iOffs + 1);
+							aVar =
+									aPost.substring(0, iOffs) + aVar
+										+ aPost.substring(iOffs + 1);
 						}
 
 						aBonus.add(aSA + "|" + aVar);
@@ -200,7 +205,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param validate
 	 */
 	public void read(PlayerCharacter pcToBeRead, InputStream in,
-			final boolean validate)
+		final boolean validate)
 	{
 		this.aPC = pcToBeRead;
 
@@ -237,7 +242,8 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (IOException e)
 			{
-				Logging.errorPrint("Couldn't close file in PCGIOHandler.read", e);
+				Logging.errorPrint("Couldn't close file in PCGIOHandler.read",
+					e);
 			}
 		}
 
@@ -245,15 +251,15 @@ public final class PCGIOHandler extends IOHandler
 
 		// If not validating, disable user preference for loading the campaign.
 		// Otherwise, previewing will throw up a license for the campaign.
-		final boolean loadCampaignsWithPC
-				= SettingsHandler.isLoadCampaignsWithPC();
+		final boolean loadCampaignsWithPC =
+				SettingsHandler.isLoadCampaignsWithPC();
 
 		if (!validate)
 		{
 			SettingsHandler.setLoadCampaignsWithPC(false);
 		}
 
-		final String[] pcgLines	= lines.toArray(new String[lines.size()]);
+		final String[] pcgLines = lines.toArray(new String[lines.size()]);
 
 		final PCGParser parser;
 
@@ -273,8 +279,8 @@ public final class PCGIOHandler extends IOHandler
 		}
 		catch (PCGParseException pcgex)
 		{
-			errors.add(pcgex.getMessage() + Constants.s_LINE_SEP + "Method: " + pcgex.getMethod() + '\n' + "Line: "
-				+ pcgex.getLine());
+			errors.add(pcgex.getMessage() + Constants.s_LINE_SEP + "Method: "
+				+ pcgex.getMethod() + '\n' + "Line: " + pcgex.getLine());
 		}
 
 		warnings.addAll(parser.getWarnings());
@@ -291,7 +297,8 @@ public final class PCGIOHandler extends IOHandler
 		}
 		catch (NumberFormatException ex)
 		{
-			errors.add(ex.getMessage() + Constants.s_LINE_SEP + "Method: sanityChecks");
+			errors.add(ex.getMessage() + Constants.s_LINE_SEP
+				+ "Method: sanityChecks");
 		}
 
 		pcToBeRead.setDirty(false);
@@ -334,7 +341,8 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (IOException e)
 			{
-				Logging.errorPrint("Couldn't close file in PCGIOHandler.write", e);
+				Logging.errorPrint("Couldn't close file in PCGIOHandler.write",
+					e);
 			}
 		}
 	}
@@ -382,8 +390,8 @@ public final class PCGIOHandler extends IOHandler
 					aRace.setHitPoint(i, Integer.valueOf(roll));
 				}
 
-				warnings.add(
-					"Character was saved with \"Use Default Monsters\" off. Random hit points added for race hit dice.");
+				warnings
+					.add("Character was saved with \"Use Default Monsters\" off. Random hit points added for race hit dice.");
 				bFixMade = true;
 			}
 
@@ -399,15 +407,14 @@ public final class PCGIOHandler extends IOHandler
 			}
 		}
 
-		
-
 		for (Ability aFeat : aPC.getRealFeatList())
 		{
 			if (aFeat.getChoiceString().startsWith("SALIST|"))
 			{
 				List<String> aAvailable = new ArrayList<String>();
 				List<String> aBonus = new ArrayList<String>();
-				buildSALIST(aFeat.getChoiceString(), aAvailable, aBonus, currentPC);
+				buildSALIST(aFeat.getChoiceString(), aAvailable, aBonus,
+					currentPC);
 
 				for (int i = 0; i < aFeat.getAssociatedCount(); i++)
 				{
@@ -425,7 +432,9 @@ public final class PCGIOHandler extends IOHandler
 
 							if (bString.startsWith(prefix))
 							{
-								String tmp = bString.substring(bString.indexOf('|') + 1);
+								String tmp =
+										bString
+											.substring(bString.indexOf('|') + 1);
 								aFeat.addBonusList(tmp);
 
 								break;
@@ -443,7 +452,8 @@ public final class PCGIOHandler extends IOHandler
 						if (aBonus.size() == 1)
 						{
 							aString = aBonus.get(0);
-							aString = aString.substring(0, aString.indexOf('|'));
+							aString =
+									aString.substring(0, aString.indexOf('|'));
 						}
 						else
 						{
@@ -455,14 +465,22 @@ public final class PCGIOHandler extends IOHandler
 							 */
 							while (true)
 							{
-								final String message = aFeat.getDisplayName() + " has been modified and PCGen is unable to "
-									+ "determine your previous selection(s)." + Constants.s_LINE_SEP
-									+ Constants.s_LINE_SEP + "This box will pop up once for each time you "
-									+ "have taken the feat.";
+								final String message =
+										aFeat.getDisplayName()
+											+ " has been modified and PCGen is unable to "
+											+ "determine your previous selection(s)."
+											+ Constants.s_LINE_SEP
+											+ Constants.s_LINE_SEP
+											+ "This box will pop up once for each time you "
+											+ "have taken the feat.";
 
-								InputInterface ii = InputFactory.getInputInstance();
-								Object selectedValue = ii.showInputDialog(null, message, Constants.s_APPNAME,
-										MessageType.INFORMATION, aAvailable.toArray(), aAvailable.get(0));
+								InputInterface ii =
+										InputFactory.getInputInstance();
+								Object selectedValue =
+										ii.showInputDialog(null, message,
+											Constants.s_APPNAME,
+											MessageType.INFORMATION, aAvailable
+												.toArray(), aAvailable.get(0));
 
 								if (selectedValue != null)
 								{
@@ -471,7 +489,10 @@ public final class PCGIOHandler extends IOHandler
 									break;
 								}
 
-								ShowMessageDelegate.showMessageDialog("You MUST make a selection", Constants.s_APPNAME, MessageType.INFORMATION);
+								ShowMessageDelegate.showMessageDialog(
+									"You MUST make a selection",
+									Constants.s_APPNAME,
+									MessageType.INFORMATION);
 							}
 						}
 
@@ -490,7 +511,8 @@ public final class PCGIOHandler extends IOHandler
 					try
 					{
 						PObjectLoader.parseTag(aFeat, "CSKILL:" + skillString);
-					} catch (PersistenceLayerException e)
+					}
+					catch (PersistenceLayerException e)
 					{
 						e.printStackTrace();
 					}
@@ -500,8 +522,9 @@ public final class PCGIOHandler extends IOHandler
 			if (aFeat.isMultiples() && (aFeat.getAssociatedCount() == 0))
 			{
 				aFeat.addAssociated("PLEASE MAKE APPROPRIATE SELECTION");
-				warnings.add("Multiple selection feat found with no selections (" + aFeat.getDisplayName()
-					+ "). Correct on Feat tab.");
+				warnings
+					.add("Multiple selection feat found with no selections ("
+						+ aFeat.getDisplayName() + "). Correct on Feat tab.");
 			}
 		}
 
@@ -511,7 +534,7 @@ public final class PCGIOHandler extends IOHandler
 		//PCTemplate aTemplate = null;
 		if (aPC.getClassList() != null)
 		{
-			for ( PCClass pcClass : aPC.getClassList() )
+			for (PCClass pcClass : aPC.getClassList())
 			{
 				// Ignore if no levels
 				if (pcClass.getLevel() < 1)
@@ -525,7 +548,10 @@ public final class PCGIOHandler extends IOHandler
 				{
 					int baseSides = pcClass.getLevelHitDie(currentPC, i + 1);
 					iRoll = pcClass.getHitPoint(i);
-					iSides = baseSides + (int) pcClass.getBonusTo("HD", "MAX", i + 1, aPC);
+					iSides =
+							baseSides
+								+ (int) pcClass.getBonusTo("HD", "MAX", i + 1,
+									aPC);
 
 					if (iRoll > iSides)
 					{
@@ -538,8 +564,10 @@ public final class PCGIOHandler extends IOHandler
 
 		if (bFixMade)
 		{
-			final String message = "Fixed illegal value in hit points. " + "Current character hit points: "
-				+ aPC.hitPoints() + " not " + oldHp;
+			final String message =
+					"Fixed illegal value in hit points. "
+						+ "Current character hit points: " + aPC.hitPoints()
+						+ " not " + oldHp;
 			warnings.add(message);
 		}
 
@@ -551,7 +579,7 @@ public final class PCGIOHandler extends IOHandler
 		// now that the import is completed. The level isn't affected.
 		//  merton_monk@yahoo.com 2/15/2002
 		//
-		for ( PCClass pcClass : aPC.getClassList() )
+		for (PCClass pcClass : aPC.getClassList())
 		{
 			pcClass.setLevel(pcClass.getLevel(), currentPC);
 		}

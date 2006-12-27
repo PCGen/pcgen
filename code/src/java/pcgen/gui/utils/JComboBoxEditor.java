@@ -36,7 +36,8 @@ import java.util.List;
  */
 public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 {
-	private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
+	private final transient List<CellEditorListener> d_listeners =
+			new ArrayList<CellEditorListener>();
 	private transient int d_originalValue = 0;
 
 	/**
@@ -58,7 +59,8 @@ public class JComboBoxEditor extends JComboBoxEx implements TableCellEditor
 		return Integer.valueOf(getSelectedIndex());
 	}
 
-	public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row, int column)
+	public Component getTableCellEditorComponent(JTable jTable, Object value,
+		boolean isSelected, int row, int column)
 	{
 		int i = -1;
 

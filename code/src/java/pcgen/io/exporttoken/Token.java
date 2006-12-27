@@ -62,7 +62,8 @@ public abstract class Token
 	 * 						(may be null for a once off conversion).
 	 * @return The value of the token.
 	 */
-	public abstract String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh);
+	public abstract String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh);
 
 	/**
 	 * This method takes a tokenizer and tries to return an integer value for
@@ -100,7 +101,7 @@ public abstract class Token
 		}
 		catch (NumberFormatException e)
 		{
-		    // Handled.  We return the default value in this case.
+			// Handled.  We return the default value in this case.
 		}
 		return retInt;
 	}
@@ -118,7 +119,8 @@ public abstract class Token
 	 */
 	public static String replaceWithDelimiter(String sString, String sDelim)
 	{
-		final StringTokenizer bTok = new StringTokenizer(sString, "\r\n", false); //$NON-NLS-1$
+		final StringTokenizer bTok =
+				new StringTokenizer(sString, "\r\n", false); //$NON-NLS-1$
 		StringBuffer retValue = new StringBuffer();
 
 		while (bTok.hasMoreTokens())

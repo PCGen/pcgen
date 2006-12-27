@@ -66,7 +66,8 @@ import pcgen.util.PropertyFactory;
  */
 public class AvailableAbilityPanel extends AbilitySelectionPanel
 {
-	private static final String AVAILABLE_LABEL = PropertyFactory.getString("in_available") + ": ";  //$NON-NLS-1$//$NON-NLS-2$
+	private static final String AVAILABLE_LABEL =
+			PropertyFactory.getString("in_available") + ": "; //$NON-NLS-1$//$NON-NLS-2$
 
 	private AddItemPanel theAddButton;
 	private JMenuItem theAddMenu;
@@ -83,18 +84,20 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.components.FilterPanel
 	 * @see pcgen.gui.tabs.components.AddItemPanel
 	 */
-	public AvailableAbilityPanel(final PlayerCharacter aPC, final AbilityCategory aCategory)
+	public AvailableAbilityPanel(final PlayerCharacter aPC,
+		final AbilityCategory aCategory)
 	{
 		super(aPC, aCategory);
-		
+
 		setLayout(new BorderLayout());
 
-		add( new FilterPanel(this, AVAILABLE_LABEL), BorderLayout.NORTH );
+		add(new FilterPanel(this, AVAILABLE_LABEL), BorderLayout.NORTH);
 
 		theAddButton = new AddItemPanel();
 		theAddButton.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(@SuppressWarnings("unused")final ActionEvent evt)
+			public void actionPerformed(@SuppressWarnings("unused")
+			final ActionEvent evt)
 			{
 				addAbility();
 			}
@@ -111,24 +114,22 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	protected void initComponents()
 	{
 		super.initComponents();
-		
-		theTable.addMouseListener(new JTreeTableMouseAdapter(
-				theTable, 
-				new AvailableClickHandler(), 
-				false));
+
+		theTable.addMouseListener(new JTreeTableMouseAdapter(theTable,
+			new AvailableClickHandler(), false));
 		theTable.addPopupMenu(new AbilityPopupMenu(theTable));
 	}
-	
+
 	private void addAbility()
 	{
 		final Object temp = theTable.getTree().getLastSelectedPathComponent();
 		final Ability ability = getAbilityFromObject(temp);
-		if ( ability == null )
+		if (ability == null)
 		{
 			return;
 		}
 
-		for ( final IAbilitySelectionListener listener : getListeners() )
+		for (final IAbilitySelectionListener listener : getListeners())
 		{
 			SwingUtilities.invokeLater(new Runnable()
 			{
@@ -155,34 +156,43 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		private AbilityPopupMenu(final JTreeTable aTreeTable)
 		{
 			theTreeTable = aTreeTable;
-			final String menuText = PropertyFactory.getFormattedString(
-					"InfoAbility.Menu.Add", getCategory().getDisplayName()); //$NON-NLS-1$
-			final String menuTip = PropertyFactory.getFormattedString(
-					"InfoAbility.Menu.Add.Tooltip", getCategory().getDisplayName()); //$NON-NLS-1$
-			this.add(theAddMenu = Utility.createMenuItem(menuText,
-						new ActionListener()
+			final String menuText =
+					PropertyFactory.getFormattedString(
+						"InfoAbility.Menu.Add", getCategory().getDisplayName()); //$NON-NLS-1$
+			final String menuTip =
+					PropertyFactory
+						.getFormattedString(
+							"InfoAbility.Menu.Add.Tooltip", getCategory().getDisplayName()); //$NON-NLS-1$
+			this.add(theAddMenu =
+					Utility.createMenuItem(menuText, new ActionListener()
+					{
+						public void actionPerformed(@SuppressWarnings("unused")
+						ActionEvent evt)
 						{
-							public void actionPerformed(
-									@SuppressWarnings("unused")ActionEvent evt)
+							SwingUtilities.invokeLater(new Runnable()
 							{
-								SwingUtilities.invokeLater(new Runnable()
-									{
-										public void run()
-										{
-											addAbility();
-										}
-									});
-							}
-						}, null, (char) 0, "shortcut EQUALS", menuTip, "Add16.gif", true)); //$NON-NLS-1$ //$NON-NLS-2$
+								public void run()
+								{
+									addAbility();
+								}
+							});
+						}
+					}, null, (char) 0,
+						"shortcut EQUALS", menuTip, "Add16.gif", true)); //$NON-NLS-1$ //$NON-NLS-2$
 
 			// Build menus now since expert settings
 			// could get changed while we are running
-			final String NO_QUALIFY_MESSAGE = PropertyFactory.getString(
-					"InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
-			final String POOL_FULL_MESSAGE = PropertyFactory.getString(
-					"InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
-			noQualifyMenuItem = Utility.createMenuItem(NO_QUALIFY_MESSAGE, null, null, (char) 0, null, null, null, false);
-			poolFullMenuItem  = Utility.createMenuItem(POOL_FULL_MESSAGE , null, null, (char) 0, null, null, null, false);
+			final String NO_QUALIFY_MESSAGE =
+					PropertyFactory
+						.getString("InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
+			final String POOL_FULL_MESSAGE =
+					PropertyFactory.getString("InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
+			noQualifyMenuItem =
+					Utility.createMenuItem(NO_QUALIFY_MESSAGE, null, null,
+						(char) 0, null, null, null, false);
+			poolFullMenuItem =
+					Utility.createMenuItem(POOL_FULL_MESSAGE, null, null,
+						(char) 0, null, null, null, false);
 		}
 
 		/**
@@ -196,17 +206,22 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		@Override
 		public void show(final Component source, final int x, final int y)
 		{
-			final PObjectNode node = (PObjectNode)theTreeTable.getTree().getLastSelectedPathComponent();
+			final PObjectNode node =
+					(PObjectNode) theTreeTable.getTree()
+						.getLastSelectedPathComponent();
 			if (node != null && node.getItem() instanceof Ability)
 			{
-				final Ability ability = (Ability) ( (PObjectNode) theTreeTable.getTree().getLastSelectedPathComponent()).getItem();
+				final Ability ability =
+						(Ability) ((PObjectNode) theTreeTable.getTree()
+							.getLastSelectedPathComponent()).getItem();
 
 				if (getPC().canSelectAbility(ability))
 				{
 					removeAll();
 					add(theAddMenu);
 				}
-				else if ( getPC().getAvailableAbilityPool(getCategory()).compareTo(BigDecimal.ZERO) < 0 )
+				else if (getPC().getAvailableAbilityPool(getCategory())
+					.compareTo(BigDecimal.ZERO) < 0)
 				{
 					removeAll();
 					add(poolFullMenuItem);
@@ -233,7 +248,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		/**
 		 * @see pcgen.gui.utils.ClickHandler#singleClickEvent()
 		 */
-		public void singleClickEvent() 
+		public void singleClickEvent()
 		{
 			// Do Nothing
 		}
@@ -248,12 +263,12 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 			// We run this after the event has been processed so that
 			// we don't confuse the table when we change its contents
 			SwingUtilities.invokeLater(new Runnable()
+			{
+				public void run()
 				{
-					public void run()
-					{
-						addAbility();
-					}
-				});
+					addAbility();
+				}
+			});
 		}
 
 		/**
@@ -271,22 +286,22 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	@Override
 	public boolean accept(final ViewMode aMode, Ability anAbility)
 	{
-		if ( super.accept(aMode, anAbility) == false )
+		if (super.accept(aMode, anAbility) == false)
 		{
 			return false;
 		}
-		
-		if ( aMode == ViewMode.PREREQTREE )
+
+		if (aMode == ViewMode.PREREQTREE)
 		{
 			// TODO - Not sure why the PREREQ tree doesn't check if the PC
 			// has this ability or not.  Seems like a bug to me.
 			return true;
 		}
-		
+
 		// If this ability allows multiples we always allow it.
 		// TODO - We could figure out if there are any valid choices left and
 		// disallow it if there aren't.
-		if ( anAbility.isMultiples() )
+		if (anAbility.isMultiples())
 		{
 			return true;
 		}
@@ -314,7 +329,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	{
 		return "available"; //$NON-NLS-1$
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getDefaultViewMode()
 	 */
@@ -323,17 +338,17 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	{
 		return ViewMode.PREREQTREE;
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#abilitySelected(pcgen.core.Ability)
 	 */
 	@Override
-	protected void abilitySelected( final Ability anAbility )
+	protected void abilitySelected(final Ability anAbility)
 	{
 		super.abilitySelected(anAbility);
-		if ( anAbility != null )
+		if (anAbility != null)
 		{
-			setAddEnabled( getPC().canSelectAbility(anAbility) );
+			setAddEnabled(getPC().canSelectAbility(anAbility));
 		}
 		else
 		{

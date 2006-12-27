@@ -47,7 +47,7 @@ public class AbilityInfoPanel extends JPanel
 {
 	private PlayerCharacter thePC;
 	private Ability theAbility = null;
-	
+
 	private JLabelPane theInfoLabel = new JLabelPane();
 
 	/**
@@ -61,7 +61,7 @@ public class AbilityInfoPanel extends JPanel
 	{
 		super();
 		thePC = aPC;
-		
+
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		c = new GridBagConstraints();
@@ -79,21 +79,22 @@ public class AbilityInfoPanel extends JPanel
 		infoScroll.setBorder(title1);
 		theInfoLabel.setBackground(getBackground());
 		infoScroll.setViewportView(theInfoLabel);
-		Utility.setDescription(infoScroll, PropertyFactory.getString("in_infoScrollTip")); //$NON-NLS-1$
-		
+		Utility.setDescription(infoScroll, PropertyFactory
+			.getString("in_infoScrollTip")); //$NON-NLS-1$
+
 		add(infoScroll);
 	}
-	
+
 	/**
 	 * Sets the PlayerCharacter this panel is displaying information for.
 	 * 
 	 * @param aPC The PlayerCharacter to set.
 	 */
-	public void setPC( final PlayerCharacter aPC )
+	public void setPC(final PlayerCharacter aPC)
 	{
 		thePC = aPC;
 	}
-	
+
 	/**
 	 * Sets the <tt>Ability</tt> information will be displayed about.
 	 * 
@@ -104,14 +105,14 @@ public class AbilityInfoPanel extends JPanel
 		theAbility = anAbility;
 		theInfoLabel.setText(getDisplayString());
 	}
-	
+
 	private String getDisplayString()
 	{
-		if ( theAbility == null )
+		if (theAbility == null)
 		{
 			return HTML + END_HTML;
 		}
-		
+
 		final StringBuffer sb = new StringBuffer();
 		sb.append(HTML).append(BOLD);
 		sb.append(theAbility.piSubString());
@@ -125,19 +126,22 @@ public class AbilityInfoPanel extends JPanel
 		if (!costStr.equals("1")) //$NON-NLS-1$
 		{
 			sb.append(' ').append(BOLD);
-			sb.append(PropertyFactory.getString("Ability.Info.Cost")).append(':'); //$NON-NLS-1$
+			sb
+				.append(PropertyFactory.getString("Ability.Info.Cost")).append(':'); //$NON-NLS-1$
 			sb.append(END_BOLD);
 			sb.append(costStr);
 		}
 
 		if (theAbility.isMultiples())
 		{
-			sb.append(TWO_SPACES).append(PropertyFactory.getString("Ability.Info.Multiple")); //$NON-NLS-1$
+			sb.append(TWO_SPACES).append(
+				PropertyFactory.getString("Ability.Info.Multiple")); //$NON-NLS-1$
 		}
 
 		if (theAbility.isStacks())
 		{
-			sb.append(TWO_SPACES).append(PropertyFactory.getString("Ability.Info.Stacks")); //$NON-NLS-1$
+			sb.append(TWO_SPACES).append(
+				PropertyFactory.getString("Ability.Info.Stacks")); //$NON-NLS-1$
 		}
 
 		final String cString = theAbility.preReqHTMLStrings(thePC, false);
@@ -145,7 +149,7 @@ public class AbilityInfoPanel extends JPanel
 		if (cString.length() > 0)
 		{
 			sb.append(TWO_SPACES);
-			
+
 			sb.append(BOLD);
 			sb.append(PropertyFactory.getString("in_requirements")).append(':'); //$NON-NLS-1$
 			sb.append(END_BOLD);
@@ -153,18 +157,18 @@ public class AbilityInfoPanel extends JPanel
 		}
 
 		sb.append(TWO_SPACES);
-		
+
 		sb.append(BOLD);
 		sb.append(PropertyFactory.getString("in_descrip")).append(':'); //$NON-NLS-1$
 		sb.append(END_BOLD);
 		sb.append(theAbility.piDescSubString(thePC));
-		
+
 		sb.append(TWO_SPACES);
 		sb.append(BOLD);
 		sb.append(PropertyFactory.getString("in_sourceLabel")).append(':'); //$NON-NLS-1$
 		sb.append(END_BOLD);
 		sb.append(theAbility.getDefaultSourceString());
-		
+
 		sb.append(END_HTML);
 
 		return sb.toString();

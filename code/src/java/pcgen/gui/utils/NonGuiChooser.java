@@ -54,7 +54,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public NonGuiChooser()
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -64,7 +64,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setAllowsDups(boolean aBool)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -74,7 +74,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setAvailableList(List availableList)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -84,7 +84,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setCostColumnNumber(final int costColumnNumber)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -94,7 +94,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setMessageText(String argMessageText)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -102,7 +102,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setNegativeAllowed(final boolean argFlag)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -131,7 +131,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setPoolFlag(boolean poolFlag)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -159,7 +159,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setSelectedListTerminator(String aString)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -169,7 +169,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setUniqueList(List uniqueList)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -180,7 +180,8 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setVisible(boolean b)
 	{
-		throw new UnsupportedOperationException("NonGuiCHooser cannot be shown.");
+		throw new UnsupportedOperationException(
+			"NonGuiCHooser cannot be shown.");
 	}
 
 	/**
@@ -188,7 +189,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setTitle(String title)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -204,6 +205,6 @@ public final class NonGuiChooser implements ChooserInterface
 	 */
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 }

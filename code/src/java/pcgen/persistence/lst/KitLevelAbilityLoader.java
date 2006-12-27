@@ -46,10 +46,10 @@ public class KitLevelAbilityLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		KitLevelAbility kitLA = new KitLevelAbility();
 
@@ -59,8 +59,7 @@ public class KitLevelAbilityLoader
 		if (levelInd < 0)
 		{
 			throw new PersistenceLayerException(
-					"Invalid level in KitLevelAbility info \"" + colString
-							+ "\"");
+				"Invalid level in KitLevelAbility info \"" + colString + "\"");
 		}
 		kitLA.setClass(classInfo.substring(0, levelInd));
 		try
@@ -70,11 +69,10 @@ public class KitLevelAbilityLoader
 		catch (NumberFormatException e)
 		{
 			throw new PersistenceLayerException(
-					"Invalid level in KitLevelAbility info \"" + colString
-							+ "\"");
+				"Invalid level in KitLevelAbility info \"" + colString + "\"");
 		}
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
-				KitLevelAbilityLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitLevelAbilityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -90,8 +88,8 @@ public class KitLevelAbilityLoader
 			{
 				// TODO Handle Exception
 			}
-			KitLevelAbilityLstToken token = (KitLevelAbilityLstToken) tokenMap
-					.get(key);
+			KitLevelAbilityLstToken token =
+					(KitLevelAbilityLstToken) tokenMap.get(key);
 
 			if (token != null)
 			{
@@ -100,7 +98,7 @@ public class KitLevelAbilityLoader
 				if (!token.parse(kitLA, value))
 				{
 					Logging.errorPrint("Error parsing Kit Level Ability tag "
-							+ kitLA.getObjectName() + ':' + colString + "\"");
+						+ kitLA.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitLA, colString))
@@ -110,7 +108,7 @@ public class KitLevelAbilityLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Level Ability info: \""
-						+ colString + "\"");
+					+ colString + "\"");
 			}
 
 		}

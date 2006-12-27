@@ -88,16 +88,16 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		super();
 
 		/*
-		   JTreeTable's event handling assumes bad things about
-		   mouse pressed/released that are not true on MacOS X.
-		   For example, one gets NPEs thrown when the mouse is
-		   hit because the event manager is waiting for released
-		   and one never gets the release.
-		   It turns out that the MetalLAF handles this happily and
-		   thus we can use that to get appropriate line styles,
-		   without knackering Mac support.
-		   Fix done by LeeAnn Rucker, formerly at Apple for Javasoft.
-		   Added to pcgen by Scott Ellsworth
+		 JTreeTable's event handling assumes bad things about
+		 mouse pressed/released that are not true on MacOS X.
+		 For example, one gets NPEs thrown when the mouse is
+		 hit because the event manager is waiting for released
+		 and one never gets the release.
+		 It turns out that the MetalLAF handles this happily and
+		 thus we can use that to get appropriate line styles,
+		 without knackering Mac support.
+		 Fix done by LeeAnn Rucker, formerly at Apple for Javasoft.
+		 Added to pcgen by Scott Ellsworth
 		 */
 		UIManager.put("TreeTableUI", "javax.swing.plaf.metal.MetalTreeUI"); //$NON-NLS-1$ //$NON-NLS-2$
 		UIManager.put("Tree.leftChildIndent", Integer.valueOf(3)); //$NON-NLS-1$
@@ -111,7 +111,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		super.setModel(new TreeTableModelAdapter(treeTableModel, tree));
 
 		// Force the JTable and JTree to share row selection models.
-		ListToTreeSelectionModelWrapper selectionWrapper = new ListToTreeSelectionModelWrapper();
+		ListToTreeSelectionModelWrapper selectionWrapper =
+				new ListToTreeSelectionModelWrapper();
 		tree.setSelectionModel(selectionWrapper);
 		setSelectionModel(selectionWrapper.getListSelectionModel());
 
@@ -150,7 +151,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	@Override
 	public int getEditingRow()
 	{
-		return (getColumnClass(editingColumn) == TreeTableModel.class) ? (-1) : editingRow;
+		return (getColumnClass(editingColumn) == TreeTableModel.class) ? (-1)
+			: editingRow;
 	}
 
 	/**
@@ -211,7 +213,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 **/
 	public void expandByPObjectName(String name)
 	{
-		expandByPObjectName((PObjectNode) this.getTree().getModel().getRoot(), name);
+		expandByPObjectName((PObjectNode) this.getTree().getModel().getRoot(),
+			name);
 	}
 
 	/**
@@ -261,7 +264,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	/**
 	 * @see java.awt.event.KeyListener#keyReleased(KeyEvent)
 	 **/
-	public void keyReleased(@SuppressWarnings("unused")KeyEvent ke)
+	public void keyReleased(@SuppressWarnings("unused")
+	KeyEvent ke)
 	{
 		// TODO This method currently does nothing?
 	}
@@ -279,7 +283,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	{
 		// Need to filter out any escaped characters as they
 		// are most likely command shortcuts
-		if ((ke.getModifiers() != 0) && (ke.getModifiers() != InputEvent.SHIFT_MASK))
+		if ((ke.getModifiers() != 0)
+			&& (ke.getModifiers() != InputEvent.SHIFT_MASK))
 		{
 			return;
 		}
@@ -287,9 +292,11 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		// Filter out non-standard characters
 		char keyChar = ke.getKeyChar();
 
-		if (!Character.isLetterOrDigit(keyChar) && !Character.isWhitespace(keyChar)
-			&& !((keyChar == '-') || (keyChar == '+') || (keyChar == '(') || (keyChar == ')') || (keyChar == '.')
-			|| (keyChar == ',') || (keyChar == ':') || (keyChar == ';')))
+		if (!Character.isLetterOrDigit(keyChar)
+			&& !Character.isWhitespace(keyChar)
+			&& !((keyChar == '-') || (keyChar == '+') || (keyChar == '(')
+				|| (keyChar == ')') || (keyChar == '.') || (keyChar == ',')
+				|| (keyChar == ':') || (keyChar == ';')))
 		{
 			return;
 		}
@@ -316,7 +323,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		// Check for a expand/contract command
 		if (buffer.length() == 1)
 		{
-			if (!current.isLeaf() && ((keyChar == '+') || (keyChar == '-') || (keyChar == ' ')))
+			if (!current.isLeaf()
+				&& ((keyChar == '+') || (keyChar == '-') || (keyChar == ' ')))
 			{
 				keyBuffer.clearBuffer();
 
@@ -361,7 +369,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		}
 
 		// Only search if the current node is not a match
-		if ((current.getNodeName() == null) || !current.getNodeName().toLowerCase().startsWith(buffer))
+		if ((current.getNodeName() == null)
+			|| !current.getNodeName().toLowerCase().startsWith(buffer))
 		{
 			// Find a node at the current level that matches the buffer
 			searchSingleLevel(parent, buffer, true);
@@ -384,9 +393,10 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		int dx = getX();
 		int dy = getY();
 
-		for (parent = getParent();
-			!(parent == null) && !(parent instanceof JComponent) && !(parent instanceof CellRendererPane);
-			parent = parent.getParent())
+		for (parent = getParent(); !(parent == null)
+			&& !(parent instanceof JComponent)
+			&& !(parent instanceof CellRendererPane); parent =
+				parent.getParent())
 		{
 			final Rectangle bounds = parent.getBounds();
 
@@ -435,7 +445,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 		// Use the tree's default foreground and background
 		// colors in the table
-		LookAndFeel.installColorsAndFont(this, "Tree.background", "Tree.foreground", "Tree.font");  //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+		LookAndFeel.installColorsAndFont(this,
+			"Tree.background", "Tree.foreground", "Tree.font"); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
 	}
 
 	/**
@@ -568,7 +579,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 						aString = node.toString();
 						if (aString.indexOf(Constants.PIPE) != -1)
 						{
-							aString = aString.substring(aString.lastIndexOf(Constants.PIPE)+1);
+							aString =
+									aString.substring(aString
+										.lastIndexOf(Constants.PIPE) + 1);
 						}
 					}
 
@@ -620,7 +633,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * @return TreePath The path to the first matchign node.
 	 *                   Null if thee is no match.
 	 */
-	private TreePath searchSingleLevel(PObjectNode root, String name, boolean select)
+	private TreePath searchSingleLevel(PObjectNode root, String name,
+		boolean select)
 	{
 		String lowerName = name.toLowerCase();
 		List<PObjectNode> p1 = root.getChildren();
@@ -668,7 +682,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	/**
 	 * A TreeCellRenderer that displays a JTree.
 	 **/
-	final class TreeTableCellRenderer extends JTree implements TableCellRenderer
+	final class TreeTableCellRenderer extends JTree implements
+			TableCellRenderer
 	{
 		// Last table/tree row asked to render
 		private int visibleRow;
@@ -687,8 +702,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * @param h
 		 **/
 		@Override
-		public void setBounds(int x, @SuppressWarnings("unused")int y, 
-							  int w, @SuppressWarnings("unused")int h)
+		public void setBounds(int x, @SuppressWarnings("unused")
+		int y, int w, @SuppressWarnings("unused")
+		int h)
 		{
 			super.setBounds(x, 0, w, JTreeTable.this.getHeight());
 		}
@@ -705,9 +721,11 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			{
 				super.setRowHeight(aRowHeight);
 
-				if ((JTreeTable.this != null) && (JTreeTable.this.getRowHeight() != aRowHeight))
+				if ((JTreeTable.this != null)
+					&& (JTreeTable.this.getRowHeight() != aRowHeight))
 				{
-					JTreeTable.this.setRowHeight(JTreeTable.this.getRowHeight());
+					JTreeTable.this
+						.setRowHeight(JTreeTable.this.getRowHeight());
 				}
 			}
 		}
@@ -723,10 +741,11 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * @param column
 		 * @return Component
 		 **/
-		public Component getTableCellRendererComponent(JTable table, 
-				@SuppressWarnings("unused")Object value, boolean isSelected,
-				@SuppressWarnings("unused")boolean hasFocus, int row, 
-				@SuppressWarnings("unused")int column)
+		public Component getTableCellRendererComponent(JTable table,
+			@SuppressWarnings("unused")
+			Object value, boolean isSelected, @SuppressWarnings("unused")
+			boolean hasFocus, int row, @SuppressWarnings("unused")
+			int column)
 		{
 			if (isSelected)
 			{
@@ -761,10 +780,12 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		public void paint(final Graphics g)
 		{
 			g.translate(0, -visibleRow * JTreeTable.this.getRowHeight());
-			try {
+			try
+			{
 				super.paint(g);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle this?
 			}
 		}
@@ -785,8 +806,10 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			if (tcr instanceof DefaultTreeCellRenderer)
 			{
 				DefaultTreeCellRenderer dtcr = ((DefaultTreeCellRenderer) tcr);
-				dtcr.setTextSelectionColor(UIManager.getColor("Table.selectionForeground")); //$NON-NLS-1$
-				dtcr.setBackgroundSelectionColor(UIManager.getColor("Table.selectionBackground")); //$NON-NLS-1$
+				dtcr.setTextSelectionColor(UIManager
+					.getColor("Table.selectionForeground")); //$NON-NLS-1$
+				dtcr.setBackgroundSelectionColor(UIManager
+					.getColor("Table.selectionBackground")); //$NON-NLS-1$
 			}
 		}
 	}
@@ -797,7 +820,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * a change in the ListSelectionModel happens, the paths are updated
 	 * in the DefaultTreeSelectionModel.
 	 **/
-	private final class ListToTreeSelectionModelWrapper extends DefaultTreeSelectionModel
+	private final class ListToTreeSelectionModelWrapper extends
+			DefaultTreeSelectionModel
 	{
 		static final long serialVersionUID = -3571248405124682593L;
 
@@ -807,7 +831,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		private ListToTreeSelectionModelWrapper()
 		{
 			super();
-			getListSelectionModel().addListSelectionListener(createListSelectionListener());
+			getListSelectionModel().addListSelectionListener(
+				createListSelectionListener());
 		}
 
 		/**
@@ -929,8 +954,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			/**
 			 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
 			 */
-			public void valueChanged(
-					@SuppressWarnings("unused")ListSelectionEvent e)
+			public void valueChanged(@SuppressWarnings("unused")
+			ListSelectionEvent e)
 			{
 				updateSelectedPathsFromSelectedRows();
 			}
@@ -942,7 +967,6 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		private String keyBuffer;
 		private int timeToWait;
 		private long lastMSecs;
-
 
 		/**
 		 * Constructor
@@ -995,7 +1019,8 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	 * TreeTableCellEditor implementation.
 	 * Component returned is the JTree.
 	 **/
-	private final class TreeTableCellEditor extends AbstractCellEditor implements TableCellEditor
+	private final class TreeTableCellEditor extends AbstractCellEditor
+			implements TableCellEditor
 	{
 		/**
 		 * Overridden to return false, and if the event is a mouse event
@@ -1027,8 +1052,10 @@ public final class JTreeTable extends JTableEx implements KeyListener
 					if (getColumnClass(counter) == TreeTableModel.class)
 					{
 						MouseEvent me = (MouseEvent) e;
-						MouseEvent newME = new MouseEvent(tree, me.getID(), me.getWhen(), me.getModifiers(), me.getX(),
-								me.getY(), me.getClickCount(), me.isPopupTrigger());
+						MouseEvent newME =
+								new MouseEvent(tree, me.getID(), me.getWhen(),
+									me.getModifiers(), me.getX(), me.getY(), me
+										.getClickCount(), me.isPopupTrigger());
 						tree.dispatchEvent(newME);
 
 						break;
@@ -1043,11 +1070,12 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		 * @see javax.swing.table.TableCellEditor#getTableCellEditorComponent(javax.swing.JTable, java.lang.Object, boolean, int, int)
 		 */
 		public Component getTableCellEditorComponent(
-				@SuppressWarnings("unused")JTable table, 
-				@SuppressWarnings("unused")Object value, 
-				@SuppressWarnings("unused")boolean isSelected, 
-				@SuppressWarnings("unused")int r, 
-				@SuppressWarnings("unused")int c)
+			@SuppressWarnings("unused")
+			JTable table, @SuppressWarnings("unused")
+			Object value, @SuppressWarnings("unused")
+			boolean isSelected, @SuppressWarnings("unused")
+			int r, @SuppressWarnings("unused")
+			int c)
 		{
 			return tree;
 		}
@@ -1061,9 +1089,11 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	public String searchTree(final String lastSearch)
 	{
 		InputInterface ii = InputFactory.getInputInstance();
-		Object selectedValue = ii.showInputDialog(null, 
-				PropertyFactory.getString("TreeTable.Prompt.Search"), //$NON-NLS-1$
-				Constants.s_APPNAME, MessageType.INFORMATION, null, lastSearch);
+		Object selectedValue =
+				ii.showInputDialog(null,
+					PropertyFactory.getString("TreeTable.Prompt.Search"), //$NON-NLS-1$
+					Constants.s_APPNAME, MessageType.INFORMATION, null,
+					lastSearch);
 
 		String aString = ((String) selectedValue);
 		if (aString != null)
@@ -1082,7 +1112,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		}
 		return aString;
 	}
-	
+
 	/**
 	 * Associates a popup menu with the tree table.
 	 * 
@@ -1106,54 +1136,54 @@ public final class JTreeTable extends JTableEx implements KeyListener
 			theTree = treeTable.getTree();
 			theMenu = aMenu;
 
-//			KeyListener myKeyListener = new KeyListener()
-//				{
-//					public void keyTyped(KeyEvent e)
-//					{
-//						dispatchEvent(e);
-//					}
-//
-//					// Walk through the list of accelerators
-//					// to see if the user has pressed a sequence
-//					// used by the popup. This would not
-//					// happen unless the popup was showing
-//					//
-//					public void keyPressed(KeyEvent e)
-//					{
-//						final int keyCode = e.getKeyCode();
-//
-//						if (keyCode != KeyEvent.VK_UNDEFINED)
-//						{
-//							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
-//
-//							for (int i = 0; i < theMenu.getComponentCount(); ++i)
-//							{
-//								final Component menuComponent = theMenu.getComponent(i);
-//
-//								if (menuComponent instanceof JMenuItem)
-//								{
-//									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
-//
-//									if ((ks != null) && keyStroke.equals(ks))
-//									{
-//										((JMenuItem) menuComponent).doClick(2);
-//
-//										return;
-//									}
-//								}
-//							}
-//						}
-//
-//						dispatchEvent(e);
-//					}
-//
-//					public void keyReleased(KeyEvent e)
-//					{
-//						dispatchEvent(e);
-//					}
-//				};
-//
-//			treeTable.addKeyListener(myKeyListener);
+			//			KeyListener myKeyListener = new KeyListener()
+			//				{
+			//					public void keyTyped(KeyEvent e)
+			//					{
+			//						dispatchEvent(e);
+			//					}
+			//
+			//					// Walk through the list of accelerators
+			//					// to see if the user has pressed a sequence
+			//					// used by the popup. This would not
+			//					// happen unless the popup was showing
+			//					//
+			//					public void keyPressed(KeyEvent e)
+			//					{
+			//						final int keyCode = e.getKeyCode();
+			//
+			//						if (keyCode != KeyEvent.VK_UNDEFINED)
+			//						{
+			//							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+			//
+			//							for (int i = 0; i < theMenu.getComponentCount(); ++i)
+			//							{
+			//								final Component menuComponent = theMenu.getComponent(i);
+			//
+			//								if (menuComponent instanceof JMenuItem)
+			//								{
+			//									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+			//
+			//									if ((ks != null) && keyStroke.equals(ks))
+			//									{
+			//										((JMenuItem) menuComponent).doClick(2);
+			//
+			//										return;
+			//									}
+			//								}
+			//							}
+			//						}
+			//
+			//						dispatchEvent(e);
+			//					}
+			//
+			//					public void keyReleased(KeyEvent e)
+			//					{
+			//						dispatchEvent(e);
+			//					}
+			//				};
+			//
+			//			treeTable.addKeyListener(myKeyListener);
 		}
 
 		/**
@@ -1182,7 +1212,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		{
 			if (evt.isPopupTrigger())
 			{
-				final TreePath selPath = theTree.getClosestPathForLocation(evt.getX(), evt.getY());
+				final TreePath selPath =
+						theTree.getClosestPathForLocation(evt.getX(), evt
+							.getY());
 
 				if (selPath == null)
 				{

@@ -53,20 +53,22 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Deity parseLine(Deity aDeity, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Deity parseLine(Deity aDeity, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Deity deity = aDeity;
-		
+
 		if (deity == null)
 		{
 			deity = new Deity();
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		boolean firstCol = true;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(DeityLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(DeityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -76,7 +78,8 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			DeityLstToken token = (DeityLstToken) tokenMap.get(key);
@@ -116,7 +119,7 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 			}
 		}
 
-		completeObject( deity );
+		completeObject(deity);
 		return null;
 	}
 
@@ -124,7 +127,7 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected Deity getObjectKeyed( final String aKey )
+	protected Deity getObjectKeyed(final String aKey)
 	{
 		return Globals.getDeityKeyed(aKey);
 	}
@@ -142,9 +145,9 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
 		// TODO - Create Globals.addDeity( final Deity aDeity );
-		Globals.getDeityList().add( (Deity)pObj );
+		Globals.getDeityList().add((Deity) pObj);
 	}
 }

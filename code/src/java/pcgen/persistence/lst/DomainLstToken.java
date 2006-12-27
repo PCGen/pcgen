@@ -32,7 +32,8 @@ import pcgen.core.Domain;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface DomainLstToken extends LstToken {
+public interface DomainLstToken extends LstToken
+{
 	/**
 	 * Parses a Domain object
 	 * @param domain

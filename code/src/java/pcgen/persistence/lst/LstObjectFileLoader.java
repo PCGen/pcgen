@@ -56,26 +56,27 @@ import pcgen.util.PropertyFactory;
  *
  * @author AD9C15
  */
-public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoader
+public abstract class LstObjectFileLoader<T extends PObject> extends
+		LstFileLoader
 {
 	/** The String that separates fields in the file. */
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
 	/** The String that separates individual objects */
 	public static final String LINE_SEPARATOR = "\r\n"; //$NON-NLS-1$
-	
+
 	/** Tag used to include an object */
 	public static final String INCLUDE_TAG = "INCLUDE"; //$NON-NLS-1$
-	
+
 	/** Tag used to exclude an object */
 	public static final String EXCLUDE_TAG = "EXCLUDE"; //$NON-NLS-1$
-	
+
 	/** The suffix used to indicate this is a copy operation */
 	public static final String COPY_SUFFIX = ".COPY"; //$NON-NLS-1$
 	/** The suffix used to indicate this is a mod operation */
 	public static final String MOD_SUFFIX = ".MOD"; //$NON-NLS-1$
 	/** The suffix used to indicate this is a forget operation */
 	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
-	
+
 	private CampaignSourceEntry currentSource = null;
 	private List<String> copyLineList = new ArrayList<String>();
 	private List<String> forgetLineList = new ArrayList<String>();
@@ -117,8 +118,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 			if (!(testObj instanceof CampaignSourceEntry))
 			{
 				logError(PropertyFactory.getFormattedString(
-						"Errors.LstFileLoader.NotCampaignSource", //$NON-NLS-1$
-						 testObj.getClass().getName(), testObj.toString()));
+					"Errors.LstFileLoader.NotCampaignSource", //$NON-NLS-1$
+					testObj.getClass().getName(), testObj.toString()));
 				continue;
 			}
 
@@ -164,8 +165,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	 *         LST line
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract T parseLine(T target, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException;
+	public abstract T parseLine(T target, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException;
 
 	/**
 	 * This method is called by the loading framework to signify that the
@@ -196,10 +197,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	 * 
 	 * @since 5.11
 	 */
-	public void completeObject( final PObject pObj ) 
+	public void completeObject(final PObject pObj)
 		throws PersistenceLayerException
 	{
-		if ( pObj == null )
+		if (pObj == null)
 		{
 			return;
 		}
@@ -217,14 +218,14 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 			}
 		}
 
-		if ( includeObject(pObj) )
+		if (includeObject(pObj))
 		{
-			finishObject( pObj );
-			final T currentObj = getObjectKeyed( pObj.getKeyName() );
+			finishObject(pObj);
+			final T currentObj = getObjectKeyed(pObj.getKeyName());
 
-			if (currentObj == null || !pObj.equals(currentObj) )
+			if (currentObj == null || !pObj.equals(currentObj))
 			{
-				addGlobalObject( pObj );
+				addGlobalObject(pObj);
 			}
 			else
 			{
@@ -234,30 +235,33 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 					{
 						// If the new object is more recent than the current
 						// one, use the new object
-						final Date pObjDate = pObj.getSourceEntry().getSourceBook().getDate();
-						final Date currentObjDate = currentObj.getSourceEntry().getSourceBook().getDate();
-						if ( (pObjDate != null) && 
-						      ((currentObjDate == null) || ((pObjDate.compareTo(currentObjDate) >  0))))
+						final Date pObjDate =
+								pObj.getSourceEntry().getSourceBook().getDate();
+						final Date currentObjDate =
+								currentObj.getSourceEntry().getSourceBook()
+									.getDate();
+						if ((pObjDate != null)
+							&& ((currentObjDate == null) || ((pObjDate
+								.compareTo(currentObjDate) > 0))))
 						{
-							performForget( currentObj );
-							addGlobalObject( pObj );
+							performForget(currentObj);
+							addGlobalObject(pObj);
 						}
 					}
 					else
 					{
 						// Duplicate loading error
 						Logging.errorPrintLocalised(
-									"Warnings.LstFileLoader.DuplicateObject",  //$NON-NLS-1$
-									pObj.getKeyName(), 
-									currentObj.getSourceFile(), 
-									pObj.getSourceFile());
+							"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
+							pObj.getKeyName(), currentObj.getSourceFile(), pObj
+								.getSourceFile());
 					}
 				}
 			}
 		}
 		else
 		{
-			excludedObjects.add( pObj.getKeyName() );
+			excludedObjects.add(pObj.getKeyName());
 		}
 	}
 
@@ -270,8 +274,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	 * 
 	 * @since 5.11
 	 */
-	protected abstract void addGlobalObject( final PObject pObj );
-	
+	protected abstract void addGlobalObject(final PObject pObj);
+
 	/**
 	 * This method is called when the end of data for a specific PObject
 	 * is found.
@@ -280,7 +284,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	 *
 	 * @param target PObject to perform final operations on
 	 */
-	protected void finishObject(@SuppressWarnings("unused")PObject target)
+	protected void finishObject(@SuppressWarnings("unused")
+	PObject target)
 	{
 		// Placeholder implementation
 	}
@@ -298,8 +303,10 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	protected final boolean includeObject(PObject parsedObject)
 	{
 		// Null check; never add nulls or objects without a name/key name
-		if ((parsedObject == null) || (parsedObject.getDisplayName() == null) || (parsedObject.getDisplayName().trim().length() == 0)
-			|| (parsedObject.getKeyName() == null) || (parsedObject.getKeyName().trim().length() == 0))
+		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)
+			|| (parsedObject.getDisplayName().trim().length() == 0)
+			|| (parsedObject.getKeyName() == null)
+			|| (parsedObject.getKeyName().trim().length() == 0))
 		{
 			return false;
 		}
@@ -340,24 +347,27 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	{
 		setChanged();
 		String urlString = Constants.EMPTY_STRING;
-		try {
+		try
+		{
 			urlString = CoreUtility.fileToURL(sourceEntry.getFile());
 			notifyObservers(new URL(urlString));
 		}
-		catch (MalformedURLException e) {
-			try {
+		catch (MalformedURLException e)
+		{
+			try
+			{
 				// Notify of the failed file
 				setChanged();
-				notifyObservers(new Exception(
-								PropertyFactory.getFormattedString(
-										"Exceptions.LstFileLoader.InvalidURL",  //$NON-NLS-1$
-										urlString)));
+				notifyObservers(new Exception(PropertyFactory
+					.getFormattedString("Exceptions.LstFileLoader.InvalidURL", //$NON-NLS-1$
+						urlString)));
 				// Notify of a dummy file, so that anyone counting files processed
 				// for a progress dialog or something will get a consistent count
 				setChanged();
 				notifyObservers(new URL("http://f")); //$NON-NLS-1$
 			}
-			catch (MalformedURLException e1) {
+			catch (MalformedURLException e1)
+			{
 				e1.printStackTrace();
 			}
 		}
@@ -374,13 +384,13 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 		catch (PersistenceLayerException ple)
 		{
 			logError(PropertyFactory.getFormattedString(
-										"Errors.LstFileLoader.LoadError",  //$NON-NLS-1$
-										sourceEntry.getFile(), 
-										ple.getMessage()));
+				"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
+				sourceEntry.getFile(), ple.getMessage()));
 		}
 
 		final String aString = dataBuffer.toString();
-		final StringTokenizer fileLines = new StringTokenizer(aString, LINE_SEPARATOR);
+		final StringTokenizer fileLines =
+				new StringTokenizer(aString, LINE_SEPARATOR);
 		T target = null;
 		ArrayList<ModEntry> classModLines = null;
 
@@ -389,7 +399,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 		{
 			++currentLineNumber;
 			final String line = fileLines.nextToken().trim();
-			if ( isComment( line ) )
+			if (isComment(line))
 			{
 				continue;
 			}
@@ -407,13 +417,14 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 				else
 				{
 					// Add the line to the class mod and don't process it yet.
-					classModLines.add(new ModEntry(sourceEntry, line, currentLineNumber, sourceMap));
+					classModLines.add(new ModEntry(sourceEntry, line,
+						currentLineNumber, sourceMap));
 					continue;
 				}
 			}
 
 			// check for comments, copies, mods, and forgets
-			if ( isComment( line ) )
+			if (isComment(line))
 			{
 				continue;
 			}
@@ -434,12 +445,14 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
 					classModLines = new ArrayList<ModEntry>();
-					classModLines.add(new ModEntry(sourceEntry, line, currentLineNumber, sourceMap));
+					classModLines.add(new ModEntry(sourceEntry, line,
+						currentLineNumber, sourceMap));
 				}
 				else
 				{
 					List<ModEntry> modLines = new ArrayList<ModEntry>();
-					modLines.add(new ModEntry(sourceEntry, line, currentLineNumber, sourceMap));
+					modLines.add(new ModEntry(sourceEntry, line,
+						currentLineNumber, sourceMap));
 					modEntryList.add(modLines);
 				}
 			}
@@ -454,27 +467,25 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 					target = parseLine(target, line, sourceEntry);
 					// TODO - This is kind of a hack but we need to make sure
 					// that classes get added.
-					completeObject( target );
+					completeObject(target);
 				}
 				catch (PersistenceLayerException ple)
 				{
-					logError( PropertyFactory.getFormattedString(
-								"Errors.LstFileLoader.ParseError",  //$NON-NLS-1$
-								sourceEntry.getFile(), 
-								currentLineNumber, 
-								ple.getMessage()));
+					logError(PropertyFactory.getFormattedString(
+						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+						sourceEntry.getFile(), currentLineNumber, ple
+							.getMessage()));
 					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
 				}
-				catch (Throwable t) 
+				catch (Throwable t)
 				{
-					logError( PropertyFactory.getFormattedString(
-							"Errors.LstFileLoader.ParseError",  //$NON-NLS-1$
-							sourceEntry.getFile(), 
-							currentLineNumber, 
-							t.getMessage()));
-					Logging.errorPrint(PropertyFactory.getString(
-										"Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
-										t);
+					logError(PropertyFactory.getFormattedString(
+						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+						sourceEntry.getFile(), currentLineNumber, t
+							.getMessage()));
+					Logging.errorPrint(PropertyFactory
+						.getString("Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
+						t);
 				}
 			}
 		}
@@ -512,14 +523,18 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 			// list of files
 			return;
 		}
-		
-		ArrayList<CampaignSourceEntry> fList = (ArrayList<CampaignSourceEntry>)fileList;
 
-		ArrayList<CampaignSourceEntry> normalFiles = new ArrayList<CampaignSourceEntry>();
-		ArrayList<CampaignSourceEntry> includeFiles = new ArrayList<CampaignSourceEntry>();
-		ArrayList<CampaignSourceEntry> excludeFiles = new ArrayList<CampaignSourceEntry>();
+		ArrayList<CampaignSourceEntry> fList =
+				(ArrayList<CampaignSourceEntry>) fileList;
 
-		for (CampaignSourceEntry sourceEntry :fList)
+		ArrayList<CampaignSourceEntry> normalFiles =
+				new ArrayList<CampaignSourceEntry>();
+		ArrayList<CampaignSourceEntry> includeFiles =
+				new ArrayList<CampaignSourceEntry>();
+		ArrayList<CampaignSourceEntry> excludeFiles =
+				new ArrayList<CampaignSourceEntry>();
+
+		for (CampaignSourceEntry sourceEntry : fList)
 		{
 			String fileInfo = sourceEntry.getFile();
 
@@ -562,7 +577,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 	 * @param copyName String name of the target object
 	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(String baseKey, String copyName) 
+	private void performCopy(String baseKey, String copyName)
 		throws PersistenceLayerException
 	{
 		T object = getObjectKeyed(baseKey);
@@ -572,8 +587,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 			if (object == null)
 			{
 				logError(PropertyFactory.getFormattedString(
-								"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
-								baseKey));
+					"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
+					baseKey));
 
 				return;
 			}
@@ -586,10 +601,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 		catch (CloneNotSupportedException e)
 		{
 			logError(PropertyFactory.getFormattedString(
-							"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
-							object.getClass().getName(),
-							baseKey,
-							copyName));
+				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
+				object.getClass().getName(), baseKey, copyName));
 		}
 	}
 
@@ -642,10 +655,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 		if (object == null)
 		{
 			logError(PropertyFactory.getFormattedString(
-							"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
-							entry.getSource().getFile(),
-							entry.getLineNumber(),
-							key));
+				"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
+				entry.getSource().getFile(), entry.getLineNumber(), key));
 			return;
 		}
 
@@ -658,15 +669,16 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 				{
 					boolean noSource = object.getSourceEntry() == null;
 					int hashCode = 0;
-					if ( !noSource )
+					if (!noSource)
 					{
 						hashCode = object.getSourceEntry().hashCode();
 					}
 
 					parseLine(object, element.getLstLine(), element.getSource());
 
-					if ( (noSource && object.getSourceEntry() != null) 
-					  || (!noSource && hashCode != object.getSourceEntry().hashCode()) )
+					if ((noSource && object.getSourceEntry() != null)
+						|| (!noSource && hashCode != object.getSourceEntry()
+							.hashCode()))
 					{
 						// We never had a source and now we do so set the source
 						// map or we did have a source and now the hashCode is
@@ -677,28 +689,27 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 						}
 						catch (ParseException notUsed)
 						{
-							Logging.errorPrintLocalised("Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
+							Logging.errorPrintLocalised(
+								"Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
 						}
 					}
 				}
 				catch (PersistenceLayerException ple)
 				{
-					logError( PropertyFactory.getFormattedString(
-										"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-										element.getSource().getFile(),
-										element.getLineNumber(),
-										ple.getMessage()));
+					logError(PropertyFactory.getFormattedString(
+						"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+						element.getSource().getFile(), element.getLineNumber(),
+						ple.getMessage()));
 				}
 			}
 			completeObject(object);
 		}
 		catch (PersistenceLayerException ple)
 		{
-			logError( PropertyFactory.getFormattedString(
-							"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-							entry.getSource().getFile(),
-							entry.getLineNumber(),
-							ple.getMessage()));
+			logError(PropertyFactory.getFormattedString(
+				"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+				entry.getSource().getFile(), entry.getLineNumber(), ple
+					.getMessage()));
 		}
 	}
 
@@ -712,7 +723,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 		{
 			if (!excludedObjects.contains(objKey))
 			{
-				performCopy( objKey);
+				performCopy(objKey);
 			}
 		}
 		copyLineList.clear();
@@ -726,7 +737,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 
 		for (String forgetKey : forgetLineList)
 		{
-			forgetKey = forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX));
+			forgetKey =
+					forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX));
 
 			if (excludedObjects.contains(forgetKey))
 			{
@@ -778,7 +790,9 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 		 * 
 		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */
-		public ModEntry(final CampaignSourceEntry aSource, final String aLstLine, final int aLineNumber, final Map<String, String> aSourceMap)
+		public ModEntry(final CampaignSourceEntry aSource,
+			final String aLstLine, final int aLineNumber,
+			final Map<String, String> aSourceMap)
 		{
 			super();
 
@@ -836,17 +850,20 @@ public abstract class LstObjectFileLoader<T extends PObject> extends LstFileLoad
 			return lineNumber;
 		}
 	}
+
 	/**
 	 * @return Returns the currentSource.
 	 */
-	public CampaignSourceEntry getCurrentSource() {
+	public CampaignSourceEntry getCurrentSource()
+	{
 		return currentSource;
 	}
 
 	/**
 	 * @param aCurrentSource The currentSource to set.
 	 */
-	public void setCurrentSource(CampaignSourceEntry aCurrentSource) {
+	public void setCurrentSource(CampaignSourceEntry aCurrentSource)
+	{
 		this.currentSource = aCurrentSource;
 	}
 }

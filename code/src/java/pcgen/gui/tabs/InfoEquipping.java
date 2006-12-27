@@ -154,18 +154,22 @@ import pcgen.util.enumeration.Tab;
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  **/
-public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTab
+public class InfoEquipping extends FilterAdapterPanel implements
+		CharacterInfoTab
 {
 	static final long serialVersionUID = 6988134124127535195L;
 
 	private static final Tab tab = Tab.EQUIPPING;
-	
+
 	private static List<EquipSet> equipSetList = new ArrayList<EquipSet>();
 	private static List<EquipSet> tempSetList = new ArrayList<EquipSet>();
-//	private static final String[] loadTypes = { "LIGHT", "MEDIUM", "HEAVY", "OVERLOADED" };
-	private static final String defaultEquipSet = PropertyFactory.getString("in_ieDefault");
-	private static final String nameAdded = PropertyFactory.getString("in_ieAddEqSet");
-	private static final String nameNotAdded = PropertyFactory.getString("in_ieNotAdd");
+	//	private static final String[] loadTypes = { "LIGHT", "MEDIUM", "HEAVY", "OVERLOADED" };
+	private static final String defaultEquipSet =
+			PropertyFactory.getString("in_ieDefault");
+	private static final String nameAdded =
+			PropertyFactory.getString("in_ieAddEqSet");
+	private static final String nameNotAdded =
+			PropertyFactory.getString("in_ieNotAdd");
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 	private static boolean needsUpdate = true;
 
@@ -185,10 +189,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	private static final int COL_BONUS = 6;
 	private EquipModel availableModel = null; // Model for JTreeTable
 	private EquipModel selectedModel = null; // Model for JTreeTable
-	private final JLabel avaLabel = new JLabel(PropertyFactory.getString("in_ieSort"));
-	private final JLabel calcLabel = new JLabel(PropertyFactory.getString("in_ieCalc"));
-	private final JLabel loadLabel = new JLabel(PropertyFactory.getString("in_load") + ": ");
-	private final JLabel weightLabel = new JLabel(PropertyFactory.getString("in_weight") + ": ");
+	private final JLabel avaLabel =
+			new JLabel(PropertyFactory.getString("in_ieSort"));
+	private final JLabel calcLabel =
+			new JLabel(PropertyFactory.getString("in_ieCalc"));
+	private final JLabel loadLabel =
+			new JLabel(PropertyFactory.getString("in_load") + ": ");
+	private final JLabel weightLabel =
+			new JLabel(PropertyFactory.getString("in_weight") + ": ");
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -265,7 +273,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -280,7 +288,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Equipping.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Equipping.Order", tab
+			.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -328,7 +337,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -337,7 +346,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -599,7 +608,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			//TODO:gorm optimize the initial capacity
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(eqI.piSubString()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(eqI.piSubString())
+				.append("</b></font>");
 
 			if (!eqI.longName().equals(eqI.getName()))
 			{
@@ -623,9 +633,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			//
 			if (eqI.isWeapon() || eqI.isArmor() || eqI.isShield())
 			{
-				b.append(" <b>PROFICIENT</b>:").append(((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc)) ? "Y"
-																										  : (SettingsHandler
-					.getPrereqFailColorAsHtmlStart() + "N" + SettingsHandler.getPrereqFailColorAsHtmlEnd())));
+				b.append(" <b>PROFICIENT</b>:").append(
+					((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc)) ? "Y"
+						: (SettingsHandler.getPrereqFailColorAsHtmlStart()
+							+ "N" + SettingsHandler
+							.getPrereqFailColorAsHtmlEnd())));
 			}
 
 			final String cString = eqI.preReqHTMLStrings(pc, false);
@@ -639,14 +651,18 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (IDS.length() > 0)
 			{
-				b.append(" <b>Properties</b>:").append(eqI.getInterestingDisplayString(pc));
+				b.append(" <b>Properties</b>:").append(
+					eqI.getInterestingDisplayString(pc));
 			}
 
-			String bString = Globals.getGameModeUnitSet().displayWeightInUnitSet(eqI.getWeight(pc).doubleValue());
+			String bString =
+					Globals.getGameModeUnitSet().displayWeightInUnitSet(
+						eqI.getWeight(pc).doubleValue());
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>WT</b>:").append(bString).append(Globals.getGameModeUnitSet().getWeightUnit());
+				b.append(" <b>WT</b>:").append(bString).append(
+					Globals.getGameModeUnitSet().getWeightUnit());
 			}
 
 			Integer a = eqI.getACBonus(pc);
@@ -682,7 +698,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 				if (eqI.isArmor() || eqI.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(bString).append("</b>:").append(a.toString());
+					b.append(" <b>").append(bString).append("</b>:").append(
+						a.toString());
 				}
 			}
 
@@ -718,7 +735,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				b.append(" <b>Crit Range</b>:").append(bString);
 
-				if (eqI.isDouble() && !eqI.getCritRange(pc).equals(eqI.getAltCritRange(pc)))
+				if (eqI.isDouble()
+					&& !eqI.getCritRange(pc).equals(eqI.getAltCritRange(pc)))
 				{
 					b.append('/').append(eqI.getAltCritRange(pc));
 				}
@@ -730,7 +748,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				b.append(" <b>Crit Mult</b>:").append(bString);
 
-				if (eqI.isDouble() && !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
+				if (eqI.isDouble()
+					&& !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
 				{
 					b.append('/').append(eqI.getAltCritMult());
 				}
@@ -738,11 +757,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (eqI.isWeapon())
 			{
-				bString = Globals.getGameModeUnitSet().displayDistanceInUnitSet(eqI.getRange(pc).intValue());
+				bString =
+						Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+							eqI.getRange(pc).intValue());
 
 				if (bString.length() > 0)
 				{
-					b.append(" <b>Range</b>:").append(bString).append(Globals.getGameModeUnitSet().getDistanceUnit());
+					b.append(" <b>Range</b>:").append(bString).append(
+						Globals.getGameModeUnitSet().getDistanceUnit());
 				}
 			}
 
@@ -759,9 +781,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				b.append(" <b>Currently Contains</b>:").append(bString);
 
-				BigDecimal d = new BigDecimal(String.valueOf(eqI.getContainedValue(pc)));
-				String aVal = BigDecimalHelper.formatBigDecimal(d, 2).toString();
-				b.append(" <b>Contained Value</b>:").append(aVal).append(Globals.getCurrencyDisplay());
+				BigDecimal d =
+						new BigDecimal(String
+							.valueOf(eqI.getContainedValue(pc)));
+				String aVal =
+						BigDecimalHelper.formatBigDecimal(d, 2).toString();
+				b.append(" <b>Contained Value</b>:").append(aVal).append(
+					Globals.getCurrencyDisplay());
 			}
 
 			final int charges = eqI.getRemainingCharges();
@@ -798,7 +824,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (slSelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("First select an Item to change location", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an Item to change location", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -814,18 +842,23 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog("First select an Item to change location", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an Item to change location", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		// if the eSet.getIdPath() is longer than 3
 		// it's inside a container, so bail out
-		StringTokenizer aTok = new StringTokenizer(eSet.getIdPath(), ".", false);
+		StringTokenizer aTok =
+				new StringTokenizer(eSet.getIdPath(), ".", false);
 
 		if (aTok.countTokens() > 3)
 		{
-			ShowMessageDelegate.showMessageDialog("Can not change item locations inside a container", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Can not change item locations inside a container",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -878,7 +911,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 				else
 				{
-					ShowMessageDelegate.showMessageDialog("Container " + eqTarget.getName() + " is full", Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog("Container "
+						+ eqTarget.getName() + " is full", Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
@@ -891,9 +925,12 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			return;
 		}
 
-		if ((eTargetSet != null) && eSet.getIdPath().equals(eTargetSet.getIdPath()))
+		if ((eTargetSet != null)
+			&& eSet.getIdPath().equals(eTargetSet.getIdPath()))
 		{
-			ShowMessageDelegate.showMessageDialog("Can not put an item inside itself", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Can not put an item inside itself", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -901,7 +938,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// make sure we can add item to that slot in this EquipSet
 		if (!canAddEquip(rootSet, locName, eqI, eqTarget))
 		{
-			ShowMessageDelegate.showMessageDialog("Can not equip " + eqI.getName() + " to " + locName, Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Can not equip "
+				+ eqI.getName() + " to " + locName, Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -987,7 +1026,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (noteSelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1012,7 +1052,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1020,8 +1061,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		String newNote;
 
 		InputInterface ii = InputFactory.getInputInstance();
-		Object selectedValue = ii.showInputDialog(null, "Enter new Note", Constants.s_APPNAME,
-				MessageType.QUESTION, null, eSet.getNote());
+		Object selectedValue =
+				ii.showInputDialog(null, "Enter new Note", Constants.s_APPNAME,
+					MessageType.QUESTION, null, eSet.getNote());
 
 		if (selectedValue != null)
 		{
@@ -1052,7 +1094,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (qtySelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1074,11 +1117,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		eSet = pc.getEquipSetByIdPath(pid);
 
 		Equipment eqI = eSet.getItem();
-		StringTokenizer aTok = new StringTokenizer(eSet.getIdPath(), ".", false);
+		StringTokenizer aTok =
+				new StringTokenizer(eSet.getIdPath(), ".", false);
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1087,14 +1132,18 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// of carried items or items inside a container
 		if (eqI.isContainer())
 		{
-			ShowMessageDelegate.showMessageDialog("Can not change quantity of containers", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Can not change quantity of containers", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		if ((aTok.countTokens() <= 3) && eqI.isEquipped())
 		{
-			ShowMessageDelegate.showMessageDialog("Can not change quantity of Equipped items", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Can not change quantity of Equipped items",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1105,8 +1154,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (aQty.floatValue() <= 0.0f)
 		{
-			Object selectedValue = JOptionPane.showInputDialog(null, "Enter new Quantity", Constants.s_APPNAME,
-					JOptionPane.QUESTION_MESSAGE);
+			Object selectedValue =
+					JOptionPane.showInputDialog(null, "Enter new Quantity",
+						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -1116,7 +1166,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!", Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog("Invalid number!",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
@@ -1152,7 +1203,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// the PC's equipmentList number for this item
 		if (addNum > diffItemCount(eSet, eqI).floatValue())
 		{
-			ShowMessageDelegate.showMessageDialog("You do not have " + newNum + " " + eqI.getName(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("You do not have " + newNum
+				+ " " + eqI.getName(), Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1176,7 +1228,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				eqI.setNumberCarried(numCarried);
 
 				// Send error message
-				ShowMessageDelegate.showMessageDialog("Container " + eqP.getName() + " is full", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Container "
+					+ eqP.getName() + " is full", Constants.s_APPNAME,
+					MessageType.ERROR);
 
 				return;
 			}
@@ -1219,7 +1273,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			return "";
 		}
 
-		List<EquipSlot> eqSlotList = SystemCollections.getUnmodifiableEquipSlotList();
+		List<EquipSlot> eqSlotList =
+				SystemCollections.getUnmodifiableEquipSlotList();
 
 		if ((eqSlotList == null) || eqSlotList.isEmpty())
 		{
@@ -1245,7 +1300,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	private static int getTableSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -1257,7 +1313,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -1265,6 +1322,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			addEquipButton(new Float(1));
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -1273,7 +1331,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -1282,18 +1341,19 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// We run this after the event has been processed so that
 			// we don't confuse the table when we change its contents
 			SwingUtilities.invokeLater(new Runnable()
+			{
+				public void run()
 				{
-					public void run()
-					{
-						delEquipButton();
-					}
-				});
+					delEquipButton();
+				}
+			});
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			if (obj instanceof EquipSet)
 			{
-				EquipSet eqset = (EquipSet)obj;
+				EquipSet eqset = (EquipSet) obj;
 				String pathId = eqset.getIdPath();
 				if (pathId.equals(eqset.getRootIdPath()))
 				{
@@ -1313,10 +1373,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		atree.setRootVisible(false);
 		atree.setShowsRootHandles(true);
 		atree.setCellRenderer(new LabelTreeCellRenderer());
-		atree.getSelectionModel().setSelectionMode(TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION);
-		availableTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		atree.getSelectionModel().setSelectionMode(
+			TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION);
+		availableTable
+			.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-		availableTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		availableTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -1370,7 +1433,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			});
 
-		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), true));
+		availableTable.addMouseListener(new JTreeTableMouseAdapter(
+			availableTable, new AvailableClickHandler(), true));
 
 		// now do the selectedTable and selectedTree
 		selectedTable = new JTreeTable(selectedModel);
@@ -1381,7 +1445,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		stree.setCellRenderer(new LabelTreeCellRenderer());
 		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		selectedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		selectedTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -1402,15 +1467,19 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 						if (!stree.isSelectionEmpty())
 						{
-							final MyPONode fn = (MyPONode) vcSelPath.getPathComponent(1);
+							final MyPONode fn =
+									(MyPONode) vcSelPath.getPathComponent(1);
 							final EquipSet eSet = (EquipSet) fn.getItem();
 
-							if ((eSet != null) && (!eSet.getName().equals(equipSetTextField.getText())))
+							if ((eSet != null)
+								&& (!eSet.getName().equals(
+									equipSetTextField.getText())))
 							{
 								equipSetTextField.setText(eSet.getName());
 								selectedEquipSet = eSet.getName();
 
-								final int index = viewComboBox.getSelectedIndex();
+								final int index =
+										viewComboBox.getSelectedIndex();
 
 								if (index == GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED)
 								{
@@ -1466,7 +1535,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			});
 
-		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), true));
+		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
+			selectedTable, new SelectedClickHandler(), true));
 
 		// create the rightclick popup menus
 		hookupPopupMenu(availableTable);
@@ -1479,7 +1549,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @param multiHand
 	 * @return weapon location choices
 	 **/
-	private static List<String> getWeaponLocationChoices(final int hands, final String multiHand)
+	private static List<String> getWeaponLocationChoices(final int hands,
+		final String multiHand)
 	{
 		final List<String> result = new ArrayList<String>(hands + 2);
 
@@ -1527,7 +1598,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		if (selectedTable.getTree().isSelectionEmpty()
 			|| !pathExists(selectedTable.getTree(), aeSelPath))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieSelectSet"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_ieSelectSet"), Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -1567,7 +1640,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if ((eSet == null) || (parentNode == null))
 		{
-			ShowMessageDelegate.showMessageDialog("First select an Equip Set to add the item to", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an Equip Set to add the item to",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1636,7 +1711,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		PObjectNode root = (PObjectNode) tree.getModel().getRoot();
 		PObjectNode currTreeNode = null;
-		for (int i=0;i<path.getPathCount();i++)
+		for (int i = 0; i < path.getPathCount(); i++)
 		{
 			PObjectNode pathNode = (PObjectNode) path.getPathComponent(i);
 			if (currTreeNode == null)
@@ -1665,13 +1740,12 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					return false;
 				}
 			}
-			
+
 		}
-		
+
 		return true;
 	}
-	
-	
+
 	/*
 	 *****  **  **  **   **  **  ** **    **
 	 **     **  **  ***  **  ** **   **  **
@@ -1721,7 +1795,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @param newQty
 	 * @return Equip Set
 	 **/
-	private EquipSet addEquipToTarget(EquipSet eSet, Equipment eqTarget, String locName, Equipment eqI, Float newQty)
+	private EquipSet addEquipToTarget(EquipSet eSet, Equipment eqTarget,
+		String locName, Equipment eqI, Float newQty)
 	{
 		Float tempQty = newQty;
 		boolean addAll = false;
@@ -1734,7 +1809,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		if (newQty.floatValue() < 0.0f)
 		{
 			tempQty = diffItemCount(eSet, eqI);
-			newQty = new Float(tempQty.floatValue() + existingQty(eSet, eqI).floatValue());
+			newQty =
+					new Float(tempQty.floatValue()
+						+ existingQty(eSet, eqI).floatValue());
 			addAll = true;
 		}
 
@@ -1742,7 +1819,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// the PC's equipmentList number for this item
 		if (tempQty.floatValue() > diffItemCount(eSet, eqI).floatValue())
 		{
-			ShowMessageDelegate.showMessageDialog("You have already added all your " + eqI.getName(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"You have already added all your " + eqI.getName(),
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return null;
 		}
@@ -1764,7 +1843,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog("Container " + eqTarget.getName() + " is full", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Container "
+					+ eqTarget.getName() + " is full", Constants.s_APPNAME,
+					MessageType.ERROR);
 
 				return null;
 			}
@@ -1778,7 +1859,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			List<String> aList = locationChoices(eqI, containers);
 			locName = getSingleLocation(eqI);
 
-			if ((locName.length() != 0) && canAddEquip(eSet, locName, eqI, eqTarget))
+			if ((locName.length() != 0)
+				&& canAddEquip(eSet, locName, eqI, eqTarget))
 			{
 				// seems to be the right choice
 			}
@@ -1825,8 +1907,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						}
 						else
 						{
-							ShowMessageDelegate.showMessageDialog("Container " + eqTarget.getName() + " is full", Constants.s_APPNAME,
-								MessageType.ERROR);
+							ShowMessageDelegate.showMessageDialog("Container "
+								+ eqTarget.getName() + " is full",
+								Constants.s_APPNAME, MessageType.ERROR);
 
 							return null;
 						}
@@ -1843,7 +1926,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// make sure we can add item to that slot in this EquipSet
 		if (!canAddEquip(eSet, locName, eqI, eqTarget))
 		{
-			ShowMessageDelegate.showMessageDialog("Can not equip " + eqI.getName() + " to " + locName, Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Can not equip "
+				+ eqI.getName() + " to " + locName, Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return null;
 		}
@@ -1858,7 +1943,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = new Float(tempQty.floatValue() + existingQty(eSet, eqI).floatValue());
+			newQty =
+					new Float(tempQty.floatValue()
+						+ existingQty(eSet, eqI).floatValue());
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);
@@ -1902,8 +1989,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	private void addNumEquipButton()
 	{
 		Float newQty;
-		Object selectedValue = JOptionPane.showInputDialog(null, "Enter Quantity", Constants.s_APPNAME,
-				JOptionPane.QUESTION_MESSAGE);
+		Object selectedValue =
+				JOptionPane.showInputDialog(null, "Enter Quantity",
+					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 		if (selectedValue != null)
 		{
@@ -1913,7 +2001,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 			catch (Exception e)
 			{
-				ShowMessageDelegate.showMessageDialog("Invalid number!", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog("Invalid number!",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -1930,8 +2019,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		if (newQty.floatValue() <= 0)
 		{
-			Object selectedValue = JOptionPane.showInputDialog(null, "Enter Quantity to buy", Constants.s_APPNAME,
-					JOptionPane.QUESTION_MESSAGE);
+			Object selectedValue =
+					JOptionPane.showInputDialog(null, "Enter Quantity to buy",
+						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -1941,7 +2031,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!", Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog("Invalid number!",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
@@ -1962,7 +2053,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			// get the equipment Item from the available Table
 			Equipment eq = (Equipment) fNode.getItem();
-			PCGen_Frame1.getCharacterPane().infoInventory().getInfoGear().buySpecifiedEquipment(eq, newQty.doubleValue());
+			PCGen_Frame1.getCharacterPane().infoInventory().getInfoGear()
+				.buySpecifiedEquipment(eq, newQty.doubleValue());
 			forceRefresh();
 		}
 	}
@@ -2017,7 +2109,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			calcComboBox.removeActionListener(calcComboBoxListener);
 		}
-		List<String> calcList = new ArrayList<String> (1);
+		List<String> calcList = new ArrayList<String>(1);
 		calcComboBox.removeAllItems();
 		equipSetList = pc.getEquipSet();
 
@@ -2025,7 +2117,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		// to calcComboBox list
 		for (EquipSet es : equipSetList)
 		{
-			if (es.getParentIdPath().equals("0") && !calcList.contains(es.getIdPath()))
+			if (es.getParentIdPath().equals("0")
+				&& !calcList.contains(es.getIdPath()))
 			{
 				calcList.add(es.getIdPath());
 				calcComboBox.addItem(es);
@@ -2066,7 +2159,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @param eqTarget
 	 * @return true if equipment can be added
 	 **/
-	private  boolean canAddEquip(EquipSet eSet, String locName, Equipment eqI, Equipment eqTarget)
+	private boolean canAddEquip(EquipSet eSet, String locName, Equipment eqI,
+		Equipment eqTarget)
 	{
 		final String idPath = eSet.getIdPath();
 
@@ -2078,7 +2172,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		// If Carried/Equipped/Not Carried slot
 		// allow as many as they would like
-		if (locName.startsWith(Constants.S_CARRIED) || locName.startsWith(Constants.S_EQUIPPED)
+		if (locName.startsWith(Constants.S_CARRIED)
+			|| locName.startsWith(Constants.S_EQUIPPED)
 			|| locName.startsWith(Constants.S_NOTCARRIED))
 		{
 			return true;
@@ -2160,16 +2255,21 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 				// if Double Weapon or Both Hands, then no
 				// other weapon slots can be occupied
-				if ((locName.equals(Constants.S_BOTH) || locName.equals(Constants.S_DOUBLE))
-					&& (es.getName().equals(Constants.S_PRIMARY) || es.getName().equals(Constants.S_SECONDARY)
-					|| es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)))
+				if ((locName.equals(Constants.S_BOTH) || locName
+					.equals(Constants.S_DOUBLE))
+					&& (es.getName().equals(Constants.S_PRIMARY)
+						|| es.getName().equals(Constants.S_SECONDARY)
+						|| es.getName().equals(Constants.S_BOTH) || es
+						.getName().equals(Constants.S_DOUBLE)))
 				{
 					return false;
 				}
 
 				// inverse of above case
-				if ((locName.equals(Constants.S_PRIMARY) || locName.equals(Constants.S_SECONDARY))
-					&& (es.getName().equals(Constants.S_BOTH) || es.getName().equals(Constants.S_DOUBLE)))
+				if ((locName.equals(Constants.S_PRIMARY) || locName
+					.equals(Constants.S_SECONDARY))
+					&& (es.getName().equals(Constants.S_BOTH) || es.getName()
+						.equals(Constants.S_DOUBLE)))
 				{
 					return false;
 				}
@@ -2197,7 +2297,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 
 				// if the item takes more slots, return false
-				if (existNum > (eSlot.getSlotCount() + (int) pc.getTotalBonusTo("SLOTS", eSlot.getContainType())))
+				if (existNum > (eSlot.getSlotCount() + (int) pc
+					.getTotalBonusTo("SLOTS", eSlot.getContainType())))
 				{
 					return false;
 				}
@@ -2297,7 +2398,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		lc.setPoolFlag(false);
 		lc.setVisible(true);
 
-		for (String aString : (List<String>)lc.getSelectedList())
+		for (String aString : (List<String>) lc.getSelectedList())
 		{
 			for (int j = 0; j < tbList.size(); j++)
 			{
@@ -2333,7 +2434,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (eSet == null)
 		{
-			ShowMessageDelegate.showMessageDialog("First select an Equip Set to duplicate.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an Equip Set to duplicate.", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -2341,8 +2444,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		pid = eSet.getIdPath();
 
 		// Get a new name
-		newName = JOptionPane.showInputDialog(null, "Enter name for new Equip Set", Constants.s_APPNAME,
-				JOptionPane.QUESTION_MESSAGE);
+		newName =
+				JOptionPane.showInputDialog(null,
+					"Enter name for new Equip Set", Constants.s_APPNAME,
+					JOptionPane.QUESTION_MESSAGE);
 
 		if ((newName == null) || (newName.length() <= 0))
 		{
@@ -2355,7 +2460,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (pcSet != null)
 		{
-			ShowMessageDelegate.showMessageDialog("An EquipSet all ready exists with that name.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"An EquipSet all ready exists with that name.",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -2449,7 +2556,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (delSelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment to remove from this set", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"Select the Equipment to remove from this set",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -2472,14 +2581,17 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			// not the root EquipSet node
 			if (eSet.getItem() == null)
 			{
-				ShowMessageDelegate.showMessageDialog("Use this to remove equipment, not the Equipment Set itself", Constants.s_APPNAME,
-					MessageType.ERROR);
+				ShowMessageDelegate
+					.showMessageDialog(
+						"Use this to remove equipment, not the Equipment Set itself",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
 
 			Equipment eqI = eSet.getItem();
-			StringTokenizer aTok = new StringTokenizer(eSet.getIdPath(), ".", false);
+			StringTokenizer aTok =
+					new StringTokenizer(eSet.getIdPath(), ".", false);
 
 			// remove Equipment (via EquipSet) from the PC
 			pc.delEquipSet(eSet);
@@ -2527,13 +2639,16 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (eSet == null)
 		{
-			Logging.errorPrint("delEquipSetButton: No EquipSet named: " + equipSetFieldText);
+			Logging.errorPrint("delEquipSetButton: No EquipSet named: "
+				+ equipSetFieldText);
 
 			return;
 		}
 
-		int iConfirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete?", "Confirm Remove",
-				JOptionPane.YES_NO_OPTION);
+		int iConfirm =
+				JOptionPane.showConfirmDialog(null,
+					"Are you sure you want to delete?", "Confirm Remove",
+					JOptionPane.YES_NO_OPTION);
 
 		if (iConfirm != JOptionPane.YES_OPTION)
 		{
@@ -2611,10 +2726,12 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		File esTemplate = new File(template);
 
-		int[] tests = new int[]{ 0, 0 };
+		int[] tests = new int[]{0, 0};
 		int length = 0;
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(esTemplate), "UTF-8"));
+		BufferedReader br =
+				new BufferedReader(new InputStreamReader(new FileInputStream(
+					esTemplate), "UTF-8"));
 
 		while (br.readLine() != null)
 		{
@@ -2625,7 +2742,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		File reParse = File.createTempFile("eqTTemp_", ".tmp");
 		String reparseName = reParse.getPath();
-		BufferedWriter rpW = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(reparseName, true), "UTF-8"));
+		BufferedWriter rpW =
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+					reparseName, true), "UTF-8"));
 
 		// The eqsheet file can have multiple instances of the
 		// |EQSET.START| |EQSET.END| tags
@@ -2659,7 +2778,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			{
 				// no EQSET tag, so just write to reParse file
 				String aLine;
-				BufferedReader tempReader = new BufferedReader(new InputStreamReader(new FileInputStream(temp), "UTF-8"));
+				BufferedReader tempReader =
+						new BufferedReader(new InputStreamReader(
+							new FileInputStream(temp), "UTF-8"));
 
 				while ((aLine = tempReader.readLine()) != null)
 				{
@@ -2720,11 +2841,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			//FileWriter w = new FileWriter(tmpFile);
 			//output = new BufferedWriter(w);
-			output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tmpFile), "UTF-8"));
+			output =
+					new BufferedWriter(new OutputStreamWriter(
+						new FileOutputStream(tmpFile), "UTF-8"));
 
 			// read in the eqsheet template file
 			//BufferedReader br = new BufferedReader(new FileReader(template));
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(template), "UTF-8"));
+			BufferedReader br =
+					new BufferedReader(new InputStreamReader(
+						new FileInputStream(template), "UTF-8"));
 			List<String> lines = new ArrayList<String>();
 
 			while ((aLine = br.readLine()) != null)
@@ -2760,11 +2885,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			}
 		}
-		 // end of try
+		// end of try
 		catch (IOException ioe)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not create temporary equip sets preview file.", "PCGen", MessageType.ERROR);
-			Logging.errorPrint("Could not create temporary equip sets preview file.");
+			ShowMessageDelegate.showMessageDialog(
+				"Could not create temporary equip sets preview file.", "PCGen",
+				MessageType.ERROR);
+			Logging
+				.errorPrint("Could not create temporary equip sets preview file.");
 		}
 		finally
 		{
@@ -2846,7 +2974,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		// Next we loop through all the root EquipSet's, populate
 		// the new eqList and print out an iteration of the eqsheet
-		for (EquipSet esRL:  eqRootList)
+		for (EquipSet esRL : eqRootList)
 		{
 			String pid = esRL.getIdPath();
 
@@ -2962,7 +3090,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	private void formComponentShown()
 	{
 		// TODO: I18N
-		PCGen_Frame1.setMessageAreaTextWithoutSaving("Select containers to add equipment to them");
+		PCGen_Frame1
+			.setMessageAreaTextWithoutSaving("Select containers to add equipment to them");
 
 		refresh();
 
@@ -2976,9 +3105,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			hasBeenSized = true;
 
 			Component c = getParent();
-			s = SettingsHandler.getPCGenOption("InfoEquipping.splitPane", ((c.getWidth() * 7) / 10));
-			t = SettingsHandler.getPCGenOption("InfoEquipping.bsplit", (c.getHeight() - 101));
-			u = SettingsHandler.getPCGenOption("InfoEquipping.asplit", (c.getWidth() - 408));
+			s =
+					SettingsHandler.getPCGenOption("InfoEquipping.splitPane",
+						((c.getWidth() * 7) / 10));
+			t =
+					SettingsHandler.getPCGenOption("InfoEquipping.bsplit", (c
+						.getHeight() - 101));
+			u =
+					SettingsHandler.getPCGenOption("InfoEquipping.asplit", (c
+						.getWidth() - 408));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
@@ -2991,7 +3126,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(selectedTable, "EquipSel", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					selectedTable, "EquipSel", i));
 			}
 
 			// set the prefered width on availableTable
@@ -3005,7 +3141,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "EquipAva", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					availableTable, "EquipAva", i));
 			}
 
 			// have to add this here otherwise it fires before
@@ -3041,144 +3178,148 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new EquipPopupListener(treeTable, new EquipPopupMenu(treeTable)));
+		treeTable.addMouseListener(new EquipPopupListener(treeTable,
+			new EquipPopupMenu(treeTable)));
 	}
 
 	private void initActionListeners()
 	{
 		// make sure we update when switching tabs
 		this.addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
+				formComponentShown();
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
+				int s = splitPane.getDividerLocation();
+
+				if (s > 0)
 				{
-					int s = splitPane.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoEquipping.splitPane", s);
-					}
-
-					s = asplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoEquipping.asplit", s);
-					}
-
-					s = bsplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoEquipping.bsplit", s);
-					}
+					SettingsHandler
+						.setPCGenOption("InfoEquipping.splitPane", s);
 				}
-			});
+
+				s = asplit.getDividerLocation();
+
+				if (s > 0)
+				{
+					SettingsHandler.setPCGenOption("InfoEquipping.asplit", s);
+				}
+
+				s = bsplit.getDividerLocation();
+
+				if (s > 0)
+				{
+					SettingsHandler.setPCGenOption("InfoEquipping.bsplit", s);
+				}
+			}
+		});
 		viewEqSetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					viewEqSetButton();
-				}
-			});
+				viewEqSetButton();
+			}
+		});
 		exportEqSetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					exportEqSetButton();
-				}
-			});
+				exportEqSetButton();
+			}
+		});
 		selectTemplateButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					selectTemplateButton();
-				}
-			});
+				selectTemplateButton();
+			}
+		});
 		addEquipButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					addEquipButton(new Float(1));
-				}
-			});
+				addEquipButton(new Float(1));
+			}
+		});
 		delEquipButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					delEquipButton();
-				}
-			});
+				delEquipButton();
+			}
+		});
 		setQtyButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					setQtyButton(new Float(0));
-				}
-			});
+				setQtyButton(new Float(0));
+			}
+		});
 		setNoteButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					setNoteButton();
-				}
-			});
+				setNoteButton();
+			}
+		});
 		addEquipSetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					addEquipSetButton();
-				}
-			});
+				addEquipSetButton();
+			}
+		});
 		delEquipSetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					delEquipSetButton();
-				}
-			});
+				delEquipSetButton();
+			}
+		});
 		viewComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewComboBoxActionPerformed();
-				}
-			});
+				viewComboBoxActionPerformed();
+			}
+		});
 		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void changedUpdate(DocumentEvent evt)
 			{
-				public void changedUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void insertUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void removeUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-			});
+				setQFilter();
+			}
+
+			public void insertUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+
+			public void removeUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+		});
 		clearQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearQFilter();
-				}
-			});
+				clearQFilter();
+			}
+		});
 	}
 
 	/**
@@ -3193,7 +3334,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		//
 		int iView = SettingsHandler.getEquipTab_AvailableListMode();
 
-		if ((iView >= GuiConstants.INFOEQUIPPING_VIEW_NAME) && (iView <= GuiConstants.INFOEQUIPPING_VIEW_TYPE))
+		if ((iView >= GuiConstants.INFOEQUIPPING_VIEW_NAME)
+			&& (iView <= GuiConstants.INFOEQUIPPING_VIEW_TYPE))
 		{
 			viewMode = iView;
 		}
@@ -3205,7 +3347,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		SettingsHandler.setEquipTab_AvailableListMode(viewMode);
 		iView = SettingsHandler.getEquipTab_SelectedListMode();
 
-		if ((iView >= GuiConstants.INFOEQUIPPING_VIEW_NAME) && (iView <= GuiConstants.INFOEQUIPPING_VIEW_LOCATION))
+		if ((iView >= GuiConstants.INFOEQUIPPING_VIEW_NAME)
+			&& (iView <= GuiConstants.INFOEQUIPPING_VIEW_LOCATION))
 		{
 			viewSelectMode = iView;
 		}
@@ -3216,7 +3359,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		SettingsHandler.setEquipTab_SelectedListMode(viewSelectMode);
 
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel") + "     ");
+		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel")
+			+ "     ");
 		viewComboBox.addItem(PropertyFactory.getString("in_ieLoc") + " ");
 		viewComboBox.addItem(PropertyFactory.getString("in_ieEquipped") + " ");
 		viewComboBox.addItem(PropertyFactory.getString("in_type") + "     ");
@@ -3260,7 +3404,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		buildBottomPanel();
 	}
 
-	private void buildTopPanel() {
+	private void buildTopPanel()
+	{
 		// build topPane which will contain leftPane and rightPane
 		// leftPane will have two panels and a scrollregion
 		// rightPane will have one panel and a scrollregion
@@ -3268,33 +3413,44 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		JPanel leftPane = new JPanel(new BorderLayout());
 		JPanel rightPane = new JPanel(new BorderLayout());
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane =
+				new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
 		topPane.add(splitPane, BorderLayout.CENTER);
 
-		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox,
+			lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		// the available equipment sets panel
-		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
-		JPanel bottomLeftPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(addEquipButton, PropertyFactory.getString("in_ieAddEqBut"));
+		JPanel bottomLeftPane =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(addEquipButton, PropertyFactory
+			.getString("in_ieAddEqBut"));
 		addEquipButton.setEnabled(false);
 		bottomLeftPane.add(addEquipButton);
-		Utility.setDescription(bottomLeftPane, PropertyFactory.getString("in_ieAddEqRight"));
+		Utility.setDescription(bottomLeftPane, PropertyFactory
+			.getString("in_ieAddEqRight"));
 		leftPane.add(bottomLeftPane, BorderLayout.SOUTH);
 
 		// now build the right pane
 		// for the selected (equipment) table
-		JPanel topRightPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		JLabel selProfileLabel = new JLabel(PropertyFactory.getString("in_ieEquipSet") + ":");
+		JPanel topRightPane =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		JLabel selProfileLabel =
+				new JLabel(PropertyFactory.getString("in_ieEquipSet") + ":");
 		topRightPane.add(selProfileLabel);
 		equipSetTextField.setPreferredSize(new Dimension(100, 20));
 		topRightPane.add(equipSetTextField);
@@ -3305,16 +3461,21 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		rightPane.add(topRightPane, BorderLayout.NORTH);
 
-		JScrollPane scrollPane2 = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane2 =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton2 = new JButton();
-		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
-
-		JPanel bottomRightPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(setNoteButton, "Add additional info to this item");
+		JPanel bottomRightPane =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		Utility.setDescription(setNoteButton,
+			"Add additional info to this item");
 		setNoteButton.setEnabled(false);
 		bottomRightPane.add(setNoteButton);
 
@@ -3322,18 +3483,24 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		setQtyButton.setEnabled(false);
 		bottomRightPane.add(setQtyButton);
 
-		Utility.setDescription(delEquipButton, "Click to remove selected equipment from this set");
+		Utility.setDescription(delEquipButton,
+			"Click to remove selected equipment from this set");
 		delEquipButton.setEnabled(false);
 		bottomRightPane.add(delEquipButton);
 		rightPane.add(bottomRightPane, BorderLayout.SOUTH);
 
 		// add the sorter tables to that clicking on the TableHeader
 		// actualy does something (gawd damn it's slow!)
-		availableSort = new JTreeTableSorter(availableTable, (MyPONode) availableModel.getRoot(), availableModel);
-		selectedSort = new JTreeTableSorter(selectedTable, (MyPONode) selectedModel.getRoot(), selectedModel);
+		availableSort =
+				new JTreeTableSorter(availableTable, (MyPONode) availableModel
+					.getRoot(), availableModel);
+		selectedSort =
+				new JTreeTableSorter(selectedTable, (MyPONode) selectedModel
+					.getRoot(), selectedModel);
 	}
 
-	private void buildBottomPanel() {
+	private void buildBottomPanel()
+	{
 		// ---------- build Bottom Panel ----------------
 		// botPane will contain a bLeftPane and a bRightPane
 		// bLeftPane will contain a scrollregion (equipment info)
@@ -3343,7 +3510,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		JPanel bLeftPane = new JPanel(new BorderLayout());
 		JPanel bRightPane = new JPanel();
 
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
+		asplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane,
+					bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
@@ -3368,7 +3537,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		// create an equipment info scroll area
 		JScrollPane sScroll = new JScrollPane();
-		TitledBorder sTitle = BorderFactory.createTitledBorder("Equipment Info");
+		TitledBorder sTitle =
+				BorderFactory.createTitledBorder("Equipment Info");
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -3400,12 +3570,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		gridbag.setConstraints(iPanel, c);
 
 		viewEqSetButton = new JButton("View in Browser");
-		Utility.setDescription(viewEqSetButton, "Launches a browser and displays Equipment Sets");
+		Utility.setDescription(viewEqSetButton,
+			"Launches a browser and displays Equipment Sets");
 		viewEqSetButton.setEnabled(true);
 		iPanel.add(viewEqSetButton);
 
 		exportEqSetButton = new JButton("Export to File");
-		Utility.setDescription(exportEqSetButton, "Export Equipment Sets to a File");
+		Utility.setDescription(exportEqSetButton,
+			"Export Equipment Sets to a File");
 		exportEqSetButton.setEnabled(true);
 		iPanel.add(exportEqSetButton);
 
@@ -3419,9 +3591,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		templateTextField.setEditable(false);
 		Utility.setDescription(templateTextField, "Display only");
 		templateTextField.setBackground(Color.lightGray);
-		templateTextField.setText(SettingsHandler.getSelectedEqSetTemplateName());
+		templateTextField.setText(SettingsHandler
+			.getSelectedEqSetTemplateName());
 		selectTemplateButton = new JButton("Select template");
-		Utility.setDescription(selectTemplateButton, "Select an EquipSet output template");
+		Utility.setDescription(selectTemplateButton,
+			"Select an EquipSet output template");
 		iiPanel.add(selectTemplateButton);
 		iiPanel.add(templateTextField);
 
@@ -3430,7 +3604,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		bRightPane.add(iiPanel);
 
 		// now split the top and bottom Panels
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
@@ -3446,7 +3622,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * @return List
 	 */
 	@Deprecated
-    private final List<String> locationChoices(Equipment eqI, List<EqSetWrapper> containers)
+	private final List<String> locationChoices(Equipment eqI,
+		List<EqSetWrapper> containers)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -3541,7 +3718,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 					if (esID.startsWith(abID))
 					{
-						if ((es.getItem() != null) && es.getItem().isContainer())
+						if ((es.getItem() != null)
+							&& es.getItem().isContainer())
 						{
 							containers.add(new EqSetWrapper(es));
 						}
@@ -3561,7 +3739,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		final String template = SettingsHandler.getSelectedEqSetTemplate();
 		if (template == null || template.length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog("An equip-set template must be selected before the equip-set can be exported.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate
+				.showMessageDialog(
+					"An equip-set template must be selected before the equip-set can be exported.",
+					Constants.s_APPNAME, MessageType.ERROR);
 			return;
 		}
 		String ext = template.substring(template.lastIndexOf('.'));
@@ -3580,7 +3761,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (aFileName.length() < 1)
 		{
-			ShowMessageDelegate.showMessageDialog("You must set a filename.", "PCGen", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("You must set a filename.",
+				"PCGen", MessageType.ERROR);
 
 			return;
 		}
@@ -3591,16 +3773,24 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (outFile.isDirectory())
 			{
-				ShowMessageDelegate.showMessageDialog("You cannot overwrite a directory with a file.", "PCGen", MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"You cannot overwrite a directory with a file.", "PCGen",
+					MessageType.ERROR);
 
 				return;
 			}
 
 			if (outFile.exists())
 			{
-				int reallyClose = JOptionPane.showConfirmDialog(this,
-						"The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?",
-						"Confirm overwriting " + outFile.getName(), JOptionPane.YES_NO_OPTION);
+				int reallyClose =
+						JOptionPane
+							.showConfirmDialog(
+								this,
+								"The file "
+									+ outFile.getName()
+									+ " already exists, are you sure you want to overwrite it?",
+								"Confirm overwriting " + outFile.getName(),
+								JOptionPane.YES_NO_OPTION);
 
 				if (reallyClose != JOptionPane.YES_OPTION)
 				{
@@ -3610,15 +3800,20 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (ext.equalsIgnoreCase(".htm") || ext.equalsIgnoreCase(".html"))
 			{
-				BufferedWriter w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
+				BufferedWriter w =
+						new BufferedWriter(new OutputStreamWriter(
+							new FileOutputStream(outFile), "UTF-8"));
 				eqSetPrintToWriter(w, template);
 				w.flush();
 				w.close();
 			}
-			else if (ext.equalsIgnoreCase(".fo") || ext.equalsIgnoreCase(".pdf"))
+			else if (ext.equalsIgnoreCase(".fo")
+				|| ext.equalsIgnoreCase(".pdf"))
 			{
 				File tmpFile = File.createTempFile("equipSet_", ".fo");
-				BufferedWriter w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tmpFile), "UTF-8"));
+				BufferedWriter w =
+						new BufferedWriter(new OutputStreamWriter(
+							new FileOutputStream(tmpFile), "UTF-8"));
 				eqSetPrintToWriter(w, template);
 				w.flush();
 				w.close();
@@ -3639,13 +3834,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 				if (errMessage.length() > 0)
 				{
-					ShowMessageDelegate.showMessageDialog(errMessage, "PCGen", MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(errMessage, "PCGen",
+						MessageType.ERROR);
 				}
 			}
 		}
 		catch (IOException ex)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not export " + pc.getDisplayName() + ". Try another filename", "PCGen",
+			ShowMessageDelegate.showMessageDialog("Could not export "
+				+ pc.getDisplayName() + ". Try another filename", "PCGen",
 				MessageType.ERROR);
 			Logging.errorPrint("Could not export " + pc.getDisplayName(), ex);
 		}
@@ -3672,7 +3869,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (eSet == null)
 		{
-			ShowMessageDelegate.showMessageDialog("First select an Equip Set to duplicate.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an Equip Set to duplicate.", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -3680,8 +3879,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		oldName = eSet.getName();
 
 		// Get a new name
-		newName = JOptionPane.showInputDialog(null, "Enter new name for Equip Set", Constants.s_APPNAME,
-				JOptionPane.QUESTION_MESSAGE);
+		newName =
+				JOptionPane.showInputDialog(null,
+					"Enter new name for Equip Set", Constants.s_APPNAME,
+					JOptionPane.QUESTION_MESSAGE);
 
 		// If they are the same, just return
 		if (newName.equals(oldName))
@@ -3697,7 +3898,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (pcSet != null)
 			{
-				ShowMessageDelegate.showMessageDialog("An EquipSet all ready exists with that name.", Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					"An EquipSet all ready exists with that name.",
+					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
 			}
@@ -3727,12 +3930,16 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle("Find and select your EquipSet template");
 		fc.setCurrentDirectory(SettingsHandler.getPcgenOutputSheetDir());
-		fc.setSelectedFile(new File(SettingsHandler.getSelectedEqSetTemplate()));
+		fc
+			.setSelectedFile(new File(SettingsHandler
+				.getSelectedEqSetTemplate()));
 
 		if (fc.showOpenDialog(InfoEquipping.this) == JFileChooser.APPROVE_OPTION)
 		{
-			SettingsHandler.setSelectedEqSetTemplate(fc.getSelectedFile().getAbsolutePath());
-			templateTextField.setText(SettingsHandler.getSelectedEqSetTemplateName());
+			SettingsHandler.setSelectedEqSetTemplate(fc.getSelectedFile()
+				.getAbsolutePath());
+			templateTextField.setText(SettingsHandler
+				.getSelectedEqSetTemplateName());
 		}
 	}
 
@@ -3744,8 +3951,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	{
 		if (newQty.floatValue() <= 0)
 		{
-			Object selectedValue = JOptionPane.showInputDialog(null, "Enter Quantity to Sell", Constants.s_APPNAME,
-					JOptionPane.QUESTION_MESSAGE);
+			Object selectedValue =
+					JOptionPane.showInputDialog(null, "Enter Quantity to Sell",
+						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -3755,7 +3963,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!", Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog("Invalid number!",
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
@@ -3776,8 +3985,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			// get the equipment Item from the available Table
 			Equipment eq = (Equipment) fNode.getItem();
-			PCGen_Frame1.getCharacterPane().infoInventory().getInfoGear().sellSpecifiedEquipment(eq,
-				newQty.doubleValue());
+			PCGen_Frame1.getCharacterPane().infoInventory().getInfoGear()
+				.sellSpecifiedEquipment(eq, newQty.doubleValue());
 			forceRefresh();
 		}
 	}
@@ -3834,9 +4043,15 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		pc.setCalcEquipmentList();
 
 		final Float weight = pc.totalWeight();
-		final Float roundedValue = new Float((new Float(Math.round(weight.doubleValue() * 10000))).floatValue() / 10000);
-		totalWeight.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(roundedValue.doubleValue()) + Globals.getGameModeUnitSet().getWeightUnit());
-		loadWeight.setText(Globals.loadTypeForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc).toString());
+		final Float roundedValue =
+				new Float((new Float(Math.round(weight.doubleValue() * 10000)))
+					.floatValue() / 10000);
+		totalWeight.setText(Globals.getGameModeUnitSet()
+			.displayWeightInUnitSet(roundedValue.doubleValue())
+			+ Globals.getGameModeUnitSet().getWeightUnit());
+		loadWeight.setText(Globals.loadTypeForLoadScore(
+			pc.getVariableValue("LOADSCORE", "").intValue(), weight, pc)
+			.toString());
 	}
 
 	/**
@@ -3900,7 +4115,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		if (template == null || template.length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog("An equip-set template must be selected before the equip-set can be viewed.", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate
+				.showMessageDialog(
+					"An equip-set template must be selected before the equip-set can be viewed.",
+					Constants.s_APPNAME, MessageType.ERROR);
 			return;
 		}
 		// Karianna - Fix for bug 966281
@@ -3913,7 +4131,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 		try
 		{
-			BufferedWriter w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
+			BufferedWriter w =
+					new BufferedWriter(new OutputStreamWriter(
+						new FileOutputStream(outFile), "UTF-8"));
 			eqSetPrintToWriter(w, template);
 			w.flush();
 			w.close();
@@ -3923,7 +4143,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Could not preview file in external browser.", ex);
+			Logging.errorPrint("Could not preview file in external browser.",
+				ex);
 		}
 	}
 
@@ -4048,22 +4269,24 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	/*
 	 * Allows temporary bonuses on a per EquipSet basis
 	 */
-	private static final class BonusEditor extends JComboBoxEx implements TableCellEditor
+	private static final class BonusEditor extends JComboBoxEx implements
+			TableCellEditor
 	{
-		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
+		private final transient List<CellEditorListener> d_listeners =
+				new ArrayList<CellEditorListener>();
 		private transient int d_originalValue = 0;
 
 		private BonusEditor()
 		{
-			super(new String[]{ "No", "Selected", "Yes" });
+			super(new String[]{"No", "Selected", "Yes"});
 			setEditable(true);
 			addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent ae)
 				{
-					public void actionPerformed(ActionEvent ae)
-					{
-						stopCellEditing();
-					}
-				});
+					stopCellEditing();
+				}
+			});
 		}
 
 		public boolean isCellEditable(EventObject eventObject)
@@ -4089,7 +4312,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		public Component getTableCellEditorComponent(JTable jTable, Object obj, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable jTable, Object obj,
+			boolean isSelected, int row, int column)
 		{
 			if (obj == null)
 			{
@@ -4140,7 +4364,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			fireEditingCanceled();
 		}
 
-		public void removeCellEditorListener(CellEditorListener cellEditorListener)
+		public void removeCellEditorListener(
+			CellEditorListener cellEditorListener)
 		{
 			d_listeners.remove(cellEditorListener);
 		}
@@ -4182,10 +4407,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 	private static final class ColorRenderer extends DefaultTableCellRenderer
 	{
-		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected,
-			boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable jTable,
+			Object value, boolean isSelected, boolean hasFocus, int row,
+			int column)
 		{
-			JLabel comp = (JLabel) super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
+			JLabel comp =
+					(JLabel) super.getTableCellRendererComponent(jTable, value,
+						isSelected, hasFocus, row, column);
 
 			if (value instanceof String)
 			{
@@ -4227,15 +4455,18 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	 * Leafs are like files and non-leafs are like directories
 	 * The leafs contain an Object that we want to know about (Equipment)
 	 **/
-	private final class EquipModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	private final class EquipModel extends AbstractTreeTableModel implements
+			TableColumnManagerModel
 	{
 		// if you change/add/remove entries to nameList
 		// you also need to change the static COL_XXX defines
 		// at the begining of this file
-		private String[] avaNameList = new String[]{ "Name", "Type", "Qty", "Weight", "Cost" };
-		private String[] selNameList = new String[]{ "Item", "Type", "Qty", "Location", "Temp Bonus" };
-		private final int[] avaDefaultWidth = { 200, 100, 100, 100, 100, 100 };
-		private final int[] selDefaultWidth = { 200, 100, 100, 100, 100, 100 };
+		private String[] avaNameList =
+				new String[]{"Name", "Type", "Qty", "Weight", "Cost"};
+		private String[] selNameList =
+				new String[]{"Item", "Type", "Qty", "Location", "Temp Bonus"};
+		private final int[] avaDefaultWidth = {200, 100, 100, 100, 100, 100};
+		private final int[] selDefaultWidth = {200, 100, 100, 100, 100, 100};
 
 		private List<Boolean> displayList = null;
 
@@ -4261,14 +4492,21 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			String[] colNameList = getNameList();
 			displayList = new ArrayList<Boolean>();
 			displayList.add(Boolean.TRUE);
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[1], true)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[2], true)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[3], true)));
-			if(modelType == 0) {
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[4], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[1], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[2], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[3], true)));
+			if (modelType == 0)
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + colNameList[4], true)));
 			}
-			else {
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[4], false)));
+			else
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + colNameList[4], false)));
 			}
 		}
 
@@ -4344,7 +4582,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					break;
 
 				default:
-					Logging.errorPrint("In InfoEquipping.getColumnClass the column " + column + " is not supported.");
+					Logging
+						.errorPrint("In InfoEquipping.getColumnClass the column "
+							+ column + " is not supported.");
 
 					break;
 			}
@@ -4360,7 +4600,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		 **/
 		public int getColumnCount()
 		{
-			return (modelType == MODEL_AVAIL) ? avaNameList.length : selNameList.length;
+			return (modelType == MODEL_AVAIL) ? avaNameList.length
+				: selNameList.length;
 		}
 
 		/**
@@ -4370,7 +4611,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		 **/
 		public String getColumnName(int column)
 		{
-			return (modelType == MODEL_AVAIL) ? avaNameList[column] : selNameList[column];
+			return (modelType == MODEL_AVAIL) ? avaNameList[column]
+				: selNameList[column];
 		}
 
 		// return the root node
@@ -4460,7 +4702,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			if (fn == null)
 			{
-				Logging.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquipping.");
+				Logging
+					.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquipping.");
 
 				return null;
 			}
@@ -4494,7 +4737,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 						if ("".equals(type))
 						{
-							StringTokenizer aTok = new StringTokenizer(eqI.getType(), ".", false);
+							StringTokenizer aTok =
+									new StringTokenizer(eqI.getType(), ".",
+										false);
 
 							if (aTok.hasMoreTokens())
 							{
@@ -4519,11 +4764,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 					if ((eSet != null) && (eSet.getValue().length() > 0))
 					{
-						return BigDecimalHelper.trimZeros(eSet.getQty().toString());
+						return BigDecimalHelper.trimZeros(eSet.getQty()
+							.toString());
 					}
 					else if (eqI != null)
 					{
-						if ((viewMode == GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED) && (fn.getParent().getNodeName() != null))
+						if ((viewMode == GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED)
+							&& (fn.getParent().getNodeName() != null))
 						{
 							String nodeName = fn.getParent().getNodeName();
 							if (nodeName.equals(nameAdded))
@@ -4532,7 +4779,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 							}
 							return equipNotMap.get(eqI.getName());
 						}
-						return BigDecimalHelper.trimZeros(eqI.getQty().toString());
+						return BigDecimalHelper.trimZeros(eqI.getQty()
+							.toString());
 					}
 					else
 					{
@@ -4545,7 +4793,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 					if ((eSet != null) && (eqI != null))
 					{
-						StringTokenizer aTok = new StringTokenizer(eSet.getIdPath(), ".", false);
+						StringTokenizer aTok =
+								new StringTokenizer(eSet.getIdPath(), ".",
+									false);
 
 						if (aTok.countTokens() > 3)
 						{
@@ -4570,7 +4820,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					if (eSet != null)
 					{
 						b.append(" (");
-						b.append(Globals.getGameModeUnitSet().displayWeightInUnitSet(pc.getEquipSetWeightDouble(eSet.getIdPath())));
+						b.append(Globals.getGameModeUnitSet()
+							.displayWeightInUnitSet(
+								pc.getEquipSetWeightDouble(eSet.getIdPath())));
 						b.append(Globals.getGameModeUnitSet().getWeightUnit());
 						b.append(")");
 
@@ -4580,10 +4832,13 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					return (fn != null) ? fn.toString() : null;
 
 				case COL_WEIGHT:
-					return (eqI != null) ? Globals.getGameModeUnitSet().displayWeightInUnitSet(eqI.getWeight(pc).doubleValue()) : null;
+					return (eqI != null)
+						? Globals.getGameModeUnitSet().displayWeightInUnitSet(
+							eqI.getWeight(pc).doubleValue()) : null;
 
 				case COL_COST:
-					return (eqI != null) ? BigDecimalHelper.trimZeros(eqI.getCost(pc).toString()) : null;
+					return (eqI != null) ? BigDecimalHelper.trimZeros(eqI
+						.getCost(pc).toString()) : null;
 
 				case COL_BONUS:
 
@@ -4610,7 +4865,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 					{
 						return fn.toString();
 					}
-					Logging.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquip");
+					Logging
+						.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquip");
 					return null;
 			}
 		}
@@ -4660,7 +4916,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 
 			for (Equipment bEq : pc.getEquipmentMasterList())
 			{
-				final StringTokenizer aTok = new StringTokenizer(bEq.getType(), ".", false);
+				final StringTokenizer aTok =
+						new StringTokenizer(bEq.getType(), ".", false);
 				String aString;
 
 				while (aTok.hasMoreTokens())
@@ -4674,7 +4931,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				}
 			}
 
-			for (EquipSlot eSlot : SystemCollections.getUnmodifiableEquipSlotList())
+			for (EquipSlot eSlot : SystemCollections
+				.getUnmodifiableEquipSlotList())
 			{
 				final String aString = eSlot.getSlotName();
 
@@ -4750,7 +5008,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 								eq[iType].setParent(avaRoot);
 							}
 						}
-						 // end type loop
+						// end type loop
 
 						// now add to the root node
 						avaRoot.setChildren(eq);
@@ -4808,7 +5066,7 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 								loc[iLoc].setParent(avaRoot);
 							}
 						}
-						 // end location loop
+						// end location loop
 
 						// now add to the root node
 						avaRoot.setChildren(loc);
@@ -4824,9 +5082,10 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						// and fill out the tree
 						for (Equipment aEq : pc.getEquipmentMasterList())
 						{
-							if (qFilter == null ||
-									( aEq.getName().toLowerCase().indexOf(qFilter) >= 0 ||
-									aEq.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+							if (qFilter == null
+								|| (aEq.getName().toLowerCase()
+									.indexOf(qFilter) >= 0 || aEq.getType()
+									.toLowerCase().indexOf(qFilter) >= 0))
 							{
 								MyPONode aFN = new MyPONode(aEq);
 								aFN.setParent(avaRoot);
@@ -4866,7 +5125,9 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						{
 							String eqName = aEq.getName();
 							Float countAdd = pc.getEquipSetCount(pId, eqName);
-							Float countNot = new Float(aEq.getQty().floatValue() - countAdd.floatValue());
+							Float countNot =
+									new Float(aEq.getQty().floatValue()
+										- countAdd.floatValue());
 
 							if (countAdd.floatValue() > 0.0f)
 							{
@@ -4893,12 +5154,14 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 						break; // end VIEW_EQUIPPED
 
 					default:
-						Logging.errorPrint("In InfoEquipping.resetModel the mode " + mode + " is not supported.");
+						Logging
+							.errorPrint("In InfoEquipping.resetModel the mode "
+								+ mode + " is not supported.");
 
 						break;
 				} // end of switch(mode)
 			}
-			 // end of availableTable builder
+			// end of availableTable builder
 
 			else
 			{ // selectedTable builder (it's a list of Equip sets)
@@ -4919,96 +5182,107 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 				addEquipTreeNodes(selRoot, null);
 				setRoot(selRoot);
 			}
-			 // end if else
+			// end if else
 
 			MyPONode rootAsmyPONode = (MyPONode) super.getRoot();
 
 			if (rootAsmyPONode.getChildCount() > 0)
 			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 
-		private String[] getNameList() {
+		private String[] getNameList()
+		{
 			String[] colNameList = null;
-			if(modelType == MODEL_AVAIL) {
+			if (modelType == MODEL_AVAIL)
+			{
 				colNameList = avaNameList;
 			}
-			else {
+			else
+			{
 				colNameList = selNameList;
 			}
 			return colNameList;
 		}
 
-		private int[] getWidthList() {
+		private int[] getWidthList()
+		{
 			int[] colWidthList = null;
-			if(modelType == MODEL_AVAIL) {
+			if (modelType == MODEL_AVAIL)
+			{
 				colWidthList = avaDefaultWidth;
 			}
-			else {
+			else
+			{
 				colWidthList = selDefaultWidth;
 			}
 			return colWidthList;
 		}
 
-		public List<String> getMColumnList() 
+		public List<String> getMColumnList()
 		{
 			String[] colNameList = getNameList();
 			List<String> retList = new ArrayList<String>();
-			for(int i = 1; i < colNameList.length; i++) 
+			for (int i = 1; i < colNameList.length; i++)
 			{
 				retList.add(colNameList[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) 
+		public boolean isMColumnDisplayed(int col)
 		{
 			return (displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) 
+		public void setMColumnDisplayed(int col, boolean disp)
 		{
 			String[] colNameList = getNameList();
 			setColumnViewOption(modelType + "." + colNameList[col], disp);
 			displayList.set(col, Boolean.valueOf(disp));
 		}
 
-		public int getMColumnOffset() 
+		public int getMColumnOffset()
 		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) 
+		public int getMColumnDefaultWidth(int col)
 		{
 			String[] colNameList = getNameList();
 			int[] colDefaultWidth = getWidthList();
-			return SettingsHandler.getPCGenOption("InfoEquipping.sizecol." + modelType + "." + colNameList[col], colDefaultWidth[col]);
+			return SettingsHandler.getPCGenOption("InfoEquipping.sizecol."
+				+ modelType + "." + colNameList[col], colDefaultWidth[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) 
+		public void setMColumnDefaultWidth(int col, int width)
 		{
 			String[] colNameList = getNameList();
-			SettingsHandler.setPCGenOption("InfoEquipping.sizecol." + modelType + "." +  colNameList[col], width);
+			SettingsHandler.setPCGenOption("InfoEquipping.sizecol." + modelType
+				+ "." + colNameList[col], width);
 		}
 
-		public void resetMColumn(int num, TableColumn column) 
+		public void resetMColumn(int num, TableColumn column)
 		{
-			if(modelType == MODEL_AVAIL) 
+			if (modelType == MODEL_AVAIL)
 			{
-				switch(adjustAvailColumnConst(num))
+				switch (adjustAvailColumnConst(num))
 				{
 					case COL_QTY:
 					case COL_COST:
 					case COL_WEIGHT:
-						column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+						column
+							.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
+								SwingConstants.CENTER));
 						break;
 
 					default:
 						break;
 				}
 			}
-			else 
+			else
 			{
 				switch (num)
 				{
@@ -5028,14 +5302,16 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
 		{
-			return SettingsHandler.getPCGenOption("InfoEquipping.viewcol." + modelType + "." + colName, defaultVal);
+			return SettingsHandler.getPCGenOption("InfoEquipping.viewcol."
+				+ modelType + "." + colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) 
+		private void setColumnViewOption(String colName, boolean val)
 		{
-			SettingsHandler.setPCGenOption("InfoEquipping.viewcol." + modelType + "." + colName, val);
+			SettingsHandler.setPCGenOption("InfoEquipping.viewcol." + modelType
+				+ "." + colName, val);
 		}
 	}
 
@@ -5053,53 +5329,57 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					//
-					// Walk through the list of accelerators to see
-					// if the user has pressed a sequence used by
-					// the popup. This would not otherwise happen
-					// unless the popup was showing
-					//
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				//
+				// Walk through the list of accelerators to see
+				// if the user has pressed a sequence used by
+				// the popup. This would not otherwise happen
+				// unless the popup was showing
+				//
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); ++i)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							final Component menuComponent =
+									menu.getComponent(i);
 
-							for (int i = 0; i < menu.getComponentCount(); ++i)
+							if (menuComponent instanceof JMenuItem)
 							{
-								final Component menuComponent = menu.getComponent(i);
+								KeyStroke ks =
+										((JMenuItem) menuComponent)
+											.getAccelerator();
 
-								if (menuComponent instanceof JMenuItem)
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+									selPath = tree.getSelectionPath();
+									((JMenuItem) menuComponent).doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										selPath = tree.getSelectionPath();
-										((JMenuItem) menuComponent).doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -5118,7 +5398,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -5156,163 +5437,209 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 		{
 			if (treeTable == availableTable)
 			{
-				EquipPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_ieAddItem2"), "shortcut EQUALS"));
-				EquipPopupMenu.this.add(createAddNumMenuItem(PropertyFactory.getString("in_ieAddItem")));
-				EquipPopupMenu.this.add(createAddAllMenuItem(PropertyFactory.getString("in_ieAddAllItem")));
+				EquipPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_ieAddItem2"), "shortcut EQUALS"));
+				EquipPopupMenu.this.add(createAddNumMenuItem(PropertyFactory
+					.getString("in_ieAddItem")));
+				EquipPopupMenu.this.add(createAddAllMenuItem(PropertyFactory
+					.getString("in_ieAddAllItem")));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this.add(createBuyMenuItem("Buy 1"));
 				EquipPopupMenu.this.add(createBuyNumMenuItem("Buy #"));
 				EquipPopupMenu.this.add(createSellMenuItem("Sell 1"));
 				EquipPopupMenu.this.add(createSellNumMenuItem("Sell #"));
 				EquipPopupMenu.this.addSeparator();
-				EquipPopupMenu.this.add(createRefreshMenuItem("Redraw/recalc Panel"));
+				EquipPopupMenu.this
+					.add(createRefreshMenuItem("Redraw/recalc Panel"));
 				this.addSeparator();
 				EquipPopupMenu.this.add(Utility.createMenuItem("Find item",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					true));
 			}
-			else // selectedTable
+			else
+			// selectedTable
 			{
-				EquipPopupMenu.this.add(createDelMenuItem(PropertyFactory.getString("in_ieRemEq"), "shortcut MINUS"));
-				EquipPopupMenu.this.add(createSetQtyMenuItem(PropertyFactory.getString("in_ieSetQt")));
-				EquipPopupMenu.this.add(createSetLocationMenuItem(PropertyFactory.getString("in_ieChangeLoc")));
-				EquipPopupMenu.this.add(createSetNoteMenuItem(PropertyFactory.getString("in_ieSetNote")));
+				EquipPopupMenu.this.add(createDelMenuItem(PropertyFactory
+					.getString("in_ieRemEq"), "shortcut MINUS"));
+				EquipPopupMenu.this.add(createSetQtyMenuItem(PropertyFactory
+					.getString("in_ieSetQt")));
+				EquipPopupMenu.this
+					.add(createSetLocationMenuItem(PropertyFactory
+						.getString("in_ieChangeLoc")));
+				EquipPopupMenu.this.add(createSetNoteMenuItem(PropertyFactory
+					.getString("in_ieSetNote")));
 				EquipPopupMenu.this.addSeparator();
-				EquipPopupMenu.this.add(createCopyEquipSetMenuItem(PropertyFactory.getString("in_ieCopyEq")));
-				EquipPopupMenu.this.add(createRenameEquipSetMenuItem(PropertyFactory.getString("in_ieRenameEq")));
+				EquipPopupMenu.this
+					.add(createCopyEquipSetMenuItem(PropertyFactory
+						.getString("in_ieCopyEq")));
+				EquipPopupMenu.this
+					.add(createRenameEquipSetMenuItem(PropertyFactory
+						.getString("in_ieRenameEq")));
 				EquipPopupMenu.this.addSeparator();
-				EquipPopupMenu.this.add(createRefreshMenuItem("Redraw/recalc Panel"));
+				EquipPopupMenu.this
+					.add(createRefreshMenuItem("Redraw/recalc Panel"));
 				this.addSeparator();
 				EquipPopupMenu.this.add(Utility.createMenuItem("Find item",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					true));
 			}
 		}
 
 		private JMenuItem createAddAllMenuItem(String label)
 		{
-			AddAllMenu = Utility.createMenuItem(label, new AddAllEquipActionListener(),
-					PropertyFactory.getString("in_ieAddAll"), (char) 0, null,
-					PropertyFactory.getString("in_ieAddAllItem"), "", true);
+			AddAllMenu =
+					Utility.createMenuItem(label,
+						new AddAllEquipActionListener(), PropertyFactory
+							.getString("in_ieAddAll"), (char) 0, null,
+						PropertyFactory.getString("in_ieAddAllItem"), "", true);
 
 			return AddAllMenu;
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			AddMenu = Utility.createMenuItem(label, new AddEquipActionListener(),
-					PropertyFactory.getString("in_add") + " 1", (char) 0, accelerator,
-					PropertyFactory.getString("in_ieAddEq"), "", true);
+			AddMenu =
+					Utility.createMenuItem(label, new AddEquipActionListener(),
+						PropertyFactory.getString("in_add") + " 1", (char) 0,
+						accelerator, PropertyFactory.getString("in_ieAddEq"),
+						"", true);
 
 			return AddMenu;
 		}
 
 		private JMenuItem createAddNumMenuItem(String label)
 		{
-			AddNumMenu = Utility.createMenuItem(label, new AddNumEquipActionListener(),
-					PropertyFactory.getString("in_add") + " #", (char) 0, null,
-					PropertyFactory.getString("in_ieAddItem"), "", true);
+			AddNumMenu =
+					Utility.createMenuItem(label,
+						new AddNumEquipActionListener(), PropertyFactory
+							.getString("in_add")
+							+ " #", (char) 0, null, PropertyFactory
+							.getString("in_ieAddItem"), "", true);
 
 			return AddNumMenu;
 		}
 
 		private JMenuItem createBuyMenuItem(String label)
 		{
-			BuyMenu = Utility.createMenuItem(label, new BuyEquipActionListener(), "Buy 1", (char) 0, null, "", "", true);
+			BuyMenu =
+					Utility.createMenuItem(label, new BuyEquipActionListener(),
+						"Buy 1", (char) 0, null, "", "", true);
 
 			return BuyMenu;
 		}
 
 		private JMenuItem createBuyNumMenuItem(String label)
 		{
-			BuyNumMenu = Utility.createMenuItem(label, new BuyNumEquipActionListener(), "Buy #", (char) 0, null, "",
-					"", true);
+			BuyNumMenu =
+					Utility.createMenuItem(label,
+						new BuyNumEquipActionListener(), "Buy #", (char) 0,
+						null, "", "", true);
 
 			return BuyNumMenu;
 		}
 
 		private JMenuItem createCopyEquipSetMenuItem(String label)
 		{
-			CopyEquipSetMenu = Utility.createMenuItem(label, new CopyEquipSetActionListener(),
-					PropertyFactory.getString("in_ieCopyEq"), (char) 0, null, PropertyFactory.getString("in_ieDupEq"),
-					"", true);
+			CopyEquipSetMenu =
+					Utility.createMenuItem(label,
+						new CopyEquipSetActionListener(), PropertyFactory
+							.getString("in_ieCopyEq"), (char) 0, null,
+						PropertyFactory.getString("in_ieDupEq"), "", true);
 
 			return CopyEquipSetMenu;
 		}
 
 		private JMenuItem createDelMenuItem(String label, String accelerator)
 		{
-			DelMenu = Utility.createMenuItem(label, new DelEquipActionListener(),
-					PropertyFactory.getString("in_remove") + " 1", (char) 0, accelerator,
-					PropertyFactory.getString("in_ieRemEq"), "", true);
+			DelMenu =
+					Utility.createMenuItem(label, new DelEquipActionListener(),
+						PropertyFactory.getString("in_remove") + " 1",
+						(char) 0, accelerator, PropertyFactory
+							.getString("in_ieRemEq"), "", true);
 
 			return DelMenu;
 		}
 
 		private JMenuItem createRefreshMenuItem(String label)
 		{
-			return Utility.createMenuItem(label, new RefreshActionListener(), "Redraw/Recalc Panel", (char) 0, null,
+			return Utility.createMenuItem(label, new RefreshActionListener(),
+				"Redraw/Recalc Panel", (char) 0, null,
 				"Redraw/Recalc this panels info", "", true);
 		}
 
 		private JMenuItem createRenameEquipSetMenuItem(String label)
 		{
-			RenameEquipSetMenu = Utility.createMenuItem(label, new RenameEquipSetActionListener(),
-					PropertyFactory.getString("in_ieRenameEq"), (char) 0, null,
-					PropertyFactory.getString("in_ieRenameEqThis"), "", true);
+			RenameEquipSetMenu =
+					Utility.createMenuItem(label,
+						new RenameEquipSetActionListener(), PropertyFactory
+							.getString("in_ieRenameEq"), (char) 0, null,
+						PropertyFactory.getString("in_ieRenameEqThis"), "",
+						true);
 
 			return RenameEquipSetMenu;
 		}
 
 		private JMenuItem createSellMenuItem(String label)
 		{
-			SellMenu = Utility.createMenuItem(label, new SellEquipActionListener(), "Sell 1", (char) 0, null, "", "",
-					true);
+			SellMenu =
+					Utility.createMenuItem(label,
+						new SellEquipActionListener(), "Sell 1", (char) 0,
+						null, "", "", true);
 
 			return SellMenu;
 		}
 
 		private JMenuItem createSellNumMenuItem(String label)
 		{
-			SellNumMenu = Utility.createMenuItem(label, new SellNumEquipActionListener(), "Sell #", (char) 0, null, "",
-					"", true);
+			SellNumMenu =
+					Utility.createMenuItem(label,
+						new SellNumEquipActionListener(), "Sell #", (char) 0,
+						null, "", "", true);
 
 			return SellNumMenu;
 		}
 
 		private JMenuItem createSetLocationMenuItem(String label)
 		{
-			SetLocationMenu = Utility.createMenuItem(label, new SetLocationActionListener(),
-					PropertyFactory.getString("in_ieChangeLoc"), (char) 0, null,
-					PropertyFactory.getString("in_ieChangeLoc"), "", true);
+			SetLocationMenu =
+					Utility.createMenuItem(label,
+						new SetLocationActionListener(), PropertyFactory
+							.getString("in_ieChangeLoc"), (char) 0, null,
+						PropertyFactory.getString("in_ieChangeLoc"), "", true);
 
 			return SetLocationMenu;
 		}
 
 		private JMenuItem createSetNoteMenuItem(String label)
 		{
-			SetNoteMenu = Utility.createMenuItem(label, new SetNoteActionListener(),
-					PropertyFactory.getString("in_ieSetNote"), (char) 0, null,
-					PropertyFactory.getString("in_ieSetNotefull"), "", true);
+			SetNoteMenu =
+					Utility.createMenuItem(label, new SetNoteActionListener(),
+						PropertyFactory.getString("in_ieSetNote"), (char) 0,
+						null, PropertyFactory.getString("in_ieSetNotefull"),
+						"", true);
 
 			return SetNoteMenu;
 		}
 
 		private JMenuItem createSetQtyMenuItem(String label)
 		{
-			SetQtyMenu = Utility.createMenuItem(label, new SetQtyActionListener(),
-					PropertyFactory.getString("in_ieSetQt"), (char) 0, null,
-					PropertyFactory.getString("in_ieSetQtfull"), "", true);
+			SetQtyMenu =
+					Utility.createMenuItem(label, new SetQtyActionListener(),
+						PropertyFactory.getString("in_ieSetQt"), (char) 0,
+						null, PropertyFactory.getString("in_ieSetQtfull"), "",
+						true);
 
 			return SetQtyMenu;
 		}
@@ -5441,9 +5768,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 	/**
 	 * Allows in-cell editing of a value
 	 **/
-	private final class QuantityEditor extends JTextField implements TableCellEditor
+	private final class QuantityEditor extends JTextField implements
+			TableCellEditor
 	{
-		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
+		private final transient List<CellEditorListener> d_listeners =
+				new ArrayList<CellEditorListener>();
 		private transient String d_originalValue = "";
 
 		private QuantityEditor()
@@ -5452,12 +5781,12 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			setEditable(true);
 			this.setHorizontalAlignment(SwingConstants.RIGHT);
 			addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent ae)
 				{
-					public void actionPerformed(ActionEvent ae)
-					{
-						stopCellEditing();
-					}
-				});
+					stopCellEditing();
+				}
+			});
 		}
 
 		public boolean isCellEditable(EventObject eventObject)
@@ -5477,9 +5806,11 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			}
 		}
 
-		public Component getTableCellEditorComponent(JTable jTable, Object obj, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable jTable, Object obj,
+			boolean isSelected, int row, int column)
 		{
-			if (obj instanceof Number && (((Number) obj).intValue() == ((Number) obj).floatValue()))
+			if (obj instanceof Number
+				&& (((Number) obj).intValue() == ((Number) obj).floatValue()))
 			{
 				setText(Integer.toString(((Number) obj).intValue()));
 			}
@@ -5514,7 +5845,8 @@ public class InfoEquipping extends FilterAdapterPanel implements CharacterInfoTa
 			fireEditingCanceled();
 		}
 
-		public void removeCellEditorListener(CellEditorListener cellEditorListener)
+		public void removeCellEditorListener(
+			CellEditorListener cellEditorListener)
 		{
 			d_listeners.remove(cellEditorListener);
 		}

@@ -32,7 +32,8 @@ import java.util.Map;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface RollMethodLstToken extends LstToken {
+public interface RollMethodLstToken extends LstToken
+{
 	/**
 	 * @param method
 	 * @param value

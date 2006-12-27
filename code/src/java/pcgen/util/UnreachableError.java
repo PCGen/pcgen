@@ -30,7 +30,8 @@ package pcgen.util;
  * additional features were added to an object or the language that the
  * developer did not have available)
  */
-public class UnreachableError extends Error {
+public class UnreachableError extends Error
+{
 
 	/**
 	 * 
@@ -40,7 +41,8 @@ public class UnreachableError extends Error {
 	/**
 	 * Create a new UnreachableError with no message and no cause.
 	 */
-	public UnreachableError() {
+	public UnreachableError()
+	{
 		super();
 	}
 
@@ -50,7 +52,8 @@ public class UnreachableError extends Error {
 	 * @param arg0
 	 *            The message indicating the cause of UnreachableError
 	 */
-	public UnreachableError(String arg0) {
+	public UnreachableError(String arg0)
+	{
 		super(arg0);
 	}
 
@@ -60,7 +63,8 @@ public class UnreachableError extends Error {
 	 * @param arg0
 	 *            The cause of the UnreachableError
 	 */
-	public UnreachableError(Throwable arg0) {
+	public UnreachableError(Throwable arg0)
+	{
 		super(arg0);
 	}
 
@@ -72,7 +76,8 @@ public class UnreachableError extends Error {
 	 * @param arg1
 	 *            The cause of the UnreachableError
 	 */
-	public UnreachableError(String arg0, Throwable arg1) {
+	public UnreachableError(String arg0, Throwable arg1)
+	{
 		super(arg0, arg1);
 	}
 

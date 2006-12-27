@@ -122,9 +122,9 @@ public interface ChooserInterface
 	 */
 	void show();
 
-    /**
-     * Set the list of available column names
-     * @param availableColumnNames
-     */
+	/**
+	 * Set the list of available column names
+	 * @param availableColumnNames
+	 */
 	public void setAvailableColumnNames(List<String> availableColumnNames);
 }

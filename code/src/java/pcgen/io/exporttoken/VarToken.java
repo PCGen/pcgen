@@ -59,7 +59,8 @@ public class VarToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		boolean isMin = tokenSource.lastIndexOf(".MINVAL") >= 0;
 		boolean isInt = tokenSource.lastIndexOf(".INTVAL") >= 0;
@@ -67,8 +68,10 @@ public class VarToken extends Token
 		if (tokenSource.lastIndexOf(".NOSIGN") >= 0)
 		{
 			isSign = false;
-			Logging.errorPrint(".NOSIGN in output token " + tokenSource
-				+ " is deprecated. " + "The default output format is unsigned.");
+			Logging
+				.errorPrint(".NOSIGN in output token " + tokenSource
+					+ " is deprecated. "
+					+ "The default output format is unsigned.");
 		}
 
 		String workingSource = tokenSource;
@@ -98,15 +101,16 @@ public class VarToken extends Token
 			varName.append(".").append(aTok.nextToken());
 		}
 
-		if(isInt)
+		if (isInt)
 		{
-			if(isSign)
+			if (isSign)
 			{
-				return Delta.toString(getIntVarToken(pc, varName.toString(), isMin));
+				return Delta.toString(getIntVarToken(pc, varName.toString(),
+					isMin));
 			}
 			return getIntVarToken(pc, varName.toString(), isMin) + "";
 		}
-		if(isSign)
+		if (isSign)
 		{
 			return Delta.toString(getVarToken(pc, varName.toString(), isMin));
 		}
@@ -123,7 +127,8 @@ public class VarToken extends Token
 	 * @param isMin Do we want the minimum if there are multiple values.
 	 * @return The variable's value.
 	 */
-	public static float getVarToken(PlayerCharacter pc, String varName, boolean isMin)
+	public static float getVarToken(PlayerCharacter pc, String varName,
+		boolean isMin)
 	{
 		return pc.getVariable(varName, !isMin, true, "", "", 0).floatValue();
 	}
@@ -138,9 +143,9 @@ public class VarToken extends Token
 	 * @param isMin Do we want the minimum if there are multiple values.
 	 * @return The variable's value.
 	 */
-	public static int getIntVarToken(PlayerCharacter pc, String varName, boolean isMin)
+	public static int getIntVarToken(PlayerCharacter pc, String varName,
+		boolean isMin)
 	{
 		return pc.getVariable(varName, !isMin, true, "", "", 0).intValue();
 	}
 }
-

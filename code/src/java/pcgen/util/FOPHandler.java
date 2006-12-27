@@ -92,12 +92,14 @@ public final class FOPHandler implements Runnable
 		{
 			if (in == null)
 			{
-				throw new NullPointerException("XML file must be specified for the tranform mode");
+				throw new NullPointerException(
+					"XML file must be specified for the tranform mode");
 			}
 
 			if (!in.exists())
 			{
-				throw new FileNotFoundException("xml file " + in.getAbsolutePath() + " not found ");
+				throw new FileNotFoundException("xml file "
+					+ in.getAbsolutePath() + " not found ");
 			}
 
 			inputHandler = new FOInputHandler(in);
@@ -122,22 +124,26 @@ public final class FOPHandler implements Runnable
 		{
 			if (xmlFile == null)
 			{
-				throw new NullPointerException("XML file must be specified for the tranform mode");
+				throw new NullPointerException(
+					"XML file must be specified for the tranform mode");
 			}
 
 			if (xsltFile == null)
 			{
-				throw new NullPointerException("XSLT file must be specified for the tranform mode");
+				throw new NullPointerException(
+					"XSLT file must be specified for the tranform mode");
 			}
 
 			if (!xmlFile.exists())
 			{
-				throw new FileNotFoundException("xml file " + xmlFile.getAbsolutePath() + " not found ");
+				throw new FileNotFoundException("xml file "
+					+ xmlFile.getAbsolutePath() + " not found ");
 			}
 
 			if (!xsltFile.exists())
 			{
-				throw new FileNotFoundException("xsl file " + xsltFile.getAbsolutePath() + " not found ");
+				throw new FileNotFoundException("xsl file "
+					+ xsltFile.getAbsolutePath() + " not found ");
 			}
 
 			inputHandler = new XSLTInputHandler(xmlFile, xsltFile);
@@ -224,13 +230,17 @@ public final class FOPHandler implements Runnable
 			}
 			catch (FOPException fopex)
 			{
-				errBuffer.append(fopex.getMessage()).append(Constants.s_LINE_SEP);
+				errBuffer.append(fopex.getMessage()).append(
+					Constants.s_LINE_SEP);
 				Logging.errorPrint("Exception in FOPHandler:run", fopex);
 			}
 			catch (FileNotFoundException fnfex)
 			{
-				errBuffer.append(fnfex.getMessage()).append(Constants.s_LINE_SEP);
-				Logging.errorPrint("Exception in FOPHandler:run, cannot find file: " + fnfex.getMessage());
+				errBuffer.append(fnfex.getMessage()).append(
+					Constants.s_LINE_SEP);
+				Logging
+					.errorPrint("Exception in FOPHandler:run, cannot find file: "
+						+ fnfex.getMessage());
 			}
 			finally
 			{
@@ -242,7 +252,8 @@ public final class FOPHandler implements Runnable
 					}
 					catch (IOException ioex)
 					{
-						errBuffer.append(ioex.getMessage()).append(Constants.s_LINE_SEP);
+						errBuffer.append(ioex.getMessage()).append(
+							Constants.s_LINE_SEP);
 						Logging.errorPrint("Exception in FOPHandler:run", ioex);
 					}
 				}
@@ -253,41 +264,42 @@ public final class FOPHandler implements Runnable
 			renderer = createAWTRenderer();
 			driver.setRenderer(renderer);
 
-/*            Hashtable rendererOptions = new Hashtable();
-   rendererOptions.put("fineDetail", Boolean.FALSE);
-   driver.getRenderer().setOptions(rendererOptions);
-   driver.getRenderer().setProducer("PC Gen Character Generator");
- */
+			/*            Hashtable rendererOptions = new Hashtable();
+			 rendererOptions.put("fineDetail", Boolean.FALSE);
+			 driver.getRenderer().setOptions(rendererOptions);
+			 driver.getRenderer().setProducer("PC Gen Character Generator");
+			 */
 			try
 			{
 				XMLReader parser;
 				parser = inputHandler.getParser();
 
-//				parser.setFeature("http://xml.org/sax/features/namespace-prefixes",	true);
+				//				parser.setFeature("http://xml.org/sax/features/namespace-prefixes",	true);
 				// render
-//				driver.buildFOTree(parser, inputHandler.getInputSource());
+				//				driver.buildFOTree(parser, inputHandler.getInputSource());
 				driver.render(parser, inputHandler.getInputSource());
 			}
 			catch (FOPException fopex)
 			{
-				errBuffer.append(fopex.getMessage()).append(Constants.s_LINE_SEP);
+				errBuffer.append(fopex.getMessage()).append(
+					Constants.s_LINE_SEP);
 				Logging.errorPrint("Exception in FOPHandler:run", fopex);
 			}
 
-/*            catch (IOException ioex)
-   {
-       errBuffer.append(ioex.getMessage()).append(Constants.s_LINE_SEP);
-       Globals.errorPrint("Exception in FOPHandler:run", ioex);
-   }
- */
-/*            catch (SAXException ex)
-   {
-       errBuffer.append(ex.getMessage()).append(Constants.s_LINE_SEP);
-       Globals.errorPrint("Exception in FOPHandler:run \n"
-           + "Error in setting up parser feature namespace-prefixes\n"
-           + "You need a parser which supports SAX version 2", ex);
-   }
- */
+			/*            catch (IOException ioex)
+			 {
+			 errBuffer.append(ioex.getMessage()).append(Constants.s_LINE_SEP);
+			 Globals.errorPrint("Exception in FOPHandler:run", ioex);
+			 }
+			 */
+			/*            catch (SAXException ex)
+			 {
+			 errBuffer.append(ex.getMessage()).append(Constants.s_LINE_SEP);
+			 Globals.errorPrint("Exception in FOPHandler:run \n"
+			 + "Error in setting up parser feature namespace-prefixes\n"
+			 + "You need a parser which supports SAX version 2", ex);
+			 }
+			 */
 		}
 		else
 		{
@@ -303,6 +315,7 @@ public final class FOPHandler implements Runnable
 	{
 		final byte[] bytes = new byte[0];
 
-		return new AWTRenderer(new SecureResourceBundle(new ByteArrayInputStream(bytes)));
+		return new AWTRenderer(new SecureResourceBundle(
+			new ByteArrayInputStream(bytes)));
 	}
 }

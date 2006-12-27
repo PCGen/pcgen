@@ -49,14 +49,15 @@ public class KitFundsLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		KitFunds kitFunds = new KitFunds(colToken.nextToken());
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitFundsLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitFundsLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -80,10 +81,8 @@ public class KitFundsLoader
 				LstUtils.deprecationCheck(token, kit, value);
 				if (!token.parse(kitFunds, value))
 				{
-					Logging
-							.errorPrint("Error parsing Kit Funds tag "
-									+ kitFunds.getObjectName() + ':'
-									+ colString + "\"");
+					Logging.errorPrint("Error parsing Kit Funds tag "
+						+ kitFunds.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitFunds, colString))
@@ -93,7 +92,7 @@ public class KitFundsLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Funds info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 		}
 		kit.addObject(kitFunds);

@@ -24,16 +24,17 @@ package pcgen.util;
 /**
  * A Factory class that generates Input Interfaces
  */
-public class InputFactory {
-    
+public class InputFactory
+{
+
 	private static String interfaceClassname = null;
-        
+
 	/**
 	 * Deliberately private so it can't be instantiated.
 	 */
 	private InputFactory()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -42,27 +43,32 @@ public class InputFactory {
 	 */
 	public static InputInterface getInputInstance()
 	{
-        try {
-    	    Class c = Class.forName(interfaceClassname);
-    	    InputInterface ci = (InputInterface) c.newInstance();
-    		return ci;
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-        catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+		try
+		{
+			Class c = Class.forName(interfaceClassname);
+			InputInterface ci = (InputInterface) c.newInstance();
+			return ci;
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (InstantiationException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-    /**
-     * @param interfaceClassname The interfaceClassname to set.
-     */
-    public static void setInterfaceClassname(String interfaceClassname) {
-        InputFactory.interfaceClassname = interfaceClassname;
-    }
+	/**
+	 * @param interfaceClassname The interfaceClassname to set.
+	 */
+	public static void setInterfaceClassname(String interfaceClassname)
+	{
+		InputFactory.interfaceClassname = interfaceClassname;
+	}
 }

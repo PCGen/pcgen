@@ -15,4 +15,3 @@ public interface KitStartpackLstToken extends LstToken
 	 */
 	public abstract boolean parse(Kit kit, String value);
 }
-

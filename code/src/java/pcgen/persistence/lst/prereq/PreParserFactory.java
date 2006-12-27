@@ -42,7 +42,8 @@ import java.util.ArrayList;
 public class PreParserFactory
 {
 	private static PreParserFactory instance = null;
-	private static Map<String, PrerequisiteParserInterface> parserLookup = new HashMap<String, PrerequisiteParserInterface>();
+	private static Map<String, PrerequisiteParserInterface> parserLookup =
+			new HashMap<String, PrerequisiteParserInterface>();
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
@@ -53,7 +54,8 @@ public class PreParserFactory
 	 * @return Returns the instance.
 	 * @throws PersistenceLayerException
 	 */
-	public static PreParserFactory getInstance() throws PersistenceLayerException
+	public static PreParserFactory getInstance()
+		throws PersistenceLayerException
 	{
 		if (instance == null)
 		{
@@ -68,7 +70,8 @@ public class PreParserFactory
 		return parserLookup.get(kind.toLowerCase());
 	}
 
-	public static void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
+	public static void register(PrerequisiteParserInterface testClass)
+		throws PersistenceLayerException
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 
@@ -78,24 +81,22 @@ public class PreParserFactory
 
 			if (test != null)
 			{
-				throw new PersistenceLayerException(
-					"Error registering '"
-						+ testClass.getClass().getName()
-						+ "' as test '"
-						+ kindsHandled[i]
-						+ "'. The test is already registered to '"
-						+ test.getClass().getName()
-						+ "'");
+				throw new PersistenceLayerException("Error registering '"
+					+ testClass.getClass().getName() + "' as test '"
+					+ kindsHandled[i]
+					+ "'. The test is already registered to '"
+					+ test.getClass().getName() + "'");
 			}
 
 			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
 		}
 	}
 
-	public List<Prerequisite> parse(final List<String> preStrings )
+	public List<Prerequisite> parse(final List<String> preStrings)
 	{
-		final List<Prerequisite> ret = new ArrayList<Prerequisite>(preStrings.size());
-		for ( String prestr : preStrings )
+		final List<Prerequisite> ret =
+				new ArrayList<Prerequisite>(preStrings.size());
+		for (String prestr : preStrings)
 		{
 			try
 			{
@@ -112,7 +113,8 @@ public class PreParserFactory
 		return ret;
 	}
 
-	public Prerequisite parse(String prereqStr) throws PersistenceLayerException
+	public Prerequisite parse(String prereqStr)
+		throws PersistenceLayerException
 	{
 
 		if ((prereqStr == null) || (prereqStr.length() <= 0))
@@ -123,7 +125,8 @@ public class PreParserFactory
 		int index = prereqStr.indexOf(':');
 		if (index < 0)
 		{
-			throw new PersistenceLayerException("'" + prereqStr+ "'" + " is a badly formatted prereq.");
+			throw new PersistenceLayerException("'" + prereqStr + "'"
+				+ " is a badly formatted prereq.");
 		}
 
 		String kind = prereqStr.substring(0, index);
@@ -153,11 +156,14 @@ public class PreParserFactory
 		PrerequisiteParserInterface parser = getParser(kind);
 		if (parser == null)
 		{
-			throw new PersistenceLayerException("Can not determine which parser to use for " + "'" + prereqStr + "'");
+			throw new PersistenceLayerException(
+				"Can not determine which parser to use for " + "'" + prereqStr
+					+ "'");
 		}
 		try
 		{
-			Prerequisite prereq = parser.parse(kind, formula, invertResult, false);
+			Prerequisite prereq =
+					parser.parse(kind, formula, invertResult, false);
 			//sanity check to make sure we have not got a top level element that
 			// is a PREMULT with only 1 element.
 			while (prereq.getKind() == null
@@ -171,7 +177,8 @@ public class PreParserFactory
 		}
 		catch (Throwable t)
 		{
-			throw new PersistenceLayerException("Can not parse '" + prereqStr + "': " + t.getMessage());
+			throw new PersistenceLayerException("Can not parse '" + prereqStr
+				+ "': " + t.getMessage());
 		}
 	}
 

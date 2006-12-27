@@ -36,7 +36,8 @@ import java.util.Map;
  * @author     ???
  * @version    $Revision$
  */
-public final class LabelTreeCellRenderer extends JLabel implements TreeCellRenderer
+public final class LabelTreeCellRenderer extends JLabel implements
+		TreeCellRenderer
 {
 	/** Color to use for the background when selected. */
 	protected static final Color SelectedBackgroundColor = Color.white;
@@ -57,8 +58,9 @@ public final class LabelTreeCellRenderer extends JLabel implements TreeCellRende
 	 * @param hasFocus
 	 * @return Component
 	 */
-	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean argSelected, boolean expanded,
-	    boolean leaf, int row, boolean hasFocus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value,
+		boolean argSelected, boolean expanded, boolean leaf, int row,
+		boolean hasFocus)
 	{
 		String stringValue;
 		Font aFont = getFont();
@@ -67,7 +69,9 @@ public final class LabelTreeCellRenderer extends JLabel implements TreeCellRende
 
 		try
 		{
-			stringValue = tree.convertValueToText(value, argSelected, expanded, leaf, row, hasFocus);
+			stringValue =
+					tree.convertValueToText(value, argSelected, expanded, leaf,
+						row, hasFocus);
 		}
 		catch (Exception exc)
 		{
@@ -100,11 +104,13 @@ public final class LabelTreeCellRenderer extends JLabel implements TreeCellRende
 
 		int bi = stringValue.indexOf("|");
 		int ei = stringValue.lastIndexOf("|");
-		if (bi> -1 && bi != ei)
+		if (bi > -1 && bi != ei)
 		{
-			final String aString = stringValue.substring(bi+1, ei);
+			final String aString = stringValue.substring(bi + 1, ei);
 			myColor = new Color(Integer.parseInt(aString));
-			stringValue = stringValue.substring(0,bi)+stringValue.substring(ei + 1);
+			stringValue =
+					stringValue.substring(0, bi)
+						+ stringValue.substring(ei + 1);
 			if (argSelected)
 			{
 				setBackground(myColor);

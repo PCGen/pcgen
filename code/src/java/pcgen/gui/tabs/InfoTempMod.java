@@ -120,7 +120,7 @@ import pcgen.util.enumeration.Tab;
 public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 {
 	private static final Tab tab = Tab.TEMPBONUS;
-	
+
 	private static boolean needsUpdate = true;
 
 	// table model modes
@@ -151,8 +151,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	private JButton removeBonusButton;
 	private JLabel tempModsDisabledWarning;
 	/* commented out until we fix temp mods, do not delete
-	private JCheckBox useTempMods;
-	*/
+	 private JCheckBox useTempMods;
+	 */
 	private JLabelPane infoLabel = new JLabelPane();
 	private JPanel botPane = new JPanel();
 	private JPanel topPane = new JPanel();
@@ -189,7 +189,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -208,7 +208,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.TempMod.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.TempMod.Order", tab
+			.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -239,7 +240,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -248,7 +249,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -336,8 +337,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		updateAppliedModel();
 
 		/* commented out until we fix temp mods, do not delete
-		useTempMods.setSelected(pc.getUseTempMods());
-		*/
+		 useTempMods.setSelected(pc.getUseTempMods());
+		 */
 
 		updateTempModDisabledWarning();
 
@@ -369,7 +370,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	 * @param repeatValue
 	 * @return bonus choice
 	 **/
-	private String getBonusChoice(BonusObj newB, String aChoice, String repeatValue)
+	private String getBonusChoice(BonusObj newB, String aChoice,
+		String repeatValue)
 	{
 
 		// If repeatValue is set, this is a multi BONUS and they all
@@ -380,7 +382,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			// and replace %CHOICE with choice
 			if (newB.getValue().indexOf("%CHOICE") >= 0)
 			{
-				String ac = CoreUtility.replaceAll(newB.getValue(), "%CHOICE", repeatValue);
+				String ac =
+						CoreUtility.replaceAll(newB.getValue(), "%CHOICE",
+							repeatValue);
 				newB.setValue(ac);
 			}
 
@@ -457,7 +461,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					// string and replace %CHOICE
 					if (newB.getValue().indexOf("%CHOICE") >= 0)
 					{
-						String ac = CoreUtility.replaceAll(newB.getValue(), "%CHOICE", aI);
+						String ac =
+								CoreUtility.replaceAll(newB.getValue(),
+									"%CHOICE", aI);
 						aI = ac;
 						newB.setValue(aI);
 					}
@@ -512,7 +518,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (aClass != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aClass.getDisplayName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aClass.getDisplayName())
+				.append("</b></font>");
 
 			String bString = aClass.getDefaultSourceString();
 
@@ -534,7 +541,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (aFeat != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aFeat.piSubString()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aFeat.piSubString())
+				.append("</b></font>");
 			b.append(" <b>Type:</b> ").append(aFeat.getType());
 
 			String bString = aFeat.getDefaultSourceString();
@@ -557,7 +565,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (eqI != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(eqI.piSubString()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(eqI.piSubString())
+				.append("</b></font>");
 
 			if (!eqI.longName().equals(eqI.getName()))
 			{
@@ -570,10 +579,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (IDS.length() > 0)
 			{
-				b.append(" <b>Properties</b>:").append(eqI.getInterestingDisplayString(pc));
+				b.append(" <b>Properties</b>:").append(
+					eqI.getInterestingDisplayString(pc));
 			}
 
-			String bString = Globals.getGameModeUnitSet().displayWeightInUnitSet(eqI.getWeight(pc).doubleValue());
+			String bString =
+					Globals.getGameModeUnitSet().displayWeightInUnitSet(
+						eqI.getWeight(pc).doubleValue());
 
 			if (bString.length() > 0)
 			{
@@ -655,7 +667,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (aSkill != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aSkill.getDisplayName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aSkill.getDisplayName())
+				.append("</b></font>");
 
 			String bString = aSkill.getDefaultSourceString();
 
@@ -677,11 +690,13 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (aSpell != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aSpell.piSubString()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aSpell.piSubString())
+				.append("</b></font>");
 			b.append(" <b>Duration:</b> ").append(aSpell.getDuration());
 			b.append(" <b>Range:</b> ").append(aSpell.getRange());
 			b.append(" <b>Target:</b> ").append(aSpell.getTarget());
-			b.append(" <b>Description:</b> ").append(aSpell.piDescSubString(pc));
+			b.append(" <b>Description:</b> ")
+				.append(aSpell.piDescSubString(pc));
 
 			String spellSource = aSpell.getDefaultSourceString();
 
@@ -703,7 +718,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		else if (aTemp != null)
 		{
 			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aTemp.getDisplayName()).append("</b></font>");
+			b.append("<html><font size=+1><b>").append(aTemp.getDisplayName())
+				.append("</b></font>");
 
 			String bString = aTemp.getDefaultSourceString();
 
@@ -726,7 +742,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -734,6 +751,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			applyBonusButton();
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -742,7 +760,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -750,6 +769,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			removeBonusButton();
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -766,7 +786,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		atree.setCellRenderer(new LabelTreeCellRenderer());
 		bonusTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		bonusTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		bonusTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -792,7 +813,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 						PObjectNode fNode = (PObjectNode) temp;
 
-						if ((fNode.getItem() != null) && !(fNode.getItem() instanceof String))
+						if ((fNode.getItem() != null)
+							&& !(fNode.getItem() instanceof String))
 						{
 							if (fNode.getItem() instanceof ClassWrap)
 							{
@@ -808,12 +830,14 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 							updateTargetModel();
 
 							// Default choice is first item
-							TreePath initTargPath = targetTable.getTree().getPathForRow(0);
+							TreePath initTargPath =
+									targetTable.getTree().getPathForRow(0);
 
 							if (initTargPath != null)
 							{
 								applyBonusButton.setEnabled(true);
-								targetTable.getTree().setSelectionPath(initTargPath);
+								targetTable.getTree().setSelectionPath(
+									initTargPath);
 							}
 							else
 							{
@@ -837,7 +861,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		stree.setCellRenderer(new LabelTreeCellRenderer());
 		targetTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		targetTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		targetTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -853,7 +878,6 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			});
 
-
 		//
 		// now do the temporary bonus table
 		//
@@ -866,7 +890,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		appliedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		appliedTable.setShowHorizontalLines(true);
 
-		appliedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		appliedTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -896,8 +921,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			});
 
-		bonusTable.addMouseListener(new JTreeTableMouseAdapter(bonusTable, new AvailableClickHandler(), true));
-		appliedTable.addMouseListener(new JTreeTableMouseAdapter(appliedTable, new SelectedClickHandler(), true));
+		bonusTable.addMouseListener(new JTreeTableMouseAdapter(bonusTable,
+			new AvailableClickHandler(), true));
+		appliedTable.addMouseListener(new JTreeTableMouseAdapter(appliedTable,
+			new SelectedClickHandler(), true));
 
 		// create the rightclick popup menus
 		hookupPopupMenu(bonusTable);
@@ -914,15 +941,18 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		if (bonusTable.getTree().isSelectionEmpty())
 		{
-			ShowMessageDelegate.showMessageDialog("First select a type of bonus use", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select a type of bonus use", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		if (targetTable.getTree().isSelectionEmpty())
 		{
-			ShowMessageDelegate.showMessageDialog("First select an item to set the temporary bonus on", Constants.s_APPNAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an item to set the temporary bonus on",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -944,8 +974,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		if ((aTarget == null) || (fNode == null))
 		{
-			ShowMessageDelegate.showMessageDialog("First select an item to set the temporary bonus on", Constants.s_APPNAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select an item to set the temporary bonus on",
+				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -960,7 +991,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		if ((anObj == null) || (fNode == null))
 		{
-			ShowMessageDelegate.showMessageDialog("First select a type of bonus use", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select a type of bonus use", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -994,13 +1027,17 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 							.getClass() && aMod.getKeyName().equals(
 							creatorObj.getKeyName()))))
 					{
-						ShowMessageDelegate.showMessageDialog("The item has already had the bonus applied.", Constants.s_APPNAME, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(
+							"The item has already had the bonus applied.",
+							Constants.s_APPNAME, MessageType.ERROR);
 						return;
 					}
 
 				}
 				// We need to remove the [] from the old name
-				aEq.setAppliedName(currAppName.substring(2, currAppName.length()-1) + ", " + aMod.getKeyName());
+				aEq.setAppliedName(currAppName.substring(2, currAppName
+					.length() - 1)
+					+ ", " + aMod.getKeyName());
 			}
 			else
 			{
@@ -1040,7 +1077,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					newB.setPrereqList(new ArrayList<Prerequisite>());
 					for (Prerequisite prereq : aBonus.getPreReqList())
 					{
-						if (prereq.getKind() == null || !prereq.getKind().equalsIgnoreCase(Prerequisite.APPLY_KIND))
+						if (prereq.getKind() == null
+							|| !prereq.getKind().equalsIgnoreCase(
+								Prerequisite.APPLY_KIND))
 						{
 							newB.addPreReq(new Prerequisite(prereq));
 						}
@@ -1051,7 +1090,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					// bonus to TempBonusMap
 					if (aTarget instanceof PlayerCharacter)
 					{
-						if ( newB.qualifies(pc) )
+						if (newB.qualifies(pc))
 						{
 							newB.setApplied(true);
 						}
@@ -1063,8 +1102,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						// TODO - This looks like a bug.  It should be testing
 						// for aEq in the passesAll() check.
-//						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
-						if ( newB.passesPreReqToGain(aEq, pc) )
+						//						if (PrereqHandler.passesAll(newB.getPrereqList(), pc, null))
+						if (newB.passesPreReqToGain(aEq, pc))
 						{
 							newB.setApplied(true);
 						}
@@ -1079,7 +1118,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aMod.getChoiceString().length() > 0)
 					{
-						repeatValue = getBonusChoice(newB, aMod.getChoiceString(), repeatValue);
+						repeatValue =
+								getBonusChoice(newB, aMod.getChoiceString(),
+									repeatValue);
 					}
 
 				}
@@ -1191,9 +1232,16 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			hasBeenSized = true;
 
 			Component c = getParent();
-			s = SettingsHandler.getPCGenOption("InfoTempMod.topVertSplit", ((c.getWidth() * 1) / 2));
-			t = SettingsHandler.getPCGenOption("InfoTempMod.centerHorzSplit", ((c.getHeight() * 1) / 2));
-			u = SettingsHandler.getPCGenOption("InfoTempMod.botHorzSplit", ((botPane.getHeight() * 1) / 2));
+			s =
+					SettingsHandler.getPCGenOption("InfoTempMod.topVertSplit",
+						((c.getWidth() * 1) / 2));
+			t =
+					SettingsHandler.getPCGenOption(
+						"InfoTempMod.centerHorzSplit",
+						((c.getHeight() * 1) / 2));
+			u =
+					SettingsHandler.getPCGenOption("InfoTempMod.botHorzSplit",
+						((botPane.getHeight() * 1) / 2));
 
 			// set the prefered width on targetTable
 			for (int i = 0; i < targetTable.getColumnCount(); ++i)
@@ -1206,7 +1254,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(targetTable, "TempModSel", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					targetTable, "TempModSel", i));
 			}
 
 			// set the prefered width on bonusTable
@@ -1220,7 +1269,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(bonusTable, "TempModAva", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					bonusTable, "TempModAva", i));
 			}
 		}
 
@@ -1245,68 +1295,72 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new BonusPopupListener(treeTable, new BonusPopupMenu(treeTable)));
+		treeTable.addMouseListener(new BonusPopupListener(treeTable,
+			new BonusPopupMenu(treeTable)));
 	}
 
 	private void initActionListeners()
 	{
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
+				formComponentShown();
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
+				int s = topVertSplit.getDividerLocation();
+
+				if (s > 0)
 				{
-					int s = topVertSplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoTempMod.topVertSplit", s);
-					}
-
-					s = botHorzSplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoTempMod.botHorzSplit", s);
-					}
-
-					s = centerHorzSplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoTempMod.centerHorzSplit", s);
-					}
+					SettingsHandler.setPCGenOption("InfoTempMod.topVertSplit",
+						s);
 				}
-			});
+
+				s = botHorzSplit.getDividerLocation();
+
+				if (s > 0)
+				{
+					SettingsHandler.setPCGenOption("InfoTempMod.botHorzSplit",
+						s);
+				}
+
+				s = centerHorzSplit.getDividerLocation();
+
+				if (s > 0)
+				{
+					SettingsHandler.setPCGenOption(
+						"InfoTempMod.centerHorzSplit", s);
+				}
+			}
+		});
 		applyBonusButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					applyBonusButton();
-				}
-			});
+				applyBonusButton();
+			}
+		});
 		removeBonusButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					removeBonusButton();
-				}
-			});
+				removeBonusButton();
+			}
+		});
 		/* commented out until we fix temp mods, do not delete
-		useTempMods.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					pc.setUseTempMods(useTempMods.isSelected());
-					pc.setDirty(true);
-				}
-			});
-			*/
+		 useTempMods.addActionListener(new ActionListener()
+		 {
+		 public void actionPerformed(ActionEvent evt)
+		 {
+		 pc.setUseTempMods(useTempMods.isSelected());
+		 pc.setDirty(true);
+		 }
+		 });
+		 */
 	}
 
 	/**
@@ -1335,7 +1389,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		rightPane.setLayout(gridbag);
 
 		applyBonusButton = new JButton("Apply Bonus");
-		Utility.setDescription(applyBonusButton, "Click to add bonus to selected item");
+		Utility.setDescription(applyBonusButton,
+			"Click to add bonus to selected item");
 		applyBonusButton.setEnabled(false);
 		applyBonusButton.setPreferredSize(new Dimension(60, 20));
 		applyBonusButton.setSize(new Dimension(60, 20));
@@ -1351,7 +1406,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		aPanel.setLayout(new BorderLayout());
 
 		// Create the split between the two panels
-		topVertSplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPane, rightPane);
+		topVertSplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPane,
+					rightPane);
 		topVertSplit.setOneTouchExpandable(true);
 		topVertSplit.setDividerSize(10);
 		aPanel.add(topVertSplit, BorderLayout.CENTER);
@@ -1405,7 +1462,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		bHeadPane.setLayout(gridbag);
 		bTailPane.setLayout(gridbag);
 
-		botHorzSplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, bHeadPane, bTailPane);
+		botHorzSplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, bHeadPane,
+					bTailPane);
 		botHorzSplit.setOneTouchExpandable(true);
 		botHorzSplit.setDividerSize(10);
 
@@ -1441,15 +1500,15 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		iPanel.setLayout(new BorderLayout(8, 0));
 
 		/* commented out until we fix temp mods, do not delete
-		useTempMods = new JCheckBox("Use Temporary Bonuses");
-		*/
+		 useTempMods = new JCheckBox("Use Temporary Bonuses");
+		 */
 		removeBonusButton = new JButton("Remove");
 		removeBonusButton.setEnabled(false);
 
 		tempModsDisabledWarning = new JLabel("");
 		/* commented out until we fix temp mods, do not delete
-		iPanel.add(useTempMods, BorderLayout.WEST);
-		*/
+		 iPanel.add(useTempMods, BorderLayout.WEST);
+		 */
 		iPanel.add(removeBonusButton, BorderLayout.CENTER);
 		iPanel.add(tempModsDisabledWarning, BorderLayout.EAST);
 
@@ -1466,7 +1525,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		bTailPane.add(tbPane);
 
 		// now split the top and bottom Panels
-		centerHorzSplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
+		centerHorzSplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		centerHorzSplit.setOneTouchExpandable(true);
 		centerHorzSplit.setDividerSize(10);
 
@@ -1476,17 +1537,21 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		// make sure we update when switching tabs
 		this.addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 
 		// add the sorter tables to that clicking on the TableHeader
 		// actualy does something (gawd damn it's slow!)
-		bonusSort = new JTreeTableSorter(bonusTable, (PObjectNode) bonusModel.getRoot(), bonusModel);
-		targetSort = new JTreeTableSorter(targetTable, (PObjectNode) targetModel.getRoot(), targetModel);
+		bonusSort =
+				new JTreeTableSorter(bonusTable, (PObjectNode) bonusModel
+					.getRoot(), bonusModel);
+		targetSort =
+				new JTreeTableSorter(targetTable, (PObjectNode) targetModel
+					.getRoot(), targetModel);
 	}
 
 	/**
@@ -1504,7 +1569,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		if (appliedTable.getTree().isSelectionEmpty())
 		{
-			ShowMessageDelegate.showMessageDialog("First select a bonus to remove", Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(
+				"First select a bonus to remove", Constants.s_APPNAME,
+				MessageType.ERROR);
 
 			return;
 		}
@@ -1584,8 +1651,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					pc.removeTempBonus(aBonus);
 					pc.removeTempBonusItemList((Equipment) aT);
-					((Equipment)aT).removeTempBonus(aBonus);
-					((Equipment)aT).setAppliedName("");
+					((Equipment) aT).removeTempBonus(aBonus);
+					((Equipment) aT).setAppliedName("");
 				}
 			}
 			else if ((aT instanceof PlayerCharacter) && (bPC != null))
@@ -1783,7 +1850,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	private final class AppliedModel extends AbstractTreeTableModel
 	{
 		// list of columns names
-		private String[] colNameList = new String[]{ "Name [Target]", "Bonus Type", "Bonus To", "Bonus Value" };
+		private String[] colNameList =
+				new String[]{"Name [Target]", "Bonus Type", "Bonus To",
+					"Bonus Value"};
 		private MyPONode bonusRoot;
 
 		/**
@@ -1865,7 +1934,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (fn == null)
 			{
-				Logging.errorPrint("Somehow we have no active node when doing getValueAt in AppliedModel");
+				Logging
+					.errorPrint("Somehow we have no active node when doing getValueAt in AppliedModel");
 
 				return null;
 			}
@@ -1915,7 +1985,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return fn.toString();
 					}
-					Logging.errorPrint("Somehow we have no active node when doing getValueAt in AppliedModel");
+					Logging
+						.errorPrint("Somehow we have no active node when doing getValueAt in AppliedModel");
 					return null;
 			}
 		}
@@ -1991,9 +2062,11 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			MyPONode rootAsPObjectNode = (MyPONode) super.getRoot();
 
-			if ((rootAsPObjectNode != null) && (rootAsPObjectNode.getChildCount() > 0))
+			if ((rootAsPObjectNode != null)
+				&& (rootAsPObjectNode.getChildCount() > 0))
 			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 	}
@@ -2017,8 +2090,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		private PObjectNode selRoot;
 
 		// list of columns names
-		private String[] avaNameList = { "" };
-		private String[] selNameList = { "" };
+		private String[] avaNameList = {""};
+		private String[] selNameList = {""};
 
 		// Types of the columns.
 		private int modelType = MODEL_BONUS;
@@ -2036,8 +2109,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			// you also need to change the static COL_XXX defines
 			// at the begining of this file
 			//
-			avaNameList = new String[]{ "Name", "Source", "File" };
-			selNameList = new String[]{ "Name", "Target", "File" };
+			avaNameList = new String[]{"Name", "Source", "File"};
+			selNameList = new String[]{"Name", "Target", "File"};
 
 			modelType = iModel;
 			resetModel(iModel);
@@ -2071,7 +2144,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint("In InfoTempMod.getColumnClass the column " + column + " is not supported.");
+					Logging
+						.errorPrint("In InfoTempMod.getColumnClass the column "
+							+ column + " is not supported.");
 
 					break;
 			}
@@ -2087,7 +2162,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		 **/
 		public int getColumnCount()
 		{
-			return (modelType == MODEL_BONUS) ? avaNameList.length : selNameList.length;
+			return (modelType == MODEL_BONUS) ? avaNameList.length
+				: selNameList.length;
 		}
 
 		/**
@@ -2097,7 +2173,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		 **/
 		public String getColumnName(int column)
 		{
-			return (modelType == MODEL_BONUS) ? avaNameList[column] : selNameList[column];
+			return (modelType == MODEL_BONUS) ? avaNameList[column]
+				: selNameList[column];
 		}
 
 		// return the root node
@@ -2125,7 +2202,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (fn == null)
 			{
-				Logging.errorPrint("Somehow we have no active node when doing getValueAt in InfoTempMod.");
+				Logging
+					.errorPrint("Somehow we have no active node when doing getValueAt in InfoTempMod.");
 
 				return null;
 			}
@@ -2135,8 +2213,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			if (fn.getItem() instanceof Equipment)
 			{
 				eqI = (Equipment) fn.getItem();
-				name = new StringBuffer(eqI.longName()).append(
-					eqI.getAppliedName()).toString();
+				name =
+						new StringBuffer(eqI.longName()).append(
+							eqI.getAppliedName()).toString();
 			}
 			else if (fn.getItem() instanceof Ability)
 			{
@@ -2253,7 +2332,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						return fn.toString();
 					}
-					Logging.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquip.");
+					Logging
+						.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquip.");
 					return null;
 			}
 		}
@@ -2280,7 +2360,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			for (Equipment bEq : pc.getEquipmentList())
 			{
-				final StringTokenizer aTok = new StringTokenizer(bEq.getType(), ".", false);
+				final StringTokenizer aTok =
+						new StringTokenizer(bEq.getType(), ".", false);
 				String aString;
 
 				while (aTok.hasMoreTokens())
@@ -2340,14 +2421,16 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// next do all Feats to get PREAPPLY:ANYPC
-				for (Iterator<? extends Categorisable> fI = Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();)
+				for (Iterator<? extends Categorisable> fI =
+						Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();)
 				{
 					Ability aFeat = (Ability) fI.next();
 
 					for (BonusObj aBonus : aFeat.getBonusList())
 					{
-						if (aBonus.isTempBonus() 
-						 && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
+						if (aBonus.isTempBonus()
+							&& aBonus
+								.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
 						{
 							PObjectNode aFN = new PObjectNode(aFeat);
 							aFN.setParent(pNode[0]);
@@ -2359,7 +2442,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Do all the PC's spells
-				for (Spell aSpell : pc.aggregateSpellList("Any", "", "", "", 0, 9))
+				for (Spell aSpell : pc.aggregateSpellList("Any", "", "", "", 0,
+					9))
 				{
 					if (aSpell == null)
 					{
@@ -2380,7 +2464,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				//
 				// Next do all spells to get PREAPPLY:ANYPC
-				for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
+				for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI
+					.hasNext();)
 				{
 					final Object obj = fI.next();
 					Spell aSpell = null;
@@ -2403,7 +2488,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					{
 						//aBonus.getPrereqString();
 
-						if (aBonus.isTempBonus() && !aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
+						if (aBonus.isTempBonus()
+							&& !aBonus
+								.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
 						{
 							PObjectNode aFN = new PObjectNode(aSpell);
 							aFN.setParent(pNode[1]);
@@ -2450,7 +2537,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 						if (aBonus.isTempBonus() && (myLevel >= level))
 						{
-							PObjectNode aFN = new PObjectNode(new ClassWrap(aClass, level));
+							PObjectNode aFN =
+									new PObjectNode(
+										new ClassWrap(aClass, level));
 							aFN.setParent(pNode[3]);
 							pNode[3].addChild(aFN, true);
 							pNode[3].setParent(avaRoot);
@@ -2484,8 +2573,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					for (BonusObj aBonus : aTemp.getBonusList())
 					{
-						if (aBonus.isTempBonus() 
-						 && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
+						if (aBonus.isTempBonus()
+							&& aBonus
+								.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
 						{
 							PObjectNode aFN = new PObjectNode(aTemp);
 							aFN.setParent(pNode[4]);
@@ -2524,7 +2614,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				// now add to the root node
 				avaRoot.setChildren(pNode);
 			}
-			 // end of bonusTable builder
+			// end of bonusTable builder
 
 			else
 			{ // targetTable builder
@@ -2549,9 +2639,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aBonus.isTempBonus())
 					{
-						if ( (aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC) 
-						   || aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.PC)) 
-						 && !found)
+						if ((aBonus
+							.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC) || aBonus
+							.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
+							&& !found)
 						{
 							PObjectNode aFN = new PObjectNode(pc);
 							aFN.setParent(selRoot);
@@ -2575,10 +2666,15 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						if (aBonus.isTempBonus())
 						{
 							boolean passesApply = true;
-							for (Iterator<Prerequisite> iter = aBonus.getPreReqList().iterator(); iter.hasNext() && passesApply;)
+							for (Iterator<Prerequisite> iter =
+									aBonus.getPreReqList().iterator(); iter
+								.hasNext()
+								&& passesApply;)
 							{
 								Prerequisite element = iter.next();
-								if (element.getKind() != null && element.getKind().equalsIgnoreCase(Prerequisite.APPLY_KIND))
+								if (element.getKind() != null
+									&& element.getKind().equalsIgnoreCase(
+										Prerequisite.APPLY_KIND))
 								{
 									if (!PrereqHandler.passes(element, aEq, pc))
 										passesApply = false;
@@ -2600,13 +2696,15 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				setRoot(selRoot);
 			}
-			 // end if else
+			// end if else
 
 			PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-			if ((rootAsPObjectNode != null) && (rootAsPObjectNode.getChildCount() > 0))
+			if ((rootAsPObjectNode != null)
+				&& (rootAsPObjectNode.getChildCount() > 0))
 			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 	}
@@ -2622,52 +2720,56 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					//
-					// Walk through the list of accelerators to see
-					// if the user has pressed a sequence used by
-					// the popup. This would not otherwise happen
-					// unless the popup was showing
-					//
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				//
+				// Walk through the list of accelerators to see
+				// if the user has pressed a sequence used by
+				// the popup. This would not otherwise happen
+				// unless the popup was showing
+				//
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); ++i)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							final Component menuComponent =
+									menu.getComponent(i);
 
-							for (int i = 0; i < menu.getComponentCount(); ++i)
+							if (menuComponent instanceof JMenuItem)
 							{
-								final Component menuComponent = menu.getComponent(i);
+								KeyStroke ks =
+										((JMenuItem) menuComponent)
+											.getAccelerator();
 
-								if (menuComponent instanceof JMenuItem)
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+									((JMenuItem) menuComponent).doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										((JMenuItem) menuComponent).doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -2686,7 +2788,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (evt.isPopupTrigger())
 			{
-				TreePath selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				TreePath selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -2708,36 +2811,43 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (treeTable == bonusTable)
 			{
-				BonusPopupMenu.this.add(createAddMenuItem("Apply Bonus", "shortcut EQUALS"));
+				BonusPopupMenu.this.add(createAddMenuItem("Apply Bonus",
+					"shortcut EQUALS"));
 				BonusPopupMenu.this.addSeparator();
-				BonusPopupMenu.this.add(createRefreshMenuItem("Redraw/recalc Panel"));
+				BonusPopupMenu.this
+					.add(createRefreshMenuItem("Redraw/recalc Panel"));
 			}
 			else if (treeTable == targetTable)
 			{
-				BonusPopupMenu.this.add(createRefreshMenuItem("Redraw/recalc Panel"));
+				BonusPopupMenu.this
+					.add(createRefreshMenuItem("Redraw/recalc Panel"));
 			}
 			else if (treeTable == appliedTable)
 			{
-				BonusPopupMenu.this.add(createRemoveMenuItem("Remove Bonus", "shortcut MINUS"));
+				BonusPopupMenu.this.add(createRemoveMenuItem("Remove Bonus",
+					"shortcut MINUS"));
 			}
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddBonusActionListener(), "Apply bonus", (char) 0, accelerator,
-				"Apply this Bonus", "Add16.gif", true);
+			return Utility.createMenuItem(label, new AddBonusActionListener(),
+				"Apply bonus", (char) 0, accelerator, "Apply this Bonus",
+				"Add16.gif", true);
 		}
 
 		private JMenuItem createRefreshMenuItem(String label)
 		{
-			return Utility.createMenuItem(label, new RefreshActionListener(), "Redraw/Recalc Panel", (char) 0, null,
+			return Utility.createMenuItem(label, new RefreshActionListener(),
+				"Redraw/Recalc Panel", (char) 0, null,
 				"Redraw/Recalc this panels info", "", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveActionListener(), "Remove Bonus", (char) 0, accelerator,
-				"Remove this bonus", "", true);
+			return Utility.createMenuItem(label, new RemoveActionListener(),
+				"Remove Bonus", (char) 0, accelerator, "Remove this bonus", "",
+				true);
 		}
 
 		private class AddBonusActionListener extends BonusActionListener

@@ -15,4 +15,3 @@ public interface KitSkillLstToken extends LstToken
 	 */
 	public abstract boolean parse(KitSkill kitSkill, String value);
 }
-

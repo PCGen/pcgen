@@ -52,11 +52,12 @@ public class AddItemPanel extends JPanel
 	 */
 	public AddItemPanel()
 	{
-		theAddButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif")); //$NON-NLS-1$
-		
+		theAddButton =
+				new JButton(IconUtilitities.getImageIcon("Forward16.gif")); //$NON-NLS-1$
+
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(theAddButton, 
-				PropertyFactory.getString("InfoTabs.AddButton.Description")); //$NON-NLS-1$
+		Utility.setDescription(theAddButton, PropertyFactory
+			.getString("InfoTabs.AddButton.Description")); //$NON-NLS-1$
 		theAddButton.setEnabled(false);
 		theAddButton.setMargin(new Insets(1, 14, 1, 14));
 		this.add(theAddButton);
@@ -72,7 +73,7 @@ public class AddItemPanel extends JPanel
 	{
 		theAddButton.setEnabled(yesNo);
 	}
-	
+
 	/**
 	 * Add a listener to the contained button.
 	 * 
@@ -80,7 +81,6 @@ public class AddItemPanel extends JPanel
 	 */
 	public void addActionListener(final ActionListener aListener)
 	{
-		theAddButton.addActionListener( aListener );
+		theAddButton.addActionListener(aListener);
 	}
 }
-

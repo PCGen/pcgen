@@ -27,7 +27,6 @@ package pcgen.persistence.lst;
 
 import java.net.URL;
 
-
 /**
  * <code>StatsAndChecksLstToken</code>
  *

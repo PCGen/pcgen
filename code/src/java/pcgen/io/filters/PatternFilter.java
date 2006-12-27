@@ -20,7 +20,8 @@ import pcgen.util.Logging;
  * @author apsen
  *
  */
-public class PatternFilter implements OutputFilter {
+public class PatternFilter implements OutputFilter
+{
 	private String outputFilterName = "";
 	private ArrayList<String> match = null;
 	private ArrayList<String> replace = null;
@@ -28,9 +29,10 @@ public class PatternFilter implements OutputFilter {
 	/**
 	 * 
 	 */
-	public PatternFilter(String filterName) throws IOException {
+	public PatternFilter(String filterName) throws IOException
+	{
 		super();
-		
+
 		final int idx = filterName.lastIndexOf('.');
 
 		if (idx >= 0)
@@ -45,15 +47,19 @@ public class PatternFilter implements OutputFilter {
 			return;
 		}
 
-		filterName = Globals.getDefaultPath() + File.separator + "system" + File.separator + "outputFilters"
-			+ File.separator + "re" + filterName + Constants.s_PCGEN_LIST_EXTENSION;
+		filterName =
+				Globals.getDefaultPath() + File.separator + "system"
+					+ File.separator + "outputFilters" + File.separator + "re"
+					+ filterName + Constants.s_PCGEN_LIST_EXTENSION;
 		Logging.debugPrint("Creating filter from " + filterName);
 
 		final File filterFile = new File(filterName);
 
 		if (filterFile.canRead() && filterFile.isFile())
 		{
-			final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filterFile), "UTF-8"));
+			final BufferedReader br =
+					new BufferedReader(new InputStreamReader(
+						new FileInputStream(filterFile), "UTF-8"));
 
 			if (br != null)
 			{
@@ -75,40 +81,48 @@ public class PatternFilter implements OutputFilter {
 					if (aLine.length() == 0 || aLine.charAt(0) == '#')
 						continue;
 					else if (0 < aLine.indexOf("\t#"))
-						aLineWOComment = aLine.substring(0, aLine.indexOf("\t#"));
-					else
-						aLineWOComment = aLine;
-						
+						aLineWOComment =
+								aLine.substring(0, aLine.indexOf("\t#"));
+					else aLineWOComment = aLine;
+
 					Logging.debugPrint("Stripped line:" + aLineWOComment);
-					final List<String> filterEntry = CoreUtility.split(aLineWOComment, '\t');
+					final List<String> filterEntry =
+							CoreUtility.split(aLineWOComment, '\t');
 
 					try
 					{
 						if (filterEntry.size() == 2)
 						{
 							match.add(filterEntry.get(0));
-							
-							Logging.debugPrint("Match: [" + filterEntry.get(0) + "] and replace with [" + filterEntry.get(1) + "]");
-							replace.add(filterEntry.get(1).replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"));
+
+							Logging.debugPrint("Match: [" + filterEntry.get(0)
+								+ "] and replace with [" + filterEntry.get(1)
+								+ "]");
+							replace.add(filterEntry.get(1).replaceAll("\\\\n",
+								"\n").replaceAll("\\\\t", "\t"));
 						}
 						else if (filterEntry.size() == 1)
 						{
 							match.add(filterEntry.get(0));
 							replace.add("");
-							Logging.debugPrint("Match: [" + filterEntry.get(0) + "] and replace with []");
+							Logging.debugPrint("Match: [" + filterEntry.get(0)
+								+ "] and replace with []");
 						}
 						else
 						{
-							Logging.errorPrint("Incorrect line format in PatternFilter: Line ignored");
+							Logging
+								.errorPrint("Incorrect line format in PatternFilter: Line ignored");
 						}
 					}
 					catch (NullPointerException e)
 					{
-						Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+						Logging.errorPrint(
+							"Exception in setCurrentOutputFilter", e);
 					}
 					catch (NumberFormatException e)
 					{
-						Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+						Logging.errorPrint(
+							"Exception in setCurrentOutputFilter", e);
 					}
 				}
 
@@ -116,8 +130,9 @@ public class PatternFilter implements OutputFilter {
 			}
 		}
 	}
-	
-	public String filterString(String aString) {
+
+	public String filterString(String aString)
+	{
 		String aProcessedString = aString;
 		Logging.debugPrint("Filtering: " + aString);
 		if ((match != null) && (match.size() != 0) && aString != null)
@@ -125,12 +140,16 @@ public class PatternFilter implements OutputFilter {
 			Logging.debugPrint("Found " + match.size() + " filters");
 			for (int i = 0; i < match.size(); i++)
 			{
-				String aPreprocessedString = aProcessedString; 
-				aProcessedString = aProcessedString.replaceAll(match.get(i), replace.get(i));
+				String aPreprocessedString = aProcessedString;
+				aProcessedString =
+						aProcessedString.replaceAll(match.get(i), replace
+							.get(i));
 				if (!aProcessedString.equals(aPreprocessedString))
 				{
-					Logging.debugPrint("Match: [" + match.get(i) + "] and replace with [" + replace.get(i) + "]");
-					Logging.debugPrint("[" +aPreprocessedString + "]=>[" + aProcessedString + "]");
+					Logging.debugPrint("Match: [" + match.get(i)
+						+ "] and replace with [" + replace.get(i) + "]");
+					Logging.debugPrint("[" + aPreprocessedString + "]=>["
+						+ aProcessedString + "]");
 				}
 			}
 		}

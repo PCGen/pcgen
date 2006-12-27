@@ -51,7 +51,7 @@ final class BioSetLoader extends LstLineFileLoader
 	/** Creates a new instance of bioSetLoader */
 	public BioSetLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -82,14 +82,13 @@ final class BioSetLoader extends LstLineFileLoader
 		if (lstLine.startsWith("AGESET:"))
 		{
 			currentAgeSetIndex =
-				bioSet.addToAgeMap(
-					regionName,
-					lstLine.substring(7),
-					currentAgeSetIndex);
+					bioSet.addToAgeMap(regionName, lstLine.substring(7),
+						currentAgeSetIndex);
 		}
 		else
 		{
-			final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+			final StringTokenizer colToken =
+					new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 			String colString;
 			String raceName = "";
 			List<String> preReqList = null;
@@ -106,7 +105,8 @@ final class BioSetLoader extends LstLineFileLoader
 				{
 					regionName = colString.substring(7);
 				}
-				else if (colString.startsWith("PRE") || colString.startsWith("!PRE"))
+				else if (colString.startsWith("PRE")
+					|| colString.startsWith("!PRE"))
 				{
 					if (preReqList == null)
 					{
@@ -125,17 +125,15 @@ final class BioSetLoader extends LstLineFileLoader
 
 						for (int i = 0, x = preReqList.size(); i < x; ++i)
 						{
-							sBuf.append('[').append(preReqList.get(i)).append(']');
+							sBuf.append('[').append(preReqList.get(i)).append(
+								']');
 						}
 
 						aString = sBuf.toString();
 					}
 
-					bioSet.addToUserMap(
-						regionName,
-						raceName,
-						colString + aString,
-						currentAgeSetIndex);
+					bioSet.addToUserMap(regionName, raceName, colString
+						+ aString, currentAgeSetIndex);
 				}
 			}
 		}

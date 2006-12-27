@@ -56,15 +56,16 @@ public final class EquipmentLoader
 	 * @param lineNum
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(Equipment equipment, String inputLine, URL sourceURL, int lineNum)
-		throws PersistenceLayerException
+	public static void parseLine(Equipment equipment, String inputLine,
+		URL sourceURL, int lineNum) throws PersistenceLayerException
 	{
 		if (equipment == null)
 		{
 			return;
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
 		if (!equipment.isNewItem())
@@ -73,7 +74,8 @@ public final class EquipmentLoader
 			colToken.nextToken(); // skip name
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipmentLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(EquipmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -85,7 +87,8 @@ public final class EquipmentLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			EquipmentLstToken token = (EquipmentLstToken) tokenMap.get(key);
@@ -99,17 +102,23 @@ public final class EquipmentLoader
 				LstUtils.deprecationCheck(token, equipment, value);
 				if (!token.parse(equipment, value))
 				{
-					Logging.errorPrint("Error parsing ability " + equipment.getName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ equipment.getName() + ':' + sourceURL.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (colString.startsWith("Cost:"))
 			{
-				Logging.errorPrint("Cost deprecated, use COST " + equipment.getName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+				Logging.errorPrint("Cost deprecated, use COST "
+					+ equipment.getName() + ':' + sourceURL.getFile() + ':'
+					+ colString + "\"");
 				token = (EquipmentLstToken) tokenMap.get("COST");
 				final String value = colString.substring(idxColon + 1);
 				if (!token.parse(equipment, value))
 				{
-					Logging.errorPrint("Error parsing ability " + equipment.getName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ equipment.getName() + ':' + sourceURL.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			//else if ((aLen > 9) && colString.startsWith("DEFBONUS:"))
@@ -117,75 +126,76 @@ public final class EquipmentLoader
 			//	equipment.setDefBonus(colString.substring(7));
 			//}
 			/*else if ((aLen > 13) && colString.startsWith("TREASURELIST:"))
-			{
-				if (SettingsHandler.isGMGen())
-				{
-					String treasureList = colString.substring(13);
-					StringTokenizer treasureTok = new StringTokenizer(treasureList, "|");
+			 {
+			 if (SettingsHandler.isGMGen())
+			 {
+			 String treasureList = colString.substring(13);
+			 StringTokenizer treasureTok = new StringTokenizer(treasureList, "|");
 
-					while (treasureTok.hasMoreTokens())
-					{
-						StringTokenizer cmdTok = new StringTokenizer(treasureTok.nextToken(), "=");
-						String lists = cmdTok.nextToken();
-						int weight = Integer.parseInt(cmdTok.nextToken().trim());
-						StringTokenizer listTok = new StringTokenizer(lists, ",");
+			 while (treasureTok.hasMoreTokens())
+			 {
+			 StringTokenizer cmdTok = new StringTokenizer(treasureTok.nextToken(), "=");
+			 String lists = cmdTok.nextToken();
+			 int weight = Integer.parseInt(cmdTok.nextToken().trim());
+			 StringTokenizer listTok = new StringTokenizer(lists, ",");
 
-						while (listTok.hasMoreTokens())
-						{
-							equipment.addTreasureList(listTok.nextToken(), weight);
-						}
-					}
-				}
-			}*/
+			 while (listTok.hasMoreTokens())
+			 {
+			 equipment.addTreasureList(listTok.nextToken(), weight);
+			 }
+			 }
+			 }
+			 }*/
 			/*else if ((aLen > 6) && colString.startsWith("TECHLEVEL:"))
-			{
-				equipment.setTechLevel(colString.substring(10));
-			}*/
+			 {
+			 equipment.setTechLevel(colString.substring(10));
+			 }*/
 			else if (PObjectLoader.parseTag(equipment, colString))
 			{
 				continue;
 			}
 			else
 			{
-				Logging.errorPrint("Illegal equipment info " + sourceURL.toString() + ":" + Integer.toString(lineNum)
+				Logging.errorPrint("Illegal equipment info "
+					+ sourceURL.toString() + ":" + Integer.toString(lineNum)
 					+ " \"" + colString + "\"");
 			}
 			col++;
 		}
 
-//		final String bonusType = equipment.getBonusType();
-//
-//		if (equipment.isArmor())
-//		{
-//			if (bonusType == null)
-//			{
-//				equipment.setBonusType("Armor");
-//
-//				return;
-//			}
-//
-//			if (bonusType.lastIndexOf("Armor") > -1)
-//			{
-//				return;
-//			}
-//
-//			equipment.setBonusType(bonusType + "Armor");
-//		}
-//		else if (equipment.isShield())
-//		{
-//			if (bonusType == null)
-//			{
-//				equipment.setBonusType("Shield");
-//
-//				return;
-//			}
-//
-//			if (bonusType.lastIndexOf("Shield") > -1)
-//			{
-//				return;
-//			}
-//
-//			equipment.setBonusType(bonusType + "Shield");
-//		}
+		//		final String bonusType = equipment.getBonusType();
+		//
+		//		if (equipment.isArmor())
+		//		{
+		//			if (bonusType == null)
+		//			{
+		//				equipment.setBonusType("Armor");
+		//
+		//				return;
+		//			}
+		//
+		//			if (bonusType.lastIndexOf("Armor") > -1)
+		//			{
+		//				return;
+		//			}
+		//
+		//			equipment.setBonusType(bonusType + "Armor");
+		//		}
+		//		else if (equipment.isShield())
+		//		{
+		//			if (bonusType == null)
+		//			{
+		//				equipment.setBonusType("Shield");
+		//
+		//				return;
+		//			}
+		//
+		//			if (bonusType.lastIndexOf("Shield") > -1)
+		//			{
+		//				return;
+		//			}
+		//
+		//			equipment.setBonusType(bonusType + "Shield");
+		//		}
 	}
 }

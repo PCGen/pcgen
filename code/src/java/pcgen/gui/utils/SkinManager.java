@@ -1,6 +1,5 @@
 package pcgen.gui.utils;
 
-
 /*
  * SkinManager.java
  * Copyright 2001 (C) Jason Buchanan
@@ -44,7 +43,8 @@ public final class SkinManager
 	{
 		try
 		{
-			SkinLookAndFeel.setSkin(SkinLookAndFeel.loadThemePack(SettingsHandler.getSkinLFThemePack()));
+			SkinLookAndFeel.setSkin(SkinLookAndFeel
+				.loadThemePack(SettingsHandler.getSkinLFThemePack()));
 
 			SkinLookAndFeel lnf = new SkinLookAndFeel();
 			UIManager.setLookAndFeel(lnf);
@@ -64,8 +64,11 @@ public final class SkinManager
 	{
 		try
 		{
-			SkinLookAndFeel.loadThemePack(SettingsHandler.getPcgenThemePackDir().getAbsolutePath() + "themepack.zip");
-			UIManager.installLookAndFeel("Linux", "com.l2fprod.gui.plaf.skin.LinuxLookAndFeel");
+			SkinLookAndFeel.loadThemePack(SettingsHandler
+				.getPcgenThemePackDir().getAbsolutePath()
+				+ "themepack.zip");
+			UIManager.installLookAndFeel("Linux",
+				"com.l2fprod.gui.plaf.skin.LinuxLookAndFeel");
 		}
 		catch (Exception e)
 		{

@@ -48,19 +48,19 @@ final class TreeTableModelAdapter extends AbstractTableModel
 		this.treeTableModel = treeTableModel;
 
 		tree.addTreeExpansionListener(new TreeExpansionListener()
+		{
+			// Don't use fireTableRowsInserted() here;
+			// the selection model would get updated twice.
+			public void treeExpanded(TreeExpansionEvent event)
 			{
-				// Don't use fireTableRowsInserted() here;
-				// the selection model would get updated twice.
-				public void treeExpanded(TreeExpansionEvent event)
-				{
-					fireTableDataChanged();
-				}
+				fireTableDataChanged();
+			}
 
-				public void treeCollapsed(TreeExpansionEvent event)
-				{
-					fireTableDataChanged();
-				}
-			});
+			public void treeCollapsed(TreeExpansionEvent event)
+			{
+				fireTableDataChanged();
+			}
+		});
 
 		/**
 		 * Install a TreeModelListener that can update the table when
@@ -69,27 +69,27 @@ final class TreeTableModelAdapter extends AbstractTableModel
 		 * the event before us.
 		 **/
 		treeTableModel.addTreeModelListener(new TreeModelListener()
+		{
+			public void treeNodesChanged(TreeModelEvent e)
 			{
-				public void treeNodesChanged(TreeModelEvent e)
-				{
-					fireTableDataChanged();
-				}
+				fireTableDataChanged();
+			}
 
-				public void treeNodesInserted(TreeModelEvent e)
-				{
-					fireTableDataChanged();
-				}
+			public void treeNodesInserted(TreeModelEvent e)
+			{
+				fireTableDataChanged();
+			}
 
-				public void treeNodesRemoved(TreeModelEvent e)
-				{
-					fireTableDataChanged();
-				}
+			public void treeNodesRemoved(TreeModelEvent e)
+			{
+				fireTableDataChanged();
+			}
 
-				public void treeStructureChanged(TreeModelEvent e)
-				{
-					fireTableStructureChanged();
-				}
-			});
+			public void treeStructureChanged(TreeModelEvent e)
+			{
+				fireTableStructureChanged();
+			}
+		});
 	}
 
 	public boolean isCellEditable(int row, int column)
@@ -131,7 +131,7 @@ final class TreeTableModelAdapter extends AbstractTableModel
 	private Object nodeForRow(int row)
 	{
 		TreePath treePath = tree.getPathForRow(row);
-		if(treePath != null)
+		if (treePath != null)
 		{
 			return treePath.getLastPathComponent();
 		}

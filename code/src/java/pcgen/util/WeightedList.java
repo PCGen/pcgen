@@ -65,14 +65,14 @@ public class WeightedList<E> implements List<E>
 		theData = new ArrayList<WeightedItem<E>>();
 	}
 
-    /**
-     * Constructs an empty list with the specified initial capacity.
-     *
-     * @param   initialSize   the initial capacity of the list.
-     * 
-     * @exception IllegalArgumentException if the specified initial capacity
-     *            is negative
-     */
+	/**
+	 * Constructs an empty list with the specified initial capacity.
+	 *
+	 * @param   initialSize   the initial capacity of the list.
+	 * 
+	 * @exception IllegalArgumentException if the specified initial capacity
+	 *            is negative
+	 */
 	public WeightedList(final int initialSize)
 	{
 		theData = new ArrayList<WeightedItem<E>>(initialSize);
@@ -92,9 +92,10 @@ public class WeightedList<E> implements List<E>
 		else
 		{
 			theData = new ArrayList<WeightedItem<E>>(wl.theData.size());
-			for ( final WeightedItem<E> item : wl.theData )
+			for (final WeightedItem<E> item : wl.theData)
 			{
-				theData.add( new WeightedItem<E>(item.getElement(), item.getWeight()) );
+				theData.add(new WeightedItem<E>(item.getElement(), item
+					.getWeight()));
 			}
 		}
 	}
@@ -108,7 +109,7 @@ public class WeightedList<E> implements List<E>
 	public WeightedList(final Collection<? extends E> c)
 	{
 		theData = new ArrayList<WeightedItem<E>>(c.size());
-		for ( final E element : c )
+		for (final E element : c)
 		{
 			add(element);
 		}
@@ -137,7 +138,7 @@ public class WeightedList<E> implements List<E>
 	public boolean addAll(final Collection<? extends E> c)
 	{
 		final int initSize = theData.size();
-		for ( final E element : c )
+		for (final E element : c)
 		{
 			add(element);
 		}
@@ -157,7 +158,7 @@ public class WeightedList<E> implements List<E>
 	public void add(final int weight, final E element)
 	{
 		// Lets see if we can find this element
-		for ( final WeightedItem<E> wi : theData )
+		for (final WeightedItem<E> wi : theData)
 		{
 			if (wi.getElement().equals(element))
 			{
@@ -216,7 +217,7 @@ public class WeightedList<E> implements List<E>
 	{
 		return get(Globals.getRandomInt(size()));
 	}
-	
+
 	/**
 	 * Returns an <tt>Iterator</tt> that iterates over the elements in the list
 	 * ignoring weight.  Therefore in a list with three elements of differing
@@ -241,11 +242,11 @@ public class WeightedList<E> implements List<E>
 	 */
 	public boolean contains(final Object o)
 	{
-		for ( final E element : this )
+		for (final E element : this)
 		{
 			if (element instanceof List)
 			{
-				if (((List)element).contains(o))
+				if (((List) element).contains(o))
 				{
 					return true;
 				}
@@ -271,7 +272,7 @@ public class WeightedList<E> implements List<E>
 	 */
 	public boolean remove(final Object o)
 	{
-		for (Iterator<WeightedItem<E>> i = theData.iterator(); i.hasNext(); )
+		for (Iterator<WeightedItem<E>> i = theData.iterator(); i.hasNext();)
 		{
 			final WeightedItem<E> wi = i.next();
 			if (wi.getElement().equals(o))
@@ -329,12 +330,13 @@ public class WeightedList<E> implements List<E>
 		if (a.length < theData.size())
 		{
 			// Allocate a new array
-			a = (T[]) Array.newInstance(a.getClass().getComponentType(),
-											   theData.size());
+			a =
+					(T[]) Array.newInstance(a.getClass().getComponentType(),
+						theData.size());
 		}
 		for (int i = 0; i < a.length; i++)
 		{
-			a[i] = (T)theData.get(i).getElement();
+			a[i] = (T) theData.get(i).getElement();
 		}
 		if (a.length > theData.size())
 		{
@@ -397,18 +399,18 @@ public class WeightedList<E> implements List<E>
 	}
 
 	/**
-    * Compares the specified object with this list for equality.  Returns
-     * <tt>true</tt> if and only if the specified object is also a list, both
-     * lists have the same size, and all corresponding pairs of elements in
-     * the two lists are <i>equal</i>.  (Two elements <tt>e1</tt> and
-     * <tt>e2</tt> are <i>equal</i> if <tt>(e1==null ? e2==null :
-     * e1.equals(e2))</tt>.)  In other words, two lists are defined to be
-     * equal if they contain the same elements in the same order.<p>
-     * 
-     * @param o The object to be compared for equality with this list.
-     * @return <tt>true</tt> if the specified object is equal to this list.
-     * 
- 	 * @see java.lang.Object#equals(java.lang.Object)
+	 * Compares the specified object with this list for equality.  Returns
+	 * <tt>true</tt> if and only if the specified object is also a list, both
+	 * lists have the same size, and all corresponding pairs of elements in
+	 * the two lists are <i>equal</i>.  (Two elements <tt>e1</tt> and
+	 * <tt>e2</tt> are <i>equal</i> if <tt>(e1==null ? e2==null :
+	 * e1.equals(e2))</tt>.)  In other words, two lists are defined to be
+	 * equal if they contain the same elements in the same order.<p>
+	 * 
+	 * @param o The object to be compared for equality with this list.
+	 * @return <tt>true</tt> if the specified object is equal to this list.
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(final Object o)
@@ -417,11 +419,11 @@ public class WeightedList<E> implements List<E>
 	}
 
 	/**
-     * Returns the hash code value for this list. <p>
-     * 
-     * @return the hash code value for this list.
-     * 
-  	 * @see java.lang.Object#hashCode()
+	 * Returns the hash code value for this list. <p>
+	 * 
+	 * @return the hash code value for this list.
+	 * 
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -443,22 +445,23 @@ public class WeightedList<E> implements List<E>
 		final StringBuffer buf = new StringBuffer();
 		buf.append("[");
 
-	        final Iterator<WeightedItem<E>> i = theData.iterator();
-	        boolean hasNext = i.hasNext();
-	        while (hasNext) 
-	        {
-	            final WeightedItem<E> o = i.next();
-	            final E data = o.getElement();
-	            buf.append(data == this ? "(this list)" : String.valueOf(data));
-	            buf.append( " (").append(o.getWeight()).append(")");
-	            hasNext = i.hasNext();
-	            if (hasNext)
-	                buf.append(", ");
-	        }
+		final Iterator<WeightedItem<E>> i = theData.iterator();
+		boolean hasNext = i.hasNext();
+		while (hasNext)
+		{
+			final WeightedItem<E> o = i.next();
+			final E data = o.getElement();
+			buf.append(data == this ? "(this list)" : String.valueOf(data));
+			buf.append(" (").append(o.getWeight()).append(")");
+			hasNext = i.hasNext();
+			if (hasNext)
+				buf.append(", ");
+		}
 
 		buf.append("]");
 		return buf.toString();
 	}
+
 	/**
 	 * Adds each element in the specified collection with the indicated weight
 	 * value.
@@ -472,7 +475,7 @@ public class WeightedList<E> implements List<E>
 	public boolean addAll(final int aWeight, final Collection<? extends E> c)
 	{
 		final int initSize = theData.size();
-		for (Iterator<? extends E> i = c.iterator(); i.hasNext(); )
+		for (Iterator<? extends E> i = c.iterator(); i.hasNext();)
 		{
 			add(aWeight, i.next());
 		}
@@ -480,23 +483,24 @@ public class WeightedList<E> implements List<E>
 	}
 
 	/**
-     * Replaces the element at the specified position in this list with the
-     * specified element. <p>
-     *
-     * This implementation always throws an
-     * <tt>UnsupportedOperationException</tt>.
-     *
-     * @param index index of element to replace.
-     * @param element element to be stored at the specified position.
-     * @return the element previously at the specified position.
-     * 
-     * @throws UnsupportedOperationException if the <tt>set</tt> method is not
-     *		  supported by this List.
-     *
+	 * Replaces the element at the specified position in this list with the
+	 * specified element. <p>
+	 *
+	 * This implementation always throws an
+	 * <tt>UnsupportedOperationException</tt>.
+	 *
+	 * @param index index of element to replace.
+	 * @param element element to be stored at the specified position.
+	 * @return the element previously at the specified position.
+	 * 
+	 * @throws UnsupportedOperationException if the <tt>set</tt> method is not
+	 *		  supported by this List.
+	 *
 	 * @see java.util.List#set(int, java.lang.Object)
 	 */
-	public E set(@SuppressWarnings("unused")final int index, 
-				 @SuppressWarnings("unused")final E element)
+	public E set(@SuppressWarnings("unused")
+	final int index, @SuppressWarnings("unused")
+	final E element)
 	{
 		throw new UnsupportedOperationException();
 	}
@@ -518,7 +522,7 @@ public class WeightedList<E> implements List<E>
 	public E remove(final int index)
 	{
 		final WeightedItem<E> element = theData.remove(index);
-		if ( element != null )
+		if (element != null)
 		{
 			return element.getElement();
 		}
@@ -599,7 +603,7 @@ public class WeightedList<E> implements List<E>
 	 */
 	public List<E> subList(final int fromIndex, final int toIndex)
 	{
-		
+
 		return new WeightedSubList<E>(this, fromIndex, toIndex);
 	}
 
@@ -858,16 +862,16 @@ public class WeightedList<E> implements List<E>
 			realIterator.remove();
 		}
 
-	    /**
-	     * Replaces the last element returned by <tt>next</tt> or
-	     * <tt>previous</tt> with the specified element (optional operation).
-	     * This call can be made only if neither <tt>ListIterator.remove</tt> nor
-	     * <tt>ListIterator.add</tt> have been called after the last call to
-	     * <tt>next</tt> or <tt>previous</tt>.
-	     *
-	     * @param o the element with which to replace the last element returned by
-	     *          <tt>next</tt> or <tt>previous</tt>.
-	     *          
+		/**
+		 * Replaces the last element returned by <tt>next</tt> or
+		 * <tt>previous</tt> with the specified element (optional operation).
+		 * This call can be made only if neither <tt>ListIterator.remove</tt> nor
+		 * <tt>ListIterator.add</tt> have been called after the last call to
+		 * <tt>next</tt> or <tt>previous</tt>.
+		 *
+		 * @param o the element with which to replace the last element returned by
+		 *          <tt>next</tt> or <tt>previous</tt>.
+		 *          
 		 * @see java.util.ListIterator#set(java.lang.Object)
 		 */
 		public void set(final E o)
@@ -877,18 +881,18 @@ public class WeightedList<E> implements List<E>
 		}
 
 		/**
-	     * Inserts the specified element into the list (optional operation).  The
-	     * element is inserted immediately before the next element that would be
-	     * returned by <tt>next</tt>, if any, and after the next element that
-	     * would be returned by <tt>previous</tt>, if any.  (If the list contains
-	     * no elements, the new element becomes the sole element on the list.)
-	     * The new element is inserted before the implicit cursor: a subsequent
-	     * call to <tt>next</tt> would be unaffected, and a subsequent call to
-	     * <tt>previous</tt> would return the new element.  (This call increases
-	     * by one the value that would be returned by a call to <tt>nextIndex</tt>
-	     * or <tt>previousIndex</tt>.)
-	     *
-	     * @param o the element to insert.
+		 * Inserts the specified element into the list (optional operation).  The
+		 * element is inserted immediately before the next element that would be
+		 * returned by <tt>next</tt>, if any, and after the next element that
+		 * would be returned by <tt>previous</tt>, if any.  (If the list contains
+		 * no elements, the new element becomes the sole element on the list.)
+		 * The new element is inserted before the implicit cursor: a subsequent
+		 * call to <tt>next</tt> would be unaffected, and a subsequent call to
+		 * <tt>previous</tt> would return the new element.  (This call increases
+		 * by one the value that would be returned by a call to <tt>nextIndex</tt>
+		 * or <tt>previousIndex</tt>.)
+		 *
+		 * @param o the element to insert.
 		 * @see java.util.ListIterator#add(java.lang.Object)
 		 */
 		public void add(final E o)
@@ -922,15 +926,16 @@ class WeightedSubList<E> extends WeightedList<E>
 	 * @throws IllegalArgumentException if the fromIndex is greater than toIndex
 	 */
 	@SuppressWarnings("nls")
-	WeightedSubList(final WeightedList<E> list, final int fromIndex, final int toIndex) 
-    {
-        if (fromIndex < 0)
-            throw new IndexOutOfBoundsException("fromIndex = " + fromIndex);
-        if (toIndex > list.size())
-            throw new IndexOutOfBoundsException("toIndex = " + toIndex);
-        if (fromIndex > toIndex)
-            throw new IllegalArgumentException("fromIndex(" + fromIndex +
-                                               ") > toIndex(" + toIndex + ")");
-        theData = list.theData.subList(fromIndex, toIndex);
-    }
- }
+	WeightedSubList(final WeightedList<E> list, final int fromIndex,
+		final int toIndex)
+	{
+		if (fromIndex < 0)
+			throw new IndexOutOfBoundsException("fromIndex = " + fromIndex);
+		if (toIndex > list.size())
+			throw new IndexOutOfBoundsException("toIndex = " + toIndex);
+		if (fromIndex > toIndex)
+			throw new IllegalArgumentException("fromIndex(" + fromIndex
+				+ ") > toIndex(" + toIndex + ")");
+		theData = list.theData.subList(fromIndex, toIndex);
+	}
+}

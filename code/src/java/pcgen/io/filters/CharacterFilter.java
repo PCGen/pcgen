@@ -11,14 +11,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CharacterFilter implements OutputFilter {
+public class CharacterFilter implements OutputFilter
+{
 	private String outputFilterName = "";
 	private Map<Integer, String> outputFilter = null;
 
-	
-	public CharacterFilter(String filterName) {
+	public CharacterFilter(String filterName)
+	{
 		super();
-		
+
 		final int idx = filterName.lastIndexOf('.');
 
 		if (idx >= 0)
@@ -35,8 +36,10 @@ public class CharacterFilter implements OutputFilter {
 
 		outputFilter = null;
 
-		filterName = Globals.getDefaultPath() + File.separator + "system" + File.separator + "outputFilters"
-			+ File.separator + filterName + Constants.s_PCGEN_LIST_EXTENSION;
+		filterName =
+				Globals.getDefaultPath() + File.separator + "system"
+					+ File.separator + "outputFilters" + File.separator
+					+ filterName + Constants.s_PCGEN_LIST_EXTENSION;
 
 		final File filterFile = new File(filterName);
 
@@ -44,8 +47,9 @@ public class CharacterFilter implements OutputFilter {
 		{
 			if (filterFile.canRead() && filterFile.isFile())
 			{
-				final BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
-							"UTF-8"));
+				final BufferedReader br =
+						new BufferedReader(new InputStreamReader(
+							new FileInputStream(filterFile), "UTF-8"));
 
 				if (br != null)
 				{
@@ -61,22 +65,26 @@ public class CharacterFilter implements OutputFilter {
 							break;
 						}
 
-						final List<String> filterEntry = CoreUtility.split(aLine, '\t');
+						final List<String> filterEntry =
+								CoreUtility.split(aLine, '\t');
 
 						if (filterEntry.size() >= 2)
 						{
 							try
 							{
-								final Integer key = Delta.decode(filterEntry.get(0));
+								final Integer key =
+										Delta.decode(filterEntry.get(0));
 								outputFilter.put(key, filterEntry.get(1));
 							}
 							catch (NullPointerException e)
 							{
-								Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+								Logging.errorPrint(
+									"Exception in setCurrentOutputFilter", e);
 							}
 							catch (NumberFormatException e)
 							{
-								Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+								Logging.errorPrint(
+									"Exception in setCurrentOutputFilter", e);
 							}
 						}
 					}
@@ -91,16 +99,18 @@ public class CharacterFilter implements OutputFilter {
 		}
 	}
 
-
-	public String filterString(String aString) {
-		if ((outputFilter != null) && (outputFilter.size() != 0) && aString != null)
+	public String filterString(String aString)
+	{
+		if ((outputFilter != null) && (outputFilter.size() != 0)
+			&& aString != null)
 		{
-			final StringBuffer xlatedString = new StringBuffer(aString.length());
+			final StringBuffer xlatedString =
+					new StringBuffer(aString.length());
 
 			for (int i = 0; i < aString.length(); i++)
 			{
 				final char c = aString.charAt(i);
-				final String xlation = outputFilter.get((int)c);
+				final String xlation = outputFilter.get((int) c);
 
 				if (xlation != null)
 				{

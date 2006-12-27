@@ -32,7 +32,8 @@ import pcgen.core.system.LoadInfo;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface LoadInfoLstToken extends LstToken {
+public interface LoadInfoLstToken extends LstToken
+{
 	/**
 	 * @param loadInfo
 	 * @param value

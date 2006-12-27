@@ -52,7 +52,8 @@ public class SizeLongToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getSizeLongToken(pc);
 	}
@@ -64,7 +65,9 @@ public class SizeLongToken extends Token
 	 */
 	public static String getSizeLongToken(PlayerCharacter pc)
 	{
-		final SizeAdjustment sadj = SettingsHandler.getGame().getSizeAdjustmentAtIndex(pc.sizeInt());
+		final SizeAdjustment sadj =
+				SettingsHandler.getGame()
+					.getSizeAdjustmentAtIndex(pc.sizeInt());
 		if (sadj != null)
 		{
 			return sadj.getDisplayName();

@@ -1,4 +1,3 @@
-
 package pcgen.persistence.lst;
 
 import java.util.Map;
@@ -24,10 +23,10 @@ public class KitAbilityLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString, boolean isFeat)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 		KitAbilities kitAbility = null;
 		String ability = colToken.nextToken();
 		if (isFeat)
@@ -39,7 +38,8 @@ public class KitAbilityLoader
 			kitAbility = new KitAbilities(ability, "", false);
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitAbilityLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitAbilityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -64,8 +64,7 @@ public class KitAbilityLoader
 				if (!token.parse(kitAbility, value))
 				{
 					Logging.errorPrint("Error parsing Kit Ability tag "
-							+ kitAbility.getObjectName() + ':' + colString
-							+ "\"");
+						+ kitAbility.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitAbility, colString))
@@ -75,7 +74,7 @@ public class KitAbilityLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Ability info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 		}
 		kit.addObject(kitAbility);

@@ -61,18 +61,18 @@ import java.util.ListIterator;
 // classes look like they want to be bidirectional.
 public class PObjectNode implements Cloneable, ResetableListIterator
 {
-	private static PlayerCharacter aPC            = null;
-	public static final int        NOT_A_FEAT     = 0;
-	public static final int        CAN_GAIN_FEAT  = 1;
-	public static final int        CAN_USE_FEAT   = 2;
-	private ArrayList<PObjectNode> children       = null;
-	private Object                 item           = null; // could be a String, could be a Feat (or anything subclassed from PObject)
-	private PObjectNode            parent         = null;
-	private int                    checkFeatState = NOT_A_FEAT; // feat tab
-	private String                 displayName    = null;
+	private static PlayerCharacter aPC = null;
+	public static final int NOT_A_FEAT = 0;
+	public static final int CAN_GAIN_FEAT = 1;
+	public static final int CAN_USE_FEAT = 2;
+	private ArrayList<PObjectNode> children = null;
+	private Object item = null; // could be a String, could be a Feat (or anything subclassed from PObject)
+	private PObjectNode parent = null;
+	private int checkFeatState = NOT_A_FEAT; // feat tab
+	private String displayName = null;
 
 	private int theColor = -1;
-	
+
 	// All this is for free when we get rid of PObjectNode[] for a
 	// Collection.  XXX
 	private int mark = 0;
@@ -230,12 +230,13 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			return;
 		}
 
-		for (ListIterator<PObjectNode> it = children.listIterator(); it.hasNext();)
+		for (ListIterator<PObjectNode> it = children.listIterator(); it
+			.hasNext();)
 		{
 			PObjectNode node = it.next();
 			if (node.isLeaf())
 			{
-//				if (!node.getItem().toString().equals(""))
+				//				if (!node.getItem().toString().equals(""))
 				if (node.getItem() instanceof String)
 				{
 					it.remove();
@@ -266,7 +267,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				// If 1st selection has no length, then in is from CHOOSE:NOCHOICE
 				//
 				final int subCount = aFeat.getAssociatedCount();
-				if ((subCount > 1) && (aFeat.getAssociated(0, true).length() == 0))
+				if ((subCount > 1)
+					&& (aFeat.getAssociated(0, true).length() == 0))
 				{
 					aString.append('(');
 					aString.append(subCount);
@@ -559,12 +561,12 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 	{
 		theColor = aColor;
 	}
-	
+
 	public String toString()
 	{
 		if (item == null)
 		{
-			if ( displayName != null )
+			if (displayName != null)
 			{
 				return displayName;
 			}
@@ -579,10 +581,10 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				itemName = displayName;
 			}
 
-			if ( theColor != -1 )
+			if (theColor != -1)
 			{
 				return Constants.PIPE + theColor + Constants.PIPE + itemName;
-				
+
 			}
 			if (checkFeatState != NOT_A_FEAT)
 			{
@@ -594,14 +596,18 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 						return handleCheckFeatState(aFeat, itemName);
 
 					case AUTOMATIC:
-						return "|" + SettingsHandler.getFeatAutoColor() + "|" + itemName;
+						return "|" + SettingsHandler.getFeatAutoColor() + "|"
+							+ itemName;
 
 					case VIRTUAL:
-						return "|" + SettingsHandler.getFeatVirtualColor() + "|" + itemName;
+						return "|" + SettingsHandler.getFeatVirtualColor()
+							+ "|" + itemName;
 
 					default:
-						Logging.errorPrint("Default getFeatType:"+aFeat.getDisplayName());
-						return "|" + SettingsHandler.getPrereqFailColor() + "|" + itemName;
+						Logging.errorPrint("Default getFeatType:"
+							+ aFeat.getDisplayName());
+						return "|" + SettingsHandler.getPrereqFailColor() + "|"
+							+ itemName;
 				}
 			}
 
@@ -612,15 +618,16 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				if (e.isAutomatic())
 				{
 					// Automatic Equipment uses the same color as Automatic Feats
-					return "|" + SettingsHandler.getFeatAutoColor() + "|" + itemName;
+					return "|" + SettingsHandler.getFeatAutoColor() + "|"
+						+ itemName;
 				}
 
-				if ((e.isShield() || e.isWeapon() || e.isArmor()) )
+				if ((e.isShield() || e.isWeapon() || e.isArmor()))
 				{
 					/* TODO  this is very slow because it checks if the PC is
 					 * proficient with the object each time the GUI requires a
 					 * refresh (very frequent condition) */
-					if (aPC==null || !aPC.isProficientWith(e))
+					if (aPC == null || !aPC.isProficientWith(e))
 					{
 						// indicates to LabelTreeCellRenderer to change text color
 						// to a user-preference (default is red)
@@ -628,7 +635,9 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 						if (SettingsHandler.getPrereqFailColor() != 0)
 						{
-							aColor = new Color(SettingsHandler.getPrereqFailColor());
+							aColor =
+									new Color(SettingsHandler
+										.getPrereqFailColor());
 						}
 
 						return "|" + aColor.getRGB() + "|" + itemName;
@@ -644,7 +653,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				// don't check race preReq stuff
 				final CharacterInfo cp = PCGen_Frame1.getCharacterPane();
 
-				if ((cp != null) && (cp.getSelectedIndex() == cp.indexOfTab("Resources")))
+				if ((cp != null)
+					&& (cp.getSelectedIndex() == cp.indexOfTab("Resources")))
 				{
 					return itemName;
 				}
@@ -652,14 +662,16 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			if (item instanceof Deity)
 			{
-				if (aPC == null || !aPC.canSelectDeity((Deity)item)) {
+				if (aPC == null || !aPC.canSelectDeity((Deity) item))
+				{
 					// indicates to LabelTreeCellRenderer to change text color
 					// to a user-preference (default is red)
 					Color aColor = Color.red;
 
 					if (SettingsHandler.getPrereqFailColor() != 0)
 					{
-						aColor = new Color(SettingsHandler.getPrereqFailColor());
+						aColor =
+								new Color(SettingsHandler.getPrereqFailColor());
 					}
 
 					return "|" + aColor.getRGB() + "|" + itemName;
@@ -677,7 +689,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				}
 			}
 
-			if (!PrereqHandler.passesAll( ((PObject)item).getPreReqList(), aPC, (PObject)item))
+			if (!PrereqHandler.passesAll(((PObject) item).getPreReqList(), aPC,
+				(PObject) item))
 			{
 				// indicates to LabelTreeCellRenderer to change text color
 				// to a user-preference (default is red)
@@ -710,13 +723,15 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			if (isSpecial && (spellA.getOwner() instanceof Domain))
 			{
 				//val.append(" [").append(spellA.getSpell().getDescriptor(", ")).append(']');
-				val.append(" [").append(spellA.getOwner().getKeyName()).append(']');
+				val.append(" [").append(spellA.getOwner().getKeyName()).append(
+					']');
 			}
 
 			// Finally add on the number of times
 			if (times > 1)
 			{
-				val.append(" (").append(((SpellInfo) item).getTimes()).append(')');
+				val.append(" (").append(((SpellInfo) item).getTimes()).append(
+					')');
 			}
 
 			// Only wrap in HTML if might contain HTML. HTML messes up the display
@@ -727,8 +742,10 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 				val.append("</html>");
 			}
 
-			if ((spellA.getOwner() instanceof PCClass) && !isSpecial &&
-					((PCClass)spellA.getOwner()).isProhibited(spellA.getSpell(), aPC))
+			if ((spellA.getOwner() instanceof PCClass)
+				&& !isSpecial
+				&& ((PCClass) spellA.getOwner()).isProhibited(
+					spellA.getSpell(), aPC))
 			{
 				Color aColor = Color.red;
 
@@ -748,8 +765,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			return bPC.getName();
 		}
 
-	
-		if ( displayName != null )
+		if (displayName != null)
 		{
 			return displayName;
 		}
@@ -787,22 +803,27 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		{
 			case CAN_GAIN_FEAT:
 
-				if (PrereqHandler.passesAll(aFeat.getPreReqList(), aPC, aFeat ) )
+				if (PrereqHandler.passesAll(aFeat.getPreReqList(), aPC, aFeat))
 				{
-					return "|" + SettingsHandler.getPrereqQualifyColor() + "|" + itemName;
+					return "|" + SettingsHandler.getPrereqQualifyColor() + "|"
+						+ itemName;
 				}
-				return "|" + SettingsHandler.getPrereqFailColor() + "|" + itemName;
+				return "|" + SettingsHandler.getPrereqFailColor() + "|"
+					+ itemName;
 
 			case CAN_USE_FEAT:
 
-				if (PrereqHandler.passesAll(aFeat.getPreReqList(), aPC, aFeat ) )
+				if (PrereqHandler.passesAll(aFeat.getPreReqList(), aPC, aFeat))
 				{
-					return "|" + SettingsHandler.getPrereqQualifyColor() + "|" + itemName;
+					return "|" + SettingsHandler.getPrereqQualifyColor() + "|"
+						+ itemName;
 				}
-				return "|" + SettingsHandler.getPrereqFailColor() + "|" + itemName;
+				return "|" + SettingsHandler.getPrereqFailColor() + "|"
+					+ itemName;
 
 			default:
-				Logging.errorPrint("Bad feat state: " + checkFeatState + ".  Please report this as a bug.");
+				Logging.errorPrint("Bad feat state: " + checkFeatState
+					+ ".  Please report this as a bug.");
 
 				return itemName;
 		}
@@ -820,7 +841,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 			return false;
 		}
 
-		for (ListIterator<PObjectNode> it = children.listIterator(); it.hasNext();)
+		for (ListIterator<PObjectNode> it = children.listIterator(); it
+			.hasNext();)
 		{
 			if (it.next() == aChild)
 			{

@@ -28,48 +28,68 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public abstract class AbstractConstant implements Serializable {
+public abstract class AbstractConstant implements Serializable
+{
 
 	private transient String _fieldName;
 
-	private void writeObject(ObjectOutputStream out) throws IOException {
+	private void writeObject(ObjectOutputStream out) throws IOException
+	{
 		Field[] f = getClass().getDeclaredFields();
-		for (int i = 0; i < f.length; i++) {
-			try {
+		for (int i = 0; i < f.length; i++)
+		{
+			try
+			{
 				int mod = f[i].getModifiers();
 				if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-						&& Modifier.isPublic(mod)) {
+					&& Modifier.isPublic(mod))
+				{
 					//Use == to get exact object match (do not use .equals())
-					if (this == f[i].get(null)) {
+					if (this == f[i].get(null))
+					{
 						out.writeObject(f[i].getName());
 					}
 				}
-			} catch (IllegalAccessException e) {
+			}
+			catch (IllegalAccessException e)
+			{
 				throw new IOException(e.getLocalizedMessage());
 			}
 		}
 	}
 
-	private void readObject(ObjectInputStream in) throws IOException {
-		try {
+	private void readObject(ObjectInputStream in) throws IOException
+	{
+		try
+		{
 			_fieldName = (String) in.readObject();
-		} catch (ClassNotFoundException e) {
+		}
+		catch (ClassNotFoundException e)
+		{
 			throw new IOException(e.getLocalizedMessage());
 		}
 	}
 
-	public Object readResolve() throws ObjectStreamException {
-		try {
+	public Object readResolve() throws ObjectStreamException
+	{
+		try
+		{
 			return getClass().getField(_fieldName).get(null);
-		} catch (SecurityException e) {
+		}
+		catch (SecurityException e)
+		{
 			throw new InvalidObjectException("Failed to resolve object: "
-					+ e.getLocalizedMessage());
-		} catch (NoSuchFieldException e) {
+				+ e.getLocalizedMessage());
+		}
+		catch (NoSuchFieldException e)
+		{
 			throw new InvalidObjectException("Failed to resolve object: "
-					+ e.getLocalizedMessage());
-		} catch (IllegalAccessException e) {
+				+ e.getLocalizedMessage());
+		}
+		catch (IllegalAccessException e)
+		{
 			throw new InvalidObjectException("Failed to resolve object: "
-					+ e.getLocalizedMessage());
+				+ e.getLocalizedMessage());
 		}
 	}
 }

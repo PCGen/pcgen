@@ -90,10 +90,12 @@ import pcgen.util.enumeration.Tab;
 
 public class InfoSpellBooks extends InfoSpellsSubTab
 {
-	private final JLabel avaLabel = new JLabel(PropertyFactory
-		.getString("InfoSpellBooks.sort.avail.spells.by")); //$NON-NLS-1$
-	private final JLabel selLabel = new JLabel(PropertyFactory
-		.getString("InfoSpellBooks.sort.select.spells.by")); //$NON-NLS-1$
+	private final JLabel avaLabel =
+			new JLabel(PropertyFactory
+				.getString("InfoSpellBooks.sort.avail.spells.by")); //$NON-NLS-1$
+	private final JLabel selLabel =
+			new JLabel(PropertyFactory
+				.getString("InfoSpellBooks.sort.select.spells.by")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -202,12 +204,15 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
-			divLocSplitPane = SettingsHandler.getPCGenOption("InfoSpellBooks.splitPane", //$NON-NLS-1$
-				(int) ((this.getSize().getWidth() * 2) / 10));
-			divLocVert = SettingsHandler.getPCGenOption("InfoSpellBooks.bsplit", //$NON-NLS-1$
-				(int) (this.getSize().getHeight() - 101));
-			divLocHoriz = SettingsHandler.getPCGenOption("InfoSpellBooks.asplit", //$NON-NLS-1$
-				(int) (this.getSize().getWidth() - 300));
+			divLocSplitPane =
+					SettingsHandler.getPCGenOption("InfoSpellBooks.splitPane", //$NON-NLS-1$
+						(int) ((this.getSize().getWidth() * 2) / 10));
+			divLocVert =
+					SettingsHandler.getPCGenOption("InfoSpellBooks.bsplit", //$NON-NLS-1$
+						(int) (this.getSize().getHeight() - 101));
+			divLocHoriz =
+					SettingsHandler.getPCGenOption("InfoSpellBooks.asplit", //$NON-NLS-1$
+						(int) (this.getSize().getWidth() - 300));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
@@ -243,7 +248,8 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		if (divLocSplitPane > 0)
 		{
 			splitPane.setDividerLocation(divLocSplitPane);
-			SettingsHandler.setPCGenOption("InfoSpellBooks.splitPane", divLocSplitPane); //$NON-NLS-1$
+			SettingsHandler.setPCGenOption(
+				"InfoSpellBooks.splitPane", divLocSplitPane); //$NON-NLS-1$
 		}
 
 		if (divLocVert > 0)
@@ -255,10 +261,10 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		if (divLocHoriz > 0)
 		{
 			asplit.setDividerLocation(divLocHoriz);
-			SettingsHandler.setPCGenOption("InfoSpellBooks.asplit", divLocHoriz); //$NON-NLS-1$
+			SettingsHandler
+				.setPCGenOption("InfoSpellBooks.asplit", divLocHoriz); //$NON-NLS-1$
 		}
 	}
-
 
 	/**
 	 * @see pcgen.gui.tabs.spells.InfoSpellsSubTab#initActionListeners()
@@ -280,7 +286,8 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption("InfoSpellBooks.splitPane", s); //$NON-NLS-1$
+					SettingsHandler.setPCGenOption(
+						"InfoSpellBooks.splitPane", s); //$NON-NLS-1$
 				}
 
 				s = asplit.getDividerLocation();
@@ -345,13 +352,13 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			}
 		});
 		selectFromComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					selectFromComboBoxActionPerformed(selectFromComboBox
-						.getSelectedIndex());
-				}
-			});
+				selectFromComboBoxActionPerformed(selectFromComboBox
+					.getSelectedIndex());
+			}
+		});
 
 		FilterFactory.restoreFilterSettings(this);
 	}
@@ -383,16 +390,20 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			.getString("InfoSpells.change.how.spell.are.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewComboBox, secondaryViewMode, true);
 
-		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode, false);
+		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode,
+			false);
 		Utility.setDescription(primaryViewSelectComboBox, PropertyFactory
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
-		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode, true);
+		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode,
+			true);
 		Utility.setDescription(secondaryViewSelectComboBox, PropertyFactory
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 
 		// Populate the select from combo box
-		selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.known")); //$NON-NLS-1$
-		selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.own.list")); //$NON-NLS-1$
+		selectFromComboBox.addItem(PropertyFactory
+			.getString("InfoSpellBooks.select.known")); //$NON-NLS-1$
+		selectFromComboBox.addItem(PropertyFactory
+			.getString("InfoSpellBooks.select.own.list")); //$NON-NLS-1$
 		//TODO: The following option has been temporarily deactivated as adding spells from other classes doesn't work currently.
 		// The spell storage code needs to be changed to have a character's spell book contents not be class dependant.
 		//selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.full.list")); //$NON-NLS-1$
@@ -419,15 +430,16 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		colActiveList.add(Boolean.TRUE);
 		colActiveList.add(Boolean.TRUE);
 
-		 // Build the Top Panel
+		// Build the Top Panel
 		buildTopPanel();
 
 		// Build Bottom Panel
 		initBottomPanel();
 
 		// now split the top and bottom Panels
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
-			botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
@@ -446,10 +458,12 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		// add the sorter tables so that clicking on the TableHeader
 		// actually does something
-		availableSort = new JTreeTableSorter(availableTable,
-			(PObjectNode) availableModel.getRoot(), availableModel);
-		selectedSort = new JTreeTableSorter(selectedTable,
-			(PObjectNode) selectedModel.getRoot(), selectedModel);
+		availableSort =
+				new JTreeTableSorter(availableTable,
+					(PObjectNode) availableModel.getRoot(), availableModel);
+		selectedSort =
+				new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel
+					.getRoot(), selectedModel);
 	}
 
 	/**
@@ -466,7 +480,8 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		JPanel rightPane = new JPanel();
 		leftPane.setLayout(new BorderLayout());
 		rightPane.setLayout(new BorderLayout());
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane =
+				new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -487,18 +502,24 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		aPanel.add(secondaryViewComboBox);
 		controlsPanel.add(aPanel, BorderLayout.SOUTH);
 
-		Utility.setDescription(controlsPanel, PropertyFactory.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
+		Utility.setDescription(controlsPanel, PropertyFactory
+			.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
 		leftPane.add(controlsPanel, BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
-		leftPane.add(buildModSpellPanel(addSpellButton, "InfoSpells.add.selected"), BorderLayout.SOUTH); //$NON-NLS-1$
+		leftPane.add(buildModSpellPanel(addSpellButton,
+			"InfoSpells.add.selected"), BorderLayout.SOUTH); //$NON-NLS-1$
 
 		JPanel sPanel = new JPanel();
 		sPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
@@ -507,18 +528,24 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		sPanel.add(secondaryViewSelectComboBox);
 		rightPane.add(sPanel, BorderLayout.NORTH);
 
-		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane
+			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		selectedTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		selectedTable.setShowHorizontalLines(true);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		JButton columnButton2 = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
-		rightPane.add(buildModSpellPanel(delSpellButton, "InfoSpells.remove.selected"), BorderLayout.SOUTH); //$NON-NLS-1$
+		rightPane.add(buildModSpellPanel(delSpellButton,
+			"InfoSpells.remove.selected"), BorderLayout.SOUTH); //$NON-NLS-1$
 	}
 
 	/**
@@ -562,8 +589,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		bLeftPane.setLayout(gridbag);
 		bRightPane.setLayout(gridbag);
 
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane,
-			bRightPane);
+		asplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane,
+					bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
@@ -576,8 +604,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		JScrollPane sScroll = new JScrollPane();
 		gridbag.setConstraints(sScroll, c);
 
-		TitledBorder sTitle = BorderFactory.createTitledBorder(PropertyFactory
-			.getString("InfoSpells.spell.info")); //$NON-NLS-1$
+		TitledBorder sTitle =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("InfoSpells.spell.info")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -590,8 +619,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		JScrollPane iScroll = new JScrollPane();
 
-		TitledBorder iTitle = BorderFactory.createTitledBorder(PropertyFactory
-			.getString("InfoSpells.class.info")); //$NON-NLS-1$
+		TitledBorder iTitle =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("InfoSpells.class.info")); //$NON-NLS-1$
 		iTitle.setTitleJustification(TitledBorder.CENTER);
 		iScroll.setBorder(iTitle);
 		classLabel.setBackground(topPane.getBackground());
@@ -631,9 +661,10 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	{
 		if (availableModel == null)
 		{
-			availableModel = new SpellModel(primaryViewMode, secondaryViewMode,
-				true, availableBookList, currSpellBook, selectFromMode, pc,
-				this, ""); //$NON-NLS-1$
+			availableModel =
+					new SpellModel(primaryViewMode, secondaryViewMode, true,
+						availableBookList, currSpellBook, selectFromMode, pc,
+						this, ""); //$NON-NLS-1$
 		}
 		else
 		{
@@ -659,10 +690,12 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	{
 		if (selectedModel == null)
 		{
-			selectedModel = new SpellModel(primaryViewSelectMode,
-				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc, this,
-				PropertyFactory.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
+			selectedModel =
+					new SpellModel(primaryViewSelectMode,
+						secondaryViewSelectMode, false, selectedBookList,
+						currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc,
+						this, PropertyFactory
+							.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -884,8 +917,8 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			if (cs != null)
 			{
 
-				String bookName = getBookName((PObjectNode) selCPath
-					.getPathComponent(1));
+				String bookName =
+						getBookName((PObjectNode) selCPath.getPathComponent(1));
 				SpellInfo si = (SpellInfo) fNode.getItem();
 
 				// TODO Check this
@@ -904,8 +937,8 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 					if (aString.length() > 0)
 					{
-						ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(aString,
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
 			}
@@ -923,7 +956,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	 */
 	private void selectFromComboBoxActionPerformed(int selectedIndex)
 	{
-		if (selectedIndex >=0 && selectedIndex <= 2)
+		if (selectedIndex >= 0 && selectedIndex <= 2)
 		{
 			selectFromMode = selectedIndex;
 			updateAvailableModel();

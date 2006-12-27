@@ -52,7 +52,8 @@ public class JTreeTableMouseAdapter extends MouseAdapter
 	 * @param aHandler A Handler to get click events in
 	 * @param controlClicks Should control clicks do multiselecting
 	 */
-	public JTreeTableMouseAdapter(final JTreeTable anOwner, final ClickHandler aHandler, final boolean controlClicks)
+	public JTreeTableMouseAdapter(final JTreeTable anOwner,
+		final ClickHandler aHandler, final boolean controlClicks)
 	{
 		owner = anOwner;
 		handler = aHandler;
@@ -69,7 +70,7 @@ public class JTreeTableMouseAdapter extends MouseAdapter
 		JTree atree = owner.getTree();
 		final int selRow = atree.getClosestRowForLocation(e.getX(), e.getY());
 		Rectangle bounds = atree.getRowBounds(selRow);
-		if (!(e.getY() >= bounds.y && e.getY() <= (bounds.y+bounds.height)))
+		if (!(e.getY() >= bounds.y && e.getY() <= (bounds.y + bounds.height)))
 		{
 			return;
 		}
@@ -102,7 +103,7 @@ public class JTreeTableMouseAdapter extends MouseAdapter
 			}
 			if (e.getClickCount() == 2)
 			{
-				PObjectNode po = (PObjectNode)mlSelPath.getLastPathComponent();
+				PObjectNode po = (PObjectNode) mlSelPath.getLastPathComponent();
 				Object item = po.getItem();
 				if (!handler.isSelectable(item))
 				{

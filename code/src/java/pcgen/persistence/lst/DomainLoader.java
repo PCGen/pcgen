@@ -50,20 +50,22 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Domain parseLine(Domain aDomain, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Domain parseLine(Domain aDomain, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Domain domain = aDomain;
-		
+
 		if (domain == null)
 		{
 			domain = new Domain();
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(DomainLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(DomainLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -74,7 +76,8 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			DomainLstToken token = (DomainLstToken) tokenMap.get(key);
@@ -84,7 +87,9 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 				LstUtils.deprecationCheck(token, domain, value);
 				if (!token.parse(domain, value))
 				{
-					Logging.errorPrint("Error parsing domain " + domain.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing domain "
+						+ domain.getDisplayName() + ':' + source.getFile()
+						+ ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(domain, colString))
@@ -93,7 +98,8 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 			}
 			else if (col == 0)
 			{
-				if ((!colString.equals(domain.getKeyName())) && (colString.indexOf(".MOD") < 0))
+				if ((!colString.equals(domain.getKeyName()))
+					&& (colString.indexOf(".MOD") < 0))
 				{
 					completeObject(domain);
 					domain = new Domain();
@@ -118,19 +124,22 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 					LstUtils.deprecationCheck(token, domain, colString);
 					if (!token.parse(domain, colString))
 					{
-						Logging.errorPrint("Error parsing domain " + domain.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+						Logging.errorPrint("Error parsing domain "
+							+ domain.getDisplayName() + ':' + source.getFile()
+							+ ':' + colString + "\"");
 					}
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Illegal obj info '" + colString + "' in " + source.getFile());
+				Logging.errorPrint("Illegal obj info '" + colString + "' in "
+					+ source.getFile());
 			}
 
 			++col;
 		}
 
-		completeObject( domain );
+		completeObject(domain);
 		return null;
 	}
 
@@ -156,8 +165,8 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
-		Globals.addDomain( (Domain)pObj );
+		Globals.addDomain((Domain) pObj);
 	}
 }

@@ -54,9 +54,11 @@ public final class PCStatLoader extends LstLineFileLoader
 	{
 		PCStat stat = new PCStat();
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCStatLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PCStatLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -66,7 +68,8 @@ public final class PCStatLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			PCStatLstToken token = (PCStatLstToken) tokenMap.get(key);
@@ -77,7 +80,9 @@ public final class PCStatLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, stat, value);
 				if (!token.parse(stat, value))
 				{
-					Logging.errorPrint("Error parsing check " + stat.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing check "
+						+ stat.getDisplayName() + ':' + sourceURL.toString()
+						+ ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(stat, colString))
@@ -86,7 +91,8 @@ public final class PCStatLoader extends LstLineFileLoader
 			}
 			else
 			{
-				Logging.errorPrint("Illegal stat info '" + lstLine + "' in " + sourceURL.toString());
+				Logging.errorPrint("Illegal stat info '" + lstLine + "' in "
+					+ sourceURL.toString());
 			}
 		}
 

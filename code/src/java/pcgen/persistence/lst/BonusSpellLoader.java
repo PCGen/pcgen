@@ -57,13 +57,15 @@ public final class BonusSpellLoader extends LstLineFileLoader
 	@Override
 	public void parseLine(String lstLine, URL sourceURL)
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);
 		Map<String, String> bonus = new HashMap<String, String>();
 		bonus.put(BASE_STAT_SCORE, "0");
 		bonus.put(STAT_RANGE, "0");
 		bonus.put(LEVEL, "0");
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(BonusSpellLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(BonusSpellLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -73,7 +75,8 @@ public final class BonusSpellLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			BonusSpellLstToken token = (BonusSpellLstToken) tokenMap.get(key);
@@ -81,15 +84,18 @@ public final class BonusSpellLoader extends LstLineFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Bonus Spell", sourceURL.toString(), value);
+				LstUtils.deprecationCheck(token, "Bonus Spell", sourceURL
+					.toString(), value);
 				if (!token.parse(bonus, value))
 				{
-					Logging.errorPrint("Error parsing bonus spell :" + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing bonus spell :"
+						+ sourceURL.toString() + ':' + colString + "\"");
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Illegal bonus spell info '" + lstLine + "' in " + sourceURL.toString());
+				Logging.errorPrint("Illegal bonus spell info '" + lstLine
+					+ "' in " + sourceURL.toString());
 			}
 		}
 
@@ -98,6 +104,7 @@ public final class BonusSpellLoader extends LstLineFileLoader
 		 * SET. This should be refactored to allow a set of some sort and to
 		 * have GETs actually performing only GET operations. - thpr 11/10/06
 		 */
-		Globals.getBonusSpellMap().put(bonus.get(LEVEL), bonus.get(BASE_STAT_SCORE) + "|" + bonus.get(STAT_RANGE));
+		Globals.getBonusSpellMap().put(bonus.get(LEVEL),
+			bonus.get(BASE_STAT_SCORE) + "|" + bonus.get(STAT_RANGE));
 	}
 }

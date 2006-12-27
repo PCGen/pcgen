@@ -10,7 +10,8 @@ import pcgen.util.Logging;
 /**
  * Loads SOURCE
  */
-public class SourceLoader {
+public class SourceLoader
+{
 
 	/**
 	 * @param lstLine
@@ -18,13 +19,16 @@ public class SourceLoader {
 	 * @return Map
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public static Map<String, String> parseLine(String lstLine, String sourceFile)
+	public static Map<String, String> parseLine(String lstLine,
+		String sourceFile)
 	{
 		Map<String, String> sourceMap = new HashMap<String, String>();
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SourceLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(SourceLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -35,7 +39,8 @@ public class SourceLoader {
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			SourceLstToken token = (SourceLstToken) tokenMap.get(key);
@@ -45,12 +50,14 @@ public class SourceLoader {
 				LstUtils.deprecationCheck(token, "SOURCE", sourceFile, value);
 				if (!token.parse(sourceMap, value))
 				{
-					Logging.errorPrint("Error parsing source: " + colString + " in: " + sourceFile);
+					Logging.errorPrint("Error parsing source: " + colString
+						+ " in: " + sourceFile);
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Unknown tag '" + colString + "' in: " + sourceFile);
+				Logging.errorPrint("Unknown tag '" + colString + "' in: "
+					+ sourceFile);
 			}
 
 		}
@@ -68,8 +75,10 @@ public class SourceLoader {
 	public static Map<String, String> parseSource(String value)
 	{
 		Map<String, String> sourceMap = new HashMap<String, String>();
-		if(value.indexOf("|") != -1) {
-			LstUtils.deprecationWarning("Use of SOURCELONG:<value>|SOURCESHORT:<value>|SOURCEWEB:<value>|SOURCEPAGE:<value> is deprecated.  These need to be split up into separate tokens");
+		if (value.indexOf("|") != -1)
+		{
+			LstUtils
+				.deprecationWarning("Use of SOURCELONG:<value>|SOURCESHORT:<value>|SOURCEWEB:<value>|SOURCEPAGE:<value> is deprecated.  These need to be split up into separate tokens");
 			LstUtils.deprecationWarning("The line was: " + value);
 		}
 		StringTokenizer aTok = new StringTokenizer(value, "|");

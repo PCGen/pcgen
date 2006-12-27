@@ -32,7 +32,7 @@ public enum View
 	{
 		return text;
 	}
-	
+
 	/**
 	 * Retrieve a View matching the supplied name.
 	 * @param name The name of the view
@@ -41,13 +41,13 @@ public enum View
 	public static View getViewFromName(String name)
 	{
 		final String viewName = name.toUpperCase();
-        for (View view : View.values())
-        {
-        	if (view.text.equals(viewName))
-        	{
-        		return view;
-        	}
-        }
+		for (View view : View.values())
+		{
+			if (view.text.equals(viewName))
+			{
+				return view;
+			}
+		}
 
 		return null;
 	}

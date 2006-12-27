@@ -98,10 +98,11 @@ import pcgen.util.enumeration.Tab;
  * @version $Revision$
  */
 
-public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements CharacterInfoTab
+public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
+		CharacterInfoTab
 {
 	private static Tab tab;
-	
+
 	protected String currSpellBook = Globals.getDefaultSpellBook();
 
 	protected int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
@@ -425,8 +426,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 
 							for (int i = 0; i < avaCPath.getPathCount(); i++)
 							{
-								className = avaCPath.getPathComponent(i)
-									.toString();
+								className =
+										avaCPath.getPathComponent(i).toString();
 
 								//className may have HTML encoding, so get rid of it
 								className = Utility.stripHTML(className);
@@ -445,8 +446,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 							}
 						}
 
-						final Object temp = atree.getPathForRow(idx)
-							.getLastPathComponent();
+						final Object temp =
+								atree.getPathForRow(idx).getLastPathComponent();
 						setSelectedSpell((PObjectNode) temp, true);
 
 					}
@@ -477,8 +478,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 							return;
 						}
 
-						final Object temp = selectedTree.getPathForRow(idx)
-							.getLastPathComponent();
+						final Object temp =
+								selectedTree.getPathForRow(idx)
+									.getLastPathComponent();
 						setSelectedSpell((PObjectNode) temp, false);
 					}
 				}
@@ -527,8 +529,10 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		}
 
 		List<Ability> featList = new ArrayList<Ability>();
-		final String aString = pc.addSpell(cs, featList, className, bookName,
-			spLevel, spLevel);
+		final String aString =
+				pc
+					.addSpell(cs, featList, className, bookName, spLevel,
+						spLevel);
 
 		if (aString.length() > 0)
 		{
@@ -572,8 +576,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		aSpell = spellA.getSpell();
 		if (theOwner instanceof Domain)
 		{
-			CharacterDomain cd = pc.getCharacterDomainForDomain(theOwner
-				.getKeyName());
+			CharacterDomain cd =
+					pc.getCharacterDomainForDomain(theOwner.getKeyName());
 			if ((cd != null) && cd.isFromPCClass())
 			{
 				classKey = cd.getObjectName();
@@ -589,8 +593,9 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 			aClass = (PCClass) theOwner;
 			classKey = aClass.getCastAs();
 		}
-		List<CharacterSpell> aList = aClass.getSpellSupport().getCharacterSpell(aSpell,
-			spellInfo.getBook(), spLevel);
+		List<CharacterSpell> aList =
+				aClass.getSpellSupport().getCharacterSpell(aSpell,
+					spellInfo.getBook(), spLevel);
 		returnList.add(spellA);
 		returnList.add(classKey);
 		returnList.add(String.valueOf(spLevel));
@@ -737,22 +742,27 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 			b.append("<b>"); //$NON-NLS-1$
 			b.append(aClass.getSpellBaseStat()).append("</b><br>"); //$NON-NLS-1$
 
-			if (aClass.hasSpecialtyList() || pc.hasCharacterDomainList() )
+			if (aClass.hasSpecialtyList() || pc.hasCharacterDomainList())
 			{
 				b.append(PropertyFactory.getString("InfoSpells.school")); //$NON-NLS-1$
 				b.append("<b>"); //$NON-NLS-1$
 				boolean needComma = false;
-				for (final String spec : aClass.getSpecialtyList()) {
-					if (needComma) {
+				for (final String spec : aClass.getSpecialtyList())
+				{
+					if (needComma)
+					{
 						b.append(',');
 					}
 					needComma = true;
 					b.append(spec);
 				}
-				
-				for (CharacterDomain cd : pc.getCharacterDomainList()) {
-					if (cd.getDomain() != null) {
-						if (needComma) {
+
+				for (CharacterDomain cd : pc.getCharacterDomainList())
+				{
+					if (cd.getDomain() != null)
+					{
+						if (needComma)
+						{
 							b.append(',');
 						}
 						needComma = true;
@@ -822,8 +832,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 			if (cs.getOwner() != null)
 			{
 
-				int[] levels = aSpell.levelForKey(cs.getOwner().getSpellKey(),
-					pc);
+				int[] levels =
+						aSpell.levelForKey(cs.getOwner().getSpellKey(), pc);
 
 				for (int index = 0; index < levels.length; ++index)
 				{
@@ -852,19 +862,24 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 						.getOwner()),
 					aSpell.getSaveInfo(),
 					aSpell.getSpellResistance(),
-					pc.parseSpellString(aSpell, aSpell.getDescription(getPc()), cs
-						.getOwner())}));
+					pc.parseSpellString(aSpell, aSpell.getDescription(getPc()),
+						cs.getOwner())}));
 
 			if (Spell.hasPPCost())
 			{
-				b.append(PropertyFactory.getString("InfoSpellsSubTab.PPCost")).append( //$NON-NLS-1$
-					aSpell.getPPCost());
+				b
+					.append(
+						PropertyFactory.getString("InfoSpellsSubTab.PPCost")).append( //$NON-NLS-1$
+						aSpell.getPPCost());
 			}
 
 			final String cString = aSpell.preReqHTMLStrings(pc, false);
 			if (cString.length() > 0)
 			{
-				b.append(PropertyFactory.getString("InfoSpellsSubTab.Requirements")).append(cString); //$NON-NLS-1$
+				b
+					.append(
+						PropertyFactory
+							.getString("InfoSpellsSubTab.Requirements")).append(cString); //$NON-NLS-1$
 			}
 
 			String spellSource = aSpell.getDefaultSourceString();
@@ -903,23 +918,30 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		if (book.getName().equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpellsSubTab.DefaultKnownBook")).append("</b> ");  //$NON-NLS-1$//$NON-NLS-2$
+			b
+				.append(
+					PropertyFactory
+						.getString("InfoSpellsSubTab.DefaultKnownBook")).append("</b> "); //$NON-NLS-1$//$NON-NLS-2$
 		}
 		b.append(")<br>"); //$NON-NLS-1$
 
 		if (book.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
 			b.append("<b>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpellsSubTab.NumPages")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
+			b
+				.append(PropertyFactory.getString("InfoSpellsSubTab.NumPages")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getNumPages());
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpellsSubTab.UsedPages")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
+			b
+				.append(PropertyFactory.getString("InfoSpellsSubTab.UsedPages")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getNumPagesUsed());
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpellsSubTab.PageUse")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
+			b
+				.append(PropertyFactory.getString("InfoSpellsSubTab.PageUse")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getPageFormula());
 			b.append(" &nbsp;<b>"); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("InfoSpellsSubTab.NumSpells")).append("</b>: ");  //$NON-NLS-1$//$NON-NLS-2$
+			b
+				.append(PropertyFactory.getString("InfoSpellsSubTab.NumSpells")).append("</b>: "); //$NON-NLS-1$//$NON-NLS-2$
 			b.append(book.getNumSpells());
 			b.append("<br>"); //$NON-NLS-1$
 		}
@@ -1030,17 +1052,17 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		PlayerCharacter pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
-		final String cast = aClass.getCastForLevel(level, sbook, true, false,
-				pc)
-				+ aClass.getBonusCastForLevelString(level, sbook, pc);
+		final String cast =
+				aClass.getCastForLevel(level, sbook, true, false, pc)
+					+ aClass.getBonusCastForLevelString(level, sbook, pc);
 
 		return cast;
 	}
 
 	private static final int getSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e
-			.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -1133,18 +1155,19 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 
 					if (keyCode != KeyEvent.VK_UNDEFINED)
 					{
-						final KeyStroke keyStroke = KeyStroke
-							.getKeyStrokeForEvent(e);
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
 
 						for (int i = 0; i < menu.getComponentCount(); ++i)
 						{
-							final Component menuComponent = menu
-								.getComponent(i);
+							final Component menuComponent =
+									menu.getComponent(i);
 
 							if (menuComponent instanceof JMenuItem)
 							{
-								KeyStroke ks = ((JMenuItem) menuComponent)
-									.getAccelerator();
+								KeyStroke ks =
+										((JMenuItem) menuComponent)
+											.getAccelerator();
 
 								if ((ks != null) && keyStroke.equals(ks))
 								{
@@ -1183,8 +1206,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree
-					.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -1230,15 +1253,23 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 
 				}
 				this.addSeparator();
-				SpellPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
-					new ActionListener()
-					{
-						public void actionPerformed(ActionEvent e)
-						{
-							lastSearch = availableTable.searchTree(lastSearch);
-						}
-					}, PropertyFactory.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					true));
+				SpellPopupMenu.this
+					.add(Utility
+						.createMenuItem(
+							PropertyFactory
+								.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
+							new ActionListener()
+							{
+								public void actionPerformed(ActionEvent e)
+								{
+									lastSearch =
+											availableTable
+												.searchTree(lastSearch);
+								}
+							},
+							PropertyFactory
+								.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							true));
 			}
 			else
 			// selectedTable
@@ -1252,26 +1283,36 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 				SpellPopupMenu.this.add(createDelMenuItem(PropertyFactory
 					.getString("InfoSpells.remove.spell"), "shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
-				SpellPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
-					new ActionListener()
-					{
-						public void actionPerformed(ActionEvent e)
-						{
-							lastSearch = selectedTable.searchTree(lastSearch);
-						}
-					}, PropertyFactory.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					true));
+				SpellPopupMenu.this
+					.add(Utility
+						.createMenuItem(
+							PropertyFactory
+								.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
+							new ActionListener()
+							{
+								public void actionPerformed(ActionEvent e)
+								{
+									lastSearch =
+											selectedTable
+												.searchTree(lastSearch);
+								}
+							},
+							PropertyFactory
+								.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							true));
 			}
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			addMenu = Utility
-				.createMenuItem(
-					label,
-					new AddSpellActionListener(),
-					"add 1", (char) 0, accelerator, //$NON-NLS-1$
-					PropertyFactory.getString("InfoSpells.add.to.spellbook"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
+			addMenu =
+					Utility
+						.createMenuItem(
+							label,
+							new AddSpellActionListener(),
+							"add 1", (char) 0, accelerator, //$NON-NLS-1$
+							PropertyFactory
+								.getString("InfoSpells.add.to.spellbook"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return addMenu;
 		}
@@ -1279,32 +1320,37 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements Cha
 		private JMenuItem createAddMetaMagicMenuItem(String label,
 			String accelerator)
 		{
-			addMetaMagicMenu = Utility.createMenuItem(label,
-				new AddMMSpellActionListener(), "add 1", (char) 0, accelerator, //$NON-NLS-1$
-				addSpellWithMetaMagicTitle, "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
+			addMetaMagicMenu =
+					Utility.createMenuItem(label,
+						new AddMMSpellActionListener(),
+						"add 1", (char) 0, accelerator, //$NON-NLS-1$
+						addSpellWithMetaMagicTitle, "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return addMetaMagicMenu;
 		}
 
 		private JMenuItem createDelMenuItem(String label, String accelerator)
 		{
-			delSpellMenu = Utility
-				.createMenuItem(
-					label,
-					new DelSpellActionListener(),
-					"remove 1", (char) 0, accelerator, //$NON-NLS-1$
-					PropertyFactory.getString("InfoSpells.remove.spell"), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
+			delSpellMenu =
+					Utility
+						.createMenuItem(
+							label,
+							new DelSpellActionListener(),
+							"remove 1", (char) 0, accelerator, //$NON-NLS-1$
+							PropertyFactory
+								.getString("InfoSpells.remove.spell"), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 			return delSpellMenu;
 		}
 
 		private JMenuItem createSetAutoMenuItem(String label, String accelerator)
 		{
-			setAutoBookMenu = Utility
-				.createMenuItem(
-					label,
-					new SetAutoBookActionListener(),
-					"set auto book", (char) 0, accelerator, //$NON-NLS-1$
-					PropertyFactory.getString("InfoSpells.set.auto.book"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
+			setAutoBookMenu =
+					Utility
+						.createMenuItem(label,
+							new SetAutoBookActionListener(),
+							"set auto book", (char) 0, accelerator, //$NON-NLS-1$
+							PropertyFactory
+								.getString("InfoSpells.set.auto.book"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
 			return setAutoBookMenu;
 		}
 

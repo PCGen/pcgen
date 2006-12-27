@@ -37,13 +37,14 @@ public final class StringIgnoreCaseComparator implements Comparator<Object>
 	/** Constructs a <code>StringIgnoreCaseComparator</code>. */
 	public StringIgnoreCaseComparator()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	/** {@inheritDoc} */
 	public int compare(Object o1, Object o2)
 	{
 		// Treat null as the empty string.
-		return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 == null) ? "" : o2.toString());
+		return ((o1 == null) ? "" : o1.toString())
+			.compareToIgnoreCase((o2 == null) ? "" : o2.toString());
 	}
 }

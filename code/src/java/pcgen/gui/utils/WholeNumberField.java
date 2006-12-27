@@ -125,7 +125,8 @@ public final class WholeNumberField extends JTextField implements Serializable
 				}
 				else
 				{
-					Logging.errorPrint("insertString: " + source[i] + " in " + str);
+					Logging.errorPrint("insertString: " + source[i] + " in "
+						+ str);
 				}
 			}
 

@@ -42,7 +42,8 @@ import java.io.Writer;
 public class AbstractPrerequisiteWriter
 {
 
-	protected void checkValidOperator( Prerequisite prereq, PrerequisiteOperator[] comparators ) throws PersistenceLayerException
+	protected void checkValidOperator(Prerequisite prereq,
+		PrerequisiteOperator[] comparators) throws PersistenceLayerException
 	{
 		StringBuffer comparatorString = new StringBuffer();
 		for (int i = 0; i < comparators.length; i++)
@@ -64,11 +65,14 @@ public class AbstractPrerequisiteWriter
 		{
 			kind = "<NULL>";
 		}
-		throw new PersistenceLayerException("Cannot write token: LST syntax only supports " + comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
+		throw new PersistenceLayerException(
+			"Cannot write token: LST syntax only supports "
+				+ comparatorString.toString() + " operators for PRE"
+				+ kind.toUpperCase() + ": " + prereq.toString());
 	}
 
-
-	protected boolean checkForPremultOfKind(final Prerequisite prereq, final String kind, final boolean multiplesOnly)
+	protected boolean checkForPremultOfKind(final Prerequisite prereq,
+		final String kind, final boolean multiplesOnly)
 	{
 		//
 		// PREMULT ?
@@ -103,7 +107,8 @@ public class AbstractPrerequisiteWriter
 	 * @return false if not over ridden
 	 * @throws IOException
 	 */
-	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq)
+		throws IOException
 	{
 		try
 		{

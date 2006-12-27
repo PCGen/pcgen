@@ -102,11 +102,13 @@ public class Logging
 	 * @param param1 Object information message (usually value)
 	 * @param param2 Object information message (usually value)
 	 */
-	public static void debugPrintLocalised(final String message, Object param1, Object param2)
+	public static void debugPrintLocalised(final String message, Object param1,
+		Object param2)
 	{
 		if (isDebugMode())
 		{
-			String msg = PropertyFactory.getFormattedString(message, param1, param2);
+			String msg =
+					PropertyFactory.getFormattedString(message, param1, param2);
 			System.out.println(msg);
 		}
 	}
@@ -157,7 +159,7 @@ public class Logging
 			s_TOOLKIT.beep();
 		}
 
-		final String msg = PropertyFactory.getFormattedString( aKey, varargs );
+		final String msg = PropertyFactory.getFormattedString(aKey, varargs);
 		System.err.println(msg);
 	}
 
@@ -219,11 +221,11 @@ public class Logging
 		Runtime rt = Runtime.getRuntime();
 		NumberFormat numFmt = NumberFormat.getNumberInstance();
 		StringBuffer sb = new StringBuffer("Memory: ");
-		sb.append(numFmt.format(rt.totalMemory()/1024.0));
+		sb.append(numFmt.format(rt.totalMemory() / 1024.0));
 		sb.append("Kb total, ");
-		sb.append(numFmt.format(rt.freeMemory()/1024.0));
+		sb.append(numFmt.format(rt.freeMemory() / 1024.0));
 		sb.append("Kb free, ");
-		sb.append(numFmt.format(rt.maxMemory()/1024.0));
+		sb.append(numFmt.format(rt.maxMemory() / 1024.0));
 		sb.append("Kb max.");
 		return sb.toString();
 	}
@@ -231,7 +233,7 @@ public class Logging
 	/**
 	 * Intentionally cause a NullPointerException and then print the stack trace.
 	 * Occasionally useful for debugging
-	 */	
+	 */
 	public static void PrintStackTrace()
 	{
 		String dummy = null;

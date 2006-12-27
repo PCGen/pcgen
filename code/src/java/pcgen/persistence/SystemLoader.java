@@ -111,8 +111,8 @@ public interface SystemLoader
 	 *                    The new data is appended to this.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadFileIntoList(String fileName, int fileType, List<PObject> aList)
-		throws PersistenceLayerException;
+	public void loadFileIntoList(String fileName, int fileType,
+		List<PObject> aList) throws PersistenceLayerException;
 
 	/**
 	 * This method loads the .MOD items

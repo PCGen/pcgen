@@ -54,25 +54,28 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Ability parseLine(Ability ability, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Ability parseLine(Ability ability, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Ability anAbility = ability;
-		
+
 		if (anAbility == null)
 		{
 			anAbility = new Ability();
 		}
-		else if (anAbility.getCategory() == null || anAbility.getCategory().length() == 0)
+		else if (anAbility.getCategory() == null
+			|| anAbility.getCategory().length() == 0)
 		{
 			// TODO - Make this into an Enum Categorisable.Category.NONE
 			anAbility.setCategory("BROKENABILTYNOCATEGORYSET");
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(AbilityLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(AbilityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -83,7 +86,8 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			AbilityLstToken token = (AbilityLstToken) tokenMap.get(key);
@@ -99,8 +103,10 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 				LstUtils.deprecationCheck(token, anAbility, value);
 				if (!token.parse(anAbility, value))
 				{
-					Logging.errorPrintLocalised("Errors.AbilityLoader.ParsingError",  //$NON-NLS-1$
-							anAbility.getDisplayName(), source.getFile(), 
+					Logging
+						.errorPrintLocalised(
+							"Errors.AbilityLoader.ParsingError", //$NON-NLS-1$
+							anAbility.getDisplayName(), source.getFile(),
 							colString);
 				}
 			}
@@ -122,8 +128,8 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			}
 			else
 			{
-				Logging.errorPrintLocalised("Errors.AbilityLoader.UnknownTag",  //$NON-NLS-1$
-						colString, source.getFile());
+				Logging.errorPrintLocalised("Errors.AbilityLoader.UnknownTag", //$NON-NLS-1$
+					colString, source.getFile());
 			}
 
 			++col;
@@ -132,7 +138,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		//setChanged();
 		//notifyObservers(anAbility);
 
-		completeObject( anAbility );
+		completeObject(anAbility);
 		return null;
 	}
 
@@ -164,8 +170,8 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @since 5.11
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
-		Globals.addAbility( (Ability)pObj );
+		Globals.addAbility((Ability) pObj);
 	}
 }

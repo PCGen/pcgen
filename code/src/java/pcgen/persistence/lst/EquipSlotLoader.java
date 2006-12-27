@@ -43,7 +43,7 @@ final class EquipSlotLoader extends LstLineFileLoader
 	/** Creates a new instance of EquipSlotLoader */
 	public EquipSlotLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -54,9 +54,11 @@ final class EquipSlotLoader extends LstLineFileLoader
 	{
 		final EquipSlot eqSlot = new EquipSlot();
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -67,34 +69,42 @@ final class EquipSlotLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			EquipSlotLstToken token = (EquipSlotLstToken) tokenMap.get(key);
 
 			//TODO: (DJ) Sick hack, remove in 5.11.x
-			if(token != null && key.equals("NUMSLOTS"))
+			if (token != null && key.equals("NUMSLOTS"))
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURL.toString(), value);
+				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
+					sourceURL.toString(), value);
 				if (!token.parse(eqSlot, lstLine))
 				{
-					Logging.errorPrint("Error parsing equip slots " + eqSlot.getSlotName() + ':' + sourceURL + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing equip slots "
+						+ eqSlot.getSlotName() + ':' + sourceURL + ':'
+						+ colString + "\"");
 				}
 				break;
 			}
 			else if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURL.toString(), value);
+				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
+					sourceURL.toString(), value);
 				if (!token.parse(eqSlot, value))
 				{
-					Logging.errorPrint("Error parsing equip slots " + eqSlot.getSlotName() + ':' + sourceURL + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing equip slots "
+						+ eqSlot.getSlotName() + ':' + sourceURL + ':'
+						+ colString + "\"");
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Illegal slot info '" + lstLine + "' in " + sourceURL.toString());
+				Logging.errorPrint("Illegal slot info '" + lstLine + "' in "
+					+ sourceURL.toString());
 			}
 		}
 

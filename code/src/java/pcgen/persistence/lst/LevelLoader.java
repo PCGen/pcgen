@@ -44,7 +44,7 @@ final class LevelLoader
 	/** Creates a new instance of LevelLoader */
 	private LevelLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -55,16 +55,19 @@ final class LevelLoader
 	 * @param inputLine  The line to be parsed
 	 * @param lineNum    The number of the line being parsed.
 	 */
-	public static void parseLine(LevelInfo levelInfo, String inputLine, int lineNum)
+	public static void parseLine(LevelInfo levelInfo, String inputLine,
+		int lineNum)
 	{
 		if (levelInfo == null)
 		{
 			return;
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LevelLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(LevelLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -75,7 +78,8 @@ final class LevelLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			LevelLstToken token = (LevelLstToken) tokenMap.get(key);
@@ -83,15 +87,19 @@ final class LevelLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, levelInfo.getLevelString(), "level.lst", value);
+				LstUtils.deprecationCheck(token, levelInfo.getLevelString(),
+					"level.lst", value);
 				if (!token.parse(levelInfo, value))
 				{
-					Logging.errorPrint("Error parsing ability " + levelInfo.getLevelString() + ':' + "level.lst" + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ levelInfo.getLevelString() + ':' + "level.lst" + ':'
+						+ colString + "\"");
 				}
 			}
 			else
 			{
-				Logging.errorPrint("LevelLoader got unexpected token of '" + colString + "' at line " + lineNum + ". Token ignored.");
+				Logging.errorPrint("LevelLoader got unexpected token of '"
+					+ colString + "' at line " + lineNum + ". Token ignored.");
 			}
 		}
 	}

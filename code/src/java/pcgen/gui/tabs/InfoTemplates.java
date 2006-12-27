@@ -110,14 +110,15 @@ import pcgen.util.enumeration.Visibility;
  **/
 public class InfoTemplates extends BaseCharacterInfoTab
 {
-//	static final long serialVersionUID = 2565545289875422981L;
-	
+	//	static final long serialVersionUID = 2565545289875422981L;
+
 	private static final Tab tab = Tab.TEMPLATES;
-	
-//	private static boolean needsUpdate = true;
+
+	//	private static boolean needsUpdate = true;
 
 	//Available Table
-	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortTempl"));
+	private JLabel sortLabel =
+			new JLabel(PropertyFactory.getString("in_irSortTempl"));
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private int viewMode = 0;
 	private final JLabel lblQFilter = new JLabel("Filter:");
@@ -133,7 +134,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	private JTree availableTree = null;
 
 	//Selected Table
-	private JLabel selSortLabel = new JLabel(PropertyFactory.getString("in_irSortTemplSel"));
+	private JLabel selSortLabel =
+			new JLabel(PropertyFactory.getString("in_irSortTemplSel"));
 	private JComboBoxEx viewSelComboBox = new JComboBoxEx();
 	private int viewSelMode = 0;
 	private JButton removeButton;
@@ -159,9 +161,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	private PCTemplate lastTemplate = null; //keep track of which PCTemplate was last selected from either table
 
 	//Character pane elements
-//	private PlayerCharacter pc;
-//	private int serial = 0;
-//	private boolean readyForRefresh = false;
+	//	private PlayerCharacter pc;
+	//	private int serial = 0;
+	//	private boolean readyForRefresh = false;
 
 	/**
 	 * Constructor
@@ -172,101 +174,108 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		super(pc);
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initActionListeners();
-				}
-			});
+				initComponents();
+				initActionListeners();
+			}
+		});
 	}
 
 	private void initActionListeners()
 	{
 		addFocusListener(new FocusAdapter()
-				{
-					public void focusGained(FocusEvent evt)
-					{
-						refresh();
-					}
-				});
+		{
+			public void focusGained(FocusEvent evt)
+			{
+				refresh();
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
+				formComponentShown();
+			}
+
+			public void componentResized(ComponentEvent e)
+			{
+				int s = split.getDividerLocation();
+
+				if (s > 0)
 				{
-					formComponentShown();
+					SettingsHandler.setPCGenOption("InfoTemplates.asplit", s);
 				}
-				public void componentResized(ComponentEvent e)
+
+				s = bsplit.getDividerLocation();
+
+				if (s > 0)
 				{
-					int s = split.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoTemplates.asplit", s);
-					}
-
-					s = bsplit.getDividerLocation();
-
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoTemplates.bsplit", s);
-					}
+					SettingsHandler.setPCGenOption("InfoTemplates.bsplit", s);
 				}
-			});
+			}
+		});
 		removeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					removeTemplate();
-				}
-			});
+				removeTemplate();
+			}
+		});
 		addButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					addTemplate();
-				}
-			});
+				addTemplate();
+			}
+		});
 		viewComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewComboBoxActionPerformed();
-				}
-			});
+				viewComboBoxActionPerformed();
+			}
+		});
 		viewSelComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewSelComboBoxActionPerformed();
-				}
-			});
+				viewSelComboBoxActionPerformed();
+			}
+		});
 		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void changedUpdate(DocumentEvent evt)
 			{
-				public void changedUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void insertUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void removeUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-			});
+				setQFilter();
+			}
+
+			public void insertUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+
+			public void removeUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+		});
 		clearQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearQFilter();
-				}
-			});
-		availableTable.getSelectionModel().addListSelectionListener(new AvailableListSelectionListener());
-		selectedTable.getSelectionModel().addListSelectionListener(new SelectedListSelectionListener());
-		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
-		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), false));
+				clearQFilter();
+			}
+		});
+		availableTable.getSelectionModel().addListSelectionListener(
+			new AvailableListSelectionListener());
+		selectedTable.getSelectionModel().addListSelectionListener(
+			new SelectedListSelectionListener());
+		availableTable.addMouseListener(new JTreeTableMouseAdapter(
+			availableTable, new AvailableClickHandler(), false));
+		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
+			selectedTable, new SelectedClickHandler(), false));
 		FilterFactory.restoreFilterSettings(this);
 	}
 
@@ -293,7 +302,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				}
 
 			}
-			final String sourceString = template.getSourceEntry().getSourceBook().getLongName();
+			final String sourceString =
+					template.getSourceEntry().getSourceBook().getLongName();
 			if (sourceString == null)
 			{
 				Logging.errorPrint("PC template " + template.getDisplayName()
@@ -367,7 +377,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		//----------------------------------------------------------------------
 		// now split the top and bottom panels
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
@@ -376,10 +388,13 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		this.add(bsplit, BorderLayout.CENTER);
 
 		// add the sorter so that clicking on the TableHeader actually does something
-		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
+		availableSort =
+				new JTreeTableSorter(availableTable,
+					(PObjectNode) availableModel.getRoot(), availableModel);
 	}
 
-	private void createTreeTables() {
+	private void createTreeTables()
+	{
 		availableTable = new JTreeTable(availableModel);
 		availableTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -426,24 +441,30 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		leftPane.setLayout(new BorderLayout());
 		rightPane.setLayout(new BorderLayout());
 
-		split = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPane, rightPane);
+		split =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPane,
+					rightPane);
 		split.setOneTouchExpandable(true);
 		split.setDividerSize(10);
 
 		topPane.add(split, BorderLayout.CENTER);
-
 
 		//-------------------------------------------------------------
 		//  Top Left Pane
 		//  - available templates
 
 		// Header
-		leftPane.add(InfoTabUtils.createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(sortLabel, viewComboBox,
+			lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		// Data - All Available Templates Table
-		availablePane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		availablePane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton = new JButton();
-		availablePane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		availablePane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
@@ -451,7 +472,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		JPanel bottomLeftPanel = new JPanel();
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(addButton, PropertyFactory.getString("in_irTemplAddTip"));
+		Utility.setDescription(addButton, PropertyFactory
+			.getString("in_irTemplAddTip"));
 		addButton.setEnabled(true);
 		bottomLeftPanel.add(addButton);
 		leftPane.add(bottomLeftPanel, BorderLayout.SOUTH);
@@ -461,25 +483,32 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		//  - selected templates
 
 		// Header
-		rightPane.add(InfoTabUtils.createFilterPane(selSortLabel, viewSelComboBox, null, null, null), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selSortLabel,
+			viewSelComboBox, null, null, null), BorderLayout.NORTH);
 
 		// Data - Selected Templates table
-		selectedPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		selectedPane =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton2 = new JButton();
-		selectedPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		selectedPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(selectedPane, BorderLayout.CENTER);
 
 		JPanel rightBottomPanel = new JPanel();
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(removeButton, PropertyFactory.getString("in_irTemplRemoveTip"));
+		Utility.setDescription(removeButton, PropertyFactory
+			.getString("in_irTemplRemoveTip"));
 		removeButton.setEnabled(true);
 		rightBottomPanel.add(removeButton);
 		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
 	}
 
-	private void buildBottomPanel() {
+	private void buildBottomPanel()
+	{
 		JPanel mainPane = new JPanel();
 		mainPane.setLayout(new BorderLayout());
 
@@ -492,7 +521,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		JScrollPane scroll = new JScrollPane();
 
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_irTemplateInfo"));
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_irTemplateInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		scroll.setBorder(title1);
 		infoLabel.setBackground(topPane.getBackground());
@@ -512,14 +543,15 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		return tab;
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTabOrder()
 	 */
 	@Override
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	/**
@@ -541,14 +573,14 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		return Collections.emptyList();
 	}
 
-//	/**
-//	 * Set needs update flag for templates tab
-//	 * @param b
-//	 */
-//	public static void setNeedsUpdate(boolean b)
-//	{
-//		needsUpdate = b;
-//	}
+	//	/**
+	//	 * Set needs update flag for templates tab
+	//	 * @param b
+	//	 */
+	//	public static void setNeedsUpdate(boolean b)
+	//	{
+	//		needsUpdate = b;
+	//	}
 
 	/**
 	 * Specifies whether the "match any" option should be available.
@@ -666,7 +698,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_irSelectTemplate"));
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+			.getString("in_irSelectTemplate"));
 		refresh();
 
 		int width;
@@ -675,9 +708,14 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		if (!hasBeenSized)
 		{
-			t = SettingsHandler.getPCGenOption("InfoTemplate.bsplit", (int) (InfoTemplates.this.getSize().getHeight() - 120));
-			u = SettingsHandler.getPCGenOption("InfoTemplate.asplit",
-					(int) ((InfoTemplates.this.getSize().getWidth() * 75.0) / 100.0));
+			t =
+					SettingsHandler.getPCGenOption("InfoTemplate.bsplit",
+						(int) (InfoTemplates.this.getSize().getHeight() - 120));
+			u =
+					SettingsHandler
+						.getPCGenOption(
+							"InfoTemplate.asplit",
+							(int) ((InfoTemplates.this.getSize().getWidth() * 75.0) / 100.0));
 
 			// set the prefered width on allTemplatesTable
 			for (int i = 0; i < availableTable.getColumnCount(); i++)
@@ -690,7 +728,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "Template", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					availableTable, "Template", i));
 			}
 		}
 
@@ -709,7 +748,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new TemplatePopupListener(treeTable, new TemplatePopupMenu(treeTable)));
+		treeTable.addMouseListener(new TemplatePopupListener(treeTable,
+			new TemplatePopupMenu(treeTable)));
 	}
 
 	private void viewComboBoxActionPerformed()
@@ -800,7 +840,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irHaveTemplate"));
+			JOptionPane.showMessageDialog(null, PropertyFactory
+				.getString("in_irHaveTemplate"));
 		}
 
 		forceRefresh();
@@ -836,7 +877,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, PropertyFactory.getString("in_irNotRemovable"));
+			JOptionPane.showMessageDialog(null, PropertyFactory
+				.getString("in_irNotRemovable"));
 		}
 
 		forceRefresh();
@@ -846,7 +888,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		if (lastTemplate == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_irNoTemplate"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_irNoTemplate"), Constants.s_APPNAME,
+				MessageType.ERROR);
 		}
 
 		return lastTemplate;
@@ -854,7 +898,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 	private int getSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -945,7 +990,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		updateAvailableModel();
 		updateSelectedModel();
-		
+
 		setNeedsUpdate(false);
 	}
 
@@ -955,7 +1000,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	 * It pulls its data straight from Globals.getTemplateList()
 	 *
 	 **/
-	private final class TemplatesTableModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	private final class TemplatesTableModel extends AbstractTreeTableModel
+			implements TableColumnManagerModel
 	{
 		static final long serialVersionUID = 2565545289875422981L;
 		private static final int COL_NAME = 0;
@@ -964,18 +1010,14 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		private static final int COL_REQS = 3;
 		private static final int COL_SRC = 4;
 
-		private final String[] COL_NAMES = new String[]
-			{
-				PropertyFactory.getString("in_nameLabel"),
-				PropertyFactory.getString("in_lvlAdj"),
-				PropertyFactory.getString("in_modifier"),
-				PropertyFactory.getString("in_preReqs"),
-				PropertyFactory.getString("in_source")
-			};
+		private final String[] COL_NAMES =
+				new String[]{PropertyFactory.getString("in_nameLabel"),
+					PropertyFactory.getString("in_lvlAdj"),
+					PropertyFactory.getString("in_modifier"),
+					PropertyFactory.getString("in_preReqs"),
+					PropertyFactory.getString("in_source")};
 
-		private final int[] COL_DEFAULT_WIDTH = {
-				200, 35, 35, 100, 100
-		};
+		private final int[] COL_DEFAULT_WIDTH = {200, 35, 35, 100, 100};
 		private int modelType = 0; // availableModel=0,selectedModel=1
 		private List<Boolean> displayList = null;
 
@@ -989,17 +1031,26 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			resetModel(viewMode, available);
 			displayList = new ArrayList<Boolean>();
 			displayList.add(Boolean.TRUE);
-			if(available) {
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[1], true)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[2], true)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[3], true)));
+			if (available)
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + COL_NAMES[1], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + COL_NAMES[2], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + COL_NAMES[3], true)));
 			}
-			else {
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[1], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[2], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[3], false)));
+			else
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + COL_NAMES[1], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + COL_NAMES[2], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + COL_NAMES[3], false)));
 			}
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + COL_NAMES[4], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ COL_NAMES[4], false)));
 		}
 
 		public boolean isCellEditable(Object node, int column)
@@ -1028,7 +1079,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					return String.class;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_irIREr4") + " " + column + " "
+					Logging.errorPrint(PropertyFactory.getString("in_irIREr4")
+						+ " " + column + " "
 						+ PropertyFactory.getString("in_irIREr2"));
 
 					break;
@@ -1051,10 +1103,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		 */
 		public String getColumnName(int columnIndex)
 		{
-			return ((columnIndex >= 0)
-					&& (columnIndex < COL_NAMES.length))
-					? COL_NAMES[columnIndex]
-					: "Out Of Bounds";
+			return ((columnIndex >= 0) && (columnIndex < COL_NAMES.length))
+				? COL_NAMES[columnIndex] : "Out Of Bounds";
 		}
 
 		/**
@@ -1105,7 +1155,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						return template.toString();
 
 					case COL_LEVEL:
-						return Integer.valueOf(template.getLevelAdjustment(getPc()));
+						return Integer.valueOf(template
+							.getLevelAdjustment(getPc()));
 
 					case COL_MODIFIER:
 						return template.modifierString(getPc());
@@ -1117,8 +1168,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 						return template.getDefaultSourceString();
 
 					default:
-						Logging.errorPrint("In InfoTemplates.AllTemplatesTableModel.getValueAt the column " + columnIndex
-							+ " is not supported.");
+						Logging
+							.errorPrint("In InfoTemplates.AllTemplatesTableModel.getValueAt the column "
+								+ columnIndex + " is not supported.");
 						break;
 				}
 			}
@@ -1160,7 +1212,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_irIREr1") + " " + mode + " "
+					Logging.errorPrint(PropertyFactory.getString("in_irIREr1")
+						+ " " + mode + " "
 						+ PropertyFactory.getString("in_irIREr2"));
 
 					break;
@@ -1170,11 +1223,13 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 			if (rootAsPObjectNode.getChildCount() > 0)
 			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 
-		private void createNameViewModel(List<PCTemplate> templList) {
+		private void createNameViewModel(List<PCTemplate> templList)
+		{
 			setRoot(new PObjectNode()); // just need a blank one
 			String qFilter = this.getQFilter();
 
@@ -1187,21 +1242,24 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					continue;
 				}
 
-				if (qFilter == null ||
-						( template.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
-								template.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+				if (qFilter == null
+					|| (template.getDisplayName().toLowerCase()
+						.indexOf(qFilter) >= 0 || template.getType()
+						.toLowerCase().indexOf(qFilter) >= 0))
 				{
 					PObjectNode aFN = new PObjectNode();
 					aFN.setParent((PObjectNode) super.getRoot());
 					aFN.setItem(template);
-					PrereqHandler.passesAll( template.getPreReqList(), getPc(), template );
+					PrereqHandler.passesAll(template.getPreReqList(), getPc(),
+						template);
 					((PObjectNode) super.getRoot()).addChild(aFN);
 				}
 			}
 
 		}
 
-		private void createTypeViewModel(List<PCTemplate> templList) {
+		private void createTypeViewModel(List<PCTemplate> templList)
+		{
 			setRoot((PObjectNode) typeRoot.clone());
 
 			for (PCTemplate template : templList)
@@ -1219,13 +1277,14 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 				{
 					if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-						|| template.isType((rootAsPObjectNode.getChildren().get(i)).getItem()
-							.toString()))
+						|| template.isType((rootAsPObjectNode.getChildren()
+							.get(i)).getItem().toString()))
 					{
 						PObjectNode aFN = new PObjectNode();
 						aFN.setParent(rootAsPObjectNode.getChild(i));
 						aFN.setItem(template);
-						PrereqHandler.passesAll(template.getPreReqList(), getPc(), template ) ;
+						PrereqHandler.passesAll(template.getPreReqList(),
+							getPc(), template);
 						rootAsPObjectNode.getChild(i).addChild(aFN);
 						added = true;
 					}
@@ -1233,7 +1292,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 		}
 
-		private void createSourceViewModel(List<PCTemplate> templList) {
+		private void createSourceViewModel(List<PCTemplate> templList)
+		{
 			setRoot((PObjectNode) sourceRoot.clone());
 
 			for (PCTemplate template : templList)
@@ -1250,22 +1310,29 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 				{
-					final String sourceString = template.getSourceEntry().getSourceBook().getLongName();
-					if(sourceString != null) {
+					final String sourceString =
+							template.getSourceEntry().getSourceBook()
+								.getLongName();
+					if (sourceString != null)
+					{
 						if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-							|| sourceString.equals((rootAsPObjectNode.getChildren().get(i)).getItem()
-								.toString()))
+							|| sourceString.equals((rootAsPObjectNode
+								.getChildren().get(i)).getItem().toString()))
 						{
 							PObjectNode aFN = new PObjectNode();
 							aFN.setParent(rootAsPObjectNode.getChild(i));
 							aFN.setItem(template);
-							PrereqHandler.passesAll(template.getPreReqList(), getPc(), template );
+							PrereqHandler.passesAll(template.getPreReqList(),
+								getPc(), template);
 							rootAsPObjectNode.getChild(i).addChild(aFN);
 							added = true;
 						}
-					} else {
-						Logging.errorPrint("PC template " + template.getDisplayName()
-								+ " has no source long entry.");
+					}
+					else
+					{
+						Logging.errorPrint("PC template "
+							+ template.getDisplayName()
+							+ " has no source long entry.");
 					}
 				}
 			}
@@ -1279,51 +1346,63 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		 */
 		private boolean shouldDisplayThis(final PCTemplate template)
 		{
-			return ((template.getVisibility() == Visibility.DEFAULT
-					|| template.getVisibility() == Visibility.DISPLAY_ONLY)
-					&& accept(getPc(), template));
+			return ((template.getVisibility() == Visibility.DEFAULT || template
+				.getVisibility() == Visibility.DISPLAY_ONLY) && accept(getPc(),
+				template));
 		}
 
-		public List<String> getMColumnList() 
+		public List<String> getMColumnList()
 		{
 			List<String> retList = new ArrayList<String>();
-			for(int i = 1; i < COL_NAMES.length; i++) 
+			for (int i = 1; i < COL_NAMES.length; i++)
 			{
 				retList.add(COL_NAMES[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) {
+		public boolean isMColumnDisplayed(int col)
+		{
 			return (displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) {
+		public void setMColumnDisplayed(int col, boolean disp)
+		{
 			setColumnViewOption(modelType + "." + COL_NAMES[col], disp);
 			displayList.set(col, Boolean.valueOf(disp));
 		}
 
-		public int getMColumnOffset() {
+		public int getMColumnOffset()
+		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoTemplates.sizecol." + COL_NAMES[col], COL_DEFAULT_WIDTH[col]);
+		public int getMColumnDefaultWidth(int col)
+		{
+			return SettingsHandler.getPCGenOption("InfoTemplates.sizecol."
+				+ COL_NAMES[col], COL_DEFAULT_WIDTH[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoTemplates.sizecol." + COL_NAMES[col], width);
+		public void setMColumnDefaultWidth(int col, int width)
+		{
+			SettingsHandler.setPCGenOption("InfoTemplates.sizecol."
+				+ COL_NAMES[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
-			return SettingsHandler.getPCGenOption("InfoTemplates.viewcol." + colName, defaultVal);
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
+		{
+			return SettingsHandler.getPCGenOption("InfoTemplates.viewcol."
+				+ colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
-			SettingsHandler.setPCGenOption("InfoTemplates.viewcol." + colName, val);
+		private void setColumnViewOption(String colName, boolean val)
+		{
+			SettingsHandler.setPCGenOption("InfoTemplates.viewcol." + colName,
+				val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column)
+		{
 			// TODO Auto-generated method stub
 
 		}
@@ -1340,47 +1419,51 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			this.menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); i++)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							final Component menuComponent =
+									menu.getComponent(i);
 
-							for (int i = 0; i < menu.getComponentCount(); i++)
+							if (menuComponent instanceof JMenuItem)
 							{
-								final Component menuComponent = menu.getComponent(i);
+								KeyStroke ks =
+										((JMenuItem) menuComponent)
+											.getAccelerator();
 
-								if (menuComponent instanceof JMenuItem)
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+									selPath = tree.getSelectionPath();
+									((JMenuItem) menuComponent).doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										selPath = tree.getSelectionPath();
-										((JMenuItem)menuComponent).doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -1399,7 +1482,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -1420,24 +1504,30 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		{
 			if (treeTable == availableTable)
 			{
-				TemplatePopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_irAddTemplate"), "shortcut EQUALS"));
+				TemplatePopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_irAddTemplate"), "shortcut EQUALS"));
 			}
 			else
 			{
-				TemplatePopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_irRemoveTemplate"), "shortcut MINUS"));
+				TemplatePopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_irRemoveTemplate"), "shortcut MINUS"));
 			}
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddTemplateActionListener(), PropertyFactory.getString("in_select"),
-					'\0', accelerator, PropertyFactory.getString("in_irAddTemplateTip"), "Add16.gif", true);
+			return Utility.createMenuItem(label,
+				new AddTemplateActionListener(), PropertyFactory
+					.getString("in_select"), '\0', accelerator, PropertyFactory
+					.getString("in_irAddTemplateTip"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveTemplateActionListener(), PropertyFactory.getString("in_select"),
-					'\0', accelerator, PropertyFactory.getString("in_irRemoveTemplateTip"), "Remove16.gif", true);
+			return Utility.createMenuItem(label,
+				new RemoveTemplateActionListener(), PropertyFactory
+					.getString("in_select"), '\0', accelerator, PropertyFactory
+					.getString("in_irRemoveTemplateTip"), "Remove16.gif", true);
 		}
 
 		private class AddTemplateActionListener extends TemplateActionListener
@@ -1448,7 +1538,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			}
 		}
 
-		private class RemoveTemplateActionListener extends TemplateActionListener
+		private class RemoveTemplateActionListener extends
+				TemplateActionListener
 		{
 			public void actionPerformed(ActionEvent evt)
 			{
@@ -1465,7 +1556,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 	}
 
-	private class AvailableListSelectionListener implements ListSelectionListener
+	private class AvailableListSelectionListener implements
+			ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -1483,13 +1575,16 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					return;
 				}
 
-				Object temp = availableTable.getTree().getPathForRow(idx).getLastPathComponent();
+				Object temp =
+						availableTable.getTree().getPathForRow(idx)
+							.getLastPathComponent();
 
 				/////////////////////////
 				if (temp == null)
 				{
 					lastTemplate = null;
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_irNoTemplate"), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_irNoTemplate"), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
@@ -1515,7 +1610,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 	}
 
-	private class SelectedListSelectionListener implements ListSelectionListener
+	private class SelectedListSelectionListener implements
+			ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -1533,7 +1629,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 					return;
 				}
 
-				Object temp = selectedTable.getTree().getPathForRow(idx).getLastPathComponent();
+				Object temp =
+						selectedTable.getTree().getPathForRow(idx)
+							.getLastPathComponent();
 
 				/////////////////////////
 				if (temp == null)
@@ -1567,7 +1665,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -1583,6 +1682,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				}
 			});
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -1591,7 +1691,8 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do nothing
 		}
 
@@ -1607,6 +1708,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				}
 			});
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);

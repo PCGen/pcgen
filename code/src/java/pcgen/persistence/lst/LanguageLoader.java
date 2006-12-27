@@ -50,21 +50,23 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Language parseLine(Language aLang, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Language parseLine(Language aLang, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Language lang = aLang;
-		
+
 		if (lang == null)
 		{
 			lang = new Language();
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		int col = 0;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(LanguageLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(LanguageLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -74,7 +76,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 				// TODO Handle Exception
 			}
@@ -92,7 +94,9 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 				LstUtils.deprecationCheck(token, lang, value);
 				if (!token.parse(lang, value))
 				{
-					Logging.errorPrint("Error parsing language " + lang.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing language "
+						+ lang.getDisplayName() + ':' + source.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else
@@ -101,13 +105,14 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 				{
 					continue;
 				}
-				Logging.errorPrint("Unknown tag '" + colString + "' in " + source.getFile());
+				Logging.errorPrint("Unknown tag '" + colString + "' in "
+					+ source.getFile());
 			}
 
 			++col;
 		}
 
-		completeObject( lang );
+		completeObject(lang);
 		return null;
 	}
 
@@ -124,7 +129,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget( final PObject objToForget )
+	protected void performForget(final PObject objToForget)
 	{
 		Globals.getLanguageList().remove(objToForget);
 	}
@@ -133,9 +138,9 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
 		// TODO - Create Globals.addLanguage( final Language aLang )
-		Globals.getLanguageList().add( (Language)pObj );
+		Globals.getLanguageList().add((Language) pObj);
 	}
 }

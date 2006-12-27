@@ -32,7 +32,8 @@ import pcgen.core.GameMode;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface PointBuyLstToken extends LstToken {
+public interface PointBuyLstToken extends LstToken
+{
 	/**
 	 * @param penalty
 	 * @param value

@@ -45,15 +45,16 @@ public class KitTableLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		String tableName = colToken.nextToken();
 		kit.addLookupTable(tableName);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitTableLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitTableLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -78,13 +79,13 @@ public class KitTableLoader
 				if (!token.parse(kit, tableName, value))
 				{
 					Logging.errorPrint("Error parsing Kit Table tag "
-							+ kit.getDisplayName() + ':' + colString + "\"");
+						+ kit.getDisplayName() + ':' + colString + "\"");
 				}
 			}
 			else
 			{
 				Logging.errorPrint("Unknown Kit Table info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 		}
 	}

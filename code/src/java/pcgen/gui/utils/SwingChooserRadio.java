@@ -106,46 +106,48 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	public void setComboData(final String cmbLabelText, List cmbData)
 	{
 		cmbCombo = new JComboBoxEx(cmbData.toArray());
-		((DefaultComboBoxModel) cmbCombo.getModel()).insertElementAt("(" + Constants.s_NONE + ")", 0);
+		((DefaultComboBoxModel) cmbCombo.getModel()).insertElementAt("("
+			+ Constants.s_NONE + ")", 0);
 		cmbCombo.setSelectedIndex(0);
 		cmbCombo.addItemListener(new ItemListener()
+		{
+			public void itemStateChanged(ItemEvent e)
 			{
-				public void itemStateChanged(ItemEvent e)
+				//
+				// If just made a selection from the combo,
+				// then make sure it's associated
+				// radio button is selected
+				//
+				if ((e.getStateChange() == ItemEvent.SELECTED)
+					&& (cmbCombo.getSelectedIndex() > 0))
 				{
-					//
-					// If just made a selection from the combo,
-					// then make sure it's associated
-					// radio button is selected
-					//
-					if ((e.getStateChange() == ItemEvent.SELECTED) && (cmbCombo.getSelectedIndex() > 0))
-					{
-						lblCombo.setSelected(true);
-					}
+					lblCombo.setSelected(true);
 				}
-			});
+			}
+		});
 
 		lblCombo = new JRadioButton(cmbLabelText);
 		lblCombo.addItemListener(new ItemListener()
+		{
+			public void itemStateChanged(ItemEvent e)
 			{
-				public void itemStateChanged(ItemEvent e)
+				// If associated radio button becomes not
+				// selected, then set the selected
+				// in the combo box to "(None)".
+				// If select the radio button instead of a
+				// selection from the combobox, then set
+				// the combo selection to the 1st type
+				//
+				if (!lblCombo.isSelected())
 				{
-					// If associated radio button becomes not
-					// selected, then set the selected
-					// in the combo box to "(None)".
-					// If select the radio button instead of a
-					// selection from the combobox, then set
-					// the combo selection to the 1st type
-					//
-					if (!lblCombo.isSelected())
-					{
-						cmbCombo.setSelectedIndex(0);
-					}
-					else if (cmbCombo.getSelectedIndex() == 0)
-					{
-						cmbCombo.setSelectedIndex(1);
-					}
+					cmbCombo.setSelectedIndex(0);
 				}
-			});
+				else if (cmbCombo.getSelectedIndex() == 0)
+				{
+					cmbCombo.setSelectedIndex(1);
+				}
+			}
+		});
 	}
 
 	/**
@@ -172,10 +174,10 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	}
 
 	/**
-	* Overrides the default setVisible method to ensure controls
-	* are updated before showing the dialog.
+	 * Overrides the default setVisible method to ensure controls
+	 * are updated before showing the dialog.
 	 * @param b
-	*/
+	 */
 	public void setVisible(boolean b)
 	{
 		if (b)
@@ -198,7 +200,6 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		}
 		super.setVisible(b);
 	}
-
 
 	/**
 	 * Initializes the table structure and notifies listeners
@@ -255,7 +256,8 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		final Container contentPane = getContentPane();
 		contentPane.setLayout(new GridBagLayout());
 
-		TitledBorder title = BorderFactory.createTitledBorder(null, "Select One");
+		TitledBorder title =
+				BorderFactory.createTitledBorder(null, "Select One");
 		avaPane.setBorder(title);
 
 		// Create these labels with " " to force them to layout correctly
@@ -268,19 +270,19 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		cancelButton = new JButton(in_cancel);
 
 		final ActionListener eventListener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				if (evt.getSource() == okButton)
 				{
-					if (evt.getSource() == okButton)
-					{
-						selectedOK();
-					}
-					else if (evt.getSource() == cancelButton)
-					{
-						close();
-					}
+					selectedOK();
 				}
-			};
+				else if (evt.getSource() == cancelButton)
+				{
+					close();
+				}
+			}
+		};
 
 		okButton.addActionListener(eventListener);
 		cancelButton.addActionListener(eventListener);

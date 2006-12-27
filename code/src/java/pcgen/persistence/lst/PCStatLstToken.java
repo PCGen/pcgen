@@ -27,7 +27,6 @@ package pcgen.persistence.lst;
 
 import pcgen.core.PCStat;
 
-
 /**
  * <code>PCStatLstToken</code>
  *

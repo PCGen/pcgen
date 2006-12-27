@@ -43,7 +43,7 @@ public final class SubstitutionClassLoader
 	/** Creates a new instance of PCClassLoader */
 	private SubstitutionClassLoader()
 	{
-	    // TODO: Exception needs to be handled
+		// TODO: Exception needs to be handled
 	}
 
 	/**
@@ -55,8 +55,8 @@ public final class SubstitutionClassLoader
 	 * @throws PersistenceLayerException
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public static PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public static PObject parseLine(PObject target, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		SubstitutionClass substitutionclass = (SubstitutionClass) target;
 
@@ -70,9 +70,11 @@ public final class SubstitutionClassLoader
 			return substitutionclass;
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SubstitutionClassLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(SubstitutionClassLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -82,10 +84,12 @@ public final class SubstitutionClassLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
-			SubstitutionClassLstToken token = (SubstitutionClassLstToken) tokenMap.get(key);
+			SubstitutionClassLstToken token =
+					(SubstitutionClassLstToken) tokenMap.get(key);
 
 			if (token != null)
 			{
@@ -93,7 +97,9 @@ public final class SubstitutionClassLoader
 				LstUtils.deprecationCheck(token, substitutionclass, value);
 				if (!token.parse(substitutionclass, value))
 				{
-					Logging.errorPrint("Error parsing ability " + substitutionclass.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ substitutionclass.getDisplayName() + ':'
+						+ source.getFile() + ':' + colString + "\"");
 				}
 			}
 			else

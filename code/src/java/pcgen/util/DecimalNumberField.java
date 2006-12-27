@@ -59,20 +59,20 @@ public class DecimalNumberField extends JTextField
 		doubleFormatter.setParseIntegerOnly(false);
 		setValue(value);
 		addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
+				try
 				{
-					try
-					{
-						lastVal = doubleFormatter.parse(getText()).floatValue();
-					}
-					catch (ParseException p)
-					{
-						setText(doubleFormatter.format(lastVal));
-						toolkit.beep();
-					}
+					lastVal = doubleFormatter.parse(getText()).floatValue();
 				}
-			});
+				catch (ParseException p)
+				{
+					setText(doubleFormatter.format(lastVal));
+					toolkit.beep();
+				}
+			}
+		});
 	}
 
 	/**
@@ -130,8 +130,8 @@ public class DecimalNumberField extends JTextField
 		 * @throws BadLocationException
 		 * @see Document#insertString(int, String, AttributeSet)
 		 */
-		public void insertString(final int offs, final String str, final AttributeSet a)
-			throws BadLocationException
+		public void insertString(final int offs, final String str,
+			final AttributeSet a) throws BadLocationException
 		{
 			final char[] source = str.toCharArray();
 			final char[] result = new char[source.length];

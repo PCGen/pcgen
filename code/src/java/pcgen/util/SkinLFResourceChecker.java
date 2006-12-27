@@ -20,7 +20,6 @@
  */
 package pcgen.util;
 
-
 /**
  * Title:        SkinLFResourceChecker.java
  * Description:
@@ -33,7 +32,8 @@ public final class SkinLFResourceChecker
 {
 	private static int missingResourceCount;
 	private static StringBuffer resourceBuffer;
-	private static final String whereToGetIt = "<a href=\"http://prdownloads.sourceforge.net/pcgen/skin.zip\">skin.zip</a>";
+	private static final String whereToGetIt =
+			"<a href=\"http://prdownloads.sourceforge.net/pcgen/skin.zip\">skin.zip</a>";
 
 	static
 	{
@@ -61,8 +61,9 @@ public final class SkinLFResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
-			return resourceBuffer.toString() + "\n" + FOPResourceChecker.getItHereMsg + whereToGetIt + "\n"
-			+ FOPResourceChecker.missingLibMsg;
+			return resourceBuffer.toString() + "\n"
+				+ FOPResourceChecker.getItHereMsg + whereToGetIt + "\n"
+				+ FOPResourceChecker.missingLibMsg;
 		}
 
 		return "";
@@ -70,7 +71,9 @@ public final class SkinLFResourceChecker
 
 	private static void checkResource()
 	{
-		if (!FOPResourceChecker.hasResource("com.l2fprod.gui.plaf.skin.SkinLookAndFeel", "skinlf.jar", resourceBuffer))
+		if (!FOPResourceChecker.hasResource(
+			"com.l2fprod.gui.plaf.skin.SkinLookAndFeel", "skinlf.jar",
+			resourceBuffer))
 		{
 			++missingResourceCount;
 		}

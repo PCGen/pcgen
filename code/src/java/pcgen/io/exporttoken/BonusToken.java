@@ -57,7 +57,8 @@ public class BonusToken extends Token
 	 * TODO: Bonuses need to be stripped out, and there need to be methods for the various types.
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return getBonusToken(tokenSource, pc);
 	}
@@ -96,22 +97,29 @@ public class BonusToken extends Token
 		{
 			String bucket = bonusTok.nextToken();
 
-			if (CoreUtility.doublesEqual(total, 0.0) && "LISTING".equals(bucket))
+			if (CoreUtility.doublesEqual(total, 0.0)
+				&& "LISTING".equals(bucket))
 			{
 				return pc.listBonusesFor(aType + "." + aName);
 			}
-			if ((bucket.startsWith("PRE") || bucket.startsWith("!PRE")) && bucket.indexOf(':') >= 0) {
-				Logging.debugPrint("Why is this not parsed in loading: " + bucket + " rather than in BonusToken.getBonusToken()");
+			if ((bucket.startsWith("PRE") || bucket.startsWith("!PRE"))
+				&& bucket.indexOf(':') >= 0)
+			{
+				Logging.debugPrint("Why is this not parsed in loading: "
+					+ bucket + " rather than in BonusToken.getBonusToken()");
 				Prerequisite prereq = null;
-				try {
+				try
+				{
 					PreParserFactory factory = PreParserFactory.getInstance();
 					prereq = factory.parse(bucket);
 				}
-				catch ( PersistenceLayerException ple) {
+				catch (PersistenceLayerException ple)
+				{
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 
-				if (!PrereqHandler.passes(prereq, pc, null )) {
+				if (!PrereqHandler.passes(prereq, pc, null))
+				{
 					total -= lastValue * signIt;
 					lastValue = 0;
 				}
@@ -189,6 +197,7 @@ public class BonusToken extends Token
 			total += (lastValue * signIt);
 		}
 
-		return String.valueOf((int) (total * Math.pow(10, decimals)) / (int) Math.pow(10, decimals));
+		return String.valueOf((int) (total * Math.pow(10, decimals))
+			/ (int) Math.pow(10, decimals));
 	}
 }

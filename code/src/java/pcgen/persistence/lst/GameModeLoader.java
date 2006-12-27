@@ -44,7 +44,7 @@ public final class GameModeLoader
 	 */
 	private GameModeLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	/**
@@ -54,7 +54,8 @@ public final class GameModeLoader
 	 * @param aFile
 	 * @param lineNum
 	 */
-	public static void parseMiscGameInfoLine(GameMode gameMode, String aLine, File aFile, int lineNum)
+	public static void parseMiscGameInfoLine(GameMode gameMode, String aLine,
+		File aFile, int lineNum)
 	{
 		if (gameMode == null)
 		{
@@ -69,19 +70,25 @@ public final class GameModeLoader
 
 		final String key = aLine.substring(0, idxColon);
 		final String value = aLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(GameModeLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(GameModeLstToken.class);
 		GameModeLstToken token = (GameModeLstToken) tokenMap.get(key);
 		if (token != null)
 		{
-			LstUtils.deprecationCheck(token, gameMode.getName(), aFile.getName(), value);
+			LstUtils.deprecationCheck(token, gameMode.getName(), aFile
+				.getName(), value);
 			if (!token.parse(gameMode, value))
 			{
-				Logging.errorPrint("Error parsing misc. game info " + gameMode.getName() + '/' + aFile.getName() + ':' + Integer.toString(lineNum) + " \"" + aLine + "\"");
+				Logging.errorPrint("Error parsing misc. game info "
+					+ gameMode.getName() + '/' + aFile.getName() + ':'
+					+ Integer.toString(lineNum) + " \"" + aLine + "\"");
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Illegal misc. game info " + gameMode.getName() + '/' + aFile.getName() + ':' + Integer.toString(lineNum) + " \"" + aLine + "\"");
+			Logging.errorPrint("Illegal misc. game info " + gameMode.getName()
+				+ '/' + aFile.getName() + ':' + Integer.toString(lineNum)
+				+ " \"" + aLine + "\"");
 		}
 	}
 }

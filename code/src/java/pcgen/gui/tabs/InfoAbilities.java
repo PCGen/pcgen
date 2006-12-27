@@ -51,12 +51,13 @@ public class InfoAbilities extends TabContainer
 	{
 		super(aPC);
 
-		final Collection<AbilityCategory> cats = SettingsHandler.getGame().getAllAbilityCategories();
-		for ( AbilityCategory cat : cats )
+		final Collection<AbilityCategory> cats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory cat : cats)
 		{
-			if ( cat.isVisible() )
+			if (cat.isVisible())
 			{
-				addSubTab( new InfoAbility(aPC, cat) );
+				addSubTab(new InfoAbility(aPC, cat));
 			}
 		}
 	}
@@ -75,7 +76,8 @@ public class InfoAbilities extends TabContainer
 	 */
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Abilities.Order", tab.ordinal()); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			".Panel.Abilities.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	/**

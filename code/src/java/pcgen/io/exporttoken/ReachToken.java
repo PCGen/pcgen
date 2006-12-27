@@ -49,7 +49,8 @@ public class ReachToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -60,7 +61,7 @@ public class ReachToken extends Token
 		else if ("REACH.VAL".equals(tokenSource))
 		{
 			return Integer.toString(getReachToken(pc));
-		}	
+		}
 		else if ("REACH.SQUARES".equals(tokenSource))
 		{
 			retString = getSquaresToken(pc);
@@ -81,11 +82,14 @@ public class ReachToken extends Token
 
 	public static String getToken(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getReachToken(pc)) + Globals.getGameModeUnitSet().getDistanceUnit();
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			getReachToken(pc))
+			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
 	public static String getSquaresToken(PlayerCharacter pc)
 	{
-		return new DecimalFormat("#.#").format(getReachToken(pc) / Globals.getGameModeSquareSize());
+		return new DecimalFormat("#.#").format(getReachToken(pc)
+			/ Globals.getGameModeSquareSize());
 	}
 }

@@ -82,8 +82,8 @@ public class AbilityListToken extends Token
 		// Skip the ABILITYLIST token itself
 		final String tokenString = aTok.nextToken();
 		final String catString = aTok.nextToken();
-		final AbilityCategory aCategory = SettingsHandler.getGame()
-			.getAbilityCategory(catString);
+		final AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory(catString);
 
 		return getTokenForCategory(pc, aTok, tokenString, aCategory);
 	}
@@ -98,7 +98,9 @@ public class AbilityListToken extends Token
 	 * @param aCategory The ability category being output.
 	 * @return The token value.
 	 */
-	protected String getTokenForCategory(PlayerCharacter pc, final StringTokenizer aTok, final String tokenString, final AbilityCategory aCategory)
+	protected String getTokenForCategory(PlayerCharacter pc,
+		final StringTokenizer aTok, final String tokenString,
+		final AbilityCategory aCategory)
 	{
 		StringBuffer retString = new StringBuffer();
 		if (lastPC != pc || !aCategory.equals(lastCategory)
@@ -114,7 +116,7 @@ public class AbilityListToken extends Token
 		// Default values
 		List<String> types = new ArrayList<String>();
 		List<String> negate = new ArrayList<String>();
-		
+
 		while (aTok.hasMoreTokens())
 		{
 			final String typeStr = aTok.nextToken();
@@ -133,8 +135,9 @@ public class AbilityListToken extends Token
 			}
 		}
 
-		List<Ability> aList = AbilityToken.buildAbilityList(types, negate,
-			null, AbilityToken.ABILITY_VISIBLE, abilityList);
+		List<Ability> aList =
+				AbilityToken.buildAbilityList(types, negate, null,
+					AbilityToken.ABILITY_VISIBLE, abilityList);
 
 		boolean needComma = false;
 		for (Ability ability : aList)

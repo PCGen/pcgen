@@ -12,8 +12,9 @@ import pcgen.persistence.PersistenceLayerException;
 /**
  * @author djones4
  */
-public interface GlobalLstToken extends LstToken {
-	
+public interface GlobalLstToken extends LstToken
+{
+
 	/**
 	 * Parse line
 	 * @param obj
@@ -24,6 +25,6 @@ public interface GlobalLstToken extends LstToken {
 	 * 
 	 * @throws PersistenceLayerException
 	 */
-	public boolean parse(PObject obj, String value, int anInt) throws PersistenceLayerException;
+	public boolean parse(PObject obj, String value, int anInt)
+		throws PersistenceLayerException;
 }
-

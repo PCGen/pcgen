@@ -1,6 +1,7 @@
 package pcgen.util.enumeration;
 
-public enum Tab {
+public enum Tab
+{
 
 	INVALID(null, null),
 	SABILITIES("Abilities", "in_specialabilities"),
@@ -28,13 +29,13 @@ public enum Tab {
 	private final String text;
 	private final String label;
 	private final int index;
-	
+
 	Tab(String t, String l)
 	{
 		text = t;
 		index = 0;
 
-		if("".equals(l))
+		if ("".equals(l))
 		{
 			label = t;
 		}
@@ -43,13 +44,13 @@ public enum Tab {
 			label = l;
 		}
 	}
-	
+
 	Tab(String t, String l, int i)
 	{
 		text = t;
 		index = i;
-		
-		if("".equals(l))
+
+		if ("".equals(l))
 		{
 			label = t;
 		}
@@ -58,7 +59,7 @@ public enum Tab {
 			label = l;
 		}
 	}
-	
+
 	@Override
 	public String toString()
 	{

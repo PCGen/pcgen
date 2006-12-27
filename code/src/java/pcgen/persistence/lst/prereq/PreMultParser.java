@@ -39,18 +39,21 @@ import java.util.List;
  * @author wardc
  *
  */
-public class PreMultParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreMultParser extends AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	public String[] kindsHandled()
 	{
-		return new String[]{ "MULT" };
+		return new String[]{"MULT"};
 	}
 
 	@Override
 	public Prerequisite parse(String kind, String formula,
-			boolean invertResult, boolean overrideQualify)
-			throws PersistenceLayerException {
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
+	{
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(null);
 
 		int commaIndex = formula.indexOf(",");
@@ -70,13 +73,15 @@ public class PreMultParser extends AbstractPrerequisiteParser implements Prerequ
 			prereq.addPrerequisite(parser.parse(s));
 		}
 
-		if (invertResult) {
-			prereq.setOperator( prereq.getOperator().invert());
+		if (invertResult)
+		{
+			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
 	}
 
-	protected List<String> splitOnTopLevelToken(String input, char startDelimiter, char endDelimiter)
+	protected List<String> splitOnTopLevelToken(String input,
+		char startDelimiter, char endDelimiter)
 	{
 		int nesting = 0;
 		int startIndex = 0;

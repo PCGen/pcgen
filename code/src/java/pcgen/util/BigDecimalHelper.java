@@ -53,23 +53,26 @@ public class BigDecimalHelper
 	 */
 	public static BigDecimal trimBigDecimal(BigDecimal n)
 	{
-	    if (n.unscaledValue().intValue() == 0) {
-            // Java 1.5 will not throw an ArthmeticException if you change the
-            // scale of 0.0 to 0, so it will keep going through the loop below
-            // forever. To get around this we test for the special case here.
-            return ZERO;
-        }
+		if (n.unscaledValue().intValue() == 0)
+		{
+			// Java 1.5 will not throw an ArthmeticException if you change the
+			// scale of 0.0 to 0, so it will keep going through the loop below
+			// forever. To get around this we test for the special case here.
+			return ZERO;
+		}
 
-	    if (n.scale() <= 0) {
-	    	return n;
-	    }
-	    
-    	BigDecimal stripped = n.stripTrailingZeros();
-    	if (stripped.scale() < 0) {
-    		stripped = n.setScale(0);
-    	}
-    	
-    	return stripped;
+		if (n.scale() <= 0)
+		{
+			return n;
+		}
+
+		BigDecimal stripped = n.stripTrailingZeros();
+		if (stripped.scale() < 0)
+		{
+			stripped = n.setScale(0);
+		}
+
+		return stripped;
 	}
 
 	/**
@@ -89,7 +92,8 @@ public class BigDecimalHelper
 		}
 		catch (NumberFormatException exc)
 		{
-			Logging.errorPrint("Cannot trim zeroes from " + numberToTrim + " as is not a number. Using 0 instead.");
+			Logging.errorPrint("Cannot trim zeroes from " + numberToTrim
+				+ " as is not a number. Using 0 instead.");
 		}
 
 		return trimBigDecimal(aBigD).toString();

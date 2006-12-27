@@ -47,5 +47,6 @@ public interface IAbilityListFilter
 	 * 
 	 * @return <tt>true</tt> to allow the Ability to be added.
 	 */
-	boolean accept(final AbilitySelectionPanel.ViewMode aMode, final Ability anAbility);
+	boolean accept(final AbilitySelectionPanel.ViewMode aMode,
+		final Ability anAbility);
 }

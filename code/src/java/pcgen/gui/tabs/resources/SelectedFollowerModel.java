@@ -29,7 +29,8 @@ import java.util.List;
  *  Leafs are like files and non-leafs are like directories.
  *  The leafs contain an Object that we want to know about (Equipment)
  **/
-public final class SelectedFollowerModel extends AbstractTreeTableModel implements TableColumnManagerModel
+public final class SelectedFollowerModel extends AbstractTreeTableModel
+		implements TableColumnManagerModel
 {
 	// column positions for Famliar tables
 	// if you change these, you also have to change
@@ -47,7 +48,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	// list of columns names
 	private static String[] selNameList = new String[3];
 
-	private final int[] selDefaultWidth = { 200, 100, 100 };
+	private final int[] selDefaultWidth = {200, 100, 100};
 
 	private PlayerCharacter pc;
 
@@ -60,10 +61,11 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 
 	static
 	{
-		selNameList[0] = PropertyFactory.getString("in_typeName");  //$NON-NLS-1$
-		selNameList[1] = PropertyFactory.getString("in_typeRace");  //$NON-NLS-1$
+		selNameList[0] = PropertyFactory.getString("in_typeName"); //$NON-NLS-1$
+		selNameList[1] = PropertyFactory.getString("in_typeRace"); //$NON-NLS-1$
 		selNameList[2] = PropertyFactory.getString("in_fileName"); //$NON-NLS-1$
 	}
+
 	/**
 	 * Creates a FollowerModel
 	 * @param aPC the PlayerCharacter to build the model for
@@ -79,8 +81,10 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		int i = 1;
 		displayList = new ArrayList<Boolean>();
 		displayList.add(Boolean.TRUE);
-		displayList.add(Boolean.valueOf(getColumnViewOption(selNameList[i++], true)));
-		displayList.add(Boolean.valueOf(getColumnViewOption(selNameList[i++], true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(selNameList[i++],
+			true)));
+		displayList.add(Boolean.valueOf(getColumnViewOption(selNameList[i++],
+			true)));
 	}
 
 	/**
@@ -142,7 +146,8 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	 * Set the pc
 	 * @param aPC The PlayerCharacter to associate with this model
 	 */
-	public void setCharacter(PlayerCharacter aPC) {
+	public void setCharacter(PlayerCharacter aPC)
+	{
 		this.pc = aPC;
 	}
 
@@ -161,7 +166,8 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 
 		if (fn == null)
 		{
-			Logging.errorPrint("No active node when doing getValueAt in InfoRace");
+			Logging
+				.errorPrint("No active node when doing getValueAt in InfoRace");
 
 			return null;
 		}
@@ -206,8 +212,9 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 				break;
 
 			default:
-				Logging.errorPrint("In InfoResources.FollowerModel.getValueAt the column " + column
-					+ " is not handled.");
+				Logging
+					.errorPrint("In InfoResources.FollowerModel.getValueAt the column "
+						+ column + " is not handled.");
 
 				break;
 		}
@@ -244,7 +251,6 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		List<FollowerType> selectedList = buildCurrentCompanionsList();
 		buildSelectedResources(selectedList);
 
-
 		PObjectNode rootAsPObjectNode = (PObjectNode) getRoot();
 		if (rootAsPObjectNode.getChildCount() > 0)
 		{
@@ -272,7 +278,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 
 			for (Follower aF : pc.getFollowerList())
 			{
-				if (! followerType.getType().equalsIgnoreCase(aF.getType()))
+				if (!followerType.getType().equalsIgnoreCase(aF.getType()))
 				{
 					continue;
 				}
@@ -290,7 +296,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	}
 
 	/**
-=	 *  A wrapper class to associate a follower type with the
+	 =	 *  A wrapper class to associate a follower type with the
 	 *  number of followers of that type.
 	 */
 	public class FollowerType
@@ -299,41 +305,42 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		private int theMaxNumber = -1;
 		private int theSelectedNumber = 0;
 		private boolean theDisplayNumberFlag = true;
-		
-		public FollowerType( final String aName )
+
+		public FollowerType(final String aName)
 		{
 			theTypeName = aName;
 		}
-		
-		public FollowerType( final String aName, final int aMax )
+
+		public FollowerType(final String aName, final int aMax)
 		{
 			theTypeName = aName;
 			theMaxNumber = aMax;
 		}
-		
-		public void setDisplayNumber( final boolean yesNo )
+
+		public void setDisplayNumber(final boolean yesNo)
 		{
 			theDisplayNumberFlag = yesNo;
 		}
-		
+
 		public String getType()
 		{
 			return theTypeName;
 		}
-		
-		public void incrementFollowerCount( final int aCount )
+
+		public void incrementFollowerCount(final int aCount)
 		{
 			theSelectedNumber += aCount;
 		}
-		
+
 		public int getNumRemaining()
 		{
-			if ( theMaxNumber < 0 )
+			if (theMaxNumber < 0)
 			{
 				return theMaxNumber;
 			}
 			return theMaxNumber - theSelectedNumber;
 		}
+
 		/**
 		 * Returns a String version of this object.  Uses the display
 		 * flag to know if the max number should be included.
@@ -343,21 +350,21 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		public String toString()
 		{
 			final StringBuffer buf = new StringBuffer();
-			buf.append( CoreUtility.capitalizeFirstLetter(theTypeName) );
-			if ( theDisplayNumberFlag )
+			buf.append(CoreUtility.capitalizeFirstLetter(theTypeName));
+			if (theDisplayNumberFlag)
 			{
-				buf.append( " (" ); //$NON-NLS-1$
-				buf.append( theSelectedNumber );
-				buf.append( "/" ); //$NON-NLS-1$
-				if ( theMaxNumber > 0 )
+				buf.append(" ("); //$NON-NLS-1$
+				buf.append(theSelectedNumber);
+				buf.append("/"); //$NON-NLS-1$
+				if (theMaxNumber > 0)
 				{
-					buf.append( theMaxNumber );
+					buf.append(theMaxNumber);
 				}
 				else
 				{
-					buf.append( "*" ); //$NON-NLS-1$
+					buf.append("*"); //$NON-NLS-1$
 				}
-				buf.append( ")" ); //$NON-NLS-1$
+				buf.append(")"); //$NON-NLS-1$
 			}
 			return buf.toString();
 		}
@@ -371,18 +378,18 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 		ArrayList<FollowerType> selectedList = new ArrayList<FollowerType>();
 
 		String followerType = "Followers";
-		int maxVal = pc.getMaxFollowers( followerType );
-		if ( maxVal != 0 )
+		int maxVal = pc.getMaxFollowers(followerType);
+		if (maxVal != 0)
 		{
-			selectedList.add( new FollowerType(followerType, maxVal) );
+			selectedList.add(new FollowerType(followerType, maxVal));
 		}
-		for ( String compType : Globals.getFollowerTypes() )
+		for (String compType : Globals.getFollowerTypes())
 		{
 			// Check if we have a number set for this type
-			maxVal = pc.getMaxFollowers( compType );
-			if ( maxVal != 0 )
+			maxVal = pc.getMaxFollowers(compType);
+			if (maxVal != 0)
 			{
-				selectedList.add( new FollowerType(compType, maxVal) );
+				selectedList.add(new FollowerType(compType, maxVal));
 			}
 		}
 
@@ -422,7 +429,7 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	 */
 	public void setMColumnDisplayed(int col, boolean disp)
 	{
-		setColumnViewOption( selNameList[col], disp);
+		setColumnViewOption(selNameList[col], disp);
 		displayList.set(col, Boolean.valueOf(disp));
 	}
 
@@ -442,7 +449,9 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	 */
 	public int getMColumnDefaultWidth(int col)
 	{
-		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], selDefaultWidth[col]);
+		return SettingsHandler.getPCGenOption(
+			"InfoResources.FollowerModel.sizecol." + selNameList[col],
+			selDefaultWidth[col]);
 	}
 
 	/**
@@ -452,17 +461,20 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel implemen
 	 */
 	public void setMColumnDefaultWidth(int col, int width)
 	{
-		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.sizecol." + selNameList[col], width);
+		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.sizecol."
+			+ selNameList[col], width);
 	}
 
 	private boolean getColumnViewOption(String colName, boolean defaultVal)
 	{
-		return SettingsHandler.getPCGenOption("InfoResources.FollowerModel.viewcol." + colName, defaultVal);
+		return SettingsHandler.getPCGenOption(
+			"InfoResources.FollowerModel.viewcol." + colName, defaultVal);
 	}
 
 	private void setColumnViewOption(String colName, boolean val)
 	{
-		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.viewcol." + colName, val);
+		SettingsHandler.setPCGenOption("InfoResources.FollowerModel.viewcol."
+			+ colName, val);
 	}
 
 	/**

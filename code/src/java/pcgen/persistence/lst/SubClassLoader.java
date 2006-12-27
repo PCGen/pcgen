@@ -55,8 +55,8 @@ public final class SubClassLoader
 	 * @throws PersistenceLayerException
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
-	public static PObject parseLine(PObject target, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public static PObject parseLine(PObject target, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		SubClass subclass = (SubClass) target;
 
@@ -70,9 +70,11 @@ public final class SubClassLoader
 			return subclass;
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SubClassLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(SubClassLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -82,7 +84,8 @@ public final class SubClassLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			SubClassLstToken token = (SubClassLstToken) tokenMap.get(key);
@@ -93,7 +96,9 @@ public final class SubClassLoader
 				LstUtils.deprecationCheck(token, subclass, value);
 				if (!token.parse(subclass, value))
 				{
-					Logging.errorPrint("Error parsing ability " + subclass.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ subclass.getDisplayName() + ':' + source.getFile()
+						+ ':' + colString + "\"");
 				}
 			}
 			else

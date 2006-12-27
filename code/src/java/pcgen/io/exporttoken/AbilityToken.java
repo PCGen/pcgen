@@ -92,10 +92,11 @@ public class AbilityToken extends Token
 		// Skip the ABILITY token itself
 		final String tokenString = aTok.nextToken();
 		final String catString = aTok.nextToken();
-		final AbilityCategory aCategory = SettingsHandler.getGame()
-			.getAbilityCategory(catString);
+		final AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory(catString);
 
-		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString, aCategory);
+		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString,
+			aCategory);
 	}
 
 	/**
@@ -110,10 +111,13 @@ public class AbilityToken extends Token
 	 * @param aCategory The ability category being output.
 	 * @return The token value.
 	 */
-	protected String getTokenForCategory(String tokenSource, PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok, final String tokenString, final AbilityCategory aCategory)
+	protected String getTokenForCategory(String tokenSource,
+		PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
+		final String tokenString, final AbilityCategory aCategory)
 	{
 		if (cachedPC != pc || !aCategory.equals(lastCategory)
-			|| cachedPcSerial != pc.getSerial() || !tokenString.equals(lastToken))
+			|| cachedPcSerial != pc.getSerial()
+			|| !tokenString.equals(lastToken))
 		{
 			// Overridden by subclasses to return the right list.
 			abilityList = getAbilityList(pc, aCategory);
@@ -127,7 +131,7 @@ public class AbilityToken extends Token
 		List<String> types = new ArrayList<String>();
 		List<String> negate = new ArrayList<String>();
 		String abilityType = null;
-		
+
 		// abilityIndex holds the number of the ability we want, is 
 		// decremented as we iterate through the list. It is only 
 		// decremented if the current ability matches the desired ability
@@ -186,11 +190,12 @@ public class AbilityToken extends Token
 			}
 		}
 
-		List<Ability> aList = AbilityToken.buildAbilityList(types, negate,
-			abilityType, visibility, abilityList);
+		List<Ability> aList =
+				AbilityToken.buildAbilityList(types, negate, abilityType,
+					visibility, abilityList);
 
-		String retString = getRetString(tokenSource, pc, eh, abilityIndex,
-			aList);
+		String retString =
+				getRetString(tokenSource, pc, eh, abilityIndex, aList);
 
 		return retString;
 	}
@@ -203,7 +208,9 @@ public class AbilityToken extends Token
 	 * @param abilityType The type definition it must match.
 	 * @return
 	 */
-	static List<Ability> buildAbilityList(List<String> types, List<String> negate, String abilityType, int visibility, List<Ability> abilityList)
+	static List<Ability> buildAbilityList(List<String> types,
+		List<String> negate, String abilityType, int visibility,
+		List<Ability> abilityList)
 	{
 		List<Ability> aList = new ArrayList<Ability>();
 
@@ -290,7 +297,8 @@ public class AbilityToken extends Token
 	 * @param aList The list of abilities.
 	 * @return The token value.
 	 */
-	private String getRetString(String tokenSource, PlayerCharacter pc, ExportHandler eh, int abilityIndex, List<Ability> aList)
+	private String getRetString(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh, int abilityIndex, List<Ability> aList)
 	{
 		String retString = "";
 		Ability aAbility;
@@ -298,7 +306,8 @@ public class AbilityToken extends Token
 		{
 			aAbility = aList.get(abilityIndex);
 
-			if (abilityIndex == aList.size() - 1 && eh != null && eh.getExistsOnly())
+			if (abilityIndex == aList.size() - 1 && eh != null
+				&& eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}

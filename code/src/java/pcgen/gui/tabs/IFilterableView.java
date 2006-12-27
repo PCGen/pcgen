@@ -40,28 +40,28 @@ public interface IFilterableView
 	 * @return A list of view type choices.
 	 */
 	List<String> getViewChoices();
-	
+
 	/**
 	 * Return the index into the View Choices list to use as the default choice.
 	 * 
 	 * @return An index.  Must be >= 0 and less than getViewChoices().size().
 	 */
 	int getInitialChoice();
-	
+
 	/**
 	 * This method is called when the user changes the View Choice.
 	 * 
 	 * @param newView The new view choice index.
 	 */
 	void viewChanged(final int newView);
-	
+
 	/**
 	 * This method is called when the user sets a new Quick Filter string.
 	 * 
 	 * @param aFilter The filter string.
 	 */
 	void setQFilter(final String aFilter);
-	
+
 	/**
 	 * This method is called when the Quick Filter is cleared.
 	 */

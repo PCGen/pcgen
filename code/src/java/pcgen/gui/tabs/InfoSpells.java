@@ -61,7 +61,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		Filterable
 {
 	static final long serialVersionUID = 755097384157285101L;
-	
+
 	private static final Tab tab = Tab.SPELLS;
 
 	private static final int KNOWN_INDEX = 0;
@@ -72,7 +72,6 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	private InfoPreparedSpells prepared;
 	private InfoSpellBooks spellbooks;
 
-	
 	private PlayerCharacter pc;
 	private int serial = 0;
 	private boolean readyForRefresh = false;
@@ -105,7 +104,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -120,7 +119,8 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Spells.Order", tab.ordinal()); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			".Panel.Spells.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	public void setTabOrder(int order)
@@ -155,7 +155,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -164,13 +164,13 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
-				setNeedsUpdate(true);
+			setNeedsUpdate(true);
 
-				known.setPc(pc);
-				prepared.setPc(pc);
-				spellbooks.setPc(pc);
+			known.setPc(pc);
+			prepared.setPc(pc);
+			spellbooks.setPc(pc);
 		}
 		else
 		{
@@ -188,7 +188,7 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 		{
 			return;
 		}
-		
+
 		known.setNeedsUpdate(b);
 		prepared.setNeedsUpdate(b);
 		spellbooks.setNeedsUpdate(b);
@@ -377,19 +377,22 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	{
 		readyForRefresh = true;
 		add(known, KNOWN_INDEX);
-		setTitleAt(KNOWN_INDEX, PropertyFactory.getString("in_Info" + known.getName())); //$NON-NLS-1$
+		setTitleAt(KNOWN_INDEX, PropertyFactory
+			.getString("in_Info" + known.getName())); //$NON-NLS-1$
 		add(prepared, PREPARED_INDEX);
-		setTitleAt(PREPARED_INDEX, PropertyFactory.getString("in_Info" + prepared.getName())); //$NON-NLS-1$
+		setTitleAt(PREPARED_INDEX, PropertyFactory
+			.getString("in_Info" + prepared.getName())); //$NON-NLS-1$
 		add(spellbooks, SPELLBOOKS_INDEX);
-		setTitleAt(SPELLBOOKS_INDEX, PropertyFactory.getString("in_Info" + spellbooks.getName())); //$NON-NLS-1$
+		setTitleAt(SPELLBOOKS_INDEX, PropertyFactory
+			.getString("in_Info" + spellbooks.getName())); //$NON-NLS-1$
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
 	/**

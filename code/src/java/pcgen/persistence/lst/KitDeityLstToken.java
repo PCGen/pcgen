@@ -1,4 +1,3 @@
-
 package pcgen.persistence.lst;
 
 import pcgen.core.kit.KitDeity;

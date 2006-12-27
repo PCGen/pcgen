@@ -43,7 +43,7 @@ import pcgen.core.RollingMethods;
 class DiceExpressionFunctions
 {
 	private static boolean generateMaxRoll = false;
-	
+
 	/**
 	 * Set Max roll
 	 * @param argMax

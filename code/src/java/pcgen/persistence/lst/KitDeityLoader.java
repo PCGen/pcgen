@@ -46,15 +46,16 @@ public class KitDeityLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 		KitDeity kitDeity = null;
 		String deityName = colToken.nextToken();
 		kitDeity = new KitDeity(deityName);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitDeityLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitDeityLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -78,10 +79,8 @@ public class KitDeityLoader
 				LstUtils.deprecationCheck(token, kit, value);
 				if (!token.parse(kitDeity, value))
 				{
-					Logging
-							.errorPrint("Error parsing Kit Ability tag "
-									+ kitDeity.getObjectName() + ':'
-									+ colString + "\"");
+					Logging.errorPrint("Error parsing Kit Ability tag "
+						+ kitDeity.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitDeity, colString))
@@ -91,7 +90,7 @@ public class KitDeityLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Class info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 		}
 		kit.addObject(kitDeity);

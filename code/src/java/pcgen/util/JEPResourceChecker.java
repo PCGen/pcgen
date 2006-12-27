@@ -22,7 +22,6 @@
  */
 package pcgen.util;
 
-
 /**
  * <code>JEPResourceChecker</code>
  *
@@ -33,7 +32,8 @@ public final class JEPResourceChecker
 {
 	private static int missingResourceCount;
 	private static StringBuffer resourceBuffer;
-	private static final String whereToGetIt = "<a href=\"http://svn.sourceforge.net/viewcvs.cgi/*checkout*/pcgen/Trunk/pcgen/lib/jep/jep-2.3.1.jar\">jep-2.3.1.jar</a>";
+	private static final String whereToGetIt =
+			"<a href=\"http://svn.sourceforge.net/viewcvs.cgi/*checkout*/pcgen/Trunk/pcgen/lib/jep/jep-2.3.1.jar\">jep-2.3.1.jar</a>";
 
 	static
 	{
@@ -61,8 +61,9 @@ public final class JEPResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
-			return resourceBuffer.toString() + "\n" + FOPResourceChecker.getItHereMsg + whereToGetIt + "\n"
-			+ FOPResourceChecker.missingLibMsg;
+			return resourceBuffer.toString() + "\n"
+				+ FOPResourceChecker.getItHereMsg + whereToGetIt + "\n"
+				+ FOPResourceChecker.missingLibMsg;
 		}
 
 		return "";
@@ -70,7 +71,8 @@ public final class JEPResourceChecker
 
 	private static void checkResource()
 	{
-		if (!FOPResourceChecker.hasResource("org.nfunk.jep.JEP", "jep-2.3.1.jar", resourceBuffer))
+		if (!FOPResourceChecker.hasResource("org.nfunk.jep.JEP",
+			"jep-2.3.1.jar", resourceBuffer))
 		{
 			++missingResourceCount;
 		}

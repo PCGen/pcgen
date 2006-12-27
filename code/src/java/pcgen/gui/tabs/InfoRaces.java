@@ -110,10 +110,10 @@ import pcgen.util.enumeration.Tab;
  **/
 public class InfoRaces extends BaseCharacterInfoTab
 {
-//	static final long serialVersionUID = 2565545289875422981L;
-//	
+	//	static final long serialVersionUID = 2565545289875422981L;
+	//	
 	private static final Tab tab = Tab.RACES;
-	
+
 	// if you change these, you also have to change
 	// the case statement in the RaceModel declaration
 	private static final int COL_NAME = 0;
@@ -125,24 +125,29 @@ public class InfoRaces extends BaseCharacterInfoTab
 	private static final int COL_CLASS = 6;
 	private static final int COL_LEVEL = 7;
 	private FlippingSplitPane bsplit;
-	private JButton selButton = new JButton(PropertyFactory.getString("in_select")); //$NON-NLS-1$
+	private JButton selButton =
+			new JButton(PropertyFactory.getString("in_select")); //$NON-NLS-1$
 	private JButton clearQFilterButton = new JButton("Clear");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JLabel raceText = new JLabel();
-	private JLabel raceTextLabel = new JLabel(PropertyFactory.getString("in_irSelectedRace")); //$NON-NLS-1$
-	private JLabel sortLabel = new JLabel(PropertyFactory.getString("in_irSortRaces")); //$NON-NLS-1$
+	private JLabel raceTextLabel =
+			new JLabel(PropertyFactory.getString("in_irSelectedRace")); //$NON-NLS-1$
+	private JLabel sortLabel =
+			new JLabel(PropertyFactory.getString("in_irSortRaces")); //$NON-NLS-1$
 	private JLabelPane infoLabel = new JLabelPane();
 	private JPanel botPane = new JPanel();
 
 	//Monster Hit Die Panel
 	private JPanel monHdPanel = new JPanel();
-	private JLabel lblHDModify = new JLabel(PropertyFactory.getString("in_sumHDToAddRem")); //$NON-NLS-1$
+	private JLabel lblHDModify =
+			new JLabel(PropertyFactory.getString("in_sumHDToAddRem")); //$NON-NLS-1$
 	private WholeNumberField txtHD = new WholeNumberField(1, 3);
 	private JButton btnAddHD = new JButton("+");
 	private JButton btnRemoveHD = new JButton("-");
 	private JLabel txtMonsterHD = new JLabel("1");
-	private JLabel lblMonsterHD = new JLabel(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
+	private JLabel lblMonsterHD =
+			new JLabel(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
 
 	private JPanel topPane = new JPanel();
 	private JTextField textQFilter = new JTextField();
@@ -167,13 +172,13 @@ public class InfoRaces extends BaseCharacterInfoTab
 		super(pc);
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initActionListeners();
-				}
-			});
+				initComponents();
+				initActionListeners();
+			}
+		});
 	}
 
 	/**
@@ -184,14 +189,15 @@ public class InfoRaces extends BaseCharacterInfoTab
 	{
 		return tab;
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.BaseCharacterInfoTab#getTabOrder()
 	 */
 	@Override
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	/**
@@ -222,14 +228,14 @@ public class InfoRaces extends BaseCharacterInfoTab
 		return toDoList;
 	}
 
-//	/**
-//	 * Sets the nedsUpdate flag for Races tab
-//	 * @param b
-//	 */
-//	public static void setNeedsUpdate(boolean b)
-//	{
-//		needsUpdate = b;
-//	}
+	//	/**
+	//	 * Sets the nedsUpdate flag for Races tab
+	//	 * @param b
+	//	 */
+	//	public static void setNeedsUpdate(boolean b)
+	//	{
+	//		needsUpdate = b;
+	//	}
 
 	/**
 	 * Specifies whether the "match any" option should be available.
@@ -244,23 +250,23 @@ public class InfoRaces extends BaseCharacterInfoTab
 		return true;
 	}
 
-//	/**
-//	 * Push an update of the tabs in the GUI
-//	 */
-//	public void pushUpdate()
-//	{
-//		final PCGen_Frame1 rootFrame = PCGen_Frame1.getInst();
-//		rootFrame.featList_Changed();
-//		rootFrame.hpTotal_Changed();
-//		PCGen_Frame1.forceUpdate_PlayerTabs();
-//		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-//		pane.setPaneForUpdate(pane.infoSkills());
-//		pane.setPaneForUpdate(pane.infoSpells());
-//		pane.setPaneForUpdate(pane.infoDomain());
-//		pane.setPaneForUpdate(pane.infoInventory());
-//		pane.setPaneForUpdate(pane.infoSummary());
-//		pane.refresh();
-//	}
+	//	/**
+	//	 * Push an update of the tabs in the GUI
+	//	 */
+	//	public void pushUpdate()
+	//	{
+	//		final PCGen_Frame1 rootFrame = PCGen_Frame1.getInst();
+	//		rootFrame.featList_Changed();
+	//		rootFrame.hpTotal_Changed();
+	//		PCGen_Frame1.forceUpdate_PlayerTabs();
+	//		CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+	//		pane.setPaneForUpdate(pane.infoSkills());
+	//		pane.setPaneForUpdate(pane.infoSpells());
+	//		pane.setPaneForUpdate(pane.infoDomain());
+	//		pane.setPaneForUpdate(pane.infoInventory());
+	//		pane.setPaneForUpdate(pane.infoSummary());
+	//		pane.refresh();
+	//	}
 
 	/**
 	 * Specifies whether the "negate/reverse" option should be available.
@@ -315,7 +321,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -323,6 +330,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 		{
 			selButton();
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -339,7 +347,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		atree.setShowsRootHandles(true);
 		atree.setCellRenderer(new LabelTreeCellRenderer());
 
-		raceTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		raceTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -352,7 +361,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 							return;
 						}
 
-						final Object temp = atree.getPathForRow(idx).getLastPathComponent();
+						final Object temp =
+								atree.getPathForRow(idx).getLastPathComponent();
 
 						if (temp == null)
 						{
@@ -374,7 +384,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 				}
 			});
 
-		raceTable.addMouseListener(new JTreeTableMouseAdapter(raceTable, new AvailableClickHandler(), false));
+		raceTable.addMouseListener(new JTreeTableMouseAdapter(raceTable,
+			new AvailableClickHandler(), false));
 
 		// create the rightclick popup menus
 		hookupPopupMenu(raceTable);
@@ -422,7 +433,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 	private static int getSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -459,7 +471,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_irSelectRace"));
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+			.getString("in_irSelectRace"));
 		refresh();
 
 		int width;
@@ -467,7 +480,9 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		if (!hasBeenSized)
 		{
-			t = SettingsHandler.getPCGenOption("InfoRace.bsplit", (int) (InfoRaces.this.getSize().getHeight() - 120));
+			t =
+					SettingsHandler.getPCGenOption("InfoRace.bsplit",
+						(int) (InfoRaces.this.getSize().getHeight() - 120));
 
 			// set the prefered width on raceTable
 			for (int i = 0; i < raceTable.getColumnCount(); i++)
@@ -480,7 +495,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(raceTable, "Race", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					raceTable, "Race", i));
 			}
 		}
 
@@ -493,98 +509,105 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new RacePopupListener(treeTable, new RacePopupMenu()));
+		treeTable.addMouseListener(new RacePopupListener(treeTable,
+			new RacePopupMenu()));
 	}
 
 	private void initActionListeners()
 	{
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
+				formComponentShown();
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
-				{
-					int s = bsplit.getDividerLocation();
+				int s = bsplit.getDividerLocation();
 
-					if (s > 0)
-					{
-						SettingsHandler.setPCGenOption("InfoRace.bsplit", s);
-					}
+				if (s > 0)
+				{
+					SettingsHandler.setPCGenOption("InfoRace.bsplit", s);
 				}
-			});
+			}
+		});
 		selButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					selButton();
-				}
-			});
+				selButton();
+			}
+		});
 		viewComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewComboBoxActionPerformed();
-				}
-			});
+				viewComboBoxActionPerformed();
+			}
+		});
 		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void changedUpdate(DocumentEvent evt)
 			{
-				public void changedUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void insertUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void removeUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-			});
+				setQFilter();
+			}
+
+			public void insertUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+
+			public void removeUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+		});
 		clearQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearQFilter();
-				}
-			});
+				clearQFilter();
+			}
+		});
 
 		// Monster HD Panel Listeners
 		btnAddHD.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
+				int num = 1;
+				try
 				{
-					int num = 1;
-					try {
-						num = Integer.parseInt(txtHD.getText());
-					}
-					catch(Exception exe) {
-						// TODO Deal with this
-					}
-					PCGen_Frame1.addMonsterHD(num);
-					updateHD();
+					num = Integer.parseInt(txtHD.getText());
 				}
-			});
+				catch (Exception exe)
+				{
+					// TODO Deal with this
+				}
+				PCGen_Frame1.addMonsterHD(num);
+				updateHD();
+			}
+		});
 		btnRemoveHD.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
+				int num = 1;
+				try
 				{
-					int num = 1;
-					try {
-						num = Integer.parseInt(txtHD.getText());
-					}
-					catch(Exception exe) {
-						// TODO Deal with this
-					}
-					PCGen_Frame1.addMonsterHD(num * -1);
-					updateHD();
+					num = Integer.parseInt(txtHD.getText());
 				}
-			});
+				catch (Exception exe)
+				{
+					// TODO Deal with this
+				}
+				PCGen_Frame1.addMonsterHD(num * -1);
+				updateHD();
+			}
+		});
 
 		FilterFactory.restoreFilterSettings(this);
 	}
@@ -600,7 +623,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		//
 		final int iView = SettingsHandler.getRaceTab_ListMode();
 
-		if ((iView >= GuiConstants.INFORACE_VIEW_NAME) && (iView <= GuiConstants.INFORACE_VIEW_SOURCE))
+		if ((iView >= GuiConstants.INFORACE_VIEW_NAME)
+			&& (iView <= GuiConstants.INFORACE_VIEW_SOURCE))
 		{
 			viewMode = iView;
 		}
@@ -608,8 +632,11 @@ public class InfoRaces extends BaseCharacterInfoTab
 		SettingsHandler.setRaceTab_ListMode(viewMode);
 
 		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_racetypeName") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_racetypeSubtypeName") + "   ");
+		viewComboBox.addItem(PropertyFactory.getString("in_racetypeName")
+			+ "   ");
+		viewComboBox.addItem(PropertyFactory
+			.getString("in_racetypeSubtypeName")
+			+ "   ");
 		viewComboBox.addItem(PropertyFactory.getString("in_typeName") + "   ");
 		viewComboBox.addItem(PropertyFactory.getString("in_allTypes") + "   ");
 		viewComboBox.addItem(PropertyFactory.getString("in_sourceName") + " ");
@@ -636,7 +663,9 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		//----------------------------------------------------------------------
 		// now split the top and bottom panels
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane, botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
@@ -645,12 +674,12 @@ public class InfoRaces extends BaseCharacterInfoTab
 		this.add(bsplit, BorderLayout.CENTER);
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
 	/**
@@ -667,21 +696,26 @@ public class InfoRaces extends BaseCharacterInfoTab
 		mainPane.setLayout(new BorderLayout());
 		topPane.add(mainPane, BorderLayout.CENTER);
 
-		mainPane.add(InfoTabUtils.createFilterPane(sortLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		mainPane.add(InfoTabUtils.createFilterPane(sortLabel, viewComboBox,
+			lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = new JScrollPane(raceTable);
 		raceTable.setColAlign(3, SwingConstants.CENTER);
 		raceTable.setColAlign(7, SwingConstants.CENTER);
 		// add the sorter so that clicking on the TableHeader
 		// actualy does something
-		raceSort = new JTreeTableSorter(raceTable, (PObjectNode) raceModel.getRoot(), raceModel);
+		raceSort =
+				new JTreeTableSorter(raceTable, (PObjectNode) raceModel
+					.getRoot(), raceModel);
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(raceTable, columnButton, raceModel);
 		mainPane.add(scrollPane, BorderLayout.CENTER);
 
-		JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		JPanel bottomPanel =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		raceText.setPreferredSize(new Dimension(120, 25));
 		raceText.setBorder(BorderFactory.createEtchedBorder());
 		raceText.setHorizontalAlignment(SwingConstants.CENTER);
@@ -711,7 +745,9 @@ public class InfoRaces extends BaseCharacterInfoTab
 		botPane.setLayout(new BorderLayout());
 		JScrollPane scroll = new JScrollPane();
 
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_irRaceInfo"));
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_irRaceInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		scroll.setBorder(title1);
 		infoLabel.setBackground(topPane.getBackground());
@@ -822,7 +858,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 		int minLevel = 0;
 
 		btnAddHD.setEnabled(false);
-		
+
 		if (getPc() != null)
 		{
 			final Race race = getPc().getRace();
@@ -831,7 +867,9 @@ public class InfoRaces extends BaseCharacterInfoTab
 			if (monsterClass != null)
 			{
 				monsterHD = race.hitDice(getPc());
-				minLevel = race.hitDice(getPc()) + race.getMonsterClassLevels(getPc());
+				minLevel =
+						race.hitDice(getPc())
+							+ race.getMonsterClassLevels(getPc());
 
 				final PCClass aClass = getPc().getClassKeyed(monsterClass);
 
@@ -913,39 +951,47 @@ public class InfoRaces extends BaseCharacterInfoTab
 	 * nodes which have 0 children are leafs (the end of the linked list)
 	 * most leafs contain an Object (in this case, it's a race object)
 	 **/
-	private final class RaceModel extends AbstractTreeTableModel implements TableColumnManagerModel {
+	private final class RaceModel extends AbstractTreeTableModel implements
+			TableColumnManagerModel
+	{
 		// this is the root node
 		private PObjectNode raceRoot;
 		private List<Boolean> displayList = null;
 
 		// list of column names
-		private final String[] raceNameList = {
-			PropertyFactory.getString("in_nameLabel"),
-			PropertyFactory.getString("in_irTableStat"),
-			PropertyFactory.getString("in_preReqs"),
-			PropertyFactory.getString("in_size"),
-			PropertyFactory.getString("in_speed"),
-			PropertyFactory.getString("in_vision"),
-			PropertyFactory.getString("in_favoredClass"),
-			PropertyFactory.getString("in_lvlAdj")
-		};
+		private final String[] raceNameList =
+				{PropertyFactory.getString("in_nameLabel"),
+					PropertyFactory.getString("in_irTableStat"),
+					PropertyFactory.getString("in_preReqs"),
+					PropertyFactory.getString("in_size"),
+					PropertyFactory.getString("in_speed"),
+					PropertyFactory.getString("in_vision"),
+					PropertyFactory.getString("in_favoredClass"),
+					PropertyFactory.getString("in_lvlAdj")};
 
-		private final int[] colDefaultWidth = {
-				300, 100, 100, 20,	100, 100, 40, 20
-		};
+		private final int[] colDefaultWidth =
+				{300, 100, 100, 20, 100, 100, 40, 20};
 
-		private RaceModel(int mode) {
+		private RaceModel(int mode)
+		{
 			super(null);
 			resetModel(mode);
 			displayList = new ArrayList<Boolean>();
 			displayList.add(Boolean.TRUE);
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[1], true)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[2], true)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[3], true)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[4], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[5], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[6], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(raceNameList[7], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[1], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[2], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[3], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[4], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[5], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[6], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(
+				raceNameList[7], true)));
 		}
 
 		/**
@@ -953,8 +999,10 @@ public class InfoRaces extends BaseCharacterInfoTab
 		 * @param column
 		 * @return Class
 		 **/
-		public Class<?> getColumnClass(int column) {
-			if (column == COL_NAME) {
+		public Class<?> getColumnClass(int column)
+		{
+			if (column == COL_NAME)
+			{
 				return TreeTableModel.class;
 			}
 			return String.class;
@@ -964,7 +1012,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		 * the number of columns
 		 * @return column count
 		 **/
-		public int getColumnCount() {
+		public int getColumnCount()
+		{
 			return raceNameList.length;
 		}
 
@@ -973,7 +1022,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		 * @param column
 		 * @return column name
 		 **/
-		public String getColumnName(int column) {
+		public String getColumnName(int column)
+		{
 			return raceNameList[column];
 		}
 
@@ -981,7 +1031,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		 * return the root node
 		 * @return root
 		 **/
-		public Object getRoot() {
+		public Object getRoot()
+		{
 			return super.getRoot();
 		}
 
@@ -991,15 +1042,19 @@ public class InfoRaces extends BaseCharacterInfoTab
 		 * @param column
 		 * @return value
 		 **/
-		public Object getValueAt(Object node, int column) {
+		public Object getValueAt(Object node, int column)
+		{
 			final PObjectNode fn = (PObjectNode) node;
 
-			if (fn == null) {
-				Logging.errorPrint("No active node when doing getValueAt in InfoRace");
+			if (fn == null)
+			{
+				Logging
+					.errorPrint("No active node when doing getValueAt in InfoRace");
 				return null;
 			}
 
-			switch (column) {
+			switch (column)
+			{
 				case COL_NAME:
 					return getColumnName(fn);
 
@@ -1025,36 +1080,51 @@ public class InfoRaces extends BaseCharacterInfoTab
 					return getColumnLevel(fn);
 
 				default:
-					Logging.errorPrint("In InfoRace.RaceModel.getValueAt the column " + column + " is not supported.");
+					Logging
+						.errorPrint("In InfoRace.RaceModel.getValueAt the column "
+							+ column + " is not supported.");
 					break;
 			}
 			return null;
 		}
 
-		private Object getColumnName(PObjectNode fn) {
+		private Object getColumnName(PObjectNode fn)
+		{
 			return fn.toString();
 		}
 
-		private Object getColumnStat(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnStat(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
 				final StringBuffer retString = new StringBuffer();
 
-				for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++) {
-					if (race.isNonAbility(i)) {
-						if (retString.length() > 0) {
+				for (int i = 0; i < SettingsHandler.getGame().s_ATTRIBSHORT.length; i++)
+				{
+					if (race.isNonAbility(i))
+					{
+						if (retString.length() > 0)
+						{
 							retString.append(' ');
 						}
 
-						retString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i] + ":Nonability");
+						retString
+							.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]
+								+ ":Nonability");
 					}
-					else {
-						if (race.getStatMod(i, getPc()) != 0) {
-							if (retString.length() > 0) {
+					else
+					{
+						if (race.getStatMod(i, getPc()) != 0)
+						{
+							if (retString.length() > 0)
+							{
 								retString.append(' ');
 							}
 
-							retString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i] + ":" + race.getStatMod(i, getPc()));
+							retString
+								.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]
+									+ ":" + race.getStatMod(i, getPc()));
 						}
 					}
 				}
@@ -1064,50 +1134,65 @@ public class InfoRaces extends BaseCharacterInfoTab
 			return null;
 		}
 
-		private Object getColumnPre(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnPre(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
 				return race.preReqHTMLStrings(getPc());
 			}
 			return null;
 		}
 
-		private Object getColumnSize(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnSize(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
 				return race.getSize();
 			}
 			return null;
 		}
 
-		private Object getColumnMove(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnMove(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
-				if (race.getMovement() != null) {
+				if (race.getMovement() != null)
+				{
 					return race.getMovement().toString();
 				}
 			}
 			return null;
 		}
 
-		private Object getColumnVision(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnVision(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
 				return race.getDisplayVision(getPc());
 			}
 			return null;
 		}
 
-		private Object getColumnClass(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnClass(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
-				return (!".".equals(race.getFavoredClass())) ? race.getFavoredClass() : PropertyFactory.getString("in_various");
+				return (!".".equals(race.getFavoredClass())) ? race
+					.getFavoredClass() : PropertyFactory
+					.getString("in_various");
 			}
 			return null;
 		}
 
-		private Object getColumnLevel(PObjectNode fn) {
-			if (fn.getItem() instanceof Race) {
+		private Object getColumnLevel(PObjectNode fn)
+		{
+			if (fn.getItem() instanceof Race)
+			{
 				Race race = (Race) fn.getItem();
 				return Integer.valueOf(race.getLevelAdjustment(getPc()));
 			}
@@ -1118,16 +1203,19 @@ public class InfoRaces extends BaseCharacterInfoTab
 		 * There must be a root node, but we keep it hidden
 		 * @param aNode
 		 **/
-		private void setRoot(PObjectNode aNode) {
+		private void setRoot(PObjectNode aNode)
+		{
 			super.setRoot(aNode);
 		}
 
-		private void resetModel(int mode) {
+		private void resetModel(int mode)
+		{
 			// set the root node
 			raceRoot = new PObjectNode();
 			setRoot(raceRoot);
 
-			switch(mode) {
+			switch (mode)
+			{
 				// races by name
 				case GuiConstants.INFORACE_VIEW_NAME:
 					buildNameView();
@@ -1154,31 +1242,37 @@ public class InfoRaces extends BaseCharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint("In InfoRace.RaceModel.resetModel the mode " + mode + " is not supported.");
+					Logging
+						.errorPrint("In InfoRace.RaceModel.resetModel the mode "
+							+ mode + " is not supported.");
 					break;
 			} // end of switch(mode)
 
 			PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 
-			if(rootAsPObjectNode.getChildCount() > 0) {
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+			if (rootAsPObjectNode.getChildCount() > 0)
+			{
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 
-		private void buildNameView() 
+		private void buildNameView()
 		{
 			List<Race> raceList = new ArrayList<Race>();
 			String qFilter = this.getQFilter();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
-				if(accept(getPc(), race)) {
-					if (qFilter == null ||
-							( race.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
-							  race.getType().toLowerCase().indexOf(qFilter) >= 0 ))
-					raceList.add(race);
+				if (accept(getPc(), race))
+				{
+					if (qFilter == null
+						|| (race.getDisplayName().toLowerCase()
+							.indexOf(qFilter) >= 0 || race.getType()
+							.toLowerCase().indexOf(qFilter) >= 0))
+						raceList.add(race);
 				}
 			}
 
@@ -1186,10 +1280,12 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// iterate through the race names
 			// and fill out the tree
-			for (int iName = 0; iName < raceList.size(); iName++) {
+			for (int iName = 0; iName < raceList.size(); iName++)
+			{
 				final Race aRace = raceList.get(iName);
 
-				if (aRace != null) {
+				if (aRace != null)
+				{
 					rn[iName] = new PObjectNode();
 					rn[iName].setItem(aRace);
 					rn[iName].setParent(raceRoot);
@@ -1200,16 +1296,18 @@ public class InfoRaces extends BaseCharacterInfoTab
 			raceRoot.setChildren(rn);
 		}
 
-		private void buildTypeView() 
+		private void buildTypeView()
 		{
 			List<String> typeList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
-				if(accept(getPc(), race)) {
-					if(!typeList.contains(race.getType())) {
+				if (accept(getPc(), race))
+				{
+					if (!typeList.contains(race.getType()))
+					{
 						typeList.add(race.getType());
 					}
 				}
@@ -1220,19 +1318,21 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// iterate through the race types
 			// and fill out the tree
-			for (int iType = 0; iType < typeList.size(); iType++) 
+			for (int iType = 0; iType < typeList.size(); iType++)
 			{
 				final String aType = typeList.get(iType);
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for ( final Race race : Globals.getAllRaces() )
+				for (final Race race : Globals.getAllRaces())
 				{
-					if (race == null) {
+					if (race == null)
+					{
 						continue;
 					}
 
-					if (!race.getType().equals(aType)) {
+					if (!race.getType().equals(aType))
+					{
 						continue;
 					}
 
@@ -1243,7 +1343,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 				}
 
 				// if it's not empty, add it
-				if (!rt[iType].isLeaf()) {
+				if (!rt[iType].isLeaf())
+				{
 					rt[iType].setParent(raceRoot);
 				}
 			}
@@ -1252,16 +1353,20 @@ public class InfoRaces extends BaseCharacterInfoTab
 			raceRoot.setChildren(rt);
 		}
 
-		private void buildSourceView() {
+		private void buildSourceView()
+		{
 			List<String> sourceList = new ArrayList<String>();
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
-				if(accept(getPc(), race)) {
-					final String aString = race.getSourceEntry().getSourceBook().getLongName();
-					if(aString != null && !sourceList.contains(aString) && aString.length() > 0)
+				if (accept(getPc(), race))
+				{
+					final String aString =
+							race.getSourceEntry().getSourceBook().getLongName();
+					if (aString != null && !sourceList.contains(aString)
+						&& aString.length() > 0)
 					{
 						sourceList.add(aString);
 					}
@@ -1273,19 +1378,23 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// iterate through the race sources
 			// and fill out the tree
-			for (int iSource = 0; iSource < sourceList.size(); iSource++) {
+			for (int iSource = 0; iSource < sourceList.size(); iSource++)
+			{
 				final String aSource = sourceList.get(iSource);
 				rs[iSource] = new PObjectNode();
 				rs[iSource].setItem(aSource);
 
-				for ( final Race race : Globals.getAllRaces() )
+				for (final Race race : Globals.getAllRaces())
 				{
-					if (race == null) {
+					if (race == null)
+					{
 						continue;
 					}
 
-					final String aString = race.getSourceEntry().getSourceBook().getLongName();
-					if (aString != null && !aString.equals(aSource)) {
+					final String aString =
+							race.getSourceEntry().getSourceBook().getLongName();
+					if (aString != null && !aString.equals(aSource))
+					{
 						continue;
 					}
 
@@ -1296,7 +1405,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 				}
 
 				// if it's not empty, add it
-				if (!rs[iSource].isLeaf()) {
+				if (!rs[iSource].isLeaf())
+				{
 					rs[iSource].setParent(raceRoot);
 				}
 			}
@@ -1311,7 +1421,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
 				if (accept(getPc(), race))
 				{
@@ -1334,7 +1444,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for ( final Race race : Globals.getAllRaces() )
+				for (final Race race : Globals.getAllRaces())
 				{
 					if (race == null)
 					{
@@ -1369,7 +1479,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
 				if (accept(getPc(), race))
 				{
@@ -1392,8 +1502,9 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				HashMap<String, PObjectNode> subTypes = new HashMap<String, PObjectNode>();
-				for ( final Race race : Globals.getAllRaces() )
+				HashMap<String, PObjectNode> subTypes =
+						new HashMap<String, PObjectNode>();
+				for (final Race race : Globals.getAllRaces())
 				{
 					if (race == null)
 					{
@@ -1456,7 +1567,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 			// now loop through all the races and
 			// see which ones are not filtered out
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
 				if (accept(getPc(), race))
 				{
@@ -1492,7 +1603,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 				rt[iType] = new PObjectNode();
 				rt[iType].setItem(aType);
 
-				for ( final Race race : Globals.getAllRaces() )
+				for (final Race race : Globals.getAllRaces())
 				{
 					if (race == null)
 					{
@@ -1506,7 +1617,9 @@ public class InfoRaces extends BaseCharacterInfoTab
 					}
 					if (race.getTypeUsingFlag(true).indexOf(aType) != -1)
 					{
-						StringTokenizer tok = new StringTokenizer(race.getTypeUsingFlag(true), ".");
+						StringTokenizer tok =
+								new StringTokenizer(
+									race.getTypeUsingFlag(true), ".");
 						while (tok.hasMoreTokens())
 						{
 							final String type = tok.nextToken();
@@ -1539,46 +1652,57 @@ public class InfoRaces extends BaseCharacterInfoTab
 			raceRoot.setChildren(rt);
 		}
 
-		public List<String> getMColumnList() 
+		public List<String> getMColumnList()
 		{
 			List<String> retList = new ArrayList<String>();
-			for(int i = 1; i < raceNameList.length; i++) 
+			for (int i = 1; i < raceNameList.length; i++)
 			{
 				retList.add(raceNameList[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) {
+		public boolean isMColumnDisplayed(int col)
+		{
 			return (displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) {
+		public void setMColumnDisplayed(int col, boolean disp)
+		{
 			setColumnViewOption(raceNameList[col], disp);
 			displayList.set(col, Boolean.valueOf(disp));
 		}
 
-		public int getMColumnOffset() {
+		public int getMColumnOffset()
+		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoRaces.sizecol." + raceNameList[col], colDefaultWidth[col]);
+		public int getMColumnDefaultWidth(int col)
+		{
+			return SettingsHandler.getPCGenOption("InfoRaces.sizecol."
+				+ raceNameList[col], colDefaultWidth[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoRaces.sizecol." + raceNameList[col], width);
+		public void setMColumnDefaultWidth(int col, int width)
+		{
+			SettingsHandler.setPCGenOption("InfoRaces.sizecol."
+				+ raceNameList[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
-			return SettingsHandler.getPCGenOption("InfoRaces.viewcol." + colName, defaultVal);
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
+		{
+			return SettingsHandler.getPCGenOption("InfoRaces.viewcol."
+				+ colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
+		private void setColumnViewOption(String colName, boolean val)
+		{
 			SettingsHandler.setPCGenOption("InfoRaces.viewcol." + colName, val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column)
+		{
 			// TODO Auto-generated method stub
 
 		}
@@ -1595,47 +1719,51 @@ public class InfoRaces extends BaseCharacterInfoTab
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); i++)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							final Component menuComponent =
+									menu.getComponent(i);
 
-							for (int i = 0; i < menu.getComponentCount(); i++)
+							if (menuComponent instanceof JMenuItem)
 							{
-								final Component menuComponent = menu.getComponent(i);
+								KeyStroke ks =
+										((JMenuItem) menuComponent)
+											.getAccelerator();
 
-								if (menuComponent instanceof JMenuItem)
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									KeyStroke ks = ((JMenuItem) menuComponent).getAccelerator();
+									selPath = tree.getSelectionPath();
+									((JMenuItem) menuComponent).doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										selPath = tree.getSelectionPath();
-										((JMenuItem) menuComponent).doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -1654,7 +1782,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -1674,22 +1803,27 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		RacePopupMenu()
 		{
-			RacePopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_select"), "shortcut EQUALS"));
+			RacePopupMenu.this.add(createAddMenuItem(PropertyFactory
+				.getString("in_select"), "shortcut EQUALS"));
 			this.addSeparator();
 			RacePopupMenu.this.add(Utility.createMenuItem("Find item",
-					new ActionListener()
+				new ActionListener()
 				{
 					public void actionPerformed(ActionEvent e)
 					{
 						lastSearch = raceTable.searchTree(lastSearch);
 					}
-				}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+				}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+				true));
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddRaceActionListener(), PropertyFactory.getString("in_select"),
-				'\0', accelerator, PropertyFactory.getString("in_irSelRaceTip"), "Add16.gif", true);
+			return Utility
+				.createMenuItem(label, new AddRaceActionListener(),
+					PropertyFactory.getString("in_select"), '\0', accelerator,
+					PropertyFactory.getString("in_irSelRaceTip"), "Add16.gif",
+					true);
 		}
 
 		private class AddRaceActionListener extends RaceActionListener
@@ -1709,4 +1843,3 @@ public class InfoRaces extends BaseCharacterInfoTab
 		}
 	}
 }
-

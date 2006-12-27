@@ -206,13 +206,15 @@ public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
 			// Update the include or exclude items list, as appropriate
 			if (inExString.startsWith("INCLUDE:"))
 			{
-				includeItems.addAll(CoreUtility.split(inExString.substring(8), '|'));
+				includeItems.addAll(CoreUtility.split(inExString.substring(8),
+					'|'));
 			}
 			else
 			{
 				if (inExString.startsWith("EXCLUDE:"))
 				{
-					excludeItems.addAll(CoreUtility.split(inExString.substring(8), '|'));
+					excludeItems.addAll(CoreUtility.split(inExString
+						.substring(8), '|'));
 				}
 			}
 

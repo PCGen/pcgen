@@ -59,13 +59,13 @@ public abstract class IOHandler
 	 * @param path a character (PCG) file path
 	 */
 	public final void readForPreview(final PlayerCharacter aPC,
-			final String path)
+		final String path)
 	{
 		internalRead(aPC, path, false);
 	}
 
 	private void internalRead(final PlayerCharacter aPC, final String path,
-			final boolean validate)
+		final boolean validate)
 	{
 		InputStream in = null;
 
@@ -92,7 +92,8 @@ public abstract class IOHandler
 				}
 				catch (NullPointerException e)
 				{
-					Logging.errorPrint("Could not create file inputStream IOHandler::read", e);
+					Logging.errorPrint(
+						"Could not create file inputStream IOHandler::read", e);
 				}
 			}
 		}
@@ -112,7 +113,8 @@ public abstract class IOHandler
 	 * @throws IOException
 	 * @throws NullPointerException
 	 */
-	public final void write(PlayerCharacter aPC, String filename) throws IOException, NullPointerException
+	public final void write(PlayerCharacter aPC, String filename)
+		throws IOException, NullPointerException
 	{
 		OutputStream out = null;
 		File bakFile = null;
@@ -121,17 +123,20 @@ public abstract class IOHandler
 		{
 			// Make a backup of the old file, if it exists and isn't empty
 			File outFile = new File(filename);
-			if (SettingsHandler.getCreatePcgBackup() && outFile.exists() && outFile.length() > 0)
+			if (SettingsHandler.getCreatePcgBackup() && outFile.exists()
+				&& outFile.length() > 0)
 			{
 				String file = outFile.getName();
 				File backupPcgPath = SettingsHandler.getBackupPcgPath();
 				if (!backupPcgPath.getPath().equals(""))
 				{
-					bakFile = new File(backupPcgPath + File.separator + file + ".bak");
+					bakFile =
+							new File(backupPcgPath + File.separator + file
+								+ ".bak");
 				}
 				else
 				{
-					bakFile = new File(filename+ ".bak");
+					bakFile = new File(filename + ".bak");
 				}
 				if (bakFile.exists())
 				{
@@ -146,7 +151,8 @@ public abstract class IOHandler
 		}
 		catch (IOException ex)
 		{
-			Logging.errorPrint("Exception in IOHandler::write when writing", ex);
+			Logging
+				.errorPrint("Exception in IOHandler::write when writing", ex);
 			throw ex;
 		}
 		finally
@@ -165,7 +171,10 @@ public abstract class IOHandler
 				}
 				catch (NullPointerException e)
 				{
-					Logging.errorPrint("Could not create FileOutputStream in IOHandler::write", e);
+					Logging
+						.errorPrint(
+							"Could not create FileOutputStream in IOHandler::write",
+							e);
 					throw e;
 				}
 			}
@@ -182,7 +191,7 @@ public abstract class IOHandler
 	 * @param validate
 	 */
 	protected abstract void read(PlayerCharacter aPC, InputStream in,
-			final boolean validate);
+		final boolean validate);
 
 	/////////////////////////////////////////////////////////////////////////////
 	////////////////////////////// Abstract /////////////////////////////////////

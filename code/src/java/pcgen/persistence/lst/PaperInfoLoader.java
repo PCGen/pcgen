@@ -43,7 +43,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 	/** Creates a new instance of PaperInfoLoader. */
 	public PaperInfoLoader()
 	{
-	    // Empty Constructor
+		// Empty Constructor
 	}
 
 	@Override
@@ -67,7 +67,8 @@ final class PaperInfoLoader extends LstLineFileLoader
 		final StringTokenizer colToken = new StringTokenizer(lstLine, "\t");
 		int iCount = 0;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PaperInfoLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PaperInfoLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -78,7 +79,8 @@ final class PaperInfoLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
 			PaperInfoLstToken token = (PaperInfoLstToken) tokenMap.get(key);
@@ -86,23 +88,29 @@ final class PaperInfoLoader extends LstLineFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, psize.toString(), sourceURL.toString(), value);
+				LstUtils.deprecationCheck(token, psize.toString(), sourceURL
+					.toString(), value);
 				if (!token.parse(psize, value))
 				{
-					Logging.errorPrint("Error parsing equip slots " + psize.toString() + ':' + sourceURL + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing equip slots "
+						+ psize.toString() + ':' + sourceURL + ':' + colString
+						+ "\"");
 				}
 			}
-			else {
-				LstUtils.deprecationWarning("Using deprecated style of paperinfo.lst.  Please consult the docs for information about the new style paperinfo.lst");
+			else
+			{
+				LstUtils
+					.deprecationWarning("Using deprecated style of paperinfo.lst.  Please consult the docs for information about the new style paperinfo.lst");
 				try
 				{
 					psize.setPaperInfo(iCount, colString);
 				}
 				catch (IndexOutOfBoundsException e)
 				{
-					Logging.errorPrint("Illegal paper size info '" + lstLine + "' in " + sourceURL.toString());
+					Logging.errorPrint("Illegal paper size info '" + lstLine
+						+ "' in " + sourceURL.toString());
 				}
-	
+
 				iCount += 1;
 			}
 		}

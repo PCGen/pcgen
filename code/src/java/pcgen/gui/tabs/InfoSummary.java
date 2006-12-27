@@ -118,14 +118,19 @@ import pcgen.util.enumeration.Visibility;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public final class InfoSummary extends FilterAdapterPanel implements CharacterInfoTab
+public final class InfoSummary extends FilterAdapterPanel implements
+		CharacterInfoTab
 {
 	private static final Tab tab = Tab.SUMMARY;
-	
-	private static final String NONABILITY = PropertyFactory.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
-	private static final String STAT_UPPER_LIMIT = PropertyFactory.getString("in_sumCannotRaiseStatAbove"); // intentionally a fragment //$NON-NLS-1$
-	private static final String IN_PURCHASE_MODE = PropertyFactory.getString("in_sumInPurchaseMode"); // intentionally a fragment //$NON-NLS-1$
-	private static final String STAT_LOWER_LIMIT = PropertyFactory.getString("in_sumCannotLowerStatBelow"); // intentionally a fragment //$NON-NLS-1$
+
+	private static final String NONABILITY =
+			PropertyFactory.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
+	private static final String STAT_UPPER_LIMIT =
+			PropertyFactory.getString("in_sumCannotRaiseStatAbove"); // intentionally a fragment //$NON-NLS-1$
+	private static final String IN_PURCHASE_MODE =
+			PropertyFactory.getString("in_sumInPurchaseMode"); // intentionally a fragment //$NON-NLS-1$
+	private static final String STAT_LOWER_LIMIT =
+			PropertyFactory.getString("in_sumCannotLowerStatBelow"); // intentionally a fragment //$NON-NLS-1$
 	private static final int STAT_COLUMN = 0;
 	private static final int BASE_COLUMN = 1;
 	private static final int RACE_COLUMN = 2;
@@ -147,17 +152,19 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	private JComboBoxEx alignmentComboBox = new JComboBoxEx();
 	private JComboBoxEx classComboBox = new JComboBoxEx();
 	private JComboBoxEx raceComboBox = new JComboBoxEx();
-	private JFrame abilitiesFrame = new JFrame(PropertyFactory.getString("in_specialabilities")); //$NON-NLS-1$
+	private JFrame abilitiesFrame =
+			new JFrame(PropertyFactory.getString("in_specialabilities")); //$NON-NLS-1$
 	private JLabel labelAlignment = null;
 	private JLabel labelClass = null;
 	private JLabel labelHPName = null;
 	private JLabel labelHP = new JLabel();
 	private JLabel labelName = null;
 	private JLabel labelRace = null;
-	private JLabel poolLabel = new JLabel(PropertyFactory.getString("in_sumStatCost")); //$NON-NLS-1$
+	private JLabel poolLabel =
+			new JLabel(PropertyFactory.getString("in_sumStatCost")); //$NON-NLS-1$
 	private JLabel poolText = new JLabel();
 	private JLabel poolPointLabel = null;
-	private JLabel poolPointText  = null;
+	private JLabel poolPointText = null;
 	private JPanel levelPanel = new JPanel();
 	private JPanel northPanel = new JPanel();
 	private JPanel poolPanel = new JPanel();
@@ -179,279 +186,295 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * PC can be updated.
 	 */
 	private ActionListener abilitiesListener = new ActionListener()
+	{
+		public void actionPerformed(ActionEvent evt)
 		{
-			public void actionPerformed(ActionEvent evt)
+			if (!abilitiesFrameHasBeenSized)
 			{
-				if (!abilitiesFrameHasBeenSized)
-				{
-					Dimension screenSize = PCGen_Frame1.getCharacterPane().getParent().getParent().getSize();
-					int screenHeight = screenSize.height;
-					int screenWidth = screenSize.width;
+				Dimension screenSize =
+						PCGen_Frame1.getCharacterPane().getParent().getParent()
+							.getSize();
+				int screenHeight = screenSize.height;
+				int screenWidth = screenSize.width;
 
-					abilitiesFrame.setSize(screenWidth, screenHeight);
-					abilitiesFrameHasBeenSized = true;
-				}
-
-				abilitiesFrame.setVisible(true);
+				abilitiesFrame.setSize(screenWidth, screenHeight);
+				abilitiesFrameHasBeenSized = true;
 			}
-		};
+
+			abilitiesFrame.setVisible(true);
+		}
+	};
 
 	/**
 	 * The listener for when the PC alignment has been changed so the
 	 * PC can be updated.
 	 */
 	private ActionListener alignmentListener = new ActionListener()
+	{
+		public void actionPerformed(ActionEvent evt)
 		{
-			public void actionPerformed(ActionEvent evt)
+			if (alignmentComboBox.getSelectedItem() != null)
 			{
-				if (alignmentComboBox.getSelectedItem() != null)
-				{
-					alignmentChanged();
-				}
+				alignmentChanged();
 			}
-		};
+		}
+	};
 
 	/**
 	 * The listener for when the PC classes has been changed so the
 	 * PC can be updated.
 	 */
 	private ActionListener classListener = new ActionListener()
+	{
+		public void actionPerformed(ActionEvent evt)
 		{
-			public void actionPerformed(ActionEvent evt)
+			if (classComboBox.getSelectedItem() != null)
 			{
-				if (classComboBox.getSelectedItem() != null)
-				{
-					final PCClass pcClass = (PCClass) classComboBox.getSelectedItem();
-					setInfoLabelText(pcClass);
+				final PCClass pcClass =
+						(PCClass) classComboBox.getSelectedItem();
+				setInfoLabelText(pcClass);
 
-					if (pcClass.isQualified(pc))
-					{
-						labelClass.setForeground(new Color(SettingsHandler.getPrereqQualifyColor()));
-					}
-					else
-					{
-						labelClass.setForeground(new Color(SettingsHandler.getPrereqFailColor()));
-					}
+				if (pcClass.isQualified(pc))
+				{
+					labelClass.setForeground(new Color(SettingsHandler
+						.getPrereqQualifyColor()));
+				}
+				else
+				{
+					labelClass.setForeground(new Color(SettingsHandler
+						.getPrereqFailColor()));
 				}
 			}
-		};
+		}
+	};
 
 	/**
 	 * The listener for when a level is added to or removed from the
 	 * PC controlling whether it can be updated.
 	 */
 	private ActionListener levelCmdListener = new ActionListener()
+	{
+		public void actionPerformed(ActionEvent evt)
 		{
-			public void actionPerformed(ActionEvent evt)
+			int numLevels = levelText.getValue();
+
+			if (numLevels <= 0)
 			{
-				int numLevels = levelText.getValue();
+				ShowMessageDelegate
+					.showMessageDialog(
+						PropertyFactory
+							.getString("in_sumNumberOfLevelsMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
-				if (numLevels <= 0)
-				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNumberOfLevelsMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+				return;
+			}
 
-					return;
-				}
+			PCClass pcClass = (PCClass) classComboBox.getSelectedItem();
 
-				PCClass pcClass = (PCClass) classComboBox.getSelectedItem();
+			if (pcClass.getDisplayName().equals(Constants.s_NONESELECTED))
+			{
+				ShowMessageDelegate
+					.showMessageDialog(
+						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
-				if (pcClass.getDisplayName().equals(Constants.s_NONESELECTED))
-				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+				return;
+			}
+			if (pcClass == null)
+			{
+				ShowMessageDelegate
+					.showMessageDialog(
+						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
-					return;
-				}
-				if (pcClass == null)
-				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+				return;
+			}
 
-					return;
-				}
-
-				if (!pcClass.isQualified(pc))
-				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getDisplayName() + ".", //$NON-NLS-1$ //$NON-NLS-2$
+			if (!pcClass.isQualified(pc))
+			{
+				ShowMessageDelegate
+					.showMessageDialog(
+						PropertyFactory
+							.getString("in_sumYouAreNotQualifiedToTakeTheClass") + pcClass.getDisplayName() + ".", //$NON-NLS-1$ //$NON-NLS-2$
 						Constants.s_APPNAME, MessageType.ERROR);
 
-					return;
-				}
-
-				// Now we make it negative to remove levels
-				if (evt.getSource() == lvlDownButton)
-				{
-					numLevels *= -1;
-				}
-
-				addClass(pcClass, numLevels);
-				pcClassTreeModel.fireTableDataChanged();
+				return;
 			}
-		};
+
+			// Now we make it negative to remove levels
+			if (evt.getSource() == lvlDownButton)
+			{
+				numLevels *= -1;
+			}
+
+			addClass(pcClass, numLevels);
+			pcClassTreeModel.fireTableDataChanged();
+		}
+	};
 
 	/**
 	 * The listener for when the user moves through the race list
 	 * so the description text can be updated.
 	 */
 	private ActionListener raceListener = new ActionListener()
+	{
+		/**
+		 *  Update the info label when the user changes the race that is
+		 * selected in the combo box. Setting the character's race is
+		 * handled on a lost focus event now.
+		 *
+		 * @param  evt  The ActionEvent
+		 */
+		public void actionPerformed(ActionEvent evt)
 		{
-			/**
-			 *  Update the info label when the user changes the race that is
-			 * selected in the combo box. Setting the character's race is
-			 * handled on a lost focus event now.
-			 *
-			 * @param  evt  The ActionEvent
-			 */
-			public void actionPerformed(ActionEvent evt)
-			{
-				final Race race = (Race) raceComboBox.getSelectedItem();
+			final Race race = (Race) raceComboBox.getSelectedItem();
 
-				if (race.getDisplayName().equals(Constants.s_NONESELECTED)) {
-					enableClassControls(false);
-				}
-				else if (race != null){
-					setInfoLabelText(race);
-					enableClassControls(true);
-				}
+			if (race.getDisplayName().equals(Constants.s_NONESELECTED))
+			{
+				enableClassControls(false);
 			}
-		};
+			else if (race != null)
+			{
+				setInfoLabelText(race);
+				enableClassControls(true);
+			}
+		}
+	};
 
 	/**
 	 * The listener for when the random button is pressed to generate
 	 * a random name.
 	 */
 	private ActionListener randNameListener = new ActionListener()
+	{
+		public void actionPerformed(ActionEvent evt)
 		{
-			public void actionPerformed(ActionEvent evt)
+			if (nameFrame == null)
 			{
-				if (nameFrame == null)
-				{
-					nameFrame = new NameGui(pc);
-				}
-				else
-				{
-					nameFrame.setPc(pc);
-				}
-
-				nameFrame.setVisible(true);
+				nameFrame = new NameGui(pc);
 			}
-		};
+			else
+			{
+				nameFrame.setPc(pc);
+			}
 
+			nameFrame.setVisible(true);
+		}
+	};
 
 	/**
 	 * The listener for when the PC name has been changed so the
 	 * PC can be updated.
 	 */
 	private InputVerifier pcNameInputVerify = new InputVerifier()
+	{
+		public boolean shouldYieldFocus(JComponent input)
 		{
-			public boolean shouldYieldFocus(JComponent input)
-			{
-				boolean valueOk = verify(input);
-				final String entry = pcNameText.getText();
+			boolean valueOk = verify(input);
+			final String entry = pcNameText.getText();
 
-				if ((entry != null) && (!entry.equals(pc.getName())))
-				{
-					pc.setName(entry);
-					PCGen_Frame1.forceUpdate_PlayerTabs();
-				}
-				return valueOk;
-			}
-			
-			public boolean verify(JComponent input)
+			if ((entry != null) && (!entry.equals(pc.getName())))
 			{
-				return true;
+				pc.setName(entry);
+				PCGen_Frame1.forceUpdate_PlayerTabs();
 			}
-		};
+			return valueOk;
+		}
+
+		public boolean verify(JComponent input)
+		{
+			return true;
+		}
+	};
 
 	/**
 	 * The listener for when the player name has been changed so the
 	 * PC can be updated.
 	 */
 	private InputVerifier playerNameInputVerify = new InputVerifier()
+	{
+		public boolean shouldYieldFocus(JComponent input)
 		{
-			public boolean shouldYieldFocus(JComponent input)
-			{
-				boolean valueOk = verify(input);
-				String entry = playerNameText.getText();
+			boolean valueOk = verify(input);
+			String entry = playerNameText.getText();
 
-				if ((entry != null) && (!entry.equals(pc.getPlayersName())))
-				{
-					pc.setPlayersName(entry);
-				}
-				return valueOk;
-			}
-			
-			public boolean verify(JComponent input)
+			if ((entry != null) && (!entry.equals(pc.getPlayersName())))
 			{
-				return true;
+				pc.setPlayersName(entry);
 			}
-		};
+			return valueOk;
+		}
+
+		public boolean verify(JComponent input)
+		{
+			return true;
+		}
+	};
 
 	/**
 	 * The listener for when the PC race has been changed so the
 	 * PC can be updated.
 	 */
 	private FocusAdapter raceFocusListener = new FocusAdapter()
+	{
+		/**
+		 *  Update character's race when the user moves away from
+		 * the race combo box.
+		 *
+		 * @param  evt  The FocusEvent
+		 */
+		public void focusLost(FocusEvent evt)
 		{
-			/**
-			 *  Update character's race when the user moves away from
-			 * the race combo box.
-			 *
-			 * @param  evt  The FocusEvent
-			 */
-			public void focusLost(FocusEvent evt)
+			// Temporary focus lost means something like the drop-down has
+			// got focus
+			if (evt.isTemporary())
 			{
-				// Temporary focus lost means something like the drop-down has
-				// got focus
-				if (evt.isTemporary())
-				{
-					return;
-				}
-
-				// Focus was really lost; update the race
-				///////////////////////////////
-				// If user needs to select a hitpoint value from the popup list, then
-				// when running Java 1.3 racecombo doesn't loose focus. This causes
-				// the race to revert to the previously selected value upon return to
-				// the summary tab. Running updateRace in a thread appears to fix this...
-				//
-				// Byngl - November 19, 2002
-				//
-				final Runnable doUpdate = new Runnable()
-					{
-						public void run()
-						{
-							updateRace();
-						}
-					};
-
-				SwingUtilities.invokeLater(doUpdate);
-
-				///////////////////////////////
+				return;
 			}
-		};
+
+			// Focus was really lost; update the race
+			///////////////////////////////
+			// If user needs to select a hitpoint value from the popup list, then
+			// when running Java 1.3 racecombo doesn't loose focus. This causes
+			// the race to revert to the previously selected value upon return to
+			// the summary tab. Running updateRace in a thread appears to fix this...
+			//
+			// Byngl - November 19, 2002
+			//
+			final Runnable doUpdate = new Runnable()
+			{
+				public void run()
+				{
+					updateRace();
+				}
+			};
+
+			SwingUtilities.invokeLater(doUpdate);
+
+			///////////////////////////////
+		}
+	};
 
 	/**
 	 * The listener for when the PC tab name has been changed so the
 	 * PC can be updated.
 	 */
 	private InputVerifier tabNameInputVerify = new InputVerifier()
+	{
+		public boolean shouldYieldFocus(JComponent input)
 		{
-			public boolean shouldYieldFocus(JComponent input)
-			{
-				boolean valueOk = verify(input);
-				String entry = tabNameText.getText();
+			boolean valueOk = verify(input);
+			String entry = tabNameText.getText();
 
-				if ((entry != null) && (!entry.equals(pc.getTabName())))
-				{
-					pc.setTabName(entry);
-				}
-				return valueOk;
-			}
-			
-			public boolean verify(JComponent input)
+			if ((entry != null) && (!entry.equals(pc.getTabName())))
 			{
-				return true;
+				pc.setTabName(entry);
 			}
-		};
+			return valueOk;
+		}
+
+		public boolean verify(JComponent input)
+		{
+			return true;
+		}
+	};
 
 	private JButton abilitiesButton;
 	private JButton btnAddHD = new JButton("+"); //$NON-NLS-1$
@@ -494,7 +517,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -509,7 +532,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Summary.Order", tab.ordinal()); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			".Panel.Summary.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	public void setTabOrder(int order)
@@ -540,7 +564,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			toDoList.add(PropertyFactory.getString("in_sumTodoName")); //$NON-NLS-1$
 		}
-		if (Globals.getGameModeAlignmentText().length() != 0 && pc.getAlignment() == 9)
+		if (Globals.getGameModeAlignmentText().length() != 0
+			&& pc.getAlignment() == 9)
 		{
 			toDoList.add(PropertyFactory.getString("in_sumTodoAlign")); //$NON-NLS-1$
 		}
@@ -586,7 +611,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -597,7 +622,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		//
 		if (rollStatsButton != null)
 		{
-			if ((pc.getTotalPlayerLevels() == 0) && (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
+			if ((pc.getTotalPlayerLevels() == 0)
+				&& (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
 			{
 				rollStatsButton.setEnabled(true);
 			}
@@ -610,7 +636,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -673,7 +699,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if (numHD <= 0)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+			ShowMessageDelegate
+				.showMessageDialog(
+					PropertyFactory
+						.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -699,7 +728,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				//
 				if (numHD < 0)
 				{
-					final int minHD = pc.getRace().getMonsterClassLevels(pc) + pc.getRace().hitDice(pc);
+					final int minHD =
+							pc.getRace().getMonsterClassLevels(pc)
+								+ pc.getRace().hitDice(pc);
 					final PCClass pcClass = pc.getClassKeyed(monsterClass);
 					int currentHD = pc.getRace().hitDice(pc);
 
@@ -711,7 +742,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					//
 					// Don't allow a number so big it causes us to drop below minimum level
 					//
-					Logging.errorPrint("minHD=" + minHD + "  currentHD=" + currentHD + "  numHD=" + numHD); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					Logging
+						.errorPrint("minHD=" + minHD + "  currentHD=" + currentHD + "  numHD=" + numHD); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 					if ((currentHD + numHD) < minHD)
 					{
@@ -719,9 +751,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						Logging.errorPrint("numHD modified to: " + numHD); //$NON-NLS-1$
 					}
 
-					if ((pcClass == null) || (numHD == 0) || ((currentHD + numHD) < minHD))
+					if ((pcClass == null) || (numHD == 0)
+						|| ((currentHD + numHD) < minHD))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+						ShowMessageDelegate
+							.showMessageDialog(
+								PropertyFactory
+									.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 						return;
 					}
@@ -791,7 +827,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				continue;
 			}
 
-			final int statValue = pc.getStatList().getBaseStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[stat]);
+			final int statValue =
+					pc.getStatList().getBaseStatFor(
+						SettingsHandler.getGame().s_ATTRIBSHORT[stat]);
 			i += getPurchaseCostForStat(pc, statValue);
 		}
 		i += (int) pc.getTotalBonusTo("POINTBUY", "SPENT"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -810,14 +848,17 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if ((aRace != null) && !aRace.getDisplayName().startsWith("<none")) //$NON-NLS-1$
 		{
-			b.append("<b>").append(PropertyFactory.getString("in_sumRace")).append(aRace.getDisplayName()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-2$
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aRace.getType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b
+				.append("<b>").append(PropertyFactory.getString("in_sumRace")).append(aRace.getDisplayName()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-3$ //$NON-NLS-2$
+			b
+				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aRace.getType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			final String cString = aRace.preReqHTMLStrings(pc, false);
 
 			if (cString.length() > 0)
 			{
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")); //$NON-NLS-1$ //$NON-NLS-2$
+				b
+					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")); //$NON-NLS-1$ //$NON-NLS-2$
 				b.append("</b>:").append(cString); //$NON-NLS-1$
 			}
 
@@ -825,7 +866,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 			if (bString.length() > 0)
 			{
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSource1")); //$NON-NLS-1$ //$NON-NLS-2$
+				b
+					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSource1")); //$NON-NLS-1$ //$NON-NLS-2$
 				b.append("</b>:").append(bString); //$NON-NLS-1$
 			}
 
@@ -840,7 +882,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						aString.append(' ');
 					}
 
-					aString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]).append(PropertyFactory.getString("in_SumNonability")); //$NON-NLS-1$
+					aString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i])
+						.append(PropertyFactory.getString("in_SumNonability")); //$NON-NLS-1$
 				}
 				else
 				{
@@ -851,45 +894,55 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 							aString.append(' ');
 						}
 
-						aString.append(SettingsHandler.getGame().s_ATTRIBSHORT[i]).append(':').append(aRace.getStatMod(i, pc));
+						aString.append(
+							SettingsHandler.getGame().s_ATTRIBSHORT[i]).append(
+							':').append(aRace.getStatMod(i, pc));
 					}
 				}
 			}
 
 			if (aString.length() > 0)
 			{
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumStatAdj")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumStatAdj")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				b.append(String.valueOf(aString));
 			}
 
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSize1")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b
+				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumSize1")).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			b.append(aRace.getSize());
 
-			if (aRace.getMovement() != null) {
+			if (aRace.getMovement() != null)
+			{
 				final String movelabel = aRace.getMovement().toString();
 				if (movelabel.length() > 0)
 				{
-					b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumMove")).append("</b>").append(String.valueOf(movelabel)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					b
+						.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumMove")).append("</b>").append(String.valueOf(movelabel)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 			}
 
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumVision")).append("</b>").append(aRace.getDisplayVision(pc)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b
+				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumVision")).append("</b>").append(aRace.getDisplayVision(pc)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			if (aRace.getFavoredClass().length() != 0)
 			{
 				final String favClassKey = aRace.getFavoredClass();
-				String favClassName = PropertyFactory.getString("in_sumVarious"); //$NON-NLS-1$
+				String favClassName =
+						PropertyFactory.getString("in_sumVarious"); //$NON-NLS-1$
 				PCClass favClass = Globals.getClassKeyed(favClassKey);
 				if (favClass != null)
 				{
 					favClassName = favClass.getDisplayName();
 				}
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>").append(favClassName); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>").append(favClassName); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
 			if (aRace.getLevelAdjustment(pc) > 0)
 			{
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumLevelAdj")).append("</b>:").append(String.valueOf(aRace.getLevelAdjustment(pc))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumLevelAdj")).append("</b>:").append(String.valueOf(aRace.getLevelAdjustment(pc))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 		}
 
@@ -907,30 +960,37 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		if (aClass != null)
 		{
 			StringBuffer b = new StringBuffer();
-			b.append("<html><b>").append(PropertyFactory.getString("in_sumClass")).append(aClass.getDisplayName()).append("</b>"); //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-2$
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aClass.getType());  //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
+			b
+				.append("<html><b>").append(PropertyFactory.getString("in_sumClass")).append(aClass.getDisplayName()).append("</b>"); //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-2$
+			b
+				.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumTYPE")).append("</b>:").append(aClass.getType()); //$NON-NLS-1$//$NON-NLS-2$ //$NON-NLS-3$
 
 			final String cString = aClass.preReqHTMLStrings(pc, false);
 
 			if (cString.length() > 0)
 			{
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")).append("</b>:").append(cString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" &nbsp;<b>").append(PropertyFactory.getString("in_sumRequirements")).append("</b>:").append(cString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
 			String bString = aClass.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_sumSource")).append("</b>:").append(bString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" <b>").append(PropertyFactory.getString("in_sumSource")).append("</b>:").append(bString); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
-//			b.append(" <b>").append(PropertyFactory.getString("in_sumBAB1")).append("</b>").append(aClass.getAttackBonusType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			b.append(" <b>").append(PropertyFactory.getString("in_sumHD")).append("</b>1D").append(aClass.getBaseHitDie() + ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			//			b.append(" <b>").append(PropertyFactory.getString("in_sumBAB1")).append("</b>").append(aClass.getAttackBonusType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			b
+				.append(" <b>").append(PropertyFactory.getString("in_sumHD")).append("</b>1D").append(aClass.getBaseHitDie() + ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 			if (Globals.getGameModeShowSpellTab())
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_sumSpelltype")).append("</b>").append(aClass.getSpellType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				b.append(" <b>").append(PropertyFactory.getString("in_sumBaseStat")).append("</b>").append(aClass.getSpellBaseStat()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" <b>").append(PropertyFactory.getString("in_sumSpelltype")).append("</b>").append(aClass.getSpellType()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				b
+					.append(" <b>").append(PropertyFactory.getString("in_sumBaseStat")).append("</b>").append(aClass.getSpellBaseStat()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
 			b.append("</html>"); //$NON-NLS-1$
@@ -953,26 +1013,32 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			if (Globals.getGameModeACText().length() != 0)
 			{
-				statBuf.append("<b>").append(Globals.getGameModeACAbbrev()).append("</b> "); //$NON-NLS-1$ //$NON-NLS-2$
-				statBuf.append("<i>").append(PropertyFactory.getString("in_sumTotal")).append("</i>: ").append(pc.getACTotal()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				statBuf
+					.append("<b>").append(Globals.getGameModeACAbbrev()).append("</b> "); //$NON-NLS-1$ //$NON-NLS-2$
+				statBuf
+					.append("<i>").append(PropertyFactory.getString("in_sumTotal")).append("</i>: ").append(pc.getACTotal()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				if (SettingsHandler.getGame().isValidACType("Flatfooted")) //$NON-NLS-1$
 				{
-					statBuf.append(" <i>").append(PropertyFactory.getString("in_sumFlatfooted")).append("</i>: ").append(pc.flatfootedAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					statBuf
+						.append(" <i>").append(PropertyFactory.getString("in_sumFlatfooted")).append("</i>: ").append(pc.flatfootedAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				if (SettingsHandler.getGame().isValidACType("Touch")) //$NON-NLS-1$
 				{
-					statBuf.append(" <i>").append(PropertyFactory.getString("in_sumTouch")).append("</i>: ").append(pc.touchAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					statBuf
+						.append(" <i>").append(PropertyFactory.getString("in_sumTouch")).append("</i>: ").append(pc.touchAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				statBuf.append("<br>"); //$NON-NLS-1$
 			}
 			else
 			{
-				statBuf.append("<b>").append(PropertyFactory.getString("in_sumTotalAC")).append("</b> ").append((int) pc.getTotalBonusTo(PropertyFactory.getString("in_sumCombat"), PropertyFactory.getString("in_sumAC"))); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-4$ //$NON-NLS-5$
+				statBuf
+					.append("<b>").append(PropertyFactory.getString("in_sumTotalAC")).append("</b> ").append((int) pc.getTotalBonusTo(PropertyFactory.getString("in_sumCombat"), PropertyFactory.getString("in_sumAC"))); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-4$ //$NON-NLS-5$
 				statBuf.append("<br>"); //$NON-NLS-1$
 			}
 
 			final int initMod = pc.initiativeMod();
-			statBuf.append("<b>").append(PropertyFactory.getString("in_sumInit")).append("</b>: ").append(Delta.toString(initMod)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			statBuf
+				.append("<b>").append(PropertyFactory.getString("in_sumInit")).append("</b>: ").append(Delta.toString(initMod)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			// BAB
 			String aString = SettingsHandler.getGame().getBabAbbrev();
@@ -983,10 +1049,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			if ((aString != null) && (aString.length() != 0))
 			{
 				bonus = pc.baseAttackBonus();
-				statBuf.append(" <b>").append(aString).append("</b>: ").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				statBuf
+					.append(" <b>").append(aString).append("</b>: ").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 				// Include Epic Attack Bonus if there is one.
-				int epicBonus = (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");//$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				int epicBonus =
+						(int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");//$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				if (epicBonus > 0)
 				{
 					statBuf.append('+');//$NON-NLS-1$
@@ -995,14 +1063,17 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					statBuf.append(bonus + epicBonus);
 				}
 			}
-			statBuf.append(" <b>").append(Globals.getGameModeHPAbbrev()).append("</b>: ").append(pc.hitPoints()); //$NON-NLS-1$ //$NON-NLS-2$
+			statBuf
+				.append(" <b>").append(Globals.getGameModeHPAbbrev()).append("</b>: ").append(pc.hitPoints()); //$NON-NLS-1$ //$NON-NLS-2$
 
 			if (Globals.getGameModeAltHPText().length() != 0)
 			{
-				statBuf.append(" <b>").append(Globals.getGameModeAltHPAbbrev()).append("</b>: ").append(pc.altHP()); //$NON-NLS-1$ //$NON-NLS-2$
+				statBuf
+					.append(" <b>").append(Globals.getGameModeAltHPAbbrev()).append("</b>: ").append(pc.altHP()); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
-			for (int z = 0; z < SettingsHandler.getGame().getUnmodifiableCheckList().size(); ++z)
+			for (int z = 0; z < SettingsHandler.getGame()
+				.getUnmodifiableCheckList().size(); ++z)
 			{
 				//
 				// If the current game mode has no 'saves', then we will omit the header as we will never get here...
@@ -1010,17 +1081,20 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				if (z == 0)
 				{
 					statBuf.append("<br>"); //$NON-NLS-1$
-					statBuf.append("<b>").append(PropertyFactory.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					statBuf
+						.append("<b>").append(PropertyFactory.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				bonus = pc.getTotalCheck(z);
-				statBuf.append(" <i>").append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()) //$NON-NLS-1$
-				.append("</i>: ").append(Delta.toString(bonus)); //$NON-NLS-1$
+				statBuf
+					.append(" <i>").append(SettingsHandler.getGame().getUnmodifiableCheckList().get(z).toString()) //$NON-NLS-1$
+					.append("</i>: ").append(Delta.toString(bonus)); //$NON-NLS-1$
 			}
 
 			//
 			// Show character's current size
 			//
-			statBuf.append("<br><b>").append(PropertyFactory.getString("in_sumSize")).append("</b>: ").append(pc.getSize()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			statBuf
+				.append("<br><b>").append(PropertyFactory.getString("in_sumSize")).append("</b>: ").append(pc.getSize()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
 		statBuf.append("</html>"); //$NON-NLS-1$
@@ -1036,10 +1110,15 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	{
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
-			if ((levels > 0) && (pc.getAlignment() == SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE)))
+			if ((levels > 0)
+				&& (pc.getAlignment() == SettingsHandler.getGame()
+					.getIndexOfAlignment(Constants.s_NONE)))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouMustSelectAnAlignmentBeforeAddingClasses"), Constants.s_APPNAME, //$NON-NLS-1$
-					MessageType.ERROR);
+				ShowMessageDelegate
+					.showMessageDialog(
+						PropertyFactory
+							.getString("in_sumYouMustSelectAnAlignmentBeforeAddingClasses"), Constants.s_APPNAME, //$NON-NLS-1$
+						MessageType.ERROR);
 
 				return;
 			}
@@ -1052,23 +1131,29 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if ((levels > 0) && !pc.canLevelUp())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+			ShowMessageDelegate
+				.showMessageDialog(
+					PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
 		if ((levels > 1) && SettingsHandler.getEnforceSpendingBeforeLevelUp())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+			ShowMessageDelegate
+				.showMessageDialog(
+					PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 			levels = 1;
 		}
 
 		final PCClass aClass = pc.getClassKeyed(theClass.getKeyName());
 
 		if (!Globals.checkRule(RuleConstants.LEVELCAP) //$NON-NLS-1$
-			&& ((levels > theClass.getMaxLevel())
-			|| ((aClass != null) && ((aClass.getLevel() + levels) > aClass.getMaxLevel()))))
+			&& ((levels > theClass.getMaxLevel()) || ((aClass != null) && ((aClass
+				.getLevel() + levels) > aClass.getMaxLevel()))))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumMaximumLevelIs") + theClass.getMaxLevel(), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+			ShowMessageDelegate
+				.showMessageDialog(
+					PropertyFactory.getString("in_sumMaximumLevelIs") + theClass.getMaxLevel(), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 
 			return;
 		}
@@ -1079,9 +1164,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			if (SettingsHandler.getGame().isPurchaseStatMode()
 				&& (pc.getPointBuyPoints() > getUsedStatPool(pc)))
 			{
-				int proceed = JOptionPane.showConfirmDialog(this, PropertyFactory.getString("in_sumPoolWarning"), //$NON-NLS-1$
-						PropertyFactory.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
-						JOptionPane.WARNING_MESSAGE);
+				int proceed =
+						JOptionPane
+							.showConfirmDialog(
+								this,
+								PropertyFactory.getString("in_sumPoolWarning"), //$NON-NLS-1$
+								PropertyFactory
+									.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
+								JOptionPane.WARNING_MESSAGE);
 
 				if (proceed != JOptionPane.YES_OPTION)
 				{
@@ -1090,22 +1180,32 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			}
 			else if (SettingsHandler.isShowWarningAtFirstLevelUp())
 			{
-				final JCheckBox shouldDisplay = new JCheckBox(PropertyFactory.getString(
-							"in_sumAbilitiesWarningCheckBox"), true); //$NON-NLS-1$
+				final JCheckBox shouldDisplay =
+						new JCheckBox(PropertyFactory
+							.getString("in_sumAbilitiesWarningCheckBox"), true); //$NON-NLS-1$
 				shouldDisplay.addItemListener(new ItemListener()
+				{
+					public void itemStateChanged(ItemEvent evt)
 					{
-						public void itemStateChanged(ItemEvent evt)
-						{
-							SettingsHandler.setShowWarningAtFirstLevelUp(shouldDisplay.isSelected());
-						}
-					});
+						SettingsHandler
+							.setShowWarningAtFirstLevelUp(shouldDisplay
+								.isSelected());
+					}
+				});
 
-				JPanel msgPanel = buildMessageLabelPanel(PropertyFactory.getString("in_sumAbilitiesWarning"), //$NON-NLS-1$
-						shouldDisplay);
+				JPanel msgPanel =
+						buildMessageLabelPanel(PropertyFactory
+							.getString("in_sumAbilitiesWarning"), //$NON-NLS-1$
+							shouldDisplay);
 
-				int proceed = JOptionPane.showConfirmDialog(this, msgPanel,
-						PropertyFactory.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
-						JOptionPane.WARNING_MESSAGE);
+				int proceed =
+						JOptionPane
+							.showConfirmDialog(
+								this,
+								msgPanel,
+								PropertyFactory
+									.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
+								JOptionPane.WARNING_MESSAGE);
 
 				if (proceed != JOptionPane.YES_OPTION)
 				{
@@ -1155,7 +1255,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 * @param checkbox The optional checkbox to be added - may be null.
 	 * @return JPanel A panel containing the message and the checkbox.
 	 */
-	public static JPanel buildMessageLabelPanel(String message, JCheckBox checkbox)
+	public static JPanel buildMessageLabelPanel(String message,
+		JCheckBox checkbox)
 	{
 		JPanel panel = new JPanel();
 		JLabel label;
@@ -1209,7 +1310,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		return panel;
 	}
-		/**
+
+	/**
 	 * This method is called when a character's alignment is changed to validate
 	 * the alignment matches those allowed for the character's classes
 	 */
@@ -1239,7 +1341,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			{
 				pc.setAlignment(newAlignment, false, true);
 
-				if (!aClass.isQualified(pc) && (aClass.getExClass().length() != 0))
+				if (!aClass.isQualified(pc)
+					&& (aClass.getExClass().length() != 0))
 				{
 					if (unqualified.length() > 0)
 					{
@@ -1257,9 +1360,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		//
 		if (unqualified.length() > 0)
 		{
-			if (JOptionPane.showConfirmDialog(null,
+			if (JOptionPane
+				.showConfirmDialog(
+					null,
 					PropertyFactory.getString("in_sumExClassesWarning") + Constants.s_LINE_SEP + unqualified, //$NON-NLS-1$
-					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
+					Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE) == JOptionPane.CANCEL_OPTION)
 			{
 				pc.setAlignment(oldAlignment, false, true);
 				alignmentComboBox.setSelectedIndex(oldAlignment);
@@ -1278,7 +1384,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		pc.setAlignment(newAlignment, false, true);
 		forceRefresh();
-		enableRaceControls(newAlignment != SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE));
+		enableRaceControls(newAlignment != SettingsHandler.getGame()
+			.getIndexOfAlignment(Constants.s_NONE));
 		PCGen_Frame1.getCharacterPane().refreshToDosAsync();
 	}
 
@@ -1345,18 +1452,20 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		pcClassTable = new JTableEx(new TableSorter(pcClassTreeModel));
 		pcClassTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		pcClassTable.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent evt)
 			{
-				public void mouseClicked(MouseEvent evt)
-				{
-					final String aString = pc.getLevelInfoClassKeyName(pcClassTable.getSelectedRow());
-					final PCClass aClass = Globals.getClassKeyed(aString);
+				final String aString =
+						pc.getLevelInfoClassKeyName(pcClassTable
+							.getSelectedRow());
+				final PCClass aClass = Globals.getClassKeyed(aString);
 
-					if (aClass != null)
-					{
-						classComboBox.setSelectedItem(aClass);
-					}
+				if (aClass != null)
+				{
+					classComboBox.setSelectedItem(aClass);
 				}
-			});
+			}
+		});
 	}
 
 	/**
@@ -1368,10 +1477,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		raceComboBox.setEnabled(enable);
 		// tests if the race selection is valid and enables the class controls
 		// TODO if (raceComboBox.getSelectedItem().equals(Race.NONE))
-		if (!(((Race)raceComboBox.getSelectedItem()).getDisplayName().equals(Constants.s_NONESELECTED))) {
+		if (!(((Race) raceComboBox.getSelectedItem()).getDisplayName()
+			.equals(Constants.s_NONESELECTED)))
+		{
 			enableClassControls(true);
 		}
-		else {
+		else
+		{
 			enableClassControls(false);
 		}
 	}
@@ -1406,12 +1518,15 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		refresh();
 	}
 
-	private TableColumn setStatTableColumnPrefs(final int columnIndex, final int preferredWidth, final int align)
+	private TableColumn setStatTableColumnPrefs(final int columnIndex,
+		final int preferredWidth, final int align)
 	{
 		TableColumn col = statTable.getColumnModel().getColumn(columnIndex);
 		int width = Globals.getCustColumnWidth("AbilitiesS", columnIndex); //$NON-NLS-1$
 
-		boolean tabVisible = SettingsHandler.getGame().getSummaryTabStatColumnVisible(columnIndex);
+		boolean tabVisible =
+				SettingsHandler.getGame().getSummaryTabStatColumnVisible(
+					columnIndex);
 		if (!tabVisible)
 		{
 			col.setMinWidth(0);
@@ -1426,7 +1541,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		}
 		col.setPreferredWidth(width);
 
-		col.addPropertyChangeListener(new ResizeColumnListener(statTable, "AbilitiesS", columnIndex)); //$NON-NLS-1$
+		col.addPropertyChangeListener(new ResizeColumnListener(statTable,
+			"AbilitiesS", columnIndex)); //$NON-NLS-1$
 		statTable.setColAlign(columnIndex, align);
 
 		if (!tabVisible)
@@ -1451,23 +1567,24 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		statTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		statTable.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent evt)
 			{
-				public void mouseClicked(MouseEvent evt)
-				{
-					statTableMouseClicked(evt);
-				}
-			});
+				statTableMouseClicked(evt);
+			}
+		});
 
 		setStatTableColumnPrefs(STAT_COLUMN, 40, SwingConstants.LEFT);
 
-		TableColumn col = setStatTableColumnPrefs(BASE_COLUMN, 30, SwingConstants.CENTER);
+		TableColumn col =
+				setStatTableColumnPrefs(BASE_COLUMN, 30, SwingConstants.CENTER);
 		if (col != null)
 		{
 			//Using a formatted text field here to validate for integers.
 			//FormattedCellEditor sets the focus to the component which
 			//selects the entered data for over-writing.
-			JFormattedTextField field = new JFormattedTextField(
-					new RegexFormatter("\\d{1,4}|\\*")); //$NON-NLS-1$
+			JFormattedTextField field =
+					new JFormattedTextField(new RegexFormatter("\\d{1,4}|\\*")); //$NON-NLS-1$
 			field.setHorizontalAlignment(SwingConstants.CENTER);
 			col.setCellEditor(new FormattedCellEditor(field));
 		}
@@ -1503,7 +1620,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		labelName = new JLabel(PropertyFactory.getString("in_sumCharString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		labelName =
+				new JLabel(PropertyFactory.getString("in_sumCharString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelName, c);
 		northPanel.add(labelName);
 
@@ -1519,16 +1637,19 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		Utility.buildConstraints(c, 1, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.WEST;
-		randName = new JButton(PropertyFactory.getString("in_sumRandomNameString")); //$NON-NLS-1$
+		randName =
+				new JButton(PropertyFactory.getString("in_sumRandomNameString")); //$NON-NLS-1$
 		gridbag.setConstraints(randName, c);
 		northPanel.add(randName);
-		Utility.setDescription(randName, PropertyFactory.getString("in_randNameTip")); //$NON-NLS-1$
+		Utility.setDescription(randName, PropertyFactory
+			.getString("in_randNameTip")); //$NON-NLS-1$
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 
-		JLabel tabLabel = new JLabel(PropertyFactory.getString("in_tabString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		JLabel tabLabel =
+				new JLabel(PropertyFactory.getString("in_tabString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(tabLabel, c);
 		northPanel.add(tabLabel);
 
@@ -1543,7 +1664,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 
-		JLabel label = new JLabel(PropertyFactory.getString("in_sumPlayerString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		JLabel label =
+				new JLabel(
+					PropertyFactory.getString("in_sumPlayerString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -1558,7 +1681,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		Utility.buildConstraints(c, 3, 0, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		labelAlignment = new JLabel(PropertyFactory.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		labelAlignment =
+				new JLabel(PropertyFactory.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelAlignment, c);
 		northPanel.add(labelAlignment);
 
@@ -1568,12 +1692,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		gridbag.setConstraints(alignmentComboBox, c);
 		northPanel.add(alignmentComboBox);
 
-		alignmentComboBox.setModel(new DefaultComboBoxModel(populateAlignmentStrings()));
+		alignmentComboBox.setModel(new DefaultComboBoxModel(
+			populateAlignmentStrings()));
 
 		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		labelRace = new JLabel(PropertyFactory.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		labelRace =
+				new JLabel(PropertyFactory.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelRace, c);
 		northPanel.add(labelRace);
 
@@ -1589,7 +1715,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		Utility.buildConstraints(c, 3, 2, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		labelClass = new JLabel(PropertyFactory.getString("in_classString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		labelClass =
+				new JLabel(PropertyFactory.getString("in_classString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelClass, c);
 		northPanel.add(labelClass);
 
@@ -1619,9 +1746,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		c.anchor = GridBagConstraints.WEST;
 
 		//label = new JLabel(PropertyFactory.getString("in_levelString") + ": ");
-		Utility.setDescription(lvlDownButton, PropertyFactory.getString("in_levelDownButtonTooltip")); //$NON-NLS-1$
-		Utility.setDescription(lvlUpButton, PropertyFactory.getString("in_levelUpButtonTooltip")); //$NON-NLS-1$
-		Utility.setDescription(levelText, PropertyFactory.getString("in_levelTextTooltip")); //$NON-NLS-1$
+		Utility.setDescription(lvlDownButton, PropertyFactory
+			.getString("in_levelDownButtonTooltip")); //$NON-NLS-1$
+		Utility.setDescription(lvlUpButton, PropertyFactory
+			.getString("in_levelUpButtonTooltip")); //$NON-NLS-1$
+		Utility.setDescription(levelText, PropertyFactory
+			.getString("in_levelTextTooltip")); //$NON-NLS-1$
 
 		//levelPanel.add(label);
 		levelPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -1632,9 +1762,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		gridbag.setConstraints(levelPanel, c);
 		northPanel.add(levelPanel);
 
-/////////////////////////
+		/////////////////////////
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
-		lblMonsterlHD.setText(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
+		lblMonsterlHD
+			.setText(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
 		c.anchor = GridBagConstraints.EAST;
 		northPanel.add(lblMonsterlHD, c);
 
@@ -1661,29 +1792,29 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		//pnlHD.add(lblHD);
 		btnAddHD.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					addMonsterHD(1);
-				}
-			});
+				addMonsterHD(1);
+			}
+		});
 		btnRemoveHD.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					addMonsterHD(-1);
-				}
-			});
+				addMonsterHD(-1);
+			}
+		});
 
 		btnAddKit.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent e)
-					{
-						addKit();
-					}
-				});
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				addKit();
+			}
+		});
 
-/////////////////////////
+		/////////////////////////
 		// Layout the Stats table
 		Utility.buildConstraints(c, 0, 5, 5, 2, 0, 18);
 		c.fill = GridBagConstraints.BOTH;
@@ -1701,7 +1832,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			if (poolPointLabel == null)
 			{
-				poolPointLabel = new JLabel(Globals.getGameModePointPoolName() + ": "); //$NON-NLS-1$
+				poolPointLabel =
+						new JLabel(Globals.getGameModePointPoolName() + ": "); //$NON-NLS-1$
 				poolPanel.add(poolPointLabel);
 
 				poolPointText = new JLabel();
@@ -1719,12 +1851,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			jButtonHP.setAlignmentY(0.0F);
 			jButtonHP.setHorizontalAlignment(SwingConstants.LEFT);
 			jButtonHP.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
 				{
-					public void actionPerformed(ActionEvent e)
-					{
-						pcGenGUI.showHpFrame(pc);
-					}
-				});
+					pcGenGUI.showHpFrame(pc);
+				}
+			});
 			poolPanel.add(jButtonHP);
 		}
 		else
@@ -1748,8 +1880,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		todoPane.setEditable(false);
 
 		JScrollPane scroll = new JScrollPane();
-		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scroll
+			.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scroll
+			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scroll.setViewportView(todoPane);
 		scroll.getViewport().setScrollMode(JViewport.BLIT_SCROLL_MODE);
 		scroll.setBackground(new Color(255, 255, 255));
@@ -1757,7 +1891,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		JPanel pane1 = new JPanel();
 		pane1.add(scroll);
 
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_tipsString")); //$NON-NLS-1$
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_tipsString")); //$NON-NLS-1$
 		title1.setTitleJustification(TitledBorder.CENTER);
 		pane1.setBorder(title1);
 		pane1.setLayout(new BoxLayout(pane1, BoxLayout.Y_AXIS));
@@ -1775,17 +1911,25 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		infoPane.setEditable(false);
 
 		JScrollPane scrol2 = new JScrollPane();
-		scrol2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrol2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrol2
+			.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrol2
+			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrol2.setViewportView(infoPane);
 		scrol2.getViewport().setScrollMode(JViewport.BLIT_SCROLL_MODE);
 		scrol2.setBackground(northPanel.getBackground());
-		Utility.setDescription(infoPane, PropertyFactory.getString("in_sumAny_requirements_you_don__t_meet_are_in_italics._137")); //$NON-NLS-1$
+		Utility
+			.setDescription(
+				infoPane,
+				PropertyFactory
+					.getString("in_sumAny_requirements_you_don__t_meet_are_in_italics._137")); //$NON-NLS-1$
 
 		JPanel pane2 = new JPanel();
 		pane2.add(scrol2);
 
-		TitledBorder title2 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_infoString")); //$NON-NLS-1$
+		TitledBorder title2 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_infoString")); //$NON-NLS-1$
 		title2.setTitleJustification(TitledBorder.CENTER);
 		pane2.setBorder(title2);
 		pane2.setLayout(new BoxLayout(pane2, BoxLayout.X_AXIS));
@@ -1809,7 +1953,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		JPanel pane3 = new JPanel();
 		pane3.add(scrollPane);
 
-		TitledBorder title3 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_classesString")); //$NON-NLS-1$
+		TitledBorder title3 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_classesString")); //$NON-NLS-1$
 		title3.setTitleJustification(TitledBorder.CENTER);
 		pane3.setBorder(title3);
 		pane3.setLayout(new BoxLayout(pane3, BoxLayout.X_AXIS));
@@ -1822,26 +1968,30 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			Utility.buildConstraints(c, 5, 6, 1, 1, 0, 0);
 			c.fill = GridBagConstraints.NONE;
 			c.anchor = GridBagConstraints.CENTER;
-			abilitiesButton = new JButton(PropertyFactory.getString("in_specialabilities")); //$NON-NLS-1$
+			abilitiesButton =
+					new JButton(PropertyFactory
+						.getString("in_specialabilities")); //$NON-NLS-1$
 			gridbag.setConstraints(abilitiesButton, c);
 			northPanel.add(abilitiesButton);
 
 			abilitiesFrame.getContentPane().setLayout(new BorderLayout());
-			abilitiesFrame.getContentPane().add(infoSpecialAbilities, BorderLayout.CENTER);
+			abilitiesFrame.getContentPane().add(infoSpecialAbilities,
+				BorderLayout.CENTER);
 
 			JPanel cPanel = new JPanel();
 			cPanel.setLayout(new FlowLayout());
 
-			JButton closeButton = new JButton(PropertyFactory.getString("in_close")); //$NON-NLS-1$
+			JButton closeButton =
+					new JButton(PropertyFactory.getString("in_close")); //$NON-NLS-1$
 			closeButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_close")); //$NON-NLS-1$
 			closeButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						abilitiesFrame.setVisible(false);
-						PCGen_Frame1.getCharacterPane().refreshToDosAsync();
-					}
-				});
+					abilitiesFrame.setVisible(false);
+					PCGen_Frame1.getCharacterPane().refreshToDosAsync();
+				}
+			});
 			cPanel.add(closeButton);
 			abilitiesFrame.getContentPane().add(cPanel, BorderLayout.SOUTH);
 
@@ -1849,7 +1999,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			Toolkit kit = Toolkit.getDefaultToolkit();
 
 			// according to the API, the following should *ALWAYS* use '/'
-			Image img = kit.getImage(loader.getResource("pcgen/gui/resource/PcgenIcon.gif")); //$NON-NLS-1$
+			Image img =
+					kit.getImage(loader
+						.getResource("pcgen/gui/resource/PcgenIcon.gif")); //$NON-NLS-1$
 			loader = null;
 			abilitiesFrame.setIconImage(img);
 		}
@@ -1861,8 +2013,10 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		statPane.setEditable(false);
 
 		JScrollPane statsScroll = new JScrollPane();
-		statsScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		statsScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		statsScroll
+			.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		statsScroll
+			.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		statsScroll.setViewportView(statPane);
 		statsScroll.getViewport().setScrollMode(JViewport.BLIT_SCROLL_MODE);
 		statsScroll.setBackground(new Color(255, 255, 255));
@@ -1870,7 +2024,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		JPanel pane4 = new JPanel();
 		pane4.add(statsScroll);
 
-		TitledBorder title4 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_statsString")); //$NON-NLS-1$
+		TitledBorder title4 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_statsString")); //$NON-NLS-1$
 		title4.setTitleJustification(TitledBorder.CENTER);
 		pane4.setBorder(title4);
 		pane4.setLayout(new BoxLayout(pane4, BoxLayout.Y_AXIS));
@@ -1884,25 +2040,25 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		this.add(northPanel, BorderLayout.CENTER);
 
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
+				formComponentShown();
+			}
 
-				public void componentHidden(ComponentEvent evt)
-				{
-					formComponentHidden();
-				}
-			});
+			public void componentHidden(ComponentEvent evt)
+			{
+				formComponentHidden();
+			}
+		});
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
 	private void addKit()
@@ -1917,7 +2073,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	 */
 	private String[] populateAlignmentStrings()
 	{
-		return alignmentStrings = SettingsHandler.getGame().getAlignmentListStrings(true);
+		return alignmentStrings =
+				SettingsHandler.getGame().getAlignmentListStrings(true);
 	}
 
 	/**
@@ -1938,13 +2095,15 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		boolean rebuild = false;
 
-		if (alignmentStrings.length != SettingsHandler.getGame().getUnmodifiableAlignmentList().size()) // - 1 DRH
+		if (alignmentStrings.length != SettingsHandler.getGame()
+			.getUnmodifiableAlignmentList().size()) // - 1 DRH
 		{
 			rebuild = true;
 		}
 		else
 		{
-			String[] al = SettingsHandler.getGame().getAlignmentListStrings(true);
+			String[] al =
+					SettingsHandler.getGame().getAlignmentListStrings(true);
 
 			for (int i = 0; i < Math.min(alignmentStrings.length, al.length); ++i)
 			{
@@ -1957,7 +2116,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if (rebuild)
 		{
-			alignmentComboBox.setModel(new DefaultComboBoxModel(populateAlignmentStrings()));
+			alignmentComboBox.setModel(new DefaultComboBoxModel(
+				populateAlignmentStrings()));
 		}
 
 		final int align = pc.getAlignment();
@@ -1970,13 +2130,15 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		final Race pcRace = pc.getRace();
 		raceComboModel.setSelectedItem(pcRace);
 
-		if ( PrereqHandler.passesAll( pcRace.getPreReqList(), pc, pcRace))
+		if (PrereqHandler.passesAll(pcRace.getPreReqList(), pc, pcRace))
 		{
-			labelRace.setForeground(new Color(SettingsHandler.getPrereqQualifyColor()));
+			labelRace.setForeground(new Color(SettingsHandler
+				.getPrereqQualifyColor()));
 		}
 		else
 		{
-			labelRace.setForeground(new Color(SettingsHandler.getPrereqFailColor()));
+			labelRace.setForeground(new Color(SettingsHandler
+				.getPrereqFailColor()));
 		}
 
 		setInfoLabelText(pcRace);
@@ -1996,11 +2158,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 			for (int idx = pc.getLevelInfoSize() - 1; idx >= 0; --idx)
 			{
-				final PCClass pcClass = pc.getClassKeyed(pc.getLevelInfoClassKeyName(idx));
+				final PCClass pcClass =
+						pc.getClassKeyed(pc.getLevelInfoClassKeyName(idx));
 
 				if (pcClass != null)
 				{
-					classComboBox.setSelectedItem(Globals.getClassKeyed(pcClass.getKeyName()));
+					classComboBox.setSelectedItem(Globals.getClassKeyed(pcClass
+						.getKeyName()));
 
 					if (classComboBox.getSelectedIndex() >= 0)
 					{
@@ -2012,7 +2176,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			//
 			// If couldn't find a selection, then default back to the previous choice
 			//
-			if ((classComboBox.getSelectedIndex() < 0) && (lastSelection != null))
+			if ((classComboBox.getSelectedIndex() < 0)
+				&& (lastSelection != null))
 			{
 				classComboBox.setSelectedItem(lastSelection);
 			}
@@ -2020,19 +2185,22 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		else if (pc.getRace().getMonsterClass(pc, false) != null)
 		{
 			String monsterClass = pc.getRace().getMonsterClass(pc, false);
-			classComboBox.setSelectedItem( Globals.getClassKeyed(monsterClass) );
+			classComboBox.setSelectedItem(Globals.getClassKeyed(monsterClass));
 		}
 		else
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumClassKindErrMsg"), Constants.s_APPNAME, //$NON-NLS-1$
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_sumClassKindErrMsg"), Constants.s_APPNAME, //$NON-NLS-1$
 				MessageType.ERROR);
 		}
 
-		final PCClass pcSelectedClass = (PCClass) classComboBox.getSelectedItem();
+		final PCClass pcSelectedClass =
+				(PCClass) classComboBox.getSelectedItem();
 
 		if ((pcSelectedClass != null) && !pcSelectedClass.isQualified(pc))
 		{
-			labelClass.setForeground(new Color(SettingsHandler.getPrereqFailColor()));
+			labelClass.setForeground(new Color(SettingsHandler
+				.getPrereqFailColor()));
 		}
 
 		createModels();
@@ -2043,7 +2211,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			pcClassTable.updateUI();
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			// TODO Handle this?
 		}
 
@@ -2051,7 +2220,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		setStatLabelText();
 
-		enableRaceControls(!alignmentComboBox.isVisible() || (align != SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE)));
+		enableRaceControls(!alignmentComboBox.isVisible()
+			|| (align != SettingsHandler.getGame().getIndexOfAlignment(
+				Constants.s_NONE)));
 		startListeners();
 	}
 
@@ -2071,7 +2242,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		lvlDownButton.addActionListener(levelCmdListener);
 		lvlUpButton.addActionListener(levelCmdListener);
 
-		if (!SettingsHandler.isAbilitiesShownAsATab() && (abilitiesButton != null))
+		if (!SettingsHandler.isAbilitiesShownAsATab()
+			&& (abilitiesButton != null))
 		{
 			abilitiesButton.addActionListener(abilitiesListener);
 		}
@@ -2088,15 +2260,18 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	{
 		final int selectedStat = statTable.getSelectedRow();
 
-		if ((selectedStat < 0) || (selectedStat >= SettingsHandler.getGame().s_ATTRIBSHORT.length))
+		if ((selectedStat < 0)
+			|| (selectedStat >= SettingsHandler.getGame().s_ATTRIBSHORT.length))
 		{
 			// Ignore invalid row selection
 			return;
 		}
 
-		int stat = pc.getStatList().getBaseStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[selectedStat]);
+		int stat =
+				pc.getStatList().getBaseStatFor(
+					SettingsHandler.getGame().s_ATTRIBSHORT[selectedStat]);
 		boolean makeChange = false;
-//		boolean checkPurchase = false;
+		//		boolean checkPurchase = false;
 		int increment = 0;
 		int poolMod = 0;
 
@@ -2114,36 +2289,42 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			case MOD_COLUMN:
 				break;
 
-			case INC_COLUMN:
-			{
+			case INC_COLUMN: {
 				increment = 1;
 
 				final int pcTotalLevels = pc.getTotalLevels();
 				final int pcPlayerLevels = pc.getTotalPlayerLevels();
-				final boolean isPurchaseMode = SettingsHandler.getGame().isPurchaseStatMode();
+				final boolean isPurchaseMode =
+						SettingsHandler.getGame().isPurchaseStatMode();
 
 				if (pc.isNonAbility(selectedStat))
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(NONABILITY, Constants.s_APPNAME, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(NONABILITY,
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
 				else if (stat >= aStat.getMaxValue())
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + Integer.toString(aStat.getMaxValue()), Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT
+							+ Integer.toString(aStat.getMaxValue()),
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
-				else if ((pcPlayerLevels < 2) && (stat >= SettingsHandler.getGame().getPurchaseScoreMax(pc)) && isPurchaseMode)
+				else if ((pcPlayerLevels < 2)
+					&& (stat >= SettingsHandler.getGame().getPurchaseScoreMax(
+						pc)) && isPurchaseMode)
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + SettingsHandler.getGame().getStatDisplayText(SettingsHandler.getGame().getPurchaseScoreMax(pc)) + IN_PURCHASE_MODE,
-							Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT
+							+ SettingsHandler.getGame().getStatDisplayText(
+								SettingsHandler.getGame().getPurchaseScoreMax(
+									pc)) + IN_PURCHASE_MODE,
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
 				else
@@ -2155,17 +2336,18 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						//
 						if (pcTotalLevels > 0)
 						{
-							poolMod = getPurchaseCostForStat(pc, stat + increment) - getPurchaseCostForStat(pc, stat);
+							poolMod =
+									getPurchaseCostForStat(pc, stat + increment)
+										- getPurchaseCostForStat(pc, stat);
 							break;
 						}
 					}
-
 
 					makeChange = true;
 
 					if (isPurchaseMode && (pcTotalLevels == 0))
 					{
-//						checkPurchase = true;
+						//						checkPurchase = true;
 					}
 					else if (!isPurchaseMode || (pcTotalLevels > 0))
 					{
@@ -2174,39 +2356,45 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				}
 			}
 
-			break;
+				break;
 
-			case DEC_COLUMN:
-			{
+			case DEC_COLUMN: {
 				increment = -1;
 
 				//final int minPurchaseScore = SettingsHandler.getPurchaseModeBaseStatScore();
-				final int minPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMin(pc);
+				final int minPurchaseScore =
+						SettingsHandler.getGame().getPurchaseScoreMin(pc);
 				final int pcTotalLevels = pc.getTotalLevels();
 				final int pcPlayerLevels = pc.getTotalPlayerLevels();
-				final boolean isPurchaseMode = SettingsHandler.getGame().isPurchaseStatMode();
+				final boolean isPurchaseMode =
+						SettingsHandler.getGame().isPurchaseStatMode();
 
 				if (stat <= aStat.getMinValue())
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + Integer.toString(aStat.getMinValue()), Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT
+							+ Integer.toString(aStat.getMinValue()),
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
 				else if (pc.isNonAbility(selectedStat))
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(NONABILITY, Constants.s_APPNAME, MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(NONABILITY,
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
-				else if ((pcPlayerLevels < 2) && (stat <= minPurchaseScore) && isPurchaseMode)
+				else if ((pcPlayerLevels < 2) && (stat <= minPurchaseScore)
+					&& isPurchaseMode)
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + SettingsHandler.getGame().getStatDisplayText(minPurchaseScore) + IN_PURCHASE_MODE, Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT
+							+ SettingsHandler.getGame().getStatDisplayText(
+								minPurchaseScore) + IN_PURCHASE_MODE,
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
 				}
 				else
@@ -2218,7 +2406,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					{
 						if (pcTotalLevels > 0)
 						{
-							poolMod = getPurchaseCostForStat(pc, stat + increment) - getPurchaseCostForStat(pc, stat);
+							poolMod =
+									getPurchaseCostForStat(pc, stat + increment)
+										- getPurchaseCostForStat(pc, stat);
 							break;
 						}
 					}
@@ -2232,10 +2422,11 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				}
 			}
 
-			break;
+				break;
 
 			default:
-				Logging.errorPrint("In InfoSummary.statTableMouseClicked the column " + column + " is not handled."); //$NON-NLS-1$ //$NON-NLS-2$
+				Logging
+					.errorPrint("In InfoSummary.statTableMouseClicked the column " + column + " is not handled."); //$NON-NLS-1$ //$NON-NLS-2$
 
 				break;
 		}
@@ -2249,7 +2440,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			{
 				if (poolMod > pc.getSkillPoints())
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+					ShowMessageDelegate
+						.showMessageDialog(
+							PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 				}
 				else
 				{
@@ -2258,9 +2451,14 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			}
 			else
 			{
-				if (pc.getStatIncrease(SettingsHandler.getGame().s_ATTRIBSHORT[selectedStat], true) <= 0)
+				if (pc
+					.getStatIncrease(
+						SettingsHandler.getGame().s_ATTRIBSHORT[selectedStat],
+						true) <= 0)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumNoAddThisLevel"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+					ShowMessageDelegate
+						.showMessageDialog(
+							PropertyFactory.getString("in_sumNoAddThisLevel"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 				}
 				else
 				{
@@ -2272,7 +2470,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			//
 			if (makeChange)
 			{
-				pc.adjustFeats(- poolMod);
+				pc.adjustFeats(-poolMod);
 				showPointPool();
 			}
 		}
@@ -2322,7 +2520,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		lvlDownButton.removeActionListener(levelCmdListener);
 		lvlUpButton.removeActionListener(levelCmdListener);
 
-		if (!SettingsHandler.isAbilitiesShownAsATab() && (abilitiesButton != null))
+		if (!SettingsHandler.isAbilitiesShownAsATab()
+			&& (abilitiesButton != null))
 		{
 			abilitiesButton.removeActionListener(abilitiesListener);
 		}
@@ -2388,7 +2587,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			if (monsterClass != null)
 			{
 				monsterHD = pc.getRace().hitDice(pc);
-				minLevel = pc.getRace().hitDice(pc) + pc.getRace().getMonsterClassLevels(pc);
+				minLevel =
+						pc.getRace().hitDice(pc)
+							+ pc.getRace().getMonsterClassLevels(pc);
 
 				final PCClass aClass = pc.getClassKeyed(monsterClass);
 
@@ -2435,7 +2636,6 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			maxDiddleLevel = 1;
 		}
 
-
 		// Let them dink on stats at 0th or 1st PC levels
 		if (pcPlayerLevels <= maxDiddleLevel)
 		{
@@ -2447,11 +2647,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		if (SettingsHandler.getGame().isPurchaseStatMode())
 		{
 			final String bString = Integer.toString(pc.getCostPool());
-//			int availablePool = SettingsHandler.getPurchaseModeMethodPool();
+			//			int availablePool = SettingsHandler.getPurchaseModeMethodPool();
 			int availablePool = pc.getPointBuyPoints();
 			if (availablePool < 0)
 			{
-				availablePool = RollingMethods.roll(SettingsHandler.getGame().getPurchaseModeMethodPoolFormula());
+				availablePool =
+						RollingMethods.roll(SettingsHandler.getGame()
+							.getPurchaseModeMethodPoolFormula());
 				pc.setPointBuyPoints(availablePool);
 			}
 
@@ -2467,11 +2669,16 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				// Let the user know that they've exceded their goal, but allow them to keep going if they want...
 				// Only do this at 1st level or lower
 				//
-				if ((pcPlayerLevels <= maxDiddleLevel) && (availablePool > 0) && (usedStatPool > availablePool))
+				if ((pcPlayerLevels <= maxDiddleLevel) && (availablePool > 0)
+					&& (usedStatPool > availablePool))
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumYouHaveExcededTheMaximumPointsOf") + availablePool + PropertyFactory.getString("in_sumAsSpecifiedByTheMethod") //$NON-NLS-1$ //$NON-NLS-2$
-					+ SettingsHandler.getGame().getPurchaseModeMethodName() + "\"", //$NON-NLS-1$
-						Constants.s_APPNAME, MessageType.INFORMATION);
+					ShowMessageDelegate
+						.showMessageDialog(
+							PropertyFactory
+								.getString("in_sumYouHaveExcededTheMaximumPointsOf") + availablePool + PropertyFactory.getString("in_sumAsSpecifiedByTheMethod") //$NON-NLS-1$ //$NON-NLS-2$
+								+ SettingsHandler.getGame()
+									.getPurchaseModeMethodName() + "\"", //$NON-NLS-1$
+							Constants.s_APPNAME, MessageType.INFORMATION);
 				}
 			}
 		}
@@ -2483,7 +2690,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		//
 		if (rollStatsButton != null)
 		{
-			if ((pcPlayerLevels == 0) && (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
+			if ((pcPlayerLevels == 0)
+				&& (SettingsHandler.getGame().getRollMethod() == Constants.CHARACTERSTATMETHOD_ROLLED))
 			{
 				rollStatsButton.setEnabled(true);
 			}
@@ -2494,31 +2702,34 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		}
 		else if (SettingsHandler.getGame().getRollingMethod(0) != null)
 		{
-			rollStatsButton = new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$
+			rollStatsButton =
+					new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$
 			rollStatsButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
 				{
-					public void actionPerformed(ActionEvent e)
-					{
-						pc.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED);
+					pc.rollStats(Constants.CHARACTERSTATMETHOD_ROLLED);
 
-						statTableModel.fireTableRowsUpdated(0, SettingsHandler.getGame().s_ATTRIBLONG.length);
-						pc.calcActiveBonuses();
+					statTableModel.fireTableRowsUpdated(0, SettingsHandler
+						.getGame().s_ATTRIBLONG.length);
+					pc.calcActiveBonuses();
 
-						updatePool(false);
+					updatePool(false);
 
-						final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-						pane.setPaneForUpdate(pane.infoSkills());
-						pane.setPaneForUpdate(pane.infoSpells());
-						pane.refresh();
+					final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
+					pane.setPaneForUpdate(pane.infoSkills());
+					pane.setPaneForUpdate(pane.infoSpells());
+					pane.refresh();
 
-						setStatLabelText();
-					}
-				});
+					setStatLabelText();
+				}
+			});
 			poolPanel.add(rollStatsButton);
 		}
 
 		// Non-purchase mode for stats
-		if (!SettingsHandler.getGame().isPurchaseStatMode() || (pc.getPointBuyPoints() == 0))
+		if (!SettingsHandler.getGame().isPurchaseStatMode()
+			|| (pc.getPointBuyPoints() == 0))
 		{
 			poolLabel.setText(PropertyFactory.getString("in_sumStatTotal")); //$NON-NLS-1$
 
@@ -2535,15 +2746,20 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					continue;
 				}
 
-				final int currentStat = statList.getBaseStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
-				final int currentMod = statList.getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
+				final int currentStat =
+						statList
+							.getBaseStatFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
+				final int currentMod =
+						statList
+							.getStatModFor(SettingsHandler.getGame().s_ATTRIBSHORT[i]);
 
 				statTotal += currentStat;
 				modTotal += currentMod;
 			}
 
-			poolLabel.setText(PropertyFactory.getString("in_sumStatTotal") + Integer.toString(statTotal) + PropertyFactory.getString("in_sumModifierTotal") //$NON-NLS-1$ //$NON-NLS-2$
-				+ Integer.toString(modTotal));
+			poolLabel
+				.setText(PropertyFactory.getString("in_sumStatTotal") + Integer.toString(statTotal) + PropertyFactory.getString("in_sumModifierTotal") //$NON-NLS-1$ //$NON-NLS-2$
+					+ Integer.toString(modTotal));
 			poolText.setText(""); //$NON-NLS-1$
 		}
 	}
@@ -2569,7 +2785,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				//
 				if (pnlHD.isVisible())
 				{
-					final String monsterClass = oldRace.getMonsterClass(pc, false);
+					final String monsterClass =
+							oldRace.getMonsterClass(pc, false);
 
 					if (monsterClass != null)
 					{
@@ -2577,7 +2794,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 						if (aClass != null)
 						{
-							final int numLevels = aClass.getLevel() - oldRace.getMonsterClassLevels(pc);
+							final int numLevels =
+									aClass.getLevel()
+										- oldRace.getMonsterClassLevels(pc);
 
 							if (numLevels > 0)
 							{
@@ -2693,7 +2912,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 						for (int idx = 0; idx < pc.getLevelInfoSize(); ++idx)
 						{
-							final String classKeyName = pc.getLevelInfoClassKeyName(idx);
+							final String classKeyName =
+									pc.getLevelInfoClassKeyName(idx);
 							aClass = pc.getClassKeyed(classKeyName);
 
 							if ((aClass == null) || !shouldDisplayThis(aClass))
@@ -2706,13 +2926,13 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 								retStr = aClass.getDisplayName();
 
 								lvl = pc.getLevelInfoClassLevel(idx);
-								final String subClass = aClass.getDisplayClassName(lvl);
+								final String subClass =
+										aClass.getDisplayClassName(lvl);
 
 								if (!retStr.equals(subClass))
 								{
 									retStr = retStr + "/" + subClass; //$NON-NLS-1$
 								}
-
 
 								break;
 							}
@@ -2734,7 +2954,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 						for (int idx = 0; idx < pc.getLevelInfoSize(); ++idx)
 						{
-							final String classKey = pc.getLevelInfoClassKeyName(idx);
+							final String classKey =
+									pc.getLevelInfoClassKeyName(idx);
 							aClass = pc.getClassKeyed(classKey);
 
 							if ((aClass != null) && !shouldDisplayThis(aClass))
@@ -2808,7 +3029,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 					continue;
 				}
 
-				if (aClass.getVisibility().equals(Visibility.DEFAULT) && accept(pc, aClass))
+				if (aClass.getVisibility().equals(Visibility.DEFAULT)
+					&& accept(pc, aClass))
 				{
 					addElement(aClass);
 				}
@@ -2819,10 +3041,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			aNullClass.setName(Constants.s_NONESELECTED);
 			insertElementAt(aNullClass, 0);
 
-			if (pcClass != null) {
+			if (pcClass != null)
+			{
 				setSelectedItem(pcClass);
 			}
-			else {
+			else
+			{
 				setSelectedItem(aNullClass);
 			}
 		}
@@ -2844,7 +3068,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			final Object pcRace = getSelectedItem();
 			removeAllElements();
 
-			for ( final Race race : Globals.getAllRaces() )
+			for (final Race race : Globals.getAllRaces())
 			{
 				if (accept(pc, race))
 				{
@@ -2884,8 +3108,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			plusButton.setMaximumSize(new Dimension(30, 24));
 		}
 
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-			boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table,
+			Object value, boolean isSelected, boolean hasFocus, int row,
+			int column)
 		{
 			if (column == INC_COLUMN)
 			{
@@ -2976,7 +3201,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		public void setValueAt(Object obj, int rowIndex, int columnIndex)
 		{
-			if ((rowIndex >= 0) && (rowIndex < pc.getStatList().size()) && (columnIndex == 1))
+			if ((rowIndex >= 0) && (rowIndex < pc.getStatList().size())
+				&& (columnIndex == 1))
 			{
 				if (obj == null)
 				{
@@ -2998,42 +3224,55 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 				if (pc.isNonAbility(rowIndex))
 				{
-					ShowMessageDelegate.showMessageDialog(NONABILITY, Constants.s_APPNAME, MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(NONABILITY,
+						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
 				}
 				else if (statVal < aStat.getMinValue())
 				{
-					ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + SettingsHandler.getGame().getStatDisplayText(aStat.getMinValue()), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT
+						+ SettingsHandler.getGame().getStatDisplayText(
+							aStat.getMinValue()), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
 				}
 				else if (statVal > aStat.getMaxValue())
 				{
-					ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + SettingsHandler.getGame().getStatDisplayText(aStat.getMaxValue()), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT
+						+ SettingsHandler.getGame().getStatDisplayText(
+							aStat.getMaxValue()), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
 				}
-				else if ((pcPlayerLevels < 2) && SettingsHandler.getGame().isPurchaseStatMode())
+				else if ((pcPlayerLevels < 2)
+					&& SettingsHandler.getGame().isPurchaseStatMode())
 				{
-					final int maxPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMax(pc);
+					final int maxPurchaseScore =
+							SettingsHandler.getGame().getPurchaseScoreMax(pc);
 
 					if (statVal > maxPurchaseScore)
 					{
-						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT + SettingsHandler.getGame().getStatDisplayText(maxPurchaseScore) + IN_PURCHASE_MODE, Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(STAT_UPPER_LIMIT
+							+ SettingsHandler.getGame().getStatDisplayText(
+								maxPurchaseScore) + IN_PURCHASE_MODE,
+							Constants.s_APPNAME, MessageType.ERROR);
 
 						return;
 					}
 
-					final int minPurchaseScore = SettingsHandler.getGame().getPurchaseModeBaseStatScore(pc);
+					final int minPurchaseScore =
+							SettingsHandler.getGame()
+								.getPurchaseModeBaseStatScore(pc);
 
 					if (statVal < minPurchaseScore)
 					{
-						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT + SettingsHandler.getGame().getStatDisplayText(minPurchaseScore) + IN_PURCHASE_MODE, Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(STAT_LOWER_LIMIT
+							+ SettingsHandler.getGame().getStatDisplayText(
+								minPurchaseScore) + IN_PURCHASE_MODE,
+							Constants.s_APPNAME, MessageType.ERROR);
 
 						return;
 					}
@@ -3044,28 +3283,37 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 				{
 					if (pcPlayerLevels > 0)
 					{
-						int poolMod = getPurchaseCostForStat(pc, statVal) - getPurchaseCostForStat(pc, baseScore);
+						int poolMod =
+								getPurchaseCostForStat(pc, statVal)
+									- getPurchaseCostForStat(pc, baseScore);
 						//
 						// Adding to stat
 						//
-						if (poolMod > 0 )
+						if (poolMod > 0)
 						{
 							if (poolMod > pc.getSkillPoints())
 							{
-								ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+								ShowMessageDelegate
+									.showMessageDialog(
+										PropertyFactory
+											.getString("in_sumStatPoolEmpty") + Globals.getGameModePointPoolName() + ".", Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 								return;
 							}
 						}
 						else if (poolMod < 0)
 						{
-							if (pc.getStatIncrease(aStat.getAbb(), true) < Math.abs(statVal - baseScore))
+							if (pc.getStatIncrease(aStat.getAbb(), true) < Math
+								.abs(statVal - baseScore))
 							{
-								ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_sumStatStartedHigher"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
+								ShowMessageDelegate
+									.showMessageDialog(
+										PropertyFactory
+											.getString("in_sumStatStartedHigher"), Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 								return;
 							}
 						}
 
-						pc.adjustFeats( - poolMod);
+						pc.adjustFeats(-poolMod);
 						showPointPool();
 					}
 				}
@@ -3089,14 +3337,16 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 		{
 			if (columnIndex == 0)
 			{
-				if ((rowIndex >= 0) && (rowIndex < SettingsHandler.getGame().s_ATTRIBLONG.length))
+				if ((rowIndex >= 0)
+					&& (rowIndex < SettingsHandler.getGame().s_ATTRIBLONG.length))
 				{
 					return SettingsHandler.getGame().s_ATTRIBLONG[rowIndex];
 				}
 				return PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 
-			final String aStat = SettingsHandler.getGame().s_ATTRIBSHORT[rowIndex];
+			final String aStat =
+					SettingsHandler.getGame().s_ATTRIBSHORT[rowIndex];
 
 			switch (columnIndex)
 			{
@@ -3107,7 +3357,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						return "*"; //$NON-NLS-1$
 					}
 
-					return Integer.valueOf(pc.getStatList().getBaseStatFor(aStat));
+					return Integer.valueOf(pc.getStatList().getBaseStatFor(
+						aStat));
 
 				case RACE_COLUMN:
 
@@ -3130,7 +3381,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 					int iRace = (int) pc.getRaceBonusTo("STAT", aStat); //$NON-NLS-1$
 
-					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat)
+					return Integer.valueOf(pc.getStatList().getTotalStatFor(
+						aStat)
 						- pc.getStatList().getBaseStatFor(aStat) - iRace);
 
 				case TOTAL_COLUMN:
@@ -3140,8 +3392,9 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						return "*"; //$NON-NLS-1$
 					}
 
-//					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat));
-					return SettingsHandler.getGame().getStatDisplayText(pc.getStatList().getTotalStatFor(aStat));
+					//					return Integer.valueOf(pc.getStatList().getTotalStatFor(aStat));
+					return SettingsHandler.getGame().getStatDisplayText(
+						pc.getStatList().getTotalStatFor(aStat));
 
 				case MOD_COLUMN:
 
@@ -3150,7 +3403,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 						return Integer.valueOf(0);
 					}
 
-					return Integer.valueOf(pc.getStatList().getStatModFor(aStat));
+					return Integer.valueOf(pc.getStatList()
+						.getStatModFor(aStat));
 
 				case INC_COLUMN:
 
@@ -3182,10 +3436,12 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		int poolPointsUsed = poolPointsTotal - pc.getSkillPoints();
 
-		poolPointText.setText(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
+		poolPointText.setText(Integer.toString(poolPointsUsed)
+			+ " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
 	}
 
-	private static int getPurchaseCostForStat(final PlayerCharacter aPC, int statValue)
+	private static int getPurchaseCostForStat(final PlayerCharacter aPC,
+		int statValue)
 	{
 		final int iMax = SettingsHandler.getGame().getPurchaseScoreMax(aPC);
 		final int iMin = SettingsHandler.getGame().getPurchaseScoreMin(aPC);
@@ -3197,7 +3453,8 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 
 		if (statValue >= iMin)
 		{
-			return SettingsHandler.getGame().getAbilityScoreCost(statValue - iMin);
+			return SettingsHandler.getGame().getAbilityScoreCost(
+				statValue - iMin);
 		}
 		return 0;
 	}
@@ -3213,29 +3470,35 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 			setOpaque(true);
 		}
 
-		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+		public Component getListCellRendererComponent(JList list, Object value,
+			int index, boolean isSelected, boolean cellHasFocus)
 		{
-			if (value != null) {
-				final PCClass aClass = (PCClass)value;
+			if (value != null)
+			{
+				final PCClass aClass = (PCClass) value;
 				setText(aClass.getDisplayName());
 				if (isSelected)
 				{
-					if (aClass.isQualified(pc)) {
+					if (aClass.isQualified(pc))
+					{
 						setBackground(list.getSelectionBackground());
 						setForeground(list.getSelectionForeground());
 					}
-					else {
+					else
+					{
 						setBackground(Color.RED);
 						setForeground(list.getSelectionForeground());
 					}
 				}
 				else
 				{
-					if (aClass.isQualified(pc)) {
+					if (aClass.isQualified(pc))
+					{
 						setBackground(list.getBackground());
 						setForeground(list.getForeground());
 					}
-					else {
+					else
+					{
 						setBackground(list.getBackground());
 						setForeground(Color.RED);
 					}
@@ -3255,7 +3518,7 @@ public final class InfoSummary extends FilterAdapterPanel implements CharacterIn
 	{
 		StringBuffer todoText = new StringBuffer("<html><body>"); //$NON-NLS-1$
 
-		int i=1;
+		int i = 1;
 		for (String task : todoList)
 		{
 			todoText.append(i++).append(". ").append(task).append("<br>"); //$NON-NLS-1$ //$NON-NLS-2$

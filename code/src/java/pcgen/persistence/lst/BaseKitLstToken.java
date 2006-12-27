@@ -6,7 +6,8 @@ import pcgen.core.kit.BaseKit;
  * Interface for BaseKit Lst token
  * @author martinv
  */
-public interface BaseKitLstToken extends LstToken {
+public interface BaseKitLstToken extends LstToken
+{
 
 	/**
 	 * Parse the Base Kit Token

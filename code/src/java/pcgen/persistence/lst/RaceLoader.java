@@ -57,16 +57,18 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 		throws PersistenceLayerException
 	{
 		Race race = aRace;
-		
+
 		if (race == null)
 		{
 			race = new Race();
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = -1;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(RaceLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(RaceLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			++col;
@@ -78,7 +80,8 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			RaceLstToken token = (RaceLstToken) tokenMap.get(key);
@@ -105,7 +108,9 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 				LstUtils.deprecationCheck(token, race, value);
 				if (!token.parse(race, value))
 				{
-					Logging.errorPrint("Error parsing race " + race.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing race "
+						+ race.getDisplayName() + ':' + source.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(race, colString))
@@ -114,7 +119,8 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			}
 			else
 			{
-				Logging.errorPrint("Illegal race tag '" + colString + "' in " + source.getFile());
+				Logging.errorPrint("Illegal race tag '" + colString + "' in "
+					+ source.getFile());
 			}
 		}
 
@@ -126,10 +132,10 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 		if (race.getRaceType().equals(Constants.s_NONE))
 		{
 			/** TODO Uncomment this once the data is updated. */
-//			logError("Race " + race.getName() + " has no race type.");
+			//			logError("Race " + race.getName() + " has no race type.");
 		}
 
-		completeObject( race );
+		completeObject(race);
 		return null;
 	}
 
@@ -146,7 +152,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget( final PObject objToForget )
+	protected void performForget(final PObject objToForget)
 	{
 		Globals.removeRaceKeyed(objToForget.getKeyName());
 	}
@@ -155,8 +161,8 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
-		Globals.addRace( (Race)pObj );
+		Globals.addRace((Race) pObj);
 	}
 }

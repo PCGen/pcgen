@@ -45,14 +45,14 @@ public class KitStartpackLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		kit.setName(colToken.nextToken());
-		Map<String, LstToken> tokenMap = TokenStore.inst()
-				.getTokenMap(KitStartpackLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitStartpackLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -74,8 +74,8 @@ public class KitStartpackLoader
 			{
 				// TODO Handle Exception
 			}
-			KitStartpackLstToken token = (KitStartpackLstToken) tokenMap
-					.get(key);
+			KitStartpackLstToken token =
+					(KitStartpackLstToken) tokenMap.get(key);
 
 			if (token != null)
 			{
@@ -84,13 +84,13 @@ public class KitStartpackLoader
 				if (!token.parse(kit, value))
 				{
 					Logging.errorPrint("Error parsing Kit Startpack tag "
-							+ kit.getDisplayName() + ':' + colString + "\"");
+						+ kit.getDisplayName() + ':' + colString + "\"");
 				}
 			}
 			else
 			{
 				Logging.errorPrint("Unknown Kit Startpack info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 
 		}

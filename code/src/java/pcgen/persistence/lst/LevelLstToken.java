@@ -32,8 +32,9 @@ import pcgen.core.LevelInfo;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface LevelLstToken extends LstToken {
-	
+public interface LevelLstToken extends LstToken
+{
+
 	/**
 	 * @param levelInfo
 	 * @param value

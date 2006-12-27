@@ -48,10 +48,10 @@ public class KitSpellsLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		final KitSpells kitSpells = new KitSpells();
 		colString = colToken.nextToken();
@@ -86,10 +86,11 @@ public class KitSpellsLoader
 					featList.add(subTok.nextToken());
 				}
 				kitSpells.addSpell(castingClass, spellbook, spell, featList,
-						countStr);
+					countStr);
 			}
 		}
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitSpellsLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitSpellsLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -114,8 +115,7 @@ public class KitSpellsLoader
 				if (!token.parse(kitSpells, value))
 				{
 					Logging.errorPrint("Error parsing Kit Spells tag "
-							+ kitSpells.getObjectName() + ':' + colString
-							+ "\"");
+						+ kitSpells.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitSpells, colString))
@@ -125,7 +125,7 @@ public class KitSpellsLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Spells info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 
 		}

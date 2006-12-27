@@ -76,12 +76,14 @@ public abstract class LstLineFileLoader extends LstFileLoader
 
 		if (fileURL == null)
 		{
-			throw new PersistenceLayerException("File '" + fileName + "' not found!");
+			throw new PersistenceLayerException("File '" + fileName
+				+ "' not found!");
 		}
 
 		final String newlinedelim = "\r\n";
 		final String aString = dataBuffer.toString();
-		final StringTokenizer fileLines = new StringTokenizer(aString, newlinedelim);
+		final StringTokenizer fileLines =
+				new StringTokenizer(aString, newlinedelim);
 
 		while (fileLines.hasMoreTokens())
 		{
@@ -103,7 +105,8 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	 * @param game the game mode
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstFile(String fileName, String game) throws PersistenceLayerException
+	public void loadLstFile(String fileName, String game)
+		throws PersistenceLayerException
 	{
 		gameMode = game;
 		loadLstFile(fileName);
@@ -123,7 +126,6 @@ public abstract class LstLineFileLoader extends LstFileLoader
 			loadLstFile(cse.toString());
 		}
 	}
-
 
 	/**
 	 * This method parses the LST file line, applying it to the provided target
@@ -145,14 +147,16 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	/**
 	 * @return Returns the gameMode.
 	 */
-	public String getGameMode() {
+	public String getGameMode()
+	{
 		return gameMode;
 	}
 
 	/**
 	 * @param gameMode The gameMode to set.
 	 */
-	public void setGameMode(String gameMode) {
+	public void setGameMode(String gameMode)
+	{
 		this.gameMode = gameMode;
 	}
 }

@@ -100,9 +100,9 @@ import pcgen.util.enumeration.Tab;
 public final class InfoDescription extends JPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -8015559748421397718L;
-	
+
 	private static final Tab tab = Tab.DESCRIPTION;
-	
+
 	private static boolean bEditingAge = false;
 	private static final int BIO_NOTEID = -2;
 	private static final int DESCRIPTION_NOTEID = -3;
@@ -110,45 +110,50 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private static final int OTHERASSETS_NOTEID = -5;
 	private static final int MAGICITEMS_NOTEID = -6;
 	private static final int PORTRAIT_NOTEID = -7;
-	private static final String in_noPortraitChildrenMessage = PropertyFactory.getString("in_noPortraitChildrenMessage");
-	private static final String in_noPortraitDeletionMessage = PropertyFactory.getString("in_noPortraitDeletionMessage");
-	private static final String in_noPortraitRenamingMessage = PropertyFactory.getString("in_noPortraitRenamingMessage");
+	private static final String in_noPortraitChildrenMessage =
+			PropertyFactory.getString("in_noPortraitChildrenMessage");
+	private static final String in_noPortraitDeletionMessage =
+			PropertyFactory.getString("in_noPortraitDeletionMessage");
+	private static final String in_noPortraitRenamingMessage =
+			PropertyFactory.getString("in_noPortraitRenamingMessage");
 
 	// Combobox event handlers
 	private ActionListener al1 = new ActionListener()
+	{
+		/**
+		 *  Anonymous event handler
+		 *
+		 * @param  evt  The ActionEvent
+		 * @since
+		 */
+		public void actionPerformed(ActionEvent evt)
 		{
-			/**
-			 *  Anonymous event handler
-			 *
-			 * @param  evt  The ActionEvent
-			 * @since
-			 */
-			public void actionPerformed(ActionEvent evt)
+			if ((handedComboBox != null)
+				&& (handedComboBox.getSelectedItem() != null))
 			{
-				if ((handedComboBox != null) && (handedComboBox.getSelectedItem() != null))
-				{
-					pc.setDirty(true);
-					pc.setHanded(handedComboBox.getSelectedItem().toString());
-				}
+				pc.setDirty(true);
+				pc.setHanded(handedComboBox.getSelectedItem().toString());
 			}
-		};
+		}
+	};
 
 	private ActionListener al2 = new ActionListener()
+	{
+		/**
+		 *  Anonymous event handler
+		 *
+		 * @param  evt  The ActionEvent
+		 * @since
+		 */
+		public void actionPerformed(ActionEvent evt)
 		{
-			/**
-			 *  Anonymous event handler
-			 *
-			 * @param  evt  The ActionEvent
-			 * @since
-			 */
-			public void actionPerformed(ActionEvent evt)
+			if ((genderComboBox != null)
+				&& (genderComboBox.getSelectedItem() != null))
 			{
-				if ((genderComboBox != null) && (genderComboBox.getSelectedItem() != null))
-				{
-					pc.setGender(genderComboBox.getSelectedItem().toString());
-				}
+				pc.setGender(genderComboBox.getSelectedItem().toString());
 			}
-		};
+		}
+	};
 
 	private CardLayout dataLayout;
 	private DecimalNumberField htText = new DecimalNumberField(0, 0);
@@ -159,22 +164,22 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	 * This listener detects changes in the note text.
 	 */
 	private DocumentListener noteChangeListener = new DocumentListener()
+	{
+		public void insertUpdate(DocumentEvent e)
 		{
-			public void insertUpdate(DocumentEvent e)
-			{
-				textIsDirty = true;
-			}
+			textIsDirty = true;
+		}
 
-			public void removeUpdate(DocumentEvent e)
-			{
-				textIsDirty = true;
-			}
+		public void removeUpdate(DocumentEvent e)
+		{
+			textIsDirty = true;
+		}
 
-			public void changedUpdate(DocumentEvent e)
-			{
-				textIsDirty = true;
-			}
-		};
+		public void changedUpdate(DocumentEvent e)
+		{
+			textIsDirty = true;
+		}
+	};
 
 	private FlippingSplitPane splitPane;
 	private JButton addButton;
@@ -264,19 +269,19 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initNonDataDrivenEventListeners();
-					refreshDisplay();
-				}
-			});
+				initComponents();
+				initNonDataDrivenEventListeners();
+				refreshDisplay();
+			}
+		});
 	}
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			clear();
 			this.pc = pc;
@@ -285,7 +290,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		}
 	}
 
-	private void clear() {
+	private void clear()
+	{
 		rootTreeNode.removeAllChildren();
 		bioNote = null;
 		companionNote = null;
@@ -304,7 +310,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Description.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Description.Order", tab
+			.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -336,7 +343,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -345,7 +352,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			updateCharacterInfo();
 		}
@@ -370,8 +377,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	}
 
 	/**
-	* Process the selection of an age category.
-	*/
+	 * Process the selection of an age category.
+	 */
 	private void ageComboBoxActionPerformed()
 	{
 		final Race pcRace = pc.getRace();
@@ -388,7 +395,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				{
 					if (!bEditingAge)
 					{
-						Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), pc);
+						Globals.getBioSet().randomize(
+							"AGECAT" + Integer.toString(idx), pc);
 						ageText.setText(Integer.toString(pc.getAge()));
 						pc.setDirty(true);
 					}
@@ -438,31 +446,37 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		{
 			rootTreeNode = new NoteTreeNode(null);
 			aNode = rootTreeNode;
-			for (NoteItem testnote : pc.getNotesList()) 
+			for (NoteItem testnote : pc.getNotesList())
 			{
-				if (!testnote.getName().equals("Hidden")) 
+				if (!testnote.getName().equals("Hidden"))
 				{
 					nodesToBeAddedList.add(testnote);
 				}
 			}
 
 			int order = 0;
-			portraitNote = new NoteItem(PORTRAIT_NOTEID, -1, PropertyFactory.getString("in_portrait"), "");
+			portraitNote =
+					new NoteItem(PORTRAIT_NOTEID, -1, PropertyFactory
+						.getString("in_portrait"), "");
 			nodesToBeAddedList.add(order++, portraitNote);
 
 			bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getBio());
 			nodesToBeAddedList.add(order++, bioNote);
-			descriptionNote = new NoteItem(DESCRIPTION_NOTEID, -1, PropertyFactory.getString("in_descrip"),
-					pc.getDescription());
+			descriptionNote =
+					new NoteItem(DESCRIPTION_NOTEID, -1, PropertyFactory
+						.getString("in_descrip"), pc.getDescription());
 			nodesToBeAddedList.add(order++, descriptionNote);
-			companionNote = new NoteItem(COMPANION_NOTEID, -1, PropertyFactory.getString("in_companions"),
-					pc.getMiscList().get(1));
+			companionNote =
+					new NoteItem(COMPANION_NOTEID, -1, PropertyFactory
+						.getString("in_companions"), pc.getMiscList().get(1));
 			nodesToBeAddedList.add(order++, companionNote);
-			otherAssetsNote = new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory.getString("in_otherAssets"),
-					pc.getMiscList().get(0));
+			otherAssetsNote =
+					new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory
+						.getString("in_otherAssets"), pc.getMiscList().get(0));
 			nodesToBeAddedList.add(order++, otherAssetsNote);
-			magicItemsNote = new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory.getString("in_magicItems"),
-					pc.getMiscList().get(2));
+			magicItemsNote =
+					new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory
+						.getString("in_magicItems"), pc.getMiscList().get(2));
 			nodesToBeAddedList.add(order++, magicItemsNote);
 		}
 		else
@@ -514,7 +528,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 0, 0, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		labelName = new JLabel(PropertyFactory.getString("in_nameLabel") + ": ");
+		labelName =
+				new JLabel(PropertyFactory.getString("in_nameLabel") + ": ");
 		gridbag.setConstraints(labelName, c);
 		northPanel.add(labelName);
 
@@ -531,12 +546,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		gridbag.setConstraints(randName, c);
 		northPanel.add(randName);
 
-////
+		////
 		Utility.buildConstraints(c, 0, 1, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 
-		JLabel label = new JLabel(PropertyFactory.getString("in_player") + ": ");
+		JLabel label =
+				new JLabel(PropertyFactory.getString("in_player") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -560,11 +576,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		northPanel.add(genderComboBox);
 
 		genderComboBox.setAllItems(Globals.getAllGenders().toArray());
-//		genderComboBox.addItem(PropertyFactory.getString("in_genderMale"));
-//		genderComboBox.addItem(PropertyFactory.getString("in_genderFemale"));
-//		genderComboBox.addItem(PropertyFactory.getString("in_genderNeuter"));
-//		genderComboBox.addItem(PropertyFactory.getString("in_comboNone"));
-//		genderComboBox.addItem(PropertyFactory.getString("in_comboOther"));
+		//		genderComboBox.addItem(PropertyFactory.getString("in_genderMale"));
+		//		genderComboBox.addItem(PropertyFactory.getString("in_genderFemale"));
+		//		genderComboBox.addItem(PropertyFactory.getString("in_genderNeuter"));
+		//		genderComboBox.addItem(PropertyFactory.getString("in_comboNone"));
+		//		genderComboBox.addItem(PropertyFactory.getString("in_comboOther"));
 
 		Utility.buildConstraints(c, 7, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
@@ -591,12 +607,15 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		if (" ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 		{
-			labelHeight = new JLabel(PropertyFactory.getString("in_height") + " (in.): ");
+			labelHeight =
+					new JLabel(PropertyFactory.getString("in_height")
+						+ " (in.): ");
 		}
 		else
 		{
-			labelHeight = new JLabel(PropertyFactory.getString("in_height") + " ("
-					+ Globals.getGameModeUnitSet().getHeightUnit() + "): ");
+			labelHeight =
+					new JLabel(PropertyFactory.getString("in_height") + " ("
+						+ Globals.getGameModeUnitSet().getHeightUnit() + "): ");
 		}
 
 		gridbag.setConstraints(labelHeight, c);
@@ -617,8 +636,9 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 0, 3, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		labelWeight = new JLabel(PropertyFactory.getString("in_weight") + " (" + Globals.getGameModeUnitSet().getWeightUnit()
-				+ "): ");
+		labelWeight =
+				new JLabel(PropertyFactory.getString("in_weight") + " ("
+					+ Globals.getGameModeUnitSet().getWeightUnit() + "): ");
 		gridbag.setConstraints(labelWeight, c);
 		northPanel.add(labelWeight);
 
@@ -662,15 +682,15 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		ageComboBox.setModel(new DefaultComboBoxModel(cats.toArray()));
 
 		ageComboBox.addItemListener(new ItemListener()
+		{
+			public void itemStateChanged(ItemEvent evt)
 			{
-				public void itemStateChanged(ItemEvent evt)
+				if (evt.getStateChange() == ItemEvent.SELECTED)
 				{
-					if (evt.getStateChange() == ItemEvent.SELECTED)
-					{
-						ageComboBoxActionPerformed();
-					}
+					ageComboBoxActionPerformed();
 				}
-			});
+			}
+		});
 
 		Utility.buildConstraints(c, 2, 4, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
@@ -857,7 +877,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
-////need to get Region info
+		////need to get Region info
 		Utility.buildConstraints(c, 1, 7, 2, 1, 5, 10);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.WEST;
@@ -1069,12 +1089,16 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		dataPanel.add(dataScroll, PropertyFactory.getString("in_notes"));
 		dataPanel.add(portrait, PropertyFactory.getString("in_portraits"));
 
-		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, notesScroll, dataPanel);
+		splitPane =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, notesScroll,
+					dataPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 		splitPane.setDividerLocation(100);
 
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_notes"));
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_notes"));
 		title1.setTitleJustification(TitledBorder.LEFT);
 		centerCenterPanel.setBorder(title1);
 
@@ -1088,40 +1112,58 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		this.add(northPanel, BorderLayout.NORTH);
 		this.add(centerPanel, BorderLayout.CENTER);
 
-		Utility.setDescription(ageBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(htwtBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(skinBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(hairColorBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(hairStyleBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(eyeColorBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(speechPatternBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(phobiaBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(interestsBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(catchPhraseBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(personality1Box, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(personality2Box, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(residenceBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(locationBox, PropertyFactory.getString("in_randCheckTipString"));
-		Utility.setDescription(randName, PropertyFactory.getString("in_randNameTipString"));
-		Utility.setDescription(randAll, PropertyFactory.getString("in_randTraitTipString"));
-		Utility.setDescription(checkAll, PropertyFactory.getString("in_checkTipString"));
-		Utility.setDescription(uncheckAll, PropertyFactory.getString("in_uncheckTipString"));
+		Utility.setDescription(ageBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(htwtBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(skinBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(hairColorBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(hairStyleBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(eyeColorBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(speechPatternBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(phobiaBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(interestsBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(catchPhraseBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(personality1Box, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(personality2Box, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(residenceBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(locationBox, PropertyFactory
+			.getString("in_randCheckTipString"));
+		Utility.setDescription(randName, PropertyFactory
+			.getString("in_randNameTipString"));
+		Utility.setDescription(randAll, PropertyFactory
+			.getString("in_randTraitTipString"));
+		Utility.setDescription(checkAll, PropertyFactory
+			.getString("in_checkTipString"));
+		Utility.setDescription(uncheckAll, PropertyFactory
+			.getString("in_uncheckTipString"));
 
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
+				formComponentShown();
+			}
+		});
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 		readyForRefresh = true;
 	}
 
@@ -1136,38 +1178,38 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private void initNonDataDrivenEventListeners()
 	{
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
-				{
-					formComponentShown();
-				}
-			});
+				formComponentShown();
+			}
+		});
 
 		txtName.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					txtName_Changed();
-					labelName.requestFocus();
-				}
-			});
+				txtName_Changed();
+				labelName.requestFocus();
+			}
+		});
 
 		randName.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				if (nameFrame == null)
 				{
-					if (nameFrame == null)
-					{
-						nameFrame = new NameGui(pc);
-					}
-					else
-					{
-						nameFrame.setPc(pc);
-					}
-
-					nameFrame.setVisible(true);
+					nameFrame = new NameGui(pc);
 				}
-			});
+				else
+				{
+					nameFrame.setPc(pc);
+				}
+
+				nameFrame.setVisible(true);
+			}
+		});
 
 		InputVerifier inputVerify = new InputVerifier()
 		{
@@ -1177,7 +1219,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				updateTextFields(input);
 				return valueOk;
 			}
-			
+
 			public boolean verify(JComponent input)
 			{
 				return true;
@@ -1202,262 +1244,288 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		wtText.setInputVerifier(inputVerify);
 		playerNameText.setInputVerifier(inputVerify);
 		txtName.setInputVerifier(inputVerify);
-		
-		
+
 		checkAll.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					checkAll_click();
-				}
-			});
+				checkAll_click();
+			}
+		});
 
 		randAll.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					randAll_click();
-					pc.setDirty(true);
-				}
-			});
+				randAll_click();
+				pc.setDirty(true);
+			}
+		});
 
 		uncheckAll.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					uncheckAll_click();
-				}
-			});
+				uncheckAll_click();
+			}
+		});
 
 		MouseListener ml = new MouseAdapter()
+		{
+			public void mousePressed(MouseEvent e)
 			{
-				public void mousePressed(MouseEvent e)
+				final int selRow =
+						notesTree.getRowForLocation(e.getX(), e.getY());
+				final TreePath selPath =
+						notesTree.getPathForLocation(e.getX(), e.getY());
+
+				if (selRow != -1)
 				{
-					final int selRow = notesTree.getRowForLocation(e.getX(), e.getY());
-					final TreePath selPath = notesTree.getPathForLocation(e.getX(), e.getY());
-
-					if (selRow != -1)
+					if ((e.getClickCount() == 1) && (selPath != null))
 					{
-						if ((e.getClickCount() == 1) && (selPath != null))
-						{
-							selectNotesNode(selRow);
-						}
+						selectNotesNode(selRow);
 					}
-
-					lastItem = null;
 				}
-			};
+
+				lastItem = null;
+			}
+		};
 
 		notesTree.addMouseListener(ml);
 
 		addButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				int parentId = -1;
+				int newNodeId = 0;
+
+				final TreePath selPath = notesTree.getSelectionPath();
+
+				if (selPath == null)
 				{
-					int parentId = -1;
-					int newNodeId = 0;
+					return;
+				}
 
-					final TreePath selPath = notesTree.getSelectionPath();
+				NoteTreeNode parentTreeNode =
+						(NoteTreeNode) selPath.getLastPathComponent();
 
-					if (selPath == null)
+				if ((parentTreeNode != null)
+					&& (parentTreeNode.getItem() != null))
+				{
+					parentId = parentTreeNode.getItem().getId();
+				}
+
+				/*
+				 * The portrait note may not have children
+				 *
+				 * author: Thomas Behr 10-09-02
+				 */
+				if (parentId == PORTRAIT_NOTEID)
+				{
+					JOptionPane.showMessageDialog(null,
+						in_noPortraitChildrenMessage);
+
+					return;
+				}
+
+				for (NoteItem currItem : pc.getNotesList())
+				{
+					if (currItem.getId() > newNodeId)
 					{
-						return;
+						newNodeId = currItem.getId();
 					}
+				}
 
-					NoteTreeNode parentTreeNode = (NoteTreeNode) selPath.getLastPathComponent();
+				++newNodeId;
 
-					if ((parentTreeNode != null) && (parentTreeNode.getItem() != null))
+				NoteItem a =
+						new NoteItem(newNodeId, parentId, PropertyFactory
+							.getString("in_newItem"), PropertyFactory
+							.getString("in_newValue"));
+				NoteTreeNode aNode = new NoteTreeNode(a);
+
+				if (parentTreeNode != null)
+				{
+					parentTreeNode.add(aNode);
+				}
+
+				pc.addNotesItem(a);
+				pc.setDirty(true);
+				notesTree.expandPath(selPath);
+				notesTree.updateUI();
+			}
+		});
+		Utility.setDescription(addButton, PropertyFactory
+			.getString("in_addChild"));
+		deleteButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
+			{
+				int numChildren = 0;
+				int reallyDelete;
+
+				final TreePath selPath = notesTree.getSelectionPath();
+
+				if (selPath == null)
+				{
+					return;
+				}
+
+				Object anObject = selPath.getLastPathComponent();
+
+				if ((anObject == null)
+					|| (((NoteTreeNode) anObject).getItem() == null))
+				{
+					return;
+				}
+
+				NoteTreeNode aNode = (NoteTreeNode) anObject;
+
+				/*
+				 * The portrait note may not be removed
+				 *
+				 * author: Thomas Behr 10-09-02
+				 */
+				if (aNode.getItem().getId() == PORTRAIT_NOTEID)
+				{
+					JOptionPane.showMessageDialog(null,
+						in_noPortraitDeletionMessage);
+
+					return;
+				}
+
+				Enumeration<NoteTreeNode> allChildren =
+						aNode.breadthFirstEnumeration();
+
+				while (allChildren.hasMoreElements())
+				{
+					NoteTreeNode ancestorNode = allChildren.nextElement();
+
+					if (ancestorNode != aNode)
 					{
-						parentId = parentTreeNode.getItem().getId();
+						numChildren++;
 					}
+				}
 
-					/*
-					 * The portrait note may not have children
-					 *
-					 * author: Thomas Behr 10-09-02
-					 */
-					if (parentId == PORTRAIT_NOTEID)
+				//The following line should be taken out and shot!
+				reallyDelete =
+						JOptionPane.showConfirmDialog(null, PropertyFactory
+							.getString("in_delNote1")
+							+ " "
+							+ aNode.toString()
+							+ ((numChildren > 0) ? (" "
+								+ PropertyFactory.getString("in_delNote2")
+								+ " " + (numChildren) + " " + PropertyFactory
+								.getString("in_delNote3")) : " ") + "?",
+							PropertyFactory.getString("in_delNote4"),
+							JOptionPane.OK_CANCEL_OPTION);
+
+				if (reallyDelete == JOptionPane.OK_OPTION)
+				{
+					NoteTreeNode parent = (NoteTreeNode) aNode.getParent();
+
+					if (parent != null)
 					{
-						JOptionPane.showMessageDialog(null, in_noPortraitChildrenMessage);
+						allChildren = aNode.breadthFirstEnumeration();
 
-						return;
-					}
-
-					for (NoteItem currItem : pc.getNotesList())
-					{
-						if (currItem.getId() > newNodeId)
+						while (allChildren.hasMoreElements())
 						{
-							newNodeId = currItem.getId();
+							NoteTreeNode ancestorNode =
+									allChildren.nextElement();
+							pc.getNotesList().remove(ancestorNode.getItem());
 						}
+
+						parent.remove(aNode);
+						pc.setDirty(true);
 					}
 
-					++newNodeId;
-
-					NoteItem a = new NoteItem(newNodeId, parentId, PropertyFactory.getString("in_newItem"),
-							PropertyFactory.getString("in_newValue"));
-					NoteTreeNode aNode = new NoteTreeNode(a);
-
-					if (parentTreeNode != null)
-					{
-						parentTreeNode.add(aNode);
-					}
-
-					pc.addNotesItem(a);
-					pc.setDirty(true);
-					notesTree.expandPath(selPath);
 					notesTree.updateUI();
 				}
-			});
-		Utility.setDescription(addButton, PropertyFactory.getString("in_addChild"));
-		deleteButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					int numChildren = 0;
-					int reallyDelete;
-
-					final TreePath selPath = notesTree.getSelectionPath();
-
-					if (selPath == null)
-					{
-						return;
-					}
-
-					Object anObject = selPath.getLastPathComponent();
-
-					if ((anObject == null) || (((NoteTreeNode) anObject).getItem() == null))
-					{
-						return;
-					}
-
-					NoteTreeNode aNode = (NoteTreeNode) anObject;
-
-					/*
-					 * The portrait note may not be removed
-					 *
-					 * author: Thomas Behr 10-09-02
-					 */
-					if (aNode.getItem().getId() == PORTRAIT_NOTEID)
-					{
-						JOptionPane.showMessageDialog(null, in_noPortraitDeletionMessage);
-
-						return;
-					}
-
-					Enumeration<NoteTreeNode> allChildren = aNode.breadthFirstEnumeration();
-
-					while (allChildren.hasMoreElements())
-					{
-						NoteTreeNode ancestorNode = allChildren.nextElement();
-
-						if (ancestorNode != aNode)
-						{
-							numChildren++;
-						}
-					}
-
-					//The following line should be taken out and shot!
-					reallyDelete = JOptionPane.showConfirmDialog(null,
-							PropertyFactory.getString("in_delNote1") + " " + aNode.toString()
-							+ ((numChildren > 0)
-							? (" " + PropertyFactory.getString("in_delNote2") + " " + (numChildren) + " "
-							+ PropertyFactory.getString("in_delNote3")) : " ") + "?",
-							PropertyFactory.getString("in_delNote4"), JOptionPane.OK_CANCEL_OPTION);
-
-					if (reallyDelete == JOptionPane.OK_OPTION)
-					{
-						NoteTreeNode parent = (NoteTreeNode) aNode.getParent();
-
-						if (parent != null)
-						{
-							allChildren = aNode.breadthFirstEnumeration();
-
-							while (allChildren.hasMoreElements())
-							{
-								NoteTreeNode ancestorNode = allChildren.nextElement();
-								pc.getNotesList().remove(ancestorNode.getItem());
-							}
-
-							parent.remove(aNode);
-							pc.setDirty(true);
-						}
-
-						notesTree.updateUI();
-					}
-				}
-			});
-		Utility.setDescription(deleteButton, PropertyFactory.getString("in_delSelIt"));
+			}
+		});
+		Utility.setDescription(deleteButton, PropertyFactory
+			.getString("in_delSelIt"));
 		renameButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
+				final TreePath selPath = notesTree.getSelectionPath();
+
+				if (selPath == null)
 				{
-					final TreePath selPath = notesTree.getSelectionPath();
-
-					if (selPath == null)
-					{
-						return;
-					}
-
-					Object anObject = selPath.getLastPathComponent();
-
-					if ((anObject == null) || (((NoteTreeNode) anObject).getItem() == null))
-					{
-						return;
-					}
-
-					NoteTreeNode aNode = (NoteTreeNode) anObject;
-
-					/*
-					 * The portrait note may not be renamed
-					 *
-					 * author: Thomas Behr 10-09-02
-					 */
-					if (aNode.getItem().getId() == PORTRAIT_NOTEID)
-					{
-						JOptionPane.showMessageDialog(null, in_noPortraitRenamingMessage);
-
-						return;
-					}
-
-					String selectedValue = JOptionPane.showInputDialog(null, PropertyFactory.getString("in_idEnNewName"),
-							Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
-
-					if ((selectedValue != null) && (selectedValue.trim().length() > 0))
-					{
-						aNode.getItem().setName(selectedValue.trim());
-						pc.setDirty(true);
-						notesTree.updateUI();
-					}
+					return;
 				}
-			});
-		Utility.setDescription(renameButton, PropertyFactory.getString("in_idRenSelIt"));
+
+				Object anObject = selPath.getLastPathComponent();
+
+				if ((anObject == null)
+					|| (((NoteTreeNode) anObject).getItem() == null))
+				{
+					return;
+				}
+
+				NoteTreeNode aNode = (NoteTreeNode) anObject;
+
+				/*
+				 * The portrait note may not be renamed
+				 *
+				 * author: Thomas Behr 10-09-02
+				 */
+				if (aNode.getItem().getId() == PORTRAIT_NOTEID)
+				{
+					JOptionPane.showMessageDialog(null,
+						in_noPortraitRenamingMessage);
+
+					return;
+				}
+
+				String selectedValue =
+						JOptionPane.showInputDialog(null, PropertyFactory
+							.getString("in_idEnNewName"), Constants.s_APPNAME,
+							JOptionPane.QUESTION_MESSAGE);
+
+				if ((selectedValue != null)
+					&& (selectedValue.trim().length() > 0))
+				{
+					aNode.getItem().setName(selectedValue.trim());
+					pc.setDirty(true);
+					notesTree.updateUI();
+				}
+			}
+		});
+		Utility.setDescription(renameButton, PropertyFactory
+			.getString("in_idRenSelIt"));
 		revertButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					// TODO This method currently does nothing?
-				}
-			});
-		Utility.setDescription(revertButton, PropertyFactory.getString("in_idLoseChan"));
+				// TODO This method currently does nothing?
+			}
+		});
+		Utility.setDescription(revertButton, PropertyFactory
+			.getString("in_idLoseChan"));
 		revertButton.setEnabled(false); // not coded yet
 		moveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					lastItem = currentItem;
-				}
-			});
-		Utility.setDescription(moveButton, PropertyFactory.getString("in_idSwitch"));
+				lastItem = currentItem;
+			}
+		});
+		Utility.setDescription(moveButton, PropertyFactory
+			.getString("in_idSwitch"));
 
 		dataText.addFocusListener(new FocusAdapter()
+		{
+			public void focusLost(FocusEvent evt)
 			{
-				public void focusLost(FocusEvent evt)
-				{
-					updateNoteItem();
-				}
-			});
+				updateNoteItem();
+			}
+		});
 
-		notesTree.addMouseListener(new NotePopupListener(notesTree, new NotePopupMenu()));
+		notesTree.addMouseListener(new NotePopupListener(notesTree,
+			new NotePopupMenu()));
 	}
 
 	/**
@@ -1470,16 +1538,25 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	{
 		int roll;
 
-//		final ArrayList globalColorList = Globals.getColorList();
-		final List<String> globalTraitList = SystemCollections.getUnmodifiableTraitList();
-		final List<String> globalPhobiaList = SystemCollections.getUnmodifiablePhobiaList();
-		final List<String> globalLocationList = SystemCollections.getUnmodifiableLocationList();
-		final List<String> globalInterestsList = SystemCollections.getUnmodifiableInterestsList();
-		final List<String> globalPhraseList = SystemCollections.getUnmodifiablePhraseList();
-		final List<String> globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
-		final List<String> globalSpeechList = SystemCollections.getUnmodifiableSpeechList();
-		final List<String> globalCityList = SystemCollections.getUnmodifiableCityList();
-		final List<String> globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
+		//		final ArrayList globalColorList = Globals.getColorList();
+		final List<String> globalTraitList =
+				SystemCollections.getUnmodifiableTraitList();
+		final List<String> globalPhobiaList =
+				SystemCollections.getUnmodifiablePhobiaList();
+		final List<String> globalLocationList =
+				SystemCollections.getUnmodifiableLocationList();
+		final List<String> globalInterestsList =
+				SystemCollections.getUnmodifiableInterestsList();
+		final List<String> globalPhraseList =
+				SystemCollections.getUnmodifiablePhraseList();
+		final List<String> globalHairStyleList =
+				SystemCollections.getUnmodifiableHairStyleList();
+		final List<String> globalSpeechList =
+				SystemCollections.getUnmodifiableSpeechList();
+		final List<String> globalCityList =
+				SystemCollections.getUnmodifiableCityList();
+		final List<String> globalBirthplaceList =
+				SystemCollections.getUnmodifiableBirthplaceList();
 
 		StringBuffer randomString = new StringBuffer();
 
@@ -1693,21 +1770,25 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			handedComboBox.setSelectedItem(pc.getHanded());
 			genderComboBox.setSelectedItem(pc.getGender());
 			genderComboBox.setEnabled(pc.canSetGender());
-			wtText.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(pc.getWeight()));
-			htText.setText(Globals.getGameModeUnitSet().displayHeightInUnitSet(pc.getHeight()));
+			wtText.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
+				pc.getWeight()));
+			htText.setText(Globals.getGameModeUnitSet().displayHeightInUnitSet(
+				pc.getHeight()));
 
 			if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 			{
-				labelHeight.setText(PropertyFactory.getString("in_height") + " (in.): ");
+				labelHeight.setText(PropertyFactory.getString("in_height")
+					+ " (in.): ");
 			}
 			else
 			{
-				labelHeight.setText(PropertyFactory.getString("in_height") + " ("
-					+ Globals.getGameModeUnitSet().getHeightUnit() + "): ");
+				labelHeight.setText(PropertyFactory.getString("in_height")
+					+ " (" + Globals.getGameModeUnitSet().getHeightUnit()
+					+ "): ");
 			}
 
-			labelWeight.setText(PropertyFactory.getString("in_weight") + " (" + Globals.getGameModeUnitSet().getWeightUnit()
-				+ "): ");
+			labelWeight.setText(PropertyFactory.getString("in_weight") + " ("
+				+ Globals.getGameModeUnitSet().getWeightUnit() + "): ");
 		}
 
 		updateDisplayedAge();
@@ -1729,7 +1810,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		birthplaceText.setText(pc.getBirthplace());
 		birthdayText.setText(pc.getBirthday());
 
-		if(portrait != null)
+		if (portrait != null)
 		{
 			portrait.refresh(pc);
 		}
@@ -1769,7 +1850,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			 *
 			 * author: Thomas Behr 10-09-02
 			 */
-			if ((currentItem != null) && (currentItem.getId() == PORTRAIT_NOTEID))
+			if ((currentItem != null)
+				&& (currentItem.getId() == PORTRAIT_NOTEID))
 			{
 				dataLayout.last(dataPanel);
 			}
@@ -1914,7 +1996,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		if ((pcRace != null) && !pcRace.equals(Globals.s_EMPTYRACE))
 		{
 			int idx = Globals.getBioSet().getPCAgeSet(pc);
-			String aString = Globals.getBioSet().getAgeMapIndex(pc.getRegion(), idx);
+			String aString =
+					Globals.getBioSet().getAgeMapIndex(pc.getRegion(), idx);
 
 			if ((idx >= 0) && (aString != null))
 			{
@@ -2008,8 +2091,10 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		pc.setBirthplace(birthplaceText.getText());
 		pc.setBirthday(birthdayText.getText());
 		pc.setAge(Delta.parseInt("0" + ageText.getText()));
-		pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(Delta.parseDouble("0" + htText.getText())));
-		pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(Delta.parseDouble("0" + wtText.getText())));
+		pc.setHeight(Globals.getGameModeUnitSet().convertHeightFromUnitSet(
+			Delta.parseDouble("0" + htText.getText())));
+		pc.setWeight(Globals.getGameModeUnitSet().convertWeightFromUnitSet(
+			Delta.parseDouble("0" + wtText.getText())));
 	}
 
 	/**
@@ -2116,42 +2201,44 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); i++)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							final JMenuItem menuItem =
+									(JMenuItem) menu.getComponent(i);
+							KeyStroke ks = menuItem.getAccelerator();
 
-							for (int i = 0; i < menu.getComponentCount(); i++)
+							if ((ks != null) && keyStroke.equals(ks))
 							{
-								final JMenuItem menuItem = (JMenuItem) menu.getComponent(i);
-								KeyStroke ks = menuItem.getAccelerator();
+								menuItem.doClick(2);
 
-								if ((ks != null) && keyStroke.equals(ks))
-								{
-									menuItem.doClick(2);
-
-									return;
-								}
+								return;
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			tree.addKeyListener(myKeyListener);
 		}
@@ -2170,7 +2257,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		{
 			if (evt.isPopupTrigger())
 			{
-				TreePath selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				TreePath selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -2190,36 +2278,44 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		NotePopupMenu()
 		{
-			NotePopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_add"), "shortcut EQUALS"));
-			NotePopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_remove"), "shortcut MINUS"));
-			NotePopupMenu.this.add(createRenameMenuItem(PropertyFactory.getString("in_rename"), "alt M"));
-			NotePopupMenu.this.add(createMoveMenuItem(PropertyFactory.getString("in_move"), "alt Z"));
+			NotePopupMenu.this.add(createAddMenuItem(PropertyFactory
+				.getString("in_add"), "shortcut EQUALS"));
+			NotePopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				.getString("in_remove"), "shortcut MINUS"));
+			NotePopupMenu.this.add(createRenameMenuItem(PropertyFactory
+				.getString("in_rename"), "alt M"));
+			NotePopupMenu.this.add(createMoveMenuItem(PropertyFactory
+				.getString("in_move"), "alt Z"));
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddNoteActionListener(), PropertyFactory.getString("in_add"),
-				(char) 0, accelerator, PropertyFactory.getString("in_add"), "Add16.gif", true);
+			return Utility.createMenuItem(label, new AddNoteActionListener(),
+				PropertyFactory.getString("in_add"), (char) 0, accelerator,
+				PropertyFactory.getString("in_add"), "Add16.gif", true);
 		}
 
 		private JMenuItem createMoveMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new MoveNoteActionListener(), PropertyFactory.getString("in_move"),
-				(char) 0, accelerator, PropertyFactory.getString("in_move"), "Add16.gif", true);
+			return Utility.createMenuItem(label, new MoveNoteActionListener(),
+				PropertyFactory.getString("in_move"), (char) 0, accelerator,
+				PropertyFactory.getString("in_move"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveNoteActionListener(),
-				PropertyFactory.getString("in_delete"), (char) 0, accelerator, PropertyFactory.getString("in_delete"),
-				"Remove16.gif", true);
+			return Utility.createMenuItem(label,
+				new RemoveNoteActionListener(), PropertyFactory
+					.getString("in_delete"), (char) 0, accelerator,
+				PropertyFactory.getString("in_delete"), "Remove16.gif", true);
 		}
 
 		private JMenuItem createRenameMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new RenameNoteActionListener(),
-				PropertyFactory.getString("in_rename"), (char) 0, accelerator, PropertyFactory.getString("in_rename"),
-				"Add16.gif", true);
+			return Utility.createMenuItem(label,
+				new RenameNoteActionListener(), PropertyFactory
+					.getString("in_rename"), (char) 0, accelerator,
+				PropertyFactory.getString("in_rename"), "Add16.gif", true);
 		}
 
 		private class AddNoteActionListener extends NoteActionListener

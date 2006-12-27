@@ -5,7 +5,8 @@ import java.util.Map;
 /**
  * Interface for SOURCE LST tokens
  */
-public interface SourceLstToken extends LstToken {
+public interface SourceLstToken extends LstToken
+{
 
 	/**
 	 * Parse the SOURCE token

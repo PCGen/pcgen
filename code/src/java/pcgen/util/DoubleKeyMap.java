@@ -44,11 +44,11 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		super();
 	}
 
-	public DoubleKeyMap( final DoubleKeyMap<K1, K2, V> otherMap )
+	public DoubleKeyMap(final DoubleKeyMap<K1, K2, V> otherMap)
 	{
 		map.putAll(otherMap.map);
 	}
-	
+
 	/**
 	 * Put an object in a map
 	 * @param key1
@@ -140,13 +140,13 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public Set<K2> getSecondaryKeySet(final K1 aPrimaryKey)
 	{
 		final Map<K2, V> localMap = map.get(aPrimaryKey);
-		if ( localMap == null )
+		if (localMap == null)
 		{
 			return Collections.emptySet();
 		}
 		return new HashSet<K2>(localMap.keySet());
 	}
-	
+
 	/**
 	 * Clear
 	 */
@@ -168,7 +168,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	{
 		DoubleKeyMap<K1, K2, V> dkm = (DoubleKeyMap<K1, K2, V>) super.clone();
 		dkm.map = new HashMap<K1, Map<K2, V>>();
-		for (Iterator<K1> it = map.keySet().iterator(); it.hasNext();) {
+		for (Iterator<K1> it = map.keySet().iterator(); it.hasNext();)
+		{
 			K1 key = it.next();
 			Map<K2, V> m = map.get(key);
 			dkm.map.put(key, new HashMap<K2, V>(m));

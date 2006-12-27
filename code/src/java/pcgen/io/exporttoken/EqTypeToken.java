@@ -55,7 +55,8 @@ public class EqTypeToken extends EqToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		aTok.nextToken();
@@ -133,4 +134,3 @@ public class EqTypeToken extends EqToken
 		return "";
 	}
 }
-

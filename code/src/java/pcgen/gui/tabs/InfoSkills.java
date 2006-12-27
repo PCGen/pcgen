@@ -146,9 +146,9 @@ import pcgen.util.enumeration.Visibility;
 public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 {
 	static final long serialVersionUID = -5369872214039221832L;
-	
+
 	private static final Tab tab = Tab.SKILLS;
-	
+
 	private static boolean resetSelectedModel = true;
 	private static PCClass previouslySelectedClass = null;
 	private static boolean needsUpdate = true;
@@ -165,15 +165,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	// keep track of skills output order. defaults to manual, but will
 	// be overriden by the settings from the new or laoded character.
-	private static int selectedOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL;
+	private static int selectedOutputOrder =
+			GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL;
 
 	//table model modes
 	private static final int MODEL_AVAIL = 0;
 	private static final int MODEL_SELECT = 1;
 	/** The Number of costs to display - CSkill, CCSkill and x */
 	public static final int nCosts = 3;
-	private final JLabel avaLabel = new JLabel(PropertyFactory.getString("in_iskDisplay_By")); //$NON-NLS-1$
-	private final JLabel selLabel = new JLabel(PropertyFactory.getString("in_iskDisplay_By")); //$NON-NLS-1$
+	private final JLabel avaLabel =
+			new JLabel(PropertyFactory.getString("in_iskDisplay_By")); //$NON-NLS-1$
+	private final JLabel selLabel =
+			new JLabel(PropertyFactory.getString("in_iskDisplay_By")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -191,7 +194,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private JLabel exclusiveLabel = new JLabel();
 	private JLabel includeLabel = new JLabel();
 	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
-	private final JLabel lblSelectedQFilter  = new JLabel("Filter:");
+	private final JLabel lblSelectedQFilter = new JLabel("Filter:");
 	private JLabel jLbClassSkillPoints = null;
 	private JLabel jLbMaxCrossSkill = new JLabel();
 	private JLabel jLbMaxSkill = new JLabel();
@@ -202,7 +205,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private JPanel center = new JPanel();
 	private JPanel jPanel1 = new JPanel();
 	private JScrollPane cScroll = new JScrollPane();
-//	private JTextField exclusiveSkillCost = new JTextField();
+	//	private JTextField exclusiveSkillCost = new JTextField();
 	private JTextField textAvailableQFilter = new JTextField();
 	private JTextField textSelectedQFilter = new JTextField();
 	private JTreeTable availableTable;
@@ -237,18 +240,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		setName(tab.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initActionListeners();
-				}
-			});
+				initComponents();
+				initActionListeners();
+			}
+		});
 	}
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -263,7 +266,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Skills.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Skills.Order", tab
+			.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -312,7 +316,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -362,11 +366,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 * @param pc
 	 * @return a Skill Wrapper
 	 */
-	public static SkillWrapper createSkillWrapper(boolean available, Skill skill, PlayerCharacter pc)
+	public static SkillWrapper createSkillWrapper(boolean available,
+		Skill skill, PlayerCharacter pc)
 	{
-		return available ? new SkillWrapper(skill, Integer.valueOf(0), new Float(0), Integer.valueOf(0))
-						 : new SkillWrapper(skill, skill.modifier(pc), skill.getTotalRank(pc),
-			Integer.valueOf(skill.getOutputIndex()));
+		return available ? new SkillWrapper(skill, Integer.valueOf(0),
+			new Float(0), Integer.valueOf(0)) : new SkillWrapper(skill, skill
+			.modifier(pc), skill.getTotalRank(pc), Integer.valueOf(skill
+			.getOutputIndex()));
 	}
 
 	/**
@@ -443,7 +449,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		if (Globals.getGameModeHasPointPool())
 		{
-			return (PCClass)pc.getSpellClassAtIndex(0);
+			return (PCClass) pc.getSpellClassAtIndex(0);
 		}
 		PCLevelInfo pcl = getSelectedLevelInfo(pc);
 		if (pcl != null)
@@ -516,7 +522,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	private static int getSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -642,7 +649,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -650,6 +658,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			addSkill(1);
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -658,7 +667,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() {
+		public void singleClickEvent()
+		{
 			// Do Nothing
 		}
 
@@ -681,8 +691,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						}
 						else
 						{
-							points = theSkill.costForPCClass(getSelectedPCClass(), pc);
-							final int classSkillCost = Globals.getGameModeSkillCost_Class();
+							points =
+									theSkill.costForPCClass(
+										getSelectedPCClass(), pc);
+							final int classSkillCost =
+									Globals.getGameModeSkillCost_Class();
 							if (classSkillCost > 1)
 							{
 								points /= classSkillCost;
@@ -710,7 +723,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		tree.setShowsRootHandles(true);
 		tree.setCellRenderer(new LabelTreeCellRenderer());
 
-		availableTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		availableTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -723,14 +737,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							return;
 						}
 
-						Object temp = availableTable.getTree().getPathForRow(idx).getLastPathComponent();
+						Object temp =
+								availableTable.getTree().getPathForRow(idx)
+									.getLastPathComponent();
 
 						/////////////////////////
 						if (temp == null)
 						{
 							lastSkill = null;
-							ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskErr_message_02"), Constants.s_APPNAME,
-								MessageType.ERROR); //$NON-NLS-1$
+							ShowMessageDelegate.showMessageDialog(
+								PropertyFactory
+									.getString("in_iskErr_message_02"),
+								Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 							return;
 						}
@@ -753,7 +771,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 			});
 
-		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
+		availableTable.addMouseListener(new JTreeTableMouseAdapter(
+			availableTable, new AvailableClickHandler(), false));
 
 		//
 		// now do the selectedTable
@@ -766,7 +785,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		btree.setShowsRootHandles(true);
 		btree.setCellRenderer(new LabelTreeCellRenderer());
 
-		selectedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+		selectedTable.getSelectionModel().addListSelectionListener(
+			new ListSelectionListener()
 			{
 				public void valueChanged(ListSelectionEvent e)
 				{
@@ -779,7 +799,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							return;
 						}
 
-						Object temp = selectedTable.getTree().getPathForRow(idx).getLastPathComponent();
+						Object temp =
+								selectedTable.getTree().getPathForRow(idx)
+									.getLastPathComponent();
 
 						if (temp == null)
 						{
@@ -806,7 +828,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					}
 				}
 			});
-		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), false));
+		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
+			selectedTable, new SelectedClickHandler(), false));
 
 		hookupPopupMenu(availableTable);
 		hookupPopupMenu(selectedTable);
@@ -828,8 +851,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (theSkill.isReadOnly())
 		{
-			ShowMessageDelegate.showMessageDialog("You cannot " + (points < 0 ? "remove" : "add") +
-					" ranks for this skill: " + theSkill.getDisplayName(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("You cannot "
+				+ (points < 0 ? "remove" : "add") + " ranks for this skill: "
+				+ theSkill.getDisplayName(), Constants.s_APPNAME,
+				MessageType.ERROR);
 			return;
 		}
 
@@ -851,7 +876,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		int pointsLeft = points;
 		if ((pointsLeft > 0) && (theSkill.getPreReqCount() != 0))
 		{
-			while(pointsLeft > classSkillCost)
+			while (pointsLeft > classSkillCost)
 			{
 				if (!modRank(theSkill, classSkillCost, false))
 				{
@@ -861,8 +886,6 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				dirty = true;
 			}
 		}
-
-
 
 		// modRank returns true on success and false on failure
 		// if we failed to add skill points, don't do anything
@@ -885,8 +908,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			//
 			// Notify the user
 			//
-			ShowMessageDelegate.showMessageDialog("Modifying this skill invalidates the prerequisites for the following skill(s):\n" + prereqSkills.toString()
-					, Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate
+				.showMessageDialog(
+					"Modifying this skill invalidates the prerequisites for the following skill(s):\n"
+						+ prereqSkills.toString(), Constants.s_APPNAME,
+					MessageType.ERROR);
 			return;
 		}
 
@@ -942,7 +968,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (currCharClassSkillPnts.getText().length() > 0)
 		{
-			final int anInt = Delta.decode(currCharClassSkillPnts.getText()).intValue();
+			final int anInt =
+					Delta.decode(currCharClassSkillPnts.getText()).intValue();
 
 			if ((aClass == null) || (anInt == skillPool))
 			{
@@ -952,7 +979,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			final int i = skillPool - anInt;
 			pcl.setSkillPointsRemaining(anInt);
 			aClass.setSkillPool(Math.max(0, aClass.getSkillPool(pc) - i));
-			currentPC.setSkillPoints(Math.max(0, currentPC.getSkillPoints() - i));
+			currentPC.setSkillPoints(Math
+				.max(0, currentPC.getSkillPoints() - i));
 		}
 
 		currCharClassSkillPnts.setValue(pcl.getSkillPointsRemaining());
@@ -1000,12 +1028,22 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
-			s = SettingsHandler.getPCGenOption("InfoSkills.splitPane", (int) ((this.getSize().getWidth() * 4) / 10)); //$NON-NLS-1$
-			t = SettingsHandler.getPCGenOption("InfoSkills.bsplit", (int) (this.getSize().getHeight() - 101)); //$NON-NLS-1$
-			u = SettingsHandler.getPCGenOption("InfoSkills.asplit", (int) (this.getSize().getWidth() - 408)); //$NON-NLS-1$
+			s =
+					SettingsHandler
+						.getPCGenOption(
+							"InfoSkills.splitPane", (int) ((this.getSize().getWidth() * 4) / 10)); //$NON-NLS-1$
+			t =
+					SettingsHandler
+						.getPCGenOption(
+							"InfoSkills.bsplit", (int) (this.getSize().getHeight() - 101)); //$NON-NLS-1$
+			u =
+					SettingsHandler
+						.getPCGenOption(
+							"InfoSkills.asplit", (int) (this.getSize().getWidth() - 408)); //$NON-NLS-1$
 
 			// set the prefered width on selectedTable
-			final TableColumnModel selectedTableColumnModel = selectedTable.getColumnModel();
+			final TableColumnModel selectedTableColumnModel =
+					selectedTable.getColumnModel();
 
 			for (int i = 0; i < selectedTable.getColumnCount(); ++i)
 			{
@@ -1017,23 +1055,23 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(selectedTable, "InfoSel", i)); //$NON-NLS-1$
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					selectedTable, "InfoSel", i)); //$NON-NLS-1$
 
 				if (i == 5)
 				{
-					sCol.setCellEditor(new OutputOrderEditor(
-							new String[]
-							{
-								PropertyFactory.getString("in_iskFirst"), PropertyFactory.getString("in_iskLast"),
-								PropertyFactory.getString("in_iskHidden")
-							})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					sCol.setCellEditor(new OutputOrderEditor(new String[]{
+						PropertyFactory.getString("in_iskFirst"),
+						PropertyFactory.getString("in_iskLast"),
+						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 			}
 
 			// set the prefered width on availableTable
 			for (int i = 0; i < availableTable.getColumnCount(); ++i)
 			{
-				final TableColumnModel availableTableColumnModel = availableTable.getColumnModel();
+				final TableColumnModel availableTableColumnModel =
+						availableTable.getColumnModel();
 				TableColumn sCol = availableTableColumnModel.getColumn(i);
 				width = Globals.getCustColumnWidth("InfoAva", i); //$NON-NLS-1$
 
@@ -1042,7 +1080,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "InfoAva", i)); //$NON-NLS-1$
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					availableTable, "InfoAva", i)); //$NON-NLS-1$
 			}
 		}
 
@@ -1067,135 +1106,142 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new SkillPopupListener(treeTable, new SkillPopupMenu(treeTable)));
+		treeTable.addMouseListener(new SkillPopupListener(treeTable,
+			new SkillPopupMenu(treeTable)));
 	}
 
 	private void initActionListeners()
 	{
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentShown(ComponentEvent evt)
 			{
-				public void componentShown(ComponentEvent evt)
+				try
 				{
-					try
-					{
-						formComponentShown();
-					}
-					catch (Throwable e)
-					{
-						Logging
-							.errorPrint(
-								"Failure while showing skills tab. Skills tab may not be properly displayed.",
-								e);
-					}
+					formComponentShown();
 				}
-			});
+				catch (Throwable e)
+				{
+					Logging
+						.errorPrint(
+							"Failure while showing skills tab. Skills tab may not be properly displayed.",
+							e);
+				}
+			}
+		});
 		addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
-				{
-					saveDividerLocations();
-				}
-			});
+				saveDividerLocations();
+			}
+		});
 		asplit.addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
-				{
-					saveDividerLocations();
-				}
-			});
+				saveDividerLocations();
+			}
+		});
 		bsplit.addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
-				{
-					saveDividerLocations();
-				}
-			});
+				saveDividerLocations();
+			}
+		});
 		splitPane.addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
 			{
-				public void componentResized(ComponentEvent e)
-				{
-					saveDividerLocations();
-				}
-			});
+				saveDividerLocations();
+			}
+		});
 		removeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					addSkill(-1);
-				}
-			});
+				addSkill(-1);
+			}
+		});
 		addButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					addSkill(1);
-				}
-			});
+				addSkill(1);
+			}
+		});
 		viewComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewComboBoxActionPerformed();
-				}
-			});
+				viewComboBoxActionPerformed();
+			}
+		});
 		viewSelectComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					viewSelectComboBoxActionPerformed();
-				}
-			});
+				viewSelectComboBoxActionPerformed();
+			}
+		});
 		outputOrderComboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					outputOrderComboBoxActionPerformed();
-				}
-			});
-		textAvailableQFilter.getDocument().addDocumentListener(new DocumentListener()
+				outputOrderComboBoxActionPerformed();
+			}
+		});
+		textAvailableQFilter.getDocument().addDocumentListener(
+			new DocumentListener()
 			{
 				public void changedUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
+
 				public void insertUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
+
 				public void removeUpdate(DocumentEvent evt)
 				{
 					setAvailableQFilter();
 				}
 			});
 		clearAvailableQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearAvailableQFilter();
-				}
-			});
-		textSelectedQFilter.getDocument().addDocumentListener(new DocumentListener()
+				clearAvailableQFilter();
+			}
+		});
+		textSelectedQFilter.getDocument().addDocumentListener(
+			new DocumentListener()
 			{
 				public void changedUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
+
 				public void insertUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
+
 				public void removeUpdate(DocumentEvent evt)
 				{
 					setSelectedQFilter();
 				}
 			});
 		clearSelectedQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearSelectedQFilter();
-				}
-			});
+				clearSelectedQFilter();
+			}
+		});
 
 		FilterFactory.restoreFilterSettings(this);
 	}
@@ -1212,7 +1258,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		//
 		int iView = SettingsHandler.getSkillsTab_AvailableListMode();
 
-		if ((iView >= GuiConstants.INFOSKILLS_VIEW_STAT_TYPE_NAME) && (iView <= GuiConstants.INFOSKILLS_VIEW_NAME))
+		if ((iView >= GuiConstants.INFOSKILLS_VIEW_STAT_TYPE_NAME)
+			&& (iView <= GuiConstants.INFOSKILLS_VIEW_NAME))
 		{
 			viewMode = iView;
 		}
@@ -1220,38 +1267,53 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		SettingsHandler.setSkillsTab_AvailableListMode(viewMode);
 		iView = SettingsHandler.getSkillsTab_SelectedListMode();
 
-		if ((iView >= GuiConstants.INFOSKILLS_VIEW_STAT_TYPE_NAME) && (iView <= GuiConstants.INFOSKILLS_VIEW_NAME))
+		if ((iView >= GuiConstants.INFOSKILLS_VIEW_STAT_TYPE_NAME)
+			&& (iView <= GuiConstants.INFOSKILLS_VIEW_NAME))
 		{
 			viewSelectMode = iView;
 		}
 
 		SettingsHandler.setSkillsTab_SelectedListMode(viewSelectMode);
 
-		viewComboBox.addItem(PropertyFactory.getString("in_iskKeyStat_SubType_Name")); //$NON-NLS-1$
+		viewComboBox.addItem(PropertyFactory
+			.getString("in_iskKeyStat_SubType_Name")); //$NON-NLS-1$
 		viewComboBox.addItem(PropertyFactory.getString("in_iskKeyStat_Name")); //$NON-NLS-1$
 		viewComboBox.addItem(PropertyFactory.getString("in_iskSubType_Name")); //$NON-NLS-1$
-		viewComboBox.addItem(PropertyFactory.getString("in_iskCost_SubType_Name")); //$NON-NLS-1$
+		viewComboBox.addItem(PropertyFactory
+			.getString("in_iskCost_SubType_Name")); //$NON-NLS-1$
 		viewComboBox.addItem(PropertyFactory.getString("in_iskCost_Name")); //$NON-NLS-1$
 		viewComboBox.addItem(PropertyFactory.getString("in_iskName")); //$NON-NLS-1$
-		Utility.setDescription(viewComboBox, PropertyFactory.getString("in_iskSkill_display_order_tooltip")); //$NON-NLS-1$
+		Utility.setDescription(viewComboBox, PropertyFactory
+			.getString("in_iskSkill_display_order_tooltip")); //$NON-NLS-1$
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
 
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskKeyStat_SubType_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskKeyStat_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskSubType_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskCost_SubType_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskCost_Name")); //$NON-NLS-1$
+		viewSelectComboBox.addItem(PropertyFactory
+			.getString("in_iskKeyStat_SubType_Name")); //$NON-NLS-1$
+		viewSelectComboBox.addItem(PropertyFactory
+			.getString("in_iskKeyStat_Name")); //$NON-NLS-1$
+		viewSelectComboBox.addItem(PropertyFactory
+			.getString("in_iskSubType_Name")); //$NON-NLS-1$
+		viewSelectComboBox.addItem(PropertyFactory
+			.getString("in_iskCost_SubType_Name")); //$NON-NLS-1$
+		viewSelectComboBox
+			.addItem(PropertyFactory.getString("in_iskCost_Name")); //$NON-NLS-1$
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskName")); //$NON-NLS-1$
-		Utility.setDescription(viewSelectComboBox, PropertyFactory.getString("in_iskSkill_display_order_tooltip")); //$NON-NLS-1$
+		Utility.setDescription(viewSelectComboBox, PropertyFactory
+			.getString("in_iskSkill_display_order_tooltip")); //$NON-NLS-1$
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
 		// Build the Output Order Combo-box
-		outputOrderComboBox.addItem(PropertyFactory.getString("in_iskBy_name_ascending")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory.getString("in_iskBy_name_descending")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory.getString("in_iskBy_trained_then_untrained")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory.getString("in_iskBy_untrained_then_trained")); //$NON-NLS-1$
+		outputOrderComboBox.addItem(PropertyFactory
+			.getString("in_iskBy_name_ascending")); //$NON-NLS-1$
+		outputOrderComboBox.addItem(PropertyFactory
+			.getString("in_iskBy_name_descending")); //$NON-NLS-1$
+		outputOrderComboBox.addItem(PropertyFactory
+			.getString("in_iskBy_trained_then_untrained")); //$NON-NLS-1$
+		outputOrderComboBox.addItem(PropertyFactory
+			.getString("in_iskBy_untrained_then_trained")); //$NON-NLS-1$
 		outputOrderComboBox.addItem(PropertyFactory.getString("in_iskManual")); //$NON-NLS-1$
-		Utility.setDescription(outputOrderComboBox, PropertyFactory.getString("in_iskSkill_output_order_tooltip")); //$NON-NLS-1$
+		Utility.setDescription(outputOrderComboBox, PropertyFactory
+			.getString("in_iskSkill_output_order_tooltip")); //$NON-NLS-1$
 		outputOrderComboBox.setSelectedIndex(selectedOutputOrder);
 
 		createModels();
@@ -1264,7 +1326,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		JPanel leftPane = new JPanel();
 		JPanel rightPane = new JPanel();
 
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane =
+				new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -1272,52 +1335,68 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		// Top Left - Available
 		leftPane.setLayout(new BorderLayout());
-		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblAvailableQFilter, textAvailableQFilter, clearAvailableQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox,
+			lblAvailableQFilter, textAvailableQFilter,
+			clearAvailableQFilterButton), BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		leftPane.add(buildModPanel(addButton, PropertyFactory.getString("in_iskAdd_skill_tooltip")), BorderLayout.SOUTH);
+		leftPane.add(buildModPanel(addButton, PropertyFactory
+			.getString("in_iskAdd_skill_tooltip")), BorderLayout.SOUTH);
 
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
 		// Right Pane - Selected
 		rightPane.setLayout(new BorderLayout());
 
-		rightPane.add(InfoTabUtils.createFilterPane(selLabel, viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter, clearSelectedQFilterButton), BorderLayout.NORTH);
+		rightPane.add(InfoTabUtils.createFilterPane(selLabel,
+			viewSelectComboBox, lblSelectedQFilter, textSelectedQFilter,
+			clearSelectedQFilterButton), BorderLayout.NORTH);
 
-		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		rightPane.add(buildDelPanel(removeButton,  PropertyFactory.getString("in_iskRemove_skill_tooltip")), BorderLayout.SOUTH);
+		rightPane.add(buildDelPanel(removeButton, PropertyFactory
+			.getString("in_iskRemove_skill_tooltip")), BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
 		// set the alignment on these columns to center
 		// might as well set the prefered width while we're at it
-//		availableTable.setColAlign(COL_MOD, SwingConstants.CENTER);
-//		availableTable.getColumnModel().getColumn(COL_MOD).setPreferredWidth(15);
-//		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
-//		selectedTable.setColAlign(COL_MOD, SwingConstants.CENTER);
-//		selectedTable.getColumnModel().getColumn(COL_MOD).setPreferredWidth(15);
-//		selectedTable.setColAlign(COL_RANK, SwingConstants.CENTER);
-//		selectedTable.getColumnModel().getColumn(COL_RANK).setPreferredWidth(15);
-//		selectedTable.setColAlign(COL_TOTAL, SwingConstants.CENTER);
-//		selectedTable.getColumnModel().getColumn(COL_TOTAL).setPreferredWidth(15);
-//		selectedTable.setColAlign(COL_COST, SwingConstants.CENTER);
-//		selectedTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
-//		selectedTable.getColumnModel().getColumn(COL_SRC).setCellRenderer(new OutputOrderRenderer());
-//		selectedTable.getColumnModel().getColumn(COL_SRC).setPreferredWidth(15);
+		//		availableTable.setColAlign(COL_MOD, SwingConstants.CENTER);
+		//		availableTable.getColumnModel().getColumn(COL_MOD).setPreferredWidth(15);
+		//		selectedTable.getColumnModel().getColumn(COL_NAME).setPreferredWidth(60);
+		//		selectedTable.setColAlign(COL_MOD, SwingConstants.CENTER);
+		//		selectedTable.getColumnModel().getColumn(COL_MOD).setPreferredWidth(15);
+		//		selectedTable.setColAlign(COL_RANK, SwingConstants.CENTER);
+		//		selectedTable.getColumnModel().getColumn(COL_RANK).setPreferredWidth(15);
+		//		selectedTable.setColAlign(COL_TOTAL, SwingConstants.CENTER);
+		//		selectedTable.getColumnModel().getColumn(COL_TOTAL).setPreferredWidth(15);
+		//		selectedTable.setColAlign(COL_COST, SwingConstants.CENTER);
+		//		selectedTable.getColumnModel().getColumn(COL_COST).setPreferredWidth(15);
+		//		selectedTable.getColumnModel().getColumn(COL_SRC).setCellRenderer(new OutputOrderRenderer());
+		//		selectedTable.getColumnModel().getColumn(COL_SRC).setPreferredWidth(15);
 
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_iskSkill_Info")); //$NON-NLS-1$
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_iskSkill_Info")); //$NON-NLS-1$
 		title1.setTitleJustification(TitledBorder.CENTER);
 		cScroll.setBorder(title1);
 		infoLabel.setBackground(rightPane.getBackground());
@@ -1328,8 +1407,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
 
-		jLbMaxSkill.setText(PropertyFactory.getString("in_iskMax_Class_Skill_Rank")); //$NON-NLS-1$
-		Utility.setDescription(jLbMaxSkill, PropertyFactory.getString("in_iskMax_Class_Skill_Rank_tooltip")); //$NON-NLS-1$
+		jLbMaxSkill.setText(PropertyFactory
+			.getString("in_iskMax_Class_Skill_Rank")); //$NON-NLS-1$
+		Utility.setDescription(jLbMaxSkill, PropertyFactory
+			.getString("in_iskMax_Class_Skill_Rank_tooltip")); //$NON-NLS-1$
 		jLbMaxSkill.setForeground(Color.black);
 		Utility.buildConstraints(gridBagConstraints2, 0, 0, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
@@ -1341,8 +1422,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		gridBagConstraints2.anchor = GridBagConstraints.WEST;
 		jPanel1.add(maxSkillRank, gridBagConstraints2);
 
-		jLbMaxCrossSkill.setText(PropertyFactory.getString("in_iskMax_Cross-Class_Skill_Rank")); //$NON-NLS-1$
-		Utility.setDescription(jLbMaxCrossSkill, PropertyFactory.getString("in_iskMax_Cross-Class_Skill_Rank_tooltip")); //$NON-NLS-1$
+		jLbMaxCrossSkill.setText(PropertyFactory
+			.getString("in_iskMax_Cross-Class_Skill_Rank")); //$NON-NLS-1$
+		Utility.setDescription(jLbMaxCrossSkill, PropertyFactory
+			.getString("in_iskMax_Cross-Class_Skill_Rank_tooltip")); //$NON-NLS-1$
 		jLbMaxCrossSkill.setForeground(Color.black);
 		Utility.buildConstraints(gridBagConstraints2, 0, 1, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
@@ -1356,7 +1439,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		Utility.buildConstraints(gridBagConstraints2, 2, 1, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
-		jPanel1.add(new JLabel(PropertyFactory.getString("in_iskSkill_output_order")), gridBagConstraints2); //$NON-NLS-1$
+		jPanel1.add(new JLabel(PropertyFactory
+			.getString("in_iskSkill_output_order")), gridBagConstraints2); //$NON-NLS-1$
 
 		Utility.buildConstraints(gridBagConstraints2, 3, 1, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.WEST;
@@ -1368,7 +1452,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			currCharacterClass = new JComboBoxEx();
 			currCharClassSkillPnts = new WholeNumberField(0, 4);
 
-			jLbClassSkillPoints.setText(PropertyFactory.getString("in_iskSkill_Points_Left_for_Class")); //$NON-NLS-1$
+			jLbClassSkillPoints.setText(PropertyFactory
+				.getString("in_iskSkill_Points_Left_for_Class")); //$NON-NLS-1$
 			jLbClassSkillPoints.setForeground(Color.black);
 			Utility.buildConstraints(gridBagConstraints2, 0, 3, 2, 1, 5, 5);
 			gridBagConstraints2.anchor = GridBagConstraints.EAST;
@@ -1377,12 +1462,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			//updateClassSelection();
 
 			currCharacterClass.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
 				{
-					public void actionPerformed(ActionEvent evt)
-					{
-						currCharacterClassActionPerformed();
-					}
-				});
+					currCharacterClassActionPerformed();
+				}
+			});
 
 			Utility.buildConstraints(gridBagConstraints2, 2, 3, 1, 1, 5, 5);
 			gridBagConstraints2.anchor = GridBagConstraints.CENTER;
@@ -1395,11 +1480,13 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (Globals.getGameModeHasPointPool())
 		{
-			jLbTotalSkillPointsLeft.setText(Globals.getGameModePointPoolName() + ": ");
+			jLbTotalSkillPointsLeft.setText(Globals.getGameModePointPoolName()
+				+ ": ");
 		}
 		else
 		{
-			jLbTotalSkillPointsLeft.setText(PropertyFactory.getString("in_iskTotal_Skill_Points_Left")); //$NON-NLS-1$
+			jLbTotalSkillPointsLeft.setText(PropertyFactory
+				.getString("in_iskTotal_Skill_Points_Left")); //$NON-NLS-1$
 		}
 		jLbTotalSkillPointsLeft.setForeground(Color.black);
 		Utility.buildConstraints(gridBagConstraints2, 2, 2, 1, 1, 5, 5);
@@ -1416,19 +1503,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		else
 		{
 			totalSkillPointsLeft.setInputVerifier(new InputVerifier()
+			{
+				public boolean shouldYieldFocus(JComponent input)
 				{
-					public boolean shouldYieldFocus(JComponent input)
-					{
-						boolean valueOk = verify(input);
-						totalSkillPointsLeftChanged();
-						return valueOk;
-					}
-					
-					public boolean verify(JComponent input)
-					{
-						return true;
-					}
-				});
+					boolean valueOk = verify(input);
+					totalSkillPointsLeftChanged();
+					return valueOk;
+				}
+
+				public boolean verify(JComponent input)
+				{
+					return true;
+				}
+			});
 		}
 		Utility.buildConstraints(gridBagConstraints2, 3, 2, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.WEST;
@@ -1439,19 +1526,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (currCharClassSkillPnts != null)
 		{
 			currCharClassSkillPnts.setInputVerifier(new InputVerifier()
+			{
+				public boolean shouldYieldFocus(JComponent input)
 				{
-					public boolean shouldYieldFocus(JComponent input)
-					{
-						boolean valueOk = verify(input);
-						currCharClassSkillPntsChanged();
-						return valueOk;
-					}
-					
-					public boolean verify(JComponent input)
-					{
-						return true;
-					}
-				});
+					boolean valueOk = verify(input);
+					currCharClassSkillPntsChanged();
+					return valueOk;
+				}
+
+				public boolean verify(JComponent input)
+				{
+					return true;
+				}
+			});
 
 			Utility.buildConstraints(gridBagConstraints2, 3, 3, 1, 1, 5, 5);
 			gridBagConstraints2.anchor = GridBagConstraints.WEST;
@@ -1460,97 +1547,113 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			jPanel1.add(currCharClassSkillPnts, gridBagConstraints2);
 		}
 
-		includeLabel = new JLabel(PropertyFactory.getString("in_iskInclude_Skills")); //$NON-NLS-1$
+		includeLabel =
+				new JLabel(PropertyFactory.getString("in_iskInclude_Skills")); //$NON-NLS-1$
 		Utility.buildConstraints(gridBagConstraints2, 2, 0, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
 		jPanel1.add(includeLabel, gridBagConstraints2);
 
-		skillChoice.setModel(new DefaultComboBoxModel(
-				new String[]
-				{
-					PropertyFactory.getString("in_iskNone"), PropertyFactory.getString("in_iskUntrained"),
-					PropertyFactory.getString("in_iskAll")
-				})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		skillChoice.setModel(new DefaultComboBoxModel(new String[]{
+			PropertyFactory.getString("in_iskNone"),
+			PropertyFactory.getString("in_iskUntrained"),
+			PropertyFactory.getString("in_iskAll")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		skillChoice.setMaximumRowCount(3);
-		Utility.setDescription(skillChoice, PropertyFactory.getString("in_iskDisplayed_skills_tooltip")); //$NON-NLS-1$
+		Utility.setDescription(skillChoice, PropertyFactory
+			.getString("in_iskDisplayed_skills_tooltip")); //$NON-NLS-1$
 		skillChoice.setMinimumSize(new Dimension(98, 22));
 		skillChoice.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					skillChoiceActionPerformed();
-				}
-			});
+				skillChoiceActionPerformed();
+			}
+		});
 
 		boolean oldFlag = resetSelectedModel;
 		resetSelectedModel = true;
-		skillChoice.setSelectedIndex(SettingsHandler.getSkillsTab_IncludeSkills());
+		skillChoice.setSelectedIndex(SettingsHandler
+			.getSkillsTab_IncludeSkills());
 		resetSelectedModel = oldFlag;
 		Utility.buildConstraints(gridBagConstraints2, 3, 0, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.WEST;
 		jPanel1.add(skillChoice, gridBagConstraints2);
 
-//		exclusiveLabel = new JLabel(PropertyFactory.getString("in_iskExclusive_skill_cost")); //$NON-NLS-1$
-		exclusiveLabel = new JLabel("Class:" + Integer.toString(Globals.getGameModeSkillCost_Class()) +
-								   " Cross:" + Integer.toString(Globals.getGameModeSkillCost_CrossClass()) +
-								   " Exclusive:" + Integer.toString(Globals.getGameModeSkillCost_Exclusive())
-								   );
+		//		exclusiveLabel = new JLabel(PropertyFactory.getString("in_iskExclusive_skill_cost")); //$NON-NLS-1$
+		exclusiveLabel =
+				new JLabel("Class:"
+					+ Integer.toString(Globals.getGameModeSkillCost_Class())
+					+ " Cross:"
+					+ Integer.toString(Globals
+						.getGameModeSkillCost_CrossClass())
+					+ " Exclusive:"
+					+ Integer
+						.toString(Globals.getGameModeSkillCost_Exclusive()));
 		PropertyFactory.getString("in_iskExclusive_skill_cost"); //$NON-NLS-1$
-		Utility.setDescription(exclusiveLabel, PropertyFactory.getString("in_iskExclusive_skill_cost_tooltip")); //$NON-NLS-1$
+		Utility.setDescription(exclusiveLabel, PropertyFactory
+			.getString("in_iskExclusive_skill_cost_tooltip")); //$NON-NLS-1$
 		Utility.buildConstraints(gridBagConstraints2, 0, 2, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
 		jPanel1.add(exclusiveLabel, gridBagConstraints2);
 
-//		exclusiveSkillCost.setColumns(3);
-//		exclusiveSkillCost.setText("0"); //$NON-NLS-1$
-//		exclusiveSkillCost.setMinimumSize(new Dimension(40, 17));
-//		exclusiveSkillCost.setText(Integer.toString(SettingsHandler.getExcSkillCost()));
-//		exclusiveSkillCost.setText(Integer.toString(Globals.getGameModeSkillCost_Exclusive()));
-//		exclusiveSkillCost.addActionListener(new ActionListener()
-//			{
-//				public void actionPerformed(ActionEvent evt)
-//				{
-//					updateSkillCost();
-//				}
-//			});
-//		exclusiveSkillCost.addFocusListener(new FocusAdapter()
-//			{
-//				public void focusLost(FocusEvent evt)
-//				{
-//					excCostFocusEvent();
-//				}
-//			});
-//		Utility.buildConstraints(gridBagConstraints2, 1, 2, 1, 1, 5, 5);
-//		gridBagConstraints2.anchor = GridBagConstraints.WEST;
-//		jPanel1.add(exclusiveSkillCost, gridBagConstraints2);
+		//		exclusiveSkillCost.setColumns(3);
+		//		exclusiveSkillCost.setText("0"); //$NON-NLS-1$
+		//		exclusiveSkillCost.setMinimumSize(new Dimension(40, 17));
+		//		exclusiveSkillCost.setText(Integer.toString(SettingsHandler.getExcSkillCost()));
+		//		exclusiveSkillCost.setText(Integer.toString(Globals.getGameModeSkillCost_Exclusive()));
+		//		exclusiveSkillCost.addActionListener(new ActionListener()
+		//			{
+		//				public void actionPerformed(ActionEvent evt)
+		//				{
+		//					updateSkillCost();
+		//				}
+		//			});
+		//		exclusiveSkillCost.addFocusListener(new FocusAdapter()
+		//			{
+		//				public void focusLost(FocusEvent evt)
+		//				{
+		//					excCostFocusEvent();
+		//				}
+		//			});
+		//		Utility.buildConstraints(gridBagConstraints2, 1, 2, 1, 1, 5, 5);
+		//		gridBagConstraints2.anchor = GridBagConstraints.WEST;
+		//		jPanel1.add(exclusiveSkillCost, gridBagConstraints2);
 
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, cScroll, jPanel1);
+		asplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, cScroll,
+					jPanel1);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
 		JPanel botPane = new JPanel();
 		botPane.setLayout(new BorderLayout());
 		botPane.add(asplit, BorderLayout.CENTER);
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, center, botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, center,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
 		this.setLayout(new BorderLayout());
 		this.add(bsplit, BorderLayout.CENTER);
 
-		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
-		selectedSort = new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel.getRoot(), selectedModel);
+		availableSort =
+				new JTreeTableSorter(availableTable,
+					(PObjectNode) availableModel.getRoot(), availableModel);
+		selectedSort =
+				new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel
+					.getRoot(), selectedModel);
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 
-	private boolean modRank(Skill aSkill, double points, final boolean showSkillMsg)
+	private boolean modRank(Skill aSkill, double points,
+		final boolean showSkillMsg)
 	{
 		if (CoreUtility.doublesEqual(points, 0.0))
 		{
@@ -1585,8 +1688,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				if (ix != currCharacterClass.getSelectedIndex())
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskErr_message_03a") + pcl.getClassKeyName() + "/" + pcl.getLevel()
-					+ PropertyFactory.getString("in_iskErr_message_03b"),
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_iskErr_message_03a")
+						+ pcl.getClassKeyName()
+						+ "/"
+						+ pcl.getLevel()
+						+ PropertyFactory.getString("in_iskErr_message_03b"),
 						Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 					return false;
@@ -1594,10 +1701,14 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			skillPool = pcl.getSkillPointsRemaining();
 
-			if ((points < 0.0) && ((skillPool - points) > pcl.getSkillPointsGained()))
+			if ((points < 0.0)
+				&& ((skillPool - points) > pcl.getSkillPointsGained()))
 			{
-				ShowMessageDelegate.showMessageDialog(pcl.getClassKeyName() + "/" + pcl.getLevel() + PropertyFactory.getString("in_iskErr_message_05a")
-				+ pcl.getSkillPointsGained() + PropertyFactory.getString("in_iskSkill_points"),
+				ShowMessageDelegate.showMessageDialog(pcl.getClassKeyName()
+					+ "/" + pcl.getLevel()
+					+ PropertyFactory.getString("in_iskErr_message_05a")
+					+ pcl.getSkillPointsGained()
+					+ PropertyFactory.getString("in_iskSkill_points"),
 					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 				return false;
@@ -1606,8 +1717,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if ((points > 0.0) && (points > skillPool))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskErr_message_04a") + skillPool
-			+ PropertyFactory.getString("in_iskErr_message_04b"),
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_iskErr_message_04a")
+				+ skillPool
+				+ PropertyFactory.getString("in_iskErr_message_04b"),
 				Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			return false;
@@ -1622,7 +1735,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (CoreUtility.doublesEqual(cost, 0.0))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskErr_message_06"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$
+			ShowMessageDelegate
+				.showMessageDialog(
+					PropertyFactory.getString("in_iskErr_message_06"), Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return false;
 		}
@@ -1639,7 +1754,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			// new skill has been added, this won't get called
 			// when adding a rank to an existing skill
 			// NB: This does get called on a rank change, should it be fixed?
-			Collections.sort(pc.getSkillList(), new StringIgnoreCaseComparator());
+			Collections.sort(pc.getSkillList(),
+				new StringIgnoreCaseComparator());
 
 			// Now re calc the output order
 			if (selectedOutputOrder != GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL)
@@ -1667,11 +1783,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					if (currCharacterClass == null)
 					{
-						updatePcl((int)points);
+						updatePcl((int) points);
 					}
 					else
 					{
-						pcl.setSkillPointsRemaining(skillPool - (int)points);
+						pcl.setSkillPointsRemaining(skillPool - (int) points);
 					}
 				}
 
@@ -1695,7 +1811,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (showSkillMsg)
 			{
-				ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
+				ShowMessageDelegate.showMessageDialog(aString,
+					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 			}
 
 			return false;
@@ -1822,7 +1939,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		final int selection = skillChoice.getSelectedIndex();
 		final int oldSelection = SettingsHandler.getSkillsTab_IncludeSkills();
 
-		if ((selection >= 0) && (selection <= 2) && ((selection != oldSelection) || resetSelectedModel))
+		if ((selection >= 0) && (selection <= 2)
+			&& ((selection != oldSelection) || resetSelectedModel))
 		{
 			SettingsHandler.setSkillsTab_IncludeSkills(selection);
 			pc.populateSkills(selection);
@@ -1841,7 +1959,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (totalSkillPointsLeft.getText().length() > 0)
 		{
-			final int anInt = Delta.decode(totalSkillPointsLeft.getText()).intValue();
+			final int anInt =
+					Delta.decode(totalSkillPointsLeft.getText()).intValue();
 
 			if (anInt == currentPC.getSkillPoints())
 			{
@@ -1907,16 +2026,16 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		pc.setAggregateAbilitiesStable(null, false);
-//		pc.setAggregateFeatsStable(false);
-//		pc.setAutomaticFeatsStable(false);
-//		pc.setVirtualFeatsStable(false);
+		//		pc.setAggregateFeatsStable(false);
+		//		pc.setAutomaticFeatsStable(false);
+		//		pc.setVirtualFeatsStable(false);
 
 		updateClassSelection();
 
 		if (Globals.getGameModeHasPointPool())
 		{
-////			totalSkillPointsLeft.setValue((int)pc.getTotalBonusTo("SKILLPOOL", "NUMBER"));
-//			totalSkillPointsLeft.setValue(pc.getSkillPoints());
+			////			totalSkillPointsLeft.setValue((int)pc.getTotalBonusTo("SKILLPOOL", "NUMBER"));
+			//			totalSkillPointsLeft.setValue(pc.getSkillPoints());
 		}
 		else
 		{
@@ -1926,9 +2045,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				if (currCharClassSkillPnts != null)
 				{
-					currCharClassSkillPnts.setValue(pcl.getSkillPointsRemaining());
+					currCharClassSkillPnts.setValue(pcl
+						.getSkillPointsRemaining());
 				}
-//				totalSkillPointsLeft.setValue(pc.getSkillPoints());
+				//				totalSkillPointsLeft.setValue(pc.getSkillPoints());
 			}
 			else
 			{
@@ -1936,22 +2056,26 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					currCharClassSkillPnts.setValue(0);
 				}
-//				totalSkillPointsLeft.setValue(0);
+				//				totalSkillPointsLeft.setValue(0);
 			}
 		}
 		totalSkillPointsLeft.setValue(pc.getSkillPoints());
 
 		if (SettingsHandler.isMonsterDefault())
 		{
-			maxSkillRank.setText(String.valueOf(SkillUtilities.maxClassSkillForLevel(pc.getTotalLevels()
-						+ pc.totalHitDice(), pc)));
-			maxCrossSkillRank.setText(String.valueOf(SkillUtilities.maxCrossClassSkillForLevel(pc.getTotalLevels()
-						+ pc.totalHitDice(),pc)));
+			maxSkillRank.setText(String.valueOf(SkillUtilities
+				.maxClassSkillForLevel(pc.getTotalLevels() + pc.totalHitDice(),
+					pc)));
+			maxCrossSkillRank.setText(String.valueOf(SkillUtilities
+				.maxCrossClassSkillForLevel(pc.getTotalLevels()
+					+ pc.totalHitDice(), pc)));
 		}
 		else
 		{
-			maxSkillRank.setText(String.valueOf(SkillUtilities.maxClassSkillForLevel(pc.getTotalLevels(), pc)));
-			maxCrossSkillRank.setText(String.valueOf(SkillUtilities.maxCrossClassSkillForLevel(pc.getTotalLevels(),pc)));
+			maxSkillRank.setText(String.valueOf(SkillUtilities
+				.maxClassSkillForLevel(pc.getTotalLevels(), pc)));
+			maxCrossSkillRank.setText(String.valueOf(SkillUtilities
+				.maxCrossClassSkillForLevel(pc.getTotalLevels(), pc)));
 		}
 
 		resetSelectedModel = true;
@@ -1960,10 +2084,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		//Calculate the aggregate feat list
 		pc.setAggregateAbilitiesStable(null, false);
-//		pc.aggregateFeatList();
-//		pc.setAggregateFeatsStable(true);
-//		pc.setAutomaticFeatsStable(true);
-//		pc.setVirtualFeatsStable(true);
+		//		pc.aggregateFeatList();
+		//		pc.setAggregateFeatsStable(true);
+		//		pc.setAutomaticFeatsStable(true);
+		//		pc.setVirtualFeatsStable(true);
 
 		needsUpdate = false;
 	}
@@ -1984,21 +2108,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			for (PCLevelInfo pcl : pc.getLevelInfo())
 			{
 				StringBuffer sb = new StringBuffer();
-				sb.append(pcl.getClassKeyName())
-					.append('/')
-					.append(pcl.getLevel())
-					.append(' ').append('[')
-					.append(pcl.getSkillPointsRemaining())
-					.append('/')
-					.append(pcl.getSkillPointsGained())
-					.append(']');
+				sb.append(pcl.getClassKeyName()).append('/').append(
+					pcl.getLevel()).append(' ').append('[').append(
+					pcl.getSkillPointsRemaining()).append('/').append(
+					pcl.getSkillPointsGained()).append(']');
 				comboStrings[i] = sb.toString();
 				i++;
 			}
 			if (currCharacterClass != null)
 			{
-				ActionListener[] listeners = currCharacterClass.getActionListeners();
-				for(int j = 0; j < listeners.length; ++j)
+				ActionListener[] listeners =
+						currCharacterClass.getActionListeners();
+				for (int j = 0; j < listeners.length; ++j)
 				{
 					currCharacterClass.removeActionListener(listeners[j]);
 				}
@@ -2011,7 +2132,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				{
 					setCurrentClassCombo();
 				}
-				for(int j = 0; j < listeners.length; ++j)
+				for (int j = 0; j < listeners.length; ++j)
 				{
 					currCharacterClass.addActionListener(listeners[j]);
 				}
@@ -2019,17 +2140,17 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 	}
 
-//	private final void updateSkillCost()
-//	{
-//		try
-//		{
-//			SettingsHandler.setExcSkillCost(Integer.parseInt(exclusiveSkillCost.getText()));
-//		}
-//		catch (NumberFormatException nfe)
-//		{
-//			exclusiveSkillCost.setText(Integer.toString(SettingsHandler.getExcSkillCost()));
-//		}
-//	}
+	//	private final void updateSkillCost()
+	//	{
+	//		try
+	//		{
+	//			SettingsHandler.setExcSkillCost(Integer.parseInt(exclusiveSkillCost.getText()));
+	//		}
+	//		catch (NumberFormatException nfe)
+	//		{
+	//			exclusiveSkillCost.setText(Integer.toString(SettingsHandler.getExcSkillCost()));
+	//		}
+	//	}
 
 	private void setInfoLabelText(Skill aSkill)
 	{
@@ -2041,26 +2162,33 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			b.append("<html><b>").append(aSkill.piSubString()).append("</b>"); //$NON-NLS-1$ //$NON-NLS-2$
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK")).append(pc.getMaxRank(aSkill.getKeyName(),
-					getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
+				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK"))
+					.append(
+						pc
+							.getMaxRank(aSkill.getKeyName(),
+								getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(aSkill.getTypeUsingFlag(true)); //$NON-NLS-1$
-//			String aString = aSkill.getKeyStat();
+			b
+				.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(aSkill.getTypeUsingFlag(true)); //$NON-NLS-1$
+			//			String aString = aSkill.getKeyStat();
 			String aString = aSkill.getKeyStatFromStats();
 			if (aString.length() != 0)
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
+				b
+					.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
+			b
+				.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")).append(aSkill.isUntrained() ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); //$NON-NLS-1$
+			b
+				.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")).append(aSkill.getExclusive()); //$NON-NLS-1$
 
 			String bString = aSkill.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
+				b
+					.append(PropertyFactory.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
 			}
-
 
 			if (SettingsHandler.getShowSkillModifier())
 			{
@@ -2102,7 +2230,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			selectedTable.updateUI();
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -2219,7 +2347,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private Integer _outputIndex;
 		private Skill _aSkill = null;
 
-		private SkillWrapper(Skill aSkill, Integer mod, Float ranks, Integer outputIndex)
+		private SkillWrapper(Skill aSkill, Integer mod, Float ranks,
+			Integer outputIndex)
 		{
 			_aSkill = aSkill;
 			_mod = mod;
@@ -2264,9 +2393,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 * or last. If first or last are selected, then special values are returned to
 	 * the setValueAt method, which are actioned by that method.
 	 */
-	private static final class OutputOrderEditor extends JComboBoxEx implements TableCellEditor
+	private static final class OutputOrderEditor extends JComboBoxEx implements
+			TableCellEditor
 	{
-		private final transient List<CellEditorListener> d_listeners = new ArrayList<CellEditorListener>();
+		private final transient List<CellEditorListener> d_listeners =
+				new ArrayList<CellEditorListener>();
 		private transient int d_originalValue;
 
 		private OutputOrderEditor(String[] choices)
@@ -2276,12 +2407,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			setEditable(true);
 
 			addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent ae)
 				{
-					public void actionPerformed(ActionEvent ae)
-					{
-						stopCellEditing();
-					}
-				});
+					stopCellEditing();
+				}
+			});
 		}
 
 		public boolean isCellEditable(EventObject eventObject)
@@ -2308,8 +2439,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 		}
 
-		public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row,
-			int column)
+		public Component getTableCellEditorComponent(JTable jTable,
+			Object value, boolean isSelected, int row, int column)
 		{
 			if (value == null)
 			{
@@ -2352,7 +2483,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			fireEditingCanceled();
 		}
 
-		public void removeCellEditorListener(CellEditorListener cellEditorListener)
+		public void removeCellEditorListener(
+			CellEditorListener cellEditorListener)
 		{
 			d_listeners.remove(cellEditorListener);
 		}
@@ -2391,7 +2523,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 		}
 	}
-	 //End OutputOrderEditor classes
+
+	//End OutputOrderEditor classes
 
 	private class ResortActionListener implements ActionListener
 	{
@@ -2429,7 +2562,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 * <p/>
 	 * TODO: This class implements the java.util.Iterator interface.? However, its next() method is not capable of throwing java.util.NoSuchElementException.? The next() method should be changed so it throws NoSuchElementException if is called when there are no more elements to return.
 	 */
-	private final class SkillModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	private final class SkillModel extends AbstractTreeTableModel implements
+			TableColumnManagerModel
 	{
 
 		private static final int COL_NAME = 0;
@@ -2440,8 +2574,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private static final int COL_SRC = 5;
 		private static final int COL_INDEX = 6;
 
-		private String[] names = { "Skill", "Modifier", "Ranks", "Total", "Cost", "Source", "Order" };
-		private int[] widths = { 100, 100, 100, 100, 100, 100, 100 };
+		private String[] names =
+				{"Skill", "Modifier", "Ranks", "Total", "Cost", "Source",
+					"Order"};
+		private int[] widths = {100, 100, 100, 100, 100, 100, 100};
 
 		private List<Boolean> displayList;
 
@@ -2465,24 +2601,36 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			resetModel(mode, available);
 			int i = 1;
 			displayList = new ArrayList<Boolean>();
-			displayList.add(Boolean.TRUE);	// Skill
+			displayList.add(Boolean.TRUE); // Skill
 			if (available)
 			{
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Modifier
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Rank
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Total
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Source
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Order
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Modifier
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Rank
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Total
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Cost
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Source
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Order
 			}
 			else
 			{
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Modifier
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Rank
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Total
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Cost
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], false)));	// Source
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + names[i++], true)));		// Order
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Modifier
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Rank
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Total
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Cost
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], false))); // Source
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + names[i++], true))); // Order
 			}
 		}
 
@@ -2495,9 +2643,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 */
 		public boolean isCellEditable(Object node, int column)
 		{
-			return ((column == 0)
-			|| ((modelType == MODEL_SELECT) && (column == 5)
-			&& (((PObjectNode) node).getItem() instanceof SkillWrapper)));
+			return ((column == 0) || ((modelType == MODEL_SELECT)
+				&& (column == 5) && (((PObjectNode) node).getItem() instanceof SkillWrapper)));
 		}
 
 		/**
@@ -2542,7 +2689,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_08") + column
+					Logging.errorPrint(PropertyFactory
+						.getString("in_iskErr_message_08")
+						+ column
 						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
 
 					break;
@@ -2626,7 +2775,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 							for (Skill bSkill : pc.getSkillListInOutputOrder())
 							{
-								if ((bSkill.getOutputIndex() > -1) && (bSkill != aSkill))
+								if ((bSkill.getOutputIndex() > -1)
+									&& (bSkill != aSkill))
 								{
 									bSkill.setOutputIndex(outputIndex++);
 								}
@@ -2648,7 +2798,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 									workingIndex++;
 								}
 
-								if ((bSkill.getOutputIndex() > -1) && (bSkill != aSkill))
+								if ((bSkill.getOutputIndex() > -1)
+									&& (bSkill != aSkill))
 								{
 									bSkill.setOutputIndex(workingIndex++);
 								}
@@ -2656,8 +2807,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						}
 
 						aSkill.setOutputIndex(outputIndex);
-						skillA = new SkillWrapper(aSkill, aSkill.modifier(pc), aSkill.getTotalRank(pc),
-								Integer.valueOf(aSkill.getOutputIndex()));
+						skillA =
+								new SkillWrapper(aSkill, aSkill.modifier(pc),
+									aSkill.getTotalRank(pc), Integer
+										.valueOf(aSkill.getOutputIndex()));
 						fn.setItem(skillA);
 
 						if (needRefresh)
@@ -2668,8 +2821,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						break;
 
 					default:
-						Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_11") + column
-							+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
+						Logging.errorPrint(PropertyFactory
+							.getString("in_iskErr_message_11")
+							+ column
+							+ PropertyFactory
+								.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
 
 						break;
 				}
@@ -2692,7 +2848,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (fn == null)
 			{
-				Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_09")); //$NON-NLS-1$
+				Logging.errorPrint(PropertyFactory
+					.getString("in_iskErr_message_09")); //$NON-NLS-1$
 
 				return null;
 			}
@@ -2734,7 +2891,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					gm = SettingsHandler.getGame();
 					if (gm.hasSkillRankDisplayText())
 					{
-						return gm.getSkillRankDisplayText(mods.intValue() + ranks.intValue());
+						return gm.getSkillRankDisplayText(mods.intValue()
+							+ ranks.intValue());
 					}
 					return Integer.valueOf(mods.intValue() + ranks.intValue());
 
@@ -2742,7 +2900,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (aSkill != null)
 					{
-						return Integer.valueOf(aSkill.costForPCClass(getSelectedPCClass(), pc));
+						return Integer.valueOf(aSkill.costForPCClass(
+							getSelectedPCClass(), pc));
 					}
 
 					return "0";
@@ -2762,7 +2921,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					return fn.getItem();
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_10") + column
+					Logging.errorPrint(PropertyFactory
+						.getString("in_iskErr_message_10")
+						+ column
 						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
 
 					break;
@@ -2791,7 +2952,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param available available or selected tree model?
 		 * @see InfoSkillsSorter
 		 */
-		private void createRootNode(PObjectNode node, ResetableListIterator skillsIt, InfoSkillsSorter sorter,
+		private void createRootNode(PObjectNode node,
+			ResetableListIterator skillsIt, InfoSkillsSorter sorter,
 			boolean available)
 		{
 			populateNode(node, skillsIt, sorter, available);
@@ -2800,7 +2962,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				while (node.hasNext())
 				{
-					createRootNode((PObjectNode) node.next(), skillsIt, sorter.nextSorter(), available);
+					createRootNode((PObjectNode) node.next(), skillsIt, sorter
+						.nextSorter(), available);
 				}
 			}
 		}
@@ -2808,7 +2971,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		private void initRoot(boolean available, InfoSkillsSorter sorter)
 		{
 			PObjectNode root = new PObjectNode();
-			createRootNode(root, new DisplayableSkillsIterator(available), sorter, available);
+			createRootNode(root, new DisplayableSkillsIterator(available),
+				sorter, available);
 			setRoot(sorter.finalPass(root));
 		}
 
@@ -2832,10 +2996,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 * @param sorter    does the new node go here? what part(s)?
 		 * @param available availabl or selected tree model?
 		 */
-		private void populateNode(PObjectNode node, ResetableListIterator skillsIt, InfoSkillsSorter sorter,
+		private void populateNode(PObjectNode node,
+			ResetableListIterator skillsIt, InfoSkillsSorter sorter,
 			boolean available)
 		{
-			final SortedSet<PObjectNode> set = new TreeSet<PObjectNode>(new StringIgnoreCaseComparator());
+			final SortedSet<PObjectNode> set =
+					new TreeSet<PObjectNode>(new StringIgnoreCaseComparator());
 
 			String qFilter = this.getQFilter();
 
@@ -2846,9 +3012,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				Skill skill = (Skill) skillsIt.next();
 
-				if (qFilter == null ||
-						( skill.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
-						  skill.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+				if (qFilter == null
+					|| (skill.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 || skill
+						.getType().toLowerCase().indexOf(qFilter) >= 0))
 				{
 					if (!sorter.nodeGoHere(node, skill))
 					{
@@ -2859,7 +3025,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					if (part instanceof Iterator)
 					{
-						for (Iterator<?> partIt = (Iterator) part; partIt.hasNext();)
+						for (Iterator<?> partIt = (Iterator) part; partIt
+							.hasNext();)
 						{
 							Object anObj = partIt.next();
 							if (anObj instanceof String)
@@ -2875,13 +3042,15 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 					else
 					{
-						if (available && (skill.getVisibility() == Visibility.OUTPUT_ONLY))
+						if (available
+							&& (skill.getVisibility() == Visibility.OUTPUT_ONLY))
 						{
 							continue;
 						}
 
 						PObjectNode nameNode = new PObjectNode(part);
-						PrereqHandler.passesAll( skill.getPreReqList(), pc, skill);
+						PrereqHandler.passesAll(skill.getPreReqList(), pc,
+							skill);
 						set.add(nameNode);
 					}
 				}
@@ -2904,37 +3073,49 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			switch (mode)
 			{
 				case GuiConstants.INFOSKILLS_VIEW_STAT_TYPE_NAME: // KeyStat/SubType/Name
-					initRoot(available, new InfoSkillsSorters.KeystatSubtypeName_Primary(InfoSkills.this));
+					initRoot(available,
+						new InfoSkillsSorters.KeystatSubtypeName_Primary(
+							InfoSkills.this));
 
 					break;
 
 				case GuiConstants.INFOSKILLS_VIEW_STAT_NAME: // KeyStat/Name
-					initRoot(available, new InfoSkillsSorters.KeystatName_Primary(InfoSkills.this));
+					initRoot(available,
+						new InfoSkillsSorters.KeystatName_Primary(
+							InfoSkills.this));
 
 					break;
 
 				case GuiConstants.INFOSKILLS_VIEW_TYPE_NAME: // SubType/Name
-					initRoot(available, new InfoSkillsSorters.SubtypeName_Primary(InfoSkills.this));
+					initRoot(available,
+						new InfoSkillsSorters.SubtypeName_Primary(
+							InfoSkills.this));
 
 					break;
 
 				case GuiConstants.INFOSKILLS_VIEW_COST_TYPE_NAME: // Cost/SubType/Name
-					initRoot(available, new InfoSkillsSorters.CostSubtypeName_Primary(InfoSkills.this));
+					initRoot(available,
+						new InfoSkillsSorters.CostSubtypeName_Primary(
+							InfoSkills.this));
 
 					break;
 
 				case GuiConstants.INFOSKILLS_VIEW_COST_NAME: // Cost/Name
-					initRoot(available, new InfoSkillsSorters.CostName_Primary(InfoSkills.this));
+					initRoot(available, new InfoSkillsSorters.CostName_Primary(
+						InfoSkills.this));
 
 					break;
 
 				case GuiConstants.INFOSKILLS_VIEW_NAME: // Name
-					initRoot(available, new InfoSkillsSorters.Name_Primary(InfoSkills.this));
+					initRoot(available, new InfoSkillsSorters.Name_Primary(
+						InfoSkills.this));
 
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_iskErr_message_07") + mode
+					Logging.errorPrint(PropertyFactory
+						.getString("in_iskErr_message_07")
+						+ mode
 						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
 
 					break;
@@ -2944,7 +3125,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (rootAsPObjectNode.getChildCount() > 0)
 			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 
@@ -2970,7 +3152,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		 * The next() method should be changed so it throws NoSuchElementException
 		 * if is called when there are no more elements to return.
 		 */
-		private class DisplayableSkillsIterator implements ResetableListIterator
+		private class DisplayableSkillsIterator implements
+				ResetableListIterator
 		{
 			private boolean available;
 			private int index;
@@ -3005,7 +3188,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public Object next()
 			{
-				for(;;)
+				for (;;)
 				{
 					final Skill peek = skillList.get(index++);
 					if (shouldDisplayThis(peek))
@@ -3033,7 +3216,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public Object previous()
 			{
-				for(;;)
+				for (;;)
 				{
 					final Skill peek = skillList.get(--index);
 					if (shouldDisplayThis(peek))
@@ -3066,9 +3249,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public void reset()
 			{
-				skillList = available ? 
-						Globals.getPartialSkillList(Visibility.DISPLAY_ONLY) : 
-						pc.getPartialSkillList(Visibility.DISPLAY_ONLY);
+				skillList =
+						available ? Globals
+							.getPartialSkillList(Visibility.DISPLAY_ONLY) : pc
+							.getPartialSkillList(Visibility.DISPLAY_ONLY);
 				listSize = skillList.size();
 
 				index = 0;
@@ -3081,8 +3265,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 		}
 
-		public int getMColumnDefaultWidth(int col) {
-			return SettingsHandler.getPCGenOption("InfoSkills.sizecol." + names[col], widths[col]);
+		public int getMColumnDefaultWidth(int col)
+		{
+			return SettingsHandler.getPCGenOption("InfoSkills.sizecol."
+				+ names[col], widths[col]);
 		}
 
 		public void setMColumnDisplayed(int col, boolean disp)
@@ -3091,8 +3277,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			displayList.set(col, Boolean.valueOf(disp));
 		}
 
-		private void setColumnViewOption(String colName, boolean val) {
-			SettingsHandler.setPCGenOption("InfoSkills.viewcol." + colName, val);
+		private void setColumnViewOption(String colName, boolean val)
+		{
+			SettingsHandler
+				.setPCGenOption("InfoSkills.viewcol." + colName, val);
 		}
 
 		public int getMColumnOffset()
@@ -3109,36 +3297,43 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			return false;
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) {
-			SettingsHandler.setPCGenOption("InfoSkills.sizecol." + names[col], width);
+		public void setMColumnDefaultWidth(int col, int width)
+		{
+			SettingsHandler.setPCGenOption("InfoSkills.sizecol." + names[col],
+				width);
 		}
 
 		public List<String> getMColumnList()
 		{
 			List<String> retList = new ArrayList<String>();
-			for(int i = 1; i < names.length; i++) 
+			for (int i = 1; i < names.length; i++)
 			{
 				retList.add(names[i]);
 			}
 			return retList;
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) {
-			return SettingsHandler.getPCGenOption("InfoSkills.viewcol." + colName, defaultVal);
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
+		{
+			return SettingsHandler.getPCGenOption("InfoSkills.viewcol."
+				+ colName, defaultVal);
 		}
 
-		public void resetMColumn(int col, TableColumn column) {
+		public void resetMColumn(int col, TableColumn column)
+		{
 			// TODO Auto-generated method stub
-			switch(col)
+			switch (col)
 			{
 				case COL_MOD:
 				case COL_RANK:
 				case COL_TOTAL:
 				case COL_COST:
-//				case COL_INDEX:
-					column.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+					//				case COL_INDEX:
+					column
+						.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
+							SwingConstants.CENTER));
 					break;
-					
+
 				default:
 					break;
 			}
@@ -3154,7 +3349,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory.getString("in_iskFilter_class_tooltip")); //$NON-NLS-1$
+				setDescription(PropertyFactory
+					.getString("in_iskFilter_class_tooltip")); //$NON-NLS-1$
 			}
 		}
 
@@ -3164,7 +3360,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcClass != null)
 			{
-				return super.getName(aPC) + " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+				return super.getName(aPC)
+					+ " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
 			return super.getName(aPC);
@@ -3181,7 +3378,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				PCClass pcClass = getSelectedPCClass();
 
-				return (pcClass != null) && ((Skill) pObject).isClassSkill(pcClass, aPC);
+				return (pcClass != null)
+					&& ((Skill) pObject).isClassSkill(pcClass, aPC);
 			}
 
 			return true;
@@ -3196,7 +3394,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory.getString("in_iskFilter_crossclass_tooltip")); //$NON-NLS-1$
+				setDescription(PropertyFactory
+					.getString("in_iskFilter_crossclass_tooltip")); //$NON-NLS-1$
 			}
 		}
 
@@ -3206,7 +3405,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcClass != null)
 			{
-				return super.getName(aPC) + " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+				return super.getName(aPC)
+					+ " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
 			return super.getName(aPC);
@@ -3224,7 +3424,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC) && !aSkill.isExclusive();
+				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC)
+					&& !aSkill.isExclusive();
 			}
 
 			return true;
@@ -3239,7 +3440,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory.getString("in_iskFilter_exclusive_tooltip")); //$NON-NLS-1$
+				setDescription(PropertyFactory
+					.getString("in_iskFilter_exclusive_tooltip")); //$NON-NLS-1$
 			}
 		}
 
@@ -3249,7 +3451,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (pcClass != null)
 			{
-				return super.getName(aPC) + " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+				return super.getName(aPC)
+					+ " (" + pcClass.getDisplayName() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 
 			return super.getName(aPC);
@@ -3267,7 +3470,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC) && aSkill.isExclusive();
+				return (pcClass != null) && !aSkill.isClassSkill(pcClass, aPC)
+					&& aSkill.isExclusive();
 			}
 
 			return true;
@@ -3290,7 +3494,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory.getString("in_iskFilter_qual_tooltip")); //$NON-NLS-1$
+				setDescription(PropertyFactory
+					.getString("in_iskFilter_qual_tooltip")); //$NON-NLS-1$
 			}
 		}
 
@@ -3306,7 +3511,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				PCClass pcClass = getSelectedPCClass();
 				Skill aSkill = (Skill) pObject;
 
-				return (pcClass != null) && !(aSkill.isExclusive() && !aSkill.isClassSkill(pcClass, aPC));
+				return (pcClass != null)
+					&& !(aSkill.isExclusive() && !aSkill.isClassSkill(pcClass,
+						aPC));
 			}
 
 			return true;
@@ -3324,48 +3531,50 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); i++)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
+							Component aComponent = menu.getComponent(i);
 
-							for (int i = 0; i < menu.getComponentCount(); i++)
+							if (aComponent instanceof JMenuItem)
 							{
-								Component aComponent = menu.getComponent(i);
+								final JMenuItem menuItem =
+										(JMenuItem) aComponent;
+								KeyStroke ks = menuItem.getAccelerator();
 
-								if (aComponent instanceof JMenuItem)
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									final JMenuItem menuItem = (JMenuItem) aComponent;
-									KeyStroke ks = menuItem.getAccelerator();
+									selPath = tree.getSelectionPath();
+									menuItem.doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										selPath = tree.getSelectionPath();
-										menuItem.doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -3384,7 +3593,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -3394,8 +3604,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				tree.setSelectionPath(selPath);
 
 				JMenu resortMenu = menu.getResortMenu();
-				if(resortMenu != null) {
-					resortMenu.setEnabled(selectedOutputOrder == GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL);
+				if (resortMenu != null)
+				{
+					resortMenu
+						.setEnabled(selectedOutputOrder == GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL);
 				}
 
 				menu.show(evt.getComponent(), evt.getX(), evt.getY());
@@ -3432,24 +3644,32 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 */
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_1"), 1, "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_2"), 2, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_5"), 5, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_10"), 10, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_n"), -1, "alt A")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createMaxMenuItem(PropertyFactory.getString("in_iskMax_Ranks"), "alt M")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_1"), 1, "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_2"), 2, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_5"), 5, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_10"), 10, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_n"), -1, "alt A")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createMaxMenuItem(PropertyFactory
+					.getString("in_iskMax_Ranks"), "alt M")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
 				SkillPopupMenu.this.add(Utility.createMenuItem("Find item",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					true));
 			}
 
-			else // selectedTable
+			else
+			// selectedTable
 			{
 				/*
 				 * jikes says:
@@ -3464,84 +3684,144 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 */
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_1"), 1, "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_2"), 2, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_5"), 5, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_10"), 10, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_iskAdd_n"), -1, "alt A")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_iskRemove_1"), 1,
-						"shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_iskRemove_2"), 2, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_iskRemove_5"), 5, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_iskRemove_10"), 10, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_iskRemove_n"), -1, "alt R")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createMaxMenuItem(PropertyFactory.getString("in_iskMax_Ranks"), "alt M")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createResetMenuItem(PropertyFactory.getString("in_iskZero_Ranks"), "alt Z")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_1"), 1, "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_2"), 2, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_5"), 5, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_10"), 10, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_iskAdd_n"), -1, "alt A")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_iskRemove_1"), 1, "shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_iskRemove_2"), 2, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_iskRemove_5"), 5, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_iskRemove_10"), 10, null)); //$NON-NLS-1$
+				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_iskRemove_n"), -1, "alt R")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createMaxMenuItem(PropertyFactory
+					.getString("in_iskMax_Ranks"), "alt M")); //$NON-NLS-1$ //$NON-NLS-2$
+				SkillPopupMenu.this.add(createResetMenuItem(PropertyFactory
+					.getString("in_iskZero_Ranks"), "alt Z")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
 				SkillPopupMenu.this.add(Utility.createMenuItem("Find item",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					true));
 
 				this.addSeparator();
 
-				resortMenu = Utility.createMenu("Output Order", (char) 0,
-						PropertyFactory.getString("in_iskOutput_Order"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
+				resortMenu =
+						Utility
+							.createMenu(
+								"Output Order",
+								(char) 0,
+								PropertyFactory.getString("in_iskOutput_Order"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
 
 				SkillPopupMenu.this.add(resortMenu);
 
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.getString("in_iskBy_name_ascending"), //$NON-NLS-1$
-						new ResortActionListener(SkillComparator.RESORT_NAME, SkillComparator.RESORT_ASCENDING),
-						"sortOutput", (char) 0, null, PropertyFactory.getString("in_iskBy_name_ascending_tooltip"),
-						null, true)); //$NON-NLS-1$ //$NON-NLS-2$
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.getString("in_iskBy_name_descending"), //$NON-NLS-1$
-						new ResortActionListener(SkillComparator.RESORT_NAME, SkillComparator.RESORT_DESCENDING),
-						"sortOutput", (char) 0, null, PropertyFactory.getString("in_iskBy_name_descending_tooltip"),
-						null, true)); //$NON-NLS-1$ //$NON-NLS-2$
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.getString("in_iskBy_trained_then_untrained"), //$NON-NLS-1$
-						new ResortActionListener(SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_ASCENDING),
-						"sortOutput", (char) 0, null,
-						PropertyFactory.getString("in_iskBy_trained_then_untrained_tooltip"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.getString("in_iskBy_untrained_then_trained"), //$NON-NLS-1$
-						new ResortActionListener(SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_DESCENDING),
-						"sortOutput", (char) 0, null,
-						PropertyFactory.getString("in_iskBy_untrained_then_trained_tooltip"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$
+				resortMenu.add(Utility.createMenuItem(
+					PropertyFactory.getString("in_iskBy_name_ascending"), //$NON-NLS-1$
+					new ResortActionListener(SkillComparator.RESORT_NAME,
+						SkillComparator.RESORT_ASCENDING), "sortOutput",
+					(char) 0, null, PropertyFactory
+						.getString("in_iskBy_name_ascending_tooltip"), null,
+					true)); //$NON-NLS-1$ //$NON-NLS-2$
+				resortMenu.add(Utility.createMenuItem(
+					PropertyFactory.getString("in_iskBy_name_descending"), //$NON-NLS-1$
+					new ResortActionListener(SkillComparator.RESORT_NAME,
+						SkillComparator.RESORT_DESCENDING), "sortOutput",
+					(char) 0, null, PropertyFactory
+						.getString("in_iskBy_name_descending_tooltip"), null,
+					true)); //$NON-NLS-1$ //$NON-NLS-2$
+				resortMenu
+					.add(Utility
+						.createMenuItem(
+							PropertyFactory
+								.getString("in_iskBy_trained_then_untrained"), //$NON-NLS-1$
+							new ResortActionListener(
+								SkillComparator.RESORT_TRAINED,
+								SkillComparator.RESORT_ASCENDING),
+							"sortOutput",
+							(char) 0,
+							null,
+							PropertyFactory
+								.getString("in_iskBy_trained_then_untrained_tooltip"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$
+				resortMenu
+					.add(Utility
+						.createMenuItem(
+							PropertyFactory
+								.getString("in_iskBy_untrained_then_trained"), //$NON-NLS-1$
+							new ResortActionListener(
+								SkillComparator.RESORT_TRAINED,
+								SkillComparator.RESORT_DESCENDING),
+							"sortOutput",
+							(char) 0,
+							null,
+							PropertyFactory
+								.getString("in_iskBy_untrained_then_trained_tooltip"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
 
-		private JMenuItem createAddMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createAddMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddSkillActionListener(qty), "add " + qty, (char) 0, accelerator,
-				PropertyFactory.getString("in_iskAdd")
-				+ ((qty < 0) ? PropertyFactory.getString("in_iskn") : Integer.toString(qty))
-				+ PropertyFactory.getString("in_isk_skill_point")
-				+ ((qty == 1) ? "" : PropertyFactory.getString("in_isks")), "Add16.gif", true); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+			return Utility
+				.createMenuItem(
+					label,
+					new AddSkillActionListener(qty),
+					"add " + qty,
+					(char) 0,
+					accelerator,
+					PropertyFactory.getString("in_iskAdd")
+						+ ((qty < 0) ? PropertyFactory.getString("in_iskn")
+							: Integer.toString(qty))
+						+ PropertyFactory.getString("in_isk_skill_point")
+						+ ((qty == 1)
+							? "" : PropertyFactory.getString("in_isks")), "Add16.gif", true); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 		}
 
 		private JMenuItem createMaxMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new MaxSkillActionListener(0), "max ranks", (char) 0, accelerator,
-				PropertyFactory.getString("in_iskSet_to_max_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			return Utility.createMenuItem(label, new MaxSkillActionListener(0),
+				"max ranks", (char) 0, accelerator, PropertyFactory
+					.getString("in_iskSet_to_max_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
-		private JMenuItem createRemoveMenuItem(String label, int qty, String accelerator)
+		private JMenuItem createRemoveMenuItem(String label, int qty,
+			String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveSkillActionListener(qty), "remove " + qty, (char) 0,
-				accelerator,
-				PropertyFactory.getString("in_iskRemove")
-				+ ((qty < 0) ? PropertyFactory.getString("in_iskn") : Integer.toString(qty))
-				+ PropertyFactory.getString("in_isk_skill_point")
-				+ ((qty == 1) ? "" : PropertyFactory.getString("in_isks")), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+			return Utility
+				.createMenuItem(
+					label,
+					new RemoveSkillActionListener(qty),
+					"remove " + qty,
+					(char) 0,
+					accelerator,
+					PropertyFactory.getString("in_iskRemove")
+						+ ((qty < 0) ? PropertyFactory.getString("in_iskn")
+							: Integer.toString(qty))
+						+ PropertyFactory.getString("in_isk_skill_point")
+						+ ((qty == 1)
+							? "" : PropertyFactory.getString("in_isks")), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 		}
 
 		private JMenuItem createResetMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new ResetSkillActionListener(0), "reset ranks", (char) 0, accelerator,
-				PropertyFactory.getString("in_iskReset_to_zero_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			return Utility.createMenuItem(label,
+				new ResetSkillActionListener(0), "reset ranks", (char) 0,
+				accelerator, PropertyFactory
+					.getString("in_iskReset_to_zero_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
 		/**
@@ -3567,21 +3847,27 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				// Get a number from the user via a popup
 				if (qty < 0)
 				{
-					String selectedValue = JOptionPane.showInputDialog(null,
-							PropertyFactory.getString("in_iskAdd_quantity_tooltip"), Constants.s_APPNAME,
-							JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
+					String selectedValue =
+							JOptionPane.showInputDialog(null, PropertyFactory
+								.getString("in_iskAdd_quantity_tooltip"),
+								Constants.s_APPNAME,
+								JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
 
 					if (selectedValue != null)
 					{
 						try
 						{
 							//abs just in case someone types in a negative value
-							newQty = Math.abs(Integer.parseInt(selectedValue.trim()));
+							newQty =
+									Math.abs(Integer.parseInt(selectedValue
+										.trim()));
 						}
 						catch (NumberFormatException e)
 						{
-							ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskInvalid_number"), Constants.s_APPNAME,
-								MessageType.ERROR); //$NON-NLS-1$
+							ShowMessageDelegate.showMessageDialog(
+								PropertyFactory
+									.getString("in_iskInvalid_number"),
+								Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 							return;
 						}
@@ -3631,7 +3917,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				if (aClass != null)
 				{
-					maxRank = currentPC.getMaxRank(aSkill.getKeyName(), aClass).doubleValue();
+					maxRank =
+							currentPC.getMaxRank(aSkill.getKeyName(), aClass)
+								.doubleValue();
 					if (Globals.getGameModeHasPointPool())
 					{
 						skillPool = pc.getSkillPoints();
@@ -3642,23 +3930,30 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					}
 				}
 
-				if ((maxRank > aSkill.getRank().doubleValue()) || Globals.checkRule(RuleConstants.SKILLMAX)) //$NON-NLS-1$
+				if ((maxRank > aSkill.getRank().doubleValue())
+					|| Globals.checkRule(RuleConstants.SKILLMAX)) //$NON-NLS-1$
 				{
-					final int cost = aSkill.costForPCClass(getSelectedPCClass(), pc);
-					final double pointsNeeded = Math.floor((maxRank - aSkill.getTotalRank(pc).doubleValue()) * cost);
+					final int cost =
+							aSkill.costForPCClass(getSelectedPCClass(), pc);
+					final double pointsNeeded =
+							Math.floor((maxRank - aSkill.getTotalRank(pc)
+								.doubleValue())
+								* cost);
 					double points = Math.min(pointsNeeded, skillPool);
 
-					final int classSkillCost = Globals.getGameModeSkillCost_Class();
+					final int classSkillCost =
+							Globals.getGameModeSkillCost_Class();
 					if (classSkillCost > 1)
 					{
 						points = Math.floor(points / classSkillCost);
 					}
-					addSkill((int)points);
+					addSkill((int) points);
 				}
 				else
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskErr_message_01"), Constants.s_APPNAME,
-						MessageType.INFORMATION); //$NON-NLS-1$
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_iskErr_message_01"),
+						Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$
 				}
 			}
 		}
@@ -3677,21 +3972,27 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				// Get a number from the user via a popup
 				if (qty < 0)
 				{
-					String selectedValue = JOptionPane.showInputDialog(null,
-							PropertyFactory.getString("in_iskRemove_quantity_tooltip"), Constants.s_APPNAME,
-							JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
+					String selectedValue =
+							JOptionPane.showInputDialog(null, PropertyFactory
+								.getString("in_iskRemove_quantity_tooltip"),
+								Constants.s_APPNAME,
+								JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
 
 					if (selectedValue != null)
 					{
 						try
 						{
 							//abs just in case someone types in a negative value
-							newQty = Math.abs(Integer.parseInt(selectedValue.trim()));
+							newQty =
+									Math.abs(Integer.parseInt(selectedValue
+										.trim()));
 						}
 						catch (NumberFormatException e)
 						{
-							ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iskInvalid_number"), Constants.s_APPNAME,
-								MessageType.ERROR); //$NON-NLS-1$
+							ShowMessageDelegate.showMessageDialog(
+								PropertyFactory
+									.getString("in_iskInvalid_number"),
+								Constants.s_APPNAME, MessageType.ERROR); //$NON-NLS-1$
 
 							return;
 						}
@@ -3716,17 +4017,21 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			public void actionPerformed(ActionEvent evt)
 			{
-				Skill aSkill = pc.getSkillKeyed(getSelectedSkill().getKeyName());
+				Skill aSkill =
+						pc.getSkillKeyed(getSelectedSkill().getKeyName());
 
 				if (aSkill != null)
 				{
 					//remove all ranks from this skill for all PCClasses
-					for (Iterator<PCClass> iter = pc.getClassList().iterator(); iter.hasNext();)
+					for (Iterator<PCClass> iter = pc.getClassList().iterator(); iter
+						.hasNext();)
 					{
 						//TODO: This value is thrown away, should it really be?
 						iter.next();
-						final int cost = aSkill.costForPCClass(getSelectedPCClass(), pc);
-						double points = -aSkill.getTotalRank(pc).doubleValue() * cost;
+						final int cost =
+								aSkill.costForPCClass(getSelectedPCClass(), pc);
+						double points =
+								-aSkill.getTotalRank(pc).doubleValue() * cost;
 						if (Globals.getGameModeSkillCost_Class() > 1)
 						{
 							points /= Globals.getGameModeSkillCost_Class();
@@ -3734,14 +4039,15 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 						addSkill((int) points);
 
-//						aSkill.setZeroRanks(aClass);
+						//						aSkill.setZeroRanks(aClass);
 					}
 
 					//
 					// Remove the skill from the skill list if we've just set the rank to zero
 					// and it is not an untrained skill
 					//
-					if ((CoreUtility.doublesEqual(aSkill.getRank().doubleValue(), 0.0))
+					if ((CoreUtility.doublesEqual(aSkill.getRank()
+						.doubleValue(), 0.0))
 						&& !aSkill.isUntrained())
 					{
 						pc.getSkillList().remove(aSkill);
@@ -3782,7 +4088,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			int ptsRemaining;
 			pcl = getSelectedLevelInfo(pc);
-			while((pcl != null) && (points > 0))
+			while ((pcl != null) && (points > 0))
 			{
 				ptsRemaining = pcl.getSkillPointsRemaining();
 				if (ptsRemaining >= points)
@@ -3802,7 +4108,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		else
 		{
 			points = -points;
-			for(int i = pc.getLevelInfo().size() - 1; i >= 0; --i)
+			for (int i = pc.getLevelInfo().size() - 1; i >= 0; --i)
 			{
 				pcl = pc.getLevelInfo().get(i);
 				final int ptsGained = pcl.getSkillPointsGained();
@@ -3831,7 +4137,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (theSkill.compareTo(aSkill) != 0)
 			{
-				if ((aSkill.getPreReqCount() != 0) && PrereqHandler.passesAll(aSkill.getPreReqList(), pc, aSkill))
+				if ((aSkill.getPreReqCount() != 0)
+					&& PrereqHandler.passesAll(aSkill.getPreReqList(), pc,
+						aSkill))
 				{
 					prereqSkills.add(aSkill);
 				}
@@ -3848,7 +4156,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	 */
 	private boolean prereqSkillsInvalid(ArrayList<Skill> prereqSkills)
 	{
-		for (Iterator<Skill> iter = prereqSkills.iterator(); iter.hasNext(); )
+		for (Iterator<Skill> iter = prereqSkills.iterator(); iter.hasNext();)
 		{
 			final Skill aSkill = iter.next();
 
@@ -3867,17 +4175,17 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		return false;
 	}
 
-/*
- * Debugging
- *
+	/*
+	 * Debugging
+	 *
 
-	private void dumpLevelInfo()
-	{
-		for (Iterator iter = pc.getLevelInfo().iterator(); iter.hasNext();)
-		{
-			final PCLevelInfo pcl = (PCLevelInfo) iter.next();
-			System.err.println(Integer.toString(pcl.getLevel()) + ":" + Integer.toString(pcl.getSkillPointsRemaining()));
-		}
-	}
-*/
+	 private void dumpLevelInfo()
+	 {
+	 for (Iterator iter = pc.getLevelInfo().iterator(); iter.hasNext();)
+	 {
+	 final PCLevelInfo pcl = (PCLevelInfo) iter.next();
+	 System.err.println(Integer.toString(pcl.getLevel()) + ":" + Integer.toString(pcl.getSkillPointsRemaining()));
+	 }
+	 }
+	 */
 }

@@ -20,7 +20,6 @@
  */
 package pcgen.util;
 
-
 /**
  * Title:        FOPResourcesChecker.java
  * Description:
@@ -33,9 +32,12 @@ public final class FOPResourceChecker
 {
 	private static int missingResourceCount;
 	private static StringBuffer resourceBuffer;
-	private static final String whereToGetIt = "<a href=\"http://prdownloads.sourceforge.net/pcgen/pdf_new.zip\">pdf.zip</a>";
-	static final String getItHereMsg = PropertyFactory.getString("in_FollowLink");
-	static final String missingLibMsg = PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
+	private static final String whereToGetIt =
+			"<a href=\"http://prdownloads.sourceforge.net/pcgen/pdf_new.zip\">pdf.zip</a>";
+	static final String getItHereMsg =
+			PropertyFactory.getString("in_FollowLink");
+	static final String missingLibMsg =
+			PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
 
 	/**
 	 *
@@ -66,7 +68,8 @@ public final class FOPResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
-			return resourceBuffer.toString() + "\n" + getItHereMsg + whereToGetIt + "\n" + missingLibMsg;
+			return resourceBuffer.toString() + "\n" + getItHereMsg
+				+ whereToGetIt + "\n" + missingLibMsg;
 		}
 
 		return "";
@@ -79,7 +82,8 @@ public final class FOPResourceChecker
 	 * @param sb
 	 * @return TRUE if the resource exists in the jar
 	 */
-	public static boolean hasResource(final String forName, final String jarName, StringBuffer sb)
+	public static boolean hasResource(final String forName,
+		final String jarName, StringBuffer sb)
 	{
 		try
 		{
@@ -93,8 +97,10 @@ public final class FOPResourceChecker
 		}
 		catch (NoClassDefFoundError ncdfer)
 		{
-			sb.append("Missing dependency of resource: ").append(jarName).append('\n');
-			Logging.errorPrint("Error loading class " + forName + ": " + ncdfer.toString(), ncdfer);
+			sb.append("Missing dependency of resource: ").append(jarName)
+				.append('\n');
+			Logging.errorPrint("Error loading class " + forName + ": "
+				+ ncdfer.toString(), ncdfer);
 		}
 
 		return false;
@@ -105,15 +111,15 @@ public final class FOPResourceChecker
 	 */
 	private static void checkResource()
 	{
-		final String[] resources = 
-		{
-			"org.apache.fop.apps.Fop", "fop.jar", "org.apache.xalan.xslt.Process", "xalan-2.4.1.jar",
-			"org.apache.batik.dom.svg.SVGDocumentFactory", "batik.jar"
-		};
+		final String[] resources =
+				{"org.apache.fop.apps.Fop", "fop.jar",
+					"org.apache.xalan.xslt.Process", "xalan-2.4.1.jar",
+					"org.apache.batik.dom.svg.SVGDocumentFactory", "batik.jar"};
 
 		for (int i = 0; i < (resources.length / 2); ++i)
 		{
-			if (!hasResource(resources[i * 2], resources[(i * 2) + 1], resourceBuffer))
+			if (!hasResource(resources[i * 2], resources[(i * 2) + 1],
+				resourceBuffer))
 			{
 				++missingResourceCount;
 			}
@@ -121,7 +127,7 @@ public final class FOPResourceChecker
 
 		if (missingResourceCount > 0)
 		{
-//			resourceBuffer.append("Look for the missing files on http://pcgen.sourceforge.net");
+			//			resourceBuffer.append("Look for the missing files on http://pcgen.sourceforge.net");
 		}
 	}
 }

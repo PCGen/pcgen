@@ -54,7 +54,8 @@ public class HeightToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -85,11 +86,15 @@ public class HeightToken extends Token
 
 		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 		{
-			retString = getFootPartToken(pc) + "' " + getInchPartToken(pc) + "\"";
+			retString =
+					getFootPartToken(pc) + "' " + getInchPartToken(pc) + "\"";
 		}
 		else
 		{
-			retString = Globals.getGameModeUnitSet().displayHeightInUnitSet(pc.getHeight()) + " " + Globals.getGameModeUnitSet().getHeightUnit();
+			retString =
+					Globals.getGameModeUnitSet().displayHeightInUnitSet(
+						pc.getHeight())
+						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
 		}
 
 		return retString;

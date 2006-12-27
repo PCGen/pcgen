@@ -32,7 +32,8 @@ import pcgen.core.SizeAdjustment;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface SizeAdjustmentLstToken extends LstToken {
+public interface SizeAdjustmentLstToken extends LstToken
+{
 	/**
 	 * @param sa
 	 * @param value

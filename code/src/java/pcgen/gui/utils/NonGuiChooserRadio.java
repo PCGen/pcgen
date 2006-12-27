@@ -47,7 +47,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public NonGuiChooserRadio()
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setAvailableList(List availableList)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setComboData(String cmbLabelText, List cmbData)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setMessageText(String messageText)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setTitle(String title)
 	{
-        // Do Nothing
+		// Do Nothing
 	}
 
 	/**
@@ -95,7 +95,8 @@ public class NonGuiChooserRadio implements ChooserRadio
 	 */
 	public void setVisible(boolean b)
 	{
-		throw new UnsupportedOperationException("NonGuiChooserRadio cannot be shown.");
+		throw new UnsupportedOperationException(
+			"NonGuiChooserRadio cannot be shown.");
 	}
 
 	/**

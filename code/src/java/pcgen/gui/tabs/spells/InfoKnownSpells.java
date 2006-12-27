@@ -101,10 +101,12 @@ import pcgen.util.enumeration.Tab;
 
 public class InfoKnownSpells extends InfoSpellsSubTab
 {
-	private final JLabel avaLabel = new JLabel(PropertyFactory
-		.getString("InfoKnownSpells.sort.avail.spells.by")); //$NON-NLS-1$
-	private final JLabel selLabel = new JLabel(PropertyFactory
-		.getString("InfoKnownSpells.sort.select.spells.by")); //$NON-NLS-1$
+	private final JLabel avaLabel =
+			new JLabel(PropertyFactory
+				.getString("InfoKnownSpells.sort.avail.spells.by")); //$NON-NLS-1$
+	private final JLabel selLabel =
+			new JLabel(PropertyFactory
+				.getString("InfoKnownSpells.sort.select.spells.by")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -116,15 +118,17 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	private JComboBoxEx primaryViewSelectComboBox = new JComboBoxEx();
 	private JComboBoxEx secondaryViewSelectComboBox = new JComboBoxEx();
 
-	private JCheckBox shouldAutoSpells = new JCheckBox(PropertyFactory
-		.getString("InfoSpells.autoload")); //$NON-NLS-1$
-	private JCheckBox canUseHigherSlots = new JCheckBox(PropertyFactory
-		.getString("InfoKnownSpells.canUseHigherSlots")); //$NON-NLS-1$
+	private JCheckBox shouldAutoSpells =
+			new JCheckBox(PropertyFactory.getString("InfoSpells.autoload")); //$NON-NLS-1$
+	private JCheckBox canUseHigherSlots =
+			new JCheckBox(PropertyFactory
+				.getString("InfoKnownSpells.canUseHigherSlots")); //$NON-NLS-1$
 
 	private JButton printHtml;
 	private JButton printPdf;
-	private JButton selectSpellSheetButton = new JButton(PropertyFactory
-		.getString("InfoSpells.select.spellsheet")); //$NON-NLS-1$
+	private JButton selectSpellSheetButton =
+			new JButton(PropertyFactory
+				.getString("InfoSpells.select.spellsheet")); //$NON-NLS-1$
 	private JTextField selectSpellSheetField = new JTextField();
 
 	private JPanel botPane = new JPanel();
@@ -182,7 +186,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				int highestSpellLevel = aClass.getHighestLevelSpell(pc);
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
-					if (pc.availableSpells(i, aClass, Globals.getDefaultSpellBook(), true, true))
+					if (pc.availableSpells(i, aClass, Globals
+						.getDefaultSpellBook(), true, true))
 					{
 						hasFree = true;
 						break;
@@ -242,8 +247,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
-			divLocSplitPane = SettingsHandler.getPCGenOption("InfoSpells.splitPane", //$NON-NLS-1$
-				(int) ((this.getSize().getWidth() * 2) / 10));
+			divLocSplitPane =
+					SettingsHandler.getPCGenOption("InfoSpells.splitPane", //$NON-NLS-1$
+						(int) ((this.getSize().getWidth() * 2) / 10));
 			divLocVert = SettingsHandler.getPCGenOption("InfoSpells.bsplit", //$NON-NLS-1$
 				(int) (this.getSize().getHeight() - 101));
 			divLocHoriz = SettingsHandler.getPCGenOption("InfoSpells.asplit", //$NON-NLS-1$
@@ -283,7 +289,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		if (divLocSplitPane > 0)
 		{
 			splitPane.setDividerLocation(divLocSplitPane);
-			SettingsHandler.setPCGenOption("InfoSpells.splitPane", divLocSplitPane); //$NON-NLS-1$
+			SettingsHandler.setPCGenOption(
+				"InfoSpells.splitPane", divLocSplitPane); //$NON-NLS-1$
 		}
 
 		if (divLocVert > 0)
@@ -298,7 +305,6 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			SettingsHandler.setPCGenOption("InfoSpells.asplit", divLocHoriz); //$NON-NLS-1$
 		}
 	}
-
 
 	/**
 	 * @see pcgen.gui.tabs.spells.InfoSpellsSubTab#initActionListeners()
@@ -346,12 +352,12 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			}
 		});
 		canUseHigherSlots.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					pc.setUseHigherKnownSlots(canUseHigherSlots.isSelected());
-				}
-			});
+				pc.setUseHigherKnownSlots(canUseHigherSlots.isSelected());
+			}
+		});
 		addSpellButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)
@@ -458,10 +464,12 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			.getString("InfoSpells.change.how.spell.are.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewComboBox, secondaryViewMode, true);
 
-		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode, false);
+		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode,
+			false);
 		Utility.setDescription(primaryViewSelectComboBox, PropertyFactory
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
-		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode, true);
+		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode,
+			true);
 		Utility.setDescription(secondaryViewSelectComboBox, PropertyFactory
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 
@@ -484,8 +492,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		initBottomPanel();
 
 		// now split the top and bottom Panels
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
-			botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, topPane,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
@@ -504,10 +513,12 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		// add the sorter tables so that clicking on the TableHeader
 		// actually does something
-		availableSort = new JTreeTableSorter(availableTable,
-			(PObjectNode) availableModel.getRoot(), availableModel);
-		selectedSort = new JTreeTableSorter(selectedTable,
-			(PObjectNode) selectedModel.getRoot(), selectedModel);
+		availableSort =
+				new JTreeTableSorter(availableTable,
+					(PObjectNode) availableModel.getRoot(), availableModel);
+		selectedSort =
+				new JTreeTableSorter(selectedTable, (PObjectNode) selectedModel
+					.getRoot(), selectedModel);
 	}
 
 	/**
@@ -524,7 +535,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		JPanel rightPane = new JPanel();
 		leftPane.setLayout(new BorderLayout());
 		rightPane.setLayout(new BorderLayout());
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane =
+				new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -542,11 +554,15 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		leftPane.add(aPanel, BorderLayout.NORTH);
 
 		// the available spells panel
-		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(availableTable, columnButton, availableModel);
 
@@ -566,13 +582,17 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		rightPane.add(sPanel, BorderLayout.NORTH);
 
 		// List of known spells Panel
-		scrollPane = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		selectedTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		selectedTable.setShowHorizontalLines(true);
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		JButton columnButton2 = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^"); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
@@ -599,7 +619,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		canUseHigherSlots.setSelected(pc.getUseHigherKnownSlots());
 		asPanel.add(canUseHigherSlots);
 
-		Utility.setDescription(addSpellButton, PropertyFactory.getString("InfoSpells.add.selected")); //$NON-NLS-1$
+		Utility.setDescription(addSpellButton, PropertyFactory
+			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
 		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
 		asPanel.add(addSpellButton);
@@ -621,7 +642,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
-		Utility.setDescription(delSpellButton, PropertyFactory.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
+		Utility.setDescription(delSpellButton, PropertyFactory
+			.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
 		delSpellButton.setEnabled(false);
 		delSpellButton.setMargin(new Insets(1, 14, 1, 14));
 		ssPanel.add(delSpellButton, c);
@@ -633,8 +655,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		selectSpellSheetField.setEditable(false);
 		selectSpellSheetField.setBackground(Color.lightGray);
-		selectSpellSheetField.setText(SettingsHandler.getSelectedSpellSheetName());
-		selectSpellSheetField.setToolTipText(SettingsHandler.getSelectedSpellSheetName());
+		selectSpellSheetField.setText(SettingsHandler
+			.getSelectedSpellSheetName());
+		selectSpellSheetField.setToolTipText(SettingsHandler
+			.getSelectedSpellSheetName());
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 2, 0, 1, 1, 1.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
@@ -642,7 +666,8 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		ssPanel.add(selectSpellSheetField, c);
 
 		printHtml = new JButton();
-		printHtml.setToolTipText(PropertyFactory.getString("InfoSpells.print.preview")); //$NON-NLS-1$
+		printHtml.setToolTipText(PropertyFactory
+			.getString("InfoSpells.print.preview")); //$NON-NLS-1$
 		IconUtilitities.maybeSetIcon(printHtml, "PrintPreview16.gif"); //$NON-NLS-1$
 		printHtml.setEnabled(true);
 		c = new GridBagConstraints();
@@ -660,14 +685,15 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		c.insets = new Insets(1, 2, 1, 2);
 		printPdf.setMargin(new Insets(1, 14, 1, 14));
 		ssPanel.add(printPdf, c);
-		return ssPanel;	}
+		return ssPanel;
+	}
 
 	/**
 	 * Build Bottom Panel.
 	 * botPane will contain a bLeftPane and a bRightPane
 	 * bLeftPane will contain a scrollregion (spell info)
 	 * bRightPane will contain a scrollregion (character Info)
-  */
+	 */
 	private void initBottomPanel()
 	{
 		GridBagLayout gridbag;
@@ -683,8 +709,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		bLeftPane.setLayout(gridbag);
 		bRightPane.setLayout(gridbag);
 
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane,
-			bRightPane);
+		asplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane,
+					bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
@@ -697,8 +724,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		JScrollPane sScroll = new JScrollPane();
 		gridbag.setConstraints(sScroll, c);
 
-		TitledBorder sTitle = BorderFactory.createTitledBorder(PropertyFactory
-			.getString("InfoSpells.spell.info")); //$NON-NLS-1$
+		TitledBorder sTitle =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("InfoSpells.spell.info")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -711,8 +739,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		JScrollPane iScroll = new JScrollPane();
 
-		TitledBorder iTitle = BorderFactory.createTitledBorder(PropertyFactory
-			.getString("InfoSpells.class.info")); //$NON-NLS-1$
+		TitledBorder iTitle =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("InfoSpells.class.info")); //$NON-NLS-1$
 		iTitle.setTitleJustification(TitledBorder.CENTER);
 		iScroll.setBorder(iTitle);
 		classLabel.setBackground(topPane.getBackground());
@@ -742,9 +771,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	{
 		if (availableModel == null)
 		{
-			availableModel = new SpellModel(primaryViewMode, secondaryViewMode,
-				true, availableBookList, currSpellBook,
-				GuiConstants.INFOSPELLS_AVAIL_SPELL_LIST, pc, this, ""); //$NON-NLS-1$
+			availableModel =
+					new SpellModel(primaryViewMode, secondaryViewMode, true,
+						availableBookList, currSpellBook,
+						GuiConstants.INFOSPELLS_AVAIL_SPELL_LIST, pc, this, ""); //$NON-NLS-1$
 		}
 		else
 		{
@@ -771,10 +801,11 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	{
 		if (selectedModel == null)
 		{
-			selectedModel = new SpellModel(primaryViewSelectMode,
-				secondaryViewSelectMode, false, selectedBookList,
-				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc, this,
-				""); //$NON-NLS-1$
+			selectedModel =
+					new SpellModel(primaryViewSelectMode,
+						secondaryViewSelectMode, false, selectedBookList,
+						currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc,
+						this, ""); //$NON-NLS-1$
 		}
 		else
 		{
@@ -939,10 +970,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 					if (aString.length() > 0)
 					{
-						ShowMessageDelegate.showMessageDialog(aString, Constants.s_APPNAME,
-							MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(aString,
+							Constants.s_APPNAME, MessageType.ERROR);
 					}
-					
+
 					// As we are deleting this from known spells we need to 
 					// remove it from any prepared spell lists too.
 					removeFromPreparedLists(cs, aClass);
@@ -952,7 +983,6 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		pc.setDirty(true);
 		updateSelectedModel();
 	}
-
 
 	/**
 	 * Remove the spell from all prepared lists, generally used 
@@ -974,7 +1004,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		}
 		aClass.getSpellSupport().removeSpellIfUnused(cs);
 	}
-	
+
 	/**
 	 *  Select a spell output sheet
 	 */
@@ -1043,17 +1073,18 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 			if (outFile.exists())
 			{
-				int reallyClose = JOptionPane
-					.showConfirmDialog(
-						this,
-						PropertyFactory
-							.getFormattedString(
+				int reallyClose =
+						JOptionPane
+							.showConfirmDialog(
+								this,
 								PropertyFactory
-									.getString("InfoSpells.confirm.overwrite"), outFile.getName()), //$NON-NLS-1$
-						PropertyFactory
-							.getFormattedString(
+									.getFormattedString(
+										PropertyFactory
+											.getString("InfoSpells.confirm.overwrite"), outFile.getName()), //$NON-NLS-1$
 								PropertyFactory
-									.getString("InfoSpells.overwritnig"), outFile.getName()), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
+									.getFormattedString(
+										PropertyFactory
+											.getString("InfoSpells.overwritnig"), outFile.getName()), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
 
 				if (reallyClose != JOptionPane.YES_OPTION)
 				{
@@ -1063,15 +1094,17 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 			if (ext.equalsIgnoreCase(".htm") || ext.equalsIgnoreCase(".html")) //$NON-NLS-1$ //$NON-NLS-2$
 			{
-				BufferedWriter w = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(outFile), "UTF-8")); //$NON-NLS-1$
+				BufferedWriter w =
+						new BufferedWriter(new OutputStreamWriter(
+							new FileOutputStream(outFile), "UTF-8")); //$NON-NLS-1$
 				Utility.printToWriter(w, template, pc);
 			}
 			else if (ext.equalsIgnoreCase(".fo") || ext.equalsIgnoreCase(".pdf")) //$NON-NLS-1$ //$NON-NLS-2$
 			{
 				File tmpFile = File.createTempFile("tempSpells_", ".fo"); //$NON-NLS-1$ //$NON-NLS-2$
-				BufferedWriter w = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(tmpFile), "UTF-8")); //$NON-NLS-1$
+				BufferedWriter w =
+						new BufferedWriter(new OutputStreamWriter(
+							new FileOutputStream(tmpFile), "UTF-8")); //$NON-NLS-1$
 				Utility.printToWriter(w, template, pc);
 
 				FOPHandler fh = new FOPHandler();

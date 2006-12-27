@@ -46,9 +46,11 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(String fileName, String gameModeIn) throws PersistenceLayerException
+	public void loadLstFile(String fileName, String gameModeIn)
+		throws PersistenceLayerException
 	{
-		SystemCollections.getGameModeNamed(gameModeIn).clearSizeAdjustmentList();
+		SystemCollections.getGameModeNamed(gameModeIn)
+			.clearSizeAdjustmentList();
 		super.loadLstFile(fileName, gameModeIn);
 	}
 
@@ -62,33 +64,41 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 		SizeAdjustment sa = new SizeAdjustment();
 
 		lstLine.trim();
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SizeAdjustmentLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(SizeAdjustmentLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
 
 			final int idxColon = colString.indexOf(':');
 			String key = "";
-			try {
+			try
+			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(StringIndexOutOfBoundsException e) {
+			catch (StringIndexOutOfBoundsException e)
+			{
 				// TODO Handle Exception
 			}
-			SizeAdjustmentLstToken token = (SizeAdjustmentLstToken) tokenMap.get(key);
+			SizeAdjustmentLstToken token =
+					(SizeAdjustmentLstToken) tokenMap.get(key);
 
 			if (colString.startsWith("SIZENAME:"))
 			{
 				final String value = colString.substring(idxColon + 1);
-				sa = SystemCollections.getGameModeNamed(getGameMode()).getSizeAdjustmentNamed(value);
+				sa =
+						SystemCollections.getGameModeNamed(getGameMode())
+							.getSizeAdjustmentNamed(value);
 
 				if (sa == null)
 				{
 					sa = new SizeAdjustment();
 					sa.setName(value);
-					SystemCollections.getGameModeNamed(getGameMode()).addToSizeAdjustmentList(sa);
+					SystemCollections.getGameModeNamed(getGameMode())
+						.addToSizeAdjustmentList(sa);
 				}
 			}
 			else if (token != null)
@@ -97,7 +107,9 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, sa, value);
 				if (!token.parse(sa, value))
 				{
-					Logging.errorPrint("Error parsing size adjustment " + sa.getDisplayName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing size adjustment "
+						+ sa.getDisplayName() + ':' + sourceURL.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(sa, colString))
@@ -106,7 +118,8 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 			}
 			else
 			{
-				Logging.errorPrint("Illegal size info '" + lstLine + "' in " + sourceURL.toString());
+				Logging.errorPrint("Illegal size info '" + lstLine + "' in "
+					+ sourceURL.toString());
 			}
 		}
 	}

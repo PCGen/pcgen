@@ -58,16 +58,16 @@ public class CompanionModLoader
 	 * @param lineNum
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(CompanionMod cmpMod, String inputLine, 
-									URL sourceURL, int lineNum) 
-		throws PersistenceLayerException
+	public static void parseLine(CompanionMod cmpMod, String inputLine,
+		URL sourceURL, int lineNum) throws PersistenceLayerException
 	{
 		if (cmpMod == null)
 		{
 			return;
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM, false);
+		final StringTokenizer colToken =
+				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM, false);
 		String colString;
 
 		if (!cmpMod.isNewItem())
@@ -77,7 +77,8 @@ public class CompanionModLoader
 			colToken.nextToken();
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(CompanionModLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(CompanionModLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken().trim();
@@ -88,17 +89,21 @@ public class CompanionModLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				throw new PersistenceLayerException();
 			}
-			CompanionModLstToken token = (CompanionModLstToken) tokenMap.get(key);
+			CompanionModLstToken token =
+					(CompanionModLstToken) tokenMap.get(key);
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, cmpMod, value);
 				if (!token.parse(cmpMod, value))
 				{
-					Logging.errorPrint("Error parsing ability " + cmpMod.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ cmpMod.getDisplayName() + ':' + sourceURL.toString()
+						+ ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(cmpMod, colString))
@@ -107,7 +112,8 @@ public class CompanionModLoader
 			}
 			else
 			{
-				Logging.errorPrint(sourceURL.toString() + ":" + Integer.toString(lineNum) + " \"" + colString + "\"");
+				Logging.errorPrint(sourceURL.toString() + ":"
+					+ Integer.toString(lineNum) + " \"" + colString + "\"");
 			}
 		}
 	}

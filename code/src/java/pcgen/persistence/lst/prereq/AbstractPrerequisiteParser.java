@@ -33,11 +33,12 @@ import pcgen.persistence.PersistenceLayerException;
  * @author wardc
  *
  */
-public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public abstract class AbstractPrerequisiteParser implements
+		PrerequisiteParserInterface
 {
 	/**
-     * Parses PreReq
-     * 
+	 * Parses PreReq
+	 * 
 	 * @param kind 
 	 * @param formula 
 	 * @param invertResult 
@@ -45,7 +46,8 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 	 * @return PreReq 
 	 * @throws PersistenceLayerException 
 	 */
-    public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 		// Check to make sure that this class can parse this token
@@ -65,14 +67,15 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 
 		if (!foundTag)
 		{
-			throw new PersistenceLayerException(this.getClass().getName() + " can not parse a Prerequisite tag of '"
-			    + kind + ":" + formula + "'");
+			throw new PersistenceLayerException(this.getClass().getName()
+				+ " can not parse a Prerequisite tag of '" + kind + ":"
+				+ formula + "'");
 		}
 
 		// If we can parse this token then set the kind and invert flag.
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind(kind);
-		
+
 		prereq.setOverrideQualify(overrideQualify);
 		return prereq;
 	}

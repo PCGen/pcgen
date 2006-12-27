@@ -21,7 +21,6 @@
  */
 package pcgen.util;
 
-
 /**
  * A helper for <code>java.lang.Integer</code> which understands a
  * leading plus sign for string conversion.
@@ -140,4 +139,3 @@ public final class Delta
 		return v + "";
 	}
 }
-

@@ -40,8 +40,9 @@ public class ChooserTableModel extends AbstractTableModel
 	 * author     Matt Woodard
 	 */
 	@Override
-	public boolean isCellEditable( @SuppressWarnings("unused")int row, 
-								   @SuppressWarnings("unused")int col)
+	public boolean isCellEditable(@SuppressWarnings("unused")
+	int row, @SuppressWarnings("unused")
+	int col)
 	{
 		return false;
 	}
@@ -83,10 +84,10 @@ public class ChooserTableModel extends AbstractTableModel
 		return mColumnNames[column];
 	}
 
-    /**
-     * Set the names of the columns
-     * @param names
-     */
+	/**
+	 * Set the names of the columns
+	 * @param names
+	 */
 	public void setColumnNames(String[] names)
 	{
 		mColumnNames = names;
@@ -127,7 +128,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 */
 	public Object getValueAt(int row, int col)
 	{
-		if ( row > mData.length || col > mData[row].length)
+		if (row > mData.length || col > mData[row].length)
 		{
 			return null;
 		}
@@ -167,8 +168,8 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @param data  The new Data value
 	 * @param lineTerminator
 	 */
-	public void setData(Object[][] data, 
-			@SuppressWarnings("hiding")String lineTerminator)
+	public void setData(Object[][] data, @SuppressWarnings("hiding")
+	String lineTerminator)
 	{
 		mData = data;
 
@@ -190,7 +191,7 @@ public class ChooserTableModel extends AbstractTableModel
 				{
 					try
 					{
-						if ( row[c] != null )
+						if (row[c] != null)
 						{
 							mColumnClasses[c] = row[c].getClass();
 						}
@@ -203,6 +204,7 @@ public class ChooserTableModel extends AbstractTableModel
 			}
 		}
 
-		fireTableChanged(new TableModelEvent(this, 0, mRows - 1, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT));
+		fireTableChanged(new TableModelEvent(this, 0, mRows - 1,
+			TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT));
 	}
 }

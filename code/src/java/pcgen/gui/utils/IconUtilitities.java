@@ -47,7 +47,8 @@ public class IconUtilitities
 	 */
 	public static ImageIcon getImageIcon(String iconName)
 	{
-		final URL iconURL = IconUtilitities.class.getResource(RESOURCE_URL + iconName);
+		final URL iconURL =
+				IconUtilitities.class.getResource(RESOURCE_URL + iconName);
 
 		if (iconURL == null)
 		{
@@ -70,7 +71,8 @@ public class IconUtilitities
 	 */
 	public static ImageIcon getImageIcon(String location, String description)
 	{
-		final URL iconURL = IconUtilitities.class.getResource(RESOURCE_URL + location);
+		final URL iconURL =
+				IconUtilitities.class.getResource(RESOURCE_URL + location);
 
 		if (iconURL == null)
 		{
@@ -118,7 +120,8 @@ public class IconUtilitities
 	 *
 	 * @return boolean was icon set?
 	 */
-	public static boolean maybeSetIcon(AbstractButton button, String iconName, String description)
+	public static boolean maybeSetIcon(AbstractButton button, String iconName,
+		String description)
 	{
 		if (iconName == null)
 		{

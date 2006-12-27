@@ -56,20 +56,22 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public Spell parseLine(Spell aSpell, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public Spell parseLine(Spell aSpell, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		Spell spell = aSpell;
-		
+
 		if (spell == null)
 		{
 			spell = new Spell();
 		}
 
 		int i = 0;
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(SpellLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(SpellLstToken.class);
 
 		while (colToken.hasMoreElements())
 		{
@@ -80,7 +82,8 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			SpellLstToken token = (SpellLstToken) tokenMap.get(key);
@@ -88,7 +91,8 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			// The very first one is the Name
 			if (i == 0)
 			{
-				if ((!colString.equals(spell.getKeyName())) && (colString.indexOf(".MOD") < 0))
+				if ((!colString.equals(spell.getKeyName()))
+					&& (colString.indexOf(".MOD") < 0))
 				{
 					completeObject(spell);
 					spell = new Spell();
@@ -108,7 +112,9 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 				LstUtils.deprecationCheck(token, spell, value);
 				if (!token.parse(spell, value))
 				{
-					Logging.errorPrint("Error parsing spell " + spell.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing spell "
+						+ spell.getDisplayName() + ':' + source.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(spell, colString))
@@ -117,11 +123,12 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			}
 			else
 			{
-				Logging.errorPrint("Illegal spell info '" + colString + "' in " + source.getFile());
+				Logging.errorPrint("Illegal spell info '" + colString + "' in "
+					+ source.getFile());
 			}
 		}
 
-		completeObject( spell );
+		completeObject(spell);
 		return null;
 	}
 
@@ -129,7 +136,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
 	 */
 	@Override
-	protected Spell getObjectKeyed( final String aKey )
+	protected Spell getObjectKeyed(final String aKey)
 	{
 		return Globals.getSpellKeyed(aKey);
 	}
@@ -141,53 +148,53 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	protected void finishObject(PObject target)
 	{
 		// TODO - This code is broken now.  I think it always was though.
-//		Object obj = Globals.getSpellMap().get(target.getKeyName());
-//		if (obj == null)
-//		{
-//			Globals.addToSpellMap( target.getKeyName(), target );
-//		}
-//		else
-//		{
-//			ArrayList aList;
-//			if (obj instanceof ArrayList)
-//				aList = (ArrayList)obj;
-//			else
-//			{
-//				aList = new ArrayList();
-//				aList.add(obj);
-//			}
-//			boolean match = false;
-//			for (Iterator i = aList.iterator(); i.hasNext();)
-//			{
-//				Spell aSpell = (Spell)i.next();
-//				Object a = aSpell.getLevelInfo(null);
-//				Object b = ((Spell)target).getLevelInfo(null);
-//				if ((a==null && b==null) || (a!=null && a.equals(b)))
-//				{
-//					match = true;
-//				}
-//			}
-//			if (!match)
-//			{
-//				final Spell aSpell = Globals.getSpellKeyed(target.getKeyName());
-//				if (aSpell == null)
-//				{
-//					aList.add(target);
-//					Globals.addToSpellMap( target.getKeyName(), aList );
-//				}
-//				else if (!target.equals(aSpell))
-//				{
-//					if (SettingsHandler.isAllowOverride())
-//					{
-//						if (target.getSourceDateValue() > aSpell.getSourceDateValue())
-//						{
-//							Globals.getSpellMap().remove(aSpell.getKeyName());
-//							Globals.addToSpellMap( target.getKeyName(), target );
-//						}
-//					}
-//				}
-//			}
-//		}
+		//		Object obj = Globals.getSpellMap().get(target.getKeyName());
+		//		if (obj == null)
+		//		{
+		//			Globals.addToSpellMap( target.getKeyName(), target );
+		//		}
+		//		else
+		//		{
+		//			ArrayList aList;
+		//			if (obj instanceof ArrayList)
+		//				aList = (ArrayList)obj;
+		//			else
+		//			{
+		//				aList = new ArrayList();
+		//				aList.add(obj);
+		//			}
+		//			boolean match = false;
+		//			for (Iterator i = aList.iterator(); i.hasNext();)
+		//			{
+		//				Spell aSpell = (Spell)i.next();
+		//				Object a = aSpell.getLevelInfo(null);
+		//				Object b = ((Spell)target).getLevelInfo(null);
+		//				if ((a==null && b==null) || (a!=null && a.equals(b)))
+		//				{
+		//					match = true;
+		//				}
+		//			}
+		//			if (!match)
+		//			{
+		//				final Spell aSpell = Globals.getSpellKeyed(target.getKeyName());
+		//				if (aSpell == null)
+		//				{
+		//					aList.add(target);
+		//					Globals.addToSpellMap( target.getKeyName(), aList );
+		//				}
+		//				else if (!target.equals(aSpell))
+		//				{
+		//					if (SettingsHandler.isAllowOverride())
+		//					{
+		//						if (target.getSourceDateValue() > aSpell.getSourceDateValue())
+		//						{
+		//							Globals.getSpellMap().remove(aSpell.getKeyName());
+		//							Globals.addToSpellMap( target.getKeyName(), target );
+		//						}
+		//					}
+		//				}
+		//			}
+		//		}
 	}
 
 	/**
@@ -207,7 +214,8 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	 * level is an integer for this spell's level for the named class/domain
 	 * @throws PersistenceLayerException
 	 */
-	public static void setLevelList(Spell spell, final String typeString, String listString) throws PersistenceLayerException
+	public static void setLevelList(Spell spell, final String typeString,
+		String listString) throws PersistenceLayerException
 	{
 		if (listString.equals(".CLEAR"))
 		{
@@ -231,7 +239,8 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			listString = listString.substring(0, i);
 		}
 
-		final StringTokenizer aTok = new StringTokenizer(listString, "|", false);
+		final StringTokenizer aTok =
+				new StringTokenizer(listString, "|", false);
 
 		while (aTok.hasMoreTokens())
 		{
@@ -245,11 +254,13 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 
 				if (!bTok.hasMoreTokens())
 				{
-					throw new PersistenceLayerException("Badly formed spell "+typeString+" data: " + listString);
+					throw new PersistenceLayerException("Badly formed spell "
+						+ typeString + " data: " + listString);
 				}
 
 				final String aLevel = bTok.nextToken();
-				final StringTokenizer cTok = new StringTokenizer(nameList, ",", false);
+				final StringTokenizer cTok =
+						new StringTokenizer(nameList, ",", false);
 
 				while (cTok.hasMoreTokens())
 				{
@@ -257,9 +268,11 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 
 					if (preReqTag != null)
 					{
-						PreParserFactory preFactory = PreParserFactory.getInstance();
-						Prerequisite prerequisite = preFactory.parse( preReqTag );
-						spell.addPreReqMapEntry(typeString + "|" + aClass, prerequisite);
+						PreParserFactory preFactory =
+								PreParserFactory.getInstance();
+						Prerequisite prerequisite = preFactory.parse(preReqTag);
+						spell.addPreReqMapEntry(typeString + "|" + aClass,
+							prerequisite);
 					}
 
 					spell.setLevelInfo(typeString + "|" + aClass, aLevel);
@@ -272,28 +285,28 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
-		final Object obj = Globals.getSpellMap().get( pObj.getKeyName() );
-		if ( obj == null )
+		final Object obj = Globals.getSpellMap().get(pObj.getKeyName());
+		if (obj == null)
 		{
-			Globals.addToSpellMap( pObj.getKeyName(), pObj );
+			Globals.addToSpellMap(pObj.getKeyName(), pObj);
 		}
 		else
 		{
 			final List<Spell> spellList;
-			if ( obj instanceof Spell )
+			if (obj instanceof Spell)
 			{
 				spellList = new ArrayList<Spell>();
 				Globals.removeFromSpellMap(((Spell) obj).getKeyName());
-				Globals.addToSpellMap( pObj.getKeyName(), spellList );
-				spellList.add((Spell)obj);
+				Globals.addToSpellMap(pObj.getKeyName(), spellList);
+				spellList.add((Spell) obj);
 			}
 			else
 			{
-				spellList = (List<Spell>)obj;
+				spellList = (List<Spell>) obj;
 			}
-			spellList.add( (Spell)pObj );
+			spellList.add((Spell) pObj);
 		}
 	}
 }

@@ -16,12 +16,15 @@ public class TabUtils
 {
 	public static void selectClothes(final PlayerCharacter aPC)
 	{
-		if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((aPC.totalNonMonsterLevels()) == 1)) //$NON-NLS-1$
+		if (Globals.checkRule(RuleConstants.FREECLOTHES)
+			&& ((aPC.totalNonMonsterLevels()) == 1)) //$NON-NLS-1$
 		{
 			//
 			// See what the PC is already carrying
 			//
-			List<Equipment> clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic"); //$NON-NLS-1$ //$NON-NLS-2$
+			List<Equipment> clothes =
+					EquipmentList.getEquipmentOfType(
+						"Clothing.Resizable", "Magic"); //$NON-NLS-1$ //$NON-NLS-2$
 
 			//
 			// Check to see if any of the clothing the PC
@@ -35,7 +38,9 @@ public class TabUtils
 			{
 				for (Equipment eq : clothes)
 				{
-					if ((CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0)) && pcSize.equals(eq.getSize()))
+					if ((CoreUtility.doublesEqual(
+						eq.getCost(aPC).doubleValue(), 0.0))
+						&& pcSize.equals(eq.getSize()))
 					{
 						hasClothes = true;
 
@@ -51,14 +56,22 @@ public class TabUtils
 			//
 			if (!hasClothes)
 			{
-				clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
+				clothes =
+						EquipmentList.getEquipmentOfType(
+							"Clothing.Resizable.Starting",
+							"Magic.Custom.Auto_Gen");
 				if (clothes.isEmpty())
 				{
-					clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
+					clothes =
+							EquipmentList.getEquipmentOfType(
+								"Clothing.Resizable", "Magic.Custom.Auto_Gen");
 				}
 
 				List<Equipment> selectedClothes = new ArrayList<Equipment>();
-				Globals.getChoiceFromList(PropertyFactory.getString("in_sumSelectAFreeSetOfClothing"), clothes, selectedClothes, 1); //$NON-NLS-1$
+				Globals
+					.getChoiceFromList(
+						PropertyFactory
+							.getString("in_sumSelectAFreeSetOfClothing"), clothes, selectedClothes, 1); //$NON-NLS-1$
 
 				if (selectedClothes.size() != 0)
 				{
@@ -79,13 +92,15 @@ public class TabUtils
 
 						eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0
 
-						if (aPC.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)
+						if (aPC
+							.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)
 						{
 							aPC.addEquipment(eq);
 						}
 						else
 						{
-							Logging.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
+							Logging
+								.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
 						}
 					}
 				}

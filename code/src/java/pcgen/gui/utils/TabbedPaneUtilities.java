@@ -35,27 +35,27 @@ import java.awt.Component;
  */
 public final class TabbedPaneUtilities
 {
-    private TabbedPaneUtilities()
-    {
-        //prevent construction of utility class
-    }
+	private TabbedPaneUtilities()
+	{
+		//prevent construction of utility class
+	}
 
-    /**
-     * Get the tabbed pane for a component
-     * @param c
-     * @return the tabbed pane for a component
-     */
-    public static JTabbedPane getTabbedPaneFor(Component c)
-    {
-        if (c == null)
-        {
-            return null;
-        }
-        if (c instanceof JTabbedPane)
-        {
-            return (JTabbedPane) c;
-        }
-        return getTabbedPaneFor(c.getParent());
-    }
+	/**
+	 * Get the tabbed pane for a component
+	 * @param c
+	 * @return the tabbed pane for a component
+	 */
+	public static JTabbedPane getTabbedPaneFor(Component c)
+	{
+		if (c == null)
+		{
+			return null;
+		}
+		if (c instanceof JTabbedPane)
+		{
+			return (JTabbedPane) c;
+		}
+		return getTabbedPaneFor(c.getParent());
+	}
 
 }

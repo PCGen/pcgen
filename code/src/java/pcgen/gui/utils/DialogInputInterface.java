@@ -30,37 +30,48 @@ import java.awt.Component;
 /**
  * Input interface for dialog box
  */
-public class DialogInputInterface implements InputInterface {
+public class DialogInputInterface implements InputInterface
+{
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see pcgen.util.InputInterface#showInputDialog(java.awt.Component,
-     *      java.lang.Object, java.lang.String, int, javax.swing.Icon,
-     *      java.lang.Object[], java.lang.Object)
-     */
-    public Object showInputDialog(Object parentComponent, Object message, String title, MessageType messageType,
-            Object[] selectionValues, Object initialSelectionValue) {
-        if (Globals.getUseGUI()) {
-            int mt = 0;
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see pcgen.util.InputInterface#showInputDialog(java.awt.Component,
+	 *      java.lang.Object, java.lang.String, int, javax.swing.Icon,
+	 *      java.lang.Object[], java.lang.Object)
+	 */
+	public Object showInputDialog(Object parentComponent, Object message,
+		String title, MessageType messageType, Object[] selectionValues,
+		Object initialSelectionValue)
+	{
+		if (Globals.getUseGUI())
+		{
+			int mt = 0;
 
-            if (messageType.equals(MessageType.QUESTION)) {
-                mt = JOptionPane.QUESTION_MESSAGE;
-            }
-            else if (messageType.equals(MessageType.ERROR)) {
-                mt = JOptionPane.ERROR_MESSAGE;
-            }
-            else if (messageType.equals(MessageType.WARNING)) {
-                mt = JOptionPane.WARNING_MESSAGE;
-            }
-            else  {
-                mt = JOptionPane.INFORMATION_MESSAGE;
-            }
-            return JOptionPane.showInputDialog((Component) parentComponent, message, title, mt, null, selectionValues, initialSelectionValue);
-        }
-        //TODO: This should probably prompt, but not sure if that makes
-        // sense on the command line
-        throw new IllegalStateException("Cannot showInputDialog when getUseGUI returns false");
-    }
+			if (messageType.equals(MessageType.QUESTION))
+			{
+				mt = JOptionPane.QUESTION_MESSAGE;
+			}
+			else if (messageType.equals(MessageType.ERROR))
+			{
+				mt = JOptionPane.ERROR_MESSAGE;
+			}
+			else if (messageType.equals(MessageType.WARNING))
+			{
+				mt = JOptionPane.WARNING_MESSAGE;
+			}
+			else
+			{
+				mt = JOptionPane.INFORMATION_MESSAGE;
+			}
+			return JOptionPane.showInputDialog((Component) parentComponent,
+				message, title, mt, null, selectionValues,
+				initialSelectionValue);
+		}
+		//TODO: This should probably prompt, but not sure if that makes
+		// sense on the command line
+		throw new IllegalStateException(
+			"Cannot showInputDialog when getUseGUI returns false");
+	}
 
 }

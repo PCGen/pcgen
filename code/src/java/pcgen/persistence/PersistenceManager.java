@@ -43,7 +43,8 @@ public final class PersistenceManager
 {
 	private static final SystemLoader instance = new LstSystemLoader();
 	private static boolean initialized;
-	private static final PersistenceManager managerInstance = new PersistenceManager();
+	private static final PersistenceManager managerInstance =
+			new PersistenceManager();
 
 	/**
 	 * Private to make it impossible to create another instance
@@ -175,7 +176,7 @@ public final class PersistenceManager
 			emptyLists();
 
 			// Mark everything as unloaded
-			for ( Campaign campaign : aSelectedCampaignsList )
+			for (Campaign campaign : aSelectedCampaignsList)
 			{
 				campaign.setIsLoaded(false);
 			}
@@ -203,8 +204,8 @@ public final class PersistenceManager
 	 *                    The new data is appended to this.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadFileIntoList(String fileName, int fileType, List<PObject> aList)
-		throws PersistenceLayerException
+	public void loadFileIntoList(String fileName, int fileType,
+		List<PObject> aList) throws PersistenceLayerException
 	{
 		instance.loadFileIntoList(fileName, fileType, aList);
 	}
@@ -221,6 +222,5 @@ public final class PersistenceManager
 	{
 		instance.refreshCampaigns();
 	}
-
 
 }

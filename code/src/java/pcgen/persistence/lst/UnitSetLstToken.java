@@ -32,7 +32,8 @@ import pcgen.core.UnitSet;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface UnitSetLstToken extends LstToken {
+public interface UnitSetLstToken extends LstToken
+{
 	/**
 	 * @param unitSet
 	 * @param value

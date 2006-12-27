@@ -29,7 +29,7 @@ import pcgen.util.PropertyFactory;
 /**
  * Utility class to assist with LST files
  */
-public class LstUtils 
+public class LstUtils
 {
 
 	/** Constant representing the pipe "|" character */
@@ -43,17 +43,17 @@ public class LstUtils
 	 * @param obj
 	 * @param value
 	 */
-	public static void deprecationCheck(LstToken token, PObject obj, String value) {
-		if(token instanceof DeprecatedToken) 
+	public static void deprecationCheck(LstToken token, PObject obj,
+		String value)
+	{
+		if (token instanceof DeprecatedToken)
 		{
-			final String msg = PropertyFactory.getFormattedString(
-					"Warnings.LstTokens.Deprecated",  //$NON-NLS-1$
-					token.getTokenName(),
-					value,
-					obj.getDisplayName(),
-					obj.getDefaultSourceString(),
-					((DeprecatedToken)token).getMessage(obj, value)
-					);
+			final String msg =
+					PropertyFactory.getFormattedString(
+						"Warnings.LstTokens.Deprecated", //$NON-NLS-1$
+						token.getTokenName(), value, obj.getDisplayName(), obj
+							.getDefaultSourceString(),
+						((DeprecatedToken) token).getMessage(obj, value));
 			deprecationWarning(msg);
 		}
 	}
@@ -65,10 +65,13 @@ public class LstUtils
 	 * @param source The object in which the tag was found 
 	 * @param value The value of the tag
 	 */
-	public static void deprecationCheck(LstToken token, String name, String source, String value) {
-		if(token instanceof DeprecatedToken) 
+	public static void deprecationCheck(LstToken token, String name,
+		String source, String value)
+	{
+		if (token instanceof DeprecatedToken)
 		{
-			deprecationWarning(token.getTokenName(), name, source, value, ((DeprecatedToken)token).getMessage(null, value));
+			deprecationWarning(token.getTokenName(), name, source, value,
+				((DeprecatedToken) token).getMessage(null, value));
 		}
 	}
 
@@ -80,23 +83,22 @@ public class LstUtils
 	 * @param value The value of the tag
 	 * @param message A message describing corrective action.
 	 */
-	public static void deprecationWarning(String tokenName, String name, String source, String value, String message)
+	public static void deprecationWarning(String tokenName, String name,
+		String source, String value, String message)
 	{
-		final String msg = PropertyFactory.getFormattedString(
-				"Warnings.LstTokens.Deprecated",  //$NON-NLS-1$
-				tokenName,
-				value,
-				name,
-				source,
-				message);
-		deprecationWarning( msg );
+		final String msg =
+				PropertyFactory.getFormattedString(
+					"Warnings.LstTokens.Deprecated", //$NON-NLS-1$
+					tokenName, value, name, source, message);
+		deprecationWarning(msg);
 	}
 
 	/**
 	 * Log the deprecation warning
 	 * @param warning
 	 */
-	public static void deprecationWarning(String warning) {
+	public static void deprecationWarning(String warning)
+	{
 		Logging.errorPrint(warning);
 	}
 }

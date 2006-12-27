@@ -46,14 +46,15 @@ public class KitSkillLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		KitSkill kitSkill = new KitSkill(colToken.nextToken());
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitSkillLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitSkillLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -77,10 +78,8 @@ public class KitSkillLoader
 				LstUtils.deprecationCheck(token, kit, value);
 				if (!token.parse(kitSkill, value))
 				{
-					Logging
-							.errorPrint("Error parsing Kit Skill tag "
-									+ kitSkill.getObjectName() + ':'
-									+ colString + "\"");
+					Logging.errorPrint("Error parsing Kit Skill tag "
+						+ kitSkill.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitSkill, colString))
@@ -90,7 +89,7 @@ public class KitSkillLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Skill info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 
 		}

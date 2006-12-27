@@ -42,7 +42,7 @@ public interface IAbilitySelectionListener
 	 * @param anAbility The highlighted ability or <tt>null</tt>
 	 */
 	void abilitySelected(final Ability anAbility);
-	
+
 	/**
 	 * This method is called when the user chooses to add an Ability to the
 	 * character.
@@ -52,7 +52,7 @@ public interface IAbilitySelectionListener
 	 * @return Return <tt>true</tt> to allow the ability to be added.
 	 */
 	boolean addAbility(final Ability anAbility);
-	
+
 	/**
 	 * This method is called when the user chooses to remove an Ability from
 	 * the character.

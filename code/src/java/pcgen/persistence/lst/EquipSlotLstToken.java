@@ -32,7 +32,8 @@ import pcgen.core.character.EquipSlot;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface EquipSlotLstToken extends LstToken {
+public interface EquipSlotLstToken extends LstToken
+{
 	/**
 	 * @param eqSlot
 	 * @param value

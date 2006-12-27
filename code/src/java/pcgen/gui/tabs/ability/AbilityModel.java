@@ -64,18 +64,20 @@ import pcgen.util.enumeration.Visibility;
  * 
  * @since 5.11.1
  */
-public class AbilityModel extends AbstractTreeTableModel implements TableColumnManagerModel
+public class AbilityModel extends AbstractTreeTableModel implements
+		TableColumnManagerModel
 {
-	private AbilitySelectionPanel.ViewMode theViewMode = AbilitySelectionPanel.ViewMode.TYPENAME;
+	private AbilitySelectionPanel.ViewMode theViewMode =
+			AbilitySelectionPanel.ViewMode.TYPENAME;
 
 	private PlayerCharacter thePC = null;
 	private List<Ability> theAbilityList;
 	private AbilityCategory theCategory;
-	
+
 	private IAbilityListFilter theFilter = null;
-	
+
 	private String theOptionsRoot = "InfoAbility."; //$NON-NLS-1$
-	
+
 	private PObjectNode typeRoot = null;
 	private PObjectNode sourceRoot = null;
 
@@ -88,60 +90,60 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 * @param viewMode
 	 * @param anOptionRoot The key to store options under.
 	 */
-	public AbilityModel(final PlayerCharacter aPC,
-						final List<Ability> aList,
-						final AbilityCategory aCategory,
-						final AbilitySelectionPanel.ViewMode viewMode,
-						final String anOptionRoot) 
+	public AbilityModel(final PlayerCharacter aPC, final List<Ability> aList,
+		final AbilityCategory aCategory,
+		final AbilitySelectionPanel.ViewMode viewMode, final String anOptionRoot)
 	{
 		super(null);
 		thePC = aPC;
 		theAbilityList = aList;
 
 		theOptionsRoot = anOptionRoot;
-		
+
 		theViewMode = viewMode;
-		
+
 		theCategory = aCategory;
 
-		for ( final Column column : Column.values() )
+		for (final Column column : Column.values())
 		{
-			column.setVisible(SettingsHandler.getPCGenOption(theOptionsRoot + ".viewcol." + column.toString(), column.isVisible())); //$NON-NLS-1$
+			column.setVisible(SettingsHandler.getPCGenOption(theOptionsRoot
+				+ ".viewcol." + column.toString(), column.isVisible())); //$NON-NLS-1$
 		}
 		resetModel(thePC, viewMode, false);
 	}
 
 	private void buildDefaultRoots()
 	{
-		if ( typeRoot != null )
+		if (typeRoot != null)
 		{
 			return;
 		}
-		
+
 		typeRoot = new PObjectNode();
 		sourceRoot = new PObjectNode();
-		
+
 		final SortedSet<String> typeSet = new TreeSet<String>();
 		final SortedSet<String> sourceSet = new TreeSet<String>();
 		// We will use the global lists for this
-		for ( final Ability ability : Globals.getAbilityList(theCategory) )
+		for (final Ability ability : Globals.getAbilityList(theCategory))
 		{
-			if (!((ability.getVisibility() == Visibility.DEFAULT)
-			  || (ability.getVisibility() == Visibility.DISPLAY_ONLY)))
+			if (!((ability.getVisibility() == Visibility.DEFAULT) || (ability
+				.getVisibility() == Visibility.DISPLAY_ONLY)))
 			{
 				continue;
 			}
 
 			typeSet.addAll(ability.getTypeList(true));
-			final String sourceString = ability.getSourceEntry().getSourceBook().getLongName();
-			if ( sourceString != null )
+			final String sourceString =
+					ability.getSourceEntry().getSourceBook().getLongName();
+			if (sourceString != null)
 			{
 				sourceSet.add(sourceString);
 			}
 		}
 		final PObjectNode[] ccTypes = new PObjectNode[typeSet.size()];
 		int i = 0;
-		for ( final String type : typeSet )
+		for (final String type : typeSet)
 		{
 			ccTypes[i] = new PObjectNode();
 			ccTypes[i].setItem(type);
@@ -152,7 +154,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 
 		final PObjectNode[] ccSources = new PObjectNode[sourceSet.size()];
 		i = 0;
-		for ( final String source : sourceSet )
+		for (final String source : sourceSet)
 		{
 			ccSources[i] = new PObjectNode();
 			ccSources[i].setItem(source);
@@ -160,31 +162,31 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 			i++;
 		}
 		sourceRoot.setChildren(ccSources);
-		
+
 	}
-	
+
 	/**
 	 * Set the mode used to display the tree.
 	 * 
 	 * @param aMode A <tt>ViewMode</tt> used to display the tree.
 	 */
-	public void setViewMode( final AbilitySelectionPanel.ViewMode aMode )
+	public void setViewMode(final AbilitySelectionPanel.ViewMode aMode)
 	{
 		theViewMode = aMode;
 	}
-	
+
 	/**
 	 * Sets an object to use to control if which abilities should be shown.
 	 * 
 	 * @param aFilter An object implementing the <tt>IAbilityListFilter</tt>
 	 * interface.
 	 */
-	public void setAbilityFilter( final IAbilityListFilter aFilter )
+	public void setAbilityFilter(final IAbilityListFilter aFilter)
 	{
 		theFilter = aFilter;
 		resetModel(thePC, theViewMode, false);
 	}
-	
+
 	/**
 	 * Returns Class for the column.
 	 * @param column
@@ -338,30 +340,31 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		super.setRoot(new PObjectNode());
 		String qFilter = this.getQFilter();
 
-		for ( final Ability ability : theAbilityList )
+		for (final Ability ability : theAbilityList)
 		{
-			if ( showAll == true || theFilter == null || theFilter.accept(theViewMode, ability))
+			if (showAll == true || theFilter == null
+				|| theFilter.accept(theViewMode, ability))
 			{
 				PObjectNode aFN = new PObjectNode();
 				aFN.setParent((PObjectNode) super.getRoot());
 
-				switch ( ability.getFeatType() )
+				switch (ability.getFeatType())
 				{
-				case AUTOMATIC:
-					aFN.setColor(SettingsHandler.getFeatAutoColor());
-					break;
-				case VIRTUAL:
-					aFN.setColor(SettingsHandler.getFeatVirtualColor());
-					break;
+					case AUTOMATIC:
+						aFN.setColor(SettingsHandler.getFeatAutoColor());
+						break;
+					case VIRTUAL:
+						aFN.setColor(SettingsHandler.getFeatVirtualColor());
+						break;
 				}
 
 				aFN.setItem(ability);
 
 				//Does anyone know why we don't call
 				//aFN.setIsValid(aFeat.passesPreReqToGain()) here?
-				if (qFilter == null ||
-					( ability.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
-					 ability.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+				if (qFilter == null
+					|| (ability.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 || ability
+						.getType().toLowerCase().indexOf(qFilter) >= 0))
 				{
 					((PObjectNode) super.getRoot()).addChild(aFN);
 				}
@@ -384,11 +387,12 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 
 		// This list initially contains all abilities that pass the filter.
 		final List<Ability> fList = new ArrayList<Ability>();
-		for ( final Ability ability : theAbilityList )
+		for (final Ability ability : theAbilityList)
 		{
-			if ( showAll || theFilter == null || theFilter.accept(theViewMode, ability) )
+			if (showAll || theFilter == null
+				|| theFilter.accept(theViewMode, ability))
 			{
-				fList.add( ability );
+				fList.add(ability);
 			}
 		}
 
@@ -410,7 +414,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 
 		// Add these abilities to the tree
 		final PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-		if ( rootAsPObjectNode == null )
+		if (rootAsPObjectNode == null)
 		{
 			return;
 		}
@@ -420,19 +424,21 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		for (int i = 0; i < aList.size(); ++i)
 		{
 			final Ability ability = aList.get(i);
-			
+
 			directChildren[i] = new PObjectNode();
 			directChildren[i].setItem(ability);
 			directChildren[i].setParent(rootAsPObjectNode);
 
-			switch ( ability.getFeatType() )
+			switch (ability.getFeatType())
 			{
-			case AUTOMATIC:
-				directChildren[i].setColor(SettingsHandler.getFeatAutoColor());
-				break;
-			case VIRTUAL:
-				directChildren[i].setColor(SettingsHandler.getFeatVirtualColor());
-				break;
+				case AUTOMATIC:
+					directChildren[i].setColor(SettingsHandler
+						.getFeatAutoColor());
+					break;
+				case VIRTUAL:
+					directChildren[i].setColor(SettingsHandler
+						.getFeatVirtualColor());
+					break;
 			}
 		}
 
@@ -458,7 +464,8 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 					final Prerequisite prereq = ability.getPreReq(pi);
 
 					// TODO - Fix this. See comment above.
-					if ((prereq.getKind() != null) && prereq.getKind().equalsIgnoreCase("FEAT")) //$NON-NLS-1$
+					if ((prereq.getKind() != null)
+						&& prereq.getKind().equalsIgnoreCase("FEAT")) //$NON-NLS-1$
 					{
 						preReqList.add(prereq);
 					}
@@ -497,19 +504,19 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 			for (int i = 0; i < fList.size(); ++i)
 			{
 				final Ability ability = fList.get(i);
-				
+
 				cc[i] = new PObjectNode();
 				cc[i].setItem(ability);
 				cc[i].setParent(po);
 
-				switch ( ability.getFeatType() )
+				switch (ability.getFeatType())
 				{
-				case AUTOMATIC:
-					cc[i].setColor(SettingsHandler.getFeatAutoColor());
-					break;
-				case VIRTUAL:
-					cc[i].setColor(SettingsHandler.getFeatVirtualColor());
-					break;
+					case AUTOMATIC:
+						cc[i].setColor(SettingsHandler.getFeatAutoColor());
+						break;
+					case VIRTUAL:
+						cc[i].setColor(SettingsHandler.getFeatVirtualColor());
+						break;
 				}
 			}
 
@@ -528,45 +535,50 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 */
 	private void buildTreeTypeName(final boolean showAll)
 	{
-		if ( typeRoot == null )
+		if (typeRoot == null)
 		{
 			return;
 		}
 		setRoot(typeRoot);
 
 		final PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
-		if ( rootAsPObjectNode == null )
+		if (rootAsPObjectNode == null)
 		{
 			return;
 		}
 
-		for ( final Ability ability : theAbilityList )
+		for (final Ability ability : theAbilityList)
 		{
-			if ( showAll || theFilter == null || theFilter.accept(theViewMode, ability))
+			if (showAll || theFilter == null
+				|| theFilter.accept(theViewMode, ability))
 			{
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 				{
-					if (ability.isType(rootAsPObjectNode.getChild(i).toString()))
+					if (ability
+						.isType(rootAsPObjectNode.getChild(i).toString()))
 					{
 						final PObjectNode aFN = new PObjectNode();
 
-						switch ( ability.getFeatType() )
+						switch (ability.getFeatType())
 						{
-						case AUTOMATIC:
-							aFN.setColor(SettingsHandler.getFeatAutoColor());
-							break;
-						case VIRTUAL:
-							aFN.setColor(SettingsHandler.getFeatVirtualColor());
-							break;
+							case AUTOMATIC:
+								aFN
+									.setColor(SettingsHandler
+										.getFeatAutoColor());
+								break;
+							case VIRTUAL:
+								aFN.setColor(SettingsHandler
+									.getFeatVirtualColor());
+								break;
 						}
 
 						aFN.setParent(rootAsPObjectNode.getChild(i));
 						aFN.setItem(ability);
-//						if (!Globals.checkRule(RuleConstants.FEATPRE))
-//						{
-//							// TODO - This seems to have no effect
-//							PrereqHandler.passesAll( ability.getPreReqList(), null, ability );
-//						}
+						//						if (!Globals.checkRule(RuleConstants.FEATPRE))
+						//						{
+						//							// TODO - This seems to have no effect
+						//							PrereqHandler.passesAll( ability.getPreReqList(), null, ability );
+						//						}
 						rootAsPObjectNode.getChild(i).addChild(aFN);
 					}
 				}
@@ -584,7 +596,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 */
 	private void buildTreeSourceName(final boolean showAll)
 	{
-		if ( sourceRoot == null )
+		if (sourceRoot == null)
 		{
 			return;
 		}
@@ -593,49 +605,57 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		final PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
 		// TODO - This shouldn't really be required since I just set the damn
 		// root node.
-		if ( rootAsPObjectNode == null )
+		if (rootAsPObjectNode == null)
 		{
 			return;
 		}
-		
-		for ( final Ability ability : theAbilityList )
+
+		for (final Ability ability : theAbilityList)
 		{
-			if ( showAll || theFilter == null || theFilter.accept(theViewMode, ability) )
+			if (showAll || theFilter == null
+				|| theFilter.accept(theViewMode, ability))
 			{
-				final String sourceString = ability.getSourceEntry().getSourceBook().getLongName();
-				if ( sourceString == null )
+				final String sourceString =
+						ability.getSourceEntry().getSourceBook().getLongName();
+				if (sourceString == null)
 				{
-					Logging.errorPrint("In InfoFeats.buildTreeSourceName the feat " + ability + " has no source long entry.");
+					Logging
+						.errorPrint("In InfoFeats.buildTreeSourceName the feat "
+							+ ability + " has no source long entry.");
 				}
 				//
 				for (int i = 0; i < rootAsPObjectNode.getChildCount(); ++i)
 				{
-					if (sourceString.equals(rootAsPObjectNode.getChild(i).toString()))
+					if (sourceString.equals(rootAsPObjectNode.getChild(i)
+						.toString()))
 					{
 						final PObjectNode aFN = new PObjectNode();
 
-						switch ( ability.getFeatType() )
+						switch (ability.getFeatType())
 						{
-						case AUTOMATIC:
-							aFN.setColor(SettingsHandler.getFeatAutoColor());
-							break;
-						case VIRTUAL:
-							aFN.setColor(SettingsHandler.getFeatVirtualColor());
-							break;
+							case AUTOMATIC:
+								aFN
+									.setColor(SettingsHandler
+										.getFeatAutoColor());
+								break;
+							case VIRTUAL:
+								aFN.setColor(SettingsHandler
+									.getFeatVirtualColor());
+								break;
 						}
 
 						aFN.setParent(rootAsPObjectNode.getChild(i));
 						aFN.setItem(ability);
 
 						// TODO - This code appears to have no effect.
-//						if (Globals.checkRule(RuleConstants.FEATPRE))
-//						{
-//							// Method no longer exitsts - aFN.setIsValid(true);
-//						}
-//						else
-//						{
-//							PrereqHandler.passesAll( aFeat.getPreReqList(), getPc(), aFeat );
-//						}
+						//						if (Globals.checkRule(RuleConstants.FEATPRE))
+						//						{
+						//							// Method no longer exitsts - aFN.setIsValid(true);
+						//						}
+						//						else
+						//						{
+						//							PrereqHandler.passesAll( aFeat.getPreReqList(), getPc(), aFeat );
+						//						}
 						rootAsPObjectNode.getChild(i).addChild(aFN);
 					}
 				}
@@ -643,9 +663,8 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		}
 	}
 
-	private int placedThisFeatInThisTree(final Ability anAbility, 
-										 final PObjectNode po, 
-										 final List<Prerequisite> aList) 
+	private int placedThisFeatInThisTree(final Ability anAbility,
+		final PObjectNode po, final List<Prerequisite> aList)
 	{
 		final Ability parentAbility = (Ability) po.getItem(); // must be a Feat
 		boolean trychildren = false;
@@ -671,14 +690,14 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 				p.setParent(po);
 				po.addChild(p);
 
-				switch ( anAbility.getFeatType() )
+				switch (anAbility.getFeatType())
 				{
-				case AUTOMATIC:
-					p.setColor(SettingsHandler.getFeatAutoColor());
-					break;
-				case VIRTUAL:
-					p.setColor(SettingsHandler.getFeatVirtualColor());
-					break;
+					case AUTOMATIC:
+						p.setColor(SettingsHandler.getFeatAutoColor());
+						break;
+					case VIRTUAL:
+						p.setColor(SettingsHandler.getFeatVirtualColor());
+						break;
 				}
 
 				return 2; // successfully added
@@ -687,7 +706,9 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 			{
 				for (int i = 0; i < po.getChildCount(); ++i)
 				{
-					int j = placedThisFeatInThisTree(anAbility, po.getChild(i), aList);
+					int j =
+							placedThisFeatInThisTree(anAbility, po.getChild(i),
+								aList);
 
 					if (j == 2)
 					{
@@ -709,7 +730,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		theAbilityList = aList;
 		resetModel(thePC, theViewMode, false);
 	}
-	
+
 	/**
 	 * This assumes the FeatModel exists but needs to be repopulated
 	 * Calls the various <code>buildTreeXXX</code> methods based on the
@@ -719,9 +740,8 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	 * 					<tt>AbilitySelectionPanel</tt>
 	 * @param showAll
 	 */
-	public void resetModel(	final PlayerCharacter aPC, 
-							final AbilitySelectionPanel.ViewMode mode, 
-							final boolean showAll)
+	public void resetModel(final PlayerCharacter aPC,
+		final AbilitySelectionPanel.ViewMode mode, final boolean showAll)
 	{
 		thePC = aPC;
 		// We are going to build and cache the type and source tree roots.
@@ -750,7 +770,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 				break;
 		}
 
-		if (super.getRoot() != null )
+		if (super.getRoot() != null)
 		{
 			fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
 		}
@@ -762,9 +782,9 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	public List<String> getMColumnList()
 	{
 		final List<String> retList = new ArrayList<String>();
-		
+
 		final Column[] columns = Column.values();
-		for(int i = 1; i < columns.length; i++) 
+		for (int i = 1; i < columns.length; i++)
 		{
 			retList.add(columns[i].getName());
 		}
@@ -779,16 +799,20 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		return Column.values()[col].isVisible();
 	}
 
-	private void setColumnOption(final Column col, final String anOption, final String val)
+	private void setColumnOption(final Column col, final String anOption,
+		final String val)
 	{
-		SettingsHandler.setPCGenOption(theOptionsRoot + "." + anOption + "." + col.toString(), val); //$NON-NLS-1$ //$NON-NLS-2$
+		SettingsHandler.setPCGenOption(theOptionsRoot
+			+ "." + anOption + "." + col.toString(), val); //$NON-NLS-1$ //$NON-NLS-2$
 	}
-	
-	private int getColumnOption(final Column aCol, final String anOption, final int aDefault)
+
+	private int getColumnOption(final Column aCol, final String anOption,
+		final int aDefault)
 	{
-		return SettingsHandler.getPCGenOption(theOptionsRoot + "." + anOption + "." + aCol.toString(), aDefault); //$NON-NLS-1$ //$NON-NLS-2$
+		return SettingsHandler.getPCGenOption(theOptionsRoot
+			+ "." + anOption + "." + aCol.toString(), aDefault); //$NON-NLS-1$ //$NON-NLS-2$
 	}
-	
+
 	/**
 	 * @see pcgen.gui.TableColumnManagerModel#setMColumnDisplayed(int, boolean)
 	 */
@@ -809,34 +833,37 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	/**
 	 * @see pcgen.gui.TableColumnManagerModel#getMColumnDefaultWidth(int)
 	 */
-	public int getMColumnDefaultWidth(int col) 
+	public int getMColumnDefaultWidth(int col)
 	{
-		return getColumnOption(Column.values()[col], "sizecol", Column.values()[col].getWidth()); //$NON-NLS-1$
+		return getColumnOption(Column.values()[col],
+			"sizecol", Column.values()[col].getWidth()); //$NON-NLS-1$
 	}
 
 	/**
 	 * @see pcgen.gui.TableColumnManagerModel#setMColumnDefaultWidth(int, int)
 	 */
-	public void setMColumnDefaultWidth(final int col, final int width) 
+	public void setMColumnDefaultWidth(final int col, final int width)
 	{
 		Column.values()[col].setWidth(width);
 		setColumnOption(Column.values()[col], "sizecol", String.valueOf(width)); //$NON-NLS-1$
 	}
-	
+
 	/**
 	 * @see pcgen.gui.TableColumnManagerModel#resetMColumn(int, javax.swing.table.TableColumn)
 	 */
-	public void resetMColumn(final int col, final TableColumn tColumn) 
+	public void resetMColumn(final int col, final TableColumn tColumn)
 	{
 		final Column column = Column.values()[col];
-		switch(column)
+		switch (column)
 		{
 			case COST:
 			case MULTIPLES:
 			case STACKS:
-				tColumn.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(SwingConstants.CENTER));
+				tColumn
+					.setCellRenderer(new pcgen.gui.utils.JTableEx.AlignCellRenderer(
+						SwingConstants.CENTER));
 				break;
-				
+
 			default:
 				break;
 		}
@@ -845,7 +872,8 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 	/**
 	 * An enum for the Columns in the table.
 	 */
-	public enum Column {
+	public enum Column
+	{
 		/** Name */
 		NAME("AbilityModel.Columns.Name", 100, true), //$NON-NLS-1$
 		/** Type */
@@ -864,18 +892,19 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		CHOICES("AbilityModel.Columns.Choices", 100, false), //$NON-NLS-1$
 		/** Source */
 		SOURCE("AbilityModel.Columns.Source", 100, false); //$NON-NLS-1$
-	
+
 		private String theName;
 		private int theWidth;
 		private boolean theVisibleFlag;
-		
-		Column(final String aName, final int aDefaultWidth, final boolean visible)
+
+		Column(final String aName, final int aDefaultWidth,
+			final boolean visible)
 		{
 			theName = PropertyFactory.getString(aName);
 			theWidth = aDefaultWidth;
 			theVisibleFlag = visible;
 		}
-		
+
 		/**
 		 * Sets the width of this column.
 		 * 
@@ -885,7 +914,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		{
 			theWidth = aWidth;
 		}
-		
+
 		/**
 		 * Gets the width of this column.
 		 * 
@@ -895,7 +924,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		{
 			return theWidth;
 		}
-		
+
 		/**
 		 * Gets the display name for the column.
 		 * 
@@ -905,7 +934,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		{
 			return theName;
 		}
-		
+
 		/**
 		 * Sets if the column is visible.
 		 * 
@@ -915,7 +944,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		{
 			theVisibleFlag = yesNo;
 		}
-		
+
 		/**
 		 * Checks if the column is visible.
 		 * 
@@ -925,7 +954,7 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 		{
 			return theVisibleFlag;
 		}
-		
+
 		/**
 		 * Gets the enum for the specified ordinal.
 		 * 
@@ -938,5 +967,5 @@ public class AbilityModel extends AbstractTreeTableModel implements TableColumnM
 			return Column.values()[ordinal];
 		}
 	}
-	
+
 }

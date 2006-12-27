@@ -32,7 +32,8 @@ import java.util.Map;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface BaseDiceLstToken extends LstToken {
+public interface BaseDiceLstToken extends LstToken
+{
 	/**
 	 * @param baseDice
 	 * @param value

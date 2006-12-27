@@ -36,39 +36,49 @@ import java.awt.Component;
 import java.util.Observable;
 import java.util.Observer;
 
-public class ShowMessageGuiObserver implements Observer {
+public class ShowMessageGuiObserver implements Observer
+{
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-     */
-    public void update(Observable o, Object arg) {
-        if (arg instanceof MessageWrapper) {
-            showMessageDialog((MessageWrapper) arg);
-        }
-    }
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	public void update(Observable o, Object arg)
+	{
+		if (arg instanceof MessageWrapper)
+		{
+			showMessageDialog((MessageWrapper) arg);
+		}
+	}
 
-    public static void showMessageDialog(MessageWrapper messageWrapper) {
-        if (messageWrapper.getTitle() == null) {
-            JOptionPane.showMessageDialog(null, messageWrapper.getMessage());
-        }
-        else {
-            MessageType mt = messageWrapper.getMessageType();
-            int mt2 = JOptionPane.INFORMATION_MESSAGE;
-            if (mt.equals(MessageType.INFORMATION)) {
-                mt2 = JOptionPane.INFORMATION_MESSAGE;
-            }
-            else if (mt.equals(MessageType.WARNING)) {
-                mt2 = JOptionPane.WARNING_MESSAGE;
-            }
-            else if (mt.equals(MessageType.ERROR)) {
-                mt2 = JOptionPane.ERROR_MESSAGE;
-            }
+	public static void showMessageDialog(MessageWrapper messageWrapper)
+	{
+		if (messageWrapper.getTitle() == null)
+		{
+			JOptionPane.showMessageDialog(null, messageWrapper.getMessage());
+		}
+		else
+		{
+			MessageType mt = messageWrapper.getMessageType();
+			int mt2 = JOptionPane.INFORMATION_MESSAGE;
+			if (mt.equals(MessageType.INFORMATION))
+			{
+				mt2 = JOptionPane.INFORMATION_MESSAGE;
+			}
+			else if (mt.equals(MessageType.WARNING))
+			{
+				mt2 = JOptionPane.WARNING_MESSAGE;
+			}
+			else if (mt.equals(MessageType.ERROR))
+			{
+				mt2 = JOptionPane.ERROR_MESSAGE;
+			}
 
-            JOptionPane.showMessageDialog((Component)messageWrapper.getParent(), messageWrapper.getMessage(),
-                    messageWrapper.getTitle(), mt2);
-        }
-    }
+			JOptionPane.showMessageDialog((Component) messageWrapper
+				.getParent(), messageWrapper.getMessage(), messageWrapper
+				.getTitle(), mt2);
+		}
+	}
 
 }

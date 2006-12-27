@@ -32,7 +32,8 @@ import java.util.Map;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface SponsorLstToken extends LstToken {
+public interface SponsorLstToken extends LstToken
+{
 	/**
 	 * @param sponsor
 	 * @param value

@@ -25,7 +25,6 @@ package pcgen.io.exporttoken;
 
 import java.util.StringTokenizer;
 
-
 /**
  * <code>SpellListToken</code> is the base class for the SPELLLIST
  * family of tokens.
@@ -46,7 +45,6 @@ public abstract class SpellListToken extends Token
 	protected static final int SPELLTAG_DC = 5;
 	protected static final int SPELLTAG_DCSTAT = 6;
 	protected static final int SPELLTAG_MEMORIZE = 7;
-
 
 	// ================== Inner class =======================
 	/**
@@ -71,7 +69,8 @@ public abstract class SpellListToken extends Token
 			classNum = Integer.parseInt(aTok.nextToken());
 
 			if (aTok.hasMoreTokens() && (tagType != SPELLTAG_TYPE)
-				&& (tagType != SPELLTAG_CLASS) && (tagType != SPELLTAG_MEMORIZE))
+				&& (tagType != SPELLTAG_CLASS)
+				&& (tagType != SPELLTAG_MEMORIZE))
 			{
 				level = Integer.parseInt(aTok.nextToken());
 			}
@@ -89,6 +88,7 @@ public abstract class SpellListToken extends Token
 		{
 			return bookNum;
 		}
+
 		/**
 		 * @return Returns the classNum.
 		 */
@@ -96,6 +96,7 @@ public abstract class SpellListToken extends Token
 		{
 			return classNum;
 		}
+
 		/**
 		 * @return Returns the level.
 		 */

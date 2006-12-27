@@ -49,21 +49,23 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	@Override
-	public WeaponProf parseLine(WeaponProf aWP, String lstLine, CampaignSourceEntry source)
-		throws PersistenceLayerException
+	public WeaponProf parseLine(WeaponProf aWP, String lstLine,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		WeaponProf prof = aWP;
-		
+
 		// Make sure we have a weapon prof to load
 		if (prof == null)
 		{
 			prof = new WeaponProf();
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		int col = 0;
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(WeaponProfLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(WeaponProfLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -73,7 +75,8 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			WeaponProfLstToken token = (WeaponProfLstToken) tokenMap.get(key);
@@ -91,7 +94,9 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 				LstUtils.deprecationCheck(token, prof, value);
 				if (!token.parse(prof, value))
 				{
-					Logging.errorPrint("Error parsing skill " + prof.getDisplayName() + ':' + source.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing skill "
+						+ prof.getDisplayName() + ':' + source.getFile() + ':'
+						+ colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(prof, colString))
@@ -100,7 +105,8 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 			}
 			else
 			{
-				Logging.errorPrint("Illegal weapon proficiency info '" + lstLine + "' in " + source.toString());
+				Logging.errorPrint("Illegal weapon proficiency info '"
+					+ lstLine + "' in " + source.toString());
 			}
 
 			++col;
@@ -109,13 +115,13 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 		// WeaponProfs are one line each;
 		// finish the object and return null
 		completeObject(prof);
-		
+
 		return null;
 	}
 
 	/**
-     * Get the weapon prof object with key aKey
-     * 
+	 * Get the weapon prof object with key aKey
+	 * 
 	 * @param aKey 
 	 * @return PObject
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(java.lang.String)
@@ -139,9 +145,9 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#addGlobalObject(pcgen.core.PObject)
 	 */
 	@Override
-	protected void addGlobalObject( final PObject pObj )
+	protected void addGlobalObject(final PObject pObj)
 	{
-		Globals.addWeaponProf( (WeaponProf)pObj );
+		Globals.addWeaponProf((WeaponProf) pObj);
 		// TODO - What exactly is this doing?  Why would we set that it is not
 		// a new item when we just added it?
 		pObj.setNewItem(false);

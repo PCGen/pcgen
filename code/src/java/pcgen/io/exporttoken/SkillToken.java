@@ -84,7 +84,8 @@ public class SkillToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -103,16 +104,19 @@ public class SkillToken extends Token
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Skill getSkill(PlayerCharacter pc, SkillDetails details, ExportHandler eh)
+	private Skill getSkill(PlayerCharacter pc, SkillDetails details,
+		ExportHandler eh)
 	{
 		Skill skill = null;
 		try
 		{
 			final int i = Integer.parseInt(details.skillId);
-			final List<Skill> pcSkills = pc.getSkillListInOutputOrder(
-					pc.getPartialSkillList(Visibility.OUTPUT_ONLY));
+			final List<Skill> pcSkills =
+					pc.getSkillListInOutputOrder(pc
+						.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
-			if ((i >= (pcSkills.size() - 1)) && eh != null && eh.getExistsOnly())
+			if ((i >= (pcSkills.size() - 1)) && eh != null
+				&& eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}
@@ -151,7 +155,7 @@ public class SkillToken extends Token
 		int numProps = 1;
 		if (aTok.countTokens() > 2)
 		{
-			numProps = aTok.countTokens()-2;
+			numProps = aTok.countTokens() - 2;
 		}
 		final String[] props = new String[numProps];
 		props[0] = "";
@@ -160,25 +164,24 @@ public class SkillToken extends Token
 		String skillId = "";
 		for (int i = 0; aTok.hasMoreTokens(); ++i)
 		{
-			if (i==0)
+			if (i == 0)
 			{
 				// Ignore
 				aTok.nextToken();
 			}
-			else if (i==1)
+			else if (i == 1)
 			{
 				skillId = aTok.nextToken();
 			}
 			else
 			{
-				props[i-2] = aTok.nextToken();
+				props[i - 2] = aTok.nextToken();
 			}
 		}
 
 		// Create and return the SkillDetails object.
 		return new SkillDetails(skillId, props);
 	}
-
 
 	/**
 	 * Calculate the value of the specified skill property for the
@@ -189,7 +192,8 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported.
 	 * @return The skill tag output value.
 	 */
-	protected String getSkillProperty(Skill aSkill, String property, PlayerCharacter pc)
+	protected String getSkillProperty(Skill aSkill, String property,
+		PlayerCharacter pc)
 	{
 		if (aSkill == null)
 		{
@@ -306,12 +310,15 @@ public class SkillToken extends Token
 				case SKILL_TOTAL:
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(aSkill.getTotalRank(pc).intValue() + aSkill.modifier(pc).intValue()));
+						retValue.append(SettingsHandler.getGame()
+							.getSkillRankDisplayText(
+								aSkill.getTotalRank(pc).intValue()
+									+ aSkill.modifier(pc).intValue()));
 					}
 					else
 					{
-						retValue.append(Integer.toString(aSkill.getTotalRank(pc)
-							.intValue()
+						retValue.append(Integer.toString(aSkill
+							.getTotalRank(pc).intValue()
 							+ aSkill.modifier(pc).intValue()));
 					}
 					break;
@@ -319,7 +326,9 @@ public class SkillToken extends Token
 				case SKILL_RANK:
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(aSkill.getTotalRank(pc).intValue()));
+						retValue.append(SettingsHandler.getGame()
+							.getSkillRankDisplayText(
+								aSkill.getTotalRank(pc).intValue()));
 					}
 					else
 					{
@@ -332,18 +341,20 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_ABILITY:
-//					retValue.append(getKeyStat(aSkill));
+					//					retValue.append(getKeyStat(aSkill));
 					retValue.append(aSkill.getKeyStatFromStats());
 					break;
 
 				case SKILL_ABMOD:
-//					retValue.append(Integer.toString(getStatMod(pc, aSkill)));
+					//					retValue.append(Integer.toString(getStatMod(pc, aSkill)));
 					retValue.append(Integer.toString(aSkill.getStatMod(pc)));
 					break;
 
 				case SKILL_MISC:
-//					retValue.append(Integer.toString(aSkill.modifier(pc).intValue() - getStatMod(pc, aSkill)));
-					retValue.append(Integer.toString(aSkill.modifier(pc).intValue() - aSkill.getStatMod(pc)));
+					//					retValue.append(Integer.toString(aSkill.modifier(pc).intValue() - getStatMod(pc, aSkill)));
+					retValue.append(Integer.toString(aSkill.modifier(pc)
+						.intValue()
+						- aSkill.getStatMod(pc)));
 					break;
 
 				case SKILL_UNTRAINED:
@@ -363,23 +374,29 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_EXCLUSIVE_TOTAL:
-					retValue.append(Integer.toString(((aSkill.getExclusive()
-						.equalsIgnoreCase("Y") || !aSkill.isUntrained()) && (aSkill.getTotalRank(pc)
-						.intValue() == 0)) ? 0 : (aSkill.getTotalRank(pc)
-						.intValue() + aSkill.modifier(pc).intValue())));
+					retValue
+						.append(Integer
+							.toString(((aSkill.getExclusive().equalsIgnoreCase(
+								"Y") || !aSkill.isUntrained()) && (aSkill
+								.getTotalRank(pc).intValue() == 0)) ? 0
+								: (aSkill.getTotalRank(pc).intValue() + aSkill
+									.modifier(pc).intValue())));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
-					retValue.append(Integer.toString((!aSkill.isUntrained() && (aSkill.getTotalRank(pc)
-						.intValue() == 0)) ? 0 : (aSkill.getTotalRank(pc)
-						.intValue() + aSkill.modifier(pc).intValue())));
+					retValue.append(Integer
+						.toString((!aSkill.isUntrained() && (aSkill
+							.getTotalRank(pc).intValue() == 0)) ? 0 : (aSkill
+							.getTotalRank(pc).intValue() + aSkill.modifier(pc)
+							.intValue())));
 					break;
 
 				case SKILL_EXPLANATION:
-					boolean shortFrom = !("_LONG".equals(propertyText.substring(7)));
+					boolean shortFrom =
+							!("_LONG".equals(propertyText.substring(7)));
 
-					String bonusDetails = aSkill.getModifierExplanation(pc,
-						shortFrom);
+					String bonusDetails =
+							aSkill.getModifierExplanation(pc, shortFrom);
 					retValue.append(bonusDetails);
 					break;
 
@@ -461,8 +478,8 @@ public class SkillToken extends Token
 	 */
 	private String getAcpOutput(Skill aSkill, String property)
 	{
-		final StringTokenizer aTok = new StringTokenizer(property
-			.substring(3), ",");
+		final StringTokenizer aTok =
+				new StringTokenizer(property.substring(3), ",");
 		String acp_yes;
 		String acp_none;
 		String acp_nonprof;

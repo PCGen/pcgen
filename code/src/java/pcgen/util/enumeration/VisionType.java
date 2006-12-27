@@ -9,12 +9,15 @@ import java.util.Map;
 
 import pcgen.util.CaseInsensitiveString;
 
-public final class VisionType extends AbstractConstant {
+public final class VisionType extends AbstractConstant
+{
 
 	private static Map<CaseInsensitiveString, VisionType> typeMap;
 
-	public static VisionType getVisionType(String s) {
-		if (typeMap == null) {
+	public static VisionType getVisionType(String s)
+	{
+		if (typeMap == null)
+		{
 			buildMap();
 		}
 		CaseInsensitiveString caseInsensitiveS = new CaseInsensitiveString(s);
@@ -23,30 +26,40 @@ public final class VisionType extends AbstractConstant {
 		 * case? - thpr 10/28/06
 		 */
 		VisionType o = typeMap.get(caseInsensitiveS);
-		if (o == null) {
+		if (o == null)
+		{
 			o = new VisionType();
 			typeMap.put(caseInsensitiveS, o);
 		}
 		return o;
 	}
 
-	private static void buildMap() {
+	private static void buildMap()
+	{
 		typeMap = new HashMap<CaseInsensitiveString, VisionType>();
 		Field[] fields = VisionType.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++) {
+		for (int i = 0; i < fields.length; i++)
+		{
 			int mod = fields[i].getModifiers();
 
 			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod)) {
-				try {
+				&& Modifier.isPublic(mod))
+			{
+				try
+				{
 					Object o = fields[i].get(null);
-					if (o instanceof VisionType) {
+					if (o instanceof VisionType)
+					{
 						typeMap.put(new CaseInsensitiveString(fields[i]
-								.getName()), (VisionType) o);
+							.getName()), (VisionType) o);
 					}
-				} catch (IllegalArgumentException e) {
+				}
+				catch (IllegalArgumentException e)
+				{
 					throw new InternalError();
-				} catch (IllegalAccessException e) {
+				}
+				catch (IllegalAccessException e)
+				{
 					throw new InternalError();
 				}
 			}
@@ -54,9 +67,13 @@ public final class VisionType extends AbstractConstant {
 	}
 
 	@Override
-	public String toString() {
-		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap.entrySet()) {
-			if (me.getValue().equals(this)) {
+	public String toString()
+	{
+		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap
+			.entrySet())
+		{
+			if (me.getValue().equals(this))
+			{
 				return me.getKey().toString();
 			}
 		}
@@ -64,11 +81,13 @@ public final class VisionType extends AbstractConstant {
 		return "";
 	}
 
-	public static void clearConstants() {
+	public static void clearConstants()
+	{
 		buildMap();
 	}
 
-	public static Collection<VisionType> getAllVisionTypes() {
+	public static Collection<VisionType> getAllVisionTypes()
+	{
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 }

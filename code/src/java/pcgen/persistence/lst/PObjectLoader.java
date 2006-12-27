@@ -42,16 +42,19 @@ import pcgen.core.Ability;
  * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class PObjectLoader {
+public final class PObjectLoader
+{
 
 	/**
 	 * Creates a new instance of PObjectLoader Private since instances need never
 	 * be created and API methods are public and static
 	 */
 
-	private static List<PObjectHelper> featList = new ArrayList<PObjectHelper>();
+	private static List<PObjectHelper> featList =
+			new ArrayList<PObjectHelper>();
 
-	private PObjectLoader() {
+	private PObjectLoader()
+	{
 		// Empty Constructor
 	}
 
@@ -109,12 +112,13 @@ public final class PObjectLoader {
 		}
 		String key = aTag.substring(0, colonIdx);
 		String value = aTag.substring(colonIdx + 1);
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(GlobalLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(GlobalLstToken.class);
 		LstToken token = tokenMap.get(key);
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, obj, value);
-			result = ((GlobalLstToken)token).parse(obj, value, anInt);
+			result = ((GlobalLstToken) token).parse(obj, value, anInt);
 		}
 		else
 		{
@@ -123,7 +127,8 @@ public final class PObjectLoader {
 			{
 				// blank intentionally
 			}
-			else if (aTag.startsWith("PRE") || aTag.startsWith("!PRE") || aTag.startsWith("RESTRICT:"))
+			else if (aTag.startsWith("PRE") || aTag.startsWith("!PRE")
+				|| aTag.startsWith("RESTRICT:"))
 			{
 				if (aTag.toUpperCase().equals("PRE:.CLEAR"))
 				{
@@ -131,15 +136,20 @@ public final class PObjectLoader {
 				}
 				else
 				{
-					aTag = CoreUtility.replaceAll(aTag, "<this>", obj.getKeyName());
+					aTag =
+							CoreUtility.replaceAll(aTag, "<this>", obj
+								.getKeyName());
 					try
 					{
-						PreParserFactory factory = PreParserFactory.getInstance();
+						PreParserFactory factory =
+								PreParserFactory.getInstance();
 						obj.addPreReq(factory.parse(aTag), anInt);
 					}
 					catch (PersistenceLayerException ple)
 					{
-						throw new PersistenceLayerException("Unable to parse a prerequisite: " + ple.getMessage());
+						throw new PersistenceLayerException(
+							"Unable to parse a prerequisite: "
+								+ ple.getMessage());
 					}
 				}
 			}
@@ -158,9 +168,10 @@ public final class PObjectLoader {
 
 	public static void finishFeatProcessing()
 	{
-		for ( PObjectHelper p : featList )
+		for (PObjectHelper p : featList)
 		{
-			List<Ability> vFeatList = FeatParser.parseVirtualFeatList(p.getTag());
+			List<Ability> vFeatList =
+					FeatParser.parseVirtualFeatList(p.getTag());
 			p.getObject().addVirtualFeats(vFeatList);
 		}
 	}

@@ -71,7 +71,8 @@ public class JOpenRecentMenu extends JMenu
 			}
 			catch (Exception e)
 			{
-				Logging.errorPrint("Error setting old character " + strings[i] + ".", e);
+				Logging.errorPrint("Error setting old character " + strings[i]
+					+ ".", e);
 			}
 		}
 	}
@@ -146,7 +147,8 @@ public class JOpenRecentMenu extends JMenu
 	{
 		setText(PropertyFactory.getString("in_mnuOpenRecent"));
 		setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuOpenRecent"));
-		Utility.setDescription(this, PropertyFactory.getString("in_mnuOpenRecentTip"));
+		Utility.setDescription(this, PropertyFactory
+			.getString("in_mnuOpenRecentTip"));
 	}
 
 	private final void updateMenu()
@@ -170,8 +172,9 @@ public class JOpenRecentMenu extends JMenu
 
 	private JMenuItem createMenuItem(OpenRecentEntry entry)
 	{
-		return Utility.createMenuItem(entry.displayAs, new OpenRecentActionListener(this, entry, cb), null, (char) 0,
-		    null, entry.file.getAbsolutePath(), null, true);
+		return Utility.createMenuItem(entry.displayAs,
+			new OpenRecentActionListener(this, entry, cb), null, (char) 0,
+			null, entry.file.getAbsolutePath(), null, true);
 	}
 
 	/**
@@ -224,13 +227,15 @@ public class JOpenRecentMenu extends JMenu
 		}
 	}
 
-	private static final class OpenRecentActionListener implements ActionListener
+	private static final class OpenRecentActionListener implements
+			ActionListener
 	{
 		private JOpenRecentMenu menu = null;
 		private OpenRecentCallback cb = null;
 		private OpenRecentEntry entry = null;
 
-		OpenRecentActionListener(JOpenRecentMenu aMenu, OpenRecentEntry anEntry, OpenRecentCallback aCb)
+		OpenRecentActionListener(JOpenRecentMenu aMenu,
+			OpenRecentEntry anEntry, OpenRecentCallback aCb)
 		{
 			menu = aMenu;
 			entry = anEntry;

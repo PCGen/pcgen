@@ -52,7 +52,8 @@ public class InitiativeMiscToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return Delta.toString(getInitiativeMiscToken(pc)) + "";
 	}
@@ -64,6 +65,7 @@ public class InitiativeMiscToken extends Token
 	 */
 	public static int getInitiativeMiscToken(PlayerCharacter pc)
 	{
-		return pc.initiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
+		return pc.initiativeMod()
+			- pc.getVariableValue("INITCOMP", "").intValue();
 	}
 }

@@ -61,8 +61,8 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 {
 
 	/** A default format for date values. */
-	public static DateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat(
-			"MM/dd/yyyy");
+	public static DateFormat DEFAULT_DATE_FORMAT =
+			new SimpleDateFormat("MM/dd/yyyy");
 
 	/** The component */
 	JFormattedTextField m_component = null;
@@ -146,13 +146,16 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 		if (cls == Float.class)
 		{
 			formatter = new NumberFormatter(NumberFormat.getInstance());
-		} else if (cls == Integer.class)
+		}
+		else if (cls == Integer.class)
 		{
 			formatter = new NumberFormatter(NumberFormat.getIntegerInstance());
-		} else if (cls == Date.class)
+		}
+		else if (cls == Date.class)
 		{
 			formatter = new DateFormatter(DEFAULT_DATE_FORMAT);
-		} else
+		}
+		else
 		{
 			formatter = new DefaultFormatter();
 		}
@@ -179,8 +182,8 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 	private void setup(JFormattedTextField field)
 	{
 		m_component = field;
-		JFormattedTextField.AbstractFormatter formatter = m_component
-				.getFormatter();
+		JFormattedTextField.AbstractFormatter formatter =
+				m_component.getFormatter();
 		if (formatter instanceof DefaultFormatter)
 		{
 			((DefaultFormatter) formatter).setAllowsInvalid(true);
@@ -198,18 +201,19 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if (evt.getPropertyName() != null
-						&& evt.getPropertyName().equals("editValid"))
+					&& evt.getPropertyName().equals("editValid"))
 				{
 					if (evt.getNewValue() != null
-							&& evt.getNewValue() instanceof Boolean)
+						&& evt.getNewValue() instanceof Boolean)
 					{
 						if (((Boolean) evt.getNewValue()).booleanValue())
 						{
 							m_component.setBorder(m_originalBorder);
-						} else
+						}
+						else
 						{
 							m_component.setBorder(BorderFactory
-									.createLineBorder(Color.red));
+								.createLineBorder(Color.red));
 						}
 					}
 				}
@@ -234,7 +238,7 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 	 *      java.lang.Object, boolean, int, int)
 	 */
 	public Component getTableCellEditorComponent(JTable table, Object value,
-			boolean isSelected, int row, int column)
+		boolean isSelected, int row, int column)
 	{
 		m_component.setValue(value);
 		m_component.requestFocus();
@@ -250,8 +254,10 @@ public class FormattedCellEditor extends AbstractCellEditor implements
 	 */
 	public boolean isCellEditable(EventObject anEvent)
 	{
-		if (anEvent instanceof MouseEvent) { return ((MouseEvent) anEvent)
-				.getClickCount() >= 2; }
+		if (anEvent instanceof MouseEvent)
+		{
+			return ((MouseEvent) anEvent).getClickCount() >= 2;
+		}
 		return true;
 	}
 }

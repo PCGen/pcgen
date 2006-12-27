@@ -71,16 +71,16 @@ class TableMap extends AbstractTableModel implements TableModelListener
 		model.setValueAt(aValue, aRow, aColumn);
 	}
 
-// By default, implement TableModel by forwarding all messages
-// to the model.
+	// By default, implement TableModel by forwarding all messages
+	// to the model.
 	public Object getValueAt(int aRow, int aColumn)
 	{
 		return model.getValueAt(aRow, aColumn);
 	}
 
 	//
-// Implementation of the TableModelListener interface,
-//
+	// Implementation of the TableModelListener interface,
+	//
 	// By default forward all events to all the listeners.
 	public void tableChanged(TableModelEvent e)
 	{

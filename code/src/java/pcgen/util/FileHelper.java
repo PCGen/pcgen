@@ -64,7 +64,9 @@ public class FileHelper
 
 			if (relativePath.indexOf(testPath) == 0)
 			{
-				String pieceToKeep = relativePath.substring(testPath.length() + 1, relativePath.length());
+				String pieceToKeep =
+						relativePath.substring(testPath.length() + 1,
+							relativePath.length());
 
 				return dots.append(pieceToKeep).toString();
 			}
@@ -93,6 +95,7 @@ public class FileHelper
 	{
 		String root = findRoot(relative);
 
-		return relative.getAbsolutePath().substring(root.length(), relative.getAbsolutePath().length());
+		return relative.getAbsolutePath().substring(root.length(),
+			relative.getAbsolutePath().length());
 	}
 }

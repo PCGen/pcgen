@@ -58,8 +58,8 @@ import pcgen.util.PropertyFactory;
  */
 public class SelectedAbilityPanel extends AbilitySelectionPanel
 {
-	private static final String SELECTED_LABEL = PropertyFactory
-			.getString("in_selected") + ": "; //$NON-NLS-1$//$NON-NLS-2$
+	private static final String SELECTED_LABEL =
+			PropertyFactory.getString("in_selected") + ": "; //$NON-NLS-1$//$NON-NLS-2$
 
 	private RemoveItemPanel theRemoveButton;
 
@@ -78,7 +78,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel
 	 */
 	public SelectedAbilityPanel(final PlayerCharacter aPC,
-			final AbilityCategory aCategory)
+		final AbilityCategory aCategory)
 	{
 		super(aPC, aCategory);
 
@@ -89,7 +89,8 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		theRemoveButton = new RemoveItemPanel();
 		theRemoveButton.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(@SuppressWarnings("unused")final ActionEvent evt)
+			public void actionPerformed(@SuppressWarnings("unused")
+			final ActionEvent evt)
 			{
 				removeAbility();
 			}
@@ -134,21 +135,24 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	@Override
 	public void update()
 	{
-		if ( theTable != null )
+		if (theTable != null)
 		{
-			String curVal = theTable.getColumnModel().getColumn(0).getHeaderValue().toString();
+			String curVal =
+					theTable.getColumnModel().getColumn(0).getHeaderValue()
+						.toString();
 			int endInd = curVal.lastIndexOf('(');
-			if ( endInd != -1 )
+			if (endInd != -1)
 			{
 				curVal = curVal.substring(0, endInd).trim();
 			}
 			final BigDecimal spent = getPC().getAbilityPoolSpent(getCategory());
-			final String txt = curVal + " (" + spent.stripTrailingZeros().toString() + ")";  //$NON-NLS-1$//$NON-NLS-2$
+			final String txt =
+					curVal + " (" + spent.stripTrailingZeros().toString() + ")"; //$NON-NLS-1$//$NON-NLS-2$
 			theTable.getColumnModel().getColumn(0).setHeaderValue(txt);
 		}
 		super.update();
 	}
-	
+
 	/**
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#getAbilityList()
 	 */
@@ -175,7 +179,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	{
 		return ViewMode.NAMEONLY;
 	}
-	
+
 	/**
 	 * Overridden to add a MouseListener and Popup menu.
 	 * 
@@ -187,7 +191,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		super.initComponents();
 
 		theTable.addMouseListener(new JTreeTableMouseAdapter(theTable,
-				new SelectedClickHandler(), false));
+			new SelectedClickHandler(), false));
 		theTable.addPopupMenu(new AbilityPopupMenu(theTable));
 	}
 
@@ -208,31 +212,38 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 */
 	private List<Ability> buildPCAbilityList()
 	{
-		final List<Ability> abilityList = getPC().getAggregateAbilityList(getCategory());
-		final List<Ability> returnValue = new ArrayList<Ability>(abilityList.size());
+		final List<Ability> abilityList =
+				getPC().getAggregateAbilityList(getCategory());
+		final List<Ability> returnValue =
+				new ArrayList<Ability>(abilityList.size());
 
-		for ( final Ability ability : abilityList )
+		for (final Ability ability : abilityList)
 		{
 			if (ability.isMultiples())
 			{
 				final String abilityKey = ability.getKeyName();
 
-				Ability pcAbility = getPC().getRealAbilityKeyed(getCategory(), abilityKey);
-				if ( pcAbility != null )
+				Ability pcAbility =
+						getPC().getRealAbilityKeyed(getCategory(), abilityKey);
+				if (pcAbility != null)
 				{
-					returnValue.add( pcAbility );
+					returnValue.add(pcAbility);
 				}
 
-				pcAbility = getPC().getAutomaticAbilityKeyed(getCategory(), abilityKey);
-				if ( pcAbility != null )
+				pcAbility =
+						getPC().getAutomaticAbilityKeyed(getCategory(),
+							abilityKey);
+				if (pcAbility != null)
 				{
-					returnValue.add( pcAbility );
+					returnValue.add(pcAbility);
 				}
 
-				pcAbility = getPC().getVirtualAbilityKeyed(getCategory(), abilityKey);
-				if ( pcAbility != null )
+				pcAbility =
+						getPC().getVirtualAbilityKeyed(getCategory(),
+							abilityKey);
+				if (pcAbility != null)
 				{
-					returnValue.add( pcAbility );
+					returnValue.add(pcAbility);
 				}
 			}
 			else
@@ -258,13 +269,16 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		private AbilityPopupMenu(final JTreeTable aTreeTable)
 		{
 			theTreeTable = aTreeTable;
-			final String menuText = PropertyFactory.getFormattedString(
-					"InfoAbility.Menu.Remove", getCategory().getDisplayName()); //$NON-NLS-1$
-			final String menuTip = PropertyFactory
-					.getFormattedString(
+			final String menuText =
+					PropertyFactory
+						.getFormattedString(
+							"InfoAbility.Menu.Remove", getCategory().getDisplayName()); //$NON-NLS-1$
+			final String menuTip =
+					PropertyFactory
+						.getFormattedString(
 							"InfoAbility.Menu.Remove.Tooltip", getCategory().getDisplayName()); //$NON-NLS-1$
-			this.add(theRemoveMenu = Utility.createMenuItem(menuText,
-					new ActionListener()
+			this.add(theRemoveMenu =
+					Utility.createMenuItem(menuText, new ActionListener()
 					{
 						public void actionPerformed(@SuppressWarnings("unused")
 						final ActionEvent evt)
@@ -278,7 +292,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 							});
 						}
 					}, null, (char) 0,
-					"shortcut MINUS", menuTip, "Remove16.gif", true)); //$NON-NLS-1$ //$NON-NLS-2$
+						"shortcut MINUS", menuTip, "Remove16.gif", true)); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		/**
@@ -287,8 +301,9 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		@Override
 		public void show(final Component source, final int x, final int y)
 		{
-			final PObjectNode node = (PObjectNode) theTreeTable.getTree()
-					.getLastSelectedPathComponent();
+			final PObjectNode node =
+					(PObjectNode) theTreeTable.getTree()
+						.getLastSelectedPathComponent();
 			if (node != null && node.getItem() instanceof Ability)
 			{
 				super.show(source, x, y);
@@ -339,16 +354,16 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel#abilitySelected(pcgen.core.Ability)
 	 */
 	@Override
-	protected void abilitySelected( final Ability anAbility )
+	protected void abilitySelected(final Ability anAbility)
 	{
 		super.abilitySelected(anAbility);
-		if ( anAbility != null )
+		if (anAbility != null)
 		{
-			setRemoveEnabled( anAbility.getFeatType() == Ability.Nature.NORMAL );
+			setRemoveEnabled(anAbility.getFeatType() == Ability.Nature.NORMAL);
 		}
 		else
 		{
-			setRemoveEnabled( false );
+			setRemoveEnabled(false);
 		}
 	}
 }

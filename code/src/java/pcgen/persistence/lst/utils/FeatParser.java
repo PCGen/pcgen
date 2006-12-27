@@ -42,7 +42,8 @@ import java.util.*;
 /**
  * Parses Feats
  */
-public class FeatParser {
+public class FeatParser
+{
 
 	/**
 	 * Must be of the form:
@@ -68,20 +69,26 @@ public class FeatParser {
 				continue;
 			}
 
-			if ((aPart.startsWith("PRE") || aPart.startsWith("!PRE")) && (aPart.indexOf(":") > 0))
+			if ((aPart.startsWith("PRE") || aPart.startsWith("!PRE"))
+				&& (aPart.indexOf(":") > 0))
 			{
 				// We have a PRExxx tag!
 				preString = aPart;
 			}
 			else
 			{
-				ArrayList<String> choices     = new ArrayList<String>();
-				String    abilityName = EquipmentUtilities.getUndecoratedName(aPart, choices);
-				Ability   anAbility   = AbilityUtilities.getAbilityFromList(aList, "FEAT", abilityName, Ability.Nature.ANY);
+				ArrayList<String> choices = new ArrayList<String>();
+				String abilityName =
+						EquipmentUtilities.getUndecoratedName(aPart, choices);
+				Ability anAbility =
+						AbilityUtilities.getAbilityFromList(aList, "FEAT",
+							abilityName, Ability.Nature.ANY);
 
-				if (anAbility == null) {
+				if (anAbility == null)
+				{
 					anAbility = Globals.getAbilityKeyed("FEAT", abilityName);
-					if (anAbility != null) {
+					if (anAbility != null)
+					{
 						anAbility = anAbility.clone();
 						anAbility.setFeatType(Ability.Nature.VIRTUAL);
 						anAbility.clearPreReq();
@@ -90,7 +97,7 @@ public class FeatParser {
 
 				if (anAbility != null)
 				{
-					for ( String choice : choices )
+					for (String choice : choices)
 					{
 						anAbility.addAssociated(choice);
 					}
@@ -102,7 +109,7 @@ public class FeatParser {
 
 		if ((preString.length() > 0) && !aList.isEmpty())
 		{
-			for ( Ability ability : aList )
+			for (Ability ability : aList)
 			{
 				try
 				{

@@ -52,9 +52,11 @@ public final class PCCheckLoader extends LstLineFileLoader
 		throws PersistenceLayerException
 	{
 		PObject obj = new PObject();
-		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(PCCheckLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(PCCheckLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -64,7 +66,8 @@ public final class PCCheckLoader extends LstLineFileLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
 			PCCheckLstToken token = (PCCheckLstToken) tokenMap.get(key);
@@ -75,7 +78,9 @@ public final class PCCheckLoader extends LstLineFileLoader
 				LstUtils.deprecationCheck(token, obj, value);
 				if (!token.parse(obj, value))
 				{
-					Logging.errorPrint("Error parsing check " + obj.getDisplayName() + ':' + sourceURL.toString() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing check "
+						+ obj.getDisplayName() + ':' + sourceURL.toString()
+						+ ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(obj, colString))
@@ -84,7 +89,8 @@ public final class PCCheckLoader extends LstLineFileLoader
 			}
 			else
 			{
-				Logging.errorPrint("Illegal check info '" + lstLine + "' in " + sourceURL.toString());
+				Logging.errorPrint("Illegal check info '" + lstLine + "' in "
+					+ sourceURL.toString());
 			}
 		}
 	}

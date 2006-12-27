@@ -52,15 +52,16 @@ public final class EquipmentModifierLoader
 	 * @param lineNum
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(EquipmentModifier obj, String inputLine, URL sourceURL, int lineNum)
-		throws PersistenceLayerException
+	public static void parseLine(EquipmentModifier obj, String inputLine,
+		URL sourceURL, int lineNum) throws PersistenceLayerException
 	{
 		if (obj == null)
 		{
 			return;
 		}
 
-		final StringTokenizer colToken = new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
 		int col = -1;
 
 		if (!obj.isNewItem())
@@ -69,7 +70,8 @@ public final class EquipmentModifierLoader
 			colToken.nextToken(); // skip name
 		}
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipmentModifierLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(EquipmentModifierLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -80,10 +82,12 @@ public final class EquipmentModifierLoader
 			{
 				key = colString.substring(0, idxColon);
 			}
-			catch(Exception e) {
+			catch (Exception e)
+			{
 				// TODO Handle Exception
 			}
-			EquipmentModifierLstToken token = (EquipmentModifierLstToken) tokenMap.get(key);
+			EquipmentModifierLstToken token =
+					(EquipmentModifierLstToken) tokenMap.get(key);
 
 			col++;
 
@@ -97,7 +101,9 @@ public final class EquipmentModifierLoader
 				LstUtils.deprecationCheck(token, obj, value);
 				if (!token.parse(obj, value))
 				{
-					Logging.errorPrint("Error parsing ability " + obj.getDisplayName() + ':' + sourceURL.getFile() + ':' + colString + "\"");
+					Logging.errorPrint("Error parsing ability "
+						+ obj.getDisplayName() + ':' + sourceURL.getFile()
+						+ ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(obj, colString))
@@ -110,7 +116,8 @@ public final class EquipmentModifierLoader
 			//}
 			else
 			{
-				Logging.errorPrint("Illegal equipment modifier info " + String.valueOf(sourceURL) + ":"
+				Logging.errorPrint("Illegal equipment modifier info "
+					+ String.valueOf(sourceURL) + ":"
 					+ Integer.toString(lineNum) + " \"" + colString + "\"");
 			}
 		}

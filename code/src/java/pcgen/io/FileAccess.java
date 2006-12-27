@@ -37,7 +37,7 @@ public final class FileAccess
 {
 	private static OutputFilter outputFilter = null;
 	private static int maxLength = -1;
-	
+
 	/**
 	 * Filter the supplied string according to the current output filter. This
 	 * can do things such as escaping HTML entities.
@@ -49,8 +49,7 @@ public final class FileAccess
 	{
 		if (null == outputFilter)
 			return aString;
-		else
-			return outputFilter.filterString(aString);		
+		else return outputFilter.filterString(aString);
 	}
 
 	/**
@@ -109,7 +108,8 @@ public final class FileAccess
 		}
 		catch (IOException exception)
 		{
-			ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exception.getMessage(),
+				Constants.s_APPNAME, MessageType.ERROR);
 		}
 	}
 
@@ -124,7 +124,7 @@ public final class FileAccess
 		{
 			return;
 		}
-		
+
 		if ((maxLength > 0) && (aString.length() > maxLength))
 		{
 			aString = aString.substring(0, maxLength);
@@ -136,7 +136,8 @@ public final class FileAccess
 		}
 		catch (IOException exception)
 		{
-			ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exception.getMessage(),
+				Constants.s_APPNAME, MessageType.ERROR);
 		}
 	}
 }

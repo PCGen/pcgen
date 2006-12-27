@@ -46,14 +46,15 @@ public class KitGearLoader
 	 * @throws PersistenceLayerException
 	 */
 	public static void parseLine(Kit kit, String colString)
-			throws PersistenceLayerException
+		throws PersistenceLayerException
 	{
-		final StringTokenizer colToken = new StringTokenizer(colString,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken =
+				new StringTokenizer(colString, SystemLoader.TAB_DELIM);
 
 		KitGear kitGear = new KitGear(colToken.nextToken());
 
-		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(KitGearLstToken.class);
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(KitGearLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			colString = colToken.nextToken();
@@ -78,7 +79,7 @@ public class KitGearLoader
 				if (!token.parse(kitGear, value))
 				{
 					Logging.errorPrint("Error parsing Kit Funds tag "
-							+ kitGear.getObjectName() + ':' + colString + "\"");
+						+ kitGear.getObjectName() + ':' + colString + "\"");
 				}
 			}
 			else if (BaseKitLoader.parseCommonTags(kitGear, colString))
@@ -88,7 +89,7 @@ public class KitGearLoader
 			else
 			{
 				Logging.errorPrint("Unknown Kit Gear info: \"" + colString
-						+ "\"");
+					+ "\"");
 			}
 
 		}

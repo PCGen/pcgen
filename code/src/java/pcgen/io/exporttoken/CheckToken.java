@@ -57,7 +57,8 @@ public class CheckToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		aTok.nextToken();
@@ -88,10 +89,12 @@ public class CheckToken extends Token
 	 * @param saveMods
 	 * @return int
 	 */
-	public static int getCheckToken(PlayerCharacter pc, String saveType, String saveMods)
+	public static int getCheckToken(PlayerCharacter pc, String saveType,
+		String saveMods)
 	{
 		String type = getNameToken(saveType);
-		return pc.calculateSaveBonus(1, type, "".equals(saveMods) ? "TOTAL" : saveMods);
+		return pc.calculateSaveBonus(1, type, "".equals(saveMods) ? "TOTAL"
+			: saveMods);
 	}
 
 	/**
@@ -105,9 +108,12 @@ public class CheckToken extends Token
 		{
 			int i = Integer.parseInt(saveType);
 
-			if ((i >= 0) && (i < SettingsHandler.getGame().getUnmodifiableCheckList().size()))
+			if ((i >= 0)
+				&& (i < SettingsHandler.getGame().getUnmodifiableCheckList()
+					.size()))
 			{
-				return SettingsHandler.getGame().getUnmodifiableCheckList().get(i).toString();
+				return SettingsHandler.getGame().getUnmodifiableCheckList()
+					.get(i).toString();
 			}
 		}
 		catch (NumberFormatException e)
@@ -117,4 +123,3 @@ public class CheckToken extends Token
 		return saveType;
 	}
 }
-

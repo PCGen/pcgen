@@ -50,7 +50,8 @@ public class AlignmentToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -65,7 +66,7 @@ public class AlignmentToken extends Token
 
 		return retString;
 	}
-	
+
 	/**
 	 * Get the Alignment Token
 	 * @param pc
@@ -73,7 +74,8 @@ public class AlignmentToken extends Token
 	 */
 	public static String getAlignmentToken(PlayerCharacter pc)
 	{
-		return SettingsHandler.getGame().getLongAlignmentAtIndex(pc.getAlignment());
+		return SettingsHandler.getGame().getLongAlignmentAtIndex(
+			pc.getAlignment());
 	}
 
 	/**
@@ -83,6 +85,7 @@ public class AlignmentToken extends Token
 	 */
 	public static String getShortToken(PlayerCharacter pc)
 	{
-		return SettingsHandler.getGame().getShortAlignmentAtIndex(pc.getAlignment());
+		return SettingsHandler.getGame().getShortAlignmentAtIndex(
+			pc.getAlignment());
 	}
 }

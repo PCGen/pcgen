@@ -9,12 +9,12 @@ package pcgen.persistence.lst;
 
 import pcgen.core.PObject;
 
-
 /**
  * @author djones4
  */
 
-public interface DeprecatedToken {
+public interface DeprecatedToken
+{
 
 	/**
 	 * Get the message to output.

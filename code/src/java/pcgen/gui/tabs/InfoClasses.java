@@ -121,7 +121,8 @@ import pcgen.util.enumeration.Visibility;
  * @author  Bryan McRoberts (merton_monk@yahoo.com)
  * @version $Revision$
  */
-public final class InfoClasses extends FilterAdapterPanel implements CharacterInfoTab
+public final class InfoClasses extends FilterAdapterPanel implements
+		CharacterInfoTab
 {
 	static final long serialVersionUID = 9141488354194857537L;
 	private static boolean needsUpdate = true;
@@ -131,8 +132,10 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 	private static PObjectNode typeRoot;
 	private static PObjectNode sourceRoot;
-	private final JLabel avaLabel = new JLabel(PropertyFactory.getString("in_available"));
-	private final JLabel selLabel = new JLabel(PropertyFactory.getString("in_selected"));
+	private final JLabel avaLabel =
+			new JLabel(PropertyFactory.getString("in_available"));
+	private final JLabel selLabel =
+			new JLabel(PropertyFactory.getString("in_selected"));
 	private ClassModel availableModel = null; // Model for the JTreeTable.
 	private ClassModel selectedModel = null; // Model for the JTreeTable.
 	private FlippingSplitPane asplit;
@@ -217,18 +220,18 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		setName(Tab.CLASSES.toString());
 
 		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
 			{
-				public void run()
-				{
-					initComponents();
-					initActionListeners();
-				}
-			});
+				initComponents();
+				initActionListeners();
+			}
+		});
 	}
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -243,7 +246,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Classes.Order", Tab.CLASSES.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.Classes.Order",
+			Tab.CLASSES.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -279,7 +283,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -288,7 +292,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -389,7 +393,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				aString = lastClass.getType();
 			}
 
-			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_type")).append("</b>:").append(aString);
+			b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_type"))
+				.append("</b>:").append(aString);
 
 			//
 			// Prereqs
@@ -403,7 +408,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 			if (aString.length() > 0)
 			{
-				b.append(" &nbsp;<b>").append(PropertyFactory.getString("in_requirements")).append("</b>:").append(aString);
+				b.append(" &nbsp;<b>").append(
+					PropertyFactory.getString("in_requirements")).append(
+					"</b>:").append(aString);
 			}
 
 			//
@@ -418,11 +425,13 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 			if (aString.length() > 0)
 			{
-				b.append(" <b>").append(PropertyFactory.getString("in_sourceLabel")).append("</b>:").append(aString);
+				b.append(" <b>").append(
+					PropertyFactory.getString("in_sourceLabel"))
+					.append("</b>:").append(aString);
 			}
 
-//			aString = getBabTitle();
-//			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
+			//			aString = getBabTitle();
+			//			b.append(" <b>").append(aString).append(":</b>:").append(aClass.getAttackBonusType());
 
 			//
 			// Hit Die
@@ -443,12 +452,16 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			{
 				aString = aClass.getSpellType();
 
-				if (isSubClass && ((aString.length() == 0) || aString.equalsIgnoreCase(Constants.s_NONE)))
+				if (isSubClass
+					&& ((aString.length() == 0) || aString
+						.equalsIgnoreCase(Constants.s_NONE)))
 				{
 					aString = lastClass.getSpellType();
 				}
 
-				b.append(" <b>").append(PropertyFactory.getString("in_spellType")).append("</b>:").append(aString);
+				b.append(" <b>").append(
+					PropertyFactory.getString("in_spellType")).append("</b>:")
+					.append(aString);
 
 				aString = aClass.getSpellBaseStat();
 
@@ -460,12 +473,15 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				 * identifying this special deferral to the "lastClass" other
 				 * than null SpellBaseStat? - thpr 11/9/06
 				 */
-				if (isSubClass && ((aString == null) || (aString.length() == 0)))
+				if (isSubClass
+					&& ((aString == null) || (aString.length() == 0)))
 				{
 					aString = lastClass.getSpellBaseStat();
 				}
 
-				b.append(" <b>").append(PropertyFactory.getString("in_baseStat")).append("</b>:").append(aString);
+				b.append(" <b>").append(
+					PropertyFactory.getString("in_baseStat")).append("</b>:")
+					.append(aString);
 			}
 
 			b.append("</html>");
@@ -477,7 +493,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	{
 		if (lastClass == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clNoClass"), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_clNoClass"), Constants.s_APPNAME,
+				MessageType.ERROR);
 		}
 
 		return lastClass;
@@ -485,7 +503,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private int getSelectedIndex(ListSelectionEvent e)
 	{
-		final DefaultListSelectionModel model = (DefaultListSelectionModel) e.getSource();
+		final DefaultListSelectionModel model =
+				(DefaultListSelectionModel) e.getSource();
 
 		if (model == null)
 		{
@@ -499,16 +518,22 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	{
 		if (Globals.getGameModeAlignmentText().length() != 0)
 		{
-			if ((levels > 0) && (pc.getAlignment() == SettingsHandler.getGame().getIndexOfAlignment(Constants.s_NONE)))
+			if ((levels > 0)
+				&& (pc.getAlignment() == SettingsHandler.getGame()
+					.getIndexOfAlignment(Constants.s_NONE)))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clSelAlign"), Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getString("in_clSelAlign"), Constants.s_APPNAME,
+					MessageType.ERROR);
 
 				return;
 			}
 
 			if ((levels > 0) && !pc.canLevelUp())
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.s_APPNAME, MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getString("in_Enforce_rejectLevelUp"),
+					Constants.s_APPNAME, MessageType.ERROR);
 				return;
 			}
 
@@ -534,14 +559,19 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		//
 		// Fix this logic -- it looks like you might slip past
 		// the 20 cap with a monster PC?  XXX --bko
-		if ((levels < 0) || (aClass == null) || Globals.checkRule(RuleConstants.LEVELCAP)
-			|| (!Globals.checkRule(RuleConstants.LEVELCAP) && (aClass.getLevel() < aClass.getMaxLevel())))
+		if ((levels < 0)
+			|| (aClass == null)
+			|| Globals.checkRule(RuleConstants.LEVELCAP)
+			|| (!Globals.checkRule(RuleConstants.LEVELCAP) && (aClass
+				.getLevel() < aClass.getMaxLevel())))
 		{
 			pc.incrementClassLevel(levels, theClass);
 		}
 		else
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clMaxLvl"), Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory
+				.getString("in_clMaxLvl"), Constants.s_APPNAME,
+				MessageType.INFORMATION);
 
 			return;
 		}
@@ -579,7 +609,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		pnlEast.setLayout(new GridBagLayout());
 
-		final List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PObject> checkList =
+				SettingsHandler.getGame().getUnmodifiableCheckList();
 		final int countChecks = checkList.size();
 
 		if (countChecks != 0)
@@ -725,7 +756,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		availableTree.setShowsRootHandles(true);
 		availableTree.setCellRenderer(new LabelTreeCellRenderer());
 
-
 		selectedTable = new JTreeTable(selectedModel);
 		selectedTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -742,7 +772,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_clNotQualify"));
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+			.getString("in_clNotQualify"));
 		refresh();
 
 		int s = splitPane.getDividerLocation();
@@ -753,9 +784,15 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		if (!hasBeenSized)
 		{
 			hasBeenSized = true;
-			s = SettingsHandler.getPCGenOption("InfoClasses.splitPane", (int) ((this.getSize().getWidth() * 7) / 10));
-			t = SettingsHandler.getPCGenOption("InfoClasses.bsplit", (int) (this.getSize().getHeight() - 140));
-			u = SettingsHandler.getPCGenOption("InfoClasses.asplit", (int) (this.getSize().getWidth() - 334));
+			s =
+					SettingsHandler.getPCGenOption("InfoClasses.splitPane",
+						(int) ((this.getSize().getWidth() * 7) / 10));
+			t =
+					SettingsHandler.getPCGenOption("InfoClasses.bsplit",
+						(int) (this.getSize().getHeight() - 140));
+			u =
+					SettingsHandler.getPCGenOption("InfoClasses.asplit",
+						(int) (this.getSize().getWidth() - 334));
 
 			// set the prefered width on selectedTable
 			for (int i = 0; i < selectedTable.getColumnCount(); i++)
@@ -768,7 +805,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(selectedTable, "ClassSel", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					selectedTable, "ClassSel", i));
 			}
 
 			// set the prefered width on availableTable
@@ -782,7 +820,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					sCol.setPreferredWidth(width);
 				}
 
-				sCol.addPropertyChangeListener(new ResizeColumnListener(availableTable, "ClassAva", i));
+				sCol.addPropertyChangeListener(new ResizeColumnListener(
+					availableTable, "ClassAva", i));
 			}
 		}
 
@@ -807,7 +846,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private void hookupPopupMenu(JTreeTable treeTable)
 	{
-		treeTable.addMouseListener(new ClassPopupListener(treeTable, new ClassPopupMenu(treeTable)));
+		treeTable.addMouseListener(new ClassPopupListener(treeTable,
+			new ClassPopupMenu(treeTable)));
 	}
 
 	private void initActionListeners()
@@ -818,39 +858,46 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		adjXP.addActionListener(new AdjustXPButtonActionListener());
 		addButton.addActionListener(new AddClassButtonActionListener());
 		viewComboBox.addActionListener(new ViewComboBoxActionListener());
-		viewSelectComboBox.addActionListener(new ViewSelectComboBoxActionListener());
+		viewSelectComboBox
+			.addActionListener(new ViewSelectComboBoxActionListener());
 		if (hpButton != null)
 		{
 			hpButton.addActionListener(new HpButtonActionListener());
 		}
 		experience.setInputVerifier(new ExperienceBoxInputVerifier());
-		availableTable.getSelectionModel().addListSelectionListener(new AvailableListSelectionListener());
-		selectedTable.getSelectionModel().addListSelectionListener(new SelectedListSelectionListener());
-		availableTable.addMouseListener(new JTreeTableMouseAdapter(availableTable, new AvailableClickHandler(), false));
-		selectedTable.addMouseListener(new JTreeTableMouseAdapter(selectedTable, new SelectedClickHandler(), false));
+		availableTable.getSelectionModel().addListSelectionListener(
+			new AvailableListSelectionListener());
+		selectedTable.getSelectionModel().addListSelectionListener(
+			new SelectedListSelectionListener());
+		availableTable.addMouseListener(new JTreeTableMouseAdapter(
+			availableTable, new AvailableClickHandler(), false));
+		selectedTable.addMouseListener(new JTreeTableMouseAdapter(
+			selectedTable, new SelectedClickHandler(), false));
 
 		textQFilter.getDocument().addDocumentListener(new DocumentListener()
+		{
+			public void changedUpdate(DocumentEvent evt)
 			{
-				public void changedUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void insertUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-				public void removeUpdate(DocumentEvent evt)
-				{
-					setQFilter();
-				}
-			});
+				setQFilter();
+			}
+
+			public void insertUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+
+			public void removeUpdate(DocumentEvent evt)
+			{
+				setQFilter();
+			}
+		});
 		clearQFilterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent evt)
 			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					clearQFilter();
-				}
-			});
+				clearQFilter();
+			}
+		});
 		FilterFactory.restoreFilterSettings(this);
 	}
 
@@ -880,7 +927,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			}
 			String aString = null;
 			final SourceEntry se = aClass.getSourceEntry();
-			if ( se != null && se.getSourceBook() != null )
+			if (se != null && se.getSourceBook() != null)
 			{
 				aString = se.getSourceBook().getLongName();
 			}
@@ -925,7 +972,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		int iView = SettingsHandler.getClassTab_AvailableListMode();
 
-		if ((iView >= GuiConstants.INFOCLASS_VIEW_NAME) && (iView <= GuiConstants.INFOCLASS_VIEW_SOURCE_NAME))
+		if ((iView >= GuiConstants.INFOCLASS_VIEW_NAME)
+			&& (iView <= GuiConstants.INFOCLASS_VIEW_SOURCE_NAME))
 		{
 			viewMode = iView;
 		}
@@ -934,12 +982,14 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
 		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
 		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		Utility.setDescription(viewComboBox, PropertyFactory.getString("in_clChangCl"));
+		Utility.setDescription(viewComboBox, PropertyFactory
+			.getString("in_clChangCl"));
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
 
 		iView = SettingsHandler.getClassTab_SelectedListMode();
 
-		if ((iView >= GuiConstants.INFOCLASS_VIEW_NAME) && (iView <= GuiConstants.INFOCLASS_VIEW_SOURCE_NAME))
+		if ((iView >= GuiConstants.INFOCLASS_VIEW_NAME)
+			&& (iView <= GuiConstants.INFOCLASS_VIEW_SOURCE_NAME))
 		{
 			viewSelectMode = iView;
 		}
@@ -948,7 +998,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_typeName"));
 		viewSelectComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		Utility.setDescription(viewSelectComboBox, PropertyFactory.getString("in_clChangCl"));
+		Utility.setDescription(viewSelectComboBox, PropertyFactory
+			.getString("in_clChangCl"));
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
 		createModels();
@@ -963,19 +1014,24 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		JPanel bRightPane = new JPanel();
 
 		//  Bottom Left Pane - Class Info
-		TitledBorder title1 = BorderFactory.createTitledBorder(PropertyFactory.getString("in_clInfo"));
+		TitledBorder title1 =
+				BorderFactory.createTitledBorder(PropertyFactory
+					.getString("in_clInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		JScrollPane infoScroll = new JScrollPane(infoLabel);
 		infoScroll.setBorder(title1);
 		infoLabel.setBackground(bLeftPane.getBackground());
 		bLeftPane.add(infoScroll, BorderLayout.CENTER);
-		Utility.setDescription(bLeftPane, PropertyFactory.getString("in_infoScrollTip"));
+		Utility.setDescription(bLeftPane, PropertyFactory
+			.getString("in_infoScrollTip"));
 
 		//  Bottom Right Pane - Character Info
 		initSEPanel(bRightPane);
 
 		//  Split the Pane
-		asplit = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane, bRightPane);
+		asplit =
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, bLeftPane,
+					bRightPane);
 		asplit.setOneTouchExpandable(true);
 		asplit.setDividerSize(10);
 
@@ -983,7 +1039,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		JPanel botPane = new JPanel();
 		botPane.setLayout(new BorderLayout());
 		botPane.add(asplit, BorderLayout.CENTER);
-		bsplit = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, center, botPane);
+		bsplit =
+				new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, center,
+					botPane);
 		bsplit.setOneTouchExpandable(true);
 		bsplit.setDividerSize(10);
 
@@ -991,55 +1049,72 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		this.add(bsplit, BorderLayout.CENTER);
 
 		// add the sorter so that clicking on the TableHeader actually does something
-		availableSort = new JTreeTableSorter(availableTable, (PObjectNode) availableModel.getRoot(), availableModel);
+		availableSort =
+				new JTreeTableSorter(availableTable,
+					(PObjectNode) availableModel.getRoot(), availableModel);
 	}
 
-	private void buildTop() 
+	private void buildTop()
 	{
 		//GridBagLayout gridbag = new GridBagLayout();
 		//GridBagConstraints c = new GridBagConstraints();
 		JPanel leftPane = new JPanel(new BorderLayout());
 		JPanel rightPane = new JPanel(new BorderLayout());
-		splitPane = new FlippingSplitPane(splitOrientation, leftPane, rightPane);
+		splitPane =
+				new FlippingSplitPane(splitOrientation, leftPane, rightPane);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 		center.add(splitPane, BorderLayout.CENTER);
 
 		//  Top Left Pane - Available Classes
-		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
+		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox,
+			lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(availableTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane =
+				new JScrollPane(availableTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		JButton columnButton = new JButton();
-		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton);
+		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton);
 		columnButton.setText("^");
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
-		JPanel leftBottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		JPanel leftBottomPanel =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(addButton, PropertyFactory.getString("in_clAddTip"));
+		Utility.setDescription(addButton, PropertyFactory
+			.getString("in_clAddTip"));
 		addButton.setEnabled(false);
 		leftBottomPanel.add(addButton);
 		leftPane.add(leftBottomPanel, BorderLayout.SOUTH);
 
 		//  Top Right Pane - Selected Classes
-		JPanel rightTopPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		JPanel rightTopPanel =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		rightTopPanel.add(selLabel);
 		rightTopPanel.add(viewSelectComboBox);
 		rightPane.add(rightTopPanel, BorderLayout.NORTH);
 
 		selectedTable.setColAlign(1, SwingConstants.CENTER);
 		selectedTable.getColumnModel().getColumn(1).setPreferredWidth(15);
-		JScrollPane scrollPane2 = new JScrollPane(selectedTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane scrollPane2 =
+				new JScrollPane(selectedTable,
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 		JButton columnButton2 = new JButton();
-		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, columnButton2);
+		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
+			columnButton2);
 		columnButton2.setText("^");
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 
-		JPanel rightBottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
+		JPanel rightBottomPanel =
+				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(removeButton, PropertyFactory.getString("in_clRemoveTip"));
+		Utility.setDescription(removeButton, PropertyFactory
+			.getString("in_clRemoveTip"));
 		removeButton.setEnabled(false);
 		rightBottomPanel.add(removeButton);
 		rightPane.add(rightBottomPanel, BorderLayout.SOUTH);
@@ -1052,12 +1127,14 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		{
 			return true;
 		}
-		
+
 		pc.setXP(xp);
 
 		if (xp >= pc.minXPForNextECL())
 		{
-			ShowMessageDelegate.showMessageDialog(SettingsHandler.getGame().getLevelUpMessage(), Constants.s_APPNAME, MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(SettingsHandler.getGame()
+				.getLevelUpMessage(), Constants.s_APPNAME,
+				MessageType.INFORMATION);
 		}
 
 		return true;
@@ -1156,7 +1233,6 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		pnlWest.add(pnlSkills, gbc);
 
 		pnlBAB.setLayout(new BorderLayout(5, 5));
-
 
 		aString = SettingsHandler.getGame().getBabAbbrev();
 		if (aString == null)
@@ -1266,7 +1342,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		pnlXP.add(lblNextLevel, gbc);
 
 		txtNextLevel.setHorizontalAlignment(SwingConstants.TRAILING);
-		txtNextLevel.setBorder(BorderFactory.createEtchedBorder(Color.lightGray, Color.lightGray));
+		txtNextLevel.setBorder(BorderFactory.createEtchedBorder(
+			Color.lightGray, Color.lightGray));
 		txtNextLevel.setBackground(Color.lightGray);
 		txtNextLevel.setEditable(false);
 		txtNextLevel.setValue(0);
@@ -1386,9 +1463,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 
 		pc.setAggregateAbilitiesStable(null, false);
-//		pc.setAggregateFeatsStable(false);
-//		pc.setAutomaticFeatsStable(false);
-//		pc.setVirtualFeatsStable(false);
+		//		pc.setAggregateFeatsStable(false);
+		//		pc.setAutomaticFeatsStable(false);
+		//		pc.setVirtualFeatsStable(false);
 
 		updateAvailableModel();
 		updateSelectedModel();
@@ -1406,13 +1483,19 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		lAHP.setText(Integer.toString(pc.altHP()));
 		updateXP(pc); // race changes effective XP
 
-		int mytempvar = (int) pc.getTotalBonusTo("VAR", Globals.getGameModeVariableDisplayName());
+		int mytempvar =
+				(int) pc.getTotalBonusTo("VAR", Globals
+					.getGameModeVariableDisplayName());
 		lVariableDisplay.setText(Integer.toString(mytempvar));
 
-		int mytempvar2 = (int) pc.getTotalBonusTo("VAR", Globals.getGameModeVariableDisplay2Name());
+		int mytempvar2 =
+				(int) pc.getTotalBonusTo("VAR", Globals
+					.getGameModeVariableDisplay2Name());
 		lVariableDisplay2.setText(Integer.toString(mytempvar2));
 
-		int mytempvar3 = (int) pc.getTotalBonusTo("VAR", Globals.getGameModeVariableDisplay3Name());
+		int mytempvar3 =
+				(int) pc.getTotalBonusTo("VAR", Globals
+					.getGameModeVariableDisplay3Name());
 		lVariableDisplay3.setText(Integer.toString(mytempvar3));
 
 		needsUpdate = false;
@@ -1420,7 +1503,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private void updateChecks()
 	{
-		final List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
+		final List<PObject> checkList =
+				SettingsHandler.getGame().getUnmodifiableCheckList();
 		final int countChecks = checkList.size();
 
 		if ((lCheck == null) || (countChecks != lCheck.length))
@@ -1523,7 +1607,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		forceRefresh();
 	}
 
-	private static String getBabTitle() 
+	private static String getBabTitle()
 	{
 		String bab = SettingsHandler.getGame().getBabAbbrev();
 		if (bab == null)
@@ -1532,6 +1616,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 		return bab;
 	}
+
 	/**
 	 * The basic idea of the TreeTableModel is that there is a single
 	 * <code>root</code> object.  This root object has a null
@@ -1544,7 +1629,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	 * nodes which have at least 1 child are not leafs.
 	 * Leafs are like files and non-leafs are like directories.
 	 **/
-	private final class ClassModel extends AbstractTreeTableModel implements TableColumnManagerModel
+	private final class ClassModel extends AbstractTreeTableModel implements
+			TableColumnManagerModel
 	{
 		// Types of the columns.
 		private int modelType = 0; // availableModel=0,selectedModel=1
@@ -1559,21 +1645,18 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		private static final int COL_SPELLSTAT = 7;
 		private static final int COL_SRC = 8;
 
-		private final String[] colNameList = {
-				PropertyFactory.getString("in_nameLabel"),
-				PropertyFactory.getString("in_preReqs"),
-				PropertyFactory.getString("in_level"),
-				PropertyFactory.getString("in_type"),
-				getBabTitle(),
-				PropertyFactory.getString("in_hdLabel"),
-				PropertyFactory.getString("in_spellType"),
-				PropertyFactory.getString("in_baseStat"),
-				PropertyFactory.getString("in_sourceLabel")
-			};
+		private final String[] colNameList =
+				{PropertyFactory.getString("in_nameLabel"),
+					PropertyFactory.getString("in_preReqs"),
+					PropertyFactory.getString("in_level"),
+					PropertyFactory.getString("in_type"), getBabTitle(),
+					PropertyFactory.getString("in_hdLabel"),
+					PropertyFactory.getString("in_spellType"),
+					PropertyFactory.getString("in_baseStat"),
+					PropertyFactory.getString("in_sourceLabel")};
 
-		private final int[] colDefaultWidth = {
-				200, 100, 35, 70, 35, 40, 60, 60, 100
-		};
+		private final int[] colDefaultWidth =
+				{200, 100, 35, 70, 35, 40, 60, 60, 100};
 
 		/**
 		 * Creates a ClassModel
@@ -1592,20 +1675,32 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			resetModel(mode, available);
 			displayList = new ArrayList<Boolean>();
 			displayList.add(Boolean.TRUE);
-			if(modelType == 0) {
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[1], true)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[2], false)));
+			if (modelType == 0)
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + colNameList[1], true)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + colNameList[2], false)));
 			}
-			else {
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[1], false)));
-				displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[2], true)));
+			else
+			{
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + colNameList[1], false)));
+				displayList.add(Boolean.valueOf(getColumnViewOption(modelType
+					+ "." + colNameList[2], true)));
 			}
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[3], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[4], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[5], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[6], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[7], false)));
-			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "." + colNameList[8], true)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[3], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[4], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[5], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[6], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[7], false)));
+			displayList.add(Boolean.valueOf(getColumnViewOption(modelType + "."
+				+ colNameList[8], true)));
 		}
 
 		public boolean isCellEditable(Object node, int column)
@@ -1640,7 +1735,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					return String.class;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr4") + " " + column + " "
+					Logging.errorPrint(PropertyFactory.getString("in_clICEr4")
+						+ " " + column + " "
 						+ PropertyFactory.getString("in_clICEr2"));
 
 					break;
@@ -1734,7 +1830,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				case COL_BAB:
 					if (pcclass != null)
 					{
-//						retString = pcclass.getAttackBonusType();
+						//						retString = pcclass.getAttackBonusType();
 					}
 					return retString;
 
@@ -1778,7 +1874,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					return null;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr6") + " " + column + " "
+					Logging.errorPrint(PropertyFactory.getString("in_clICEr6")
+						+ " " + column + " "
 						+ PropertyFactory.getString("in_ICEr2"));
 
 					break;
@@ -1795,14 +1892,15 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		private void addSubClassesTo(PObjectNode aFN, PCClass aClass)
 		{
-			if ((aClass.getSubClassList() != null) && !aClass.getSubClassList().isEmpty())
+			if ((aClass.getSubClassList() != null)
+				&& !aClass.getSubClassList().isEmpty())
 			{
 				for (SubClass sClass : aClass.getSubClassList())
 				{
 					PObjectNode aSN = new PObjectNode();
 					aSN.setParent(aFN);
 					aSN.setItem(sClass);
-					PrereqHandler.passesAll( sClass.getPreReqList(), pc, sClass );
+					PrereqHandler.passesAll(sClass.getPreReqList(), pc, sClass);
 					aFN.addChild(aSN);
 				}
 			}
@@ -1842,14 +1940,16 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 							continue;
 						}
 
-						if (qFilter == null ||
-								( aClass.getDisplayName().toLowerCase().indexOf(qFilter) >= 0 ||
-								  aClass.getType().toLowerCase().indexOf(qFilter) >= 0 ))
+						if (qFilter == null
+							|| (aClass.getDisplayName().toLowerCase().indexOf(
+								qFilter) >= 0 || aClass.getType().toLowerCase()
+								.indexOf(qFilter) >= 0))
 						{
 							PObjectNode aFN = new PObjectNode();
 							aFN.setParent((PObjectNode) super.getRoot());
 							aFN.setItem(aClass);
-							PrereqHandler.passesAll( aClass.getPreReqList(), pc, aClass );
+							PrereqHandler.passesAll(aClass.getPreReqList(), pc,
+								aClass);
 							((PObjectNode) super.getRoot()).addChild(aFN);
 
 							if (available)
@@ -1873,19 +1973,23 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 							continue;
 						}
 
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+						PObjectNode rootAsPObjectNode =
+								(PObjectNode) super.getRoot();
 						boolean added = false;
 
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
-							if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| aClass.isType((rootAsPObjectNode.getChildren().get(i)).getItem()
-									.toString()))
+							if ((!added && (i == (rootAsPObjectNode
+								.getChildCount() - 1)))
+								|| aClass
+									.isType((rootAsPObjectNode.getChildren()
+										.get(i)).getItem().toString()))
 							{
 								PObjectNode aFN = new PObjectNode();
 								aFN.setParent(rootAsPObjectNode.getChild(i));
 								aFN.setItem(aClass);
-								PrereqHandler.passesAll(aClass.getPreReqList(), pc, aClass ) ;
+								PrereqHandler.passesAll(aClass.getPreReqList(),
+									pc, aClass);
 								rootAsPObjectNode.getChild(i).addChild(aFN);
 								added = true;
 
@@ -1911,25 +2015,32 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 							continue;
 						}
 
-						PObjectNode rootAsPObjectNode = (PObjectNode) super.getRoot();
+						PObjectNode rootAsPObjectNode =
+								(PObjectNode) super.getRoot();
 						boolean added = false;
 
 						for (int i = 0; i < rootAsPObjectNode.getChildCount(); i++)
 						{
-							final String sourceString = aClass.getSourceEntry().getSourceBook().getLongName();
+							final String sourceString =
+									aClass.getSourceEntry().getSourceBook()
+										.getLongName();
 							if (sourceString == null)
 							{
-								Logging.errorPrint("PC class " + aClass.getDisplayName()
+								Logging.errorPrint("PC class "
+									+ aClass.getDisplayName()
 									+ " has no source long entry.");
 							}
-							else if ((!added && (i == (rootAsPObjectNode.getChildCount() - 1)))
-								|| sourceString.equals((rootAsPObjectNode.getChildren().get(i)).getItem()
-									.toString()))
+							else if ((!added && (i == (rootAsPObjectNode
+								.getChildCount() - 1)))
+								|| sourceString
+									.equals((rootAsPObjectNode.getChildren()
+										.get(i)).getItem().toString()))
 							{
 								PObjectNode aFN = new PObjectNode();
 								aFN.setParent(rootAsPObjectNode.getChild(i));
 								aFN.setItem(aClass);
-								PrereqHandler.passesAll(aClass.getPreReqList(), pc, aClass );
+								PrereqHandler.passesAll(aClass.getPreReqList(),
+									pc, aClass);
 								rootAsPObjectNode.getChild(i).addChild(aFN);
 								added = true;
 
@@ -1944,7 +2055,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr1") + " " + mode + " "
+					Logging.errorPrint(PropertyFactory.getString("in_clICEr1")
+						+ " " + mode + " "
 						+ PropertyFactory.getString("in_clICEr2"));
 
 					break;
@@ -1954,7 +2066,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 			if (rootAsPObjectNode.getChildCount() > 0)
 			{
-				fireTreeNodesChanged(super.getRoot(), new TreePath(super.getRoot()));
+				fireTreeNodesChanged(super.getRoot(), new TreePath(super
+					.getRoot()));
 			}
 		}
 
@@ -1972,56 +2085,61 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			}
 
 			return (modelType == 1)
-					|| (aClass.getVisibility().equals(Visibility.DEFAULT) && accept(
-							pc, aClass));
+				|| (aClass.getVisibility().equals(Visibility.DEFAULT) && accept(
+					pc, aClass));
 		}
 
-		public List<String> getMColumnList() 
+		public List<String> getMColumnList()
 		{
 			List<String> retList = new ArrayList<String>();
-			for(int i = 1; i < colNameList.length; i++) {
+			for (int i = 1; i < colNameList.length; i++)
+			{
 				retList.add(colNameList[i]);
 			}
 			return retList;
 		}
 
-		public boolean isMColumnDisplayed(int col) 
+		public boolean isMColumnDisplayed(int col)
 		{
 			return (displayList.get(col)).booleanValue();
 		}
 
-		public void setMColumnDisplayed(int col, boolean disp) 
+		public void setMColumnDisplayed(int col, boolean disp)
 		{
 			setColumnViewOption(modelType + "." + colNameList[col], disp);
 			displayList.set(col, Boolean.valueOf(disp));
 		}
 
-		public int getMColumnOffset() 
+		public int getMColumnOffset()
 		{
 			return 1;
 		}
 
-		public int getMColumnDefaultWidth(int col) 
+		public int getMColumnDefaultWidth(int col)
 		{
-			return SettingsHandler.getPCGenOption("InfoClasses.sizecol." + colNameList[col], colDefaultWidth[col]);
+			return SettingsHandler.getPCGenOption("InfoClasses.sizecol."
+				+ colNameList[col], colDefaultWidth[col]);
 		}
 
-		public void setMColumnDefaultWidth(int col, int width) 
+		public void setMColumnDefaultWidth(int col, int width)
 		{
-			SettingsHandler.setPCGenOption("InfoClasses.sizecol." + colNameList[col], width);
+			SettingsHandler.setPCGenOption("InfoClasses.sizecol."
+				+ colNameList[col], width);
 		}
 
-		private boolean getColumnViewOption(String colName, boolean defaultVal) 
+		private boolean getColumnViewOption(String colName, boolean defaultVal)
 		{
-			return SettingsHandler.getPCGenOption("InfoClasses.viewcol." + colName, defaultVal);
+			return SettingsHandler.getPCGenOption("InfoClasses.viewcol."
+				+ colName, defaultVal);
 		}
 
-		private void setColumnViewOption(String colName, boolean val) 
+		private void setColumnViewOption(String colName, boolean val)
 		{
-			SettingsHandler.setPCGenOption("InfoClasses.viewcol." + colName, val);
+			SettingsHandler.setPCGenOption("InfoClasses.viewcol." + colName,
+				val);
 		}
 
-		public void resetMColumn(int col, TableColumn column) 
+		public void resetMColumn(int col, TableColumn column)
 		{
 			// TODO Auto-generated method stub
 
@@ -2039,46 +2157,48 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			menu = aMenu;
 
 			KeyListener myKeyListener = new KeyListener()
+			{
+				public void keyTyped(KeyEvent e)
 				{
-					public void keyTyped(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
+					dispatchEvent(e);
+				}
 
-					public void keyPressed(KeyEvent e)
-					{
-						final int keyCode = e.getKeyCode();
+				public void keyPressed(KeyEvent e)
+				{
+					final int keyCode = e.getKeyCode();
 
-						if (keyCode != KeyEvent.VK_UNDEFINED)
+					if (keyCode != KeyEvent.VK_UNDEFINED)
+					{
+						final KeyStroke keyStroke =
+								KeyStroke.getKeyStrokeForEvent(e);
+
+						for (int i = 0; i < menu.getComponentCount(); i++)
 						{
-							final KeyStroke keyStroke = KeyStroke.getKeyStrokeForEvent(e);
-
-							for (int i = 0; i < menu.getComponentCount(); i++)
+							final Object obj = menu.getComponent(i);
+							if (obj instanceof JMenuItem)
 							{
-								final Object obj = menu.getComponent(i);
-								if (obj instanceof JMenuItem)
+								KeyStroke ks =
+										((JMenuItem) obj).getAccelerator();
+
+								if ((ks != null) && keyStroke.equals(ks))
 								{
-									KeyStroke ks = ((JMenuItem)obj).getAccelerator();
+									selPath = tree.getSelectionPath();
+									((JMenuItem) obj).doClick(2);
 
-									if ((ks != null) && keyStroke.equals(ks))
-									{
-										selPath = tree.getSelectionPath();
-										((JMenuItem)obj).doClick(2);
-
-										return;
-									}
+									return;
 								}
 							}
 						}
-
-						dispatchEvent(e);
 					}
 
-					public void keyReleased(KeyEvent e)
-					{
-						dispatchEvent(e);
-					}
-				};
+					dispatchEvent(e);
+				}
+
+				public void keyReleased(KeyEvent e)
+				{
+					dispatchEvent(e);
+				}
+			};
 
 			treeTable.addKeyListener(myKeyListener);
 		}
@@ -2097,7 +2217,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		{
 			if (evt.isPopupTrigger())
 			{
-				selPath = tree.getClosestPathForLocation(evt.getX(), evt.getY());
+				selPath =
+						tree.getClosestPathForLocation(evt.getX(), evt.getY());
 
 				if (selPath == null)
 				{
@@ -2133,19 +2254,22 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 *
 				 */
-				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_add1"), "shortcut EQUALS"));
+				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_add1"), "shortcut EQUALS"));
 				this.addSeparator();
 				ClassPopupMenu.this.add(Utility.createMenuItem("Find item",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					true));
 			}
 
-			else // selectedTable
+			else
+			// selectedTable
 			{
 				/*
 				 * jikes says:
@@ -2160,31 +2284,37 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 */
-				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_add1"), "shortcut EQUALS"));
-				ClassPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_remove1"), "shortcut MINUS"));
+				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory
+					.getString("in_add1"), "shortcut EQUALS"));
+				ClassPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+					.getString("in_remove1"), "shortcut MINUS"));
 				this.addSeparator();
 				ClassPopupMenu.this.add(Utility.createMenuItem("Find item",
-						new ActionListener()
+					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null, true));
+					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					true));
 			}
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddClassActionListener(), PropertyFactory.getString("in_add1"),
-				(char) 0, accelerator, PropertyFactory.getString("in_add1lvl"), "Add16.gif", true);
+			return Utility.createMenuItem(label, new AddClassActionListener(),
+				PropertyFactory.getString("in_add1"), (char) 0, accelerator,
+				PropertyFactory.getString("in_add1lvl"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveClassActionListener(),
-				PropertyFactory.getString("in_remove1"), (char) 0, accelerator,
-				PropertyFactory.getString("in_remove1lvl"), "Remove16.gif", true);
+			return Utility.createMenuItem(label,
+				new RemoveClassActionListener(), PropertyFactory
+					.getString("in_remove1"), (char) 0, accelerator,
+				PropertyFactory.getString("in_remove1lvl"), "Remove16.gif",
+				true);
 		}
 
 		private class AddClassActionListener extends ClassActionListener
@@ -2239,8 +2369,10 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 		public void componentResized(ComponentEvent e)
 		{
-			bsplit.setDividerLocation((int) (InfoClasses.this.getSize().getHeight() - 140));
-			asplit.setDividerLocation((int) (InfoClasses.this.getSize().getWidth() - 334));
+			bsplit.setDividerLocation((int) (InfoClasses.this.getSize()
+				.getHeight() - 140));
+			asplit.setDividerLocation((int) (InfoClasses.this.getSize()
+				.getWidth() - 334));
 		}
 	}
 
@@ -2268,7 +2400,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			experienceFocusLost();
 			return valueOk;
 		}
-		
+
 		public boolean verify(JComponent input)
 		{
 			return true;
@@ -2303,8 +2435,10 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 	{
 		public void actionPerformed(ActionEvent evt)
 		{
-			String selectedValue = JOptionPane.showInputDialog(null, PropertyFactory.getString("in_clEnterXP"),
-					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
+			String selectedValue =
+					JOptionPane.showInputDialog(null, PropertyFactory
+						.getString("in_clEnterXP"), Constants.s_APPNAME,
+						JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
 			{
@@ -2317,11 +2451,12 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 						experience.setValue(x);
 					}
 
-				//experienceFocusLost(null); // force xp messages as neccessary
+					//experienceFocusLost(null); // force xp messages as neccessary
 				}
 				catch (NumberFormatException e)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clInvalidNum"), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_clInvalidNum"), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
@@ -2330,7 +2465,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 	}
 
-	private class AvailableListSelectionListener implements ListSelectionListener
+	private class AvailableListSelectionListener implements
+			ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -2348,13 +2484,16 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					return;
 				}
 
-				Object temp = availableTable.getTree().getPathForRow(idx).getLastPathComponent();
+				Object temp =
+						availableTable.getTree().getPathForRow(idx)
+							.getLastPathComponent();
 
 				/////////////////////////
 				if (temp == null)
 				{
 					lastClass = null;
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_clNoClass"), Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(PropertyFactory
+						.getString("in_clNoClass"), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
@@ -2380,7 +2519,8 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 		}
 	}
 
-	private class SelectedListSelectionListener implements ListSelectionListener
+	private class SelectedListSelectionListener implements
+			ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -2398,7 +2538,9 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 					return;
 				}
 
-				Object temp = selectedTable.getTree().getPathForRow(idx).getLastPathComponent();
+				Object temp =
+						selectedTable.getTree().getPathForRow(idx)
+							.getLastPathComponent();
 
 				/////////////////////////
 				if (temp == null)
@@ -2432,7 +2574,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private class AvailableClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() 
+		public void singleClickEvent()
 		{
 			// Do Nothing
 		}
@@ -2449,6 +2591,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 				}
 			});
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);
@@ -2457,7 +2600,7 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 
 	private class SelectedClickHandler implements ClickHandler
 	{
-		public void singleClickEvent() 
+		public void singleClickEvent()
 		{
 			// Do nothing
 		}
@@ -2470,10 +2613,11 @@ public final class InfoClasses extends FilterAdapterPanel implements CharacterIn
 			{
 				public void run()
 				{
-					addClass( -1);
+					addClass(-1);
 				}
 			});
 		}
+
 		public boolean isSelectable(Object obj)
 		{
 			return !(obj instanceof String);

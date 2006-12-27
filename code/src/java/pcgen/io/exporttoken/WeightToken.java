@@ -67,7 +67,8 @@ public class WeightToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		String retString = "";
 
@@ -79,10 +80,13 @@ public class WeightToken extends Token
 		{
 			retString = getNoUnitToken(pc);
 		}
-		else 
+		else
 		{
-			String type = tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
-			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getLoadToken(type , pc));
+			String type =
+					tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
+			retString =
+					Globals.getGameModeUnitSet().displayWeightInUnitSet(
+						getLoadToken(type, pc));
 		}
 
 		return retString;
@@ -96,14 +100,18 @@ public class WeightToken extends Token
 	 */
 	public static double getLoadToken(String type, PlayerCharacter pc)
 	{
-		Float mult = SystemCollections.getLoadInfo().getLoadMultiplier(type.toUpperCase());
+		Float mult =
+				SystemCollections.getLoadInfo().getLoadMultiplier(
+					type.toUpperCase());
 		if (mult != null)
 		{
-			return Globals.maxLoadForLoadScore(pc.getVariableValue("LOADSCORE", "").intValue(), pc, mult).intValue();
+			return Globals.maxLoadForLoadScore(
+				pc.getVariableValue("LOADSCORE", "").intValue(), pc, mult)
+				.intValue();
 		}
 		return 0.0;
 	}
-	
+
 	/**
 	 * Get the value of the weight token without units.
 	 *
@@ -112,7 +120,8 @@ public class WeightToken extends Token
 	 */
 	public static String getNoUnitToken(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(pc.getWeight());
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
+			pc.getWeight());
 	}
 
 	/**
@@ -123,6 +132,8 @@ public class WeightToken extends Token
 	 */
 	public static String getWeightToken(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(pc.getWeight()) + Globals.getGameModeUnitSet().getWeightUnit();
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
+			pc.getWeight())
+			+ Globals.getGameModeUnitSet().getWeightUnit();
 	}
 }

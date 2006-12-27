@@ -52,7 +52,8 @@ public final class JTreeTableSorter
 	 * @param obj
 	 * @param model
 	 */
-	public JTreeTableSorter(JTreeTable table, PObjectNode obj, AbstractTreeTableModel model)
+	public JTreeTableSorter(JTreeTable table, PObjectNode obj,
+		AbstractTreeTableModel model)
 	{
 		tableModel = model;
 
@@ -62,35 +63,41 @@ public final class JTreeTableSorter
 		table.setColumnSelectionAllowed(false);
 
 		MouseAdapter listMouseListener = new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
 			{
-				public void mouseClicked(MouseEvent e)
+				final TableColumnModel columnModel = tableView.getColumnModel();
+				final int viewColumn = columnModel.getColumnIndexAtX(e.getX());
+				final int column =
+						tableView.convertColumnIndexToModel(viewColumn);
+
+				if ((e.getClickCount() == 1) && (column > -1))
 				{
-					final TableColumnModel columnModel = tableView.getColumnModel();
-					final int viewColumn = columnModel.getColumnIndexAtX(e.getX());
-					final int column = tableView.convertColumnIndexToModel(viewColumn);
-
-					if ((e.getClickCount() == 1) && (column > -1))
+					if (tmodel.getColumnClass(column).isAssignableFrom(
+						Integer.class))
 					{
-						if (tmodel.getColumnClass(column).isAssignableFrom(Integer.class))
-						{
-							// JTreeTableSorter.this.mode = 1;
-						}
-						else if (tmodel.getColumnClass(column).isAssignableFrom(Float.class))
-						{
-							// JTreeTableSorter.this.mode = 2;
-						}
-						else
-						{
-							// JTreeTableSorter.this.mode = 0;
-						}
-
-						sortNodeOnColumn(JTreeTableSorter.this.root, column, e.getModifiers() & InputEvent.SHIFT_MASK);
-						JTreeTableSorter.this.prevCol = column;
-						JTreeTableSorter.this.prevAscending = e.getModifiers() & InputEvent.SHIFT_MASK;
-						updateSortModel();
+						// JTreeTableSorter.this.mode = 1;
 					}
+					else if (tmodel.getColumnClass(column).isAssignableFrom(
+						Float.class))
+					{
+						// JTreeTableSorter.this.mode = 2;
+					}
+					else
+					{
+						// JTreeTableSorter.this.mode = 0;
+					}
+
+					sortNodeOnColumn(JTreeTableSorter.this.root, column, e
+						.getModifiers()
+						& InputEvent.SHIFT_MASK);
+					JTreeTableSorter.this.prevCol = column;
+					JTreeTableSorter.this.prevAscending =
+							e.getModifiers() & InputEvent.SHIFT_MASK;
+					updateSortModel();
 				}
-			};
+			}
+		};
 
 		JTableHeader th = table.getTableHeader();
 		th.addMouseListener(listMouseListener);
@@ -114,7 +121,8 @@ public final class JTreeTableSorter
 		return sortNodeOnColumn(root, prevCol, prevAscending);
 	}
 
-	private PObjectNode sortNodeOnColumn(PObjectNode node, int col, int ascending)
+	private PObjectNode sortNodeOnColumn(PObjectNode node, int col,
+		int ascending)
 	{
 		List<PObjectNode> master = node.getChildren();
 
@@ -124,7 +132,8 @@ public final class JTreeTableSorter
 		}
 
 		// Inefficient!  XXX
-		List<List<Object>> itemsToSort = new ArrayList<List<Object>>(master.size());
+		List<List<Object>> itemsToSort =
+				new ArrayList<List<Object>>(master.size());
 
 		for (int i = 0; i < master.size(); i++)
 		{
@@ -144,15 +153,17 @@ public final class JTreeTableSorter
 				Logging.errorPrint("", exc);
 			}
 
-//			if (pir == null)
-//			{
-//				continue;
-//			}
+			//			if (pir == null)
+			//			{
+			//				continue;
+			//			}
 
 			if (pir instanceof String)
 			{
 				// color coding is done before a pipe |, ignore that for sorting purposes.
-				pir = pir.toString().substring(pir.toString().lastIndexOf("|") + 1);
+				pir =
+						pir.toString().substring(
+							pir.toString().lastIndexOf("|") + 1);
 			}
 
 			sortItem.add(pir);
@@ -160,63 +171,68 @@ public final class JTreeTableSorter
 		}
 
 		isAscending = ascending == 0;
-		Collections.sort(itemsToSort,
-			new Comparator<Object>()
+		Collections.sort(itemsToSort, new Comparator<Object>()
+		{
+			public int compare(Object obj1, Object obj2)
 			{
-				public int compare(Object obj1, Object obj2)
+				final Object o1 = ((ArrayList) obj1).get(1);
+				final Object o2 = ((ArrayList) obj2).get(1);
+				int iRet = -1;
+
+				if (o1 == null || o2 == null)
 				{
-					final Object o1 = ((ArrayList) obj1).get(1);
-					final Object o2 = ((ArrayList) obj2).get(1);
-					int iRet = -1;
-
-					if (o1 == null || o2 == null)
-					{
-						return 0;
-					}
-
-					//Globals.debugPrint("obj1:" + o1.getClass().getName() + ":" + o1 + "  obj2:" + o2.getClass().getName() + ":" + o2);
-					if (o1 instanceof Integer)
-					{
-						iRet = ((Integer) o1).compareTo((Integer) o2);
-					}
-					else if (o1 instanceof String)
-					{
-						String s1 = stripHTML((String)o1);
-						String s2 = stripHTML((String)o2);
-						iRet = s1.compareToIgnoreCase(s2);
-					}
-					else if (o1 instanceof Float)
-					{
-						iRet = ((Float) o1).compareTo((Float) o2);
-					}
-					else if (o1 instanceof BigDecimal)
-					{
-						iRet = ((BigDecimal) o1).compareTo((BigDecimal) o2);
-					}
-					else
-					{
-						Logging.errorPrint("JTreeTableSorter: unknown compare class: " + o1.getClass().getName());
-					}
-
-					if (!isAscending)
-					{
-						iRet *= -1;
-					}
-
-					return iRet;
+					return 0;
 				}
 
-				private String stripHTML(String string) {
-					int index = string.indexOf('<');
-					int endIndex = string.indexOf('>');
-					while (index != -1 && endIndex != -1) {
-						string = string.substring(0,index) + string.substring(endIndex+1);
-						index = string.indexOf('<');
-						endIndex = string.indexOf('>');
-					}
-					return string;
+				//Globals.debugPrint("obj1:" + o1.getClass().getName() + ":" + o1 + "  obj2:" + o2.getClass().getName() + ":" + o2);
+				if (o1 instanceof Integer)
+				{
+					iRet = ((Integer) o1).compareTo((Integer) o2);
 				}
-			});
+				else if (o1 instanceof String)
+				{
+					String s1 = stripHTML((String) o1);
+					String s2 = stripHTML((String) o2);
+					iRet = s1.compareToIgnoreCase(s2);
+				}
+				else if (o1 instanceof Float)
+				{
+					iRet = ((Float) o1).compareTo((Float) o2);
+				}
+				else if (o1 instanceof BigDecimal)
+				{
+					iRet = ((BigDecimal) o1).compareTo((BigDecimal) o2);
+				}
+				else
+				{
+					Logging
+						.errorPrint("JTreeTableSorter: unknown compare class: "
+							+ o1.getClass().getName());
+				}
+
+				if (!isAscending)
+				{
+					iRet *= -1;
+				}
+
+				return iRet;
+			}
+
+			private String stripHTML(String string)
+			{
+				int index = string.indexOf('<');
+				int endIndex = string.indexOf('>');
+				while (index != -1 && endIndex != -1)
+				{
+					string =
+							string.substring(0, index)
+								+ string.substring(endIndex + 1);
+					index = string.indexOf('<');
+					endIndex = string.indexOf('>');
+				}
+				return string;
+			}
+		});
 
 		for (int i = 0; i < itemsToSort.size(); i++)
 		{

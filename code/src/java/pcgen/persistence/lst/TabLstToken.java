@@ -34,12 +34,14 @@ import pcgen.core.GameMode;
  *
  * @author  Devon Jones <soulcatcher@evilsoft.org>
  */
-public interface TabLstToken extends LstToken {
+public interface TabLstToken extends LstToken
+{
 	/**
 	 * @param gameMode
 	 * @param tab
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(GameMode gameMode, Map<String, String> tab, String value);
+	public abstract boolean parse(GameMode gameMode, Map<String, String> tab,
+		String value);
 }

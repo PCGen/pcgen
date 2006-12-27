@@ -37,10 +37,10 @@ public class ACCheckToken extends Token
 	/** Name of the Token */
 	public static final String TOKENNAME = "ACCHECK";
 
-    /**
-     * Return the token name
-     * @return token name
-     */
+	/**
+	 * Return the token name
+	 * @return token name
+	 */
 	@Override
 	public String getTokenName()
 	{
@@ -51,7 +51,8 @@ public class ACCheckToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc,
+		ExportHandler eh)
 	{
 		return Delta.toString(getACCheckToken(tokenSource, pc));
 	}

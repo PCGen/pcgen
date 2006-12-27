@@ -37,9 +37,8 @@ import java.util.Iterator;
  * @author wardc
  *
  */
-public abstract class AbstractPrerequisiteListParser
-	extends AbstractPrerequisiteParser
-	implements PrerequisiteParserInterface
+public abstract class AbstractPrerequisiteListParser extends
+		AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 
 	/**
@@ -79,22 +78,24 @@ public abstract class AbstractPrerequisiteListParser
 		}
 	}
 
-    /**
-     * Parse the pre req list
-     * 
-     * @param kind 
-     * @param formula 
-     * @param invertResult 
-     * @param overrideQualify 
-     * @return PreReq 
-     * @throws PersistenceLayerException 
-     */
+	/**
+	 * Parse the pre req list
+	 * 
+	 * @param kind 
+	 * @param formula 
+	 * @param invertResult 
+	 * @param overrideQualify 
+	 * @return PreReq 
+	 * @throws PersistenceLayerException 
+	 */
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula,
+		boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
 
-		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq =
+				super.parse(kind, formula, invertResult, overrideQualify);
 		parsePrereqListType(prereq, kind, formula);
 
 		if (invertResult)
@@ -104,7 +105,8 @@ public abstract class AbstractPrerequisiteListParser
 		return prereq;
 	}
 
-	protected void parsePrereqListType(Prerequisite prereq, String kind, String formula)
+	protected void parsePrereqListType(Prerequisite prereq, String kind,
+		String formula)
 	{
 		// CLASS:Spellcaster=3
 		// <prereq kind="class" key="Spellcaster" min="3" />
@@ -181,7 +183,6 @@ public abstract class AbstractPrerequisiteListParser
 				}
 			}
 
-
 			// tokens now contains all of the possible matches,
 			// min contains the target number (if there is one)
 			// number contains the number of 'tokens' that be be at lease 'min'
@@ -217,7 +218,9 @@ public abstract class AbstractPrerequisiteListParser
 							subreq.setKey(tokens[0]);
 
 							// now back fill all of the previous prereqs with this minium
-							for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter.hasNext();)
+							for (Iterator<Prerequisite> iter =
+									prereq.getPrerequisites().iterator(); iter
+								.hasNext();)
 							{
 								Prerequisite element = iter.next();
 								if (element.getOperand().equals("-99"))
@@ -263,7 +266,7 @@ public abstract class AbstractPrerequisiteListParser
 
 				if (elementsLength > 1)
 				{
-					for(int i = 1; i < elements.length; ++i)
+					for (int i = 1; i < elements.length; ++i)
 					{
 						if ("CHECKMULT".equalsIgnoreCase(elements[i]))
 						{
@@ -283,8 +286,10 @@ public abstract class AbstractPrerequisiteListParser
 									//
 									// If we would lose the required number of matches, then make this a PREMULT
 									//
-									prereq.setOperator(PrerequisiteOperator.GTEQ);
-									prereq.setOperand(Integer.toString(numRequired));
+									prereq
+										.setOperator(PrerequisiteOperator.GTEQ);
+									prereq.setOperand(Integer
+										.toString(numRequired));
 									prereq.setKind(null);
 									subreq = new Prerequisite();
 									prereq.addPrerequisite(subreq);
@@ -318,7 +323,8 @@ public abstract class AbstractPrerequisiteListParser
 		}
 	}
 
-	protected void parsePrereqOldStyleList(Prerequisite prereq, String kind, String formula)
+	protected void parsePrereqOldStyleList(Prerequisite prereq, String kind,
+		String formula)
 	{
 		// TEMPLATE:Cyrohydra|Lernaean Cryohydra
 		// <prereq min="1">
@@ -398,7 +404,8 @@ public abstract class AbstractPrerequisiteListParser
 
 			int lastEqIdx = -1;
 
-			ArrayList<Prerequisite> prereqs = new ArrayList<Prerequisite>(templatesLength);
+			ArrayList<Prerequisite> prereqs =
+					new ArrayList<Prerequisite>(templatesLength);
 			for (int i = 0; i < templates.length; ++i)
 			{
 				if ("CHECKMULT".equalsIgnoreCase(templates[i]))
@@ -417,7 +424,7 @@ public abstract class AbstractPrerequisiteListParser
 					//
 					// Need to go back through the prereq list and update the operand for all those without one
 					//
-					for(int updateIdx = lastEqIdx + 1; updateIdx < i; ++updateIdx)
+					for (int updateIdx = lastEqIdx + 1; updateIdx < i; ++updateIdx)
 					{
 						prereqs.get(updateIdx).setOperand(oper);
 					}

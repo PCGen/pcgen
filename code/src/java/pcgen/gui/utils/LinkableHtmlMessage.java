@@ -34,10 +34,12 @@ import java.awt.event.*;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class LinkableHtmlMessage extends JDialog implements ActionListener
+public final class LinkableHtmlMessage extends JDialog implements
+		ActionListener
 {
 	static final long serialVersionUID = -3678273627369325170L;
-	private static final String HTML_START = "<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
+	private static final String HTML_START =
+			"<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
 	private static final String HTML_END = "</body></html>";
 	private JButton btnClose;
 
@@ -49,7 +51,8 @@ public final class LinkableHtmlMessage extends JDialog implements ActionListener
 	 * @param msg
 	 * @param title
 	 */
-	public LinkableHtmlMessage(final Frame owner, final String msg, final String title)
+	public LinkableHtmlMessage(final Frame owner, final String msg,
+		final String title)
 	{
 		super(owner, title, true);
 		commonInit(msg);
@@ -62,7 +65,8 @@ public final class LinkableHtmlMessage extends JDialog implements ActionListener
 	 * @param msg
 	 * @param title
 	 */
-	public LinkableHtmlMessage(final Dialog owner, final String msg, final String title)
+	public LinkableHtmlMessage(final Dialog owner, final String msg,
+		final String title)
 	{
 		super(owner, title, true);
 		commonInit(msg);
@@ -76,7 +80,8 @@ public final class LinkableHtmlMessage extends JDialog implements ActionListener
 
 	public void setVisible(boolean b)
 	{
-		if(b) {
+		if (b)
+		{
 			btnClose.grabFocus();
 		}
 		super.setVisible(b);
@@ -84,7 +89,7 @@ public final class LinkableHtmlMessage extends JDialog implements ActionListener
 
 	private void commonInit(final String msg)
 	{
-//		CoreUtility.maybeSetIcon(this, "PcgenIcon.gif");
+		//		CoreUtility.maybeSetIcon(this, "PcgenIcon.gif");
 		// initialize the interface
 		initUI();
 
@@ -103,7 +108,9 @@ public final class LinkableHtmlMessage extends JDialog implements ActionListener
 				break;
 			}
 
-			newMsg = newMsg.substring(0, idx) + "<br>" + newMsg.substring(idx + 1);
+			newMsg =
+					newMsg.substring(0, idx) + "<br>"
+						+ newMsg.substring(idx + 1);
 		}
 
 		msgText.setBackground(btnClose.getBackground());
@@ -158,26 +165,27 @@ public final class LinkableHtmlMessage extends JDialog implements ActionListener
 		cont.add(buttons, gc);
 
 		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
 			{
-				public void windowClosing(WindowEvent e)
-				{
-					quit();
-				}
-			});
+				quit();
+			}
+		});
 
 		//
 		// Allow enter and escape to close the window
 		//
 		btnClose.addKeyListener(new KeyAdapter()
+		{
+			public void keyPressed(KeyEvent e)
 			{
-				public void keyPressed(KeyEvent e)
+				if ((e.getKeyCode() == KeyEvent.VK_ESCAPE)
+					|| (e.getKeyCode() == KeyEvent.VK_ENTER))
 				{
-					if ((e.getKeyCode() == KeyEvent.VK_ESCAPE) || (e.getKeyCode() == KeyEvent.VK_ENTER))
-					{
-						quit();
-					}
+					quit();
 				}
-			});
+			}
+		});
 	}
 
 	// close the dialog

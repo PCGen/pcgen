@@ -49,23 +49,24 @@ public final class InfoRace extends TabContainer
 	public InfoRace(final PlayerCharacter aPC)
 	{
 		super(aPC);
-		
-		addSubTab( new InfoRaces(aPC) );
-		addSubTab( new InfoTemplates(aPC) );
+
+		addSubTab(new InfoRaces(aPC));
+		addSubTab(new InfoTemplates(aPC));
 	}
 
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#getTabOrder()
 	 */
-	public int getTabOrder() 
+	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
+		return SettingsHandler.getPCGenOption(
+			".Panel.Race.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	/**
 	 * @see pcgen.gui.CharacterInfoTab#setTabOrder(int)
 	 */
-	public void setTabOrder(final int order) 
+	public void setTabOrder(final int order)
 	{
 		SettingsHandler.setPCGenOption(".Panel.Race.Order", order); //$NON-NLS-1$
 	}

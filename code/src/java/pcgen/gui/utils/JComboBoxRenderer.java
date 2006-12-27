@@ -40,8 +40,8 @@ public class JComboBoxRenderer extends JComboBoxEx implements TableCellRenderer
 		super(objects);
 	}
 
-	public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus,
-	    int row, int column)
+	public Component getTableCellRendererComponent(JTable jTable, Object value,
+		boolean isSelected, boolean hasFocus, int row, int column)
 	{
 		if (value == null)
 		{

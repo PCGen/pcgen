@@ -51,10 +51,11 @@ import pcgen.util.enumeration.Tab;
  * @author  Greg Bingleman (byngl@hotmail.com)
  * @version $Revision$
  */
-public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterInfoTab
+public class InfoNaturalWeapons extends FilterAdapterPanel implements
+		CharacterInfoTab
 {
 	static final long serialVersionUID = 7796493138427983908L;
-	
+
 	private static final Tab tab = Tab.NATWEAPONS;
 	private static boolean needsUpdate = true;
 	private JScrollPane scpNaturalAttacks;
@@ -79,7 +80,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 	public void setPc(PlayerCharacter pc)
 	{
-		if(this.pc != pc || pc.getSerial() > serial)
+		if (this.pc != pc || pc.getSerial() > serial)
 		{
 			this.pc = pc;
 			serial = pc.getSerial();
@@ -94,7 +95,8 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.NaturalWeapons.Order", tab.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.NaturalWeapons.Order",
+			tab.ordinal());
 	}
 
 	public void setTabOrder(int order)
@@ -126,7 +128,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 	public void refresh()
 	{
-		if(pc.getSerial() > serial)
+		if (pc.getSerial() > serial)
 		{
 			serial = pc.getSerial();
 			forceRefresh();
@@ -135,7 +137,7 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 	public void forceRefresh()
 	{
-		if(readyForRefresh)
+		if (readyForRefresh)
 		{
 			needsUpdate = true;
 			updateCharacterInfo();
@@ -227,7 +229,8 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 			naturalWeapons.add(eq);
 		}
 
-		DefaultTableModel tblModel = (DefaultTableModel) tblNaturalAttacks.getModel();
+		DefaultTableModel tblModel =
+				(DefaultTableModel) tblNaturalAttacks.getModel();
 
 		//
 		// Clear out existing contents of table
@@ -246,22 +249,22 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 		if (weaponCount >= 1)
 		{
-//System.err.println("before: " + naturalWeapons);
-			Collections.sort(naturalWeapons,
-				new Comparator<Object>()
+			//System.err.println("before: " + naturalWeapons);
+			Collections.sort(naturalWeapons, new Comparator<Object>()
+			{
+				public final int compare(final Object o1, final Object o2)
 				{
-					public final int compare(final Object o1, final Object o2)
+					if (((Equipment) o1).isType("Primary"))
 					{
-						if (((Equipment) o1).isType("Primary"))
-						{
-							return -1;
-						}
-
-						return ((Equipment) o1).getName().compareToIgnoreCase(((Equipment) o2).getName());
+						return -1;
 					}
-				});
 
-//System.err.println("after: " + naturalWeapons);
+					return ((Equipment) o1).getName().compareToIgnoreCase(
+						((Equipment) o2).getName());
+				}
+			});
+
+			//System.err.println("after: " + naturalWeapons);
 		}
 
 		final int meleeBonus = (int) pc.getStatBonusTo("TOHIT", "TYPE=MELEE");
@@ -275,7 +278,9 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		{
 			eq = naturalWeapons.get(i);
 
-			final int wpBonus = (int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc), "TOHIT");
+			final int wpBonus =
+					(int) pc.getTotalBonusTo("WEAPONPROF=" + eq.profKey(pc),
+						"TOHIT");
 
 			Object[] newRow = new Object[7];
 			newRow[0] = eq.getName(); // Attack
@@ -286,7 +291,9 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 
 			if (!eq.isType("Primary"))
 			{
-				toHit -= (5 - (int) pc.getTotalBonusTo("COMBAT", "TOHIT-SECONDARY"));
+				toHit -=
+						(5 - (int) pc.getTotalBonusTo("COMBAT",
+							"TOHIT-SECONDARY"));
 			}
 			else
 			{
@@ -322,7 +329,8 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 				// TODO: This bit of code will not return the correct value if the creature
 				// has a choice of one of two primary attacks. eg. 1 Slam OR 1 Trample
 				//
-				if (eq.isType("Primary") && (naturalWeapons.size() == 1) && ((int) eq.qty() == 1))
+				if (eq.isType("Primary") && (naturalWeapons.size() == 1)
+					&& ((int) eq.qty() == 1))
 				{
 					if (!eq.isRanged())
 					{
@@ -365,39 +373,37 @@ public class InfoNaturalWeapons extends FilterAdapterPanel implements CharacterI
 		setLayout(new BorderLayout());
 
 		tblNaturalAttacks.setBackground(getBackground());
-		tblNaturalAttacks.setModel(new DefaultTableModel(
-				new String[]
-				{
-					"Attack", "#", "To-Hit Modifier", "Damage/Attack", "Excludes Weapons", "Iterative BAB", "Enabled"
-				}, 0)
+		tblNaturalAttacks.setModel(new DefaultTableModel(new String[]{"Attack",
+			"#", "To-Hit Modifier", "Damage/Attack", "Excludes Weapons",
+			"Iterative BAB", "Enabled"}, 0)
+		{
+			Class[] types =
+					new Class[]{String.class, Integer.class, String.class,
+						String.class, Boolean.class, Boolean.class,
+						Boolean.class};
+			boolean[] canEdit =
+					new boolean[]{false, false, false, false, true, true, true};
+
+			public Class<?> getColumnClass(int columnIndex)
 			{
-				Class[] types = new Class[]
-					{
-						String.class, Integer.class, String.class, String.class, Boolean.class, Boolean.class,
-						Boolean.class
-					};
-				boolean[] canEdit = new boolean[]{ false, false, false, false, true, true, true };
+				return types[columnIndex];
+			}
 
-				public Class<?> getColumnClass(int columnIndex)
-				{
-					return types[columnIndex];
-				}
-
-				public boolean isCellEditable(int rowIndex, int columnIndex)
-				{
-					return canEdit[columnIndex];
-				}
-			});
+			public boolean isCellEditable(int rowIndex, int columnIndex)
+			{
+				return canEdit[columnIndex];
+			}
+		});
 		scpNaturalAttacks.setViewportView(tblNaturalAttacks);
 
 		add(scpNaturalAttacks, BorderLayout.CENTER);
 
 		addFocusListener(new FocusAdapter()
+		{
+			public void focusGained(FocusEvent evt)
 			{
-				public void focusGained(FocusEvent evt)
-				{
-					refresh();
-				}
-			});
+				refresh();
+			}
+		});
 	}
 }
