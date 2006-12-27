@@ -594,18 +594,25 @@ public final class Skill extends PObject
 
 	/**
 	 * Returns the total ranks of a skill
-	 *  rank + bonus ranks (racial, class, etc bonuses)
+	 *  rank + bonus ranks (racial, class, etc bonuses).
+	 * Note that the total ranks could be higher than the max 
+	 * ranks if the ranks come from a familiar's master.
 	 *
 	 * @param aPC
 	 * @return rank + bonus ranks (racial, class, etc. bonuses)
 	 */
 	public Float getTotalRank(final PlayerCharacter aPC)
 	{
-		double ranks = getRank().doubleValue() + getRankAdj(aPC).doubleValue();
-		if (!Globals.checkRule(RuleConstants.SKILLMAX) && aPC.getClassList().size() > 0)
+		double baseRanks = getRank().doubleValue();
+		double ranks = baseRanks + getRankAdj(aPC).doubleValue();
+		if (!Globals.checkRule(RuleConstants.SKILLMAX)
+			&& aPC.getClassList().size() > 0)
 		{
-			ranks = Math.min(aPC.getMaxRank(getKeyName(), aPC.getClassList().get(0)).doubleValue(), 
-							 ranks);
+			double maxRanks =
+					aPC.getMaxRank(getKeyName(), aPC.getClassList().get(0))
+						.doubleValue();
+			maxRanks = Math.max(maxRanks, baseRanks);
+			ranks = Math.min(maxRanks, ranks);
 		}
 		return new Float(ranks);
 	}

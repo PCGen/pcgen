@@ -2089,7 +2089,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 						{
 							// first zero current
 							fSkill.setZeroRanks(aClass, this);
-							fSkill.modRanks(mSkill.getRank().doubleValue(), aClass, true, this);
+							// We don't pass in a class here so that the real skills can be distinguished from the ones from the master.
+							fSkill.modRanks(mSkill.getRank().doubleValue(), null, true, this);
 						}
 					}
 
@@ -2115,7 +2116,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 					continue;
 				}
 
-				newSkill.modRanks(sr, aClass, true, this);
+				// We don't pass in a class here so that the real skills can be distinguished from the ones form the master.
+				newSkill.modRanks(sr, null, true, this);
 				getSkillList().add(newSkill);
 			}
 		}
