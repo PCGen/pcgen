@@ -73,7 +73,7 @@ public class PreClassWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRECLASS:1,");
+			writer.write("PRECLASS:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 			writer.write('=');
 			writer.write(prereq.getOperand());

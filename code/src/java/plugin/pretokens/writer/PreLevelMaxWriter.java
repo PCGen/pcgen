@@ -73,7 +73,7 @@ public class PreLevelMaxWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRELEVELMAX:");
+			writer.write("PRELEVELMAX:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

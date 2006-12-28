@@ -73,7 +73,7 @@ public class PreDefaultMonsterWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREDEFAULTMONSTER:");
+			writer.write("PREDEFAULTMONSTER:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

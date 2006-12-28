@@ -76,7 +76,7 @@ public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREUATT:");
+			writer.write("PREUATT:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

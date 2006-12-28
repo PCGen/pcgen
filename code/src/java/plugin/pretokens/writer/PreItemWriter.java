@@ -73,7 +73,7 @@ public class PreItemWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREITEM:1,");
+			writer.write("PREITEM:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

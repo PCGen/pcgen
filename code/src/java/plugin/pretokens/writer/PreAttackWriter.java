@@ -38,7 +38,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * Writer for PREATTACK  
+ * Writer for PREATTACK
  */
 public class PreAttackWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -74,7 +74,7 @@ public class PreAttackWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREATT:");
+			writer.write("PREATT:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

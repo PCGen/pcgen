@@ -74,7 +74,7 @@ public class PreLanguageWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRELANG:");
+			writer.write("PRELANG:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			writer.write(prereq.getKey());

@@ -73,7 +73,7 @@ public class PreRaceWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRERACE:");
+			writer.write("PRERACE:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

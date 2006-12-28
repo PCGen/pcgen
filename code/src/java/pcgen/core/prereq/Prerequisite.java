@@ -233,7 +233,7 @@ public class Prerequisite implements Cloneable
 		{
 			buf.append(PropertyFactory.getString("Prerequisite.count-multiples")); //$NON-NLS-1$
 		}
-
+		
 		if (totalValues)
 		{
 			buf.append(PropertyFactory.getString("Prerequisite.total-values")); //$NON-NLS-1$
@@ -266,6 +266,11 @@ public class Prerequisite implements Cloneable
 			buf.append("=\""); //$NON-NLS-1$
 			buf.append(operand);
 			buf.append("\" "); //$NON-NLS-1$
+		}
+
+		if (isOverrideQualify())
+		{
+			buf.append(PropertyFactory.getString("Prerequisite.override-qualify")); //$NON-NLS-1$
 		}
 
 		buf.append(">\n"); //$NON-NLS-1$

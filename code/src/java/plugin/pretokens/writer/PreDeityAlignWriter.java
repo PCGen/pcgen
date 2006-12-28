@@ -73,7 +73,7 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREDEITYALIGN:");
+			writer.write("PREDEITYALIGN:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

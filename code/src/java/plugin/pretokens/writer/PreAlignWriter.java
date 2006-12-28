@@ -71,7 +71,7 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREALIGN:");
+			writer.write("PREALIGN:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

@@ -38,7 +38,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * Writes PRETEMPLATE token 
+ * Writes PRETEMPLATE token
  */
 public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -76,7 +76,7 @@ public class PreTemplateWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRETEMPLATE:1,");
+			writer.write("PRETEMPLATE:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

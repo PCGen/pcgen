@@ -75,7 +75,7 @@ public class PreCheckBaseWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PRECHECKBASE:1,");
+			writer.write("PRECHECKBASE:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 			writer.write('=');
 			writer.write(prereq.getOperand());

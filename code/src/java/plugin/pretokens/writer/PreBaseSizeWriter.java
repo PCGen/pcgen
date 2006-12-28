@@ -68,7 +68,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		{
 			writer.write("PREBASESIZE");
 			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(":");
+			writer.write(":" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

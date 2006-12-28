@@ -73,7 +73,7 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLTYPE:");
+			writer.write("PRESPELLTYPE:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			writer.write(prereq.getKey());
@@ -103,7 +103,7 @@ public class PreSpellTypeWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLTYPE:");
+			writer.write("PRESPELLTYPE:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			for (Prerequisite element : prereq.getPrerequisites())
 			{

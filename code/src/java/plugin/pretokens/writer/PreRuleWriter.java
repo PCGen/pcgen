@@ -73,7 +73,7 @@ public class PreRuleWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRERULE:1,");
+			writer.write("PRERULE:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

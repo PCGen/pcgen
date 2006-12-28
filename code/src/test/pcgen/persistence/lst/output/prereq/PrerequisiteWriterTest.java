@@ -200,6 +200,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREWEAPONPROF:1,DEITYWEAPON",													"PREWEAPONPROF:1,DEITYWEAPON",
 		"PREWIELD:1,Light,OneHanded",													"PREMULT:1,[PREWIELD:1,Light],[PREWIELD:1,OneHanded]",
 		"PREWIELD:1,TwoHanded",															"PREWIELD:1,TwoHanded",
+		"PREWIELD:Q:1,TwoHanded",														"PREWIELD:Q:1,TwoHanded",
 
 		"PRERACE:Orc,[%]",																"PREMULT:2,[PRERACE:Orc],[!PRERACE:%]",
 

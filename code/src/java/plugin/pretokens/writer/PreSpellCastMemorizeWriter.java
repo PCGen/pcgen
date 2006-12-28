@@ -73,7 +73,7 @@ public class PreSpellCastMemorizeWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLCAST:MEMORIZE=");
+			writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:":"") + "MEMORIZE=");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

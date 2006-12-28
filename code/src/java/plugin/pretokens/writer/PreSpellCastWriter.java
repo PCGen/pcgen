@@ -73,7 +73,7 @@ public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLCAST:TYPE=");
+			writer.write("PRESPELLCAST:" + (prereq.isOverrideQualify() ? "Q:":"") + "TYPE=");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

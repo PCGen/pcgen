@@ -74,7 +74,7 @@ public class PreEquipSecondaryWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREEQUIPSECONDARY:1,");
+			writer.write("PREEQUIPSECONDARY:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

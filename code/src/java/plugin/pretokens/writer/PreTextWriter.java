@@ -76,7 +76,7 @@ public class PreTextWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRETEXT:");
+			writer.write("PRETEXT:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

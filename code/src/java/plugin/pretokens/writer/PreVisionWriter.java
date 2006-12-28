@@ -76,7 +76,7 @@ public class PreVisionWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREVISION:1,");
+			writer.write("PREVISION:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey() + "=" + prereq.getOperand());
 		}
 		catch (IOException e)

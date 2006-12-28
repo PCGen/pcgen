@@ -121,7 +121,7 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 					{
 						writer.write('!');
 					}
-					writer.write("PREHD:");
+					writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:":""));
 					writer.write(elementGTEQ.getOperand());
 					writer.write('-');
 					writer.write(elementLTEQ.getOperand());

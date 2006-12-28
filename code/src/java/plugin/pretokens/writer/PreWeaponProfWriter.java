@@ -76,7 +76,7 @@ public class PreWeaponProfWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREWEAPONPROF:1,");
+			writer.write("PREWEAPONPROF:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			//			writer.write(prereq.getKey() + "=" + prereq.getOperand() );
 			writer.write(prereq.getKey());
 		}

@@ -69,7 +69,7 @@ public class PreVariableWriter implements PrerequisiteWriterInterface
 		{
 			writer.write("PREVAR");
 			writer.write(prereq.getOperator().toString().toUpperCase());
-			writer.write(':');
+			writer.write(':' + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 			writer.write(',');
 			writer.write(prereq.getOperand());

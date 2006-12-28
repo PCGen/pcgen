@@ -73,7 +73,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREDR:1,");
+			writer.write("PREDR:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey() + "=" + prereq.getOperand());
 		}
 		catch (IOException e)

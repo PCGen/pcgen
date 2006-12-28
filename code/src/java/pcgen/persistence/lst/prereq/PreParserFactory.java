@@ -141,9 +141,11 @@ public class PreParserFactory
 			return prereq;
 		}
 
+		boolean overrideQualify = false;
 		if (formula.startsWith("Q:"))
 		{
 			formula = formula.substring(2);
+			overrideQualify = true;
 		}
 
 		boolean invertResult = false;
@@ -163,7 +165,7 @@ public class PreParserFactory
 		try
 		{
 			Prerequisite prereq =
-					parser.parse(kind, formula, invertResult, false);
+					parser.parse(kind, formula, invertResult, overrideQualify);
 			//sanity check to make sure we have not got a top level element that
 			// is a PREMULT with only 1 element.
 			while (prereq.getKind() == null

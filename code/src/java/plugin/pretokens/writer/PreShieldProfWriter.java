@@ -73,7 +73,7 @@ public class PreShieldProfWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESHIELDPROF:1,");
+			writer.write("PRESHIELDPROF:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

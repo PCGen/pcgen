@@ -65,7 +65,7 @@ public class PreHandsWriter extends AbstractPrerequisiteWriter implements
 	{
 		try
 		{
-			writer.write("PREHANDS");
+			writer.write("PREHANDS" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperator().toString().toUpperCase());
 			writer.write(':');
 			writer.write(prereq.getOperand());

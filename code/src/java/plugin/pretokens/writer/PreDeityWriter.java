@@ -75,7 +75,7 @@ public class PreDeityWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREDEITY:");
+			writer.write("PREDEITY:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(",");
 			writer.write(prereq.getKey());

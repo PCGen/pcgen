@@ -75,11 +75,11 @@ public class PreSkillWriter extends AbstractPrerequisiteWriter implements
 
 			if (prereq.isTotalValues())
 			{
-				writer.write("PRESKILLTOT:1,");
+				writer.write("PRESKILLTOT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			}
 			else
 			{
-				writer.write("PRESKILL:1,");
+				writer.write("PRESKILL:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			}
 			writer.write(prereq.getKey());
 			if (prereq.getSubKey() != null)

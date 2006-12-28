@@ -65,6 +65,18 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		assertEquals("<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" >\n</prereq>\n", prereq.toString());
 	}
 
+	/**
+	 * @throws Exception
+	 */
+	public void testOverrideQualifies() throws Exception
+	{
+		PreParserFactory factory = PreParserFactory.getInstance();
+
+		Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
+
+		assertEquals("<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n", prereq.toString());
+	}
+
 
 	public void testSkillTypeKnowledge() throws Exception
 	{

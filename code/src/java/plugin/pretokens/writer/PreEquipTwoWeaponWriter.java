@@ -73,7 +73,7 @@ public class PreEquipTwoWeaponWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREEQUIPTWOWEAPON:1,");
+			writer.write("PREEQUIPTWOWEAPON:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

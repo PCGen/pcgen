@@ -38,7 +38,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * Writes PRESTAT Token 
+ * Writes PRESTAT Token
  */
 public class PreStatWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
@@ -78,7 +78,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 			//				writer.write('!');
 			//			}
 			//
-			//			writer.write("PRESTAT:1," + prereq.getKey().toUpperCase() + "=" + prereq.getOperand() );
+			//			writer.write("PRESTAT:" + (prereq.isOverrideQualify() ? "Q:":"") + "1," + prereq.getKey().toUpperCase() + "=" + prereq.getOperand() );
 
 			writer.write("PRESTAT");
 			if (!prereq.getOperator().equals(PrerequisiteOperator.GTEQ))

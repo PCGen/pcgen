@@ -103,7 +103,7 @@ public class PreSpellSchoolSubWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLSCHOOLSUB:");
+			writer.write("PRESPELLSCHOOLSUB:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			for (Prerequisite element : prereq.getPrerequisites())
 			{

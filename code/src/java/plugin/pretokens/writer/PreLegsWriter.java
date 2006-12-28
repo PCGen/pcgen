@@ -35,7 +35,7 @@ public class PreLegsWriter implements PrerequisiteWriterInterface
 	{
 		try
 		{
-			writer.write("PRELEGS");
+			writer.write("PRELEGS" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperator().toString().toUpperCase());
 			writer.write(':');
 			writer.write(prereq.getOperand());

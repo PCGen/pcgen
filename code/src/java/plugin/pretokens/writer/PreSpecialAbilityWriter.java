@@ -73,7 +73,7 @@ public class PreSpecialAbilityWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PRESA:1,");
+			writer.write("PRESA:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

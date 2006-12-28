@@ -73,7 +73,7 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRELEVEL:");
+			writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)

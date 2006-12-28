@@ -74,7 +74,7 @@ public class PreEquipPrimaryWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREEQUIPPRIMARY:1,");
+			writer.write("PREEQUIPPRIMARY:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

@@ -73,7 +73,7 @@ public class PreDomainWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			//			writer.write("PREDOMAIN:1,");
+			//			writer.write("PREDOMAIN:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			//			writer.write(prereq.getKey() + "=" + prereq.getOperand() );
 			writer.write("PREDOMAIN:");
 			writer.write(prereq.getOperand());

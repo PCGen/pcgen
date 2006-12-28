@@ -71,7 +71,7 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREAPPLY:");
+			writer.write("PREAPPLY:" + (prereq.isOverrideQualify() ? "Q:":""));
 
 			if (Integer.parseInt(prereq.getOperand()) > 1)
 			{

@@ -103,7 +103,7 @@ public class PreSpellDescriptorWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLDESCRIPTOR:");
+			writer.write("PRESPELLDESCRIPTOR:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			for (Prerequisite element : prereq.getPrerequisites())
 			{

@@ -74,7 +74,7 @@ public class PreBirthPlaceWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREBIRTHPLACE:");
+			writer.write("PREBIRTHPLACE:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

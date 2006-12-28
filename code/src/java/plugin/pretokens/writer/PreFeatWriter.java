@@ -71,7 +71,7 @@ public class PreFeatWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PREFEAT:");
+			writer.write("PREFEAT:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			if (prereq.isCountMultiples())

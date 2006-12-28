@@ -73,7 +73,7 @@ public class PreSpellBookWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESPELLBOOK:");
+			writer.write("PRESPELLBOOK:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

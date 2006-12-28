@@ -73,7 +73,7 @@ public class PreDeityDomainWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREDEITYDOMAIN:1,");
+			writer.write("PREDEITYDOMAIN:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

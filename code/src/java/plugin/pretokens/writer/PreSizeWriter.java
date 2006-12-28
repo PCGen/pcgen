@@ -63,7 +63,7 @@ public class PreSizeWriter implements PrerequisiteWriterInterface
 	{
 		try
 		{
-			writer.write("PRESIZE");
+			writer.write("PRESIZE" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperator().toString().toUpperCase());
 			writer.write(':');
 			writer.write(prereq.getOperand());

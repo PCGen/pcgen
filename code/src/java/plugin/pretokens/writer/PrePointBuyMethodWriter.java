@@ -73,7 +73,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREPOINTBUYMETHOD:");
+			writer.write("PREPOINTBUYMETHOD:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
@@ -99,7 +99,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter
 				writer.write('!');
 			}
 
-			writer.write("PREPOINTBUYMETHOD:");
+			writer.write("PREPOINTBUYMETHOD:" + (prereq.isOverrideQualify() ? "Q:":""));
 			boolean needComma = false;
 			for (Prerequisite element : prereq.getPrerequisites())
 			{

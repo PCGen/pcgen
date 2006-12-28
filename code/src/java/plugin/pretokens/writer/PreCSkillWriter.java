@@ -71,7 +71,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PRECSKILL:");
+			writer.write("PRECSKILL:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			writer.write(prereq.getKey());

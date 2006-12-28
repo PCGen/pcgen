@@ -76,7 +76,7 @@ public class PreSubClassWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRESUBCLASS:1,");
+			writer.write("PRESUBCLASS:" + (prereq.isOverrideQualify() ? "Q:":"") + "1,");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)
