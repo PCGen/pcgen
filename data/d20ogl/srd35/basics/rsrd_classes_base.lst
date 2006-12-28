@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep 19 17:35:04 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Thu Dec 28 04:11:40 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -28,10 +28,10 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 1	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20		DEFINE:MightyRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0		FEATAUTO:Rage
 ###Block: Level Progression
-1			SA:Illiteracy|PREVAREQ:TL,CL																BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-2								BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-3								BONUS:VAR|TrapSense|CL/3																														DEFINE:TrapSense|0									FEATAUTO:Trap Sense Ability
-5																																														ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+1			SA:Illiteracy|PREVAREQ:TL,CL																BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
+2								BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																													ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+3								BONUS:VAR|TrapSense|CL/3																															DEFINE:TrapSense|0									FEATAUTO:Trap Sense Ability
+5																																															ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
 # Added Formula for DR progression
 7	DR:1/-																	BONUS:DR|-|(CL-4)/3-1
 #13	DR:2/-
@@ -46,10 +46,10 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
 ###Block: Level progression
-1			SA:Illiteracy|PREVAREQ:TL,CL																BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-2								BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-3								BONUS:VAR|TrapSense|CL/3																														DEFINE:TrapSense|0									FEATAUTO:Trap Sense Ability
-5																																														ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+1			SA:Illiteracy|PREVAREQ:TL,CL																BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
+2								BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																													ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+3								BONUS:VAR|TrapSense|CL/3																															DEFINE:TrapSense|0									FEATAUTO:Trap Sense Ability
+5																																															ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
 # Added Formula for DR progression
 7	DR:1/-																	BONUS:DR|-|(CL-4)/3-1
 
@@ -127,7 +127,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1												VFEAT:Aura of Good|PREDEITYALIGN:0,3,6
 1												VFEAT:Aura of Law|PREDEITYALIGN:0,1,2
 ###Block: Righteous Might Workaround
-1	TEMPLATE:RighteousMindDR
+1	TEMPLATE:RighteousMightDR
 ###Block: Level progression
 1	CAST:3,1				SA:Spontaneous casting
 2	CAST:4,2
