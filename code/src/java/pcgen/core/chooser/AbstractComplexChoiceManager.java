@@ -55,6 +55,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 	protected int     maxNewSelections    = 0;
 	protected int     maxSelections       = 0;
 	protected boolean remove              = false;
+	private int preChooserChoices = 0;
 
 	/**
 	 * Creates a new ChoiceManager object.
@@ -205,15 +206,23 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 			requestedSelections = Math.min(requestedSelections, maxNewSelections);
 		}
 
-		final int preChooserChoices = selectedList.size();
-
-		if (numberOfChoices > 0)
+		preChooserChoices = selectedList.size();
+		int numChoicesThisTime = numberOfChoices;
+		if (numChoicesThisTime > 0)
 		{
 			// Make sure that we don't try to make the user choose more selections
 			// than are available or we'll be in an infinite loop...
-
-			numberOfChoices = Math.min(numberOfChoices, availableList.size() - preChooserChoices);
-			requestedSelections = numberOfChoices;
+			
+			numChoicesThisTime = Math.min(numChoicesThisTime, availableList.size() - preChooserChoices);
+			if (requestedSelections > 0)
+			{
+				requestedSelections = numChoicesThisTime;
+			}
+			else
+			{
+				// Stop the user being requested for choices they cannot make. 
+				numChoicesThisTime = 0;
+			}
 		}
 
 		boolean showChooser = true;
@@ -235,6 +244,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 			}
 			showChooser     = false;
 			numberOfChoices = 0;			// Make sure we are processing only 1 selection
+			numChoicesThisTime = 0;
 		}
 
 		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
@@ -255,12 +265,12 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 			final int selectedSize = chooser.getSelectedList().size() - preChooserChoices;
 
-			if (numberOfChoices > 0)
+			if (numChoicesThisTime > 0)
 			{
-				if (selectedSize != numberOfChoices)
+				if (selectedSize != numChoicesThisTime)
 				{
 					ShowMessageDelegate.showMessageDialog("You must make " +
-							(numberOfChoices - selectedSize) + " more selection(s).",
+							(numChoicesThisTime - selectedSize) + " more selection(s).",
 							Constants.s_APPNAME, MessageType.INFORMATION);
 					continue;
 				}
@@ -408,9 +418,11 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 		if (cost > 0)
 		{
-			featCount = (numberOfChoices > 0)
-					? featCount - cost
-					: ((maxSelections - selected.size()) * cost);
+			featCount =
+					(numberOfChoices > 0)
+						? featCount
+							- (((selected.size() - preChooserChoices) / numberOfChoices) * cost)
+						: ((maxSelections - selected.size()) * cost);
 		}
 
 		aPC.adjustFeats(featCount - aPC.getFeats());
