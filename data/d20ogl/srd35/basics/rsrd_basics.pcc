@@ -65,7 +65,6 @@ TEMPLATE:rsrd_templates_types.lst
 TEMPLATE:rsrd_templates_tempmods.lst
 
 WEAPONPROF:rsrd_weaponprofs.lst
-WEAPONPROF:rsrd_weaponprofs_natural.lst
 
 
 #Hiding Starting Outfits
