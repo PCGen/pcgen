@@ -1,11 +1,14 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 07:59:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Dec 28 05:45:30 2006 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 
 # Changed OUTPUTNAME for Oils, removed the Potion of
 
+# Potion (Oil of Shillelagh), Potion (Oil of Bless Weapon), and Potion (Darkvision) use faulty old name as KEY to keep
+# pre-existing PCG files working -- Frank
+
 #Potions
-# Equipment Name						Output Name				Type					Cost		Weight	Source Page
+# Equipment Name						Output Name				Type					Cost		Weight	Source Page				KEY
 Potion (Cure Light Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Endure Elements)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Hide from Animals)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
@@ -23,8 +26,8 @@ Potion (Protection from Law)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Co
 Potion (Remove Fear)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Sanctuary)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Shield of Faith +2)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Potion(Oil of Shillelagh)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Potion(Oil of Bless Weapon)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:100	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Oil of Shillelagh)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:MagicItemsIII.rtf	KEY:Potion(Oil of Shillelagh)
+Potion (Oil of Bless Weapon)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:100	WT:0		SOURCEPAGE:MagicItemsIII.rtf	KEY:Potion(Oil of Bless Weapon)
 Potion (Enlarge Person)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Reduce Person)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Aid)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
@@ -35,7 +38,7 @@ Potion (Bull's Strength)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consum
 Potion (Cat's Grace)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Cure Moderate Wounds)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Oil of Darkness)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Potion (Darkness)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Darkvision)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf	KEY:Potion (Darkness)
 Potion (Delay Poison)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Eagle's Splendor)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Fox's Cunning)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:MagicItemsIII.rtf
@@ -105,7 +108,7 @@ Potion (Barkskin +5)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumabl
 Potion (Greater Magic Fang +2)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Oil of Greater Magic Weapon +2)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Oil of Magic Vestment +2)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:MagicItemsIII.rtf
-Potion (Protection from Arrows 15/Magic)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:1500	WT:0		SOURCEPAGE:MagicItemsIII.rtf
+Potion (Protection from Arrows 15/magic)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:1500	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Greater Magic Fang +3)			OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Oil of Greater Magic Weapon +3)		OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
 Potion (Oil of Magic Vestment +3)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:MagicItemsIII.rtf
