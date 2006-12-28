@@ -1136,6 +1136,12 @@ public final class EditorMainForm extends JDialog
 			thisPObject.setChoiceString("");
 		}
 
+		if (editType != EditorConstants.EDIT_DOMAIN)
+		{
+			thisPObject.getSpellSupport().clearSpellLevelMap();
+			thisPObject.getSpellSupport().clearSpellInfoMap();
+		}
+		
 		sel = pnlAdvanced.getSelectedList();
 
 		if (editType == EditorConstants.EDIT_CLASS)
@@ -1153,7 +1159,7 @@ public final class EditorMainForm extends JDialog
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.errorPrint(ple.getMessage(), ple);
+				Logging.errorPrint(ple.getMessage() + " while parsing " + aString, ple);
 			}
 
 			if ((editType == EditorConstants.EDIT_DEITY) && (aString.startsWith("PANTHEON:")))
@@ -3117,6 +3123,12 @@ public final class EditorMainForm extends JDialog
 		if (srString != null)
 		{
 			selectedList.add("SR:" + srString);
+		}
+		
+		if (anEditType != EditorConstants.EDIT_DOMAIN)
+		{
+			String spellSupportObj = thisPObject.getSpellSupport().getPCCText();
+			selectedList.addAll(Arrays.asList(spellSupportObj.split("\t")));
 		}
 		return selectedList;
 	}

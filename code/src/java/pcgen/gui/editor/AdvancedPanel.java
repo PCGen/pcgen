@@ -75,7 +75,7 @@ public final class AdvancedPanel extends JPanel
 // OUTPUTNAME
 // PRExxx
 // REGION, RESTRICT
-// SA, SPELL, SR
+// SA, SPELL, SPELLLEVEL:CLASS, SPELLLEVEL:DOMAIN, SR
 // TYPE
 // UDAM, UMULT
 // VISION
@@ -303,6 +303,7 @@ public final class AdvancedPanel extends JPanel
 			"PREWEAPONPROF",
 			"QUALIFY",
 			"SA",
+			"SPELLLEVEL",
 			"SPELLS",
 			"SR",
 			"UMDAM",
@@ -366,7 +367,7 @@ public final class AdvancedPanel extends JPanel
 		}
 		if (!result)
 		{
-			//TODO: Throw up an error dialog here
+			// Throw up an error dialog here
 			ShowMessageDelegate.showMessageDialog(
 				PropertyFactory.getString("in_demTagInvalid"),
 				Constants.s_APPNAME,
@@ -730,6 +731,11 @@ public final class AdvancedPanel extends JPanel
 				break;
 
 			case EditorConstants.EDIT_DOMAIN:
+				cmbAdvancedTag.removeItem("ADD");
+				cmbAdvancedTag.removeItem("PANTHEON");
+				cmbAdvancedTag.removeItem("SPELLLEVEL");
+				break;
+				
 			case EditorConstants.EDIT_SKILL:
 			case EditorConstants.EDIT_RACE:
 			case EditorConstants.EDIT_TEMPLATE:

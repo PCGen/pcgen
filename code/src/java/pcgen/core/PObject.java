@@ -2902,6 +2902,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 		}
 
+		// SPELLLEVEL
+		txt.append('\t').append(getSpellSupport().getPCCText());
+		
 		return txt.toString();
 	}
 

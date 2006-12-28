@@ -24,20 +24,26 @@
  */
 package pcgen.core;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.HashMapToList;
-import pcgen.core.prereq.Prerequisite;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -153,24 +159,24 @@ public class SpellSupport implements Cloneable
 
     /**
      * Returns true if the spell info map contains the info
-     * @param string
-     * @param spellName
+     * @param tagType The type of object to be assigned spells (e.g. CLASS or DOMAIN)
+     * @param spellName The name of the spell
      * @return true if the spell info map contains the info
      */
-    public boolean containsInfoFor(String string, String spellName)
+    public boolean containsInfoFor(String tagType, String spellName)
 	{
-		return spellInfoMap.containsKey(string, spellName);
+		return spellInfoMap.containsKey(tagType, spellName);
 	}
 
     /**
      * Get the info from the spell ifo map
-     * @param string
-     * @param spellName
+     * @param tagType The type of object to be assigned spells (e.g. CLASS or DOMAIN)
+     * @param spellName The name of the spell
      * @return Info
      */
-    public Info getInfo(String string, String spellName)
+    public Info getInfo(String tagType, String spellName)
 	{
-		return spellInfoMap.get(string, spellName);
+		return spellInfoMap.get(tagType, spellName);
 	}
 
 	/**
@@ -570,5 +576,104 @@ public class SpellSupport implements Cloneable
 		ss.preReqSpellLevelMap = new HashMap<String, List<Prerequisite>>(preReqSpellLevelMap);
 		ss.spellLevelMap = new HashMap<String, Integer>(spellLevelMap);
 		return ss;
+	}
+	
+	/**
+	 * Get the LST syntax that represents the spells assigned via SPELLLEVEL tags.
+	 * @return The LST syntax
+	 */
+	public String getPCCText()
+	{
+		StringBuffer txt = new StringBuffer();
+
+		SortedMap<String,StringBuffer> spellOutputMap = new TreeMap<String, StringBuffer>();
+		
+		// Iterate through the spellinfo map to build the list of spells
+		// Outputing any that have prereqs as we can't group them.
+		Set<String> tagTypeSet = spellInfoMap.getKeySet();
+		for (String tagType : tagTypeSet)
+		{
+			Set<String> spellNameSet = spellInfoMap.getSecondaryKeySet(tagType);
+			for (String spellName : spellNameSet)
+			{
+				Info spellInfo = spellInfoMap.get(tagType, spellName);
+				List<Prerequisite> preReqList = preReqSpellLevelMap.get(tagType + "|" + spellInfo.name + "|" + spellName);
+				if (preReqList == null || preReqList.isEmpty())
+				{
+					StringBuffer key = new StringBuffer();
+					key.append(tagType);
+					key.append("|").append(spellInfo.name);
+					key.append("=").append(spellInfo.level);
+					StringBuffer sb = spellOutputMap.get(key.toString());
+					if (sb == null)
+					{
+						sb = new StringBuffer();
+						spellOutputMap.put(key.toString(), sb);
+					}
+					else
+					{
+						sb.append(',');
+					}
+					sb.append(spellName);
+				}
+				else
+				{
+					if (txt.length() >0)
+					{
+						txt.append('\t');
+					}
+					txt.append(getSpellLevelPccText(tagType, spellName, spellInfo, preReqList));
+				}
+			}
+		}
+		
+		// Iterate through the spellOutputMap outputing the spells
+		for (String key : spellOutputMap.keySet())
+		{
+			if (txt.length() >0)
+			{
+				txt.append('\t');
+			}
+			txt.append("SPELLLEVEL:").append(key);
+			txt.append("|");
+			txt.append(spellOutputMap.get(key).toString());
+		}
+		
+		return txt.toString();
+	}
+
+	/**
+	 * Build the LST defintiion text for the supplied spell.
+     * @param tagType The type of object to be assigned spells (e.g. CLASS or DOMAIN)
+     * @param spellName The name of the spell
+	 * @param spellInfo The class name and level
+	 * @param preReqList The spell's prewrequisites
+	 * @return The string representation fo the spell. 
+	 */
+	private String getSpellLevelPccText(String tagType, String spellName, Info spellInfo, List<Prerequisite> preReqList)
+	{
+		StringBuffer txt = new StringBuffer();
+		txt.append("SPELLLEVEL:").append(tagType);
+		txt.append("|").append(spellInfo.name);
+		txt.append("=").append(spellInfo.level);
+		txt.append("|").append(spellName);
+		final StringWriter writer = new StringWriter();
+		for (Prerequisite prereq : preReqList)
+		{
+			final PrerequisiteWriter prereqWriter =
+					new PrerequisiteWriter();
+			try
+			{
+				writer.write("|");
+				prereqWriter.write(writer, prereq);
+			}
+			catch (PersistenceLayerException e1)
+			{
+				e1.printStackTrace();
+			}
+		}
+		txt.append(writer);
+		
+		return txt.toString();
 	}
 }
