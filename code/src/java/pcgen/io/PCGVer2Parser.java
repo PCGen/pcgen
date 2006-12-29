@@ -71,6 +71,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.ListKey;
 import pcgen.gui.GuiConstants;
+import pcgen.gui.editor.FeatBasePanel;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
@@ -78,6 +79,7 @@ import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>PCGVer2Parser</code>
@@ -114,6 +116,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	//
 	private int[] pcgenVersion = {0, 0, 0};
 	private String pcgenVersionSuffix;
+	private boolean calcFeatPoolAfterLoad = false;
+	private double baseFeatPool = 0.0;
 
 	/**
 	 * Constructor
@@ -2372,8 +2376,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC.setFeats(Double.parseDouble(line.substring(TAG_FEATPOOL
-				.length() + 1)));
+			double featPool =  Double.parseDouble(line.substring(TAG_FEATPOOL
+				.length() + 1));
+			// In earlier versions the featpool included the bonus, so we need to counter it
+			if (compareVersionTo(new int[]{5,11,1}) < 0)
+			{
+				calcFeatPoolAfterLoad = true;
+				baseFeatPool = featPool;
+			}
+			else
+			{
+				thePC.setFeats(featPool);
+			}
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -5187,6 +5201,26 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		return pcgenVersion;
 	}
+	
+	/**
+	 * Compare the PCG version with a supplied version number 
+	 * @param inVer The version to compare with the PCG version. Must have at least 3 elements.
+	 * @return the value 0 if the PCG version is equal to the supplied version; a 
+	 * value less than 0 if the PCG version is less than the supplied version; 
+	 * and a value greater than 0 if the PCG version is greater than the supplied version.
+	 */
+	protected int compareVersionTo(int inVer[])
+	{
+		if (inVer[0] != pcgenVersion[0])
+		{
+			return new Integer(pcgenVersion[0]).compareTo(inVer[0]);
+		}
+		if (inVer[1] != pcgenVersion[1])
+		{
+			return new Integer(pcgenVersion[1]).compareTo(inVer[1]);
+		}
+		return new Integer(pcgenVersion[2]).compareTo(inVer[2]);
+	}
 
 	/**
 	 * Returns any extra version info after the regular version number.
@@ -5271,5 +5305,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 			}
 		}
+	}
+
+	/**
+	 * @return the baseFeatPool
+	 */
+	public double getBaseFeatPool()
+	{
+		return baseFeatPool;
+	}
+
+	/**
+	 * @return the calcFeatPoolAfterLoad
+	 */
+	public boolean isCalcFeatPoolAfterLoad()
+	{
+		return calcFeatPoolAfterLoad;
 	}
 }

@@ -293,7 +293,7 @@ public final class PCGIOHandler extends IOHandler
 
 		try
 		{
-			sanityChecks(pcToBeRead);
+			sanityChecks(pcToBeRead, parser);
 		}
 		catch (NumberFormatException ex)
 		{
@@ -352,7 +352,7 @@ public final class PCGIOHandler extends IOHandler
 	 * private helper methods
 	 * ###############################################################
 	 */
-	private void sanityChecks(PlayerCharacter currentPC)
+	private void sanityChecks(PlayerCharacter currentPC, PCGParser parser)
 	{
 		// Hit point sanity check
 		boolean bFixMade = false;
@@ -405,6 +405,15 @@ public final class PCGIOHandler extends IOHandler
 					bFixMade = true;
 				}
 			}
+		}
+		
+		// Recalc the feat pool if required
+		if (parser.isCalcFeatPoolAfterLoad())
+		{
+			double baseFeatPool = parser.getBaseFeatPool();
+			double featPoolBonus = aPC.getRawFeats(true);
+			baseFeatPool -= featPoolBonus;
+			aPC.setFeats(baseFeatPool);
 		}
 
 		for (Ability aFeat : aPC.getRealFeatList())

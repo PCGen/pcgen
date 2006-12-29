@@ -17,8 +17,8 @@ import pcgen.util.enumeration.VisionType;
  * <code>VisionLst</code> handles the processing of the VISION tag in LST
  * code.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2006-03-14 17:16:52 -0500
- * (Tue, 14 Mar 2006) $
+ * Last Editor: $Author$ 
+ * Last Edited: $Date$
  * 
  * @author Devon Jones
  * @version $Revision$

@@ -48,4 +48,15 @@ interface PCGParser
 	 * @throws PCGParseException
 	 */
 	void parsePCG(String[] lines) throws PCGParseException;
+
+
+	/**
+	 * @return the baseFeatPool
+	 */
+	public double getBaseFeatPool();
+
+	/**
+	 * @return the calcFeatPoolAfterLoad
+	 */
+	public boolean isCalcFeatPoolAfterLoad();
 }

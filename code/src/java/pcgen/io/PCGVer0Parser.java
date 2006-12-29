@@ -2423,4 +2423,20 @@ final class PCGVer0Parser implements PCGParser
 			warnings.add(message);
 		}
 	}
+
+	/**
+	 * @return the baseFeatPool
+	 */
+	public double getBaseFeatPool()
+	{
+		return 0.0;
+	}
+
+	/**
+	 * @return the calcFeatPoolAfterLoad
+	 */
+	public boolean isCalcFeatPoolAfterLoad()
+	{
+		return false;
+	}
 }
