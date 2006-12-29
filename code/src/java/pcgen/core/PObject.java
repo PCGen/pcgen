@@ -97,7 +97,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	protected ArrayList<AssociatedChoice<String>> associatedList = null;
 
 	/** List of Level Abilities for the object  */
-	private ArrayList<LevelAbility> levelAbilityList = null;
+	private List<LevelAbility> levelAbilityList = null;
 
 	private SourceEntry theSource = new SourceEntry();
 
@@ -119,7 +119,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** Map of the bonuses for the object  */
 	private HashMap<String, String> bonusMap = null;
 	/** List of Bonuses for the object */
-	private ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+	private List<BonusObj> bonusList = new ArrayList<BonusObj>();
 
 	private HashMap<String, String> changeProfMap = new HashMap<String, String>();
 
@@ -141,7 +141,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** Holds the level of encumberance due to load for the object */
 	private Load encumberedLoadMove = Load.LIGHT;
 
-	private ArrayList<DamageReduction> drList = new ArrayList<DamageReduction>();
+	private List<DamageReduction> drList = new ArrayList<DamageReduction>();
 
 	private String chooseLanguageAutos = Constants.EMPTY_STRING;
 	private TreeSet<Language> theBonusLangs = null;
@@ -151,7 +151,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/** List of followers of a type allowed to be selected. */
 	private Map<String, List<FollowerOption>> theAvailableFollowers = null;
 
-	private ArrayList<String> weaponProfBonus = null;
+	private List<String> weaponProfBonus = null;
 
 	private List<Description> theDescriptions = null;
 	

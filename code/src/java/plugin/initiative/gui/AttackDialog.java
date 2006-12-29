@@ -43,6 +43,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -60,13 +61,13 @@ import java.util.Vector;
 public class AttackDialog extends JDialog
 {
 	/** <p>List of resulting damage values, one for each successful attack.</p> */
-	private ArrayList<Integer> m_damageList = null;
+	private List<Integer> m_damageList = null;
 
 	/**
 	 * <p>List of targets, one for each successful attack.  Each one matches a damage value in
 	 * m_damagelist</p>
 	 */
-	private ArrayList m_targetList = null;
+	private List m_targetList = null;
 
 	/** <p>This dialog's attack model; that is, the attack object this dialog will resolve.</p> */
 	private AttackModel m_attack = null;
@@ -143,7 +144,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @return Damage list
 	 */
-	public ArrayList<Integer> getDamageList()
+	public List<Integer> getDamageList()
 	{
 		return m_damageList;
 	}
@@ -153,7 +154,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @return Chosen combatant.
 	 */
-	public ArrayList getDamagedCombatants()
+	public List getDamagedCombatants()
 	{
 		return m_targetList;
 	}
@@ -552,7 +553,7 @@ public class AttackDialog extends JDialog
 			super();
 
 			int[] attacks = m_attack.getBonusList();
-			Vector values = new Vector(columns.length);
+			Vector<Object> values = new Vector<Object>(columns.length);
 			values.setSize(values.capacity());
 
 			for (int i = 0; i < columns.length; i++)

@@ -27,6 +27,7 @@ package gmgen.gui;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.ArrayList;
+import java.util.List;
 
 /** This defines the preferences tree
  *
@@ -34,14 +35,14 @@ import java.util.ArrayList;
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private ArrayList<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+	private List<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
 
 	public PreferencesRootTreeNode()
 	{
 		super("Preferences");
 	}
 
-	public ArrayList<PreferencesPanel> getPanelList()
+	public List<PreferencesPanel> getPanelList()
 	{
 		return panelList;
 	}

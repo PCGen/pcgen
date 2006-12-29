@@ -27,6 +27,7 @@ import gmgen.pluginmgr.GMBMessage;
 import javax.swing.filechooser.FileFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Send this message to inform all components that a a call has taken place
@@ -37,7 +38,7 @@ import java.util.Arrays;
  */
 public class FileTypeMessage extends GMBMessage {
 
-	private ArrayList<FileFilter> fileTypes = new ArrayList<FileFilter>();
+	private List<FileFilter> fileTypes = new ArrayList<FileFilter>();
 
 	/**
 	 * Constructor for the StateChangedMessage object

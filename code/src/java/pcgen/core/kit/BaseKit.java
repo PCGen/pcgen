@@ -43,7 +43,7 @@ public abstract class BaseKit implements Cloneable
 	protected int choiceCount = 1;
 	private List<Prerequisite> prereqs = null;
 	private List<Range> options = new ArrayList<Range>();
-	private ArrayList<String> lookups = new ArrayList<String>();
+	private List<String> lookups = new ArrayList<String>();
 
 	/**
 	 * Set the number of choices (after converting to an integer.)

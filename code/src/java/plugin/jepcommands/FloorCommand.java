@@ -32,6 +32,7 @@ public class FloorCommand extends PCGenCommand
 	 * @param inStack
 	 * @throws ParseException
 	 */
+	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
 	public void run(Stack inStack) throws ParseException
 	{
 		// check the stack

@@ -36,7 +36,7 @@ import pcgen.core.PlayerCharacter;
  */
 public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String>
 {
-	private ArrayList<String> aBonusList = new ArrayList<String>();
+	private List<String> aBonusList = new ArrayList<String>();
 	private String    stChoices  = "";
 
 
@@ -191,7 +191,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 	 *
 	 * @return  Returns the aBonusList.
 	 */
-	public final ArrayList<String> getABonusList()
+	public final List<String> getABonusList()
 	{
 		return aBonusList;
 	}

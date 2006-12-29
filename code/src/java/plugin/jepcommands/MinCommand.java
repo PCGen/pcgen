@@ -39,6 +39,7 @@ public class MinCommand extends PCGenCommand
 	 *            Stack of incoming arguments.
 	 * @throws ParseException
 	 */
+	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
 	public void run(Stack stack) throws ParseException
 	{
 		// Check if stack is null

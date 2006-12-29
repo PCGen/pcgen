@@ -82,7 +82,7 @@ public class LevelAbilityAbility extends LevelAbility
 	private boolean   allowDups        = false;
 	private int       dupChoices       = 0;
 	private int       numFeats         = 0;
-	private ArrayList<Ability> previousChoices  = new ArrayList<Ability>();
+	private List<Ability> previousChoices  = new ArrayList<Ability>();
 	private String    lastCategorySeen = "";
 
 	final HashMap<String, AbilityChoice> nameMap    = new HashMap<String, AbilityChoice>();
@@ -252,7 +252,7 @@ public class LevelAbilityAbility extends LevelAbility
 			return;
 		}
 
-		ArrayList<Ability> abilityList = getAbilityList(lastCategorySeen, aToken, aPC);
+		List<Ability> abilityList = getAbilityList(lastCategorySeen, aToken, aPC);
 		Iterator<Ability>  abLIt       = abilityList.iterator();
 
 		while (abLIt.hasNext())
@@ -490,7 +490,7 @@ public class LevelAbilityAbility extends LevelAbility
 	 *
 	 * @return  a list of AbilityInfo Objects
 	 */
-	private ArrayList<Ability> getAbilityList(
+	private List<Ability> getAbilityList(
 		final String          acategory,
 		String                abilityToken,
 		final PlayerCharacter aPC)

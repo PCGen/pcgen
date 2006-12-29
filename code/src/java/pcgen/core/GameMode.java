@@ -404,7 +404,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Get the class type by name
-	 * @param aClassName
+	 * @param aClassKey
 	 * @return ClassType
 	 */
 	public ClassType getClassTypeByName(final String aClassKey)
@@ -2214,7 +2214,7 @@ public final class GameMode implements Comparable<Object>
 		{
 			// Sort NUMERICALLY, not alphabetically!
 			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			pointBuyStatCosts = new TreeMap<Integer, PointBuyCost>(new ComparableComparator());
+			pointBuyStatCosts = new TreeMap<Integer, PointBuyCost>(new ComparableComparator<Integer>());
 		}
 		abilityScoreCost = null;
 		pointBuyStatCosts.put(Integer.valueOf(pbc.getStatValue()), pbc);
@@ -2915,7 +2915,7 @@ public final class GameMode implements Comparable<Object>
 		{
 			// Sort NUMERICALLY, not alphabetically!
 			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			statDisplayText = new TreeMap<Integer, String>(new ComparableComparator());
+			statDisplayText = new TreeMap<Integer, String>(new ComparableComparator<Integer>());
 		}
 		statDisplayText.put(statValue, statText);
 	}
@@ -3024,7 +3024,7 @@ public final class GameMode implements Comparable<Object>
 		{
 			// Sort NUMERICALLY, not alphabetically!
 			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			skillRankDisplayText = new TreeMap<Integer, String>(new ComparableComparator());
+			skillRankDisplayText = new TreeMap<Integer, String>(new ComparableComparator<Integer>());
 		}
 		skillRankDisplayText.put(rankValue, rankText);
 	}

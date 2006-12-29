@@ -464,7 +464,7 @@ public class SimpleWeaponProfChoiceManager extends AbstractSimpleChoiceManager<S
 						if (anAbility == null)
 						{
 							anAbility = Globals.getAbilityKeyed("FEAT", aName);
-							anAbility = (Ability) anAbility.clone();
+							anAbility = anAbility.clone();
 
 							if (anAbility != null)
 							{

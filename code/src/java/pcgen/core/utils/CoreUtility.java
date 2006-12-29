@@ -235,7 +235,7 @@ public final class CoreUtility
 	{
 		final File aFile = new File(fileName);
 
-		return aFile.toURL().toString();
+		return aFile.toURI().toURL().toString();
 	}
 
 	/**

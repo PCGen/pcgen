@@ -4138,7 +4138,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			w.flush();
 			w.close();
 
-			URL url = outFile.toURL();
+			URL url = outFile.toURI().toURL();
 			Utility.viewInBrowser(url.toString());
 		}
 		catch (Exception ex)
@@ -4341,7 +4341,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else if (obj instanceof String)
 			{
-				setSelectedItem((String) obj);
+				setSelectedItem(obj);
 			}
 			else
 			{

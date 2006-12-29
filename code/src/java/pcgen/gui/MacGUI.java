@@ -86,7 +86,7 @@ public class MacGUI extends ApplicationAdapter
 			try {
 				java.lang.reflect.Method method = sysclass.getDeclaredMethod("addURL",parameters);
 				method.setAccessible(true);
-				method.invoke(sysloader, new Object[]{quaquaFile.toURL()});
+				method.invoke(sysloader, new Object[]{quaquaFile.toURI().toURL()});
 			} catch(Exception e) {
 				System.out.println("Exception in MacGUI::initialize" + e.toString());
 				System.out.println("Unable to add Quaqua Look and Feel as an option.");

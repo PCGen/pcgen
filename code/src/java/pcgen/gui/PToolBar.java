@@ -316,7 +316,7 @@ public class PToolBar extends JToolBar
 			}
 			else
 			{
-				URL aurl = helpFile.toURL();
+				URL aurl = helpFile.toURI().toURL();
 				helpPane.setPage(aurl);
 			}
 		}

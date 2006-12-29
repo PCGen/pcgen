@@ -38,7 +38,7 @@ public final class PointBuyCost
 {
 	private int statValue = 0;
 	private int statCost = 0;
-	private ArrayList<Prerequisite> preReqList = null;
+	private List<Prerequisite> preReqList = null;
 
 	public PointBuyCost(final int argStatValue)
 	{

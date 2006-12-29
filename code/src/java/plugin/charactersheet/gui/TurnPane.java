@@ -18,6 +18,7 @@ import javax.swing.JTextArea;
 
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -28,7 +29,7 @@ public class TurnPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
 	private String turnType;
-	private ArrayList<JCheckBox> checkList = new ArrayList<JCheckBox>();
+	private List<JCheckBox> checkList = new ArrayList<JCheckBox>();
 	private Properties pcProperties;
 	private boolean updateProperties = false;
 

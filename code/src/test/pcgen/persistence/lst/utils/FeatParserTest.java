@@ -49,7 +49,7 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 
 		List<Ability> feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
 		is(feats.size(), eq(1), "size of list");
-		Ability feat = (Ability)feats.get(0);
+		Ability feat = feats.get(0);
 
 		is(feat.getKeyName(), strEq("Two Weapon Fighting"));
 
@@ -87,7 +87,7 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 
 		List<Ability> feats = FeatParser.parseVirtualFeatList("Two Weapon Fighting|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]");
 		is(feats.size(), eq(1), "parsed one feat");
-		Ability feat = (Ability)feats.get(0);
+		Ability feat = feats.get(0);
 
 		is(feat.getKeyName(), strEq("Two Weapon Fighting"));
 
@@ -119,10 +119,10 @@ public class FeatParserTest extends AbstractCharacterTestCase {
 		List<Ability> feats = FeatParser.parseVirtualFeatList("KEY_Two Weapon Fighting|KEY_Weapon Finesse (Bite, Claws)");
 		is(feats.size(), eq(2), "size of list");
 
-		is(((Ability)feats.get(0)).getDisplayName(), strEq("Two Weapon Fighting"), "First feat is correct");
-		is(((Ability)feats.get(1)).getDisplayName(), strEq("Weapon Finesse"),      "Second feat is correct");
+		is((feats.get(0)).getDisplayName(), strEq("Two Weapon Fighting"), "First feat is correct");
+		is((feats.get(1)).getDisplayName(), strEq("Weapon Finesse"),      "Second feat is correct");
 
-		is(((Ability)feats.get(1)).getAssociated(0), strEq("Bite"), "First choice is correct");
-		is(((Ability)feats.get(1)).getAssociated(1), strEq("Claws"), "Second choice is correct");
+		is((feats.get(1)).getAssociated(0), strEq("Bite"), "First choice is correct");
+		is((feats.get(1)).getAssociated(1), strEq("Claws"), "Second choice is correct");
 	}
 }

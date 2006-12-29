@@ -120,7 +120,7 @@ final class EqBuilder extends JPanel
 	private JTableEx jListAvailable;
 	private JTextPane jItemDesc;
 	private String customName = "";
-	private ArrayList[] newTypeList = { null, null };
+	private List[] newTypeList = { null, null };
 	private int eqType = EQTYPE_NONE;
 	private int iListCount = 0;
 	private PlayerCharacter aPC;

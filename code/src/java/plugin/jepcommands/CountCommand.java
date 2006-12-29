@@ -77,6 +77,7 @@ public class CountCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@Override
+	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
 	public void run(Stack inStack) throws ParseException
 	{
 		Logging.errorPrint("Got a call!");

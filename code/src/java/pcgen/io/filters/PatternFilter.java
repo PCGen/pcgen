@@ -23,8 +23,8 @@ import pcgen.util.Logging;
 public class PatternFilter implements OutputFilter
 {
 	private String outputFilterName = "";
-	private ArrayList<String> match = null;
-	private ArrayList<String> replace = null;
+	private List<String> match = null;
+	private List<String> replace = null;
 
 	/**
 	 * 

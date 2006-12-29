@@ -578,7 +578,7 @@ final class KitSelector extends JFrame
 
 	private class KitListModel extends AbstractListModel
 	{
-		private ArrayList<Kit> theList = null;
+		private List<Kit> theList = null;
 
 		/**
 		 * Constructor

@@ -11,6 +11,7 @@ import pcgen.io.exporttoken.VarToken;
 
 import javax.swing.JCheckBox;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -20,7 +21,7 @@ public class MusicPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
 
-	private ArrayList<JCheckBox> checkList = new ArrayList<JCheckBox>();
+	private List<JCheckBox> checkList = new ArrayList<JCheckBox>();
 
 	private Properties pcProperties;
 

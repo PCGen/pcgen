@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.*;
+import java.util.List;
 import java.util.prefs.Preferences;
 
 /**
@@ -38,8 +39,8 @@ public class NameGenPanel extends JPanel
 	// End of variables declaration//GEN-END:variables
 	public Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
-	private HashMap<String, ArrayList> categories =
-			new HashMap<String, ArrayList>();
+	private Map<String, List<RuleSet>> categories =
+			new HashMap<String, List<RuleSet>>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -563,9 +564,9 @@ public class NameGenPanel extends JPanel
 				catalogKey = oldRS.getTitle();
 			}
 
-			ArrayList cats = categories.get(catKey);
-			ArrayList sexes = categories.get("Sex: " + sexKey);
-			ArrayList join = new ArrayList();
+			List<RuleSet> cats = categories.get(catKey);
+			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
+			List<RuleSet> join = new ArrayList<RuleSet>();
 			join.addAll(cats);
 			join.retainAll(sexes);
 
@@ -575,7 +576,7 @@ public class NameGenPanel extends JPanel
 
 			for (int i = 0; i < join.size(); i++)
 			{
-				RuleSet rs = (RuleSet) join.get(i);
+				RuleSet rs = join.get(i);
 
 				if (rs.getUsage().equals("final"))
 				{
@@ -605,8 +606,8 @@ public class NameGenPanel extends JPanel
 
 	private void loadCategory(Element category, RuleSet rs)
 	{
-		Object cat = categories.get(category.getAttributeValue("title"));
-		ArrayList<RuleSet> thiscat;
+		List<RuleSet> cat = categories.get(category.getAttributeValue("title"));
+		List<RuleSet> thiscat;
 
 		if (cat == null)
 		{
@@ -615,7 +616,7 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			thiscat = (ArrayList<RuleSet>) cat;
+			thiscat = cat;
 		}
 
 		thiscat.add(rs);
@@ -632,7 +633,7 @@ public class NameGenPanel extends JPanel
 			{
 				try
 				{
-					Document nameSet = builder.build(dataFiles[i].toURL());
+					Document nameSet = builder.build(dataFiles[i].toURI().toURL());
 					DocType dt = nameSet.getDocType();
 
 					if (dt.getElementName().equals("GENERATOR"))
@@ -720,8 +721,8 @@ public class NameGenPanel extends JPanel
 
 	private String loadList(Element list) throws DataConversionException
 	{
-		plugin.doomsdaybook.util.List dataList =
-				new plugin.doomsdaybook.util.List(allVars, list
+		plugin.doomsdaybook.util.DDList dataList =
+				new plugin.doomsdaybook.util.DDList(allVars, list
 					.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List elements = list.getChildren();
 		ListIterator elementsIterator = elements.listIterator();

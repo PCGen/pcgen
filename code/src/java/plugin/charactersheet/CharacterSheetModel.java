@@ -15,6 +15,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -23,9 +24,9 @@ import java.util.ArrayList;
 public class CharacterSheetModel
 {
 	private JTabbedPane masterPane = new JTabbedPane();
-	private ArrayList<PlayerCharacter> characters =
+	private List<PlayerCharacter> characters =
 			new ArrayList<PlayerCharacter>();
-	private ArrayList<CharacterPanel> infoPanes =
+	private List<CharacterPanel> infoPanes =
 			new ArrayList<CharacterPanel>();
 	private CharacterInfoTabPanel infoPanel;
 
@@ -91,7 +92,7 @@ public class CharacterSheetModel
 	/**
 	 * @return Returns the infoPanes.
 	 */
-	public ArrayList<CharacterPanel> getInfoPanes()
+	public List<CharacterPanel> getInfoPanes()
 	{
 		return infoPanes;
 	}

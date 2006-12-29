@@ -1501,8 +1501,8 @@ public class Initiative extends javax.swing.JPanel
 		dlg.setModal(true);
 		dlg.setVisible(true);
 
-		final ArrayList dmgList = dlg.getDamageList();
-		final ArrayList targetList = dlg.getDamagedCombatants();
+		final List<Integer> dmgList = dlg.getDamageList();
+		final List targetList = dlg.getDamagedCombatants();
 
 		if ((dmgList != null) && (targetList != null) && (dmgList.size() > 0)
 			&& (targetList.size() > 0))
@@ -1521,18 +1521,18 @@ public class Initiative extends javax.swing.JPanel
 
 					if (subdualType == PreferencesDamagePanel.DAMAGE_SUBDUAL)
 					{
-						doSubdual(((Integer) dmgList.get(i)).intValue(),
+						doSubdual((dmgList.get(i)).intValue(),
 							(PcgCombatant) targetList.get(i));
 					}
 					else if (subdualType == PreferencesDamagePanel.DAMAGE_NON_LETHAL)
 					{
-						doNonLethal(((Integer) dmgList.get(i)).intValue(),
+						doNonLethal((dmgList.get(i)).intValue(),
 							(PcgCombatant) targetList.get(i));
 					}
 				}
 				else
 				{
-					doDamage(((Integer) dmgList.get(i)).intValue(),
+					doDamage((dmgList.get(i)).intValue(),
 						(PcgCombatant) targetList.get(i));
 				}
 			}

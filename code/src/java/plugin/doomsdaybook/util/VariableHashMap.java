@@ -27,6 +27,8 @@ package plugin.doomsdaybook.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <code>VariableHashMap</code> is a collection of variables (key/value 
@@ -42,8 +44,8 @@ import java.util.HashMap;
  */
 public class VariableHashMap extends HashMap<String, String>
 {
-	private ArrayList<Operation> initialize = new ArrayList<Operation>();
-	private HashMap<String, DataElement> dataElements;
+	private List<Operation> initialize = new ArrayList<Operation>();
+	private Map<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()
@@ -218,7 +220,7 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @param ops The Operations to be performed.
 	 * @throws variableException When no entry exists for an Operation's key.
 	 */
-	public void doOperation(ArrayList<Operation> ops) throws variableException
+	public void doOperation(List<Operation> ops) throws variableException
 	{
 		for (Operation op : ops)
 		{

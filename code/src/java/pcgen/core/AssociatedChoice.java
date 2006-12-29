@@ -35,7 +35,7 @@ import java.util.HashMap;
  * @version $Revision$
  * @param <T> 
  */
-public class AssociatedChoice <T extends Comparable> implements Comparable
+public class AssociatedChoice <T extends Comparable<T>> implements Comparable<AssociatedChoice<T>>
 {
 	/** A map of key, value pairs for this choice. */
 	protected HashMap<String, T> choices = new HashMap<String, T>();
@@ -178,10 +178,8 @@ public class AssociatedChoice <T extends Comparable> implements Comparable
 	 * @return See compareTo
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	public int compareTo(Object o)
+	public int compareTo(AssociatedChoice<T> other)
 	{
-		AssociatedChoice<T> other = (AssociatedChoice<T>)o;
-
 		T defaultValue = getDefaultChoice();
 		if ( defaultValue != null )
 		{

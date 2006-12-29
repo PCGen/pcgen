@@ -32,7 +32,7 @@ import java.util.Comparator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public final class ComparableComparator implements Comparator<Comparable>
+public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>
 {
 	/** Constructs a <code>ComparableComparator</code>. */
 	public ComparableComparator()
@@ -43,7 +43,7 @@ public final class ComparableComparator implements Comparator<Comparable>
 	/**
 	 * {@inheritDoc}
 	 */
-	public int compare(Comparable o1, Comparable o2)
+	public int compare(T o1, T o2)
 	{
 		return o1.compareTo(o2);
 	}

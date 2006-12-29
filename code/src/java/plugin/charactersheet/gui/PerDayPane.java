@@ -11,6 +11,7 @@ import pcgen.io.exporttoken.VarToken;
 
 import javax.swing.JCheckBox;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -22,7 +23,7 @@ public class PerDayPane extends javax.swing.JPanel
 	private PlayerCharacter pc;
 	private String var = "";
 	private String var2 = "";
-	private ArrayList<JCheckBox> checkList = new ArrayList<JCheckBox>();
+	private List<JCheckBox> checkList = new ArrayList<JCheckBox>();
 	private Properties pcProperties;
 	private boolean updateProperties = false;
 

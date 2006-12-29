@@ -61,11 +61,11 @@ public final class PCTemplate extends PObject implements HasCost
 	///////////////////////////////////////////////////////////////////////
 
 	private AbilityStore abilityCatStore     = null;
-	private ArrayList<String>    featStrings         = null;
+	private List<String>    featStrings         = null;
 	/** A Map storing a List of Ability keys Keyed on AbilityCategory */ 
 	private Map<AbilityCategory, List<String>> theAutoAbilityKeys  = null;
-	private ArrayList<String>    hitDiceStrings      = null;
-	private ArrayList<String>    templates           = new ArrayList<String>();
+	private List<String>    hitDiceStrings      = null;
+	private List<String>    templates           = new ArrayList<String>();
 
 	private HashMap<String, String>      chosenFeatStrings   = null;
 	
@@ -103,13 +103,13 @@ public final class PCTemplate extends PObject implements HasCost
 	private Integer legs;
 	private Integer reach;
 
-	private ArrayList<String> addedSubTypes   = new ArrayList<String>();
+	private List<String> addedSubTypes   = new ArrayList<String>();
 
 	private Point2D.Double face       = null;
 
-	private ArrayList<String> removedSubTypes = new ArrayList<String>();
+	private List<String> removedSubTypes = new ArrayList<String>();
 
-	private ArrayList<String> levelMods = new ArrayList<String>();
+	private List<String> levelMods = new ArrayList<String>();
 	
 	/** 
 	 * A DoubleKeyMap storing abilities to be granted at a certain level.
@@ -1219,6 +1219,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return an array of strings in the format specified above
 	 */
+	@SuppressWarnings("unchecked") //Collections.EMPTY_LIST is not generic.
 	public List<String> getHitDiceStrings()
 	{
 		return hitDiceStrings != null ? hitDiceStrings : Collections.EMPTY_LIST;
@@ -1679,6 +1680,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 *
 	 * @return  a list of Templates
 	 */
+	@SuppressWarnings("unchecked") //Collections.EMPTY_LIST is not generic.
 	public List<String> templatesAdded()
 	{
 		return templatesAdded != null ? templatesAdded : Collections.EMPTY_LIST;

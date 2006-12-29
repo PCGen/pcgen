@@ -1207,7 +1207,7 @@ final class PCGVer0Parser implements PCGParser
 
 				if ((anAbility != null) /*&& !aPC.hasFeatAutomatic(aName)*/)
 				{
-					anAbility = (Ability) anAbility.clone();
+					anAbility = anAbility.clone();
 					AbilityUtilities.modFeat(aPC, null, anAbility.getKeyName(),
 						true, !anAbility.isMultiples());
 
@@ -1873,7 +1873,7 @@ final class PCGVer0Parser implements PCGParser
 	{
 		final StringTokenizer skillTokenizer = new StringTokenizer(line, ":");
 		String skillName;
-		List aRankList;
+		List<String> aRankList;
 		Integer outputIndex;
 
 		try
@@ -1903,7 +1903,7 @@ final class PCGVer0Parser implements PCGParser
 				// If newer version, then we can determine which skill belongs to which class as it
 				// is saved in the PCG file
 				//
-				aRankList = new ArrayList();
+				aRankList = new ArrayList<String>();
 
 				if (pcgVersion >= 2)
 				{
@@ -1940,7 +1940,7 @@ final class PCGVer0Parser implements PCGParser
 				{
 					for (int i = 0; i < aRankList.size(); i++)
 					{
-						String bRank = (String) aRankList.get(i);
+						String bRank = aRankList.get(i);
 						int iOffs = bRank.indexOf(':');
 						Float fRank = new Float(bRank.substring(iOffs + 1));
 						PCClass aClass =

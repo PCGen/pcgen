@@ -55,7 +55,7 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	private String theReduction = "0";
 	private String theBypass = "-";
 	private PlayerCharacter thePC = null;
-	private ArrayList<Prerequisite> thePreReqs = new ArrayList<Prerequisite>();
+	private List<Prerequisite> thePreReqs = new ArrayList<Prerequisite>();
 	private static final int NO_JOIN = -1;
 	private static final int AND_JOIN = 0;
 	private static final int OR_JOIN = 1;

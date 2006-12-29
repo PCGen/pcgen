@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author  devon
  */
-public class List extends ArrayList<WeightedDataValue> implements DataElement
+public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<DataValue>();
 	String id;
@@ -24,7 +24,7 @@ public class List extends ArrayList<WeightedDataValue> implements DataElement
 	/** Creates a new instance of List
 	 * @param allVars
 	 */
-	public List(VariableHashMap allVars)
+	public DDList(VariableHashMap allVars)
 	{
 		this(allVars, "", "", 1);
 	}
@@ -35,7 +35,7 @@ public class List extends ArrayList<WeightedDataValue> implements DataElement
 	 * @param title
 	 * @param id
 	 */
-	public List(VariableHashMap allVars, String title, String id)
+	public DDList(VariableHashMap allVars, String title, String id)
 	{
 		this(allVars, title, id, 1);
 	}
@@ -47,7 +47,7 @@ public class List extends ArrayList<WeightedDataValue> implements DataElement
 	 * @param id
 	 * @param weight
 	 */
-	public List(VariableHashMap allVars, String title, String id, int weight)
+	public DDList(VariableHashMap allVars, String title, String id, int weight)
 	{
 		this.allVars = allVars;
 		this.title = title;

@@ -26,7 +26,7 @@ import java.util.List;
 public class ArmorPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
-	private ArrayList<Component> fields = new ArrayList<Component>();
+	private List<Component> fields = new ArrayList<Component>();
 
 	private JLabel typeName;
 	private JPanel typeNamePanel;

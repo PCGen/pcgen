@@ -77,10 +77,10 @@ public class AbilityTest extends PCGenTestCase {
 		ab5.setMultiples("YES");
 		ab5.addAssociated("Wellies");
 
-		Ability ab6 = (Ability) ab5.clone();
+		Ability ab6 = ab5.clone();
 		ab6.addAssociated("Bar Stool");
 
-		Ability ab7 = (Ability) ab5.clone();
+		Ability ab7 = ab5.clone();
 		ab7.addAssociated("Tantrum");
 		ab7.setName("Weapon Throwing (Tantrum)");
 		ab7.setKeyName("KEY_Weapon Throwing (Tantrum)");

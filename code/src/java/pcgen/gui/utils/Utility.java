@@ -700,7 +700,7 @@ public final class Utility
 			printToWriter(w, fileName, pc);
 			w.close();
 
-			URL url = outFile.toURL();
+			URL url = outFile.toURI().toURL();
 			viewInBrowser(url.toString());
 		}
 		catch (Exception ex)

@@ -73,8 +73,8 @@ public final class Skill extends PObject
     /** Include skills as per UI choice = 3 */
     public static final int INCLUDE_SKILLS_AS_UI = 3;
 
-	private ArrayList<String> classList = new ArrayList<String>(); // list of classes with class-access to this skill
-	private ArrayList<String> rankList = new ArrayList<String>();
+	private List<String> classList = new ArrayList<String>(); // list of classes with class-access to this skill
+	private List<String> rankList = new ArrayList<String>();
 	private String keyStat = "";
 	private String rootName = "";
 
@@ -178,7 +178,7 @@ public final class Skill extends PObject
      * Get a list of classes
      * @return classList
      */
-	public ArrayList<String> getClassList()
+	public List<String> getClassList()
 	{
 		return classList;
 	}
@@ -508,7 +508,7 @@ public final class Skill extends PObject
      * Get list of ranks
      * @return rankList
      */
-	public ArrayList<String> getRankList()
+	public List<String> getRankList()
 	{
 		return rankList;
 	}

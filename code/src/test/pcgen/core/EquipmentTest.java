@@ -34,8 +34,6 @@ import pcgen.PCGenTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.Constants;
 
-import pcgen.util.TestHelper;
-
 /**
  * Equipment Test
  */

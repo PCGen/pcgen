@@ -218,7 +218,7 @@ public final class FOPHandler implements Runnable
 			{
 				XMLReader parser = inputHandler.getParser();
 
-				Map rendererOptions = new HashMap();
+				Map<String, Boolean> rendererOptions = new HashMap<String, Boolean>();
 				rendererOptions.put("fineDetail", Boolean.valueOf(false));
 				driver.getRenderer().setOptions(rendererOptions);
 				driver.getRenderer().setProducer("PC Gen Character Generator");

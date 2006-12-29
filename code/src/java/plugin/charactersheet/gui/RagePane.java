@@ -12,6 +12,7 @@ import pcgen.io.exporttoken.VarToken;
 import javax.swing.JCheckBox;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -21,7 +22,7 @@ import java.util.Properties;
 public class RagePane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
-	private ArrayList<JCheckBox> checkList = new ArrayList<JCheckBox>();
+	private List<JCheckBox> checkList = new ArrayList<JCheckBox>();
 	private static final String rageText1 =
 			"The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC.";
 	private static final String rageText2 =

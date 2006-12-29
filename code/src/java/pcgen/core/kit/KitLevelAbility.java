@@ -45,7 +45,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	private String theClassName = "";
 	private int theLevel = -1;
-	private ArrayList<AbilityChoice> theAbilities = new ArrayList<AbilityChoice>();
+	private List<AbilityChoice> theAbilities = new ArrayList<AbilityChoice>();
 
 	private transient PCClass theClass = null;
 
@@ -75,7 +75,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 
 	static class AbilityChoice
 	{
-		private ArrayList<String> theChoices = new ArrayList<String>();
+		private List<String> theChoices = new ArrayList<String>();
 		private String theAbilityName = "";
 
 		AbilityChoice(final String ability, final List<String> choices)

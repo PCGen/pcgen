@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 public class AttributePane extends JPanel
 {
 	private PlayerCharacter pc;
-	private ArrayList<Attribute> attrList = new ArrayList<Attribute>();
+	private List<Attribute> attrList = new ArrayList<Attribute>();
 
 	private static final Font FONT_EIGHT = new Font("Dialog", 0, 8);
 	private static final Font FONT_BFOURTEEN = new Font("Dialog", 1, 14);

@@ -153,7 +153,7 @@ public final class EntityEncoder
 
 final class EntityMap
 {
-	private final Map map = new HashMap();
+	private final Map<String, String> map = new HashMap<String, String>();
 
 	/**
 	 * Get value

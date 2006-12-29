@@ -39,7 +39,7 @@ public final class PointBuyMethod
 {
 	private String methodName = "";
 	private String pointFormula = "0";
-	private ArrayList<BonusObj> bonusList = null;
+	private List<BonusObj> bonusList = null;
 
 	public PointBuyMethod(final String argMethodName, final String argPointFormula)
 	{

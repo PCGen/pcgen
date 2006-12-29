@@ -85,7 +85,7 @@ public class AbilityUtilities
 
 		if (anAbility != null && (anAbility.isMultiples() || getAbilityFromList(addList, anAbility) == null))
 		{
-			newAbility = (Ability) anAbility.clone();
+			newAbility = anAbility.clone();
 
 			if (choices != null)
 			{
@@ -351,7 +351,7 @@ public class AbilityUtilities
 		}
 		else
 		{
-			anAbility = (Ability) anAbility.clone();
+			anAbility = anAbility.clone();
 
 			if (choices.size() > 0)
 			{
@@ -622,7 +622,7 @@ public class AbilityUtilities
 		if (create && (pcAbility == null))
 		{
 			// adding feat for first time
-			pcAbility = (Ability) argAbility.clone();
+			pcAbility = argAbility.clone();
 
 			aPC.addFeat(pcAbility, levelInfo);
 			pcAbility.getTemplates(aPC.isImporting(), aPC);
@@ -705,7 +705,7 @@ public class AbilityUtilities
 				return addIt ? 1 : 0;
 			}
 
-			anAbility = (Ability) anAbility.clone();
+			anAbility = anAbility.clone();
 
 			aPC.addFeat(anAbility, LevelInfo);
 			anAbility.getTemplates(aPC.isImporting(), aPC);
@@ -790,7 +790,7 @@ public class AbilityUtilities
 				else
 				{
 					// add the Feat found, as a CharacterFeat
-					anAbility = (Ability) anAbility.clone();
+					anAbility = anAbility.clone();
 					aPC.addFeat(anAbility, LevelInfo);
 				}
 			}
@@ -812,7 +812,7 @@ public class AbilityUtilities
 					return;
 				}
 
-				anAbility = (Ability) anAbility.clone();
+				anAbility = anAbility.clone();
 				aPC.addFeat(anAbility, LevelInfo);
 			}
 

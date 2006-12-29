@@ -463,7 +463,7 @@ final class PreferencesDialog extends JDialog
 
 	public void applyPluginPreferences()
 	{
-		ArrayList<PreferencesPanel>  panelList = compInst.getPanelList();
+		List<PreferencesPanel>  panelList = compInst.getPanelList();
 
 		for (int i = 0; i < panelList.size(); i++)
 		{
@@ -3659,8 +3659,8 @@ final class PreferencesDialog extends JDialog
 	}
 
 	public static class PreferencesComponent implements GMBComponent {
-		private ArrayList<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
-		private ArrayList<String> nameList = new ArrayList<String>();
+		private List<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+		private List<String> nameList = new ArrayList<String>();
 
 		public void handleMessage(GMBMessage message) {
 			if(message instanceof PreferencesPanelAddMessage) {
@@ -3670,11 +3670,11 @@ final class PreferencesDialog extends JDialog
 			}
 		}
 
-		public ArrayList<String> getNameList() {
+		public List<String> getNameList() {
 			return nameList;
 		}
 
-		public ArrayList<PreferencesPanel> getPanelList() {
+		public List<PreferencesPanel> getPanelList() {
 			return panelList;
 		}
 	}

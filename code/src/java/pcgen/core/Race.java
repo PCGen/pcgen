@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import pcgen.core.bonus.BonusObj;
@@ -44,10 +45,10 @@ import pcgen.core.utils.ShowMessageDelegate;
  */
 public final class Race extends PObject
 {
-	private ArrayList<String> monCCSkillList = null;
-	private ArrayList<String> monCSkillList = null;
+	private List<String> monCCSkillList = null;
+	private List<String> monCSkillList = null;
 	// TODO - Why do we need a hit point map in the race?
-	private HashMap<String, Integer> hitPointMap = new HashMap<String, Integer>();
+	private Map<String, Integer> hitPointMap = new HashMap<String, Integer>();
 	private Integer initMod = Integer.valueOf(0);
 	private Integer startingAC = Integer.valueOf(10);
 	private String hitDieLock = Constants.EMPTY_STRING;
@@ -81,7 +82,7 @@ public final class Race extends PObject
 	private int monsterClassLevels = 0;
 	private int reach = 5;
 	private String raceType = Constants.s_NONE;
-	private ArrayList<String> racialSubTypes = new ArrayList<String>();
+	private List<String> racialSubTypes = new ArrayList<String>();
 
 	/**
 	 * Sets this races advancement to not be limited.

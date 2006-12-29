@@ -23,7 +23,7 @@ import pcgen.core.PlayerCharacter;
 public class WeaponListPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
-	private ArrayList<WeaponPane> weaponList = new ArrayList<WeaponPane>();
+	private List<WeaponPane> weaponList = new ArrayList<WeaponPane>();
 	private int serial = 0;
 
 	/**

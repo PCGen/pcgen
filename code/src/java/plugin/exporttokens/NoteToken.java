@@ -145,7 +145,7 @@ public class NoteToken extends Token
 
 	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name)
 	{
-		ArrayList<NoteItem> noteList = new ArrayList<NoteItem>();
+		List<NoteItem> noteList = new ArrayList<NoteItem>();
 		List<NoteItem> resultList;
 
 		buildSubTree(noteList, pc.getNotesList(), -1);

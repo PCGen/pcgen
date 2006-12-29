@@ -170,7 +170,7 @@ public abstract class LstFileLoader extends Observable
 
 		try
 		{
-			aURL = aFile.toURL();
+			aURL = aFile.toURI().toURL();
 
 			final int length = (int) aFile.length();
 			inputStream = new FileInputStream(aFile);

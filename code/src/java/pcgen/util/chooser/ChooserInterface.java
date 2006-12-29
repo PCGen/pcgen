@@ -28,6 +28,8 @@ import java.util.List;
  * choices have been made. The dialog is always modal, so a
  * call to show() will block program execution.
  *
+ * TODO: Make these lists use generics.
+ *
  * @author    Jonas Karlsson
  * @version $Revision$
  */

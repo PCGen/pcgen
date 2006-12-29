@@ -26,6 +26,7 @@
 package plugin.initiative.gui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -94,7 +95,7 @@ public class TableColumnInformation
 	}
 
 	/** An arraylist of <code>ColStructs</code> */
-	private ArrayList<ColStruct> columns = null;
+	private List<ColStruct> columns = null;
 
 	/**
 	 * <p>

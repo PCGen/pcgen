@@ -39,7 +39,7 @@ import java.util.List;
 public final class SubstitutionClass extends PCClass
 {
 	private List<String> levelArray = null;
-	private ArrayList<Integer> modLevels = null;
+	private List<Integer> modLevels = null;
 
 	/** Constructor */
 	public SubstitutionClass()

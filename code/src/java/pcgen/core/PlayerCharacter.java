@@ -146,7 +146,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	private final ArrayList<CompanionMod> companionModList = new ArrayList<CompanionMod>();
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
-	private ArrayList<String> qualifyArrayList = new ArrayList<String>();
+	private List<String> qualifyArrayList = new ArrayList<String>();
 	private Follower followerMaster = null; // Who is the master now?
 
 	// List of Equip Sets
@@ -205,7 +205,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	// whether to add auto known spells each level
 	private boolean autoKnownSpells = true;
 
-	// wether higher level spell slots should be used for lower levels
+	// whether higher level spell slots should be used for lower levels
 	private boolean useHigherKnownSlots = SettingsHandler.isUseHigherLevelSlotsDefault();
 	private boolean useHigherPreppedSlots = SettingsHandler.isUseHigherLevelSlotsDefault();
 
@@ -419,7 +419,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Get the armor proficiency list
 	 * @return armor proficiency list
 	 */
-	public ArrayList<String> getArmorProfList()
+	public List<String> getArmorProfList()
 	{
 		if (armorProfListStable)
 		{
@@ -2594,7 +2594,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Get list of shield proficiencies
 	 * @return shield prof list
 	 */
-	public ArrayList<String> getShieldProfList()
+	public List<String> getShieldProfList()
 	{
 		shieldProfList.clear();
 
@@ -2821,7 +2821,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 * Get list of special abilities as Strings
 	 * @return List of special abilities as Strings
 	 */
-	public ArrayList<String> getSpecialAbilityListStrings()
+	public List<String> getSpecialAbilityListStrings()
 	{
 		final ArrayList<String> bList = new ArrayList<String>();
 
@@ -2849,8 +2849,8 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	 */
 	public ArrayList<String> getSpecialAbilityTimesList()
 	{
-		final ArrayList<String> abilityList = getSpecialAbilityListStrings();
-		final ArrayList<String> sortList = new ArrayList<String>();
+		final List<String> abilityList = getSpecialAbilityListStrings();
+		final List<String> sortList = new ArrayList<String>();
 		final int[] numTimes = new int[abilityList.size()];
 
 		for (int i = 0; i < abilityList.size(); i++)
@@ -3904,7 +3904,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return getEquipmentNamed(aString, getEquipmentMasterList());
 	}
 
-	public ArrayList<String> getMiscList()
+	public List<String> getMiscList()
 	{
 		return miscList;
 	}
@@ -5587,12 +5587,12 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	{
 		if (eq.isShield())
 		{
-			final ArrayList<String> aList = getShieldProfList();
+			final List<String> aList = getShieldProfList();
 			return isProficientWith(eq, aList);
 		}
 		else if (eq.isArmor())
 		{
-			final ArrayList<String> aList = getArmorProfList();
+			final List<String> aList = getArmorProfList();
 			return isProficientWith(eq, aList);
 		}
 		else if (eq.isWeapon())
@@ -10187,7 +10187,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 	/*
 	 * Build on-the-fly so removing templates won't mess up qualify list
 	 */
-	ArrayList<String> getQualifyList()
+	List<String> getQualifyList()
 	{
 		if (!qualifyListStable)
 		{
@@ -11113,7 +11113,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		return favoredClasses;
 	}
 
-	private ArrayList<String> getSelectedArmorProfList()
+	private List<String> getSelectedArmorProfList()
 	{
 		final ArrayList<String> aList = new ArrayList<String>();
 
@@ -11491,7 +11491,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 							continue; // Don't add auto-feat
 						}
 
-						anAbility = (Ability) anAbility.clone();
+						anAbility = anAbility.clone();
 						anAbility.addAssociated(aString);
 
 						if (isAuto)
@@ -11934,7 +11934,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		aString = outputString.substring(1); // TODO: value never used
 	}
 
-	private ArrayList<String> getSelectedShieldProfList()
+	private List<String> getSelectedShieldProfList()
 	{
 		final ArrayList<String> aList = new ArrayList<String>();
 
@@ -13852,13 +13852,13 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 
 		for (final Ability a : this.getRealFeatList()) 
 		{
-			aClone.addRealAbility(AbilityCategory.FEAT, (Ability)(a.clone())); 
+			aClone.addRealAbility(AbilityCategory.FEAT, (a.clone())); 
 		}
 		for ( final AbilityCategory cat : theAbilities.getKeySet() )
 		{
 			for ( final Ability a : getRealAbilityList(cat) )
 			{
-				aClone.addRealAbility(cat, (Ability)a.clone());
+				aClone.addRealAbility(cat, a.clone());
 			}
 		}
 
@@ -15696,7 +15696,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 				return addIt ? 1 : 0;
 			}
 
-			anAbility = (Ability) anAbility.clone();
+			anAbility = anAbility.clone();
 
 //				addFeat(anAbility, LevelInfo);
 			addAbility(aCategory, anAbility, LevelInfo);
@@ -15905,7 +15905,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			else if (vFeat.isMultiples())
 			{
 				Ability aggregateFeat = aHashMap.get(vFeat.getKeyName());
-				aggregateFeat = (Ability) aggregateFeat.clone();
+				aggregateFeat = aggregateFeat.clone();
 
 				for (int e1 = 0; e1 < vFeat.getAssociatedCount(); ++e1)
 				{
@@ -15934,7 +15934,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 			else if (autoFeat.isMultiples())
 			{
 				Ability aggregateFeat = aHashMap.get(autoFeat.getKeyName());
-				aggregateFeat = (Ability) aggregateFeat.clone();
+				aggregateFeat = aggregateFeat.clone();
 
 				for (int e1 = 0; e1 < autoFeat.getAssociatedCount(); ++e1)
 				{

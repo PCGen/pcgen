@@ -371,7 +371,7 @@ class LevelAbilityFeat extends LevelAbility
 			return;
 		}
 
-		ArrayList<String> featList = getFeatList(aToken, aPC);
+		List<String> featList = getFeatList(aToken, aPC);
 		Iterator<String>  fi       = featList.iterator();
 		hasPrereqs = false;
 		while (fi.hasNext())
@@ -436,7 +436,7 @@ class LevelAbilityFeat extends LevelAbility
 	 * @param aPC
 	 * @return a list of feat names
 	 */
-	private ArrayList<String> getFeatList(final String aToken, final PlayerCharacter aPC) {
+	private List<String> getFeatList(final String aToken, final PlayerCharacter aPC) {
 
 		if (aToken.startsWith("TYPE=") || aToken.startsWith("TYPE."))
 		{

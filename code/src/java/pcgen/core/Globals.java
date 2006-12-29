@@ -116,6 +116,8 @@ public final class Globals
 	private static Map<String, Campaign>        campaignMap     = new HashMap<String, Campaign>();
 	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
 	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
+	/** TODO Why can spellMap contain both Spell and List<Spell>? Change to always contain List<Spell> (it is possible said list only has one member, but that's ok.)
+	 * Does  need to be sorted? If not, change to HashMap.*/
 	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
 	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
 	private static Map<String, List<CompanionMod>>  companionModMap = new TreeMap<String, List<CompanionMod>>();
@@ -2557,7 +2559,7 @@ public final class Globals
 
 	/**
 	 * Remove a weapon prof by key
-	 * @param name
+	 * @param aKey
 	 */
 	public static void removeWeaponProfKeyed(final String aKey)
 	{

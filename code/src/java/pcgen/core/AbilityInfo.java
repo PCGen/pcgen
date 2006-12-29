@@ -105,6 +105,7 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 	 * Return an iterator over any Choices made for the Ability represented
 	 * @return an iterator
 	 */
+	@SuppressWarnings("unchecked") //Collections.EMPTY_LIST is not generic.
 	public Iterator<String> getChoicesIterator() {
 		final List<String> ret = (getAbility() != null) ? decorations : Collections.EMPTY_LIST;
 		return ret.iterator();

@@ -1897,7 +1897,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 	private JButton deleteButton;
 	private JTextArea editorArea;
 	private List customFilters;
-	private Map customFiltersOrigin;
+	private Map<String, String> customFiltersOrigin;
 	private SortedListModel customModel;
 	private SortedListModel standardModel;
 
@@ -1908,7 +1908,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 	{
 		super(Globals.getRootFrame(), PropertyFactory.getString("in_filterCustom"));
 		this.customFilters = new ArrayList();
-		this.customFiltersOrigin = new HashMap();
+		this.customFiltersOrigin = new HashMap<String, String>();
 		this.init();
 	}
 
@@ -2432,7 +2432,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		for (Enumeration filters = customModel.elements(); filters.hasMoreElements();)
 		{
 			filter = filters.nextElement();
-			origin = (String) customFiltersOrigin.get(filter.getClass().getName());
+			origin = customFiltersOrigin.get(filter.getClass().getName());
 
 			if ((origin == null) || ("available".equals(origin)))
 			{
@@ -2466,7 +2466,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		for (Iterator it = customFilters.iterator(); it.hasNext();)
 		{
 			filter = it.next();
-			origin = (String) customFiltersOrigin.get(filter.getClass().getName());
+			origin = customFiltersOrigin.get(filter.getClass().getName());
 
 			if (origin == null)
 			{

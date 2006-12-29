@@ -28,7 +28,7 @@ import plugin.charactersheet.CharacterSheetUtils;
 public class SkillsPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
-	private ArrayList<Component> componentList = new ArrayList<Component>();
+	private List<Component> componentList = new ArrayList<Component>();
 
 	private static final String BLANK = "";
 	private static final String STAR = "*";

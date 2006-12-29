@@ -68,7 +68,7 @@ public class PCClass extends PObject {
 	/*
 	 * FINALALLCLASSLEVELS Since this applies to a ClassLevel line
 	 */
-	private ArrayList<LevelProperty<Domain>> domainList = null;
+	private List<LevelProperty<Domain>> domainList = null;
 
 	/*
 	 * FUTURETYPESAFETY This is throwing around Feat names as Strings. :(
@@ -81,7 +81,7 @@ public class PCClass extends PObject {
 	 * should be stored in a series of LevelProperty objects) need to be placed
 	 * into each individual PCClassLevel when it is constructed.
 	 */
-	private ArrayList<LevelProperty<String>> featAutos = null;
+	private List<LevelProperty<String>> featAutos = null;
 
 	/*
 	 * FUTURETYPESAFETY The Feats should be type safe, not Strings... The challenge
@@ -98,7 +98,7 @@ public class PCClass extends PObject {
 	 * account for that and actually store these by level and put them into the
 	 * appropriate PCClassLevel.
 	 */
-	private ArrayList<LevelProperty<String>> featList = null;
+	private List<LevelProperty<String>> featList = null;
 
 	/*
 	 * LEVELONEONLY This variable (automatically known spells) only needs to be
@@ -107,7 +107,7 @@ public class PCClass extends PObject {
 	 * dynamically (does the PCClassLevel automatically know spell A?), it only
 	 * needs to appear on one of the PlayerCharacter's PCClassLevels.
 	 */
-	private ArrayList<SpellFilter> knownSpellsList = null;
+	private List<SpellFilter> knownSpellsList = null;
 
 	/*
 	 * FUTURETYPESAFETY This is an interesting case of Type Safety, that may not be
@@ -120,7 +120,7 @@ public class PCClass extends PObject {
 	 * leveling up at a certain point. Therefore this gets moved to PCClassLevel =
 	 * byproduct of addLevel
 	 */
-	private ArrayList<String> specialtyList = null;
+	private List<String> specialtyList = null;
 
 	/*
 	 * STRINGREFACTOR This is currently taking in a delimited String and should
@@ -137,25 +137,25 @@ public class PCClass extends PObject {
 	 * ALLCLASSLEVELS The templates [based on their LevelProperty] (not the raw
 	 * Strings) need to be stored in EACH individual PCClassLevel.
 	 */
-	private ArrayList<LevelProperty<String>> templates = null;
+	private List<LevelProperty<String>> templates = null;
 
 	/*
 	 * FINALALLCLASSLEVELS The SR List is level dependent - heck, it's in a
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
-	private ArrayList<LevelProperty<String>> SR = null;
+	private List<LevelProperty<String>> SR = null;
 
 	/*
 	 * FINALALLCLASSLEVELS Since this seems to allow for class dependent additions of
 	 * Domains, this needs to occur in each class level as appropriate.
 	 */
-	private ArrayList<LevelProperty<Domain>> addDomains = null;
+	private List<LevelProperty<Domain>> addDomains = null;
 
 	/*
 	 * FINALALLCLASSLEVELS This is pretty obvious, as these are already in a
 	 * LevelProperty... these go into the PCClassLevel
 	 */
-	private ArrayList<LevelProperty<Equipment>> naturalWeapons = null;
+	private List<LevelProperty<Equipment>> naturalWeapons = null;
 
 	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
@@ -163,7 +163,7 @@ public class PCClass extends PObject {
 	 * construction of the PCClassLevel (inheritAttributesFrom - although that 
 	 * could really be cleaned up and a better method found)
 	 */
-	private ArrayList<SubClass> subClassList = null;
+	private List<SubClass> subClassList = null;
 
 	/*
 	 * PCCLASSONLY This is really an item that the PCClass knows, and then the
@@ -171,13 +171,13 @@ public class PCClass extends PObject {
 	 * during the construction of the PCClassLevel (inheritAttributesFrom -
 	 * although that could really be cleaned up and a better method found)
 	 */
-	private ArrayList<SubstitutionClass> substitutionClassList = null;
+	private List<SubstitutionClass> substitutionClassList = null;
 	
 	/*
 	 * DELETEVARIABLE There is NO use of this Tag at all in the data/* structure
 	 * today, so support for this should be removed from this class.
 	 */
-	private ArrayList<String> uattList = new ArrayList<String>(); // TODO -
+	private List<String> uattList = new ArrayList<String>(); // TODO -
 																	// This
 																	// should be
 																	// removed.
@@ -1273,12 +1273,14 @@ public class PCClass extends PObject {
 	 * FINALPCCLASSONLY This is only for PCClass - used to edit the class
 	 */
 	public final Collection<LevelProperty<String>> getAllFeatAutos() {
+		Collection<LevelProperty<String>> returnList = null;
 		if (featAutos == null) {
 			List<LevelProperty<String>> empty = Collections.emptyList();
-			return Collections.unmodifiableCollection(empty);
+			returnList = Collections.unmodifiableCollection(empty);
 		} else {
-			return Collections.unmodifiableCollection(featAutos);
+			returnList = Collections.unmodifiableCollection(featAutos);
 		}
+		return returnList;
 	}
 	
 	/*
@@ -1746,11 +1748,11 @@ public class PCClass extends PObject {
 		if (prohibitedSchools == null) {
 			prohibitedSchools = new ArrayList<String>();
 		}
-		if (prohibitedSchools.contains(school)) {
-			return false;
-		} else {
-			return prohibitedSchools.add(school);
+		boolean addedSchool = false;
+		if (!prohibitedSchools.contains(school)) {
+			addedSchool = prohibitedSchools.add(school);
 		}
+		return addedSchool;
 	}
 	
 	/*
@@ -4294,7 +4296,7 @@ public class PCClass extends PObject {
 	 * selected subClass, if any, is structured into the PCClassLevel during the
 	 * construction of the PCClassLevel
 	 */
-	public ArrayList<SubClass> getSubClassList() {
+	public List<SubClass> getSubClassList() {
 		return subClassList;
 	}
 
@@ -4303,7 +4305,7 @@ public class PCClass extends PObject {
 	 * selected substitutionClass, if any, is structured into the PCClassLevel
 	 * during the construction of the PCClassLevel
 	 */
-	public ArrayList getSubstitutionClassList() {
+	public List getSubstitutionClassList() {
 		return substitutionClassList;
 	}
 

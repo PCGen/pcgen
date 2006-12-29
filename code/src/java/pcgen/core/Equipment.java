@@ -1215,6 +1215,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		final List<EquipmentModifier> modList = new ArrayList<EquipmentModifier>(eqModifierList);
 		final List<EquipmentModifier> altModList = new ArrayList<EquipmentModifier>(altEqModifierList);
 		final List<EquipmentModifier> commonList = new ArrayList<EquipmentModifier>();
+		//TODO Change the arrays of lists to be lists of lists instead to get rid of eclipse warnings. See http://www.angelikalanger.com/Articles/Papers/JavaGenerics/ArraysInJavaGenerics.htm 
 		final List<EquipmentModifier> modListByFC[] = initSplitModList();
 		final List<EquipmentModifier> altModListByFC[] = initSplitModList();
 		final List<EquipmentModifier> commonListByFC[] = initSplitModList();
@@ -5379,10 +5380,13 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private List<EquipmentModifier>[] initSplitModList()
 	{
 		List<EquipmentModifier>[] modListArray = new List[EquipmentModifier.FORMATCAT_PARENS+1];
+ 
 		for (int i = 0; i < modListArray.length; i++)
 		{
 			modListArray[i] = new ArrayList<EquipmentModifier>();
 		}
+		
+		
 		return modListArray;
 	}
 

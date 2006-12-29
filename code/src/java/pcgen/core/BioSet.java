@@ -573,8 +573,10 @@ public final class BioSet extends PObject
 	 * The value is assumed to be either a list of values or a
 	 * single value, depending on the tag. eg "[34,52,69,110]" or "Blond|Brown"
 	 * If a single value, it will be added to the first age set. Multiple values
-	 * are split amoungst the age sets in order, with any values not matching an
+	 * are split amongst the age sets in order, with any values not matching an
 	 * age set being ignored.
+	 *
+	 * TODO: Change to always be a List<whatever type, String I suppose> (it is possible said list only has one member, but that's ok.)
 	 *
 	 * @param ageSets The collection of age brackets.
 	 * @param key The region.race.tag specifier.
