@@ -177,7 +177,7 @@ public class SpellLevelChoiceManager extends AbstractComplexChoiceManager<String
 		for ( String bString : aBonusList )
 		{
 			pobject.addAssociated(name);
-			pobject.applyBonus(bString, name, aPc);
+			pobject.applyBonus(bString, name, aPc, true);
 		}
 
 	}

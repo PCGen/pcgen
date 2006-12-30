@@ -10058,7 +10058,7 @@ public final class PlayerCharacter extends Observable implements Cloneable, Vari
 		}
 		else // a stacking bonus
 		{
-			if (bonusType == null) // TODO: condition always true
+			if (bonusType == null) 
 			{
 				bonusType = Constants.EMPTY_STRING;
 			}

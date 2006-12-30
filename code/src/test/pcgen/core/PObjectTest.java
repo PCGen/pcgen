@@ -27,6 +27,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -170,17 +171,27 @@ public class PObjectTest extends AbstractCharacterTestCase
 		aPC.addFeat(pObj, null);
 
 		pObj.addAssociated("TestPsion 1");
-		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC);
+		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC, false);
 		aPC.calcActiveBonuses();
+		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 		pObj.addAssociated("TestPsion 1");
-		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC);
+		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC, true);
 		aPC.calcActiveBonuses();
+		assertEquals("Should get 3 bonus known spells", (2*1)+1, (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
 		pObj.addAssociated("TestPsion 1");
-		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC);
+		pObj.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1", aPC, false);
+		aPC.calcActiveBonuses();
+		assertEquals("Should get 7 bonus known spells", (3*2)+1, (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
+		for (BonusObj bonus : pObj.getBonusList())
+		{
+			bonus.setAddOnceOnly(true);
+		}
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 3 bonus known spells", 3, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-
 	}
 
 	

@@ -4284,10 +4284,25 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/**
 	 * Add a new bonus to the list of bonuses
-	 * @param aString
+	 * @param aString The unparsed bonus to be added
 	 * @return true if new bonus is not null
 	 */
 	public final boolean addBonusList(final String aString)
+	{
+		return addBonusList(aString, false);
+	}
+	
+	/**
+	 * Add a new bonus to the list of bonuses. The bonus can optionally 
+	 * only be added once no matter how many associated choices this 
+	 * object has. This is normally used where a bonus is added for 
+	 * each associated choice.
+	 *  
+	 * @param aString The unparsed bonus to be added
+	 * @param addOnceOnly Should the bonus only be added once irrespective of number of choices 
+	 * @return true if new bonus is not null
+	 */
+	private final boolean addBonusList(final String aString, final boolean addOnceOnly)
 	{
 		if (bonusList == null)
 		{
@@ -4299,6 +4314,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		if (aBonus != null)
 		{
 			aBonus.setCreatorObject(this);
+			aBonus.setAddOnceOnly(addOnceOnly);
 			addBonusList(aBonus);
 		}
 
@@ -4562,15 +4578,21 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	}
 
 	/**
-	 * Apply the bonus to a character
-	 * @param bonusString
-	 * @param chooseString
-	 * @param aPC
+	 * Apply the bonus to a character. The bonus can optionally 
+	 * only be added once no matter how many associated choices this 
+	 * object has. This is normally used where a bonus is added for 
+	 * each associated choice.
+	 * 
+	 * @param bonusString The unparsed bonus to be added.
+	 * @param chooseString The choice to be added.
+	 * @param aPC The character to apply thr bonus to.
+	 * @param addOnceOnly Should the bonus only be added once irrespective of number of choices 
 	 */
-	public final void applyBonus(String bonusString, final String chooseString, final PlayerCharacter aPC)
+	public final void applyBonus(String bonusString, final String chooseString,
+		final PlayerCharacter aPC, final boolean addOnceOnly)
 	{
 		bonusString = makeBonusString(bonusString, chooseString, aPC);
-		addBonusList(bonusString);
+		addBonusList(bonusString, addOnceOnly);
 		addSave("BONUS|" + bonusString);
 	}
 

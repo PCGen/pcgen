@@ -673,7 +673,7 @@ public class LevelAbilityAbility extends LevelAbility
 				{
 					for ( String bonus : aBonusList )
 					{
-							ab.applyBonus(bonus, choice, aPC);
+							ab.applyBonus(bonus, choice, aPC, false);
 					}
 				}
 			}

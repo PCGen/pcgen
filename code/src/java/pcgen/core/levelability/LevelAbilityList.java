@@ -119,7 +119,7 @@ final class LevelAbilityList extends LevelAbility
 			{
 				for ( String bonus : selectedBonusList )
 				{
-					owner.applyBonus(bonus, "", aPC);
+					owner.applyBonus(bonus, "", aPC, false);
 				}
 			}
 		}

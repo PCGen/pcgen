@@ -328,7 +328,7 @@ class LevelAbilityFeat extends LevelAbility
 					{
 						for ( String bonus : aBonusList )
 						{
-							anAbility.applyBonus(bonus, chosenItem, aPC);
+							anAbility.applyBonus(bonus, chosenItem, aPC, false);
 						}
 					}
 				}

@@ -63,6 +63,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 	private int     pcLevel              = -1;
 	private int     typeOfBonus          = Bonus.BONUS_UNDEFINED;
 	private String  stringRepresentation = null;
+	private boolean addOnceOnly          = false;
 
 	/** An enum for the possible stacking modifiers a bonus can have */
 	public enum StackType {
@@ -690,6 +691,28 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 		return theStackingFlag;
 	}
 	
+	/**
+	 * Should this bonus only be added once no matter how many associated 
+	 * values are present in the PObject owning this bonus?
+	 *  
+	 * @return the addOnceOnly
+	 */
+	public boolean isAddOnceOnly()
+	{
+		return addOnceOnly;
+	}
+
+	/**
+	 * Should this bonus only be added once no matter how many associated 
+	 * values are present in the PObject owning this bonus?
+	 * 
+	 * @param addOnceOnly the addOnceOnly to set
+	 */
+	public void setAddOnceOnly(boolean addOnceOnly)
+	{
+		this.addOnceOnly = addOnceOnly;
+	}
+
 	protected boolean parseToken(final String token)
 	{
 		System.err.println("Need to override parseToken in " + getClass().getName());
@@ -1220,7 +1243,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 						// has multiple bonuses, don't add any more copies.
 						if (aTok.countTokens() > 0
 							|| listindex >= cnt
-							|| anObj.getBonusList().size() > 1)
+							|| addOnceOnly)
 						{
 							break;
 						}

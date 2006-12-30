@@ -83,7 +83,7 @@ public class SimpleSpellLevelChoiceManager extends AbstractSimpleChoiceManager<S
 
 			for ( String bonusString : uniqueList )
 			{
-				pobject.applyBonus(bonusString, chooseString, aPC);
+				pobject.applyBonus(bonusString, chooseString, aPC, false);
 			}
 		}
 
