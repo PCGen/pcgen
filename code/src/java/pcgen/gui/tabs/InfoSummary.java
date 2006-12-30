@@ -1147,6 +1147,24 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		final PCClass aClass = pc.getClassKeyed(theClass.getKeyName());
 
+		// Check if the subclass (if any) is qualified for
+		if (aClass != null && aClass.getSubClassKey() != null)
+		{
+			final PCClass subClass =
+					aClass.getSubClassKeyed(aClass.getSubClassKey());
+			if (subClass != null && !subClass.isQualified(pc))
+			{
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getString("in_sumYouAreNotQualifiedToTakeTheClass")
+					+ aClass.getDisplayName()
+					+ "/" //$NON-NLS-1$
+					+ subClass.getDisplayName()
+					+ ".", Constants.s_APPNAME, MessageType.ERROR);  //$NON-NLS-1$
+
+				return;
+			}
+		}
+		
 		if (!Globals.checkRule(RuleConstants.LEVELCAP) //$NON-NLS-1$
 			&& ((levels > theClass.getMaxLevel()) || ((aClass != null) && ((aClass
 				.getLevel() + levels) > aClass.getMaxLevel()))))

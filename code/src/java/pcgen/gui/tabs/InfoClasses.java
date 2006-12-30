@@ -557,6 +557,26 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		// However, adding a level of the base class
 		// (i.e. Wizard to Illusionist) should still be okay
 		//
+		
+
+		// Check if the subclass (if any) is qualified for
+		if (levels > 0 && aClass != null && aClass.getSubClassKey() != null)
+		{
+			final PCClass subClass =
+					aClass.getSubClassKeyed(aClass.getSubClassKey());
+			if (subClass != null && !subClass.isQualified(pc))
+			{
+				ShowMessageDelegate.showMessageDialog(PropertyFactory
+					.getString("in_clYouAreNotQualifiedToTakeTheClass")
+					+ aClass.getDisplayName()
+					+ "/" //$NON-NLS-1$
+					+ subClass.getDisplayName()
+					+ ".", Constants.s_APPNAME, MessageType.ERROR);  //$NON-NLS-1$
+
+				return;
+			}
+		}
+		
 		// Fix this logic -- it looks like you might slip past
 		// the 20 cap with a monster PC?  XXX --bko
 		if ((levels < 0)
