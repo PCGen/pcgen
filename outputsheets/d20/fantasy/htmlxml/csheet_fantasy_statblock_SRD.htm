@@ -199,8 +199,9 @@ melee
 |ELSE|
 /x|WEAPON.%weap.MULT|
 |ENDIF|
-)<br />
+) Reach: |WEAPON.%weap.REACH|<br />
 |ENDIF|
+
 |ENDFOR|
     </td>
   </tr>
@@ -230,40 +231,7 @@ Spell Resistance |SR|,
   </tr>
   <tr valign="top">
     <td width="25%"><b>Saves: </b></td>
-    <td width="75%">
-|FOR,%checks,0,COUNT[CHECKS]-2,1,0|
-|IIF(CHECK.%checks.NAME:Fortitude)|
-Fort: 
-|ELSE|
-|IIF(CHECK.%checks.NAME:Reflex)|
-Ref: 
-|ELSE|
-|IIF(CHECK.%checks.NAME:Will)|
-Will: 
-|ELSE|
-|CHECK.%checks.NAME|: 
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|CHECK.%checks.TOTAL|, 
-|ENDFOR|
-|FOR,%checks,COUNT[CHECKS]-1,COUNT[CHECKS]-1,1,0|
-|IIF(CHECK.%checks.NAME:Fortitude)|
-Fort: 
-|ELSE|
-|IIF(CHECK.%checks.NAME:Reflex)|
-Ref: 
-|ELSE|
-|IIF(CHECK.%checks.NAME:Will)|
-Will: 
-|ELSE|
-|CHECK.%checks.NAME|: 
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|CHECK.%checks.TOTAL|
-|ENDFOR|
-    </td>
+    <td width="75%">Fort: |CHECK.FORTITUDE.TOTAL|, Ref: |CHECK.REFLEX.TOTAL|, Will: |CHECK.WILL.TOTAL|</td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Abilities: </b></td>
