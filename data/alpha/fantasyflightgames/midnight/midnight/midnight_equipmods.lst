@@ -3,7 +3,5 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 #Original Entry By: Beaver
 
 ###Block:Weapon
-# Modifier Name	Unique Key		Type			Cost		Visible	Type granted	Choose Naming Option	Source Page				Special Property
-# Equipment Name	Type		Cost		Source Page		Special Property													ASSIGNTOALL		ITYPE			KEY
-# Modifier Name	Unique Key	Type		Cost		Type granted	Source Page		Special Property													Apply to both heads
-Icewood		KEY:ICEWD	TYPE:Weapon	COST:0	ITYPE:Masterwork	SOURCEPAGE:p.127	SPROP:Cost one-half of the standard resources of time, components and energy to enchant	ASSIGNTOALL:Y
+# Modifier Name	Unique Key	Type					Cost		Type granted	Source Page		Special Property													Apply to both heads
+Icewood		KEY:ICEWD	TYPE:MasterworkQuality.Weapon	COST:0	ITYPE:Masterwork	SOURCEPAGE:p.127	SPROP:Cost one-half of the standard resources of time, components and energy to enchant	ASSIGNTOALL:Y
