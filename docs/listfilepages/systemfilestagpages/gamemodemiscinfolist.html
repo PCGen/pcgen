@@ -1033,6 +1033,22 @@
 		<p class="indent2"><code>WEAPONNONPROFPENALTY:-4</code></p>
 		<p class="indent3">Defines a -4 penalty to attack for not being proficient in a weapon.</p>
 
+        <p></p><a name="WEAPONREACH"></a><hr>
+		<p class="new">*** New 5.11.6</p>
+		<p class="indent0"><strong>Tag Name:</strong> WEAPONREACH:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Formula (Weapon Reach)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines the formula used to calculate a weapons reach. 
+		Three variables are used in the formula, RACEREACH, REACH and REACHMULT. 
+		RACEREACH is the value of the <a href="../datafilestagpages/datafilesraces.html#REACH">REACH</a> 
+		tag set in the PC's race. REACH is the value of the <a href="../datafilestagpages/datafilesequipment.html#REACH">REACH</a> 
+		tag set in the Weapon, if no REACH tag is present the value defaults to 5. 
+		REACHMULT is the value of the <a href="../datafilestagpages/datafilesequipment.html#REACHMULT">REACHMULT</a> 
+		tag set in the weapon, if no REACHMULT tag is present the value is 1.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT</code></p>
+		<p class="indent3">This is the standard formula used in the 35e gameMode.</p>
+
         <p></p><a name="WEAPONTYPE"></a><hr>
 		<p class="indent0"><strong> Tag Name:</strong> WEAPONTYPE:x|y</p>
 		<p class="indent1"><strong>Variables used (x):</strong> text | (y) letter to define type</p>
