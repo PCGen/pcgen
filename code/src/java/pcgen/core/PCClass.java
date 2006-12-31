@@ -4727,7 +4727,12 @@ public class PCClass extends PObject {
 		boolean psiSpecialty = false;
 
 		if (castInfo.hasKnownProgression()) {
-			String spells = castInfo.getKnownForLevel(pcLevel).get(spellLevel);
+			List<String> knownList = castInfo.getKnownForLevel(pcLevel);
+			String spells = "";
+			if (spellLevel >= 0 && spellLevel < knownList.size())
+			{
+				spells = knownList.get(spellLevel);
+			}
 			
 			if (spells.endsWith("+d")) {
 				psiSpecialty = true;
