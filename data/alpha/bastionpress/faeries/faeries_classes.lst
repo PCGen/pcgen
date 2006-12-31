@@ -20,6 +20,9 @@ CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 8	CAST:0,4,3,3,2	SA:Fey Companion Advancement (Ex)
 9	CAST:0,4,4,3,2											BONUS:DOMAIN|NUMBER|1
 10	CAST:0,4,4,3,3	SA:Mutual Bond (Su)
+#Comment: Why do we have three SAs with the same name?
+
+
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Faerie Hunter	HD:10		TYPE:PC.Prestige	ABB:FHt		SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -39,6 +42,8 @@ CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 8	CAST:0,2,1,1,1	SA:Craft Blood Item (Ex)									BONUS:VAR|FeyHunter|1
 9	CAST:0,2,2,1,1	SA:Destroy Doorway (Su)
 10	CAST:0,2,2,2,1														BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
+#No spell list designated - No Faerie Hunter in the Spell List.
+
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -100,10 +105,10 @@ CLASS:Fey Prankster	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Fey Prankster|CL
 ###Block: Spell list
-1	SPELLLIST:CLASS|Fey Prankster=1|Bad Luck,Change Self,Charm Person,Comprehend Languages,Faerie's Gold,Good Luck,Trinket
-1	SPELLLIST:CLASS|Fey Prankster=2|Detect Thoughts,Disrobe,Fool's Gold,Glob of Sap,See Invisibile
-1	SPELLLIST:CLASS|Fey Prankster=3|Bestow Curse,Blink,Charm Monster,Displacement,Fey Mask,Inflict Serious Wounds,Luck of the Fey,Suggestion
-1	SPELLLIST:CLASS|Fey Prankster=4|Cure Serious Wounds,Discern Route,Dismiss Fey,Fitful Sleep,Laughing Gas,Nondetection
+1	SPELLLEVEL:CLASS|Fey Prankster=1|Bad Luck,Change Self,Charm Person,Comprehend Languages,Faerie's Gold,Good Luck,Trinket
+1	SPELLLEVEL:CLASS|Fey Prankster=2|Detect Thoughts,Disrobe,Fool's Gold,Glob of Sap,See Invisibile
+1	SPELLLEVEL:CLASS|Fey Prankster=3|Bestow Curse,Blink,Charm Monster,Displacement,Fey Mask,Inflict Serious Wounds,Luck of the Fey,Suggestion
+1	SPELLLEVEL:CLASS|Fey Prankster=4|Cure Serious Wounds,Discern Route,Dismiss Fey,Fitful Sleep,Laughing Gas,Nondetection
 ###Block: Proficiencies
 1	FEATAUTO:Simple Weapon Proficiency
 1	FEATAUTO:Armor Proficiency (Light)
@@ -118,6 +123,8 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 8	CAST:0,4,3,3,2
 9	CAST:0,4,4,3,2
 10	CAST:0,4,4,3,3	SA:Destined (Ex)
+#Corrected the SPELLLIST to SPELLLEVEL
+
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -201,3 +208,4 @@ CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 8	CAST:0,2,1,1,1	SA:Unfurl the Mortal Coil (Sp) DC % %/week|UnfurlMortalCoilDC|UnfurlMortalCoilTimes	BONUS:VAR|UnfurlMortalCoilDC|15+CL	BONUS:VAR|UnfurlMortalCoilTimes|1	DEFINE:UnfurlMortalCoilDC|0	DEFINE:UnfurlMortalCoilTimes|0
 9	CAST:0,2,2,1,1	SA:Fey Glade (Su)
 10	CAST:0,2,2,2,1															BONUS:VAR|UnfurlMortalCoilTimes|1																		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)
+#No Spell List or Designation in the Spells.
