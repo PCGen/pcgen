@@ -154,7 +154,7 @@ class SourceBasePanel extends BasePanel
 		for (int i = 0; i < sourceModel.getOptionList().size(); i++)
 		{
 			options.setProperty(sourceModel.getOptionList().get(i).toString(),
-			    sourceModel.getOptionValues().get(i).toString());
+			    sourceModel.getOptionValues().get(i));
 		}
 
 		theCampaign.setOptions(options);
@@ -579,17 +579,17 @@ class SourceBasePanel extends BasePanel
 
 	final class SourceTableModel extends AbstractTableModel
 	{
-		List copyrightList = null;
-		List licenseList = null;
-		List optionList = null;
-		List optionValues = null;
+		List<String> copyrightList = null;
+		List<String> licenseList = null;
+		List<String> optionList = null;
+		List<String> optionValues = null;
 
 		public boolean isCellEditable(int rowIndex, int colIndex)
 		{
 			return ((rowIndex < optionList.size()) || (colIndex == 1));
 		}
 
-		public Class getColumnClass(int columnIndex)
+		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}
@@ -616,20 +616,20 @@ class SourceBasePanel extends BasePanel
 			return "Out Of Bounds";
 		}
 
-		public List getCopyrightList()
+		public List<String> getCopyrightList()
 		{
 			return copyrightList;
 		}
 
-		public List getLicenseList()
+		public List<String> getLicenseList()
 		{
 			return licenseList;
 		}
 
-		public void setLists(List optList, List licList, List copyList)
+		public void setLists(List<String> optList, List<String> licList, List<String> copyList)
 		{
-			optionList = (optList == null) ? new ArrayList() : optList;
-			optionValues = new ArrayList();
+			optionList = (optList == null) ? new ArrayList<String>() : optList;
+			optionValues = new ArrayList<String>();
 
 			if (optionList != null)
 			{
@@ -641,16 +641,16 @@ class SourceBasePanel extends BasePanel
 				}
 			}
 
-			licenseList = (licList == null) ? new ArrayList() : licList;
-			copyrightList = (copyList == null) ? new ArrayList() : copyList;
+			licenseList = (licList == null) ? new ArrayList<String>() : licList;
+			copyrightList = (copyList == null) ? new ArrayList<String>() : copyList;
 		}
 
-		public List getOptionList()
+		public List<String> getOptionList()
 		{
 			return optionList;
 		}
 
-		public List getOptionValues()
+		public List<String> getOptionValues()
 		{
 			return optionValues;
 		}
@@ -665,11 +665,11 @@ class SourceBasePanel extends BasePanel
 			return optionList.size() + licenseList.size() + copyrightList.size();
 		}
 
-		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		public void setValueAt(String aValue, int rowIndex, int columnIndex)
 		{
 			if (rowIndex < optionList.size())
 			{
-				String vString = (String) aValue;
+				String vString = aValue;
 
 				if ((columnIndex == 0) && vString.startsWith("OPTION:"))
 				{
@@ -707,18 +707,18 @@ class SourceBasePanel extends BasePanel
 			}
 		}
 
-		public Object getValueAt(int rowIndex, int columnIndex)
+		public String getValueAt(int rowIndex, int columnIndex)
 		{
 			if (rowIndex < optionList.size())
 			{
-				String propertyKey = optionList.get(rowIndex).toString();
+				String propertyKey = optionList.get(rowIndex);
 
 				if (columnIndex == 0)
 				{
 					return "OPTION:" + propertyKey;
 				}
 
-				return optionValues.get(rowIndex).toString();
+				return optionValues.get(rowIndex);
 			}
 
 			rowIndex -= optionList.size();
@@ -730,7 +730,7 @@ class SourceBasePanel extends BasePanel
 					return "COPYRIGHT:";
 				}
 
-				return copyrightList.get(rowIndex).toString();
+				return copyrightList.get(rowIndex);
 			}
 
 			rowIndex -= copyrightList.size();
@@ -742,7 +742,7 @@ class SourceBasePanel extends BasePanel
 					return "LICENSE:";
 				}
 
-				return licenseList.get(rowIndex).toString();
+				return licenseList.get(rowIndex);
 			}
 
 			return "";

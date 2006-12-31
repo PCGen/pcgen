@@ -347,7 +347,7 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
-							final List<Ability> subFeats = (List<Ability>)Globals.getAbilitiesByType(theCurrentCategory.getAbilityCategory(), key.substring(5));
+							final List<Ability> subFeats = Globals.getAbilitiesByType(theCurrentCategory.getAbilityCategory(), key.substring(5));
 							for ( final Ability ability : subFeats )
 							{
 								if (ability.getVisibility() == Visibility.DEFAULT)

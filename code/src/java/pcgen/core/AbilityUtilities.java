@@ -665,7 +665,7 @@ public class AbilityUtilities
 		final ArrayList<String> choices       = new ArrayList<String>();
 		final String            undoctoredKey = aFeatKey;
 		final String            baseKey       = EquipmentUtilities.getUndecoratedName(aFeatKey, choices);
-			  String            subKey        = choices.size() > 0 ? (String) choices.get(0) : "";
+			  String            subKey        = choices.size() > 0 ? choices.get(0) : "";
 
 		// See if our choice is not auto or virtual
 		Ability anAbility = aPC.getRealFeatKeyed(undoctoredKey);

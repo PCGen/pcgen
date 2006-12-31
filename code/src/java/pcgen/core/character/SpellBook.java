@@ -79,14 +79,14 @@ public class SpellBook implements Cloneable
 	 */
 	public String toString()
 	{
-		StringBuffer result = new StringBuffer(name);
+		final StringBuffer result = new StringBuffer(name);
 		if (type == TYPE_SPELL_BOOK)
 		{
 			result.append(" [");
 			result.append(numPagesUsed);
-			result.append("/");
+			result.append('/');
 			result.append(numPages);
-			result.append("]");
+			result.append(']');
 		}
 		return result.toString();
 	}

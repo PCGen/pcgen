@@ -32,7 +32,6 @@ import pcgen.core.EquipmentList;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
-import java.lang.Class;
 import java.lang.reflect.Field;
 import java.util.List;
 

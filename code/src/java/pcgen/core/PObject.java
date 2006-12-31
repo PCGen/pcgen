@@ -3205,89 +3205,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
 					&& tag.startsWith("WEAPON") && expandWeaponTypes)
 				{
-					final StringTokenizer bTok = new StringTokenizer(tok.substring(5), ".");
-					List<String> xList = null;
-
-					while (bTok.hasMoreTokens())
-					{
-						final String bString = bTok.nextToken();
-						final List bList = Globals.getWeaponProfs(bString, aPC);
-
-						if (bList.size() == 0)
-						{
-							bList.addAll(EquipmentList.getEquipmentOfType("Weapon." + bString, ""));
-						}
-
-						if (xList == null)
-						{
-							xList = new ArrayList<String>();
-
-							for (Object obj : bList)
-							{
-								final String wprof;
-
-								if (obj instanceof Equipment)
-								{
-									wprof = ((Equipment) obj).profKey(aPC);
-								}
-								else if (obj instanceof WeaponProf)
-								{
-									wprof = ((WeaponProf)obj).getKeyName();
-								}
-								else
-								{
-									wprof = obj.toString();
-								}
-
-								if (!xList.contains(wprof))
-								{
-									xList.add(wprof);
-								}
-							}
-						}
-						else
-						{
-							final List<String> removeList = new ArrayList<String>();
-
-							for (Iterator<String> e = xList.iterator(); e.hasNext();)
-							{
-								final String wprof = e.next();
-								boolean contains = false;
-
-								for (Object obj : bList)
-								{
-									final String wprof2;
-
-									if (obj instanceof Equipment)
-									{
-										wprof2 = ((Equipment) obj).profKey(aPC);
-									}
-									else
-									{
-										wprof2 = obj.toString();
-									}
-
-									if (wprof.equals(wprof2))
-									{
-										contains = true;
-
-										break;
-									}
-								}
-
-								if (!contains)
-								{
-									removeList.add(wprof);
-								}
-							}
-
-							for (Iterator<String> e = removeList.iterator(); e.hasNext();)
-							{
-								final String wprof = e.next();
-								xList.remove(wprof);
-							}
-						}
-					}
+					List<String> xList = processWeaponAutoTags(aPC, tok);
 
 					aList.addAll(xList);
 				}
@@ -3345,6 +3263,102 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				}
 			}
 		}
+	}
+
+	/**
+	 * @param aPC
+	 * @param tok
+	 * @return
+	 */
+	private List<String> processWeaponAutoTags(final PlayerCharacter aPC, String tok)
+	{
+		final StringTokenizer bTok = new StringTokenizer(tok.substring(5), ".");
+		List<String> xList = null;
+
+		while (bTok.hasMoreTokens())
+		{
+			final String bString = bTok.nextToken();
+			final List<WeaponProf> pcWeapProfList = Globals.getWeaponProfs(bString, aPC);
+			final List<Equipment> pcWeaponList = Collections.emptyList();
+			if (pcWeapProfList.size() == 0)
+			{
+				pcWeaponList.addAll(EquipmentList.getEquipmentOfType("Weapon." + bString, ""));
+			}
+
+			if (xList == null)
+			{
+				xList = new ArrayList<String>();
+
+				for (WeaponProf obj : pcWeapProfList)
+				{
+					final String wprof = obj.getKeyName();
+
+					if (!xList.contains(wprof))
+					{
+						xList.add(wprof);
+					}
+				}
+				
+				for (Equipment obj : pcWeaponList)
+				{
+					final String wprof = obj.profKey(aPC);
+
+					if (!xList.contains(wprof))
+					{
+						xList.add(wprof);
+					}
+				}
+				
+				
+			}
+			else
+			{
+				final List<String> removeList = new ArrayList<String>();
+
+				for (Iterator<String> e = xList.iterator(); e.hasNext();)
+				{
+					final String wprof = e.next();
+					boolean contains = false;
+
+					for (WeaponProf obj : pcWeapProfList)
+					{
+						final String wprof2 = obj.getKeyName();
+
+						if (wprof.equals(wprof2))
+						{
+							contains = true;
+
+							break;
+						}
+					}
+					if(!contains) {
+						for (Equipment obj : pcWeaponList)
+						{
+							final String wprof2 = obj.profKey(aPC);
+
+							if (wprof.equals(wprof2))
+							{
+								contains = true;
+
+								break;
+							}
+						}
+
+						if (!contains)
+						{
+							removeList.add(wprof);
+						}
+					}
+				}
+
+				for (Iterator<String> e = removeList.iterator(); e.hasNext();)
+				{
+					final String wprof = e.next();
+					xList.remove(wprof);
+				}
+			}
+		}
+		return xList;
 	}
 
 	/**

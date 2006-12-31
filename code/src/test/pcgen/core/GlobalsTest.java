@@ -348,7 +348,7 @@ public class GlobalsTest extends PCGenTestCase
 		is(it.hasNext(), eq(false), "Iterator has abilities 05");
 
 		List<? extends Categorisable> li = Globals.getUnmodifiableAbilityList("FOO");
-		is(li, eq(Collections.EMPTY_LIST), "list of FOO is Empty");
+		is(li, eq(Collections.emptyList()), "list of FOO is Empty");
 
 		li = Globals.getUnmodifiableAbilityList(Constants.FEAT_CATEGORY);
 

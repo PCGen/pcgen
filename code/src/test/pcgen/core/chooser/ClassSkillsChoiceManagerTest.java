@@ -33,7 +33,6 @@ import pcgen.core.EquipmentList;
 import pcgen.core.Race;
 import pcgen.util.TestHelper;
 
-import java.lang.Class;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.ArrayList;
@@ -108,7 +107,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2));
@@ -141,7 +140,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2));
@@ -182,7 +181,7 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(2));

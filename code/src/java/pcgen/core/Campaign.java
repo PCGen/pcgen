@@ -1166,15 +1166,15 @@ public final class Campaign extends PObject
 	 * Get the campaign options as a List
 	 * @return campaign options
 	 */
-	public List<?> getOptionsList()
+	public List<String> getOptionsList()
 	{
-		final List<Object> aList = new ArrayList<Object>();
+		final List<String> aList = new ArrayList<String>();
 
 		if (options != null)
 		{
 			for (Enumeration<?> e = options.propertyNames(); e.hasMoreElements();)
 			{
-				aList.add(e.nextElement());
+				aList.add(e.nextElement().toString());
 			}
 		}
 

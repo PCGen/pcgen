@@ -945,27 +945,33 @@ public class SpellProgressionInfo implements Cloneable {
 		 * transferred to the calling object (The returned list can be modified
 		 * without impacting the internal contents of this Progression)
 		 * 
-		 * @param aInt
+		 * @param classLevel
 		 *            The class level for which the spell progression should be
 		 *            returned.
 		 * @return The spell progression for the given class level, or null if
 		 *         there is no spell progression for the given class level.
 		 */
-		public List<String> getProgressionForLevel(int aInt) {
-			if (progressionMap == null) {
-				return null;
-			}
-			Integer key = Integer.valueOf(aInt);
-			if (!progressionMap.containsKey(key)) {
-				// No spellcasting at level key, check previous levels
-				if (progressionMap.firstKey() > aInt) {
-					// Nope, all spellcasting is in later levels
-					return null;
+		public List<String> getProgressionForLevel(int classLevel) {
+			List<String> spellProgression = null;
+			boolean found = false;
+			if(progressionMap != null) {
+				Integer key = Integer.valueOf(classLevel);
+				if (!progressionMap.containsKey(key)) {
+					//No spellcasting at level key, check previous levels
+					if (progressionMap.firstKey() < classLevel) {
+						key = progressionMap.headMap(key).lastKey();
+						found = true;
+					}
 				} else {
-					key = progressionMap.headMap(key).lastKey();
+					found = true;
+				}
+				if(found) {
+					List<String> list = progressionMap.get(key);
+					spellProgression = new ArrayList<String>(list);
 				}
 			}
-			return new ArrayList<String>(progressionMap.get(key));
+			return spellProgression;
+			
 		}
 
 		/**

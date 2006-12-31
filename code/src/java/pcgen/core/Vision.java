@@ -54,12 +54,12 @@ public class Vision extends PrereqObject implements Comparable<Vision> {
 		}
 	}
 
-	private String toString(int d) {
-		if (d <= 0) {
-			return visionType.toString();
-		} else {
-			return visionType + " (" + d + "')";
+	private String toString(int distance) {
+		String vision = visionType + " (" + distance + "')";
+		if(distance <= 0) {
+			vision = visionType.toString();
 		}
+		return vision;
 	}
 
 	public boolean equals(Vision v) {

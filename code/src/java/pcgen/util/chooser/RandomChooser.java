@@ -59,6 +59,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public RandomChooser()
 	{
+		//Empty constructor
 	}
 
 	/**
@@ -98,6 +99,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setMessageText(String argMessageText)
 	{
+		//This is not used.
 	}
 
 	public void setNegativeAllowed(final boolean argFlag)
@@ -161,6 +163,7 @@ public final class RandomChooser implements ChooserInterface
 
 	public void setSelectedListTerminator(String aString)
 	{
+		//This is not used.
 	}
 
 	/**
@@ -195,6 +198,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
+		//This is not used.
 	}
 
 	/**
@@ -204,6 +208,7 @@ public final class RandomChooser implements ChooserInterface
 	 */
 	public void setSelectedColumnNames(List selectedColumnNames)
 	{
+		//This is not used.
 	}
 
 	/**

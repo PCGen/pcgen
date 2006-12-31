@@ -1035,7 +1035,7 @@ public final class Globals
 	 * @param aType a TYPE String
 	 * @return List of Abilities
 	 */
-	public static List<? extends PObject> getAbilitiesByType(final String aCategory, final String aType)
+	public static List<Ability> getAbilitiesByType(final String aCategory, final String aType)
 	{
 		List<Ability> abilityList = new ArrayList<Ability>();
 		for ( Categorisable c : getUnmodifiableAbilityList(aCategory) )

@@ -31,7 +31,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.EquipmentList;
 import pcgen.util.TestHelper;
 
-import java.lang.Class;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.ArrayList;
@@ -84,7 +83,7 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
 		
 		try
 		{
-			Class cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
 
 			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
 			is (aField.get(choiceManager), eq(1));

@@ -136,7 +136,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 			while (aTok.hasMoreTokens())
 			{
-				id = Integer.valueOf(aTok.nextToken()).intValue();
+				id = Integer.parseInt(aTok.nextToken());
 			}
 		}
 		catch (NullPointerException e)

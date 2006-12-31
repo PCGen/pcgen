@@ -198,7 +198,7 @@ public class ClassAbilityPanel extends JPanel implements PObjectUpdater
 
 		if (a.length() > 0)
 		{
-			obj.setMaxLevel(Integer.valueOf(a).intValue());
+			obj.setMaxLevel(Integer.parseInt(a));
 		}
 	}
 
