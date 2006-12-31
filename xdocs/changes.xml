@@ -6,6 +6,7 @@
   </properties>
   <body>
     <release version="5.11.6" date="In SVN" description="Alpha release">
+      <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>
       <action dev="jdempsey" type="fix" issue="1625112">Multiple Bonuses on Feat Only Added Once [CMP].</action>
       <action dev="jdempsey" type="fix" issue="1621485">Spells lost from known spells list when removed from prepared spell list.</action>
       <action dev="jdempsey" type="fix" issue="1619872">Weapon damage not changing when weapons resized.</action>

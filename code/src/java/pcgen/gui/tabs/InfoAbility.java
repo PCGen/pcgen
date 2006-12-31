@@ -399,9 +399,11 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		{
 			theAvailablePane = new AvailableAbilityPanel(getPc(), theCategory);
 			theAvailablePane.addAbilitySelectionListener(this);
+			theAvailablePane.addFilterer(this);
 		}
 		theSelectedPane = new SelectedAbilityPanel(getPc(), theCategory);
 		theSelectedPane.addAbilitySelectionListener(this);
+		theSelectedPane.addFilterer(this);
 
 		if (theCategory.isEditable())
 		{

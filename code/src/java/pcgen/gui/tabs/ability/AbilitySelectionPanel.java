@@ -527,7 +527,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	 * @see pcgen.gui.tabs.ability.IAbilityListFilter#accept(ViewMode, pcgen.core.Ability)
 	 */
 	public boolean accept(@SuppressWarnings("unused")
-	final ViewMode aMode, final Ability anAbility)
+		final ViewMode aMode, final Ability anAbility)
 	{
 		if (!((anAbility.getVisibility() == Visibility.DEFAULT) || (anAbility
 			.getVisibility() == Visibility.DISPLAY_ONLY)))
