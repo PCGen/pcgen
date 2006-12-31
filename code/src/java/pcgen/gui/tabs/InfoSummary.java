@@ -102,7 +102,6 @@ import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.RegexFormatter;
 import pcgen.gui.utils.ResizeColumnListener;
-import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Delta;
@@ -1467,7 +1466,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	 */
 	private void createTreeTables()
 	{
-		pcClassTable = new JTableEx(new TableSorter(pcClassTreeModel));
+		pcClassTable = new JTableEx(pcClassTreeModel);
 		pcClassTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		pcClassTable.addMouseListener(new MouseAdapter()
 		{
