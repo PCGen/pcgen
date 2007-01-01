@@ -964,7 +964,7 @@ public final class Globals
 	 * @param aCategory the Category of the Abilities to return an iterator for
 	 * @return An Iterator
 	 */
-	public static Iterator<? extends Categorisable> getAbilityKeyIterator (String aCategory)
+	public static Iterator<Categorisable> getAbilityKeyIterator (String aCategory)
 	{
 		return abilityStore.getKeyIterator(aCategory);
 	}

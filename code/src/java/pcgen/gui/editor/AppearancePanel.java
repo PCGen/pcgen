@@ -65,7 +65,7 @@ final class AppearancePanel extends JPanel implements PObjectUpdater
 	 * @param aList
 	 * @param sort
 	 */
-	public void setEyeColorAvailableList(final List aList, final boolean sort)
+	public void setEyeColorAvailableList(final List<String> aList, final boolean sort)
 	{
 		pnlEyeColor.setAvailableList(aList, sort);
 	}
