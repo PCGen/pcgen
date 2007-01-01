@@ -4681,10 +4681,8 @@ public class PCClass extends PObject {
 				+ allSpellLevel);
 
 		final int index = baseSpellIndex();
-		final PCStat aStat;
-
 		if ((index != -2) && (index >= 0) && (index < aPC.getStatList().size())) {
-			aStat = aPC.getStatList().getStatAt(index);
+			final PCStat aStat = aPC.getStatList().getStatAt(index);
 			stat = aPC.getStatList().getTotalStatFor(aStat.getAbb());
 		}
 
@@ -4728,44 +4726,43 @@ public class PCClass extends PObject {
 
 		if (castInfo.hasKnownProgression()) {
 			List<String> knownList = castInfo.getKnownForLevel(pcLevel);
-			String spells = "";
 			if (spellLevel >= 0 && spellLevel < knownList.size())
 			{
-				spells = knownList.get(spellLevel);
-			}
+				String spells = knownList.get(spellLevel);
 			
-			if (spells.endsWith("+d")) {
-				psiSpecialty = true;
-				spells = spells.substring(0, spells.length() - 2);
-			}
-
-			int t;
-			if (castInfo.containsSpellFormula()) {
-				t = aPC.getVariableValue(spells, "").intValue();
-			} else {
-				t = Integer.parseInt(spells);
-			}
-			total += (t * mult);
-
-			// add Stat based bonus
-			final String bonusSpell = Globals.getBonusSpellMap().get(
-					String.valueOf(spellLevel));
-
-			if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN)
-					&& (bonusSpell != null)
-					&& !bonusSpell.equals("0|0")) {
-				final StringTokenizer s = new StringTokenizer(
-						bonusSpell, "|");
-				final int base = Integer.parseInt(s.nextToken());
-				final int range = Integer.parseInt(s.nextToken());
-
-				if (stat >= base) {
-					total += Math.max(0, (stat - base + range) / range);
+				if (spells.endsWith("+d")) {
+					psiSpecialty = true;
+					spells = spells.substring(0, spells.length() - 2);
 				}
-			}
-
-			if (psiSpecialty) {
-				total += castInfo.getKnownSpellsFromSpecialty();
+	
+				int t;
+				if (castInfo.containsSpellFormula()) {
+					t = aPC.getVariableValue(spells, "").intValue();
+				} else {
+					t = Integer.parseInt(spells);
+				}
+				total += (t * mult);
+	
+				// add Stat based bonus
+				final String bonusSpell = Globals.getBonusSpellMap().get(
+						String.valueOf(spellLevel));
+	
+				if (Globals.checkRule(RuleConstants.BONUSSPELLKNOWN)
+						&& (bonusSpell != null)
+						&& !bonusSpell.equals("0|0")) {
+					final StringTokenizer s = new StringTokenizer(
+							bonusSpell, "|");
+					final int base = Integer.parseInt(s.nextToken());
+					final int range = Integer.parseInt(s.nextToken());
+	
+					if (stat >= base) {
+						total += Math.max(0, (stat - base + range) / range);
+					}
+				}
+	
+				if (psiSpecialty) {
+					total += castInfo.getKnownSpellsFromSpecialty();
+				}
 			}
 		}
 

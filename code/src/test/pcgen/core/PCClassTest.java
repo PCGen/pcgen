@@ -397,6 +397,84 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		assertEquals("Should be able to cast 11th level spells with feat", 11, charClass.getHighestLevelSpell(character));
 	}
 
+
+	public void testGetKnownForLevel()
+	{
+		PCClass megaCasterClass = new PCClass();
+		megaCasterClass.setName("MegaCaster");
+		megaCasterClass.setAbbrev("MC");
+		megaCasterClass.setSpellType("ARCANE");
+		megaCasterClass.setSpellBaseStat("CHA");
+		megaCasterClass.setSpellBookUsed(false);
+		megaCasterClass.setMemorizeSpells(false);
+		megaCasterClass
+			.setKnown(1, Arrays.asList("4,2,2,3,4,5+d,0".split(",")));
+		megaCasterClass.setCast(1, Arrays.asList("3,1,2,3,4,5,0,0".split(",")));
+		megaCasterClass.setKnown(2, Arrays.asList("4,2,2,3,4,5,6,7,8,9,10"
+			.split(",")));
+		megaCasterClass.setCast(2, Arrays.asList("3,1,2,3,4,5,6,7,8,9,10"
+			.split(",")));
+		Globals.getClassList().add(megaCasterClass);
+
+		final PlayerCharacter character = getCharacter();
+
+		// Test retrieval for a non-spell casting class.
+		character.incrementClassLevel(1, nqClass);
+		PCClass charClass = character.getClassKeyed(nqClass.getKeyName());
+		assertEquals("Known 0th level for non spell casting class", 0,
+			charClass.getKnownForLevel(0, character));
+
+		// Test retrieval for a spell casting class.
+		character.incrementClassLevel(1, megaCasterClass);
+		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
+		assertEquals("Known 0th level for character's class", 4, charClass
+			.getKnownForLevel(0, character));
+		assertEquals("Known 1st level where stat is too low", 0, charClass
+			.getKnownForLevel(1, character));
+		setPCStat(character, "CHA", 11);
+		character.calcActiveBonuses();
+		assertEquals("Known 1st level where stat is high enough, but no bonus",
+			2, charClass.getKnownForLevel(1, character));
+		setPCStat(character, "CHA", 18);
+		character.calcActiveBonuses();
+		assertEquals("Known 1st level where stat gives bonus but not active",
+			2, charClass.getKnownForLevel(1, character));
+
+		RuleCheck bonusKnownRule = new RuleCheck();
+		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
+		bonusKnownRule.setDefault("Y");
+		GameMode gameMode = SettingsHandler.getGame();
+		gameMode.addRule(bonusKnownRule);
+		Globals.getBonusSpellMap().put("1", "12|8");
+		Globals.getBonusSpellMap().put("5", "20|8");
+		assertEquals("Known 1st level where stat gives bonus and active", 3,
+			charClass.getKnownForLevel(1, character));
+
+		assertEquals("Known 2nd level for character's class", 2, charClass
+			.getKnownForLevel(2, character));
+		assertEquals("Known 3rd level for character's class", 3, charClass
+			.getKnownForLevel(3, character));
+		assertEquals("Known 4th level for character's class", 4, charClass
+			.getKnownForLevel(4, character));
+		charClass.setHasSpellFormula(true);
+		charClass.setKnownSpellsFromSpecialty(1);
+		assertEquals("Known 5th level for character's class", 6, charClass
+			.getKnownForLevel(5, character));
+		assertEquals("Known 6th level for character's class", 0, charClass
+			.getKnownForLevel(6, character));
+		assertEquals("Known 7th level for character's class", 0, charClass
+			.getKnownForLevel(7, character));
+
+		// Add spell bonus for level above known max
+		Globals.getBonusSpellMap().put("7", "12|8");
+		assertEquals("Known 7th level for character's class", 0, charClass
+			.getKnownForLevel(7, character));
+
+		assertEquals("Known 8th level for character's class", 0, charClass
+			.getKnownForLevel(8, character));
+		
+	}
+	
 	/**
 	 * Parse a class definition and return the populated PCClass object.
 	 *
@@ -422,7 +500,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		}
 		return reconstClass;
 	}
-
+	
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
@@ -500,13 +578,13 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");
-		prClass.setName("KEY_PreReqClass");
+		prClass.setKeyName("KEY_PreReqClass");
 		prClass.setAbbrev("PCl");
 		prClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
 		prClass.addPreReq(prereq);
 		qClass = new PCClass();
 		qClass.setName("QualClass");
-		qClass.setName("KEY_QualClass");
+		qClass.setKeyName("KEY_QualClass");
 		qClass.setAbbrev("QC1");
 		qClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 		nqClass = new PCClass();
