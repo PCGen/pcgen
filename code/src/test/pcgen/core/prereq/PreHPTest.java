@@ -69,7 +69,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 
 		character.incrementClassLevel(1, myClass, true);
 		myClass = character.getClassList().get(0);
-		myClass.setHitPoint(1, new Integer(4));
+		myClass.setHitPoint(1, Integer.valueOf(4));
 
 		character.calcActiveBonuses();
 

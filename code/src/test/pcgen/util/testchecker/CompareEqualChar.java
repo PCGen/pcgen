@@ -41,7 +41,7 @@ public class CompareEqualChar extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Character(this.ch));
+		return obj.equals(Character.valueOf(this.ch));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

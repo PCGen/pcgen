@@ -152,7 +152,7 @@ class TemplateListModel extends AbstractListModel
 
 		for (int i = 0; i < aList.size(); i++)
 		{
-			cSheets[i] = aList.get(i).toString();
+			cSheets[i] = aList.get(i);
 		}
 
 		psheetFilter.setDirFilter(fileType);
@@ -162,7 +162,7 @@ class TemplateListModel extends AbstractListModel
 
 		for (int i = 0; i < aList.size(); i++)
 		{
-			pSheets[i] = aList.get(i).toString();
+			pSheets[i] = aList.get(i);
 		}
 
 		Arrays.sort(pSheets);

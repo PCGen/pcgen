@@ -245,8 +245,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.addBonusList("WEAPON|ATTACKS|" + 7);
 		bite.setOnlyNaturalWeapon(false);
 		bite.setSlots(0);
-		bite.setQty(new Float(1));
-		bite.setNumberCarried(new Float(1));
+		bite.setQty(Float.valueOf(1));
+		bite.setNumberCarried(Float.valueOf(1));
 		bite.setAttacksProgress(false);
 		bite.setDamage("1d10");
 		bite.setCritMult(2);

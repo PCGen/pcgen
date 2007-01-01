@@ -1172,13 +1172,13 @@ public class MainSource extends FilterAdapterPanel
 		for (int i = 0; i < aList.size(); ++i)
 		{
 			p1[i] = new PObjectNode();
-			p1[i].setItem(aList.get(i).toString());
+			p1[i].setItem(aList.get(i));
 			p1[i].setParent(typePubRoot);
 			p2[i] = new PObjectNode();
-			p2[i].setItem(aList.get(i).toString());
+			p2[i].setItem(aList.get(i));
 			p2[i].setParent(typePubSetRoot);
 			p3[i] = new PObjectNode();
-			p3[i].setItem(aList.get(i).toString());
+			p3[i].setItem(aList.get(i));
 			p3[i].setParent(typePubFmtSetRoot);
 		}
 

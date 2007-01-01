@@ -24,7 +24,6 @@ package pcgen.core.kit;
 
 import pcgen.core.*;
 import pcgen.core.character.EquipSet;
-import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 
 import java.io.Serializable;
@@ -58,7 +57,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 	private transient int theQty = 0;
 	private transient String theLocation = "";
 	private transient Equipment theTarget = null;
-	private transient BigDecimal theCost = BigDecimalHelper.ZERO;
+	private transient BigDecimal theCost = BigDecimal.ZERO;
 
 	/**
 	 * Constructor
@@ -265,7 +264,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		theQty = 0;
 		theLocation = "";
 		theTarget = null;
-		theCost = BigDecimalHelper.ZERO;
+		theCost = BigDecimal.ZERO;
 
 		processLookups(aKit, aPC);
 

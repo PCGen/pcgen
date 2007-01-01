@@ -283,7 +283,7 @@ public final class InfoSkillsSorters
 				// grandchildren
 				for (ListIterator jt = child; jt.hasNext();)
 				{
-					ListIterator gcIt = ((PObjectNode) jt.next());
+					ListIterator<PObjectNode> gcIt = ((PObjectNode) jt.next());
 
 					// subtype level; use arrays
 					// instead of iterator to make

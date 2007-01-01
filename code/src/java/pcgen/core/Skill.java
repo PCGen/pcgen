@@ -1469,7 +1469,7 @@ public final class Skill extends PObject
 	{
 		if (currentPC == null)
 		{
-			return new Float(0);
+			return Float.valueOf(0);
 		}
 		return new Float(getSkillRankBonusTo(currentPC));
 	}

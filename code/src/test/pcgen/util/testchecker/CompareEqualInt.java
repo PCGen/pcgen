@@ -41,7 +41,7 @@ public class CompareEqualInt extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Integer(this.i));
+		return obj.equals(Integer.valueOf(this.i));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

@@ -71,7 +71,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.ListKey;
 import pcgen.gui.GuiConstants;
-import pcgen.gui.editor.FeatBasePanel;
 import pcgen.io.parsers.CharacterDomainParser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
@@ -79,7 +78,6 @@ import pcgen.persistence.lst.PCClassLstToken;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
-import pcgen.util.enumeration.View;
 
 /**
  * <code>PCGVer2Parser</code>

@@ -41,7 +41,7 @@ public class CompareEqualLong extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Long(this.lo));
+		return obj.equals(Long.valueOf(this.lo));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

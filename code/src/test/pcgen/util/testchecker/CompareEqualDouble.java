@@ -41,7 +41,7 @@ public class CompareEqualDouble extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Double(this.doub));
+		return obj.equals(Double.valueOf(this.doub));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

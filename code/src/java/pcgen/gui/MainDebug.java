@@ -49,7 +49,7 @@ import java.util.ResourceBundle;
  */
 final class MainDebug extends JPanel
 {
-	static final long serialVersionUID = 6997794954514089648L;
+	private static final long serialVersionUID = 6997794954514089648L;
 	private static final JTextArea txtAreaDebug = new JTextArea();
 	private BorderLayout borderLayout4 = new BorderLayout();
 	private FlowLayout flowLayout3 = new FlowLayout();

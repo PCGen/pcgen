@@ -792,9 +792,9 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 	/**
 	 * @return a list of illegal filter names
 	 */
-	private List createIllegalNamesList()
+	private List<String> createIllegalNamesList()
 	{
-		List illegalNames = new ArrayList();
+		List<String> illegalNames = new ArrayList<String>();
 
 		PObjectFilter filter;
 
@@ -1660,7 +1660,7 @@ final class FilterNameDialog extends JDialog implements ActionListener
 	private JButton applyButton;
 	private JTextArea descriptionArea;
 	private JTextField nameField;
-	private final List illegalNamesList = new ArrayList();
+	private final List<String> illegalNamesList = new ArrayList<String>();
 
 	/**
 	 * Constructor
@@ -1688,7 +1688,7 @@ final class FilterNameDialog extends JDialog implements ActionListener
 	 *
 	 * @param newIllegalNamesList a list of names, which are illegal for filters
 	 */
-	public void setIllegalNames(List newIllegalNamesList)
+	public void setIllegalNames(List<String> newIllegalNamesList)
 	{
 		illegalNamesList.clear();
 		illegalNamesList.addAll(newIllegalNamesList);
@@ -2337,9 +2337,9 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 	/**
 	 * @return a list of illegal filter names
 	 */
-	private List createIllegalNamesList()
+	private List<String> createIllegalNamesList()
 	{
-		List illegalNames = new ArrayList();
+		List<String> illegalNames = new ArrayList<String>();
 
 		PObjectFilter filter;
 

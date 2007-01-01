@@ -33,8 +33,6 @@ import java.util.StringTokenizer;
 public class Movement
 {
 
-	private static final Double DOUBLE_ZERO = new Double(0.0);
-
 	/**
 	 * Contains the movement Types for this Movement (e.g. "Walk", "Fly")
 	 */
@@ -266,7 +264,7 @@ public class Movement
 			return movements[i];
 		}
 
-		return new Double(0);
+		return Double.valueOf(0.0);
 	}
 
 	/**
@@ -414,8 +412,8 @@ public class Movement
 			if ((tok.length() > 0)
 					&& ((tok.charAt(0) == '*') || (tok.charAt(0) == '/')))
 			{
-				cm.movements[0] = DOUBLE_ZERO;
-				cm.movement = DOUBLE_ZERO;
+				cm.movements[0] = Double.valueOf(0.0);
+				cm.movement = Double.valueOf(0.0);
 				try
 				{
 					double multValue = Double.parseDouble(tok.substring(1));
@@ -424,13 +422,13 @@ public class Movement
 						Logging.errorPrint("Illegal movement multiplier: "
 								+ multValue + " in movement string " + tok);
 					}
-					cm.movementMult[0] = new Double(multValue);
+					cm.movementMult[0] = Double.valueOf(multValue);
 					cm.movementMultOp[0] = tok.substring(0, 1);
 				}
 				catch (NumberFormatException e)
 				{
 					Logging.errorPrint("Badly formed MOVE token: " + tok);
-					cm.movementMult[0] = DOUBLE_ZERO;
+					cm.movementMult[0] = Double.valueOf(0.0);
 					cm.movementMultOp[0] = "";
 				}
 			}
@@ -444,10 +442,10 @@ public class Movement
 				catch (NumberFormatException e)
 				{
 					Logging.errorPrint("Badly formed movement string: " + tok);
-					cm.movements[0] = DOUBLE_ZERO;
+					cm.movements[0] = Double.valueOf(0.0);
 				}
 
-				cm.movementMult[0] = DOUBLE_ZERO;
+				cm.movementMult[0] = Double.valueOf(0.0);
 				cm.movementMultOp[0] = "";
 			}
 
@@ -462,7 +460,7 @@ public class Movement
 			while (moves.countTokens() > 1)
 			{
 				cm.movementTypes[x] = moves.nextToken(); // e.g. "Walk"
-				cm.movementMult[x] = DOUBLE_ZERO;
+				cm.movementMult[x] = Double.valueOf(0.0);
 				cm.movementMultOp[x] = "";
 
 				tok = moves.nextToken();
@@ -470,7 +468,7 @@ public class Movement
 				if ((tok.length() > 0)
 						&& ((tok.charAt(0) == '*') || (tok.charAt(0) == '/')))
 				{
-					cm.movements[x] = DOUBLE_ZERO;
+					cm.movements[x] = Double.valueOf(0.0);
 					try
 					{
 						double multValue = Double.parseDouble(tok.substring(1));
@@ -479,19 +477,19 @@ public class Movement
 							Logging.errorPrint("Illegal movement multiplier: "
 									+ multValue + " in movement string " + tok);
 						}
-						cm.movementMult[x] = new Double(multValue);
+						cm.movementMult[x] = Double.valueOf(multValue);
 						cm.movementMultOp[x] = tok.substring(0, 1);
 					}
 					catch (NumberFormatException e)
 					{
 						Logging.errorPrint("Badly formed MOVE token: " + tok);
-						cm.movementMult[x] = DOUBLE_ZERO;
+						cm.movementMult[x] = Double.valueOf(0.0);
 						cm.movementMultOp[x] = "";
 					}
 				}
 				else if (tok.length() > 0)
 				{
-					cm.movementMult[x] = DOUBLE_ZERO;
+					cm.movementMult[x] = Double.valueOf(0.0);
 					cm.movementMultOp[x] = "";
 
 					try
@@ -501,7 +499,7 @@ public class Movement
 					catch (NumberFormatException e)
 					{
 						Logging.errorPrint("Badly formed MOVE token: " + tok);
-						cm.movements[x] = DOUBLE_ZERO;
+						cm.movements[x] = Double.valueOf(0.0);
 					}
 
 					if ("Walk".equals(cm.movementTypes[x]))

@@ -30,11 +30,6 @@ import java.math.BigDecimal;
 public class BigDecimalHelper
 {
 	/**
-	 * As BigDecimal is immutable, try to use this rather than creating new zeros all the time.
-	 */
-	public static final BigDecimal ZERO = new BigDecimal(0);
-
-	/**
 	 * Sets [n] to [dp] decimal places.
 	 * @param n the BigDecimal to format
 	 * @param dp the wanted number of decimal places
@@ -58,7 +53,7 @@ public class BigDecimalHelper
 			// Java 1.5 will not throw an ArthmeticException if you change the
 			// scale of 0.0 to 0, so it will keep going through the loop below
 			// forever. To get around this we test for the special case here.
-			return ZERO;
+			return BigDecimal.ZERO;
 		}
 
 		if (n.scale() <= 0)
@@ -84,7 +79,7 @@ public class BigDecimalHelper
 	 */
 	public static String trimZeros(String numberToTrim)
 	{
-		BigDecimal aBigD = ZERO;
+		BigDecimal aBigD = BigDecimal.ZERO;
 
 		try
 		{

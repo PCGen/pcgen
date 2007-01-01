@@ -25,7 +25,6 @@
  */
 package pcgen.core;
 
-import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 
 import java.math.BigDecimal;
@@ -182,7 +181,7 @@ public final class LevelInfo
 	{
 		double ranks;
 		if (calcPC == null) {
-			return BigDecimalHelper.ZERO;
+			return BigDecimal.ZERO;
 		}
 		try
 		{

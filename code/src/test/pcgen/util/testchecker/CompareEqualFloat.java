@@ -44,7 +44,7 @@ public class CompareEqualFloat extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Float(this.fl));
+		return obj.equals(Float.valueOf(this.fl));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

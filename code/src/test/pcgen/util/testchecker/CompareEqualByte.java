@@ -41,7 +41,7 @@ public class CompareEqualByte extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Byte(this.by));
+		return obj.equals(Byte.valueOf(this.by));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

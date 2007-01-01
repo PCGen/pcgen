@@ -215,11 +215,11 @@ final class LstConverter extends JFrame
 
 			if (thisType == LST_TYPE_UNKNOWN)
 			{
-				Logging.errorPrint(lstNameList.get(i).toString() + " is UNKNOWN - not converting");
+				Logging.errorPrint(lstNameList.get(i) + " is UNKNOWN - not converting");
 			}
 
-			File conversionSource = new File(lstPathList.get(i).toString() + File.separatorChar
-					+ lstNameList.get(i).toString());
+			File conversionSource = new File(lstPathList.get(i) + File.separatorChar
+					+ lstNameList.get(i));
 
 			try
 			{

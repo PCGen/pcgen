@@ -41,7 +41,7 @@ public class CompareEqualShort extends TestChecker
 	}
 
 	public boolean check( Object obj ) {
-		return obj.equals(new Short(this.sh));
+		return obj.equals(Short.valueOf(this.sh));
 	}
 
 	public StringBuffer scribe( StringBuffer buf ) {

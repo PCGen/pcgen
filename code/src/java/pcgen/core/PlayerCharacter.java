@@ -79,7 +79,6 @@ import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.BigDecimalHelper;
 import pcgen.util.Delta;
 import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
@@ -103,7 +102,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public static final int ATTACKBONUS = 0;
 	/** MONKBONUS = 4 */
 	public static final int MONKBONUS = 4;
-	private static final BigDecimal BIG_ONE = new BigDecimal(1);
 	private static String lastVariable = null;
 
 	// List of Armor Proficiencies
@@ -704,7 +702,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				eq.setLocation(Equipment.NOT_CARRIED);
 				eq.setIsEquipped(false, this);
-				eq.setNumberCarried(new Float(0));
+				eq.setNumberCarried(Float.valueOf(0));
 				eq.setQty(num);
 			}
 			else if (eq.isWeapon())
@@ -837,7 +835,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 							removeLocalEquipment(anEquip);
 							anEquip.setIsEquipped(false, this);
 							anEquip.setLocation(Equipment.NOT_CARRIED);
-							anEquip.setNumberCarried(new Float(0));
+							anEquip.setNumberCarried(Float.valueOf(0));
 						}
 
 						eq.setIsEquipped(true, this);
@@ -1441,7 +1439,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
-		return new Float(count);
+		return Float.valueOf(count);
 	}
 
 	/**
@@ -4952,6 +4950,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 * @return bonus feats for new level
 	 * @deprecated
 	 */
+	@Deprecated
 	public double getBonusFeatsForNewLevel(final PCClass newLevelClass)
 	{
 		double bonusFeats = 0.0;
@@ -5811,7 +5810,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return movements[moveIdx];
 		}
-		return new Double(0);
+		return Double.valueOf(0);
 	}
 
 	public String getMovementType(final int moveIdx)
@@ -8153,7 +8152,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void adjustGold(final double delta)
 	{
 		// I don't really like this hack, but setScale just won't work right...
-		gold = new BigDecimal(gold.doubleValue() + delta).divide(BIG_ONE, 2,
+		gold = new BigDecimal(gold.doubleValue() + delta).divide(BigDecimal.ONE, 2,
 			BigDecimal.ROUND_HALF_EVEN);
 		setDirty(true);
 	}
@@ -8222,7 +8221,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 				if (!found)
 				{
-					setMyMoveRates(moveType, 0.0, new Double(0.0), "", 1);
+					setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 1);
 				}
 			}
 		}
@@ -8309,7 +8308,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
 
 			getVariableProcessor().addCachedVariable(cacheLookup,
-				new Float(masterBAB));
+				Float.valueOf(masterBAB));
 			return masterBAB;
 		}
 
@@ -8336,7 +8335,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			getVariableProcessor().restartCache();
 		}
 
-		getVariableProcessor().addCachedVariable(cacheLookup, new Float(bab));
+		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(bab));
 		return bab;
 	}
 
@@ -10500,7 +10499,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 	public BigDecimal totalValue()
 	{
-		BigDecimal totalValue = BigDecimalHelper.ZERO;
+		BigDecimal totalValue = BigDecimal.ZERO;
 
 		for (Equipment eq : getEquipmentMasterList())
 		{
@@ -10514,7 +10513,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public Float totalWeight()
 	{
 		float totalWeight = 0;
-		final Float floatZero = new Float(0);
+		final Float floatZero = Float.valueOf(0);
 		boolean firstClothing = true;
 
 		if (equipmentList.isEmpty())
@@ -10553,7 +10552,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return new Float(totalWeight);
+		return Float.valueOf(totalWeight);
 	}
 
 	public int touchAC()
@@ -10831,7 +10830,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			return movementMult[moveIdx];
 		}
-		return new Double(0);
+		return Double.valueOf(0);
 	}
 
 	/*
@@ -14476,6 +14475,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			bonus = newBonus;
 		}
 
+		@Override
 		public String toString()
 		{
 			return ("bonus: " + bonus + "    type: " + type);
@@ -14900,7 +14900,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		return new Float(0);
+		return Float.valueOf(0);
 	}
 
 	/**
@@ -15325,7 +15325,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		else
 		{
-			newQty = new Float(tempQty);
+			newQty = Float.valueOf(tempQty);
 		}
 		boolean addAll = false;
 		boolean mergeItem = false;

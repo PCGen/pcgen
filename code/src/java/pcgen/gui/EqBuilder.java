@@ -1409,7 +1409,7 @@ final class EqBuilder extends JPanel
 									Constants.s_APPNAME,
 									MessageType.INFORMATION,
 									null,
-									aNewEq.getDamage(aPC).toString());
+									aNewEq.getDamage(aPC));
 
 		if (selectedValue != null)
 		{

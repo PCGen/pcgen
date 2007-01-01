@@ -137,10 +137,10 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		locationStringList[NOT_CARRIED] = NOT_CARRIED_STR;
 	}
 
-	private BigDecimal baseCost = BigDecimalHelper.ZERO;
-	private BigDecimal cost = BigDecimalHelper.ZERO;
-	private BigDecimal costMod = BigDecimalHelper.ZERO;
-	private BigDecimal weightMod = BigDecimalHelper.ZERO;
+	private BigDecimal baseCost = BigDecimal.ZERO;
+	private BigDecimal cost = BigDecimal.ZERO;
+	private BigDecimal costMod = BigDecimal.ZERO;
+	private BigDecimal weightMod = BigDecimal.ZERO;
 
 	private String baseItem = Constants.EMPTY_STRING;
 
@@ -153,13 +153,13 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	private EquipmentCollection d_parent = null;
 	private List<Equipment> d_containedEquipment = null;
 
-	private Float carried = new Float(0);	// OwnedItem
+	private Float carried = Float.valueOf(0);	// OwnedItem
 
 	private int location = NOT_CARRIED;	// OwnedItem
 	private boolean equipped = false;	// OwnedItem
 	private int numberEquipped = 0;
 
-	private Float containerWeightCapacity = new Float(0);
+	private Float containerWeightCapacity = Float.valueOf(0);
 	private Integer containerReduceWeight = Integer.valueOf(0);
 	private boolean containerConstantWeight = false;
 	private boolean d_acceptsChildren = false;
@@ -302,7 +302,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public boolean isEitherType(final String aType)
 	{
-		return isType(aType, true) | isType(aType, false);
+		return isType(aType, true) || isType(aType, false);
 	}
 
 	/**
@@ -751,7 +751,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public BigDecimal getCost(final PlayerCharacter aPC)
 	{
-		BigDecimal c = BigDecimalHelper.ZERO;
+		BigDecimal c = BigDecimal.ZERO;
 
 		if (this.isVirtual())
 		{
@@ -809,9 +809,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		final List<BigDecimal> modifierCosts = new ArrayList<BigDecimal>();
 
-		BigDecimal nonDoubleCost = BigDecimalHelper.ZERO;
+		BigDecimal nonDoubleCost = BigDecimal.ZERO;
 
-		c = BigDecimalHelper.ZERO;
+		c = BigDecimal.ZERO;
 
 		int iPlus = 0;
 		int altPlus = 0;
@@ -834,7 +834,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 			if ((eqMod.getAssociatedCount() > 0) && !costFormula.equals(eqMod.getCost(0)))
 			{
-				eqModCost = BigDecimalHelper.ZERO;
+				eqModCost = BigDecimal.ZERO;
 
 				for (int idx = 0; idx < eqMod.getAssociatedCount(); ++idx)
 				{
@@ -918,7 +918,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		// should be 6 gp. This would give a cost of 6.05 gp per arrow, 6.1 gp per bolt and 6.01 gp
 		// per bullet.
 		//
-		// if (c.compareTo(BigDecimalHelper.ZERO) != 0)
+		// if (c.compareTo(BigDecimal.ZERO) != 0)
 		// {
 		// //
 		// // Convert to double and use math.ceil as ROUND_CEILING doesn't appear to work
@@ -973,7 +973,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 		catch (NumberFormatException e)
 		{
-			costMod = BigDecimalHelper.ZERO;
+			costMod = BigDecimal.ZERO;
 		}
 	}
 
@@ -2643,7 +2643,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		}
 		catch (NumberFormatException e)
 		{
-			weightMod = BigDecimalHelper.ZERO;
+			weightMod = BigDecimal.ZERO;
 		}
 	}
 
@@ -3477,7 +3477,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			sbuf.append(sep).append("SPROP").append(endPart).append(aString);
 		}
 
-		if (!costMod.equals(BigDecimalHelper.ZERO))
+		if (!costMod.equals(BigDecimal.ZERO))
 		{
 			sbuf.append(sep).append("COSTMOD").append(endPart).append(costMod.toString());
 		}
@@ -3827,7 +3827,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-		return new Float(0);
+		return Float.valueOf(0);
 	}
 
 	/**
@@ -4650,7 +4650,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-		if (bPrimary && (weightMod.compareTo(BigDecimalHelper.ZERO) != 0))
+		if (bPrimary && (weightMod.compareTo(BigDecimal.ZERO) != 0))
 		{
 			if (aString.length() != 0)
 			{
@@ -4841,7 +4841,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			}
 		}
 
-		return BigDecimalHelper.ZERO;
+		return BigDecimal.ZERO;
 	}
 
 	/**
@@ -5259,7 +5259,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 		Logging.errorPrint("Bad equipment cost expression: " + costExpr);
 
-		return BigDecimalHelper.ZERO;
+		return BigDecimal.ZERO;
 	}
 
 	private boolean ignoresCostDouble()
@@ -5292,12 +5292,12 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		//
 		if (acceptsType == null)
 		{
-			acceptsType = new Float(0);
+			acceptsType = Float.valueOf(0);
 		}
 
 		if (getChildType("Total") == null)
 		{
-			setChildType("Total", new Float(0));
+			setChildType("Total", Float.valueOf(0));
 		}
 
 		if ((getChildType("Total").floatValue() + aQuant.floatValue()) <= acceptsType.floatValue())
@@ -5327,7 +5327,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			{
 				if (!containsChildType("Any"))
 				{
-					setChildType("Any", new Float(0));
+					setChildType("Any", Float.valueOf(0));
 				}
 
 				if ((getChildType("Any").floatValue() + aQuant.floatValue()) <= getAcceptsType("Any").floatValue())
@@ -6858,7 +6858,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public Float getBaseContainedWeight(final boolean effective)
 	{
-		Float total = new Float(0);
+		Float total = Float.valueOf(0);
 
 		if ((containerConstantWeight && !effective) || (getChildCount() == 0))
 		{
@@ -6898,7 +6898,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 */
 	public Float getContainedWeight(final PlayerCharacter aPC, final boolean effective)
 	{
-		Float total = new Float(0);
+		Float total = Float.valueOf(0);
 
 		if ((containerConstantWeight && !effective) || (getChildCount() == 0))
 		{
@@ -7044,7 +7044,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	{
 		//-1 means unlimited
 		boolean limited = true;
-		Float aFloat = new Float(0);
+		Float aFloat = Float.valueOf(0);
 		d_acceptsChildren = true;
 
 		final StringTokenizer aTok = new StringTokenizer(aString, "|");
@@ -7083,18 +7083,18 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			catch (NumberFormatException ex)
 			{
 				Logging.errorPrint("Error in CONTAINS line: " + aString);
-				containerWeightCapacity = new Float(-1);
+				containerWeightCapacity = Float.valueOf(-1);
 			}
 		}
 		else
 		{
-			containerWeightCapacity = new Float(-1);
+			containerWeightCapacity = Float.valueOf(-1);
 		}
 
 		if (!aTok.hasMoreTokens())
 		{
 			limited = false;
-			setAcceptsType("Any", new Float(-1));
+			setAcceptsType("Any", Float.valueOf(-1));
 		}
 
 		String itemType;
@@ -7117,7 +7117,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			else
 			{
 				limited = false;
-				itemNumber = new Float(-1);
+				itemNumber = Float.valueOf(-1);
 			}
 
 			if (!"Any".equals(itemType) && !"Total".equals(itemType))
@@ -7134,7 +7134,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 		{
 			if (!limited)
 			{
-				aFloat = new Float(-1);
+				aFloat = Float.valueOf(-1);
 			}
 
 			setAcceptsType("Total", aFloat);

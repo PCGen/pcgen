@@ -26,8 +26,6 @@
  */
 package pcgen.core;
 
-import pcgen.util.BigDecimalHelper;
-
 import java.math.BigDecimal;
 
 /**
@@ -63,7 +61,7 @@ public final class SkillUtilities
 			return lInfo.getMaxClassSkillRank(level, pc);
 		}
 		// do something sensible if no level info
-		return BigDecimalHelper.ZERO;
+		return BigDecimal.ZERO;
 	}
 
 	/**
@@ -87,6 +85,6 @@ public final class SkillUtilities
 			return lInfo.getMaxCrossClassSkillRank(level, pc);
 		}
 		// do something sensible if no level info
-		return BigDecimalHelper.ZERO;
+		return BigDecimal.ZERO;
 	}
 }

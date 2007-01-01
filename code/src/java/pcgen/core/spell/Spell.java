@@ -49,7 +49,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 
 /**
@@ -60,7 +59,7 @@ import pcgen.util.Logging;
  */
 public final class Spell extends PObject
 {
-	private BigDecimal cost = BigDecimalHelper.ZERO;
+	private BigDecimal cost = BigDecimal.ZERO;
 	private HashMap<String, Integer> levelInfo = null;
 	private List<String> descriptorList = new ArrayList<String>();
 	private List<String> variantList = null; //Lazy initialization, it's rarely, if ever, used.
@@ -594,7 +593,7 @@ public final class Spell extends PObject
 
 		appendPCCText(txt, componentList, "COMPS");
 
-		if (getCost().compareTo(BigDecimalHelper.ZERO) != 0)
+		if (getCost().compareTo(BigDecimal.ZERO) != 0)
 		{
 			txt.append("\tCOST:").append(getCost().toString());
 		}
