@@ -69,9 +69,19 @@ public class TableColumnManager implements MouseListener {
 	
 	private void TablePopupActionPerformed() {
 		TableColumnModel colModel = table.getColumnModel();
-		while(colModel.getColumnCount() > 1) {
-			TableColumn col = colModel.getColumn(1);
-			colModel.removeColumn(col);
+		// Remove all other columns than the name column (column 0 in the model)
+		int nameColIndex = table.convertColumnIndexToView(0);
+		if (nameColIndex < 0)
+		{
+			nameColIndex = 0;
+		}
+		for (int i = colModel.getColumnCount()-1; i >= 0; i--)
+		{
+			if (i != nameColIndex)
+			{
+				TableColumn col = colModel.getColumn(i);
+				colModel.removeColumn(col);
+			}
 		}
 		for(int i = 0; i < checkBoxList.size(); i++) {
 			JCheckBoxMenuItem cb = checkBoxList.get(i);

@@ -34,6 +34,7 @@ import java.util.List;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
+import javax.swing.table.TableColumn;
 
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -137,9 +138,14 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	{
 		if (theTable != null)
 		{
-			String curVal =
-					theTable.getColumnModel().getColumn(0).getHeaderValue()
-						.toString();
+			int nameColIndex = theTable.convertColumnIndexToView(0);
+			if (nameColIndex < 0)
+			{
+				nameColIndex = 0;
+			}
+			TableColumn nameCol =
+					theTable.getColumnModel().getColumn(nameColIndex);
+			String curVal = nameCol.getHeaderValue().toString();
 			int endInd = curVal.lastIndexOf('(');
 			if (endInd != -1)
 			{
@@ -148,7 +154,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 			final BigDecimal spent = getPC().getAbilityPoolSpent(getCategory());
 			final String txt =
 					curVal + " (" + spent.stripTrailingZeros().toString() + ")"; //$NON-NLS-1$//$NON-NLS-2$
-			theTable.getColumnModel().getColumn(0).setHeaderValue(txt);
+			nameCol.setHeaderValue(txt);
 		}
 		super.update();
 	}

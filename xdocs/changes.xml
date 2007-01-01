@@ -15,6 +15,7 @@
       <action dev="jdempsey" type="fix" issue="1612182">PRExxx Q: to override Qualify doesn't.</action>
       <action dev="jdempsey" type="fix" issue="1590684">SUBCLASS PREREQs not enforced after level 1.</action>
       <action dev="jdempsey" type="fix" issue="1584302">Extra feats remaining after load of 5.10.1 character.</action>
+      <action dev="jdempsey" type="fix" issue="1519429">Feat tab - Problems when column order swapped.</action>
       <action dev="jdempsey" type="fix" issue="1517762">Bug with 'BONUS:WEAPONPROF=' in LST editor.</action>
     </release>
     <release version="5.11.5" date="2006-12-24" description="Alpha release">
