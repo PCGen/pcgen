@@ -252,23 +252,28 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 
 		drList.add(new DamageReduction("10", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("10/magic and good"));
+		//is(listResult, strEq("10/magic and good"));
+		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
 
 		drList.add(new DamageReduction("10", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("10/magic and good"));
+		//is(listResult, strEq("10/magic and good"));
+		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
 
 		drList.add(new DamageReduction("5", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("10/magic and good"));
+		//is(listResult, strEq("10/magic and good"));
+		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
 
 		drList.add(new DamageReduction("10", "magic"));
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("10/magic and good"));
+		//is(listResult, strEq("10/magic and good"));
+		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
 
 		drList.add(new DamageReduction("5", "good"));
 		listResult = DamageReduction.getDRString(null, drList);
-		is(listResult, strEq("10/magic and good"));
+		//is(listResult, strEq("10/magic and good"));
+		is(listResult, or(strEq("10/magic and good"),strEq("10/good and magic")));
 
 		drList.add(new DamageReduction("15", "Good"));
 		listResult = DamageReduction.getDRString(null, drList);
