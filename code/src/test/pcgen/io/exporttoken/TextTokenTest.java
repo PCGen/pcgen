@@ -73,27 +73,26 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("TEXT.LOWER.NAME",
-			"the vitamins are in my fresh brussels sprouts", tok
-				.getToken("TEXT.LOWER.NAME", character, eh));
+			"the vitamins are in my fresh brussels sprouts", tok.getToken(
+				"TEXT.LOWER.NAME", character, eh));
 		assertEquals("TEXT.UPPER.NAME",
-			"THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS", tok
-				.getToken("TEXT.UPPER.NAME", character, eh));
+			"THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS", tok.getToken(
+				"TEXT.UPPER.NAME", character, eh));
 		assertEquals("TEXT.SENTENCE.NAME",
-			"The vitamins are in my fresh brussels sprouts", tok
-				.getToken("TEXT.SENTENCE.NAME", character, eh));
+			"The vitamins are in my fresh brussels sprouts", tok.getToken(
+				"TEXT.SENTENCE.NAME", character, eh));
 		assertEquals("TEXT.SENTENCE.NAME",
-			"The vitamins are in my fresh brussels sprouts", tok
-				.getToken("TEXT.SENTENCE.NAME", character, eh));
+			"The vitamins are in my fresh brussels sprouts", tok.getToken(
+				"TEXT.SENTENCE.NAME", character, eh));
 		character.setName("The Vitamins are in my Fresh Brussels Sprouts");
 		assertEquals("TEXT.SENTENCE.INTERESTS",
-			"One potatoe. Two potatoe. More", tok
-				.getToken("TEXT.SENTENCE.INTERESTS", character, eh));
+			"One potatoe. Two potatoe. More", tok.getToken(
+				"TEXT.SENTENCE.INTERESTS", character, eh));
 		assertEquals("TEXT.TITLE.NAME",
-			"The Vitamins Are In My Fresh Brussels Sprouts", tok
-				.getToken("TEXT.TITLE.NAME", getCharacter(), eh));
-		assertEquals("TEXT.TITLE.NAME",
-			"One Potatoe. Two Potatoe. More", tok
-				.getToken("TEXT.TITLE.INTERESTS", character, eh));
+			"The Vitamins Are In My Fresh Brussels Sprouts", tok.getToken(
+				"TEXT.TITLE.NAME", getCharacter(), eh));
+		assertEquals("TEXT.TITLE.NAME", "One Potatoe. Two Potatoe. More", tok
+			.getToken("TEXT.TITLE.INTERESTS", character, eh));
 	}
 
 	/**
@@ -104,7 +103,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		TextToken tok = new TextToken();
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
-		
+
 		character.setAge(1);
 		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
@@ -153,7 +152,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	{
 		TextToken tok = new TextToken();
 		ExportHandler eh = new ExportHandler(null);
-		
+
 		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.1",
 			getCharacter(), eh));
 		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.2",
@@ -169,6 +168,5 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133.0",
 			getCharacter(), eh));
 	}
-
 
 }

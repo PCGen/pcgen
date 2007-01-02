@@ -7,10 +7,9 @@ import junit.framework.TestSuite;
  * Tests a 3e 4th lvl Gnome Barbarian
  */
 @SuppressWarnings("nls")
-public class pcGenGUIBarJackTest
-		extends pcGenGUITestCase
+public class pcGenGUIBarJackTest extends pcGenGUITestCase
 {
-	
+
 	/**
 	 * Runs the test
 	 * 
@@ -20,7 +19,7 @@ public class pcGenGUIBarJackTest
 	{
 		junit.textui.TestRunner.run(pcGenGUIBarJackTest.class);
 	}
-	
+
 	/**
 	 * Default constructor
 	 */
@@ -53,8 +52,7 @@ public class pcGenGUIBarJackTest
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testBarJack()
-			throws Exception
+	public void testBarJack() throws Exception
 	{
 		runTest("BarJack", "3e");
 	}

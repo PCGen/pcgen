@@ -18,63 +18,72 @@ import plugin.pretokens.parser.PreSkillParser;
  * To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Generation - Code and Comments
  */
-public class PreSkillParserTest extends TestCase {
-    public static void main(String args[]) {
-        junit.swingui.TestRunner.run(PreSkillParserTest.class);
-    }
+public class PreSkillParserTest extends TestCase
+{
+	public static void main(String args[])
+	{
+		junit.swingui.TestRunner.run(PreSkillParserTest.class);
+	}
 
-    /**
-     * @return Test
-     */
-    public static Test suite() {
-        return new TestSuite(PreSkillParserTest.class);
-    }
+	/**
+	 * @return Test
+	 */
+	public static Test suite()
+	{
+		return new TestSuite(PreSkillParserTest.class);
+	}
 
-    /**
-     * @throws Exception
-     */
-    public void test1() throws Exception {
-        PreSkillParser producer = new PreSkillParser();
+	/**
+	 * @throws Exception
+	 */
+	public void test1() throws Exception
+	{
+		PreSkillParser producer = new PreSkillParser();
 
-        Prerequisite prereq = producer.parse("SKILL",
-                "3,Decipher Script,Disable Device,Escape Artist=7", false,
-                false);
+		Prerequisite prereq =
+				producer.parse("SKILL",
+					"3,Decipher Script,Disable Device,Escape Artist=7", false,
+					false);
 
-        assertEquals(
-                "<prereq operator=\"gteq\" operand=\"3\" >\n"
-                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Decipher Script\" operator=\"gteq\" operand=\"7\" >\n"
-                        + "</prereq>\n"
-                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Disable Device\" operator=\"gteq\" operand=\"7\" >\n"
-                        + "</prereq>\n"
-                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Escape Artist\" operator=\"gteq\" operand=\"7\" >\n"
-                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
-    }
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"3\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Decipher Script\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Disable Device\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"Escape Artist\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+	}
 
-    /**
-     * @throws Exception
-     */
-    public void test2() throws Exception {
-        PreSkillParser producer = new PreSkillParser();
+	/**
+	 * @throws Exception
+	 */
+	public void test2() throws Exception
+	{
+		PreSkillParser producer = new PreSkillParser();
 
-        Prerequisite prereq = producer.parse("SKILL",
-                "2,TYPE.Knowledge,TYPE.Knowledge=10", false, false);
+		Prerequisite prereq =
+				producer.parse("SKILL", "2,TYPE.Knowledge,TYPE.Knowledge=10",
+					false, false);
 
-        assertEquals(
-                "<prereq operator=\"gteq\" operand=\"2\" >\n"
-                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"10\" >\n"
-                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
-    }
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"2\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"10\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+	}
 
-    public void test3() throws Exception {
-        PreSkillParser producer = new PreSkillParser();
+	public void test3() throws Exception
+	{
+		PreSkillParser producer = new PreSkillParser();
 
-        Prerequisite prereq = producer.parse("SKILL",
-                "3,TYPE.Knowledge,TYPE.Knowledge,TYPE.Knowledge=10", false,
-                false);
+		Prerequisite prereq =
+				producer.parse("SKILL",
+					"3,TYPE.Knowledge,TYPE.Knowledge,TYPE.Knowledge=10", false,
+					false);
 
-        assertEquals(
-                "<prereq operator=\"gteq\" operand=\"3\" >\n"
-                        + "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"10\" >\n"
-                        + "</prereq>\n" + "</prereq>\n", prereq.toString());
-    }
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"3\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"10\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+	}
 }

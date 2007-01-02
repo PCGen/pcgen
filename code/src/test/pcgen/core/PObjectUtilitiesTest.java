@@ -83,7 +83,7 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		divineClass.setMemorizeSpells(true);
 		divineClass.setCast(1, Arrays.asList("3,1,0".split(",")));
 		Globals.getClassList().add(divineClass);
-		
+
 		psionicClass = new PCClass();
 		psionicClass.setName("TestPsion");
 		psionicClass.setAbbrev("TP");
@@ -116,51 +116,51 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	 */
 	public void testSetSpellLevelSelections() throws Exception
 	{
-//		PObject pObj = new PObject();
-//		pObj.setName("My PObject");
-//		pObj.setChoiceString("SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL");
-//
-//		PlayerCharacter aPC  = getCharacter();
-//		aPC.incrementClassLevel(2, arcaneClass);
-//		aPC.incrementClassLevel(4, psionicClass);
-//
-//		List availList = new ArrayList();
-//		List selectedList = new ArrayList();
-//
-//		// Test the calculation of max level for an arcane class.
-//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
-//			"SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL", new ArrayList(), new ArrayList());
-//		assertEquals("Number of available choices", 3, availList.size());
-//		assertEquals("2nd choice", "TestArcane 1", availList.get(1));
-//		assertEquals("3rd choice", "TestArcane 2", availList.get(2));
-//
-//		availList = new ArrayList();
-//		selectedList = new ArrayList();
-//
-//		// Test the calculation of max level for an arcane class.
-//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
-//			"SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL-1", new ArrayList(), new ArrayList());
-//		assertEquals("Number of available choices", 2, availList.size());
-//		assertEquals("2nd choice", "TestArcane 1", availList.get(1));
-//		assertEquals("1st choice", "TestArcane 0", availList.get(0));
-//
-//		availList = new ArrayList();
-//		selectedList = new ArrayList();
-//		
-//		// Test the calculation of max level with brackets for a psionic class.
-//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
-//			"SPELLLEVEL|1|TYPE=PSIONIC|1|(MAXLEVEL-1)", new ArrayList(), new ArrayList());
-//		assertEquals("Number of available choices", 2, availList.size());
-//		assertEquals("1st choice", "TestPsion 1", availList.get(0));
-//
-//		availList = new ArrayList();
-//		selectedList = new ArrayList();
-//
-//		// Test the calculation of max level without brackets for a psionic class.
-//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
-//			"SPELLLEVEL|1|TYPE=PSIONIC|1|MAXLEVEL-1", new ArrayList(), new ArrayList());
-//		assertEquals("Number of available choices", 2, availList.size());
-//		assertEquals("1st choice", "TestPsion 1", availList.get(0));
-		
+		//		PObject pObj = new PObject();
+		//		pObj.setName("My PObject");
+		//		pObj.setChoiceString("SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL");
+		//
+		//		PlayerCharacter aPC  = getCharacter();
+		//		aPC.incrementClassLevel(2, arcaneClass);
+		//		aPC.incrementClassLevel(4, psionicClass);
+		//
+		//		List availList = new ArrayList();
+		//		List selectedList = new ArrayList();
+		//
+		//		// Test the calculation of max level for an arcane class.
+		//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
+		//			"SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL", new ArrayList(), new ArrayList());
+		//		assertEquals("Number of available choices", 3, availList.size());
+		//		assertEquals("2nd choice", "TestArcane 1", availList.get(1));
+		//		assertEquals("3rd choice", "TestArcane 2", availList.get(2));
+		//
+		//		availList = new ArrayList();
+		//		selectedList = new ArrayList();
+		//
+		//		// Test the calculation of max level for an arcane class.
+		//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
+		//			"SPELLLEVEL|1|TYPE=ARCANE|0|MAXLEVEL-1", new ArrayList(), new ArrayList());
+		//		assertEquals("Number of available choices", 2, availList.size());
+		//		assertEquals("2nd choice", "TestArcane 1", availList.get(1));
+		//		assertEquals("1st choice", "TestArcane 0", availList.get(0));
+		//
+		//		availList = new ArrayList();
+		//		selectedList = new ArrayList();
+		//		
+		//		// Test the calculation of max level with brackets for a psionic class.
+		//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
+		//			"SPELLLEVEL|1|TYPE=PSIONIC|1|(MAXLEVEL-1)", new ArrayList(), new ArrayList());
+		//		assertEquals("Number of available choices", 2, availList.size());
+		//		assertEquals("1st choice", "TestPsion 1", availList.get(0));
+		//
+		//		availList = new ArrayList();
+		//		selectedList = new ArrayList();
+		//
+		//		// Test the calculation of max level without brackets for a psionic class.
+		//		PObjectUtilities.setSpellLevelSelections(pObj, availList, selectedList, true, aPC, 
+		//			"SPELLLEVEL|1|TYPE=PSIONIC|1|MAXLEVEL-1", new ArrayList(), new ArrayList());
+		//		assertEquals("Number of available choices", 2, availList.size());
+		//		assertEquals("1st choice", "TestPsion 1", availList.get(0));
+
 	}
 }

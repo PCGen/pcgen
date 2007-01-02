@@ -61,9 +61,10 @@ public class PreFeatParserTest extends TestCase
 		// "PREFEAT:1,Alertness";
 
 		Prerequisite prereq = parser.parse("feat", "1,Alertness", false, false);
-		
-		assertEquals("<prereq kind=\"feat\" key=\"Alertness\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n", prereq.toString());
+
+		assertEquals(
+			"<prereq kind=\"feat\" key=\"Alertness\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -74,13 +75,14 @@ public class PreFeatParserTest extends TestCase
 		PreFeatParser parser = new PreFeatParser();
 		// "PREFEAT:Alertness|Cleave";
 
-		Prerequisite prereq = parser.parse("feat", "Alertness|Cleave", false, false);
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"+
-				"<prereq kind=\"feat\" key=\"Alertness\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n" + 
-				"<prereq kind=\"feat\" key=\"Cleave\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n" + 
-				"</prereq>\n", prereq.toString());
+		Prerequisite prereq =
+				parser.parse("feat", "Alertness|Cleave", false, false);
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"feat\" key=\"Alertness\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"feat\" key=\"Cleave\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -90,12 +92,14 @@ public class PreFeatParserTest extends TestCase
 	{
 		PreFeatParser parser = new PreFeatParser();
 
-		Prerequisite prereq = parser.parse("feat", "1,Weapon Focus (Rapier)", false, false);
-		
-		assertEquals("<prereq kind=\"feat\" key=\"Weapon Focus\" sub-key=\"Rapier\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n", prereq.toString());
+		Prerequisite prereq =
+				parser.parse("feat", "1,Weapon Focus (Rapier)", false, false);
+
+		assertEquals(
+			"<prereq kind=\"feat\" key=\"Weapon Focus\" sub-key=\"Rapier\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
-	
+
 	/**
 	 * @throws Exception
 	 */
@@ -105,12 +109,12 @@ public class PreFeatParserTest extends TestCase
 		String bonus = "1,Spell Focus(Conjuration)";
 
 		Prerequisite prereq = parser.parse("feat", bonus, false, false);
-		
-		assertEquals("<prereq kind=\"feat\" key=\"Spell Focus\" sub-key=\"Conjuration\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n", prereq.toString());
+
+		assertEquals(
+			"<prereq kind=\"feat\" key=\"Spell Focus\" sub-key=\"Conjuration\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
-	
-	
+
 	/**
 	 * @throws Exception
 	 */
@@ -118,13 +122,14 @@ public class PreFeatParserTest extends TestCase
 	{
 		PreFeatParser parser = new PreFeatParser();
 
-		Prerequisite prereq = parser.parse("feat", "2,TYPE=ItemCreation", false, false);
-		
-		assertEquals("<prereq kind=\"feat\" key=\"TYPE=ItemCreation\" operator=\"gteq\" operand=\"2\" >\n"
-				+"</prereq>\n", prereq.toString());
+		Prerequisite prereq =
+				parser.parse("feat", "2,TYPE=ItemCreation", false, false);
+
+		assertEquals(
+			"<prereq kind=\"feat\" key=\"TYPE=ItemCreation\" operator=\"gteq\" operand=\"2\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
-	
-	
+
 	/**
 	 * Test that exclusions are parsed properly.
 	 * @throws Exception
@@ -133,12 +138,15 @@ public class PreFeatParserTest extends TestCase
 	{
 		PreFeatParser parser = new PreFeatParser();
 
-		Prerequisite prereq = parser.parse("feat", "2,TYPE=ItemCreation,[Scribe Scroll]", false, false);
-		
-		assertEquals("<prereq operator=\"gteq\" operand=\"3\" >\n" +
-				"<prereq kind=\"feat\" count-multiples=\"true\" key=\"TYPE=ItemCreation\" operator=\"gteq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"feat\" count-multiples=\"true\" key=\"Scribe Scroll\" operator=\"lt\" operand=\"1\" >\n" +
-				"</prereq>\n</prereq>\n", prereq.toString());
+		Prerequisite prereq =
+				parser.parse("feat", "2,TYPE=ItemCreation,[Scribe Scroll]",
+					false, false);
+
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"3\" >\n"
+				+ "<prereq kind=\"feat\" count-multiples=\"true\" key=\"TYPE=ItemCreation\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"feat\" count-multiples=\"true\" key=\"Scribe Scroll\" operator=\"lt\" operand=\"1\" >\n"
+				+ "</prereq>\n</prereq>\n", prereq.toString());
 	}
 }

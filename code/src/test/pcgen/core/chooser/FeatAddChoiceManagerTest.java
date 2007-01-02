@@ -40,7 +40,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class FeatAddChoiceManagerTest extends AbstractCharacterTestCase {
+public class FeatAddChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code FeatAddChoiceManagerTest}.
@@ -50,12 +51,11 @@ public class FeatAddChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -72,26 +72,30 @@ public class FeatAddChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=1|FEATADD|choice");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|FEATADD|choice"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("FEATADD"), "got expected chooser");
-		
+		is(choiceManager.typeHandled(), strEq("FEATADD"),
+			"got expected chooser");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(1));
-			is (choices.get(0), strEq("choice"));
+			is(choices.size(), eq(1));
+			is(choices.get(0), strEq("choice"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

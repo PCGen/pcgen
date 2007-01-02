@@ -43,10 +43,11 @@ import java.util.ArrayList;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
+public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	PCClass pcClass;
-	Race    emptyRace = new Race();
+	Race emptyRace = new Race();
 	boolean firstTime = true;
 	PlayerCharacter myChar;
 
@@ -58,17 +59,22 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		super.setUp();
 
-		if (firstTime) {
+		if (firstTime)
+		{
 			firstTime = false;
 
-			TestHelper.makeSkill("Bluff",              "Charisma",               "CHA", true, "NO");
-			TestHelper.makeSkill("Listen",             "Wisdom",                 "WIS", true, "NO");
-			TestHelper.makeSkill("Move Silently",      "Dexterity",              "DEX", true, "YES");
-			TestHelper.makeSkill("Knowledge (Arcana)", "Intelligence.Knowledge", "INT", false,  "NO");
-			TestHelper.makeSkill("Knowledge (Dungeoneering)", "Intelligence.Knowledge", "INT", false, "NO");
+			TestHelper.makeSkill("Bluff", "Charisma", "CHA", true, "NO");
+			TestHelper.makeSkill("Listen", "Wisdom", "WIS", true, "NO");
+			TestHelper.makeSkill("Move Silently", "Dexterity", "DEX", true,
+				"YES");
+			TestHelper.makeSkill("Knowledge (Arcana)",
+				"Intelligence.Knowledge", "INT", false, "NO");
+			TestHelper.makeSkill("Knowledge (Dungeoneering)",
+				"Intelligence.Knowledge", "INT", false, "NO");
 
 			pcClass = new PCClass();
 			pcClass.addCSkill("KEY_Bluff");
@@ -98,25 +104,30 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=2|CSKILLS");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|CSKILLS"));
 
-		PlayerCharacter aPC  = getCharacter();
+		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("CSKILLS"), "got expected chooser");
+		is(choiceManager.typeHandled(), strEq("CSKILLS"),
+			"got expected chooser");
 
 		try
 		{
-			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(2));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(2));
 
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(0));
+			is(choices.size(), eq(0));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -131,33 +142,38 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=2|CSKILLS");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|CSKILLS"));
 
-		PlayerCharacter aPC  = getCharacter();
+		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("CSKILLS"), "got expected chooser");
+		is(choiceManager.typeHandled(), strEq("CSKILLS"),
+			"got expected chooser");
 
 		try
 		{
-			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(2));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(2));
 
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(0));
+			is(choices.size(), eq(0));
 
-			ArrayList avail    = new ArrayList();
+			ArrayList avail = new ArrayList();
 			ArrayList selected = new ArrayList();
 
 			choiceManager.getChoices(myChar, avail, selected);
 
-			is (avail.size(),    eq(4), "Available choices is correct size");
-			is (selected.size(), eq(0), "Selected choices is correct size");
+			is(avail.size(), eq(4), "Available choices is correct size");
+			is(selected.size(), eq(0), "Selected choices is correct size");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -172,38 +188,43 @@ public class ClassSkillsChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=2|CSKILLS");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=2|CSKILLS"));
 
-		PlayerCharacter aPC  = getCharacter();
+		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("CSKILLS"), "got expected chooser");
+		is(choiceManager.typeHandled(), strEq("CSKILLS"),
+			"got expected chooser");
 
 		try
 		{
-			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(2));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(2));
 
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(0));
+			is(choices.size(), eq(0));
 
-			ArrayList avail    = new ArrayList();
+			ArrayList avail = new ArrayList();
 			ArrayList selected = new ArrayList();
 
 			choiceManager.getChoices(myChar, avail, selected);
 
-			is (avail.size(),    eq(4), "Available choices is correct size");
-			is (selected.size(), eq(0), "Selected choices is correct size");
+			is(avail.size(), eq(4), "Available choices is correct size");
+			is(selected.size(), eq(0), "Selected choices is correct size");
 
-			is (avail.get(0).toString(), strEq("Bluff"));
-			is (avail.get(1).toString(), strEq("Listen"));
-			is (avail.get(2).toString(), strEq("Knowledge (Arcana)"));
-			is (avail.get(3).toString(), strEq("Knowledge (Dungeoneering)"));
+			is(avail.get(0).toString(), strEq("Bluff"));
+			is(avail.get(1).toString(), strEq("Listen"));
+			is(avail.get(2).toString(), strEq("Knowledge (Arcana)"));
+			is(avail.get(3).toString(), strEq("Knowledge (Dungeoneering)"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

@@ -64,8 +64,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 	 * Test that Base Checks work
 	 * @throws Exception
 	 */
-	public void testBase()
-		throws Exception
+	public void testBase() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -77,24 +76,23 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECHECKBASE:1,Fortitude=0");
 
-		assertTrue("Character's Fort save should be 0",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's Fort save should be 0", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PRECHECKBASE:1,Will=2");
 
-		assertTrue("Character's Will save should be 2",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PRECHECKBASE:1,Fortitude=1,Will=2");
-		assertTrue("Character's Will save should be 2",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+			prereq, character, null));
 		prereq = factory.parse("PRECHECKBASE:2,Fortitude=1,Will=2");
-		assertFalse("Character's Fort save not 1",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
-	public void testBonus()
-		throws Exception
+	public void testBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -110,24 +108,23 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECHECKBASE:1,Fortitude=1");
 
-		assertFalse("Character's base Fort save should be 0",
-				   PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's base Fort save should be 0", PrereqHandler
+			.passes(prereq, character, null));
 
 		prereq = factory.parse("PRECHECKBASE:1,Will=2");
 
-		assertTrue("Character's Will save should be 2",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PRECHECKBASE:1,Fortitude=1,Will=3");
-		assertFalse("Character's Will save should be 2",
-				   PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's Will save should be 2", PrereqHandler.passes(
+			prereq, character, null));
 		prereq = factory.parse("PRECHECKBASE:2,Fortitude=1,Will=2");
-		assertFalse("Character's base Fort save not 1",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's base Fort save not 1", PrereqHandler.passes(
+			prereq, character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -146,8 +143,8 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.setAbbrev("Myc");
 		myClass.setSkillPointFormula("3");
-		final BonusObj fortRefBonus = Bonus.newBonus(
-			"1|CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
+		final BonusObj fortRefBonus =
+				Bonus.newBonus("1|CHECKS|BASE.Fortitude,BASE.Reflex|CL/3");
 		myClass.addBonusList(fortRefBonus);
 		final BonusObj willBonus = Bonus.newBonus("1|CHECKS|BASE.Will|CL/2+2");
 		myClass.addBonusList(willBonus);

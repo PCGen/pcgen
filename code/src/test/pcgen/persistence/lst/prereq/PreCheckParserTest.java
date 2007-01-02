@@ -65,12 +65,15 @@ public class PreCheckParserTest extends TestCase
 	{
 		PreCheckParser parser = new PreCheckParser();
 
-		Prerequisite prereq = parser.parse("CHECKBASE", "1,Fortitude=4,Will=7", false, false);
+		Prerequisite prereq =
+				parser.parse("CHECKBASE", "1,Fortitude=4,Will=7", false, false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-		    + "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Fortitude\" operator=\"gteq\" operand=\"4\" >\n" + "</prereq>\n"
-		    + "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Will\" operator=\"gteq\" operand=\"7\" >\n" + "</prereq>\n"
-		    + "</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Fortitude\" operator=\"gteq\" operand=\"4\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Will\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -80,10 +83,12 @@ public class PreCheckParserTest extends TestCase
 	{
 		PreCheckParser parser = new PreCheckParser();
 
-		Prerequisite prereq = parser.parse("CHECKBASE", "1,Will=7", false, false);
+		Prerequisite prereq =
+				parser.parse("CHECKBASE", "1,Will=7", false, false);
 
-		assertEquals("<prereq kind=\"checkbase\" key=\"Will\" operator=\"gteq\" operand=\"7\" >\n" + "</prereq>\n",
-		    prereq.toString());
+		assertEquals(
+			"<prereq kind=\"checkbase\" key=\"Will\" operator=\"gteq\" operand=\"7\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -93,9 +98,11 @@ public class PreCheckParserTest extends TestCase
 	{
 		PreCheckParser parser = new PreCheckParser();
 
-		Prerequisite prereq = parser.parse("CHECK", "1,Fortitude=3", false, false);
+		Prerequisite prereq =
+				parser.parse("CHECK", "1,Fortitude=3", false, false);
 
-		assertEquals("<prereq kind=\"check\" key=\"Fortitude\" operator=\"gteq\" operand=\"3\" >\n" + "</prereq>\n",
-		    prereq.toString());
+		assertEquals(
+			"<prereq kind=\"check\" key=\"Fortitude\" operator=\"gteq\" operand=\"3\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 }

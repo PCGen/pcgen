@@ -61,8 +61,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 	 * Test for a single domain
 	 * @throws Exception
 	 */
-	public void testSingle()
-		throws Exception
+	public void testSingle() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -71,24 +70,23 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYDOMAIN:1,Good");
 
-		assertFalse("Character has no deity selected",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has no deity selected", PrereqHandler.passes(
+			prereq, character, null));
 
 		character.setAlignment(3, false);
 		character.setDeity(deity);
 
-		assertTrue("Character's deity has Good domain",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PREDEITYDOMAIN:1,Law");
 
-		assertFalse("Character's deity doesn't have Law domain",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's deity doesn't have Law domain", PrereqHandler
+			.passes(prereq, character, null));
 
 	}
 
-	public void testMultiple()
-		throws Exception
+	public void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -97,28 +95,27 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYDOMAIN:1,Good,Law");
 
-		assertFalse("Character has no deity selected",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has no deity selected", PrereqHandler.passes(
+			prereq, character, null));
 
 		character.setAlignment(3, false);
 		character.setDeity(deity);
 
-		assertTrue("Character's deity has Good domain",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PREDEITYDOMAIN:2,Good,Law");
 
-		assertFalse("Character's deity doesn't have Law domain",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's deity doesn't have Law domain", PrereqHandler
+			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREDEITYDOMAIN:2,Good,Animal");
 
 		assertTrue("Character's deity has Good and animal domains",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

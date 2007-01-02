@@ -37,16 +37,19 @@ public class BoolOr extends TestChecker
 	 * @param tc1
 	 * @param tc2
 	 */
-	public BoolOr( TestChecker tc1, TestChecker tc2 ) {
+	public BoolOr(TestChecker tc1, TestChecker tc2)
+	{
 		this.tc1 = tc1;
 		this.tc2 = tc2;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return this.tc1.check(obj) || this.tc2.check(obj);
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("(");
 		this.tc1.scribe(buf);
 		buf.append(" or ");

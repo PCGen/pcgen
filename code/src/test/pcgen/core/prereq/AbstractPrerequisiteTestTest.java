@@ -37,29 +37,31 @@ import plugin.pretokens.test.PreWieldTester;
  * @author wardc
  *
  */
-public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase {
-
+public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * main
 	 * @param args
 	 */
-	public static void main(final String [] args) {
+	public static void main(final String[] args)
+	{
 		junit.swingui.TestRunner.run(AbstractPrerequisiteTestTest.class);
 	}
 
 	/**
 	 * @return Test
 	 */
-	public static Test suite() {
+	public static Test suite()
+	{
 		return new TestSuite(AbstractPrerequisiteTestTest.class);
 	}
-
 
 	/**
 	 * @throws Exception
 	 */
-	public void testVisionNotHandledFail() throws Exception  {
+	public void testVisionNotHandledFail() throws Exception
+	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("wield");
 
@@ -71,7 +73,9 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase {
 		}
 		catch (PrerequisiteException pe)
 		{
-			assertEquals(PreWieldTester.class.getName() + " does not support prerequisites for Characters.", pe.getMessage());
+			assertEquals(PreWieldTester.class.getName()
+				+ " does not support prerequisites for Characters.", pe
+				.getMessage());
 		}
 	}
 

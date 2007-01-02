@@ -51,12 +51,11 @@ public class ProficiencyChoiceManagerTest extends AbstractCharacterTestCase
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -70,37 +69,44 @@ public class ProficiencyChoiceManagerTest extends AbstractCharacterTestCase
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=1|PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial"));
+		pObj
+			.setChoiceString("NUMCHOICES=1|PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial");
+		is(pObj.getChoiceString(),
+			strEq("NUMCHOICES=1|PROFICIENCY|WEAPON|UNIQUE|TYPE=Martial"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("PROFICIENCY"), "got expected chooser");
-		
+		is(choiceManager.typeHandled(), strEq("PROFICIENCY"),
+			"got expected chooser");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
-			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(3));
-			is (choices.get(0), strEq("WEAPON"));
-			is (choices.get(1), strEq("UNIQUE"));
-			is (choices.get(2), strEq("TYPE=Martial"));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
 
-			aField  = (Field) TestHelper.findField(cMClass, "typeOfProf");
-			is (aField.get(choiceManager), strEq("WEAPON"));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "intScope");
-			is (aField.get(choiceManager), eq(ProficiencyChoiceManager.SCOPE_UNIQUE));
+			aField = (Field) TestHelper.findField(cMClass, "choices");
+			List choices = (List) aField.get(choiceManager);
+			is(choices.size(), eq(3));
+			is(choices.get(0), strEq("WEAPON"));
+			is(choices.get(1), strEq("UNIQUE"));
+			is(choices.get(2), strEq("TYPE=Martial"));
+
+			aField = (Field) TestHelper.findField(cMClass, "typeOfProf");
+			is(aField.get(choiceManager), strEq("WEAPON"));
+
+			aField = (Field) TestHelper.findField(cMClass, "intScope");
+			is(aField.get(choiceManager),
+				eq(ProficiencyChoiceManager.SCOPE_UNIQUE));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

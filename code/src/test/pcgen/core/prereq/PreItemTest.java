@@ -73,21 +73,20 @@ public class PreItemTest extends AbstractCharacterTestCase
 
 		longsword.setName("Longsword (Masterwork)");
 
-		assertFalse("Should be an exact match only",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Should be an exact match only", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq.setKey("LONGSWORD%");
 
-		assertTrue("Should be allow wildcard match",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should be allow wildcard match", PrereqHandler.passes(
+			prereq, character, null));
 	}
 
 	/**
 	 * Test equipment type tests
 	 * @throws Exception
 	 */
-	public void testType()
-		throws Exception
+	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -102,24 +101,24 @@ public class PreItemTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
+			character, null));
 
 		longsword.typeList().add("WEAPON");
 
-		assertTrue("Equipment is weapon",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq.setKey("TYPE.Armor");
 
-		assertFalse("Equipment is not armor",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
+			character, null));
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREITEM:2,TYPE=Armor,Longsword%");
 
-		assertFalse("Doesn't have armor",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Doesn't have armor", PrereqHandler.passes(prereq,
+			character, null));
 
 		final Equipment leather = new Equipment();
 		leather.setName("Leather");
@@ -127,8 +126,8 @@ public class PreItemTest extends AbstractCharacterTestCase
 
 		character.addEquipment(leather);
 
-		assertTrue("Armor and sword present",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Armor and sword present", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
 }

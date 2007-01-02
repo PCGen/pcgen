@@ -29,7 +29,8 @@ import java.io.File;
 /**
  * FileHelperTest
  */
-public class FileHelperTest extends PCGenTestCase {
+public class FileHelperTest extends PCGenTestCase
+{
 
 	/**
 	 * Constructs a new <code>FileHelperTest</code>.
@@ -103,8 +104,8 @@ public class FileHelperTest extends PCGenTestCase {
 
 		final File aheadOneDir = new File("/one/two/three/four/five/bar.txt");
 		final String path = FileHelper.findRelativePath(base, aheadOneDir);
-		assertEquals("wrong when ahead one directory",
-			"five" + File.separator + "bar.txt", path);
+		assertEquals("wrong when ahead one directory", "five" + File.separator
+			+ "bar.txt", path);
 	}
 
 	/**
@@ -115,10 +116,11 @@ public class FileHelperTest extends PCGenTestCase {
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
-		final File aheadTwoDirs = new File("/one/two/three/four/five/six/bar.txt");
+		final File aheadTwoDirs =
+				new File("/one/two/three/four/five/six/bar.txt");
 		final String path = FileHelper.findRelativePath(base, aheadTwoDirs);
-		assertEquals("wrong when ahead two directories",
-			"five" + File.separator + "six" + File.separator + "bar.txt", path);
+		assertEquals("wrong when ahead two directories", "five"
+			+ File.separator + "six" + File.separator + "bar.txt", path);
 	}
 
 	/**
@@ -130,9 +132,10 @@ public class FileHelperTest extends PCGenTestCase {
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File onADifferentBranch = new File("/one/two/buckle/my/shoe.txt");
-		final String path = FileHelper.findRelativePath(base, onADifferentBranch);
-		assertEquals("wrong when on a different branch",
-			"../../buckle" + File.separator + "my" + File.separator + "shoe.txt", path);
+		final String path =
+				FileHelper.findRelativePath(base, onADifferentBranch);
+		assertEquals("wrong when on a different branch", "../../buckle"
+			+ File.separator + "my" + File.separator + "shoe.txt", path);
 	}
 
 	/**
@@ -143,14 +146,13 @@ public class FileHelperTest extends PCGenTestCase {
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
-		final File completelyUnrelated = new File(
-			"/and/now/for/something/completely/different.txt");
-		final String path = FileHelper.findRelativePath(base, completelyUnrelated);
+		final File completelyUnrelated =
+				new File("/and/now/for/something/completely/different.txt");
+		final String path =
+				FileHelper.findRelativePath(base, completelyUnrelated);
 		assertEquals("wrong when completely different", "../../../../and"
-			+ File.separator
-			+ "now"
-			+ File.separator
-			+ "for"
-			+ File.separator + "something" + File.separator + "completely" + File.separator + "different.txt", path);
+			+ File.separator + "now" + File.separator + "for" + File.separator
+			+ "something" + File.separator + "completely" + File.separator
+			+ "different.txt", path);
 	}
 }

@@ -7,7 +7,8 @@ import junit.framework.TestSuite;
  * Tests a 3e 2nd level Elf Cleric Law and Protection domains.
  */
 @SuppressWarnings("nls")
-public class pcGenGUICleElfTest extends pcGenGUITestCase {
+public class pcGenGUICleElfTest extends pcGenGUITestCase
+{
 
 	/**
 	 * Run the test.
@@ -18,15 +19,16 @@ public class pcGenGUICleElfTest extends pcGenGUITestCase {
 	{
 		junit.textui.TestRunner.run(pcGenGUICleElfTest.class);
 	}
-	
-    /**
-     * standard JUnit style constructor
-     * 
-     * @param name No Idea.
-     */
-    public pcGenGUICleElfTest(String name) {
-        super(name);
-    }
+
+	/**
+	 * standard JUnit style constructor
+	 * 
+	 * @param name No Idea.
+	 */
+	public pcGenGUICleElfTest(String name)
+	{
+		super(name);
+	}
 
 	/**
 	 * Returns a test suite of all the tests in this class.
@@ -42,7 +44,8 @@ public class pcGenGUICleElfTest extends pcGenGUITestCase {
 	 * 
 	 * @throws Exception If there is a problem.
 	 */
-	public void testCleElf() throws Exception {
-        runTest("CleElf", "3e");
-    }
+	public void testCleElf() throws Exception
+	{
+		runTest("CleElf", "3e");
+	}
 }

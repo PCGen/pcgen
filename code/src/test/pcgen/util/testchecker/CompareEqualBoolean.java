@@ -36,15 +36,18 @@ public class CompareEqualBoolean extends TestChecker
 	 * Constructor
 	 * @param bool
 	 */
-	public CompareEqualBoolean( boolean bool ) {
+	public CompareEqualBoolean(boolean bool)
+	{
 		this.bool = bool;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Boolean.valueOf(this.bool));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a ");
 		buf.append(this.bool);
 		buf.append(" value");

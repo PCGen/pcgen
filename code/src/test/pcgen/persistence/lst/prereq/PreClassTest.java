@@ -53,15 +53,15 @@ public class PreClassTest extends TestCase
 	{
 		return new TestSuite(PreClassTest.class);
 	}
-	
 
 	public void testNoClassLevels() throws Exception
 	{
 		PreClassParser parser = new PreClassParser();
 		Prerequisite prereq = parser.parse("class", "1,Monk=1", true, false);
-		
-		assertEquals("<prereq kind=\"class\" key=\"Monk\" operator=\"lt\" operand=\"1\" >\n"+
-				"</prereq>\n", prereq.toString());
-		
+
+		assertEquals(
+			"<prereq kind=\"class\" key=\"Monk\" operator=\"lt\" operand=\"1\" >\n"
+				+ "</prereq>\n", prereq.toString());
+
 	}
 }

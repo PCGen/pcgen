@@ -69,8 +69,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 	 * Test the PREHD code
 	 * @throws Exception
 	 */
-	public void testHD()
-		throws Exception
+	public void testHD() throws Exception
 	{
 		race.setName("Human");
 		race.setSize("M");
@@ -85,41 +84,40 @@ public class PreHDTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHD:4+");
 
-		assertFalse("Character doesn't have 4 HD",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:3+");
 
-		assertTrue("Character has 3 HD",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:1-3");
 
-		assertTrue("Character has 3 HD",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:3-6");
 
-		assertTrue("Character has 3 HD",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:4-7");
 
-		assertFalse("Character doesn't have 4 HD",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:1-2");
 
-		assertFalse("Character doesn't have 2 or less HD",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 2 or less HD", PrereqHandler
+			.passes(prereq, character, null));
 	}
 
 	/**
 	 * Tests using monster class levels
 	 * @throws Exception
 	 */
-	public void testClassLevels()
-		throws Exception
+	public void testClassLevels() throws Exception
 	{
 		monClass.setName("Humanoid");
 		monClass.setMonsterFlag(true);
@@ -140,32 +138,32 @@ public class PreHDTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHD:4+");
 
-		assertFalse("Character doesn't have 4 HD",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:3+");
 
-		assertTrue("Character has 3 HD",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:1-3");
 
-		assertTrue("Character has 3 HD",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:3-6");
 
-		assertTrue("Character has 3 HD",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:4-7");
 
-		assertFalse("Character doesn't have 4 HD",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHD:1-2");
 
-		assertFalse("Character doesn't have 2 or less HD",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 2 or less HD", PrereqHandler
+			.passes(prereq, character, null));
 	}
 }

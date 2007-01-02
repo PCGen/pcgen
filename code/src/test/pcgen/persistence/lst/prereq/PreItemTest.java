@@ -61,12 +61,12 @@ public class PreItemTest extends TestCase
 		PreItemParser parser = new PreItemParser();
 		// Test of |PREITEM:1,TYPE.Saddle";
 
-		Prerequisite prereq = parser.parse("ITEM",
-			"1,TYPE.Saddle", false, false);
+		Prerequisite prereq =
+				parser.parse("ITEM", "1,TYPE.Saddle", false, false);
 
 		assertEquals(
 			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"gteq\" operand=\"1\" >\n"
-			+ "</prereq>\n", prereq.toString());
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	public void testItemNotPresent() throws Exception
@@ -74,8 +74,8 @@ public class PreItemTest extends TestCase
 		PreItemParser parser = new PreItemParser();
 		// Test of |!PREITEM:1,TYPE.Saddle";
 
-		Prerequisite prereq = parser.parse("ITEM",
-			"1,TYPE.Saddle", true, false);
+		Prerequisite prereq =
+				parser.parse("ITEM", "1,TYPE.Saddle", true, false);
 
 		assertEquals(
 			"<prereq kind=\"item\" key=\"TYPE.Saddle\" operator=\"lt\" operand=\"1\" >\n"

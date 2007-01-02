@@ -64,8 +64,7 @@ public class PreLevelTest extends AbstractCharacterTestCase
 	 * Test that Level works
 	 * @throws Exception
 	 */
-	public void testLevel()
-		throws Exception
+	public void testLevel() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -77,21 +76,20 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRELEVEL:2");
 
-		assertFalse("Character is not 2nd level",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character is not 2nd level", PrereqHandler.passes(prereq,
+			character, null));
 
 		character.incrementClassLevel(1, myClass, true);
 
-		assertTrue("Character has 2 levels",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 2 levels", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
 	/**
 	 * Test that HD are counted
 	 * @throws Exception
 	 */
-	public void testHD()
-		throws Exception
+	public void testHD() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
@@ -104,21 +102,20 @@ public class PreLevelTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRELEVEL:4");
 
-		assertFalse("Character doesn't have 4 levels",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character doesn't have 4 levels", PrereqHandler.passes(
+			prereq, character, null));
 
 		character.setRace(race);
 
-		assertTrue("Character has 4 levels",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 4 levels", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
 	/**
 	 * Make sure BONUS:PCLEVEL is not counted
 	 * @throws Exception
 	 */
-	public void testPCLevel()
-		throws Exception
+	public void testPCLevel() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
@@ -138,12 +135,11 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		myClass.addBonusList(levelBonus);
 		character.calcActiveBonuses();
 
-		assertFalse("Character has only 4 levels",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has only 4 levels", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

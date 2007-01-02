@@ -69,8 +69,9 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 		setPCStat(character, "DEX", 14);
-		PCStat stat = character.getStatList().getStatAt(
-			SettingsHandler.getGame().getStatFromAbbrev("DEX"));
+		PCStat stat =
+				character.getStatList().getStatAt(
+					SettingsHandler.getGame().getStatFromAbbrev("DEX"));
 		stat.getBonusList().clear();
 		stat.addBonusList("COMBAT|AC|10|TYPE=Base");
 		// Ignoring max dex
@@ -155,8 +156,9 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	public void testNonMagic() throws Exception
 	{
 		PlayerCharacter character = getCharacter();
-		EquipSet es = new EquipSet("0.1.2", "Chain Shirt",
-			chainShirt.getName(), chainShirt);
+		EquipSet es =
+				new EquipSet("0.1.2", "Chain Shirt", chainShirt.getName(),
+					chainShirt);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 		character.calcActiveBonuses();
@@ -179,8 +181,9 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		chainShirt.addEqModifiers("MWORKA.PLUS1A", true);
-		EquipSet es = new EquipSet("0.1.2", "Chain Shirt",
-			chainShirt.getName(), chainShirt);
+		EquipSet es =
+				new EquipSet("0.1.2", "Chain Shirt", chainShirt.getName(),
+					chainShirt);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 		character.calcActiveBonuses();

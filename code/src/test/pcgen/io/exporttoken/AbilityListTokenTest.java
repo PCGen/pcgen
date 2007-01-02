@@ -66,12 +66,13 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT",
-			"General.Fighter");
+		Ability ab1 =
+				TestHelper.makeAbility("Perform (Dance)", "FEAT",
+					"General.Fighter");
 		ab1.setMultiples("NO");
 		ab1.setVisibility(Visibility.DEFAULT);
-		AbilityCategory aCategory = SettingsHandler.getGame()
-			.getAbilityCategory(ab1.getCategory());
+		AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory(ab1.getCategory());
 		if (aCategory == null)
 		{
 			aCategory = new AbilityCategory(ab1.getCategory());
@@ -79,11 +80,12 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		}
 		character.addAbility(aCategory, ab1, null);
 
-		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC",
-			"General.Bardic");
+		Ability ab2 =
+				TestHelper.makeAbility("Perform (Dance)", "BARDIC",
+					"General.Bardic");
 		ab2.setMultiples("NO");
-		aCategory = SettingsHandler.getGame().getAbilityCategory(
-			ab2.getCategory());
+		aCategory =
+				SettingsHandler.getGame().getAbilityCategory(ab2.getCategory());
 		if (aCategory == null)
 		{
 			aCategory = new AbilityCategory(ab2.getCategory());
@@ -91,11 +93,12 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		}
 		character.addAbility(aCategory, ab2, null);
 
-		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT",
-			"General.Fighter");
+		Ability ab3 =
+				TestHelper.makeAbility("Perform (Oratory)", "FEAT",
+					"General.Fighter");
 		ab3.setMultiples("NO");
-		aCategory = SettingsHandler.getGame().getAbilityCategory(
-			ab3.getCategory());
+		aCategory =
+				SettingsHandler.getGame().getAbilityCategory(ab3.getCategory());
 		if (aCategory == null)
 		{
 			aCategory = new AbilityCategory(ab3.getCategory());
@@ -105,8 +108,8 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 
 		Ability ab4 = TestHelper.makeAbility("Silent Step", "FEAT", "General");
 		ab4.setMultiples("NO");
-		aCategory = SettingsHandler.getGame().getAbilityCategory(
-			ab4.getCategory());
+		aCategory =
+				SettingsHandler.getGame().getAbilityCategory(ab4.getCategory());
 		if (aCategory == null)
 		{
 			aCategory = new AbilityCategory(ab4.getCategory());
@@ -125,14 +128,13 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("ABILITYLIST.FEAT",
-			"Perform (Dance), Perform (Oratory), Silent Step", tok
-				.getToken("ABILITYLIST.FEAT", character, eh));
+			"Perform (Dance), Perform (Oratory), Silent Step", tok.getToken(
+				"ABILITYLIST.FEAT", character, eh));
 		assertEquals("ABILITYLIST.FEAT.TYPE=Fighter",
-			"Perform (Dance), Perform (Oratory)", tok
-				.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh));
-		assertEquals("ABILITYLIST.FEAT.!TYPE=Fighter",
-			"Silent Step", tok
-				.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh));
+			"Perform (Dance), Perform (Oratory)", tok.getToken(
+				"ABILITYLIST.FEAT.TYPE=Fighter", character, eh));
+		assertEquals("ABILITYLIST.FEAT.!TYPE=Fighter", "Silent Step", tok
+			.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh));
 	}
 
 	/**
@@ -144,9 +146,8 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("ABILITYLIST.BARDIC",
-			"Perform (Dance)", tok
-				.getToken("ABILITYLIST.BARDIC", character, eh));
+		assertEquals("ABILITYLIST.BARDIC", "Perform (Dance)", tok.getToken(
+			"ABILITYLIST.BARDIC", character, eh));
 	}
 
 	/**
@@ -157,12 +158,14 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
-			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")", 3.0,
-			character.getVariableValue(
-				"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")",
-				""), 0.01);
+			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")",
+			3.0,
+			character
+				.getVariableValue(
+					"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")",
+					""), 0.01);
 	}
-	
+
 	/**
 	 * Test the mechanism of splitting FOR node parameters to
 	 * ensure it copes with JEP functions with multiple comma 
@@ -170,7 +173,8 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testForNodeSplit()
 	{
-		String testStr = "|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
+		String testStr =
+				"|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
 		assertEquals("Complex split len", 6, result.size());
@@ -183,10 +187,11 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		assertEquals("Complex split combined token 4", "1", result.get(4));
 		assertEquals("Complex split combined token 5", "0|", result.get(5));
 	}
-	
+
 	public void testForNodeSplitNonJEP()
 	{
-		String testStr = "|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";
+		String testStr =
+				"|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
 		assertEquals("Complex split len", 6, result.size());

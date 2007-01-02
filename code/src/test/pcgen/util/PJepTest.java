@@ -45,7 +45,8 @@ import pcgen.core.Race;
 /**
  * Tests {@link PJEP}.
  */
-public class PJepTest extends AbstractCharacterTestCase {
+public class PJepTest extends AbstractCharacterTestCase
+{
 	/**
 	 * Constructs a new <code>PJepTest</code>.
 	 *
@@ -55,8 +56,9 @@ public class PJepTest extends AbstractCharacterTestCase {
 	{
 		super();
 	}
-	
-	public void setUp() throws Exception {
+
+	public void setUp() throws Exception
+	{
 		super.setUp();
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
@@ -109,8 +111,9 @@ public class PJepTest extends AbstractCharacterTestCase {
 	{
 		final PJEP jep = new PJEP();
 
-		jep.parseExpression("max(max(var(\"BL=Wizard\")+var(\"CL=Wizard\"),var(\"BL=Sorcerer\")+var(\"CL=Sorcerer\")),var(\"BL=Cleric\")+var(\"CL=Cleric\"))");
-		
+		jep
+			.parseExpression("max(max(var(\"BL=Wizard\")+var(\"CL=Wizard\"),var(\"BL=Sorcerer\")+var(\"CL=Sorcerer\")),var(\"BL=Cleric\")+var(\"CL=Cleric\"))");
+
 		assertFalse(jep.hasError());
 	}
 
@@ -224,118 +227,124 @@ public class PJepTest extends AbstractCharacterTestCase {
 		assertEquals("if", -5, value, 0.001);
 	}
 
-	public void testIf8() {
-	    final PJEP jep = new PJEP();
-	    
-	    jep.parseExpression("IF(MONKLVL<=4,-2,0)");
-	    assertFalse(jep.hasError());
-	    
-	    jep.addVariable("MONKLVL", 3);
-	    assertEquals(-2, jep.getValue(), 0.1);
-	    
-	}
-	public void testIf9() {
-	    final PJEP jep = new PJEP();
-	    
-	    jep.parseExpression("IF(MONKLVL<=4,-2,IF(MONKLVL<=8,-1,0))");
-	    assertFalse(jep.hasError());
-	    
-	    SymbolTable symTab = jep.getSymbolTable();
-	    for (Iterator iter = symTab.keySet().iterator(); iter.hasNext();) {
-            String key = (String) iter.next();
-            Double value = (Double) symTab.get(key);
-            System.out.println(key + " => " + value);
-        }
-	    jep.addVariable("MONKLVL", 5);
-	    assertEquals(-1, jep.getValue(), 0.1);
-	}
-	public void testIf10() {
-	    final PJEP jep = new PJEP();
-	    
-	    jep.parseExpression("IF((MONKLVL<=4),-2,(IF((MONKLVL<=8),-1,0)))");
-	    assertFalse(jep.hasError());
-	    
-	    jep.addVariable("MONKLVL", 8);
-	    assertEquals(-1, jep.getValue(), 0.1);
-	}
-	
-	
-	public void testIf11() {
-	    final PJEP jep = new PJEP();
-	    
-	    jep.parseExpression("if(MonkLvl<=4,-2,if(MonkLvl<=8,-1,0))");
-	    assertFalse(jep.hasError());
+	public void testIf8()
+	{
+		final PJEP jep = new PJEP();
 
-	    jep.addVariable("MonkLvl", 11);
-	    assertEquals(0, jep.getValue(), 0.1);
-	}
-	
-	
-	public void testIf12() {
-	    final PJEP jep = new PJEP();
-	    
-	    jep.parseExpression("if(0==0,-2,5)");
-	    assertFalse(jep.hasError());
+		jep.parseExpression("IF(MONKLVL<=4,-2,0)");
+		assertFalse(jep.hasError());
 
-	    assertEquals(-2, jep.getValue(), 0.1);
+		jep.addVariable("MONKLVL", 3);
+		assertEquals(-2, jep.getValue(), 0.1);
 
-	    jep.parseExpression("IF(0==0,-2,5)");
-	    assertFalse(jep.hasError());
-
-	    assertEquals(-2, jep.getValue(), 0.1);
 	}
 
+	public void testIf9()
+	{
+		final PJEP jep = new PJEP();
+
+		jep.parseExpression("IF(MONKLVL<=4,-2,IF(MONKLVL<=8,-1,0))");
+		assertFalse(jep.hasError());
+
+		SymbolTable symTab = jep.getSymbolTable();
+		for (Iterator iter = symTab.keySet().iterator(); iter.hasNext();)
+		{
+			String key = (String) iter.next();
+			Double value = (Double) symTab.get(key);
+			System.out.println(key + " => " + value);
+		}
+		jep.addVariable("MONKLVL", 5);
+		assertEquals(-1, jep.getValue(), 0.1);
+	}
+
+	public void testIf10()
+	{
+		final PJEP jep = new PJEP();
+
+		jep.parseExpression("IF((MONKLVL<=4),-2,(IF((MONKLVL<=8),-1,0)))");
+		assertFalse(jep.hasError());
+
+		jep.addVariable("MONKLVL", 8);
+		assertEquals(-1, jep.getValue(), 0.1);
+	}
+
+	public void testIf11()
+	{
+		final PJEP jep = new PJEP();
+
+		jep.parseExpression("if(MonkLvl<=4,-2,if(MonkLvl<=8,-1,0))");
+		assertFalse(jep.hasError());
+
+		jep.addVariable("MonkLvl", 11);
+		assertEquals(0, jep.getValue(), 0.1);
+	}
+
+	public void testIf12()
+	{
+		final PJEP jep = new PJEP();
+
+		jep.parseExpression("if(0==0,-2,5)");
+		assertFalse(jep.hasError());
+
+		assertEquals(-2, jep.getValue(), 0.1);
+
+		jep.parseExpression("IF(0==0,-2,5)");
+		assertFalse(jep.hasError());
+
+		assertEquals(-2, jep.getValue(), 0.1);
+	}
 
 	public void testJepIf()
 	{
 		final PlayerCharacter character = new PlayerCharacter();
 		Float val;
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")", "");
-		assertEquals("Undefined variable should return 0", 0.0, val.doubleValue(), 0.1);
+		val = character.getVariableValue("var(\"UseAlternateDamage\")", "");
+		assertEquals("Undefined variable should return 0", 0.0, val
+			.doubleValue(), 0.1);
 
 		Race giantRace = TestHelper.makeRace("Ogre", "GIANT");
 		giantRace.addVariable(-9, "UseAlternateDamage", "2");
 		character.setRace(giantRace);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")", "");
+		val = character.getVariableValue("var(\"UseAlternateDamage\")", "");
 		assertEquals("Variable defined to be 2.", 2.0, val.doubleValue(), 0.1);
-		
-		val = character.getVariableValue(
-			"2==2", "");
-		assertEquals("Equality test of 2==2 should be true.", 1.0, val.doubleValue(), 0.1);
-		
-		val = character.getVariableValue(
-			"3-1==2", "");
-		assertEquals("Equality test of 3-1==2 should be true.", 1.0, val.doubleValue(), 0.1);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")>1", "");
-		assertEquals("Variable defined to be 2 should be more than 1", 1.0, val.doubleValue(), 0.1);
+		val = character.getVariableValue("2==2", "");
+		assertEquals("Equality test of 2==2 should be true.", 1.0, val
+			.doubleValue(), 0.1);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")<3", "");
-		assertEquals("Variable defined to be 2 should be more than 1 be less than 3", 1.0, val.doubleValue(), 0.1);
+		val = character.getVariableValue("3-1==2", "");
+		assertEquals("Equality test of 3-1==2 should be true.", 1.0, val
+			.doubleValue(), 0.1);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")==1", "");
-		assertEquals("Variable defined to be 2 should not be equal to 1", 0.0, val.doubleValue(), 0.1);
+		val = character.getVariableValue("var(\"UseAlternateDamage\")>1", "");
+		assertEquals("Variable defined to be 2 should be more than 1", 1.0, val
+			.doubleValue(), 0.1);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")>=2", "");
-		assertEquals("Variable defined to be 2 should be >= 2", 1.0, val.doubleValue(), 0.1);
+		val = character.getVariableValue("var(\"UseAlternateDamage\")<3", "");
+		assertEquals(
+			"Variable defined to be 2 should be more than 1 be less than 3",
+			1.0, val.doubleValue(), 0.1);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")<=2", "");
-		assertEquals("Variable defined to be 2 should be <= 2", 1.0, val.doubleValue(), 0.1);
+		val = character.getVariableValue("var(\"UseAlternateDamage\")==1", "");
+		assertEquals("Variable defined to be 2 should not be equal to 1", 0.0,
+			val.doubleValue(), 0.1);
 
-		val = character.getVariableValue(
-			"var(\"UseAlternateDamage\")==2", "");
-		assertEquals("Variable defined to be 2 should be == 2", 1.0, val.doubleValue(), 0.1);
-		
-		val = character.getVariableValue(
-			"IF(var(\"UseAlternateDamage\")==2,-2,5)", "");
+		val = character.getVariableValue("var(\"UseAlternateDamage\")>=2", "");
+		assertEquals("Variable defined to be 2 should be >= 2", 1.0, val
+			.doubleValue(), 0.1);
+
+		val = character.getVariableValue("var(\"UseAlternateDamage\")<=2", "");
+		assertEquals("Variable defined to be 2 should be <= 2", 1.0, val
+			.doubleValue(), 0.1);
+
+		val = character.getVariableValue("var(\"UseAlternateDamage\")==2", "");
+		assertEquals("Variable defined to be 2 should be == 2", 1.0, val
+			.doubleValue(), 0.1);
+
+		val =
+				character.getVariableValue(
+					"IF(var(\"UseAlternateDamage\")==2,-2,5)", "");
 		assertEquals("Test should have returned -2", -2, val.doubleValue(), 0.1);
 	}
 }

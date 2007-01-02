@@ -38,17 +38,20 @@ public class CompareDeadband extends TestChecker
 	 * @param value
 	 * @param deadband
 	 */
-	public CompareDeadband( double value, double deadband ) {
+	public CompareDeadband(double value, double deadband)
+	{
 		this.deadband = deadband;
-		this.value    = value;
+		this.value = value;
 	}
 
-	public boolean check( Object obj ) {
-		double aValue = ((Number)obj).doubleValue();
+	public boolean check(Object obj)
+	{
+		double aValue = ((Number) obj).doubleValue();
 		return Math.abs((aValue - this.value)) <= this.deadband;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a numeric value within ");
 		buf.append(this.deadband);
 		buf.append(" of ");

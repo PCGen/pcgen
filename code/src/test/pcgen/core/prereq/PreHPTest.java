@@ -62,8 +62,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 	 * Test the PREHP code
 	 * @throws Exception
 	 */
-	public void testHP()
-		throws Exception
+	public void testHP() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -78,25 +77,24 @@ public class PreHPTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHP:4");
 
-		assertTrue("Character should have 4 hp",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character should have 4 hp", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREHP:5");
 
-		assertFalse("Character should have less than 5 hp",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character should have less than 5 hp", PrereqHandler
+			.passes(prereq, character, null));
 
 		final BonusObj hpBonus = Bonus.newBonus("HP|CURRENTMAX|1");
 		hpBonus.setCreatorObject(myClass);
 		myClass.addBonusList(hpBonus);
 		character.calcActiveBonuses();
 
-		assertTrue("Character should have 5 hp",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

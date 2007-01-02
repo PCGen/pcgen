@@ -22,6 +22,7 @@
  *
  */
 package pcgen.io;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
@@ -75,7 +76,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 * Basic constructor, name only.
 	 * @param name The name of the test class.
 	 */
-	public ExportHandlerTest(String name) {
+	public ExportHandlerTest(String name)
+	{
 		super(name);
 	}
 
@@ -93,7 +95,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		levelInfo.setMaxClassSkillString("LEVEL+3");
 		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
 		SettingsHandler.getGame().addLevelInfo(levelInfo);
-		
+
 		//Stats
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);
@@ -160,7 +162,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		weapon = new Equipment();
 		weapon.setName("TestWpn");
 		weapon.setTypeInfo("weapon");
-		
+
 		gem = new Equipment();
 		gem.setName("TestGem");
 		gem.setTypeInfo("gem");
@@ -190,26 +192,25 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 		// Test each token for old and new syntax processing.
 
-		assertEquals("New format SKILL Token", "2",
-			evaluateToken("SKILL.0.MISC", character));
-		assertEquals("Old format SKILL Token",
-			evaluateToken("SKILL.0.MISC",	character),
-			evaluateToken("SKILL0.MISC", character));
+		assertEquals("New format SKILL Token", "2", evaluateToken(
+			"SKILL.0.MISC", character));
+		assertEquals("Old format SKILL Token", evaluateToken("SKILL.0.MISC",
+			character), evaluateToken("SKILL0.MISC", character));
 
-		assertEquals("New format SKILLLEVEL Token", "6",
-			evaluateToken("SKILLLEVEL.1.TOTAL",	character));
+		assertEquals("New format SKILLLEVEL Token", "6", evaluateToken(
+			"SKILLLEVEL.1.TOTAL", character));
 
 		assertEquals("New format SKILLSUBSET Token", "KNOWLEDGE (RELIGION)",
-			evaluateToken("SKILLSUBSET.1.KNOWLEDGE.NAME",	character));
-		assertEquals("Old format SKILLSUBSET Token",
-			evaluateToken("SKILLSUBSET.1.KNOWLEDGE.NAME",	character),
-			evaluateToken("SKILLSUBSET1.KNOWLEDGE.NAME", character));
+			evaluateToken("SKILLSUBSET.1.KNOWLEDGE.NAME", character));
+		assertEquals("Old format SKILLSUBSET Token", evaluateToken(
+			"SKILLSUBSET.1.KNOWLEDGE.NAME", character), evaluateToken(
+			"SKILLSUBSET1.KNOWLEDGE.NAME", character));
 
-		assertEquals("New format SKILLTYPE Token", "Balance",
-			evaluateToken("SKILLTYPE.0.DEX.NAME",	character));
-		assertEquals("Old format SKILLTYPE Token",
-			evaluateToken("SKILLTYPE.0.DEX.NAME",	character),
-			evaluateToken("SKILLTYPE0.DEX.NAME", character));
+		assertEquals("New format SKILLTYPE Token", "Balance", evaluateToken(
+			"SKILLTYPE.0.DEX.NAME", character));
+		assertEquals("Old format SKILLTYPE Token", evaluateToken(
+			"SKILLTYPE.0.DEX.NAME", character), evaluateToken(
+			"SKILLTYPE0.DEX.NAME", character));
 	}
 
 	/**
@@ -222,14 +223,14 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 		// Test each token for old and new syntax processing.
 
-		assertEquals("New format SKILL Token", "****",
-			evaluateToken("FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
+		assertEquals("New format SKILL Token", "****", evaluateToken(
+			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
 		// Now assign a weapon
 		character.addEquipment(weapon);
 		EquipSet es = new EquipSet("1", "Default", "", weapon);
 		character.addEquipSet(es);
-		assertEquals("New format SKILL Token", "**TestWpn**",
-			evaluateToken("FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
+		assertEquals("New format SKILL Token", "**TestWpn**", evaluateToken(
+			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
 	}
 
 	/**
@@ -240,7 +241,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	public void testEqtypeLoop() throws Exception
 	{
 		PlayerCharacter character = getCharacter();
-		final String gemLoop = "FOR.0,COUNT[EQTYPE.Gem],1,\\EQTYPE.Gem.%.NAME\\: \\EQTYPE.Gem.%.QTY\\, ,<br/>,1";
+		final String gemLoop =
+				"FOR.0,COUNT[EQTYPE.Gem],1,\\EQTYPE.Gem.%.NAME\\: \\EQTYPE.Gem.%.QTY\\, ,<br/>,1";
 
 		assertEquals("Gem Loop - no gems", "",
 			evaluateToken(gemLoop, character));
@@ -249,9 +251,17 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		character.addEquipment(gem);
 		EquipSet es = new EquipSet("1", "Default", "", gem);
 		character.addEquipSet(es);
-		assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>",
-			evaluateToken(gemLoop, character));
+		assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>", evaluateToken(
+			gemLoop, character));
 	}
+
+	//	public void testJepIif() throws IOException
+	//	{
+	//		PlayerCharacter character = getCharacter();
+	//		assertEquals("Basic JEP boolean", new Float(1.0), character.getVariableValue("max(0,2)==2", ""));
+	//		assertEquals("Basic JEP boolean", "0", evaluateToken(
+	//			"IIF(max(0,2)==2)", character));
+	//	}
 
 	private String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException

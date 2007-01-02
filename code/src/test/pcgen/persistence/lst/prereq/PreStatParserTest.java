@@ -58,12 +58,15 @@ public class PreStatParserTest extends TestCase
 		return new TestSuite(PreStatParserTest.class);
 	}
 
-	public void setUp() throws Exception {
-		try {
+	public void setUp() throws Exception
+	{
+		try
+		{
 			PluginLoader ploader = PluginLoader.inst();
 			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			// TODO Deal with this
 		}
 	}
@@ -77,11 +80,12 @@ public class PreStatParserTest extends TestCase
 
 		Prerequisite prereq = producer.parse("STAT", "1,DEX=9", false, false);
 
-//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-//				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
-//				prereq.toString());
-		assertEquals("<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n",
-				prereq.toString());
+		//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
+		//				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
+		//				prereq.toString());
+		assertEquals(
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -91,9 +95,10 @@ public class PreStatParserTest extends TestCase
 	{
 		PreParserFactory parser = PreParserFactory.getInstance();
 		Prerequisite prereq = parser.parse("PRESTAT:1,DEX=9");
-System.out.println(prereq);
-		assertEquals("<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n",
-				prereq.toString());
+		System.out.println(prereq);
+		assertEquals(
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -103,12 +108,15 @@ System.out.println(prereq);
 	{
 		PreStatParser producer = new PreStatParser();
 
-		Prerequisite prereq = producer.parse("STAT", "2,DEX=9,STR=13", false, false);
+		Prerequisite prereq =
+				producer.parse("STAT", "2,DEX=9,STR=13", false, false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"2\" >\n"
-		    + "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n" + "</prereq>\n"
-		    + "<prereq kind=\"stat\" key=\"STR\" operator=\"gteq\" operand=\"13\" >\n" + "</prereq>\n" + "</prereq>\n",
-		    prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"2\" >\n"
+				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"gteq\" operand=\"9\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"stat\" key=\"STR\" operator=\"gteq\" operand=\"13\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -120,11 +128,12 @@ System.out.println(prereq);
 
 		Prerequisite prereq = producer.parse("STATEQ", "1,DEX=9", false, false);
 
-//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-//		    + "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
-//		    prereq.toString());
-		assertEquals("<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n",
-		    prereq.toString());
+		//		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
+		//		    + "<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n" + "</prereq>\n" + "</prereq>\n",
+		//		    prereq.toString());
+		assertEquals(
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"eq\" operand=\"9\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -136,6 +145,7 @@ System.out.println(prereq);
 
 		Prerequisite prereq = producer.parse("STAT", "1", false, false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n" + "</prereq>\n", prereq.toString());
+		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
+			+ "</prereq>\n", prereq.toString());
 	}
 }

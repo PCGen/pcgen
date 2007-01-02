@@ -9,7 +9,8 @@ import junit.framework.TestSuite;
  * See the PCG file for details.
  */
 @SuppressWarnings("nls")
-public class pcGenGUIWizSharTest extends pcGenGUITestCase {
+public class pcGenGUIWizSharTest extends pcGenGUITestCase
+{
 	/**
 	 * Run the tests.
 	 * @param args
@@ -19,28 +20,31 @@ public class pcGenGUIWizSharTest extends pcGenGUITestCase {
 		junit.textui.TestRunner.run(pcGenGUIWizSharTest.class);
 	}
 
-    /**
-     * standard JUnit style constructor
-     * @param name 
-     */
-    public pcGenGUIWizSharTest(String name) {
-        super(name);
-    }
+	/**
+	 * standard JUnit style constructor
+	 * @param name 
+	 */
+	public pcGenGUIWizSharTest(String name)
+	{
+		super(name);
+	}
 
-    /**
-     * Standard JUnit suite call
-     * @return Test
-     */
-	public static Test suite() {
+	/**
+	 * Standard JUnit suite call
+	 * @return Test
+	 */
+	public static Test suite()
+	{
 		return new TestSuite(pcGenGUIWizSharTest.class);
 	}
 
-    /**
-     * Run the test
-     * @throws Exception
-     */
-	public void testWizShar() throws Exception {
-        runTest("WizShar", "3e");
-    }
+	/**
+	 * Run the test
+	 * @throws Exception
+	 */
+	public void testWizShar() throws Exception
+	{
+		runTest("WizShar", "3e");
+	}
 
 }

@@ -36,15 +36,18 @@ public class CompareEqualByte extends TestChecker
 	 * Constructor
 	 * @param by
 	 */
-	public CompareEqualByte( byte by ) {
+	public CompareEqualByte(byte by)
+	{
 		this.by = by;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Byte.valueOf(this.by));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a byte ");
 		buf.append(this.by);
 		return buf;

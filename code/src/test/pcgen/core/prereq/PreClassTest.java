@@ -65,14 +65,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character with a named class can be found
 	 * @throws Exception
 	 */
-	public void testNamedClass()
-	throws Exception
+	public void testNamedClass() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
@@ -81,7 +79,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("myclass");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -94,14 +92,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 * @throws Exception
 	 */
-	public void testTooFewLevels()
-	throws Exception
+	public void testTooFewLevels() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -110,7 +106,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("myclass");
 		prereq.setOperand("3");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -123,8 +119,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 * @throws Exception
 	 */
-	public void testCharWithMultipleClasses()
-	throws Exception
+	public void testCharWithMultipleClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -143,7 +138,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("other class");
 		prereq.setOperand("2");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -156,8 +151,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 * @throws Exception
 	 */
-	public void testCharWithMultipleSpellClasses()
-	throws Exception
+	public void testCharWithMultipleSpellClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -182,7 +176,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKey("SPELLCASTER.ARCANE");
 		prereq.setOperand("3");
 		prereq.setTotalValues(true);
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -193,14 +187,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named class cannot be found
 	 * @throws Exception
 	 */
-	public void testNamedClassFail()
-	throws Exception
+	public void testNamedClassFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -209,7 +201,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Druid");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -220,8 +212,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named class cannot be found
 	 * @throws Exception
 	 */
-	public void testNoLevelsPass()
-	throws Exception
+	public void testNoLevelsPass() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
@@ -234,7 +225,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Druid");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.LT );
+		prereq.setOperator(PrerequisiteOperator.LT);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -245,8 +236,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named class cannot be found
 	 * @throws Exception
 	 */
-	public void testNoLevelsFail()
-	throws Exception
+	public void testNoLevelsFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
@@ -259,7 +249,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Monk");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.LT );
+		prereq.setOperator(PrerequisiteOperator.LT);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -270,14 +260,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character with a spellcasting class can be found
 	 * @throws Exception
 	 */
-	public void testSpellcaster()
-	throws Exception
+	public void testSpellcaster() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
 		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
 		pcClass.setSpellBaseStat("CHA");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -286,25 +274,22 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Spellcaster");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
 
-
 	/**
 	 * Test to ensure that a character with a spellcasting class
 	 * does not match a different spellcasting type
 	 * @throws Exception
 	 */
-	public void testSpellcasterTypeFail()
-	throws Exception
+	public void testSpellcasterTypeFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -313,7 +298,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Spellcaster.DIVINE");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -326,14 +311,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * classes spell type.
 	 * @throws Exception
 	 */
-	public void testSpellcasterTypePass()
-	throws Exception
+	public void testSpellcasterTypePass() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
 		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
 		pcClass.setSpellBaseStat("CHA");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -342,26 +325,23 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Spellcaster.ARCANE");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
 		assertEquals(1, passes);
 	}
 
-
 	/**
 	 * Test to ensure that a spellcaster type check is case insensitive
 	 * @throws Exception
 	 */
-	public void testSpellcasterTypeWrongCasePass()
-	throws Exception
+	public void testSpellcasterTypeWrongCasePass() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setSpellType("ARCANE");
 		pcClass.setCast(1, Arrays.asList("5,4".split(",")));
 		pcClass.setSpellBaseStat("CHA");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -370,7 +350,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Spellcaster.Arcane");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		final int passes = test.passes(prereq, character);
@@ -380,78 +360,93 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testPreClassLevelMax() throws Exception
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
-		final Prerequisite prereq = parser.parse("CLASSLEVELMAX", "1,Monk=1", false, false);
-		final Prerequisite dualPrereq = parser.parse("CLASSLEVELMAX", "Monk,Fighter=1", false, false);
-		final Prerequisite singlePrereq = parser.parse("CLASSLEVELMAX", "1,Monk,Fighter=1", false, false);
+		final Prerequisite prereq =
+				parser.parse("CLASSLEVELMAX", "1,Monk=1", false, false);
+		final Prerequisite dualPrereq =
+				parser.parse("CLASSLEVELMAX", "Monk,Fighter=1", false, false);
+		final Prerequisite singlePrereq =
+				parser.parse("CLASSLEVELMAX", "1,Monk,Fighter=1", false, false);
 
 		final PlayerCharacter character = getCharacter();
 
-		assertTrue("Should pass with no levels", PrereqHandler.passes(prereq, character, null));
-		assertTrue("Should pass with no levels of either", PrereqHandler.passes(dualPrereq, character, null));
+		assertTrue("Should pass with no levels", PrereqHandler.passes(prereq,
+			character, null));
+		assertTrue("Should pass with no levels of either", PrereqHandler
+			.passes(dualPrereq, character, null));
 
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
 		pcClass.setAbbrev("Mnk");
 		character.incrementClassLevel(1, pcClass);
-		assertTrue("Should pass with 1 level", PrereqHandler.passes(prereq, character, null));
-		assertTrue("Should pass with 1 level of one", PrereqHandler.passes(dualPrereq, character, null));
+		assertTrue("Should pass with 1 level", PrereqHandler.passes(prereq,
+			character, null));
+		assertTrue("Should pass with 1 level of one", PrereqHandler.passes(
+			dualPrereq, character, null));
 
 		final PCClass ftrClass = new PCClass();
 		ftrClass.setName("Fighter");
 		ftrClass.setAbbrev("Ftr");
 		character.incrementClassLevel(1, ftrClass);
-		assertTrue("Should pass with 1 level of each", PrereqHandler.passes(dualPrereq, character, null));
+		assertTrue("Should pass with 1 level of each", PrereqHandler.passes(
+			dualPrereq, character, null));
 
 		character.incrementClassLevel(1, pcClass);
-		assertFalse("Should not pass with 2 levels", PrereqHandler.passes(prereq, character, null));
-		assertFalse("Should not pass with 2 levels of one", PrereqHandler.passes(dualPrereq, character, null));
-		assertTrue("Should pass with 2 levels of one", PrereqHandler.passes(singlePrereq, character, null));
+		assertFalse("Should not pass with 2 levels", PrereqHandler.passes(
+			prereq, character, null));
+		assertFalse("Should not pass with 2 levels of one", PrereqHandler
+			.passes(dualPrereq, character, null));
+		assertTrue("Should pass with 2 levels of one", PrereqHandler.passes(
+			singlePrereq, character, null));
 
 	}
 
 	public void testOldPreClassLevelMax() throws Exception
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
-		final Prerequisite prereq = parser.parse("CLASSLEVELMAX", "Fighter=2", false, false);
+		final Prerequisite prereq =
+				parser.parse("CLASSLEVELMAX", "Fighter=2", false, false);
 
 		final PlayerCharacter character = getCharacter();
 
-		assertTrue("Should pass with no levels", PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should pass with no levels", PrereqHandler.passes(prereq,
+			character, null));
 
 		final PCClass ftrClass = new PCClass();
 		ftrClass.setName("Fighter");
 		ftrClass.setAbbrev("Ftr");
 		character.incrementClassLevel(1, ftrClass);
-		assertTrue("Should pass with 1 level", PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should pass with 1 level", PrereqHandler.passes(prereq,
+			character, null));
 
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
 		pcClass.setAbbrev("Mnk");
 		character.incrementClassLevel(1, pcClass);
-		assertTrue("Should pass with 1 level of something else", PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should pass with 1 level of something else", PrereqHandler
+			.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, ftrClass);
-		assertTrue("Should pass with 2 levels of ftr", PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should pass with 2 levels of ftr", PrereqHandler.passes(
+			prereq, character, null));
 
 		character.incrementClassLevel(1, ftrClass);
-		assertFalse("Should not pass with 3 levels of ftr", PrereqHandler.passes(prereq, character, null));
+		assertFalse("Should not pass with 3 levels of ftr", PrereqHandler
+			.passes(prereq, character, null));
 
 	}
-	
+
 	/**
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
 	 * @throws Exception
 	 */
-	public void testAnyLevelsOneClass()
-	throws Exception
+	public void testAnyLevelsOneClass() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.setAbbrev("My");
 		pcClass.setSpellType("ARCANE");
-
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -460,17 +455,16 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Any");
 		prereq.setOperand("3");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		assertEquals(0, test.passes(prereq, character));
-		
+
 		character.incrementClassLevel(2, pcClass);
 		assertEquals(1, test.passes(prereq, character));
 	}
 
-	public void testAnyLevelsTwoClasses()
-	throws Exception
+	public void testAnyLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -489,11 +483,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 		prereq.setKind("class");
 		prereq.setKey("Any");
 		prereq.setOperand("3");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreClassTester test = new PreClassTester();
 		assertEquals(0, test.passes(prereq, character));
-		
+
 		character.incrementClassLevel(2, pcClass2);
 		assertEquals(1, test.passes(prereq, character));
 	}

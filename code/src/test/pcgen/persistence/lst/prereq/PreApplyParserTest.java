@@ -55,12 +55,9 @@ public class PreApplyParserTest extends TestCase
 		Prerequisite prereq = parser.parse("APPLY", "ANYPC", false, false);
 
 		//System.out.println(prereq);
-		assertEquals(
-			"<prereq kind=\"APPLY\" operator=\"eq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"ANYPC\" >\n"
-				+ "</prereq>\n"
-				+ "</prereq>\n",
-			prereq.toString());
+		assertEquals("<prereq kind=\"APPLY\" operator=\"eq\" operand=\"1\" >\n"
+			+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"ANYPC\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -69,19 +66,16 @@ public class PreApplyParserTest extends TestCase
 	public void testRangedOrMelee() throws Exception
 	{
 		PreApplyParser parser = new PreApplyParser();
-		Prerequisite prereq = parser.parse("APPLY", "Ranged;Melee", false, false);
+		Prerequisite prereq =
+				parser.parse("APPLY", "Ranged;Melee", false, false);
 
 		//System.out.println(prereq);
-		assertEquals(
-			"<prereq kind=\"APPLY\" operator=\"eq\" operand=\"1\" >\n"
-				+ "<prereq operator=\"gteq\" operand=\"1\" >\n"
-				+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Ranged\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Melee\" >\n"
-				+ "</prereq>\n"
-				+ "</prereq>\n"
-				+ "</prereq>\n",
-			prereq.toString());
+		assertEquals("<prereq kind=\"APPLY\" operator=\"eq\" operand=\"1\" >\n"
+			+ "<prereq operator=\"gteq\" operand=\"1\" >\n"
+			+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Ranged\" >\n"
+			+ "</prereq>\n"
+			+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Melee\" >\n"
+			+ "</prereq>\n" + "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -90,17 +84,15 @@ public class PreApplyParserTest extends TestCase
 	public void testWoodenAndBlunt() throws Exception
 	{
 		PreApplyParser parser = new PreApplyParser();
-		Prerequisite prereq = parser.parse("APPLY", "Wooden,Blunt", false, false);
+		Prerequisite prereq =
+				parser.parse("APPLY", "Wooden,Blunt", false, false);
 
 		//System.out.println(prereq);
-		assertEquals(
-			"<prereq kind=\"APPLY\" operator=\"eq\" operand=\"2\" >\n"
-				+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Wooden\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Blunt\" >\n"
-				+ "</prereq>\n"
-				+ "</prereq>\n",
-			prereq.toString());
+		assertEquals("<prereq kind=\"APPLY\" operator=\"eq\" operand=\"2\" >\n"
+			+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Wooden\" >\n"
+			+ "</prereq>\n"
+			+ "<prereq kind=\"APPLY\" operator=\"eq\" operand=\"Blunt\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 }

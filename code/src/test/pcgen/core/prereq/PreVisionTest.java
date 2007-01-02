@@ -45,11 +45,13 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template.addVision(new Vision(VisionType.getVisionType("Darkvision"), "60"));
+		template.addVision(new Vision(VisionType.getVisionType("Darkvision"),
+			"60"));
 		character.addTemplate(template);
 
 		final PCTemplate template2 = new PCTemplate();
-		template2.addVision(new Vision(VisionType.getVisionType("Low-Light"), "30"));
+		template2.addVision(new Vision(VisionType.getVisionType("Low-Light"),
+			"30"));
 		character.addTemplate(template2);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -70,7 +72,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
-		template.addVision(new Vision(VisionType.getVisionType("Normal"), "60"));
+		template
+			.addVision(new Vision(VisionType.getVisionType("Normal"), "60"));
 
 		character.addTemplate(template);
 
@@ -91,7 +94,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
-		template.addVision(new Vision(VisionType.getVisionType("Darkvision"), "60"));
+		template.addVision(new Vision(VisionType.getVisionType("Darkvision"),
+			"60"));
 
 		character.addTemplate(template);
 

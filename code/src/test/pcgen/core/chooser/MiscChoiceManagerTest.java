@@ -42,7 +42,8 @@ import java.util.Collections;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
+public class MiscChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code MiscChoiceManagerTest}.
@@ -52,12 +53,11 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -74,28 +74,32 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=1|Foo|Bar|Baz");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		
+
 		try
 		{
-			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(3));
-			is (choices.get(0), strEq("Foo"));
-			is (choices.get(1), strEq("Bar"));
-			is (choices.get(2), strEq("Baz"));
+			is(choices.size(), eq(3));
+			is(choices.get(0), strEq("Foo"));
+			is(choices.get(1), strEq("Bar"));
+			is(choices.get(2), strEq("Baz"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -110,29 +114,30 @@ public class MiscChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=1|Foo|Bar|Baz");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		
+
 		pObj.addAssociated("Bar");
 
 		List available = new ArrayList();
-		List selected  = new ArrayList();
-		
+		List selected = new ArrayList();
+
 		choiceManager.getChoices(aPC, available, selected);
-	
+
 		Collections.sort(available);
 		Collections.sort(selected);
 
 		is(available.size(), eq(3), "size of available list");
-		is(selected.size(),  eq(1), "size of selected list");
+		is(selected.size(), eq(1), "size of selected list");
 
 		is(available.get(0), strEq("Bar"), "first entry of available");
 		is(available.get(1), strEq("Baz"), "second entry of available");
 		is(available.get(2), strEq("Foo"), "third entry of available");
-		is(selected.get(0),  strEq("Bar"), "first entry of selected");
+		is(selected.get(0), strEq("Bar"), "first entry of selected");
 	}
 }

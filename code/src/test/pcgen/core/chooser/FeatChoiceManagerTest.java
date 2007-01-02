@@ -40,7 +40,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class FeatChoiceManagerTest extends AbstractCharacterTestCase {
+public class FeatChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code FeatChoiceManagerTest}.
@@ -50,12 +51,11 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -72,26 +72,30 @@ public class FeatChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("FEAT=Wellie Throwing");
 		is(pObj.getChoiceString(), strEq("FEAT=Wellie Throwing"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("FEAT"), "got expected chooser");
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(-1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper
+						.findField(cMClass, "requestedSelections");
+			is(aField.get(choiceManager), eq(-1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(1));
-			is (choices.get(0), strEq("Wellie Throwing"));
+			is(choices.size(), eq(1));
+			is(choices.get(0), strEq("Wellie Throwing"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

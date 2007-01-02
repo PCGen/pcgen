@@ -33,7 +33,8 @@ import junit.swingui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreTypeParser;
 
-public class PreTypeParserTest extends TestCase {
+public class PreTypeParserTest extends TestCase
+{
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreTypeParserTest.class);
@@ -54,39 +55,39 @@ public class PreTypeParserTest extends TestCase {
 	{
 		PreTypeParser producer = new PreTypeParser();
 
-		Prerequisite prereq = producer.parse("TYPE", "type1,type2|type3,[type4]", false, false);
+		Prerequisite prereq =
+				producer.parse("TYPE", "type1,type2|type3,[type4]", false,
+					false);
 
 		System.out.println("testAndOrNot returned:");
 		System.out.println(prereq.toString());
-/*		assertEquals("<prereq operator=\"eq\" operand=\"3\" >\n"
-+"<prereq kind=\"type\" key=\"type1\" operator=\"eq\" operand=\"1\" >\n"
-+"</prereq>\n"
-+"<prereq operator=\"gteq\" operand=\"1\" >\n"
-+"<prereq kind=\"type\" key=\"type2\" operator=\"eq\" operand=\"1\" >\n"
-+"</prereq>\n"
-+"<prereq kind=\"type\" key=\"type3\" operator=\"eq\" operand=\"1\" >\n"
-+"</prereq>\n"
-+"</prereq>\n"
-+"<prereq kind=\"type\" key=\"type4\" operator=\"neq\" operand=\"1\" >\n"
-+"</prereq>\n"
-+"</prereq>\n",
-				prereq.toString());
-*/		assertEquals(
-				"<prereq operator=\"gteq\" operand=\"3\" >\n" +
-				"<prereq kind=\"type\" key=\"type1\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq operator=\"gteq\" operand=\"1\" >\n" +
-				"<prereq kind=\"type\" key=\"type2\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"type3\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"type4\" operator=\"neq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"</prereq>\n",
-				prereq.toString());
+		/*		assertEquals("<prereq operator=\"eq\" operand=\"3\" >\n"
+		 +"<prereq kind=\"type\" key=\"type1\" operator=\"eq\" operand=\"1\" >\n"
+		 +"</prereq>\n"
+		 +"<prereq operator=\"gteq\" operand=\"1\" >\n"
+		 +"<prereq kind=\"type\" key=\"type2\" operator=\"eq\" operand=\"1\" >\n"
+		 +"</prereq>\n"
+		 +"<prereq kind=\"type\" key=\"type3\" operator=\"eq\" operand=\"1\" >\n"
+		 +"</prereq>\n"
+		 +"</prereq>\n"
+		 +"<prereq kind=\"type\" key=\"type4\" operator=\"neq\" operand=\"1\" >\n"
+		 +"</prereq>\n"
+		 +"</prereq>\n",
+		 prereq.toString());
+		 */assertEquals(
+			"<prereq operator=\"gteq\" operand=\"3\" >\n"
+				+ "<prereq kind=\"type\" key=\"type1\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"type\" key=\"type2\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"type\" key=\"type3\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"type\" key=\"type4\" operator=\"neq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
-	
+
 	/**
 	 * @throws Exception
 	 */
@@ -94,35 +95,35 @@ public class PreTypeParserTest extends TestCase {
 	{
 		PreTypeParser producer = new PreTypeParser();
 
-		Prerequisite prereq = producer.parse("TYPE", "Mithral|Adamantine|Darkwood", true, false);
+		Prerequisite prereq =
+				producer.parse("TYPE", "Mithral|Adamantine|Darkwood", true,
+					false);
 
 		System.out.println("testAndOrNot returned:");
 		System.out.println(prereq.toString());
-/*		assertEquals("<prereq operator=\"neq\" operand=\"1\" >\n" +
-				"<prereq operator=\"gteq\" operand=\"1\" >\n" +
-				"<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"</prereq>\n" +
-				"</prereq>\n",
-				prereq.toString());
-*/		assertEquals(
-				"<prereq operator=\"lt\" operand=\"1\" >\n" +
-				"<prereq operator=\"gteq\" operand=\"1\" >\n" +
-				"<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"</prereq>\n" +
-				"</prereq>\n",
-				prereq.toString());
+		/*		assertEquals("<prereq operator=\"neq\" operand=\"1\" >\n" +
+		 "<prereq operator=\"gteq\" operand=\"1\" >\n" +
+		 "<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n" +
+		 "</prereq>\n" +
+		 "<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n" +
+		 "</prereq>\n" +
+		 "<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n" +
+		 "</prereq>\n" +
+		 "</prereq>\n" +
+		 "</prereq>\n",
+		 prereq.toString());
+		 */assertEquals(
+			"<prereq operator=\"lt\" operand=\"1\" >\n"
+				+ "<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n" + "</prereq>\n", prereq
+				.toString());
 	}
-	
+
 	/**
 	 * @throws Exception
 	 */
@@ -130,18 +131,19 @@ public class PreTypeParserTest extends TestCase {
 	{
 		PreTypeParser producer = new PreTypeParser();
 
-		Prerequisite prereq = producer.parse("TYPE", "1,Mithral,Adamantine,Darkwood", false, false);
+		Prerequisite prereq =
+				producer.parse("TYPE", "1,Mithral,Adamantine,Darkwood", false,
+					false);
 
 		System.out.println(prereq.toString());
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n" +
-				"<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n" +
-				"</prereq>\n" +
-				"</prereq>\n",
-				prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"type\" key=\"Adamantine\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"type\" key=\"Darkwood\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 	/**
@@ -154,15 +156,14 @@ public class PreTypeParserTest extends TestCase {
 		Prerequisite prereq = producer.parse("TYPE", "1,Animal", true, false);
 
 		System.out.println(prereq.toString());
-/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" + 
-				"<prereq kind=\"type\" key=\"Animal\" operator=\"eq\" operand=\"1\" >\n" + 
-				"</prereq>\n" + 
-				"</prereq>\n",
-				prereq.toString());
-*/		assertEquals(
-				"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"neq\" operand=\"1\" >\n" +
-				"</prereq>\n",
-				prereq.toString());
+		/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" + 
+		 "<prereq kind=\"type\" key=\"Animal\" operator=\"eq\" operand=\"1\" >\n" + 
+		 "</prereq>\n" + 
+		 "</prereq>\n",
+		 prereq.toString());
+		 */assertEquals(
+			"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"neq\" operand=\"1\" >\n"
+				+ "</prereq>\n", prereq.toString());
 	}
-	
+
 }

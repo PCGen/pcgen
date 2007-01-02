@@ -6,16 +6,19 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
-public class SpellProgressionInfoTest extends TestCase {
+public class SpellProgressionInfoTest extends TestCase
+{
 
 	public SpellProgressionInfo spi;
 
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		super.setUp();
 		spi = new SpellProgressionInfo();
 	}
 
-	public void testKnown() {
+	public void testKnown()
+	{
 		// Test it starts out empty
 		assertFalse(spi.hasKnownProgression());
 		// Test no NPE triggered even if no KNOWN is loaded
@@ -89,43 +92,60 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals(3, spi.getHighestKnownSpellLevel());
 	}
 
-	public void testSetKnownErrors() {
+	public void testSetKnownErrors()
+	{
 		List<String> l = new ArrayList<String>();
-		try {
+		try
+		{
 			spi.setKnown(1, null);
 			fail("Set Known took null list");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setKnown(1, l);
 			fail("Set Known took empty list");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		l.add("60");
-		try {
+		try
+		{
 			spi.setKnown(0, l);
 			fail("Set Known took level zero");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setKnown(-1, l);
 			fail("Set Known took level negative level");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		l.add(null);
-		try {
+		try
+		{
 			spi.setKnown(0, l);
 			fail("Set Known took list containing null");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 	}
 
-	public void testSpecialtyKnown() {
+	public void testSpecialtyKnown()
+	{
 		// Test it starts out empty
 		assertFalse(spi.hasSpecialtyKnownProgression());
 		// Test no NPE triggered even if no KNOWN is loaded
@@ -197,43 +217,60 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals("50", spi.getSpecialtyKnownForLevel(3).get(1));
 	}
 
-	public void testSetSpecialtyKnownErrors() {
+	public void testSetSpecialtyKnownErrors()
+	{
 		List<String> l = new ArrayList<String>();
-		try {
+		try
+		{
 			spi.setSpecialtyKnown(1, null);
 			fail("Set SpecialtyKnown took null list");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setSpecialtyKnown(1, l);
 			fail("Set SpecialtyKnown took empty list");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		l.add("60");
-		try {
+		try
+		{
 			spi.setSpecialtyKnown(0, l);
 			fail("Set SpecialtyKnown took level zero");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setSpecialtyKnown(-1, l);
 			fail("Set SpecialtyKnown took level negative level");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		l.add(null);
-		try {
+		try
+		{
 			spi.setSpecialtyKnown(0, l);
 			fail("Set SpecialtyKnown took list containing null");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 	}
 
-	public void testCast() {
+	public void testCast()
+	{
 		// Test it starts out empty
 		assertFalse(spi.hasCastProgression());
 		// Test no NPE triggered even if no Cast is loaded
@@ -307,43 +344,60 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals(3, spi.getHighestCastSpellLevel());
 	}
 
-	public void testSetCastErrors() {
+	public void testSetCastErrors()
+	{
 		List<String> l = new ArrayList<String>();
-		try {
+		try
+		{
 			spi.setCast(1, null);
 			fail("Set Cast took null list");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setCast(1, l);
 			fail("Set Cast took empty list");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		l.add("60");
-		try {
+		try
+		{
 			spi.setCast(0, l);
 			fail("Set Cast took level zero");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setCast(-1, l);
 			fail("Set Cast took level negative level");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		l.add(null);
-		try {
+		try
+		{
 			spi.setCast(0, l);
 			fail("Set Cast took list containing null");
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 	}
 
-	public void testGetMinLevelForSpellLevel() {
+	public void testGetMinLevelForSpellLevel()
+	{
 		// Works for known
 		List<String> l = new ArrayList<String>();
 		l.add("51");
@@ -408,7 +462,8 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals(-1, spi2.getMinLevelForSpellLevel(4, true));
 	}
 
-	public void testMaxSpellLevelForClassLevel() {
+	public void testMaxSpellLevelForClassLevel()
+	{
 		// Works for known
 		List<String> l = new ArrayList<String>();
 		l.add("51");
@@ -471,7 +526,8 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals(4, spi2.getMaxSpellLevelForClassLevel(6));
 	}
 
-	public void testAvoidCrossPollution() {
+	public void testAvoidCrossPollution()
+	{
 		assertFalse(spi.hasKnownProgression());
 		assertFalse(spi.hasCastProgression());
 		assertFalse(spi.hasSpecialtyKnownProgression());
@@ -494,11 +550,13 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertFalse(spi3.hasSpecialtyKnownProgression());
 	}
 
-	public void testClone() {
+	public void testClone()
+	{
 		spi.setKnown(1, Arrays.asList("22,21".split(",")));
 		spi.setSpecialtyKnown(3, Arrays.asList("42,41".split(",")));
 		spi.setCast(1, Arrays.asList("1,0".split(",")));
-		try {
+		try
+		{
 			SpellProgressionInfo spi2 = spi.clone();
 			// Ensure deep enough copy
 			spi.setKnown(1, Arrays.asList("77,78".split(",")));
@@ -522,28 +580,40 @@ public class SpellProgressionInfoTest extends TestCase {
 			assertEquals(2, spi2.getCastForLevel(1).size());
 			assertEquals("1", spi2.getCastForLevel(1).get(0));
 			assertEquals("0", spi2.getCastForLevel(1).get(1));
-		} catch (CloneNotSupportedException e) {
+		}
+		catch (CloneNotSupportedException e)
+		{
 			fail(e.getLocalizedMessage());
 		}
 	}
 
-	public void testSpellType() {
-		try {
+	public void testSpellType()
+	{
+		try
+		{
 			spi.setSpellType(null);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setSpellType("");
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setSpellType(" ");
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		assertEquals(Constants.s_NONE, spi.getSpellType());
@@ -551,7 +621,8 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals("DIVINE", spi.getSpellType());
 	}
 
-	public void testBooleanFields() {
+	public void testBooleanFields()
+	{
 		// Defaults to false
 		assertFalse(spi.containsSpellFormula());
 		spi.setContainsSpellFormula(true);
@@ -566,17 +637,24 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertTrue(spi.usesSpellBook());
 	}
 
-	public void testBaseStats() {
-		try {
+	public void testBaseStats()
+	{
+		try
+		{
 			spi.setSpellBaseStatAbbr("");
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setSpellBaseStatAbbr(" ");
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		assertEquals(Constants.s_NONE, spi.getSpellBaseStatAbbr());
@@ -584,22 +662,31 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals("INT", spi.getSpellBaseStatAbbr());
 
 		// Bonus
-		try {
+		try
+		{
 			spi.setBonusSpellBaseStatAbbr(null);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setBonusSpellBaseStatAbbr("");
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			spi.setBonusSpellBaseStatAbbr(" ");
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		assertEquals(Constants.s_DEFAULT, spi.getBonusSpellBaseStatAbbr());
@@ -607,11 +694,15 @@ public class SpellProgressionInfoTest extends TestCase {
 		assertEquals("DEX", spi.getBonusSpellBaseStatAbbr());
 	}
 
-	public void testKnownSpellsFromSpecialty() {
-		try {
+	public void testKnownSpellsFromSpecialty()
+	{
+		try
+		{
 			spi.setKnownSpellsFromSpecialty(-1);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 		// Defaults to zero

@@ -48,7 +48,8 @@ import plugin.pretokens.parser.PreVariableParser;
  * @author wardc
  */
 @SuppressWarnings("nls")
-public class PCClassTest extends AbstractCharacterTestCase {
+public class PCClassTest extends AbstractCharacterTestCase
+{
 
 	PCClass humanoidClass;
 	SizeAdjustment sizeL;
@@ -112,7 +113,8 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		myClass.setName("myClass");
 		myClass.setKeyName("KEY_myClass");
 
-		myClass.addVariable(2, "someVar", "(CL=KEY_myClass/2) + CL=KEY_myClass");
+		myClass
+			.addVariable(2, "someVar", "(CL=KEY_myClass/2) + CL=KEY_myClass");
 
 		Variable var = myClass.getVariable(0);
 		assertEquals("someVar", var.getName());
@@ -141,15 +143,18 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		// Test skills granted for each level
 		bugbear.incrementClassLevel(1, humanoidClass);
 		PCLevelInfo levelInfo = bugbear.getLevelInfo().get(0);
-		assertEquals("First level of bugbear", 7, levelInfo.getSkillPointsGained());
+		assertEquals("First level of bugbear", 7, levelInfo
+			.getSkillPointsGained());
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo().get(1);
-		assertEquals("2nd level of bugbear", 1, levelInfo.getSkillPointsGained());
+		assertEquals("2nd level of bugbear", 1, levelInfo
+			.getSkillPointsGained());
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo().get(2);
-		assertEquals("3rd level of bugbear", 1, levelInfo.getSkillPointsGained());
+		assertEquals("3rd level of bugbear", 1, levelInfo
+			.getSkillPointsGained());
 
 		// Craete a huge bugbear first level
 		bugbear = new PlayerCharacter();
@@ -159,15 +164,18 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		bugbear.incrementClassLevel(1, humanoidClass);
 		// Test skills granted for each level
 		levelInfo = bugbear.getLevelInfo().get(0);
-		assertEquals("First level of big bugbear", 6, levelInfo.getSkillPointsGained());
+		assertEquals("First level of big bugbear", 6, levelInfo
+			.getSkillPointsGained());
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo().get(1);
-		assertEquals("2nd level of big bugbear", 0, levelInfo.getSkillPointsGained());
+		assertEquals("2nd level of big bugbear", 0, levelInfo
+			.getSkillPointsGained());
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo().get(2);
-		assertEquals("3rd level of big bugbear", 1, levelInfo.getSkillPointsGained());
+		assertEquals("3rd level of big bugbear", 1, levelInfo
+			.getSkillPointsGained());
 
 		// Create a nymph - first level
 		PlayerCharacter nymph = new PlayerCharacter();
@@ -177,7 +185,8 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		nymph.incrementClassLevel(1, nymphClass);
 		// Test skills granted for each level
 		levelInfo = nymph.getLevelInfo().get(0);
-		assertEquals("First level of nymph", 24, levelInfo.getSkillPointsGained());
+		assertEquals("First level of nymph", 24, levelInfo
+			.getSkillPointsGained());
 
 		nymph.incrementClassLevel(1, nymphClass);
 		levelInfo = nymph.getLevelInfo().get(1);
@@ -194,8 +203,8 @@ public class PCClassTest extends AbstractCharacterTestCase {
 	{
 		// Setup class with prereqs and var based abilities with prereqs.
 		final PreVariableParser parser = new PreVariableParser();
-		final Prerequisite aPrereq = parser.parse("VARGTEQ", "Foo,1", false,
-			false);
+		final Prerequisite aPrereq =
+				parser.parse("VARGTEQ", "Foo,1", false, false);
 		final RuleCheck aClassPreRule = new RuleCheck();
 		aClassPreRule.setName("CLASSPRE");
 		aClassPreRule.setDefault("N");
@@ -307,19 +316,25 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		String classPCCText = humanoidClass.getPCCText();
 		assertNotNull("PCC Text for race should not be null", classPCCText);
 
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				getClass().getName() + ".java");
+		CampaignSourceEntry source =
+				new CampaignSourceEntry(new Campaign(), getClass().getName()
+					+ ".java");
 		PCClass reconstClass = null;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());
-		assertEquals("Class abbrev was not restored after saving and reloading.",
+		assertEquals(
+			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
 
 		// Test a class with some innate spells
-		String b = "1" + "\t" + "SPELLS:" + "Humanoid|TIMES=1|CASTERLEVEL=var(\"TCL\")|Create undead,11+WIS";
+		String b =
+				"1"
+					+ "\t"
+					+ "SPELLS:"
+					+ "Humanoid|TIMES=1|CASTERLEVEL=var(\"TCL\")|Create undead,11+WIS";
 		PCClassLoader classLoader = new PCClassLoader();
 		classLoader.parseLine(humanoidClass, b, source);
 		classPCCText = humanoidClass.getPCCText();
@@ -331,14 +346,17 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());
-		assertEquals("Class abbrev was not restored after saving and reloading.",
+		assertEquals(
+			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
-		final List<PCSpell> startSpells = humanoidClass.getSpellSupport().getSpellList(-1);
-		final List<PCSpell> reconstSpells = reconstClass.getSpellSupport().getSpellList(-1);
-		assertEquals("All spell should have been reconstituted.",
-			startSpells.size(), reconstSpells.size());
-		assertEquals("Spell names should been preserved.",
-			startSpells.get(0).getKeyName(), reconstSpells.get(0).getKeyName());
+		final List<PCSpell> startSpells =
+				humanoidClass.getSpellSupport().getSpellList(-1);
+		final List<PCSpell> reconstSpells =
+				reconstClass.getSpellSupport().getSpellList(-1);
+		assertEquals("All spell should have been reconstituted.", startSpells
+			.size(), reconstSpells.size());
+		assertEquals("Spell names should been preserved.", startSpells.get(0)
+			.getKeyName(), reconstSpells.get(0).getKeyName());
 
 	}
 
@@ -357,46 +375,62 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		megaCasterClass.setMemorizeSpells(false);
 		megaCasterClass.setKnown(1, Arrays.asList("4,2,2,3,4,5".split(",")));
 		megaCasterClass.setCast(1, Arrays.asList("3,1,2,3,4,5".split(",")));
-		megaCasterClass.setKnown(2, Arrays.asList("4,2,2,3,4,5,6,7,8,9,10".split(",")));
-		megaCasterClass.setCast(2, Arrays.asList("3,1,2,3,4,5,6,7,8,9,10".split(",")));
+		megaCasterClass.setKnown(2, Arrays.asList("4,2,2,3,4,5,6,7,8,9,10"
+			.split(",")));
+		megaCasterClass.setCast(2, Arrays.asList("3,1,2,3,4,5,6,7,8,9,10"
+			.split(",")));
 		Globals.getClassList().add(megaCasterClass);
 
-		assertEquals("Highest spell level for class", 10, megaCasterClass.getHighestLevelSpell());
+		assertEquals("Highest spell level for class", 10, megaCasterClass
+			.getHighestLevelSpell());
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, megaCasterClass);
-		PCClass charClass = character.getClassKeyed(megaCasterClass.getKeyName());
-		assertEquals("Highest spell level for character's class", 10, charClass.getHighestLevelSpell());
+		PCClass charClass =
+				character.getClassKeyed(megaCasterClass.getKeyName());
+		assertEquals("Highest spell level for character's class", 10, charClass
+			.getHighestLevelSpell());
 
 		String sbook = Globals.getDefaultSpellBook();
 
-		String cast = charClass.getCastForLevel(10, sbook, true,
-			false, character)
-			+ charClass.getBonusCastForLevelString(10, sbook, character);
-		assertEquals("Should not be able to cast 10th level spells at 1st level", "0", cast);
-		cast = charClass.getCastForLevel(5, sbook, true,
-			false, character)
-			+ charClass.getBonusCastForLevelString(5, sbook, character);
-		assertEquals("Should be able to cast 5th level spells at 1st level", "5", cast);
+		String cast =
+				charClass.getCastForLevel(10, sbook, true, false, character)
+					+ charClass
+						.getBonusCastForLevelString(10, sbook, character);
+		assertEquals(
+			"Should not be able to cast 10th level spells at 1st level", "0",
+			cast);
+		cast =
+				charClass.getCastForLevel(5, sbook, true, false, character)
+					+ charClass.getBonusCastForLevelString(5, sbook, character);
+		assertEquals("Should be able to cast 5th level spells at 1st level",
+			"5", cast);
 
 		Ability casterFeat = new Ability();
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				PCClassTest.class.getName() + ".java");
+		CampaignSourceEntry source =
+				new CampaignSourceEntry(new Campaign(), PCClassTest.class
+					.getName()
+					+ ".java");
 		featLoader.setCurrentSource(source);
-		featLoader.parseLine(casterFeat,
-				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
+		featLoader
+			.parseLine(
+				casterFeat,
+				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1",
+				source);
 		casterFeat.setCategory("FEAT");
 		Globals.addAbility(casterFeat);
 
 		AbilityUtilities.modFeat(character, null, "CasterBoost", true, false);
-		cast = charClass.getCastForLevel(11, sbook, true,
-			false, character)
-			+ charClass.getBonusCastForLevelString(11, sbook, character);
-		assertEquals("Should be able to cast 11th level spells with feat", "1", cast);
-		assertEquals("Should be able to cast 11th level spells with feat", 11, charClass.getHighestLevelSpell(character));
+		cast =
+				charClass.getCastForLevel(11, sbook, true, false, character)
+					+ charClass
+						.getBonusCastForLevelString(11, sbook, character);
+		assertEquals("Should be able to cast 11th level spells with feat", "1",
+			cast);
+		assertEquals("Should be able to cast 11th level spells with feat", 11,
+			charClass.getHighestLevelSpell(character));
 	}
-
 
 	public void testGetKnownForLevel()
 	{
@@ -472,9 +506,9 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 		assertEquals("Known 8th level for character's class", 0, charClass
 			.getKnownForLevel(8, character));
-		
+
 	}
-	
+
 	/**
 	 * Parse a class definition and return the populated PCClass object.
 	 *
@@ -483,7 +517,8 @@ public class PCClassTest extends AbstractCharacterTestCase {
 	 * @return The populated class.
 	 * @throws PersistenceLayerException
 	 */
-	private PCClass parsePCClassText(String classPCCText, CampaignSourceEntry source) throws PersistenceLayerException
+	private PCClass parsePCClassText(String classPCCText,
+		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		PCClassLoader pcClassLoader = new PCClassLoader();
 		pcClassLoader.setCurrentSource(source);
@@ -495,12 +530,13 @@ public class PCClassTest extends AbstractCharacterTestCase {
 			if (line.trim().length() > 0)
 			{
 				System.out.println("Processing line:'" + line + "'.");
-				reconstClass = pcClassLoader.parseLine(reconstClass, line, source);
+				reconstClass =
+						pcClassLoader.parseLine(reconstClass, line, source);
 			}
 		}
 		return reconstClass;
 	}
-	
+
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
@@ -513,23 +549,25 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		customCampaign.setName("Unit Test");
 		customCampaign.setName("KEY_Unit Test");
 		customCampaign.addDescription(new Description("Unit Test data"));
-		CampaignSourceEntry unitTestSource = new CampaignSourceEntry(
-			customCampaign, "PCClassTest");
+		CampaignSourceEntry unitTestSource =
+				new CampaignSourceEntry(customCampaign, "PCClassTest");
 
 		// Create the monseter class type
-		SettingsHandler.getGame().addClassType("Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
+		SettingsHandler.getGame().addClassType(
+			"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
 		SettingsHandler.getGame().setSkillMultiplierLevels("4");
 
-
 		// Create the humanoid class
-		String classDef = "CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		TYPE:Monster	STARTSKILLPTS:1	"
-			+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
-			+ "MONNONSKILLHD:2|PRESIZEEQ:L";
+		String classDef =
+				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		TYPE:Monster	STARTSKILLPTS:1	"
+					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
+					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
 		humanoidClass = classLoader.parseLine(null, classDef, unitTestSource);
 		Globals.getClassList().add(humanoidClass);
 
-		classDef = "CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
+		classDef =
+				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
 		nymphClass = classLoader.parseLine(null, classDef, unitTestSource);
 		Globals.getClassList().add(nymphClass);
@@ -549,7 +587,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 		bugbearRace.setAdvancementUnlimited(true);
 		bugbearRace.setInitialSkillMultiplier(1);
 		Globals.addRace(bugbearRace);
-		
+
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
 		bigBugbearRace.setKeyName("KEY_BigBugbear");
@@ -568,8 +606,7 @@ public class PCClassTest extends AbstractCharacterTestCase {
 
 		// Setup class with prereqs and var based abilities with prereqs.
 		PreVariableParser parser = new PreVariableParser();
-		prereq = parser.parse("VARGTEQ", "Foo,1", false,
-			false);
+		prereq = parser.parse("VARGTEQ", "Foo,1", false, false);
 		classPreRule = new RuleCheck();
 		classPreRule.setName("CLASSPRE");
 		classPreRule.setDefault("N");

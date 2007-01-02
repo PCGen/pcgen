@@ -124,8 +124,9 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 		final PreClassParser producer = new PreClassParser();
 
-		final Prerequisite prereq = producer.parse("CLASS",
-			"1,SPELLCASTER.Arcane,SPELLCASTER.Arcane=2", false, false);
+		final Prerequisite prereq =
+				producer.parse("CLASS",
+					"1,SPELLCASTER.Arcane,SPELLCASTER.Arcane=2", false, false);
 
 		final PreMult test = new PreMult();
 		final int passes = test.passes(prereq, character);
@@ -180,8 +181,9 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 		final PreFeatParser producer = new PreFeatParser();
 
-		final Prerequisite prereq = producer.parse("FEAT",
-			"3,TYPE=Metamagic,TYPE=ItemCreation", false, false);
+		final Prerequisite prereq =
+				producer.parse("FEAT", "3,TYPE=Metamagic,TYPE=ItemCreation",
+					false, false);
 
 		final PreMult test = new PreMult();
 		int passes = test.passes(prereq, character);
@@ -228,8 +230,9 @@ public class PreMultTest extends AbstractCharacterTestCase
 	{
 		final PreSkillParser producer = new PreSkillParser();
 
-		final Prerequisite prereq = producer.parse("SKILL",
-			"2,TYPE.Knowledge,TYPE.Knowledge=4", false, false);
+		final Prerequisite prereq =
+				producer.parse("SKILL", "2,TYPE.Knowledge,TYPE.Knowledge=4",
+					false, false);
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass 2 knowledge skill test with 1 skill",

@@ -65,11 +65,15 @@ public class PreVisionParserTest extends TestCase
 	{
 		PreVisionParser parser = new PreVisionParser();
 
-		Prerequisite prereq = parser.parse("VISION", "1,Blindsight,Darkvision=30", false, false);
+		Prerequisite prereq =
+				parser.parse("VISION", "1,Blindsight,Darkvision=30", false,
+					false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-		    + "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"gteq\" operand=\"30\" >\n" + "</prereq>\n"
-		    + "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"gteq\" operand=\"30\" >\n" + "</prereq>\n"
-		    + "</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"gteq\" operand=\"30\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"gteq\" operand=\"30\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 }

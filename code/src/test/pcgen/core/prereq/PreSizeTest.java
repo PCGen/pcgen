@@ -41,7 +41,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	Equipment eq2;
 	Equipment eq3;
 
-	protected void setUp () throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -49,7 +49,8 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 		TestHelper.makeEquipment("Item One\tTYPE:Goods.Magic\tSIZE:S");
 		TestHelper.makeEquipment("Item Two\tTYPE:Goods.General\tSIZE:M");
-		TestHelper.makeEquipment("Item Three\tTYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Dagger:\tSIZE:L");
+		TestHelper
+			.makeEquipment("Item Three\tTYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Dagger:\tSIZE:L");
 
 		eq1 = EquipmentList.getEquipmentFromName("Item One", character);
 		eq2 = EquipmentList.getEquipmentFromName("Item Two", character);
@@ -59,17 +60,17 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	/*
 	 * @see AbstractCharacterTestCase#tearDown()
 	 */
-	protected void tearDown () throws Exception
+	protected void tearDown() throws Exception
 	{
 		super.tearDown();
 	}
-	
+
 	public static Test suite()
 	{
 		return new TestSuite(PreSizeTest.class);
 	}
 
-	public void testEquipmentPreSize () throws Exception
+	public void testEquipmentPreSize() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -83,14 +84,20 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRESIZEEQ:L");
 
-		is(PrereqHandler.passes(prereq, eq1, character), eq(false), "Item one is not Large");
-		is(PrereqHandler.passes(prereq, eq2, character), eq(false), "Item two is not Large");
-		is(PrereqHandler.passes(prereq, eq3, character), eq(true), "Item three Large");
+		is(PrereqHandler.passes(prereq, eq1, character), eq(false),
+			"Item one is not Large");
+		is(PrereqHandler.passes(prereq, eq2, character), eq(false),
+			"Item two is not Large");
+		is(PrereqHandler.passes(prereq, eq3, character), eq(true),
+			"Item three Large");
 
 		prereq = factory.parse("PRESIZEGT:S");
 
-		is(PrereqHandler.passes(prereq, eq1, character), eq(false), "Item one is not larger than Small");
-		is(PrereqHandler.passes(prereq, eq2, character), eq(true),  "Item two is larger than Small");
-		is(PrereqHandler.passes(prereq, eq3, character), eq(true),  "Item three larger than Small");
+		is(PrereqHandler.passes(prereq, eq1, character), eq(false),
+			"Item one is not larger than Small");
+		is(PrereqHandler.passes(prereq, eq2, character), eq(true),
+			"Item two is larger than Small");
+		is(PrereqHandler.passes(prereq, eq3, character), eq(true),
+			"Item three larger than Small");
 	}
 }

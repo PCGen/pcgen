@@ -59,8 +59,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 * Test that numeric alignment values work correctly in Align tests.
 	 * @throws Exception
 	 */
-	public void testNumeric()
-		throws Exception
+	public void testNumeric() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setAlignment(3, false, true);
@@ -71,20 +70,19 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		prereq = factory.parse("PREALIGN:3");
 
 		assertTrue("Number 3 should match character's alignment of 3",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREALIGN:6");
 
 		assertFalse("Number 6 should not match character's alignment of 3",
-					PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 	}
 
 	/**
 	 * Test that alignment abbreviation values work correctly in Align tests.
 	 * @throws Exception
 	 */
-	public void testAbbrev()
-		throws Exception
+	public void testAbbrev() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setAlignment(3, false, true);
@@ -95,7 +93,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		assertTrue("Abbrev NG should match character's alignment of NG",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		prereq = new Prerequisite();
 		prereq.setKind("align");
@@ -103,15 +101,15 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		assertFalse("Abbrev LG should not match character's alignment of NG",
-					PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREALIGN:NG");
 		assertTrue("Abbrev NG should match character's alignment of NG",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 		prereq = factory.parse("PREALIGN:LG");
 		assertFalse("Abbrev LG should not match character's alignment of NG",
-					PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 	}
 
 	/**
@@ -119,29 +117,27 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 * diety's alignment.
 	 * @throws Exception
 	 */
-	public void testDeity()
-		throws Exception
+	public void testDeity() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setAlignment(3, false, true);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
-					 character.getDeity());
+			character.getDeity());
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:Deity");
 
 		assertTrue("Number 3 should match deity's alignment of NG",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		character.setAlignment(6, false, true);
 
 		assertFalse("Number 6 should not match deity's alignment of NG",
-					PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 	}
 
-	public void testMulti()
-		throws Exception
+	public void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setAlignment(3, false, true);
@@ -150,15 +146,15 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory.parse("PREALIGN:2,3,5");
 
 		assertTrue("2, 3, or 5 should match character's alignment of NG",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREALIGN:2,5,8");
 		assertFalse("2, 5, or 8 should not match character's alignment of NG",
-					PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREALIGN:LE,NG,NE");
 		assertTrue("LE, NG, or NE should match character's alignment of NG",
-				   PrereqHandler.passes(prereq, character, null));
+			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREALIGN:LE,NE,CE");
 		assertFalse(
@@ -166,8 +162,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		deity = new Deity();
 		deity.setName("TestDeity");

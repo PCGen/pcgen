@@ -31,13 +31,15 @@ import pcgen.util.TestHelper;
  * Class to test ABILITY
  */
 @SuppressWarnings("nls")
-public class AbilityTest extends PCGenTestCase {
+public class AbilityTest extends PCGenTestCase
+{
 
 	/**
 	 * Constructor for AbilityTest.
 	 * @param arg0
 	 */
-	public AbilityTest(String arg0) {
+	public AbilityTest(String arg0)
+	{
 		super(arg0);
 	}
 
@@ -45,7 +47,8 @@ public class AbilityTest extends PCGenTestCase {
 	 * @see PCGenTestCase#setUp()
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		super.setUp();
 	}
 
@@ -53,27 +56,38 @@ public class AbilityTest extends PCGenTestCase {
 	 * @see PCGenTestCase#tearDown()
 	 */
 	@Override
-	protected void tearDown() throws Exception {
+	protected void tearDown() throws Exception
+	{
 		super.tearDown();
 	}
 
 	/**
 	 * Test method for 'pcgen.core.Ability.isSameBaseAbility(Ability)'
 	 */
-	public final void testIsSameBaseAbility() {
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", "FEAT", "General.Fighter");
+	public final void testIsSameBaseAbility()
+	{
+		Ability ab1 =
+				TestHelper.makeAbility("Perform (Dance)", "FEAT",
+					"General.Fighter");
 		ab1.setMultiples("NO");
 
-		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
+		Ability ab2 =
+				TestHelper.makeAbility("Perform (Dance)", "BARDIC",
+					"General.Bardic");
 		ab2.setMultiples("NO");
 
-		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", "FEAT", "General.Fighter");
+		Ability ab3 =
+				TestHelper.makeAbility("Perform (Oratory)", "FEAT",
+					"General.Fighter");
 		ab3.setMultiples("NO");
 
-		Ability ab4 = TestHelper.makeAbility("Perform", "FEAT", "General.Fighter");
+		Ability ab4 =
+				TestHelper.makeAbility("Perform", "FEAT", "General.Fighter");
 		ab3.setMultiples("NO");
 
-		Ability ab5 = TestHelper.makeAbility("Weapon Throwing", "FEAT", "General.Fighter");
+		Ability ab5 =
+				TestHelper.makeAbility("Weapon Throwing", "FEAT",
+					"General.Fighter");
 		ab5.setMultiples("YES");
 		ab5.addAssociated("Wellies");
 
@@ -85,18 +99,27 @@ public class AbilityTest extends PCGenTestCase {
 		ab7.setName("Weapon Throwing (Tantrum)");
 		ab7.setKeyName("KEY_Weapon Throwing (Tantrum)");
 
-		is (ab1.getKeyName(), strEq("KEY_Perform (Dance)"),           "Ability1 name is correct");
-		is (ab2.getKeyName(), strEq("KEY_Perform (Dance)"),           "Ability2 name is correct");
-		is (ab3.getKeyName(), strEq("KEY_Perform (Oratory)"),         "Ability3 name is correct");
-		is (ab4.getKeyName(), strEq("KEY_Perform"),                   "Ability4 name is correct");
-		is (ab5.getKeyName(), strEq("KEY_Weapon Throwing"),           "Ability5 name is correct");
-		is (ab6.getKeyName(), strEq("KEY_Weapon Throwing"),           "Ability6 name is correct");
-		is (ab7.getKeyName(), strEq("KEY_Weapon Throwing (Tantrum)"), "Ability7 name is correct");
+		is(ab1.getKeyName(), strEq("KEY_Perform (Dance)"),
+			"Ability1 name is correct");
+		is(ab2.getKeyName(), strEq("KEY_Perform (Dance)"),
+			"Ability2 name is correct");
+		is(ab3.getKeyName(), strEq("KEY_Perform (Oratory)"),
+			"Ability3 name is correct");
+		is(ab4.getKeyName(), strEq("KEY_Perform"), "Ability4 name is correct");
+		is(ab5.getKeyName(), strEq("KEY_Weapon Throwing"),
+			"Ability5 name is correct");
+		is(ab6.getKeyName(), strEq("KEY_Weapon Throwing"),
+			"Ability6 name is correct");
+		is(ab7.getKeyName(), strEq("KEY_Weapon Throwing (Tantrum)"),
+			"Ability7 name is correct");
 
-		is (ab1.isSameBaseAbility(ab2), eq(false), "Abilities 1 & 2 are not the same");
-		is (ab1.isSameBaseAbility(ab3), eq(false), "Abilities 1 & 3 are not the same");
-		is (ab1.isSameBaseAbility(ab4), eq(false), "Abilities 1 & 4 are not the same");
-		is (ab5.isSameBaseAbility(ab6), eq(true),  "Abilities 5 & 6 are the same");
-		is (ab5.isSameBaseAbility(ab7), eq(true),  "Abilities 5 & 7 are the same");
+		is(ab1.isSameBaseAbility(ab2), eq(false),
+			"Abilities 1 & 2 are not the same");
+		is(ab1.isSameBaseAbility(ab3), eq(false),
+			"Abilities 1 & 3 are not the same");
+		is(ab1.isSameBaseAbility(ab4), eq(false),
+			"Abilities 1 & 4 are not the same");
+		is(ab5.isSameBaseAbility(ab6), eq(true), "Abilities 5 & 6 are the same");
+		is(ab5.isSameBaseAbility(ab7), eq(true), "Abilities 5 & 7 are the same");
 	}
 }

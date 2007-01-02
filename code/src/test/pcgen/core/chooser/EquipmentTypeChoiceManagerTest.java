@@ -40,7 +40,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase {
+public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code EquipmentTypeChoiceManagerTest}.
@@ -50,12 +51,11 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -69,36 +69,44 @@ public class EquipmentTypeChoiceManagerTest extends AbstractCharacterTestCase {
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("COUNT=1|NUMCHOICES=2|EQUIPTYPE|one|two|three|four|five");
-		is(pObj.getChoiceString(), strEq("COUNT=1|NUMCHOICES=2|EQUIPTYPE|one|two|three|four|five"));
+		pObj
+			.setChoiceString("COUNT=1|NUMCHOICES=2|EQUIPTYPE|one|two|three|four|five");
+		is(pObj.getChoiceString(),
+			strEq("COUNT=1|NUMCHOICES=2|EQUIPTYPE|one|two|three|four|five"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("EQUIPTYPE"), "got expected chooser");
-		
+		is(choiceManager.typeHandled(), strEq("EQUIPTYPE"),
+			"got expected chooser");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(2));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(2));
 
-			aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField =
+					(Field) TestHelper
+						.findField(cMClass, "requestedSelections");
+			is(aField.get(choiceManager), eq(1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(5));
-			is (choices.get(0), strEq("one"));
-			is (choices.get(1), strEq("two"));
-			is (choices.get(2), strEq("three"));
-			is (choices.get(3), strEq("four"));
-			is (choices.get(4), strEq("five"));
+			is(choices.size(), eq(5));
+			is(choices.get(0), strEq("one"));
+			is(choices.get(1), strEq("two"));
+			is(choices.get(2), strEq("three"));
+			is(choices.get(3), strEq("four"));
+			is(choices.get(4), strEq("five"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

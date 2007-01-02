@@ -93,7 +93,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		testSpell.setLevelInfo("CLASS|TestArcane", 1);
 		testSpell.setLevelInfo("DOMAIN|Fire", 0);
 		testSpell.setLevelInfo("CLASS|TestDivine", 0);
-		Globals.addToSpellMap( testSpell.getKeyName(), testSpell );
+		Globals.addToSpellMap(testSpell.getKeyName(), testSpell);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
@@ -106,8 +106,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass.setKnown(1, Arrays.asList("4,2,1".split(",")));
 		arcaneClass.setCast(1, Arrays.asList("3,1,0".split(",")));
 		Globals.getClassList().add(arcaneClass);
-		CharacterSpell aCharacterSpell = new CharacterSpell(arcaneClass,
-			testSpell);
+		CharacterSpell aCharacterSpell =
+				new CharacterSpell(arcaneClass, testSpell);
 		aCharacterSpell.addInfo(1, 1, null);
 		arcaneClass.getSpellSupport().addCharacterSpell(aCharacterSpell);
 
@@ -150,19 +150,22 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
 		character.addSpellBook(spellBook);
-		List<CharacterSpell> spellList = arcaneClass.getSpellSupport().getCharacterSpell(
-			testSpell, "", 1);
+		List<CharacterSpell> spellList =
+				arcaneClass.getSpellSupport().getCharacterSpell(testSpell, "",
+					1);
 		CharacterSpell charSpell = spellList.get(0);
 
-		String result = character.addSpell(charSpell, null, arcaneClass
-			.getKeyName(), Globals.getDefaultSpellBook(), 1, 1);
+		String result =
+				character.addSpell(charSpell, null, arcaneClass.getKeyName(),
+					Globals.getDefaultSpellBook(), 1, 1);
 		assertEquals("No CHA, so should reject attempt to add spell",
 			"You can only learn 0 spells for level 1"
 				+ "\nand there are no higher-level slots available.", result);
 
 		SpellMemToken token = new SpellMemToken();
 		assertEquals("Retrieve spell from known list of arcane caster.",
-			"Test Spell", token.getToken("SPELLMEM.0.0.1.0.NAME", character, null));
+			"Test Spell", token.getToken("SPELLMEM.0.0.1.0.NAME", character,
+				null));
 	}
 
 	/**
@@ -179,32 +182,38 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		character.incrementClassLevel(1, divineClass, true);
 		character.addSpellBook(spellBook);
-		List<CharacterSpell> spellList = divineClass.getSpellSupport().getCharacterSpell(
-			testSpell, "", 1);
+		List<CharacterSpell> spellList =
+				divineClass.getSpellSupport().getCharacterSpell(testSpell, "",
+					1);
 		CharacterSpell charSpell = spellList.get(0);
 
-		String result = character.addSpell(charSpell, null, divineClass
-			.getKeyName(), Globals.getDefaultSpellBook(), 1, 1);
+		String result =
+				character.addSpell(charSpell, null, divineClass.getKeyName(),
+					Globals.getDefaultSpellBook(), 1, 1);
 		assertEquals("Known spells already has all spells, should reject.",
 			"The Known Spells spellbook contains all spells of this level that you "
 				+ "know. You cannot place spells in multiple times.", result);
-		result = character.addSpell(charSpell, null, divineClass.getKeyName(),
-			spellBook, 1, 1);
+		result =
+				character.addSpell(charSpell, null, divineClass.getKeyName(),
+					spellBook, 1, 1);
 		assertEquals("No WIS, so should reject attempt to add spell",
 			"You can only prepare 0 spells for level 1"
 				+ "\nand there are no higher-level slots available.", result);
 
 		setPCStat(character, "WIS", 12);
 		character.calcActiveBonuses();
-		result = character.addSpell(charSpell, null, divineClass.getKeyName(),
-			spellBook, 1, 1);
+		result =
+				character.addSpell(charSpell, null, divineClass.getKeyName(),
+					spellBook, 1, 1);
 		assertEquals("Should be no error messages from adding spell", "",
 			result);
 
 		SpellMemToken token = new SpellMemToken();
 		assertEquals("Retrieve spell from known list of divine caster.",
-			"Test Spell", token.getToken("SPELLMEM.0.0.1.0.NAME", character, null));
+			"Test Spell", token.getToken("SPELLMEM.0.0.1.0.NAME", character,
+				null));
 		assertEquals("Retrieve spell from prepared list of divine caster.",
-			"Test Spell", token.getToken("SPELLMEM.0.2.1.0.NAME", character, null));
+			"Test Spell", token.getToken("SPELLMEM.0.2.1.0.NAME", character,
+				null));
 	}
 }

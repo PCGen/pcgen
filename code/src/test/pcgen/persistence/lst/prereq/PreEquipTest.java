@@ -35,8 +35,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.swingui.TestRunner;
 
-
-public class PreEquipTest extends TestCase {
+public class PreEquipTest extends TestCase
+{
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreEquipTest.class);
@@ -55,14 +55,16 @@ public class PreEquipTest extends TestCase {
 		PreEquipParser parser = new PreEquipParser();
 		// "|!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy";
 
-		Prerequisite prereq = parser.parse("EQUIP", "1,TYPE=Armor.Medium,TYPE=Armor.Heavy", true, false);
+		Prerequisite prereq =
+				parser.parse("EQUIP", "1,TYPE=Armor.Medium,TYPE=Armor.Heavy",
+					true, false);
 
-		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" + 
-				"<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Medium\" operator=\"gteq\" operand=\"1\" >\n" + 
-				"</prereq>\n" + 
-				"<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Heavy\" operator=\"gteq\" operand=\"1\" >\n" + 
-				"</prereq>\n" + 
-				"</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"lt\" operand=\"1\" >\n"
+				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Medium\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Heavy\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
 }

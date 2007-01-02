@@ -30,12 +30,13 @@ import pcgen.util.TestChecker;
  */
 public class CompareNull extends TestChecker
 {
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj == null;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		return buf.append("null");
 	}
 }
-

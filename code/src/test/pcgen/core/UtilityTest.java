@@ -73,8 +73,8 @@ public class UtilityTest extends PCGenTestCase
 		final List<String> list = constructList();
 		final String result = CoreUtility.commaDelimit(list);
 		final String trueResult = "one, two, three, four";
-		assertTrue("commaDelimit returned bad String: got '" + result + "' should be '" + trueResult + "'",
-			trueResult.equals(result));
+		assertTrue("commaDelimit returned bad String: got '" + result
+			+ "' should be '" + trueResult + "'", trueResult.equals(result));
 	}
 
 	/**
@@ -84,8 +84,10 @@ public class UtilityTest extends PCGenTestCase
 	 */
 	public void testReplaceFirst() throws Exception
 	{
-		assertEquals(CoreUtility.replaceFirst("abcdefghijklmnopqrstuvwz", "def", "01234"), "abc01234ghijklmnopqrstuvwz");
-		assertEquals(CoreUtility.replaceFirst("abcdefghijklmnopqrstuvwz", "def", "01"), "abc01ghijklmnopqrstuvwz");
+		assertEquals(CoreUtility.replaceFirst("abcdefghijklmnopqrstuvwz",
+			"def", "01234"), "abc01234ghijklmnopqrstuvwz");
+		assertEquals(CoreUtility.replaceFirst("abcdefghijklmnopqrstuvwz",
+			"def", "01"), "abc01ghijklmnopqrstuvwz");
 	}
 
 	/**
@@ -97,8 +99,8 @@ public class UtilityTest extends PCGenTestCase
 		final List<String> list = constructList();
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one, two, three, four";
-		assertTrue("unSplit returned bad String: got '" + result + "' should be '" + trueResult + "'",
-			trueResult.equals(result));
+		assertTrue("unSplit returned bad String: got '" + result
+			+ "' should be '" + trueResult + "'", trueResult.equals(result));
 	}
 
 	/**
@@ -110,8 +112,8 @@ public class UtilityTest extends PCGenTestCase
 		final List<String> list = constructList();
 		final String result = CoreUtility.join(list, sep);
 		final String trueResult = "one|two|three|four";
-		assertTrue("unSplit returned bad String: got '" + result + "' should be '" + trueResult + "'",
-			trueResult.equals(result));
+		assertTrue("unSplit returned bad String: got '" + result
+			+ "' should be '" + trueResult + "'", trueResult.equals(result));
 	}
 
 	private List<String> constructList()

@@ -39,15 +39,18 @@ public class CompareEqualFloat extends TestChecker
 	 * Constructor
 	 * @param fl
 	 */
-	public CompareEqualFloat( float fl ) {
+	public CompareEqualFloat(float fl)
+	{
 		this.fl = fl;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Float.valueOf(this.fl));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a float ");
 		buf.append(this.fl);
 		return buf;

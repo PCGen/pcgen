@@ -36,15 +36,18 @@ public class BoolNot extends TestChecker
 	 * Constructor
 	 * @param tc
 	 */
-	public BoolNot( TestChecker tc ) {
+	public BoolNot(TestChecker tc)
+	{
 		this.tc = tc;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return !this.tc.check(obj);
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("not ");
 		this.tc.scribe(buf);
 		return buf;

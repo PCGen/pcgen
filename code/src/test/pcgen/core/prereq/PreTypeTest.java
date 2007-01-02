@@ -35,7 +35,8 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import plugin.pretokens.test.PreTypeTester;
 
-public class PreTypeTest extends AbstractCharacterTestCase {
+public class PreTypeTest extends AbstractCharacterTestCase
+{
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreTypeTest.class);
@@ -49,12 +50,12 @@ public class PreTypeTest extends AbstractCharacterTestCase {
 		return new TestSuite(PreTypeTest.class);
 	}
 
-
-    /**
-     * Ensure a character with a template correctly passes
-     * PRETEMPLATE
-     */
-    public void test996803_1() {
+	/**
+	 * Ensure a character with a template correctly passes
+	 * PRETEMPLATE
+	 */
+	public void test996803_1()
+	{
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
@@ -70,14 +71,14 @@ public class PreTypeTest extends AbstractCharacterTestCase {
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
-    }
+	}
 
-
-    /**
-     * Ensure a character with a template correctly passes
-     * PRETEMPLATE
-     */
-    public void test996803_2() {
+	/**
+	 * Ensure a character with a template correctly passes
+	 * PRETEMPLATE
+	 */
+	public void test996803_2()
+	{
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
@@ -93,9 +94,10 @@ public class PreTypeTest extends AbstractCharacterTestCase {
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
-    }
+	}
 
-    public void test996803_3() {
+	public void test996803_3()
+	{
 		final PlayerCharacter character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -106,10 +108,10 @@ public class PreTypeTest extends AbstractCharacterTestCase {
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
-    }
+	}
 
-
-    public void test996803_4() {
+	public void test996803_4()
+	{
 		final PlayerCharacter character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
@@ -125,13 +127,13 @@ public class PreTypeTest extends AbstractCharacterTestCase {
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
-    }
+	}
 
+	public void testKindHandled()
+	{
+		final PreTypeTester preType = new PreTypeTester();
 
-    public void testKindHandled() {
-        final PreTypeTester preType = new PreTypeTester();
-
-        assertEquals("TYPE", preType.kindHandled());
-    }
+		assertEquals("TYPE", preType.kindHandled());
+	}
 
 }

@@ -59,8 +59,7 @@ public class PreDefaultMonsterTest extends AbstractCharacterTestCase
 	 * Tests for when the setting is on
 	 * @throws Exception
 	 */
-	public void testOn()
-		throws Exception
+	public void testOn() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(true);
 		PlayerCharacter pc = this.getCharacter();
@@ -68,41 +67,40 @@ public class PreDefaultMonsterTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
 
-		assertTrue("Default Monsters should be true",
-				   PrereqHandler.passes(prereq, pc, null));
+		assertTrue("Default Monsters should be true", PrereqHandler.passes(
+			prereq, pc, null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:YES");
 
-		assertTrue("Should allow full word",
-				   PrereqHandler.passes(prereq, pc, null));
+		assertTrue("Should allow full word", PrereqHandler.passes(prereq, pc,
+			null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:yes");
 
-		assertTrue("Should be case insensitive",
-				   PrereqHandler.passes(prereq, pc, null));
+		assertTrue("Should be case insensitive", PrereqHandler.passes(prereq,
+			pc, null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:N");
 
-		assertFalse("Default Monsters should be true",
-					PrereqHandler.passes(prereq, pc, null));
+		assertFalse("Default Monsters should be true", PrereqHandler.passes(
+			prereq, pc, null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:NO");
 
-		assertFalse("Should allow full word",
-					PrereqHandler.passes(prereq, pc, null));
+		assertFalse("Should allow full word", PrereqHandler.passes(prereq, pc,
+			null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:no");
 
-		assertFalse("Should be case insensitive",
-					PrereqHandler.passes(prereq, pc, null));
+		assertFalse("Should be case insensitive", PrereqHandler.passes(prereq,
+			pc, null));
 	}
 
 	/**
 	 * Tests for when the setting is off
 	 * @throws Exception
 	 */
-	public void testOff()
-		throws Exception
+	public void testOff() throws Exception
 	{
 		SettingsHandler.setMonsterDefault(false);
 		// PlayerCharacter caches the setting
@@ -111,37 +109,36 @@ public class PreDefaultMonsterTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:Y");
 
-		assertFalse("Default Monsters should not be true",
-					PrereqHandler.passes(prereq, pc, null));
+		assertFalse("Default Monsters should not be true", PrereqHandler
+			.passes(prereq, pc, null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:YES");
 
-		assertFalse("Should allow full word",
-					PrereqHandler.passes(prereq, pc, null));
+		assertFalse("Should allow full word", PrereqHandler.passes(prereq, pc,
+			null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:yes");
 
-		assertFalse("Should be case insensitive",
-					PrereqHandler.passes(prereq, pc, null));
+		assertFalse("Should be case insensitive", PrereqHandler.passes(prereq,
+			pc, null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:N");
 
-		assertTrue("Default Monsters should not be true",
-				   PrereqHandler.passes(prereq, pc, null));
+		assertTrue("Default Monsters should not be true", PrereqHandler.passes(
+			prereq, pc, null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:NO");
 
-		assertTrue("Should allow full word",
-				   PrereqHandler.passes(prereq, pc, null));
+		assertTrue("Should allow full word", PrereqHandler.passes(prereq, pc,
+			null));
 
 		prereq = factory.parse("PREDEFAULTMONSTER:no");
 
-		assertTrue("Should be case insensitive",
-				   PrereqHandler.passes(prereq, pc, null));
+		assertTrue("Should be case insensitive", PrereqHandler.passes(prereq,
+			pc, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}

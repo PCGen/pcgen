@@ -8,16 +8,18 @@ import junit.framework.TestSuite;
  * See the PCG file for details.
  */
 @SuppressWarnings("nls")
-public class pcGenGUIFigFaeTest extends pcGenGUITestCase {
+public class pcGenGUIFigFaeTest extends pcGenGUITestCase
+{
 
-    /**
-     * standard JUnit style constructor
-     * 
-     * @param name No idea
-     */
-    public pcGenGUIFigFaeTest(String name) {
-        super(name);
-    }
+	/**
+	 * standard JUnit style constructor
+	 * 
+	 * @param name No idea
+	 */
+	public pcGenGUIFigFaeTest(String name)
+	{
+		super(name);
+	}
 
 	/**
 	 * Return a suite of all the tests in this class.
@@ -33,7 +35,8 @@ public class pcGenGUIFigFaeTest extends pcGenGUITestCase {
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testFigFae() throws Exception {
-        runTest("FigFae", "3e");
-    }
+	public void testFigFae() throws Exception
+	{
+		runTest("FigFae", "3e");
+	}
 }

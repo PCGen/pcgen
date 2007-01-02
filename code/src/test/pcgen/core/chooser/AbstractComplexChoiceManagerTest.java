@@ -41,7 +41,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 @SuppressWarnings("nls")
-public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase {
+public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code AbstractComplexChoiceManagerTest}.
@@ -51,7 +52,6 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		// Do Nothing
 	}
 
-
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
@@ -60,7 +60,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 	{
 		super.setUp();
 	}
-	
+
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
@@ -76,7 +76,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 	 * that NUMCHOICES= and COUNT= are working correctly and that they are
 	 * removed from the choices list by the constructor.
 	 */
-	
+
 	public void test001()
 	{
 		PObject pObj = new PObject();
@@ -84,33 +84,41 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		pObj.setChoiceString("COUNT=1|NUMCHOICES=2|Foo|Bar|Baz");
 		is(pObj.getChoiceString(), strEq("COUNT=1|NUMCHOICES=2|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		is(((AbstractComplexChoiceManager) choiceManager).isValid(), 
-				eq(true), "chooser is valid");
-		
+		is(((AbstractComplexChoiceManager) choiceManager).isValid(), eq(true),
+			"chooser is valid");
+
 		try
 		{
-			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(2), "Number of choices is set correctly");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(2),
+				"Number of choices is set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(1), "Requested selections are set correctly");
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField =
+					(Field) TestHelper
+						.findField(cMClass, "requestedSelections");
+			is(aField.get(choiceManager), eq(1),
+				"Requested selections are set correctly");
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List<?> choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(3), "There are three elements in the chooser");
-			is (choices.get(0), strEq("Foo"));
-			is (choices.get(1), strEq("Bar"));
-			is (choices.get(2), strEq("Baz"));
+			is(choices.size(), eq(3), "There are three elements in the chooser");
+			is(choices.get(0), strEq("Foo"));
+			is(choices.get(1), strEq("Bar"));
+			is(choices.get(2), strEq("Baz"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -128,31 +136,36 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		anAbility.setStacks("Y");
 		anAbility.setMultiples("Y");
 		anAbility.setChoiceString("COUNT=1|NUMCHOICES=2|Foo|Bar|Baz");
-		is(anAbility.getChoiceString(), strEq("COUNT=1|NUMCHOICES=2|Foo|Bar|Baz"));
+		is(anAbility.getChoiceString(),
+			strEq("COUNT=1|NUMCHOICES=2|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(anAbility, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(anAbility, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		is(((AbstractComplexChoiceManager) choiceManager).isValid(), 
-				eq(true), "chooser is valid");
-		
+		is(((AbstractComplexChoiceManager) choiceManager).isValid(), eq(true),
+			"chooser is valid");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "cost");
-			is (aField.get(choiceManager), eq(2.5), "cost is set correctly");
+			Field aField = (Field) TestHelper.findField(cMClass, "cost");
+			is(aField.get(choiceManager), eq(2.5), "cost is set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "dupsAllowed");
-			is (aField.get(choiceManager), eq(true), "dupsAllowed is set correctly");
-			
-			aField  = (Field) TestHelper.findField(cMClass, "multiples");
-			is (aField.get(choiceManager), eq(true), "multiples is set correctly");
+			aField = (Field) TestHelper.findField(cMClass, "dupsAllowed");
+			is(aField.get(choiceManager), eq(true),
+				"dupsAllowed is set correctly");
+
+			aField = (Field) TestHelper.findField(cMClass, "multiples");
+			is(aField.get(choiceManager), eq(true),
+				"multiples is set correctly");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -160,7 +173,7 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 	/**
 	 * Test that a choice string with fewer tokens than necessary returns a
 	 * chooser with an empty choices list.
-	 */	
+	 */
 
 	public void test003()
 	{
@@ -169,27 +182,32 @@ public class AbstractComplexChoiceManagerTest extends AbstractCharacterTestCase 
 		pObj.setChoiceString("COUNT=1");
 		is(pObj.getChoiceString(), strEq("COUNT=1"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("MISC"), "got expected chooser");
-		is(((AbstractComplexChoiceManager) choiceManager).isValid(), 
-				eq(false), "chooser is not valid");
-		
+		is(((AbstractComplexChoiceManager) choiceManager).isValid(), eq(false),
+			"chooser is not valid");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(1), "Requested selections are set correctly");
+			Field aField =
+					(Field) TestHelper
+						.findField(cMClass, "requestedSelections");
+			is(aField.get(choiceManager), eq(1),
+				"Requested selections are set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(0), "Choices list is empty");
+			is(choices.size(), eq(0), "Choices list is empty");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

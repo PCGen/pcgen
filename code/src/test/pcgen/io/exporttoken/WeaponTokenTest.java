@@ -145,8 +145,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.addEquipment(dblWpn);
 		EquipSet def = new EquipSet("0.1", "Default");
 		character.addEquipSet(def);
-		EquipSet es = new EquipSet("0.1.1", "Double Weapon", dblWpn
-			.getKeyName(), dblWpn);
+		EquipSet es =
+				new EquipSet("0.1.1", "Double Weapon", dblWpn.getKeyName(),
+					dblWpn);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
@@ -459,8 +460,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals("2-handed prof should be martial",
 			"KEY_Sword (Bastard/Martial)", bastardSword.profKey(character));
 
-		EquipSet es = new EquipSet("0.1.2", "Sword (Bastard)", bastardSword
-			.getName(), bastardSword);
+		EquipSet es =
+				new EquipSet("0.1.2", "Sword (Bastard)",
+					bastardSword.getName(), bastardSword);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
@@ -485,8 +487,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
 			.profKey(character));
 
-		EquipSet es = new EquipSet("0.1.3", "Longsword (Large)", largeSword
-			.getName(), largeSword);
+		EquipSet es =
+				new EquipSet("0.1.3", "Longsword (Large)",
+					largeSword.getName(), largeSword);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
@@ -520,15 +523,18 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.addTemplate(longswordTemplate);
 
 		character.addEquipment(largeSword);
-		EquipSet es = new EquipSet("0.1.3", "Longsword (Large)", largeSword
-			.getName(), largeSword);
+		EquipSet es =
+				new EquipSet("0.1.3", "Longsword (Large)",
+					largeSword.getName(), largeSword);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
 		// Test weapon profs effects on large weapons
 		WeaponToken token = new WeaponToken();
-		assertEquals("Large sword - can be wielded one handed with template weapon size bonus",
-			"+18/+13/+8/+3", token.getToken("WEAPON.3.BASEHIT", character, null));
+		assertEquals(
+			"Large sword - can be wielded one handed with template weapon size bonus",
+			"+18/+13/+8/+3", token
+				.getToken("WEAPON.3.BASEHIT", character, null));
 		character.removeTemplate(longswordTemplate);
 		assertEquals("Large sword - can't be wielded one handed", null, token
 			.getToken("WEAPON.3.BASEHIT", character, null));
@@ -537,8 +543,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		martialTemplate.setName("Martial Bonus");
 		martialTemplate.addBonusList("WEAPONPROF=TYPE.Martial|PCSIZE|1");
 		character.addTemplate(martialTemplate);
-		assertEquals("Large sword - can be wielded one handed with template weapon type size bonus",
-			"+18/+13/+8/+3", token.getToken("WEAPON.3.BASEHIT", character, null));
+		assertEquals(
+			"Large sword - can be wielded one handed with template weapon type size bonus",
+			"+18/+13/+8/+3", token
+				.getToken("WEAPON.3.BASEHIT", character, null));
 
 	}
 
@@ -551,7 +559,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals("Prof should be SillyBite", "SillyBite", bite
 			.profKey(character));
 
-		EquipSet es = new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
+		EquipSet es =
+				new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
@@ -578,8 +587,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			.profKey(character));
 
 		character.addEquipment(fineSword);
-		EquipSet es = new EquipSet("0.1.3", "Longsword (Fine)", fineSword
-			.getName(), fineSword);
+		EquipSet es =
+				new EquipSet("0.1.3", "Longsword (Fine)", fineSword.getName(),
+					fineSword);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 
@@ -592,8 +602,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Ability wpnFinesse = new Ability();
 		wpnFinesse.setName("Weapon Finesse");
 		wpnFinesse.setKeyName("Weapon Finesse");
-		final BonusObj wfBonus = Bonus
-			.newBonus("COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
+		final BonusObj wfBonus =
+				Bonus
+					.newBonus("COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wfBonus.setCreatorObject(wpnFinesse);
 		wpnFinesse.addBonusList(wfBonus);
 		character.addFeat(wpnFinesse, null);
@@ -617,8 +628,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		character.addEquipment(largeSword);
-		EquipSet es = new EquipSet("0.1.3", "Large Sword",
-			largeSword.getName(), largeSword);
+		EquipSet es =
+				new EquipSet("0.1.3", "Large Sword", largeSword.getName(),
+					largeSword);
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 

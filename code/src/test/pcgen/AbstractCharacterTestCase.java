@@ -23,7 +23,8 @@ import pcgen.util.TestHelper;
  * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
-abstract public class AbstractCharacterTestCase extends PCGenTestCase {
+abstract public class AbstractCharacterTestCase extends PCGenTestCase
+{
 	private PlayerCharacter character = null;
 
 	/**
@@ -40,12 +41,10 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 		Globals.emptyLists();
 		final GameMode gamemode = SettingsHandler.getGame();
 
-		gamemode.setAttribLong(new String[]{
-			"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom",
-			"Charisma"
-		});
-		gamemode.setAttribShort(
-			new String[]{"STR", "DEX", "CON", "INT", "WIS", "CHA"});
+		gamemode.setAttribLong(new String[]{"Strength", "Dexterity",
+			"Constitution", "Intelligence", "Wisdom", "Charisma"});
+		gamemode.setAttribShort(new String[]{"STR", "DEX", "CON", "INT", "WIS",
+			"CHA"});
 
 		final PCStat str = new PCStat();
 		str.setName("Strength");
@@ -175,7 +174,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase {
 			final PCStat stat = pc.getStatList().getStatAt(index);
 			stat.setBaseScore(value);
 			stat.setStatMod("floor(SCORE/2)-5");
-			stat.addVariable(-9, "MAXLEVELSTAT="+statName, statName+"SCORE-10");
+			stat.addVariable(-9, "MAXLEVELSTAT=" + statName, statName
+				+ "SCORE-10");
 		}
 	}
 }

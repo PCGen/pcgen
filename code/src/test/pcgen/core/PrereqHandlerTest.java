@@ -74,14 +74,14 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		Globals.setCurrentPC(pc);
 
-		assertTrue("No feat should return true", PrereqHandler.passes(
-			prereq, pc, null));
+		assertTrue("No feat should return true", PrereqHandler.passes(prereq,
+			pc, null));
 
 		final Ability ud = new Ability();
 		ud.setName("Uncanny Dodge");
 		ud.setKeyName("Uncanny Dodge");
 		pc.addFeat(ud, null);
-		assertFalse("Feat should return false", PrereqHandler.passes(
-			prereq, pc, null));
+		assertFalse("Feat should return false", PrereqHandler.passes(prereq,
+			pc, null));
 	}
 }

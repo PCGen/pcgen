@@ -32,7 +32,8 @@ import pcgen.PCGenTestCase;
  *
  */
 @SuppressWarnings("nls")
-public class EquipmentUtilitiesTest extends PCGenTestCase {
+public class EquipmentUtilitiesTest extends PCGenTestCase
+{
 
 	/**
 	 * Run the test
@@ -42,12 +43,13 @@ public class EquipmentUtilitiesTest extends PCGenTestCase {
 	{
 		junit.textui.TestRunner.run(EquipmentUtilitiesTest.class);
 	}
-	
+
 	/**
 	 * @see PCGenTestCase#setUp()
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		super.setUp();
 	}
 
@@ -55,39 +57,48 @@ public class EquipmentUtilitiesTest extends PCGenTestCase {
 	 * @see PCGenTestCase#tearDown()
 	 */
 	@Override
-	protected void tearDown() throws Exception {
+	protected void tearDown() throws Exception
+	{
 		super.tearDown();
 	}
 
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */
-	public void testAppendToName() {
+	public void testAppendToName()
+	{
 		String bare = "Bare Thing";
 		String decoration = "Mad cow";
 
-		is(EquipmentUtilities.appendToName(bare, decoration), strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
+		is(EquipmentUtilities.appendToName(bare, decoration),
+			strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
 	}
 
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.removeChoicesFromName(String)'
 	 */
-	public void testRemoveChoicesFromName() {
-		is(EquipmentUtilities.removeChoicesFromName("Bare Thing (Mad cow)"), strEq("Bare Thing"), "Choice is removed from name correctly");
+	public void testRemoveChoicesFromName()
+	{
+		is(EquipmentUtilities.removeChoicesFromName("Bare Thing (Mad cow)"),
+			strEq("Bare Thing"), "Choice is removed from name correctly");
 	}
 
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.getUndecoratedName(String, ArrayList)'
 	 */
-	public void testGetUndecoratedName() {
+	public void testGetUndecoratedName()
+	{
 		String name = "foo (bar, baz)";
 		ArrayList<String> specifics = new ArrayList<String>();
 		specifics.add("quxx");
 
-		is(EquipmentUtilities.getUndecoratedName(name, specifics), strEq("foo"), "Got correct undecorated name");
+		is(EquipmentUtilities.getUndecoratedName(name, specifics),
+			strEq("foo"), "Got correct undecorated name");
 		is(specifics.size(), eq(2), "First extracted decoration is correct");
-		is(specifics.get(0), strEq("bar"), "First extracted decoration is correct");
-		is(specifics.get(1), strEq("baz"), "Second extracted decoration is correct");
+		is(specifics.get(0), strEq("bar"),
+			"First extracted decoration is correct");
+		is(specifics.get(1), strEq("baz"),
+			"Second extracted decoration is correct");
 	}
 
 }

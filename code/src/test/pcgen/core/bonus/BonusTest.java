@@ -50,14 +50,16 @@ public class BonusTest extends AbstractCharacterTestCase
 	/**
 	 *
 	 */
-	public BonusTest() {
+	public BonusTest()
+	{
 		super();
 	}
 
 	/**
 	 * @param arg0
 	 */
-	public BonusTest(final String arg0) {
+	public BonusTest(final String arg0)
+	{
 		super(arg0);
 	}
 
@@ -77,8 +79,8 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		Globals.setCurrentPC(character);
-		final BonusObj saddleBonus = Bonus
-			.newBonus("SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
+		final BonusObj saddleBonus =
+				Bonus.newBonus("SKILL|Ride|-5|!PREITEM:1,TYPE.Saddle");
 		saddleBonus.setCreatorObject(rideSkill);
 		rideSkill.addBonusList(saddleBonus);
 
@@ -97,9 +99,10 @@ public class BonusTest extends AbstractCharacterTestCase
 		pc.addEquipSet(eqSet);
 		pc.calcActiveBonuses();
 		rideSkill.activateBonuses(pc);
-		assertFalse("Saddle, should not have a penalty", saddleBonus.isApplied());
+		assertFalse("Saddle, should not have a penalty", saddleBonus
+			.isApplied());
 	}
-	
+
 	/**
 	 * Test the processing of bonusing variables using both 
 	 * abilities and equipment.
@@ -110,10 +113,10 @@ public class BonusTest extends AbstractCharacterTestCase
 		dummyFeat.setName("DummyFeat");
 		final PlayerCharacter pc = getCharacter();
 		Globals.setCurrentPC(pc);
-		
+
 		// Create a variable
 		dummyFeat.addVariable(-1, "NegLevels", "0");
-		
+
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
@@ -128,15 +131,15 @@ public class BonusTest extends AbstractCharacterTestCase
 		pc.addFeat(dummyFeat, null);
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		assertEquals("Variable value", -0.0, pc
-			.getVariableValue("-1*NegLevels", "").doubleValue(), 0.05);
+		assertEquals("Variable value", -0.0, pc.getVariableValue(
+			"-1*NegLevels", "").doubleValue(), 0.05);
 
 		// Add a bonus to it
 		pc.addFeat(dummyFeat2, null);
 		assertEquals("Variable value", 7.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		assertEquals("Variable value", -7.0, pc
-			.getVariableValue("-1*NegLevels", "").doubleValue(), 0.05);
+		assertEquals("Variable value", -7.0, pc.getVariableValue(
+			"-1*NegLevels", "").doubleValue(), 0.05);
 
 		// Add the equipment that gives a bonus to NegLevels
 		EquipSet def = new EquipSet("0.1", "Default");
@@ -149,10 +152,10 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		assertEquals("Variable value", 9.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		assertEquals("Variable value", -9.0, pc
-			.getVariableValue("-1*NegLevels", "").doubleValue(), 0.05);
+		assertEquals("Variable value", -9.0, pc.getVariableValue(
+			"-1*NegLevels", "").doubleValue(), 0.05);
 	}
-	
+
 	/**
 	 * Test the buildDepends method of BonusObj. 
 	 */
@@ -160,11 +163,14 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		BonusObj maxDexStr = new Var();
 		maxDexStr.setValue("VAR|NegLevels|max(STR,DEX)-STR");
-		assertTrue("Should have flagged a dependancy on DEX", maxDexStr.getDependsOn("DEX"));
-		assertTrue("Should have flagged a dependancy on STR", maxDexStr.getDependsOn("STR"));
+		assertTrue("Should have flagged a dependancy on DEX", maxDexStr
+			.getDependsOn("DEX"));
+		assertTrue("Should have flagged a dependancy on STR", maxDexStr
+			.getDependsOn("STR"));
 
 		BonusObj monkMove = new Var();
 		monkMove.setValue("VAR|MonkMove|floor(var(\"monkLvl\")/3)*10");
-		assertTrue("Should have flagged a dependancy on monkLvl", monkMove.getDependsOn("MONKLVL"));
+		assertTrue("Should have flagged a dependancy on monkLvl", monkMove
+			.getDependsOn("MONKLVL"));
 	}
 }

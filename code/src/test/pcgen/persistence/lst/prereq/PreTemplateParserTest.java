@@ -38,8 +38,9 @@ import junit.swingui.TestRunner;
 /**
  * Tests PRETEMPLATE parsing
  */
-public class PreTemplateParserTest extends TestCase {
-	
+public class PreTemplateParserTest extends TestCase
+{
+
 	/**
 	 * Main
 	 * @param args
@@ -62,11 +63,14 @@ public class PreTemplateParserTest extends TestCase {
 	 */
 	public void test990007_1() throws Exception
 	{
-	    PreTemplateParser parser = new PreTemplateParser();
+		PreTemplateParser parser = new PreTemplateParser();
 
-		Prerequisite prereq = parser.parse("TEMPLATE", "Half-Dragon", false, false);
+		Prerequisite prereq =
+				parser.parse("TEMPLATE", "Half-Dragon", false, false);
 
-		assertEquals("<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"gteq\" operand=\"1\" >\n</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"gteq\" operand=\"1\" >\n</prereq>\n",
+			prereq.toString());
 	}
 
 	/**
@@ -74,11 +78,14 @@ public class PreTemplateParserTest extends TestCase {
 	 */
 	public void test990007_2() throws Exception
 	{
-	    PreTemplateParser parser = new PreTemplateParser();
+		PreTemplateParser parser = new PreTemplateParser();
 
-		Prerequisite prereq = parser.parse("TEMPLATE", "Half-Dragon", true, false);
+		Prerequisite prereq =
+				parser.parse("TEMPLATE", "Half-Dragon", true, false);
 
-		assertEquals("<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"lt\" operand=\"1\" >\n</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq kind=\"template\" key=\"Half-Dragon\" operator=\"lt\" operand=\"1\" >\n</prereq>\n",
+			prereq.toString());
 	}
 
 }

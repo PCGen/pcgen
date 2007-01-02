@@ -42,7 +42,8 @@ import java.util.ArrayList;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
+public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code ArmorProfChoiceManagerTest}.
@@ -52,12 +53,11 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -74,23 +74,27 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("ARMORPROF|1|TYPE=Light");
 		is(pObj.getChoiceString(), strEq("ARMORPROF|1|TYPE=Light"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)));
 
 		try
 		{
-			Class<? extends ChoiceManagerList> cMClass = choiceManager.getClass();
+			Class<? extends ChoiceManagerList> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.get(0), strEq("TYPE=Light"));
+			is(choices.get(0), strEq("TYPE=Light"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -112,16 +116,17 @@ public class ArmorProfChoiceManagerTest extends AbstractCharacterTestCase {
 		eq = EquipmentList.getEquipmentKeyed("Arm003");
 		is(eq.isArmor(), eq(true));
 		is(eq.isType("Light"), eq(false));
-		
+
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
 		pObj.setChoiceString("ARMORPROF|1|TYPE=Light");
 
-		PlayerCharacter aPC  = getCharacter();
-		List            Lone = new ArrayList();
-		List            Ltwo = new ArrayList();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+		List Lone = new ArrayList();
+		List Ltwo = new ArrayList();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		choiceManager.getChoices(aPC, Lone, Ltwo);
 
 		is(Lone.size(), eq(2), "Available list has 2 elements");

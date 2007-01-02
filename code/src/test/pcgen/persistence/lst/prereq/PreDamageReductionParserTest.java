@@ -69,7 +69,9 @@ public class PreDamageReductionParserTest extends TestCase
 		}
 		catch (PersistenceLayerException ple)
 		{
-			assertEquals("Badly formed passesPreDR/number of DRs attribute: Evil=5", ple.getMessage());
+			assertEquals(
+				"Badly formed passesPreDR/number of DRs attribute: Evil=5", ple
+					.getMessage());
 		}
 	}
 
@@ -80,9 +82,12 @@ public class PreDamageReductionParserTest extends TestCase
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
-		Prerequisite prereq = parser.parse("DR", "1,Evil=5,Magic.10", false, false);
+		Prerequisite prereq =
+				parser.parse("DR", "1,Evil=5,Magic.10", false, false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"gteq\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"gteq\" operand=\"10\" >\n</prereq>\n</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"gteq\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"gteq\" operand=\"10\" >\n</prereq>\n</prereq>\n",
+			prereq.toString());
 	}
 
 	/**
@@ -92,8 +97,11 @@ public class PreDamageReductionParserTest extends TestCase
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
-		Prerequisite prereq = parser.parse("DR", "1,Evil=5,Magic", false, false);
+		Prerequisite prereq =
+				parser.parse("DR", "1,Evil=5,Magic", false, false);
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"gteq\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"gteq\" operand=\"0\" >\n</prereq>\n</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"gteq\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"gteq\" operand=\"0\" >\n</prereq>\n</prereq>\n",
+			prereq.toString());
 	}
 }

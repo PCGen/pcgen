@@ -79,7 +79,8 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		DamageReduction dr2 = new DamageReduction("10", "good");
 		DamageReduction result = DamageReduction.addDRs(dr1, dr2);
 
-		is(result.toString(), strEq(new DamageReduction("10", "magic and good").toString()));
+		is(result.toString(), strEq(new DamageReduction("10", "magic and good")
+			.toString()));
 
 		dr1 = new DamageReduction("10", "magic");
 		dr2 = new DamageReduction("5", "good");
@@ -99,7 +100,8 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
-		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:KEY_Natural Lycanthrope");
+		final Prerequisite prereqNE =
+				factory.parse("PRETEMPLATE:KEY_Natural Lycanthrope");
 		dr1.addPreReq(prereqNE);
 		is(dr1.toString(), strEq(""));
 
@@ -228,7 +230,8 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		dr2 = new DamageReduction("10", "magic and lawful");
 		result = DamageReduction.combineDRs(dr1, dr2);
 		// Order of lawful and good does matter
-		is(result, or(strEq("10/magic and lawful and good"),strEq("10/magic and good and lawful")));
+		is(result, or(strEq("10/magic and lawful and good"),
+			strEq("10/magic and good and lawful")));
 
 		// Sanity check we don't have anything hardcoded.
 		dr1 = new DamageReduction("10", "lawful");
@@ -370,14 +373,15 @@ public class DamageReductionTest extends AbstractCharacterTestCase
 		is(listResult, strEq("10/epic; 10/lawful or good"));
 
 		drList1.clear();
-		drList1.add(new DamageReduction("10", "epic and good or epic and lawful"));
+		drList1.add(new DamageReduction("10",
+			"epic and good or epic and lawful"));
 		listResult = DamageReduction.getDRString(null, drList1);
 		is(listResult, strEq("10/epic and good or epic and lawful"));
 
 		// Can't handle this case at the moment.
-//		drList1.add(new DamageReduction("10", "lawful"));
-//		listResult = DamageReduction.getDRString(null, drList1);
-//		System.out.println("DR List: " + drList1.toString() + " = " + listResult);
-//		is(listResult, strEq("10/epic and good"));
+		//		drList1.add(new DamageReduction("10", "lawful"));
+		//		listResult = DamageReduction.getDRString(null, drList1);
+		//		System.out.println("DR List: " + drList1.toString() + " = " + listResult);
+		//		is(listResult, strEq("10/epic and good"));
 	}
 }

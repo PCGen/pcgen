@@ -37,19 +37,25 @@ public class CompareEqualObject extends TestChecker
 	 * Constructor
 	 * @param obj
 	 */
-	public CompareEqualObject( Object obj ) {
+	public CompareEqualObject(Object obj)
+	{
 		this.obj = obj;
 	}
 
-	public boolean check( Object object ) {
+	public boolean check(Object object)
+	{
 		return areEqual(this.obj, object);
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("eq(");
-		if (this.obj == null) {
+		if (this.obj == null)
+		{
 			buf.append("null");
-		} else {
+		}
+		else
+		{
 			buf.append("<");
 			buf.append(this.obj);
 			buf.append(">");
@@ -58,7 +64,8 @@ public class CompareEqualObject extends TestChecker
 		return buf;
 	}
 
-	private static boolean areEqual( Object obj1, Object obj2 ) {
+	private static boolean areEqual(Object obj1, Object obj2)
+	{
 		if (obj1 == null || obj2 == null)
 		{
 			return obj1 == null && obj2 == null;
@@ -73,22 +80,28 @@ public class CompareEqualObject extends TestChecker
 		}
 	}
 
-	private static boolean arrayEq( Object obj1, Object obj2 ) {
+	private static boolean arrayEq(Object obj1, Object obj2)
+	{
 		return arrayLenEq(obj1, obj2) && arrayElemEq(obj1, obj2);
 	}
 
-	private static boolean arrayLenEq( Object obj1, Object obj2 ) {
+	private static boolean arrayLenEq(Object obj1, Object obj2)
+	{
 		return Array.getLength(obj1) == Array.getLength(obj2);
 	}
 
-	private static boolean arrayElemEq( Object obj1, Object obj2 ) {
-		for (int i = 0; i < Array.getLength(obj1); i++) {
-			if (!areEqual(Array.get(obj1, i), Array.get(obj2, i))) return false;
+	private static boolean arrayElemEq(Object obj1, Object obj2)
+	{
+		for (int i = 0; i < Array.getLength(obj1); i++)
+		{
+			if (!areEqual(Array.get(obj1, i), Array.get(obj2, i)))
+				return false;
 		}
 		return true;
 	}
 
-	private static boolean isArray( Object obj ) {
+	private static boolean isArray(Object obj)
+	{
 		return obj.getClass().isArray();
 	}
 }

@@ -66,8 +66,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character with a named class can be found
 	 * @throws Exception
 	 */
-	public void testNamedSubClass()
-	throws Exception
+	public void testNamedSubClass() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -76,7 +75,6 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		pcClass.setSpellType("ARCANE");
 		pcClass.setSubClassKey("MySubClass");
 
-
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
 
@@ -84,7 +82,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setKind("subclass");
 		prereq.setKey("mysubclass");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character);
@@ -95,8 +93,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 * Test to make sure subclass still found if multiple classes, only one with subclass
 	 * @throws Exception
 	 */
-	public void testCharWithMultipleClasses()
-	throws Exception
+	public void testCharWithMultipleClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -116,7 +113,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setKind("subclass");
 		prereq.setKey("othersubclass");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character);
@@ -127,8 +124,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 * Test to make sure subclass still found if multiple classes, both with subclass
 	 * @throws Exception
 	 */
-	public void testCharWithMultipleSubClasses()
-	throws Exception
+	public void testCharWithMultipleSubClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -149,7 +145,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setKind("subclass");
 		prereq.setKey("othersubclass");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character);
@@ -160,8 +156,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named subclass cannot be found
 	 * @throws Exception
 	 */
-	public void testNamedSubClassFail()
-	throws Exception
+	public void testNamedSubClassFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -175,7 +170,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setKind("subclass");
 		prereq.setKey("mysubclass");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character);
@@ -186,8 +181,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named subclass cannot be found
 	 * @throws Exception
 	 */
-	public void testNamedDifSubClassFail()
-	throws Exception
+	public void testNamedDifSubClassFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -202,7 +196,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		prereq.setKind("subclass");
 		prereq.setKey("myothersubclass");
 		prereq.setOperand("1");
-		prereq.setOperator( PrerequisiteOperator.GTEQ );
+		prereq.setOperator(PrerequisiteOperator.GTEQ);
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character);

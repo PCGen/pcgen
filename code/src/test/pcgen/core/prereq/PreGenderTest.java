@@ -56,8 +56,7 @@ public class PreGenderTest extends AbstractCharacterTestCase
 	 * Test the PREGENDER code
 	 * @throws Exception
 	 */
-	public void testGender()
-		throws Exception
+	public void testGender() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setGender("Male");
@@ -67,17 +66,17 @@ public class PreGenderTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREGENDER:M");
 
-		assertTrue("Character is Male",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character is Male", PrereqHandler.passes(prereq, character,
+			null));
 
 		prereq = factory.parse("PREGENDER:m");
 
-		assertFalse("Case is significant",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Case is significant", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREGENDER:Moose");
 
-		assertFalse("Requires a full match",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
+			character, null));
 	}
 }

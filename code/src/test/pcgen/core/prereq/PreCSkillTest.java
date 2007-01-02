@@ -61,8 +61,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	 * Test that CSkill works
 	 * @throws Exception
 	 */
-	public void testCSkill()
-		throws Exception
+	public void testCSkill() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -74,49 +73,48 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECSKILL:1,Spot,Listen");
 
-		assertFalse("Character has no class skills",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has no class skills", PrereqHandler.passes(
+			prereq, character, null));
 
 		myClass.addSkillToList("Spot");
 
-		assertTrue("Character has spot class skills",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has spot class skills", PrereqHandler.passes(
+			prereq, character, null));
 
 		myClass.addCSkill("Spy 1");
 
-		assertTrue("Character has spot class skills",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has spot class skills", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PRECSKILL:2,TYPE.Spy");
 
-		assertFalse("Character has only one Spy Skill",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has only one Spy Skill", PrereqHandler.passes(
+			prereq, character, null));
 
 		myClass.addCSkill("Spy 2");
 
-		assertTrue("Character has 2 Spy class skills",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 2 Spy class skills", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PRECSKILL:3,Spot,TYPE.Spy");
 
-		assertTrue("Character has 2 Spy and Spot class skills",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 2 Spy and Spot class skills", PrereqHandler
+			.passes(prereq, character, null));
 
 		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
 
-		assertFalse("Character has only 2 Spy Skills",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has only 2 Spy Skills", PrereqHandler.passes(
+			prereq, character, null));
 
 		myClass.addCSkill("Spy 3");
 
 		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
 
-		assertTrue("Character has 3 Spy Skills",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

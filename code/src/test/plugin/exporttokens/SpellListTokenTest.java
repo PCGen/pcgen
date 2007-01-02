@@ -105,7 +105,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		divineClass.setSpellBookUsed(false);
 		divineClass.setMemorizeSpells(true);
 		divineClass.setCast(1, Arrays.asList("4,2,1".split(",")));
-		divineClass.getSpellSupport().addSpellLevel("CLASS", "SPELLCASTER.Divine", "Cure Light Wounds", "1", new ArrayList<Prerequisite>());
+		divineClass.getSpellSupport().addSpellLevel("CLASS",
+			"SPELLCASTER.Divine", "Cure Light Wounds", "1",
+			new ArrayList<Prerequisite>());
 		Globals.getClassList().add(divineClass);
 	}
 
@@ -141,8 +143,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		//TODO: Get these tests to work
 		assertEquals("SpellListBookToken(1lv TA)", "", token.getToken(
 			"SPELLLISTBOOK.0.1", character, null));
-		assertEquals("SpellListBookToken(1lv TD)", "TestDivine", token.getToken(
-			"SPELLLISTBOOK.1.1", character, null));
+		assertEquals("SpellListBookToken(1lv TD)", "TestDivine", token
+			.getToken("SPELLLISTBOOK.1.1", character, null));
 	}
 
 	/**
@@ -184,10 +186,10 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListClassToken token = new SpellListClassToken();
-		assertEquals("testSpellListClassToken(1lv TA)", "TestArcane", token.getToken(
-			"SPELLLISTCLASS.0", character, null));
-		assertEquals("testSpellListClassToken(1lv TD)", "TestDivine", token.getToken(
-			"SPELLLISTCLASS.1", character, null));
+		assertEquals("testSpellListClassToken(1lv TA)", "TestArcane", token
+			.getToken("SPELLLISTCLASS.0", character, null));
+		assertEquals("testSpellListClassToken(1lv TD)", "TestDivine", token
+			.getToken("SPELLLISTCLASS.1", character, null));
 	}
 
 	/**
@@ -257,10 +259,10 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListTypeToken token = new SpellListTypeToken();
-		assertEquals("testSpellListTypeToken(1lv TA)", "ARCANE", token.getToken(
-			"SPELLLISTTYPE.0.1", character, null));
-		assertEquals("testSpellListTypeToken(1lv TD)", "DIVINE", token.getToken(
-			"SPELLLISTTYPE.1.1", character, null));
+		assertEquals("testSpellListTypeToken(1lv TA)", "ARCANE", token
+			.getToken("SPELLLISTTYPE.0.1", character, null));
+		assertEquals("testSpellListTypeToken(1lv TD)", "DIVINE", token
+			.getToken("SPELLLISTTYPE.1.1", character, null));
 	}
 
 }

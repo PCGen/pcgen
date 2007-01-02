@@ -70,7 +70,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	 * Basic constructor, name only.
 	 * @param name The name of the test class.
 	 */
-	public SkillTokenTest(String name) {
+	public SkillTokenTest(String name)
+	{
 		super(name);
 	}
 
@@ -88,7 +89,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		levelInfo.setMaxClassSkillString("LEVEL+3");
 		levelInfo.setMaxCrossClassSkillString("(LEVEL+3)/2");
 		SettingsHandler.getGame().addLevelInfo(levelInfo);
-		
+
 		//Stats
 		setPCStat(character, "DEX", 16);
 		setPCStat(character, "INT", 17);

@@ -37,7 +37,8 @@ import pcgen.util.TestHelper;
  * @version $Revision$
  */
 @SuppressWarnings("nls")
-public class DomainTest extends PCGenTestCase {
+public class DomainTest extends PCGenTestCase
+{
 	/**
 	 * Constructs a new <code>DomainTest</code>.
 	 *

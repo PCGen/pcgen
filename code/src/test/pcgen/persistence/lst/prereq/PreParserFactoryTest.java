@@ -62,7 +62,9 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		Prerequisite prereq = factory.parse("PREVARNEQ:Enraged,1");
 
-		assertEquals("<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" >\n</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" >\n</prereq>\n",
+			prereq.toString());
 	}
 
 	/**
@@ -74,9 +76,10 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
 
-		assertEquals("<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq kind=\"var\" key=\"Enraged\" operator=\"neq\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
+			prereq.toString());
 	}
-
 
 	public void testSkillTypeKnowledge() throws Exception
 	{
@@ -84,10 +87,10 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		Prerequisite prereq = factory.parse("PRESKILLTOT:TYPE.Knowledge=20");
 
-		assertEquals("<prereq operator=\"gteq\" operand=\"20\" >\n"
-				+"<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"1\" >\n"
-				+"</prereq>\n"
-				+"</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"20\" >\n"
+				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 	}
 
@@ -105,21 +108,23 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		PreParserFactory factory = PreParserFactory.getInstance();
 
 		Prerequisite prereq = factory.parse("!PREALIGN:0,1,2");
-		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n"
-			+ "<prereq kind=\"align\" key=\"LG\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"LN\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"LE\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"lt\" operand=\"1\" >\n"
+				+ "<prereq kind=\"align\" key=\"LG\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"LN\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"LE\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "</prereq>\n", prereq.toString());
 
 		prereq = factory.parse("PREALIGN:3,4,5,6,7,8");
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"
-			+ "<prereq kind=\"align\" key=\"NG\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"TN\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"NE\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"CG\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"CN\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "<prereq kind=\"align\" key=\"CE\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
-			+ "</prereq>\n", prereq.toString());
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"align\" key=\"NG\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"TN\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"NE\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"CG\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"CN\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"CE\" operator=\"eq\" operand=\"1\" >\n</prereq>\n"
+				+ "</prereq>\n", prereq.toString());
 	}
 
 }

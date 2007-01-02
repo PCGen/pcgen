@@ -40,7 +40,9 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class SkillListCrossClassChoiceManagerTest extends AbstractCharacterTestCase {
+public class SkillListCrossClassChoiceManagerTest extends
+		AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code SkillListCrossClassChoiceManagerTest}.
@@ -50,12 +52,11 @@ public class SkillListCrossClassChoiceManagerTest extends AbstractCharacterTestC
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -70,31 +71,36 @@ public class SkillListCrossClassChoiceManagerTest extends AbstractCharacterTestC
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
 		pObj.setChoiceString("NUMCHOICES=3|CCSKILLIST|Foo|Bar|Baz|Qux");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=3|CCSKILLIST|Foo|Bar|Baz|Qux"));
+		is(pObj.getChoiceString(),
+			strEq("NUMCHOICES=3|CCSKILLIST|Foo|Bar|Baz|Qux"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("CCSKILLIST"), "got expected chooser");
-		
+		is(choiceManager.typeHandled(), strEq("CCSKILLIST"),
+			"got expected chooser");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(3));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(3));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(4));
-			is (choices.get(0), strEq("Foo"));
-			is (choices.get(1), strEq("Bar"));
-			is (choices.get(2), strEq("Baz"));
-			is (choices.get(3), strEq("Qux"));
+			is(choices.size(), eq(4));
+			is(choices.get(0), strEq("Foo"));
+			is(choices.get(1), strEq("Bar"));
+			is(choices.get(2), strEq("Baz"));
+			is(choices.get(3), strEq("Qux"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

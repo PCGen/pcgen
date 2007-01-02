@@ -62,8 +62,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 	 * Test the PREATT code
 	 * @throws Exception
 	 */
-	public void testAtt()
-		throws Exception
+	public void testAtt() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -75,24 +74,23 @@ public class PreAttTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREATT:6");
 
-		assertTrue("Character's BAB should be 6",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character's BAB should be 6", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREATT:7");
 
-		assertFalse("Character's BAB should be less than 7",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's BAB should be less than 7", PrereqHandler
+			.passes(prereq, character, null));
 
 		final BonusObj toHitBonus = Bonus.newBonus("1|COMBAT|TOHIT|1");
 		myClass.addBonusList(toHitBonus);
 		character.calcActiveBonuses();
 
-		assertFalse("Character's BAB should be less than 7",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character's BAB should be less than 7", PrereqHandler
+			.passes(prereq, character, null));
 	}
 
-	protected void setUp()
-		throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

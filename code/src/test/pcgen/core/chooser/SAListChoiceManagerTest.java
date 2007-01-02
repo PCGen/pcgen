@@ -40,7 +40,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class SAListChoiceManagerTest extends AbstractCharacterTestCase {
+public class SAListChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code SAListChoiceManagerTest}.
@@ -50,12 +51,11 @@ public class SAListChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -72,40 +72,44 @@ public class SAListChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=1|SALIST|Foo|Bar|Baz");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|SALIST|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("SALIST"), "got expected chooser");
-		
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
 
 			/* Note this chooser works differently to most others.  It doesn't
 			 * remove the ChooserType from the front of the choices list because
 			 * the rest of the chooser doesn't use the choices list.  Instead,
 			 * it constructs a string to pass to another function which build the
 			 * list of choices. */
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
-			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(4));
-			is (choices.get(0), strEq("SALIST"));
-			is (choices.get(1), strEq("Foo"));
-			is (choices.get(2), strEq("Bar"));
-			is (choices.get(3), strEq("Baz"));
 
-			aField  = (Field) TestHelper.findField(cMClass, "stChoices");
+			aField = (Field) TestHelper.findField(cMClass, "choices");
+			List choices = (List) aField.get(choiceManager);
+			is(choices.size(), eq(4));
+			is(choices.get(0), strEq("SALIST"));
+			is(choices.get(1), strEq("Foo"));
+			is(choices.get(2), strEq("Bar"));
+			is(choices.get(3), strEq("Baz"));
+
+			aField = (Field) TestHelper.findField(cMClass, "stChoices");
 			String rebuilt = (String) aField.get(choiceManager);
 
-			is (rebuilt, strEq("SALIST|Foo|Bar|Baz"), "Chooser rebuilt the correct string");
+			is(rebuilt, strEq("SALIST|Foo|Bar|Baz"),
+				"Chooser rebuilt the correct string");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

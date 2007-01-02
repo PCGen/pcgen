@@ -40,7 +40,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class SpellListChoiceManagerTest extends AbstractCharacterTestCase {
+public class SpellListChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code SpellListChoiceManagerTest}.
@@ -50,12 +51,11 @@ public class SpellListChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -72,28 +72,32 @@ public class SpellListChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=1|SPELLLIST|Foo|Bar|Baz");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|SPELLLIST|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("SPELLLIST"), "got expected chooser");
-		
+		is(choiceManager.typeHandled(), strEq("SPELLLIST"),
+			"got expected chooser");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(3));
-			is (choices.get(0), strEq("Foo"));
-			is (choices.get(1), strEq("Bar"));
-			is (choices.get(2), strEq("Baz"));
+			is(choices.size(), eq(3));
+			is(choices.get(0), strEq("Foo"));
+			is(choices.get(1), strEq("Bar"));
+			is(choices.get(2), strEq("Baz"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

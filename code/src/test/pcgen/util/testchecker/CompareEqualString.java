@@ -36,15 +36,18 @@ public class CompareEqualString extends TestChecker
 	 * Constructor
 	 * @param str
 	 */
-	public CompareEqualString( String str ) {
+	public CompareEqualString(String str)
+	{
 		this.str = str;
 	}
 
-	public boolean check( Object obj ) {
-		return obj instanceof String && ((String)obj).compareTo(this.str) == 0;
+	public boolean check(Object obj)
+	{
+		return obj instanceof String && ((String) obj).compareTo(this.str) == 0;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a String matching \"");
 		buf.append(this.str);
 		buf.append("\"");

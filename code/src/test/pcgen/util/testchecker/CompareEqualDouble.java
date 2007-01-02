@@ -36,15 +36,18 @@ public class CompareEqualDouble extends TestChecker
 	 * Constructor
 	 * @param doub
 	 */
-	public CompareEqualDouble( double doub ) {
+	public CompareEqualDouble(double doub)
+	{
 		this.doub = doub;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Double.valueOf(this.doub));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a double ");
 		buf.append(this.doub);
 		return buf;

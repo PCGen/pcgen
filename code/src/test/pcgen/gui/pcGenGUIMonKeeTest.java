@@ -9,7 +9,8 @@ import junit.framework.TestSuite;
  * See PCG file for details.
  */
 @SuppressWarnings("nls")
-public class pcGenGUIMonKeeTest extends pcGenGUITestCase {
+public class pcGenGUIMonKeeTest extends pcGenGUITestCase
+{
 	/**
 	 * Run the tests.
 	 * 
@@ -20,13 +21,14 @@ public class pcGenGUIMonKeeTest extends pcGenGUITestCase {
 		junit.textui.TestRunner.run(pcGenGUIMonKeeTest.class);
 	}
 
-    /**
-     * standard JUnit style constructor
-     * @param name
-     */
-    public pcGenGUIMonKeeTest(String name) {
-        super(name);
-    }
+	/**
+	 * standard JUnit style constructor
+	 * @param name
+	 */
+	public pcGenGUIMonKeeTest(String name)
+	{
+		super(name);
+	}
 
 	/**
 	 * Return a suite of all tests in this class.
@@ -42,7 +44,8 @@ public class pcGenGUIMonKeeTest extends pcGenGUITestCase {
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testMonKee() throws Exception {
+	public void testMonKee() throws Exception
+	{
 		runTest("MonKee", "3e");
 	}
 }

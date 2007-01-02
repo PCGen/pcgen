@@ -105,10 +105,10 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-
-
-	protected void is (Object something, TestChecker matches) {
-		if (!matches.check(something)) {
+	protected void is(Object something, TestChecker matches)
+	{
+		if (!matches.check(something))
+		{
 			StringBuffer message = new StringBuffer("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something).append('\n');
@@ -116,8 +116,10 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	protected void is (Object something, TestChecker matches, String testCase) {
-		if (!matches.check(something)) {
+	protected void is(Object something, TestChecker matches, String testCase)
+	{
+		if (!matches.check(something))
+		{
 			StringBuffer message = new StringBuffer("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something);
@@ -126,91 +128,113 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	public CompareEqualString strEq( String s ) {
+	public CompareEqualString strEq(String s)
+	{
 		return new CompareEqualString(s);
 	}
 
-	public CompareEqualObject eq( Object operand ) {
+	public CompareEqualObject eq(Object operand)
+	{
 		return new CompareEqualObject(operand);
 	}
 
-	public CompareEqualBoolean eq( boolean bo ) {
+	public CompareEqualBoolean eq(boolean bo)
+	{
 		return new CompareEqualBoolean(bo);
 	}
 
-	public CompareEqualByte eq( byte operand ) {
+	public CompareEqualByte eq(byte operand)
+	{
 		return new CompareEqualByte(operand);
 	}
 
-	public CompareEqualShort eq( short operand ) {
+	public CompareEqualShort eq(short operand)
+	{
 		return new CompareEqualShort(operand);
 	}
 
-	public CompareEqualChar eq( char operand ) {
+	public CompareEqualChar eq(char operand)
+	{
 		return new CompareEqualChar(operand);
 	}
 
-	public CompareEqualInt eq( int operand ) {
+	public CompareEqualInt eq(int operand)
+	{
 		return new CompareEqualInt(operand);
 	}
 
-	public CompareEqualLong eq( long operand ) {
+	public CompareEqualLong eq(long operand)
+	{
 		return new CompareEqualLong(operand);
 	}
 
-	public CompareEqualFloat eq( float operand ) {
+	public CompareEqualFloat eq(float operand)
+	{
 		return new CompareEqualFloat(operand);
 	}
 
-	public CompareEqualDouble eq( double operand ) {
+	public CompareEqualDouble eq(double operand)
+	{
 		return new CompareEqualDouble(operand);
 	}
 
-	public CompareDeadband eq( double operand, double error ) {
+	public CompareDeadband eq(double operand, double error)
+	{
 		return new CompareDeadband(operand, error);
 	}
 
-	public CompareNull eqnull() {
+	public CompareNull eqnull()
+	{
 		return new CompareNull();
 	}
 
-	public CompareSame same( Object operand ) {
+	public CompareSame same(Object operand)
+	{
 		return new CompareSame(operand);
 	}
 
-	public CompareSubstring stringContains( String substring ) {
+	public CompareSubstring stringContains(String substring)
+	{
 		return new CompareSubstring(substring);
 	}
 
-	public BoolNot not( TestChecker c ) {
+	public BoolNot not(TestChecker c)
+	{
 		return new BoolNot(c);
 	}
 
-	public BoolAnd and( TestChecker left, TestChecker right ) {
+	public BoolAnd and(TestChecker left, TestChecker right)
+	{
 		return new BoolAnd(left, right);
 	}
 
-	public BoolOr or( TestChecker left, TestChecker right ) {
+	public BoolOr or(TestChecker left, TestChecker right)
+	{
 		return new BoolOr(left, right);
 	}
 
-	public BoolXor xor( TestChecker left, TestChecker right ) {
+	public BoolXor xor(TestChecker left, TestChecker right)
+	{
 		return new BoolXor(left, right);
 	}
 
-	public CompareGreaterThan gt( Comparable operand ) {
+	public CompareGreaterThan gt(Comparable operand)
+	{
 		return new CompareGreaterThan(operand);
 	}
 
-	public CompareGreaterOrEqual ge( Comparable operand ) {
+	public CompareGreaterOrEqual ge(Comparable operand)
+	{
 		return new CompareGreaterOrEqual(operand);
 	}
 
-	public CompareLessThan lt( Comparable operand ) {
+	public CompareLessThan lt(Comparable operand)
+	{
 		return new CompareLessThan(operand);
 	}
 
-	public CompareLessOrEqual le( Comparable operand ) {
+	public CompareLessOrEqual le(Comparable operand)
+	{
 		return new CompareLessOrEqual(operand);
 	}
 }

@@ -58,8 +58,7 @@ public class PreLegsTest extends AbstractCharacterTestCase
 	 * Test the PRELEGS code
 	 * @throws Exception
 	 */
-	public void testLegs()
-		throws Exception
+	public void testLegs() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();
@@ -72,24 +71,24 @@ public class PreLegsTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRELEGSLT:2");
 
-		assertFalse("Character has more than 1 leg",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character has more than 1 leg", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq = factory.parse("PRELEGSEQ:2");
 
-		assertTrue("Character has 2 legs",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character has 2 legs", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PRELEGSGT:2");
 
-		assertFalse("Character does not have more than 2 legs",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Character does not have more than 2 legs", PrereqHandler
+			.passes(prereq, character, null));
 
 		PCTemplate tmpl = new PCTemplate();
 		tmpl.setLegs(3);
 
 		character.addTemplate(tmpl);
-		assertTrue("Character does have more than 2 legs",
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character does have more than 2 legs", PrereqHandler
+			.passes(prereq, character, null));
 	}
 }

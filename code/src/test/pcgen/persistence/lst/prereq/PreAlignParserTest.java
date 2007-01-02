@@ -36,59 +36,64 @@ import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreAlignParser;
 
-public class PreAlignParserTest extends TestCase {
-    public static void main(String args[]) {
-        junit.swingui.TestRunner.run(PreAlignParserTest.class);
-    }
+public class PreAlignParserTest extends TestCase
+{
+	public static void main(String args[])
+	{
+		junit.swingui.TestRunner.run(PreAlignParserTest.class);
+	}
 
-    /**
-     * @return Test
-     */
-    public static Test suite() {
-        return new TestSuite(PreAlignParserTest.class);
-    }
+	/**
+	 * @return Test
+	 */
+	public static Test suite()
+	{
+		return new TestSuite(PreAlignParserTest.class);
+	}
 
-    private PCAlignment createAlignment(String longName, String shortName) {
-        PCAlignment align = new PCAlignment();
-        align.setName(longName);
-        align.setKeyName(shortName);
-        return align;
-    }
+	private PCAlignment createAlignment(String longName, String shortName)
+	{
+		PCAlignment align = new PCAlignment();
+		align.setName(longName);
+		align.setKeyName(shortName);
+		return align;
+	}
 
-    /**
-     * @throws Exception
-     */
-    public void test1() throws Exception {
- 
-        PreAlignParser parser = new PreAlignParser();
-        Prerequisite prereq = parser.parse("align", "LE,LG", false, false);
+	/**
+	 * @throws Exception
+	 */
+	public void test1() throws Exception
+	{
 
-        //System.out.println(prereq);
-        assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n" + 
-        		"<prereq kind=\"align\" key=\"LE\" operator=\"eq\" operand=\"1\" >\n" + 
-        		"</prereq>\n" + 
-        		"<prereq kind=\"align\" key=\"LG\" operator=\"eq\" operand=\"1\" >\n" + 
-        		"</prereq>\n" + 
-        		"</prereq>\n" + 
-        		"", prereq.toString());
-    }
+		PreAlignParser parser = new PreAlignParser();
+		Prerequisite prereq = parser.parse("align", "LE,LG", false, false);
 
-    protected void setUp() throws Exception {
-        Globals.setUseGUI(false);
-        Globals.emptyLists();
-        GameMode gamemode = new GameMode("3.5");
-        gamemode.addToAlignmentList(createAlignment("Lawful Good", "LG"));
-        gamemode.addToAlignmentList(createAlignment("Lawful Neutral", "LN"));
-        gamemode.addToAlignmentList(createAlignment("Lawful Evil", "LE"));
-        gamemode.addToAlignmentList(createAlignment("Neutral Good", "NG"));
-        gamemode.addToAlignmentList(createAlignment("True Neutral", "TN"));
-        gamemode.addToAlignmentList(createAlignment("Neutral Evil", "NE"));
-        gamemode.addToAlignmentList(createAlignment("Chaotic Good", "CG"));
-        gamemode.addToAlignmentList(createAlignment("Chaotic Neutral", "CN"));
-        gamemode.addToAlignmentList(createAlignment("Chaotic Evil", "CE"));
-        gamemode.addToAlignmentList(createAlignment("None", "NONE"));
-        gamemode.addToAlignmentList(createAlignment("Deity's", "Deity"));
-        SystemCollections.addToGameModeList(gamemode);
-        SettingsHandler.setGame("3.5");
-    }
+		//System.out.println(prereq);
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"align\" key=\"LE\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"align\" key=\"LG\" operator=\"eq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+	}
+
+	protected void setUp() throws Exception
+	{
+		Globals.setUseGUI(false);
+		Globals.emptyLists();
+		GameMode gamemode = new GameMode("3.5");
+		gamemode.addToAlignmentList(createAlignment("Lawful Good", "LG"));
+		gamemode.addToAlignmentList(createAlignment("Lawful Neutral", "LN"));
+		gamemode.addToAlignmentList(createAlignment("Lawful Evil", "LE"));
+		gamemode.addToAlignmentList(createAlignment("Neutral Good", "NG"));
+		gamemode.addToAlignmentList(createAlignment("True Neutral", "TN"));
+		gamemode.addToAlignmentList(createAlignment("Neutral Evil", "NE"));
+		gamemode.addToAlignmentList(createAlignment("Chaotic Good", "CG"));
+		gamemode.addToAlignmentList(createAlignment("Chaotic Neutral", "CN"));
+		gamemode.addToAlignmentList(createAlignment("Chaotic Evil", "CE"));
+		gamemode.addToAlignmentList(createAlignment("None", "NONE"));
+		gamemode.addToAlignmentList(createAlignment("Deity's", "Deity"));
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
+	}
 }

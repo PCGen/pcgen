@@ -42,7 +42,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 public class PreDeityAlignTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
-	
+
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreDeityAlignTest.class);
@@ -67,7 +67,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
-		
+
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("deityAlign");
 		prereq.setOperand("3");
@@ -83,12 +83,12 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 
 		assertFalse("Number 6 should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
-		
+
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYALIGN:3");
 		assertTrue("Number 3 should match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
-		
+
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 
 		assertFalse("Abbrev LG should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
-		
+
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYALIGN:NG");
 		assertTrue("Abbrev NG should match deity's alignment of NG",
@@ -127,17 +127,17 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		assertFalse("Abbrev LG should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 	}
-	
+
 	protected void setUp() throws Exception
 	{
 		deity = new Deity();
 		deity.setName("TestDeity");
 		deity.setAlignment("NG");
 		deity.setFollowerAlignments("012345678");
-		
+
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		// TODO Auto-generated method stub

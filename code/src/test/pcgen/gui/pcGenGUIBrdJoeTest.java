@@ -7,16 +7,18 @@ import junit.framework.TestSuite;
  * Test a 3e 1st lvl Half-Elf Bard 
  */
 @SuppressWarnings("nls")
-public class pcGenGUIBrdJoeTest extends pcGenGUITestCase {
+public class pcGenGUIBrdJoeTest extends pcGenGUITestCase
+{
 
-    /**
-     * standard JUnit style constructor
-     *  
-     * @param name No idea
-     */
-    public pcGenGUIBrdJoeTest(String name) {
-        super(name);
-    }
+	/**
+	 * standard JUnit style constructor
+	 *  
+	 * @param name No idea
+	 */
+	public pcGenGUIBrdJoeTest(String name)
+	{
+		super(name);
+	}
 
 	/**
 	 * Returns the test suite containing all the tests in this class.
@@ -33,9 +35,9 @@ public class pcGenGUIBrdJoeTest extends pcGenGUITestCase {
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testBrdJoe() throws Exception {
-        runTest("BrdJoe", "3e");
-    }
-
+	public void testBrdJoe() throws Exception
+	{
+		runTest("BrdJoe", "3e");
+	}
 
 }

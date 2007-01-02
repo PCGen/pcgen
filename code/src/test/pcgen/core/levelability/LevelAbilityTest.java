@@ -80,7 +80,9 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 	{
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
-		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "Language(Elven,Dwarvish)");
+		final LevelAbility ability =
+				LevelAbility.createAbility(pcClass, 1,
+					"Language(Elven,Dwarvish)");
 		assertTrue(ability.level() == 1);
 		assertTrue(ability.canProcess());
 
@@ -99,7 +101,8 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 			final String bString = ability.prepareChooser(c, getCharacter());
 			assertTrue(c.getPool() == 1);
 
-			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
+			final List<String> choicesList =
+					ability.getChoicesList(bString, getCharacter());
 			assertEquals(choicesList.size(), 2);
 
 			String s = choicesList.get(0);
@@ -107,7 +110,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 			s = choicesList.get(1);
 			is(s, strEq("Elven"));
 		}
-		catch(HeadlessException e)
+		catch (HeadlessException e)
 		{
 			Logging.debugPrint("Ignoring Headless excpetion.");
 		}
@@ -121,15 +124,18 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 
 		WeaponProf wp = TestHelper.makeWeaponProf("Glaive", "Martial");
-		final Ability weaponFocus = TestHelper.makeAbility("Weapon Focus",
-			"FEAT", "General.Fighter");
-		weaponFocus.setChoiceString("WEAPONPROFS|Spellcaster.Ray|ADD.Grapple|LIST");
+		final Ability weaponFocus =
+				TestHelper.makeAbility("Weapon Focus", "FEAT",
+					"General.Fighter");
+		weaponFocus
+			.setChoiceString("WEAPONPROFS|Spellcaster.Ray|ADD.Grapple|LIST");
 		weaponFocus.setMultiples("Y");
 
-		final LevelAbility ability = LevelAbility.createAbility(pcClass, 1, "FEAT(TYPE=Fighter)");
+		final LevelAbility ability =
+				LevelAbility.createAbility(pcClass, 1, "FEAT(TYPE=Fighter)");
 		assertTrue(ability.level() == 1);
 		assertTrue(ability.canProcess());
-		
+
 		PlayerCharacter pc = getCharacter();
 		pc.addWeaponProf(wp.getKeyName());
 
@@ -140,13 +146,14 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 			final String bString = ability.prepareChooser(c, getCharacter());
 			assertTrue(c.getPool() == 1);
 
-			final List<String> choicesList = ability.getChoicesList(bString, getCharacter());
+			final List<String> choicesList =
+					ability.getChoicesList(bString, getCharacter());
 			assertEquals(1, choicesList.size());
 
 			String s = choicesList.get(0);
 			is(s, strEq("KEY_Weapon Focus(Glaive)"));
 		}
-		catch(HeadlessException e)
+		catch (HeadlessException e)
 		{
 			Logging.debugPrint("Ignoring Headless excpetion.");
 		}

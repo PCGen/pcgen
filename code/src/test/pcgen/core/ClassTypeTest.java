@@ -8,7 +8,8 @@ import pcgen.PCGenTestCase;
  * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Id$
  */
-public class ClassTypeTest extends PCGenTestCase {
+public class ClassTypeTest extends PCGenTestCase
+{
 	/**
 	 * Constructs a new <code>ClassTypeTest</code>.
 	 *

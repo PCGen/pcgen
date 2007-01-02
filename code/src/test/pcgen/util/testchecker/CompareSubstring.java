@@ -36,15 +36,19 @@ public class CompareSubstring extends TestChecker
 	 * Constructor
 	 * @param substr
 	 */
-	public CompareSubstring( String substr ) {
+	public CompareSubstring(String substr)
+	{
 		this.substr = substr;
 	}
 
-	public boolean check( Object obj ) {
-		return obj instanceof String && ((String)obj).indexOf(this.substr) >= 0;
+	public boolean check(Object obj)
+	{
+		return obj instanceof String
+			&& ((String) obj).indexOf(this.substr) >= 0;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a string containing \"");
 		buf.append(this.substr);
 		buf.append("\"");

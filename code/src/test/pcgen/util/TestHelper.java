@@ -54,15 +54,18 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * Helps Junit tests
  */
 @SuppressWarnings("nls")
-public class TestHelper {
+public class TestHelper
+{
 
 	private static boolean loaded = false;
 
 	/**
 	 * Make some size adjustments
 	 */
-	public static void makeSizeAdjustments () {
-		String sizes = "Fine|Diminutive|Tiny|Small|Medium|Large|Huge|Gargantuan|Colossal";
+	public static void makeSizeAdjustments()
+	{
+		String sizes =
+				"Fine|Diminutive|Tiny|Small|Medium|Large|Huge|Gargantuan|Colossal";
 		StringTokenizer aTok = new StringTokenizer(sizes, "|");
 		GameMode gamemode = SystemCollections.getGameModeNamed("3.5");
 		if (gamemode == null)
@@ -71,9 +74,10 @@ public class TestHelper {
 			SystemCollections.addToGameModeList(gamemode);
 		}
 		SettingsHandler.setGame("3.5");
-		while (aTok.hasMoreTokens()) {
+		while (aTok.hasMoreTokens())
+		{
 			String name = aTok.nextToken();
-			String abb  = name.substring(0, 1);
+			String abb = name.substring(0, 1);
 
 			SizeAdjustment sa = new SizeAdjustment();
 
@@ -90,7 +94,7 @@ public class TestHelper {
 	 * @param input
 	 * @return true if OK
 	 */
-	public static boolean makeEquipment (String input)
+	public static boolean makeEquipment(String input)
 	{
 		if (!loaded)
 		{
@@ -127,9 +131,10 @@ public class TestHelper {
 	 * @param fieldName
 	 * @return the field related to a name in the class
 	 */
-	static public Object findField (Class<?> aClass, String fieldName)
+	static public Object findField(Class<?> aClass, String fieldName)
 	{
-		try {
+		try
+		{
 			Class<?> clazz = aClass;
 			while (true)
 			{
@@ -151,7 +156,9 @@ public class TestHelper {
 				}
 			}
 
-		} catch (SecurityException e) {
+		}
+		catch (SecurityException e)
+		{
 			System.out.println(e);
 		}
 		return null;
@@ -165,16 +172,12 @@ public class TestHelper {
 	 * @param untrained Can this be used untrained
 	 * @param armorCheck should an armor check penalty be applied
 	 */
-	public static void makeSkill(
-			String name,
-			String type,
-			String stat,
-			boolean untrained,
-			String armorCheck)
+	public static void makeSkill(String name, String type, String stat,
+		boolean untrained, String armorCheck)
 	{
-		Skill  aSkill = new Skill();
+		Skill aSkill = new Skill();
 		aSkill.setName(name);
-		aSkill.setKeyName("KEY_"+name);
+		aSkill.setKeyName("KEY_" + name);
 		aSkill.setTypeInfo(type);
 		aSkill.setKeyStat(stat);
 		aSkill.setUntrained(untrained);
@@ -189,14 +192,11 @@ public class TestHelper {
 	 * @param type The type info ("." separated)
 	 * @return The ability (which has also been added to global storage
 	 */
-	public static Ability makeAbility(
-			String name,
-			String cat,
-			String type)
+	public static Ability makeAbility(String name, String cat, String type)
 	{
-		Ability  anAbility = new Ability();
+		Ability anAbility = new Ability();
 		anAbility.setName(name);
-		anAbility.setKeyName("KEY_"+name);
+		anAbility.setKeyName("KEY_" + name);
 		anAbility.setCategory(cat);
 		anAbility.setTypeInfo(type);
 		Globals.addAbility(anAbility);
@@ -218,7 +218,6 @@ public class TestHelper {
 		Globals.addWeaponProf(aWpnProf);
 		return aWpnProf;
 	}
-	
 
 	/**
 	 * Set the important info about a Race
@@ -226,19 +225,17 @@ public class TestHelper {
 	 * @param type The type info ("." separated)
 	 * @return The race (which has also been added to global storage)
 	 */
-	public static Race makeRace(
-			String name,
-			String type)
+	public static Race makeRace(String name, String type)
 	{
 		Race aRace = new Race();
 		aRace.setName(name);
 		aRace.setKeyName("KEY_" + name);
-		
+
 		try
 		{
-			final BonusObj         bon     = Bonus.newBonus("FEAT|POOL|1");
+			final BonusObj bon = Bonus.newBonus("FEAT|POOL|1");
 			final PreParserFactory factory = PreParserFactory.getInstance();
-			final Prerequisite     prereq  = factory.parse("PREDEFAULTMONSTER:N");
+			final Prerequisite prereq = factory.parse("PREDEFAULTMONSTER:N");
 			bon.addPreReq(prereq);
 			bon.setCreatorObject(aRace);
 
@@ -248,9 +245,9 @@ public class TestHelper {
 		{
 			Logging.errorPrint("Caught " + e);
 		}
-		
+
 		Globals.addRace(aRace);
 		return aRace;
 	}
-	
+
 }

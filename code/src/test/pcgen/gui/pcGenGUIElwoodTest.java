@@ -8,8 +8,7 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIElwoodTest
-		extends pcGenGUITestCase
+public class pcGenGUIElwoodTest extends pcGenGUITestCase
 {
 
 	/**
@@ -43,8 +42,7 @@ public class pcGenGUIElwoodTest
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testElwood()
-			throws Exception
+	public void testElwood() throws Exception
 	{
 		runTest("Elwood", "Modern");
 	}

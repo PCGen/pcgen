@@ -40,7 +40,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class DomainChoiceManagerTest extends AbstractCharacterTestCase {
+public class DomainChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code DomainChoiceManagerTest}.
@@ -49,7 +50,6 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase {
 	{
 		// Do Nothing
 	}
-
 
 	protected void setUp() throws Exception
 	{
@@ -69,12 +69,16 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase {
 	{
 		PObject pObj = new PObject();
 		pObj.setName("My PObject");
-		pObj.setChoiceString("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
-		is(pObj.getChoiceString(), strEq("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
+		pObj
+			.setChoiceString("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
+		is(
+			pObj.getChoiceString(),
+			strEq("NUMCHOICES=4|DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux"));
 
-		PlayerCharacter aPC  = getCharacter();
+		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
 		is(choiceManager.typeHandled(), strEq("DOMAIN"), "got expected chooser");
@@ -83,19 +87,21 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase {
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(4));
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(4));
 
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(5));
-			is (choices.get(0), strEq("KEY_Foo"));
-			is (choices.get(1), strEq("KEY_Bar"));
-			is (choices.get(2), strEq("KEY_Baz"));
-			is (choices.get(3), strEq("KEY_Qux"));
-			is (choices.get(4), strEq("KEY_Quux"));
+			is(choices.size(), eq(5));
+			is(choices.get(0), strEq("KEY_Foo"));
+			is(choices.get(1), strEq("KEY_Bar"));
+			is(choices.get(2), strEq("KEY_Baz"));
+			is(choices.get(3), strEq("KEY_Qux"));
+			is(choices.get(4), strEq("KEY_Quux"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}

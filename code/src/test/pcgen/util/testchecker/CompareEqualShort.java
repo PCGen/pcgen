@@ -36,15 +36,18 @@ public class CompareEqualShort extends TestChecker
 	 * constructor
 	 * @param sh
 	 */
-	public CompareEqualShort( short sh ) {
+	public CompareEqualShort(short sh)
+	{
 		this.sh = sh;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Short.valueOf(this.sh));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a short ");
 		buf.append(this.sh);
 		return buf;

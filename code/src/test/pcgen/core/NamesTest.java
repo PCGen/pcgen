@@ -45,11 +45,16 @@ public class NamesTest extends AbstractCharacterTestCase
 	 */
 	public void testArabic()
 	{
-		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
-				+ File.separator + "names" + File.separator, "Arabic"), getCharacter());
-		assertTrue("got a null name!", Names.getInstance().getRandomName() != null);
-		assertTrue("got a zero-length name!", Names.getInstance().getRandomName().length() > 0);
-		System.out.println("random arabic name: " + Names.getInstance().getRandomName());
+		Names.getInstance().init(
+			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+				+ "bio" + File.separator + "names" + File.separator, "Arabic"),
+			getCharacter());
+		assertTrue("got a null name!",
+			Names.getInstance().getRandomName() != null);
+		assertTrue("got a zero-length name!", Names.getInstance()
+			.getRandomName().length() > 0);
+		System.out.println("random arabic name: "
+			+ Names.getInstance().getRandomName());
 	}
 
 	/**
@@ -73,11 +78,16 @@ public class NamesTest extends AbstractCharacterTestCase
 	 */
 	public void testASFemale()
 	{
-		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
-				+ File.separator + "names" + File.separator, "rw_Anglo_Saxon_Female"), getCharacter());
-		assertTrue("got a null name!", Names.getInstance().getRandomName() != null);
-		assertTrue("got a zero-length name!", Names.getInstance().getRandomName().length() > 0);
-		System.out.println("random Anglo Saxon Female name: " + Names.getInstance().getRandomName());
+		Names.getInstance().init(
+			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+				+ "bio" + File.separator + "names" + File.separator,
+				"rw_Anglo_Saxon_Female"), getCharacter());
+		assertTrue("got a null name!",
+			Names.getInstance().getRandomName() != null);
+		assertTrue("got a zero-length name!", Names.getInstance()
+			.getRandomName().length() > 0);
+		System.out.println("random Anglo Saxon Female name: "
+			+ Names.getInstance().getRandomName());
 	}
 
 	/**
@@ -86,12 +96,16 @@ public class NamesTest extends AbstractCharacterTestCase
 	 */
 	public void testRandomName()
 	{
-		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
-				+ File.separator + "names" + File.separator, "orc"), getCharacter());
+		Names.getInstance().init(
+			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+				+ "bio" + File.separator + "names" + File.separator, "orc"),
+			getCharacter());
 
-//    System.out.println("random orc name: " + Names.getInstance().getRandomName());
-		assertTrue("got a null name!", Names.getInstance().getRandomName() != null);
-		assertTrue("got a zero-length name!", Names.getInstance().getRandomName().length() > 0);
+		//    System.out.println("random orc name: " + Names.getInstance().getRandomName());
+		assertTrue("got a null name!",
+			Names.getInstance().getRandomName() != null);
+		assertTrue("got a zero-length name!", Names.getInstance()
+			.getRandomName().length() > 0);
 	}
 
 	/**
@@ -100,20 +114,25 @@ public class NamesTest extends AbstractCharacterTestCase
 	 */
 	public void testTheNames()
 	{
-		Names.getInstance().init(getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator + "bio"
-				+ File.separator + "names" + File.separator, "orc"), getCharacter());
+		Names.getInstance().init(
+			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+				+ "bio" + File.separator + "names" + File.separator, "orc"),
+			getCharacter());
 
-//    for (Iterator iterator = Names.getInstance().getRuleList().iterator(); iterator.hasNext();) {
-//      String rule = (String) iterator.next();
-//      System.out.println("rule = " + rule);
-//    }
-//    for (Iterator iterator = Names.getInstance().getSyllablesByName("[SYL1]").iterator(); iterator.hasNext();) {
-//      String syl1 = (String) iterator.next();
-//      System.out.println("syl1 = " + syl1);
-//    }
-		assertTrue("I got null rules!", Names.getInstance().getRuleDefinitions() != null);
-		assertTrue("I didn't get any rules!", Names.getInstance().getRuleDefinitions().length > 0);
-		assertTrue("There was nothing in syl1", Names.getInstance().getSyllablesByName("[SYL1]").length > 0);
+		//    for (Iterator iterator = Names.getInstance().getRuleList().iterator(); iterator.hasNext();) {
+		//      String rule = (String) iterator.next();
+		//      System.out.println("rule = " + rule);
+		//    }
+		//    for (Iterator iterator = Names.getInstance().getSyllablesByName("[SYL1]").iterator(); iterator.hasNext();) {
+		//      String syl1 = (String) iterator.next();
+		//      System.out.println("syl1 = " + syl1);
+		//    }
+		assertTrue("I got null rules!", Names.getInstance()
+			.getRuleDefinitions() != null);
+		assertTrue("I didn't get any rules!", Names.getInstance()
+			.getRuleDefinitions().length > 0);
+		assertTrue("There was nothing in syl1", Names.getInstance()
+			.getSyllablesByName("[SYL1]").length > 0);
 	}
 
 	/**
@@ -122,7 +141,8 @@ public class NamesTest extends AbstractCharacterTestCase
 	 * @param name
 	 * @return A <tt>NameElement</tt>
 	 */
-	public NameElement getNameElement(String path, String name) {
+	public NameElement getNameElement(String path, String name)
+	{
 		return new NameElement(new File(path + name + ".nam"), name);
 	}
 }

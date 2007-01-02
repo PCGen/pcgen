@@ -41,7 +41,8 @@ import java.util.List;
  * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
-public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase {
+public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase
+{
 
 	/**
 	 * Constructs a new {@code SpellLevelChoiceManagerTest}.
@@ -51,12 +52,11 @@ public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase {
 		// Do Nothing
 	}
 
-
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 	}
-	
+
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();
@@ -73,32 +73,36 @@ public class SpellLevelChoiceManagerTest extends AbstractCharacterTestCase {
 		pObj.setChoiceString("NUMCHOICES=1|SPELLLEVEL|Foo|Bar|Baz");
 		is(pObj.getChoiceString(), strEq("NUMCHOICES=1|SPELLLEVEL|Foo|Bar|Baz"));
 
-		PlayerCharacter aPC  = getCharacter();
-		
-		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(pObj, null, aPC);
+		PlayerCharacter aPC = getCharacter();
+
+		ChoiceManagerList choiceManager =
+				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		is(choiceManager.typeHandled(), strEq("SPELLLEVEL"), "got expected chooser");
-		
+		is(choiceManager.typeHandled(), strEq("SPELLLEVEL"),
+			"got expected chooser");
+
 		try
 		{
 			Class cMClass = choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "choices");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1));
+
+			aField = (Field) TestHelper.findField(cMClass, "choices");
 			List choices = (List) aField.get(choiceManager);
-			is (choices.size(), eq(4));
-			is (choices.get(0), strEq("SPELLLEVEL"));
-			is (choices.get(1), strEq("Foo"));
-			is (choices.get(2), strEq("Bar"));
-			is (choices.get(3), strEq("Baz"));
-			
-			aField  = (Field) TestHelper.findField(cMClass, "stChoices");
-			is (aField.get(choiceManager), strEq("SPELLLEVEL|Foo|Bar|Baz"));
+			is(choices.size(), eq(4));
+			is(choices.get(0), strEq("SPELLLEVEL"));
+			is(choices.get(1), strEq("Foo"));
+			is(choices.get(2), strEq("Bar"));
+			is(choices.get(3), strEq("Baz"));
+
+			aField = (Field) TestHelper.findField(cMClass, "stChoices");
+			is(aField.get(choiceManager), strEq("SPELLLEVEL|Foo|Bar|Baz"));
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			Logging.errorPrint("Illegal access: ", e);
 			System.out.println(e);
 		}

@@ -8,8 +8,7 @@ import java.io.File;
 /**
  * Tests {@link PCGFile}.
  */
-public class PCGFileTest
-		extends PCGenTestCase
+public class PCGFileTest extends PCGenTestCase
 {
 	/**
 	 * Constructs a new {@link PCGFileTest}.
@@ -37,11 +36,10 @@ public class PCGFileTest
 	 *
 	 * @throws Exception
 	 */
-	public void testIsPCGenPartyFile()
-			throws Exception
+	public void testIsPCGenPartyFile() throws Exception
 	{
-		assertTrue("Extension without filename",
-				PCGFile.isPCGenCharacterFile(
-						new File(Constants.s_PCGEN_CHARACTER_EXTENSION)));
+		assertTrue("Extension without filename", PCGFile
+			.isPCGenCharacterFile(new File(
+				Constants.s_PCGEN_CHARACTER_EXTENSION)));
 	}
 }

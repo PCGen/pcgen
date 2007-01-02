@@ -5,20 +5,20 @@ package pcgen.util;
  */
 public abstract class TestChecker
 {
-    /**
-     * Perform the check that this class represents
-     *
-     * @param obj the object to be checked
-     * @return <code>true</code> if the check passes for <var>obj</var>,
-     *	       <code>false</code> if it doesn't.
-     */
-    abstract public boolean check ( Object obj );
+	/**
+	 * Perform the check that this class represents
+	 *
+	 * @param obj the object to be checked
+	 * @return <code>true</code> if the check passes for <var>obj</var>,
+	 *	       <code>false</code> if it doesn't.
+	 */
+	abstract public boolean check(Object obj);
 
-    /**
-     * Appends a description of the check that this class will perform to the StringBuffer passed in.
-     *
-     * @param buffer The buffer that the description is appended to.
-     * @return The buffer that was passed in.
-     */
-    abstract public StringBuffer scribe ( StringBuffer buffer );
+	/**
+	 * Appends a description of the check that this class will perform to the StringBuffer passed in.
+	 *
+	 * @param buffer The buffer that the description is appended to.
+	 * @return The buffer that was passed in.
+	 */
+	abstract public StringBuffer scribe(StringBuffer buffer);
 }

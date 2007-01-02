@@ -57,13 +57,18 @@ public class FeatTest extends TestCase
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				FeatTest.class.getName() + ".java");
+		CampaignSourceEntry source =
+				new CampaignSourceEntry(new Campaign(), FeatTest.class
+					.getName()
+					+ ".java");
 		featLoader.setCurrentSource(source);
 
 		alertnessFeat = new Ability();
-		featLoader.parseLine(alertnessFeat,
-				"Alertness	TYPE:General	DESC:+2 on Listen and Spot checks	BONUS:SKILL|Listen,Spot|2", source);
+		featLoader
+			.parseLine(
+				alertnessFeat,
+				"Alertness	TYPE:General	DESC:+2 on Listen and Spot checks	BONUS:SKILL|Listen,Spot|2",
+				source);
 		assertEquals("Alertness", alertnessFeat.getKeyName());
 	}
 
@@ -76,12 +81,16 @@ public class FeatTest extends TestCase
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				FeatTest.class.getName() + ".java");
+		CampaignSourceEntry source =
+				new CampaignSourceEntry(new Campaign(), FeatTest.class
+					.getName()
+					+ ".java");
 		featLoader.setCurrentSource(source);
 
 		Ability ambidexterityFeat = new Ability();
-		featLoader.parseLine(ambidexterityFeat,
+		featLoader
+			.parseLine(
+				ambidexterityFeat,
 				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4",
 				source);
 		assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
@@ -96,12 +105,16 @@ public class FeatTest extends TestCase
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				FeatTest.class.getName() + ".java");
+		CampaignSourceEntry source =
+				new CampaignSourceEntry(new Campaign(), FeatTest.class
+					.getName()
+					+ ".java");
 		featLoader.setCurrentSource(source);
 
 		Ability simpleWeaponFeat = new Ability();
-		featLoader.parseLine(simpleWeaponFeat,
+		featLoader
+			.parseLine(
+				simpleWeaponFeat,
 				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple",
 				source);
 		assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());

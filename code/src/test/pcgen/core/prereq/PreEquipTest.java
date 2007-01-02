@@ -55,21 +55,20 @@ public class PreEquipTest extends AbstractCharacterTestCase
 
 		longsword.setName("Longsword (Masterwork)");
 
-		assertFalse("Should be an exact match only",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Should be an exact match only", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq.setKey("LONGSWORD%");
 
-		assertTrue("Should be allow wildcard match",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should be allow wildcard match", PrereqHandler.passes(
+			prereq, character, null));
 	}
 
 	/**
 	 * Test equipment type tests
 	 * @throws Exception
 	 */
-	public void testType()
-		throws Exception
+	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -85,24 +84,24 @@ public class PreEquipTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
+			character, null));
 
 		longsword.typeList().add("WEAPON");
 
-		assertTrue("Equipment is weapon",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq.setKey("TYPE.Armor");
 
-		assertFalse("Equipment is not armor",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
+			character, null));
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREEQUIP:2,TYPE=Armor,Longsword%");
 
-		assertFalse("Doesn't have armor equipped",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Doesn't have armor equipped", PrereqHandler.passes(prereq,
+			character, null));
 
 		final Equipment leather = new Equipment();
 		leather.setName("Leather");
@@ -111,16 +110,15 @@ public class PreEquipTest extends AbstractCharacterTestCase
 		character.addEquipment(leather);
 		leather.setIsEquipped(true, character);
 
-		assertTrue("Armor and sword equipped",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Armor and sword equipped", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
 	/**
 	 * Test wield category tests
 	 * @throws Exception
 	 */
-	public void testWield()
-		throws Exception
+	public void testWield() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -145,24 +143,24 @@ public class PreEquipTest extends AbstractCharacterTestCase
 		// Test 3.0 Style
 		longsword.setSize("M", true);
 
-		assertTrue("Weapon is M therefore OneHanded",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Weapon is M therefore OneHanded", PrereqHandler.passes(
+			prereq, character, null));
 
 		longsword.setSize("L", true);
 
-		assertFalse("Weapon is L therefore TwoHanded",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Weapon is L therefore TwoHanded", PrereqHandler.passes(
+			prereq, character, null));
 
 		// Test 3.5 style
 		longsword.setWield("TwoHanded");
 
-		assertFalse("Weapon is TwoHanded",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Weapon is TwoHanded", PrereqHandler.passes(prereq,
+			character, null));
 
 		longsword.setWield("OneHanded");
 
-		assertTrue("Weapon is OneHanded",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Weapon is OneHanded", PrereqHandler.passes(prereq,
+			character, null));
 
 	}
 }

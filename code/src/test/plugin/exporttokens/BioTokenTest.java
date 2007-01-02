@@ -75,34 +75,39 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
-		assertEquals("Default Bio"
-				, "<para>Test bio entry</para><para>2nd line</para><para>Third line</para><para>last one</para>"
-				, evaluateToken("BIO", character));
+		assertEquals(
+			"Default Bio",
+			"<para>Test bio entry</para><para>2nd line</para><para>Third line</para><para>last one</para>",
+			evaluateToken("BIO", character));
 
-		assertEquals("New Style Bio start and end"
-				, "<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]</para><para>[b]last one[/b]</para>"
-				, evaluateToken("BIO.[b].[/b]", character));
+		assertEquals(
+			"New Style Bio start and end",
+			"<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]</para><para>[b]last one[/b]</para>",
+			evaluateToken("BIO.[b].[/b]", character));
 
-		assertEquals("New Style Bio start only"
-				, "<para>**Test bio entry</para><para>**2nd line</para><para>**Third line</para><para>**last one</para>"
-				, evaluateToken("BIO.**", character));
+		assertEquals(
+			"New Style Bio start only",
+			"<para>**Test bio entry</para><para>**2nd line</para><para>**Third line</para><para>**last one</para>",
+			evaluateToken("BIO.**", character));
 
-		assertEquals("New Style Bio start only"
-				, "<para>Test bio entry,</para><para>2nd line,</para><para>Third line,</para><para>last one,</para>"
-				, evaluateToken("BIO..,", character));
+		assertEquals(
+			"New Style Bio start only",
+			"<para>Test bio entry,</para><para>2nd line,</para><para>Third line,</para><para>last one,</para>",
+			evaluateToken("BIO..,", character));
 
 		FileAccess.setCurrentOutputFilter("foo.htm");
 		character.setBio("Test bio <br/>entry\n2nd line\nThird line\nlast one");
-		
-		String expected = "<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>\n<p>[b]Third line[/b]</p>\n<p>[b]last one[/b]</p>"; 
+
+		String expected =
+				"<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>\n<p>[b]Third line[/b]</p>\n<p>[b]last one[/b]</p>";
 		String actual = evaluateToken("BIO.[b].[/b]", character);
 		assertEquals(expected, actual);
 
 		actual = evaluateToken("BIO..,", character);
-		expected = "<p>Test bio &lt;br/&gt;entry,</p>\n<p>2nd line,</p>\n<p>Third line,</p>\n<p>last one,</p>"; 
+		expected =
+				"<p>Test bio &lt;br/&gt;entry,</p>\n<p>2nd line,</p>\n<p>Third line,</p>\n<p>last one,</p>";
 		assertEquals("New Style Bio start only", expected, actual);
 	}
-
 
 	private String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException

@@ -42,12 +42,12 @@ import pcgen.core.prereq.Prerequisite;
  */
 public class PreMultParserTest extends TestCase
 {
-    /**
-     * Test
-     * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
-     * 
-     * @param args
-     */
+	/**
+	 * Test
+	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		TestRunner.run(PreMultParserTest.class);
@@ -61,12 +61,15 @@ public class PreMultParserTest extends TestCase
 		return new TestSuite(PreMultParserTest.class);
 	}
 
-	public void setUp() throws Exception {
-		try {
+	public void setUp() throws Exception
+	{
+		try
+		{
 			PluginLoader ploader = PluginLoader.inst();
 			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			// TODO Handle Exception
 		}
 	}
@@ -77,14 +80,19 @@ public class PreMultParserTest extends TestCase
 	public void testFeat1() throws Exception
 	{
 		PreMultParser parser = new PreMultParser();
-		
-		Prerequisite prereq = parser.parse("mult", "1,[PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]", false, false);
-		
-		assertEquals("<prereq operator=\"gteq\" operand=\"1\" >\n"+
-				"<prereq kind=\"armorprof\" key=\"TYPE.Medium\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n"+
-				"<prereq kind=\"feat\" key=\"Armor Proficiency\" sub-key=\"Medium\" operator=\"gteq\" operand=\"1\" >\n"+
-				"</prereq>\n" +
-				"</prereq>\n", prereq.toString());
+
+		Prerequisite prereq =
+				parser
+					.parse(
+						"mult",
+						"1,[PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]",
+						false, false);
+
+		assertEquals(
+			"<prereq operator=\"gteq\" operand=\"1\" >\n"
+				+ "<prereq kind=\"armorprof\" key=\"TYPE.Medium\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"feat\" key=\"Armor Proficiency\" sub-key=\"Medium\" operator=\"gteq\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 }

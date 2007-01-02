@@ -35,40 +35,46 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 
-
 /**
  * @author andrew
  *
  */
 @SuppressWarnings("nls")
 public class AbilityFromTemplateChoiceManagerTest extends
-		AbstractCharacterTestCase {
+		AbstractCharacterTestCase
+{
 
 	/**
 	 * Test method for 'pcgen.core.chooser.AbilityFromTemplateChoiceManager.addToMaps(Categorisable)'
 	 */
-	public void testAddToMaps() {
+	public void testAddToMaps()
+	{
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 1");
 		tem.setKeyName("KEY_Test Template 1");
 
-		AbilityFromTemplateChoiceManager choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
+		AbilityFromTemplateChoiceManager choiceManager =
+				new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		try
 		{
-			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Name map is empty");
+			Field aField = (Field) TestHelper.findField(cMClass, "nameMap");
+			is(((HashMap) aField.get(choiceManager)).size(), eq(0),
+				"Name map is empty");
 
-			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(0), "Category map is empty");
+			aField = (Field) TestHelper.findField(cMClass, "catMap");
+			is(((HashMap) aField.get(choiceManager)).size(), eq(0),
+				"Category map is empty");
 
-			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
-			is (aField.get(choiceManager), eq(true), "using name map");
+			aField = (Field) TestHelper.findField(cMClass, "useNameMap");
+			is(aField.get(choiceManager), eq(true), "using name map");
 
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 
@@ -77,18 +83,22 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 		try
 		{
-			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Name map is not empty");
+			Field aField = (Field) TestHelper.findField(cMClass, "nameMap");
+			is(((HashMap) aField.get(choiceManager)).size(), eq(1),
+				"Name map is not empty");
 
-			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(1), "Category map is not empty");
+			aField = (Field) TestHelper.findField(cMClass, "catMap");
+			is(((HashMap) aField.get(choiceManager)).size(), eq(1),
+				"Category map is not empty");
 
-			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
-			is (aField.get(choiceManager), eq(true), "using name map (3)");
+			aField = (Field) TestHelper.findField(cMClass, "useNameMap");
+			is(aField.get(choiceManager), eq(true), "using name map (3)");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 
@@ -97,29 +107,32 @@ public class AbilityFromTemplateChoiceManagerTest extends
 
 		try
 		{
-			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "nameMap");
-			HashMap<?,?> name  = (HashMap) aField.get(choiceManager);
-			Set<?> sName     = name.keySet();
+			Field aField = (Field) TestHelper.findField(cMClass, "nameMap");
+			HashMap<?, ?> name = (HashMap) aField.get(choiceManager);
+			Set<?> sName = name.keySet();
 
-			Object st[]   = sName.toArray();
+			Object st[] = sName.toArray();
 
-			is (st[0], strEq("KEY_foo"), "One");
+			is(st[0], strEq("KEY_foo"), "One");
 
 			/* these next two only have one entry because the first entry is discarded
 			 * when the the second is added (which is why we also have cat maps!) */
 
-			is (sName.size(), eq(1), "Name key set has only one entry");
-			is (name.size(), eq(1), "Name map has only one entry");
+			is(sName.size(), eq(1), "Name key set has only one entry");
+			is(name.size(), eq(1), "Name map has only one entry");
 
-			aField  = (Field) TestHelper.findField(cMClass, "catMap");
-			is (((HashMap) aField.get(choiceManager)).size(), eq(2), "Category map has two entries");
+			aField = (Field) TestHelper.findField(cMClass, "catMap");
+			is(((HashMap) aField.get(choiceManager)).size(), eq(2),
+				"Category map has two entries");
 
-			aField  = (Field) TestHelper.findField(cMClass, "useNameMap");
-			is (aField.get(choiceManager), eq(false), "using name map (4)");
+			aField = (Field) TestHelper.findField(cMClass, "useNameMap");
+			is(aField.get(choiceManager), eq(false), "using name map (4)");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 
@@ -128,47 +141,65 @@ public class AbilityFromTemplateChoiceManagerTest extends
 	/**
 	 * Test method for 'pcgen.core.chooser.AbstractCategorisableChoiceManager.initialise(int, int, int)'
 	 */
-	public void testInitialise() {
+	public void testInitialise()
+	{
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 2");
 
-		AbilityFromTemplateChoiceManager choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
+		AbilityFromTemplateChoiceManager choiceManager =
+				new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
-		choiceManager.initialise(1,2,3);
+		choiceManager.initialise(1, 2, 3);
 
 		try
 		{
-			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(1), "Number of choices is set correctly");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(1),
+				"Number of choices is set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(2), "Requested selections is set correctly");
+			aField =
+					(Field) TestHelper
+						.findField(cMClass, "requestedSelections");
+			is(aField.get(choiceManager), eq(2),
+				"Requested selections is set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "maxNewSelections");
-			is (aField.get(choiceManager), eq(3), "Max new Selections is set correctly");
+			aField = (Field) TestHelper.findField(cMClass, "maxNewSelections");
+			is(aField.get(choiceManager), eq(3),
+				"Max new Selections is set correctly");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 
-		choiceManager.initialise(23,17,7);
+		choiceManager.initialise(23, 17, 7);
 
 		try
 		{
-			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "numberOfChoices");
-			is (aField.get(choiceManager), eq(23), "Number of choices is set correctly");
+			Field aField =
+					(Field) TestHelper.findField(cMClass, "numberOfChoices");
+			is(aField.get(choiceManager), eq(23),
+				"Number of choices is set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "requestedSelections");
-			is (aField.get(choiceManager), eq(17), "Requested selections is set correctly");
+			aField =
+					(Field) TestHelper
+						.findField(cMClass, "requestedSelections");
+			is(aField.get(choiceManager), eq(17),
+				"Requested selections is set correctly");
 
-			aField  = (Field) TestHelper.findField(cMClass, "maxNewSelections");
-			is (aField.get(choiceManager), eq(7), "Max new Selections is set correctly");
+			aField = (Field) TestHelper.findField(cMClass, "maxNewSelections");
+			is(aField.get(choiceManager), eq(7),
+				"Max new Selections is set correctly");
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 	}
@@ -176,26 +207,30 @@ public class AbilityFromTemplateChoiceManagerTest extends
 	/**
 	 * Test method for 'pcgen.core.chooser.AbilityFromTemplateChoiceManager.AbilityFromTemplateChoiceManager(PObject, PlayerCharacter)'
 	 */
-	public void testAbilityFromTemplateChoiceManager() {
+	public void testAbilityFromTemplateChoiceManager()
+	{
 		PCTemplate tem = new PCTemplate();
 		tem.setName("Test Template 3");
 
-		AbilityFromTemplateChoiceManager choiceManager = new AbilityFromTemplateChoiceManager(tem, getCharacter());
+		AbilityFromTemplateChoiceManager choiceManager =
+				new AbilityFromTemplateChoiceManager(tem, getCharacter());
 
 		try
 		{
-			Class<? extends AbilityFromTemplateChoiceManager> cMClass = choiceManager.getClass();
+			Class<? extends AbilityFromTemplateChoiceManager> cMClass =
+					choiceManager.getClass();
 
-			Field aField  = (Field) TestHelper.findField(cMClass, "pobject");
+			Field aField = (Field) TestHelper.findField(cMClass, "pobject");
 			PObject pobject = (PObject) aField.get(choiceManager);
 			is(pobject.getKeyName(), strEq("Test Template 3"));
 
-			aField  = (Field) TestHelper.findField(cMClass, "pc");
+			aField = (Field) TestHelper.findField(cMClass, "pc");
 			PlayerCharacter aPc = (PlayerCharacter) aField.get(choiceManager);
 			is(aPc.getName(), strEq(getCharacter().getName()));
 
 		}
-		catch (IllegalAccessException e) {
+		catch (IllegalAccessException e)
+		{
 			System.out.println(e);
 		}
 
@@ -204,14 +239,16 @@ public class AbilityFromTemplateChoiceManagerTest extends
 	/**
 	 * Test method for 'pcgen.core.chooser.AbstractCategorisableChoiceManager.doChooser(List, List, List, PlayerCharacter)'
 	 */
-	public void testDoChooserListListListPlayerCharacter() {
+	public void testDoChooserListListListPlayerCharacter()
+	{
 		// TODO Do Nothing
 	}
 
 	/**
 	 * Test method for 'pcgen.core.chooser.AbstractCategorisableChoiceManager.doChooser(CategorisableStore, List)'
 	 */
-	public void testDoChooserCategorisableStoreList() {
+	public void testDoChooserCategorisableStoreList()
+	{
 		// TODO Do Nothing
 	}
 

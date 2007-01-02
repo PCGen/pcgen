@@ -36,15 +36,18 @@ public class CompareEqualLong extends TestChecker
 	 * Constructor
 	 * @param lo
 	 */
-	public CompareEqualLong( long lo ) {
+	public CompareEqualLong(long lo)
+	{
 		this.lo = lo;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Long.valueOf(this.lo));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a long ");
 		buf.append(this.lo);
 		return buf;

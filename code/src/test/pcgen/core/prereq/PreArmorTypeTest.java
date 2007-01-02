@@ -59,36 +59,35 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Doesn't have chainmail equipped",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Doesn't have chainmail equipped", PrereqHandler.passes(
+			prereq, character, null));
 
 		armor.setName("Chainmail");
 
-		assertFalse("Chainmail is not equipped",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Chainmail is not equipped", PrereqHandler.passes(prereq,
+			character, null));
 
 		armor.setIsEquipped(true, character);
 
-		assertTrue("Chainmail is equipped",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue("Chainmail is equipped", PrereqHandler.passes(prereq,
+			character, null));
 
 		armor.setName("Chainmail (Masterwork)");
 
-		assertFalse("Should be an exact match only",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Should be an exact match only", PrereqHandler.passes(
+			prereq, character, null));
 
 		prereq.setKey("CHAINMAIL%");
 
-		assertTrue("Should be allow wildcard match",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Should be allow wildcard match", PrereqHandler.passes(
+			prereq, character, null));
 	}
 
 	/**
 	 * Test armor type tests
 	 * @throws Exception
 	 */
-	public void testType()
-		throws Exception
+	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -104,43 +103,45 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
+			character, null));
 
 		armor.typeList().add("ARMOR");
 		armor.typeList().add("MEDIUM");
 
-		assertTrue("Armor is medium",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Armor is medium", PrereqHandler.passes(prereq, character,
+			null));
 
 		prereq.setKey("TYPE.Heavy");
 
-		assertFalse("Armor is not heavy",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Armor is not heavy", PrereqHandler.passes(prereq,
+			character, null));
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREARMORTYPE:2,TYPE=Medium,Full%");
 
-		assertFalse("Armor is not Full something",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Armor is not Full something", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREARMORTYPE:2,TYPE=Medium,Chain%");
-		assertTrue("Armor is medium and Chain",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Armor is medium and Chain", PrereqHandler.passes(prereq,
+			character, null));
 	}
 
 	/**
 	 * Test LIST
 	 * @throws Exception
 	 */
-	public void testList()
-		throws Exception
+	public void testList() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
-		final Ability mediumProf = TestHelper.makeAbility("Armor Proficiency (Medium)", "FEAT", "General");
+		final Ability mediumProf =
+				TestHelper.makeAbility("Armor Proficiency (Medium)", "FEAT",
+					"General");
 		mediumProf.addAutoArray("ARMORPROF|TYPE.Medium");
-		AbilityUtilities.modFeat(character, null, "KEY_Armor Proficiency (Medium)", true, false);
+		AbilityUtilities.modFeat(character, null,
+			"KEY_Armor Proficiency (Medium)", true, false);
 
 		final Equipment chainmail = new Equipment();
 		chainmail.typeList().add("ARMOR");
@@ -154,14 +155,14 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("No armor equipped",
-				   PrereqHandler.passes(prereq, character, null));
+		assertFalse("No armor equipped", PrereqHandler.passes(prereq,
+			character, null));
 
 		character.addEquipment(chainmail);
 		chainmail.setIsEquipped(true, character);
 
-		assertTrue("Proficient armor equipped",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Proficient armor equipped", PrereqHandler.passes(prereq,
+			character, null));
 
 		chainmail.setIsEquipped(false, character);
 
@@ -173,7 +174,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 
 		fullPlate.setIsEquipped(false, character);
 
-		assertFalse("Not Proficient in armor equipped",
-				   PrereqHandler.passes(prereq, character, null));
+		assertFalse("Not Proficient in armor equipped", PrereqHandler.passes(
+			prereq, character, null));
 	}
 }

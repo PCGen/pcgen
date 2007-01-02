@@ -36,15 +36,18 @@ public class CompareEqualInt extends TestChecker
 	 * Constructor
 	 * @param i
 	 */
-	public CompareEqualInt( int i ) {
+	public CompareEqualInt(int i)
+	{
 		this.i = i;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Integer.valueOf(this.i));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("an int ");
 		buf.append(this.i);
 		return buf;

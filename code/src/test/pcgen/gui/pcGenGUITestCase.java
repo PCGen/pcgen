@@ -31,7 +31,8 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * Standard JUnit style constructor
 	 * @param name
 	 */
-	public pcGenGUITestCase(String name) {
+	public pcGenGUITestCase(String name)
+	{
 		super(name);
 	}
 
@@ -43,19 +44,24 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * @throws Exception 
 	 */
 	@Override
-	public void setUp() throws Exception {
+	public void setUp() throws Exception
+	{
 		super.setUp();
-		XMLUnit.setControlParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
-		
+		XMLUnit
+			.setControlParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
+
 		/* 
 		 * This next line is strictly not required - if no test parser is
 		 * explicitly specified then the same factory class will be used for
 		 * both test and control
 		 */
-		XMLUnit.setTestParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
+		XMLUnit
+			.setTestParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
 
-		XMLUnit.setSAXParserFactory("org.apache.xerces.jaxp.SAXParserFactoryImpl");
-		XMLUnit.setTransformerFactory("org.apache.xalan.processor.TransformerFactoryImpl");
+		XMLUnit
+			.setSAXParserFactory("org.apache.xerces.jaxp.SAXParserFactoryImpl");
+		XMLUnit
+			.setTransformerFactory("org.apache.xalan.processor.TransformerFactoryImpl");
 	}
 
 	/**
@@ -64,25 +70,34 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * @param mode The game mode
 	 * @throws Exception
 	 */
-	public void runTest(String character, String mode) throws Exception	{
-		System.out.println("RUNTEST with the character: " + character + " and the game mode: " + mode);
+	public void runTest(String character, String mode) throws Exception
+	{
+		System.out.println("RUNTEST with the character: " + character
+			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
 		new File("code/testsuite/output/" + character + ".xml").delete();
 		// Set the pcc location to "data"
 		String pccLoc = "data";
-		try {
+		try
+		{
 			// Read in options.ini and override the pcc location if it exists
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("options.ini"), "UTF-8"));
-			while (br.ready()) {
+			BufferedReader br =
+					new BufferedReader(new InputStreamReader(
+						new FileInputStream("options.ini"), "UTF-8"));
+			while (br.ready())
+			{
 				String line = br.readLine();
-				if (line != null && line.startsWith("pcgen.options.pccFilesLocation="))	{
+				if (line != null
+					&& line.startsWith("pcgen.options.pccFilesLocation="))
+				{
 					pccLoc = line.substring(31);
 					break;
 				}
 			}
 			br.close();
 		}
-		catch (IOException e) {
+		catch (IOException e)
+		{
 			// Ignore, see method comment
 		}
 
@@ -94,10 +109,14 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		 * Override the pcc location, game mode and several other properties in 
 		 * the options.ini file
 		 */
-		try	{
-			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("options.ini.junit"), "UTF-8"));
+		try
+		{
+			BufferedWriter bw =
+					new BufferedWriter(new OutputStreamWriter(
+						new FileOutputStream("options.ini.junit"), "UTF-8"));
 			bw.write("pcgen.options.game=" + mode + "\r\n");
-			if (pccLoc != null)	{
+			if (pccLoc != null)
+			{
 				System.out.println("Using PCC Location of '" + pccLoc + "'.");
 				bw.write("pcgen.options.pccFilesLocation=" + pccLoc + "\r\n");
 			}
@@ -105,19 +124,26 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			bw.close();
 
 			System.setProperty("pcgen.templatefile", "code/testsuite/base.xml");
-			System.setProperty("pcgen.inputfile", "code/testsuite/PCGfiles/" + character	+ Constants.s_PCGEN_CHARACTER_EXTENSION);
-			System.setProperty("pcgen.outputfile", "code/testsuite/output/" + character + ".xml");
+			System.setProperty("pcgen.inputfile", "code/testsuite/PCGfiles/"
+				+ character + Constants.s_PCGEN_CHARACTER_EXTENSION);
+			System.setProperty("pcgen.outputfile", "code/testsuite/output/"
+				+ character + ".xml");
 			System.setProperty("pcgen.options", "options.ini.junit");
 
 			// Fire off PCGen, which will produce an XML file 
 			pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
 
 			// Read in the actual XML produced by PCGen
-			actual = readFile(new File("code/testsuite/output/" + character + ".xml"));
+			actual =
+					readFile(new File("code/testsuite/output/" + character
+						+ ".xml"));
 			// Read in the expected XML
-			expected = readFile(new File("code/testsuite/csheets/" + character + ".xml"));
+			expected =
+					readFile(new File("code/testsuite/csheets/" + character
+						+ ".xml"));
 		}
-		finally	{
+		finally
+		{
 			// Make sure we don't delete the options.ini no matter what happens!
 			new File("options.ini.junit").delete();
 		}
@@ -135,11 +161,16 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	private String readFile(File outputFile) throws UnsupportedEncodingException, FileNotFoundException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(outputFile), "UTF-8"));
+	private String readFile(File outputFile)
+		throws UnsupportedEncodingException, FileNotFoundException, IOException
+	{
+		BufferedReader br =
+				new BufferedReader(new InputStreamReader(new FileInputStream(
+					outputFile), "UTF-8"));
 		StringBuffer output = new StringBuffer();
 		String line = br.readLine();
-		while (line != null) {
+		while (line != null)
+		{
 			output.append(line).append("\n");
 			line = br.readLine();
 		}

@@ -36,19 +36,25 @@ public class CompareSame extends TestChecker
 	 * Constructor
 	 * @param obj
 	 */
-	public CompareSame( Object obj ) {
+	public CompareSame(Object obj)
+	{
 		this.obj = obj;
 	}
 
-	public boolean check( Object object ) {
+	public boolean check(Object object)
+	{
 		return object == this.obj;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("same(");
-		if (obj == null) {
+		if (obj == null)
+		{
 			buf.append("null");
-		} else {
+		}
+		else
+		{
 			buf.append("<");
 			buf.append(this.obj);
 			buf.append(">");

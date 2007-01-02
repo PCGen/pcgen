@@ -36,15 +36,18 @@ public class CompareGreaterThan extends TestChecker
 	 * Constructor
 	 * @param comp
 	 */
-	public CompareGreaterThan( Comparable<Object> comp ) {
+	public CompareGreaterThan(Comparable<Object> comp)
+	{
 		this.comp = comp;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return this.comp.compareTo(obj) < 0;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a value greater than <");
 		buf.append(this.comp);
 		buf.append(">");

@@ -46,10 +46,10 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 public class PreReqHandlerTest extends PCGenTestCase
 {
 
-    /**
-     * Run the JUnit test
-     * @param args
-     */
+	/**
+	 * Run the JUnit test
+	 * @param args
+	 */
 	public static void main(final String[] args)
 	{
 		junit.swingui.TestRunner.run(PreReqHandlerTest.class);
@@ -78,13 +78,13 @@ public class PreReqHandlerTest extends PCGenTestCase
 		}
 		catch (Exception e)
 		{
-		    // TODO Handle exception
+			// TODO Handle exception
 		}
 	}
 
 	/**
-     * Print out as HTML
-     * @throws Exception
+	 * Print out as HTML
+	 * @throws Exception
 	 */
 	public void testToHtml() throws Exception
 	{
@@ -98,6 +98,8 @@ public class PreReqHandlerTest extends PCGenTestCase
 
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
-		assertEquals("at least 15 ranks in Spellcraft and at least1 Arcane spell(s) of level 8 and at least 2 feat(s) of type Metamagic and at least 2 feat(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )", htmlString);
+		assertEquals(
+			"at least 15 ranks in Spellcraft and at least1 Arcane spell(s) of level 8 and at least 2 feat(s) of type Metamagic and at least 2 feat(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
+			htmlString);
 	}
 }

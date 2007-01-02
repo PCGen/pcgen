@@ -36,15 +36,18 @@ public class CompareEqualChar extends TestChecker
 	 * Constructor
 	 * @param ch
 	 */
-	public CompareEqualChar( char ch ) {
+	public CompareEqualChar(char ch)
+	{
 		this.ch = ch;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return obj.equals(Character.valueOf(this.ch));
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a char ");
 		buf.append(this.ch);
 		return buf;

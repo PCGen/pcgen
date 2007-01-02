@@ -36,15 +36,18 @@ public class CompareLessOrEqual extends TestChecker
 	 * Constructor
 	 * @param comp
 	 */
-	public CompareLessOrEqual( Comparable<Object> comp ) {
+	public CompareLessOrEqual(Comparable<Object> comp)
+	{
 		this.comp = comp;
 	}
 
-	public boolean check( Object obj ) {
+	public boolean check(Object obj)
+	{
 		return this.comp.compareTo(obj) >= 0;
 	}
 
-	public StringBuffer scribe( StringBuffer buf ) {
+	public StringBuffer scribe(StringBuffer buf)
+	{
 		buf.append("a value less than or equal to <");
 		buf.append(this.comp);
 		buf.append(">");

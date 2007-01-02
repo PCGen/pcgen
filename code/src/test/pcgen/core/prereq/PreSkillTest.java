@@ -50,6 +50,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	{
 		return new TestSuite(PreSkillTest.class);
 	}
+
 	Skill balance = null;
 	Skill knowledge = null;
 	Skill tumble = null;

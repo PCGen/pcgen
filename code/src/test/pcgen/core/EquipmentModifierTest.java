@@ -43,8 +43,9 @@ import java.util.List;
  * Equipment Modifer Test 
  */
 @SuppressWarnings("nls")
-public class EquipmentModifierTest extends PCGenTestCase {
-	
+public class EquipmentModifierTest extends PCGenTestCase
+{
+
 	/**
 	 * Main
 	 * @param args
@@ -78,12 +79,15 @@ public class EquipmentModifierTest extends PCGenTestCase {
 	 * @see pcgen.PCGenTestCase#setUp()
 	 */
 	@Override
-	public void setUp() throws Exception {
-		try {
+	public void setUp() throws Exception
+	{
+		try
+		{
 			PluginLoader ploader = PluginLoader.inst();
 			ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		}
-		catch(Exception e) {
+		catch (Exception e)
+		{
 			// TODO Deal with exception
 		}
 	}
@@ -107,7 +111,8 @@ public class EquipmentModifierTest extends PCGenTestCase {
 	public void test885958A()
 	{
 		final EquipmentModifier eqMod = new EquipmentModifier();
-		final BonusObj aBonus = Bonus.newBonus("WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
+		final BonusObj aBonus =
+				Bonus.newBonus("WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
 		eqMod.addBonusList(aBonus);
 		eqMod.addAssociated("+13");
 
@@ -124,8 +129,8 @@ public class EquipmentModifierTest extends PCGenTestCase {
 	public void test885958B()
 	{
 		final EquipmentModifier eqMod = new EquipmentModifier();
-		final BonusObj aBonus = Bonus.newBonus(
-			"WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+		final BonusObj aBonus =
+				Bonus.newBonus("WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 		eqMod.addAssociated("+13");
 		eqMod.addBonusList(aBonus);
 
@@ -150,8 +155,8 @@ public class EquipmentModifierTest extends PCGenTestCase {
 	public void testChoice()
 	{
 		final EquipmentModifier eqMod = new EquipmentModifier();
-		final BonusObj aBonus = Bonus.newBonus(
-			"WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
+		final BonusObj aBonus =
+				Bonus.newBonus("WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 		eqMod.addAssociated("+1");
 		eqMod.addAssociated("+2");
 		eqMod.addBonusList(aBonus);

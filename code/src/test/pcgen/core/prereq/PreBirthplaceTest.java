@@ -56,8 +56,7 @@ public class PreBirthplaceTest extends AbstractCharacterTestCase
 	 * Test the PREBIRTHPLACE code
 	 * @throws Exception
 	 */
-	public void testAtt()
-		throws Exception
+	public void testAtt() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setBirthplace("Klamath");
@@ -67,17 +66,17 @@ public class PreBirthplaceTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREBIRTHPLACE:Klamath");
 
-		assertTrue("Character is from Klamath",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREBIRTHPLACE:KLAMATH");
 
-		assertTrue("Case is not significant",
-				   PrereqHandler.passes(prereq, character, null));
+		assertTrue("Case is not significant", PrereqHandler.passes(prereq,
+			character, null));
 
 		prereq = factory.parse("PREBIRTHPLACE:Klam");
 
-		assertFalse("Requires a full match",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
+			character, null));
 	}
 }
