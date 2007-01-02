@@ -98,65 +98,74 @@ public class AbilityLst implements GlobalLstToken
 		final String cat = tok.nextToken();
 		final AbilityCategory category =
 				SettingsHandler.getGame().getAbilityCategory(cat);
-		if (category != null)
+		if (category == null)
 		{
-			if (tok.hasMoreTokens())
+			throw new PersistenceLayerException(PropertyFactory.getFormattedString(
+				"Errors.LstTokens.ValueNotFound", //$NON-NLS-1$
+				getClass().getName(), "Ability Category", cat));
+		}
+
+		if (tok.hasMoreTokens())
+		{
+			final String natureKey = tok.nextToken();
+			final Ability.Nature nature =
+					Ability.Nature.get(natureKey, false);
+			if (nature == null)
 			{
-				final String natureKey = tok.nextToken();
-				final Ability.Nature nature =
-						Ability.Nature.get(natureKey, false);
-				if (nature != null)
+				throw new PersistenceLayerException(PropertyFactory.getFormattedString(
+					"Errors.LstTokens.ValueNotFound", //$NON-NLS-1$
+					getClass().getName(), "Ability Nature", cat));
+			}
+
+			ArrayList<Prerequisite> preReqs =
+					new ArrayList<Prerequisite>();
+			if (anInt > -9)
+			{
+				try
 				{
-					ArrayList<Prerequisite> preReqs =
-							new ArrayList<Prerequisite>();
-					if (anInt > -9)
+					PreParserFactory factory =
+							PreParserFactory.getInstance();
+					String preLevelString = "PRELEVEL:" + anInt; //$NON-NLS-1$
+					if (anObj instanceof PCClass)
 					{
-						try
-						{
-							PreParserFactory factory =
-									PreParserFactory.getInstance();
-							String preLevelString = "PRELEVEL:" + anInt; //$NON-NLS-1$
-							if (anObj instanceof PCClass)
-							{
-								// Classes handle this differently
-								preLevelString =
-										"PRECLASS:1," + anObj.getKeyName() + "=" + anInt; //$NON-NLS-1$ //$NON-NLS-2$
-							}
-							Prerequisite r = factory.parse(preLevelString);
-							preReqs.add(r);
-						}
-						catch (PersistenceLayerException notUsed)
-						{
-							return false;
-						}
+						// Classes handle this differently
+						preLevelString =
+								"PRECLASS:1," + anObj.getKeyName() + "=" + anInt; //$NON-NLS-1$ //$NON-NLS-2$
 					}
-					final List<String> abilityList = new ArrayList<String>();
-					while (tok.hasMoreTokens())
-					{
-						final String key = tok.nextToken();
-						if (key.startsWith("PRE")) //$NON-NLS-1$
-						{
-							final PreParserFactory factory =
-									PreParserFactory.getInstance();
-							final String preString =
-									key.substring(key.indexOf(':') + 1);
-							final Prerequisite r = factory.parse(preString);
-							preReqs.add(r);
-						}
-						else
-						{
-							abilityList.add(key);
-						}
-					}
-					for (final String ability : abilityList)
-					{
-						anObj.addAbility(category, nature,
-							new QualifiedObject<String>(ability, preReqs));
-					}
-					return true;
+					Prerequisite r = factory.parse(preLevelString);
+					preReqs.add(r);
+				}
+				catch (PersistenceLayerException notUsed)
+				{
+					return false;
 				}
 			}
+			final List<String> abilityList = new ArrayList<String>();
+			while (tok.hasMoreTokens())
+			{
+				final String key = tok.nextToken();
+				if (key.startsWith("PRE")) //$NON-NLS-1$
+				{
+					final PreParserFactory factory =
+							PreParserFactory.getInstance();
+					final String preString =
+							key.substring(key.indexOf(':') + 1);
+					final Prerequisite r = factory.parse(preString);
+					preReqs.add(r);
+				}
+				else
+				{
+					abilityList.add(key);
+				}
+			}
+			for (final String ability : abilityList)
+			{
+				anObj.addAbility(category, nature,
+					new QualifiedObject<String>(ability, preReqs));
+			}
+			return true;
 		}
+
 		throw new PersistenceLayerException(PropertyFactory.getFormattedString(
 			"Errors.LstTokens.InvalidTokenFormat", //$NON-NLS-1$
 			getClass().getName(), aValue));
