@@ -16073,7 +16073,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			start = end = anAbilityType.ordinal();
 		}
-		for (int i = start; i < end; i++)
+		for (int i = start; i <= end; i++)
 		{
 			final Ability.Nature nature = Ability.Nature.values()[i];
 			boolean hasIt = false;
@@ -17085,28 +17085,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return getVirtualFeatList();
 		}
 		List<Ability> ret = theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
-		if (ret == null)
-		{
-			ret = new ArrayList<Ability>();
-			for (final PObject pobj : getPObjectList())
-			{
-				if (pobj instanceof PCClass)
-				{
-					final List<Ability> abilities = ((PCClass) pobj)
-						.getVirtualAbilityList(aCategory);
-					for (final Ability ability : abilities)
-					{
-						if (PrereqHandler.passesAll(ability.getPreReqList(),
-							this, ability))
-						{
-							ret.add(ability);
-						}
-					}
-				}
-			}
-		}
-
-		theAbilities.put(aCategory, Ability.Nature.VIRTUAL, ret);
 
 		return Collections.unmodifiableList(ret);
 	}

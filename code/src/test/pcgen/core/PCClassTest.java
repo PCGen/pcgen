@@ -36,12 +36,14 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.core.Ability.Nature;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.RaceLoader;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
@@ -508,6 +510,55 @@ public class PCClassTest extends AbstractCharacterTestCase
 			.getKnownForLevel(8, character));
 
 	}
+
+	/**
+	 * Test the definition and application of abilities. 
+	 * @throws PersistenceLayerException 
+	 */
+	public void testAddAbility() throws PersistenceLayerException
+	{
+		// Create some abilities to be added
+		Ability ab1 = new Ability();
+		ab1.setName("Ability1");
+		ab1.setCategory("TestCat");
+		Ability ab2 = new Ability();
+		ab2.setName("Ability2");
+		ab2.setCategory("TestCat");
+		AbilityCategory cat = new AbilityCategory("TestCat");
+		SettingsHandler.getGame().addAbilityCategory(cat);
+		Globals.addAbility(ab1);
+		Globals.addAbility(ab2);
+
+		// Link them to a template
+		CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
+		String classPCCText =
+				"CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTO|Ability1\n"
+					+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft\n"
+					+ "2	ABILITY:TestCat|AUTO|Ability2";
+		PCClass pcclass = parsePCClassText(classPCCText, cse);
+		List<String> keys = pcclass.getAbilityKeys(null, cat, Nature.AUTOMATIC);
+		assertEquals(2, keys.size());
+		assertEquals(ab1.getKeyName(), keys.get(0));
+		assertEquals(ab2.getKeyName(), keys.get(1));
+
+		// Add the class to the character
+		PlayerCharacter pc = getCharacter();
+		pc.incrementClassLevel(1, pcclass, true);
+		// Need to do this to populate the ability list
+		pc.getAutomaticAbilityList(cat);
+		assertTrue("Character should have ability1.", pc.hasAbility(null,
+			Nature.AUTOMATIC, ab1));
+		assertFalse("Character should not have ability2.", pc.hasAbility(cat,
+			Nature.AUTOMATIC, ab2));
+
+		pc.incrementClassLevel(1, pcclass, true);
+		pc.getAutomaticAbilityList(cat);
+		assertTrue("Character should have ability1.", pc.hasAbility(null,
+			Nature.AUTOMATIC, ab1));
+		assertTrue("Character should have ability2.", pc.hasAbility(cat,
+			Nature.AUTOMATIC, ab2));
+	}
+	
 
 	/**
 	 * Parse a class definition and return the populated PCClass object.

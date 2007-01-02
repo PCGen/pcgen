@@ -3550,31 +3550,6 @@ public class PCClass extends PObject {
 		return aList;
 	}
 
-	/*
-	 * PCCLASSANDLEVEL This is required in PCClassLevel and should be present in 
-	 * PCClass for PCClassLevel creation (in the factory)
-	 */
-	public List<Ability> getVirtualAbilityList(final AbilityCategory aCategory)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			return getVirtualFeatList();
-		}
-		final List<Ability> ret = new ArrayList<Ability>();
-		
-		if ( vAbilityMap != null )
-		{
-			for ( final int lvl : vAbilityMap.getSecondaryKeySet(aCategory) )
-			{
-				if ( lvl <= level )
-				{
-					ret.addAll(vAbilityMap.get(aCategory, lvl));
-				}
-			}
-		}
-		return ret;
-	}
-
 	/**
 	 * Here is where we do the real work of setting the vision information on
 	 * the PObject
@@ -3842,52 +3817,6 @@ public class PCClass extends PObject {
 		templates.add(LevelProperty.getLevelProperty(lvl, template));
 	}
 
-	//TODO: Replace these with equivalents for the PObject addAbility method. 
-	/*
-	 * DELETEMETHOD - or at least that's my dream. I would like to have this
-	 * system be intelligent enough to distinguish items that are level
-	 * dependent from those that are not and to then process those correctly and
-	 * load them correctly into the PCClassLevels. Therefore, since this is
-	 * really only overriding what PObject is doing to make a different case for
-	 * items that are level dependent, this becomes an irrelevant method (the
-	 * PObject methods should be used for non-level dependent, and PCClass
-	 * should handle the rest as LevelPropertys to be loaded into the
-	 * appropriate PCClassLevel)
-	 */
-	public void addVirtualAbility(final AbilityCategory aCategory, final Ability anAbility)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			addVirtualFeat(anAbility);
-		}
-		addVirtualAbility(aCategory, -9, anAbility);
-	}
-
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void addVirtualAbility(final AbilityCategory aCategory, 
-								  final int aLevel, 
-								  final Ability anAbility)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			addVirtualFeat(anAbility);
-			return;
-		}
-		if ( vAbilityMap == null )
-		{
-			vAbilityMap = new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>();
-		}
-		List<Ability> abilities = vAbilityMap.get(aCategory, aLevel);
-		if ( abilities == null )
-		{
-			abilities = new ArrayList<Ability>();
-		}
-		abilities.add(anAbility);
-	}
-
 
 	/**
 	 * Adds virtual feats to the vFeatList
@@ -3918,47 +3847,6 @@ public class PCClass extends PObject {
 		}
 
 		super.addVirtualFeats(vList);
-	}
-
-	/*
-	 * DELETEMETHOD - or at least that's my dream. I would like to have this
-	 * system be intelligent enough to distinguish items that are level
-	 * dependent from those that are not and to then process those correctly and
-	 * load them correctly into the PCClassLevels. Therefore, since this is
-	 * really only overriding what PObject is doing to make a different case for
-	 * items that are level dependent, this becomes an irrelevant method (the
-	 * PObject methods should be used for non-level dependent, and PCClass
-	 * should handle the rest as LevelPropertys to be loaded into the
-	 * appropriate PCClassLevel)
-	 */
-	public void addVirtualAbilities(final AbilityCategory aCategory, final List<Ability> aList)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			addVirtualFeats(aList);
-			return;
-		}
-		addVirtualAbilities(aCategory, -9, aList);
-	}
-	
-	/*
-	 * PCCLASSANDLEVEL Input from a Tag, and factory creation of a PCClassLevel
-	 * require this method
-	 */
-	public void addVirtualAbilities(final AbilityCategory aCategory, 
-									final int aLevel, 
-									final List<Ability> aList)
-	{
-		if ( aCategory == AbilityCategory.FEAT )
-		{
-			addVirtualFeats(aLevel, aList);
-			return;
-		}
-		if ( vAbilityMap == null )
-		{
-			vAbilityMap = new DoubleKeyMap<AbilityCategory, Integer, List<Ability>>();
-		}
-		vAbilityMap.put(aCategory, aLevel, aList);
 	}
 	
 	/**

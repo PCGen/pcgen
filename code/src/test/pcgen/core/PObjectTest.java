@@ -23,10 +23,13 @@
  */
 package pcgen.core;
 
+import java.util.List;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
+import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
@@ -305,6 +308,50 @@ public class PObjectTest extends AbstractCharacterTestCase
 			.getDescription(getCharacter()));
 	}
 
+	/**
+	 * Test the definition and application of abilities. 
+	 * @throws PersistenceLayerException 
+	 */
+	public void testAddAbility() throws PersistenceLayerException
+	{
+		// Create some abilities to be added
+		Ability ab1 = new Ability();
+		ab1.setName("Ability1");
+		ab1.setCategory("TestCat");
+		Ability ab2 = new Ability();
+		ab2.setName("Ability2");
+		ab2.setCategory("TestCat");
+		AbilityCategory cat = new AbilityCategory("TestCat");
+		SettingsHandler.getGame().addAbilityCategory(cat);
+		Globals.addAbility(ab1);
+		Globals.addAbility(ab2);
+
+		// Link them to a template
+		Race race = new Race();
+		CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
+		RaceLoader loader = new RaceLoader();
+		loader.setCurrentSource(cse);
+		loader
+			.parseLine(
+				race,
+				"Race1	ABILITY:TestCat|AUTO|Ability1	ABILITY:TestCat|AUTO|Ability2",
+				cse);
+		List<String> keys = race.getAbilityKeys(null, cat, Nature.AUTOMATIC);
+		assertEquals(2, keys.size());
+		assertEquals(ab1.getKeyName(), keys.get(0));
+		assertEquals(ab2.getKeyName(), keys.get(1));
+
+		// Add the template to the character
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(race);
+		// Need to do this to populate the ability list
+		pc.getAutomaticAbilityList(cat);
+		assertTrue("Character should have ability1.", pc.hasAbility(null,
+			Nature.AUTOMATIC, ab1));
+		assertTrue("Character should have ability2.", pc.hasAbility(cat,
+			Nature.AUTOMATIC, ab2));
+	}
+	
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
