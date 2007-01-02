@@ -1,17 +1,21 @@
-CAMPAIGN:Copy of MDS - Dark Inheritance - Campaign Setting
+# CVS $Revision$ $Author$ -- Fri Aug 26 02:34:05 2005 -- reformated by prettylst.pl v1.34 (build 455)
+CAMPAIGN:MDS - Dark Inheritance - Campaign Setting
 RANK:5
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+TYPE:Alpha Datasets
+#TYPE:Mythic Dreams Studios.Dark Inheritance
 GAMEMODE:Modern
-INFOTEXT:For best use load FX options with this.
+ISOGL:YES
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting
 SOURCESHORT:Dark Inheritance
 SOURCEWEB:http://www.mythicdreams.com
-ISD20:NO
-ISOGL:YES
-SHOWINMENU:NO
-ISLICENSED:YES
 BOOKTYPE:Campaign Setting
-SETTING:
-GENRE:
+PUBNAMELONG:Mythic Dreams Studios LLC.
+PUBNAMESHORT:MDS
+PUBNAMEWEB:http://www.mythicdreams.com
+ISLICENSED:YES
+LICENSE:FILE=dark_inheritance_license.htm
+
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax, and Dave Arneson.
 COPYRIGHT:Relics & Rituals Copyright 2001, Clark Peterson
@@ -24,6 +28,13 @@ COPYRIGHT:Legions of Hell Copyright 2001, Green Ronin Publishing; Authors Chris 
 COPYRIGHT:Ultramodern Firearms d20, Copyright 2002. Chars McManus Ryan
 COPYRIGHT:Dark Inheritance Copyright 2003, Mythic Dreams Studios LLC. Authors Chad Justice, Will Upchurch, Sam Witt, Jason Olsan, and Gareth Hanrahan.
 COPYRIGHT:PCGen dataset conversion for Dark Inheritance Copyright 2005-2006, PCgen Data Team (including, but not limited to, Frank Kliewe, Eddy Anthony)
+
+INFOTEXT:For best use load FX options with this.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:dark_inheritance_classes.lst
 EQUIPMENT:dark_inheritance_equip_FX.lst
 EQUIPMENT:dark_inheritance_equip_weap_ammo.lst
 EQUIPMENT:dark_inheritance_equip_weap_ranged_firearms.lst
@@ -37,4 +48,4 @@ SPELL:dark_inheritance_spells_birthrights.lst
 SPELL:dark_inheritance_spells_magic.lst
 TEMPLATE:dark_inheritance_templates.lst
 WEAPONPROF:dark_inheritance_weaponprofs.lst
-CLASS:dark_inheritance_classes.lst
+
