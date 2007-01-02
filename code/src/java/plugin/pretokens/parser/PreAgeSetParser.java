@@ -36,7 +36,7 @@ public class PreAgeSetParser extends AbstractPrerequisiteListParser
 		{
 
 	public String[] kindsHandled() {
-		return new String[]{"AGESET"};
+		return new String[]{"AGESET"}; //$NON-NLS-1$
 	}
 	
 }

@@ -32,11 +32,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
+
 import java.io.IOException;
 import java.io.Writer;
-
-
-//TODO ADJUST THIS
 
 public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
                 PrerequisiteWriterInterface
@@ -47,7 +45,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
          */
         public String kindHandled()
         {
-                return "ageset";
+                return "AGESET";  //$NON-NLS-1$
         }
 
         /* (non-Javadoc)
@@ -63,7 +61,6 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
         /* (non-Javadoc)
          * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
          */
-        //TODO make it work
         public void write(Writer writer, Prerequisite prereq)
                 throws PersistenceLayerException
         {
@@ -74,7 +71,7 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
                         {
                                 writer.write('!');
                         }
-                        writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));
+                        writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));  
                         writer.write(prereq.getKey());
                 }
                 catch (IOException e)

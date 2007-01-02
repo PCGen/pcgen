@@ -24,10 +24,15 @@
  */
 package plugin.pretokens.test;
 
+import java.util.List;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.core.Globals;
+import pcgen.util.PropertyFactory;
 
 /**
  * @author perchrh
@@ -41,14 +46,27 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements
          * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
          */
         @Override
-        public int passes(final Prerequisite prereq, final PlayerCharacter character)
+        public int passes(final Prerequisite prereq, final PlayerCharacter character) throws PrerequisiteException
         {
-                //TODO IMPLEMENT THIS
-        		//compare PC object ageset with prereq's ageset
-        		//pc.ageset == prereq ageset first, 
-        		//should support >= and the likes too
-        	
-                return 1;
+        	final int ageset = Globals.getBioSet().getPCAgeSet(character);
+        	int runningTotal;
+	
+		try
+		{
+			final int anInt = Integer.parseInt(prereq.getOperand());
+			runningTotal = prereq.getOperator().compare(ageset, anInt);
+		}
+		catch (NumberFormatException exc)
+		{
+			final int anInt = Globals.getBioSet().getAgeSetNamed(prereq.getOperand());
+			runningTotal = prereq.getOperator().compare(ageset, anInt);
+		}
+		catch (Exception e){
+			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+		}
+		
+		return countedTotal(prereq, runningTotal);
+                
         }
 
         /* (non-Javadoc)
