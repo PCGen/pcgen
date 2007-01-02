@@ -17,9 +17,9 @@
  *
  * Created on December 30, 2006
  *
- * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 05:36:01 +0100 (Sun, 17 Dec 2006) $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;

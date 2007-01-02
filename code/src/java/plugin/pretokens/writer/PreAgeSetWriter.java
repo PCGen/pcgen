@@ -17,11 +17,11 @@
  *
  * Created on 30-Dec-2006
  *
- * Current Ver: $Revision: 1821 $
+ * Current Ver: $Revision$
  *
- * Last Editor: $Author: jdempsey $
+ * Last Editor: $Author$
  *
- * Last Edited: $Date: 2006-12-28 07:12:38 +0100 (Thu, 28 Dec 2006) $
+ * Last Edited: $Date$
  *
  */
 package plugin.pretokens.writer;
