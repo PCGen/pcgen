@@ -17,7 +17,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
+ * Last Editor: $Author$
  * Last Edited: $Date$
  */
 package plugin.lsttokens;
