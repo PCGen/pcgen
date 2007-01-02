@@ -7,10 +7,10 @@
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call" value="20"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation" value="20"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_arguments_in_qualified_allocation_expression" value="20"/>
-<setting id="org.eclipse.jdt.core.formatter.alignment_for_assignment" value="0"/>
+<setting id="org.eclipse.jdt.core.formatter.alignment_for_assignment" value="16"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_binary_expression" value="20"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_compact_if" value="49"/>
-<setting id="org.eclipse.jdt.core.formatter.alignment_for_conditional_expression" value="84"/>
+<setting id="org.eclipse.jdt.core.formatter.alignment_for_conditional_expression" value="20"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_enum_constants" value="0"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_expressions_in_array_initializer" value="20"/>
 <setting id="org.eclipse.jdt.core.formatter.alignment_for_multiple_fields" value="16"/>
