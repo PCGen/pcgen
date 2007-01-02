@@ -48,26 +48,12 @@ public final class Domain extends PObject
 	private boolean isLocked;
 
 	/**
-	 * Add an Ability or list of Abilities to the Abilities that the domain grants.
-	 * The Ability may be a single Ability, or a list of Abilitiess separated by "|"
-	 * or ",".  The AbilityList may be interspersed with "CATEGORY=FOO" entries.
-	 * This will change the category of all Abilities entered by this call until
-	 * a further Category entry is found. In addition, if .CLEAR is received,
-	 * the existing ability store will be cleared.  This string must begin with a
-	 * "CATEGORY=" statement.
-	 *
-	 * @param  abilities
-	 */
-	public void addAbility(final String abilities)
-	{
-		abilityStore.addAbilityInfo(abilities, "", "|,", false, false);
-	}
-
-	/**
-	 * @see #addAbility(String)
-	 *
-	 * this is a variation of addAbilityToList, it ignores "CATEGORY=" entries
-	 * All abilities added by this method are assumed to be category FEAT.
+	 * Add an Ability or list of Abilities to the Abilities that the domain 
+	 * grants. The Ability may be a single Ability, or a list of Abilitiess 
+	 * separated by "|" or ",".  If .CLEAR is received, the existing ability 
+	 * store will be cleared.  This string must begin with a "CATEGORY=" 
+	 * statement. All abilities added by this method are assumed to be 
+	 * category FEAT. "CATEGORY=" entries are ignored.
 	 *
 	 * @param  feats
 	 */
@@ -293,11 +279,6 @@ public final class Domain extends PObject
 	{
 		return abilityStore.getUnmodifiableList("FEAT").size();
 	}
-
-	public Iterator<Categorisable> getAbilityIterator(final String aCategory)
-	{
-		return abilityStore.getNameIterator(aCategory);
-	}
 	
 	void addSpellsToClassForLevels(
 		final PCClass aClass,
@@ -348,31 +329,6 @@ public final class Domain extends PObject
 		final StringBuffer txt = new StringBuffer(200);
 		txt.append(super.getPCCText(true));
 
-		//
-		// For custom domains, we need to save the domain list as it won't be saved with the spell (unless the spell is also custom)
-		// in which case it will be saved in the spell's DOMAIN tag
-		//
-		boolean bFirst = true;
-		final SpellSupport ss = getSpellSupport();
-		for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
-		{
-			final Object obj = e.next();
-
-			if (obj instanceof Spell)
-			{
-				String spellName = obj.toString();
-				if (ss.containsInfoFor("DOMAIN", spellName))
-				{
-					if (bFirst)
-					{
-						txt.append('\t').append("SPELLLEVEL:DOMAIN");
-						bFirst = false;
-					}
-					final int spellLevel = ss.getInfo("DOMAIN", spellName).level;
-					txt.append('|').append(getKeyName()).append('=').append(spellLevel).append('|').append(obj.toString());
-				}
-			}
-		}
 
 		// Granted feats
 		StringBuffer featString = new StringBuffer();
@@ -389,6 +345,7 @@ public final class Domain extends PObject
 		{
 			txt.append('\t').append("FEAT:").append(featString);
 		}
+		
 		return txt.toString();
 	}
 
