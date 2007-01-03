@@ -105,7 +105,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private static String lastVariable = null;
 
 	// List of Armor Proficiencies
-	private final ArrayList<String> armorProfList = new ArrayList<String>();
+	private final List<String> armorProfList = new ArrayList<String>();
 
 	// List of misc items (Assets, Magic items, etc)
 	private final ArrayList<String> miscList = new ArrayList<String>(3);
@@ -182,7 +182,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// .CLEAR-TEMPLATES from clearing the OLDER template languages.
 	private final List<Language> templateAutoLanguages = new ArrayList<Language>();
 	private final SortedSet<Language> templateLanguages = new TreeSet<Language>();
-	private final TreeSet<Language> languages = new TreeSet<Language>();
+	private final SortedSet<Language> languages = new TreeSet<Language>();
 	private StringKeyMap stringChar = new StringKeyMap();
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
@@ -1938,7 +1938,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/**
 	 * Gets the character's list of languages.
 	 * 
-	 * @return An unmodifiable langauge set.
+	 * @return An unmodifiable language set.
 	 */
 	public SortedSet<Language> getLanguagesList()
 	{

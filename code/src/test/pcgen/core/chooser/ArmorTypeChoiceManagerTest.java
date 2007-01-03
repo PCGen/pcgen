@@ -154,7 +154,7 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager =
+		ChoiceManagerList<String> choiceManager =
 				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
@@ -174,8 +174,8 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 			List choices = (List) aField.get(choiceManager);
 			is(choices.size(), eq(0));
 
-			ArrayList avail = new ArrayList();
-			ArrayList selected = new ArrayList();
+			List<String> avail    = new ArrayList<String>();
+			List<String> selected = new ArrayList<String>();
 
 			choiceManager.getChoices(myChar, avail, selected);
 
@@ -199,7 +199,7 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 
-		ChoiceManagerList choiceManager =
+		ChoiceManagerList<String> choiceManager =
 				ChooserUtilities.getChoiceManager(pObj, null, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
@@ -219,8 +219,8 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 			List choices = (List) aField.get(choiceManager);
 			is(choices.size(), eq(0));
 
-			ArrayList avail = new ArrayList();
-			ArrayList selected = new ArrayList();
+			List<String> avail    = new ArrayList<String>();
+			List<String> selected = new ArrayList<String>();
 
 			choiceManager.getChoices(myChar, avail, selected);
 

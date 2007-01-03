@@ -74,7 +74,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the Lanaguage Level Ability
+	 * Test the Language Level Ability
 	 */
 	public void testLanguage()
 	{
@@ -112,7 +112,7 @@ public class LevelAbilityTest extends AbstractCharacterTestCase
 		}
 		catch (HeadlessException e)
 		{
-			Logging.debugPrint("Ignoring Headless excpetion.");
+			Logging.debugPrint("Ignoring Headless exception.");
 		}
 	}
 

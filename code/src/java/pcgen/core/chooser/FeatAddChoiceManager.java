@@ -96,7 +96,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 					if (
 						ability.isType(featType) &&
 						aPc.canSelectAbility(ability) &&
-						!availableList.contains(ability)
+						!availableList.contains(ability.toString())
 					   )
 					{
 						availableList.add(ability.toString());

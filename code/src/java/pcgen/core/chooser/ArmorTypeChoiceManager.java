@@ -65,8 +65,8 @@ public class ArmorTypeChoiceManager extends AbstractComplexChoiceManager<String>
 	 */
 	public void getChoices(
 			final PlayerCharacter aPc,
-			final List<String>            availableList,
-			final List<String>            selectedList)
+			final List<String>    availableList,
+			final List<String>    selectedList)
 	{
 		List<String> armorProfs = aPc.getArmorProfList();
 		for ( String profKey : armorProfs )
