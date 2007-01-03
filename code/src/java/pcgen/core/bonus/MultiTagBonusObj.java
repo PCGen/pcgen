@@ -70,16 +70,8 @@ public abstract class MultiTagBonusObj extends BonusObj
 		return (String) obj;
 	}
 
-	protected String getBonusTag(final int tagNumber)
-	{
-		System.err.println("Need to override getBonusTag in " + getClass().getName());
-		return "";
-	}
+	protected abstract String getBonusTag(final int tagNumber);
 
-	protected int getBonusTagLength()
-	{
-		System.err.println("Need to override getBonusTagLength in " + getClass().getName());
-		return 0;
-	}
+	protected abstract int getBonusTagLength();
 
 }
