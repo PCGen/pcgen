@@ -148,9 +148,7 @@ public class AbilityLst implements GlobalLstToken
 				{
 					final PreParserFactory factory =
 							PreParserFactory.getInstance();
-					final String preString =
-							key.substring(key.indexOf(':') + 1);
-					final Prerequisite r = factory.parse(preString);
+					final Prerequisite r = factory.parse(key);
 					preReqs.add(r);
 				}
 				else
