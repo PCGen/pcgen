@@ -37,47 +37,47 @@ import java.io.IOException;
 import java.io.Writer;
 
 public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
-                PrerequisiteWriterInterface
+		PrerequisiteWriterInterface
 {
 
-        /* (non-Javadoc)
-         * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-         */
-        public String kindHandled()
-        {
-                return "AGESET";  //$NON-NLS-1$
-        }
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
+	 */
+	public String kindHandled()
+	{
+		return "AGESET";  //$NON-NLS-1$
+	}
 
-        /* (non-Javadoc)
-         * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-         */
-        //TODO default should be GE, opposite LT, support others as well
-        public PrerequisiteOperator[] operatorsHandled()
-        {
-                return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
-                        PrerequisiteOperator.NEQ};
-        }
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
+	 */
+	//TODO default should be GE, opposite LT, support others as well
+	public PrerequisiteOperator[] operatorsHandled()
+	{
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
+			PrerequisiteOperator.NEQ};
+	}
 
-        /* (non-Javadoc)
-         * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-         */
-        public void write(Writer writer, Prerequisite prereq)
-                throws PersistenceLayerException
-        {
-                checkValidOperator(prereq, operatorsHandled());
-                try
-                {
-                        if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
-                        {
-                                writer.write('!');
-                        }
-                        writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));  
-                        writer.write(prereq.getKey());
-                }
-                catch (IOException e)
-                {
-                        throw new PersistenceLayerException(e.getMessage());
-                }
-        }
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
+	 */
+	public void write(Writer writer, Prerequisite prereq)
+		throws PersistenceLayerException
+	{
+		checkValidOperator(prereq, operatorsHandled());
+		try
+		{
+			if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
+			{
+				writer.write('!');
+			}
+			writer.write("PREAGESET:" + (prereq.isOverrideQualify() ? "Q:":""));  
+			writer.write(prereq.getKey());
+		}
+		catch (IOException e)
+		{
+			throw new PersistenceLayerException(e.getMessage());
+		}
+	}
 
 }

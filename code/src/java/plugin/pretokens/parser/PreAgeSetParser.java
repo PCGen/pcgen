@@ -32,11 +32,11 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  */
 public class PreAgeSetParser extends AbstractPrerequisiteListParser
-                implements PrerequisiteParserInterface
-                {
+		implements PrerequisiteParserInterface
+		{
 
-        public String[] kindsHandled() {
-                return new String[]{"AGESET"}; //$NON-NLS-1$
-        }
-        
+	public String[] kindsHandled() {
+		return new String[]{"AGESET"}; //$NON-NLS-1$
+	}
+
 }
