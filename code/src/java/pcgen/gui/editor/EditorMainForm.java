@@ -973,7 +973,7 @@ public final class EditorMainForm extends JDialog
 				//
 				// Save level and hit dice abilities
 				//
-				thisPCTemplate.addHitDiceString(".CLEAR");
+				thisPCTemplate.clearHitDiceStrings();
 				thisPCTemplate.clearLevelAbilities();
 				sel = pnlLevelAbilities.getSelectedList();
 

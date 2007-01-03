@@ -32,7 +32,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.core.levelability.LevelAbility;
@@ -62,8 +61,6 @@ public final class PCTemplate extends PObject implements HasCost
 
 	private AbilityStore abilityCatStore = null;
 	private List<String> featStrings = null;
-	/** A Map storing a List of Ability keys Keyed on AbilityCategory */
-	private Map<AbilityCategory, List<String>> theAutoAbilityKeys = null;
 	private List<String> hitDiceStrings = null;
 	private List<String> templates = new ArrayList<String>();
 
@@ -574,31 +571,6 @@ public final class PCTemplate extends PObject implements HasCost
 			}
 
 			txt.append("\tFEAT:").append(buffer.toString());
-		}
-		// TODO - Need a tag for this
-		if (theAutoAbilityKeys != null)
-		{
-			final Set<AbilityCategory> categories = theAutoAbilityKeys.keySet();
-			for (final AbilityCategory category : categories)
-			{
-				if (category == AbilityCategory.FEAT)
-				{
-					continue;
-				}
-
-				final StringBuffer buffer = new StringBuffer();
-				for (final String key : theAutoAbilityKeys.get(category))
-				{
-					if (buffer.length() != 0)
-					{
-						buffer.append(Constants.PIPE);
-					}
-					buffer.append(key);
-				}
-				txt.append("\tABILITY:AUTO|CATEGORY=").append(
-					category.getKeyName()).append("|")
-					.append(buffer.toString());
-			}
 		}
 
 		if (!Constants.s_NONE.equals(gender))
@@ -1139,15 +1111,6 @@ public final class PCTemplate extends PObject implements HasCost
 	 */
 	public void addHitDiceString(final String hitDiceString)
 	{
-		if (".CLEAR".equals(hitDiceString))
-		{
-			if (hitDiceStrings != null)
-			{
-				hitDiceStrings.clear();
-			}
-
-			return;
-		}
 		StringTokenizer tok = new StringTokenizer(hitDiceString, ":");
 		String hdStr = tok.nextToken();
 		String typeStr = tok.nextToken();
@@ -1182,6 +1145,17 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		hitDiceStrings.add(hitDiceString);
+	}
+
+	/**
+	 * Clear the list of HD strings for this template. 
+	 */
+	public void clearHitDiceStrings()
+	{
+		if (hitDiceStrings != null)
+		{
+			hitDiceStrings.clear();
+		}
 	}
 
 	/**
@@ -1421,12 +1395,6 @@ public final class PCTemplate extends PObject implements HasCost
 		if (getListSize(featStrings) != 0)
 		{
 			aTemp.featStrings = new ArrayList<String>(featStrings);
-		}
-
-		if (theAutoAbilityKeys != null)
-		{
-			aTemp.theAutoAbilityKeys = new HashMap<AbilityCategory, List<String>>(
-				theAutoAbilityKeys);
 		}
 
 		if (chosenFeatStrings != null)
@@ -1827,7 +1795,6 @@ public final class PCTemplate extends PObject implements HasCost
 	 * @param aPC
 	 *            The PC that this Template is appled to
 	 */
-	// TODO - This should be refactored to use the LevelAbility code.
 	private void getLevelFeat(final String featString, final int lvl,
 		final String aKey, final PlayerCharacter aPC)
 	{
@@ -1885,64 +1852,6 @@ public final class PCTemplate extends PObject implements HasCost
 		aPC.setAllowFeatPoolAdjustment(true);
 
 		addChosenFeat(aKey, featKe);
-	}
-
-	private void getLevelAbility(final String anAbilityString,
-		final int aLevel, final PlayerCharacter aPC)
-	{
-		String abilityKey = null;
-		while (true)
-		{
-			List<String> abilityList = new ArrayList<String>();
-			final LevelAbility la = LevelAbility.createAbility(this, aLevel,
-				"FEAT(" + anAbilityString + ")");
-
-			la.process(abilityList, aPC, null);
-
-			switch (abilityList.size())
-			{
-				case 1:
-					abilityKey = abilityList.get(0);
-
-					break;
-
-				default:
-
-					if ((aPC != null) && !aPC.isImporting())
-					{
-						Collections.sort(abilityList);
-
-						final ChooserInterface c = ChooserFactory
-							.getChooserInstance();
-						c.setPool(1);
-						c.setTitle("Ability Choice");
-						c.setAvailableList(abilityList);
-						c.setVisible(true);
-						abilityList = c.getSelectedList();
-
-						if ((abilityList != null) && (abilityList.size() != 0))
-						{
-							abilityKey = abilityList.get(0);
-
-							continue;
-						}
-					}
-
-					// fall-through intentional
-				case 0:
-					return;
-			}
-
-			break;
-		}
-		final LevelAbility la = LevelAbility.createAbility(this, aLevel,
-			"FEAT(" + abilityKey + ")");
-
-		aPC.setAllowFeatPoolAdjustment(false);
-		la.process(null, aPC, null);
-		aPC.setAllowFeatPoolAdjustment(true);
-
-		addChosenFeat("L" + aLevel, abilityKey);
 	}
 
 	/**
@@ -2034,30 +1943,10 @@ public final class PCTemplate extends PObject implements HasCost
 		addAbilityString("CATEGORY=FEAT|" + abilityString);
 	}
 
-	public void addAbilityString(final AbilityCategory aCategory,
-		final String anAbilityKey)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			addFeatString(anAbilityKey);
-			return;
-		}
-
-		if (theAutoAbilityKeys == null)
-		{
-			theAutoAbilityKeys = new HashMap<AbilityCategory, List<String>>();
-		}
-		// TODO - Move this to token processing.
-		if (".CLEAR".equals(anAbilityKey))
-		{
-			theAutoAbilityKeys.put(aCategory, null);
-			return;
-		}
-
-	}
-
 	/**
-	 * TODO DOCUMENT ME!
+	 * Retrieve the list of the keynames of any feats
+	 * that the PC qualifies for at the supplied level and
+	 * hit dice. 
 	 * 
 	 * @param level
 	 *            TODO DOCUMENT ME!
@@ -2167,70 +2056,6 @@ public final class PCTemplate extends PObject implements HasCost
 		}
 
 		return feats;
-	}
-
-	public List<String> getAutoAbilityKeys(final AbilityCategory aCategory,
-		final PlayerCharacter aPC, final boolean addNew)
-	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return this.feats(aPC.getTotalLevels(), aPC.totalHitDice(), aPC,
-				addNew);
-		}
-
-		List<String> ret = null;
-
-		if (theAutoAbilityKeys != null)
-		{
-			ret = theAutoAbilityKeys.get(aCategory);
-		}
-		if (ret == null)
-		{
-			ret = new ArrayList<String>();
-		}
-
-		// Add all the abilities we have already chosen
-		if (theChosenAbilityKeys != null)
-		{
-			final Map<String, String> choices = theChosenAbilityKeys
-				.get(aCategory);
-			ret.addAll(choices.values());
-		}
-
-		if (theLevelAbilities != null)
-		{
-			for (int lvl = 0; lvl < aPC.getTotalLevels(); lvl++)
-			{
-				// TODO - Need to deal with this
-				final String abilityString = theLevelAbilities.get(lvl,
-					"ABILITY");
-				if (abilityString != null)
-				{
-					this.getLevelAbility(abilityString, lvl, aPC);
-				}
-			}
-		}
-
-		for (int x = 0; x < getListSize(hitDiceStrings); ++x)
-		{
-			final String featKey = "H" + Integer.toString(x);
-			String featName = null;
-
-			if (chosenFeatStrings != null)
-			{
-				featName = chosenFeatStrings.get(featKey);
-			}
-
-			if ((featName == null) && addNew)
-			{
-				if (doesHitDiceQualify(aPC.totalHitDice(), x))
-				{
-					getLevelFeat(hitDiceStrings.get(x), -1, featKey, aPC);
-				}
-			}
-		}
-
-		return ret;
 	}
 
 	/**

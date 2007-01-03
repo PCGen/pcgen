@@ -40,7 +40,7 @@ import pcgen.util.Logging;
  * @author  David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-final class PCTemplateLoader
+public final class PCTemplateLoader
 {
 	/** Creates a new instance of PCTemplateLoader */
 	private PCTemplateLoader()
