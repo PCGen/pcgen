@@ -254,7 +254,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private SponsorLoader sponsorLoader = new SponsorLoader();
 	private RaceLoader raceLoader = new RaceLoader();
 	private final Set<String> sourcesSet = new TreeSet<String>();
-	private BioSet bioSet = new BioSet();
 	private SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
 	private SkillLoader skillLoader = new SkillLoader();
 	private SpellLoader spellLoader = new SpellLoader();
@@ -1737,7 +1736,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			catch (PersistenceLayerException ple)
 			{
-				logError("Unable to parse the companion modifiers file: '"
+				logError("Unable to parse the equipment file: '"
 					+ aURL + "':'" + aLine + "' " + ple.getMessage());
 			}
 		}
@@ -1815,7 +1814,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 			catch (PersistenceLayerException ple)
 			{
-				logError("Unable to parse the companion modifiers file: '"
+				logError("Unable to parse the template file: '"
 					+ aURL + "':'" + aLine + "' " + ple.getMessage());
 			}
 		}
