@@ -116,6 +116,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private String pcgenVersionSuffix;
 	private boolean calcFeatPoolAfterLoad = false;
 	private double baseFeatPool = 0.0;
+	private boolean featsPresent = false;
 
 	/**
 	 * Constructor
@@ -2270,9 +2271,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if (nature == Ability.Nature.NORMAL)
 			{
-				// TODO - Ability Object - Remove this if statement when feats
-				// aren't duplicated.
-				if (category != AbilityCategory.FEAT)
+				// If we weren't loading an old character who had feats stored as seperate
+				// lines, save the feat now.
+				if (!featsPresent || category != AbilityCategory.FEAT)
 				{
 					thePC.addAbility(category, ability, null);
 				}
@@ -2355,6 +2356,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						// add it to the list
 						thePC.addFeat(anAbility, null);
 					}
+					
+					featsPresent  = true;
 				}
 				else
 				{
