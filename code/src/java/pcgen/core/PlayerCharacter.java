@@ -50,6 +50,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import pcgen.core.Ability.Nature;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 // import pcgen.core.bonus.TypedBonus;
@@ -8034,7 +8035,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		setAggregateAbilitiesStable(null, false);
 		// setAutomaticFeatsStable(false);
 		// setAggregateFeatsStable(false);
-		// AbilityUtilities.rebuildAutoAbilityList(this);
+		getAutomaticAbilityList(AbilityCategory.FEAT);
 		// rebuildFeatAggreagateList();
 
 		calcActiveBonuses();
@@ -17517,6 +17518,20 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						stableAutomaticFeatList);
 
 				}
+			}
+		}
+		
+		// Grab any Abilities of category FEAT lurking in any PObjects
+		for (PObject pobj : getPObjectList())
+		{
+			for (String key : pobj.getAbilityKeys(this, AbilityCategory.FEAT, Nature.AUTOMATIC))
+			{
+				Logging.errorPrint("Got ability key " + key + " from " + pobj + ".");
+				Ability added =
+						AbilityUtilities
+							.addCloneOfGlobalAbilityToListWithChoices(
+								stableAutomaticFeatList,
+								Constants.FEAT_CATEGORY, key);
 			}
 		}
 		return stableAutomaticFeatList;

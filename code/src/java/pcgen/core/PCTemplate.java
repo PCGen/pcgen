@@ -59,7 +59,6 @@ public final class PCTemplate extends PObject implements HasCost
 	// Static properties
 	// /////////////////////////////////////////////////////////////////////
 
-	private AbilityStore abilityCatStore = null;
 	private List<String> featStrings = null;
 	private List<String> hitDiceStrings = null;
 	private List<String> templates = new ArrayList<String>();
@@ -548,12 +547,6 @@ public final class PCTemplate extends PObject implements HasCost
 		if ((favoredClass != null) && (favoredClass.length() > 0))
 		{
 			txt.append("\tFAVOREDCLASS:").append(favoredClass);
-		}
-
-		if (abilityCatStore != null && !abilityCatStore.isEmpty())
-		{
-			txt.append("\tABILITY:");
-			txt.append(abilityCatStore.getParsableStringRepresentation());
 		}
 
 		if (getListSize(featStrings) > 0)
@@ -1385,13 +1378,6 @@ public final class PCTemplate extends PObject implements HasCost
 			aTemp.hitDiceStrings = new ArrayList<String>(hitDiceStrings);
 		}
 
-		if (abilityCatStore != null && !abilityCatStore.isEmpty())
-		{
-			aTemp.abilityCatStore = new AbilityStore();
-			aTemp.abilityCatStore.addAbilityInfo(abilityCatStore
-				.getParsableStringRepresentation(), "", "|", false, false);
-		}
-
 		if (getListSize(featStrings) != 0)
 		{
 			aTemp.featStrings = new ArrayList<String>(featStrings);
@@ -1894,37 +1880,6 @@ public final class PCTemplate extends PObject implements HasCost
 	}
 
 	/**
-	 * Add a | separated list of available abilities that this Template may
-	 * grant. This is the function called by the Lst parser to make the
-	 * Abilities available to this Template.
-	 * 
-	 * See AbilityStore.addAbilityInfo for details of the string
-	 * 
-	 * @param abilityString
-	 */
-	public void addAbilityString(final String abilityString)
-	{
-
-		if (".CLEAR".equals(abilityString))
-		{
-			abilityCatStore = null;
-			return;
-		}
-
-		if (abilityString == null || "".equals(abilityString))
-		{
-			return;
-		}
-
-		if (abilityCatStore == null)
-		{
-			abilityCatStore = new AbilityStore();
-		}
-
-		abilityCatStore.addAbilityInfo(abilityString, "", "|", false, false);
-	}
-
-	/**
 	 * Add a | separated list of available feats that this Template may grant.
 	 * This is the function called by the Lst parser to make the feats available
 	 * to this Template
@@ -1936,11 +1891,15 @@ public final class PCTemplate extends PObject implements HasCost
 	{
 		if (".CLEAR".equals(abilityString))
 		{
-			abilityCatStore = null;
+			featStrings = null;
 			return;
 		}
 
-		addAbilityString("CATEGORY=FEAT|" + abilityString);
+		if (featStrings == null)
+		{
+			featStrings = new ArrayList<String>();
+		}
+		featStrings.add(abilityString);
 	}
 
 	/**
@@ -1971,22 +1930,6 @@ public final class PCTemplate extends PObject implements HasCost
 		else
 		{
 			feats = new ArrayList<String>();
-		}
-
-		/*
-		 * This is very, very temporary.
-		 * 
-		 * This needs to be changed very soon so that this entire routine uses
-		 * AbilityInfo objects instead of the names of abilities.
-		 */
-		if (abilityCatStore != null)
-		{
-			Iterator<Categorisable> it = abilityCatStore.getKeyIterator("ALL");
-
-			while (it.hasNext())
-			{
-				feats.add(it.next().getKeyName());
-			}
 		}
 
 		// arknight modified this back in 1.27 with the comment: Added support

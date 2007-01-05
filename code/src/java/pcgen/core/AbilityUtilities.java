@@ -344,10 +344,7 @@ public class AbilityUtilities
 
 		if (anAbility == null)
 		{
-			ShowMessageDelegate.showMessageDialog(
-					"Adding unknown feat: " + anAbilityKey,
-					Constants.s_APPNAME,
-					MessageType.INFORMATION);
+			Logging.errorPrint("Attempted to add unknown feat: " + anAbilityKey);
 		}
 		else
 		{
