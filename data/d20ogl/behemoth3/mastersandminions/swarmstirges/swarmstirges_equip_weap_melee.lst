@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan  5 13:03:37 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/
 # Original Entry by: Eddy Anthony
 
-# Equipment Name		Output Name			Required Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page		Special Property
-Shocklash (Diminutive)	OUTPUTNAME:Shocklash	PROFICIENCY:Shocklash	TYPE:Weapon.Exotic.Melee.Standard.Reach.Finesseable.Subdual.Slashing	COST:250	WT:-		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	WIELD:OneHanded	SIZE:D	SOURCEPAGE:P.23	SPROP:+1d4 nonlethal electrical damage
-Shocklash (Small)		OUTPUTNAME:Shocklash	PROFICIENCY:Shocklash	TYPE:Weapon.Exotic.Melee.Standard.Reach.Finesseable.Subdual.Slashing	COST:250	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	WIELD:OneHanded	SIZE:S	SOURCEPAGE:P.23	SPROP:+1d4 nonlethal electrical damage
-Shocklash (Medium)	OUTPUTNAME:Shocklash	PROFICIENCY:Shocklash	TYPE:Weapon.Exotic.Melee.Standard.Reach.Finesseable.Subdual.Slashing	COST:250	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:OneHanded	SIZE:M	SOURCEPAGE:P.23	SPROP:+1d4 nonlethal electrical damage
+# Equipment Name		Output Name			Required Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Reach Multiplier	Size		Source Page		Special Property
+Shocklash (Diminutive)	OUTPUTNAME:Shocklash	PROFICIENCY:Shocklash	TYPE:Weapon.Exotic.Melee.Standard.Reach.Finesseable.Subdual.Slashing	COST:250	WT:-		CRITMULT:x2			CRITRANGE:1			DAMAGE:1	WIELD:OneHanded	REACHMULT:2		SIZE:D	SOURCEPAGE:P.23	SPROP:+1d4 nonlethal electrical damage
+Shocklash (Small)		OUTPUTNAME:Shocklash	PROFICIENCY:Shocklash	TYPE:Weapon.Exotic.Melee.Standard.Reach.Finesseable.Subdual.Slashing	COST:250	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	WIELD:OneHanded	REACHMULT:2		SIZE:S	SOURCEPAGE:P.23	SPROP:+1d4 nonlethal electrical damage
+Shocklash (Medium)	OUTPUTNAME:Shocklash	PROFICIENCY:Shocklash	TYPE:Weapon.Exotic.Melee.Standard.Reach.Finesseable.Subdual.Slashing	COST:250	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:OneHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:P.23	SPROP:+1d4 nonlethal electrical damage

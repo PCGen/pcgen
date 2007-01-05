@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Dec 18 04:13:40 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Jan  5 13:02:46 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 
@@ -76,11 +76,11 @@ Rod (Wyrm/White)		OUTPUTNAME:Rod of the White Wyrm	PROFICIENCY:Quarterstaff	TYPE
 
 
 ###Block: weapons for Rod of Epic Might selections
-# Equipment Name		Output Name						Required Proficiency	Type															Cost			Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	MODS		Range		Size		Source Page					Weapon prop. bonus					Special Property
-Battleaxe (Epic Might)	OUTPUTNAME:+8 Battleaxe				PROFICIENCY:Battleaxe	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Axe				COST:1280310	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	MODS:NO			SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|8|TYPE=Enhancement
-Longsword (Epic Might)	OUTPUTNAME:+3 Longsword of Fiery Blasting	PROFICIENCY:Longsword	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:1620315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	MODS:NO			SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:+3d6 fire damage. On a critical hit deals +3d6 additional fire damage.
-Longspear (Epic Might)	OUTPUTNAME:+10 Longspear			PROFICIENCY:Longspear	TYPE:Magic.Epic.Enhancement.Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear	COST:2000305	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	WIELD:TwoHanded	MODS:NO			SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|10|TYPE=Enhancement
-Shortspear (Epic Might)	OUTPUTNAME:+10 Shortspear			PROFICIENCY:Shortspear	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear	COST:2000302	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded	MODS:NO	RANGE:20	SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|10|TYPE=Enhancement
+# Equipment Name		Output Name						Required Proficiency	Type															Cost			Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	MODS		Range		Reach Multiplier	Size		Source Page					Weapon prop. bonus					Special Property
+Battleaxe (Epic Might)	OUTPUTNAME:+8 Battleaxe				PROFICIENCY:Battleaxe	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Axe				COST:1280310	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	MODS:NO						SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|8|TYPE=Enhancement
+Longsword (Epic Might)	OUTPUTNAME:+3 Longsword of Fiery Blasting	PROFICIENCY:Longsword	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:1620315	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	MODS:NO						SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:+3d6 fire damage. On a critical hit deals +3d6 additional fire damage.
+Longspear (Epic Might)	OUTPUTNAME:+10 Longspear			PROFICIENCY:Longspear	TYPE:Magic.Epic.Enhancement.Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear	COST:2000305	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD	WIELD:TwoHanded	MODS:NO			REACHMULT:2		SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|10|TYPE=Enhancement
+Shortspear (Epic Might)	OUTPUTNAME:+10 Shortspear			PROFICIENCY:Shortspear	TYPE:Magic.Epic.Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear	COST:2000302	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded	MODS:NO	RANGE:20				SIZE:M	SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:WEAPON|DAMAGE,TOHIT|10|TYPE=Enhancement
 
 
 ###Block: Staves

@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Apr  4 22:27:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan  5 13:05:09 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach		Size		Special Property
-Cutlass							PROFICIENCY:Cutlass		TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword	COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:STEEL	WIELD:OneHanded			SIZE:M
-Flindbar							PROFICIENCY:Flindbar		TYPE:Weapon.Melee.Exotic.Standard.Bludgeoning		COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light				SIZE:M	SPROP:+2 bonus on opposed attack rolls made to disarm.
-Korred Shears						PROFICIENCY:Korred Shears	TYPE:Weapon.Melee.Exotic.Standard.Slashing		COST:0	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light				SIZE:M
-Whip (6 tail)	OUTPUTNAME:Six-tailed Whip	PROFICIENCY:Whip			TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Slashing	COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10			WIELD:OneHanded	REACH:15	SIZE:M
+# Equipment Name	Output Name				Required Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Special Property
+Cutlass							PROFICIENCY:Cutlass		TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword	COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:STEEL	WIELD:OneHanded				SIZE:M
+Flindbar							PROFICIENCY:Flindbar		TYPE:Weapon.Melee.Exotic.Standard.Bludgeoning		COST:4	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light					SIZE:M	SPROP:+2 bonus on opposed attack rolls made to disarm.
+Korred Shears						PROFICIENCY:Korred Shears	TYPE:Weapon.Melee.Exotic.Standard.Slashing		COST:0	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:Light					SIZE:M
+Whip (6 tail)	OUTPUTNAME:Six-tailed Whip	PROFICIENCY:Whip			TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Slashing	COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10			WIELD:OneHanded	REACHMULT:2		SIZE:M
 
