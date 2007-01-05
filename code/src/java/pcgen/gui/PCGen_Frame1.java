@@ -50,6 +50,7 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.EventObject;
@@ -70,6 +71,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.ProgressMonitor;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
@@ -130,7 +132,6 @@ import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Tab;
 
-// WIP please leave boomer70
 import pcgen.core.npcgen.NPCGenerator;
 
 /**
@@ -449,11 +450,13 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 				frame.enableOpen(true);
 			}
 
+			frame.pcgenMenuBar.treasureItem.setEnabled(false);
 			return;
 		}
 
 		frame.enableOpen(true);
 		frame.enableLstEditors(true);
+		frame.pcgenMenuBar.treasureItem.setEnabled(true);
 
 		final int currTab = baseTabbedPane.getSelectedIndex();
 		if (currTab < FIRST_CHAR_TAB && currTab > 0)
@@ -1269,18 +1272,18 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 	{
 		final PlayerCharacter pc = new PlayerCharacter();
 		
-		NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
+		final NPCGeneratorDlg genDlg = new NPCGeneratorDlg();
 		genDlg.pack();
 		genDlg.setVisible(true);
 
 		if (genDlg.getValue() == NPCGeneratorDlg.OK_BUTTON)
 		{
-			NPCGenerator npcgen = NPCGenerator.getInst();
+			final NPCGenerator npcgen = NPCGenerator.getInst();
 			npcgen.generate(pc, genDlg.getAlignment(),
-								  genDlg.getRace(), genDlg.getGender(),
-								  genDlg.getClassList(), genDlg.getLevels(),
-									  genDlg.getRollMethod(),
-									  genDlg.getNameChoice());
+					  genDlg.getRace(), genDlg.getGender(),
+					  genDlg.getClassList(), genDlg.getLevels(),
+						  genDlg.getRollMethod(),
+						  genDlg.getNameChoice());
 
 			Globals.getPCList().add(pc);
 			Globals.setCurrentPC(pc);
@@ -2528,6 +2531,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 		JMenuItem saveAllItem;
 		JMenuItem saveAsItem;
 		JMenuItem saveItem;
+		JMenuItem treasureItem;
 		JOpenRecentMenu openRecentPCMenu;
 		JOpenRecentMenu openRecentPartyMenu;
 
@@ -2717,6 +2721,17 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 			JMenu toolsMenu = Utility.createMenu("mnuTools", "wrench.gif", true);
 			MenuItems.this.add(toolsMenu);
 
+			treasureItem = Utility.createMenuItem("mnuToolsTreasure", 
+					new ActionListener()
+					{
+						public void actionPerformed(final ActionEvent e)
+						{
+							new TreasureGeneratorDlg( (Frame)getParent().getParent().getParent() );
+						}
+					},
+					"tools.teasure",
+					"shortcut T", null, true);
+			toolsMenu.add(treasureItem);
 			/*JMenuItem converterItem = Utility.createMenuItem("mnuToolsLstConverter",
 					new ActionListener()
 					{

@@ -520,8 +520,9 @@ public class NPCGenerator
 	 * @param aRace Race options to choose from
 	 * @param aGender Gender options to choose from
 	 * @param classList <tt>List</tt> of class options to choose from
-	 * @param levels <tt>List</tt> of 
-	 * @param aRollMethod
+	 * @param levels <tt>List</tt> of level choices
+	 * @param aRollMethod the RollMethod to use for stats
+	 * @param aNameChoice the name set to pick a name from
 	 */
 	public void generate(	final PlayerCharacter aPC, 
 							final AlignGeneratorOption align,
@@ -530,7 +531,7 @@ public class NPCGenerator
 							final List<ClassGeneratorOption> classList, 
 							final List<LevelGeneratorOption> levels,
 							final GameModeRollMethod aRollMethod,
-							final NameElement nameChoice)
+							final NameElement aNameChoice)
 	{
 		// Force a more quiet process
 		final String oldChooser = ChooserFactory.getInterfaceClassname();
@@ -569,8 +570,10 @@ public class NPCGenerator
 			}
 			if ( aPC.getRace() == Globals.s_EMPTYRACE )
 			{
+				Logging.errorPrint("Unable to select race");
 				return;
 			}
+			
 			final String gender = getGender( aGender );
 			Logging.debugPrint( "NPCGenerator: Selecting " + gender + " for gender " + aGender ); //$NON-NLS-1$ //$NON-NLS-2$
 			aPC.setGender( gender );
@@ -613,6 +616,7 @@ public class NPCGenerator
 				{
 					continue;
 				}
+				
 				final PCClass classCopy = (PCClass)aClass.clone();
 				if ( classCopy.hasSubClass() )
 				{
@@ -709,6 +713,7 @@ public class NPCGenerator
 					}
 				}
 			}
+			
 			final String randBioString = "EYES.HAIR.SKIN.HT.WT.AGE."; //$NON-NLS-1$
 			Globals.getBioSet().randomize(randBioString, aPC);
 			
@@ -734,7 +739,7 @@ public class NPCGenerator
 			aPC.setBirthplace(globalBirthplaceList.get(Globals.getRandomInt(globalBirthplaceList.size())));
 			
 			final Names nameGen = Names.getInstance();
-			nameGen.init(nameChoice, aPC);
+			nameGen.init(aNameChoice, aPC);
 			aPC.setName(nameGen.getRandomName());
 		}
 		catch (Exception e)

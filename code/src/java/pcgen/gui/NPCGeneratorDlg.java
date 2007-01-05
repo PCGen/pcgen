@@ -365,7 +365,8 @@ public class NPCGeneratorDlg extends JDialog
 
 		mainPanel.add(buttonPanel, java.awt.BorderLayout.SOUTH);
 
-		getContentPane().add(mainPanel);
+		getContentPane().setLayout(new BorderLayout());
+		getContentPane().add(mainPanel, BorderLayout.CENTER);
 	}
 
 	private void createClassPanel(final JPanel workPanel, final int number)
