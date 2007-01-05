@@ -70,6 +70,22 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SPELLBOOK.0.NAME</code></p>
 		<p class="indent3">Displays the name of the 1st spell book for the character.</p>
+		
+		<p></p><a name="SPELLBOOKNAME"></a><hr>
+		<p class="indent0"><strong>Token Name:</strong> SPELLBOOKNAME.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (The book number of the spellbook title you wish to display).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Displays the title of spellbook x in the character spellbook list.</li>
+			<li>The Known Spellbook is any class but 0, spellbook number 0.</li>
+			<li>The Racial Innate Spellbook is class 0, spellbook number 1.</li>
+			<li>Other Innate Spellbooks are class 0, spellbook number 2 or up.</li>
+			<li>The Innate spellbooks will not exist if the character does not have innate spells.</li>
+			<li>The -1 Spellbook should not be used any more.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>SPELLBOOKNAME.0</code></p>
+		<p class="indent3">Display Spell Book 0 (the default spellbook).</p>
 
 		<p></p><a name="SPELLLIST"></a><hr>
 		<p class="new">*** updated 5.7.9</p>
