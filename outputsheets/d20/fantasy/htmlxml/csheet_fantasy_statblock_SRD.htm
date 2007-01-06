@@ -247,6 +247,8 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
 |FOR.0,COUNT[SKILLS],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
 -->
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|IIF(SKILL.%skill.TYPE:SkillUse)|
+|ELSE|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|
@@ -254,6 +256,7 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
 |ENDIF|
 |ELSE|
 |SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
+|ENDIF|
 |ENDIF|
 |ENDFOR|
 

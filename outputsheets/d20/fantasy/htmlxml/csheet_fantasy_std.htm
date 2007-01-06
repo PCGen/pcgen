@@ -525,14 +525,16 @@ Wisdom
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
      <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>UNARMED</b></font></td>
-     <td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
-     <td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td>
-     <td align="center" bgcolor="black" width="20%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
+     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td>
+     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
     </tr>
     <tr>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|WEAPONH.TOTALHIT|<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|WEAPONH.DAMAGE|<br /></b></font></td>
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|WEAPONH.CRIT|/x|WEAPONH.MULT|<br /></b></font></td>
+     <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>|REACH|<br /></b></font></td>
     </tr>
    </table>
    <font style="font-size:2pt"><br /></font>
@@ -573,16 +575,18 @@ Wisdom
 |ELSE|
     <tr>
      <td align="center" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>|WEAPON.%weap.NAME|<br /></b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
     </tr>
     <tr>
-     <td align="center" bgcolor="white" class="border" class="font8"><b>|WEAPON.%weap.HAND|<br /></b></td>
-     <td align="center" bgcolor="white" class="border" class="font8"><b>|WEAPON.%weap.TYPE|<br /></b></td>
-     <td align="center" bgcolor="white" class="border" class="font8"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td align="center" bgcolor="white" class="border" class="font8"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8" class="font8"><b>|WEAPON.%weap.HAND|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8" class="font8"><b>|WEAPON.%weap.TYPE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8" class="font8"><b>|WEAPON.%weap.SIZE|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8" class="font8"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8" class="font8"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
@@ -734,16 +738,18 @@ Wisdom
 |ELSE|
     <tr>
      <td align="center" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>|WEAPON.%weap.NAME|<br /></b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
     </tr>
     <tr>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.HAND|<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.TYPE|<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.SIZE|<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
@@ -1780,16 +1786,18 @@ Wisdom
 |ELSE|
      <tr>
       <td align="center" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>|WEAPON.%weap.NAME|<br /></b></font></td>
-      <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
-      <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
-      <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
-      <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
+      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
+      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
+      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
      </tr>
      <tr>
       <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.HAND|<br /></b></td>
       <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.TYPE|<br /></b></td>
       <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.SIZE|<br /></b></td>
       <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
      </tr>
     </table>
     <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="weapon Overflow">
@@ -2028,16 +2036,18 @@ Wisdom
 |ELSE|
     <tr>
      <td align="center" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>|WEAPON.%weap.NAME|<br /></b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
-     <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
     </tr>
     <tr>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.HAND|<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.TYPE|<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.SIZE|<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|<br /></b></td>
+     <td align="center" bgcolor="white" class="border8"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
     </tr>
    </table>
    <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -2600,7 +2610,7 @@ Wisdom
  </tr>
 |FOR,%note,0,COUNT[NOTES]-1,1,1|
  <tr>
-  <td class="notetab" width="20%">|NOTE.%note.NAME|</td><td class="notetab" width="80%">|NOTE.%note.VALUE. .<br />|</td>
+  <td class="notetab" width="20%">|NOTE.%note.NAME|</td><td class="notetab" width="80%">|NOTE.%note.VALUE|</td>
  </tr>
 |ENDFOR|
 </table>
