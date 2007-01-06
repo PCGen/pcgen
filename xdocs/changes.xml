@@ -17,6 +17,10 @@
       <action dev="jdempsey" type="fix" issue="1584302">Extra feats remaining after load of 5.10.1 character.</action>
       <action dev="jdempsey" type="fix" issue="1519429">Feat tab - Problems when column order swapped.</action>
       <action dev="jdempsey" type="fix" issue="1517762">Bug with 'BONUS:WEAPONPROF=' in LST editor.</action>
+      <action dev="tir-gwaith" type="fix" issue="1623630">Search (secret doors and hidden compartments) not working correctly.</action>
+      <action dev="frank_kliewe" type="fix" issue="1620975">[RSRD] Literacy is missing in languages.</action>
+      <action dev="frank_kliewe" type="fix" issue="1618934">[RSRD] missing scrolls.</action>
+      <action dev="eddyanthony" type="fix" issue="1615157">Masterwork price bug with Special Material & Plus EQMOD.</action>
     </release>
     <release version="5.11.5" date="2006-12-24" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1613069">Correct processing of various spell sort orders</action>
