@@ -111,36 +111,6 @@ public class PrereqObject implements Cloneable
 	}
 
 	/**
-	 * Replaces the prerequisite at the index specified.
-	 * 
-	 * <p><b>Warning:</b> This method is dangerous and should not be used unless
-	 * you know what you are doing.
-	 * 
-	 * @param index The index into the list of prerequisites to replace.
-	 * @param aPreReq The new prerequisite object.
-	 * 
-	 * @throws    IndexOutOfBoundsException if the index is out of range
-     *		      (index &lt; 0 || index &gt;= size()).
-	 */
-	final void setPreReq(final int index, final Prerequisite aPreReq)
-	{
-		thePrereqs.set(index, aPreReq);
-	}
-
-	/**
-	 * Set the prerequisite list to the list specified.
-	 * 
-	 * <p><b>Warning:</b> This method is dangerous and should not be used unless
-	 * you know what you are doing.
-	 * 
-	 * @param aPrereqList The list of prerequisites to set.
-	 */
-	public void setPrereqList(final List<Prerequisite> aPrereqList)
-	{
-		thePrereqs = aPrereqList;
-	}
-
-	/**
 	 * Tests if the specified PlayerCharacter passes all the prerequisites.
 	 * 
 	 * @param aPC The <tt>PlayerCharacter</tt> to test.
@@ -160,25 +130,12 @@ public class PrereqObject implements Cloneable
 	/** TODO This is rather foobar'd */
 	final public boolean passesPreReqToGain(final Equipment p, final PlayerCharacter aPC)
 	{
-		if (getPreReqCount() == 0)
+		if (!hasPreReqs())
 		{
 			return true;
 		}
 
 		return PrereqHandler.passesAll(thePrereqs, p, aPC);
-	}
-
-
-	/**
-	 * Get the pre requesite at an index
-	 * 
-	 * @param i The index to retrieve.
-	 * 
-	 * @return the <tt>Prerequesite</tt> at the index
-	 */
-	public final Prerequisite getPreReq(final int i)
-	{
-		return thePrereqs.get(i);
 	}
 
 	/**
@@ -194,26 +151,6 @@ public class PrereqObject implements Cloneable
 			return Collections.unmodifiableList(thePrereqs);
 		}
 		return null;
-	}
-
-	/**
-	 * Get a clone of the prerequisite list.
-	 * 
-	 * <p>This is a deep copy of the prerequisite list, meaning that not only 
-	 * is the list itself cloned but all the prerequisites are cloned as well.
-	 * 
-	 * @return A clone of the prerequisite list
-	 * @throws CloneNotSupportedException if the prerequisite objects can't be
-	 * cloned.
-	 */
-	public List<Prerequisite> getClonePreReqList() throws CloneNotSupportedException
-	{
-		final List<Prerequisite> newList = new ArrayList<Prerequisite>(thePrereqs.size());
-		for ( Prerequisite element : thePrereqs )
-		{
-			newList.add( (Prerequisite)element.clone());
-		}
-		return newList;
 	}
 
 	/**
@@ -292,15 +229,13 @@ public class PrereqObject implements Cloneable
 	 */
 	public final boolean hasPreReqTypeOf(final String matchType)
 	{
-		if (getPreReqCount() == 0)
+		if (!hasPreReqs())
 		{
 			return false;
 		}
 
-		for (int i = 0; i < getPreReqCount(); ++i)
+		for (Prerequisite prereq : getPreReqList())
 		{
-			final Prerequisite prereq = getPreReq(i);
-
 			if (prereq != null)
 			{
 				if (matchType == null && prereq.getKind() == null)

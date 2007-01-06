@@ -865,7 +865,7 @@ public final class Skill extends PObject
 		return skillReadOnly;
 	}
 
-	public Object clone()
+	public Skill clone()
 	{
 		Skill newSkill = null;
 

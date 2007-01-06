@@ -396,7 +396,7 @@ class LevelAbilityFeat extends LevelAbility
 
 			if (allowDups)
 			{
-				if (anAbility.getPreReqCount() != 0)
+				if (anAbility.hasPreReqs())
 				{
 					hasPrereqs = true;
 				}

@@ -57,7 +57,7 @@ public final class CompanionMod extends PObject
 	 *
 	 * @return  a copy of this Ability
 	 */
-	public Object clone()
+	public CompanionMod clone()
 	{
 		CompanionMod cmpMod = null;
 

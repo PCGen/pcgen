@@ -592,15 +592,13 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
 
 		boolean bEmpty = true;
 		sb.append('[');
-		if (getPreReqList() != null)
-		{
-			for (int i = 0; i < getPreReqList().size(); ++i)
-			{
-				if (i > 0)
+		if (hasPreReqs()) {
+			for (Prerequisite p : getPreReqList()) {
+				if (!bEmpty)
 				{
 					sb.append('|');
 				}
-				sb.append(this.getPreReq(i).getDescription(shortForm));
+				sb.append(p.getDescription(shortForm));
 				bEmpty = false;
 			}
 		}

@@ -192,14 +192,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 					if (aBonus.hasPreReqs())
 					{
-						try
-						{
-							newBonus.setPrereqList(aBonus.getClonePreReqList());
-						}
-						catch (CloneNotSupportedException e)
-						{
-							// TODO Handle this?
-						}
+						newBonus.addPrerequisites(aBonus.getPreReqList());
 					}
 
 					// call expandToken to handle prereqs
@@ -812,7 +805,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  a clone of the EquipmentModifier
 	 */
-	public Object clone()
+	public EquipmentModifier clone()
 	{
 		EquipmentModifier aObj = null;
 
@@ -1370,10 +1363,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 				return true;
 			}
 
-			for (int i = 0; i < getPreReqCount(); ++i)
+			for (Prerequisite preReq : getPreReqList())
 			{
-				final Prerequisite preReq = getPreReq(i);
-
 				if (
 					"TYPE".equalsIgnoreCase(preReq.getKind()) &&
 					(

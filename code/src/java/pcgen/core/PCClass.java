@@ -3995,7 +3995,7 @@ public class PCClass extends PObject {
 	}
 
 	@Override
-	public Object clone() {
+	public PCClass clone() {
 		PCClass aClass = null;
 
 		try {

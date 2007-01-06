@@ -124,7 +124,7 @@ public final class PCStat extends PObject
 		return rolled;
 	}
 
-	public Object clone()
+	public PCStat clone()
 	{
 		PCStat newObj = null;
 

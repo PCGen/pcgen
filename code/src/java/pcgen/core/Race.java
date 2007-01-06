@@ -846,7 +846,7 @@ public final class Race extends PObject
 		startingAC = anInt;
 	}
 
-	public Object clone()
+	public Race clone()
 	{
 		Race aRace = null;
 
@@ -1051,12 +1051,10 @@ public final class Race extends PObject
 
 	boolean canBeAlignment(final String aString)
 	{
-		if (getPreReqCount() != 0)
+		if (hasPreReqs())
 		{
-			for (int e = 0; e < getPreReqCount(); e++)
+			for (Prerequisite prereq : getPreReqList())
 			{
-				final Prerequisite prereq = getPreReq(e);
-
 				if ("ALIGN".equalsIgnoreCase( prereq.getKind() ))
 				{
 					String alignStr = aString;

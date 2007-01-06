@@ -3268,7 +3268,7 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 	 *
 	 * @return Description of the Return Value
 	 */
-	public Object clone()
+	public Equipment clone()
 	{
 		Equipment eq = null;
 
@@ -4040,10 +4040,8 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 			//
 			// Since we've just resized the item, we need to modify any PRESIZE prerequisites
 			//
-			for (int i = 0; i < getPreReqCount(); ++i)
+			for (Prerequisite aBonus : getPreReqList())
 			{
-				final Prerequisite aBonus = getPreReq(i);
-
 				if ("SIZE".equalsIgnoreCase(aBonus.getKind()))
 				{
 					final int iOldPre = Globals.sizeInt( aBonus.getOperand() );
@@ -4051,8 +4049,9 @@ public final class Equipment extends PObject implements Serializable, EquipmentC
 
 					if ((iNewSize >= 0) && (iNewSize <= (SettingsHandler.getGame().getSizeAdjustmentListSize() - 1)))
 					{
+						// Note: This actually impacts the Prereq in this Equipment, since it is returned 
+						// by reference from the get above ... thus no need to perform a set
 						aBonus.setOperand( SettingsHandler.getGame().getSizeAdjustmentAtIndex(iNewSize).getAbbreviation() );
-						setPreReq(i, aBonus);
 					}
 				}
 			}

@@ -61,18 +61,14 @@ public class PrerequisiteWriter
 	 */
 	static public String prereqsToString(final PObject pObj)
 	{
-		final int iCount = pObj.getPreReqCount();
-		if (iCount != 0)
-		{
+		if (pObj.hasPreReqs()) {
 			final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 			final StringWriter swriter = new StringWriter();
-			for (int i = 0; i < iCount; ++i)
-			{
-				final Prerequisite prereq = pObj.getPreReq(i);
+			for (Prerequisite p : pObj.getPreReqList()) {
 				try
 				{
 					swriter.write('\t');
-					prereqWriter.write(swriter, prereq);
+					prereqWriter.write(swriter, p);
 				}
 				catch (Exception e1)
 				{

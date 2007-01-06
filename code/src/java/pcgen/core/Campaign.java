@@ -1271,7 +1271,7 @@ public final class Campaign extends PObject
 		return ret;
 	}
 
-	public Object clone()
+	public Campaign clone()
 	{
 		Campaign newCampaign = null;
 

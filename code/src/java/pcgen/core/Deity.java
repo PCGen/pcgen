@@ -134,7 +134,7 @@ public final class Deity extends PObject
 	 *
 	 * @return A clone of the Deity object.
 	 */
-	public Object clone()
+	public Deity clone()
 	{
 		Deity d = null;
 

@@ -1,5 +1,4 @@
 /*
- * PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -1267,7 +1266,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * @throws CloneNotSupportedException
 	 */
 	@Override
-	public Object clone() throws CloneNotSupportedException
+	public PObject clone() throws CloneNotSupportedException
 	{
 		final PObject retVal = (PObject) super.clone();
 		retVal.stringChar = new HashMap<StringKey, String>();
@@ -2802,14 +2801,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append(movement.toLSTString());
 		}
 
-		iCount = getPreReqCount();
-
-		if (iCount != 0)
+		if (hasPreReqs())
 		{
 			final StringWriter writer = new StringWriter();
-			for (int i = 0; i < iCount; ++i)
+			for (Prerequisite prereq : getPreReqList())
 			{
-				final Prerequisite prereq = getPreReq(i);
 				final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 				try
 				{

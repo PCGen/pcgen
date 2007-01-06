@@ -3032,25 +3032,25 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		for (int i = 0, x = thisPObject.getPreReqCount(); i < x; ++i)
-		{
-			// TODO: This hack is here because there is currently no
-			// specific Prerequisite editor. The code curently relies
-			// on the assumption that input format==in memory format== output format
-			// This assumption is WRONG
-			StringWriter writer = new StringWriter();
-			Prerequisite prereq = thisPObject.getPreReq(i);
-			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-			try
-			{
-				prereqWriter.write(writer, prereq);
-			}
-			catch (PersistenceLayerException e1)
-			{
-				e1.printStackTrace();
-			}
+		if (thisPObject.hasPreReqs()) {
+			for (Prerequisite p : thisPObject.getPreReqList()) {
+				// TODO: This hack is here because there is currently no
+				// specific Prerequisite editor. The code curently relies
+				// on the assumption that input format==in memory format== output format
+				// This assumption is WRONG
+				StringWriter writer = new StringWriter();
+				PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+				try
+				{
+					prereqWriter.write(writer, p);
+				}
+				catch (PersistenceLayerException e1)
+				{
+					e1.printStackTrace();
+				}
 
-			selectedList.add(writer.toString());
+				selectedList.add(writer.toString());
+			}
 		}
 
 		if (anEditType != EditorConstants.EDIT_CLASS)

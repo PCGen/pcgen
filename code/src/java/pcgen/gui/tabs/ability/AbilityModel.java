@@ -459,10 +459,8 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				// the other prereqs
 				List<Prerequisite> preReqList = new ArrayList<Prerequisite>();
 
-				for (int pi = ability.getPreReqCount() - 1; pi >= 0; --pi)
+				for (Prerequisite prereq : ability.getPreReqList())
 				{
-					final Prerequisite prereq = ability.getPreReq(pi);
-
 					// TODO - Fix this. See comment above.
 					if ((prereq.getKind() != null)
 						&& prereq.getKind().equalsIgnoreCase("FEAT")) //$NON-NLS-1$

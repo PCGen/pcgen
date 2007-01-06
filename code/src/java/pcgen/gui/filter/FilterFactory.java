@@ -20,6 +20,13 @@
  */
 package pcgen.gui.filter;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+
 import pcgen.core.*;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -28,8 +35,6 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
-
-import java.util.*;
 
 /**
  * <code>FilterFactory</code>
@@ -1117,15 +1122,15 @@ abstract class AlignmentFilter extends AbstractPObjectFilter
 			return false;
 		}
 
-		for (int it = 0; it < pObject.getPreReqCount(); it++)
-		{
-			Prerequisite tmp = pObject.getPreReq(it);
-			// TODO - Fix prereqs to not use/give out strings.
-			if ("ALIGN".equalsIgnoreCase( tmp.getKind() )) //$NON-NLS-1$
-			{
-				prealign = new StringBuffer(tmp.getKey() );
+		if (pObject.hasPreReqs()) {
+			for (Prerequisite p : pObject.getPreReqList()) {
+				// TODO - Fix prereqs to not use/give out strings.
+				if ("ALIGN".equalsIgnoreCase( p.getKind() )) //$NON-NLS-1$
+				{
+					prealign = new StringBuffer(p.getKey() );
 
-				break;
+					break;
+				}
 			}
 		}
 
