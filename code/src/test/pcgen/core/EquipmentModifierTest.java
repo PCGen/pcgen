@@ -138,12 +138,12 @@ public class EquipmentModifierTest extends PCGenTestCase
 		{
 			assertEquals("-2", bonusObj.getValue());
 
-			final Prerequisite prereq = bonusObj.getPreReq(0);
+			final Prerequisite prereq = bonusObj.getPreReqList().get(0);
 			assertEquals("+13", prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
 		}
 		assertEquals("-2", aBonus.getValue());
-		final Prerequisite prereq = aBonus.getPreReq(0);
+		final Prerequisite prereq = aBonus.getPreReqList().get(0);
 		assertEquals("%CHOICE", prereq.getKey());
 	}
 
@@ -168,13 +168,13 @@ public class EquipmentModifierTest extends PCGenTestCase
 			final BonusObj bonusObj = list.get(j);
 			assertEquals("-2", bonusObj.getValue());
 
-			final Prerequisite prereq = bonusObj.getPreReq(0);
+			final Prerequisite prereq = bonusObj.getPreReqList().get(0);
 			assertEquals("+" + i, prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
 			i++;
 		}
 		assertEquals("-2", aBonus.getValue());
-		final Prerequisite prereq = aBonus.getPreReq(0);
+		final Prerequisite prereq = aBonus.getPreReqList().get(0);
 		assertEquals("%CHOICE", prereq.getKey());
 	}
 }
