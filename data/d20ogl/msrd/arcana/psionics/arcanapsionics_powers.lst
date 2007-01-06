@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan  6 04:52:14 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # References to "Battle Mind" are "Battle Mind" and will need to be changed with the MSRD is changed (msrd_classes_fx.lst)
 
-# Spell Name			Output Name					Classes of caster				School			Spell Descriptors					Type			Components				Casting Time		Range				Target Area																					Duration								Save Info						Spell Resistance				Required Template										Description												Source Page
+# Spell Name			Output Name					Classes of caster				School			Spell Descriptors					Type			Components				Casting Time		Range				Target Area or Effect																			Duration								Save Info						Spell Resistance				Required Template										Description												Source Page
 Biofeedback										CLASSES:Battle Mind=1			SCHOOL:Strength									TYPE:Psionic	COMPS:Material, Visual		CASTTIME:Attack action	RANGE:Personal		TARGETAREA:You																				DURATION:(CASTERLEVEL) minutes																													DESC:Some damage taken as nonlethal								SOURCEPAGE:ArcanaPsionics.rtf
 Bite of the Tiger									CLASSES:Battle Mind=3			SCHOOL:Strength									TYPE:Psionic	COMPS:Material, Visual		CASTTIME:Attack action	RANGE:Personal		TARGETAREA:You																				DURATION:(CASTERLEVEL) hours					SAVEINFO:None					SPELLRES:No																	DESC:Bite for 2d8 points of damage								SOURCEPAGE:ArcanaPsionics.rtf
 Call Weaponry									CLASSES:Telepath,Psionic Agent=1	SCHOOL:Dexterity		DESCRIPTOR:Teleportation			TYPE:Psionic	COMPS:Audible, Material		CASTTIME:Attack action	RANGE:Touch			TARGETAREA:1 unattended weapon (see text)																DURATION:(CASTERLEVEL) hours (see text)			SAVEINFO:None					SPELLRES:No																	DESC:Summon weapon to your hand								SOURCEPAGE:ArcanaPsionics.rtf
@@ -42,7 +42,7 @@ Ubiquitous Vision									CLASSES:Psionic Agent=3			SCHOOL:Wisdom									TYPE:P
 White Noise										CLASSES:Battle Mind,Telepath=1	SCHOOL:Constitution								TYPE:Psionic						CASTTIME:Attack action	RANGE:Personal		TARGETAREA:(CASTERLEVEL*5) ft radius																DURATION:(CASTERLEVEL) minutes				SAVEINFO:None					SPELLRES:No																	DESC:Scramble electronic transmissions							SOURCEPAGE:ArcanaPsionics.rtf
 
 ###Block: Creature Specific Spell abilities
-# Spell Name	Key Attribute	School		Spell Descriptors			Type			Components			Casting Time		Range		Target Area												Duration									Save Info					Spell Resistance	Description				Source Page
+# Spell Name	Key Attribute	School		Spell Descriptors			Type			Components			Casting Time		Range		Target Area or Effect										Duration									Save Info					Spell Resistance	Description				Source Page
 Detect Dreams	STAT:CHA		SCHOOL:Charisma	DESCRIPTOR:Mind-Affecting	TYPE:Psionic	COMPS:Visual,Mental	CASTTIME:Attack action	RANGE:60 ft	TARGETAREA:Quarter-circle emanating from you to the extreme of the range	DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:Will negates (see text)	SPELLRES:No		DESC:Detect targets dreams.	SOURCEPAGE:ArcanaCreatures.rtf
 #
 # End

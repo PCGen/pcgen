@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan  6 04:52:14 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Psionics
-# Spell Name				Classes of caster				Key Attribute	School			Spell Descriptors								Type			Components				Casting Time			Range				Target Area																			Duration													Save Info						Spell Resistance				Description																				Source Page
+# Spell Name				Classes of caster				Key Attribute	School			Spell Descriptors								Type			Components				Casting Time			Range				Target Area or Effect																	Duration													Save Info						Spell Resistance				Description																				Source Page
 Attraction					CLASSES:Telepath=1			STAT:CHA		SCHOOL:Charisma		DESCRIPTOR:Compulsion|Mind-Affecting				TYPE:Psionic	COMPS:Audible			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One living creature															DURATION:(CASTERLEVEL) hours										SAVEINFO:Will negates				SPELLRES:Yes				DESC:Target develops an attraction the manifester specifies.											SOURCEPAGE:msrdpsionics.rtf
 Brain Lock					CLASSES:Telepath=2			STAT:CHA		SCHOOL:Charisma		DESCRIPTOR:Mind-Affecting						TYPE:Psionic	COMPS:Visual,Material		CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One creature of Medium-size or smaller												DURATION:(CASTERLEVEL) rounds [D]									SAVEINFO:Will negates				SPELLRES:Yes				DESC:Target cant move or take any mental actions.													SOURCEPAGE:msrdpsionics.rtf
 Burst						CLASSES:Telepath=0			STAT:DEX		SCHOOL:Dexterity												TYPE:Psionic	COMPS:Audible			CASTTIME:See text			RANGE:Close			TARGETAREA:One living creature															DURATION:1 round																									DESC:Speed improves by 10 feet for 1 round.														SOURCEPAGE:msrdpsionics.rtf

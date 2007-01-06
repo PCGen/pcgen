@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan  6 04:52:14 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 ###Block: Magic
-# Spell Name				Output Name					Classes of caster			School			Sub-School			Spell Descriptors						Type				Components		Casting Time			Range							Target Area																										Duration													Save Info											Spell Resistance							Description																				Source Page
+# Spell Name				Output Name					Classes of caster			School			Sub-School			Spell Descriptors						Type				Components		Casting Time			Range							Target Area or Effect																								Duration													Save Info											Spell Resistance							Description																				Source Page
 Aid												CLASSES:Acolyte=2			SCHOOL:Enchantment					DESCRIPTOR:Mind-Affecting				TYPE:Divine			COMPS:V,S,DF	CASTTIME:Attack action		RANGE:Touch						TARGETAREA:Living creature touched																						DURATION:(CASTERLEVEL) minutes									SAVEINFO:None										SPELLRES:Yes (harmless)						DESC:+1 attack, +1 on saves against fear, 1d8 temporary hit points.										SOURCEPAGE:msrdspells.rtf
 Animate Dead										CLASSES:Mage=4|Acolyte=3	SCHOOL:Necromancy						DESCRIPTOR:Evil						TYPE:Arcane.Divine	COMPS:V,S,M		CASTTIME:Attack action		RANGE:Touch						TARGETAREA:One or more corpses touched																					DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No								DESC:Creates undead skeletons and zombies.														SOURCEPAGE:msrdspells.rtf
 Arcane Eye											CLASSES:Mage=4			SCHOOL:Divination														TYPE:Arcane			COMPS:V,S,M		CASTTIME:10 minutes		RANGE:Unlimited					TARGETAREA:Magical sensor																							DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:None										SPELLRES:No								DESC:Invisible floating eye moves 30 ft./round.														SOURCEPAGE:msrdspells.rtf
