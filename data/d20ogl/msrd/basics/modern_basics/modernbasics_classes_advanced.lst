@@ -72,7 +72,7 @@ CLASS:Infiltrator	HD:8		TYPE:Advanced.PC	ABB:Infi		MAXLEVEL:10	BONUS:CHECKS|BASE
 # Class Name	Req. Att.	Required Skill
 CLASS:Infiltrator	PREATT:2	PRESKILL:2,Hide,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Tumble
+CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Investigate|Jump|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
 1				SA:Sweep				BONUS:CHECKS|BASE.Reflex|var("CL=Infiltrator")/2+2
 2				SA:Improvised Implements
 3																		ADD:FEAT(TYPE=Infiltrator)
