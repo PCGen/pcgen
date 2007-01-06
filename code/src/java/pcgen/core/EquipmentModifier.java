@@ -192,7 +192,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 					if (aBonus.hasPreReqs())
 					{
-						newBonus.addPrerequisites(aBonus.getPreReqList());
+						try
+						{
+							newBonus.addPrerequisites(aBonus.getClonePreReqList());
+						}
+						catch (CloneNotSupportedException e)
+						{
+							// TODO Handle this?
+						}
 					}
 
 					// call expandToken to handle prereqs

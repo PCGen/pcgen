@@ -364,4 +364,24 @@ public class PrereqObject implements Cloneable
 		}
 		return obj;
 	}
+	
+	/**
+	 * Get a clone of the prerequisite list.
+	 * 
+	 * <p>This is a deep copy of the prerequisite list, meaning that not only 
+	 * is the list itself cloned but all the prerequisites are cloned as well.
+	 * 
+	 * @return A clone of the prerequisite list
+	 * @throws CloneNotSupportedException if the prerequisite objects can't be
+	 * cloned.
+	 */
+	public List<Prerequisite> getClonePreReqList() throws CloneNotSupportedException
+	{
+		final List<Prerequisite> newList = new ArrayList<Prerequisite>(thePrereqs.size());
+		for ( Prerequisite element : thePrereqs )
+		{
+			newList.add( (Prerequisite)element.clone());
+		}
+		return newList;
+	}
 }
