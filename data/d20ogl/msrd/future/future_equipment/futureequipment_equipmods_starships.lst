@@ -169,7 +169,7 @@ Decoy drone launcher		KEY:DFNS_DECOY_LNCH_8	TYPE:Transportation.Starship	VISIBLE
 #COST:28 for 1 launcher and 1 drone, 25 for each additional drone, make drones equipment?
 Displacer				KEY:DFNS_DISPLACER	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL7,PL8,PL9																																											SPROP:Defense (Displacer,attacks against the displacing ship have a 30% miss chance), Mil(+3)
 #COST:BASECOST/2+10
-Heavy Fortification		KEY:DFNS_MEDM_FRTFCTN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9																																												SPROP:Defense (Heavy Fortification, converts all critical hits into regular hits), Lic(+1)
+Heavy Fortification		KEY:DFNS_HEAVY_FRTFCTN	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL9																																												SPROP:Defense (Heavy Fortification, converts all critical hits into regular hits), Lic(+1)
 #COST:BASECOST/2+10
 Improved Autopilot System	KEY:DFNS_IMP_AUTOPILOT	TYPE:Transportation.Starship	VISIBLE:QUALIFY					SOURCEPAGE:FutureStarship.rtf	PRETYPE:1,PL6,PL7,PL8,PL9				BONUS:VAR|sDefenseAuto|3|TYPE=Equipment|PREVAREQ:sSize,6	BONUS:VAR|sDefenseAuto|4|TYPE=Equipment|PREVAREQ:sSize,7	BONUS:VAR|sDefenseAuto|5|TYPE=Equipment|PREVAREQ:sSize,8									SPROP:Defense (Improved Autopilot System)
 #COST:BASECOST/2+5
