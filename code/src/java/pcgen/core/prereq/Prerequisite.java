@@ -312,7 +312,7 @@ public class Prerequisite implements Cloneable
 	 *
 	 * @see java.lang.Object#clone()
 	 */
-	public Object clone() throws CloneNotSupportedException
+	public Prerequisite clone() throws CloneNotSupportedException
 	{
 		final Prerequisite copy = (Prerequisite) super.clone();
 
@@ -321,7 +321,7 @@ public class Prerequisite implements Cloneable
 			copy.prerequisites = new ArrayList<Prerequisite>();
 			for ( Prerequisite subreq : prerequisites )
 			{
-				copy.prerequisites.add((Prerequisite)subreq.clone());
+				copy.prerequisites.add(subreq.clone());
 			}
 		}
 

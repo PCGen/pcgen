@@ -25,8 +25,6 @@
  */
 package pcgen.core;
 
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
@@ -39,33 +37,14 @@ import java.util.List;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class SpellProhibitor {
+public class SpellProhibitor extends PrereqObject {
 
 	private ProhibitedSpellType type = null;
 	private List<String> valueList = null;
-	private List<Prerequisite> prereqList = null;
 
 	public SpellProhibitor()
 	{
 		//Empty Construtor
-	}
-
-	public void addPreReq(final Prerequisite prereq)
-	{
-		if (prereqList == null)
-		{
-			prereqList = new ArrayList<Prerequisite>();
-		}
-
-		if (!prereqList.contains(prereq))
-		{
-			prereqList.add(prereq);
-		}
-	}
-
-	public List<Prerequisite> getPrereqList()
-	{
-		return prereqList;
 	}
 
 	public ProhibitedSpellType getType()
@@ -105,7 +84,7 @@ public class SpellProhibitor {
 			return false;
 		}
 		
-		if (prereqList != null && !PrereqHandler.passesAll(prereqList, aPC, null))
+		if (!qualifies(aPC))
 		{
 			return false;
 		}
