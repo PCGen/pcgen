@@ -228,7 +228,7 @@ class ClassBasePanel extends BasePanel
 
 		txtDisplayName = new JTextField();
 		abbreviation = new JTextField();
-//		qualify = new JTextField();
+		qualify = new JTextField();
 		exchangeLevel = new JTextField();
 		startSkillPoints = new JTextField();
 		exClass = new JTextField();
@@ -300,12 +300,12 @@ class ClassBasePanel extends BasePanel
 		gridBagConstraints = buildConstraints(gridBagConstraints, 5, 2, true);
 		add(startSkillPoints, gridBagConstraints);
 
-//		tempLabel = new JLabel("Qualify:");
-//		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 3, true);
-//		add(tempLabel, gridBagConstraints);
+		tempLabel = new JLabel("Qualify:");
+		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 3, true);
+		add(tempLabel, gridBagConstraints);
 
-//		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 3, true);
-//		add(qualify, gridBagConstraints);
+		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 3, true);
+		add(qualify, gridBagConstraints);
 
 		tempLabel = new JLabel("Multi-Class Pre-Reqs:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 3, true);
