@@ -86,6 +86,10 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 
 			if ("REQ".equals(colString))
 			{
+				Logging.errorPrint("You are using a deprecated tag "
+						+ "(REQ) in Skills " + skill.getDisplayName() + ':'
+						+ source.getFile() + ':' + colString);
+				Logging.errorPrint("  Use USEUNTRAINED instead");
 				skill.setRequired(true);
 			}
 			else if (token != null)
