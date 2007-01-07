@@ -82,6 +82,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Delta;
 import pcgen.util.DoubleKeyMap;
+import pcgen.util.HashMapToList;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.AttackType;
@@ -146,7 +147,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private final ArrayList<CompanionMod> companionModList = new ArrayList<CompanionMod>();
 	/** This character's list of followers */
 	private final List<Follower> followerList = new ArrayList<Follower>();
-	private List<String> qualifyArrayList = new ArrayList<String>();
+	private HashMapToList<Class, String> qualifyArrayMap = new HashMapToList<Class, String>();
 	private Follower followerMaster = null; // Who is the master now?
 
 	// List of Equip Sets
@@ -4064,9 +4065,14 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return iBonus;
 	}
 
-	public boolean checkQualifyList(final String qualifierItem)
+	public boolean checkQualifyList(Class cl, final String qualifierItem)
 	{
-		return getQualifyList().contains(qualifierItem);
+		/*
+		 * The use of Object.class here is the "universalizer" to account
+		 * for the 5.10.* format of Qualify - which is "allow anything all at once"
+		 */
+		return getQualifyMap().containsInList(cl, qualifierItem)
+				|| getQualifyMap().containsInList(Object.class, qualifierItem);
 	}
 
 	/**
@@ -10837,11 +10843,11 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	/*
 	 * Build on-the-fly so removing templates won't mess up qualify list
 	 */
-	List<String> getQualifyList()
+	HashMapToList<Class, String> getQualifyMap()
 	{
 		if (!qualifyListStable)
 		{
-			qualifyArrayList = new ArrayList<String>();
+			qualifyArrayMap = new HashMapToList<Class, String>();
 
 			// Try all possible POBjects
 			for (PObject pObj : getPObjectList())
@@ -10851,23 +10857,16 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					continue;
 				}
 
-				final String qString = pObj.getQualifyString();
-				final StringTokenizer aTok = new StringTokenizer(qString, "|");
-				while (aTok.hasMoreTokens())
+				if (pObj.containsQualify())
 				{
-					final String qualifier = aTok.nextToken();
-
-					if (!qualifyArrayList.contains(qualifier))
-					{
-						qualifyArrayList.add(qualifier);
-					}
+					qualifyArrayMap.addAllLists(pObj.getQualifyMap());
 				}
 			}
 
 			setQualifyListStable(true);
 		}
 
-		return qualifyArrayList;
+		return qualifyArrayMap;
 	}
 
 	void addVariable(final String variableString)
@@ -14731,7 +14730,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			aClone.classList.add((PCClass) (pcClass.clone()));
 		}
 		aClone.companionModList.addAll(companionModList);
-		aClone.qualifyArrayList.addAll(qualifyArrayList);
+		aClone.qualifyArrayMap.addAllLists(qualifyArrayMap);
 		if (followerMaster != null)
 		{
 			aClone.followerMaster = (Follower) followerMaster.clone();

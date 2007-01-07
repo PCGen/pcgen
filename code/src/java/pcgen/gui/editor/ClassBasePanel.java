@@ -26,6 +26,12 @@ import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
+import pcgen.core.utils.CoreUtility;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.persistence.lst.TokenStore;
+import pcgen.util.HashMapToList;
+import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
 
@@ -106,7 +112,12 @@ class ClassBasePanel extends BasePanel
 		obj.setLevelExchange(exchangeLevel.getText().trim());
 //		obj.setSkillPoints(Integer.parseInt(startSkillPoints.getText().trim()));
 		obj.setSkillPointFormula(startSkillPoints.getText().trim());
-		obj.setQualifyString(qualify.getText().trim());
+		GlobalLstToken token = (GlobalLstToken) TokenStore.inst().getTokenMap(GlobalLstToken.class).get("QUALIFY");
+		try {
+			token.parse(obj, qualify.getText(), -9);
+		} catch (PersistenceLayerException e) {
+			Logging.errorPrint("Invalid QUALIFY: " + qualify.getText(), e);
+		}
 		obj.setExClass(exClass.getText().trim());
 		obj.setHasSubClass(hasSubClass.getSelectedObjects() != null);
 		obj.setModToSkills(modToSkills.getSelectedObjects() != null);
@@ -176,7 +187,15 @@ class ClassBasePanel extends BasePanel
 		exchangeLevel.setText(obj.getLevelExchange());
 //		startSkillPoints.setText(String.valueOf(obj.getSkillPoints()));
 		startSkillPoints.setText(obj.getSkillPointFormula());
-		qualify.setText(obj.getQualifyString());
+		HashMapToList<Class, String> hmtl = obj.getQualifyMap();
+		if (hmtl != null)
+		{
+			List ol = hmtl.getListFor(Object.class);
+			if (ol != null && !ol.isEmpty())
+			{
+				qualify.setText(CoreUtility.join(ol, "|"));
+			}
+		}
 		exClass.setText(obj.getExClass());
 		hasSubClass.setSelected(obj.hasSubClass());
 		modToSkills.setSelected(obj.getModToSkills());
@@ -209,7 +228,7 @@ class ClassBasePanel extends BasePanel
 
 		txtDisplayName = new JTextField();
 		abbreviation = new JTextField();
-		qualify = new JTextField();
+//		qualify = new JTextField();
 		exchangeLevel = new JTextField();
 		startSkillPoints = new JTextField();
 		exClass = new JTextField();
@@ -281,12 +300,12 @@ class ClassBasePanel extends BasePanel
 		gridBagConstraints = buildConstraints(gridBagConstraints, 5, 2, true);
 		add(startSkillPoints, gridBagConstraints);
 
-		tempLabel = new JLabel("Qualify:");
-		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 3, true);
-		add(tempLabel, gridBagConstraints);
+//		tempLabel = new JLabel("Qualify:");
+//		gridBagConstraints = buildConstraints(gridBagConstraints, 0, 3, true);
+//		add(tempLabel, gridBagConstraints);
 
-		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 3, true);
-		add(qualify, gridBagConstraints);
+//		gridBagConstraints = buildConstraints(gridBagConstraints, 1, 3, true);
+//		add(qualify, gridBagConstraints);
 
 		tempLabel = new JLabel("Multi-Class Pre-Reqs:");
 		gridBagConstraints = buildConstraints(gridBagConstraints, 2, 3, true);

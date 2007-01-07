@@ -632,11 +632,6 @@ public final class PCTemplate extends PObject implements HasCost
 			txt.append("\tSIZE:").append(templateSize);
 		}
 
-		if (!"alwaysValid".equals(getQualifyString()))
-		{
-			txt.append("\tQUALIFY:").append(getQualifyString());
-		}
-
 		if (!Constants.s_NONE.equals(region))
 		{
 			txt.append("\tREGION:");

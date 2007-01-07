@@ -223,7 +223,82 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
 		aQClass.setAbbrev("QC1");
-		aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
+		aQClass.putQualifyString(PCClass.class, "KEY_PreReqClass");
+		//aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
+
+		final PCClass aNqClass = new PCClass();
+		aNqClass.setName("NonQualClass");
+		aNqClass.setKeyName("KEY_NonQualClass");
+		aNqClass.setAbbrev("NQC");
+		aNqClass.addVariable(0, "Foo", "1");
+		aNqClass.addVariable(2, "Foo", "2");
+
+		// Setup character without prereqs
+		final PlayerCharacter character = getCharacter();
+
+		// Test no prereqs and no bypass fails class and var
+		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
+			.isQualified(character));
+		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
+			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
+
+		// Test no prereqs and bypass passes class and fails var
+		aClassPreRule.setDefault("Y");
+		assertTrue(
+			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
+			aPrClass.isQualified(character));
+		assertEquals(
+			"PC with no prereqs should fail var qual test when bypass prereqs is on.",
+			0.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
+
+		// Test prereqs and bypass pass class and var
+		character.incrementClassLevel(1, aNqClass);
+		assertTrue("PC with prereqs and bypass should pass class qual test.",
+			aPrClass.isQualified(character));
+		character.incrementClassLevel(1, aNqClass);
+		assertEquals("PC with prereqs and bypass should pass var qual test.",
+			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
+
+		// Test prereqs and no bypass passes class and var
+		aClassPreRule.setDefault("N");
+		assertTrue(
+			"PC with prereqs and no bypass should pass class qual test.",
+			aPrClass.isQualified(character));
+		assertEquals(
+			"PC with prereqs and no bypass should pass var qual test.", 10.0,
+			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
+
+	}
+
+	/**
+	 * Test the interaction of prerequisites on PCClasses and bonuses and the
+	 * Bypass Class Prereqs flag.
+	 * @throws Exception
+	 */
+	public void testBypassClassPrereqsDeprecated() throws Exception
+	{
+		// Setup class with prereqs and var based abilities with prereqs.
+		final PreVariableParser parser = new PreVariableParser();
+		final Prerequisite aPrereq =
+				parser.parse("VARGTEQ", "Foo,1", false, false);
+		final RuleCheck aClassPreRule = new RuleCheck();
+		aClassPreRule.setName("CLASSPRE");
+		aClassPreRule.setDefault("N");
+		final GameMode gameMode = SettingsHandler.getGame();
+		gameMode.addRule(aClassPreRule);
+
+		final PCClass aPrClass = new PCClass();
+		aPrClass.setName("PreReqClass");
+		aPrClass.setKeyName("KEY_PreReqClass");
+		aPrClass.setAbbrev("PCl");
+		aPrClass.addBonusList("0|MISC|SR|10|PREVARGTEQ:Foo,2");
+		aPrClass.addPreReq(aPrereq);
+		final PCClass aQClass = new PCClass();
+		aQClass.setName("QualClass");
+		aQClass.setKeyName("KEY_QualClass");
+		aQClass.setAbbrev("QC1");
+		aQClass.putQualifyString(Object.class, "KEY_PreReqClass");
+		aQClass.putQualifyString(Object.class, "PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -674,7 +749,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass.setName("QualClass");
 		qClass.setKeyName("KEY_QualClass");
 		qClass.setAbbrev("QC1");
-		qClass.setQualifyString("KEY_PreReqClass|PreReqVar");
+		qClass.putQualifyString(PCClass.class, "KEY_PreReqClass");
+		//qClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
 		nqClass.setKeyName("KEY_NonQualClass");

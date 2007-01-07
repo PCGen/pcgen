@@ -797,11 +797,6 @@ public final class Race extends PObject
 			txt.append("\tLEVELADJUSTMENT:").append(levelAdjustment);
 		}
 
-		if (!"alwaysValid".equals(getQualifyString()))
-		{
-			txt.append("\tQUALIFY:").append(getQualifyString());
-		}
-
 		if (!Constants.s_NONE.equals(displayName))
 		{
 			txt.append("\tRACENAME:").append(displayName);

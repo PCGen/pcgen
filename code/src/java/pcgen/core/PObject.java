@@ -61,7 +61,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.DoubleKeyMap;
+import pcgen.util.HashMapToList;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
@@ -153,6 +155,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private List<String> weaponProfBonus = null;
 
 	private List<Description> theDescriptions = null;
+	
+	private HashMapToList<Class, String> qualifyKeys = null;
 	
 	/* ************
 	 * Methods
@@ -1609,19 +1613,24 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Set the qualify string
 	 * @param aString
 	 */
-	public final void setQualifyString(final String aString)
+	public final void putQualifyString(Class cl, String key)
 	{
-		stringChar.put(StringKey.QUALIFY, aString);
+		if (qualifyKeys == null)
+		{
+			qualifyKeys = new HashMapToList<Class, String>();
+		}
+		qualifyKeys.addToListFor(cl, key);
 	}
-
-	/**
-	 * Get the qualify string
-	 * @return the qualify string
-	 */
-	public final String getQualifyString()
+	
+	public final boolean containsQualify()
 	{
-		String characteristic = stringChar.get(StringKey.QUALIFY);
-		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
+		return qualifyKeys != null && !qualifyKeys.isEmpty();
+	}
+	
+	//TODO This exposes internal structure - be careful.
+	public final HashMapToList<Class, String> getQualifyMap()
+	{
+		return qualifyKeys;
 	}
 
 	/**
@@ -2849,11 +2858,31 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 		}
 
-		aString = getQualifyString();
-
-		if (!aString.equals("alwaysValid") && aString.length() > 0)
+		HashMapToList<Class, String> hmtl = getQualifyMap();
+		if (hmtl != null) 
 		{
-			txt.append("\tQUALIFY:").append(aString);
+			for (Class cl : hmtl.getKeySet())
+			{
+				String s = StringPClassUtil.getStringFor(cl);
+				List<String> l = hmtl.getListFor(cl);
+				if (l != null) {
+					boolean started = false;
+					for (String key : l) {
+						if (!"alwaysValid".equals(key)) {
+							if (started) {
+								txt.append(Constants.PIPE);
+							} else {
+								txt.append("\tQUALIFY:");
+								if (s.length() > 0) {
+									txt.append(s + Constants.PIPE);
+								}
+								started = true;
+							}
+							txt.append(key);
+						}
+					}
+				}
+			}
 		}
 
 		if (!(this instanceof PCClass))

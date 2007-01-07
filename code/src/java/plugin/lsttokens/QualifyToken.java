@@ -2,8 +2,10 @@ package plugin.lsttokens;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
+import pcgen.core.Constants;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -16,6 +18,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 /**
  * Deals with the QUALIFY token for Abilities
@@ -34,7 +37,27 @@ public class QualifyToken implements GlobalLstToken
 			Logging.errorPrint("Cannot use QUALIFY on a " + obj.getClass());
 			return false;
 		}
-		obj.setQualifyString(value);
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
+		String key = st.nextToken();
+		Class c = StringPClassUtil.getClassFor(key);
+		if (c == null) {
+			c = Object.class;
+			Logging.errorPrint(getTokenName() + " expecting a POBJECT Type, found: " + key);
+			Logging.errorPrint("  5.12 Format is: QualifyType|Key[|Key] value was: " + value);
+			Logging.errorPrint("  Valid QualifyTypes are: " + StringPClassUtil.getValidStrings());
+			Logging.errorPrint("  QUALIFY without a Type will fail after PCGen 5.12");
+		} else {
+			key = st.nextToken();
+		}
+		
+		while (true) {
+			obj.putQualifyString(c, key);
+			if (!st.hasMoreTokens()) {
+				break;
+			}
+			key = st.nextToken();
+		}
+		
 		return true;
 	}
 	
