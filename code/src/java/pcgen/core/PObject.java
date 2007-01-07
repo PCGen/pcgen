@@ -2453,6 +2453,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			if (".CLEAR".equals(aString))
 			{
+				if (aLevel > 0)
+				{
+					Logging.errorPrint("Warning: You performed a Dangerous .CLEAR in a ADD: Token");
+					Logging.errorPrint("  A non-level limited .CLEAR was used in a Class Level line");
+					Logging.errorPrint("  Today, this performs a .CLEAR on the entire PCClass");
+					Logging.errorPrint("  However, you are using undocumented behavior that is subject to change");
+					Logging.errorPrint("  Hint: It will change after PCGen 5.12");
+					Logging.errorPrint("  Please level limit the .CLEAR (e.g. .CLEAR.LEVEL2)");
+					Logging.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
+				}
 				levelAbilityList.clear();
 			}
 			else if (aString.indexOf(".LEVEL") >= 0)
@@ -2469,6 +2479,16 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 					level = -1;
 				}
 
+				if (aLevel > 0 && aLevel != level)
+				{
+					Logging.errorPrint("Warning: You performed a Dangerous .CLEAR in a ADD: Token");
+					Logging.errorPrint("  A level limited .CLEAR was used in a Class Level line");
+					Logging.errorPrint("  But was asked to clear a different Class Level than the Class Level Line it appeared on");
+					Logging.errorPrint("  However, you are using undocumented behavior");
+					Logging.errorPrint("  Please match the level to the limit on the .CLEAR (e.g. 2<tab>ADD:.CLEAR.LEVEL2)");
+					Logging.errorPrint("  ... or put the ADD:.CLEAR on a non-level Class line");
+				}
+				
 				if (level >= 0)
 				{
 					for (int x = levelAbilityList.size() - 1; x >= 0; --x)
