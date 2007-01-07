@@ -150,7 +150,7 @@ public class PrereqObject implements Cloneable
 		{
 			return Collections.unmodifiableList(thePrereqs);
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	/**

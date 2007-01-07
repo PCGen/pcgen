@@ -125,6 +125,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		PObjectLoader.parseTag(object, "PRE:.CLEAR");
 		list = object.getPreReqList();
-		assertNull(list);
+		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
+		assertTrue("Prereqlist should be empty after the clear", list.isEmpty());
 	}
 }
