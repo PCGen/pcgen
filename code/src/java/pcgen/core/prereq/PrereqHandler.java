@@ -57,7 +57,7 @@ public class PrereqHandler {
 	 */
 	public static boolean passesAll(final List<Prerequisite> prereqList, final PlayerCharacter character, final PObject caller)
 	{
-		if (prereqList == null)
+		if (prereqList == null || prereqList.isEmpty())
 		{
 			return true;
 		}
