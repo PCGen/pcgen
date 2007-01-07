@@ -2069,6 +2069,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/QualifyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/LstToken-REGION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2245,13 +2252,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/ability/MultToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/AbilityLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/ability/QualifyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -2781,13 +2781,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/ClassLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/pcclass/QualifyToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/ClassLstToken-SKILLLIST.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2992,13 +2985,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/DeityLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/deity/QualifyToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/DeityLstToken-RACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -3035,13 +3021,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/domain/FeatToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/DomainLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/domain/QualifyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -3214,13 +3193,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/equipment/ProficiencyToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/EquipmentLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/equipment/QualifyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -3547,13 +3519,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/RaceLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/race/QualifyToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/RaceLstToken-RACESUBTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -3642,13 +3607,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/SkillLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/skill/QualifyToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/SkillLstToken-USEUNTRAINED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -3734,13 +3692,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/spell/PpcostToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/SpellLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/spell/QualifyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4005,13 +3956,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/TemplateLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/template/QualifyToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/TemplateLstToken-RACESUBTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -4104,13 +4048,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/weaponprof/HandsToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/WeaponProfLstToken-QUALIFY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/weaponprof/QualifyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
