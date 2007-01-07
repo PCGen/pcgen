@@ -51,11 +51,12 @@ public class PreAgeSetWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
-	//TODO default should be GE, opposite LT, support others as well
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
-			PrerequisiteOperator.NEQ};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
+				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+				PrerequisiteOperator.GT, PrerequisiteOperator.EQ,
+				PrerequisiteOperator.NEQ};
 	}
 
 	/* (non-Javadoc)
