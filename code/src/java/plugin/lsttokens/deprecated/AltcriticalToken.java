@@ -1,12 +1,15 @@
-package plugin.lsttokens.equipment;
+package plugin.lsttokens.deprecated;
 
 import pcgen.core.Equipment;
+import pcgen.core.PObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.persistence.lst.EquipmentLstToken;
+import pcgen.util.PropertyFactory;
 
 /**
  * Deals with ALTCRITICAL token
  */
-public class AltcriticalToken implements EquipmentLstToken
+public class AltcriticalToken implements EquipmentLstToken, DeprecatedToken
 {
 
 	public String getTokenName()
@@ -34,6 +37,16 @@ public class AltcriticalToken implements EquipmentLstToken
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
+	 */
+	public String getMessage(@SuppressWarnings("unused")
+	PObject anObj, @SuppressWarnings("unused")
+	String anValue)
+	{
+		return PropertyFactory.getString("Use ALTCRITMULT instead of ALTCRITICAL"); //$NON-NLS-1$
 	}
 
 }

@@ -28,13 +28,18 @@ public class KnownToken implements PCClassLstToken
 			List<String> knownList = new ArrayList<String>(st.countTokens());
 			while (st.hasMoreTokens())
 			{
-				knownList.add(st.nextToken());
+				String nextToken = st.nextToken();
+				if (nextToken.endsWith("+d")) {
+					Logging.errorPrint("+d use in KNOWN has been deprecated.  " +
+							"Use SPECIALTYKNOWN instead");
+				}
+				knownList.add(nextToken);
 			}
 
 			pcclass.setKnown(level, knownList);
 			return true;
 		}
-		Logging.errorPrint("CAST tag without level not allowed!");
+		Logging.errorPrint("KNOWN tag without level not allowed!");
 		return false;
 	}
 }
