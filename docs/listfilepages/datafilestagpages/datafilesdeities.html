@@ -3,16 +3,16 @@
 <html>
 	<!--
 		PCGen Documentation Project
-			
+
 		$Header: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesdeities.html,v 1.3 2004/09/07 23:21:41 eddyanthony Exp $
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
-		
+
 		Description:
 		Provides information on the content of PCGen Deity Files.
 	-->
@@ -20,17 +20,17 @@
 		<title>Deity Files</title>
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
 	</head>
-	
+
 	<body>
 		<h1>Deity Files</h1>
-		
+
 		<p>The Deity files are used to specify deity pertinent information, such as the
 		domains they grant, what alignments their clerics must be and chosen weapon if they
 		have the War domain.</p>
-		
+
 		<p>The first field is the Deity Name, this is a required
 		field and does not have a tag.</p>
-		
+
 		<p></p><a name="ALIGN"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ALIGN:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (LG, LN, LE, NG, TN, NE, CG, CN or CE)</p>
@@ -49,15 +49,15 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>APPEARANCE:Tall human with dark hair</code></p>
 		<p class="indent3">The deity's description of appearance.</p>
-		  
+
 		<p></p><a name="DEITYWEAP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DEITYWEAP:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a | (pipe) delimited list of the deity's favored weapon(s).</li>
-			<li>If the deity has the War domain, then the weapon listed is granted to the character 
-				as them being proficient with the weapon.</li> 
+			<li>If the deity has the War domain, then the weapon listed is granted to the character
+				as them being proficient with the weapon.</li>
 			<li>The Weapon name MUST match exactly what is listed in the weapon proficiencies list file.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -66,7 +66,7 @@
 		<p class="indent2"><code>DEITYWEAP:Longspear|Shortspear|Halfspear</code></p>
 		<p class="indent3">The deity's favored weapon is either a &quot;Longspear&quot;, &quot;Shortspear&quot;
 		  or &quot;Halfspear&quot;.</p>
-		  
+
 		<p></p><a name="DESC"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> DESC:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Quick Description of the Deity)</p>
@@ -92,7 +92,7 @@
 		  &quot;ALL&quot;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>his is a comma-delimited list of domains that the deity grants to 
+			<li>his is a comma-delimited list of domains that the deity grants to
 				it's divine spell casting followings.</li>
 			<li>the domain name MUST match the domain names listed in the domain list file.</li>
 		</ul>
@@ -131,7 +131,7 @@
 		<ul class="indent2">
 		<li>To specify what pantheon the deity belongs to.</li>
 		<li>This is a | (pipe) delimited list</li>
-		<li>The deity belongs to all pantheons if this tag is not present.</li> 
+		<li>The deity belongs to all pantheons if this tag is not present.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PANTHEON:Celtic</code></p>
@@ -139,6 +139,55 @@
 		<p class="indent2"><code>PANTHEON:Celtic|Elf (Sun)</code></p>
 		<p class="indent3">The deity belongs to the &quot;Celtic&quot; or &quot;Sun Elf&quot;
 		  pantheon.</p>
+
+
+		<p></p><a name="PRERACE"></a><hr>
+		<p class="new">*** NEW 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> PRERACE:y,RACETYPE= &gt;Text&lt;,RACESUBTYPE= &gt;Text&lt; </p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by the race TYPE tag).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined by the race RACETYPE tag).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype defined by the race RACESUBTYPE tag).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">The character must be one of the listed races or possess one of the racial properties.</p>
+		<p class="indent2">TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</p>
+		<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</p>
+		<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</p>
+		<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
+		Without the wildcard character the race name must match exactly.</p>
+		<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>Belisarda &lt;tab&gt; PRERACE:Elorii</code></p>
+		<p class="indent3">Character must be a &quot;Elorii&quot;.</p>
+		<p class="indent2"><code>Fire Drake &lt;tab&gt; !PRERACE:Ss'ressen</code></p>
+		<p class="indent3">Character must not be one of the &quot;Ss'ressen&quot;.</p>
+		<p class="indent2"><code>PRERACE:1,TYPE=Dire</code></p>
+		<p class="indent3">Characters race type must be &quot;Dire&quot;.</p>
+		<p class="indent2"><code>PRERACE:1,RACETYPE=Giant</code></p>
+		<p class="indent3">Characters race type must be &quot;Giant&quot;.</p>
+		<p class="indent2"><code>!PRERACE:1,RACETYPE=Outsider</code></p>
+		<p class="indent3">Characters race type must not be &quot;Outsider&quot;.</p>
+		<p class="indent2"><code>PRERACE:1,RACESUBTYPE=Incorporeal</code></p>
+		<p class="indent3">Character must have the &quot;Incorporeal&quot; subtype.</p>
+		<p class="indent2"><code>PRERACE:2,RACETYPE=Undead,RACESUBTYPE=Incorporeal</code></p>
+		<p class="indent3">Character must have both a race type of &quot;Undead&quot; and a subtype of
+		&quot;Incorporeal&quot;.</p>
+		<p class="indent2"><code>PRERACE:1,%</code></p>
+		<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
+		<p class="indent2"><code>!PRERACE:1,%</code></p>
+		<p class="indent3">This will pass if no race has been selected.</p>
+		<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
+		<p class="indent3">This will pass if no Human race has been selected.</p>
+
+Pegasus &lt;tab&gt; TYPE:Humanoid &lt;tab&gt; RACETYPE:Magical Beast	PRERACE:Human
+Quasideity &lt;tab&gt; SUBRACE:Quasideity
+Demigod &lt;tab&gt; SUBRACE:Demigod
+Lesser Deity &lt;tab&gt; SUBRACE:Lesser Deity
+Intermediate Deity &lt;tab&gt; SUBRACE:Intermediate Deity
+Greater Deity &lt;tab&gt; SUBRACE:Greater Deity
+Overdeity &lt;tab&gt; SUBRACE:Overdeity
+
+
 
 		<p></p><a name="SYMBOL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SYMBOL:x</p>
@@ -148,7 +197,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>SYMBOL:A small wooden cross</code></p>
 		<p class="indent3">The deity's symbol is a small wooden cross.</p>
-		
+
 		<p></p><a name="TITLE"></a><hr>
 		<p class="new">*** New 5.7.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> TITLE:x</p>
@@ -158,7 +207,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TITLE:Lord of the Morning</code></p>
 		<p class="indent3">The deity's title.</p>
-		  
+
 		<p></p><a name="TYPE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> TYPE:x.x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity Type)</p>
@@ -170,7 +219,7 @@
 		<p class="indent3">The deity belongs to the &quot;Good&quot; type.</p>
 		<p class="indent2"><code>TYPE:Good.Chaotic</code></p>
 		<p class="indent3">The deity belongs to the &quot;Good&quot; and &quot;Chaotic&quot; types.</p>
-		
+
 		<p></p><a name="WORSHIPPERS"></a><hr>
 		<p class="new">*** New 5.7.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> WORSHIPPERS:x</p>
@@ -180,7 +229,7 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WORSHIPPERS:Fighters and Monks</code></p>
 		<p class="indent3">The deity's typical worshippers.</p>
-		  
+
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/datafilestagpages/datafilesdeities.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>
 

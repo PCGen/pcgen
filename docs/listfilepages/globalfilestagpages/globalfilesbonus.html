@@ -1009,6 +1009,8 @@
 		<p class="indent3">Adds 10 to &quot;Bluff&quot; &amp; &quot;Listen&quot;.</p>
 		<p class="indent2"><code>BONUS:SKILL|TYPE=Charisma|2</code></p>
 		<p class="indent3">Adds 2 to Charisma type skills.</p>
+		<p class="indent2"><code>BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1</code></p>
+		<p class="indent3">Adds 5 to Spot skill if you don't already have it.</p>
 		<p class="indent2"><code>BONUS:SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
 		<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you figure out the math.</p>
 

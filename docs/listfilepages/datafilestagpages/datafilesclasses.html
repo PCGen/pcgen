@@ -169,10 +169,14 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This tells PCgen the class name and sets up the relationships with skills and spells.</li>
-			<li>This line can be entered twice in a single class entry (appear on 2 separate lines) for purposes of making the
-					lines easier to read in an editor (so as to not have to scroll forever to reach the end of the class line).</li>
+			<li>This line can be entered twice in a single class entry (appear on 2 separate lines) for purposes
+			of making the lines easier to read in an editor (so as to not have to scroll forever to reach the
+			end of the class line).</li>
 			<li>THIS <span class="underline"><strong>MUST</strong></span> BE THE FIRST TAG!!!</li>
-			<li>Symbols that should not be used: , / - + &amp; If you need to use those symbols, put them in an OUTPUTNAME tag.</li>
+			<li>Symbols that should not be used: , / - + &amp; If you need to use those symbols, put them in an
+			OUTPUTNAME tag.</li>
+			<li>For class variants from other sources, the norm seen is 'Base Class Name (Source)' ex.
+			Cleric (Fey).</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CLASS:Ranger</code></p>
@@ -303,6 +307,7 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Class Level Line.</p>
 
+
 		<p></p><a name="BONUSSPELLSTAT"></a><hr>
 		<p class="indent0"><span class="new">*** New 4.3.1</span><br />
 		<strong>Tag Name:</strong> BONUSSPELLSTAT:x</p>
@@ -413,16 +418,26 @@
 
 		<p></p><a name="ITEMCREATE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ITEMCREATE:x</p>
-		<p class="indent1"><strong>Variables Used:</strong> Number</p>
+		<p class="indent1"><strong>Variables Used:</strong> Number or formula</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>The class level of the character will be multiplied by the numeric
-					value supplied for calculating potions, scrolls, and wands.</li>
+			<li>The class level of the character will be multiplied by the numeric value supplied for
+			calculating potions, scrolls, and wands.</li>
 			<li>The default value is 1.</li>
+			<li>ITEMCREATE is a rather complicated beast in the code (may have (+)(-)(*)(/)&() and CL for
+			Character Level), yet is only documented as a number.  This was updated (comment in the code
+			reads: "This is to support older versions of the ITEMCREATE tag that allowed 0.5, because it used
+			to be just a multiple").  The documentation should be updated to reflect the more complicated
+			ITEMCREATE tag (sorry, while I can read the code, I don't know the designer's intent to make sure
+			it's what should be documented).</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ITEMCREATE:2</code></p>
 		<p class="indent3">The class level is doubled when calculating potions, scrolls and wands.</p>
+		<p class="indent2"><code>CLASS:Paladin	ITEMCREATE:CL/3.3</code></p>
+		<p class="indent3">The class level is calculated to the follwoing values at different Character Levels;
+		1=.3, 2=.6, 3=.9, 4=1.2, 5=1.5, 6=1.8, 7=2.1, 8=2.4, 9=2.7, 10=3.0 when calculating potions, scrolls and
+		wands.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2"> Class Line.</p>
 
@@ -576,6 +591,7 @@
 			<li>Following the number of choices this is a | (pipe) delimited list of class names that the class
 			can choose from to duplicate spell casting ability.</li>
 			<li>This tag can be used on a CLASS, CLASS line, SUBCLASS line or SUBCLASSLEVEL line.</li>
+			<li>This tag can NOT be used on a ClassLevelLine.</li>
 			<li>When .MODing the CLASS line you will need other Tags like SPELLSTAT: &lt;tab&gt; BONUSSPELLSTAT:
 			&lt;tab&gt; SPELLTYPE: &lt;tab&gt; SPELLBOOK: &lt;tab&gt; BONUS:CASTERLEVEL| &lt;tab&gt; (list not
 			inclusive).</li>
@@ -590,16 +606,6 @@
 		<p class="indent3">The class uses 2 of the ranger, Druid or Barbarian spell lists.</p>
 		<p class="indent2"><code>CLASS:Blood Witch &lt;tab&gt; SPELLLIST:1|Animal(Domain)</code></p>
 		<p class="indent3">The class uses the Animal Domain spell list.</p>
-		<p class="indent2"><code>1 &lt;tab&gt; SPELLLIST:CLASS|Fey Prankster=1|Bad Luck,Change Self,Charm Person,
-		Comprehend Languages,Faerie's Gold,Good Luck,Trinket</code></p>
-		<p class="indent3">This class at first level uses the following Fey Prankster spell list.</p>
-		<p class="indent2"><code>SUBCLASSLEVEL:1 &lt;tab&gt; SPELLLIST:CLASS|Beast Handler=1|Animal Friendship,
-		Calm Animals,Enlarge,Invisibility to Animals,Magic Fang,Reduce|Beast Handler=2|Animal Trance,Charm
-		Person or Animal,Detect Animals or Plants,Hold Animal,Speak with Animals,Summon Nature's Ally I|Beast
-		Handler=3|Animal Messenger,Dominate Animal,Greater Magic Fang,Summon Nature's Alley II,Summon Swarm|Beast
-		Handler=4|Charm Monster,Giant Vermin,Remove Disease,Repel Vermin,Summon Nature's Ally III</code></p>
-		<p class="indent3">This subclasslevel at first thru fourth level uses the following Beast Handler spell
-		list.</p>
 		<p class="indent2"><code>CLASS:Rogue.COPY=Blood Witch &lt;tab&gt; SPELLLIST:1|Animal(Domain)</code></p>
 		<p class="indent3">Copy class Rogue to Blood Witch useing the Animal Domain spell list.</p>
 		<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
@@ -1024,7 +1030,7 @@
 			<li>Any valid class tags may be used on the line to be repeated.</li>
 		</ul>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">On Class level lines.</p>
+		<p class="indent2">On Class Level Lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>5 &lt;tab&gt; REPEATLEVEL:5 &lt;tab&gt;  ADD:FEAT(ABonusFeat)</code></p>
 		<p class="indent3">would add at levels 5,10,15,20,... up to the MAXLEVEL defined by class.</p>

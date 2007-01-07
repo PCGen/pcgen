@@ -471,6 +471,49 @@
 		<p class="indent2"><code>REMOVE:FEAT(CLASS.Paladin)ALL</code></p>
 		<p class="indent3">Removes all feats that have been granted/taken by the Paladin Class.</p>
 
+
+		<p></p><a name="REPEATLEVEL"></a><hr>
+		<p class="new">*** New 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> REPEATLEVEL:x|y|z:<level>:<level assigned item></p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (level interval)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of intervals before skipping one
+		interval, use 0 for no skip, Optional)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum level, Optional)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>When encountered on a class level line all the tags included in the line will be applied again
+			at later levels at intervals specified by the tag.</li>
+			<li>The progression begins at the level the REPEATLEVEL tag is encountered in.</li>
+			<li>Variable x specifies the interval that the line will be repeated, so if you specified 3 at level
+			one the line would repeat again at level 4, 7, 10, etc...</li>
+			<li>Variable y specifies the interval with the first interval where it will skip one interval, to
+			continue the above example if you specified 3 (variable x) at level one and 2 for variable y the
+			line would repeat again at level 4, 10, 13, 19, 22, 28, etc...</li>
+			<li>Variable z specifies the level at which the progression ends.</li>
+			<li>Variables y and z are optional but if you use z you must also use y which can be set to 0 if it
+			is not otherwise used.</li>
+			<li>Any valid class tags may be used on the line to be repeated.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code> &gt;Template Name&lt; &lt;tab&gt; REPEATLEVEL:5:ADD:FEAT(ABonusFeat)</code></p>
+		<p class="indent3">would add at levels 5,10,15,20,... up to the MAXLEVEL defined by class.</p>
+		<p class="indent2"><code>&gt;Template Name&lt;  &lt;tab&gt; REPEATLEVEL:1|4:1:ADD:FEAT(ABonusFeat)</code></p>
+		<p class="indent3">would add at levels 1,2,3,5,6,7,9,10,11,13,14,... up to the MAXLEVEL defined by class.</p>
+		<p class="indent2"><code>&gt;Template Name&lt;  &lt;tab&gt; REPEATLEVEL:2|0|20:2:ADD:FEAT(ABonusFeat)</code></p>
+		<p class="indent3">would add at levels 2,4,6,8,... up to level 20.</p>
+		<p class="indent2"><code>Drow Male &lt;tab&gt; REPEATLEVEL:1|4:1:ADD:FEAT(AWizardFeat) &lt;tab&gt; PRERACE:Elf (Drow) &lt;tab&gt; SUBRACE:Male &lt;tab&gt; GENDERLOCK:Male</code></p>
+		<p class="indent3">would add at levels 1,2,3,5,6,7,9,10,11,13,14,... up to the MAXLEVEL defined by class.</p>
+		<p class="indent2"><code>Drow Male.MOD &lt;tab&gt; DESC:Dirty little buggers</code></p>
+		<p class="indent3">would modify the previous line by adding a descrition to it.</p>
+		<p class="indent2"><code>Drow Male.COPY=Drippy Drow Male</code></p>
+		<p class="indent3">would make a new Race called Dripy Drow Male.</p>
+		<p class="indent2"><code>Drippy Drow Male.CLEAR</code></p>
+		<p class="indent3">would clear all of the Drippy Drow Male TAGS.</p>
+		<p class="indent2"><code>Drippy Drow Male.FORGET</code></p>
+		<p class="indent3">would clear all of the Drippy Drow Male Race.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">On Template Lines.</p>
+
 		<p></p><a name="SIZE"></a><hr>
 		<p class="new">*** Updated 5.9.7</p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>

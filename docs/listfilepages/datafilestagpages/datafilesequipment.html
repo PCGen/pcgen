@@ -368,6 +368,7 @@
 		<p class="indent3">Item has an armor check penalty of -6.</p>
 
 		<p></p><a name="ALTCRITICAL"></a><hr>
+		<p class="new">*** deprecated, use ALTCRITMULT</p>
 		<p class="indent0"><strong>Tag Name:</strong> ALTCRITICAL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Secondary attack's critical modifier)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -378,6 +379,21 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ALTCRITICAL:x3</code></p>
 		<p class="indent3">2nd head has a critical modifier of x3.</p>
+
+
+		<p></p><a name="ALTCRITMULT"></a><hr>
+		<p class="new">*** Rediscovered 5.11.4</p>
+		<p class="indent0"><strong>Tag Name:</strong> ALTCRITMULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Secondary attack's critical modifier)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>The secondary attack's critical multiplier as outputted to the character sheet.</li>
+			<li>This is used for double weapons only.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ALTCRITMULT:x3</code></p>
+		<p class="indent3">2nd head has a critical modifier of x3.</p>
+
 
 		<p></p><a name="ALTCRITRANGE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> ALTCRITRANGE:x</p>
@@ -545,11 +561,11 @@
 		<p class="indent0"><strong>Tag Name:</strong> REACH:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Weapon Reach)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The numerical value supplied is used by the 
-			<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONREACH">WEAPONREACH</a> 
-  			miscinfo.lst tag to calculate the reach the wielder gains with the weapon. 
-			In general it adds to the weapons Reach minus the first 5 feet of the characters natural reach, 
-			so a character with a natural reach of 10 wielding a weapon with a REACH value of 10 
+		<p class="indent2">The numerical value supplied is used by the
+			<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONREACH">WEAPONREACH</a>
+  			miscinfo.lst tag to calculate the reach the wielder gains with the weapon.
+			In general it adds to the weapons Reach minus the first 5 feet of the characters natural reach,
+			so a character with a natural reach of 10 wielding a weapon with a REACH value of 10
 			will have a reach of 15 with that weapon.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>REACH:10</code></p>
@@ -560,11 +576,11 @@
 		<p class="indent0"><strong>Tag Name:</strong> REACHMULT:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Weapon Reach Multiplier)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The numerical value supplied is used by the 
-			<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONREACH">WEAPONREACH</a> 
-  			miscinfo.lst tag to calculate the reach the wielder gains with the weapon. 
-			In general it multiplies the characters natural reach, 
-			so a character with a natural reach of 10 wielding a weapon with a WEAPONREACH value of 2 
+		<p class="indent2">The numerical value supplied is used by the
+			<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONREACH">WEAPONREACH</a>
+  			miscinfo.lst tag to calculate the reach the wielder gains with the weapon.
+			In general it multiplies the characters natural reach,
+			so a character with a natural reach of 10 wielding a weapon with a WEAPONREACH value of 2
 			will have a reach of 20 with that weapon.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>REACHMULT:2</code></p>

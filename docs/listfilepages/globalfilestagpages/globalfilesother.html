@@ -963,6 +963,12 @@
 		<p></p><a name="FORGET"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> &lt;name&gt;.FORGET</p>
 		<p class="indent1"><strong>Variables Used:</strong> Text, First field of the item to be removed</p>
+		<p class="indent1"><strong>What it does:</strong> </p>
+		<p class="indent2"> This is a variation of .MOD.</p>
+		<p class="indent2">Unlike .MOD, this tag has no other tags following it. .FORGET completely removes a
+		class from a listing. Since this is done last, you can not .FORGET the Ranger class, then load up your
+		own modified Ranger class.</p>
+		<p class="indent2"> .FORGET is ALWAYS done last. Use either .MOD or Ranger (New class).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>Human.FORGET</code></p>
 		<p class="indent3">Removes the Human race (in a race.lst file)</p>
@@ -972,11 +978,7 @@
 		<p class="indent3">Removes the Ranger class (in class.lst)</p>
 		<p class="indent2"><code>Skill Focus.FORGET</code></p>
 		<p class="indent3">Removes the Skill Focus feat (in feat.lst)</p>
-		<p class="indent1"><strong>What it does:</strong> </p>
-		<p class="indent2"> This is a variation of .MOD.
-		Unlike .MOD, this tag has no other tags following it. .FORGET completely removes a class from a listing.
-		Since this is done last, you can not .FORGET the Ranger class, then load up your own modified Ranger
-		class.</p>
+
 
 		<p></p><a name="WILDCARD"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> TAGNAME:% "Wildcard"</p>
