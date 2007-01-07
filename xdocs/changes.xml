@@ -5,7 +5,7 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
-    <release version="5.11.6" date="In SVN" description="Alpha release">
+    <release version="5.11.6" date="2007-01-07" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>
       <action dev="jdempsey" type="fix" issue="1625112">Multiple Bonuses on Feat Only Added Once [CMP].</action>
       <action dev="jdempsey" type="fix" issue="1621485">Spells lost from known spells list when removed from prepared spell list.</action>
