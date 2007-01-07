@@ -33,7 +33,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -50,12 +49,11 @@ import java.util.Collection;
  * @author boomer70
  *
  */
-public class DamageReduction implements Comparable<DamageReduction>, Cloneable
+public class DamageReduction extends PrereqObject implements Comparable<DamageReduction>, Cloneable
 {
 	private String theReduction = "0";
 	private String theBypass = "-";
 	private PlayerCharacter thePC = null;
-	private List<Prerequisite> thePreReqs = new ArrayList<Prerequisite>();
 	private static final int NO_JOIN = -1;
 	private static final int AND_JOIN = 0;
 	private static final int OR_JOIN = 1;
@@ -133,16 +131,6 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	}
 
 	/**
-	 * Return the prereqs for this DR.
-	 *
-	 * @return List of prereqs
-	 */
-	public List<Prerequisite> getPreReqList()
-	{
-		return Collections.unmodifiableList(thePreReqs);
-	}
-
-	/**
 	 * Gets the actual reduction this DR will apply.  If a PC has been set on
 	 * the DR object it will evaluate any formulas in the DR and apply any
 	 * bonuses to this DR type that are appropriate.
@@ -185,16 +173,6 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	}
 
 	/**
-	 * Adds a Prerequisite to this DR.
-	 *
-	 * @param aPreReq The Prerequisite to add
-	 */
-	public void addPreReq(final Prerequisite aPreReq)
-	{
-		thePreReqs.add(aPreReq);
-	}
-
-	/**
 	 * Gets a list of Damage Types that bypass this DR.  This ls just a raw
 	 * list of types.
 	 * @return Collection of unique types converted to lower case
@@ -231,7 +209,7 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 			}
 			return reductionString + "/" + theBypass;
 		}
-		if (PrereqHandler.passesAll(thePreReqs, thePC, null))
+		if (qualifies(thePC))
 		{
 			return getReductionValue() + "/" + theBypass;
 		}
@@ -300,8 +278,8 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	public static DamageReduction addDRs(final DamageReduction dr1,
 										 final DamageReduction dr2)
 	{
-		DamageReduction DR1 = PrereqHandler.passesAll(dr1.thePreReqs, dr1.thePC, null) ? dr1 : null;
-		DamageReduction DR2 = PrereqHandler.passesAll(dr2.thePreReqs, dr2.thePC, null) ? dr2 : null;
+		DamageReduction DR1 = dr1.qualifies(dr1.thePC) ? dr1 : null;
+		DamageReduction DR2 = dr2.qualifies(dr2.thePC) ? dr2 : null;
 		if (DR1 == null && DR2 != null)
 		{
 			return DR2;
@@ -413,8 +391,8 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	public static String combineDRs(final DamageReduction dr1,
 									final DamageReduction dr2)
 	{
-		DamageReduction DR1 = PrereqHandler.passesAll(dr1.thePreReqs, dr1.thePC, null) ? dr1 : null;
-		DamageReduction DR2 = PrereqHandler.passesAll(dr2.thePreReqs, dr2.thePC, null) ? dr2 : null;
+		DamageReduction DR1 = dr1.qualifies(dr1.thePC) ? dr1 : null;
+		DamageReduction DR2 = dr2.qualifies(dr2.thePC) ? dr2 : null;
 		if (DR1 == null && DR2 != null)
 		{
 			return DR2.toString();
@@ -455,7 +433,7 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 		{
 			DamageReduction dr = i.next();
 			dr.setPC(aPC);
-			if (!PrereqHandler.passesAll(dr.thePreReqs, aPC, null))
+			if (!dr.qualifies(aPC))
 			{
 				continue;
 			}
@@ -619,7 +597,7 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 		for (Iterator<DamageReduction> i = drList.iterator(); i.hasNext(); )
 		{
 			DamageReduction dr = i.next();
-			if (!PrereqHandler.passesAll(dr.getPreReqList(), pc, null))
+			if (!dr.qualifies(pc))
 			{
 				i.remove();
 			}
@@ -693,16 +671,15 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	/**
 	 * @see java.lang.Object#clone()
 	 */
+	@Override
 	public DamageReduction clone() throws CloneNotSupportedException
 	{
 		DamageReduction clone = (DamageReduction) super.clone();
-
-		clone.thePreReqs = new ArrayList<Prerequisite>();
-		for (Prerequisite prereq : thePreReqs)
-		{
-			clone.addPreReq((Prerequisite) prereq.clone());
+		//Have to do deep clone of Prereqs to match previous behavior :/
+		if (hasPreReqs()) {
+			clone.clearPreReq();
+			clone.addPrerequisites(getClonePreReqList());
 		}
-
 		return clone;
 	}
 
@@ -720,7 +697,7 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 		result.append(theBypass);
 
 		final StringWriter writer = new StringWriter();
-		for (Prerequisite prereq : thePreReqs)
+		for (Prerequisite prereq : getPreReqList())
 		{
 			if (!includeLevel && "class".equals(prereq.getKind()))
 			{
@@ -751,7 +728,7 @@ public class DamageReduction implements Comparable<DamageReduction>, Cloneable
 	 */
 	public boolean isForClassLevel(String keyName)
 	{
-		for (Prerequisite prereq : thePreReqs)
+		for (Prerequisite prereq : getPreReqList())
 		{
 			if (DamageReduction.isPrereqForClassLevel(prereq, keyName))
 			{
