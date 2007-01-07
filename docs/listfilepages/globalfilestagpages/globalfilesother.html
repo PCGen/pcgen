@@ -438,6 +438,33 @@
 		<p class="indent2"><code>Clenched Fist.MOD &lt;tab&gt; OUTPUTNAME:Big [NAME]</code></p>
 		<p class="indent3">This spell will output as &quot;Big Clenched Fist&quot;.</p>
 
+		<p></p><a name="QUALIFY"></a><hr>
+		<p class="new">*** Updated 5.11.7</p>
+		<p class="indent0"><strong>Tag Name:</strong> QUALIFY:x|y|y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Object TYPE), Valid types are:</p>
+		<ul class="indent2">
+			<li>DEITY</li>
+			<li>DOMAIN</li>
+			<li>EQUIPMENT</li>
+			<li>EQMOD</li>
+			<li>FEAT</li>
+			<li>PCCLASS</li>
+			<li>RACE</li>
+			<li>SPELL</li>
+			<li>SKILL</li>
+			<li>TEMPLATE</li>
+			<li>WEAPONPROF</li>
+		</ul>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Object KEY)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Counters PRExxx tags. Any objects listed will ignore all PRE tags and be a valid selection for the character.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Valid in most objects except .pcc files and class level lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>QUALIFY:FEAT|Mounted Combat|Ride-By Attack</code></p>
+		<p class="indent3">The character would be able to take the above feats whether they meet the prereqs or not.</p>
+		<p class="indent2"><code>QUALIFY:PCCLASS|Monk</code></p>
+		<p class="indent3">The character would be able to take the Monk class whether they meet the prereqs or not.</p>
 
 		<p></p><a name="REGION"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> REGION:x|y|y</p>
