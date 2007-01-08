@@ -52,13 +52,13 @@ CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:5		PRESKILL:2,Computers,Cryp
 CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE.Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE.Hobby|Innuendo|TYPE.Knowledge|Languages|Listen|Mechanics|TYPE.Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
 1							SA:Hard-wired (Concentrate)		BONUS:VAR|NumberPrestigeClasses|1	BONUS:SKILL|Concentration|4	DEFINE:NumberPrestigeClasses|0	ADD:FEAT(Hacker Core Ability)1
 2							SA:Synchronize (Solo)
-3																														ADD:FEAT(Advanced Skill Mastery(Mathematical Genius))1	QUALIFY:Advanced Skill Mastery
+3																														ADD:FEAT(Advanced Skill Mastery(Mathematical Genius))1	QUALIFY:FEAT|Advanced Skill Mastery
 4							SA:Lockout (Single)	SA:Sift
-5	SA:.CLEAR.Hard-wired (Concentrate)	SA:Hard-wired (All-Nighter)																			ADD:FEAT(Quick Use(Computers))1					QUALIFY:Quick Use
+5	SA:.CLEAR.Hard-wired (Concentrate)	SA:Hard-wired (All-Nighter)																			ADD:FEAT(Quick Use(Computers))1					QUALIFY:FEAT|Quick Use
 6							SA:Fingerprints
-7	SA:.CLEAR.Synchronize (Solo)		SA:Synchronize (Team)																				ADD:FEAT(Grand Skill Mastery(Mathematical Genius))1		QUALIFY:Grand Skill Mastery
+7	SA:.CLEAR.Synchronize (Solo)		SA:Synchronize (Team)																				ADD:FEAT(Grand Skill Mastery(Mathematical Genius))1		QUALIFY:FEAT|Grand Skill Mastery
 8	SA:.CLEAR.Lockout (Single)		SA:Lockout (All)
-9	SA:.CLEAR.Hard-wired (All-Nighter)	SA:Hard-wired (Persevere)																			ADD:FEAT(Perfect Skill Mastery(Mathematical Genius))1		QUALIFY:Perfect Skill Mastery
+9	SA:.CLEAR.Hard-wired (All-Nighter)	SA:Hard-wired (Persevere)																			ADD:FEAT(Perfect Skill Mastery(Mathematical Genius))1		QUALIFY:FEAT|Perfect Skill Mastery
 10							SA:Ghost in the Machine
 
 

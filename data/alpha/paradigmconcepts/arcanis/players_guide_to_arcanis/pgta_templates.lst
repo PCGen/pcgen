@@ -9,7 +9,7 @@ Outsider.MOD															TYPE:Outsider
 ChurchEdu		VISIBLE:NO						FAVOREDCLASS:Cleric	REMOVABLE:NO
 Fair Sex		VISIBLE:NO										REMOVABLE:NO				GENDERLOCK:Female
 
-Bowman		VISIBLE:NO	QUALIFY:Weapon Specialization					REMOVABLE:NO
+Bowman		VISIBLE:NO	QUALIFY:FEAT|Weapon Specialization				REMOVABLE:NO
 
 ###Block: Patrician Choices
 # Template Name				Visible	Choose					Feat

@@ -125,7 +125,7 @@ CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedCl
 CLASS:Speed Demon	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
-1					ADD:FEAT(Uncanny Dodge I,Uncanny Dodge II)	QUALIFY:Uncanny Dodge I
+1					ADD:FEAT(Uncanny Dodge I,Uncanny Dodge II)	QUALIFY:FEAT|Uncanny Dodge I
 2	SA:Hit the Weak Spot
 3	SA:Vehicle Empathy	ADD:FEAT(TYPE=SpeedDemon)
 4	SA:Need for Speed
@@ -201,7 +201,7 @@ CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Professi
 1			SA:Tough Defense										BONUS:COMBAT|AC|CON-DEX
 2			SA:Ability Surge %/day|AbilitySurge	BONUS:VAR|AbilitySurge|(CL+1)/3								DEFINE:AbilitySurge|0
 3																										ADD:FEAT(TYPE=Thrasher)
-4																										ADD:FEAT(Uncanny Dodge I,Uncanny Dodge II)	QUALIFY:Uncanny Dodge I
+4																										ADD:FEAT(Uncanny Dodge I,Uncanny Dodge II)	QUALIFY:FEAT|Uncanny Dodge I
 6																										ADD:FEAT(TYPE=Thrasher)
 7	DR:5/+1
 9																										ADD:FEAT(TYPE=Thrasher)

@@ -3,4 +3,4 @@ SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http
 #Original Entry by: Frank Kliewe
 
 # Template Name				Visible	QUALIFY
-Combat Hero Talent Qualification	VISIBLE:NO	QUALIFY:Defensive Roll|Opportunist|Stamina
+Combat Hero Talent Qualification	VISIBLE:NO	QUALIFY:FEAT|Defensive Roll|Opportunist|Stamina
