@@ -30,7 +30,7 @@ public class StringPClassUtil {
 		classMap.put("EQUIPMENT", Equipment.class);
 		classMap.put("EQMOD", EquipmentModifier.class);
 		classMap.put("FEAT", Ability.class);
-		classMap.put("PCCLASS", PCClass.class);
+		classMap.put("CLASS", PCClass.class);
 		classMap.put("RACE", Race.class);
 		classMap.put("SPELL", Spell.class);
 		classMap.put("SKILL", Skill.class);
@@ -42,7 +42,7 @@ public class StringPClassUtil {
 		stringMap.put(Equipment.class, "EQUIPMENT");
 		stringMap.put(EquipmentModifier.class, "EQMOD");
 		stringMap.put(Ability.class, "FEAT");
-		stringMap.put(PCClass.class, "PCCLASS");
+		stringMap.put(PCClass.class, "CLASS");
 		stringMap.put(Race.class, "RACE");
 		stringMap.put(Spell.class, "SPELL");
 		stringMap.put(Skill.class, "SKILL");
