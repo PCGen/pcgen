@@ -10,6 +10,7 @@
       <action dev="thpr" type="update" issue="1613697">Deprecated ALTCRITICAL Tag</action>
       <action dev="thpr" type="update" issue="1620950">Deprecated UATT Tag</action>
       <action dev="thpr" type="update" issue="1620957">Changed QUALIFY Syntax</action>
+      <action dev="jdempsey" type="fix" issue="1628407">BONUS:WIELDCATEGORY|ALL|-1 issues.</action>
     </release>
     <release version="5.11.6" date="2007-01-07" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>

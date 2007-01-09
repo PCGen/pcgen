@@ -178,6 +178,7 @@ public final class WieldCategory
 			return this;
 		}
 
+		WieldCategory pcWCat = this;
 		try
 		{
 			// Check if we have a bonus that changes the weapons effective size
@@ -193,7 +194,7 @@ public final class WieldCategory
 					final int newSizeInt = eq.sizeInt() + aBump;
 					final SizeAdjustment sadj = SettingsHandler.getGame().
 						getSizeAdjustmentAtIndex(newSizeInt);
-					eq.setSize(sadj.getAbbreviation(), true);
+					eq.setSize(sadj.getAbbreviation(), false);
 				}
 			}
 			final PrerequisiteParserInterface parser = PreParserFactory.
@@ -222,9 +223,8 @@ public final class WieldCategory
 							getWieldCategory(mappedCat);
 						if (wCat != null)
 						{
-							return wCat;
+							pcWCat = wCat;
 						}
-						return this;
 					}
 				}
 				catch (PersistenceLayerException ple)
@@ -232,14 +232,14 @@ public final class WieldCategory
 					Logging.errorPrint(ple.getMessage(), ple);
 				}
 			}
-			eq.setSize(oldEqSize, true);
+			eq.setSize(oldEqSize, false);
 		}
 		catch (PersistenceLayerException ple)
 		{
 			Logging.errorPrint(ple.getMessage(), ple);
 		}
 
-		return this;
+		return pcWCat;
 	}
 
 	/**
