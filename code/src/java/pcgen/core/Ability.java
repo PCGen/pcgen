@@ -923,9 +923,10 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 * @param other Ability to compare to
 	 * @return true if they are equal
 	 */
-    public boolean equals(Object other)
+    @Override
+	public boolean equals(Object other)
 	{
-		return this.compareTo(other) == 0;
+		return other instanceof Ability && this.compareTo(other) == 0;
 	}
 
 	/**

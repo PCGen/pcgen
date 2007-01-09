@@ -197,6 +197,7 @@ public class DamageReduction extends PrereqObject implements Comparable<DamageRe
 	 * Returns a String representation of this DamageReduction object.
 	 * @return String
 	 */
+	@Override
 	public String toString()
 	{
 		if (thePC == null)
@@ -223,8 +224,12 @@ public class DamageReduction extends PrereqObject implements Comparable<DamageRe
 	 * @param other The DR to test against.
 	 * @return true if the DRs are the same.
 	 */
+	@Override
 	public boolean equals(Object other)
 	{
+		if (!(other instanceof DamageReduction)) {
+			return false;
+		}
 		Collection<String> l1 = getBypassList();
 		Collection<String> l2 = ( (DamageReduction) other).getBypassList();
 		if (l1.containsAll(l2) && l2.containsAll(l1))
@@ -255,6 +260,7 @@ public class DamageReduction extends PrereqObject implements Comparable<DamageRe
 	 * dr.equals(dr1) the hashcodes must be the same
 	 * @return A hashcode
 	 */
+	@Override
 	public int hashCode()
 	{
 		ArrayList<String> l = new ArrayList<String>(getBypassList());

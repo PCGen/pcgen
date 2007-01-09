@@ -1238,6 +1238,9 @@ public final class Spell extends PObject
 		{
 			return false;
 		}
+		if ( other == this ) {
+			return true;
+		}
 		final Spell otherSpell = (Spell)other;
 		if ( getKeyName().equals( otherSpell.getKeyName() ) )
 		{

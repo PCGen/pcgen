@@ -102,6 +102,7 @@ public final class Language extends PObject implements Comparable<Object>
 	 * @param o1
 	 * @return true if equal
 	 */
+	@Override
 	public boolean equals(final Object o1)
 	{
 		/*
@@ -113,6 +114,9 @@ public final class Language extends PObject implements Comparable<Object>
 		if (o1 instanceof String)
 		{
 			return keyName.equals(o1);
+		}
+		if (!o1.getClass().equals(Language.class)) {
+			return false;
 		}
 
 		return keyName.equals(((Language) o1).keyName);
@@ -130,6 +134,7 @@ public final class Language extends PObject implements Comparable<Object>
 	 * Hashcode of the keyName
 	 * @return hash code
 	 */
+	@Override
 	public int hashCode()
 	{
 		return keyName.hashCode();
