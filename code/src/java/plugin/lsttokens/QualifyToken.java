@@ -38,7 +38,7 @@ public class QualifyToken implements GlobalLstToken
 			return false;
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
-		String key = st.nextToken();
+		String key = st.hasMoreTokens() ? st.nextToken() : "";
 		Class c = StringPClassUtil.getClassFor(key);
 		if (c == null) {
 			c = Object.class;
