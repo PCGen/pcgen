@@ -36,66 +36,80 @@
 
 		<p class="indent0"><strong>General Operating Standards</strong></p>
 
-		<p>1) The KEY is set to the item name unless you put in a KEY tag.</p>
-			<il class="indent2">So if a KEY is used, that one will be stored in the PCG file, instead of the
+		<p class="indent1">1) The KEY is set to the item name unless you put in a KEY tag.</p>
+			<ul class="indent2">
+			<li>So if a KEY is used, that one will be stored in the PCG file, instead of the
 			name? And if I use the previous name as the KEY, and change the name, will the PCG that has stored
 			the name load the renamed object now based on the KEY? And is this truly global?.</li>
-			<il class="indent3">Works for Equipmods, Races, Feats, Domains and Classes, did not work for
-			Templates, Spells.</li>
-
-		<p>2) If the name is the same but the key is different both will be processed and displayed.</p>
-			<il class="indent2">PCGen will determine which source is newer with a new PCC tag SOURCEDATE which
+			</ul>
+			<ul class="indent3">
+			<li>Works for Equipmods, Races, Feats, Domains and Classes, did not work for Templates, Spells.</li>
+			</ul>
+		<p class="indent1">2) If the name is the same but the key is different both will be processed and
+		displayed.</p>
+			<ul class="indent2">
+			<li>PCGen will determine which source is newer with a new PCC tag SOURCEDATE which
 			should be set to the date of release of the source in the format YYYY-MM. A source without a
 			SOURCEDATE will always be considered older than a source with a date.</li>
+			</ul>
 
-		<p>2) Oh no that source name is X and they have Y in PcGen.</p>
-			<il class="indent2">I know this would be a pain to track, but could we get those that are editing
+		<p class="indent1">3) Oh no that source name is X and they have Y in PcGen.</p>
+			<ul class="indent2">
+			<li>I know this would be a pain to track, but could we get those that are editing
 			data files to keep track of any name changes they make? If we could have a file for this checked
 			into each release and copied with the release when it is installed, we could have prettylst (or
 			some other perl script) read the file from the installed release and do the work.</li>
-			<il class="indent2">if someone knows they'll change the names from Potion of Foo to Foo (Potion),
+			<li>if someone knows they'll change the names from Potion of Foo to Foo (Potion),
 			they'd put: Potion of (.*)/$1 (Potion) into a file. We could use something else in place of the
 			(.*), slash, and $1 that's more human readable.</li>
-			<il class="indent2">If we start using Keys, even better - then, it would be possible to run a perl
+			<li>If we start using Keys, even better - then, it would be possible to run a perl
 			script to find all of the changes and create the above file, and people wouldn't have to track
 			their changes to names directly.</li>
+			</ul>
+		<p class="indent1">4) The KEY list below has two section.  The first is by publisher, sub-divided by
+		the source.  The second is a complete listing for "At a glance" look to see if your KEY is currently in
+		use some where.  Remember your KEY must be unique for the dataset that you are making and the source
+		dataset that you will be operating under.</p>
 
 		<p></p>
-		<p class="indent0"><strong>General EQMOD Naming Standards</strong></p>
 
-		<p>EQMOD keys are to be in all capital letters and may only contain letters, numbers and underscores
+		<p class="indent0"><strong>General Naming Standards</strong></p>
+
+		<p class="indent1">Keys are to be in all capital letters and may only contain letters, numbers and underscores
 		("_").</p>
 
-		<p>Each word should be separated by an underscore character for ease in reading.</p>
+		<p class="indent1">Each word should be separated by an underscore character for ease in reading.</p>
 
-		<p>For purposes of standardization the first section is the same as the SOURCESHORT: in the .pcc,
+		<p class="indent1">For purposes of standardization the first section is the same as the SOURCESHORT: in the .pcc,
 		on the second, third or more sections of the Key name is the unique ID of the tag.</p>
 
-		<p>For purposes of abbreviation the letter limit on the second and third sections of the Key name is
+		<p class="indent1">For purposes of abbreviation the letter limit on the second and third sections of the Key name is
 		8 and 7.</p>
 
-		<p>EQMODs for different item types (Weapon vs. Armor for example) will be done as separate EQMODs</p>
+		<p class="indent1">EQMODs for different item types (Weapon vs. Armor for example) will be done as separate KEYs</p>
 
-		<p>Materials which list different pricing for different item types or sub types (Light Armor vs.
-		Medium Armor for example) will be done as separate EQMODs for each price type.</p>
+		<p class="indent1">Materials which list different pricing for different item types or sub-types (Light Armor vs.
+		Medium Armor for example) will be done as separate KEYs for each price type.</p>
 
 		<p>Standard abbreviations</p>
-		<li>Ammunition - AMMO</li>
-		<li>Armor - ARMR</li>
-		<li>Electrical - ELEC</li>
-		<li>Enhancement - ENHANCE</li>
-		<li>Greater - GRT</li>
-		<li>Heavy - HVY</li>
-		<li>Improved - IMP</li>
-		<li>Instrument - INSTR</li>
-		<li>Light - LT</li>
-		<li>Masterwork - MWORK</li>
-		<li>Medium - MED</li>
-		<li>Resistance - RES</li>
-		<li>Shield - SHLD</li>
-		<li>Weapon - WEAP</li>
+			<ul class="indent2">
+				<li>Ammunition - AMMO</li>
+				<li>Armor - ARMR</li>
+				<li>Electrical - ELEC</li>
+				<li>Enhancement - ENHANCE</li>
+				<li>Greater - GRT</li>
+				<li>Heavy - HVY</li>
+				<li>Improved - IMP</li>
+				<li>Instrument - INSTR</li>
+				<li>Light - LT</li>
+				<li>Masterwork - MWORK</li>
+				<li>Medium - MED</li>
+				<li>Resistance - RES</li>
+				<li>Shield - SHLD</li>
+				<li>Weapon - WEAP</li>
+			</ul>
 
-		<p>To see the rest of the standards including the EQMOD KEY name list look here:
+		<p>To see the rest of the standards, including the EQMOD KEY name list look here:
 		<a href="http://pcgen.sourceforge.net/StandardsProject//">http://pcgen.sourceforge.net/StandardsProject/</a></p>
 
 		<p></p><a name="EquipmodsKeys"></a><hr>
@@ -1828,7 +1842,7 @@
 					<li><code>KEY:WARPTH_RCLLSS_RFL</code> - Warpath Recoilless Rifle (PL 5)</li>
 					<li><code>KEY:ZERO_G_STABILZR</code> - Zero-G Stabilizer (PL 7)</li>
 				</ul>
-x			<il class="indent2">future\future_robots file.</il>
+			<il class="indent2">future\future_robots file.</il>
 				<ul class="indent3">
 					<li><code>KEY:ROBOT_FLY_05</code> - +5 Speed</li>
 					<li><code>KEY:ROBOT_FLY_10</code> - +10 Speed</li>
@@ -1963,7 +1977,7 @@ x			<il class="indent2">future\future_robots file.</il>
 
 		<p class="indent1"><a name="pandahead"></a><code>pandahead</code> - pandahead</p>
 		<ul class="indent2">
-x			<il class="indent2">sellout file.</il>
+			<il class="indent2">sellout file.</il>
 				<ul class="indent3">
 					<li><code>KEY:BLBD</code> - Billboard</li>
 					<li><code>KEY:CHTR</code> - Chemical Treating</li>
@@ -2203,16 +2217,16 @@ x			<il class="indent2">sellout file.</il>
 			<p class="indent1"><strong>Examples:</strong></p>
 			<p class="indent1">The following list of keys covers all those used in the GAMEMODE files.</p>
 			<ul class="indent2">
-x			<il class="indent2">msrd\future\future_mutations\futuremutations_feats.lst file.</il>
+			<il class="indent2">msrd\future\future_mutations\futuremutations_feats.lst file.</il>
 				<ul class="indent3">
 					<li><code>KEY:MUT_SECOND_WIND</code> - Second Wind</li>
 				</ul>
-x					<il class="indent2">srd35\divine\rsrd_divine_feats_sda.lst file.</il>
+					<il class="indent2">srd35\divine\rsrd_divine_feats_sda.lst file.</il>
 				<ul class="indent3">
 					<li><code>KEY:SDA_POWER_OF_NATURE</code> - Power of Nature</li>
 					<li><code>KEY:SDA_UNDEAD_MASTERY</code> - Undead Mastery</li>
 				</ul>
-x					<il class="indent2">swordsedgepublishing\modernmedieval\modernprinciples\modernprinciples_feats.lst file.</il>
+					<il class="indent2">swordsedgepublishing\modernmedieval\modernprinciples\modernprinciples_feats.lst file.</il>
 				<ul class="indent3">
 					<li><code>KEY:FEAT_FRIGHTFUL_PRESENCE_MP</code> - Frightful Presence</li>
 				</ul>
@@ -2294,7 +2308,7 @@ x					<il class="indent2">swordsedgepublishing\modernmedieval\modernprinciples\m
 			<p class="indent1"><strong>Examples:</strong></p>
 			<p class="indent2">The following list of keys covers all those used in the GAMEMODE files.</p>
 			<ul class="indent2">
-x			<il class="indent2">swordsedgepublishing\modernmedieval\modernprinciples\modernprinciples_skills.lst file.</il>
+			<il class="indent2">swordsedgepublishing\modernmedieval\modernprinciples\modernprinciples_skills.lst file.</il>
 				<ul class="indent3">
 					<li><code>KEY:SKL_DISABLE_DEVICE_MP</code> - Disable Device</li>
 				</ul>
