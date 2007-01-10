@@ -118,7 +118,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source Page					Save checks bonus											Combat bonus
 CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	ABB:DrD		MAXLEVEL:10	HASSUBCLASS:YES	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Language		Prohibited Race		Required Skill				Req. Casting Type								Prohibited Template
-CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=NO	PRESPELLCAST:TYPE.Arcane	!PRETEMPLATE:Half Dragon
+CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=NO	PRESPELLCAST:TYPE.Arcane	!PRETEMPLATE:Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Escape Artist|Gather Information|TYPE.Knowledge|Listen|TYPE.Profession|Search|Speak Language|Spellcraft|Spot
 SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
@@ -187,14 +187,14 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat				Required Race
-CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:Dwarf%
+CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spot
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
-1			SA:Defensive Stance %/day|DefensiveStance	BONUS:VAR|DefensiveStance|(CL+1)/2						BONUS:COMBAT|AC|CL+2/3|TYPE=Dodge						DEFINE:DefensiveStance|0
+1			SA:Defensive Stance %/day|DefensiveStance	BONUS:VAR|DefensiveStance|(CL+1)/2						BONUS:COMBAT|AC|(CL+2)/3|TYPE=Dodge						DEFINE:DefensiveStance|0
 2										BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																	ADD:FEAT(TYPE=UncannyDodge)
 4										BONUS:VAR|TrapSense|CL/4																												FEATAUTO:Trap Sense Ability
 6	DR:1/-																									BONUS:DR|-|3*((CL-2)/4)-1						ADD:FEAT(TYPE=UncannyDodge)
