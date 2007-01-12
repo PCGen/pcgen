@@ -854,7 +854,7 @@ public class SpellBasePanel extends BasePanel
 
 		private void initComponentsContents()
 		{
-			pnlSelectDescriptor.setAvailableList(new ArrayList(Globals.getDescriptorSet()), true);
+			pnlSelectDescriptor.setAvailableList(new ArrayList<String>(Globals.getDescriptorSet()), true);
 
 			if(!descriptorList.equals(""))
 			{

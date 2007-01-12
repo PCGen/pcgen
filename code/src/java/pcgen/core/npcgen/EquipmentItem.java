@@ -46,7 +46,7 @@ public class EquipmentItem
 					final String equipKey = theVariableEquipment.replaceFirst("%CHOICE", subst); //$NON-NLS-1$
 					Logging.debugPrint("\tUsing " + equipKey + " as the equipment");
 					Equipment eq = EquipmentList.getEquipmentKeyed(equipKey);
-					eq = (Equipment)eq.clone();
+					eq = eq.clone();
 					int quantity = 1;
 					if ( theQuantity != null )
 					{
@@ -59,7 +59,7 @@ public class EquipmentItem
 			else
 			{
 				Logging.debugPrint("Selecting " + theEquipment);
-				final Equipment eq = (Equipment)theEquipment.clone();
+				final Equipment eq = theEquipment.clone();
 				int quantity = 1;
 				if ( theQuantity != null )
 				{

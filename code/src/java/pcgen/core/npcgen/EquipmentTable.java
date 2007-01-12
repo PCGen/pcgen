@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import pcgen.core.Constants;
 import pcgen.core.Equipment;
 import pcgen.util.Logging;
 

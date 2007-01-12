@@ -392,7 +392,7 @@ public class SpellSupport implements Cloneable
      * @param spell The spell to be checked
      * @return True if the spell was removed, false otherwise.
      */
-    final public boolean removeSpellIfUnused(final CharacterSpell spell)
+	public final boolean removeSpellIfUnused(final CharacterSpell spell)
     {
 		SpellInfo si = spell.getSpellInfoFor("", -1, -1, null);
 		if (si == null)

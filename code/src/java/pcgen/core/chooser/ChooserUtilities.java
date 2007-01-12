@@ -58,7 +58,7 @@ public class ChooserUtilities
 	 * @param  aPC
 	 * @param  elements
 	 */
-	static public final void buildSpellTypeChoices(
+	public static final void buildSpellTypeChoices(
 		final List<String>            availList,
 		final List<String>            uniqueList,
 		final PlayerCharacter aPC,
@@ -384,16 +384,16 @@ public class ChooserUtilities
 			return null;
 		}
 
-		List mainList = Arrays.asList(choiceString.split("[|]"));
+		List<String> mainList = Arrays.asList(choiceString.split("[|]"));
 
 		/* Find the first element of the array that does not contain an
 		 * equals sign, this is the type of chooser.
 		 */
 		int i = 0;
 		while (i <= mainList.size() - 1 &&
-				((String) mainList.get(i)).indexOf("=") > 0 &&
-				!(((String) mainList.get(i)).startsWith("FEAT=") ||
-						((String) mainList.get(i)).startsWith("FEAT.")))
+				mainList.get(i).indexOf("=") > 0 &&
+				!(mainList.get(i).startsWith("FEAT=") ||
+						mainList.get(i).startsWith("FEAT.")))
 		{
 			i++;
 		}
@@ -401,7 +401,7 @@ public class ChooserUtilities
 		/* Use the name of the chooser to look up the full canonical
 		 * class name of the ChoiceManager that handles that type of chooser
 		 */
-		String type = (i >= mainList.size()) ? "MISC" : (String) mainList.get(i);
+		String type = (i >= mainList.size()) ? "MISC" : mainList.get(i);
 
 		if (type.startsWith("FEAT=") || type.startsWith("FEAT."))
 		{

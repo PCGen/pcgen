@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import pcgen.core.Constants;
-import pcgen.core.EquipmentModifier;
-
 public class EqmodTable extends Table
 {
 	private static HashMap<String, EqmodTable> theTables = null;

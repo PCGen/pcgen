@@ -1757,7 +1757,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// Icky: Need to redesign the way classes work!
 				// Icky: Having to clone the class here is UGLY!
-				aPCClass = (PCClass) aPCClass.clone();
+				aPCClass = aPCClass.clone();
 			}
 			else
 			{
@@ -3165,7 +3165,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					// Icky: Need to redesign the way skills work!
 					// Icky: Having to clone the skill here is UGLY!
-					aSkill = (Skill) aSkill.clone();
+					aSkill = aSkill.clone();
 					thePC.getSkillList().add(aSkill);
 				}
 				else
@@ -4346,7 +4346,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (aEquip != null)
 			{
 				// standard item
-				aEquip = (Equipment) aEquip.clone();
+				aEquip = aEquip.clone();
 			}
 			if (line.indexOf(TAG_CUSTOMIZATION) >= 0)
 			{
@@ -4394,14 +4394,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 										.getEquipmentKeyedNoCustom(baseItemKey);
 							if (aEquip2 != null)
 							{
-								aEquip = (Equipment) aEquip2.clone();
+								aEquip = aEquip2.clone();
 								aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 								aEquip.setOutputName(Constants.EMPTY_STRING);
 								if (!aEquip.isType(Constants.s_CUSTOM))
 								{
 									aEquip.addMyType(Constants.s_CUSTOM);
 								}
-								EquipmentList.addEquipment((Equipment) aEquip
+								EquipmentList.addEquipment(aEquip
 									.clone());
 							}
 						}
@@ -4564,7 +4564,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				return;
 			}
-			aEquip = (Equipment) eqI.clone();
+			aEquip = eqI.clone();
 
 			if (itemQuantity != null)
 			{
@@ -4687,7 +4687,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			aEq = (Equipment) eq.clone();
+			aEq = eq.clone();
 
 			//aEq.setWeight("0");
 			aEq.resetTempBonusList();

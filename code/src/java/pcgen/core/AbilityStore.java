@@ -133,8 +133,8 @@ public class AbilityStore extends CategorisableStore
 	 */
 	private void addAsPerParsedInfo(boolean getAbility, String cat, final String token) {
 		Categorisable toAdd = (getAbility)
-			? (Categorisable) AbilityUtilities.retrieveAbilityKeyed(cat, token)
-			: (Categorisable) new AbilityInfo(cat, token);
+			? AbilityUtilities.retrieveAbilityKeyed(cat, token)
+			: new AbilityInfo(cat, token);
 
 		if (toAdd == null)
 		{

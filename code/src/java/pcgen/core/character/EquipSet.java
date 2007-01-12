@@ -375,7 +375,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 			if (eq_item != null)
 			{
-				eqSet.eq_item = (Equipment) eq_item.clone();
+				eqSet.eq_item = eq_item.clone();
 			}
 
 			if (qty != null)

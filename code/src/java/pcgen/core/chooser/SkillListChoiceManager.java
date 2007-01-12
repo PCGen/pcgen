@@ -74,7 +74,7 @@ public class SkillListChoiceManager extends AbstractComplexChoiceManager<String>
 			final List<String>            selectedList)
 	{
 		final String choiceVal = choices.get(0) != null
-				? (String) choices.get(0)
+				? choices.get(0)
 				: pobject.getKeyName();
 
 		if ((choiceVal.length() > 0) && !"LIST".equals(choiceVal))

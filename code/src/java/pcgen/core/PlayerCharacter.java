@@ -302,7 +302,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final PCStat stat = SettingsHandler.getGame()
 				.getUnmodifiableStatList().get(i);
-			statList.addStat((PCStat) stat.clone());
+			statList.addStat(stat.clone());
 		}
 
 		setRace(Globals.s_EMPTYRACE);
@@ -2220,7 +2220,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			{
 				// familiar doesn't have skill,
 				// but master does, so add it
-				final Skill newSkill = (Skill) Globals.getSkillKeyed(skillKey)
+				final Skill newSkill = Globals.getSkillKeyed(skillKey)
 					.clone();
 				final double sr = mPC.getSkillKeyed(skillKey).getRank()
 					.doubleValue();
@@ -5359,7 +5359,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (equip.isDouble()
 				&& (equip.getLocation() == Equipment.EQUIPPED_TWO_HANDS))
 			{
-				Equipment eqm = (Equipment) equip.clone();
+				Equipment eqm = equip.clone();
 				eqm.removeType("Double");
 				eqm.setTypeInfo("Head1");
 
@@ -5377,7 +5377,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				PlayerCharacterUtilities.setProf(equip, eqm);
 				weapList.add(idx + 1, eqm);
 
-				eqm = (Equipment) equip.clone();
+				eqm = equip.clone();
 
 				final String altType = eqm.getType(false);
 
@@ -5421,7 +5421,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				//
 				// Strip off the Ranged portion, set range to 0
 				//
-				Equipment eqm = (Equipment) equip.clone();
+				Equipment eqm = equip.clone();
 				eqm.setTypeInfo("Both");
 				eqm.removeType("Ranged.Thrown");
 				eqm.setRange("0");
@@ -5469,7 +5469,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				//
 				// Add thrown portion, strip Melee
 				//
-				eqm = (Equipment) equip.clone();
+				eqm = equip.clone();
 				eqm.setTypeInfo("Ranged.Thrown.Both");
 				eqm.removeType("Melee");
 
@@ -6064,7 +6064,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		if (aRace != null)
 		{
-			race = (Race) aRace.clone();
+			race = aRace.clone();
 		}
 
 		if (race != null)
@@ -7549,7 +7549,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		//
 		// Skill not found, add to list
 		//
-		retSkill = (Skill) addSkill.clone();
+		retSkill = addSkill.clone();
 		getSkillList().add(retSkill);
 		setDirty(true);
 
@@ -7934,7 +7934,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		final PCTemplate inTmpl;
 		try
 		{
-			inTmpl = (PCTemplate) inTemplate.clone();
+			inTmpl = inTemplate.clone();
 			templateList.add(inTmpl);
 		}
 		catch (CloneNotSupportedException e)
@@ -8016,7 +8016,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		List<String> templates;
-		if (doChoose == true)
+		if (doChoose)
 		{
 			templates = inTmpl.getTemplates(isImporting(), this);
 		}
@@ -9640,7 +9640,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					return;
 				}
 
-				bClass = (PCClass) bClass.clone();
+				bClass = bClass.clone();
 
 				rebuildLists(bClass, aClass, aClass.getLevel(), this);
 
@@ -11969,7 +11969,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			if (PrereqHandler.passesAll(pcSpell.getPreReqList(), this, pcSpell))
 			{
-				final Spell newSpell = (Spell) aSpell.clone();
+				final Spell newSpell = aSpell.clone();
 				aSpell.setFixedCasterLevel(pcSpell.getCasterLevelFormula());
 				aSpell.setFixedDC(pcSpell.getDcFormula());
 				final List<CharacterSpell> sList = owner.getSpellSupport()
@@ -12702,7 +12702,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				&& (Globals.binarySearchPObject(getSkillList(), aSkill
 					.getKeyName()) == null))
 			{
-				addItems.add((Skill) (aSkill.clone()));
+				addItems.add((aSkill.clone()));
 			}
 		}
 
@@ -13771,7 +13771,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// Make sure the character qualifies for the class if adding it
 		if (numberOfLevels > 0)
 		{
-			if (bypassPrereqs == false && !globalClass.isQualified(this))
+			if (!bypassPrereqs && !globalClass.isQualified(this))
 			{
 				return;
 			}
@@ -13804,7 +13804,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			if (numberOfLevels >= 0)
 			{
 				// Get a clone of the class so we don't modify the globals!
-				pcClassClone = (PCClass) globalClass.clone();
+				pcClassClone = globalClass.clone();
 
 				// Make sure the clone was successful
 				if (pcClassClone == null)
@@ -14185,7 +14185,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					break;
 			}
 		}
-		if (aSortedFlag == true)
+		if (aSortedFlag)
 		{
 			Arrays.sort(rolls);
 		}
@@ -14712,7 +14712,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.shieldProfList.addAll(getShieldProfList());
 		for (Skill skill : getSkillList())
 		{
-			aClone.skillList.add((Skill) (skill.clone()));
+			aClone.skillList.add((skill.clone()));
 		}
 		aClone.specialAbilityList.addAll(getSpecialAbilityList());
 		aClone.templateList.addAll(getTemplateList());
@@ -14727,7 +14727,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.characterDomainList.addAll(characterDomainList);
 		for (PCClass pcClass : classList)
 		{
-			aClone.classList.add((PCClass) (pcClass.clone()));
+			aClone.classList.add((pcClass.clone()));
 		}
 		aClone.companionModList.addAll(companionModList);
 		aClone.qualifyArrayMap.addAllLists(qualifyArrayMap);
@@ -14762,7 +14762,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aClone.statList.clear();
 		for (PCStat stat : statList)
 		{
-			aClone.statList.addStat((PCStat) stat.clone());
+			aClone.statList.addStat(stat.clone());
 		}
 		if (kitList != null)
 		{
@@ -15679,7 +15679,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		aggregateFeatsStable = stable;
 		setVirtualFeatsStable(stable);
 		setAutomaticFeatsStable(stable);
-		if (stable == false)
+		if (!stable)
 		{
 			cachedWeaponProfs = null;
 		}
@@ -15689,7 +15689,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	public void setAggregateAbilitiesStable(final AbilityCategory aCategory,
 		final boolean stable)
 	{
-		if (stable == false)
+		if (!stable)
 		{
 			cachedWeaponProfs = null;
 		}
@@ -15700,7 +15700,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 		if (aCategory == null)
 		{
-			if (stable == false)
+			if (!stable)
 			{
 				// Clear all the categories
 				for (final AbilityCategory cat : theAbilities.getKeySet())
@@ -15711,7 +15711,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			setAggregateFeatsStable(stable);
 			return;
 		}
-		if (stable == false)
+		if (!stable)
 		{
 			theAbilities.put(aCategory, Ability.Nature.AUTOMATIC, null);
 			// TODO - Deal with non-aggregate virtual abilities (i.e. from ADD:)
@@ -15749,7 +15749,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	private void setAutomaticFeatsStable(final boolean stable)
 	{
-		if (stable == false)
+		if (!stable)
 		{
 			stableAutomaticFeatList = null;
 		}
@@ -15760,7 +15760,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (aCategory == null)
 		{
-			if (stable == false)
+			if (!stable)
 			{
 				for (final AbilityCategory cat : theAbilities.getKeySet())
 				{
@@ -15775,7 +15775,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			setAutomaticFeatsStable(stable);
 			return;
 		}
-		if (stable == false)
+		if (!stable)
 		{
 			theAbilities.put(aCategory, Ability.Nature.AUTOMATIC, null);
 		}
@@ -16107,7 +16107,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 						hasIt = true;
 					}
 				}
-				if (hasIt == true)
+				if (hasIt)
 				{
 					return true;
 				}
@@ -16248,13 +16248,13 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		Float basePool = this.getVariableValue(aCategory.getPoolFormula(),
 			getClass().toString());
-		if (aCategory.allowFractionalPool() == false)
+		if (!aCategory.allowFractionalPool())
 		{
 			basePool = new Float(basePool.intValue());
 		}
 		double bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
 		// double bonus = getBonusValue("ABILITYPOOL", aCategory.getKeyName());
-		if (aCategory.allowFractionalPool() == false)
+		if (!aCategory.allowFractionalPool())
 		{
 			bonus = Math.floor(bonus);
 		}
@@ -16401,7 +16401,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 				else
 				{
-					if (aCategory.allowFractionalPool() == false)
+					if (!aCategory.allowFractionalPool())
 					{
 						spent += (int) Math.ceil(ability.getCost(this));
 					}
@@ -16412,7 +16412,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
-		if (aCategory.allowFractionalPool() == false)
+		if (!aCategory.allowFractionalPool())
 		{
 			return BigDecimal.valueOf((int) Math.ceil(spent));
 		}
@@ -16443,7 +16443,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			setVirtualFeatsStable(stable);
 			return;
 		}
-		if (stable == false)
+		if (!stable)
 		{
 			theAbilities.put(aCategory, Ability.Nature.VIRTUAL, null);
 		}

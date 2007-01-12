@@ -271,7 +271,7 @@ public class SpellBook implements Cloneable
 			aClone = (SpellBook) super.clone();
 			if (equip != null)
 			{
-				aClone.equip = (Equipment) equip.clone();
+				aClone.equip = equip.clone();
 			}
 		}
 		catch (CloneNotSupportedException e)

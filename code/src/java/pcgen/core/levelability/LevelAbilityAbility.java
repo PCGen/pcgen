@@ -316,7 +316,7 @@ public class LevelAbilityAbility extends LevelAbility
 	 * @param  anAbility
 	 */
 	private void addMultiplySelectableAbility(
-		final List            anArrayList,
+		final List<String>            anArrayList,
 		final PlayerCharacter aPC,
 		Ability               anAbility)
 	{
@@ -462,7 +462,7 @@ public class LevelAbilityAbility extends LevelAbility
 	 * subName = "Bar""Foo (Bar (Baz) Qux)) -> subName = "Bar (Baz)"although
 	 * surreally: "Foo (Bar (Baz) Qux %Quux)) -> subName = "Bar (Baz) Qux"
 	 *
-	 * @param   name
+	 * @param   aKey
 	 *
 	 * @return  the subname
 	 */

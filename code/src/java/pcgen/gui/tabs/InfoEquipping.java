@@ -1663,7 +1663,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			eq = (Equipment) fNode.getItem();
 
 			int outIndex = eq.getOutputIndex();
-			eqI = (Equipment) eq.clone();
+			eqI = eq.clone();
 			eqI.setOutputIndex(outIndex);
 
 			// Add the item of equipment

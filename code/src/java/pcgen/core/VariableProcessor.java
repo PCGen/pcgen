@@ -572,12 +572,12 @@ public abstract class VariableProcessor
 		{
 			return null;
 		}
-		final CachedVariable cached = variableCache.get(lookup);
+		final CachedVariable<? extends Float> cached = variableCache.get(lookup);
 		if (cached != null)
 		{
 			if (cached.getSerial()>=getSerial())
 			{
-				return (Float)cached.getValue();
+				return cached.getValue();
 			}
 			variableCache.remove(lookup);
 		}

@@ -93,7 +93,7 @@ final class LevelAbilityEquipment extends LevelAbility
 				break;
 			}
 
-			final Equipment bEquipment = (Equipment) aEquipment.clone();
+			final Equipment bEquipment = aEquipment.clone();
 			bEquipment.setQty(1);
 			aPC.addEquipment(bEquipment);
 		}

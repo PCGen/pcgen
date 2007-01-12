@@ -1894,7 +1894,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	public List<String> getTypeList(final boolean visibleOnly)
 	{
 		final List<String> ret = getSafeListFor(ListKey.TYPE);
-		if ( visibleOnly == true )
+		if (visibleOnly )
 		{
 			for ( int i = getMyTypeCount(); i >= 0; --i )
 			{
@@ -2095,7 +2095,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			AssociatedChoice<String> choice = i.next();
 			ret = choice.removeDefaultChoice( associated );
-			if ( ret == true )
+			if (ret )
 			{
 				if ( choice.size() == 0 )
 				{
@@ -3264,7 +3264,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 					if (aEq != null)
 					{
-						final Equipment newEq = (Equipment) aEq.clone();
+						final Equipment newEq = aEq.clone();
 						newEq.setQty(1);
 						newEq.setAutomatic(true);
 						newEq.setOutputIndex(aList.size());

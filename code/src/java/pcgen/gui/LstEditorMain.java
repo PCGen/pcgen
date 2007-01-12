@@ -184,7 +184,7 @@ public final class LstEditorMain extends JFrame
 		{
 			try
 			{
-				final PObject newItem = (PObject) lstItem.clone();
+				final PObject newItem = lstItem.clone();
 				final String nameEnding = " of " + lstItem.getKeyName();
 
 				//
@@ -283,7 +283,7 @@ public final class LstEditorMain extends JFrame
 				if (oldObject != null)
 				{
 					removeObject(oldObject);
-					editItem = (PObject) oldObject.clone();
+					editItem = oldObject.clone();
 				}
 			}
 

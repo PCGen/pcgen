@@ -300,7 +300,7 @@ public class EquipmentList {
 		if (eq != null) {
 			boolean bModified = false;
 			boolean bError = false;
-			eq = (Equipment) eq.clone();
+			eq = eq.clone();
 
 			//
 			// Now attempt to add all the modifiers.
@@ -613,7 +613,7 @@ public class EquipmentList {
 					final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
 					for (; equipIter.hasNext();) {
 						final String mwChoice = equipIter.next();
-						eq = (Equipment) eq.clone();
+						eq = eq.clone();
 						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
 
 						if (eq.isWeapon() && eq.isDouble()) {
@@ -811,7 +811,7 @@ public class EquipmentList {
 					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getDisplayName()
 							.equalsIgnoreCase("MASTERWORK")))) { return; }
 
-			eq = (Equipment) eq.clone();
+			eq = eq.clone();
 
 			if (eq == null) {
 				Logging.errorPrint("could not clone item");

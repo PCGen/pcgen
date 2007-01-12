@@ -3,7 +3,7 @@
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/build/src"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/java"/>
 	<classpathentry excluding="**/.svn/*" kind="src" path="code/src/test"/>
-	<classpathentry sourcepath="JRE_SRC" kind="var" path="JRE_LIB"/>
+	<classpathentry kind="var" path="JRE_LIB" sourcepath="JRE_SRC"/>
 	<classpathentry kind="lib" path="lib/fop/avalon-framework-cvs-20020806.jar"/>
 	<classpathentry kind="lib" path="lib/fop/batik.jar"/>
 	<classpathentry kind="lib" path="lib/fop/fop.jar"/>

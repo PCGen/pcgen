@@ -95,8 +95,8 @@ public class BigDecimalHelper
 	}
 
 	/**
-	 * Trims the zeros 
-	 * @param n
+	 * Trims the zeros. 
+	 * @param n bigdecimal to trim
 	 * @return String without zeros
 	 */
 	public static String trimZeros(BigDecimal n)

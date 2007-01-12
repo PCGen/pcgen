@@ -317,7 +317,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 			return false;
 		}
 
-		theEquipment = (Equipment) theEquipment.clone();
+		theEquipment = theEquipment.clone();
 
 		//
 		// Resize item for character--never resize weapons or ammo, unless it's a

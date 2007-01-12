@@ -129,7 +129,7 @@ public class KitSpellBook// extends BaseKit
 					break;
 				}
 			}
-			if (found == true)
+			if (found)
 			{
 				sbe.addCopies(numCopies);
 			}
@@ -148,7 +148,7 @@ public class KitSpellBook// extends BaseKit
 		boolean first = true;
 		for ( List<KitSpellBookEntry> entries : theSpells.values() )
 		{
-			if (first == false)
+			if (!first)
 			{
 				buf.append(",");
 			}

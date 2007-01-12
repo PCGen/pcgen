@@ -326,7 +326,7 @@ final class EqBuilder extends JPanel
 		if (!bReloading)
 		{
 			// Start with a clean copy
-			aNewEq = (Equipment) aEq.clone();
+			aNewEq = aEq.clone();
 		}
 
 		// If not a two-headed weapon, then hide the controls
@@ -1349,7 +1349,7 @@ final class EqBuilder extends JPanel
 			}
 			else
 			{
-				eqMod = (EquipmentModifier) eqMod.clone();
+				eqMod = eqMod.clone();
 				eqMod.setSpellInfo((PObject) castingClass, theSpell, variant, spellType, baseSpellLevel, casterLevel,
 					metamagicFeats, charges);
 

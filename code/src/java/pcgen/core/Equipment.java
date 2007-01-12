@@ -2655,7 +2655,7 @@ public final class Equipment extends PObject implements Serializable,
 			// only make a copy if we need to
 			// add qualifiers to modifier
 			if (eqMod.getChoiceString().length() != 0) {
-				eqMod = (EquipmentModifier) eqMod.clone();
+				eqMod = eqMod.clone();
 			}
 
 			addToEqModifierList(eqMod, bPrimary);
@@ -2783,7 +2783,7 @@ public final class Equipment extends PObject implements Serializable,
 			// only make a copy if we need to add qualifiers to modifier
 			//
 			if (eqMod.getChoiceString().length() != 0) {
-				aMod = (EquipmentModifier) eqMod.clone();
+				aMod = eqMod.clone();
 
 				if (aMod == null) {
 					return;
@@ -4834,7 +4834,7 @@ public final class Equipment extends PObject implements Serializable,
 			// only make a copy if we need to add qualifiers to modifier
 			//
 			if (eqMod.getChoiceString().length() != 0) {
-				eqMod = (EquipmentModifier) eqMod.clone();
+				eqMod = eqMod.clone();
 			}
 
 			clonedList.add(eqMod);

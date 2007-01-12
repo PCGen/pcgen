@@ -580,7 +580,7 @@ final class PCGVer0Parser implements PCGParser
 			{
 				if (needCopy)
 				{
-					aClass = (PCClass) aClass.clone();
+					aClass = aClass.clone();
 					aPC.getClassList().add(aClass);
 				}
 
@@ -785,7 +785,7 @@ final class PCGVer0Parser implements PCGParser
 				}
 				else
 				{
-					eq = (Equipment) eqI.clone();
+					eq = eqI.clone();
 
 					final StringTokenizer iTok =
 							new StringTokenizer(id, ".", false);
@@ -879,13 +879,13 @@ final class PCGVer0Parser implements PCGParser
 
 				if (aEq != null)
 				{
-					eq = (Equipment) aEq.clone();
+					eq = aEq.clone();
 					eq.load(aLine, ";", "=", aPC);
 					if (!aEq.isType(Constants.s_CUSTOM))
 					{
 						aEq.addMyType(Constants.s_CUSTOM);
 					}
-					EquipmentList.addEquipment((Equipment) eq.clone());
+					EquipmentList.addEquipment(eq.clone());
 					bFound = true;
 				}
 				else
@@ -946,7 +946,7 @@ final class PCGVer0Parser implements PCGParser
 				}
 				else
 				{
-					eq = (Equipment) aEq.clone();
+					eq = aEq.clone();
 
 					if ((customName.length() == 0)
 						&& ((eq.getEqModifierList(true).size() + eq
@@ -990,7 +990,7 @@ final class PCGVer0Parser implements PCGParser
 						eq.setName(customName);
 					}
 
-					EquipmentList.addEquipment((Equipment) eq.clone());
+					EquipmentList.addEquipment(eq.clone());
 				}
 			}
 
@@ -1928,7 +1928,7 @@ final class PCGVer0Parser implements PCGParser
 							.toString()))
 						{
 							aSkill = Globals.getSkillList().get(i);
-							aSkill = (Skill) aSkill.clone();
+							aSkill = aSkill.clone();
 							aPC.getSkillList().add(aSkill);
 
 							break;

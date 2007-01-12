@@ -696,9 +696,9 @@ public final class SettingsHandler
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
 		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + g + ".unitSetName",
 				getOptions().getProperty("pcgen.options.unitSetName." + g, game.getDefaultUnitSet()));
-		if  (game.selectUnitSet(unitSetName) == false)
+		if  (!game.selectUnitSet(unitSetName))
 		{
-			if  (game.selectDefaultUnitSet() == false)
+			if  (!game.selectDefaultUnitSet())
 			{
 				game.selectUnitSet(Constants.s_STANDARD_UNITSET_NAME);
 			}

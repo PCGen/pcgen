@@ -200,7 +200,7 @@ public class EquipmentTableParser
 				return;
 			}
 			
-			if ( theValidFlag == false )
+			if (!theValidFlag )
 			{
 				throw new SAXException("Generators.Equipment.InvalidFileFormat"); //$NON-NLS-1$
 			}

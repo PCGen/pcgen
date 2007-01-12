@@ -892,7 +892,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				if (adjustment > 0)
 				{
-					updatedItem = (Equipment) equipItemToAdjust.clone();
+					updatedItem = equipItemToAdjust.clone();
 
 					if (updatedItem != null)
 					{
@@ -1157,7 +1157,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					{
 						final String existingName = selectedEquipment.getName();
 						final Equipment newEq =
-								(Equipment) selectedEquipment.clone();
+								selectedEquipment.clone();
 
 						// This may seem insane, but if the base item is not set,
 						// getBaseItemName returns the result of getName
@@ -1655,7 +1655,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (aEq.getRemainingCharges() != charges)
 			{
-				Equipment newEq = (Equipment) aEq.clone();
+				Equipment newEq = aEq.clone();
 				newEq.setRemainingCharges(charges);
 				pc.updateEquipSetItem(aEq, newEq);
 
@@ -3090,14 +3090,14 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (moveType == 0) // move
 			{
-				playerCharacter.addEquipment((Equipment) eq.clone());
+				playerCharacter.addEquipment(eq.clone());
 				playerCharacter.setDirty(true);
 				pc.removeEquipment(eq);
 				pc.setDirty(true);
 			}
 			else
 			{
-				playerCharacter.addEquipment((Equipment) eq.clone());
+				playerCharacter.addEquipment(eq.clone());
 			}
 
 			playerCharacter.setDirty(true);

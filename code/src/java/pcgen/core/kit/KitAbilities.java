@@ -246,7 +246,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 			{
 				abilitiesToAdd.add(ability);
 				++abilitiesChosen;
-				if (free == true)
+				if (free)
 				{
 					// Need to pay for it first
 					aPC.adjustFeats(1);
@@ -274,7 +274,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		{
 			AbilityUtilities.modFeat(aPC, null, ability.toString(), true, false);
 
-			if (free == true)
+			if (free)
 			{
 				aPC.adjustFeats(1);
 			}

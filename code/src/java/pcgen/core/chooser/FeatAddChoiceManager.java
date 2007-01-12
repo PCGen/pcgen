@@ -210,7 +210,7 @@ public class FeatAddChoiceManager extends AbstractComplexChoiceManager<String> {
 
 						for (Iterator e = aavailableList.iterator(); e.hasNext();)
 						{
-							availableList.add(featKey + "(" + (String) e.next() + ")");
+							availableList.add(featKey + "(" + e.next() + ")");
 						}
 
 						//return false;

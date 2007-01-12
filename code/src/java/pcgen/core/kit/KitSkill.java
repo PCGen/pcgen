@@ -362,7 +362,7 @@ public final class KitSkill extends BaseKit implements Serializable, Cloneable
 								 Skill aSkill, double ranksLeftToAdd,
 								 boolean isFree, List<String> warnings)
 	{
-		if (isFree == false && pcClass.getSkillPool(pc) == 0)
+		if (!isFree && pcClass.getSkillPool(pc) == 0)
 		{
 			return null;
 		}

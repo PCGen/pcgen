@@ -75,8 +75,8 @@ public class GlobalsTest extends PCGenTestCase
 		for (x = 0; x < 10000; x++)
 		{
 			rand = Globals.getRandomInt(6);
-			is(rand, ge(0));
-			is(rand, le(5));
+			is(rand, ge(Integer.valueOf(0)));
+			is(rand, le(Integer.valueOf(5)));
 
 			try
 			{

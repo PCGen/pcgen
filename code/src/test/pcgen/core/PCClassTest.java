@@ -43,7 +43,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
-import pcgen.persistence.lst.RaceLoader;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**

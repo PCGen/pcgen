@@ -127,7 +127,7 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 					{
 						try
 						{
-							templateToAdd = (PCTemplate) potentialTemplate.
+							templateToAdd = potentialTemplate.
 								clone();
 						}
 						catch (CloneNotSupportedException notUsed)

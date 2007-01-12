@@ -100,7 +100,8 @@ public class ClassData
 		final List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 		for ( final PCStat stat : statList )
 		{
-			if ( theStatWeights == null || theStatWeights.contains(stat.getAbb()) == false )
+			if ( theStatWeights == null || !theStatWeights
+					.contains(stat.getAbb()) )
 			{
 				addStat(stat.getAbb(), 1);
 			}

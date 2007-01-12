@@ -333,7 +333,7 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 		if (pobject instanceof Ability)
 		{
-			((Ability)pobject).clearSelectedWeaponProfBonus(); //Cleans up the feat
+			pobject.clearSelectedWeaponProfBonus(); //Cleans up the feat
 		}
 
 		Iterator<T> it = selected.iterator();

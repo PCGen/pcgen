@@ -41,9 +41,9 @@ import java.util.ArrayList;
  */
 public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<WeaponProf>
 {
-	final static int SCOPE_PC		= 0;
-	final static int SCOPE_ALL		= 1;
-	final static int SCOPE_UNIQUE	= 2;
+	static final int SCOPE_PC		= 0;
+	static final int SCOPE_ALL		= 1;
+	static final int SCOPE_UNIQUE	= 2;
 	int              intScope		= -1;
 	String           typeOfProf		= "";
 

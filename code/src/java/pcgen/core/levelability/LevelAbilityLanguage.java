@@ -125,7 +125,7 @@ final class LevelAbilityLanguage extends LevelAbility
 			final Language aLang = Globals.getLanguageKeyed(aToken);
 			if (aLang != null)
 			{
-				if (!aPC.getLanguagesList().contains((Object) aLang))
+				if (!aPC.getLanguagesList().contains(aLang))
 				{
 					anArrayList.add(aToken);
 				}

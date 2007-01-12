@@ -128,7 +128,7 @@ public final class EquipmentUtilities
 		// create a temporary list to merge with
 		for ( Equipment tempEq : aList )
 		{
-			final Equipment eq = (Equipment) tempEq.clone();
+			final Equipment eq = tempEq.clone();
 			eq1List.add(eq);
 			eq2List.add(eq);
 		}

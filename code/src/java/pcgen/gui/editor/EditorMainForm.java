@@ -1174,12 +1174,13 @@ public final class EditorMainForm extends JDialog
 		closeDialog();
 	}
 
+	//TODO: I'm in the process of breaking this method up (and removing a lot of duplicated code.) 1122 lines is just TOO LONG. Heck, it's long for a class, never mind a method... JK070110
 	private void initComponentContents()
 	{
 		String aString;
 		StringTokenizer aTok;
-		List selectedList = new ArrayList();
-		List selectedList2 = new ArrayList();
+//		List selectedList = new ArrayList();
+//		List selectedList2 = new ArrayList();
 		List<String> aList;
 		List<String> movementValues;
 		List<String> visionValues;
@@ -1206,7 +1207,7 @@ public final class EditorMainForm extends JDialog
 				// Initialize the lists of available and selected follower alignments
 				//
 				List<String> availableFollowerAlignmentList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selectedFollowerAlignmentList = new ArrayList<String>();
 
 				for (Iterator<PCAlignment> e = SettingsHandler.getGame().getUnmodifiableAlignmentList().iterator(); e.hasNext();)
 				{
@@ -1219,15 +1220,15 @@ public final class EditorMainForm extends JDialog
 				}
 
 				final String followerAlignments = ((Deity) thisPObject).getFollowerAlignments();
-				parseAlignment(availableFollowerAlignmentList, selectedList, followerAlignments, null);
+				parseAlignment(availableFollowerAlignmentList, selectedFollowerAlignmentList, followerAlignments, null);
 
 				pnlFollowers.setAvailableList(availableFollowerAlignmentList, true);
-				pnlFollowers.setSelectedList(selectedList, true);
+				pnlFollowers.setSelectedList(selectedFollowerAlignmentList, true);
 
 				//
 				// Initialize the contents of the available and selected domains lists
 				//
-				selectedList.clear();
+				List<Domain> selectedDomainList = new ArrayList<Domain>();
 				List<Domain> availableDomainList = new ArrayList<Domain>();
 
 				for (Iterator<Domain> e = Globals.getDomainList().iterator(); e.hasNext();)
@@ -1236,7 +1237,7 @@ public final class EditorMainForm extends JDialog
 
 					if (((Deity) thisPObject).hasDomain(aDomain))
 					{
-						selectedList.add(aDomain);
+						selectedDomainList.add(aDomain);
 					}
 					else
 					{
@@ -1245,12 +1246,12 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlDomains.setAvailableList(availableDomainList, true);
-				pnlDomains.setSelectedList(selectedList, true);
+				pnlDomains.setSelectedList(selectedDomainList, true);
 
 				//
 				// Initialize the contents of the available and selected races list
 				//
-				selectedList.clear();
+				List<Race>selectedRaceList = new ArrayList<Race>();
 				List<Race>availableRaceList = new ArrayList<Race>();
 
 				final List<String> raceList = ((Deity) thisPObject).getRacePantheonList();
@@ -1263,7 +1264,7 @@ public final class EditorMainForm extends JDialog
 					{
 						if (raceList.contains(raceName))
 						{
-							selectedList.add(race);
+							selectedRaceList.add(race);
 						}
 						else
 						{
@@ -1273,7 +1274,7 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlRaces.setAvailableList(availableRaceList, true);
-				pnlRaces.setSelectedList(selectedList, true);
+				pnlRaces.setSelectedList(selectedRaceList, true);
 
 				break;
 
@@ -1283,7 +1284,7 @@ public final class EditorMainForm extends JDialog
 				// Populate the feats available list and selected lists
 				//
 				List<String> availableFeatList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selecetdFeatList = new ArrayList<String>();
 
 				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
@@ -1296,20 +1297,20 @@ public final class EditorMainForm extends JDialog
 					Ability ability = (Ability)iter.next();
 					aString = ability.getKeyName();
 
-					if (!selectedList.contains(aString))
+					if (!selecetdFeatList.contains(aString))
 					{
 						availableFeatList.remove(aString);
-						selectedList.add(aString);
+						selecetdFeatList.add(aString);
 					}
 				}
 
 				pnlFeats.setAvailableList(availableFeatList, true);
-				pnlFeats.setSelectedList(selectedList, true);
+				pnlFeats.setSelectedList(selecetdFeatList, true);
 
 
 				//TODO Remember to change here when spellMap is changed JK070101
 				List<Spell> availableSpellList = new ArrayList<Spell>();
-				selectedList.clear();
+				List<String> selectedSpellList = new ArrayList<String>();
 
 				SpellSupport spellSupt = thisPObject.getSpellSupport();
 				if (thisPObject.isNewItem())
@@ -1341,7 +1342,7 @@ public final class EditorMainForm extends JDialog
 							if (spellSupt.containsInfoFor("DOMAIN", spellName))
 							{
 								int i = spellSupt.getInfo("DOMAIN", spellName).level;
-								selectedList.add(encodeSpellEntry(obj.toString(), Integer.toString(i)));
+								selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(i)));
 							}
 							else
 							{
@@ -1354,7 +1355,7 @@ public final class EditorMainForm extends JDialog
 				Globals.sortPObjectList(availableSpellList);
 
 				pnlQSpells.setAvailableList(availableSpellList, true);
-				pnlQSpells.setSelectedList(selectedList, true);
+				pnlQSpells.setSelectedList(selectedSpellList, true);
 
 				break;
 
@@ -1370,8 +1371,8 @@ public final class EditorMainForm extends JDialog
 				// Populate the templates available list and selected lists
 				//
 				List<String> availableRaceTemplateList = new ArrayList<String>();
-				selectedList.clear();
-				selectedList2.clear();
+				List<String> selectedRaceTemplateList = new ArrayList<String>();
+				List<String> selectedRaceTemplateList2 = new ArrayList<String>();
 
 				for (Iterator<PCTemplate> e = Globals.getTemplateList().iterator(); e.hasNext();)
 				{
@@ -1387,18 +1388,18 @@ public final class EditorMainForm extends JDialog
 				//
 				// remove this race's granted templates from the available list and place into selected list
 				//
-				moveGrantedTemplatesFromAvailableToSelected(((Race) thisPObject).getTemplateList(), selectedList,
-					selectedList2, availableRaceTemplateList);
+				moveGrantedTemplatesFromAvailableToSelected(((Race) thisPObject).getTemplateList(), selectedRaceTemplateList,
+					selectedRaceTemplateList2, availableRaceTemplateList);
 
 				pnlTemplates.setAvailableList(availableRaceTemplateList, true);
-				pnlTemplates.setSelectedList(selectedList, true);
-				pnlTemplates.setSelectedList2(selectedList2, true);
+				pnlTemplates.setSelectedList(selectedRaceTemplateList, true);
+				pnlTemplates.setSelectedList2(selectedRaceTemplateList2, true);
 
 				//
 				// Populate the favoured classes available list and selected lists
 				//
 				List<String> availableFavouredClassList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selectedFavouredClassList = new ArrayList<String>();
 
 				for (Iterator<PCClass> e = Globals.getClassList().iterator(); e.hasNext();)
 				{
@@ -1414,7 +1415,7 @@ public final class EditorMainForm extends JDialog
 				{
 					String favouredClass = aTok.nextToken();
 
-					if (!selectedList.contains(favouredClass))
+					if (!selectedFavouredClassList.contains(favouredClass))
 					{
 						final int idx = availableFavouredClassList.indexOf(favouredClass);
 
@@ -1426,19 +1427,19 @@ public final class EditorMainForm extends JDialog
 						}
 
 						availableFavouredClassList.remove(idx);
-						selectedList.add(favouredClass);
+						selectedFavouredClassList.add(favouredClass);
 					}
 				}
 
 				pnlClasses.setAvailableList(availableFavouredClassList, true);
-				pnlClasses.setSelectedList(selectedList, true);
+				pnlClasses.setSelectedList(selectedFavouredClassList, true);
 
 				//
 				// Populate the feats available list and selected lists
 				//
 				List<String> availableRaceFeatList = new ArrayList<String>();
-				selectedList.clear();
-				selectedList2.clear();
+				List<String> selectedRaceFeatList = new ArrayList<String>();
+				List<String> selectedRaceFeatList2 = new ArrayList<String>();
 
 				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
@@ -1453,10 +1454,10 @@ public final class EditorMainForm extends JDialog
 				{
 					String featName = aTok.nextToken();
 
-					if (!selectedList.contains(featName))
+					if (!selectedRaceFeatList.contains(featName))
 					{
 						availableRaceFeatList.remove(featName);
-						selectedList.add(featName);
+						selectedRaceFeatList.add(featName);
 					}
 				}
 
@@ -1467,22 +1468,22 @@ public final class EditorMainForm extends JDialog
 				{
 					String featName = aTok.nextToken();
 
-					if (!selectedList2.contains(featName))
+					if (!selectedRaceFeatList2.contains(featName))
 					{
 						availableRaceFeatList.remove(featName);
-						selectedList2.add(featName);
+						selectedRaceFeatList2.add(featName);
 					}
 				}
 
 				pnlFeats.setAvailableList(availableRaceFeatList, true);
-				pnlFeats.setSelectedList(selectedList, true);
-				pnlFeats.setSelectedList2(selectedList2, true);
+				pnlFeats.setSelectedList(selectedRaceFeatList, true);
+				pnlFeats.setSelectedList2(selectedRaceFeatList2, true);
 
 				//
 				// Populate the virtual feats available list and selected list
 				//
 				List<String> availableRaceVirtualFeatList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selectedRaceVirtualFeatList = new ArrayList<String>();
 
 				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
@@ -1495,21 +1496,21 @@ public final class EditorMainForm extends JDialog
 					final Ability aFeat = e.next();
 					String featName = aFeat.getKeyName();
 
-					if (!selectedList.contains(featName))
+					if (!selectedRaceVirtualFeatList.contains(featName))
 					{
 						availableRaceVirtualFeatList.remove(featName);
-						selectedList.add(featName);
+						selectedRaceVirtualFeatList.add(featName);
 					}
 				}
 
 				pnlVFeats.setAvailableList(availableRaceVirtualFeatList, true);
-				pnlVFeats.setSelectedList(selectedList, true);
+				pnlVFeats.setSelectedList(selectedRaceVirtualFeatList, true);
 
 				//
 				// Populate the bonus languages available list and selected lists
 				//
-				selectedList.clear();
 				List<Language> availableRaceLangList = new ArrayList<Language>();
+				List<Language> selectedRaceLangList = new ArrayList<Language>();
 				final Set<Language> langs = thisPObject.getLanguageBonus();
 
 				for (Iterator<Language> e = Globals.getLanguageList().iterator(); e.hasNext();)
@@ -1518,7 +1519,7 @@ public final class EditorMainForm extends JDialog
 
 					if (langs.contains(aLang))
 					{
-						selectedList.add(aLang);
+						selectedRaceLangList.add(aLang);
 					}
 					else
 					{
@@ -1527,7 +1528,7 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlBonusLang.setAvailableList(availableRaceLangList, true);
-				pnlBonusLang.setSelectedList(selectedList, true);
+				pnlBonusLang.setSelectedList(selectedRaceLangList, true);
 
 				//
 				// Populate the movement panel
@@ -1656,8 +1657,8 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_SKILL:
 				List<String> availableSkillList = new ArrayList<String>();
-				selectedList.clear();
-				selectedList2.clear();
+				List<String> selectedSkillList = new ArrayList<String>();
+				List<String> selectedSkillList2 = new ArrayList<String>();
 
 				for (Iterator <PCClass>e = Globals.getClassList().iterator(); e.hasNext();)
 				{
@@ -1696,18 +1697,18 @@ public final class EditorMainForm extends JDialog
 
 						if (negate)
 						{
-							selectedList2.add(aString);
+							selectedSkillList2.add(aString);
 						}
 						else
 						{
-							selectedList.add(aString);
+							selectedSkillList.add(aString);
 						}
 					}
 				}
 
 				pnlClasses.setAvailableList(availableSkillList, true);
-				pnlClasses.setSelectedList(selectedList, true);
-				pnlClasses.setSelectedList2(selectedList2, true);
+				pnlClasses.setSelectedList(selectedSkillList, true);
+				pnlClasses.setSelectedList2(selectedSkillList2, true);
 				pnlClasses.setLblSelectedText("Class Skill");
 				pnlClasses.setLblSelected2Text("Not allowed");
 
@@ -1722,8 +1723,8 @@ public final class EditorMainForm extends JDialog
 				// Initialize the contents of the available and selected domains lists
 				//
 				int iCount = 0;
-				selectedList.clear();
 				List<String> availableDomainsList = new ArrayList<String>();
+				List<String> selectedDomainsList = new ArrayList<String>();
 
 				for (Iterator<Domain> e = Globals.getDomainList().iterator(); e.hasNext();)
 				{
@@ -1737,7 +1738,7 @@ public final class EditorMainForm extends JDialog
 
 					if (lvl != null)
 					{
-						selectedList.add(encodeDomainEntry(aDomain.getKeyName(), lvl.toString()));
+						selectedDomainsList.add(encodeDomainEntry(aDomain.getKeyName(), lvl.toString()));
 						++iCount;
 					}
 					else
@@ -1747,13 +1748,13 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlQDomains.setAvailableList(availableDomainsList, true);
-				pnlQDomains.setSelectedList(selectedList, true);
+				pnlQDomains.setSelectedList(selectedDomainsList, true);
 
 				//
 				// Initialize the contents of the available and selected classes lists
 				//
-				selectedList.clear();
 				List<String> availableClassesList = new ArrayList<String>();
+				List<String> selectedClassesList = new ArrayList<String>();
 
 				for (Iterator<PCClass> e = Globals.getClassList().iterator(); e.hasNext();)
 				{
@@ -1767,7 +1768,7 @@ public final class EditorMainForm extends JDialog
 
 					if (lvl != null)
 					{
-						selectedList.add(encodeDomainEntry(aClass.getKeyName(), lvl.toString()));
+						selectedClassesList.add(encodeDomainEntry(aClass.getKeyName(), lvl.toString()));
 						++iCount;
 					}
 					else
@@ -1777,7 +1778,7 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlQClasses.setAvailableList(availableClassesList, true);
-				pnlQClasses.setSelectedList(selectedList, true);
+				pnlQClasses.setSelectedList(selectedClassesList, true);
 
 				//
 				// Inform the user if there is a domain/class defined for the spell that was not found
@@ -1796,8 +1797,8 @@ public final class EditorMainForm extends JDialog
 				// Populate the templates available list and selected lists
 				//
 				List<String> availableTemplateList = new ArrayList<String>();
-				selectedList.clear();
-				selectedList2.clear();
+				List<String> selectedTemplateList = new ArrayList<String>();
+				List<String> selectedTemplateList2 = new ArrayList<String>();
 
 				for (Iterator<PCTemplate> e = Globals.getTemplateList().iterator(); e.hasNext();)
 				{
@@ -1813,18 +1814,18 @@ public final class EditorMainForm extends JDialog
 				//
 				// remove this template's granted templates from the available list and place into selected list
 				//
-				moveGrantedTemplatesFromAvailableToSelected(((PCTemplate) thisPObject).getTemplateList(), selectedList,
-					selectedList2, availableTemplateList);
+				moveGrantedTemplatesFromAvailableToSelected(((PCTemplate) thisPObject).getTemplateList(), selectedTemplateList,
+					selectedTemplateList2, availableTemplateList);
 
 				pnlTemplates.setAvailableList(availableTemplateList, true);
-				pnlTemplates.setSelectedList(selectedList, true);
-				pnlTemplates.setSelectedList2(selectedList2, true);
+				pnlTemplates.setSelectedList(selectedTemplateList, true);
+				pnlTemplates.setSelectedList2(selectedTemplateList2, true);
 
 				//
 				// Populate the favoured classes available list and selected lists
 				//
 				List<String> availableFavouredClassesList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selectedFavouredClassesList = new ArrayList<String>();
 
 				for (Iterator<PCClass> e = Globals.getClassList().iterator(); e.hasNext();)
 				{
@@ -1840,7 +1841,7 @@ public final class EditorMainForm extends JDialog
 				{
 					String favouredClass = aTok.nextToken();
 
-					if (!selectedList.contains(favouredClass))
+					if (!selectedFavouredClassesList.contains(favouredClass))
 					{
 						final int idx = availableFavouredClassesList.indexOf(favouredClass);
 
@@ -1852,18 +1853,18 @@ public final class EditorMainForm extends JDialog
 						}
 
 						availableFavouredClassesList.remove(idx);
-						selectedList.add(favouredClass);
+						selectedFavouredClassesList.add(favouredClass);
 					}
 				}
 
 				pnlClasses.setAvailableList(availableFavouredClassesList, true);
-				pnlClasses.setSelectedList(selectedList, true);
+				pnlClasses.setSelectedList(selectedFavouredClassesList, true);
 
 				//
 				// Populate the feats available list and selected lists
 				//
 				List<String> availableTemplateFeatsList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selectedTemplateFeatsList = new ArrayList<String>();
 
 				for (Iterator<Categorisable> e = Globals.getAbilityKeyIterator("FEAT"); e.hasNext();)
 				{
@@ -1877,15 +1878,15 @@ public final class EditorMainForm extends JDialog
 				{
 					aString = e.next();
 
-					if (!selectedList.contains(aString))
+					if (!selectedTemplateFeatsList.contains(aString))
 					{
 						availableTemplateFeatsList.remove(aString);
-						selectedList.add(aString);
+						selectedTemplateFeatsList.add(aString);
 					}
 				}
 
 				pnlFeats.setAvailableList(availableTemplateFeatsList, true);
-				pnlFeats.setSelectedList(selectedList, true);
+				pnlFeats.setSelectedList(selectedTemplateFeatsList, true);
 
 				//
 				// Populate the movement panel
@@ -1923,28 +1924,28 @@ public final class EditorMainForm extends JDialog
 				//
 				// Populate the specialabilities panel
 				//
-				selectedList.clear();
+				List<String> selectedSAList = new ArrayList<String>();
 
-				selectedList.addAll(((PCTemplate)thisPObject).getLevelAbilities());
+				selectedSAList.addAll(((PCTemplate)thisPObject).getLevelAbilities());
 
-				final List<String >specialabilitiesList = ((PCTemplate) thisPObject).getHitDiceStrings();
+				final List<String>specialabilitiesList = ((PCTemplate) thisPObject).getHitDiceStrings();
 
 				if (specialabilitiesList != null)
 				{
 					for (Iterator<String> e = specialabilitiesList.iterator(); e.hasNext();)
 					{
 						aString = e.next();
-						selectedList.add("HD:" + aString);
+						selectedSAList.add("HD:" + aString);
 					}
 				}
 
-				pnlLevelAbilities.setSelectedList(selectedList);
+				pnlLevelAbilities.setSelectedList(selectedSAList);
 
 				//
 				// Populate the bonus languages available list and selected lists
 				//
-				selectedList.clear();
 				List<Language> availableBonusLangList = new ArrayList<Language>();
+				List<Language> selectedBonusLangList = new ArrayList<Language>();
 
 				final Set aSet = ((PCTemplate) thisPObject).getLanguageBonus();
 
@@ -1954,7 +1955,7 @@ public final class EditorMainForm extends JDialog
 
 					if (aSet.contains(aLang))
 					{
-						selectedList.add(aLang);
+						selectedBonusLangList.add(aLang);
 					}
 					else
 					{
@@ -1963,7 +1964,7 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlBonusLang.setAvailableList(availableBonusLangList, true);
-				pnlBonusLang.setSelectedList(selectedList, true);
+				pnlBonusLang.setSelectedList(selectedBonusLangList, true);
 
 				break;
 
@@ -1981,9 +1982,9 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlLanguages != null)
 		{
-			selectedList.clear();
-			selectedList2.clear();
 			List<Language> availableLanguageList = new ArrayList<Language>();
+			List<Language> selectedLanguageList = new ArrayList<Language>();
+			List<Language> selectedLanguageList2 = new ArrayList<Language>();
 
 			final Collection aSet = thisPObject.getSafeListFor(ListKey.AUTO_LANGUAGES);
 
@@ -1993,7 +1994,7 @@ public final class EditorMainForm extends JDialog
 
 				if (aSet.contains(aLang))
 				{
-					selectedList.add(aLang);
+					selectedLanguageList.add(aLang);
 				}
 				else
 				{
@@ -2020,16 +2021,16 @@ public final class EditorMainForm extends JDialog
 
 					if (aLang != null)
 					{
-						selectedList2.add(aLang);
+						selectedLanguageList2.add(aLang);
 						availableLanguageList.remove(aLang);
 					}
 				}
 
-				pnlLanguages.setSelectedList2(selectedList2, true);
+				pnlLanguages.setSelectedList2(selectedLanguageList2, true);
 			}
 
 			pnlLanguages.setAvailableList(availableLanguageList, true);
-			pnlLanguages.setSelectedList(selectedList, true);
+			pnlLanguages.setSelectedList(selectedLanguageList, true);
 		}
 
 		//
@@ -2037,7 +2038,7 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlWeapons != null)
 		{
-			selectedList.clear();
+			List<String> selectedWPList = new ArrayList<String>();
 			String allProfNames = Globals.getWeaponProfNames("|", false);
 			String[] profNames = allProfNames.split("\\|");
 			List<String> availableWeaponProfList = new ArrayList<String>();
@@ -2060,7 +2061,7 @@ public final class EditorMainForm extends JDialog
 
 			for (Iterator<String> e = autoWeap.iterator(); e.hasNext();)
 			{
-				moveProfToSelectedList(availableWeaponProfList, selectedList, e.next());
+				moveProfToSelectedList(availableWeaponProfList, selectedWPList, e.next());
 			}
 			Iterator<String> e = null;
 			if (editType == EditorConstants.EDIT_CLASS)
@@ -2078,21 +2079,21 @@ public final class EditorMainForm extends JDialog
 
 			if (e != null)
 			{
-				selectedList2.clear();
+				List<String> selectedWPList2 = new ArrayList<String>();
 
 				while (e.hasNext())
 				{
-					moveProfToSelectedList(availableWeaponProfList, selectedList2,
+					moveProfToSelectedList(availableWeaponProfList, selectedWPList2,
 						e.next());
 				}
 
-				pnlWeapons.setSelectedList2(selectedList2, true);
+				pnlWeapons.setSelectedList2(selectedWPList2, true);
 				pnlWeapons.setLblSelectedText(PropertyFactory.getString("in_demAllGranted"));
 				pnlWeapons.setLblSelected2Text(PropertyFactory.getString("in_demChoiceGranted"));
 			}
 
 			pnlWeapons.setAvailableList(availableWeaponProfList, true);
-			pnlWeapons.setSelectedList(selectedList, true);
+			pnlWeapons.setSelectedList(selectedWPList, true);
 		}
 
 		String[] values;
@@ -2150,7 +2151,7 @@ public final class EditorMainForm extends JDialog
 
 			case EditorConstants.EDIT_SKILL:
 				List<String> availableSkillList = new ArrayList<String>();
-				selectedList.clear();
+				List<String> selectedSkillList = new ArrayList<String>();
 
 				for (Iterator<Skill> e = Globals.getSkillList().iterator(); e.hasNext();)
 				{
@@ -2167,11 +2168,11 @@ public final class EditorMainForm extends JDialog
 				//
 				for (Iterator<BonusObj> e = thisPObject.getBonusList().iterator(); e.hasNext();)
 				{
-					parseSynergyBonus(e.next(), availableSkillList, selectedList);
+					parseSynergyBonus(e.next(), availableSkillList, selectedSkillList);
 				}
 
 				pnlSynergy.setAvailableList(availableSkillList, true);
-				pnlSynergy.setSelectedList(selectedList, true);
+				pnlSynergy.setSelectedList(selectedSkillList, true);
 
 				//
 				// initialize the Qualifier and Variables combos on the Synergy tab
@@ -2226,8 +2227,8 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlSkills != null)
 		{
-			selectedList.clear();
 			List<String> availableClassCrossClassList = new ArrayList<String>();
+			List<String> selectedClassCrossClassList = new ArrayList<String>();
 
 			for (Iterator<Skill> e = Globals.getSkillList().iterator(); e.hasNext();)
 			{
@@ -2257,7 +2258,7 @@ public final class EditorMainForm extends JDialog
 				for (Iterator<String> e = skills.iterator(); e.hasNext();)
 				{
 					aString = e.next();
-					selectedList.add(aString);
+					selectedClassCrossClassList.add(aString);
 
 					if (availableClassCrossClassList.contains(aString))
 					{
@@ -2266,9 +2267,9 @@ public final class EditorMainForm extends JDialog
 				}
 			}
 
-			pnlSkills.setSelectedList(selectedList, true);
+			pnlSkills.setSelectedList(selectedClassCrossClassList, true);
 
-			selectedList.clear();
+			List<String> selectedCCSkillList = new ArrayList<String>();
 			skills = thisPObject.getCcSkillList();
 
 			if (skills != null)
@@ -2276,7 +2277,7 @@ public final class EditorMainForm extends JDialog
 				for (Iterator<String> e = skills.iterator(); e.hasNext();)
 				{
 					aString = e.next();
-					selectedList.add(aString);
+					selectedCCSkillList.add(aString);
 
 					if (availableClassCrossClassList.contains(aString))
 					{
@@ -2285,15 +2286,14 @@ public final class EditorMainForm extends JDialog
 				}
 			}
 
-			pnlSkills.setSelectedList2(selectedList, true);
+			pnlSkills.setSelectedList2(selectedCCSkillList, true);
 
 			pnlSkills.setAvailableList(availableClassCrossClassList, true);
 		}
 
 		pnlAdvanced.setAvailableTagList(editType);
-		selectedList.clear();
-		selectedList = buildAdvancedSelectedList(editType);
-		pnlAdvanced.setSelected(selectedList);
+		List<String> selectedAdvancedList = buildAdvancedSelectedList(editType);
+		pnlAdvanced.setSelected(selectedAdvancedList);
 	}
 
 	/**

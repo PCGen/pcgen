@@ -128,7 +128,7 @@ public class PrereqObject implements Cloneable
 	}
 
 	/** TODO This is rather foobar'd */
-	final public boolean passesPreReqToGain(final Equipment p, final PlayerCharacter aPC)
+	public final boolean passesPreReqToGain(final Equipment p, final PlayerCharacter aPC)
 	{
 		if (!hasPreReqs())
 		{

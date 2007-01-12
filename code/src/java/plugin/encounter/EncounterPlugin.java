@@ -684,7 +684,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		for (int i = 0; i < eqList.size(); i++)
 		{
 			final Equipment eq = eqList.get(i);
-			addEquipToTarget(aPC, eqSet, "", (Equipment) eq.clone(), new Float(
+			addEquipToTarget(aPC, eqSet, "", eq.clone(), new Float(
 				1));
 		}
 	}

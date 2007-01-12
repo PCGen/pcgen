@@ -203,7 +203,7 @@ class ClassDataHandler extends DefaultHandler
 			return;
 		}
 		
-		if ( theValidFlag == false )
+		if (!theValidFlag )
 		{
 			throw new SAXException("NPCGen.Options.InvalidFileFormat"); //$NON-NLS-1$
 		}

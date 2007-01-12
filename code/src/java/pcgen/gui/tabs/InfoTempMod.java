@@ -1014,7 +1014,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (aTarget instanceof Equipment)
 		{
 			// Create new Item
-			aEq = (Equipment) ((Equipment) aTarget).clone();
+			aEq = ((Equipment) aTarget).clone();
 			aEq.makeVirtual();
 			String currAppName = aEq.getAppliedName();
 			if (currAppName != null && currAppName.length() > 2)

@@ -322,7 +322,7 @@ public class WeightedList<E> implements List<E>
 	 * @param a The Array to fill with elements
 	 * @return The Array containing all the elements.
 	 * 
-	 * @see java.util.List#toArray(T[])
+	 * @see java.util.List#toArray(Object[]) 
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> T[] toArray(T[] a)
@@ -380,7 +380,7 @@ public class WeightedList<E> implements List<E>
 	 * collection.
 	 * 
 	 * @param c elements to retain in the list
-	 * @retun <tt>true</tt> if the list is changed by this call.
+	 * @return <tt>true</tt> if the list is changed by this call.
 	 * 
 	 * @see java.util.List#retainAll(java.util.Collection)
 	 */

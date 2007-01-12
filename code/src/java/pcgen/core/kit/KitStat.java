@@ -88,7 +88,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 				 currentStat.getAbb().equals(getStatName()) )
 			{
 				currentStat.setBaseScore(sVal);
-				theStat = (PCStat)currentStat.clone();
+				theStat = currentStat.clone();
 				foundStat = true;
 				if ("INT".equals(currentStat.getAbb()))
 				{
@@ -98,7 +98,7 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 			}
 		}
 
-		if (foundStat == false && warnings != null)
+		if (!foundStat && warnings != null)
 		{
 			warnings.add("STAT: Could not find stat \"" + getStatName()
 						 + "\"");

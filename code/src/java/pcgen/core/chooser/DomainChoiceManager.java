@@ -103,7 +103,7 @@ public class DomainChoiceManager extends AbstractComplexChoiceManager<Domain> {
 								break;
 							}
 						}
-						if (found == false)
+						if (!found)
 						{
 							availableList.add(domain);
 						}

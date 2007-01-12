@@ -378,7 +378,7 @@ public class NPCGenerator
 			}
 			deities.remove(deity);
 		}
-		if ( selected == false )
+		if (!selected )
 		{
 			Logging.errorPrintLocalised("NPCGen.Errors.CantSelectDeity"); //$NON-NLS-1$
 		}
@@ -617,7 +617,7 @@ public class NPCGenerator
 					continue;
 				}
 				
-				final PCClass classCopy = (PCClass)aClass.clone();
+				final PCClass classCopy = aClass.clone();
 				if ( classCopy.hasSubClass() )
 				{
 					selectSubClass(aPC, classCopy);

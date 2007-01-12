@@ -203,7 +203,7 @@ public class Party
 	 * @throws FileNotFoundException if the file to save into is not set
 	 * @throws IOException if the party file cannot be written
 	 */
-	public void save() throws FileNotFoundException, IOException
+	public void save() throws IOException
 	{
 		if (partyFile == null)
 		{

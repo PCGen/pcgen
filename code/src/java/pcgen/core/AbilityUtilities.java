@@ -25,8 +25,6 @@ package pcgen.core;
 
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.ListKey;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
 
 import java.util.ArrayList;
@@ -234,7 +232,7 @@ public class AbilityUtilities
 	 * @param second
 	 * @return true if the same object is represented
 	 */
-	static public boolean areSameAbility(
+	public static boolean areSameAbility(
 			final Categorisable first,
 			final Categorisable second)
 	{
@@ -285,7 +283,7 @@ public class AbilityUtilities
 	 * @param second
 	 * @return true if the same object is represented
 	 */
-	static public boolean areSameAbility(
+	public static boolean areSameAbility(
 			final Categorisable first,
 			final String second)
 	{
@@ -305,7 +303,7 @@ public class AbilityUtilities
 	 * @param second
 	 * @return true if the same object is represented
 	 */
-	static public boolean areSameAbility(
+	public static boolean areSameAbility(
 			final String category,
 			final String first,
 			final String second)

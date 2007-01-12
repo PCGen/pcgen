@@ -593,7 +593,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				return;
 			}
 
-			PObject clone = (PObject) object.clone();
+			PObject clone = object.clone();
 			clone.setName(copyName);
 			clone.setKeyName(copyName);
 			completeObject(clone);

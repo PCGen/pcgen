@@ -293,7 +293,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq.setTypeInfo("WEAPON");
 
 		// Create a base item
-		Equipment custEq = (Equipment) eq.clone();
+		Equipment custEq = eq.clone();
 		custEq.setKeyName("Custom");
 		custEq.setBaseItem(eq.getKeyName());
 		EquipmentList.addEquipment(custEq);

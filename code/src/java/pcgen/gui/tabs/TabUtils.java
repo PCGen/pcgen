@@ -79,7 +79,7 @@ public class TabUtils
 
 					if (eq != null)
 					{
-						eq = (Equipment) eq.clone();
+						eq = eq.clone();
 						eq.setQty(new Float(1));
 
 						//
