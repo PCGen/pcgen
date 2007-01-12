@@ -22,104 +22,130 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Campaign;
+import pcgen.core.Constants;
+import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
 /**
- *
- * @author  David Rice <david-pcgen@jcuz.com>
+ * 
+ * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class EquipmentModifierLoader
-{
-	/** Creates a new instance of EquipmentModifierLoader */
-	private EquipmentModifierLoader()
-	{
-		// Empty Constructor
+public final class EquipmentModifierLoader extends
+		LstObjectFileLoader<EquipmentModifier> {
+	@Override
+	protected void addGlobalObject(PObject pObj) {
+		// getEquipmentKeyedNoCustom??
+		final EquipmentModifier aTemplate = EquipmentList.getModifierKeyed(pObj
+				.getKeyName());
+		if (aTemplate == null) {
+			EquipmentList.getModifierList().add((EquipmentModifier) pObj);
+		}
+
+	}
+
+	@Override
+	protected EquipmentModifier getObjectKeyed(String aKey) {
+		return EquipmentList.getModifierKeyed(aKey);
+	}
+
+	@Override
+	public EquipmentModifier parseLine(EquipmentModifier eqMod,
+			String inputLine, CampaignSourceEntry source)
+			throws PersistenceLayerException {
+		if (eqMod == null) {
+			eqMod = new EquipmentModifier();
+		}
+
+		final StringTokenizer colToken = new StringTokenizer(inputLine,
+				SystemLoader.TAB_DELIM);
+
+		String name = colToken.nextToken();
+		eqMod.setName(name.replace('|', ' '));
+		eqMod.setSourceCampaign(source.getCampaign());
+		eqMod.setSourceFile(source.getFile());
+
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				EquipmentModifierLstToken.class);
+		while (colToken.hasMoreTokens()) {
+			while (colToken.hasMoreTokens()) {
+				final String colString = colToken.nextToken().trim();
+
+				final int idxColon = colString.indexOf(':');
+				String key = "";
+				try {
+					key = colString.substring(0, idxColon);
+				} catch (Exception e) {
+					// TODO Handle Exception
+				}
+
+				EquipmentModifierLstToken token = (EquipmentModifierLstToken) tokenMap
+						.get(key);
+				if (token != null) {
+					final String value = colString.substring(idxColon + 1);
+					LstUtils.deprecationCheck(token, eqMod, value);
+					if (!token.parse(eqMod, value)) {
+						Logging.errorPrint("Error parsing ability "
+								+ eqMod.getDisplayName() + ':'
+								+ source.getFile() + ':' + colString + "\"");
+					}
+				} else if (PObjectLoader.parseTag(eqMod, colString)) {
+					continue;
+				} else {
+					Logging.errorPrint("Illegal equipment modifier info "
+							+ source + ":" + " \"" + colString + "\"");
+				}
+			}
+		}
+
+		completeObject(eqMod);
+		return null;
+	}
+
+	@Override
+	protected void performForget(PObject objToForget) {
+		throw new java.lang.UnsupportedOperationException(
+				"Cannot FORGET an EquipmentModifier");
 	}
 
 	/**
-	 * Parse the line
-	 * @param obj
-	 * @param inputLine
-	 * @param sourceURL
-	 * @param lineNum
+	 * This method adds the default available equipment modififiers to the
+	 * Globals.
+	 * @throws PersistenceLayerException 
+	 * 
 	 * @throws PersistenceLayerException
+	 *             if some bizarre error occurs, likely due to a change in
+	 *             EquipmentModifierLoader
 	 */
-	public static void parseLine(EquipmentModifier obj, String inputLine,
-		URL sourceURL, int lineNum) throws PersistenceLayerException
-	{
-		if (obj == null)
-		{
-			return;
-		}
+	public void addDefaultEquipmentMods() throws PersistenceLayerException {
+		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
+				getClass().getName() + ".java");
+		setCurrentSource(source);
+		String aLine;
+		EquipmentModifier anObj = new EquipmentModifier();
+		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES";
+		parseLine(anObj, aLine, source);
 
-		final StringTokenizer colToken =
-				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
-		int col = -1;
+		//
+		// Add internal equipment modifier for adding weapon/armor types to
+		// equipment
+		//
+		anObj = new EquipmentModifier();
+		aLine = Constants.s_INTERNAL_EQMOD_WEAPON
+				+ "\tTYPE:Weapon\tVISIBLE:No\tCHOOSE:DUMMY\tNAMEOPT:NONAME";
+		parseLine(anObj, aLine, source);
 
-		if (!obj.isNewItem())
-		{
-			col = 1; // just force it past required fields since .MOD doesn't specify them
-			colToken.nextToken(); // skip name
-		}
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(EquipmentModifierLstToken.class);
-		while (colToken.hasMoreTokens())
-		{
-			final String colString = colToken.nextToken().trim();
-
-			final int idxColon = colString.indexOf(':');
-			String key = "";
-			try
-			{
-				key = colString.substring(0, idxColon);
-			}
-			catch (Exception e)
-			{
-				// TODO Handle Exception
-			}
-			EquipmentModifierLstToken token =
-					(EquipmentModifierLstToken) tokenMap.get(key);
-
-			col++;
-
-			if (col == 0)
-			{
-				obj.setName(colString.replace('|', ' '));
-			}
-			else if (token != null)
-			{
-				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, obj, value);
-				if (!token.parse(obj, value))
-				{
-					Logging.errorPrint("Error parsing ability "
-						+ obj.getDisplayName() + ':' + sourceURL.getFile()
-						+ ':' + colString + "\"");
-				}
-			}
-			else if (PObjectLoader.parseTag(obj, colString))
-			{
-				continue;
-			}
-			//else if (colString.startsWith(Constants.s_TAG_TYPE))
-			//{
-			//	obj.setType(colString.substring(Constants.s_TAG_TYPE.length()));
-			//}
-			else
-			{
-				Logging.errorPrint("Illegal equipment modifier info "
-					+ String.valueOf(sourceURL) + ":"
-					+ Integer.toString(lineNum) + " \"" + colString + "\"");
-			}
-		}
+		anObj = new EquipmentModifier();
+		aLine = Constants.s_INTERNAL_EQMOD_ARMOR
+				+ "\tTYPE:Armor\tVISIBLE:No\tCHOOSE:DUMMY\tNAMEOPT:NONAME";
+		parseLine(anObj, aLine, source);
 	}
 }

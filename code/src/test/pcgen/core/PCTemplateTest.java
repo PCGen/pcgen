@@ -24,7 +24,6 @@
 package pcgen.core;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 import junit.framework.Test;
@@ -33,6 +32,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
 
 /**
@@ -47,6 +47,7 @@ import pcgen.persistence.lst.PCTemplateLoader;
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
+	private PCTemplateLoader loader = new PCTemplateLoader();
 	
 	/**
 	 * Constructs a new <code>PCTemplateTest</code>.
@@ -111,11 +112,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
 		//CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
-		PCTemplateLoader
+
+		CampaignSourceEntry source =
+			new CampaignSourceEntry(new Campaign(), getClass().getName()
+				+ ".java");
+		loader.setCurrentSource(source);
+		loader
 			.parseLine(
 				template,
 				"Template1	ABILITY:TestCat|AUTO|Ability1	ABILITY:TestCat|AUTO|Ability2",
-				new URL("file://PCTemplateTest.java"), -9);
+				source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -151,12 +157,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
-		//CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
-		PCTemplateLoader
+		CampaignSourceEntry source =
+			new CampaignSourceEntry(new Campaign(), getClass().getName()
+				+ ".java");
+		loader.setCurrentSource(source);
+		loader
 			.parseLine(
 				template,
 				"Template1	ABILITY:FEAT|AUTO|Ability1	ABILITY:FEAT|AUTO|Ability2",
-				new URL("file://PCTemplateTest.java"), -9);
+				source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -194,12 +203,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
-		//CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
-		PCTemplateLoader
+		CampaignSourceEntry source =
+			new CampaignSourceEntry(new Campaign(), getClass().getName()
+				+ ".java");
+		loader.setCurrentSource(source);
+		loader
 			.parseLine(
 				template,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTO|Ability1	ABILITY:TestCat|AUTO|Ability2",
-				new URL("file://PCTemplateTest.java"), -9);
+				source);
 		List<String> keys = template.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -249,12 +261,15 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
-		//CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
-		PCTemplateLoader
+		CampaignSourceEntry source =
+			new CampaignSourceEntry(new Campaign(), getClass().getName()
+				+ ".java");
+		loader.setCurrentSource(source);
+		loader
 			.parseLine(
 				template,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTO|Ability1	ABILITY:Feat|AUTO|Ability2",
-				new URL("file://PCTemplateTest.java"), -9);
+				source);
 		List<String> keys = template.getAbilityKeys(null, AbilityCategory.FEAT, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));

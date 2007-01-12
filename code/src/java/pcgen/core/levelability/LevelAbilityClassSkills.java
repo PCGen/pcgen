@@ -53,6 +53,11 @@ final class LevelAbilityClassSkills extends LevelAbility
 
 	LevelAbilityClassSkills(final PObject aOwner, final int aLevel, final String aList)
 	{
+		/*
+		 * TODO Why does this allow something other than PCClass as an owner, when 
+		 * it will create an artificial PCClass later on if the owner is not a PCClass?
+		 * That seems like it will only introduce bugs later on in the system...
+		 */
 		super(aOwner, aLevel, aList);
 	}
 

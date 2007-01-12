@@ -58,6 +58,11 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	{
 		PCClass pcClass = target;
 
+		/*
+		 * FIXME TODO This should probably be done AFTER SUB*CLASS string checking,
+		 * as a null PCClass with SUB* items is meaningless... and an error that should
+		 * be flagged to the user - thpr 1/10/07
+		 */
 		if (pcClass == null)
 		{
 			pcClass = new PCClass();

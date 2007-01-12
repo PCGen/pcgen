@@ -49,7 +49,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.core.BioSet;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
 import pcgen.core.CustomData;
@@ -57,13 +56,11 @@ import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
-import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -73,8 +70,6 @@ import pcgen.core.SystemCollections;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.pcGenGUI;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
@@ -101,10 +96,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	private static final int[] loadOrder =
 			{
-				LstConstants.EQMODIFIER_TYPE // loaded before the equipment so any modifiers will be found
-				, LstConstants.EQUIPMENT_TYPE, LstConstants.LOAD_TYPE,
+				LstConstants.LOAD_TYPE,
 				LstConstants.CLASSSKILL_TYPE, LstConstants.CLASSSPELL_TYPE,
-				LstConstants.REQSKILL_TYPE, LstConstants.TEMPLATE_TYPE,
+				LstConstants.REQSKILL_TYPE, 
 				LstConstants.COMPANIONMOD_TYPE, LstConstants.KIT_TYPE};
 	private static final int MODE_EXCLUDE = -1;
 	private static final int MODE_DEFAULT = 0;
@@ -249,6 +243,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private final Map<String, String> loadedFiles =
 			new HashMap<String, String>();
 	private PCClassLoader classLoader = new PCClassLoader();
+	private PCTemplateLoader templateLoader = new PCTemplateLoader();
+	private EquipmentLoader equipmentLoader = new EquipmentLoader();
+	private EquipmentModifierLoader eqModLoader = new EquipmentModifierLoader();
 	private PaperInfoLoader paperLoader = new PaperInfoLoader();
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
 	private SponsorLoader sponsorLoader = new SponsorLoader();
@@ -285,6 +282,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		campaignLoader.addObserver(this);
 		deityLoader.addObserver(this);
 		domainLoader.addObserver(this);
+		equipmentLoader.addObserver(this);
+		eqModLoader.addObserver(this);
 		eqSlotLoader.addObserver(this);
 		abilityLoader.addObserver(this);
 		featLoader.addObserver(this);
@@ -299,6 +298,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		skillLoader.addObserver(this);
 		spellLoader.addObserver(this);
 		statCheckLoader.addObserver(this);
+		templateLoader.addObserver(this);
 		traitLoader.addObserver(this);
 		wProfLoader.addObserver(this);
 	}
@@ -476,6 +476,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			deityLoader.loadLstFiles(deityFileList);
 
 			classLoader.loadLstFiles(classFileList);
+			
+			templateLoader.loadLstFiles(templateFileList);
+			
+			eqModLoader.loadLstFiles(equipmodFileList);
+
+			equipmentLoader.loadLstFiles(equipmentFileList);
 
 			// loaded before equipment to cover costs
 
@@ -510,8 +516,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			checkRequiredDeities();
 
 			// Add default EQ mods
-			addDefaultEquipmentMods();
-
+			eqModLoader.addDefaultEquipmentMods();
+			
 			// Load custom items
 			loadCustomItems();
 
@@ -652,24 +658,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 							break;
 
-						case LstConstants.EQUIPMENT_TYPE:
-							anObj = EquipmentList.getEquipmentNamed(aString);
-							EquipmentLoader.parseLine((Equipment) anObj,
-								modLines.get(i).toString(), null, 0);
-							modLines.remove(i);
-							modFileType.remove(i);
-
-							break;
-
-						case LstConstants.TEMPLATE_TYPE:
-							anObj = Globals.getTemplateKeyed(aString);
-							PCTemplateLoader.parseLine((PCTemplate) anObj,
-								modLines.get(i).toString(), null, 0);
-							modLines.remove(i);
-							modFileType.remove(i);
-
-							break;
-
 						default:
 							logError("In LstSystemLoader.loadMod the fileType "
 								+ modFileType.get(i).toString()
@@ -719,18 +707,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						case LstConstants.COMPANIONMOD_TYPE:
 							anObj = Globals.getCompanionMod(aString);
 							Globals.removeCompanionMod((CompanionMod) anObj);
-
-							break;
-
-						case LstConstants.EQUIPMENT_TYPE:
-							anObj = EquipmentList.getEquipmentNamed(aString);
-							EquipmentList.remove((Equipment) anObj);
-
-							break;
-
-						case LstConstants.TEMPLATE_TYPE:
-							anObj = Globals.getTemplateKeyed(aString);
-							Globals.getTemplateList().remove(anObj);
 
 							break;
 
@@ -811,11 +787,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 				break;
 
-			case LstConstants.EQUIPMENT_TYPE:
-				lineList = equipmentFileList;
-
-				break;
-
 			case LstConstants.LOAD_TYPE:
 				break;
 
@@ -831,16 +802,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			case LstConstants.REQSKILL_TYPE:
 				lineList = new ArrayList<CampaignSourceEntry>();
-				break;
-
-			case LstConstants.TEMPLATE_TYPE:
-				lineList = templateFileList;
-
-				break;
-
-			case LstConstants.EQMODIFIER_TYPE:
-				lineList = equipmodFileList;
-
 				break;
 
 			case LstConstants.KIT_TYPE:
@@ -1013,39 +974,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	}
 
 	/**
-	 * This method adds the default available equipment modififiers to the Globals.
-	 *
-	 * @throws PersistenceLayerException if some bizarre error occurs, likely due
-	 *                                   to a change in EquipmentModifierLoader
-	 */
-	private void addDefaultEquipmentMods() throws PersistenceLayerException
-	{
-		String aLine;
-		EquipmentModifier anObj = new EquipmentModifier();
-		aLine =
-				"Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES";
-		EquipmentModifierLoader.parseLine(anObj, aLine, null, -1);
-		EquipmentList.getModifierList().add(anObj);
-
-		//
-		// Add internal equipment modifier for adding weapon/armor types to equipment
-		//
-		anObj = new EquipmentModifier();
-		aLine =
-				Constants.s_INTERNAL_EQMOD_WEAPON
-					+ "\tTYPE:Weapon\tVISIBLE:No\tCHOOSE:DUMMY\tNAMEOPT:NONAME";
-		EquipmentModifierLoader.parseLine(anObj, aLine, null, -1);
-		EquipmentList.getModifierList().add(anObj);
-
-		anObj = new EquipmentModifier();
-		aLine =
-				Constants.s_INTERNAL_EQMOD_ARMOR
-					+ "\tTYPE:Armor\tVISIBLE:No\tCHOOSE:DUMMY\tNAMEOPT:NONAME";
-		EquipmentModifierLoader.parseLine(anObj, aLine, null, -1);
-		EquipmentList.getModifierList().add(anObj);
-	}
-
-	/**
 	 * This method adds a given list of objects to the appropriate Globals
 	 * storage.
 	 *
@@ -1070,25 +998,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					{
 						Globals.addCompanionMod((CompanionMod) aArrayList
 							.get(i));
-					}
-
-					break;
-
-				case LstConstants.EQUIPMENT_TYPE:
-
-					final Equipment eq =
-							EquipmentList
-								.getEquipmentKeyed(((Equipment) aArrayList
-									.get(i)).getKeyName());
-
-					if (eq == null)
-					{
-						Object o = aArrayList.get(i);
-						if (o instanceof Equipment)
-						{
-							Equipment e = (Equipment) o;
-							EquipmentList.addEquipment(e);
-						}
 					}
 
 					break;
@@ -1126,35 +1035,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 								+ " defined as a REQSKILL could not be found."
 								+ " The skill could not be made required.");
 						}
-					}
-
-					break;
-
-				case LstConstants.TEMPLATE_TYPE:
-
-					final PCTemplate aTemplate =
-							Globals.getTemplateKeyed(((PCTemplate) aArrayList
-								.get(i)).getKeyName());
-
-					if (aTemplate == null)
-					{
-						Globals.getTemplateList().add(
-							(PCTemplate) aArrayList.get(i));
-					}
-
-					break;
-
-				case LstConstants.EQMODIFIER_TYPE:
-
-					final EquipmentModifier aModifier =
-							EquipmentList
-								.getModifierKeyed(((EquipmentModifier) aArrayList
-									.get(i)).getKeyName());
-
-					if (aModifier == null)
-					{
-						EquipmentList.getModifierList().add(
-							(EquipmentModifier) aArrayList.get(i));
 					}
 
 					break;
@@ -1398,14 +1278,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 					break;
 
-				case LstConstants.EQUIPMENT_TYPE:
-					anObj =
-							initFileTypeEquipment(isForgetItem, nameString,
-								fileType, isModItem, copyName, anObj,
-								sourceCampaign, sourceMap, aList, aLine, aURL);
-
-					break;
-
 				case LstConstants.LOAD_TYPE:
 					Globals.getLoadStrings().add(aLine);
 
@@ -1425,21 +1297,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					PObject pObj = new PObject();
 					pObj.setName(aLine);
 					aList.add(pObj);
-
-					break;
-
-				case LstConstants.TEMPLATE_TYPE:
-					anObj =
-							initFileTypeTemplate(isForgetItem, nameString,
-								fileType, isModItem, anObj, sourceCampaign,
-								sourceMap, aList, aLine, aURL);
-
-					break;
-
-				case LstConstants.EQMODIFIER_TYPE:
-					anObj =
-							initFileTypeEqModifier(sourceCampaign, sourceMap,
-								aLine, aURL, aList);
 
 					break;
 
@@ -1523,28 +1380,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	}
 
-	private static PObject initFileTypeEqModifier(Campaign sourceCampaign,
-		Map<String, String> sourceMap, String aLine, final URL aURL,
-		List<PObject> aList) throws PersistenceLayerException
-	{
-		final PObject anObj;
-		anObj = new EquipmentModifier();
-		anObj.setSourceCampaign(sourceCampaign);
-		try
-		{
-			anObj.setSourceMap(sourceMap);
-		}
-		catch (ParseException e)
-		{
-			throw new PersistenceLayerException(e.toString());
-		}
-		EquipmentModifierLoader.parseLine((EquipmentModifier) anObj, aLine,
-			aURL, lineNum);
-		aList.add(anObj);
-
-		return anObj;
-	}
-
 	private PObject initFileTypeCompanionMod(boolean forgetItem,
 		String nameString, int fileType, boolean modItem, PObject anObj,
 		Campaign sourceCampaign, Map<String, String> sourceMap,
@@ -1616,205 +1451,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			catch (PersistenceLayerException ple)
 			{
 				logError("Unable to parse the companion modifiers file: '"
-					+ aURL + "':'" + aLine + "' " + ple.getMessage());
-			}
-		}
-
-		return anObj;
-	}
-
-	private PObject initFileTypeEquipment(boolean forgetItem,
-		String nameString, int fileType, boolean modItem, String copyName,
-		PObject anObj, Campaign sourceCampaign, Map<String, String> sourceMap,
-		List<PObject> aList, String aLine, final URL aURL)
-		throws PersistenceLayerException
-	{
-		if (forgetItem)
-		{
-			forgetItem(EquipmentList.getEquipmentNamed(nameString), nameString,
-				fileType);
-
-			return anObj;
-		}
-
-		if (!modItem)
-		{
-			if (copyName == null)
-			{
-				anObj = new Equipment();
-				anObj.setSourceCampaign(sourceCampaign);
-				try
-				{
-					anObj.setSourceMap(sourceMap);
-				}
-				catch (ParseException e)
-				{
-					throw new PersistenceLayerException(e.toString());
-				}
-			}
-			else
-			{
-				anObj = EquipmentList.getEquipmentNamed(nameString);
-
-				if (anObj != null)
-				{
-					try
-					{
-						anObj = (PObject) anObj.clone();
-					}
-					catch (CloneNotSupportedException exc)
-					{
-						ShowMessageDelegate.showMessageDialog(exc.getMessage(),
-							Constants.s_APPNAME, MessageType.ERROR);
-					}
-
-					anObj.setName(copyName);
-				}
-				else
-				{
-					logError("Could not copy " + nameString + " to create "
-						+ copyName);
-				}
-			}
-
-			if (anObj != null)
-			{
-				aList.add(anObj);
-			}
-		}
-		else
-		{
-			anObj = EquipmentList.getEquipmentNamed(nameString);
-
-			if (anObj == null)
-			{
-				List<Equipment> eqList = new ArrayList<Equipment>();
-				for (PObject pObj : aList)
-				{
-					eqList.add((Equipment) pObj);
-				}
-				anObj = EquipmentList.getEquipmentNamed(nameString, eqList);
-			}
-		}
-
-		if (modItem && (anObj == null))
-		{
-			modLines.add(aLine);
-			modFileType.add(fileType);
-		}
-
-		if (anObj != null)
-		{
-			try
-			{
-				boolean noSource = anObj.getSourceEntry() == null;
-				int hashCode = 0;
-				if (!noSource)
-				{
-					hashCode = anObj.getSourceEntry().hashCode();
-				}
-
-				EquipmentLoader.parseLine((Equipment) anObj, aLine, aURL,
-					lineNum);
-
-				if ((noSource && anObj.getSourceEntry() != null)
-					|| (!noSource && hashCode != anObj.getSourceEntry()
-						.hashCode()))
-				{
-					// We never had a source and now we do so set the source
-					// map
-					try
-					{
-						anObj.setSourceMap(sourceMap);
-					}
-					catch (ParseException notUsed)
-					{
-						Logging.errorPrintLocalised(
-							"Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
-					}
-				}
-			}
-			catch (PersistenceLayerException ple)
-			{
-				logError("Unable to parse the equipment file: '"
-					+ aURL + "':'" + aLine + "' " + ple.getMessage());
-			}
-		}
-
-		return anObj;
-	}
-
-	private PObject initFileTypeTemplate(boolean forgetItem, String aKey,
-		int fileType, boolean modItem, PObject anObj, Campaign sourceCampaign,
-		Map<String, String> sourceMap, List<PObject> aList, String aLine,
-		final URL aURL) throws PersistenceLayerException
-	{
-		if (forgetItem)
-		{
-			forgetItem(Globals.getTemplateKeyed(aKey), aKey, fileType);
-
-			return anObj;
-		}
-
-		if (!modItem)
-		{
-			anObj = new PCTemplate();
-			anObj.setSourceCampaign(sourceCampaign);
-			try
-			{
-				anObj.setSourceMap(sourceMap);
-			}
-			catch (ParseException e)
-			{
-				throw new PersistenceLayerException(e.toString());
-			}
-			aList.add(anObj);
-		}
-		else
-		{
-			anObj = Globals.getTemplateKeyed(aKey);
-		}
-
-		if (anObj == null)
-		{
-			modLines.add(aLine);
-			modFileType.add(fileType);
-		}
-
-		if (anObj != null)
-		{
-			try
-			{
-				boolean noSource = anObj.getSourceEntry() == null;
-				int hashCode = 0;
-				if (!noSource)
-				{
-					hashCode = anObj.getSourceEntry().hashCode();
-				}
-
-				PCTemplateLoader.parseLine((PCTemplate) anObj, aLine, aURL,
-					lineNum);
-
-				if ((noSource && anObj.getSourceEntry() != null)
-					|| (!noSource && hashCode != anObj.getSourceEntry()
-						.hashCode()))
-				{
-					// We never had a source and now we do so set the source
-					// map
-					try
-					{
-						anObj.setSourceMap(sourceMap);
-					}
-					catch (ParseException notUsed)
-					{
-						Logging.errorPrintLocalised(
-							"Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
-					}
-				}
-			}
-			catch (PersistenceLayerException ple)
-			{
-				logError("Unable to parse the template file: '"
 					+ aURL + "':'" + aLine + "' " + ple.getMessage());
 			}
 		}

@@ -26,93 +26,91 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
 /**
- *
- * @author  David Rice <david-pcgen@jcuz.com>
+ * 
+ * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
-public final class PCTemplateLoader
-{
-	/** Creates a new instance of PCTemplateLoader */
-	private PCTemplateLoader()
-	{
-		// Empty Constructor
+public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
+
+	@Override
+	protected void addGlobalObject(PObject pObj) {
+		final PCTemplate aTemplate = Globals
+				.getTemplateKeyed(pObj.getKeyName());
+		if (aTemplate == null) {
+			Globals.getTemplateList().add((PCTemplate) pObj);
+		}
+
 	}
 
-	public static void parseLine(PCTemplate template, String inputLine,
-		URL sourceURL, int lineNum) throws PersistenceLayerException
-	{
-		if (template == null)
-		{
-			return;
-		}
-		final StringTokenizer colToken =
-				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM);
-		int col = 0;
+	@Override
+	protected PCTemplate getObjectKeyed(String aKey) {
+		return Globals.getTemplateKeyed(aKey);
+	}
 
-		if (!template.isNewItem())
-		{
-			col = 1; // .MOD skip required fields (name in this case)
-			colToken.nextToken();
+	@Override
+	public PCTemplate parseLine(PCTemplate template, String inputLine,
+			CampaignSourceEntry source) throws PersistenceLayerException {
+		if (template == null) {
+			template = new PCTemplate();
 		}
+		
+		final StringTokenizer colToken = new StringTokenizer(inputLine,
+				SystemLoader.TAB_DELIM);
+		
+		String name = colToken.nextToken();
+		template.setName(name);
+		template.setSourceCampaign(source.getCampaign());
+		template.setSourceFile(source.getFile());
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(PCTemplateLstToken.class);
-		while (colToken.hasMoreTokens())
-		{
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				PCTemplateLstToken.class);
+		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
 
 			final int idxColon = colString.indexOf(':');
 			String key = "";
-			try
-			{
+			try {
 				key = colString.substring(0, idxColon);
-			}
-			catch (StringIndexOutOfBoundsException e)
-			{
+			} catch (StringIndexOutOfBoundsException e) {
 				// TODO Handle Exception
 			}
 			PCTemplateLstToken token = (PCTemplateLstToken) tokenMap.get(key);
 
-			if (col == 0)
-			{
-				template.setName(colString);
-			}
-			else if (colString.startsWith("CHOOSE:LANGAUTO:"))
-			{
+			if (colString.startsWith("CHOOSE:LANGAUTO:")) {
 				template.setChooseLanguageAutos(colString.substring(16));
-			}
-			else if (token != null)
-			{
+			} else if (token != null) {
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, template, value);
-				if (!token.parse(template, value))
-				{
+				if (!token.parse(template, value)) {
 					Logging.errorPrint("Error parsing template "
-						+ template.getDisplayName() + ':'
-						+ sourceURL.toString() + ':' + colString + "\"");
+							+ template.getDisplayName() + ':'
+							+ source.toString() + ':' + colString + "\"");
 				}
-			}
-			else if (PObjectLoader.parseTag(template, colString))
-			{
+			} else if (PObjectLoader.parseTag(template, colString)) {
 				continue;
-			}
-			else
-			{
+			} else {
 				Logging.errorPrint("Unknown tag '" + colString + "' in "
-					+ sourceURL.toString());
+						+ source.toString());
 			}
-
-			++col;
 		}
+		
+		completeObject(template);
+		return null;
+	}
+
+	@Override
+	protected void performForget(PObject objToForget) {
+		Globals.getTemplateList().remove(objToForget);
 	}
 }
