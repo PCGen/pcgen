@@ -54,6 +54,7 @@ public class DeityToken extends KitLstToken
 	 *            the token string
 	 * @return true if parse OK
 	 */
+	@Override
 	public boolean parse(Kit aKit, String value)
 	{
 		try

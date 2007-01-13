@@ -333,7 +333,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		loader
 			.parseLine(
 				race,
-				"Race1	ABILITY:TestCat|AUTO|Ability1	ABILITY:TestCat|AUTO|Ability2",
+				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2",
 				cse);
 		List<String> keys = race.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());

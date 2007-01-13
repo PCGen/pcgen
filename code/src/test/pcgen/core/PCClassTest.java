@@ -605,9 +605,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Link them to a template
 		CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
 		String classPCCText =
-				"CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTO|Ability1\n"
+				"CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
 					+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft\n"
-					+ "2	ABILITY:TestCat|AUTO|Ability2";
+					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, cse);
 		List<String> keys = pcclass.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());

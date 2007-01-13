@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -58,7 +57,6 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.Kit;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -67,7 +65,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SourceEntry;
 import pcgen.core.SystemCollections;
-import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.pcGenGUI;
@@ -95,11 +92,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * so we don't have to keep renumbering them
 	 */
 	private static final int[] loadOrder =
-			{
-				LstConstants.LOAD_TYPE,
-				LstConstants.CLASSSKILL_TYPE, LstConstants.CLASSSPELL_TYPE,
-				LstConstants.REQSKILL_TYPE, 
-				LstConstants.COMPANIONMOD_TYPE, LstConstants.KIT_TYPE};
+			{	LstConstants.CLASSSKILL_TYPE, LstConstants.CLASSSPELL_TYPE };
 	private static final int MODE_EXCLUDE = -1;
 	private static final int MODE_DEFAULT = 0;
 	private static final int MODE_INCLUDE = +1;
@@ -210,11 +203,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> featFileList =
 			new ArrayList<CampaignSourceEntry>();
-	private final List<Integer> forgetFileType = new ArrayList<Integer>();
-
-	// Used to store FORGETs for later processing; works much like MODs.
-	// Patch [651150] and Feature Request [650672].  sk4p 10 Dec 2002
-	private final List<String> forgetLines = new ArrayList<String>();
 	private final List<CampaignSourceEntry> kitFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> languageFileList =
@@ -222,11 +210,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private List<String> licenseFiles = new ArrayList<String>();
 	private final List<CampaignSourceEntry> lstExcludeFiles =
 			new ArrayList<CampaignSourceEntry>();
-	private final List<Integer> modFileType = new ArrayList<Integer>();
 
-	// Used to store MODs to later processing
-	// I had to store both the line and the filetype where this line was in
-	private final List<String> modLines = new ArrayList<String>();
 	private final List<String> pccFileList = new ArrayList<String>();
 	private final List<CampaignSourceEntry> raceFileList =
 			new ArrayList<CampaignSourceEntry>();
@@ -246,6 +230,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private PCTemplateLoader templateLoader = new PCTemplateLoader();
 	private EquipmentLoader equipmentLoader = new EquipmentLoader();
 	private EquipmentModifierLoader eqModLoader = new EquipmentModifierLoader();
+	private CompanionModLoader companionModLoader = new CompanionModLoader();
+	private KitLoader kitLoader = new KitLoader();
 	private PaperInfoLoader paperLoader = new PaperInfoLoader();
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
 	private SponsorLoader sponsorLoader = new SponsorLoader();
@@ -280,6 +266,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//featLoader.addObserver(this);
 		bioLoader.addObserver(this);
 		campaignLoader.addObserver(this);
+		companionModLoader.addObserver(this);
 		deityLoader.addObserver(this);
 		domainLoader.addObserver(this);
 		equipmentLoader.addObserver(this);
@@ -287,6 +274,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		eqSlotLoader.addObserver(this);
 		abilityLoader.addObserver(this);
 		featLoader.addObserver(this);
+		kitLoader.addObserver(this);
 		languageLoader.addObserver(this);
 		locationLoader.addObserver(this);
 		classLoader.addObserver(this);
@@ -479,12 +467,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			
 			templateLoader.loadLstFiles(templateFileList);
 			
+			// loaded before equipment (required)
 			eqModLoader.loadLstFiles(equipmodFileList);
 
 			equipmentLoader.loadLstFiles(equipmentFileList);
-
-			// loaded before equipment to cover costs
-
+			companionModLoader.loadLstFiles(companionmodFileList);
+			kitLoader.loadLstFiles(kitFileList);
+			
 			// TODO: Convert remaining items to new persistence framework!
 			// Process file content by load order [file type]
 			for (int loadIdx = 0; loadIdx < loadOrder.length; loadIdx++)
@@ -494,6 +483,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 				if ((fileList != null) && (!fileList.isEmpty()))
 				{
+					Logging.errorPrint("*WARNING*: You are using a file type that has been deprecated");
+					Logging.errorPrint(" The following file types will not be supported after 5.12:");
+					Logging.errorPrint("  Class Skill LST file");
+					Logging.errorPrint("  Class Spell LST file");
+					Logging.errorPrint("  Required Skill LST file");
+					Logging.errorPrint(" Function for these files has been provided in other LST files");
 					List<PObject> bArrayList = new ArrayList<PObject>();
 
 					// This relies on new items being added to the *end* of an ArrayList.
@@ -580,7 +575,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	/**
 	 * @see pcgen.persistence.SystemLoader#loadFileIntoList(String, int, List)
+	 * 
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	public void loadFileIntoList(String fileName, int fileType,
 		List<PObject> aList) throws PersistenceLayerException
 	{
@@ -616,119 +614,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	public void loadModItems(boolean flagDisplayError)
 	{
-		PObject anObj;
-		String aString;
-
-		if (modLines.size() > 0)
-		{
-			for (int i = 0; i < modLines.size();)
-			{
-				anObj = null;
-
-				StringTokenizer aTok =
-						new StringTokenizer(modLines.get(i).toString(),
-							TAB_DELIM);
-				aString = aTok.nextToken();
-				aTok = new StringTokenizer(aString, ":");
-				aTok.nextToken();
-
-				if (aTok.countTokens() > 0)
-				{
-					aString = aTok.nextToken();
-				}
-
-				aString = aString.substring(0, aString.indexOf(".MOD"));
-
-				try
-				{
-					switch (Integer.valueOf(modFileType.get(i).toString())
-						.intValue())
-					{
-						case -1:
-							i++;
-
-							continue;
-
-						case LstConstants.COMPANIONMOD_TYPE:
-							anObj = Globals.getCompanionMod(aString);
-							CompanionModLoader.parseLine((CompanionMod) anObj,
-								modLines.get(i).toString(), null, 0);
-							modLines.remove(i);
-							modFileType.remove(i);
-
-							break;
-
-						default:
-							logError("In LstSystemLoader.loadMod the fileType "
-								+ modFileType.get(i).toString()
-								+ " is not handled.");
-
-							break;
-					}
-				}
-				catch (PersistenceLayerException ple)
-				{
-					logError(
-						"PersistenceLayerException in LstSystemLoader.loadMod. ",
-						ple);
-				}
-				catch (NullPointerException npe)
-				{
-					logError(
-						"Null pointer exception in LstSystemLoader.loadMod. ",
-						npe);
-				}
-
-				if (anObj == null)
-				{
-					if (flagDisplayError) // && (!empty))
-					{
-						logError("Cannot apply .MOD: " + aString + " not found");
-					}
-
-					i++;
-				}
-			}
-		}
-
-		// Now process all the FORGETs
-		// sk4p 10 Dec 2002
-		if (forgetLines.size() > 0)
-		{
-			for (int i = 0; i < forgetLines.size(); i++)
-			{
-				aString = forgetLines.get(i).toString();
-
-				try
-				{
-					switch (Integer.valueOf(forgetFileType.get(i).toString())
-						.intValue())
-					{
-						case LstConstants.COMPANIONMOD_TYPE:
-							anObj = Globals.getCompanionMod(aString);
-							Globals.removeCompanionMod((CompanionMod) anObj);
-
-							break;
-
-						default:
-							logError("In LstSystemLoader.loadMod the fileType "
-								+ modFileType.get(i).toString()
-								+ " cannot be forgotten.");
-
-							break;
-					}
-				}
-				catch (NullPointerException e)
-				{
-					logError(
-						"Null pointer exception in LstSystemLoader.loadMod. ",
-						e);
-				}
-			}
-
-			forgetLines.clear();
-			forgetFileType.clear();
-		}
+		//No work to do
 	}
 
 	/**
@@ -775,21 +661,15 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *                 LST source lines for
 	 * @return List containing the LST source lines for the requested
 	 *         object type
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private List<CampaignSourceEntry> getFilesForType(final int lineType)
 	{
 		List<CampaignSourceEntry> lineList = null;
 
 		switch (lineType)
 		{
-			case LstConstants.COMPANIONMOD_TYPE:
-				lineList = companionmodFileList;
-
-				break;
-
-			case LstConstants.LOAD_TYPE:
-				break;
-
 			case LstConstants.CLASSSKILL_TYPE:
 				lineList = classSkillFileList;
 
@@ -797,15 +677,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			case LstConstants.CLASSSPELL_TYPE:
 				lineList = classSpellFileList;
-
-				break;
-
-			case LstConstants.REQSKILL_TYPE:
-				lineList = new ArrayList<CampaignSourceEntry>();
-				break;
-
-			case LstConstants.KIT_TYPE:
-				lineList = kitFileList;
 
 				break;
 
@@ -979,7 +850,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *
 	 * @param lineType   int indicating the type of objects in the list
 	 * @param aArrayList List containing the objects to add to Globals
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private void addToGlobals(final int lineType, final List<?> aArrayList)
 	{
 		String aClassName = "";
@@ -988,20 +861,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			switch (lineType)
 			{
-				case LstConstants.COMPANIONMOD_TYPE:
-
-					final CompanionMod cMod =
-							Globals.getCompanionMod(((CompanionMod) aArrayList
-								.get(i)).getKeyName());
-
-					if (cMod == null)
-					{
-						Globals.addCompanionMod((CompanionMod) aArrayList
-							.get(i));
-					}
-
-					break;
-
 				case LstConstants.CLASSSKILL_TYPE:
 					parseClassSkillFrom(aArrayList.get(i).toString());
 
@@ -1037,9 +896,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						}
 					}
 
-					break;
-
-				case LstConstants.KIT_TYPE:
 					break;
 
 				case -1:
@@ -1085,7 +941,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	/**
 	 * This method ensures that the global required skills are loaded and marked as required.
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private void checkRequiredSkills()
 	{
 		if (skillReq.length() > 0)
@@ -1109,7 +967,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *
 	 * @param token String to count parens in.
 	 * @return int number of closing parens in the token
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private int countCloseParens(final String token)
 	{
 		String dString = token;
@@ -1129,7 +989,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *
 	 * @param token String to count parens in.
 	 * @return int number of opening parens in the token
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private int countOpenParens(final String token)
 	{
 		String dString = token;
@@ -1152,7 +1014,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param fileType       int indicating the type of file
 	 * @param aList          List to load the lines into
 	 * @throws PersistenceLayerException
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private void initFile(String argFileName, int fileType, List<PObject> aList)
 		throws PersistenceLayerException
 	{
@@ -1184,9 +1048,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		String nameString = "";
 		String aLine = "";
-		String prevLine = "";
-		Campaign sourceCampaign = null;
-		PObject anObj = null;
 
 		while (newlineStr.hasMoreTokens())
 		{
@@ -1197,8 +1058,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			if (aLine.startsWith("CAMPAIGN:") && (fileType != LstConstants.CAMPAIGN_TYPE)) // && fileType != -1 sage_sam 10 Sept 2003
 			{
-				sourceCampaign = Globals.getCampaignKeyed(aLine.substring(9));
-
 				continue;
 			}
 
@@ -1223,9 +1082,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 				continue;
 			}
-
-			// used for .COPY= cases
-			String copyName = null;
 
 			// check for special case of CLASS:name.MOD
 			isModItem = aLine.endsWith(".MOD");
@@ -1259,9 +1115,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				}
 				else if (nameString.indexOf(".COPY=") > 0)
 				{
-					copyName =
-							nameString
-								.substring(nameString.indexOf(".COPY=") + 6);
 					nameString =
 							nameString.substring(0, nameString
 								.indexOf(".COPY="));
@@ -1270,19 +1123,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 			switch (fileType)
 			{
-				case LstConstants.COMPANIONMOD_TYPE:
-					anObj =
-							initFileTypeCompanionMod(isForgetItem, nameString,
-								fileType, isModItem, anObj, sourceCampaign,
-								sourceMap, aList, aLine, aURL);
-
-					break;
-
-				case LstConstants.LOAD_TYPE:
-					Globals.getLoadStrings().add(aLine);
-
-					break;
-
 				case -1: // if we're in the process of loading campaigns/sources when
 
 					// another source is loaded via PCC:, then it's fileType=-1
@@ -1290,9 +1130,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 					//Deliberate fall-through
 				case LstConstants.CLASSSPELL_TYPE:
-
-					//Deliberate fall-through
-				case LstConstants.REQSKILL_TYPE:
 					// boomer70 - hack for how
 					PObject pObj = new PObject();
 					pObj.setName(aLine);
@@ -1300,76 +1137,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 					break;
 
-				case LstConstants.KIT_TYPE:
-
-					if (aLine.startsWith("REGION:"))
-					{
-						prevLine = aLine.substring(7);
-
-						continue;
-					}
-
-					//					if (prevLine.length() == 0)
-					//					{
-					//						throw new PersistenceLayerException("Illegal kit info " + aURL.toString() + ":"
-					//						    + Integer.toString(lineNum) + " \"" + aLine + "\"");
-					//					}
-
-					if (aLine.startsWith("STARTPACK:"))
-					{
-						anObj = new Kit(prevLine);
-						anObj.setSourceCampaign(sourceCampaign);
-						try
-						{
-							anObj.setSourceMap(sourceMap);
-						}
-						catch (ParseException e)
-						{
-							throw new PersistenceLayerException(e.toString());
-						}
-						Globals.getKitInfo().add((Kit) anObj);
-					}
-
-					if (anObj != null)
-					{
-						KitLoader.parseLine((Kit) anObj, aLine, aURL, lineNum);
-					}
-
-					break;
-
-				default:
-					logError("In LstSystemLoader.initValue the fileType "
-						+ fileType + " is not handled.");
-
-					break;
-			}
-
-			//
-			// Save the source file in object
-			//
-			switch (fileType)
-			{
-				case LstConstants.EQUIPMENT_TYPE:
-				case LstConstants.EQMODIFIER_TYPE:
-				case LstConstants.KIT_TYPE:
-
-					if (anObj != null)
-					{
-						anObj.setSourceFile(aURL.toString());
-					}
-
-					break;
-
-				case LstConstants.LOAD_TYPE:
-				case LstConstants.CLASSSKILL_TYPE:
-				case LstConstants.CLASSSPELL_TYPE:
-				case LstConstants.REQSKILL_TYPE:
-				case LstConstants.TEMPLATE_TYPE:
-				case LstConstants.EQUIPSLOT_TYPE:
-				case LstConstants.COMPANIONMOD_TYPE:
-				case -1:
-					break;
-
 				default:
 					logError("In LstSystemLoader.initValue the fileType "
 						+ fileType + " is not handled.");
@@ -1378,84 +1145,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			}
 		}
 
-	}
-
-	private PObject initFileTypeCompanionMod(boolean forgetItem,
-		String nameString, int fileType, boolean modItem, PObject anObj,
-		Campaign sourceCampaign, Map<String, String> sourceMap,
-		List<PObject> aList, String aLine, final URL aURL)
-		throws PersistenceLayerException
-	{
-		if (forgetItem)
-		{
-			forgetItem(Globals.getCompanionMod(nameString), nameString,
-				fileType);
-
-			return anObj;
-		}
-
-		if (!modItem)
-		{
-			anObj = new CompanionMod();
-			anObj.setSourceCampaign(sourceCampaign);
-			try
-			{
-				anObj.setSourceMap(sourceMap);
-			}
-			catch (ParseException e)
-			{
-				throw new PersistenceLayerException(e.toString());
-			}
-			aList.add(anObj);
-		}
-		else
-		{
-			anObj = Globals.getCompanionMod(nameString);
-		}
-
-		if (anObj == null)
-		{
-			modLines.add(aLine);
-			modFileType.add(fileType);
-		}
-
-		if (anObj != null)
-		{
-			try
-			{
-				boolean noSource = anObj.getSourceEntry() == null;
-				int hashCode = 0;
-				if (!noSource)
-				{
-					hashCode = anObj.getSourceEntry().hashCode();
-				}
-				CompanionModLoader.parseLine((CompanionMod) anObj, aLine, aURL,
-					lineNum);
-				if ((noSource && anObj.getSourceEntry() != null)
-					|| (!noSource && hashCode != anObj.getSourceEntry()
-						.hashCode()))
-				{
-					// We never had a source and now we do so set the source
-					// map
-					try
-					{
-						anObj.setSourceMap(sourceMap);
-					}
-					catch (ParseException notUsed)
-					{
-						Logging.errorPrintLocalised(
-							"Errors.LstFileLoader.ParseDate", sourceMap); //$NON-NLS-1$
-					}
-				}
-			}
-			catch (PersistenceLayerException ple)
-			{
-				logError("Unable to parse the companion modifiers file: '"
-					+ aURL + "':'" + aLine + "' " + ple.getMessage());
-			}
-		}
-
-		return anObj;
 	}
 
 	/**
@@ -1736,6 +1425,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		new File(aDirectory).list(pccFileFilter);
 	}
 
+	/**
+	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
+	 */
+	@Deprecated
 	private static void parseClassSkillFrom(String aLine)
 	{
 		StringTokenizer aTok = new StringTokenizer(aLine, "\t");
@@ -1781,6 +1474,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	}
 
+	/**
+	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
+	 */
+	@Deprecated
 	private static String parseClassSpellFrom(String aLine, String aKey)
 	{
 		StringTokenizer aTok = new StringTokenizer(aLine, "\t");
@@ -1914,25 +1611,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	}
 
 	/**
-	 * Called repeatedly to forget items when .FORGET has been applied.
-	 *
-	 * @param itemToForget
-	 * @param nameOfItemToForget
-	 * @param fileType
-	 */
-	private void forgetItem(PObject itemToForget, String nameOfItemToForget,
-		int fileType)
-	{
-		if (itemToForget == null)
-		{
-			logError("Forgetting " + nameOfItemToForget + ": Not defined yet");
-		}
-
-		forgetLines.add(nameOfItemToForget);
-		forgetFileType.add(fileType);
-	}
-
-	/**
 	 * Load a game mode file.
 	 * First try the game mode directory. If that fails, try
 	 * reading the file from the default game mode directory.
@@ -2063,7 +1741,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param lineType    int indicating the type of line data
 	 * @param pObjectList List of PObjects created from the data file
 	 * @param extraInfo   String containing the extra info
+	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private void processExtraInfo(int lineType,
 		List<? extends PObject> pObjectList, String extraInfo)
 	{
@@ -2158,8 +1838,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				// Assume it is part of a larger INCLUDE or EXCLUDE unless
 				// it is a REQSKILL or SPECIAL line.
-				if ((lineType != LstConstants.SPECIAL_TYPE)
-					&& (lineType != LstConstants.REQSKILL_TYPE))
+				if (lineType != LstConstants.SPECIAL_TYPE)
 				{
 					includeExcludeNames.add(currentToken);
 				}
@@ -2186,7 +1865,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @param lineList   List containing the LST source lines
 	 * @param bArrayList List that will contain pcgen.core objects
 	 * @throws PersistenceLayerException if an error is found in the LST source
+	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	private void processFileList(final int lineType, List<?> lineList,
 		List<PObject> bArrayList) throws PersistenceLayerException
 	{
@@ -2481,15 +2162,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	}
 
-	/**
-	 * @param arg
-	 */
-	private void setState(Object arg)
-	{
-		setChanged();
-		notifyObservers(arg);
-	}
-
 	/*
 	 * (non-Javadoc)
 	 *
@@ -2499,7 +2171,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		// We are not going to do anything with the notifications
 		// we have observers, so just pass them on
-		setState(arg);
+		setChanged();
+		notifyObservers(arg);
 	}
 
 	/**
@@ -2507,7 +2180,9 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * This will not only log the message to the system error log,
 	 * but it will also notify all observers of the error.
 	 * @param message the error to notify listeners about
+	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
+	@Deprecated
 	public void logError(String message)
 	{
 		Logging.errorPrint(message);

@@ -2177,7 +2177,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			final String natureKey = EntityEncoder.decode(element.getText());
-			nature = Ability.Nature.get(natureKey, true);
+			nature = Ability.Nature.valueOf(natureKey);
 		}
 
 		// The next element will be the ability's innate category

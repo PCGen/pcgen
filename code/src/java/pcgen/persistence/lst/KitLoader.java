@@ -22,70 +22,120 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.PObject;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
 /**
- *
+ * 
  * ???
- *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * 
+ * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-final class KitLoader
-{
-	/** Creates a new instance of KitLoader */
-	private KitLoader()
-	{
-		// Empty Constructor
+public final class KitLoader extends LstObjectFileLoader<Kit> {
+	@Override
+	protected void addGlobalObject(PObject pObj) {
+		Globals.getKitInfo().add((Kit) pObj);
 	}
 
-	/**
-	 * parse the Kit in the data file
-	 * @param obj
-	 * @param inputLine
-	 * @param sourceURL
-	 * @param lineNum
-	 * @throws PersistenceLayerException
-	 */
-	public static void parseLine(Kit obj, String inputLine, URL sourceURL,
-		int lineNum) throws PersistenceLayerException
-	{
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(KitLstToken.class);
+	@Override
+	protected Kit getObjectKeyed(String aKey) {
+		for (Kit k : Globals.getKitInfo()) {
+			if (k.getKeyName().equals(aKey)) {
+				return k;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Kit parseLine(Kit target, String inputLine, CampaignSourceEntry source)
+			throws PersistenceLayerException {
+
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				KitLstToken.class);
 
 		// We will find the first ":" for the "controlling" line token
 		final int idxColon = inputLine.indexOf(':');
 		String key = "";
-		try
-		{
+		try {
 			key = inputLine.substring(0, idxColon);
-		}
-		catch (StringIndexOutOfBoundsException e)
-		{
+		} catch (StringIndexOutOfBoundsException e) {
 			// TODO Handle Exception
 		}
 		KitLstToken token = (KitLstToken) tokenMap.get(key);
 
-		if (token != null)
-		{
-			final String value = inputLine.substring(idxColon + 1);
-			LstUtils.deprecationCheck(token, obj, value);
-			if (!token.parse(obj, value))
-			{
-				Logging.errorPrint("Error parsing Kit tag "
-					+ obj.getDisplayName() + ':' + sourceURL.getFile() + ':'
-					+ inputLine + "\"");
+		if (inputLine.startsWith("STARTPACK:")) {
+			target = new Kit();
+			target.setSourceCampaign(source.getCampaign());
+			target.setSourceFile(source.getFile());
+			if (kitPrereq != null) {
+				target.addPreReq(KitLoader.kitPrereq);
+			}
+			if (globalTokens != null) {
+				for (String tag : globalTokens) {
+					PObjectLoader.parseTag(target, tag);
+				}
 			}
 		}
-		else
-		{
-			Logging.errorPrint("Unknown kit info " + sourceURL.toString() + ":"
-				+ Integer.toString(lineNum) + " \"" + inputLine + "\"");
+
+		if (token != null) {
+			final String value = inputLine.substring(idxColon + 1);
+			LstUtils.deprecationCheck(token, target, value);
+			if (!token.parse(target, value)) {
+				Logging.errorPrint("Error parsing Kit tag "
+						+ target.getDisplayName() + ':' + source.getFile()
+						+ ':' + inputLine + "\"");
+			}
+		} else {
+			Logging.errorPrint("Unknown kit info " + source.toString() + ":"
+					+ " \"" + inputLine + "\"");
 		}
+
+		return target;
+	}
+
+	@Override
+	protected void performForget(PObject objToForget) {
+		// FIXME Auto-generated method stub
+
+	}
+
+	public static List<String> globalTokens = null;
+
+	public static Prerequisite kitPrereq = null;
+
+	public static void addGlobalToken(String string) {
+		if (globalTokens == null) {
+			globalTokens = new ArrayList<String>();
+		}
+		globalTokens.add(string);
+	}
+
+	public static void setKitPrerequisite(Prerequisite p) {
+		kitPrereq = p;
+	}
+
+	public static void clearGlobalTokens() {
+		globalTokens = null;
+	}
+
+	public static void clearKitPrerequisites() {
+		kitPrereq = null;
+	}
+	
+	@Override
+	protected void loadLstFile(CampaignSourceEntry cse) {
+		clearGlobalTokens();
+		clearKitPrerequisites();
+		super.loadLstFile(cse);
 	}
 }

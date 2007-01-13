@@ -59,6 +59,7 @@ public class StatToken extends KitLstToken
 	 *            the token string
 	 * @return true if parse OK
 	 */
+	@Override
 	public boolean parse(Kit aKit, String value)
 	{
 		KitStat stats = null;

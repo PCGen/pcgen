@@ -72,6 +72,7 @@ public class TemplateToken extends KitLstToken
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
+	@Override
 	public boolean parse(Kit aKit, String value)
 		throws PersistenceLayerException
 	{

@@ -27,10 +27,11 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -42,46 +43,46 @@ import pcgen.util.Logging;
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  **/
-public class CompanionModLoader
+public class CompanionModLoader extends LstObjectFileLoader<CompanionMod> 
 {
-	/** Creates a new instance of CompanionModLoader */
-	private CompanionModLoader()
-	{
-		// Empty Constructor
+
+	@Override
+	protected void addGlobalObject(PObject pObj) {
+		//This is commented out to avoid problems - see Tracker 
+		//  - thpr 1/11/07
+//		final CompanionMod cm = Globals.getCompanionMod(pObj.getKeyName());
+//		if (cm == null) {
+			Globals.addCompanionMod((CompanionMod) pObj);
+//		}
 	}
 
-	/**
-	 * Parse the line
-	 * @param cmpMod
-	 * @param inputLine
-	 * @param sourceURL
-	 * @param lineNum
-	 * @throws PersistenceLayerException
-	 */
-	public static void parseLine(CompanionMod cmpMod, String inputLine,
-		URL sourceURL, int lineNum) throws PersistenceLayerException
-	{
-		if (cmpMod == null)
-		{
-			return;
+	@Override
+	protected CompanionMod getObjectKeyed(String aKey) {
+		return null;
+		//This is commented out to avoid problems - see Tracker 
+		//  - thpr 1/11/07
+		//return Globals.getCompanionMod(aKey);
+	}
+
+	@Override
+	public CompanionMod parseLine(CompanionMod cmpMod, String inputLine,
+			CampaignSourceEntry source) throws PersistenceLayerException {
+		if (cmpMod == null) {
+			cmpMod = new CompanionMod();
 		}
+		
+		final StringTokenizer colToken = new StringTokenizer(inputLine,
+				SystemLoader.TAB_DELIM);
+		
+		String name = colToken.nextToken();
+		cmpMod.setName(name);
+		cmpMod.setSourceCampaign(source.getCampaign());
+		cmpMod.setSourceFile(source.getFile());
 
-		final StringTokenizer colToken =
-				new StringTokenizer(inputLine, SystemLoader.TAB_DELIM, false);
-		String colString;
-
-		if (!cmpMod.isNewItem())
-		{
-			// .MOD skips required fields
-			// FOLLOWER:Classname=Level in this case
-			colToken.nextToken();
-		}
-
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(CompanionModLstToken.class);
-		while (colToken.hasMoreTokens())
-		{
-			colString = colToken.nextToken().trim();
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
+				CompanionModLstToken.class);
+		while (colToken.hasMoreTokens()) {
+			String colString = colToken.nextToken().trim();
 
 			final int idxColon = colString.indexOf(':');
 			String key = "";
@@ -101,8 +102,8 @@ public class CompanionModLoader
 				LstUtils.deprecationCheck(token, cmpMod, value);
 				if (!token.parse(cmpMod, value))
 				{
-					Logging.errorPrint("Error parsing ability "
-						+ cmpMod.getDisplayName() + ':' + sourceURL.toString()
+					Logging.errorPrint("Error parsing CompanionMod "
+						+ cmpMod.getDisplayName() + ':' + source.toString()
 						+ ':' + colString + "\"");
 				}
 			}
@@ -112,9 +113,17 @@ public class CompanionModLoader
 			}
 			else
 			{
-				Logging.errorPrint(sourceURL.toString() + ":"
-					+ Integer.toString(lineNum) + " \"" + colString + "\"");
+				Logging.errorPrint("Unrecognized Token in CompanionMod: "
+						+ source.toString() + ":" + " \"" + colString + "\"");
 			}
 		}
+		
+		completeObject(cmpMod);
+		return null;
+	}
+
+	@Override
+	protected void performForget(PObject objToForget) {
+		Globals.removeCompanionMod((CompanionMod) objToForget);
 	}
 }

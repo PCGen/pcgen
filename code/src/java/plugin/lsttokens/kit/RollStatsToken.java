@@ -27,6 +27,7 @@ public class RollStatsToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 * @todo Implement this pcgen.persistence.lst.KitLstToken method
 	 */
+	@Override
 	public boolean parse(Kit aKit, String value)
 		throws PersistenceLayerException
 	{

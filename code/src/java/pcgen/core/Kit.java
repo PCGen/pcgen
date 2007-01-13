@@ -25,7 +25,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.StringTokenizer;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -33,9 +32,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.CharacterInfo;
 import pcgen.gui.PCGen_Frame1;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.PObjectLoader;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * <code>Kit</code>.
@@ -68,60 +64,10 @@ public final class Kit extends PObject implements Comparable<Object>
 
 	private boolean doLevelAbilitiesFlag = true;
 
-	/**
-	 * Constructor for Kit
-	 *
-	 * @param  argRegion  String
-	 */
-	public Kit(final String argRegion)
-	{
-		super();
-
-		if ((argRegion != null) && (argRegion.length() > 0))
-		{
-			final StringTokenizer aTok = new StringTokenizer(argRegion, "\t", false);
-			region = aTok.nextToken();
-
-			if (!region.equalsIgnoreCase(Constants.s_NONE))
-			{
-				// Add a real prereq for the REGION: tag
-				List<Prerequisite> prereqList = getPreReqList();
-				if (prereqList == null)
-				{
-					prereqList = new ArrayList<Prerequisite>();
-				}
-				Prerequisite r = null;
-				try
-				{
-					PreParserFactory factory = PreParserFactory.getInstance();
-					r = factory.parse("PREREGION:" + region);
-				}
-				catch (PersistenceLayerException ple)
-				{
-					// TODO Deal with this Exception?
-				}
-				if (r != null && !prereqList.contains(r))
-				{
-					addPreReq(r);
-				}
-			}
-
-			if (aTok.hasMoreTokens())
-			{
-				final String aString = aTok.nextToken();
-
-				if (aString.startsWith("LANGAUTO:"))
-				{
-					try {
-						PObjectLoader.parseTag(this, aString);
-					} catch (PersistenceLayerException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		}
+	public Kit() {
+		//
 	}
-
+	
 	/**
 	 * Adds an object to be applied as part of the kit.  Objects are applied
 	 * by the kit in the order they are added.
@@ -258,12 +204,9 @@ public final class Kit extends PObject implements Comparable<Object>
 	 *
 	 * @see     java.lang.Comparable#compareTo(Object)
 	 */
+	@Override
 	public int compareTo(final Object other)
 	{
-		if (!(other instanceof Kit))
-		{
-			throw new ClassCastException();
-		}
 		final Kit oKit = (Kit) other;
 		return getKeyName().compareToIgnoreCase(oKit.getKeyName());
 	}

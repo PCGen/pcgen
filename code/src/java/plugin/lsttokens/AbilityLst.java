@@ -108,8 +108,7 @@ public class AbilityLst implements GlobalLstToken
 		if (tok.hasMoreTokens())
 		{
 			final String natureKey = tok.nextToken();
-			final Ability.Nature nature =
-					Ability.Nature.get(natureKey, false);
+			final Ability.Nature nature = Ability.Nature.valueOf(natureKey);
 			if (nature == null)
 			{
 				throw new PersistenceLayerException(PropertyFactory.getFormattedString(
