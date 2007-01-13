@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 01:55:17 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:04:12 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html
 # Original Entry by: Eddy Anthony
 
@@ -20,7 +20,7 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE.Craft
 13	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill13,1
 17	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill17,1
 ###Block: Animal Companion & Master of the Wild
-1	SA:Animal Companion						BONUS:VAR|CompLevel|CL			DEFINE:CompLevel|0
+1										BONUS:VAR|CompLevel|CL								FEATAUTO:Animal Companion
 1	SA:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasteroftheWild|0
 ###Block: Normal Level Progression
 1						ADD:FEAT(TYPE.AnimalLordAbility)	ADD:FEAT(TYPE.AnimalLordTotem)	FEATAUTO:Feral Child

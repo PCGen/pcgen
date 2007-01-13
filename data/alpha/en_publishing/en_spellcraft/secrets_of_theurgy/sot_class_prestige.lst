@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:06:48 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:EMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name		PREDOMAIN					Required Feat												Req. Special Ability	!PRESA		Required Skill							Req. Spell Type						Required Text
-CLASS:Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PRESA:1,Summon Familiar	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
+# Class Name		PREDOMAIN					Required Feat																	!PRESA		Required Skill							Req. Spell Type						Required Text
+CLASS:Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PREFEAT:1,Summon Familiar	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2	PRETEXT:Character needs to be able to cast 3 arcane spells with the acid, air, cold, earth, electricity, fire, sonic or water descriptors; same with divine spells.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
 1	ADD:SPELLCASTER(ANY)					SA:Theurgy	SA:Elemental Familiar	SA:Elemental Turning (Ex)
@@ -68,8 +68,8 @@ CLASS:Theurgic Lorewarden	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|Craft (A
 
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Lesser Elemental Theurge	HD:4		TYPE:Prestige.PC	ABB:LEMyt		MAXLEVEL:10	SOURCEPAGE:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name				PREDOMAIN					Required Feat												Req. Special Ability	!PRESA		Required Skill							Req. Spell Type
-CLASS:Lesser Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PRESA:1,Summon Familiar	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2
+# Class Name				PREDOMAIN					Required Feat																	!PRESA		Required Skill							Req. Spell Type
+CLASS:Lesser Elemental Theurge	PREDOMAIN:1,Air,Earth,Fire,Water	PREFEAT:1,Empower Spell	PREFEAT:1,Spell Focus (Evocation),Spell Focus (Conjuration)	PREFEAT:1,Summon Familiar	!PRESA:1,Theurgy	PRESKILL:2,Knowledge (Arcana),Knowledge (Religion)=6	PRESPELLTYPE:Arcane,1,2	PRESPELLTYPE:Divine,1,2
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Lesser Elemental Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE.Profession|Spellcraft
 1	ADD:SPELLCASTER(ANY)					SA:Theurgy	SA:Elemental Familiar	SA:Elemental Turning

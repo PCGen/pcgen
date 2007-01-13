@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:06:48 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:E.N. Publishing	SOURCESHORT:ENPub	SOURCEWEB:http://www.enworld.org/index.php?page=enpublishing
 
 # Class Name		Hit Dice	Type			Abbreviation	Ex Class				Source Page		Automatic Languages		Bonus Languages	Additional Devine Domain				Save checks bonus											Combat bonus					Add domain number		Modify VAR
@@ -30,26 +30,26 @@ CLASS:Elemental Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 1																	FEATAUTO:Shield Proficiency
 1																	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
-1	CAST:3,1				SA:Nature Sense (Ex)	SA:Animal Companion (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2
+1	CAST:3,1				SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)									BONUS:SKILL|Knowledge (Nature),Survival|2					FEATAUTO:Animal Companion
 2	CAST:4,2				SA:Woodland Stride (Ex)
 3	CAST:4,2,1				SA:Trackless Step (Ex)
 4	CAST:5,3,2				SA:Resist Nature's Lure (Ex)
-5	CAST:5,3,2,1			SA:Wildshape %/day|Wildshape									BONUS:VAR|Wildshape|1												DEFINE:Wildshape|0
-6	CAST:5,3,3,2																BONUS:VAR|Wildshape|1
-7	CAST:6,4,3,2,1																BONUS:VAR|Wildshape|1
+5	CAST:5,3,2,1			SA:Wildshape %/day|Wildshape				BONUS:VAR|Wildshape|1												DEFINE:Wildshape|0
+6	CAST:5,3,3,2											BONUS:VAR|Wildshape|1
+7	CAST:6,4,3,2,1											BONUS:VAR|Wildshape|1
 8	CAST:6,4,3,3,2			SA:Wildshape Large
 9	CAST:6,4,4,3,2,1			SA:Venom Immunity (Ex)
-10	CAST:6,4,4,3,3,2																BONUS:VAR|Wildshape|1
+10	CAST:6,4,4,3,3,2											BONUS:VAR|Wildshape|1
 11	CAST:6,5,4,4,3,2,1		SA:Wildshape (Tiny)
 12	CAST:6,5,4,4,3,3,2		SA:Wildshape (Plant)
 13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces (Su)
-14	CAST:6,5,5,4,4,3,3,2															BONUS:VAR|Wildshape|1
+14	CAST:6,5,5,4,4,3,3,2										BONUS:VAR|Wildshape|1
 15	CAST:6,5,5,5,4,4,3,2,1		SA:Wildshape (Huge)	SA:Timeless Body (Ex)
-16	CAST:6,5,5,5,4,4,3,3,2		SA:Wildshape (elemental %/day)|EWildshape							BONUS:VAR|EWildshape|1												DEFINE:EWildshape|0
+16	CAST:6,5,5,5,4,4,3,3,2		SA:Wildshape (elemental %/day)|EWildshape		BONUS:VAR|EWildshape|1												DEFINE:EWildshape|0
 17	CAST:6,5,5,5,5,4,4,3,2,1
-18	CAST:6,5,5,5,5,4,4,3,3,2														BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
+18	CAST:6,5,5,5,5,4,4,3,3,2									BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
 19	CAST:6,5,5,5,5,5,4,4,3,3
-20	CAST:6,5,5,5,5,5,4,4,4,4														BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
+20	CAST:6,5,5,5,5,5,4,4,4,4									BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages		Bonus Languages	Visible	Save checks bonus											Combat bonus
 CLASS:Ex Elemental Druid	HD:8		TYPE:Base.PC	ABB:XEDrd		SOURCEPAGE:5	LANGAUTO:Druidic,Literacy	LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:09:19 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -157,17 +157,17 @@ CLASS:Ehtzara	PREALIGN:CG,CN,CE	PREFEAT:1,Iron Will	PREFEAT:1,Skill Focus (Scry)
 CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE.Craft|Decipher Script|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (Religion)|TYPE.Profession|Scry|Spellcraft|Spot|Use Magic Device|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Ehtzara	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtzara|CL
-1																																																AUTO:WEAPONPROF|TYPE.Simple
-1	CAST:5,3,0			KNOWN:4,2,1			SA:Spot Bonus +%|EhtzaraSpotBonus	SA:Craft Fetish	SA:Summon Familiar	SA:Frightful Presence	BONUS:VAR|EhtzaraSpotBonus|CL					BONUS:SKILL|Spot|EhtzaraSpotBonus	DEFINE:EhtzaraSpotBonus|0
-2	CAST:6,4,3			KNOWN:5,3,2			SA:Healing Touch SA:Speak with Animals %/day|SpeakWithAnimals							BONUS:VAR|SpeakWithAnimals|CL/2										DEFINE:SpeakWithAnimals|0
-3	CAST:6,5,3,0		KNOWN:5,4,2,1		SA:Imbue Fetish +%|Fetish	SA:Speak With Dead %/day|SpeakWithDead						BONUS:VAR|Fetish|1	BONUS:VAR|SpeakWithDead|CL/3							DEFINE:Fetish|0	DEFINE:SpeakWithDead|0
+1																																												AUTO:WEAPONPROF|TYPE.Simple
+1	CAST:5,3,0			KNOWN:4,2,1			SA:Spot Bonus +%|EhtzaraSpotBonus	SA:Craft Fetish	SA:Frightful Presence	BONUS:VAR|FMLevel|CL	BONUS:VAR|EhtzaraSpotBonus|CL	BONUS:SKILL|Spot|EhtzaraSpotBonus	DEFINE:EhtzaraSpotBonus|0								FEATAUTO:Summon Familiar
+2	CAST:6,4,3			KNOWN:5,3,2			SA:Healing Touch SA:Speak with Animals %/day|SpeakWithAnimals			BONUS:VAR|SpeakWithAnimals|CL/2										DEFINE:SpeakWithAnimals|0
+3	CAST:6,5,3,0		KNOWN:5,4,2,1		SA:Imbue Fetish +%|Fetish	SA:Speak With Dead %/day|SpeakWithDead		BONUS:VAR|Fetish|1	BONUS:VAR|SpeakWithDead|CL/3							DEFINE:Fetish|0	DEFINE:SpeakWithDead|0
 4	CAST:6,6,4,3		KNOWN:6,5,3,2		SA:Undead Awareness	SA:See Invisible
-5	CAST:6,6,5,3,0		KNOWN:6,5,4,2,1		SA:Wild Shape %/day|WildShape													BONUS:VAR|WildShape|1	BONUS:VAR|Fetish|1								DEFINE:WildShape|0
+5	CAST:6,6,5,3,0		KNOWN:6,5,4,2,1		SA:Wild Shape %/day|WildShape									BONUS:VAR|WildShape|1	BONUS:VAR|Fetish|1								DEFINE:WildShape|0
 6	CAST:6,6,6,4,3		KNOWN:7,6,5,3,2		SA:Create Scrying Pool
-7	CAST:6,6,6,5,3,0		KNOWN:7,6,5,4,2,1		SA:Curse of Retort														BONUS:VAR|Fetish|1	BONUS:VAR|WildShape|1
+7	CAST:6,6,6,5,3,0		KNOWN:7,6,5,4,2,1		SA:Curse of Retort										BONUS:VAR|Fetish|1	BONUS:VAR|WildShape|1
 8	CAST:6,6,6,6,4,3		KNOWN:8,7,6,5,3,2		SA:Summon Elemental (Weird)
-9	CAST:6,6,6,6,5,3,0	KNOWN:8,7,6,5,4,2,1	SA:Circle of Protection														BONUS:VAR|Fetish|1
-10	CAST:6,6,6,6,6,5,3,0	KNOWN:9,8,7,6,5,3,2,1	SA:Rite of Devouring														BONUS:VAR|Fetish|1	BONUS:VAR|WildShape|1
+9	CAST:6,6,6,6,5,3,0	KNOWN:8,7,6,5,4,2,1	SA:Circle of Protection										BONUS:VAR|Fetish|1
+10	CAST:6,6,6,6,6,5,3,0	KNOWN:9,8,7,6,5,3,2,1	SA:Rite of Devouring										BONUS:VAR|Fetish|1	BONUS:VAR|WildShape|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus

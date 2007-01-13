@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:07:21 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -53,23 +53,23 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1						FEATAUTO:Shield Proficiency
 1						FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal level progression
-1	CAST:3,1				SA:Animal Companion	SA:Spontaneous Casting (Summon Nature's Ally)	SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)								BONUS:VAR|CompLevel|CL/2	BONUS:SKILL|Knowledge (Nature),Survival|2	DEFINE:CompLevel|0
-2	CAST:4,2																																																				FEATAUTO:Craft Spell Fetish
+1	CAST:3,1				SA:Spontaneous Casting (Summon Nature's Ally)	SA:Nature Sense (Ex)	SA:Wild Empathy (Ex)												BONUS:VAR|CompLevel|CL/2	BONUS:SKILL|Knowledge (Nature),Survival|2						FEATAUTO:Animal Companion
+2	CAST:4,2																																																FEATAUTO:Craft Spell Fetish
 3	CAST:4,2,1				SA:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
 4	CAST:5,3,2				SA:Companion Sight (Su)
-5	CAST:5,3,2,1																																														ADD:FEAT(Elemental Form)
+5	CAST:5,3,2,1																																										ADD:FEAT(Elemental Form)
 6	CAST:5,3,3,2			SA:Trackless Step (Ex)
 7	CAST:6,4,3,2,1			SA:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
 8	CAST:6,4,3,3,2			SA:Treant Form (Su)
 9	CAST:6,4,4,3,2,1
 10	CAST:6,4,4,3,3,2
-11	CAST:6,5,4,4,3,2,1																																													ADD:FEAT(Elemental Form)
+11	CAST:6,5,4,4,3,2,1																																									ADD:FEAT(Elemental Form)
 12	CAST:6,5,4,4,3,3,2		SA:Quickened Rituals (Ex) for I and II
 13	CAST:6,5,5,4,4,3,2,1		SA:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
 14	CAST:6,5,5,4,4,3,3,2		SA:Improved Elemental Form
 15	CAST:6,5,5,5,4,4,3,2,1		SA:Timeless Body (Ex)
 16	CAST:6,5,5,5,4,4,3,3,2
-17	CAST:6,5,5,5,5,4,4,3,2,1																																												ADD:FEAT(Elemental Form)
+17	CAST:6,5,5,5,5,4,4,3,2,1																																								ADD:FEAT(Elemental Form)
 18	CAST:6,5,5,5,5,4,4,3,3,2	SA:Rituals of Power IV (Su) (-4 WIS for any spell up to 9th level or free from all harmful magical effects/heal all ability damage/remove all negative levels)
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,3,4
@@ -132,8 +132,8 @@ CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|
 20																										ADD:FEAT
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Define		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (DF)	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
@@ -175,7 +175,7 @@ SUBCLASSLEVEL:5	SA:Still Spell (1/day)
 SUBCLASSLEVEL:10	SA:Empower Spell (1/day)
 SUBCLASSLEVEL:15	SA:Widen Spell (1/day)
 SUBCLASSLEVEL:20	SA:Quicken Spell (1/day)
-1	CAST:5,3				KNOWN:4,2				SA:Summon Familiar	FEATAUTO:Simple Weapon Proficiency
+1	CAST:5,3				KNOWN:4,2				FEATAUTO:Summon Familiar	FEATAUTO:Simple Weapon Proficiency
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -198,8 +198,8 @@ SUBCLASSLEVEL:20	SA:Quicken Spell (1/day)
 #TODO: Spell Focus granting +2 instead of +1 for available schools
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Define		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		LANGBONUS:Draconic	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:p.93	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (DF)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level				Use Spell List
@@ -217,7 +217,7 @@ SUBCLASSLEVEL:1	SA:Available Shools (Conjuration, Divination, Enchantment, Necro
 1						SA:Spell Mastery feat can only be applied to spells available in his bonded aspect.
 1						SA:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SA:Silent Spell (1/day)
 1						SA:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
-1	CAST:3,1				SA:Summon Familiar																												AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff	FEATAUTO:Scribe Scroll
+1	CAST:3,1																																			AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff	FEATAUTO:Summon Familiar	FEATAUTO:Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

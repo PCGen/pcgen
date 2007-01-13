@@ -44,12 +44,10 @@ Total Defense			VISIBLE:NO	SOURCEPAGE:CombatI.rtf																								BONUS:V
 Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf	BONUS:COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary|PREAPPLY:PC	BONUS:COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary|PREAPPLY:PC																																									CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
 
 ###Block: Alternative Animal Companion
-
+### Note: These templates are a workaround from when we could not adjust the effective master level for Alternative Animal Companions
 # Template Name				Visible		Template
 Alternative Animal Companion Master	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:4th Level or Higher (Level -3)|7th Level or Higher (Level -6)|10th Level or Higher (Level -9)|13th Level or Higher (Level -12)|16th Level or Higher (Level -15)
-
 ###Block: Alternative Animal Companion Level adjusters
-
 # Template Name				Visible	Modify VAR
 4th Level or Higher (Level -3)	VISIBLE:NO	BONUS:VAR|CompLevel|-3
 7th Level or Higher (Level -6)	VISIBLE:NO	BONUS:VAR|CompLevel|-6

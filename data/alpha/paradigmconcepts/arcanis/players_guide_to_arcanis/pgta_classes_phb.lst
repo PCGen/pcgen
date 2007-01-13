@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Mar 30 21:26:18 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:09:42 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
@@ -50,7 +50,7 @@ SUBCLASSLEVEL:1	SA:+1 per die of damage on spells cast with the fire descriptor.
 SUBCLASS:Cleric of Saluwe		PREDEITY:Saluwe		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
 SUBCLASSLEVEL:1																																																																																ADD:FEAT(TYPE=TurnUndead)																							AUTO:WEAPONPROF|Club|Dagger|Dart|Khopesh|Longbow|Quarterstaff|Scimitar|Sickle|Shortbow|Shortspear|Sling|Terbutje|Halfspear|Spear	FEATAUTO:Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
 SUBCLASSLEVEL:3	SA:Wild Empathy (Ex)																																																																																																																													FEATAUTO:Track
-SUBCLASSLEVEL:4	SA:Animal Companion (Ex)
+SUBCLASSLEVEL:4																											BONUS:VAR|CompLevel|CL																																																																																																			FEATAUTO:Animal Companion
 SUBCLASS:Cleric of Sarish		PREDEITY:Sarish		CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|TYPE.Religion|Knowledge (The Planes)|TYPE.Profession|Spellcraft
 SUBCLASSLEVEL:1																																																																																ADD:FEAT(TYPE=TurnUndead)							ADD:Language(TYPE=Infernal)1																																		FEATAUTO:Simple Weapon Proficiency|Shield Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)	FEATAUTO:Rebuke Undead	ADD:EQUIP(Dagger (Sarishan Steel))
 SUBCLASSLEVEL:3																																																																																																																																	FEATAUTO:Magical Aptitude
@@ -273,15 +273,15 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Black Market|Bluff|Climb|TY
 16															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
 19															ADD:FEAT(TYPE=RogueAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Define		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:pg. 70	LANGAUTO:Literacy		DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		SOURCEPAGE:pg. 70	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Prohibited Race
 CLASS:Sorcerer	!PRERACE:1,Human
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Arcana)|TYPE.Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL	SPELLLIST:1|Wizard
-1	CAST:5,3				KNOWN:4,2				SA:Summon Familiar	SA:Hunted	FEATAUTO:Simple Weapon Proficiency|Eschew Materials
+1	CAST:5,3				KNOWN:4,2				SA:Hunted	FEATAUTO:Simple Weapon Proficiency|Eschew Materials|Summon Familiar
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -321,31 +321,31 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6
 1	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11
 ###Block: Level progression
-1																				ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)							VFEAT:Streetwise	FEATAUTO:Track
-2																				ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-3																				ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)										FEATAUTO:Endurance
-4	CAST:0,0		SA:Animal Companion (Ex) - Cat,Dire Rat,Dog, or Riding Dog only.	BONUS:VAR|CompLevel|CL/2	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-5	CAST:0,0																		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-6	CAST:0,1																		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-7	CAST:0,1		SA:As the Ghost (Ex)													ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-8	CAST:0,1,0		SA:Swift Tracker (Ex)													ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-9	CAST:0,1,0																		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)	ADD:FEAT(Evasion,Improved Evasion)
-10	CAST:0,1,1																		ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-11	CAST:0,1,1,0																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-12	CAST:0,1,1,1																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-13	CAST:0,1,1,1	SA:Camouflage (Ex)													ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-14	CAST:0,2,1,1,0																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-15	CAST:0,2,1,1,1																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-16	CAST:0,2,2,1,1																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-17	CAST:0,2,2,2,1	SA:Hide in Plain Sight (Ex)												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-18	CAST:0,3,2,2,1																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-19	CAST:0,3,3,3,2																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
-20	CAST:0,3,3,3,3																	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+1														ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)							VFEAT:Streetwise	FEATAUTO:Track
+2														ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+3														ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)										FEATAUTO:Endurance
+4	CAST:0,0							BONUS:VAR|CompLevel|CL/2	ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)										FEATAUTO:Animal Companion
+5	CAST:0,0												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+6	CAST:0,1												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+7	CAST:0,1		SA:As the Ghost (Ex)							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+8	CAST:0,1,0		SA:Swift Tracker (Ex)							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+9	CAST:0,1,0												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)	ADD:FEAT(Evasion,Improved Evasion)
+10	CAST:0,1,1												ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+11	CAST:0,1,1,0											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+12	CAST:0,1,1,1											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+13	CAST:0,1,1,1	SA:Camouflage (Ex)							ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+14	CAST:0,2,1,1,0											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+15	CAST:0,2,1,1,1											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+16	CAST:0,2,2,1,1											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+17	CAST:0,2,2,2,1	SA:Hide in Plain Sight (Ex)						ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+18	CAST:0,3,2,2,1											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+19	CAST:0,3,3,3,2											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
+20	CAST:0,3,3,3,3											ADD:FEAT(TYPE.FavoredEnemy)	ADD:FEAT(TYPE.FavoredEnemyBonus)	ADD:FEAT(TYPE.RangerCombatTree)
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page				Automatic Languages	Bonus Languages		Define		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Subclass?		Source Page				Automatic Languages	Bonus Languages		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz		HASSUBCLASS:YES	SOURCEPAGE:ClassesII.rtf	LANGAUTO:Literacy		LANGBONUS:Draconic	BONUS:CHECKS|BASE.Willpower|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Research|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
@@ -371,26 +371,26 @@ SUBCLASSLEVEL:1	SA:+2 bonus to Spellcraft when learning Transmutation
 ###Block:Proficiencies
 1	FEATAUTO:Wizard Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:3,1				SA:Summon Familiar	SA:Hunted											FEATAUTO:Scribe Scroll
+1	CAST:3,1				SA:Hunted											FEATAUTO:Scribe Scroll|Summon Familiar
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1									ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+5	CAST:4,3,2,1					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2									ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+10	CAST:4,4,4,3,3,2					ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
 13	CAST:4,4,4,4,4,3,2,1
 14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1								ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+15	CAST:4,4,4,4,4,4,3,2,1				ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 16	CAST:4,4,4,4,4,4,3,3,2
 17	CAST:4,4,4,4,4,4,4,3,2,1
 18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4							ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
+20	CAST:4,4,4,4,4,4,4,4,4,4			ADD:FEAT(TYPE=Metamagic,TYPE=ItemCreation,Spell Mastery)
 #
 # End
 #

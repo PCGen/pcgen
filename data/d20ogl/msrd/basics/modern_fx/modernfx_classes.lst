@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 26 00:48:22 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:02:39 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -101,15 +101,15 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 10	KNOWN:3,3,3,2,1															AUTO:EQUIP|Ultimate PsiBlade
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Define		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	DEFINE:FMLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FMLevel|CL	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
+CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FMLevel|CL	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Mage		PRESKILL:4,Craft (Chemical),Decipher Script,Knowledge (Arcane Lore),Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|Read/Write Language|Research|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook		Caster level
 CLASS:Mage		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|CL
-1	CAST:3,1		SA:Summon Familiar
+1	CAST:3,1														FEATAUTO:Summon Familiar
 2	CAST:4,2														FEATAUTO:Scribe Scroll
 3	CAST:4,2,1										ADD:FEAT(TYPE=Mage)	FEATAUTO:Brew Potion
 4	CAST:4,3,2														FEATAUTO:Scribe Tattoo

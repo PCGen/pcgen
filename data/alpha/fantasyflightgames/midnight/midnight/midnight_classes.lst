@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:08:23 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 # Original Entry by: Tir Gwaith
 
@@ -16,7 +16,7 @@ SUBCLASSLEVEL:1																																						FEATAUTO:Magecraft (Spiritu
 SUBCLASS:Charismatic Channeler	COST:0	SPELLSTAT:CHA
 SUBCLASSLEVEL:1	SA:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	FEATAUTO:Magecraft (Charismatic)
 1	CAST:1,1								ADD:FEAT(Spellcasting (Transmutation))	ADD:FEAT(TYPE=Spellcasting)
-2	CAST:1,1				SA:Summon Familiar
+2	CAST:1,1				BONUS:VAR|FMLevel|CL													FEATAUTO:Summon Familiar
 3	CAST:1,1,1
 4	CAST:1,1,1								ADD:FEAT(TYPE=Spellcasting)
 5	CAST:1,1,1,1

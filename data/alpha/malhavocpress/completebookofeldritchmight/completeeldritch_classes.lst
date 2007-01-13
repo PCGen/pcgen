@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:08:50 2007 -- reformated by prettylst.pl v1.35 (build 1655)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com
 # Original Entry by: Felipe Diniz
 
@@ -43,7 +43,7 @@ CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE.Craft|Di
 CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
 1	FEATAUTO:Simple Weapon Proficiency
 ###Block: Familiar
-1	SA:Summon Familiar	BONUS:VAR|FMLevel|CL	DEFINE:FMLevel|0
+1	BONUS:VAR|FMLevel|CL	FEATAUTO:Summon Familiar
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=0|Dancing Lights,Daze,Detect Magic,Disrupt Undead,Flare,Ghost Sound,Light,Mage Hand,Mending,Open/Close,Prestidigitation,Ray of Frost,Read Magic,Resistance
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=1|Animate Rope,Burning Hands,Cause Fear,Charm Person,Chill Touch,Color Spray,Comprehend Languages,Disguise Self,Endure Elements,Expeditious Retreat,Floating Disk,Grease,Hypnotism,Jump,Mage Armor,Magic Missile,Message,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Ray of Enfeeblement,Shocking Grasp,Silent Image,Sleep,Spider Climb,Summon Monster I,True Strike,Unseen Servant,Ventriloquism
