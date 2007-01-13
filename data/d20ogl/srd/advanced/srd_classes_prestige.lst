@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 02:31:11 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
@@ -62,7 +62,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	SA:Lay on Hands (Su) % hp/day|BlackguardLayOnHands|PRECLASS:1,Ex Paladin=3	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL				DEFINE:BlackguardLayOnHands|0
 1	SA:Fiendish Summoning|PRECLASS:1,Ex Paladin=7
 ###Block: Normal Class Progression
-1	CAST:0,0		SA:Poison Use	SA:Detect Good (Sp)									EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Class Ability|TIMES=-1|Detect Good
+1	CAST:0,0		SA:Poison Use	SA:Detect Good (Sp)									EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Class Ability|TIMES=-1|CASTERLEVEL=CL+BL|Detect Good,11+CHA
 2	CAST:0,1		SA:Dark Blessing (Su)				BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)
 3	CAST:0,1,0		SA:Aura of Despair (Su)
 4	CAST:0,1,1
@@ -76,7 +76,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
 CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Def		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat				Required Race
-CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:Dwarf%
+CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spot
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -115,12 +115,12 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1					SA:Hide in Plain Sight(Su)
-2	VISION:Darkvision (60')								BONUS:VAR|UncannyDodge|1																	VFEAT:Evasion		FEATAUTO:Uncanny Dodge
-3					SA:Shadow Illusion	SA:Summon Shadow	BONUS:VAR|ShadowCompanion|CL					DEFINE:ShadowCompanion|0	SPELLS:Shadowdancer|TIMES=1|Silent Image
+2	VISION:Darkvision (60')								BONUS:VAR|UncannyDodge|1																					VFEAT:Evasion		FEATAUTO:Uncanny Dodge
+3					SA:Shadow Illusion	SA:Summon Shadow	BONUS:VAR|ShadowCompanion|CL					DEFINE:ShadowCompanion|0	SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=CL+BL|Silent Image,11+CHA
 4					SA:Shadow Jump (% ft.)|ShadowJump		BONUS:VAR|ShadowJump|20						DEFINE:ShadowJump|0
 5					SA:Defensive Roll					BONUS:VAR|UncannyDodge|1
 6					SA:Summon Shadow					BONUS:VAR|ShadowJump|20
 7					SA:Slippery Mind
 8												BONUS:VAR|ShadowJump|40
 9					SA:Summon Shadow
-10												BONUS:VAR|ShadowJump|80	BONUS:VAR|UncannyDodge|1													VFEAT:Improved Evasion
+10												BONUS:VAR|ShadowJump|80	BONUS:VAR|UncannyDodge|1																	VFEAT:Improved Evasion

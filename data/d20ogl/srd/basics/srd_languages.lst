@@ -21,9 +21,12 @@ Orc		TYPE:Spoken
 Sylvan	TYPE:Spoken
 Terran	TYPE:Spoken
 Undercommon	TYPE:Spoken
-Aboleth	TYPE:Spoken
 Literacy	TYPE:Special
 Druidic	TYPE:Special	PREVARGTEQ:DruidicLanguage,1
 
 # From MM
+Aboleth	TYPE:Spoken
+Blink Dog	TYPE:Spoken
 Drow		TYPE:Spoken
+Sphinx	TYPE:Spoken
+Worg		TYPE:Spoken
