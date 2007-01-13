@@ -8,6 +8,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
@@ -31,7 +32,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 {
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreFeatTest.class);
+		TestRunner.run(PreFeatTest.class);
 	}
 
 	/**

@@ -22,9 +22,8 @@
  */
 package pcgen.util;
 
-import pcgen.PCGenTestCase;
-
 import java.io.File;
+import pcgen.PCGenTestCase;
 
 /**
  * FileHelperTest

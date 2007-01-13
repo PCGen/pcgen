@@ -1,11 +1,19 @@
 package pcgen.gui;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
 import pcgen.core.Constants;
 import pcgen.core.Globals;
-
-import java.io.*;
 
 /**
  * A pcGenGUITestCase is an XMLTestCase.  It is an abstract 

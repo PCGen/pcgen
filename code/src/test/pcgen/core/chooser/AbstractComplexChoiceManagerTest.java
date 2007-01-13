@@ -25,15 +25,14 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.AbstractCharacterTestCase;
-import pcgen.core.Ability;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.EquipmentList;
-import pcgen.util.TestHelper;
-
 import java.lang.reflect.Field;
 import java.util.List;
+import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Ability;
+import pcgen.core.EquipmentList;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.util.TestHelper;
 
 /**
  * {@code AbstractComplexChoiceManagerTest} test that the AbstractComplexChoiceManager class is functioning correctly.

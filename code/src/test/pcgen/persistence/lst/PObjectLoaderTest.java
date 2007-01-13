@@ -29,9 +29,7 @@
 package pcgen.persistence.lst;
 
 import gmgen.pluginmgr.PluginLoader;
-
 import java.util.List;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
@@ -40,8 +38,8 @@ import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SpecialAbility;
 import pcgen.core.Variable;
-import pcgen.core.utils.ListKey;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public class PObjectLoaderTest extends PCGenTestCase

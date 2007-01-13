@@ -25,20 +25,19 @@
  */
 package pcgen.core.chooser;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.EquipmentList;
 import pcgen.core.Race;
 import pcgen.util.TestHelper;
-
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.ArrayList;
-import pcgen.core.Globals;
-import pcgen.core.Ability;
 
 /**
  * {@code ArmorTypeChoiceManagerTest} test that the ArmorTypeChoiceManager class is functioning correctly.

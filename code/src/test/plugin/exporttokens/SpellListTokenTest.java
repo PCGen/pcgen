@@ -25,7 +25,6 @@ package plugin.exporttokens;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;

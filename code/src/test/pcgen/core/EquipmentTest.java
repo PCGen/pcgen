@@ -28,11 +28,9 @@ package pcgen.core;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import junit.swingui.TestRunner;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
-import pcgen.core.Equipment;
-import pcgen.core.Constants;
 
 /**
  * Equipment Test

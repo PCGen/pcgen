@@ -1,13 +1,33 @@
 package pcgen;
 
 import junit.framework.TestCase;
-
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
-import pcgen.util.enumeration.Tab;
 import pcgen.util.TestChecker;
-import pcgen.util.testchecker.*;
+import pcgen.util.enumeration.Tab;
+import pcgen.util.testchecker.BoolAnd;
+import pcgen.util.testchecker.BoolNot;
+import pcgen.util.testchecker.BoolOr;
+import pcgen.util.testchecker.BoolXor;
+import pcgen.util.testchecker.CompareDeadband;
+import pcgen.util.testchecker.CompareEqualBoolean;
+import pcgen.util.testchecker.CompareEqualByte;
+import pcgen.util.testchecker.CompareEqualChar;
+import pcgen.util.testchecker.CompareEqualDouble;
+import pcgen.util.testchecker.CompareEqualFloat;
+import pcgen.util.testchecker.CompareEqualInt;
+import pcgen.util.testchecker.CompareEqualLong;
+import pcgen.util.testchecker.CompareEqualObject;
+import pcgen.util.testchecker.CompareEqualShort;
+import pcgen.util.testchecker.CompareEqualString;
+import pcgen.util.testchecker.CompareGreaterOrEqual;
+import pcgen.util.testchecker.CompareGreaterThan;
+import pcgen.util.testchecker.CompareLessOrEqual;
+import pcgen.util.testchecker.CompareLessThan;
+import pcgen.util.testchecker.CompareNull;
+import pcgen.util.testchecker.CompareSame;
+import pcgen.util.testchecker.CompareSubstring;
 
 /**
  * Test case base for PCGen.  This addresses a common bug with JUnit whereby

@@ -20,13 +20,13 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
-import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.core.EquipmentList;
-import pcgen.util.TestHelper;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
+import pcgen.core.PlayerCharacter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * <code>PreArmorTypeTest</code> tests that the PREARMORTYPE tag is

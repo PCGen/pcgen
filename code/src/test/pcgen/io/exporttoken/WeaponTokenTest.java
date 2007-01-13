@@ -40,11 +40,11 @@ import pcgen.core.Race;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
-import pcgen.core.bonus.Bonus;
-import pcgen.core.bonus.BonusObj;
 
 /**
  * <code>WeaponTokenTest</code> contains tests to verify that the

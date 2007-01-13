@@ -24,7 +24,6 @@
 package pcgen.io.exporttoken;
 
 import java.util.List;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;

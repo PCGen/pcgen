@@ -26,7 +26,6 @@ package pcgen.core.levelability;
 
 import java.awt.HeadlessException;
 import java.util.List;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;

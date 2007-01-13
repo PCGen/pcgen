@@ -27,7 +27,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;

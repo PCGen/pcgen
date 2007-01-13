@@ -25,15 +25,14 @@
  */
 package pcgen.core.chooser;
 
+import java.lang.reflect.Field;
+import java.util.List;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.EquipmentList;
 import pcgen.util.TestHelper;
-
-import java.lang.reflect.Field;
-import java.util.List;
 
 /**
  * {@code WeaponProfTypeChoiceManagerTest} test that the WeaponProfTypeChoiceManager class is functioning correctly.

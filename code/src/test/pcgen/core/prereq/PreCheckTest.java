@@ -23,15 +23,16 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.core.PObject;
-import pcgen.core.SettingsHandler;
 
 /**
  * <code>PreCheckTest</code> tests that the PRECHECK tag is
@@ -49,7 +50,7 @@ public class PreCheckTest extends AbstractCharacterTestCase
 
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreCheckTest.class);
+		TestRunner.run(PreCheckTest.class);
 	}
 
 	/**

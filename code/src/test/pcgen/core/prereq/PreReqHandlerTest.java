@@ -29,12 +29,11 @@
 package pcgen.core.prereq;
 
 import gmgen.pluginmgr.PluginLoader;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.PCGenTestCase;
 import pcgen.core.Constants;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -52,7 +51,7 @@ public class PreReqHandlerTest extends PCGenTestCase
 	 */
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreReqHandlerTest.class);
+		TestRunner.run(PreReqHandlerTest.class);
 	}
 
 	/**

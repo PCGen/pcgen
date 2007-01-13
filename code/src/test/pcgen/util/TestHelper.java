@@ -25,11 +25,9 @@
 package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
-
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;

@@ -30,6 +30,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
@@ -46,7 +47,7 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 	 */
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(AbstractPrerequisiteTestTest.class);
+		TestRunner.run(AbstractPrerequisiteTestTest.class);
 	}
 
 	/**

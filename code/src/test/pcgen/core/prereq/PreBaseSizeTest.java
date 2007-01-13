@@ -23,6 +23,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -50,7 +51,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreBaseSizeTest.class);
+		TestRunner.run(PreBaseSizeTest.class);
 	}
 
 	/**

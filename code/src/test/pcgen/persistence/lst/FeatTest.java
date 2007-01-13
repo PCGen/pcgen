@@ -8,8 +8,8 @@ import gmgen.pluginmgr.PluginLoader;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import pcgen.core.Campaign;
 import pcgen.core.Ability;
+import pcgen.core.Campaign;
 import pcgen.core.Constants;
 
 /**

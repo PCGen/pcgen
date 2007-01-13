@@ -23,6 +23,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -49,7 +50,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreLevelMaxTest.class);
+		TestRunner.run(PreLevelMaxTest.class);
 	}
 
 	/**

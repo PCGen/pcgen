@@ -25,16 +25,15 @@
  */
 package pcgen.core.chooser;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Equipment;
+import pcgen.core.EquipmentList;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.EquipmentList;
-import pcgen.core.Equipment;
 import pcgen.util.TestHelper;
-
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * {@code ArmorProfChoiceManagerTest} test that the SimpleArmorProfChoiceManager class is functioning correctly.

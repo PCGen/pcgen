@@ -31,10 +31,9 @@ package pcgen.core;
 import java.awt.HeadlessException;
 import java.util.Collections;
 import java.util.List;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import junit.swingui.TestRunner;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;

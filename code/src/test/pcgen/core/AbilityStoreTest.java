@@ -26,7 +26,6 @@
 package pcgen.core;
 
 import java.util.Iterator;
-
 import pcgen.PCGenTestCase;
 import pcgen.util.TestHelper;
 

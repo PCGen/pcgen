@@ -31,11 +31,12 @@
 package pcgen.persistence.lst.output.prereq;
 
 import gmgen.pluginmgr.PluginLoader;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 import pcgen.core.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -45,9 +46,6 @@ import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Tests PrerequisiteWriter code

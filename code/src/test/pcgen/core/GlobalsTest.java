@@ -1,11 +1,10 @@
 package pcgen.core;
 
-import pcgen.PCGenTestCase;
-import pcgen.util.TestHelper;
-
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import pcgen.PCGenTestCase;
+import pcgen.util.TestHelper;
 
 /**
  * This class tests global areas of PCGen

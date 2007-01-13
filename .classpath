@@ -7,7 +7,7 @@
 	<classpathentry kind="lib" path="lib/fop/avalon-framework-cvs-20020806.jar"/>
 	<classpathentry kind="lib" path="lib/fop/batik.jar"/>
 	<classpathentry kind="lib" path="lib/fop/fop.jar"/>
-	<classpathentry kind="lib" path="lib/test/junit.jar"/>
+	<classpathentry kind="lib" path="lib/test/junit-4.1.jar"/>
 	<classpathentry kind="lib" path="lib/lnf/kunststoff.jar"/>
 	<classpathentry kind="lib" path="lib/lnf/skinlf.jar"/>
 	<classpathentry kind="lib" path="lib/fop/xml-apis.jar"/>

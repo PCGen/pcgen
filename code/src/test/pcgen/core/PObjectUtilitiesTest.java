@@ -24,7 +24,6 @@
 package pcgen.core;
 
 import java.util.Arrays;
-
 import pcgen.AbstractCharacterTestCase;
 
 /**

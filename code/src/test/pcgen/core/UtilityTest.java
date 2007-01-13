@@ -25,11 +25,10 @@
  */
 package pcgen.core;
 
-import pcgen.PCGenTestCase;
-import pcgen.core.utils.CoreUtility;
-
 import java.util.ArrayList;
 import java.util.List;
+import pcgen.PCGenTestCase;
+import pcgen.core.utils.CoreUtility;
 
 /**
  * <code>UtilityTest</code>.

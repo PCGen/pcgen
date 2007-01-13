@@ -35,9 +35,6 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.exporttoken.SkillToken;
-import plugin.exporttokens.SkillLevelToken;
-import plugin.exporttokens.SkillSubsetToken;
-import plugin.exporttokens.SkillTypeToken;
 
 /**
  * <code>SkillTokenTest</code> contains tests to verify that the

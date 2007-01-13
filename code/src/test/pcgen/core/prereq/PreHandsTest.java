@@ -23,10 +23,11 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.core.Race;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * <code>PreHandsTest</code> tests that the PREHANDS tag is
@@ -42,7 +43,7 @@ public class PreHandsTest extends AbstractCharacterTestCase
 {
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreHandsTest.class);
+		TestRunner.run(PreHandsTest.class);
 	}
 
 	/**

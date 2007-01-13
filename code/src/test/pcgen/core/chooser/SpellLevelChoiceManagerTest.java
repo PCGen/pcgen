@@ -25,15 +25,14 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.AbstractCharacterTestCase;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.EquipmentList;
-import pcgen.util.Logging;
-import pcgen.util.TestHelper;
-
 import java.lang.reflect.Field;
 import java.util.List;
+import pcgen.AbstractCharacterTestCase;
+import pcgen.core.EquipmentList;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
+import pcgen.util.TestHelper;
 
 /**
  * {@code SpellLevelChoiceManagerTest} test that the SpellLevelChoiceManager class is functioning correctly.

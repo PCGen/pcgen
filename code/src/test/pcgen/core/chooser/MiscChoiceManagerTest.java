@@ -25,16 +25,15 @@
  */
 package pcgen.core.chooser;
 
-import pcgen.AbstractCharacterTestCase;
-import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.EquipmentList;
-import pcgen.util.TestHelper;
-
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import pcgen.AbstractCharacterTestCase;
+import pcgen.core.EquipmentList;
+import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
+import pcgen.util.TestHelper;
 
 /**
  * {@code MiscChoiceManagerTest} test that the MiscChoiceManager class is functioning correctly.

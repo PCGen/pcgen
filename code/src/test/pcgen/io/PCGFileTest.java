@@ -1,9 +1,8 @@
 package pcgen.io;
 
+import java.io.File;
 import pcgen.PCGenTestCase;
 import pcgen.core.Constants;
-
-import java.io.File;
 
 /**
  * Tests {@link PCGFile}.

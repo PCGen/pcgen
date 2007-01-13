@@ -20,16 +20,21 @@
  */
 package pcgen.core.levelability;
 
+import java.awt.HeadlessException;
+import java.util.List;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.*;
+import pcgen.core.Ability;
+import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
+import pcgen.core.WeaponProf;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
-
-import java.awt.HeadlessException;
-import java.util.List;
 
 /**
  * JUnit 3.6 testcases for <code>pcgen.core.LevelAbility</code>.

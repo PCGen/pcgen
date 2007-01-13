@@ -31,7 +31,6 @@ package pcgen.core;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;

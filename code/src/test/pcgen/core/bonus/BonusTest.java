@@ -24,8 +24,8 @@
 package pcgen.core.bonus;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.Equipment;
 import pcgen.core.Ability;
+import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;

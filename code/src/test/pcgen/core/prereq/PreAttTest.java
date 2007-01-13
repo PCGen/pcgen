@@ -23,6 +23,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -47,7 +48,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreAttTest.class);
+		TestRunner.run(PreAttTest.class);
 	}
 
 	/**

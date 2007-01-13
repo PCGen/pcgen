@@ -23,7 +23,7 @@ package pcgen.core;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import pcgen.core.levelability.*;
+import pcgen.core.levelability.LevelAbilityTest;
 import pcgen.persistence.lst.FeatTest;
 
 //import pcgen.core.LevelAbilityTest;

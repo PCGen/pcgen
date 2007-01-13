@@ -29,15 +29,14 @@
 package pcgen.core;
 
 import gmgen.pluginmgr.PluginLoader;
+import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import junit.swingui.TestRunner;
+import junit.textui.TestRunner;
 import pcgen.PCGenTestCase;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
-
-import java.util.List;
 
 /**
  * Equipment Modifer Test 

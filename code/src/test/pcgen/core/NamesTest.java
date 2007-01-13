@@ -8,7 +8,6 @@ package pcgen.core;
 
 import java.io.File;
 import java.util.List;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.gui.NameElement;
 

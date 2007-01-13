@@ -23,9 +23,8 @@
  */
 package pcgen.core;
 
-import pcgen.PCGenTestCase;
-
 import java.util.Iterator;
+import pcgen.PCGenTestCase;
 import pcgen.util.TestHelper;
 
 /**

@@ -30,6 +30,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -51,7 +52,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 */
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreSubClassTest.class);
+		TestRunner.run(PreSubClassTest.class);
 	}
 
 	/**

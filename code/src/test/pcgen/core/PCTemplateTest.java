@@ -25,7 +25,6 @@ package pcgen.core;
 
 import java.net.MalformedURLException;
 import java.util.List;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;

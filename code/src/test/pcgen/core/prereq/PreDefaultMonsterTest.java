@@ -29,6 +29,7 @@ package pcgen.core.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -44,7 +45,7 @@ public class PreDefaultMonsterTest extends AbstractCharacterTestCase
 
 	public static void main(final String[] args)
 	{
-		junit.swingui.TestRunner.run(PreDefaultMonsterTest.class);
+		TestRunner.run(PreDefaultMonsterTest.class);
 	}
 
 	/**

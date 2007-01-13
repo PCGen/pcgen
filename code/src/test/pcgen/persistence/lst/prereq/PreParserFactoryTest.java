@@ -30,7 +30,7 @@ package pcgen.persistence.lst.prereq;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import junit.swingui.TestRunner;
+import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.prereq.Prerequisite;
 

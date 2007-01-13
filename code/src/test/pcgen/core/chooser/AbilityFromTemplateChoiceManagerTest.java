@@ -27,7 +27,6 @@ package pcgen.core.chooser;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Set;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.PCTemplate;

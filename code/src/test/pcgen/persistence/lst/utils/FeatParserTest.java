@@ -21,7 +21,6 @@
 package pcgen.persistence.lst.utils;
 
 import java.util.List;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Globals;

@@ -28,6 +28,7 @@ package pcgen.persistence.lst.prereq;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -40,7 +41,7 @@ public class PreAlignParserTest extends TestCase
 {
 	public static void main(String args[])
 	{
-		junit.swingui.TestRunner.run(PreAlignParserTest.class);
+		TestRunner.run(PreAlignParserTest.class);
 	}
 
 	/**

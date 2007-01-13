@@ -25,17 +25,18 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import pcgen.core.prereq.Prerequisite;
-import plugin.pretokens.parser.PreApplyParser;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
+import pcgen.core.prereq.Prerequisite;
+import plugin.pretokens.parser.PreApplyParser;
 
 public class PreApplyParserTest extends TestCase
 {
 	public static void main(String args[])
 	{
-		junit.swingui.TestRunner.run(PreApplyParserTest.class);
+		TestRunner.run(PreApplyParserTest.class);
 	}
 
 	/**

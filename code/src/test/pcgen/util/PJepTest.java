@@ -29,13 +29,10 @@
 package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
-
 import java.util.Iterator;
-
-import org.nfunk.jep.SymbolTable;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.nfunk.jep.SymbolTable;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.core.Constants;
