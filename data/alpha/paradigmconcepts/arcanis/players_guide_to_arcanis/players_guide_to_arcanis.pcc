@@ -82,6 +82,8 @@ BIOSET:pgta_bio.lst
 
 # RSRD Imports - Basics
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric|Fighter|Monk|Paladin|Ranger|Rogue|Sorcerer|Wizard)
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
+COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
 EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
@@ -98,14 +100,14 @@ EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ammo_specific.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst|(EXCLUDE:Weapon Specialization|Greater Weapon Focus|Greater Weapon Specialization)
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst|(EXCLUDE:Monk AC)
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
+KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
+RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst
 SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
 WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
-WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs_natural.lst
 TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
 
 # Advanced
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_npc.lst
 CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst|(EXCLUDE:Hierophant|Dragon Disciple|Mystic Theurge)
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_wondrousitems.lst
 EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_rodsstaffswands.lst
@@ -132,7 +134,57 @@ WEAPONPROF:@/d20ogl/srd35/psionics/rsrd_weaponprofs_psionic.lst
 TEMPLATE:@/d20ogl/srd35/psionics/rsrd_templates_psionic.lst
 
 # Monsters
+CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
+CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst
+
+FEAT:@/d20ogl/srd35/monsters/rsrd_feats_templates.lst
+
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__vermin.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_treasure.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_c_d.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_e_f.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_i_j.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_o_p.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_o_p_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_q_r.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_s_t.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_s_t_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_u_v.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_u_v_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_w_x.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_y_z.lst
+
+RACE:@/d20ogl/srd35/monsters/rsrd_races__dragons.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races__vermin.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_a_b.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_c_d.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_e_f.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_g_h.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_i_j.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_k_l.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_m_n.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_o_p.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_q_r.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_s_t.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_u_v.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_w_x.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
+
+TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates_monsters.lst
 TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
+
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
 
 #
 # End

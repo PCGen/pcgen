@@ -99,18 +99,18 @@ Rogue		TYPE:Past	VISIBLE:NO	TEMPLATE:PastRogue
 Cleric	TYPE:Past	VISIBLE:NO	TEMPLATE:PastCleric
 Druid		TYPE:Past	VISIBLE:NO	TEMPLATE:PastDruid
 
-###Block: Restless Wanderer Feats
+###Block: Restless Wanderer Feats - Commenting out, these are duplicates of feats, not sure why they are here, can't find anything which uses them. -Eddy
 # Feat Name				Type		Visible		Template
-Restless Wanderer (Fighter)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastFighter
-Restless Wanderer (Barbarian)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastBarbarian
-Restless Wanderer (Ranger)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastBarRanger
-Restless Wanderer (Paladin)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastPaladin
-Restless Wanderer (Monk)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastMonk
-Restless Wanderer (Wizard)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastWizard
-Restless Wanderer (Sorcerer)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastSorcerer
-Restless Wanderer (Rogue)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastRogue
-Restless Wanderer (Cleric)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastCleric
-Restless Wanderer (Druid)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastDruid
+#Restless Wanderer (Fighter)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastFighter
+#Restless Wanderer (Barbarian)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastBarbarian
+#Restless Wanderer (Ranger)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastBarRanger
+#Restless Wanderer (Paladin)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastPaladin
+#Restless Wanderer (Monk)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastMonk
+#Restless Wanderer (Wizard)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastWizard
+#Restless Wanderer (Sorcerer)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastSorcerer
+#Restless Wanderer (Rogue)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastRogue
+#Restless Wanderer (Cleric)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastCleric
+#Restless Wanderer (Druid)	TYPE:Rest	VISIBLE:EXPORT	TEMPLATE:PastDruid
 
 
 ###Block: Spell Focus Favored Enemy

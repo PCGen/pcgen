@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sun Apr 30 17:55:23 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jan 14 02:38:08 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com
 #AUTHOR:Evan Miller, 2004
 
 
 ###Block: MISC., FEAT, AND CLASS RELATED TEMPLATES
-# Template Name	Visible	QUALIFY				FAVOREDCLASS		Removable?		Type			GENDERLOCK
-Outsider.MOD															TYPE:Outsider
-ChurchEdu		VISIBLE:NO						FAVOREDCLASS:Cleric	REMOVABLE:NO
-Fair Sex		VISIBLE:NO										REMOVABLE:NO				GENDERLOCK:Female
+# Template Name	Visible	QUALIFY					FAVOREDCLASS		Removable?		Type			GENDERLOCK
+Outsider.MOD																TYPE:Outsider
+ChurchEdu		VISIBLE:NO							FAVOREDCLASS:Cleric	REMOVABLE:NO
+Fair Sex		VISIBLE:NO											REMOVABLE:NO				GENDERLOCK:Female
 
-Bowman		VISIBLE:NO	QUALIFY:FEAT|Weapon Specialization				REMOVABLE:NO
+Bowman		VISIBLE:NO	QUALIFY:FEAT|Weapon Specialization					REMOVABLE:NO
 
 ###Block: Patrician Choices
 # Template Name				Visible	Choose					Feat
