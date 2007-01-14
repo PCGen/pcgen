@@ -1,19 +1,19 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jan 14 01:41:08 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Arcana - The Book of the Righteous	SOURCESHORT:BookRight	SOURCEWEB:http://www.greenronin.com
 # Original Entry by: Beaver, updated by Tir Gwaith
 
 #SA Domain ability.. at 1st level they gain 4 abilities from their domain(s) and at 2nd level 2 from their Domain(s) - nothing after that.
 #This is going to require some rethinking of how domain abilities are done in data files and a CHOOSE:DOMAINABILITY(>list<) tag
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Define		Save checks bonus											Combat bonus		Add domain number		Modify VAR
-CLASS:Holy Warrior	HD:10		TYPE:Base.PC	ABB:HlyW		MAXLEVEL:20	HASSUBCLASS:YES	EXCLASS:Ex Holy Warrior	SOURCEPAGE:p.243	LANGAUTO:Literacy		DEFINE:SMLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|SMLevel|CL
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Ex Class			Source Page		Automatic Languages	Save checks bonus											Combat bonus		Add domain number		Modify VAR
+CLASS:Holy Warrior	HD:10		TYPE:Base.PC	ABB:HlyW		MAXLEVEL:20	HASSUBCLASS:YES	EXCLASS:Ex Holy Warrior	SOURCEPAGE:p.243	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|SMLevel|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Warrior	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Handle Animal|Knowledge (Religion)|TYPE.Profession|Ride
 # Class Name		Spell Stat		Spell Type		Automaticaly Known Spell Levels				Craft Level Mult.	Caster level
 CLASS:Holy Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Holy Warrior|CL/2|PRECLASS:1,Holy Warrior=4
 SUBCLASS:Holy Warrior	ABB:HlyW	COST:0	SOURCEPAGE:p.243
 SUBCLASSLEVEL:3	SA:Gift of God (%)|GiftOfGod	BONUS:VAR|GiftOfGod|CL/3	DEFINE:GiftOfGod|0
-SUBCLASSLEVEL:5	SA:Special Mount/Compainion
+SUBCLASSLEVEL:5															FEATAUTO:Special Mount/Compainion
 ###Block:
 SUBCLASS:Eagle of Urian	NAMEISPI:YES	ABB:EoU	COST:0	PREALIGN:NG	PREDEITY:Urian	CSKILL:Balance|Spot	SOURCEPAGE:p.41
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=1|Bless,Bless Water,Bless Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Evil,Read Magic,Resistance,Virtue
@@ -42,7 +42,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Moderate Wounds,Dispel Magi
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Control Water,Cure Serious Wounds,Freedom of Movement,Holy Sword,Neutralize Poison,Restoration
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Calm Emotions%/week|CalmEmotions			BONUS:VAR|CalmEmotions|min(CL/3,3)	DEFINE:CalmEmotions|0
-SUBCLASSLEVEL:5	SA:Special Mount/Compainion
+SUBCLASSLEVEL:5																				FEATAUTO:Special Mount/Compainion
 SUBCLASSLEVEL:12	SA:Neutralize Poison %/week|NeutralizePoison	BONUS:VAR|NeutralizePoison|(CL-9)/3	DEFINE:NeutralizePoison|0
 ###Block:
 SUBCLASS:Faithful Son of Morwyn	NAMEISPI:YES	ABB:FS	COST:0	PREALIGN:LG	PREDEITY:Morwyn	CSKILL:Diplomacy|Heal	SOURCEPAGE:p.78
@@ -52,7 +52,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Serious Wounds,Dispel Magic
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Neutralize Poison,Spell Immunity
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Transference %/week|Transference				BONUS:VAR|Transference|min(CL/3,3)		DEFINE:Transference|0
-SUBCLASSLEVEL:5	SA:Special Mount/Compainion
+SUBCLASSLEVEL:5																						FEATAUTO:Special Mount/Compainion
 SUBCLASSLEVEL:12	SA:Greater Transference %/week|GreaterTransference	BONUS:VAR|GreaterTransference|(CL-9)/3	DEFINE:GreaterTransference|0
 ###Block:
 SUBCLASS:Crusader of Terak	NAMEISPI:YES	ABB:CoT	COST:0	PREALIGN:LG	PREDEITY:Terak (LG),Terak (LN)	CSKILL:Jump|Swim	SOURCEPAGE:p.90
@@ -62,7 +62,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Moderate Wounds,Dispel Magi
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Cure Serious Wounds,Death Ward,Divine Power,Freedom of Movement,Holy Sword,Sending
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Keen Edged %/week|KeenEdged	BONUS:VAR|KeenEdged|min(CL/3,3)	DEFINE:KeenEdged|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																	FEATAUTO:Special Mount
 SUBCLASSLEVEL:6	SA:Celetrial Lion * (See Text p.91)
 SUBCLASSLEVEL:12	SA:Status %/week|Status			BONUS:VAR|Status|(CL-9)/3		DEFINE:Status|0
 ###Block:
@@ -93,7 +93,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Dispel Magic,Greater Magic Weapo
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Mark of Evil,Restoration,Touch of Return
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Negative Energy Protection %/week|NegativeEnergyProtection	BONUS:VAR|NegativeEnergyProtection|min(CL/3,6)	DEFINE:NegativeEnergyProtection|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																										FEATAUTO:Special Mount
 ###Block:
 SUBCLASS:Officer of Maal	NAMEISPI:YES	ABB:OoM	COST:0	PREALIGN:LG	PREDEITY:Maal	CSKILL:Diplomacy|Sense Motive	SOURCEPAGE:p.132
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=1|Bless,Bless Water,Bless Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Chaos,Protection from Evil,Resistance,Virtue
@@ -102,7 +102,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Moderate Wounds,Discern Lie
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Death Ward,Dispel Chaos,Freedom of Movement,Holy Sword,Mark of Justice,Restoration
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Discern Lies %/week|DiscernLies	BONUS:VAR|DiscernLies|min(CL/3,3)	DEFINE:DiscernLies|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																	FEATAUTO:Special Mount
 SUBCLASSLEVEL:12	SA:Mark of evil %/week|MarkofEvil	BONUS:VAR|MarkofEvil|(CL-9)/3		DEFINE:MarkofEvil|0
 ###Block:
 SUBCLASS:Hero of Darmon	NAMEISPI:YES	ABB:HoD	COST:0	PREALIGN:CG	PREDEITY:Darmon	CSKILL:Bluff|Diplomacy	SOURCEPAGE:p.143
@@ -112,7 +112,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Moderate Wounds,Dispel Magi
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Cure Serious Wounds,Dimension Door,Dispel Evil,Holy Sword,Neutralize Poison,Sending
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Freedom of Movement %/week|FreedomofMovement	BONUS:VAR|FreedomofMovement|min(CL/3,6)	DEFINE:FreedomofMovement|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																					FEATAUTO:Special Mount
 ###Block:
 SUBCLASS:Aesthete of Aymara	NAMEISPI:YES	ABB:AoA	COST:0	PREALIGN:CG	PREDEITY:Aymara	CSKILL:Appraise|Perform	SOURCEPAGE:p.153
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=1|Bless,Bless Water,Bless Weapon,Charm Person,Create Water,Cure Light Wounds,Detect Poison,Divine Favor,Endure Elements,Magic Weapon,Protection from Evil,Read Magic,Resistance,Virtue
@@ -121,7 +121,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Clairaudience/Clairvoyance,Cure 
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Cure Serious Wounds,Death Ward,Dispel Evil,Holy Sword,Legend Lore
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Fair Light %/week|FairLight	BONUS:VAR|FairLight|min(CL/3,6)	DEFINE:FairLight|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																	FEATAUTO:Special Mount
 SUBCLASSLEVEL:7	SA:Pegasus (See Text)
 ###Block:
 SUBCLASS:Arcstone of Korak	NAMEISPI:YES	ABB:AoK	COST:0	PREALIGN:NG	PREDEITY:Korak	CSKILL:Appraise|Knowledge (Lost Treasures)	SOURCEPAGE:p.165
@@ -131,7 +131,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Moderate Wounds,Dispel Magi
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Death Ward,Dispel Evil,Divine Power,Freedom of Movement,Hallow,Holy Sword
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Remove Curse %/week|RemoveCurse						BONUS:VAR|RemoveCurse|min(CL/3,6)	DEFINE:RemoveCurse|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																						FEATAUTO:Special Mount
 SUBCLASSLEVEL:7	SA:Celestrial Bull (See Text)
 SUBCLASSLEVEL:12	SA:Can use 'Remove Curse' ability to also Dispel Magic (See Text)
 ###Block:
@@ -142,7 +142,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cure Moderate Wounds,Discern Lie
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Cure Serious Wounds,Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Neutralize Poison
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Helping Hand %/week|HelpingHand	BONUS:VAR|HelpingHand|min(CL/3,3)	DEFINE:HelpingHand|0
-SUBCLASSLEVEL:5	SA:Special Mount/Compainion
+SUBCLASSLEVEL:5																	FEATAUTO:Special Mount/Compainion
 SUBCLASSLEVEL:12	SA:Heal Noble %/week|HealNoble	BONUS:VAR|HealNoble|(CL-9)/3		DEFINE:HealNoble|0
 ###Block:
 SUBCLASS:Purified of Canelle	NAMEISPI:YES	ABB:PoC	COST:0	PREALIGN:CG	PREDEITY:Canelle	CSKILL:Jump|Swim	SOURCEPAGE:p.197
@@ -152,7 +152,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=3|Cat's Grace,Cure Moderate Wounds
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Holy Warrior=4|Cure Serious Wounds,Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Restoration
 ###Block: level specific
 SUBCLASSLEVEL:3	SA:Remove Disease %/week|RemoveDisease		BONUS:VAR|RemoveDisease|min(CL/3,3)	DEFINE:RemoveDisease|0
-SUBCLASSLEVEL:5	SA:Special Mount
+SUBCLASSLEVEL:5																				FEATAUTO:Special Mount
 SUBCLASSLEVEL:6	SA:Celestial Warhorse* (see text p.198)
 SUBCLASSLEVEL:12	SA:Neutralize Poison %/week|NeutralizePoison	BONUS:VAR|NeutralizePoison|(CL-9)/3	DEFINE:NeutralizePoison|0
 ###Block:

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sat Jan 13 21:20:17 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -130,15 +130,15 @@ CLASS:Herbalist	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Heal|Intuit Direction|Ju
 9									FEATAUTO:Constant Harvest
 10									FEATAUTO:Spontaneous Concoction|Master Herbalist
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:p. 56	DEFINE:SarSMLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:p. 56	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Race						Required Skill
 CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:Human (Sarcosan),Human (Erenlander)	PRESKILL:1,Ride=8	PRESKILL:2,Handle Animal,Intimidate=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Handle Animal|Jump|TYPE.Profession|Ride|Spot|Swim
-1																																																			FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1																																																			FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 1				BONUS:VAR|HorseLordLvl|CL																																											FEATAUTO:Horse Lord
-1				BONUS:VAR|SarSMLevel|CL
+1				BONUS:VAR|SarSMLevel|CL																																												FEATAUTO:Sarcosan Mount
 2	REPEATLEVEL:3						ADD:FEAT(Mounted Maneuver)
 3	REPEATLEVEL:3						ADD:FEAT(Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Ceduku),Weapon Focus (TYPE.Shortbow),Weapon Focus (Scimitar),Weapon Specialization (Ceduku),Weapon Specialization (TYPE.Shortbow),Weapon Specialization (Scimitar))
 4																																																			FEATAUTO:Spur On
@@ -194,21 +194,21 @@ CLASS:Whisper Adept	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concentr
 7																					FEATAUTO:Strength of the Wood
 10																					FEATAUTO:Tree Stride
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus
-CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	DEFINE:WogrenRiderLvl|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Feat					Required Race			Required Skill
 CLASS:Wogren Rider	PREFEAT:2,Mounted Archery,Mounted Combat	PRERACE:Halfling (Midnight)	PRESKILL:2,Intuit Direction,Wilderness Lore=4	PRESKILL:1,Ride=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
-1																																													FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
-1																																													FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
-1				SA:Special Mount	BONUS:VAR|WogrenRiderLvl|CL
-1																																													FEATAUTO:Coordinated Attack
-2	REPEATLEVEL:2									ADD:FEAT(Ride By Attack,Improved Ride By Attack,Mounted Archery,Improved Mounted Archery,Mounted Combat,Improved Mounted Combat,Spirited Charge,Improved Spirited Charge,Trample,Improved Trample)
-3																																													FEATAUTO:Speed Mount
-5																																													FEATAUTO:Mounted Hide
-7																																													FEATAUTO:Wogren Dodge
-9																																													FEATAUTO:Wogren's Sight
+1																																										FEATAUTO:All Automatic Proficiencies|Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
+1																																										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
+1				BONUS:VAR|WogrenRiderLvl|CL																																		FEATAUTO:Wogren Mount
+1																																										FEATAUTO:Coordinated Attack
+2	REPEATLEVEL:2						ADD:FEAT(Ride By Attack,Improved Ride By Attack,Mounted Archery,Improved Mounted Archery,Mounted Combat,Improved Mounted Combat,Spirited Charge,Improved Spirited Charge,Trample,Improved Trample)
+3																																										FEATAUTO:Speed Mount
+5																																										FEATAUTO:Mounted Hide
+7																																										FEATAUTO:Wogren Dodge
+9																																										FEATAUTO:Wogren's Sight
 
 #
 # End

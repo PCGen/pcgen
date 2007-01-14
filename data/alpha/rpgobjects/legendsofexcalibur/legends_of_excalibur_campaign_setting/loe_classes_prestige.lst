@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jan 14 01:05:09 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # due to .MOD issues of CAST and KNOWN, Assassin copy here
@@ -110,16 +110,16 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1										FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 ###Block: Normal Level Progression
-1																BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0										VFEAT:Power Source(Crusader)
-2				SA:Lay on Hands (Su) % hp/day|LayOnHands						BONUS:VAR|LayOnHands|max(CHA,0)*CL											DEFINE:LayOnHands|0					ADD:FEAT(Mounted Combat)
-3	CAST:1,2,12		SA:Aura of Piety (Ex)	SA:Crusade +%|Crus					BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|Crus|CL/3		DEFINE:Crus|0
-4	CAST:1,1,8		SA:Mounted Combat +% (Ex)|MountedCombat	SA:Knights Warhorse (Ex)	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0	DEFINE:KnightLevel|0
-5	CAST:1,1,4,15													BONUS:VAR|BASEPOWERPOINTS|2
-6	CAST:1,1,3,10													BONUS:VAR|BASEPOWERPOINTS|3
-7	CAST:0,1,2,5,18													BONUS:VAR|BASEPOWERPOINTS|3
-8	CAST:0,1,2,4,12													BONUS:VAR|BASEPOWERPOINTS|5
-9	CAST:0,1,2,3,6,21													BONUS:VAR|BASEPOWERPOINTS|5
-10	CAST:0,1,2,3,5,14													BONUS:VAR|BASEPOWERPOINTS|7
+1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0						VFEAT:Power Source(Crusader)
+2				SA:Lay on Hands (Su) % hp/day|LayOnHands		BONUS:VAR|LayOnHands|max(CHA,0)*CL											DEFINE:LayOnHands|0	ADD:FEAT(Mounted Combat)
+3	CAST:1,2,12		SA:Aura of Piety (Ex)	SA:Crusade +%|Crus	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|Crus|CL/3		DEFINE:Crus|0
+4	CAST:1,1,8		SA:Mounted Combat +% (Ex)|MountedCombat		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4+1	BONUS:VAR|KnightLevel|CL-3	DEFINE:MountedCombat|0											FEATAUTO:Knight's Warhorse
+5	CAST:1,1,4,15									BONUS:VAR|BASEPOWERPOINTS|2
+6	CAST:1,1,3,10									BONUS:VAR|BASEPOWERPOINTS|3
+7	CAST:0,1,2,5,18									BONUS:VAR|BASEPOWERPOINTS|3
+8	CAST:0,1,2,4,12									BONUS:VAR|BASEPOWERPOINTS|5
+9	CAST:0,1,2,3,6,21									BONUS:VAR|BASEPOWERPOINTS|5
+10	CAST:0,1,2,3,5,14									BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Enchantress	HD:4		TYPE:PC.Prestige	ABB:Enc		SOURCEPAGE:41	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -165,7 +165,7 @@ CLASS:Quest Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (N
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	SA:Knights Warhorse (Ex)		BONUS:VAR|KnightLevel|CL																		DEFINE:KnightLevel|0	FEATAUTO:Aura of Knighthood
+1							BONUS:VAR|KnightLevel|CL																		FEATAUTO:Aura of Knighthood|Knight's Warhorse
 2	SA:Divine Grace (Su)								BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
 3	SA:Perseverence (Ex)
 4	SA:Quest Knight (Attacks) (Ex)
@@ -204,10 +204,10 @@ CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimid
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	SA:Black Knight (Ex)																				BONUS:SKILL|Intimidate|CL
-2	SA:Black Heart +%d6 %/day (Ex)|BlackHeartDamage|BlackHeartTimes		BONUS:VAR|BlackHeartDamage|CL/2	BONUS:VAR|BlackHeartTimes|1						DEFINE:BlackHeartDamage|0	DEFINE:BlackHeartTimes|0
-3	SA:Knight's Warhorse (Ex)	SA:Mounted Combat +% (Ex)|MountedCombat	BONUS:VAR|KnightLevel|CL-3	BONUS:VAR|MountedCombat|CL/3							DEFINE:KnightLevel|0	DEFINE:MountedCombat|0							FEATAUTO:Mounted Combat
-5																																							ADD:FEAT(TYPE=Fighter)
+1	SA:Black Knight (Ex)																			BONUS:SKILL|Intimidate|CL
+2	SA:Black Heart +%d6 %/day (Ex)|BlackHeartDamage|BlackHeartTimes	BONUS:VAR|BlackHeartDamage|CL/2	BONUS:VAR|BlackHeartTimes|1						DEFINE:BlackHeartDamage|0	DEFINE:BlackHeartTimes|0
+3	SA:Mounted Combat +% (Ex)|MountedCombat					BONUS:VAR|KnightLevel|CL-3	BONUS:VAR|MountedCombat|CL/3							DEFINE:MountedCombat|0											FEATAUTO:Knight's Warhorse	FEATAUTO:Mounted Combat
+5																																						ADD:FEAT(TYPE=Fighter)
 7	SA:Black Shield (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
@@ -222,16 +222,16 @@ CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1				SA:Breathe Water (Su)																					SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
-2				SA:Knight's Warhorse (Ex)	BONUS:VAR|KnightLevel|CL							DEFINE:KnightLevel|0
-3	CAST:1,2,12							BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS																				VFEAT:Power Source(Druid/Minstrel)
-4	CAST:1,1,8							BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4		DEFINE:MountedCombat|0
-5	CAST:1,1,4,15	SA:Walk on Water (Su)		BONUS:VAR|BASEPOWERPOINTS|2															SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
-6	CAST:1,1,3,10						BONUS:VAR|BASEPOWERPOINTS|3											ADD:FEAT(TYPE=Fighter)
-7	CAST:0,1,2,5,18	SA:Blue Armor (Ex)		BONUS:VAR|BASEPOWERPOINTS|3
-8	CAST:0,1,2,4,12						BONUS:VAR|BASEPOWERPOINTS|5
-9	CAST:0,1,2,3,6,21						BONUS:VAR|BASEPOWERPOINTS|5											ADD:FEAT(TYPE=Fighter)
-10	CAST:0,1,2,3,5,14	SA:Tap Water (Ex)			BONUS:VAR|BASEPOWERPOINTS|7
+1				SA:Breathe Water (Su)																				SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Breathing,13+CHA
+2								BONUS:VAR|KnightLevel|CL																																FEATAUTO:Knight's Warhorse
+3	CAST:1,2,12						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS																				VFEAT:Power Source(Druid/Minstrel)
+4	CAST:1,1,8						BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|MountedCombat|CL/4		DEFINE:MountedCombat|0
+5	CAST:1,1,4,15	SA:Walk on Water (Su)	BONUS:VAR|BASEPOWERPOINTS|2															SPELLS:Blue Knight|TIMES=-1|CASTERLEVEL=CL|Water Walk,13+CHA
+6	CAST:1,1,3,10					BONUS:VAR|BASEPOWERPOINTS|3											ADD:FEAT(TYPE=Fighter)
+7	CAST:0,1,2,5,18	SA:Blue Armor (Ex)	BONUS:VAR|BASEPOWERPOINTS|3
+8	CAST:0,1,2,4,12					BONUS:VAR|BASEPOWERPOINTS|5
+9	CAST:0,1,2,3,6,21					BONUS:VAR|BASEPOWERPOINTS|5											ADD:FEAT(TYPE=Fighter)
+10	CAST:0,1,2,3,5,14	SA:Tap Water (Ex)		BONUS:VAR|BASEPOWERPOINTS|7
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -243,13 +243,13 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Handle 
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	SA:Knight's Warhorse (Ex)					BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0	DEFINE:KnightLevel|0					FEATAUTO:Rage
+1										BONUS:VAR|RageTimes|CL/5+1	BONUS:VAR|KnightLevel|CL	DEFINE:RageTimes|0					FEATAUTO:Knight's Warhorse	FEATAUTO:Rage
 2	SA:Wild Empathy (Ex)
 3	SA:Woodland Stride (Ex)
 4	SA:Trackless Step (Ex)
-6																												ADD:FEAT(TYPE=Fighter)
+6																								ADD:FEAT(TYPE=Fighter)
 7	SA:Resist Nature's (Ex) Lure	SA:Green Armor (Ex)
-8																												ADD:FEAT(TYPE=Fighter)
+8																								ADD:FEAT(TYPE=Fighter)
 9	SA:Venom Immunity (Ex)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -262,9 +262,9 @@ CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Ani
 1										FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy
 ###Block: Normal Level Progression
-1	SA:Knight's Warhorse (Ex)	SA:Diplomatic Immunity	SA:Mounted Combat +%|MountedCombat	BONUS:VAR|KnightLevel|CL	BONUS:VAR|MountedCombat|CL/4+1	DEFINE:KnightLevel|0	DEFINE:MountedCombat|0
-2	SA:Horse Whisperer	SA:Burst of Speed +%'|BurstOfSpeed						BONUS:VAR|BurstOfSpeed|floor(CL/2)*10					DEFINE:BurstOfSpeed|0
-3	SA:Like the Wind +%|LikeTheWind										BONUS:VAR|LikeTheWind|min(CL/2-1,0)						DEFINE:LikeTheWind|0
+1	SA:Diplomatic Immunity	SA:Mounted Combat +%|MountedCombat	BONUS:VAR|KnightLevel|CL	BONUS:VAR|MountedCombat|CL/4+1	DEFINE:MountedCombat|0	FEATAUTO:Knight's Warhorse
+2	SA:Horse Whisperer	SA:Burst of Speed +%'|BurstOfSpeed	BONUS:VAR|BurstOfSpeed|floor(CL/2)*10					DEFINE:BurstOfSpeed|0
+3	SA:Like the Wind +%|LikeTheWind					BONUS:VAR|LikeTheWind|min(CL/2-1,0)						DEFINE:LikeTheWind|0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																			Save checks bonus											Combat bonus
 CLASS:Red Knight	HD:8		TYPE:PC.Prestige	ABB:RKn		MAXLEVEL:10	SOURCEPAGE:51	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

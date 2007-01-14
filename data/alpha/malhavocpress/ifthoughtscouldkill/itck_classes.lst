@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jan 14 01:32:47 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com
 # Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
 
@@ -92,17 +92,17 @@ CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psio
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft|Remote View
 ###Block: Level progression
-1																												FEATAUTO:Psicrystal
-1																							DEFINE:PowerPsicrystal|5
-1	ADD:SPELLCASTER(Psionic)	SA:Power Psicrystal %|PowerPsicrystal	BONUS:VAR|PCrystalLevel|1
-2	ADD:SPELLCASTER(Psionic)	SA:Freely Manifest 1st ~ 3/day		BONUS:VAR|PCrystalLevel|1
-3	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
-4	ADD:SPELLCASTER(Psionic)	SA:Freely Manifest 2nd ~ 3/day		BONUS:VAR|PCrystalLevel|1
-5	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+1																															FEATAUTO:Psicrystal
+1																										DEFINE:PowerPsicrystal|5
+1	ADD:SPELLCASTER(Psionic)	SA:Power Psicrystal %|PowerPsicrystal	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
+2	ADD:SPELLCASTER(Psionic)	SA:Freely Manifest 1st ~ 3/day		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
+3	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2
+4	ADD:SPELLCASTER(Psionic)	SA:Freely Manifest 2nd ~ 3/day		BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
+5	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2
 6						SA:Freely Manifest 3rd ~ 3/day
-7	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+7	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2
 8						SA:Freely Manifest 4th ~ 3/day
-9	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1	BONUS:VAR|PowerPsicrystal|2
+9	ADD:SPELLCASTER(Psionic)								BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|PowerPsicrystal|2
 10						SA:Apotheosis ~ one hour/day
 
 # Class Name			Output Name				Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
@@ -113,15 +113,15 @@ CLASS:Pyrokineticist ITCK	PREALIGN:CG,CN,CE	PRESKILL:1,Alchemy=8	PRESKILL:1,Know
 CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE.Craft|Knowledge (Psionics)|Psicraft
 ###Block: Level progression
 1						SA:Fire Lash (PP 11+)	SA:Touch Aflame (PP 1+)
-2	ADD:SPELLCASTER(Psionic)	SA:Hand Afire (PP 9+)	SA:Fire Adaptation (PP 3+)	BONUS:VAR|PCrystalLevel|1
+2	ADD:SPELLCASTER(Psionic)	SA:Hand Afire (PP 9+)	SA:Fire Adaptation (PP 3+)	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
 3						SA:Bolt of Fire (costs 3 PP)
-4	ADD:SPELLCASTER(Psionic)	SA:Weapon Afire (PP 9+)						BONUS:VAR|PCrystalLevel|1
+4	ADD:SPELLCASTER(Psionic)	SA:Weapon Afire (PP 9+)						BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
 5						SA:Breath of the Dragon
-6	ADD:SPELLCASTER(Psionic)	SA:Firewalk (1 PP/10 feet)					BONUS:VAR|PCrystalLevel|1
+6	ADD:SPELLCASTER(Psionic)	SA:Firewalk (1 PP/10 feet)					BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
 7						SA:Nimbus (costs 9 PP/min)
-8	ADD:SPELLCASTER(Psionic)	SA:Fear no Fire (PP 19+)					BONUS:VAR|PCrystalLevel|1
+8	ADD:SPELLCASTER(Psionic)	SA:Fear no Fire (PP 19+)					BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
 9						SA:Heat Death (costs 13 PP)
-10	ADD:SPELLCASTER(Psionic)	SA:Fire Lord (PP 21+)						BONUS:VAR|PCrystalLevel|1
+10	ADD:SPELLCASTER(Psionic)	SA:Fire Lord (PP 21+)						BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
 
 
 # Class Name	Output Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
@@ -135,15 +135,15 @@ CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal E
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency
 ###Block: Level progression
-1	ADD:SPELLCASTER(Psionic)	SA:Favored Enemy (Mortal Enemy)	SA:Mortal Enemy Sense % ft range|EnemySense	BONUS:VAR|PCrystalLevel|1	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|60
-2																																		ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
-3	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+1	ADD:SPELLCASTER(Psionic)	SA:Favored Enemy (Mortal Enemy)	SA:Mortal Enemy Sense % ft range|EnemySense	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|60
+2																																					ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+3	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
 4						SA:Lucid Buffer
-5	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+5	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
 6						SA:Cerebral Blind (15+ PP)
-7	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+7	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
 8						SA:Breach Power Resistance
-9	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
+9	ADD:SPELLCASTER(Psionic)															BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal										ADD:FEAT(TYPE=General,TYPE=Psionic,TYPE=Metapsionic)
 10						SA:Blast Feedback
 
 # Class Name		Output Name			Hit Dice	Type					Source Page		Save checks bonus												Combat bonus
@@ -159,9 +159,9 @@ CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohynosis|Concentration|Hide|Knowl
 1	FEATAUTO:Soulknife ITCK Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Level progression
-2	ADD:SPELLCASTER(Psionic)	SA:Imbed Power				BONUS:VAR|PCrystalLevel|1
-4	ADD:SPELLCASTER(Psionic)	SA:Imbed Psionic Attack			BONUS:VAR|PCrystalLevel|1
-6	ADD:SPELLCASTER(Psionic)	SA:Free Draw	SA:Sever Life	BONUS:VAR|PCrystalLevel|1
-8	ADD:SPELLCASTER(Psionic)	SA:Upgrade					BONUS:VAR|PCrystalLevel|1	BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
-10	ADD:SPELLCASTER(Psionic)	SA:Knife to the Soul			BONUS:VAR|PCrystalLevel|1
+2	ADD:SPELLCASTER(Psionic)	SA:Imbed Power				BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
+4	ADD:SPELLCASTER(Psionic)	SA:Imbed Psionic Attack			BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
+6	ADD:SPELLCASTER(Psionic)	SA:Free Draw	SA:Sever Life	BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
+8	ADD:SPELLCASTER(Psionic)	SA:Upgrade					BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal	BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0
+10	ADD:SPELLCASTER(Psionic)	SA:Knife to the Soul			BONUS:VAR|PCrystalLevel|1|PREFEAT:1,Psicrystal
 

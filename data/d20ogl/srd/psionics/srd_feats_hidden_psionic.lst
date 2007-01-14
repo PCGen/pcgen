@@ -52,7 +52,7 @@ PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoin
 ###Block: Psionic Feat Support
 # Feat Name				Type					Visible	Required Class			Prohibited Feat					Special Ability	Define									Save checks bonus			Bonus to skill			Modify VAR																														Source Page
 Inner Strength Points		TYPE:PsionicFeat			VISIBLE:NO																DEFINE:InnerStrFeatCount|0	DEFINE:InnerStrFeatBonus|0											BONUS:VAR|InnerStrFeatCount|COUNT[FEATNAME=Inner Strength]	BONUS:VAR|InnerStrFeatBonus|(InnerStrFeatCount)*((InnerStrFeatCount/2)+.5)	BONUS:VAR|BASEPOWERPOINTS|InnerStrFeatBonus	SOURCEPAGE:srdpsionicfeats.rtf
-Psicrystal				TYPE:PsionicFeat			VISIBLE:NO													SA:Psicrystal	DEFINE:PCrystalLevel|0																																																SOURCEPAGE:srdpsionicclasses.rtf
+Psicrystal				TYPE:PsionicFeat			VISIBLE:NO													SA:Psicrystal	DEFINE:PCrystalLevel|0																																																SOURCEPAGE:srdpsionicclasses.rtf	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulos),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)
 Speed of Thought Movement	TYPE:PsionicFeat			VISIBLE:NO																DEFINE:SOTMOVEBONUS|0																	BONUS:VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))|PREAPPLY:PC																		SOURCEPAGE:srdpsionicfeats.rtf
 
 # These feats support the Talented feat, the user must decide which class the free powers are applied to

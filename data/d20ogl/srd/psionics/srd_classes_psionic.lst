@@ -2,7 +2,7 @@
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Class Name	Hit Dice	Type				Subclass?		Source Page					Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -100,7 +100,7 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 20	KNOWN:3,4,3,3,3,3,3																						ADD:FEAT(TYPE=Fighter,TYPE=Psionic)
 
 # Class Name	Hit Dice	Type					Subclass?		Source Page					Save checks bonus														Combat bonus					Modify VAR
-CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	HASSUBCLASS:YES	SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal
 # Class Name	Required Feat			Required Skill						Req. Spell Type
 CLASS:Metamind	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft,Knowledge (Psionics)=6	PRESPELLTYPE:Psionic,1,2	PRESPELLTYPE:Psionic,2,0
 # Class Name	Skill Pts/Lvl	Class Skill

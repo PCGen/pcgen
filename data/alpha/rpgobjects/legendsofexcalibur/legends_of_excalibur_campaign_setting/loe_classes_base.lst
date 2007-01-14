@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:10:41 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Sun Jan 14 01:05:09 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
@@ -148,12 +148,12 @@ CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:p.16	LANGAUTO:Literacy[PREM
 CLASS:Knight	PRESTAT:1,NOB=41
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE.Profession|Ride|Swim
-1	SA:Mounted Combat +% (Ex)|MountedCombat	SA:Code of Chivalry (Ex)	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0					ADD:FEAT(Mounted Combat)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	FEATAUTO:Aura of Knighthood
-2	SA:Armor Tolerance +% (Ex)|ArmorTolerance	SA:Knight's Warhorse (Ex)	BONUS:VAR|ArmorTolerance|CL/2	BONUS:VAR|KnightLevel|CL	DEFINE:ArmorTolerance|0	DEFINE:KnightLevel|0
-3																															ADD:FEAT(Ride By Attack)
+1	SA:Mounted Combat +% (Ex)|MountedCombat	SA:Code of Chivalry (Ex)	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0	ADD:FEAT(Mounted Combat)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	FEATAUTO:Aura of Knighthood
+2	SA:Armor Tolerance +% (Ex)|ArmorTolerance						BONUS:VAR|ArmorTolerance|CL/2	BONUS:VAR|KnightLevel|CL	DEFINE:ArmorTolerance|0																															FEATAUTO:Knight's Warhorse
+3																											ADD:FEAT(Ride By Attack)
 4	SA:Dispense Justice (Ex)
-5																															ADD:FEAT(Spirited Charge)
-7																															ADD:FEAT(Trample)
+5																											ADD:FEAT(Spirited Charge)
+7																											ADD:FEAT(Trample)
 9	SA:Unhorse (Ex)
 11	SA:Take the Reins (Ex)
 13	SA:Power Charge %/day (Ex)|PowerCharge						BONUS:VAR|PowerCharge|1							DEFINE:PowerCharge|0
@@ -240,15 +240,15 @@ CLASS:Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		SOURCEPAGE:29	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE.Profession|Ride|Sleight of Hand
-1																																				ADD:VFEAT(Improved Feint)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-2																															ADD:FEAT(Mounted Combat)
-3	SA:Sneak Attack +%d6|SneakAttack	SA:Knight's Warhorse (Ex)	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2	DEFINE:KnightLevel|0
-4																										ADD:Feat(TYPE=RobberBaron)
-5												BONUS:VAR|MountedCombat|CL/5						DEFINE:MountedCombat|0
-8																										ADD:Feat(TYPE=RobberBaron)
-12																										ADD:Feat(TYPE=RobberBaron)
-16																										ADD:Feat(TYPE=RobberBaron)
-20																										ADD:Feat(TYPE=RobberBaron)
+1																															ADD:VFEAT(Improved Feint)	AUTO:ARMORPROF|TYPE=Light|TYPE=Medium|TYPE=Heavy	AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2																										ADD:FEAT(Mounted Combat)
+3	SA:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																																													FEATAUTO:Knight's Warhorse
+4																					ADD:Feat(TYPE=RobberBaron)
+5							BONUS:VAR|MountedCombat|CL/5						DEFINE:MountedCombat|0
+8																					ADD:Feat(TYPE=RobberBaron)
+12																					ADD:Feat(TYPE=RobberBaron)
+16																					ADD:Feat(TYPE=RobberBaron)
+20																					ADD:Feat(TYPE=RobberBaron)
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages												Save checks bonus											Combat bonus
 CLASS:Skald		HD:8		TYPE:Base.PC	ABB:Ska		SOURCEPAGE:p.31	LANGAUTO:Literacy[PREMULT:2,[!PRETEMPLATE:Saxon],[!PRERACE:Base/Criminal,Common/Serf]]	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE:Base.REPLACE

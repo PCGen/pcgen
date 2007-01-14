@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr  1 21:27:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Jan 13 21:20:17 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -252,6 +252,11 @@ Metamagic Aura Destroy				TYPE:MetamagicAura			VISIBLE:NO						SA:Metamagic Aura
 Metamagic Aura Absorb				TYPE:MetamagicAura			VISIBLE:NO						SA:Metamagic Aura: Absorb Spell
 Metamagic Aura Redirect				TYPE:MetamagicAura			VISIBLE:NO						SA:Metamagic Aura: Redirect Spell
 Metamagic Aura Supress Magic			TYPE:MetamagicAura			VISIBLE:NO						SA:Metamagic Aura: Supress Magic
+
+###Block: Special Mounts
+# Feat Name		Type			Visible	Special Ability	Define			COMPANIONLIST							FOLLOWERS
+Sarcosan Mount	TYPE:Special	VISIBLE:NO	SA:Special Mount	DEFINE:SarSMLevel|0	COMPANIONLIST:Special Mount|Horse (Warhorse Light)	FOLLOWERS:Special Mount|1
+Wogren Mount	TYPE:Special	VISIBLE:NO	SA:Special Mount	DEFINE:WogrenRiderLvl|0	COMPANIONLIST:Special Mount|Wogren				FOLLOWERS:Special Mount|1
 
 #
 # End

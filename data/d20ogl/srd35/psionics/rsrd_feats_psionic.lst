@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Apr 11 18:36:10 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sun Jan 14 01:18:25 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -28,7 +28,7 @@ Stand Still		TYPE:General																										PRESTAT:1,STR=13					DESC:See
 Wild Talent		TYPE:General																																	DESC:See Text								TEMPLATE:Psionic									BONUS:VAR|BasePowerPoints|2	SOURCEPAGE:PsionicFeats.rtf
 
 ###Block: Psionic Feats
-# Feat Name				Type			Required AL		Req. Att.	Required Class				Required Feat							Required Skill			Required Stat	Required Template		Define			Description		Stackable?	Multiple?	Choose													Choose a Feat					Modify VAR				Source Page
+# Feat Name				Type			Required AL		Req. Att.	Required Class				Required Feat							Required Skill			Required Stat	Required Template		Define			Description		Stackable?	Multiple?	Choose													Choose a Feat					Modify VAR				Source Page				COMPANIONLIST																																																							FOLLOWERS
 Aligned Attack (Chaos)		TYPE:Psionic	PREALIGN:CG,CN,CE	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Aligned Attack (Evil)		TYPE:Psionic	PREALIGN:LE,NE,CE	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Aligned Attack (Good)		TYPE:Psionic	PREALIGN:LG,NG,CG	PREATT:6																								PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
@@ -55,7 +55,7 @@ Narrow Mind				TYPE:Psionic																										PRESTAT:1,WIS=13	PRETEMPLAT
 Overchannel				TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Power Penetration			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Power Specialization		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Weapon Focus (Ray)													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
-Psicrystal Affinity		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=1																		PRETEMPLATE:Psionic	DEFINE:PCrystalLevel|0	DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
+Psicrystal Affinity		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=1																		PRETEMPLATE:Psionic	DEFINE:PCrystalLevel|0	DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	FOLLOWERS:Psicrystal|1
 Psicrystal Containment		TYPE:Psionic						PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Psicrystal Affinity													PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
 Psionic Body			TYPE:Psionic																													PRETEMPLATE:Psionic					DESC:See text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE												ADD:FEAT(Psionic Body Hit Points)							SOURCEPAGE:PsionicFeats.rtf
 Psionic Charge			TYPE:Psionic												PREFEAT:1,Speed of Thought										PRESTAT:1,DEX=13	PRETEMPLATE:Psionic					DESC:See Text																															SOURCEPAGE:PsionicFeats.rtf
