@@ -961,7 +961,7 @@ BIO
 		<race></race>
 		<class>
 			<class>Sorcerer</class>
-			<ability>Summon Familiar</ability>
+			<ability></ability>
 		</class>
 	</special_abilities>
 	<!--
@@ -1002,6 +1002,26 @@ BIO
 <!-- END Hidden VFEATS -->
 		<feat>
 			<name>All Automatic Proficiencies</name>
+			<description></description>
+			<type>SPECIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Sorcerer Tracker - Summon Familiar</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Summon Familiar</name>
 			<description></description>
 			<type>SPECIAL</type>
 			<associated></associated>
