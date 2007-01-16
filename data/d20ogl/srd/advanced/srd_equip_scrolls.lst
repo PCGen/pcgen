@@ -1,11 +1,14 @@
-# CVS $Revision$ $Author$ -- Mon Dec  4 00:45:57 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Tue Jan 16 02:12:27 2007 -- reformated by prettylst.pl v1.35 (build 1881)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Non-errata'd
 #	Scroll (Stinking Cloud) cost should be 375 as it is a 3rd level spell (not 2nd)
 
+# To keep old PCGs working, Scroll (Ice Storm/Arcane) was given the old name as KEY:Scroll (Ice Storm), when the name had to be
+# changed because a Divine version of the scroll also exists. - Frank
+
 ###Block: Arcane Scrolls
 
-# Equipment Name						Output Name							Type						Cost		Weight	Modifier		Source Page
+# Equipment Name						Output Name							Type						Cost		Weight	Modifier		Source Page					KEY
 Scroll (Magic Missile)													TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Burning Hands)													TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Change Self)													TYPE:Magic.Scroll.Arcane.Consumable	COST:25	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -95,7 +98,7 @@ Scroll (Enervation)													TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:
 Scroll (Black Tentacles)												TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Fear)														TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Fire Shield)													TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Ice Storm)													TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Ice Storm/Arcane)				OUTPUTNAME:Scroll (Ice Storm)				TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf	KEY:Scroll (Ice Storm)
 Scroll (Improved Invisibility)											TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Lesser Geas)													TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Minor Globe of Invulnerability)										TYPE:Magic.Scroll.Arcane.Consumable	COST:700	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
@@ -310,7 +313,7 @@ Scroll (Flame Strike/Lvl 5)				OUTPUTNAME:Scroll (Flame Strike)			TYPE:Magic.Scr
 Scroll (Greater Command)												TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Hallow)														TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Healing Circle)													TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
-Scroll (Ice Storm)													TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
+Scroll (Ice Storm/Divine)				OUTPUTNAME:Scroll (Ice Storm)				TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Insect Plague)													TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Raise Dead)													TYPE:Magic.Scroll.Divine.Consumable	COST:1625	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
 Scroll (Righteous Might)												TYPE:Magic.Scroll.Divine.Consumable	COST:1125	WT:0		EQMOD:SCROLL	SOURCEPAGE:srdmagicitemsscrolls.rtf
