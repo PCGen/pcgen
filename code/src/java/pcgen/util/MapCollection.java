@@ -1,5 +1,5 @@
 /*
- * Copyright 2006 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2006, 2007 (C) Tom Parker <thpr@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,20 +23,60 @@
  */
 package pcgen.util;
 
+import java.util.AbstractCollection;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/*
+/**
+ * @author Thomas Parker
  * 
+ * A MapCollection is a facade used to convert a Map to a Collection. This is
+ * useful if one wishes to treat the contents of the Map (both the keys and the
+ * values) as a single Collection. For example, this could be used to join
+ * together the contents of a Map.
+ * 
+ * As this is a facade emulating a simple data structure (with a complex
+ * underlying data structure), certain functions are ill-defined. Modification
+ * of the collection is prohibited, and all methods that would normally modify a
+ * Collection (such as add, remove or clear) will throw an
+ * UnsupportedOperationException.
+ * 
+ * This class is reference-semantic. A reference to the Map provided in the
+ * constructor is kept by the MapCollection. ALL changes to the underlying Map
+ * are not reflected within this Collection. Beware that an Iterator provided by
+ * a MapCollection is therefore sensitive to modification of the underlying Map
+ * and MAY cause a ConcurrentModificationException to occur if the underlying
+ * Map is modified.
+ * 
+ * **WARNING** MapCollection is KNOWN to NOT fail fast in the case of a
+ * Concurrent Modification - such a feature is considered more advanced than
+ * this Class is trying to provide (the additional cost of memory and CPU of
+ * monitoring the map is considered an unreasonable burden.
  */
-public class MapCollection implements Collection<Object>
+public class MapCollection extends AbstractCollection<Object>
 {
 
+	/*
+	 * Note that a MapCollection cannot provide a proper Generic operation for
+	 * Collection, due to the potential conflicts between keys and objects in
+	 * the underlying Map.
+	 * 
+	 * For example, a Map of <String, Runnable> becomes difficult to have
+	 * Generics work correctly if one is converting a Map to a Collection.
+	 */
+	/**
+	 * The map underlying this Collection.
+	 */
 	private final Map<?, ?> map;
 
+	/**
+	 * Builds a new MapCollection, providing a facade to the given Map. The
+	 * given Map must be non-null.
+	 * 
+	 * @m The map to be treated as a Collection.
+	 */
 	public MapCollection(Map<?, ?> m)
 	{
 		if (m == null)
@@ -44,29 +84,88 @@ public class MapCollection implements Collection<Object>
 			throw new IllegalArgumentException(
 				"Cannot provide null to MapCollection");
 		}
-		map = new HashMap<Object, Object>(m);
+		map = m;
 	}
 
+	/**
+	 * Attempts to modify the collection. This is an unsupported operation on a
+	 * MapCollection, and an UnsupportedOperationException() will be thrown.
+	 * 
+	 * This should be kept as an override of AbstactCollection (even if it
+	 * replicates function), as it ensures future changes will not provide very
+	 * strange results.
+	 */
+	@Override
 	public boolean add(Object arg0)
 	{
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Attempts to modify the collection. This is an unsupported operation on a
+	 * MapCollection, and an UnsupportedOperationException() will be thrown.
+	 * 
+	 * This should be kept as an override of AbstactCollection (even if it
+	 * replicates function), as it ensures future changes will not provide very
+	 * strange results.
+	 */
+	@Override
 	public boolean addAll(Collection<?> arg0)
 	{
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Attempts to modify the collection. This is an unsupported operation on a
+	 * MapCollection, and an UnsupportedOperationException() will be thrown.
+	 * 
+	 * This should be kept as an override of AbstactCollection (even if it
+	 * replicates function), as it ensures future changes will not provide very
+	 * strange results.
+	 */
+	@Override
 	public void clear()
 	{
+		/*
+		 * While it is possible to have this actually clear the underlying Map,
+		 * I believe that is a bad design decision. This facade should be
+		 * consistent in the fact that it DOES NOT modify the underlying Map.
+		 * Having clear() as an exception to that is not a good design decision,
+		 * in my opinion - Thomas Parker 1/17/07
+		 */
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Returns true if the underlying Map contains the given Object as either a
+	 * Key or a Value in the Map.
+	 * 
+	 * @param arg0
+	 *            The Object to check to see if it is present in the underlying
+	 *            Map.
+	 * @return true if the underlying Map contains the given Object; false
+	 *         otherwise.
+	 */
+	@Override
 	public boolean contains(Object arg0)
 	{
 		return map.containsKey(arg0) || map.containsValue(arg0);
 	}
 
+	/**
+	 * Returns true if the underlying Map contains all of the Objects in the
+	 * given Collection, as either a Key or a Value in the Map. The order of the
+	 * Objects in the given Collection is not relevant to the ability to match a
+	 * Key or a Value in the underlying Map. The given Collection must be not be
+	 * null.
+	 * 
+	 * @param arg0
+	 *            The Collection of Objects to be tested for presence in the
+	 *            underlying Map.
+	 * @return true if all of the Objects in the given Collection are present in
+	 *         the underlying Map; false otherwise.
+	 */
+	@Override
 	public boolean containsAll(Collection<?> arg0)
 	{
 		for (Object obj : arg0)
@@ -79,46 +178,81 @@ public class MapCollection implements Collection<Object>
 		return true;
 	}
 
+	/**
+	 * Returns true if this MapCollection is empty. (It will be empty if the
+	 * underlying Map is also empty).
+	 * 
+	 * @return true if the MapCollection is empty.
+	 */
+	@Override
 	public boolean isEmpty()
 	{
 		return map.isEmpty();
 	}
 
+	/**
+	 * Provides a new Iterator for iterating over the contents of this MapCollection.
+	 * 
+	 * @return An Iterator over the contents of this MapCollection.
+	 */
+	@Override
 	public Iterator<Object> iterator()
 	{
 		return new MapCollectionIterator(map);
 	}
 
+	/**
+	 * Attempts to modify the collection. This is an unsupported operation on a
+	 * MapCollection, and an UnsupportedOperationException() will be thrown.
+	 * 
+	 * This should be kept as an override of AbstactCollection (even if it
+	 * replicates function), as it ensures future changes will not provide very
+	 * strange results.
+	 */
+	@Override
 	public boolean remove(Object arg0)
 	{
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Attempts to modify the collection. This is an unsupported operation on a
+	 * MapCollection, and an UnsupportedOperationException() will be thrown.
+	 * 
+	 * This should be kept as an override of AbstactCollection (even if it
+	 * replicates function), as it ensures future changes will not provide very
+	 * strange results.
+	 */
+	@Override
 	public boolean removeAll(Collection<?> arg0)
 	{
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Attempts to modify the collection. This is an unsupported operation on a
+	 * MapCollection, and an UnsupportedOperationException() will be thrown.
+	 * 
+	 * This should be kept as an override of AbstactCollection (even if it
+	 * replicates function), as it ensures future changes will not provide very
+	 * strange results.
+	 */
+	@Override
 	public boolean retainAll(Collection<?> arg0)
 	{
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Returns the size of this MapCollection. Note that the size of a
+	 * MapCollection will be twice the size of the underlying Map.
+	 * 
+	 * @return The size of this MapCollection.
+	 */
+	@Override
 	public int size()
 	{
-		return map.size();
-	}
-
-	public Object[] toArray()
-	{
-		// FIXME Auto-generated method stub
-		return null;
-	}
-
-	public Object[] toArray(Object[] arg0)
-	{
-		// FIXME Auto-generated method stub
-		return null;
+		return 2 * map.size();
 	}
 
 	private class MapCollectionIterator implements Iterator<Object>

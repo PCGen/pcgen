@@ -31,9 +31,9 @@ import pcgen.core.Kit;
 import pcgen.core.kit.KitTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.BaseKitLoader;
 import pcgen.persistence.lst.KitLstToken;
 import pcgen.util.Logging;
-import pcgen.persistence.lst.BaseKitLoader;
 
 /**
  * This class parses a TEMPLATE line from a Kit file. It handles the TEMPLATE

@@ -59,6 +59,7 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
+	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final boolean prereqMemorized =

@@ -1,5 +1,5 @@
 /*
- * Copyright 2006 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2006, 2007 (C) Tom Parker <thpr@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -64,12 +64,31 @@ public class CaseInsensitiveString
 		string = s;
 	}
 
+	/**
+	 * Compares two CaseInsensitiveStrings for equality. Returns true if the two
+	 * CaseInsensitiveStrings are equal.
+	 * 
+	 * @return true if the given Object is a CaseInsensitiveString that is equal
+	 *         to this CaseInsensitiveString.
+	 */
 	@Override
 	public boolean equals(Object s)
 	{
+		/*
+		 * DON'T DARE to make this function work for String or anything else...
+		 * The way .equals works is that it casts to the class of the parent
+		 * object - CaseInsensitiveStrings do NOT equals Strings. Please be
+		 * consistent with the .equals interface as generally used in Java.
+		 */
 		return string.equalsIgnoreCase(((CaseInsensitiveString) s).toString());
 	}
 
+	/**
+	 * Returns a hash code of this CaseInsensitiveString. Provided to ensure
+	 * behavior that is consistent with equals.
+	 * 
+	 * @return An integer has code of the CaseInsensitiveString
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -80,6 +99,11 @@ public class CaseInsensitiveString
 		return hashCode;
 	}
 
+	/**
+	 * Returns a String representation of this CaseInsensitiveString.
+	 * 
+	 * @return A String representation of this CaseInsensitiveString.
+	 */
 	@Override
 	public String toString()
 	{

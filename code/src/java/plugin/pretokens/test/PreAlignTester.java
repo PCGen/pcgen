@@ -115,6 +115,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
+	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String alignment = prereq.getKey();

@@ -355,6 +355,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements
 		return returnTotal;
 	}
 
+	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String aString = prereq.getKey();

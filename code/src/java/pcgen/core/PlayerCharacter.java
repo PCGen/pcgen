@@ -74,7 +74,6 @@ import pcgen.core.utils.ListKey;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
-import pcgen.core.utils.StringKeyMap;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.BonusToken;
@@ -185,7 +184,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	private final List<Language> templateAutoLanguages = new ArrayList<Language>();
 	private final SortedSet<Language> templateLanguages = new TreeSet<Language>();
 	private final SortedSet<Language> languages = new TreeSet<Language>();
-	private StringKeyMap stringChar = new StringKeyMap();
+	private Map<StringKey, String> stringChar = new HashMap<StringKey, String>();
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 	private String tabName = Constants.EMPTY_STRING;
@@ -6032,10 +6031,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 			cachedWeaponProfs = null;
 
-			if (stringChar.hasCharacteristic(StringKey.RACIAL_FAVORED_CLASS))
+			if (stringChar.containsKey(StringKey.RACIAL_FAVORED_CLASS))
 			{
 				favoredClasses.remove(stringChar
-					.getCharacteristic(StringKey.RACIAL_FAVORED_CLASS));
+						.get(StringKey.RACIAL_FAVORED_CLASS));
 			}
 
 			removeNaturalWeapons(race);
@@ -14865,7 +14864,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setStringFor(StringKey key, String s)
 	{
-		stringChar.setCharacteristic(key, s);
+		stringChar.put(key, s);
 		setDirty(true);
 	}
 
@@ -14877,7 +14876,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String removeStringFor(StringKey key)
 	{
-		return stringChar.removeCharacteristic(key);
+		return stringChar.remove(key);
 	}
 
 	private Float getEquippedQty(EquipSet eSet, Equipment eqI)
@@ -15452,7 +15451,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getStringFor(StringKey key)
 	{
-		return stringChar.getCharacteristic(key);
+		return stringChar.get(key);
 	}
 
 	/**
@@ -15463,7 +15462,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getSafeStringFor(StringKey key)
 	{
-		String s = stringChar.getCharacteristic(key);
+		String s = stringChar.get(key);
 		if (s == null)
 		{
 			s = Constants.EMPTY_STRING;

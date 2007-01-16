@@ -1,5 +1,5 @@
 /*
- * Copyright 2004, 2005 (C) Tom Parker <thpr@sourceforge.net>
+ * Copyright 2004-2007 (C) Tom Parker <thpr@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,33 +24,63 @@
  */
 package pcgen.util;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Thomas Parker
- *
+ * 
  * Represents a Map of objects to Lists. List management is done internally to
  * this class (while copies are accessible, the lists are kept private to this
  * class).
- *
- * This class is reference-semantic. In appropriate cases (such as calling the
- * addToListFor method), HashMapToList will maintain a reference to the given
- * Object. HashMapToList will not modify any of the Objects it is passed;
- * however, it reserves the right to return references to Objects it contains to
- * other Objects.
- *
- * However, when any method in which HashMapToList returns a Collection,
- * ownership of the Collection itself is transferred to the calling Object, but
- * the contents of the Collection (keys, values, etc.) are references whose
- * ownership should be respected.
- *
- * CAUTION: This is a convenience method for use in Java 1.4 and is not
- * appropriate for use in Java 1.5 (Typed Collections are probably more
- * appropriate)
+ * 
+ * This class is both value-semantic and reference-semantic.
+ * 
+ * In appropriate cases (such as calling the addToListFor method), HashMapToList
+ * will maintain a reference to the given Object. HashMapToList will not modify
+ * any of the Objects it is passed; however, it reserves the right to return
+ * references to Objects it contains to other Objects.
+ * 
+ * However, HashMapToList also protects its internal structure (the internal
+ * structure is not exposed) ... when any method in which HashMapToList returns
+ * a Collection, ownership of the Collection itself is transferred to the
+ * calling Object, but the contents of the Collection (keys, values, etc.) are
+ * references whose ownership should be respected. Also, when any method in
+ * which HashMapToList receives a Collection as a parameter, the ownership of
+ * the given Collection is not transferred to HashMapToList (in other words, the
+ * Collection will not be modified, and no references to the Collection will be
+ * maintain by HashMapToList). HashMapToList will obviously retain references to
+ * the contents of any Collections it may be passed.
+ * 
+ * CAUTION: If you are not looking for the value-semantic protection of this
+ * class (of preventing accidental modification, then this is a convenience
+ * method and is not appropriate for use in Java 1.5 (Typed Collections are
+ * probably more appropriate).
  */
 public class HashMapToList<K, V>
 {
 
+	/*
+	 * Comment to programmers on the value-semantic behavior of this class: This
+	 * class protects the collections contained within this Class (the Map and
+	 * the Lists) from modification by anything other than a direct call to this
+	 * object. Therefore, any Collection that is returned by this Class is
+	 * either (A) a copy [thus value-semantic] or (B) no longer stored within
+	 * this HashMapToList.
+	 * 
+	 * It is therefore recommended that there never be a .putListFor() method.
+	 * This is ASKING for semantic behavior problems, as it is too easy to store
+	 * the list that is given (which becomes reference semantic). It is not
+	 * painful and not unreasonable to call .removeListFor() and
+	 * .addAllToListFor(), which is all that a putListFor convenience method
+	 * would do. - Thomas Parker 1/15/07
+	 */
+	
 	/**
 	 * The actual map containing the map of objects to Lists
 	 */
@@ -153,13 +183,14 @@ public class HashMapToList<K, V>
 
 	/**
 	 * Adds all of the Lists in the given MapToList to this MapToList. The
-	 * resulting lists are independent, however, since MapToList is
-	 * reference-semantic, the List keys and values in each list are identical.
-	 *
+	 * resulting lists are independent (protecting the internal structure of
+	 * HashMapToList), however, since MapToList is reference-semantic, the List
+	 * keys and values in each list are identical.
+	 * 
 	 * This method is reference-semantic and this MapToList will maintain a
 	 * strong reference to all key objects and objects in each list of the given
 	 * MapToList.
-	 *
+	 * 
 	 * @param mtl
 	 *            The MapToList from which all of the Lists should be imported
 	 */
@@ -267,6 +298,12 @@ public class HashMapToList<K, V>
 	public List<V> getListFor(K key)
 	{
 		List<V> list = mapToList.get(key);
+		/*
+		 * Need to 'clone' the List. This is done to ensure value-sematic
+		 * behavior, in protecting the mapToList (and in this case the contained
+		 * Lists) from being modified by any means other than a direct method
+		 * call on this HashMapToList.
+		 */
 		return list == null ? null : new ArrayList<V>(list);
 	}
 
@@ -300,10 +337,10 @@ public class HashMapToList<K, V>
 	/**
 	 * Removes the List for the given key. Note there is no requirement that the
 	 * list for the given key be empty before this method is called.
-	 *
-	 * Obviously, ownership of the returned List is transferred to the object
-	 * calling this method.
-	 *
+	 * 
+	 * Ownership of the returned List is transferred to the object calling this
+	 * method.
+	 * 
 	 * @param key
 	 *            The key indicating which List the given object should be
 	 *            removed from
@@ -311,6 +348,10 @@ public class HashMapToList<K, V>
 	 */
 	public List<V> removeListFor(K key)
 	{
+		/*
+		 * No need to 'protect' this list (can directly return it) because the
+		 * key and List will no longer be in this HashMapToList.
+		 */
 		return mapToList.remove(key);
 	}
 
@@ -362,18 +403,31 @@ public class HashMapToList<K, V>
 	 */
 	public Set<K> getKeySet()
 	{
-		//Need to 'clone' the Set, since Map returns a set that is still
-		// associated with the Map
+		/*
+		 * Need to 'clone' the Set, since Map returns a set that is still
+		 * associated with the Map. This is done to ensure value-sematic
+		 * behavior, in protecting the mapToList from being modified by any
+		 * means other than a direct method call on this HashMapToList.
+		 */
 		return new HashSet<K>(mapToList.keySet());
 	}
 
 	/**
+	 * Returns the Object at the given position within the list for the given
+	 * key. If a list for the given key is not present, null will be returned.
+	 * 
 	 * @param key
+	 *            The key indicating which List the given object should be
+	 *            returned from
 	 * @param i
-	 * @return Object
+	 *            The location of the Object to be returned within the list
+	 *            defined by the given key.
+	 * @return The Object at the given position within the list for the given
+	 *         key.
 	 */
 	public V getElementInList(K key, int i)
 	{
-		return mapToList.get(key).get(i);
+		List<V> list = mapToList.get(key);
+		return list == null ? null : list.get(i);
 	}
 }

@@ -94,6 +94,7 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
+	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		return PropertyFactory

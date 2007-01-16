@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2005.
+ * Copyright (c) Thomas Parker, 2005, 2007.
  * 
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as published by
@@ -28,13 +28,18 @@ package pcgen.util;
  * should be reserved for VirtualMachine errors. This error, on the other hand,
  * indicates that the original developer did not consider certain situations (or
  * additional features were added to an object or the language that the
- * developer did not have available)
+ * developer did not have available).
+ * 
+ * The use of an Error rather than an Exception is preferred, due to the (bad)
+ * habit of certain code catching Exception or RuntimeException. The use of an
+ * error prevents this from being caught in those situations, ensuring that the
+ * problem will be exposed.
  */
 public class UnreachableError extends Error
 {
 
 	/**
-	 * 
+	 * For object serialization
 	 */
 	private static final long serialVersionUID = -5431319083877458886L;
 
