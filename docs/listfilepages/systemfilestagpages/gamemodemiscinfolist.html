@@ -36,6 +36,32 @@
 	<body>
 		<h1>Game Mode: miscinfo.lst</h1>
 
+		<p></p><a name="ABILITYCATEGORY"></a><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong> ABILITYCATEGORY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text Text (Name of the Ability Category).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">ABILITYCATEGORY begins a line which defines a category of abilities. 
+			Visible ability categories will show as a sub-tab on the abilities tab. 
+			If no extra parameters are provided on the line the category will default to being 
+			visible, editable, with no types, a display name and plural name matching the category name 
+			and an editable whole number only pool with a starting value of 0.<br>
+			The following tags are used in ABILITYCATEGORY lines:</p>
+		<ul class="indent2">
+			<li><a href="#CATEGORY">CATEGORY</a> - Defines the low-level ability category the category refers to.</li>
+			<li><a href="#DISPLAYNAME">DISPLAYNAME</a> - Defines the display name of the category.</li>
+			<li><a href="#EDITABLE">EDITABLE</a> - Defines whether this category of abilities is user-editable.</li>
+			<li><a href="#EDITPOOL">EDITPOOL</a> - Sets the flag to allow/disallow user editing of the pool.</li>
+			<li><a href="#FRACTIONALPOOL">FRACTIONALPOOL</a> - Sets if the pool can use fractional amounts.</li>
+			<li><a href="#PLURAL">PLURAL</a> - Sets the internationalized plural name for this category.</li>
+			<li><a href="#POOL">POOL</a> - Sets the formula to use to calculate the base pool size for this category of ability.</li>
+			<li><a href="#TYPE">TYPE</a> - Defines the list of types included in this category</li>
+			<li><a href="#VISIBLE">VISIBLE</a> - Defines whether this category of ability should be displayed in the UI.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ABILITYCATEGORY:Special Attack</code></p>
+		<p class="indent3">Defines a category named Special Attack.</p>
+
 		<p></p><a name="ACNAME"></a><hr>
 		<p class="new">*** New - Was DEFENSENAME.</p>
 		<p class="indent0"><strong>Tag Name:</strong> ACNAME:x</p>
@@ -298,6 +324,19 @@
 		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:2|3</code></p>
 		<p class="indent3">Character would get a bonus stat point every three levels, starting at level 2.</p>
 
+		<p></p><a name="CATEGORY"></a><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong> CATEGORY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The ability category name).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the low-level ability category the category refers to. 
+			Not normally required.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CATEGORY:Feat</code></p>
+		<p class="indent3">The low-level ability category for this category is Feat.</p>
+
 		<p></p><a name="CHECKSMAXLEVEL"></a><hr>
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> CHECKSMAXLEVEL:x</p>
@@ -393,6 +432,19 @@
 		<p class="indent2"><code>DEFAULTUNITSET:Imperial</code></p>
 		<p class="indent3">Set Imperial as the Unit Set used by the game mode.</p>
 
+		<p><a name="DISPLAYNAME"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>DISPLAYNAME:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (The name or key to the name)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the displayed name for this category. 
+			If this tag is set to in_name (ie: in_feat) it will pull the name from the language files (for internationalization).</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISPLAYNAME:in_feat</code></p>
+        <p class="indent3">The displayed name for the category is the value in the selected language for the key in_feat.</p>
+
 		<p><a name="DISPLAYORDER"></a></p><hr>
 		<p class="indent0"><strong>Tag Name:</strong>DISPLAYORDER:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
@@ -459,6 +511,32 @@
 		<p class="indent2"><code>DOWN:1d4,1d3,1d2,1</code></p>
 		<p class="indent3">The next die in the progression will be 1d4, then 1d3 if chosen again, etc.</p>
 
+		<p><a name="EDITABLE"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>EDITABLE:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define whether this category of abilities is user-editable. 
+			If editable, the normal abilities may be adjusted by the user through the UI.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>EDITABLE:No</code></p>
+        <p class="indent3">Defines that abilities of this category can not be edited by the user.</p>
+
+		<p><a name="EDITPOOL"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>EDITPOOL:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+			lines to define if user editing of the category's pool is allowed/disallowed.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>EDITPOOL:No</code></p>
+        <p class="indent3">Defines that the category's pool can not be edited by the user.</p>
+
 		<p></p><a name="FINESSEABLE"></a><hr>
 		<p class="new">*** New 5.5.2</p>
 		<p class="indent0"><strong>Tag Name:</strong> FINESSEABLE:x</p>
@@ -471,6 +549,19 @@
 		<p class="indent3">Allows weapon finesse to be used with this wield category.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">After a WIELDCATEGORY tag.</p>
+
+		<p><a name="FRACTIONALPOOL"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>FRACTIONALPOOL:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+			lines to define if the pool can use fractional amounts.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>FRACTIONALPOOL:No</code></p>
+        <p class="indent3">Define that the category's pool can only be a whole number.</p>
 
 		<p></p><a name="HANDS"></a><hr>
 		<p class="new">*** New 5.5.2</p>
@@ -691,6 +782,19 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
 
+		<p><a name="PLURAL"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>PLURAL:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (The plural name or key to the plural name)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the plural name for this category. 
+			If this tag is set to in_name (ie: in_feats) it will pull the plural name from the language files (for internationalization).</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>PLURAL:in_feats</code></p>
+        <p class="indent3">The plural name for the category is the value in the selected language for the key in_feats.</p>
+
 		<p></p><a name="PLUSCOST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong>PLUSCOST:x</p>
 		<p class="indent1"><strong>Variables used (x):</strong> formula</p>
@@ -729,6 +833,19 @@
 							STARTSKILLPTS and miscinfo SKILLMULTIPLIER</p>
 		<p></p>
 		<p class="indent1">Feats Tab - Will show total point pool as reported on the skills tab</p>
+
+		<p><a name="POOL"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>POOL:x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (A formula for the pool's initial value).</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+			lines to define the formula to use to calculate the base pool size for this category of ability.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>POOL:TL/2</code></p>
+        <p class="indent3">The pool starts with a value of half the character's level.</p>
 
 		<p></p><a name="RANKMODFORMULA"></a><hr>
 		<p class="new">*** New 5.8.0</p>
@@ -956,6 +1073,20 @@
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">TAB Line.</p>
 
+		<p><a name="TYPE"></a></p><hr>
+		<p class="new">*** New 5.11.1</p>
+		<p class="indent0"><strong>Tag Name:</strong>TYPE:x.x</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Text (An ability type).</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+			lines to define the list of types included in this category. 
+			Any ability of any of the the specified types will be returned when querying for the abilities in the category.</p>
+        <p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>TYPE:Fighter.Wizard</code></p>
+        <p class="indent3">Defines that all fighter and wizard abilities should be included in the category.</p>
+
 		<p></p><a name="UNITSET"></a><hr>
 		<p class="new">*** New 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> UNITSET:x</p>
@@ -993,17 +1124,18 @@
 		<p class="indent3">Determines the next die in the progression will be 1d8, then 2d6 if chosen again, etc. </p>
 
 		<p></p><a name="VISIBLE"></a><hr>
+		<p class="new">*** Updated 5.11.1</p>
 		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you would like displayed as the name of the tab).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Turns the associated tab on or off in the GUI.</li>
-			<li>YES - Used to make the tab display in the GUI (this is the default if a VISIBLE
-				tag is not present).</li>
+			<li>Turns the associated tab or sub-tab on or off in the GUI.</li>
+			<li>YES - Used to make the tab display in the GUI 
+				(this is the default if a VISIBLE tag is not present).</li>
 			<li>NO - Used to keep the tab from displaying in the GUI.</li>
 		</ul>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2"><a href="#TAB">TAB</a> Line.</p>
+		<p class="indent2">Used in <a href="#TAB">TAB</a> and <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISIBLE:NO</code></p>
 		<p class="indent3">Used to keep the tab from displaying in the GUI.</p>
