@@ -36,27 +36,24 @@
 		<p class="indent0"><strong>Tag Name:</strong> ABILITY:x|y|z|z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Ability Category (The Ability Category this ability will be added to).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Ability Nature (The nature of the added ability: NORMAL, AUTOMATIC, or VIRTUAL)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Ability Key or TYPE(The Ability to add. Can have choices specified in "()")</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Ability Key (The Ability to add. Can have choices specified in "()")</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>* Adds an Ability to a character.</li>
-			<li>* The Ability is added to the Ability Category specified and that category's pool will be
+			<li>Adds an Ability to a character.</li>
+			<li>The Ability is added to the Ability Category specified and that category's pool will be
 			charged if the Nature is NORMAL.</li>
-			<li>* This tag will not cause a chooser to appear so all required choices must be specified in the
+			<li>This tag will not cause a chooser to appear so all required choices must be specified in the
 			tag.</li>
-			<li>* Choices can be specified by including them in parenthesis after the ability key name
+			<li>Choices can be specified by including them in parenthesis after the ability key name
 			(whitespace is ignored).</li>
-			<li>* A CATEGORY tag can be added to the ability key to specify that the innate ability category
-			specified be searched for a matching ability.</li>
-			<li>* If no CATEGORY is specified the standard list for the ability category will be used to find a
-			matching ability.</li>
-			<li>* This tag is a replacement for the following tags: FEAT, VFEAT, and FEATAUTO.</li>
+			<li>The standard list for the ability category will be used to find a matching ability.</li>
+			<li>This tag is a replacement for the following tags: FEAT, VFEAT, and FEATAUTO.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code></p>
-		<p class="indent3">Adds a Metamagic feat as an Auto feat.</p>
-		<p class="indent2"><code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code></p>
-		<p class="indent3">Adds the Stunning Fist feat as a virtual class feature.</p>
+		<p class="indent2"><code>ABILITY:FEAT|AUTOMATIC|Empower Spell</code></p>
+		<p class="indent3">Adds the empower spell feat as an Auto feat.</p>
+		<p class="indent2"><code>ABILITY:CLASSFEATURE|VIRTUAL|Stunning Fist</code></p>
+		<p class="indent3">Adds the Stunning Fist ability as a virtual class feature.</p>
 
 
 		<p></p>
