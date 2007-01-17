@@ -326,7 +326,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 	 */
 	private void setRoot(PObjectNode aNode)
 	{
-		setRoot(aNode.clone());
+		super.setRoot(aNode.clone());
 	}
 
 	/**
