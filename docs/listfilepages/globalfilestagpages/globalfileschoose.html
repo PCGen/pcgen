@@ -52,6 +52,7 @@
 
 
 		<p></p><a name="EMPTYCHOOSE1"></a><hr>
+		<p class="deprecated"><span class="deprecated">(Deprecated, use CHOOSE:PROFICIENCY)</span></p>
 		<p class="indent0"><strong>Tag Name:</strong> CHOOSE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (SIMPLE, MARTIAL, EXOTIC etc.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -291,6 +292,14 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Exotic</code></p>
 		<p class="indent3">This will produce a list of all exotic weapon proficiencies the PC does not have.</p>
+		<p class="indent2"><code>Automatic Weapon Proficiency &lt;tab&gt; TYPE:General &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Automatic &lt;tab&gt; AUTO:WEAPONPROF|%LIST</code></p>
+		<p class="indent3">This will produce a list of all Automatic weapon proficiencies the PC does not have and may be selected multiple times.</p>
+		<p class="indent2"><code>Exotic Firearms Proficiency &lt;tab&gt; TYPE:General.Soldier &lt;tab&gt; PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.ExoticFirearms &lt;tab&gt; AUTO:WEAPONPROF|%LIST</code></p>
+		<p class="indent3">This will produce a list of all ExoticFirearms weapon proficiencies the PC does not have, must have the two feats Personal Firearms Proficiency,Advanced Firearms Proficiency and may be selected multiple times.</p>
+		<p class="indent2"><code>Exotic Firearms Proficiency.MOD &lt;tab&gt; PREFEAT:.CLEAR &lt;tab&gt; PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency</code></p>
+		<p class="indent3">This will replace the PREFEAT that the feat requires with the two feats Personal Firearms Proficiency,Advanced Firearms Proficiency.</p>
+		<p class="indent1"><strong>Where this is used at:</strong></p>
+		<p class="indent2"><code>Feats</code></p>
 
 
 		<p></p><a name="RACE"></a><hr>
