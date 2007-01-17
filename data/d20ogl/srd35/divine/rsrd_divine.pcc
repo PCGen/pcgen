@@ -19,5 +19,5 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 INFOTEXT:RSRD Divine options for creating divine characters. Requires the RSRD Basics set.
 
-FEAT:rsrd_divine_feats_sda.lst
+ABILITY:rsrd_divine_feats_sda.lst
 TEMPLATE:rsrd_divine_templates.lst
