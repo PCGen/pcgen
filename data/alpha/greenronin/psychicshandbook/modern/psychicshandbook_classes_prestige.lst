@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Sat Oct 21 23:10:53 2006 -- reformated by prettylst.pl v1.35 (build 1495)
+SOURCELONG:The Psychic's Handbook	SOURCESHORT:psychicshandbook	SOURCEWEB:http://www.greenronin.com
+
+#This class is missing the stats for Class Defense, Reputation and Action Points, but these are not included in the book. - Frank
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Modern Psychic	HD:8		TYPE:PC.Prestige	ABB:Mps		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat			Required Skill
+CLASS:Modern Psychic	PREFEAT:1,Psychic Ability	PRESKILL:1,Concentration=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Modern Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentrate|TYPE.Craft|Diplomacy|Gather Information|Intimidate|Knowledge (Psionics)|Listen|Perform|Profession|Sense Motive|Spot
+2	REPEATLEVEL:2	ADD:FEAT(TYPE=Psychic,TYPE=Psychic Talent,TYPE=Metapsychic)1
