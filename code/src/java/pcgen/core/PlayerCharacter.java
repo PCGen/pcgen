@@ -17084,6 +17084,10 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return getVirtualFeatList();
 		}
 		List<Ability> ret = theAbilities.get(aCategory, Ability.Nature.VIRTUAL);
+		if (ret == null)
+		{
+			ret = Collections.emptyList();
+		}
 
 		return Collections.unmodifiableList(ret);
 	}
