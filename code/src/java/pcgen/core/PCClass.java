@@ -4073,8 +4073,6 @@ public class PCClass extends PObject {
 			if (hitPointMap != null) {
 				aClass.hitPointMap = new HashMap<Integer, Integer>(hitPointMap);
 			}
-			aClass.hasSubClass = hasSubClass;
-			aClass.hasSubstitutionClass = hasSubstitutionClass;
 			aClass.substitutionClassList = substitutionClassList; 
 
 			if (naturalWeapons != null) {

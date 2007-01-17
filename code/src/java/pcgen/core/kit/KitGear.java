@@ -171,6 +171,7 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		return theLocationStr;
 	}
 
+	@Override
 	public String toString()
 	{
 		int maxSize = 0;
@@ -481,17 +482,10 @@ public final class KitGear extends BaseKit implements Serializable, Cloneable
 		aPC.setGold(aPC.getGold().subtract(theCost).toString());
 	}
 
-	public Object clone()
+	@Override
+	public KitGear clone()
 	{
-		KitGear aClone = (KitGear)super.clone();
-		aClone.eqMods = eqMods;
-		aClone.name = name;
-		aClone.maxCost = maxCost;
-		aClone.qty = qty;
-		aClone.size = size;
-		aClone.theLocationStr = theLocationStr;
-
-		return aClone;
+		return (KitGear) super.clone();
 	}
 
 	public String getObjectName()

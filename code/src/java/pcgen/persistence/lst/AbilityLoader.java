@@ -155,10 +155,10 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(PObject objToForget)
+	protected void performForget(Ability objToForget)
 	{
-		String aCat = ((Ability) objToForget).getCategory();
-		String aKey = ((Ability) objToForget).getKeyName();
+		String aCat = objToForget.getCategory();
+		String aKey = objToForget.getKeyName();
 		Globals.removeAbilityKeyed(aCat, aKey);
 	}
 

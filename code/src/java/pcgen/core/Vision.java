@@ -46,6 +46,7 @@ public class Vision extends PrereqObject implements Comparable<Vision> {
 		return visionType;
 	}
 
+	@Override
 	public String toString() {
 		try {
 			return toString(Integer.parseInt(distance));
@@ -54,18 +55,24 @@ public class Vision extends PrereqObject implements Comparable<Vision> {
 		}
 	}
 
-	private String toString(int distance) {
-		String vision = visionType + " (" + distance + "')";
-		if(distance <= 0) {
+	private String toString(int dist) {
+		String vision = visionType + " (" + dist + "')";
+		if(dist <= 0) {
 			vision = visionType.toString();
 		}
 		return vision;
 	}
 
-	public boolean equals(Vision v) {
-		return distance.equals(v.distance) && visionType.equals(v.visionType);
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Vision) {
+			Vision v = (Vision) obj;
+			return distance.equals(v.distance) && visionType.equals(v.visionType);
+		}
+		return false;
 	}
 
+	@Override
 	public int hashCode() {
 		return distance.hashCode() ^ visionType.hashCode();
 	}

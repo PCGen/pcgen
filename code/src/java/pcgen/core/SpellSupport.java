@@ -34,6 +34,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
@@ -565,9 +566,10 @@ public class SpellSupport implements Cloneable
 		return new ArrayList<CharacterSpell>(characterSpellList);
 	}
 
-	public Object clone() throws CloneNotSupportedException {
+	@Override
+	public SpellSupport clone() throws CloneNotSupportedException {
 		SpellSupport ss = (SpellSupport) super.clone();
-		ss.spellInfoMap = (DoubleKeyMap<String, String, Info>) spellInfoMap.clone();
+		ss.spellInfoMap = spellInfoMap.clone();
 		ss.spellMap = new HashMapToList<Integer, PCSpell>();
 		ss.spellMap.addAllLists(spellMap);
 		if (characterSpellList != null) {
@@ -628,15 +630,15 @@ public class SpellSupport implements Cloneable
 		}
 		
 		// Iterate through the spellOutputMap outputing the spells
-		for (String key : spellOutputMap.keySet())
+		for (Entry<String, StringBuffer> me : spellOutputMap.entrySet())
 		{
 			if (txt.length() >0)
 			{
 				txt.append('\t');
 			}
-			txt.append("SPELLLEVEL:").append(key);
+			txt.append("SPELLLEVEL:").append(me.getKey());
 			txt.append("|");
-			txt.append(spellOutputMap.get(key).toString());
+			txt.append(me.getValue());
 		}
 		
 		return txt.toString();

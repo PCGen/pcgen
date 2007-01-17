@@ -77,7 +77,6 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 				EquipmentLstToken.class);
 		while (colToken.hasMoreTokens()) {
 			final String colString = colToken.nextToken().trim();
-			colString.length();
 
 			final int idxColon = colString.indexOf(':');
 			String key = "";
@@ -131,7 +130,7 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 	}
 
 	@Override
-	protected void performForget(PObject objToForget) {
-		EquipmentList.remove((Equipment) objToForget);
+	protected void performForget(Equipment objToForget) {
+		EquipmentList.remove(objToForget);
 	}
 }

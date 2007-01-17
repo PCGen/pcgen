@@ -131,7 +131,7 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final PObject objToForget)
+	protected void performForget(final Skill objToForget)
 	{
 		Globals.getSkillList().remove(objToForget);
 	}

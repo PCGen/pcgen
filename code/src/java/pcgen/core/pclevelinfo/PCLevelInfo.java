@@ -330,12 +330,10 @@ public final class PCLevelInfo implements Cloneable
 		return objects;
 	}
 
+	@Override
 	public Object clone()
 	{
 		PCLevelInfo clone = new PCLevelInfo(aPC, classKeyName);
-		clone.level = level;
-		clone.skillPointsGained = skillPointsGained;
-		clone.skillPointsRemaining = skillPointsRemaining;
 		for (Iterator<? extends PObject> i = objects.iterator(); i.hasNext(); )
 		{
 			clone.objects.add(i.next());

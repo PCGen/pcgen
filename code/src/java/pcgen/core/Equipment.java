@@ -3094,31 +3094,21 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return Description of the Return Value
 	 */
+	@Override
 	public Equipment clone() {
 		Equipment eq = null;
 
 		try {
 			eq = (Equipment) super.clone();
 
-			//
-			// These get modified by equipment modifiers so
-			// DO NOT use the function or we'll get doubled bonuses
-			//
-			eq.cost = cost;
-			eq.size = size;
-			eq.baseCost = baseCost;
-			eq.sizeBase = sizeBase;
-			eq.baseItem = baseItem;
-
 			// set DR
 			eq.seteDR(eDR.toString());
 			eq.setACCheck(acCheck.toString());
 			eq.setSpellFailure(spellFailure.toString());
-			eq.weightInPounds = weightInPounds;
 			eq.setMaxDex(maxDex.toString());
 
 			if (theWeaponStats != null) {
-				eq.theWeaponStats = (WeaponEquipment) theWeaponStats.clone();
+				eq.theWeaponStats = theWeaponStats.clone();
 				eq.theWeaponStats.setOwner(eq);
 			}
 

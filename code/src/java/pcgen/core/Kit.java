@@ -356,7 +356,7 @@ public final class Kit extends PObject implements Comparable<Object>
 			{
 				continue;
 			}
-			BaseKit bk = (BaseKit)baseKit.clone();
+			BaseKit bk = baseKit.clone();
 			if (selectValue != -1 && !bk.isOption(tempPC, selectValue))
 			{
 				continue;

@@ -187,6 +187,7 @@ public final class Domain extends PObject
 		return "DOMAIN|" + keyName;
 	}
 
+	@Override
 	public Domain clone()
 	{
 		Domain aObj = null;

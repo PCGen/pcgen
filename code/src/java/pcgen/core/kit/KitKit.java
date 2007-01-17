@@ -88,11 +88,10 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 		return true;
 	}
 
-	public Object clone()
+	@Override
+	public KitKit clone()
 	{
-		KitKit aClone = (KitKit)super.clone();
-		aClone.kitStr = kitStr;
-		return aClone;
+		return (KitKit) super.clone();
 	}
 
 	public String getObjectName()
@@ -100,6 +99,7 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 		return "Kit";
 	}
 
+	@Override
 	public String toString()
 	{
 		return kitStr;

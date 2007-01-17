@@ -73,6 +73,7 @@ public final class KitFunds extends BaseKit implements Serializable, Cloneable
 		return qty;
 	}
 
+	@Override
 	public String toString()
 	{
 		return qty + ' ' + name;
@@ -94,14 +95,10 @@ public final class KitFunds extends BaseKit implements Serializable, Cloneable
 		aPC.adjustGold(theQty);
 	}
 
-	public Object clone()
+	@Override
+	public KitFunds clone()
 	{
-		KitFunds aClone = (KitFunds)super.clone();
-
-		aClone.name = name;
-		aClone.qty = qty;
-
-		return aClone;
+		return (KitFunds) super.clone();
 	}
 
 	public String getObjectName()

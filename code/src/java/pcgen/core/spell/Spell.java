@@ -948,6 +948,7 @@ public final class Spell extends PObject
 	////////////////////////////////////////////////////////////
 	// Public method(s)
 	////////////////////////////////////////////////////////////
+	@Override
 	public Spell clone()
 	{
 		Spell aSpell = null;
@@ -1250,5 +1251,14 @@ public final class Spell extends PObject
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Need something consistent with equals - this causes conflicts with the same name
+	 * but that's ok, it's only a hashcode.
+	 */
+	@Override
+	public int hashCode() {
+		return getKeyName().hashCode();
 	}
 }

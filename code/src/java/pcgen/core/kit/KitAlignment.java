@@ -159,11 +159,10 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 		return true;
 	}
 
-	public Object clone()
+	@Override
+	public KitAlignment clone()
 	{
-		KitAlignment aClone = (KitAlignment)super.clone();
-		aClone.alignmentStr = alignmentStr;
-		return aClone;
+		return (KitAlignment) super.clone();
 	}
 
 	public String getObjectName()
@@ -171,6 +170,7 @@ public class KitAlignment extends BaseKit implements Serializable, Cloneable
 		return "Alignment";
 	}
 
+	@Override
 	public String toString()
 	{
 		if (alignmentStr == null || Constants.s_NONESELECTED.equals(alignmentStr))

@@ -53,8 +53,6 @@ public class Configuration
 	
 	private GameMode theMode = null;
 	
-	private String theSkillStatWeight = "((STAT*STAT)*(TOTALWT/100))";
-	
 	private List<GeneratorOption> theGeneratorOptions = new ArrayList<GeneratorOption>();
 	private Map<String, ClassData> theClassData = new HashMap<String, ClassData>();
 	

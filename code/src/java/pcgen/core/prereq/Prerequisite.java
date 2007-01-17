@@ -213,6 +213,7 @@ public class Prerequisite implements Cloneable
 	 *
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString()
 	{
 		final StringBuffer buf = new StringBuffer();
@@ -312,6 +313,7 @@ public class Prerequisite implements Cloneable
 	 *
 	 * @see java.lang.Object#clone()
 	 */
+	@Override
 	public Prerequisite clone() throws CloneNotSupportedException
 	{
 		final Prerequisite copy = (Prerequisite) super.clone();

@@ -24,7 +24,6 @@ package pcgen.persistence;
 
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.persistence.lst.LstSystemLoader;
 
 import java.util.List;

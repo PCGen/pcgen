@@ -68,6 +68,7 @@ public final class KitSelect extends BaseKit implements Serializable, Cloneable
 		theFormula = aFormula;
 	}
 
+	@Override
 	public String toString()
 	{
 		return theFormula;
@@ -84,13 +85,10 @@ public final class KitSelect extends BaseKit implements Serializable, Cloneable
 		// Nothing to do.
 	}
 
-	public Object clone()
+	@Override
+	public KitSelect clone()
 	{
-		KitSelect aClone = (KitSelect)super.clone();
-
-		aClone.theFormula = theFormula;
-
-		return aClone;
+		return (KitSelect) super.clone();
 	}
 
 	public String getObjectName()

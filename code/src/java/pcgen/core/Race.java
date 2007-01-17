@@ -841,6 +841,7 @@ public final class Race extends PObject
 		startingAC = anInt;
 	}
 
+	@Override
 	public Race clone()
 	{
 		Race aRace = null;

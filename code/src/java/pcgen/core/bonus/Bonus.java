@@ -173,7 +173,6 @@ public class Bonus
 				tempList2.add(bonus);
 			}
 		}
-		listToSort = tempList2;
 		return tempList2;
 	}
 

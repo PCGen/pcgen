@@ -255,7 +255,7 @@ public class MapCollection extends AbstractCollection<Object>
 		return 2 * map.size();
 	}
 
-	private class MapCollectionIterator implements Iterator<Object>
+	private static class MapCollectionIterator implements Iterator<Object>
 	{
 		Entry<?, ?> workingEntry;
 

@@ -520,7 +520,8 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 		aPC = currentPC;
 	}
 
-	public Object clone()
+	@Override
+	public PObjectNode clone()
 	{
 		PObjectNode retVal = null;
 
@@ -536,7 +537,7 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 				for (PObjectNode n : children)
 				{
-					PObjectNode node = (PObjectNode) (n.clone());
+					PObjectNode node = (n.clone());
 					d.add(node);
 				}
 			}

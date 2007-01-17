@@ -133,6 +133,7 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 	 *
 	 * @see     Object#toString()
 	 */
+	@Override
 	public String toString()
 	{
 		return stringRep;
@@ -281,14 +282,10 @@ public final class KitAbilities extends BaseKit implements Serializable, Cloneab
 		}
 	}
 
-	public Object clone()
+	@Override
+	public KitAbilities clone()
 	{
-		KitAbilities aClone = null;
-		aClone = (KitAbilities)super.clone();
-		aClone.abilityStore = abilityStore;
-		aClone.free = free;
-		aClone.stringRep = stringRep;
-		return aClone;
+		return (KitAbilities) super.clone();
 	}
 
 	public String getObjectName()

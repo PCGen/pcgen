@@ -1357,6 +1357,7 @@ public final class PCTemplate extends PObject implements HasCost
 	 * 
 	 * @throws CloneNotSupportedException
 	 */
+	@Override
 	public PCTemplate clone() throws CloneNotSupportedException
 	{
 		final PCTemplate aTemp = (PCTemplate) super.clone();

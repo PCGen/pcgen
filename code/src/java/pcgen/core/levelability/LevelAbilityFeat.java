@@ -531,7 +531,6 @@ class LevelAbilityFeat extends LevelAbility
 	 */
 	private String adjustNames(String aFeatKey, Ability anAbility) {
 		String subKey = aFeatKey.substring(anAbility.getKeyName().length());
-		aFeatKey       = anAbility.getKeyName();
 
 		final int i = subKey.indexOf('(');
 

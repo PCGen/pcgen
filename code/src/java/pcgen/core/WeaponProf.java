@@ -54,6 +54,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 	 * @return  a negative integer, zero, or a positive integer as WeaponProf
 	 *        is less than, equal to, or greater than the specified WeaponProf.
 	 */
+	@Override
 	public int compareTo(final Object o1)
 	{
 		return keyName.compareToIgnoreCase(((WeaponProf) o1).keyName);
@@ -65,15 +66,17 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 	 * @return  <code>true</code> if this WeaponProf is the same as the obj
 	 *          argument; <code>false</code> otherwise.
 	 */
+	@Override
 	public boolean equals(final Object obj)
 	{
-		return keyName.equals(((WeaponProf) obj).keyName);
+		return obj instanceof WeaponProf && keyName.equals(((WeaponProf) obj).keyName);
 	}
 
 	/**
 	 * Hashcode of the keyName.
 	 * @return  Hashcode of the keyName.
 	 */
+	@Override
 	public int hashCode()
 	{
 		return keyName.hashCode();

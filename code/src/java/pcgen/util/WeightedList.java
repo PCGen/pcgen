@@ -689,6 +689,14 @@ public class WeightedList<E> implements List<E>
 		{
 			return theElement.equals(o);
 		}
+		
+		/**
+		 * Must be consistent with equals
+		 */
+		@Override
+		public int hashCode() {
+			return theElement.hashCode();
+		}
 
 		/**
 		 * Returns a String representation of this object.<p>

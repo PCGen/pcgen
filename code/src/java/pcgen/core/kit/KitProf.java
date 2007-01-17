@@ -98,6 +98,7 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		racialProf = argRacial;
 	}
 
+	@Override
 	public String toString()
 	{
 		final int maxSize = profList.size();
@@ -271,7 +272,8 @@ public final class KitProf extends BaseKit implements Serializable, Cloneable
 		}
 	}
 
-	public Object clone()
+	@Override
+	public KitProf clone()
 	{
 		KitProf aClone = (KitProf)super.clone();
 		aClone.profList.addAll(profList);

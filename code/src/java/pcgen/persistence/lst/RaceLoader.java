@@ -152,7 +152,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final PObject objToForget)
+	protected void performForget(final Race objToForget)
 	{
 		Globals.removeRaceKeyed(objToForget.getKeyName());
 	}

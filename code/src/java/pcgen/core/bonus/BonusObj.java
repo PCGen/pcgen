@@ -837,7 +837,7 @@ public abstract class BonusObj extends PrereqObject implements Serializable, Clo
     /**
 	 * @see java.lang.Object#clone()
 	 */
-	public Object clone() throws CloneNotSupportedException
+	public BonusObj clone() throws CloneNotSupportedException
 	{
 		final BonusObj bonusObj = (BonusObj)super.clone();
 

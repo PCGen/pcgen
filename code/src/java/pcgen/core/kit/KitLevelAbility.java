@@ -114,6 +114,7 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 		theAbilities.add(new AbilityChoice(anAbility, choices));
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuffer buf = new StringBuffer();
@@ -188,15 +189,9 @@ public final class KitLevelAbility extends BaseKit implements Serializable, Clon
 		}
 	}
 
-	public Object clone()
+	public KitLevelAbility clone()
 	{
-		KitLevelAbility aClone = (KitLevelAbility)super.clone();
-
-//		aClone.theClassName = theClassName;
-//		aClone.theLevel = theLevel;
-//		aClone.theAbilities.addAll(theAbilities);
-
-		return aClone;
+		return (KitLevelAbility) super.clone();
 	}
 
 	public String getObjectName()

@@ -103,6 +103,7 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		return theSubClass;
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuffer ret = new StringBuffer(100);
@@ -151,13 +152,10 @@ public class KitClass extends BaseKit implements Serializable, Cloneable
 		theClass = null;
 	}
 
-	public Object clone()
+	@Override
+	public KitClass clone()
 	{
-		KitClass aClone  = (KitClass)super.clone();
-		aClone.theClassName = theClassName;
-		aClone.theSubClass = theSubClass;
-		aClone.theLevelString = theLevelString;
-		return aClone;
+		return (KitClass) super.clone();
 	}
 
 	private void addLevel(final PlayerCharacter pc, final int numLevels, final PCClass aClass, final boolean doLevelAbilitiesIn)

@@ -115,7 +115,8 @@ public abstract class BaseKit implements Cloneable
      * Clone this Base Kit
      * @return cloned Base Kit 
 	 */
-    public Object clone()
+    @Override
+	public BaseKit clone()
 	{
 		BaseKit aClone = null;
 		try

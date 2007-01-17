@@ -816,6 +816,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  a clone of the EquipmentModifier
 	 */
+	@Override
 	public EquipmentModifier clone()
 	{
 		EquipmentModifier aObj = null;
@@ -828,12 +829,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			aObj.replaces            = new ArrayList<String>(replaces);
 			aObj.ignores             = new ArrayList<String>(ignores);
 			aObj.armorType           = new ArrayList<String>(armorType);
-			aObj.cost                = cost;
-			aObj.preCost             = preCost;
-			aObj.proficiency         = proficiency;
-			aObj.equipmentVisible    = equipmentVisible;
-			aObj.plus                = plus;
-			aObj.assignToAll         = assignToAll;
 		}
 		catch (CloneNotSupportedException exc)
 		{

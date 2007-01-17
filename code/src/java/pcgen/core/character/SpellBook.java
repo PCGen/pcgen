@@ -77,6 +77,7 @@ public class SpellBook implements Cloneable
 	/**
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString()
 	{
 		final StringBuffer result = new StringBuffer(name);
@@ -263,6 +264,7 @@ public class SpellBook implements Cloneable
 	/* (non-Javadoc)
 	 * @see java.lang.Object#clone()
 	 */
+	@Override
 	public Object clone()
 	{
 		SpellBook aClone = null;

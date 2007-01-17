@@ -154,6 +154,7 @@ public class AbilityInfo implements Comparable<Object>, Categorisable
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString()
 	{
 		return this.keyName;

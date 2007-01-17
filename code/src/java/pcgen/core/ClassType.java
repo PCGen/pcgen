@@ -24,6 +24,8 @@
  */
 package pcgen.core;
 
+import pcgen.util.UnreachableError;
+
 
 
 /**
@@ -111,17 +113,16 @@ public final class ClassType implements Cloneable
 		return xpPenalty;
 	}
 
-	public Object clone()
-		throws CloneNotSupportedException
+	@Override
+	public ClassType clone()
 	{
-		final ClassType newClassType = (ClassType) super.clone();
-
-		newClassType.theName = new String(theName);
-		newClassType.isMonster = isMonster;
-
-		newClassType.crFormula = new String(crFormula);
-		newClassType.xpPenalty = xpPenalty;
-
-		return newClassType;
+		try
+		{
+			return (ClassType) super.clone();
+		}
+		catch (CloneNotSupportedException e)
+		{
+			throw new UnreachableError(e);
+		}
 	}
 }

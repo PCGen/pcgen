@@ -134,20 +134,18 @@ public final class Deity extends PObject
 	 *
 	 * @return A clone of the Deity object.
 	 */
+	@Override
 	public Deity clone()
 	{
-		Deity d = null;
-
 		try
 		{
-			d = (Deity) super.clone();
+			return (Deity) super.clone();
 		}
 		catch (CloneNotSupportedException exc)
 		{
 			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			return null;
 		}
-
-		return d;
 	}
 
 	/**

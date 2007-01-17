@@ -156,7 +156,7 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(PObject objToForget)
+	protected void performForget(Domain objToForget)
 	{
 		Globals.getDomainList().remove(objToForget);
 	}

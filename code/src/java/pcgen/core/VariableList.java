@@ -111,6 +111,7 @@ public class VariableList implements Cloneable
 	/**
 	 * @see java.lang.Object#clone()
 	 */
+	@Override
 	public Object clone() throws CloneNotSupportedException
 	{
 		final VariableList retVal = (VariableList) super.clone();

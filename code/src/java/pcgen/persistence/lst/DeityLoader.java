@@ -136,7 +136,7 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(PObject objToForget)
+	protected void performForget(Deity objToForget)
 	{
 		Globals.getDeityList().remove(objToForget);
 	}

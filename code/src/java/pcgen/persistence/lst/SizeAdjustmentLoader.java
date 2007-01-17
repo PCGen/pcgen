@@ -63,9 +63,8 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	{
 		SizeAdjustment sa = new SizeAdjustment();
 
-		lstLine.trim();
 		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+				new StringTokenizer(lstLine.trim(), SystemLoader.TAB_DELIM);
 
 		Map<String, LstToken> tokenMap =
 				TokenStore.inst().getTokenMap(SizeAdjustmentLstToken.class);

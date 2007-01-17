@@ -159,11 +159,10 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 		return false;
 	}
 
-	public Object clone()
+	@Override
+	public KitTemplate clone()
 	{
-		KitTemplate aClone = (KitTemplate)super.clone();
-		aClone.templateStr = templateStr;
-		return aClone;
+		return (KitTemplate) super.clone();
 	}
 
 	public String getObjectName()
@@ -171,6 +170,7 @@ public class KitTemplate extends BaseKit implements Serializable, Cloneable
 		return "Templates";
 	}
 
+	@Override
 	public String toString()
 	{
 		return templateStr.replaceAll("\\|", ", ");

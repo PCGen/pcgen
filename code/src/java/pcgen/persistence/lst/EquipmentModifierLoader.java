@@ -111,7 +111,7 @@ public final class EquipmentModifierLoader extends
 	}
 
 	@Override
-	protected void performForget(PObject objToForget) {
+	protected void performForget(EquipmentModifier objToForget) {
 		throw new java.lang.UnsupportedOperationException(
 				"Cannot FORGET an EquipmentModifier");
 	}

@@ -502,7 +502,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 *
 	 * @param objToForget containing the object to forget
 	 */
-	protected abstract void performForget(PObject objToForget);
+	protected abstract void performForget(T objToForget);
 
 	/**
 	 * This method will sort the list of files into an order such that

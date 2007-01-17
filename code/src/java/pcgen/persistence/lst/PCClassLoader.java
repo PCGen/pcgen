@@ -422,7 +422,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final PObject objToForget)
+	protected void performForget(final PCClass objToForget)
 	{
 		Globals.getClassList().remove(objToForget);
 	}

@@ -374,26 +374,14 @@ public class WeaponEquipment implements Cloneable
 		return theRange;
 	}
 
-	public Object clone()
+	@Override
+	public WeaponEquipment clone()
 	{
 		WeaponEquipment weapon = null;
 
 		try
 		{
 			weapon = (WeaponEquipment) super.clone();
-			weapon.theDamage = new String(theDamage);
-			weapon.theDamageMod = new String(theDamageMod);
-			weapon.theRange = Integer.valueOf(theRange);
-			weapon.theCritRange = new String(theCritRange);
-			weapon.theCritMult = theCritMult;
-			weapon.theRateOfFire = new String(theRateOfFire);
-			weapon.theWieldString = new String(theWieldString);
-			weapon.hasWield = hasWield;
-			weapon.theReach = theReach;
-
-			weapon.theAltDamage = new String(theAltDamage);
-			weapon.theAltCritRange = new String(theAltCritRange);
-			weapon.theAltCritMult = theAltCritMult;
 		}
 		catch (CloneNotSupportedException e)
 		{

@@ -92,11 +92,10 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 		return true;
 	}
 
-	public Object clone()
+	@Override
+	public KitRace clone()
 	{
-		KitRace aClone = (KitRace)super.clone();
-		aClone.raceStr = raceStr;
-		return aClone;
+		return (KitRace) super.clone();
 	}
 
 	public String getObjectName()
@@ -104,6 +103,7 @@ public class KitRace extends BaseKit implements Serializable, Cloneable
 		return "Race";
 	}
 
+	@Override
 	public String toString()
 	{
 		return raceStr;

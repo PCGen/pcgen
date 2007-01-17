@@ -865,6 +865,7 @@ public final class Skill extends PObject
 		return skillReadOnly;
 	}
 
+	@Override
 	public Skill clone()
 	{
 		Skill newSkill = null;

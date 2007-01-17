@@ -57,6 +57,7 @@ public final class CompanionMod extends PObject
 	 *
 	 * @return  a copy of this Ability
 	 */
+	@Override
 	public CompanionMod clone()
 	{
 		CompanionMod cmpMod = null;
@@ -111,6 +112,7 @@ public final class CompanionMod extends PObject
 	 * @param obj
 	 * @return true if equal
 	 */
+	@Override
 	public boolean equals(final Object obj)
 	{
 		boolean result = false;
@@ -239,6 +241,7 @@ public final class CompanionMod extends PObject
 	 * Hashcode of the keyname
 	 * @return hash code
 	 */
+	@Override
 	public int hashCode()
 	{
 		return classMap.hashCode();

@@ -151,12 +151,9 @@ public class KitStat extends BaseKit implements Serializable, Cloneable
 							final int spMod = pcClass.recalcSkillPointMod(aPC,
 								j + 1);
 
-							if (pcl != null)
-							{
-								pcl.setSkillPointsGained(spMod);
-								pcl.setSkillPointsRemaining(pcl.
-									getSkillPointsGained());
-							}
+							pcl.setSkillPointsGained(spMod);
+							pcl.setSkillPointsRemaining(pcl
+									.getSkillPointsGained());
 							pcClass.setSkillPool(pcClass.skillPool() + spMod);
 
 							aPC.setSkillPoints(spMod + aPC.getSkillPoints());

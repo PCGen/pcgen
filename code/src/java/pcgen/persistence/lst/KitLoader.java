@@ -104,14 +104,14 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 	}
 
 	@Override
-	protected void performForget(PObject objToForget) {
+	protected void performForget(Kit objToForget) {
 		// FIXME Auto-generated method stub
 
 	}
 
-	public static List<String> globalTokens = null;
+	static List<String> globalTokens = null;
 
-	public static Prerequisite kitPrereq = null;
+	static Prerequisite kitPrereq = null;
 
 	public static void addGlobalToken(String string) {
 		if (globalTokens == null) {

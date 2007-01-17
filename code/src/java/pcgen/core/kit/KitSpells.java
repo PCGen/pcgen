@@ -155,6 +155,7 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		spellBook.addSpell(argSpell, metamagicFeats, countStr);
 	}
 
+	@Override
 	public String toString()
 	{
 		final StringBuffer info = new StringBuffer();
@@ -328,7 +329,8 @@ public final class KitSpells extends BaseKit implements Serializable, Cloneable
 		}
 	}
 
-	public Object clone()
+	@Override
+	public KitSpells clone()
 	{
 		KitSpells aClone = (KitSpells)super.clone();
 		aClone.spellMap = spellMap;

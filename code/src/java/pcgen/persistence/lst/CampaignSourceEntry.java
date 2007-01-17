@@ -35,7 +35,7 @@ import pcgen.core.utils.CoreUtility;
  * This class is used to match a source file to the campaign that
  * loaded it.
  */
-public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
+public class CampaignSourceEntry
 {
 	private Campaign campaign = null;
 	private List<String> excludeItems = new ArrayList<String>();
@@ -133,14 +133,15 @@ public class CampaignSourceEntry implements Comparable<CampaignSourceEntry>
 	 * @return true if equals
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
-	public boolean equals(CampaignSourceEntry arg0)
+	@Override
+	public boolean equals(Object arg0)
 	{
-		if (arg0 == null)
+		if (! (arg0 instanceof CampaignSourceEntry))
 		{
 			return false;
 		}
 
-		return file.equals(arg0.file);
+		return file.equals(((CampaignSourceEntry)arg0).file);
 	}
 
 	/**

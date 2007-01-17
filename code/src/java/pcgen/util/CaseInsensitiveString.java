@@ -80,7 +80,8 @@ public class CaseInsensitiveString
 		 * object - CaseInsensitiveStrings do NOT equals Strings. Please be
 		 * consistent with the .equals interface as generally used in Java.
 		 */
-		return string.equalsIgnoreCase(((CaseInsensitiveString) s).toString());
+		return s instanceof CaseInsensitiveString &&
+			string.equalsIgnoreCase(((CaseInsensitiveString) s).toString());
 	}
 
 	/**

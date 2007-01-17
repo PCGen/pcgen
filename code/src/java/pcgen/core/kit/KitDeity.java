@@ -112,6 +112,7 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		return countFormula;
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuffer buf = new StringBuffer();
@@ -317,15 +318,10 @@ public class KitDeity extends BaseKit implements Serializable, Cloneable
 		domainsToAdd = null;
 	}
 
-	public Object clone()
+	@Override
+	public KitDeity clone()
 	{
-		KitDeity aClone = (KitDeity)super.clone();
-
-		aClone.theDeityKey = theDeityKey;
-		aClone.countFormula = countFormula;
-		aClone.theDomains = theDomains;
-
-		return aClone;
+		return (KitDeity) super.clone();
 	}
 
 	public String getObjectName()

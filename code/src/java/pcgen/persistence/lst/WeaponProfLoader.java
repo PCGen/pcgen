@@ -136,7 +136,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final PObject objToForget)
+	protected void performForget(final WeaponProf objToForget)
 	{
 		Globals.removeWeaponProfKeyed(objToForget.getKeyName());
 	}

@@ -1045,6 +1045,7 @@ public class SpellProgressionInfo implements Cloneable {
 		 * @return A semi-shallow Clone of this Progression object.
 		 * @throws CloneNotSupportedException
 		 */
+		@Override
 		public Progression clone() throws CloneNotSupportedException {
 			Progression p = (Progression) super.clone();
 			if (progressionMap != null) {

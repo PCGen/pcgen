@@ -124,25 +124,21 @@ public final class PCStat extends PObject
 		return rolled;
 	}
 
+	@Override
 	public PCStat clone()
 	{
-		PCStat newObj = null;
-
 		try
 		{
-			newObj = (PCStat) super.clone();
-			newObj.setAbb(abbreviation);
-			newObj.setStatMod(statMod);
-			newObj.setRolled(rolled);
+			return (PCStat) super.clone();
 		}
 		catch (CloneNotSupportedException exc)
 		{
 			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			return null;
 		}
-
-		return newObj;
 	}
 
+	@Override
 	public String toString()
 	{
 		final StringBuffer sb = new StringBuffer(30);

@@ -354,23 +354,15 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	@Override
 	public Ability clone()
 	{
-		Ability anAbility = null;
-
 		try
 		{
-			anAbility = (Ability) super.clone();
-			anAbility.multiples = multiples;
-			anAbility.stacks = stacks;
+			return (Ability) super.clone();
 		}
 		catch (CloneNotSupportedException e)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				e.getMessage(),
-				Constants.s_APPNAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			return null;
 		}
-
-		return anAbility;
 	}
 
 	/**
@@ -905,6 +897,15 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	{
 		return other instanceof Ability && this.compareTo(other) == 0;
 	}
+    
+    /**
+     * Must be consistent with equals
+     */
+    @Override
+	public int hashCode() {
+    	//Can't be more complicated because the weird nature of compareTo
+    	return keyName.hashCode();
+    }
 
 	/**
 	 * Test whether other is the same base ability as this (ignoring any changes

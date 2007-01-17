@@ -28,8 +28,7 @@ package pcgen.core.character;
 
 import pcgen.core.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.util.UnreachableError;
 
 /**
  * <code>Follower.java</code>
@@ -210,22 +209,22 @@ public final class Follower implements Comparable<Object>, Cloneable
 		return fileName.compareTo(aF.fileName);
 	}
 
+	@Override
 	public String toString()
 	{
 		return name;
 	}
 
-	public Object clone()
+	@Override
+	public Follower clone()
 	{
-		Follower aClone = null;
 		try
 		{
-			aClone = (Follower)super.clone();
+			return (Follower) super.clone();
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
+			throw new UnreachableError(exc);
 		}
-		return aClone;
 	}
 }

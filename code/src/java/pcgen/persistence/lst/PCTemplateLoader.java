@@ -110,7 +110,7 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 	}
 
 	@Override
-	protected void performForget(PObject objToForget) {
+	protected void performForget(PCTemplate objToForget) {
 		Globals.getTemplateList().remove(objToForget);
 	}
 }

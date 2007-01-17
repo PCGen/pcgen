@@ -201,7 +201,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final PObject objToForget)
+	protected void performForget(final Spell objToForget)
 	{
 		Globals.removeFromSpellMap(objToForget.getKeyName());
 	}

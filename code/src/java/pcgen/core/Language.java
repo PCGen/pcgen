@@ -111,6 +111,10 @@ public final class Language extends PObject implements Comparable<Object>
 		 * compared to a String) and get RID of it... explicitly grab the key
 		 * name and call .equals() on the strings. -thpr 06/18/05
 		 */
+		if (o1 == null)
+		{
+			return false;
+		}
 		if (o1 instanceof String)
 		{
 			return keyName.equals(o1);

@@ -129,7 +129,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(pcgen.core.PObject)
 	 */
 	@Override
-	protected void performForget(final PObject objToForget)
+	protected void performForget(final Language objToForget)
 	{
 		Globals.getLanguageList().remove(objToForget);
 	}

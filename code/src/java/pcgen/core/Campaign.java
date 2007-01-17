@@ -1271,6 +1271,7 @@ public final class Campaign extends PObject
 		return ret;
 	}
 
+	@Override
 	public Campaign clone()
 	{
 		Campaign newCampaign = null;
@@ -1278,11 +1279,6 @@ public final class Campaign extends PObject
 		try
 		{
 			newCampaign = (Campaign) super.clone();
-			newCampaign.isLoaded = isLoaded;
-			newCampaign.showInMenu = showInMenu;
-			newCampaign.isD20 = isD20;
-			newCampaign.isOGL = isOGL;
-			newCampaign.isLicensed = isLicensed;
 			newCampaign.options = (Properties) options.clone();
 		}
 		catch (CloneNotSupportedException exc)

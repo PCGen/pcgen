@@ -123,7 +123,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 	}
 
 	@Override
-	protected void performForget(PObject objToForget) {
-		Globals.removeCompanionMod((CompanionMod) objToForget);
+	protected void performForget(CompanionMod objToForget) {
+		Globals.removeCompanionMod(objToForget);
 	}
 }
