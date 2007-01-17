@@ -30,7 +30,7 @@ CLASS:Air Force Combat Controllers	STARTSKILLPTS:8	CSKILL:Air Traffic Control|Cl
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Air Force Pararescue	HD:8		TYPE:PC.Prestige.SpecOps	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|7+TL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*7
 # Class Name			Req. Att.	Required Feat																Required Skill													Required Text
-CLASS:Air Force Pararescue	PREATT:5	PREFEAT:4,Personal Firearms Proficiency,MOS Medical 2,Defense Language Institute	PREFEAT:1,TYPE=Terrain	PRESKILL:2,Craft (Chemical),Craft (Pharmaceutical)=5	PRESKILL:2,Paradrop,Treat Injury=8	PRETEXT:Active or Reserve Duty (Air Force)
+CLASS:Air Force Pararescue	PREATT:5	PREFEAT:3,Personal Firearms Proficiency,MOS Medical 2,Defense Language Institute	PREFEAT:1,TYPE=Terrain	PRESKILL:2,Craft (Chemical),Craft (Pharmaceutical)=5	PRESKILL:2,Paradrop,Treat Injury=8	PRETEXT:Active or Reserve Duty (Air Force)
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Air Force Pararescue	STARTSKILLPTS:8	CSKILL:Climb|Communication Operations|Craft (Chemical)|Craft (Pharmaceutical)|Diplomacy|Drive|Hide|Intimidate|Jump|Knowledge (Tactics)|Move Silently|Navigate|Paradrop|Survival|Swim|Treat Injury|Use Rope
 ###Block: Special Ops Level Tracker
