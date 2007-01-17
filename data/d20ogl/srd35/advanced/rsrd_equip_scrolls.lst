@@ -9,14 +9,15 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Using KEYs with faulty old names to keep pre-exsiting PCG files working
 # ARCANE
-# Scroll (Stone Shape/Arcane)       has KEY:Scroll (Stone Shape)
-# Scroll (Tongues/Arcane)           has KEY:Scroll (Tongues)
-# Scroll (Wall of Stone/Arcane)     has KEY:Scroll (Wall of Stone)
-# Scroll (Gate/Arcane)              has KEY:Scroll (Gate)
-# Scroll (Summon Monster IX/Arcane) has KEY:Scroll (Summon Monster IX)
-# Scroll (Analyze Dweomer)          has KEY:Scroll (Analayze Dweomer)
-# Scroll (Control Weather/Arcane)	has KEY:Scroll (Control Weather/Arcane/Lvl 7)
-# Scroll (Banishment/Arcane)		has KEY:Scroll (Banishement/Arcane)
+# Scroll (Stone Shape/Arcane)            has KEY:Scroll (Stone Shape)
+# Scroll (Tongues/Arcane)                has KEY:Scroll (Tongues)
+# Scroll (Wall of Stone/Arcane)          has KEY:Scroll (Wall of Stone)
+# Scroll (Gate/Arcane)                   has KEY:Scroll (Gate)
+# Scroll (Summon Monster IX/Arcane)      has KEY:Scroll (Summon Monster IX)
+# Scroll (Analyze Dweomer)               has KEY:Scroll (Analayze Dweomer)
+# Scroll (Control Weather/Arcane)	     has KEY:Scroll (Control Weather/Arcane/Lvl 7)
+# Scroll (Banishment/Arcane)		     has KEY:Scroll (Banishement/Arcane)
+# Scroll (Protection from Energy/Arcane) has KEY:Scroll (Protection from Energy)
 # DIVINE
 # Scroll (Control Water/Divine)     has KEY:Scroll (Control Water)
 
@@ -193,7 +194,7 @@ Scroll (Magic Weapon/Greater/Arcane)		OUTPUTNAME:Scroll (Magic Weapon, Greater)	
 Scroll (Major Image)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Nondetection/Arcane)				OUTPUTNAME:Scroll (Nondetection)			TYPE:Magic.Scroll.Arcane.Consumable	COST:425	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Phantom Steed)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
-Scroll (Protection from Energy)											TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Energy/Arcane)		OUTPUTNAME:Scroll (Protection from Energy)	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf	KEY:Scroll (Protection from Energy)
 Scroll (Rage)														TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Ray of Exhaustion)												TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Sculpt Sound)													TYPE:Magic.Scroll.Arcane.Consumable	COST:525	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
@@ -624,7 +625,7 @@ Scroll (Neutralize Poison/Divine)			OUTPUTNAME:Scroll (Neutralize Poison)		TYPE:
 Scroll (Obscure Object/Divine)			OUTPUTNAME:Scroll (Obscure Object)			TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Plant Growth)													TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Prayer)														TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
-Scroll (Protection from Energy)											TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
+Scroll (Protection from Energy/Divine)		OUTPUTNAME:Scroll (Protection from Energy)	TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Quench)														TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Remove Blindness/Deafness)											TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
 Scroll (Remove Curse/Divine)				OUTPUTNAME:Scroll (Remove Curse)			TYPE:Magic.Scroll.Divine.Consumable	COST:375	WT:.01	SOURCEPAGE:MagicItemsIV.rtf
