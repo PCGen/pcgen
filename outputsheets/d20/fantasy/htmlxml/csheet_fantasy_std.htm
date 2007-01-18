@@ -1136,6 +1136,20 @@ Wisdom
 <font style="font-size:2pt"><br /></font>
 |%|
 <!-- STOP Template Table -->
+<!-- START Salient Divine Ability Table -->
+|IIF(HASVAR:DivineRank)|
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">
+     <tr>
+      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: 9pt"><b>SALIENT DIVINE ABILITIES</b></font></td>
+     </tr>
+     <tr>
+      <td valign="top" width="70%" class="border8">|ABILITYLIST.Salient Divine Ability|<br /></td>
+     </tr>
+    </table>
+<font style="font-size:2pt"><br /></font>
+|ELSE|
+|ENDIF|
+<!-- STOP Salient Divine Ability Table -->
 |%MISC.MAGIC|
 <!-- START Misc Magic Table -->
     <table width="100%" cellspacing="0" cellpadding="3" summary="Misc. Magic Table">
