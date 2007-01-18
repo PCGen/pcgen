@@ -427,11 +427,9 @@ public class JARClassLoader extends ClassLoader
 	private Plugin loadPluginClass(String name, String system) throws Exception
 	{
 		// Check if a plugin with the same name is already loaded
-		Plugin[] plugins = PluginLoader.getPlugins();
-
-		for (int i = 0; i < plugins.length; i++)
+		for (Plugin plugin : PluginLoader.getPlugins())
 		{
-			if (plugins[i].getClass().getName().equals(name))
+			if (plugin.getClass().getName().equals(name))
 			{
 				PluginLoader.pluginError(jar.getPath(), "plugin-error.already-loaded", null);
 

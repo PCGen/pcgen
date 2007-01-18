@@ -211,17 +211,6 @@ public abstract class Plugin
 		}
 
 		/**
-		 *  Gets all the plugins of the JAR
-		 *
-		 *@return    The plugins
-		 *@since        GMGen 3.3
-		 */
-		public Plugin[] getPlugins()
-		{
-			return plugins.toArray(new Plugin[plugins.size()]);
-		}
-
-		/**
 		 *  Adds all the plugins in this jar to a vector
 		 *
 		 *@param  list  Vector to add all the plugins to.

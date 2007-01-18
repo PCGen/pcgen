@@ -42,6 +42,7 @@ import java.util.Map;
 public class PluginLoader
 {
 	private static List<Plugin.JAR> jars = new ArrayList<Plugin.JAR>();
+	private static List<Plugin> pluginCache = null;
 	private static List<ErrorListDialog.ErrorEntry> pluginErrors;
 
 	private static PluginLoader inst;
@@ -112,16 +113,18 @@ public class PluginLoader
 	 *
 	 *@return    The plugins
 	 */
-	public static Plugin[] getPlugins()
+	public static List<Plugin> getPlugins()
 	{
-		List<Plugin> vector = new ArrayList<Plugin>();
+		if (pluginCache == null) {
+			pluginCache = new ArrayList<Plugin>(500);
 
-		for ( Plugin.JAR jar : jars )
-		{
-			jar.getPlugins(vector);
+			for ( Plugin.JAR jar : jars )
+			{
+				jar.getPlugins(pluginCache);
+			}
 		}
 
-		return vector.toArray(new Plugin[vector.size()]);
+		return pluginCache;
 	}
 
 	/**
@@ -132,6 +135,7 @@ public class PluginLoader
 	public static void addPluginJAR(Plugin.JAR plugin)
 	{
 		jars.add(plugin);
+		pluginCache = null;
 	}
 
 	static void pluginError(final String path, String messageProp, Object[] args)

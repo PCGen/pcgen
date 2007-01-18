@@ -68,7 +68,6 @@ import pcgen.core.SystemCollections;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.pcGenGUI;
-import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
@@ -148,7 +147,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		{
 			try
 			{
-				if (PCGFile.isPCGenCampaignFile(new File(fileName)))
+				if (".pcc".regionMatches(true, 0, fileName, fileName.length() - 4, 4))
 				{
 					final String path = new File(parentDir, fileName).getPath();
 
@@ -161,8 +160,16 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				}
 				else if (parentDir.isDirectory())
 				{
-					loadPCCFilesInDirectory(parentDir.getPath()
-						+ File.separator + fileName);
+					/*
+					 * This is a specific "hack" in order to speed loading when
+					 * in a development (Subversion-based) environment - Tom
+					 * Parker 1/17/07
+					 */
+					if (!".svn".equals(fileName))
+					{
+						loadPCCFilesInDirectory(parentDir.getPath()
+								+ File.separator + fileName);
+					}
 				}
 			}
 			catch (PersistenceLayerException e)
@@ -1680,53 +1687,53 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		final String gameModeDirectory =
 				systemPrefix + "gameModes" + File.separator;
 
-		for (int i = 0; i < gameFiles.length; ++i)
+		for (String gameFile : gameFiles)
 		{
-			SystemCollections.setEmptyUnitSetList(gameFiles[i]);
+			SystemCollections.setEmptyUnitSetList(gameFile);
 			final GameMode gm =
-					loadGameModeMiscInfo(gameFiles[i], new File(
-						gameModeDirectory + gameFiles[i] + File.separator
+					loadGameModeMiscInfo(gameFile, new File(
+						gameModeDirectory + gameFile + File.separator
 							+ "miscinfo.lst"));
-			SettingsHandler.setGame(gameFiles[i]);
+			SettingsHandler.setGame(gameFile);
 			if (gm != null)
 			{
 				loadGameModeInfoFile(gm, new File(gameModeDirectory
-					+ gameFiles[i] + File.separator + "level.lst"), "level");
+					+ gameFile + File.separator + "level.lst"), "level");
 				loadGameModeInfoFile(gm, new File(gameModeDirectory
-					+ gameFiles[i] + File.separator + "rules.lst"), "rules");
+					+ gameFile + File.separator + "rules.lst"), "rules");
 
 				// Load equipmentslot.lst
-				loadGameModeLstFile(eqSlotLoader, gameFiles[i],
+				loadGameModeLstFile(eqSlotLoader, gameFile,
 					"equipmentslots.lst");
 
 				// Load paperInfo.lst
-				loadGameModeLstFile(paperLoader, gameFiles[i], "paperInfo.lst");
+				loadGameModeLstFile(paperLoader, gameFile, "paperInfo.lst");
 
 				// Load bio files
-				loadGameModeLstFile(traitLoader, gameFiles[i], "bio"
+				loadGameModeLstFile(traitLoader, gameFile, "bio"
 					+ File.separator + "traits.lst");
-				loadGameModeLstFile(locationLoader, gameFiles[i], "bio"
+				loadGameModeLstFile(locationLoader, gameFile, "bio"
 					+ File.separator + "locations.lst");
-				loadGameModeLstFile(bioLoader, gameFiles[i], "bio"
+				loadGameModeLstFile(bioLoader, gameFile, "bio"
 					+ File.separator + "biosettings.lst");
 
 				// Load load.lst and check for completeness
-				loadGameModeLstFile(loadInfoLoader, gameFiles[i], "load.lst");
+				loadGameModeLstFile(loadInfoLoader, gameFile, "load.lst");
 
 				// Load unitset.lst
-				loadGameModeLstFile(unitSetLoader, gameFiles[i], "unitset.lst",
+				loadGameModeLstFile(unitSetLoader, gameFile, "unitset.lst",
 					false);
 
 				// Load pointbuymethods.lst
-				loadGameModeLstFile(pointBuyLoader, gameFiles[i],
+				loadGameModeLstFile(pointBuyLoader, gameFile,
 					"pointbuymethods.lst", false);
 
 				// Load sizeAdjustment.lst
-				loadGameModeLstFile(sizeLoader, gameFiles[i],
+				loadGameModeLstFile(sizeLoader, gameFile,
 					"sizeAdjustment.lst");
 
 				// Load statsandchecks.lst
-				loadGameModeLstFile(statCheckLoader, gameFiles[i],
+				loadGameModeLstFile(statCheckLoader, gameFile,
 					"statsandchecks.lst");
 			}
 		}
