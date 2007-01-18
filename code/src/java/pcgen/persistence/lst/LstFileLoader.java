@@ -56,7 +56,7 @@ import java.util.Observable;
 public abstract class LstFileLoader extends Observable
 {
 	/** The String that represents the start of a line comment. */
-	public static final String LINE_COMMENT_STR = "#"; //$NON-NLS-1$
+	public static final char LINE_COMMENT_CHAR = '#'; //$NON-NLS-1$
 
 	/**
 	 * This method loads the given list of LST files.
@@ -137,7 +137,7 @@ public abstract class LstFileLoader extends Observable
 	 */
 	protected final boolean isComment(String line)
 	{
-		return (line.length() == 0) || (line.startsWith(LINE_COMMENT_STR));
+		return (line.length() == 0) || (line.charAt(0) == LINE_COMMENT_CHAR);
 	}
 
 	/**
