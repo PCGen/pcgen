@@ -221,7 +221,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
 		aQClass.setAbbrev("QC1");
-		aQClass.putQualifyString(PCClass.class, "KEY_PreReqClass");
+		aQClass.putQualifyString(PCClass.class, null, "KEY_PreReqClass");
 		//aQClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
@@ -295,8 +295,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aQClass.setName("QualClass");
 		aQClass.setKeyName("KEY_QualClass");
 		aQClass.setAbbrev("QC1");
-		aQClass.putQualifyString(Object.class, "KEY_PreReqClass");
-		aQClass.putQualifyString(Object.class, "PreReqVar");
+		aQClass.putQualifyString(Object.class, null, "KEY_PreReqClass");
+		aQClass.putQualifyString(Object.class, null, "PreReqVar");
 
 		final PCClass aNqClass = new PCClass();
 		aNqClass.setName("NonQualClass");
@@ -747,7 +747,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass.setName("QualClass");
 		qClass.setKeyName("KEY_QualClass");
 		qClass.setAbbrev("QC1");
-		qClass.putQualifyString(PCClass.class, "KEY_PreReqClass");
+		qClass.putQualifyString(PCClass.class, null, "KEY_PreReqClass");
 		//qClass.setQualifyString("KEY_PreReqClass|PreReqVar");
 		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");

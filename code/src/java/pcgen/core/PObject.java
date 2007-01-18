@@ -61,7 +61,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.DoubleKeyMap;
-import pcgen.util.HashMapToList;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
@@ -156,7 +155,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	private List<Description> theDescriptions = null;
 	
-	private HashMapToList<Class, String> qualifyKeys = null;
+	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
 	
 	/* ************
 	 * Methods
@@ -1611,24 +1610,39 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/**
 	 * Set the qualify string
-	 * @param aString
 	 */
-	public final void putQualifyString(Class cl, String key)
-	{
+	public void putQualifyString(Class cl, String category, String key) {
 		if (qualifyKeys == null)
 		{
-			qualifyKeys = new HashMapToList<Class, String>();
+			qualifyKeys = new DoubleKeyMap<Class, String, List<String>>();
 		}
-		qualifyKeys.addToListFor(cl, key);
+		List<String> list = qualifyKeys.get(cl, category);
+		if (list == null) {
+			list = new ArrayList<String>();
+			qualifyKeys.put(cl, category, list);
+		}
+		list.add(key);
+		//No need to put list back in qualifyKeys, it is fetched by reference
 	}
-	
-	public final boolean containsQualify()
+
+	public final boolean grantsQualify(PObject qualTestObject)
 	{
-		return qualifyKeys != null && !qualifyKeys.isEmpty();
+		if (qualifyKeys == null) {
+			return false;
+		}
+		Class<? extends PObject> cl = qualTestObject.getClass();
+		String key = qualTestObject.getKeyName();
+		String category = Ability.class.equals(cl) ? ((Ability) qualTestObject)
+				.getCategory() : null;
+		List<String> directList = qualifyKeys.get(cl, category);
+		List<String> oldSyntaxList = qualifyKeys
+				.get(Object.class, category);
+		return (directList != null && directList.contains(key))
+				|| (oldSyntaxList != null && oldSyntaxList.contains(key));
 	}
 	
 	//TODO This exposes internal structure - be careful.
-	public final HashMapToList<Class, String> getQualifyMap()
+	public final DoubleKeyMap<Class, String, List<String>> getQualifyMap()
 	{
 		return qualifyKeys;
 	}
@@ -2858,27 +2872,34 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			}
 		}
 
-		HashMapToList<Class, String> hmtl = getQualifyMap();
-		if (hmtl != null) 
+		DoubleKeyMap<Class, String, List<String>> dkm = getQualifyMap();
+		if (dkm != null) 
 		{
-			for (Class cl : hmtl.getKeySet())
+			for (Class cl : dkm.getKeySet())
 			{
 				String s = StringPClassUtil.getStringFor(cl);
-				List<String> l = hmtl.getListFor(cl);
-				if (l != null) {
-					boolean started = false;
-					for (String key : l) {
-						if (!"alwaysValid".equals(key)) {
-							if (started) {
-								txt.append(Constants.PIPE);
-							} else {
-								txt.append("\tQUALIFY:");
-								if (s.length() > 0) {
-									txt.append(s + Constants.PIPE);
+				for (String category : dkm.getSecondaryKeySet(cl))
+				{
+					List<String> l = dkm.get(cl, category);
+					if (l != null) {
+						boolean started = false;
+						for (String key : l) {
+							if (!"alwaysValid".equals(key)) {
+								if (started) {
+									txt.append(Constants.PIPE);
+								} else {
+									txt.append("\tQUALIFY:");
+									if (s.length() > 0) {
+										txt.append(s);
+									}
+									if (category != null) {
+										txt.append('=').append(category);
+									}
+									txt.append(Constants.PIPE);
+									started = true;
 								}
-								started = true;
+								txt.append(key);
 							}
-							txt.append(key);
 						}
 					}
 				}

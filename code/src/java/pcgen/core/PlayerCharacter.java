@@ -218,7 +218,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	// Should we sort the gear automatically?
 	private boolean autoSortGear = true;
 
-	private boolean qualifyListStable = false;
 	private final boolean useMonsterDefault = SettingsHandler
 		.isMonsterDefault();
 
@@ -4064,14 +4063,27 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		return iBonus;
 	}
 
-	public boolean checkQualifyList(Class cl, final String qualifierItem)
+	public boolean checkQualifyList(PObject testQualObj)
 	{
 		/*
 		 * The use of Object.class here is the "universalizer" to account
 		 * for the 5.10.* format of Qualify - which is "allow anything all at once"
+		 *  - Tom Parker 1/17/07
 		 */
-		return getQualifyMap().containsInList(cl, qualifierItem)
-				|| getQualifyMap().containsInList(Object.class, qualifierItem);
+		// Try all possible POBjects
+		for (PObject pObj : getPObjectList())
+		{
+			if (pObj == null)
+			{
+				continue;
+			}
+
+			if (pObj.grantsQualify(testQualObj))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -8028,8 +8040,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			addTemplateKeyed(templates.get(i));
 		}
 
-		setQualifyListStable(false);
-
 		if (!isImporting())
 		{
 			getSpellList();
@@ -10381,8 +10391,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			setAutomaticFeatsStable(false);
 		}
 
-		setQualifyListStable(false);
-
 		// karianna 1184888
 		adjustMoveRates();
 
@@ -10837,35 +10845,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			return movementMult[moveIdx];
 		}
 		return Double.valueOf(0);
-	}
-
-	/*
-	 * Build on-the-fly so removing templates won't mess up qualify list
-	 */
-	HashMapToList<Class, String> getQualifyMap()
-	{
-		if (!qualifyListStable)
-		{
-			qualifyArrayMap = new HashMapToList<Class, String>();
-
-			// Try all possible POBjects
-			for (PObject pObj : getPObjectList())
-			{
-				if (pObj == null)
-				{
-					continue;
-				}
-
-				if (pObj.containsQualify())
-				{
-					qualifyArrayMap.addAllLists(pObj.getQualifyMap());
-				}
-			}
-
-			setQualifyListStable(true);
-		}
-
-		return qualifyArrayMap;
 	}
 
 	void addVariable(final String variableString)
@@ -11756,12 +11735,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return hasWeaponProfKeyed(wp.getKeyName());
-	}
-
-	private void setQualifyListStable(final boolean state)
-	{
-		qualifyListStable = state;
-		// setDirty(true);
 	}
 
 	private SortedSet<String> getRacialFavoredClasses()
@@ -13042,7 +13015,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	{
 		clearActiveBonusMap();
 		processedBonusList.clear();
-		setQualifyListStable(false);
 
 		//
 		// We do a first pass of just the "static" bonuses
@@ -14849,7 +14821,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		// aClone.setAggregateAbilitiesStable(null, false);
 		aClone.setAutomaticFeatsStable(false);
 		aClone.setVirtualFeatsStable(false);
-		aClone.setQualifyListStable(false);
 		aClone.adjustMoveRates();
 		aClone.calcActiveBonuses();
 

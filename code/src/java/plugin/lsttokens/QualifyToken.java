@@ -39,7 +39,25 @@ public class QualifyToken implements GlobalLstToken
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String key = st.hasMoreTokens() ? st.nextToken() : "";
-		Class c = StringPClassUtil.getClassFor(key);
+		Class c;
+		String category = null;
+		int equalLoc = key.indexOf('=');
+		if (equalLoc == -1) {
+			if ("ABILITY".equals(key)) {
+				Logging.errorPrint("Invalid use of ABILITY in QUALIFY "
+						+ "(requires ABILITY=<vategory>): " + key);
+				return false;
+			}
+			c = StringPClassUtil.getClassFor(key);
+		} else {
+			if (!"ABILITY".equals(key.substring(0, equalLoc))) {
+				Logging.errorPrint("Invalid use of = in QUALIFY "
+						+ "(only valid for ABILITY): " + key);
+				return false;
+			}
+			c = Ability.class;
+			category = key.substring(equalLoc + 1);
+		}
 		if (c == null) {
 			c = Object.class;
 			Logging.errorPrint(getTokenName() + " expecting a POBJECT Type, found: " + key);
@@ -51,7 +69,7 @@ public class QualifyToken implements GlobalLstToken
 		}
 		
 		while (true) {
-			obj.putQualifyString(c, key);
+			obj.putQualifyString(c, category, key);
 			if (!st.hasMoreTokens()) {
 				break;
 			}

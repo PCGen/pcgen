@@ -30,7 +30,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GlobalLstToken;
 import pcgen.persistence.lst.TokenStore;
-import pcgen.util.HashMapToList;
+import pcgen.util.DoubleKeyMap;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.Visibility;
@@ -187,10 +187,10 @@ class ClassBasePanel extends BasePanel
 		exchangeLevel.setText(obj.getLevelExchange());
 //		startSkillPoints.setText(String.valueOf(obj.getSkillPoints()));
 		startSkillPoints.setText(obj.getSkillPointFormula());
-		HashMapToList<Class, String> hmtl = obj.getQualifyMap();
-		if (hmtl != null)
+		DoubleKeyMap<Class, String, List<String>> dkm = obj.getQualifyMap();
+		if (dkm != null)
 		{
-			List ol = hmtl.getListFor(Object.class);
+			List<String> ol = dkm.get(Object.class, null);
 			if (ol != null && !ol.isEmpty())
 			{
 				qualify.setText(CoreUtility.join(ol, "|"));
