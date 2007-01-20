@@ -339,6 +339,32 @@
 		<p class="new">*** Deprecated - Use <a href="#CLASSES">CLASSES</a> or <a href="#DOMAINS">DOMAINS</a> tags instead</p>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLLEVEL:CLASS|x|DOMAIN|x</p>
 
+
+		<a name="SPELLLEVEL"></a><hr>
+		<p class="new">*** Updated 5.11.4</p><p></p>
+		<p class="indent2"><code>SPELLLEVEL:x|y|z|y|z|y|z|y|z|y|z</code></p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (DOMAIN or CLASS Tag only)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (DOMAIN or CLASS Name Only)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Text (DOMAIN or CLASS Spells Only)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent3">This is the character's spell's for this.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SPELLLEVEL:DOMAIN|Cold=1|Endure Elements|Cold=2|Chill Metal|Cold=3|Sleet Storm|Cold=4|Wall of Ice|Cold=5|Cone of Cold|Cold=6|Freezing Sphere|Cold=7|Control Weather|Cold=8|Finger of Death|Cold=9|Elemental Swarm</code></p>
+		<p class="indent3">This is the character's spell's for this Cold domain.</p>
+		<p class="indent2"><code>SPELLLEVEL:CLASS|Arawnite Guardian=0|Create Water,Detect Magical Aura,Light,Mending,Read Magic,Resistance,Virtue</code></p>
+		<p class="indent3">This is the character's spell's for this Arawnite Guardian class.</p>
+		<p class="indent2"><code>1 &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman=0|Create Water,Cure Minor Wounds,Detect Magic,Guidance,Mending,Purify Food and Drink</code></p>
+		<p class="indent3">This is the character's spell's for this first level Trundlefolk Shaman class.</p>
+		<p class="indent2"><code>SUBCLASSLEVEL:1 &lt;tab&gt; SPELLLEVEL:CLASS|Holy Warrior=1|Bless,Bless Water,Bless Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Evil,Read Magic,Resistance,Virtue</code></p>
+		<p class="indent3">This is the character's spell's for this first level subclass Holy Warrior class.</p>
+		<p class="indent2"><code>The Dead &lt;tab&gt; NAMEISPI:NO &lt;tab&gt; SPELLLEVEL:DOMAIN|The Dead=1|Detect Return|The Dead=2|Consecrate|The Dead=3|Negative Energy Protection|The Dead=4|Touch of Return|The Dead=5|Hallow|The Dead=6|Heal|The Dead=7|Greater Restoration|The Dead=8|Greater Return|The Dead=9|Imprison Soul</code></p>
+		<p class="indent3">This is the character's spell's for this Domain.</p>
+		<p class="indent2"><code>Trundlefolk Shaman.MOD &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman.CLEAR &lt;tab&gt; SPELLLEVEL:CLASS|Trundlefolk Shaman=0|Comprehend Languages,Expeditious Retreat,Grease,Identify,Sleep,Summon Monster I,Unseen Servant</code></p>
+		<p class="indent3">This changes the character's spell's for this first level Trundlefolk Shaman class.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">Class Level Line or SubClassLevel Line.</p><br />
+
+
 		<p></p><a name="SPELLRES"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> SPELLRES:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes or No)</p>
