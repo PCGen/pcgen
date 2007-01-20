@@ -703,8 +703,6 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			}
 			else
 			{
-				// TODO - ABILITYOBJECT - This won't work
-				// TODO - ABILITYOBJECT - getPc().removeAbility(theCategory, anAbility);
 				AbilityUtilities.modAbility(getPc(), null, anAbility, null,
 					false, theCategory);
 			}
