@@ -123,6 +123,7 @@ public class AbilityPoolPanel extends JPanel
 
 		showRemainingAbilityPoints();
 		theNumAbilitiesField.setColumns(3);
+		theNumAbilitiesField.setEditable(aCategory.allowPoolMod());
 		Utility.setDescription(theNumAbilitiesField, PropertyFactory
 			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
 				theCategory.getDisplayName()));
