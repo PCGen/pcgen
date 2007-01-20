@@ -27,6 +27,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -370,6 +371,7 @@ public class AbilityUtilities
 	 * @param   aPC
 	 * @param   addIt
 	 * @param   singleChoice
+	 * @param   category The AbilityCategory to add or remove the ability from.
 	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
 	private static int finaliseAbility(
@@ -377,7 +379,8 @@ public class AbilityUtilities
 			final String          choice,
 			final PlayerCharacter aPC,
 			final boolean         addIt,
-			final boolean         singleChoice)
+			final boolean         singleChoice,
+			final AbilityCategory category)
 	{
 		// how many sub-choices to make
 		double featCount = (ability.getAssociatedCount() * ability.getCost(aPC));
@@ -429,7 +432,7 @@ public class AbilityUtilities
 
 		if (! result)
 		{
-			removed = aPC.removeRealFeat(ability);
+			removed = aPC.removeRealAbility(category, ability);
 			aPC.removeNaturalWeapons(ability);
 
 			for (int x = 0; x < ability.templatesAdded().size(); ++x)
@@ -443,7 +446,11 @@ public class AbilityUtilities
 		{
 			if (!addIt && !ability.isMultiples() && removed)
 			{
-				featCount += ability.getCost(aPC);
+				// We don't need to adjust the pool for abilities here as it is recalculated each time it is queried.
+				if (category == AbilityCategory.FEAT)
+				{
+					featCount += ability.getCost(aPC);
+				}
 			}
 			else if (addIt && !ability.isMultiples())
 			{
@@ -464,11 +471,10 @@ public class AbilityUtilities
 				featCount -= (listSize * ability.getCost(aPC));
 			}
 
-			aPC.adjustFeats(featCount);
+			aPC.adjustAbilities(category, BigDecimal.valueOf(featCount));
 		}
 
 		aPC.setAutomaticAbilitiesStable(null, false);
-//		aPC.setAutomaticFeatsStable(false);
 
 		if (addIt && !aPC.isImporting())
 		{
@@ -591,6 +597,7 @@ public class AbilityUtilities
 	 *                 instance of the global Ability will be cloned and added to the
 	 *                 character as a real Ability (this is the only way to add real
 	 *                 non-virtual Ability objects).
+	 * @param   category The AbilityCategory to add or remove the ability from.
 	 * @return  1 if adding the Ability or 0 if removing it.
 	 */
 
@@ -599,7 +606,8 @@ public class AbilityUtilities
 		final PCLevelInfo     levelInfo,
 		final Ability         argAbility,
 		final String          choice,
-		final boolean         create)
+		final boolean         create,
+		final AbilityCategory category)
 	{
 		if (argAbility == null)
 		{
@@ -609,7 +617,7 @@ public class AbilityUtilities
 
 		if (aPC.isNotImporting()) {aPC.getSpellList();}
 
-		final List<Ability> realAbilities = aPC.getRealAbilityList(AbilityCategory.FEAT);
+		final List<Ability> realAbilities = aPC.getRealAbilityList(category);
 		Ability pcAbility = getAbilityFromList(realAbilities, argAbility);
 
 		// (pcAbility == null) means we don't have this feat,
@@ -623,7 +631,7 @@ public class AbilityUtilities
 			pcAbility.getTemplates(aPC.isImporting(), aPC);
 		}
 
-		return finaliseAbility(pcAbility, choice, aPC, create, true);
+		return finaliseAbility(pcAbility, choice, aPC, create, true, category);
 	}
 
 	/**
@@ -715,7 +723,7 @@ public class AbilityUtilities
 			return addIt ? 1 : 0;
 		}
 
-		return finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1);
+		return finaliseAbility(anAbility, subKey, aPC, addIt, singleChoice1, AbilityCategory.FEAT);
 	}
 
 	/**

@@ -665,7 +665,7 @@ public class LevelAbilityAbility extends LevelAbility
 						aBonusList.add(bonusIt.next());
 					}
 				}
-				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true);
+				AbilityUtilities.modAbility(aPC, pcLevelInfo, ab, choice, true, AbilityCategory.FEAT);
 
 				if (spellLevelProcess && (ab != null))
 				{

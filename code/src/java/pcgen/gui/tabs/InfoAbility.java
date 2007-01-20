@@ -706,11 +706,12 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 				// TODO - ABILITYOBJECT - This won't work
 				// TODO - ABILITYOBJECT - getPc().removeAbility(theCategory, anAbility);
 				AbilityUtilities.modAbility(getPc(), null, anAbility, null,
-					false);
+					false, theCategory);
 			}
 		}
 		catch (Exception exc)
 		{
+			Logging.errorPrint("Failed to remove ability.", exc);
 			ShowMessageDelegate.showMessageDialog("Remove Ability: "
 				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
 			return false;
