@@ -302,7 +302,7 @@ public class AbilityToken extends Token
 	{
 		String retString = "";
 		Ability aAbility;
-		if (abilityIndex < aList.size())
+		if (abilityIndex >= 0 && abilityIndex < aList.size())
 		{
 			aAbility = aList.get(abilityIndex);
 

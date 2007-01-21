@@ -4750,8 +4750,9 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		Map<String, String> totalLvlMap = null;
 		final Map<String, String> classLvlMap;
 
-		if (checkInd < SettingsHandler.getGame().getUnmodifiableCheckList()
-			.size())
+		if (checkInd >= 0
+			&& checkInd < SettingsHandler.getGame().getUnmodifiableCheckList()
+				.size())
 		{
 			totalClassLevels = getTotalCharacterLevel();
 			if (totalClassLevels > SettingsHandler.getGame().getChecksMaxLvl())

@@ -1807,6 +1807,10 @@ public final class GameMode implements Comparable<Object>
 	 */
 	public String getCheckKey( final int anIndex )
 	{
+		if (anIndex < 0 || anIndex >= checkList.size())
+		{
+			return "";
+		}
 		return checkList.get(anIndex).getKeyName();
 	}
 	
