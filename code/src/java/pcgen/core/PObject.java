@@ -2889,7 +2889,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 									txt.append(Constants.PIPE);
 								} else {
 									txt.append("\tQUALIFY:");
-									if (s.length() > 0) {
+									if (s != null && s.length() > 0) {
 										txt.append(s);
 									}
 									if (category != null) {
