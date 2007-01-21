@@ -24,6 +24,9 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.core.Globals;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
@@ -32,13 +35,36 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  */
 public class PreAgeSetParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
-		{
+implements PrerequisiteParserInterface
+{
 
 	public String[] kindsHandled() {
 		return new String[]{"AGESET", "AGESETEQ", "AGESETGT", "AGESETGTEQ", "AGESETLT", 
 				"AGESETLTEQ", "AGESETNEQ"}; //$NON-NLS-1$
 	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.persistence.lst.prereq.PrereqParserInterface#parse(java.lang.String)
+	 */
+	@Override
+	public Prerequisite parse(String kind, String formula,
+			boolean invertResult, boolean overrideQualify)
+	throws PersistenceLayerException
+	{
+		
+		Prerequisite prereq =
+			super.parse(kind, formula, invertResult, overrideQualify);
+
+		//Operand should be either an integer or a recognizable String
+		try{
+			Integer.parseInt(formula);
+		}
+		catch (NumberFormatException exc){
+			prereq.setOperand(formula); //assume recognizable String for now
+		}
+
+		return prereq;
 	
+	}
 
 }

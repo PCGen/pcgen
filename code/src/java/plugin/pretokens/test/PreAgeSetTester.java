@@ -37,7 +37,7 @@ import pcgen.util.PropertyFactory;
  *
  */
 public class PreAgeSetTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest	
+PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -48,7 +48,7 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements
 	{
 		final int ageset = Globals.getBioSet().getPCAgeSet(character);
 
-		int runningTotal;
+		int runningTotal=-1;
 		int anInt;
 
 		try
@@ -58,21 +58,24 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements
 		catch (NumberFormatException exc)
 		{
 			anInt = Globals.getBioSet().getAgeSetNamed(prereq.getOperand());
+			if (anInt == -1){ //String not recognized
+				throw new PrerequisiteException();
+			}
 		}
 		catch (Exception e){
 			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
 		}
 
 		runningTotal = prereq.getOperator().compare(ageset, anInt);
+
 		return countedTotal(prereq, runningTotal);
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled()
-	{
-		return "AGESET"; //$NON-NLS-1$
+	public String kindHandled() {
+		return "AGESET";//$NON-NLS-1$
 	}
 
 }
