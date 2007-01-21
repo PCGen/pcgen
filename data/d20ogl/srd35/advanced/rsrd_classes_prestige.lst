@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep 17 23:02:55 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Sun Jan 21 08:54:03 2007 -- reformated by prettylst.pl v1.35 (build 1961)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -63,14 +63,14 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 1	FEATAUTO:Assassin Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:0,0		KNOWN:0,2		SA:Poison Use						BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2														FEATAUTO:Sneak Attack|Death Attack
-2	CAST:0,1		KNOWN:0,3		SA:+% save against poisons|AssassinPoisonSave	BONUS:VAR|AssassinPoisonSave|CL/2																	DEFINE:AssassinPoisonSave|0	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2									FEATAUTO:Sneak Attack|Death Attack|Poison Use
+2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2																	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)	FEATAUTO:Save against Poisons
 3	CAST:0,2,0		KNOWN:0,3,2
 4	CAST:0,3,1		KNOWN:0,4,3
-5	CAST:0,3,2,0	KNOWN:0,4,3,2																																				ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-6	CAST:0,3,3,1,	KNOWN:0,4,4,3
+5	CAST:0,3,2,0	KNOWN:0,4,3,2																							ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+6	CAST:0,3,3,1	KNOWN:0,4,4,3
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
-8	CAST:0,3,3,3,1	KNOWN:0,4,4,3,3	SA:Hide in Plain Sight (Su)
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,3,3																															FEATAUTO:Hide in Plain Sight (Assassin)
 9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
 10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4
 
@@ -103,9 +103,9 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		SA:Poison Use	SA:Detect Good (Sp)	BONUS:VAR|AuraEvil|CL									EXCHANGELEVEL:Ex Paladin|11|10|1	SPELLS:Blackguard|TIMES=-1|CASTERLEVEL=var("CL=Blackguard")|Detect Good,11+WIS	FEATAUTO:Aura of Evil
-2	CAST:0,1		SA:Dark Blessing (Su)								BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)
-3	CAST:0,1,0		SA:Aura of Despair (Su)
+1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	FEATAUTO:Poison Use|Detect Good|Aura of Evil
+2	CAST:0,1												FEATAUTO:Dark Blessing
+3	CAST:0,1,0												FEATAUTO:Aura of Despair
 4	CAST:0,1,1
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
@@ -171,15 +171,14 @@ CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:1,TYPE.P
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE.Perform|Sense Motive|Spot|Tumble
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Martial Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SA:Canny Defense (Ex)																			BONUS:COMBAT|AC|max(0,min(INT,CL))|TYPE=Ability.STACK|PREMULT:2,[!PREEQUIP:1,TYPE=Armor,TYPE=Shield],[PREEQUIP:1,TYPE=Melee]
-2	SA:Improved Reaction +% (Ex)|ImprovedReaction		BONUS:VAR|ImprovedReaction|2									BONUS:COMBAT|INITIATIVE|ImprovedReaction															DEFINE:ImprovedReaction|0
-3	SA:Enhanced Mobility (Ex)
-4	SA:Grace (Ex)
-5	SA:Precise Strike +%d%|PreciseStrike|PreciseStrikeDie	BONUS:VAR|PreciseStrike|CL/5																														DEFINE:PreciseStrike|0	DEFINE:PreciseStrikeDie|6
-6	SA:Acrobatic Charge (Ex)
-7	SA:Elaborate Parry (Ex)						BONUS:VAR|FightingDefensivelyACBonus|CL	BONUS:VAR|TotalDefenseACBonus|CL
-8										BONUS:VAR|ImprovedReaction|2
-9	SA:Deflect Arrows
+1																										FEATAUTO:Canny Defense
+2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2																		FEATAUTO:Improved Reaction
+3																										FEATAUTO:Enhanced Mobility
+4																										FEATAUTO:Grace
+5	BONUS:VAR|PreciseStrike|CL/5																					FEATAUTO:Precise Strike
+6																										FEATAUTO:Acrobatic Charge
+7	BONUS:VAR|ElaborateParryLVL|CL																				FEATAUTO:Elaborate Parry
+9									VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
 
 # Used DR:1/- in level line 6 to initialize Damage reduction, DR:0/- doesnt allow BONUS:DR to function
 # Not sure if I added the Dodge AC bonus correctly in level line 1
@@ -194,11 +193,11 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	FEATAUTO:Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Level Progression
-1			SA:Defensive Stance %/day|DefensiveStance	BONUS:VAR|DefensiveStance|(CL+1)/2						BONUS:COMBAT|AC|(CL+2)/3|TYPE=Dodge						DEFINE:DefensiveStance|0
-2										BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																	ADD:FEAT(TYPE=UncannyDodge)
-4										BONUS:VAR|TrapSense|CL/4																												FEATAUTO:Trap Sense Ability
-6	DR:1/-																									BONUS:DR|-|3*((CL-2)/4)-1						ADD:FEAT(TYPE=UncannyDodge)
-8			SA:Mobile Defense (Ex)
+1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3						FEATAUTO:Defensive Stance|Dwarven Defender AC Bonus
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE										ADD:FEAT(TYPE=UncannyDodge)
+4	BONUS:VAR|TrapSense|CL/4																					FEATAUTO:Trap Sense Ability
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ADD:FEAT(TYPE=UncannyDodge)	FEATAUTO:Dwarven Defender DR
+8																										FEATAUTO:Mobile Defense
 
 
 # PREWEAPONPROF not exactly to prereq for class. should check for all Martial Weapon Proficiencies: Using 10 for now, per Tir
@@ -258,19 +257,19 @@ CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Anima
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat												Required Skill						Required Spell School
-CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:Divination,1,3	PRESPELLSCHOOL:Divination,7,0
+CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge,TYPE.Knowledge=10	PRESPELLSCHOOL:Divination,1,3	PRESPELLSCHOOL:Divination,7,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Speak Language|Spellcraft|Use Magic Device
-1	ADD:SPELLCASTER(ANY)					BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:FEAT(TYPE=LoremasterSecret)
-2	ADD:SPELLCASTER(ANY)	SA:Lore (+%)|SecretLore
-3	ADD:SPELLCASTER(ANY)														ADD:FEAT(TYPE=LoremasterSecret)
-4	ADD:SPELLCASTER(ANY)																				ADD:Language(TYPE=Spoken)1
-5	ADD:SPELLCASTER(ANY)														ADD:FEAT(TYPE=LoremasterSecret)
-6	ADD:SPELLCASTER(ANY)	SA:Greater Lore (Ex)
-7	ADD:SPELLCASTER(ANY)														ADD:FEAT(TYPE=LoremasterSecret)
-8	ADD:SPELLCASTER(ANY)																				ADD:Language(TYPE=Spoken)1
-9	ADD:SPELLCASTER(ANY)														ADD:FEAT(TYPE=LoremasterSecret)
-10	ADD:SPELLCASTER(ANY)	SA:True Lore (Ex)
+1	ADD:SPELLCASTER(ANY)	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:FEAT(TYPE=LoremasterSecret)
+2	ADD:SPELLCASTER(ANY)																					FEATAUTO:Secret Lore
+3	ADD:SPELLCASTER(ANY)										ADD:FEAT(TYPE=LoremasterSecret)
+4	ADD:SPELLCASTER(ANY)																ADD:Language(TYPE=Spoken)1
+5	ADD:SPELLCASTER(ANY)										ADD:FEAT(TYPE=LoremasterSecret)
+6	ADD:SPELLCASTER(ANY)																					FEATAUTO:Greater Lore
+7	ADD:SPELLCASTER(ANY)										ADD:FEAT(TYPE=LoremasterSecret)
+8	ADD:SPELLCASTER(ANY)																ADD:Language(TYPE=Spoken)1
+9	ADD:SPELLCASTER(ANY)										ADD:FEAT(TYPE=LoremasterSecret)
+10	ADD:SPELLCASTER(ANY)																					FEATAUTO:True Lore
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -298,15 +297,15 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 1	FEATAUTO:Shadowdancer Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1					SA:Hide in Plain Sight (Su)
-2	VISION:Darkvision (60')							BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE					ADD:FEAT(TYPE.UncannyDodge)															FEATAUTO:Evasion
-3					SA:Shadow Illusion (Sp)																							SPELLS:Shadowdancer|TIMES=1|CASTERLEVEL=var("CL=Shadowdancer")|Silent Image,11+CHA	FEATAUTO:Summon Shadow|Shadowdancer Tracker - Summon Shadow
-4					SA:Shadow Jump % ft|ShadowJump	BONUS:VAR|ShadowJump|20								DEFINE:ShadowJump|0
-5																										ADD:FEAT(TYPE.UncannyDodge)															FEATAUTO:Defensive Roll
-6											BONUS:VAR|ShadowJump|20
-7																																													FEATAUTO:Slippery Mind
-8											BONUS:VAR|ShadowJump|40
-10											BONUS:VAR|ShadowJump|80																															FEATAUTO:Improved Evasion
+1																					FEATAUTO:Hide in Plain Sight (Assassin)
+2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(TYPE.UncannyDodge)	FEATAUTO:Evasion
+3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL									FEATAUTO:Shadow Illusion|Summon Shadow
+4					BONUS:VAR|ShadowJump|20													FEATAUTO:Shadow Jump
+5																ADD:FEAT(TYPE.UncannyDodge)	FEATAUTO:Defensive Roll
+6					BONUS:VAR|ShadowJump|20
+7																					FEATAUTO:Slippery Mind
+8					BONUS:VAR|ShadowJump|40
+10					BONUS:VAR|ShadowJump|80													FEATAUTO:Improved Evasion
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -314,8 +313,8 @@ CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:Presti
 CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE.Profession|Sense Motive|Speak Language|Spellcraft
-1	ADD:SPELLCASTER(ANY)	SA:Improved Ally
-2	ADD:SPELLCASTER(ANY)						FEATAUTO:Augment Summoning
-3	ADD:SPELLCASTER(ANY)	SA:Extended Summoning
-4	ADD:SPELLCASTER(ANY)	SA:Contingent Conjuration
-5	ADD:SPELLCASTER(ANY)	SA:Planar Cohort
+1	ADD:SPELLCASTER(ANY)	FEATAUTO:Improved Ally
+2	ADD:SPELLCASTER(ANY)	FEATAUTO:Augment Summoning
+3	ADD:SPELLCASTER(ANY)	FEATAUTO:Extended Summoning
+4	ADD:SPELLCASTER(ANY)	FEATAUTO:Contingent Conjuration
+5	ADD:SPELLCASTER(ANY)	FEATAUTO:Planar Cohort

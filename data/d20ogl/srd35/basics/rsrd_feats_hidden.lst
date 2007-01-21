@@ -30,6 +30,7 @@ Smite Evil			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Evil (Su) 
 Smite Good			TYPE:Special.Smite.Supernatural		VISIBLE:NO					SA:Smite Good (Su) %/day|SmiteGood																				DEFINE:SmiteGood|0																																																																											SOURCEPAGE:PrestigeClasses.rtf
 Wild Empathy		TYPE:Special.Extraordinary			VISIBLE:NO					SA:Wild Empathy (Ex) +%|WildEmpathy																				DEFINE:WildEmpathy|0																																													BONUS:VAR|WildEmpathy|CHA	BONUS:VAR|WildEmpathy|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK												SOURCEPAGE:ClassesI.rtf
 Death Attack		TYPE:Special					VISIBLE:NO					SA:Death Attack (DC %)|DeathAttack																				DEFINE:DeathAttack|0																																													BONUS:VAR|DeathAttack|10+INT																										SOURCEPAGE:PrestigeClasses.rtf
+Poison Use			TYPE:Special.Extraordinary			VISIBLE:NO					SA:Poison Use (Ex)																																																																																																				SOURCEPAGE:PrestigeClasses.rtf
 
 ###Block: Aura for Clerics, other Class level tracked auras.
 #	Applying this to more than just Cleric will require more work or more hidden feats.
@@ -168,11 +169,11 @@ Paladin Tracker - Turn Undead		VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:A
 Paladin Tracker - Lay on Hands	VISIBLE:NO											VFEAT:Lay on Hands	BONUS:VAR|LayOnHands|var("CL=Paladin")*max(CHA,0)														SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Abilities
-# Feat Name			Type				Visible	Special Ability			Source Page
-Woodland Stride		TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)		SOURCEPAGE:ClassesII.rtf
-Swift Tracker		TYPE:Extraordinary	VISIBLE:NO	SA:Swift Tracker (Ex)		SOURCEPAGE:ClassesII.rtf
-Camouflage			TYPE:Extraordinary	VISIBLE:NO	SA:Camouflage (Ex)		SOURCEPAGE:ClassesII.rtf
-Hide in Plain Sight	TYPE:Extraordinary	VISIBLE:NO	SA:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
+# Feat Name				Type				Visible	Special Ability			Source Page
+Woodland Stride			TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)		SOURCEPAGE:ClassesII.rtf
+Swift Tracker			TYPE:Extraordinary	VISIBLE:NO	SA:Swift Tracker (Ex)		SOURCEPAGE:ClassesII.rtf
+Camouflage				TYPE:Extraordinary	VISIBLE:NO	SA:Camouflage (Ex)		SOURCEPAGE:ClassesII.rtf
+Hide in Plain Sight (Ranger)	TYPE:Extraordinary	VISIBLE:NO	SA:Hide in Plain Sight (Ex)	SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Trackers
 # Feat Name					Visible	Virtual Feat		Modify VAR						Source Page
@@ -341,12 +342,11 @@ Summon Shadow	TYPE:Supernatural		VISIBLE:NO	SA:Summon Shadow (Su)		DEFINE:Shadow
 
 ###Block: Companion Trackers
 # Feat Name						Visible	Virtual Feat		Modify VAR												Source Page
-Blackguard Tracker - Fiendish Servant	VISIBLE:NO					BONUS:VAR|FSLevel|var("CL=Blackguard")
-Blackguard Tracker - Undead Companion	VISIBLE:NO					BONUS:VAR|UndeadCompanionLVL|var("CL=Blackguard")|PRECLASS:1,Ex Paladin=9
-Shadowdancer Tracker - Summon Shadow	VISIBLE:NO					BONUS:VAR|ShadowCompanion|var("CL=Shadowdancer")
+Blackguard Tracker - Fiendish Servant	VISIBLE:NO					BONUS:VAR|FSLevel|var("CL=Blackguard")							SOURCEPAGE:PrestigeClasses.rtf
+Blackguard Tracker - Undead Companion	VISIBLE:NO					BONUS:VAR|UndeadCompanionLVL|var("CL=Blackguard")|PRECLASS:1,Ex Paladin=9	SOURCEPAGE:PrestigeClasses.rtf
 Druid Tracker - Animal Companion		VISIBLE:NO	VFEAT:Animal Companion	BONUS:VAR|CompLevel|var("CL=Druid")								SOURCEPAGE:ClassesI.rtf
-Sorcerer Tracker - Summon Familiar		VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Sorcerer")							SOURCEPAGE:CLASSESII.rtf
-Wizard Tracker - Summon Familiar		VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Wizard")								SOURCEPAGE:CLASSESII.rtf
+Sorcerer Tracker - Summon Familiar		VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Sorcerer")							SOURCEPAGE:ClassesII.rtf
+Wizard Tracker - Summon Familiar		VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Wizard")								SOURCEPAGE:ClassesII.rtf
 
 #
 #EOF
