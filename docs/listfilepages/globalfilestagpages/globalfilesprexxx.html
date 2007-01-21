@@ -986,29 +986,64 @@
 		<p class="indent3">Character must have at least four 3rd level or higher Mind-Affecting spells to meet the requirement.</p>
 
 		<p></p><a name="PRESPELLSCHOOL"></a><hr>
+		<p class="new">*** Updated 5.11.6*** To Be Deprecated 5.11.6-5.12.0, Use PRESPELLSCHOOL:x,y=z</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOL:x,y,z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a school of magic).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells of the proper school and level the character must know).</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum spell level of the school of spells a character must know).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells of the proper
+		school and level the character must know).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum spell level of the school
+		of spells a character must know).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets spell school requirements. Loremaster is a good example of this pre-requisite</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESPELLSCHOOL:Necromancy,3,2</code></p>
-		<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet the requirement.</p>
+		<p class="indent3">Character must have at least three 2nd level or higher &quot;Necromancy spells to meet
+		the requirement.</p>
+
+		<p></p><a name="PRESPELLSCHOOL2"></a><hr>
+		<p class="new">*** NEW 5.11.6</p>
+		<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOL:x,y=z[,x,y=z],[x,y=z],[...]</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The quantity of spells of the proper
+		school and level the character must know).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a school of magic).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (The minimum spell level of the school
+		of spells a character must know).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets spell school requirements. Loremaster is a good example of this pre-requisite</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PRESPELLSCHOOL:3,Necromancy=2</code></p>
+		<p class="indent3">Character must have at least three 2nd level or higher Necromancy spells to meet
+		the requirement.</p>
 
 		<p></p><a name="PRESPELLSCHOOLSUB"></a><hr>
+		<p class="new">*** Updated 5.11.6*** To Be Deprecated 5.11.6-5.12.0, Use PRESPELLSCHOOLSUB:x,y=z</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOLSUB:x,y,z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a sub-school of magic).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number
-			(The quantity of spells of the proper sub-school and level the character must know).</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number
-			(The spell level of the sub-school of spells a character must know).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The quantity of spells of the proper
+		sub-school and level the character must know).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a sub-school of magic).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (The spell level of the sub-school of
+		spells a character must know).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets spell sub-school requirements.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PRESPELLSCHOOLSUB:Creation,3,2</code></p>
-		<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells
-			to meet the requirement.</p>
+		<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
+		the requirement.</p>
+
+		<p></p><a name="PRESPELLSCHOOLSUB2"></a><hr>
+		<p class="new">*** Updated 5.11.6</p>
+		<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOLSUB:x,y=z[,x,y=z],[x,y=z],[...]</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a sub-school of magic).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (The quantity of spells of the proper
+		sub-school and level the character must know).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number (The spell level of the sub-school of
+		spells a character must know).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets spell sub-school requirements.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PRESPELLSCHOOLSUB:3,Creation=2</code></p>
+		<p class="indent3">Character must have at least three 2nd level &quot;Creation&quot; spells to meet
+		the requirement.</p>
 
 		<p></p><a name="PRESPELLTYPE"></a><hr>
 		<p class="new">*** Updated 5.10</p>
