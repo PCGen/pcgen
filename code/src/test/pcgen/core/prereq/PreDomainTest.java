@@ -132,6 +132,45 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertTrue("Character's deity has Good and animal domains",
 			PrereqHandler.passes(prereq, character, null));
 	}
+	
+	/**
+	 * Test for any domain.
+	 * 
+	 * @author Koen Van Daele <vandaelek@users.sorceforge.net>
+	 * @throws Exception
+	 */
+	public void testAny() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		Prerequisite prereq;
+
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		prereq = factory.parse("PREDOMAIN:1,ANY");
+
+		assertFalse("Character has no domains", PrereqHandler.passes(
+			prereq, character, null));
+
+		CharacterDomain cd = new CharacterDomain();
+		cd.setDomain(Globals.getDomainKeyed("Good"), character);
+		character.addCharacterDomain(cd);
+
+		assertTrue("Character has one domain", PrereqHandler.passes(prereq,
+			character, null));
+		
+		prereq = factory.parse("PREDOMAIN:2,ANY");
+
+		assertFalse("Character has only one domain", PrereqHandler.passes(
+				prereq, character, null));
+		
+		CharacterDomain cd1 = new CharacterDomain();
+		cd1.setDomain(Globals.getDomainKeyed("Animal"), character);
+		character.addCharacterDomain(cd1);
+		
+		assertTrue("Character has two domains", PrereqHandler.passes(
+				prereq, character, null));
+		
+	}
 
 	protected void setUp() throws Exception
 	{
