@@ -873,7 +873,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (containers.size() != 0)
 		{
-			c.setComboData("Container", containers);
+			c.setComboData(PropertyFactory.getString("in_ieContChooserTitle"), containers);
 		}
 
 		c.setAvailableList(aList);
@@ -911,8 +911,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				}
 				else
 				{
-					ShowMessageDelegate.showMessageDialog("Container "
-						+ eqTarget.getName() + " is full", Constants.s_APPNAME,
+					ShowMessageDelegate.showMessageDialog(
+						PropertyFactory.getFormattedString("in_ieContainerFullMsg", 
+						eqTarget.getName() ), Constants.s_APPNAME,
 						MessageType.ERROR);
 
 					return;
@@ -938,8 +939,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// make sure we can add item to that slot in this EquipSet
 		if (!canAddEquip(rootSet, locName, eqI, eqTarget))
 		{
-			ShowMessageDelegate.showMessageDialog("Can not equip "
-				+ eqI.getName() + " to " + locName, Constants.s_APPNAME,
+			ShowMessageDelegate.showMessageDialog(
+				PropertyFactory.getFormattedString("in_ieCanNotEquipToSlotMsg",
+				eqI.getName() , locName) , Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -1133,7 +1135,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI.isContainer())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Can not change quantity of containers", Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieNoChangeQuantityCont"), Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -1142,7 +1144,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if ((aTok.countTokens() <= 3) && eqI.isEquipped())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Can not change quantity of Equipped items",
+				PropertyFactory.getString("in_ieNoChangeQuantityEquip"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -1155,7 +1157,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (aQty.floatValue() <= 0.0f)
 		{
 			Object selectedValue =
-					JOptionPane.showInputDialog(null, "Enter new Quantity",
+					JOptionPane.showInputDialog(null, 
+						PropertyFactory.getString("in_ieNewQuantity"),
 						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -1166,7 +1169,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!",
+					ShowMessageDelegate.showMessageDialog(
+						PropertyFactory.getString("in_ieInvalidNumber"),
 						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
@@ -1203,8 +1207,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// the PC's equipmentList number for this item
 		if (addNum > diffItemCount(eSet, eqI).floatValue())
 		{
-			ShowMessageDelegate.showMessageDialog("You do not have " + newNum
-				+ " " + eqI.getName(), Constants.s_APPNAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+				"in_ieEquipQuantityToBig" , newNum, eqI.getName() ), Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
 		}
@@ -1228,8 +1232,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				eqI.setNumberCarried(numCarried);
 
 				// Send error message
-				ShowMessageDelegate.showMessageDialog("Container "
-					+ eqP.getName() + " is full", Constants.s_APPNAME,
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+					"in_ieContainerFull" , eqP.getName()) , Constants.s_APPNAME,
 					MessageType.ERROR);
 
 				return;
@@ -1641,7 +1645,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if ((eSet == null) || (parentNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an Equip Set to add the item to",
+				PropertyFactory.getString("in_ieSelectSet"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -1679,7 +1683,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				Logging.errorPrint(PropertyFactory.getString("Warnings.PCGenParser.EquipmentNotFound"));
+				Logging.errorPrintLocalised("Warnings.PCGenParser.EquipmentNotFound");
 
 				return;
 			}
@@ -1820,7 +1824,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (tempQty.floatValue() > diffItemCount(eSet, eqI).floatValue())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"You have already added all your " + eqI.getName(),
+				PropertyFactory.getFormattedString("in_ieAlreadyEquipedAll", eqI.getName()),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return null;
@@ -1843,8 +1847,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog("Container "
-					+ eqTarget.getName() + " is full", Constants.s_APPNAME,
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+					"in_ieContainerFull", eqTarget.getName()), Constants.s_APPNAME,
 					MessageType.ERROR);
 
 				return null;
@@ -1871,13 +1875,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (containers.size() != 0)
 				{
-					c.setComboData("Container", containers);
+					c.setComboData(PropertyFactory.getString("in_ieContChooserTitle"), containers);
 				}
 
 				c.setAvailableList(aList);
 				c.setVisible(false);
 				c.setTitle(eqI.getName());
-				c.setMessageText("Select a location for this item");
+				c.setMessageText(PropertyFactory.getString("in_ieSelectLocationMsg"));
 				c.setVisible(true);
 				aList = c.getSelectedList();
 
@@ -1907,8 +1911,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						}
 						else
 						{
-							ShowMessageDelegate.showMessageDialog("Container "
-								+ eqTarget.getName() + " is full",
+							ShowMessageDelegate.showMessageDialog(
+								PropertyFactory.getFormattedString("in_ieContainerFullMsg",
+								eqTarget.getName()),
 								Constants.s_APPNAME, MessageType.ERROR);
 
 							return null;
@@ -1926,9 +1931,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// make sure we can add item to that slot in this EquipSet
 		if (!canAddEquip(eSet, locName, eqI, eqTarget))
 		{
-			ShowMessageDelegate.showMessageDialog("Can not equip "
-				+ eqI.getName() + " to " + locName, Constants.s_APPNAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+				"in_ieCanNotEquipToSlotMsg", eqI.getName(), locName)
+				, Constants.s_APPNAME, MessageType.ERROR);
 
 			return null;
 		}
@@ -2001,7 +2006,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			catch (Exception e)
 			{
-				ShowMessageDelegate.showMessageDialog("Invalid number!",
+				ShowMessageDelegate.showMessageDialog(
+					PropertyFactory.getString("in_ieInvalidNumber"),
 					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
@@ -2031,7 +2037,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!",
+					ShowMessageDelegate.showMessageDialog(
+						PropertyFactory.getString("in_ieInvalidNumber"),
 						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
