@@ -145,7 +145,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	private JButton adjXP = new JButton(PropertyFactory.getString("in_adjXP"));
 	private JButton hpButton = null;
 	private JButton removeButton;
-	private JButton clearQFilterButton = new JButton("Clear");
+	private JButton clearQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JTree availableTree = null;
@@ -165,7 +165,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	private JLabel lblHP = new JLabel();
 	private JLabel lblHPName = null;
 	private JLabel lblNextLevel = new JLabel();
-	private final JLabel lblQFilter = new JLabel("Filter:");
+	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
 	private JLabel lblSkills = new JLabel();
 	private JLabel lblVariableDisplay = new JLabel();
 	private JLabel lblVariableDisplay2 = new JLabel();
@@ -953,8 +953,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			}
 			if (aString == null)
 			{
-				Logging.errorPrint("PC class " + aClass.getDisplayName()
-					+ " has no source long entry.");
+				Logging.errorPrintLocalised("in_icPCClassHasNoSourceLongEntry",
+                                        aClass.getDisplayName());
 			}
 			else if (!sourceList.contains(aString))
 			{
@@ -1354,7 +1354,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		pnlXP.add(adjXP, new GridBagConstraints());
 
-		lblNextLevel.setText("Next Level");
+		lblNextLevel.setText(PropertyFactory.getString("in_icNextLevel"));
 		gbc = new GridBagConstraints();
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -1426,7 +1426,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		if (Globals.getGameModeShowClassDefense())
 		{
-			lblDefense.setText(aString + " (Class)");
+			lblDefense.setText(aString + " (" + PropertyFactory.getString("in_class") + ")");
 			pnlDefense.setVisible(true);
 		}
 		else
@@ -2046,9 +2046,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 										.getLongName();
 							if (sourceString == null)
 							{
-								Logging.errorPrint("PC class "
-									+ aClass.getDisplayName()
-									+ " has no source long entry.");
+								Logging.errorPrintLocalised("in_icPCClassHasNoSourceLongEntry",
+                                                                        aClass.getDisplayName());
 							}
 							else if ((!added && (i == (rootAsPObjectNode
 								.getChildCount() - 1)))
@@ -2277,14 +2276,14 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory
 					.getString("in_add1"), "shortcut EQUALS"));
 				this.addSeparator();
-				ClassPopupMenu.this.add(Utility.createMenuItem("Find item",
+				ClassPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("in_icFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					}, "searchItem", (char) 0, "shortcut F", PropertyFactory.getString("in_icFindItem"), null,
 					true));
 			}
 
@@ -2309,14 +2308,14 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				ClassPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
 					.getString("in_remove1"), "shortcut MINUS"));
 				this.addSeparator();
-				ClassPopupMenu.this.add(Utility.createMenuItem("Find item",
+				ClassPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("in_icFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					}, "searchItem", (char) 0, "shortcut F", PropertyFactory.getString("in_icFindItem"), null,
 					true));
 			}
 		}
@@ -2381,8 +2380,8 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			catch (Throwable e)
 			{
 				Logging
-					.errorPrint(
-						"Failure while showing class tab. Class tab may not be properly displayed.",
+					.errorPrintLocalised(
+						"in_icFailureWhileShowingClassTab",
 						e);
 			}
 		}
