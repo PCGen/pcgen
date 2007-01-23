@@ -29,6 +29,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
 import pcgen.core.Equipment;
@@ -252,6 +253,22 @@ public class TestHelper
 
 		Globals.addRace(aRace);
 		return aRace;
+	}
+
+	/**
+	 * @param ability
+	 * @return
+	 */
+	public static AbilityCategory getAbilityCategory(Ability ability)
+	{
+		AbilityCategory aCategory =
+				SettingsHandler.getGame().getAbilityCategory(ability.getCategory());
+		if (aCategory == null)
+		{
+			aCategory = new AbilityCategory(ability.getCategory());
+			SettingsHandler.getGame().addAbilityCategory(aCategory);
+		}
+		return aCategory;
 	}
 
 }

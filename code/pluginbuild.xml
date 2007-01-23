@@ -1322,6 +1322,15 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-pre-plugins" depends="makeplugindirs" description="Build (Link) Prereq Token plugin jar files">
 		<!-- Pre tokens-->
+		<jar jarfile="${preplugins.dir}/PreToken-PREABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreAbilityParser.class" />
+					<include name="plugin/pretokens/test/PreAbilityTester.class" />
+					<include name="plugin/pretokens/writer/PreAbilityWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${preplugins.dir}/PreToken-PREALIGN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

@@ -14,7 +14,9 @@
  *
  * Created on September 16, 2002, 3:30 PM
  *
- * Current Ver: $Revision$ Last Editor: $Author$ Last Edited: $Date$
+ * Current Ver: $Revision$ 
+ * Last Editor: $Author$ 
+ * Last Edited: $Date$
  *
  */
 package pcgen.core.prereq;
@@ -51,6 +53,7 @@ public class Prerequisite implements Cloneable
 	private boolean countMultiples;
 	private boolean overrideQualify = false;
 	private int levelQualifier = -1; // used for classes only - classlevel at which this prereq is checked
+	private String categoryName; // used for abilities only - category to restrict matches to.
 
 	public Prerequisite()
 	{
@@ -240,6 +243,14 @@ public class Prerequisite implements Cloneable
 			buf.append(PropertyFactory.getString("Prerequisite.total-values")); //$NON-NLS-1$
 		}
 
+		if (categoryName != null)
+		{
+			buf.append(PropertyFactory.getString("Prerequisite.category")); //$NON-NLS-1$
+			buf.append("=\""); //$NON-NLS-1$
+			buf.append(categoryName);
+			buf.append("\" "); //$NON-NLS-1$
+		}
+
 		if (key != null)
 		{
 			buf.append(PropertyFactory.getString("Prerequisite.key")); //$NON-NLS-1$
@@ -381,6 +392,14 @@ public class Prerequisite implements Cloneable
 
 		}
 
+		if (categoryName != null && !shortForm)
+		{
+			buf.append("of category ");
+			buf.append(categoryName+":");
+			buf.append(' '); //$NON-NLS-1$
+
+		}
+
 		if (kind != null && !shortForm)
 		{
 			buf.append(kind);
@@ -439,6 +458,22 @@ public class Prerequisite implements Cloneable
 	public void setLevelQualifier(final int qualifier)
 	{
 		levelQualifier = qualifier;
+	}
+
+	/**
+	 * @return the categoryName
+	 */
+	public String getCategoryName()
+	{
+		return categoryName;
+	}
+
+	/**
+	 * @param categoryName the categoryName to set
+	 */
+	public void setCategoryName(String categoryName)
+	{
+		this.categoryName = categoryName;
 	}
 
 }
