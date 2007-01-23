@@ -243,9 +243,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private Map<String, Float> equipAddMap = new HashMap<String, Float>();
 	private Map<String, Float> equipNotMap = new HashMap<String, Float>();
 
-	private final JLabel lblQFilter = new JLabel("Filter:");
+	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel"));
 	private JTextField textQFilter = new JTextField();
-	private JButton clearQFilterButton = new JButton("Clear");
+	private JButton clearQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
 	private static Integer saveViewMode = null;
 
 	private PlayerCharacter pc;
@@ -825,7 +825,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (slSelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an Item to change location", Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -843,7 +843,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an Item to change location", Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -857,7 +857,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (aTok.countTokens() > 3)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Can not change item locations inside a container",
+				PropertyFactory.getString("in_ieSetLocInsideContMsg"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -879,7 +879,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		c.setAvailableList(aList);
 		c.setVisible(false);
 		c.setTitle(eqI.getName());
-		c.setMessageText("Select a location for this item");
+		c.setMessageText(PropertyFactory.getString("in_ieSelectLocationMsg"));
 		c.setVisible(true);
 
 		Equipment eqTarget = null;
@@ -929,7 +929,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			&& eSet.getIdPath().equals(eTargetSet.getIdPath()))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Can not put an item inside itself", Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieSetLocInsideSelfMsg"), Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -1026,7 +1026,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (noteSelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -1052,7 +1052,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -1062,7 +1062,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue =
-				ii.showInputDialog(null, "Enter new Note", Constants.s_APPNAME,
+				ii.showInputDialog(null, PropertyFactory.getString("in_ieNewNote"), Constants.s_APPNAME,
 					MessageType.QUESTION, null, eSet.getNote());
 
 		if (selectedValue != null)
@@ -1094,7 +1094,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (qtySelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -1122,7 +1122,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog("Select the Equipment first",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -1679,7 +1679,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				Logging.errorPrint("Could not add Equipment");
+				Logging.errorPrint(PropertyFactory.getString("Warnings.PCGenParser.EquipmentNotFound"));
 
 				return;
 			}
@@ -1990,7 +1990,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	{
 		Float newQty;
 		Object selectedValue =
-				JOptionPane.showInputDialog(null, "Enter Quantity",
+				JOptionPane.showInputDialog(null, PropertyFactory.getString("in_ieAddEquipQuantityMsg"),
 					Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 		if (selectedValue != null)
@@ -2020,7 +2020,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (newQty.floatValue() <= 0)
 		{
 			Object selectedValue =
-					JOptionPane.showInputDialog(null, "Enter Quantity to buy",
+					JOptionPane.showInputDialog(null, PropertyFactory.getString("in_ieBuyEquipQuantityMsg"),
 						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
