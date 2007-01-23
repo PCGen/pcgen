@@ -638,8 +638,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			default:
 				Logging
 					.debugPrint(theCategory.getDisplayName()
-						+ " " + anAbility.getDisplayName() + " is somehow in state " + aq //$NON-NLS-1$ //$NON-NLS-2$
-						+ " which is not handled in InfoAbility.addAbility()"); //$NON-NLS-1$
+						+ " " + anAbility.getDisplayName() + " " + PropertyFactory.getString("in_iayIsSomehowInState") + " " + aq //$NON-NLS-1$ //$NON-NLS-2$
+						+ " " + PropertyFactory.getString("in_iayWhichIsNotHandeledInIAaddAb")); //$NON-NLS-1$
 
 				break;
 		}
@@ -662,7 +662,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		}
 		catch (Exception exc)
 		{
-			ShowMessageDelegate.showMessageDialog("Add Ability: "
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iayAddAbility") + ": "
 				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
 		}
 
@@ -709,8 +709,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		}
 		catch (Exception exc)
 		{
-			Logging.errorPrint("Failed to remove ability.", exc);
-			ShowMessageDelegate.showMessageDialog("Remove Ability: "
+			Logging.errorPrintLocalised("in_iayFailedToRemoveAbility", exc);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iayRemoveAbility") + ": "
 				+ exc.getMessage(), Constants.s_APPNAME, MessageType.ERROR);
 			return false;
 		}
