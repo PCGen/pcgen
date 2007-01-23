@@ -152,10 +152,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	private JLabel deityName;
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JTextField textDeityQFilter = new JTextField();
-	private JButton clearDeityQFilterButton = new JButton("Clear");
+	private JButton clearDeityQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
 	private static Integer saveDeityViewMode = null;
 	private JTextField textDomainQFilter = new JTextField();
-	private JButton clearDomainQFilterButton = new JButton("Clear");
+	private JButton clearDomainQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
 
 	// author: Thomas Behr 08-02-02
 	private JLabel domChosen = new JLabel();
@@ -827,7 +827,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		leftPane.add(InfoTabUtils.createFilterPane(new JLabel(PropertyFactory
 			.getString("in_irSortDeities")), viewComboBox,
-			new JLabel("Filter:"), textDeityQFilter, clearDeityQFilterButton),
+			new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")), textDeityQFilter, clearDeityQFilterButton),
 			BorderLayout.NORTH);
 
 		JScrollPane scrollPane =
@@ -837,7 +837,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton);
-		columnButton.setText("^");
+		columnButton.setText(PropertyFactory.getString("in_caretSymbol"));
 		new TableColumnManager(deityTable, columnButton, deityModel);
 
 		leftPane.add(scrollPane);
@@ -856,7 +856,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		rightPane.setLayout(new BorderLayout());
 
 		rightPane.add(InfoTabUtils.createFilterPane(null, null, new JLabel(
-			"Filter:"), textDomainQFilter, clearDomainQFilterButton),
+			PropertyFactory.getString("InfoTabs.FilterLabel")), textDomainQFilter, clearDomainQFilterButton),
 			BorderLayout.NORTH);
 
 		JPanel rightBottom =
@@ -893,7 +893,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		JButton columnButton2 = new JButton();
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton2);
-		columnButton2.setText("^");
+		columnButton2.setText(PropertyFactory.getString("in_caretSymbol"));
 		new TableColumnManager(domainTable, columnButton2, domainModel);
 		rightPane.add(scrollPane2);
 	}
@@ -1848,7 +1848,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (fn == null)
 			{
 				Logging
-					.errorPrint("No active node when doing getValueAt in InfoDeity");
+                                        .errorPrintLocalised("Errors.TreeTableModel.NoActiveNode",this.getClass().toString());
 				return null;
 			}
 
