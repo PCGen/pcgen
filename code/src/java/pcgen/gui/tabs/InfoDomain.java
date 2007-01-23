@@ -1213,7 +1213,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (pc.getMaxCharacterDomains() <= 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Not allowed to choose a domain", Constants.s_APPNAME,
+				PropertyFactory.getString("in_errorNotAllowedToChooseADomain"), Constants.s_APPNAME,
 				MessageType.INFORMATION);
 
 			return;
@@ -1248,7 +1248,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (aCD == null)
 		{
-			Logging.errorPrint("No more allowed domains");
+			Logging.errorPrintLocalised("in_errorNoMoreAllowedDomains");
 
 			return;
 		}
@@ -1265,7 +1265,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Check selected domains vs Max number allowed
 		if (pc.getCharacterDomainUsed() >= pc.getMaxCharacterDomains())
 		{
-			ShowMessageDelegate.showMessageDialog("No more domains allowed",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_errorNoMoreDomains"),
 				Constants.s_APPNAME, MessageType.INFORMATION);
 
 			return;
@@ -1868,8 +1868,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint("In InfoDomains.DeityModel.getValueAt the column "
-							+ column + " is not supported.");
+						.errorPrint(PropertyFactory.getString("in_domInTheColumn") + " "
+							+ column + " " + PropertyFactory.getString("in_domIDEr2"));
 					break;
 			}
 			return null;
@@ -1950,8 +1950,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint("In InfoDomain.DeityModel.resetModel the mode "
-							+ mode + " is not supported.");
+						.errorPrint(PropertyFactory.getString("in_domInTheMode") + " "
+							+ mode + " " + PropertyFactory.getString("in_domIDEr2"));
 					break;
 			} // end of switch(mode)
 
