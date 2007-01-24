@@ -41,14 +41,16 @@
 		<p class="indent0"><strong>Tag Name:</strong> ABILITYCATEGORY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text Text (Name of the Ability Category).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">ABILITYCATEGORY begins a line which defines a category of abilities. 
-			Visible ability categories will show as a sub-tab on the abilities tab. 
-			If no extra parameters are provided on the line the category will default to being 
-			visible, editable, with no types, a display name and plural name matching the category name 
-			and an editable whole number only pool with a starting value of 0.<br>
-			The following tags are used in ABILITYCATEGORY lines:</p>
-		<ul class="indent2">
+		<p class="indent2">ABILITYCATEGORY begins a line which defines a category of abilities.
+			Visible ability categories will show as a sub-tab on the abilities tab.
+			If no extra parameters are provided on the line the category will default to being
+			visible, editable, with no types, a display name and plural name matching the category name
+			and an editable whole number only pool with a starting value of 0.<br></p>
+			<p>The following tags are used in ABILITYCATEGORY lines:</p>
+		<ul class="indent3">
 			<li><a href="#CATEGORY">CATEGORY</a> - Defines the low-level ability category the category refers to.</li>
+		<ul class="indent4"><li>Class Abilities, Racial Abilities, Special Attacks, Special Qualities, Feat,
+		Skill, Supernatural, Extraordinary and Spell, etc...</li></ul>
 			<li><a href="#DISPLAYNAME">DISPLAYNAME</a> - Defines the display name of the category.</li>
 			<li><a href="#EDITABLE">EDITABLE</a> - Defines whether this category of abilities is user-editable.</li>
 			<li><a href="#EDITPOOL">EDITPOOL</a> - Sets the flag to allow/disallow user editing of the pool.</li>
@@ -58,9 +60,11 @@
 			<li><a href="#TYPE">TYPE</a> - Defines the list of types included in this category</li>
 			<li><a href="#VISIBLE">VISIBLE</a> - Defines whether this category of ability should be displayed in the UI.</li>
 		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent1"><strong>Example:</strong><br></p>
 		<p class="indent2"><code>ABILITYCATEGORY:Special Attack</code></p>
 		<p class="indent3">Defines a category named Special Attack.</p>
+		<p class="indent2"><code>ABILITYCATEGORY:Special Attack &lt;tab&gt; PLURAL=Ambush</code></p>
+		<p class="indent3">Defines a category named Special Attacka andsets the internationalized name to &quot;Ambush&quot;.</p>
 
 		<p></p><a name="ACNAME"></a><hr>
 		<p class="new">*** New - Was DEFENSENAME.</p>
@@ -329,7 +333,7 @@
 		<p class="indent0"><strong>Tag Name:</strong> CATEGORY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The ability category name).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the low-level ability category the category refers to. 
+		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the low-level ability category the category refers to.
 			Not normally required.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -437,7 +441,7 @@
 		<p class="indent0"><strong>Tag Name:</strong>DISPLAYNAME:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Text (The name or key to the name)</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the displayed name for this category. 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the displayed name for this category.
 			If this tag is set to in_name (ie: in_feat) it will pull the name from the language files (for internationalization).</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -516,7 +520,7 @@
 		<p class="indent0"><strong>Tag Name:</strong>EDITABLE:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No)</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define whether this category of abilities is user-editable. 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define whether this category of abilities is user-editable.
 			If editable, the normal abilities may be adjusted by the user through the UI.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -529,7 +533,7 @@
 		<p class="indent0"><strong>Tag Name:</strong>EDITPOOL:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No)</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
 			lines to define if user editing of the category's pool is allowed/disallowed.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -555,7 +559,7 @@
 		<p class="indent0"><strong>Tag Name:</strong>FRACTIONALPOOL:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Boolean (Yes or No)</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
 			lines to define if the pool can use fractional amounts.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -787,7 +791,7 @@
 		<p class="indent0"><strong>Tag Name:</strong>PLURAL:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Text (The plural name or key to the plural name)</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the plural name for this category. 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines to define the plural name for this category.
 			If this tag is set to in_name (ie: in_feats) it will pull the plural name from the language files (for internationalization).</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -839,7 +843,7 @@
 		<p class="indent0"><strong>Tag Name:</strong>POOL:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (A formula for the pool's initial value).</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
 			lines to define the formula to use to calculate the base pool size for this category of ability.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -1078,8 +1082,8 @@
 		<p class="indent0"><strong>Tag Name:</strong>TYPE:x.x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Text (An ability type).</p>
         <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> 
-			lines to define the list of types included in this category. 
+        <p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a>
+			lines to define the list of types included in this category.
 			Any ability of any of the the specified types will be returned when querying for the abilities in the category.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
@@ -1130,7 +1134,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Turns the associated tab or sub-tab on or off in the GUI.</li>
-			<li>YES - Used to make the tab display in the GUI 
+			<li>YES - Used to make the tab display in the GUI
 				(this is the default if a VISIBLE tag is not present).</li>
 			<li>NO - Used to keep the tab from displaying in the GUI.</li>
 		</ul>
@@ -1170,12 +1174,12 @@
 		<p class="indent0"><strong>Tag Name:</strong> WEAPONREACH:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Formula (Weapon Reach)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines the formula used to calculate a weapons reach. 
-		Three variables are used in the formula, RACEREACH, REACH and REACHMULT. 
-		RACEREACH is the value of the <a href="../datafilestagpages/datafilesraces.html#REACH">REACH</a> 
-		tag set in the PC's race. REACH is the value of the <a href="../datafilestagpages/datafilesequipment.html#REACH">REACH</a> 
-		tag set in the Weapon, if no REACH tag is present the value defaults to 5. 
-		REACHMULT is the value of the <a href="../datafilestagpages/datafilesequipment.html#REACHMULT">REACHMULT</a> 
+		<p class="indent2">Defines the formula used to calculate a weapons reach.
+		Three variables are used in the formula, RACEREACH, REACH and REACHMULT.
+		RACEREACH is the value of the <a href="../datafilestagpages/datafilesraces.html#REACH">REACH</a>
+		tag set in the PC's race. REACH is the value of the <a href="../datafilestagpages/datafilesequipment.html#REACH">REACH</a>
+		tag set in the Weapon, if no REACH tag is present the value defaults to 5.
+		REACHMULT is the value of the <a href="../datafilestagpages/datafilesequipment.html#REACHMULT">REACHMULT</a>
 		tag set in the weapon, if no REACHMULT tag is present the value is 1.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT</code></p>
