@@ -1727,14 +1727,13 @@ final class FilterNameDialog extends JDialog implements ActionListener
 		{
 			if (illegalNamesList.contains(name.trim()))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_filterEr2P1") + " '" + name + "'!", PropertyFactory.getString("in_filterErWarn"),
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_filterEr2P1",name), PropertyFactory.getString("in_filterErWarn"),
 					MessageType.ERROR);
 			}
 			else
 			{
 				int index = indexOfIllegalChar(name);
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_filterEr3P1") + " '" + name.charAt(index) + "' "
-					+ PropertyFactory.getString("in_filterEr3P2"),
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_filterEr3P1",String.valueOf(name.charAt(index))),
 					PropertyFactory.getString("in_filterErWarn"), MessageType.ERROR);
 				nameField.requestFocus();
 				nameField.setCaretPosition(index);
