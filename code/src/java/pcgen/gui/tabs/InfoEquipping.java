@@ -2398,8 +2398,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Let them choose which bonuses to use
 		ChooserInterface lc = ChooserFactory.getChooserInstance();
 		lc.setVisible(false);
-		lc.setTitle("Select Bonuses");
-		lc.setMessageText("Temp bonuses applied to this EquipSet");
+		lc.setTitle(PropertyFactory.getString("in_ieBonChooserTitle"));
+		lc.setMessageText(PropertyFactory.getString("in_ieBonChooserMsg"));
 		lc.setAvailableList(sList);
 		lc.setPool(sList.size());
 		lc.setPoolFlag(false);
@@ -2442,7 +2442,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eSet == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an Equip Set to duplicate.", Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieCpEqSetNotSelected"), Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -2453,7 +2453,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Get a new name
 		newName =
 				JOptionPane.showInputDialog(null,
-					"Enter name for new Equip Set", Constants.s_APPNAME,
+					PropertyFactory.getString("in_ieNameNewEqSet"), Constants.s_APPNAME,
 					JOptionPane.QUESTION_MESSAGE);
 
 		if ((newName == null) || (newName.length() <= 0))
@@ -2468,7 +2468,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (pcSet != null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"An EquipSet all ready exists with that name.",
+				PropertyFactory.getString("in_ieEqSetNameExists"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -2564,7 +2564,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (delSelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Select the Equipment to remove from this set",
+				PropertyFactory.getString("in_ieDelEqNotSelected"),
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -2590,7 +2590,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						"Use this to remove equipment, not the Equipment Set itself",
+						PropertyFactory.getString("in_ieDelEqNotEqSet"),
 						Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
@@ -2646,15 +2646,14 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eSet == null)
 		{
-			Logging.errorPrint("delEquipSetButton: No EquipSet named: "
-				+ equipSetFieldText);
+			Logging.errorPrintLocalised("in_ieDelEqSetNotNamedError", equipSetFieldText);
 
 			return;
 		}
 
 		int iConfirm =
 				JOptionPane.showConfirmDialog(null,
-					"Are you sure you want to delete?", "Confirm Remove",
+					PropertyFactory.getString("in_ieDelEqSetConfirmMsg"), PropertyFactory.getString("in_ieDelEqSetConfirmTitle"),
 					JOptionPane.YES_NO_OPTION);
 
 		if (iConfirm != JOptionPane.YES_OPTION)
@@ -2671,7 +2670,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		else
 		{
-			Logging.errorPrint("delEquipSetButton:failed ");
+			Logging.errorPrintLocalised("in_ieDelEqSetFailedError");
 
 			return;
 		}
@@ -2896,10 +2895,10 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		catch (IOException ioe)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"Could not create temporary equip sets preview file.", "PCGen",
+				PropertyFactory.getString("in_ieCldNotCreateTmpEqFileError"), Constants.s_APPNAME ,
 				MessageType.ERROR);
 			Logging
-				.errorPrint("Could not create temporary equip sets preview file.");
+				.errorPrintLocalised("in_ieCldNotCreateTmpEqFileError");
 		}
 		finally
 		{
@@ -3096,9 +3095,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	 **/
 	private void formComponentShown()
 	{
-		// TODO: I18N
+
 		PCGen_Frame1
-			.setMessageAreaTextWithoutSaving("Select containers to add equipment to them");
+			.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_ieSelContToAdd"));
 
 		refresh();
 
@@ -3482,16 +3481,17 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JPanel bottomRightPane =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		Utility.setDescription(setNoteButton,
-			"Add additional info to this item");
+			PropertyFactory.getString("in_ieNoteButDesc"));
 		setNoteButton.setEnabled(false);
 		bottomRightPane.add(setNoteButton);
 
-		Utility.setDescription(setQtyButton, "Click to change number of items");
+		Utility.setDescription(setQtyButton, 
+			PropertyFactory.getString("in_ieQtyButDesc"));
 		setQtyButton.setEnabled(false);
 		bottomRightPane.add(setQtyButton);
 
 		Utility.setDescription(delEquipButton,
-			"Click to remove selected equipment from this set");
+			PropertyFactory.getString("in_ieDelEqButDesc"));
 		delEquipButton.setEnabled(false);
 		bottomRightPane.add(delEquipButton);
 		rightPane.add(bottomRightPane, BorderLayout.SOUTH);
