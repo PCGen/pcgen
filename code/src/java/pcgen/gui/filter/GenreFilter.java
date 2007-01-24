@@ -41,7 +41,7 @@ final class GenreFilter extends AbstractPObjectFilter
 		genre = arg;
 		setCategory(PropertyFactory.getString("in_genreLabel"));
 		setName(arg);
-		setDescription(PropertyFactory.getString("in_filterAccObj") + " " + getName() + ".");
+		setDescription(PropertyFactory.getFormattedString("in_filterAccObj",getName()));
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)

@@ -59,7 +59,7 @@ final class SourceFilter extends AbstractPObjectFilter
 
 		setCategory(PropertyFactory.getString("in_sourceLabel")); //$NON-NLS-1$
 		setName(source);
-		setDescription(PropertyFactory.getString("in_filterAccObj") + " " + getName() + ".");  //$NON-NLS-1$//$NON-NLS-2$
+		setDescription(PropertyFactory.getFormattedString("in_filterAccObj",getName()));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)

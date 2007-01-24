@@ -41,7 +41,7 @@ final class SettingFilter extends AbstractPObjectFilter
 		setting = arg;
 		setCategory(PropertyFactory.getString("in_settingLabel"));
 		setName(arg);
-		setDescription(PropertyFactory.getString("in_filterAccObj") + " " + getName() + ".");
+		setDescription(PropertyFactory.getFormattedString("in_filterAccObj",getName()));
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
