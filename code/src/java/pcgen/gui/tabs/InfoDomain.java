@@ -1045,8 +1045,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			final ListSelectionModel lsm = deityTable.getSelectionModel();
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_reqMess")
-				+ aDeity.getDisplayName() + ".", Constants.s_APPNAME,
+				.getFormattedString("in_reqMess",
+				aDeity.getDisplayName()), Constants.s_APPNAME,
 				MessageType.INFORMATION);
 			lsm.clearSelection();
 
@@ -1073,9 +1073,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			final int areYouSure =
 					JOptionPane.showConfirmDialog(null, PropertyFactory
-						.getString("in_confDomLost1")
-						+ " "
-						+ aDeity.getDisplayName()
+						.getFormattedString("in_confDomLost1",
+						aDeity.getDisplayName())
 						+ System.getProperty("line.separator")
 						+ PropertyFactory.getString("in_confDomLost2"),
 						Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION);
@@ -1231,8 +1230,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (!addedDomain.qualifiesForDomain(pc))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_qualifyMess")
-				+ addedDomain.getDisplayName(), Constants.s_APPNAME,
+				.getFormattedString("in_qualifyMess",
+				addedDomain.getDisplayName()), Constants.s_APPNAME,
 				MessageType.INFORMATION);
 
 			return;
@@ -1338,8 +1337,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				final int areYouSure =
 						JOptionPane.showConfirmDialog(null, PropertyFactory
-							.getString("in_delDeity")
-							+ aDeity.getDisplayName() + "?",
+							.getFormattedString("in_delDeity2",
+							aDeity.getDisplayName()),
 							Constants.s_APPNAME, JOptionPane.OK_CANCEL_OPTION);
 
 				if (areYouSure != JOptionPane.OK_OPTION)
@@ -1868,8 +1867,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint(PropertyFactory.getString("in_domInTheColumn") + " "
-							+ column + " " + PropertyFactory.getString("in_domIDEr2"));
+						.errorPrint(PropertyFactory.getFormattedString("in_domInTheColumn",
+							String.valueOf(column)));
 					break;
 			}
 			return null;
@@ -1950,8 +1949,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint(PropertyFactory.getString("in_domInTheMode") + " "
-							+ mode + " " + PropertyFactory.getString("in_domIDEr2"));
+						.errorPrint(PropertyFactory.getFormattedString("in_domInTheMode",
+							String.valueOf(mode)));
 					break;
 			} // end of switch(mode)
 
@@ -2459,9 +2458,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_domIDEr1")
-						+ " " + col + " "
-						+ PropertyFactory.getString("in_domIDEr3"));
+					Logging.errorPrint(PropertyFactory.getFormattedString("in_domInTheColumn2",
+						String.valueOf(col)));
 
 					break;
 			}
