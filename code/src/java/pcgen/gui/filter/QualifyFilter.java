@@ -32,8 +32,6 @@ import pcgen.util.PropertyFactory;
  */
 final class QualifyFilter extends AbstractPObjectFilter
 {
-	private static final String in_filterAccQual = PropertyFactory.getString("in_filterAccQual");
-	private static final String in_filterAccQual2 = PropertyFactory.getString("in_filterAccQual2");
 
 	QualifyFilter()
 	{
@@ -42,7 +40,7 @@ final class QualifyFilter extends AbstractPObjectFilter
 
 	public String getDescription(PlayerCharacter aPC)
 	{
-		return in_filterAccQual + ' ' + aPC.getName() + ' ' + in_filterAccQual2;
+		return PropertyFactory.getFormattedString("in_filterAccQual",aPC.getName());
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)
