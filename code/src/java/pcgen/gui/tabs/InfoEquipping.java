@@ -3437,7 +3437,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton);
-		columnButton.setText("^");
+		columnButton.setText(PropertyFactory.getString("in_caretSymbol"));
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
@@ -3474,7 +3474,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JButton columnButton2 = new JButton();
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton2);
-		columnButton2.setText("^");
+		columnButton2.setText(PropertyFactory.getString("in_caretSymbol"));
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
@@ -3545,7 +3545,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// create an equipment info scroll area
 		JScrollPane sScroll = new JScrollPane();
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder("Equipment Info");
+				BorderFactory.createTitledBorder(PropertyFactory.getString("in_ieEqInfo"));
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -3576,15 +3576,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JPanel iPanel = new JPanel();
 		gridbag.setConstraints(iPanel, c);
 
-		viewEqSetButton = new JButton("View in Browser");
+		viewEqSetButton = new JButton(PropertyFactory.getString("in_ieViewBrowserButTitle"));
 		Utility.setDescription(viewEqSetButton,
-			"Launches a browser and displays Equipment Sets");
+			PropertyFactory.getString("in_ieViewBrowserButDesc"));
 		viewEqSetButton.setEnabled(true);
 		iPanel.add(viewEqSetButton);
 
-		exportEqSetButton = new JButton("Export to File");
+		exportEqSetButton = new JButton(PropertyFactory.getString("in_ieExportFileButTitle"));
 		Utility.setDescription(exportEqSetButton,
-			"Export Equipment Sets to a File");
+			PropertyFactory.getString("in_ieExportFileButDesc"));
 		exportEqSetButton.setEnabled(true);
 		iPanel.add(exportEqSetButton);
 
@@ -3596,13 +3596,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		gridbag.setConstraints(iiPanel, c);
 
 		templateTextField.setEditable(false);
-		Utility.setDescription(templateTextField, "Display only");
+		Utility.setDescription(templateTextField, PropertyFactory.getString("in_ieTplTxtFld"));
 		templateTextField.setBackground(Color.lightGray);
 		templateTextField.setText(SettingsHandler
 			.getSelectedEqSetTemplateName());
-		selectTemplateButton = new JButton("Select template");
+		selectTemplateButton = new JButton(PropertyFactory.getString("in_ieSelTplButTitle"));
 		Utility.setDescription(selectTemplateButton,
-			"Select an EquipSet output template");
+				PropertyFactory.getString("in_ieSelTplButDesc"));
 		iiPanel.add(selectTemplateButton);
 		iiPanel.add(templateTextField);
 
@@ -3748,7 +3748,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					"An equip-set template must be selected before the equip-set can be exported.",
+					PropertyFactory.getString("in_ieExportEqSetNoEqSetTpl"),
 					Constants.s_APPNAME, MessageType.ERROR);
 			return;
 		}
@@ -3757,7 +3757,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JFileChooser fcExport = new JFileChooser();
 		fcExport.setCurrentDirectory(SettingsHandler.getPcgPath());
 
-		fcExport.setDialogTitle("Export EquipSet " + pc.getDisplayName());
+		fcExport.setDialogTitle(PropertyFactory.getFormattedString("in_ieExportEqSetFileChTitle" , pc.getDisplayName()));
 
 		if (fcExport.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
 		{
@@ -3768,8 +3768,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (aFileName.length() < 1)
 		{
-			ShowMessageDelegate.showMessageDialog("You must set a filename.",
-				"PCGen", MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieExportEqSetNoFilename"),
+				Constants.s_APPNAME , MessageType.ERROR);
 
 			return;
 		}
@@ -3781,7 +3781,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (outFile.isDirectory())
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"You cannot overwrite a directory with a file.", "PCGen",
+					PropertyFactory.getString("in_ieExportEqSetNoOverwriteDirWithFile"), Constants.s_APPNAME ,
 					MessageType.ERROR);
 
 				return;
@@ -3793,10 +3793,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						JOptionPane
 							.showConfirmDialog(
 								this,
-								"The file "
-									+ outFile.getName()
-									+ " already exists, are you sure you want to overwrite it?",
-								"Confirm overwriting " + outFile.getName(),
+								PropertyFactory.getFormattedString("in_ieExportEqOverwriteFileConfirmDesc",outFile.getName()),
+								PropertyFactory.getFormattedString("in_ieExportEqOverwriteFileConfirmTitle", outFile.getName()),
 								JOptionPane.YES_NO_OPTION);
 
 				if (reallyClose != JOptionPane.YES_OPTION)
@@ -3841,15 +3839,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (errMessage.length() > 0)
 				{
-					ShowMessageDelegate.showMessageDialog(errMessage, "PCGen",
+					ShowMessageDelegate.showMessageDialog(errMessage, Constants.s_APPNAME,
 						MessageType.ERROR);
 				}
 			}
 		}
 		catch (IOException ex)
 		{
-			ShowMessageDelegate.showMessageDialog("Could not export "
-				+ pc.getDisplayName() + ". Try another filename", "PCGen",
+			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+				"in_ieExportEqSetUnableToExport", pc.getDisplayName()), Constants.s_APPNAME,
 				MessageType.ERROR);
 			Logging.errorPrint("Could not export " + pc.getDisplayName(), ex);
 		}
