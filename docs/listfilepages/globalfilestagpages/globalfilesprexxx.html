@@ -53,6 +53,29 @@
   		syntax, like enclosing the PRExxx statement in brackets [ ], see the individual
   		entries for examples.</p>
 
+		<p></p><a name="PREABILITY"></a><hr>
+		<p class="new">*** New 5.11.7</p>
+		<p class="indent0"><strong>Tag Name:</strong>PREABILITY:x,CATEGORY=y,z[,z]</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of abilities needed).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong>Text (Category name).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong>ALL (Checks all categories).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong>Text (Ability name).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong>TYPE.Text (Ability TYPE).</p>
+		<p class="indent1"><strong>Variables Used (z):</strong>ALL (Any ability applies).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Checks for the required number of Abilities. 
+			If CATEGORY=ALL is used the tag checks all categories (including feats) 
+			for an Ability of the specified name or type.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PREABILITY:1,CATEGORY=Special Quality,Night Vision,Acid Blast</code></p>
+		<p class="indent3">Requires the Night Vision or Acid Blast Special Quality</p>
+		<p class="indent2"><code>PREABILITY:1,CATEGORY=ANY,Sneak Attack</code></p>
+		<p class="indent3">Requires the Sneak Attack Ability from any category.</p>
+		<p class="indent2"><code>PREABILITY:3,CATEGORY=Mutation,ANY</code></p>
+		<p class="indent3">Requires any 3 Mutation category Abilities.</p>
+		<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
+		<p class="indent3">Requires 2 Mutation category Abilities of type MajorMutation.</p>
+		
 		<p></p><a name="PREALIGN"></a><hr>
 		<p class="new">*** Updated 5.7.6</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREALIGN:x,x</p>
