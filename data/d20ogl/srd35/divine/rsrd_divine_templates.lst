@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Apr 12 01:19:39 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Tue Jan 23 20:35:41 2007 -- reformated by prettylst.pl v1.35 (build 1961)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 
@@ -17,7 +17,7 @@ Innate Divine Rank	OUTPUTNAME:Divine Rank	VISIBLE:EXPORT																								
 
 ###Block: Divine Ranks
 
-# Template Name	Visible	Template				Special Ability	Modify VAR										Choose									Choose a Feat					Temporary effect description
+# Template Name	Visible	Template				Special Ability	Modify VAR																Choose									Temporary effect description
 Divine Rank (0)	VISIBLE:NO	TEMPLATE:Quasideity		SA:Divine Rank 0
 Divine Rank (1)	VISIBLE:NO	TEMPLATE:Demigod						BONUS:VAR|DivineRank,SalientDivinePool|1
 Divine Rank (2)	VISIBLE:NO	TEMPLATE:Demigod						BONUS:VAR|DivineRank,SalientDivinePool|2
@@ -39,11 +39,11 @@ Divine Rank (17)	VISIBLE:NO	TEMPLATE:Greater Deity					BONUS:VAR|DivineRank,Sali
 Divine Rank (18)	VISIBLE:NO	TEMPLATE:Greater Deity					BONUS:VAR|DivineRank,SalientDivinePool|18
 Divine Rank (19)	VISIBLE:NO	TEMPLATE:Greater Deity					BONUS:VAR|DivineRank,SalientDivinePool|19
 Divine Rank (20)	VISIBLE:NO	TEMPLATE:Greater Deity					BONUS:VAR|DivineRank,SalientDivinePool|20
-Divine Rank (21+)	VISIBLE:NO	TEMPLATE:Overdeity					BONUS:VAR|DivineRank,SalientDivinePool|21	BONUS:VAR|DivineRank,SalientDivinePool|%CHOICE|PREAPPLY:PC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Additional Ranks beyond 21								TEMPDESC:Use this to add additional Divine Ranks beyond 21
+Divine Rank (21+)	VISIBLE:NO	TEMPLATE:Overdeity					BONUS:VAR|DivineRank,SalientDivinePool|21	BONUS:VAR|DivineRank,SalientDivinePool|%CHOICE|PREAPPLY:PC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Additional Ranks beyond 21	TEMPDESC:Use this to add additional Divine Ranks beyond 21
 
 ###Block: Deity Types
 
-# Template Name		Visible	Damage Reduction	Special Ability																																																																																																																					Define							Choose a Feat			SUBRACE				Spells
+# Template Name		Visible	Damage Reduction	Special Ability																																																																																																																					Define							Modify VAR				SUBRACE				Spells
 Quasideity			VISIBLE:NO	DR:10/Epic																																																																																																																																						SUBRACE:Quasideity
 Demigod			VISIBLE:NO	DR:15/Epic		SA:Automatic Actions (2, max DC 15)	SA:Divine Aura (% ft)|DivineAuraRadius	SA:Remote Sensing (2 Locations)	SA:Immunity to Disease (Ex)	SA:Immunity to Poison (Ex)	SA:Immunity to Stunning (Ex)	SA:Immunity to Sleep (Ex)	SA:Immunity to Paralysis (Ex)	SA:Immunity to Death Effects (Ex)	SA:Immunity to Disintegration (Ex)	SA:Block Sensing (Ex) % Hours|DivineRank	SA:Portfolio Sense (Ex)	SA:Create Magic Items (Ex) 4,500 gp	SA:Communication (Ex)	SA:Godly Realm (Ex) % ft./% ft.|100*DivineRank|100*DivineRank	SA:Spontaneous Casting (Ex)|PRECLASS:1,SPELLCASTER.Divine=1	SA:Travel (Sp)	SA:Familiar (Ex)|PRECLASS:1,Wizard=1,Sorcerer=1											DEFINE:DivineAuraRadius|(10*var("DivineRank"))	BONUS:VAR|SalientDivinePool|1	SUBRACE:Demigod			SPELLS:Innate|TIMES=-1|CASTERLEVEL=TL|Teleport (Greater)
 Lesser Deity		VISIBLE:NO	DR:20/Epic		SA:Automatic Actions (5, max DC 20)	SA:Divine Aura (% ft)|DivineAuraRadius	SA:Remote Sensing (5 Locations)	SA:Immunity to Disease (Ex)	SA:Immunity to Poison (Ex)	SA:Immunity to Stunning (Ex)	SA:Immunity to Sleep (Ex)	SA:Immunity to Paralysis (Ex)	SA:Immunity to Death Effects (Ex)	SA:Immunity to Disintegration (Ex)	SA:Immunity to Banishment (Ex)	SA:Block Sensing (Ex) % Hours|DivineRank	SA:Portfolio Sense (Ex)	SA:Create Magic Items (Ex) 30,000 gp	SA:Communication (Ex)	SA:Godly Realm (Ex) 1 mile/% ft.|100*DivineRank	SA:Spontaneous Casting (Ex)|PRECLASS:1,SPELLCASTER.Divine=1	SA:Travel (Sp)	SA:Familiar (Ex)|PRECLASS:1,Wizard=1,Sorcerer=1							DEFINE:DivineAuraRadius|(100*var("DivineRank"))	BONUS:VAR|SalientDivinePool|2	SUBRACE:Lesser Deity		SPELLS:Innate|TIMES=-1|CASTERLEVEL=TL|Teleport (Greater)|Plane Shift
