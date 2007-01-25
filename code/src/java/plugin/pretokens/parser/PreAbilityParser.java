@@ -27,11 +27,13 @@ package plugin.pretokens.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.PropertyFactory;
 
 /**
  * <code>PreAbilityParser</code> parses PREABILITY prerequisite tokens.
@@ -46,6 +48,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
 {
 	private static final String CATEGORY = "CATEGORY.";
+	private static final String CATEGORY_EQUALS = "CATEGORY=";
 
 	/**
 	 * Create a new PreFeatParser instance.
@@ -98,14 +101,17 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 * Extract a category restriction from the list of entries and 
 	 * ensure it is applied to all keys. 
 	 * @param prereq The prereq to be processed.
+	 * @throws PersistenceLayerException If more than one category entry is found 
 	 */
 	private void extractCategory(Prerequisite prereq)
+		throws PersistenceLayerException
 	{
 		String categoryName = "";
 		if (prereq.getPrerequisites().size() == 0)
 		{
 			String preKey = prereq.getKey();
-			if (preKey.toUpperCase().startsWith(CATEGORY))
+			if (preKey.toUpperCase().startsWith(CATEGORY)
+				|| preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 			{
 				String tempCat = preKey.substring((CATEGORY.length()));
 				if (!tempCat.toUpperCase().trim().equals("ANY"))
@@ -129,9 +135,18 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 			else
 			{
 				String preKey = p.getKey();
-				if (preKey.toUpperCase().startsWith(CATEGORY))
+				if (preKey.toUpperCase().startsWith(CATEGORY)
+					|| preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 				{
 					String tempCat = preKey.substring((CATEGORY.length()));
+					if (categoryName.length() > 0)
+					{
+						throw new PersistenceLayerException(PropertyFactory
+							.getFormattedString(
+								"Errors.PreAbility.MultipleCategory",
+								categoryName, tempCat));
+					}
+					
 					if (!tempCat.toUpperCase().trim().equals("ANY"))
 					{
 						categoryName = tempCat;

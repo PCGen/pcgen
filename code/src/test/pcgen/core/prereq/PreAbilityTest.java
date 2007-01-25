@@ -157,5 +157,41 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 			prereq3, character, null));
 		
 	}
+
+	/**
+	 * Test the function of the type matching 
+	 * @throws PersistenceLayerException
+	 */
+	public void testTypeMatch() throws PersistenceLayerException
+	{
+		PlayerCharacter character = getCharacter();
+		PreAbilityParser parser = new PreAbilityParser();
+		Prerequisite prereq =
+				parser.parse("ability", "1,CATEGORY.ANY,TYPE.General", false,
+					false);
+		assertFalse("Test general type match with no abilities.", PrereqHandler
+			.passes(prereq, character, null));
+		Prerequisite prereq2 =
+				parser.parse("ability", "1,CATEGORY.ANY,TYPE.Bardic", false,
+					false);
+		assertFalse("Test bardic type match with no abilities.", PrereqHandler
+			.passes(prereq2, character, null));
+		Prerequisite prereq3 =
+				parser.parse("ability", "1,TYPE.Fighter", false, false);
+		assertFalse("Test fighter type match with no abilities.", PrereqHandler
+			.passes(prereq3, character, null));
+
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
+		ab2.setMultiples("NO");
+		character.addAbility(TestHelper.getAbilityCategory(ab2), ab2, null);
+
+		assertTrue("Test general type  match with an ability.", PrereqHandler
+			.passes(prereq, character, null));
+		assertTrue("Test bardic type match with an ability.", PrereqHandler
+			.passes(prereq2, character, null));
+		assertFalse("Test fighter type match with an ability.", PrereqHandler
+			.passes(prereq3, character, null));
+	}
 	
 }

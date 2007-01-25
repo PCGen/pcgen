@@ -32,6 +32,8 @@ import junit.textui.TestRunner;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.Logging;
 import plugin.pretokens.parser.PreAbilityParser;
 
 /**
@@ -72,7 +74,7 @@ public class PreAbilityParserTest extends TestCase
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Sneak Attack\" operator=\"gteq\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
 
-		prereq = parser.parse("ability", "2,CATEGORY.Mutation,Foo,Bar", false, false);
+		prereq = parser.parse("ability", "2,CATEGORY=Mutation,Foo,Bar", false, false);
 		assertEquals("Category specified for multiple keys",
 			"<prereq operator=\"gteq\" operand=\"2\" >\n"
 				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Foo\" operator=\"gteq\" operand=\"1\" >\n"
@@ -121,6 +123,27 @@ public class PreAbilityParserTest extends TestCase
 				"<prereq kind=\"ability\" category=\"Mutation\" key=\"ANY\" operator=\"gteq\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "", prereq.toString());
 	}
+	
+	/**
+	 * Test that an error is produced if two categories are specified.
+	 * @throws Exception
+	 */
+	public void testTwoCategories() throws Exception
+	{
+		try
+		{
+			PreAbilityParser parser = new PreAbilityParser();
+			Prerequisite prereq =
+					parser.parse("ability",
+						"1,CATEGORY.Mutation,KEY_a,CATEGORY.Foo", false, false);
+			fail("Should have thrown a PersistenceLayerException.");
+		}
+		catch (PersistenceLayerException e)
+		{
+			// Ignore, this is the expected result.
+		}
+	}
+	
 	protected void setUp() throws Exception
 	{
 		Globals.setUseGUI(false);
