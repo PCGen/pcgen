@@ -65,16 +65,15 @@ public class KitKit extends BaseKit implements Serializable, Cloneable
 	}
 
 	/**
-	 * testApply
+	 * Test applying this kit to the character.
 	 *
-	 * @param aPC PlayerCharacter
-	 * @param aKit Kit
-	 * @param warnings List
+	 * @param aPC PlayerCharacter The character to apply the kit to.
+	 * @param aKit Kit The kit that has requested the application of the kit.
+	 * @param warnings List The warign list to be populated if anything fails.
 	 */
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		// Big hack
-		String key = "None|" + kitStr;
+		String key = kitStr;
 		theKit = Globals.getKitKeyed(key);
 		if (theKit == null)
 		{
