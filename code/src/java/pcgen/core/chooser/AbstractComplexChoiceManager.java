@@ -141,13 +141,25 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 
 		choices        = mainList.subList(i, mainList.size());
 
+		double pool = 0;
+		if (pobject instanceof Ability)
+		{
+			pool =
+					pc.getAvailableAbilityPool(
+						SettingsHandler.getGame().getAbilityCategory(
+							((Ability) pobject).getCategory())).doubleValue();
+		}
+		else
+		{
+			pool = aPC.getRawFeats(true);
+		}
 		maxSelections  = (cost <= 0)
-				? (int)  (aPC.getRawFeats(true) + pobject.getAssociatedCount())
-				: (int) ((aPC.getRawFeats(true) + pobject.getAssociatedCount()) / cost);
+				? (int)  (pool + pobject.getAssociatedCount())
+				: (int) ((pool + pobject.getAssociatedCount()) / cost);
 
 		maxNewSelections = (cost <= 0)
-				? (int) (aPC.getRawFeats(true))
-				: (int) (aPC.getRawFeats(true) / cost);
+				? (int) (pool)
+				: (int) (pool / cost);
 	}
 
 	/**
@@ -355,7 +367,10 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 			}
 		}
 
-		adjustFeats(aPC, selected);
+		if (pobject instanceof Ability && ((Ability) pobject).isFeat())
+		{
+			adjustFeats(aPC, selected);
+		}
 
 		if (objPrefix.length() != 0)
 		{

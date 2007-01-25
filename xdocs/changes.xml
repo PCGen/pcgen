@@ -15,6 +15,7 @@
       <action dev="thpr" type="update" issue="1632898">Removed support for old file types (CLASSSPELLS, CLASSSKILLS, REQSKILL)</action>
       <action dev="thpr" type="update" issue="1633550">Deprecate old PRESPELLTYPE Syntax</action>
       <action dev="jdempsey" type="add" issue="1642779">Added new PREABILITY tag.</action>
+      <action dev="jdempsey" type="fix" issue="1638866">MULT:YES Abilities can't be added.</action>
     </release>
     <release version="5.11.6" date="2007-01-07" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>

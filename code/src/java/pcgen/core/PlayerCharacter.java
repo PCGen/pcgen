@@ -16365,8 +16365,8 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 			for (final Ability ability : abilities)
 			{
 				final int subfeatCount = ability.getAssociatedCount();
-
-				if (subfeatCount > 1)
+				if (ability.getChoiceString() != null
+					&& ability.getChoiceString().length() > 0)
 				{
 					spent += subfeatCount;
 				}

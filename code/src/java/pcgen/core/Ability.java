@@ -189,6 +189,15 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	}
 
 	/**
+	 * Identify if this ability is actually a feat.
+	 * @return true if this is a feat, false otherwise.
+	 */
+	public boolean isFeat()
+	{
+		return Constants.FEAT_CATEGORY.equals(getCategory());
+	}
+
+	/**
 	 * Set how many "points" this ability costs
 	 *
 	 * @param  cost  the cost of the ability
