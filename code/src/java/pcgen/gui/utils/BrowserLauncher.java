@@ -252,16 +252,16 @@ public final class BrowserLauncher
 				{
 					loadedWithoutErrors = false;
 					errorMessage =
-							PropertyFactory.getString("in_BLEr1") + ": "
-								+ version;
+							PropertyFactory.getFormattedString("in_BLEr1",
+								String.valueOf(version));
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
 				loadedWithoutErrors = false;
 				errorMessage =
-						PropertyFactory.getString("in_BLEr2") + ": "
-							+ mrjVersion;
+						PropertyFactory.getFormattedString("in_BLEr2",
+							String.valueOf(mrjVersion));
 			}
 		}
 		else if (osName.startsWith("Windows"))
@@ -306,8 +306,8 @@ public final class BrowserLauncher
 	{
 		if (!loadedWithoutErrors)
 		{
-			throw new IOException(PropertyFactory.getString("in_BLEr3") + ": "
-				+ errorMessage);
+			throw new IOException(PropertyFactory.getFormattedString("in_BLEr3",
+				errorMessage));
 		}
 
 		if (isBrowserPathNull(SettingsHandler.getBrowserPath()))
@@ -339,20 +339,20 @@ public final class BrowserLauncher
 					catch (InvocationTargetException ite)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr6")
-							+ ": " + ite.getMessage());
+							.getFormattedString("in_BLEr6",
+							ite.getMessage()));
 					}
 					catch (IllegalAccessException iae)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr7")
-							+ ": " + iae.getMessage());
+							.getFormattedString("in_BLEr7",
+							iae.getMessage()));
 					}
 					catch (InstantiationException ie)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr8")
-							+ ": " + ie.getMessage());
+							.getFormattedString("in_BLEr8",
+							ie.getMessage()));
 					}
 					finally
 					{
@@ -392,15 +392,15 @@ public final class BrowserLauncher
 						else
 						{
 							throw new IOException(PropertyFactory
-								.getString("in_BLEr9")
-								+ ": " + result);
+								.getFormattedString("in_BLEr9",
+								String.valueOf(result)));
 						}
 					}
 					else
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr10")
-							+ ": " + result);
+							.getFormattedString("in_BLEr10",
+							String.valueOf(result)));
 					}
 
 					break;
@@ -410,21 +410,21 @@ public final class BrowserLauncher
 					try
 					{
 						Logging.errorPrint(PropertyFactory
-							.getString("in_BLEr11")
-							+ " " + url);
+							.getFormattedString("in_BLEr11",
+							url));
 						openURL.invoke(null, new Object[]{url});
 					}
 					catch (InvocationTargetException ite)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr12")
-							+ ": " + ite.getMessage());
+							.getFormattedString("in_BLEr12",
+							ite.getMessage()));
 					}
 					catch (IllegalAccessException iae)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr13")
-							+ ": " + iae.getMessage());
+							.getFormattedString("in_BLEr13",
+							iae.getMessage()));
 					}
 
 					break;
@@ -451,8 +451,8 @@ public final class BrowserLauncher
 					catch (InterruptedException ie)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr14")
-							+ ": " + ie.getMessage());
+							.getFormattedString("in_BLEr14",
+							ie.getMessage()));
 					}
 
 					break;
@@ -482,8 +482,8 @@ public final class BrowserLauncher
 					catch (InterruptedException ie)
 					{
 						throw new IOException(PropertyFactory
-							.getString("in_BLEr14")
-							+ ": " + ie.getMessage());
+							.getFormattedString("in_BLEr14",
+							ie.getMessage()));
 					}
 
 					break;
@@ -508,21 +508,21 @@ public final class BrowserLauncher
 				return;
 			}
 
-			Logging.errorPrint(PropertyFactory.getString("in_BLEr15") + " "
-				+ browserPath);
+			Logging.errorPrint(PropertyFactory.getFormattedString("in_BLEr15",
+				browserPath));
 
 			// On MacOS X, one must use open -a to launch an app.
 			if ((jvm == MRJ_3_1) && browserPath.toLowerCase().endsWith(".app"))
 			{
-				Logging.errorPrint(PropertyFactory.getString("in_BLEr16") + " "
-					+ browserPath + " " + url);
+				Logging.errorPrint(PropertyFactory.getFormattedString("in_BLEr16",
+					browserPath,url));
 				Runtime.getRuntime().exec(
 					new String[]{"open", "-a", browserPath, url});
 			}
 			else
 			{
-				Logging.errorPrint(PropertyFactory.getString("in_BLEr17") + " "
-					+ browserPath + " " + url);
+				Logging.errorPrint(PropertyFactory.getFormattedString("in_BLEr17",
+					browserPath,url));
 				Runtime.getRuntime().exec(new String[]{browserPath, url});
 			}
 		}
