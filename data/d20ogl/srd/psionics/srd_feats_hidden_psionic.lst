@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original entry by: Ian
 # additional entry by TaluronIscandar
@@ -50,9 +50,9 @@ Tower of Iron Will	TYPE:PsionicDefenseMode			VISIBLE:NO	!PREFEAT:1,Tower of Iron
 PsionicClass	TYPE:PsionicClass	VISIBLE:NO	SA:Base Power Points (%)|BasePowerPoints	SA:Bonus Power Points (%)|BonusPowerPoints	SA:Total Power Points (%)|TotalPowerPoints	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: Psionic Feat Support
-# Feat Name				Type					Visible	Required Class			Prohibited Feat					Special Ability	Define									Save checks bonus			Bonus to skill			Modify VAR																														Source Page
+# Feat Name				Type					Visible	Required Class			Prohibited Feat					Special Ability	Define									Save checks bonus			Bonus to skill			Modify VAR																														Source Page					COMPANIONLIST																																																				FOLLOWERS
 Inner Strength Points		TYPE:PsionicFeat			VISIBLE:NO																DEFINE:InnerStrFeatCount|0	DEFINE:InnerStrFeatBonus|0											BONUS:VAR|InnerStrFeatCount|COUNT[FEATNAME=Inner Strength]	BONUS:VAR|InnerStrFeatBonus|(InnerStrFeatCount)*((InnerStrFeatCount/2)+.5)	BONUS:VAR|BASEPOWERPOINTS|InnerStrFeatBonus	SOURCEPAGE:srdpsionicfeats.rtf
-Psicrystal				TYPE:PsionicFeat			VISIBLE:NO													SA:Psicrystal	DEFINE:PCrystalLevel|0																																																SOURCEPAGE:srdpsionicclasses.rtf	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulos),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)
+Psicrystal				TYPE:PsionicFeat			VISIBLE:NO													SA:Psicrystal	DEFINE:PCrystalLevel|0																																																SOURCEPAGE:srdpsionicclasses.rtf	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulos),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	FOLLOWERS:Psicrystal|1
 Speed of Thought Movement	TYPE:PsionicFeat			VISIBLE:NO																DEFINE:SOTMOVEBONUS|0																	BONUS:VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))|PREAPPLY:PC																		SOURCEPAGE:srdpsionicfeats.rtf
 
 # These feats support the Talented feat, the user must decide which class the free powers are applied to
@@ -60,7 +60,7 @@ Psychic Warrior Free Powers	TYPE:TalentedFreePowers		VISIBLE:NO	PRECLASS:1,Psych
 Psion Free Powers			TYPE:TalentedFreePowers		VISIBLE:NO	PRECLASS:1,Psion=1		!PREFEAT:1,Psychic Warrior Free Powers																								BONUS:VAR|PsionFreePowers|3|PREFEAT:1,Talented
 
 #Psicrystal personalities
-# Feat Name				Type					Visible	Required Class			Prohibited Feat					Special Ability	Define									Save checks bonus			Bonus to skill			Modify VAR																														Source Page
+# Feat Name				Type					Visible	Required Class			Prohibited Feat					Special Ability	Define									Save checks bonus			Bonus to skill			Modify VAR																														Source Page					COMPANIONLIST																																																				FOLLOWERS
 Psicrystal (Artiste)		TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|TYPE.Craft|2																																SOURCEPAGE:srdpsionicclasses.rtf
 Psicrystal (Bully)		TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Intimidate|2																																SOURCEPAGE:srdpsionicclasses.rtf
 Psicrystal (Coward)		TYPE:PsicrystalPersonality	VISIBLE:NO																															BONUS:SKILL|Hide|2																																	SOURCEPAGE:srdpsionicclasses.rtf
