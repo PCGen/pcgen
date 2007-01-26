@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 # Original entry by: Ratheof Blithwyn
 # ITEM:Potion tag addition by: Paul "Yes, that Paul" Grosse (Nylanfs)
@@ -9,7 +9,7 @@ SOURCELONG:Fantasy Flight Games - School of Evocation	SOURCESHORT:Evoc	SOURCEWEB
 # The sub-schools, descriptors and the description are from the table on p.25-30
 
 # New spells
-# Spell Name				Classes of caster				School		Sub-School				Spell Descriptors		Type		Components		Casting Time		Range				Item		Target Area																										Duration								Save Info									Spell Resistance				Cost		XP Cost	Description																												Source Page
+# Spell Name				Classes of caster				School		Sub-School				Spell Descriptors		Type		Components		Casting Time		Range				Item		Target Area or Effect																								Duration								Save Info									Spell Resistance				Cost		XP Cost	Description																												Source Page
 Acerbic Gasp				CLASSES:Sorcerer,Wizard=2		SCHOOL:Evocation	SUBSCHOOL:Acid			DESCRIPTOR:Acid		TYPE:Arcane	COMPS:V, S		CASTTIME:1 action		RANGE:Close			ITEM:Potion	TARGETAREA:Cone																									DURATION:Instantaneous						SAVEINFO:Reflex half							SPELLRES:Yes								DESC:Creates cone of acid that deals 1d6 +1/two caster levels acid damage.																	SOURCEPAGE:p.31
 Acid Burst					CLASSES:Sorcerer,Wizard=3		SCHOOL:Evocation	SUBSCHOOL:Acid			DESCRIPTOR:Acid		TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action		RANGE:Medium		ITEM:Potion	TARGETAREA:10-ft.-radius burst																						DURATION:Instantaneous						SAVEINFO:Reflex half							SPELLRES:Yes								DESC:Globus of acid deal 1d6 points of acid damaga/level (max 10d6) on the first round and 1 point of acid damage/level on the second round, 10-ft. radius.				SOURCEPAGE:p.31
 Acid Deluge					CLASSES:Sorcerer,Wizard=7		SCHOOL:Evocation	SUBSCHOOL:Acid			DESCRIPTOR:Acid		TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action		RANGE:Medium		ITEM:Potion	TARGETAREA:One creature																								DURATION:Instantaneous						SAVEINFO:Reflex negates							SPELLRES:Yes								DESC:Wave of acid deals 1d6/level (maximum 20d6) points of acid damage to target and bull rushes opponent.												SOURCEPAGE:p.31

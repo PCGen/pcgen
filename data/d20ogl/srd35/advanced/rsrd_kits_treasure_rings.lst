@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Minor Rings	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Rings	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring (Protection +1)		OPTION:1,18
 GEAR:Ring (Feather Falling)		OPTION:19,28
@@ -20,7 +20,7 @@ KIT:Ring (Energy Resistance/Minor)	OPTION:94,96
 GEAR:Ring of Chameleon Power		OPTION:97,98
 GEAR:Ring (Water Walking)		OPTION:99,100
 
-STARTPACK:Medium Rings	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Rings	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring of Counterspells		OPTION:1,5
 GEAR:Ring (Mind Shielding)		OPTION:6,8
@@ -43,7 +43,7 @@ GEAR:Ring (X-Ray Vision)		OPTION:91,93
 GEAR:Ring of Blinking			OPTION:94,97
 KIT:Ring (Energy Resistance/Major)	OPTION:98,100
 
-STARTPACK:Major Rings	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Rings	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Ring (Energy Resistance/Minor)		OPTION:1,2
 GEAR:Ring (Protection +3)		OPTION:3,7
@@ -75,7 +75,7 @@ GEAR:Ring (Elemental Command/Fire)	OPTION:98
 GEAR:Ring (Elemental Command/Water)	OPTION:99
 GEAR:Ring (Spell Storing/Major)	OPTION:100
 
-STARTPACK:Ring (Energy Resistance/Minor)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Ring (Energy Resistance/Minor)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring (Energy Resistance/Acid/Minor)		OPTION:1,20
 GEAR:Ring (Energy Resistance/Cold/Minor)		OPTION:21,40
@@ -83,7 +83,7 @@ GEAR:Ring (Energy Resistance/Electricity/Minor)	OPTION:41,60
 GEAR:Ring (Energy Resistance/Fire/Minor)		OPTION:61,80
 GEAR:Ring (Energy Resistance/Sonic/Minor)		OPTION:81,100
 
-STARTPACK:Ring (Energy Resistance/Major)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Ring (Energy Resistance/Major)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring (Energy Resistance/Acid/Major)		OPTION:1,20
 GEAR:Ring (Energy Resistance/Cold/Major)		OPTION:21,40
@@ -91,7 +91,7 @@ GEAR:Ring (Energy Resistance/Electricity/Major)	OPTION:41,60
 GEAR:Ring (Energy Resistance/Fire/Major)		OPTION:61,80
 GEAR:Ring (Energy Resistance/Sonic/Major)		OPTION:81,100
 
-STARTPACK:Ring (Energy Resistance/Greater)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Ring (Energy Resistance/Greater)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring (Energy Resistance/Acid/Greater)		OPTION:1,20
 GEAR:Ring (Energy Resistance/Cold/Greater)		OPTION:21,40

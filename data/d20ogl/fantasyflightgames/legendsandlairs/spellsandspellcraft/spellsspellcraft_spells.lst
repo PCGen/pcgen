@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 #Original entry by: Knightcrawler
 #ITEM:Potion tag corrections by: Paul "Yes, that Paul" Grosse
 
-# Spell Name				Classes of caster					Domains granting the spell	School			Sub-School			Spell Descriptors					Type				Components		Casting Time		Range					Item		Target Area																Duration										Save Info						Spell Resistance				Cost		Description		Source Page
+# Spell Name				Classes of caster					Domains granting the spell	School			Sub-School			Spell Descriptors					Type				Components		Casting Time		Range					Item		Target Area or Effect														Duration										Save Info						Spell Resistance				Cost		Description		Source Page
 Acidic Vapors				CLASSES:Wizard=2										SCHOOL:Transmutation					DESCRIPTOR:Acid					TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 action		RANGE:Close				ITEM:Potion	TARGETAREA:One fog or gas type spell already in effect								DURATION:(CASTERLEVEL) rounds or until affected spell expires	SAVEINFO:Fortitude half				SPELLRES:Yes						DESC:See text	SOURCEPAGE:p.10
 Aegis of the Gods				CLASSES:Cleric=1					DOMAINS:Protection=1		SCHOOL:Abjuration													TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 action		RANGE:Touch				ITEM:Potion	TARGETAREA:Subject is surrounded by magical aura that protects them						DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:Will negates (harmless)		SPELLRES:Yes (harmless)					DESC:See text	SOURCEPAGE:p.11
 Animate Images				CLASSES:Wizard=5										SCHOOL:Illusion		SUBSCHOOL:Shadow									TYPE:Arcane			COMPS:V, S		CASTTIME:1 action		RANGE:Medium			ITEM:Potion	TARGETAREA:Up to (CASTERLEVEL) images or pictures									DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates				SPELLRES:Yes						DESC:See text	SOURCEPAGE:p.11

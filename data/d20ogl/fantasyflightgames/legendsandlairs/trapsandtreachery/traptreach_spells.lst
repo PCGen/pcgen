@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 #ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
 
-# Spell Name		Classes of caster				Domains granting the spell	School			Sub-School			Spell Descriptors			Type				Components		Casting Time		Range					Item		Target Area												Duration									Save Info					Spell Resistance	Description		Source Page
+# Spell Name		Classes of caster				Domains granting the spell	School			Sub-School			Spell Descriptors			Type				Components		Casting Time		Range					Item		Target Area or Effect										Duration									Save Info					Spell Resistance	Description		Source Page
 True Filch			CLASSES:Sorcerer,Wizard=2		DOMAINS:Thievery=2		SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:S		CASTTIME:1 action		RANGE:Close				ITEM:Potion	TARGETAREA:Self and one victim								DURATION:(CASTERLEVEL) minutes or until used [special]	SAVEINFO:None				SPELLRES:No		DESC:See text	SOURCEPAGE:p.53
 Perfect Crime								DOMAINS:Thievery=3		SCHOOL:Divination											TYPE:Divine			COMPS:V, S, M	CASTTIME:5 minutes	RANGE:Touch						TARGETAREA:Self plus (CASTERLEVEL/4) associates						DURATION:1 day								SAVEINFO:None				SPELLRES:No		DESC:See text	SOURCEPAGE:p.53
 Detect Traps		CLASSES:Sorcerer,Wizard=3		DOMAINS:Thievery=4		SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 action		RANGE:60 ft				ITEM:Potion	TARGETAREA:Quarter circle emanating from caster to the extreme of the range	DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:No		DESC:See text	SOURCEPAGE:p.53

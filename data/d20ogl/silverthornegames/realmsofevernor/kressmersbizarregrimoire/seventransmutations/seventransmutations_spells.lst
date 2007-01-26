@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Seven Transmutations	SOURCESHORT:7Trans	SOURCEWEB:http://www.silverthornegames.com/
 # Original Entry by: Tir Gwaith
 
-# Spell Name	Product Identity?	Output Name				Classes of caster					School			Type				Components		Casting Time			Range			Target Area												Duration			Save Info					Spell Resistance		Description																																			Source Page
+# Spell Name	Product Identity?	Output Name				Classes of caster					School			Type				Components		Casting Time			Range			Target Area or Effect										Duration			Save Info					Spell Resistance		Description																																			Source Page
 Age Wine										CLASSES:Sorcerer,Wizard=1			SCHOOL:Transmutation	TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Ages wine in one vessel								DURATION:Permanent	SAVEINFO:None				SPELLRES:No			DESC:Ages wine, improving taste.																															SOURCEPAGE:p.2
 Bitter Brew		NAMEISPI:YES	OUTPUTNAME:Bellamy's [NAME]	CLASSES:Bard,Sorcerer,Wizard=1		SCHOOL:Transmutation	TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Long		TARGETAREA:1d4+(CASTERLEVEL/2) containers of ale					DURATION:Permanent	SAVEINFO:Yes (object) (see text)	SPELLRES:Yes (object)	DESC:Instantly turns any beer, ale, lager, or similar alcoholic beverage into an awful, bitter-tasting concoction.																	SOURCEPAGE:p.2
 Costume Change									CLASSES:Bard,Sorcerer,Wizard=1		SCHOOL:Transmutation	TYPE:Arcane			COMPS:V, S		CASTTIME:1 standard action	RANGE:Unlimited	TARGETAREA:Clothes of (max(CASTERLEVEL/2,1)) creatures				DURATION:Permanent [D]	SAVEINFO:Will negates			SPELLRES:Yes		DESC:Instantly and permanently changes the style and color of the non-magical outer clothing worn by other creatures to a color and style that suit the caster.										SOURCEPAGE:p.2

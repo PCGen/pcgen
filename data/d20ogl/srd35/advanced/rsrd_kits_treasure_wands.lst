@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Minor Wands	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Wands	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Wand (Detect Magic)				OPTION:1,2
 GEAR:Wand (Light)						OPTION:3,4
@@ -41,7 +41,7 @@ GEAR:Wand (Silence)					OPTION:92,94
 GEAR:Wand (Summon Monster II)				OPTION:95,97
 GEAR:Wand (Web)						OPTION:98,100
 
-STARTPACK:Medium Wands	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Wands	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Wand (Magic Missile/5th level caster)			OPTION:1,3
 GEAR:Wand (Bear's Endurance)						OPTION:4,7
@@ -84,7 +84,7 @@ GEAR:Wand (Fireball/6th level caster)				OPTION:98
 GEAR:Wand (Lightning Bolt/6th level caster)			OPTION:99
 GEAR:Wand (Searing Light/6th level caster)			OPTION:100
 
-STARTPACK:Major Wands	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Wands	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Wand (Magic Missile/7th level caster)				OPTION:1,2
 GEAR:Wand (Magic Missile/9th level caster)				OPTION:3,5

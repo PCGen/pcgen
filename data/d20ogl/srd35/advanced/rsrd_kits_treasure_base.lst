@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Treasure Table	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR1			PREVAREQ:CR,1
 KIT:Treasure Table Goods CR1			PREVAREQ:CR,1
 KIT:Treasure Table Items CR1			PREVAREQ:CR,1
@@ -105,130 +105,121 @@ KIT:Treasure Table Major Magic Items	PREVARGTEQ:CR,30
 KIT:Treasure Table Major Magic Items	PREVARGTEQ:CR,30
 KIT:Treasure Table Major Magic Items	PREVARGTEQ:CR,30
 
-STARTPACK:Treasure Table Standard CR01	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR01	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR1
 KIT:Treasure Table Goods CR1
 KIT:Treasure Table Items CR1
 
-STARTPACK:Treasure Table Standard CR02	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR02	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR2
 KIT:Treasure Table Goods CR2
 KIT:Treasure Table Items CR2
 
-STARTPACK:Treasure Table Standard CR03	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR03	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR3
 KIT:Treasure Table Goods CR3
 KIT:Treasure Table Items CR3
 
-STARTPACK:Treasure Table Standard CR04	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR04	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR4
 KIT:Treasure Table Goods CR4
 KIT:Treasure Table Items CR4
 
-STARTPACK:Treasure Table Standard CR05	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR05	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR5
 KIT:Treasure Table Goods CR5
 KIT:Treasure Table Items CR5
 
-STARTPACK:Treasure Table Standard CR06	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR06	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR6
 KIT:Treasure Table Goods CR6
 KIT:Treasure Table Items CR6
 
-STARTPACK:Treasure Table Standard CR07	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR07	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR7
 KIT:Treasure Table Goods CR7
 KIT:Treasure Table Items CR7
 
-STARTPACK:Treasure Table Standard CR08	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR08	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR8
 KIT:Treasure Table Goods CR8
 KIT:Treasure Table Items CR8
 
-STARTPACK:Treasure Table Standard CR09	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR09	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR9
 KIT:Treasure Table Goods CR9
 KIT:Treasure Table Items CR9
 
-STARTPACK:Treasure Table Standard CR10	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR10	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR10
 KIT:Treasure Table Goods CR10
 KIT:Treasure Table Items CR10
 
-STARTPACK:Treasure Table Standard CR11	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR11	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR11
 KIT:Treasure Table Goods CR11
 KIT:Treasure Table Items CR11
 
-STARTPACK:Treasure Table Standard CR12	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR12	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR12
 KIT:Treasure Table Goods CR12
 KIT:Treasure Table Items CR12
 
-STARTPACK:Treasure Table Standard CR13	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR13	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR13
 KIT:Treasure Table Goods CR13
 KIT:Treasure Table Items CR13
 
-STARTPACK:Treasure Table Standard CR14	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR14	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR14
 KIT:Treasure Table Goods CR14
 KIT:Treasure Table Items CR14
 
-STARTPACK:Treasure Table Standard CR15	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR15	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR15
 KIT:Treasure Table Goods CR15
 KIT:Treasure Table Items CR15
 
-STARTPACK:Treasure Table Standard CR16	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR16	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR16
 KIT:Treasure Table Goods CR16
 KIT:Treasure Table Items CR16
 
-STARTPACK:Treasure Table Standard CR17	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR17	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR17
 KIT:Treasure Table Goods CR17
 KIT:Treasure Table Items CR17
 
-STARTPACK:Treasure Table Standard CR18	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR18	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR18
 KIT:Treasure Table Goods CR18
 KIT:Treasure Table Items CR18
 
-STARTPACK:Treasure Table Standard CR19	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR19	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR19
 KIT:Treasure Table Goods CR19
 KIT:Treasure Table Items CR19
 
-STARTPACK:Treasure Table Standard CR20	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR20	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
 
-STARTPACK:Treasure Table Standard CR21	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR21	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
 KIT:Treasure Table Major Magic Items
 
 
-STARTPACK:Treasure Table Standard CR22	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
-KIT:Treasure Table Coins CR20
-KIT:Treasure Table Goods CR20
-KIT:Treasure Table Items CR20
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-
-STARTPACK:Treasure Table Standard CR23	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR22	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR24	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR23	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
@@ -236,10 +227,8 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR25	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR24	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
@@ -249,11 +238,8 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR26	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR25	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
@@ -266,11 +252,8 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR27	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR26	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
@@ -286,12 +269,8 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR28	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR27	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
@@ -311,14 +290,8 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
-KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR29	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR28	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20
@@ -344,6 +317,33 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
+
+STARTPACK:Treasure Table Standard CR29	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+KIT:Treasure Table Coins CR20
+KIT:Treasure Table Goods CR20
+KIT:Treasure Table Items CR20
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
+KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
@@ -353,7 +353,7 @@ KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 KIT:Treasure Table Major Magic Items
 
-STARTPACK:Treasure Table Standard CR30	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Standard CR30	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 KIT:Treasure Table Coins CR20
 KIT:Treasure Table Goods CR20
 KIT:Treasure Table Items CR20

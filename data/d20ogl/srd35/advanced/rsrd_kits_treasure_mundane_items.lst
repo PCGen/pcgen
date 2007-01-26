@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Treasure Table Mundane Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Mundane Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Treasure Table Alchemical Item	OPTION:1,17
 KIT:Treasure Table Mundane Armor	OPTION:18,50
 KIT:Treasure Tabel Mundane Weapon	OPTION:51,83
 KIT:Treasure Table Tools and Gear	OPTION:84,100
 
-STARTPACK:Treasure Table Alchemical Items	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Alchemical Items	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Alchemist's Fire (Flask)	QTY:roll("1d4")	OPTION:1,12
 GEAR:Acid (Flask)			QTY:roll("2d4")	OPTION:13,24
@@ -20,12 +20,12 @@ GEAR:Everburning Torch		OPTION:63,74
 GEAR:Tanglefoot Bag		QTY:roll("1d4")	OPTION:75,88
 GEAR:Thunderstone			QTY:roll("1d4")	OPTION:89,100
 
-STARTPACK:Treasure Table Mundane Armor	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Mundane Armor	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Armor (Small)	OPTION:1,10
 KIT:Treasure Table Mundane Armor (Medium)	OPTION:11,100
 
-STARTPACK:Treasure Table Mundane Armor (Small)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Mundane Armor (Small)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Chain Shirt		SIZE:S	OPTION:1,12
 GEAR:Studded Leather	SIZE:S	EQMOD:MWORKA	OPTION:13,18
@@ -36,12 +36,12 @@ GEAR:Full Plate		SIZE:S	OPTION:55,80
 KIT:Darkwood Shield (Small)	OPTION:81,90
 KIT:Masterwork Shield (Small)	OPTION:91,100
 
-STARTPACK:Darkwood Shield (Small)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Darkwood Shield (Small)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:S	EQMOD:DARK	OPTION:1,50
 GEAR:Shield (Heavy/Wood)	SIZE:S	EQMOD:DARK	OPTION:51,100
 
-STARTPACK:Masterwork Shield (Small)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Masterwork Shield (Small)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:S	EQMOD:MWORKA	OPTION:1,17
 GEAR:Shield (Light/Wood)	SIZE:S	EQMOD:MWORKA	OPTION:18,40
@@ -49,7 +49,7 @@ GEAR:Shield (Light/Steel)	SIZE:S	EQMOD:MWORKA	OPTION:41,60
 GEAR:Shield (Heavy/Wood)	SIZE:S	EQMOD:MWORKA	OPTION:61,83
 GEAR:Shield (Heavy/Steel)	SIZE:S	EQMOD:MWORKA	OPTION:84,100
 
-STARTPACK:Treasure Table Mundane Armor (Medium)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Mundane Armor (Medium)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Chain Shirt		SIZE:M	OPTION:1,12
 GEAR:Studded Leather	SIZE:M	EQMOD:MWORKA	OPTION:13,18
@@ -60,12 +60,12 @@ GEAR:Full Plate		SIZE:M	OPTION:55,80
 KIT:Darkwood Shield (Medium)		OPTION:81,90
 KIT:Masterwork Shield (Medium)	OPTION:91,100
 
-STARTPACK:Darkwood Shield (Medium)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Darkwood Shield (Medium)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:M	EQMOD:DARK	OPTION:1,50
 GEAR:Shield (Heavy/Wood)	SIZE:M	EQMOD:DARK	OPTION:51,100
 
-STARTPACK:Masterwork Shield (Medium)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Masterwork Shield (Medium)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Buckler			SIZE:M	EQMOD:MWORKA	OPTION:1,17
 GEAR:Shield (Light/Wood)	SIZE:M	EQMOD:MWORKA	OPTION:18,40
@@ -73,13 +73,13 @@ GEAR:Shield (Light/Steel)	SIZE:M	EQMOD:MWORKA	OPTION:41,60
 GEAR:Shield (Heavy/Wood)	SIZE:M	EQMOD:MWORKA	OPTION:61,83
 GEAR:Shield (Heavy/Steel)	SIZE:M	EQMOD:MWORKA	OPTION:84,100
 
-STARTPACK:Treasure Table Mundane Weapon	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Mundane Weapon	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Masterwork Common Melee Weapon	OPTION:1,50
 KIT:Masterwork Uncommon Weapon	OPTION:51,70
 KIT:Masterwork Common Ranged Weapon	OPTION:71,100
 
-STARTPACK:Treasure Table Tools and Gear	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Tools and Gear	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Backpack				OPTION:1,3
 GEAR:Crowbar				OPTION:4,6
@@ -102,7 +102,7 @@ GEAR:Magnifying Glass			OPTION:82,88
 KIT:Musical Instrument (Masterwork)	OPTION:89,95
 GEAR:Thieves' Tools			EQMOD:MWORKT	OPTION:96,100
 
-STARTPACK:Artisan's Tools (Masterwork)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Artisan's Tools (Masterwork)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d13")
 GEAR:Artisan's Tools (Armorsmithing)	EQMOD:MWORKT	OPTION:1
 GEAR:Artisan's Tools (Bowmaking)		EQMOD:MWORKT	OPTION:2
@@ -118,7 +118,7 @@ GEAR:Artisan's Tools (Trapmaking)		EQMOD:MWORKT	OPTION:11
 GEAR:Artisan's Tools (Weaponsmithing)	EQMOD:MWORKT	OPTION:12
 GEAR:Artisan's Tools (Woodworking)		EQMOD:MWORKT	OPTION:13
 
-STARTPACK:Musical Instrument (Masterwork)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Musical Instrument (Masterwork)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d13")
 GEAR:Musical Instrument (Bells)	EQMOD:MWORKI	OPTION:1
 GEAR:Musical Instrument (Chime)	EQMOD:MWORKI	OPTION:2
@@ -134,7 +134,7 @@ GEAR:Musical Instrument (Recorder)	EQMOD:MWORKI	OPTION:11
 GEAR:Musical Instrument (Shawn)	EQMOD:MWORKI	OPTION:12
 GEAR:Musical Instrument (Trumpet)	EQMOD:MWORKI	OPTION:13
 
-STARTPACK:Masterwork Common Melee Weapon	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Masterwork Common Melee Weapon	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Dagger			EQMOD:MWORKW	OPTION:1,4
 GEAR:Greataxe		EQMOD:MWORKW	OPTION:5,14
@@ -153,7 +153,7 @@ GEAR:Sword (Bastard)	EQMOD:MWORKW	OPTION:75,84
 GEAR:Sword (Short)	EQMOD:MWORKW	OPTION:85,89
 GEAR:Waraxe (Dwarven)	EQMOD:MWORKW	OPTION:90,100
 
-STARTPACK:Masterwork Uncommon Weapon	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Masterwork Uncommon Weapon	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Axe (Orc Double)		EQMOD:MWORKW	OPTION:1,3
 GEAR:Battleaxe			EQMOD:MWORKW	OPTION:4,7
@@ -194,7 +194,7 @@ GEAR:Urgrosh (Dwarven)		EQMOD:MWORKW	OPTION:92,94
 GEAR:Warhammer			EQMOD:MWORKW	OPTION:95,97
 GEAR:Whip				EQMOD:MWORKW	OPTION:98,100
 
-STARTPACK:Masterwork Common Ranged Weapon	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Masterwork Common Ranged Weapon	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Masterwork Ammunition	OPTION:1,10
 GEAR:Axe (Throwing)		EQMOD:MWORKW	OPTION:11,15
@@ -214,7 +214,7 @@ GEAR:Longbow (Composite)	EQMOD:MWORKW.BOWSTR|2	OPTION:86,90
 GEAR:Longbow (Composite)	EQMOD:MWORKW.BOWSTR|3	OPTION:91,95
 GEAR:Longbow (Composite)	EQMOD:MWORKW.BOWSTR|4	OPTION:96,100
 
-STARTPACK:Masterwork Ammunition	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Masterwork Ammunition	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Arrow	QTY:50	EQMOD:MWORKW	OPTION:1,50
 GEAR:Bolt	QTY:50	EQMOD:MWORKW	OPTION:51,80

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Medium Rods	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Rods	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Rod (Enlarge/Lesser)			OPTION:1,7
 GEAR:Rod (Extend/Lesser)			OPTION:8,14
@@ -22,7 +22,7 @@ GEAR:Rod (Viper)					OPTION:90,97
 GEAR:Rod (Empower)				OPTION:98,99
 GEAR:Rod (Quicken/Lesser)			OPTION:100
 
-STARTPACK:Major Rods	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Rods	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Rod (Cancellation)			OPTION:1,4
 GEAR:Rod (Enlarge)			OPTION:5,6

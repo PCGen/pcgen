@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Minor Wondrous Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Wondrous Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Feather Token (Anchor)					OPTION:1
 GEAR:Universal Solvent						OPTION:2
@@ -105,7 +105,7 @@ GEAR:Bottle of Air						OPTION:98
 GEAR:Bag of Holding (Type 3)					OPTION:99
 GEAR:Periapt of Health						OPTION:100
 
-STARTPACK:Medium Wondrous Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Wondrous Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Boots of Levitation					OPTION:1
 GEAR:Harp of Charming						OPTION:2
@@ -208,7 +208,7 @@ GEAR:Tome of Clear Thought +1					OPTION:98
 GEAR:Tome of Leadership and Influence +1			OPTION:99
 GEAR:Tome of Understanding +1					OPTION:100
 
-STARTPACK:Major Wondrous Items	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Wondrous Items	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Dimensional Shackles					OPTION:1
 GEAR:Figurine of Wondrous Power (Obsidian Steed)	OPTION:2
@@ -311,13 +311,13 @@ GEAR:Iron Flask							OPTION:98
 GEAR:Mirror of Mental Prowess					OPTION:99
 GEAR:Mirror of Life Trapping					OPTION:100
 
-STARTPACK:Robe of the Archmagi	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Robe of the Archmagi	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Robe of the Archmagi (White)	OPTION:1,45
 GEAR:Robe of the Archmagi (Gray)	OPTION:46,75
 GEAR:Robe of the Archmagi (Black)	OPTION:76,100
 
-STARTPACK:Horn of Valhalla	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Horn of Valhalla	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Horn of Valhalla (Silver)	OPTION:1,40
 GEAR:Horn of Valhalla (Brass)		OPTION:41,75

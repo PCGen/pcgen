@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
-# Spell Name	Classes of caster			School			Spell Descriptors		Type		Components	Casting Time			Range		Item		Target Area		Duration					Save Info				Spell Resistance	Description		Source Page
-Fatal Error		CLASSES:Verman Corrupter=3	SCHOOL:Enchantment	DESCRIPTOR:Compulsion	TYPE:Divine	COMPS:S	CASTTIME:1 action			RANGE:Close	ITEM:Potion	TARGETAREA:None	DURATION:1 rd/lvl or Special		SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 170
-Misaligned Aura	CLASSES:Verman Corrupter=1	SCHOOL:Illusion						TYPE:Divine	COMPS:V S	CASTTIME:1 action			RANGE:Close	ITEM:Potion	TARGETAREA:None	DURATION:1 hr/lvl				SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 169
-Rewrite		CLASSES:Verman Corrupter=2	SCHOOL:Transformation					TYPE:Divine	COMPS:V S M	CASTTIME:1 action + Special	RANGE:Touch	ITEM:Potion	TARGETAREA:None	DURATION:1 page of written text/lvl	SAVEINFO:None (See Text)	SPELLRES:No		DESC:See Text	SOURCEPAGE:p. 169
+# Spell Name	Classes of caster			School			Spell Descriptors		Type		Components	Casting Time			Range		Item		Target Area or Effect	Duration					Save Info				Spell Resistance	Description		Source Page
+Fatal Error		CLASSES:Verman Corrupter=3	SCHOOL:Enchantment	DESCRIPTOR:Compulsion	TYPE:Divine	COMPS:S	CASTTIME:1 action			RANGE:Close	ITEM:Potion	TARGETAREA:None		DURATION:1 rd/lvl or Special		SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 170
+Misaligned Aura	CLASSES:Verman Corrupter=1	SCHOOL:Illusion						TYPE:Divine	COMPS:V S	CASTTIME:1 action			RANGE:Close	ITEM:Potion	TARGETAREA:None		DURATION:1 hr/lvl				SAVEINFO:Will Negates		SPELLRES:Yes	DESC:See Text	SOURCEPAGE:p. 169
+Rewrite		CLASSES:Verman Corrupter=2	SCHOOL:Transformation					TYPE:Divine	COMPS:V S M	CASTTIME:1 action + Special	RANGE:Touch	ITEM:Potion	TARGETAREA:None		DURATION:1 page of written text/lvl	SAVEINFO:None (See Text)	SPELLRES:No		DESC:See Text	SOURCEPAGE:p. 169
 
 
 ###Block: SPELL.MOD generated from the old CLASSSPELL files

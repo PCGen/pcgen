@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -11,7 +11,7 @@ KIT:Treasure Table Gems 500gp		OPTION:71,90
 KIT:Treasure Table Gems 1000gp	OPTION:91,99
 KIT:Treasure Table Gems 5000gp	OPTION:100
 
-STARTPACK:Treasure Table Gems 10gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Gems 10gp	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d13")
 GEAR:Gem (Agate (Banded))			EQMOD:GEM|EVAL(roll("4d4"))	OPTION:1
 GEAR:Gem (Agate (Eye))				EQMOD:GEM|EVAL(roll("4d4"))	OPTION:2
@@ -27,7 +27,7 @@ GEAR:Gem (Tiger Eye)				EQMOD:GEM|EVAL(roll("4d4"))	OPTION:11
 GEAR:Gem (Turquoise)				EQMOD:GEM|EVAL(roll("4d4"))	OPTION:12
 GEAR:Gem (Pearl (Freshwater/Irregular))	EQMOD:GEM|EVAL(roll("4d4"))	OPTION:13
 
-STARTPACK:Treasure Table Gems 50gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Gems 50gp	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d17")
 GEAR:Gem (Bloodstone)				EQMOD:GEM|EVAL(roll("2d4")*10)	OPTION:1
 GEAR:Gem (Carnelian)				EQMOD:GEM|EVAL(roll("2d4")*10)	OPTION:2
@@ -47,7 +47,7 @@ GEAR:Gem (Quartz (Smoky))			EQMOD:GEM|EVAL(roll("2d4")*10)	OPTION:15
 GEAR:Gem (Quartz (Star Rose))			EQMOD:GEM|EVAL(roll("2d4")*10)	OPTION:16
 GEAR:Gem (Zircon)					EQMOD:GEM|EVAL(roll("2d4")*10)	OPTION:17
 
-STARTPACK:Treasure Table Gems 100gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Gems 100gp	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d16")
 GEAR:Gem (Amber)				EQMOD:GEM|EVAL(roll("4d4")*10)	OPTION:1
 GEAR:Gem (Amethyst)			EQMOD:GEM|EVAL(roll("4d4")*10)	OPTION:2
@@ -66,7 +66,7 @@ GEAR:Gem (Spinel (Red-Brown))		EQMOD:GEM|EVAL(roll("4d4")*10)	OPTION:14
 GEAR:Gem (Spinel (Deep Green))	EQMOD:GEM|EVAL(roll("4d4")*10)	OPTION:15
 GEAR:Gem (Tourmaline)			EQMOD:GEM|EVAL(roll("4d4")*10)	OPTION:16
 
-STARTPACK:Treasure Table Gems 500gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Gems 500gp	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d6")
 GEAR:Gem (Alexandrite)			EQMOD:GEM|EVAL(roll("2d4")*100)	OPTION:1
 GEAR:Gem (Aquamarine)			EQMOD:GEM|EVAL(roll("2d4")*100)	OPTION:2
@@ -75,7 +75,7 @@ GEAR:Gem (Pearl (Black))		EQMOD:GEM|EVAL(roll("2d4")*100)	OPTION:4
 GEAR:Gem (Spinel (Deep Blue))		EQMOD:GEM|EVAL(roll("2d4")*100)	OPTION:5
 GEAR:Gem (Topaz (Golden Yellow))	EQMOD:GEM|EVAL(roll("2d4")*100)	OPTION:6
 
-STARTPACK:Treasure Table Gems 1000gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Gems 1000gp	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d10")
 GEAR:Gem (Emerald)			EQMOD:GEM|EVAL(roll("4d4")*100)	OPTION:1
 GEAR:Gem (Opal (White))			EQMOD:GEM|EVAL(roll("4d4")*100)	OPTION:2
@@ -88,7 +88,7 @@ GEAR:Gem (Star Sapphire (Blue))	EQMOD:GEM|EVAL(roll("4d4")*100)	OPTION:8
 GEAR:Gem (Star Sapphire (Black))	EQMOD:GEM|EVAL(roll("4d4")*100)	OPTION:9
 GEAR:Gem (Ruby (Star))			EQMOD:GEM|EVAL(roll("4d4")*100)	OPTION:10
 
-STARTPACK:Treasure Table Gems 5000gp	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Treasure Table Gems 5000gp	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d7")
 GEAR:Gem (Emerald (Clearest Bright Green))	EQMOD:GEM|EVAL(roll("2d4")*1000)	OPTION:1
 GEAR:Gem (Diamond (Blue-White))			EQMOD:GEM|EVAL(roll("2d4")*1000)	OPTION:2

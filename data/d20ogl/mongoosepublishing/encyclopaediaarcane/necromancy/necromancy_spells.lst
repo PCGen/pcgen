@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com
 #ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
 
-# Spell Name			Classes of caster			School		Type		Components		Casting Time		Range			Item		Target Area									Duration						Save Info					Spell Resistance		Description		Source Page
+# Spell Name			Classes of caster			School		Type		Components		Casting Time		Range			Item		Target Area or Effect							Duration						Save Info					Spell Resistance		Description		Source Page
 Animate Animal			CLASSES:Sorcerer,Wizard=0	SCHOOL:Necromancy	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 Action		RANGE:Touch		ITEM:Potion	TARGETAREA:1 animal corpse touched					DURATION:Instantaneous				SAVEINFO:None				SPELLRES:No			DESC:See text	SOURCEPAGE:p.19
 Animate Skeleton			CLASSES:Sorcerer,Wizard=1	SCHOOL:Necromancy	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 Action		RANGE:Touch		ITEM:Potion	TARGETAREA:1 corpse touched						DURATION:Instantaneous				SAVEINFO:None				SPELLRES:No			DESC:See text	SOURCEPAGE:p.20
 Animate Zombie			CLASSES:Sorcerer,Wizard=2	SCHOOL:Necromancy	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 Action		RANGE:Touch		ITEM:Potion	TARGETAREA:1 corpse touched						DURATION:Instantaneous				SAVEINFO:None				SPELLRES:No			DESC:See text	SOURCEPAGE:p.20

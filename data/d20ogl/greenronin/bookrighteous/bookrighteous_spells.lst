@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Arcana - The Book of the Righteous	SOURCESHORT:BookRight	SOURCEWEB:http://www.greenronin.com
 # Original Entry by: Beaver
 
@@ -8,7 +8,7 @@ SOURCELONG:Arcana - The Book of the Righteous	SOURCESHORT:BookRight	SOURCEWEB:ht
 #	Rontra's Blessing
 #	Greater Transference
 
-# Spell Name		Domains granting the spell	School			Sub-School			Spell Descriptors						Components		Casting Time		Range			Target Area				Duration									Save Info						Spell Resistance		Cost			Description														Source Page
+# Spell Name		Domains granting the spell	School			Sub-School			Spell Descriptors						Components		Casting Time		Range			Target Area or Effect		Duration									Save Info						Spell Resistance		Cost			Description														Source Page
 Afflatus			DOMAINS:Inspiration=3		SCHOOL:Evocation		SUBSCHOOL:Sonic										COMPS:V DF		CASTTIME:1 action		RANGE:Touch		TARGETAREA:Touch			DURATION:1 Week or until discharged					SAVEINFO:None					SPELLRES:Yes (Harmless)				DESC:+10 Bonus on Craft, Perform, Profession								SOURCEPAGE:p.259
 Anwyn's Elysian Palace	DOMAINS:Home=9			SCHOOL:Transmutation													COMPS:V S DF XP	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Touch			DURATION:Instantaneous							SAVEINFO:Will negates				SPELLRES:Yes		COST:5,000		DESC:Transports Caster and one other to a palace of Anwyn (See Text)				SOURCEPAGE:p.259
 Bind Oath			DOMAINS:Justice=3			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Language Dependant|Mind Affecting	COMPS:V S DF	CASTTIME:10 minutes	RANGE:Touch		TARGETAREA:Mind-Affecting	DURATION:Perminent (see text)						SAVEINFO:None					SPELLRES:Yes					DESC:Bind a subject to an oath he/she voluntarily swears						SOURCEPAGE:p.260
@@ -33,7 +33,7 @@ Touch of Return		DOMAINS:The Dead=4		SCHOOL:Necromancy		SUBSCHOOL:Death									
 Transference							SCHOOL:Abjuration														COMPS:V S F		CASTTIME:1 action		RANGE:Close		TARGETAREA:None			DURATION:1 hour/level (D)						SAVEINFO:Will negates (Harmless)		SPELLRES:Yes (Harmless)				DESC:As per 'Shield Other' with some important differences.						SOURCEPAGE:p.264
 
 ###Block: Extrapolated from spell lists and SRD.
-# Spell Name			School			Sub-School		Type		Components	Casting Time	Range		Item		Target Area										Duration			Save Info		Spell Resistance		Description							Source Page
+# Spell Name			School			Sub-School		Type		Components	Casting Time	Range		Item		Target Area or Effect								Duration			Save Info		Spell Resistance		Description							Source Page
 Heal Animal Companion		SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V, S	CASTTIME:1 action	RANGE:Touch	ITEM:Potion	TARGETAREA:The character's animal companion touched			DURATION:Instantaneous	SAVEINFO:None	SPELLRES:Yes (Harmless)	DESC:As heal on animal companion.			SOURCEPAGE:p.52
 Heal Mount/Animal Companion	SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V, S	CASTTIME:1 action	RANGE:Touch	ITEM:Potion	TARGETAREA:The character's mount or animal companion touched	DURATION:Instantaneous	SAVEINFO:None	SPELLRES:Yes (Harmless)	DESC:As heal on mount or animal companion.	SOURCEPAGE:p.154
 

@@ -1,77 +1,77 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Minor Scrolls	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Scrolls	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Minor Arcane Scroll	OPTION:1,70
 KIT:Minor Divine Scroll	OPTION:71,100
 
-STARTPACK:Minor Arcane Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Arcane Scroll	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d3")
 KIT:Minor Arcane Scroll Spell	OPTION:1
 KIT:Minor Arcane Scroll Spell	OPTION:1,2
 KIT:Minor Arcane Scroll Spell	OPTION:1,3
 
-STARTPACK:Minor Arcane Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Arcane Scroll Spell	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Arcane Scroll Level 0	OPTION:1,5
 KIT:Arcane Scroll Level 1	OPTION:6,50
 KIT:Arcane Scroll Level 2	OPTION:51,95
 KIT:Arcane Scroll Level 3	OPTION:96,100
 
-STARTPACK:Minor Divine Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Divine Scroll	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d3")
 KIT:Minor Divine Scroll Spell	OPTION:1
 KIT:Minor Divine Scroll Spell	OPTION:1,2
 KIT:Minor Divine Scroll Spell	OPTION:1,3
 
-STARTPACK:Minor Divine Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Divine Scroll Spell	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Divine Scroll Level 0	OPTION:1,5
 KIT:Divine Scroll Level 1	OPTION:6,50
 KIT:Divine Scroll Level 2	OPTION:51,95
 KIT:Divine Scroll Level 3	OPTION:96,100
 
-STARTPACK:Medium Scrolls	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Scrolls	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Medium Arcane Scroll	OPTION:1,70
 KIT:Medium Divine Scroll	OPTION:71,100
 
-STARTPACK:Medium Arcane Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Arcane Scroll	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d4")
 KIT:Medium Arcane Scroll Spell	OPTION:1
 KIT:Medium Arcane Scroll Spell	OPTION:1,2
 KIT:Medium Arcane Scroll Spell	OPTION:1,3
 KIT:Medium Arcane Scroll Spell	OPTION:1,4
 
-STARTPACK:Medium Arcane Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Arcane Scroll Spell	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Arcane Scroll Level 2	OPTION:1,5
 KIT:Arcane Scroll Level 3	OPTION:6,65
 KIT:Arcane Scroll Level 4	OPTION:66,95
 KIT:Arcane Scroll Level 5	OPTION:96,100
 
-STARTPACK:Medium Divine Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Divine Scroll	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d4")
 KIT:Medium Divine Scroll Spell	OPTION:1
 KIT:Medium Divine Scroll Spell	OPTION:1,2
 KIT:Medium Divine Scroll Spell	OPTION:1,3
 KIT:Medium Divine Scroll Spell	OPTION:1,4
 
-STARTPACK:Medium Divine Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Divine Scroll Spell	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Divine Scroll Level 2	OPTION:1,5
 KIT:Divine Scroll Level 3	OPTION:6,65
 KIT:Divine Scroll Level 4	OPTION:66,95
 KIT:Divine Scroll Level 5	OPTION:96,100
 
-STARTPACK:Major Scrolls	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Scrolls	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Medium Arcane Scroll	OPTION:1,70
 KIT:Medium Divine Scroll	OPTION:71,100
 
-STARTPACK:Major Arcane Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Arcane Scroll	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d6")
 KIT:Major Arcane Scroll Spell	OPTION:1
 KIT:Major Arcane Scroll Spell	OPTION:1,2
@@ -80,7 +80,7 @@ KIT:Major Arcane Scroll Spell	OPTION:1,4
 KIT:Major Arcane Scroll Spell	OPTION:1,5
 KIT:Major Arcane Scroll Spell	OPTION:1,6
 
-STARTPACK:Major Arcane Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Arcane Scroll Spell	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Arcane Scroll Level 4	OPTION:1,5
 KIT:Arcane Scroll Level 5	OPTION:6,50
@@ -89,7 +89,7 @@ KIT:Arcane Scroll Level 7	OPTION:71,85
 KIT:Arcane Scroll Level 8	OPTION:86,95
 KIT:Arcane Scroll Level 9	OPTION:96,100
 
-STARTPACK:Major Divine Scroll	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Divine Scroll	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d6")
 KIT:Major Divine Scroll Spell	OPTION:1
 KIT:Major Divine Scroll Spell	OPTION:1,2
@@ -98,7 +98,7 @@ KIT:Major Divine Scroll Spell	OPTION:1,4
 KIT:Major Divine Scroll Spell	OPTION:1,5
 KIT:Major Divine Scroll Spell	OPTION:1,6
 
-STARTPACK:Major Divine Scroll Spell	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Divine Scroll Spell	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 KIT:Divine Scroll Level 4	OPTION:1,5
 KIT:Divine Scroll Level 5	OPTION:6,50
@@ -107,7 +107,7 @@ KIT:Divine Scroll Level 7	OPTION:71,85
 KIT:Divine Scroll Level 8	OPTION:86,95
 KIT:Divine Scroll Level 9	OPTION:96,100
 
-STARTPACK:Arcane Scroll Level 0	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 0	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Acid Splash)		OPTION:1,4
 GEAR:Scroll (Arcane Mark)		OPTION:5,8
@@ -132,7 +132,7 @@ GEAR:Scroll (Resistance/Arcane)	OPTION:88,94
 GEAR:Scroll (Summon Instrument)	OPTION:95,96
 GEAR:Scroll (Touch of Fatigue)	OPTION:97,100
 
-STARTPACK:Arcane Scroll Level 1	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 1	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Alarm/Arcane)				OPTION:1,3
 GEAR:Scroll (Animate Rope)				OPTION:4,5
@@ -181,7 +181,7 @@ GEAR:Scroll (Undetectable Alignment/Arcane)	OPTION:96
 GEAR:Scroll (Unseen Servant)				OPTION:97,98
 GEAR:Scroll (Ventriloquism)				OPTION:99,100
 
-STARTPACK:Arcane Scroll Level 2	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 2	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animal Messenger/Arcane)	OPTION:1
 GEAR:Scroll (Animal Trance/Arcane)		OPTION:2
@@ -242,7 +242,7 @@ GEAR:Scroll (Touch of Idiocy)			OPTION:97
 GEAR:Scroll (Web)					OPTION:98,99
 GEAR:Scroll (Whispering Wind)			OPTION:100
 
-STARTPACK:Arcane Scroll Level 3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 3	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Arcane Sight)				OPTION:1,2
 GEAR:Scroll (Blink)					OPTION:3,4
@@ -295,7 +295,7 @@ GEAR:Scroll (Vampiric Touch)				OPTION:94,95
 GEAR:Scroll (Water Breathing/Arcane)		OPTION:96,98
 GEAR:Scroll (Wind Wall/Arcane)			OPTION:99,100
 
-STARTPACK:Arcane Scroll Level 4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 4	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animate Dead/Arcane)			OPTION:1,2
 GEAR:Scroll (Arcane Eye)				OPTION:3,5
@@ -346,7 +346,7 @@ GEAR:Scroll (Wall of Fire/Arcane)			OPTION:94,96
 GEAR:Scroll (Wall of Ice)				OPTION:97,99
 GEAR:Scroll (Zone of Silence)				OPTION:100
 
-STARTPACK:Arcane Scroll Level 5	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 5	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animal Growth/Arcane)			OPTION:1,2
 GEAR:Scroll (Baleful Polymorph/Arcane)		OPTION:3,5
@@ -395,7 +395,7 @@ GEAR:Scroll (Wall of Force)				OPTION:93,95
 GEAR:Scroll (Wall of Stone)				OPTION:96,98
 GEAR:Scroll (Waves of Fatigue)			OPTION:99,100
 
-STARTPACK:Arcane Scroll Level 6	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 6	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Acid Fog)					OPTION:1,2
 GEAR:Scroll (Analyze Dweomer)				OPTION:3,5
@@ -446,7 +446,7 @@ GEAR:Scroll (Undeath to Death/Arcane)		OPTION:94,95
 GEAR:Scroll (Veil)					OPTION:96,97
 GEAR:Scroll (Wall of Iron)				OPTION:98,100
 
-STARTPACK:Arcane Scroll Level 7	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 7	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Arcane Sight/Greater)			OPTION:1,3
 GEAR:Scroll (Banishment/Arcane)			OPTION:4,7
@@ -484,7 +484,7 @@ GEAR:Scroll (Teleport/Greater)			OPTION:91,95
 GEAR:Scroll (Vision)					OPTION:96,97
 GEAR:Scroll (Waves of Exhaustion)			OPTION:98,100
 
-STARTPACK:Arcane Scroll Level 8	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 8	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Antipathy/Arcane)			OPTION:1,2
 GEAR:Scroll (Clenched Fist)				OPTION:3,5
@@ -522,7 +522,7 @@ GEAR:Scroll (Sympathy/Arcane)				OPTION:93,94
 GEAR:Scroll (Temporal Stasis)				OPTION:95,98
 GEAR:Scroll (Trap the Soul)				OPTION:99,100
 
-STARTPACK:Arcane Scroll Level 9	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Arcane Scroll Level 9	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Astral Projection/Arcane)	OPTION:1,3
 GEAR:Scroll (Crushing Hand)			OPTION:4,7
@@ -549,7 +549,7 @@ GEAR:Scroll (Wail of the Banshee)		OPTION:92,95
 GEAR:Scroll (Weird)				OPTION:96,99
 GEAR:Scroll (Wish)				OPTION:100
 
-STARTPACK:Divine Scroll Level 0	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 0	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Create Water)		OPTION:1,7
 GEAR:Scroll (Cure Minor Wounds)	OPTION:8,14
@@ -566,7 +566,7 @@ GEAR:Scroll (Read Magic/Divine)	OPTION:80,86
 GEAR:Scroll (Resistance/Divine)	OPTION:87,93
 GEAR:Scroll (Virtue)			OPTION:94,100
 
-STARTPACK:Divine Scroll Level 1	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 1	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Alarm/Divine)				OPTION:1
 GEAR:Scroll (Bane)					OPTION:2,3
@@ -615,14 +615,14 @@ GEAR:Scroll (Speak with Animals/Divine)		OPTION:95,96
 GEAR:Scroll (Summon Monster I/Divine)		OPTION:97,98
 GEAR:Scroll (Summon Nature's Ally I)		OPTION:99,100
 
-STARTPACK:Scroll (Detect Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Scroll (Detect Alignment)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d4")
 GEAR:Scroll (Detect Chaos)	OPTION:1
 GEAR:Scroll (Detect Evil)	OPTION:2
 GEAR:Scroll (Detect Good)	OPTION:3
 GEAR:Scroll (Detect Law)	OPTION:4
 
-STARTPACK:Divine Scroll Level 2	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 2	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animal Messenger/Divine)		OPTION:1
 GEAR:Scroll (Animal Trance/Divine)			OPTION:2
@@ -677,7 +677,7 @@ GEAR:Scroll (Warp Wood)					OPTION:96,97
 GEAR:Scroll (Wood Shape)				OPTION:98
 GEAR:Scroll (Zone of Truth)				OPTION:99,100
 
-STARTPACK:Divine Scroll Level 3	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 3	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animate Dead/Divine)			OPTION:1,2
 GEAR:Scroll (Bestow Curse/Divine)			OPTION:3,4
@@ -724,14 +724,14 @@ GEAR:Scroll (Water Breathing/Divine)		OPTION:94,96
 GEAR:Scroll (Water Walk)				OPTION:97,98
 GEAR:Scroll (Wind Wall/Divine)			OPTION:99,100
 
-STARTPACK:Scroll (Magic Circle against Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Scroll (Magic Circle against Alignment)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d4")
 GEAR:Scroll (Magic Circle against Chaos/Divine)	OPTION:1
 GEAR:Scroll (Magic Circle against Evil/Divine)	OPTION:2
 GEAR:Scroll (Magic Circle against Good/Divine)	OPTION:3
 GEAR:Scroll (Magic Circle against Law/Divine)	OPTION:4
 
-STARTPACK:Divine Scroll Level 4	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 4	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Air Walk)					OPTION:1,5
 GEAR:Scroll (Antiplant Shell)				OPTION:6,7
@@ -767,7 +767,7 @@ GEAR:Scroll (Summon Nature's Ally IV)		OPTION:91,93
 GEAR:Scroll (Tongues)					OPTION:94,98
 GEAR:Scroll (Tree Stride)				OPTION:99,100
 
-STARTPACK:Divine Scroll Level 5	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 5	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animal Growth/Divine)			OPTION:1,3
 GEAR:Scroll (Atonement)					OPTION:4,5
@@ -810,7 +810,7 @@ GEAR:Scroll (Wall of Fire/Divine)			OPTION:92,94
 GEAR:Scroll (Wall of Stone)				OPTION:95,97
 GEAR:Scroll (Wall of Thorns)				OPTION:98,100
 
-STARTPACK:Divine Scroll Level 6	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 6	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animate Objects/Divine)		OPTION:1,3
 GEAR:Scroll (Antilife Shell)				OPTION:4,6
@@ -849,7 +849,7 @@ GEAR:Scroll (Undeath to Death/Divine)		OPTION:92,94
 GEAR:Scroll (Wind Walk)					OPTION:95,97
 GEAR:Scroll (Word of Recall)				OPTION:98,100
 
-STARTPACK:Divine Scroll Level 7	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 7	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animate Plants)			OPTION:1,5
 GEAR:Scroll (Blasphemy)				OPTION:6,9
@@ -876,7 +876,7 @@ GEAR:Scroll (Symbol of Weakness/Divine)	OPTION:92
 GEAR:Scroll (Transmute Metal to Wood)	OPTION:93,97
 GEAR:Scroll (Word of Chaos)			OPTION:98,100
 
-STARTPACK:Divine Scroll Level 8	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 8	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Animal Shapes)				OPTION:1,4
 GEAR:Scroll (Antimagic Field/Divine)		OPTION:5,10
@@ -904,7 +904,7 @@ GEAR:Scroll (Symbol of Insanity/Divine)		OPTION:92,93
 GEAR:Scroll (Unholy Aura)				OPTION:94,96
 GEAR:Scroll (Whirlwind)					OPTION:97,100
 
-STARTPACK:Divine Scroll Level 9	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Divine Scroll Level 9	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Scroll (Antipathy/Divine)		OPTION:1,4
 GEAR:Scroll (Astral Projection/Divine)	OPTION:5,7

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Netbook of Spells and Magic	SOURCESHORT:NboSpellsM	SOURCEWEB:http://nbospells.fancc.net/
 #Original Entry by: DJ Chair
 
-# Spell Name			Classes of caster					School			Sub-School			Spell Descriptors		Type				Components		Casting Time		Range			Target Area										Duration						Save Info						Spell Resistance		Description																Source Page
+# Spell Name			Classes of caster					School			Sub-School			Spell Descriptors		Type				Components		Casting Time		Range			Target Area or Effect								Duration						Save Info						Spell Resistance		Description																Source Page
 Elemental Aura			CLASSES:Sorcerer,Wizard=6			SCHOOL:Transmutation									TYPE:Arcane			COMPS:V S M		CASTTIME:1 round		RANGE:Personal	TARGETAREA:You									DURATION:10 minutes (D)				SAVEINFO:None					SPELLRES:None		DESC:Changes the attributes of another elemental spell.								SOURCEPAGE:p.9
 Elemental Sagitta			CLASSES:Sorcerer,Wizard=7			SCHOOL:Conjuration	SUBSCHOOL:Creation					TYPE:Arcane			COMPS:V S M		CASTTIME:1 action		RANGE:Long		TARGETAREA:One or more arrows of an element of your choosing	DURATION:Instantaneous				SAVEINFO:Reflex half				SPELLRES:Yes		DESC:1 elemental arrow + 1 arrow/4 levels above 12th, each dealing 6d6 damage.				SOURCEPAGE:p.9
 Felb's Armorless Arrow		CLASSES:Sorcerer,Wizard=5			SCHOOL:Transmutation									TYPE:Arcane			COMPS:V S M		CASTTIME:1 minute		RANGE:Touch		TARGETAREA:Two armor-piercing arrows/level				DURATION:One day					SAVEINFO:None					SPELLRES:No			DESC:Enchant 2 arrows/level (ignores natural armor and armor, but not enchantment).				SOURCEPAGE:p.10

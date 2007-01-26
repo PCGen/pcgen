@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/
 # Original Entry by: Eddy Anthony
 
-# Spell Name	Classes of caster				School		Components	Casting Time			Range		Item		Target Area				Duration				Save Info					Spell Resistance	Description										Source Page
+# Spell Name	Classes of caster				School		Components	Casting Time			Range		Item		Target Area or Effect		Duration				Save Info					Spell Resistance	Description										Source Page
 Share Feeding	CLASSES:Druid=2|Sorcerer,Wizard=3	SCHOOL:Necromancy	COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:One blood bloat	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Will negates; see text	SPELLRES:No		DESC:You create a channel between yourself and a blood bloat.	SOURCEPAGE:p.24
 
 #

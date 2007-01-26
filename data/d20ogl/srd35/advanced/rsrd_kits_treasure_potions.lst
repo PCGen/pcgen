@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 24 16:38:09 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Minor Potions	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Minor Potions	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Cure Light Wounds)			OPTION:1,10
 GEAR:Potion (Endure Elements)				OPTION:11,13
@@ -46,7 +46,7 @@ GEAR:Potion (Shield of Faith +3)			OPTION:97
 GEAR:Potion (Spider Climb)				OPTION:98,99
 GEAR:Potion (Undetectable Alignment)		OPTION:100
 
-STARTPACK:Medium Potions	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Medium Potions	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Oil of Bless Weapon				OPTION:1,2
 GEAR:Potion (Enlarge Person)				OPTION:3,4
@@ -101,7 +101,7 @@ GEAR:Potion (Tongues)					OPTION:97
 GEAR:Potion (Water Breathing)				OPTION:98,99
 GEAR:Potion (Water Walk)				OPTION:100
 
-STARTPACK:Major Potions	VISIBLE:YES	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Major Potions	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Blur)					OPTION:1,2
 GEAR:Potion (Cure Moderate Wounds)			OPTION:3,7
@@ -153,24 +153,24 @@ GEAR:Potion (Greater Magic Fang +5)			OPTION:98
 GEAR:Potion (Oil of Greater Magic Weapon +5)	OPTION:99
 GEAR:Potion (Oil of Magic Vestment +5)		OPTION:100
 
-STARTPACK:Potion (Protection from Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion (Protection from Alignment)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d4")
 GEAR:Potion (Protection from Chaos)	OPTION:1
 GEAR:Potion (Protection from Evil)	OPTION:2
 GEAR:Potion (Protection from Good)	OPTION:3
 GEAR:Potion (Protection from Law)	OPTION:4
 
-STARTPACK:Potion or Oil of Invisibility	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion or Oil of Invisibility	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Invisibility)		OPTION:1,50
 GEAR:Potion (Oil of Invisibility)	OPTION:51,100
 
-STARTPACK:Potion or Oil of Levitate	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion or Oil of Levitate	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Levitate)		OPTION:1,50
 GEAR:Potion (Oil of Levitate)	OPTION:51,100
 
-STARTPACK:Potion Resist Energy 10	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion Resist Energy 10	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Resist Energy 10/Acid)			OPTION:1,20
 GEAR:Potion (Resist Energy 10/Cold)			OPTION:21,40
@@ -178,7 +178,7 @@ GEAR:Potion (Resist Energy 10/Electricity)	OPTION:41,60
 GEAR:Potion (Resist Energy 10/Fire)			OPTION:61,80
 GEAR:Potion (Resist Energy 10/Sonic)		OPTION:81,100
 
-STARTPACK:Potion (Resist Energy 20)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion (Resist Energy 20)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Resist Energy 20/Acid)			OPTION:1,20
 GEAR:Potion (Resist Energy 20/Cold)			OPTION:21,40
@@ -186,14 +186,14 @@ GEAR:Potion (Resist Energy 20/Electricity)	OPTION:41,60
 GEAR:Potion (Resist Energy 20/Fire)			OPTION:61,80
 GEAR:Potion (Resist Energy 20/Sonic)		OPTION:81,100
 
-STARTPACK:Potion (Magic Circle against Alignment)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion (Magic Circle against Alignment)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Magic Circle against Chaos)	OPTION:1,25
 GEAR:Potion (Magic Circle against Evil)	OPTION:26,50
 GEAR:Potion (Magic Circle against Good)	OPTION:51,75
 GEAR:Potion (Magic Circle against Law)	OPTION:76,100
 
-STARTPACK:Potion (Protection from Energy)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion (Protection from Energy)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Protection from Energy/Acid)			OPTION:1,20
 GEAR:Potion (Protection from Energy/Cold)			OPTION:21,40
@@ -201,7 +201,7 @@ GEAR:Potion (Protection from Energy/Electricity)	OPTION:41,60
 GEAR:Potion (Protection from Energy/Fire)			OPTION:61,80
 GEAR:Potion (Protection from Energy/Sonic)		OPTION:81,100
 
-STARTPACK:Potion (Resist Energy 30)	VISIBLE:NO	EQUIPBUY:0	APPLY:INSTANT
+STARTPACK:Potion (Resist Energy 30)	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Potion (Resist Energy 30/Acid)			OPTION:1,20
 GEAR:Potion (Resist Energy 30/Cold)			OPTION:21,40

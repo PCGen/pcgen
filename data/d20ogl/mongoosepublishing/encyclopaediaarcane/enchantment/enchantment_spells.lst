@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com
 #ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
 
-# Spell Name		Classes of caster	School			Sub-School		Type		Components		Casting Time	Range			Item		Target Area													Duration						Save Info					Spell Resistance	Description										Source Page
+# Spell Name		Classes of caster	School			Sub-School		Type		Components		Casting Time	Range			Item		Target Area or Effect											Duration						Save Info					Spell Resistance	Description										Source Page
 Beyond Words		CLASSES:Wizard=3	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action	RANGE:Close		ITEM:Potion	TARGETAREA:Your Charmed Creature									DURATION:Varies [D]				SAVEINFO:None				SPELLRES:Yes	DESC:Caster can communicate mentally with charmed target.		SOURCEPAGE:p.27
 Bonded Souls		CLASSES:Wizard=7	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S		CASTTIME:1 action	RANGE:Touch		ITEM:Potion	TARGETAREA:Your Charmed Creature									DURATION:Special [D]				SAVEINFO:None				SPELLRES:Yes	DESC:Bonds a charmed creature like a familiar.				SOURCEPAGE:p.27
 Bonded Thoughts		CLASSES:Wizard=7	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S		CASTTIME:1 action	RANGE:Close		ITEM:Potion	TARGETAREA:Your Charmed Creature									DURATION:Special [D]				SAVEINFO:None				SPELLRES:Yes	DESC:Enables telepathic communication.					SOURCEPAGE:p.27
