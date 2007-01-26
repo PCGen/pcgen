@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 18:29:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
 # Original Entry by: Frank Kliewe
 
 REGION:None
 
-STARTPACK:Academic Package	EQUIPBUY:0	SOURCEPAGE:p.62	APPLY:INSTANT
+STARTPACK:Academic Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.62
 GEAR:Binoculars (Standard)
 GEAR:Briefcase
 GEAR:Camera (Digital)
@@ -33,7 +33,7 @@ GEAR:PDA						PREVARGTEQ:WealthBonus,7
 GEAR:Computer (Notebook)			PREVARGTEQ:WealthBonus,9
 GEAR:Library Collection				PREVARGTEQ:WealthBonus,11
 
-STARTPACK:Adventurer Package	EQUIPBUY:0	SOURCEPAGE:p.62	APPLY:INSTANT
+STARTPACK:Adventurer Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.62
 GEAR:Aluminum Travel Case (75 lb)
 GEAR:Backpack
 GEAR:Binoculars (Standard)
@@ -67,7 +67,7 @@ GEAR:Remington 700 (7.62 hunting rifle)						PREVARGTEQ:WealthBonus,5
 GEAR:Remington 700 (7.62 hunting rifle with Electro-optical Scope)	PREVARGTEQ:WealthBonus,7
 GEAR:Yamaha YZ250F									PREVARGTEQ:WealthBonus,9
 
-STARTPACK:Blue Collar Package	EQUIPBUY:0	SOURCEPAGE:p.63	APPLY:INSTANT
+STARTPACK:Blue Collar Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
 GEAR:Backpack
 GEAR:Briefcase
 GEAR:Camera (Disposable)
@@ -87,7 +87,7 @@ GEAR:PDA					PREVARGTEQ:WealthBonus,6
 GEAR:Computer (Desktop)			PREVARGTEQ:WealthBonus,8
 GEAR:Chevrolet Cavalier			PREVARGTEQ:WealthBonus,10
 
-STARTPACK:Criminal Package	EQUIPBUY:0	SOURCEPAGE:p.63	APPLY:INSTANT
+STARTPACK:Criminal Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
 GEAR:Binoculars (Standard)
 GEAR:Bolt Cutter
 GEAR:Brass Knuckles
@@ -114,7 +114,7 @@ GEAR:Sawed-Off Shotgun (12 gauge shotgun)		PREVARGTEQ:WealthBonus,5
 GEAR:Uzi (9mm submachine gun)				PREVARGTEQ:WealthBonus,7
 GEAR:Ford Crown Victoria				PREVARGTEQ:WealthBonus,9
 
-STARTPACK:Emergency Services Package	EQUIPBUY:0	SOURCEPAGE:p.63	APPLY:INSTANT
+STARTPACK:Emergency Services Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
 GEAR:Aluminum Travel Case (10 lb)
 GEAR:Binoculars (Rangefinding)
 GEAR:Bolt Cutter
@@ -147,7 +147,7 @@ GEAR:Surgery Kit				PREVARGTEQ:WealthBonus,6
 GEAR:Jaws of Life				PREVARGTEQ:WealthBonus,8
 GEAR:Generator (Portable)		PREVARGTEQ:WealthBonus,10
 
-STARTPACK:Jet Set Package	EQUIPBUY:0	SOURCEPAGE:p.63	APPLY:INSTANT
+STARTPACK:Jet Set Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
 GEAR:Aluminum Travel Case (75 lb)
 GEAR:Briefcase
 GEAR:Camera (Digital)
@@ -173,7 +173,7 @@ GEAR:BMW M3					PREVARGTEQ:WealthBonus,10
 GEAR:Jaguar XJS				PREVARGTEQ:WealthBonus,12
 GEAR:Avanti 39 (cigarette boat)	PREVARGTEQ:WealthBonus,14
 
-STARTPACK:Law Enforcement Package	EQUIPBUY:0	SOURCEPAGE:p.63	APPLY:INSTANT
+STARTPACK:Law Enforcement Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
 GEAR:Car opening Kit
 GEAR:Cell Phone
 GEAR:Chemical Light Sticks (5)
@@ -205,7 +205,7 @@ GEAR:Evidence Kit (Deluxe)						PREVARGTEQ:WealthBonus,5
 GEAR:Light-Duty Vest							PREVARGTEQ:WealthBonus,7
 GEAR:Telephone Tap (Telephone Line Tracer)			PREVARGTEQ:WealthBonus,9
 
-STARTPACK:Military Package	EQUIPBUY:0	SOURCEPAGE:p.64	APPLY:INSTANT
+STARTPACK:Military Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.64
 GEAR:Backpack
 GEAR:Beretta 92F (9mm autoloader)
 GEAR:Binoculars (Rangefinding)
@@ -238,7 +238,7 @@ GEAR:M16A2 (5.56mm assault rifle)	PREVARGTEQ:WealthBonus,5
 GEAR:Video Shades (Color)		PREVARGTEQ:WealthBonus,7
 GEAR:Jeep Wrangler (SUV)		PREVARGTEQ:WealthBonus,9
 
-STARTPACK:Scientist Package	EQUIPBUY:0	SOURCEPAGE:p.64	APPLY:INSTANT
+STARTPACK:Scientist Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.64
 GEAR:Aluminum Travel Case (10 lb)
 GEAR:Briefcase
 GEAR:Cell Phone
@@ -262,7 +262,7 @@ GEAR:PDA					PREVARGTEQ:WealthBonus,7
 GEAR:Computer (Notebook)		PREVARGTEQ:WealthBonus,9
 GEAR:Volkswagen Jetta			PREVARGTEQ:WealthBonus,11
 
-STARTPACK:Technician Package	EQUIPBUY:0	SOURCEPAGE:p.64	APPLY:INSTANT
+STARTPACK:Technician Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.64
 GEAR:Camera Bag (15 lb. capacity)
 GEAR:Camera (Digital)
 GEAR:Cell Phone
@@ -288,7 +288,7 @@ GEAR:PDA					PREVARGTEQ:WealthBonus,7
 GEAR:Computer (Notebook)		PREVARGTEQ:WealthBonus,9
 GEAR:Acura 3.2 TL				PREVARGTEQ:WealthBonus,11
 
-STARTPACK:Vagabond Package	EQUIPBUY:0	SOURCEPAGE:p.65	APPLY:INSTANT
+STARTPACK:Vagabond Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.65
 GEAR:Backpack
 GEAR:Clothing Outfit (Casual)
 GEAR:Canteen (1 qt. capacity)
@@ -312,7 +312,7 @@ GEAR:Tent (2-Person Dome)			PREVARGTEQ:WealthBonus,6
 GEAR:Remington 700 (7.62 hunting rifle)	PREVARGTEQ:WealthBonus,6
 GEAR:Harley Davidson FLSTF			PREVARGTEQ:WealthBonus,8
 
-STARTPACK:White Collar Package	EQUIPBUY:0	SOURCEPAGE:p.65	APPLY:INSTANT
+STARTPACK:White Collar Package	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.65
 GEAR:Briefcase
 GEAR:Caller ID Defeater
 GEAR:Cell Phone
