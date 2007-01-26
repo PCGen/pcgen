@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
-# Spell Name		Classes of caster				School			Spell Descriptors			Type				Components		Casting Time		Range			Item		Target Area								Duration				Save Info								Spell Resistance					Description		Source Page
+# Spell Name		Classes of caster				School			Spell Descriptors			Type				Components		Casting Time		Range			Item		Target Area or Effect						Duration				Save Info								Spell Resistance					Description		Source Page
 Control Currents		CLASSES:Wizard=5				SCHOOL:Conjuration						TYPE:Arcane			COMPS:V S		CASTTIME:10 minutes	RANGE:Touch				TARGETAREA:One ship touched					DURATION:1 day			SAVEINFO:None							SPELLRES:No						DESC:See text	SOURCEPAGE:p.76
 Curse Ship			CLASSES:Cleric=7				SCHOOL:Transmutation						TYPE:Divine			COMPS:v s DF	CASTTIME:1 minute		RANGE:Touch				TARGETAREA:One ship touched					DURATION:Permanent		SAVEINFO:None							SPELLRES:Yes					DESC:See text	SOURCEPAGE:p.76
 Delay Sinking		CLASSES:Wizard=7				SCHOOL:Abjuration							TYPE:Arcane			COMPS:V S M		CASTTIME:1 action		RANGE:Touch				TARGETAREA:One ship touched					DURATION:1 hour/level		SAVEINFO:None							SPELLRES:Yes					DESC:See text	SOURCEPAGE:p.76
