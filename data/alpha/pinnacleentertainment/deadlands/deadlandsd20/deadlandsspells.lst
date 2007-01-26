@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Pinnacle Entertainment - Deadlands D20 - Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
 
-# Spell Name		Classes of caster						School			Sub-School			Type		Components	Casting Time		Range			Item		Target Area								Duration			Save Info					Spell Resistance	Description		Source Page
+# Spell Name		Classes of caster						School			Sub-School			Type		Components	Casting Time		Range			Item		Target Area or Effect						Duration			Save Info					Spell Resistance	Description		Source Page
 Armor o' Righteousness	CLASSES:Blessed=3						SCHOOL:Abjuration						TYPE:Divine	COMPS:V	CASTTIME:1 action		RANGE:Personal			TARGETAREA:You							DURATION:1 round/level	SAVEINFO:None				SPELLRES:No		DESC:See text	SOURCEPAGE:p.102
 Back to Nature		CLASSES:Shaman (DL)=1					SCHOOL:Transmutation					TYPE:Divine	COMPS:V	CASTTIME:1 action		RANGE:Touch				TARGETAREA:One technological item				DURATION:Permanent	SAVEINFO:None				SPELLRES:No		DESC:See text	SOURCEPAGE:p.102
 Coffin Varnish		CLASSES:Black Magician,Huckster=0			SCHOOL:Enchantment					TYPE:Arcane	COMPS:S	CASTTIME:1 action		RANGE:Touch				TARGETAREA:One cup or glass of liquid			DURATION:1d6 hours	SAVEINFO:Fort negates (Harmless)	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.102

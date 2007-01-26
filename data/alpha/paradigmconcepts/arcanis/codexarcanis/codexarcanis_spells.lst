@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
 #Original entry by Greg G (Phantom of Krankor)
 
-# Spell Name			Classes of caster				Domains granting the spell	School			Sub-School			Spell Descriptors		Components	Casting Time		Range						Target Area										Duration						Save Info				Spell Resistance		Source Page
+# Spell Name			Classes of caster				Domains granting the spell	School			Sub-School			Spell Descriptors		Components	Casting Time		Range						Target Area or Effect								Duration						Save Info				Spell Resistance		Source Page
 Anshar's Burning Blood		CLASSES:Wizard=7				DOMAINS:Pain=7			SCHOOL:Necromancy										COMPS:V S M	CASTTIME:1 action		RANGE:You					TARGETAREA:30' radius burst							DURATION:Instantaneous				SAVEINFO:None			SPELLRES:Yes		SOURCEPAGE:p.181
 Aura of Faith									DOMAINS:Holy,Honor=8		SCHOOL:Abjuration						DESCRIPTOR:Good|Evil	COMPS:V S M	CASTTIME:1 action		RANGE:20 feet				TARGETAREA:(CASTERLEVEL) Creatures						DURATION:(CASTERLEVEL) rounds [D]		SAVEINFO:Special			SPELLRES:Yes (Harmless)	SOURCEPAGE:p.181
 Beltine's Blessed Strike	CLASSES:Cleric,Paladin=4		DOMAINS:Afterlife=6		SCHOOL:Evocation										COMPS:V M F	CASTTIME:1 action		RANGE:Personal				TARGETAREA:One Melee Weapon Wielded by caster				DURATION:(CASTERLEVEL) minutes [D]		SAVEINFO:None			SPELLRES:No			SOURCEPAGE:p.182

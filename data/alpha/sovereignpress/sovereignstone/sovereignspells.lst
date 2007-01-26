@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Sovereign Press - Sovereign Stone Core Rules	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com
 #Enter a '.' in any null field. Those are PHB fields not used by Sovereign Stone.
-# Spell Name	Classes of caster																	School			Sub-School			Type					Range			Item		Target Area						Duration			Casting Threshold	Save Info				Spell Resistance		Description		Source Page
+# Spell Name	Classes of caster																	School			Sub-School			Type					Range			Item		Target Area or Effect				Duration			Casting Threshold	Save Info				Spell Resistance		Description		Source Page
 Air Becomes Fist	CLASSES:Elemental Mage (Air),Elemental Mage (Earth),Elemental Mage (Fire),Elemental Mage (Water),Void Mage=0	SCHOOL:Air			SUBSCHOOL:Elemental	TYPE:EleMage.EleVoidMage	RANGE:Close		ITEM:Potion	TARGETAREA:One Creature (L or smaller)	DURATION:Instantaneous	CT:41			SAVEINFO:special			SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.106
 Allergy Season	CLASSES:Elemental Mage (Air),Elemental Mage (Earth),Elemental Mage (Fire),Elemental Mage (Water),Void Mage=0	SCHOOL:Earth|Water	SUBSCHOOL:Plant		TYPE:EleMage.EleVoidMage	RANGE:Medium	ITEM:Potion	TARGETAREA:Humanoid Creature			DURATION:1 Week		CT:44			SAVEINFO:Fort partial (13+CL)	SPELLRES:Yes		DESC:See text	SOURCEPAGE:p.106
 Angry Sapling	CLASSES:Elemental Mage (Air),Elemental Mage (Earth),Elemental Mage (Fire),Elemental Mage (Water),Void Mage=0	SCHOOL:Earth|Water	SUBSCHOOL:Plant		TYPE:EleMage.EleVoidMage	RANGE:Close				TARGETAREA:Large Sapling			DURATION:1 minute (D)	CT:42			SAVEINFO:None			SPELLRES:Yes (object)	DESC:See text	SOURCEPAGE:p.107

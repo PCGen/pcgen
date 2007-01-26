@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 ###Block:.MOD section
@@ -73,7 +73,7 @@ Word of Chaos.MOD			DOMAINS:Fate=7
 
 
 ###Block:Xcrawl spells
-# Spell Name				Classes of caster				Domains granting the spell	School			Sub-School			Spell Descriptors			Type		Components		Casting Time		Range		Target Area															Duration					Save Info						Spell Resistance			Cost
+# Spell Name				Classes of caster				Domains granting the spell	School			Sub-School			Spell Descriptors			Type		Components		Casting Time		Range		Target Area or Effect													Duration					Save Info						Spell Resistance			Cost
 Bless Wine					CLASSES:Cleric,Paladin=1		DOMAINS:Wine=2			SCHOOL:Transmutation					DESCRIPTOR:Good			TYPE:Divine	COMPS:V, S, M	CASTTIME:1 minute		RANGE:Touch	TARGETAREA:Flask of wine touched											DURATION:Instantaneous			SAVEINFO:Will negates (object)		SPELLRES:Yes (object)		COST:25
 Create Food and Wine			CLASSES:Cleric=3				DOMAINS:Wine=1			SCHOOL:Conjuration	SUBSCHOOL:Creation						TYPE:Divine	COMPS:V, S		CASTTIME:10 minutes	RANGE:Close	TARGETAREA:Food and wine to sustain (CASTERLEVEL*3) humans or (CASTERLEVEL) horses for 1 day	DURATION:24 hours				SAVEINFO:None					SPELLRES:No
 Melsenschlap's 1-D Fighter		CLASSES:Sorcerer,Wizard=4							SCHOOL:Transmutation					DESCRIPTOR:Copyrighted		TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action		RANGE:Touch	TARGETAREA:Creature touched												DURATION:(CASTERLEVEL+3) rounds	SAVEINFO:None or Will negates (harmless)	SPELLRES:No or Yes (harmless)	COST:50

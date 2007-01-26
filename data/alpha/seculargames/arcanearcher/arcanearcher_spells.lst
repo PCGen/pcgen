@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  3 20:02:30 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/informatica/poder/secular/site/products.html#aa
 #Originally done by Paul W. King
 
-# Spell Name		Output Name					Classes of caster			School			Sub-School			Spell Descriptors	Type				Components		Casting Time			Range			Target Area				Duration					Save Info					Spell Resistance	XP Cost	Req. Equipement	Bonus to skill								Source Page
+# Spell Name		Output Name					Classes of caster			School			Sub-School			Spell Descriptors	Type				Components		Casting Time			Range			Target Area or Effect		Duration					Save Info					Spell Resistance	XP Cost	Req. Equipement	Bonus to skill								Source Page
 Bow of the Ages													SCHOOL:Conjuration	SUBSCHOOL:Creation				TYPE:Arcane			COMPS:V, S, F, XP						RANGE:0 ft							DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:see text							XPCOST:150	PREEQUIP:Oathbow											SOURCEPAGE:p.33
 Eye of the Hawk								CLASSES:Bard,Druid,Ranger=1	SCHOOL:Transmutation								TYPE:Arcane.Divine	COMPS:V, S, DF, F	CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:Will negates (harmless)	SPELLRES:Yes						BONUS:SKILL|Search,Spot|10|TYPE=Enhancement|PREAPPLY:ANYPC	SOURCEPAGE:p.33
 Freezing Shot								CLASSES:Sorcerer,Wizard=2	SCHOOL:Evocation						DESCRIPTOR:Cold	TYPE:Arcane			COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Long							DURATION:Instantaneous			SAVEINFO:Fortitude partial		SPELLRES:Yes																SOURCEPAGE:p.33

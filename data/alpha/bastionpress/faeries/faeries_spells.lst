@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 16:26:03 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Bastion Press - Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://www.bastionpress.com
 
-# Spell Name			Classes of caster								Domains granting the spell	School			Sub-School				Spell Descriptors			Components			Casting Time				Range				Target Area														Duration									Save Info								Spell Resistance					Description																	Source Page
+# Spell Name			Classes of caster								Domains granting the spell	School			Sub-School				Spell Descriptors			Components			Casting Time				Range				Target Area or Effect												Duration									Save Info								Spell Resistance					Description																	Source Page
 Anchor Fey				CLASSES:Sorcerer,Wizard=5											SCHOOL:Abjuration												COMPS:V S			CASTTIME:1 action				RANGE:Medium		TARGETAREA:Ray													DURATION:(CASTERLEVEL) minutes					SAVEINFO:None							SPELLRES:Yes [object]				DESC:Prevents fey creatures from leaving plane											SOURCEPAGE:p.92
 Antilife Filter			CLASSES:Cleric,Druid=4|Sorcerer,Wizard=5				DOMAINS:Animal=4			SCHOOL:Abjuration												COMPS:V S,DF		CASTTIME:1 full round			RANGE:10 ft.		TARGETAREA:10 ft. radius emination centered on you							DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:None							SPELLRES:Yes					DESC:As antilife shell, except effective against only one creature							SOURCEPAGE:p.93
 Bad Luck				CLASSES:Bard,Sorcerer,Wizard=1										SCHOOL:Enchantment	SUBSCHOOL:Compulsion							COMPS:V S,F			CASTTIME:1 action				RANGE:50 ft.		TARGETAREA:Several enemy creatures, no two of which may be more than 25 ft. apart		DURATION:(CASTERLEVEL) minutes					SAVEINFO:None							SPELLRES:Yes [harmless]				DESC:Target creature gains a -1 penalty to attack rolls and Reflex saves						SOURCEPAGE:p.93

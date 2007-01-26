@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com
 
-# Spell Name			Output Name				Classes of caster		Domains granting the spell	School			Sub-School			Spell Descriptors			Type		Components		Casting Time	Range				Target Area											Duration					Save Info						Spell Resistance		Description									Source Page
+# Spell Name			Output Name				Classes of caster		Domains granting the spell	School			Sub-School			Spell Descriptors			Type		Components		Casting Time	Range				Target Area or Effect									Duration					Save Info						Spell Resistance		Description									Source Page
 Blinding Beauty								CLASSES:Druid=7		DOMAINS:Fey=7			SCHOOL:Transmutation	SUBSCHOOL:None							TYPE:Divine	COMPS:V S M		CASTTIME:1 Action	RANGE:Touch			TARGETAREA:Creature touched								DURATION:(CASTERLEVEL) rounds		SAVEINFO:Fortitude Negates			SPELLRES:Yes		DESC:Caster takes on a nymph's beauty				SOURCEPAGE:p.35
 Cloak of the Trickster							CLASSES:Ranger=4		DOMAINS:Fey=4			SCHOOL:Abjuration		SUBSCHOOL:None							TYPE:Divine	COMPS:V S F		CASTTIME:1 Action	RANGE:Personal or Touch	TARGETAREA:You, creature or object weighing up to (CASTERLEVEL*100)lbs	DURATION:(CASTERLEVEL*10) minutes	SAVEINFO:None or Will Negates			SPELLRES:No or Yes	DESC:If subject is motionless, it is invisible			SOURCEPAGE:p.35
 Detect Fey									CLASSES:Druid,Ranger=0	DOMAINS:Fey=1			SCHOOL:Divination		SUBSCHOOL:None							TYPE:Divine	COMPS:V S		CASTTIME:1 Action	RANGE:Close			TARGETAREA:One creature, object, or a 5' cube					DURATION:Instantaneous			SAVEINFO:None					SPELLRES:No			DESC:Detects fey, essence holders, fey enchantments		SOURCEPAGE:p.36

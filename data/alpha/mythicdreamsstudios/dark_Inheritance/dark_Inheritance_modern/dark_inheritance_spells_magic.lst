@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 21:17:41 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com
 #Original Entry by: Frank Kliewe
 
-# Spell Name		Classes of caster			School			Sub-School			Spell Descriptors			Type				Components	Casting Time			Range			Target Area							Duration					Save Info				Spell Resistance	Description																									Source Page
+# Spell Name		Classes of caster			School			Sub-School			Spell Descriptors			Type				Components	Casting Time			Range			Target Area or Effect					Duration					Save Info				Spell Resistance	Description																									Source Page
 Don't I Know You?		CLASSES:Mage=4			SCHOOL:Enchantment					DESCRIPTOR:Mind-Affecting	TYPE:Arcane			COMPS:V,S,M	CASTTIME:Combat action		RANGE:Touch		TARGETAREA:All creatures in a 20-ft. radius	DURATION:(CASTERLEVEL*10) minutes	SAVEINFO:Will negates		SPELLRES:No		DESC:Causes you or the one you touch to appear to onlookers as someone they know and can trust.											SOURCEPAGE:p.179
 Freedom of Information	CLASSES:Mage=3|Acolyte=3	SCHOOL:Divination											TYPE:Arcane.Divine	COMPS:V,S,M	CASTTIME:Attack action		RANGE:Touch		TARGETAREA:One living creature			DURATION:see text				SAVEINFO:Will negates		SPELLRES:Yes	DESC:You gain common information about a single living creature.																SOURCEPAGE:p.180
 Gremlin			CLASSES:Mage=3			SCHOOL:Transmutation										TYPE:Arcane			COMPS:V,S	CASTTIME:Attack action		RANGE:Close		TARGETAREA:One electrical or mechanical device	DURATION:Instantaneous			SAVEINFO:Fortitude negates	SPELLRES:No		DESC:Disables the targeted device so that it no longer functions without first being repaired.											SOURCEPAGE:p.180

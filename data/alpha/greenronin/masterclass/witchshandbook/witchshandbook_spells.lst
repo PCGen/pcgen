@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 #Original Entry by: Beaver
 SOURCELONG:The Witch's Handbook	SOURCESHORT:witchhandbook	SOURCEWEB:http://www.greenronin.com
 
 
-# Spell Name		Classes of caster						School			Spell Descriptors		Components			Casting Time			Range			Item		Target Area					Duration					Save Info					Spell Resistance	XP Cost	Description												Source Page
+# Spell Name		Classes of caster						School			Spell Descriptors		Components			Casting Time			Range			Item		Target Area or Effect			Duration					Save Info					Spell Resistance	XP Cost	Description												Source Page
 Agony				CLASSES:Witch (Green Ronin)=2				SCHOOL:Illusion		DESCRIPTOR:Figment	COMPS:V, S, M		CASTTIME:1 action			RANGE:Close		ITEM:Potion	TARGETAREA:One Creature			DURATION:(CASTERLEVEL) rounds		SAVEINFO:Will Negates			SPELLRES:Yes			DESC:You create the illusion of blinding pain for one creature.			SOURCEPAGE:p.58
 Call the Wild Hunt	CLASSES:Witch (Green Ronin)=9				SCHOOL:Conjuration	DESCRIPTOR:Calling	COMPS:V, S, M		CASTTIME:1 hour			RANGE:Close										DURATION:1 night				SAVEINFO:None				SPELLRES:No		XPCOST:100	DESC:This powerful spell conjures up the Wild Hunt.					SOURCEPAGE:p.59
 Crafter's Blessing	CLASSES:Witch (Green Ronin),Cleric=1		SCHOOL:Transmutation					COMPS:V, S, M, MF, DF	CASTTIME:1 minute			RANGE:Touch		ITEM:Potion	TARGETAREA:Creature Touched		DURATION:1 week				SAVEINFO:Will Negates (harmless)	SPELLRES:Yes			DESC:+10 to craft check for 1 week.								SOURCEPAGE:p.59

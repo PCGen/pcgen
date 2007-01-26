@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Jun 25 08:40:41 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
 # Original Entry by: Paul W. King
 
-# Spell Name			Output Name					Classes of caster					School			Sub-School				Spell Descriptors			Type				Components		Casting Time			Range						Item		Target Area													Duration						Save Info							Spell Resistance					Cost		XP Cost	Save checks bonus					Combat bonus													Bonus to skill						Source Page
+# Spell Name			Output Name					Classes of caster					School			Sub-School				Spell Descriptors			Type				Components		Casting Time			Range						Item		Target Area or Effect											Duration						Save Info							Spell Resistance					Cost		XP Cost	Save checks bonus					Combat bonus													Bonus to skill						Source Page
 Acid Reflex Attack								CLASSES:Sorcerer,Wizard=3			SCHOOL:Transmutation											TYPE:Arcane			COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch					ITEM:Potion	TARGETAREA:1 creature, see text									DURATION:(CASTERLEVEL) rounds			SAVEINFO:None, see text					SPELLRES:No																																								SOURCEPAGE:p.5
 Age											CLASSES:Sorcerer,Wizard=3			SCHOOL:Transmutation											TYPE:Arcane			COMPS:V, S, M, XP	CASTTIME:1 standard action	RANGE:Long					ITEM:Potion	TARGETAREA:1 creature											DURATION:Instantaneous				SAVEINFO:Fortitude negates				SPELLRES:Yes							XPCOST:250																															SOURCEPAGE:p.5
 Archery Shield									CLASSES:Sorcerer,Wizard=5			SCHOOL:Abjuration												TYPE:Arcane			COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium						TARGETAREA:30 ft radius cone										DURATION:See text					SAVEINFO:None						SPELLRES:No																																								SOURCEPAGE:p.5
