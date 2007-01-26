@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:00:45 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Jan 26 17:50:24 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -81,9 +81,16 @@ Bardic Song of Freedom		TYPE:Special	VISIBLE:NO	SA:Song of Freedom (Su) Break En
 Bardic Inspire Heroics		TYPE:Special	VISIBLE:NO	SA:Inspire Heroics (Su) character and % willing allies gain +% moral bonus on saving throws and +% dodge bonus to AC.|InspireHeroicsAllies|InspireHeroicsSaves|InspireHeroicsDodge|PREVARGTEQ:BardicMusicLvl,15																				DEFINE:InspireHeroicsAllies|0	DEFINE:InspireHeroicsSaves|0	DEFINE:InspireHeroicsDodge|0									BONUS:VAR|InspireHeroicsAllies|(BardicMusicLvl-12)/3	BONUS:VAR|InspireHeroicsSaves,InspireHeroicsDodge|4
 Bardic Mass Suggestion		TYPE:Special	VISIBLE:NO	SA:Mass Suggestion (Sp) Will DC % negates - as Suggestion, but simultaneously to any number of creatures the character has already fascinated|MassSuggestionDC|PRESKILL:1,TYPE.Perform=21																								DEFINE:MassSuggestionDC|SuggestionDC
 
-###Block: Druid Level tracked ability object
-# Feat Name				Visible	Virtual Feat		Modify VAR						Source Page
-Druid Tracker - Wild Empathy	VISIBLE:NO	VFEAT:Wild Empathy	BONUS:VAR|WildEmpathy|var("CL=Druid")	SOURCEPAGE:ClassesI.rtf
+###Block: Druid ability
+# Feat Name			Type				Visible	Special Ability			Bonus to skill					Source Page
+Nature Sense		TYPE:Extraordinary	VISIBLE:NO	SA:Nature Sense (Ex)		BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:ClassesI.rtf
+Woodland Stride		TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)									SOURCEPAGE:ClassesI.rtf
+Trackless Step		TYPE:Extraordinary	VISIBLE:NO	SA:Trackless Step (Ex)									SOURCEPAGE:ClassesI.rtf
+Resist Nature's Lure	TYPE:Extraordinary	VISIBLE:NO	SA:Resist Nature's Lure (Ex)								SOURCEPAGE:ClassesI.rtf
+Venom Immunity		TYPE:Extraordinary	VISIBLE:NO	SA:Venom Immunity (Ex)									SOURCEPAGE:ClassesI.rtf
+A Thousand Faces		TYPE:Supernatural		VISIBLE:NO	SA:A Thousand Faces (Su)								SOURCEPAGE:ClassesI.rtf
+# Timeless Body needs improvement - will look at PREAGESET for the different ways of doing this.  - Tir Gwaith
+Timeless Body		TYPE:Extraordinary	VISIBLE:NO	SA:Timeless Body (Ex)									SOURCEPAGE:ClassesI.rtf
 
 #
 #	###########################
@@ -344,7 +351,6 @@ Summon Shadow	TYPE:Supernatural		VISIBLE:NO	SA:Summon Shadow (Su)		DEFINE:Shadow
 # Feat Name						Visible	Virtual Feat		Modify VAR												Source Page
 Blackguard Tracker - Fiendish Servant	VISIBLE:NO					BONUS:VAR|FSLevel|var("CL=Blackguard")							SOURCEPAGE:PrestigeClasses.rtf
 Blackguard Tracker - Undead Companion	VISIBLE:NO					BONUS:VAR|UndeadCompanionLVL|var("CL=Blackguard")|PRECLASS:1,Ex Paladin=9	SOURCEPAGE:PrestigeClasses.rtf
-Druid Tracker - Animal Companion		VISIBLE:NO	VFEAT:Animal Companion	BONUS:VAR|CompLevel|var("CL=Druid")								SOURCEPAGE:ClassesI.rtf
 Sorcerer Tracker - Summon Familiar		VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Sorcerer")							SOURCEPAGE:ClassesII.rtf
 Wizard Tracker - Summon Familiar		VISIBLE:NO	VFEAT:Summon Familiar	BONUS:VAR|FMLevel|var("CL=Wizard")								SOURCEPAGE:ClassesII.rtf
 

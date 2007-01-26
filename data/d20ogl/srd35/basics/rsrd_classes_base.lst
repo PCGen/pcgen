@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Dec 28 04:11:40 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Jan 26 17:50:24 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -177,21 +177,21 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
 ###Block: Normal Progression
-1	CAST:3,1				SA:Nature Sense (Ex)		BONUS:SKILL|Knowledge (Nature),Survival|2	FEATAUTO:Animal Companion|Druid Tracker - Animal Companion	FEATAUTO:Wild Empathy|Druid Tracker - Wild Empathy
-2	CAST:4,2				SA:Woodland Stride (Ex)
-3	CAST:4,2,1				SA:Trackless Step (Ex)
-4	CAST:5,3,2				SA:Resist Nature's Lure (Ex)
+1	CAST:3,1				BONUS:VAR|WildEmpathy,CompLevel|CL	FEATAUTO:Nature Sense|Animal Companion|Wild Empathy
+2	CAST:4,2										FEATAUTO:Woodland Stride
+3	CAST:4,2,1										FEATAUTO:Trackless Step
+4	CAST:5,3,2										FEATAUTO:Resist Nature's Lure
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
-9	CAST:6,4,4,3,2,1			SA:Venom Immunity (Ex)
+9	CAST:6,4,4,3,2,1									FEATAUTO:Venom Immunity
 10	CAST:6,4,4,3,3,2
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
-13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces (Su)
+13	CAST:6,5,5,4,4,3,2,1								FEATAUTO:A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1		SA:Timeless Body (Ex)
+15	CAST:6,5,5,5,4,4,3,2,1								FEATAUTO:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
