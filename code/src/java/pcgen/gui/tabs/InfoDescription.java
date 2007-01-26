@@ -1408,16 +1408,23 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 					}
 				}
 
+				String message;
+				if(numChildren > 0)
+				{
+					message = PropertyFactory
+						.getFormattedString("in_delNote1",
+					aNode.toString(),String.valueOf(numChildren));
+				}
+				else
+				{
+					message = PropertyFactory
+						.getFormattedString("in_delNote2",
+						aNode.toString());
+				}
+
 				//The following line should be taken out and shot!
 				reallyDelete =
-						JOptionPane.showConfirmDialog(null, PropertyFactory
-							.getString("in_delNote1")
-							+ " "
-							+ aNode.toString()
-							+ ((numChildren > 0) ? (" "
-								+ PropertyFactory.getString("in_delNote2")
-								+ " " + (numChildren) + " " + PropertyFactory
-								.getString("in_delNote3")) : " ") + "?",
+						JOptionPane.showConfirmDialog(null, message,
 							PropertyFactory.getString("in_delNote4"),
 							JOptionPane.OK_CANCEL_OPTION);
 
