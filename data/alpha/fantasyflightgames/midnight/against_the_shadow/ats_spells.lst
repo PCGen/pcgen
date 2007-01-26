@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
 
-# Spell Name		Classes of caster					School				Sub-School			Type				Components		Casting Time	Range			Target Area												Duration									Save Info						Spell Resistance	Multiple Requirements																																						Var. Min. Value				Description														Source Page
+# Spell Name		Classes of caster					School				Sub-School			Type				Components		Casting Time	Range			Target Area or Effect										Duration									Save Info						Spell Resistance	Multiple Requirements																																						Var. Min. Value				Description														Source Page
 Charm Repair		CLASSES:Channeler=3				SCHOOL:Transmutation						TYPE:Arcane			COMPS:V, S		CASTTIME:1 minute	RANGE:Touch		TARGETAREA:One expanded charm									DURATION:Instantaneous							SAVEINFO:None					SPELLRES:No		PREMULT:1,[PREFEAT:1,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																												PREVARGTEQ:MaximumSpellLevel,3	DESC:Restore minor and lesser charms.									SOURCEPAGE:p. 77
 Cover the Scent		CLASSES:Channeler=3				SCHOOL:Illusion							TYPE:Arcane			COMPS:V, S		CASTTIME:1 minute	RANGE:Touch		TARGETAREA:(CASTERLEVEL) magic items							DURATION:(CASTERLEVEL) days						SAVEINFO:None					SPELLRES:No		PREMULT:1,[PREFEAT:1,Spellcasting (Transmutation)],[PREVARGT:UnlimitedSpells,0]																												PREVARGTEQ:MaximumSpellLevel,3	DESC:Hide an items magic aura from detect spells.							SOURCEPAGE:p. 77
 Detect Astirax		CLASSES:Channeler,Druid (Midnight)=1	SCHOOL:Divination							TYPE:Arcane			COMPS:V, S		CASTTIME:1 action	RANGE:Long		TARGETAREA:Quarter circle emanating from you to the extreme of the range.	DURATION:Concentration, up to (CASTERLEVEL*10) minutes (D)	SAVEINFO:None					SPELLRES:No		PREMULT:1,[PREFEAT:1,Spellcasting (Divination)],[PREVARGT:UnlimitedSpells,0]																													PREVARGTEQ:MaximumSpellLevel,1	DESC:You can detect astirax.											SOURCEPAGE:p. 77

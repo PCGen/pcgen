@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar 31 19:32:31 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
-# Spell Name			School			Sub-School			Type				Components		Casting Time		Range			Target Area														Duration					Save Info		Spell Resistance	Description																	Source Page
+# Spell Name			School			Sub-School			Type				Components		Casting Time		Range			Target Area or Effect												Duration					Save Info		Spell Resistance	Description																	Source Page
 Summon Elemental IV		SCHOOL:Conjuration	SUBSCHOOL:Summoning	TYPE:Arcane.Divine	COMPS:V, S, F/DF	CASTTIME:1 round		RANGE:Close		TARGETAREA:One or more summoned elementals, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:None	SPELLRES:No		DESC:Calls elemental to fight for you.												SOURCEPAGE:p. 24
 Summon Elemental V		SCHOOL:Conjuration	SUBSCHOOL:Summoning	TYPE:Arcane.Divine	COMPS:V, S, F/DF	CASTTIME:1 round		RANGE:Close		TARGETAREA:One or more summoned elementals, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:None	SPELLRES:No		DESC:Calls elemental to fight for you.												SOURCEPAGE:p. 24
 

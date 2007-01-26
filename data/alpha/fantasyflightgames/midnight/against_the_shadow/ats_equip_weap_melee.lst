@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan  5 13:04:38 2007 -- reformated by prettylst.pl v1.35 (build 1881)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 #Original Entry By: Aaron Divinsky
 
@@ -13,20 +13,20 @@ Wogren Jawhelm	PROFICIENCY:Wogren Jawhelm	TYPE:Weapon.Simple.Melee.Slashing.Stan
 
 ###Block: Exotic Weapons
 #Small
-# Equipment Name			Output Name						Required Proficiency				Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Range		Reach Multiplier	Size		Source Page		Special Property												ALTCRITMULT
-Orc Slitter											PROFICIENCY:Orc Slitter				TYPE:Weapon.Exotic.Melee.Slashing.Standard											COST:30	WT:2		CRITMULT:x2			CRITRANGE:2								DAMAGE:1d6					EQMOD:STEEL										SIZE:S	SOURCEPAGE:p. 84	SPROP:+1 damage and +4 to confirm crits against orcs.
+# Equipment Name			Output Name						Required Proficiency				Type												Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Alternative Modifier	Range		Reach Multiplier	Size		Source Page		Special Property
+Orc Slitter											PROFICIENCY:Orc Slitter				TYPE:Weapon.Exotic.Melee.Slashing.Standard											COST:30	WT:2		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL										SIZE:S	SOURCEPAGE:p. 84	SPROP:+1 damage and +4 to confirm crits against orcs.
 ### TODO:What does "treat the staghorn as a small spiked shield" mean?
-Staghorn											PROFICIENCY:Staghorn				TYPE:Weapon.Exotic.Melee.Piercing.Standard											COST:15	WT:4		CRITMULT:x2			CRITRANGE:2								DAMAGE:1d4					EQMOD:HORN										SIZE:S	SOURCEPAGE:p. 85	SPROP:+6 to disarm roll.
-Atharak											PROFICIENCY:Atharak				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Finesseable.Double.Reach	ALTTYPE:Weapon.Melee.Bludgeoning	COST:2	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d4	ALTDAMAGE:1d4		EQMOD:STONE	ALTEQMOD:STONE				REACHMULT:2		SIZE:S	SOURCEPAGE:p. 81	SPROP:+2 on attack rolls to disarm	SPROP:+4 on checks to hide or disguise atharak	ALTCRITMULT:x2
+Staghorn											PROFICIENCY:Staghorn				TYPE:Weapon.Exotic.Melee.Piercing.Standard											COST:15	WT:4		CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:HORN										SIZE:S	SOURCEPAGE:p. 85	SPROP:+6 to disarm roll.
+Atharak											PROFICIENCY:Atharak				TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Finesseable.Double.Reach	ALTTYPE:Weapon.Melee.Bludgeoning	COST:2	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d4	ALTDAMAGE:1d4		EQMOD:STONE	ALTEQMOD:STONE				REACHMULT:2		SIZE:S	SOURCEPAGE:p. 81	SPROP:+2 on attack rolls to disarm	SPROP:+4 on checks to hide or disguise atharak
 #Medium
-Lance (Halfling)			OUTPUTNAME:Lance, [NAME]			PROFICIENCY:Lance (Halfling)			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Lance										COST:12	WT:5		CRITMULT:x3			CRITRANGE:1								DAMAGE:1d6					EQMOD:WOOD										SIZE:M	SOURCEPAGE:p. 84
-Tangle Spear										PROFICIENCY:Tangle Spear			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Spear										COST:10	WT:5		CRITMULT:x1			CRITRANGE:5								DAMAGE:1d6					EQMOD:WOOD										SIZE:M	SOURCEPAGE:p. 85
-Vardatch (Crafted)		OUTPUTNAME:Vardatch, [NAME]			PROFICIENCY:Vardatch (Crafted)		TYPE:Weapon.Exotic.Melee.Piercing.Slashing.Standard														CRITMULT:x2			CRITRANGE:2			ALTCRITRANGE:1			DAMAGE:1d10					EQMOD:STEEL										SIZE:M	SOURCEPAGE:p. 85															ALTCRITMULT:x3
+Lance (Halfling)			OUTPUTNAME:Lance, [NAME]			PROFICIENCY:Lance (Halfling)			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Lance										COST:12	WT:5		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD										SIZE:M	SOURCEPAGE:p. 84
+Tangle Spear										PROFICIENCY:Tangle Spear			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Spear										COST:10	WT:5		CRITMULT:x1			CRITRANGE:5												DAMAGE:1d6					EQMOD:WOOD										SIZE:M	SOURCEPAGE:p. 85
+Vardatch (Crafted)		OUTPUTNAME:Vardatch, [NAME]			PROFICIENCY:Vardatch (Crafted)		TYPE:Weapon.Exotic.Melee.Piercing.Slashing.Standard														CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x3		ALTCRITRANGE:1			DAMAGE:1d10					EQMOD:STEEL										SIZE:M	SOURCEPAGE:p. 85
 #Large
-Bladed Staff										PROFICIENCY:Bladed Staff			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double										COST:110	WT:8		CRITMULT:x2			CRITRANGE:2			ALTCRITRANGE:2			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL										SIZE:L	SOURCEPAGE:p. 81															ALTCRITMULT:x2
-Dornish Horse Spear									PROFICIENCY:Dornish Horse Spear		TYPE:Weapon.Exotic.Melee.Piercing.Bludgeoning.Spear										COST:15	WT:12		CRITMULT:x3			CRITRANGE:1			ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d10		EQMOD:WOOD										SIZE:L	SOURCEPAGE:p. 82															ALTCRITMULT:x2
-Lance (Sarcosan)			OUTPUTNAME:Lance, [NAME]			PROFICIENCY:Lance (Sarcosan)			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Reach.Lance									COST:8	WT:5		CRITMULT:x3			CRITRANGE:1								DAMAGE:1d6					EQMOD:WOOD					RANGE:10	REACHMULT:2		SIZE:L	SOURCEPAGE:p. 84
-Vardatch (Crafted (Greater))	OUTPUTNAME:Vardatch, Greater Crafted	PROFICIENCY:Vardatch (Crafted (Greater))	TYPE:Weapon.Exotic.Melee.Slashing.Standard															CRITMULT:x2			CRITRANGE:2			ALTCRITRANGE:1			DAMAGE:2d6					EQMOD:STEEL										SIZE:L	SOURCEPAGE:p. 85															ALTCRITMULT:x3
+Bladed Staff										PROFICIENCY:Bladed Staff			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Double										COST:110	WT:8		CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x2		ALTCRITRANGE:2			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:STEEL										SIZE:L	SOURCEPAGE:p. 81
+Dornish Horse Spear									PROFICIENCY:Dornish Horse Spear		TYPE:Weapon.Exotic.Melee.Piercing.Bludgeoning.Spear										COST:15	WT:12		CRITMULT:x3			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d10		EQMOD:WOOD										SIZE:L	SOURCEPAGE:p. 82
+Lance (Sarcosan)			OUTPUTNAME:Lance, [NAME]			PROFICIENCY:Lance (Sarcosan)			TYPE:Weapon.Exotic.Melee.Piercing.Standard.Reach.Lance									COST:8	WT:5		CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD					RANGE:10	REACHMULT:2		SIZE:L	SOURCEPAGE:p. 84
+Vardatch (Crafted (Greater))	OUTPUTNAME:Vardatch, Greater Crafted	PROFICIENCY:Vardatch (Crafted (Greater))	TYPE:Weapon.Exotic.Melee.Slashing.Standard															CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x3		ALTCRITRANGE:1			DAMAGE:2d6					EQMOD:STEEL										SIZE:L	SOURCEPAGE:p. 85
 
 #
 # End
