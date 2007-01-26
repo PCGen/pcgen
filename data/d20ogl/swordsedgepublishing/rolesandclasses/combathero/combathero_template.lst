@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author: $ -- Fri Mar 17 14:53:57 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author: $ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
 #Original Entry by: Frank Kliewe
 
-# Template Name				Visible	QUALIFY
+# Template Name				Visible	Qualify for Feat
 Combat Hero Talent Qualification	VISIBLE:NO	QUALIFY:FEAT|Defensive Roll|Opportunist|Stamina

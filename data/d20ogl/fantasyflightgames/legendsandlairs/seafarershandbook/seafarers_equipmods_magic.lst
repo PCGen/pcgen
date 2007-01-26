@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html
 # Original Entry by: Eddy Anthony
 
-# Modifier Name				Unique Key			Type				Plus		Cost												Type granted	Choose Naming Option	Source Page		Required Type					Special Property																				Choose
-Waterbane					KEY:WaterbaneWeap		TYPE:Weapon			PLUS:1																				SOURCEPAGE:p.39	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:Ignores all penalties associated with being underwater	SPROP:Ignores damage reduction of creatures with the Water type
-Waterbane					KEY:WaterbaneArm		TYPE:Armor			PLUS:1																				SOURCEPAGE:p.39	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:Ignores all penalties associated with being underwater
+# Modifier Name				Naming Option	Unique Key			Type				Plus		Cost												Type granted	Source Page		Required Type					Special Property																				Choose
+Waterbane								KEY:WaterbaneWeap		TYPE:Weapon			PLUS:1																SOURCEPAGE:p.39	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:Ignores all penalties associated with being underwater	SPROP:Ignores damage reduction of creatures with the Water type
+Waterbane								KEY:WaterbaneArm		TYPE:Armor			PLUS:1																SOURCEPAGE:p.39	PRETYPE:EQMODTYPE=MagicalEnhancement	SPROP:Ignores all penalties associated with being underwater
 
-|Spell Effect (Single/Completion)	KEY:SE_1COMPLET_WP	TYPE:WaterproofScroll			COST:((25*%SPELLLEVEL*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/2*1.1	ITYPE:Magic		NAMEOPT:SPELL		SOURCEPAGE:p.24																														CHOOSE:EQBUILDER.SPELL
+|Spell Effect (Single/Completion)	NAMEOPT:SPELL	KEY:SE_1COMPLET_WP	TYPE:WaterproofScroll			COST:((25*%SPELLLEVEL*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST))/2*1.1	ITYPE:Magic		SOURCEPAGE:p.24																														CHOOSE:EQBUILDER.SPELL
 
 #
 # End

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Dec 18 04:00:57 2006 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 
-# Equipment Name	Type								Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus									ALTCRITMULT
-Reedstaff		TYPE:Weapon.Exotic.Melee.Bludgeoning.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:20	WT:4		CRITMULT:x2			CRITRANGE:2			ALTCRITRANGE:2			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.137	BONUS:WEAPON|TOHIT|-4|PREWEAPONPROF:Reedstaff|!PRESKILL:1,Perform=1	ALTCRITMULT:x2
+# Equipment Name	Type								Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
+Reedstaff		TYPE:Weapon.Exotic.Melee.Bludgeoning.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:20	WT:4		CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x2		ALTCRITRANGE:2			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.137	BONUS:WEAPON|TOHIT|-4|PREWEAPONPROF:Reedstaff|!PRESKILL:1,Perform=1
