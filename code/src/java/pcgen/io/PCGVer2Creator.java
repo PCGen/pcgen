@@ -1359,7 +1359,7 @@ final class PCGVer2Creator implements IOConstants
 						for (; it2 < ability.getAssociatedCount(); ++it2)
 						{
 							if (it2 > 0
-								&& it2 < ability.getAssociatedCount() - 1)
+								&& it2 < ability.getAssociatedCount())
 							{
 								buffer.append(Constants.COMMA);
 							}
