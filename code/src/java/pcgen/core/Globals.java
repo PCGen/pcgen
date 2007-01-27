@@ -3313,7 +3313,15 @@ public final class Globals
 			}
 			else
 			{
-				list.add(getLanguageKeyed(aLang));
+				Language languageKeyed = getLanguageKeyed(aLang);
+				if (languageKeyed == null)
+				{
+					Logging.debugPrint("Someone expected Language: " + aLang + " to exist: it doesn't");
+				}
+				else
+				{
+					list.add(languageKeyed);
+				}
 			}
 		}
 		return list;
