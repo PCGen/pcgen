@@ -13789,6 +13789,12 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 					return;
 				}
 
+				// If not importing, add extra feats
+				if (!isImporting() && classList.isEmpty())
+				{
+					adjustFeats(pcClassClone.getInitialFeats());
+				}
+				
 				// Add the class to the character classes as level 0
 				classList.add(pcClassClone);
 

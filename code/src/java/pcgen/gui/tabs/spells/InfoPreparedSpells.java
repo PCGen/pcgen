@@ -1158,14 +1158,14 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		c.setPool(99);
 		c.setVisible(true);
 
-		final List<Ability> fList = c.getSelectedList();
+		final List<String> fList = c.getSelectedList();
 		List<Ability> selFeatList = new ArrayList<Ability>();
 		int spLevel = si.getActualLevel();
 		int realLevel = spLevel;
 
 		for (int i = 0; i < fList.size(); ++i)
 		{
-			Ability aFeat = pc.getFeatNamed(fList.get(i).toString());
+			Ability aFeat = pc.getFeatNamed(fList.get(i));
 			realLevel += aFeat.getAddSpellLevel();
 			selFeatList.add(aFeat);
 		}
