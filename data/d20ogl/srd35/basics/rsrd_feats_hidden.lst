@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 17:50:24 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Fri Jan 26 19:06:31 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -62,6 +62,20 @@ Rebuke Plant	TYPE:Special.Turning.TurnPlant	VISIBLE:NO												SA:Rebuke Plan
 Turn Scalykind	TYPE:Special.Turning.TurnScalykind	VISIBLE:NO												SA:Turn reptiles and snakes (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesScalykind|TurnLevelScalykind|TurnDiceScalykind|TurnDieSizeScalykind|TurnDamagePlusScalykind	DEFINE:TurnTimesScalykind|TurnTimesBase	DEFINE:TurnLevelScalykind|TurnLevelBase	DEFINE:TurnDiceScalykind|TurnDiceBase	DEFINE:TurnDieSizeScalykind|TurnDieSizeBase	DEFINE:TurnDamagePlusScalykind|TurnDamagePlusBase	DEFINE:TurnCheckScalykind|TurnCheckBase	SOURCEPAGE:DivineDomainsandSpells.lst
 Rebuke Scalykind	TYPE:Special.Turning.TurnScalykind	VISIBLE:NO												SA:Rebuke reptiles and snakes (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesScalykind|TurnLevelScalykind|TurnDiceScalykind|TurnDieSizeScalykind|TurnDamagePlusScalykind	DEFINE:TurnTimesScalykind|TurnTimesBase	DEFINE:TurnLevelScalykind|TurnLevelBase	DEFINE:TurnDiceScalykind|TurnDiceBase	DEFINE:TurnDieSizeScalykind|TurnDieSizeBase	DEFINE:TurnDamagePlusScalykind|TurnDamagePlusBase	DEFINE:TurnCheckScalykind|TurnCheckBase	SOURCEPAGE:DivineDomainsandSpells.lst
 
+# Spontanous casting for Cleric is linked to Turning, so I'm putting this block here.
+# I think inverting the selection for Cleric based on Spontaneous casting is a better way to do this.
+#    Right now, a Cleric that gains the both forms of turning/rebuking undead (from PrC or whatever)
+#    Will also gain both forms of Spontaneous casting.
+# At this point, it doesn't matter, since it gets converted to a single 'Spontaneous casting SA'
+#  - Tir Gwaith
+
+
+###Block: Spontaneous Casting abilities
+# Feat Name							Type			Visible	Special Ability		Source Page
+Spontaneous casting (Cure spells)			TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
+Spontaneous casting (Inflict spells)		TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
+Spontaneous casting (Summon Nature's Ally)	TYPE:ClassAbility	VISIBLE:NO	SA:Spontaneous casting	SOURCEPAGE:ClassesI.rtf
+
 ###Block: Barbarian Rage
 # Feat Name	Type					Visible	Special Ability																																																																																																							Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR
 Rage		TYPE:Special.Extraordinary	VISIBLE:NO	SA:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	SA:Greater Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	SA:Tireless Rage (Ex) % times/day without fatigue (% rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:TirelessRage,1],[PREVARLT:MightyRage,1]	SA:Mighty Rage (Ex) % times/day without fatigue (% rounds)|RageTimes|RageDuration|PREVARGTEQ:MightyRage,1	SA:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:CHECKS|Will|RageMorale|PREAPPLY:PC	BONUS:COMBAT|AC|-1*(RageACPenalty)|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1	BONUS:VAR|RageBonus|2|PREVARGTEQ:MightyRage,1
@@ -81,7 +95,8 @@ Bardic Song of Freedom		TYPE:Special	VISIBLE:NO	SA:Song of Freedom (Su) Break En
 Bardic Inspire Heroics		TYPE:Special	VISIBLE:NO	SA:Inspire Heroics (Su) character and % willing allies gain +% moral bonus on saving throws and +% dodge bonus to AC.|InspireHeroicsAllies|InspireHeroicsSaves|InspireHeroicsDodge|PREVARGTEQ:BardicMusicLvl,15																				DEFINE:InspireHeroicsAllies|0	DEFINE:InspireHeroicsSaves|0	DEFINE:InspireHeroicsDodge|0									BONUS:VAR|InspireHeroicsAllies|(BardicMusicLvl-12)/3	BONUS:VAR|InspireHeroicsSaves,InspireHeroicsDodge|4
 Bardic Mass Suggestion		TYPE:Special	VISIBLE:NO	SA:Mass Suggestion (Sp) Will DC % negates - as Suggestion, but simultaneously to any number of creatures the character has already fascinated|MassSuggestionDC|PRESKILL:1,TYPE.Perform=21																								DEFINE:MassSuggestionDC|SuggestionDC
 
-###Block: Druid ability
+
+###Block: Druid abilities
 # Feat Name			Type				Visible	Special Ability			Bonus to skill					Source Page
 Nature Sense		TYPE:Extraordinary	VISIBLE:NO	SA:Nature Sense (Ex)		BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:ClassesI.rtf
 Woodland Stride		TYPE:Extraordinary	VISIBLE:NO	SA:Woodland Stride (Ex)									SOURCEPAGE:ClassesI.rtf
