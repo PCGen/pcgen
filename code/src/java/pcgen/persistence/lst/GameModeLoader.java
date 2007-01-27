@@ -25,7 +25,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.io.File;
+import java.net.URI;
 import java.util.Map;
 
 import pcgen.core.GameMode;
@@ -51,11 +51,11 @@ public final class GameModeLoader
 	 * Parse the MISC game information line in the game mode file
 	 * @param gameMode
 	 * @param aLine
-	 * @param aFile
+	 * @param source
 	 * @param lineNum
 	 */
 	public static void parseMiscGameInfoLine(GameMode gameMode, String aLine,
-		File aFile, int lineNum)
+		URI source, int lineNum)
 	{
 		if (gameMode == null)
 		{
@@ -75,19 +75,18 @@ public final class GameModeLoader
 		GameModeLstToken token = (GameModeLstToken) tokenMap.get(key);
 		if (token != null)
 		{
-			LstUtils.deprecationCheck(token, gameMode.getName(), aFile
-				.getName(), value);
-			if (!token.parse(gameMode, value))
+			LstUtils.deprecationCheck(token, gameMode.getName(), source, value);
+			if (!token.parse(gameMode, value, source))
 			{
 				Logging.errorPrint("Error parsing misc. game info "
-					+ gameMode.getName() + '/' + aFile.getName() + ':'
+					+ gameMode.getName() + '/' + source + ':'
 					+ Integer.toString(lineNum) + " \"" + aLine + "\"");
 			}
 		}
 		else
 		{
 			Logging.errorPrint("Illegal misc. game info " + gameMode.getName()
-				+ '/' + aFile.getName() + ':' + Integer.toString(lineNum)
+				+ '/' + source + ':' + Integer.toString(lineNum)
 				+ " \"" + aLine + "\"");
 		}
 	}

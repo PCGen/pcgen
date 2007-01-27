@@ -25,6 +25,8 @@
  */
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -41,7 +43,7 @@ public class AlthpabbrevToken implements GameModeLstToken
 		return "ALTHPABBREV";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAltHPAbbrev(value);
 		return true;

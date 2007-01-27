@@ -1,5 +1,7 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.WieldCategoryLoader;
@@ -25,12 +27,12 @@ public class WieldcategoryToken implements GameModeLstToken
 	 * @param value 
 	 * @return true if successful
 	 */
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
 		{
 			WieldCategoryLoader catDiceLoader = new WieldCategoryLoader();
-			catDiceLoader.parseLine(gameMode, "WIELDCATEGORY:" + value);
+			catDiceLoader.parseLine(gameMode, "WIELDCATEGORY:" + value, source);
 			return true;
 		}
 		catch (Exception e)

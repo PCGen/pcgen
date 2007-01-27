@@ -1,11 +1,10 @@
 package plugin.lsttokens.campaign;
 
+import java.net.URI;
+
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLoader;
 import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.persistence.lst.CampaignSourceEntry;
-
-import java.net.URL;
 
 /**
  * Class deals with CLASS Token
@@ -18,11 +17,11 @@ public class ClassToken implements CampaignLstToken
 		return "CLASS";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addLine("CLASS:" + value);
-		campaign.addClassFile(new CampaignSourceEntry(campaign, CampaignLoader
-			.convertFilePath(sourceUrl, value)));
+		campaign.addClassFile(CampaignSourceEntry.getNewCSE(campaign,
+				sourceUri, value));
 		return true;
 	}
 }

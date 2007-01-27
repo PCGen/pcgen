@@ -78,7 +78,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (lstLine.indexOf("\t") == -1)
 				{
 					Logging.errorPrint("Expected SUBCLASS to have "
-						+ "additional Tags in " + source.getFile()
+						+ "additional Tags in " + source.getURI()
 						+ " (e.g. COST is a required Tag in a SUBCLASS)");
 				}
 				final String n = lstLine.substring(9, lstLine.indexOf("\t"));
@@ -88,7 +88,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				{
 					subClass = new SubClass();
 					subClass.setSourceCampaign(source.getCampaign());
-					subClass.setSourceFile(source.getFile());
+					subClass.setSourceURI(source.getURI());
 					pcClass.addSubClass(subClass);
 				}
 			}
@@ -138,7 +138,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				{
 					substitutionClass = new SubstitutionClass();
 					substitutionClass.setSourceCampaign(source.getCampaign());
-					substitutionClass.setSourceFile(source.getFile());
+					substitutionClass.setSourceURI(source.getURI());
 					pcClass.addSubstitutionClass(substitutionClass);
 				}
 			}
@@ -209,10 +209,10 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					&& (name.indexOf(".MOD") < 0))
 				{
 					// TODO - This should never happen
-					completeObject(pcClass);
+					completeObject(source, pcClass);
 					pcClass = new PCClass();
 					pcClass.setName(name);
-					pcClass.setSourceFile(source.getFile());
+					pcClass.setSourceURI(source.getURI());
 					pcClass.setSourceCampaign(source.getCampaign());
 				}
 				// need to grab PCClass instance for this .MOD minus the .MOD part of the name
@@ -236,7 +236,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					// it's supposed to be the level #
 					// but could be almost anything else
 					Logging.errorPrint("Expected a level value, but got '"
-						+ colString + "' instead in " + source.getFile(), nfe);
+						+ colString + "' instead in " + source.getURI(), nfe);
 				}
 
 				isNumber = false;
@@ -262,7 +262,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					.errorPrint("In: "
 						+ pcClass.getDisplayName()
 						+ ':'
-						+ source.getFile()
+						+ source.getURI()
 						+ ':'
 						+ colString
 						+ ", The MULTIPREREQS tag has been deprecated.  "
@@ -284,7 +284,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (!token.parse(pcClass, value, iLevel))
 				{
 					Logging.errorPrint("Error parsing ability "
-						+ pcClass.getDisplayName() + ':' + source.getFile()
+						+ pcClass.getDisplayName() + ':' + source.getURI()
 						+ ':' + colString + "\"");
 				}
 			}
@@ -298,7 +298,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					&& !(pcClass instanceof SubstitutionClass))
 				{
 					Logging.errorPrint("Illegal class info tag '" + colString
-						+ "' in " + source.getFile());
+						+ "' in " + source.getURI());
 				}
 			}
 
@@ -336,7 +336,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			catch (NumberFormatException nfe)
 			{
 				Logging.errorPrint("Non-Numeric Level Increment info '"
-					+ colString + "' in " + source.getFile(), nfe);
+					+ colString + "' in " + source.getURI(), nfe);
 			}
 		}
 		if (tokenCount > 1)
@@ -348,7 +348,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			catch (NumberFormatException nfe)
 			{
 				Logging.errorPrint("Non-Numeric Consecutive Level info '"
-					+ colString + "' in " + source.getFile(), nfe);
+					+ colString + "' in " + source.getURI(), nfe);
 			}
 		}
 		if (tokenCount > 2)
@@ -360,7 +360,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			catch (NumberFormatException nfe)
 			{
 				Logging.errorPrint("Non-Numeric Max Level info '" + colString
-					+ "' in " + source.getFile(), nfe);
+					+ "' in " + source.getURI(), nfe);
 			}
 		}
 

@@ -1,5 +1,7 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.UnitSetLoader;
@@ -15,12 +17,12 @@ public class UnitsetToken implements GameModeLstToken
 		return "UNITSET";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
 		{
 			UnitSetLoader unitSetLoader = new UnitSetLoader();
-			unitSetLoader.parseLine(gameMode, "UNITSET:" + value);
+			unitSetLoader.parseLine(gameMode, "UNITSET:" + value, source);
 			return true;
 		}
 		catch (Exception e)

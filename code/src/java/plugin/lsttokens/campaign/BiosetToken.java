@@ -1,10 +1,10 @@
 package plugin.lsttokens.campaign;
 
-import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLoader;
-import pcgen.persistence.lst.CampaignLstToken;
+import java.net.URI;
 
-import java.net.URL;
+import pcgen.core.Campaign;
+import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
 /**
  * Class deals with BIOSET Token
@@ -17,11 +17,11 @@ public class BiosetToken implements CampaignLstToken
 		return "BIOSET";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addLine("BIOSET:" + value);
-		campaign
-			.addBioSetFile(CampaignLoader.convertFilePath(sourceUrl, value));
+		campaign.addBioSetFile(CampaignSourceEntry.getNewCSE(campaign,
+				sourceUri, value));
 		return true;
 	}
 }

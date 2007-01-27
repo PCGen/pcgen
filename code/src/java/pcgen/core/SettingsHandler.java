@@ -45,6 +45,8 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Point;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 
 /**
@@ -1061,8 +1063,19 @@ public final class SettingsHandler
 			setBrowserPath(null);
 		}
 
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(CoreUtility.split(getOptions().getProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
-					""), ',')); //$NON-NLS-1$
+		List<String> uriStringList = CoreUtility.split(getOptions().getProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
+							""), ',');
+		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
+		for (String str : uriStringList)
+		{
+			try {
+				uriList.add(new URI(str));
+			} catch (URISyntaxException e) {
+				Logging.errorPrint("Settings error: Unable to convert " + str
+						+ " to a URI: " + e.getLocalizedMessage());
+			}
+		}
+		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList); //$NON-NLS-1$
 
 		setLeftUpperCorner(new Point(getPCGenOption("windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
 				getPCGenOption("windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$

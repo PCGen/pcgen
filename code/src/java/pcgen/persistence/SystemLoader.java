@@ -22,6 +22,7 @@
  */
 package pcgen.persistence;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Observer;
 import java.util.Set;
@@ -49,14 +50,14 @@ public interface SystemLoader
 	 * This method sets a List of campaigns  selected by the user.
 	 * @param l List containing the chosen campaign source files
 	 */
-	public void setChosenCampaignSourcefiles(List<String> l);
+	public void setChosenCampaignSourcefiles(List<URI> l);
 
 	/**
 	 * This method gets a List of campaigns previously or currently
 	 * selected by the user.
 	 * @return List containing the chosen campaign source files
 	 */
-	public List<String> getChosenCampaignSourcefiles();
+	public List<URI> getChosenCampaignSourcefiles();
 
 	/**
 	 * This method indicates whether custom items have been successfully
@@ -111,7 +112,7 @@ public interface SystemLoader
 	 *                    The new data is appended to this.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadFileIntoList(String fileName, int fileType,
+	public void loadFileIntoList(URI fileName, int fileType,
 		List<PObject> aList) throws PersistenceLayerException;
 
 	/**

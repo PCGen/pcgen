@@ -25,6 +25,8 @@
 
 package plugin.lsttokens.kit;
 
+import java.net.URI;
+
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitFundsLoader;
@@ -55,11 +57,11 @@ public class FundsToken extends KitLstToken
 	 * @return true if parse OK
 	 */
 	@Override
-	public boolean parse(Kit aKit, String value)
+	public boolean parse(Kit aKit, String value, URI source)
 	{
 		try
 		{
-			KitFundsLoader.parseLine(aKit, value);
+			KitFundsLoader.parseLine(aKit, value, source);
 		}
 		catch (PersistenceLayerException pe)
 		{

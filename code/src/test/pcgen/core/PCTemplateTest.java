@@ -24,6 +24,8 @@
 package pcgen.core;
 
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -33,6 +35,7 @@ import pcgen.core.Ability.Nature;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCTemplateLoader;
+import pcgen.util.UnreachableError;
 
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
@@ -112,10 +115,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = new PCTemplate();
 		//CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
 
-		CampaignSourceEntry source =
-			new CampaignSourceEntry(new Campaign(), getClass().getName()
-				+ ".java");
-		loader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		loader
 			.parseLine(
 				template,
@@ -156,10 +165,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
-		CampaignSourceEntry source =
-			new CampaignSourceEntry(new Campaign(), getClass().getName()
-				+ ".java");
-		loader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		loader
 			.parseLine(
 				template,
@@ -202,10 +217,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
-		CampaignSourceEntry source =
-			new CampaignSourceEntry(new Campaign(), getClass().getName()
-				+ ".java");
-		loader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		loader
 			.parseLine(
 				template,
@@ -260,10 +281,16 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		PCTemplate template = new PCTemplate();
-		CampaignSourceEntry source =
-			new CampaignSourceEntry(new Campaign(), getClass().getName()
-				+ ".java");
-		loader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		loader
 			.parseLine(
 				template,

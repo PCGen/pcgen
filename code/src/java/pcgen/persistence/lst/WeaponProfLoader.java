@@ -86,7 +86,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 				prof.setName(colString);
 				prof.setKeyName(colString);
 				prof.setSourceCampaign(source.getCampaign());
-				prof.setSourceFile(source.getFile());
+				prof.setSourceURI(source.getURI());
 			}
 			else if (token != null)
 			{
@@ -95,7 +95,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 				if (!token.parse(prof, value))
 				{
 					Logging.errorPrint("Error parsing skill "
-						+ prof.getDisplayName() + ':' + source.getFile() + ':'
+						+ prof.getDisplayName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -114,7 +114,7 @@ public final class WeaponProfLoader extends LstObjectFileLoader<WeaponProf>
 
 		// WeaponProfs are one line each;
 		// finish the object and return null
-		completeObject(prof);
+		completeObject(source, prof);
 
 		return null;
 	}

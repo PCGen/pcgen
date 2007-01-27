@@ -26,6 +26,7 @@ import pcgen.core.Globals;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,10 +53,10 @@ public final class BonusSpellLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM, false);
@@ -84,18 +85,17 @@ public final class BonusSpellLoader extends LstLineFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Bonus Spell", sourceURL
-					.toString(), value);
+				LstUtils.deprecationCheck(token, "Bonus Spell", sourceURI, value);
 				if (!token.parse(bonus, value))
 				{
 					Logging.errorPrint("Error parsing bonus spell :"
-						+ sourceURL.toString() + ':' + colString + "\"");
+						+ sourceURI.toString() + ':' + colString + "\"");
 				}
 			}
 			else
 			{
 				Logging.errorPrint("Illegal bonus spell info '" + lstLine
-					+ "' in " + sourceURL.toString());
+					+ "' in " + sourceURI.toString());
 			}
 		}
 

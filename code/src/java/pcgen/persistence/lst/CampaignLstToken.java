@@ -27,7 +27,7 @@ package pcgen.persistence.lst;
 
 import pcgen.core.Campaign;
 
-import java.net.URL;
+import java.net.URI;
 
 /**
  * <code>CampaignLstToken</code>
@@ -43,5 +43,5 @@ public interface CampaignLstToken extends LstToken
 	 * @param sourceURL
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(Campaign campaign, String value, URL sourceURL);
+	public abstract boolean parse(Campaign campaign, String value, URI sourceURI);
 }

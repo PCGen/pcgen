@@ -1,5 +1,6 @@
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -20,7 +21,7 @@ public class SourceLoader
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
 	 */
 	public static Map<String, String> parseLine(String lstLine,
-		String sourceFile)
+		URI sourceFile)
 	{
 		Map<String, String> sourceMap = new HashMap<String, String>();
 

@@ -1,5 +1,7 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -14,7 +16,7 @@ public class DefaultunitsetToken implements GameModeLstToken
 		return "DEFAULTUNITSET";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setDefaultUnitSet(value);
 		return true;

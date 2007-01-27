@@ -4,7 +4,7 @@ import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.util.Logging;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Properties;
 
 /**
@@ -18,7 +18,7 @@ public class OptionToken implements CampaignLstToken
 		return "OPTION";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		// We store a set of options with the campaign, so add this one in now.
 		// That way when the campaign is selected the options can be set too.
@@ -47,7 +47,7 @@ public class OptionToken implements CampaignLstToken
 		else
 		{
 			Logging.errorPrint("Invalid option line in source file "
-				+ sourceUrl.toString() + " : " + value);
+				+ sourceUri.toString() + " : " + value);
 			return false;
 		}
 		return true;

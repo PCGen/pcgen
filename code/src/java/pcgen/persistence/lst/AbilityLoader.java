@@ -95,7 +95,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			{
 				anAbility.setName(colString);
 				anAbility.setSourceCampaign(source.getCampaign());
-				anAbility.setSourceFile(source.getFile());
+				anAbility.setSourceURI(source.getURI());
 			}
 			else if (token != null)
 			{
@@ -106,7 +106,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 					Logging
 						.errorPrintLocalised(
 							"Errors.AbilityLoader.ParsingError", //$NON-NLS-1$
-							anAbility.getDisplayName(), source.getFile(),
+							anAbility.getDisplayName(), source.getURI(),
 							colString);
 				}
 			}
@@ -129,7 +129,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			else
 			{
 				Logging.errorPrintLocalised("Errors.AbilityLoader.UnknownTag", //$NON-NLS-1$
-					colString, source.getFile());
+					colString, source.getURI());
 			}
 
 			++col;
@@ -138,7 +138,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		//setChanged();
 		//notifyObservers(anAbility);
 
-		completeObject(anAbility);
+		completeObject(source, anAbility);
 		return null;
 	}
 

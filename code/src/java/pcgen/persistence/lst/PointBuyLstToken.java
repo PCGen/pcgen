@@ -25,6 +25,8 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 
 /**
@@ -39,5 +41,5 @@ public interface PointBuyLstToken extends LstToken
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(GameMode gameMode, String value);
+	public abstract boolean parse(GameMode gameMode, String value, URI source);
 }

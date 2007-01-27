@@ -29,7 +29,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
@@ -57,7 +57,7 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstFileLoader#loadLstFiles(java.util.List)
 	 */
 	@Override
-	public void loadLstFile(String fileName) throws PersistenceLayerException
+	public void loadLstFile(URI fileName) throws PersistenceLayerException
 	{
 		// Clear relevant Globals
 		SettingsHandler.getGame().setAttribLong(null);
@@ -84,10 +84,10 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)
@@ -103,17 +103,17 @@ public class StatsAndChecksLoader extends LstLineFileLoader
 		if (token != null)
 		{
 			LstUtils
-				.deprecationCheck(token, key, sourceURL.toString(), lstLine);
-			if (!token.parse(lstLine, sourceURL))
+				.deprecationCheck(token, key, sourceURI, lstLine);
+			if (!token.parse(lstLine, sourceURI))
 			{
 				Logging.errorPrint("Error parsing StatsAndChecks object: "
-					+ lstLine + '/' + sourceURL.toString());
+					+ lstLine + '/' + sourceURI.toString());
 			}
 		}
 		else
 		{
 			Logging.errorPrint("Illegal StatsAndChecks object: " + lstLine
-				+ '/' + sourceURL.toString());
+				+ '/' + sourceURI.toString());
 		}
 	}
 }

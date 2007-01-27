@@ -25,6 +25,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -56,7 +57,7 @@ final class LevelLoader
 	 * @param lineNum    The number of the line being parsed.
 	 */
 	public static void parseLine(LevelInfo levelInfo, String inputLine,
-		int lineNum)
+		int lineNum, URI source)
 	{
 		if (levelInfo == null)
 		{
@@ -88,7 +89,7 @@ final class LevelLoader
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, levelInfo.getLevelString(),
-					"level.lst", value);
+					source, value);
 				if (!token.parse(levelInfo, value))
 				{
 					Logging.errorPrint("Error parsing ability "

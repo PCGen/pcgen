@@ -41,6 +41,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.net.URI;
 import java.util.*;
 
 /**
@@ -225,15 +226,11 @@ class SourceBasePanel extends BasePanel
 
 		String a = theCampaign.getDestination();
 
-		if (a.equals("") && (theCampaign.getSourceFile() != null))
+		if (a.equals("") && (theCampaign.getSourceURI() != null))
 		{
-			a = theCampaign.getSourceFile();
+			URI uri = theCampaign.getSourceURI();
 
-			if (a.startsWith("file:"))
-			{
-				a = a.substring(6);
-			}
-
+			a = uri.getPath();
 			a = a.replace('\\', File.separator.charAt(0));
 			a = a.replace('/', File.separator.charAt(0));
 
@@ -380,9 +377,9 @@ class SourceBasePanel extends BasePanel
 						{
 							loc = loc.substring(SettingsHandler.getPccFilesLocation().toString().length() + 1);
 						}
-						else if (loc.startsWith(theCampaign.getSourceFile()))
+						else if (loc.startsWith(theCampaign.getSourceURI().toString()))
 						{
-							loc = loc.substring(theCampaign.getSourceFile().length() + 1);
+							loc = loc.substring(theCampaign.getSourceURI().toString().length() + 1);
 						}
 					}
 

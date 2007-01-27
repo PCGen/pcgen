@@ -25,6 +25,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.net.URL;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -47,10 +48,10 @@ final class EquipSlotLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see LstLineFileLoader#parseLine(String, URL)
+	 * @see LstLineFileLoader#parseLine(URL, String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		final EquipSlot eqSlot = new EquipSlot();
 
@@ -80,11 +81,11 @@ final class EquipSlotLoader extends LstLineFileLoader
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
-					sourceURL.toString(), value);
+						sourceURI, value);
 				if (!token.parse(eqSlot, lstLine))
 				{
 					Logging.errorPrint("Error parsing equip slots "
-						+ eqSlot.getSlotName() + ':' + sourceURL + ':'
+						+ eqSlot.getSlotName() + ':' + sourceURI + ':'
 						+ colString + "\"");
 				}
 				break;
@@ -93,18 +94,18 @@ final class EquipSlotLoader extends LstLineFileLoader
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
-					sourceURL.toString(), value);
+						sourceURI, value);
 				if (!token.parse(eqSlot, value))
 				{
 					Logging.errorPrint("Error parsing equip slots "
-						+ eqSlot.getSlotName() + ':' + sourceURL + ':'
+						+ eqSlot.getSlotName() + ':' + sourceURI + ':'
 						+ colString + "\"");
 				}
 			}
 			else
 			{
 				Logging.errorPrint("Illegal slot info '" + lstLine + "' in "
-					+ sourceURL.toString());
+					+ sourceURI.toString());
 			}
 		}
 

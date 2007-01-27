@@ -39,6 +39,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -279,7 +280,7 @@ public class MainSource extends FilterAdapterPanel
 		 * author: Thomas Behr 04-03-02
 		 */
 		updateModels();
-		selectCampaignsByFilename(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
+		selectCampaignsByURI(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
 	}
 
 	private void clearQFilter()
@@ -371,7 +372,7 @@ public class MainSource extends FilterAdapterPanel
 				if(aCamp.getCoverFiles().size() > 0) {
 					CampaignSourceEntry image = aCamp.getCoverFiles().get(0);
 					sb.append("<img src='")
-						.append(image.getFile())
+						.append(image.getURI())
 						.append("'><br>");
 				}
 				sb.append("<b>TYPE</b>: ")
@@ -953,7 +954,7 @@ public class MainSource extends FilterAdapterPanel
 		//go ahead and auto-load campaigns now, if that option is set
 		if (SettingsHandler.isLoadCampaignsAtStart())
 		{
-			selectCampaignsByFilename(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
+			selectCampaignsByURI(PersistenceManager.getInstance().getChosenCampaignSourcefiles());
 
 			if (selectedCampaigns.size() > 0)
 			{
@@ -1116,11 +1117,11 @@ public class MainSource extends FilterAdapterPanel
 
 	private void rememberSourceChanges()
 	{
-		List<String> campaignStrings = new ArrayList<String>(selectedCampaigns.size());
+		List<URI> campaignStrings = new ArrayList<URI>(selectedCampaigns.size());
 
 		for (Campaign aCamp : selectedCampaigns)
 		{
-			campaignStrings.add(aCamp.getSourceFile());
+			campaignStrings.add(aCamp.getSourceURI());
 		}
 
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(campaignStrings);
@@ -1363,11 +1364,11 @@ public class MainSource extends FilterAdapterPanel
 	 * @param  campaigns  A Collection of campaign file names.
 	 * @since
 	 */
-	private void selectCampaignsByFilename(Collection<String> campaigns)
+	private void selectCampaignsByURI(Collection<URI> campaigns)
 	{
-		for (String element : campaigns)
+		for (URI element : campaigns)
 		{
-			final Campaign aCampaign = Globals.getCampaignByFilename(element);
+			final Campaign aCampaign = Globals.getCampaignByURI(element);
 
 			if (aCampaign != null)
 			{
@@ -1407,7 +1408,7 @@ public class MainSource extends FilterAdapterPanel
 
 		Globals.emptyLists();
 		PersistenceManager.getInstance().emptyLists();
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<String>());
+		PersistenceManager.getInstance().setChosenCampaignSourcefiles(new ArrayList<URI>());
 
 		for (Campaign aCamp : Globals.getCampaignList())
 		{

@@ -76,7 +76,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 		if (inputLine.startsWith("STARTPACK:")) {
 			target = new Kit();
 			target.setSourceCampaign(source.getCampaign());
-			target.setSourceFile(source.getFile());
+			target.setSourceURI(source.getURI());
 			if (kitPrereq != null) {
 				target.addPreReq(KitLoader.kitPrereq);
 			}
@@ -90,9 +90,9 @@ public final class KitLoader extends LstObjectFileLoader<Kit> {
 		if (token != null) {
 			final String value = inputLine.substring(idxColon + 1);
 			LstUtils.deprecationCheck(token, target, value);
-			if (!token.parse(target, value)) {
+			if (!token.parse(target, value, source.getURI())) {
 				Logging.errorPrint("Error parsing Kit tag "
-						+ target.getDisplayName() + ':' + source.getFile()
+						+ target.getDisplayName() + ':' + source.getURI()
 						+ ':' + inputLine + "\"");
 			}
 		} else {

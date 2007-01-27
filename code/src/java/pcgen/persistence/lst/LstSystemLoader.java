@@ -27,17 +27,18 @@ package pcgen.persistence.lst;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -71,6 +72,8 @@ import pcgen.gui.pcGenGUI;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
+import pcgen.util.PropertyFactory;
+import pcgen.util.UnreachableError;
 
 /**
  * ???
@@ -85,10 +88,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private static final List<PObject> pList = new ArrayList<PObject>();
 
 	/**
-	 * TODO: Convert remaining items to new persistence framework
-	 *
 	 * Define the order in which the file types are ordered
 	 * so we don't have to keep renumbering them
+	 * 
+	 * This can be removed after 5.12
 	 */
 	private static final int[] loadOrder =
 			{	LstConstants.CLASSSKILL_TYPE, LstConstants.CLASSSPELL_TYPE };
@@ -134,9 +137,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private static int lineNum = 0;
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private CampaignLoader campaignLoader = new CampaignLoader();
-	private CampaignSourceEntry globalCampaign =
-			new CampaignSourceEntry(new Campaign(),
-				"System Configuration Document");
+	private final CampaignSourceEntry globalCampaign;
 	private DeityLoader deityLoader = new DeityLoader();
 	private DomainLoader domainLoader = new DomainLoader();
 	private AbilityLoader abilityLoader = new AbilityLoader();
@@ -149,13 +150,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				if (".pcc".regionMatches(true, 0, fileName, fileName.length() - 4, 4))
 				{
-					final String path = new File(parentDir, fileName).getPath();
+					URI uri = new File(parentDir, fileName).toURI();
 
 					//Test to avoid reloading existing campaigns, so we can safely
 					// call loadPCCFilesInDirectory repeatedly. -rlk 2002-03-30
-					if (Globals.getCampaignByFilename(path, false) == null)
+					if (Globals.getCampaignByURI(uri, false) == null)
 					{
-						campaignLoader.loadLstFile(path);
+						campaignLoader.loadLstFile(uri);
 					}
 				}
 				else if (parentDir.isDirectory())
@@ -187,9 +188,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private LoadInfoLoader loadInfoLoader = new LoadInfoLoader();
 	private UnitSetLoader unitSetLoader = new UnitSetLoader();
 	private EquipSlotLoader eqSlotLoader = new EquipSlotLoader();
-	private final List<String> bioSetFileList = new ArrayList<String>();
-	private final List<String> chosenCampaignSourcefiles =
-			new ArrayList<String>();
+	private final List<CampaignSourceEntry> bioSetFileList =
+			new ArrayList<CampaignSourceEntry>();
+	private final List<URI> chosenCampaignSourcefiles =
+			new ArrayList<URI>();
 	private final List<CampaignSourceEntry> classFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> classSkillFileList =
@@ -214,11 +216,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> languageFileList =
 			new ArrayList<CampaignSourceEntry>();
-	private List<String> licenseFiles = new ArrayList<String>();
+	private List<URI> licenseFiles = new ArrayList<URI>();
 	private final List<CampaignSourceEntry> lstExcludeFiles =
 			new ArrayList<CampaignSourceEntry>();
 
-	private final List<String> pccFileList = new ArrayList<String>();
 	private final List<CampaignSourceEntry> raceFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private final List<String> reqSkillFileList = new ArrayList<String>();
@@ -231,8 +232,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private final List<CampaignSourceEntry> weaponProfFileList =
 			new ArrayList<CampaignSourceEntry>();
 	private LocationLoader locationLoader = new LocationLoader();
-	private final Map<String, String> loadedFiles =
-			new HashMap<String, String>();
+	private final Set<URI> loadedFiles = new HashSet<URI>();
 	private PCClassLoader classLoader = new PCClassLoader();
 	private PCTemplateLoader templateLoader = new PCTemplateLoader();
 	private EquipmentLoader equipmentLoader = new EquipmentLoader();
@@ -296,9 +296,17 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		templateLoader.addObserver(this);
 		traitLoader.addObserver(this);
 		wProfLoader.addObserver(this);
+		try {
+			globalCampaign =
+				new CampaignSourceEntry(new Campaign(),
+						new URI("file:/System%20Configuration%20Document"));
+		} catch (URISyntaxException e) {
+			throw new UnreachableError(e);
+		}
+
 	}
 
-	public void setChosenCampaignSourcefiles(List<String> l)
+	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
 		chosenCampaignSourcefiles.clear();
 		chosenCampaignSourcefiles.addAll(l);
@@ -307,7 +315,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			CoreUtility.join(chosenCampaignSourcefiles, ','));
 	}
 
-	public List<String> getChosenCampaignSourcefiles()
+	public List<URI> getChosenCampaignSourcefiles()
 	{
 		return chosenCampaignSourcefiles;
 	}
@@ -375,14 +383,12 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	private void loadSponsorsLstFile()
 	{
-		final String systemPrefix =
-				SettingsHandler.getPcgenSystemDir() + File.separator;
-		final String sponsorDirectory =
-				systemPrefix + "sponsors" + File.separator;
+		File sponsorDir = new File(SettingsHandler.getPcgenSystemDir(), "sponsors");
+		File sponsorFile = new File(sponsorDir, "sponsors.lst");
 
 		try
 		{
-			sponsorLoader.loadLstFile(sponsorDirectory + "sponsors.lst", null);
+			sponsorLoader.loadLstFile(sponsorFile.toURI(), null);
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -415,13 +421,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// correct statsandchecks.lst file for this gameMode
 			if (SettingsHandler.getGame() != null)
 			{
-				final String modeFilePrefix =
-						SettingsHandler.getPcgenSystemDir() + File.separator
-							+ "gameModes" + File.separator
-							+ SettingsHandler.getGame().getName()
-							+ File.separator;
-				statCheckLoader.loadLstFile(modeFilePrefix
-					+ "statsandchecks.lst");
+				File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
+				File specificGameModeDir = new File(gameModeDir, SettingsHandler.getGame().getName());
+				File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
+				statCheckLoader.loadLstFile(statsAndChecks.toURI());
 			}
 			else
 			{
@@ -570,7 +573,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		count += featFileList.size();
 		count += kitFileList.size();
 		count += languageFileList.size();
-		count += pccFileList.size();
 		count += raceFileList.size();
 		count += skillFileList.size();
 		count += spellFileList.size();
@@ -586,23 +588,20 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
 	@Deprecated
-	public void loadFileIntoList(String fileName, int fileType,
+	public void loadFileIntoList(URI fileName, int fileType,
 		List<PObject> aList) throws PersistenceLayerException
 	{
 		URL url = null;
-		String urlString = "";
 		try
 		{
-			urlString = CoreUtility.fileToURL(fileName);
-			url = new URL(fileName);
+			url = fileName.toURL();
 		}
 		catch (MalformedURLException e)
 		{
 			try
 			{
 				setChanged();
-				notifyObservers("Unable to convert '" + urlString
-					+ "' to a URL");
+				notifyObservers("Unable to convert '" + fileName + "' to a URL");
 				url = new URL("http://g");
 			}
 			catch (MalformedURLException e1)
@@ -712,7 +711,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	private void addCustomFilesToStartOfList()
 	{
-		String tempGame;
 		CampaignSourceEntry tempSource = null;
 
 		// The dummy campaign for custom data.
@@ -723,21 +721,23 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom bioset file to the start of the list if it exists
 		//
-		if (new File(CustomData.customBioSetFilePath(true)).exists())
+		File bioSetFile = new File(CustomData.customBioSetFilePath(true));
+		if (bioSetFile.exists())
 		{
-			tempGame = CustomData.customBioSetFilePath(true);
-			bioSetFileList.remove(tempGame);
-			bioSetFileList.add(0, tempGame);
+			tempSource = new CampaignSourceEntry(customCampaign, bioSetFile
+					.toURI());
+			bioSetFileList.remove(tempSource);
+			bioSetFileList.add(0, tempSource);
 		}
 
 		//
 		// Add the custom class file to the start of the list if it exists
 		//
-		if (new File(CustomData.customClassFilePath(true)).exists())
+		File classFile = new File(CustomData.customClassFilePath(true));
+		if (classFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customClassFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, classFile
+					.toURI());
 			classFileList.remove(tempSource);
 			classFileList.add(0, tempSource);
 		}
@@ -745,11 +745,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom deity file to the start of the list if it exists
 		//
-		if (new File(CustomData.customDeityFilePath(true)).exists())
+		File deityFile = new File(CustomData.customDeityFilePath(true));
+		if (deityFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customDeityFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, deityFile
+					.toURI());
 			deityFileList.remove(tempSource);
 			deityFileList.add(0, tempSource);
 		}
@@ -757,11 +757,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom domain file to the start of the list if it exists
 		//
-		if (new File(CustomData.customDomainFilePath(true)).exists())
+		File domainFile = new File(CustomData.customDomainFilePath(true));
+		if (domainFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customDomainFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, domainFile
+					.toURI());
 			domainFileList.remove(tempSource);
 			domainFileList.add(0, tempSource);
 		}
@@ -769,11 +769,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom ability file to the start of the list if it exists
 		//
-		if (new File(CustomData.customAbilityFilePath(true)).exists())
+		File abilityFile = new File(CustomData.customAbilityFilePath(true));
+		if (abilityFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customAbilityFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, abilityFile
+					.toURI());
 			abilityFileList.remove(tempSource);
 			abilityFileList.add(0, tempSource);
 		}
@@ -781,11 +781,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom feat file to the start of the list if it exists
 		//
-		if (new File(CustomData.customFeatFilePath(true)).exists())
+		File featFile = new File(CustomData.customFeatFilePath(true));
+		if (featFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customFeatFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, featFile
+					.toURI());
 			featFileList.remove(tempSource);
 			featFileList.add(0, tempSource);
 		}
@@ -793,11 +793,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom language file to the start of the list if it exists
 		//
-		if (new File(CustomData.customLanguageFilePath(true)).exists())
+		File languageFile = new File(CustomData.customLanguageFilePath(true));
+		if (languageFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customLanguageFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, languageFile
+					.toURI());
 			languageFileList.remove(tempSource);
 			languageFileList.add(0, tempSource);
 		}
@@ -805,11 +805,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom race file to the start of the list if it exists
 		//
-		if (new File(CustomData.customRaceFilePath(true)).exists())
+		File raceFile = new File(CustomData.customRaceFilePath(true));
+		if (raceFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customRaceFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, raceFile
+					.toURI());
 			raceFileList.remove(tempSource);
 			raceFileList.add(0, tempSource);
 		}
@@ -817,11 +817,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom skill file to the start of the list if it exists
 		//
-		if (new File(CustomData.customSkillFilePath(true)).exists())
+		File skillFile = new File(CustomData.customSkillFilePath(true));
+		if (skillFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customSkillFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, skillFile
+					.toURI());
 			skillFileList.remove(tempSource);
 			skillFileList.add(0, tempSource);
 		}
@@ -829,11 +829,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom spell file to the start of the list if it exists
 		//
-		if (new File(CustomData.customSpellFilePath(true)).exists())
+		File spellFile = new File(CustomData.customSpellFilePath(true));
+		if (spellFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customSpellFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, spellFile
+					.toURI());
 			spellFileList.remove(tempSource);
 			spellFileList.add(0, tempSource);
 		}
@@ -841,11 +841,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		// Add the custom template file to the start of the list if it exists
 		//
-		if (new File(CustomData.customTemplateFilePath(true)).exists())
+		File templateFile = new File(CustomData.customTemplateFilePath(true));
+		if (templateFile.exists())
 		{
-			tempSource =
-					new CampaignSourceEntry(customCampaign, CustomData
-						.customTemplateFilePath(true));
+			tempSource = new CampaignSourceEntry(customCampaign, templateFile
+					.toURI());
 			templateFileList.remove(tempSource);
 			templateFileList.add(0, tempSource);
 		}
@@ -937,8 +937,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		if ((gDeities != null) && (gDeities.size() != 0))
 		{
-			deityLoader.loadLstFile(globalCampaign);
-
 			for (String aLine : gDeities)
 			{
 				deityLoader.parseLine(null, aLine, globalCampaign);
@@ -1024,22 +1022,15 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * @deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
 	@Deprecated
-	private void initFile(String argFileName, int fileType, List<PObject> aList)
+	private void initFile(URI argFileName, int fileType, List<PObject> aList)
 		throws PersistenceLayerException
 	{
-		final StringBuffer dataBuffer = new StringBuffer();
-
 		if (lstExcludeFiles.contains(argFileName))
 		{
 			return;
 		}
 
-		final URL aURL = LstFileLoader.readFileGetURL(argFileName, dataBuffer);
-
-		if (aURL == null)
-		{
-			return;
-		}
+		final StringBuilder dataBuffer = LstFileLoader.readFromURI(argFileName);
 
 		/*
 		 * Need to keep the Windows line separator as newline
@@ -1163,7 +1154,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		aCamp.setIsLoaded(true);
 
-		final String sourceFile = aCamp.getSourceFile();
+		final URI sourceFile = aCamp.getSourceURI();
 
 		// Update the list of chosen campaign source files
 		if (!chosenCampaignSourcefiles.contains(sourceFile))
@@ -1187,10 +1178,10 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				licensesToDisplayString.append(aCamp.getLicenses());
 			}
 
-			licenseList = aCamp.getLicenseFiles();
-			if (licenseList != null)
+			List<URI> licenseURIs = aCamp.getLicenseFiles();
+			if (licenseURIs != null)
 			{
-				licenseFiles.addAll(licenseList);
+				licenseFiles.addAll(licenseURIs);
 			}
 		}
 
@@ -1302,128 +1293,98 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 	}
 
-	private static void loadGameModeInfoFile(GameMode gameMode, File aFile,
+	private static void loadGameModeInfoFile(GameMode gameMode, URI uri,
 		String aType)
 	{
-		BufferedReader br = null;
-
+		String data;
 		try
 		{
-			br =
-					new BufferedReader(new InputStreamReader(
-						new FileInputStream(aFile), "UTF-8"));
-
-			String aLine;
-			int lineNumber = 0;
-
-			while ((aLine = br.readLine()) != null)
-			{
-				lineNumber++;
-
-				// Ignore commented-out and empty lines
-				if (((aLine.length() > 0) && (aLine.charAt(0) == '#'))
-					|| (aLine.length() == 0))
-				{
-					continue;
-				}
-
-				if (aType.equals("load"))
-				{
-					gameMode.addLoadString(aLine);
-				}
-				else if (aType.equals("level"))
-				{
-					final LevelInfo level = new LevelInfo();
-					LevelLoader.parseLine(level, aLine, lineNumber);
-					gameMode.addLevelInfo(level);
-				}
-				else if (aType.equals("rules"))
-				{
-					RuleCheckLoader.parseLine(gameMode, aLine);
-				}
-			}
+			data = LstFileLoader.readFromURI(uri).toString();
 		}
-		catch (IOException ex)
+		catch (PersistenceLayerException ple)
 		{
-			Logging.errorPrint("Error when loading game mode " + aType
-				+ " info", ex);
+			Logging.errorPrint(PropertyFactory.getFormattedString(
+				"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
+				uri, ple.getMessage()));
+			return;
 		}
-		finally
+
+		final StringTokenizer fileLines =
+				new StringTokenizer(data, LstObjectFileLoader.LINE_SEPARATOR);
+
+		int lineNumber = 0;
+
+		while (fileLines.hasMoreTokens())
 		{
-			try
+			lineNumber++;
+			String aLine = fileLines.nextToken().trim();
+
+			// Ignore commented-out and empty lines
+			if (((aLine.length() > 0) && (aLine.charAt(0) == '#'))
+				|| (aLine.length() == 0))
 			{
-				if (br != null)
-				{
-					br.close();
-				}
+				continue;
 			}
-			catch (IOException ex)
+
+			if (aType.equals("load"))
 			{
-				Logging.errorPrint(
-					"Error when trying to close after loading game mode "
-						+ aType + " info", ex);
+				gameMode.addLoadString(aLine);
+			}
+			else if (aType.equals("level"))
+			{
+				final LevelInfo level = new LevelInfo();
+				LevelLoader.parseLine(level, aLine, lineNumber, uri);
+				gameMode.addLevelInfo(level);
+			}
+			else if (aType.equals("rules"))
+			{
+				RuleCheckLoader.parseLine(gameMode, aLine, uri);
 			}
 		}
 	}
 
-	private static GameMode loadGameModeMiscInfo(String aName, File aFile)
+	private static GameMode loadGameModeMiscInfo(String aName, URI uri)
 	{
 		GameMode gameMode = null;
-		BufferedReader br = null;
-
+		String data;
 		try
 		{
-			br =
-					new BufferedReader(new InputStreamReader(
-						new FileInputStream(aFile), "UTF-8"));
+			data = LstFileLoader.readFromURI(uri).toString();
+		}
+		catch (PersistenceLayerException ple)
+		{
+			Logging.errorPrint(PropertyFactory.getFormattedString(
+				"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
+				uri, ple.getMessage()));
+			return gameMode;
+		}
 
-			String aLine;
+		final StringTokenizer fileLines =
+				new StringTokenizer(data, LstObjectFileLoader.LINE_SEPARATOR);
 
-			int lineNumber = 0;
+		int lineNumber = 0;
 
-			while ((aLine = br.readLine()) != null)
-			{
-				++lineNumber;
+		while (fileLines.hasMoreTokens())
+		{
+			lineNumber++;
+			String aLine = fileLines.nextToken().trim();
 
 				// Ignore commented-out and empty lines
-				if (((aLine.length() > 0) && (aLine.charAt(0) == '#'))
+			if (((aLine.length() > 0) && (aLine.charAt(0) == '#'))
 					|| (aLine.length() == 0))
-				{
-					continue;
-				}
+			{
+				continue;
+			}
 
-				if (gameMode == null)
-				{
-					gameMode = new GameMode(aName);
-					SystemCollections.addToGameModeList(gameMode);
-				}
+			if (gameMode == null)
+			{
+				gameMode = new GameMode(aName);
+				SystemCollections.addToGameModeList(gameMode);
+			}
 
-				GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, aFile,
+			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri,
 					lineNumber);
-			}
 		}
-		catch (IOException ex)
-		{
-			Logging.errorPrint("Error when loading game mode misc info", ex);
-		}
-		finally
-		{
-			try
-			{
-				if (br != null)
-				{
-					br.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				Logging
-					.errorPrint(
-						"Error when trying to clase file after loading game mode misc info",
-						ex);
-			}
-		}
-
 		return gameMode;
 	}
 
@@ -1643,30 +1604,38 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private void loadGameModeLstFile(LstLineFileLoader lstFileLoader,
 		String gameModeName, String lstFileName, final boolean showMissing)
 	{
-		final String systemPrefix =
-				SettingsHandler.getPcgenSystemDir() + File.separator;
-		final String gameModeDirectory =
-				systemPrefix + "gameModes" + File.separator;
+		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
 
 		try
 		{
-			lstFileLoader.loadLstFile(gameModeDirectory + gameModeName
-				+ File.separator + lstFileName, gameModeName);
+			File specGameModeDir = new File(gameModeDir, gameModeName);
+			File gameModeFile = new File(specGameModeDir, lstFileName);
+			if (gameModeFile.exists())
+			{
+				lstFileLoader.loadLstFile(gameModeFile.toURI(), gameModeName);
+				return;
+			}
 		}
 		catch (PersistenceLayerException ple)
 		{
-			try
+			//This is OK, grab the default
+		}
+			
+		try
+		{
+			File specGameModeDir = new File(gameModeDir, "default");
+			File gameModeFile = new File(specGameModeDir, lstFileName);
+			if (gameModeFile.exists())
 			{
-				lstFileLoader.loadLstFile(gameModeDirectory + "default"
-					+ File.separator + lstFileName, gameModeName);
+				lstFileLoader.loadLstFile(gameModeFile.toURI(), gameModeName);
 			}
-			catch (PersistenceLayerException ple2)
+		}
+		catch (PersistenceLayerException ple2)
+		{
+			if (showMissing)
 			{
-				if (showMissing)
-				{
-					Logging.errorPrint("Warning: game mode " + gameModeName
+				Logging.errorPrint("Warning: game mode " + gameModeName
 						+ " is missing file " + lstFileName);
-				}
 			}
 		}
 	}
@@ -1682,25 +1651,22 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		SystemCollections.clearGameModeList();
 
-		final String systemPrefix =
-				SettingsHandler.getPcgenSystemDir() + File.separator;
-		final String gameModeDirectory =
-				systemPrefix + "gameModes" + File.separator;
+		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
 
 		for (String gameFile : gameFiles)
 		{
 			SystemCollections.setEmptyUnitSetList(gameFile);
+			File specGameModeDir = new File(gameModeDir, gameFile);
+			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
 			final GameMode gm =
-					loadGameModeMiscInfo(gameFile, new File(
-						gameModeDirectory + gameFile + File.separator
-							+ "miscinfo.lst"));
+					loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
 			SettingsHandler.setGame(gameFile);
 			if (gm != null)
 			{
-				loadGameModeInfoFile(gm, new File(gameModeDirectory
-					+ gameFile + File.separator + "level.lst"), "level");
-				loadGameModeInfoFile(gm, new File(gameModeDirectory
-					+ gameFile + File.separator + "rules.lst"), "rules");
+				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst")
+						.toURI(), "level");
+				loadGameModeInfoFile(gm, new File(specGameModeDir, "rules.lst")
+						.toURI(), "rules");
 
 				// Load equipmentslot.lst
 				loadGameModeLstFile(eqSlotLoader, gameFile,
@@ -1875,7 +1841,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *@deprecated as part of Trackers 1632898 and 1632897 - thpr 1/11/07
 	 */
 	@Deprecated
-	private void processFileList(final int lineType, List<?> lineList,
+	private void processFileList(final int lineType, List<CampaignSourceEntry> lineList,
 		List<PObject> bArrayList) throws PersistenceLayerException
 	{
 		//  Campaigns aren't processed here any more.
@@ -1886,63 +1852,45 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			return;
 		}
 
-		for (Object o : lineList)
+		for (CampaignSourceEntry campaign : lineList)
 		{
-			CampaignSourceEntry campaign = null;
-			final String aLine;
-
-			if (o instanceof String)
+			URI uri = campaign.getURI();
+			// Check whether the file was already [completely] loaded
+			if (loadedFiles.contains(uri))
 			{
-				aLine = (String) o;
-			}
-			else
-			{
-				campaign = (CampaignSourceEntry) o;
-				aLine = campaign.getFile();
-			}
-
-			final StringTokenizer lineTokenizer =
-					new StringTokenizer(aLine, "|");
-			String extraInfo = null;
-
-			// 1. The first token is the file name to process
-			String fileName;
-			if (lineTokenizer.hasMoreTokens())
-			{
-				fileName = lineTokenizer.nextToken();
-			}
-			else
-			{
-				// Hey! No tokens!
-				continue;
-			}
-
-			// The rest of the line is extra info
-			if (fileName.length() < aLine.length())
-			{
-				extraInfo = aLine.substring(fileName.length());
-			}
-
-			// 2. Check whether the file was already [completely] loaded
-			if (loadedFiles.containsKey(fileName))
-			{
-				// if so, continue processing lines
+				// if so, process next file (don't need to do this one again)
 				continue;
 			}
 
 			// 3. Parse the file into a list of PObjects/Strings
-			loadFileIntoList(fileName, lineType, bArrayList);
+			loadFileIntoList(uri, lineType, bArrayList);
 
 			// 4. Check for restrictions on loading the file.
-			if (extraInfo != null)
+			List<String> excludeKeys = campaign.getExcludeItems();
+			for (int k = bArrayList.size() - 1; k >= 0; --k)
 			{
-				// There are INCLUDE and EXCLUDE tags.  Process them.
-				processExtraInfo(lineType, bArrayList, extraInfo);
+				PObject anObject = bArrayList.get(k);
+
+				if (excludeKeys.contains(anObject.getKeyName()))
+				{
+					bArrayList.remove(k);
+				}
 			}
-			else
+			List<String> includeKeys = campaign.getIncludeItems();
+			for (int k = bArrayList.size() - 1; k >= 0; --k)
+			{
+				PObject anObject = bArrayList.get(k);
+
+				if (!includeKeys.contains(anObject.getKeyName()))
+				{
+					bArrayList.remove(k);
+				}
+			}
+
+			if (excludeKeys.size() == 0 && includeKeys.size() == 0)
 			{
 				// Using all data from the file.  Add it to the loaded list.
-				loadedFiles.put(fileName, fileName);
+				loadedFiles.add(uri);
 			}
 
 			// 5. Add the resulting information to Globals.
@@ -2037,7 +1985,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private void releaseFileData()
 	{
 		lstExcludeFiles.clear();
-		pccFileList.clear();
 		raceFileList.clear();
 		classFileList.clear();
 		companionmodFileList.clear();
@@ -2164,7 +2111,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						+ Constants.s_APPNAME
 						+ " cannot calculate \"to hit\" unless one of these is selected."
 						+ Constants.s_LINE_SEP + "Source: "
-						+ aEq.getSourceFile());
+						+ aEq.getSourceURI());
 			}
 		}
 	}

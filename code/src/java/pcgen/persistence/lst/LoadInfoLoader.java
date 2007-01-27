@@ -25,6 +25,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.net.URL;
 import java.util.Map;
 
@@ -47,7 +48,7 @@ public class LoadInfoLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(String source, String gameModeIn)
+	public void loadLstFile(URI source, String gameModeIn)
 		throws PersistenceLayerException
 	{
 		super.loadLstFile(source, gameModeIn);
@@ -76,10 +77,10 @@ public class LoadInfoLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see LstLineFileLoader#parseLine(String, URL)
+	 * @see LstLineFileLoader#parseLine(URL, String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 
 		LoadInfo loadInfo = SystemCollections.getLoadInfo(getGameMode());
@@ -101,7 +102,7 @@ public class LoadInfoLoader extends LstLineFileLoader
 		if (token != null)
 		{
 			final String value = lstLine.substring(idxColon + 1);
-			LstUtils.deprecationCheck(token, loadInfo.toString(), "level.lst",
+			LstUtils.deprecationCheck(token, loadInfo.toString(), sourceURI,
 				value);
 			if (!token.parse(loadInfo, value))
 			{

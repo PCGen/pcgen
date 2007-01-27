@@ -99,7 +99,7 @@ public final class SubstitutionClassLoader
 				{
 					Logging.errorPrint("Error parsing ability "
 						+ substitutionclass.getDisplayName() + ':'
-						+ source.getFile() + ':' + colString + "\"");
+						+ source.getURI() + ':' + colString + "\"");
 				}
 			}
 			else

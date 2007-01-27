@@ -1,10 +1,10 @@
 package plugin.lsttokens.campaign;
 
-import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLoader;
-import pcgen.persistence.lst.CampaignLstToken;
+import java.net.URI;
 
-import java.net.URL;
+import pcgen.core.Campaign;
+import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
 /**
  * Class deals with PCC Token
@@ -17,10 +17,10 @@ public class PccToken implements CampaignLstToken
 		return "PCC";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addLine("PCC:" + value);
-		campaign.addPccFile(CampaignLoader.convertFilePath(sourceUrl, value));
+		campaign.addPccFile(CampaignSourceEntry.getPathURI(sourceUri, value));
 		return true;
 	}
 }

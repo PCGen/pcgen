@@ -58,7 +58,7 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 		{
 			skill = new Skill();
 			skill.setSourceCampaign(source.getCampaign());
-			skill.setSourceFile(source.getFile());
+			skill.setSourceURI(source.getURI());
 		}
 
 		final StringTokenizer colToken =
@@ -88,7 +88,7 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 			{
 				Logging.errorPrint("You are using a deprecated tag "
 						+ "(REQ) in Skills " + skill.getDisplayName() + ':'
-						+ source.getFile() + ':' + colString);
+						+ source.getURI() + ':' + colString);
 				Logging.errorPrint("  Use USEUNTRAINED instead");
 				skill.setRequired(true);
 			}
@@ -99,7 +99,7 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 				if (!token.parse(skill, value))
 				{
 					Logging.errorPrint("Error parsing skill "
-						+ skill.getDisplayName() + ':' + source.getFile() + ':'
+						+ skill.getDisplayName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -114,7 +114,7 @@ public final class SkillLoader extends LstObjectFileLoader<Skill>
 			}
 		}
 
-		completeObject(skill);
+		completeObject(source, skill);
 		return null;
 	}
 

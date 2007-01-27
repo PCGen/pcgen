@@ -24,7 +24,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -59,10 +59,10 @@ public class PointBuyLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		GameMode thisGameMode =
 				SystemCollections.getGameModeNamed(getGameMode());
@@ -79,24 +79,24 @@ public class PointBuyLoader extends LstLineFileLoader
 		PointBuyLstToken token = (PointBuyLstToken) tokenMap.get(key);
 		if (token != null)
 		{
-			LstUtils.deprecationCheck(token, thisGameMode.getName(), sourceURL
-				.toString(), value);
-			if (!token.parse(thisGameMode, value))
+			LstUtils.deprecationCheck(token, thisGameMode.getName(), sourceURI,
+					value);
+			if (!token.parse(thisGameMode, value, sourceURI))
 			{
 				Logging.errorPrint("Error parsing point buy method "
-					+ thisGameMode.getName() + '/' + sourceURL.toString() + ':'
+					+ thisGameMode.getName() + '/' + sourceURI.toString() + ':'
 					+ " \"" + lstLine + "\"");
 			}
 		}
 		else
 		{
 			Logging.errorPrint("Illegal point buy method info "
-				+ thisGameMode.getName() + '/' + sourceURL.toString() + ':'
+				+ thisGameMode.getName() + '/' + sourceURI.toString() + ':'
 				+ " \"" + lstLine + "\"");
 		}
 	}
 
-	public static boolean parseStatLine(GameMode gameMode, String lstLine)
+	public static boolean parseStatLine(GameMode gameMode, String lstLine, URI source)
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
@@ -138,7 +138,7 @@ public class PointBuyLoader extends LstLineFileLoader
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, gameMode.getName(),
-					"pointbuymethod.lst", value);
+					source, value);
 				if (!token.parse(pbc, value))
 				{
 					Logging.errorPrint("Error parsing point buy method "
@@ -181,7 +181,7 @@ public class PointBuyLoader extends LstLineFileLoader
 		return true;
 	}
 
-	public static boolean parseMethodLine(GameMode gameMode, String lstLine)
+	public static boolean parseMethodLine(GameMode gameMode, String lstLine, URI source)
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
@@ -210,7 +210,7 @@ public class PointBuyLoader extends LstLineFileLoader
 			{
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, gameMode.getName(),
-					"pointbuymethod.lst", value);
+					source, value);
 				if (!token.parse(pbm, value))
 				{
 					Logging.errorPrint("Error parsing point buy method "

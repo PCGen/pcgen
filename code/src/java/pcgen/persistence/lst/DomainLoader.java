@@ -88,7 +88,7 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 				if (!token.parse(domain, value))
 				{
 					Logging.errorPrint("Error parsing domain "
-						+ domain.getDisplayName() + ':' + source.getFile()
+						+ domain.getDisplayName() + ':' + source.getURI()
 						+ ':' + colString + "\"");
 				}
 			}
@@ -101,11 +101,11 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 				if ((!colString.equals(domain.getKeyName()))
 					&& (colString.indexOf(".MOD") < 0))
 				{
-					completeObject(domain);
+					completeObject(source, domain);
 					domain = new Domain();
 					domain.setName(colString);
 					domain.setSourceCampaign(source.getCampaign());
-					domain.setSourceFile(source.getFile());
+					domain.setSourceURI(source.getURI());
 				}
 			}
 			else if (col == 1)
@@ -114,7 +114,7 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 					.deprecationWarning(
 						"Positional DESC",
 						"domain",
-						domain.getDisplayName(),
+						domain.getSourceURI(),
 						colString,
 						"A DESC tag has been used instead, please update your LST code. "
 							+ "This default functionality will be removed in versions after 5.12");
@@ -125,7 +125,7 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 					if (!token.parse(domain, colString))
 					{
 						Logging.errorPrint("Error parsing domain "
-							+ domain.getDisplayName() + ':' + source.getFile()
+							+ domain.getDisplayName() + ':' + source.getURI()
 							+ ':' + colString + "\"");
 					}
 				}
@@ -133,13 +133,13 @@ public class DomainLoader extends LstObjectFileLoader<Domain>
 			else
 			{
 				Logging.errorPrint("Illegal obj info '" + colString + "' in "
-					+ source.getFile());
+					+ source.getURI());
 			}
 
 			++col;
 		}
 
-		completeObject(domain);
+		completeObject(source, domain);
 		return null;
 	}
 

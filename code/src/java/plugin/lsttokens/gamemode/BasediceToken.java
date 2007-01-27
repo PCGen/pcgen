@@ -1,5 +1,7 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.BaseDiceLoader;
 import pcgen.persistence.lst.GameModeLstToken;
@@ -16,12 +18,12 @@ public class BasediceToken implements GameModeLstToken
 	}
 
 	//FLP WEAPONSIZEPENALTY3.5
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
 		{
 			BaseDiceLoader baseDiceLoader = new BaseDiceLoader();
-			baseDiceLoader.parseLine(gameMode, "BASEDICE:" + value);
+			baseDiceLoader.parseLine(gameMode, "BASEDICE:" + value, source);
 			return true;
 		}
 		catch (Exception e)

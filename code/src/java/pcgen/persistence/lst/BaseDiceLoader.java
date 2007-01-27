@@ -1,5 +1,6 @@
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -34,7 +35,7 @@ public class BaseDiceLoader
 	 * @param lstLine
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(GameMode gameMode, String lstLine)
+	public void parseLine(GameMode gameMode, String lstLine, URI source)
 		throws PersistenceLayerException
 	{
 		//BASEDICE:1d6	UP:1d8,2d6,3d6,4d6	DOWN:1d4,1d3,1d2,1,0
@@ -66,9 +67,7 @@ public class BaseDiceLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Base Dice",
-					"miscinfo.lst from the " + gameMode.getName()
-						+ " Game Mode", value);
+				LstUtils.deprecationCheck(token, "Base Dice", source, value);
 				if (!token.parse(bonus, value))
 				{
 					Logging.errorPrint("Error parsing base dice:"

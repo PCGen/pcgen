@@ -25,6 +25,8 @@
 
 package plugin.lsttokens.kit;
 
+import java.net.URI;
+
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitGearLoader;
@@ -57,11 +59,11 @@ public class GearToken extends KitLstToken
 	 * @return true if parse OK
 	 */
 	@Override
-	public boolean parse(Kit aKit, String value)
+	public boolean parse(Kit aKit, String value, URI source)
 	{
 		try
 		{
-			KitGearLoader.parseLine(aKit, value);
+			KitGearLoader.parseLine(aKit, value, source);
 		}
 		catch (PersistenceLayerException pe)
 		{

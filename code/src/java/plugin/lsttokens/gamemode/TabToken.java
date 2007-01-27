@@ -25,6 +25,8 @@
  */
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.TabLoader;
@@ -42,12 +44,12 @@ public class TabToken implements GameModeLstToken
 		return "TAB";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
 		{
 			TabLoader tabLoader = new TabLoader();
-			tabLoader.parseLine(gameMode, "TAB:" + value);
+			tabLoader.parseLine(gameMode, "TAB:" + value, source);
 			return true;
 		}
 		catch (Exception e)

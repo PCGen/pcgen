@@ -25,6 +25,7 @@
 
 package plugin.lsttokens.kit;
 
+import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.Kit;
@@ -61,7 +62,7 @@ public class NameToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public boolean parse(Kit aKit, String value)
+	public boolean parse(Kit aKit, String value, URI source)
 		throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =

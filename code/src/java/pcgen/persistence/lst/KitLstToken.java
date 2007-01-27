@@ -25,6 +25,8 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -42,7 +44,7 @@ public abstract class KitLstToken implements LstToken
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException
 	 */
-	public abstract boolean parse(Kit aKit, String value)
+	public abstract boolean parse(Kit aKit, String value, URI source)
 		throws PersistenceLayerException;
 
 }

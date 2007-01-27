@@ -71,7 +71,7 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 		String name = colToken.nextToken();
 		equipment.setName(name);
 		equipment.setSourceCampaign(source.getCampaign());
-		equipment.setSourceFile(source.getFile());
+		equipment.setSourceURI(source.getURI());
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				EquipmentLstToken.class);
@@ -96,21 +96,21 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 				if (!token.parse(equipment, value))
 				{
 					Logging.errorPrint("Error parsing Equipment "
-						+ equipment.getName() + ':' + source.getFile() + ':'
+						+ equipment.getName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
 			else if (colString.startsWith("Cost:"))
 			{
 				Logging.errorPrint("Cost deprecated, use COST "
-					+ equipment.getName() + ':' + source.getFile() + ':'
+					+ equipment.getName() + ':' + source.getURI() + ':'
 					+ colString + "\"");
 				token = (EquipmentLstToken) tokenMap.get("COST");
 				final String value = colString.substring(idxColon + 1);
 				if (!token.parse(equipment, value))
 				{
 					Logging.errorPrint("Error parsing Equipment "
-						+ equipment.getName() + ':' + source.getFile() + ':'
+						+ equipment.getName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -125,7 +125,7 @@ public final class EquipmentLoader extends LstObjectFileLoader<Equipment> {
 			}
 		}
 		
-		completeObject(equipment);
+		completeObject(source, equipment);
 		return null;
 	}
 

@@ -1,5 +1,7 @@
 package plugin.lsttokens.kit;
 
+import java.net.URI;
+
 import pcgen.core.Kit;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.KitLstToken;
@@ -28,7 +30,7 @@ public class RollStatsToken extends KitLstToken
 	 * @todo Implement this pcgen.persistence.lst.KitLstToken method
 	 */
 	@Override
-	public boolean parse(Kit aKit, String value)
+	public boolean parse(Kit aKit, String value, URI source)
 		throws PersistenceLayerException
 	{
 		Logging.errorPrint("ROLLSTATS tag not implemented yet!");

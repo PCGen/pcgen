@@ -27,6 +27,7 @@ package pcgen.core;
 import pcgen.core.utils.*;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
+import java.net.URI;
 import java.util.*;
 
 /**
@@ -91,7 +92,7 @@ public final class Campaign extends PObject
 	 *
 	 * @param files
 	 */
-	public void addAllBioSetFiles(final List<String> files)
+	public void addAllBioSetFiles(final List<CampaignSourceEntry> files)
 	{
 		listChar.addAllToListFor(ListKey.FILE_BIO_SET, files);
 	}
@@ -217,7 +218,7 @@ public final class Campaign extends PObject
 	 *
 	 * @param files
 	 */
-	public void addAllPccFiles(final List<String> files)
+	public void addAllPccFiles(final List<URI> files)
 	{
 		listChar.addAllToListFor(ListKey.FILE_PCC, files);
 	}
@@ -289,7 +290,7 @@ public final class Campaign extends PObject
 	 *
 	 * @param file
 	 */
-	public void addBioSetFile(final String file)
+	public void addBioSetFile(final CampaignSourceEntry file)
 	{
 		listChar.addToListFor(ListKey.FILE_BIO_SET, file);
 	}
@@ -429,7 +430,7 @@ public final class Campaign extends PObject
 	 * i.e. file:/etc/etc/etc URLs.
 	 * @param licenseFile String location of a license file
 	 */
-	public void addLicenseFile(final String licenseFile)
+	public void addLicenseFile(final URI licenseFile)
 	{
 		listChar.addToListFor(ListKey.LICENSE_FILE, licenseFile);
 	}
@@ -464,7 +465,7 @@ public final class Campaign extends PObject
 	 *
 	 * @param file
 	 */
-	public void addPccFile(final String file)
+	public void addPccFile(final URI file)
 	{
 		listChar.addToListFor(ListKey.FILE_PCC, file);
 	}
@@ -553,7 +554,7 @@ public final class Campaign extends PObject
 	 * Returns the bioSetFileList.
 	 * @return List
 	 */
-	public List<String> getBioSetFiles()
+	public List<CampaignSourceEntry> getBioSetFiles()
 	{
 		return getListFor(ListKey.FILE_BIO_SET);
 	}
@@ -776,7 +777,7 @@ public final class Campaign extends PObject
 	 * Get the license files
 	 * @return license files
 	 */
-	public List<String> getLicenseFiles()
+	public List<URI> getLicenseFiles()
 	{
 		return getListFor(ListKey.LICENSE_FILE);
 	}
@@ -803,7 +804,7 @@ public final class Campaign extends PObject
 	 * Returns the pccFileList.
 	 * @return List
 	 */
-	public List<String> getPccFiles()
+	public List<URI> getPccFiles()
 	{
 		return getListFor(ListKey.FILE_PCC);
 	}
@@ -1259,13 +1260,13 @@ public final class Campaign extends PObject
 	 */
 	public List<Campaign> getSubCampaigns()
 	{
-		final List<String> pccFiles = getPccFiles();
+		final List<URI> pccFiles = getPccFiles();
 
 		final List<Campaign> ret = new ArrayList<Campaign>(pccFiles.size());
 		
-		for ( final String fileName : pccFiles )
+		for ( final URI fileName : pccFiles )
 		{
-			final Campaign campaign = Globals.getCampaignByFilename(fileName, true);
+			final Campaign campaign = Globals.getCampaignByURI(fileName, true);
 			ret.add(campaign);
 		}
 		return ret;

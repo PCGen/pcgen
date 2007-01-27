@@ -71,7 +71,7 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 		String name = colToken.nextToken();
 		template.setName(name);
 		template.setSourceCampaign(source.getCampaign());
-		template.setSourceFile(source.getFile());
+		template.setSourceURI(source.getURI());
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				PCTemplateLstToken.class);
@@ -105,7 +105,7 @@ public final class PCTemplateLoader extends LstObjectFileLoader<PCTemplate> {
 			}
 		}
 		
-		completeObject(template);
+		completeObject(source, template);
 		return null;
 	}
 

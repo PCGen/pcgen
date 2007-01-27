@@ -25,6 +25,8 @@
  */
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.RollMethodLoader;
@@ -42,12 +44,12 @@ public class RollmethodToken implements GameModeLstToken
 		return "ROLLMETHOD";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
 		{
 			RollMethodLoader methodLoader = new RollMethodLoader();
-			methodLoader.parseLine(gameMode, "ROLLMETHOD:" + value);
+			methodLoader.parseLine(gameMode, "ROLLMETHOD:" + value, source);
 			return true;
 		}
 		catch (Exception e)

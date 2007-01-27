@@ -25,6 +25,7 @@
 
 package plugin.lsttokens.kit;
 
+import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.Kit;
@@ -62,7 +63,7 @@ public class AlignToken extends KitLstToken
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public boolean parse(Kit aKit, String value)
+	public boolean parse(Kit aKit, String value, URI source)
 		throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
@@ -79,7 +80,7 @@ public class AlignToken extends KitLstToken
 			}
 			else
 			{
-				if (BaseKitLoader.parseCommonTags(kAlign, colString) == false)
+				if (BaseKitLoader.parseCommonTags(kAlign, colString, source) == false)
 				{
 					throw new PersistenceLayerException(
 						"Unknown KitAlign info " + " \"" + colString + "\"");

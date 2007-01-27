@@ -28,7 +28,7 @@ import pcgen.core.Globals;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -66,7 +66,7 @@ final class BioSetLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(String)
 	 */
 	@Override
-	public void loadLstFile(String fileName) throws PersistenceLayerException
+	public void loadLstFile(URI fileName) throws PersistenceLayerException
 	{
 		currentAgeSetIndex = 0;
 		super.loadLstFile(fileName);
@@ -74,10 +74,10 @@ final class BioSetLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		if (lstLine.startsWith("AGESET:"))
 		{

@@ -25,7 +25,7 @@
  */
 package plugin.lsttokens.statsandchecks;
 
-import java.net.URL;
+import java.net.URI;
 
 import pcgen.persistence.lst.PCAlignmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
@@ -40,12 +40,12 @@ public class AlignmentnameToken implements StatsAndChecksLstToken
 		return "ALIGNMENTNAME";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL)
+	public boolean parse(String lstLine, URI sourceURI)
 	{
 		try
 		{
 			PCAlignmentLoader alignmentLoader = new PCAlignmentLoader();
-			alignmentLoader.parseLine(lstLine, sourceURL);
+			alignmentLoader.parseLine(lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

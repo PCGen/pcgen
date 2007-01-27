@@ -29,7 +29,7 @@ import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -47,7 +47,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(String fileName) throws PersistenceLayerException
+	public void loadLstFile(URI fileName) throws PersistenceLayerException
 	{
 		// We cannot clear the global list as we are only setting one 
 		// game mode at a time now.
@@ -57,10 +57,10 @@ final class PaperInfoLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		final PaperInfo psize = new PaperInfo();
 
@@ -88,12 +88,11 @@ final class PaperInfoLoader extends LstLineFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, psize.toString(), sourceURL
-					.toString(), value);
+				LstUtils.deprecationCheck(token, psize.toString(), sourceURI, value);
 				if (!token.parse(psize, value))
 				{
 					Logging.errorPrint("Error parsing equip slots "
-						+ psize.toString() + ':' + sourceURL + ':' + colString
+						+ psize.toString() + ':' + sourceURI + ':' + colString
 						+ "\"");
 				}
 			}
@@ -108,7 +107,7 @@ final class PaperInfoLoader extends LstLineFileLoader
 				catch (IndexOutOfBoundsException e)
 				{
 					Logging.errorPrint("Illegal paper size info '" + lstLine
-						+ "' in " + sourceURL.toString());
+						+ "' in " + sourceURI.toString());
 				}
 
 				iCount += 1;

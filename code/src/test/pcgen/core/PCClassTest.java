@@ -28,6 +28,8 @@
  */
 package pcgen.core;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -42,6 +44,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.util.UnreachableError;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
@@ -391,9 +394,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		String classPCCText = humanoidClass.getPCCText();
 		assertNotNull("PCC Text for race should not be null", classPCCText);
 
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), getClass().getName()
-					+ ".java");
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		PCClass reconstClass = null;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
@@ -483,11 +493,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		Ability casterFeat = new Ability();
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), PCClassTest.class
-					.getName()
-					+ ".java");
-		featLoader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		featLoader
 			.parseLine(
 				casterFeat,
@@ -603,12 +618,21 @@ public class PCClassTest extends AbstractCharacterTestCase
 		Globals.addAbility(ab2);
 
 		// Link them to a template
-		CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		String classPCCText =
 				"CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
 					+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft\n"
 					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
-		PCClass pcclass = parsePCClassText(classPCCText, cse);
+		PCClass pcclass = parsePCClassText(classPCCText, source);
 		List<String> keys = pcclass.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));
@@ -645,7 +669,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		PCClassLoader pcClassLoader = new PCClassLoader();
-		pcClassLoader.setCurrentSource(source);
 		PCClass reconstClass = null;
 		StringTokenizer tok = new StringTokenizer(classPCCText, "\n");
 		while (tok.hasMoreTokens())
@@ -673,8 +696,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		customCampaign.setName("Unit Test");
 		customCampaign.setName("KEY_Unit Test");
 		customCampaign.addDescription(new Description("Unit Test data"));
-		CampaignSourceEntry unitTestSource =
-				new CampaignSourceEntry(customCampaign, "PCClassTest");
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(customCampaign,
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
 		// Create the monseter class type
 		SettingsHandler.getGame().addClassType(
@@ -687,13 +718,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
 					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
-		humanoidClass = classLoader.parseLine(null, classDef, unitTestSource);
+		humanoidClass = classLoader.parseLine(null, classDef, source);
 		Globals.getClassList().add(humanoidClass);
 
 		classDef =
 				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
-		nymphClass = classLoader.parseLine(null, classDef, unitTestSource);
+		nymphClass = classLoader.parseLine(null, classDef, source);
 		Globals.getClassList().add(nymphClass);
 
 		// Create the large size mod

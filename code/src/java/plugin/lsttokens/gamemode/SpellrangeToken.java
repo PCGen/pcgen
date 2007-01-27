@@ -1,5 +1,7 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -14,7 +16,7 @@ public class SpellrangeToken implements GameModeLstToken
 		return "SPELLRANGE";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setSpellRangeFormula(value);
 		return true;

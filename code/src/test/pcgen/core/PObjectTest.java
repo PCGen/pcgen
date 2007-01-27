@@ -23,6 +23,8 @@
  */
 package pcgen.core;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -35,6 +37,7 @@ import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.RaceLoader;
+import pcgen.util.UnreachableError;
 
 /**
  * Test the PObject class.
@@ -132,10 +135,16 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
 		RaceLoader raceLoader = new RaceLoader();
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), getClass().getName()
-					+ ".java");
-		raceLoader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		Race reconstRace = new Race();
 		raceLoader.parseLine(reconstRace, racePCCText, source);
 		assertEquals(
@@ -151,7 +160,6 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
 		PCClassLoader classLoader = new PCClassLoader();
-		classLoader.setCurrentSource(source);
 		PCClass reconstClass = new PCClass();
 		reconstClass =
 				classLoader.parseLine(reconstClass, classPCCText, source);
@@ -209,11 +217,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 */
 	public void testNoChoiceBonus() throws Exception
 	{
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), getClass().getName()
-					+ ".java");
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		AbilityLoader loader = new AbilityLoader();
-		loader.setCurrentSource(source);
 		Ability pObj = new Ability();
 		loader
 			.parseLine(
@@ -242,11 +256,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 */
 	public void testNoSubsChoiceBonus() throws Exception
 	{
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), getClass().getName()
-					+ ".java");
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		AbilityLoader loader = new AbilityLoader();
-		loader.setCurrentSource(source);
 		Ability pObj = new Ability();
 		loader
 			.parseLine(
@@ -327,14 +347,22 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		// Link them to a template
 		Race race = new Race();
-		CampaignSourceEntry cse = new CampaignSourceEntry(new Campaign(), "");
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 		RaceLoader loader = new RaceLoader();
-		loader.setCurrentSource(cse);
 		loader
 			.parseLine(
 				race,
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2",
-				cse);
+				source);
 		List<String> keys = race.getAbilityKeys(null, cat, Nature.AUTOMATIC);
 		assertEquals(2, keys.size());
 		assertEquals(ab1.getKeyName(), keys.get(0));

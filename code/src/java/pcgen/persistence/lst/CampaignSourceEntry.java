@@ -25,11 +25,19 @@
  */
 package pcgen.persistence.lst;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Campaign;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
+import pcgen.util.Logging;
+import pcgen.util.UnreachableError;
 
 /**
  * This class is used to match a source file to the campaign that
@@ -37,10 +45,19 @@ import pcgen.core.utils.CoreUtility;
  */
 public class CampaignSourceEntry
 {
+	private static final URI FAILED_URI;
+	
+	static {
+		try {
+			FAILED_URI = new URI("file:/FAIL");
+		} catch (URISyntaxException e) {
+			throw new UnreachableError(e);
+		}
+	}
 	private Campaign campaign = null;
 	private List<String> excludeItems = new ArrayList<String>();
 	private List<String> includeItems = new ArrayList<String>();
-	private String file = null;
+	private URI uri = null;
 	private String stringForm = null;
 
 	/**
@@ -48,28 +65,22 @@ public class CampaignSourceEntry
 	 *
 	 * @param campaign Campaign that referenced the provided file.
 	 *         Must not be null.
-	 * @param lstFile String URL formatted path to an LST source file
+	 * @param lstLoc URL path to an LST source file
 	 *         Must not be null.
 	 */
-	public CampaignSourceEntry(Campaign campaign, String lstFile)
+	public CampaignSourceEntry(Campaign campaign, URI lstLoc)
 	{
 		super();
-
-		// make sure a campaign was provided
 		if (campaign == null)
 		{
 			throw new IllegalArgumentException("campaign can't be null");
 		}
-
-		// make sure a file was provided
-		if (lstFile == null)
+		if (lstLoc == null)
 		{
-			throw new IllegalArgumentException("lstFile can't be null");
+			throw new IllegalArgumentException("lstLoc can't be null");
 		}
-
-		// store the campaign and file values
 		this.campaign = campaign;
-		this.file = getIncludesExcludes(lstFile);
+		this.uri = lstLoc;
 	}
 
 	/**
@@ -97,11 +108,11 @@ public class CampaignSourceEntry
 	 * This method gets the file/path of the LST file.
 	 * @return String url-formatted path to the LST file
 	 */
-	public String getFile()
+	public URI getURI()
 	{
-		return file;
+		return uri;
 	}
-
+	
 	/**
 	 * This method gets a list of the items containined in the given source
 	 * file to include in getting saved in memory.  All other objects
@@ -125,7 +136,7 @@ public class CampaignSourceEntry
 			return -1;
 		}
 
-		return this.file.compareTo(arg0.file);
+		return this.uri.compareTo(arg0.uri);
 	}
 
 	/**
@@ -141,7 +152,7 @@ public class CampaignSourceEntry
 			return false;
 		}
 
-		return file.equals(((CampaignSourceEntry)arg0).file);
+		return uri.equals(((CampaignSourceEntry)arg0).uri);
 	}
 
 	/**
@@ -150,7 +161,7 @@ public class CampaignSourceEntry
 	@Override
 	public int hashCode()
 	{
-		return this.file.hashCode();
+		return this.uri.hashCode();
 	}
 
 	/**
@@ -165,7 +176,7 @@ public class CampaignSourceEntry
 			sBuff.append("Campaign: ");
 			sBuff.append(campaign.getDisplayName());
 			sBuff.append("; SourceFile: ");
-			sBuff.append(file);
+			sBuff.append(uri);
 
 			stringForm = sBuff.toString();
 		}
@@ -174,28 +185,123 @@ public class CampaignSourceEntry
 	}
 
 	/**
-	 * This method takes a filename as present in an LST file and processes
-	 * the INCLUDE and EXCLUDE information appended at its end, loading
-	 * the object names into either includeItems or excludeItems.  It
-	 * then returns the simple name of the file.
+	 * This method converts the provided filePath to either a URL
+	 * or absolute path as appropriate.
 	 *
-	 * @param fileName String file name, as present in the LST file, with
-	 *         or without INCLUDE and EXCLUDE information
-	 * @return String containing only the pathname of the file
+	 * @param pccPath  URL where the Campaign that contained the source was at
+	 * @param basePath String path that is to be converted
+	 * @return String containing the converted absolute path or URL
+	 *         (as appropriate)
 	 */
-	private String getIncludesExcludes(String fileName)
+	public static URI getPathURI(URI pccPath, String basePath)
 	{
-		// Clear any previous include/exclude requests
-		includeItems.clear();
-		excludeItems.clear();
-
-		// Check if include/exclude items were present
-		int pipePos = fileName.indexOf("|");
-
-		if (pipePos > 0)
+		if (basePath.length() <= 0)
 		{
+			Logging.errorPrint("Empty Path to LST file in " + pccPath);
+			return FAILED_URI;
+		}
+
+		try {
+			// if it's a URL, then we are all done, just return a URI
+			URL url = new URL(basePath);
+			return new URI(url.getProtocol(), null, url.getPath(), null);
+		} catch (URISyntaxException e) {
+			//Something broke, so wasn't a URL
+		} catch (MalformedURLException e) {
+			//Protocol was unknown, so wasn't a URL
+		}
+		
+		/*
+		 * Figure out where the PCC file came from that we're processing, so
+		 * that we can prepend its path onto any LST file references (or PCC
+		 * refs, for that matter) that are relative. If the source line in
+		 * question already has path info, then don't bother
+		 */
+		if (basePath.charAt(0) == '@')
+		{
+			String pathNoLeader = trimLeadingFileSeparator(basePath
+					.substring(1));
+			String path = CoreUtility.fixFilenamePath(pathNoLeader);
+			return new File(SettingsHandler.getPccFilesLocation(), path)
+					.toURI();
+		}
+		else if (basePath.charAt(0) == '&')
+		{
+			String pathNoLeader = trimLeadingFileSeparator(basePath
+					.substring(1));
+			String path = CoreUtility.fixFilenamePath(pathNoLeader);
+			return new File(SettingsHandler.getPcgenVendorDataDir(), path)
+					.toURI();
+		}
+		/*
+		 * If the line doesn't use "@" or "&" then it's a relative path
+		 * 
+		 * 1) If the path starts with '/data', assume it means the PCGen
+		 * data dir 2) Otherwise, assume that the path is relative to the
+		 * current PCC file URL
+		 */
+		String pathNoLeader = trimLeadingFileSeparator(basePath);
+
+		if (pathNoLeader.startsWith("data")) {
+			// substring 5 to eliminate the separator after data
+			String path = CoreUtility
+					.fixFilenamePath(pathNoLeader.substring(5));
+			return new File(SettingsHandler.getPccFilesLocation(), path)
+					.toURI();
+		} else {
+			String path = pccPath.getPath();
+			// URLs always use forward slash; take off the file name
+			path = path.substring(0, path.lastIndexOf("/")) + '/' + basePath;
+			String finalURL = pccPath.getScheme() + ':' + path;
+			try {
+				URL url = new URL(finalURL);
+				return new URI(url.getProtocol(), null, url.getPath(), null);
+			} catch (URISyntaxException e) {
+				Logging.errorPrint("GPURI failed to convert " + finalURL
+						+ " to a URI: " + e.getLocalizedMessage());
+			} catch (MalformedURLException e) {
+				Logging.errorPrint("GPURI failed to convert " + finalURL
+						+ " to a URL: " + e.getLocalizedMessage());
+			}
+		}
+		return FAILED_URI;
+	}
+
+	/**
+	 * This method trims the leading file separator or URL separator from the
+	 * front of a string.
+	 *
+	 * @param basePath String containing the base path to trim
+	 * @return String containing the trimmed path String
+	 */
+	private static String trimLeadingFileSeparator(String basePath)
+	{
+		String pathNoLeader = basePath;
+
+		if (pathNoLeader.startsWith("/")
+			|| pathNoLeader.startsWith(File.separator))
+		{
+			pathNoLeader = pathNoLeader.substring(1);
+		}
+
+		return pathNoLeader;
+	}
+
+	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value) {
+		// Check if include/exclude items were present
+		int pipePos = value.indexOf("|");
+		
+		CampaignSourceEntry cse;
+		
+		if (pipePos == -1) {
+			cse = new CampaignSourceEntry(campaign2, getPathURI(sourceUri,
+					value));
+		} else {
+			cse = new CampaignSourceEntry(campaign2, getPathURI(sourceUri,
+					value.substring(0, pipePos)));
+			
 			// Get the include/exclude item string
-			String inExString = fileName.substring(pipePos + 1);
+			String inExString = value.substring(pipePos + 1);
 
 			// Check for surrounding parens
 			while (inExString.startsWith("("))
@@ -207,23 +313,16 @@ public class CampaignSourceEntry
 			// Update the include or exclude items list, as appropriate
 			if (inExString.startsWith("INCLUDE:"))
 			{
-				includeItems.addAll(CoreUtility.split(inExString.substring(8),
-					'|'));
+				cse.includeItems = CoreUtility.split(inExString.substring(8),
+						'|');
 			}
-			else
+			else if (inExString.startsWith("EXCLUDE:"))
 			{
-				if (inExString.startsWith("EXCLUDE:"))
-				{
-					excludeItems.addAll(CoreUtility.split(inExString
-						.substring(8), '|'));
-				}
+				cse.excludeItems = CoreUtility.split(inExString.substring(8),
+						'|');
 			}
-
-			// Return the filename, without the include/exclude information
-			// so that a FileNotFoundException will not be thrown
-			return fileName.substring(0, pipePos);
 		}
-		// No extra info present; return the original file name
-		return fileName;
+		return cse;
 	}
+
 }

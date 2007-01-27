@@ -22,6 +22,8 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+
 import pcgen.core.PObject;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -66,7 +68,7 @@ public class LstUtils
 	 * @param value The value of the tag
 	 */
 	public static void deprecationCheck(LstToken token, String name,
-		String source, String value)
+		URI source, String value)
 	{
 		if (token instanceof DeprecatedToken)
 		{
@@ -84,7 +86,7 @@ public class LstUtils
 	 * @param message A message describing corrective action.
 	 */
 	public static void deprecationWarning(String tokenName, String name,
-		String source, String value, String message)
+		URI source, String value, String message)
 	{
 		final String msg =
 				PropertyFactory.getFormattedString(

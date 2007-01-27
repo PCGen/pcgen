@@ -38,6 +38,7 @@ import javax.swing.JMenu;
 import javax.swing.JRadioButtonMenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URI;
 import java.util.*;
 
 /**
@@ -347,7 +348,7 @@ final class GameModes extends JMenu
 					Globals.emptyLists();
 					PersistenceManager pManager = PersistenceManager.getInstance();
 					pManager.emptyLists();
-					pManager.setChosenCampaignSourcefiles(new ArrayList<String>());
+					pManager.setChosenCampaignSourcefiles(new ArrayList<URI>());
 
 					for (Campaign aCamp : Globals.getCampaignList())
 					{

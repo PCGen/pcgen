@@ -26,17 +26,14 @@
 package pcgen.persistence.lst;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SourceEntry;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
@@ -79,10 +76,10 @@ public class CampaignLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.lang.String)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.net.URI)
 	 */
 	@Override
-	public void loadLstFile(String fileName) throws PersistenceLayerException
+	public void loadLstFile(URI fileName) throws PersistenceLayerException
 	{
 		campaign = new Campaign();
 
@@ -92,14 +89,14 @@ public class CampaignLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(String inputLine, URL sourceUrl)
+	public void parseLine(String inputLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		final int idxColon = inputLine.indexOf(':');
 		if (idxColon < 0)
 		{
 			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceUrl.toString());
+				+ sourceURI.toString());
 			return;
 		}
 		final String key = inputLine.substring(0, idxColon);
@@ -111,7 +108,7 @@ public class CampaignLoader extends LstLineFileLoader
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, campaign, value);
-			if (!token.parse(campaign, value, sourceUrl))
+			if (!token.parse(campaign, value, sourceURI))
 			{
 				Logging.errorPrint("Error parsing campaign "
 					+ campaign.getDisplayName() + ':' + inputLine);
@@ -124,7 +121,7 @@ public class CampaignLoader extends LstLineFileLoader
 		else
 		{
 			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceUrl.toString());
+				+ sourceURI.toString());
 		}
 	}
 
@@ -135,7 +132,7 @@ public class CampaignLoader extends LstLineFileLoader
 	 */
 	protected void finishCampaign()
 	{
-		if (Globals.getCampaignByFilename(campaign.getSourceFile(), false) == null)
+		if (Globals.getCampaignByURI(campaign.getSourceURI(), false) == null)
 		{
 			final String sect15 = campaign.getSection15String();
 
@@ -153,127 +150,6 @@ public class CampaignLoader extends LstLineFileLoader
 
 			Globals.addCampaign(campaign);
 		}
-	}
-
-	/**
-	 * This method converts the provided filePath to either a URL
-	 * or absolute path as appropriate.
-	 *
-	 * @param pccPath  URL where the Campaign that contained the source was at
-	 * @param basePath String path that is to be converted
-	 * @return String containing the converted absolute path or URL
-	 *         (as appropriate)
-	 */
-	public static String convertFilePath(URL pccPath, String basePath)
-	{
-		String convertedPath = "";
-
-		if (basePath.length() <= 0)
-		{
-			return convertedPath;
-		}
-
-		// Check if the basePath was a complete URL to begin with
-		if (CoreUtility.isURL(basePath))
-		{
-			convertedPath = basePath;
-
-			// if it's a URL, then we are all done
-			return convertedPath;
-		}
-		/* Figure out where the PCC file came from that we're
-		 * processing, so that we can prepend its path onto
-		 * any LST file references (or PCC refs, for that
-		 * matter) that are relative. If the source line in
-		 * question already has path info, then don't bother
-		 */
-		if (basePath.charAt(0) == '@')
-		{
-			final String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
-			convertedPath =
-					SettingsHandler.getPccFilesLocation().getAbsolutePath()
-						+ File.separator + pathNoLeader;
-		}
-		else if (basePath.charAt(0) == '&')
-		{
-			final String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
-			convertedPath =
-					SettingsHandler.getPcgenVendorDataDir().getAbsolutePath()
-						+ File.separator + pathNoLeader;
-		}
-
-		// the line doesn't use "@" or "&" then it's a relative path,
-		else
-		//if (aLine.indexOf('@') < 0) and (aLine.indexOf('&') < 0)
-		{
-			/*
-			 * 1) If the path starts with '/data',
-			 * assume it means the PCGen data dir
-			 * 2) Otherwise, assume that the path is
-			 * relative to the current PCC file URL
-			 */
-			final String pathNoLeader = trimLeadingFileSeparator(basePath);
-
-			if (pathNoLeader.startsWith("data"))
-			{
-				convertedPath =
-						SettingsHandler.getPccFilesLocation()
-							+ pathNoLeader.substring(4);
-			}
-			else
-			{
-				convertedPath = pccPath.getPath();
-				// URLs always use forward slash; take off the file name
-				int separatorLoc = convertedPath.lastIndexOf("/");
-				convertedPath =
-						convertedPath.substring(0, separatorLoc) + "/"
-							+ basePath;
-			}
-		}
-
-		// Not a URL; make sure to fix the path syntax
-		convertedPath = CoreUtility.fixFilenamePath(convertedPath);
-
-		// Make sure the path starts with a separator
-		if (!convertedPath.startsWith(File.separator))
-		{
-			convertedPath = File.separator + convertedPath;
-		}
-
-		// Return the final result
-		try
-		{
-			return new URL("file:" + convertedPath).toString();
-		}
-		catch (MalformedURLException e)
-		{
-			Logging.errorPrint("failed to convert " + convertedPath
-				+ " to true URL.");
-
-			return convertedPath;
-		}
-	}
-
-	/**
-	 * This method trims the leading file separator or URL separator from the
-	 * front of a string.
-	 *
-	 * @param basePath String containing the base path to trim
-	 * @return String containing the trimmed path String
-	 */
-	private static String trimLeadingFileSeparator(String basePath)
-	{
-		String pathNoLeader = basePath;
-
-		if (pathNoLeader.startsWith("/")
-			|| pathNoLeader.startsWith(File.separator))
-		{
-			pathNoLeader = pathNoLeader.substring(1);
-		}
-
-		return pathNoLeader;
 	}
 
 	/**
@@ -337,12 +213,12 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 
 		// Add all sub-files to the main campaign, regardless of exclusions
-		for (String fName : baseCampaign.getPccFiles())
+		for (URI fName : baseCampaign.getPccFiles())
 		{
 			if (PCGFile.isPCGenCampaignFile(new File(fName)))
 			{
 				Campaign globalSubCampaign =
-						Globals.getCampaignByFilename(fName, false);
+						Globals.getCampaignByURI(fName, false);
 
 				if (globalSubCampaign == null)
 				{
@@ -350,7 +226,7 @@ public class CampaignLoader extends LstLineFileLoader
 					{
 						loadLstFile(fName);
 						globalSubCampaign =
-								Globals.getCampaignByFilename(fName, false);
+								Globals.getCampaignByURI(fName, false);
 					}
 					catch (PersistenceLayerException e)
 					{

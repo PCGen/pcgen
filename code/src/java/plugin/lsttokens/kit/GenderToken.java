@@ -25,6 +25,7 @@
 
 package plugin.lsttokens.kit;
 
+import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.Kit;
@@ -58,7 +59,7 @@ public class GenderToken extends KitLstToken
 	 * @return true if parse OK
 	 */
 	@Override
-	public boolean parse(Kit aKit, String value)
+	public boolean parse(Kit aKit, String value, URI source)
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(value, SystemLoader.TAB_DELIM);

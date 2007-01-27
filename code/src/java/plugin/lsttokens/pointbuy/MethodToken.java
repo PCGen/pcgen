@@ -25,6 +25,8 @@
  */
 package plugin.lsttokens.pointbuy;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.PointBuyLoader;
 import pcgen.persistence.lst.PointBuyLstToken;
@@ -42,8 +44,8 @@ public class MethodToken implements PointBuyLstToken
 		return "METHOD";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		return PointBuyLoader.parseMethodLine(gameMode, value);
+		return PointBuyLoader.parseMethodLine(gameMode, value, source);
 	}
 }

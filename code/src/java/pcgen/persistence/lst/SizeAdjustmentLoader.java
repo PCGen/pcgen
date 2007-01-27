@@ -22,7 +22,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -46,7 +46,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(String fileName, String gameModeIn)
+	public void loadLstFile(URI fileName, String gameModeIn)
 		throws PersistenceLayerException
 	{
 		SystemCollections.getGameModeNamed(gameModeIn)
@@ -55,10 +55,10 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		SizeAdjustment sa = new SizeAdjustment();
@@ -107,7 +107,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 				if (!token.parse(sa, value))
 				{
 					Logging.errorPrint("Error parsing size adjustment "
-						+ sa.getDisplayName() + ':' + sourceURL.getFile() + ':'
+						+ sa.getDisplayName() + ':' + sourceURI.toString() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -118,7 +118,7 @@ final class SizeAdjustmentLoader extends LstLineFileLoader
 			else
 			{
 				Logging.errorPrint("Illegal size info '" + lstLine + "' in "
-					+ sourceURL.toString());
+					+ sourceURI.toString());
 			}
 		}
 	}

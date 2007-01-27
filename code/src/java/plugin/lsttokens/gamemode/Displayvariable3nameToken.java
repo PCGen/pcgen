@@ -1,5 +1,7 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -14,7 +16,7 @@ public class Displayvariable3nameToken implements GameModeLstToken
 		return "DISPLAYVARIABLE3NAME";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setVariableDisplay3Name(value);
 		return true;

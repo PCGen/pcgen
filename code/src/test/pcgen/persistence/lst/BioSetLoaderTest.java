@@ -28,6 +28,8 @@
  */
 package pcgen.persistence.lst;
 
+import java.io.File;
+import java.net.URI;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -138,7 +140,7 @@ public final class BioSetLoaderTest extends PCGenTestCase
 		for (int i = 0; i < bioSetData.length; i++)
 		{
 			final String line = bioSetData[i];
-			loader.parseLine(line, null);
+			loader.parseLine(line, new URI("http://UNIT_TEST_CASE"));
 		}
 		Globals.setBioSet(loader.bioSet);
 	}

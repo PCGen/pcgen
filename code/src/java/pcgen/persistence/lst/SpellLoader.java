@@ -94,11 +94,11 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 				if ((!colString.equals(spell.getKeyName()))
 					&& (colString.indexOf(".MOD") < 0))
 				{
-					completeObject(spell);
+					completeObject(source, spell);
 					spell = new Spell();
 					spell.setName(colString);
 					spell.setSourceCampaign(source.getCampaign());
-					spell.setSourceFile(source.getFile());
+					spell.setSourceURI(source.getURI());
 				}
 
 				i++;
@@ -113,7 +113,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 				if (!token.parse(spell, value))
 				{
 					Logging.errorPrint("Error parsing spell "
-						+ spell.getDisplayName() + ':' + source.getFile() + ':'
+						+ spell.getDisplayName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -124,11 +124,11 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			else
 			{
 				Logging.errorPrint("Illegal spell info '" + colString + "' in "
-					+ source.getFile());
+					+ source.getURI());
 			}
 		}
 
-		completeObject(spell);
+		completeObject(source, spell);
 		return null;
 	}
 

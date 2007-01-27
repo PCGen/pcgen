@@ -22,7 +22,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -45,10 +45,10 @@ public final class PCCheckLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		PObject obj = new PObject();
@@ -79,7 +79,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 				if (!token.parse(obj, value))
 				{
 					Logging.errorPrint("Error parsing check "
-						+ obj.getDisplayName() + ':' + sourceURL.toString()
+						+ obj.getDisplayName() + ':' + sourceURI.toString()
 						+ ':' + colString + "\"");
 				}
 			}
@@ -90,7 +90,7 @@ public final class PCCheckLoader extends LstLineFileLoader
 			else
 			{
 				Logging.errorPrint("Illegal check info '" + lstLine + "' in "
-					+ sourceURL.toString());
+					+ sourceURI.toString());
 			}
 		}
 	}

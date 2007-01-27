@@ -22,6 +22,8 @@
  */
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
@@ -41,16 +43,12 @@ import pcgen.util.Logging;
 public class AbilityCategoryToken implements GameModeLstToken
 {
 
-	/**
-	 * 
-	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String)
-	 */
-	public boolean parse(final GameMode aGameMode, final String aValue)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
 		try
 		{
-			loader.parseLine(aGameMode, getTokenName() + ':' + aValue);
+			loader.parseLine(gameMode, getTokenName() + ':' + value, source);
 		}
 		catch (PersistenceLayerException e)
 		{

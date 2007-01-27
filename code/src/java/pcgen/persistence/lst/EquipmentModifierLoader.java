@@ -22,6 +22,8 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -33,6 +35,7 @@ import pcgen.core.PObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
+import pcgen.util.UnreachableError;
 
 /**
  * 
@@ -71,7 +74,7 @@ public final class EquipmentModifierLoader extends
 		String name = colToken.nextToken();
 		eqMod.setName(name.replace('|', ' '));
 		eqMod.setSourceCampaign(source.getCampaign());
-		eqMod.setSourceFile(source.getFile());
+		eqMod.setSourceURI(source.getURI());
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				EquipmentModifierLstToken.class);
@@ -95,7 +98,7 @@ public final class EquipmentModifierLoader extends
 					if (!token.parse(eqMod, value)) {
 						Logging.errorPrint("Error parsing ability "
 								+ eqMod.getDisplayName() + ':'
-								+ source.getFile() + ':' + colString + "\"");
+								+ source.getURI() + ':' + colString + "\"");
 					}
 				} else if (PObjectLoader.parseTag(eqMod, colString)) {
 					continue;
@@ -106,7 +109,7 @@ public final class EquipmentModifierLoader extends
 			}
 		}
 
-		completeObject(eqMod);
+		completeObject(source, eqMod);
 		return null;
 	}
 
@@ -126,9 +129,13 @@ public final class EquipmentModifierLoader extends
 	 *             EquipmentModifierLoader
 	 */
 	public void addDefaultEquipmentMods() throws PersistenceLayerException {
-		CampaignSourceEntry source = new CampaignSourceEntry(new Campaign(),
-				getClass().getName() + ".java");
-		setCurrentSource(source);
+		CampaignSourceEntry source;
+		try {
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		} catch (URISyntaxException e) {
+			throw new UnreachableError(e);
+		}
 		String aLine;
 		EquipmentModifier anObj = new EquipmentModifier();
 		aLine = "Add Type\tKEY:ADDTYPE\tTYPE:ALL\tCOST:0\tNAMEOPT:NONAME\tSOURCELONG:PCGen Internal\tCHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES";

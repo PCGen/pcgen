@@ -25,7 +25,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
+import java.net.URI;
 
 /**
  * <code>StatsAndChecksLstToken</code>
@@ -40,5 +40,5 @@ public interface StatsAndChecksLstToken extends LstToken
 	 * @param value
 	 * @return true if successful
 	 */
-	public abstract boolean parse(String value, URL sourceURL);
+	public abstract boolean parse(String value, URI sourceURI);
 }

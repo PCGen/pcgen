@@ -6,6 +6,9 @@
  */
 package pcgen.core.prereq;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
@@ -19,6 +22,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.UnreachableError;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.pretokens.parser.PreFeatParser;
 
@@ -179,13 +183,20 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		final Ability spellFocus = new Ability();
 
-		final CampaignSourceEntry cse =
-				new CampaignSourceEntry(new Campaign(), "test.lst");
+		CampaignSourceEntry cse;
+		try
+		{
+			cse = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
 		final String spellFocusStr =
 				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
-		featLoader.setCurrentSource(cse);
 		featLoader.parseLine(spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
 		spellFocus.addAssociated("Evocation");
@@ -216,13 +227,20 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		final Ability spellFocus = new Ability();
 
-		final CampaignSourceEntry cse =
-				new CampaignSourceEntry(new Campaign(), "test.lst");
+		CampaignSourceEntry cse;
+		try
+		{
+			cse = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
 		final String spellFocusStr =
 				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
-		featLoader.setCurrentSource(cse);
 		featLoader.parseLine(spellFocus, spellFocusStr, cse);
 		character.addFeat(spellFocus, null);
 		spellFocus.addAssociated("Evocation");

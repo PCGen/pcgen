@@ -1,5 +1,6 @@
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
@@ -17,7 +18,7 @@ public class ShowtabToken implements GameModeLstToken
 		return "SHOWTAB";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		final String tabName = tok.nextToken();

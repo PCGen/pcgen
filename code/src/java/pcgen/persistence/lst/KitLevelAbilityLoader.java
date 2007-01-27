@@ -25,6 +25,7 @@
 
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -45,7 +46,7 @@ public class KitLevelAbilityLoader
 	 * @param colString
 	 * @throws PersistenceLayerException
 	 */
-	public static void parseLine(Kit kit, String colString)
+	public static void parseLine(Kit kit, String colString, URI source)
 		throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
@@ -101,7 +102,7 @@ public class KitLevelAbilityLoader
 						+ kitLA.getObjectName() + ':' + colString + "\"");
 				}
 			}
-			else if (BaseKitLoader.parseCommonTags(kitLA, colString))
+			else if (BaseKitLoader.parseCommonTags(kitLA, colString, source))
 			{
 				continue;
 			}

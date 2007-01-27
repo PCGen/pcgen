@@ -27,7 +27,7 @@ package pcgen.persistence.lst;
 import pcgen.core.SystemCollections;
 import pcgen.persistence.PersistenceLayerException;
 
-import java.net.URL;
+import java.net.URI;
 
 /**
  * This class is a LstFileLoader used to load character locations.
@@ -52,17 +52,17 @@ public class LocationLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void loadLstFile(String source) throws PersistenceLayerException
+	public void loadLstFile(URI source) throws PersistenceLayerException
 	{
 		traitType = -1;
 		super.loadLstFile(source);
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		if (lstLine.charAt(0) != '[')
 		{

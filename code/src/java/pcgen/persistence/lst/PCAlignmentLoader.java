@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -46,10 +46,10 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		PCAlignment alignment = new PCAlignment();
@@ -82,7 +82,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 				{
 					Logging.errorPrint("Error parsing alignment "
 						+ alignment.getDisplayName() + ':'
-						+ sourceURL.toString() + ':' + colString + "\"");
+						+ sourceURI.toString() + ':' + colString + "\"");
 				}
 			}
 			else if (PObjectLoader.parseTag(alignment, colString))
@@ -92,7 +92,7 @@ public final class PCAlignmentLoader extends LstLineFileLoader
 			else
 			{
 				Logging.errorPrint("Illegal alignment info '" + lstLine
-					+ "' in " + sourceURL.toString());
+					+ "' in " + sourceURI.toString());
 			}
 		}
 

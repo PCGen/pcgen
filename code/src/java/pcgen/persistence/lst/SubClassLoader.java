@@ -97,7 +97,7 @@ public final class SubClassLoader
 				if (!token.parse(subclass, value))
 				{
 					Logging.errorPrint("Error parsing ability "
-						+ subclass.getDisplayName() + ':' + source.getFile()
+						+ subclass.getDisplayName() + ':' + source.getURI()
 						+ ':' + colString + "\"");
 				}
 			}

@@ -1,5 +1,6 @@
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.Map;
 
 import pcgen.core.kit.BaseKit;
@@ -21,7 +22,7 @@ public class BaseKitLoader
 	 * @return true if parse OK
 	 * @throws PersistenceLayerException 
 	 */
-	public static boolean parseCommonTags(BaseKit obj, final String tag)
+	public static boolean parseCommonTags(BaseKit obj, final String tag, URI source)
 		throws PersistenceLayerException
 	{
 		Map<String, LstToken> tokenMap =
@@ -43,8 +44,7 @@ public class BaseKitLoader
 		if (token != null)
 		{
 			final String value = tag.substring(idxColon + 1);
-			LstUtils.deprecationCheck(token, obj.toString(), obj.toString(),
-				value);
+			LstUtils.deprecationCheck(token, obj.toString(), source, value);
 			if (!token.parse(obj, value))
 			{
 				Logging.errorPrint("Error parsing Kit tag " + obj.toString()

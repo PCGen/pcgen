@@ -22,6 +22,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -58,7 +59,7 @@ public class AbilityCategoryLoader
 	 * 
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(final GameMode aGameMode, final String aLine)
+	public void parseLine(final GameMode aGameMode, final String aLine, URI source)
 		throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
@@ -104,9 +105,8 @@ public class AbilityCategoryLoader
 			{
 				final String value = colString.substring(idxColon + 1).trim();
 				// TODO - i18n
-				LstUtils.deprecationCheck(token, "Ability Category",
-					"miscinfo.lst from the " + aGameMode.getName()
-						+ " Game Mode", value);
+				LstUtils.deprecationCheck(token, "Ability Category", source,
+						value);
 				if (!token.parse(cat, value))
 				{
 					// TODO - i18n

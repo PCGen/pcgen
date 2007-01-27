@@ -86,7 +86,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 			{
 				lang.setName(colString);
 				lang.setSourceCampaign(source.getCampaign());
-				lang.setSourceFile(source.getFile());
+				lang.setSourceURI(source.getURI());
 			}
 			else if (token != null)
 			{
@@ -95,7 +95,7 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 				if (!token.parse(lang, value))
 				{
 					Logging.errorPrint("Error parsing language "
-						+ lang.getDisplayName() + ':' + source.getFile() + ':'
+						+ lang.getDisplayName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -106,13 +106,13 @@ final class LanguageLoader extends LstObjectFileLoader<Language>
 					continue;
 				}
 				Logging.errorPrint("Unknown tag '" + colString + "' in "
-					+ source.getFile());
+					+ source.getURI());
 			}
 
 			++col;
 		}
 
-		completeObject(lang);
+		completeObject(source, lang);
 		return null;
 	}
 

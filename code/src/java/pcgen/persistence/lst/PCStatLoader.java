@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -46,10 +46,10 @@ public final class PCStatLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URL)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		PCStat stat = new PCStat();
@@ -81,7 +81,7 @@ public final class PCStatLoader extends LstLineFileLoader
 				if (!token.parse(stat, value))
 				{
 					Logging.errorPrint("Error parsing check "
-						+ stat.getDisplayName() + ':' + sourceURL.toString()
+						+ stat.getDisplayName() + ':' + sourceURI.toString()
 						+ ':' + colString + "\"");
 				}
 			}
@@ -92,7 +92,7 @@ public final class PCStatLoader extends LstLineFileLoader
 			else
 			{
 				Logging.errorPrint("Illegal stat info '" + lstLine + "' in "
-					+ sourceURL.toString());
+					+ sourceURI.toString());
 			}
 		}
 

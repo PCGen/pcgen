@@ -25,6 +25,8 @@
  */
 package plugin.lsttokens.pointbuy;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.PointBuyLoader;
 import pcgen.persistence.lst.PointBuyLstToken;
@@ -42,8 +44,8 @@ public class StatToken implements PointBuyLstToken
 		return "STAT";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		return PointBuyLoader.parseStatLine(gameMode, value);
+		return PointBuyLoader.parseStatLine(gameMode, value, source);
 	}
 }

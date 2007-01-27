@@ -26,6 +26,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.persistence.lst.LstSystemLoader;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Observer;
 import java.util.Set;
@@ -84,7 +85,7 @@ public final class PersistenceManager
 	 * Set the source files for the chosen campaign
 	 * @param l
 	 */
-	public void setChosenCampaignSourcefiles(List<String> l)
+	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
 		instance.setChosenCampaignSourcefiles(l);
 	}
@@ -93,7 +94,7 @@ public final class PersistenceManager
 	 * Get the chosen campaign source files
 	 * @return the chosen campaign source files
 	 */
-	public List<String> getChosenCampaignSourcefiles()
+	public List<URI> getChosenCampaignSourcefiles()
 	{
 		return instance.getChosenCampaignSourcefiles();
 	}

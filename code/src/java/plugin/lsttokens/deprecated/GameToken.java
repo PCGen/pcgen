@@ -5,7 +5,7 @@ import pcgen.core.PObject;
 import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.persistence.lst.DeprecatedToken;
 
-import java.net.URL;
+import java.net.URI;
 
 /**
  * Class deals with GAME Token
@@ -18,7 +18,7 @@ public class GameToken implements CampaignLstToken, DeprecatedToken
 		return "GAME";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.setGameMode(value);
 		return true;

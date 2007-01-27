@@ -1,5 +1,6 @@
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -24,7 +25,7 @@ public class TabLoader
 	 * @param lstLine
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(GameMode gameMode, String lstLine)
+	public void parseLine(GameMode gameMode, String lstLine, URI source)
 		throws PersistenceLayerException
 	{
 		StringTokenizer colToken =
@@ -53,9 +54,7 @@ public class TabLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "TAB",
-					"miscinfo.lst from the " + gameMode.getName()
-						+ " Game Mode", value);
+				LstUtils.deprecationCheck(token, "TAB", source, value);
 				if (!token.parse(gameMode, tab, value))
 				{
 					Logging.errorPrint("Error parsing tabs:"

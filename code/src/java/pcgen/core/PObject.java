@@ -26,6 +26,7 @@ package pcgen.core;
 
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.net.URI;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -156,6 +157,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private List<Description> theDescriptions = null;
 	
 	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
+	
+	private URI sourceURI = null;
 	
 	/* ************
 	 * Methods
@@ -1677,18 +1680,18 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * Set the source file for this object
 	 * @param sourceFile
 	 */
-	public final void setSourceFile(final String sourceFile)
+	public final void setSourceURI(URI source)
 	{
-		stringChar.put(StringKey.SOURCE_FILE, sourceFile);
+		sourceURI = source;
 	}
 
 	/**
 	 * Get the source file for this object
 	 * @return the source file for this object
 	 */
-	public final String getSourceFile()
+	public final URI getSourceURI()
 	{
-		return stringChar.get(StringKey.SOURCE_FILE);
+		return sourceURI;
 	}
 
 	/**

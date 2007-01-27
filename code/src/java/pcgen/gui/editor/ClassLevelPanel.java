@@ -45,8 +45,8 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -100,14 +100,14 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 			customCampaign.addDescription(new Description("Custom data"));
 
 			// Make sure the object source file is set
-			String sourceFile = object.getSourceFile();
+			URI sourceFile = object.getSourceURI();
 
 			if (sourceFile == null)
 			{
 				// Make sure that the source file is in URL format for use in
 				// the campaign source entry
-				sourceFile = new URL("file:" + CustomData.customClassFilePath(true)).toString();
-				object.setSourceFile(sourceFile);
+				sourceFile = new URI("file", null, CustomData.customClassFilePath(true), null);
+				object.setSourceURI(sourceFile);
 				object.setSourceCampaign(customCampaign);
 			}
 
@@ -130,9 +130,9 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater
 				}
 			}
 		}
-		catch (MalformedURLException exc)
+		catch (URISyntaxException e)
 		{
-			Logging.errorPrint(exc.getMessage());
+			Logging.errorPrint(e.getLocalizedMessage());
 		}
 		catch (PersistenceLayerException exc)
 		{

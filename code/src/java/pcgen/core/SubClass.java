@@ -159,7 +159,7 @@ public final class SubClass extends PCClass
 			customCampaign.setName("Custom");
 			customCampaign.addDescription(new Description("Custom data"));
 
-			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceFile());
+			final CampaignSourceEntry tempSource = new CampaignSourceEntry(customCampaign, aClass.getSourceURI());
 
 			for ( String line : levelArray )
 			{

@@ -2,6 +2,7 @@ package pcgen.persistence.lst;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,7 @@ public class SponsorLoader extends LstLineFileLoader
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
 		StringTokenizer colToken =
@@ -61,8 +62,7 @@ public class SponsorLoader extends LstLineFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "sponsors.lst", sourceURL
-					.toString(), value);
+				LstUtils.deprecationCheck(token, "sponsors.lst", sourceURI, value);
 				if (!token.parse(sponsor, value))
 				{
 					Logging

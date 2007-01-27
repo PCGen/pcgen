@@ -26,7 +26,7 @@ package pcgen.persistence.lst;
 
 import pcgen.persistence.PersistenceLayerException;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -64,21 +64,13 @@ public abstract class LstLineFileLoader extends LstFileLoader
 
 	/**
 	 * This method loads a single LST formatted file.
-	 * @param fileName String containing the absolute file path
+	 * @param uri String containing the absolute file path
 	 * or the URL from which to read LST formatted data.
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstFile(String fileName) throws PersistenceLayerException
+	public void loadLstFile(URI uri) throws PersistenceLayerException
 	{
-		StringBuffer dataBuffer = new StringBuffer();
-
-		URL fileURL = readFileGetURL(fileName, dataBuffer);
-
-		if (fileURL == null)
-		{
-			throw new PersistenceLayerException("File '" + fileName
-				+ "' not found!");
-		}
+		StringBuilder dataBuffer = readFromURI(uri);
 
 		final String newlinedelim = "\r\n";
 		final String aString = dataBuffer.toString();
@@ -95,7 +87,7 @@ public abstract class LstLineFileLoader extends LstFileLoader
 				continue;
 			}
 
-			parseLine(line, fileURL);
+			parseLine(line, uri);
 		}
 	}
 
@@ -105,7 +97,7 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	 * @param game the game mode
 	 * @throws PersistenceLayerException
 	 */
-	public void loadLstFile(String fileName, String game)
+	public void loadLstFile(URI fileName, String game)
 		throws PersistenceLayerException
 	{
 		gameMode = game;
@@ -118,12 +110,12 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	 * @throws PersistenceLayerException if there is a problem with the
 	 *         LST syntax
 	 */
-	public void loadLstFiles(List<?> fileList) throws PersistenceLayerException
+	public void loadLstFiles(List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Load the files themselves as thoroughly as possible
-		for (Object cse : fileList)
+		for (CampaignSourceEntry cse : fileList)
 		{
-			loadLstFile(cse.toString());
+			loadLstFile(cse.getURI());
 		}
 	}
 
@@ -141,7 +133,7 @@ public abstract class LstLineFileLoader extends LstFileLoader
 	 *         purposes
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract void parseLine(String lstLine, URL sourceURL)
+	public abstract void parseLine(String lstLine, URI sourceURI)
 		throws PersistenceLayerException;
 
 	/**

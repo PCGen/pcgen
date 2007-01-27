@@ -23,7 +23,6 @@
 package pcgen.core.utils;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -104,6 +103,17 @@ public final class CoreUtility
 	public static boolean isNetURL(final String aFile)
 	{
 		return (aFile.startsWith("http:") || aFile.startsWith("ftp:"));
+	}
+
+	/**
+	 * return true if FTP or HTTP
+	 * @param url
+	 * @return true if FTP or HTTP
+	 */
+	public static boolean isNetURL(final URL url)
+	{
+		return "http".equalsIgnoreCase(url.getProtocol())
+				|| "ftp".equalsIgnoreCase(url.getProtocol());
 	}
 
 	/**
@@ -225,20 +235,6 @@ public final class CoreUtility
 	}
 
 	/**
-	 * Convert File to a URL
-	 * @param fileName
-	 * @return URL
-	 * @throws MalformedURLException
-	 */
-	public static String fileToURL(final String fileName)
-		throws MalformedURLException
-	{
-		final File aFile = new File(fileName);
-
-		return aFile.toURI().toURL().toString();
-	}
-
-	/**
 	 * Changes a path to make sure all instances of \ or / are replaced with File.separatorChar.
 	 *
 	 * @param argFileName The path to be fixed
@@ -247,44 +243,6 @@ public final class CoreUtility
 	public static String fixFilenamePath(final String argFileName)
 	{
 		return argFileName.replace('/', File.separatorChar).replace('\\', File.separatorChar);
-	}
-
-	/**
-	 * Fix a broken URL
-	 * @param url
-	 * @return URL
-	 * @throws MalformedURLException
-	 */
-	public static String fixURL(final String url) throws MalformedURLException
-	{
-		return new URL(url.replace('\\', '/')).toString();
-	}
-
-	/**
-	 * Fix the URL path
-	 * @param pccPath
-	 * @param url
-	 * @return URL path
-	 * @throws MalformedURLException
-	 */
-	public static String fixURLPath(final String pccPath, final String url)
-		throws MalformedURLException
-	{
-		final StringBuffer path = new StringBuffer(url.length());
-		final String result;
-
-		if (url.startsWith("file:"))
-		{
-			path.append(pccPath.replace('\\', '/'));
-			path.append(url.substring(5).replace('\\', '/'));
-			result = new URL("file:" + path.toString()).toString();
-		}
-		else
-		{
-			result = new URL(url.replace('\\', '/')).toString();
-		}
-
-		return result;
 	}
 
 	/**

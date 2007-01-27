@@ -1,11 +1,10 @@
 package plugin.lsttokens.campaign;
 
+import java.net.URI;
+
 import pcgen.core.Campaign;
-import pcgen.persistence.lst.CampaignLoader;
 import pcgen.persistence.lst.CampaignLstToken;
 import pcgen.persistence.lst.CampaignSourceEntry;
-
-import java.net.URL;
 
 /**
  * Class deals with EQUIPMOD Token
@@ -18,11 +17,11 @@ public class EquipmodToken implements CampaignLstToken
 		return "EQUIPMOD";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addLine("EQUIPMOD:" + value);
-		campaign.addEquipModFile(new CampaignSourceEntry(campaign,
-			CampaignLoader.convertFilePath(sourceUrl, value)));
+		campaign.addEquipModFile(CampaignSourceEntry.getNewCSE(campaign,
+				sourceUri, value));
 		return true;
 	}
 }

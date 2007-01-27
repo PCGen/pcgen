@@ -25,7 +25,7 @@
  */
 package plugin.lsttokens.statsandchecks;
 
-import java.net.URL;
+import java.net.URI;
 
 import pcgen.persistence.lst.PCStatLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
@@ -40,12 +40,12 @@ public class StatnameToken implements StatsAndChecksLstToken
 		return "STATNAME";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL)
+	public boolean parse(String lstLine, URI sourceURI)
 	{
 		try
 		{
 			PCStatLoader statLoader = new PCStatLoader();
-			statLoader.parseLine(lstLine, sourceURL);
+			statLoader.parseLine(lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

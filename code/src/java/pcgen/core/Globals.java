@@ -27,6 +27,7 @@ package pcgen.core;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -113,7 +114,7 @@ public final class Globals
 	private static CategorisableStore abilityStore = new CategorisableStore();
 
 	/** we need maps for efficient lookups */
-	private static Map<String, Campaign>        campaignMap     = new HashMap<String, Campaign>();
+	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
 	private static Map<String, Domain>        domainMap       = new TreeMap<String, Domain>();
 	private static SortedMap<String, Race>  raceMap         = new TreeMap<String, Race>();
 	/** TODO Why can spellMap contain both Spell and List<Spell>? Change to always contain List<Spell> (it is possible said list only has one member, but that's ok.)
@@ -345,9 +346,9 @@ public final class Globals
 	 * @param aName
 	 * @return Campaign
 	 */
-	public static Campaign getCampaignByFilename(final String aName)
+	public static Campaign getCampaignByURI(final URI aName)
 	{
-		return getCampaignByFilename(aName, true);
+		return getCampaignByURI(aName, true);
 	}
 
 	/**
@@ -360,7 +361,7 @@ public final class Globals
 	 * @return Campaign loaded from the given filename, or null if it
 	 *         cannot be found
 	 */
-	public static Campaign getCampaignByFilename(final String aName, final boolean complainOnError)
+	public static Campaign getCampaignByURI(final URI aName, final boolean complainOnError)
 	{
 		final Campaign campaign = campaignMap.get(aName);
 
@@ -2068,7 +2069,7 @@ public final class Globals
 	 */
 	public static void addCampaign(final Campaign campaign)
 	{
-		campaignMap.put(campaign.getSourceFile(), campaign);
+		campaignMap.put(campaign.getSourceURI(), campaign);
 		campaignList.add(campaign);
 	}
 

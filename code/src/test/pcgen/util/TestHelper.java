@@ -26,6 +26,8 @@ package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
 import java.lang.reflect.Field;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 import pcgen.core.Ability;
@@ -105,10 +107,16 @@ public class TestHelper
 		Equipment eq = new Equipment();
 		try
 		{
-			CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), TestHelper.class.getName()
-					+ ".java");
-			loader.setCurrentSource(source);
+			CampaignSourceEntry source;
+			try
+			{
+				source = new CampaignSourceEntry(new Campaign(),
+						new URI("file:/" + TestHelper.class.getName() + ".java"));
+			}
+			catch (URISyntaxException e)
+			{
+				throw new UnreachableError(e);
+			}
 			loader.parseLine(eq, input, source);
 			EquipmentList.addEquipment(eq);
 			return true;

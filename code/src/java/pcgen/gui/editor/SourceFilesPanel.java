@@ -37,6 +37,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -165,12 +166,8 @@ final class SourceFilesPanel extends JPanel
 
 					if ((d == null) || d.equals(""))
 					{
-						d = theCampaign.getSourceFile();
-
-						if (d.startsWith("file:/"))
-						{
-							d = d.substring(6);
-						}
+						URI uri = theCampaign.getSourceURI();
+						d = uri.getPath();
 					}
 
 					if ((d == null) || d.equals(""))
@@ -208,9 +205,9 @@ final class SourceFilesPanel extends JPanel
 							{
 								loc = loc.substring(SettingsHandler.getPccFilesLocation().toString().length() + 1);
 							}
-							else if (loc.startsWith(theCampaign.getSourceFile()))
+							else if (loc.startsWith(theCampaign.getSourceURI().toString()))
 							{
-								loc = loc.substring(theCampaign.getSourceFile().length() + 1);
+								loc = loc.substring(theCampaign.getSourceURI().toString().length() + 1);
 							}
 
 							if (!(loc.indexOf('\\') < 0)) //checking to see if the @ should be added if not only file name

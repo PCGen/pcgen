@@ -96,7 +96,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			{
 				race.setName(colString);
 				race.setSourceCampaign(source.getCampaign());
-				race.setSourceFile(source.getFile());
+				race.setSourceURI(source.getURI());
 			}
 			else if (colString.startsWith("CHOOSE:LANGAUTO:"))
 			{
@@ -109,7 +109,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 				if (!token.parse(race, value))
 				{
 					Logging.errorPrint("Error parsing race "
-						+ race.getDisplayName() + ':' + source.getFile() + ':'
+						+ race.getDisplayName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -120,7 +120,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			else
 			{
 				Logging.errorPrint("Illegal race tag '" + colString + "' in "
-					+ source.getFile());
+					+ source.getURI());
 			}
 		}
 
@@ -135,7 +135,7 @@ public final class RaceLoader extends LstObjectFileLoader<Race>
 			//			logError("Race " + race.getName() + " has no race type.");
 		}
 
-		completeObject(race);
+		completeObject(source, race);
 		return null;
 	}
 

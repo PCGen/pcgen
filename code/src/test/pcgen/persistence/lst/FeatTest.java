@@ -4,6 +4,9 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import gmgen.pluginmgr.PluginLoader;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -11,6 +14,7 @@ import junit.framework.TestSuite;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Constants;
+import pcgen.util.UnreachableError;
 
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.
@@ -57,11 +61,16 @@ public class FeatTest extends TestCase
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), FeatTest.class
-					.getName()
-					+ ".java");
-		featLoader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
 		alertnessFeat = new Ability();
 		featLoader
@@ -81,11 +90,16 @@ public class FeatTest extends TestCase
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), FeatTest.class
-					.getName()
-					+ ".java");
-		featLoader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
 		Ability ambidexterityFeat = new Ability();
 		featLoader
@@ -105,11 +119,16 @@ public class FeatTest extends TestCase
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.s_SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
-		CampaignSourceEntry source =
-				new CampaignSourceEntry(new Campaign(), FeatTest.class
-					.getName()
-					+ ".java");
-		featLoader.setCurrentSource(source);
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
 
 		Ability simpleWeaponFeat = new Ability();
 		featLoader

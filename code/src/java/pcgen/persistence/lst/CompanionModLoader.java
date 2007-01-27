@@ -77,7 +77,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 		String name = colToken.nextToken();
 		cmpMod.setName(name);
 		cmpMod.setSourceCampaign(source.getCampaign());
-		cmpMod.setSourceFile(source.getFile());
+		cmpMod.setSourceURI(source.getURI());
 
 		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(
 				CompanionModLstToken.class);
@@ -118,7 +118,7 @@ public class CompanionModLoader extends LstObjectFileLoader<CompanionMod>
 			}
 		}
 		
-		completeObject(cmpMod);
+		completeObject(source, cmpMod);
 		return null;
 	}
 

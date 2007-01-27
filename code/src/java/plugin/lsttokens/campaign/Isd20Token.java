@@ -1,9 +1,9 @@
 package plugin.lsttokens.campaign;
 
+import java.net.URI;
+
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignLstToken;
-
-import java.net.URL;
 
 /**
  * Class deals with ISD20 Token
@@ -16,7 +16,7 @@ public class Isd20Token implements CampaignLstToken
 		return "ISD20";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.setIsD20(value.startsWith("Y"));
 		return true;

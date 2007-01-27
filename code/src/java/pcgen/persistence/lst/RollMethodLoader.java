@@ -1,5 +1,6 @@
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -33,7 +34,7 @@ public class RollMethodLoader
 	 * @param lstLine
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(GameMode gameMode, String lstLine)
+	public void parseLine(GameMode gameMode, String lstLine, URI source)
 		throws PersistenceLayerException
 	{
 		Map<String, String> method = new HashMap<String, String>();
@@ -64,9 +65,7 @@ public class RollMethodLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Roll Method",
-					"miscinfo.lst from the " + gameMode.getName()
-						+ " Game Mode", value);
+				LstUtils.deprecationCheck(token, "Roll Method", source, value);
 				if (!token.parse(method, value))
 				{
 					Logging.errorPrint("Error parsing Roll Method:"

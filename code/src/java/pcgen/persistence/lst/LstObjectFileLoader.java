@@ -25,6 +25,7 @@
 package pcgen.persistence.lst;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -37,7 +38,6 @@ import java.util.TreeSet;
 import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 import pcgen.util.PropertyFactory;
@@ -77,8 +77,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	/** The suffix used to indicate this is a forget operation */
 	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
 
-	private CampaignSourceEntry currentSource = null;
-	private List<String> copyLineList = new ArrayList<String>();
+	private List<ModEntry> copyLineList = new ArrayList<ModEntry>();
 	private List<String> forgetLineList = new ArrayList<String>();
 	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
 	private Map<String, String> sourceMap = null;
@@ -98,36 +97,21 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 * @param fileList containing the list of files to read
 	 * @throws PersistenceLayerException 
 	 */
-	@Override
-	public void loadLstFiles(List<?> fileList) throws PersistenceLayerException
+	public void loadLstFiles(List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
-		// First sort the file list to optimize loads.
-		sortFilesForOptimalLoad(fileList);
-
 		// Track which sources have been loaded already
-		TreeSet<String> loadedFiles = new TreeSet<String>();
+		TreeSet<URI> loadedFiles = new TreeSet<URI>();
 
 		// Load the files themselves as thoroughly as possible
-		for (Object testObj : fileList)
+		for (CampaignSourceEntry sourceEntry : fileList)
 		{
-			if (testObj == null)
+			if (sourceEntry == null)
 			{
 				continue;
 			}
-
-			if (!(testObj instanceof CampaignSourceEntry))
-			{
-				logError(PropertyFactory.getFormattedString(
-					"Errors.LstFileLoader.NotCampaignSource", //$NON-NLS-1$
-					testObj.getClass().getName(), testObj.toString()));
-				continue;
-			}
-
-			// Get the next source entry
-			CampaignSourceEntry sourceEntry = (CampaignSourceEntry) testObj;
 
 			// Check if the file has already been loaded before loading it
-			String fileName = sourceEntry.getFile();
+			URI fileName = sourceEntry.getURI();
 
 			if (!loadedFiles.contains(fileName))
 			{
@@ -197,7 +181,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 * 
 	 * @since 5.11
 	 */
-	public void completeObject(final PObject pObj)
+	public void completeObject(CampaignSourceEntry source, final PObject pObj)
 		throws PersistenceLayerException
 	{
 		if (pObj == null)
@@ -218,7 +202,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 			}
 		}
 
-		if (includeObject(pObj))
+		if (includeObject(source, pObj))
 		{
 			finishObject(pObj);
 			final T currentObj = getObjectKeyed(pObj.getKeyName());
@@ -229,7 +213,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 			}
 			else
 			{
-				if (!currentObj.getSourceFile().equals(pObj.getSourceFile()))
+				if (!currentObj.getSourceURI().equals(pObj.getSourceURI()))
 				{
 					if (SettingsHandler.isAllowOverride())
 					{
@@ -253,8 +237,8 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 						// Duplicate loading error
 						Logging.errorPrintLocalised(
 							"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
-							pObj.getKeyName(), currentObj.getSourceFile(), pObj
-								.getSourceFile());
+							pObj.getKeyName(), currentObj.getSourceURI(), pObj
+								.getSourceURI());
 					}
 				}
 			}
@@ -300,7 +284,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
-	protected final boolean includeObject(PObject parsedObject)
+	protected final boolean includeObject(CampaignSourceEntry source, PObject parsedObject)
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((parsedObject == null) || (parsedObject.getDisplayName() == null)
@@ -312,14 +296,14 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 		}
 
 		// If includes were present, check includes for given object
-		List<String> includeItems = currentSource.getIncludeItems();
+		List<String> includeItems = source.getIncludeItems();
 
 		if (!includeItems.isEmpty())
 		{
 			return includeItems.contains(parsedObject.getKeyName());
 		}
 		// If excludes were present, check excludes for given object
-		List<String> excludeItems = currentSource.getExcludeItems();
+		List<String> excludeItems = source.getExcludeItems();
 
 		if (!excludeItems.isEmpty())
 		{
@@ -346,11 +330,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	protected void loadLstFile(CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
+		URL url = null;
 		String urlString = Constants.EMPTY_STRING;
 		try
 		{
-			urlString = CoreUtility.fileToURL(sourceEntry.getFile());
-			notifyObservers(new URL(urlString));
+			url = sourceEntry.getURI().toURL();
+			notifyObservers(url);
 		}
 		catch (MalformedURLException e)
 		{
@@ -373,19 +358,19 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 		}
 
 		sourceMap = null;
-		currentSource = sourceEntry;
 
-		StringBuffer dataBuffer = new StringBuffer();
+		StringBuilder dataBuffer;
 
 		try
 		{
-			readFileGetURL(sourceEntry.getFile(), dataBuffer);
+			dataBuffer = readFromURI(sourceEntry.getURI());
 		}
 		catch (PersistenceLayerException ple)
 		{
 			logError(PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
-				sourceEntry.getFile(), ple.getMessage()));
+				sourceEntry.getURI(), ple.getMessage()));
+			return;
 		}
 
 		final String aString = dataBuffer.toString();
@@ -431,11 +416,12 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 			// TODO - Figure out why we need to check SOURCE in this file
 			else if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
-				sourceMap = SourceLoader.parseLine(line, sourceEntry.getFile());
+				sourceMap = SourceLoader.parseLine(line, sourceEntry.getURI());
 			}
 			else if (tokens[0].indexOf(COPY_SUFFIX) > 0)
 			{
-				copyLineList.add(line);
+				copyLineList.add(new ModEntry(sourceEntry, line,
+						currentLineNumber, sourceMap));
 			}
 			else if (tokens[0].indexOf(MOD_SUFFIX) > 0)
 			{
@@ -467,13 +453,13 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 					target = parseLine(target, line, sourceEntry);
 					// TODO - This is kind of a hack but we need to make sure
 					// that classes get added.
-					completeObject(target);
+					completeObject(sourceEntry, target);
 				}
 				catch (PersistenceLayerException ple)
 				{
 					logError(PropertyFactory.getFormattedString(
 						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-						sourceEntry.getFile(), currentLineNumber, ple
+						sourceEntry.getURI(), currentLineNumber, ple
 							.getMessage()));
 					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
 				}
@@ -481,7 +467,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				{
 					logError(PropertyFactory.getFormattedString(
 						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-						sourceEntry.getFile(), currentLineNumber, t
+						sourceEntry.getURI(), currentLineNumber, t
 							.getMessage()));
 					Logging.errorPrint(PropertyFactory
 						.getString("Errors.LstFileLoader.Ignoring"), //$NON-NLS-1$
@@ -505,79 +491,13 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	protected abstract void performForget(T objToForget);
 
 	/**
-	 * This method will sort the list of files into an order such that
-	 * loads will be optimized.
-	 * <br>
-	 * Unless overridden, this method will sort files such that files
-	 * to be loaded in entirety are loaded first, then files performing
-	 * excludes of individual objects, then files including only specific
-	 * objects within the files.
-	 *
-	 * @param fileList list of String file names to optimize
-	 */
-	protected void sortFilesForOptimalLoad(List<?> fileList)
-	{
-		if ((fileList.isEmpty()) || (fileList.get(0) instanceof String))
-		{
-			// avoid extra creation, sorting, etc if this is a generic
-			// list of files
-			return;
-		}
-
-		ArrayList<CampaignSourceEntry> fList =
-				(ArrayList<CampaignSourceEntry>) fileList;
-
-		ArrayList<CampaignSourceEntry> normalFiles =
-				new ArrayList<CampaignSourceEntry>();
-		ArrayList<CampaignSourceEntry> includeFiles =
-				new ArrayList<CampaignSourceEntry>();
-		ArrayList<CampaignSourceEntry> excludeFiles =
-				new ArrayList<CampaignSourceEntry>();
-
-		for (CampaignSourceEntry sourceEntry : fList)
-		{
-			String fileInfo = sourceEntry.getFile();
-
-			if (fileInfo.indexOf(INCLUDE_TAG) > 0)
-			{
-				if (!includeFiles.contains(sourceEntry))
-				{
-					includeFiles.add(sourceEntry);
-				}
-			}
-			else if (fileInfo.indexOf(EXCLUDE_TAG) > 0)
-			{
-				if (!excludeFiles.contains(sourceEntry))
-				{
-					excludeFiles.add(sourceEntry);
-				}
-			}
-			else
-			{
-				if (!normalFiles.contains(sourceEntry))
-				{
-					normalFiles.add(sourceEntry);
-				}
-			}
-		}
-
-		fList.clear();
-
-		// Optimal load:  Entire files, exclude files, include files
-		// TODO: compare include/exclude file lists?
-		fList.addAll(normalFiles);
-		fList.addAll(excludeFiles);
-		fList.addAll(includeFiles);
-	}
-
-	/**
 	 * This method will perform a single .COPY operation.
 	 *
 	 * @param baseName String name of the object to copy
 	 * @param copyName String name of the target object
 	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(String baseKey, String copyName)
+	private void performCopy(CampaignSourceEntry source, String baseKey, String copyName)
 		throws PersistenceLayerException
 	{
 		T object = getObjectKeyed(baseKey);
@@ -596,7 +516,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 			PObject clone = object.clone();
 			clone.setName(copyName);
 			clone.setKeyName(copyName);
-			completeObject(clone);
+			completeObject(source, clone);
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -613,13 +533,13 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 * .COPY operation
 	 * @throws PersistenceLayerException 
 	 */
-	private void performCopy(String lstLine) throws PersistenceLayerException
+	private void performCopy(ModEntry me) throws PersistenceLayerException
 	{
+		String lstLine = me.getLstLine();
 		final int nameEnd = lstLine.indexOf(COPY_SUFFIX);
 		final String baseName = lstLine.substring(0, nameEnd);
 		final String copyName = lstLine.substring(nameEnd + 6);
-
-		performCopy(baseName, copyName);
+		performCopy(me.getSource(), baseName, copyName);
 	}
 
 	/**
@@ -656,7 +576,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 		{
 			logError(PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
-				entry.getSource().getFile(), entry.getLineNumber(), key));
+				entry.getSource().getURI(), entry.getLineNumber(), key));
 			return;
 		}
 
@@ -698,17 +618,17 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 				{
 					logError(PropertyFactory.getFormattedString(
 						"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-						element.getSource().getFile(), element.getLineNumber(),
+						element.getSource().getURI(), element.getLineNumber(),
 						ple.getMessage()));
 				}
 			}
-			completeObject(object);
+			completeObject(entry.getSource(), object);
 		}
 		catch (PersistenceLayerException ple)
 		{
 			logError(PropertyFactory.getFormattedString(
 				"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-				entry.getSource().getFile(), entry.getLineNumber(), ple
+				entry.getSource().getURI(), entry.getLineNumber(), ple
 					.getMessage()));
 		}
 	}
@@ -719,12 +639,9 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	 */
 	private void processCopies() throws PersistenceLayerException
 	{
-		for (String objKey : copyLineList)
+		for (ModEntry me : copyLineList)
 		{
-			if (!excludedObjects.contains(objKey))
-			{
-				performCopy(objKey);
-			}
+			performCopy(me);
 		}
 		copyLineList.clear();
 	}
@@ -849,21 +766,5 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 		{
 			return lineNumber;
 		}
-	}
-
-	/**
-	 * @return Returns the currentSource.
-	 */
-	public CampaignSourceEntry getCurrentSource()
-	{
-		return currentSource;
-	}
-
-	/**
-	 * @param aCurrentSource The currentSource to set.
-	 */
-	public void setCurrentSource(CampaignSourceEntry aCurrentSource)
-	{
-		this.currentSource = aCurrentSource;
 	}
 }

@@ -90,7 +90,7 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 				if (!token.parse(deity, value))
 				{
 					Logging.errorPrint("Error parsing deity "
-						+ deity.getDisplayName() + ':' + source.getFile() + ':'
+						+ deity.getDisplayName() + ':' + source.getURI() + ':'
 						+ colString + "\"");
 				}
 			}
@@ -103,11 +103,11 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 				if ((!colString.equals(deity.getKeyName()))
 					&& (colString.indexOf(".MOD") < 0))
 				{
-					completeObject(deity);
+					completeObject(source, deity);
 					deity = new Deity();
 					deity.setName(colString);
 					deity.setSourceCampaign(source.getCampaign());
-					deity.setSourceFile(source.getFile());
+					deity.setSourceURI(source.getURI());
 				}
 				firstCol = false;
 			}
@@ -115,11 +115,11 @@ public class DeityLoader extends LstObjectFileLoader<Deity>
 			{
 				Logging.errorPrint("Illegal deity info '" + colString
 					+ "' for " + deity.getDisplayName() + " in "
-					+ source.getFile() + " of " + source.getCampaign() + ".");
+					+ source.getURI() + " of " + source.getCampaign() + ".");
 			}
 		}
 
-		completeObject(deity);
+		completeObject(source, deity);
 		return null;
 	}
 

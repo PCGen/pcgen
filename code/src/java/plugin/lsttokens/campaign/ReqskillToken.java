@@ -1,9 +1,9 @@
 package plugin.lsttokens.campaign;
 
+import java.net.URI;
+
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignLstToken;
-
-import java.net.URL;
 
 /**
  * Class deals with REQSKILL Token
@@ -16,7 +16,7 @@ public class ReqskillToken implements CampaignLstToken
 		return "REQSKILL";
 	}
 
-	public boolean parse(Campaign campaign, String value, URL sourceUrl)
+	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addLine("REQSKILL:" + value);
 		String[] names = value.split("\\|");

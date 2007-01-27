@@ -37,7 +37,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Iterator;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.Observer;
@@ -77,6 +77,8 @@ import pcgen.gui.utils.SwingChooserRadio;
 import pcgen.gui.utils.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.SponsorLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.Logging;
@@ -490,24 +492,16 @@ public class pcGenGUI
 		showLicense("OGL License 1.0a", aString);
 	}
 
-	public static void showLicense(String title, List<String> fileList)
+	public static void showLicense(String title, List<URI> fileList)
 	{
-		for (Iterator<String> i = fileList.iterator(); i.hasNext();)
+		for (URI licenseFile : fileList)
 		{
-			String fileName = i.next();
-			String fileText = null;
-
-			// TODO: This could be from a net URL as a RFE...
-			if( fileName.startsWith("file:/"))
-			{
-				fileText = readTextFromFile(fileName.substring(6));
+			try {
+				StringBuilder dataBuffer = LstFileLoader.readFromURI(licenseFile);
+				showLicense(title, dataBuffer.toString());
+			} catch (PersistenceLayerException e) {
+				Logging.errorPrint("Could not read license at " + licenseFile, e);
 			}
-			else
-			{
-				fileText = readTextFromFile(Globals.getDefaultPath() + File.separator + i.next());
-			}
-
-			showLicense(title, fileText);
 		}
 	}
 

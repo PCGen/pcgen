@@ -28,6 +28,7 @@ package plugin.lsttokens.gamemode;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
+import java.net.URI;
 import java.util.StringTokenizer;
 
 /**
@@ -46,7 +47,7 @@ public class SkillRankTextToken implements GameModeLstToken
 	//
 	// SKILLRANKTEXT:<rank_val> <tab> <display_text>
 	//
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");
 		if (tok.countTokens() == 2)

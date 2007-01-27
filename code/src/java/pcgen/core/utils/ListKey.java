@@ -23,6 +23,8 @@
  */
 package pcgen.core.utils;
 
+import java.net.URI;
+
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -49,7 +51,7 @@ public final class ListKey<T> {
 	/** DOMAIN - a ListKey */
 	public static final ListKey<Domain> DOMAIN = new ListKey<Domain>();
 	/** FILE_BIO_SET - a ListKey */
-	public static final ListKey<String> FILE_BIO_SET = new ListKey<String>();
+	public static final ListKey<CampaignSourceEntry> FILE_BIO_SET = new ListKey<CampaignSourceEntry>();
 	/** FILE_CLASS - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_CLASS = new ListKey<CampaignSourceEntry>();
 	/** FILE_CLASS_SKILL - a ListKey */
@@ -79,7 +81,7 @@ public final class ListKey<T> {
 	/** FILE_LST_EXCLUDE - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_LST_EXCLUDE = new ListKey<CampaignSourceEntry>();
 	/** FILE_PCC - a ListKey */
-	public static final ListKey<String> FILE_PCC = new ListKey<String>();
+	public static final ListKey<URI> FILE_PCC = new ListKey<URI>();
 	/** FILE_RACE - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_RACE = new ListKey<CampaignSourceEntry>();
 	/** FILE_REQ_SKILL - a ListKey */
@@ -99,7 +101,7 @@ public final class ListKey<T> {
 	/** LICENSE - a ListKey */
 	public static final ListKey<String> LICENSE = new ListKey<String>();
 	/** LICENSE_FILE - a ListKey */
-	public static final ListKey<String> LICENSE_FILE = new ListKey<String>();
+	public static final ListKey<URI> LICENSE_FILE = new ListKey<URI>();
 	/** LINE - a ListKey */
 	public static final ListKey<String> LINE = new ListKey<String>();
 	/** NATURAL_WEAPONS - a ListKey */

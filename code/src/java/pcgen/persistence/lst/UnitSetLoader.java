@@ -22,7 +22,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URL;
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -52,7 +52,7 @@ public final class UnitSetLoader extends LstLineFileLoader
 	 * @param sourceURL 
 	 * @deprecated This is the old style, to be removed in 5.11.1  
 	 */
-	public void parseLine(String lstLine, URL sourceURL)
+	public void parseLine(String lstLine, URI sourceURI)
 	{
 		Logging
 			.errorPrint("Warning: unitset.lst deprecated. use UNITSET in miscinfo.lst instead (GameMode: "
@@ -126,7 +126,7 @@ public final class UnitSetLoader extends LstLineFileLoader
 
 					default:
 						Logging.errorPrint("Unexpected token '" + colString
-							+ "' in " + sourceURL.toString());
+							+ "' in " + sourceURI.toString());
 
 						break;
 				}
@@ -134,7 +134,7 @@ public final class UnitSetLoader extends LstLineFileLoader
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Illegal unit set info '" + lstLine
-					+ "' in " + sourceURL.toString());
+					+ "' in " + sourceURI.toString());
 			}
 
 			iCount += 1;
@@ -147,7 +147,7 @@ public final class UnitSetLoader extends LstLineFileLoader
 	 * @param lstLine
 	 * @throws PersistenceLayerException
 	 */
-	public void parseLine(GameMode gameModeIn, String lstLine)
+	public void parseLine(GameMode gameModeIn, String lstLine, URI source)
 		throws PersistenceLayerException
 	{
 		StringTokenizer colToken =
@@ -181,9 +181,7 @@ public final class UnitSetLoader extends LstLineFileLoader
 			else if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				LstUtils.deprecationCheck(token, "Unit Set",
-					"miscinfo.lst from the " + gameModeIn.getName()
-						+ " Game Mode", value);
+				LstUtils.deprecationCheck(token, "Unit Set", source, value);
 				if (!token.parse(unitSet, value))
 				{
 					Logging.errorPrint("Error parsing unit set:"

@@ -24,6 +24,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -53,7 +54,7 @@ final class RuleCheckLoader
 	 * @param gameMode
 	 * @param aLine
 	 **/
-	public static void parseLine(GameMode gameMode, String aLine)
+	public static void parseLine(GameMode gameMode, String aLine, URI source)
 	{
 		RuleCheck rule = new RuleCheck();
 
@@ -82,7 +83,7 @@ final class RuleCheckLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, rule.getName(), "", value);
+				LstUtils.deprecationCheck(token, rule.getName(), source, value);
 				if (!token.parse(rule, value))
 				{
 					Logging.errorPrint("Error parsing Rule Check "

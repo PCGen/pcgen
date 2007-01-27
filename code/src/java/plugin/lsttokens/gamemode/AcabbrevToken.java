@@ -25,6 +25,8 @@
  */
 package plugin.lsttokens.gamemode;
 
+import java.net.URI;
+
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -41,7 +43,7 @@ public class AcabbrevToken implements GameModeLstToken
 		return "ACABBREV";
 	}
 
-	public boolean parse(GameMode gameMode, String value)
+	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setACAbbrev(value);
 		return true;

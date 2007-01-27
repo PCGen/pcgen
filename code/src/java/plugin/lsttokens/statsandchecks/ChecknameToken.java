@@ -25,7 +25,7 @@
  */
 package plugin.lsttokens.statsandchecks;
 
-import java.net.URL;
+import java.net.URI;
 
 import pcgen.persistence.lst.PCCheckLoader;
 import pcgen.persistence.lst.StatsAndChecksLstToken;
@@ -40,12 +40,12 @@ public class ChecknameToken implements StatsAndChecksLstToken
 		return "CHECKNAME";
 	}
 
-	public boolean parse(String lstLine, URL sourceURL)
+	public boolean parse(String lstLine, URI sourceURI)
 	{
 		try
 		{
 			PCCheckLoader checkLoader = new PCCheckLoader();
-			checkLoader.parseLine(lstLine, sourceURL);
+			checkLoader.parseLine(lstLine, sourceURI);
 			return true;
 		}
 		catch (Exception e)

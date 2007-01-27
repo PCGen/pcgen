@@ -33,8 +33,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
-import java.util.List;
 import java.util.Observable;
 
 /**
@@ -59,16 +60,6 @@ public abstract class LstFileLoader extends Observable
 	public static final char LINE_COMMENT_CHAR = '#'; //$NON-NLS-1$
 
 	/**
-	 * This method loads the given list of LST files.
-	 *
-	 * @param fileList containing the list of files to read
-	 * @throws PersistenceLayerException if there is a problem with the
-	 *                                   LST syntax
-	 */
-	public abstract void loadLstFiles(List<?> fileList)
-		throws PersistenceLayerException;
-
-	/**
 	 * Logs an error that has occured during data loading.
 	 * This will not only log the message to the system error log,
 	 * but it will also notify all observers of the error.
@@ -79,53 +70,6 @@ public abstract class LstFileLoader extends Observable
 		Logging.errorPrint(message);
 		setChanged();
 		notifyObservers(new Exception(message));
-	}
-
-	/**
-	 * This method reads the given file or URL and stores its contents in the
-	 * provided data buffer, returning a URL to the specified file for use in
-	 * log/error messages by its caller.
-	 *
-	 * @param argFileName String path of the file or URL to read
-	 * @param dataBuffer  StringBuffer to buffer the file content into
-	 * @return URL pointing to the actual file read, for use in debug/log
-	 *         messages
-	 * @throws PersistenceLayerException if an error occurs in reading the file
-	 */
-	public static URL readFileGetURL(final String argFileName,
-		final StringBuffer dataBuffer) throws PersistenceLayerException
-	{
-		URL aURL;
-
-		if (argFileName.length() <= 0)
-		{
-			// We have a problem!
-			throw new PersistenceLayerException(
-				"LstFileLoader.readFileGetURL() has a blank argFileName!");
-		}
-
-		// Don't changes the slashes if this is a url.
-		String fileName = argFileName;
-
-		if (!CoreUtility.isURL(fileName))
-		{
-			fileName = CoreUtility.fixFilenamePath(fileName);
-		}
-
-		// Common case first - URL
-		// because this includes file:/ - which most stuff gets translated to
-		if (CoreUtility.isURL(fileName))
-		{
-			aURL = readFromURL(fileName, dataBuffer);
-		}
-
-		//Uncommon case: Plain Old File Name
-		else
-		{
-			aURL = readFromFile(fileName, dataBuffer);
-		}
-
-		return aURL;
 	}
 
 	/**
@@ -141,84 +85,6 @@ public abstract class LstFileLoader extends Observable
 	}
 
 	/**
-	 * This method reads the given file and stores its contents in the provided
-	 * data buffer, returning a URL to the specified file for use in log/error
-	 * messages by its caller.
-	 *
-	 * @param fileName   String path of the file to read -- MUST be a file
-	 *                   path, not a URL!
-	 * @param dataBuffer StringBuffer to buffer the file content into
-	 * @return URL pointing to the actual file read, for use in debug/log
-	 *         messages
-	 */
-	private static URL readFromFile(String fileName,
-		final StringBuffer dataBuffer)
-	{
-		URL aURL = null;
-		InputStream inputStream = null;
-
-		final File aFile = new File(fileName);
-
-		if (!aFile.exists())
-		{
-			// They will know if something important
-			// is missing, so just debug this error
-			Logging.debugPrint(fileName + " doesn't seem to exist!");
-
-			return null;
-		}
-
-		try
-		{
-			aURL = aFile.toURI().toURL();
-
-			final int length = (int) aFile.length();
-			inputStream = new FileInputStream(aFile);
-
-			final byte[] inputLine = new byte[length];
-			int bytesRead = inputStream.read(inputLine, 0, length);
-
-			if (bytesRead != length)
-			{
-				Logging.errorPrint("Only read " + bytesRead + " bytes from "
-					+ fileName + " but expected " + length
-					+ " in LstSystemLoader.initFile. Continuing anyway");
-			}
-
-			dataBuffer.append(new String(inputLine, "UTF-8"));
-		}
-		catch (IOException ioe)
-		{
-			aURL = null;
-
-			// Don't throw an exception here because a simple
-			// file not found will prevent ANY other files from
-			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR:" + fileName + "\n" + "Exception type:"
-				+ ioe.getClass().getName() + "\n" + "Message:"
-				+ ioe.getMessage());
-		}
-		finally
-		{
-			if (inputStream != null)
-			{
-				try
-				{
-					inputStream.close();
-				}
-				catch (IOException e2)
-				{
-					Logging.errorPrint(
-						"Can't close inputStream in LstSystemLoader.initFile",
-						e2);
-				}
-			}
-		}
-
-		return aURL;
-	}
-
-	/**
 	 * This method reads the given URL and stores its contents in the provided
 	 * data buffer, returning a URL to the specified file for use in log/error
 	 * messages by its caller.
@@ -228,10 +94,26 @@ public abstract class LstFileLoader extends Observable
 	 * @param dataBuffer StringBuffer to buffer the file content into
 	 * @return URL pointing to the actual file read, for use in debug/log
 	 *         messages
+	 * @throws PersistenceLayerException 
 	 */
-	private static URL readFromURL(String url, final StringBuffer dataBuffer)
+	public static StringBuilder readFromURI(URI uri) throws PersistenceLayerException
 	{
-		URL aURL = null;
+		if (uri == null)
+		{
+			// We have a problem!
+			throw new PersistenceLayerException(
+				"LstFileLoader.readFromURI() received a null uri parameter!");
+		}
+		
+		StringBuilder dataBuffer = new StringBuilder();
+		URL url;
+		try {
+			url = uri.toURL();
+		} catch (MalformedURLException e) {
+			throw new PersistenceLayerException(
+					"LstFileLoader.readFromURI() could not convert parameter to a URL: "
+							+ e.getLocalizedMessage());
+		}
 		InputStream inputStream = null;
 
 		try
@@ -240,8 +122,7 @@ public abstract class LstFileLoader extends Observable
 			if (!CoreUtility.isNetURL(url) || SettingsHandler.isLoadURLs())
 			{
 				// Get the URL and open the stream
-				aURL = new URL(url);
-				inputStream = aURL.openStream();
+				inputStream = url.openStream();
 
 				// Read from the stream
 				final InputStreamReader ir =
@@ -272,8 +153,6 @@ public abstract class LstFileLoader extends Observable
 		}
 		catch (IOException ioe)
 		{
-			aURL = null;
-
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
@@ -297,7 +176,6 @@ public abstract class LstFileLoader extends Observable
 				}
 			}
 		}
-
-		return aURL;
+		return dataBuffer;
 	}
 }
