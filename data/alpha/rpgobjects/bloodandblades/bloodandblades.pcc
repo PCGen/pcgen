@@ -101,6 +101,9 @@ SPELL:@/d20ogl/msrd/arcana/basics/arcanabasics_spells_incantations.lst
 SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst|(INCLUDE:Etherealness|Nightmare)
 SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst|(INCLUDE:Plane Shift (Psionic))
 
+###Borrowed from SRD
+FEAT:@/d20ogl/srd/basics/srd_feats_hidden.lst|(INCLUDE:Sneak Attack)
+
 ###
 #EOF
 ###
