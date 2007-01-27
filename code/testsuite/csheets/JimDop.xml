@@ -1438,6 +1438,46 @@ BIO
 			<hidden>T</hidden>
 			<virtual>F</virtual>
 		</feat>
+		<feat>
+			<name>Fighter Level Advanced Feat Tracker</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Greater Weapon Focus Qualify</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Greater Weapon Specialization Qualify</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Weapon Specialization Qualify</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+		</feat>
 	</feats>
 	<!--
 	  ====================================
