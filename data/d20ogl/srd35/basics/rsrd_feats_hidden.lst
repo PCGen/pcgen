@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 19:06:31 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sat Jan 27 08:52:49 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -95,6 +95,29 @@ Bardic Song of Freedom		TYPE:Special	VISIBLE:NO	SA:Song of Freedom (Su) Break En
 Bardic Inspire Heroics		TYPE:Special	VISIBLE:NO	SA:Inspire Heroics (Su) character and % willing allies gain +% moral bonus on saving throws and +% dodge bonus to AC.|InspireHeroicsAllies|InspireHeroicsSaves|InspireHeroicsDodge|PREVARGTEQ:BardicMusicLvl,15																				DEFINE:InspireHeroicsAllies|0	DEFINE:InspireHeroicsSaves|0	DEFINE:InspireHeroicsDodge|0									BONUS:VAR|InspireHeroicsAllies|(BardicMusicLvl-12)/3	BONUS:VAR|InspireHeroicsSaves,InspireHeroicsDodge|4
 Bardic Mass Suggestion		TYPE:Special	VISIBLE:NO	SA:Mass Suggestion (Sp) Will DC % negates - as Suggestion, but simultaneously to any number of creatures the character has already fascinated|MassSuggestionDC|PRESKILL:1,TYPE.Perform=21																								DEFINE:MassSuggestionDC|SuggestionDC
 
+#
+#	##############################
+#	## Fighter VAR Descriptions ##
+#	##############################
+#
+#FighterLVL: Fighter level for all advanced feats qualifications
+#WeapSpecQualify: 1 or greater means character qualifies for Weapon Specialization
+#GreatWeapFocusQualify: 1 or greater means character qualifies for Greater Weapon Focus
+#GreatWeapSpecQualify: 1 or greater means character qualifies for Greater Weapon Specialization
+#
+#	For the itermediaries between the FighterLVL and the actual Qualify trackers (For those classes that
+#	only stack with Fighter levels for a specific kind of feat).
+#	* do not use the below feats for a given PrC if it uses different progression than the Fighter for Special feats.
+#WeapSpecQualifyLVL: Level tracker for WeapSpecQualify.             Hidden feat grants the Qualify @ 4
+#GreatWeapFocusQualifyLVL: Level tracker for Greater Weapon Focus.  Hidden feat grants the Qualify @ 8
+#GreatWeapSpecQualifyLVL: Level tracker for GreatWeapSpecQualify.   Hidden feat grants the Qualify @ 12
+
+###Block: Fighter abilities
+# Feat Name						Type			Visible	Define											Modify VAR															Source Page
+Weapon Specialization Qualify			TYPE:Internal	VISIBLE:NO	DEFINE:WeapSpecQualify|0	DEFINE:WeaponSpecQualifyLVL|0			BONUS:VAR|WeapSpecQualify|1|PREVARGTEQ:WeaponSpecQualifyLVL,4						SOURCEPAGE:Feats.lst
+Greater Weapon Focus Qualify			TYPE:Internal	VISIBLE:NO	DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapFocusQualifyLVL|0	BONUS:VAR|GreatWeapFocusQualify|1|PREVARGTEQ:GreatWeapFocusQualifyLVL,8					SOURCEPAGE:Feats.lst
+Greater Weapon Specialization Qualify	TYPE:Internal	VISIBLE:NO	DEFINE:GreatWeapSpecQualify|0	DEFINE:GreatWeapSpecQualifyLVL|0		BONUS:VAR|GreatWeapSpecQualify|1|PREVARGTEQ:GreatWeapSpecQualifyLVL,12					SOURCEPAGE:Feats.lst
+Fighter Level Advanced Feat Tracker		TYPE:Internal	VISIBLE:NO	DEFINE:FighterLVL|0									BONUS:VAR|WeaponSpecQualifyLVL,GreatWeapFocusQualifyLVL,GreatWeapSpecQualifyLVL|FighterLVL	SOURCEPAGE:Feats.lst
 
 ###Block: Druid abilities
 # Feat Name			Type				Visible	Special Ability			Bonus to skill					Source Page
