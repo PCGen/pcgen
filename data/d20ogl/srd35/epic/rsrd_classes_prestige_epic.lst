@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct 20 21:53:35 2005 -- reformated by prettylst.pl v1.35 (build 478)
+# CVS $Revision$ $Author$ -- Sat Jan 27 13:14:43 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Andargor <andargor@yahoo.com>
 
@@ -69,8 +69,12 @@ CLASS:Mystic Theurge.MOD	MAXLEVEL:100
 
 # Class Name		Max Level
 CLASS:Shadowdancer.MOD	MAXLEVEL:100
-11				SA:.CLEAR.Shadow Jump % ft|ShadowJump																																																				FEATAUTO:Shadow Jump
-13	REPEATLEVEL:3								ADD:FEAT(Blinding Speed,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Skill Focus,Epic Speed,Exceptional Deflection,Improved Combat Reflexes,Improved Darkvision,Improved Whirlwind Attack,Infinite Deflection,Legendary Leaper,Reflect Arrows,Self Concealment,Spellcasting Harrier,Superior Initiative)
+11				BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
+13	REPEATLEVEL:3																													ADD:FEAT(Blinding Speed,Dexterous Fortitude,Dexterous Will,Epic Dodge,Epic Skill Focus,Epic Speed,Exceptional Deflection,Improved Combat Reflexes,Improved Darkvision,Improved Whirlwind Attack,Infinite Deflection,Legendary Leaper,Reflect Arrows,Self Concealment,Spellcasting Harrier,Superior Initiative)
+
+#  Reference for Epic Shadow Jump formula
+#  1 Mile = 5280 ft
+#  1 AU = 149,597,870.691 kl or 92955778.50913738 miles
 
 #
 # End

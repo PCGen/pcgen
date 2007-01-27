@@ -31,14 +31,6 @@ Subterfuge Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltr
 Espionage Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltrator=2	SA:Specalist Training (Espionage) +%|EIEspionage	DEFINE:EIEspionage|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Listen,Search,Spot|EIEspionage							BONUS:VAR|EIEspionage|3		SOURCEPAGE:epicprestigeclasses.rtf
 Interaction Specialist	TYPE:SpecialistTraining	VISIBLE:NO	PRECLASS:1,Epic Infiltrator=2	SA:Specalist Training (Interaction) +%|EIInteraction	DEFINE:EIInteraction|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Diplomacy,Gather Information,Intimidate,Sense Motive|EIInteraction	BONUS:VAR|EIInteraction|3	SOURCEPAGE:epicprestigeclasses.rtf
 
-###Block: Shadowdancer Abilities
-
-# Feat Name	Type						Visible	Special Ability																																							Define									Modify VAR
-Shadow Jump	TYPE:ClassFeature.Supernatural	VISIBLE:NO	SA:Shadow Jump (Su) % ft|EpicShadowJump|PREVAREQ:ShadowJumpProgression,1	SA:Shadow Jump (Su) % mi|EpicShadowJump/5280|PREVAREQ:ShadowJumpProgression,2	SA:Shadow Jump (Su) % AU|EpicShadowJump/5280/92955778.5|PREVAREQ:ShadowJumpProgression,3	DEFINE:EpicShadowJump|0	DEFINE:ShadowJumpProgression|0	BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
-
-#  1 Mile = 5280 ft
-#  1 AU = 149,597,870.691 kl or 92955778.50913738 miles
-
 ###Block: Epic Spellcasting Support
 
 # Feat Name						Type			Visible	ADD:SPELLCASTER					Bonus to spell cast/day
