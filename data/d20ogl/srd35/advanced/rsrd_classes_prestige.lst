@@ -197,7 +197,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Sense Motive|Spo
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE										ADD:FEAT(TYPE=UncannyDodge)
 4	BONUS:VAR|TrapSense|CL/4																					FEATAUTO:Trap Sense Ability
 6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ADD:FEAT(TYPE=UncannyDodge)	FEATAUTO:Dwarven Defender DR
-8																										FEATAUTO:Mobile Defense
+8																										FEATAUTO:Dwarven Defender Mobile Defense
 
 
 # PREWEAPONPROF not exactly to prereq for class. should check for all Martial Weapon Proficiencies: Using 10 for now, per Tir
