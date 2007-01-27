@@ -374,7 +374,7 @@ public class AbilityUtilities
 	 * @param   category The AbilityCategory to add or remove the ability from.
 	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
-	private static int finaliseAbility(
+	public static int finaliseAbility(
 			final Ability         ability,
 			final String          choice,
 			final PlayerCharacter aPC,
@@ -383,17 +383,17 @@ public class AbilityUtilities
 			final AbilityCategory category)
 	{
 		// how many sub-choices to make
-		double featCount = (ability.getAssociatedCount() * ability.getCost(aPC));
+		double abilityCount = (ability.getAssociatedCount() * ability.getCost(aPC));
 
-		boolean adjustedFeatPool = false;
+		boolean adjustedAbilityPool = false;
 
 		// adjust the associated List
 		if (singleChoice && (addIt || ability.isMultiples()))
 		{
-			if ("".equals(choice))
+			if ("".equals(choice) || choice == null)
 			{
 				// Get modChoices to adjust the associated list and Feat Pool
-				adjustedFeatPool = ability.modChoices(aPC, addIt);
+				adjustedAbilityPool = ability.modChoices(aPC, addIt);
 			}
 			else if (addIt)
 			{
@@ -442,19 +442,19 @@ public class AbilityUtilities
 			ability.subAddsForLevel(-9, aPC);
 		}
 
-		if (singleChoice && !adjustedFeatPool)
+		if (singleChoice && !adjustedAbilityPool)
 		{
 			if (!addIt && !ability.isMultiples() && removed)
 			{
 				// We don't need to adjust the pool for abilities here as it is recalculated each time it is queried.
 				if (category == AbilityCategory.FEAT)
 				{
-					featCount += ability.getCost(aPC);
+					abilityCount += ability.getCost(aPC);
 				}
 			}
 			else if (addIt && !ability.isMultiples())
 			{
-				featCount -= ability.getCost(aPC);
+				abilityCount -= ability.getCost(aPC);
 			}
 			else
 			{
@@ -468,10 +468,14 @@ public class AbilityUtilities
 					}
 				}
 
-				featCount -= (listSize * ability.getCost(aPC));
+				abilityCount -= (listSize * ability.getCost(aPC));
 			}
 
-			aPC.adjustAbilities(category, BigDecimal.valueOf(featCount));
+
+			if (category == AbilityCategory.FEAT)
+			{
+				aPC.adjustAbilities(category, BigDecimal.valueOf(abilityCount));
+			}
 		}
 
 		aPC.setAutomaticAbilitiesStable(null, false);
