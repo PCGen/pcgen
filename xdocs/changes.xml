@@ -18,6 +18,11 @@
       <action dev="jdempsey" type="fix" issue="1638866">MULT:YES Abilities can't be added.</action>
       <action dev="eddyanthony" type="update" issue="1638080">[RSRD] Convert Salient Divine Abilities to Ability Object</action>
       <action dev="eddyanthony" type="update" issue="1639771">[MSRD] Convert Mutations set to use Ability Object</action>
+      <action dev="thpr" type="fix" issue="1641072">Fix Prepared spells with metamagic feat</action>
+      <action dev="thpr" type="fix" issue="1641069">Fix Improved Spell Capacity</action>
+      <action dev="thpr" type="fix" issue="1580961">XTRAFEATS now parsed</action>
+      <action dev="thpr" type="fix" issue="1640467">Preview Pane now works with Keyed Skills [Internationalization]</action>
+      <action dev="thpr" type="fix" issue="1640377">Template LANGBONUS will now correctly work with Type</action>
     </release>
     <release version="5.11.6" date="2007-01-07" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>

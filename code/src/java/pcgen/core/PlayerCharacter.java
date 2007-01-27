@@ -12661,8 +12661,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * @todo Need to confirm that getSkillList is sorted, or switch to brute
-	 *       force search
 	 * @param level
 	 */
 	private void addNewSkills(final int level)
@@ -12671,11 +12669,21 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 
 		for (Skill aSkill : Globals.getSkillList())
 		{
-			if (includeSkill(aSkill, level)
-				&& (Globals.binarySearchPObject(getSkillList(), aSkill
-					.getKeyName()) == null))
+			if (includeSkill(aSkill, level))
 			{
-				addItems.add((aSkill.clone()));
+				/*
+				 * Must do brute force search - no guarantee it's sorted
+				 */
+				boolean found = false;
+				for (Skill sk : getSkillList()) {
+					if (sk.getKeyName().equals(aSkill.getKeyName())) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					addItems.add((aSkill.clone()));
+				}
 			}
 		}
 

@@ -4015,12 +4015,12 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 				{
 					theBonusLangs = new TreeSet<Language>();
 				}
-			
-				final Language aLang = Globals.getLanguageKeyed(token);
-
-				if (aLang != null)
+				
+				Collection<Language> ll = Globals.getLanguagesFromString(token);
+				
+				if (ll != null)
 				{
-					theBonusLangs.add(aLang);
+					theBonusLangs.addAll(ll);
 				}
 			}
 		}
