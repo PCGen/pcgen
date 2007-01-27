@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<title>Release Notes for PCGen v5.11.7
+</title>
+<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+</head>
+<body>
+<h1>Release Notes for PCGen v5.11.7</h1>
+
+<h2>Table of Content</h2>
+<ul>
+	<li><a href="#WhatsNew">What's new for v5.11.7</a></li>
+	<li><a href="#GMGenIssue">GMGen known issue</a></li>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#WantToHelp">Want to Help?</a></li>
+	<li><a href="#links">Useful Links</a></li>
+	<li><a href="#ChangeLog">Change Log for 5.11.7</a></li>
+</ul>
+
+<h2><a name="WhatsNew">What's new for v5.11.7</a></h2>
+<p>
+PCGen v5.11.7 is an alpha release from our development branch to allow experimentation and testing of our latest 
+work. Some notable new changes are:
+</p>
+<ul>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecated +d in KNOWN Tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1611839" class="externalLink" title="External Link">1611839</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecated ALTCRITICAL Tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1613697" class="externalLink" title="External Link">1613697</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecated UATT Tag
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1620950" class="externalLink" title="External Link">1620950</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Changed QUALIFY Syntax
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1620957" class="externalLink" title="External Link">1620957</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+BONUS:WIELDCATEGORY|ALL|-1 issues.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1628407" class="externalLink" title="External Link">1628407</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Eliminated Ability Nature partial matches
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1632839" class="externalLink" title="External Link">1632839</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Removed support for old file types (CLASSSPELLS, CLASSSKILLS, REQSKILL)
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1632898" class="externalLink" title="External Link">1632898</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="update" title="update" src="http://pcgen.sourceforge.net/autobuilds/images/update.gif"></img>
+Deprecate old PRESPELLTYPE Syntax
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1633550" class="externalLink" title="External Link">1633550</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#thpr">thpr</a>
+<li>
+<img alt="add" title="add" src="http://pcgen.sourceforge.net/autobuilds/images/add.gif"></img>
+Added new PREABILITY tag.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1642779" class="externalLink" title="External Link">1642779</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+<li>
+<img alt="fix" title="fix" src="http://pcgen.sourceforge.net/autobuilds/images/fix.gif"></img>
+MULT:YES Abilities can't be added.
+Fixes <a href="http://sourceforge.net/support/tracker.php?aid=1638866" class="externalLink" title="External Link">1638866</a>.
+<a href="http://pcgen.sourceforge.net/autobuilds/team-list.html#jdempsey">jdempsey</a>
+</ul>
+<p>
+For full details of the changes, see the <a href="#ChangeLog">Change Log</a>
+.
+</p>
+<p>James Dempsey for the PCGEN Team -- January 29, 2007.</p>
+
+
+<h2><a name="GMGenIssue">GMGen known issue</a></h2>
+<p>There is a known issue with GMGen when used on a Macintosh. In the Initiative 
+  Tab when running a combat when you select any character other than the one whose 
+  turn it is and click the Damage or Heal buttons the character whose turn it 
+  is becomes selected and the damage is applied to him instead of the character 
+  which had been selected.</p>
+<p>A solution has not yet been found but fortunately there is a simple work-around. 
+  The problem will only manifest when using the System Look and Feel, you can 
+  change the Look and Feel by going to Preferences/Appearance/Look and Feel and 
+  changing it to Java before activating GMGen and then it will work as it should.</p>
+
+<h2><a name="Installation">Installation</a></h2>
+<h3>Prerequisites</h3>
+<p>Java 5. PCGEN 5.11.7 is not compatible with Java
+1.4.x and it is NOT SUPPORTED. To get the latest version of Java, go to
+<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.</p>
+
+<h3>Windows Users</h3>
+<p>We recommend that you use the Windows installer.</p>
+<h3>Mac Users</h3>
+<p>
+We recommend that you use the OS X DMG Mac Installer, it is now working with OS X 10.4 (Tiger).
+This has been a problem in the past due to a change on Apple&rsquo;s part in how the menu bar was
+handled with java 1.4 on Tiger, a packaged java app set to use the main window instead of
+the application window caused the program to crash at startup. At this point in time
+the solution is to set the menu bar to appear in application menu.
+</p>
+<p>
+Also new in this version is the configuration of the program, all the necessary
+files are now included with the program package. You can still access the files
+by right clicking the program and choosing <b>Show Package Contents</b>.
+See the notes included in the installer DMG for all the details.
+</p>
+<h3>Others (or advanced) users</h3>
+<p>
+Pick the package with the features you want and unzip it. It is highly
+recommended that you use a new directory for every new release. Once the
+package is unzipped, see docs\index.html for the full documentation.
+</p>
+
+<h3>Read the doc!</h3>
+<p>Please make sure you read the docs to familiarize yourself with the changes. You can access it from
+<b>docs/index.html</b> located in the PCGen directory.</p>
+<ul><li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_full.zip?download">pcgen5117_full.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_full.zip.asc?download">PGP Signature</a>): <br />
+everything including GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_partial.zip?download">pcgen5117_partial.zip</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_partial.zip.asc?download">PGP Signature</a>):<br />
+everything except GMGen and PDF</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_win_install.exe?download">pcgen5117_win_install.exe</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_win_install.exe.asc?download">PGP Signature</a>): <br />
+the full package bundle with Ed's nifty installer for Windows</li>
+<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_mac_install.dmg?download">pcgen5117_mac_install.dmg</a>
+ (<a href="http://prdownloads.sourceforge.net/pcgen/pcgen5117_mac_install.dmg.asc?download">PGP Signature</a>): <br />
+the full package bundle with Connor's nifty installer for Mac (distributed as a disk image)
+</li>
+</ul>
+
+
+<p />
+
+<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+is very welcome.</p>
+<p>If you want to help drop a mail to Paul W. King (<a href="mailto:paulking.rhochi@verizon.net">paulking.rhochi@verizon.net</a>)
+or Karianna (<a href="mailto:karianna@clear.net.nz">karianna@clear.net.nz</a>), or
+simply post a message with the title <b>"I Want To Help"</b> in one of the mailing lists (and may
+the gods have mercy on your soul :-).</p>
+
+<p />
+
+<h2><a name="links">Useful Links</a></h2>
+<ul>
+<li>The project <b>home page</b>:<br />
+<a href="http://pcgen.sourceforge.net">http://pcgen.sourceforge.net</a></li>
+<li>The project <b>Wiki</b>:<br />
+<a href="http://www.legolas.org/pcgen/pytw/#Welcome">http://www.legolas.org/pcgen/pytw/#Welcome</a></li>
+<li>The Yahoo <b>main mailing list</b> (for help and feedback):<br />
+<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+<li>The Yahoo <b>LstHelp mailing list</b> (for help with making your own data files):<br />
+<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a>
+<li>The SourceForge <b>pcgen-dev mailing list</b> (for code monkey talk about the developpement):<br />
+<a href="http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel">http://sourceforge.net/mailarchive/forum.php?forum=pcgen-devel</a>
+<li>The Yahoo <b>pcgen_experimental mailing list</b> (for the data monkeys with new ideas/problems):<br />
+<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a>
+</ul>
+
+<h2><a name="ChangeLog">Change Log for 5.11.7</a></h2>
+
+<h3>Code FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1442041">1442041</a> ] - PREDOMAIN:ANY
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1482008">1482008</a> ] - Upgrade to JUnit 4.1
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1482012">1482012</a> ] - Upgrade to javacc 4.0
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1620950">1620950</a> ] - Deprecate UATT and PREUATT tags
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1620957">1620957</a> ] - Change QUALIFY syntax
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1632839">1632839</a> ] - Eliminate Ability Nature partial matches
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1632897">1632897</a> ] - Proper Loader Use
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1632898">1632898</a> ] - Remove support for old file types
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1633550">1633550</a> ] - Deprecate old PRESPELLTYPE
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1642779">1642779</a> ] - PREABILITY tag
+</ul>
+
+<h3>Data FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1559907">1559907</a> ] - [ALL] Update data to use new Companion mod code
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1630149">1630149</a> ] - Implement new QUALIFY Syntax
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1634550">1634550</a> ] - [PGtA] Improved Familiar feat enhancement
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1640194">1640194</a> ] - [RSRD] Dark Blessing augment
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1640382">1640382</a> ] - [RSRD] Dwarven Defender stance temp bonus
+</ul>
+
+<h3>New Data Source Development
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1428977">1428977</a> ] - [Green Ronin] Psychic's Handbook
+</ul>
+
+<h3>Doc FREQs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1587642">1587642</a> ] - PROHIBITSPELL needs a PRE example
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1589007">1589007</a> ] - ATTACKCYCLE Impacts Grapple
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1619267">1619267</a> ] - Document new Game Mode Tag: ABILITYCATEGORY
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1623841">1623841</a> ] - Break out the KEY: entry from equipmods
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1626684">1626684</a> ] - Document New Ability File
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1630150">1630150</a> ] - QUALIFY Doc Update
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1639750">1639750</a> ] - Document BONUS:ABILITYPOOL
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1639751">1639751</a> ] - Document ABILITY:x pcc tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1643156">1643156</a> ] - Document PREABILITY tag
+</ul>
+
+<h3>OS FREQs
+</h3><ul>
+</ul>
+
+<h3>Plugin FREQs
+</h3><ul>
+</ul>
+
+<h3>Code Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1611839">1611839</a> ] - Deprecate +d in KNOWN Tag
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1612182">1612182</a> ] - PRExxx Q: to override Qualify doesn't
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1625430">1625430</a> ] - Kit problem in 5.11.5
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1628407">1628407</a> ] - BONUS:WIELDCATEGORY issues
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1638866">1638866</a> ] - MULT:YES Abilities can't be added
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1638869">1638869</a> ] - EDITPOOL:NO for Abilities broke
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1640321">1640321</a> ] - Can't remove Ability Objects
+</ul>
+
+<h3>Plugin Bugs
+</h3><ul>
+</ul>
+
+<h3>Data Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1377051">1377051</a> ] - [All] REACH for weapons not defined
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1631621">1631621</a> ] - Dwarven Defender AC Broken
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1632900">1632900</a> ] - [SRD] Aboleth Language Missing
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1633727">1633727</a> ] - [SRD] Missing SRD Languages
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1633728">1633728</a> ] - [RSRD] Feat refers to Races that do not exist
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1635256">1635256</a> ] - [SRD] Invalid Race References
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1635258">1635258</a> ] - [SRD] Equipment Built Twice
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1635271">1635271</a> ] - [RSRD] Equipment Built Twice
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1637278">1637278</a> ] - [Sorcery and Steam] File references incorrect
+</ul>
+
+<h3>Output Sheet Bugs
+</h3><ul>
+</ul>
+
+<h3>Doc Bugs
+</h3><ul>
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1603370">1603370</a> ] - CT Tag for Spell not documented
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1603419">1603419</a> ] - REACHMULT Token in Equipment is undocumented
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1611844">1611844</a> ] - Equipment Doc Types
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1617624">1617624</a> ] - GRAPPLESIZEMOD is undefined
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1627033">1627033</a> ] - Mark CHOOSE (weapon) as deprecated
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1631956">1631956</a> ] - ABILITY tag description unclear
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1639118">1639118</a> ] - BoD file old
+<LI>[ <a href="http://sourceforge.net/support/tracker.php?aid=1640477">1640477</a> ] - PRESPELL*SCHOOL docs old
+</ul>
+
+</body>
+</html>
