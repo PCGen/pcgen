@@ -3600,9 +3600,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		templateTextField.setBackground(Color.lightGray);
 		templateTextField.setText(SettingsHandler
 			.getSelectedEqSetTemplateName());
-		selectTemplateButton = new JButton(PropertyFactory.getString("in_ieSelTplButTitle"));
+		selectTemplateButton = new JButton(PropertyFactory.getString("in_ieBtmPanelSelTplButTitle"));
 		Utility.setDescription(selectTemplateButton,
-				PropertyFactory.getString("in_ieSelTplButDesc"));
+				PropertyFactory.getString("in_ieBtmPanelSelTplButDesc"));
 		iiPanel.add(selectTemplateButton);
 		iiPanel.add(templateTextField);
 
@@ -3875,7 +3875,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eSet == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an Equip Set to duplicate.", Constants.s_APPNAME,
+				PropertyFactory.getString("in_ieRenameEqSetNoEqSet"), Constants.s_APPNAME,
 				MessageType.ERROR);
 
 			return;
@@ -3886,7 +3886,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Get a new name
 		newName =
 				JOptionPane.showInputDialog(null,
-					"Enter new name for Equip Set", Constants.s_APPNAME,
+					PropertyFactory.getString("in_ieRenameEqSetNewName"), Constants.s_APPNAME,
 					JOptionPane.QUESTION_MESSAGE);
 
 		// If they are the same, just return
@@ -3904,7 +3904,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (pcSet != null)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"An EquipSet all ready exists with that name.",
+					PropertyFactory.getString("in_ieRenameEqSetNameAlreadyExists"),
 					Constants.s_APPNAME, MessageType.ERROR);
 
 				return;
@@ -3933,7 +3933,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private void selectTemplateButton()
 	{
 		JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle("Find and select your EquipSet template");
+		fc.setDialogTitle("in_ieSelTplButFileChooserTitle");
 		fc.setCurrentDirectory(SettingsHandler.getPcgenOutputSheetDir());
 		fc
 			.setSelectedFile(new File(SettingsHandler
@@ -3957,7 +3957,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (newQty.floatValue() <= 0)
 		{
 			Object selectedValue =
-					JOptionPane.showInputDialog(null, "Enter Quantity to Sell",
+					JOptionPane.showInputDialog(null, 
+						PropertyFactory.getString("in_ieSellEquipGetQuantity"),
 						Constants.s_APPNAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -3968,7 +3969,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog("Invalid number!",
+					ShowMessageDelegate.showMessageDialog(
+						PropertyFactory.getString("in_ieInvalidNumber"),
 						Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
@@ -4122,7 +4124,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					"An equip-set template must be selected before the equip-set can be viewed.",
+					PropertyFactory.getString("in_ieViewEqSetNoTpl"),
 					Constants.s_APPNAME, MessageType.ERROR);
 			return;
 		}
@@ -4148,7 +4150,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Could not preview file in external browser.",
+			Logging.errorPrint(PropertyFactory.getString("in_ieViewEqSetNoViewBrowser"),
 				ex);
 		}
 	}
@@ -4588,8 +4590,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				default:
 					Logging
-						.errorPrint("In InfoEquipping.getColumnClass the column "
-							+ column + " is not supported.");
+						.errorPrintLocalised("in_ieEquipModelGetColumnClassNotSupported",
+						column);
 
 					break;
 			}
@@ -4708,7 +4710,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (fn == null)
 			{
 				Logging
-					.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquipping.");
+					.errorPrint(PropertyFactory.getString("in_ieEquipModelGetValueAt"));
 
 				return null;
 			}
@@ -4871,7 +4873,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						return fn.toString();
 					}
 					Logging
-						.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquip");
+						.errorPrintLocalised("in_ieEquipModelGetValueAtBis");
 					return null;
 			}
 		}
@@ -5160,8 +5162,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 					default:
 						Logging
-							.errorPrint("In InfoEquipping.resetModel the mode "
-								+ mode + " is not supported.");
+							.errorPrintLocalised("in_ieEquipModelResetModelIllegalMode",mode);
 
 						break;
 				} // end of switch(mode)
@@ -5455,16 +5456,19 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				EquipPopupMenu.this.add(createSellNumMenuItem("Sell #"));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this
-					.add(createRefreshMenuItem("Redraw/recalc Panel"));
+					.add(createRefreshMenuItem(PropertyFactory.getString(
+							"in_ieEquipPopupRefreshLabel")));
 				this.addSeparator();
-				EquipPopupMenu.this.add(Utility.createMenuItem("Find item",
+				EquipPopupMenu.this.add(Utility.createMenuItem(
+					PropertyFactory.getString("in_ieEquipPopupFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					}, "searchItem", (char) 0, "shortcut F", 
+					PropertyFactory.getString("in_ieEquipPopupFindItem"), null,
 					true));
 			}
 			else
@@ -5488,16 +5492,19 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						.getString("in_ieRenameEq")));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this
-					.add(createRefreshMenuItem("Redraw/recalc Panel"));
+					.add(createRefreshMenuItem(PropertyFactory
+						.getString("in_ieEquipPopupRefreshLabel")));
 				this.addSeparator();
-				EquipPopupMenu.this.add(Utility.createMenuItem("Find item",
+				EquipPopupMenu.this.add(Utility.createMenuItem(
+					PropertyFactory.getString("in_ieEquipPopupFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", "Find item", null,
+					}, "searchItem", (char) 0, "shortcut F", 
+					PropertyFactory.getString("in_ieEquipPopupFindItem"), null,
 					true));
 			}
 		}
@@ -5580,8 +5587,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		private JMenuItem createRefreshMenuItem(String label)
 		{
 			return Utility.createMenuItem(label, new RefreshActionListener(),
-				"Redraw/Recalc Panel", (char) 0, null,
-				"Redraw/Recalc this panels info", "", true);
+				PropertyFactory.getString("in_ieEquipPopupRefreshLabel"), (char) 0, null,
+				PropertyFactory.getString("in_ieEquipPopupRefreshDescription"), "", true);
 		}
 
 		private JMenuItem createRenameEquipSetMenuItem(String label)
