@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 22:33:21 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Sat Jan 27 17:22:40 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -27,15 +27,17 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	DEFINE:TirelessRage|0
 1	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20		DEFINE:MightyRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0		FEATAUTO:Rage
+###Block: Illiteracy
+# (Copy this line and include the hidden feat for any other Illiterate class.)
+#	Currently, this does not take into account the removal using Skill points.
+1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level Progression
-1			SA:Illiteracy|PREVAREQ:TL,CL																BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
-2								BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																													ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-3								BONUS:VAR|TrapSense|CL/3																															DEFINE:TrapSense|0									FEATAUTO:Trap Sense Ability
-5																																															ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-# Added Formula for DR progression
-7	DR:1/-																	BONUS:DR|-|(CL-4)/3-1
-#13	DR:2/-
-14			SA:Indomitable Will (Ex)
+1																				FEATAUTO:Barbarian Fast Movement
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+3	BONUS:VAR|TrapSense|CL/3															FEATAUTO:Trap Sense Ability
+5												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+7	BONUS:VAR|BarbarianDRLVL|CL															FEATAUTO:Barbarian DR
+14																				FEATAUTO:Indomitable Will
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page			Visible	Save checks bonus											Combat bonus
 CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBrb		SOURCEPAGE:ClassesI.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -45,13 +47,16 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4
 1	FEATAUTO:Simple Weapon Proficiency|Martial Weapon Proficiency|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	FEATAUTO:Shield Proficiency
+###Block: Illiteracy
+# (Copy this line and include the hidden feat for any other Illiterate class.)
+#	Currently, this does not take into account the removal using Skill points.
+1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	VFEAT:Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level progression
-1			SA:Illiteracy|PREVAREQ:TL,CL																BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
-2								BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE																													ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-3								BONUS:VAR|TrapSense|CL/3																															DEFINE:TrapSense|0									FEATAUTO:Trap Sense Ability
-5																																															ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
-# Added Formula for DR progression
-7	DR:1/-																	BONUS:DR|-|(CL-4)/3-1
+1																				FEATAUTO:Barbarian Fast Movement
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+3	BONUS:VAR|TrapSense|CL/3															FEATAUTO:Trap Sense Ability
+5												ADD:FEAT(Uncanny Dodge,Improved Uncanny Dodge)
+7	BONUS:VAR|BarbarianDRLVL|CL															FEATAUTO:Barbarian DR
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		SOURCEPAGE:ClassesI.rtf	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
