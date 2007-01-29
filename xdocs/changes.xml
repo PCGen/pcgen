@@ -26,6 +26,7 @@
       <action dev="thpr" type="fix" issue="1640417">.COPY now respects include/exclude</action>
       <action dev="thpr" type="fix" issue="1640415">Duplicate Object Warning now determines source of .COPY</action>
       <action dev="thpr" type="fix" issue="1637276">LST import now correctly detects duplicate files regardless of spaces in file names</action>
+      <action dev="frank_kliewe" type="add" issue="1428977" due-to="boomer70 & amaitland">Added new Data set for Green Ronin's Psychic's Handbook.</action>
     </release>
     <release version="5.11.6" date="2007-01-07" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1625324">Filter not working in feat tab.</action>
