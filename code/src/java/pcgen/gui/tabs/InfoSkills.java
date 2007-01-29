@@ -1689,11 +1689,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (ix != currCharacterClass.getSelectedIndex())
 				{
 					ShowMessageDelegate.showMessageDialog(PropertyFactory
-						.getString("in_iskErr_message_03a")
-						+ pcl.getClassKeyName()
-						+ "/"
-						+ pcl.getLevel()
-						+ PropertyFactory.getString("in_iskErr_message_03b"),
+						.getFormattedString("in_iskErr_message_03a",
+						pcl.getClassKeyName(),
+						String.valueOf(pcl.getLevel())),
 						Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 					return false;
@@ -1704,11 +1702,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if ((points < 0.0)
 				&& ((skillPool - points) > pcl.getSkillPointsGained()))
 			{
-				ShowMessageDelegate.showMessageDialog(pcl.getClassKeyName()
-					+ "/" + pcl.getLevel()
-					+ PropertyFactory.getString("in_iskErr_message_05a")
-					+ pcl.getSkillPointsGained()
-					+ PropertyFactory.getString("in_iskSkill_points"),
+				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_iskErr_message_05a",
+					pcl.getClassKeyName(),
+					String.valueOf(pcl.getLevel()),
+					String.valueOf(pcl.getSkillPointsGained())),
 					Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 				return false;
@@ -1718,9 +1715,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if ((points > 0.0) && (points > skillPool))
 		{
 			ShowMessageDelegate.showMessageDialog(PropertyFactory
-				.getString("in_iskErr_message_04a")
-				+ skillPool
-				+ PropertyFactory.getString("in_iskErr_message_04b"),
+				.getFormattedString("in_iskErr_message_04a",
+				String.valueOf(skillPool)),
 				Constants.s_APPNAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			return false;
@@ -2689,10 +2685,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory
-						.getString("in_iskErr_message_08")
-						+ column
-						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
+					Logging.errorPrintLocalised("in_iskErr_message_08",
+						"InfoSkills.SkillModel.getColumnClass",
+						String.valueOf(column)); //$NON-NLS-1$ //$NON-NLS-2$
 
 					break;
 			}
@@ -2821,11 +2816,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						break;
 
 					default:
-						Logging.errorPrint(PropertyFactory
-							.getString("in_iskErr_message_11")
-							+ column
-							+ PropertyFactory
-								.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
+						Logging.errorPrintLocalised("in_iskErr_message_08",
+							"InfoSkills.SkillModel.setValueAt",
+							String.valueOf(column)); //$NON-NLS-1$ //$NON-NLS-2$
 
 						break;
 				}
@@ -2921,10 +2914,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					return fn.getItem();
 
 				default:
-					Logging.errorPrint(PropertyFactory
-						.getString("in_iskErr_message_10")
-						+ column
-						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
+					Logging.errorPrintLocalised("in_iskErr_message_08",
+						"InfoSkills.SkillModel.getValueAt",
+						String.valueOf(column)); //$NON-NLS-1$ //$NON-NLS-2$
 
 					break;
 			}
@@ -3113,10 +3105,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory
-						.getString("in_iskErr_message_07")
-						+ mode
-						+ PropertyFactory.getString("in_isk_is_not_handled.")); //$NON-NLS-1$ //$NON-NLS-2$
+					Logging.errorPrintLocalised("in_iskErr_message_07",
+						String.valueOf(mode)); //$NON-NLS-1$ //$NON-NLS-2$
 
 					break;
 			}
