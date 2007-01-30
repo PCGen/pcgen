@@ -2251,7 +2251,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				else if ((ability.isMultiples() && ability.isStacks())
 					|| !ability.containsAssociated(appliedToKey))
 				{
-					ability.addAssociated(appliedToKey);
+					final StringTokenizer sTok =
+						new StringTokenizer(appliedToKey, Constants.COMMA, false);
+					while (sTok.hasMoreTokens())
+					{
+						ability.addAssociated(sTok.nextToken());
+					}
 				}
 			}
 			else if (TAG_SAVE.equals(tag))
