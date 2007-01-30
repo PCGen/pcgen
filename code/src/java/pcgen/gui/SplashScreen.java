@@ -34,6 +34,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.net.URL;
 
 /**
@@ -69,8 +71,8 @@ final class SplashScreen extends JWindow
 		// of Java 5  (it returns double the screen size under xinerama), this method is
 		// encapsulated to accomodate this with a hack.
 		// TODO: remove the hack, once Java fixed this.
-		// Dimension screen = getToolkit().getScreenSize();
-		Dimension screen = Utility.getScreenSize(getToolkit());
+		Rectangle screen = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().getBounds();
+//		Dimension screen = Utility.getScreenSize(getToolkit());
 		pack();
 		setLocation((screen.width - getSize().width) / 2, (screen.height - getSize().height) / 2);
 		setVisible(true);
