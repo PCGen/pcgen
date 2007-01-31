@@ -291,8 +291,8 @@ SKILL:Spot			RANK:5
 SKILL:Listen		RANK:5
 LEVELABILITY:Undead=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Archaic Weapons Proficiency
 FEAT:Alertness
-FEAT:Toughness (+3 HP)
-LANGAUTO:Egyptian
+FEAT:Toughness
+LANGAUTO:Middle Egyptian
 
 STARTPACK:Default Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
