@@ -146,7 +146,7 @@ SKILL:Sense Motive		RANK:9
 SKILL:Spot				RANK:9
 FEAT:Alertness
 FEAT:Cleave
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Power Attack
 SPELLS:Mage Hand|Read Magic|Resistance|Ray of Fatigue|Sleep
 
@@ -214,7 +214,7 @@ SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
 FEAT:Alertness
 FEAT:Cleave
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Power Attack
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Ray of Fatigue|Sleep
 
@@ -283,7 +283,7 @@ SKILL:Spot				RANK:11
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Power Attack
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Ray of Fatigue|Sleep|Enhance Ability|Web
 
@@ -354,7 +354,7 @@ FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Power Attack
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb (Spell)|Web
 
@@ -425,7 +425,7 @@ FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Power Attack
 FEAT:Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb (Spell)|Web|Dispel Magic|Haste
@@ -497,7 +497,7 @@ FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Power Attack
 FEAT:Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb (Spell)|Web|Dispel Magic|Displacement|Haste
@@ -569,7 +569,7 @@ FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Sunder
@@ -643,7 +643,7 @@ FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Great Cleave
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Sunder
@@ -717,7 +717,7 @@ FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Great Cleave
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Renown
@@ -792,7 +792,7 @@ FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Great Cleave
 FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Renown

@@ -333,7 +333,7 @@ SKILL:Hide		RANK:8
 SKILL:Listen	RANK:12
 SKILL:Spot		RANK:12
 FEAT:Alertness
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 
 STARTPACK:Default Sraosha (Platonic of Contract Enforcement)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sraosha (Platonic of Contract Enforcement)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -422,7 +422,7 @@ SKILL:Spot			RANK:13
 LEVELABILITY:Fey=1	ABILITY:PROMPT:FEAT(Simple Weapons Proficiency,Archaic Weapons Proficiency)|CHOICE:Simple Weapons Proficiency
 FEAT:Archaic Weapons Proficiency	FREE:YES
 FEAT:Combat Reflexes
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Multiweapon Fighting
 GEAR:Machete	QTY:4	LOCATION:Carried
 
@@ -614,8 +614,8 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Sunder
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
+FEAT:Toughness
+FEAT:Toughness
 FEAT:Weapon Focus (Slam)
 
 STARTPACK:Default Toxyderm (Garbage)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Garbage)]
@@ -683,16 +683,16 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Sunder
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
-FEAT:Toughness (+3 hp)
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
+FEAT:Toughness
 FEAT:Weapon Focus (Slam)
 
 STARTPACK:Default Urban Wendigo	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Urban Wendigo]

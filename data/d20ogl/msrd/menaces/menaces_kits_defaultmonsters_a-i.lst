@@ -395,7 +395,7 @@ SKILL:Jump			RANK:3
 SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 FEAT:Iron Will
 
 STARTPACK:Default Fiend (Murdergaunt (Whistling Fiend))	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Murdergaunt (Whisper Fiend))]
@@ -426,7 +426,7 @@ SKILL:Listen		RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
 FEAT:Frightful Presence
-FEAT:Improved Damage Threshold (+3)
+FEAT:Improved Damage Threshold
 
 STARTPACK:Default Fire Wisp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Wisp]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
