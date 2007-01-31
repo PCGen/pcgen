@@ -2285,9 +2285,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (nature == Ability.Nature.VIRTUAL)
 			{
+				ability =
+						AbilityUtilities.addVirtualAbility(ability,
+							new ArrayList<String>(), thePC
+								.getVirtualAbilityList(category), null);
 				ability.setNeedsSaving(true);
-				// TODO - Need to consider how to handle this.
-				//				thePC.addVirtualAbility(category, ability);
 			}
 		}
 	}
