@@ -76,6 +76,29 @@
 		<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
 		<p class="indent3">Requires 2 Mutation category Abilities of type MajorMutation.</p>
 		
+		<p></p><a name="PREAGESET"></a><hr>
+		<p class="new">*** New 5.11.8</p>
+		<p class="indent0"><strong>Tag Name:</strong> PREAGESET:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Text (Ageset abbreviation).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong>Number (Ageset array number).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Requires the PC to have the specified Ageset or an older Ageset. 
+  			Agesets are defined in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">biosettings.lst</a> 
+  			files by the <a href="../systemfilestagpages/systemfilesbiosettingslist.html#AGESET">AGESET</a> tag. 
+			Biosettings.lst files can be set in the gameMode and may also be used in datasets. 
+			The tag can be inversed in which case the PC must have a younger Ageset than specified. 
+			There are four Agesets defined in the 35e gameMode, they are: 
+			0=Adulthood, 1=Middle Age, 2=Old, 3=Venerable.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>PREAGESET:Old</code></p>
+		<p class="indent3">Requires the PC to be Old or Venerable.</p>
+		<p class="indent2"><code>PREAGESET:3</code></p>
+		<p class="indent3">Requires the PC to be Venerable.</p>
+		<p class="indent2"><code>!PREAGESET:Venerable</code></p>
+		<p class="indent3">Requires the PC to be younger than Venerable.</p>
+		<p class="indent2"><code>PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]</code></p>
+		<p class="indent3">Requires the PC to be Middle Age but not older.</p>
+		
 		<p></p><a name="PREALIGN"></a><hr>
 		<p class="new">*** Updated 5.7.6</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREALIGN:x,x</p>
