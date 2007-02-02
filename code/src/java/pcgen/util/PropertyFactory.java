@@ -143,6 +143,7 @@ public final class PropertyFactory
 
 		try
 		{
+			//TODO Why does this have hardcoded file separators? JK070115
 			bundle =
 					ResourceBundle.getBundle(
 						"pcgen/gui/prop/LanguageBundle", locale); //$NON-NLS-1$

@@ -8,6 +8,7 @@ import java.util.List;
 
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 
 public class TreasureGenerator 
@@ -16,10 +17,14 @@ public class TreasureGenerator
 	
 	private static HashMap<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<GameMode,List<EquipmentTable>>();
 	
-	private static File tablesDir = new File(Globals.getDefaultPath() 
-			+ File.separator + "system" //$NON-NLS-1$
+	private static File tablesDir = new File(SettingsHandler.getPcgenSystemDir()
 			+ File.separator + "npcgen"  //$NON-NLS-1$ 
 			+ File.separator + "treasure"); //$NON-NLS-1$
+
+//	private static File tablesDir = new File(Globals.getDefaultPath() 
+//		+ File.separator + "system" //$NON-NLS-1$
+//		+ File.separator + "npcgen"  //$NON-NLS-1$ 
+//		+ File.separator + "treasure"); //$NON-NLS-1$
 
 	private TreasureGenerator()
 	{

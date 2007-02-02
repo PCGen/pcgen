@@ -2242,7 +2242,7 @@ public class PCClass extends PObject {
 	public List<SpellFilter> getKnownSpellsList() {
 		if (knownSpellsList == null) {
 			final List<SpellFilter> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+			return ret;
 		}
 		return Collections.unmodifiableList(knownSpellsList);
 	}
@@ -2545,7 +2545,7 @@ public class PCClass extends PObject {
 	public List<LevelProperty<String>> getTemplates() {
 		if (templates == null) {
 			final List<LevelProperty<String>> ret = Collections.emptyList();
-			return Collections.unmodifiableList(ret);
+			return ret;
 		}
 		return Collections.unmodifiableList(templates);
 	}

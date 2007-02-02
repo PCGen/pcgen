@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import pcgen.core.Constants;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
@@ -48,7 +49,7 @@ public class PatternFilter implements OutputFilter
 		}
 
 		filterName =
-				Globals.getDefaultPath() + File.separator + "system"
+					SettingsHandler.getPcgenSystemDir()
 					+ File.separator + "outputFilters" + File.separator + "re"
 					+ filterName + Constants.s_PCGEN_LIST_EXTENSION;
 		Logging.debugPrint("Creating filter from " + filterName);

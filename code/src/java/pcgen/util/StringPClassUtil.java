@@ -18,12 +18,12 @@ import pcgen.core.spell.Spell;
 
 public class StringPClassUtil {
 
-	private static Map<String, Class> classMap;
-	private static Map<Class, String> stringMap;
+	private static Map<String, Class<?>> classMap;
+	private static Map<Class<?>, String> stringMap;
 	
 	static {
-		classMap = new HashMap<String, Class>();
-		stringMap = new HashMap<Class, String>();
+		classMap = new HashMap<String, Class<?>>();
+		stringMap = new HashMap<Class<?>, String>();
 		
 		classMap.put("DEITY", Deity.class);
 		classMap.put("DOMAIN", Domain.class);

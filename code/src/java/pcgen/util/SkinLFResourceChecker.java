@@ -63,7 +63,7 @@ public final class SkinLFResourceChecker
 		{
 			return resourceBuffer.toString() + "\n"
 				+ FOPResourceChecker.getItHereMsg + whereToGetIt + "\n"
-				+ FOPResourceChecker.missingLibMsg;
+				+ FOPResourceChecker.missingLibMsg;//TODO Why does this have hardcoded file separators? JK070115
 		}
 
 		return "";

@@ -37,7 +37,7 @@ public final class FOPResourceChecker
 	static final String getItHereMsg =
 			PropertyFactory.getString("in_FollowLink");
 	static final String missingLibMsg =
-			PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
+			PropertyFactory.getString("MissingLibMessage").replace('|', '\n');   //TODO Why does this have a hardcoded line separator? JK070115
 
 	/**
 	 *
@@ -69,7 +69,7 @@ public final class FOPResourceChecker
 		if (missingResourceCount != 0)
 		{
 			return resourceBuffer.toString() + "\n" + getItHereMsg
-				+ whereToGetIt + "\n" + missingLibMsg;
+				+ whereToGetIt + "\n" + missingLibMsg; //TODO Why does this have hardcoded line separators? JK070115
 		}
 
 		return "";
@@ -93,12 +93,12 @@ public final class FOPResourceChecker
 		}
 		catch (ClassNotFoundException cnfex)
 		{
-			sb.append("Missing resource: ").append(jarName).append('\n');
+			sb.append("Missing resource: ").append(jarName).append('\n');//TODO Why does this have a hardcoded line separator? JK070115
 		}
 		catch (NoClassDefFoundError ncdfer)
 		{
 			sb.append("Missing dependency of resource: ").append(jarName)
-				.append('\n');
+				.append('\n');//TODO Why does this have a hardcoded line separator? JK070115
 			Logging.errorPrint("Error loading class " + forName + ": "
 				+ ncdfer.toString(), ncdfer);
 		}

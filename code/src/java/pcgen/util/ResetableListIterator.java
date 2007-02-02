@@ -30,7 +30,7 @@ import java.util.ListIterator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public interface ResetableListIterator extends ListIterator
+public interface ResetableListIterator<E> extends ListIterator<E>
 {
 	/**
 	 * Return iterator to original state after construction.

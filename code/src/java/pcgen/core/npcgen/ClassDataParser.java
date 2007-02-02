@@ -374,7 +374,7 @@ class ClassDataHandler extends DefaultHandler
 							if (ability == null)
 							{
 								Logging.debugPrint("Ability (" + key + ") not found"); //$NON-NLS-1$ //$NON-NLS-2$
-							}
+							} else 
 							if (weight > 0)
 							{
 								theCurrentData.addAbility(theCurrentCategory, ability, weight);

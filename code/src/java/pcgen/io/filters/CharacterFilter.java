@@ -2,6 +2,7 @@ package pcgen.io.filters;
 
 import pcgen.core.Globals;
 import pcgen.core.Constants;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -37,7 +38,7 @@ public class CharacterFilter implements OutputFilter
 		outputFilter = null;
 
 		filterName =
-				Globals.getDefaultPath() + File.separator + "system"
+					SettingsHandler.getPcgenSystemDir()
 					+ File.separator + "outputFilters" + File.separator
 					+ filterName + Constants.s_PCGEN_LIST_EXTENSION;
 

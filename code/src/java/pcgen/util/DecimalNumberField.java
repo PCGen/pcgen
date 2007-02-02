@@ -40,7 +40,7 @@ import java.text.ParseException;
  */
 public class DecimalNumberField extends JTextField
 {
-	static final long serialVersionUID = 8756733358669554185L;
+	private static final long serialVersionUID = 8756733358669554185L;
 	private DecimalFormat doubleFormatter;
 	private Toolkit toolkit;
 	private boolean allowSign = false;

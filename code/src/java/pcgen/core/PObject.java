@@ -3348,7 +3348,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		{
 			final String bString = bTok.nextToken();
 			final List<WeaponProf> pcWeapProfList = Globals.getWeaponProfs(bString, aPC);
-			final List<Equipment> pcWeaponList = Collections.emptyList();
+			final List<Equipment> pcWeaponList = new ArrayList<Equipment>();
 			if (pcWeapProfList.size() == 0)
 			{
 				pcWeaponList.addAll(EquipmentList.getEquipmentOfType("Weapon." + bString, ""));

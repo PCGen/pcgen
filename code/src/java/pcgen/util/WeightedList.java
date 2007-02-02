@@ -451,7 +451,7 @@ public class WeightedList<E> implements List<E>
 		{
 			final WeightedItem<E> o = i.next();
 			final E data = o.getElement();
-			buf.append(data == this ? "(this list)" : String.valueOf(data));
+			buf.append(data == this ? "(this list)" : String.valueOf(data)); //TODO Is this use of object identity comparison intentional? JK070115
 			buf.append(" (").append(o.getWeight()).append(")");
 			hasNext = i.hasNext();
 			if (hasNext)
@@ -677,7 +677,7 @@ public class WeightedList<E> implements List<E>
 		/**
 		 * Returns <tt>true</tt> if the objects this item wraps compare equal 
 		 * using the objects <code>equal</code> method.
-		 * 
+		 * \n TODO Surely it's not intentional that this class doesn't override hashCode? 
 		 * @param o Object to compare.
 		 * @return <tt>true</tt> if the element this item contains equals the
 		 * object passed in.

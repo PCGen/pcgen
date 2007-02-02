@@ -22,6 +22,7 @@
 package pcgen.util;
 
 import java.util.Comparator;
+import java.io.Serializable;
 
 /**
  * A <code>Comparator</code> to compare objects as
@@ -32,7 +33,7 @@ import java.util.Comparator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public final class StringIgnoreCaseComparator implements Comparator<Object>
+public final class StringIgnoreCaseComparator implements Comparator<Object>, Serializable
 {
 	/** Constructs a <code>StringIgnoreCaseComparator</code>. */
 	public StringIgnoreCaseComparator()

@@ -22,6 +22,7 @@
 package pcgen.util;
 
 import java.util.Comparator;
+import java.io.Serializable;
 
 /**
  * A <code>Comparator</code> to compare objects as
@@ -32,7 +33,7 @@ import java.util.Comparator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>
+public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>, Serializable
 {
 	/** Constructs a <code>ComparableComparator</code>. */
 	public ComparableComparator()

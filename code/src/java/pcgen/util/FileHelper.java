@@ -70,7 +70,7 @@ public class FileHelper
 
 				return dots.append(pieceToKeep).toString();
 			}
-			dots.append("../");
+			dots.append("../"); //TODO Why does this have a hardcoded file separator? JK070115
 
 			testFile = testFile.getParentFile();
 		}

@@ -38,6 +38,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.util.WeightedList;
 
@@ -56,15 +57,23 @@ public class Configuration
 	private List<GeneratorOption> theGeneratorOptions = new ArrayList<GeneratorOption>();
 	private Map<String, ClassData> theClassData = new HashMap<String, ClassData>();
 	
-	private static File optionsDir = new File(Globals.getDefaultPath() 
-											+ File.separator + "system" //$NON-NLS-1$
-											+ File.separator + "npcgen"  //$NON-NLS-1$ 
-											+ File.separator + "options"); //$NON-NLS-1$
+	private static File optionsDir = new File(SettingsHandler.getPcgenSystemDir()
+		+ File.separator + "npcgen"  //$NON-NLS-1$ 
+		+ File.separator + "options"); //$NON-NLS-1$
+	
+//	private static File optionsDir = new File(Globals.getDefaultPath() 
+//											+ File.separator + "system" //$NON-NLS-1$
+//											+ File.separator + "npcgen"  //$NON-NLS-1$ 
+//											+ File.separator + "options"); //$NON-NLS-1$
 
-	private static File classDataDir = new File(Globals.getDefaultPath() 
-			+ File.separator + "system" //$NON-NLS-1$
-			+ File.separator + "npcgen"  //$NON-NLS-1$ 
-			+ File.separator + "classdata"); //$NON-NLS-1$
+	private static File classDataDir = new File(SettingsHandler.getPcgenSystemDir()
+		+ File.separator + "npcgen"  //$NON-NLS-1$ 
+		+ File.separator + "classdata"); //$NON-NLS-1$
+	
+//	private static File classDataDir = new File(Globals.getDefaultPath() 
+//			+ File.separator + "system" //$NON-NLS-1$
+//			+ File.separator + "npcgen"  //$NON-NLS-1$ 
+//			+ File.separator + "classdata"); //$NON-NLS-1$
 
 	public static Configuration get( final GameMode aMode )
 	{
@@ -124,6 +133,7 @@ public class Configuration
 		}
 		catch (Exception ex)
 		{
+			ex.printStackTrace();
 			return theDefaultConfiguration;
 		}
 		

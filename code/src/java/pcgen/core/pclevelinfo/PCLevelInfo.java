@@ -49,6 +49,7 @@ public final class PCLevelInfo implements Cloneable
 	private int             skillPointsGained    = 0;
 	private int             skillPointsRemaining = 0;
 	private PlayerCharacter aPC;
+	//TODO objects should really be a list of Abilities, shouldn't it? JK070115
 	private List<PObject>            objects              = new ArrayList<PObject>(1);
 
 	/**
@@ -322,7 +323,7 @@ public final class PCLevelInfo implements Cloneable
 
 	/**
 	 * Get any Abilites added at this level
-	 *
+	 * 
 	 * @return  List
 	 */
 	public List<? extends PObject> getObjects()

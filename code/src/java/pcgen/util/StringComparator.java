@@ -22,6 +22,7 @@
 package pcgen.util;
 
 import java.util.Comparator;
+import java.io.Serializable;
 
 /**
  * A <code>Comparator</code> to compare objects as
@@ -31,7 +32,7 @@ import java.util.Comparator;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-public final class StringComparator implements Comparator
+public final class StringComparator<E> implements Comparator<E>, Serializable
 {
 	/** Constructs a <code>StringComparator</code>. */
 	public StringComparator()
@@ -40,7 +41,7 @@ public final class StringComparator implements Comparator
 	}
 
 	/** {@inheritDoc} */
-	public int compare(Object o1, Object o2)
+	public int compare(E o1, E o2)
 	{
 		// Treat null as the empty string.
 		return ((o1 == null) ? "" : o1.toString()).compareTo((o2 == null) ? ""

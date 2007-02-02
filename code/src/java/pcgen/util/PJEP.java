@@ -181,6 +181,7 @@ public final class PJEP extends JEP
 		 * Runs classlevel on the inStack. The parameter is popped
 		 * off the <code>inStack</code>, and the variable's value is
 		 * pushed back to the top of <code>inStack</code>.
+		 * \nTODO is it intentional that this method does not call PostfixMathCommand.run()?
 		 * @param inStack
 		 * @throws ParseException
 		 */
