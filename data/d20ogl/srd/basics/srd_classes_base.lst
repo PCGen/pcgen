@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 01:58:20 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Fri Feb  2 04:41:07 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -31,9 +31,9 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|
 1	FEATAUTO:Shield Proficiency
 ###Block: Level Progression
-1			SA:Illiteracy|PREVAREQ:TL,CL						BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-1																																FEATAUTO:Rage
-2								BONUS:VAR|UncannyDodge|1																				FEATAUTO:Uncanny Dodge
+1			SA:Illiteracy|PREVAREQ:TL,CL						BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
+1																																	FEATAUTO:Rage
+2								BONUS:VAR|UncannyDodge|1																					FEATAUTO:Uncanny Dodge
 5								BONUS:VAR|UncannyDodge|1
 10								BONUS:VAR|UncannyDodge|1
 11	DR:1/-
@@ -53,8 +53,8 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4
 1	FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)|
 1	FEATAUTO:Shield Proficiency
 ###Block: Level progression
-1			SA:Illiteracy|PREVAREQ:TL,CL						BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-2								BONUS:VAR|UncannyDodge|1																				FEATAUTO:Uncanny Dodge
+1			SA:Illiteracy|PREVAREQ:TL,CL						BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement
+2								BONUS:VAR|UncannyDodge|1																					FEATAUTO:Uncanny Dodge
 5								BONUS:VAR|UncannyDodge|1
 10								BONUS:VAR|UncannyDodge|1
 11	DR:1/-

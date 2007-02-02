@@ -72,7 +72,7 @@ Flint and Steel			TYPE:Goods.General.Resizable						COST:1	WT:0		EQMOD:STONE.STE
 Grappling Hook			TYPE:Goods.General.Resizable						COST:1	WT:4					SOURCEPAGE:SRDEquipmentII.rtf
 Hammer				TYPE:Goods.General.Resizable						COST:.5	WT:2					SOURCEPAGE:SRDEquipmentII.rtf
 Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial				COST:8	WT:0					SOURCEPAGE:SRDEquipmentII.rtf
-Ladder,10ft				TYPE:Goods.General							COST:.05	WT:20					SOURCEPAGE:SRDEquipmentII.rtf
+Ladder (10 Ft.)			TYPE:Goods.General							COST:.05	WT:20					SOURCEPAGE:SRDEquipmentII.rtf
 Lamp (Common)			TYPE:Goods.General.Resizable						COST:.1	WT:1					SOURCEPAGE:SRDEquipmentII.rtf
 Lantern (Bullseye)		TYPE:Goods.General.Resizable						COST:12	WT:3		EQMOD:IRON.GLASS	SOURCEPAGE:SRDEquipmentII.rtf
 Lantern (Hooded)			TYPE:Goods.General.Resizable						COST:7	WT:2		EQMOD:IRON.GLASS	SOURCEPAGE:SRDEquipmentII.rtf
