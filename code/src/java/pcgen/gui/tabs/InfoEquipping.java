@@ -486,111 +486,111 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI.isWeapon())
 		{
-			locTypeName = "Weapon";
+			locTypeName = PropertyFactory.getString("in_ieLocNameWeapon");
 		}
 		else if (eqI.isArmor())
 		{
-			locTypeName = "Armor";
+			locTypeName = PropertyFactory.getString("in_ieLocNameArmor");
 		}
 		else if (eqI.isShield())
 		{
-			locTypeName = "Shield";
+			locTypeName = PropertyFactory.getString("in_ieLocNameShield");
 		}
 		else if (eqI.isAmmunition())
 		{
-			locTypeName = "Ammo";
+			locTypeName = PropertyFactory.getString("in_ieLocNameAmmo");
 		}
 		else if (eqI.isSuit())
 		{
-			locTypeName = "Suit";
+			locTypeName = PropertyFactory.getString("in_ieLocNameSuit");
 		}
 		else if (eqI.isMonk())
 		{
-			locTypeName = "Monk";
+			locTypeName = PropertyFactory.getString("in_ieLocNameMonk");
 		}
 		else if (eqI.isUnarmed())
 		{
-			locTypeName = Constants.S_UNARMED;
+			locTypeName = PropertyFactory.getString("in_ieLocNameUnarmed");
 		}
 		else if (eqI.isContainer())
 		{
-			locTypeName = "Container";
+			locTypeName = PropertyFactory.getString("in_ieLocNameContainer");
 		}
 		else if (eqI.isType("ROBE"))
 		{
-			locTypeName = "Robe";
+			locTypeName = PropertyFactory.getString("in_ieLocNameRobe");
 		}
 		else if (eqI.isType("HEADGEAR"))
 		{
-			locTypeName = "Headgear";
+			locTypeName = PropertyFactory.getString("in_ieLocNameHeadgear");
 		}
 		else if (eqI.isType("EYEGEAR"))
 		{
-			locTypeName = "Eyegear";
+			locTypeName = PropertyFactory.getString("in_ieLocNameEyegear");
 		}
 		else if (eqI.isType("MASK"))
 		{
-			locTypeName = "Mask";
+			locTypeName = PropertyFactory.getString("in_ieLocNameMask");
 		}
 		else if (eqI.isType("AMULET") || eqI.isType("NECKLACE"))
 		{
-			locTypeName = "Amulet";
+			locTypeName = PropertyFactory.getString("in_ieLocNameAmulet");
 		}
 		else if (eqI.isType("CAPE") || eqI.isType("CLOAK"))
 		{
-			locTypeName = "Cape";
+			locTypeName = PropertyFactory.getString("in_ieLocNameCape");
 		}
 		else if (eqI.isType("CLOTHING"))
 		{
-			locTypeName = "Clothing";
+			locTypeName = PropertyFactory.getString("in_ieLocNameClothing");
 		}
 		else if (eqI.isType("SHIRT") || eqI.isType("VEST"))
 		{
-			locTypeName = "Shirt";
+			locTypeName = PropertyFactory.getString("in_ieLocNameShirt");
 		}
 		else if (eqI.isType("BRACER") || eqI.isType("ARMWEAR"))
 		{
-			locTypeName = "Bracers";
+			locTypeName = PropertyFactory.getString("in_ieLocNameBracers");
 		}
 		else if (eqI.isType("GLOVE"))
 		{
-			locTypeName = "Glove";
+			locTypeName = PropertyFactory.getString("in_ieLocNameGlove");
 		}
 		else if (eqI.isType("RING"))
 		{
-			locTypeName = "Ring";
+			locTypeName = PropertyFactory.getString("in_ieLocNameRing");
 		}
 		else if (eqI.isType("BELT"))
 		{
-			locTypeName = "Belt";
+			locTypeName = PropertyFactory.getString("in_ieLocNameBoot");
 		}
 		else if (eqI.isType("BOOT"))
 		{
-			locTypeName = "Boot";
+			locTypeName = PropertyFactory.getString("in_ieLocNameBoot");
 		}
 		else if (eqI.isType("POTION"))
 		{
-			locTypeName = "Potion";
+			locTypeName = PropertyFactory.getString("in_ieLocNamePotion");
 		}
 		else if (eqI.isType("ROD"))
 		{
-			locTypeName = "Rod";
+			locTypeName = PropertyFactory.getString("in_ieLocNameRod");
 		}
 		else if (eqI.isType("STAFF"))
 		{
-			locTypeName = "Staff";
+			locTypeName = PropertyFactory.getString("in_ieLocNameStaff");
 		}
 		else if (eqI.isType("WAND"))
 		{
-			locTypeName = "Wand";
+			locTypeName = PropertyFactory.getString("in_ieLocNameWand");
 		}
 		else if (eqI.isType("INSTRUMENT"))
 		{
-			locTypeName = "Instrument";
+			locTypeName = PropertyFactory.getString("in_ieLocNameInstrument");
 		}
 		else if (eqI.isType("BOOK"))
 		{
-			locTypeName = "Book";
+			locTypeName = PropertyFactory.getString("in_ieLocNameBook");
 		}
 
 		return locTypeName;
@@ -616,7 +616,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				b.append("(").append(eqI.longName()).append(")");
 			}
 
-			b.append(" <b>Type:</b> ").append(eqI.getType());
+			b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextType")).append("</b>: ").append(eqI.getType());
 
 			//
 			// Should only be meaningful for weapons, but if included on some other piece of
@@ -625,7 +625,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (eqI.isWeapon() || eqI.hasWield())
 			{
 				WieldCategory wCat = eqI.getEffectiveWieldCategory(pc);
-				b.append(" <b>Wield:</b> ").append(wCat.getName());
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextWield")).append("</b>: ").append(wCat.getName());
 			}
 
 			//
@@ -633,10 +633,10 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			//
 			if (eqI.isWeapon() || eqI.isArmor() || eqI.isShield())
 			{
-				b.append(" <b>PROFICIENT</b>:").append(
-					((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc)) ? "Y"
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextProficient")).append("</b>:").append(
+					((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc)) ? PropertyFactory.getString("in_ieInfoLabelTextYes")
 						: (SettingsHandler.getPrereqFailColorAsHtmlStart()
-							+ "N" + SettingsHandler
+							+ PropertyFactory.getString("in_ieInfoLabelTextNo") + SettingsHandler
 							.getPrereqFailColorAsHtmlEnd())));
 			}
 
@@ -644,14 +644,14 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (cString.length() > 0)
 			{
-				b.append(" <b>Requirements</b>:").append(cString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextRequirements")).append("</b>:").append(cString);
 			}
 
 			String IDS = eqI.getInterestingDisplayString(pc);
 
 			if (IDS.length() > 0)
 			{
-				b.append(" <b>Properties</b>:").append(
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextProperties")).append("</b>:").append(
 					eqI.getInterestingDisplayString(pc));
 			}
 
@@ -661,7 +661,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>WT</b>:").append(bString).append(
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextWeight")).append("</b>:").append(bString).append(
 					Globals.getGameModeUnitSet().getWeightUnit());
 			}
 
@@ -669,15 +669,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (a.intValue() > 0)
 			{
-				b.append(" <b>AC</b>:").append(a.toString());
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextAC")).append("</b>:").append(a.toString());
 			}
 
 			if (eqI.isArmor() || eqI.isShield())
 			{
 				a = eqI.getMaxDex(pc);
-				b.append(" <b>MAXDEX</b>:").append(a.toString());
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextMaxDex")).append("</b>:").append(a.toString());
 				a = eqI.acCheck(pc);
-				b.append(" <b>ACCHECK</b>:").append(a.toString());
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextAcCheck")).append("</b>:").append(a.toString());
 			}
 
 			if (Globals.getGameModeShowSpellTab())
@@ -686,7 +686,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (eqI.isArmor() || eqI.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>Arcane Failure</b>:").append(a.toString());
+					b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextArcaneFailure")).append("</b>:").append(a.toString());
 				}
 			}
 
@@ -707,21 +707,21 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Move</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextMove")).append("</b>:").append(bString);
 			}
 
 			bString = eqI.getSize();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Size</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextSize")).append("</b>:").append(bString);
 			}
 
 			bString = eqI.getDamage(pc);
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Damage</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextDamage")).append("</b>:").append(bString);
 
 				if (eqI.isDouble())
 				{
@@ -733,7 +733,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Crit Range</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCritRange")).append("</b>:").append(bString);
 
 				if (eqI.isDouble()
 					&& !eqI.getCritRange(pc).equals(eqI.getAltCritRange(pc)))
@@ -746,7 +746,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Crit Mult</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCritMult")).append("</b>:").append(bString);
 
 				if (eqI.isDouble()
 					&& !(eqI.getCritMultiplier() == eqI.getAltCritMultiplier()))
@@ -763,7 +763,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (bString.length() > 0)
 				{
-					b.append(" <b>Range</b>:").append(bString).append(
+					b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextRange")).append("</b>:").append(bString).append(
 						Globals.getGameModeUnitSet().getDistanceUnit());
 				}
 			}
@@ -772,21 +772,21 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Container</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextContainer")).append("</b>:").append(bString);
 			}
 
 			bString = eqI.getContainerContentsString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Currently Contains</b>:").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCurrentlyContains")).append("</b>:").append(bString);
 
 				BigDecimal d =
 						new BigDecimal(String
 							.valueOf(eqI.getContainedValue(pc)));
 				String aVal =
 						BigDecimalHelper.formatBigDecimal(d, 2).toString();
-				b.append(" <b>Contained Value</b>:").append(aVal).append(
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextContainedValue")).append("</b>:").append(aVal).append(
 					Globals.getCurrencyDisplay());
 			}
 
@@ -794,16 +794,16 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 			if (charges >= 0)
 			{
-				b.append(" <b>Charges</b>:").append(charges);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCharges")).append("</b>:").append(charges);
 			}
 
-			b.append(" <b>Cost</b>:").append(eqI.getCost(pc));
+			b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCost")).append("</b>:").append(eqI.getCost(pc));
 
 			bString = eqI.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b> ").append(bString);
+				b.append(" <b>").append(PropertyFactory.getString("in_ieInfoLabelTextCostSource")).append("</b>: ").append(bString);
 			}
 
 			b.append("</html>");
@@ -4285,7 +4285,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		private BonusEditor()
 		{
-			super(new String[]{"No", "Selected", "Yes"});
+			super(new String[]{	PropertyFactory.getString("in_ieBonusEditorNo"), 
+								PropertyFactory.getString("in_ieBonusEditorSelected"),
+								PropertyFactory.getString("in_ieBonusEditorYes")});
 			setEditable(true);
 			addActionListener(new ActionListener()
 			{
@@ -4335,15 +4337,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (i == 0)
 				{
-					setSelectedItem("No");
+					setSelectedItem(PropertyFactory.getString("in_ieBonusEditorNo"));
 				}
 				else if (i == 1)
 				{
-					setSelectedItem("Selected");
+					setSelectedItem(PropertyFactory.getString("in_ieBonusEditorSelected"));
 				}
 				else
 				{
-					setSelectedItem("Yes");
+					setSelectedItem(PropertyFactory.getString("in_ieBonusEditorYes"));
 				}
 			}
 			else if (obj instanceof String)
@@ -4352,7 +4354,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				setSelectedItem("No");
+				setSelectedItem(PropertyFactory.getString("in_ieBonusEditorNo"));
 			}
 
 			jTable.setRowSelectionInterval(row, row);
