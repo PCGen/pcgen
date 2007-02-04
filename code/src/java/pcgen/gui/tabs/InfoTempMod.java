@@ -95,6 +95,7 @@ import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.ClickHandler;
+import pcgen.gui.utils.InfoLabelTextBuilder;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.JTreeTable;
 import pcgen.gui.utils.JTreeTableMouseAdapter;
@@ -517,70 +518,63 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (aClass != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aClass.getDisplayName())
-				.append("</b></font>");
-
+			
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aClass.getDisplayName());
+			
 			String bString = aClass.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b>").append(bString);
+				b.appendI18nElement("in_itmInfoLabelTextSource" , bString); //$NON-NLS-1$
 			}
 
 			bString = aClass.getTempDescription();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <br><b>Desc:</b>").append(bString);
+				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 		else if (aFeat != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aFeat.piSubString())
-				.append("</b></font>");
-			b.append(" <b>Type:</b> ").append(aFeat.getType());
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aFeat.piSubString());
+			
+			b.appendI18nElement("in_itmInfoLabelTextType" , aFeat.getType()); //$NON-NLS-1$
 
 			String bString = aFeat.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b>").append(bString);
+				b.appendI18nElement("in_itmInfoLabelTextSource" , bString); //$NON-NLS-1$
 			}
 
 			bString = aFeat.getTempDescription();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <br><b>Desc:</b>").append(bString);
+				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 		else if (eqI != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(eqI.piSubString())
-				.append("</b></font>");
-
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(eqI.piSubString());
+			
 			if (!eqI.longName().equals(eqI.getName()))
 			{
 				b.append("(").append(eqI.longName()).append(")");
 			}
 
-			b.append(" <b>Type:</b> ").append(eqI.getType());
+			b.appendI18nElement("in_itmInfoLabelTextType" , eqI.getType()); //$NON-NLS-1$
 
 			String IDS = eqI.getInterestingDisplayString(pc);
 
 			if (IDS.length() > 0)
 			{
-				b.append(" <b>Properties</b>:").append(
-					eqI.getInterestingDisplayString(pc));
+				b.appendI18nElement("in_itmInfoLabelTextProperties" , eqI.getInterestingDisplayString(pc) ); //$NON-NLS-1$
 			}
 
 			String bString =
@@ -589,22 +583,22 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>WT</b>:").append(bString);
+				b.appendElement("in_itmInfoLabelTextWT" , bString); //$NON-NLS-1$
 			}
 
 			Integer a = eqI.getACBonus(pc);
 
 			if (a.intValue() > 0)
 			{
-				b.append(" <b>AC</b>:").append(a.toString());
+				b.appendI18nElement("in_itmInfoLabelTextAC" , a.toString()); //$NON-NLS-1$
 			}
 
 			if (eqI.isArmor() || eqI.isShield())
 			{
 				a = eqI.getMaxDex(pc);
-				b.append(" <b>MAXDEX</b>:").append(a.toString());
+				b.appendI18nElement("in_itmInfoLabelTextMaxDex",a.toString()); //$NON-NLS-1$
 				a = eqI.acCheck(pc);
-				b.append(" <b>ACCHECK</b>:").append(a.toString());
+				b.appendI18nElement("in_itmInfoLabelTextAcCheck",a.toString()); //$NON-NLS-1$
 			}
 
 			if (Globals.getGameModeShowSpellTab())
@@ -613,7 +607,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				if (eqI.isArmor() || eqI.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>Arcane Failure</b>:").append(a.toString());
+					b.appendI18nElement("in_itmInfoLabelTextArcaneFailure",a.toString()); //$NON-NLS-1$
 				}
 			}
 
@@ -621,121 +615,111 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Move</b>:").append(bString);
+				b.appendI18nElement("in_itmInfoLabelTextMove",bString); //$NON-NLS-1$
 			}
 
 			bString = eqI.getSize();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Size</b>:").append(bString);
+				b.appendI18nElement("in_itmInfoLabelTextSize",bString); //$NON-NLS-1$
 			}
 
 			if (eqI.isWeapon())
 			{
-				b.append(" <b>Damage</b>:").append(eqI.getDamage(pc));
-				b.append(" <b>Crit Mult</b>:").append(eqI.getCritMult());
-				b.append(" <b>Crit Range</b>:").append(eqI.getCritRange(pc));
+				b.appendI18nElement("in_itmInfoLabelTextDamage",eqI.getDamage(pc)); //$NON-NLS-1$
+				b.appendI18nElement("in_itmInfoLabelTextCritMult",eqI.getCritMult()); //$NON-NLS-1$
+				b.appendI18nElement("in_itmInfoLabelTextCritRange",eqI.getCritRange(pc)); //$NON-NLS-1$
 				bString = eqI.getRange(pc).toString();
 
 				if (bString.length() > 0)
 				{
-					b.append(" <b>Range</b>:").append(bString);
+					b.appendI18nElement("in_itmInfoLabelTextRange",bString); //$NON-NLS-1$
 				}
 			}
 
-			final int charges = eqI.getRemainingCharges();
+			final Integer charges = eqI.getRemainingCharges();
 
 			if (charges >= 0)
 			{
-				b.append(" <b>Charges</b>:").append(charges);
+				b.appendI18nElement("in_itmInfoLabelTextCharges",charges.toString()); //$NON-NLS-1$
 			}
 
-			b.append(" <b>Cost</b>:").append(eqI.getCost(pc));
-			b.append(" <b>SOURCE:</b> ").append(eqI.getDefaultSourceString());
+			b.appendI18nElement("in_itmInfoLabelTextCost",eqI.getCost(pc).toString()); //$NON-NLS-1$
+			b.appendI18nElement("in_itmInfoLabelTextSource",eqI.getDefaultSourceString()); //$NON-NLS-1$
 
 			bString = eqI.getTempDescription();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <br><b>Desc:</b>").append(bString);
+				b.appendLineBreak().appendI18nElement("in_itmInfoLabelTextDesc",bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 		else if (aSkill != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aSkill.getDisplayName())
-				.append("</b></font>");
-
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aSkill.getDisplayName());
+			
 			String bString = aSkill.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b>").append(bString);
+				b.appendI18nElement("in_itmInfoLabelTextSource" , bString); //$NON-NLS-1$
 			}
 
 			bString = aSkill.getTempDescription();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <br><b>Desc:</b>").append(bString);
+				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 		else if (aSpell != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aSpell.piSubString())
-				.append("</b></font>");
-			b.append(" <b>Duration:</b> ").append(aSpell.getDuration());
-			b.append(" <b>Range:</b> ").append(aSpell.getRange());
-			b.append(" <b>Target:</b> ").append(aSpell.getTarget());
-			b.append(" <b>Description:</b> ")
-				.append(aSpell.piDescSubString(pc));
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aSpell.piSubString());
+			
+			b.appendElement("in_itmInfoLabelTextDuration", aSpell.getDuration()); //$NON-NLS-1$
+			b.appendElement("in_itmInfoLabelTextRange",aSpell.getRange()); //$NON-NLS-1$
+			b.appendElement("in_itmInfoLabelTextTarget",aSpell.getTarget()); //$NON-NLS-1$
+			b.appendElement("in_itmInfoLabelTextSpellDescription",aSpell.piDescSubString(pc)); //$NON-NLS-1$
 
 			String spellSource = aSpell.getDefaultSourceString();
 
 			if (spellSource.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b>").append(spellSource);
+				b.appendI18nElement("in_itmInfoLabelTextSource" , spellSource); //$NON-NLS-1$
 			}
 
 			String bString = aSpell.getTempDescription();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <br><b>Desc:</b>").append(bString);
+				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 		else if (aTemp != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><font size=+1><b>").append(aTemp.getDisplayName())
-				.append("</b></font>");
-
+			InfoLabelTextBuilder b = new InfoLabelTextBuilder(aTemp.getDisplayName());
+			
 			String bString = aTemp.getDefaultSourceString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE:</b>").append(bString);
+				b.appendI18nElement("in_itmInfoLabelTextSource" , bString); //$NON-NLS-1$
 			}
 
 			bString = aTemp.getTempDescription();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <br><b>Desc:</b>").append(bString);
+				b.appendLineBreak().appendElement("in_itmInfoLabelTextDesc", bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 	}
