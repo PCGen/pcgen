@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Mon Feb  5 01:54:56 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Things that Don't work in Monster TYPE classes:
@@ -9,8 +9,8 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Black Dragon	HD:12		TYPE:Monster	ABB:BkDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Black Dragon	PRERACE:Dragon (Black%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) %' Line of Acid %d4 acid DC %|max((SIZE-1)*20,30)|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|14
@@ -46,7 +46,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Blue Dragon	HD:12		TYPE:Monster	ABB:BlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Blue Dragon	PRERACE:Dragon (Blue%	PRERACETYPE:Dragon
+CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Line of Lightning %d8 Electricity DC %|(SIZE-1)*20|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|14
@@ -78,8 +78,8 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Green Dragon	HD:12		TYPE:Monster	ABB:GnDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Green Dragon	PRERACE:Dragon (Green%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Cone of Corrosive Gas %d6 Acid DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|13
@@ -113,7 +113,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Red Dragon	HD:12		TYPE:Monster	ABB:RdDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Red Dragon	PRERACE:Dragon (Red%	PRERACETYPE:Dragon
+CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Cone of Fire %d10 Fire DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC	DEFINE:BreathWeaponDC|15
@@ -144,8 +144,8 @@ CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|D
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:White Dragon	HD:12		TYPE:Monster	ABB:WhDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:White Dragon	PRERACE:Dragon (White%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Cone of Cold %d6 Cold DC %|max((SIZE-1)*10,15)|DragonAge|BreathWeaponDC	DEFINE:BreathWeaponDC|12
@@ -181,8 +181,8 @@ CLASS:White Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Brass Dragon	HD:12		TYPE:Monster	ABB:BsDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Brass Dragon	PRERACE:Dragon (Brass%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Cone of Sleep DC %|max((SIZE-1)*10,15)|BreathWeaponDC				DEFINE:BreathWeaponDC|13
@@ -214,8 +214,8 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Bronze Dragon	PRERACE:Dragon (Bronze%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Line of Lightning %d6 Electricity DC %|(SIZE-1)*20|2*DragonAge|BreathWeaponDC	DEFINE:BreathWeaponDC|14
@@ -247,8 +247,8 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Copper Dragon	PRERACE:Dragon (Copper%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:Breath Weapon(Su) % ft Cone of Slow DC %|max((SIZE-1)*10,15)|BreathWeaponDC				DEFINE:BreathWeaponDC|13
@@ -280,7 +280,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentratio
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Gold Dragon	PRERACE:Dragon (Gold%	PRERACETYPE:Dragon
+CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:BreathWeapon(Su) % ft Cone of Fire %d10 Fire DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC						DEFINE:BreathWeaponDC|16
@@ -312,8 +312,8 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Automatic Languages	Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:99	SOURCEPAGE:srdmonstersdragons.rtf	LANGAUTO:Literacy		LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Race		Reg. Race Type
-CLASS:Silver Dragon	PRERACE:Dragon (Silver%	PRERACETYPE:Dragon
+# Class Name		Required Race			Reg. Race Type
+CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE.Knowledge
 1	SA:BreathWeapon(Su) % ft Cone of Cold %d8 Cold DC %|(SIZE-1)*10|(2*DragonAge)|BreathWeaponDC							DEFINE:BreathWeaponDC|15

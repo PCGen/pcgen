@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Default Aboleth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aboleth]
-RACE:Aboleth	!PRERACE:%
+STARTPACK:Default Aboleth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
+RACE:Aboleth	!PRERACE:1,%
 NAME:Aboleth
 ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
@@ -14,8 +14,8 @@ FEAT:Alertness
 FEAT:Combat Casting
 FEAT:Iron Will
 
-STARTPACK:Default Achaierai	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Achaierai]
-RACE:Achaierai	!PRERACE:%
+STARTPACK:Default Achaierai	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaierai]
+RACE:Achaierai	!PRERACE:1,%
 NAME:Achaierai
 ALIGN:LE
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
@@ -28,8 +28,8 @@ SKILL:Spot			RANK:9
 FEAT:Dodge
 FEAT:Mobility
 
-STARTPACK:Default Allip	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Allip]
-RACE:Allip	!PRERACE:%
+STARTPACK:Default Allip	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Allip]
+RACE:Allip	!PRERACE:1,%
 NAME:Allip
 ALIGN:NE
 STAT:DEX=10|INT=11|WIS=11|CHA=10
@@ -41,57 +41,57 @@ SKILL:Spot			RANK:7
 SKILL:Intuit Direction	RANK:4
 FEAT:Improved Initiative
 
-STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Tiny)]
-RACE:Animated Object (Tiny)	!PRERACE:%
+STARTPACK:Default Animated Object (Tiny)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
+RACE:Animated Object (Tiny)	!PRERACE:1,%
 NAME:Animated Object (Tiny)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Small)]
-RACE:Animated Object (Small)	!PRERACE:%
+STARTPACK:Default Animated Object (Small)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Small)]
+RACE:Animated Object (Small)	!PRERACE:1,%
 NAME:Animated Object (Small)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Animated Object (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Medium)]
-RACE:Animated Object (Medium)	!PRERACE:%
+STARTPACK:Default Animated Object (Medium)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Medium)]
+RACE:Animated Object (Medium)	!PRERACE:1,%
 NAME:Animated Object (Medium)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Large)]
-RACE:Animated Object (Large)	!PRERACE:%
+STARTPACK:Default Animated Object (Large)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Large)]
+RACE:Animated Object (Large)	!PRERACE:1,%
 NAME:Animated Object (Large)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Huge)]
-RACE:Animated Object (Huge)	!PRERACE:%
+STARTPACK:Default Animated Object (Huge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Huge)]
+RACE:Animated Object (Huge)	!PRERACE:1,%
 NAME:Animated Object (Huge)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Gargantuan)]
-RACE:Animated Object (Gargantuan)	!PRERACE:%
+STARTPACK:Default Animated Object (Gargantuan)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Gargantuan)]
+RACE:Animated Object (Gargantuan)	!PRERACE:1,%
 NAME:Animated Object (Gargantuan)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Animated Object (Colossal)]
-RACE:Animated Object (Colossal)	!PRERACE:%
+STARTPACK:Default Animated Object (Colossal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Colossal)]
+RACE:Animated Object (Colossal)	!PRERACE:1,%
 NAME:Animated Object (Colossal)
 ALIGN:TN
 STAT:STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Default Ankheg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Ankheg]
-RACE:Ankheg	!PRERACE:%
+STARTPACK:Default Ankheg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ankheg]
+RACE:Ankheg	!PRERACE:1,%
 NAME:Ankheg
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:3
 
-STARTPACK:Default Aranea	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aranea]
-RACE:Aranea	!PRERACE:%
+STARTPACK:Default Aranea	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aranea]
+RACE:Aranea	!PRERACE:1,%
 NAME:Aranea
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -104,8 +104,8 @@ FEAT:Weapon Finesse (Bite)
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Arrowhawk (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Juvenile)]
-RACE:Arrowhawk (Juvenile)	!PRERACE:%
+STARTPACK:Default Arrowhawk (Juvenile)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Juvenile)]
+RACE:Arrowhawk (Juvenile)	!PRERACE:1,%
 NAME:Arrowhawk (Juvenile)
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -116,8 +116,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:7
 FEAT:Weapon Finesse (Bite)
 
-STARTPACK:Default Arrowhawk (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Adult)]
-RACE:Arrowhawk (Adult)	!PRERACE:%
+STARTPACK:Default Arrowhawk (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Adult)]
+RACE:Arrowhawk (Adult)	!PRERACE:1,%
 NAME:Arrowhawk (Adult)
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -130,8 +130,8 @@ SKILL:Intuit Direction	RANK:6
 FEAT:Weapon Finesse (Bite)
 FEAT:Dodge
 
-STARTPACK:Default Arrowhawk (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Arrowhawk (Elder)]
-RACE:Arrowhawk (Elder)	!PRERACE:%
+STARTPACK:Default Arrowhawk (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Elder)]
+RACE:Arrowhawk (Elder)	!PRERACE:1,%
 NAME:Arrowhawk (Elder)
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -145,14 +145,14 @@ SKILL:Knowledge (Plane of Air)	RANK:15
 FEAT:Weapon Finesse (Bite)
 FEAT:Dodge
 
-STARTPACK:Default Assassin Vine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Assassin Vine]
-RACE:Assassin Vine	!PRERACE:%
+STARTPACK:Default Assassin Vine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Assassin Vine]
+RACE:Assassin Vine	!PRERACE:1,%
 NAME:Assassin Vine
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|WIS=11|CHA=11
 
-STARTPACK:Default Athach	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Athach]
-RACE:Athach	!PRERACE:%
+STARTPACK:Default Athach	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Athach]
+RACE:Athach	!PRERACE:1,%
 NAME:Athach
 ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
@@ -164,8 +164,8 @@ FEAT:Multiattack
 FEAT:Multidexterity
 FEAT:Multiweapon Fighting
 
-STARTPACK:Default Azer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Azer]
-RACE:Azer	!PRERACE:%
+STARTPACK:Default Azer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Azer]
+RACE:Azer	!PRERACE:1,%
 NAME:Azer
 ALIGN:LN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -176,8 +176,8 @@ SKILL:Search			RANK:3
 SKILL:Spot				RANK:4
 FEAT:Power Attack
 
-STARTPACK:Default Barghest	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barghest]
-RACE:Barghest	!PRERACE:%
+STARTPACK:Default Barghest	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest]
+RACE:Barghest	!PRERACE:1,%
 NAME:Barghest
 ALIGN:LE
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -190,8 +190,8 @@ SKILL:Spot		RANK:9
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Default Barghest (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Barghest (Greater)]
-RACE:Barghest (Greater)	!PRERACE:%
+STARTPACK:Default Barghest (Greater)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]
+RACE:Barghest (Greater)	!PRERACE:1,%
 NAME:Barghest (Greater)
 ALIGN:LE
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -199,8 +199,8 @@ FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Default Basilisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Basilisk]
-RACE:Basilisk	!PRERACE:%
+STARTPACK:Default Basilisk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
+RACE:Basilisk	!PRERACE:1,%
 NAME:Basilisk
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
@@ -209,8 +209,8 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Great Fortitude
 
-STARTPACK:Default Behir	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Behir]
-RACE:Behir	!PRERACE:%
+STARTPACK:Default Behir	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]
+RACE:Behir	!PRERACE:1,%
 NAME:Behir
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -220,8 +220,8 @@ SKILL:Spot	RANK:5
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Default Belker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Belker]
-RACE:Belker	!PRERACE:%
+STARTPACK:Default Belker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Belker]
+RACE:Belker	!PRERACE:1,%
 NAME:Belker
 ALIGN:NE
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
@@ -231,8 +231,8 @@ SKILL:Move Silently	RANK:4
 FEAT:Multiattack
 FEAT:Weapon Finesse (Wing)
 
-STARTPACK:Default Blink Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blink Dog]
-RACE:Blink Dog	!PRERACE:%
+STARTPACK:Default Blink Dog	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blink Dog]
+RACE:Blink Dog	!PRERACE:1,%
 NAME:Blink Dog
 ALIGN:LG
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -242,8 +242,8 @@ SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 FEAT:Iron Will
 
-STARTPACK:Default Bodak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bodak]
-RACE:Bodak	!PRERACE:%
+STARTPACK:Default Bodak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak]
+RACE:Bodak	!PRERACE:1,%
 NAME:Bodak
 ALIGN:CE
 STAT:STR=11|DEX=11|INT=10|WIS=10|CHA=10
@@ -254,8 +254,8 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Weapon Focus(Slam)
 
-STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bugbear]
-RACE:Bugbear	!PRERACE:%
+STARTPACK:Default Bugbear	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
+RACE:Bugbear	!PRERACE:1,%
 NAME:Bugbear
 ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -266,23 +266,23 @@ SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 FEAT:Alertness
 
-STARTPACK:Default Bulette	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Bulette]
-RACE:Bulette	!PRERACE:%
+STARTPACK:Default Bulette	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bulette]
+RACE:Bulette	!PRERACE:1,%
 NAME:Bulette
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Jump		RANK:4
 SKILL:Listen	RANK:5
 
-STARTPACK:Default Celestial (Lantern Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Lantern Archon)]
-RACE:Celestial (Lantern Archon)	!PRERACE:%
+STARTPACK:Default Celestial (Lantern Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Lantern Archon)]
+RACE:Celestial (Lantern Archon)	!PRERACE:1,%
 NAME:Celestial (Lantern Archon)
 ALIGN:LG
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 FEAT:Improved Initiative
 
-STARTPACK:Default Celestial (Hound Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Hound Archon)]
-RACE:Celestial (Hound Archon)	!PRERACE:%
+STARTPACK:Default Celestial (Hound Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Hound Archon)]
+RACE:Celestial (Hound Archon)	!PRERACE:1,%
 NAME:Celestial (Hound Archon)
 ALIGN:LG
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
@@ -296,8 +296,8 @@ SKILL:Spot			RANK:6
 FEAT:Improved Initiative
 FEAT:Track
 
-STARTPACK:Default Celestial (Avoral)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Avoral)]
-RACE:Celestial (Avoral)	!PRERACE:%
+STARTPACK:Default Celestial (Avoral)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Avoral)]
+RACE:Celestial (Avoral)	!PRERACE:1,%
 NAME:Celestial (Avoral)
 ALIGN:NG
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
@@ -312,8 +312,8 @@ SKILL:Spot			RANK:7
 FEAT:Improved Initiative
 FEAT:Flyby Attack
 
-STARTPACK:Default Celestial (Ghaele)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Ghaele)]
-RACE:Celestial (Ghaele)	!PRERACE:%
+STARTPACK:Default Celestial (Ghaele)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Ghaele)]
+RACE:Celestial (Ghaele)	!PRERACE:1,%
 NAME:Celestial (Ghaele)
 ALIGN:CG
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
@@ -329,8 +329,8 @@ FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Improved Initiative
 
-STARTPACK:Default Celestial (Trumpet Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Trumpet Archon)]
-RACE:Celestial (Trumpet Archon)	!PRERACE:%
+STARTPACK:Default Celestial (Trumpet Archon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Trumpet Archon)]
+RACE:Celestial (Trumpet Archon)	!PRERACE:1,%
 NAME:Celestial (Trumpet Archon)
 ALIGN:LG
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -347,8 +347,8 @@ FEAT:Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Default Celestial (Astral Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Astral Deva)]
-RACE:Celestial (Astral Deva)	!PRERACE:%
+STARTPACK:Default Celestial (Astral Deva)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Astral Deva)]
+RACE:Celestial (Astral Deva)	!PRERACE:1,%
 NAME:Celestial (Astral Deva)
 ALIGN:LG|NG|CG
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -364,8 +364,8 @@ FEAT:Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Default Celestial (Planetar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Planetar)]
-RACE:Celestial (Planetar)	!PRERACE:%
+STARTPACK:Default Celestial (Planetar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Planetar)]
+RACE:Celestial (Planetar)	!PRERACE:1,%
 NAME:Celestial (Planetar)
 ALIGN:LG|NG|CG
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -379,8 +379,8 @@ FEAT:Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Default Celestial (Solar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Celestial (Solar)]
-RACE:Celestial (Solar)	!PRERACE:%
+STARTPACK:Default Celestial (Solar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Solar)]
+RACE:Celestial (Solar)	!PRERACE:1,%
 NAME:Celestial (Solar)
 ALIGN:LG|NG|CG
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
@@ -400,8 +400,8 @@ FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Power Attack
 
-STARTPACK:Default Centaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Centaur]
-RACE:Centaur	!PRERACE:%
+STARTPACK:Default Centaur	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centaur]
+RACE:Centaur	!PRERACE:1,%
 NAME:Centaur
 ALIGN:NG
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -412,8 +412,8 @@ SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
 FEAT:Weapon Focus (Hoof)
 
-STARTPACK:Default Chaos Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chaos Beast]
-RACE:Chaos Beast	!PRERACE:%
+STARTPACK:Default Chaos Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chaos Beast]
+RACE:Chaos Beast	!PRERACE:1,%
 NAME:Chaos Beast
 ALIGN:CN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -428,8 +428,8 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Mobility
 
-STARTPACK:Default Chimera	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chimera]
-RACE:Chimera	!PRERACE:%
+STARTPACK:Default Chimera	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chimera]
+RACE:Chimera	!PRERACE:1,%
 NAME:Chimera
 ALIGN:CE
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -439,8 +439,8 @@ SKILL:Spot		RANK:6
 FEAT:Alertness
 FEAT:Multiattack
 
-STARTPACK:Default Choker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Choker]
-RACE:Choker	!PRERACE:%
+STARTPACK:Default Choker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Choker]
+RACE:Choker	!PRERACE:1,%
 NAME:Choker
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -449,8 +449,8 @@ SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:4
 FEAT:Improved Initiative
 
-STARTPACK:Default Chuul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Chuul]
-RACE:Chuul	!PRERACE:%
+STARTPACK:Default Chuul	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chuul]
+RACE:Chuul	!PRERACE:1,%
 NAME:Chuul
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -461,8 +461,8 @@ SKILL:Spot		RANK:9
 FEAT:Improved Initiative
 FEAT:Alertness
 
-STARTPACK:Default Cloaker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cloaker]
-RACE:Cloaker	!PRERACE:%
+STARTPACK:Default Cloaker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloaker]
+RACE:Cloaker	!PRERACE:1,%
 NAME:Cloaker
 ALIGN:CN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -473,16 +473,16 @@ SKILL:Spot			RANK:9
 FEAT:Improved Initiative
 FEAT:Alertness
 
-STARTPACK:Default Cockatrice	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cockatrice]
-RACE:Cockatrice	!PRERACE:%
+STARTPACK:Default Cockatrice	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cockatrice]
+RACE:Cockatrice	!PRERACE:1,%
 NAME:Cockatrice
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 FEAT:Alertness
 FEAT:Dodge
 
-STARTPACK:Default Couatl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Couatl]
-RACE:Couatl	!PRERACE:%
+STARTPACK:Default Couatl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Couatl]
+RACE:Couatl	!PRERACE:1,%
 NAME:Couatl
 ALIGN:LG
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
