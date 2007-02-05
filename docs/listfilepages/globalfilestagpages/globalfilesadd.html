@@ -45,6 +45,7 @@
   			options to choose from. Optionally, the number of choices granted appears as
   			(z). This is output on the OS in the Special Abilities section in the form of
   			&quot;Name of Special Ability(Option Chosen)&quot;.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ADD:MyChoices(choice1,choice2)</code></p>
 		<p class="indent3">Choose between the choices listed</p>
@@ -52,6 +53,9 @@
 		<p class="indent3">Select two of the choices granted</p>
 		<p class="indent2"><code>ADD:Native Environment(woods,sea shore,dessert,mountains)1</code></p>
 		<p class="indent3">Select one of the choices granted. Might appear on the OS as Native Environment(woods)</p>
+		<p class="indent2"><code>ADD:FAVOREDCLASS|LIST|1|TYPE=Base</code></p>
+		<p class="indent3">Select one of the base choices granted</p>
+
 
 		<p></p><a name="CLEAR"></a><hr>
 		<p class="new">*** New 5.8</p>
@@ -97,7 +101,8 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> FEAT</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of feat)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE.FeatType (Type of feat)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number, Variable or Formula (Number of choices granted)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number, Variable or Formula (Number of
+		choices granted)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>FEAT with parameters will give the character a
@@ -111,11 +116,16 @@
 			<a href="globalfilesbonus.html#FEATPOOL">BONUS:FEAT|POOL</a> tag.</li>
 			<li>If the feat being added has a chooser ADD:FEAT is the only tag which will activate it
 			(VFEAT, MFEAT and FEATAUTO will not).</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ADD:FEAT(Alertness,TYPE=Fighter,Electric Boogalo)2</code></p>
-		<p class="indent3">Add two feats from &quot;Alertness&quot;, any &quot;Fighter&quot; type
-											 feats or &quot;Electric Boogalo&quot;.</p>
+		<p class="indent3">Add two feats from &quot;Alertness&quot;, any &quot;Fighter&quot; type feats
+		or &quot;Electric Boogalo&quot;.</p>
+		<p class="indent2"><code>ADD:FEAT(TYPE=General,TYPE=Metamagic,TYPE=ItemCreation)</code></p>
+		<p class="indent3">Add one feat from &quot;General&quot;, any &quot;Metamagic&quot;,
+		any &quot;ItemCreation&quot; type feats .</p>
+
 
 		<p></p><a name="LANGUAGE"></a><hr>
 		<p class="new">*** Updated 5.7.3</p>
@@ -133,6 +143,8 @@
 		<p class="indent3">Add &quot;Draconic&quot;, &quot;Elven&quot; or &quot;Undercommon&quot; to the list of languages known.</p>
 		<p class="indent2"><code>ADD:Language(TYPE=Spoken)2</code></p>
 		<p class="indent3">Adds two of any spoken type languages to the list of languages known.</p>
+		<p class="indent2"><code>ADD:Language(TYPE=Imperial,TYPE=Infernal)2</code></p>
+		<p class="indent3">Adds two of any Imperial or Infernal type languages to the list of languages known.</p>
 
 
 		<p></p><a name="SKILL"></a><hr>
@@ -204,7 +216,11 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ADD:VFEAT(Alertness,TYPE=Fighter,Electric Boogalo)2</code></p>
 		<p class="indent3">Add two virtual feats from &quot;Alertness&quot;, any &quot;Fighter&quot; type
-			feats or &quot;Electric Boogalo&quot; regardless if the PC qualifies. These cannot be removed after selection.</p>
+			feats or &quot;Electric Boogalo&quot; regardless if the PC qualifies. These cannot be removed
+			after selection.</p>
+		<p class="indent2"><code>ADD:VFEAT(Weapon Master(TYPE=Weapon))1</code></p>
+		<p class="indent3">Add one virtual feat with any &quot;Weapon&quot; type regardless if the PC
+		qualifies. These cannot be removed after selection.</p>
 
 		<!-- <p class="cvsfooter">$Source: /cvsroot/pcgendocs/pcgendocs/docs/listfilepages/globalfilestagpages/globalfilesadd.html,v $ ($Revision$) last updated $Date$ by $Author$</p> -->
 	</body>

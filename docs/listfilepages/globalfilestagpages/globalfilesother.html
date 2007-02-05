@@ -97,13 +97,15 @@
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must
 			enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:ARMORPROF|TYPE.Light</code></p>
 		<p class="indent3">All Light armors are given as free armor proficiencies.</p>
 		<p class="indent2"><code>AUTO:ARMORPROF|Leather</code></p>
 		<p class="indent3">Leather Armor is given as a free armor proficiency.</p>
-
+		<p class="indent2"><code>AUTO:ARMORPROF|TYPE=Light|TYPE=Medium</code></p>
+		<p class="indent3">Light and Medium Armor is given as a free armor proficiency.</p>
 
 		<p></p><a name="AUTOSHIELDPROF"></a><hr>
 		<p class="new">*** Updated 5.7.7</p>
@@ -121,13 +123,15 @@
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must
 			enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:SHIELDPROF|TYPE.Buckler|TYPE.Light|TYPE.Heavy</code></p>
 		<p class="indent3">All Light, Heavy and Buckler shields are given as free shield proficiencies.</p>
 		<p class="indent2"><code>AUTO:SHIELDPROF|TYPE.Tower</code></p>
 		<p class="indent3">Tower Shields are given as a free armor proficiency.</p>
-
+		<p class="indent2"><code>AUTO:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy</code></p>
+		<p class="indent3">Light, Heavy and Buckler Shields are given as a free armor proficiency.</p>
 
 		<p></p><a name="AUTOWEAPONPROF"><hr>
 		</a><p class="new">*** Updated 5.11.1</p>
@@ -147,6 +151,7 @@
 			<li>AUTO tags now allows the use of one PRE tag but the syntax is slightly different, you must
 			enclose the PRExxx statement with brackets [ ].</li>
 			<li>Only one PRE is allowed, but it can be a PREMULT statement.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|Sword (Long)|Shortbow (Composite)</code></p>
@@ -168,6 +173,9 @@
 		type are given as free weapon proficiencies.</p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|DEITYWEAPONS</code></p>
 		<p class="indent3">All favored weapons of the character's deity are given as free weapon proficiencies.</p>
+		<p class="indent2"><code>AUTO:WEAPONPROF|TYPE=NoProfReq|Longspear|Javelin</code></p>
+		<p class="indent3">All &quot;NoProfReq&quot; and &quot;Longspear&quot; and &quot;Javelin&quot; weapons are given as free weapon
+		proficiencies.</p>
 		<p class="indent2"><code>CLASS:Rogue.MOD &lt;tab&gt; AUTO:WEAPONPROF|Gladius</code></p>
 		<p class="indent3">Modified the Rogue Class to include the Gladius weapon.</p>
 

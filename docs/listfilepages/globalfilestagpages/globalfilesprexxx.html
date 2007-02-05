@@ -63,8 +63,8 @@
 		<p class="indent1"><strong>Variables Used (z):</strong>TYPE.Text (Ability TYPE).</p>
 		<p class="indent1"><strong>Variables Used (z):</strong>ALL (Any ability applies).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Checks for the required number of Abilities. 
-			If CATEGORY=ALL is used the tag checks all categories (including feats) 
+		<p class="indent2">Checks for the required number of Abilities.
+			If CATEGORY=ALL is used the tag checks all categories (including feats)
 			for an Ability of the specified name or type.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREABILITY:1,CATEGORY=Special Quality,Night Vision,Acid Blast</code></p>
@@ -75,19 +75,19 @@
 		<p class="indent3">Requires any 3 Mutation category Abilities.</p>
 		<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
 		<p class="indent3">Requires 2 Mutation category Abilities of type MajorMutation.</p>
-		
+
 		<p></p><a name="PREAGESET"></a><hr>
 		<p class="new">*** New 5.11.8</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREAGESET:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Text (Ageset abbreviation).</p>
 		<p class="indent1"><strong>Variables Used (x):</strong>Number (Ageset array number).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Requires the PC to have the specified Ageset or an older Ageset. 
-  			Agesets are defined in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">biosettings.lst</a> 
-  			files by the <a href="../systemfilestagpages/systemfilesbiosettingslist.html#AGESET">AGESET</a> tag. 
-			Biosettings.lst files can be set in the gameMode and may also be used in datasets. 
-			The tag can be inversed in which case the PC must have a younger Ageset than specified. 
-			There are four Agesets defined in the 35e gameMode, they are: 
+		<p class="indent2">Requires the PC to have the specified Ageset or an older Ageset.
+  			Agesets are defined in <a href="../systemfilestagpages/systemfilesbiosettingslist.html">biosettings.lst</a>
+  			files by the <a href="../systemfilestagpages/systemfilesbiosettingslist.html#AGESET">AGESET</a> tag.
+			Biosettings.lst files can be set in the gameMode and may also be used in datasets.
+			The tag can be inversed in which case the PC must have a younger Ageset than specified.
+			There are four Agesets defined in the 35e gameMode, they are:
 			0=Adulthood, 1=Middle Age, 2=Old, 3=Venerable.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>PREAGESET:Old</code></p>
@@ -98,7 +98,7 @@
 		<p class="indent3">Requires the PC to be younger than Venerable.</p>
 		<p class="indent2"><code>PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]</code></p>
 		<p class="indent3">Requires the PC to be Middle Age but not older.</p>
-		
+
 		<p></p><a name="PREALIGN"></a><hr>
 		<p class="new">*** Updated 5.7.6</p>
 		<p class="indent0"><strong>Tag Name:</strong> PREALIGN:x,x</p>
@@ -448,11 +448,13 @@
 
 		<p></p><a name="PREEQUIP"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREEQUIP:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items from the list that must be equipped).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text
-			(The name of a piece of equipment - &quot;%&quot; may be used as a wild-card).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items from the list that
+		must be equipped).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a piece of equipment -
+		&quot;%&quot; may be used as a wild-card).</p>
 		<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (The type of a piece of equipment).</p>
-		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a weapon).</p>
+		<p class="indent1"><strong>Variables Used (y): </strong>WIELDCATEGORY=Text (The wield category of a
+		weapon).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">This is used to determine if a character has a particular item(s) equipped.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -573,6 +575,7 @@
   		classes to see how to setup this pre-requisite. </p>
 		<p class="indent2"><strong>NOTE: </strong>In feats with multiple instances like Skill Focus or Spell Focus where the instance is
 			expressed within parentheses there is no space between the name of the feat and the parentheses.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREFEAT:1,Dodge,Combat Reflexes</code></p>
 		<p class="indent3">Character must have either &quot;Dodge&quot; or &quot;Combat Reflexes&quot;.</p>
@@ -684,16 +687,23 @@
 
 		<p></p><a name="PREITEM"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PREITEM:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items a character must possess).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of an item a character must possess - &quot;%&quot; may be used as a wildcard).</p>
-		<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (The type of an item the character must possess).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of items a character must
+		possess).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of an item a character must
+		possess - &quot;%&quot; may be used as a wildcard).</p>
+		<p class="indent1"><strong>Variables Used (y): </strong>TYPE=Text (The type of an item the character
+		must possess).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets requirements for items a character must possess.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PREITEM:1,Sword (Long),Sword (Short)</code></p>
 		<p class="indent3">Character must possess either a &quot;long sword&quot; or a &quot;short sword&quot;.</p>
 		<p class="indent2"><code>PREITEM:2,TYPE=Armor,TYPE=Armor</code></p>
 		<p class="indent3">Character must possess two sets of armor.</p>
+		<p class="indent2"><code>PREITEM:1,TYPE=Natural</code></p>
+		<p class="indent3">Character must possess one natural item.</p>
+
 
 		<p></p><a name="PRELANG"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRELANG:x,y,y</p>
@@ -712,6 +722,9 @@
 		<p class="indent3">Character must be able to speak any two of &quot;Dwarven&quot;, &quot;Elven&quot; or &quot;Halfling&quot;.</p>
 		<p class="indent2"><code>PRELANG:3,ANY</code></p>
 		<p class="indent3">Character must be able to speak any three languages.</p>
+		<p class="indent2"><code>PRELANG:4,TYPE=Spoken</code></p>
+		<p class="indent3">Character must be able to speak any four languages that can be spoken.</p>
+
 
 		<p></p><a name="PRELEGS"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRELEGSx:y </p>
@@ -785,19 +798,29 @@
 		<p></p><a name="PRERACE"></a><hr>
 		<p class="new">*** Updated 5.9.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> PRERACE:x,y,y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of racial properties which must be met).</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of racial properties which
+		must be met).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by the race TYPE tag).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined by the race RACETYPE tag).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype defined by the race RACESUBTYPE tag).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (The name of a race type defined by
+		the race TYPE tag).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> RACETYPE=Text (The name of a race type defined
+		by the race RACETYPE tag).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> RACESUBTYPE=Text (The name of a race subtype
+		defined by the race RACESUBTYPE tag).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">The character must be one of the listed races or possess one of the racial properties.</p>
+		<p class="indent2">The character must be one of the listed races or possess one of the racial
+		properties.</p>
 		<p class="indent2">TYPE=&lt;Text&gt; can be used to check types set by the race TYPE tag.</p>
-		<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid, Giant and Outsider.</p>
-		<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air, Evil and Extraplanar.</p>
-		<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will include any race name which begins with Elf.
+		<p class="indent2">RACETYPE=&lt;Race Type&gt; can be used to check racial types such as Humanoid,
+		Giant and Outsider.</p>
+		<p class="indent2">RACESUBTYPE=&lt;Race Subtype&gt; can be used to check racial subtypes such as Air,
+		Evil and Extraplanar.</p>
+		<p class="indent2">The wildcard character (%) can be used to include any text, for example Elf% will
+		include any race name which begins with Elf.
 		Without the wildcard character the race name must match exactly.</p>
-		<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
+		<p class="indent2">Enclosing a selection in square brackets ([ ]) excludes a race. Brackets do not
+		work for the TYPE, RACETYPE and RACESUBTYPE properties.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRERACE:1,Dwarf,Elf,Human</code></p>
 		<p class="indent3">Character must be a &quot;Dwarf&quot;, &quot;Elf&quot; or &quot;Human&quot;.</p>
@@ -818,6 +841,8 @@
 		<p class="indent3">This will pass if any race has been chosen but will fail if no race has been selected.</p>
 		<p class="indent2"><code>!PRERACE:1,%</code></p>
 		<p class="indent3">This will pass if no race has been selected.</p>
+		<p class="indent2"><code>PRERACE:TYPE=Humanoid</code></p>
+		<p class="indent3">This will pass if a humanoid race has been selected.</p>
 		<p class="indent2"><code>CLASS:Sorcerer.MOD &lt;tab&gt; !PRERACE:Human</code></p>
 		<p class="indent3">This will pass if no Human race has been selected.</p>
 
@@ -921,7 +946,8 @@
 		<p></p><a name="PRESKILL"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> PRESKILL:x,y=z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number
-			(The number of skills that must be equal to or greater than the numbers specified for the check to succeed).</p>
+			(The number of skills that must be equal to or greater than the numbers specified for the check
+			to succeed).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (A defined skill type).</p>
 		<p class="indent2"><strong>Note:</strong> If you require multiples of that type,
@@ -930,8 +956,9 @@
 			(The number of ranks the associated skill must meet or exceed).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets skill requirements.</p>
-		<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery) or Knowledge (Local) there must
-			be a space between the name and the parentheses because the text must match the entry exactly.</p>
+		<p class="indent2"><strong>NOTE: </strong>In skills types with multiple versions like Craft (Pottery)
+		or Knowledge (Local) there must be a space between the name and the parentheses because the text must
+		match the entry exactly.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRESKILL:1,Spot,Listen=10</code></p>
 		<p class="indent3">Character must have at least 10 ranks in either &quot;Spot&quot; or
@@ -939,6 +966,9 @@
 		<p class="indent2"><code>PRESKILL:2,TYPE.Spy,TYPE.Spy=2</code></p>
 		<p class="indent3">Character must have two &quot;Spy&quot; skills with at least two ranks
 			in each of them.</p>
+		<p class="indent2"><code>PRESKILL:3,Appraise,Decipher Script,Knowledge (TYPE=Other)=3</code></p>
+		<p class="indent3">Character must have three skills with at least three ranks in each of them.</p>
+
 
 		<p></p><a name="PRESKILLMULT"></a><hr>
 		<p class="new">** NOTE: The following tag has some problems. It will work in some files but not all. **</p>
@@ -1005,10 +1035,10 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> N (No - used with MEMORIZE).</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (A spelltype - used with TYPE).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Basically each label=value pair is processed, and as the character's
-  			classes fail to meet that pair, the class is removed from the list. After all
-  			the label=value pairs have been processed, if the character has any classes
-  			remaining (meaning they meet all the requirements), then this prerequisite is met. </p>
+		<p class="indent2">Basically each label=value pair is processed, and as the character's classes fail
+		to meet that pair, the class is removed from the list. After all the label=value pairs have been
+		processed, if the character has any classes remaining (meaning they meet all the requirements), then
+		this prerequisite is met. </p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PRESPELLCAST:MEMORIZE=Y</code></p>
 		<p class="indent3">Characters class must have to memorize spells.</p>
@@ -1018,6 +1048,9 @@
 		<p class="indent3">Character must be able to cast arcane spells.</p>
 		<p class="indent2"><code>PRESPELLCAST:TYPE=Divine</code></p>
 		<p class="indent3">Character must be able to cast divine spells.</p>
+		<p class="indent2"><code>PRESPELLCAST:TYPE=Arcane,TYPE=Divine</code></p>
+		<p class="indent3">Character must be able to cast arcane/divine spells.</p>
+
 
 		<p></p><a name="PRESPELLDESCRIPTOR"></a><hr>
 		<p class="new">*** New 5.7.4</p>

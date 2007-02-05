@@ -131,6 +131,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to indicated saving throw.</p>
 		<p class="indent2">it takes %LIST as a substitution now.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
 		<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
@@ -139,6 +140,8 @@
 		<p class="indent2"><code>BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS</code></p>
 		<p class="indent3">> How does one code up something like 'you can add your Charisma modifier instead of
 		Wisdom for Willpower saves'?</p>
+		<p class="indent2"><code>BONUS:CHECKS|Fortitude|2|TYPE=Resistance</code></p>
+		<p class="indent3">> Adds two to Fortitude checks due to Resistance.</p>
 
 
 		<p></p><a name="CHECKSBASE"></a><hr>
@@ -158,9 +161,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Save Bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to all saving throw.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:CHECKS|ALL|1</code></p>
 		<p class="indent3">Adds one to the all saves.</p>
+		<p class="indent2"><code>BONUS:CHECKS|ALL|3|TYPE=Morale|PREAPPLY:ANYPC</code></p>
+		<p class="indent3">Adds three to the all saves due to morale to all PC Characters.</p>
 
 
 		<p></p><a name="COMBAT"></a><hr>
@@ -168,6 +174,10 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Combat bonus type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to indicated combat bonus.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>BONUS:COMBAT|Armor|2|TYPE=NaturalArmor.STACK</code></p>
+		<p class="indent3">Increases Natural armor bonus to two.</p>
 
 
 		<p></p><a name="COMBATAC"></a><hr>
@@ -177,6 +187,7 @@
 		  type&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to indicated armor class bonus.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|AC|2|TYPE=Enhancement</code></p>
 		<p class="indent3">Increases enchantment armor bonus to two.</p>
@@ -185,7 +196,10 @@
 		<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
 		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
-		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the
+		SIZENAME:.</p>
+		<p class="indent2"><code>BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE</code></p>
+		<p class="indent3">Replaces the natural armor bonus to seven.</p>
 
 
 		<p></p><a name="COMBATATTACKS"></a><hr>
@@ -208,10 +222,13 @@
 				<li>Adds to number of attacks the primary hand gets.</li>
 				<li>Formula is used when determining the Base Attack Bonus for a class in the class line of an
 					xxxclasses.lst file.</li>
+				<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 			</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|BAB|1</code></p>
 		<p class="indent3">Increases base attack bonus by one.</p>
+		<p class="indent2"><code>BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE</code></p>
+		<p class="indent3">Increases base attack bonus by Character Level, replacing the Base value.</p>
 
 
 		<p></p><a name="COMBATDAMAGE"></a><hr>
@@ -309,9 +326,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Initiative bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to initiative.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|3</code></p>
 		<p class="indent3">Increases initiative by three.</p>
+		<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|2|TYPE=Competence</code></p>
+		<p class="indent3">Increases initiative by two for Competence.</p>
 
 
 		<p></p><a name="COMBATREACH"></a><hr>
@@ -352,6 +372,7 @@
 		bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to Primary Attack bonus.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT|2|TYPE=Luck</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by two.</p>
@@ -363,6 +384,8 @@
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
 		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
 		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+		<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by one for three WEAPONPROFS based on Talent.</p>
 
 
 		<p></p><a name="COMBATTOHIT2" id="COMBATTOHIT2"></a><hr>
@@ -372,6 +395,7 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (adds to attack bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to Attack bonus of specific types.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT.THROWN|2|TYPE=Racial</code></p>
 		<p class="indent3">Increases Attack for thrown weapons bonus by two.</p>
@@ -380,26 +404,32 @@
 		<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT|1|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
 		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|TYPE=Divine|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+		<p align="center" class="indent3">Increases Attack bonus by two (total three) if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
 		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
 		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code>></p>
 		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
+		<p class="indent2"><code>BONUS:COMBAT|TOHIT.GRAPPLE|2|TYPE=Circumstance|PREAPPLY:ANYPC</code></p>
+		<p class="indent3">Increases Attack bonus by two when grappling depending on the circumstance to any PC Character.</p>
+		<p class="indent2"><code>BONUS:COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged</code></p>
+		<p class="indent3">Increases Attack bonus by calculated amount when using a Finesseable weapon, within your personal space, close shave anyone.</p>
 
 
 		<p></p><a name="COMBATTOHITPRIMARY"></a><hr>
 		<p class="new">*** Updated 5.11.4</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|TOHIT-PRIMARY|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Primary attack bonus)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Primary attack
+		bonus)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to Primary Attack bonus.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
 		<p class="indent3">Increases Primary Attack bonus to two.</p>
 		<p class="indent2"><code>2 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|1|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 		<p align="center" class="indent3">Increases Attack bonus by one if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
-		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
-		<p align="center" class="indent3">Increases Attack bonus by two if a TYPE=DivineWeapon is in Primary Hand. Class Level or ClassSubLevel</p>
+		<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-PRIMARY|WIS|TYPE=Ranged</code></p>
+		<p align="center" class="indent3">Increases Attack bonus by the Wisdom Modifier for ranged attacks. Class Level or ClassSubLevel</p>
 
 
 		<p></p><a name="COMBATTOHITSECONDARY"></a><hr>
@@ -524,9 +554,14 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell school.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:DC|SCHOOL.Enchantment|2</code></p>
 		<p class="indent3">Adds 2 to Enchantment school spells.</p>
+		<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:FEAT=Psionic Focus|1 &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|2|TYPE=Psychic</code></p>
+		<p class="indent3">Adds 2 to Psychic school focus.</p>
+		<p class="indent2"><code>BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline</code></p>
+		<p class="indent3">Subtracts the Chrisma Modifier to Telepathy School Subdiscipline.</p>
 
 
 		<p></p><a name="DCSUBSCHOOL"></a><hr>
@@ -594,9 +629,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to weight)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the weight of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQM|WEIGHTADD|0.5</code></p>
 		<p class="indent3">Adds half a weight unit to the item's weight.</p>
+		<p class="indent2"><code>BONUS:EQM|WEIGHTADD|-10|TYPE=Enhancement</code></p>
+		<p class="indent3">Subtracts 10 from the item's weight due to enhancement.</p>
 
 
 		<p></p><a name="EQMWEIGHTDIV"></a><hr>
@@ -604,30 +642,39 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number divide weight by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the weight of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQM|WEIGHTDIV|2</code></p>
 		<p class="indent3">Divides the weight of the item in half.</p>
-
+		<p class="indent2"><code>BONUS:EQM|WEIGHTDIV|2|TYPE=Enhancement.REPLACE</code></p>
+		<p class="indent3">Divides the weight of the item in half, replaces the original amount by enhancement.</p>
 
 		<p></p><a name="EQMWEIGHTMULT"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:EQM|WEIGHTMULT|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number multiply weight by)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number multiply
+		weight by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the weight of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQM|WEIGHTMULT|2</code></p>
 		<p class="indent3">Doubles the weight of the item.</p>
+		<p class="indent2"><code>BONUS:EQM|WEIGHTMULT|1.2|TYPE=Enhancement</code></p>
+		<p class="indent3">Multiples the weight of the item by 1.2 by enhancement.</p>
 
 
 		<p></p><a name="EQMARMORACCHECK"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:EQMARMOR|ACCHECK|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to armor check penalty)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
+		armor check penalty)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the armor check penalty of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQMARMOR|ACCHECK|3</code></p>
 		<p class="indent3">Decreases the armor check penalty by 3.</p>
-
+		<p class="indent2"><code>BONUS:EQMARMOR|ACCHECK|2|TYPE=Enhancement</code></p>
+		<p class="indent3">Decreases the armor check penalty by 2 by enhancement.</p>
 
 		<p></p><a name="EQMARMOREDR"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:EQMARMOR|EDR|x</p>
@@ -641,22 +688,32 @@
 
 		<p></p><a name="EQMARMORMAXDEX"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:EQMARMOR|MAXDEX|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to maximum dexterity)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
+		maximum dexterity)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Modifies the maximum dexterity applicable to users of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">Modifies the maximum dexterity applicable to users of the item (Valid only on
+		equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQMARMOR|MAXDEX|2</code></p>
 		<p class="indent3">Increases maximum dexterity bonus of the armor by 2.</p>
+		<p class="indent2"><code>BONUS:EQMARMOR|MAXDEX|2|TYPE=Enhancement</code></p>
+		<p class="indent3">Increases maximum dexterity bonus of the armor by 2, by enhancement.</p>
 
 
 		<p></p><a name="EQMARMORSPELLFAILURE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:EQMARMOR|SPELLFAILURE|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to Spell Failure %)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
+		Spell Failure %)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Modifies the spell failure percentage applicable to users of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">Modifies the spell failure percentage applicable to users of the item (Valid only on
+		equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQMARMOR|SPELLFAILURE|-10</code></p>
 		<p class="indent3">Decreases the spell failure chance of the armor by 10%.</p>
+		<p class="indent2"><code>BONUS:EQMARMOR|SPELLFAILURE|-10|TYPE=Enhancement</code></p>
+		<p class="indent3">Decreases the spell failure chance of the armor by 10% by enhancement.</p>
 
 
 		<p></p><a name="EQMWEAPONCRITRANGEADD"></a><hr>
@@ -674,9 +731,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the critical range)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the critical range of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEDOUBLE|1</code></p>
 		<p class="indent3">Doubles the critical threat range of the weapon.</p>
+		<p class="indent2"><code>BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit</code></p>
+		<p class="indent3">Adds one to the non-stacking-critical threat range of the weapon.</p>
 
 
 		<p></p><a name="EQMWEAPONDAMAGESIZE"></a><hr>
@@ -694,9 +754,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to distance range)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the range of the item (Valid only on equipment modifiers).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:EQMWEAPON|RANGEADD|10</code></p>
 		<p class="indent3">Adds 10 distance units to the weapon's range.</p>
+		<p class="indent2"><code>BONUS:EQMWEAPON|RANGEADD|5|TYPE=CONVERSION</code></p>
+		<p class="indent3">Adds 5 distance units to the weapon's range by conversion.</p>
 
 
 		<p></p><a name="EQMWEAPONRANGEMULT"></a><hr>
@@ -728,9 +791,8 @@
 		<p class="new">*** New 5.10.1+</p>
 		<p class="indent0"><strong>Tag Name:</strong>BONUS:FOLLOWERS|x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (The type of companion list to add to).</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number of additional
-																	followers of this type of companion the master
-																	can have)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number of
+		additional followers of this type of companion the master can have)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">• Adjusts the number of this type of companion the master can have.</p>
 		<p class="indent2">• If the character has no FOLLOWERS tag of the same type this tag has no effect.</p>
@@ -760,22 +822,30 @@
 			points, as defined in miscinfo.lst)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to secondary Hit Points.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:HP|ALTHP|3</code></p>
 		<p class="indent3">Adds three to total the secondary hit points.</p>
+		<p class="indent2"><code>BONUS:HP|ALTHP|5|TYPE=Species</code></p>
+		<p class="indent3">Adds five to total the secondary hit points for species reasons.</p>
 
 
 		<p></p><a name="HPCURRENTMAX"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:HP|CURRENTMAX|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to hit points)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
+		hit points)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to total Hit Points.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BONUS:HP|CURRENTMAX|2</code></p>
+		<p class="indent2">BONUS:HP|CURRENTMAX|2</p>
 		<p class="indent3">Character gains two additional hit points.</p>
-		<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:NUMCHOICES=1|STAT|CON &lt;tab&gt; BONUS:HP|CURRENTMAX|%LIST-CON</code></p>
-		<p class="indent3">Character gains between 1 and CON Bonus additional hit points, can be used multiple time, does not stack.</p>
-
+		<p class="indent2">STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:NUMCHOICES=1|STAT|CON
+		&lt;tab&gt; BONUS:HP|CURRENTMAX|%LIST-CON</p>
+		<p class="indent3">Character gains between 1 and CON Bonus additional hit points, can be used multiple
+		time, does not stack.</p>
+		<p class="indent2">BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC</p>
+		<p class="indent3">Character gains additional hit points temporary based on the calculation.</p>
 
 		<p></p><a name="ITEMCOST"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCOST|TYPE.x.x|y</p>
@@ -815,12 +885,16 @@
 
 		<p></p><a name="MISCSPELLFAILURE"></a><hr>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:MISC|SPELLFAILURE|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the spell failure percentage)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the
+		spell failure percentage)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the characters spell failure armor penalty.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|5</code></p>
 		<p class="indent3">Adds 5% to Spell Failure chance.</p>
+		<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light</code></p>
+		<p class="indent3">Adds 20% to Spell Failure chance if equipped with light armor.</p>
 
 
 		<p></p><a name="MISCSR"></a><hr>
@@ -828,9 +902,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to spell resistance)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Modifies the characters spell resistance.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:MISC|SR|10</code></p>
 		<p class="indent3">Adds 10 to the spell resistance.</p>
+		<p class="indent2"><code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code></p>
+		<p class="indent3">Adds 10 plus the Character Level to the spell resistance due to EbonLink.</p>
 
 
 		<p></p><a name="MOVE"></a><hr>
@@ -850,12 +927,15 @@
 			<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
 			<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
 			<li>PRExxx tags can also be used with this tag.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10</code></p>
 		<p class="indent3">Adds 10 to Walk.</p>
 		<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|5|PREVARLT:ENCUMBERANCE,1</code></p>
 		<p class="indent3">Adds 5 to Walk so long as the character is not at medium load.</p>
+		<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10|TYPE=Enhancement|PREAPPLY:ANYPC</code></p>
+		<p class="indent3">Adds 5 to the characters Walk as an enhancement of some sort.</p>
 
 
 		<p></p><a name="MOVEMULT"></a><hr>
@@ -869,10 +949,13 @@
 			<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
 			<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
 			<li>PRExxx tags can also be used with this tag.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:MOVEMULT|TYPE.Walk,TYPE.Fly|2</code></p>
 		<p class="indent3">Multiplies the Walk &amp; Fly movement rates by two.</p>
+		<p class="indent2"><code>BONUS:MOVEMULT|TYPE=Walk,TYPE=Fly,TYPE=Climb,TYPE=Hover,TYPE=Swim|2</code></p>
+		<p class="indent3">Multiplies the Walk, Fly, Climb, Hover, Swim movement rates by two.</p>
 
 
 		<p></p><a name="PCLEVEL1"></a><hr>
@@ -917,10 +1000,13 @@
 			<li>Done after MOVEMULT and MOVEADD calculations.</li>
 			<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
 			<li>PRExxx tags can also be used with this tag.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk|10</code></p>
 		<p class="indent3">Adds 10 to Walk.</p>
+		<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk,TYPE.Burrow,TYPE.Climb,TYPE.Fly,TYPE.Swim|30|TYPE=Enhancement|PREAPPLY:PC</code></p>
+		<p class="indent3">Adds 30 to Walk, Burrow, Climb, Fly and Swim to any PC Character that has this enhancement.</p>
 
 
 		<p></p><a name="POSTRANGEADD"></a><hr>
@@ -977,6 +1063,8 @@
 		<p class="indent3">Would decrease the range of projectile weapons by 50% (x.5).</p>
 		<p class="indent2"><code>BONUS:RANGEMULT|THROWN|100</code></p>
 		<p class="indent3">Would increase the range of thrown weapons by 100% (x2).</p>
+		<p class="indent2"><code>BONUS:RANGEMULT|TYPE=Starship|50</code></p>
+		<p class="indent3">Would increase the range of starship weapons by 50% (x1.5).</p>
 
 
 		<p></p><a name="SIZEMOD"></a><hr>
@@ -1012,18 +1100,29 @@
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:SKILL|x,x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to skill level)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to
+		skill level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to listed skills.</p>
+		<p class="indent2">There is no leading space between the comma groups.</p>
+		<p class="indent2">Don't forget the space in subsets (i.e. between Craft and (Metalworking),Craft (Metalworking))</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:SKILL|Bluff,Listen|10</code></p>
 		<p class="indent3">Adds 10 to &quot;Bluff&quot; &amp; &quot;Listen&quot;.</p>
 		<p class="indent2"><code>BONUS:SKILL|TYPE=Charisma|2</code></p>
 		<p class="indent3">Adds 2 to Charisma type skills.</p>
 		<p class="indent2"><code>BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1</code></p>
-		<p class="indent3">Adds 5 to Spot skill if you don't already have it.</p>
-		<p class="indent2"><code>BONUS:SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
-		<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you figure out the math.</p>
+		<p class="indent3">Adds 5 to Spot skill if you don't already have it. Otherwise adds one to get
+		you started.</p>
+		<p class="indent2"><code>BONUS:SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence|PREAPPLY:ANYPC
+		&lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
+		<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you
+		figure out the math.</p>
+		<p class="indent2"><code>BONUS:SKILL|Hide|1|TYPE=Talent.STACK</code></p>
+		<p class="indent3">Adds 1 to Hide skill due to Talent and does Stack with all other Talent type.</p>
+		<p class="indent2"><code>Balance.MOD &lt;tab&gt; BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK</code></p>
+		<p class="indent3">Modifies the Balance skill to include the Synergy Bonus.</p>
 
 
  		<p></p><a name="SKILLALL"></a><hr>
@@ -1042,9 +1141,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to skill level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">LIST is replaced by the selection from the CHOOSE statement (Used in Feat.lst).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:SKILL|LIST|2</code></p>
 		<p class="indent3">Adds two to selected &quot;Strength&quot; skill.</p>
+		<p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCSKILL|2 &lt;tab&gt; BONUS:SKILL|LIST|6|TYPE=Legendary</code></p>
+		<p class="indent3">Adds six to the two selected Class Skills skill learned during Legendary Class.</p>
 
 
  		<p></p><a name="SKILLSTAT"></a><hr>
@@ -1066,11 +1168,14 @@
 		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to skill level)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to skill ranks (Maximum ranks still apply).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:SKILLRANK|Bluff,Listen|2</code></p>
 		<p class="indent3">Adds two to &quot;Bluff&quot; &amp; &quot;Listen&quot; skills.</p>
 		<p class="indent2"><code>BONUS:SKILLRANK|TYPE=Strength|2</code></p>
 		<p class="indent3">Adds two to Strength type skills.</p>
+		<p class="indent2"><code>BONUS:SKILLRANK|Speak Language,Decipher Script,Innuendo|2|TYPE=Insight</code></p>
+		<p class="indent3">Adds two to three skills for insight purposes.</p>
 
 
  		<p></p><a name="SKILLPOINTS"></a><hr>
@@ -1288,6 +1393,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Adds to character stats (stat can be any stat that has been defined in the
 			statsandchecks.lst system file).</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>BONUS:STAT|STR|2</code></p>
 		<p class="indent3">Adds two to character's STR stat.</p>
@@ -1300,6 +1406,8 @@
 		BONUS:STAT|WIS|2|PRELEVEL:9</code></p>
 		<p class="indent3">Modifies the character based on what level they are, i.e. +2 to CON at 3, +2 to STR
 		at 5, +2 to CON at 7, +2 to WIS at 9.</p>
+		<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:Ability|STR|DEX|CON &lt;tab&gt; BONUS:STAT|%LIST|2|TYPE=Inherent</code></p>
+		<p class="indent3">Adds two to character's Chosen stat from Inherent ability, doesn't stack, but can be selected multiple times.</p>
 
 
 		<p></p><a name="STATBASESPELLKNOWNSTAT"></a><hr>
@@ -1384,6 +1492,7 @@
 			<li>Adds to a data DEFINEd VARiable.</li>
 			<li>A <a href="globalfilesdefine.html">DEFINE tag </a>for the listed variable
     		must be somewhere attached to the character for a BONUS to have any effect.</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>BONUS:VAR|SneakAttack|2</code></p>
@@ -1392,24 +1501,30 @@
 		<p class="indent3">Adds 1 to character's SneakAttack and TrapSense variables.</p>
 		<p class="indent2"><code>BONUS:VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points</code></p>
 		<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if your a Titan and a PC.</p>
+		<p class="indent2"><code>BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base</code></p>
+		<p class="indent3">Sets the character's base TurnTimesBase variable to three plus the Charasma Modifier.</p>
 
 
 		<p></p><a name="VISION"></a><hr>
 		<p class="new">*** New 5.5.5</p>
 		<p class="indent0"><strong>Tag Name:</strong> BONUS:VISION|x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Vision type)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number or formula to adjust vision range by)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number or formula
+		to adjust vision range by)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Adds the vision type specified if you don't already have it,
-			otherwise it increases the range of the vision type by the number specified.</p>
+		<p class="indent2">Adds the vision type specified if you don't already have it,	otherwise it increases
+		the range of the vision type by the number specified.</p>
 		<p class="indent2">Vision types include (but are not limited to): Blindsense, Darkvision, Low-Light.</p>
+		<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:VISION|DarkVision|30</code></p>
-		<p class="indent3">Adds DarkVision (30') if you don't have Darkvision,
-			otherwise it increases your darkvision range by 30'.</p>
+		<p class="indent3">Adds DarkVision (30') if you don't have Darkvision, otherwise it increases your
+		darkvision range by 30'.</p>
 		<p class="indent2"><code>BONUS:VISION|DarkVision|((CL/4).TRUNC+1)*10</code></p>
 		<p class="indent3">Increases a characters Darkvision by 10 feet every four levels starting at 1st level.</p>
-
+		<p class="indent2"><code>BONUS:VISION|DarkVision|60|PRERACE:1,TYPE=Robot</code></p>
+		<p class="indent3">Adds DarkVision (60') if you don't have Darkvision, otherwise it increases your
+		darkvision range by 60', if you are a robot.</p>
 
  		<p></p><a name="WEAPON"></a><hr>
 		<p class="new">*** Updated 5.5.2</p>
@@ -1420,7 +1535,7 @@
 		<ul class="indent2">
 			<li>Modifies the indicated property of the weapon the tag is contained in.</li>
 			<li>This tag only works in Equipment and Equipmod files.</li>
-			<li>Weapon properties defined are:
+			<li>Weapon properties defined are:</li>
 				<ul>
 					<li>ATTACKS (Adds a number of additional attacks)</li>
 					<li>ATTACKSPROGRESS (overrides the standard attack progression)</li>
@@ -1434,6 +1549,7 @@
 					<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon when used at short range)</li>
 					<li>WIELDCATEGORY (Raises or lowers the wieldcatagory of the weapon)</li>
 				</ul>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 			</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -1453,6 +1569,8 @@
 		<p class="indent3">Limits the weapons attack progression to one.</p>
 		<p class="indent2"><code>BONUS:WEAPON|WIELDCATEGORY|1</code></p>
 		<p class="indent3">Raises the weapons wieldcatagory, if it were Light it becomes OneHanded.</p>
+		<p class="indent2"><code>BONUS:WEAPON|DAMAGE,TOHIT|min(2,(TL/6)|TYPE=Enhancement|PRELEVEL:6</code></p>
+		<p class="indent3">Raises the weapons damage and to-hit, between 2 and (Total Level divided by 6) if character is over level 6.</p>
 
 
  		<p></p><a name="WEAPONPROF"></a><hr>
@@ -1481,6 +1599,7 @@
 					<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon at short range as defined in the GameMode files)</li>
 					<li>TOHITOVERSIZE (Decreases the handedness of a weapon)</li>
 					<li>WIELDCATEGORY (Raises or lowers the wieldcatagory of the weapon)</li>
+					<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 				</ul>
 			</li>
 		</ul>
@@ -1503,6 +1622,8 @@
 		<p class="indent3">Chooser for weapons proficiency to add 1 to the to-hit of a Weapon Focus.</p>
 		<p class="indent2"><code>CHOOSE:FEAT=Greater Weapon Focus|1 &lt;tab&gt; BONUS:WEAPONPROF=%LIST|DAMAGE|2</code></p>
 		<p class="indent3">Chooser for weapons proficiency to add 2 to the damager of a Weapon Focus.</p>
+  		<p class="indent2"><code>BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty</code></p>
+  		<p class="indent3">Subtracts two from the to hit of Cannons due to gunnery.</p>
 
 
 		<p></p><a name="WIELDCATEGORY"></a><hr>

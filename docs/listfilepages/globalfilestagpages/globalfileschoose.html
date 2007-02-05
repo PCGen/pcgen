@@ -263,9 +263,7 @@
 		<p class="indent2">NUMCHOICES is not a choose, but a pre-fix for any Choose.
 		It sets the number of choices that a feat can be selected at most.</p>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>MULT:YES</code></p>
-		<p class="indent2"><code>STACK:YES</code></p>
-		<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
+		<p class="indent2"><code>MULT:YES &lt;tab&gt; STACK:YES &lt;tab&gt; CHOOSE:NUMCHOICES=3|SKILLSNAMED|Spot|Listen|Search</code></p>
 		<p class="indent3">The user can select the same choice more than once,
 		but the user will never be allowed to select the feat more than 3 times.</p>
 		<p class="indent2"><code>CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft%|3</code></p>
@@ -274,6 +272,8 @@
 		<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE.Knowledge$|2</code></p>
 		<p class="indent3">The user can select the this choice three times, the user will be allowed to select the
 		Knowledge subskill twice each time.</p>
+		<p class="indent2"><code>MULT:YES &lt;tab&gt; STACK:YES &lt;tab&gt; CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom|3 &lt;tab&gt; BONUS:SKILL|%LIST|MasterAdventurerBonus</code></p>
+		<p class="indent3">The user can select the this choice three times, the user will be allowed to select from the &quot;Strength&quot; &quot;Dexterity&quot; &quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; Skills upto three times per cycle.</p>
 
 
 		<p></p><a name="PROFICIENCY"></a><hr/>
@@ -401,6 +401,10 @@
 		<p class="indent3">This will produce a list of all cross class skills as well as all Craft skills even if they are not cross class.</p>
 		<p class="indent2"><code>CHOOSE:SKILLSNAMED|NORANK</code></p>
 		<p class="indent3">This will produce a list of all skills the character has 0 ranks in.</p>
+		<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|1 &lt;tab&gt; BONUS:SKILL|LIST|CL=Super Soldier|TYPE=Enhancement</code></p>
+		<p class="indent3">This will produce a list of all skills that are TYPE &quot;Strength&quot;,
+		&quot;Dexterity&quot; and &quot;Constitution&quot; and add the ClassLevel of Super Soldier to
+		the selection.</p>
 
 
 		<p></p><a name="SKILLSNAMEDTOCCSKILL"></a><hr>
@@ -457,12 +461,13 @@
 			<li>Spells will only be included if they fall between the range of Minimum Level and Maximum Level.</li>
 			<li>MAXLEVEL will include spells up to the highest level the character can cast.</li>
 			<li>A bonus can be associated with the choice by appending it in []</li>
+			<li>TYPE.xxx for reference, TYPE=xxx for assignment.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CHOOSE:SPELLLEVEL|2|CLASS=Wizard|0|MAXLEVEL|TYPE=Divine|1|3</code></p>
 		<p class="indent3">would present a list of the character's castable Wizard levels of spells (e.g.
-			Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric
-			3 if the character had Cleric as a class.</p>
+		Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric 3 if the character
+		had Cleric as a class.</p>
 
 
 		<p></p><a name="SPELLLIST"></a><hr>
