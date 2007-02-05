@@ -3,8 +3,10 @@ package plugin.lsttokens.campaign;
 import java.net.URI;
 
 import pcgen.core.Campaign;
+import pcgen.core.GameMode;
 import pcgen.core.SystemCollections;
 import pcgen.persistence.lst.CampaignLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with HIDETYPE Token
@@ -21,20 +23,25 @@ public class HidetypeToken implements CampaignLstToken
 	{
 		for (String gmName : campaign.getGameModes())
 		{
+			GameMode gm = SystemCollections.getGameModeNamed(gmName);
+			if (gm == null)
+			{
+				Logging.errorPrint("Unknown game mode '" + gmName
+					+ "' in campaign: " + campaign.getDisplayName());
+				continue;
+			}
+
 			if (value.startsWith("EQUIP|"))
 			{
-				SystemCollections.getGameModeNamed(gmName)
-					.setHiddenEquipmentTypes(value.substring(6));
+				gm.setHiddenEquipmentTypes(value.substring(6));
 			}
 			else if (value.startsWith("FEAT|"))
 			{
-				SystemCollections.getGameModeNamed(gmName)
-					.setHiddenAbilityTypes(value.substring(5));
+				gm.setHiddenAbilityTypes(value.substring(5));
 			}
 			else if (value.startsWith("SKILL|"))
 			{
-				SystemCollections.getGameModeNamed(gmName).setHiddenSkillTypes(
-					value.substring(6));
+				gm.setHiddenSkillTypes(value.substring(6));
 			}
 		}
 		return true;
