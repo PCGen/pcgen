@@ -199,7 +199,7 @@ public class LevelAbilityAbility extends LevelAbility
 	 */
 	List<String> getChoicesList(final String choiceString, final PlayerCharacter aPC)
 	{
-		final List<String> split = Arrays.asList(choiceString.split("(", 2));
+		final List<String> split = Arrays.asList(choiceString.split("\\(", 2));
 
 		/* Ignore the empty List returned by the Super class we've built the
 		 * list in local state variables */
@@ -355,12 +355,24 @@ public class LevelAbilityAbility extends LevelAbility
 			(choiceString.indexOf("NUMCHOICES=") < 0) &&
 			(choiceString.indexOf("COUNT=") < 0))
 		{
+			final List tempAvailList = new ArrayList();
+			final List tempSelList = new ArrayList();
 			anAbility.modChoices(
-				availableList,
-				selectedList,
+				tempAvailList,
+				tempSelList,
 				false,
 				aPC,
 				true);
+			// Mod choices may have sent us back weaponprofs, abilities or strings, 
+			// so we have to do a conversion here
+			for (Iterator iter = tempAvailList.iterator(); iter.hasNext();)
+			{
+				availableList.add(String.valueOf(iter.next()));
+			}
+			for (Iterator iter = tempSelList.iterator(); iter.hasNext();)
+			{
+				selectedList.add(String.valueOf(iter.next()));
+			}
 		}
 		else
 		{
@@ -443,9 +455,14 @@ public class LevelAbilityAbility extends LevelAbility
 	{
 		String theName    = anAbility.getKeyName();
 		AbilityChoice abC = new AbilityChoice(anAbility, choice);
+		String fullName = theName;
+		if (choice != null)
+		{
+			fullName += "(" + choice + ")"; 
+		}
 
-		AbilityChoice abNull = nameMap.put(theName, abC);
-		catMap.put(anAbility.getCategory() + " " + theName, abC);
+		AbilityChoice abNull = nameMap.put(fullName, abC);
+		catMap.put(anAbility.getCategory() + " " + fullName, abC);
 
 		if (abNull != null)
 		{
@@ -476,7 +493,7 @@ public class LevelAbilityAbility extends LevelAbility
 			return aKey.substring(start + 1, end);
 		}
 
-		return null;
+		return "";
 	}
 
 	/**
