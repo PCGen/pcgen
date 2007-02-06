@@ -602,7 +602,7 @@ public class LevelAbility extends PObject implements LevelAbilityInterface
 
 					if (
 						(len > 0) &&
-						(pString.startsWith("PRE") || pString.startsWith("!PRE")))
+						(PreParserFactory.isPreReqString(pString)))
 					{
 						preReqArray.add(pString);
 					}

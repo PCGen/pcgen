@@ -27,6 +27,7 @@ import pcgen.core.Constants;
 import pcgen.core.Globals;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -105,8 +106,7 @@ final class BioSetLoader extends LstLineFileLoader
 				{
 					regionName = colString.substring(7);
 				}
-				else if (colString.startsWith("PRE")
-					|| colString.startsWith("!PRE"))
+				else if (PreParserFactory.isPreReqString(colString))
 				{
 					if (preReqList == null)
 					{

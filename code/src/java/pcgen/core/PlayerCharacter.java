@@ -12610,8 +12610,7 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 		{
 			final String bString = aTok.nextToken();
 
-			if ((bString.startsWith("PRE") || bString.startsWith("!PRE"))
-				&& (bString.indexOf(':') >= 0))
+			if (PreParserFactory.isPreReqString(bString))
 			{
 				try
 				{

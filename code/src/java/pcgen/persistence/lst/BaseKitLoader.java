@@ -51,7 +51,7 @@ public class BaseKitLoader
 					+ ':' + tag + "\"");
 			}
 		}
-		else if (key.startsWith("PRE") || key.startsWith("!PRE"))
+		else if (PreParserFactory.isPreReqString(key))
 		{
 			final PreParserFactory factory = PreParserFactory.getInstance();
 			Prerequisite prereq = factory.parse(tag);

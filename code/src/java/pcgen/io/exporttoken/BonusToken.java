@@ -102,8 +102,7 @@ public class BonusToken extends Token
 			{
 				return pc.listBonusesFor(aType + "." + aName);
 			}
-			if ((bucket.startsWith("PRE") || bucket.startsWith("!PRE"))
-				&& bucket.indexOf(':') >= 0)
+			if (PreParserFactory.isPreReqString(bucket))
 			{
 				Logging.debugPrint("Why is this not parsed in loading: "
 					+ bucket + " rather than in BonusToken.getBonusToken()");

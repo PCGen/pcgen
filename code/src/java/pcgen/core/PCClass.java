@@ -951,8 +951,7 @@ public class PCClass extends PObject {
 					while (breakOnPipes.hasMoreTokens()) {
 						final String bString = breakOnPipes.nextToken();
 
-						if (bString.startsWith("PRE")
-								|| bString.startsWith("!PRE")) {
+						if (PreParserFactory.isPreReqString(bString)) {
 							Logging
 									.debugPrint("Why is this prerequisite '" + bString + "' parsed in '" + getClass().getName() + ".getBonusTo(String,String,int)' rather than in the persistence layer?"); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
 							try {

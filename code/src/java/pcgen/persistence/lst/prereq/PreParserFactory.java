@@ -184,4 +184,15 @@ public class PreParserFactory
 		}
 	}
 
+	/**
+	 * Identify if the token passed in defines a prerequisite.
+	 *  
+	 * @param token The token to be checked.
+	 * @return True if the string is a prereq string.
+	 */
+	public static boolean isPreReqString(String token)
+	{
+		return (token.startsWith("PRE") || token.startsWith("!PRE"))
+			&& (token.indexOf(":") > 0);
+	}
 }

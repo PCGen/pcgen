@@ -65,7 +65,7 @@ public class SaLst implements GlobalLstToken
 			String cString = aTok.nextToken();
 
 			// Check to see if it's a PRExxx: tag
-			if (cString.startsWith("PRE") && (cString.indexOf(":") > 0))
+			if (PreParserFactory.isPreReqString(cString))
 			{
 				try
 				{

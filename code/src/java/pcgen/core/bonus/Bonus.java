@@ -268,7 +268,7 @@ public class Bonus
 			{
 				final String aString = aTok.nextToken().toUpperCase();
 
-				if (aString.startsWith("!PRE") || aString.startsWith("PRE"))
+				if (PreParserFactory.isPreReqString(aString))
 				{
 					//Logging.errorPrint("Why is this not parsed in loading: " + aString + " rather than in Bonus.newBonus()");
 

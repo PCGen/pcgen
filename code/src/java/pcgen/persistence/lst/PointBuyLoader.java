@@ -145,8 +145,7 @@ public class PointBuyLoader extends LstLineFileLoader
 						+ gameMode.getName() + ':' + colString + "\"");
 				}
 			}
-			else if (colString.startsWith("PRE")
-				|| colString.startsWith("!PRE")
+			else if (PreParserFactory.isPreReqString(colString)
 				|| colString.startsWith("RESTRICT:"))
 			{
 				if (colString.toUpperCase().equals("PRE:.CLEAR"))

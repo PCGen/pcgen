@@ -53,7 +53,7 @@ public class SpelllevelLst implements GlobalLstToken
 			{
 				final String nameList = tok.nextToken();
 
-				if (nameList.startsWith("PRE") || nameList.startsWith("!PRE"))
+				if (PreParserFactory.isPreReqString(nameList))
 				{
 					preList.add(nameList);
 					break;
@@ -82,7 +82,7 @@ public class SpelllevelLst implements GlobalLstToken
 			{
 				final String nameList = tok.nextToken();
 
-				if (nameList.startsWith("PRE") || nameList.startsWith("!PRE"))
+				if (PreParserFactory.isPreReqString(nameList))
 				{
 					preList.add(nameList);
 				}

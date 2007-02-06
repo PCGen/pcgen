@@ -69,8 +69,7 @@ public class FeatParser
 				continue;
 			}
 
-			if ((aPart.startsWith("PRE") || aPart.startsWith("!PRE"))
-				&& (aPart.indexOf(":") > 0))
+			if (PreParserFactory.isPreReqString(aPart))
 			{
 				// We have a PRExxx tag!
 				preString = aPart;

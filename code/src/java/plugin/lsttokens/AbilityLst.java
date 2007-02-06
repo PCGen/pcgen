@@ -143,7 +143,7 @@ public class AbilityLst implements GlobalLstToken
 			while (tok.hasMoreTokens())
 			{
 				final String key = tok.nextToken();
-				if (key.startsWith("PRE")) //$NON-NLS-1$
+				if (PreParserFactory.isPreReqString(key))
 				{
 					final PreParserFactory factory =
 							PreParserFactory.getInstance();

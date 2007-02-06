@@ -60,7 +60,7 @@ public class SpellLst implements GlobalLstToken, DeprecatedToken
 		{
 			String token = st.nextToken();
 
-			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			if (PreParserFactory.isPreReqString(token))
 			{
 				// check as mixed case. Wouldn't want to
 				// mistake Prestidigitation as a PRE tag.

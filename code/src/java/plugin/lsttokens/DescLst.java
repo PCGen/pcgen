@@ -13,6 +13,7 @@ import pcgen.core.Description;
 import pcgen.core.PObject;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
  * Handles DESC token processing
@@ -67,7 +68,7 @@ public class DescLst implements GlobalLstToken
 		while (tok.hasMoreTokens())
 		{
 			final String token = tok.nextToken();
-			if (token.startsWith("PRE")) //$NON-NLS-1$
+			if (PreParserFactory.isPreReqString(token)) //$NON-NLS-1$
 			{
 				desc.addPrerequisites(token, '|');
 			}

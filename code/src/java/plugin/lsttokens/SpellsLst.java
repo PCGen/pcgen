@@ -71,7 +71,7 @@ public class SpellsLst implements GlobalLstToken
 				{
 					times = token.substring(6);
 				}
-				else if (token.startsWith("PRE") || token.startsWith("!PRE"))
+				else if (PreParserFactory.isPreReqString(token))
 				{
 					try
 					{

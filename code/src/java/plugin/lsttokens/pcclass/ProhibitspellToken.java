@@ -31,7 +31,7 @@ public class ProhibitspellToken implements PCClassLstToken
 		{
 			final String aString = aTok.nextToken().toUpperCase();
 
-			if (aString.startsWith("!PRE") || aString.startsWith("PRE"))
+			if (PreParserFactory.isPreReqString(aString))
 			{
 				try
 				{
