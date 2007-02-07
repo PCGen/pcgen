@@ -423,7 +423,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			if (SettingsHandler.getGame() != null)
 			{
 				File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
-				File specificGameModeDir = new File(gameModeDir, SettingsHandler.getGame().getName());
+				File specificGameModeDir = new File(gameModeDir, SettingsHandler.getGame().getFolderName());
 				File statsAndChecks = new File(specificGameModeDir, "statsandchecks.lst");
 				statCheckLoader.loadLstFile(statsAndChecks.toURI());
 			}
@@ -1585,12 +1585,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * reading the file from the default game mode directory.
 	 * @param lstFileLoader the Loader object for the type of file.
 	 * @param gameModeName the game mode
+	 * @param gameModeFolderName the name of the folder that the game mode is located in
 	 * @param lstFileName the lst file to load
 	 */
 	private void loadGameModeLstFile(LstLineFileLoader lstFileLoader,
-		String gameModeName, String lstFileName)
+		String gameModeName, String gameModeFolderName, String lstFileName)
 	{
-		loadGameModeLstFile(lstFileLoader, gameModeName, lstFileName, true);
+		loadGameModeLstFile(lstFileLoader, gameModeName, gameModeFolderName, lstFileName, true);
 	}
 
 	/**
@@ -1599,17 +1600,18 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * reading the file from the default game mode directory.
 	 * @param lstFileLoader the Loader object for the type of file.
 	 * @param gameModeName the game mode
+	 * @param gameModeFolderName the name of the folder that the game mode is located in
 	 * @param lstFileName the lst file to load
 	 * @param showMissing show the missing file as a warning. Some files are optional and shouldn't generate a warning
 	 */
 	private void loadGameModeLstFile(LstLineFileLoader lstFileLoader,
-		String gameModeName, String lstFileName, final boolean showMissing)
+		String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
 	{
 		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
 
 		try
 		{
-			File specGameModeDir = new File(gameModeDir, gameModeName);
+			File specGameModeDir = new File(gameModeDir, gameModeFolderName);
 			File gameModeFile = new File(specGameModeDir, lstFileName);
 			if (gameModeFile.exists())
 			{
@@ -1661,7 +1663,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
 			final GameMode gm =
 					loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
-			SettingsHandler.setGame(gameFile);
+			String gmName = gm.getName();
+			SettingsHandler.setGame(gmName);
 			if (gm != null)
 			{
 				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst")
@@ -1670,37 +1673,37 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						.toURI(), "rules");
 
 				// Load equipmentslot.lst
-				loadGameModeLstFile(eqSlotLoader, gameFile,
+				loadGameModeLstFile(eqSlotLoader, gmName, gameFile,
 					"equipmentslots.lst");
 
 				// Load paperInfo.lst
-				loadGameModeLstFile(paperLoader, gameFile, "paperInfo.lst");
+				loadGameModeLstFile(paperLoader, gmName, gameFile, "paperInfo.lst");
 
 				// Load bio files
-				loadGameModeLstFile(traitLoader, gameFile, "bio"
+				loadGameModeLstFile(traitLoader, gmName, gameFile, "bio"
 					+ File.separator + "traits.lst");
-				loadGameModeLstFile(locationLoader, gameFile, "bio"
+				loadGameModeLstFile(locationLoader, gmName, gameFile, "bio"
 					+ File.separator + "locations.lst");
-				loadGameModeLstFile(bioLoader, gameFile, "bio"
+				loadGameModeLstFile(bioLoader, gmName, gameFile, "bio"
 					+ File.separator + "biosettings.lst");
 
 				// Load load.lst and check for completeness
-				loadGameModeLstFile(loadInfoLoader, gameFile, "load.lst");
+				loadGameModeLstFile(loadInfoLoader, gmName, gameFile, "load.lst");
 
 				// Load unitset.lst
-				loadGameModeLstFile(unitSetLoader, gameFile, "unitset.lst",
+				loadGameModeLstFile(unitSetLoader, gmName, gameFile, "unitset.lst",
 					false);
 
 				// Load pointbuymethods.lst
-				loadGameModeLstFile(pointBuyLoader, gameFile,
+				loadGameModeLstFile(pointBuyLoader, gmName, gameFile,
 					"pointbuymethods.lst", false);
 
 				// Load sizeAdjustment.lst
-				loadGameModeLstFile(sizeLoader, gameFile,
+				loadGameModeLstFile(sizeLoader, gmName, gameFile,
 					"sizeAdjustment.lst");
 
 				// Load statsandchecks.lst
-				loadGameModeLstFile(statCheckLoader, gameFile,
+				loadGameModeLstFile(statCheckLoader, gmName, gameFile,
 					"statsandchecks.lst");
 			}
 		}

@@ -94,6 +94,7 @@ public final class GameMode implements Comparable<Object>
 	private String displayVariable3Text = "";
 	private String displayVariableName = "";
 	private String displayVariableText = "";
+	private String folderName = "";;
 	private String hpAbbrev = "";
 	private String hpName = "";
 	private String levelUpMessage = "";
@@ -180,6 +181,7 @@ public final class GameMode implements Comparable<Object>
 	public GameMode(final String modeName)
 	{
 		name = modeName;
+		folderName = modeName;
 
 		for (Tab aTab : Tab.values())
 		{
@@ -541,6 +543,14 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
+	 * @return the folderName
+	 */
+	public String getFolderName()
+	{
+		return folderName;
+	}
+
+	/**
 	 * Set the hidden equipment types
 	 * @param pipeList
 	 */
@@ -707,6 +717,16 @@ public final class GameMode implements Comparable<Object>
 	public String getName()
 	{
 		return name;
+	}
+
+	/**
+	 * Set the game mode name (aka key). Should not 
+	 * be used after game mode is loaded.
+	 * @param name the name to set
+	 */
+	public void setName(String name)
+	{
+		this.name = name;
 	}
 
 	/**
