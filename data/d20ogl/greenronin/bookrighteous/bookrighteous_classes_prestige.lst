@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Feb  8 04:04:34 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Arcana - The Book of the Righteous	SOURCESHORT:BookRight	SOURCEWEB:http://www.greenronin.com
 # Original Entry by: Beaver, updated by Tir Gwaith
 
@@ -123,16 +123,16 @@ CLASS:Master of the Way	HD:10		TYPE:PC.Prestige	ABB:Way		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Master of the Way	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:5	PREDEITY:Terak (LG),Terak (LN)	PREFEAT:2,Quick Draw,Weapons Master	PREFEAT:2,CHECKMULT,Exotic Weapon Proficiency	PREFEAT:2,CHECKMULT,Weapon Focus	PRESKILL:3,Profession (Teacher),Tumble,Balance=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master of the Way	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Jump|Knowledge (Religion)|Perform|Profession (Teacher)|Tumble
-1	SA:Training Expertise																														FEATAUTO:Martial Instructor
-2																									ADD:FEAT(Exotic Weapon Proficiency,Weapon Focus)1	FEATAUTO:Cut Arrows
-3	SA:Assess Battle	SA:Test of Skill	BONUS:VAR|UncannyDodge|1	BONUS:COMBAT|INITIATIVE|WISMAX0|TYPE=Competance															FEATAUTO:Uncanny Dodge
-4	SA:Way Power +%|WayPower															DEFINE:WayPower|(CL-1)/3	ADD:FEAT
+1	SA:Training Expertise																																	FEATAUTO:Martial Instructor
+2																												ADD:FEAT(Exotic Weapon Proficiency,Weapon Focus)1	FEATAUTO:Cut Arrows
+3	SA:Assess Battle	SA:Test of Skill	BONUS:VAR|UncannyDodge|1	BONUS:COMBAT|INITIATIVE|WISMAX0|TYPE=Competance																		FEATAUTO:Uncanny Dodge
+4	SA:Way Power +%|WayPower															BONUS:FEAT|POOL|1	DEFINE:WayPower|(CL-1)/3
 5	SA:Superior Skill
-6																									ADD:FEAT
+6																				BONUS:FEAT|POOL|1
 7	SA:Armored Stance
-8							BONUS:VAR|UncannyDodge|1														ADD:FEAT
+8							BONUS:VAR|UncannyDodge|1									BONUS:FEAT|POOL|1
 9	SA:Shifting Blade
-10	SA:Perfect Strike																						ADD:FEAT
+10	SA:Perfect Strike																	BONUS:FEAT|POOL|1
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Oracle of ZheenKeef	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	ABB:Zor		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
