@@ -1,73 +1,73 @@
 # CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
-STARTPACK:Default Astral Construct (1st Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (1st Level)]
-RACE:Astral Construct (1st Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (1st Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (1st Level)]
+RACE:Astral Construct (1st Level)	!PRERACE:1,%
 NAME:Astral Construct (1st Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=10|CHA=10
 
-STARTPACK:Default Astral Construct (2nd Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (2nd Level)]
-RACE:Astral Construct (2nd Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (2nd Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (2nd Level)]
+RACE:Astral Construct (2nd Level)	!PRERACE:1,%
 NAME:Astral Construct (2nd Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=10|CHA=10
 
-STARTPACK:Default Astral Construct (3rd Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (3rd Level)]
-RACE:Astral Construct (3rd Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (3rd Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (3rd Level)]
+RACE:Astral Construct (3rd Level)	!PRERACE:1,%
 NAME:Astral Construct (3rd Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Astral Construct (4th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (4th Level)]
-RACE:Astral Construct (4th Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (4th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (4th Level)]
+RACE:Astral Construct (4th Level)	!PRERACE:1,%
 NAME:Astral Construct (4th Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Astral Construct (5th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (5th Level)]
-RACE:Astral Construct (5th Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (5th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (5th Level)]
+RACE:Astral Construct (5th Level)	!PRERACE:1,%
 NAME:Astral Construct (5th Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Astral Construct (6th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (6th Level)]
-RACE:Astral Construct (6th Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (6th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (6th Level)]
+RACE:Astral Construct (6th Level)	!PRERACE:1,%
 NAME:Astral Construct (6th Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Astral Construct (7th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (7th Level)]
-RACE:Astral Construct (7th Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (7th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (7th Level)]
+RACE:Astral Construct (7th Level)	!PRERACE:1,%
 NAME:Astral Construct (7th Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Astral Construct (8th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (8th Level)]
-RACE:Astral Construct (8th Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (8th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (8th Level)]
+RACE:Astral Construct (8th Level)	!PRERACE:1,%
 NAME:Astral Construct (8th Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Astral Construct (9th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Astral Construct (9th Level)]
-RACE:Astral Construct (9th Level)	!PRERACE:%
+STARTPACK:Default Astral Construct (9th Level)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (9th Level)]
+RACE:Astral Construct (9th Level)	!PRERACE:1,%
 NAME:Astral Construct (9th Level)
 ALIGN:TN
 STAT:STR=11|DEX=11|WIS=11|CHA=10
 
-STARTPACK:Default Blue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Blue]
-RACE:Blue	!PRERACE:%
+STARTPACK:Default Blue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blue]
+RACE:Blue	!PRERACE:1,%
 NAME:Blue
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Brain Mole	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Brain Mole]
-RACE:Brain Mole	!PRERACE:%
+STARTPACK:Default Brain Mole	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brain Mole]
+RACE:Brain Mole	!PRERACE:1,%
 NAME:Brain Mole
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Caller In Darkness	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Caller In Darkness]
-RACE:Caller In Darkness	!PRERACE:%
+STARTPACK:Default Caller In Darkness	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller In Darkness]
+RACE:Caller In Darkness	!PRERACE:1,%
 NAME:Caller In Darkness
 ALIGN:CE
 STAT:DEX=10|INT=10|WIS=10|CHA=11
@@ -84,8 +84,8 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Mental Adversary
 
-STARTPACK:Default Cerebelith	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Cerebelith]
-RACE:Cerebelith	!PRERACE:%
+STARTPACK:Default Cerebelith	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebelith]
+RACE:Cerebelith	!PRERACE:1,%
 NAME:Cerebelith
 ALIGN:CE
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -101,8 +101,8 @@ FEAT:Mind Trap
 FEAT:Psychic Bastion
 FEAT:Quicken Power
 
-STARTPACK:Default Crysmal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Crysmal]
-RACE:Crysmal	!PRERACE:%
+STARTPACK:Default Crysmal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal]
+RACE:Crysmal	!PRERACE:1,%
 NAME:Crysmal
 ALIGN:LG|NG|CG
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -112,16 +112,16 @@ SKILL:Jump		RANK:9
 SKILL:Spot		RANK:4
 FEAT:Alertness
 
-STARTPACK:Default Fologub	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Fologub]
-RACE:Fologub	!PRERACE:%
+STARTPACK:Default Fologub	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fologub]
+RACE:Fologub	!PRERACE:1,%
 NAME:Fologub
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 
-STARTPACK:Default Intellect Devourer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Intellect Devourer]
-RACE:Intellect Devourer	!PRERACE:%
+STARTPACK:Default Intellect Devourer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer]
+RACE:Intellect Devourer	!PRERACE:1,%
 NAME:Intellect Devourer
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 ALIGN:CE
@@ -133,8 +133,8 @@ SKILL:Spot		RANK:6
 FEAT:Alertness
 FEAT:Skill Focus (Perform)
 
-STARTPACK:Default Neothelid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Neothelid]
-RACE:Neothelid	!PRERACE:%
+STARTPACK:Default Neothelid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
+RACE:Neothelid	!PRERACE:1,%
 NAME:Neothelid
 ALIGN:CG
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
@@ -147,8 +147,8 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Psychic Bastion
 
-STARTPACK:Default Phthisic	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Phthisic]
-RACE:Phthisic	!PRERACE:%
+STARTPACK:Default Phthisic	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
+RACE:Phthisic	!PRERACE:1,%
 NAME:Phthisic
 ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
@@ -159,20 +159,20 @@ SKILL:Search		RANK:8
 FEAT:Alertness
 FEAT:Improved Initiative
 
-STARTPACK:Default Psion Killer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psion Killer]
-RACE:Psion Killer	!PRERACE:%
+STARTPACK:Default Psion Killer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion Killer]
+RACE:Psion Killer	!PRERACE:1,%
 NAME:Psion Killer
 ALIGN:TN
 STAT:STR=11|DEX=10|WIS=11|CHA=10
 
-STARTPACK:Default Puppeteer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Puppeteer]
-RACE:Puppeteer	!PRERACE:%
+STARTPACK:Default Puppeteer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+RACE:Puppeteer	!PRERACE:1,%
 NAME:Puppeteer
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 ALIGN:LE
 
-STARTPACK:Default Temporal Filtcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Temporal Filtcher]
-RACE:Temporal Filtcher	!PRERACE:%
+STARTPACK:Default Temporal Filtcher	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filtcher]
+RACE:Temporal Filtcher	!PRERACE:1,%
 NAME:Temporal Filtcher
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 ALIGN:LE|NE|CE
@@ -182,22 +182,22 @@ SKILL:Tumble		RANK:7
 SKILL:Move Silently	RANK:5
 FEAT:Alertness
 
-STARTPACK:Default Thought Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Thought Eater]
-RACE:Thought Eater	!PRERACE:%
+STARTPACK:Default Thought Eater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+RACE:Thought Eater	!PRERACE:1,%
 NAME:Thought Eater
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Hide		RANK:6
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 
-STARTPACK:Default Udoroot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Udoroot]
-RACE:Udoroot	!PRERACE:%
+STARTPACK:Default Udoroot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+RACE:Udoroot	!PRERACE:1,%
 NAME:Udoroot
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|WIS=11|CHA=11
 
-STARTPACK:Default Psicrystal (Artiste)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Artiste)]
-RACE:Psicrystal (Artiste)	!PRERACE:%
+STARTPACK:Default Psicrystal (Artiste)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Artiste)]
+RACE:Psicrystal (Artiste)	!PRERACE:1,%
 NAME:Psicrystal (Artiste)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -205,8 +205,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Bully)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Bully)]
-RACE:Psicrystal (Bully)	!PRERACE:%
+STARTPACK:Default Psicrystal (Bully)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Bully)]
+RACE:Psicrystal (Bully)	!PRERACE:1,%
 NAME:Psicrystal (Bully)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -214,8 +214,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Coward)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Coward)]
-RACE:Psicrystal (Coward)	!PRERACE:%
+STARTPACK:Default Psicrystal (Coward)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Coward)]
+RACE:Psicrystal (Coward)	!PRERACE:1,%
 NAME:Psicrystal (Coward)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -223,8 +223,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Friendly)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Friendly)]
-RACE:Psicrystal (Friendly)	!PRERACE:%
+STARTPACK:Default Psicrystal (Friendly)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Friendly)]
+RACE:Psicrystal (Friendly)	!PRERACE:1,%
 NAME:Psicrystal (Friendly)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -232,8 +232,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Hero)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Hero)]
-RACE:Psicrystal (Hero)	!PRERACE:%
+STARTPACK:Default Psicrystal (Hero)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Hero)]
+RACE:Psicrystal (Hero)	!PRERACE:1,%
 NAME:Psicrystal (Hero)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -241,8 +241,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Liar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Liar)]
-RACE:Psicrystal (Liar)	!PRERACE:%
+STARTPACK:Default Psicrystal (Liar)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Liar)]
+RACE:Psicrystal (Liar)	!PRERACE:1,%
 NAME:Psicrystal (Liar)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -250,8 +250,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Meticulos)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Meticulos)]
-RACE:Psicrystal (Meticulos)	!PRERACE:%
+STARTPACK:Default Psicrystal (Meticulos)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Meticulos)]
+RACE:Psicrystal (Meticulos)	!PRERACE:1,%
 NAME:Psicrystal (Meticulos)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -259,8 +259,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Observant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Observant)]
-RACE:Psicrystal (Observant)	!PRERACE:%
+STARTPACK:Default Psicrystal (Observant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Observant)]
+RACE:Psicrystal (Observant)	!PRERACE:1,%
 NAME:Psicrystal (Observant)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -268,8 +268,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Poised)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Poised)]
-RACE:Psicrystal (Poised)	!PRERACE:%
+STARTPACK:Default Psicrystal (Poised)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Poised)]
+RACE:Psicrystal (Poised)	!PRERACE:1,%
 NAME:Psicrystal (Poised)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -277,8 +277,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Resolved)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Resolved)]
-RACE:Psicrystal (Resolved)	!PRERACE:%
+STARTPACK:Default Psicrystal (Resolved)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Resolved)]
+RACE:Psicrystal (Resolved)	!PRERACE:1,%
 NAME:Psicrystal (Resolved)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -286,8 +286,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Sage)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Sage)]
-RACE:Psicrystal (Sage)	!PRERACE:%
+STARTPACK:Default Psicrystal (Sage)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Sage)]
+RACE:Psicrystal (Sage)	!PRERACE:1,%
 NAME:Psicrystal (Sage)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -295,8 +295,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Single Minded)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Single Minded)]
-RACE:Psicrystal (Single Minded)	!PRERACE:%
+STARTPACK:Default Psicrystal (Single Minded)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Single Minded)]
+RACE:Psicrystal (Single Minded)	!PRERACE:1,%
 NAME:Psicrystal (Single Minded)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -304,8 +304,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Sneaky)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Sneaky)]
-RACE:Psicrystal (Sneaky)	!PRERACE:%
+STARTPACK:Default Psicrystal (Sneaky)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Sneaky)]
+RACE:Psicrystal (Sneaky)	!PRERACE:1,%
 NAME:Psicrystal (Sneaky)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
@@ -313,8 +313,8 @@ SKILL:Spot			RANK:6
 SKILL:Search		RANK:4
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Psicrystal (Sympathetic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Psicrystal (Sympathetic)]
-RACE:Psicrystal (Sympathetic)	!PRERACE:%
+STARTPACK:Default Psicrystal (Sympathetic)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psicrystal (Sympathetic)]
+RACE:Psicrystal (Sympathetic)	!PRERACE:1,%
 NAME:Psicrystal (Sympathetic)
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
