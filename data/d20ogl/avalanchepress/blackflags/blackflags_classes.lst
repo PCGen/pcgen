@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Thu Feb  8 03:35:45 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:BlackFlags	SOURCEWEB:http://www.avalanchepress.com
 
 # Several classes have odd skill point progressions where first level has a different base number of
@@ -57,26 +57,26 @@ CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		SOURCEPAGE:p.37	LANGAUTO:L
 CLASS:Priest	PREGENDER:M
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|TYPE.Profession|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
-1	SA:Bless %/day (Sp)|BFBless	SA:Bless Water %/day (Sp)|BFBlessWater	SA:Literacy x2(Native,Latin) (Ex)										BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=2	DEFINE:BFBless|1	DEFINE:BFBlessWater|1			FEATAUTO:Literacy
-2	SA:Bane %/day (Sp)|BFBane																																											DEFINE:BFBane|1
-3	SA:Aura of Fear %/day (Sp)|BFAuraFear																																									DEFINE:BFAuraFear|1
-4	SA:Divine Favor %/day (Sp)|BFDivineFavor												BONUS:VAR|BFBless|1																										DEFINE:BFDivineFavor|1
-5																																																							ADD:FEAT
+1	SA:Bless %/day (Sp)|BFBless	SA:Bless Water %/day (Sp)|BFBlessWater	SA:Literacy x2(Native,Latin) (Ex)													BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=2	DEFINE:BFBless|1	DEFINE:BFBlessWater|1	FEATAUTO:Literacy
+2	SA:Bane %/day (Sp)|BFBane																																														DEFINE:BFBane|1
+3	SA:Aura of Fear %/day (Sp)|BFAuraFear																																												DEFINE:BFAuraFear|1
+4	SA:Divine Favor %/day (Sp)|BFDivineFavor												BONUS:VAR|BFBless|1																													DEFINE:BFDivineFavor|1
+5																												BONUS:FEAT|POOL|1
 6																			BONUS:VAR|BFBane|1	BONUS:VAR|BFAuraFear|1
-7	SA:Bishop (Ex)	SA:Doom %/day (Sp)|BFDoom	SA:Remove Fear %/day (Sp)|BFRemoveFear																																	DEFINE:BFDoom|1	DEFINE:BFRemoveFear|1
+7	SA:Bishop (Ex)	SA:Doom %/day (Sp)|BFDoom	SA:Remove Fear %/day (Sp)|BFRemoveFear																																				DEFINE:BFDoom|1	DEFINE:BFRemoveFear|1
 8																			BONUS:VAR|BFBless|1	BONUS:VAR|BFDivineFavor|1
-9	SA:Lay Hands %/day (Sp)|BFLayHands													BONUS:VAR|BFBane|1																										DEFINE:BFLayHands|1
-10																																																							ADD:FEAT
+9	SA:Lay Hands %/day (Sp)|BFLayHands													BONUS:VAR|BFBane|1																													DEFINE:BFLayHands|1
+10																												BONUS:FEAT|POOL|1
 11																			BONUS:VAR|BFAuraFear|1
 12																			BONUS:VAR|BFDivineFavor|1
 13																			BONUS:VAR|BFDoom|1
 14																			BONUS:VAR|BFRemoveFear|1
-15																																																							ADD:FEAT
+15																												BONUS:FEAT|POOL|1
 16																			BONUS:VAR|BFLayHands|1
 17																			BONUS:VAR|BFDoom|1
 18																			BONUS:VAR|BFRemoveFear|1
 19																			BONUS:VAR|BFLayHands|1
-20																																																							ADD:FEAT
+20																												BONUS:FEAT|POOL|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus												Combat bonus
 CLASS:Sailor	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Slr		SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -85,17 +85,17 @@ CLASS:Sailor	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Disab
 ###Block: Proficiencies
 1	AUTO:WEAPONPROF|Cutlass	FEATAUTO:Firearms Proficiency|Simple Weapon Proficiency|All Automatic Proficiencies
 ###Block: Normal Level Progression
-1	SA:Sea Legs (Ex)		BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=6
-2																											FEATAUTO:Great Fortitude
-3																											FEATAUTO:Improvised Weapon Proficiency
-5																									ADD:FEAT
-7																									ADD:FEAT
+1	SA:Sea Legs (Ex)					BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=8	BONUS:SKILLPOINTS|NUMBER|1|PRELEVELMAX:1|PRESTAT:1,INT=6
+2																												FEATAUTO:Great Fortitude
+3																												FEATAUTO:Improvised Weapon Proficiency
+5					BONUS:FEAT|POOL|1
+7					BONUS:FEAT|POOL|1
 10	SA:Curse (Sp)
-12																									ADD:FEAT
+12					BONUS:FEAT|POOL|1
 14	SA:Remove Curse (Sp)
-16																									ADD:FEAT
-18																									ADD:FEAT
-20																									ADD:FEAT
+16					BONUS:FEAT|POOL|1
+18					BONUS:FEAT|POOL|1
+20					BONUS:FEAT|POOL|1
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Save checks bonus											Combat bonus
 CLASS:Soldier	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:FtSol		SOURCEPAGE:p.40	LANGAUTO:Literacy		BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -168,11 +168,11 @@ CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPA
 CLASS:Cardinal	PRECLASS:1,Priest=7	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=12	PRESTAT:1,CHA=13	PRETEXT:Must have been promoted to Bishop.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Forgery|Gather Information|Heal|Innuendo|Intimidate|TYPE.Knowledge|Listen|Read Lips|Ride|Sense Motive|Speak Language|Spot
-1	SA:Entourage	SA:Guard	SA:Social Standing % (Ex)|BFSocialStanding	SA:Theological Wisdom (Ex)									DEFINE:BFSocialStanding|4
+1	SA:Entourage	SA:Guard	SA:Social Standing % (Ex)|BFSocialStanding	SA:Theological Wisdom (Ex)												DEFINE:BFSocialStanding|4
 2																			BONUS:VAR|BFLayHands|1	BONUS:VAR|BFAuraFear|1
 3	SA:Remove Curse (Sp)
 4	SA:Remove Blindness/Deafness (Sp)
-5																																ADD:FEAT
+5																											BONUS:FEAT|POOL|1
 6																			BONUS:VAR|BFLayHands|1
 7																			BONUS:VAR|BFSocialStanding|1
 8	SA:Divination (Sp)
