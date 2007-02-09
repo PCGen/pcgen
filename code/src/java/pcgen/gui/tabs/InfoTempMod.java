@@ -209,13 +209,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.TempMod.Order", tab
-			.ordinal());
+		return SettingsHandler.getPCGenOption(".Panel.TempMod.Order", tab.ordinal()); //$NON-NLS-1$
 	}
 
 	public void setTabOrder(int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.TempMod.Order", order);
+		SettingsHandler.setPCGenOption(".Panel.TempMod.Order", order); //$NON-NLS-1$
 	}
 
 	public String getTabName()
@@ -381,11 +380,11 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			// need to parse the aChoice string
 			// and replace %CHOICE with choice
-			if (newB.getValue().indexOf("%CHOICE") >= 0)
+			if (newB.getValue().indexOf("%CHOICE") >= 0) //$NON-NLS-1$
 			{
 				String ac =
-						CoreUtility.replaceAll(newB.getValue(), "%CHOICE",
-							repeatValue);
+						CoreUtility.replaceAll(newB.getValue(), "%CHOICE", //$NON-NLS-1$
+							repeatValue); 
 				newB.setValue(ac);
 			}
 
@@ -394,7 +393,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		StringTokenizer aTok = new StringTokenizer(aChoice, "|");
 
-		if (aChoice.startsWith("NUMBER") && (aTok.countTokens() >= 3))
+		if (aChoice.startsWith("NUMBER") && (aTok.countTokens() >= 3)) //$NON-NLS-1$
 		{
 			int min;
 			int max;
@@ -402,20 +401,20 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			String minString = aTok.nextToken();
 			String maxString = aTok.nextToken();
-			String titleString = "Pick a Number";
+			String titleString = PropertyFactory.getString("in_itmPickNumber"); //$NON-NLS-1$
 
 			if (aTok.hasMoreTokens())
 			{
 				titleString = aTok.nextToken();
 
-				if (titleString.startsWith("TITLE="))
+				if (titleString.startsWith("TITLE=")) //$NON-NLS-1$
 				{
 					// remove TITLE=
 					titleString = titleString.substring(6);
 				}
 			}
 
-			if (minString.startsWith("MIN="))
+			if (minString.startsWith("MIN=")) //$NON-NLS-1$
 			{
 				minString = minString.substring(4);
 				min = pc.getVariableValue(minString, "").intValue();
@@ -425,7 +424,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				min = pc.getVariableValue(minString, "").intValue();
 			}
 
-			if (maxString.startsWith("MAX="))
+			if (maxString.startsWith("MAX=")) //$NON-NLS-1$
 			{
 				maxString = maxString.substring(4);
 				max = pc.getVariableValue(maxString, "").intValue();
@@ -448,7 +447,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				ChooserRadio c = ChooserFactory.getRadioInstance();
 				c.setAvailableList(numberList);
 				c.setVisible(false);
-				c.setTitle("Pick a Number");
+				c.setTitle(PropertyFactory.getString("in_itmPickNumber")); //$NON-NLS-1$
 				c.setMessageText(titleString);
 				c.setVisible(true);
 
@@ -460,11 +459,11 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 					// need to parse the bonus.getValue()
 					// string and replace %CHOICE
-					if (newB.getValue().indexOf("%CHOICE") >= 0)
+					if (newB.getValue().indexOf("%CHOICE") >= 0) //$NON-NLS-1$
 					{
-						String ac =
-								CoreUtility.replaceAll(newB.getValue(),
-									"%CHOICE", aI);
+						String ac = 
+								CoreUtility.replaceAll(newB.getValue(), 
+									"%CHOICE", aI); //$NON-NLS-1$
 						aI = ac;
 						newB.setValue(aI);
 					}
@@ -926,8 +925,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (bonusTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select a type of bonus use", Constants.s_APPNAME,
-				MessageType.ERROR);
+				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.s_APPNAME, //$NON-NLS-1$
+				MessageType.ERROR); 
 
 			return;
 		}
@@ -935,7 +934,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (targetTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an item to set the temporary bonus on",
+				PropertyFactory.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -959,7 +958,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if ((aTarget == null) || (fNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select an item to set the temporary bonus on",
+				PropertyFactory.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
 				Constants.s_APPNAME, MessageType.ERROR);
 
 			return;
@@ -976,7 +975,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if ((anObj == null) || (fNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select a type of bonus use", Constants.s_APPNAME,
+				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.s_APPNAME, //$NON-NLS-1$
 				MessageType.ERROR);
 
 			return;
@@ -1012,7 +1011,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 							creatorObj.getKeyName()))))
 					{
 						ShowMessageDelegate.showMessageDialog(
-							"The item has already had the bonus applied.",
+							PropertyFactory.getString("in_itmAppBonButAlreadyApplied"), //$NON-NLS-1$
 							Constants.s_APPNAME, MessageType.ERROR);
 						return;
 					}
@@ -1217,21 +1216,21 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			Component c = getParent();
 			s =
-					SettingsHandler.getPCGenOption("InfoTempMod.topVertSplit",
+					SettingsHandler.getPCGenOption("InfoTempMod.topVertSplit", //$NON-NLS-1$
 						((c.getWidth() * 1) / 2));
 			t =
 					SettingsHandler.getPCGenOption(
-						"InfoTempMod.centerHorzSplit",
+						"InfoTempMod.centerHorzSplit", //$NON-NLS-1$
 						((c.getHeight() * 1) / 2));
 			u =
-					SettingsHandler.getPCGenOption("InfoTempMod.botHorzSplit",
+					SettingsHandler.getPCGenOption("InfoTempMod.botHorzSplit", //$NON-NLS-1$
 						((botPane.getHeight() * 1) / 2));
 
 			// set the prefered width on targetTable
 			for (int i = 0; i < targetTable.getColumnCount(); ++i)
 			{
 				TableColumn sCol = targetTable.getColumnModel().getColumn(i);
-				width = Globals.getCustColumnWidth("TempModSel", i);
+				width = Globals.getCustColumnWidth("TempModSel", i); //$NON-NLS-1$
 
 				if (width != 0)
 				{
@@ -1239,14 +1238,14 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					targetTable, "TempModSel", i));
+					targetTable, "TempModSel", i)); //$NON-NLS-1$
 			}
 
 			// set the prefered width on bonusTable
 			for (int i = 0; i < bonusTable.getColumnCount(); ++i)
 			{
 				TableColumn sCol = bonusTable.getColumnModel().getColumn(i);
-				width = Globals.getCustColumnWidth("TempModAva", i);
+				width = Globals.getCustColumnWidth("TempModAva", i); //$NON-NLS-1$
 
 				if (width != 0)
 				{
@@ -1254,26 +1253,26 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					bonusTable, "TempModAva", i));
+					bonusTable, "TempModAva", i)); //$NON-NLS-1$
 			}
 		}
 
 		if (s > 0)
 		{
 			topVertSplit.setDividerLocation(s);
-			SettingsHandler.setPCGenOption("InfoTempMod.topVertSplit", s);
+			SettingsHandler.setPCGenOption("InfoTempMod.topVertSplit", s); //$NON-NLS-1$
 		}
 
 		if (t > 0)
 		{
 			centerHorzSplit.setDividerLocation(t);
-			SettingsHandler.setPCGenOption("InfoTempMod.centerHorzSplit", t);
+			SettingsHandler.setPCGenOption("InfoTempMod.centerHorzSplit", t); //$NON-NLS-1$
 		}
 
 		if (u > 0)
 		{
 			botHorzSplit.setDividerLocation(u);
-			SettingsHandler.setPCGenOption("InfoTempMod.botHorzSplit", u);
+			SettingsHandler.setPCGenOption("InfoTempMod.botHorzSplit", u); //$NON-NLS-1$
 		}
 	}
 
@@ -1300,24 +1299,21 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption("InfoTempMod.topVertSplit",
-						s);
+					SettingsHandler.setPCGenOption("InfoTempMod.topVertSplit", s); //$NON-NLS-1$
 				}
 
 				s = botHorzSplit.getDividerLocation();
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption("InfoTempMod.botHorzSplit",
-						s);
+					SettingsHandler.setPCGenOption("InfoTempMod.botHorzSplit", s); //$NON-NLS-1$
 				}
 
 				s = centerHorzSplit.getDividerLocation();
 
 				if (s > 0)
 				{
-					SettingsHandler.setPCGenOption(
-						"InfoTempMod.centerHorzSplit", s);
+					SettingsHandler.setPCGenOption( "InfoTempMod.centerHorzSplit", s); //$NON-NLS-1$
 				}
 			}
 		});
@@ -1372,9 +1368,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		leftPane.setLayout(gridbag);
 		rightPane.setLayout(gridbag);
 
-		applyBonusButton = new JButton("Apply Bonus");
+		applyBonusButton = new JButton(PropertyFactory.getString(
+				"in_itmInitCompAppBonTitle")); //$NON-NLS-1$
 		Utility.setDescription(applyBonusButton,
-			"Click to add bonus to selected item");
+				PropertyFactory.getString("in_itmInitCompAppBonDesc")); //$NON-NLS-1$
 		applyBonusButton.setEnabled(false);
 		applyBonusButton.setPreferredSize(new Dimension(60, 20));
 		applyBonusButton.setSize(new Dimension(60, 20));
@@ -1463,7 +1460,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		JScrollPane sScroll = new JScrollPane();
 		gridbag.setConstraints(sScroll, c);
 
-		TitledBorder sTitle = BorderFactory.createTitledBorder("Bonus Info");
+		TitledBorder sTitle = BorderFactory.createTitledBorder(PropertyFactory.getString("in_itmInitCompBorderInfo")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -1486,7 +1483,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		/* commented out until we fix temp mods, do not delete
 		 useTempMods = new JCheckBox("Use Temporary Bonuses");
 		 */
-		removeBonusButton = new JButton("Remove");
+		removeBonusButton = new JButton(PropertyFactory.getString("in_itmInitCompRemoveButTitle")); //$NON-NLS-1$
 		removeBonusButton.setEnabled(false);
 
 		tempModsDisabledWarning = new JLabel("");
@@ -1554,8 +1551,8 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (appliedTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				"First select a bonus to remove", Constants.s_APPNAME,
-				MessageType.ERROR);
+				PropertyFactory.getString("in_itmRemBonButSelect"), Constants.s_APPNAME,
+				MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1571,7 +1568,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		if ((fNode == null) || (fNode.getItem() == null))
 		{
-			Logging.errorPrint("fNode == null");
+			Logging.errorPrintLocalised("in_itmRemBoneButFnodeNull");
 
 			return;
 		}
@@ -1592,7 +1589,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else
 		{
-			Logging.errorPrint("Unknown bonus type");
+			Logging.errorPrintLocalised("in_itmRemBonButUnkownBonusType");
 
 			return;
 		}
@@ -1605,8 +1602,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 		if ((aTarget == null) || (aCreator == null))
 		{
-			Logging.errorPrint("Target or Creator == null");
-
+			Logging.errorPrintLocalised("in_itmRemBonButTargetNull");
 			return;
 		}
 
@@ -1809,7 +1805,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (_target instanceof PlayerCharacter)
 			{
-				b.append("Player");
+				b.append(PropertyFactory.getString("in_itmTmpWrapGetNamePC"));
 			}
 			else if (_target instanceof Equipment)
 			{
@@ -1835,8 +1831,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		// list of columns names
 		private String[] colNameList =
-				new String[]{"Name [Target]", "Bonus Type", "Bonus To",
-					"Bonus Value"};
+				new String[]{PropertyFactory.getString("in_itmAppModelNameTarget"), //$NON-NLS-1$
+					PropertyFactory.getString("in_itmAppModelBonusType"), PropertyFactory.getString("in_itmAppModelBonusTo"), //$NON-NLS-1$ //$NON-NLS-2$
+					PropertyFactory.getString("in_itmAppModelBonusValue")}; //$NON-NLS-1$
 		private MyPONode bonusRoot;
 
 		/**
@@ -1919,7 +1916,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			if (fn == null)
 			{
 				Logging
-					.errorPrint("Somehow we have no active node when doing getValueAt in AppliedModel");
+					.errorPrintLocalised("in_itmAppModelNoActiveNode"); //$NON-NLS-1$
 
 				return null;
 			}
@@ -1970,7 +1967,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						return fn.toString();
 					}
 					Logging
-						.errorPrint("Somehow we have no active node when doing getValueAt in AppliedModel");
+						.errorPrintLocalised("in_itmAppModelNoActiveNode"); //$NON-NLS-1$
 					return null;
 			}
 		}
@@ -2093,8 +2090,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			// you also need to change the static COL_XXX defines
 			// at the begining of this file
 			//
-			avaNameList = new String[]{"Name", "Source", "File"};
-			selNameList = new String[]{"Name", "Target", "File"};
+			avaNameList = new String[]{PropertyFactory.getString("in_itmBonModelAvaNameName"), //$NON-NLS-1$
+					PropertyFactory.getString("in_itmBonModelAvaNameSource"), PropertyFactory.getString("in_itmBonModelAvaNameFile")}; //$NON-NLS-1$ //$NON-NLS-2$
+			selNameList = new String[]{PropertyFactory.getString("in_itmBonModelSelNameName"), //$NON-NLS-1$
+					PropertyFactory.getString("in_itmBonModelSelNameTarget"), PropertyFactory.getString("in_itmBonModelSelNameFile")}; //$NON-NLS-1$ //$NON-NLS-2$
 
 			modelType = iModel;
 			resetModel(iModel);
@@ -2129,8 +2128,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint("In InfoTempMod.getColumnClass the column "
-							+ column + " is not supported.");
+						.errorPrintLocalised("in_itmBonModelGetColumnClassNotSupported",column);
 
 					break;
 			}
@@ -2187,7 +2185,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			if (fn == null)
 			{
 				Logging
-					.errorPrint("Somehow we have no active node when doing getValueAt in InfoTempMod.");
+					.errorPrintLocalised("in_itmBonModelNoActiveNode");
 
 				return null;
 			}
@@ -2252,27 +2250,27 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					else if (aSpell != null)
 					{
-						return "Spell";
+						return PropertyFactory.getString("in_itmBonModelTargetTypeSpell"); //$NON-NLS-1$ 
 					}
 					else if (aFeat != null)
 					{
-						return "Feat";
+						return PropertyFactory.getString("in_itmBonModelTargetTypeSpell"); //$NON-NLS-1$
 					}
 					else if (aClass != null)
 					{
-						return "Class";
+						return PropertyFactory.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
 					}
 					else if (aTemp != null)
 					{
-						return "Template";
+						return PropertyFactory.getString("in_itmBonModelTargetTypeTemplate"); //$NON-NLS-1$
 					}
 					else if (aSkill != null)
 					{
-						return "Skill";
+						return PropertyFactory.getString("in_itmBonModelTargetTypeSkill"); //$NON-NLS-1$
 					}
 					else if (bPC != null)
 					{
-						return "Character (You)";
+						return PropertyFactory.getString("in_itmBonModelTargetTypeCharacter"); //$NON-NLS-1$
 					}
 					else
 					{
@@ -2317,7 +2315,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 						return fn.toString();
 					}
 					Logging
-						.errorPrint("Somehow we have no active node when doing getValueAt in InfoEquip.");
+						.errorPrintLocalised("in_itmBonModelNoActiveNode"); //$NON-NLS-1$
 					return null;
 			}
 		}
@@ -2361,12 +2359,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			Collections.sort(eqTypeList);
 
-			typeList.add("Feats");
-			typeList.add("Items");
-			typeList.add("Spells");
-			typeList.add("Classes");
-			typeList.add("Templates");
-			typeList.add("Skills");
+			typeList.add("Feats"); //$NON-NLS-1$
+			typeList.add("Items"); //$NON-NLS-1$
+			typeList.add("Spells"); //$NON-NLS-1$
+			typeList.add("Classes"); //$NON-NLS-1$
+			typeList.add("Templates"); //$NON-NLS-1$
+			typeList.add("Skills"); //$NON-NLS-1$
 
 			//
 			// build bonusTable (list of all equipment)
@@ -2380,12 +2378,12 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 				// build the Type root nodes
 				PObjectNode[] pNode = new PObjectNode[6];
-				pNode[0] = new PObjectNode("Feat");
-				pNode[1] = new PObjectNode("Spell");
-				pNode[2] = new PObjectNode("Item");
-				pNode[3] = new PObjectNode("Class");
-				pNode[4] = new PObjectNode("Templates");
-				pNode[5] = new PObjectNode("Skills");
+				pNode[0] = new PObjectNode("Feat"); //$NON-NLS-1$
+				pNode[1] = new PObjectNode("Spell"); //$NON-NLS-1$
+				pNode[2] = new PObjectNode("Item"); //$NON-NLS-1$
+				pNode[3] = new PObjectNode("Class"); //$NON-NLS-1$
+				pNode[4] = new PObjectNode("Templates"); //$NON-NLS-1$
+				pNode[5] = new PObjectNode("Skills"); //$NON-NLS-1$
 
 				//
 				// first do PC's feats
@@ -2406,7 +2404,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				//
 				// next do all Feats to get PREAPPLY:ANYPC
 				for (Iterator<? extends Categorisable> fI =
-						Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();)
+						Globals.getAbilityKeyIterator("FEAT"); fI.hasNext();) //$NON-NLS-1$
 				{
 					Ability aFeat = (Ability) fI.next();
 
@@ -2795,20 +2793,20 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (treeTable == bonusTable)
 			{
-				BonusPopupMenu.this.add(createAddMenuItem("Apply Bonus",
+				BonusPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_itmBonPopUpAppBon"), //$NON-NLS-1$
 					"shortcut EQUALS"));
 				BonusPopupMenu.this.addSeparator();
 				BonusPopupMenu.this
-					.add(createRefreshMenuItem("Redraw/recalc Panel"));
+					.add(createRefreshMenuItem(PropertyFactory.getString("in_itmBonusPopUpRedraw"))); //$NON-NLS-1$
 			}
 			else if (treeTable == targetTable)
 			{
 				BonusPopupMenu.this
-					.add(createRefreshMenuItem("Redraw/recalc Panel"));
+					.add(createRefreshMenuItem(PropertyFactory.getString("in_itmBonusPopUpRedraw"))); //$NON-NLS-1$
 			}
 			else if (treeTable == appliedTable)
 			{
-				BonusPopupMenu.this.add(createRemoveMenuItem("Remove Bonus",
+				BonusPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_itmBonPopUpRemove"),
 					"shortcut MINUS"));
 			}
 		}
@@ -2816,22 +2814,23 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddBonusActionListener(),
-				"Apply bonus", (char) 0, accelerator, "Apply this Bonus",
-				"Add16.gif", true);
+				PropertyFactory.getString("in_itmBonPopUpAppBon"), (char) 0, accelerator, 
+				PropertyFactory.getString("in_itmBonPopUpAppBonDesc"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createRefreshMenuItem(String label)
 		{
 			return Utility.createMenuItem(label, new RefreshActionListener(),
-				"Redraw/Recalc Panel", (char) 0, null,
-				"Redraw/Recalc this panels info", "", true);
+				PropertyFactory.getString("in_itmBonusPopUpRedraw"), (char) 0, null,
+				PropertyFactory.getString("in_itmBonPopUpRedrawDesc"), "", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RemoveActionListener(),
-				"Remove Bonus", (char) 0, accelerator, "Remove this bonus", "",
-				true);
+				PropertyFactory.getString("in_itmBonPopUpRemove"), (char) 0, 
+				accelerator,PropertyFactory.getString("in_itmBonPopUpRemove"), "",
+				true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private class AddBonusActionListener extends BonusActionListener
@@ -2888,7 +2887,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (item == null)
 			{
-				return "";
+				return ""; //$NON-NLS-1$
 			}
 
 			if (item instanceof String)
@@ -2897,7 +2896,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			else if (item instanceof TempWrap)
 			{
-				return "--";
+				return "--"; //$NON-NLS-1$
 			}
 			else
 			{
