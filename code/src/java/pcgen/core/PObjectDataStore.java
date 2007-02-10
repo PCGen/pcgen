@@ -22,7 +22,6 @@
  */
 package pcgen.core;
 
-import pcgen.core.utils.ListKey;
 import pcgen.util.Logging;
 
 import java.util.*;
@@ -178,7 +177,7 @@ public class PObjectDataStore<T extends PObject>
 		// We used to add all types together here.
 		// Modifying to add each one seperately, so we can
 		// treat correctly the Weapon Proficiency Types
-		for (Iterator<String> e = obj.getSafeListFor(ListKey.TYPE).iterator(); e.hasNext();)
+		for (Iterator<String> e = obj.getTypeList(false).iterator(); e.hasNext();)
 		{
 			final String aString = e.next();
 			Map<String, T> typedByName = byType.get(aString);
@@ -284,14 +283,15 @@ public class PObjectDataStore<T extends PObject>
 	public void removeNamed(final String name)
 	{
 		final T object = getNamed(name);
-		byUpperName.remove(object.getDisplayName().toUpperCase());
+		String upperName = object.getDisplayName().toUpperCase();
+		byUpperName.remove(upperName);
 		byKey.remove(object.getKeyName().toUpperCase());
 
 		final Map<String, T> typedByName = byType.get(object.getType().toUpperCase());
 
 		if (typedByName != null)
 		{
-			typedByName.remove(object.getDisplayName().toUpperCase());
+			typedByName.remove(upperName);
 		}
 
 		clearVariableNameCache();

@@ -144,15 +144,16 @@ public class SaveModel extends PObjectModel
 	 */
 	public void setSaveType(String saveType)
 	{
-		if (SAVE_TYPE_FORTITUDE.startsWith(saveType.toUpperCase()))
+		String saveUC = saveType.toUpperCase();
+		if (SAVE_TYPE_FORTITUDE.startsWith(saveUC))
 		{
 			m_saveType = SAVE_TYPE_FORTITUDE;
 		}
-		else if (SAVE_TYPE_REFLEX.startsWith(saveType.toUpperCase()))
+		else if (SAVE_TYPE_REFLEX.startsWith(saveUC))
 		{
 			m_saveType = SAVE_TYPE_REFLEX;
 		}
-		else if (SAVE_TYPE_WILL.startsWith(saveType.toUpperCase()))
+		else if (SAVE_TYPE_WILL.startsWith(saveUC))
 		{
 			m_saveType = SAVE_TYPE_WILL;
 		}

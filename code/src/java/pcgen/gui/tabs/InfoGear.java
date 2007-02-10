@@ -54,7 +54,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -591,7 +590,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				b.append("(").append(aEq.longName()).append(")");
 			}
 
-			b.append(" &nbsp;<b>TYPE</b>:").append(aEq.getTypeUsingFlag(true));
+			b.append(" &nbsp;<b>TYPE</b>:").append(CoreUtility.join(aEq.getTypeList(true), '.'));
 
 			//
 			// Should only be meaningful for weapons, but if included on some other piece of
@@ -1996,16 +1995,16 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			Map.Entry<String, Equipment> entry = i.next();
 			final Equipment bEq = entry.getValue();
-			final StringTokenizer aTok =
-					new StringTokenizer(bEq.getTypeUsingFlag(true), ".", false);
+			
+			List<String> typeList = bEq.getTypeList(true);
 
-			// we only want the first TYPE to be in the top-level
-			if (!aTok.hasMoreTokens())
+			if (typeList.isEmpty())
 			{
 				continue;
 			}
 
-			String aString = aTok.nextToken();
+			// we only want the first TYPE to be in the top-level
+			String aString = typeList.get(0);
 
 			if (!aList.contains(aString))
 			{
@@ -2017,9 +2016,10 @@ public final class InfoGear extends FilterAdapterPanel implements
 				bList.add(aString);
 			}
 
-			while (aTok.hasMoreTokens())
+			//ty=1 is intentional - 0 does not go in aList
+			for (int ty = 1; ty < typeList.size(); ty++)
 			{
-				aString = aTok.nextToken();
+				aString = typeList.get(ty);
 
 				if (!bList.contains(aString))
 				{
@@ -2080,15 +2080,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 					continue;
 				}
 
-				final StringTokenizer aTok =
-						new StringTokenizer(bEq.getTypeUsingFlag(true), ".",
-							false);
-
-				//String aString = aTok.nextToken(); // skip first one, already in top-level
-				while (aTok.hasMoreTokens())
+				for (String aString : bEq.getTypeList(true))
 				{
-					final String aString = aTok.nextToken();
-
 					if (!aString.equals(topType) && !aList.contains(aString))
 					{
 						aList.add(aString);

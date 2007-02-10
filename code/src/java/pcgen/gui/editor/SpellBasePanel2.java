@@ -118,14 +118,12 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater
 		//
 		// remove this template's type from the available list and place into selected list
 		//
-		for (int i = thisPObject.getMyTypeCount(); i > 0;)
+		for (String type : thisPObject.getTypeList(false))
 		{
-			aString = thisPObject.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

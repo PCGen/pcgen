@@ -29,7 +29,8 @@ package pcgen.gui;
 import pcgen.core.PObject;
 
 import javax.swing.SwingUtilities;
-import java.net.URL;
+
+import java.net.URI;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -51,15 +52,15 @@ public class PersistenceObserver implements Observer {
 	 */
 	public void update(Observable o, Object arg)
 	{
-		if (arg instanceof URL)
+		if (arg instanceof URI)
 		{
 			setCurrentFileCount(getCurrentFileCount()+1);
-		    	final URL url = (URL) arg;
+		    	final URI uri = (URI) arg;
     			Runnable doWork = new Runnable()
 			{
     				public void run()
 				{
-    					dialog.setCurrentFile(url.toString());
+    					dialog.setCurrentFile(uri.toString());
     				}
     			};
     			SwingUtilities.invokeLater(doWork);

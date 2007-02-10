@@ -3004,7 +3004,7 @@ public class PCClass extends PObject {
 			return false;
 		}
 
-		for (String type : getSafeListFor(ListKey.TYPE)) {
+		for (String type : getTypeList(false)) {
 			final ClassType aClassType = SettingsHandler.getGame()
 					.getClassTypeByName(type);
 
@@ -3961,7 +3961,7 @@ public class PCClass extends PObject {
 		if (CRFormula != null) {
 			wCRFormula = CRFormula;
 		} else {
-			for (String type : getSafeListFor(ListKey.TYPE)) {
+			for (String type : getTypeList(false)) {
 				final ClassType aClassType = SettingsHandler.getGame()
 						.getClassTypeByName(type);
 
@@ -4340,7 +4340,7 @@ public class PCClass extends PObject {
 	public boolean hasXPPenalty() {
 		if (XPPenalty.equals(DefaultTriState.DEFAULT))
 		{
-			for (String type : getSafeListFor(ListKey.TYPE)) {
+			for (String type : getTypeList(false)) {
 				final ClassType aClassType = SettingsHandler.getGame()
 						.getClassTypeByName(type);
 

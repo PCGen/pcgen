@@ -32,13 +32,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.jar.JarFile;
-import java.util.jar.JarEntry;
-import java.util.zip.ZipException;
 
 /**
  * <code>Bonus</code>
@@ -49,7 +45,6 @@ public class Bonus
 {
 	static final int BONUS_UNDEFINED = -1;
 
-	private static boolean objectListInitialized;
 	private static int bonusTagMapNum = 0;
 
 	private static final HashMap<String, bonusMapEntry> BONUS_TAG_MAP = new HashMap<String, bonusMapEntry>();
@@ -65,8 +60,6 @@ public class Bonus
 	 */
 	public static int getBonusTypeFromName(final String bonusName)
 	{
-		makeObjectList();
-
 		bonusMapEntry bEntry = BONUS_TAG_MAP.get(bonusName);
 		if (bEntry == null)
 		{
@@ -186,21 +179,21 @@ public class Bonus
 	 */
 	public static BonusObj newBonus(final String bonusString)
 	{
-		makeObjectList();
-
 		final int typeOfBonus;
 		int aLevel = -1;
 
 		StringTokenizer aTok = new StringTokenizer(bonusString, Constants.PIPE);
 
-		if (aTok.countTokens() < 3 && bonusString.indexOf('%') < 0)
+		if ((bonusString.indexOf(Constants.PIPE) == bonusString
+				.lastIndexOf(Constants.PIPE))
+				&& bonusString.indexOf('%') < 0)
 		{
 			Logging.errorPrint("Illegal bonus format: " + bonusString);
 
 			return null;
 		}
 
-		String bonusName = aTok.nextToken().toUpperCase();
+		String bonusName = aTok.nextToken();
 
 		try
 		{
@@ -218,6 +211,10 @@ public class Bonus
 		if (aLevel >= 0)
 		{
 			bonusName = aTok.nextToken().toUpperCase();
+		}
+		else
+		{
+			bonusName = bonusName.toUpperCase();
 		}
 
 
@@ -284,23 +281,21 @@ public class Bonus
 				}
 				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 				{
-					String bonusType = aString.substring(5).toUpperCase();
-					if ( bonusType.indexOf('.') != -1 )
+					String bonusType = aString.substring(5);
+					int dotLoc = bonusType.indexOf('.');
+					if ( dotLoc != -1 )
 					{
-						final String[] splits = bonusType.split("\\.");
-						final String stackingFlag = splits[1];
+						final String stackingFlag = bonusType.substring(dotLoc + 1);
 						// TODO - Need to reset bonusType to exclude this but
 						// there is too much dependancy on it being there
 						// built into the code.
-						if ( stackingFlag.equals("REPLACE") ) //$NON-NLS-1$
+						if ( stackingFlag.startsWith("REPLACE") ) //$NON-NLS-1$
 						{
 							aBonus.setStackingFlag( StackType.REPLACE );
-//							bonusType = splits[0];
 						}
-						else if ( stackingFlag.equals("STACK") ) //$NON-NLS-1$
+						else if ( stackingFlag.startsWith("STACK") ) //$NON-NLS-1$
 						{
 							aBonus.setStackingFlag( StackType.STACK );
-//							bonusType = splits[0];
 						}
 					}
 					final boolean result = aBonus.addType(bonusType);
@@ -369,83 +364,6 @@ public class Bonus
 			// Do nothing
 		}
 		return null;
-	}
-
-	private static void makeObjectList()
-	{
-		if (!objectListInitialized)
-		{
-			objectListInitialized = true;			// for better or worse, we will only do this once
-
-			final String jarNames = getJarName();
-			if (jarNames == null)
-			{
-				Logging.errorPrint("jar name is null");
-				return;
-			}
-
-			// Karianna - Much better fix suggested by Byngl
-			final StringTokenizer jarTok = new StringTokenizer(jarNames, System.getProperty("path.separator"));
-			while(jarTok.hasMoreTokens())
-			{
-				final String jarName = jarTok.nextToken();
-				//
-				// Must be a .jar file or ignore it
-				//
-				if (!jarName.toLowerCase().endsWith(".jar"))
-				{
-					continue;
-				}
-
-				boolean bAdded = false;
-				try
-				{
-					final JarFile jarfile = new JarFile(jarName);
-					for (Enumeration<JarEntry> e = jarfile.entries() ; e.hasMoreElements() ;)
-					{
-						String jarEntry = e.nextElement().toString();
-						if (jarEntry.startsWith("pcgen/core/bonus/") && jarEntry.endsWith(".class"))
-						{
-							jarEntry = jarEntry.substring(17);
-							jarEntry = jarEntry.substring(0, jarEntry.length() - 6);
-
-							try
-							{
-								final Class jarClass = Class.forName(
-										new StringBuffer().append(Bonus.class
-												.getPackage().getName())
-												.append('.')
-												.append(jarEntry).toString());
-								bAdded = addBonusClass(jarClass, jarEntry);
-							}
-							catch (Exception exc)
-							{
-								// TODO Handle Exception
-							}
-						}
-					}
-				}
-				catch (ZipException ze)
-				{
-					Logging.errorPrint("Jar file '" + jarName
-						+ "' could not be loaded because: " + ze.getMessage());
-				}
-				catch (Exception exc)
-				{
-					Logging.errorPrint("Failed to load jar file '" + jarName
-						+ "' due to:", exc);
-				}
-
-				//
-				// Stop looking after we've found a file with the desired classes
-				// XXX: do we really want to do this, or would it be better to allow multiple .jar files to define bonus entities?
-				//
-				if (bAdded)
-				{
-					break;
-				}
-			}
-		}
 	}
 
 	/**

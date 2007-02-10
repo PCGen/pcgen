@@ -36,9 +36,9 @@ public class OptionToken implements CampaignLstToken
 		{
 			String optName = value.substring(0, equalsPos);
 
-			if (optName.toLowerCase().startsWith("pcgen.options."))
+			if (optName.regionMatches(true, 0, "pcgen.options.", 0, 14))
 			{
-				optName = optName.substring("pcgen.options.".length());
+				optName = optName.substring(14);
 			}
 
 			final String optValue = value.substring(equalsPos + 1);

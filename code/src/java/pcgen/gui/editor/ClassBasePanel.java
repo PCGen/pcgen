@@ -153,29 +153,25 @@ class ClassBasePanel extends BasePanel
 		{
 			final PCClass obj = (PCClass) e.next();
 
-			for (int i = obj.getMyTypeCount(); i > 0;)
+			for (String type : obj.getTypeList(false))
 			{
-				aString = obj.getMyType(--i);
-
-				if (!aString.equals(Constants.s_CUSTOM))
+				if (!type.equals(Constants.s_CUSTOM))
 				{
-					if (!availableList.contains(aString))
+					if (!availableList.contains(type))
 					{
-						availableList.add(aString);
+						availableList.add(type);
 					}
 				}
 			}
 		}
 
 		// remove this class's type from the available list and place into selected list
-		for (int i = thisPObject.getMyTypeCount(); i > 0;)
+		for (String type : thisPObject.getTypeList(false))
 		{
-			aString = thisPObject.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

@@ -65,7 +65,7 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 			prereq.setKind("basesize");
 
 			// Get the comparator type BASESIZEGTEQ, BASESIZE, BASESIZENEQ etc.
-			String compType = kind.substring(8).toLowerCase();
+			String compType = kind.substring(8);
 			if (compType.length() == 0)
 			{
 				compType = "gteq";

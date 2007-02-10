@@ -559,8 +559,8 @@ public final class Equipment extends PObject implements Serializable,
 		return isRanged() && !isThrown();
 	}
 
-	boolean isTypeHidden(final int idx) {
-		return Globals.isEquipmentTypeHidden(getMyType(idx));
+	boolean isTypeHidden(final String type) {
+		return Globals.isEquipmentTypeHidden(type);
 	}
 
 	protected List<String> getMyTypeList() {
@@ -5211,7 +5211,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<String> calculatedTypeList;
 
 		if (bPrimary || (getAltTypeCount() == 0)) {
-			calculatedTypeList = getSafeListFor(ListKey.TYPE);
+			calculatedTypeList = new ArrayList<String>(getTypeList(false));
 		} else {
 			if (!isDouble()) {
 				return new ArrayList<String>();

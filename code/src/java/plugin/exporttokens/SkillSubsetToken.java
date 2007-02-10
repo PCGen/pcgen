@@ -108,7 +108,8 @@ public class SkillSubsetToken extends SkillToken
 		}
 
 		// Build the list of matching skills
-		String skillPrefix = details.getProperties()[0].toUpperCase();
+		String skillPrefix = details.getProperties()[0];
+		int prefixLength = skillPrefix.length();
 		List<Skill> skillSubset = new ArrayList<Skill>();
 		final List<Skill> skills =
 				pc.getSkillListInOutputOrder(pc
@@ -116,7 +117,7 @@ public class SkillSubsetToken extends SkillToken
 
 		for (Skill bSkill : skills)
 		{
-			if (bSkill.getKeyName().toUpperCase().startsWith(skillPrefix))
+			if (skillPrefix.regionMatches(true, 0, bSkill.getKeyName(), 0, prefixLength))
 			{
 				skillSubset.add(bSkill);
 			}

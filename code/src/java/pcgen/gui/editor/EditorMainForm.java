@@ -2115,7 +2115,7 @@ public final class EditorMainForm extends JDialog
 				addVariables(availableVariableList, Globals.getUnmodifiableAbilityList("FEAT")); //TODO this list is a list of Ability objects, unfortunately in a List<? extends Categorisable>. Don't know how to typesafe this. JK070101 
 				addVariables(availableVariableList, Globals.getAllRaces());
 				addVariables(availableVariableList, Globals.getSkillList());
-				addVariables(availableVariableList, EquipmentList.getModifierList());
+				addVariables(availableVariableList, EquipmentList.getModifierCollection());
 				addVariables(availableVariableList, Globals.getTemplateList());
 				addVariables(availableVariableList, Globals.getAllCompanionMods());
 				Collections.sort(availableVariableList);
@@ -2240,9 +2240,9 @@ public final class EditorMainForm extends JDialog
 					availableClassCrossClassList.add(aString);
 				}
 
-				for (int i = 0, x = aSkill.getMyTypeCount(); i < x; ++i)
+				for (String type : aSkill.getTypeList(false))
 				{
-					aString = "TYPE." + aSkill.getMyType(i);
+					aString = "TYPE." + type;
 
 					if (!availableClassCrossClassList.contains(aString))
 					{

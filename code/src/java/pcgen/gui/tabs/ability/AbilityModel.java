@@ -37,6 +37,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.utils.CoreUtility;
 import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
@@ -260,7 +261,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 			case TYPE:
 				if (ability != null)
 				{
-					retVal = ability.getTypeUsingFlag(true);
+					retVal = CoreUtility.join(ability.getTypeList(true), '.');
 				}
 				break;
 			case COST:

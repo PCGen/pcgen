@@ -114,7 +114,7 @@ public class BaseMovementToken extends Token
 			//Display Movement Measurement type?
 			if (aTok.hasMoreElements())
 			{
-				flag = "TRUE".equals((aTok.nextToken()).toUpperCase());
+				flag = "TRUE".equalsIgnoreCase(aTok.nextToken());
 			}
 			retString = getBaseMovementToken(pc, moveType, load, flag);
 		}
@@ -134,8 +134,7 @@ public class BaseMovementToken extends Token
 	{
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
-			if (pc.getMovementType(i).toUpperCase().equals(
-				moveType.toUpperCase()))
+			if (pc.getMovementType(i).equalsIgnoreCase(moveType))
 			{
 				if (displayFlag)
 				{

@@ -78,15 +78,13 @@ final class EditUtil
 	{
 		String aString;
 
-		for (int i = pobj.getMyTypeCount(); i > 0;)
+		for (String type : pobj.getTypeList(false))
 		{
-			aString = pobj.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				if (!l.contains(aString))
+				if (!l.contains(type))
 				{
-					l.add(aString);
+					l.add(type);
 				}
 			}
 		}

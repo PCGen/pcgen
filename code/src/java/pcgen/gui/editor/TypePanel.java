@@ -108,11 +108,11 @@ class TypePanel extends AvailableSelectedPanel
 
 	private void btnNewTypeActionPerformed()
 	{
-		final String aString = txtNewType.getText().trim().toUpperCase();
+		final String aString = txtNewType.getText().trim();
 
 		if (aString.length() != 0)
 		{
-			addItemToSelected(aString);
+			addItemToSelected(aString.toUpperCase());
 		}
 	}
 }

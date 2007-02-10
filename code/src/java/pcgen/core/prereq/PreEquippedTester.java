@@ -76,7 +76,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 				}
 				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
 				{
-					StringTokenizer tok = new StringTokenizer(aString.substring(5).toUpperCase(), ".");
+					StringTokenizer tok = new StringTokenizer(aString.substring(5), ".");
 					boolean match = false;
 					if (tok.hasMoreTokens())
 					{
@@ -102,14 +102,13 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 				}
 				else	 //not a TYPE string
 				{
-					final String eqName = eq.getName().toUpperCase();
+					final String eqName = eq.getName();
 					if (aString.indexOf('%') >= 0)
 					{
 						//handle wildcards (always assume they
 						// end the line)
 						final int percentPos = aString.indexOf('%');
-						final String substring = aString.substring(0, percentPos).toUpperCase();
-						if ((eqName.startsWith(substring)))
+						if (eqName.regionMatches(true, 0, aString, 0, percentPos))
 						{
 							isEquipped = true;
 							break;

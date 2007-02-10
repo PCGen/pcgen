@@ -21,7 +21,6 @@
 package pcgen.gui;
 
 import pcgen.gui.utils.IconUtilitities;
-import pcgen.gui.utils.Utility;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -33,7 +32,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 import java.net.URL;

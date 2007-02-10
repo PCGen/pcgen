@@ -47,6 +47,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -186,7 +187,7 @@ final class KitSelector extends JFrame
 		}
 	}
 
-	private void addSelections(JList lst, List<Kit> kits, List<Kit> excluded, PlayerCharacter aPlayerCharacter)
+	private void addSelections(JList lst, Collection<Kit> kits, List<Kit> excluded, PlayerCharacter aPlayerCharacter)
 	{
 		if ((kits == null) || (kits.size() == 0))
 		{
@@ -253,7 +254,7 @@ final class KitSelector extends JFrame
 		scpSelected.setViewportView(lstSelected);
 
 		final List<Kit> pcKitInfo = aPC.getKitInfo();
-		addSelections(lstAvailable, Globals.getKitInfo(), pcKitInfo, aPC);
+		addSelections(lstAvailable, Globals.getKitInfo().values(), pcKitInfo, aPC);
 		addSelections(lstSelected, pcKitInfo, null, aPC);
 
 		if (lstAvailable.isSelectionEmpty() == false)

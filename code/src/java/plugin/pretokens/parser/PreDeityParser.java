@@ -82,20 +82,24 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 	private void replaceHasDeityPrereqs(Prerequisite prereq)
 	{
 		String key = prereq.getKey();
-		if ("deity".equalsIgnoreCase(prereq.getKind())
-			&& key != null
-			&& (key.equalsIgnoreCase("y") || key.equalsIgnoreCase("n")
-				|| key.equalsIgnoreCase("yes") || key.equalsIgnoreCase("no")))
+		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)
 		{
-			if (key.toLowerCase().startsWith("y"))
-			{
-				prereq.setKey("Y");
+			char firstChar = key.charAt(0);
+			if ((key.length() == 1)
+					&& (firstChar == 'y' || firstChar == 'Y'
+							|| firstChar == 'n' || firstChar == 'N')
+					|| key.equalsIgnoreCase("yes")
+					|| key.equalsIgnoreCase("no")) {
+				if (firstChar == 'y' || firstChar == 'Y')
+				{
+					prereq.setKey("Y");
+				}
+				else
+				{
+					prereq.setKey("N");
+				}
+				prereq.setKind("has.deity");
 			}
-			else
-			{
-				prereq.setKey("N");
-			}
-			prereq.setKind("has.deity");
 		}
 
 		for (Iterator<Prerequisite> iter = prereq.getPrerequisites().iterator(); iter

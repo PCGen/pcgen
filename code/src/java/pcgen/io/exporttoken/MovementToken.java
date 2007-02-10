@@ -78,8 +78,7 @@ public class MovementToken extends Token
 
 		for (int i = 0; i < pc.getNumberOfMovements(); i++)
 		{
-			if (pc.getMovementType(i).toUpperCase().equals(
-				moveType.toUpperCase()))
+			if (pc.getMovementType(i).equalsIgnoreCase(moveType))
 			{
 				retString = getRateToken(pc, i);
 			}

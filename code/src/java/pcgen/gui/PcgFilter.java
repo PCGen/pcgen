@@ -56,13 +56,7 @@ final class PcgFilter extends FileFilter
 			return true;
 		}
 
-		String fileName = f.getName().toUpperCase();
-
-		if (fileName != null)
-		{
-			return fileName.endsWith("PCG");
-		}
-
-		return false;
+		String fileName = f.getName();
+		return fileName.regionMatches(true, fileName.length() - 3, "pcg", 0, 3);
 	}
 }

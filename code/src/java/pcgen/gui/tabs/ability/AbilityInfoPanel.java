@@ -32,6 +32,7 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.utils.CoreUtility;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.util.PropertyFactory;
@@ -120,7 +121,7 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(BOLD);
 		sb.append(PropertyFactory.getString("in_type")).append(':'); //$NON-NLS-1$
 		sb.append(END_BOLD);
-		sb.append(theAbility.getTypeUsingFlag(true));
+		sb.append(CoreUtility.join(theAbility.getTypeList(true), '.'));
 
 		final String costStr = theAbility.getCostString();
 		if (!costStr.equals("1")) //$NON-NLS-1$

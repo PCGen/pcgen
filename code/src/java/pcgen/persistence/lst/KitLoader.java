@@ -43,17 +43,13 @@ import pcgen.util.Logging;
 public final class KitLoader extends LstObjectFileLoader<Kit> {
 	@Override
 	protected void addGlobalObject(PObject pObj) {
-		Globals.getKitInfo().add((Kit) pObj);
+		Kit k = (Kit) pObj;
+		Globals.getKitInfo().put(k.getKeyName(), k);
 	}
 
 	@Override
 	protected Kit getObjectKeyed(String aKey) {
-		for (Kit k : Globals.getKitInfo()) {
-			if (k.getKeyName().equals(aKey)) {
-				return k;
-			}
-		}
-		return null;
+		return Globals.getKitKeyed(aKey);
 	}
 
 	@Override

@@ -63,7 +63,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		prereq.setKind("var");
 
 		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-		String compType = kind.substring(3).toLowerCase();
+		String compType = kind.substring(3);
 		if (compType.length() == 0)
 		{
 			compType = "gteq";

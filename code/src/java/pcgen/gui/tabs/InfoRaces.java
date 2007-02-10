@@ -44,7 +44,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
@@ -1576,17 +1575,11 @@ public class InfoRaces extends BaseCharacterInfoTab
 					{
 						typeList.add(raceType);
 					}
-					final String type = race.getTypeUsingFlag(true);
-					if (type.length() > 0)
+					for (String aType : race.getTypeList(true))
 					{
-						StringTokenizer tok = new StringTokenizer(type, ".");
-						while (tok.hasMoreTokens())
+						if (!typeList.contains(aType))
 						{
-							final String aType = tok.nextToken();
-							if (!typeList.contains(aType))
-							{
-								typeList.add(aType);
-							}
+							typeList.add(aType);
 						}
 					}
 				}
@@ -1610,27 +1603,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 						continue;
 					}
 
-					boolean typeMatch = false;
-					if (race.getRaceType().equals(aType))
-					{
-						typeMatch = true;
-					}
-					if (race.getTypeUsingFlag(true).indexOf(aType) != -1)
-					{
-						StringTokenizer tok =
-								new StringTokenizer(
-									race.getTypeUsingFlag(true), ".");
-						while (tok.hasMoreTokens())
-						{
-							final String type = tok.nextToken();
-							if (aType.equals(type))
-							{
-								typeMatch = true;
-							}
-						}
-
-					}
-					if (typeMatch == false)
+					if (!race.getRaceType().equals(aType) && !race.isType(aType))
 					{
 						continue;
 					}

@@ -244,7 +244,7 @@ final class EqBuilder extends JPanel
 		//
 		if ((aEq.getEqModifierList(true).size() == 0) && (aEq.getEqModifierList(false).size() == 0))
 		{
-			for (EquipmentModifier eqMod : EquipmentList.getModifierList())
+			for (EquipmentModifier eqMod : EquipmentList.getModifierCollection())
 			{
 				if (!eqMod.getDisplayName().startsWith("EXCLUDEEQ"))
 				{
@@ -2206,7 +2206,7 @@ final class EqBuilder extends JPanel
 				fireTableRowsDeleted(0, currentRowCount - 1);
 			}
 
-			for (EquipmentModifier aEqMod : EquipmentList.getModifierList())
+			for (EquipmentModifier aEqMod : EquipmentList.getModifierCollection())
 			{
 				if (anEq.isVisible(aEqMod))
 				{

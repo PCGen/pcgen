@@ -463,29 +463,25 @@ public class RaceBasePanel extends BasePanel
 
 		for ( final Race race : Globals.getAllRaces() )
 		{
-			for (int i = race.getMyTypeCount(); i > 0;)
+			for (String type : race.getTypeList(false))
 			{
-				aString = race.getMyType(--i);
-
-				if (!aString.equals(Constants.s_CUSTOM))
+				if (!type.equals(Constants.s_CUSTOM))
 				{
-					if (!availableList.contains(aString))
+					if (!availableList.contains(type))
 					{
-						availableList.add(aString);
+						availableList.add(type);
 					}
 				}
 			}
 		}
 
 		// remove this race's type from the available list and place into selected list
-		for (int i = thisRace.getMyTypeCount(); i > 0;)
+		for (String type : thisRace.getTypeList(false))
 		{
-			aString = thisRace.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

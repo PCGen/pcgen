@@ -28,8 +28,10 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import pcgen.core.character.EquipSlot;
 import pcgen.core.system.LoadInfo;
@@ -76,9 +78,9 @@ public class SystemCollections
 	private static final Map<String, List<String>> locationMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<PaperInfo>> paperInfoMap = new HashMap<String, List<PaperInfo>>();
 	private static final Map<String, List<String>> phobiaMap = new HashMap<String, List<String>>();
-	private static final Map<String, List<String>> phraseMap = new HashMap<String, List<String>>();
+	private static final Map<String, Set<String>> phraseMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<String>> speechMap = new HashMap<String, List<String>>();
-	private static final Map<String, List<String>> traitMap = new HashMap<String, List<String>>();
+	private static final Map<String, Set<String>> traitMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<EquipSlot>> equipSlotMap = new HashMap<String, List<EquipSlot>>();
 	private static final Map<String, LoadInfo> loadInfoMap = new HashMap<String, LoadInfo>();
 	private static final Map<String, Map<String, UnitSet>> unitSetMap = new HashMap<String, Map<String, UnitSet>>();
@@ -274,16 +276,16 @@ public class SystemCollections
 	 */
 	public static List<String> getUnmodifiablePhraseList()
 	{
-		List<String> phraseList = phraseMap.get(SettingsHandler.getGame().getName());
-		if (phraseList == null)
+		Set<String> phraseSet = phraseMap.get(SettingsHandler.getGame().getName());
+		if (phraseSet == null)
 		{
-			phraseList = phraseMap.get("*");
+			phraseSet = phraseMap.get("*");
 		}
-		if (phraseList == null)
+		if (phraseSet == null)
 		{
-			phraseList = Collections.emptyList();
+			return Collections.emptyList();
 		}
-		return Collections.unmodifiableList(phraseList);
+		return new ArrayList<String>(phraseSet);
 	}
 
 	/**
@@ -311,16 +313,16 @@ public class SystemCollections
 	 */
 	public static List<String> getUnmodifiableTraitList()
 	{
-		List<String> traitList = traitMap.get(SettingsHandler.getGame().getName());
+		Set<String> traitList = traitMap.get(SettingsHandler.getGame().getName());
 		if (traitList == null)
 		{
 			traitList = traitMap.get("*");
 		}
 		if (traitList == null)
 		{
-			traitList = Collections.emptyList();
+			return Collections.emptyList();
 		}
-		return Collections.unmodifiableList(traitList);
+		return new ArrayList<String>(traitList);
 	}
 
 	//BirthplaceList
@@ -626,16 +628,13 @@ public class SystemCollections
 	 */
 	public static void addToPhraseList(final String phrase, final String gameMode)
 	{
-		List<String> phraseList = phraseMap.get(gameMode);
+		Set<String> phraseList = phraseMap.get(gameMode);
 		if (phraseList == null)
 		{
-			phraseList = new ArrayList<String>();
+			phraseList = new HashSet<String>();
 			phraseMap.put(gameMode, phraseList);
 		}
-		if (!phraseList.contains(phrase))
-		{
-			phraseList.add(phrase);
-		}
+		phraseList.add(phrase);
 	}
 
 	//SPEECHLIST
@@ -669,17 +668,13 @@ public class SystemCollections
 	 */
 	public static void addToTraitList(final String trait, final String gameMode)
 	{
-		List<String> traitList = traitMap.get(gameMode);
+		Set<String> traitList = traitMap.get(gameMode);
 		if (traitList == null)
 		{
-			traitList = new ArrayList<String>();
+			traitList = new HashSet<String>();
 			traitMap.put(gameMode, traitList);
 		}
-		if (!traitList.contains(trait))
-		{
-			traitList.add(trait);
-		}
-
+		traitList.add(trait);
 	}
 
 	/**

@@ -40,10 +40,9 @@ public enum View
 	 */
 	public static View getViewFromName(String name)
 	{
-		final String viewName = name.toUpperCase();
 		for (View view : View.values())
 		{
-			if (view.text.equals(viewName))
+			if (view.text.equalsIgnoreCase(name))
 			{
 				return view;
 			}

@@ -411,7 +411,6 @@ public class TemplateBasePanel extends BasePanel
 
 	public void updateView(PObject thisPObject)
 	{
-		String aString;
 		PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
 
 		//
@@ -422,15 +421,13 @@ public class TemplateBasePanel extends BasePanel
 
 		for (PCTemplate aTemplate :Globals.getTemplateList())
 		{
-			for (int i = aTemplate.getMyTypeCount(); i > 0;)
+			for (String type : aTemplate.getTypeList(false))
 			{
-				aString = aTemplate.getMyType(--i);
-
-				if (!aString.equals(Constants.s_CUSTOM))
+				if (!type.equals(Constants.s_CUSTOM))
 				{
-					if (!availableList.contains(aString))
+					if (!availableList.contains(type))
 					{
-						availableList.add(aString);
+						availableList.add(type);
 					}
 				}
 			}
@@ -439,14 +436,12 @@ public class TemplateBasePanel extends BasePanel
 		//
 		// remove this template's type from the available list and place into selected list
 		//
-		for (int i = thisPCTemplate.getMyTypeCount(); i > 0;)
+		for (String type : thisPCTemplate.getTypeList(false))
 		{
-			aString = thisPCTemplate.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

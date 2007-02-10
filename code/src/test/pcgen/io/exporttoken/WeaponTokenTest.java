@@ -283,7 +283,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.setPlus("1");
 		eqMod.setItemType("Enhancement.Magic.Plus1");
 		eqMod.addBonusList("WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		EquipmentList.getModifierList().add(eqMod);
+		EquipmentList.addEquipmentModifier(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 2 Enhancement");
 		eqMod.setKeyName("PLUS2W");
@@ -291,14 +291,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.setPlus("2");
 		eqMod.setItemType("Enhancement.Magic.Plus2");
 		eqMod.addBonusList("WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
-		EquipmentList.getModifierList().add(eqMod);
+		EquipmentList.addEquipmentModifier(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Masterwork");
 		eqMod.setKeyName("MWORKW");
 		eqMod.setTypeInfo("Ammunition.Weapon");
 		eqMod.setItemType("Masterwork");
 		eqMod.addBonusList("WEAPON|TOHIT|1|TYPE=Enhancement");
-		EquipmentList.getModifierList().add(eqMod);
+		EquipmentList.addEquipmentModifier(eqMod);
 	}
 
 	/*

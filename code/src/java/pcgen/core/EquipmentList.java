@@ -47,11 +47,9 @@ import pcgen.util.Logging;
  */
 public class EquipmentList {
 
-	private static final int MODIFIERLISTSIZE = 230;
-
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;
-	private static List<EquipmentModifier> modifierList = new ArrayList<EquipmentModifier>(MODIFIERLISTSIZE);
+	private static TreeMap<String, EquipmentModifier> modifierList = new TreeMap<String, EquipmentModifier>();
 	private static TreeMap<String, Equipment> equipmentNameMap = new TreeMap<String, Equipment>();
 	private static TreeMap<String, Equipment> equipmentKeyMap = new TreeMap<String, Equipment>();
 
@@ -74,22 +72,30 @@ public class EquipmentList {
 	 * Empty the modifier list.
 	 */
 	protected static void clearModifierList() {
-		modifierList = new ArrayList<EquipmentModifier>(MODIFIERLISTSIZE);
+		modifierList.clear();
 	}
 
 	private static boolean isAutoGeneration() {
 		return autoGeneration;
 	}
 
+	public static void addEquipmentModifier(EquipmentModifier eqm)
+	{
+		modifierList.put(eqm.getKeyName(), eqm);
+	}
 
+	public static void removeEquipmentModifier(EquipmentModifier eqm)
+	{
+		modifierList.remove(eqm.getKeyName());
+	}
 
 	/**
 	 * Return the modifier list.
 	 *
 	 * @return the list
 	 */
-	public static List<EquipmentModifier> getModifierList() {
-		return modifierList;
+	public static Collection<EquipmentModifier> getModifierCollection() {
+		return modifierList.values();
 	}
 
 	/**
@@ -504,7 +510,7 @@ public class EquipmentList {
 	 * @return the Equipment object
 	 */
 	public static EquipmentModifier getModifierKeyed(final String aKey) {
-		return Globals.searchPObjectList(getModifierList(), aKey);
+		return modifierList.get(aKey);
 	}
 
 	/**
@@ -726,9 +732,8 @@ public class EquipmentList {
 	}
 
 	static EquipmentModifier getQualifiedModifierNamed(final String aName, final List<String> aType) {
-		for (Iterator<EquipmentModifier> e = getModifierList().iterator(); e.hasNext();) {
-			final EquipmentModifier aEqMod = e.next();
-
+		for (EquipmentModifier aEqMod : getModifierCollection())
+		{
 			if (aEqMod.getDisplayName().equals(aName)) {
 				if (aEqMod.isType("All")) { return aEqMod; }
 
@@ -744,7 +749,7 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getModifierNamed(final String aName) {
-		for ( EquipmentModifier eqMod : getModifierList() )
+		for (EquipmentModifier eqMod : getModifierCollection())
 		{
 			if (eqMod.getDisplayName().equals(aName)) { return eqMod; }
 		}
@@ -753,7 +758,7 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq) {
-		for ( EquipmentModifier eqMod : getModifierList() )
+		for (EquipmentModifier eqMod : getModifierCollection())
 		{
 			if (eqMod.getDisplayName().startsWith(aName)) {
 				for (String t : eq.typeList() )

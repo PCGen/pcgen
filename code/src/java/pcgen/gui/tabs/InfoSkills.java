@@ -2165,7 +2165,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 								getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
 			}
 			b
-				.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(aSkill.getTypeUsingFlag(true)); //$NON-NLS-1$
+				.append(PropertyFactory.getString("in_iskHtml_TYPE")).append(CoreUtility.join(aSkill.getTypeList(true), '.')); //$NON-NLS-1$
 			//			String aString = aSkill.getKeyStat();
 			String aString = aSkill.getKeyStatFromStats();
 			if (aString.length() != 0)

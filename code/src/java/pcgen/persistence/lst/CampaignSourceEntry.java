@@ -58,6 +58,7 @@ public class CampaignSourceEntry
 	private List<String> excludeItems = new ArrayList<String>();
 	private List<String> includeItems = new ArrayList<String>();
 	private URI uri = null;
+	private URIFactory uriFac = null;
 	private String stringForm = null;
 
 	/**
@@ -82,7 +83,35 @@ public class CampaignSourceEntry
 		this.campaign = campaign;
 		this.uri = lstLoc;
 	}
+	
+	public CampaignSourceEntry(Campaign campaign, URIFactory fac) {
+		super();
+		if (campaign == null)
+		{
+			throw new IllegalArgumentException("campaign can't be null");
+		}
+		if (fac == null)
+		{
+			throw new IllegalArgumentException("URI Factory can't be null");
+		}
+		this.campaign = campaign;
+		this.uriFac = fac;
+	}
 
+	public static class URIFactory {
+		private final URI u;
+		private final String s;
+		
+		public URIFactory(URI source, String value) {
+			u = source;
+			s = value;
+		}
+		
+		public URI getURI() {
+			return getPathURI(u, s);
+		}
+	}
+	
 	/**
 	 * This method gets the Campaign that was the source of the
 	 * file. (I.e. the reason it was loaded)
@@ -110,6 +139,10 @@ public class CampaignSourceEntry
 	 */
 	public URI getURI()
 	{
+		if (uri == null) {
+			uri = uriFac.getURI();
+			uriFac = null;
+		}
 		return uri;
 	}
 	
@@ -136,7 +169,7 @@ public class CampaignSourceEntry
 			return -1;
 		}
 
-		return this.uri.compareTo(arg0.uri);
+		return this.getURI().compareTo(arg0.getURI());
 	}
 
 	/**
@@ -152,7 +185,7 @@ public class CampaignSourceEntry
 			return false;
 		}
 
-		return uri.equals(((CampaignSourceEntry)arg0).uri);
+		return getURI().equals(((CampaignSourceEntry)arg0).getURI());
 	}
 
 	/**
@@ -161,7 +194,7 @@ public class CampaignSourceEntry
 	@Override
 	public int hashCode()
 	{
-		return this.uri.hashCode();
+		return this.getURI().hashCode();
 	}
 
 	/**
@@ -176,7 +209,7 @@ public class CampaignSourceEntry
 			sBuff.append("Campaign: ");
 			sBuff.append(campaign.getDisplayName());
 			sBuff.append("; SourceFile: ");
-			sBuff.append(uri);
+			sBuff.append(getURI());
 
 			stringForm = sBuff.toString();
 		}
@@ -201,16 +234,6 @@ public class CampaignSourceEntry
 			return FAILED_URI;
 		}
 
-		try {
-			// if it's a URL, then we are all done, just return a URI
-			URL url = new URL(basePath);
-			return new URI(url.getProtocol(), null, url.getPath(), null);
-		} catch (URISyntaxException e) {
-			//Something broke, so wasn't a URL
-		} catch (MalformedURLException e) {
-			//Protocol was unknown, so wasn't a URL
-		}
-		
 		/*
 		 * Figure out where the PCC file came from that we're processing, so
 		 * that we can prepend its path onto any LST file references (or PCC
@@ -249,19 +272,27 @@ public class CampaignSourceEntry
 			return new File(SettingsHandler.getPccFilesLocation(), path)
 					.toURI();
 		} else {
+			if (basePath.indexOf(':') > 0) {
+				try {
+					// if it's a URL, then we are all done, just return a URI
+					URL url = new URL(basePath);
+					return new URI(url.getProtocol(), null, url.getPath(), null);
+				} catch (URISyntaxException e) {
+					//Something broke, so wasn't a URL
+				} catch (MalformedURLException e) {
+					//Protocol was unknown, so wasn't a URL
+				}
+			}
+			
 			String path = pccPath.getPath();
 			// URLs always use forward slash; take off the file name
-			path = path.substring(0, path.lastIndexOf("/")) + '/' + basePath;
-			String finalURL = pccPath.getScheme() + ':' + path;
 			try {
-				URL url = new URL(finalURL);
-				return new URI(url.getProtocol(), null, url.getPath(), null);
+				return new URI(pccPath.getScheme(), null, (path.substring(0,
+						path.lastIndexOf('/') + 1) + basePath), null);
 			} catch (URISyntaxException e) {
-				Logging.errorPrint("GPURI failed to convert " + finalURL
-						+ " to a URI: " + e.getLocalizedMessage());
-			} catch (MalformedURLException e) {
-				Logging.errorPrint("GPURI failed to convert " + finalURL
-						+ " to a URL: " + e.getLocalizedMessage());
+				Logging.errorPrint("GPURI failed to convert "
+						+ path.substring(0, path.lastIndexOf('/') + 1)
+						+ basePath + " to a URI: " + e.getLocalizedMessage());
 			}
 		}
 		return FAILED_URI;
@@ -294,10 +325,10 @@ public class CampaignSourceEntry
 		CampaignSourceEntry cse;
 		
 		if (pipePos == -1) {
-			cse = new CampaignSourceEntry(campaign2, getPathURI(sourceUri,
+			cse = new CampaignSourceEntry(campaign2, new URIFactory(sourceUri,
 					value));
 		} else {
-			cse = new CampaignSourceEntry(campaign2, getPathURI(sourceUri,
+			cse = new CampaignSourceEntry(campaign2, new URIFactory(sourceUri,
 					value.substring(0, pipePos)));
 			
 			// Get the include/exclude item string

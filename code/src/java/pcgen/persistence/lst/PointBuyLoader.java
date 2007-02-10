@@ -148,7 +148,7 @@ public class PointBuyLoader extends LstLineFileLoader
 			else if (PreParserFactory.isPreReqString(colString)
 				|| colString.startsWith("RESTRICT:"))
 			{
-				if (colString.toUpperCase().equals("PRE:.CLEAR"))
+				if (colString.equalsIgnoreCase("PRE:.CLEAR"))
 				{
 					pbc.clearPreReq();
 				}

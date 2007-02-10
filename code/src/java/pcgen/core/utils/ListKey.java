@@ -130,8 +130,6 @@ public final class ListKey<T> {
 	public static final ListKey<String> TEMPLATES_ADDED = new ListKey<String>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
-	/** TYPE - a ListKey */
-	public static final ListKey<String> TYPE = new ListKey<String>();
 	/** UDAM - a ListKey */
 	public static final ListKey<String> UDAM = new ListKey<String>();
 	/** UMULT - a ListKey */

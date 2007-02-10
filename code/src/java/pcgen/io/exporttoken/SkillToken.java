@@ -250,11 +250,11 @@ public class SkillToken extends Token
 		{
 			cmp = SKILL_EXCLUSIVE;
 		}
-		else if (property.toUpperCase().startsWith("UNTRAINED"))
+		else if (property.regionMatches(true, 0, "UNTRAINED", 0, 9))
 		{
 			cmp = SKILL_UNTRAINED_EXTENDED;
 		}
-		else if (property.toUpperCase().startsWith("ACP"))
+		else if (property.regionMatches(true, 0, "ACP", 0, 3))
 		{
 			cmp = SKILL_ACP;
 		}
@@ -266,7 +266,7 @@ public class SkillToken extends Token
 		{
 			cmp = SKILL_TRAINED_TOTAL;
 		}
-		else if (property.toUpperCase().startsWith("EXPLAIN"))
+		else if (property.regionMatches(true, 0, "EXPLAIN", 0, 7))
 		{
 			cmp = SKILL_EXPLANATION;
 		}

@@ -98,7 +98,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork.setTypeInfo("Armor.Shield");
 		masterwork.setItemType("Masterwork");
 		masterwork.addBonusList("EQMARMOR|ACCHECK|1|TYPE=Enhancement");
-		EquipmentList.getModifierList().add(masterwork);
+		EquipmentList.addEquipmentModifier(masterwork);
 
 		plus1 = new EquipmentModifier();
 		plus1.setName("Plus 1 Enhancement");
@@ -107,7 +107,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1.setPlus("1");
 		plus1.setItemType("Enhancement.Magic.Plus1");
 		plus1.addBonusList("COMBAT|AC|1|TYPE=Armor.REPLACE");
-		EquipmentList.getModifierList().add(plus1);
+		EquipmentList.addEquipmentModifier(plus1);
 
 		// Load AC definitions - but only once
 		final GameMode gamemode = SettingsHandler.getGame();
@@ -125,8 +125,8 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 */
 	protected void tearDown() throws Exception
 	{
-		EquipmentList.getModifierList().remove(masterwork);
-		EquipmentList.getModifierList().remove(plus1);
+		EquipmentList.removeEquipmentModifier(masterwork);
+		EquipmentList.removeEquipmentModifier(plus1);
 		masterwork = null;
 		plus1 = null;
 

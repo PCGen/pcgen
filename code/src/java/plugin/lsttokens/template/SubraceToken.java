@@ -2,6 +2,7 @@ package plugin.lsttokens.template;
 
 import pcgen.core.PCTemplate;
 import pcgen.persistence.lst.PCTemplateLstToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with SUBRACE Token
@@ -17,10 +18,23 @@ public class SubraceToken implements PCTemplateLstToken
 	public boolean parse(PCTemplate template, String value)
 	{
 		String subrace = value;
-		//CONSIDER This prohibits any SubRace that starts with Y ... too general? - thpr 10/27/06
-		if (value.toUpperCase().startsWith("Y"))
+		char firstChar = value.charAt(0);
+		if (firstChar == 'y' || firstChar =='Y')
 		{
-			subrace = template.getDisplayName();
+			if (value.equalsIgnoreCase("YES"))
+			{
+				subrace = template.getDisplayName();
+			}
+			else 
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName());
+				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+			}
+		}
+		else if (value.equalsIgnoreCase("NO"))
+		{
+			Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName());
+			Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
 		}
 
 		template.setSubRace(subrace);

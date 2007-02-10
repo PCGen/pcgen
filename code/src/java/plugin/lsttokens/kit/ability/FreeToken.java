@@ -27,6 +27,7 @@ package plugin.lsttokens.kit.ability;
 
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.lst.KitAbilityLstToken;
+import pcgen.util.Logging;
 
 /**
  * FREE Token for KitAbility
@@ -45,7 +46,28 @@ public class FreeToken implements KitAbilityLstToken
 
 	public boolean parse(KitAbilities kitAbility, String value)
 	{
-		kitAbility.setFree(value.toUpperCase().startsWith("Y"));
+		boolean set;
+		char firstChar = value.charAt(0);
+		if (firstChar == 'y' || firstChar =='Y')
+		{
+			if (!value.equalsIgnoreCase("YES"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the " + getTokenName());
+				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+			}
+			set = true;
+		}
+		else 
+		{
+			if (value.equalsIgnoreCase("NO"))
+			{
+				Logging.errorPrint("You should use 'YES' or 'NO' as the "
+						+ getTokenName());
+				Logging.errorPrint("Abbreviations will fail after PCGen 5.12");
+			}
+			set = false;
+		}
+		kitAbility.setFree(set);
 		return true;
 	}
 }

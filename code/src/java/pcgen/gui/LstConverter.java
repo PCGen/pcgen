@@ -25,6 +25,7 @@
  */
 package pcgen.gui;
 
+import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -290,10 +291,11 @@ final class LstConverter extends JFrame
 							continue;
 						}
 
+						List<PObject> checkList = SettingsHandler.getGame().getUnmodifiableCheckList();
 						if (bString.startsWith("PREFORT:"))
 						{
 							conversionWriter.write("PRECHECK:1,"
-								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase() + "="
+								+ checkList.get(0).toString().toUpperCase() + "="
 								+ bString.substring(8));
 
 							continue;
@@ -301,7 +303,7 @@ final class LstConverter extends JFrame
 						else if (bString.startsWith("PREREFLEX:"))
 						{
 							conversionWriter.write("PRECHECK:1,"
-								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase() + "="
+								+ checkList.get(1).toString().toUpperCase() + "="
 								+ bString.substring(10));
 
 							continue;
@@ -309,7 +311,7 @@ final class LstConverter extends JFrame
 						else if (bString.startsWith("PREWILL:"))
 						{
 							conversionWriter.write("PRECHECK:1,"
-								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase() + "="
+								+ checkList.get(2).toString().toUpperCase() + "="
 								+ bString.substring(8));
 
 							continue;
@@ -317,7 +319,7 @@ final class LstConverter extends JFrame
 						else if (bString.startsWith("PREFORTBASE:"))
 						{
 							conversionWriter.write("PRECHECKBASE:1,"
-								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase() + "="
+								+ checkList.get(0).toString().toUpperCase() + "="
 								+ bString.substring(12));
 
 							continue;
@@ -325,7 +327,7 @@ final class LstConverter extends JFrame
 						else if (bString.startsWith("PREREFLEXBASE:"))
 						{
 							conversionWriter.write("PRECHECKBASE:1,"
-								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase() + "="
+								+ checkList.get(1).toString().toUpperCase() + "="
 								+ bString.substring(14));
 
 							continue;
@@ -333,7 +335,7 @@ final class LstConverter extends JFrame
 						else if (bString.startsWith("PREWILLBASE:"))
 						{
 							conversionWriter.write("PRECHECKBASE:1,"
-								+ SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase() + "="
+								+ checkList.get(2).toString().toUpperCase() + "="
 								+ bString.substring(12));
 
 							continue;
@@ -506,7 +508,7 @@ final class LstConverter extends JFrame
 
 									bString = getFormulaFor(1, bString);
 									bString = "BONUS:CHECKS|BASE."
-										+ SettingsHandler.getGame().getUnmodifiableCheckList().get(0).toString().toUpperCase()
+										+ checkList.get(0).toString().toUpperCase()
 										+ "|" + bString;
 								}
 								else if ((field == 10) || (!hasTagless && bString.startsWith("REFLEXCHECK:"))
@@ -525,7 +527,7 @@ final class LstConverter extends JFrame
 
 									bString = getFormulaFor(1, bString);
 									bString = "BONUS:CHECKS|BASE."
-										+ SettingsHandler.getGame().getUnmodifiableCheckList().get(1).toString().toUpperCase()
+										+ checkList.get(1).toString().toUpperCase()
 										+ "|" + bString;
 								}
 								else if ((field == 11) || (!hasTagless && bString.startsWith("WILLPOWERCHECK:"))
@@ -544,7 +546,7 @@ final class LstConverter extends JFrame
 
 									bString = getFormulaFor(1, bString);
 									bString = "BONUS:CHECKS|BASE."
-										+ SettingsHandler.getGame().getUnmodifiableCheckList().get(2).toString().toUpperCase()
+										+ checkList.get(2).toString().toUpperCase()
 										+ "|" + bString;
 								}
 

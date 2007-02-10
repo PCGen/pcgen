@@ -319,8 +319,7 @@ public class SpellMemToken extends Token
 							String aTemp = aSpell.getSchool();
 
 							if ((aSpell.getSubschool().length() > 0)
-								&& (!"NONE".equals(aSpell.getSubschool().trim()
-									.toUpperCase())))
+								&& (!"NONE".equalsIgnoreCase(aSpell.getSubschool().trim())))
 							{
 								aTemp += (" (" + aSpell.getSubschool() + ')');
 							}

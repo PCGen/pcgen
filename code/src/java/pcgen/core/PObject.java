@@ -32,7 +32,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -159,6 +161,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	private DoubleKeyMap<Class, String, List<String>> qualifyKeys = null;
 	
 	private URI sourceURI = null;
+	
+	private Set<String> types = new LinkedHashSet<String>();
 	
 	/* ************
 	 * Methods
@@ -1824,7 +1828,10 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		if (i < getMyTypeCount())
 		{
-			return getElementInList(ListKey.TYPE, i);
+			//Yes, this in inefficient... it's done rarely enough it's ok for now
+			//Best performance improvement to offset this would be to make Type
+			// in campaigns NOT order sensitive...
+			return new ArrayList<String>(types).get(i);
 		}
 
 		return null;
@@ -1836,7 +1843,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public int getMyTypeCount()
 	{
-		return getSafeSizeOfListFor(ListKey.TYPE);
+		return types.size();
 	}
 
 	/**
@@ -1862,7 +1869,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public String getType()
 	{
-		return getTypeUsingFlag(false);
+		return CoreUtility.join(getTypeList(false), '.');
 	}
 
 	/**
@@ -1872,52 +1879,23 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * can have hidden types, which are currently Equipment, Feat and
 	 * Skill.
 	 *
-	 * @param idx
 	 * @return false
 	 */
-	boolean isTypeHidden(final int idx)
+	boolean isTypeHidden(final String type)
 	{
 		return false;
 	}
 
-	/**
-	 *
-	 * @param bIgnoreHidden Flag to ignore "hidden" types.
-	 * @return type
-	 */
-	public String getTypeUsingFlag(final boolean bIgnoreHidden)
-	{
-		final int x = getMyTypeCount();
-
-		if (x == 0)
-		{
-			return "";
-		}
-
-		final StringBuffer aType = new StringBuffer(x * 5);
-
-		for (int i = 0; i < x; ++i)
-		{
-			if (bIgnoreHidden && isTypeHidden(i))
-			{
-				continue;
-			}
-				aType.append((i == 0) ? "" : ".").append(getMyType(i));
-			}
-
-		return aType.toString();
-	}
-
 	public List<String> getTypeList(final boolean visibleOnly)
 	{
-		final List<String> ret = getSafeListFor(ListKey.TYPE);
+		final List<String> ret = new ArrayList<String>(types);
 		if (visibleOnly )
 		{
-			for ( int i = getMyTypeCount(); i >= 0; --i )
+			for ( String type : types )
 			{
-				if ( isTypeHidden(i) )
+				if ( isTypeHidden(type) )
 				{
-					ret.remove(i);
+					ret.remove(type);
 				}
 			}
 		}
@@ -1944,7 +1922,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			myType = aType.toUpperCase();
 		}
 
-		return containsInList(ListKey.TYPE, myType);
+		return types.contains(myType);
 	}
 
 	/**
@@ -1977,7 +1955,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			{
 				clearMyType();
 			}
-			else if (!containsInList(ListKey.TYPE, aType))
+			else if (!types.contains(aType))
 			{
 				doGlobalTypeUpdate(aType);
 				addMyType(aType);
@@ -3436,7 +3414,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	void addMyType(final String myType)
 	{
-		listChar.addToListFor(ListKey.TYPE, myType);
+		types.add(myType);
 	}
 
 	/*
@@ -3662,7 +3640,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	protected void clearMyType()
 	{
-		listChar.removeListFor(ListKey.TYPE);
+		types.clear();
 	}
 
 	/**
@@ -3738,7 +3716,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	protected void removeMyType(final String myType)
 	{
-		listChar.removeFromListFor(ListKey.TYPE, myType);
+		types.remove(myType);
 	}
 
 	/**
@@ -5012,7 +4990,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 		return iBonus * iTimes;
 	}
-
+	
 //	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC, final String aBonusType, final String aBonusName)
 //	{
 //		if (!PrereqHandler.passesAll(this.getPreReqList(), aPC, this))

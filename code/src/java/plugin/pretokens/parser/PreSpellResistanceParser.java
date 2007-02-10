@@ -59,7 +59,7 @@ public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser
 			prereq.setKind("sr");
 
 			// Get the comparator type SRGTEQ, SR, SRNEQ etc.
-			String compType = kind.substring(2).toLowerCase();
+			String compType = kind.substring(2);
 
 			if (compType.length() == 0)
 			{

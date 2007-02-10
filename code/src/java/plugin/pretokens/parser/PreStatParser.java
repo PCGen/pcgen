@@ -78,7 +78,7 @@ public class PreStatParser extends AbstractPrerequisiteParser implements
 			prereq.setKind(null); // PREMULT
 
 			// Get the comparator type STATGTEQ, STAT, STATNEQ etc.
-			String compType = kind.substring(4).toLowerCase();
+			String compType = kind.substring(4);
 
 			if (compType.length() == 0)
 			{

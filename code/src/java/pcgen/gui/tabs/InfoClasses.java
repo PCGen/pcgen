@@ -936,12 +936,11 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		for (PCClass aClass : Globals.getClassList())
 		{
-			for (int ii = 0; ii < aClass.getMyTypeCount(); ++ii)
+			for (String type : aClass.getTypeList(false))
 			{
-				final String aString = aClass.getMyType(ii);
-				if (!typeList.contains(aString))
+				if (!typeList.contains(type))
 				{
-					typeList.add(aString);
+					typeList.add(type);
 				}
 
 			}

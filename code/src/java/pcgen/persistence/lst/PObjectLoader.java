@@ -130,7 +130,7 @@ public final class PObjectLoader
 			else if (PreParserFactory.isPreReqString(aTag)
 				|| aTag.startsWith("RESTRICT:"))
 			{
-				if (aTag.toUpperCase().equals("PRE:.CLEAR"))
+				if (aTag.equalsIgnoreCase("PRE:.CLEAR"))
 				{
 					obj.clearPreReq();
 				}

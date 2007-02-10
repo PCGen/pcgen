@@ -293,12 +293,11 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		for (PCTemplate template : Globals.getTemplateList())
 		{
-			for (int ii = 0; ii < template.getMyTypeCount(); ++ii)
+			for (String type : template.getTypeList(false))
 			{
-				final String aString = template.getMyType(ii);
-				if (!typeList.contains(aString))
+				if (!typeList.contains(type))
 				{
-					typeList.add(aString);
+					typeList.add(type);
 				}
 
 			}

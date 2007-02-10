@@ -691,9 +691,9 @@ public final class Ability extends PObject implements HasCost, Categorisable
 		return super.addAddList(aLevel, aString);
 	}
 
-	@Override boolean isTypeHidden(final int idx)
+	@Override boolean isTypeHidden(final String type)
 	{
-		return Globals.isAbilityTypeHidden(getMyType(idx));
+		return Globals.isAbilityTypeHidden(type);
 	}
 
 	/**

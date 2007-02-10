@@ -65,7 +65,7 @@ public class PreHandsParser extends AbstractPrerequisiteParser implements
 			prereq.setKind("hands");
 
 			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
-			String compType = kind.substring(5).toLowerCase();
+			String compType = kind.substring(5);
 			if (compType.length() == 0)
 			{
 				compType = "gteq";

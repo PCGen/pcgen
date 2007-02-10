@@ -54,16 +54,16 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		String requiredSkillKey = prereq.getKey().toUpperCase();
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final boolean isType =
 				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
-			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
+			requiredSkillKey = requiredSkillKey.substring(5);
 		}
-		final String skillKey = requiredSkillKey.toUpperCase();
+		final String skillKey = requiredSkillKey;
 
 		// Now locate all instances of this skillname and test them
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
@@ -78,13 +78,13 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 			{
 				if (percentageSignPosition >= 0)
 				{
-					final int maxCount = aSkill.getMyTypeCount();
-					for (int k = 0; k < maxCount && !foundMatch; k++)
+					for (String type : aSkill.getTypeList(false))
 					{
-						if (aSkill.getMyType(k).startsWith(
+						if (type.startsWith(
 							skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;
+							break;
 						}
 					}
 				}

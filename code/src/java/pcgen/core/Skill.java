@@ -579,7 +579,7 @@ public final class Skill extends PObject
 	 */
     public Iterator<String> getSubtypeIterator()
 	{
-		final Iterator<String> it = getSafeListFor(ListKey.TYPE).iterator();
+		final Iterator<String> it = getTypeList(false).iterator();
 
 		if (it.hasNext())
 		{
@@ -768,7 +768,7 @@ public final class Skill extends PObject
 					"[\\(\\)]");
 				if (choiceParts.length >= 2)
 				{
-					reqType = choiceParts[1].toUpperCase();
+					reqType = choiceParts[1];
 				}
 			}
 
@@ -1097,9 +1097,8 @@ public final class Skill extends PObject
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
 
 		// loop through all current skill types checking for boni
-		for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
+		for (String singleType : getTypeList(false))
 		{
-			final String singleType = getMyType(typesForBonus);
 			bonus += aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
 		}
 
@@ -1115,9 +1114,8 @@ public final class Skill extends PObject
 			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
 
 			//loop through all current skill types checking for boni
-			for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
+			for (String singleType : getTypeList(false))
 			{
-				final String singleType = getMyType(typesForBonus);
 				bonus += aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
 			}
 
@@ -1129,9 +1127,8 @@ public final class Skill extends PObject
 			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
 
 			//loop through all current skill types checking for boni
-			for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
+			for (String singleType : getTypeList(false))
 			{
-				final String singleType = getMyType(typesForBonus);
 				bonus += aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
 			}
 
@@ -1609,9 +1606,8 @@ public final class Skill extends PObject
 		appendBonusDesc(bonusDetails, bonus, "OTHER");
 
 		// loop through all current skill types checking for boni
-		for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
+		for (String singleType : getTypeList(false))
 		{
-			final String singleType = getMyType(typesForBonus);
 			bonus = aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
 			appendBonusDesc(bonusDetails, bonus, "TYPE." + singleType);
 		}
@@ -1631,9 +1627,8 @@ public final class Skill extends PObject
 			appendBonusDesc(bonusDetails, bonus, "CSKILL");
 
 			//loop through all current skill types checking for boni
-			for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
+			for (String singleType : getTypeList(false))
 			{
-				final String singleType = getMyType(typesForBonus);
 				bonus = aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
 				appendBonusDesc(bonusDetails, bonus, "CSKILL");
 			}
@@ -1648,9 +1643,8 @@ public final class Skill extends PObject
 			appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 
 			//loop through all current skill types checking for boni
-			for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); typesForBonus++)
+			for (String singleType : getTypeList(false))
 			{
-				final String singleType = getMyType(typesForBonus);
 				bonus = aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
 				appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 			}
@@ -1715,9 +1709,8 @@ public final class Skill extends PObject
 	public double getSkillRankBonusTo(PlayerCharacter aPC)
 	{
 		double bonus = aPC.getTotalBonusTo("SKILLRANK", getKeyName());
-		for (int typesForBonus = 0; typesForBonus < getMyTypeCount(); ++typesForBonus)
+		for (String singleType : getTypeList(false))
 		{
-			final String singleType = getMyType(typesForBonus);
 			bonus += aPC.getTotalBonusTo("SKILLRANK", "TYPE." + singleType);
 		}
 
@@ -1847,11 +1840,8 @@ public final class Skill extends PObject
 		List<PCStat> aList = new ArrayList<PCStat>();
 		if (Globals.getGameModeHasPointPool())
 		{
-			String aType;
-			for (int i = getMyTypeCount() - 1; i >= 0; --i)
+			for (String aType : this.getTypeList(false))
 			{
-				aType = getMyType(i);
-
 				List<PCStat> statList = SettingsHandler.getGame().getUnmodifiableStatList();
 				for (int idx = statList.size() - 1; idx >= 0; --idx)
 				{
@@ -1914,9 +1904,9 @@ public final class Skill extends PObject
 		return aList;
 	}
 
-	boolean isTypeHidden(final int idx)
+	boolean isTypeHidden(final String type)
 	{
-		return Globals.isSkillTypeHidden(getMyType(idx));
+		return Globals.isSkillTypeHidden(type);
 	}
 
 }

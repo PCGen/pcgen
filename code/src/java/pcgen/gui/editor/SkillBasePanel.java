@@ -179,15 +179,13 @@ final class SkillBasePanel extends BasePanel
 		{
 			final Skill aSkill = (Skill) e.next();
 
-			for (int i = aSkill.getMyTypeCount(); i > 0;)
+			for (String type : aSkill.getTypeList(false))
 			{
-				aString = aSkill.getMyType(--i);
-
-				if (!aString.equals(Constants.s_CUSTOM))
+				if (!type.equals(Constants.s_CUSTOM))
 				{
-					if (!availableList.contains(aString))
+					if (!availableList.contains(type))
 					{
-						availableList.add(aString);
+						availableList.add(type);
 					}
 				}
 			}
@@ -196,14 +194,12 @@ final class SkillBasePanel extends BasePanel
 		//
 		// remove this skill's type from the available list and place into selected list
 		//
-		for (int i = thisSkill.getMyTypeCount(); i > 0;)
+		for (String type : thisSkill.getTypeList(false))
 		{
-			aString = thisSkill.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

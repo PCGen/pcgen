@@ -24,9 +24,7 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,7 +33,6 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.core.Constants;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
@@ -330,32 +327,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 	protected void loadLstFile(CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
-		URL url = null;
-		String urlString = Constants.EMPTY_STRING;
-		try
-		{
-			url = sourceEntry.getURI().toURL();
-			notifyObservers(url);
-		}
-		catch (MalformedURLException e)
-		{
-			try
-			{
-				// Notify of the failed file
-				setChanged();
-				notifyObservers(new Exception(PropertyFactory
-					.getFormattedString("Exceptions.LstFileLoader.InvalidURL", //$NON-NLS-1$
-						urlString)));
-				// Notify of a dummy file, so that anyone counting files processed
-				// for a progress dialog or something will get a consistent count
-				setChanged();
-				notifyObservers(new URL("http://f")); //$NON-NLS-1$
-			}
-			catch (MalformedURLException e1)
-			{
-				e1.printStackTrace();
-			}
-		}
+		notifyObservers(sourceEntry.getURI());
 
 		sourceMap = null;
 
@@ -388,13 +360,22 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 			{
 				continue;
 			}
-			String[] tokens = line.split(FIELD_SEPARATOR);
+			int sepLoc = line.indexOf(FIELD_SEPARATOR);
+			String firstToken;
+			if (sepLoc == -1)
+			{
+				firstToken = line;
+			}
+			else
+			{
+				firstToken = line.substring(0, sepLoc);
+			}
 
 			// Check for continuation of class mods
 			if (classModLines != null)
 			{
 				// TODO - Figure out why we need to check CLASS: in this file.
-				if (tokens[0].startsWith("CLASS:")) //$NON-NLS-1$
+				if (firstToken.startsWith("CLASS:")) //$NON-NLS-1$
 				{
 					modEntryList.add(classModLines);
 					classModLines = null;
@@ -418,15 +399,15 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 			{
 				sourceMap = SourceLoader.parseLine(line, sourceEntry.getURI());
 			}
-			else if (tokens[0].indexOf(COPY_SUFFIX) > 0)
+			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
 				copyLineList.add(new ModEntry(sourceEntry, line,
 						currentLineNumber, sourceMap));
 			}
-			else if (tokens[0].indexOf(MOD_SUFFIX) > 0)
+			else if (firstToken.indexOf(MOD_SUFFIX) > 0)
 			{
 				// TODO - Figure out why we need to check CLASS: in this file.
-				if (tokens[0].startsWith("CLASS:")) //$NON-NLS-1$
+				if (firstToken.startsWith("CLASS:")) //$NON-NLS-1$
 				{
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
@@ -442,7 +423,7 @@ public abstract class LstObjectFileLoader<T extends PObject> extends
 					modEntryList.add(modLines);
 				}
 			}
-			else if (tokens[0].indexOf(FORGET_SUFFIX) > 0)
+			else if (firstToken.indexOf(FORGET_SUFFIX) > 0)
 			{
 				forgetLineList.add(line);
 			}

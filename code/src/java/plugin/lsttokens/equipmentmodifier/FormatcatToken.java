@@ -50,16 +50,15 @@ public class FormatcatToken implements EquipmentModifierLstToken
 	 */
 	public boolean parse(EquipmentModifier mod, String value)
 	{
-		String testVal = value == null ? "" : value.toUpperCase();
-		if ("FRONT".equals(testVal))
+		if ("FRONT".equalsIgnoreCase(value))
 		{
 			mod.setFormatCat(EquipmentModifier.FORMATCAT_FRONT);
 		}
-		else if ("MIDDLE".equals(testVal))
+		else if ("MIDDLE".equalsIgnoreCase(value))
 		{
 			mod.setFormatCat(EquipmentModifier.FORMATCAT_MIDDLE);
 		}
-		else if ("PARENS".equals(testVal))
+		else if ("PARENS".equalsIgnoreCase(value))
 		{
 			mod.setFormatCat(EquipmentModifier.FORMATCAT_PARENS);
 		}

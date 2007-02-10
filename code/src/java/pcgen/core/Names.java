@@ -374,7 +374,7 @@ public final class Names
 	{
 		public boolean accept(final File dir, final String name)
 		{
-			if (name.toLowerCase().endsWith(".nam"))
+			if (name.regionMatches(true, name.length() - 4, ".nam", 0, 4))
 			{
 				return true;
 			}

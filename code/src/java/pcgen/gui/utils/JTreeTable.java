@@ -313,7 +313,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		// Build the buffer
 		keyBuffer.addChar(ke.getKeyChar());
 
-		String buffer = keyBuffer.getString().toLowerCase();
+		String buffer = keyBuffer.getString();
 
 		// Grab the parent of the current node
 		TreePath treePath = tree.getSelectionPath();
@@ -369,8 +369,9 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		}
 
 		// Only search if the current node is not a match
-		if ((current.getNodeName() == null)
-			|| !current.getNodeName().toLowerCase().startsWith(buffer))
+		String nodeName = current.getNodeName();
+		if ((nodeName == null)
+			|| !nodeName.regionMatches(true, 0, buffer, 0, buffer.length()))
 		{
 			// Find a node at the current level that matches the buffer
 			searchSingleLevel(parent, buffer, true);
@@ -425,7 +426,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	{
 		final PObjectNode rootNode = (PObjectNode) tree.getModel().getRoot();
 
-		return search(rootNode, name.toLowerCase(), expand);
+		return search(rootNode, name, expand);
 	}
 
 	/**
@@ -551,6 +552,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 
 	private TreePath search(PObjectNode root, String name, boolean expand)
 	{
+		int nameLength = name.length();
 		List<PObjectNode> p1 = root.getChildren();
 
 		if (p1 != null)
@@ -585,7 +587,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 						}
 					}
 
-					if (aString.toLowerCase().startsWith(name))
+					if (aString.regionMatches(true, 0, name, 0, nameLength))
 					{
 						//expand that node
 						List<PObjectNode> path = new ArrayList<PObjectNode>();
@@ -636,7 +638,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 	private TreePath searchSingleLevel(PObjectNode root, String name,
 		boolean select)
 	{
-		String lowerName = name.toLowerCase();
+		int nameLength = name.length();
 		List<PObjectNode> p1 = root.getChildren();
 
 		if (p1 != null)
@@ -649,7 +651,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 				String aString = node.getNodeName();
 
 				// Check for a match.
-				if (aString.toLowerCase().startsWith(lowerName))
+				if (aString.regionMatches(true, 0, name, 0, nameLength))
 				{
 					//select that node
 					List<PObjectNode> path = new ArrayList<PObjectNode>();

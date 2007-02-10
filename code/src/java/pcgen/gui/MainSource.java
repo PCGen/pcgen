@@ -45,6 +45,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListSelectionModel;
@@ -1142,7 +1144,7 @@ public class MainSource extends FilterAdapterPanel
 		typePubSetRoot = new PObjectNode();
 		typePubFmtSetRoot = new PObjectNode();
 
-		List<String> aList = new ArrayList<String>(); //TYPE list
+		Set<String> aList = new TreeSet<String>(); //TYPE list
 
 		for (Campaign aCamp : Globals.getCampaignList())
 		{
@@ -1150,51 +1152,51 @@ public class MainSource extends FilterAdapterPanel
 			{
 				if (aCamp.getMyTypeCount() > 0)
 				{
-					if (!aList.contains(aCamp.getMyType(0)))
-					{
-						aList.add(aCamp.getMyType(0)); //TYPE[0] = Publisher
-					}
+					aList.add(aCamp.getMyType(0)); //TYPE[0] = Publisher
 				}
 			}
 		}
 
-		Collections.sort(aList);
-
 		// All non-typed/screwed-up items will end up in an "Other" node
-		if (!aList.contains("Other"))
-		{
-			aList.add("Other");
-		}
+		aList.add("Other");
 
-		PObjectNode[] p1 = new PObjectNode[aList.size()];
-		PObjectNode[] p2 = new PObjectNode[aList.size()];
-		PObjectNode[] p3 = new PObjectNode[aList.size()];
+		int size = aList.size();
+		PObjectNode[] p1 = new PObjectNode[size];
+		PObjectNode[] p2 = new PObjectNode[size];
+		PObjectNode[] p3 = new PObjectNode[size];
 
-		for (int i = 0; i < aList.size(); ++i)
+		int arrayIdx = 0;
+		for (String s : aList)
 		{
-			p1[i] = new PObjectNode();
-			p1[i].setItem(aList.get(i));
-			p1[i].setParent(typePubRoot);
-			p2[i] = new PObjectNode();
-			p2[i].setItem(aList.get(i));
-			p2[i].setParent(typePubSetRoot);
-			p3[i] = new PObjectNode();
-			p3[i].setItem(aList.get(i));
-			p3[i].setParent(typePubFmtSetRoot);
+			PObjectNode pon = new PObjectNode();
+			pon.setItem(s);
+			pon.setParent(typePubRoot);
+			p1[arrayIdx] = pon;
+			
+			pon = new PObjectNode();
+			pon.setItem(s);
+			pon.setParent(typePubSetRoot);
+			p2[arrayIdx] = pon;
+			
+			pon = new PObjectNode();
+			pon.setItem(s);
+			pon.setParent(typePubFmtSetRoot);
+			p3[arrayIdx] = pon;
+
+			arrayIdx++;
 		}
 
 		typePubRoot.setChildren(p1);
 		typePubSetRoot.setChildren(p2);
 		typePubFmtSetRoot.setChildren(p3);
 
-		for (int i = 0; i < p2.length; ++i)
+		for (PObjectNode pon : p2)
 		{
 			aList.clear();
 
-			for (int j = 0; j < Globals.getCampaignList().size(); ++j)
+			for (Campaign bCamp : Globals.getCampaignList())
 			{
-				final Campaign bCamp = Globals.getCampaignList().get(j);
-				final String topType = p2[i].toString();
+				final String topType = pon.toString();
 
 				if (!bCamp.isType(topType))
 				{
@@ -1205,33 +1207,27 @@ public class MainSource extends FilterAdapterPanel
 				{
 					if (bCamp.isGameMode(allowedModes))
 					{
-						if (!aList.contains(bCamp.getMyType(2)))
-						{
-							aList.add(bCamp.getMyType(2)); //TYPE[2] = Setting
-						}
+						aList.add(bCamp.getMyType(2)); //TYPE[2] = Setting
 					}
 				}
 			}
 
-			Collections.sort(aList);
-
 			for (String aString : aList)
 			{
 				PObjectNode d = new PObjectNode();
-				d.setParent(p2[i]);
-				p2[i].addChild(d);
+				d.setParent(pon);
+				pon.addChild(d);
 				d.setItem(aString);
 			}
 		}
 
-		for (int i = 0; i < p3.length; ++i)
+		for (PObjectNode pon : p3)
 		{
 			aList.clear();
 
-			for (int j = 0; j < Globals.getCampaignList().size(); ++j)
+			for (Campaign bCamp : Globals.getCampaignList())
 			{
-				final Campaign bCamp = Globals.getCampaignList().get(j);
-				final String topType = p3[i].toString();
+				final String topType = pon.toString();
 
 				if (!bCamp.isType(topType))
 				{
@@ -1242,32 +1238,26 @@ public class MainSource extends FilterAdapterPanel
 				{
 					if (bCamp.isGameMode(allowedModes))
 					{
-						if (!aList.contains(bCamp.getMyType(1)))
-						{
-							aList.add(bCamp.getMyType(1)); //TYPE[1] = Format
-						}
+						aList.add(bCamp.getMyType(1)); //TYPE[1] = Format
 					}
 				}
 			}
 
-			Collections.sort(aList);
-
 			for (String aString : aList)
 			{
 				PObjectNode d = new PObjectNode(aString);
-				p3[i].addChild(d);
+				pon.addChild(d);
 			}
 
-			List<PObjectNode> p4 = p3[i].getChildren();
+			List<PObjectNode> p4 = pon.getChildren();
 
 			for (int k = 0; (p4 != null) && (k < p4.size()); ++k)
 			{
 				final PObjectNode p4node = p4.get(k);
 				aList.clear();
 
-				for (int m = 0; m < Globals.getCampaignList().size(); ++m)
+				for (Campaign cCamp : Globals.getCampaignList())
 				{
-					final Campaign cCamp = Globals.getCampaignList().get(m);
 					final String pubType = p4node.getParent().toString();
 					final String formatType = p4node.toString();
 
@@ -1280,15 +1270,10 @@ public class MainSource extends FilterAdapterPanel
 					{
 						if (cCamp.isGameMode(allowedModes))
 						{
-							if (!aList.contains(cCamp.getMyType(2)))
-							{
-								aList.add(cCamp.getMyType(2)); //TYPE[2] = Setting
-							}
+							aList.add(cCamp.getMyType(2)); //TYPE[2] = Setting
 						}
 					}
 				}
-
-				Collections.sort(aList);
 
 				for (String aString : aList)
 				{

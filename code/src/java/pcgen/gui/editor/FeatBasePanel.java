@@ -296,29 +296,25 @@ public class FeatBasePanel extends BasePanel
 		{
 			final Ability anAbility = (Ability) e.next();
 
-			for (int i = anAbility.getMyTypeCount(); i > 0;)
+			for (String type : anAbility.getTypeList(false))
 			{
-				aString = anAbility.getMyType(--i);
-
-				if (!aString.equals(Constants.s_CUSTOM))
+				if (!type.equals(Constants.s_CUSTOM))
 				{
-					if (!availableList.contains(aString))
+					if (!availableList.contains(type))
 					{
-						availableList.add(aString);
+						availableList.add(type);
 					}
 				}
 			}
 		}
 
 		// remove this feat's type from the available list and place into selected list
-		for (int i = thisFeat.getMyTypeCount(); i > 0;)
+		for (String type : thisFeat.getTypeList(false))
 		{
-			aString = thisFeat.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

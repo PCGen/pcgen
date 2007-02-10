@@ -81,9 +81,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 		while (choicesIt.hasNext())
 		{
 			final String aString = choicesIt.next();
-			final String ucString = aString.toUpperCase();
-
-			if ("LIST".equals(ucString))
+			if ("LIST".equalsIgnoreCase(aString))
 			{
 				for ( WeaponProf wp : aPc.getWeaponProfs() )
 				{
@@ -98,7 +96,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					}
 				}
 			}
-			else if (ucString.equals("DEITYWEAPON"))
+			else if ("DEITYWEAPON".equalsIgnoreCase(aString))
 			{
 				if (aPc.getDeity() != null)
 				{
@@ -123,7 +121,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 
 				}
 			}
-			else if (ucString.startsWith("SIZE."))
+			else if ("SIZE.".regionMatches(true, 0, aString, 0, 5))
 			{
 				final String profKey = aString.substring(7);
 				if ((aPc.sizeInt() >= Globals.sizeInt(aString.substring(5, 6)))
@@ -136,7 +134,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					}
 				}
 			}
-			else if (ucString.startsWith("WSIZE."))
+			else if ("WSIZE.".regionMatches(true, 0, aString, 0, 6))
 			{
 				final StringTokenizer bTok = new StringTokenizer(aString, ".");
 				bTok.nextToken(); // should be WSize
@@ -270,7 +268,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					}
 				}
 			}
-			else if (ucString.startsWith("SPELLCASTER."))
+			else if ("SPELLCASTER.".regionMatches(true, 0, aString, 0, 12))
 			{
 				// TODO this should not be hardcoded.
 				String profKey = aString.substring(12);
@@ -284,7 +282,8 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 					availableList.add(wp);
 				}
 			}
-			else if (ucString.startsWith("TYPE.") || ucString.startsWith("TYPE="))
+			else if ("TYPE.".regionMatches(true, 0, aString, 0, 5) ||
+				"TYPE=".regionMatches(true, 0, aString, 0, 5))
 			{
 				String sString = aString.substring(5);
 				boolean adding = true;
@@ -356,7 +355,7 @@ public class WeaponProfChoiceManager extends AbstractComplexChoiceManager<Weapon
 			else
 			{
 				String profKey = aString;
-				if (ucString.startsWith("ADD."))
+				if ("ADD.".regionMatches(true, 0, aString, 0, 4))
 				{
 					profKey = aString.substring(4);
 				}

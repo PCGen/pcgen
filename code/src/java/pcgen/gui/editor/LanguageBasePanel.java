@@ -104,15 +104,13 @@ public class LanguageBasePanel extends BasePanel
 		{
 			final Language aLanguage = (Language) e.next();
 
-			for (int i = aLanguage.getMyTypeCount(); i > 0;)
+			for (String type : aLanguage.getTypeList(false))
 			{
-				aString = aLanguage.getMyType(--i);
-
-				if (!aString.equals(Constants.s_CUSTOM))
+				if (!type.equals(Constants.s_CUSTOM))
 				{
-					if (!availableList.contains(aString))
+					if (!availableList.contains(type))
 					{
-						availableList.add(aString);
+						availableList.add(type);
 					}
 				}
 			}
@@ -121,14 +119,12 @@ public class LanguageBasePanel extends BasePanel
 		//
 		// remove this language's type from the available list and place into selected list
 		//
-		for (int i = thisLanguage.getMyTypeCount(); i > 0;)
+		for (String type : thisLanguage.getTypeList(false))
 		{
-			aString = thisLanguage.getMyType(--i);
-
-			if (!aString.equals(Constants.s_CUSTOM))
+			if (!type.equals(Constants.s_CUSTOM))
 			{
-				selectedList.add(aString);
-				availableList.remove(aString);
+				selectedList.add(type);
+				availableList.remove(type);
 			}
 		}
 

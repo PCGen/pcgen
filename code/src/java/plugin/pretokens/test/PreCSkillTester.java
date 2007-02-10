@@ -48,16 +48,16 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements
 
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final boolean isType =
 				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
 		if (isType)
 		{
-			requiredSkillKey = requiredSkillKey.substring(5).toUpperCase();
+			requiredSkillKey = requiredSkillKey.substring(5);
 		}
-		final String skillKey = requiredSkillKey.toUpperCase();
+		final String skillKey = requiredSkillKey;
 
 		if (isType)
 		{

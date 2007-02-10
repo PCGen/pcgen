@@ -50,7 +50,7 @@ public final class EquipmentModifierLoader extends
 		final EquipmentModifier aTemplate = EquipmentList.getModifierKeyed(pObj
 				.getKeyName());
 		if (aTemplate == null) {
-			EquipmentList.getModifierList().add((EquipmentModifier) pObj);
+			EquipmentList.addEquipmentModifier((EquipmentModifier) pObj);
 		}
 
 	}

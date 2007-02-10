@@ -604,7 +604,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		school.setFont(new java.awt.Font(DIALOG, 0, 10));
 		StringBuffer sch = new StringBuffer(spell.getSchool());
 		if ((spell.getSubschool().length() > 0)
-			&& (!NONE.equals(spell.getSubschool().trim().toUpperCase())))
+			&& (!NONE.equalsIgnoreCase(spell.getSubschool().trim())))
 		{
 			sch.append(' ').append('(').append(spell.getSubschool())
 				.append(')');

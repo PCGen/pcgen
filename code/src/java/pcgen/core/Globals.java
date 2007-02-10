@@ -130,7 +130,7 @@ public final class Globals
 //	private static List<CompanionMod> companionModList      = new ArrayList<CompanionMod>();
 	private static List<Deity> deityList             = new ArrayList<Deity>(275);
 	private static List<Domain> domainList            = new ArrayList<Domain>(100);
-	private static List<Kit> kitList               = new ArrayList<Kit>();
+	private static Map<String, Kit> kitMap               = new HashMap<String, Kit>();
 	private static List<Language> languageList          = new ArrayList<Language>(200);
 
 	//any TYPE added to pcClassTypeList is assumed be pre-tokenized
@@ -1362,9 +1362,9 @@ public final class Globals
 	 * Get kit info
 	 * @return kit info
 	 */
-	public static List<Kit> getKitInfo()
+	public static Map<String, Kit> getKitInfo()
 	{
-		return kitList;
+		return kitMap;
 	}
 
 	/**
@@ -1374,15 +1374,7 @@ public final class Globals
 	 */
 	public static Kit getKitKeyed(final String aKey)
 	{
-		for ( Kit kit : kitList )
-		{
-			if (kit.getKeyName().equals(aKey))
-			{
-				return kit;
-			}
-		}
-
-		return null;
+		return kitMap.get(aKey);
 	}
 
 	/**
@@ -2336,7 +2328,7 @@ public final class Globals
 		Logging.debugPrint("Feats=" + getUnmodifiableAbilityList("FEAT").size());
 		Logging.debugPrint("Equipment=" + EquipmentList.size());
 		Logging.debugPrint("WeaponProfs=" + getWeaponProfSize());
-		Logging.debugPrint("Kits=" + kitList.size());
+		Logging.debugPrint("Kits=" + kitMap.size());
 		Logging.debugPrint("Templates=" + templateList.size());
 
 		//
@@ -2391,7 +2383,7 @@ public final class Globals
 		deityList = new ArrayList<Deity>();
 		domainList = new ArrayList<Domain>();
 		EquipmentList.clearEquipmentMap();
-		kitList = new ArrayList<Kit>();
+		kitMap = new HashMap<String, Kit>();
 		languageList = new ArrayList<Language>();
 		EquipmentList.clearModifierList();
 		pcClassTypeList = new ArrayList<String>();
@@ -2733,7 +2725,6 @@ public final class Globals
 		sortPObjectListByKey(getDomainList());
 		Collections.sort(getArmorProfList());
 		sortPObjectListByKey(getTemplateList());
-		sortPObjectListByKey(EquipmentList.getModifierList());
 		sortPObjectListByKey(getLanguageList());
 		setD_sorted(true);
 	}

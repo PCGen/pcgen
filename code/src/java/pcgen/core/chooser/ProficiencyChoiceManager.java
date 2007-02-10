@@ -164,7 +164,7 @@ public class ProficiencyChoiceManager extends AbstractComplexChoiceManager<Weapo
 					for ( WeaponProf wp : pcHas )
 					{
 						// may have martial and exotic, etc.
-						if (wp.getSafeListFor(ListKey.TYPE).size() != 1)
+						if (wp.getMyTypeCount() != 1)
 						{
 							availableList.add(wp);
 						}

@@ -56,13 +56,7 @@ final class PcpFilter extends FileFilter
 			return true;
 		}
 
-		String fileName = f.getName().toUpperCase();
-
-		if (fileName != null)
-		{
-			return fileName.endsWith("PCP");
-		}
-
-		return false;
+		String fileName = f.getName();
+		return fileName.regionMatches(true, fileName.length() - 3, "pcp", 0, 3);
 	}
 }

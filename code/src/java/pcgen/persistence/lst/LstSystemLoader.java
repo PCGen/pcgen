@@ -151,7 +151,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			{
 				if (".pcc".regionMatches(true, 0, fileName, fileName.length() - 4, 4))
 				{
-					URI uri = new File(parentDir, fileName).toURI();
+					URI uri = new File(parentDir,fileName).toURI();
 
 					//Test to avoid reloading existing campaigns, so we can safely
 					// call loadPCCFilesInDirectory repeatedly. -rlk 2002-03-30
@@ -160,17 +160,19 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 						campaignLoader.loadLstFile(uri);
 					}
 				}
-				else if (parentDir.isDirectory())
+				/*
+				 * This is a specific "hack" in order to speed loading when
+				 * in a development (Subversion-based) environment - Tom
+				 * Parker 1/17/07
+				 */
+				if (!".svn".equals(fileName))
 				{
-					/*
-					 * This is a specific "hack" in order to speed loading when
-					 * in a development (Subversion-based) environment - Tom
-					 * Parker 1/17/07
-					 */
-					if (!".svn".equals(fileName))
+					if (!".lst".regionMatches(true, 0, fileName, fileName.length() - 4, 4))
 					{
-						loadPCCFilesInDirectory(parentDir.getPath()
-								+ File.separator + fileName);
+						File fileInDir = new File(parentDir, fileName);
+						if (fileInDir.isDirectory()) {
+							loadPCCFilesInDirectory(fileInDir);
+						}
 					}
 				}
 			}
@@ -1392,6 +1394,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private void loadPCCFilesInDirectory(String aDirectory)
 	{
 		new File(aDirectory).list(pccFileFilter);
+	}
+
+	private void loadPCCFilesInDirectory(File aDirectory)
+	{
+		aDirectory.list(pccFileFilter);
 	}
 
 	/**
