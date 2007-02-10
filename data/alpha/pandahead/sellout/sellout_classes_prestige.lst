@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Sat Feb 10 02:05:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -47,12 +47,12 @@ CLASS:Free Agent	PREATT:3	PREFEAT:1,Crowd Favorite	PRESKILL:1,Perform=6	PRESKILL
 CLASS:Free Agent	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Diplomacy|Drive|Jump|KNowledge (XCrawl)|Listen|TYPE.Profession|Spot|Swim|Tumble
 ### Assimilate special ability is rather involved, and its unknown if it can be properly coded.
 1	SA:Adapt	SA:Assimilate
-2	SA:Extra Performance														ADD:FEAT
-3	SA:Signing Bonus: +% pct.|SigningBonus	BONUS:VAR|SigningBonus|(CL/3)*20	DEFINE:SigningBonus|0
-4	SA:Training Bonus															ADD:FEAT(Skill Focus)
+2	SA:Extra Performance										BONUS:FEAT|POOL|1
+3	SA:Signing Bonus: +% pct.|SigningBonus	BONUS:VAR|SigningBonus|(CL/3)*20				DEFINE:SigningBonus|0
+4	SA:Training Bonus																		ADD:FEAT(Skill Focus)
 5	SA:Cameo
-7																		ADD:FEAT
-8																		ADD:FEAT(Skill Focus)
+7														BONUS:FEAT|POOL|1
+8																					ADD:FEAT(Skill Focus)
 10	SA:Rally the Troops
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
