@@ -181,7 +181,7 @@ public class PluginLoader
 				loadPlugins(pluginFile);
 			}
 
-			if (!plugin.toLowerCase().endsWith(".jar"))
+			if (!plugin.regionMatches(true, plugin.length() - 4, ".jar", 0, 4))
 			{
 				continue;
 			}

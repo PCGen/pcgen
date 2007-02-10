@@ -55,6 +55,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
+import pcgen.util.UnreachableError;
 
 /**
  *  A class loader implementation that loads classes from JAR files.
@@ -98,15 +99,9 @@ public class JARClassLoader extends ClassLoader
 
 		while (entries.hasMoreElements())
 		{
-			ZipEntry entry = entries.nextElement();
-			String name = entry.getName();
-			String lname = name.toLowerCase();
+			String name = entries.nextElement().getName();
 
-			if (lname.endsWith(".props") || lname.endsWith(".properties"))
-			{
-				//MiscUtilities.loadProps(zipFile.getInputStream(entry));
-			}
-			else if (name.endsWith(".class"))
+			if (name.endsWith(".class"))
 			{
 				classHash.put(MiscUtilities.fileToClass(name), this);
 
@@ -160,6 +155,7 @@ public class JARClassLoader extends ClassLoader
 	 *@exception  ClassNotFoundException  Didn't find the class we were looking for
 	 *@since        GMGen 3.3
 	 */
+	@Override
 	public Class<?> loadClass(String clazz, boolean resolveIt)
 		throws ClassNotFoundException
 	{
@@ -244,8 +240,11 @@ public class JARClassLoader extends ClassLoader
 		Collections.sort(plugins, new Plugin.PluginComperator());
 		for ( Plugin pl : plugins )
 		{
-			Logging.debugPrint("Starting " + system + " plugin " + pl.getName() + " (version "
-					+ MiscUtilities.buildToVersion(pl.getVersion()) + ")");
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Starting " + system + " plugin " + pl.getName() + " (version "
+						+ MiscUtilities.buildToVersion(pl.getVersion()) + ")");
+			}
 			jar.addPlugin(pl);
 		}
 	}
@@ -542,14 +541,26 @@ public class JARClassLoader extends ClassLoader
 		boolean load = true;
 		try {
 			Field f = clazz.getField("LOG_NAME");
-			String logName = (String)f.get(pl);
+			String logName = (String) f.get(pl);
 			String plName = pl.getName();
 			String plSystem = pl.getPluginSystem();
 			PreferencesPluginsPanel.addPanel(logName, plName, plSystem);
 			load = SettingsHandler.getGMGenOption(logName + ".Load", true);
-		}
-		catch(Exception e) {
-			System.out.println(clazz.getName() + " does not have LOG_NAME defined, Plugin class implemented improperly");
+		} catch (SecurityException e) {
+			throw new UnreachableError("Access to Class " + clazz
+					+ " should not be prohibited", e);
+		} catch (IllegalAccessException e) {
+			throw new UnreachableError("Access to Method LOG_NAME in Class "
+					+ clazz + " should not be prohibited", e);
+		} catch (NoSuchFieldException e) {
+			Logging.errorPrint(clazz.getName()
+					+ " does not have LOG_NAME defined, "
+					+ "Plugin class implemented improperly");
+		} catch (IllegalArgumentException e) {
+			Logging.errorPrint(clazz.getName()
+					+ " does not have LOG_NAME defined to "
+					+ "take a Plugin as the argument, "
+					+ "Plugin class implemented improperly");
 		}
 		return load;
 	}

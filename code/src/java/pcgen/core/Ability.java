@@ -288,7 +288,15 @@ public final class Ability extends PObject implements HasCost, Categorisable
 	 */
 	public void setMultiples(final String aString)
 	{
-		multiples = (aString.length() > 0) && (aString.toUpperCase().charAt(0) == 'Y');
+		if (aString.length() == 0)
+		{
+			multiples = false;
+		}
+		else
+		{
+			char firstChar = aString.charAt(0);
+			multiples = firstChar == 'y' || firstChar == 'Y';
+		}
 	}
 
 	/**
