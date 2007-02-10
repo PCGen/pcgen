@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 13 02:07:21 2007 -- reformated by prettylst.pl v1.35 (build 1655)
+# CVS $Revision$ $Author$ -- Sat Feb 10 01:53:01 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -115,21 +115,19 @@ CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|
 1								FEATAUTO:Shield Proficiency
 1								FEATAUTO:Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
-1	SA:Spirit Sense I	SA:Spirit Strength (%)|SpiritStrength	BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)		DEFINE:SpiritStrength|0	ADD:FEAT(TYPE=SpiritAdeptPowers)
-2																										ADD:FEAT					FEATAUTO:Evasion
-3																										ADD:FEAT(TYPE=SpiritAdeptPowers)
-5	SA:Feather Fall (Sp)																						ADD:FEAT(TYPE=SpiritAdeptPowers)
-6	SA:Spirit Sense II							BONUS:VAR|SpiritStrength|5*min(var("CL=Spirit Adept")-5,5)						ADD:FEAT
-7																										ADD:FEAT(TYPE=SpiritAdeptPowers)
-9																										ADD:FEAT(TYPE=SpiritAdeptPowers)	FEATAUTO:Improved Evasion
-11	SA:Spirit Sense III							BONUS:VAR|SpiritStrength|10*min(var("CL=Spirit Adept")-10,10)					ADD:FEAT(TYPE=SpiritAdeptPowers)
-12																										ADD:FEAT
-13																										ADD:FEAT(TYPE=SpiritAdeptPowers)
-15																										ADD:FEAT(TYPE=SpiritAdeptPowers)
-16																										ADD:FEAT
-17																										ADD:FEAT(TYPE=SpiritAdeptPowers)
-19																										ADD:FEAT(TYPE=SpiritAdeptPowers)
-20																										ADD:FEAT
+1	SA:Spirit Sense I	SA:Spirit Strength (%)|SpiritStrength	BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)						DEFINE:SpiritStrength|0	ADD:FEAT(TYPE=SpiritAdeptPowers)
+2																																				FEATAUTO:Evasion
+3																														ADD:FEAT(TYPE=SpiritAdeptPowers)
+4																						BONUS:FEAT|POOL|CL/4
+5	SA:Feather Fall (Sp)																										ADD:FEAT(TYPE=SpiritAdeptPowers)
+6	SA:Spirit Sense II							BONUS:VAR|SpiritStrength|5*min(var("CL=Spirit Adept")-5,5)
+7																														ADD:FEAT(TYPE=SpiritAdeptPowers)
+9																														ADD:FEAT(TYPE=SpiritAdeptPowers)	FEATAUTO:Improved Evasion
+11	SA:Spirit Sense III							BONUS:VAR|SpiritStrength|10*min(var("CL=Spirit Adept")-10,10)									ADD:FEAT(TYPE=SpiritAdeptPowers)
+13																														ADD:FEAT(TYPE=SpiritAdeptPowers)
+15																														ADD:FEAT(TYPE=SpiritAdeptPowers)
+17																														ADD:FEAT(TYPE=SpiritAdeptPowers)
+19																														ADD:FEAT(TYPE=SpiritAdeptPowers)
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Subclass?		Source Page		Automatic Languages	Save checks bonus											Combat bonus					Modify VAR
