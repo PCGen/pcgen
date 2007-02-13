@@ -36,7 +36,7 @@ import pcgen.util.PropertyFactory;
  */
 public class InfoLabelTextBuilder {
 
-	private StringBuilder buffer = new StringBuilder(300);
+	private static StringBuilder buffer = new StringBuilder(300);
 	
 	public InfoLabelTextBuilder()
 	{
@@ -57,7 +57,7 @@ public class InfoLabelTextBuilder {
 	 * @param string String to add
 	 * @return InfoLabelTextBuilder
 	 */
-	public InfoLabelTextBuilder append(String string)
+	public InfoLabelTextBuilder append(final String string)
 	{
 		buffer.append(string);
 		return this;
@@ -73,7 +73,7 @@ public class InfoLabelTextBuilder {
 		return this;
 	}
 	
-	private void appendTitleElement(String title)
+	private void appendTitleElement(final String title)
 	{
 		buffer.append("<b><font size=+1>").append(title).append("</font></b>");
 	}
@@ -84,7 +84,7 @@ public class InfoLabelTextBuilder {
 	 * @param value The value that belongs to the key.
 	 * @return InfoLabelTextBuilder
 	 */
-	public InfoLabelTextBuilder appendElement(String key, String value)
+	public InfoLabelTextBuilder appendElement(final String key, final String value)
 	{
 		buffer.append(" <b>").append(key).append("</b>: ").append(value);
 		return this;
@@ -97,7 +97,7 @@ public class InfoLabelTextBuilder {
 	 * @param value The value that belongs to the key.
 	 * @return InfoLabelTextBuilder
 	 */
-	public InfoLabelTextBuilder appendI18nElement(String propertyKey, String value)
+	public InfoLabelTextBuilder appendI18nElement(final String propertyKey, final String value)
 	{
 		return appendElement(PropertyFactory.getString(propertyKey),value);
 	}
