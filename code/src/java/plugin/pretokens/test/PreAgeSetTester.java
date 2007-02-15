@@ -58,11 +58,14 @@ PrerequisiteTest
 		catch (NumberFormatException exc)
 		{
 			anInt = Globals.getBioSet().getAgeSetNamed(prereq.getOperand());
-			if (anInt == -1){ //String not recognized
-				throw new PrerequisiteException();
-			}
 		}
-		catch (Exception e){
+		catch (Exception e)
+		{
+			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+		}
+		
+		if (anInt == -1)
+		{ //String was not recognized
 			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
 		}
 
@@ -74,7 +77,8 @@ PrerequisiteTest
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
-	public String kindHandled() {
+	public String kindHandled() 
+	{
 		return "AGESET";//$NON-NLS-1$
 	}
 
