@@ -94,12 +94,13 @@ public final class BioSet extends PObject
 	public int getAgeSetNamed(final String ageCategory)
 	{
 		String aString;
+		String ageCategory_lower = ageCategory.toLowerCase();
 
 		for (Map.Entry<String, String> entry : ageMap.entrySet())
 		{
-			aString = entry.getValue();
+			aString = entry.getValue().toLowerCase();
 
-			if (aString.equals(ageCategory) || aString.startsWith(ageCategory + "\t"))
+			if (aString.equals(ageCategory_lower) || aString.startsWith(ageCategory_lower + "\t"))
 			{
 				aString = entry.getKey();
 
