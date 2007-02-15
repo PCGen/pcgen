@@ -1,4 +1,4 @@
-# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Oct 12 04:01:25 2006 -- reformated by prettylst.pl v1.35 (build 565)
+# CVS $Revision: 400 $ $Author: eddyanthony $ -- Thu Feb 15 18:43:06 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -62,6 +62,15 @@ Awakened Animal	PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:Language(TYPE=Spoken)1
 ###Block: Righteous Might spell workaround
 # Template Name	Visible	Special Ability										Define
 RighteousMightDR	VISIBLE:NO	SA:DR %/Evil|RighteousMightDR_Evil	SA:DR %/Good|RighteousMightDR_Good	DEFINE:RighteousMightDR_Evil|0	DEFINE:RighteousMightDR_Good|0
+
+###Block: Timeless Body For Druid and Monk
+# Template Name			Visible		Template																		Required Class			Multiple Requirements						Stat bonus																																	!PREAGESET			PREAGESET
+Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable	PRECLASS:1,Druid=15,Monk=17										BONUS:STAT|INT|20|PREAGESET:Venerable
+
+Timeless Body ~ Adult		VISIBLE:NO																																			BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable	!PREAGESET:Middle Age
+Timeless Body ~ Middle Age	VISIBLE:NO																										PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
+Timeless Body ~ Old		VISIBLE:NO																										PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:Venerable
+Timeless Body ~ Venerable	VISIBLE:NO																																																																									PREAGESET:Venerable
 
 #
 # End

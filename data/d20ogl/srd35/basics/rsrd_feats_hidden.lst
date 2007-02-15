@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 27 17:22:40 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Thu Feb 15 18:43:06 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -142,7 +142,8 @@ Resist Nature's Lure	TYPE:Extraordinary	VISIBLE:NO	SA:Resist Nature's Lure (Ex)	
 Venom Immunity		TYPE:Extraordinary	VISIBLE:NO	SA:Venom Immunity (Ex)									SOURCEPAGE:ClassesI.rtf
 A Thousand Faces		TYPE:Supernatural		VISIBLE:NO	SA:A Thousand Faces (Su)								SOURCEPAGE:ClassesI.rtf
 
-###Block: Timeless Body For Druid and Monk
+###Block: Timeless Body For Druid and Monk (the actual benefits of this class feature are implemented with a template by the same name)
+# Feat Name		Type						Visible	Special Ability		Source Page
 Timeless Body	TYPE:ClassAbility.Extraordinary	VISIBLE:NO	SA:Timeless Body (Ex)	SOURCEPAGE:ClassesI.rtf
 
 #

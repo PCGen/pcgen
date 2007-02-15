@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 27 17:22:40 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Thu Feb 15 18:43:06 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -185,21 +185,21 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
 ###Block: Normal Progression
-1	CAST:3,1				BONUS:VAR|WildEmpathy,CompLevel|CL	FEATAUTO:Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting (Summon Nature's Ally)
-2	CAST:4,2										FEATAUTO:Woodland Stride
-3	CAST:4,2,1										FEATAUTO:Trackless Step
-4	CAST:5,3,2										FEATAUTO:Resist Nature's Lure
+1	CAST:3,1				BONUS:VAR|WildEmpathy,CompLevel|CL					FEATAUTO:Nature Sense|Animal Companion|Wild Empathy|Spontaneous casting (Summon Nature's Ally)
+2	CAST:4,2														FEATAUTO:Woodland Stride
+3	CAST:4,2,1														FEATAUTO:Trackless Step
+4	CAST:5,3,2														FEATAUTO:Resist Nature's Lure
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
-9	CAST:6,4,4,3,2,1									FEATAUTO:Venom Immunity
+9	CAST:6,4,4,3,2,1													FEATAUTO:Venom Immunity
 10	CAST:6,4,4,3,3,2
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
-13	CAST:6,5,5,4,4,3,2,1								FEATAUTO:A Thousand Faces
+13	CAST:6,5,5,4,4,3,2,1												FEATAUTO:A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1								FEATAUTO:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1								TEMPLATE:Timeless Body	FEATAUTO:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
@@ -271,26 +271,26 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 #	The VAR is adjusted in CLASS object, but without the Flurry or Stunning Fist tracker hidden feats,
 #	won't do anything.
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	ADD:VFEAT(Improved Grapple,Stunning Fist)1	FEATAUTO:Improved Unarmed Strike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				ADD:VFEAT(Combat Reflexes,Deflect Arrows)1	FEATAUTO:Evasion
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6												FEATAUTO:Still Mind
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6												FEATAUTO:Slow Fall|Monk Tracker - Slow Fall|Ki Strike|Monk Tracker - Ki Strike
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6												FEATAUTO:Purity of Body
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	ADD:VFEAT(Improved Grapple,Stunning Fist)1					FEATAUTO:Improved Unarmed Strike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6				ADD:VFEAT(Combat Reflexes,Deflect Arrows)1					FEATAUTO:Evasion
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6																FEATAUTO:Still Mind
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																FEATAUTO:Slow Fall|Monk Tracker - Slow Fall|Ki Strike|Monk Tracker - Ki Strike
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																FEATAUTO:Purity of Body
 6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6				ADD:VFEAT(Improved Disarm,Improved Trip)1
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6												FEATAUTO:Wholeness of Body|Monk Tracker - Wholeness of Body
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6																FEATAUTO:Wholeness of Body|Monk Tracker - Wholeness of Body
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8												FEATAUTO:Improved Evasion
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																FEATAUTO:Improved Evasion
 10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8												FEATAUTO:Diamond Body
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6												FEATAUTO:Abundant Step
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6												FEATAUTO:Diamond Soul|Monk Tracker - Diamond Soul
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8																FEATAUTO:Diamond Body
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																FEATAUTO:Abundant Step
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																FEATAUTO:Diamond Soul|Monk Tracker - Diamond Soul
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6												FEATAUTO:Quivering Palm|Monk Tracker - Quivering Palm
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6																FEATAUTO:Quivering Palm|Monk Tracker - Quivering Palm
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8												FEATAUTO:Timeless Body|Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8												TEMPLATE:Timeless Body	FEATAUTO:Timeless Body|Tongue of the Sun and Moon
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8												FEATAUTO:Empty Body|Monk Tracker - Empty Body
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8											FEATAUTO:Perfect Self
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																FEATAUTO:Empty Body|Monk Tracker - Empty Body
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8															FEATAUTO:Perfect Self
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Ex Class			Source Page				Automatic Languages	Save checks bonus											Combat bonus
