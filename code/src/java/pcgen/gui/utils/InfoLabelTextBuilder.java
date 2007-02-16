@@ -36,7 +36,7 @@ import pcgen.util.PropertyFactory;
  */
 public class InfoLabelTextBuilder {
 
-	private static StringBuilder buffer = new StringBuilder(300);
+	private final StringBuilder buffer = new StringBuilder(300);
 	
 	public InfoLabelTextBuilder()
 	{

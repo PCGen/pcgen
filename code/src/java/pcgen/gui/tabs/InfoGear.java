@@ -127,6 +127,7 @@ import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
+import pcgen.gui.utils.InfoLabelTextBuilder; 
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
@@ -182,31 +183,31 @@ public final class InfoGear extends FilterAdapterPanel implements
 	private FlippingSplitPane splitPane;
 	private JComboBoxEx cmbBuyPercent = new JComboBoxEx();
 	private JComboBoxEx cmbSellPercent = new JComboBoxEx();
-	private final JLabel lblAvailableQFilter = new JLabel("Filter:");
-	private final JLabel lblSelectedQFilter = new JLabel("Filter:");
+	private final JLabel lblAvailableQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
+	private final JLabel lblSelectedQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
 	private final JLabel goldLabel =
-			new JLabel(Globals.getLongCurrencyDisplay() + ": ");
-	private final JLabel lblBuyRate = new JLabel("Buy percentage:");
-	private final JLabel lblSellRate = new JLabel("Sell percentage:");
-	private final JLabel valueLabel = new JLabel("Total Value: ");
+			new JLabel(Globals.getLongCurrencyDisplay() + ": "); //$NON-NLS-1$
+	private final JLabel lblBuyRate = new JLabel(PropertyFactory.getString("in_igBuyRateLabel")); //$NON-NLS-1$
+	private final JLabel lblSellRate = new JLabel(PropertyFactory.getString("in_igSellRateLabel")); //$NON-NLS-1$
+	private final JLabel valueLabel = new JLabel(PropertyFactory.getString("in_igValueLabel")); //$NON-NLS-1$
 	private JButton addButton;
 	private JButton removeButton;
-	private JButton clearAvailableQFilterButton = new JButton("Clear");
-	private JButton clearSelectedQFilterButton = new JButton("Clear");
-	private JCheckBox allowDebtBox = new JCheckBox("Allow Debt");
-	private JCheckBox autoResize = new JCheckBox("Auto Resize");
-	private JCheckBox autoSort = new JCheckBox("Auto-sort output", true);
+	private JButton clearAvailableQFilterButton = new JButton(PropertyFactory.getString("in_clear")); //$NON-NLS-1$
+	private JButton clearSelectedQFilterButton = new JButton(PropertyFactory.getString("in_clear")); //$NON-NLS-1$
+	private JCheckBox allowDebtBox = new JCheckBox(PropertyFactory.getString("in_igAllowDebt")); //$NON-NLS-1$
+	private JCheckBox autoResize = new JCheckBox(PropertyFactory.getString("in_igAutoResize")); //$NON-NLS-1$
+	private JCheckBox autoSort = new JCheckBox(PropertyFactory.getString("in_igAutoSort"), true); //$NON-NLS-1$
 	private JCheckBox chkViewAll = new JCheckBox();
-	private JCheckBox costBox = new JCheckBox("Ignore Cost");
+	private JCheckBox costBox = new JCheckBox(PropertyFactory.getString("in_igIgnoreCost")); //$NON-NLS-1$
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JLabelPane infoLabel = new JLabelPane();
 	private JMenu pcCopyMenu =
-			Utility.createMenu("Copy Item To", (char) 0, "Copy Item To", null,
-				true);
+			Utility.createMenu(PropertyFactory.getString("in_igCopyItemMenuTitle"), (char) 0, //$NON-NLS-1$
+					PropertyFactory.getString("in_igCopyItemMenuDesc"), null, true); //$NON-NLS-1$
 	private JMenu pcMoveMenu =
-			Utility.createMenu("Move Item To", (char) 0, "Move Item To", null,
-				true);
+			Utility.createMenu(PropertyFactory.getString("in_igMoveItemMenuTitle"), (char) 0, //$NON-NLS-1$
+					PropertyFactory.getString("in_igMoveItemMenuDesc"), null, true); //$NON-NLS-1$
 	private JPanel center = new JPanel();
 	private JPanel pnlBuy = new JPanel();
 	private JPanel pnlSell = new JPanel();
@@ -216,7 +217,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 	private JTextField textAvailableQFilter = new JTextField();
 	private JTextField textSelectedQFilter = new JTextField();
 	private JTextField gold = new JTextField();
-	private JTextField totalValue = new JTextField("Temp");
+	private JTextField totalValue = new JTextField("Temp"); //$NON-NLS-1$
 	private JTreeTable availableTable; // the available Equipment
 	private JTreeTable selectedTable; // the selected Equipment
 	private JTreeTableSorter availableSort = null;
@@ -283,13 +284,13 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 	public int getTabOrder()
 	{
-		return SettingsHandler.getPCGenOption(".Panel.Gear.Order", tab
+		return SettingsHandler.getPCGenOption(".Panel.Gear.Order", tab //$NON-NLS-1$
 			.ordinal());
 	}
 
 	public void setTabOrder(int order)
 	{
-		SettingsHandler.setPCGenOption(".Panel.Gear.Order", order);
+		SettingsHandler.setPCGenOption(".Panel.Gear.Order", order); //$NON-NLS-1$
 	}
 
 	public String getTabName()
@@ -582,15 +583,18 @@ public final class InfoGear extends FilterAdapterPanel implements
 	{
 		if (aEq != null)
 		{
-			StringBuffer b = new StringBuffer(300);
-			b.append("<html><b>").append(aEq.piSubString()).append("</b>");
+			final StringBuilder title = new StringBuilder(50);
+			title.append(aEq.piSubString());
 
 			if (!aEq.longName().equals(aEq.getName()))
 			{
-				b.append("(").append(aEq.longName()).append(")");
+				title.append("(").append(aEq.longName()).append(")");
 			}
-
-			b.append(" &nbsp;<b>TYPE</b>:").append(CoreUtility.join(aEq.getTypeList(true), '.'));
+			
+			final InfoLabelTextBuilder b = new InfoLabelTextBuilder(title.toString());
+			
+			b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
+					CoreUtility.join(aEq.getTypeList(true), '.'));
 
 			//
 			// Should only be meaningful for weapons, but if included on some other piece of
@@ -598,8 +602,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 			//
 			if (aEq.isWeapon() || aEq.hasWield())
 			{
-				WieldCategory wCat = aEq.getEffectiveWieldCategory(pc);
-				b.append(" <b>Wield:</b> ").append(wCat.getName());
+				final WieldCategory wCat = aEq.getEffectiveWieldCategory(pc);
+				b.appendI18nElement("in_igInfoLabelTextWield", //$NON-NLS-1$
+					wCat.getName());
 			}
 
 			//
@@ -607,27 +612,26 @@ public final class InfoGear extends FilterAdapterPanel implements
 			//
 			if (aEq.isWeapon() || aEq.isArmor() || aEq.isShield())
 			{
-				b.append(" <b>PROFICIENT</b>:");
-				b
-					.append(((pc.isProficientWith(aEq) && aEq.meetsPreReqs(pc))
-						? "Y" : (SettingsHandler
-							.getPrereqFailColorAsHtmlStart()
-							+ "N" + SettingsHandler
-							.getPrereqFailColorAsHtmlEnd())));
+				final String value = (pc.isProficientWith(aEq) && aEq.meetsPreReqs(pc))
+						? PropertyFactory.getString("in_igInfoLabelTextYes") //$NON-NLS-1$ 
+						: (SettingsHandler.getPrereqFailColorAsHtmlStart()
+							+ PropertyFactory.getString("in_igInfoLabelTextNo") + //$NON-NLS-1$
+							SettingsHandler.getPrereqFailColorAsHtmlEnd());
+				b.appendI18nElement("in_igInfoLabelTextProficient",value); //$NON-NLS-1$
 			}
 
 			final String cString = aEq.preReqHTMLStrings(pc, false);
 
 			if (cString.length() > 0)
 			{
-				b.append(" &nbsp;<b>Requirements</b>:").append(cString);
+				b.appendI18nElement("in_igInfoLabelTextReq",cString); //$NON-NLS-1$
 			}
 
 			String IDS = aEq.getInterestingDisplayString(pc);
 
 			if (IDS.length() > 0)
 			{
-				b.append(" &nbsp;<b>Properties</b>:").append(IDS);
+				b.appendI18nElement("in_igInfoLabelTextProp",IDS); //$NON-NLS-1$
 			}
 
 			String bString =
@@ -636,22 +640,23 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>WT</b>:").append(bString).append(
-					Globals.getGameModeUnitSet().getWeightUnit());
+				bString += Globals.getGameModeUnitSet().getWeightUnit();
+				b.appendI18nElement("in_igInfoLabelTextWeight",bString); //$NON-NLS-1$
+					
 			}
 
 			Integer a = aEq.getMaxDex(pc);
 
 			if (a.intValue() != 100)
 			{
-				b.append(" <b>MAXDEX</b>:").append(a.toString());
+				b.appendI18nElement("in_igInfoLabelTextMaxDex",a.toString()); //$NON-NLS-1$
 			}
 
 			a = aEq.acCheck(pc);
 
 			if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 			{
-				b.append(" <b>ACCHECK</b>:").append(a.toString());
+				b.appendI18nElement("in_igInfoLabelTextAcCheck",a.toString()); //$NON-NLS-1$
 			}
 
 			if (Globals.getGameModeACText().length() != 0)
@@ -660,8 +665,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(Globals.getGameModeACText())
-						.append(" Bonus</b>:").append(a.toString());
+					//TODO: How to internationalize this?
+					b.appendElement(Globals.getGameModeACText()+ " Bonus",a.toString()); 
 				}
 			}
 
@@ -671,7 +676,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>Arcane Failure</b>:").append(a.toString());
+					b.appendI18nElement("in_igInfoLabelTextArcaneFailure",a.toString()); //$NON-NLS-1$
 				}
 			}
 
@@ -683,8 +688,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
-					b.append(" <b>").append(bString).append("</b>:").append(
-						a.toString());
+					b.appendElement(bString , a.toString());
 				}
 			}
 
@@ -692,52 +696,55 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Move</b>:").append(bString);
+				b.appendI18nElement("in_igInfoLabelTextMove" , bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getSize();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Size</b>:").append(bString);
+				b.appendI18nElement("in_igInfoLabelTextSize" , bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getDamage(pc);
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Damage</b>:").append(bString);
-
+				
 				if (aEq.isDouble())
 				{
-					b.append('/').append(aEq.getAltDamage(pc));
+					bString += "/" + aEq.getAltDamage(pc); //$NON-NLS-1$
 				}
+				
+				b.appendI18nElement("in_igInfoLabelTextDamage",bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getCritRange(pc);
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Crit Range</b>:").append(bString);
 
 				if (aEq.isDouble()
 					&& !aEq.getCritRange(pc).equals(aEq.getAltCritRange(pc)))
 				{
-					b.append('/').append(aEq.getAltCritRange(pc));
+					bString += "/" + aEq.getAltCritRange(pc); //$NON-NLS-1$
 				}
+				
+				b.appendI18nElement("in_igInfoLabelTextCritRange" , bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getCritMult();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Crit Mult</b>:").append(bString);
-
+				
 				if (aEq.isDouble()
 					&& !(aEq.getCritMultiplier() == aEq.getAltCritMultiplier()))
 				{
-					b.append('/').append(aEq.getAltCritMult());
+					bString += "/" + aEq.getAltCritMult(); //$NON-NLS-1$
 				}
+				
+				b.appendI18nElement("in_igInfoLabelTextCritMult" , bString ); //$NON-NLS-1$
 			}
 
 			if (aEq.isWeapon())
@@ -748,7 +755,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 				if (bString.length() > 0)
 				{
-					b.append(" <b>Range</b>:").append(bString).append(
+					b.appendI18nElement("in_igInfoLabelTextRange" , bString + //$NON-NLS-1$
 						Globals.getGameModeUnitSet().getDistanceUnit());
 				}
 			}
@@ -757,36 +764,35 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Container</b>:").append(bString);
+				b.appendI18nElement("in_igInfoLabelTextContainer" , bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getContainerContentsString();
 
 			if (bString.length() > 0)
 			{
-				b.append(" <b>Currently Contains</b>:").append(bString);
+				b.appendI18nElement("in_igInfoLabelTextCurrentlyContains" , bString); //$NON-NLS-1$
 			}
 
 			final int charges = aEq.getRemainingCharges();
 
 			if (charges >= 0)
 			{
-				b.append(" <b>Charges</b>:").append(charges);
+				b.appendI18nElement("in_igInfoLabelTextCharges" , Integer.valueOf(charges).toString() ); //$NON-NLS-1$
 			}
 
 			bString = aEq.getQualityString();
 			if (bString.length() > 0)
 			{
-				b.append(" <b>QUALITIES</b>:").append(bString);
+				b.appendI18nElement("in_igInfoLabelTextQualities", bString); //$NON-NLS-1$
 			}
 
 			bString = aEq.getDefaultSourceString();
 			if (bString.length() > 0)
 			{
-				b.append(" <b>SOURCE</b>:").append(bString);
+				b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
 			}
 
-			b.append("</html>");
 			infoLabel.setText(b.toString());
 		}
 		else
@@ -837,10 +843,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 					{
 						ShowMessageDelegate
 							.showMessageDialog(
-								"You can not remove all of '"
-									+ updatedItem.getName()
-									+ "' as it is still present in at least one equipment set.",
-								"Error", MessageType.ERROR);
+								PropertyFactory.getFormattedString("in_igAdjBelongStillEquiped", //$NON-NLS-1$ 
+									updatedItem.getName()),
+									Constants.s_APPNAME, MessageType.ERROR);
 						return 0.0;
 					}
 
@@ -869,13 +874,11 @@ public final class InfoGear extends FilterAdapterPanel implements
 					{
 						ShowMessageDelegate
 							.showMessageDialog(
-								"You can not set the total number of '"
-									+ updatedItem.getName()
-									+ "' to be "
-									+ newQty
-									+ " as there is an Equipment Set that is using "
-									+ numberOfItemInUse + " of them.", "Error",
-								MessageType.ERROR);
+								PropertyFactory.getFormattedString("in_igAdjBelongNumberStillEquiped", //$NON-NLS-1$
+								updatedItem.getName() ,
+								newQty ,
+								numberOfItemInUse), 
+								Constants.s_APPNAME, MessageType.ERROR);
 						return 0.0;
 					}
 					pc.updateEquipmentQty(updatedItem, prevQty, newQty);
@@ -973,7 +976,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				foundCounts.put(path, count);
 			}
 		}
-		if (foundCounts.size() == 0)
+		if (foundCounts.isEmpty())
 		{
 			return 0.0;
 		}
@@ -1025,8 +1028,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		Object defaultValue = cmbSellPercent.getSelectedItem().toString();
 		InputInterface ii = InputFactory.getInputInstance();
 		Object input =
-				ii.showInputDialog(this, "Enter buy price percentage:",
-					"Buy at Percent", MessageType.QUESTION, null, defaultValue);
+				ii.showInputDialog(this, PropertyFactory.getString("in_igBuyPricePercMsg"),
+					PropertyFactory.getString("in_igBuyPricePercTitle"), MessageType.QUESTION, null, defaultValue);
 
 		if (input != null)
 		{
@@ -1040,7 +1043,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			catch (NumberFormatException nfe)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"You must enter an integer value.", "Error",
+					PropertyFactory.getString("in_igBuyPricePercNoInteger"), Constants.s_APPNAME,
 					MessageType.ERROR);
 			}
 		}
@@ -1067,7 +1070,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							"You cannot buy this item as is; you must \"customize\" it first.",
+							PropertyFactory.getString("in_igBuyMustCustomizeItemFirst"),
 							Constants.s_APPNAME, MessageType.ERROR);
 
 					return;
