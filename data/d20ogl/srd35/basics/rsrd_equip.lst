@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Oct 18 19:52:21 2006 -- reformated by prettylst.pl v1.35 (build 1493)
+# CVS $Revision$ $Author$ -- Thu Feb 15 18:13:08 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: abernat/altered by dlm1065
 
@@ -158,47 +158,49 @@ Saddlebags				TYPE:Goods.Container.Mount.Resizable		CONTAINS:-1|Any=-1	COST:4	WT
 Stabling (Per Day)		TYPE:Goods.Mount										COST:.5	WT:0				SOURCEPAGE:Equipment.rtf
 
 ###Block:Tools
-# Equipment Name				Type									Number of Pages	Page Usage				Cost		Weight	Source Page				Bonus to skill																					Special Property
-Alchemist's Lab				TYPE:Goods.Tools.Artisan													COST:500	WT:40		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Alchemy)|2|TYPE=Circumstance
-Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools										COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Bowmaking)		TYPE:Goods.Tools.Artisan.BowmakingTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Bowmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Blacksmithing)	TYPE:Goods.Tools.Artisan.BlacksmithingTools										COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Blacksmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CarpentryTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Leatherworking)	TYPE:Goods.Tools.Artisan.LeatherworkingTools										COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Leatherworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Painting)		TYPE:Goods.Tools.Artisan.PaintingTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Painting)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.PotteryTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Sculpting)		TYPE:Goods.Tools.Artisan.SculptingTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Sculpting)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Shipmaking)		TYPE:Goods.Tools.Artisan.ShipmakingTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.StonemasonryTools										COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Trapmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools										COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Artisan's Tools (Woodworking)		TYPE:Goods.Tools.Artisan.WoodworkingTools											COST:5	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Woodworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable											COST:80	WT:5		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Climb|2|TYPE=Circumstance
-Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable.Consumable									COST:50	WT:8		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disguise|2|TYPE=Circumstance
-Healer's Kit				TYPE:Goods.Tools.Masterwork.Consumable											COST:50	WT:1		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Heal|2|TYPE=Circumstance
-Hourglass					TYPE:Goods.Tools															COST:25	WT:1		SOURCEPAGE:Equipment.rtf
-Holly and Mistletoe			TYPE:Goods.Tools.DivineFocus													COST:0	WT:0		SOURCEPAGE:Equipment.rtf
-Holy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus													COST:1	WT:0		SOURCEPAGE:Equipment.rtf
-Holy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus													COST:25	WT:1		SOURCEPAGE:Equipment.rtf
-Magnifying Glass				TYPE:Goods.Tools															COST:100			SOURCEPAGE:Equipment.rtf																								SPROP:a +2 circumstance bonus on Appraise checks involving any item that is small or highly detailed.
-Musical Instrument (Bells)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Chime)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Drum)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Gong)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Fiddle)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Harp)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Lute)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Mandolin)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Flute)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtfp	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Pan Pipes)	TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Shawm)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
-Scale (Merchant's)			TYPE:Goods.Tools															COST:2	WT:1		SOURCEPAGE:Equipment.rtf																								SPROP:+2 to appraise items valued by weight
-Spell Component Pouch			TYPE:Goods.Tools															COST:5	WT:2		SOURCEPAGE:Equipment.rtf
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook					NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3		SOURCEPAGE:Equipment.rtf
-Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools										COST:30	WT:1		SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:Masterwork
-Waterclock					TYPE:Goods.Tools.Resizable													COST:1000	WT:200	SOURCEPAGE:Equipment.rtf
+# Equipment Name				Type									Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page				Bonus to skill																					Special Property
+Alchemist's Lab				TYPE:Goods.Tools.Artisan													COST:500	WT:40								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Alchemy)|2|TYPE=Circumstance
+Artisan's Tools (Armorsmithing)	TYPE:Goods.Tools.Artisan.ArmorsmithingTools										COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Armorsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Bowmaking)		TYPE:Goods.Tools.Artisan.BowmakingTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Bowmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Blacksmithing)	TYPE:Goods.Tools.Artisan.BlacksmithingTools										COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Blacksmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Carpentry)		TYPE:Goods.Tools.Artisan.CarpentryTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Leatherworking)	TYPE:Goods.Tools.Artisan.LeatherworkingTools										COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Leatherworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Painting)		TYPE:Goods.Tools.Artisan.PaintingTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Painting)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Pottery)		TYPE:Goods.Tools.Artisan.PotteryTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Sculpting)		TYPE:Goods.Tools.Artisan.SculptingTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Sculpting)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Shipmaking)		TYPE:Goods.Tools.Artisan.ShipmakingTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.StonemasonryTools										COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Trapmaking)		TYPE:Goods.Tools.Artisan.TrapmakingTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Trapmaking)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.WeaponsmithingTools										COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Artisan's Tools (Woodworking)		TYPE:Goods.Tools.Artisan.WoodworkingTools											COST:5	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Craft (Woodworking)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable											COST:80	WT:5								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Climb|2|TYPE=Circumstance
+Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable.Consumable									COST:50	WT:8								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disguise|2|TYPE=Circumstance
+Healer's Kit				TYPE:Goods.Tools.Masterwork													COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Heal|2|TYPE=Circumstance
+
+
+Hourglass					TYPE:Goods.Tools															COST:25	WT:1								SOURCEPAGE:Equipment.rtf
+Holly and Mistletoe			TYPE:Goods.Tools.DivineFocus													COST:0	WT:0								SOURCEPAGE:Equipment.rtf
+Holy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus													COST:1	WT:0								SOURCEPAGE:Equipment.rtf
+Holy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus													COST:25	WT:1								SOURCEPAGE:Equipment.rtf
+Magnifying Glass				TYPE:Goods.Tools															COST:100									SOURCEPAGE:Equipment.rtf																								SPROP:a +2 circumstance bonus on Appraise checks involving any item that is small or highly detailed.
+Musical Instrument (Bells)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Chime)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Drum)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Gong)		TYPE:Goods.Tools.Instrument.Percussion.Resizable									COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Percussion Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Fiddle)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Harp)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Lute)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Mandolin)		TYPE:Goods.Tools.Instrument.String.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Flute)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtfp	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Pan Pipes)	TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Shawm)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable										COST:5	WT:3								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:Masterwork
+Scale (Merchant's)			TYPE:Goods.Tools															COST:2	WT:1								SOURCEPAGE:Equipment.rtf																								SPROP:+2 to appraise items valued by weight
+Spell Component Pouch			TYPE:Goods.Tools															COST:5	WT:2								SOURCEPAGE:Equipment.rtf
+Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook					NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3								SOURCEPAGE:Equipment.rtf
+Thieves' Tools				TYPE:Goods.Tools.Resizable.Thief.ThiefTools										COST:30	WT:1								SOURCEPAGE:Equipment.rtf	BONUS:SKILL|Disable Device,Open Lock|0|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|2|TYPE=Circumstance|PRETYPE:Masterwork
+Waterclock					TYPE:Goods.Tools.Resizable													COST:1000	WT:200							SOURCEPAGE:Equipment.rtf
 
 
 # From "Wealth other than coins", sorted by value
