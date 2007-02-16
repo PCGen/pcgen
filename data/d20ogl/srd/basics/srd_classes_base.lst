@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  2 04:41:07 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Thu Feb 15 19:05:54 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
 # Uncanny Dodge should be moved to Feats/Feat with SAs...
@@ -172,7 +172,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:2,5,8	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:0,3,6	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:6,7,8	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:0,1,2
 ###Block: Level progression
-1	CAST:3,1				SA:Nature Sense		FEATAUTO:Animal Companion|Druid Tracker - Animal Companion
+1	CAST:3,1				SA:Nature Sense						FEATAUTO:Animal Companion|Druid Tracker - Animal Companion
 2	CAST:4,2				SA:Woodland Stride
 3	CAST:4,2,1				SA:Trackless Step
 4	CAST:5,3,2				SA:Resist Nature's Lure
@@ -186,7 +186,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 12	CAST:6,5,4,4,3,3,2
 13	CAST:6,5,5,4,4,3,2,1		SA:A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1		SA:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1		SA:Timeless Body		TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
@@ -268,7 +268,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE.Craft|Diplom
 14	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 15	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8										SA:Quivering Palm (Su) %/week|QuiverPalm							BONUS:VAR|QuiverPalm|1	DEFINE:QuiverPalm|0
 16	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10																							BONUS:VAR|KiStrike|1
-17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Timeless Body	SA:Tongue of the Sun and Moon
+17	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Timeless Body	SA:Tongue of the Sun and Moon																										TEMPLATE:Timeless Body
 18	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10						SA:.CLEAR.Slow Fall	SA:Slow Fall (any distance)
 19	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Empty Body (Su) % rounds/day|EmptyBody							BONUS:VAR|EmptyBody|CL	DEFINE:EmptyBody|0
 20	UDAM:1d6,1d8,1d10,2d6,1d20,2d10,2d12,4d8,4d10										SA:Perfect Self																															TEMPLATE:Monk Outsider
