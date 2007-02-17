@@ -68,6 +68,12 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			if ((tokens.length == 1)
 				|| ((tokens.length == 2) && tokens[1].equals("")))
 			{
+				char firstChar = formula.charAt(0);
+				if (firstChar == '-' || firstChar == '+') {
+					throw new PersistenceLayerException(
+							"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
+									+ formula + "' is not valid ");
+				}
 				int min = Integer.parseInt(tokens[0]);
 
 				prereq.setOperand(Integer.toString(min));
@@ -75,6 +81,11 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 			}
 			else if (tokens.length == 2)
 			{
+				if (formula.indexOf('+') != -1) {
+					throw new PersistenceLayerException(
+							"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '"
+									+ formula + "' is not valid ");
+				}
 				int min = Integer.parseInt(tokens[0]);
 				int max = Integer.parseInt(tokens[1]);
 

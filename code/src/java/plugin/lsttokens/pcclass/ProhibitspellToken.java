@@ -70,7 +70,17 @@ public class ProhibitspellToken implements PCClassLstToken
 							}
 							else
 							{
-								spellProb.addValue(aValue);
+								if (type.equals(ProhibitedSpellType.SPELL))
+								{
+									for (String spell : aValue.split(","))
+									{
+										spellProb.addValue(spell);
+									}
+								}
+								else 
+								{
+									spellProb.addValue(aValue);
+								}
 							}
 						}
 					}

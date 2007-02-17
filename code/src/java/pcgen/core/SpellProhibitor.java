@@ -102,6 +102,6 @@ public class SpellProhibitor extends PrereqObject {
 			}
 		}
 		
-		return hits == valueList.size();
+		return hits == type.getRequiredCount(valueList);
 	}
 }

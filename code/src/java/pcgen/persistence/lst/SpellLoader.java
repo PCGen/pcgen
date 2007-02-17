@@ -230,12 +230,16 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 
 		if (j < i)
 		{
+			Logging.errorPrint("Warning: Close Bracket before Open Bracket in Level List: " + listString);
 			j = listString.length();
 		}
 
 		if (i >= 0)
 		{
 			preReqTag = listString.substring(i + 1, j);
+			if (preReqTag.length() == 0) {
+				Logging.errorPrint("Warning: Empty Prerequisite in Level List: " + listString);
+			}
 			listString = listString.substring(0, i);
 		}
 

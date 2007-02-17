@@ -37,6 +37,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
+import pcgen.util.enumeration.Visibility;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -716,14 +717,26 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		if ((aString.length() > 0) && (aString.charAt(0) == 'Y'))
 		{
+			if (!aString.equals("YES")) {
+				Logging.errorPrint("Warning: Abbreviation " + aString + " will not be valid after 5.12");
+				Logging.errorPrint("         Please spell out YES in upper case");
+			}
 			equipmentVisible = VISIBLE_YES;
 		}
 		else if ((aString.length() > 0) && (aString.charAt(0) == 'Q'))
 		{
+			if (!aString.equals("QUALIFY")) {
+				Logging.errorPrint("Warning: Abbreviation " + aString + " will not be valid after 5.12");
+				Logging.errorPrint("         Please spell out QUALIFY in upper case");
+			}
 			equipmentVisible = VISIBLE_QUALIFIED;
 		}
 		else
 		{
+			if (!aString.equals("NO")) {
+				Logging.errorPrint("Warning: Visibility " + aString + " will not be valid after 5.12");
+				Logging.errorPrint("         Please spell out NO in upper case");
+			}
 			equipmentVisible = VISIBLE_NO;
 		}
 	}
@@ -969,7 +982,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 
 		if ("%CHOICE".equals(getSRFormula()) && (getAssociatedCount() > 0))
 		{
-			return Delta.parseInt(associatedList.get(0).toString());
+			return Delta.parseInt(getAssociatedObject(0).toString());
 		}
 
 		return super.getSR(aPC);
