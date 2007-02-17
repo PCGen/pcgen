@@ -80,7 +80,6 @@ public class CountCommand extends PCGenCommand
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
 	public void run(Stack inStack) throws ParseException
 	{
-		Logging.errorPrint("Got a call!");
 		// check the stack
 		checkStack(inStack);
 
