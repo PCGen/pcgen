@@ -9,6 +9,9 @@
       <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>
       <action dev="perchrh" type="add" issue="1275919">Added new PREAGESET tag.</action>
       <action dev="eddyanthony" type="add" issue="1339969">Added a Timeless Body template for Monk and Druid.</action>
+      <action dev="thpr" type="update" issue="1662066">Deprecated NAME Tag</action>
+      <action dev="thpr" type="update" issue="1633550">Deprecated Old PRESPELLTYPE syntax</action>
+      <action dev="thpr" type="fix" issue="1654039">UNENCUMBEREDMOVE now works properly on CLASS line</action>
     </release>  
     <release version="5.11.7" date="2007-01-30" description="Alpha release">
       <action dev="thpr" type="update" issue="1611839">Deprecated +d in KNOWN Tag</action>
