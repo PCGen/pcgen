@@ -56,6 +56,7 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.DefaultTriState;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
 
@@ -144,6 +145,18 @@ public class PCClass extends PObject {
 	 * LevelProperty, so that should be pretty obvious :)
 	 */
 	private List<LevelProperty<String>> SR = null;
+
+	/*
+	 * FINALALLCLASSLEVELS The encumberedLoadMove List is level dependent -
+	 * heck, it's in a LevelProperty, so that should be pretty obvious :)
+	 */
+	private List<LevelProperty<Load>> encumberedLoadMove = null;
+
+	/*
+	 * FINALALLCLASSLEVELS The encumberedArmorMove List is level dependent -
+	 * heck, it's in a LevelProperty, so that should be pretty obvious :)
+	 */
+	private List<LevelProperty<Load>> encumberedArmorMove = null;
 
 	/*
 	 * FINALALLCLASSLEVELS Since this seems to allow for class dependent additions of
@@ -6636,6 +6649,62 @@ public class PCClass extends PObject {
 	public int getKnownSpellsFromSpecialty() {
 		return castInfo == null ? 0 : castInfo.getKnownSpellsFromSpecialty();
 	}
+
+	@Override
+	public Load getEncumberedArmorMove() {
+		LevelProperty<Load> activeLP = null;
+
+		if (encumberedArmorMove != null) {
+			for (LevelProperty<Load> lp : encumberedArmorMove) {
+				if (lp.getLevel() > level) {
+					continue;
+				}
+				if (activeLP == null || activeLP.getLevel() < lp.getLevel()) {
+					activeLP = lp;
+					continue;
+				}
+			}
+		}
+
+		return activeLP == null ? super.getEncumberedArmorMove() : activeLP
+				.getObject();
+	}
+
+	@Override
+	public Load getEncumberedLoadMove() {
+		LevelProperty<Load> activeLP = null;
+
+		if (encumberedLoadMove != null) {
+			for (LevelProperty<Load> lp : encumberedLoadMove) {
+				if (lp.getLevel() > level) {
+					continue;
+				}
+				if (activeLP == null || activeLP.getLevel() < lp.getLevel()) {
+					activeLP = lp;
+					continue;
+				}
+			}
+		}
+
+		return activeLP == null ? super.getEncumberedLoadMove() : activeLP
+				.getObject();
+	}
+
+	@Override
+	public void setEncumberedArmorMove(Load load, int lvl) {
+		if (encumberedArmorMove == null) {
+			encumberedArmorMove = new ArrayList<LevelProperty<Load>>();
+		}
+		encumberedArmorMove.add(LevelProperty.getLevelProperty(lvl, load));
+	}
+
+	@Override
+	public void setEncumberedLoadMove(Load load, int lvl) {
+		if (encumberedLoadMove == null) {
+			encumberedLoadMove = new ArrayList<LevelProperty<Load>>();
+		}
+		encumberedLoadMove.add(LevelProperty.getLevelProperty(lvl, load));
+	}
 	
 //	public void removeAutoAbilities(final AbilityCategory aCategory, final int aLevel)
 //	{
@@ -6651,4 +6720,6 @@ public class PCClass extends PObject {
 //		}
 //		theAutoAbilities.put(aCategory, aLevel, null);
 //	}
+	
+	
 }

@@ -97,7 +97,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/** List of associated items for the object */
 	// TODO Contains strings or FeatMultipleObjects
-	protected ArrayList<AssociatedChoice<String>> associatedList = null;
+	private ArrayList<AssociatedChoice<String>> associatedList = null;
 
 	/** List of Level Abilities for the object  */
 	private List<LevelAbility> levelAbilityList = null;
@@ -694,8 +694,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/**
 	 * Set the encumberance due to armor
 	 * @param encumberedArmorMove
+	 * @param level FIXME
 	 */
-	public void setEncumberedArmorMove(Load encumberedArmorMove)
+	public void setEncumberedArmorMove(Load encumberedArmorMove, int level)
 	{
 		this.encumberedArmorMove = encumberedArmorMove;
 	}
@@ -703,8 +704,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/**
 	 * Set the encumberance due to load
 	 * @param encumberedLoadMove
+	 * @param level FIXME
 	 */
-	public void setEncumberedLoadMove(Load encumberedLoadMove)
+	public void setEncumberedLoadMove(Load encumberedLoadMove, int level)
 	{
 		this.encumberedLoadMove = encumberedLoadMove;
 	}
@@ -754,53 +756,6 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	{
 		String characteristic = stringChar.get(StringKey.TEMP_DESCRIPTION);
 		return characteristic == null ? Constants.EMPTY_STRING : characteristic;
-	}
-
-	/**
-	 * Used to ignore Encumbrance for specified load types
-	 * @param aString
-	 */
-	public void setUnencumberedMove(final String aString)
-	{
-		this.setEncumberedLoadMove(Load.LIGHT);
-		this.setEncumberedArmorMove(Load.LIGHT);
-
-		final StringTokenizer st = new StringTokenizer(aString, "|");
-
-		while (st.hasMoreTokens())
-		{
-			final String loadString = st.nextToken();
-
-			if (loadString.equalsIgnoreCase("MediumLoad"))
-			{
-				this.setEncumberedLoadMove(Load.MEDIUM);
-			}
-			else if (loadString.equalsIgnoreCase("HeavyLoad"))
-			{
-				this.setEncumberedLoadMove(Load.HEAVY);
-			}
-			else if (loadString.equalsIgnoreCase("Overload"))
-			{
-				this.setEncumberedLoadMove(Load.OVERLOAD);
-			}
-			else if (loadString.equalsIgnoreCase("MediumArmor"))
-			{
-				this.setEncumberedArmorMove(Load.MEDIUM);
-			}
-			else if (loadString.equalsIgnoreCase("HeavyArmor"))
-			{
-				this.setEncumberedArmorMove(Load.OVERLOAD);
-			}
-			else if (loadString.equalsIgnoreCase("LightLoad") || loadString.equalsIgnoreCase("LightArmor"))
-			{
-				//do nothing, but accept values as valid
-			}
-			else
-			{
-				ShowMessageDelegate.showMessageDialog("Invalid value of \"" + loadString + "\" for UNENCUMBEREDMOVE in \"" + getDisplayName() + "\".",
-					"PCGen", MessageType.ERROR);
-			}
-		}
 	}
 
 	/**
