@@ -7,7 +7,9 @@
   <body>
     <release version="5.11.8" date="In SVN" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>
-	</release>  
+      <action dev="perchrh" type="add" issue="1275919">Added new PREAGESET tag.</action>
+      <action dev="eddyanthony" type="add" issue="1339969">Added a Timeless Body template for Monk and Druid.</action>
+    </release>  
     <release version="5.11.7" date="2007-01-30" description="Alpha release">
       <action dev="thpr" type="update" issue="1611839">Deprecated +d in KNOWN Tag</action>
       <action dev="thpr" type="update" issue="1613697">Deprecated ALTCRITICAL Tag</action>
