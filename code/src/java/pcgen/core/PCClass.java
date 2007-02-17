@@ -2848,7 +2848,7 @@ public class PCClass extends PObject {
 			getSpellKey();
 		}
 
-		if (!aPC.isImporting()) {
+		if (!aPC.isImporting() && (curLevel < level)) {
 			checkForSubstitutionClass(level, aPC);
 		}
 
