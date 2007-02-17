@@ -1288,6 +1288,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 		//SAVE is a special case: starts out empty
 		// because the saveList is based on user selections (merton_monk@yahoo.com)
 		retVal.listChar.removeListFor(ListKey.SAVE);
+		retVal.types = new LinkedHashSet<String>();
+		retVal.types.addAll(types);
 
 		retVal.setName(displayName);
 		retVal.visibility = visibility;
@@ -1869,7 +1871,7 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 */
 	public String getType()
 	{
-		return CoreUtility.join(getTypeList(false), '.');
+		return CoreUtility.join(getTypeList(false), ".");
 	}
 
 	/**
