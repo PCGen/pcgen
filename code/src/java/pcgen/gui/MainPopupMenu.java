@@ -39,7 +39,6 @@ import java.awt.Component;
 final class MainPopupMenu extends JPopupMenu
 {
 	JMenuItem newItem;
-// WIP please leave boomer70
 	JMenuItem newNPCItem;
 	private JMenuItem pleaseLoadItem;
 
@@ -54,9 +53,8 @@ final class MainPopupMenu extends JPopupMenu
 		newItem = Utility.createMenuItem("New", frameActionListener.newPopupActionListener, "mainPopupMenu.new", 'N',
 				null, "Create a new character", "New16.gif", true);
 
-// WIP please leave boomer70
 		newNPCItem = Utility.createMenuItem("New NPC", frameActionListener.newNPCPopupActionListener, "mainPopupMenu.newNPC", (char)0,
-			null, "Create a new random NPC", "New16.gif", true);
+			null, "Create a new random NPC", "NewNPC16.gif", true);
 	}
 
 	public void show(Component invoker, int x, int y)
@@ -65,12 +63,14 @@ final class MainPopupMenu extends JPopupMenu
 		{
 			remove(pleaseLoadItem);
 			add(newItem);
+			add(newNPCItem);
 			super.show(invoker, x, y);
 		}
 
 		else if (!SettingsHandler.isExpertGUI())
 		{
 			remove(newItem);
+			remove(newNPCItem);
 			add(pleaseLoadItem);
 			super.show(invoker, x, y);
 		}

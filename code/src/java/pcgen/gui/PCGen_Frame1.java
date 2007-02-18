@@ -2550,9 +2550,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer, PCLo
 					"shortcut N", "New16.gif", false);
 			fileMenu.add(newItem);
 
-// WIP please leave boomer70
 			newNPCItem = Utility.createMenuItem("mnuFileNewNPC", frameActionListener.newNPCActionListener, "file.newNPC",
-					null, "New16.gif", false);
+					null, "NewNPC16.gif", false);
 			fileMenu.add(newNPCItem);
 
 			openItem = Utility.createMenuItem("mnuFileOpen", frameActionListener.openActionListener, "file.open",

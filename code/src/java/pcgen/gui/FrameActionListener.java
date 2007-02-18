@@ -127,18 +127,17 @@ final class FrameActionListener
 			}
 		};
 
-		/**
-		 * Handle File|New NPC in the menubar or the New NPC button on the
-		 * toolbar.
-		 */
-// WIP please leave boomer70
-		ActionListener newNPCActionListener = new ActionListener()
+	/**
+	 * Handle File|New NPC in the menubar or the New NPC button on the
+	 * toolbar.
+	 */
+	ActionListener newNPCActionListener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					main.newNPCItem_actionPerformed();
-				}
-			};
+				main.newNPCItem_actionPerformed();
+			}
+		};
 
 	/**
 	 * Handle New in the tab popup
@@ -151,17 +150,16 @@ final class FrameActionListener
 			}
 		};
 
-		/**
-		 * Handle New NPC in the tab popup
-		 */
-// WIP please leave boomer70
-		ActionListener newNPCPopupActionListener = new ActionListener()
+	/**
+	 * Handle New NPC in the tab popup
+	 */
+	ActionListener newNPCPopupActionListener = new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
 			{
-				public void actionPerformed(ActionEvent e)
-				{
-					main.newNPCPopupItem_actionPerformed();
-				}
-			};
+				main.newNPCPopupItem_actionPerformed();
+			}
+		};
 
 	/**
 	 * Handle File|Open in the menubar or the Open button on the
