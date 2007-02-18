@@ -24,6 +24,7 @@ CLASS:rsrd_classes_monsters_dragons.lst
 CLASS:rsrd_classes_monsters_specific.lst
 
 FEAT:rsrd_feats_templates.lst
+FEAT:rsrd_monsters_feats_hidden.lst
 
 KIT:rsrd_kits_races__vermin.lst
 KIT:rsrd_kits_races_a_b.lst
