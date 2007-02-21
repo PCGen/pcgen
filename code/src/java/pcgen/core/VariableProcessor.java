@@ -143,6 +143,61 @@ public abstract class VariableProcessor
 		return total;
 	}
 
+	/**
+	 * Evaluates a JEP variable for this character.
+	 * e.g: getJepOnlyVariableValue("3+CHA","CLASS:Cleric") for Turn Undead
+	 *
+	 * @param aSpell  This is specifically to compute bonuses to CASTERLEVEL for a specific spell.
+	 * @param aString The variable to be evaluated
+	 * @param src     The source within which the variable is evaluated
+	 * @param spellLevelTemp The temporary spell level
+	 * @return The value of the variable, or null if the formula is not JEP
+	 */
+	public Float getJepOnlyVariableValue(final Spell aSpell, String aString, String src, int spellLevelTemp)
+	{
+		// First try to just parse it as a number.
+		try
+		{
+			final Float total = new Float(aString);
+			return total;
+		}
+		catch (NumberFormatException e)
+		{
+			// Nothing to handle here, we're attempting to see if aString was a
+			// number, If we got here it wasn't
+		}
+
+
+		String cacheString = aString+"#"+src;
+		if (aSpell != null)
+		{
+			cacheString += aSpell.getKeyName();
+		}
+
+		if (spellLevelTemp > 0)
+		{
+			cacheString += spellLevelTemp;
+		}
+
+		Float total = getCachedVariable(cacheString);
+		if (total != null)
+		{
+			return total;
+		}
+
+
+		CachableResult cRes = processJepFormula(aSpell, aString, src);
+		if (cRes != null)
+		{
+			if (cRes.cachable)
+			{
+				addCachedVariable(cacheString, cRes.result);
+			}
+			return cRes.result;
+		}
+		return null;
+	}
+
 
 
 	/**

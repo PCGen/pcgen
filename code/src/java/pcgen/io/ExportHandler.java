@@ -26,6 +26,7 @@
 package pcgen.io;
 
 import java.io.*;
+import java.text.NumberFormat;
 import java.util.*;
 
 import pcgen.core.*;
@@ -46,6 +47,8 @@ import pcgen.io.exporttoken.SkillToken;
  */
 public final class ExportHandler
 {
+	private static final Float JEP_TRUE = new Float(1.0);
+	private static final NumberFormat NUM_FMT = NumberFormat.getInstance();
 	private static HashMap<String, Token> tokenMap =
 			new HashMap<String, Token>();
 	private static boolean tokenMapPopulated = false;
@@ -657,6 +660,15 @@ public final class ExportHandler
 			return false;
 		}
 
+		// Test for JEP formula 
+		Float res =
+				aPC.getVariableProcessor().getJepOnlyVariableValue(null, expr,
+					"", 0);
+		if (res != null)
+		{
+			return res.equals(JEP_TRUE);
+		}
+		
 		// Before returning false, let's see if this is a valid token, like this:
 		//
 		// |IIF(WEAPON%weap.CATEGORY:Ranged)|
@@ -958,8 +970,19 @@ public final class ExportHandler
 	 */
 	private String mathMode(String aString, PlayerCharacter aPC)
 	{
-		Float total = new Float(0.0);
+		//TODO: Check if this is a JEP formula If it is process that.
+//		Logging.setDebugMode(true);
+//		Float res =
+//				aPC.getVariableProcessor().getJepOnlyVariableValue(null,
+//					aString, "", 0);
+//		if (res != null)
+//		{
+//			Logging.setDebugMode(false);
+//			return NUM_FMT.format(res);
+//		}
+//		Logging.setDebugMode(false);
 
+		Float total = new Float(0.0);
 		while (aString.lastIndexOf('(') >= 0)
 		{
 			int x = CoreUtility.innerMostStringStart(aString);
@@ -2456,7 +2479,7 @@ public final class ExportHandler
 			//Leave
 			else if (aString.startsWith("OIF("))
 			{
-				replaceTokenIIF(aString, output, aPC);
+				replaceTokenOIF(aString, output, aPC);
 			}
 
 			//Leave
@@ -2895,7 +2918,7 @@ public final class ExportHandler
 		}
 	}
 
-	private void replaceTokenIIF(String aString, BufferedWriter output,
+	private void replaceTokenOIF(String aString, BufferedWriter output,
 		PlayerCharacter aPC)
 	{
 		int iParenCount = 0;
@@ -2933,7 +2956,7 @@ public final class ExportHandler
 						}
 						else
 						{
-							Logging.errorPrint("IIF: not enough parameters ("
+							Logging.errorPrint("OIF: not enough parameters ("
 								+ Integer.toString(iParamCount) + ')');
 							for (int j = 0; j < iParamCount; ++j)
 							{
@@ -2972,7 +2995,7 @@ public final class ExportHandler
 
 		if (iParamCount != 3)
 		{
-			Logging.errorPrint("IIF: invalid parameter count: " + iParamCount);
+			Logging.errorPrint("OIF: invalid parameter count: " + iParamCount);
 		}
 		else
 		{
@@ -2989,7 +3012,7 @@ public final class ExportHandler
 
 		if (aString.length() > 0)
 		{
-			Logging.errorPrint("IIF: extra characters on line: " + aString);
+			Logging.errorPrint("OIF: extra characters on line: " + aString);
 			FileAccess.write(output, aString);
 		}
 	}
