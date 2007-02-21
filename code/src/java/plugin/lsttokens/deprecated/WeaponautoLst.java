@@ -29,7 +29,7 @@ public class WeaponautoLst implements DeprecatedToken, GlobalLstToken
 	 */
 	public boolean parse(PObject obj, String value, int anInt)
 	{
-		obj.addAutoArray("WEAPONPROF|" + value); //$NON-NLS-1$
+		obj.addAutoArray("WEAPONPROF", value); //$NON-NLS-1$
 		//		obj.addWeaponProfAutos(value);
 		return true;
 	}

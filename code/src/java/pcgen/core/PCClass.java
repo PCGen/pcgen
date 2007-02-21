@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.core.bonus.Bonus;
@@ -6347,7 +6348,14 @@ public class PCClass extends PObject {
 
 		classSpellChoices = otherClass.classSpellChoices;
 
-		addAutoArray(otherClass.getSafeListFor(ListKey.AUTO_ARRAY));
+		Set<String> s = otherClass.getAutoMapKeys();
+		if (s != null)
+		{
+			for (String key : s)
+			{
+				addAutoArray(key, otherClass.getAuto(key));
+			}
+		}
 
 		if (!otherClass.getBonusList().isEmpty()) {
 			getBonusList().addAll(otherClass.getBonusList());

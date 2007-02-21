@@ -145,6 +145,21 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 
 	/**
 	 * Returns true if an object is stored in this DoubleKeyMap for the given
+	 * primary key.
+	 * 
+	 * @param key1
+	 *            The primary key to be tested for containing a value in this
+	 *            DoubleKeyMap.
+	 * @return true if this DoubleKeyMap has an Object stored in this
+	 *         DoubleKeyMap for the given primary key; false otherwise
+	 */
+	public boolean containsKey(K1 key1)
+	{
+		return map.containsKey(key1);
+	}
+	
+	/**
+	 * Returns true if an object is stored in this DoubleKeyMap for the given
 	 * keys.
 	 * 
 	 * @param key1
@@ -166,6 +181,20 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		return localMap.containsKey(key2);
 	}
 
+	/**
+	 * Removes all objects with the given primary key from the DoubleKeyMap.
+	 * 
+	 * @param key1
+	 *            The primary key used to remove the value in this DoubleKeyMap.
+	 * @return the Map of objects stored in this DoubleKeyMap for the given
+	 *         primary keys. null if this DoubleKeyMap does not have an object
+	 *         stored with the given primary key.
+	 */
+	public Map<K2, V> removeAll(K1 key1)
+	{
+		return map.remove(key1);
+	}
+	
 	/**
 	 * Removes an object from the DoubleKeyMap.
 	 * 

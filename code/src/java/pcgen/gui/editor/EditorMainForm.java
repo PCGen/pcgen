@@ -617,7 +617,7 @@ public final class EditorMainForm extends JDialog
 		thisPObject.clearSpecialAbilityList();
 		thisPObject.clearSRList();
 		thisPObject.getSpellSupport().clearSpellList();
-		thisPObject.clearAutoList();
+		thisPObject.clearAutoMap();
 
 		SpellSupport spellSupport = thisPObject.getSpellSupport();
 		switch (editType)
@@ -1043,11 +1043,11 @@ public final class EditorMainForm extends JDialog
 		//
 		if (pnlWeapons != null)
 		{
-			thisPObject.clearAutoListForTag("WEAPONPROF");
+			thisPObject.clearAutoTag("WEAPONPROF");
 			sel = pnlWeapons.getSelectedList();
 			for (int i = 0; i < sel.length; i++)
 			{
-				thisPObject.addAutoArray("WEAPONPROF|" + sel[i]);
+				thisPObject.addAutoArray("WEAPONPROF", (String) sel[i]);
 			}
 
 			sel = pnlWeapons.getSelectedList2();
@@ -3003,18 +3003,18 @@ public final class EditorMainForm extends JDialog
 				break;
 		}
 
-		final List<String> autoList = thisPObject.getSafeListFor(ListKey.AUTO_ARRAY);
+		final Set<String> keySet = thisPObject.getAutoMapKeys();
 
-		if (autoList != null)
+		if (keySet != null)
 		{
-			for (Iterator<String> e = autoList.iterator(); e.hasNext();)
+			for (String key : keySet)
 			{
-				String tagContent = e.next();
-				// We need to exclude WEAPONPROFs as they appear on the weapon tab
-				if (tagContent != null && !tagContent.startsWith("WEAPONPROF"))
+				if (key.equalsIgnoreCase("WEAPONPROF"))
 				{
-					selectedList.add("AUTO:" + tagContent);
+					// We need to exclude WEAPONPROFs as they appear on the weapon tab
+					continue;
 				}
+				selectedList.add("AUTO:" + key + "|" + thisPObject.getAuto(key));
 			}
 		}
 

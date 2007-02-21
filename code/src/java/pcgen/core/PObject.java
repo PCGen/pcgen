@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -57,6 +56,8 @@ import pcgen.core.utils.IntegerKey;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.core.utils.ListKey;
 import pcgen.core.utils.ListKeyMapToList;
+import pcgen.core.utils.MapKey;
+import pcgen.core.utils.MapKeyMapToObject;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.StringKey;
@@ -94,6 +95,8 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	protected Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
 	/** A map of Lists for the object */
 	protected ListKeyMapToList listChar = new ListKeyMapToList();
+	
+	private final MapKeyMapToObject mapChar = new MapKeyMapToObject();
 
 	/** List of associated items for the object */
 	// TODO Contains strings or FeatMultipleObjects
@@ -2280,20 +2283,11 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 
 	/**
 	 * Add auto array
-	 * @param aList
-	 */
-	public final void addAutoArray(final List<String> aList)
-	{
-		listChar.addAllToListFor(ListKey.AUTO_ARRAY, aList);
-	}
-
-	/**
-	 * Add auto array
 	 * @param arg
 	 */
-	public final void addAutoArray(final String arg)
+	public final void addAutoArray(String arrayName, String item)
 	{
-		listChar.addToListFor(ListKey.AUTO_ARRAY, arg);
+		mapChar.put(MapKey.AUTO_ARRAY, arrayName, item);
 	}
 
 	/**
@@ -2330,9 +2324,9 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	/**
 	 * Clear the auto list
 	 */
-	public final void clearAutoList()
+	public final void clearAutoMap()
 	{
-		listChar.removeListFor(ListKey.AUTO_ARRAY);
+		mapChar.removeAll(MapKey.AUTO_ARRAY);
 	}
 
 	/**
@@ -2340,22 +2334,21 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	 * carrying the supplied tag
 	 * @param tag The type to be removed e.g. WEAPONPROF
 	 */
-	public final void clearAutoListForTag(String tag)
+	public final void clearAutoTag(String tag)
 	{
-		List<String> autoList = getListFor(ListKey.AUTO_ARRAY);
-		if (autoList == null)
-		{
-			return;
-		}
-		for (String element : autoList)
-		{
-			if (element.startsWith(tag))
-			{
-				autoList.remove(element);
-			}
-		}
+		mapChar.remove(MapKey.AUTO_ARRAY, tag);
 	}
 
+	public final Set<String> getAutoMapKeys()
+	{
+		return mapChar.getKeySet(MapKey.AUTO_ARRAY);
+	}
+	
+	public final String getAuto(String tag)
+	{
+		return mapChar.get(MapKey.AUTO_ARRAY, tag);
+	}
+	
 	/**
 	 * Set the campaign source
 	 * @param arg
@@ -2708,9 +2701,14 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 			txt.append("\tKEY:").append(getKeyName());
 //		}
 
-		for (String s : getSafeListFor(ListKey.AUTO_ARRAY))
+		Set<String> aaKeys = mapChar.getKeySet(MapKey.AUTO_ARRAY);
+		if (aaKeys != null)
 		{
-			txt.append("\tAUTO:").append(s);
+			for (String s : aaKeys) 
+			{
+				txt.append("\tAUTO:").append(s).append(Constants.PIPE).append(
+					mapChar.get(MapKey.AUTO_ARRAY, s));
+			}
 		}
 
 		if (!(this instanceof PCClass) && (getBonusList().size() != 0))
@@ -3152,119 +3150,119 @@ public class PObject extends PrereqObject implements Cloneable, Serializable, Co
 	  */
 	public final void addAutoTagsToList(final String tag, final Collection aList, final PlayerCharacter aPC, boolean expandWeaponTypes)
 	{
-		for (Iterator<String> i = getSafeListFor(ListKey.AUTO_ARRAY).iterator(); i.hasNext();)
+		String aString = mapChar.get(MapKey.AUTO_ARRAY, tag);
+		
+		if (aString == null)
 		{
-			String aString = i.next();
+			return;
+		}
+		
+		String preReqTag;
+		final List<Prerequisite> aPreReqList = new ArrayList<Prerequisite>();
+		final int j1 = aString.lastIndexOf('[');
+		int j2 = aString.lastIndexOf(']');
 
-			if (!aString.startsWith(tag))
+		if (j2 < j1)
+		{
+			j2 = tag.length();
+		}
+
+		if (j1 >= 0)
+		{
+			preReqTag = aString.substring(j1 + 1, j2);
+			Prerequisite prereq = null;
+			try
 			{
-				continue;
+				final PreParserFactory factory = PreParserFactory.getInstance();
+				prereq = factory.parse(preReqTag);
+			}
+			catch (PersistenceLayerException ple)
+			{
+				Logging.errorPrint(ple.getMessage(), ple);
 			}
 
-			String preReqTag;
-			final List<Prerequisite> aPreReqList = new ArrayList<Prerequisite>();
-			final int j1 = aString.lastIndexOf('[');
-			int j2 = aString.lastIndexOf(']');
-
-			if (j2 < j1)
+			if (prereq != null)
 			{
-				j2 = tag.length();
+				aPreReqList.add(prereq);
+			}
+			if (!PrereqHandler.passesAll(aPreReqList, aPC, null))
+			{
+				return;
 			}
 
-			if (j1 >= 0)
+			aString = aString.substring(0, j1);
+		}
+
+		final StringTokenizer aTok = new StringTokenizer(aString, "|");
+
+		while (aTok.hasMoreTokens())
+		{
+			String tok = aTok.nextToken();
+
+			if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
+				&& tag.startsWith("WEAPON") && expandWeaponTypes)
 			{
-				preReqTag = aString.substring(j1 + 1, j2);
-				Prerequisite prereq = null;
-				try
-				{
-					final PreParserFactory factory = PreParserFactory.getInstance();
-					prereq = factory.parse( preReqTag );
-				}
-				catch (PersistenceLayerException ple)
-				{
-					Logging.errorPrint(ple.getMessage(), ple);
-				}
+				List<String> xList = processWeaponAutoTags(aPC, tok);
 
-				if ( prereq != null )
-				{
-					aPreReqList.add(prereq);
-				}
-				if (!PrereqHandler.passesAll(aPreReqList, aPC, null))
-				{
-					return;
-				}
-
-				aString = aString.substring(0, j1);
+				aList.addAll(xList);
 			}
-
-			final StringTokenizer aTok = new StringTokenizer(aString, "|");
-			aTok.nextToken(); // removes tag token
-
-			String tok;
-
-			while (aTok.hasMoreTokens())
+			else if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
+				&& tag.startsWith("ARMOR"))
 			{
-				tok = aTok.nextToken();
+				aList.add(tok);
+			}
+			else if (tag.startsWith("EQUIP"))
+			{
+				final Equipment aEq =
+						EquipmentList.getEquipmentFromName(tok, aPC);
 
-				if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE."))
-					&& tag.startsWith("WEAPON") && expandWeaponTypes)
+				if (aEq != null)
 				{
-					List<String> xList = processWeaponAutoTags(aPC, tok);
-
-					aList.addAll(xList);
+					final Equipment newEq = aEq.clone();
+					newEq.setQty(1);
+					newEq.setAutomatic(true);
+					newEq.setOutputIndex(aList.size());
+					aList.add(newEq);
 				}
-				else if ((tok.startsWith("TYPE=") || tok.startsWith("TYPE.")) && tag.startsWith("ARMOR"))
+			}
+			else if ("%LIST".equals(tok))
+			{
+				for (Iterator<AssociatedChoice<String>> e =
+						getAssociatedList().iterator(); e.hasNext();)
 				{
-					aList.add(tok);
+					aList.add(e.next().getDefaultChoice());
 				}
-				else if (tag.startsWith("EQUIP"))
+			}
+			else if ("DEITYWEAPONS".equals(tok))
+			{
+				if (aPC.getDeity() != null)
 				{
-					final Equipment aEq = EquipmentList.getEquipmentFromName(tok, aPC);
+					String weaponList = aPC.getDeity().getFavoredWeapon();
 
-					if (aEq != null)
+					if (!("ALL".equalsIgnoreCase(weaponList) || "ANY"
+						.equalsIgnoreCase(weaponList)))
 					{
-						final Equipment newEq = aEq.clone();
-						newEq.setQty(1);
-						newEq.setAutomatic(true);
-						newEq.setOutputIndex(aList.size());
-						aList.add(newEq);
-					}
-				}
-				else if ("%LIST".equals(tok))
-				{
-					for (Iterator<AssociatedChoice<String>> e = getAssociatedList().iterator(); e.hasNext();)
-					{
-						aList.add(e.next().getDefaultChoice());
-					}
-				}
-				else if ("DEITYWEAPONS".equals(tok))
-				{
-					if (aPC.getDeity() != null)
-					{
-						String weaponList = aPC.getDeity().getFavoredWeapon();
+						final StringTokenizer bTok =
+								new StringTokenizer(weaponList, "|");
 
-						if (!("ALL".equalsIgnoreCase(weaponList) || "ANY".equalsIgnoreCase(weaponList)))
+						while (bTok.hasMoreTokens())
 						{
-							final StringTokenizer bTok = new StringTokenizer(weaponList, "|");
-
-							while (bTok.hasMoreTokens())
+							final String bString = bTok.nextToken();
+							final WeaponProf wp =
+									Globals.getWeaponProfKeyed(bString);
+							if (!wp.isType("Natural"))
 							{
-								final String bString = bTok.nextToken();
-								final WeaponProf wp = Globals.getWeaponProfKeyed(bString);
-								if (!wp.isType("Natural"))
-								{
-									aList.add(bString);
-								}
+								aList.add(bString);
 							}
 						}
-
 					}
+
 				}
-				else
-				{
-					// add tok to list
-					aList.add(tok);
-				}
+			}
+			else
+			{
+				// add tok to list
+				aList.add(tok);
 			}
 		}
 	}

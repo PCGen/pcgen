@@ -115,6 +115,9 @@ public class TokenStore
 
 		//sponsors.lst
 		tokenTypeList.add(SponsorLstToken.class);
+		
+		//subtokens
+		tokenTypeList.add(AutoLstToken.class);
 	}
 
 	/**

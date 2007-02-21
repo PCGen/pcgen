@@ -11115,7 +11115,6 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 				pObj.addAutoTagsToList("ARMORPROF", aList, this, true);
 			}
 		}
-
 		return aList;
 	}
 

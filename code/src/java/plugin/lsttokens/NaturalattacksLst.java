@@ -235,7 +235,7 @@ public class NaturalattacksLst implements GlobalLstToken
 			Globals.addWeaponProf(prof);
 		}
 
-		anEquip.addAutoArray("WEAPONPROF|" + attackName); //$NON-NLS-1$
+		anEquip.addAutoArray("WEAPONPROF", attackName); //$NON-NLS-1$
 		return anEquip;
 	}
 }

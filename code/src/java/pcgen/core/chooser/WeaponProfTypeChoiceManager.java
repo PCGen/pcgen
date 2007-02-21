@@ -108,7 +108,7 @@ public class WeaponProfTypeChoiceManager extends AbstractComplexChoiceManager<St
 
 		if (Globals.weaponTypesContains(weaponType))
 		{
-			pobject.addAutoArray("WEAPONPROF|" + item);
+			pobject.addAutoArray("WEAPONPROF", item);
 		}
 	}
 

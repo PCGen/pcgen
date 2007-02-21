@@ -40,8 +40,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
  */
 public final class ListKey<T> {
 
-	/** AUTO_ARRAY - a ListKey */
-	public static final ListKey<String> AUTO_ARRAY = new ListKey<String>();
 	/** AUTO_LANGUAGES - a ListKey */
 	public static final ListKey<Language> AUTO_LANGUAGES = new ListKey<Language>();
 	/** CLASS_SKILLS - a ListKey */

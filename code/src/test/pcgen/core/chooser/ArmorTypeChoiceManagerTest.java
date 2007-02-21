@@ -75,19 +75,19 @@ public class ArmorTypeChoiceManagerTest extends AbstractCharacterTestCase
 			Ability a =
 					Globals.getAbilityKeyed("FEAT",
 						"KEY_Armor Proficiency (Light)");
-			a.addAutoArray("ARMORPROF|TYPE.Light");
+			a.addAutoArray("ARMORPROF", "TYPE.Light");
 			TestHelper.makeAbility("Armor Proficiency (Medium)", "FEAT",
 				"General.Fighter");
 			a =
 					Globals.getAbilityKeyed("FEAT",
 						"KEY_Armor Proficiency (Medium)");
-			a.addAutoArray("ARMORPROF|TYPE.Medium");
+			a.addAutoArray("ARMORPROF", "TYPE.Medium");
 			TestHelper.makeAbility("Armor Proficiency (Heavy)", "FEAT",
 				"General.Fighter");
 			a =
 					Globals.getAbilityKeyed("FEAT",
 						"KEY_Armor Proficiency (Heavy)");
-			a.addAutoArray("ARMORPROF|TYPE.Heavy");
+			a.addAutoArray("ARMORPROF", "TYPE.Heavy");
 			TestHelper.makeAbility("Armor Proficiency (Heavy)", "FOO",
 				"General.Fighter");
 		}

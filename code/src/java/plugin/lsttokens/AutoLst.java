@@ -4,8 +4,11 @@
  */
 package plugin.lsttokens;
 
+import pcgen.core.Constants;
 import pcgen.core.PObject;
+import pcgen.persistence.lst.AutoLoader;
 import pcgen.persistence.lst.GlobalLstToken;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
@@ -21,7 +24,13 @@ public class AutoLst implements GlobalLstToken
 
 	public boolean parse(PObject obj, String value, int anInt)
 	{
-		obj.addAutoArray(value);
-		return true;
+		int barLoc = value.indexOf(Constants.PIPE);
+		if (barLoc == -1)
+		{
+			Logging.errorPrint(getTokenName() + " must contain a PIPE (|)");
+			return false;
+		}
+		String subKey = value.substring(0, barLoc);
+		return AutoLoader.parseLine(obj, subKey, value);
 	}
 }
