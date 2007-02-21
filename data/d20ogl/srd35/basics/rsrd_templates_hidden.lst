@@ -65,7 +65,7 @@ RighteousMightDR	VISIBLE:NO	SA:DR %/Evil|RighteousMightDR_Evil	SA:DR %/Good|Righ
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		Required Class			Multiple Requirements						Stat bonus																																	!PREAGESET			PREAGESET
-Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable	PRECLASS:1,Druid=15,Monk=17										BONUS:STAT|INT|20|PREAGESET:Venerable
+Timeless Body			VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable	PRECLASS:1,Druid=15,Monk=17
 
 Timeless Body ~ Adult		VISIBLE:NO																																			BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:Venerable	!PREAGESET:Middle Age
 Timeless Body ~ Middle Age	VISIBLE:NO																										PREMULT:2,[PREAGESET:Middle Age],[!PREAGESET:Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:Old],[!PREAGESET:Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:Venerable
