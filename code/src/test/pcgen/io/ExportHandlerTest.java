@@ -30,6 +30,7 @@ import java.io.StringWriter;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
@@ -253,13 +254,39 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			gemLoop, character));
 	}
 
-	//	public void testJepIif() throws IOException
-	//	{
-	//		PlayerCharacter character = getCharacter();
-	//		assertEquals("Basic JEP boolean", new Float(1.0), character.getVariableValue("max(0,2)==2", ""));
-	//		assertEquals("Basic JEP boolean", "0", evaluateToken(
-	//			"IIF(max(0,2)==2)", character));
-	//	}
+	public void testJepIif() throws IOException
+	{
+		PlayerCharacter character = getCharacter();
+		assertEquals("Basic JEP boolean", new Float(1.0), character
+			.getVariableValue("max(0,2)==2", ""));
+		assertEquals("JEP boolean in IF", "true", evaluateToken(
+			"OIF(max(0,2)==2,true,false)", character));
+//		assertEquals("JEP boolean in IF", "true", evaluateToken(
+//			"|OIF(max(0,2)==2)|\ntrue\n|ELSE|\nfalse\n|ENDIF|", character));
+	}
+	
+	public void testExpressionOutput() throws IOException
+	{
+		Ability dummyFeat = new Ability();
+		dummyFeat.setName("DummyFeat");
+		final PlayerCharacter pc = getCharacter();
+		Globals.setCurrentPC(pc);
+
+		// Create a variable
+		dummyFeat.addVariable(-1, "NegLevels", "0");
+
+		// Create a bonus to it
+		Ability dummyFeat2 = new Ability();
+		dummyFeat2.setName("DummyFeat2");
+		dummyFeat2.addBonusList("VAR|NegLevels|7");
+		pc.addFeat(dummyFeat, null);
+		pc.addFeat(dummyFeat2, null);
+
+		assertEquals("Unsigned output", "7", evaluateToken(
+			"VAR.NegLevels.INTVAL", pc));
+		assertEquals("Signed output", "+7", evaluateToken(
+			"VAR.NegLevels.INTVAL.SIGN", pc));
+	}
 
 	private String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException
@@ -267,7 +294,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
 		ExportHandler export = new ExportHandler(new File(""));
-		export.replaceTokenSkipMath(pc, token, bufWriter);
+		export.replaceToken(token, bufWriter, pc);
 		retWriter.flush();
 
 		bufWriter.flush();
