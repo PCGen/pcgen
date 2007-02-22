@@ -29,6 +29,10 @@
 		<attainGoal name="javacc:javacc-generate"/>
 	</preGoal>
 
+	<preGoal name="xdoc:jelly-transform">
+		<j:file append="false" escapeText="false"  name="${basedir}/target/entities.ent"><![CDATA[<!ENTITY version '${pom.currentVersion}'>]]></j:file>
+	</preGoal>
+	
 	<goal name="pcgen:package-clean">
 		<ant:mkdir dir="${basedir}/target/docs/download" />
 		<ant:delete>
