@@ -5,6 +5,9 @@
     <title>PCGen Change Log</title>
   </properties>
   <body>
+    <release version="5.11.9" date="In SVN" description="Alpha release">
+      <action dev="jdempsey" type="add" issue="1411073">OS Token IFF() to accept any JEP Boolean functions</action>
+    </release>
     <release version="5.11.8" date="2007-02-18" description="Alpha release">
       <action dev="jdempsey" type="fix" issue="1648569">[5.11.6] Virtual Feats Lost on Character Load</action>
       <action dev="perchrh" type="add" issue="1275919">Added new PREAGESET tag.</action>
