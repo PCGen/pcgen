@@ -1,4 +1,5 @@
-SOURCELONG:My Campaign|SOURCESHORT:My|SOURCEWEB:http://www.mywebsite.com
+# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 
 #insert your data here
 
@@ -58,7 +59,7 @@ SOURCELONG:My Campaign|SOURCESHORT:My|SOURCEWEB:http://www.mywebsite.com
 #
 #The ALIGN tag will give the character the listed alignment.
 #
-#The SKILL and RANK combination will set the Skill rank for the skill, as long as there are sufficient skill points in the 
+#The SKILL and RANK combination will set the Skill rank for the skill, as long as there are sufficient skill points in the
 #skill pool and rank is within the limits for or character of the given level.
 #
 #The FEAT tag will add listed feat, as long as there are sufficient feat points in the feat pool.

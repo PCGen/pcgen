@@ -2,7 +2,13 @@
 CAMPAIGN:MyCampaign
 GAMEMODE:35e
 RANK:8
+GENRE:Fantasy
+BOOKTYPE:Homebrew
+SETTING:My Homebrew Campaign
 TYPE:Homebrew.MyCampaign
+PUBNAMELONG:My Homebrew
+PUBNAMESHORT:Homebrew
+PUBNAMEWEB:http://www.mywebsite.com
 SOURCELONG:My Campaign
 SOURCESHORT:My
 SOURCEWEB:http://www.mywebsite.com

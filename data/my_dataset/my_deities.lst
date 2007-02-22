@@ -1,4 +1,5 @@
-SOURCELONG:My Campaign|SOURCESHORT:My|SOURCEWEB:http://www.mywebsite.com
+# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 
 #insert your data here
 
@@ -31,7 +32,7 @@ SOURCELONG:My Campaign|SOURCESHORT:My|SOURCEWEB:http://www.mywebsite.com
 #The SYMBOL tag is used on the output sheet to display what the holy symbol is for this deity.
 #
 #The DEITYWEAP is holding a list of the deity's favored weapon(s). The Weapon name MUST match exactly what is listed in the
-#weapon proficiencies list file. 
+#weapon proficiencies list file.
 #
 #The ALIGN tag holds the two letter abbreviated alignment of the deity itself.
 #
