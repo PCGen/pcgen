@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 15 18:43:06 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Wed Feb 21 18:36:58 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35
 
@@ -197,17 +197,8 @@ Perfect Self			TYPE:Special.Supernatural	VISIBLE:NO	SA:Perfect Self (Su)								
 Ki Strike	TYPE:Special.Supernatural	VISIBLE:NO	SA:Ki Strike (Su) (Magic)|PREVARGTEQ:KiStrikeMagic,1|PREVARLTEQ:KiStrikeLawful,0,KiStrikeAdaman,0	SA:Ki Strike (Su) (Lawful)|PREVARGTEQ:KiStrikeLawful,1|PREVARLTEQ:KiStrikeMagic,0,KiStrikeAdaman,0	SA:Ki Strike (Su) (Adamantine)|PREVARGTEQ:KiStrikeAdaman,1|PREVARLTEQ:KiStrikeMagic,0,KiStrikeLawful,0	SA:Ki Strike (Su) (Magic and Lawful)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeLawful,1|PREVARLTEQ:KiStrikeAdaman,0	SA:Ki Strike (Su) (Magic and Adamantine)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeAdaman,1|PREVARLTEQ:KiStrikeLawful,0	SA:Ki Strike (Su) (Lawful and Adamantine)|PREVARGTEQ:KiStrikeAdaman,1,KiStrikeLawful,1|PREVARLTEQ:KiStrikeMagic,0	SA:Ki Strike (Su) (Magic and Lawful and Adamantine)|PREVARGTEQ:KiStrikeMagic,1,KiStrikeLawful,1,KiStrikeAdaman,1	DEFINE:KiStrikeLVL|0	DEFINE:KiStrikeMagic|0	DEFINE:KiStrikeLawful|0	DEFINE:KiStrikeAdaman|0	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Monk Trackers
-# Feat Name					Visible	Virtual Feat		Modify VAR																																	Source Page
-Monk Tracker - Monk AC			VISIBLE:NO	VFEAT:Monk AC		BONUS:VAR|MonkACLVL|var("CL=Monk")																													SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Monk Movement		VISIBLE:NO	VFEAT:Monk Movement	BONUS:VAR|MonkMoveLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Flurry of Blows	VISIBLE:NO	VFEAT:Flurry of Blows	BONUS:VAR|FlurryLVL|MonkLVL																														SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Stunning Fist		VISIBLE:NO					BONUS:VAR|StunningFistMonkLVL|MonkLVL																												SOURCEPAGE:Feats.rtf
-Monk Tracker - Ki Strike		VISIBLE:NO					BONUS:VAR|KiStrikeLVL|var("CL=Monk")	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Slow Fall		VISIBLE:NO					BONUS:VAR|SlowFallLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Wholeness of Body	VISIBLE:NO					BONUS:VAR|WholenessBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Diamond Soul		VISIBLE:NO					BONUS:VAR|DiamondSoulLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Quivering Palm		VISIBLE:NO					BONUS:VAR|QuiveringPalmLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
-Monk Tracker - Empty Body		VISIBLE:NO					BONUS:VAR|EmptyBodyLVL|var("CL=Monk")																												SOURCEPAGE:ClassesI.rtf
+# Feat Name				Visible	Modify VAR																										Source Page
+Monk Ki Strike Advancement	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Paladin Abilities
 # Feat Name		Type				Visible	Special Ability						Define			Spells												Save checks bonus						Source Page
