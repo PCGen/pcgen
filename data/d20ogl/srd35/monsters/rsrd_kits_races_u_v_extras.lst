@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Celestial Charger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unicorn]
-RACE:Unicorn	!PRERACE:%
+STARTPACK:Celestial Charger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unicorn]
+RACE:Unicorn	!PRERACE:1,%
 NAME:Celestial Charger
 ALIGN:CG
 STAT:STR=14|DEX=12|CON=10|INT=13|WIS=17|CHA=8

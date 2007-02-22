@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Feb 28 19:04:04 2006 -- reformated by prettylst.pl v1.35 (build 556)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Frost Giant Jarl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Giant (Frost)]
-RACE:Giant (Frost)	!PRERACE:%
+STARTPACK:Frost Giant Jarl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
+RACE:Giant (Frost)	!PRERACE:1,%
 NAME:Frost Giant Jarl
 STAT:STR=14|DEX=14|CON=12|INT=10|WIS=8|CHA=18
 ALIGN:CE
@@ -27,8 +27,8 @@ GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
 GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Blackguard|Bull's Strength|Cause Fear|Doom|Magic Weapon
 
-STARTPACK:Harpy Archer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Harpy]
-RACE:Harpy	!PRERACE:%
+STARTPACK:Harpy Archer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
+RACE:Harpy	!PRERACE:1,%
 NAME:Harpy Archer
 STAT:STR=12|DEX=16|CON=14|INT=10|WIS=9|CHA=13
 ALIGN:CE

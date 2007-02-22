@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Unicorn]
-RACE:Unicorn	!PRERACE:%
+STARTPACK:Default Unicorn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unicorn]
+RACE:Unicorn	!PRERACE:1,%
 NAME:Unicorn
 ALIGN:CG
 SKILL:Listen		RANK:4
@@ -13,8 +13,8 @@ FEAT:Alertness
 FEAT:Skill Focus(Survival)
 STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 
-STARTPACK:Default Vampire Spawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vampire Spawn]
-RACE:Vampire Spawn	!PRERACE:%
+STARTPACK:Default Vampire Spawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampire Spawn]
+RACE:Vampire Spawn	!PRERACE:1,%
 NAME:Vampire Spawn
 ALIGN:LE|NE|CE
 SKILL:Sense Motive	RANK:6
@@ -29,8 +29,8 @@ FEAT:Toughness
 FEAT:Skill Focus
 STAT:INT=11|WIS=11|STR=10|DEX=10|CON=10|CHA=10
 
-STARTPACK:Default Vargouille	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Vargouille]
-RACE:Vargouille	!PRERACE:%
+STARTPACK:Default Vargouille	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vargouille]
+RACE:Vargouille	!PRERACE:1,%
 NAME:Vargouille
 ALIGN:NE
 SKILL:Hide			RANK:4

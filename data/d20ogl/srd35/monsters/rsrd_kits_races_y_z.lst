@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Default Yeth Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Yeth Hound]
-RACE:Yeth Hound	!PRERACE:%
+STARTPACK:Default Yeth Hound	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yeth Hound]
+RACE:Yeth Hound	!PRERACE:1,%
 NAME:Yeth Hound
 ALIGN:NE
 SKILL:Listen	RANK:9
@@ -13,8 +13,8 @@ FEAT:Improved Initiative
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Yrthak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Yrthak]
-RACE:Yrthak	!PRERACE:%
+STARTPACK:Default Yrthak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yrthak]
+RACE:Yrthak	!PRERACE:1,%
 NAME:Yrthak
 SKILL:Move Silently	RANK:8
 SKILL:Listen		RANK:7
@@ -25,31 +25,31 @@ FEAT:Multiattack
 FEAT:Snatch
 STAT:CON=11|INT=11|WIS=11|CHA=11|STR=10|DEX=10
 
-STARTPACK:Default Zombie (Kobold)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Kobold)]
-RACE:Zombie (Kobold)	!PRERACE:%
+STARTPACK:Default Zombie (Kobold)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Kobold)]
+RACE:Zombie (Kobold)	!PRERACE:1,%
 NAME:Zombie (Kobold)
 ALIGN:NE
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 GEAR:Spear			SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Zombie (Human Commoner)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Human Commoner)]
-RACE:Zombie (Human Commoner)	!PRERACE:%
+STARTPACK:Default Zombie (Human Commoner)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Human Commoner)]
+RACE:Zombie (Human Commoner)	!PRERACE:1,%
 NAME:Zombie (Human Commoner)
 STAT:DEX=10|STR=10|CON=10|INT=10|WIS=10|CHA=10
 ALIGN:NE
 GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 
-STARTPACK:Default Zombie (Troglodyte)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Troglodyte)]
-RACE:Zombie (Troglodyte)	!PRERACE:%
+STARTPACK:Default Zombie (Troglodyte)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Troglodyte)]
+RACE:Zombie (Troglodyte)	!PRERACE:1,%
 NAME:Zombie (Troglodyte)
 ALIGN:NE
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
 GEAR:Javelin	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Zombie (Bugbear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Bugbear)]
-RACE:Zombie (Bugbear)	!PRERACE:%
+STARTPACK:Default Zombie (Bugbear)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Bugbear)]
+RACE:Zombie (Bugbear)	!PRERACE:1,%
 NAME:Zombie (Bugbear)
 ALIGN:NE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -57,29 +57,29 @@ GEAR:Morningstar			SIZE:PC	LOCATION:Primary Hand
 GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Zombie (Ogre)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Ogre)]
-RACE:Zombie (Ogre)	!PRERACE:%
+STARTPACK:Default Zombie (Ogre)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Ogre)]
+RACE:Zombie (Ogre)	!PRERACE:1,%
 NAME:Zombie (Ogre)
 ALIGN:NE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 GEAR:Greatclub	SIZE:PC	LOCATION:Both Hands
 GEAR:Javelin	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Zombie (Minotaur)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Minotaur)]
-RACE:Zombie (Minotaur)	!PRERACE:%
+STARTPACK:Default Zombie (Minotaur)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Minotaur)]
+RACE:Zombie (Minotaur)	!PRERACE:1,%
 NAME:Zombie (Minotaur)
 ALIGN:NE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Default Zombie (Wyvern)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Wyvern)]
-RACE:Zombie (Wyvern)	!PRERACE:%
+STARTPACK:Default Zombie (Wyvern)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Wyvern)]
+RACE:Zombie (Wyvern)	!PRERACE:1,%
 NAME:Zombie (Wyvern)
 ALIGN:NE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Zombie (Gray Render)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Zombie (Gray Render)]
-RACE:Zombie (Gray Render)	!PRERACE:%
+STARTPACK:Default Zombie (Gray Render)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Gray Render)]
+RACE:Zombie (Gray Render)	!PRERACE:1,%
 NAME:Zombie (Gray Render)
 ALIGN:NE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10

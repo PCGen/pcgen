@@ -1,10 +1,10 @@
 # CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Aboleth Mage	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Aboleth]
+STARTPACK:Aboleth Mage	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
 STAT:STR=12|DEX=14|CON=14|INT=16|WIS=10|CHA=8
 NAME:Aboleth Mage
-RACE:Aboleth	!PRERACE:%
+RACE:Aboleth	!PRERACE:1,%
 ALIGN:LE
 SKILL:Listen				RANK:11
 SKILL:Spot					RANK:11
@@ -34,8 +34,8 @@ FEAT:Spell Focus(Enchantment)
 FEAT:Spell Penetration
 SPELLS:SPELLBOOK=Prepared Spells|Daze|Detect Magic=2|Resistance|Alarm|Charm Person|Color Spray|Mage Armor|Magic Missile=2|Blur|Bull's Strength|Darkness|Fox's Cunning|See Invisibility|Dispel Magic|Displacement|Fly|Lightning Bolt|Invisibility (Greater)|Phantasmal Killer|Scrying|Stoneskin|Hold Monster|Lightning Bolt[Empower Spell]|Wall of Force
 
-STARTPACK:Hound Archon Hero	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:%],[PRERACE:Archon (Hound)]
-RACE:Archon (Hound)	!PRERACE:%
+STARTPACK:Hound Archon Hero	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archon (Hound)]
+RACE:Archon (Hound)	!PRERACE:1,%
 NAME:Hound Archon Hero
 ALIGN:LG
 CLASS:Paladin	LEVEL:11

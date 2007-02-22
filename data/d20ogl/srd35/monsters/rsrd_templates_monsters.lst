@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Dec 30 18:08:18 2005 -- reformated by prettylst.pl v1.35 (build 542)
+# CVS $Revision$ $Author$ -- Thu Feb 22 14:43:16 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith
 
 ###Block: Drow Gender
 # Template Name	Visible	Source Page				Required Race		FAVOREDCLASS		GENDERLOCK
-Drow Male		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:Elf (Drow)	FAVOREDCLASS:Wizard	GENDERLOCK:Male
-Drow Female		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:Elf (Drow)	FAVOREDCLASS:Cleric	GENDERLOCK:Female
+Drow Male		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDCLASS:Wizard	GENDERLOCK:Male
+Drow Female		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDCLASS:Cleric	GENDERLOCK:Female
 
 ###Block: Monstrous Spiders
 # Template Name	Visible	Source Page				Special Ability																						Define																		Bonus to skill										Modify VAR																																																																																																																																																											MOVEA			Removable?		SUBRACE	Temporary effect description
@@ -13,8 +13,8 @@ Hunting		VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf																															
 Web Spinning	VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	SA:Web(Ex) 8/day maximum range 50' (Escape DC % Break DC % Web Hp %)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0	BONUS:SKILL|Hide,Move Silently|8|TYPE=Racial|PREAPPLY:PC			BONUS:VAR|MonstrousSpiderWebBreakDC|4|TYPE=Racial	BONUS:VAR|MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebHp|18|PRESIZEEQ:C	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|1|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|2|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|4|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|8|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|16|PRESIZEEQ:C				REMOVABLE:YES	SUBRACE:Yes	TEMPDESC:Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs
 
 ###Block: Pixie Special Ability
-# Template Name				Visible	Level Adjustment	Source Page				Required Race		Spells
-Pixie Ability (Irresistible Dance)	VISIBLE:YES	LEVELADJUSTMENT:2	SOURCEPAGE:MonstersS.rtf	PRERACE:Sprite (Pixie)	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,18+CHA
+# Template Name				Visible	Level Adjustment	Source Page				Required Race			Spells
+Pixie Ability (Irresistible Dance)	VISIBLE:YES	LEVELADJUSTMENT:2	SOURCEPAGE:MonstersS.rtf	PRERACE:1,Sprite (Pixie)	SPELLS:Innate|TIMES=1|CASTERLEVEL=8|Irresistible Dance,18+CHA
 Unable to use Irresistible Dance	VISIBLE:NO
 
 
