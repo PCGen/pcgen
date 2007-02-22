@@ -160,6 +160,11 @@ public abstract class AbstractComplexChoiceManager<T> extends AbstractSimpleChoi
 		maxNewSelections = (cost <= 0)
 				? (int) (pool)
 				: (int) (pool / cost);
+			
+		if (cost == 0 && maxNewSelections == 0) 
+		{
+			maxNewSelections  = (numberOfChoices > 0) ?  numberOfChoices : 1;
+		}
 	}
 
 	/**
