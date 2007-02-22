@@ -140,8 +140,28 @@
       <id>apsen</id>
     </developer>
     <developer>
+      <name>Eduard Martinescu</name>
+      <id>arvoreen</id>
+    </developer>
+    <developer>
       <name>Per Christian Henden</name>
       <id>perchrh</id>
+    </developer>
+    <developer>
+      <name>Eric C. Smith</name>
+      <id>maredudd800</id>
+    </developer>
+    <developer>
+      <name>Koen Van Daele</name>
+      <id>vandaelek</id>
+    </developer>
+    <developer>
+      <name>Tobias Wichtrey</name>
+      <id>tobias-w</id>
+    </developer>
+    <developer>
+      <name>Edwin C Holley</name>
+      <id>glasswalker</id>
     </developer>
   </developers>
   <dependencies>
