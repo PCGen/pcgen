@@ -77,6 +77,10 @@ public class TempBonusToken extends Token
 			{
 				retString = getNameToken(pc, tempIndex);
 			}
+			else if ("DESC".equals(subToken))
+			{
+				retString = getDescToken(pc, tempIndex);
+			}
 		}
 
 		return retString;
@@ -95,5 +99,14 @@ public class TempBonusToken extends Token
 			return "";
 		}
 		return pc.getNamedTempBonusList().get(tempIndex);
+	}
+
+	public static String getDescToken(PlayerCharacter pc, int tempIndex)
+	{
+		if (tempIndex > pc.getNamedTempBonusDescList().size())
+		{
+			return "";
+		}
+		return pc.getNamedTempBonusDescList().get(tempIndex) + "";
 	}
 }

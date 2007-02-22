@@ -2471,6 +2471,46 @@ public final class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
+	 * Takes all the Temporary Bonuses and Merges them into just the unique 
+	 * named bonuses.
+	 *
+	 * @return    List of Strings
+	 */
+	public List<String> getNamedTempBonusDescList()
+	{
+		final List<String> aList = new ArrayList<String>();
+
+		for (BonusObj aBonus : getTempBonusList())
+		{
+			if (aBonus == null)
+			{
+				continue;
+			}
+
+			if (!aBonus.isApplied())
+			{
+				continue;
+			}
+
+			final PObject aCreator = (PObject) aBonus.getCreatorObject();
+
+			if (aCreator == null)
+			{
+				continue;
+			}
+
+			final String aDesc = aCreator.getDescription();
+
+			if (!aList.contains(aDesc))
+			{
+				aList.add(aDesc);
+			}
+		}
+
+		return aList;
+	}
+
+	/**
 	 * @return nonProficiencyPenalty. Searches templates first.
 	 */
 	public int getNonProficiencyPenalty()
