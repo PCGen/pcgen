@@ -3025,6 +3025,10 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							{
 								if (Globals.isSkillTypeHidden(anObj.toString()))
 								{
+									PObjectNode nameNode = new PObjectNode(createSkillWrapper(available, skill, pc));
+									PrereqHandler.passesAll(skill.getPreReqList(), pc,
+										skill);
+									set.add(nameNode);
 									continue;
 								}
 							}
